@@ -4435,6 +4435,23 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   proposed was held, because each paired a held row with another row of its page. A sheet filed on the wrong product
   moved (Hyper PLA-CF, a grade of its own), a copy flagged implausible on one document only was unflagged, and BASF's
   ISO 180 column headed "J/m" was flagged. [The packet](audits/2026-10-06-impact-round/README.md) has the counts.
+- **A third impact heading says why it exists** (m391). Impact strength held 80 results filed as an impact of no named
+  test; the owner pointed out that many name one. 25 whose own standard (ISO 179 or GB/T 1043: Charpy; ISO 180, ASTM
+  D256 or GB/T 1843: Izod) or label names the test, with nothing saying otherwise, are now filed under that test. The
+  other 55 name no test or name both (Polymaker's "Charpy … ASTM D256 (ISO 179, GB/T 1043)" template, Eryone's "Charpy …
+  2.75J GB/T 1843", Anycubic's and Spectrum's "Izod … ISO 179"). They stay apart and are never compared, the heading reads
+  "Impact strength, test unclear" with a note saying what it holds, and impact_test_guesses.csv writes beside each value
+  which test the rest of the sheet points to and why (IMPACT-GUESS-PROPERTY): the same value printed as Charpy on the
+  product's own data sheet, a unit only one test reports, a 2.75 J pendulum that only the Izod series has. 23 read as
+  probably Charpy, 23 as probably Izod, 8 cannot be told, and one is a tensile impact, neither test. A reading is a
+  reviewer's, said as one, and moves nothing.
+- **One impact heading** (no data change). The owner asked for the comparison as a closed heading, then pointed out that
+  its product table repeated the Charpy, Izod and test-unclear headings below it. Mechanical now has one closed heading,
+  **Impact tests**, in their place: the two rows of dots on a ticked scale (logarithmic past ten to one, since PLA's
+  values run from 1.8 to 72), a small table of what each row's median is of and what it leaves out, the products side by
+  side (each value with its dot's mark, and in words only what changed the bar), then every record under its property,
+  closed, with the comparison notes said once. Nothing is lost: the property blocks are inside it, unchanged. A property
+  replaced by another is no longer listed as not published (PLA was told "Izod strength" was missing).
 - **Then set apart, once the marks were checked** (m389, m390). A random draw of 20 unmarked products that publish an
   impact value found one claim the marks missed (colorFabb PET HIGH SPEED PRO, added), within the one in twenty the
   owner's plan allowed, and a blind re-read of 37 changed records found no error. So the two impact rows say "set

@@ -486,22 +486,40 @@ part read elsewhere labelled "data sheet shared with …" or "from Bambu Lab's F
 its maker says (each quote with its document and page, and a **limits** mark where a reviewer recorded what the claim
 does not say), its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
 
-**Impact tests, product by product (D133).** Mechanical opens its impact records with the two impact tests drawn one
-above the other on one kJ/m² scale: a dot per product at its published value (filled: orientation stated; hollow: no
-stated orientation; square: measured after annealing; diamond: a special formulation, left out of the median), the
-middle half of the comparable products shaded and their median a line. A caption from method.csv says how Charpy and
-Izod differ and that nothing is converted. Under the rows, a sentence per test gives the counts, the median and the
-middle half, and which products publish both tests. **Products, test by test** opens a table with a column per test,
-each product's state and orientation (from the build's typed fields, "stated once on its page" where a page heading
-supplied them) and its other impact records (unnotched, notch not stated, Z, moulded, J/m, struck cold) in words. A dot
-or a value opens its measurement in Sources; hovering a product's dot on one row lights its dot on the other. Which
-headlines are drawn together is the Drawer comparison column of headline_definitions.csv.
+**Impact tests, one heading (D133).** Mechanical shows everything on impact under one closed heading, **Impact tests**,
+in the place of the first impact property, instead of a comparison beside three property headings. Opened, it shows:
+
+- the two notched tests drawn one above the other on one kJ/m² scale with labelled ticks (logarithmic, at 1, 2 and 5 of
+  each decade, once the largest value is more than ten times the smallest): a dot per product at its published value
+  (filled: orientation stated; hollow: no stated orientation; square: measured after annealing; diamond: a special
+  formulation), the middle half of the compared products shaded and their median a line. A caption from method.csv says
+  how Charpy and Izod differ and that nothing is converted;
+- a small table, a test a row: how many products are compared, their median, middle half and range, and on a line
+  under it the products drawn but left out of the median, by why (no stated orientation, special formulation, sold as
+  toughened);
+- **Product by product**: a row per product with its notched Charpy and notched Izod side by side, the products that
+  publish both first. Each value carries its dot's mark, and under it only what changed the bar (annealed, conditioned;
+  from the build's typed fields, "stated once on its page" where a page heading supplied it) and a sibling's shared sheet.
+  The product's other impact results (unnotched, notch not stated, Z, moulded, J/m, struck cold, test unclear) are a line
+  under its row; products with only such results are a closed list after;
+- **Every result, with its document**: the two tests' comparison notes, said once, then the property blocks (Charpy
+  strength, Izod impact strength, and Impact strength, test unclear, where the material has them), closed, each with
+  every value, its product and its source.
+
+A dot or a value opens its measurement in Sources; hovering a product's dot on one row lights its dot on the other.
+Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv; a property they read is
+folded into the heading. A material where neither headline applies keeps its impact properties as headings of their own.
+
+**Impact strength, test unclear (D133).** The third impact property holds results whose sheet names no test, or names
+both (a Charpy label beside an Izod standard). Its note says so, its values are never compared, and each carries a line
+"Which test: probably Charpy" (or Izod, or "cannot tell") with the reason, marked as our reading and not the sheet's
+words (impact_test_guesses.csv). A result whose own label or standard names the test is under that test's property.
 
 **Sold as toughened (D133).** A product whose maker's own statement presents it as toughened or impact-modified
 (product_claims.csv) carries a **sold as toughened** mark beside its name, in its product card and in the impact table;
 the mark's explanation is the maker's quote, its document and page, and "the maker's statement, not a test result". Its
-dots are coloured. Under the impact rows, and under the Products tab's spread table, a sentence says how many of the
-comparable values are from such products and their range. On the two impact headlines they are set apart (m390): the
+dots are coloured. The impact heading's table, and the Products tab's spread table, say how many of the comparable
+values are from such products and their range. On the two impact headlines they are set apart (m390): the
 material's median, range and middle half are the other products', and the toughened ones are listed under "Left out" in
 the median's explanation and the Products table, and drawn as open marks outside the material's box in the Material
 ranges view on an impact axis, unless every comparable value is theirs.
@@ -949,10 +967,10 @@ source and opens what it finds. (Until phase 4 a "representative grade" was mark
 D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line with its
 count, and inside it every value with its product and source, largest first, keeping the two short conditions
 (post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
-across a property's values. Where a selectable property compares only some of a property's values, its comparison
-note opens the property's block and says which, and why the rest are shown but not compared: under Charpy strength,
-that only a notched Charpy bar (ISO 179) in kJ/m² at room temperature is; under Izod impact strength, the same of a
-notched Izod bar (ISO 180, D94); under Impact strength, both; under each tensile strength, that only a bar the source
+across a property's values. A property another replaced holds no values and is never listed as not published. Where a selectable property compares only some of a property's values, its comparison
+note opens the property's block and says which, and why the rest are shown but not compared: above the impact results
+(said once, in the Impact tests heading), that only a notched Charpy bar (ISO 179) or a notched Izod bar (ISO 180, D94)
+in kJ/m² at room temperature is; under each tensile strength, that only a bar the source
 says it pulled along Z is a layer strength; under the glass transition, that a resin supplier's value is the raw
 material's (D92). With estimates on, each product ends with what the model says of it, one line per headline it
 publishes no comparable value for (D81); in Confirmed only it shows nothing. (The layout probe's check for estimates in

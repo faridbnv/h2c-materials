@@ -1,0 +1,5 @@
+Value,Meaning
+Charpy,"The record's own words do not settle the test, and the rest of what the sheet or the maker prints points to Charpy (ISO 179): the same value printed as Charpy on the product's own data sheet, a unit only Charpy reports, the maker's template naming Charpy elsewhere. A reviewer's reading, written beside the value; the record stays an impact result whose test is unclear and is never compared."
+Izod,"The record's own words do not settle the test, and the rest of what the sheet prints points to Izod (ISO 180, ASTM D256, GB/T 1843): an Izod standard with an Izod pendulum, the maker's template naming Izod elsewhere. A reviewer's reading, written beside the value; the record is never compared."
+Cannot tell,"The record's words point both ways, or nowhere, and nothing else the sheet or the maker prints settles it; the value fits either test."
+Another test,"The record is an impact result of a test that is neither Charpy nor Izod (a tensile impact, a falling weight)."

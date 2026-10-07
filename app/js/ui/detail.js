@@ -75,7 +75,10 @@ const gradeName = (g) => {
 // The Mechanical and Thermal tabs list the registry's properties in those domains (properties.csv),
 // the same classification coverage uses. A property that applies only to some materials is listed
 // only for them, so a PLA is never told it has "not measured" an elastomer's Shore hardness.
-const tabProperties = (tab, m) => propertiesInDomain(tab === 'Mechanical' ? 'mechanical' : 'thermal').filter((p) => propertyApplies(p, m));
+// A property replaced by another holds no values (the build refuses any use of it), so it is not one a material could
+// be missing: PLA was told Izod strength was not published beside its Izod impact strength values.
+const tabProperties = (tab, m) => propertiesInDomain(tab === 'Mechanical' ? 'mechanical' : 'thermal')
+  .filter((p) => propertyApplies(p, m) && !REGISTRY.properties.find((x) => x.name === p)?.replacedBy);
 
 const COVERAGE_FOR_TAB = {
   Mechanical: ['Mechanical', 'Sparse properties'],
@@ -186,7 +189,7 @@ const DIRECTION_WORDS = {
   'vertical-xz-source-label': '"vertical XZ" (the sheet\'s word)', 'along-flow': 'along the melt flow', 'raster-45': '±45° raster',
 };
 const SPECIMEN_WORDS = { 'Raw material value': 'moulded bar (resin supplier\'s value)', 'Printed part': 'printed part', 'Printed specimen': 'printed specimen' };
-const PROPERTY_WORDS = { 'Tensile strength (endpoint unspecified)': 'Tensile strength (yield or break not stated)' };
+const PROPERTY_WORDS = { 'Tensile strength (endpoint unspecified)': 'Tensile strength (yield or break not stated)', 'Impact strength': 'Impact strength, test unclear' };
 const propertyName = (p) => PROPERTY_WORDS[p] ?? p;
 const STATUS_WORDS = { 'Unresolved unit / layout': 'held back: the sheet\'s unit or table layout is unclear' };
 
@@ -229,10 +232,20 @@ function measurementRow(x, c, { shared = new Map(), inSources = false, compact =
       ${x.quarantined ? explainButton('held back', 'The source has a unit or layout problem here that is not resolved, so this value decides nothing.', { cls: 'chip chip-FAIL chip-small', head: 'Held back' }) : ''}
       ${x.implausible ? explainButton('physically implausible', 'The source publishes this number, but physics rules it out (Record notes say why). It decides nothing.', { cls: 'chip chip-FAIL chip-small', head: 'Physically implausible' }) : ''}</div>
     ${cond ? `<div class="cond">${esc(cond)}</div>` : ''}
+    ${x.testGuess ? testGuessLine(x.testGuess) : ''}
     ${more.length ? `<dl class="kv small cond-more">${more.map(([k, t]) => `<dt>${esc(k)}</dt><dd>${longText(t)}</dd>`).join('')}</dl>` : ''}
     <div class="cond meas-foot">${foot}${ids(['Measurement', x.id], ['Product', x.gradeId], ['Source', x.sourceId])}</div>
     ${notes}
   </div>`;
+}
+
+/**
+ * Which test an impact result whose own words do not settle it probably was (impact_test_guesses.csv, D133): a reviewer's
+ * reading, said as one, beside a value that stays apart from both tests.
+ */
+function testGuessLine(g) {
+  const head = g.test === 'Cannot tell' ? 'Which test: cannot tell.' : g.test === 'Another test' ? 'Neither Charpy nor Izod.' : `Which test: probably ${g.test}.`;
+  return `<div class="cond test-guess"><b>${esc(head)}</b> ${esc(g.basis)} <span class="fine">Our reading, not the sheet's words; this value is not compared.</span></div>`;
 }
 
 /** Measurements in the order their sources first appear, each source's together. */
@@ -1034,13 +1047,14 @@ function toughenedMark(g, c) {
 }
 
 const UNSTATED_DIRECTION = new Set(['unknown', 'not-applicable']);
-// A bar's state in words, from the typed fields the build reads, never the cell's own words: a page that states once,
-// for its whole table, that every bar was annealed has annealed bars, whatever each row's cell says (D116).
+// What was done to a bar that changes its result (annealed, conditioned), in words, from the typed fields the build
+// reads, never the cell's own words: a page that states once, for its whole table, that every bar was annealed has
+// annealed bars, whatever each row's cell says (D116). A bar as printed, or whose treatment is not stated, says nothing.
 const onPage = (x, field) => (x?.pageContext?.[field] ? ' (stated once on its page)' : '');
-function barState(x, v) {
+function changedState(x, v) {
   const anneal = v?.anneal ?? (x?.postProcessingState === 'annealed' ? x.anneal ?? {} : null);
-  const treatment = anneal ? `annealed ${scheduleWords(anneal)}` : x?.postProcessingState === 'as-printed' ? 'as printed' : 'treatment not stated';
-  return `${treatment}${onPage(x, 'postProcessingState')}${x?.moistureState === 'conditioned' ? `, after moisture conditioning${onPage(x, 'moistureState')}` : ''}`;
+  return [anneal ? `annealed ${scheduleWords(anneal)}${onPage(x, 'postProcessingState')}` : null,
+    x?.moistureState === 'conditioned' ? `after moisture conditioning${onPage(x, 'moistureState')}` : null].filter(Boolean);
 }
 
 /**
@@ -1061,25 +1075,44 @@ export function impactKind(x) {
     expected && x.standards?.length && !x.standards.includes(expected) ? x.standards.join(', ') : null,
     x.implausible ? 'flagged implausible' : null,
   ].filter(Boolean);
-  return `${cap(notch ? `${notch} ${test}` : test)} ${fmtBounded(x.value, x.unit, x.interval)}${apart.length ? ` (${apart.join(', ')})` : ''}`;
+  const guess = test === 'impact' && /^(Charpy|Izod)$/.test(x.testGuess?.test ?? '') ? `, probably ${x.testGuess.test}` : '';
+  return `${cap(notch ? `${notch} ${test}` : test)}${guess} ${fmtBounded(x.value, x.unit, x.interval)}${apart.length ? ` (${apart.join(', ')})` : ''}`;
 }
 
-// The dots of one row: a shared scale, linear from zero, logarithmic only past the hundredfold compare.js draws a log
-// track at. Dots closer than DOT_GAP per cent of the track stack upward, up to MAX_ROWS rows; past that they overlap, and
+// The dots of one row: a shared scale with labelled ticks and faint grid lines across the rows. Impact results of one
+// material run from a few kJ/m² to tens (PLA: 3 to 72), so the scale is logarithmic once the largest is more than ten
+// times the smallest, with ticks at 1, 2 and 5 of each decade; below that it is linear from zero, ticked every round
+// step. Dots closer than DOT_GAP per cent of the track stack upward, up to MAX_ROWS rows; past that they overlap, and
 // the table under the rows lists every product.
-const LOG_RATIO = 100;
+const LOG_RATIO = 10;
 const DOT_GAP = 2.4;
 const MAX_ROWS = 6;
+const NICE = [1, 2, 5];
 function stripScale(values) {
-  const hi = Math.max(0, ...values);
   const positive = values.filter((v) => v > 0);
-  const lo = positive.length ? Math.min(...positive) : 0;
-  const log = positive.length === values.length && lo > 0 && hi / lo > LOG_RATIO;
-  const t = log ? Math.log10 : (v) => v;
-  const from = log ? lo : 0;
-  const span = t(hi) - t(from) || 1;
-  return { log, from, hi, pct: (v) => Math.max(0, Math.min(100, ((t(log ? Math.max(v, lo) : v) - t(from)) / span) * 100)) };
+  const hiValue = Math.max(0, ...values);
+  const loValue = positive.length ? Math.min(...positive) : 0;
+  const log = positive.length > 1 && positive.length === values.length && hiValue / loValue > LOG_RATIO;
+  if (log) {
+    // From the 1-2-5 step at or below the smallest value to the one at or above the largest.
+    const steps = [];
+    for (let e = Math.floor(Math.log10(loValue)) - 1; e <= Math.ceil(Math.log10(hiValue)) + 1; e++) for (const n of NICE) steps.push(Number((n * 10 ** e).toPrecision(3)));
+    const from = steps.filter((v) => v <= loValue).at(-1) ?? loValue;
+    const hi = steps.find((v) => v >= hiValue) ?? hiValue;
+    const span = Math.log10(hi) - Math.log10(from) || 1;
+    return { log, from, hi, ticks: steps.filter((v) => v >= from && v <= hi),
+      pct: (v) => Math.max(0, Math.min(100, ((Math.log10(Math.max(v, from)) - Math.log10(from)) / span) * 100)) };
+  }
+  // A round step giving four to eight ticks, and the track to the first tick at or past the largest value.
+  const raw = (hiValue || 1) / 5;
+  const mag = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 2.5, 5, 10].map((n) => n * mag).find((v) => v >= raw);
+  const hi = Math.ceil((hiValue || 1) / step) * step;
+  const ticks = [];
+  for (let v = 0; v <= hi + step / 2; v += step) ticks.push(Number(v.toPrecision(6)));
+  return { log: false, from: 0, hi, ticks, pct: (v) => Math.max(0, Math.min(100, (v / hi) * 100)) };
 }
+const gridLines = (scale) => scale.ticks.map((v) => `<span class="imp-grid" style="left:${scale.pct(v)}%"></span>`).join('');
 function stack(entries, pct) {
   const rows = [];
   for (const e of [...entries].sort((a, b) => a.v.value - b.v.value)) {
@@ -1100,7 +1133,7 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
   const dots = entries.map((e) => {
     const x = c.msById.get(e.v.measurementId);
     const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
-    const kind = [e.v.level === 'as-published' ? 'no stated orientation' : null, e.v.anneal || x?.postProcessingState === 'annealed' ? barState(x, e.v) : null,
+    const kind = [e.v.level === 'as-published' ? 'no stated orientation' : null, ...changedState(x, e.v),
       e.variant ? 'special formulation, left out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
     const cls = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '', claimed ? 'claimed' : ''].filter(Boolean).join(' ');
@@ -1108,17 +1141,31 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
       style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
   }).join('');
   return `<div class="imp-row"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
-    <span class="imp-track" style="height:${8 + rows * 9}px">${band}${median}${dots}</span></div>`;
+    <span class="imp-track" style="height:${8 + rows * 9}px">${gridLines(scale)}${band}${median}${dots}</span></div>`;
 }
 
-/** What a headline's row holds, in a sentence: the products on a comparable basis and the ones set apart. */
-function rowCounts(h, s) {
-  if (!s) return '';
-  const parts = [s.n ? `${plural(s.n, 'product')} on a comparable basis${s.n > 1 ? `, median ${fmtNumber(s.median)}${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}` : ''}` : 'no product on a comparable basis',
-    s.asPublished ? `${s.asPublished.n} more with no stated orientation` : null,
-    s.variants ? `${plural(s.variants.n, 'special formulation')}, left out of the median` : null,
-    s.claimed?.setApart ? `${s.claimed.n} sold as toughened, set apart from the median` : null].filter(Boolean);
-  return `<li><b>${esc(h.labels.plain)}</b> (${esc(h.unit)}): ${esc(andList(parts))}.${s.claimed ? ` ${esc(toughenedSplit(s, h.unit))}` : ''}</li>`;
+/**
+ * What each row of dots holds, a test a line: how many products are compared, their median, middle half and range, and
+ * the products drawn but left out of the median, by why.
+ */
+function spreadSummary(hs, m) {
+  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}–${fmtNumber(x.max)}`);
+  const row = (h) => {
+    const s = m.summary?.[h.key];
+    const apart = [s?.asPublished ? `${s.asPublished.n} with no stated orientation (${span(s.asPublished)})` : null,
+      s?.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : null,
+      s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : null].filter(Boolean);
+    return `<tr><th scope="row">${esc(h.labels.plain)}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>
+      <td class="num">${s?.q1 != null ? esc(`${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s?.n ? esc(span(s)) : '—'}</td></tr>
+      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : ''}`;
+  };
+  const claimed = hs.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s?.claimed);
+  const apart = hs.some((h) => m.summary?.[h.key]?.claimed?.setApart) ? 'special formulations and products sold as toughened' : 'special formulations';
+  return `${scrollTable(`<table class="grid imp-summary"><thead><tr><th>Test, <span class="u">${esc(hs[0].unit)}</span></th><th class="num">Compared</th><th class="num">Median</th>
+      <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${hs.map(row).join('')}</tbody></table>`)}
+    <p class="fine imp-foot">Compared: the products whose sheet states the bar's orientation (XY), except ${apart}. The median, middle half and range are of these alone.${
+      claimed.some(([, s]) => !s.claimed.setApart) ? ` ${claimed.filter(([, s]) => !s.claimed.setApart).map(([h, s]) => `${h.labels.plain}: ${toughenedSplit(s, h.unit)}`).map(esc).join(' ')}` : ''}${
+      claimed.length ? ' "Sold as toughened" is the maker\'s own statement about its product, quoted beside its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.' : ''}</p>`;
 }
 
 /**
@@ -1139,8 +1186,12 @@ function toughenedSplit(s, unit) {
   return `${k.n} of the ${s.n} ${k.n === 1 ? 'is a product its maker sells' : 'are products their makers sell'} as toughened or impact-modified (${span(k)}).${others}`;
 }
 
-/** The product table: each product's value of every headline in the comparison side by side, and its other records. */
-function comparisonTable(hs, byKey, c, records, gradeLabel) {
+/**
+ * Product by product: each product's value of every headline in the comparison side by side, under the value what was
+ * done to its bar where that changes the result, and the product's other impact results. Products that publish neither
+ * headline's value are listed after, with their results alone.
+ */
+function productTable(hs, byKey, c, records, gradeLabel) {
   const products = new Map();
   for (const h of hs) for (const e of byKey.get(h.key)) products.set(e.g.id, { g: e.g, values: { ...(products.get(e.g.id)?.values ?? {}), [h.key]: e } });
   for (const [gradeId] of records) {
@@ -1151,38 +1202,53 @@ function comparisonTable(hs, byKey, c, records, gradeLabel) {
   // A record that repeats a value already in its column (the same bar printed on a second document) is not listed again.
   const facing = (x) => (UNSTATED_DIRECTION.has(x.direction) ? 'unstated' : x.direction);
   const same = (x, y) => x.property === y.property && x.value === y.value && x.unit === y.unit && x.notch === y.notch && facing(x) === facing(y);
-  const valueCell = (e, h) => (!e ? '<td class="num">—</td>' : `<td class="num"><button type="button" class="link-btn" data-measurement="${esc(e.v.measurementId)}">${esc(fmtBounded(e.v.value, h.unit, e.v.interval))}</button>${
-    e.v.level === 'as-published' ? '<span class="fine"> no stated orientation</span>' : ''}${e.variant ? '<span class="fine"> special formulation</span>' : ''}${fromNote(e.v.from)}</td>`);
-  const once = (words) => (new Set(words.map(([, w]) => w)).size <= 1 ? words[0]?.[1] ?? '—' : words.map(([k, w]) => `${k}: ${w}`).join('; '));
-  const row = (p) => {
-    const entries = hs.map((h) => [h, p.values[h.key]]).filter(([, e]) => e);
-    const state = once(entries.map(([h, e]) => [h.labels.short, barState(c.msById.get(e.v.measurementId), e.v)]));
-    const orientation = once(entries.map(([h, e]) => [h.labels.short, UNSTATED_DIRECTION.has(e.v.direction) ? 'not stated' : e.v.direction]));
+  // A value carries its dot's mark from the rows above (hollow: no stated orientation; square: annealed; diamond: a
+  // special formulation; coloured: sold as toughened), and in words only what changed the bar and whose sheet it is.
+  const valueCell = (e, h) => {
+    if (!e) return '<td class="num">—</td>';
+    const x = c.msById.get(e.v.measurementId);
+    const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
+    const mark = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '', claimed ? 'claimed' : ''].filter(Boolean).join(' ');
+    const words = [e.v.level === 'as-published' ? 'no stated orientation' : null, e.variant ? 'special formulation' : null].filter(Boolean);
+    return `<td class="num"><span class="imp-v"><i class="imp-dot${mark ? ` ${mark}` : ''}"${words.length ? ` title="${esc(cap(words.join(', ')))}"` : ''}></i><button type="button" class="link-btn" data-measurement="${esc(e.v.measurementId)}">${esc(fmtBounded(e.v.value, null, e.v.interval))}</button></span>${
+      changedState(x, e.v).map((t) => `<span class="fine imp-note">${esc(t)}</span>`).join('')}${fromNote(e.v.from)}</td>`;
+  };
+  // A product's other impact results, on a line under its row; two that read alike (one bar on two documents) once.
+  const others = (p) => {
     const shown = [...used(p)].map((id) => c.msById.get(id)).filter(Boolean);
-    const others = (records.get(p.g.id) ?? []).filter((x) => !used(p).has(x.id) && !shown.some((y) => same(x, y)))
-      .sort((a, b) => a.property.localeCompare(b.property) || b.value - a.value);
-    const otherCell = others.slice(0, 3).map((x) => `<button type="button" class="link-btn" data-measurement="${esc(x.id)}">${esc(impactKind(x))}</button>`).join('; ')
-      + (others.length > 3 ? ` <span class="fine">and ${others.length - 3} more below</span>` : '');
-    return `<tr><td>${esc(gradeLabel(p.g))}${hs.some((h) => h.toughened) ? toughenedMark(p.g, c) : ''}</td><td>${esc(p.g.manufacturer ?? '')}</td>${hs.map((h) => valueCell(p.values[h.key], h)).join('')}
-      <td>${esc(entries.length ? state : '—')}</td><td>${esc(entries.length ? orientation : '—')}</td><td>${otherCell || '—'}</td></tr>`;
+    const seen = new Set();
+    return (records.get(p.g.id) ?? []).filter((x) => !used(p).has(x.id) && !shown.some((y) => same(x, y)))
+      .sort((a, b) => a.property.localeCompare(b.property) || b.value - a.value)
+      .filter((x) => !seen.has(impactKind(x)) && seen.add(impactKind(x)));
+  };
+  const otherList = (list) => list.slice(0, 4).map((x) => `<button type="button" class="link-btn" data-measurement="${esc(x.id)}">${esc(impactKind(x))}</button>`).join('; ')
+    + (list.length > 4 ? ` <span class="fine">and ${list.length - 4} more below</span>` : '');
+  const name = (p) => `<td>${esc(gradeLabel(p.g))}${hs.some((h) => h.toughened) ? toughenedMark(p.g, c) : ''}</td>`;
+  const row = (p) => {
+    const also = others(p);
+    return `<tr${also.length ? ' class="has-also"' : ''}>${name(p)}${hs.map((h) => valueCell(p.values[h.key], h)).join('')}</tr>${
+      also.length ? `<tr class="imp-also"><td colspan="${hs.length + 1}">Also on file: ${otherList(also)}</td></tr>` : ''}`;
   };
   const all = [...products.values()];
   const count = (p) => hs.filter((h) => p.values[h.key]).length;
   const top = (p) => Math.max(...hs.map((h) => p.values[h.key]?.v.value ?? -Infinity));
   const ranked = all.filter((p) => count(p)).sort((a, b) => count(b) - count(a) || top(b) - top(a) || gradeLabel(a.g).localeCompare(gradeLabel(b.g)));
   const rest = all.filter((p) => !count(p)).sort((a, b) => gradeLabel(a.g).localeCompare(gradeLabel(b.g)));
-  const head = `<thead><tr><th>Product</th><th>Maker</th>${hs.map((h) => `<th class="num">${esc(h.labels.short)} <span class="u">${esc(h.unit)}</span></th>`).join('')}
-    <th>State</th><th>Orientation</th><th>Other impact records</th></tr></thead>`;
-  const table = (list) => scrollTable(`<table class="grid imp-table">${head}<tbody>${list.map(row).join('')}</tbody></table>`);
-  return `<details class="imp-products"><summary>Products, test by test (${all.length})</summary>
-    ${ranked.length ? table(ranked) : ''}
-    ${rest.length ? `<details class="imp-rest"><summary>${plural(rest.length, 'product')} with other impact records only</summary>${table(rest)}</details>` : ''}</details>`;
+  const both = ranked.filter((p) => count(p) === hs.length);
+  const head = `<thead><tr><th>Product</th>${hs.map((h) => `<th class="num">${esc(h.labels.plain)} <span class="u">${esc(h.unit)}</span></th>`).join('')}</tr></thead>`;
+  return `<h4 class="imp-sub">Product by product</h4>
+    <p class="fine imp-foot">${both.length ? `${plural(both.length, 'product publishes', 'products publish')} both tests and ${both.length === 1 ? 'comes' : 'come'} first.` : 'No product publishes both tests.'}
+      Each value carries its dot's mark from the rows above and opens its record in Sources.</p>
+    ${ranked.length ? scrollTable(`<table class="grid imp-table">${head}<tbody>${ranked.map(row).join('')}</tbody></table>`) : ''}
+    ${rest.length ? `<details class="imp-rest"><summary>${plural(rest.length, 'more product')} with other impact results only</summary>${scrollTable(`<table class="grid imp-table">
+      <thead><tr><th>Product</th><th>Impact results on file</th></tr></thead><tbody>${rest.map((p) => `<tr>${name(p)}<td>${otherList(others(p))}</td></tr>`).join('')}</tbody></table>`)}</details>` : ''}`;
 }
 
 /**
- * The comparisons a tab draws (headline_definitions "Drawer comparison", D133): for each, a row of dots per headline on
- * one scale, a product each, then a table of products with a column per headline. Nothing is converted between them.
- * Returns each with the properties whose blocks it goes above.
+ * The comparisons a tab draws (headline_definitions "Drawer comparison", D133), each one heading among the property
+ * blocks that holds everything on its tests: a row of dots per headline on one scale, a product each; what each row's
+ * median is of; the products side by side; then every record of the properties its headlines read, with its document.
+ * Nothing is converted between them. Returns each with the properties whose blocks it takes in.
  */
 function drawerComparisons(m, c, tab) {
   const topics = [...new Set(REGISTRY.headlines.filter((h) => h.drawerComparison).map((h) => h.drawerComparison))];
@@ -1202,24 +1268,23 @@ function drawerComparisons(m, c, tab) {
     const byKey = new Map(hs.map((h) => [h.key, spreadEntries(m, c, h.key)]));
     if (!hs.length || (!records.size && hs.every((h) => !byKey.get(h.key).length))) return null;
     const scale = stripScale(hs.flatMap((h) => byKey.get(h.key).map((e) => e.v.value)));
-    const both = [...new Set(hs.flatMap((h) => byKey.get(h.key).map((e) => e.g.id)))].filter((id) => hs.every((h) => byKey.get(h.key).some((e) => e.g.id === id)));
     const caption = c.db.method?.find((r) => r.topic === topic)?.rule ?? '';
     const strips = hs.some((h) => byKey.get(h.key).length) ? `<div class="imp-strips">
         ${hs.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
-        <div class="imp-row imp-axis"><span></span><span class="cmp-scale${scale.log ? ' log' : ''}"><span>${esc(fmtNumber(scale.from))}</span>${scale.log ? '<span class="cmp-scale-kind">log scale</span>' : ''}<span>${esc(fmtNumber(scale.hi, hs[0].unit))}</span></span></div>
+        <div class="imp-row imp-axis"><span class="fine">${esc(hs[0].unit)}${scale.log ? ', log scale' : ''}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div>
         <p class="imp-key fine"><span><i class="imp-dot"></i> orientation stated (XY)</span><span><i class="imp-dot open"></i> no stated orientation</span>
           <span><i class="imp-dot annealed"></i> measured after annealing</span><span><i class="imp-dot variant"></i> special formulation</span>
           ${hs.some((h) => h.toughened && byKey.get(h.key).some((e) => soldToughened(e.g, e.v, c))) ? '<span><i class="imp-dot claimed"></i> sold as toughened (the maker\'s statement)</span>' : ''}
           <span><i class="imp-band-key"></i> middle half</span><span><i class="imp-median-key"></i> median</span></p></div>` : '';
-    const bothLine = both.length
-      ? `Both tests: ${plural(both.length, 'product')} (${esc(andList(both.slice(0, 5).map((id) => gradeLabel(c.gradeById.get(id)))))}${both.length > 5 ? ' and others' : ''}).`
-      : 'No product publishes both tests.';
-    const html = `<section class="imp-compare" data-comparison="${esc(topic)}"><h3 class="sec">${esc(topic)}, product by product</h3>
+    // What each headline compares, said once above the records it is chosen from.
+    const compared = hs.filter((h) => h.comparisonNote).map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
+    const products = new Set([...records.keys(), ...hs.flatMap((h) => byKey.get(h.key).map((e) => e.g.id))].filter((id) => isProduct(c.gradeById.get(id) ?? { id })));
+    const html = (recordBlocks) => makerBlock(topic, products.size, 'product', `<section class="imp-compare" data-comparison="${esc(topic)}">
       ${caption ? `<p class="fine imp-caption">${esc(caption)}</p>` : ''}
       ${strips}
-      <ul class="imp-counts fine">${hs.map((h) => rowCounts(h, m.summary?.[h.key])).join('')}<li>${bothLine}</li></ul>
-      ${hs.some((h) => m.summary?.[h.key]?.claimed) ? '<p class="fine">"Sold as toughened" is the maker\'s own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.</p>' : ''}
-      ${comparisonTable(hs, byKey, c, records, gradeLabel)}</section>`;
+      ${hs.some((h) => m.summary?.[h.key]) ? spreadSummary(hs, m) : ''}
+      ${productTable(hs, byKey, c, records, gradeLabel)}</section>
+      ${recordBlocks ? `<h4 class="imp-sub">Every result, with its document</h4>${compared}<div class="imp-records">${recordBlocks}</div>` : ''}`, { cls: 'prop-block imp-block' });
     return { topic, properties, html };
   }).filter(Boolean);
 }
@@ -1390,18 +1455,28 @@ function tabBody(tab, c) {
     const byValue = (a, b) => (b.numeric - a.numeric) || ((b.value ?? 0) - (a.value ?? 0));
     // Where a selectable property compares only some of these values (a notched Charpy bar at room temperature, a bar
     // pulled along Z), its note says which, and why the rest stay on record but are not compared (D92).
-    const notes = (p) => REGISTRY.headlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
+    // What the property is, where properties.csv says it (why there is an impact heading whose test is unclear, D133),
+    // then the comparison notes of the selectable properties that read some of its values.
+    const describe = (p) => { const d = REGISTRY.properties.find((x) => x.name === p)?.description; return stated(d) ? `<p class="fine cmp-note prop-note">${esc(d)}</p>` : ''; };
+    const notes = (p) => describe(p) + REGISTRY.headlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
       .map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
     const shown = list.filter((p) => rows.some((x) => x.property === p));
-    const blocks = shown.map((p) => {
+    const block = (p, note = notes) => {
       const group = rows.filter((x) => x.property === p).sort(byValue);
-      return makerBlock(propertyName(p), group.length, 'value', notes(p) + group.map((x) => measurementRow(x, c, { compact: true })).join(''), { cls: 'prop-block' });
-    });
-    // Headlines drawn side by side (D133) come before the first block of their values: notched Charpy beside notched
-    // Izod, product by product, above the Charpy, Izod and impact records they are chosen from.
-    for (const cmp of drawerComparisons(m, c, tab).reverse()) {
-      const at = shown.findIndex((p) => cmp.properties.has(p));
-      if (at >= 0) blocks.splice(at, 0, cmp.html);
+      return makerBlock(propertyName(p), group.length, 'value', note(p) + group.map((x) => measurementRow(x, c, { compact: true })).join(''), { cls: 'prop-block' });
+    };
+    // Headlines drawn side by side (D133) are one heading with every record they are chosen from, in the place of the
+    // first of those properties: notched Charpy beside notched Izod, product by product, then the Charpy, Izod and
+    // test-unclear records, each property's block inside it. Each comparison note is said once there, not per block.
+    const comparisons = drawerComparisons(m, c, tab);
+    const blocks = [];
+    for (const p of shown) {
+      const cmp = comparisons.find((x) => x.properties.has(p));
+      if (!cmp) blocks.push(block(p));
+      else if (!cmp.placed) {
+        cmp.placed = true;
+        blocks.push(cmp.html(shown.filter((q) => cmp.properties.has(q)).map((q) => block(q, describe)).join('')));
+      }
     }
     const namedHtml = named.length
       ? `<div class="np-line">Named on a data sheet without a value: ${named.map((x) => `<span class="np-item${c.highlight === x.id ? ' target' : ''}" data-mid="${esc(x.id)}">${esc(inSentence(x.property))} (${esc(gradeName(c.gradeById.get(x.gradeId)) || 'a product')})</span>`).join(', ')}.</div>`

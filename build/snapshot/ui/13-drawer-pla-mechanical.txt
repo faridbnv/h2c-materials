@@ -20,36 +20,12 @@ Flexural elongation at break
 3 values
 Flexural stress at conventional deflection
 2 values
-IMPACT TESTS, PRODUCT BY PRODUCT
-Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
-Notched Charpy impact
-45 products
-Notched Izod impact
-22 products
-0
-72.3 kJ/m²
-orientation stated (XY)
-no stated orientation
-measured after annealing
-special formulation
-sold as toughened (the maker's statement)
-middle half
-median
-Notched Charpy impact (kJ/m²): 11 products on a comparable basis, median 6.7, middle half 5.42 to 12.5, 20 more with no stated orientation, 7 special formulations, left out of the median and 7 sold as toughened, set apart from the median. The median and middle half are of the other 11 products. The 7 products their makers sell as toughened or impact-modified give 5.76 to 72.3 kJ/m² and are set apart, as special formulations are.
-Notched Izod impact (kJ/m²): 6 products on a comparable basis, median 5, middle half 4.63 to 5.75, 10 more with no stated orientation, 5 special formulations, left out of the median and 1 sold as toughened, set apart from the median. The median and middle half are of the other 6 products. The product its maker sells as toughened or impact-modified gives 10 kJ/m² and is set apart, as special formulations are.
-Both tests: 1 product (colorFabb Copper filled PLA).
-"Sold as toughened" is the maker's own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
-Products, test by test (149)
-Charpy strength
-125 values
-Izod impact strength
-129 values
-Impact strength
-15 values
+Impact tests
+149 products
 Hardness
 18 values
 Interlayer adhesion strength
 5 values
 Named on a data sheet without a value: flexural modulus (Polymaker PolySonic PLA), flexural strength (Polymaker PolySonic PLA), charpy strength (Polymaker PolySonic PLA).
 NOT PUBLISHED FOR THIS MATERIAL
-Izod strength · Compression strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile stress at 100 % elongation · Tensile stress at 200 % elongation · Tensile stress at 300 % elongation. A gap, not a zero or a low value.
+Compression strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile stress at 100 % elongation · Tensile stress at 200 % elongation · Tensile stress at 300 % elongation. A gap, not a zero or a low value.

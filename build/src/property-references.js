@@ -28,6 +28,7 @@ export const CODE_PROPERTY_NAMES = {
   'Hardness': 'estimate/observations.js (an elastomer\'s stiffness from its Shore hardness)',
   'Charpy strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
   'Izod impact strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
+  'Impact strength': 'compile.js (a reading in impact_test_guesses.csv is of this property alone, IMPACT-GUESS-PROPERTY), app/js/ui/detail.js (its heading says the test is unclear, D133)',
   'Elongation at break': 'estimate/ (elongation kind), measurement-rules.js (endpoint locator rule), physical_relations.csv (MEAS-PHYSICS-ORDER)',
   'Elongation at yield': 'estimate/ (elongation bound), physical_relations.csv (MEAS-PHYSICS-ORDER)',
   'Tensile strain at strength': 'estimate/ (elongation bound)',

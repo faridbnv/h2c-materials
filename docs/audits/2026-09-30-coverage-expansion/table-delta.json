@@ -48,6 +48,13 @@
     "edited_existing": 10,
     "removed": 0
   },
+  "impact_test_guesses": {
+    "baseline": 0,
+    "current": 55,
+    "added": 55,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "know_how_reads": {
     "baseline": 1542,
     "current": 1545,
@@ -73,7 +80,7 @@
     "baseline": 11536,
     "current": 14841,
     "added": 3305,
-    "edited_existing": 2625,
+    "edited_existing": 2637,
     "removed": 0
   },
   "method": {
@@ -136,7 +143,7 @@
     "baseline": 44,
     "current": 49,
     "added": 5,
-    "edited_existing": 0,
+    "edited_existing": 1,
     "removed": 0
   },
   "sources": {

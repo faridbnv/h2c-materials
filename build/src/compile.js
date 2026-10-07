@@ -539,6 +539,17 @@ export function compile(wb, { snapshot, build }) {
     profiles: wb['Print setup'].rows.filter((r) => isRetiredDuplicate(r.Profile)).length,
   };
   const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues, wb['Page context']?.rows ?? []);
+  // Which test an impact result whose own words do not settle it probably was (D133): a reviewer's reading, written
+  // beside the value. Only a result filed as an impact of unclear test may carry one; it is never compared.
+  const measurementById = new Map(measurements.map((m) => [m.id, m]));
+  for (const r of wb['Impact test guesses']?.rows ?? []) {
+    const m = measurementById.get(r.MeasurementID);
+    if (!m || m.property !== 'Impact strength') {
+      issues.push({ level: 'error', code: 'IMPACT-GUESS-PROPERTY', where: `impact_test_guesses ${r.MeasurementID}`, message: m ? `A guess of the test is for an impact result whose test is unclear; ${r.MeasurementID} is ${m.property}` : `${r.MeasurementID} is retired or does not exist` });
+      continue;
+    }
+    m.testGuess = { test: r['Likely test'], basis: r.Basis };
+  }
 
   const profiles = compileProfiles(wb['Print setup'].rows.filter((r) => !isRetiredDuplicate(r.Profile)), wb['Print setup notes'].rows, issues);
   const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));

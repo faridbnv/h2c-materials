@@ -81,7 +81,7 @@ export const isTitle = (title) => {
   return !(CHROME.test(t) || FILE_NAME.test(t) || /^untitled$/i.test(t) || FURNITURE(t));
 };
 
-const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment', 'print_guide', 'print_guide_materials', 'fx_rates', 'product_claims'];
+const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment', 'print_guide', 'print_guide_materials', 'fx_rates', 'product_claims', 'impact_test_guesses'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 /**

@@ -742,6 +742,11 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Products whose only glass transition is a resin supplier's value** (Specimen type Raw material value, which is
   not the product's): tg_resin_only in the query, 14 on 2026-09-27.
+- **55 impact results whose test is unclear** (2026-10-06, m391): filed as "Impact strength, test unclear", each with a
+  reviewer's reading of which test it probably was (impact_test_guesses.csv: 23 probably Charpy, 23 probably Izod, 8
+  cannot tell, 1 another test). Where a maker confirms its test, the record can move under it; until then it is never
+  compared. Query: `select m.measurementid, g.likely_test from measurements m join impact_test_guesses g using (measurementid)`
+  (column names as `npm run sql` exposes them).
 - **Impact results the round read and held** (2026-10-06, [the impact round](audits/2026-10-06-impact-round/README.md),
   `opus-held.csv`): 39 values a page tells apart by a column the readings did not capture (QIDI's three columns,
   Stratasys' slice heights), 45 values of makers' product pages that compare products in columns (Bambu Lab, IPCON),

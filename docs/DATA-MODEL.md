@@ -34,6 +34,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | Table | What it holds |
 |---|---|
 | `headlines.csv` | Pins one product's value for one headline where the rule chooses wrongly, with its Reason; empty since m137 retired its 493 rows, the 477 hand picks and 16 citations that were not values |
+| `impact_test_guesses.csv` | A reviewer's reading of which test an impact result was, where its own words do not settle it (property Impact strength: no test named, or both): Likely test (Charpy, Izod, Cannot tell, Another test) and the Basis a reader can check. Written beside the value in the drawer; nothing is moved or compared (D133) |
 | `product_claims.csv` | What a maker sells a product as, where it changes how its values are read: a row per product and claim ("Toughened or impact-modified"), pointing at the maker's own recorded statement, with the reviewer's reason. Shown beside the product's values and named in its material's impact spread; read by no filter, verdict or estimate (D133) |
 | `material_links.csv` | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
 

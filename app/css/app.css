@@ -852,7 +852,14 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-label .fine { font-size: 11px; }
 .imp-track { position: relative; background: var(--surface-2); border-radius: 3px; min-height: 17px; }
 /* A dot at either end is centred on it: the track and its scale stand in from the row's edges by half a dot and more. */
-.imp-row > .imp-track, .imp-axis > .cmp-scale { margin: 0 7px; }
+.imp-row > .imp-track, .imp-axis > .imp-scale { margin: 0 7px; }
+/* The scale's ticks, labelled under the rows, and their faint lines across the tracks behind the dots. */
+.imp-grid { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px solid var(--border); }
+.imp-scale { position: relative; display: block; height: 16px; border-top: 1px solid var(--border-strong); font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+.imp-scale > span { position: absolute; top: 2px; transform: translateX(-50%); white-space: nowrap; }
+.imp-scale > span.start { transform: none; }
+.imp-scale > span.end { transform: translateX(-100%); }
+.imp-axis > .fine { align-self: start; font-size: 11px; }
 .imp-band { position: absolute; top: 0; bottom: 0; background: var(--accent-soft); }
 .imp-median { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px solid var(--ink-2); }
 .imp-dot { position: absolute; display: block; width: 9px; height: 9px; margin-left: -4.5px; padding: 0; border: 1.5px solid var(--accent); background: var(--accent); border-radius: 50%; cursor: pointer; }
@@ -863,6 +870,9 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-dot.claimed.open { background: var(--surface); }
 .chip-claim { background: var(--claim-bg); color: var(--claim); }
 .imp-split { margin: 4px 0 0; }
+.test-guess { color: var(--ink-2); }
+.test-guess b { color: var(--unknown); font-weight: 600; }
+.imp-block .imp-compare { padding: 4px 2px 0; }
 .imp-dot:hover, .imp-dot.partner { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); z-index: 2; }
 .imp-axis { padding-top: 0; }
 .imp-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; }
@@ -870,14 +880,31 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-key .imp-dot { position: static; margin: 0; cursor: default; }
 .imp-band-key { display: inline-block; width: 14px; height: 9px; background: var(--accent-soft); border: 1px solid var(--border); }
 .imp-median-key { display: inline-block; width: 0; height: 11px; border-left: 2px solid var(--ink-2); }
-.imp-counts { margin: 8px 0; padding-left: 18px; }
-.imp-counts li { margin: 2px 0; }
-.imp-products > summary, .imp-rest > summary { cursor: pointer; font-size: var(--t-small); margin: 4px 0; }
+.imp-summary { margin-top: 10px; }
+table.grid.imp-summary th, table.grid.imp-summary td, table.grid.imp-table th, table.grid.imp-table td { padding: 6px 8px; }
+table.grid.imp-summary .num, table.grid.imp-table .num { min-width: 0; }
+table.grid.imp-table td.num { white-space: normal; }
+table.grid.imp-summary .num { white-space: nowrap; }
+.imp-table .imp-v { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.imp-table .imp-v .imp-dot { position: static; min-width: 0; margin: 0; cursor: default; }
+.imp-table tr.has-also > td, .imp-summary tr:has(+ .imp-apart) > * { border-bottom: 0; padding-bottom: 0; }
+.imp-table .imp-also td { padding-top: 1px; font-size: var(--t-small); color: var(--ink-3); }
+.imp-table .imp-also .link-btn, .imp-rest .link-btn { white-space: normal; text-align: left; max-width: 100%; }
+.imp-table th .u { display: block; font-weight: 400; }
+/* The headers wrap, so that on a phone the product and both tests fit the drawer's width without scrolling. */
+table.grid.imp-table thead th, table.grid.imp-summary thead th { white-space: normal; cursor: default; }
+.imp-summary th[scope="row"] { font-weight: 600; text-align: left; }
+.imp-summary .imp-apart td { padding-top: 1px; font-size: var(--t-small); color: var(--ink-3); white-space: normal; }
+.imp-foot { margin: 4px 0 0; max-width: 100ch; }
+.imp-sub { margin: 16px 0 4px; font-size: var(--t-body); }
+.imp-table td.num .imp-note, .imp-table td.num .from-note { display: block; }
+.imp-rest > summary { cursor: pointer; font-size: var(--t-small); margin: 6px 0 4px; }
+.imp-records { margin-top: 6px; }
 /* On a phone the test's name goes above its row, which then has the drawer's whole width. */
 @media (max-width: 600px) {
   .imp-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .imp-label { flex-direction: row; gap: 8px; align-items: baseline; }
-  .imp-axis > span:first-child { display: none; }
+  .imp-axis > span:first-child { display: block; }
 }
 
 /* ---------------------------------------------------------------- responsive */

@@ -666,6 +666,16 @@
           "fatigue": {
             "type": "object"
           },
+          "testGuess": {
+            "type": "object",
+            "description": "A reviewer's reading of which test an impact result was, where its own words do not settle it (impact_test_guesses.csv, D133). Written beside the value; never compared.",
+            "additionalProperties": false,
+            "required": ["test", "basis"],
+            "properties": {
+              "test": { "enum": ["Charpy", "Izod", "Cannot tell", "Another test"] },
+              "basis": { "type": "string", "minLength": 1 }
+            }
+          },
           "pageContext": {
             "type": "object",
             "description": "What the row inherited from its page (page_context.csv, D116): for each field it states nothing of its own, the PageContextID that gave it. Absent where the row inherited nothing.",

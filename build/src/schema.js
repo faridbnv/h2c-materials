@@ -28,7 +28,7 @@ const DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 // Every table, in the order a reader meets them: the records, then what explains and relates them. A table missing here
 // sorted first, so the review workbook opened on chamber bands and family members instead of materials.
-export const TABLE_ORDER = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'page_context', 'fatigue_tests', 'evidence', 'know_how_reads', 'polymer_environment', 'print_guide', 'prices', 'fx_rates', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes',
+export const TABLE_ORDER = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'page_context', 'impact_test_guesses', 'fatigue_tests', 'evidence', 'know_how_reads', 'polymer_environment', 'print_guide', 'prices', 'fx_rates', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes',
   'headlines', 'product_claims', 'material_links', 'print_guide_materials', 'properties', 'headline_definitions', 'polymers', 'plausibility_windows', 'physical_relations', 'chamber_bands', 'family_entries', 'family_members'];
 
 export function loadSchemas(schemaDir) {

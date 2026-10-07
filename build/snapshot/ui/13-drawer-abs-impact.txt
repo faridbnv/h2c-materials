@@ -1,11 +1,15 @@
-IMPACT TESTS, PRODUCT BY PRODUCT
 Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
 Notched Charpy impact
 17 products
 Notched Izod impact
 18 products
-0
-58 kJ/m²
+kJ/m², log scale
+2
+5
+10
+20
+50
+100
 orientation stated (XY)
 no stated orientation
 measured after annealing
@@ -13,48 +17,44 @@ special formulation
 sold as toughened (the maker's statement)
 middle half
 median
-Notched Charpy impact (kJ/m²): 5 products on a comparable basis, median 20, middle half 18 to 21.5, 11 more with no stated orientation and 1 sold as toughened, set apart from the median. The median and middle half are of the other 5 products. The product its maker sells as toughened or impact-modified gives 14.5 kJ/m² and is set apart, as special formulations are.
-Notched Izod impact (kJ/m²): 2 products on a comparable basis, median 12.5, 15 more with no stated orientation and 1 special formulation, left out of the median.
-Both tests: 5 products (Fillamentum ABS Extrafill, 3D4Makers ABS, Fiberlogy R ABS, Fiberlogy ABS and Fiberlogy ABS PLUS).
-"Sold as toughened" is the maker's own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
-Products, test by test (45)
-Product Maker Charpy notched kJ/m² Izod notched kJ/m² State Orientation Other impact records
-Fiberlogy ABS PLUS Fiberlogy 18 kJ/m² no stated orientation 32 kJ/m² no stated orientation treatment not stated not stated —
-Fiberlogy ABS Fiberlogy 18 kJ/m² no stated orientation 30 kJ/m² no stated orientation treatment not stated not stated —
-Fiberlogy R ABS Fiberlogy 18 kJ/m² no stated orientation data sheet shared with Fiberlogy ABS 30 kJ/m² no stated orientation treatment not stated not stated Notched impact 18 kJ/m² (orientation not stated)
-Fillamentum ABS Extrafill Fillamentum 25 kJ/m² no stated orientation 24 kJ/m² no stated orientation treatment not stated not stated —
-3D4Makers ABS 3D4Makers 20 kJ/m² no stated orientation 19 kJ/m² no stated orientation treatment not stated not stated —
-FormFutura ReForm - rTitan FormFutura 58 kJ/m² no stated orientation — treatment not stated not stated —
-BigRep ABS BigRep 40 kJ/m² no stated orientation — treatment not stated not stated Unnotched Charpy 70 kJ/m² (orientation not stated); Notched Charpy 30 kJ/m² (orientation not stated)
-FormFutura ABSpro sold as toughened FormFutura — 39 kJ/m² no stated orientation treatment not stated not stated —
-FormFutura EasyFil ABS FormFutura — 36 kJ/m² no stated orientation treatment not stated not stated —
-FormFutura Premium ABS FormFutura — 29 kJ/m² no stated orientation treatment not stated not stated —
-SIDDAMENT ABS SIDDAMENT — 25 kJ/m² no stated orientation treatment not stated not stated —
-Prusa Research Buddy3D ABS Prusa Research 22 kJ/m² no stated orientation — treatment not stated not stated —
-Bambu Lab ABS Bambu Lab 21.5 kJ/m² — annealed at 80 °C for 12 h XY Unnotched Charpy 39.3 kJ/m² (annealed); Charpy 39.3 kJ/m² (notch not stated); Charpy 7.4 kJ/m² (notch not stated, Z bar, annealed)
-Kingroon ABS Kingroon 21.5 kJ/m² data sheet shared with Bambu Lab ABS — annealed at 80 °C for 12 h XY —
-QIDI ABS QIDI 20 kJ/m² — treatment not stated XY —
-3DJake ABS 3DJake 20 kJ/m² no stated orientation data sheet shared with Extrudr DURAPRO ABS — treatment not stated not stated —
-Extrudr DURAPRO ABS Extrudr 20 kJ/m² no stated orientation — treatment not stated not stated Notched Charpy 10 kJ/m² (orientation not stated, struck at -30 °C); Notched Izod 220 kJ/m² (orientation not stated, moulded bar, ASTM D256, flagged implausible)
-iSANMATE ABS iSANMATE — 19 kJ/m² no stated orientation treatment not stated not stated —
-Spectrum ABS GP450 Spectrum — 19 kJ/m² no stated orientation treatment not stated not stated Notched Izod 10 kJ/m² (orientation not stated, struck at -30 °C)
-Nanovia ABS EF Nanovia 18 kJ/m² no stated orientation — treatment not stated not stated —
-Polymaker ABS Polymaker 18 kJ/m² — as printed XY —
-FormFutura ClearScent ABS FormFutura — 17 kJ/m² no stated orientation treatment not stated not stated —
-Fiberlogy EASY ABS Fiberlogy — 16 kJ/m² no stated orientation treatment not stated not stated —
-SUNLU ABS SUNLU — 15 kJ/m² treatment not stated XY Notched Izod 126 J/m (orientation not stated, ASTM D256); Unnotched Izod 6 kJ/m² (ZX bar)
-Polymaker ABS Pro sold as toughened Polymaker 14.5 kJ/m² — treatment not stated XY Charpy 39.6 kJ/m² (notch not stated, Z bar, flagged implausible); Unnotched Charpy 30.5 kJ/m²; Charpy 8.87 kJ/m² (notch not stated, flagged implausible) and 1 more below
-Spectrum ABS Medical Spectrum — 14 kJ/m² no stated orientation treatment not stated not stated Notched Izod 7 kJ/m² (orientation not stated, struck at -30 °C)
-SUNLU ABS-FR SUNLU — 13.7 kJ/m² special formulation treatment not stated XY Notched Izod 20 kJ/m² (ZX bar); Notched Izod 13 kJ/m²; Unnotched Izod 3.9 kJ/m² (ZX bar)
-Polymaker ABS Max Polymaker 10.5 kJ/m² — treatment not stated XY Unnotched Charpy 29.4 kJ/m²; Charpy 8.01 kJ/m² (notch not stated); Unnotched Charpy 8.01 kJ/m² (Z bar) and 1 more below
-SUNLU High Speed ABS SUNLU — 10 kJ/m² treatment not stated XY Unnotched Izod 18 kJ/m² (ZX bar)
-Nobufil ABSx Nobufil — 4 kJ/m² no stated orientation treatment not stated not stated Unnotched Izod 33 kJ/m² (orientation not stated, moulded bar); Unnotched Izod 26 kJ/m² (orientation not stated); Notched Izod 3.5 kJ/m² (orientation not stated, moulded bar)
-15 products with other impact records only
-Product Maker Charpy notched kJ/m² Izod notched kJ/m² State Orientation Other impact records
-3D-Fuel Workday ABS 3D-Fuel — — — — Notched Izod 78.5 J/m (orientation not stated, moulded bar, after conditioning, struck at -30 °C, ASTM D256)
-Anycubic ABS Anycubic — — — — Izod 40 kJ/m² (notch not stated, ISO 179)
-AzureFilm ABS AzureFilm — — — — Unnotched Charpy 75.2 kJ/m² (orientation not stated, printed off its recipe)
-AzureFilm ABS Prime AzureFilm — — — — Charpy 55.5 kJ/m² (notch not stated)
-Creality Hyper-ABS Creality — — — — Charpy 13.2 kJ/m² (notch not stated, Z bar)
-eSUN ABS HT eSUN — — — — Izod 16.1 kJ/m² (notch not stated, orientation not stated, moulded bar, GB/T 1843)
-eSUN ABS+ eSUN — — — — Izod 42 kJ/m² (notch not stated, orientation not stated, moulded bar, GB/T 1843); Izod 26.4 kJ/m² (notch not stated); Izod 18 kJ/m² (notch not stated, GB/T 1843) and 2 more below
+Test, kJ/m² Compared Median Middle half Range
+Notched Charpy impact 5 20 18–21.5 10.5–21.5
+Also drawn, not in the median: 11 with no stated orientation (18–58) and 1 sold as toughened (14.5).
+Notched Izod impact 2 12.5 — 10–15
+Also drawn, not in the median: 15 with no stated orientation (4–39) and 1 special formulation (13.7).
+Compared: the products whose sheet states the bar's orientation (XY), except special formulations and products sold as toughened. The median, middle half and range are of these alone. "Sold as toughened" is the maker's own statement about its product, quoted beside its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
+Product by product
+5 products publish both tests and come first. Each value carries its dot's mark from the rows above and opens its record in Sources.
+Product Notched Charpy impact
+kJ/m²
+ Notched Izod impact
+kJ/m²
+Fiberlogy ABS PLUS 
+18
+32
+Fiberlogy ABS 
+18
+30
+Fiberlogy R ABS 
+18
+data sheet shared with Fiberlogy ABS
+30
+Also on file: Notched impact, probably Charpy 18 kJ/m² (orientation not stated)
+Fillamentum ABS Extrafill 
+25
+24
+3D4Makers ABS 
+20
+19
+FormFutura ReForm - rTitan 
+58
+ —
+BigRep ABS 
+40
+ —
+Also on file: Unnotched Charpy 70 kJ/m² (orientation not stated); Notched Charpy 30 kJ/m² (orientation not stated)
+FormFutura ABSpro sold as toughened — 
+39
+FormFutura EasyFil ABS — 
+36
+FormFutura Premium ABS — 

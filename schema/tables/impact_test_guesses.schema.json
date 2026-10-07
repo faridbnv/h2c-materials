@@ -1,0 +1,38 @@
+{
+  "$comment": "Contract for data/tables/impact_test_guesses.csv. Checked by build/src/schema.js; what a row may point at by build/src/compile.js (IMPACT-GUESS-PROPERTY).",
+  "title": "Impact test guesses",
+  "description": "A reviewer's reading of which test an impact result was, where the record's own words do not settle it (property Impact strength: the sheet names no test, or names Charpy and Izod at once). Written beside the value in the drawer; the record is not moved and never compared (D133).",
+  "primaryKey": "MeasurementID",
+  "fields": [
+    {
+      "name": "MeasurementID",
+      "type": "string",
+      "role": "editorial",
+      "description": "The impact result read: a measurement of property Impact strength.",
+      "reference": { "table": "measurements", "field": "MeasurementID" },
+      "constraints": { "required": true, "unique": true, "pattern": "^V\\d{6}$" }
+    },
+    {
+      "name": "Likely test",
+      "type": "string",
+      "role": "editorial",
+      "description": "Which test the rest of the sheet points to (schema/vocab/impact-test-guesses.csv).",
+      "vocabulary": "impact-test-guesses",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Basis",
+      "type": "string",
+      "role": "editorial",
+      "description": "What points that way, in words a reader can check on the sheet: the label, the standard, the unit, a pendulum energy, the same value printed under a named test on the product's own data sheet.",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "Reviewed by",
+      "type": "string",
+      "role": "editorial",
+      "description": "Who read it, and when.",
+      "constraints": { "required": true }
+    }
+  ]
+}

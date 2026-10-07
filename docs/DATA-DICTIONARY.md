@@ -21,6 +21,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [grades](#grades) | GradeID | One row per exact commercial, study or resin-reference grade. A grade belongs to exactly one material. |
 | [headline_definitions](#headline_definitions) | HeadlineKey | One row per headline the selector compares materials on. The build and the app read everything about a headline from here: which measurements may back it, its unit, direction and load, its labels, filter, chart axis, table column and export header. A new headline is a new row plus its selections in headlines.csv. |
 | [headlines](#headlines) | MaterialID + HeadlineKey + MeasurementID | Pins one product's value for one headline where the rule would choose another measurement (build/src/products.js). A product's value is otherwise chosen by rule from its own measurements, and a material's headline is its products' spread (D83), so this table is normally empty: the 493 hand picks it held until m137 are archived in docs/audits/2026-09-25-re-center/retired-representative-picks.csv. The number lives only in the measurement. |
+| [impact_test_guesses](#impact_test_guesses) | MeasurementID | A reviewer's reading of which test an impact result was, where the record's own words do not settle it (property Impact strength: the sheet names no test, or names Charpy and Izod at once). Written beside the value in the drawer; the record is not moved and never compared (D133). |
 | [know_how_reads](#know_how_reads) | SourceID + Scope | Which sources were read for makers' know-how, how, when and by whom: one row per source and scope. It is the one fact about know-how the build cannot derive, because a document with no statement recorded from it may have been read and found silent, or never read. The build reads it with the statements (evidence.csv, Domain "Makers' know-how") to give every product and material its know-how state: collected, sheet silent (maker site not yet searched), searched with nothing published, or no document read (build/src/know-how.js, DATA-MODEL.md). |
 | [material_links](#material_links) | MaterialID + Link + RecordID | Records a material cites, one per row, in citation order. printing cites print profiles or evidence records (the first profile supplies the material's nozzle, bed and chamber guidance); h2c-status cites sources for its H2C status; use, durability and safety cite evidence records, which may be family context from another material. Environmental evidence is not listed: it is always the material's own environmental records. |
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
@@ -213,6 +214,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | HeadlineKey | editorial | string | yes |  | → headline_definitions.HeadlineKey | Headline whose value is pinned; defined in headline_definitions.csv. |
 | MeasurementID | editorial | string | yes |  | → measurements.MeasurementID | The measurement that is the product's value: one of that product's own, able to be the headline's value (property, unit, direction or load, specimen, moisture; checked by the build, HEADLINE-SELECTION-INVALID). One pin per product and headline. |
 | Reason | editorial | string | yes |  |  | Why the rule's own choice is wrong for this product, in a sentence a reviewer can check against the source. |
+
+### impact_test_guesses
+
+`data/tables/impact_test_guesses.csv` (Impact test guesses). A reviewer's reading of which test an impact result was, where the record's own words do not settle it (property Impact strength: the sheet names no test, or names Charpy and Izod at once). Written beside the value in the drawer; the record is not moved and never compared (D133).
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| MeasurementID | editorial | string | yes |  | → measurements.MeasurementID | The impact result read: a measurement of property Impact strength. |
+| Likely test | editorial | string | yes |  | [impact-test-guesses](#vocab-impact-test-guesses) | Which test the rest of the sheet points to (schema/vocab/impact-test-guesses.csv). |
+| Basis | editorial | string | yes |  |  | What points that way, in words a reader can check on the sheet: the label, the standard, the unit, a pendulum energy, the same value printed under a named test on the product's own data sheet. |
+| Reviewed by | editorial | string | yes |  |  | Who read it, and when. |
 
 ### know_how_reads
 
@@ -1041,6 +1053,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Official Bambu product | Sold by Bambu for this printer. On a material it says Bambu sells a product of it; as a requirement it passes Bambu Lab's own spools only (D118). |
 | Officially listed family | Bambu lists this family for the H2C, but not necessarily every brand of it. |
 | Theoretical | Not listed by Bambu; judged printable on the H2C from its typical processing requirements, with no Bambu validation. |
+
+<a id="vocab-impact-test-guesses"></a>
+### impact-test-guesses
+
+`schema/vocab/impact-test-guesses.csv`, used by impact_test_guesses.Likely test.
+
+| Value | Meaning |
+|---|---|
+| Charpy | The record's own words do not settle the test, and the rest of what the sheet or the maker prints points to Charpy (ISO 179): the same value printed as Charpy on the product's own data sheet, a unit only Charpy reports, the maker's template naming Charpy elsewhere. A reviewer's reading, written beside the value; the record stays an impact result whose test is unclear and is never compared. |
+| Izod | The record's own words do not settle the test, and the rest of what the sheet prints points to Izod (ISO 180, ASTM D256, GB/T 1843): an Izod standard with an Izod pendulum, the maker's template naming Izod elsewhere. A reviewer's reading, written beside the value; the record is never compared. |
+| Cannot tell | The record's words point both ways, or nowhere, and nothing else the sheet or the maker prints settles it; the value fits either test. |
+| Another test | The record is an impact result of a test that is neither Charpy nor Izod (a tensile impact, a falling weight). |
 
 <a id="vocab-know-how-scopes"></a>
 ### know-how-scopes

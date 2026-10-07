@@ -14,7 +14,7 @@ Flexural stress at conventional deflection,mechanical,MPa,,,,
 Charpy strength,mechanical,kJ/m²,,,,
 Izod strength,mechanical,kJ/m²; J/m,,,,Izod impact strength
 Izod impact strength,mechanical,kJ/m²; J/m,,,,
-Impact strength,mechanical,kJ/m²,,,,
+Impact strength,mechanical,kJ/m²,,,"An impact result whose test is unclear: the sheet names no test, or names both (a ""Charpy"" label beside an Izod standard, an ""Izod"" label beside ISO 179). Kept apart from Charpy and Izod and never compared; where the rest of the sheet points to one test, a reviewer's reading is written beside the value (impact_test_guesses.csv). A result whose own label or standard names the test is filed under that test.",
 Hardness,mechanical,Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source),,,,
 Compression strength,mechanical,MPa,,,,
 Interlayer adhesion strength,mechanical,MPa,,,,

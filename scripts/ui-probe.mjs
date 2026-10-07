@@ -307,6 +307,7 @@ try {
   // Notched Charpy beside notched Izod (D133): the rows of dots and their counts, then the product table opened. PLA is
   // the largest; ABS has products that publish both tests; HIPS has a pair on a comparable basis.
   const impactText = () => evaluate(`(() => { const s = document.querySelector('.drawer-body .imp-compare'); if (!s) return 'NO COMPARISON';
+    for (let d = s.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;
     for (const d of s.querySelectorAll('details')) d.open = true;
     return s.innerText.replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n'); })()`);
   results['13-drawer-pla-impact'] = await impactText();

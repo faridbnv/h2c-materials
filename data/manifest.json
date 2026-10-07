@@ -19,11 +19,15 @@
     },
     "measurements": {
       "rows": 14841,
-      "sha256": "db597859592ed4d033f1df093e1c19c36165d403918dc258351e0ec37c5aafb5"
+      "sha256": "044a3cda10dda84a07a757147ba3d7f87ca8cca6fe414da3f0867d40750d67b8"
     },
     "page_context": {
       "rows": 957,
       "sha256": "c5219a8f5b29980498221ab29bb809be8781962c709840eb717f6213ae4fb00b"
+    },
+    "impact_test_guesses": {
+      "rows": 55,
+      "sha256": "9dc0de078767e6fdb00f1d4b419c47fa31800d45a146b16f289c0bdde154d30b"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -91,7 +95,7 @@
     },
     "properties": {
       "rows": 49,
-      "sha256": "e88ad50ffc09ff6927fbcc9f1445df7c8bdf4bd21725b8defb76b282f4db6a5d"
+      "sha256": "7a177f858a3384b7bf39227cbbc02ff14703260bfe237ac1d62b7425608a3234"
     },
     "headline_definitions": {
       "rows": 10,

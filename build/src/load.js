@@ -37,6 +37,7 @@ export const TABLES = [
   { file: 'print_guide_materials', sheet: 'Print guide materials' },
   { file: 'page_context', sheet: 'Page context' },
   { file: 'product_claims', sheet: 'Product claims' },
+  { file: 'impact_test_guesses', sheet: 'Impact test guesses' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;
