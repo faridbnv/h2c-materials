@@ -15,7 +15,7 @@
 // What the schema gives it that a plain CSV import cannot:
 //
 //   - A number is REAL, not text. A missing state is NULL, and the word that was written ("Not published", "Not
-//     applicable") is kept in a sibling <column>_state, so a query can tell "no value" from "not measured here"
+//     applicable") is kept in a sibling <column>_state (a list column that declares missing words too: Standards), so a query can tell "no value" from "not measured here"
 //     without parsing prose, and AVG() never silently swallows a missing state as zero.
 //   - Every column name is recoverable. _columns maps each SQL name back to the CSV header it came from, with its
 //     position, declared type and role, so nothing is guessed from a mangled identifier.
@@ -78,11 +78,16 @@ export function sqlName(header) {
 
 const SQL_TYPE = { number: 'REAL', integer: 'INTEGER', boolean: 'INTEGER', date: 'TEXT', string: 'TEXT', list: 'TEXT' };
 const TYPED = new Set(['number', 'integer', 'boolean']);
+// A column with a missing state of its own: a number, an integer or a boolean, and a list that declares its missing
+// words (Standards' "Not published", a headline's "Not applicable" property list), so a list is NULL where it holds
+// none and a query never reads the word as a standard or a property (D75; completeness round, D136).
+const hasState = (field) => TYPED.has(field.type) || (field.type === 'list' && (field.missing ?? []).length > 0);
 const quote = (id) => `"${id.replace(/"/g, '""')}"`;
 
 /** The value and the missing state of one cell: a number, or NULL plus the word that stood in its place. */
 function cellOf(field, raw) {
   const text = raw == null ? null : String(raw);
+  if (field.type === 'list') return (field.missing ?? []).includes(text) ? [null, text] : [text, null];
   if (!TYPED.has(field.type)) return [text, null];
   if (text == null || text === '' || (field.missing ?? []).includes(text)) return [null, text];
   if (field.type === 'boolean') return [(field.trueValues ?? ['TRUE']).includes(text) ? 1 : 0, null];
@@ -93,7 +98,7 @@ function cellOf(field, raw) {
 // ---------------------------------------------------------------- generation
 
 /** The layout this writer makes. A file of another layout is rewritten whatever its inputs, as is one of other code. */
-const FORMAT = 'h2c-sqlite 2';
+const FORMAT = 'h2c-sqlite 3';
 const here = dirname(fileURLToPath(import.meta.url));
 const WRITER = ['sqlite.mjs', 'record-tier.mjs', '../lib/pdf-text.mjs', '../ingest/archive.mjs'];
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -193,7 +198,7 @@ function writeTables(db, root, compiled, inputs) {
       if (seen.has(name)) throw new Error(`${table}: "${f.name}" and "${seen.get(name)}" both become "${name}"`);
       seen.set(name, f.name);
       insertColumn.run(table, name, f.name, i, f.type, f.role ?? '');
-      return { field: f, name, typed: TYPED.has(f.type) };
+      return { field: f, name, typed: hasState(f) };
     });
 
     const ddl = cols.flatMap((c) => [`${quote(c.name)} ${SQL_TYPE[c.field.type] ?? 'TEXT'}`, ...(c.typed ? [`${quote(`${c.name}_state`)} TEXT`] : [])]);

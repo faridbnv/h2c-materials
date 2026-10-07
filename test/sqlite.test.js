@@ -58,6 +58,11 @@ test('a number is a number, and a missing state is null beside the word that was
   // A boolean is 0 or 1, not the word.
   const flags = all("SELECT DISTINCT quarantined FROM prices WHERE quarantined IS NOT NULL").map((r) => r.quarantined);
   assert.ok(flags.every((v) => v === 0 || v === 1), `prices.quarantined holds ${flags.join(', ')}`);
+  // A list that declares missing words keeps them out of its value too: Standards is NULL where the source names none.
+  const [{ words }] = all("SELECT COUNT(*) AS words FROM measurements WHERE standards = 'Not published'");
+  assert.equal(words, 0, 'Standards holds its missing word as a value');
+  const [{ unnamed }] = all("SELECT COUNT(*) AS unnamed FROM measurements WHERE standards IS NULL AND standards_state = 'Not published'");
+  assert.ok(unnamed > 0, 'no measurement records that its source names no standard');
 });
 
 test('the joined view reaches every measurement, and the compiled headlines are all there', () => {

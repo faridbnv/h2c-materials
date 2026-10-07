@@ -47,7 +47,7 @@ and the load each row was measured at is typed in `Test load MPa`.
 
 ```bash
 npm run sql --silent -- "select sourceid, standard_load, count(*) n from measurements
-  where standards = 'Not published' and standard_load in ('Modulus','Strength','Elongation','Deflection',
+  where standards_state = 'Not published' and standard_load in ('Modulus','Strength','Elongation','Deflection',
   'Temperature','Transition Temperature','(X-Y)','DSC,','ISO','ISO 179,','ASTM','N/A','Prusa Polymers')
   group by 1, 2 order by n desc"
 ```
@@ -239,9 +239,9 @@ more data narrows them, a review does not (D73).
   derived (D74). The current in-scope marks and unfinished campaign assessments are generated in
   [STATUS.md](audits/2026-09-30-coverage-expansion/STATUS.md). The query below counts raw rows across the entire
   catalogue, including superseded and out-of-scope findings; it therefore differs from the 136-cell UI.
-- **A list column loses its missing state in SQLite.** `Standards` is TEXT and holds `Not published` inline, where a
-  number column gets a `_state` sibling and a NULL (`Units` holds no missing state). Harmless today, because no
-  vocabulary value collides with a missing-state word, but it is an inconsistency in the query layer (D75).
+- **A list column keeps its missing state apart in SQLite** since the completeness round (D136): `Standards` and the
+  headline definitions' property lists are NULL where they hold a missing word, which is kept in a `_state` sibling, as
+  a number column's is (D75).
 
 ```bash
 npm run sql --silent -- "select status, count(*) from coverage where domain = 'Post-processing / application' group by 1"
