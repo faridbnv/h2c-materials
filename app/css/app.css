@@ -881,30 +881,30 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-band-key { display: inline-block; width: 14px; height: 9px; background: var(--accent-soft); border: 1px solid var(--border); }
 .imp-median-key { display: inline-block; width: 0; height: 11px; border-left: 2px solid var(--ink-2); }
 .imp-summary { margin-top: 10px; }
-table.grid.imp-summary th, table.grid.imp-summary td, table.grid.imp-table th, table.grid.imp-table td { padding: 6px 8px; }
-table.grid.imp-summary .num, table.grid.imp-table .num { min-width: 0; }
-table.grid.imp-table td.num { white-space: normal; }
 table.grid.imp-summary .num { white-space: nowrap; }
-.imp-table .imp-v { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-.imp-table .imp-v .imp-dot { position: static; min-width: 0; margin: 0; cursor: default; }
-.imp-table tr.has-also > td, .imp-summary tr:has(+ .imp-apart) > * { border-bottom: 0; padding-bottom: 0; }
-.imp-table .imp-also td { padding-top: 1px; font-size: var(--t-small); color: var(--ink-3); }
-.imp-table .imp-also .link-btn, .imp-rest .link-btn { white-space: normal; text-align: left; max-width: 100%; }
-.imp-table th .u { display: block; font-weight: 400; }
-/* The headers wrap, so that on a phone the product and both tests fit the drawer's width without scrolling. */
-table.grid.imp-table thead th, table.grid.imp-summary thead th { white-space: normal; cursor: default; }
 .imp-summary th[scope="row"] { font-weight: 600; text-align: left; }
+@media (min-width: 601px) { .imp-summary th[scope="row"] { white-space: nowrap; } }
+table.grid.imp-summary th, table.grid.imp-summary td { padding: 6px 8px; }
+table.grid.imp-summary .num { min-width: 0; }
+.imp-summary tr:has(+ .imp-apart) > * { border-bottom: 0; padding-bottom: 0; }
+/* The headers wrap, so that on a phone the table fits the drawer's width without scrolling. */
+table.grid.imp-summary thead th { white-space: normal; cursor: default; }
+.imp-hint { margin: 4px 0 0; }
+/* The record a dot stands for: its mark, then where it sits against the median. */
+.on-graph { display: flex; align-items: baseline; gap: 6px; color: var(--ink-2); }
+.on-graph .imp-dot { position: static; flex: none; margin: 0; cursor: default; transform: translateY(1px); }
+.on-graph .imp-dot.variant { transform: translateY(1px) rotate(45deg) scale(.85); }
+.on-graph b { font-weight: 600; }
 .imp-summary .imp-apart td { padding-top: 1px; font-size: var(--t-small); color: var(--ink-3); white-space: normal; }
 .imp-foot { margin: 4px 0 0; max-width: 100ch; }
 .imp-sub { margin: 16px 0 4px; font-size: var(--t-body); }
-.imp-table td.num .imp-note, .imp-table td.num .from-note { display: block; }
-.imp-rest > summary { cursor: pointer; font-size: var(--t-small); margin: 6px 0 4px; }
 .imp-records { margin-top: 6px; }
 /* On a phone the test's name goes above its row, which then has the drawer's whole width. */
 @media (max-width: 600px) {
   .imp-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .imp-label { flex-direction: row; gap: 8px; align-items: baseline; }
   .imp-axis > span:first-child { display: block; }
+  table.grid.imp-summary th, table.grid.imp-summary td { padding: 6px 4px; }
 }
 
 /* ---------------------------------------------------------------- responsive */

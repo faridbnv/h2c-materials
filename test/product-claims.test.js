@@ -68,13 +68,16 @@ test('the impact spreads set the toughened products apart, and name them, unless
   assert.doesNotMatch(html, /including different commercial formulations/);
 });
 
-test('the drawer quotes the maker beside the product, and marks its dot', () => {
+test('the drawer quotes the maker on the record its dot stands for, and marks the dot', () => {
   const group = (list) => { const m = new Map(); for (const r of list) { if (!m.has(r.materialId)) m.set(r.materialId, []); m.get(r.materialId).push(r); } return m; };
   const host = { innerHTML: '', querySelectorAll: () => [], querySelector: (sel) => ['#drawer-close', '#drawer-pin'].includes(sel) ? { addEventListener() {} } : null };
   renderDrawer(host, { db, selectedMaterialId: 'M001', drawerTab: 'Mechanical', selection: { evaluations: [] }, scenario: { shortlist: [], unknownPolicy: 'strict' },
     ctx: { measurementsByMaterial: group(db.measurements), evidenceByMaterial: group(db.evidence), coverageByMaterial: group(db.coverage) } }, {});
   const tough = db.grades.find((g) => g.id === 'G006-01');
-  assert.match(host.innerHTML, new RegExp(`class="imp-dot[^"]*claimed[^"]*" data-measurement="${tough.headline.charpyNotched.measurementId}"`));
+  const mid = tough.headline.charpyNotched.measurementId;
+  assert.match(host.innerHTML, new RegExp(`class="imp-dot[^"]*claimed[^"]*" data-row="${mid}"`));
+  const row = host.innerHTML.slice(host.innerHTML.indexOf(`data-mid="${mid}"`));
+  assert.match(row.slice(0, row.indexOf('class="cond meas-foot"')), /On the graph:<\/b> not in the median \(<button[^>]*>sold as toughened<\/button>\)/);
   assert.match(host.innerHTML, /Bambu Lab sells it as toughened or impact-modified: &quot;Engineered for real-world impact/);
 });
 

@@ -1,4 +1,4 @@
-Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
+Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed with the results below, not drawn.
 Notched Charpy impact
 6 products
 Notched Izod impact
@@ -14,40 +14,11 @@ measured after annealing
 special formulation
 middle half
 median
-Test, kJ/m² Compared Median Middle half Range
+A product's dot lights its dot in the other row; select a dot to see its record below, and from there its document.
+Test, kJ/m² n Median Middle half Range
 Notched Charpy impact 1 6.5 — 6.5
-Also drawn, not in the median: 5 with no stated orientation (7–15).
+Also drawn, not in the median: 5 with no stated orientation (7⁠–⁠15).
 Notched Izod impact 1 6.9 — 6.9
 Also drawn, not in the median: 1 with no stated orientation (10).
-Compared: the products whose sheet states the bar's orientation (XY), except special formulations. The median, middle half and range are of these alone.
-Product by product
-2 products publish both tests and come first. Each value carries its dot's mark from the rows above and opens its record in Sources.
-Product Notched Charpy impact
-kJ/m²
- Notched Izod impact
-kJ/m²
-Fiberlogy HIPS 
-12
-10
-BASF Forward AM Ultrafuse HiPS 
-6.5
-6.9
-Also on file: Unnotched Charpy 57.6 kJ/m² (XZ bar); Unnotched Charpy 36 kJ/m²; Unnotched Charpy 8.6 kJ/m² (ZX bar); Notched Charpy 6.6 kJ/m² (XZ bar) and 6 more below
-FormFutura EasyFil HIPS 
-15
- —
-FormFutura LimoSolve 
-15
-data sheet shared with FormFutura EasyFil HIPS
- —
-Nanovia HIPS 
-11
- —
-Spectrum hipsx 
-7
- —
-Also on file: Notched Izod 90 J/m (orientation not stated, ASTM D256)
-2 more products with other impact results only
-Product Impact results on file
-eSUN HIPS Izod 11 kJ/m² (notch not stated, orientation not stated, moulded bar, GB/T 1843)
-Fillamentum HIPS Extrafill Unnotched Charpy 130 kJ/m² (orientation not stated, struck at -30 °C); Notched Izod 180 J/m (orientation not stated, ASTM D256)
+n counts the products compared: those whose sheet states the bar's orientation (XY), except special formulations. The median, middle half and range are of these alone.
+Both tests: 2 products (BASF Forward AM Ultrafuse HiPS and Fiberlogy HIPS).

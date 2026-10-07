@@ -21,7 +21,7 @@ Flexural elongation at break
 Flexural stress at conventional deflection
 2 values
 Impact tests
-149 products
+269 values
 Hardness
 18 values
 Interlayer adhesion strength

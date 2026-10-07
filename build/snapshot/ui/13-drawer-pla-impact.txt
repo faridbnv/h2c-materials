@@ -1,4 +1,4 @@
-Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
+Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed with the results below, not drawn.
 Notched Charpy impact
 45 products
 Notched Izod impact
@@ -18,43 +18,11 @@ special formulation
 sold as toughened (the maker's statement)
 middle half
 median
-Test, kJ/m² Compared Median Middle half Range
-Notched Charpy impact 11 6.7 5.42–12.5 3.97–20.3
-Also drawn, not in the median: 20 with no stated orientation (1.8–29.8), 7 special formulations (1.8–7) and 7 sold as toughened (5.76–72.3).
-Notched Izod impact 6 5 4.63–5.75 4.5–6.5
-Also drawn, not in the median: 10 with no stated orientation (2–5), 5 special formulations (5.5–18.1) and 1 sold as toughened (10).
-Compared: the products whose sheet states the bar's orientation (XY), except special formulations and products sold as toughened. The median, middle half and range are of these alone. "Sold as toughened" is the maker's own statement about its product, quoted beside its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
-Product by product
-1 product publishes both tests and comes first. Each value carries its dot's mark from the rows above and opens its record in Sources.
-Product Notched Charpy impact
-kJ/m²
- Notched Izod impact
-kJ/m²
-colorFabb Copper filled PLA 
-2.97
-5.5
-Also on file: Unnotched Izod 10 kJ/m² (orientation not stated); Notched Izod 10 kJ/m² (orientation not stated, moulded bar)
-Bambu Lab PLA Tough+ sold as toughened 
-72.3
-annealed at 50 °C for 8 h
- —
-Also on file: Unnotched Charpy 80.6 kJ/m² (annealed); Charpy 25.9 kJ/m² (notch not stated, Z bar, annealed); Charpy 18.6 kJ/m² (notch not stated, Z bar, annealed)
-Polymaker PolyMax PLA sold as toughened 
-38.9
- —
-FormFutura Tough PLA sold as toughened 
-29.8
- —
-colorFabb PLA High Speed PRO sold as toughened 
-27.9
- —
-Also on file: Notched Charpy 27.9 kJ/m² (orientation not stated)
-Polymaker PolySonic PLA Pro 6.0 sold as toughened 
-22.7
- —
-Also on file: Notched Charpy 19.4 kJ/m²
-FormFutura Volcano PLA 
-22
- —
-Polymaker PLA Pro sold as toughened 
-20.8
+A product's dot lights its dot in the other row; select a dot to see its record below, and from there its document.
+Test, kJ/m² n Median Middle half Range
+Notched Charpy impact 11 6.7 5.42–12.5 3.97⁠–⁠20.3
+Also drawn, not in the median: 20 with no stated orientation (1.8⁠–⁠29.8), 7 special formulations (1.8⁠–⁠7) and 7 sold as toughened (5.76⁠–⁠72.3).
+Notched Izod impact 6 5 4.63–5.75 4.5⁠–⁠6.5
+Also drawn, not in the median: 10 with no stated orientation (2⁠–⁠5), 5 special formulations (5.5⁠–⁠18.1) and 1 sold as toughened (10).
+n counts the products compared: those whose sheet states the bar's orientation (XY), except special formulations and products sold as toughened. The median, middle half and range are of these alone. "Sold as toughened" is the maker's own statement about its product, quoted on its value's line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.
+Both tests: 1 product (colorFabb Copper filled PLA).

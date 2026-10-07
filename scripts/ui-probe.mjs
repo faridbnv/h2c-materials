@@ -311,6 +311,12 @@ try {
     for (const d of s.querySelectorAll('details')) d.open = true;
     return s.innerText.replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n'); })()`);
   results['13-drawer-pla-impact'] = await impactText();
+  // A dot selected stays on Mechanical and opens the record it stands for in the list below (D133), not Sources.
+  await evaluate(`(() => { const d = document.querySelector('.drawer-body .imp-dot[data-row].claimed') ?? document.querySelector('.drawer-body .imp-dot[data-row]'); d.click(); return true; })()`);
+  await sleep(300);
+  results['13-drawer-pla-impact-dot'] = await evaluate(`(() => { const t = document.querySelector('.drawer-body .evidence-row.target');
+    return ['Tab: ' + document.querySelector('.drawer [data-tab][aria-selected="true"]')?.dataset.tab, 'List open: ' + !!t?.closest('details')?.open,
+      ...(t?.innerText ?? 'NO RECORD MARKED').replace(/[ \\t]+/g, ' ').split('\\n').filter(Boolean).slice(0, 3)].join('\\n'); })()`);
   for (const [id, name] of [['M027', 'abs'], ['M081', 'hips']]) {
     await click(`#lens tr[data-material="${id}"]`);
     await until(`!!document.querySelector('.drawer [data-tab="Mechanical"]')`, `the ${name} drawer`);

@@ -26,7 +26,7 @@ export const CODE_PROPERTY_NAMES = {
   'Tensile yield strength': 'estimate/ (strength endpoint), physical_relations.csv (MEAS-PHYSICS-ORDER)',
   'Flexural strength': 'estimate/ (strength conversion), physical_relations.csv (MEAS-PHYSICS-ORDER)',
   'Hardness': 'estimate/observations.js (an elastomer\'s stiffness from its Shore hardness)',
-  'Charpy strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
+  'Charpy strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY), app/js/ui/detail.js (named "Charpy impact strength" beside Izod impact strength, D133)',
   'Izod impact strength': 'lint-rules.js (MEAS-PHYSICS-Z-ABOVE-XY)',
   'Impact strength': 'compile.js (a reading in impact_test_guesses.csv is of this property alone, IMPACT-GUESS-PROPERTY), app/js/ui/detail.js (its heading says the test is unclear, D133)',
   'Elongation at break': 'estimate/ (elongation kind), measurement-rules.js (endpoint locator rule), physical_relations.csv (MEAS-PHYSICS-ORDER)',

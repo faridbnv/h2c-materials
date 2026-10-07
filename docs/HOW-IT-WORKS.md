@@ -287,9 +287,9 @@ endpoints it compared. Another sheet's number is another test and is not compare
 **Impact strength is two tests, drawn side by side** (D133). Notched Charpy (ISO 179) and notched Izod (ISO 180) strike
 different bars held in different ways; both report energy per area of the notched section in kJ/m², but a Charpy value
 is not an Izod value, and Izod in J/m (ASTM D256) is energy per metre of notch, which needs a bar thickness no sheet
-gives. The tool never converts one into another. In a material's **Mechanical** tab the two tests are drawn one above
-the other on one scale, a dot per product, with a table of products listing both and every other impact record each
-product has. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
+gives. The tool never converts one into another. In a material's **Mechanical** tab, under one heading, the two tests are
+drawn one above the other on one scale, a dot per product, above every impact result the material's products publish,
+listed under its test with its document; selecting a dot shows the result it stands for. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
 kJ/m², but its middle half is 6.6 to 21, and the high end is products sold as toughened. Where a maker's own words
 present a product as toughened or impact-modified, it is marked **sold as toughened**, with the quote, and the impact
 medians set those products apart, as they set special formulations apart: PLA's notched Charpy is the median of its 11

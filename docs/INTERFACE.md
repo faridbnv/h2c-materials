@@ -496,17 +496,17 @@ in the place of the first impact property, instead of a comparison beside three 
   how Charpy and Izod differ and that nothing is converted;
 - a small table, a test a row: how many products are compared, their median, middle half and range, and on a line
   under it the products drawn but left out of the median, by why (no stated orientation, special formulation, sold as
-  toughened);
-- **Product by product**: a row per product with its notched Charpy and notched Izod side by side, the products that
-  publish both first. Each value carries its dot's mark, and under it only what changed the bar (annealed, conditioned;
-  from the build's typed fields, "stated once on its page" where a page heading supplied it) and a sibling's shared sheet.
-  The product's other impact results (unnotched, notch not stated, Z, moulded, J/m, struck cold, test unclear) are a line
-  under its row; products with only such results are a closed list after;
+  toughened), then the products that publish both tests, by name;
 - **Every result, with its document**: the two tests' comparison notes, said once, then the property blocks (Charpy
-  strength, Izod impact strength, and Impact strength, test unclear, where the material has them), closed, each with
-  every value, its product and its source.
+  impact strength, Izod impact strength, and Impact strength, test unclear, where the material has them), closed, each
+  with every value, its product and its source. The record a dot stands for carries a line **On the graph** with the
+  dot's mark: in the median, or not and why, what changed its bar (annealed, conditioned; from the build's typed
+  fields, "stated once on its page" where a page heading supplied it), and a **sold as toughened** mark with the
+  maker's quote. A sibling's record that a twin reads (D89) carries a line for each product it stands for.
 
-A dot or a value opens its measurement in Sources; hovering a product's dot on one row lights its dot on the other.
+There is no product-by-product table: it repeated the lists (most of a material's impact records were in both), and
+few products publish both tests (23 of 386). Hovering a product's dot on one row lights its dot on the other; selecting
+a dot opens its list on this tab, marks its record and brings it into view, and the record's document opens Sources.
 Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv; a property they read is
 folded into the heading. A material where neither headline applies keeps its impact properties as headings of their own.
 
@@ -516,7 +516,8 @@ both (a Charpy label beside an Izod standard). Its note says so, its values are 
 words (impact_test_guesses.csv). A result whose own label or standard names the test is under that test's property.
 
 **Sold as toughened (D133).** A product whose maker's own statement presents it as toughened or impact-modified
-(product_claims.csv) carries a **sold as toughened** mark beside its name, in its product card and in the impact table;
+(product_claims.csv) carries a **sold as toughened** mark beside its name in its product card, and on the impact record
+its dot stands for;
 the mark's explanation is the maker's quote, its document and page, and "the maker's statement, not a test result". Its
 dots are coloured. The impact heading's table, and the Products tab's spread table, say how many of the comparable
 values are from such products and their range. On the two impact headlines they are set apart (m390): the
