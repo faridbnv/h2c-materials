@@ -1482,12 +1482,36 @@ export function readSheet(sheet, registry, { layout = LAYOUT_DEFAULT } = {}) {
   return { values, settings, skipped };
 }
 
+const SPECIMEN_BLOCK = /test specimens? (print )?settings|printed specimen conditions|specimen (preparation|conditions)\b|test specimens?( were)? (3d )?printed/i;
+/**
+ * The infill a sheet's test-bar block states, where it is below 100 %: { percent, line }, or null. A bar filled that far
+ * measures a part as hollow, not the material as a solid part (D130), so its values are "Printed specimen at partial
+ * infill" and decide nothing. The infill is read only within six lines after the block's heading.
+ */
+export function specimenInfill(text) {
+  for (const p of text.pages ?? []) {
+    const lines = (p.lines ?? []).map((l) => String(l.text ?? ''));
+    for (let i = 0; i < lines.length; i++) {
+      if (!SPECIMEN_BLOCK.test(lines[i])) continue;
+      for (const l of lines.slice(i, i + 7)) {
+        const m = /\binfill(?:\s+density)?\s*[:=]?\s*(\d{1,3})\s*%/i.exec(l);
+        if (m && Number(m[1]) < 100) return { percent: Number(m[1]), line: l.trim() };
+      }
+    }
+  }
+  return null;
+}
+
 function readSheetOnce(text, registry) {
   const values = [], settings = [], skipped = [];
   // A sheet that prints the conditions its specimens were made under is describing printed bars, and says so once
   // for the whole table: 3DXTECH heads a block "Printed Specimen Conditions" and lists the printer, the nozzle,
   // the layer height and the orientation under it.
   const printedSpecimens = text.pages.some((p) => (p.lines ?? []).some((l) => /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed/i.test(l.text)));
+  // A sheet that prints its test bars' settings and an infill below 100 % in them has bars as hollow as that: 3DJake's
+  // AzureFilm sheets head a block "Test specimens print settings" and print "Infill: 20 %" under it (m366, D130). The
+  // infill must stand in that block (within a few lines of its heading), so a print recommendation's infill is not one.
+  const partialInfill = specimenInfill(text);
   // A sheet that says how its specimens were laid on the plate has stated the direction its values are in:
   // "Specimen Orientation: XY Flat". A headline in a direction cannot cite a row that does not state one.
   const orientation = text.pages.flatMap((p) => p.lines ?? [])
@@ -1870,7 +1894,7 @@ function readSheetOnce(text, registry) {
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
         printedSpecimens, orientation, block, column: line.column ?? null,
         specimen: line.condition === 'moulded' || line.condition === 'printed' ? line.condition : specimenBlock,
-        parameters: line.parameters ?? null,
+        parameters: line.parameters ?? null, partialInfill,
       });
     }
     dropHeld();
@@ -2447,6 +2471,8 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
       // LEHVOSS names its bars by the standard that moulds them: "MPTS ISO 3167 A" is ISO's injection-moulded
       // multipurpose test specimen, and "molded sample" says the same in words.
       : /injection mou?ld|\bmou?lded (?:sample|specimen|bar|test)|\bMPTS\b|\bISO\s?3167\b/i.test(says) ? 'Raw material value'
+      // A bar printed below 100 % infill, where the sheet's test-bar block says so, is not the solid material (D130).
+      : v.partialInfill && /^(Tensile|Elongation|Flexural|Charpy|Izod|Impact|Compression)/.test(v.property) ? 'Printed specimen at partial infill'
       : /\b3d print|printed (specimen|bar|part)/i.test(says) ? 'Printed specimen'
       // The block the row stands in, before anything the sheet says about its specimens as a whole: a sheet that
       // heads one table "3D Printed" and the next "Injection molded" has said which bars each table describes.
@@ -2481,6 +2507,7 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     // property has none), so the column it came from goes into the parameters instead, which is what keeps the
     // two rows apart (MEAS-CONDITIONS-INDISTINCT) without giving a heat deflection a direction it cannot have.
     'Specimen / print parameters': [v.parameters ? asciiPunctuation(v.parameters) : null,
+      v.partialInfill && /^(Tensile|Elongation|Flexural|Charpy|Izod|Impact|Compression)/.test(v.property) ? `Infill: ${v.partialInfill.percent} %` : null,
       v.column && v.direction === 'Not applicable' ? `${v.column} column` : null].filter(Boolean).join(' \u00b7 ') || NP,
     SourceID: sourceId, Locator: `p. ${v.page}: ${String(v.label).replace(/\s+/g, ' ').trim()}`,
     Notes: [v.methodNote, notchNote, ambiguity, v.column && /\//.test(v.column) ? `the sheet heads this column ${v.column}: one value for both orientations` : null].filter(Boolean).join('; ') || NA, 'Parse review': NA,

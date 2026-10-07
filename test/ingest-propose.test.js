@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { composition, propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly, guidanceBeyondLabels } from '../scripts/ingest/propose.mjs';
+import { composition, propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly, guidanceBeyondLabels, specimenInfill } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -1499,4 +1499,23 @@ test('impact rows in the spellings and languages the cached sheets print are rea
   assert.equal(labelFor('Udarność metodą Izoda').Property, 'Izod impact strength');
   // A tensile impact or a multiaxial test is another test, and stays unread rather than becoming a Charpy or Izod value.
   for (const label of ['Tensile Notched Impact', 'Tensile Impact Strength (3.18mm)', 'Multiaxial instrumented impact']) assert.notEqual(labelFor(label)?.Property, 'Charpy strength', label);
+});
+
+test("a test-bar block's infill below 100 % makes its mechanical rows partial-infill bars, and a recommendation's does not (D130)", async () => {
+  const page = (lines) => ({ pages: [{ page: 1, lines: lines.map((t) => ({ text: t })) }] });
+  assert.deepEqual(specimenInfill(page(['Test specimens print settings', '3D printer: Creality Ender 3 Nozzle temperature: 200 °C', 'Infill: 20 %'])), { percent: 20, line: 'Infill: 20 %' });
+  assert.equal(specimenInfill(page(['Printing Recommendations', 'Infill: 20 %'])), null, 'a print recommendation is not the test bars');
+  assert.equal(specimenInfill(page(['Test specimens print settings', 'Infill: 100 %'])), null, 'a solid bar is the material');
+  // 3DJake's AzureFilm PLA sheet, as cached (R-3DJAKE-PLA-TDS; m366 recorded it by hand).
+  const sources = readCsv(join(root, 'data/tables/sources.csv')).records.map((r) => r.values);
+  const sha = sources.find((x) => x.SourceID === 'R-3DJAKE-PLA-TDS')?.SHA256;
+  const { cachedText } = await import('../scripts/lib/pdf-text.mjs');
+  const cached = sha && cachedText(sha);
+  if (!cached) return; // a checkout without the document cache
+  const values = readSheet(cached, registry).values;
+  const tensile = values.find((v) => v.property === 'Tensile strength (endpoint unspecified)');
+  assert.equal(tensile.partialInfill.percent, 20);
+  const row = measurementRow(tensile, { sourceId: 'R-3DJAKE-PLA-TDS', materialId: 'M001', gradeId: 'G001-129' });
+  assert.equal(row['Specimen type'], 'Printed specimen at partial infill');
+  assert.match(row['Specimen / print parameters'], /Infill: 20 %/);
 });
