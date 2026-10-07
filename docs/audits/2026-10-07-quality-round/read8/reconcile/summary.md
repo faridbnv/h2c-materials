@@ -2,7 +2,7 @@
 
 > **Historical record** (2026-10-07): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
 
-178 reading(s) classified, 0 invalid, 9 duplicate(s) dropped, 0 marked none. 50 second-read task(s) outstanding.
+178 reading(s) classified, 0 invalid, 9 duplicate(s) dropped, 0 marked none. 0 second-read task(s) outstanding.
 
 ## By class
 
@@ -24,8 +24,9 @@
 | status | rows |
 |---|---|
 | not-required | 117 |
-| pending | 50 |
-| agreed-text | 10 |
+| agreed | 50 |
+| disagrees | 6 |
+| agreed-text | 4 |
 | agreed-reader | 1 |
 
 ## Machine second read (the importer's sheet reader)
@@ -33,7 +34,7 @@
 | rows | machine agrees | share |
 |---|---|---|
 | new decision-field rows | 1 | 1 of 61 (2 %) |
-| new decision-field rows the page text pairs with their label (agreed-text, no read) | 10 | 10 of 61 |
+| new decision-field rows the page text pairs with their label (agreed-text, no read) | 4 | 4 of 61 |
 | mismatches (agrees with the page reading, not the held row) | 0 | 0 of 0 (n/a) |
 
 Documents with no machine reading (no current text cache): 0 row(s).
@@ -87,4 +88,4 @@ Documents with no machine reading (no current text cache): 0 row(s).
 - invalid.csv: 0
 - duplicates.csv: 9
 - unread-held.csv: 0
-- second-read/tasks.csv: 50
+- second-read/tasks.csv: 0

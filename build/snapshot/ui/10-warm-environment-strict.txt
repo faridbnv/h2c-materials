@@ -1,7 +1,7 @@
 COUNT 38 shown PASS
-STATUS ☑ PASS 38 | ☐ UNKNOWN 84 | ☐ FAIL 30
+STATUS ☑ PASS 38 | ☐ UNKNOWN 85 | ☐ FAIL 29
 38 of the 152 materials meet these requirements
-Warm environment template · 84 more could not be checked, left out under Confirmed only
+Warm environment template · 85 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -43,7 +43,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ABS PASS
-18 of 21 products
+16 of 19 products
  1,050
 1,020–1,100 · 45
 annealed median
@@ -55,8 +55,8 @@ annealed median
  10
 2.7–40 · 16
  passing: 85–105
-all products: 94
-78.9–118 · 24
+all products: 94.5
+78.9–118 · 22
  40
 24.5–70.7 · 9
 ↗ ☆
@@ -103,7 +103,7 @@ all products: 97
 ASA PASS
 13 of 15 products
  1,070
-1,040–1,130 · 34
+1,040–1,130 · 33
  2.2
 0.943–2.45 · 10
  38.6
@@ -131,7 +131,7 @@ all products: 77.5
 70–85 · 2
  64↗ ☆
 ASA-CF PASS
-6 of 6 products
+5 of 5 products
  1,095
 1,020–1,170 · 16
  3.91
@@ -142,7 +142,7 @@ ASA-CF PASS
 1.64–15.5 · 5
  passing: 86–130
 all products: 101
-86–130 · 8
+86–130 · 7
  65
 40–122 · 5
 ↗ ☆
@@ -197,7 +197,7 @@ Nylon / Polyamide
  PASS
 3 of 4 products
  1,070
-1,010–1,230 · 13
+1,010–1,230 · 12
  3.32
 3.3–8 · 4
 annealed median
@@ -441,18 +441,18 @@ annealed median
 41–98 · 2
 ↗ ☆
 PLA PASS
-7 of 84 products
+7 of 85 products
  1,240
-1,170–1,329 · 155
+1,170–1,329 · 154
  2.58
 0.433–4.24 · 51
  45
-26–70.9 · 65
+26–70.9 · 66
  8
 1.2–65 · 61
  passing: 80–135
 all products: 55
-50–135 · 86
+50–135 · 87
  33.7
 18–80 · 26
 ↗ ☆

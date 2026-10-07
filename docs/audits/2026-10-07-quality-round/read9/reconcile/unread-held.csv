@@ -1,0 +1,19 @@
+SourceID,ID,Kind,Grade,What,Locator
+R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,V009394,measurement,G099-08,HDT 216.88 °C,p. 5: HDT @ 66 psi
+R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,V009395,measurement,G099-08,HDT 215.12 °C,p. 5: HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V009342,measurement,G094-09,HDT 117.9 °C,p. 5: HDT @ 66 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V009343,measurement,G094-09,HDT 107.5 °C,p. 5: HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014326,measurement,G094-09,HDT 126.1 °C (259.0 °F),p. 5: HDT @ 66 psi [G094-09]
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014327,measurement,G094-09,HDT 112.0 °C (233.6 °F),p. 5: HDT @ 264 psi [G094-09]
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014328,measurement,G094-09,HDT 125.0 °C (257.1 °F),p. 5: Molded HDT @ 66 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014329,measurement,G094-09,HDT 102.9 °C (217.2 °F),p. 5: Molded HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014330,measurement,G094-09,Glass transition temperature 105.3 °C (221.6 °F),p. 5: Tg
+R-STRATASYS-mds-fdm-pc-abs-0823a,P0921,profile,G094-09,Manufacturer published guidance,p. 3: Build Sheet
+R-STRATASYS-mds-fdm-pc-0426a,V009430,measurement,G035-23,HDT 144.0 °C,p. 6: HDT @ 66 psi
+R-STRATASYS-mds-fdm-pc-0426a,V009431,measurement,G035-23,HDT 140.7 °C,p. 6: HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-0426a,V014316,measurement,G035-23,HDT 141.1 °C (286.0 °F),p. 6: HDT @ 264 psi [G035-23]
+R-STRATASYS-mds-fdm-pc-0426a,V014317,measurement,G035-23,Glass transition temperature 142.5 °C (288.6 °F),p. 6: Tg
+R-STRATASYS-mds-fdm-abs-m30-0826a,V009361,measurement,G027-42,HDT 104.4 °C,p. 7: HDT at 66 psi
+R-STRATASYS-mds-fdm-abs-m30-0826a,V009362,measurement,G027-42,HDT 100.0 °C,p. 7: HDT at 264 psi
+R-STRATASYS-mds-fdm-abs-m30-0826a,V014171,measurement,G027-42,HDT 103.2 °C (218 °F),p. 7: HDT at 66 psi [G027-42]
+R-STRATASYS-mds-fdm-abs-m30-0826a,V014172,measurement,G027-42,Glass transition temperature 105.2 °C (221 °F),p. 7: Tg

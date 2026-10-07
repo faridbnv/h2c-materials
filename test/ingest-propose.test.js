@@ -112,6 +112,9 @@ test('an impact result is named by its method, not by the word above it', () => 
   assert.equal(notchOf('ISO 179/1eA'), 'Notched');
   assert.equal(notchOf('ISO 179-1eU'), 'Unnotched');
   assert.equal(notchOf('ISO 1183'), null);
+  assert.equal(notchOf('ASTM D4812'), 'Unnotched');
+  // A heading naming both Izod methods, over a notched and an unnotched row, leaves the notch to each row's own word.
+  assert.equal(notchOf('Impact Properties: ASTM D256, ASTM D4812'), null);
 });
 
 test('a heading must be the heading, not a line that happens to contain the word', () => {

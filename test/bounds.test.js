@@ -86,15 +86,16 @@ test('the verdict reason says a value is a bound, and never prints its open end'
 });
 
 test('both exports keep the number in its column and say, in a qualifier, that it is a bound', () => {
-  // M160's elongation is the median of seven products, three of which publish "more than": G042-01, G039-18 and G039-70.
+  // M160's elongation is the median of five products, three of which publish "more than": G042-01, G039-18 and G039-70.
   // Reader round (m342), 2026-10-04: three products' values (G039-25, G039-60, G039-70 ">650%") were added from their pages; it was four products, two bounds.
+  // Quality round (m403), 2026-10-07: varioShore and varioShore Prosthetic (G039-25, G039-60) foam, so they are variants and leave the seven.
   const m = db.materials.find((x) => x.id === 'M160');
   const evaluation = { verdict: 'PASS', eligible: true, failed: [], unresolved: [] };
   const lines = toCSV([{ material: m, evaluation }], db.meta).split('\n');
   const header = lines.find((l) => l.startsWith('MaterialID,')).split(',');
   const cell = (line, name) => line.split(',')[header.indexOf(name)];
   const row = lines.at(-1);
-  assert.match(row, /elongationXY: 3 of 7 product values are published bounds/);
+  assert.match(row, /elongationXY: 3 of 5 product values are published bounds/);
   assert.equal(Number(cell(row, exportHeadlines().find((h) => h.key === 'elongationXY').header)), m.headline.elongationXY.value);
 
   const grades = m.gradeIds.map((id) => db.grades.find((g) => g.id === id));

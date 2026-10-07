@@ -179,6 +179,8 @@ test('one product has one grade, and one formulation key names one product of on
   assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }]), []);
   // And the shape the rule exists for is unchanged: two grades that each carry values under one key.
   assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }, { MeasurementID: 'V2', GradeID: 'G1-02' }]), ['GRADE-KEY-PRODUCTS G1-01 | G1-02']);
+  // A twin whose copied rows were retired as duplicates carries no value of its own either (m402).
+  assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }, { MeasurementID: 'V2', GradeID: 'G1-02', 'Data status': 'Retired duplicate record' }]), []);
 
   // Two products whose sheets print one table (GRADE-VALUES-TWIN) are one formulation, and one key says so (R053, m281);
   // without the key the twin rule asks for it.

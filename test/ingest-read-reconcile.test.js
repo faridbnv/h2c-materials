@@ -30,7 +30,7 @@ const doc = documentFrom({
 const tables = {
   properties: [
     { Property: 'Tensile strength (endpoint unspecified)', Units: 'MPa' }, { Property: 'Density', Units: 'kg/m³' },
-    { Property: 'Tensile modulus', Units: 'GPa' }, { Property: 'HDT', Units: '°C' },
+    { Property: 'Tensile modulus', Units: 'GPa' }, { Property: 'HDT', Units: '°C' }, { Property: 'Izod impact strength', Units: 'J/m' },
   ],
   sources: [{ SourceID: 'S-1', SHA256: 'x', 'Applicable grades': 'G001-01' }],
   grades: [{ GradeID: 'G001-01', SourceID: 'S-1', Manufacturer: 'Acme', 'Product name': 'Acme PA-CF' }],
@@ -38,6 +38,7 @@ const tables = {
     { MeasurementID: 'V1', SourceID: 'S-1', GradeID: 'G001-01', Property: 'Tensile strength (endpoint unspecified)', 'Raw value': '38 ± 4 MPa', 'Raw unit': 'MPa', 'Raw numeric': '38', 'Normalized value': '38', 'Normalized unit': 'MPa', Operator: '=', Direction: 'XY', 'Moisture state': 'dry', 'Post-processing state': 'as-printed', 'Specimen type': 'Printed specimen', Locator: 'p. 1: Tensile Strength (X-Y)' },
     { MeasurementID: 'V2', SourceID: 'S-1', GradeID: 'G001-01', Property: 'Tensile strength (endpoint unspecified)', 'Raw value': '26 ± 2 MPa', 'Raw unit': 'MPa', 'Raw numeric': '26', 'Normalized value': '26', 'Normalized unit': 'MPa', Operator: '=', Direction: 'Z', 'Moisture state': 'not-stated', 'Post-processing state': 'not-stated', 'Specimen type': 'Not published', Locator: 'p. 1: Tensile Strength (Z)' },
     { MeasurementID: 'V3', SourceID: 'S-1', GradeID: 'G001-01', Property: 'Density', 'Raw value': '1.22 g/cm³', 'Raw unit': 'g/cm³', 'Raw numeric': '1.22', 'Normalized value': '1220', 'Normalized unit': 'kg/m³', Operator: '=', Direction: 'Not applicable', 'Moisture state': 'dry', 'Post-processing state': 'not-stated', 'Specimen type': 'Not published', Locator: 'p. 1: Density' },
+    { MeasurementID: 'V5', SourceID: 'S-1', GradeID: 'G001-01', Property: 'Izod impact strength', 'Raw value': '241 (40) J/m', 'Raw unit': 'J/m', 'Raw numeric': '241', 'Normalized value': '241', 'Normalized unit': 'J/m', Operator: '=', Direction: 'XZ', Notch: 'Notched', 'Moisture state': 'not-stated', 'Post-processing state': 'not-stated', 'Specimen type': 'Printed specimen', Locator: 'p. 1: Notched (XZ)' },
     { MeasurementID: 'V4', SourceID: 'S-1', GradeID: 'G001-01', Property: 'Tensile modulus', 'Raw value': '999 MPa', 'Raw unit': 'MPa', 'Raw numeric': '999', 'Normalized value': '0.999', 'Normalized unit': 'GPa', Operator: '=', Direction: 'XY', 'Moisture state': 'dry', 'Post-processing state': 'not-stated', 'Specimen type': 'Not published', Locator: 'p. 1: Modulus' },
   ],
   profiles: [{
@@ -103,6 +104,13 @@ test('with no held row under that property the reading is new, and a new decisio
 test('a page value in the other state is not the held row\'s: dry against conditioned is a new row, not a mismatch', async () => {
   const r = await only(value({ field: 'Tensile strength (endpoint unspecified)', number_lo: '30', direction: 'XY', moisture: 'Conditioned 50 % RH', quote: 'Tensile Strength (X-Y) ISO 527 38 ± 4 MPa' }));
   assert.equal(r.Class, 'new');
+});
+
+test('an unnotched cell beside a held notched row of the same orientation is a new row, not a mismatch', async () => {
+  const r = await only(value({ field: 'Izod impact strength', number_lo: '655', unit: 'J/m', direction: 'XZ', label: 'Unnotched', test_conditions: 'notch=unnotched', quote: 'x' }));
+  assert.equal(r.Class, 'new');
+  const notched = await only(value({ field: 'Izod impact strength', number_lo: '250', unit: 'J/m', direction: 'XZ', label: 'Notched', quote: 'x' }));
+  assert.equal(notched.Class, 'mismatch'); assert.equal(notched.HeldIDs, 'V5');
 });
 
 test('only a broken row is invalid; a unit the property is not recorded in, an unknown property or a power of ten goes to the record tier', async () => {
@@ -212,7 +220,7 @@ test('a new decision row whose quote holds label and number in one piece the pag
 
 test('held rows no reading named are reported', async () => {
   const result = await run([value({ field: 'Density', number_lo: '1.22', unit: 'g/cm³', quote: 'Density ISO 1183 1,22 g/cm³' })]);
-  assert.deepEqual(result.unreadHeld.filter((u) => u.Kind === 'measurement').map((u) => u.ID), ['V1', 'V2', 'V4']);
+  assert.deepEqual(result.unreadHeld.filter((u) => u.Kind === 'measurement').map((u) => u.ID), ['V1', 'V2', 'V5', 'V4']);
   assert.deepEqual(result.unreadHeld.filter((u) => u.Kind === 'profile').map((u) => u.ID), ['P1']);
 });
 

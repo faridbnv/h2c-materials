@@ -12,16 +12,16 @@ rather than repeat a number.
 | Products | 1,102 | active procurement grades |
 | … with a comparable value for at least one property | 1,053 | D84 |
 | … with a print profile of their own | 1,066 |  |
-| … reading values from a twin's sheet | 70 | the same table, recorded once (D89) |
+| … reading values from a twin's sheet | 73 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 471 | where their own sheet is silent (D88); 33 guide rows |
-| … with a maker's know-how statement | 1,015 | lane 3 |
-| Measurements | 14,455 | active rows |
-| … with a usable number | 14,265 |  |
-| Product values | 5,108 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 705 | headline cells of in-scope materials |
+| … with a maker's know-how statement | 1,016 | lane 3 |
+| Measurements | 14,611 | active rows |
+| … with a usable number | 14,421 |  |
+| Product values | 5,115 | one per product and headline, chosen by rule (D83) |
+| Material values from products | 704 | headline cells of in-scope materials |
 | Material values estimated | 139 | where no product publishes (D43) |
 | Print profiles | 1,831 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
-| Know-how statements | 4,872 | the makers' words, shown in the panel only (D85) |
+| Know-how statements | 4,879 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |
 | Sources | 2,003 |  |

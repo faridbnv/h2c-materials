@@ -14,10 +14,10 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1015 | 46 | 1 | 40 | 1102 |
+| Products | 1016 | 46 | 1 | 39 | 1102 |
 | Materials | 135 | 10 | 0 | 7 | 152 |
 
-4872 statements; 1329 sources read for know-how; 216 makers' sites searched.
+4879 statements; 1329 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".

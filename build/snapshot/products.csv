@@ -1659,7 +1659,10 @@ G020-43,M020,PETG Matte,density,1230,comparable,,V007964,,,,
 G020-43,M020,PETG Matte,elongationXY,19,as-published,unstated-direction,V007967,,,,
 G020-43,M020,PETG Matte,hdt045,68,as-published,load-not-stated,V007971,,,,
 G020-44,M020,PETG RAPIDO,density,1290,comparable,,V008090,,,,
+G020-44,M020,PETG RAPIDO,tensileModulusXY,1.7,comparable,,V014999,,,,
+G020-44,M020,PETG RAPIDO,tensileStrengthXY,39,comparable,,V014993,,,,
 G020-44,M020,PETG RAPIDO,tensileStrengthZ,35,comparable,,V013771,,,,
+G020-44,M020,PETG RAPIDO,elongationXY,7,comparable,,V014996,,,,
 G020-44,M020,PETG RAPIDO,hdt045,70,comparable,,V008088,,,,
 G020-44,M020,PETG RAPIDO,glassTransition,66,comparable,,V013801,,,,
 G020-44,M020,PETG RAPIDO,priceCADkg,23.99,comparable,,CA0131,,,,
@@ -1961,7 +1964,10 @@ G025-03,M025,PETG GF UV,tensileModulusXY,2.81,comparable,,V011371,,,,
 G025-03,M025,PETG GF UV,tensileStrengthXY,42,comparable,,V011447,,,,
 G025-03,M025,PETG GF UV,glassTransition,80,comparable,,V011790,,,,
 G025-04,M025,PETG GF,density,1250,comparable,,V008046,,,,
+G025-04,M025,PETG GF,tensileModulusXY,2.2,comparable,,V015008,,,,
+G025-04,M025,PETG GF,tensileStrengthXY,45,comparable,,V015002,,,,
 G025-04,M025,PETG GF,tensileStrengthZ,28,comparable,,V013770,,,,
+G025-04,M025,PETG GF,elongationXY,4,comparable,,V015005,,,,
 G025-04,M025,PETG GF,hdt045,76,comparable,,V008044,,,,
 G025-04,M025,PETG GF,glassTransition,66,comparable,,V013799,,,,
 G025-04,M025,PETG GF,priceCADkg,36.99,comparable,,CA0129,,,,
@@ -3049,12 +3055,12 @@ G039-23,M162,TPU 64D,elongationXY,540,comparable,,V005473,,,,
 G039-24,M162,Thermoplastic polyurethane (TPU),density,1170,comparable,,V005649,,,,
 G039-24,M162,Thermoplastic polyurethane (TPU),tensileStrengthXY,38,as-published,unstated-direction,V005645,,,,
 G039-24,M162,Thermoplastic polyurethane (TPU),elongationXY,470,as-published,unstated-direction,V005647,,,,
-G039-25,M160,varioShore TPU,density,1220,comparable,,V005818,,,,
-G039-25,M160,varioShore TPU,tensileModulusXY,0.05,comparable,,V012726,,,,
-G039-25,M160,varioShore TPU,tensileStrengthXY,24,comparable,,V012728,,,,
-G039-25,M160,varioShore TPU,elongationXY,465,comparable,,V012730,,,,
-G039-25,M160,varioShore TPU,charpyNotched,40,comparable,,V005776,,,,
-G039-25,M160,varioShore TPU,glassTransition,55,comparable,,V006500,,,,
+G039-25,M160,varioShore TPU,density,1220,comparable,,V005818,,,lightweight additive,
+G039-25,M160,varioShore TPU,tensileModulusXY,0.05,comparable,,V012726,,,lightweight additive,
+G039-25,M160,varioShore TPU,tensileStrengthXY,24,comparable,,V012728,,,lightweight additive,
+G039-25,M160,varioShore TPU,elongationXY,465,comparable,,V012730,,,lightweight additive,
+G039-25,M160,varioShore TPU,charpyNotched,40,comparable,,V005776,,,lightweight additive,
+G039-25,M160,varioShore TPU,glassTransition,55,comparable,,V006500,,,lightweight additive,
 G039-26,M159,TPU85A,tensileModulusXY,0.025,comparable,,V005837,,,,
 G039-26,M159,TPU85A,tensileStrengthXY,30,comparable,,V005838,,,,
 G039-26,M159,TPU85A,elongationXY,560,comparable,,V005839,,,,
@@ -3143,20 +3149,20 @@ G039-50,M161,TPU95A-HF,elongationXY,471,comparable,,V008112,,,,
 G039-52,M161,Build Series TPU,density,1120,comparable,,V013404,,,,
 G039-52,M161,Build Series TPU,tensileStrengthXY,52,as-published,unstated-direction,V008737,,,,
 G039-52,M161,Build Series TPU,elongationXY,500,as-published,unstated-direction,V008738,,,,
-G039-53,M161,TPU 95A,density,1210,comparable,,V008854,,,,
-G039-53,M161,TPU 95A,tensileStrengthXY,32,as-published,unstated-direction,V008856,,,,
-G039-53,M161,TPU 95A,elongationXY,350,as-published,unstated-direction,V008857,,,,
-G039-54,M159,TPU 87A,density,1210,comparable,,V008889,,,,
-G039-54,M159,TPU 87A,tensileStrengthXY,29.5,as-published,unstated-direction,V008891,,,,
-G039-54,M159,TPU 87A,elongationXY,350,as-published,unstated-direction,V008892,,,,
+G039-53,M161,TPU 95A,density,1210,comparable,,V002763,,,,twin G039-05
+G039-53,M161,TPU 95A,tensileStrengthXY,32,as-published,unstated-direction,V002764,,,,twin G039-05
+G039-53,M161,TPU 95A,elongationXY,350,as-published,unstated-direction,V002765,,,,twin G039-05
+G039-54,M159,TPU 87A,density,1210,comparable,,V002820,,,,twin G039-06
+G039-54,M159,TPU 87A,tensileStrengthXY,29.5,as-published,unstated-direction,V002821,,,,twin G039-06
+G039-54,M159,TPU 87A,elongationXY,350,as-published,unstated-direction,V002822,,,,twin G039-06
 G039-55,M161,TPU,density,1230,comparable,,V008898,,,,
 G039-55,M161,TPU,tensileModulusXY,0.0502,comparable,,V012569,,,,
 G039-55,M161,TPU,tensileStrengthXY,34.4,comparable,,V012567,,,,
 G039-55,M161,TPU,tensileStrengthZ,18.5,comparable,,V012568,,,,
 G039-55,M161,TPU,elongationXY,697,comparable,,V012570,,,,
-G039-56,M159,TPU 82A,density,1210,comparable,,V009002,,,,
-G039-56,M159,TPU 82A,tensileStrengthXY,28,as-published,unstated-direction,V009004,,,,
-G039-56,M159,TPU 82A,elongationXY,350,as-published,unstated-direction,V009005,,,,
+G039-56,M159,TPU 82A,density,1210,comparable,,V003069,,,,twin G039-09
+G039-56,M159,TPU 82A,tensileStrengthXY,28,as-published,unstated-direction,V003070,,,,twin G039-09
+G039-56,M159,TPU 82A,elongationXY,350,as-published,unstated-direction,V003071,,,,twin G039-09
 G039-57,M161,TPU,density,1140,comparable,,V009102,,,,
 G039-57,M161,TPU,tensileModulusXY,0.02275,as-published,unstated-direction,V009099,,,,
 G039-57,M161,TPU,tensileStrengthXY,17.2,as-published,unstated-direction,V009098,,,,
@@ -3165,12 +3171,12 @@ G039-58,M161,TPU HS,density,1210,comparable,,V007034,,,,twin G039-37
 G039-59,M161,TPU 95A-Z,tensileStrengthXY,34,comparable,,V012795,,,,
 G039-59,M161,TPU 95A-Z,tensileStrengthZ,7,comparable,,V012796,,,,
 G039-59,M161,TPU 95A-Z,elongationXY,639,comparable,,V012797,,,,
-G039-60,M160,varioShore Prosthetic TPU,density,1220,comparable,,V005818,,,,twin G039-25
-G039-60,M160,varioShore Prosthetic TPU,tensileModulusXY,0.05,comparable,,V012726,,,,twin G039-25
-G039-60,M160,varioShore Prosthetic TPU,tensileStrengthXY,24,comparable,,V012728,,,,twin G039-25
-G039-60,M160,varioShore Prosthetic TPU,elongationXY,465,comparable,,V012730,,,,twin G039-25
-G039-60,M160,varioShore Prosthetic TPU,charpyNotched,40,comparable,,V005776,,,,twin G039-25
-G039-60,M160,varioShore Prosthetic TPU,glassTransition,55,comparable,,V006500,,,,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,density,1220,comparable,,V005818,,,lightweight additive,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,tensileModulusXY,0.05,comparable,,V012726,,,lightweight additive,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,tensileStrengthXY,24,comparable,,V012728,,,lightweight additive,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,elongationXY,465,comparable,,V012730,,,lightweight additive,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,charpyNotched,40,comparable,,V005776,,,lightweight additive,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,glassTransition,55,comparable,,V006500,,,lightweight additive,twin G039-25
 G039-61,M161,Standard TPU,density,1220,comparable,,V004971,,,,twin G039-21
 G039-61,M161,Standard TPU,tensileModulusXY,0.027,comparable,,V004974,,,,twin G039-21
 G039-61,M161,Standard TPU,tensileStrengthXY,27.3,comparable,,V004973,,,,twin G039-21
@@ -3405,6 +3411,7 @@ G050-09,M050,Fishy Filaments’ 0rCA,density,1180,comparable,,V006069,,,,
 G050-09,M050,Fishy Filaments’ 0rCA,tensileModulusXY,3.6,as-published,unstated-direction,V006062,,,,
 G050-09,M050,Fishy Filaments’ 0rCA,tensileStrengthXY,72,as-published,unstated-direction,V006060,,,,
 G050-09,M050,Fishy Filaments’ 0rCA,elongationXY,16,as-published,unstated-direction,V006061,,,,
+G050-09,M050,Fishy Filaments’ 0rCA,charpyNotched,4,as-published,unstated-direction,V014865,,,,
 G050-09,M050,Fishy Filaments’ 0rCA,glassTransition,52,comparable,,V006067,,,,
 G050-10,M050,CarbonX Carbon Fiber Nylon (Gen3),density,1170,comparable,,V006446,,,,
 G050-10,M050,CarbonX Carbon Fiber Nylon (Gen3),tensileModulusXY,3.8,comparable,,V006448,,,,

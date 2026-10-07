@@ -276,7 +276,8 @@ export function lintData(tables, schemas) {
   // — a caller checking grades alone — nothing is known about that, and every grade counts, which is what the
   // rule did before it could ask.
   const measurementRows = tables.measurements?.rows ?? [];
-  const measured = new Set(measurementRows.map((m) => m.GradeID).filter(Boolean));
+  // A row retired as a duplicate record is the copy of a value another row holds: it is not a value of its grade's own.
+  const measured = new Set(measurementRows.filter((m) => m['Data status'] !== 'Retired duplicate record').map((m) => m.GradeID).filter(Boolean));
   const knowsValues = measurementRows.length > 0;
   const byFormulation = new Map();
   for (const g of activeGrades) {

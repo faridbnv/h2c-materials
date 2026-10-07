@@ -17,7 +17,7 @@ ABS
 ASA
 PC
 Print summary
-Each track runs from the lowest to the highest of all 152 candidate materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy)) use a log scale. An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end. A * is a published value that is not comparable, drawn as a tick; select it for why.
+Each track runs from the lowest to the highest of all 152 candidate materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy) and notched charpy impact) use a log scale. An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end. A * is a published value that is not comparable, drawn as a tick; select it for why.
 Density kg/m³
 Density at most 1500 kg/m³
 ABS
@@ -42,9 +42,9 @@ ABS-AF
 ABS-CF
 4.35
 2.7–5.21 · 4
-0.00152
+0.00156
 log scale
-21.8
+20.8
 all 152 candidates
 Tensile strength (XY) MPa
 ABS
@@ -56,7 +56,7 @@ ABS-CF
 43.3
 27.3–48 · 5
 7
-288
+287
 all 152 candidates
 Tensile strength (Z) MPa
 ABS
@@ -75,11 +75,11 @@ ABS
 10
 2.7–40 · 16
 ABS-AF
-~2–18†
+~2–17†
 ABS-CF
 1.9
 1.48–3.08 · 4
-0.619
+0.603
 log scale
 1,050
 all 152 candidates
@@ -92,7 +92,8 @@ ABS-AF
 ABS-CF
 16.1*
 0.55
-40
+log scale
+78
 all 152 candidates
 Notched Izod impact kJ/m²
 ABS
@@ -108,15 +109,15 @@ all 152 candidates
 HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
 ABS
-94
-78.9–118 · 24
+94.5
+78.9–118 · 22
 ABS-AF
 88
 88 · 2
 ABS-CF
 90.5
 76–95 · 6
-42.2
+42.9
 300
 all 152 candidates
 Glass transition (Tg) °C
@@ -152,7 +153,7 @@ ABS-AF within within within 1 of 3 products need one optional
 ABS-CF within within partly within 9 of 11 products need one published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
-ABS 10 of 10 — 55 767
+ABS 10 of 10 — 55 789
 ABS-AF 6 of 10 1† 3 34
 ABS-CF 8 of 10 — 11 130
 A † span is an estimate, not a measurement: the likely range (80%), the plausible range behind it and a tick at its centre. It never passes a requirement; select it for what it rests on.

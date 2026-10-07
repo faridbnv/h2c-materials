@@ -2044,7 +2044,7 @@ export function guidanceBeyondLabels(text, settings) {
 // disagree, the property is the generic one and the row says why.
 const IZOD = /ISO\s?180|ASTM\s?D\s?256|GB\/T\s?1843/i;
 const CHARPY = /ISO\s?179|GB\/T\s?1043/i;
-const NOTCHED_BY_METHOD = [[/ISO\s?179[-\/\s]?1eA|ISO\s?180[-\/\s]?1?A\b|ASTM\s?D\s?256/i, 'Notched'], [/ISO\s?179[-\/\s]?1eU|ISO\s?180[-\/\s]?1?U\b/i, 'Unnotched']];
+const NOTCHED_BY_METHOD = [[/ISO\s?179[-\/\s]?1eA|ISO\s?180[-\/\s]?1?A\b|ASTM\s?D\s?256/i, 'Notched'], [/ISO\s?179[-\/\s]?1eU|ISO\s?180[-\/\s]?1?U\b|ASTM\s?D\s?4812/i, 'Unnotched']];
 
 /**
  * The property a generic label names under a family heading. "Strain at Break" under "Flexural Properties" is the
@@ -2074,8 +2074,14 @@ export function impactMethod(property, label, standardText) {
   return { property: byMethod, note: null };
 }
 
-/** The notch a method states, for a row whose label does not say. */
-export const notchOf = (standardText) => NOTCHED_BY_METHOD.find(([re]) => re.test(standardText))?.[1] ?? null;
+/**
+ * The notch a method states, for a row whose label does not say. A text naming a notched and an unnotched method
+ * ("Impact Properties: ASTM D256, ASTM D4812" over both rows of a Stratasys table) states neither.
+ */
+export const notchOf = (standardText) => {
+  const said = new Set(NOTCHED_BY_METHOD.filter(([re]) => re.test(standardText)).map(([, notch]) => notch));
+  return said.size === 1 ? [...said][0] : null;
+};
 
 /** What a sheet says its product is made of, where it says a fraction: "15% carbon fibers", "30 % glass fibre". */
 // What a sheet says is in the product. The load may come before its fraction ("Aramid fibers reinforced (10%)")

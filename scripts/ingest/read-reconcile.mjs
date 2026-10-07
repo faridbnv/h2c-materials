@@ -113,11 +113,20 @@ const treatmentOf = (t) => {
   return null;
 };
 
+/** The notch a reading states: its `notch=` condition, else its label's word ("Unnotched", "Notched"); null when neither says. */
+const notchOfReading = (row) => {
+  const w = /\bnotch\s*=\s*(un-?notched|notched)/i.exec(row.test_conditions ?? '')?.[1] ?? /\b(un-?notched|notched)\b/i.exec(row.label ?? '')?.[1];
+  return w ? (/^un/i.test(w) ? 'Unnotched' : 'Notched') : null;
+};
+
 /** Whether the conditions a reader gave could be the conditions of this held row: an unstated side agrees with anything. */
 export function conditionsCompatible(row, m) {
   const why = [];
   const dr = canonDirection(row.direction), dm = canonDirection(m.Direction);
   if (dr && dm && dr !== dm) why.push('direction');
+  // A notched and an unnotched bar of one orientation are two rows of a table (Stratasys prints both under one heading).
+  const nr = notchOfReading(row), nm = /^(Notched|Unnotched)$/.test(m.Notch ?? '') ? m.Notch : null;
+  if (nr && nm && nr !== nm) why.push('notch');
   const mr = moistureOf(row.moisture), mm = m['Moisture state'] && m['Moisture state'] !== 'not-stated' ? m['Moisture state'] : null;
   if (mr && mm && mr !== mm) why.push('moisture');
   const tr = treatmentOf(row.post_processing), tm = m['Post-processing state'] && m['Post-processing state'] !== 'not-stated' ? m['Post-processing state'] : null;

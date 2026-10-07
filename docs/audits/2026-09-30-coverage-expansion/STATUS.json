@@ -1,5 +1,5 @@
 {
-  "dataRelease": "ff494955e842",
+  "dataRelease": "365d9a012700",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -58,21 +58,21 @@
     "h2cRelevant": 135,
     "familyEntries": 23,
     "retiredDuplicates": {
-      "measurements": 386,
+      "measurements": 401,
       "evidence": 21,
       "profiles": 80
     },
     "excluded": 17,
     "grades": 1177,
-    "measurements": 14455,
-    "numericMeasurements": 14265,
+    "measurements": 14611,
+    "numericMeasurements": 14421,
     "quarantined": 33,
     "profiles": 1831,
     "evidence": 868,
     "prices": 357,
     "sources": 2003,
     "coverage": 951,
-    "knowHow": 4872,
+    "knowHow": 4879,
     "polymerEnvironment": 353,
     "polymerEvidence": 314,
     "coverageDerived": 1137
@@ -94,8 +94,8 @@
     },
     "evidence": {
       "baseline": 5306,
-      "current": 5761,
-      "added": 455,
+      "current": 5768,
+      "added": 462,
       "edited_existing": 262,
       "removed": 0
     },
@@ -117,7 +117,7 @@
       "baseline": 1163,
       "current": 1177,
       "added": 14,
-      "edited_existing": 139,
+      "edited_existing": 144,
       "removed": 0
     },
     "headline_definitions": {
@@ -129,8 +129,8 @@
     },
     "impact_test_guesses": {
       "baseline": 0,
-      "current": 55,
-      "added": 55,
+      "current": 58,
+      "added": 58,
       "edited_existing": 0,
       "removed": 0
     },
@@ -157,9 +157,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 14841,
-      "added": 3305,
-      "edited_existing": 2710,
+      "current": 15012,
+      "added": 3476,
+      "edited_existing": 2719,
       "removed": 0
     },
     "method": {
@@ -199,8 +199,8 @@
     },
     "product_claims": {
       "baseline": 0,
-      "current": 20,
-      "added": 20,
+      "current": 28,
+      "added": 28,
       "edited_existing": 0,
       "removed": 0
     },

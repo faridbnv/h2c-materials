@@ -7,7 +7,7 @@
     },
     "grades": {
       "rows": 1177,
-      "sha256": "be2a6dd45d325f459ada5e6d07a16e6e808e55c80e72d088e751b66409f2980b"
+      "sha256": "c008eb3b09e9e0bed9e4f3246d32f0eb021ab40d7c5019c76b8732299148e618"
     },
     "profiles": {
       "rows": 1911,
@@ -18,24 +18,24 @@
       "sha256": "b6d9309b26fe3e796941568911791c77ad712bf92a60ab7e7bafd661996caf49"
     },
     "measurements": {
-      "rows": 14841,
-      "sha256": "c51ec94a8ba4ef5f51d7cc7b8b245a5128d0a8a4c042f674d701c0725275e764"
+      "rows": 15012,
+      "sha256": "c33de5a3ee5214fb6a10181cdf109b8fa17104f64c6b7700b7251b8b3deb2612"
     },
     "page_context": {
       "rows": 985,
       "sha256": "bdebe85e4af2773099c5caed550a42e45e1f71008e79810d1db2963dfed694ce"
     },
     "impact_test_guesses": {
-      "rows": 55,
-      "sha256": "9dc0de078767e6fdb00f1d4b419c47fa31800d45a146b16f289c0bdde154d30b"
+      "rows": 58,
+      "sha256": "6a2ebf8802f0e6e6453b07108693e71ba1fba1bf3b0d486d74f07aa6bfa247ff"
     },
     "fatigue_tests": {
       "rows": 42,
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5761,
-      "sha256": "b216ee20404393376e9f8b87b48c813c4ce698c48cbafffbe735f534cf5dc03a"
+      "rows": 5768,
+      "sha256": "29f3de219136ad62274b47670a8fbc8c184d8872e45d034d71c2ab4ed573f7e3"
     },
     "know_how_reads": {
       "rows": 1545,
@@ -82,8 +82,8 @@
       "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
     "product_claims": {
-      "rows": 20,
-      "sha256": "f6a3209374108acc276b230e6e14836cf539acf938e5e614ef21facabf9bd711"
+      "rows": 28,
+      "sha256": "b8a9cbd7c888a8f8a509130c21d0e526cdd2e86d6645748c1cab11339d55a648"
     },
     "material_links": {
       "rows": 830,

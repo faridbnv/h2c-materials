@@ -15,8 +15,8 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5761,
-    "added": 455,
+    "current": 5768,
+    "added": 462,
     "edited_existing": 262,
     "removed": 0
   },
@@ -38,7 +38,7 @@
     "baseline": 1163,
     "current": 1177,
     "added": 14,
-    "edited_existing": 139,
+    "edited_existing": 144,
     "removed": 0
   },
   "headline_definitions": {
@@ -50,8 +50,8 @@
   },
   "impact_test_guesses": {
     "baseline": 0,
-    "current": 55,
-    "added": 55,
+    "current": 58,
+    "added": 58,
     "edited_existing": 0,
     "removed": 0
   },
@@ -78,9 +78,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 14841,
-    "added": 3305,
-    "edited_existing": 2710,
+    "current": 15012,
+    "added": 3476,
+    "edited_existing": 2719,
     "removed": 0
   },
   "method": {
@@ -120,8 +120,8 @@
   },
   "product_claims": {
     "baseline": 0,
-    "current": 20,
-    "added": 20,
+    "current": 28,
+    "added": 28,
     "edited_existing": 0,
     "removed": 0
   },

@@ -26,8 +26,8 @@ A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limit
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
 152 materials, 135 within H2C capability
-14489 measurements, each traceable to its source
-148 have a density, 101 a modulus, 100 a price
+14611 measurements, each traceable to its source
+147 have a density, 101 a modulus, 100 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -71,8 +71,8 @@ annealed median
 15.7–45 · 17
  10
 2.7–40 · 16
- 94
-78.9–118 · 24
+ 94.5
+78.9–118 · 22
  40
 24.5–70.7 · 9
 ↗ ☆
@@ -123,7 +123,7 @@ Alumina sintering filament
 Metal and Ceramic Sintering
  not tested 3,776 — — — n/a — ☆
 ASA not tested 1,070
-1,040–1,130 · 34
+1,040–1,130 · 33
  2.2
 0.943–2.45 · 10
  38.6
@@ -158,7 +158,7 @@ ASA-CF not tested 1,095
  3
 1.64–15.5 · 5
  101
-86–130 · 8
+86–130 · 7
  65
 40–122 · 5
 ↗ ☆
@@ -221,7 +221,7 @@ High-Performance Engineering
  not tested 1,400 11.7* 200* 3.1* 193* — ☆
 nGen
 also called Amphora · Copolyesters
- not tested 1,200 1.7 54 11 71 77.3↗ ☆
+ not tested 1,200* 1.7 54 11 71* 77.3↗ ☆
 nGen FLEX
 Copolyesters
  not tested 1,130 0.15 19.3 320 100* 76.3¤ ☆
@@ -262,7 +262,7 @@ Nylon / Polyamide
  not tested 1,010
 1,000–1,020 · 6
  1.44* 43* > 50* 135
-100–135 · 4
+100–135 · 3
  183
 123–242 · 2
 ¤ ☆
@@ -272,7 +272,7 @@ Nylon / Polyamide
 PA12-CF
 Nylon / Polyamide
  not tested 1,070
-1,010–1,230 · 13
+1,010–1,230 · 12
  3.32
 3.3–8 · 4
 annealed median
@@ -701,13 +701,13 @@ PET Engineering
 30.3–33.2 · 2
  — — ☆
 PETG not tested 1,270
-1,180–1,300 · 61
- 1.67
-0.5–3.5 · 20
- 47
-31.9–68.4 · 25
- 8.5
-4.1–90 · 24
+1,180–1,300 · 59
+ 1.68
+0.5–3.5 · 21
+ 46.5
+31.9–68.4 · 26
+ 8.4
+4.1–90 · 25
  70
 63–78.4 · 43
  26
@@ -741,25 +741,27 @@ PETG-ESD not tested 1,270
 ↗ ☆
 PETG-GF not tested 1,330
 1,250–1,420 · 5
- 2.57
-2.33–2.81 · 2
- 47.8
-42–53.6 · 2
- 1.9 78
+ 2.33
+2.2–2.81 · 3
+ 45
+42–53.6 · 3
+ 2.95
+1.9–4 · 2
+ 78
 76–80 · 2
  37↗ ☆
 PETG-GR not tested 1,290 1.4* 55.2* 5.62* 69* 85.8¤ ☆
 PETG-PTFE not tested 1,320 1.85* 40* > 100* — 86↗ ☆
 PLA not tested 1,240
-1,170–1,329 · 155
+1,170–1,329 · 154
  2.58
 0.433–4.24 · 51
  45
-26–70.9 · 65
+26–70.9 · 66
  8
 1.2–65 · 61
  55
-50–135 · 86
+50–135 · 87
  33.7
 18–80 · 26
 ↗ ☆
@@ -1169,14 +1171,14 @@ Flexible Elastomers
 ↗ ☆
 TPU 90A class
 Flexible Elastomers
- not tested 1,220
-1,120–1,240 · 11
- 0.027
-0.0053–0.05 · 5
- 24
-12.5–30 · 7
- 587
-465–1,000+ · 7
+ not tested 1,210
+1,120–1,240 · 9
+ 0.0053
+0.0053–0.027 · 3
+ 23.7
+12.5–30 · 5
+ > 650
+574–1,000+ · 5
  n/a 75
 54–96 · 2
 ↗ ☆
@@ -1204,9 +1206,7 @@ Flexible Elastomers
  n/a 47.5↗ ☆
 TPU-CF
 Flexible Elastomers
- not tested 1,230
-1,220–1,230 · 3
- 0.035* 61* 380* n/a 189
+ not tested 1,230 0.035* 61* 380* n/a 189
 150–227 · 2
 ¤↗
 out of stock
