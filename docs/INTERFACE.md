@@ -8,7 +8,7 @@ Two readers share one screen: someone who wants a shortlist, and an engineer who
 behind it. Progressive disclosure answers that.
 
 This dataset adds a harder problem. It is sparse, and deliberately honest about being sparse.
-Tensile strength is published for about two in three of the materials, a price was sampled for about one in five, and
+Tensile strength is published for about two in three of the materials, a price was sampled for about one product in five, and
 most process fields for almost none (the filter rail states each count, from the build it ships with). A conventional
 filter interface renders that as a tool that looks broken. **Making absence
 legible and useful, rather than invisible, is the design problem.** Most of what follows is
@@ -39,11 +39,11 @@ bare table and no statement of the query.
 The heading above the pills adds up to the rows under it. It counts against the materials in the database that are
 not family entries or aliases, the same denominator the start panel and the rail use (a family name is never a
 candidate, so none counts; the current numbers are in [build/snapshot/counts.md](../build/snapshot/counts.md)). Under
-**Confirmed only** it reads, for the Indoor prototype template, "15 of the 152 materials in this database meet these
-requirements" and says how many more could not be checked and are left out. Under **Include uncertain** those
-materials are listed, so the heading counts them too ("… and 100 more could not be checked for missing data"), and the
-sentence under it says how many an estimate screened out of the list. "15 meet these requirements" above 23 rows had
-read as a contradiction. Both headings, as the current build words them, are in
+**Confirmed only** it reads, for the Indoor prototype template, "87 of the 152 materials meet these requirements" (2026-10-07; 15
+when this was written) and says how many more could not be checked and are left out ("39 more could not be checked,
+left out under Confirmed only"). Under **Include uncertain** those materials are listed, flagged, so the heading counts
+them too, and the sentence under it says how many an estimate screened out of the list. A count of materials that
+meet the requirements above a longer list of rows had read as a contradiction. Both headings, as the current build words them, are in
 [build/snapshot/ui/10-indoor-prototype-strict.txt](../build/snapshot/ui/10-indoor-prototype-strict.txt) and
 `11-indoor-prototype-explore-estimates.txt` beside it.
 
@@ -250,8 +250,9 @@ record states a verdict; it cannot pass there, and its line says "0 records stat
 
 ## What to do with missing data
 
-The most consequential control, so it sits in the top bar under its own label, "Candidate
-confidence", shown at every width ("Confidence" on a phone), beside the buttons on a wide screen and above them at 1400 px
+The most consequential control, so it sits in the top bar under its own label, "Materials
+with missing data", shown at every width ("Missing data" on a phone; "Candidate confidence" until the trial of
+2026-10-01 read it as a statistical confidence), beside the buttons on a wide screen and above them at 1400 px
 and narrower: below 1100 px it used to be hidden, leaving two unlabelled buttons. The internal policy names remain Strict and Explore; the buttons describe the result
 set in plain language. Those two names, **Confirmed only** and **Include uncertain**, come from one place
 (`POLICY_LABELS` in `app/js/ui/labels.js`) and every sentence about the mode uses them: the Why excluded tab, the
@@ -277,14 +278,14 @@ material's own evidence lies beyond is open and screens nothing. A printed measu
 the headline from below and meets the requirement vetoes a screen; a resin supplier's moulded value is not one of
 those and vetoes nothing. The drawer says, for each estimate, which ends may screen and why. A heat value whose source
 does not state the load is published without its conditions (D84): marked not comparable, it decides nothing unless
-*Also count values published without their test direction or load* is on. (Until m137 it was read as a bracket that
+*Include values with no stated orientation or load* (Data quality) is on. (Until m137 it was read as a bracket that
 could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, screens as an
 estimate that wholly fails a requirement does. A screened material's result is still UNKNOWN and it is counted there;
 the Why excluded tab says how many each requirement screened.
 
-Some canonical names are families or aliases, not materials: a family groups materials (PA, PA-CF, PA-GF, TPE, TPU),
+Some canonical names are families or aliases, not materials: a family groups materials (PA, PA-CF, PA-GF, TPE, TPU, and "TPU, hardness not stated"),
 and an alias names another material's products (CoPA, another name for PA6/66; a Bambu Lab product line such as PLA
-Basic; a Bambu Lab TPU, filed under its hardness class). How many there are is in
+Basic; a Bambu Lab TPU, filed under its hardness class; CPE-LW). How many there are is in
 [build/snapshot/counts.md](../build/snapshot/counts.md). They are never rows. Searching one lists its members, with a
 line saying what it is ("a family in this database, not one material", or "another name for" the material), and its
 members link to their drawers. Its own name opens its entry: what it is, why it has no tabs (its measurements,
@@ -353,7 +354,7 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 
 | Looks like | Is |
 |---|---|
-| `2.45` over `0.95–4.24 · 38` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. Select it for the details and **Open its products** |
+| `2.58` over `0.433–4.24 · 52` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. Select it for the details and **Open its products** |
 | `4.43` | A measured value of the material's one product that publishes it comparably |
 | `PASS` over `1 of 4` | One of the four products that could be judged meets every requirement together. Select it for the untested count |
 | `46*` | A real measurement that no product publishes comparably. Select it for why, and **Open the measurement** |
@@ -526,7 +527,7 @@ Why each result is or is not drawn is read from its typed fields in the order th
 assess); test/impact-compare.test.js checks the two agree on every impact record, and that each counted line adds up.
 
 There is no product-by-product table: it repeated the lists (most of a material's impact records were in both), and
-few products publish both tests (23 of 386). Hovering a product's dot on one row lights its dot on the other; selecting
+few products publish both tests (23 of 386 when it was removed; PLA has one). Hovering a product's dot on one row lights its dot on the other; selecting
 a dot (or the one value a sentence names) opens its list on this tab, marks its record and brings it into view, and
 the record's document opens Sources.
 Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv; a property they read is
@@ -746,7 +747,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   a menu of property names in one fixed order with its unit and Lin/Log, the swap between. Every option is in view, its
   state on its face; only the test pairs and the exports are a second level, under More. One that does not apply is greyed with
   its reason ("Drawn in the Products view", "Needs Include uncertain and Use estimates, at the top of the page"), never
-  removed. Unsettled products follow Candidate confidence (drawn under Include uncertain, as the table lists them) until
+  removed. Unsettled products follow Materials with missing data (drawn under Include uncertain, as the table lists them) until
   their chip is pressed; changing the mode hands them back to it.
 - **One planned effect per control, and the reader's place kept** (D109). Each control changes one thing and leaves the
   rest; a change of axes starts the picture whole. The lens is redrawn on every change and puts back the list's search,
@@ -767,8 +768,9 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   plus where they cross carrying its name, and its products as small shapes. A product the data marks as a variant (a wood or
   metal filler, a foaming or lightweight additive; its Variant column) is drawn as its shape ringed with a dot and kept out of the range, as
   the build keeps it out of the material's spread, since its values describe the product, not the polymer. PLA's box in
-  the scope-only chart is 1230–1250 kg/m³ by 1.5–2.8 GPa with whiskers to 1170–1310 and 0.43–4.2, where the envelope of
-  every product had run 800–1400 kg/m³ (PolyWood and PLA-Lite, both variants). Pressing a box opens the material in the
+  the scope-only chart was 1230–1250 kg/m³ by 1.5–2.8 GPa with whiskers to 1170–1310 and 0.43–4.2 when D108 drew it
+  (about 1222–1240 by 1.9–2.9 GPa on 2026-10-07), where the envelope of every product had run 800–1400 kg/m³ (PolyWood
+  and PLA-Lite, both variants). Pressing a box opens the material in the
   inspector, its range in words and its variants named; a lasso or ⤢ zooms the chart and changes no answer, count
   or rank; *Show all*, on the chart, resets it.
 - **The line** sits above the chart, in Material ranges and Products: M as a number to type, a slider that moves the drawn line and
@@ -908,7 +910,7 @@ laid a 390 px phone out at 533 px with the right side clipped. Colour never the 
   to 1600 px), its buttons are one height, and below 1400 px the mode's label sits above its buttons. Below 600 px
   it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode buttons with Use
   estimates; the title goes, since the browser tab carries it. It had been four rows on a phone.
-- **The view tabs**, below 1100 px, and **the drawer's nine tabs**, below 1100 px, are each one strip that scrolls
+- **The view tabs**, below 1100 px, and **the drawer's eight tabs**, below 1100 px, are each one strip that scrolls
   sideways with the active tab kept in sight, rather than two and three wrapped rows.
 - **The drawer**, below 1100 px, covers the screen and is a modal dialog: `aria-modal`, the page behind it inert, a
   backdrop that closes it, Tab and Shift+Tab cycling inside it, Escape closing it and focus returning to what opened
@@ -973,7 +975,7 @@ material as a bubble (the middle half of its products, whiskers to the extremes)
 it draws each passing product in the state its answer is in, since D108 Material ranges draws the boxes, over the
 passing products, and since D112 Material typicals is one dot per material. Compare draws each material's product range
 behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
-print settings and verdict. **Also count values published without their test direction or load**, under Evidence,
+print settings and verdict. **Include values with no stated orientation or load**, under Data quality,
 lets such values decide (D84); it travels in the link.
 
 Measured on 2026-09-25 in headless Chrome on the owner's laptop: the page renders its first result in about 0.36 s
@@ -1007,8 +1009,8 @@ and the page says which wherever the answer is shown (D88, D89). Its own sheet a
 **A twin's sheet** (D89). Products of one material whose sheets print one table are recorded once. A product reads
 its twin's value for a key number it publishes none of, and its twin's recipe for a part of printing its own profiles
 are silent on (nozzle, bed, chamber, enclosure, hardened nozzle, drying, annealing). Each value or setting read so
-carries, in small type beside it, "same sheet as" and the sibling's maker and product ("same sheet as Spectrum PC 275"
-on FormFutura's Kratos PC): in the Products tab's values and in its **How to print it**. The engine's reason ends with
+carries, in small type beside it, "data sheet shared with" and the sibling's maker and product ("data sheet shared
+with Spectrum PC 275" on FormFutura's Kratos PC): in the Products tab's values and in its **How to print it**. The engine's reason ends with
 the same words, so the results panel and the exports carry them; a point under **One product** has them in its label;
 a material's typical value, selected, says how many of its products are such twins and that each counts as the
 product it is; and **Export their products** names them under Values read from and Recipe read from. A price is never
@@ -1016,8 +1018,8 @@ read from a twin.
 
 **The printer maker's guide** (D88). Where a product's own sheet and its twin's are both silent on a part of its print
 gate (nozzle, bed, chamber, enclosure, hardened nozzle) or on its drying, it reads its material's row of Bambu Lab's
-Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in **How to print it** then carries "per Bambu Lab's Filament
-Guide for PLA, not this maker's sheet" ("not this product's data sheet" on Bambu Lab's own products); the gate's reason
+Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in **How to print it** then carries "from Bambu Lab's Filament
+Guide for PLA", whoever makes the product (D124); the gate's reason
 ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
 the guide under Recipe read from. The guide fills drying (D127), labelled as the guide's, but never annealing. For the eleven types it asks an
 enclosure for, a chamber so read says "an enclosure, which the H2C's heated chamber is" (D90); where the product's own maker asks

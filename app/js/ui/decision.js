@@ -4,7 +4,7 @@
 // Everything here reads one model, buildWorkspace (engine/workspace.js): the marks, the line and its count, the result
 // list, the inspector and the exported data. A mark is one product in the state its answer is in; its coordinates, its
 // index and its rank all come from that state. Context (failed and unresolved products, estimates, references) is a
-// layer of its own, drawn by its chip under Also (unsettled products follow Candidate confidence until theirs is
+// layer of its own, drawn by its chip under Also (unsettled products follow Materials with missing data until theirs is
 // pressed), counted apart and never ranked, counted on a line or put on a front.
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '../engine/indices.js';
@@ -208,7 +208,7 @@ export const TEST_PAIR_VIEWS = [
   ['measured-mixed', 'Test pairs, mixed conditions', 'Every pair of one product\'s measurements; each mismatch named and drawn hollow'],
 ];
 /**
- * Whether a context layer is drawn. Unsettled products follow the page's Candidate confidence until the reader presses
+ * Whether a context layer is drawn. Unsettled products follow the page's Materials with missing data switch until the reader presses
  * their chip (D109): Include uncertain lists them in the table, so the chart draws them too. The state alone decides,
  * so a link reopens as it was left.
  */

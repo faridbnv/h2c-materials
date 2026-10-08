@@ -19,7 +19,7 @@ ones. Use it to get to a short list quickly and honestly; then read the exact gr
 
 ## The path from a data sheet to a number on the screen
 
-Seven stages, each a separate piece of the project, so that a mistake in one is caught before the next. Read the
+Eight stages, each a separate piece of the project, so that a mistake in one is caught before the next. Read the
 diagram top to bottom: beige is the outside world, blue is data you can open in a text editor, green is computation,
 amber is a check that can stop the build, purple is what ships. The dotted lines at the bottom are the checks that run
 against the finished article rather than inside it.
@@ -102,7 +102,7 @@ flowchart TB
         direction LR
         CK1["npm run verify · gate, lint, tests, source-to-page audit,<br/>review snapshot, interface views, 300 rendered scenarios"]
         CK2["build/snapshot · every headline, gate, template result and<br/>screening end, committed, so a change shows its effect in its own diff"]
-        CK3["Nightly · 2,000 random sets of requirements through the<br/>built page, compared with the engine run on its own"]
+        CK3["Weekly · 2,000 random sets of requirements through the<br/>built page, compared with the engine run on its own"]
         CK4["npm run trace · any number back to its measurement,<br/>grade, source and page"]
     end
     HTML -.-> CK1
@@ -266,10 +266,10 @@ compared with the same logic run outside the browser, so the screen cannot drift
 
 ## A material is the spread of its products
 
-A material such as PLA is not one number: its two hundred products differ. Each product's own values are chosen from
+A material such as PLA is not one number: its nearly two hundred products differ. Each product's own values are chosen from
 its own data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as
 printed), and a material's cell shows **the typical value of its products (their median), with their range and how
-many products under it**: `2.45` over `0.95–4.24 · 38` for PLA's stiffness. The range is different products, not the
+many products under it**: `2.58` over `0.433–4.24 · 52` for PLA's stiffness (2026-10-07). The range is different products, not the
 uncertainty of one.
 
 A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
@@ -290,13 +290,13 @@ is not an Izod value, and Izod in J/m (ASTM D256) is energy per metre of notch, 
 gives. The tool never converts one into another. In a material's **Mechanical** tab, under one heading, the two tests are
 drawn one above the other on one scale, a dot per product, above every impact result the material's products publish,
 listed under its test with its document; selecting a dot shows the result it stands for. Where fewer than two
-products have a value of either test, nothing is drawn and a sentence says why. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
-kJ/m², but its middle half is 6.6 to 21, and the high end is products sold as toughened. Where a maker's own words
+products have a value of either test, nothing is drawn and a sentence says why. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 2.16 to 72.3
+kJ/m², and the high end is products sold as toughened. Where a maker's own words
 present a product as toughened or impact-modified, it is marked **sold as toughened**, with the quote, and the impact
-medians set those products apart, as they set special formulations apart: PLA's notched Charpy is the median of its 11
-other products, 6.7 kJ/m² (3.97 to 20.3), and the 7 sold as toughened (5.76 to 72.3) are listed beside it. A product's
-name is never the reason, and the mark is a claim, not a test: Polymaker's ABS Pro is sold as tougher and publishes ABS's
-lowest notched Charpy, and colorFabb's PET HIGH SPEED PRO, sold with "increased toughness", publishes 1.2.
+medians set those products apart, as they set special formulations apart: PLA's notched Charpy is the median of the 14
+products compared, 6 kJ/m² (middle half 3.97 to 7.9, range 2.16 to 20.3, 2026-10-07), and the 7 sold as toughened
+(5.76 to 72.3) are listed beside it. A product's
+name is never the reason, and the mark is a claim, not a test: colorFabb's PET HIGH SPEED PRO, sold with "increased toughness", publishes 1.2.
 
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one
@@ -315,9 +315,9 @@ pass. Every value also says which conditions its sheet left unstated and the scr
 moisture state, treatment) and the method it names: "comparable" is a screening policy, not a laboratory equivalence.
 
 Values whose source does not state the test direction or load are counted apart: they often read like moulded bars
-(of PLA's products, 3 of the 38 that state an XY stiffness reach 3 GPa; 27 of the 41 that state no direction claim 3
-GPa or more). They are shown and not compared, unless you tick **Also count values published without their test
-direction or load** in the Evidence filters. The layer strength never counts a value with no stated direction, ticked
+(of PLA's products, variants apart, 6 of the 52 that state an XY stiffness reach 3 GPa; 24 of the 42 that state no
+direction claim 3 GPa or more, 2026-10-07). They are shown and not compared, unless you tick **Include values with no
+stated orientation or load** in the Data quality filters. The layer strength never counts a value with no stated direction, ticked
 or not: a bar pulled in an unstated direction is not a bar pulled across the layers (D92).
 
 ## The four kinds of number
@@ -327,7 +327,7 @@ evidence.
 
 | On screen | What it is | Can it satisfy a requirement? |
 |---|---|---|
-| `2.45` over `0.95–4.24 · 38` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
+| `2.58` over `0.433–4.24 · 52` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
 | `4.43` | **Measured, one product.** The only product that publishes it comparably | Yes |
 | `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (elongation at yield in the stretch column), a moulded resin value, an annealed part. Shown so you know something is known | No |
 | `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. In Explore mode it can rule a material *out* |
@@ -362,8 +362,7 @@ What an estimate may do is deliberately limited:
 - **In Explore mode it may screen a material out**, but only on an end of its range the build has demonstrated. Every
   build hides each measured value as far as the estimate's kind of evidence would, predicts it, and sets the range's
   ends where a new true value falls beyond them no more than 10 % of the time with 90 % confidence. An end the
-  material's own data contradict (PA6's own 51 % elongation, above the range the model would screen on) is left open
-  and screens nothing. The drawer says, for each estimate, which ends may screen and why.
+  material's own data contradict (a product's own published value beyond it) is left open and screens nothing. The drawer says, for each estimate, which ends may screen and why.
 - **A material's own printed measurement can veto a screen.** If its published yield strength already meets your
   minimum, no estimate of its ultimate strength can remove it.
 - **No number shown contradicts what its own products' measurements prove** (D126). When a product
@@ -456,8 +455,8 @@ and as one requirement in the header. Without it the header says **H2C printabil
 nothing about printing the product.
 
 The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with each product's own published print
-profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly
-reaches), **recommended higher** (a recommended window above the H2C's) or **unknown**. Where its own sheet says
+profile, and each product reports **Within**, **Exceeds**, **Partly within** (a chamber window the printer only partly
+reaches), **Above recommended** (a recommended window above the H2C's) or **No data**. Where its own sheet says
 nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
 D89), then Bambu Lab's Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
 too, each labelled as such wherever it is shown; its own sheet always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the

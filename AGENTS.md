@@ -23,7 +23,7 @@ acceptance.
 generated and never edited, and the retired Excel workbooks are history. Before committing, run:
 
 ```bash
-npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about a minute after a change, half that when nothing the build reads changed; budget 90 s)
+npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 80 s after a data change, about 45 s when nothing the build reads changed; budget 90 s)
 npm run verify        # verify:fast, then the import tests, the scale and reproducible-build checks, audit, snapshot, interface views, 300 rendered scenarios: before a commit; every step runs even if one fails, and the failures are listed at the end
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
@@ -32,8 +32,8 @@ npm run build:diff    # what the change did to the compiled database, against HE
 (`npm run audit:context`: each value's line, page and print settings against its cached sheet, where the text cache is;
 CI holds no text cache, so there it prints SKIPPED and a warning and passes: run it in a checkout that has the cache
 before a push), on a stale `docs/RULES.md` or
-`docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
-engine over 300 random scenarios (about three minutes more than `verify:fast`, as GOALS C13 measures it: the interface
+`docs/DATA-DICTIONARY.md`, on a stale decisions index, README status block or coverage-campaign page, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
+engine over 300 random scenarios (seven to eight minutes in all, as GOALS C13 measures it: the interface
 views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
 (`npm run test:ingest`), which `verify:fast` leaves out to stay within its budget.
 
@@ -66,7 +66,7 @@ Edit a CSV directly in a text editor, or with a script through `scripts/data/tab
 ```js
 import { openTables } from './scripts/data/table-io.mjs';
 const t = openTables();
-t.set('measurements', 'V000539', 'Normalized value', '4.3', { expect: '4.1' }); // refuses if the data moved
+t.set('measurements', 'V000539', 'Normalized value', '4.4', { expect: '4.3' }); // refuses unless the cell still holds 4.3
 t.append('sources', { SourceID: 'X-NEW-TDS', /* every column */ });
 t.save();   // canonical CSV and a fresh data/manifest.json, in one transaction; refused if another writer saved since openTables
 ```
@@ -174,7 +174,7 @@ reproduced every one of them (`rule-vs-hand-picks.md` beside it).
 
 **A twin needs no row either.** Products of one material whose sheets print one table are a grade each under one Shared
 formulation key, with the values recorded once (R053). The build lets each read its sibling's values and print recipe
-wherever its own are silent, labelled "same sheet as …" (D89); a price is never read, and a product that reprints
+wherever its own are silent, labelled "data sheet shared with …" (D89, worded by D124); a price is never read, and a product that reprints
 another material's table (R166) shares no key and reads nothing. A twin's hardened-nozzle statement reaches only a
 product with no profile of its own (D127). Record a twin's own statement on its own grade: it always wins.
 
@@ -278,6 +278,7 @@ and lifted the pause on 2026-10-05 (GOALS, check round 3, item 5): a new documen
 through the import pipeline, with no exception to ask for. Nothing was imported when it was lifted. Under the pause the
 owner had opened bounded batches one by one (b34 to b44, the price pass p01 to p04, the coverage campaign's c01 to c14,
 and the re-fetch of the lost documents in check round 3); each is complete, and GOALS keeps their dates and scope.
+Since the lift the quality round of 2026-10-07 ran b45 and the price batch p05.
 The coverage campaign's [status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) still record what that
 campaign covered. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import

@@ -90,6 +90,9 @@ npm run data:new -- grades --material M049 --set Manufacturer=FormFutura --set "
   --set "Shared formulation key=R-FORMFUTURA-STYX-PA6-TDS" --set "Source locator=Version 1.0, p. 1"
 ```
 
+(That was the key when STYX PA6 entered. Since batch b21 its key is Spectrum's PA6 Low Warp sheet, whose table STYX PA6's
+sheet prints too: the two are twins, R053, section 4.)
+
 It takes the material's next GradeID (G049-02 then) and refuses until every required column has a value:
 Composition / filler, Colour caveat, Availability, Certification claims, Selected-grade rationale and Diameter
 compatibility, each another `--set`. STYX PA6's Composition / filler, for example, says its sheet discloses no filler
@@ -182,7 +185,8 @@ values, their range, and the typical product.
 
 STYX PA6's sheet states no test direction, so its 50 MPa (V002341) is its strength as published, not comparable: it
 is counted apart and decides only when the reader asks (D84). Its density (V002336) has no direction to state, so it
-is comparable and counts in PA6's density range. It has no twin: no other PA6 product shares its sheet.
+is comparable and counts in PA6's density range. It has a twin: Spectrum's PA6 Low Warp (G049-03), whose sheet prints the
+same table, shares its Shared formulation key (R053), and STYX PA6 reads its values wherever its own sheet is silent.
 
 Only where the rule chooses the wrong measurement for one product, pin it with a row in `headlines.csv` and say why.
 STYX PA6 needs none, since its sheet prints one value for each headline, and `headlines.csv` held no pin when this was
@@ -201,10 +205,11 @@ value. It names which.
 
 ## 5. The print profile, and what a source says about printing
 
-STYX PA6 has no print profile. Its sheet prints no print settings, only how to store the filament and that it should
-be dried and printed from a dry box. It has no twin, and Bambu Lab's guide (D88) does not speak for PA6, so its print
-gate is unknown on every part (`build/snapshot/print.csv`). The profile shown here is another PA6 product's: Spectrum
-PA6 Neat (G049-01), P0064. A new one copies a profile of the same material and changes what differs:
+STYX PA6's sheet prints no print settings, only how to store the filament and that it should be dried and printed from
+a dry box; its profile (P1487) records that, every setting Not published. Its twin's sheet does print them (PA6 Low
+Warp's P0218: nozzle 250-280 °C, bed 85-100 °C), so its nozzle and bed are within the H2C's reach, read from the twin and
+labelled, and its chamber stays unknown (`build/snapshot/print.csv`). The profile shown here is another PA6 product's:
+Spectrum PA6 Neat (G049-01), P0064. A new one copies a profile of the same material and changes what differs:
 
 ```bash
 npm run data:new -- profiles --like P0064 --set GradeID=<the product> --set SourceID=<its sheet> \

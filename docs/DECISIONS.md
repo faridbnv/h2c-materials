@@ -1,6 +1,6 @@
 # Decisions
 
-> **In short.** 131 numbered decisions (D1 to D131), each opening with one line in plain words and a status saying whether a later decision changed it, followed by a table of bugs worth remembering. Read the index below for the list; a decision says what would break if it were reversed.
+> **In short.** The numbered decisions, D1 onward, each opening with one line in plain words and a status saying whether a later decision changed it, followed by a table of bugs worth remembering. Read the index below for the list; a decision says what would break if it were reversed.
 
 The choices that are not obvious, and the bugs that forced several of them. Each says what would
 break if it were reversed, because that is the part that gets lost.

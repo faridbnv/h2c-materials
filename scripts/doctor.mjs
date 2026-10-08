@@ -22,7 +22,7 @@ const rows = [];
 const add = (what, ok, detail, fix) => rows.push({ what, ok, detail, fix });
 
 const major = Number(process.versions.node.split('.')[0]);
-add('Node 24 or later', major >= 24, `Node ${process.versions.node}`, 'Install Node 24 (package.json "engines"); CI runs 24.');
+add('Node 24 or later', major >= 24, `Node ${process.versions.node}`, 'Install Node 24 or later (package.json "engines"); CI runs the version .nvmrc names.');
 
 const has = (dir, name) => existsSync(join(root, dir, 'node_modules', name));
 const buildDeps = ['ajv', 'csv-parse', 'csv-stringify', 'esbuild', 'plotly.js-dist-min'];

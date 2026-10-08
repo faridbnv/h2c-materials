@@ -18,7 +18,7 @@
 //  - the goal's line is a guide: it moves over the products and says how many are on its better side, and filters none;
 //  - a count of marks is said one way: "N products from K materials";
 //  - context (failed products, estimates, references) is drawn only when its chip is pressed, and never ranked;
-//    unsettled products follow Candidate confidence until their chip is pressed.
+//    unsettled products follow Materials with missing data (formerly Candidate confidence) until their chip is pressed.
 
 import { rankingFor } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';

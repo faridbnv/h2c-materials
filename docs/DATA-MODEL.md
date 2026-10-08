@@ -18,7 +18,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion. One setup a sheet prints, or one row of it (a print speed, a nozzle size); a copy is retired ("Retired duplicate record", D120) and never reaches the database |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
-| `page_context.csv` | What a source page states once for the values printed on it ("Mechanical properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded"): specimen type, moisture state, treatment and schedule, standard and test temperature, per page and scope (all, tensile, flexural, impact, thermal, physical) and, where a page holds two tables, the table (Table, D128). A measurement on that page that states nothing of its own inherits it, and a row that states the opposite is flagged (D116) |
+| `page_context.csv` | What a source page states once for the values printed on it ("Mechanical properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded"): specimen type, moisture state, treatment and schedule, standard, test temperature and the direction its printed bars were printed in (D135), per page and scope (all, tensile, flexural, impact, thermal, physical) and, where a page holds two tables, the table (Table, D128). A measurement on that page that states nothing of its own inherits it, and a row that states the opposite is flagged (D116) |
 | `evidence.csv` | Chemical, environmental and application evidence; and makers' know-how, a maker's statements about printing and using its product in its own words (Domain "Makers' know-how"), which the build keeps out of everything that screens (below, "Makers' know-how") |
 | `know_how_reads.csv` | Which sources were read for makers' know-how, how (a document held, or the maker's site searched), when and by whom: the one fact about know-how the build cannot derive |
 | `prices.csv` | price observations: Canadian listings in CAD, and foreign ones in their own currency (D113) |
@@ -196,6 +196,7 @@ printGuide         a printer maker's guide rows, each read as a recipe, with the
 profiles           print setup, with parsed temperatures, enclosure wording and gate verdicts
 evidence           use and durability, classified (retired duplicates and makers' know-how excluded)
 prices             every sampled observation; a quarantined one is kept as an audit trail and backs nothing
+fxRates            the Bank of Canada rates a foreign listing is compared at (fx_rates.csv, D113)
 sources
 coverage           terminal: reports gaps, never feeds selection; the stored rows and the ones the build derives (D74)
 method             the rules, verbatim
@@ -259,7 +260,7 @@ each retrieved source whose text is not in it (D105).
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
 every profile that published one, with the count behind it. A material whose profiles publish no nozzle or bed window,
-such as the four with no product at all (PA66, PA66-CF, PA612, PA612-GF), carries an estimated one (below); a chamber
+such as the three with no product at all (PA66-CF, PA612, PA612-GF), carries an estimated one (below); a chamber
 the sources answer only in words is shown in words. How many materials publish each is in the validation report.
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
@@ -359,9 +360,10 @@ may also name its test Standard, which a value naming only other standards does 
 A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: the two
 impact rows name "Impact tests", a Topic of method.csv whose rule is the caption, and the Mechanical tab draws them one
 above the other, a product each, never converted (D133).
-A row's Sold as toughened says what its spread does with the products product_claims.csv marks: "named" on the two
-impact rows, so the spread keeps them in the median and carries `claimed`: how many of its comparable values they give,
-their range, and the other products' count, range and median (D133).
+A row's Sold as toughened says what its spread does with the products product_claims.csv marks: "set apart" on the two
+impact rows since m390, so their comparable values leave the median and range, as a declared variant's do, and the
+spread's `claimed` lists them apart with their count and range ("named" would keep them in the median and only name
+them; D133).
 
 ### A headline value
 
@@ -686,11 +688,12 @@ plausible setpoint, and a setpoint is a recommendation at most.
 
 ## Family entries and one home per product
 
-Every commercial product is recorded once, under the most specific material it is. Twenty-two canonical names
-are not materials: PA, PA-CF, PA-GF, TPE and, since m141, TPU are families (TPU over its four hardness classes and,
+Every commercial product is recorded once, under the most specific material it is. Twenty-three canonical names
+are not materials (2026-10-07; `build/snapshot/counts.md` counts them): PA, PA-CF, PA-GF, TPE and, since m141, TPU are families (TPU over its four hardness classes and,
 since m223, TPU-LW), and since m223 so is "TPU, hardness not stated", over the classes its products' makers rate them
 in; CoPA is another name for PA6/66; and fifteen one-product rows named after a maker's product line (Bambu's PLA Basic, PETG
-HF, TPU 90A and the rest, and eSUN's PLA Lite) are aliases of the material or class their product is (D86). Their
+HF, TPU 90A and the rest, and eSUN's PLA Lite) are aliases of the material or class their product is (D86); so,
+since m368, is CPE-LW, whose one product is a copolyester elastomer (TPC / TPEE). Their
 Scope is `Family entry`, their members are in `data/tables/family_entries.csv` and `family_members.csv`, and they
 carry no grade, value, property estimate or print window. They are never candidates. Searching a family's name
 lists its members and says what the family is; its drawer links them.

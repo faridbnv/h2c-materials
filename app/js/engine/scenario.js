@@ -177,7 +177,7 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
 
   out.plot = { ...base.plot, ...(isObject(raw.plot) ? raw.plot : {}) };
   if (out.plot.parallelAxes !== undefined && !Array.isArray(out.plot.parallelAxes)) delete out.plot.parallelAxes;
-  // Unsettled products are null until the reader sets them: then they follow the Candidate confidence (D109).
+  // Unsettled products are null until the reader sets them: then they follow the Materials with missing data switch (D109).
   out.plot.layers = Object.fromEntries(LAYERS.map((k) => {
     const v = isObject(out.plot.layers) ? out.plot.layers[k] : undefined;
     return [k, k === 'unresolved' && typeof v !== 'boolean' ? null : v === true];
