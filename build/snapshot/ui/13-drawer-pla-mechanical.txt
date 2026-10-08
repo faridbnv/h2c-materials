@@ -1,27 +1,27 @@
 Tensile modulus
-212 values
+210 values
 Tensile strength (yield or break not stated)
-226 values
+228 values
 Tensile yield strength
-58 values
+56 values
 Tensile break strength
-41 values
+39 values
 Elongation at break
-238 values
+241 values
 Elongation at yield
-28 values
+31 values
 Tensile strain at strength
-10 values
+9 values
 Flexural modulus
-184 values
+196 values
 Flexural strength
-183 values
+197 values
 Flexural elongation at break
 3 values
 Flexural stress at conventional deflection
 2 values
 Impact tests
-269 values
+274 values
 Hardness
 18 values
 Interlayer adhesion strength

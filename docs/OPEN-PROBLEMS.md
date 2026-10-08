@@ -1,6 +1,6 @@
 # Open problems
 
-> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 33 are what the four most recent rounds (the reader round, gap round 2 and check round 3, 2026-10-04 and 2026-10-05, and the quality round of 2026-10-07) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
+> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 34 are what the five most recent rounds (the reader round, gap round 2 and check round 3, 2026-10-04 and 2026-10-05, and the quality and completeness rounds of 2026-10-07) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
 
 What is known to be wrong or missing in this database, reconciled on 2026-10-07. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
@@ -475,9 +475,11 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
     63 products (60 maker searches and three access/identity limits) are in
     `docs/audits/2026-09-28-gap-closing/C-SITE-OUTCOMES.csv`; qualitative heating advice without a setpoint remains
     unresolved. Re-derive the general counts with `npm run audit:know-how`.
-  - **41 products have no document read** (state no-document-read; 44 before b39, 31 on 2026-10-02, and 41 on
-    2026-10-05 by the worklist, with 47 sheet-silent). Most came in with batches b34, b35, b37 and b43 after lane 3
-    had read; b43's 12 new products read no know-how.
+  - **Every product has a document read** since the completeness round (m412, 2026-10-07): the 41 left in
+    no-document-read (most entered by batches b34 to b45 after lane 3 had read) had their 57 documents read in full, and
+    150 unread documents of 206 products already collected beside them; 2,704 statements entered and the 208 documents
+    are recorded as read. 1,060 products hold a statement, 44 are sheet-silent and one is searched-nothing. Other linked
+    documents were never read for know-how where their product already held statements; the worklist counts them.
   - **Where the lists are:** `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`), and
     `archive/research-2026-09-26/disposition.csv` for what became of each research finding.
 - **"Fabru" and "Fabru / purefil" held some products twice**; since m302 (D123) each such product is one grade, its
@@ -1559,3 +1561,46 @@ agent could close. What it leaves needs a maker, the owner, or a reading it did 
 python3 docs/audits/2026-10-07-quality-round/judge.py         # the readers' verdicts, sorted (the targets stay frozen)
 python3 docs/audits/2026-10-07-quality-round/answers.py
 ```
+
+## 34. What the completeness round (m409 to m413) leaves open
+
+The round (D136; [its record](audits/2026-10-07-completeness-round/README.md)) worked through the stale lines, the
+values the held sheets print, the copies held twice, the sources without text, the tooling debt and the makers'
+statements nobody had read. What it leaves:
+
+- **Values read and held back** (`read/curation.csv`). 14 values the readers read are held: a unit the sheet misprints
+  (an elongation in MPa, a strength in %), a label and standard that name different impact tests (Anycubic's "Izod ...
+  ISO 179", AthenaX GF10's, Fiberlogy PEI 9085's Charpy under ISO 180), a zero melt flow, Extrudr PLA BASIC CF's
+  "500 (3,5)" modulus, LW-PLA's foamed density range, and Bambu Lab PLA Pure's p. 4 comparison table, whose bending
+  labels are swapped and which prints no unit. YOUSU PC's notched Izod cell stacks "19" and "900 J/m"; the held 900
+  stands until a reading settles which is which.
+- **Not widened.** The sampled tiers (80 other headline leads, 80 other properties) moved a product value 1 time in 40,
+  under the plan's 1 in 20, so the other 2,139 leads are not read (`TARGETS-1.csv`, read = no).
+- **Later copies read as their source.** The reader recall reads the ledger documents registered under a source, and
+  for seven sources that is a later copy, not the recorded sheet: colorFabb HT's cached text is Eastman's Amphora HT5300
+  sheet, and Siddament ABS and PLA, Galaxy PLA, Siraya Fibreheart PPA and PPA-CF Core, and Fiberlogy Nylon PA12 GF15
+  have later revisions whose values differ. Nothing was applied from them (each quote is checked on the recorded sheet);
+  `audit:reader-recall` should read the recorded digest only, and a later revision enters as a new source.
+- **Copies and revisions.** 11 pairs of one product's documents on its grade are revisions or two sheets of one product,
+  and stay (§30); 26 copies hold their rows once since m409. Spectrum's portfolio prints PLA Nature at 1.25 g/cm³ and
+  HDT 60 °C while its own sheet prints Premium's 1.24 and 55: PLA Nature's product value is now the portfolio's (its own
+  statement), and its siblings read PLA Premium's.
+- **Makers' statements** (`knowhow/curation.csv`). 38 sentences a reader joined across interleaved columns are on no
+  view of their page as one run and are not entered; 64 cells too short to be statements (a guide's "Required") and
+  13 rows of print-settings tables ("Fan speed: 0-70%") are not either, nor 226 sentences of a guide's general text
+  that one document gives to four materials or more (Fillamentum's drying guide). A statement is the maker's words on
+  the product's page, which may be general text about its polymer (the closing draw's C10: "It's really easy to use",
+  a bullet of MatterHackers' "What is PLA Filament?" list, recorded as MH Build Series PLA's). A chamber or drying setpoint in a statement marks the recipe part collected but is not copied into the
+  product's print profile. Documents linked to products that already held statements and were not among the 150 read
+  are still unread for know-how (`npm run audit:know-how`).
+- **Sources without bytes.** 96 registered sources have no hash-verified original here and the private backup holds
+  none of them (§19); 10 flagged pages give no optical text.
+- **Tooling.** The import reads 18 of the 24 cells of LEHVOSS's printed-specimen sheet; the six it misses print their
+  label and number on separate lines. The reader is still not split into adapters (§19). `verify:fast` takes 78 s after a
+  data change: its critical path is the variant-offset test's two whole builds with estimates, which it needs.
+
+```sh
+python3 docs/audits/2026-10-07-completeness-round/answers.py      # the answers the round moved, against its baseline
+node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parity.txt   # what the import's reader reads
+```
+

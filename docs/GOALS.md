@@ -651,3 +651,16 @@ materials, unmarked toughened products, purefil GreenTEC, PA612-GF's heat deflec
 - **Imports through the pipeline**, as open since 2026-10-05: one batch of documents (b45) and one of prices (p05).
 - **What a person or a maker must still decide** is in OPEN-PROBLEMS §33, with the round's record in
   [docs/audits/2026-10-07-quality-round/](audits/2026-10-07-quality-round/README.md) (D134, D135).
+
+## Decided on 2026-10-07, the completeness round
+
+The owner asked which open problems agents can fix now, by priority, and chose "10, 1, 2, and 5 together, then 12, and
+4": the open-problems page's stale lines (10), values the held sheets print and the tables lacked (1), products and sheets
+counted twice (2) and held sources without full text (5); then the tooling debt (12); then the makers' statements in
+documents nobody had read for them (4).
+
+- **Who did what.** Claude Sonnet agents read pages (311 sheets for values, 510 cells read again blind, 208 documents
+  for makers' statements, the duplicate pairs and two blind draws). Claude Opus froze the targets, judged every reading,
+  wrote the code and the migrations (m409 to m413) and checked each part with `verify:fast` before its local commit.
+- **What a person or a maker must still decide** is in OPEN-PROBLEMS §34, with the round's record in
+  [docs/audits/2026-10-07-completeness-round/](audits/2026-10-07-completeness-round/README.md) (D136).

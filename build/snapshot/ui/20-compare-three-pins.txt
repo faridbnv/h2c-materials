@@ -1,5 +1,5 @@
-COUNT 86 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 102 | ☐ FAIL 43 | ☐ SCREENED 23
+COUNT 85 shown PASS + UNKNOWN
+STATUS ☑ PASS 7 | ☑ UNKNOWN 101 | ☐ FAIL 44 | ☐ SCREENED 23
 Requirements: Within H2C capability; Build material (not a support); Nozzle ≤ 350 °C; Bed ≤ 120 °C; Chamber ≤ 65 °C; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain; estimates and resin data may exclude a material, never pass one. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
@@ -22,7 +22,7 @@ Density kg/m³
 Density at most 1500 kg/m³
 ABS
 1,050
-1,020–1,100 · 45
+1,020–1,120 · 46
 ABS-AF
 1,050
 1,040–1,050 · 3
@@ -36,25 +36,25 @@ Tensile modulus (XY) GPa
 Tensile modulus (XY) at least 3 GPa
 ABS
 2.2
-1.77–2.38 · 12
+1.77–2.38 · 13
 ABS-AF
 1.89
 ABS-CF
 4.35
 2.7–5.21 · 4
-0.00157
+0.00196
 log scale
-21.8
+19.4
 all 152 candidates
 Tensile strength (XY) MPa
 ABS
-34.9
-15.7–45 · 17
+34.5
+15.7–45 · 18
 ABS-AF
 22
 ABS-CF
-43.3
-27.3–48 · 5
+43.7
+27.3–48 · 6
 7
 299
 all 152 candidates
@@ -73,13 +73,13 @@ all 152 candidates
 Elongation at break (XY) %
 ABS
 10
-2.7–40 · 16
+2.7–40 · 17
 ABS-AF
-~2–18†
+~2–17†
 ABS-CF
 1.9
 1.48–3.08 · 4
-0.645
+0.641
 log scale
 1,050
 all 152 candidates
@@ -109,15 +109,15 @@ all 152 candidates
 HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
 ABS
-94.5
-78.9–118 · 22
+95
+78.9–118 · 23
 ABS-AF
 88
 88 · 2
 ABS-CF
-90.5
-76–95 · 6
-42.9
+91
+76–102 · 7
+42.6
 300
 all 152 candidates
 Glass transition (Tg) °C
@@ -153,7 +153,7 @@ ABS-AF within within within 1 of 3 products need one optional
 ABS-CF within within partly within 9 of 11 products need one published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
-ABS 10 of 10 — 55 789
+ABS 10 of 10 — 55 788
 ABS-AF 6 of 10 1† 3 34
-ABS-CF 8 of 10 — 11 130
+ABS-CF 8 of 10 — 11 132
 A † span is an estimate, not a measurement: the likely range (80%), the plausible range behind it and a tick at its centre. It never passes a requirement; select it for what it rests on.

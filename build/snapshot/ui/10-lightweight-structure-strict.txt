@@ -1,7 +1,7 @@
 COUNT 15 shown PASS
-STATUS ☑ PASS 15 | ☐ UNKNOWN 84 | ☐ FAIL 53
+STATUS ☑ PASS 15 | ☐ UNKNOWN 82 | ☐ FAIL 55
 15 of the 152 materials meet these requirements
-Lightweight structure template · 84 more could not be checked, left out under Confirmed only
+Lightweight structure template · 82 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -163,7 +163,7 @@ PETG PASS
 1 of 56 products
  passing: 1,250
 all products: 1,270
-1,180–1,300 · 59
+1,180–1,300 · 60
  passing: 2.78
 all products: 1.68
 0.5–3.5 · 21
@@ -177,19 +177,19 @@ all products: 1.68
 20–66 · 12
 ↗ ☆
 PLA PASS
-15 of 66 products
- passing: 800–1,240
+15 of 69 products
+ passing: 800–1,241
 all products: 1,240
-1,170–1,329 · 154
+1,170–1,329 · 158
  passing: 2.53–4.16
 all products: 2.58
-0.433–4.24 · 51
+0.433–4.24 · 52
  45
-26–70.9 · 66
- 8
-1.2–65 · 61
+26–70.9 · 67
+ 7.23
+1.2–65 · 63
  55
-50–135 · 87
+50–135 · 89
  33.7
 18–80 · 26
 ↗ ☆

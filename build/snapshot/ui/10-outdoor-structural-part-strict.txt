@@ -1,7 +1,7 @@
 COUNT 7 shown PASS
-STATUS ☑ PASS 7 | ☐ UNKNOWN 102 | ☐ FAIL 43
+STATUS ☑ PASS 7 | ☐ UNKNOWN 101 | ☐ FAIL 44
 7 of the 152 materials meet these requirements
-Outdoor structural part template · 102 more could not be checked, left out under Confirmed only
+Outdoor structural part template · 101 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -170,8 +170,8 @@ High-Performance Engineering
  PASS
 1 of 2 products
  passing: 1,280
-all products: 1,285
-1,270–1,310 · 4
+all products: 1,280
+1,160–1,310 · 5
  passing: 6.56
 all products: 6.56
 5.7–7 · 3

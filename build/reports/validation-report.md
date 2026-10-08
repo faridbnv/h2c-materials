@@ -22,7 +22,7 @@ Database snapshot 2026-09-21 · build 2026-10-07
 | prices | 365 |
 | sources | 2016 |
 | coverage | 951 |
-| knowHow | 4897 |
+| knowHow | 7601 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 314 |
 | coverageDerived | 1137 |

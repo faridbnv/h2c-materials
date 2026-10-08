@@ -15,8 +15,8 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5786,
-    "added": 480,
+    "current": 8490,
+    "added": 3184,
     "edited_existing": 262,
     "removed": 0
   },
@@ -57,8 +57,8 @@
   },
   "know_how_reads": {
     "baseline": 1542,
-    "current": 1545,
-    "added": 3,
+    "current": 1753,
+    "added": 211,
     "edited_existing": 0,
     "removed": 0
   },
@@ -120,8 +120,8 @@
   },
   "product_claims": {
     "baseline": 0,
-    "current": 56,
-    "added": 56,
+    "current": 62,
+    "added": 62,
     "edited_existing": 0,
     "removed": 0
   },

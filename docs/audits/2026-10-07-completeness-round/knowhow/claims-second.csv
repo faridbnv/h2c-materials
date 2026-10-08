@@ -1,0 +1,8 @@
+GradeID,OnPage,ProductNamed,MeetsRule,Reason
+G081-08,yes,EasyFil HIPS,yes,Says it has higher impact resistance than regular HIPS filaments (its own polymer's standard form).
+G035-25,yes,Yousu PC (page headed Why PC? / PC Filament),no,"Only 'less brittle' from a unique recipe, no stated comparison to standard PC; page elsewhere just lists Impact-resistant as a property."
+G169-02,yes,BigRep HI-TEMP CF,yes,"FAQ says it better withstands impacts than PLA; product is a PLA blend so PLA is its polymer's standard form. Borderline: stiffness from 10% carbon fibre, notched impact only 5 kJ/m2."
+G066-05,yes,PET FLEX MAX Clear,yes,"Page calls it a tough, impact-resistant material designed to bend and absorb energy on sudden impact, unlike conventional rigid materials; engineered-for-impact claim."
+G018-19,yes,3DJAKE ecoPLA CF,yes,Key feature 'Tougher and less brittle than conventional PLA' compares with its own polymer's standard form.
+G113-03,yes,Fiberlogy ASA+AF,yes,Names aramid fibres as what improves durability and reduces cracking under load; page also lists high resistance to impact. Borderline: the sentence itself does not say impact.
+G155-01,yes,Prografen PLA Graphene Light,yes,Claims extremely high impact resistance compared with classic PLA-based materials.

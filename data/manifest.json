@@ -23,7 +23,7 @@
     },
     "page_context": {
       "rows": 1006,
-      "sha256": "d695d2d0622438c7265323da133d177ff202755085c6bee081f90ccc4f448f26"
+      "sha256": "c6c38998607e2058044fe90e8e53c501d660efdabd2334f362297155856e3e49"
     },
     "impact_test_guesses": {
       "rows": 60,
@@ -34,12 +34,12 @@
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5786,
-      "sha256": "0e29406ca3df00e0501a6f7969d5bf28795bc828791f9724746f3666d20f1c8b"
+      "rows": 8490,
+      "sha256": "a5a270a146c679840b36a7f822dd5f87bf400c4a47927eb44cb374957c899286"
     },
     "know_how_reads": {
-      "rows": 1545,
-      "sha256": "623188226aea22f3dd119a6a863ae95d79b2efeb7c5288c0d05feb67691974dc"
+      "rows": 1753,
+      "sha256": "aa6f2b93a0a0def9f91c19d4b94b7fc9bdd49678263fa8f25df784cbb47d549c"
     },
     "polymer_environment": {
       "rows": 353,
@@ -82,8 +82,8 @@
       "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
     "product_claims": {
-      "rows": 56,
-      "sha256": "e1e48f121c473f589eaeb036e6a75b957883963c23030db8da745993e0c10b86"
+      "rows": 62,
+      "sha256": "05cc623fbf26470bf5665716e4537ac9d2cc1c9ed11baa047a023a4e365374df"
     },
     "material_links": {
       "rows": 830,

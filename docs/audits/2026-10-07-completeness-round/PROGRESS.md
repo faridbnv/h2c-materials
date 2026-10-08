@@ -63,3 +63,20 @@ unknown in, each on a value read on its page (TriStat ESD-PC's modulus, Raise3D 
 
 OPEN-PROBLEMS §6 (397 acceptances), §19 (sources and the index), §22 and GOALS C16 (108 of 135 materials priced)
 recounted; D136 drafted; this README started.
+
+## Phase 6: item 12, tooling debt (commits 37489ff0 to 1a6da242)
+
+Trace rank (6g), `standards_state` (6f), the bounded `audit:sources` fetch (6e), revision duplicates by name (6b),
+partial infill (6c, and m411 labels ten AzureFilm rows m366 missed), LEHVOSS's layout (6d, parity census: three sheets
+move, each toward the held rows), and verify:fast (6a): 78 s after a data change, 45 s warm.
+
+## Phase 7: item 4, makers' statements (commit 8292010e, then the close)
+
+208 documents read in full by twelve readers (3,344 readings); 2,704 statements, 208 reads and six claims enter (m412).
+No product is left with no document read.
+
+## Close
+
+The blind draws (`blind-draw/RESULT.md`) found two cells, then one, partly wrong and deciding nothing; the families
+were swept (the curation holds print-setting rows and a guide's general text; m413). m412 was rerun on the tables as they
+were before it, so its rows are the final curation's. Full `npm run verify` before the push.

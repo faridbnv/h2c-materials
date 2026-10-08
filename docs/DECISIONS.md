@@ -4575,3 +4575,14 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
 - **A scanned page's words are in the full-text index** (D85). `documents_fts` holds the optical reading of each page
   `ingest:quality` flags as empty or garbled beside its text layer (`view = 'ocr'`), the SQLite file goes stale when an
   optical reading or a flag is added, and a captured price page has its text read as it is kept.
+- **Every product's documents are read for its maker's words** (m412). The 41 products no document of which had been
+  read, and 150 unread documents of products that held statements, were read in full by m140's rules: the statement on
+  its page as written, once per product, never a template sentence of the maker's range. A sentence in a language other
+  than English stays in it, as printed. Each document read is recorded as read, so a silent one makes its product
+  "sheet silent", not "never read". A toughened claim needs the rule and a blind second reader's agreement.
+- **The tooling debt the round could close is closed.** The import reads a test-bar block's partial infill (m411 labels
+  the ten rows m366 missed) and LEHVOSS's printed-specimen layout; `GRADE-PRODUCT-DUPLICATE` compares names without the
+  maker's words and a sheet's revision mark; `audit:sources` fetches through the import's bounded request; a list column
+  keeps its missing word apart in SQLite (`standards_state`); a traced decision reports its rank; and the build cache
+  leaves the build label out of its key, so the tests reuse what `npm run build` stored (verify:fast 78 s after a data
+  change, 45 s warm).

@@ -14,7 +14,7 @@ rather than repeat a number.
 | … with a print profile of their own | 1,068 |  |
 | … reading values from a twin's sheet | 75 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 471 | where their own sheet is silent (D88); 33 guide rows |
-| … with a maker's know-how statement | 1,017 | lane 3 |
+| … with a maker's know-how statement | 1,060 | lane 3 |
 | Measurements | 14,817 | active rows |
 | … with a usable number | 14,624 |  |
 | Product values | 5,227 | one per product and headline, chosen by rule (D83) |
@@ -22,6 +22,6 @@ rather than repeat a number.
 | Material values estimated | 138 | where no product publishes (D43) |
 | Print profiles | 1,835 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
-| Know-how statements | 4,897 | the makers' words, shown in the panel only (D85) |
+| Know-how statements | 7,601 | the makers' words, shown in the panel only (D85) |
 | Price observations | 365 | sampled 2026-10-07 |
 | Sources | 2,016 |  |
