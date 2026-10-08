@@ -7,10 +7,11 @@
 //   node docs/audits/2026-09-30-price-pass/targets.mjs [out.csv]    writes TARGETS.csv beside it (the worklist as the pass
 //                                                                   began, release 26424edd53e5), or out.csv for a recount;
 //                                                                   needs npm run build
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { csvText } from '../../../build/src/csv.js';
+import { writeFrozen } from '../../../scripts/lib/frozen.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '../../..');
@@ -52,7 +53,7 @@ for (const m of inScope) {
     Wave: priced.has(g.id) ? 'priced' : materialPriced ? '2: product' : '1: material',
   }));
 }
-writeFileSync(process.argv[2] ?? join(here, 'TARGETS.csv'), csvText(Object.keys(rows[0]), rows));
+writeFrozen(process.argv[2] && !process.argv[2].startsWith('--') ? process.argv[2] : join(here, 'TARGETS.csv'), csvText(Object.keys(rows[0]), rows));
 const unpriced = inScope.filter((m) => m.headline?.priceCADkg?.known !== true);
 console.log(JSON.stringify({
   release: db.meta.release.id, materials: inScope.length, materialsPriced: inScope.length - unpriced.length,

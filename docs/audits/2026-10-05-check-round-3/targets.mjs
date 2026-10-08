@@ -12,10 +12,11 @@
 // writes TARGETS.csv beside this file, and copies of build/snapshot's templates, print and products into baseline/.
 //
 //   node docs/audits/2026-10-05-check-round-3/targets.mjs
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
+import { readFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, csvText } from '../../../build/src/csv.js';
+import { writeFrozen } from '../../../scripts/lib/frozen.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '../../..');
@@ -79,8 +80,8 @@ for (const g of db.grades) {
 
 const list = [...targets.values()].sort((a, b) => a.Kind.localeCompare(b.Kind) || a.SourceID.localeCompare(b.SourceID) || a.Record.localeCompare(b.Record));
 const out = list.map((t, i) => ({ TargetID: `K${String(i + 1).padStart(5, '0')}`, ...t, SheetType: sheetType(t.SourceID) }));
-writeFileSync(join(here, 'TARGETS.csv'), csvText(Object.keys(out[0]), out));
+writeFrozen(join(here, 'TARGETS.csv'), csvText(Object.keys(out[0]), out));
 mkdirSync(join(here, 'baseline'), { recursive: true });
-for (const f of ['templates.csv', 'print.csv', 'products.csv']) copyFileSync(join(root, 'build/snapshot', f), join(here, 'baseline', f));
+for (const f of ['templates.csv', 'print.csv', 'products.csv']) writeFrozen(join(here, 'baseline', f), readFileSync(join(root, 'build/snapshot', f), 'utf8'));
 const count = (k) => out.filter((t) => t.Kind === k).length;
 console.log(`${out.length} targets: ${count('value')} values (${out.filter((t) => t.Typical === 'yes').length} typical), ${count('gate')} gate cells, ${count('guide')} guide cells; ${new Set(out.map((t) => t.SourceID)).size} sources`);

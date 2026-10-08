@@ -7,11 +7,11 @@
 //
 // Tier 1: a product of PLA, PETG, ABS or ASA, or one a maker names or sells as toughened (where the drawer's split is
 // read first). Tier 2: every other material. Nothing here reads a value: it counts lines, and the readers read.
-import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { csvText, readCsv } from '../../../build/src/csv.js';
 import { loadDocument, loadTables } from '../../../scripts/ingest/read-common.mjs';
+import { writeFrozen } from '../../../scripts/lib/frozen.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const IMPACT = new Set(['Charpy strength', 'Izod impact strength', 'Impact strength']);
@@ -53,7 +53,7 @@ for (const s of tables.sources) {
   }
 }
 const cols = (rows) => Object.keys(rows[0]);
-writeFileSync(join(here, 'DOCS.csv'), csvText(cols(docs), docs));
-writeFileSync(join(here, 'TARGETS.csv'), csvText(cols(targets), targets));
+writeFrozen(join(here, 'DOCS.csv'), csvText(cols(docs), docs));
+writeFrozen(join(here, 'TARGETS.csv'), csvText(cols(targets), targets));
 const t1 = docs.filter((d) => d.Tier === '1');
 console.log(`impact round targets: ${docs.length} documents (${t1.length} tier 1, ${docs.length - t1.length} tier 2), ${targets.length} product targets, ${docs.reduce((a, d) => a + Number(d.Pages), 0)} pages`);

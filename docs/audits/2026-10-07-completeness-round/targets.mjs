@@ -5,18 +5,19 @@
 // build:
 //
 //   node docs/audits/2026-10-07-completeness-round/targets.mjs
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
 import { readCsv } from '../../../build/src/csv.js';
+import { writeFrozen } from '../../../scripts/lib/frozen.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '../../..');
 const rows = (p) => readCsv(join(ROOT, p)).records.map((r) => r.values);
 const q = (v) => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
 const write = (name, header, list) => {
-  writeFileSync(join(HERE, name), [header.join(','), ...list.map((r) => header.map((h) => q(r[h])).join(','))].join('\n') + '\n');
+  writeFrozen(join(HERE, name), [header.join(','), ...list.map((r) => header.map((h) => q(r[h])).join(','))].join('\n') + '\n');
   console.log(`${name}: ${list.length}`);
 };
 // A seeded draw: the same seed gives the same sample.

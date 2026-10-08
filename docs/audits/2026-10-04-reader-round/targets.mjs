@@ -10,6 +10,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, csvText } from '../../../build/src/csv.js';
 import { cachedText } from '../../../scripts/lib/pdf-text.mjs';
+import { writeFrozen } from '../../../scripts/lib/frozen.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '../../..');
@@ -173,8 +174,8 @@ if (process.argv.includes('--after')) {
   console.log(lines.join('\n'));
   process.exit(0);
 }
-writeFileSync(join(here, 'TARGETS.csv'), csvText(tcols, targets));
-writeFileSync(join(here, 'DOCS.csv'), csvText(Object.keys(docRows[0]), docRows));
+writeFrozen(join(here, 'TARGETS.csv'), csvText(tcols, targets));
+writeFrozen(join(here, 'DOCS.csv'), csvText(Object.keys(docRows[0]), docRows));
 
 const count = (xs, k) => xs.reduce((o, x) => ((o[x[k]] = (o[x[k]] ?? 0) + 1), o), {});
 console.log('targets', targets.length, count(targets, 'Level'));
