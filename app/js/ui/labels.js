@@ -219,7 +219,7 @@ export function screenedChip(evaluation) {
   return {
     text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this product' : 'not measured'}.`,
     head: onlyPolymer ? 'Screened by the base polymer' : by.polymer.length ? 'Screened by an estimate and the base polymer' : SCREEN_PREFIX.estimate,
-    action: onlyPolymer ? 'polymer' : 'estimate',
+    action: onlyPolymer ? 'polymer' : evaluation.products?.some((p) => p.results?.some((r) => r.prediction)) ? 'products' : 'estimate',
   };
 }
 

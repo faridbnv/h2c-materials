@@ -140,8 +140,8 @@ function productValueHeadline(base, grade, v, measurementById) {
 /**
  * One headline of a product view. A product value that may decide becomes the headline; otherwise the product has no
  * value here, and says whether it publishes one that is not comparable. The material's estimate stands in only where
- * none of its products publishes a comparable value, which is where it was built to (D43, D83): a product that is
- * silent beside siblings that publish is untested, not estimated.
+ * none of its products publishes a comparable value in older snapshots. D137 reads a product's own prediction
+ * in as-printed, dry contexts regardless of sibling coverage, without changing a measured value.
  */
 export function productHeadline(material, grade, key, ctx = {}, state = null) {
   const base = material.headline?.[key];
@@ -163,10 +163,21 @@ export function productHeadline(material, grade, key, ctx = {}, state = null) {
   const elsewhere = (grade.states ?? []).filter((s) => s.id !== judged.id && s.values?.[key] && stateValue(grade, key, s, ctx) === s.values[key])
     .map((s) => ({ stateId: s.id, treatment: s.treatment, moisture: s.moisture, value: s.values[key].value, measurementId: s.values[key].measurementId ?? null }));
   if (!v && elsewhere.length) entry.elsewhere = elsewhere;
-  const summary = material.summary?.[key];
-  if (base.estimate && !(summary?.n > 0)) {
+  const prediction = grade.estimate?.[key];
+  // D137 product predictions are available independently of sibling coverage. Older
+  // snapshots keep their D83 material fallback; no saved-scenario fields change.
+  if (prediction?.screening && !judged.treatment && judged.moisture === 'dry') {
+    entry.estimate = prediction;
+    entry.impliedBounds = prediction.impliedBounds ?? [];
+  } else if (!(grade.estimateVersion >= 2 || ctx.db?.meta?.estimateModel?.gradeEstimates?.version >= 2) && !prediction?.screening && base.estimate && !(material.summary?.[key]?.n > 0)) {
     entry.estimate = base.estimate;
     entry.impliedBounds = base.impliedBounds ?? [];
+  }
+  const related = (prediction?.evidence ?? []).flatMap((o) => o.measurementIds ?? [])
+    .map((id) => ctx.measurementById?.get(id)).filter((x) => x?.gradeId === grade.id);
+  if (related.length) {
+    entry.related = related.slice(0, 3).map((x) => `${x.property} ${x.value} ${x.unit} (${x.specimenType ?? 'specimen not stated'}, ${x.direction ?? 'direction not stated'})`);
+    if (!v) entry.missing = 'not-comparable';
   }
   return entry;
 }

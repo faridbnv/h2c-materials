@@ -517,3 +517,9 @@ snapshot", and every build's validation report is published beside the page.
 [DATA-MODEL.md](DATA-MODEL.md) explains every table and the estimate model in detail. [INTERFACE.md](INTERFACE.md)
 explains every screen. [DECISIONS.md](DECISIONS.md) records why each rule is what it is and what broke before it was.
 [audits/](audits/) holds every review of the tool and its data, with what was done about each finding.
+
+## Missing product values after D137
+
+Include uncertain now separates supported candidates, estimated candidates to verify, and insufficient evidence. The last group is expandable and remains in counts and exports. An estimated candidate is still UNKNOWN: every missing mandatory numerical property's predicted centre meets the limit, but measurement is needed. Missing print or environment evidence cannot be made good by a numerical prediction.
+
+Every product's missing values can read its own estimate even when siblings publish. Estimates never create PASS. Independently validated exclusion is limited to a as-printed/dry comparison with three within printer gates and risk reserved for all five possible numerical predictions; no class currently qualifies. Other scenarios and unsupported properties cannot receive new exclusion permission. Confirmed only keeps its evidence rules. A failing measurement dominates missing data; alternative products and routes are judged individually. A material's displayed spread does not bound unmeasured products. Read the reason and its source conditions, then ask the maker for the exact property/state or test a printed coupon. D137 and OPEN-PROBLEMS §35 record the validation limits.

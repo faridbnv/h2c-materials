@@ -1,6 +1,6 @@
 # Open problems
 
-> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 34 are what the five most recent rounds (the reader round, gap round 2 and check round 3, 2026-10-04 and 2026-10-05, and the quality and completeness rounds of 2026-10-07) left; section 35 is a flaw in how uncertain materials are kept and screened, found by use on 2026-10-07 and not fixed. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
+> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 34 are what the five most recent rounds (the reader round, gap round 2 and check round 3, 2026-10-04 and 2026-10-05, and the quality and completeness rounds of 2026-10-07) left; section 35 records the implemented product-uncertainty contract and its remaining certification limits (D137). Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
 
 What is known to be wrong or missing in this database, reconciled on 2026-10-07. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
@@ -1634,39 +1634,10 @@ python3 docs/audits/2026-10-07-completeness-round/answers.py      # the answers 
 node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parity.txt   # what the import's reader reads
 ```
 
-## 35. A material measured below the limit stays "uncertain" when a sibling is silent (found 2026-10-07, not fixed)
+## 35. Product uncertainty: implemented contract and remaining certification limits (D137)
 
-**Found by the owner**, on the High-stiffness fixture question with Tensile modulus (XY) at least 5 GPa, Include uncertain and
-estimates on: ASA-GF was listed as uncertain at 1.86 to 2.76 GPa. The numbers are right and the rules did what they say; the
-rules are what is wrong. The full analysis, the table of its six products and a census script are in
-[the record](audits/2026-10-07-uncertain-logic/README.md). Nothing was changed.
+The 2026-10-07 finding is preserved in [its historical audit](audits/2026-10-07-uncertain-logic/README.md). D137 fixes the coverage-dependent absence of product predictions and the inaccurate "publish none" wording. Catalogued products now use their own predictions in supported as-printed/dry contexts, even when siblings publish; qualifying measurements always win. Evidence stays PASS/FAIL/UNKNOWN, while eligibility can be screened by separately validated inference. Insufficient-evidence options are expandable and remain counted/exported. [The implementation audit](audits/2026-10-08-product-screening/README.md) holds the frozen baseline and replay.
 
-- **Cause 1: a material fails only when every product fails (D100).** ASA-GF has six products; two publish a comparable printed XY
-  modulus (1.86 and 2.76 GPa, both fail) and four do not, so the material is UNKNOWN, not FAIL. Of the four, Spectrum's 2.55 GPa is
-  an injection-moulded bar, Extrudr's 3.1 GPa has no stated direction or specimen, and Flashforge and iSANMATE print a flexural
-  modulus only.
-- **Cause 2: the estimate cannot screen a silent product with measured siblings (D43, D83).** The estimate stage runs only for a
-  headline no product publishes, the build rejects an estimate beside a measured headline, and the product view hands the material's
-  estimate to a silent product only when no sibling publishes. "Let estimates rule out materials" therefore has nothing to act on:
-  "a silent product beside siblings that publish is untested, not estimated."
-- **Consequence: measuring a product makes its material harder to rule out.** With the same question, ASA-EC and ASA-AF (no product
-  publishes) are screened out on estimates of 2.2 to 3.7 and 1.1 to 3.1 GPa, ASA-GF (two measured, both about half the limit) is
-  kept. TPU harder than 95A is screened out; TPU 85A class and softer, measured at 0.007 to 0.025 GPa, is kept.
-- **Size.** In that scenario 106 materials are candidates: 20 pass and 86 are unresolved. 55 of the 86 have a measured failing
-  product and silent siblings, and in 51 every comparable value is below 5 GPa (PLA, PETG, ABS, ASA, PC, PEI, PEKK, all three
-  TPU classes and others). It is the same in the other templates' Include uncertain lists; D100 counted 263 more candidates across
-  the six templates for this rule and judged them intended ("a team can see what nobody has measured"), without weighing a
-  material whose every measured product fails widely.
-- **The wording is wrong too.** The row's "likely fails: 2 with data miss, 4 publish none" and its tooltip say the silent products
-  publish nothing; three of the four publish a value that does not qualify (moulded, no direction, flexural). The product reason
-  "Not published in the sampled sources" says the same. The words should say "no comparable value" and name what is published.
-  "Likely fails" is an inference from the siblings, shown as if it were a finding.
-- **Options, none taken** (detail in the record): give a silent product its own estimate from its measured siblings and its own
-  related values, back-tested by holding out each measured product (amends D83, keeps D100); screen on the siblings' measured range
-  (the inference D100 refused); fix the wording only; or leave it and say on the row that the material is kept only by unmeasured
-  products. Any answer-moving option needs the decision diff and the scenario count (GOALS) before it is built.
+**Still open:** no product evidence class has enough independent calibration groups for the complete-scenario allocation (194 needed). All new numerical exclusions are disabled. Preliminary single-test diagnostics meet 10% / 90% for density from siblings and strength from related values, but cannot spend that entire budget independently in a complex question. Annealed/conditioned routes and unsupported properties receive no new certification. Modulus is not certified; HDT's grade calibration still stops predictions. ASA-GF therefore remains UNKNOWN at 5 GPa: its observed failures are not bounds on unmeasured products, and iSANMATE's existing plausible range crosses 5 GPa. These limits need better independent evidence, not weaker gates or more inferred PASSes. Public-source publication bias and physical print qualification remain unresolved.
 
-```sh
-node docs/audits/2026-10-07-uncertain-logic/census.mjs     # the figures above, from dist/db.json (npm run build first)
-npm run trace -- --scenario saved.json --product G034-03 --requirement tensileModulusXY   # one product's decision
-```
+Reproduce with `node docs/audits/2026-10-08-product-screening/replay.mjs --write` against the baseline compiled database named in its README. The original census still reports below-limit observed spreads; it is not an accuracy measure or a list to force out.

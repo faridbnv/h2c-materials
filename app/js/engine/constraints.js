@@ -136,7 +136,8 @@ function evaluateNumeric(material, c, ctx = {}) {
       // screen: the headline is at least that value (headline_definitions.csv Lower bound, D48). Other related values,
       // other endpoints and moulded resin values do not bound it; the estimate already carries them.
       const veto = (h.impliedBounds ?? []).filter((b) => compareInterval({ lo: b.lo, hi: null }, c.operator, c.value) === STATUS.PASS);
-      const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && !veto.length;
+      const permission = !est.screening || ctx.completeProductContext === true;
+      const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && permission && !veto.length;
       const reason = plausible === STATUS.FAIL
         ? screened
           ? `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
@@ -146,6 +147,10 @@ function evaluateNumeric(material, c, ctx = {}) {
               ? `Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`
               : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
         : `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
+      const disclosure = h.asPublished ? ` Published ${fmt(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
+        : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state)}.`
+          : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '';
+      const permissionReason = est.screening && !permission ? ' This product is outside the complete printer context used for screening validation.' : '';
       return {
         status: STATUS.UNKNOWN,
         estimated: true,
@@ -154,7 +159,7 @@ function evaluateNumeric(material, c, ctx = {}) {
         screened,
         vetoedBy: veto.map((r) => r.measurementId),
         criterion: label,
-        reason,
+        reason: reason.replace(/^Not published\./, 'No qualifying measurement.') + disclosure + permissionReason + ' Confirm the exact product, property and service state with the maker or a printed-coupon test.',
         missing: h?.missing ?? 'not-published',
       };
     }
@@ -174,7 +179,7 @@ function evaluateNumeric(material, c, ctx = {}) {
       status: STATUS.UNKNOWN,
       reason: h?.missing === 'not-available-in-market'
         ? 'No price observation of its own in the sampled shops'
-        : 'Not published in the sampled sources',
+        : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon',
       criterion: label,
       missing: h?.missing ?? 'not-published',
     };
@@ -597,10 +602,15 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
   else verdict = STATUS.UNKNOWN;
 
   const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unresolved.some((r) => r.screened);
+  const estimatedCandidate = unresolved.length > 0 && unresolved.every((r) => r.estimated && !r.screened
+    && Number.isFinite(r.estimate?.centre) && compareInterval({ lo: r.estimate.centre, hi: r.estimate.centre }, r.constraint.operator, r.constraint.value) === STATUS.PASS);
+  const shortlistGroup = verdict === STATUS.PASS ? 'supported' : verdict === STATUS.UNKNOWN && !screened
+    ? estimatedCandidate ? 'estimated' : 'insufficient' : 'excluded';
 
   return {
     materialId: material.id,
     verdict,
+    shortlistGroup,
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     // The UI must show when an estimate was involved rather than let the reader assume a measurement.
@@ -628,10 +638,19 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
  * state carries the treatment it needs as a requirement of its own, so the verdict and every export name it.
  */
 function judgeProduct(material, grade, constraints, ctx) {
-  const tries = scenarioStates(grade, ctx).map((state) => ({
-    state, e: evaluateMaterial(productView(material, grade, ctx, state), state.treatment ? [...constraints, TREATMENT] : constraints, ctx),
-  }));
-  const rank = (t) => (t.e.verdict === STATUS.PASS ? 0 : t.e.verdict === STATUS.UNKNOWN ? (t.e.screened ? 2 : 1) : 3);
+  const states = scenarioStates(grade, ctx);
+  const views = states.map((state) => ({ state, view: productView(material, grade, ctx, state) }));
+  const tries = views.map(({ state, view }) => {
+    const cs = state.treatment ? [...constraints, TREATMENT] : constraints;
+    // Budgets are reserved across all numerical predicates at build time. Extra
+    // AND requirements cannot undo an existing exclusion; untreated dry is the
+    // only inferred route, so other alternatives must still fail on their evidence.
+    const completeProductContext = !state.treatment && state.moisture === 'dry'
+      && ['nozzle', 'bed', 'chamber'].every((a) => grade.print?.[a]?.verdict === 'within');
+    return { state, e: evaluateMaterial(view, cs, { ...ctx, completeProductContext }) };
+  });
+  const rank = (t) => t.e.verdict === STATUS.PASS ? 0 : t.e.verdict === STATUS.UNKNOWN
+    ? t.e.screened ? 3 : t.e.shortlistGroup === 'estimated' ? 1 : 2 : 4;
   const best = tries.reduce((a, b) => (rank(b) < rank(a) ? b : a));
   return { grade, e: best.e, state: best.state, tries };
 }
@@ -658,9 +677,9 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
   const unknown = judged.filter((x) => x.e.verdict === STATUS.UNKNOWN);
   const verdict = pass.length ? STATUS.PASS : unknown.length ? STATUS.UNKNOWN : fail.length ? STATUS.FAIL : STATUS.UNKNOWN;
   const share = pass.length ? (fail.length ? SHARE.SOME : SHARE.ALL) : fail.length ? SHARE.NONE : null;
-  // Every product that could not be judged shares the material's estimate (products.js), so a screen holds for all or none.
+  // D137: every unresolved product must be screened; measured failures cannot keep a candidate alive.
   const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unknown.every((x) => x.e.screened);
-  const best = pass[0] ?? unknown.find((x) => !x.e.screened) ?? unknown[0] ?? fail[0];
+  const best = pass[0] ?? unknown.find((x) => !x.e.screened && x.e.shortlistGroup === 'estimated') ?? unknown.find((x) => !x.e.screened) ?? unknown[0] ?? fail[0];
   return {
     ...best.e,
     materialId: material.id,
@@ -668,7 +687,8 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     screened,
-    screenedBy: screened ? best.e.screenedBy : [],
+    screenedBy: screened ? [...new Set(unknown.flatMap((x) => x.e.screenedBy))] : [],
+    unresolved: screened ? unknown.flatMap((x) => x.e.unresolved.filter((r) => r.screened).map((r) => ({ ...r, reason: `${x.grade.id}: ${r.reason}` }))) : best.e.unresolved,
     heldBy: policy === UNKNOWN_POLICY.STRICT && verdict === STATUS.UNKNOWN ? best.e.heldBy : [],
     failedBy: verdict === STATUS.FAIL ? best.e.failedBy : [],
     share,
@@ -686,7 +706,7 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
 function productEntry(x) {
   const admitted = [...new Set(x.e.results.flatMap((r) => (r.status === STATUS.PASS ? r.admitted ?? [] : [])))];
   return {
-    gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy,
+    gradeId: x.grade.id, verdict: x.e.verdict, shortlistGroup: x.e.shortlistGroup, screened: x.e.screened, failedBy: x.e.failedBy,
     state: stateRef(x.state), results: x.e.results.map(productResult),
     ...(admitted.length ? { admitted } : {}),
     // A declared variant (a foamed or densely filled grade, D57) is named, so a pass it alone carries can say so.
@@ -699,6 +719,10 @@ function productEntry(x) {
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
   for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
+  if (r.estimate?.screening) out.prediction = {
+    centre: r.estimate.centre, plausible: r.estimate.plausible, screenRange: r.estimate.screenRange,
+    canScreen: r.estimate.canScreen, scope: r.estimate.screening.context, limitation: r.estimate.screenLimit,
+  };
   return out;
 };
 

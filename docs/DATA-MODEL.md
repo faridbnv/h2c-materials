@@ -1,6 +1,6 @@
 # The data model
 
-> **In short.** What each number on the page is and how far to trust it. A *material* is a kind of filament (PETG, carbon-filled nylon); a *product* is one maker's filament of that kind; a *measurement* is one value read from one page of one source, with its test conditions; a *print profile* is a maker's print settings. The build chooses each product's value per property by rule, and a material's value is the spread of its products'. A number is published, estimated (marked, and only where no product publishes one) or absent, and this document says how each is made. Where things stand is in the [README](../README.md).
+> **In short.** What each number on the page is and how far to trust it. A *material* is a kind of filament (PETG, carbon-filled nylon); a *product* is one maker's filament of that kind; a *measurement* is one value read from one page of one source, with its test conditions; a *print profile* is a maker's print settings. The build chooses each product's value per property by rule, and a material's value is the spread of its products'. A number is published, estimated (marked; material estimates only where no product publishes, product estimates wherever its own value is missing) or absent, and this document says how each is made. Where things stand is in the [README](../README.md).
 
 ## The source tables
 
@@ -510,8 +510,7 @@ prove (implied bounds) limits its range from below (D55). A physically implausib
 
 **Every grade has its own estimate too (D81).** The same model predicted at the grade's own row — its formulation
 and its maker — gives `db.grades[].estimate[key]`: a centre, likely and plausible ranges calibrated at grade level,
-how much of it rests on the grade's own values, and the values themselves. It decides nothing (screening reads the
-material's), heat deflection ships none because its grade calibration does not hold, and the snapshot's
+how much of it rests on the grade's own values, and the values themselves. D137 makes it available to missing product values regardless of sibling coverage. It never passes; its separate screening permission is described below. Heat deflection ships none because its grade calibration does not hold, and the snapshot's
 `grades.csv` shows every one.
 
 **One model per headline, over every observation.** The natural log of density, stiffness, strength
@@ -913,3 +912,11 @@ values and unit conversions, including each uncertainty and upper bound. Decimal
 integers, and qualitative outcomes use their own status. Product values are checked for property, unit, value,
 direction and ownership (MEAS-HEADLINE-TYPE, HEADLINE-CITATION, HEADLINE-DIRECTION). An unstated HDT load decides
 nothing unless the reader includes values published that way (D84).
+
+## Product uncertainty and independent exclusion (D137)
+
+Observed material summaries and product measurements remain unchanged. `grades[].estimateVersion = 2` identifies the new contract. Each missing, as-printed/dry product headline reads `grades[].estimate[key]`; a qualifying measurement wins. No product prediction exists where grade calibration stopped. Material estimates remain exploration context and the existing direct fallback for materials without procurement products, not substitutes for catalogued products. Older snapshots retain their former fallback.
+
+Predictions add `kind`, `impliedBounds`, `canScreen`, `screenRange`, `screenBasis`, `screenLimit` and `screening`. The latter names the context, supported test count, independent formulation split, evidence class, calibration/evaluation counts and risk result. A certified bound is at least as wide as the displayed plausible range. Unknown values and unsupported ends cannot pass or exclude. The build reserves 2% wrong-exclusion risk at 98% confidence for each of five numerical properties, conservatively limiting the product scenario to 10% at 90% confidence by union bounds. Only the as-printed/dry route with three within printer gates can read certification; other routes receive no inferred exclusion. Adding mandatory requirements cannot undo a certified exclusion. No class currently has the 194 independent calibration groups required, so new numerical screening is disabled. No joint success probabilities are multiplied.
+
+The evidence verdict and `shortlistGroup` are separate: supported, estimated, insufficient or excluded. An estimated suggestion requires every unresolved mandatory requirement to have a prediction whose centre meets its threshold; it remains UNKNOWN. A material is retained if any permitted product route survives. Product result projections include additive prediction provenance for the same selected route; exports append Candidate group. The independent model report is in `meta.estimateModel.properties.*.productScreening`; see D137 for sampling assumptions and limitations.

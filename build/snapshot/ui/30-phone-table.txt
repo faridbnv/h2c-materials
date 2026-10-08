@@ -2,5 +2,8 @@ viewport 390x844
 document width 390
 spill: none
 clipped cells:
-  #lens: 0 of 1368
+  #lens table 1: 0 of 63
+  #lens table 2: 0 of 54
+  #lens table 3: 0 of 729
+  #lens table 4: 0 of 522
 hidden controls: 0

@@ -569,10 +569,17 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
       out.estDisabled = !!lens.querySelector('[data-show-estimates]')?.disabled;
       out.estState = txt(lens.querySelector('.plot-data-state'));
     } else {
-      const grid = [...lens.querySelectorAll('table.grid')].find((t) => !t.closest('.excluded-group'));
-      out.noResults = !grid && !lens.querySelector('.excluded-group') && !lens.querySelector('.table-bar');
+      const grids = [...lens.querySelectorAll('table.grid')].filter((t) => !t.closest('.excluded-group'));
+      out.noResults = !grids.length && !lens.querySelector('.excluded-group') && !lens.querySelector('.table-bar');
       out.rows = [];
-      if (grid) {
+      // D137: all retained groups belong to the result set. Expand the new fold
+      // while reading rendered cell text, then restore presentation unchanged.
+      const fold = lens.querySelector('details.insufficient-evidence');
+      const wasOpen = fold?.open;
+      if (fold) fold.open = true;
+      badSrc += ' ' + lens.innerText;
+      out.dagger ||= lens.innerText.includes('†');
+      for (const grid of grids) {
         const cols = [...grid.querySelectorAll('thead th')].map((th) => th.dataset.sort ?? 'pin');
         const vi = cols.indexOf('verdict');
         for (const tr of grid.querySelectorAll('tbody tr[data-material]:not(.baseline-row)')) {
@@ -583,6 +590,7 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
           out.rows.push([tr.dataset.material, tds[vi].querySelector('.chip')?.textContent.trim(), !!scr, scr?.title ?? '', cells]);
         }
       }
+      if (fold) fold.open = wasOpen;
       out.excluded = [...lens.querySelectorAll('.excluded-group tbody tr[data-material]')].map((tr) => [tr.dataset.material, tr.querySelector('.chip')?.textContent.trim(), txt(tr.querySelector('.why-cell'))]);
     }
     const m = badSrc.match(BAD);

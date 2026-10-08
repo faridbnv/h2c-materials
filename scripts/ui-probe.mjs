@@ -262,6 +262,22 @@ try {
     await click('#mode-explore');
     await evaluate(`(() => { const c = document.getElementById('use-estimates'); if (!c.checked) { c.checked = true; c.dispatchEvent(new Event('change')); } return true; })()`);
     await sleep(200);
+    // D137: expanding insufficient evidence changes presentation only. All rows
+    // remain in the result set, and the displayed count must stay unchanged.
+    const grouping = await evaluate(`(() => {
+      const d = document.querySelector('details.insufficient-evidence');
+      if (!d) return [];
+      const problems = [], count = document.getElementById('count').textContent;
+      const ids = () => [...document.querySelectorAll('#lens tbody tr[data-material]')].map((r) => r.dataset.material).join(',');
+      const before = ids();
+      if (d.open) problems.push('insufficient evidence starts expanded');
+      d.open = true;
+      if (ids() !== before || document.getElementById('count').textContent !== count) problems.push('expansion changes rows or counts');
+      if (!d.querySelector('tr[data-material]')?.getBoundingClientRect().height) problems.push('expansion does not reveal options');
+      d.open = false;
+      return problems;
+    })()`);
+    errors.push(...grouping.map((p) => `${name}: ${p}`));
     const explore = await view();
     results[`11-${slug}-explore-estimates`] = explore;
     // A shared link must reproduce the view in a fresh page.

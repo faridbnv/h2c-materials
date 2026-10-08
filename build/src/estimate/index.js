@@ -42,6 +42,7 @@ import { makeRangeFor } from './bounds.js';
 import { backTest, screenDecision } from './screening.js';
 import { floorBackTest } from './floors.js';
 import { attachPrintEstimates } from './print.js';
+import { attachProductScreening } from './product-screening.js';
 import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors } from './grades.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
@@ -50,7 +51,7 @@ export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
  * Estimates for every missing headline of every in-scope material, attached in place; returns the model's diagnostics.
  * `model` is the configuration with its polymer identities (model.js modelWith).
  */
-export function buildEstimates(materials, { grades = [], measurements = [], registry } = {}, model) {
+export function buildEstimates(materials, { grades = [], measurements = [], sources = [], registry } = {}, model) {
   const ESTIMATE_KEYS = estimateKeys(registry, model);
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
@@ -108,6 +109,8 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     } else {
       const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
       attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf });
+      diagnostics.properties[key].productScreening = attachProductScreening({ key, raw, S, model, tmMean, measurements, sources,
+        definition: registry.headlines.find((h) => h.key === key) });
     }
 
     for (const m of S.pool) {
@@ -204,8 +207,9 @@ export function summariseEstimates(materials, registry) {
 
 /** Apply the estimate stage to a compiled database in place. */
 export function attachEstimates(db) {
+  for (const g of db.grades) g.estimateVersion = 2;
   const model = modelWith(db.polymers);
-  const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, registry: db.registry }, model);
+  const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, sources: db.sources, registry: db.registry }, model);
   const printEstimates = attachPrintEstimates(db.materials, model);
   db.meta.estimateCoverage = summariseEstimates(db.materials, db.registry);
   db.meta.estimateModel = estimateModel;

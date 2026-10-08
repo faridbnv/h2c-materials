@@ -261,9 +261,10 @@
             "type": "array",
             "items": { "type": "string", "pattern": "^G\\d{3}-\\d{2,3}$" }
           },
+          "estimateVersion": { "const": 2 },
           "estimate": {
             "type": "object",
-            "description": "The grade's own estimate per headline (D81): added by the estimate stage, absent from the core build. It decides nothing.",
+            "description": "The product's own estimate (D81/D137): never PASS; independently certified scopes may screen out.",
             "additionalProperties": {
               "type": "object",
               "additionalProperties": false,
@@ -368,6 +369,36 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "canScreen": {
+                  "type": "boolean"
+                },
+                "screenRange": {
+                  "type": ["object", "null"],
+                  "additionalProperties": false,
+                  "required": ["lo", "hi"],
+                  "properties": {
+                    "lo": { "type": ["number", "null"] },
+                    "hi": { "type": ["number", "null"] }
+                  }
+                },
+                "screenLimit": {
+                  "type": "string"
+                },
+                "screenBasis": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "screening": {
+                  "type": "object"
+                },
+                "impliedBounds": {
+                  "type": "array"
                 }
               }
             }

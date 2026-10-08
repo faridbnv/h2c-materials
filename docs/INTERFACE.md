@@ -1072,3 +1072,9 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
   decision brief, a note, and the team's own test results; the shortlist bar says how many are chosen.
 - **The filter rail below 1,100 px is a modal dialog** (F10), as the material drawer is.
 - **The release** (D96) is in the top bar and under *Save / share*, and in every export and brief.
+
+## Product uncertainty groups (D137)
+
+The saved controls and scenario format stay the same. With requirements set and Include uncertain selected, the table lists Supported candidates, Estimated candidates to verify and an expandable Insufficient evidence group. Counts, exports, comparison and plot eligibility include collapsed rows. Expansion is local presentation state, not a saved filter; it survives ordinary table redraws. Existing goal or column sorting operates within each group, and material/product CSVs append Candidate group.
+
+Estimated candidates remain UNKNOWN and require every unresolved mandatory numeric centre to meet the limit. Missing categorical/printing evidence or a prediction crossing the centre threshold goes to insufficient evidence. Product cards show each estimate's centre/ranges and its separate exclusion permission. A product estimate screened chip opens Products, where the relevant certificate and records are shown; material-only estimates still open Overview. Reasons distinguish missing, non-comparable and other-state values and name the next maker question or coupon test. New screening is limited to independently certified as-printed/dry scopes under the reserved complete-scenario budget; none currently qualifies; it cannot pass or overrule a measurement.

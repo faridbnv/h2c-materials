@@ -1,7 +1,8 @@
 viewport 390x844
 document width 390
 spill: none
-clipped cells in the drawer: no table
+clipped cells in the drawer:
+  .drawer: 0 of 10
 drawer: full screen, modal
 estimate marks in drawer: 0
 estimate cards in drawer: 0

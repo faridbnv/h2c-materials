@@ -114,7 +114,7 @@ export function sortValue(row, col, showEstimates = false) {
  * directions rather than reading as zero; a measured value comes before an estimate of the same value in both, because
  * the measurement is the firmer answer.
  */
-export function sortRows(rows, state) {
+function sortWithinGroup(rows, state) {
   // Ranked by a goal (D83): by the median index of each material's passing products, best first; a material with no
   // value for the index follows, by name. A column order chosen afterwards takes over the rows (main.js); the goal and its
   // ranks stay.
@@ -136,6 +136,14 @@ export function sortRows(rows, state) {
     if (d === 0) return av.estimated === bv.estimated ? 0 : av.estimated ? 1 : -1;
     return sort.dir === 'desc' ? -d : d;
   });
+}
+
+/** D137: use the same grouped order for the table and its exports; ranks themselves do not change. */
+export function sortRows(rows, state) {
+  const sorted = sortWithinGroup(rows, state);
+  if (state.scenario?.unknownPolicy !== 'exploration' || !state.scenario.constraints?.length) return sorted;
+  const order = { supported: 0, estimated: 1, insufficient: 2, excluded: 3 };
+  return sorted.sort((a, b) => (order[a.evaluation.shortlistGroup] ?? 0) - (order[b.evaluation.shortlistGroup] ?? 0));
 }
 
 /** Each row's rank under the scenario's goal, or null when it ranks by nothing: the one ranking every lens reads (D102). */
@@ -215,9 +223,9 @@ export function typicalStateMark(h, measurementState) {
 export function unknownMark(e) {
   const c = e?.counts;
   if (!c || e.verdict !== 'UNKNOWN') return '';
-  if (c.fail && !c.pass) return `<span class="row-sub likely-fails" title="Every product that publishes the value misses the limit. The material stays unresolved only because ${c.untested} product${c.untested === 1 ? '' : 's'} publish${c.untested === 1 ? 'es' : ''} nothing to judge.">likely fails: ${c.fail} with data ${c.fail === 1 ? 'misses' : 'miss'}, ${c.untested} publish none</span>`;
-  if (!c.fail && !c.pass) return `<span class="row-sub not-published">nothing published to judge</span>`;
-  return '';
+  const group = e.shortlistGroup === 'estimated' ? 'Estimated candidate to verify' : 'Insufficient evidence';
+  const reason = c.fail ? `${c.fail} products fail at least one requirement; ${c.untested} remain unresolved` : `${c.untested} products have no complete qualifying evidence`;
+  return `<span class="row-sub" title="${esc(reason)}">${group}: ${esc(reason)}</span>`;
 }
 
 /**
@@ -393,7 +401,7 @@ export function renderTable(host, state, actions) {
     }).join('');
   };
 
-  const body = sorted.map(({ material: m, evaluation: e }) =>
+  const bodyOf = (list) => list.map(({ material: m, evaluation: e }) =>
     `<tr data-material="${esc(m.id)}" data-selected="${state.selectedMaterialId === m.id}" tabindex="0">${cells(m, e)}</tr>`
   ).join('');
 
@@ -493,6 +501,22 @@ export function renderTable(host, state, actions) {
     .map((n) => state.db.materials.find((m) => m.name === n))
     .filter(Boolean);
 
+  const tableOf = (list, reference = '') => scrollTable(`<table class="grid">
+    <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
+    <thead><tr>${head}</tr></thead><tbody>${reference}${bodyOf(list)}</tbody></table>`);
+  const grouped = tested && scenario.unknownPolicy === 'exploration';
+  const supported = sorted.filter((r) => !r.evaluation.shortlistGroup || r.evaluation.shortlistGroup === 'supported');
+  const estimated = sorted.filter((r) => r.evaluation.shortlistGroup === 'estimated');
+  const insufficient = sorted.filter((r) => r.evaluation.shortlistGroup === 'insufficient');
+  const other = sorted.filter((r) => r.evaluation.shortlistGroup === 'excluded');
+  const wasOpen = host.querySelector('details.insufficient-evidence')?.open;
+  const resultTables = !sorted.length ? `<p class="empty-line">Nothing matching "${esc(state.search)}" meets your requirements.</p>`
+    : !grouped ? tableOf(sorted, baselineRow)
+      : `${supported.length || baselineRow ? `<h3>Supported candidates (${supported.length})</h3>${tableOf(supported, baselineRow)}` : ''}
+        ${estimated.length ? `<h3>Estimated candidates to verify (${estimated.length})</h3><p>Predicted centres meet the missing numerical requirements. Still UNKNOWN; confirm before choosing.</p>${tableOf(estimated)}` : ''}
+        ${insufficient.length ? `<details class="insufficient-evidence" ${wasOpen ? 'open' : ''}><summary>Insufficient evidence (${insufficient.length}) — included in counts and exports</summary>${tableOf(insufficient)}</details>` : ''}
+        ${other.length ? `<h3>Excluded / screened (${other.length})</h3>${tableOf(other)}` : ''}`;
+
   host.innerHTML = `
     <div class="table-bar">
       <div class="colset-pick">
@@ -521,10 +545,7 @@ export function renderTable(host, state, actions) {
       ${ranks && state.sortOverride ? `<p class="sort-note" role="status">Ordered by a column; each row keeps its rank by ${esc(index.designCase.toLowerCase())}. <button type="button" class="link-btn" data-rank-order>Order by rank</button></p>` : ''}
     </div>
     ${familyBlock}
-    ${sorted.length ? scrollTable(`<table class="grid">
-      <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
-      <thead><tr>${head}</tr></thead><tbody>${baselineRow}${body}</tbody></table>`)
-      : `<p class="empty-line">Nothing matching "${esc(state.search)}" meets your requirements.</p>`}
+    ${resultTables}
     ${excludedBlock}`;
 
   markTableOverflow(host);
@@ -570,7 +591,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
-    ...(useEstimates ? ['Estimated fields', 'Screened by estimate', 'Screened by base polymer'] : [])];
+    ...(useEstimates ? ['Estimated fields', 'Screened by estimate', 'Screened by base polymer'] : []), 'Candidate group'];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -639,7 +660,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
       { required: 'published', optional: 'optional', 'not-needed': 'not needed' }[m.gates.drying] ?? 'not recorded',
       m.buy?.url ?? '',
       // A screen by an estimate and one by the base polymer's published behaviour travel in their own columns (D64).
-      ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []),
+      ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []), e.shortlistGroup ?? '',
     ].map(q).join(',')),
   ];
   return lines.join('\n');
@@ -676,7 +697,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
   const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements', 'Judged as', 'Not settled by',
     ...(goal && ctx ? [`Goal ${goal.formula} in the state judged`] : []),
     ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Value qualifiers', 'Values read from',
-    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source'];
+    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source', 'Candidate group'];
   const header = [
     '# H2C Material Selector: products of the materials on screen',
     `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
@@ -700,7 +721,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
         p?.drying ? `${p.drying.need}; ${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hours ?? ''} h` : '',
-        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId,
+        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId, judged.get(g.id)?.shortlistGroup ?? '',
       ].map(q).join(','));
     }
   }

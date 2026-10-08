@@ -12,8 +12,8 @@
 // material calibration uses, and the likely and plausible scales are set from where the hidden values fell. The
 // material's ranges are untouched.
 //
-// A grade estimate decides nothing. It is attached only to a product without a comparable value of its own, and shown
-// beside it; screening reads the material's (D48, D59), and constraints.js never reads a grade's.
+// Attached only where a product lacks a comparable value. It never passes a requirement.
+// D137 adds separate independent exclusion certification without changing these displayed ranges.
 
 import { quantile } from './numerics.js';
 import { HEAD, identityOf, sig3 } from './model.js';
@@ -127,6 +127,7 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
       strength, precision, unit: h.unit,
       centre: sig3(centre), lo: sig3(range[0], -1), hi: sig3(range[1], 1),
       plausible: { lo: sig3(wide[0], -1), hi: sig3(wide[1], 1) },
+      impliedBounds: floorsOf(f),
       ownShare: total > 0 ? Math.round(Math.max(0, Math.min(1, ownWeight / total)) * 100) / 100 : 0,
       evidence: own.map(({ o }) => ({ kind: o.kind, measurementIds: o.items.map((x) => x.measurementId).filter(Boolean),
         converted: sig3(inv(o.y + tmMean(o.m))), conflict: !!o.conflict })),
@@ -148,8 +149,9 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
 /** The constants every grade estimate shares, said once (meta.estimateModel.gradeEstimates). */
 export function gradeEstimateMeta(model) {
   return {
+    version: 2,
     levels: model.levels,
     method: 'The Gaussian model of every observation, predicted at the grade\'s own row (its formulation and its maker as test house); likely and plausible ranges calibrated by hiding each grade\'s own published values and predicting them from the rest (DECISIONS D81).',
-    decides: 'Nothing: a grade estimate is shown beside the grade. Screening and the headlines read the material\'s estimate.',
+    decides: 'Never PASS. Independently certified product bounds may exclude in as-printed/dry contexts using the reserved complete-scenario budget; uncertified classes remain UNKNOWN (D137).',
   };
 }

@@ -1,0 +1,40 @@
+{
+  "commit": "d97769c57f742a203eaaddc6025b555457d5322e",
+  "data": {
+    "data/tables/polymers.csv": "29b1899634c836645c40602bc6c89c765093e6396511ce83a94ff4b287351156",
+    "data/tables/reference_envelopes.csv": "72a10b2b69186ba2f8391b7e5c47b3d8d4cc092a8f6aea6bb43d982a91dfa776",
+    "data/tables/coverage.csv": "8f65483ba3fa35a8d070ded15a850ccad463ad75045ce7e4d79e10af735dcbab",
+    "data/tables/evidence.csv": "a5a270a146c679840b36a7f822dd5f87bf400c4a47927eb44cb374957c899286",
+    "data/tables/materials.csv": "412ed7beb8eace90a529dda29c99a548b6c4c9c4f7bdb9e8585a88acf0bad5f8",
+    "data/tables/profiles.csv": "4348cf2e9e6a4dfc218ff2a73e5f75042afbcb93efc97bc926b73520f22dcc58",
+    "data/tables/family_members.csv": "2b95d30bf4d7af73ec88433e964010770b79fcff4dad6f538a96e020de49e7f9",
+    "data/tables/fatigue_tests.csv": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f",
+    "data/tables/physical_relations.csv": "a183d4bfff8b4a3230a683a7130cb7f30c51d0ffee42a6e354ee42e41f135150",
+    "data/tables/print_guide_materials.csv": "57098444745f30c043a85818375165c17f607b3479ba27d0404f9e066b2c6464",
+    "data/tables/profile_notes.csv": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2",
+    "data/tables/prices.csv": "7c31c6e83b0cc3eccce6b78fa0a4470e3df1570e2c164441b1291543734d2917",
+    "data/tables/headline_definitions.csv": "3616c08ad393143d322d64895154004099f3f2976c1ba31aff6abd7bd5a68952",
+    "data/tables/family_entries.csv": "e400b234a1e0d1525a74a0fe2927f766b3083a94ccb1902bfabd8b0b2cc671c5",
+    "data/tables/plausibility_windows.csv": "fff5629c602c2d9dac608a79bbb1cd88b95de3f9bf48f7e927d29967ec2bda93",
+    "data/tables/print_guide.csv": "5b6868e6f63a1a3eac8f0531fdde055730a7874ac225a580bef808328dc98b00",
+    "data/tables/measurements.csv": "5faca62c0d4f52dd11d6ef0c9c402efbbe01260610008e82182379ec7e24b1ad",
+    "data/tables/properties.csv": "e6ed4997f37929f64a7df2a7ec4f3bdbcf9bf0d94aed7b39986dae4b7d18d9f1",
+    "data/tables/material_links.csv": "b721d51674cc3517282e88e430fc6f6f3545191ba3f8034c310337c53cb86587",
+    "data/tables/chamber_bands.csv": "85e84f111e5c123ee8f38216db042911ca42a160bedefde734fadd40fbdc41f6",
+    "data/tables/product_claims.csv": "05cc623fbf26470bf5665716e4537ac9d2cc1c9ed11baa047a023a4e365374df",
+    "data/tables/know_how_reads.csv": "aa6f2b93a0a0def9f91c19d4b94b7fc9bdd49678263fa8f25df784cbb47d549c",
+    "data/tables/method.csv": "1e31fa67974e4e6f873df7c44a07f0c065ead0955d9bc8241023fbf7f62555d0",
+    "data/tables/reference.csv": "8038a51a85f2fbae2b0eba7b50dbf9daac77f395be7165108608e2c2e1f8389d",
+    "data/tables/headlines.csv": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b",
+    "data/tables/fx_rates.csv": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0",
+    "data/tables/polymer_environment.csv": "e40011199958e55374b5b4fb48f373d9c6f9aab626c0416d83e21b022223b88d",
+    "data/tables/grades.csv": "0cd3d45b8455ff142e032140d49a1c99bc9bc9b90c2597f7d1e7723d0b34898a",
+    "data/tables/impact_test_guesses.csv": "8c3ea27d1f977c953329021048c34851e41d644fab11b1fc13908684320223a9",
+    "data/tables/page_context.csv": "c6c38998607e2058044fe90e8e53c501d660efdabd2334f362297155856e3e49",
+    "data/tables/sources.csv": "d1b41b654ab6a0e9488131ebedfe56019a016b6aa17ed76bb5f3d5217c79f6a1"
+  },
+  "acceptance": {
+    "test/acceptance/portfolio.json": "56ad7a59da398792a182a843555f00d86e2886f5646d31932d85868d69c13dfd",
+    "test/acceptance/ashby-workspace.json": "7fb4906d7579038af87925659d9d14f2d3533deafd06cd97694b2577c9b26f4a"
+  }
+}

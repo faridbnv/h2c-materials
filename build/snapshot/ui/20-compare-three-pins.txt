@@ -1,14 +1,14 @@
-COUNT 85 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 101 | ☐ FAIL 44 | ☐ SCREENED 23
+COUNT 94 shown PASS + UNKNOWN
+STATUS ☑ PASS 7 | ☑ UNKNOWN 101 | ☐ FAIL 44 | ☐ SCREENED 14
 Requirements: Within H2C capability; Build material (not a support); Nozzle ≤ 350 °C; Bed ≤ 120 °C; Chamber ≤ 65 °C; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain; estimates and resin data may exclude a material, never pass one. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
-ABS
-UNKNOWN
-ABS-AF
-UNKNOWN
-ABS-CF
-UNKNOWN
+ASA-CF
+PASS
+PA6-CF
+PASS
+PA6-GF
+PASS
 Compare against
 no reference
 PLA
@@ -17,143 +17,174 @@ ABS
 ASA
 PC
 Print summary
-Each track runs from the lowest to the highest of all 152 candidate materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy) and notched charpy impact) use a log scale. An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end. A * is a published value that is not comparable, drawn as a tick; select it for why.
+Each track runs from the lowest to the highest of all 152 candidate materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy) and notched charpy impact) use a log scale. An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end.
 Density kg/m³
 Density at most 1500 kg/m³
-ABS
-1,050
-1,020–1,120 · 46
-ABS-AF
-1,050
-1,040–1,050 · 3
-ABS-CF
-1,080
-1,050–1,110 · 11
+ASA-CF
+1,095
+1,020–1,170 · 16
+PA6-CF
+1,175
+1,090–1,250 · 14
+PA6-GF
+1,310
+1,140–1,370 · 9
 520
 7,190
 all 152 candidates
 Tensile modulus (XY) GPa
 Tensile modulus (XY) at least 3 GPa
-ABS
-2.2
-1.77–2.38 · 13
-ABS-AF
-1.89
-ABS-CF
+ASA-CF
+3.91
+0.85–5.36 · 6
+PA6-CF
+4.37
+3.8–8.64 · 6
+PA6-GF
 4.35
-2.7–5.21 · 4
+2.85–5.36 · 4
 0.00196
 log scale
 19.4
 all 152 candidates
 Tensile strength (XY) MPa
-ABS
-34.5
-15.7–45 · 18
-ABS-AF
-22
-ABS-CF
-43.7
-27.3–48 · 6
+ASA-CF
+41.3
+34–50.1 · 6
+PA6-CF
+77
+53–112 · 7
+PA6-GF
+82.3
+62.8–98.9 · 6
 7
 299
 all 152 candidates
 Tensile strength (Z) MPa
-ABS
-27.3
-13.2–33 · 12
-ABS-AF
-Not published
-ABS-CF
-28
-16–29.9 · 3
-7.5
+ASA-CF
+27.5
+17–31 · 4
+PA6-CF
+48
+47–54 · 3
+PA6-GF
 60.7
-all 152 candidates
+27–61.4 · 3
+7.5
+61.4
+widened to a value shown
 Elongation at break (XY) %
-ABS
-10
-2.7–40 · 17
-ABS-AF
-~2–17†
-ABS-CF
-1.9
-1.48–3.08 · 4
+ASA-CF
+3
+1.64–15.5 · 5
+PA6-CF
+7.35
+2.1–16.5 · 6
+PA6-GF
+4.95
+2.4–12.5 · 6
 0.641
 log scale
 1,050
 all 152 candidates
 Notched Charpy impact kJ/m²
-ABS
-20
-10.5–21.5 · 5
-ABS-AF
-6.1*
-ABS-CF
-16.1*
+ASA-CF
+5.76
+5.5–6.2 · 3
+PA6-CF
+12.2
+11–13.4 · 2
+PA6-GF
+8.6
+7.2–10 · 2
 0.55
 log scale
 78
 all 152 candidates
 Notched Izod impact kJ/m²
-ABS
-12.5
-10–15 · 2
-ABS-AF
-Not published
-ABS-CF
-45*
+ASA-CF
+10.5
+PA6-CF
+9
+6.5–11.5 · 2
+PA6-GF
+10.5
 2
 48
 all 152 candidates
 HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
-ABS
-95
-78.9–118 · 23
-ABS-AF
-88
-88 · 2
-ABS-CF
-91
-76–102 · 7
+ASA-CF
+101
+86–130 · 7
+PA6-CF
+183
+140–215 · 10
+PA6-GF
+184
+161–210 · 10
 42.6
 300
 all 152 candidates
 Glass transition (Tg) °C
-ABS
-105
-81–126 · 20
-ABS-AF
-110
-ABS-CF
-105
-101–110 · 6
+ASA-CF
+106
+105–107 · 2
+PA6-CF
+66.5
+52–74.2 · 6
+PA6-GF
+70
+65–70.4 · 5
 -60
 225
 all 152 candidates
 Price CAD/kg
 Price at most 100 CAD/kg (reported only)
-ABS
-40
-24.5–70.7 · 9
-ABS-AF
-127
-ABS-CF
-45
-40–50 · 2
+ASA-CF
+65
+40–122 · 5
+PA6-CF
+130
+110–204 · 4
+PA6-GF
+84
+77–146 · 3
 21.6
 356
 all 152 candidates
 H2C PRINTABILITY
 For a material with passing products, each check uses those products' own settings. The line under it covers all of the material's products.
 Material Nozzle Bed Chamber Hardened nozzle Drying
-ABS within within within not needed published
-ABS-AF within within within 1 of 3 products need one optional
-ABS-CF within within partly within 9 of 11 products need one published
+ASA-CF
+2 passing products
+ 2 of 2 within
+all products: within
+ 2 of 2 within
+all products: within
+ 2 of 2 within
+all products: within
+ required published
+PA6-CF
+4 passing products
+ 4 of 4 within
+all products: within
+ 4 of 4 within
+all products: within
+ 4 of 4 within
+all products: within
+ required published / optional
+PA6-GF
+1 passing product
+ 1 of 1 within
+all products: within
+ 1 of 1 within
+all products: within
+ 1 of 1 within
+all products: within
+ required published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
-ABS 10 of 10 — 55 788
-ABS-AF 6 of 10 1† 3 34
-ABS-CF 8 of 10 — 11 132
-A † span is an estimate, not a measurement: the likely range (80%), the plausible range behind it and a tick at its centre. It never passes a requirement; select it for what it rests on.
+ASA-CF 10 of 10 — 17 182
+PA6-CF 10 of 10 — 14 196
+PA6-GF 10 of 10 — 11 212

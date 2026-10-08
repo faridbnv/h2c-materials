@@ -323,7 +323,7 @@ function applySearch(host) {
   }
 }
 
-/** One line per headline of what the model says of this grade (D81), only with estimates on. It decides nothing. */
+/** One line per headline of what the model says of this grade (D81), only with estimates on. D137 explains its exclusion permission separately. */
 function gradeEstimateLines(g, c) {
   if (!c.showEstimates || !g.estimate) return '';
   // Only where the product publishes no comparable value of its own: an estimate beside its own measurement said less
@@ -331,7 +331,7 @@ function gradeEstimateLines(g, c) {
   const lines = REGISTRY.headlines.filter((h) => g.estimate[h.key] && g.headline?.[h.key]?.level !== 'comparable').map((h) => {
     const e = g.estimate[h.key];
     return `<div class="grade-est"><b>${esc(h.labels.plain)}</b> <span class="est est-${esc(e.precision)}">~${fmtNumber(e.lo)}–${fmtNumber(e.hi)} ${esc(e.unit)}<span class="est-mark">†</span></span>
-      <span class="fine">centre ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span></div>`;
+      <span class="fine">centre ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span>${e.screening ? `<span class="fine">Never PASS. ${esc(e.canScreen ? 'May screen a complete as-printed, dry scenario with one inferred numerical test; no alternative routes.' : `Cannot screen: ${e.screenLimit}`)}</span>` : ''}</div>`;
   });
   return lines.length ? `<div class="grade-ests"><div class="shared-head">Estimated, where this product publishes no comparable value</div>${lines.join('')}</div>` : '';
 }
