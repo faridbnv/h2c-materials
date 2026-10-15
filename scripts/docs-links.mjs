@@ -63,6 +63,32 @@ export function anchorsOf(text) {
 
 const LINK = /!?\[(?:[^\]\[]|\[[^\]]*\])*\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g;
 
+/** Every prose link's target in a Markdown text, web addresses and anchors included. */
+export const linkTargets = (text) => [...proseOf(text).matchAll(LINK)].map((m) => m[1]);
+
+/**
+ * The text with every prose link's target passed through `map(target)`: a link inside a code block or a code span is
+ * left alone, and a target `map` returns unchanged (or null) is kept. How a moved file's links are re-pointed.
+ */
+export function rewriteLinks(text, map) {
+  let fence = null;
+  return text.split('\n').map((line) => {
+    const open = /^\s*(`{3,}|~{3,})/.exec(line);
+    if (fence) { if (open && open[1][0] === fence[0] && open[1].length >= fence.length) fence = null; return line; }
+    if (open) { fence = open[1]; return line; }
+    const masked = line.replace(/(`+)[^`]*?\1/g, (m) => ' '.repeat(m.length));
+    let out = line;
+    for (const m of [...masked.matchAll(LINK)].reverse()) {
+      const next = map(m[1]);
+      if (!next || next === m[1]) continue;
+      const link = line.slice(m.index, m.index + m[0].length);
+      const at = link.lastIndexOf(m[1]);
+      out = out.slice(0, m.index) + link.slice(0, at) + next + link.slice(at + m[1].length) + out.slice(m.index + m[0].length);
+    }
+    return out;
+  }).join('\n');
+}
+
 /** Every broken relative link in the tracked Markdown, as "file:line: target: why". */
 export function brokenLinks() {
   const { files, dirs } = trackedTree();

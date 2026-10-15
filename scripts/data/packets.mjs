@@ -14,11 +14,12 @@
 // 2026-09-18-v2-import, which is the import pipeline's live state; the frozen lists a round was judged against and the
 // verdicts the README counts (TARGETS*.csv, DOCS*.csv, BASELINE*.json, baseline/, blind-draw/*verdicts-*.csv); the
 // coverage campaign's inputs and outputs, which its status check reads; every file a living document, script, test or
-// table names by path; and what docs/audits/keep-list.csv lists. `--manifest` prints each kept file's reason.
+// table names by path, or a regenerated (Current or Generated) document links; and what docs/audits/keep-list.csv lists. `--manifest` prints each kept file's reason.
 //
 //   npm run packets -- --manifest <round>            what would move, and why each kept file stays
 //   npm run packets -- --export <round> [--remove]   copy the packets to the store, checked byte for byte, and write
-//                                                    PACKETS.md and PACKETS.csv; --remove then takes them out of git
+//                                                    PACKETS.md and PACKETS.csv; a Markdown link that led to a packet
+//                                                    now leads to PACKETS.md; --remove then takes them out of git
 //   npm run packets -- --verify <round>              hash every packet in the store against PACKETS.csv
 //   npm run packets -- --restore <round> [--to <dir>]  copy a round's packets back, to their own places by default
 //   npm run packets -- --check                       every round's packets are in the store, and none is still tracked;
@@ -30,11 +31,12 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, realpathSync, renameSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, relative, resolve, sep } from 'node:path';
+import { dirname, join, normalize, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { PROPOSALS, projectRoot as root } from '../ingest/context.mjs';
 import { generatedMark } from '../lib/generated-mark.mjs';
+import { linkTargets, rewriteLinks } from '../docs-links.mjs';
 
 const AUDITS = 'docs/audits';
 const PROPOSALS_ROUND = 'ingest-2026-09-18';
@@ -93,6 +95,26 @@ function livingCitations() {
   return living;
 }
 
+const regenerated = new Map();
+/**
+ * The files a round's regenerated documents link: a document that opens with the Current or Generated mark is written
+ * again by its command, links and all, so what it links must stay (the campaign's STATUS.md links its receipts).
+ */
+function linkedFromRegenerated(round) {
+  if (regenerated.has(round)) return regenerated.get(round);
+  const dir = `${AUDITS}/${round}`;
+  const linked = new Set();
+  for (const md of tracked(dir).filter((f) => f.endsWith('.md') && !f.endsWith('/PACKETS.md'))) {
+    const text = readFileSync(join(root, md), 'utf8');
+    if (!/^> \*\*(Current|Generated)\*\*/m.test(text.split('\n').slice(0, 12).join('\n'))) continue;
+    for (const target of linkTargets(text)) {
+      try { linked.add(normalize(join(dirname(md), decodeURIComponent(target.split('#')[0]))).slice(dir.length + 1)); } catch { /* not a path */ }
+    }
+  }
+  regenerated.set(round, linked);
+  return linked;
+}
+
 /** docs/audits/keep-list.csv: a file or a folder (ending in /) under docs/audits that stays, and why. */
 function keepList() {
   const path = join(root, AUDITS, 'keep-list.csv');
@@ -116,6 +138,7 @@ export function keepReason(round, rel) {
   if (FROZEN.some((re) => re.test(rel))) return 'a frozen list, baseline or counted verdict';
   if (round === CAMPAIGN && campaignNeeds(rel)) return 'read or written by the campaign status check';
   if (livingCitations().files.has(`${round}/${rel}`)) return 'named by a living document, script, test or table';
+  if (linkedFromRegenerated(round).has(rel)) return 'linked from a document its command regenerates';
   const listed = keepList().find((k) => `${round}/${rel}` === k.path || (k.path.endsWith('/') && `${round}/${rel}`.startsWith(k.path)));
   return listed ? `keep-list: ${listed.reason}` : null;
 }
@@ -194,6 +217,27 @@ function writeRecord(round, rows) {
   writeFileSync(join(root, round.record, 'PACKETS.md'), lines.join('\n'));
 }
 
+/**
+ * Every tracked Markdown file's links to a packet that moved now lead to its round's PACKETS.md, which names it with its
+ * digest; the link keeps its words. Returns how many files changed.
+ */
+function relink(round, moved) {
+  const gone = new Set(moved.map((rel) => `${round.dir}/${rel}`));
+  const record = `${round.record}/PACKETS.md`;
+  let changed = 0;
+  for (const md of git('ls-files', '--', '*.md').split('\n').filter(Boolean)) {
+    const text = readFileSync(join(root, md), 'utf8');
+    const next = rewriteLinks(text, (target) => {
+      if (/^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('#')) return null;
+      let path;
+      try { path = normalize(join(dirname(md), decodeURIComponent(target.split('#')[0]))); } catch { return null; }
+      return gone.has(path) ? relative(dirname(md), record) || 'PACKETS.md' : null;
+    });
+    if (next !== text) { writeFileSync(join(root, md), next); changed++; }
+  }
+  return changed;
+}
+
 /** Copy a round's packets to the store, read each copy back, and write the round's record of them. */
 export function exportRound(name, { remove = false } = {}) {
   const { round, moving } = sortRound(name);
@@ -210,10 +254,11 @@ export function exportRound(name, { remove = false } = {}) {
   }
   writeRecord(round, [...rows.values()]);
   copyWhole(join(root, round.record, 'PACKETS.csv'), join(base, 'packets-index.csv'));
+  const relinked = moving.length ? relink(round, moving) : 0;
   if (remove && moving.length) {
     for (let i = 0; i < moving.length; i += 300) git('rm', '-q', '--', ...moving.slice(i, i + 300).map((rel) => `${round.dir}/${rel}`));
   }
-  return { exported: moving.length, bytes: moving.reduce((s, rel) => s + (rows.get(rel)?.bytes ?? 0), 0), removed: remove ? moving.length : 0 };
+  return { exported: moving.length, bytes: moving.reduce((s, rel) => s + (rows.get(rel)?.bytes ?? 0), 0), removed: remove ? moving.length : 0, relinked };
 }
 
 /** Every packet of the round, hashed in the store against the round's record. Returns the problems. */
@@ -295,8 +340,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       for (const [path, by] of folders) console.log(`  a folder a living file names (not kept unless keep-list.csv lists it): ${path} (${by.join(', ')})`);
       if (args.includes('--list')) for (const rel of moving) console.log(`    moves: ${rel}`);
     } else if (value('--export')) {
-      const { exported, bytes, removed } = exportRound(value('--export'), { remove: args.includes('--remove') });
-      console.log(`packets: ${exported} file(s), ${mb(bytes)}, in the store and checked${removed ? `, ${removed} removed from git` : ''}`);
+      const { exported, bytes, removed, relinked } = exportRound(value('--export'), { remove: args.includes('--remove') });
+      console.log(`packets: ${exported} file(s), ${mb(bytes)}, in the store and checked${removed ? `, ${removed} removed from git` : ''}${relinked ? `; links re-pointed in ${relinked} document(s)` : ''}`);
     } else if (value('--verify')) {
       const problems = verifyRound(value('--verify'));
       for (const p of problems) console.error(`  ${p}`);
