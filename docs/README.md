@@ -61,7 +61,8 @@ Three places, in the order to try them.
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than errors, so the reason
    usually sits directly above the code.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered, with an index at the head saying which still hold, each saying what would
-   break if it were reversed, and a table of bugs worth remembering, with what pins each one now.
+   break if it were reversed, and a table of bugs worth remembering, with what pins each one now. A decision no longer in
+   force at all is in [DECISIONS-ARCHIVE.md](DECISIONS-ARCHIVE.md), linked from the index.
 3. **[audits/](audits/README.md).** Each review and round in its own dated folder, listed in order with what it asked
    and what came of it. Where the interface is the way it is because a first-time user hit it, the audit says so; where
    it is the way it is because of what the data can and cannot support, DECISIONS says so. If neither does, the git
