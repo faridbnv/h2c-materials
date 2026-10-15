@@ -153,6 +153,7 @@ detail. The generator names one that runs longer.
 | D135 | A page that says once how its bars were printed gives that direction to its rows that say none | Many sheets say once, under a table, that "all specimens have been printed in XY plane" and then print each value without a direction. Such a value used to be drawn as "orientation not stated" and kept out of every median. Now the page's statement gives the direction to the tensile, flexural and impact rows that state none, exactly as a page's statement already gave them their specimen, moisture and treatment (D116). It never reaches a moulded bar's row. | In force; it extends D116 and D128 |
 | D136 | The completeness round: what the held sheets print is held once, and found where it is printed | The owner had four open problems worked through together, then the tooling debt, then the makers' statements nobody had read. Values the held sheets print but the tables lacked were read on their pages and entered; copies of a maker's own sheet registered beside it hold their rows once; a scanned page's words can now be searched; and the open-problems page says what is true. Where a reading claimed a held number was wrong, it was the cell next to it every time, and no held number changed. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and extends D85 (the record tier) and D89 (which twin a product reads) |
 | D137 | Product predictions and evidence verdicts stay separate; exclusion needs independent scenario validation | A missing product value may show an estimate, but it never passes. Only separately validated bounds may exclude it; unresolved options remain visible with the evidence needed next. | In force |
+| D138 | A round's record leaves the working tree when it closes; the text reader and the estimate stage are frozen | The repository keeps what a person needs to read and run the tool. A finished round's migrations move to `archive/migrations/`, and its working files (readings, proposals, held rows, render dumps) move to the private evidence store, each listed with its size and SHA-256 in the round's `PACKETS.md`; git history keeps every byte. The import's text reader takes no new layout rules, and the estimate model no new physics, without a decision. | In force; it extends D35 (every value from its page: a packet's digest proves its bytes), D72 (nothing is deleted from the data: this moves files, not records) and D85 (the record tier, whose `source_facts` lane is now built only where the private cache is), and holds D58 (no new branch in the estimate model) at every round's close |
 
 <!-- end index -->
 
@@ -4435,6 +4436,32 @@ The allocated tolerance gate needs 194 independent calibration groups per eviden
 Version 2 product estimates and additive certification/provenance fields distinguish this contract; old snapshots retain D83 fallback. Under Include uncertain, supported options come first, estimated centres meeting every missing numeric limit are candidates to verify, and other unknowns are in an expandable insufficient-evidence list. Expansion changes presentation, not eligibility, counts or exports. Ranking calculations remain unchanged within groups; exports append the group. Product cards and reasons state scope and the maker question or printed-coupon test needed.
 
 The frozen baseline, unchanged-data/published-value checks, independent validation and decision replay are in [the fix audit](audits/2026-10-08-product-screening/README.md). The audit records which scopes failed or lacked evidence; no candidate-removal target or relaxed check is used to force a result.
+
+## D138. A round's record leaves the working tree when it closes; the text reader and the estimate stage are frozen
+
+> **In plain words:** The repository keeps what a person needs to read and run the tool. A finished round's migrations move to `archive/migrations/`, and its working files (readings, proposals, held rows, render dumps) move to the private evidence store, each listed with its size and SHA-256 in the round's `PACKETS.md`; git history keeps every byte. The import's text reader takes no new layout rules, and the estimate model no new physics, without a decision.
+> **Status:** In force; it extends D35 (every value from its page: a packet's digest proves its bytes), D72 (nothing is deleted from the data: this moves files, not records) and D85 (the record tier, whose `source_facts` lane is now built only where the private cache is), and holds D58 (no new branch in the estimate model) at every round's close.
+
+*Decided by the owner on 2026-10-14 and 2026-10-15, from the [architecture review](audits/2026-10-14-architecture-maintainability/README.md); built in the [maintainability round](audits/2026-10-15-maintainability-round/README.md).*
+
+- **Why.** About 430 of 6,323 tracked files were the product; the rest were 370 run-once migrations among the living
+  scripts, 1,900 packet files (150 MB) under `docs/audits/` and 3,188 import proposals (73 MB) under `archive/`. A clone,
+  a search and a reader carried them all. They are provenance, which the store and git history keep, not documents.
+- **What moved.** Migrations m10 to m413 and the helpers only they use to `archive/migrations/`, their imports
+  re-pointed and checked (`npm run round:close`, `checkImports`); the helpers living code imports to `scripts/lib/`.
+  Every round's packets, by `npm run packets`, except what a living check, document, table or script reads (its rules
+  are in `scripts/data/packets.mjs`); a link to a moved packet leads to its `PACKETS.md`. The proposals now live in
+  `.cache/proposals/`, restored from the store. The tracked tree went from 6,323 files and 259 MB to about 1,900 and 66 MB.
+- **What a reader loses, and what they keep.** The packets are private, like the source documents: a public reader of a
+  round sees its reports, its numbers and each packet's digest, and `git show <commit>:<path>` still reads any of them.
+  The record tier's `source_facts` is empty where the proposals are absent (CI), and the SQLite file says so.
+- **The freezes.** `scripts/ingest/propose.mjs` grew a regular expression for each layout, and one added for one maker
+  could misread another; a new layout is read by the page-read path, with the reader as its check (IMPORTING.md). The
+  estimate stage is a quarter of the build's code and screens 32 of 673 template candidates; D58 already asks a decision
+  and a back-test row of any new physics. `round:close` prints what changed in both since `main`.
+- **What would break if reversed.** Putting the packets back makes every clone 200 MB heavier and every search of the
+  tree return a round's working rows beside the living documents. Moving migrations back among the living scripts makes
+  living code free to import a run-once script again, as `read-proposals.mjs` did from m290.
 
 ---
 

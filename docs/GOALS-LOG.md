@@ -564,3 +564,18 @@ documents nobody had read for them (4).
 ## Product uncertainty and screening, 2026-10-08
 
 The owner authorised a fix for OPEN-PROBLEMS §35 (steps 2, 4 and 5; C4, C6, C8, C12). Keep evidence verdicts, predictions and shortlist eligibility distinct. Each catalogued product reads its own missing-value predictions even when siblings publish; measured values always win. Estimates never pass. New exclusion permissions require separate formulation-group calibration and complete-scenario evaluation, within the existing 10% wrong-exclusion / 90% confidence budget allocated across numerical tests and alternative routes. Unsupported contexts and insufficient independent cases stay unresolved. Observed material spreads and source records do not change. Under Include uncertain, separate estimated candidates to verify from insufficient evidence; preserve scenarios, ranking and exports. Finish with full local verification, reviewed scenario differences, a push to main and verified deployment.
+
+## Decided on 2026-10-15, the maintainability round
+
+The owner asked for an architecture review (2026-10-14: [the review](audits/2026-10-14-architecture-maintainability/README.md))
+and then for its eight recommendations to be carried out, keeping the code clean and readable, everything working and
+the documents useful; Claude Opus as the brain and Claude Sonnet agents for labour; pushed to main at the end. Asked
+with a recommendation each, the owner chose:
+
+1. **A round's working files go to the private evidence store** (`$H2C_SOURCE_BACKUP`, beside the source documents),
+   each listed in its round folder with its digest; git history keeps them too.
+2. **The two failures of the weekly check of 2026-10-11 are fixed in this round**: the reproducible-build check had no
+   build to compare, and the fuzz read a material's assumed value where the engine rightly judged its product's own.
+3. **OPEN-PROBLEMS is filed by subject**, its section numbers kept as the items' names.
+
+Built as D138; the record is [the maintainability round](audits/2026-10-15-maintainability-round/README.md).
