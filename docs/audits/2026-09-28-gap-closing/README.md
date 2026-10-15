@@ -5,13 +5,13 @@
 Start with [RESPONSE.md](RESPONSE.md) for results, evidence boundaries and verification.
 
 - [TARGETS.csv](TARGETS.csv): immutable 3,464-target baseline.
-- [OUTCOMES.csv](OUTCOMES.csv): one disposition per target; [HANDOFFS.csv](HANDOFFS.csv) holds unresolved facts.
-- [TARGET-QUESTION-OUTCOMES.csv](TARGET-QUESTION-OUTCOMES.csv): exact current state/result for every associated question.
+- [OUTCOMES.csv](PACKETS.md): one disposition per target; [HANDOFFS.csv](PACKETS.md) holds unresolved facts.
+- [TARGET-QUESTION-OUTCOMES.csv](PACKETS.md): exact current state/result for every associated question.
 - [C-SITE-OUTCOMES.csv](C-SITE-OUTCOMES.csv): 63 bounded print-settings searches and access/identity limits.
 - [STATE-VARIANTS-FOLLOWUP.csv](STATE-VARIANTS-FOLLOWUP.csv): additional states queued, with no research claimed.
-- [FINAL-MOVEMENT.csv](FINAL-MOVEMENT.csv): answers moved against the original questions.
-- [DECISION-TRACE-INDEX.csv](DECISION-TRACE-INDEX.csv): current-release end-to-end traces for all changed product answers.
-- [RESTORE-COUNTS.json](RESTORE-COUNTS.json): empty-cache source/derived restore and intentionally excluded mismatch.
+- [FINAL-MOVEMENT.csv](PACKETS.md): answers moved against the original questions.
+- [DECISION-TRACE-INDEX.csv](PACKETS.md): current-release end-to-end traces for all changed product answers.
+- [RESTORE-COUNTS.json](PACKETS.md): empty-cache source/derived restore and intentionally excluded mismatch.
 - [SPOT-CHECK-DECISIVE.md](SPOT-CHECK-DECISIVE.md): agent re-reads awaiting a person.
 
 Reproduce final reports after `npm run build`:
