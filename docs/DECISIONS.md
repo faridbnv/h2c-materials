@@ -147,7 +147,7 @@ detail. The generator names one that runs longer.
 | D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 133 profiles read "drying not needed" (34 "required", 2 "optional") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
 | D130 | The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push | Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly. | In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero |
 | D131 | Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers | This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure. | In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129 |
-| D132 | [Published impact evidence is explained beside the exact product, without changing what decides](DECISIONS-ARCHIVE.md#d132-published-impact-evidence-is-explained-beside-the-exact-product-without-changing-what-decides-withdrawn) | Withdrawn the day it was made. Its drawer text told readers that makers were silent on things they had said, and called conditions "not stated" that the page states once for its whole table. The code is reverted; the four maker statements and the later Bambu PLA Tough+ page it recorded stay, under the topics they belong to. | Withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS, "Decided on 2026-10-06, later" |
+| D132 | [Published impact evidence is explained beside the exact product, without changing what decides](DECISIONS-ARCHIVE.md#d132-published-impact-evidence-is-explained-beside-the-exact-product-without-changing-what-decides-withdrawn) | Withdrawn the day it was made. Its drawer text told readers that makers were silent on things they had said, and called conditions "not stated" that the page states once for its whole table. The code is reverted; the four maker statements and the later Bambu PLA Tough+ page it recorded stay, under the topics they belong to. | Withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS-LOG, "Decided on 2026-10-06, later" |
 | D133 | Notched Charpy and notched Izod are drawn side by side in the drawer, a product each | The Mechanical tab has one closed heading, Impact tests: the two impact tests drawn one above the other on one scale (a dot per product at its published value, the middle half of the comparable products shaded and their median marked), a small table of what each median is of, then every impact result under its test with its document, the one each dot stands for marked. Selecting a dot shows its result there. The two tests are still never mixed or converted. Products their makers sell as toughened are marked from the maker's own words, and the page says what they and the other products give, so a few toughened products are not read as the material. | In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, sets the products sold as toughened (product_claims.csv) apart from the impact medians as D57 sets variants apart, and decides nothing |
 | D134 | The quality round: every open problem an agent can close, read on its page, judged one by one | The owner had the fourteen open problems that need no person's test or opinion worked through in one run. Reading machines (Claude Sonnet) read the pages and searched the web; Claude Opus judged every reading and wrote the changes. No published number had been copied with a wrong digit. What was wrong were words and conditions on rows, values held twice, values never copied, and a few rules too strict or too loose; each is fixed, and what still needs a maker or the owner is listed in OPEN-PROBLEMS §33. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and adds D135 |
 | D135 | A page that says once how its bars were printed gives that direction to its rows that say none | Many sheets say once, under a table, that "all specimens have been printed in XY plane" and then print each value without a direction. Such a value used to be drawn as "orientation not stated" and kept out of every median. Now the page's statement gives the direction to the tensile, flexural and impact rows that state none, exactly as a page's statement already gave them their specimen, moisture and treatment (D116). It never reaches a moulded bar's row. | In force; it extends D116 and D128 |
@@ -2203,7 +2203,7 @@ and W0080's redrawing, and the findings they raise; the two flags would need the
 > **In plain words:** A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values.
 > **Status:** amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) D99 (a product is judged in one state it can be made in), D100 (a material fails only when every product fails; with one unresolved it is unknown) D113 (a product's price may be converted from a foreign listing, and says so) and D137 (missing values use product predictions regardless of sibling coverage, with independent exclusion certification).
 
-*Decided by the owner on 2026-09-25 (docs/GOALS.md); supersedes D8's refusal of a range and amends D2 and D37.
+*Decided by the owner on 2026-09-25 (docs/GOALS-LOG.md); supersedes D8's refusal of a range and amends D2 and D37.
 Built in re-center phases 1 and 2; the page reads it from phase 3.*
 
 *Amended by D88 (2026-09-25): where a product's own sheet is silent on a part of its print gate, its material's
@@ -2275,7 +2275,7 @@ TPU-CF gained a second reason.
 > **In plain words:** Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked.
 > **Status:** amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state).
 
-*Decided by the owner on 2026-09-25 (docs/GOALS.md). Built in re-center phases 1 and 2.*
+*Decided by the owner on 2026-09-25 (docs/GOALS-LOG.md). Built in re-center phases 1 and 2.*
 
 *Amended by D92 (2026-09-26): a headline says what a value with no stated direction is to it. For the XY headlines it
 stays as published; for the layer strength, along Z, it is no value at all. And a headline may set a notch and a test
@@ -2304,7 +2304,7 @@ representative grade, which took whichever one somebody picked.
 
 > **In plain words:** Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows.
 
-*Decided by the owner on 2026-09-25 (docs/GOALS.md); replaces R002 and R003's "transcribe everything, to the decision
+*Decided by the owner on 2026-09-25 (docs/GOALS-LOG.md); replaces R002 and R003's "transcribe everything, to the decision
 standard" with "record everything, verify what decides". Built in re-center phase 6, lane 1.*
 
 R003 asked for everything a sheet publishes, and every fact that entered went through the decision tier's checks:
@@ -2380,7 +2380,7 @@ drops the reads table, and a silent sheet and an unread one look the same again.
 > **In plain words:** Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers.
 > **Status:** amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's; extended by D123 (two grades of one product become one, the records keeping their IDs, as a moved product's do).
 
-*Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md). Built in m141.*
+*Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS-LOG.md). Built in m141.*
 
 The canonical list was Bambu's catalogue, so fourteen Bambu product lines and eSUN's PLA-Lite were materials of their
 own, one product each, beside a PLA, PETG and TPU that already held every other maker's matte, tough, translucent,
@@ -2414,7 +2414,7 @@ brings back one maker's catalogue as the taxonomy, and a TPU that is every hardn
 > **In plain words:** Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates.
 > **Status:** amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend.
 
-*Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md, decisions 2 and 3). Built in m142 and m143.*
+*Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS-LOG.md, decisions 2 and 3). Built in m142 and m143.*
 
 Seventy-four data sheets sat deferred for their identity. Fifty name only a family ("colorFabb PA Neat", "eSUN TPE
 83A", a flexible filament rated only by its Shore hardness), and a family owns no product (D44), so none had a home;
@@ -2463,7 +2463,7 @@ Reversing it sends the 44 sheets back to deferred, and a family-only product has
 > **In plain words:** Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for.
 > **Status:** amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types); its label reworded by D124 ("from Bambu Lab's Filament Guide for …").
 
-*Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 1). Built in re-center phase 6, lane 2 (the
+*Decided by the owner on 2026-09-25 (docs/GOALS-LOG.md, phase 6, decision 1). Built in re-center phase 6, lane 2 (the
 owner's decisions), m150.*
 
 *Amended on 2026-09-27 (the owner's answer of that day; m209): the research package of 2026-09-26 reported that Bambu
@@ -2530,7 +2530,7 @@ on the parts their sheets leave out.
 > **In plain words:** A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "data sheet shared with …" (worded "same sheet as …" until D124), and counts as a product in its material's range.
 > **Status:** In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins); its label reworded by D124.
 
-*Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 2). Built in re-center phase 6, lane 2 (the
+*Decided by the owner on 2026-09-25 (docs/GOALS-LOG.md, phase 6, decision 2). Built in re-center phase 6, lane 2 (the
 owner's decisions).*
 
 R053 records a table once when several products of one material print it: a grade each, citing its own sheet, the
@@ -2575,7 +2575,7 @@ untested, and the count of products that pass undercounts every maker that sells
 > **In plain words:** For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach.
 > **Status:** in force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209).
 
-*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 1); amends D88.
+*Decided by the owner on 2026-09-26 (docs/GOALS-LOG.md, "Decided on 2026-09-26, for phase 6", decision 1); amends D88.
 Built in m165.*
 
 *Extended on 2026-09-27 (the owner's answer of that day; m209): the revision the build now reads (D88, amended) prints
@@ -2622,7 +2622,7 @@ saying the guide's tick needs more than 65 °C for a type.
 > **In plain words:** A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart.
 > **Status:** in force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength.
 
-*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 4); supersedes, for
+*Decided by the owner on 2026-09-26 (docs/GOALS-LOG.md, "Decided on 2026-09-26, for phase 6", decision 4); supersedes, for
 such values, the reading m33 gave Essentium's "45/45" and m155 gave Nanovia's ±45° tabs. Built in m168.*
 
 A raster is the direction of the lines inside each layer; a build direction is how the bar lies on the plate. m33 read a
@@ -2746,7 +2746,7 @@ the conditions.
 > **In plain words:** For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides.
 > **Status:** in force; it extends D90. Read for ASA-CF since 2026-09-27 (m210): the guide the build reads (D88, amended) asks an enclosure for it, and the owner's answer of that day reads that ask as D90 does.
 
-*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 5); extends D90.
+*Decided by the owner on 2026-09-26 (docs/GOALS-LOG.md, "Decided on 2026-09-26, for phase 6", decision 5); extends D90.
 Built in m190.*
 
 D90 read Bambu Lab's "print with an enclosure", for ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF, as
@@ -2788,7 +2788,7 @@ stated windows (Bambu Lab's own PPA-CF and PPS-CF sheets) as saying the enclosur
 
 > **In plain words:** You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m.
 
-*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 8; the
+*Decided by the owner on 2026-09-26 (docs/GOALS-LOG.md, "Decided on 2026-09-26, for phase 6", decision 8; the
 recommendation was one impact filter until a requirement asked for Izod). Built in phase 6, final round, with m195. It
 amends D92.*
 
@@ -2823,7 +2823,7 @@ from two tests as if they were one.
 
 > **In plain words:** When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides.
 
-*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 6; recommended and
+*Decided by the owner on 2026-09-26 (docs/GOALS-LOG.md, "Decided on 2026-09-26, for phase 6", decision 6; recommended and
 taken). Built in phase 6, final round, with m197.*
 
 colorFabb's sheets for Lightweight PET and Lightweight PET FLEX print their "Mechanical Properties – 3D Printed" in two
@@ -2853,7 +2853,7 @@ ordinary PET stand for a foamed one, which is the lighter, weaker part the produ
 
 > **In plain words:** Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept.
 
-*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 6;
+*Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decision 6;
 recommended and taken). Built in version 2.1, F07 of the review of 2026-09-27.*
 
 The page, its file name, every export and every saved scenario named the database by the date in `method.csv`'s
@@ -2884,7 +2884,7 @@ change to the evidence is again invisible to anyone holding a saved decision.
 
 > **In plain words:** A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough.
 
-*Decided by the owner on 2026-09-28, with the version 2.1 plan (docs/GOALS.md, "Decided on 2026-09-28, for version
+*Decided by the owner on 2026-09-28, with the version 2.1 plan (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version
 2.1"). Built in version 2.1, F06 of the review of 2026-09-27 (A01, D07).*
 
 `ingest:apply` proved a number was printed on the page its Locator names by finding one of its spellings in the page
@@ -2918,7 +2918,7 @@ standard's designation satisfies.
 
 > **In plain words:** A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it.
 
-*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 1; recommended
+*Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decision 1; recommended
 and taken). Built in version 2.1, F01 of the review of 2026-09-27 (D01, D05). Amends D38 and D19.*
 
 D83 judged each product on its own values and recipe, and left three criteria reading the material: its environment
@@ -2957,7 +2957,7 @@ in, where this decision had kept the chart at published values; Material typical
 draws those. A named state a
 product does not publish is that state with no values, never its first state.*
 
-*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decisions 2 and 5;
+*Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decisions 2 and 5;
 recommended and taken). Built in version 2.1, F02 of the review of 2026-09-27 (D03, D04). Amends D83 and D84.*
 
 D83 chose each product's value per headline on its own, preferring as printed, and admitted an annealed value where no
@@ -3002,7 +3002,7 @@ the published one (638). Reversing it lets a verdict rest again on a set of valu
 
 > **In plain words:** A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it.
 
-*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 3; recommended
+*Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decision 3; recommended
 and taken). Built in version 2.1, F04 of the review of 2026-09-27. Revises D83's third clause deliberately.*
 
 D83 made a material FAIL when no product passed and one failed, even where its other products published nothing. So one
@@ -3032,7 +3032,7 @@ it lets a measured failure of one product rule out products nobody has measured.
 
 > **In plain words:** Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing.
 
-*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 4; recommended
+*Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decision 4; recommended
 and taken). Built in version 2.1, F03 of the review of 2026-09-27 (D02). Extends D29.*
 
 GOALS step 2 asks that a product meet every requirement at once, whether the H2C can print it included. Five of the six
@@ -3089,7 +3089,7 @@ holds that a failing product's better index does not lift its material. Reversin
 
 > **In plain words:** An engineer can choose the exact product the team will print; the page keeps it with the scenario, with the state and release it was chosen on, and writes a decision brief with its evidence, recipe, open questions and a test plan, where the team records its own results.
 
-*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 7; recommended
+*Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decision 7; recommended
 and taken). Built in version 2.1, F11 of the review of 2026-09-27 (U04, D09). The start of GOALS C14's team layer,
 deliberately small.*
 
@@ -3107,7 +3107,7 @@ of the materials on screen, and nothing recorded "we chose this product, in this
   part of the recipe came from; a suggested confirmation test per requirement; and the team's results.
 - **A team's test result is its own evidence**, recorded with the decision (date, operator, printer and recipe,
   orientation, conditioning, method, result). It never enters the database, whose sources are makers' documents, and
-  no approval workflow, account or server exists: that waits until the team has used this (GOALS, decision 7).
+  no approval workflow, account or server exists: that waits until the team has used this (GOALS-LOG, 2026-09-28, decision 7).
 
 Answers moved: none. Reversing it leaves the choice of a product, and the test that confirms it, outside the tool.
 
@@ -3535,7 +3535,7 @@ say it is the whole material and where its passing products are. No verdict, ran
 > **In plain words:** A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one.
 > **Status:** In force; it amends D19 (a foreign listing prices a product but is never an offer here) and D83 (a converted price is one of a material's products' prices).
 
-*Decided by the owner on 2026-09-30 (GOALS, "Decided on 2026-09-30, the price pass"): a price for each material, CAD
+*Decided by the owner on 2026-09-30 (GOALS-LOG, "Decided on 2026-09-30, the price pass"): a price for each material, CAD
 first, then USD, then EUR. prices.csv could hold only CAD: its amount columns were named "CAD" and Currency allowed
 nothing else, so a foreign amount had nowhere to go but a CAD column, which the gap-fill handoff of 2026-09-29 forbade.
 The contract follows that research's 04-PRICES, cut to what the pass needs. Built by Claude (an agent).*
@@ -3875,7 +3875,7 @@ the fixes, including the recommended decisions"); built in the open-problems pas
 > **In plain words:** Every text on the page is written for one reader, an engineer choosing a filament for a part on the H2C, and for the decision it serves. Engineering and data-sheet terms stay; the words this project coined for its own records ("twin", "admitted for screening", "research mode", "in scope", "Theoretical") are replaced by what that engineer would say. The left rail is ordered as an engineer screens, with the H2C's checks in one group and the part's state in another; the drawer's tabs follow how a material is checked, Products second and Sources last with the known gaps; record IDs leave the page's sentences for a small ID mark. No answer moves.
 > **Status:** In force; it rewords the labels of D88 and D89 and the Overview of the drawer described under D83, D103 and D117.
 
-*Decided by the owner on 2026-10-04 (GOALS, "Decided on 2026-10-04, the engineer-grade interface"), after using the
+*Decided by the owner on 2026-10-04 (GOALS-LOG, "Decided on 2026-10-04, the engineer-grade interface"), after using the
 page; built by Claude (an agent). The owner rejected a first plan that paraphrased the engineering terms away ("Strength
 and stiffness" for Mechanical): "The reader is supposed to be an engineer… But our made up words… are out of his/her
 mind. When rewriting your english know what you are doing for whom and to what purpose."*
@@ -3915,7 +3915,7 @@ mind. When rewriting your english know what you are doing for whom and to what p
 > **In plain words:** The import's sheet reader read a page line by line in the order its text layer gave, so a two-column sheet interleaved its columns and a label lost its value; a font that drew "ti" as a digit hid a label; a web page's spec grid ran onto one line; and a product whose sheet the reader could not read got no print recipe, which no check noticed, because every check started from a profile that existed. The text is now also read in reading order and with its ligatures put back, web pages with their structured data and grids, and broken text layers are flagged and read optically beside the text. Every page of the 1,377 documents tied to a gap was read from its image by Claude Sonnet; a reading entered only where the page's own text bears its numbers out, a second blind reader agrees, or the importer's reader agrees, and Claude Opus decided every class of correction. A product's own sheet that prints a setting no profile holds is now a finding.
 > **Status:** In force; it extends D97 (a value is bound to its evidence line), D115 and D116 (context the page states), D119 and D120 (the reader as the guard) and D123 (a registered sheet read in full is not an import).
 
-*Decided by the owner on 2026-10-04 (GOALS, "Decided on 2026-10-04, the reader round"), after opening sheets the tool
+*Decided by the owner on 2026-10-04 (GOALS-LOG, "Decided on 2026-10-04, the reader round"), after opening sheets the tool
 called silent and finding the values printed there; built by Claude (Opus deciding and reviewing, Sonnet reading pages
 and writing code to specification).*
 
@@ -3966,7 +3966,7 @@ and writing code to specification).*
 > **In plain words:** An estimate could sit below a strength the same product had measured: 46 materials and 343 products showed an ultimate-strength estimate under their own published break or yield stress, and LCP's HDT at 0.45 MPa was estimated under its own published HDT at 1.8 MPa. The orders physics sets between properties are now a table (`physical_relations.csv`), the lint reads it, every estimate is floored by what its own product's measurements prove, a material's range contains every product's floor, a product's strength taken from yield or break is the larger of the same test's two, and the build refuses a number shown that breaks an order.
 > **Status:** In force; it replaces D78's material floor ("held at the highest own printed limit") with containment, and extends D55 (a value physics rules out is kept and flagged) and D84 (what a printed or unstated bar may decide).
 
-*Decided by the owner on 2026-10-04 (GOALS, "Decided on 2026-10-04, the reader round", item 3): "some of the ultimate
+*Decided by the owner on 2026-10-04 (GOALS-LOG, "Decided on 2026-10-04, the reader round", item 3): "some of the ultimate
 strength estimates go beyond the strength and break value, these are some constraints that your logic should capture";
 the owner chose that a bar whose specimen is not stated bounds as a printed one does. Built by Claude.*
 
@@ -3999,7 +3999,7 @@ the owner chose that a bar whose specimen is not stated bounds as a printed one 
 > **In plain words:** A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle.
 > **Status:** In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own).
 
-*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, gap round 2", items 1, 2 and 6; item 6, the
+*Decided by the owner on 2026-10-05 (GOALS-LOG, "Decided on 2026-10-05, gap round 2", items 1, 2 and 6; item 6, the
 reader round's recommendation for twins in OPEN-PROBLEMS §28, approved with the round's plan); built by Claude (Opus
 specifying and reviewing, Sonnet coding).*
 
@@ -4030,7 +4030,7 @@ specifying and reviewing, Sonnet coding).*
 > **In plain words:** A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page.
 > **Status:** In force; it extends D116 (context the page states).
 
-*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, gap round 2", item 3), after two blind draws found
+*Decided by the owner on 2026-10-05 (GOALS-LOG, "Decided on 2026-10-05, gap round 2", item 3), after two blind draws found
 page statements reaching tables they do not head; built by Claude (Opus specifying and reviewing, Sonnet coding).*
 
 - **`Table`** on `page_context`: a heading or column text a measurement's `Locator` must contain (compared without case,
@@ -4048,7 +4048,7 @@ page statements reaching tables they do not head; built by Claude (Opus specifyi
 
 *Decided by Claude Opus on 2026-10-05 from the round's blind draw and its probe of moved answers
 (`docs/audits/2026-10-05-gap-round-2/blind-draw/`), within the owner's instruction to check the tools by the fixes'
-effect (GOALS, "Decided on 2026-10-05, gap round 2", item 5); the readings by Claude Sonnet.*
+effect (GOALS-LOG, "Decided on 2026-10-05, gap round 2", item 5); the readings by Claude Sonnet.*
 
 - **A guide row speaks for its type only.** `print_guide_materials.csv` maps a guide row to the material whose type it
   is, and its Reason names what it is not ("not the particle-filled PLAs"); a product with a Variant (a dense or
@@ -4082,7 +4082,7 @@ effect (GOALS, "Decided on 2026-10-05, gap round 2", item 5); the readings by Cl
 > **In plain words:** Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly.
 > **Status:** In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero.
 
-*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, the owner's answers after gap round 2") and, for the
+*Decided by the owner on 2026-10-05 (GOALS-LOG, "Decided on 2026-10-05, the owner's answers after gap round 2") and, for the
 filings, by Claude Opus on the evidence Claude Sonnet researchers gathered from the cached sheets and the makers' sites.*
 
 - **A page read whole for drying** (m367). Polymaker's pages print a print-settings block ("Drying Settings: 100˚C for 10h
@@ -4193,7 +4193,7 @@ Sonnet"); Claude Sonnet readers read the pages. The packet is `docs/audits/2026-
   and interface as two parallel jobs on every push and pull request, and trend weekly with the 2,000 scenarios, so a
   push reaches the site in about half the time. A Chrome that opens no debugging port is launched once more
   (`scripts/lib/cdp.mjs`): one such start had cost a whole repeated run.
-- **The import pause is lifted** (the owner's decision of 2026-10-05; GOALS, check round 3, item 5). A new document may
+- **The import pause is lifted** (the owner's decision of 2026-10-05; GOALS-LOG, check round 3, item 5). A new document may
   enter through the import pipeline whenever a round needs it; how it enters (IMPORTING.md) is unchanged, and nothing
   was imported when the pause ended.
 - **OCR.** Mistral's best model (`mistral-ocr-latest`) was to read the deciding pages as an independent, image-based

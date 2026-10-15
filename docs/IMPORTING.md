@@ -5,7 +5,7 @@
 *Moved out of AGENTS.md on 2026-09-25 (re-center phase 5), when imports were paused; the procedure is read when one
 runs. AGENTS.md keeps the rules every change follows.*
 
-**Open since 2026-10-05.** The owner lifted the pause on 2026-10-05 (GOALS, "Decided on 2026-10-05, check round 3",
+**Open since 2026-10-05.** The owner lifted the pause on 2026-10-05 (GOALS-LOG, "Decided on 2026-10-05, check round 3",
 item 5): a new document may enter through this pipeline whenever a round needs it, with no exception to ask for. What
 follows, to the procedure, is the record of the pause and the batches the owner opened under it.
 
@@ -14,13 +14,13 @@ lifted it for the 74 sheets deferred for their identity (batch b34, and batch b3
 D87). The documents already fetched may be mined for the record tier, print recipes and makers' know-how under the
 re-center plan (`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel
 this pipeline. Phase 6 fetched new documents only where one settled a blocking answer, and those did travel it
-(batch b36; GOALS, phase 6, decision 4). On 2026-09-27 the owner lifted it for two held sheets whose makers' pages,
+(batch b36; GOALS-LOG, phase 6, decision 4). On 2026-09-27 the owner lifted it for two held sheets whose makers' pages,
 found by the research package of 2026-09-26, name the polymer (batch b37: Timberfill and NinjaTek Eel), and the
 package's saved pages entered as witnesses from their copies (`ingest:witness --from`). On 2026-09-28 the owner
 authorized b38 (the held Recreus PET-G 2023 sheet) and b39 (maker-site witnesses for the frozen chamber targets),
-bounded by [GOALS](GOALS.md#decided-on-2026-09-28-for-source-backup-and-targeted-gap-closure). Both batches are
+bounded by [GOALS-LOG](GOALS-LOG.md#decided-on-2026-09-28-for-source-backup-and-targeted-gap-closure). Both batches are
 complete; their exact scope and remaining handoffs are in the [gap-closing response](audits/2026-09-28-gap-closing/RESPONSE.md).
-On 2026-09-29 the owner asked for the gap-fill research of 2026-09-28 to be finished (GOALS, "the gap-fill tranche"):
+On 2026-09-29 the owner asked for the gap-fill research of 2026-09-28 to be finished (GOALS-LOG, "the gap-fill tranche"):
 batch b40 took nine exact-product pages its research saved, staged from those copies by digest, for one print setting
 each; facts the research found on pages already registered were recorded from those pages by a migration, not
 imported again. The price pass of 2026-09-30 admitted only its reviewed listings through the price pipeline.
@@ -28,14 +28,14 @@ The same day's approved coverage-expansion campaign is a bounded exception for e
 its isolated c01–c14 batches admitted 90 sources. The owner narrowed the resumed run to material assessment
 and 100 additional priority products, now complete; unselected catalogue targets remain outside that run. The [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md)
 lists completed and remaining targets, and its [isolated ledger](audits/2026-09-30-coverage-expansion/ingest/ledger.csv)
-retains source revisions and pipeline outcomes. On 2026-10-04 the owner opened the reader round (GOALS, "Decided on
+retains source revisions and pipeline outcomes. On 2026-10-04 the owner opened the reader round (GOALS-LOG, "Decided on
 2026-10-04, the reader round"): the makers' own pages and guides for materials with two sources or fewer (batch b41) and
 for products still missing a nozzle or bed temperature (batch b42) entered through this pipeline, each batch bounded
-and complete. On 2026-10-05 the owner opened gap round 2 (GOALS, "Decided on 2026-10-05, gap round 2"): the thirteen
+and complete. On 2026-10-05 the owner opened gap round 2 (GOALS-LOG, "Decided on 2026-10-05, gap round 2"): the thirteen
 held sheets (batch b43; ten entered) and the makers' own pages for products still without a nozzle or bed (batch b44)
 entered through this pipeline, each bounded and complete; their packets are
 `docs/audits/2026-10-05-gap-round-2/ingest/b43-packet.json` and `b44-packet.json`. Also on 2026-10-05, in check round 3, the owner had the 123 registered documents whose bytes were lost fetched again
-(GOALS, "Decided on 2026-10-05, check round 3", item 2). That is not an import: a copy that hashes to the recorded digest
+(GOALS-LOG, "Decided on 2026-10-05, check round 3", item 2). That is not an import: a copy that hashes to the recorded digest
 is the registered document and went back into the store; a page that changed since is kept as a later copy in
 `.cache/later-copies/` (backed up with the store), read by checks, and not registered, so no record cites it (D131,
 `docs/audits/2026-10-05-check-round-3/refetch/`). The round also changed what the import reads: a build plate or a shop

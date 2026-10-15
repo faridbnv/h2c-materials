@@ -275,10 +275,10 @@ its load, its notch and its test temperature (D92), and the test standard a valu
 ## Importing a batch of data sheets
 
 **Open since 2026-10-05.** The owner paused imports on 2026-09-25, until the re-center in `docs/GOALS.md` was built,
-and lifted the pause on 2026-10-05 (GOALS, check round 3, item 5): a new document may enter whenever a round needs it,
+and lifted the pause on 2026-10-05 (GOALS-LOG, check round 3, item 5): a new document may enter whenever a round needs it,
 through the import pipeline, with no exception to ask for. Nothing was imported when it was lifted. Under the pause the
 owner had opened bounded batches one by one (b34 to b44, the price pass p01 to p04, the coverage campaign's c01 to c14,
-and the re-fetch of the lost documents in check round 3); each is complete, and GOALS keeps their dates and scope.
+and the re-fetch of the lost documents in check round 3); each is complete, and GOALS-LOG keeps their dates and scope.
 Since the lift the quality round of 2026-10-07 ran b45 and the price batch p05.
 The coverage campaign's [status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) still record what that
 campaign covered. A page a reader saved enters from its copy by digest

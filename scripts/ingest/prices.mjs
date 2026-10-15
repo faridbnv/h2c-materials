@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// The one way a price enters (D35, D113; GOALS, "Decided on 2026-09-30, the price pass").
+// The one way a price enters (D35, D113; GOALS-LOG, "Decided on 2026-09-30, the price pass").
 //
 // A price is read from a page a shop served, fetched and hashed like any document, and every number, the currency and
 // the stock state of the row it becomes must be in that page's own offer data (scripts/lib/offers.mjs). Nothing enters

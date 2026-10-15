@@ -75,7 +75,7 @@ the elastomers. The user chose screening, the evidence rungs and the 95% level w
 ## D132. Published impact evidence is explained beside the exact product, without changing what decides (withdrawn)
 
 > **In plain words:** Withdrawn the day it was made. Its drawer text told readers that makers were silent on things they had said, and called conditions "not stated" that the page states once for its whole table. The code is reverted; the four maker statements and the later Bambu PLA Tough+ page it recorded stay, under the topics they belong to.
-> **Status:** withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS, "Decided on 2026-10-06, later".
+> **Status:** withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS-LOG, "Decided on 2026-10-06, later".
 
 **Why it was withdrawn.** A statement holds one topic. Moving eleven into a new topic "Impact and toughness" emptied the
 topics they left, so seven products read "Not stated by the maker: layer adhesion" (or applications, or benefits) beside

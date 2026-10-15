@@ -278,7 +278,7 @@ inferred from the name and marked accordingly.
 
 ### A product's own values, and a material as the spread of its products
 
-Added in re-center phase 1 (docs/GOALS.md, D83 and D84 decided 2026-09-25; `build/src/products.js`). Since phase 2 the
+Added in re-center phase 1 (docs/GOALS-LOG.md, D83 and D84 decided 2026-09-25; `build/src/products.js`). Since phase 2 the
 engine judges each product on its own values and recipe, and a material by how many of its products pass; since phase 4
 a material's headline is derived from them, and no product stands for a material.
 
