@@ -42,7 +42,7 @@ import { openTables, nextId } from '../data/table-io.mjs';
 import { cacheDir, cachedText, sha256 } from '../lib/pdf-text.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { testTemperatureCell } from '../../build/src/typed-values.js';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm200-onyx-gf-the-sheet-read-whole';
 const date = '2026-09-27';

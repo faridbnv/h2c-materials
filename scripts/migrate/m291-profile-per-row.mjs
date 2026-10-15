@@ -18,8 +18,8 @@
 //   node scripts/migrate/m291-profile-per-row.mjs
 import { openTables, nextId } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
-import { onSheet } from './m277-m279-sweep-shared.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { onSheet } from '../lib/sweep-shared.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm291';
 const t = openTables();

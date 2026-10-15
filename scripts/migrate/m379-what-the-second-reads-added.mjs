@@ -16,7 +16,7 @@
 //
 //   node scripts/migrate/m379-what-the-second-reads-added.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 import { newRecord } from '../data/records.mjs';
 import { readCsv } from '../../build/src/csv.js';
 import { readStandards } from '../../build/src/normalize/standards.js';

@@ -9,8 +9,8 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
+import { correct } from '../lib/source-edits.mjs';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm284';
 const here = dirname(fileURLToPath(import.meta.url));

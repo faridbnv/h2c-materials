@@ -16,8 +16,8 @@
 //
 //   node scripts/migrate/m297-stress-at-elongation.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onSheet } from './m277-m279-sweep-shared.mjs';
-import { withNote } from './source-edits.mjs';
+import { onSheet } from '../lib/sweep-shared.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm297';
 const FROM = 'Tensile strength (endpoint unspecified)';

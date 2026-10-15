@@ -11,7 +11,7 @@
 //
 //   node scripts/migrate/m341-enclosure-sentences.mjs
 import { openTables } from '../data/table-io.mjs';
-import { typedOf, TYPED } from './m290-profile-settings.mjs';
+import { typedOf, TYPED } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 
 const MIGRATION = 'm341';

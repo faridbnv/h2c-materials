@@ -13,8 +13,8 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm293';
 const here = dirname(fileURLToPath(import.meta.url));

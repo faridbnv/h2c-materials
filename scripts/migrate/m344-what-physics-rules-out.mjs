@@ -18,8 +18,8 @@
 import { join } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { withNote } from './source-edits.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 import { readCsv, csvText } from '../../build/src/csv.js';
 
 const MIGRATION = 'm344';

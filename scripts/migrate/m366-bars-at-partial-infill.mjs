@@ -12,8 +12,8 @@
 //
 //   node scripts/migrate/m366-bars-at-partial-infill.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { withNote } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm366';
 const SHEETS = ['R-3DJAKE-ABS-P-TDS-1', 'R-3DJAKE-PLA-TDS', 'R-3DJAKE-3DJAKE-ASA-TDS-1'];

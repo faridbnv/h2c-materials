@@ -16,7 +16,7 @@
 //
 //   node scripts/migrate/m395-bars-printed-in-the-xy-plane.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm395';
 const NP = 'Not published';

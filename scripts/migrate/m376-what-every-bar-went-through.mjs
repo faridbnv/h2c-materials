@@ -17,7 +17,7 @@
 //
 //   node scripts/migrate/m376-what-every-bar-went-through.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm376';
 const NP = 'Not published';

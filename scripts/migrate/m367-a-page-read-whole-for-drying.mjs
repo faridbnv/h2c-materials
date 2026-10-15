@@ -18,8 +18,8 @@
 //
 //   node scripts/migrate/m367-a-page-read-whole-for-drying.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm367';
 const t = openTables();

@@ -22,7 +22,7 @@ import { openTables } from '../data/table-io.mjs';
 import { sha256 } from '../lib/pdf-text.mjs';
 import { documentPath } from '../ingest/extract.mjs';
 import { pageReader } from './printed-on.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm215-pet-gf15-annealed-on-its-own-recipe';
 const SOURCE = 'R-FIBERON-PETGF15-TDS';

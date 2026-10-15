@@ -23,12 +23,12 @@
 import { join } from 'node:path';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { typedOf, TYPED } from './m290-profile-settings.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { typedOf, TYPED } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 import { tidy } from '../ingest/read-proposals.mjs';
 
 const MIGRATION = 'm353';

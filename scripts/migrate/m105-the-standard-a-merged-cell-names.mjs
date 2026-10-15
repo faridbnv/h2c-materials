@@ -37,7 +37,7 @@
 //   node scripts/migrate/m105-the-standard-a-merged-cell-names.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const DATE = '2026-09-21';
 const MIGRATION = 'm105';

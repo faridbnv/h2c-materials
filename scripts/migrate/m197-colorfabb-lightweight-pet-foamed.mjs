@@ -32,7 +32,7 @@
 import { openTables } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
-import { correct, addValue } from './source-edits.mjs';
+import { correct, addValue } from '../lib/source-edits.mjs';
 
 const migration = 'm197-colorfabb-lightweight-pet-foamed';
 const date = '2026-09-27';

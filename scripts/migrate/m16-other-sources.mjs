@@ -22,7 +22,7 @@
 
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct, addValue } from './source-edits.mjs';
+import { correct, addValue } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm16';
 const NA = 'Not applicable', NP = 'Not published';

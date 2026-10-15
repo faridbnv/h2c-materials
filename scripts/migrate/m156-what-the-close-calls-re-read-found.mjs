@@ -15,7 +15,7 @@
 
 import { openTables } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
-import { correct, withNote } from './source-edits.mjs';
+import { correct, withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm156-what-the-close-calls-re-read-found';
 const date = '2026-09-25';

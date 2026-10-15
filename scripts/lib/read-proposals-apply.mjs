@@ -2,7 +2,7 @@
 // (docs/audits/2026-10-04-reader-round/proposals/<run>/, written by scripts/ingest/read-proposals.mjs) calls.
 //
 //   import { openTables } from '../data/table-io.mjs';
-//   import { applyProposals } from './read-proposals-apply.mjs';
+//   import { applyProposals } from '../lib/read-proposals-apply.mjs';
 //   const t = openTables();
 //   const counts = applyProposals(t, 'docs/audits/2026-10-04-reader-round/proposals/<run>', {
 //     migration: 'm339', read: 'Read 2026-10-05 by Claude Sonnet vision readers (reader round), checked against the cached text layer' });
@@ -26,8 +26,8 @@ import { join, resolve } from 'node:path';
 import { nextId } from '../data/table-io.mjs';
 import { projectRoot } from '../ingest/context.mjs';
 import { NUM, quoteViews, tidy } from '../ingest/read-proposals.mjs';
-import { onSheet, rowsOf } from './m277-m279-sweep-shared.mjs';
-import { TYPED, retype, typedOf } from './m290-profile-settings.mjs';
+import { onSheet, rowsOf } from './sweep-shared.mjs';
+import { TYPED, retype, typedOf } from './profile-settings.mjs';
 import { addValue, withNote } from './source-edits.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';

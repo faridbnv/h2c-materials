@@ -10,7 +10,7 @@
 //
 //   node scripts/migrate/m304-eryone-petg-gf-copy.mjs
 import { openTables } from '../data/table-io.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm304';
 const COPY = 'R-ERYONE-PETG-GF-TDS';

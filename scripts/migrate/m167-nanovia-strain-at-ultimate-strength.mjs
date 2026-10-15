@@ -18,7 +18,7 @@
 //   node scripts/migrate/m167-nanovia-strain-at-ultimate-strength.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 import { nanoviaPage, tensileTabs, tabsAgree, printedNumber, RASTER } from '../lib/nanovia-tabs.mjs';
 
 const migration = 'm167-nanovia-strain-at-ultimate-strength';

@@ -20,8 +20,8 @@
 //
 //   node scripts/migrate/m280-sweep-decisions.mjs
 import { openTables } from '../data/table-io.mjs';
-import { correct, addValue, withNote } from './source-edits.mjs';
-import { onSheet } from './m277-m279-sweep-shared.mjs';
+import { correct, addValue, withNote } from '../lib/source-edits.mjs';
+import { onSheet } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm280';
 const DATE = '2026-10-01';

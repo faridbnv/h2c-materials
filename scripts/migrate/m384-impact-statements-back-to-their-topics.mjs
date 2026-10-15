@@ -17,7 +17,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { openTables } from '../data/table-io.mjs';
 import { cacheDir, sha256 } from '../lib/pdf-text.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm384';
 const FROM = 'Impact and toughness';

@@ -26,13 +26,13 @@
 //   node scripts/migrate/m359-what-the-families-held.mjs
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { onCachedSheet, applyProposals } from './read-proposals-apply.mjs';
-import { typedOf, TYPED } from './m290-profile-settings.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { onCachedSheet, applyProposals } from '../lib/read-proposals-apply.mjs';
+import { typedOf, TYPED } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { parseAnnealSchedule, readPostProcessingState } from '../../build/src/normalize/specimen.js';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm359';
 const DATE = '2026-10-05';

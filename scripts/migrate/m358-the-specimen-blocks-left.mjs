@@ -22,9 +22,9 @@
 //   node scripts/migrate/m358-the-specimen-blocks-left.mjs
 import { join } from 'node:path';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { withNote } from './source-edits.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 import { pageOf, scopeOf } from '../../build/src/page-context.js';
 import { specimenForm } from '../../build/src/normalize/specimen.js';
 import { tidy } from '../ingest/read-proposals.mjs';

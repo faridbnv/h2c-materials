@@ -12,8 +12,8 @@
 //
 //   node scripts/migrate/m411-azurefilm-bars-at-partial-infill.mjs [--dry-run]
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { withNote } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm411';
 const TYPE = 'Printed specimen at partial infill';

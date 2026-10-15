@@ -15,8 +15,8 @@
 //
 //   node scripts/migrate/m382-what-the-sealed-sample-found.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm382';
 const t = openTables();

@@ -19,7 +19,7 @@
 //
 //   node scripts/migrate/m292-retire-duplicate-profiles.mjs
 import { openTables } from '../data/table-io.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm292';
 const t = openTables();

@@ -26,8 +26,8 @@
 import { join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 import { tidy } from '../ingest/read-proposals.mjs';
 
 const MIGRATION = 'm356';

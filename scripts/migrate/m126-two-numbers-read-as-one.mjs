@@ -21,7 +21,7 @@
 //   node scripts/migrate/m126-two-numbers-read-as-one.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm126-two-numbers-read-as-one';
 const date = '2026-09-21';

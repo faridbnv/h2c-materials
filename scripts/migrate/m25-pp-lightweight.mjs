@@ -13,7 +13,7 @@
 import { fileURLToPath } from 'node:url';
 import { openTables, nextId } from '../data/table-io.mjs';
 import { retireGrade } from '../data/records.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm25';
 const DATE = '2026-09-15';

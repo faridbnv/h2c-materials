@@ -17,7 +17,7 @@ import { openTables } from '../data/table-io.mjs';
 import { parseTemperature, parseDrying, parseEnclosure, parseAbrasion } from '../../build/src/normalize/process.js';
 import { TEMP_WINDOW } from '../../build/src/recipe.js';
 import { profileCellsFromParsed } from '../../build/src/typed-values.js';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm283';
 const here = dirname(fileURLToPath(import.meta.url));

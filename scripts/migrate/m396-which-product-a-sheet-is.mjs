@@ -15,7 +15,7 @@
 //
 //   node scripts/migrate/m396-which-product-a-sheet-is.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm396';
 const DATE = '2026-10-07';

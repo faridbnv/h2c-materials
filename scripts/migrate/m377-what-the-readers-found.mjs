@@ -23,9 +23,9 @@
 //
 //   node scripts/migrate/m377-what-the-readers-found.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { retype, TYPED } from './m290-profile-settings.mjs';
-import { withNote } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { retype, TYPED } from '../lib/profile-settings.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 
 const MIGRATION = 'm377';

@@ -25,9 +25,9 @@
 //
 //   node scripts/migrate/m345-reader-round-mapping-errors.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { retype, typedOf } from './m290-profile-settings.mjs';
-import { withNote } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { retype, typedOf } from '../lib/profile-settings.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 
 const MIGRATION = 'm345';

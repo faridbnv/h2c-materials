@@ -19,7 +19,7 @@
 //   node scripts/migrate/m114-what-a-unit-column-carries.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm114-what-a-unit-column-carries';
 const date = '2026-09-21';

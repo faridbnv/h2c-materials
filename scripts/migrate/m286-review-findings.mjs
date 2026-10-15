@@ -21,8 +21,8 @@ import { openTables } from '../data/table-io.mjs';
 import { parseTemperature, parseDrying, parseEnclosure, parseAbrasion } from '../../build/src/normalize/process.js';
 import { TEMP_WINDOW } from '../../build/src/recipe.js';
 import { profileCellsFromParsed } from '../../build/src/typed-values.js';
-import { correct, withNote } from './source-edits.mjs';
-import { onSheet } from './m277-m279-sweep-shared.mjs';
+import { correct, withNote } from '../lib/source-edits.mjs';
+import { onSheet } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm286';
 const DATE = '2026-10-01';

@@ -39,7 +39,7 @@ import { join } from 'node:path';
 import { openTables } from '../data/table-io.mjs';
 import { cachedText, sha256, pdfPages, pageLines } from '../lib/pdf-text.mjs';
 import { pageReader } from './printed-on.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm191-layer-strength-from-upright-bars';
 const DATE = '2026-09-27';

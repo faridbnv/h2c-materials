@@ -29,10 +29,10 @@
 import { join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { withNote } from './source-edits.mjs';
-import { typedOf, TYPED } from './m290-profile-settings.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { withNote } from '../lib/source-edits.mjs';
+import { typedOf, TYPED } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 import { readPostProcessingState } from '../../build/src/normalize/specimen.js';
 import { pageOf, scopeOf } from '../../build/src/page-context.js';

@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { buildManifest, checkData } from '../build/src/schema.js';
 import { openTables, recoverSave, SAVE_JOURNAL, SAVE_STAGING } from '../scripts/data/table-io.mjs';
-import { correct } from '../scripts/migrate/source-edits.mjs';
+import { correct } from '../scripts/lib/source-edits.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 

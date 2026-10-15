@@ -90,7 +90,7 @@ npm run audit:sources                     # every PDF source re-read (hash-check
 ```
 
 A batch of corrections against re-read sources is a migration under `scripts/migrate/` (see m13 to m17): each edit
-names the value it replaces through `scripts/migrate/source-edits.mjs`, so a re-run is a no-op and a run after the
+names the value it replaces through `scripts/lib/source-edits.mjs`, so a re-run is a no-op and a run after the
 data moved stops.
 
 Rules the tooling enforces:
@@ -152,7 +152,7 @@ also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Oper
 of the reading schema (`docs/audits/2026-10-04-reader-round/READING-SCHEMA.md`). `npm run ingest:read-reconcile` checks it
 against the cached text in every view (line, reading order, ligatures put back, optical sidecar), `npm run
 ingest:read-proposals` maps and gates it, and a migration applies the proposals with `applyProposals`
-(`scripts/migrate/read-proposals-apply.mjs`), which checks each quote on the cached sheet and each value it replaces (m342
+(`scripts/lib/read-proposals-apply.mjs`), which checks each quote on the cached sheet and each value it replaces (m342
 is the example, D125). It is not an import (D123). A correction of a held row is decided on its page, row by row, never
 applied because a count of readings agrees.
 

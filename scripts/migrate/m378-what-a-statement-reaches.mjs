@@ -21,8 +21,8 @@
 //
 //   node scripts/migrate/m378-what-a-statement-reaches.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { withNote } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 import { readCsv } from '../../build/src/csv.js';
 
 const MIGRATION = 'm378';

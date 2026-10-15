@@ -20,8 +20,8 @@
 import { join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { applyProposals } from './read-proposals-apply.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { applyProposals } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm388';
 const DIR = join(projectRoot, 'docs/audits/2026-10-06-impact-round/applied');

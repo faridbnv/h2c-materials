@@ -12,7 +12,7 @@
 //
 //   node scripts/migrate/m403-varioshore-foams.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm403';
 const GRADES = [

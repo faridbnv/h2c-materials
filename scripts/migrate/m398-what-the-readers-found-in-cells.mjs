@@ -29,8 +29,8 @@
 //
 //   node scripts/migrate/m398-what-the-readers-found-in-cells.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm398';
 const DATE = '2026-10-07';

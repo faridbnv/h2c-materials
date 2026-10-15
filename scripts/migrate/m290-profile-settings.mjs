@@ -22,26 +22,13 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { parseTemperature, parseDrying, parseEnclosure } from '../../build/src/normalize/process.js';
-import { TEMP_WINDOW, readAbrasion } from '../../build/src/recipe.js';
-import { profileCellsFromParsed, reviewFields } from '../../build/src/typed-values.js';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
+import { reviewFields } from '../../build/src/typed-values.js';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
+// TYPED, typedOf and retype were first written here; living code shares them from scripts/lib (2026-10-15).
+import { TYPED, typedOf, retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm290';
 const here = dirname(fileURLToPath(import.meta.url));
-export const TYPED = { 'Nozzle °C': ['Nozzle state', 'Nozzle min °C', 'Nozzle max °C', 'Nozzle requirement'], 'Bed °C': ['Bed state', 'Bed min °C', 'Bed max °C', 'Bed requirement'],
-  'Chamber °C': ['Chamber state', 'Chamber min °C', 'Chamber max °C', 'Chamber requirement'], Enclosure: ['Enclosure state'], Drying: ['Drying state', 'Drying need', 'Drying °C', 'Drying hours', 'Drying hours open'], 'Abrasion / clogging': ['Hardened nozzle'],
-  'Nozzle material': ['Hardened nozzle'], 'Nozzle diameter': ['Hardened nozzle'] };
-export const typedOf = (row) => profileCellsFromParsed({
-  nozzle: parseTemperature(row['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle }), bed: parseTemperature(row['Bed °C'], { plausible: TEMP_WINDOW.bed }),
-  chamber: parseTemperature(row['Chamber °C'], { plausible: TEMP_WINDOW.chamber }), enclosure: parseEnclosure(row.Enclosure), drying: parseDrying(row.Drying), abrasion: readAbrasion(row),
-});
-/** Write the typed cells of the given raw columns from the parsers' reading of the row. */
-export const retype = (t, id, columns, migration) => {
-  const row = t.get('profiles', id); const typed = typedOf(row); let n = 0;
-  for (const c of columns.flatMap((col) => TYPED[col])) if (row[c] !== typed[c]) { t.set('profiles', id, c, typed[c], { expect: row[c], migration }); n++; }
-  return n;
-};
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const t = openTables();

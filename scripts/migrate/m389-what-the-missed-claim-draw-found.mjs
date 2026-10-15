@@ -15,7 +15,7 @@
 //
 //   node scripts/migrate/m389-what-the-missed-claim-draw-found.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm389';
 const GRADE = 'G066-03';

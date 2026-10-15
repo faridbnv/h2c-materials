@@ -21,7 +21,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../../build/src/csv.js';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm118-conditions-the-sheets-state';
 const here = dirname(fileURLToPath(import.meta.url));

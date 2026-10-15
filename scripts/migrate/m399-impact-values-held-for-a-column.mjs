@@ -21,8 +21,8 @@
 //   node scripts/migrate/m399-impact-values-held-for-a-column.mjs [--dry-run]
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { applyProposals } from './read-proposals-apply.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
+import { applyProposals } from '../lib/read-proposals-apply.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm399';
 const DIR = join(projectRoot, 'docs/audits/2026-10-07-quality-round/read8/applied');

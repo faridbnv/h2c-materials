@@ -16,7 +16,7 @@
 
 import { openTables } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
-import { addValue } from './source-edits.mjs';
+import { addValue } from '../lib/source-edits.mjs';
 
 const migration = 'm181-the-graphene-sheets-specific-gravity';
 const date = '2026-09-26';

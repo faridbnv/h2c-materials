@@ -5,7 +5,7 @@ import {openTables} from '../data/table-io.mjs';
 import {locate} from '../data/source-store.mjs';
 import {sha256} from '../lib/pdf-text.mjs';
 import {pageReader} from './printed-on.mjs';
-import {correct,addValue} from './source-edits.mjs';
+import {correct,addValue} from '../lib/source-edits.mjs';
 const migration='m218-cached-test-conditions';
 const pins=JSON.parse(readFileSync(new URL(`./${migration}.json`,import.meta.url),'utf8'));
 const t=openTables(),printed=pageReader(t,migration);

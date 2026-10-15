@@ -23,7 +23,7 @@
 //
 //   node scripts/migrate/m373-one-product-one-grade.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm373';
 const DATE = '2026-10-05';

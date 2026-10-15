@@ -11,7 +11,7 @@
 //   node scripts/migrate/m130-kingroon-abs-prints-bambu-abs.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm130-kingroon-abs-prints-bambu-abs';
 const date = '2026-09-21';

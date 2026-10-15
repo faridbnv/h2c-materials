@@ -1,5 +1,5 @@
 // The reader round's proposals (scripts/ingest/read-proposals.mjs) and the helper that applies them
-// (scripts/migrate/read-proposals-apply.mjs), on fixture readings: CI has no document cache, so the quote guard is
+// (scripts/lib/read-proposals-apply.mjs), on fixture readings: CI has no document cache, so the quote guard is
 // injected. What is asserted is the rule: the gate, the mapping to the vocabularies with nothing guessed, the units
 // converted by the import's own table, a profile typed by the parsers or held, and an apply that is idempotent and
 // stops when the data moved.
@@ -9,7 +9,7 @@ import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { openTables } from '../scripts/data/table-io.mjs';
-import { applyProposals } from '../scripts/migrate/read-proposals-apply.mjs';
+import { applyProposals } from '../scripts/lib/read-proposals-apply.mjs';
 import {
   boundOfReading, excludeApplied, moveOut, tidy, buildProposals, conditionsOf, directionOf, proseClaim, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
 } from '../scripts/ingest/read-proposals.mjs';

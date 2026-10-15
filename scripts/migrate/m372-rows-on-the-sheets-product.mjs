@@ -28,8 +28,8 @@
 //
 //   node scripts/migrate/m372-rows-on-the-sheets-product.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { withNote } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm372';
 const DATE = '2026-10-05';

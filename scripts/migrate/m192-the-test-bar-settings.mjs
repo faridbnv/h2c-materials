@@ -33,7 +33,7 @@ import { fileURLToPath } from 'node:url';
 import { readCsv } from '../../build/src/csv.js';
 import { openTables } from '../data/table-io.mjs';
 import { pageReader } from './printed-on.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm192-the-test-bar-settings';
 const DATE = '2026-09-27';

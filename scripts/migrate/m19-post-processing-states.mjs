@@ -10,7 +10,7 @@
 // Polymaker Wiki copy of the sheet (R-POLYMAKER-WIKI-HTPLAGF) confirm.
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm19';
 const SOURCE = 'S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1';

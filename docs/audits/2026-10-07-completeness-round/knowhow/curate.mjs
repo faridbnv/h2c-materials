@@ -23,7 +23,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, csvText } from '../../../../build/src/csv.js';
 import { openTables } from '../../../../scripts/data/table-io.mjs';
-import { onCachedSheet } from '../../../../scripts/migrate/read-proposals-apply.mjs';
+import { onCachedSheet } from '../../../../scripts/lib/read-proposals-apply.mjs';
 import { tidy } from '../../../../scripts/ingest/read-proposals.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));

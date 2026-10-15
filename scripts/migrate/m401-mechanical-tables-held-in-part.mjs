@@ -19,7 +19,7 @@
 //   node scripts/migrate/m401-mechanical-tables-held-in-part.mjs [--dry-run]
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { applyProposals } from './read-proposals-apply.mjs';
+import { applyProposals } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm401';
 const DIR = join(projectRoot, 'docs/audits/2026-10-07-quality-round/read9/applied');

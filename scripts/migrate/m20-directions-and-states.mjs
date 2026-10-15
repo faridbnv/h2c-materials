@@ -16,7 +16,7 @@
 //   the notched type-A specimen; PEBA 90A's Izod row is on p. 2.
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm20';
 const DATE = '2026-09-15';

@@ -24,7 +24,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { openTables } from '../data/table-io.mjs';
 import { cacheDir, cachedText, sha256 } from '../lib/pdf-text.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm202-spectrum-portfolio-heat-deflection-loads';
 const date = '2026-09-27';

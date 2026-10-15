@@ -18,8 +18,8 @@
 //   node scripts/migrate/m412-makers-know-how-unread-documents.mjs [--dry-run]
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm412';
 const DATE = '2026-10-07';

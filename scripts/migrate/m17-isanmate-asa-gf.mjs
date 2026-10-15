@@ -3,7 +3,7 @@
 // transcribed; m16's review listed them but did not add them (npm run audit:sources, label pass).
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { addValue } from './source-edits.mjs';
+import { addValue } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm17';
 const NA = 'Not applicable';

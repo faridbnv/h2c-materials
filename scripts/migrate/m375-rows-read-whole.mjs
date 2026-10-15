@@ -18,8 +18,8 @@
 //
 //   node scripts/migrate/m375-rows-read-whole.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 import { readCsv } from '../../build/src/csv.js';
 
 const MIGRATION = 'm375';

@@ -8,7 +8,7 @@
 //   node scripts/migrate/m134-the-reason-each-flag-was-set.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm134-the-reason-each-flag-was-set';
 const date = '2026-09-21';

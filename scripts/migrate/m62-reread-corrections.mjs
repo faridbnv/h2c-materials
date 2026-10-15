@@ -56,7 +56,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm62';
 const DATE = '2026-09-19';

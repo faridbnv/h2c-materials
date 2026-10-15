@@ -8,7 +8,7 @@
 // headline is estimated from the evidence that remains, and the flagged value is listed beside it with its reason.
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm24';
 const FLAG = 'Published value (physically implausible)';

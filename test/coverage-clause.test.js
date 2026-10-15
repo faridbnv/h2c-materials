@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { reviewedClause } from '../scripts/migrate/coverage-clause.mjs';
+import { reviewedClause } from '../scripts/lib/coverage-clause.mjs';
 
 // Fluorodur's original publishes these two exclusions in one paragraph. They are
 // separate source statements, not duplicate evidence, despite the shared locator.

@@ -19,7 +19,7 @@
 //
 //   node scripts/migrate/m370-specimens-dried-before-testing.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm370';
 const NA = 'Not applicable';

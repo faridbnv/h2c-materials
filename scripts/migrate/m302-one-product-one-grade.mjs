@@ -22,8 +22,8 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
-import { typedOf } from './m290-profile-settings.mjs';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
+import { typedOf } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 
 const MIGRATION = 'm302';

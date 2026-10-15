@@ -23,7 +23,7 @@
 //
 //   node scripts/migrate/m368-three-identities-settled.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 import { moveGrade } from '../data/records.mjs';
 
 const MIGRATION = 'm368';

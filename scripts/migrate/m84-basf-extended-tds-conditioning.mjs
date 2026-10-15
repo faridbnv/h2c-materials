@@ -24,7 +24,7 @@
 //   node scripts/migrate/m84-basf-extended-tds-conditioning.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct, withNote } from './source-edits.mjs';
+import { correct, withNote } from '../lib/source-edits.mjs';
 
 const SOURCE = 'R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5';
 const MIGRATION = 'm84-basf-extended-tds-conditioning';

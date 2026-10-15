@@ -9,7 +9,7 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { READ, rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
+import { READ, rowsOf, onSheet } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm277';
 const here = dirname(fileURLToPath(import.meta.url));

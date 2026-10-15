@@ -22,7 +22,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
 import { moveGrade } from '../data/records.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm281';
 const here = dirname(fileURLToPath(import.meta.url));

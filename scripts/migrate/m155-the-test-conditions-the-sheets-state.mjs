@@ -46,7 +46,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { openTables } from '../data/table-io.mjs';
 import { cachedText, cacheDir, sha256 } from '../lib/pdf-text.mjs';
-import { correct, addValue } from './source-edits.mjs';
+import { correct, addValue } from '../lib/source-edits.mjs';
 
 const migration = 'm155-the-test-conditions-the-sheets-state';
 const date = '2026-09-25';

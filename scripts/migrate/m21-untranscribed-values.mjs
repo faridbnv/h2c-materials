@@ -15,7 +15,7 @@
 //   rows keep Direction and Specimen type "Not published".
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { addValue, correct } from './source-edits.mjs';
+import { addValue, correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm21';
 const DATE = '2026-09-15';

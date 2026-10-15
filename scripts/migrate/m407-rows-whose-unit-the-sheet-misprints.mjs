@@ -20,8 +20,8 @@
 //
 //   node scripts/migrate/m407-rows-whose-unit-the-sheet-misprints.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { addValue } from './source-edits.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { addValue } from '../lib/source-edits.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
 
 const MIGRATION = 'm407';

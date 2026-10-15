@@ -19,7 +19,7 @@ import { readFileSync } from 'node:fs';
 import { openTables } from '../data/table-io.mjs';
 import { sha256 } from '../lib/pdf-text.mjs';
 import { documentPath } from '../ingest/extract.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 import { pageReader } from './printed-on.mjs';
 
 const migration = 'm212-an-anneal-is-not-a-test-temperature';

@@ -35,7 +35,7 @@
 // sources.csv, and read page by page (D35).
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm52';
 const DATE = '2026-09-18';

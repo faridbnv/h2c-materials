@@ -25,7 +25,7 @@
 // iSANMATE PETG prints ASTM D570 and ASTM D3418.
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm33';
 const DATE = '2026-09-16';

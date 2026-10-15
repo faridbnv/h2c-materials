@@ -18,7 +18,7 @@
 //
 //   node scripts/migrate/m296-fibre-rule-is-a-rule.mjs
 import { openTables } from '../data/table-io.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm296';
 const SENTENCE = 'Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.';

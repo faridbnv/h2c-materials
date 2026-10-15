@@ -18,8 +18,8 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
-import { withNote } from './source-edits.mjs';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm301';
 const RULING = 'Eryone\'s template labels its upright bar "X-Z", as two of its sheets say (m191): Z by the owner\'s ruling of 2026-10-02 (D123)';

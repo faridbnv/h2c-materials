@@ -18,7 +18,7 @@
 import { openTables } from '../data/table-io.mjs';
 import { nanoviaPage, tensileTabs, tabsAgree, printedNumber, RASTER } from '../lib/nanovia-tabs.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
-import { addValue } from './source-edits.mjs';
+import { addValue } from '../lib/source-edits.mjs';
 
 const migration = 'm199-nanovia-ultimate-strength-45';
 const date = '2026-09-27';

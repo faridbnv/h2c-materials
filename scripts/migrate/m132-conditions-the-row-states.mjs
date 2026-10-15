@@ -23,7 +23,7 @@
 
 import { openTables } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
 

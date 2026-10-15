@@ -34,7 +34,7 @@ const missing = (v) => v == null || v === '' || /^(Not published|Not applicable)
 /** The page a locator names ("p. 2: Tensile modulus"), or null. Same rule as build/src/page-context.js. */
 export const pageOf = (locator) => { const m = String(locator ?? '').match(/\bp(?:age|p)?\.?\s*(\d+)/i); return m ? Number(m[1]) : null; };
 
-/** The same squash the migrations' quote guard uses (scripts/migrate/m277-m279-sweep-shared.mjs). */
+/** The same squash the migrations' quote guard uses (scripts/lib/sweep-shared.mjs). */
 export const squash = (s) => String(s ?? '').toLowerCase().replace(/℃/g, '°c').replace(/[˚º]/g, '°').replace(/[^a-z0-9°%.,<>≤≥+\-]/g, '');
 
 export const readTable = (name, root = projectRoot) => readCsv(join(root, 'data/tables', `${name}.csv`)).records.map((r) => r.values);

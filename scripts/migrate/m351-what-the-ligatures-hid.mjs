@@ -15,7 +15,7 @@
 //   node scripts/migrate/m351-what-the-ligatures-hid.mjs [--dry-run]
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { applyProposals } from './read-proposals-apply.mjs';
+import { applyProposals } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm351';
 const DIR = join(projectRoot, 'docs/audits/2026-10-04-reader-round/proposals/ligatures');

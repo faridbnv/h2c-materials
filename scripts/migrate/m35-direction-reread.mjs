@@ -29,7 +29,7 @@
 // Every Grades coverage finding these grades change is superseded by a row with the new manufacturer count.
 import { fileURLToPath } from 'node:url';
 import { openTables, nextId } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm35';
 const DATE = '2026-09-16';

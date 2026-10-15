@@ -12,7 +12,7 @@
 
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct, addValue, withNote } from './source-edits.mjs';
+import { correct, addValue, withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm15';
 const NA = 'Not applicable';

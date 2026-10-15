@@ -24,7 +24,7 @@
 
 import { openTables } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 import { parseAnnealSchedule } from '../../build/src/normalize/specimen.js';
 
 const migration = 'm129-annealing-the-sheet-states';

@@ -25,9 +25,9 @@
 //
 //   node scripts/migrate/m374-what-the-product-is.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 import { moveGrade, recountGrades } from '../data/records.mjs';
-import { retype } from './m290-profile-settings.mjs';
+import { retype } from '../lib/profile-settings.mjs';
 
 const MIGRATION = 'm374';
 const DATE = '2026-10-05';

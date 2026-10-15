@@ -13,7 +13,7 @@
 
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { correct, addValue } from './source-edits.mjs';
+import { correct, addValue } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm13';
 const PA612CF = 'S-FIBER-PA612', PA612ESD = 'S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1', PPSGF = 'S-FIBER-PPSGF-TDS-2', PETGF = 'R-FIBERON-PETGF15-TDS';

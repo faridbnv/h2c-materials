@@ -20,7 +20,7 @@
 //   node scripts/migrate/m89-vicat-as-printed.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const t = openTables();
 const changed = correct(t, {

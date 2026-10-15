@@ -18,7 +18,7 @@
 //   node scripts/migrate/m135-windows-for-six-more-properties.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm135-windows-for-six-more-properties';
 const date = '2026-09-21';

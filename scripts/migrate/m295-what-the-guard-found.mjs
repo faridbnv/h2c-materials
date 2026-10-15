@@ -39,8 +39,8 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables, nextId } from '../data/table-io.mjs';
-import { rowsOf, onSheet } from './m277-m279-sweep-shared.mjs';
-import { retype, typedOf, TYPED } from './m290-profile-settings.mjs';
+import { rowsOf, onSheet } from '../lib/sweep-shared.mjs';
+import { retype, typedOf, TYPED } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { testBlockAt } from '../ingest/propose.mjs';

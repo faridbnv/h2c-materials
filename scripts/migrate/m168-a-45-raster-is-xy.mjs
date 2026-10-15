@@ -36,7 +36,7 @@ import { openTables } from '../data/table-io.mjs';
 import { cacheDir, sha256, pdfPages, pageLines } from '../lib/pdf-text.mjs';
 import { nanoviaPage, tensileTabs, tabsAgree, printedNumber, RASTER } from '../lib/nanovia-tabs.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
-import { correct, addValue } from './source-edits.mjs';
+import { correct, addValue } from '../lib/source-edits.mjs';
 
 const migration = 'm168-a-45-raster-is-xy';
 const date = '2026-09-26';

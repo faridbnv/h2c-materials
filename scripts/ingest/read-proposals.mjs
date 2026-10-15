@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // The reader round's proposals: what the reconciler sorted as new or contradicting (read-reconcile.mjs), turned into the
-// files a migration applies (scripts/migrate/read-proposals-apply.mjs), and into the list of what is held back and why.
+// files a migration applies (scripts/lib/read-proposals-apply.mjs), and into the list of what is held back and why.
 //
 //   npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/reconcile/<run> [--out <dir>] [--maker-wide]
 //
@@ -47,7 +47,7 @@ import { parseHdtStandard, readTestTemperature } from '../../build/src/normalize
 import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseAnnealSchedule, readPostProcessingState } from '../../build/src/normalize/specimen.js';
 import { loadCellFromParsed, reviewFields, testTemperatureCell } from '../../build/src/typed-values.js';
-import { TYPED, typedOf } from '../migrate/m290-profile-settings.mjs';
+import { TYPED, typedOf } from '../lib/profile-settings.mjs';
 
 const NA = 'Not applicable';
 /** The table a page_context row heads: Not applicable where it speaks for its whole page (D128). */

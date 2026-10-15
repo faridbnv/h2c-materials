@@ -15,7 +15,7 @@
 
 import { openTables } from '../data/table-io.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm133-two-more-printed-statements';
 const date = '2026-09-21';

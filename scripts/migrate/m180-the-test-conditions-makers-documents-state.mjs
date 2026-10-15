@@ -37,7 +37,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { openTables } from '../data/table-io.mjs';
 import { cachedText, cacheDir, sha256 } from '../lib/pdf-text.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm180-the-test-conditions-makers-documents-state';
 const date = '2026-09-26';

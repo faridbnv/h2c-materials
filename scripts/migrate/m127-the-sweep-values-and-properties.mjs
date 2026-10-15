@@ -26,7 +26,7 @@
 //   node scripts/migrate/m127-the-sweep-values-and-properties.mjs
 
 import { openTables } from '../data/table-io.mjs';
-import { correct, withNote } from './source-edits.mjs';
+import { correct, withNote } from '../lib/source-edits.mjs';
 
 const migration = 'm127-the-sweep-values-and-properties';
 const date = '2026-09-21';

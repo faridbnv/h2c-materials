@@ -13,8 +13,8 @@
 //   node scripts/migrate/m360-names-written-together.mjs
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { applyProposals } from './read-proposals-apply.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
+import { applyProposals } from '../lib/read-proposals-apply.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
 
 const MIGRATION = 'm360';
 const t = openTables();

@@ -20,7 +20,7 @@
 //
 //   node scripts/migrate/m386-products-sold-as-toughened.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
 
 const MIGRATION = 'm386';
 const NA = 'Not applicable';

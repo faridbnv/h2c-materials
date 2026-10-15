@@ -9,7 +9,7 @@
 // it was cannot be settled from the sheet (re-read 2026-09-15); it is filed under Izod as printed, with that note.
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { withNote } from './source-edits.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm22';
 const OLD = 'Izod strength', NEW = 'Izod impact strength';

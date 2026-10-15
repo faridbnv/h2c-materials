@@ -17,7 +17,7 @@ import { readFileSync } from 'node:fs';
 import { openTables, nextId } from '../data/table-io.mjs';
 import { locate } from '../data/source-store.mjs';
 import { cachedText, sha256, valueInEvidence } from '../lib/pdf-text.mjs';
-import { correct, withNote } from './source-edits.mjs';
+import { correct, withNote } from '../lib/source-edits.mjs';
 import { profileFor } from '../ingest/propose.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { parseTemperature, parseAbrasion, parseDrying, parseEnclosure } from '../../build/src/normalize/process.js';

@@ -23,9 +23,9 @@
 //   node scripts/migrate/m343-held-rows-the-pages-correct.mjs
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
-import { rowsOf } from './m277-m279-sweep-shared.mjs';
-import { onCachedSheet } from './read-proposals-apply.mjs';
-import { typedOf, TYPED } from './m290-profile-settings.mjs';
+import { rowsOf } from '../lib/sweep-shared.mjs';
+import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
+import { typedOf, TYPED } from '../lib/profile-settings.mjs';
 import { reviewFields } from '../../build/src/typed-values.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 

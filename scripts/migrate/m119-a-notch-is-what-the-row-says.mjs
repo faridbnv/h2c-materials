@@ -19,7 +19,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../../build/src/csv.js';
 import { openTables } from '../data/table-io.mjs';
-import { correct } from './source-edits.mjs';
+import { correct } from '../lib/source-edits.mjs';
 
 const migration = 'm119-a-notch-is-what-the-row-says';
 const edits = readCsv(join(dirname(fileURLToPath(import.meta.url)), `${migration}.csv`)).records.map((r) => r.values);

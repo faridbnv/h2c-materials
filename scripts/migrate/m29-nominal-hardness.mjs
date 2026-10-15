@@ -13,7 +13,7 @@
 // The retired grades the configuration also named (G044-01, G044-02) are left out: nothing may be recorded on them.
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
-import { addValue } from './source-edits.mjs';
+import { addValue } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm29';
 const DATE = '2026-09-15';

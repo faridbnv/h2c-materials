@@ -1,9 +1,10 @@
-// Shared by m277–m279, the error-class sweep of 2026-10-01: the agent-read corrections, each checked again here
+// The quote guard every sweep since m277–m279 (the error-class sweep of 2026-10-01) and the proposal applier share:
+// an agent-read correction is checked again here
 // against its cached, hash-checked sheet before it is written (D35). An agent proposed each from the sheet text; a guard
 // (PM-TRIAL-2026-10-01/data-audit/apply-fixes.mjs) kept a proposal only when its quote was on the sheet, its value in
 // the column's vocabulary, the record unchanged, and the edited row passed the typed-value checks.
 import { readCsv } from '../../build/src/csv.js';
-import { cachedText, repairLigatures } from '../lib/pdf-text.mjs';
+import { cachedText, repairLigatures } from './pdf-text.mjs';
 
 export const READ = 'Re-read 2026-10-01 by an agent (Claude Sonnet) against the cached sheet, guard-checked by Claude Opus; error-class sweep';
 export const rowsOf = (path) => readCsv(path).records.map((r) => r.values);

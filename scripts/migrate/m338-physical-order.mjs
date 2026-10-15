@@ -14,8 +14,8 @@
 //
 //   node scripts/migrate/m338-physical-order.mjs
 import { openTables } from '../data/table-io.mjs';
-import { onSheet } from './m277-m279-sweep-shared.mjs';
-import { withNote } from './source-edits.mjs';
+import { onSheet } from '../lib/sweep-shared.mjs';
+import { withNote } from '../lib/source-edits.mjs';
 
 const MIGRATION = 'm338';
 const FLAG = 'Published value (physically implausible)';

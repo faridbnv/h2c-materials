@@ -220,7 +220,7 @@ npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/recon
   and the batch writer's product key keeps a "+" as part of a name (m364). `parseDrying` types Drying need and Drying hours open (D127). `readAbrasion`
   answers the hardened-nozzle question from the nozzle lines when the abrasion line is silent (D129). A dry box is a
   Storage humidity note, never the Drying cell (D120, D129).
-- **A migration applies them.** `applyProposals` (`scripts/migrate/read-proposals-apply.mjs`) checks every quote on the
+- **A migration applies them.** `applyProposals` (`scripts/lib/read-proposals-apply.mjs`) checks every quote on the
   cached, hash-checked sheet and every replaced value before it writes, stops on a row whose gate is not `ready`, and is
   a no-op on a re-run. m342 is the example, m351 (what the ligatures hid) a second.
 - **Corrections are decided by cause.** A held row the page seems to contradict is read on the page one row at a time
