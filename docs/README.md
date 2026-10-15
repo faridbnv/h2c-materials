@@ -13,10 +13,11 @@ Three things are useful to know before opening any document here:
   A build turns them into the one HTML page that is the tool. Every value names the source document and page it was read
   from.
 - **The project moves in rounds of work.** Each round starts from the owner's decision (recorded, dated, in
-  [GOALS.md](GOALS.md)), changes the data through small scripts that check each value against its source page
+  [GOALS-LOG.md](GOALS-LOG.md)), changes the data through small scripts that check each value against its source page
   ("migrations", numbered m1, m2 and so on), records the reasons as numbered decisions (D1, D2 and so on, in
-  [DECISIONS.md](DECISIONS.md)), and ends with a check of its own accuracy. Its working files stay in a dated folder under
-  [audits/](audits/).
+  [DECISIONS.md](DECISIONS.md)), and ends with a check of its own accuracy (`npm run round:close`). Its reports stay in a
+  dated folder under [audits/](audits/); its working files go to the private evidence store, listed in the folder's
+  `PACKETS.md`.
 - **Current or history.** The documents in this folder's top level are kept current. Everything under
   [audits/](audits/), [background/](background/) and [../archive/](../archive/) is a record of its day, and says so at its
   top ("Historical record"); the few there that are kept up to date say "Current". A test fails if a document there
@@ -26,7 +27,9 @@ Three things are useful to know before opening any document here:
 
 | Document | Answers |
 |---|---|
-| [GOALS.md](GOALS.md) | What is the tool for, who is it for, what has the owner decided, and how is a change judged? |
+| [OPERATING.md](OPERATING.md) | For a person keeping the tool running: the five commands, and how to correct a value, add a data sheet and publish |
+| [GOALS.md](GOALS.md) | What is the tool for, who is it for, and how is a change judged? |
+| [GOALS-LOG.md](GOALS-LOG.md) | What has the owner decided, and when? (dated, newest last) |
 | [HOW-IT-WORKS.md](HOW-IT-WORKS.md) | For an engineer using the tool: how a data sheet becomes a number on the screen, what each kind of number means, how far to trust it, and what the tool is not |
 | [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) | What is known to be wrong or missing right now, and what would fix each? |
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, which table holds it, and how much should I trust it? |
@@ -34,7 +37,7 @@ Three things are useful to know before opening any document here:
 | [ARCHITECTURE.md](ARCHITECTURE.md) | How is the code put together, how do the tables become the page, and where does a change go? |
 | [../AGENTS.md](../AGENTS.md) | How do I change data safely (for people and AI agents alike)? |
 | [IMPORTING.md](IMPORTING.md) | How does a batch of makers' data sheets enter the database? (open since 2026-10-05) |
-| [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
+| [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? ([DECISIONS-ARCHIVE.md](DECISIONS-ARCHIVE.md) holds the few no longer in force) |
 | [DATA-DICTIONARY.md](DATA-DICTIONARY.md) | What does this column mean, and what may it hold? (generated) |
 | [RULES.md](RULES.md) | What does this error or warning code mean, and how do I fix it? (generated) |
 | [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) | How do a material's records fit together? (a worked example from 2026-09-16, kept as history) |
@@ -47,12 +50,13 @@ Three things are useful to know before opening any document here:
 - **An engineer choosing a material and a product:** [HOW-IT-WORKS.md](HOW-IT-WORKS.md), then the page. Set what the part
   must do (or start from a template), say whether you can anneal and whether the part lives humid, read the passing
   products first, choose the one to print, and take its decision brief (Save / share).
-- **A maintainer correcting one value of a source already held:** [AGENTS.md](../AGENTS.md), "Correct a published value":
+- **A maintainer correcting one value of a source already held:** [OPERATING.md](OPERATING.md) step by step, and
+  [AGENTS.md](../AGENTS.md), "Correct a published value", for the full rules:
   re-read the source page, write a small migration that names the value it replaces (`archive/migrations/m212-an-anneal-is-not-a-test-temperature.mjs` is a short one), then
   `npm run verify:fast`, `npm run snapshot` and `npm run build:diff`, and `npm run trace -- <MeasurementID>` to see what
   it decides (`npm run trace -- --scenario <saved file> --product <GradeID>` for one product's decision).
 - **An import of a new document:** [IMPORTING.md](IMPORTING.md). Imports are open since 2026-10-05, when the owner lifted
-  the pause of 2026-09-25 ([GOALS.md](GOALS.md)); a document never enters by hand.
+  the pause of 2026-09-25 ([GOALS-LOG.md](GOALS-LOG.md)); a document never enters by hand.
 
 ## Tracing why something is the way it is
 

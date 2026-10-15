@@ -62,25 +62,23 @@ What is known to be wrong or missing, item by item and with the query that re-co
 ## Quick start
 
 Needs Node 24 or later, and Chrome (or Chromium) for the interface checks in `npm run verify`.
+[docs/OPERATING.md](docs/OPERATING.md) is the short guide for a person: these commands, and the three common jobs step
+by step (correct a value, add a data sheet, publish).
 
 ```bash
-npm ci --prefix build          # once: the build's dependencies
-npm ci                         # once: the import tools' (pdfjs-dist), which verify's import tests need
-npm run doctor                 # what this checkout can run, and what each missing piece needs
-npm run hooks                  # once per clone: the pre-commit data check
-npm run build                  # -> dist/H2C_Material_Selector_<snapshot>_<release>.html and dist/manifest.json
-npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about 80 s after a data change, about 45 s when nothing the build reads changed)
-npm run verify                 # before a commit; runs every step even when one fails and lists the failures at the end: verify:fast, the import tests, the scale and reproducible-build checks, audit, review snapshot, interface views, 300 rendered scenarios (fails without Chrome: a check that cannot run has not passed)
-npm run build:diff             # what a change did to the compiled database, against HEAD
-npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (weekly in CI)
-npm run data:check             # the schema gate alone, under a second
-npm run trace -- PETG          # any headline back to its measurement, grade and source
-npm run trace -- --scenario saved.json --product G001-06   # one decision as the page made it, and the records it rests on
-npm run bench                  # what the loop costs: build cold and warm by stage, memory, sizes, selection
-npm run data:new-material -- --name PA11 --polymer PA11   # a material (and its first grade, given --manufacturer, --product and --source), and what it still needs
-npm run data:export-xlsx       # read-only review workbook in dist/review/
-npm run sql -- "select ..."    # ask across records (dist/h2c.sqlite, rewritten first when it is not of the tables)
+npm ci --prefix build && npm ci   # once: the build's dependencies, and the import tools'
+npm run doctor                    # what this checkout can run, and what each missing piece needs
+npm run hooks                     # once per clone: the pre-commit data check
+
+npm run verify:fast               # while you work: format, schema, lint, generated docs, build and tests (about a minute)
+npm run verify                    # before a commit: every check, the page in a browser included (about eight minutes)
+npm run build                     # -> dist/H2C_Material_Selector_<snapshot>_<release>.html and dist/manifest.json
+npm run build:diff                # what a change did to the compiled database, against HEAD
+npm run trace -- PETG             # any value back to its measurement, product and source page
 ```
+
+The other commands (`data:*`, `ingest:*`, `audit:*`, `sql`, `packets`, `round:close`) are listed in
+`package.json`; [AGENTS.md](AGENTS.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) say when each is used.
 
 Changing data? Read [AGENTS.md](AGENTS.md) first. A new data sheet enters only through the import pipeline
 ([docs/IMPORTING.md](docs/IMPORTING.md)), open since 2026-10-05, when the owner lifted the pause of 2026-09-25;
