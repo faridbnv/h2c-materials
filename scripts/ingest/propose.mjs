@@ -17,7 +17,7 @@
 //   npm run ingest:propose -- --doc <doc_key>
 //   npm run ingest:propose -- --provider Spectrum --compare     read the sheets already transcribed and score
 //
-// Writes archive/ingest-2026-09-18/proposals/<batch>/<doc_key>.json
+// Writes <proposals>/<batch>/<doc_key>.json (.cache/proposals unless H2C_PROPOSALS says; scripts/ingest/context.mjs)
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

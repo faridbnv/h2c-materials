@@ -51,7 +51,7 @@ import { readCsv } from '../../build/src/csv.js';
 import { loadSchemas } from '../../build/src/schema.js';
 import { releaseIdentity } from '../../build/src/release.js';
 import { projectRoot } from './table-io.mjs';
-import { writeRecordTier, recordInputs } from './record-tier.mjs';
+import { writeRecordTier, recordInputs, factsLane } from './record-tier.mjs';
 
 const NODE_MAJOR = Number(process.versions.node.split('.')[0]);
 if (NODE_MAJOR < 24) {
@@ -375,6 +375,8 @@ function writeTables(db, root, compiled, inputs) {
     'fulltext.documents': record?.fulltext?.documents ?? 0,
     'fulltext.pages': record?.fulltext?.pages ?? 0,
     'fulltext.ocr_pages': record?.fulltext?.ocrPages ?? 0,
+    // Whether source_facts could be read: its proposals live in the private store and are restored to .cache/proposals.
+    source_facts: record ? factsLane(root) : 'unavailable',
   };
   // Written last: a file with a stamp is a file that was finished.
   db.exec('CREATE TABLE _generation (key TEXT PRIMARY KEY, value TEXT)');
@@ -413,7 +415,8 @@ export function describeStamp(stamp) {
   const compiled = stamp.compiled === 'current' ? `compiled tables of release ${stamp['compiled.release.id']}` : 'no compiled tables (there was no dist/db.json)';
   const text = stamp.fulltext === 'unavailable' ? 'no full-text index'
     : `full text of ${stamp['fulltext.sources_indexed']} of ${stamp['fulltext.sources']} retrieved sources (${stamp.fulltext})`;
-  return `release ${stamp['release.id']}: raw tables, ${compiled}, ${stamp.record === 'present' ? 'the record tier' : 'no record tier'}, ${text}`;
+  const facts = stamp.source_facts === 'unavailable' && stamp.record === 'present' ? ' (source_facts empty: the import\'s proposals are not in this checkout)' : '';
+  return `release ${stamp['release.id']}: raw tables, ${compiled}, ${stamp.record === 'present' ? `the record tier${facts}` : 'no record tier'}, ${text}`;
 }
 
 const COMPILED = /\b(headlines|products|summaries)_compiled\b/i;
@@ -431,7 +434,10 @@ export function queryFile(file, sql) {
     const note = /\bdocuments_fts\b/i.test(sql) && stamp?.fulltext === 'partial'
       ? `documents_fts holds the text of ${stamp['fulltext.sources_indexed']} of ${stamp['fulltext.sources']} retrieved sources: `
         + 'what it does not find may still be printed on a sheet it does not hold (v_sources_without_text lists them)'
-      : null;
+      : /\bsource_facts\b/i.test(sql) && stamp?.source_facts === 'unavailable'
+        ? 'source_facts is empty here: the 2026-09-18 import\'s proposals it is read from are not in this checkout '
+          + '(npm run packets -- --restore ingest-2026-09-18 brings them from the private store)'
+        : null;
     return { rows, stamp, note };
   } catch (e) {
     if (/no such table/i.test(e.message) && COMPILED.test(sql) && stamp?.compiled !== 'current') {

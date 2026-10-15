@@ -144,7 +144,7 @@ The rules that differ from editing a table by hand:
   `material` ruling names the material itself, for a home or a polymer with no row. A TPU is filed by its Shore rating,
   and one that states none waits for its maker's (D106).
 - **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals
-  (`archive/ingest-2026-09-18/proposals/<batch>/`) and calls `applyBatch`, so the migration sequence stays the one
+  (`.cache/proposals/<batch>/`, exported to the private store when the round closes) and calls `applyBatch`, so the migration sequence stays the one
   history of how the data got here, and a re-run is a no-op.
 - **`--holds` before `--propose`.** A hold reason is what the last `--holds` run wrote, so a document whose
   blocker has changed since is one a named reason misses. `--propose --held any` takes every held document.

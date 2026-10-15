@@ -10,8 +10,9 @@
 //                  under another document's source, that source), who published it, and where the import left it
 //                  (applied, deferred, held, a copy of another).
 //   source_facts   one row per distinct line (document, page, text) the import reader read without it becoming
-//                  data, from the committed proposals (archive/ingest-2026-09-18/proposals/**, where a
-//                  document re-read by several batches appears once per batch):
+//                  data, from the import's proposals (.cache/proposals/**, restored from the private store, where a
+//                  document re-read by several batches appears once per batch). Without them the table is empty, and
+//                  the file's stamp says so (source_facts: unavailable), as it says how much text documents_fts holds:
 //                    kind 'skipped'    a line a batch made no row of, with that batch's reason. Where the document
 //                                      is registered it stays skipped even if another batch made a row of it,
 //                                      because a row in a held batch never reached the database;
@@ -56,6 +57,9 @@ export { PROPOSALS };
 export const LEDGER = LEDGER_REL;
 /** The Access states that mean a copy was fetched and read: the corpus the full-text index is measured against. */
 export const RETRIEVED = ['retrieved', 'retrieved-copy'];
+
+/** Whether the proposals source_facts is read from are here: 'available', or 'unavailable' (the private store holds them). */
+export const factsLane = (root) => (existsSync(join(root, PROPOSALS)) ? 'available' : 'unavailable');
 
 const rows = (path) => readCsv(path).records.map((r) => r.values);
 const present = (v) => (v == null || v === '' ? null : String(v));

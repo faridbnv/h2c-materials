@@ -18,12 +18,13 @@ const paths = (env = {}) => {
 test('with nothing set, every live path is where the V2 campaign put it', () => {
   const p = paths();
   assert.equal(p.LEDGER, join(root, 'docs/audits/2026-09-18-v2-import/ledger.csv'));
-  assert.equal(p.PROPOSALS, join(root, 'archive/ingest-2026-09-18/proposals'));
+  // The proposals are private, with the documents they were read from (D138).
+  assert.equal(p.PROPOSALS, join(root, '.cache/proposals'));
   assert.equal(p.SOURCES_BY_SHA, join(root, '.cache/sources/by-sha'));
   assert.equal(p.TEXT_CACHE, join(root, '.cache/text'));
   // The relative forms are what the record tier and the audits join to a root of their own.
   assert.equal(p.LEDGER_REL, 'docs/audits/2026-09-18-v2-import/ledger.csv');
-  assert.equal(p.PROPOSALS_REL, 'archive/ingest-2026-09-18/proposals');
+  assert.equal(p.PROPOSALS_REL, '.cache/proposals');
 });
 
 test('a campaign root of its own moves the ledger and the proposals together; the document cache moves on its own', () => {

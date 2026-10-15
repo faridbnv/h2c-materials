@@ -16,7 +16,7 @@
 //   npm run ingest:prices -- apply --batch p01 [--dry-run]            guard, rehearse on a copy, then write
 //
 // A batch lives in archive/ingest-2026-09-18/prices/<batch>/ (captures.csv, selected.csv) and its proposals in
-// archive/ingest-2026-09-18/proposals/<batch>/, as a sheet's do. Sellers, with the market and tax basis each sells on,
+// the import's proposals folder (.cache/proposals/<batch>/, context.mjs), as a sheet's do. Sellers, with the market and tax basis each sells on,
 // are archive/ingest-2026-09-18/prices/sellers.csv. A batch is also a migration: scripts/migrate/mNNN-batch-pNN.mjs
 // calls applyPriceBatch, so the sequence of migrations stays the one history of how the data got here.
 //

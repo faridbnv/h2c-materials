@@ -172,7 +172,13 @@ test('a fact names only a property the registry keeps, and says how it was found
   assert.equal(bad, 0);
 });
 
-test('a skipped fact is found by its words and its page', () => {
+test('the stamp says whether source_facts could be read', () => {
+  // The proposals left the repository for the private store (D138): a checkout without them writes an empty table and
+  // says so, as it says how much text documents_fts holds.
+  assert.equal(result.stamp.source_facts, existsSync(proposalDir) ? 'available' : 'unavailable');
+});
+
+test('a skipped fact is found by its words and its page', { skip: !existsSync(proposalDir) && 'no proposals (.cache/proposals): npm run packets -- --restore ingest-2026-09-18 brings them' }, () => {
   // The gate of re-center lane 1, on the line the report quotes (Spectrum PP, page 1).
   const rows = all("SELECT kind, sourceid, page, text FROM source_facts WHERE text LIKE '%low processing (linear) shrinkage%' AND page = 1");
   assert.equal(rows.length, 1);

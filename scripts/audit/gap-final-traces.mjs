@@ -3,6 +3,7 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {join} from 'node:path';
 import {projectRoot} from '../data/table-io.mjs';
+import {PROPOSALS} from '../ingest/context.mjs';
 import {readCsv,csvText} from '../../build/src/csv.js';
 import {releaseIdentity} from '../../build/src/release.js';
 import {cachedText,sha256} from '../lib/pdf-text.mjs';
@@ -17,7 +18,7 @@ const docs=read(rel+'/C-DOCUMENTS.csv'),pins=JSON.parse(readFileSync(join(out,'C
 const bindings=[];
 for(const pin of pins){
  const d=docs.find(d=>d.GradeIDs.split('; ').includes(pin.gid)&&d.URL.includes(pin.url));
- const p=JSON.parse(readFileSync(join(projectRoot,'archive/ingest-2026-09-18/proposals/b39',d.SHA256.slice(0,16)+'.json'))).profiles.find(p=>p.id==='chamber-'+pin.gid&&p.review.status==='accepted');
+ const p=JSON.parse(readFileSync(join(PROPOSALS,'b39',d.SHA256.slice(0,16)+'.json'))).profiles.find(p=>p.id==='chamber-'+pin.gid&&p.review.status==='accepted');
  const stored=profiles.find(r=>r.GradeID===pin.gid&&r.SourceID===d.SourceID&&r.Locator===p.row.Locator);
  if(!stored||p.gradeKey!==pin.gid)throw Error('Exact profile/grade key missing '+pin.gid);
  // ingest:apply resolves GradeID from gradeKey and allocates ProfileID; the proposal's placeholder cells are not facts.

@@ -2,13 +2,14 @@
 //
 // The pipeline grew inside one campaign, and its working files are still where that campaign put them: the ledger,
 // the rulings, the readings and the batch folders under docs/audits/2026-09-18-v2-import, the proposals under
-// archive/ingest-2026-09-18/proposals (archive.mjs says why they moved), and the documents themselves under .cache/,
+// .cache/proposals (archive.mjs says where they have been), and the documents themselves under .cache/,
 // by digest. Those are not history to be left alone: every ingest command reads and writes them. Every script names
 // them from here, so the defaults below are the places they have always been, and a later campaign can run under a
 // root of its own without touching the one that brought in V2.
 //
 //   H2C_INGEST_ROOT     the campaign folder: ledger.csv, rulings/, readings/, batches/, census/, the generated reports
-//   H2C_PROPOSALS       the proposals folder; under a campaign root of its own, <root>/proposals unless this says
+//   H2C_PROPOSALS       the proposals folder: <cache>/proposals, or under a campaign root of its own <root>/proposals,
+//                       unless this says
 //   H2C_DOCUMENT_CACHE  the document cache: sources/by-sha/<sha>.<ext> (the bytes), sources/<SourceID>.pdf (documents
 //                       registered before the pipeline), text/<sha>.json (their text), pages/ and ocr/. The bytes and
 //                       their text move together: the text is keyed by the digest of the bytes beside it.
@@ -30,11 +31,13 @@ export const INGEST_ROOT = at(env('H2C_INGEST_ROOT') ?? 'docs/audits/2026-09-18-
 export const LEDGER = join(INGEST_ROOT, 'ledger.csv');
 /** The retrievals of a fetch run that has not finished, one line each, compacted into the ledger when it ends (A06). */
 export const FETCH_JOURNAL = join(INGEST_ROOT, 'ledger.fetch-journal.jsonl');
-/** The proposals, one folder per batch, one JSON file per document. */
-export const PROPOSALS = at(env('H2C_PROPOSALS') ?? (env('H2C_INGEST_ROOT') ? join(INGEST_ROOT, 'proposals') : 'archive/ingest-2026-09-18/proposals'));
-
 /** The document cache, absolute. */
 export const DOCUMENT_CACHE = at(env('H2C_DOCUMENT_CACHE') ?? '.cache');
+/**
+ * The proposals, one folder per batch, one JSON file per document: in the document cache, with the private material
+ * they were read from (they left the repository on 2026-10-15, D138), or under a campaign root of its own.
+ */
+export const PROPOSALS = at(env('H2C_PROPOSALS') ?? (env('H2C_INGEST_ROOT') ? join(INGEST_ROOT, 'proposals') : join(DOCUMENT_CACHE, 'proposals')));
 /** Every document the pipeline has read, named by its digest: <sha>.pdf or <sha>.html. */
 export const SOURCES_BY_SHA = join(DOCUMENT_CACHE, 'sources/by-sha');
 /** Documents registered before the pipeline existed, named by SourceID (npm run audit:sources still writes them there). */

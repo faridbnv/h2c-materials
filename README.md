@@ -193,7 +193,7 @@ scripts/docs-*.mjs                      the generated rule catalogue, data dicti
 scripts/migrate/                        an open round's source corrections and table changes, each guarded; its README is the template
 archive/migrations/                     every earlier migration (m10 onwards), each run once and kept as the record; round:close moves them here
 archive/workbook-conversion/            the 2026-09-14 workbook conversion (m01-m09, ledger, replay, baseline); history, no longer runs
-archive/ingest-2026-09-18/              the V2 import's proposals, still read by the batch migrations (scripts/ingest/archive.mjs)
+archive/ingest-2026-09-18/              the V2 import's price captures, and the record of its proposals (in the private store since 2026-10-15)
 archive/research-2026-09-26/            what became of each finding of the 2026-09-26 research package, and its questions for makers
 .githooks/pre-commit                    format, schema and no-deletion check on data commits
 .github/workflows/                      verify on every push to main and pull request, a weekly trend run; publish to Pages once verify passes on main

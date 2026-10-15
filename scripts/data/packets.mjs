@@ -38,7 +38,8 @@ import { generatedMark } from '../lib/generated-mark.mjs';
 
 const AUDITS = 'docs/audits';
 const PROPOSALS_ROUND = 'ingest-2026-09-18';
-const COLUMNS = ['Path', 'Bytes', 'SHA256'];
+// Commit is the last commit that holds the file, so `git show <Commit>:<path>` reads it from history.
+const COLUMNS = ['Path', 'Bytes', 'SHA256', 'Commit'];
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
 const tracked = (dir) => git('ls-files', '--', dir).split('\n').filter(Boolean);
@@ -46,11 +47,13 @@ const tracked = (dir) => git('ls-files', '--', dir).split('\n').filter(Boolean);
 /** Where a round's packets are, where its record of them goes, and where a restore puts them by default. */
 export function roundOf(name) {
   if (name === PROPOSALS_ROUND) {
-    return { name, dir: 'archive/ingest-2026-09-18/proposals', record: 'archive/ingest-2026-09-18', restoreTo: PROPOSALS };
+    return { name, dir: 'archive/ingest-2026-09-18/proposals', record: 'archive/ingest-2026-09-18', restoreTo: PROPOSALS,
+      what: 'The 2026-09-18 import\'s proposals: one file per document and batch, with the page and line of every row the sheet reader\nproposed, the lines it skipped and the review of each row. The batch migrations re-read them and the record tier mines them' };
   }
   if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9.-]+$/.test(name) || !existsSync(join(root, AUDITS, name))) throw new Error(`no round ${name} under ${AUDITS}/`);
   const dir = `${AUDITS}/${name}`;
-  return { name, dir, record: dir, restoreTo: join(root, dir) };
+  return { name, dir, record: dir, restoreTo: join(root, dir),
+    what: 'This round\'s working files: what it read, proposed, held and logged, as distinct from the reports beside this file,\nwhich say what it found and keep every number they quote' };
 }
 
 /** Every round that has a PACKETS.csv. */
@@ -152,12 +155,13 @@ function copyWhole(from, to) {
 
 const recordOf = (round) => {
   const path = join(root, round.record, 'PACKETS.csv');
-  return existsSync(path) ? readCsv(path).records.map((r) => ({ path: r.values.Path, bytes: Number(r.values.Bytes), sha: r.values.SHA256 })) : [];
+  return existsSync(path) ? readCsv(path).records.map((r) => ({ path: r.values.Path, bytes: Number(r.values.Bytes), sha: r.values.SHA256, commit: r.values.Commit })) : [];
 };
 
-function writeRecord(round, rows, commit) {
+function writeRecord(round, rows) {
   rows.sort((a, b) => a.path.localeCompare(b.path));
-  writeFileSync(join(root, round.record, 'PACKETS.csv'), csvText(COLUMNS, rows.map((r) => ({ Path: r.path, Bytes: String(r.bytes), SHA256: r.sha }))));
+  writeFileSync(join(root, round.record, 'PACKETS.csv'), csvText(COLUMNS, rows.map((r) => ({ Path: r.path, Bytes: String(r.bytes), SHA256: r.sha, Commit: r.commit }))));
+  const commits = [...new Set(rows.map((r) => r.commit))];
   const total = rows.reduce((s, r) => s + r.bytes, 0);
   const byFolder = new Map();
   for (const r of rows) {
@@ -166,19 +170,19 @@ function writeRecord(round, rows, commit) {
     f.files++; f.bytes += r.bytes; byFolder.set(folder, f);
   }
   const mb = (b) => (b / 1048576).toFixed(b < 1048576 ? 2 : 1);
-  const where = round.name === PROPOSALS_ROUND ? round.dir : `${round.dir}`;
   const lines = [
     `# Packets of ${round.name}`,
     '',
     generatedMark(`npm run packets -- --export ${round.name}`),
     '',
-    `This round's working files: the ${rows.length} files (${mb(total)} MB) it worked through, as distinct from the reports`,
-    'beside this file, which say what it found and keep every number they quote. They left the working tree for the private',
-    'evidence store that also keeps the source documents (`$H2C_SOURCE_BACKUP/packets/' + round.name + '/`), so that a clone',
-    'carries the record and not its working files (D138). [PACKETS.csv](PACKETS.csv) lists each one with its size and SHA-256,',
-    'which is what proves a copy is the file this round used.',
+    `${round.what}.`,
     '',
-    `- **Read one from git history:** \`git show ${commit}:${where}/<path>\`.`,
+    `These ${rows.length.toLocaleString('en-US')} files (${mb(total)} MB) left the working tree for the private evidence store that also keeps the`,
+    `source documents (\`$H2C_SOURCE_BACKUP/packets/${round.name}/\`), so that a clone carries the record and not its working`,
+    'files (D138). [PACKETS.csv](PACKETS.csv) lists each one with its size, its SHA-256, which proves a copy is the file that',
+    'was used, and the last commit that holds it.',
+    '',
+    `- **Read one from git history:** \`git show ${commits.length === 1 ? commits[0] : '<Commit>'}:${round.dir}/<path>\`${commits.length === 1 ? '' : ' (each file\'s Commit is in PACKETS.csv)'}.`,
     `- **Bring them back to rerun the round's scripts:** \`npm run packets -- --restore ${round.name}\` (needs \`$H2C_SOURCE_BACKUP\`).`,
     `- **Check the store's copies:** \`npm run packets -- --verify ${round.name}\`.`,
     '',
@@ -194,7 +198,7 @@ function writeRecord(round, rows, commit) {
 export function exportRound(name, { remove = false } = {}) {
   const { round, moving } = sortRound(name);
   const base = join(needStore(), name);
-  const commit = git('rev-parse', '--short=12', 'HEAD').trim();
+  const head = git('rev-parse', '--short=12', 'HEAD').trim();
   const rows = new Map(recordOf(round).map((r) => [r.path, r]));
   for (const rel of moving) {
     const from = join(root, round.dir, rel), to = join(base, rel);
@@ -202,9 +206,9 @@ export function exportRound(name, { remove = false } = {}) {
     const sha = sha256(bytes);
     if (!(existsSync(to) && statSync(to).size === bytes.length && sha256(readFileSync(to)) === sha)) copyWhole(from, to);
     if (sha256(readFileSync(to)) !== sha) throw new Error(`${name}/${rel}: the store's copy does not hash to the file`);
-    rows.set(rel, { path: rel, bytes: bytes.length, sha });
+    rows.set(rel, { path: rel, bytes: bytes.length, sha, commit: head });
   }
-  writeRecord(round, [...rows.values()], commit);
+  writeRecord(round, [...rows.values()]);
   copyWhole(join(root, round.record, 'PACKETS.csv'), join(base, 'packets-index.csv'));
   if (remove && moving.length) {
     for (let i = 0; i < moving.length; i += 300) git('rm', '-q', '--', ...moving.slice(i, i + 300).map((rel) => `${round.dir}/${rel}`));
