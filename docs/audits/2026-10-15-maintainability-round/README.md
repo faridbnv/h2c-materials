@@ -125,5 +125,10 @@ Run on the owner's machine (Apple M4) on 2026-10-15, before the merge.
 - **The scale budget** read 179 s against 150 s at twice the data, best of two runs. Nothing the build reads changed on
   the branch; the machine was loaded (load average 11 to 15) while OneDrive synced the 230 MB of packets just exported.
   CI's weekly trend job, run by hand after the push on a clean runner, is the measure that counts.
+- **CI after the push.** Verify (data and interface) and Publish to Pages passed on `fec901be`; the live manifest names that
+  commit and release `4b813cc4c0ca`. Verify run by hand with seed 116 passed all four jobs: the 2,000 scenarios at seed 116
+  with no violation (2,374 s), the reproducible build, and the scale check at twice the data in 140 s of its 150 s budget.
+  That is closer to the budget than the owner's machine suggested (85 s on 2026-10-08), so ARCHITECTURE's Scale table now
+  gives CI's figure: the estimate stage's CI cache is the next change if the data grows.
 - **The frozen text reader** changed in one comment line (where it writes its proposals), which `round:close` reported
   as it should.

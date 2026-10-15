@@ -742,7 +742,7 @@ keeps the page one file on GitHub Pages; none is needed at today's size.
 |---|---|---|---|
 | The page | 8.2 MB: the database 3.3 MB embedded, the plotting library 4.3 MB | three times the data (Pages allows 100 MB a file) | the measurements as a second static file beside the page, read when a drawer opens; then a lighter chart for the one view that uses the plotting library |
 | The database in the browser | 36 MB parsed, half of it measurements | three times (a parse of 100 MB takes seconds and about 1 GB on a laptop) | the same split; a long string repeated on every row (the print parameters) stored once and referred to |
-| The estimate stage | 14 s, and 85 s at twice the data | 2.5 times, under its 150 s budget; CI builds it cold on every push | CI keeps the stage's result keyed by its inputs, as the local build cache does; the result is the same |
+| The estimate stage | 14 s, and 85 s at twice the data on the owner's machine; 140 s at twice the data on CI's runner (2026-10-15) | not much past twice the data on CI, whose weekly trend job enforces the 150 s budget; CI builds it cold on every push | CI keeps the stage's result keyed by its inputs, as the local build cache does; the result is the same |
 | `verify:fast` | about a minute | at its 90 s budget | the import fixtures' build and the 23 tests that read `dist/db.json` |
 | The tables | 15,400 measurements, 1,180 grades | tens of thousands of rows; the schema gate takes a second | nothing: CSV under a schema scales further than a person can review it |
 | The results table | 152 materials | about 400 | rows drawn as they scroll into view |
