@@ -74,7 +74,8 @@
     "audit:coverage-status": "node scripts/audit/coverage-campaign-status.mjs",
     "audit:context": "node scripts/audit/context-witness.mjs",
     "audit:profile-marks": "node scripts/audit/profile-marks.mjs",
-    "audit:reader-recall": "node scripts/audit/reader-recall.mjs"
+    "audit:reader-recall": "node scripts/audit/reader-recall.mjs",
+    "round:close": "node scripts/round-close.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",
