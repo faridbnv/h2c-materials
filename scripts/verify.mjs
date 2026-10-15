@@ -44,6 +44,9 @@ const GROUPS = {
     ['rendered scenarios', ...node('scripts/ui-fuzz.mjs', '--n', '300', '--require')],
   ],
   trend: [
+    // The page and dist/db.json the reproducible-build check compares a rebuild with. CI's trend job starts from a bare
+    // checkout, and without this the check found no dist/db.json (the weekly run of 2026-10-11).
+    ['page', 'npm', ['run', 'build']],
     // The scale check's correctness assertions; its timings are written to build/reports/scale.json and judged last.
     ['scale', 'npm', ['run', 'scale']],
     ['reproducible', 'npm', ['run', 'reproducible']],
@@ -53,7 +56,8 @@ const GROUPS = {
 const at = process.argv.indexOf('--group');
 const group = at > 0 ? process.argv[at + 1] : null;
 if (group && !GROUPS[group]) { console.error(`verify: no group "${group}"; the groups are ${Object.keys(GROUPS).join(', ')}`); process.exit(2); }
-const STEPS = group ? GROUPS[group] : [...GROUPS.data, ...GROUPS.interface.slice(1), ...GROUPS.trend];
+// Locally the data group has built the page already, so the other groups' own build steps are left out.
+const STEPS = group ? GROUPS[group] : [...GROUPS.data, ...GROUPS.interface.slice(1), ...GROUPS.trend.slice(1)];
 
 // verify:fast's own 90 s budget is about its own steps, so it is judged on them alone: the sum of their times, not the
 // whole run's.
