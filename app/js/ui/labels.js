@@ -6,6 +6,8 @@
 // ("Theoretical", "Official Bambu product") is shown under a name that engineer would use. The stored value never
 // changes, so links, saved scenarios and exports made before a rename still read.
 
+import { GATE_STATUS } from '../engine/constraints.js';
+
 // Filled from the database's registry at start-up (registry.js, useRegistry): one row per headline in
 // data/tables/headline_definitions.csv supplies short, plain, technical, unit, hint and better.
 export const PROPERTY = {};
@@ -71,17 +73,21 @@ export const FILLER = {
 };
 
 /**
- * A process gate's verdict, as a state chip and in words. Three screens used to carry their own copy
- * of this table, which is how a new verdict reaches one screen and not the next.
+ * A process gate's verdict in words: a heading, a chip and the decision brief's phrase. Three screens and the brief
+ * used to carry their own copy of this table, which is how a new verdict reaches one screen and not the next. The state
+ * a chip is coloured by is the engine's own answer to the verdict (GATE_STATUS), not a second copy of it.
  */
 export const GATE_VERDICT = {
-  within: { state: 'PASS', word: 'Within', short: 'within' },
-  partial: { state: 'INDETERMINATE', word: 'Partly within', short: 'partly within' },
-  'exceeds-recommended': { state: 'INDETERMINATE', word: 'Above recommended', short: 'above recommended' },
-  exceeds: { state: 'FAIL', word: 'Exceeds', short: 'exceeds' },
-  unknown: { state: 'UNKNOWN', word: 'No data', short: 'no data' },
+  within: { word: 'Within', short: 'within', against: 'within the H2C' },
+  partial: { word: 'Partly within', short: 'partly within', against: 'partly within the H2C' },
+  'exceeds-recommended': { word: 'Above recommended', short: 'above recommended', against: 'recommended above the H2C' },
+  exceeds: { word: 'Exceeds', short: 'exceeds', against: 'beyond the H2C' },
+  unknown: { word: 'No data', short: 'no data', against: 'not judged against the H2C' },
 };
-export const gateVerdict = (v) => GATE_VERDICT[v] ?? GATE_VERDICT.unknown;
+export const gateVerdict = (v) => {
+  const key = GATE_VERDICT[v] ? v : 'unknown';
+  return { ...GATE_VERDICT[key], state: GATE_STATUS[key] };
+};
 
 /**
  * Chamber guidance given in words. Each is manufacturer evidence and none is a temperature, so the

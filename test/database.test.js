@@ -12,6 +12,7 @@ import { validate } from '../build/src/validate.js';
 import { validateEstimates } from '../build/src/estimate/validate.js';
 import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
 import { readCsv } from '../build/src/csv.js';
+import { GATE_PRECEDENCE } from '../build/src/gates.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
@@ -196,8 +197,8 @@ test('the excluded materials never read as printable, and trip the envelope gate
 
 test('a material is printable where one of its products is: each gate is the best of its profiles\', each window spans theirs', () => {
   // A rule over every material, where a test once pinned the case that found it (PPS-GF, one grade within the nozzle
-  // limit beside one that is not; re-center phase 5). Precedence is GATE_PRECEDENCE: within first, unknown last.
-  const PRECEDENCE = ['within', 'partial', 'exceeds-recommended', 'exceeds', 'unknown'];
+  // limit beside one that is not; re-center phase 5). Precedence is the build's own: within first, unknown last.
+  const PRECEDENCE = GATE_PRECEDENCE;
   let mixed = 0;
   for (const m of db.materials) {
     const own = db.profiles.filter((p) => p.materialId === m.id && !p.retired);

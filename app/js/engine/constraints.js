@@ -21,6 +21,20 @@ export const STATUS = {
   INDETERMINATE: 'INDETERMINATE',
 };
 
+/**
+ * What a print gate's verdict answers for a requirement: the one mapping, which the page's chips read too (ui/labels.js
+ * gateVerdict). A temperature above what the H2C reaches that a sheet only recommends is not a requirement (D6), so it
+ * never removes a candidate on its own; a chamber window the H2C reaches only in part (D32) is one the source cannot
+ * settle either way. Silence is unknown.
+ */
+export const GATE_STATUS = {
+  within: STATUS.PASS,
+  partial: STATUS.INDETERMINATE,
+  'exceeds-recommended': STATUS.INDETERMINATE,
+  exceeds: STATUS.FAIL,
+  unknown: STATUS.UNKNOWN,
+};
+
 export const UNKNOWN_POLICY = {
   STRICT: 'strict',            // unknown does not satisfy a mandatory constraint
   EXPLORATION: 'exploration',  // unknown is retained, flagged "needs verification"
@@ -379,16 +393,7 @@ function evaluateGate(material, c) {
   const g = material.gates[c.gate];
   const label = `${GATE_LABEL[c.gate] ?? c.gate} within H2C baseline`;
   if (!g) return { status: STATUS.UNKNOWN, criterion: label, reason: 'No print profile recorded' };
-  switch (g.verdict) {
-    case 'within': return { status: STATUS.PASS, criterion: label, reason: g.reason };
-    case 'exceeds': return { status: STATUS.FAIL, criterion: label, reason: g.reason };
-    // A recommendation is not a requirement, so it never removes a candidate on its own.
-    case 'exceeds-recommended': return { status: STATUS.INDETERMINATE, criterion: label, reason: g.reason };
-    // Part of a published chamber window is reachable and part is not. The source cannot settle
-    // whether the reachable part is enough, which is exactly what INDETERMINATE means.
-    case 'partial': return { status: STATUS.INDETERMINATE, criterion: label, reason: g.reason };
-    default: return { status: STATUS.UNKNOWN, criterion: label, reason: g.reason };
-  }
+  return { status: GATE_STATUS[g.verdict] ?? STATUS.UNKNOWN, criterion: label, reason: g.reason };
 }
 
 // ---------------------------------------------------------------- facets and evidence

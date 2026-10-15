@@ -8,7 +8,7 @@
 // reopens the question on this release or warns on another (D96). A test result a team records is its own evidence, kept
 // with the decision: it never enters the database, whose sources are makers' documents.
 
-import { describeConstraint } from './labels.js';
+import { describeConstraint, gateVerdict } from './labels.js';
 import { headlineDef } from './registry.js';
 import { fmtNumber, dryingWords } from './format.js';
 import { templateByName } from './templates.js';
@@ -18,8 +18,7 @@ const scheduleWords = (t) => `${t?.tempC != null ? `${fmtNumber(t.tempC)} °C` :
 const stateWords = (s) => `${s?.treatment ? `annealed at ${scheduleWords(s.treatment)}` : 'as printed'}, ${s?.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}`;
 const cell = (t) => String(t ?? '').replace(/\|/g, '\\|').replace(/\s+/g, ' ').trim();
 const requirementOf = (r) => (r.constraint ? describeConstraint(r.constraint) : r.criterion);
-const AGAINST_H2C = { within: 'within the H2C', exceeds: 'beyond the H2C', 'exceeds-recommended': 'recommended above the H2C', partial: 'partly within the H2C' };
-const against = (a) => (a ? AGAINST_H2C[a.verdict] ?? 'not judged against the H2C' : '');
+const against = (a) => (a ? gateVerdict(a.verdict).against : '');
 
 /** A product as a reader names it: its maker and product, the maker once. */
 export function productLabel(g) {
