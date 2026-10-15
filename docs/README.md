@@ -48,7 +48,7 @@ Three things are useful to know before opening any document here:
   must do (or start from a template), say whether you can anneal and whether the part lives humid, read the passing
   products first, choose the one to print, and take its decision brief (Save / share).
 - **A maintainer correcting one value of a source already held:** [AGENTS.md](../AGENTS.md), "Correct a published value":
-  re-read the source page, write a small migration that names the value it replaces (m212 is a short one), then
+  re-read the source page, write a small migration that names the value it replaces (`archive/migrations/m212-an-anneal-is-not-a-test-temperature.mjs` is a short one), then
   `npm run verify:fast`, `npm run snapshot` and `npm run build:diff`, and `npm run trace -- <MeasurementID>` to see what
   it decides (`npm run trace -- --scenario <saved file> --product <GradeID>` for one product's decision).
 - **An import of a new document:** [IMPORTING.md](IMPORTING.md). Imports are open since 2026-10-05, when the owner lifted

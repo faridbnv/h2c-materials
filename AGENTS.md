@@ -89,7 +89,8 @@ npm run data:retire -- grade G020-03       # sets Status retired; lists what sti
 npm run audit:sources                     # every PDF source re-read (hash-checked) for values not in the tables
 ```
 
-A batch of corrections against re-read sources is a migration under `scripts/migrate/` (see m13 to m17): each edit
+A batch of corrections against re-read sources is a migration under `scripts/migrate/` (its README has the template;
+the migrations this file names as examples, m13 to m17 among them, are in `archive/migrations/`): each edit
 names the value it replaces through `scripts/lib/source-edits.mjs`, so a re-run is a no-op and a run after the
 data moved stops.
 

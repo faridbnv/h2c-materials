@@ -15,7 +15,7 @@
 // forbidden, but each grows with the data, so a change there needs a decision and a back-test row (D58, D138).
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { runSteps, formatTable } from './lib/run-steps.mjs';
@@ -41,6 +41,7 @@ export function archiveMigrations({ from = MIGRATE, to = ARCHIVE } = {}) {
   const files = pendingMigrations(from);
   const taken = files.filter((f) => existsSync(join(to, f)));
   if (taken.length) throw new Error(`archive/migrations already holds ${taken.join(', ')}; rename before archiving`);
+  mkdirSync(to, { recursive: true });
   for (let i = 0; i < files.length; i += 200) {
     execFileSync('git', ['mv', ...files.slice(i, i + 200).map((f) => join(from, f)), to], { cwd: root });
   }

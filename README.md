@@ -190,7 +190,8 @@ scripts/ui-fuzz.mjs, lib/cdp.mjs        random scenarios through the built page,
 scripts/trace.mjs                       a headline back to its source
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
 scripts/docs-*.mjs                      the generated rule catalogue, data dictionary and decision index
-scripts/migrate/                        source corrections and table changes since the conversion (m10 onwards), each guarded and re-runnable
+scripts/migrate/                        an open round's source corrections and table changes, each guarded; its README is the template
+archive/migrations/                     every earlier migration (m10 onwards), each run once and kept as the record; round:close moves them here
 archive/workbook-conversion/            the 2026-09-14 workbook conversion (m01-m09, ledger, replay, baseline); history, no longer runs
 archive/ingest-2026-09-18/              the V2 import's proposals, still read by the batch migrations (scripts/ingest/archive.mjs)
 archive/research-2026-09-26/            what became of each finding of the 2026-09-26 research package, and its questions for makers

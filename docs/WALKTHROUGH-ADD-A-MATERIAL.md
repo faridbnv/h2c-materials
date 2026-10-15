@@ -10,7 +10,7 @@ Every recipe in [AGENTS.md](../AGENTS.md) is one task. This chains them once, wi
 where a material comes from and what each step is for. Read AGENTS.md first; this does not repeat its rules.
 
 The example is **FormFutura STYX PA6**, added to PA6 (M049) as grade G049-02 on 2026-09-16 by migration
-`scripts/migrate/m37-styx-pa6.mjs`, from source `R-FORMFUTURA-STYX-PA6-TDS` (measurements V002336 to V002348). The
+`archive/migrations/m37-styx-pa6.mjs`, from source `R-FORMFUTURA-STYX-PA6-TDS` (measurements V002336 to V002348). The
 migration wrote its rows in one guarded script; the steps below write the same rows one at a time, with the values
 those rows hold, so `npm run trace -- V002341` shows what they made. STYX PA6 joined a material that already existed,
 and it has no print profile and no pin. Where a step needs a record it lacks, the step says so and names the record it

@@ -46,7 +46,7 @@ snapshot, so they stay true as the data moves and can be re-run before any batch
 
 ### The import scaffold
 
-[`scripts/migrate/m38-certification-backlog.mjs`](../../../scripts/migrate/m38-certification-backlog.mjs) is written
+[`archive/migrations/m38-certification-backlog.mjs`](../../../archive/migrations/m38-certification-backlog.mjs) (in `scripts/migrate/` until 2026-10-15) is written
 and **cannot run**. It holds the seven new grades, their sources with the `Applicable grades` already naming the
 GradeIDs the assertion will check, the measurement skeletons with one locator per value, and the coverage
 supersessions — with every value reading `<REREAD>` and every digest `<FILL>`. The 2026-09-15 readings sit beside

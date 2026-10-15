@@ -3,7 +3,7 @@
 // Two views of a page, because the repository already relies on both. `lines` groups the extractor's spans by their
 // y coordinate, which is how a data sheet's rows are read (scripts/audit/source-completeness.mjs). `squeezed` is the
 // page with every space removed, which is how a migration proves a number is on the page it cites
-// (scripts/migrate/m38-certification-backlog.mjs): extraction splits "2 433 .4" and joins "T ensile", and a
+// (archive/migrations/m38-certification-backlog.mjs): extraction splits "2 433 .4" and joins "T ensile", and a
 // whitespace-free page is immune to both.
 //
 // The cache is keyed by SHA-256, not by SourceID, because a document is its bytes: the same file under two names is
