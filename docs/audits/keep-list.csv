@@ -1,0 +1,3 @@
+Path,Reason
+2026-09-15-filtering-estimates-data/physics/,data/tables/polymers.csv cites this folder as where the polymers' physical constants were worked out
+2026-09-14-transfer-verification/source-completeness-labels.csv,npm run audit:sources writes it beside source-completeness.csv

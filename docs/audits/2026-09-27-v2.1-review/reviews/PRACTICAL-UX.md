@@ -1,6 +1,8 @@
 # Practical engineering and UX review for H2C v2.1
 
 > **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+>
+> The `evidence/` folder, `REPRODUCE.md` and `PACKAGE-MANIFEST.json` this review links were delivered with its package and never committed; their links are kept as plain text (2026-10-15).
 
 Reviewer: Codex review agent. Date: 2026-09-27 Vancouver. This is an agent/code/browser review, not a human team usability study or a print validation. The original repository was not changed. All probes, copied artifacts, screenshots, downloads and this document are outside it.
 
@@ -56,7 +58,7 @@ Not executed: a real engineer/novice team trial, screen-reader testing, Firefox/
 
 Reproduce from a fresh page: choose Warm environment; in Table set Rank by to `Beam, minimum mass, stiffness prescribed`; switch to Ashby and set its design guide to the same beam-stiffness index. Table ranks PPA-CF first, PP-CF second and PA612-CF third. The chart's guide card ranks PP-CF first, PAHT-CF second and PPA-CF third. No requirement changed.
 
-Evidence: [table screenshot](../evidence/ux/03-warm-table-rank.png), [table text](../evidence/ux/03-warm-table-rank.txt), [chart text](../evidence/ux/04-warm-ashby-rank.txt), [guide screenshot](../evidence/ux/05-warm-ashby-index.png). Code: `app/js/engine/indices.js:146–162` computes each passing product's index and takes its median; `app/js/ui/ashby.js:1117–1121` instead ranks material headline medians. The chart openly says “from headline values”, but that phrase does not make two conflicting answers to one selected goal useful.
+Evidence: table screenshot, table text, chart text, guide screenshot. Code: `app/js/engine/indices.js:146–162` computes each passing product's index and takes its median; `app/js/ui/ashby.js:1117–1121` instead ranks material headline medians. The chart openly says “from headline values”, but that phrase does not make two conflicting answers to one selected goal useful.
 
 **Impact:** The highest-leverage decision is inconsistent across the two views expressly intended to help select and understand the same candidates. Marginal property medians can also describe different products. This is a semantic issue, not a formatting discrepancy.
 
@@ -72,7 +74,7 @@ Evidence: [table screenshot](../evidence/ux/03-warm-table-rank.png), [table text
 
 Warm environment returns PC FR as PASS. Its passing Bambu product has heat resistance 113 °C **after annealing at 80 °C for 12 h**. The product recipe states the same annealing schedule and drying at 80 °C for 8 h. The tool has no way to say “we will use this as printed” or “we cannot provide that annealing schedule”. Manufacturing offers “Drying guidance published”, which checks publication, not available equipment. The allowed gates are scope, status, abrasive, buyable, dryingKnown, nozzle, bed and chamber.
 
-Evidence: [PC FR products text](../evidence/ux/07-warm-pcfr-products.txt), [overview](../evidence/ux/06-warm-pcfr-overview.txt), `app/js/ui/filters.js:278–330`, `app/js/engine/scenario.js` GATES, and `app/js/engine/products.js` treatment metadata. The data conditions are visibly retained; this finding does not allege that 113 °C is as-printed data.
+Evidence: PC FR products text, overview, `app/js/ui/filters.js:278–330`, `app/js/engine/scenario.js` GATES, and `app/js/engine/products.js` treatment metadata. The data conditions are visibly retained; this finding does not allege that 113 °C is as-printed data.
 
 **Impact:** A user can satisfy the numeric and printer-temperature limits while lacking the process needed to obtain the quoted properties. GOALS explicitly includes treatment in the same product-level screen, so showing it later is not the full intended behavior.
 
@@ -91,7 +93,7 @@ Two examples:
 1. Choose Indoor prototype and search “Polymaker”. ABS, ASA and PETG appear with PASS. The only passing products in those three material rows are Bambu Lab ABS, ASA and PETG Basic/Translucent. Search matches a Polymaker product, but the shown price verdict belongs to another product. The interface offers no matched-product badge or explanation of that distinction.
 2. Compare uses `material.gates` directly (`app/js/ui/compare.js:238–241`). Warm-environment PPA-CF passes through individual products, while its aggregate chamber gate is `partial` for 50–80 °C. PC FR's compared hardened-nozzle requirement is “not recorded”, whereas its passing product's effective guide-derived recipe says “not needed”. Thus the material summary and the scenario's print answer differ in scope.
 
-Evidence: [maker search](../evidence/ux-focused/42-product-search.png), [rendered search text](../evidence/ux-focused/42-product-search.txt), [independent product IDs and aggregate gates](../evidence/ux-focused/45-semantic-probe.json), [PC FR product recipe](../evidence/ux/07-warm-pcfr-products.txt), [Compare text](../evidence/ux-focused/36-compare.txt).
+Evidence: maker search, rendered search text, independent product IDs and aggregate gates, PC FR product recipe, Compare text.
 
 **Impact:** It is easy to read “Polymaker … PASS” as the searched maker's purchasable answer, or a Compare process chip as the same gate that confirmed the candidate. The engine can be correct while the user's interpretation is wrong.
 
@@ -121,7 +123,7 @@ The saved shortlist contains material IDs, not selected procurement grade IDs. C
 
 Current updated data still ships under database snapshot 2026-09-21, with build 2026-09-27. The share hash carries the snapshot date, but not a digest of the compiled data/rules. A saved JSON with `appBuild: "2025-01-01"` and the same snapshot imports with no warning. `validateScenario` warns only when `dbSnapshot` differs. The probe establishes the missing check; it does not establish that the injected old build actually held different data.
 
-Evidence: [no warning on obsolete metadata](../evidence/ux-focused/41-build-mismatch-no-warning.txt), `app/js/engine/scenario.js:152–155`, hash serialization around line 166 onward, exported scenario under `evidence/ux/downloads/`.
+Evidence: no warning on obsolete metadata, `app/js/engine/scenario.js:152–155`, hash serialization around line 166 onward, exported scenario under `evidence/ux/downloads/`.
 
 **Impact:** Two builds can be presented as the same scenario evidence identity even if decision data/rules changed under the retained date. A team cannot know which claim was reviewed from the date alone.
 
@@ -139,7 +141,7 @@ Warm environment at 390×844 has its first material row at y=1101.66. It fits wi
 
 PC FR has just two products. Its Products tab first renders a ten-property spread table, a twelve-topic maker-coverage overview and caveats; the passing-product section begins at y=1343.27 on a 900px-high desktop. The visible drawer body is 622px high and its scroll height is 2398px. The passing-product group is structurally “first” only after the aggregate exposition.
 
-Evidence: [laptop](../evidence/ux/14-laptop-warm.png), [phone](../evidence/ux/19-phone-warm.png), [product tab](../evidence/ux/07-warm-pcfr-products.png), [phone metrics](../evidence/ux-focused/43-phone-scroll-burden.txt), [drawer metrics](../evidence/ux-focused/44-product-scroll-burden.txt), `app/js/ui/detail.js:1141–1145`.
+Evidence: laptop, phone, product tab, phone metrics, drawer metrics, `app/js/ui/detail.js:1141–1145`.
 
 **V2.1 change:** A compact query/result strip should lead with confirmed/unresolved counts and one next action, with requirements expandable. Products should lead with passing exact products and a compact decision matrix; aggregate spread and maker-topic coverage become disclosures. Offer a focused shortlist view on narrow screens. Retain prominent limitations where they affect the specific answer, rather than repeating broad caveats before every next step.
 
@@ -153,7 +155,7 @@ Evidence: [laptop](../evidence/ux/14-laptop-warm.png), [phone](../evidence/ux/19
 
 At 1024×768, open Filters. Its close button receives focus. Press Shift+Tab twice. Focus moves to the background theme button while the filter overlay and backdrop remain open. The rail has no dialog role/aria-modal and the background is not inert. The material drawer at the same width correctly has aria-modal, inert background and focus cycling.
 
-Evidence: [focus escape JSON](../evidence/ux-focused/30-filter-focus-escape.txt), [screenshot](../evidence/ux-focused/30-filter-focus-escape.png), `app/js/main.js:598–609,646–665`, `app/css/app.css:662–668`. Escape closes Filters and correctly returns focus to the opener; preserve that behavior.
+Evidence: focus escape JSON, screenshot, `app/js/main.js:598–609,646–665`, `app/css/app.css:662–668`. Escape closes Filters and correctly returns focus to the opener; preserve that behavior.
 
 **V2.1 change:** One overlay/focus manager for the filter rail, material drawer, save/share drawer and explanation popovers, with deliberately different desktop behavior. Give the narrow filter overlay a named modal/dialog contract, hide or inert the background, and cycle focus. Use the same accessible return-focus path already implemented for material drawers.
 
@@ -167,7 +169,7 @@ Evidence: [focus escape JSON](../evidence/ux-focused/30-filter-focus-escape.txt)
 
 Selecting “Resists sunlight and weather” under Confirmed only gives zero candidates, zero failed and 153 unknown. The empty view says “No material meets all of these requirements” and “nothing in the database does everything you asked”, then recommends dropping the costly requirement. The rail states zero records provide a verdict, so the necessary facts are present; the final recovery message does not foreground that this category cannot confirm any material in this build. Include uncertain with polymer data provides exploration/screens, not confirmed outdoor-life evidence.
 
-Evidence: [strict sunlight result](../evidence/ux-focused/34-sunlight-strict.txt), [exploration screenshot](../evidence/ux-focused/35-sunlight-explore.png). GOALS/INTERFACE already document this limitation; do not log it as newly discovered missing UV data.
+Evidence: strict sunlight result, exploration screenshot. GOALS/INTERFACE already document this limitation; do not log it as newly discovered missing UV data.
 
 **V2.1 change:** Different empty states for contradiction, all-missing evidence and an unsupported confirmation question. Before applying a zero-confirmation criterion, show “this can only explore or screen; no product is confirmable here” and an evidence/research next step. For engineering translation, tie a qualitative requirement to the exposure/agent/conditions it actually needs; a broad chemical class should not imply tested resistance to every agent.
 

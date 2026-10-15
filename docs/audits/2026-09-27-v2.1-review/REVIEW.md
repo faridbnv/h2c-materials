@@ -1,6 +1,8 @@
 # H2C Material Selector: critical review for version 2.1
 
 > **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+>
+> The `evidence/` folder, `REPRODUCE.md` and `PACKAGE-MANIFEST.json` this review links were delivered with its package and never committed; their links are kept as plain text (2026-10-15).
 
 Reviewed 2026-09-27, America/Vancouver. Baseline commit: `eb695b8328b369986341491d948d793abdfcb995`. Review by an AI team covering software/data operations, materials/mechanical engineering, and rendered product use; synthesis and verification by the lead reviewer. This is a review and proposed plan, not implemented work or human engineering approval.
 
@@ -20,7 +22,7 @@ The review began with `docs/GOALS.md`, checked `docs/OPEN-PROBLEMS.md`, and exam
 
 The evidence package contains full verification logs, targeted engine and coverage probes, source reread records, browser text captures, screenshots, export/import checks, and specialist reports. The reviewed local artifact was rebuilt from the baseline source. The live deployed website was not independently audited.
 
-Verification status and exact timings are in [verification-results.json](evidence/verification-results.json). The first full run stopped when the sandbox prevented Chrome from opening its debug port; this was an execution-environment failure. The browser-enabled full rerun passed in 212.848 seconds, including 318 normal tests, 171 import tests, scale, reproducibility, audit and snapshot checks, 66 matching interface views, and 300 rendered scenarios with 2,570 readings. The retained audit independently reconciled 11,026 raw numeric rows and matched the rebuilt payloads with the HTML. These are strong integrity and consistency results, not proof that every source value or engineering judgment is correct.
+Verification status and exact timings are in verification-results.json. The first full run stopped when the sandbox prevented Chrome from opening its debug port; this was an execution-environment failure. The browser-enabled full rerun passed in 212.848 seconds, including 318 normal tests, 171 import tests, scale, reproducibility, audit and snapshot checks, 66 matching interface views, and 300 rendered scenarios with 2,570 readings. The retained audit independently reconciled 11,026 raw numeric rows and matched the rebuilt payloads with the HTML. These are strong integrity and consistency results, not proof that every source value or engineering judgment is correct.
 
 Rendered inspection covered all six templates, confidence modes, table/chart ranking, material/product/printing/price drill-down, search and no-hit recovery, compare, local CSV and scenario downloads, scenario import and shared hashes, and desktop/laptop/narrow layouts. Browser use was local `file://`; actual human team task trials, assistive-technology trials, physical H2C printing, and laboratory testing were not performed. Source rereads were focused, hash-checked samples, not a statistical error-rate estimate for all 11,211 measurements. No current manufacturer/retailer-wide refresh was attempted.
 
@@ -52,7 +54,7 @@ Comparable headline coverage for those 1,077 products is:
 | Glass transition | 305 | 28.3% |
 | Sampled Canadian price | 38 | 3.5% |
 
-Source: [decision-coverage.json](evidence/decision-coverage.json). These counts show a product has that input, not that it has a complete decision bundle. They include inherited twin values where the established rule allows them. Some comparable values deliberately have unstated specimen or moisture details; 'comparable' is the project's screening policy, not equivalent laboratory conditions.
+Source: decision-coverage.json. These counts show a product has that input, not that it has a complete decision bundle. They include inherited twin values where the established rule allows them. Some comparable values deliberately have unstated specimen or moisture details; 'comparable' is the project's screening policy, not equivalent laboratory conditions.
 
 For the six existing templates, confirmed material counts are 18 outdoor structural, 15 indoor prototype, 29 lightweight structure, 34 warm environment, 19 high-stiffness fixture, and 16 flexible component. These are current engine answers, before the proposed corrections. Do not interpret them as independently approved recommendations. The price-led prototype leaves 100 of 136 in-scope materials unknown. That is a poor entry route to an otherwise practical prototype decision.
 
@@ -102,7 +104,7 @@ The table's `rankMaterials` computes indices per passing product and takes their
 
 Rendered Warm environment with beam stiffness gives table #1 PPA-CF, #2 PP-CF, #3 PA612-CF; the same chart guide gives #1 PP-CF, #2 PAHT-CF, #3 PPA-CF. The root engine probe independently reproduced that mismatch. Full product-spread chart bubbles can remain useful context, but cannot be silently substituted for the ranked passing product set.
 
-**2.1:** one ranking result carrying eligible product/state IDs, numerator/denominator measurement IDs, score basis, and unresolved-input status drives table, chart guide, comparison and export. Label material-wide context separately. Evidence: [selection-probe-results.json](evidence/selection-probe-results.json), screenshots `03-warm-table-rank.png` and `05-warm-ashby-index.png`.
+**2.1:** one ranking result carrying eligible product/state IDs, numerator/denominator measurement IDs, score basis, and unresolved-input status drives table, chart guide, comparison and export. Label material-wide context separately. Evidence: selection-probe-results.json, screenshots `03-warm-table-rank.png` and `05-warm-ashby-index.png`.
 
 ### F06 — Import witnesses do not bind a value tightly enough to its source cell. P1.
 

@@ -122,6 +122,8 @@ export const CHECKS = [
   ['history marks', ...node('scripts/docs-history.mjs', '--check')],
   ['decisions index', ...node('scripts/docs-decisions.mjs', '--check')],
   ['README status', ...node('scripts/docs-status.mjs', '--check')],
+  ['links', ...node('scripts/docs-links.mjs', '--check')],
+  ['packets', ...node('scripts/data/packets.mjs', '--check')],
 ];
 
 function freezeReport(ref) {

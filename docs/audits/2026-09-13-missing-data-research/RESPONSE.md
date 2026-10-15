@@ -96,7 +96,7 @@ members, it twice sat almost entirely beside it: Support for PA/PET publishes 45
 | CPE, CPE-CF: not needed | New Fillamentum printing-guide profiles P0165, P0166. Within |
 | PET-GF15: recommended | Contradicted by its TDS; see above |
 | Bambu filament guide: enclosure required or optional | Not used. It is family-level, an enclosure is not a heated chamber, and the fourteen TDS windows above answer the same question for the Bambu grades with numbers |
-| Estimated bands for the 43 gaps | [build/mappings/chamber-estimates.json](../../../build/mappings/chamber-estimates.json). 22 are superseded by evidence and listed in the validation report; 20 are shown, marked †, and change no verdict (D34) |
+| Estimated bands for the 43 gaps | `build/mappings/chamber-estimates.json` (since moved to `data/tables/chamber_bands.csv`). 22 are superseded by evidence and listed in the validation report; 20 are shown, marked †, and change no verdict (D34) |
 | PVDF: no defensible band | Recorded under `noBand`; none shown |
 | PPA family: exact evidence required before a hard fail | Holds for PPA and PPA-GF, whose IPCON data sheets were re-read and publish no chamber temperature |
 

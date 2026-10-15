@@ -31,6 +31,9 @@ const GROUPS = {
     ['data audit', ...node('scripts/audit-data.mjs')],
     ['context audit', ...node('scripts/audit/context-witness.mjs')],
     ['snapshot', ...node('scripts/snapshot.mjs', '--check')],
+    // Every relative link in the Markdown leads somewhere, and every round's exported packets are recorded (D138).
+    ['links', ...node('scripts/docs-links.mjs', '--check')],
+    ['packets', ...node('scripts/data/packets.mjs', '--check')],
   ],
   interface: [
     // The page the views and scenarios read; a no-op where the data group already built it.

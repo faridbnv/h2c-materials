@@ -1,6 +1,8 @@
 # H2C version 2.1 review and planning handoff
 
 > **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+>
+> The `evidence/` folder, `REPRODUCE.md` and `PACKAGE-MANIFEST.json` this review links were delivered with its package and never committed; their links are kept as plain text (2026-10-15).
 
 Prepared 2026-09-27 in Vancouver for Farid. Reviewed source commit: `eb695b8328b369986341491d948d793abdfcb995` in `/Users/farid/Documents/h2c-materials-branch`.
 
@@ -24,11 +26,11 @@ The initial full run failed because Chrome could not launch within the process s
 
 Four focused cached primary documents were hash-checked and visually reread. Numbers central to the reported examples matched; two anneal-temperature tokens had been assigned to the test-temperature field. This targeted AI sample is not a statistical measurement error rate. Human source audit, actual team usability study, alternative browsers/assistive technologies, H2C printing and lab testing remain unexecuted and are explicit future gates.
 
-See [verification-results.json](evidence/verification-results.json), [full successful verification log](evidence/verify-full-browser-enabled.log), [source-reread record](evidence/data-engineering/SOURCE-REREAD.md), [UI probe](evidence/ux/ux-probe.json) and [focused UI probe](evidence/ux-focused/ux-probe.json).
+See verification-results.json, full successful verification log, source-reread record, UI probe and focused UI probe.
 
 ## Repository preservation and reproducibility
 
-[original-preservation.json](evidence/original-preservation.json) records:
+original-preservation.json records:
 
 - All 3,918 Git-tracked files retain their SHA-256.
 - The entire folder inventory remains 14,947 files, with no added, removed, size-changed or mtime-changed file.
@@ -36,8 +38,8 @@ See [verification-results.json](evidence/verification-results.json), [full succe
 
 Tests, generated builds, browser profiles and all review outputs were written outside the original repository. This deliverable includes reports, logs, frozen reviewed HTML, screenshots, focused PDF renders, downloads and reproduction scripts; it excludes the approximately 4.4 GB test repository copy and disposable Chrome profiles. The original external test copy was `/private/tmp/h2c-v2.1-review-2026-09-27/repo-copy`.
 
-[REPRODUCE.md](REPRODUCE.md) provides parameterized read-only probes and an isolated-copy verification recipe. Evidence scripts kept under their original names retain exact review-run paths; use `replay/` versions to rerun against another reviewed checkout without editing those historical scripts.
+REPRODUCE.md provides parameterized read-only probes and an isolated-copy verification recipe. Evidence scripts kept under their original names retain exact review-run paths; use `replay/` versions to rerun against another reviewed checkout without editing those historical scripts.
 
 No fixes, imports, supplier messages, commits, pushes or deployments were performed. This package proposes work; it does not authorize changes to the original repository.
 
-[PACKAGE-MANIFEST.json](PACKAGE-MANIFEST.json) inventories the delivered files with SHA-256 and byte size. The manifest excludes itself.
+PACKAGE-MANIFEST.json inventories the delivered files with SHA-256 and byte size. The manifest excludes itself.

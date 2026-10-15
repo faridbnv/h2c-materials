@@ -54,7 +54,7 @@ The assessment followed the current source path documented in [ARCHITECTURE.md](
 | Standalone HTML | 4,781,304 bytes |
 | Read-only extract + compile + validate benchmark | 412 ms; 0 errors, 4 standing evidence warnings |
 
-The workbook shape comes from [extract.js](../../../build/src/extract.js); current validation results are in [validation-report.md](../../../build/reports/validation-report.md). The benchmark was a single local observation, useful only to establish that current volume is not the immediate problem.
+The workbook shape comes from `build/src/extract.js` (since removed); current validation results are in [validation-report.md](../../../build/reports/validation-report.md). The benchmark was a single local observation, useful only to establish that current volume is not the immediate problem.
 
 ### What should be preserved
 
@@ -120,11 +120,11 @@ The target model should store raw facts and the selected evidence relationship. 
 
 ### DA-05 — Ordinary row growth crosses several boundaries
 
-[extract.js](../../../build/src/extract.js) knows the header row for every sheet and contains an exact expected count for every entity. This makes unreviewed row drift fail loudly, which is safer than silent truncation, but every legitimate append requires code edits to the expected counts.
+`build/src/extract.js` (since removed) knows the header row for every sheet and contains an exact expected count for every entity. This makes unreviewed row drift fail loudly, which is safer than silent truncation, but every legitimate append requires code edits to the expected counts.
 
 Workbook formulas also carry physical limits. Material headline lookups currently reference `Properties!…$1809`, while the Properties sheet extends to row 1969. Later headline values are constants, so the compiled database is still correct under current checks, but the formula range demonstrates the maintenance burden.
 
-The shared [workbook XML editor](../../../scripts/workbook_xml.py) must know worksheet part numbers, table part numbers, header rows, cell styles and table ranges. These are storage-layout details rather than domain rules.
+The shared workbook XML editor (`scripts/workbook_xml.py`, since removed) must know worksheet part numbers, table part numbers, header rows, cell styles and table ranges. These are storage-layout details rather than domain rules.
 
 ### DA-06 — Free text is doing database work
 

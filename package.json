@@ -75,7 +75,9 @@
     "audit:context": "node scripts/audit/context-witness.mjs",
     "audit:profile-marks": "node scripts/audit/profile-marks.mjs",
     "audit:reader-recall": "node scripts/audit/reader-recall.mjs",
-    "round:close": "node scripts/round-close.mjs"
+    "round:close": "node scripts/round-close.mjs",
+    "packets": "node scripts/data/packets.mjs",
+    "docs:links": "node scripts/docs-links.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",
