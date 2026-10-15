@@ -1,0 +1,18 @@
+{
+  "about": "The counts at the head of docs/OPEN-PROBLEMS.md, each with the item it belongs to. npm run docs:open-problems runs them (sql against dist/h2c.sqlite, the others against the committed build snapshot) and writes the table; round:close checks it. Only the raw and compiled tables are asked, never the record tier, which only a checkout with the private cache holds.",
+  "counts": [
+    { "label": "Products you can buy (active procurement grades)", "item": "", "sql": "select count(*) from grades where status = 'active' and role = 'procurement'" },
+    { "label": "Products with no nozzle temperature from any source", "item": "31.3", "snapshot": "build/snapshot/print.csv", "column": "Nozzle", "equals": "unknown" },
+    { "label": "Products with no bed temperature from any source", "item": "31.3", "snapshot": "build/snapshot/print.csv", "column": "Bed", "equals": "unknown" },
+    { "label": "Products with no heated-chamber temperature", "item": "30.3", "snapshot": "build/snapshot/print.csv", "column": "Chamber", "equals": "unknown" },
+    { "label": "Products with no drying statement", "item": "31.3", "snapshot": "build/snapshot/print.csv", "column": "Drying", "equals": "unknown" },
+    { "label": "Products with a price of their own", "item": "22", "sql": "select count(distinct gradeid) from prices where quarantined = 0 and headline_sample = 1" },
+    { "label": "Materials with a price", "item": "22", "sql": "select count(distinct materialid) from prices where quarantined = 0 and headline_sample = 1" },
+    { "label": "Published values physics rules out, kept and flagged", "item": "2", "sql": "select count(*) from measurements where data_status = 'Published value (physically implausible)'" },
+    { "label": "Values whose unit or layout cannot be read", "item": "3", "sql": "select count(*) from measurements where data_status = 'Unresolved unit / layout'" },
+    { "label": "Recorded conflicts waiting on a maker", "item": "4", "sql": "select count(*) from coverage where status in ('Conflict', 'Quarantined')" },
+    { "label": "Sources not retrieved in full", "item": "8", "sql": "select count(*) from sources where access_state <> 'retrieved'" },
+    { "label": "Measurements more than three robust deviations from their material's others", "item": "11", "sql": "select count(*) from v_measurement_z where abs(z) > 3" },
+    { "label": "Coverage findings standing as a gap or a limitation", "item": "Coverage, in one number", "sql": "select count(*) from coverage where status in ('Gap', 'Limited comparability', 'Reviewed with limitations', 'Partially resolved')" }
+  ]
+}

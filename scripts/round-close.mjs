@@ -125,6 +125,8 @@ export const CHECKS = [
   ['decisions index', ...node('scripts/docs-decisions.mjs', '--check')],
   ['README status', ...node('scripts/docs-status.mjs', '--check')],
   ['links', ...node('scripts/docs-links.mjs', '--check')],
+  // The open-problems counts: some twenty seconds, since the SQLite file is written first, so here and not in verify.
+  ['open problems counts', ...node('scripts/docs-open-problems.mjs', '--check')],
   ['packets', ...node('scripts/data/packets.mjs', '--check')],
 ];
 
