@@ -30,7 +30,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { copyFileSync, existsSync, mkdirSync, readFileSync, realpathSync, renameSync, statSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, realpathSync, renameSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, normalize, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { csvText, readCsv } from '../../build/src/csv.js';
@@ -46,11 +46,24 @@ const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
 const tracked = (dir) => git('ls-files', '--', dir).split('\n').filter(Boolean);
 
-/** Where a round's packets are, where its record of them goes, and where a restore puts them by default. */
+/** Every file under a folder on disk, as paths relative to it, in a fixed order. */
+function filesUnder(dir) {
+  const out = [];
+  const walk = (d) => { for (const e of readdirSync(d, { withFileTypes: true })) { const f = join(d, e.name); if (e.isDirectory()) walk(f); else out.push(relative(dir, f).split(sep).join('/')); } };
+  if (existsSync(dir)) walk(dir);
+  return out.sort();
+}
+
+/**
+ * Where a round's packets are (`dir`, tracked in git, or for the import's proposals a private folder on disk), where
+ * its record of them goes, and where a restore puts them by default.
+ */
 export function roundOf(name) {
   if (name === PROPOSALS_ROUND) {
-    return { name, dir: 'archive/ingest-2026-09-18/proposals', record: 'archive/ingest-2026-09-18', restoreTo: PROPOSALS,
-      what: 'The 2026-09-18 import\'s proposals: one file per document and batch, with the page and line of every row the sheet reader\nproposed, the lines it skipped and the review of each row. The batch migrations re-read them and the record tier mines them' };
+    // The import pipeline's proposals: those of the 2026-09-18 import's batches, which left the repository on
+    // 2026-10-15, and every later batch's, which are written to the private proposals folder and exported from there.
+    return { name, dir: 'archive/ingest-2026-09-18/proposals', record: 'archive/ingest-2026-09-18', restoreTo: PROPOSALS, private: PROPOSALS,
+      what: 'The import pipeline\'s proposals: one file per document and batch, with the page and line of every row the sheet\nreader proposed, the lines it skipped and the review of each row. The batch migrations re-read them and the record\ntier mines them' };
   }
   if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9.-]+$/.test(name) || !existsSync(join(root, AUDITS, name))) throw new Error(`no round ${name} under ${AUDITS}/`);
   const dir = `${AUDITS}/${name}`;
@@ -143,14 +156,29 @@ export function keepReason(round, rel) {
   return listed ? `keep-list: ${listed.reason}` : null;
 }
 
-/** A round's tracked files, split into what stays (with why) and what moves. */
+/**
+ * A round's files, split into what stays (with why) and what moves, each with the folder it is read from. For the
+ * import's proposals that is also every file of the private proposals folder the record does not hold as it is now
+ * (a new batch's, or one reviewed again since it was exported).
+ */
 export function sortRound(name) {
   const round = roundOf(name);
   const kept = [], moving = [];
   for (const f of tracked(round.dir)) {
     const rel = f.slice(round.dir.length + 1);
     const reason = keepReason(name, rel);
-    if (reason) kept.push({ rel, reason }); else moving.push(rel);
+    if (reason) kept.push({ rel, reason }); else moving.push({ rel, from: join(root, round.dir, rel), tracked: true });
+  }
+  if (round.private) {
+    const recorded = new Map(recordOf(round).map((r) => [r.path, r]));
+    const inTree = new Set(moving.map((m) => m.rel));
+    for (const rel of filesUnder(round.private)) {
+      if (inTree.has(rel)) continue;
+      const from = join(round.private, rel);
+      const r = recorded.get(rel);
+      if (r && r.bytes === statSync(from).size && r.sha === sha256(readFileSync(from))) continue;
+      moving.push({ rel, from, tracked: false });
+    }
   }
   return { round, kept, moving };
 }
@@ -184,7 +212,7 @@ const recordOf = (round) => {
 function writeRecord(round, rows) {
   rows.sort((a, b) => a.path.localeCompare(b.path));
   writeFileSync(join(root, round.record, 'PACKETS.csv'), csvText(COLUMNS, rows.map((r) => ({ Path: r.path, Bytes: String(r.bytes), SHA256: r.sha, Commit: r.commit }))));
-  const commits = [...new Set(rows.map((r) => r.commit))];
+  const commits = [...new Set(rows.map((r) => r.commit).filter(Boolean))];
   const total = rows.reduce((s, r) => s + r.bytes, 0);
   const byFolder = new Map();
   for (const r of rows) {
@@ -205,7 +233,7 @@ function writeRecord(round, rows) {
     'files (D138). [PACKETS.csv](PACKETS.csv) lists each one with its size, its SHA-256, which proves a copy is the file that',
     'was used, and the last commit that holds it.',
     '',
-    `- **Read one from git history:** \`git show ${commits.length === 1 ? commits[0] : '<Commit>'}:${round.dir}/<path>\`${commits.length === 1 ? '' : ' (each file\'s Commit is in PACKETS.csv)'}.`,
+    ...(commits.length ? [`- **Read one from git history:** \`git show ${commits.length === 1 ? commits[0] : '<Commit>'}:${round.dir}/<path>\`${commits.length === 1 ? '' : ' (each file\'s Commit is in PACKETS.csv; a file with none was never committed)'}.`] : []),
     `- **Bring them back to rerun the round's scripts:** \`npm run packets -- --restore ${round.name}\` (needs \`$H2C_SOURCE_BACKUP\`).`,
     `- **Check the store's copies:** \`npm run packets -- --verify ${round.name}\`.`,
     '',
@@ -250,21 +278,23 @@ export function exportRound(name, { remove = false } = {}) {
   const base = join(needStore(), name);
   const head = git('rev-parse', '--short=12', 'HEAD').trim();
   const rows = new Map(recordOf(round).map((r) => [r.path, r]));
-  for (const rel of moving) {
-    const from = join(root, round.dir, rel), to = join(base, rel);
+  for (const { rel, from, tracked: inGit } of moving) {
+    const to = join(base, rel);
     const bytes = readFileSync(from);
     const sha = sha256(bytes);
     if (!(existsSync(to) && statSync(to).size === bytes.length && sha256(readFileSync(to)) === sha)) copyWhole(from, to);
     if (sha256(readFileSync(to)) !== sha) throw new Error(`${name}/${rel}: the store's copy does not hash to the file`);
-    rows.set(rel, { path: rel, bytes: bytes.length, sha, commit: head });
+    // A file never committed (a later batch's proposal) has no commit to read it back from.
+    rows.set(rel, { path: rel, bytes: bytes.length, sha, commit: inGit ? head : '' });
   }
   writeRecord(round, [...rows.values()]);
   copyWhole(join(root, round.record, 'PACKETS.csv'), join(base, 'packets-index.csv'));
-  const relinked = moving.length ? relink(round, moving) : 0;
-  if (remove && moving.length) {
-    for (let i = 0; i < moving.length; i += 300) git('rm', '-q', '--', ...moving.slice(i, i + 300).map((rel) => `${round.dir}/${rel}`));
+  const inGit = moving.filter((m) => m.tracked).map((m) => m.rel);
+  const relinked = inGit.length ? relink(round, inGit) : 0;
+  if (remove && inGit.length) {
+    for (let i = 0; i < inGit.length; i += 300) git('rm', '-q', '--', ...inGit.slice(i, i + 300).map((rel) => `${round.dir}/${rel}`));
   }
-  return { exported: moving.length, bytes: moving.reduce((s, rel) => s + (rows.get(rel)?.bytes ?? 0), 0), removed: remove ? moving.length : 0, relinked };
+  return { exported: moving.length, bytes: moving.reduce((s, m) => s + (rows.get(m.rel)?.bytes ?? 0), 0), removed: remove ? inGit.length : 0, relinked };
 }
 
 /** Every packet of the round, hashed in the store against the round's record. Returns the problems. */
@@ -338,13 +368,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       const { kept, moving } = sortRound(name);
       const reasons = new Map();
       for (const k of kept) reasons.set(k.reason, (reasons.get(k.reason) ?? 0) + 1);
-      const size = (rel) => statSync(join(root, roundOf(name).dir, rel)).size;
-      console.log(`${name}: ${moving.length} file(s), ${mb(moving.reduce((s, r) => s + size(r), 0))}, would move; ${kept.length} stay`);
+      console.log(`${name}: ${moving.length} file(s), ${mb(moving.reduce((s, m) => s + statSync(m.from).size, 0))}, would move; ${kept.length} stay`);
       for (const [reason, n] of reasons) console.log(`  stays (${n}): ${reason}`);
       for (const k of kept.filter((x) => !/report, script or image|record of its packets/.test(x.reason))) console.log(`    ${k.rel}: ${k.reason}`);
       const folders = [...livingCitations().folders].filter(([path]) => path === name || path.startsWith(`${name}/`));
       for (const [path, by] of folders) console.log(`  a folder a living file names (not kept unless keep-list.csv lists it): ${path} (${by.join(', ')})`);
-      if (args.includes('--list')) for (const rel of moving) console.log(`    moves: ${rel}`);
+      if (args.includes('--list')) for (const m of moving) console.log(`    moves: ${m.rel}`);
     } else if (value('--export')) {
       const { exported, bytes, removed, relinked } = exportRound(value('--export'), { remove: args.includes('--remove') });
       console.log(`packets: ${exported} file(s), ${mb(bytes)}, in the store and checked${removed ? `, ${removed} removed from git` : ''}${relinked ? `; links re-pointed in ${relinked} document(s)` : ''}`);

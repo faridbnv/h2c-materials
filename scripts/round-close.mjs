@@ -5,7 +5,8 @@
 // A round writes migrations, reads packets and readings, and changes documents. The migrations run once and are then
 // history; they move to archive/migrations/, where they are kept as the record of each correction but no longer sit
 // among the living tools. This script makes that move the one way it is done, checks that every archived migration's
-// imports still resolve, and says what else is still open.
+// imports still resolve, and says what else is still open: packets not yet in the private store, and the generated
+// documents' checks.
 //
 //   npm run round:close                    report what is open and run the document checks; exit 1 while anything is
 //   npm run round:close -- --archive       move this round's migrations to archive/migrations/ first
@@ -19,6 +20,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { runSteps, formatTable } from './lib/run-steps.mjs';
+import { sortRound } from './data/packets.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const MIGRATE = join(root, 'scripts/migrate');
@@ -148,6 +150,13 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (pending.length) open.push(`${pending.length} file(s) still in scripts/migrate/ (npm run round:close -- --archive): ${pending.slice(0, 5).join(', ')}${pending.length > 5 ? ', …' : ''}`);
   const problems = checkImports();
   for (const p of problems) open.push(`import: ${p}`);
+  // A round's working files go to the private store when it closes (D138): its audit folder's packets, and the import's
+  // proposals a batch wrote.
+  const rounds = readdirSync(join(root, 'docs/audits'), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name);
+  for (const name of [...rounds, 'ingest-2026-09-18']) {
+    const { moving } = sortRound(name);
+    if (moving.length) open.push(`${moving.length} packet(s) of ${name} not yet in the store (npm run packets -- --export ${name} --remove)`);
+  }
 
   const result = runSteps(CHECKS);
   console.log(formatTable('round:close checks', result));
