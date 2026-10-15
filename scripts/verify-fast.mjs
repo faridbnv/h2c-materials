@@ -25,7 +25,6 @@ export const STEPS = [
   ['decisions doc', ...node('scripts/docs-decisions.mjs', '--check')],
   // npm test builds first (its pretest, scripts/ensure-db.mjs), then runs every test file but the import pipeline's.
   ['build and tests', 'npm', ['test']],
-  ['campaign docs', ...node('scripts/audit/coverage-campaign-status.mjs', '--check')],
   // After the build: the README's plain status is counted from dist/db.json (D131).
   ['status doc', ...node('scripts/docs-status.mjs', '--check')],
 ];

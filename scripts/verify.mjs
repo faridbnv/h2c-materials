@@ -28,6 +28,8 @@ const GROUPS = {
     ...FAST_STEPS,
     // npm keeps the quoted test glob's shell behaviour, as `npm run test:ingest` always had.
     ['import tests', 'npm', ['run', 'test:ingest']],
+    // The coverage campaign's generated status page; in verify:fast until 2026-10-15.
+    ['campaign docs', ...node('scripts/audit/coverage-campaign-status.mjs', '--check')],
     ['data audit', ...node('scripts/audit-data.mjs')],
     ['context audit', ...node('scripts/audit/context-witness.mjs')],
     ['snapshot', ...node('scripts/snapshot.mjs', '--check')],
