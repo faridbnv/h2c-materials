@@ -47,7 +47,7 @@ copolyester, which is how CPE-CF is defined.
 ## Fix
 
 The owner chose family entries. [apply-workbook-changes.py](apply-workbook-changes.py) made 718
-changes, listed in [changelog.csv](changelog.csv):
+changes, listed in [changelog.csv](PACKETS.md):
 
 - **One home per product.** Nine duplicate grades were retired with the retirement marker. Their 147
   measurements and 16 evidence records were marked "Retired duplicate record". The script first proved

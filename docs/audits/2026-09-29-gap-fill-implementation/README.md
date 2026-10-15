@@ -34,10 +34,10 @@ revision that says nothing new. Only the pages the database did not hold went th
 | m225, from registered documents | 25 values: eSUN PA-CF's ten XY and Z values (its page, which b39 registered); Nobufil PCTG CF's printed and moulded columns (8, read on the page image); Nanovia's PA Food Industry strength and strain at strength, Flex VX's Tg, Flex's and ISTROFLEX's second hardness scales, ISTROFLEX's "> 300 %" (a bound), TPE 22D's modulus | the product's own registered page or sheet |
 | | 1 correction: V008864, Nobufil PCTG CF's HDT A 72 °C, stands under "FDM H" on the page image, not "Injection" as m128 read it | the same sheet |
 | | 11 drying schedules: nine filled on profiles citing the page that prints them (six Nanovia, two Extrudr DuraPro, and eSUN PA-CF's, which is not a research finding but stands on the line b39 read P1287's enclosure from), two new profiles on pages held as corroboration, now cited (eSUN TPU LW with its AMS advice, Extrudr FLEX Medium Matt) | the registered pages |
-| m226, batch b40 | 9 sources, 9 profiles: eight Extrudr drying schedules and Recreus Conductive Filaflex's 0.4 mm nozzle temperature, bed and drying | the research's saved pages, staged by digest ([WITNESSES.csv](WITNESSES.csv); [b40](../2026-09-18-v2-import/batches/b40/README.md)) |
+| m226, batch b40 | 9 sources, 9 profiles: eight Extrudr drying schedules and Recreus Conductive Filaflex's 0.4 mm nozzle temperature, bed and drying | the research's saved pages, staged by digest ([WITNESSES.csv](PACKETS.md); [b40](../2026-09-18-v2-import/batches/b40/README.md)) |
 
 Every value is bound to its own line on the hash-checked page, as the apply guard binds a pipeline row (D97), and
-[RE-READ.csv](RE-READ.csv) finds each again, record by record, from the cached text of verified bytes (47 of 47). Each
+[RE-READ.csv](PACKETS.md) finds each again, record by record, from the cached text of verified bytes (47 of 47). Each
 migration's second run writes nothing, and a row that moved stops it. The Nobufil columns were read on the rendered page
 image: the text cannot say which of two columns a number stands under. One value was surprising and is accepted with its
 reason (Nobufil's printed notched Izod, 0,7 kJ/m², MEAS-PHYSICS-WINDOW).
@@ -51,8 +51,8 @@ the registered page's cached text does not hold that heading (the reader drops i
 
 ## What did not enter
 
-[ADMISSION.csv](ADMISSION.csv) gives every finding its outcome: 45 of 51 admitted, and one fact found on re-reading.
-[HOLDS.csv](HOLDS.csv) lists what is held and what would release it; OPEN-PROBLEMS §21 carries the ones a reader needs.
+[ADMISSION.csv](PACKETS.md) gives every finding its outcome: 45 of 51 admitted, and one fact found on re-reading.
+[HOLDS.csv](PACKETS.md) lists what is held and what would release it; OPEN-PROBLEMS §21 carries the ones a reader needs.
 
 - **Held as the research held them**: Nanovia Flex V0's "Tensile resistance 27 MPa VDE282 part 10" (no faithful
   property or standard) and Extrudr FLEX HARD CF's drying (its own page says 6 h in its FAQ and 12 h in its table).
@@ -66,7 +66,7 @@ the registered page's cached text does not hold that heading (the reader drops i
 
 ## Prices
 
-None entered, and the currency contract was not built. [PRICES.csv](PRICES.csv) gives each of the 136 frozen targets
+None entered, and the currency contract was not built. [PRICES.csv](PACKETS.md) gives each of the 136 frozen targets
 its outcome. Applying the plan's own rules to the research's 56 regular-offer candidates leaves eight a comparison
 could use: an offer in stock when captured, whose tax can be separated, for an in-scope material with no price (PETG-GF,
 TPC, PBT-GF, PLA-NF, PETG-GR, PLA-GR, PLA-CE and the undisclosed-polyamide home). The rest are 27 Bambu Lab Canada
@@ -90,7 +90,7 @@ carries.
 
 ## Estimates
 
-The model is unchanged. [ESTIMATES.csv](ESTIMATES.csv) gives the 203 dispositions: two are replaced by product values
+The model is unchanged. [ESTIMATES.csv](PACKETS.md) gives the 203 dispositions: two are replaced by product values
 (PA6/66-CF's strength and elongation, from eSUN's page, as the research's rehearsal found), and 201 stay the research's
 reviewed record, with the cell's state now. The admitted rows recalibrate the model as any data do: 129 estimated cells
 of 50 materials and 762 products' estimates moved, and two screens in Explore with estimates changed (PA6 now screened
@@ -121,13 +121,13 @@ the rule prefers a printed bar.
 
 **Decision diff.** `build/snapshot/templates.csv` moved two answers: PA6/66-CF on Flexible component, in Explore and in
 Explore with estimates, from UNKNOWN to FAIL, on eSUN's published 7.42 % XY elongation against the template's 100 %.
-The frozen replay of the research's fifteen questions ([FROZEN-QUESTIONS.json](FROZEN-QUESTIONS.json), 18,195
+The frozen replay of the research's fifteen questions ([FROZEN-QUESTIONS.json](PACKETS.md), 18,195
 evaluations, both databases answered by this checkout's engine; [replay.mjs](replay.mjs),
-[FROZEN-REPLAY.json](FROZEN-REPLAY.json)) finds the same two: the material and its one product, UNKNOWN to FAIL on
+[FROZEN-REPLAY.json](PACKETS.md)) finds the same two: the material and its one product, UNKNOWN to FAIL on
 Flexible component. No new PASS, and no answer lost. The research's rehearsal, on its older commit, found the same.
 
 **Source-grounded expectations.** [oracles.mjs](oracles.mjs) asks eleven questions written from the cited pages of the
-compiled database ([ORACLES.json](ORACLES.json)): all pass. They are not the engine's parity tests.
+compiled database ([ORACLES.json](PACKETS.md)): all pass. They are not the engine's parity tests.
 
 ## The page
 

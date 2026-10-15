@@ -7,9 +7,9 @@ it to main (f57dffda, b4fbaf26). A review the same day found it moved no number 
 owner had it reverted ([D132](../../DECISIONS.md), withdrawn). What it found on the pages is kept:
 
 - **Kept as data:** the later saved Bambu PLA Tough+ product page (source R-BAMBU-PLA-TOUGH-20261005, SHA-256
-  79e4ff6a…, admitted through `ingest:witness --from`; [ingest/ledger.csv](ingest/ledger.csv)) and four maker statements
+  79e4ff6a…, admitted through `ingest:witness --from`; [ingest/ledger.csv](PACKETS.md)) and four maker statements
   read on their hashed pages (Q05757–Q05760), filed under Benefits and Good for by m384.
-- **Kept as record:** [READINGS.csv](READINGS.csv), the round's 27 readings of held impact values (each confirmed the
+- **Kept as record:** [READINGS.csv](PACKETS.md), the round's 27 readings of held impact values (each confirmed the
   value held), and [OUTCOMES.md](OUTCOMES.md), each assigned product's outcome, including the 8 impact rows whose label
   and standard contradict each other and the 8 chamber setpoints no maker publishes. Both were read by that agent ("Codex
   AI"), not by a person.

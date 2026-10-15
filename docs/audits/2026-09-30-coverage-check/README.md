@@ -70,9 +70,9 @@ COVERAGE-UNTRUE had held that since 2026-09-13.
 The recorded counts on the cards did not move: evidence was already derived. Nothing a scenario decides reads
 coverage: `build:diff` moved only coverage rows, CA0069 and the offer lists of M001 and G001-183 (CA0069 is an offer,
 outside the sample, so no price moved), and the frozen replay (`../2026-09-29-gap-fill-implementation/replay.mjs`,
-15 questions, 18,195 evaluations, [frozen-replay.json](frozen-replay.json)) moved no verdict.
+15 questions, 18,195 evaluations, [frozen-replay.json](PACKETS.md)) moved no verdict.
 
-What is here: [check.mjs](check.mjs), the comparison; [changelog.csv](changelog.csv), `npm run data:diff` of m233; the two
+What is here: [check.mjs](check.mjs), the comparison; [changelog.csv](PACKETS.md), `npm run data:diff` of m233; the two
 archives of the removed rows.
 
 ## Left open

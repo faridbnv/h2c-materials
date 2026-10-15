@@ -2,7 +2,7 @@
 
 > **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
 
-How each change in [REPORT.md](REPORT.md) and [changelog.csv](changelog.csv) reached the
+How each change in [REPORT.md](REPORT.md) and [changelog.csv](PACKETS.md) reached the
 selector, and what implementing it turned up.
 
 The audit updated the workbook and deliberately left the tool alone. The build refused the new
@@ -57,7 +57,7 @@ cover. Each was corrected by editing the named cells only; no other part of the 
 | Materials `T33`, ABS, Price basis | 2 in-stock regular-price observation(s) | 1 in-stock regular-price observation(s) | Same |
 
 The workbook's SHA-256 is therefore no longer the one recorded in
-[audit-evidence.json](audit-evidence.json). It is
+[audit-evidence.json](PACKETS.md). It is
 `9018c6368a1e8c2184ce74407ded8cd12d237cf6bd90bf74e67d8deaab3a0acf`.
 
 ## Repository housekeeping

@@ -10,7 +10,7 @@
 > for what moved.
 
 Every count below is written by [`ledgers/gap-census.mjs`](ledgers/gap-census.mjs) into
-[`ledgers/gap-census.csv`](ledgers/gap-census.csv), or read from `build/snapshot/`. Re-run it and the report can be
+[`ledgers/gap-census.csv`](PACKETS.md), or read from `build/snapshot/`. Re-run it and the report can be
 checked line by line; when the data moves, the numbers move with it.
 
 ## The result in one line
@@ -50,7 +50,7 @@ thermal row at all.
 
 `docs/audits/2026-09-15-filtering-estimates-data/sources/open-items.md` §3 lists ten candidate documents with their
 URLs, SHA-256 prefixes and quoted values, fetched on 2026-09-15 and left out of the data. Eight are still worth
-importing; [`ledgers/import-backlog.csv`](ledgers/import-backlog.csv) says what each is worth against today's tables.
+importing; [`ledgers/import-backlog.csv`](PACKETS.md) says what each is worth against today's tables.
 Together they take heat deflection to **26 cases** — enough to certify — and strength to **20**, two short. Two are
 held back on purpose: Polymaker PolyMax PC is an alternative to PolyLite PC rather than a second grade beside it and
 its 14.8 °C load gap would be a bracket miss, and Stratasys FDM Nylon-CF10 cannot be filed until its "blended nylon"
@@ -111,7 +111,7 @@ That last line is the cheapest unclaimed evidence in the project. An SDS publish
 ingredient disclosure with its CAS numbers, the filler and its loading, thermal decomposition and stability, and the
 handling statements. C00003 — the register's only open composition conflict, glass fibre in one heading and carbon
 fibre in the description of the same iSANMATE sheet — asks in its own words for *"a composition declaration from
-iSANMATE"*. That document is an SDS. [`ledgers/sds-targets.csv`](ledgers/sds-targets.csv) ranks all 143 active
+iSANMATE"*. That document is an SDS. [`ledgers/sds-targets.csv`](PACKETS.md) ranks all 143 active
 procurement grades; 15 are priority 1 to 3.
 
 ## 6. Where the materials are thinnest

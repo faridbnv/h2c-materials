@@ -13,20 +13,20 @@ This review followed the actual source path: the two workbooks → extraction �
 
 Every one of the **102 filaments, 19 display families, 144 grade records, 1,966 property records, 167 profiles, 478 use/durability records, 104 price observations, 235 sources and 1,146 coverage records** was included in the record inventory and applicable relational checks. All **1,806 numeric property observations** reconcile against their recorded raw values and unit conversions after correction. The other property records are 155 unpublished, three qualitative and two quarantined; these are not converted to numbers.
 
-**This is exhaustive internal consistency checking of the current snapshot, with targeted source re-reading—not independent re-transcription of all 235 external sources.** Five PDFs were downloaded and their checksums matched the source register; additional web checks are individually labelled in [source-review.json](source-review.json). The 114 generic reference entries were freshly compiled, checked for ordered numeric intervals, and verified against the HTML payload; their underlying values remain uncited context, never filament evidence.
+**This is exhaustive internal consistency checking of the current snapshot, with targeted source re-reading—not independent re-transcription of all 235 external sources.** Five PDFs were downloaded and their checksums matched the source register; additional web checks are individually labelled in [source-review.json](PACKETS.md). The 114 generic reference entries were freshly compiled, checked for ordered numeric intervals, and verified against the HTML payload; their underlying values remain uncited context, never filament evidence.
 
 The workbook changed in **27 logged edits to 25 distinct cells across three sheet XML parts**. Cell styles, formulas and every other ZIP part are unchanged. Compiled changes affect 44 material summaries, five measurements, one retired grade, three profiles and one evidence categorization. The measured headline count remains 369. The largest change is removal of unsupported peer estimates: 105 became three contextual spans, none of which decides eligibility.
 
 ## How to trace a finding
 
 - [MATRIX.md](MATRIX.md): one row for every filament and every family, with grade IDs, counts and limitations.
-- [record-index.csv](record-index.csv): every source-workbook record, sheet, row, material/grade ID, source ID, locator and URL where available.
-- [audit.json](audit.json): complete material/grade/source relationships, raw-value reconciliation results, warnings and payload checks.
-- [changelog.csv](changelog.csv): the 27 workbook cell edits, before and after.
-- [compiled-changes.json](compiled-changes.json): before/after compiled fields, including all removed peer mappings.
-- [source-review.json](source-review.json): the exact sources re-read, checksums, checked passages and access limitations.
-- [workbook-verification.json](workbook-verification.json): independent ZIP/cell preservation checks.
-- [bambu-guide-crosscheck.json](bambu-guide-crosscheck.json): 39 flexural/HDT numerical comparisons across 13 named Bambu filaments.
+- [record-index.csv](PACKETS.md): every source-workbook record, sheet, row, material/grade ID, source ID, locator and URL where available.
+- [audit.json](PACKETS.md): complete material/grade/source relationships, raw-value reconciliation results, warnings and payload checks.
+- [changelog.csv](PACKETS.md): the 27 workbook cell edits, before and after.
+- [compiled-changes.json](PACKETS.md): before/after compiled fields, including all removed peer mappings.
+- [source-review.json](PACKETS.md): the exact sources re-read, checksums, checked passages and access limitations.
+- [workbook-verification.json](PACKETS.md): independent ZIP/cell preservation checks.
+- [bambu-guide-crosscheck.json](PACKETS.md): 39 flexural/HDT numerical comparisons across 13 named Bambu filaments.
 
 An ID in the findings below resolves to its workbook row through `record-index.csv`; a measurement or profile then resolves to its grade and source in `audit.json`. Archived records remain visible in the source workbook and audit data but are excluded from active use where stated.
 

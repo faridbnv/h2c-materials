@@ -6,7 +6,7 @@ All findings were implemented.
 
 ## Workbook changes
 
-The audited edit changed 207 cells/rows, all recorded in [changelog.csv](changelog.csv):
+The audited edit changed 207 cells/rows, all recorded in [changelog.csv](PACKETS.md):
 
 | Sheet | Change |
 |---|---:|

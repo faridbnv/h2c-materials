@@ -18,7 +18,7 @@ This is an audit and recommended backlog. **No application, workbook, or existin
 
 The control inventory covers the application-owned controls and identifies third-party chart controls. **This is not a claim that every permutation of every control was manually clicked.** Browser coverage was sampled across the principal views; code review covered the remaining application handlers. Saved-file import was attempted, but the native file-picker interaction was interrupted and did not establish successful restoration. Mobile-device, screen-reader, external retailer, complete print-preview, and downloaded-file round-trip verification remain outstanding. Findings explicitly distinguish this from confirmed behavior.
 
-The 62 existing tests passed. A fresh, in-memory extraction and compilation of the workbook exactly matched `dist/db.json`, with zero validation errors and four warnings. This verifies reproducibility, not the truth of every source record or the usability of the product. See [validation evidence](validation-check.json), [data probes](data-probes.json), and [sample CSV](sample-export.csv). The CSV is a deliberately failing synthetic selection used to inspect export behavior; it is not a recommended material list.
+The 62 existing tests passed. A fresh, in-memory extraction and compilation of the workbook exactly matched `dist/db.json`, with zero validation errors and four warnings. This verifies reproducibility, not the truth of every source record or the usability of the product. See [validation evidence](PACKETS.md), [data probes](PACKETS.md), and [sample CSV](PACKETS.md). The CSV is a deliberately failing synthetic selection used to inspect export behavior; it is not a recommended material list.
 
 ## 1. First-time-user scenarios
 
@@ -718,8 +718,8 @@ Paths below are relative to this report. Finding locations use function/section 
 | Data compilation | [compile.js](../../../build/src/compile.js) |
 | Responsive layout and print rules | [app.css](../../../app/css/app.css) |
 | Historical audit, independently rechecked | [earlier audit](../2026-09-11-first-time-user/REPORT.md) |
-| Template candidate sets and suspicious records | [data-probes.json](data-probes.json) |
-| Fresh in-memory compilation check | [validation-check.json](validation-check.json) |
-| Synthetic failure export for inspection | [sample-export.csv](sample-export.csv) |
+| Template candidate sets and suspicious records | [data-probes.json](PACKETS.md) |
+| Fresh in-memory compilation check | [validation-check.json](PACKETS.md) |
+| Synthetic failure export for inspection | [sample-export.csv](PACKETS.md) |
 
 **Change boundary:** only this audit directory was added. No fixes, dependency changes, database edits, commits or publication were performed. UI screenshots were inspected during the session; no screenshot files are claimed as retained artifacts. Findings based on those observations are labelled U, and their code/data support is recorded above.

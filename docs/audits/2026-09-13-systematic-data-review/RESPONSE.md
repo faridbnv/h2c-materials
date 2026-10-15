@@ -22,7 +22,7 @@ with no console errors.
 
 The Method sheet also gains a row stating the estimate rule. Both rows were added by
 [apply-workbook-changes.py](apply-workbook-changes.py), which appends two rows and nothing else and
-refuses any other workbook; see [changelog.csv](changelog.csv). The workbook's SHA-256 moves from
+refuses any other workbook; see [changelog.csv](PACKETS.md). The workbook's SHA-256 moves from
 `e8532eda180f008afa2960c78cf0b5b2eb911afe2d95a1f8ed388ebcf4cd1175` to
 `ac038449bf49a5c182130c370223a111fe492643375b715eb6adff70f65823c1`.
 

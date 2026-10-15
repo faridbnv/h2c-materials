@@ -32,7 +32,7 @@ and fix what remains.
 - **Interface defects sat around a sound core.** The table rounded values across a threshold (50.99 shown "51" while
   passing "< 51"). Scenario assumptions read as "Published" and joined the Pareto front. Chart redraws leaked 569 MB
   over 800 renders. A link pasted into an open tab did nothing.
-- **55 findings in four workstreams**, one row each in [findings.csv](findings.csv): 44 fixed, 2 partly fixed,
+- **55 findings in four workstreams**, one row each in [findings.csv](PACKETS.md): 44 fixed, 2 partly fixed,
   1 resolved by re-reading, 4 open and 4 notes. The owner ruled on each change of policy, and the fixes are in
   [RESPONSE.md](RESPONSE.md).
 
@@ -46,8 +46,8 @@ Changes of engineering policy went to the owner first.
 |---|---|---|---|
 | A. Rendered-app fuzz | Does what a reader sees agree with the engine, in every setting? | [ui-fuzz/](ui-fuzz/): headless Chrome over CDP; seeded scenarios with every requirement kind and operator, thresholds at the evidence itself, assumptions, searches, templates; 8 invariants | A-01 to A-08 |
 | B. Physics oracle | Are data, estimates and screens physically reliable? | [physics/](physics/): envelopes for printed parts of 41 identities (an oracle only, never data), 2,240 selections at envelope edges, ~20 PDFs re-read | B-01 to B-20 |
-| C. Pipeline review | Do the mappers, headline selection, rules and contract do what they claim? | [pipeline/](pipeline/): every raw wording through its mapper ([mapper-table.csv](pipeline/mapper-table.csv)), repro scripts | C-01 to C-17 |
-| D. Sources | The five open items of 2026-09-14, and every flagged value re-read | [sources/](sources/): hash-checked PDFs, [rereads.csv](sources/rereads.csv), [open-items.md](sources/open-items.md) | D-01 to D-10 |
+| C. Pipeline review | Do the mappers, headline selection, rules and contract do what they claim? | [pipeline/](pipeline/): every raw wording through its mapper ([mapper-table.csv](PACKETS.md)), repro scripts | C-01 to C-17 |
+| D. Sources | The five open items of 2026-09-14, and every flagged value re-read | [sources/](sources/): hash-checked PDFs, [rereads.csv](PACKETS.md), [open-items.md](sources/open-items.md) | D-01 to D-10 |
 
 A finding's class is *defect* (fixed directly), *policy* (the owner decides), *suspect* (a source to re-read) or *note*.
 

@@ -13,9 +13,9 @@ data part: the impact results the registered sheets print and the tables did not
   prints an impact line with a unit or a standard and whose tables held fewer impact rows: 210 with none at all. Tier 1
   (PLA, PETG, ABS, ASA and every toughened candidate) is 142 of them. [DOCS.csv](DOCS.csv), [TARGETS.csv](TARGETS.csv).
 - **Read twice.** 23 Claude Sonnet readers read every impact row of the 345 from the page images
-  ([IMPACT-READER-PROMPT.md](IMPACT-READER-PROMPT.md); [readings/](readings/)). The reconciler checked each against the
+  ([IMPACT-READER-PROMPT.md](IMPACT-READER-PROMPT.md); [readings/](PACKETS.md)). The reconciler checked each against the
   page's text and the held rows; 446 rows the text did not pair, or that decide, were read again by five blind readers
-  ([SECOND-READ-PROMPT.md](SECOND-READ-PROMPT.md); [second-read/](second-read/)): 485 agreed, 20 disagreed and were
+  ([SECOND-READ-PROMPT.md](SECOND-READ-PROMPT.md); [second-read/](PACKETS.md)): 485 agreed, 20 disagreed and were
   held. 191 held rows were confirmed on their pages. The 52 the reconciler called mismatches were, in every case review
   opened, a reading of another row of the same page (another direction, notch or temperature); no held value changed.
 - **Reviewed before it was applied.** Of the 317 new values the proposal tool passed, Claude Opus applied 86 and held

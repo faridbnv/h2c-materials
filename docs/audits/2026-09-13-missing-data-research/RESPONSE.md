@@ -12,7 +12,7 @@ Re-reading found the report wrong in four places and silent on the largest gap o
 
 The workbook edit is [apply-workbook-changes.py](apply-workbook-changes.py). It changes named
 cells and appends rows, touches no other part of the file, and refuses to run on any workbook but the
-one it was written against. Its 276 changes are listed cell by cell in [changelog.csv](changelog.csv).
+one it was written against. Its 276 changes are listed cell by cell in [changelog.csv](PACKETS.md).
 The workbook's SHA-256 moves from `9018c6368a1e8c2184ce74407ded8cd12d237cf6bd90bf74e67d8deaab3a0acf` to
 `31a1e17d394ad3552a035e80994decae2d4301d6b19a4ce2c7c9f8b0352dbe52`.
 

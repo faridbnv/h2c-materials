@@ -6,14 +6,14 @@
 
 Prepared 2026-09-27 in Vancouver for Farid. Reviewed source commit: `eb695b8328b369986341491d948d793abdfcb995` in `/Users/farid/Documents/h2c-materials-branch`.
 
-**Start with [REVIEW.md](REVIEW.md), then [V2.1-PLAN.md](V2.1-PLAN.md).** The first is the coherent critical assessment; the second is the proposed architecture, decisions, phased implementation, scenario portfolio and release gates. [BACKLOG.json](BACKLOG.json) has 17 work packages with priority, dependencies, implementation anchors, evidence, acceptance criteria and estimated effort bands.
+**Start with [REVIEW.md](REVIEW.md), then [V2.1-PLAN.md](V2.1-PLAN.md).** The first is the coherent critical assessment; the second is the proposed architecture, decisions, phased implementation, scenario portfolio and release gates. [BACKLOG.json](PACKETS.md) has 17 work packages with priority, dependencies, implementation anchors, evidence, acceptance criteria and estimated effort bands.
 
 The main conclusion is that the evidence and build foundation should be retained, while version 2.1 completes the exact-product/state decision contract. Critical examples include inherited product proof/offers, incompatible treatment states, missing H2C template gates, deliberately overstrong material failure rollup, conflicting rankings, weak source-cell witnessing, and date-only replay identity. The plan addresses these before broader intake and interface refinements.
 
 ## Specialist evidence
 
-- [Data and engineering dossier](reviews/DATA-ENGINEERING.md): nine findings, coverage denominators, source conditions, exposure applicability, treatment and practical engineering limits. Its structured companion is [data-engineering-findings.json](reviews/data-engineering-findings.json).
-- [Architecture and operations dossier](reviews/ARCHITECTURE-OPERATIONS.md): twelve findings, import witness reproduction, authoring/recovery, query freshness, cache/build boundaries and documentation. Its structured companion is [ARCHITECTURE-FINDINGS.json](reviews/ARCHITECTURE-FINDINGS.json). A12 is a lower-priority isolated cache caveat, deliberately omitted from the core work-package priorities.
+- [Data and engineering dossier](reviews/DATA-ENGINEERING.md): nine findings, coverage denominators, source conditions, exposure applicability, treatment and practical engineering limits. Its structured companion is [data-engineering-findings.json](PACKETS.md).
+- [Architecture and operations dossier](reviews/ARCHITECTURE-OPERATIONS.md): twelve findings, import witness reproduction, authoring/recovery, query freshness, cache/build boundaries and documentation. Its structured companion is [ARCHITECTURE-FINDINGS.json](PACKETS.md). A12 is a lower-priority isolated cache caveat, deliberately omitted from the core work-package priorities.
 - [Practical interface dossier](reviews/PRACTICAL-UX.md): nine findings, rendered flows, cross-view consistency, focus behavior, search/compare context, layout measurements and tested/unexecuted coverage.
 
 Specialist IDs Dxx/Axx/Uxx describe evidence within each lane. Consolidated F01–F17 are the planning work packages, not a claim that the lanes discovered 47 independent problems. Several lane findings are manifestations of one decision-contract problem.

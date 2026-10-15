@@ -119,7 +119,7 @@ formative trial with five engineers (B14), screen-reader, other-browser and phys
 
 ## Verification
 
-`npm run verify` after the change: see [evidence/verify-after.txt](evidence/verify-after.txt) (the tail of the run, with
+`npm run verify` after the change: see [evidence/verify-after.txt](PACKETS.md) (the tail of the run, with
 its timings). The full-text index test in `test/sqlite.test.js` runs only where `.cache/text` exists; `npm run
 test:ingest` writes a fixture there, so a second `npm test` after `verify` fails it in any fresh clone, before this change
 as after (OPEN-PROBLEMS §19). It was cleared before the run recorded here.

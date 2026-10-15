@@ -109,5 +109,5 @@ The final workbook contains:
 
 Structural validation covered unique identifiers, material/grade/source foreign keys, `Materials.GradeIDs`, expanded Excel-table references, the price quarantine, the corrected Bambu-guide hash, and cell error values. The source workbook and delivery copy have identical worksheet data. The existing application/build code was intentionally left unchanged, so its frozen expected-row counts will need a separate, explicitly authorized implementation pass before rebuilding the application.
 
-The machine-readable audit summary is in [audit-evidence.json](audit-evidence.json); the implementation-oriented change ledger is in [changelog.csv](changelog.csv). How each change reached the selector is in [RESPONSE.md](RESPONSE.md).
+The machine-readable audit summary is in [audit-evidence.json](PACKETS.md); the implementation-oriented change ledger is in [changelog.csv](PACKETS.md). How each change reached the selector is in [RESPONSE.md](RESPONSE.md).
 

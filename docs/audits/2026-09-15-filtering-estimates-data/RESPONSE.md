@@ -4,7 +4,7 @@
 
 Every fix below is one commit on `data/csv-source` after `ef26807`, each with `npm run verify` green. Data changed
 only through guarded, re-runnable migrations against re-read, hash-matched sources (m19 to m22, m24 to m26); each
-finding's outcome is in [findings.csv](findings.csv). Decisions D54 to D57 record the reasons.
+finding's outcome is in [findings.csv](PACKETS.md). Decisions D54 to D57 record the reasons.
 
 ## Commits
 

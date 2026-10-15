@@ -49,7 +49,7 @@ annealed" and "without annealing"; the campaign status closing a merged product'
   accepted with its reason: BASF's J/m Izod beside ISO 180, two flexural strengths below tensile and one strain the
   sheets print), `audit:context` (0 new; 2 acceptances it no longer needs removed) and the tests (481).
 - **Independent review.** A separate Sonnet reviewer read a random sample of 70 changed records against their sheets
-  ([review.csv](review.csv), [the sample](review-sample.csv)): 64 ok, 4 wrong, 2 doubtful, "approve with findings". Acted
+  ([review.csv](PACKETS.md), [the sample](PACKETS.md)): 64 ok, 4 wrong, 2 doubtful, "approve with findings". Acted
   on: two BASF ASA rows had the conditioning words but not the conditioned state; SUNLU's specimen note is footnote [1]
   on p. 3 under values on p. 1, so its page_context rows reached nothing (now on p. 1); 3DXSTAT ESD-PLA's bed is
   recommended, its page saying "Ideal for printing without a heated bed"; Braskem PP-CF's nozzle row names a hardened
@@ -61,8 +61,8 @@ annealed" and "without annealing"; the campaign status closing a merged product'
   OPEN-PROBLEMS (Nanovia's held finding, BASF's impact tables, the specimen blocks), counts (18 profiles, not 17; 59
   sources; the guard's 57 and 19 acceptances; the screens two in and six out), decision cross-references (D72, D73, D86,
   D27) and the data model's new fields. Each is corrected.
-- **The measuring draw** ([cases](control-v12-cases.csv), [first reader](control-v12-first-reader.csv),
-  [second reader](control-v12-second-reader.csv)). 40 profiles no earlier round read, drawn from the tables the
+- **The measuring draw** ([cases](PACKETS.md), [first reader](PACKETS.md),
+  [second reader](PACKETS.md)). 40 profiles no earlier round read, drawn from the tables the
   root-cause sweep left (seed 20261102). The first reader found one deciding error (W021, a Filaflex Foamy bed read as
   required); a second reader, blind to the first, found none and called one SUNLU speed band merged, at low confidence.
   The profile-check reader agreed with all nine of the first reader's findings. Both readers' other findings were nozzle
@@ -71,7 +71,7 @@ annealed" and "without annealing"; the campaign status closing a merged product'
 ## What moved
 
 `npm run build:diff` against 44adc67 (with the four code commits picked onto it); `build/snapshot` and the 69 interface
-views are updated with the change. Record by record (`npm run data:diff`, saved as [data-diff.csv](data-diff.csv)): 242 measurements added and 1,034 edited, 197
+views are updated with the change. Record by record (`npm run data:diff`, saved as [data-diff.csv](PACKETS.md)): 242 measurements added and 1,034 edited, 197
 page_context rows and 5 properties added, 232 profiles edited and 1 added, 31 grades edited (29 retired), 119 evidence
 rows, 59 sources, 5 prices and 2 coverage rows re-pointed to their kept grade, 5 chamber bands removed through the
 ledger, 1 method rule added.

@@ -218,11 +218,17 @@ function writeRecord(round, rows) {
 }
 
 /**
- * Every tracked Markdown file's links to a packet that moved now lead to its round's PACKETS.md, which names it with its
- * digest; the link keeps its words. Returns how many files changed.
+ * Every tracked Markdown file's links to a packet that moved, or to a folder that held only packets, now lead to its
+ * round's PACKETS.md, which names each with its digest; the link keeps its words. Returns how many files changed.
  */
 function relink(round, moved) {
   const gone = new Set(moved.map((rel) => `${round.dir}/${rel}`));
+  const stays = tracked(round.dir).filter((f) => !gone.has(f));
+  for (const f of gone) {
+    for (let d = dirname(f); d.length > round.dir.length; d = dirname(d)) {
+      if (!stays.some((k) => k.startsWith(`${d}/`))) gone.add(d);
+    }
+  }
   const record = `${round.record}/PACKETS.md`;
   let changed = 0;
   for (const md of git('ls-files', '--', '*.md').split('\n').filter(Boolean)) {
@@ -230,7 +236,7 @@ function relink(round, moved) {
     const next = rewriteLinks(text, (target) => {
       if (/^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('#')) return null;
       let path;
-      try { path = normalize(join(dirname(md), decodeURIComponent(target.split('#')[0]))); } catch { return null; }
+      try { path = normalize(join(dirname(md), decodeURIComponent(target.split('#')[0]))).replace(/\/$/, ''); } catch { return null; }
       return gone.has(path) ? relative(dirname(md), record) || 'PACKETS.md' : null;
     });
     if (next !== text) { writeFileSync(join(root, md), next); changed++; }

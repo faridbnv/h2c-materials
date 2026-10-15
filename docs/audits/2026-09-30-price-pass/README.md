@@ -36,11 +36,11 @@ Shop3D.ca), and `prices.csv` could hold no other currency.
 5. **Batch p02**, Amazon.ca sold by the maker's own store (m229).
 6. **The rates** (m230) and **batch p03**, USD (m231).
 7. **Batch p04**, EUR before VAT (m232).
-8. **Where it ended**: the counts, [OUTCOMES.csv](OUTCOMES.csv) and [FROZEN-REPLAY.json](FROZEN-REPLAY.json).
+8. **Where it ended**: the counts, [OUTCOMES.csv](OUTCOMES.csv) and [FROZEN-REPLAY.json](PACKETS.md).
 
 What is here: `targets.mjs` and [TARGETS.csv](TARGETS.csv) (the worklist as the pass began); `match.mjs` (the leads a
 reviewer read); `review-p01.mjs` to `review-p04.mjs` with `review-lib.mjs` (the reviews, which write each batch's
-`selected.csv` under `archive/ingest-2026-09-18/prices/`); [REJECTED-p01.csv](REJECTED-p01.csv); `outcomes.mjs`.
+`selected.csv` under `archive/ingest-2026-09-18/prices/`); [REJECTED-p01.csv](PACKETS.md); `outcomes.mjs`.
 
 ## Batch p01: the Canadian shops (2026-09-30)
 
@@ -52,7 +52,7 @@ listings: ca.polymaker.com and ca.spectrumfilaments.com are priced in USD, and a
 
 `match.mjs` offered each product the listings that name its maker and every word of its name; `review-p01.mjs` is the
 review. For the 100 materials without a price it was read listing by listing (82 listings accepted, 21 candidates
-rejected with why, in [REJECTED-p01.csv](REJECTED-p01.csv): a sibling product, a printer part, a 2.85 mm-only listing,
+rejected with why, in [REJECTED-p01.csv](PACKETS.md): a sibling product, a printer part, a 2.85 mm-only listing,
 no printed mass). For the other products of priced materials only a listing whose name, less its maker, colour and
 size, is the product's name and nothing more was taken, never a bundle or a spool over 1.1 kg. Per product: one listing
 per shop in stock, or one out-of-stock listing where no shop had it in stock.
@@ -149,7 +149,7 @@ POM, Ultrafuse PC GF30 out of stock, Extrudr Flax printing two masses, the bulk-
 Onyx GF sold by volume). None was forced: a price whose VAT basis a page does not state, or whose mass it prints twice,
 is not a price the comparison can use (D113).
 
-**What moved.** The frozen replay ([FROZEN-REPLAY.json](FROZEN-REPLAY.json); 15 questions, 18,195 evaluations against
+**What moved.** The frozen replay ([FROZEN-REPLAY.json](PACKETS.md); 15 questions, 18,195 evaluations against
 the base release 26424edd53e5) moved no verdict: every template tracks price, none requires it (D101). What moved is
 what a price shows and what it ranks: material medians, ranges and buy links, the price column, the cost-per-volume
 axis and the cost indices, which now reach 214 products where they reached 38.
