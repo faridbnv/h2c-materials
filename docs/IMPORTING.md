@@ -174,7 +174,7 @@ cached text (`.cache/text/<sha>.json`) and the evidence binding (D97) are the ex
   view is on since the reader round (D125); `H2C_READER_LAYOUT=0` turns it off for a run of the import or of
   `audit:context`. `npm run audit:reader-recall` (not part of `verify`; it needs the text cache) reads every cached
   sheet with the view off and on and writes what it adds, per print setting and property, to
-  `docs/audits/2026-10-04-reader-round/reader-recall/`.
+  `build/reports/reader-recall/` (the reader round's folder until 2026-10-15).
 - **Ligatures put back** (`repairLigatures`, `scripts/lib/pdf-text.mjs`). Some fonts map "ti" and "ft" to digits and W,
   so purefil's sheets read "Prin5ng temperature" and "SoWening" and no label matched. The repaired text is a further
   view made at read time; `spanText` and the cache keep what the file holds, and a number is never touched. The quote
@@ -193,13 +193,16 @@ the page image; it never changes data. `npm run ingest:ocr-pass` reads the pages
 `.cache/ocr-text/<sha>.json` beside the text layer, in the same page shape. It never replaces the layer, which
 `ingest:ocr` does for a scan, so the two readings can be compared.
 
-**A model reads the page images.** The steps, none of which writes `data/`:
+**A model reads the page images.** This is the route for a layout the sheet reader does not know: since 2026-10-15
+`scripts/ingest/propose.mjs` takes no new layout rules (D138), because each rule added for one maker's layout could
+misread another's, and the reader is kept as the check every reading is held to. The steps, none of which writes `data/`;
+the reconciler's and the proposals' folders belong to the round that runs them (`--out`):
 
 ```bash
 npm run ingest:read-packet -- --docs docs/audits/2026-10-04-reader-round/DOCS.csv --tier 1 --round r1   # page PNGs, text, the rows the tables hold, per document
 # readers write readings CSVs (READER-PROMPT.md, READING-SCHEMA.md in the same folder): every setting, value with its conditions and page statement, and a verdict on each held row
-npm run ingest:read-reconcile -- --readings a.csv,b.csv [--second s.csv] --run r1   # each reading against the text, the tables and a second reading
-npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/reconcile/r1   # the files a migration applies, and held.csv
+npm run ingest:read-reconcile -- --readings a.csv,b.csv [--second s.csv] --run r1 --out docs/audits/<round>/reconcile/r1   # each reading against the text, the tables and a second reading
+npm run ingest:read-proposals -- --run docs/audits/<round>/reconcile/r1 --out docs/audits/<round>/proposals/r1   # the files a migration applies, and held.csv
 ```
 
 - **A reading is a claim until the page bears it out.** The reconciler gives each reading a presence (its numbers and its

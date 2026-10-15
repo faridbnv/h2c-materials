@@ -144,7 +144,12 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `lib/offers.mjs` | The offers a saved shop document holds, read from its bytes alone: a Shopify catalogue page (with the shop's `/meta.json` for its currency), a product page's schema.org offers, an Amazon page as a browser drew it; and a listing's net mass and diameter from its own words (D113). |
 | `lib/comparison-table.mjs` | Reading a one-page comparison table by column heading and row label, and a mark drawn in a cell by its fill colour: how m150 proves each guide cell stands where its Locator says (D88). |
 | `lib/nanovia-tabs.mjs` | Nanovia's tensile tables, one tab per raster, read from the page's own hash-checked bytes (m155, m167, m168). |
-| `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision, its line in plain words, and whether it still holds. |
+| `lib/source-edits.mjs`, `lib/sweep-shared.mjs`, `lib/read-proposals-apply.mjs`, `lib/profile-settings.mjs`, `lib/coverage-clause.mjs` | What a migration builds on: a measurement corrected against its source with the value it replaces named (`correct`, `addValue`), a quote checked on its cached sheet (`onSheet`), the page-read path's proposals applied quote by quote (`applyProposals`), a profile's typed cells read again from its raw cells (`retype`, `typedOf`). In `scripts/migrate/` until 2026-10-15, when living code stopped importing run-once migrations (D138). |
+| `round-close.mjs` | `npm run round:close`: what a closing round leaves open (migrations not yet in `archive/migrations/`, packets and proposals not yet in the store), the generated documents' checks, and what changed in the frozen estimate stage and text reader; `--archive` moves the round's migrations and re-points their imports, and `checkImports` resolves every archived import to a file and an export (D138). |
+| `data/packets.mjs` | `npm run packets`: a round's working files to the private evidence store and back. `--manifest` says what would move and why each kept file stays; `--export` copies, reads each copy back and writes the round's `PACKETS.md` and `PACKETS.csv` (size, SHA-256, last commit) and re-points links; `--verify`, `--restore`; `--check` in `verify` (D138). `ingest-2026-09-18` is the import pipeline's proposals, read from `.cache/proposals`. |
+| `docs-links.mjs` | `npm run docs:links`: every relative link and anchor in the tracked Markdown resolves (GitHub's slugs, `<a id>`); `rewriteLinks` re-points a moved file's links. In `verify`. |
+| `docs-open-problems.mjs` | `npm run docs:open-problems`: the counts at the head of `docs/OPEN-PROBLEMS.md`, from `docs/open-problems-queries.json`; checked by `round:close`. |
+| `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision, its line in plain words, and whether it still holds; a decision that holds in no part is in `docs/DECISIONS-ARCHIVE.md`, and its row links there. |
 | `docs-status.mjs` | The plain-language status block in `README.md` ("Where things stand"), its numbers from the build; `--check` in `verify:fast`. |
 | `docs-history.mjs` | `npm run docs:history`: the Historical record, Current or Generated mark every Markdown file under `docs/audits`, `docs/background` and `archive` opens with; `test/docs-history.test.js` fails on a file with none. |
 | `verify.mjs` | `npm run verify`: every step before a commit, each step's time and the total, the failures listed at the end. |
@@ -189,9 +194,9 @@ time against the budget: about 80 seconds after a data change and about 45 when 
 (`npm run bench` measures the parts), because the build result is cached by content
 (`build/src/build-cache.js`, `.cache/build/`); its budget is 90 seconds (docs/GOALS.md). The import pipeline's tests
 run in `verify` (`npm run test:ingest`), not here, to keep `verify:fast` within its budget.
-`npm run verify` adds the import tests, the scale and reproducible-build checks (`npm run scale`, `npm run
-reproducible`), the audits (`audit:data`, and `audit:context` where the text cache is), review snapshot, interface
-views and 300 rendered scenarios, before a commit. Both scripts run every step even when one fails and list the
+`npm run verify` adds the import tests, the coverage campaign's page, the audits (`audit:data`, and `audit:context` where
+the text cache is), the review snapshot, the link and packet checks, interface views and 300 rendered scenarios, and the
+scale and reproducible-build checks (`npm run scale`, `npm run reproducible`), before a commit. Both scripts run every step even when one fails and list the
 failures at the end (`scripts/lib/run-steps.mjs`), so one run shows everything that is wrong. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify`'s data and interface groups side by side on every push to main and on pull requests, and its
@@ -719,6 +724,19 @@ to validate at 158 materials and 11,096 measurements; doubled, the estimate stag
 estimate model dominates. Its Gaussian process is cubic in the size of each chemical group rather than in all the
 observations, because `estimate/solver.js` solves the kernel block by block, so the largest group sets the pace (D77,
 D79).
+
+**Where the design holds, and what changes first.** Measured on 2026-10-14 (the architecture review). Each first change
+keeps the page one file on GitHub Pages; none is needed at today's size.
+
+| What grows | Today | Holds to about | First change when it does not |
+|---|---|---|---|
+| The page | 8.2 MB: the database 3.3 MB embedded, the plotting library 4.3 MB | three times the data (Pages allows 100 MB a file) | the measurements as a second static file beside the page, read when a drawer opens; then a lighter chart for the one view that uses the plotting library |
+| The database in the browser | 36 MB parsed, half of it measurements | three times (a parse of 100 MB takes seconds and about 1 GB on a laptop) | the same split; a long string repeated on every row (the print parameters) stored once and referred to |
+| The estimate stage | 14 s, and 85 s at twice the data | 2.5 times, under its 150 s budget; CI builds it cold on every push | CI keeps the stage's result keyed by its inputs, as the local build cache does; the result is the same |
+| `verify:fast` | about a minute | at its 90 s budget | the import fixtures' build and the 23 tests that read `dist/db.json` |
+| The tables | 15,400 measurements, 1,180 grades | tens of thousands of rows; the schema gate takes a second | nothing: CSV under a schema scales further than a person can review it |
+| The results table | 152 materials | about 400 | rows drawn as they scroll into view |
+| Adding a data sheet | a batch at a time | bounded by reading, not code | the page-read path (IMPORTING.md), with the text reader as its check |
 
 ## Further reading
 

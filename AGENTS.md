@@ -24,7 +24,7 @@ generated and never edited, and the retired Excel workbooks are history. Before 
 
 ```bash
 npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 80 s after a data change, about 45 s when nothing the build reads changed; budget 90 s)
-npm run verify        # verify:fast, then the import tests, the scale and reproducible-build checks, audit, snapshot, interface views, 300 rendered scenarios: before a commit; every step runs even if one fails, and the failures are listed at the end
+npm run verify        # verify:fast, then the import tests, the campaign page, audit, snapshot, links, packets, interface views, 300 rendered scenarios, the scale and reproducible-build checks: before a commit; every step runs even if one fails, and the failures are listed at the end
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
@@ -32,7 +32,8 @@ npm run build:diff    # what the change did to the compiled database, against HE
 (`npm run audit:context`: each value's line, page and print settings against its cached sheet, where the text cache is;
 CI holds no text cache, so there it prints SKIPPED and a warning and passes: run it in a checkout that has the cache
 before a push), on a stale `docs/RULES.md` or
-`docs/DATA-DICTIONARY.md`, on a stale decisions index, README status block or coverage-campaign page, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
+`docs/DATA-DICTIONARY.md`, on a stale decisions index, README status block or coverage-campaign page, on a stale `build/snapshot/`, on a
+relative Markdown link that leads nowhere, on an exported packet still tracked, and on any disagreement between the rendered page and the
 engine over 300 random scenarios (seven to eight minutes in all, as GOALS C13 measures it: the interface
 views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
 (`npm run test:ingest`), which `verify:fast` leaves out to stay within its budget.
@@ -285,6 +286,26 @@ campaign covered. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import
 pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
 a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).
+
+## Closing a round
+
+A round's migrations and working files are its record, not living tools, and they leave the working tree when it
+closes (D138). Before the round's last commit:
+
+```bash
+npm run round:close -- --archive                     # its migrations to archive/migrations/, their imports re-pointed and checked
+npm run packets -- --export <round folder> --remove  # its working files to the private store; PACKETS.md and PACKETS.csv stay
+npm run packets -- --export ingest-2026-09-18        # a batch's proposals, written to .cache/proposals, to the store
+npm run docs:open-problems                           # the counts at the head of OPEN-PROBLEMS
+npm run round:close                                  # nothing open: every check above and the generated documents current
+```
+
+A round folder keeps its reports, its scripts and images, its frozen lists and counted verdicts, and every file a
+living document, table or script names; `npm run packets -- --manifest <round>` says what would move and why each kept
+file stays, and `docs/audits/keep-list.csv` keeps what no rule does. What a round leaves open goes into OPEN-PROBLEMS
+under its subject, never as a section of its own. `round:close` also prints what changed in the estimate stage and the
+import's text reader since `main`: both are frozen, and a change there needs a decision and a back-test row (D58,
+D138).
 
 ## Checking your work
 
