@@ -10,7 +10,7 @@ noticed.
 their items are filed by subject as §30.1, §30.2 and so on, each opening with the round it came from, and keep that
 round's figures as its history. The counts in the table are today's (`npm run docs:open-problems` writes them at a
 round's close). The table at the end says where every section went. `npm run sql -- --snapshot "<query>"` answers an
-item's query from the SQLite file as written; without `--snapshot` the file is rewritten first when it is not of the
+item's query from the SQLite file as written; without `--snapshot` the file is rewritten first when it is older than the
 tables, and `npm run sql -- --build` builds first.
 
 Two things this page is not. It is not the check list: every rule the build enforces is in [RULES.md](RULES.md),
@@ -117,7 +117,8 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   an alias, and the TPU classes are not one Bambu product. The guide's drying fills a silent product's drying, labelled as the guide's (D127); its
   annealing row, AMS compatibility, adhesion, desiccant, speed and fan rows are not recorded. Its TPU nozzle rows
   ("Hardened Steel / Stainless Steel") settle no hardened-nozzle question.
-- **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is cited by a PolyTerra PLA profile (P0316).
+- **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is filed under PolyTerra PLA (G001-23): its 13 values and a
+  profile (P0316) count as that product's, and the database holds no PolyTerra PLA+ product.
 - **What the finishing reads (m170 to m173) left** (RESPONSE.md, "Phase 6, lane 2, finished"):
   - *Rows the rules did not reach with confidence.* iSANMATE's two-column tables, and purefil's where the text layer
     garbles the label ("Hea5ng bed temperature" with no value on its line), are read since the reader round (D125): the
@@ -405,7 +406,7 @@ the 135 materials in scope are priced, 37 of them from a converted foreign listi
 - **27 materials have no price** (35 at the pass's end; the quality round's batch p05 priced eight on 2026-10-07: LEHVOSS's
   two LUVOCOM 3F PAHT grades, Facilan PCL 100, Tarfuse POM, NonOilen, Vinyl 303 and Conductive FilaFlex from
   filamentworld.de, which prints "inkl. 19 % MwSt." beside every price, and GREENTEC PRO CF's 800 g spool from 3DJake).
-  Each other has its reason in the record's [OUTCOMES.csv](audits/2026-09-30-price-pass/OUTCOMES.csv) and the round's
+  Each of the others has its reason in the record's [OUTCOMES.csv](audits/2026-09-30-price-pass/OUTCOMES.csv) and the round's
   `docs/audits/2026-10-07-quality-round/web/price-leads.csv`: Nanovia's own shop states its prices before VAT, but gives
   the 1.75 mm price only in variation data the price reader does not read.
   Three have no procurement product (M056, M058, M060). Seven are 3DXTECH products its catalogue no longer lists
@@ -464,7 +465,7 @@ The first priority batch retains these exact-source handoffs:
 - Nanovia PA6's electrical exponent notation and PETG ESD's resistivity type remain ambiguous. No numeric electrical
   result is inferred. PLA XRS's existing impact method/notch disagreement remains a maker question.
 - Own SDS food-contact statements are resin/filament claims without printed-part qualification. PA Food Industry
-  retains its published approval claim and processing restrictions, but the linked SDS returned404.
+  retains its published approval claim and processing restrictions, but the linked SDS returned 404.
 
 ```sh
 npm run sql -- "select gradeid, topic, finding, exposure_conditions, sourceid, locator from evidence where gradeid = 'G049-08'"
@@ -480,7 +481,7 @@ npm run audit:coverage-status -- --check
 *From the reader round, 2026-10-04 (m338 to m354; D125, D126).*
 
 **28 products had no nozzle or bed** at the round's end (`docs/audits/2026-10-04-reader-round/STILL-MISSING.csv`);
-gap round 2's sheets and makers' pages (b43, b44) closed 12 of the 28 nozzle gaps and 10 of the 25 bed gaps, and §31
+gap round 2's sheets and makers' pages (b43, b44) closed 12 of the 28 nozzle gaps and 10 of the 25 bed gaps, and §31.3
 counts what is left. Raise3D's nine
 sheets print only the conditions the test bars were printed at (m170, m345), and its ideaMaker presets are a slicer's,
 not guidance. Stratasys (2), Markforged (1) and UltiMaker (1) sell printer-controlled materials whose pages print no
@@ -523,10 +524,10 @@ documents that print them.
 
 **What is left of the print recipe.** 20 products have no nozzle and 20 no bed (16 and 15 of the frozen list, and
 the new products of b43 that print none); chamber stays the largest gap (284), and drying 179 after the dry-box
-answers left the Drying cell (D129). §30's chamber ruling stands. After check round 3 the counts were 35, 33, 313 and 204,
+answers left the Drying cell (D129). §30.3's chamber ruling stands. After check round 3 the counts were 35, 33, 313 and 204,
 and after the quality round 36, 34, 314 and 205 (`build/snapshot/print.csv`, 2026-10-07, its imports adding products);
-the seven products made Variants in that round, which now read no printer guide, are
-among them (§32).
+the seven products that read unknown where a Variant now reads no printer guide (six made Variants by m374, in
+check round 3) are among them (§32.4).
 
 ### 33.6. Fishy Filaments 0rCA has no print profile
 
@@ -605,7 +606,7 @@ npm run sql --silent -- "select measurementid, materialid, property, normalized_
   where data_status like '%implausible%'"
 ```
 
-Among the `MEAS-PHYSICS-ORDER` pairs is one a sheet orders the wrong way round, both rows transcribed correctly.
+Among the `MEAS-PHYSICS-ORDER` pairs is one that a sheet orders the wrong way round, both rows transcribed correctly.
 The Bambu PC and PC FR sheets print a glass transition of 145 °C and a Vicat of 119 and 114 °C, and a needle cannot sink into a polycarbonate
 26 °C below the temperature at which it goes rubbery (V000679, V000700). Which of the two is wrong cannot be
 settled from the sheet; it is the same PC sheet as the heat-deflection pair above. Accepted with that reason.
@@ -787,7 +788,7 @@ and PolyMax PC each sit on one grade). Still open:
   more may wait where the names differ by more than a revision.
 - **3D-Fuel's Pro PCTG is named "Pro PCTG" since m299** (G088-04). Its profile P1279 says it "typically doesn't require
   an enclosure"; its nozzle and bed are read from its twin (the PCTG table it shares) and its drying from P1154.
-- **A title that is only the kind of document is not flagged**: "Technical Data Sheet" on 48 sources (2026-10-15), a few
+- **A title that is only the kind of document is not flagged**: "Technical Data Sheet" on 43 sources (2026-10-15), a few
   "Technical Specifications" and "TECHNICAL DATA SHEET", and Polymaker's slogan "Innovators in 3D printing"; the query
   lists them. Some sheets print exactly that as their heading, so a rule would not be precise; the product name beside
   it is what a re-read adds.
@@ -901,13 +902,13 @@ npm run sql --silent -- "select evidenceid, topic, finding, exposure_conditions 
 
 ### 25. SUNLU, Siraya Air and CreatBot source limits retained by the eighth coverage tranche
 
-SUNLU PCL's English original states specimen preparation at260°C/150mm/s against its75–85°C product recipe. V010184 remains800% but is off-recipe and cannot back a product headline or bound. The separate bilingual original records V011541800% at80°C/45mm/s with100% infill and90° raster; no formulation continuity or revision priority is inferred. V011542 records the bilingual flow method150℃/2.16kg, separate from the English260°C flow method. Their acetone/generic-ketone and ether/ester wording remains scope-dependent, with the ether/ester row held for clarification. SUNLU TPU90A's Japanese page prints ambiguous hardness80 and elongation10±5 versus the linked TDS90A±2 and≥1000%; Q05429–Q05430 retain the conflict without replacing numeric measurements. Maker clarification of the intended table/specimen is needed.
+SUNLU PCL's English original states specimen preparation at 260°C/150 mm/s against its 75–85°C product recipe. V010184 remains 800% but is off-recipe and cannot back a product headline or bound. The separate bilingual original records V011541800% at 80°C/45 mm/s with 100% infill and 90° raster; no formulation continuity or revision priority is inferred. V011542 records the bilingual flow method 150℃/2.16 kg, separate from the English 260°C flow method. Their acetone/generic-ketone and ether/ester wording remains scope-dependent, with the ether/ester row held for clarification. SUNLU TPU90A's Japanese page prints ambiguous hardness 80 and elongation 10±5 versus the linked TDS 90A±2 and≥1000%; Q05429–Q05430 retain the conflict without replacing numeric measurements. Maker clarification of the intended table/specimen is needed.
 
-The Waltek report served by SUNLU identifies a TPU90A sample, not a general printed-product certificate. Q05428 preserves its sample-only disclaimer. Positive antibacterial activities4.9/4.8 remain in the digest-verified original, full-text pages and external atomic holds pending a faithful non-filterable sample-test data topic and source-field review. Manufacturer, lot, specimen form and print recipe are unstated; the controlling Chinese report was not retrieved and the customer spool photograph is explicitly untested. No99.9% conversion or medical, skin or protective qualification follows.
+The Waltek report served by SUNLU identifies a TPU90A sample, not a general printed-product certificate. Q05428 preserves its sample-only disclaimer. Positive antibacterial activities 4.9/4.8 remain in the digest-verified original, full-text pages and external atomic holds pending a faithful non-filterable sample-test data topic and source-field review. Manufacturer, lot, specimen form and print recipe are unstated; the controlling Chinese report was not retrieved and the customer spool photograph is explicitly untested. No 99.9% conversion or medical, skin or protective qualification follows.
 
-Siraya TPU Air's TDS and own manual disagree over a dedicated filament dryer versus a convection oven for drying wet filament. Q05432 retains the manual70–80°C/4–6h advice and its explicit dryer exclusion beside the earlier TDS guidance; storage upon opening remains a different question. No reconciled scalar schedule is invented. Its four240/250/260/270°C foaming states couple density, hardness, heat and strength;24 literal table values remain held pending a faithful coupled product-state contract. Flattening them would permit favourable values from different print temperatures to be combined. Its own0.4–0.8mm nozzle-diameter range remains a follow-up to the existing profile parsing limitation; endpoints must not be mistaken for an exhaustive supported-size list. The unsupported hardening/fibre-abrasion requirement on P0977 is corrected to Not published, without a source approval of brass.
+Siraya TPU Air's TDS and own manual disagree over a dedicated filament dryer versus a convection oven for drying wet filament. Q05432 retains the manual 70–80°C/4–6h advice and its explicit dryer exclusion beside the earlier TDS guidance; storage upon opening remains a different question. No reconciled scalar schedule is invented. Its four 240/250/260/270°C foaming states couple density, hardness, heat and strength;24 literal table values remain held pending a faithful coupled product-state contract. Flattening them would permit favourable values from different print temperatures to be combined. Its own 0.4–0.8 mm nozzle-diameter range remains a follow-up to the existing profile parsing limitation; endpoints must not be mistaken for an exhaustive supported-size list. The unsupported hardening/fibre-abrasion requirement on P0977 is corrected to Not published, without a source approval of brass.
 
-CreatBot UltraPA's own table and FAQ disagree on nozzle/bed and drying windows; no intersected or reconciled window is applied. The table/PDF Charpy9.74 ISO179 row names no notch, while the page calls9.74 notched impact strength. Its FAQ's generic nylon Tg approximately70°C is not an exact-product measured Tg and its table has no Tg row. V011543 faithfully records saturated water absorption2.595% at25℃，55%RH; duration, standardized method, specimen form and immersion are unstated. It does not establish hydrolysis resistance or the moisture state of mechanical test specimens. Vendor clarification or testing remains necessary for the conflicting processing and notch claims.
+CreatBot UltraPA's own table and FAQ disagree on nozzle/bed and drying windows; no intersected or reconciled window is applied. The table/PDF Charpy 9.74 ISO 179 row names no notch, while the page calls 9.74 notched impact strength. Its FAQ's generic nylon Tg approximately 70°C is not an exact-product measured Tg and its table has no Tg row. V011543 faithfully records saturated water absorption 2.595% at 25℃, 55% RH; duration, standardized method, specimen form and immersion are unstated. It does not establish hydrolysis resistance or the moisture state of mechanical test specimens. Vendor clarification or testing remains necessary for the conflicting processing and notch claims.
 
 ```sh
 npm run sql --silent -- "select measurementid, gradeid, property, specimen_type, test_temperature, standard_load from measurements where measurementid in ('V010184','V011541','V011542','V011543')"
@@ -916,13 +917,13 @@ npm run sql --silent -- "select evidenceid, gradeid, finding, exposure_condition
 
 ### 26. colorFabb, LEHVOSS and Prografen source limits in the tenth coverage tranche
 
-The registered colorFabb Print Support original is reused for four pre-print drying schedules. Its duplicate tables disagree on speed/volumetric flow and contain malformed PA-CF bed and nGen Flex speed cells; mechanical form, direction, conditioning, standards and the combined HDT/Vicat load are missing. Q05452–Q05455 retain ordered headers/units and these limitations. No unconditioned measurement or guessed print window is admitted. Two own support routes returned403 once; search excerpts remain leads. Old nGenFLEX Amphora and newer Neostar resin descriptions have no established formulation continuity. Q05484's121C steam claim and Q05485'sFDA footer are not obtained certificates, a validated sterilization cycle or printed-part contact tests.
+The registered colorFabb Print Support original is reused for four pre-print drying schedules. Its duplicate tables disagree on speed/volumetric flow and contain malformed PA-CF bed and nGen Flex speed cells; mechanical form, direction, conditioning, standards and the combined HDT/Vicat load are missing. Q05452–Q05455 retain ordered headers/units and these limitations. No unconditioned measurement or guessed print window is admitted. Two own support routes returned 403 once; search excerpts remain leads. Old nGenFLEX Amphora and newer Neostar resin descriptions have no established formulation continuity. Q05484's121C steam claim and Q05485'sFDA footer are not obtained certificates, a validated sterilization cycle or printed-part contact tests.
 
-LUVOCOM PAHT9825's exact2019 FFF guide provides250–280C nozzle, bed<80C, non-heated chamber compatibility, standard brass and conditional wet-filament hot-dry-air80C for at least12h. Its raw bounds and conditions stay visible in the Printing tab. The existing270–290C nozzle source remains separately recorded and selected by the existing rule; no source recency/intersection decides the disagreement. The guide's100C/50%-retention introduction and older120C/UL746B context cannot be reconciled as an identical tested service limit. Compound pellet drying remains a different operation.
+LUVOCOM PAHT9825's exact 2019 FFF guide provides 250–280C nozzle, bed<80C, non-heated chamber compatibility, standard brass and conditional wet-filament hot-dry-air 80C for at least 12h. Its raw bounds and conditions stay visible in the Printing tab. The existing 270–290C nozzle source remains separately recorded and selected by the existing rule; no source recency/intersection decides the disagreement. The guide's 100C/50%-retention introduction and older 120C/UL746B context cannot be reconciled as an identical tested service limit. Compound pellet drying remains a different operation.
 
-Spectrum PA6CS20FRV0's own product-page nozzle/speed/cooling/enclosure guidance differs from its TDS; Q05471 preserves the new source but its replacement profile stays held. Existing P0184 stores raw bed "> 80°C" with its upper end open (typed 80 to Not published since the error-class sweep), as the maker prints it. KK50056BKFR railway producer context is scoped to its resin grade; the separately printed V-0@0.4mm statement is not a complete printed-product railway certificate.9936BK/L is distinct from9936BK, so adjacent food/magnetic claims do not transfer.
+Spectrum PA6CS20FRV0's own product-page nozzle/speed/cooling/enclosure guidance differs from its TDS; Q05471 preserves the new source but its replacement profile stays held. Existing P0184 stores raw bed "> 80°C" with its upper end open (typed 80 to Not published since the error-class sweep), as the maker prints it. KK50056BKFR railway producer context is scoped to its resin grade; the separately printed V-0@0.4mm statement is not a complete printed-product railway certificate.9936BK/L is distinct from 9936BK, so adjacent food/magnetic claims do not transfer.
 
-Prografen's exact Strong/Light pages add recipes and bounded uses. Their semi-transparent application bullet conflicts with the portfolio's shared Deep black color (and Light's own black TDS); Q05460/Q05483 keep that conflict. The portfolio explicitly states February2024 Spectrum acquisition and names Strong5%/Light0.5%EFG, but the existing grade manufacturer3DJake is held for a separate guarded identity correction; no value or historical price moves in this tranche. New ownership does not settle the older AGP2023XY specimen/revision-custody question. Shared UV and generic chemical statements remain narrative without test conditions or a selection pass.
+Prografen's exact Strong/Light pages add recipes and bounded uses. Their semi-transparent application bullet conflicts with the portfolio's shared Deep black color (and Light's own black TDS); Q05460/Q05483 keep that conflict. The portfolio explicitly states February 2024 Spectrum acquisition and names Strong 5%/Light 0.5% EFG, but the existing grade manufacturer 3DJake is held for a separate guarded identity correction; no value or historical price moves in this tranche. New ownership does not settle the older AGP2023XY specimen/revision-custody question. Shared UV and generic chemical statements remain narrative without test conditions or a selection pass.
 
 ```sh
 npm run sql --silent -- "select profileid, gradeid, nozzle_c, bed_c, drying from profiles where profileid in ('P0184','P1321','P1322','P1323')"
@@ -938,15 +939,15 @@ product and release condition. These are bounded findings, not evidence that no 
 - PC-Max source `S-POLYCN-Polymaker-PC-Max-TDS-v1-0` prints newly-opened filament moisture ≤0.1%.
   Its condition/specimen is corrected; the inclusive operator remains held because the current vocabulary only
   supports <, > and =. A justified schema/engine extension is needed before changing its numeric bound.
-  Its25.1±1.9kJ/m² impact value names ASTM D256 alongside ISO179; the method remains unresolved.
-  Filament softening127–130°C is not an HDT or Vicat test.
+  Its 25.1±1.9 kJ/m² impact value names ASTM D256 alongside ISO 179; the method remains unresolved.
+  Filament softening 127–130°C is not an HDT or Vicat test.
 - TPU90 V5.6 prints a TPU90 heading, PC-ABS Black PD02001 footer and MPa as elongation unit. Its new numeric
   rows remain held; five generic chemical ratings are record-only with attribution caveats. The coherent own
-  V5.5 ISO37 table is independently admitted. The filename says V5.4 while its internal heading says V5.5.
-- The TPU90 skin-safe ISO10993 badge has no retrieved report, contact duration, endpoints or specimen identity.
-  No printed-part certification follows. TPU90/TPU95-HF summary drying50°C6h conflicts with detailed70°C8h;
-  PolyMax PETG65°C4h vs65°C6h, legacy ESD70°C8h vs65°C6h and ASA70°C6h vs70°C7h also remain source-specific.
-- Fiberon PETG-ESD's wear/conductivity claim and its1–2year abrasion/environment warning lack a wear protocol
+  V5.5 ISO 37 table is independently admitted. The filename says V5.4 while its internal heading says V5.5.
+- The TPU90 skin-safe ISO 10993 badge has no retrieved report, contact duration, endpoints or specimen identity.
+  No printed-part certification follows. TPU90/TPU95-HF summary drying 50°C/6h conflicts with detailed 70°C/8h;
+  PolyMax PETG 65°C/4h vs 65°C/6h, legacy ESD 70°C/8h vs 65°C/6h and ASA 70°C/6h vs 70°C/7h also remain source-specific.
+- Fiberon PETG-ESD's wear/conductivity claim and its 1–2 year abrasion/environment warning lack a wear protocol
   or lifetime model. Finished-part ESD validation remains necessary. The legacy product's discontinuation
   notice does not prove replacement equivalence. TPU95-HF400% stress remains original/full-text context
   pending a useful property definition. Generic resistance classes retain missing agents and conditions.
@@ -961,22 +962,22 @@ These limits concern the thirty products in priority03–05; the signed per-prod
 question and original digest. They are not catalogue-wide absence claims.
 
 - Polymaker PC/nylon maker pages disagree with their own TDS/PIS on chamber recommendations, drying,
-  annealing and specimen preparation. PolyLite PC drying is75°C/12h on the page,75°C/6h on the TDS and
- 80°C/8h on the PIS. CoPA page80°C/10h differs from TDS100°C/8h and older PIS80°C/12h. Preserve each
+  annealing and specimen preparation. PolyLite PC drying is 75°C/12h on the page,75°C/6h on the TDS and
+ 80°C/8h on the PIS. CoPA page 80°C/10h differs from TDS 100°C/8h and older PIS 80°C/12h. Preserve each
   source-specific schedule; maker clarification must identify the intended revision and use.
-- PA6-CF20, PA6-GF25 and PA12-CF10 pages repeat2.57% uptake where their own tested TDS values are5.30%,
-  4.57% and2.92%. PA612-CF15's2.57% agrees. Repeated FAQ prose does not supersede the test table.
-- Bambu ASA Aero's TDS prints specimens at225°C, below its240–280°C recommended nozzle window. m325
+- PA6-CF20, PA6-GF25 and PA12-CF10 pages repeat 2.57% uptake where their own tested TDS values are 5.30%,
+  4.57% and 2.92%. PA612-CF15's2.57% agrees. Repeated FAQ prose does not supersede the test table.
+- Bambu ASA Aero's TDS prints specimens at 225°C, below its 240–280°C recommended nozzle window. m325
   marks twenty already-printed records as off-recipe and corrects two uncertainty-as-central transcriptions.
   Foam state remains unstated. Separate user annealing prose names Bambu ASA; its applicability to ASA Aero
   requires maker clarification. Density and melt-flow forms remain explicitly unstated.
-- Bambu PA6-GF page80–130°C/5–12h differs from its TDS80–130°C/6–12h. PAHT-CF and TPU95A-HF pages
+- Bambu PA6-GF page 80–130°C/5–12h differs from its TDS 80–130°C/6–12h. PAHT-CF and TPU95A-HF pages
   include copied wood-fibre wording; this is an attribution problem, not evidence of wood composition.
-- The PC FR CTI report establishes its named128×12.9×3.3mm sample's UL94-2023 V-0 result, with room/aged
+- The PC FR CTI report establishes its named 128×12.9×3.3 mm sample's UL94-2023 V-0 result, with room/aged
   protocols. Sample identity is client-supplied; manufacturing form, print settings and colour are unstated.
   The report limits purposes to research/education/internal quality/product development and related uses.
-  No universal printed-product approval follows. The PETG Basic GREENGUARD2904 badge lacks its underlying
-  retrieved certificate. PPA-CF's227°C prolonged-use and underwater marketing lacks service load/duration.
+  No universal printed-product approval follows. The PETG Basic GREENGUARD 2904 badge lacks its underlying
+  retrieved certificate. PPA-CF's 227°C prolonged-use and underwater marketing lacks service load/duration.
 - Eighteen historical Bambu same-URL page originals remain within the known missing-custody inventory.
   New witnessed revisions are separate sources; neither recency nor a matching URL proves equivalence.
   Current maker claims and source-specific test records remain distinct.
@@ -988,33 +989,33 @@ product test; narrative claims, resin references and laboratory sample results d
 ### 29c. Priority Fiberlogy, Fillamentum, Extrudr and eSUN passes: retained source limits (2026-10-04)
 
 These are bounded source findings for priority06–09; the per-product outcome packets retain exact digests and
-locators. New admissions passed full verification and are committed in `5397478`; the selected100-product run
+locators. New admissions passed full verification and are committed in `5397478`; the selected 100-product run
 is complete, with its completion count generated by STATUS.md.
 
-- Fiberlogy PP publishes HDT load1.8MPa on its TDS and0.45MPa on its page. FiberFlex Aero repeats
-  CPE Antibac/Flex40D boilerplate. Neither discrepancy establishes the intended identity or test conditions.
+- Fiberlogy PP publishes HDT load 1.8 MPa on its TDS and 0.45 MPa on its page. FiberFlex Aero repeats
+  CPE Antibac/Flex 40D boilerplate. Neither discrepancy establishes the intended identity or test conditions.
   PA12CF table enclosure-not-required and prose enclosed/heated recommendation both remain visible.
-- Fillamentum Porthcurno drying is a strict >5h minimum at80°C, typed as a 5 h lower bound, open (P1376; m355, D127).
-  CPE guide75°C/min5h remains beside older3h/4h schedules. TPU chemical ratings are general25°C groups;
+- Fillamentum Porthcurno drying is a strict >5h minimum at 80°C, typed as a 5 h lower bound, open (P1376; m355, D127).
+  CPE guide 75°C/min 5h remains beside older 3h/4h schedules. TPU chemical ratings are general 25°C groups;
   exposure duration/concentration/specimen are absent. BAD is narrative under the existing reducer, while
   mixed solvent ratings remain INDETERMINATE and oil/grease GOOD remains a scoped category positive.
-  Water BAD does not establish hydrolysis. The12–16HOUR helpdesk badge is not a test duration.
-- Extrudr reinforced-product pages use a generic0.4mm recipe heading beside specific ≥0.5mm ASA-GF or
+  Water BAD does not establish hydrolysis. The 12–16 HOUR helpdesk badge is not a test duration.
+- Extrudr reinforced-product pages use a generic 0.4 mm recipe heading beside specific ≥0.5mm ASA-GF or
   ≥0.6mm ABS-CF/PA6-CF nozzle advice. These different contexts remain visible, with hardened-nozzle guidance.
-  PETG optional60°C/0–6h drying is recorded as optional since m355 (P1678; D127), not as a fabricated unconditional
+  PETG optional 60°C/0–6h drying is recorded as optional since m355 (P1678; D127), not as a fabricated unconditional
   drying requirement.
   Reinforced food exclusions and resin FDA wording do not certify printed parts.
-- eSUN ABS+ notice published2026-06-15 describes a2025 formulation change, with89°C/33MPa claims beside
-  the current page table73°C/40.12MPaXY/14.94MPaZ. Its current observed download still serves the registered
-  Nov2021V4.0 injection-moulded sheet. Maker clarification must bind formulation/batch/specimen/revision;
+- eSUN ABS+ notice published 2026-06-15 describes a 2025 formulation change, with 89°C/33 MPa claims beside
+  the current page table 73°C/40.12 MPa XY/14.94 MPa Z. Its current observed download still serves the registered
+  Nov 2021 V4.0 injection-moulded sheet. Maker clarification must bind formulation/batch/specimen/revision;
   no old measurement is overwritten. PETG-ESD surface-resistance units Ω/m and Ω remain unresolved.
-  TPU64D old80°C/4–8h, current55°C/>4h and generic conditional60°C/>8h recommendations stay distinct.
+  TPU64D old 80°C/4–8h, current 55°C/>4h and generic conditional 60°C/>8h recommendations stay distinct.
   Its <60°C water-environment wording has no duration/method/specimen and is not a hydrolysis qualification.
 
 Review is AI-only. Vendor clarification or exact-product testing remains necessary where public evidence
 cannot resolve these questions. Automatic approval review initially rejected cloud export; the owner then explicitly approved the exact
-existing private OneDrive destination and payload. The reproduced export contains2469 originals and2875
-derivatives, with124 historically absent inventory entries and no new original missing.
+existing private OneDrive destination and payload. The reproduced export contains 2469 originals and 2875
+derivatives, with 124 historically absent inventory entries and no new original missing.
 
 ### 30.5. Pages that contradict themselves
 
@@ -1120,7 +1121,7 @@ and SIDDAMENT PA, whose strength and heat deflection look reinforced.
 
 *From check round 3, 2026-10-05 (m369 to m382; D131).*
 
-**Copies kept as two products.** Pairs whose sheets print one table and that stay two products (§30's ruling):
+**Copies kept as two products.** Pairs whose sheets print one table and that stay two products (§30.10's ruling):
 Fiberlogy ABS and ABS PLUS (the 2026 ABS sheet reprints PLUS's table, and G027-53 holds both the old and the new),
 CPE ANTIBAC and CPE HT, eSUN's Luminous PLA family, Silk Magic and Silk Mystic, AzureFilm PLA and SILK, Spectrum ASA 275
 and FlameGuard ASA 275 (a flame-retardant package sharing the key), eSUN PLA+HS and "PLA+HS Silver" (its sheet is the
@@ -1204,7 +1205,7 @@ toughened" PLA Silk's, not PLA Silk+'s. Re-keying a ledger row is an import step
 Dark, Glitter, Stone Age, ESD and Premium; both languages of Extrudr's PLA BASIC CF sheet print PLA BASIC's table;
 Fabru prints one table for PLA and LW-PLA. A formulation key cannot span two materials (R166), so each keeps its own
 sheet's values; whether a variant's sheet reports its own test is the maker's to say. The 19 cross-maker reprints the
-round read stay two products (§30).
+round read stay two products (§30.10).
 
 ### 34.1. Values read and held back
 
@@ -1233,7 +1234,7 @@ none of them (§19); 10 flagged pages give no optical text.
 
 Limits of the estimate model, the import's reader and the checks, accepted knowingly or waiting on a change of rule.
 
-### 6. What the estimate model cannot narrow
+### 6. Findings accepted with a reason
 
 These are reviewed per record in `data/review/accepted-findings.csv`, each with its reason:
 
@@ -1798,9 +1799,9 @@ npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), subs
 
 *From the reader round, 2026-10-04 (m338 to m354; D125, D126).*
 
-**The round's error rate is measured, not yet under target.** Two blind draws of 40 of its records each found 2 wrong
+**The round's error rate was measured above target, and has met it since.** Two blind draws of 40 of its records each found 2 wrong
 and 2 partly wrong (5 %), above the 3 % C9 sets; each family a draw named was read in full and fixed (m354,
-`blind-draw/`). Gap round 2's draws measure the records since (§31).
+`blind-draw/`). Gap round 2's draws measure the records since: its second found none of 40 wrong (§31.1).
 
 ### 30.8. What only the reading-order view finds
 
@@ -1829,7 +1830,7 @@ deciding, and a probe of 22 moved print answers found 7 of 30 moved cells wrong;
 source and fixed (m365, D129). The second draw (seed 20261008, `blind-draw/verdicts-20261008.csv`) found
 none of 40 wrong (0 %, under C9's 3 %); its one reported error was a row that inherits its page's printed specimen by
 design (D116). Eight of its records hold less than their page prints, each a cell another profile of the same product
-answers (below). Its sample leans on the families m365 swept, since they are most of what the round changed.
+answers (§31.11). Its sample leans on the families m365 swept, since they are most of what the round changed.
 
 ### 31.4. Second reads
 
@@ -1917,7 +1918,7 @@ under the plan's 1 in 20, so the other 2,139 leads are not read (`TARGETS-1.csv`
 *From the completeness round, 2026-10-07 (m409 to m413; D136).*
 
 **Copies and revisions.** 11 pairs of one product's documents on its grade are revisions or two sheets of one product,
-and stay (§30); 26 copies hold their rows once since m409. Spectrum's portfolio prints PLA Nature at 1.25 g/cm³ and
+and stay (§30.10); 26 copies hold their rows once since m409. Spectrum's portfolio prints PLA Nature at 1.25 g/cm³ and
 HDT 60 °C while its own sheet prints Premium's 1.24 and 55: PLA Nature's product value is now the portfolio's (its own
 statement), and its siblings read PLA Premium's.
 
@@ -1984,7 +1985,7 @@ node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parit
 | §3 | Values that cannot be read, or are another quantity | Sources that conflict, cannot be read or cannot be reached, and identities |
 | §4 | Unresolved recorded conflicts | Sources that conflict, cannot be read or cannot be reached, and identities |
 | §5 | Materials with nothing, or with no product that publishes | Values makers do not publish |
-| §6 | What the estimate model cannot narrow | What the model and the tools cannot do |
+| §6 | Findings accepted with a reason | What the model and the tools cannot do |
 | §7 | Structural limits, accepted knowingly | What the model and the tools cannot do |
 | §8 | Sources that cannot be reached | Sources that conflict, cannot be read or cannot be reached, and identities |
 | §9 | The column beside the printing table | Closed |

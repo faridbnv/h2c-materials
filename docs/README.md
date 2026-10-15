@@ -18,7 +18,8 @@ Three things are useful to know before opening any document here:
   [DECISIONS.md](DECISIONS.md)), and ends with a check of its own accuracy (`npm run round:close`). Its reports stay in a
   dated folder under [audits/](audits/); its working files go to the private evidence store, listed in the folder's
   `PACKETS.md`.
-- **Current or history.** The documents in this folder's top level are kept current. Everything under
+- **Current or history.** The documents in this folder's top level are kept current, except the walkthrough, which
+  says at its top that it is history. Everything under
   [audits/](audits/), [background/](background/) and [../archive/](../archive/) is a record of its day, and says so at its
   top ("Historical record"); the few there that are kept up to date say "Current". A test fails if a document there
   carries neither mark (`npm run docs:history`).

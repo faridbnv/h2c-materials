@@ -41,8 +41,8 @@ Taken on branch `maintainability-2026-10-15` from `main` at `17808341`, after th
 - **Migrations.** m10 to m413, their 46 data files and the five helpers only they use moved to `archive/migrations/`
   with `npm run round:close -- --archive` (`6580c2e3`). 333 modules had their imports re-pointed two levels up, and
   `checkImports` resolves every import to a file and every braced name to an export. m223 now finds its data files
-  beside itself. The four modules living code imported moved first, to `scripts/lib/` (`fa61c6a5`): `source-edits`,
-  `read-proposals-apply`, `coverage-clause`, `sweep-shared` and `profile-settings` (the three exports m290 first wrote).
+  beside itself. The modules living code imported moved first, to `scripts/lib/` (`fa61c6a5`): `source-edits`,
+  `read-proposals-apply`, `coverage-clause` and `sweep-shared`; the three exports m290 first wrote became `profile-settings`.
 - **Proposals.** The 3,188 files of the 2026-09-18 import (73.4 MB) are in the store under `packets/ingest-2026-09-18/`,
   read back byte for byte, and restored to `.cache/proposals/`, now the pipeline's proposals folder (`75f1f75d`). Where
   they are absent, the SQLite file's `source_facts` is empty and its stamp says `source_facts: unavailable`.

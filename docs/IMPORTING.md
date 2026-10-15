@@ -54,7 +54,7 @@ npm run ingest:blockers                # BLOCKERS.md: every open document, what 
 npm run ingest:readings                # READINGS.md: the identity each held sheet gives its product
 ```
 
-What is decided and what is left are in [docs/GOALS.md](GOALS.md) and [docs/OPEN-PROBLEMS.md](OPEN-PROBLEMS.md);
+What is decided is in [docs/GOALS-LOG.md](GOALS-LOG.md), and what is left in [docs/OPEN-PROBLEMS.md](OPEN-PROBLEMS.md);
 `docs/audits/2026-09-18-v2-import/PLAN-REMAINING.md` was the import's plan until 2026-09-25 and is kept as history.
 
 **Getting the bytes.** Each step writes the ledger and nothing else; `.cache/sources/by-sha/<sha>` is the document.

@@ -3,7 +3,7 @@
 > **Read this as history, not as the route for a new document.** It shows, with a product added on 2026-09-16, how the
 > records of a material fit together. A new data sheet today enters only through the import pipeline
 > ([IMPORTING.md](IMPORTING.md)), which binds every value to its line of the hash-checked page (D97); imports are open
-> since 2026-10-05, when the owner lifted the pause of 2026-09-25 ([GOALS.md](GOALS.md)). To correct one value of a source already
+> since 2026-10-05, when the owner lifted the pause of 2026-09-25 ([GOALS-LOG.md](GOALS-LOG.md)). To correct one value of a source already
 > registered, use a migration as AGENTS.md's "Correct a published value" recipe says (m212 is a short example).
 
 Every recipe in [AGENTS.md](../AGENTS.md) is one task. This chains them once, with a real product, so you can see

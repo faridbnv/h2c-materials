@@ -2,7 +2,7 @@
 
 > **In short.** The rules for changing the data, for people and AI agents alike: data changes only in `data/tables/*.csv`, through checked scripts that name the value they replace; nothing is deleted; every source is fingerprinted; and the automatic checks (`npm run verify`) must pass before a commit. Below are the commands, the rules the tooling enforces, and a recipe for each common change. What the tool is for, and where it stands, are in [docs/GOALS.md](docs/GOALS.md) and the [README](README.md).
 
-**Read `docs/GOALS.md` first.** It says what the tool is for, the method it follows, what is decided next, and the
+**Read `docs/GOALS.md` first.** It says what the tool is for, the method it follows, how it is scored, and the
 working rules every change is judged by: name the step it improves, record everything but verify what decides, show
 how many scenario answers it moved, and keep `verify:fast` within its budget.
 
@@ -10,7 +10,8 @@ This file is for anyone changing the H2C material database: the owner and the AI
 where data lives, how to change it without breaking anything, and what the build will refuse. The
 reasons behind the rules are in `docs/DECISIONS.md` (D35, and D45 onwards). Every column and vocabulary
 is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by code, in `docs/RULES.md`.
-Starting from a data sheet, with nothing recorded yet? `docs/WALKTHROUGH-ADD-A-MATERIAL.md` runs it end to end.
+Starting from a data sheet, with nothing recorded yet? It enters through the import pipeline (`docs/IMPORTING.md`);
+`docs/WALKTHROUGH-ADD-A-MATERIAL.md` shows, as history, how a material's records fit together.
 
 **Before you record a defect as new, check `docs/OPEN-PROBLEMS.md`.** It lists what is already known to be wrong or
 missing, with the query that re-derives each figure. Add to it when you find something you cannot fix in the same

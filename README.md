@@ -43,8 +43,8 @@ Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md
 <!-- status:end -->
 
 What is known to be wrong or missing, item by item and with the query that re-counts each, is
-[docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). What the tool is for and every decision the owner has made are in
-[docs/GOALS.md](docs/GOALS.md).
+[docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). What the tool is for is in [docs/GOALS.md](docs/GOALS.md), and
+every decision the owner has made, dated, in [docs/GOALS-LOG.md](docs/GOALS-LOG.md).
 
 ## How the work is organised
 

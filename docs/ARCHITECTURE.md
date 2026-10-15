@@ -237,10 +237,10 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 | `axes.js` | The chart's axes from the registry, which measurements an axis may draw, and whether two may share a strict evidence point (`pairCompatibility`, D107). |
 | `parallel.js` | Parallel coordinates, hand-drawn in SVG. |
 | `heatmap.js` | The coverage lens. |
-| `compare.js` | Two to six materials side by side, with their measurement conditions, and the passing products' own print gates beside the material's window. |
+| `compare.js` | Up to six shortlisted materials side by side, or one against a familiar baseline, with their measurement conditions, and the passing products' own print gates beside the material's window. |
 | `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). |
 | `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen, which tells all-failed from none-confirmable. |
-| `start.js` | The opening panel, and the compact active-requirements header that replaces it: the answer, the requirements, how products are judged and what annealing would add (D99), research mode, the notes one press away. |
+| `start.js` | The opening panel, and the compact active-requirements header that replaces it: the answer, the requirements, how products are judged and what annealing would add (D99), the "H2C printability not checked" line, the notes one press away. |
 | `templates.js` | Application templates. They populate controls and then get out of the way. Every one asks the H2C's print gates (`PRINTABLE`, D101). |
 | `brief.js` | A chosen product's decision brief (D103), written from the engine's own answer. |
 

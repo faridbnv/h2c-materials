@@ -320,7 +320,7 @@ direction claim 3 GPa or more, 2026-10-07). They are shown and not compared, unl
 stated orientation or load** in the Data quality filters. The layer strength never counts a value with no stated direction, ticked
 or not: a bar pulled in an unstated direction is not a bar pulled across the layers (D92).
 
-## The four kinds of number
+## The kinds of number
 
 This is the most important thing to know. The table shows them differently on purpose, and only the first one is
 evidence.
@@ -524,4 +524,4 @@ store, and its `PACKETS.md` lists them.
 
 Include uncertain now separates supported candidates, estimated candidates to verify, and insufficient evidence. The last group is expandable and remains in counts and exports. An estimated candidate is still UNKNOWN: every missing mandatory numerical property's predicted centre meets the limit, but measurement is needed. Missing print or environment evidence cannot be made good by a numerical prediction.
 
-Every product's missing values can read its own estimate even when siblings publish. Estimates never create PASS. Independently validated exclusion is limited to a as-printed/dry comparison with three within printer gates and risk reserved for all five possible numerical predictions; no class currently qualifies. Other scenarios and unsupported properties cannot receive new exclusion permission. Confirmed only keeps its evidence rules. A failing measurement dominates missing data; alternative products and routes are judged individually. A material's displayed spread does not bound unmeasured products. Read the reason and its source conditions, then ask the maker for the exact property/state or test a printed coupon. D137 and OPEN-PROBLEMS §35 record the validation limits.
+Every product's missing values can read its own estimate even when siblings publish. Estimates never create PASS. Independently validated exclusion is limited to an as-printed/dry comparison with three within printer gates and risk reserved for all five possible numerical predictions; no class currently qualifies. Other scenarios and unsupported properties cannot receive new exclusion permission. Confirmed only keeps its evidence rules. A failing measurement dominates missing data; alternative products and routes are judged individually. A material's displayed spread does not bound unmeasured products. Read the reason and its source conditions, then ask the maker for the exact property/state or test a printed coupon. D137 and OPEN-PROBLEMS §35 record the validation limits.

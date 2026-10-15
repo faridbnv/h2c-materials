@@ -343,7 +343,7 @@ where each part came from; `npm run sql` has `products_compiled` and `summaries_
 ### What each selectable property compares
 
 A headline's row says what a value must be to be a product's value for it (the rule above). What that means for each
-of the ten:
+of the nine measured ones (the price compares listings, not measurements):
 
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
@@ -460,7 +460,7 @@ a re-read says which sheet is wrong.
 
 ---
 
-## Three kinds of number
+## Three kinds of number, and a statement
 
 The single most important thing to understand. The interface renders them differently on purpose,
 and only the first is evidence.
@@ -643,8 +643,8 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 | CSV export | Its own column with both ranges, strength and precision, so a spreadsheet can never mistake inference for evidence |
 | Pareto front, candidate counts, index tallies | Never. Inference cannot dominate evidence |
 
-Strict mode sees none of this. Estimates exist only in Explore, and only while the Use estimates toggle
-is on. `n/a` is a statement, not inference, and shows in both modes.
+Strict mode sees none of this. Estimates exist only in Explore, and only while the Let estimates rule out materials
+switch is on. `n/a` is a statement, not inference, and shows in both modes.
 
 A chamber band is marked the same way, `~80–120†` in the Printing table while estimates are on and as
 a card in the drawer's chamber line, but unlike a property estimate it never screens: it rules nothing out
@@ -904,8 +904,8 @@ The figures are not repeated here: [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) gives th
 A grade with Status `retired` compiles to `retired: true`. Status is the one place a retirement is recorded;
 Availability keeps what was recorded about buying the product, which a retirement of the grade record does not change
 (m147, where "Retired mapping; audit trail only" left the column and GRADE-RETIREMENT-HALF with it).
-The grade and its profiles remain identifiable in the archival data, but cannot appear in active
-a material's grade list, print summaries/gates, the Grades or Printing drawer, or procurement counts.
+The grade and its profiles remain identifiable in the archival data, but cannot appear in
+a material's active grade list, print summaries/gates, the Grades or Printing drawer, or procurement counts.
 G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only G091-02.
 
 ## Raw-value reconciliation
