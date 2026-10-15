@@ -153,7 +153,8 @@ also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Oper
 **Read a registered sheet's pages again.** A reading of a page (by a model from the page image, or by a person) is a row
 of the reading schema (`docs/audits/2026-10-04-reader-round/READING-SCHEMA.md`). `npm run ingest:read-reconcile` checks it
 against the cached text in every view (line, reading order, ligatures put back, optical sidecar), `npm run
-ingest:read-proposals` maps and gates it, and a migration applies the proposals with `applyProposals`
+ingest:read-proposals` maps and gates it (both write into the running round's own folder, named by `--out`; IMPORTING.md
+has the commands), and a migration applies the proposals with `applyProposals`
 (`scripts/lib/read-proposals-apply.mjs`), which checks each quote on the cached sheet and each value it replaces (m342
 is the example, D125). It is not an import (D123). A correction of a held row is decided on its page, row by row, never
 applied because a count of readings agrees.
@@ -294,7 +295,7 @@ closes (D138). Before the round's last commit:
 
 ```bash
 npm run round:close -- --archive                     # its migrations to archive/migrations/, their imports re-pointed and checked
-npm run packets -- --export <round folder> --remove  # its working files to the private store; PACKETS.md and PACKETS.csv stay
+npm run packets -- --export <round> --remove         # its working files to the private store (<round>: the folder's name under docs/audits/)
 npm run packets -- --export ingest-2026-09-18        # a batch's proposals, written to .cache/proposals, to the store
 npm run docs:open-problems                           # the counts at the head of OPEN-PROBLEMS
 npm run round:close                                  # nothing open: every check above and the generated documents current
@@ -314,6 +315,8 @@ npm run trace -- M020                  # every headline of a material, back to i
 npm run sql -- "select ..."             # ask a question across records (dist/h2c.sqlite, D75; refuses while dist/db.json is stale: --build)
 npm run sql -- "select sourceid, page, text, reason from source_facts where text like '%shrinkage%'"   # what a sheet printed that no row holds (D85)
 npm run sql -- "select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'" # every cached sheet's text, page by page (D85)
+# source_facts and documents_fts need the private cache: npm run data:sources -- --restore <dir> and npm run packets --
+# --restore ingest-2026-09-18 bring it back; without it they are empty or partial, and the file's stamp says so (D138)
 npm run trace -- V000384               # a measurement, and the headlines that cite it
 npm run trace -- --scenario saved.json --product G001-06   # one product's decision in a saved scenario, record by record
 npm run build && open dist/H2C_Material_Selector_*.html

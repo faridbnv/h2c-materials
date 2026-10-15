@@ -55,7 +55,10 @@ generation (D105): `_generation` stamps the release its tables, rules and engine
 the record tier's inputs, and `_tables` the tier and release of every table. A query rewrites a file that is not of the
 tables as they are, and refuses while `dist/db.json` is of another release; `--snapshot` answers from the file as written
 and says which release it holds. How much of the corpus the full-text index holds is stamped too
-(`fulltext` complete, partial or unavailable; `v_sources_without_text` names what is missing).
+(`fulltext` complete, partial or unavailable; `v_sources_without_text` names what is missing), and so is whether
+`source_facts` could be read (`source_facts` available or unavailable): it is read from the 2026-09-18 import's proposals,
+which live in the private store and are restored to `.cache/proposals` by `npm run packets -- --restore
+ingest-2026-09-18` (D138).
 
 ## Why a build step, rather than reading the tables in the browser
 
@@ -74,8 +77,8 @@ no backend and no network. That rules out CDN references, which is why the libra
 the dependency versions are pinned.
 
 The compiled database ships gzipped and base64-encoded, inflated at boot with `DecompressionStream`.
-At the 2026-09-27 build it is about 24 MB raw, most of it measurements, and about 1.6 MB gzipped (2.2 MB once
-base64-encoded). The plotting library is still most of what the file weighs: 4.3 of the page's 6.8 MB.
+On 2026-10-14 it was about 36 MB raw, most of it measurements, and 3.3 MB embedded once gzipped and base64-encoded.
+The plotting library is still most of what the file weighs: 4.3 of the page's 8.2 MB ("Scale" below says how far that holds).
 
 ## Module map
 
@@ -145,8 +148,10 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `lib/comparison-table.mjs` | Reading a one-page comparison table by column heading and row label, and a mark drawn in a cell by its fill colour: how m150 proves each guide cell stands where its Locator says (D88). |
 | `lib/nanovia-tabs.mjs` | Nanovia's tensile tables, one tab per raster, read from the page's own hash-checked bytes (m155, m167, m168). |
 | `lib/source-edits.mjs`, `lib/sweep-shared.mjs`, `lib/read-proposals-apply.mjs`, `lib/profile-settings.mjs`, `lib/coverage-clause.mjs` | What a migration builds on: a measurement corrected against its source with the value it replaces named (`correct`, `addValue`), a quote checked on its cached sheet (`onSheet`), the page-read path's proposals applied quote by quote (`applyProposals`), a profile's typed cells read again from its raw cells (`retype`, `typedOf`). In `scripts/migrate/` until 2026-10-15, when living code stopped importing run-once migrations (D138). |
+| `lib/frozen.mjs`, `lib/generated-mark.mjs`, `lib/status-counts.mjs` | A round's frozen list written once and refused a rewrite unless `--refreeze` (`writeFrozen`); the mark a generated audit document opens with; the counts the README status block and the snapshot share. |
+| `audit/coverage-campaign-status.mjs` | `npm run audit:coverage-status`: the coverage campaign's generated status page, from the build, its frozen targets and the approved outcomes; `--check` in `verify` (in `verify:fast` until 2026-10-15). |
 | `round-close.mjs` | `npm run round:close`: what a closing round leaves open (migrations not yet in `archive/migrations/`, packets and proposals not yet in the store), the generated documents' checks, and what changed in the frozen estimate stage and text reader; `--archive` moves the round's migrations and re-points their imports, and `checkImports` resolves every archived import to a file and an export (D138). |
-| `data/packets.mjs` | `npm run packets`: a round's working files to the private evidence store and back. `--manifest` says what would move and why each kept file stays; `--export` copies, reads each copy back and writes the round's `PACKETS.md` and `PACKETS.csv` (size, SHA-256, last commit) and re-points links; `--verify`, `--restore`; `--check` in `verify` (D138). `ingest-2026-09-18` is the import pipeline's proposals, read from `.cache/proposals`. |
+| `data/packets.mjs` | `npm run packets`: a round's working files to the private evidence store and back. `--manifest` says what would move and why each kept file stays; `--export` copies, reads each copy back and writes the round's `PACKETS.md` and `PACKETS.csv` (size, SHA-256, last commit) and re-points links, and with `--remove` takes the copies out of git; `--verify`, `--restore`; `--check` in `verify` (D138). `ingest-2026-09-18` is the import pipeline's proposals, read from `.cache/proposals`. |
 | `docs-links.mjs` | `npm run docs:links`: every relative link and anchor in the tracked Markdown resolves (GitHub's slugs, `<a id>`); `rewriteLinks` re-points a moved file's links. In `verify`. |
 | `docs-open-problems.mjs` | `npm run docs:open-problems`: the counts at the head of `docs/OPEN-PROBLEMS.md`, from `docs/open-problems-queries.json`; checked by `round:close`. |
 | `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision, its line in plain words, and whether it still holds; a decision that holds in no part is in `docs/DECISIONS-ARCHIVE.md`, and its row links there. |
@@ -158,7 +163,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
 | `audit/context-witness.mjs` | `npm run audit:context` (in `verify`, where the text cache is): each value's own line on its cached sheet against its row (direction, notch, bound sign, test temperature, standard), every page statement no `page_context.csv` row carries, and every print setting the import's own sheet reader (with `guidanceBeyondLabels`) finds on a profile's sheet that the profile does not hold or holds in part, read block by block so a sheet's test-bar settings are never taken for guidance; a held setting its sheet prints only under a test-bar or pellet-processing heading; and guidance on a sheet whose profile says it prints none (D116, D119, D120). It also finds a product's own sheet that prints a print-settings block no profile of the product holds (CONTEXT-PROFILE-UNRECORDED, D125); a page that speaks for three formulations or more is left to its products' own sheets. Its baseline is `data/review/context-witness-accepted.csv`, each finding with a reason. |
-| `audit/reader-recall.mjs` | `npm run audit:reader-recall` (not in `verify`; needs the text cache): every cached sheet read by the import's sheet reader with the reading-order view off and on, and what the second view adds, per print setting and property, into `docs/audits/2026-10-04-reader-round/reader-recall/` (D125). |
+| `audit/reader-recall.mjs` | `npm run audit:reader-recall` (not in `verify`; needs the text cache): every cached sheet read by the import's sheet reader with the reading-order view off and on, and what the second view adds, per print setting and property, into `build/reports/reader-recall/` (D125). |
 | `audit/refresh-html-cache.mjs` | `node scripts/audit/refresh-html-cache.mjs`: the cached web-page texts read again from their hash-checked bytes after a reader version bump; it fetches nothing and writes no table. |
 | `audit/profile-marks.mjs`, `audit/profile-marks-detect.mjs` | `npm run audit:profile-marks` (not in `verify`; needs the text cache): every line of a profile's cached sheet where an error could hide (a setting-like number or statement no profile holds, a held number found only under a test-bar heading or beside another setting's label, a cell not printed as one run of words, two profiles of one product that disagree), grouped by template, into `build/reports/profile-marks/marks.csv`. A reading aid for layouts `audit:context` has not seen (D120). |
 | `audit/blocking-gaps.mjs` | `npm run audit:gaps`: what keeps a material from an answer in each template, and what could turn one, into `docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md`. |
@@ -187,7 +192,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75), stamped as one generation (`_generation`, `_tables`, D105). |
 | `data/source-store.mjs` | `npm run data:sources`: every registered source's cached bytes and text, listed (`--manifest`), backed up by digest (`--export`), restored only where they hash to a registered digest (`--restore`); it never fetches (D104). |
 | `data/record-tier.mjs` | The record tier in the same file (D85): `source_facts`, the lines the import reader read without them becoming data, and `documents_fts`, a full-text index of the cached documents and of the optical readings of pages whose text layer is broken (`view`, D136; built only where `.cache/text` is present). |
-| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `.cache/proposals/` (`context.mjs` names the path; the 2026-09-18 import's are restored there from the private store with `npm run packets -- --restore ingest-2026-09-18`, D138); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). `witness.mjs` records a maker's page beside a sheet, fetched, or staged from the copy its reader saved (`--from`, checked against the digest recorded when it was read). `prices.mjs` is the one way a price enters: shop pages captured and hashed, the reviewed listings proposed, and a guarded apply (D113; sellers and batches in `archive/ingest-2026-09-18/prices/`). `context.mjs` names every live path (`H2C_INGEST_ROOT`, `H2C_PROPOSALS`, `H2C_DOCUMENT_CACHE` move them); `fetch.mjs` bounds each request and journals each finished document (D104). `quality.mjs` and `ocr-pass.mjs` flag pages whose text is not a reading of them and read them optically into a sidecar (`.cache/ocr-text/`) beside the text layer. `read-packet.mjs`, `read-reconcile.mjs` and `read-proposals.mjs` (with `read-common.mjs`) are the path on which a model reads page images: a packet per document, each reading checked against the text layer, the reading-order view, the ligature-repaired view and the sidecar, and proposal files that `migrate/read-proposals-apply.mjs` (`applyProposals`) writes through a migration, quote by quote (D125). The rules are in `docs/IMPORTING.md`. |
+| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `.cache/proposals/` (`context.mjs` names the path; the 2026-09-18 import's are restored there from the private store with `npm run packets -- --restore ingest-2026-09-18`, D138); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). `witness.mjs` records a maker's page beside a sheet, fetched, or staged from the copy its reader saved (`--from`, checked against the digest recorded when it was read). `prices.mjs` is the one way a price enters: shop pages captured and hashed, the reviewed listings proposed, and a guarded apply (D113; sellers and batches in `archive/ingest-2026-09-18/prices/`). `context.mjs` names every live path (`H2C_INGEST_ROOT`, `H2C_PROPOSALS`, `H2C_DOCUMENT_CACHE` move them); `fetch.mjs` bounds each request and journals each finished document (D104). `quality.mjs` and `ocr-pass.mjs` flag pages whose text is not a reading of them and read them optically into a sidecar (`.cache/ocr-text/`) beside the text layer. `read-packet.mjs`, `read-reconcile.mjs` and `read-proposals.mjs` (with `read-common.mjs`) are the path on which a model reads page images: a packet per document, each reading checked against the text layer, the reading-order view, the ligature-repaired view and the sidecar, and proposal files that `lib/read-proposals-apply.mjs` (`applyProposals`) writes through a migration, quote by quote (D125). The rules are in `docs/IMPORTING.md`. |
 
 `npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work, and prints each step's
 time against the budget: about 80 seconds after a data change and about 45 when nothing the build reads changed (GOALS C13)
@@ -302,10 +307,11 @@ say. Then add a case to `describeConstraint` in `ui/labels.js`: that function is
 explain panel, the why list, the excluded-search group and the CSV export all use, and a missing
 case is how an internal key reaches the screen.
 
-**A new gate verdict.** Add it to `GATE_PRECEDENCE` in `build/src/gates.js`, to the switch in
-`evaluateGate` in `app/js/engine/constraints.js`, and to `GATE_VERDICT` in `ui/labels.js`, which is
-where the table, drawer and Compare read its chip and its words. `partial` was the last one added, and
-three screens each had their own copy of that table until then.
+**A new gate verdict.** Add it to `GATE_PRECEDENCE` in `build/src/gates.js` (how a material's profiles are ranked);
+give it a status in `GATE_STATUS` in `app/js/engine/constraints.js`, which is what `evaluateGate` answers and what its
+chip is coloured by; and give it its words (`word`, `short`, `against`) in `GATE_VERDICT` in `ui/labels.js`, which the
+table, drawer, Compare and decision brief read. `test/gate-verdicts.test.js` fails until the four, and the compiled
+contract's enum, are the same set. `partial` was the last one added, and four places had their own copy until then.
 
 **A new word for something.** It goes in `ui/labels.js` and nowhere else. Environment category names
 are the exception, and only because they belong with the topic rules: they are authored in
@@ -321,8 +327,9 @@ category without importing anything from `ui/`.
 
 ```
 npm run verify:fast    while you work: format, schema, lint, generated docs, build and tests
-npm run verify         before a commit: verify:fast, the import tests, the scale and reproducible-build checks,
-                       audit, context audit, review snapshot, interface views, 300 rendered scenarios
+npm run verify         before a commit: verify:fast, the import tests, the campaign page, audit, context audit,
+                       review snapshot, links, packets, interface views, 300 rendered scenarios, the scale and
+                       reproducible-build checks
 npm run ui:fuzz:full   2,000 random scenarios through the built page, compared with the engine (weekly in CI)
 npm run build:diff     every difference a change made to dist/db.json, against HEAD or --ref
 npm run data:check     the schema gate alone, in about a second
@@ -643,8 +650,9 @@ output. Pages publishes it beside the page.
 ### Verifying a build
 
 ```bash
-npm run verify                   # verify:fast, import tests, scale and reproducible-build checks, audit, context
-                                 # audit, review snapshot, interface views, 300 rendered scenarios
+npm run verify                   # verify:fast, import tests, the campaign page, audit, context audit, review
+                                 # snapshot, links, packets, interface views, 300 rendered scenarios, scale and
+                                 # reproducible-build checks
 npm run build:diff               # what the change did to dist/db.json
 open dist/H2C_Material_Selector_*.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
@@ -688,7 +696,9 @@ run found hundreds of values the original transcription had dropped (migrations 
 ranges and the range that may screen), process gates, each template's candidates in Strict, Explore and Explore
 with estimates, and every build warning by record. `npm run ui:check` drives the built page in headless Chrome
 through the default view, every template in both modes, each shared link reopened, and Compare, and compares what
-a reader sees with `build/snapshot/ui/`. Both are checked by `verify`; a change commits its diff.
+a reader sees with `build/snapshot/ui/`. The default, template, ranked and family views record each results table as
+a summary (its headers, one line per row, the first eight rows in full), so a data change does not rewrite whole tables;
+the rendered-scenario run compares every cell with the engine. Both are checked by `verify`; a change commits its diff.
 
 `npm run ui:fuzz`, the last of `verify`'s interface steps (300 scenarios; 2,000 on a new seed weekly in CI), runs seeded random scenarios through the built page (every
 requirement kind and operator, thresholds at the evidence itself, assumptions, searches, templates) in Strict and

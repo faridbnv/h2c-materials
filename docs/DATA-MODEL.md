@@ -209,7 +209,10 @@ registry           { properties, headlines, relations }: what every property and
 
 `dist/h2c.sqlite` (`npm run sql`, D75) holds the same tables for queries. It also holds the **record tier** (D85),
 which `db.json` never does. `source_facts` has every line the import reader read without it becoming data: the text as
-printed, its page, the reader's reason, the document's source and grades, and the known property it names.
+printed, its page, the reader's reason, the document's source and grades, and the known property it names. It is read
+from the 2026-09-18 import's proposals, which live in the private store (D138): where they are not in `.cache/proposals`
+the table is empty and `_generation` says `source_facts: unavailable` (`npm run packets -- --restore ingest-2026-09-18`
+brings them back).
 `documents_fts` is a full-text index of every cached document's text, one row per page, built only where
 `.cache/text` is present. Its `view` column says which reading a row is: `text`, the text layer, or `ocr`, the optical
 reading (`npm run ingest:ocr-pass`) of a page whose text layer `npm run ingest:quality` flags as empty or garbled, so a
@@ -606,8 +609,8 @@ published value; D55, D126). The same bounds shape the estimate's own range: a g
 highest (`lower-bounds.js`); a material's, the spread of its products, reaches the highest product floor from above and is
 floored at the lowest only when every active product has one. EST-ORDER fails the build when a shown estimate breaks either. Not
 applicable screens the same way. (An unstated-load heat deflection bracket screened too until phase 4 removed it: a value
-published without its load is now as published, D84.) Strict neither shows nor uses estimates. The earlier models are recorded in D10,
-D11, D40, D42 and D43.
+published without its load is now as published, D84.) Strict neither shows nor uses estimates. The earlier models are recorded in D11
+and D43, and in D10, D40 and D42 ([DECISIONS-ARCHIVE.md](DECISIONS-ARCHIVE.md)).
 
 **Moisture, variants and bounds.** A value measured after conditioning (its Moisture state says which) converts to
 dry through the wet offset for its polymer's water uptake. A grade whose Variant is set gets its own

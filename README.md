@@ -138,13 +138,16 @@ The 2026-09-28 version 2.1 and targeted gap-closure publication is kept as
 
 | Read this | For |
 |---|---|
+| [docs/OPERATING.md](docs/OPERATING.md) | The short guide for a person: the five commands, and how to correct a value, add a data sheet and publish |
+| [docs/GOALS.md](docs/GOALS.md), [docs/GOALS-LOG.md](docs/GOALS-LOG.md) | What the tool is for and how a change is judged; the owner's decisions, dated |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things, and [what each build stage does and refuses to do](docs/ARCHITECTURE.md#the-build-stage-by-stage) |
 | [AGENTS.md](AGENTS.md) | How to change data, for people and AI agents alike |
 | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) | For an engineer using the tool: where a number comes from, what each kind means, and how far to trust it |
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The tables, the registry, the compiled shape, the three kinds of number |
 | [docs/INTERFACE.md](docs/INTERFACE.md) | The workflow, the lenses, the words, the visual vocabulary |
-| [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them |
-| [docs/audits/](docs/audits/) | Every audit of the tool and the database, each with its report and what was done about it |
+| [docs/DECISIONS.md](docs/DECISIONS.md) | The non-obvious decisions, and the bugs that forced them ([DECISIONS-ARCHIVE.md](docs/DECISIONS-ARCHIVE.md) holds the few no longer in force) |
+| [docs/IMPORTING.md](docs/IMPORTING.md) | How a new data sheet enters, through the import pipeline |
+| [docs/audits/](docs/audits/) | Every audit of the tool and the database, each with its report and what was done about it; a round's working files are in the private store, listed in its `PACKETS.md` |
 | [docs/background/](docs/background/) | The research inputs this was built from |
 
 ## Layout
@@ -177,7 +180,8 @@ app/js/main.js                          the only place that holds state
 
 test/                                   engine, data gate, registry, contract, database and import (ingest-*) tests;
                                         the scale and reproducible-build checks (*.check.js), which verify runs
-scripts/data/                           fmt, check, lint and build-finding review, new, new-material, retire, new-id, diff, the edit API, review workbook, scale data
+scripts/data/                           fmt, check, lint and build-finding review, new, new-material, retire, new-id, diff, the edit API, review workbook, scale data, the SQLite file, the source store, packets (a round's working files to the private store)
+scripts/lib/                            shared helpers: guarded source edits, proposals applied quote by quote, checks on a cached sheet's text, headless Chrome
 scripts/audit/                          source completeness (every PDF source re-read for values not in the tables),
                                         each value's context and print setting against its cached sheet (audit:context),
                                         where a print-profile error could hide on a cached sheet (audit:profile-marks),
@@ -187,7 +191,8 @@ scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interf
 scripts/ui-fuzz.mjs, lib/cdp.mjs        random scenarios through the built page, checked against the engine; shared headless Chrome
 scripts/trace.mjs                       a headline back to its source
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
-scripts/docs-*.mjs                      the generated rule catalogue, data dictionary and decision index
+scripts/docs-*.mjs                      the generated documents and their checks: rules, data dictionary, decision index, README status, history marks, Markdown links, open-problem counts
+scripts/round-close.mjs                 what a closing round leaves open; moves its migrations to archive/migrations/
 scripts/migrate/                        an open round's source corrections and table changes, each guarded; its README is the template
 archive/migrations/                     every earlier migration (m10 onwards), each run once and kept as the record; round:close moves them here
 archive/workbook-conversion/            the 2026-09-14 workbook conversion (m01-m09, ledger, replay, baseline); history, no longer runs
@@ -199,7 +204,7 @@ dist/                                   build output, not committed
 
 docs/                                   how it works and why
 docs/background/                        the research inputs it was built from
-docs/audits/<date>-<subject>/           one folder per audit: the report as delivered, and what was done
+docs/audits/<date>-<subject>/           one folder per audit: the report as delivered, what was done, and PACKETS.md naming its working files in the private store
 ```
 
 ## What the code enforces

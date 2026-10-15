@@ -515,8 +515,10 @@ snapshot", and every build's validation report is published beside the page.
 ## Reading on
 
 [DATA-MODEL.md](DATA-MODEL.md) explains every table and the estimate model in detail. [INTERFACE.md](INTERFACE.md)
-explains every screen. [DECISIONS.md](DECISIONS.md) records why each rule is what it is and what broke before it was.
-[audits/](audits/) holds every review of the tool and its data, with what was done about each finding.
+explains every screen. [DECISIONS.md](DECISIONS.md) records why each rule is what it is and what broke before it was;
+the few that no longer hold in any part are in [DECISIONS-ARCHIVE.md](DECISIONS-ARCHIVE.md). [audits/](audits/) holds
+every review of the tool and its data, with what was done about each finding; a round's working files are in a private
+store, and its `PACKETS.md` lists them.
 
 ## Missing product values after D137
 

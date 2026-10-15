@@ -45,7 +45,8 @@ left out under Confirmed only"). Under **Include uncertain** those materials are
 them too, and the sentence under it says how many an estimate screened out of the list. A count of materials that
 meet the requirements above a longer list of rows had read as a contradiction. Both headings, as the current build words them, are in
 [build/snapshot/ui/10-indoor-prototype-strict.txt](../build/snapshot/ui/10-indoor-prototype-strict.txt) and
-`11-indoor-prototype-explore-estimates.txt` beside it.
+`11-indoor-prototype-explore-estimates.txt` beside it (the results table under the heading is recorded there as a summary:
+its headers, one line per row and the first eight rows in full).
 
 ## One candidate set, five lenses
 
@@ -667,7 +668,7 @@ page and the locator (the decision brief and the exports keep them, as records d
 note is not reader text: it sits under a collapsed "Review notes" or "Record notes".
 
 **Names are display, keys are not.** What the page shows is mapped over the stored value (`GROUP_LABEL` in
-`filters.js`, `H2C_STATUS_LABEL` and the rest in `app/js/ui/labels.js`), so a link, a saved scenario or an export made
+`filters.js`, `H2C_STATUS` and the rest in `app/js/ui/labels.js`), so a link, a saved scenario or an export made
 before a rename still reads. Property names come from `headline_definitions.csv` (`Plain`, the data-sheet name, and
 `Technical`, the method). Constraints are described by one function, `describeConstraint`, used by the requirement
 pills, the explain panel, the per-candidate why list, the excluded-search group, the Products tab and the CSV export,

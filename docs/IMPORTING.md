@@ -1,6 +1,6 @@
 # Importing a batch of data sheets
 
-> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are open since 2026-10-05, when the owner lifted the pause of 2026-09-25 (GOALS lists the batches run under it, the last b43 and b44); the quality round of 2026-10-07 ran the first since, b45 and the price batch p05. Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
+> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are open since 2026-10-05, when the owner lifted the pause of 2026-09-25 (GOALS-LOG lists the batches run under it, the last b43 and b44); the quality round of 2026-10-07 ran the first since, b45 and the price batch p05. Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
 
 *Moved out of AGENTS.md on 2026-09-25 (re-center phase 5), when imports were paused; the procedure is read when one
 runs. AGENTS.md keeps the rules every change follows.*
@@ -144,7 +144,8 @@ The rules that differ from editing a table by hand:
   `material` ruling names the material itself, for a home or a polymer with no row. A TPU is filed by its Shore rating,
   and one that states none waits for its maker's (D106).
 - **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals
-  (`.cache/proposals/<batch>/`, exported to the private store when the round closes) and calls `applyBatch`, so the migration sequence stays the one
+  (`.cache/proposals/<batch>/`; `npm run packets -- --export ingest-2026-09-18` puts a new batch's in the private store
+  when the round closes, and `-- --restore ingest-2026-09-18` brings them all back) and calls `applyBatch`, so the migration sequence stays the one
   history of how the data got here, and a re-run is a no-op.
 - **`--holds` before `--propose`.** A hold reason is what the last `--holds` run wrote, so a document whose
   blocker has changed since is one a named reason misses. `--propose --held any` takes every held document.
@@ -188,8 +189,9 @@ cached text (`.cache/text/<sha>.json`) and the evidence binding (D97) are the ex
 
 **A page whose text is not a reading of it.** `npm run ingest:quality` (`scripts/lib/text-quality.mjs`) flags a page
 with no text (`empty`), private-use characters (`glyph`), few letters (`letters`), a layer mapped to the wrong characters
-(`garble`), or a property label with no number on it or the next two lines (`label-no-number`). A flag asks for a look at
-the page image; it never changes data. `npm run ingest:ocr-pass` reads the pages you name optically and writes
+(`garble`), or a property label with no number on it or the next two lines (`label-no-number`), and writes its summary and
+the flagged pages to `build/reports/text-quality/` (not committed). A flag asks for a look at the page image; it never
+changes data. `npm run ingest:ocr-pass` reads the pages you name optically and writes
 `.cache/ocr-text/<sha>.json` beside the text layer, in the same page shape. It never replaces the layer, which
 `ingest:ocr` does for a scan, so the two readings can be compared.
 
