@@ -99,3 +99,31 @@ Taken on branch `maintainability-2026-10-15` from `main` at `17808341`, after th
   verdict answers, `labels.js` words it (the decision brief's phrase included), the build ranks it, and a test keeps the
   four with the contract's enum. A CSV in `db.meta` would have added a field and a fallback in each reader.
 - **Small rounds** with one to three packets were exported too, so every round folder follows one rule.
+
+### The fuzz case and the weekly check
+
+- **Seed 116.** `node scripts/ui-fuzz.mjs --n 517 --seed 116` reproduced the weekly run's violation (scenario 516, PA66's
+  density "Published" under a material-wide assumption). The engine was right: a product's own value decides over an
+  assumption. The fuzz's oracle now reads the best product's view in its judged state (`4e49efe8`), and the full 2,000
+  scenarios at seed 116 ran with no violation of any invariant.
+- **The gate verdict** (`1bcb8af1`) moved the release ID only: `npm run build:diff` showed `release 0cf8d040210f ->
+  4b813cc4c0ca` and 0 differences, the snapshot and all 73 interface views matched, and the campaign page was
+  regenerated for the new release.
+
+## The closing checks
+
+Run on the owner's machine (Apple M4) on 2026-10-15, before the merge.
+
+| Check | Result |
+|---|---|
+| `npm run verify -- --enforce-budget` | 18 of 20 steps passed; the campaign page was stale for the new release (regenerated and committed) and the scale budget was over (below) |
+| `verify:fast`'s steps | 82.1 s, within the 90 s budget (92.4 s on 2026-10-14) |
+| `npm run round:close` | nothing open |
+| `npm run build:diff` against `main` | the release ID only |
+| Build inputs changed on the branch | none: `git diff main -- build/src build/mappings schema data` is empty |
+
+- **The scale budget** read 179 s against 150 s at twice the data, best of two runs. Nothing the build reads changed on
+  the branch; the machine was loaded (load average 11 to 15) while OneDrive synced the 230 MB of packets just exported.
+  CI's weekly trend job, run by hand after the push on a clean runner, is the measure that counts.
+- **The frozen text reader** changed in one comment line (where it writes its proposals), which `round:close` reported
+  as it should.
