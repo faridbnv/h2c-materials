@@ -19,13 +19,13 @@ The [current status](STATUS.md) is the entry point: **75 of 136 material assessm
 
 `npm run audit:coverage-status` derives status and pending CSVs from the current build, all 1213 frozen targets, approved committed outcomes and the canonical composite-key table diff. The generated documents include all implementation commits, environmental record presence and current print-gate counts. Private originals and machine-specific source-store paths are excluded from the new worklist inputs.
 
-`verify:fast` runs the checker after building. Its check mode writes nothing and rejects stale generated documents, duplicate or out-of-scope closures, missing commits and packets no longer pinned by an approving review. [Five disposable-copy fixtures](document-status-fixtures.json) exercise the actual checker. Pages checkout retains Git history because the checker reads the frozen baseline and implementation receipts.
+`verify:fast` runs the checker after building. Its check mode writes nothing and rejects stale generated documents, duplicate or out-of-scope closures, missing commits and packets no longer pinned by an approving review. [Five disposable-copy fixtures](PACKETS.md) exercise the actual checker. Pages checkout retains Git history because the checker reads the frozen baseline and implementation receipts.
 
 The [whole-campaign replays](STATUS.md#changed-answers-across-the-whole-campaign) compare the frozen baseline with completed implementation through 955a51b. Their question sets overlap; answer changes must not be added together. They are historical receipts, not predictions of future yield.
 
 ## Verification and limitations
 
-The [machine-readable receipt](documentation-reconciliation.json) records the current release, scope, 34 re-run documented SQL commands, local source/index counts, link checks and final verification results. SQLite was rebuilt to the current release before running those queries. This documentation change admits no new research evidence and changes no compiled tool answers.
+The [machine-readable receipt](PACKETS.md) records the current release, scope, 34 re-run documented SQL commands, local source/index counts, link checks and final verification results. SQLite was rebuilt to the current release before running those queries. This documentation change admits no new research evidence and changes no compiled tool answers.
 
 Full verification includes import tests, reproducible builds, source-to-page audit, 69 rendered interface views and 300 rendered scenarios. Warm verification remains below 90 seconds. The recorded historical cold overrun, private-cache gaps, human source spot-check and team/physical-test limitations remain open.
 

@@ -368,7 +368,7 @@ GOALS step 5; C3/C10/C11/C13/C15. m268 recovers six COC maker statements and one
 
 Independent AI review covered every operation, nineteen disposable guarded-application cases and actual COC Grades drawer HTML. All numeric and decision lanes are identical to the eighth committed build. The frozen acceptance, environmental and template replays moved zero answers. Full verification passed 69 native browser views and 300 rendered scenarios (2,592 readings); warm fast verification took 49.72 s and full verification 249.45 s. No UI baseline was rewritten. The private backup contains 2,390 originals and 2,790 derivatives; 124 pre-existing absent inventory entries remain explicit.
 
-Receipts: [verification](ninth-verification.json), [source review](ninth-source-corrections-review.json), [migration/compiled review](ninth-migration-guards-review.json), [guards](ninth-independent-guards.json), [drawer/compiled comparison](ninth-independent-source-drawer.json). No human review or interactive layout inspection is claimed. This correction does not complete the campaign.
+Receipts: [verification](PACKETS.md), [source review](PACKETS.md), [migration/compiled review](PACKETS.md), [guards](PACKETS.md), [drawer/compiled comparison](PACKETS.md). No human review or interactive layout inspection is claimed. This correction does not complete the campaign.
 
 ## Tenth tranche: seventeen bounded product passes and twelve material assessments
 
@@ -380,7 +380,7 @@ Independent AI review found an upper-only bed profile was being summarized as an
 
 The fixed source/drawer suite has59 cases and the disposable migration guard suite21. Frozen15-question replay moves7 of18195 material/product answers, all UNKNOWN→PASS from the newly sourced bed/chamber recipes for PAHT9825 and Prografen Light/Strong. The24 template/mode replay moves28 of30744 answers across the same products; the48 environmental questions move0 of58224 answers. T09 adds only M147 (8→9 beam material candidates), still using the old own-source3.1±0.1GPa and1.20g/cm³, with its close-to-limit and missing-state qualifications intact. Application and environmental narrative records create no passes. Five reviewed intentional UI counts change; the other64 native views remain the baseline.
 
-Final verification timings, log hashes, release and backup custody are retained in [tenth-verification.json](tenth-verification.json); [release review](tenth-release-review.json) pins the completed gates. The private backup has2397 originals/2800 derivatives and124 known absent entries. These are AI source reviews and actual rendered-content/browser checks, not human review or an interactive drawer-layout claim. Historical active research time was not reliably measured, so useful findings per active hour is not invented. The campaign remains incomplete.
+Final verification timings, log hashes, release and backup custody are retained in [tenth-verification.json](tenth-verification.json); [release review](PACKETS.md) pins the completed gates. The private backup has2397 originals/2800 derivatives and124 known absent entries. These are AI source reviews and actual rendered-content/browser checks, not human review or an interactive drawer-layout claim. Historical active research time was not reliably measured, so useful findings per active hour is not invented. The campaign remains incomplete.
 
 ## Eleventh tranche: the nine remaining blank Application cells
 
@@ -388,7 +388,7 @@ GOALS steps2/5; C3/C6/C9/C10/C13/C15, without re-rating. m273 adds nine independ
 
 Application now has45 Evidence recorded,57 Reviewed with limitations,34 Gap and0 unassessed cells. The empty cells are gone, but61 of136 material campaign assessments still await review of their historical records after this commit;75 are complete. Joined product research remains21/1077 complete,1056 remaining. The9 newly assessed cells do not close any joined product pass.
 
-No source, measurement, profile, product identity/state/headline, environmental verdict, price or estimate changes. The compiled diff has10 paths:9 coverage records and their count. Reapplying m273 writes0 records. Frozen15-question,48 environmental-question and24 template/mode replays move0 answers across18195/58224/30744 evaluations. Final source/drawer/guard checks and verification receipts are pinned in [eleventh-verification.json](eleventh-verification.json) and [eleventh-release-review.json](eleventh-release-review.json). This is independent AI review, not human review. The private backup retains2397 originals/2800 derivatives/124 known absent entries; no new original is admitted.
+No source, measurement, profile, product identity/state/headline, environmental verdict, price or estimate changes. The compiled diff has10 paths:9 coverage records and their count. Reapplying m273 writes0 records. Frozen15-question,48 environmental-question and24 template/mode replays move0 answers across18195/58224/30744 evaluations. Final source/drawer/guard checks and verification receipts are pinned in [eleventh-verification.json](eleventh-verification.json) and [eleventh-release-review.json](PACKETS.md). This is independent AI review, not human review. The private backup retains2397 originals/2800 derivatives/124 known absent entries; no new original is admitted.
 
 ## Resumed priority products: batches 03–05
 
