@@ -1,10 +1,10 @@
 // The reader round's proposals, applied: the one function every migration that takes a committed proposals folder
-// (docs/audits/2026-10-04-reader-round/proposals/<run>/, written by scripts/ingest/read-proposals.mjs) calls.
+// (docs/audits/<round>/proposals/<run>/, written by scripts/ingest/read-proposals.mjs) calls.
 //
 //   import { openTables } from '../data/table-io.mjs';
 //   import { applyProposals } from '../lib/read-proposals-apply.mjs';
 //   const t = openTables();
-//   const counts = applyProposals(t, 'docs/audits/2026-10-04-reader-round/proposals/<run>', {
+//   const counts = applyProposals(t, 'docs/audits/<round>/proposals/<run>', {
 //     migration: 'm339', read: 'Read 2026-10-05 by Claude Sonnet vision readers (reader round), checked against the cached text layer' });
 //   t.save();
 //

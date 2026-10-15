@@ -8,7 +8,7 @@
 //   npm run ingest:quality -- --train-bigrams       rebuild scripts/ingest/lexicon/letter-bigrams.csv from the cached text
 //
 // Writes .cache/quality/<sha>.json per document and, unless --no-report, a summary and the flagged pages in
-// docs/audits/2026-10-04-reader-round/text-quality/ (summary.md, pages.csv). A flag asks for a look at the page image or
+// build/reports/text-quality/ (summary.md, pages.csv; written there since 2026-10-15, in the reader round's folder before). A flag asks for a look at the page image or
 // an optical reading (npm run ingest:ocr-pass); it never changes the data. Nothing here touches data/.
 
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -19,7 +19,7 @@ import { BROKEN, docQuality, isBroken, loadLabels, scoredWords, trainBigrams } f
 
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 ? process.argv[i + 1] : null; };
 const flag = (name) => process.argv.includes(`--${name}`);
-const REPORT = join(projectRoot, 'docs/audits/2026-10-04-reader-round/text-quality');
+const REPORT = join(projectRoot, 'build/reports/text-quality');
 const SHA = /^[0-9a-f]{64}$/;
 
 const readText = (sha) => {

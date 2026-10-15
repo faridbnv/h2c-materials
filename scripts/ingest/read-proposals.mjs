@@ -2,7 +2,7 @@
 // The reader round's proposals: what the reconciler sorted as new or contradicting (read-reconcile.mjs), turned into the
 // files a migration applies (scripts/lib/read-proposals-apply.mjs), and into the list of what is held back and why.
 //
-//   npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/reconcile/<run> [--out <dir>] [--maker-wide]
+//   npm run ingest:read-proposals -- --run docs/audits/<round>/reconcile/<run> --out docs/audits/<round>/proposals/<run> [--maker-wide]
 //
 // A reading with no grade_id takes its product from the document's own products (its Applicable grades, the grades citing it and the
 // grades of the rows held from it; active ones): a sheet of one product gets it, and otherwise the product name is matched
@@ -11,7 +11,7 @@
 // not proposed in the first place: the builder reads them); --move-out <cause>,... puts the profiles-set and values-set rows of those
 // causes in <out>/moved-out/ instead (with the Locator edits only they needed).
 //
-// Output, in docs/audits/2026-10-04-reader-round/proposals/<run>/ (nothing here writes data/):
+// Output, in the --out folder, a folder of the round that runs it (nothing here writes data/):
 //
 //   profiles-add.csv        one profile per (product, source) whose print settings the tables lack
 //   profiles-set.csv        cells of a held profile that is Not published (or that the page contradicts)
@@ -1263,10 +1263,10 @@ export function moveOut(out, causes) {
 async function main() {
   const arg = (name, fallback = null) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : fallback; };
   const runArg = arg('run');
-  if (!runArg) { console.error('usage: read-proposals --run <reconcile run dir> [--out <dir>] [--maker-wide] [--exclude dirA,dirB] [--move-out cause,cause]'); process.exit(2); }
+  if (!runArg || !arg('out')) { console.error('usage: read-proposals --run <reconcile run dir> --out docs/audits/<round>/proposals/<run> [--maker-wide] [--exclude dirA,dirB] [--move-out cause,cause]'); process.exit(2); }
   const runDir = resolve(projectRoot, runArg);
   const run = basename(runDir);
-  const dir = resolve(projectRoot, arg('out', `docs/audits/2026-10-04-reader-round/proposals/${run}`));
+  const dir = resolve(projectRoot, arg('out'));
   const tables = loadFullTables();
   const shaOf = new Map(tables.sources.map((s) => [s.SourceID, s.SHA256]));
   const pageCache = new Map();

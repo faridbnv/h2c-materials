@@ -14,7 +14,9 @@
 //   second read  every visual-only row, every mismatch and every new decision-field row needs an independent reading
 //                of the same page; it is `agreed` when that reading gives the same numbers
 //
-// Nothing here writes data/. Output goes to docs/audits/2026-10-04-reader-round/reconcile/<run>/.
+// Nothing here writes data/. Output goes where --out says: a folder of the round that runs it, such as
+// docs/audits/<round>/reconcile/<run>/, so a round's working files stay with its record (2026-10-15; until then they went
+// into the reader round's folder by default).
 
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -470,9 +472,9 @@ async function main() {
   const arg = (name, fallback = null) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : fallback; };
   const list = (name) => (arg(name) ?? '').split(',').filter(Boolean);
   const run = arg('run', 'r1');
-  const out = resolve(projectRoot, arg('out', `docs/audits/2026-10-04-reader-round/reconcile/${run}`));
   const files = list('readings');
-  if (!files.length) { console.error('usage: read-reconcile --readings a.csv[,b.csv] [--second s.csv] [--run r1] [--docs DOCS.csv] [--out dir]'); process.exit(2); }
+  if (!files.length || !arg('out')) { console.error('usage: read-reconcile --readings a.csv[,b.csv] --out docs/audits/<round>/reconcile/<run> [--second s.csv] [--run r1] [--docs DOCS.csv]'); process.exit(2); }
+  const out = resolve(projectRoot, arg('out'));
   const tables = loadTables();
   const docsPath = arg('docs');
   const digests = new Map(docsPath ? readCsv(resolve(projectRoot, docsPath)).records.map((r) => [r.values.SourceID, r.values.SHA256]) : []);

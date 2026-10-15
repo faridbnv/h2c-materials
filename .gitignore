@@ -43,3 +43,7 @@ build/reports/scale.json
 build/reports/table-detectors/
 build/reports/duplicates/
 build/reports/leverage/
+
+# Local output of npm run ingest:quality and npm run audit:reader-recall: generated over the whole text cache (2026-10-15).
+build/reports/text-quality/
+build/reports/reader-recall/
