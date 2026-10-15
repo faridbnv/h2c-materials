@@ -197,3 +197,20 @@ test('one ranking for every lens: only passing products rank, in the state they 
   assert.deepEqual(r3.unranked.map((u) => u.materialId), ['M1']);
   assert.match(r3.unranked[0].reason, /density/);
 });
+
+// The weekly fuzz of 2026-10-11 (seed 116, scenario 516) flagged "Published" beside a material whose own headline the
+// scenario assumed: its product publishes the value, and a product's own value always decides over an assumption. The
+// engine was right and the fuzz read the material's headline; this pins the rule both now follow.
+test('an assumption stands in only for a product that publishes nothing deciding, and its reason says so', async () => {
+  const { applyAssumptions } = await import('../app/js/engine/scenario.js');
+  const assumed = (grades) => {
+    const m = withGrades(grades);
+    return Object.assign(applyAssumptions(m, [{ materialId: '*', property: 'tensileModulusXY', value: 2 }], { tensileModulusXY: 'GPa' }).material, { __grades: grades });
+  };
+  const published = run(assumed([grade('G1', { tensileModulusXY: v(3.4) })]), [stiff], STRICT);
+  assert.equal(published.verdict, STATUS.PASS);
+  assert.match(published.results.find((r) => r.constraint === stiff).reason, /^Published 3\.4 GPa/);
+  const silent = run(assumed([grade('G1', {})]), [stiff], EXPLORE);
+  assert.equal(silent.verdict, STATUS.FAIL);
+  assert.match(silent.failed[0].reason, /^Assumed 2 GPa \(a scenario assumption, not published\)/);
+});

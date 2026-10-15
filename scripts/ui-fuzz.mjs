@@ -519,13 +519,26 @@ function compareReading(s, key, r, o) {
   }
 }
 
+/**
+ * The headline a material's reasons were judged on: its best product's, in the state that product was judged in, where
+ * the material is answered by its products (D83, D99), and the material's own otherwise. A scenario's assumption stands
+ * in only for a product that publishes nothing deciding (engine/products.js productHeadline), so a reason may rightly
+ * say "Published" beside a material whose own headline carries an assumption (seed 116, scenario 516: PA66's product
+ * publishes its density). Reading the material's headline here reported that as a violation.
+ */
+function judgedHeadline(o, ev, property) {
+  const m = o.materials.find((x) => x.id === ev.materialId);
+  const g = ev.products?.length ? gradeById.get(ev.gradeId) : null;
+  return g ? productView(m, g, o.ctx, stateOf(g, ev.state?.id ?? null)).headline[property] : m?.headline[property];
+}
+
 // Engine-side reasons that surface in the drawer, the export and the exclusion list.
 function checkReasons(s, o, setting) {
   for (const ev of o.sel.evaluations) {
     for (const res of [...ev.unresolved, ...ev.failed]) {
       check('I6-empty-reason'); check('I6-reason-assumption');
       if (!res.reason || !String(res.reason).trim()) violate('I6-empty-reason', `empty engine reason (${res.constraint.kind}${res.constraint.gate ? ':' + res.constraint.gate : ''})`, s, `${setting}|table`, { id: ev.materialId, criterion: res.criterion });
-      else if (res.constraint.kind === 'numeric' && o.materials.find((m) => m.id === ev.materialId)?.headline[res.constraint.property]?.assumption && /^Published /.test(res.reason)) violate('I6-reason-assumption', 'reason calls a scenario assumption "Published"', s, `${setting}|table`, { id: ev.materialId, criterion: res.criterion, reason: res.reason });
+      else if (res.constraint.kind === 'numeric' && judgedHeadline(o, ev, res.constraint.property)?.assumption && /^Published /.test(res.reason)) violate('I6-reason-assumption', 'reason calls a scenario assumption "Published"', s, `${setting}|table`, { id: ev.materialId, criterion: res.criterion, reason: res.reason });
       else if (BAD.test(res.reason) || BAD.test(res.criterion)) violate('I6-bad-token', `bad token in engine reason (${res.constraint.kind}${res.constraint.property ? ':' + res.constraint.property : ''})`, s, `${setting}|table`, { id: ev.materialId, criterion: res.criterion, reason: res.reason });
     }
   }
