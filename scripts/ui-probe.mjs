@@ -4,7 +4,8 @@
 // a reviewable diff; an exception or an empty view fails.
 //
 // Steps: the default view; every application template in Strict and in Explore with estimates; the Explore link
-// reopened in a fresh page (a shared link must reproduce the view); three pins in Compare.
+// reopened in a fresh page (a shared link must reproduce the view); three pins in Compare. The default, template,
+// ranked and family views record each results table as a summary (tableView, below); the rest record their full text.
 //
 // Then the same page on three screens: a laptop (1180 x 760), a tablet (820 x 1100) and a phone (390 x 844), the last
 // two as touch devices. On each: the default view; a template in Explore with estimates, every status chip on and
@@ -86,6 +87,28 @@ const view = () => evaluate(`(() => {
   const text = (el) => (el?.innerText ?? '').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim();
   const chips = ['s-pass', 's-unknown', 's-fail', 's-screened'].map((id) => document.getElementById(id)).filter((e) => e && !e.hidden).map(text).join(' | ');
   return ['COUNT ' + text(document.getElementById('count')), 'STATUS ' + chips, text(document.getElementById('lens'))].join('\\n');
+})()`);
+
+// The same view with each results table summarised (maintainability round, 2026-10-15): its column headers, one line per
+// row with the material and its verdict, and the full text of its first eight rows. A whole table's text made every data
+// change rewrite the template views, and the line that mattered was hard to find in the diff; the fuzz still compares
+// every cell with the engine. Everything around the tables (the count, the heading sentence, the pills) is kept whole.
+const tableView = () => evaluate(`(() => {
+  const text = (el) => (el?.innerText ?? '').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim();
+  const flat = (el) => text(el).replace(/\\n/g, ' / ');
+  const chips = ['s-pass', 's-unknown', 's-fail', 's-screened'].map((id) => document.getElementById(id)).filter((e) => e && !e.hidden).map(text).join(' | ');
+  const lens = document.getElementById('lens');
+  const shown = [...lens.querySelectorAll('table')].filter((t) => t.getClientRects().length);
+  const summaries = shown.map((t) => {
+    const rows = [...t.querySelectorAll('tbody tr')].filter((r) => r.getClientRects().length);
+    const head = [...t.querySelectorAll('thead th')].map(flat).join(' | ');
+    const line = (r) => { const c = [...r.cells]; return (c[0] ? text(c[0]).split('\\n')[0] : '') + (c[1] ? ' · ' + text(c[1]).split('\\n').slice(0, 2).join(' ') : ''); };
+    return ['TABLE ' + rows.length + ' rows: ' + head, ...rows.map((r, i) => (i < 8 ? 'ROW ' + [...r.cells].map(flat).join(' | ') : 'ROW ' + line(r)))].join('\\n');
+  });
+  const markers = shown.map((t, i) => { const m = document.createElement('div'); m.textContent = '@@TABLE' + i + '@@'; t.before(m); t.style.display = 'none'; return m; });
+  let body = text(lens);
+  shown.forEach((t, i) => { t.style.display = ''; markers[i].remove(); body = body.replace('@@TABLE' + i + '@@', summaries[i]); });
+  return ['COUNT ' + text(document.getElementById('count')), 'STATUS ' + chips, body].join('\\n');
 })()`);
 
 const results = {};
@@ -249,7 +272,7 @@ try {
   await send('Runtime.enable'); await send('Log.enable'); await send('Page.enable');
 
   await open(pageUrl);
-  results['01-default'] = await view();
+  results['01-default'] = await tableView();
 
   const templates = await evaluate(`[...document.querySelectorAll('[data-template]')].map((b) => b.innerText.split('\\n')[0].trim())`);
   if (!templates.length) throw new Error('the start screen shows no templates');
@@ -258,7 +281,7 @@ try {
     await open(pageUrl);
     await click(`[data-template="${i}"]`);
     await sleep(200);
-    results[`10-${slug}-strict`] = await view();
+    results[`10-${slug}-strict`] = await tableView();
     await click('#mode-explore');
     await evaluate(`(() => { const c = document.getElementById('use-estimates'); if (!c.checked) { c.checked = true; c.dispatchEvent(new Event('change')); } return true; })()`);
     await sleep(200);
@@ -278,8 +301,9 @@ try {
       return problems;
     })()`);
     errors.push(...grouping.map((p) => `${name}: ${p}`));
+    // The shared-link check below compares the whole text; the record keeps the summary.
     const explore = await view();
-    results[`11-${slug}-explore-estimates`] = explore;
+    results[`11-${slug}-explore-estimates`] = await tableView();
     // A shared link must reproduce the view in a fresh page.
     // The app writes the link 250 ms after the last change (pushHash); wait for it rather than guess.
     await until(`location.hash.length > 1`, 'the shareable link');
@@ -349,7 +373,7 @@ try {
   await click('[data-template="4"]');
   await evaluate(`(() => { const s = document.querySelector('[data-rank-by]'); s.value = 'tie-stiffness'; s.dispatchEvent(new Event('change')); return true; })()`);
   await sleep(200);
-  results['14-ranked-stiffness'] = await view();
+  results['14-ranked-stiffness'] = await tableView();
   await click('#lens tbody tr[data-material]:not(.baseline-row)');
   await until(`!!document.querySelector('.drawer')`, 'the first-ranked material\'s drawer');
   await click('.drawer [data-tab="Grades"]');
@@ -371,10 +395,10 @@ try {
   await open(pageUrl);
   await click('[data-family="Nylon / Polyamide"]');
   await sleep(200);
-  results['12-family-nylon'] = [await view(), 'RAIL', await rail()].join('\n');
+  results['12-family-nylon'] = [await tableView(), 'RAIL', await rail()].join('\n');
   await click('[data-polymer="Nylon / Polyamide › PA6"]');
   await sleep(200);
-  results['12-family-nylon-pa6'] = [await view(), 'RAIL', await rail()].join('\n');
+  results['12-family-nylon-pa6'] = [await tableView(), 'RAIL', await rail()].join('\n');
 
   // Layout on each screen. The emulation is cleared afterwards so nothing after this section inherits a screen.
   const when = (selector, ms = 150) => until(`!!document.querySelector(${JSON.stringify(selector)})`, selector).then(() => sleep(ms));

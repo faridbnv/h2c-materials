@@ -41,98 +41,11 @@ PC
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
-OBC
-Polyolefins
- PASS
-1 of 1 product
- 905 — 14 passing: 700
-all products: 700
- n/a — ☆
-PA6/66
-Nylon / Polyamide
- PASS
-1 of 3 products
- 1,120
-1,080–1,140 · 7
- 2.34
-1.98–2.7 · 2
- 61
-55–78 · 3
- passing: 100
-all products: 15
-12.7–100 · 3
- 111
-102–140 · 5
-annealed median
- 40
-39–90.7 · 3
-↗ ☆
-PBAT
-PVB / Specialty Polymers
- PASS
-1 of 1 product
- 1,250 0.006 27 passing: 400
-all products: 400
- 90 — ☆
-PP
-Polyolefins
- PASS
-2 of 2 products
- 900
-890–960 · 8
- 1.2* 19 passing: 850–900
-all products: 850
- 80
-58.5–85 · 3
- 77.5
-62.5–92.5 · 2
-¤ ☆
-TPU 85A class and softer
-Flexible Elastomers
- PASS
-1 of 1 product
- 1,180
-1,070–1,210 · 15
- 0.0159
-0.0068–0.025 · 2
- 22
-6.2–30 · 6
- passing: 700
-all products: 643
-560–729 · 4
- n/a 58
-50–158 · 3
-↗ ☆
-TPU 90A class
-Flexible Elastomers
- PASS
-5 of 5 products
- 1,210
-1,120–1,240 · 10
- 0.0053
-0.0053–0.027 · 3
- 23.7
-12.5–30 · 5
- passing: 574–1,000
-all products: > 650
-574–1,000+ · 5
- n/a 75
-54–96 · 2
-↗ ☆
-TPU 95A class
-Flexible Elastomers
- PASS
-10 of 10 products
- 1,210
-1,000–1,250 · 25
- 0.027
-0.006–0.065 · 9
- 27.3
-17–34.4 · 13
- passing: 265–900
-all products: 501
-265–900+ · 11
- n/a 83
-54–112 · 2
-↗ ☆
+TABLE 7 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
+ROW OBC / Polyolefins | PASS / 1 of 1 product | 905 | — | 14 | passing: 700 / all products: 700 | n/a | — | ☆
+ROW PA6/66 / Nylon / Polyamide | PASS / 1 of 3 products | 1,120 / 1,080–1,140 · 7 | 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | passing: 100 / all products: 15 / 12.7–100 · 3 | 111 / 102–140 · 5 / annealed median | 40 / 39–90.7 · 3 / ↗ | ☆
+ROW PBAT / PVB / Specialty Polymers | PASS / 1 of 1 product | 1,250 | 0.006 | 27 | passing: 400 / all products: 400 | 90 | — | ☆
+ROW PP / Polyolefins | PASS / 2 of 2 products | 900 / 890–960 · 8 | 1.2* | 19 | passing: 850–900 / all products: 850 | 80 / 58.5–85 · 3 | 77.5 / 62.5–92.5 · 2 / ¤ | ☆
+ROW TPU 85A class and softer / Flexible Elastomers | PASS / 1 of 1 product | 1,180 / 1,070–1,210 · 15 | 0.0159 / 0.0068–0.025 · 2 | 22 / 6.2–30 · 6 | passing: 700 / all products: 643 / 560–729 · 4 | n/a | 58 / 50–158 · 3 / ↗ | ☆
+ROW TPU 90A class / Flexible Elastomers | PASS / 5 of 5 products | 1,210 / 1,120–1,240 · 10 | 0.0053 / 0.0053–0.027 · 3 | 23.7 / 12.5–30 · 5 | passing: 574–1,000 / all products: > 650 / 574–1,000+ · 5 | n/a | 75 / 54–96 · 2 / ↗ | ☆
+ROW TPU 95A class / Flexible Elastomers | PASS / 10 of 10 products | 1,210 / 1,000–1,250 · 25 | 0.027 / 0.006–0.065 · 9 | 27.3 / 17–34.4 · 13 | passing: 265–900 / all products: 501 / 265–900+ · 11 | n/a | 83 / 54–112 · 2 / ↗ | ☆
