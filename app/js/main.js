@@ -142,7 +142,8 @@ function hydrate(scenario) {
 
 const materialIds = () => new Set(state.db.materials.map((m) => m.id));
 const gradeIds = () => new Set(state.db.grades.filter((g) => !g.retired).map((g) => g.id));
-const headlineKeys = () => new Set(state.db.registry.headlines.map((h) => h.key));
+// A drawer-only headline (D139) is no scenario key: a link or file naming one is dropped like an unknown key.
+const headlineKeys = () => new Set(state.db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
 
 // ------------------------------------------------------------------ derived state
 

@@ -1,0 +1,39 @@
+{
+  "$comment": "Contract for data/tables/drawer_comparisons.csv. Checked by build/src/schema.js; what a comparison must be by build/src/registry.js (REGISTRY-COMPARISON).",
+  "title": "Drawer comparisons",
+  "description": "One row per comparison the material drawer draws (D133, D139): a closed heading on its tab in which the headlines that name it (headline_definitions.csv, Drawer comparison) are drawn product by product, those of one unit on one scale, with every record of the properties they read under it. The row holds the words that belong to the whole comparison; its caption is the method.csv rule of Section Comparison and the same Topic.",
+  "primaryKey": "Comparison",
+  "fields": [
+    {
+      "name": "Comparison",
+      "type": "string",
+      "role": "key",
+      "description": "The comparison's name, which is its heading in the drawer and the Topic of its caption in method.csv.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "About",
+      "type": "string",
+      "role": "prose",
+      "description": "The title of the closed line under the graphs that holds the caption and the headlines' comparison notes: what a reader who asks how the tests differ opens.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Pair label",
+      "type": "string",
+      "role": "prose",
+      "description": "Where each unit's two headlines are one test on two kinds of bar or two tests a product may publish both of, the label of the line naming the products that publish both (\"Both tests\", \"Both orientations\"); \"No product publishes\" and its lower-cased words say there are none. Not applicable: the comparison draws no such line.",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

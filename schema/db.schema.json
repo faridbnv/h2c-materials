@@ -1520,6 +1520,33 @@
             "$ref": "#/$defs/registryHeadline"
           }
         },
+        "comparisons": {
+          "description": "The comparisons the material drawer draws (data/tables/drawer_comparisons.csv, D133, D139): a heading each, its name, the title of its closed line on how the tests differ, and the label of its line naming the products that publish both of a pair, or null.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "about",
+              "pairLabel"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "about": {
+                "type": "string"
+              },
+              "pairLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
         "relations": {
           "description": "The orderings physics fixes between two properties (data/tables/physical_relations.csv, build/src/physical-relations.js): the lint's list for published measurements and the source of a headline's lower bounds.",
           "type": "array",
@@ -1673,6 +1700,7 @@
         "direction",
         "unstatedDirection",
         "loadMPa",
+        "unstatedLoad",
         "notch",
         "testTemperatureC",
         "standard",
@@ -1682,6 +1710,7 @@
         "endpointNote",
         "comparisonNote",
         "drawerComparison",
+        "drawerOnly",
         "toughened",
         "labels",
         "better",
@@ -1783,6 +1812,14 @@
             "null"
           ]
         },
+        "unstatedLoad": {
+          "description": "Whether a value whose source states no test load is this headline's as published (D84) or no value of it (D139); null where the headline has no load.",
+          "enum": [
+            "as-published",
+            "excluded",
+            null
+          ]
+        },
         "notch": {
           "description": "The notch a backing impact measurement must state (D92), or null.",
           "type": [
@@ -1830,11 +1867,15 @@
           ]
         },
         "drawerComparison": {
-          "description": "The comparison the drawer draws the headline in, beside the headlines naming the same one (D133): a Topic of the method table, whose rule is the caption; or null.",
+          "description": "The comparison the drawer draws the headline in, beside the headlines naming the same one (D133, D139): the name of a registry comparison, whose method rule of the same Topic is the caption; or null.",
           "type": [
             "string",
             "null"
           ]
+        },
+        "drawerOnly": {
+          "description": "Whether the headline is drawn in the drawer alone (D139): computed per product and as a spread, never a filter, axis, table or export column, scenario key or decision state.",
+          "type": "boolean"
         },
         "toughened": {
           "description": "What the material's spread does with the products their makers sell as toughened (D133): named, set apart, or null.",

@@ -53,9 +53,16 @@ const sameSchedule = (a, t) => (a?.tempC ?? null) === (t?.tempC ?? null) && (a?.
 /** A schedule as a reader says it: "at 120 °C for 16 h", with what the sheet does not state said so. */
 export const scheduleText = (t) => `at ${t?.tempC != null ? `${t.tempC} °C` : 'a temperature not stated'} for ${t?.hours != null ? `${t.hours} h` : 'a time not stated'}`;
 
+// Why a measurement is not a headline's value, as a code beside assess's words (`why`), in the order assess asks. The
+// drawer counts the records under a comparison by it (app/js/ui/detail.js, notDrawnWhy, D139), and a record two of a
+// comparison's headlines refuse is counted by the one it got further with.
+export const ASSESS_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'moulded', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
+  'notConditioned', 'conditioned', 'notAnnealed', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad'];
+const SPECIMEN_WHY = { moulded: 'moulded', film: 'film', filament: 'filament' };
+
 /**
- * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded } with the
- * reason when it cannot, else { level, caveat }.
+ * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded, why } with the
+ * reason and its code (ASSESS_ORDER) when it cannot, else { level, caveat }.
  *
  * With a `state` (D99: { treatment: null | { tempC, hours }, moisture: 'dry' | 'conditioned' }) it asks whether the value
  * is the product's in that state: for a headline annealing changes, a value as printed or unstated is the as-printed
@@ -64,51 +71,56 @@ export const scheduleText = (t) => `at ${t?.tempC != null ? `${t.tempC} °C` : '
  * as the table and the material's spread show it (an annealed value where the product publishes none as printed).
  */
 export function assess(m, def, gradeMeasurements, state = null) {
-  if (!m.numeric) return { excluded: `no usable numeric value (${m.dataStatus})` };
-  if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}` };
-  if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}` };
-  if (m.implausible) return { excluded: 'flagged physically implausible' };
+  if (!m.numeric) return { excluded: `no usable numeric value (${m.dataStatus})`, why: 'noNumber' };
+  if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}`, why: 'property' };
+  if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}`, why: 'unit' };
+  if (m.implausible) return { excluded: 'flagged physically implausible', why: 'implausible' };
   if (!isPartSpecimen(m.specimenType)) {
     // A bar printed at a setting the product is not meant for (D95), or below 100 % infill (D130), is printed, but not
     // the product as it is printed.
-    return { excluded: m.specimenForm === 'off-recipe' ? offRecipeWhy(m.specimenType, { brief: true }) : `a ${m.specimenForm} specimen, not a printed part` };
+    if (m.specimenForm === 'off-recipe') return { excluded: offRecipeWhy(m.specimenType, { brief: true }), why: m.specimenType === 'Printed specimen at partial infill' ? 'partialInfill' : 'offRecipe' };
+    return { excluded: `a ${m.specimenForm} specimen, not a printed part`, why: SPECIMEN_WHY[m.specimenForm] ?? 'notPrinted' };
   }
   if (state && def.changesWithMoisture) {
-    if (state.moisture === 'conditioned' && m.moistureState !== 'conditioned') return { excluded: 'not measured after moisture conditioning' };
-    if (state.moisture !== 'conditioned' && m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
-  } else if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
+    if (state.moisture === 'conditioned' && m.moistureState !== 'conditioned') return { excluded: 'not measured after moisture conditioning', why: 'notConditioned' };
+    if (state.moisture !== 'conditioned' && m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning', why: 'conditioned' };
+  } else if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning', why: 'conditioned' };
   if (state && def.changesWithAnnealing) {
-    if (state.treatment && (m.postProcessingState !== 'annealed' || !sameSchedule(m.anneal, state.treatment))) return { excluded: `not measured after annealing ${scheduleText(state.treatment)}` };
-    if (!state.treatment && m.postProcessingState === 'annealed') return { excluded: `measured after annealing ${scheduleText(m.anneal)}, not as printed` };
-  } else if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed' };
+    if (state.treatment && (m.postProcessingState !== 'annealed' || !sameSchedule(m.anneal, state.treatment))) return { excluded: `not measured after annealing ${scheduleText(state.treatment)}`, why: 'notAnnealed' };
+    if (!state.treatment && m.postProcessingState === 'annealed') return { excluded: `measured after annealing ${scheduleText(m.anneal)}, not as printed`, why: 'annealed' };
+  } else if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed', why: 'annealed' };
   // An impact headline is defined on a notched bar at room temperature (D92). An unnotched bar absorbs several times the
   // energy, and a notch the source does not state may be either, so neither is ever the headline's value; nor is a
   // bar struck cold. A temperature the source does not state is the laboratory's, as it is for every other headline.
   if (def.notch && m.notch !== def.notch) {
-    return { excluded: m.notch === 'Unnotched' ? `an unnotched bar, not ${def.notch.toLowerCase()}` : m.notch === 'Notched' ? `a notched bar, not ${def.notch.toLowerCase()}`
-      : 'the source does not state whether the bar was notched' };
+    return m.notch === 'Unnotched' ? { excluded: `an unnotched bar, not ${def.notch.toLowerCase()}`, why: 'unnotched' }
+      : m.notch === 'Notched' ? { excluded: `a notched bar, not ${def.notch.toLowerCase()}`, why: 'notched' }
+        : { excluded: 'the source does not state whether the bar was notched', why: 'notch' };
   }
   if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) {
-    return { excluded: `tested at ${m.testTemperatureC} °C, not ${def.testTemperatureC} °C` };
+    return { excluded: `tested at ${m.testTemperatureC} °C, not ${def.testTemperatureC} °C`, why: m.testTemperatureC < def.testTemperatureC ? 'cold' : 'hot' };
   }
   // A headline may name its test standard (D94): a value that names only others is another test's, even in the
   // headline's unit (an Izod value to ASTM D256 printed in kJ/m² is that test's energy per metre of notch, converted by
   // its maker). A value that names no standard is not refused for it.
   if (def.standard && m.standards?.length && !m.standards.includes(def.standard)) {
-    return { excluded: `measured to ${m.standards.join(', ')}, not ${def.standard}` };
+    return { excluded: `measured to ${m.standards.join(', ')}, not ${def.standard}`, why: 'standard' };
   }
   let caveat = null;
   if (def.direction && m.direction !== def.direction) {
-    if (!UNSTATED_DIRECTIONS.has(m.direction)) return { excluded: `a ${m.direction} measurement, not ${def.direction}` };
+    if (!UNSTATED_DIRECTIONS.has(m.direction)) return { excluded: `a ${m.direction} measurement, not ${def.direction}`, why: 'direction' };
     // A value that states no direction may be an XY bar, the way makers test unless they say otherwise, and is counted
     // apart (D84); it is never a Z value, which a maker who pulls a bar across its layers says it is (D92).
-    if (def.unstatedDirection === 'excluded') return { excluded: `the source states no direction, and a ${def.direction} value is one it says is ${def.direction}` };
+    if (def.unstatedDirection === 'excluded') return { excluded: `the source states no direction, and a ${def.direction} value is one it says is ${def.direction}`, why: 'unstatedDirection' };
     caveat = 'unstated-direction';
   }
   if (def.loadMPa != null) {
     if (m.thermal?.loadStated) {
-      if (Math.abs(m.thermal.loadMPa - def.loadMPa) > LOAD_TOLERANCE_MPA) return { excluded: `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa` };
-    } else caveat ??= 'load-not-stated';
+      if (Math.abs(m.thermal.loadMPa - def.loadMPa) > LOAD_TOLERANCE_MPA) return { excluded: `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa`, why: 'load' };
+    // A value whose source states no load is the lighter load's, as published (D84), and never the heavier one's: a
+    // sheet that names no load is not evidence of the 1.8 MPa test, and one value is not drawn on both (D139).
+    } else if (def.unstatedLoad === 'excluded') return { excluded: `the source states no test load, and a ${def.loadMPa} MPa value is one it says is ${def.loadMPa} MPa`, why: 'unstatedLoad' };
+    else caveat ??= 'load-not-stated';
   }
   return { level: caveat ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, caveat };
 }
@@ -576,6 +588,9 @@ function productStates(grade, defs, own, pinnedIds) {
       const values = {};
       for (const def of defs) {
         if (!first && !((treatment && def.changesWithAnnealing) || (moisture === 'conditioned' && def.changesWithMoisture))) continue;
+        // A headline drawn in the drawer alone (D139) is the product's published value only: it makes no state and
+        // decides in none, so the states, and every answer read from them, are what the selectable headlines give.
+        if (!first && def.drawerOnly) continue;
         const v = chooseValue(grade, def, own, pinnedIds, { treatment, moisture });
         if (v) values[def.key] = v;
       }

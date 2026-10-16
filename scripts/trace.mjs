@@ -180,7 +180,7 @@ function whyNotPermitted(s, policy) {
  */
 export function traceDecision(db, scenarioText, productId, { requirement = null, file = null, database = null } = {}) {
   const materialIds = new Set(db.materials.map((m) => m.id));
-  const headlineKeys = new Set(db.registry.headlines.map((h) => h.key));
+  const headlineKeys = new Set(db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
   const { scenario, warnings } = deserialize(scenarioText, db.meta, { materialIds, headlineKeys });
   const saved = JSON.parse(scenarioText).release ?? null;
   const grade = db.grades.find((g) => g.id === productId);
@@ -188,7 +188,7 @@ export function traceDecision(db, scenarioText, productId, { requirement = null,
   if (grade.retired) throw new Error(`${productId} is retired: it backs nothing and is never judged`);
 
   const ctx = pageContext(db, scenario);
-  const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
+  const units = Object.fromEntries(db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => [h.key, h.unit]));
   // A family entry owns no product and is never a candidate; assumptions are the scenario's, never the database's.
   const candidates = db.materials.filter((m) => !m.familyEntry);
   const materials = scenario.assumptions.length ? candidates.map((m) => applyAssumptions(m, scenario.assumptions, units).material) : candidates;

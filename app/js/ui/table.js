@@ -619,8 +619,9 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     return out;
   }).join(' | ');
   const ids = (m) => KEYS.map((k) => m.headline[k]?.measurementId).filter(Boolean).join(' ');
+  // Only the export's own keys: a drawer-only headline (D139) is computed per product but is no column here.
   const estimated = (m) => [...Object.entries(m.headline)
-    .filter(([, h]) => h && !h.known && (h.estimate || h.notApplicable))
+    .filter(([k, h]) => KEYS.includes(k) && h && !h.known && (h.estimate || h.notApplicable))
     .map(([k, h]) => (h.notApplicable ? `${k} not applicable`
       : `${k} ~${h.estimate.lo}-${h.estimate.hi} ${h.estimate.unit} likely, ${h.estimate.plausible.lo}-${h.estimate.plausible.hi} plausible (${h.estimate.strength}; precision ${h.estimate.precision}; ${h.estimate.canScreen ? 'can screen' : 'context only'})`)),
     ...(m.print?.nozzleEstimate ? [`nozzle ~${m.print.nozzleEstimate.lo}-${m.print.nozzleEstimate.hi} C (${m.print.nozzleEstimate.basis}; decides nothing)`] : []),

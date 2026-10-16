@@ -82,7 +82,8 @@ what it means and how to fix it.
 | `REGISTRY-CODE-REFERENCE` | error | Code relies on a property name that is not in properties.csv. | Rename the property in build/src/property-references.js and the code that uses it, or restore the property. |
 | `REGISTRY-REPLACED` | error | A property replaced by another is still used by a measurement or a headline, or its replacement is missing or itself replaced. | Move the rows to the replacement with a migration; keep the replaced record. |
 | `RELATIONS-HEADLINE-DRIFT` | error | A headline lower bound (headline_definitions.csv) that no physical relation with Scope headline or both covers, or a headline relation that no headline reads; the lint and the headline would order the same properties differently. | Add or correct the row in physical_relations.csv, or the headline's Lower bound properties, so the two name the same pairs. |
-| `REGISTRY-HEADLINE` | error | A headline definition is inconsistent (value properties, evidence group, unit, price kind). | Correct the definition in headline_definitions.csv. |
+| `REGISTRY-HEADLINE` | error | A headline definition is inconsistent (value properties, evidence group, unit, price kind, a direction or load without what a value that states none is). | Correct the definition in headline_definitions.csv. |
+| `REGISTRY-COMPARISON` | error | A drawer comparison cannot be drawn as one heading (no caption in method.csv, fewer than two headlines, properties of two domains or of another comparison, a pair label over a unit with other than two headlines, a Drawer comparison naming no row of drawer_comparisons.csv), or a headline drawn in the drawer alone could hold a value a decision reads (estimated, a table column, a bound or reference envelope, or a value with no stated direction or load). | Correct drawer_comparisons.csv, method.csv or the headline's row in headline_definitions.csv (D139). |
 
 ## Measurements
 
@@ -113,6 +114,7 @@ what it means and how to fix it.
 
 | Code | Level | Means | Fix |
 |---|---|---|---|
+| `HEADLINE-LOAD` | error | A product value of a headline that excludes a value with no stated load (HDT at 1.8 MPa) was published without one. | A defect in build/src/products.js (assess): a value whose source states no load is the lighter load's, as published, never the heavier one's (D139). |
 | `HEADLINE-DIRECTION` | error | A product value decides as comparable but its measurement states another direction than its headline's, or a headline that excludes an unstated direction (the layer strength) carries a value published without one. | A defect in build/src/products.js (assess): an unstated direction is as published where the headline says so, never comparable, and never a Z value (D92). |
 | `IMPACT-UNITS` | info | Impact data in J/m and kJ/m², which cannot share an axis. | Informational; no conversion without specimen geometry. |
 

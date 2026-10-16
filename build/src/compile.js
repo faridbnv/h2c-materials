@@ -416,9 +416,10 @@ function compilePriceHeadline(mat, pricesByMaterial) {
  * family entry has none of its own; a material none of whose products publishes a comparable value has insufficient
  * comparable data; every other material shows its products' spread (D83).
  */
-function headlineBasis(m) {
+function headlineBasis(m, selectable) {
   if (m.familyEntry) return 'Family entry: no values of its own; see its member materials';
-  const measured = Object.entries(m.summary ?? {}).some(([key, s]) => key !== 'priceCADkg' && s.n > 0);
+  // A headline drawn in the drawer alone (D139) is not one the material's numbers are shown on.
+  const measured = Object.entries(m.summary ?? {}).some(([key, s]) => key !== 'priceCADkg' && selectable.has(key) && s.n > 0);
   if (!measured) return 'Insufficient comparable data: none of its products publishes a comparable value';
   return 'Each number is the typical value of its products that publish it comparably, with their range; the Products tab has each one';
 }
@@ -700,7 +701,8 @@ export function compile(wb, { snapshot, build }) {
   // What a maker sells a product as (D133): read before the spreads, which name the products that make the claim.
   attachProductClaims(wb['Product claims']?.rows ?? [], { grades, evidenceRows, issues });
   attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, issues });
-  for (const m of materials) m.headlineBasis = headlineBasis(m);
+  const selectable = new Set(registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
+  for (const m of materials) m.headlineBasis = headlineBasis(m, selectable);
 
   // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
   // are not compiled here: the estimate stage (build/src/estimate/) adds them to the finished database.

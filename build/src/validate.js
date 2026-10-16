@@ -205,6 +205,14 @@ export function validate(db, wb) {
     }
   }
 
+  // The same for a load: a headline that excludes a value with no stated load (HDT at 1.8 MPa) has none (D139).
+  for (const g of db.grades) {
+    for (const def of measurementHeadlines(db.registry).filter((h) => h.unstatedLoad === 'excluded')) {
+      const v = g.headline?.[def.key];
+      if (v && v.level !== 'comparable') issues.push(err('HEADLINE-LOAD', `grades ${g.id}`, `${def.key} excludes a value without a stated load, but carries one (${v.measurementId})`));
+    }
+  }
+
   // -- impact units are never silently reconciled -----------------------------
   // Method sheet, Normalization / Units: "No conversion from J/m without specimen geometry."
   const impact = db.measurements.filter((m) => /Charpy|Izod|Impact/i.test(m.property) && m.numeric);

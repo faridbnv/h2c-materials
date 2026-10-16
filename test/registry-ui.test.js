@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { useRegistry, numericFilters, nonNegativeKeys, exportHeadlines, propertiesInDomain, propertyApplies, REGISTRY } from '../app/js/ui/registry.js';
+import { useRegistry, numericFilters, nonNegativeKeys, exportHeadlines, tableHeadlines, headlineDef, propertiesInDomain, propertyApplies, REGISTRY } from '../app/js/ui/registry.js';
 import { PROPERTY } from '../app/js/ui/labels.js';
 import { AXIS_DEFS } from '../app/js/ui/axes.js';
 import { COLUMN_SETS, sortForColumnSet } from '../app/js/ui/table.js';
@@ -59,21 +59,41 @@ test('labels, axes, filters, table columns and export headers reproduce the hard
 
 test('every headline the registry holds reaches every list, in registry order, and the six keep their places among them', () => {
   useRegistry(db.registry);
-  const keys = db.registry.headlines.map((h) => h.key);
+  // A drawer-only headline (D139) reaches none of these lists; the next test holds that.
+  const selectable = db.registry.headlines.filter((h) => !h.drawerOnly);
+  const keys = selectable.map((h) => h.key);
   assert.deepEqual(Object.keys(PROPERTY), keys);
   assert.deepEqual(AXIS_DEFS.map((a) => a.key), keys);
   assert.deepEqual(numericFilters().map((f) => f.key), keys);
   assert.deepEqual(exportHeadlines().map((h) => h.key), keys);
   assert.deepEqual(keys.filter((k) => LEGACY.has(k)), legacy.CSV_KEYS);
   assert.deepEqual(COLUMN_SETS.properties.columns.filter((c) => c.kind === 'headline' || c.kind === 'price').map((c) => c.key),
-    db.registry.headlines.filter((h) => h.tableColumn).map((h) => h.key));
+    selectable.filter((h) => h.tableColumn).map((h) => h.key));
   // An axis carries the conditions its headline sets, and no others: a notch, a test temperature and a standard only where set.
-  for (const h of db.registry.headlines.filter((x) => x.kind === 'measurement')) {
+  for (const h of selectable.filter((x) => x.kind === 'measurement')) {
     const m = AXIS_DEFS.find((a) => a.key === h.key).measurement;
     assert.equal(m.notch ?? null, h.notch, h.key);
     assert.equal(m.testTemperatureC ?? null, h.testTemperatureC, h.key);
     assert.equal(m.standard ?? null, h.standard, h.key);
   }
+});
+
+test('a drawer-only headline reaches the drawer\'s list and none of the decision lists', () => {
+  const registry = structuredClone(db.registry);
+  const key = 'tensileModulusZTest';
+  const base = registry.headlines.find((h) => h.kind === 'measurement');
+  registry.headlines.push({ ...structuredClone(base), key, drawerOnly: true, tableColumn: true, labels: { ...base.labels, export: 'Tensile modulus Z test GPa' } });
+  registry.comparisons = [{ name: 'X', about: 'Y', pairLabel: null }];
+  useRegistry(registry);
+  assert.ok(REGISTRY.allHeadlines.some((h) => h.key === key));
+  assert.ok(!Object.keys(PROPERTY).includes(key));
+  assert.ok(!AXIS_DEFS.some((a) => a.key === key));
+  assert.ok(!numericFilters().some((f) => f.key === key));
+  assert.ok(!exportHeadlines().some((h) => h.key === key));
+  assert.ok(!tableHeadlines().some((h) => h.key === key));
+  assert.equal(headlineDef(key), null);
+  assert.deepEqual(REGISTRY.comparisons, registry.comparisons);
+  useRegistry(db.registry);
 });
 
 test('the drawer uses the shared labels and the shared property domains (D46 corrections)', () => {

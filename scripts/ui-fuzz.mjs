@@ -64,8 +64,10 @@ const html = readdirSync(join(root, 'dist')).find((f) => f === pageName(db.meta)
 if (!html) { console.error(`No built page for release ${db.meta.release?.id} (data ${db.meta.snapshot}) in dist/; run npm run build`); process.exit(1); }
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 const candidates = db.materials.filter((m) => !m.familyEntry);
-const KEYS = db.registry.headlines.map((h) => h.key);
-const BETTER = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.better]));
+// Selectable headlines only: a drawer-only one (D139) is no requirement, axis or assumption.
+const SELECTABLE = db.registry.headlines.filter((h) => !h.drawerOnly);
+const KEYS = SELECTABLE.map((h) => h.key);
+const BETTER = Object.fromEntries(SELECTABLE.map((h) => [h.key, h.better]));
 const group = (rows, key) => { const m = new Map(); for (const r of rows) { if (!m.has(r[key])) m.set(r[key], []); m.get(r[key]).push(r); } return m; };
 const gradeById = new Map(db.grades.map((g) => [g.id, g]));
 const baseCtx = { db, productsByMaterial: productsOf, measurementsByMaterial: group(db.measurements, 'materialId'), evidenceByMaterial: group(db.evidence, 'materialId'), polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'), coverageByMaterial: group(db.coverage, 'materialId') };
@@ -203,7 +205,7 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   const { u, e } = SETTINGS[setting];
   const explore = u === UNKNOWN_POLICY.EXPLORATION;
   const ctx = { ...baseCtx, unknownPolicy: u, useEstimates: explore && e, showEstimates: explore && e, anneal: !!s.anneal, annealMaxC: s.annealMaxC ?? null, moisture: s.moisture ?? 'dry' };
-  const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
+  const units = Object.fromEntries(SELECTABLE.map((h) => [h.key, h.unit]));
   const materials = s.assumptions.length ? candidates.map((m) => applyAssumptions(m, s.assumptions, units).material) : candidates;
   const sel = runSelection(materials, s.constraints, ctx);
   const q = s.search.trim();

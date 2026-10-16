@@ -99,7 +99,11 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "3616c08ad393143d322d64895154004099f3f2976c1ba31aff6abd7bd5a68952"
+      "sha256": "9c5811df1545c423fff6f12d3cc4c0f84ba5478635064f184f3dfdcfc335439d"
+    },
+    "drawer_comparisons": {
+      "rows": 1,
+      "sha256": "45577d5d577c43ca411accdb32dc78263ea49e44e1bab0997a62b962308b2743"
     },
     "polymers": {
       "rows": 48,

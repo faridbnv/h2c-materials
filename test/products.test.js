@@ -88,7 +88,7 @@ test('an off-recipe value with no in-recipe counterpart is excluded independentl
     specimenForm: 'off-recipe', direction: 'XY', moistureState: 'not-stated', postProcessingState: 'not-stated' };
   for (const own of [[], [m]]) {
     assert.deepEqual(assess(m, defs.get('tensileModulusXY'), own),
-      { excluded: 'printed at a setting the product is not meant for (D95)' });
+      { excluded: 'printed at a setting the product is not meant for (D95)', why: 'offRecipe' });
   }
 });
 
@@ -97,7 +97,7 @@ test('a bar printed below full infill is shown but never the product\'s value, w
     unit: 'GPa', value: 1.1, implausible: false, specimenType: 'Printed specimen at partial infill',
     specimenForm: 'off-recipe', direction: 'XY', moistureState: 'not-stated', postProcessingState: 'not-stated' };
   assert.deepEqual(assess(m, defs.get('tensileModulusXY'), [m]),
-    { excluded: 'printed below 100 % infill, a part filled that far rather than the material as a solid part (D130)' });
+    { excluded: 'printed below 100 % infill, a part filled that far rather than the material as a solid part (D130)', why: 'partialInfill' });
   // 3DJake's three sheets that print "Infill: 20 %" (m366) hold no value that decides.
   const partial = db.measurements.filter((x) => x.specimenType === 'Printed specimen at partial infill');
   assert.ok(partial.length >= 16, `${partial.length} values at partial infill`);

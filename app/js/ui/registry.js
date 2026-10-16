@@ -3,7 +3,7 @@
 //
 // Labels, filters, chart axes, table columns, the export and the drawer's property tabs used to be
 // six hand-kept lists that had to agree. They are now derived from one registry at start-up, so a
-// registry row appears everywhere at once and nowhere can fall out of step.
+// selectable registry row appears everywhere at once and nowhere can fall out of step.
 //
 // PROPERTY (labels.js) and AXIS_DEFS (axes.js) stay the objects every view imports; useRegistry fills
 // them in place.
@@ -11,10 +11,15 @@
 import { PROPERTY } from './labels.js';
 import { AXIS_DEFS } from './axes.js';
 
-export const REGISTRY = { headlines: [], properties: [] };
+// headlines is the selectable set every list below reads; allHeadlines adds the drawer-only ones. A drawer-only headline
+// (headline_definitions "Drawer only", D139) is drawn in the drawer alone and is never a filter, an axis, a table or export
+// column, or a scenario key.
+export const REGISTRY = { headlines: [], allHeadlines: [], comparisons: [], properties: [] };
 
 export function useRegistry(registry) {
-  REGISTRY.headlines = registry?.headlines ?? [];
+  REGISTRY.allHeadlines = registry?.headlines ?? [];
+  REGISTRY.headlines = REGISTRY.allHeadlines.filter((h) => !h.drawerOnly);
+  REGISTRY.comparisons = registry?.comparisons ?? [];
   REGISTRY.properties = registry?.properties ?? [];
 
   for (const k of Object.keys(PROPERTY)) delete PROPERTY[k];

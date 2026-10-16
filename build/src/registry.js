@@ -90,7 +90,11 @@ export function compileRegistry(wb, issues) {
     if (!next || next.replacedBy) err('REGISTRY-REPLACED', `properties ${p.name}`, `Replaced by "${p.replacedBy}", which is ${next ? 'itself replaced' : 'not a property'}`);
   }
 
-  const methodTopics = new Set((wb.Method?.rows ?? []).map((r) => r.Topic));
+  // The comparisons the drawer draws (drawer_comparisons.csv, D133, D139): a heading each, with the words that belong to
+  // the whole comparison. Its caption is the method.csv rule of the same Topic.
+  const comparisons = (wb['Drawer comparisons']?.rows ?? []).map((r) => ({ name: r.Comparison, about: r.About, pairLabel: orNull(r['Pair label']) }));
+  const comparisonNames = new Set(comparisons.map((x) => x.name));
+  const captions = new Set((wb.Method?.rows ?? []).filter((r) => r.Section === 'Comparison').map((r) => r.Topic));
   const headlines = wb['Headline definitions'].rows.map((r) => {
     const where = `headline_definitions ${r.HeadlineKey}`;
     const appliesTo = parseAppliesTo(r['Applies to'], where, issues, materialRows);
@@ -107,6 +111,8 @@ export function compileRegistry(wb, issues) {
       // A value whose source states no direction: this headline's as published (D84), or none of its values (D92).
       unstatedDirection: orNull(r['Unstated direction']),
       loadMPa: numOrNull(r['Load MPa']),
+      // A value whose source states no load: this headline's as published (D84), or none of its values (D139).
+      unstatedLoad: orNull(r['Unstated load']),
       // The conditions an impact value is defined at (D92): the notch it must state, and the test temperature a stated
       // one must be.
       notch: orNull(r.Notch), testTemperatureC: numOrNull(r['Test temperature °C']),
@@ -119,9 +125,12 @@ export function compileRegistry(wb, issues) {
       evidenceGroup: orNull(r['Evidence group']),
       endpointNote: bool(r['Endpoint note']),
       comparisonNote: orNull(r['Comparison note']),
-      // The comparison the drawer draws it in, beside the headlines that name the same one (D133): a Topic of method.csv,
-      // whose rule is the caption. Nothing is converted between them.
+      // The comparison the drawer draws it in, beside the headlines that name the same one (D133): a row of
+      // drawer_comparisons.csv, whose method.csv rule is the caption. Nothing is converted between them.
       drawerComparison: orNull(r['Drawer comparison']),
+      // Drawn in the drawer alone (D139): each product's value and the material's spread, but never a filter, an axis, a
+      // table or export column, a scenario key or a decision state.
+      drawerOnly: bool(r['Drawer only']),
       // What its spread does with the products sold as toughened (product_claims.csv, D133): named, it says how many and
       // what the others give, and keeps them in the median; set apart, they leave the median as a variant's values do.
       toughened: orNull(r['Sold as toughened']),
@@ -131,7 +140,7 @@ export function compileRegistry(wb, issues) {
       tableColumn: bool(r['Table column']), estimated: bool(r.Estimated), referenceProperty: orNull(r['Reference property']),
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
-    if (h.drawerComparison && !methodTopics.has(h.drawerComparison)) err('REGISTRY-HEADLINE', where, `Drawer comparison "${h.drawerComparison}" names no Topic of method.csv, whose rule is its caption`);
+    if (h.drawerComparison && !comparisonNames.has(h.drawerComparison)) err('REGISTRY-COMPARISON', where, `Drawer comparison "${h.drawerComparison}" names no row of drawer_comparisons.csv`);
     if (h.toughened && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline\'s spread names the products sold as toughened');
     if (h.drawerComparison && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline is drawn product by product in a drawer comparison');
     for (const name of [...h.valueProperties, ...h.relatedProperties, ...(h.lowerBounds?.properties ?? [])]) {
@@ -146,12 +155,15 @@ export function compileRegistry(wb, issues) {
       }
       // A headline with a direction says what a value without one is; a headline without a direction has nothing to say.
       if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (as-published or excluded)` : 'Unstated direction is set, but the headline has no Direction');
+      // The same for a load: a headline defined at one says what a value with none is.
+      if ((h.loadMPa != null) !== !!h.unstatedLoad) err('REGISTRY-HEADLINE', where, h.loadMPa != null ? `Load MPa ${h.loadMPa} needs an Unstated load (as-published or excluded)` : 'Unstated load is set, but the headline has no Load MPa');
     } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard || h.changesWithAnnealing || h.changesWithMoisture) {
       err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties and its test conditions must be Not applicable');
     }
     return h;
   });
   if (headlines.filter((h) => h.kind === 'price').length > 1) err('REGISTRY-HEADLINE', 'headline_definitions', 'Only one price headline exists');
+  checkComparisons(comparisons, headlines, { captions, propertyByName, err });
 
   // The orderings physics fixes between two properties (physical_relations.csv). A headline's lower bounds are their
   // projection onto a material, so the two lists must agree (RELATIONS-HEADLINE-DRIFT).
@@ -163,7 +175,50 @@ export function compileRegistry(wb, issues) {
   }
   if (wb['Physical relations']) for (const problem of headlineDrift(relations, headlines.filter((h) => h.kind === 'measurement'))) err('RELATIONS-HEADLINE-DRIFT', 'physical_relations', problem);
 
-  return { properties, headlines, relations };
+  return { properties, headlines, comparisons, relations };
+}
+
+/**
+ * What a drawer comparison must be to be drawn as one heading on one tab (D139): its caption written, two headlines or
+ * more, their properties in one domain and in no other comparison, a pair where it names one; and a headline drawn in
+ * the drawer alone must be drawn there, and must hold no value a decision could read: none estimated, none in the
+ * table, none as published (an unstated direction or load excluded), no bound and no reference envelope.
+ */
+function checkComparisons(comparisons, headlines, { captions, propertyByName, err }) {
+  const owner = new Map();
+  for (const cmp of comparisons) {
+    const where = `drawer_comparisons ${cmp.name}`;
+    const hs = headlines.filter((h) => h.drawerComparison === cmp.name);
+    if (!captions.has(cmp.name)) err('REGISTRY-COMPARISON', where, 'Its caption, a method.csv row of Section Comparison and this Topic, is missing');
+    if (hs.length < 2) err('REGISTRY-COMPARISON', where, `${hs.length} headline(s) name it; a comparison draws two or more`);
+    const props = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
+    const domains = new Set(hs.flatMap((h) => h.valueProperties.map((p) => propertyByName.get(p)?.domain)));
+    if (domains.size > 1) err('REGISTRY-COMPARISON', where, `Its headlines read properties of ${[...domains].join(' and ')}; one heading is drawn on one tab`);
+    for (const p of props) {
+      if (owner.has(p)) err('REGISTRY-COMPARISON', where, `${p} is already in the comparison ${owner.get(p)}; a record is listed under one heading`);
+      else owner.set(p, cmp.name);
+    }
+    if (cmp.pairLabel) {
+      for (const unit of new Set(hs.map((h) => h.unit))) {
+        const n = hs.filter((h) => h.unit === unit).length;
+        if (n !== 2) err('REGISTRY-COMPARISON', where, `Pair label "${cmp.pairLabel}" names a pair, but ${n} of its headlines are in ${unit}`);
+      }
+    }
+  }
+  for (const h of headlines.filter((x) => x.drawerOnly)) {
+    const where = `headline_definitions ${h.key}`;
+    const problems = [
+      h.kind !== 'measurement' ? 'it is not a measurement headline' : null,
+      !h.drawerComparison ? 'it names no Drawer comparison' : null,
+      h.tableColumn ? 'Table column is TRUE' : null,
+      h.estimated ? 'Estimated is TRUE' : null,
+      h.lowerBounds ? 'it has lower bound properties' : null,
+      h.referenceProperty ? 'it has a reference property' : null,
+      h.direction && h.unstatedDirection !== 'excluded' ? 'a value with no stated direction would be as published' : null,
+      h.loadMPa != null && h.unstatedLoad !== 'excluded' ? 'a value with no stated load would be as published' : null,
+    ].filter(Boolean);
+    if (problems.length) err('REGISTRY-COMPARISON', where, `Drawer only, but ${problems.join('; ')}`);
+  }
 }
 
 /** Convenience lookups over a compiled registry (db.registry). */
