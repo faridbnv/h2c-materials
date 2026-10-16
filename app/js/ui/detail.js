@@ -283,7 +283,8 @@ export function groupByMaker(grades, first = null) {
 /** The maker a material's panel opens on: the one whose product is most often its typical product (D83), else none. */
 function leadMaker(m, c) {
   const count = new Map();
-  for (const h of Object.values(m.headline ?? {})) {
+  // The selectable headlines only: one drawn in the drawer alone (D139) does not move the maker a tab opens on.
+  for (const h of REGISTRY.headlines.map((d) => m.headline?.[d.key])) {
     const maker = h?.typical && c.gradeById.get(h.typical.gradeId)?.manufacturer;
     if (maker) count.set(maker, (count.get(maker) ?? 0) + 1);
   }
@@ -767,17 +768,17 @@ export function renderDrawer(host, state, actions) {
     gradeOpen.set(b.dataset.gradeToggle, !body.hidden);
   }));
   wireEvidence(host, actions);
-  // A product's dot on one impact row lights its dot on the other, so the two tests are read for the same product. A dot,
-  // or the one value a sentence names where nothing is drawn, opens its record in the list below it, on this tab, from
-  // where its document is one press away.
+  // A product's dot on one row of a comparison lights its dots on the others, so the tests are read for the same product.
+  // A dot, or a value a sentence names where nothing is drawn, opens its record in the list below it, in its heading,
+  // from where its document is one press away.
   host.querySelectorAll('.imp-dot[data-grade]').forEach((d) => {
-    const pair = (on) => host.querySelectorAll(`.imp-dot[data-grade="${CSS.escape(d.dataset.grade)}"]`).forEach((x) => x.classList.toggle('partner', on));
+    const pair = (on) => (d.closest('.imp-block') ?? host).querySelectorAll(`.imp-dot[data-grade="${CSS.escape(d.dataset.grade)}"]`).forEach((x) => x.classList.toggle('partner', on));
     d.addEventListener('mouseenter', () => pair(true));
     d.addEventListener('mouseleave', () => pair(false));
   });
   host.querySelectorAll('.imp-block [data-row]').forEach((d) => d.addEventListener('click', (ev) => {
     ev.stopPropagation();
-    const row = host.querySelector(`.imp-records .evidence-row[data-mid="${CSS.escape(d.dataset.row)}"]`);
+    const row = (d.closest('.imp-block') ?? host).querySelector(`.imp-records .evidence-row[data-mid="${CSS.escape(d.dataset.row)}"]`);
     if (!row) { actions.openMeasurement(d.dataset.row); return; }
     host.querySelectorAll('.evidence-row.target').forEach((r) => r.classList.remove('target'));
     row.classList.add('target');
@@ -818,7 +819,8 @@ const LEVEL_NOTE = {
 
 /** A product's own value for each headline (build/src/products.js): its measurement, and a mark where it is not comparable. */
 function productValues(g, c) {
-  const rows = REGISTRY.headlines.filter((h) => g.headline?.[h.key]).map((h) => {
+  // Every headline it publishes, those drawn in the drawer alone too (D139).
+  const rows = REGISTRY.allHeadlines.filter((h) => g.headline?.[h.key]).map((h) => {
     const v = g.headline[h.key];
     // A bound the source published ("> 300 %") reads as one, and the hover says it is a limit and not the value.
     const shown = esc(fmtBounded(v.value, h.unit, v.interval));
@@ -1071,13 +1073,30 @@ function changedState(x, v) {
 // The dots of one row: a shared scale with labelled ticks and faint grid lines across the rows. Impact results of one
 // material run from a few kJ/m² to tens (PLA: 3 to 72), so the scale is logarithmic once the largest is more than ten
 // times the smallest, with ticks at 1, 2 and 5 of each decade; below that it is linear from zero, ticked every round
-// step. Dots closer than DOT_GAP per cent of the track stack upward, up to MAX_ROWS rows; past that they overlap, and
-// the table under the rows lists every product.
+// step. A temperature is an interval, not a ratio: its scale is linear from the round step at or below the lowest value
+// (a glass transition may be below zero) and never logarithmic. Dots closer than DOT_GAP per cent of the track stack
+// upward, up to MAX_ROWS rows; past that they overlap, and the table under the rows lists every product.
 const LOG_RATIO = 10;
 const DOT_GAP = 2.4;
 const MAX_ROWS = 6;
 const NICE = [1, 2, 5];
-function stripScale(values) {
+// A round step giving four to eight ticks over a span.
+const roundStep = (span) => {
+  const raw = span / 5;
+  const mag = 10 ** Math.floor(Math.log10(raw));
+  return [1, 2, 2.5, 5, 10].map((n) => n * mag).find((v) => v >= raw);
+};
+function stripScale(values, unit) {
+  if (unit === '°C') {
+    const lo = Math.min(...values), hiValue = Math.max(...values);
+    // At least a 10 °C span, so two products a degree apart are not drawn at the ends of the track.
+    const step = roundStep(Math.max(hiValue - lo, 10));
+    const from = Math.floor(lo / step) * step;
+    const hi = Math.ceil(hiValue / step) * step;
+    const ticks = [];
+    for (let v = from; v <= hi + step / 2; v += step) ticks.push(Number(v.toPrecision(6)));
+    return { log: false, from, hi, ticks, pct: (v) => Math.max(0, Math.min(100, ((v - from) / (hi - from)) * 100)) };
+  }
   const positive = values.filter((v) => v > 0);
   const hiValue = Math.max(0, ...values);
   const loValue = positive.length ? Math.min(...positive) : 0;
@@ -1092,10 +1111,8 @@ function stripScale(values) {
     return { log, from, hi, ticks: steps.filter((v) => v >= from && v <= hi),
       pct: (v) => Math.max(0, Math.min(100, ((Math.log10(Math.max(v, from)) - Math.log10(from)) / span) * 100)) };
   }
-  // A round step giving four to eight ticks, and the track to the first tick at or past the largest value.
-  const raw = (hiValue || 1) / 5;
-  const mag = 10 ** Math.floor(Math.log10(raw));
-  const step = [1, 2, 2.5, 5, 10].map((n) => n * mag).find((v) => v >= raw);
+  // The track to the first tick at or past the largest value.
+  const step = roundStep(hiValue || 1);
   const hi = Math.ceil((hiValue || 1) / step) * step;
   const ticks = [];
   for (let v = 0; v <= hi + step / 2; v += step) ticks.push(Number(v.toPrecision(6)));
@@ -1114,7 +1131,22 @@ function stack(entries, pct) {
   return Math.max(1, rows.length);
 }
 
-/** A dot's shape: hollow with no stated orientation, square annealed, a diamond a special formulation, coloured sold as toughened. */
+/** What a hollow dot's sheet leaves unstated: the orientation, or the test load, its row's test is defined at (D84). */
+const asPublishedWords = (h) => (h.direction ? 'no stated orientation' : 'no stated test load');
+/** What a row compares its products on, said of the products that state it: the bar's orientation (XY), or the test load. */
+function statedWhat(hs) {
+  const dirs = [...new Set(hs.map((h) => h.direction))];
+  if (dirs.every(Boolean)) return `the bar's orientation (${dirs.join(' or ')})`;
+  return hs.every((h) => h.loadMPa != null) ? 'the test load' : 'the bar\'s orientation or the test load';
+}
+/** What a filled dot is, in the key: its orientation stated (XY), its test load stated, or, where the rows differ, compared. */
+function filledWords(hs) {
+  const dirs = [...new Set(hs.map((h) => h.direction))];
+  if (dirs.every(Boolean)) return `orientation stated (${dirs.join(' or ')})`;
+  return hs.every((h) => h.loadMPa != null) ? 'test load stated' : 'compared';
+}
+
+/** A dot's shape: hollow with no stated orientation or load, square annealed, a diamond a special formulation, coloured sold as toughened. */
 const dotClass = (h, e, c) => [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '',
   h.toughened && soldToughened(e.g, e.v, c) ? 'claimed' : ''].filter(Boolean).join(' ');
 
@@ -1126,7 +1158,7 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
   const dots = entries.map((e) => {
     const x = c.msById.get(e.v.measurementId);
     const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
-    const kind = [e.v.level === 'as-published' ? 'no stated orientation' : null, ...changedState(x, e.v),
+    const kind = [e.v.level === 'as-published' ? asPublishedWords(h) : null, ...changedState(x, e.v),
       e.variant ? 'special formulation, left out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
     const cls = dotClass(h, e, c);
@@ -1139,41 +1171,51 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
 
 /**
  * What each row of dots holds, a test a line: how many products are compared, their median, middle half and range, and
- * the products drawn but left out of the median, by why.
+ * the products drawn but left out of the median, by why. Where the rows are in more than one unit, each says its own.
  */
 function spreadSummary(hs, m) {
   // A range never breaks across lines at its dash (U+2060 joins the dash to its numbers).
-  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}\u2060–\u2060${fmtNumber(x.max)}`);
-  const apartOf = (s) => [s?.asPublished ? `${s.asPublished.n} with no stated orientation (${span(s.asPublished)})` : null,
+  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}⁠–⁠${fmtNumber(x.max)}`);
+  const apartOf = (h, s) => [s?.asPublished ? `${s.asPublished.n} with ${asPublishedWords(h)} (${span(s.asPublished)})` : null,
     s?.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : null,
     s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : null].filter(Boolean);
+  const units = new Set(hs.map((h) => h.unit));
   const row = (h) => {
     const s = m.summary?.[h.key];
-    const apart = apartOf(s);
-    return `<tr><th scope="row">${esc(h.labels.plain)}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>
+    const apart = apartOf(h, s);
+    return `<tr><th scope="row">${esc(h.labels.plain)}${units.size > 1 ? ` <span class="u">${esc(h.unit)}</span>` : ''}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>
       <td class="num">${s?.q1 != null ? esc(`${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s?.n ? esc(span(s)) : '—'}</td></tr>
       ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : ''}`;
   };
   const claimed = hs.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s?.claimed);
   const apart = hs.some((h) => m.summary?.[h.key]?.claimed?.setApart) ? 'special formulations and products sold as toughened' : 'special formulations';
-  const rule = `the products whose sheet states the bar's orientation (XY), except ${apart}`;
+  // A row a value with no stated orientation or load may stand on compares only the products whose sheet states it
+  // (D84); a row that excludes such a value, or has nothing to state, compares every product drawn on it.
+  const open = hs.filter((h) => (h.direction && h.unstatedDirection === 'as-published') || (h.loadMPa != null && h.unstatedLoad === 'as-published'));
+  const dirs = [...new Set(open.map((h) => h.direction))];
+  const onRows = dirs.length === 1 && dirs[0] ? `the ${dirs[0]} row${open.length > 1 ? 's' : ''}` : `the ${andList(open.map((h) => h.labels.plain))} row${open.length > 1 ? 's' : ''}`;
+  const rule = open.length === hs.length ? `n counts the products compared: the products whose sheet states ${statedWhat(open)}, except ${apart}.`
+    : open.length ? `n counts the products compared, ${apart} left out: on ${onRows}, those whose sheet states ${statedWhat(open)}; on the other${hs.length - open.length > 1 ? 's' : ''}, every product drawn.`
+      : `n counts the products compared: every product drawn, except ${apart}.`;
   const toughened = `${claimed.some(([, s]) => !s.claimed.setApart) ? ` ${claimed.filter(([, s]) => !s.claimed.setApart).map(([h, s]) => `${h.labels.plain}: ${toughenedSplit(s, h.unit)}`).map(esc).join(' ')}` : ''}${
     claimed.length ? ' "Sold as toughened" is the maker\'s own statement about its product, quoted on its value\'s line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.' : ''}`;
   // Where no value drawn is compared, a table of dashes says nothing: one sentence says why there is no median.
   if (hs.every((h) => !m.summary?.[h.key]?.n)) {
     const sum = (f) => hs.reduce((a, h) => a + (f(m.summary?.[h.key]) ?? 0), 0);
-    const open = sum((x) => x?.asPublished?.n), variants = sum((x) => x?.variants?.n), claimed = sum((x) => (x?.claimed?.setApart ? x.claimed.n : 0));
-    const drawnN = open + variants + claimed;
-    const reasons = [open ? `${open} ${open === 1 ? 'states' : 'state'} no orientation` : null,
+    const opened = sum((x) => x?.asPublished?.n), variants = sum((x) => x?.variants?.n), claimedN = sum((x) => (x?.claimed?.setApart ? x.claimed.n : 0));
+    const drawnN = opened + variants + claimedN;
+    const lacking = hs.filter((h) => m.summary?.[h.key]?.asPublished?.n);
+    const lack = lacking.every((h) => h.direction) ? 'orientation' : lacking.every((h) => h.loadMPa != null) ? 'test load' : 'orientation or test load';
+    const reasons = [opened ? `${opened} ${opened === 1 ? 'states' : 'state'} no ${lack}` : null,
       variants ? `${variants} ${variants === 1 ? 'is a special formulation' : 'are special formulations'}` : null,
-      claimed ? `${claimed} ${claimed === 1 ? 'is' : 'are'} sold as toughened` : null].filter(Boolean);
-    const why = reasons.length === 1 && open ? `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn states the bar's orientation (XY), and only those that do are compared`
+      claimedN ? `${claimedN} ${claimedN === 1 ? 'is' : 'are'} sold as toughened` : null].filter(Boolean);
+    const why = reasons.length === 1 && opened ? `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn states ${statedWhat(lacking)}, and only those that do are compared`
       : `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn is compared: ${andList(reasons)}`;
     return `<p class="fine imp-foot imp-no-median">No median: ${esc(why)}.${toughened}</p>`;
   }
-  return `${scrollTable(`<table class="grid imp-summary"><thead><tr><th>Test, <span class="u">${esc(hs[0].unit)}</span></th><th class="num" title="Products compared">n</th><th class="num">Median</th>
+  return `${scrollTable(`<table class="grid imp-summary"><thead><tr><th>Test${units.size > 1 ? '' : `, <span class="u">${esc(hs[0].unit)}</span>`}</th><th class="num" title="Products compared">n</th><th class="num">Median</th>
       <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${hs.map(row).join('')}</tbody></table>`)}
-    <p class="fine imp-foot">n counts the products compared: ${esc(rule)}. The median, middle half and range are of these alone.${toughened}</p>`;
+    <p class="fine imp-foot">${esc(rule)} The median, middle half and range are of these alone.${toughened}</p>`;
 }
 
 /**
@@ -1194,111 +1236,194 @@ function toughenedSplit(s, unit) {
   return `${k.n} of the ${s.n} ${k.n === 1 ? 'is a product its maker sells' : 'are products their makers sell'} as toughened or impact-modified (${span(k)}).${others}`;
 }
 
-/**
- * Why an impact result is not a product's drawn value, in the order the build asks (products.js assess, the test checks
- * the two agree): a result the build would take but that is not a product's chosen value is another value of a product
- * drawn. Read from the typed fields only.
- */
-export function impactWhy(x, h, c, drawnIds) {
-  if (drawnIds.has(x.id)) return 'drawn';
-  if (x.quarantined) return 'held';
-  if (!x.numeric) return 'noNumber';
-  if (!h) return 'unclear';
+// Why a record under a comparison is not drawn, as products.js assess asks it and in its order (ASSESS_ORDER; the test
+// checks the two agree), from the typed fields only. A record one of the comparison's headlines refuses on its own words
+// is counted by why; a resin supplier's value, refused by a headline with no bar to orient or load (a glass
+// transition), is the resin's, not a moulded bar's.
+const NOT_DRAWN_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'moulded', 'resin', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
+  'conditioned', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad'];
+const UNSTATED_DIRECTIONS = new Set(['unknown', 'not-applicable']);
+function refusedBy(x, h, c) {
   if (x.unit !== h.unit) return `unit:${x.unit}`;
   if (x.implausible) return 'implausible';
-  if (x.specimenForm === 'moulded') return 'moulded';
-  if (!['printed', 'not-stated'].includes(x.specimenForm)) return 'notPrinted';
+  if (x.specimenForm === 'off-recipe') return x.specimenType === 'Printed specimen at partial infill' ? 'partialInfill' : 'offRecipe';
+  if (!['printed', 'not-stated'].includes(x.specimenForm)) {
+    if (x.specimenForm === 'moulded') return h.direction || h.loadMPa != null ? 'moulded' : 'resin';
+    return ['film', 'filament'].includes(x.specimenForm) ? x.specimenForm : 'notPrinted';
+  }
   if (x.moistureState === 'conditioned') return 'conditioned';
   if (x.postProcessingState === 'annealed' && c.ms.some((y) => y !== x && y.gradeId === x.gradeId && y.property === x.property && !y.quarantined && y.postProcessingState === 'as-printed')) return 'annealed';
-  if (h.notch && x.notch !== h.notch) return x.notch === 'Unnotched' ? 'unnotched' : 'notch';
+  if (h.notch && x.notch !== h.notch) return x.notch === 'Unnotched' ? 'unnotched' : x.notch === 'Notched' ? 'notched' : 'notch';
   if (h.testTemperatureC != null && x.testTemperatureC != null && Math.abs(x.testTemperatureC - h.testTemperatureC) > 2) return x.testTemperatureC < h.testTemperatureC ? 'cold' : 'hot';
   if (h.standard && x.standards?.length && !x.standards.includes(h.standard)) return 'standard';
-  if (h.direction && x.direction !== h.direction && !['unknown', 'not-applicable'].includes(x.direction)) return 'direction';
+  if (h.direction && x.direction !== h.direction) {
+    if (!UNSTATED_DIRECTIONS.has(x.direction)) return 'direction';
+    if (h.unstatedDirection === 'excluded') return 'unstatedDirection';
+  }
+  if (h.loadMPa != null) {
+    if (x.thermal?.loadStated) { if (Math.abs(x.thermal.loadMPa - h.loadMPa) > 0.01) return 'load'; }
+    else if (h.unstatedLoad === 'excluded') return 'unstatedLoad';
+  }
+  return null;
+}
+const furthest = (a, b) => (NOT_DRAWN_ORDER.indexOf(b.split(':')[0]) > NOT_DRAWN_ORDER.indexOf(a.split(':')[0]) ? b : a);
+/**
+ * Why a record under a comparison is not a dot: drawn or named above; else refused by every headline that reads its
+ * property, counted by the one it got furthest with (an XZ bar is in another orientation for both XY and Z); else taken
+ * by one but not its product's chosen value, so another value of a product drawn.
+ */
+export function notDrawnWhy(x, hs, c, drawnIds, namedIds = new Set()) {
+  if (drawnIds.has(x.id)) return 'drawn';
+  if (namedIds.has(x.id)) return 'named';
+  if (x.quarantined) return 'held';
+  if (!x.numeric) return 'noNumber';
+  const reads = hs.filter((h) => h.valueProperties.includes(x.property));
+  if (!reads.length) return `property:${x.property}`;
+  const refused = reads.map((h) => refusedBy(x, h, c));
+  if (refused.every(Boolean)) return refused.reduce(furthest);
   const g = c.gradeById.get(x.gradeId);
   return !g || g.retired ? 'retired' : !isProduct(g) ? 'reference' : 'second';
 }
 // Each reason, counted: "80 unnotched", "1 on a moulded bar".
 const WHY_WORDS = {
-  held: (n) => `${n} held back`, noNumber: (n) => `${n} with no number`, unclear: (n) => `${n} of an unclear test`,
+  held: (n) => `${n} held back`, noNumber: (n) => `${n} with no number`,
   implausible: (n) => `${n} flagged implausible`, moulded: (n) => (n === 1 ? '1 on a moulded bar' : `${n} on moulded bars`),
+  resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} on film`, filament: (n) => `${n} on filament strands`,
+  offRecipe: (n) => `${n} printed at a setting the product is not meant for`, partialInfill: (n) => `${n} printed below 100 % infill`,
   notPrinted: (n) => `${n} not on a printed bar`, conditioned: (n) => `${n} after moisture conditioning`,
-  annealed: (n) => `${n} annealed beside an as-printed value`, unnotched: (n) => `${n} unnotched`, notch: (n) => `${n} with no stated notch`,
+  annealed: (n) => `${n} annealed beside an as-printed value`, unnotched: (n) => `${n} unnotched`, notched: (n) => `${n} notched`, notch: (n) => `${n} with no stated notch`,
   cold: (n) => `${n} struck cold`, hot: (n) => `${n} struck hot`, standard: (n) => `${n} to another standard`,
   direction: (n) => (n === 1 ? '1 on a bar in another orientation' : `${n} on bars in another orientation`),
+  unstatedDirection: (n) => `${n} with no stated orientation`, load: (n) => `${n} at another test load`, unstatedLoad: (n) => `${n} with no stated test load`,
   second: (n) => `${n} more of ${n === 1 ? 'a product' : 'products'} already drawn`, retired: (n) => `${n} of products no longer listed`,
   reference: (n) => `${n} of reference grades`,
 };
-const whyWords = (key, n) => (key.startsWith('unit:') ? `${n} in ${key.slice(5)}` : WHY_WORDS[key](n));
+const whyWords = (key, n) => (key.startsWith('unit:') ? `${n} in ${key.slice(5)}`
+  : key.startsWith('property:') ? `${n} of ${lower(propertyName(key.slice(9)))}` : WHY_WORDS[key](n));
 
 /**
  * Why a product's dot is not in its row's median, or null where it is: the build's split of the spread (products.js
- * summarise), a variant first, then a value with no stated orientation, then one sold as toughened where the headline
- * sets those apart (only a comparable one is).
+ * summarise), a variant first, then a value with no stated orientation or load, then one sold as toughened where the
+ * headline sets those apart (only a comparable one is).
  */
-function outOfMedian(e, s, c) {
+function outOfMedian(h, e, s, c) {
   if (e.variant) return 'special formulation';
-  if (e.v.level === 'as-published') return 'no stated orientation';
+  if (e.v.level === 'as-published') return asPublishedWords(h);
   if (s?.claimed?.setApart && soldToughened(e.g, e.v, c)) return 'sold as toughened';
   return null;
 }
 
+/** Z as a share of XY, per product: only where both its values are compared, from one document, of one property, in one state. */
+function shareOf(a, b, byKey, c) {
+  if (!a.direction || !b.direction || a.direction === b.direction || a.valueProperties.join(';') !== b.valueProperties.join(';')) return null;
+  const shares = [];
+  for (const ea of byKey.get(a.key)) {
+    const eb = byKey.get(b.key).find((x) => x.g.id === ea.g.id);
+    if (!eb || ea.variant || eb.variant || ea.v.level !== 'comparable' || eb.v.level !== 'comparable' || !(ea.v.value > 0)) continue;
+    const xa = c.msById.get(ea.v.measurementId), xb = c.msById.get(eb.v.measurementId);
+    const schedule = (v) => (v.anneal ? `${v.anneal.tempC}:${v.anneal.hours}` : null);
+    if (!xa || !xb || xa.property !== xb.property || xa.sourceId !== xb.sourceId || schedule(ea.v) !== schedule(eb.v)) continue;
+    shares.push(eb.v.value / ea.v.value);
+  }
+  return shares.length ? shares : null;
+}
+const middle = (xs) => { const s = [...xs].sort((p, q) => p - q), k = s.length >> 1; return s.length % 2 ? s[k] : (s[k - 1] + s[k]) / 2; };
+const pct = (r) => `${Math.round(r * 100)} %`;
+
 /**
- * The comparisons a tab draws (headline_definitions "Drawer comparison", D133), each one heading among the property
- * blocks that holds everything on its tests: a row of dots per headline on one scale, a product each; a table of what
- * each row's median is of; then every record of the properties its headlines read, under its property, with its
- * document. The record a dot stands for says so, and where it sits. Nothing is converted between the tests. Returns
- * each with the properties whose blocks it takes in and the line each dot's record carries.
+ * The comparisons a tab draws (drawer_comparisons.csv, headline_definitions "Drawer comparison", D133, D139), each one
+ * heading among the property blocks that holds everything on its tests: a row of dots per headline, a product each, on
+ * a scale shared by the headlines of its unit; a table of what each row's median is of; then every record of the
+ * properties its headlines read, under its property, with its document. The record a dot stands for says so, and where
+ * it sits. Nothing is converted between the tests. Returns each with the properties whose blocks it takes in and the
+ * line each dot's record carries.
  */
 function drawerComparisons(m, c, tab) {
-  const topics = [...new Set(REGISTRY.headlines.filter((h) => h.drawerComparison).map((h) => h.drawerComparison))];
   const inTab = new Set(tabProperties(tab, m));
   c.msById ??= new Map(c.ms.map((x) => [x.id, x]));
   const gradeLabel = (g) => gradeName(g) || g.id;
-  return topics.map((topic) => {
-    const hs = REGISTRY.headlines.filter((h) => h.drawerComparison === topic && !m.headline?.[h.key]?.notApplicable
+  return REGISTRY.comparisons.map((cmp) => {
+    const topic = cmp.name;
+    const hs = REGISTRY.allHeadlines.filter((h) => h.drawerComparison === topic && !m.headline?.[h.key]?.notApplicable
       && h.valueProperties.some((p) => inTab.has(p)));
     const properties = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
+    // Two of its headlines must apply: an elastomer, which no heat deflection applies to, keeps its glass transition as
+    // a property of its own.
+    if (hs.length < 2 || !c.ms.some((x) => properties.has(x.property) && x.numeric && !x.quarantined)) return null;
     const byKey = new Map(hs.map((h) => [h.key, spreadEntries(m, c, h.key)]));
-    if (!hs.length || !c.ms.some((x) => properties.has(x.property) && x.numeric && !x.quarantined)) return null;
     // What is drawn decides itself: a test with no product's value has no row, a mark no dot carries has no key, and a
-    // material whose products publish no value either test compares has no graph and no median, only its results.
-    const drawn = hs.filter((h) => byKey.get(h.key).length);
+    // scale with fewer than two products' values has no graph, only a sentence. A graph per unit, its headlines in
+    // registry order, so that a product can be found on each of a unit's tests; no scale is shared across units.
+    const graphs = [...new Set(hs.map((h) => h.unit))].map((unit) => {
+      const rows = hs.filter((h) => h.unit === unit && byKey.get(h.key).length);
+      return { unit, rows, dots: rows.flatMap((h) => byKey.get(h.key).map((e) => ({ h, e }))) };
+    });
+    const drawnGraphs = graphs.filter((gr) => gr.dots.length > 1);
+    const singles = graphs.filter((gr) => gr.dots.length === 1).map((gr) => gr.dots[0]);
+    const shown = drawnGraphs.flatMap((gr) => gr.rows);
+    const dots = drawnGraphs.flatMap((gr) => gr.dots);
     const silent = hs.filter((h) => !byKey.get(h.key).length);
     const caption = c.db.method?.find((r) => r.topic === topic)?.rule ?? '';
-    const dots = drawn.flatMap((h) => byKey.get(h.key).map((e) => ({ h, e })));
+    // One product's value, named in a sentence with the way to its record.
+    const oneValue = ({ h, e }) => `<button type="button" class="link-btn" data-row="${esc(e.v.measurementId)}">${esc(fmtBounded(e.v.value, h.unit, e.v.interval))}</button>${
+      e.v.level === 'as-published' ? `, with ${esc(asPublishedWords(h))}` : ''}`;
     let graph = '';
-    // A spread needs two points: one product's value is said in a sentence, not drawn.
-    if (dots.length > 1) {
-      const scale = stripScale(drawn.flatMap((h) => byKey.get(h.key).map((e) => e.v.value)));
-      const classes = drawn.flatMap((h) => byKey.get(h.key).map((e) => dotClass(h, e, c).split(' ')));
+    if (drawnGraphs.length) {
+      const classes = dots.map(({ h, e }) => dotClass(h, e, c).split(' '));
       const has = (k) => classes.some((x) => x.includes(k));
-      const summaries = drawn.map((h) => m.summary?.[h.key]).filter(Boolean);
+      const marked = (keep) => [...new Set(dots.filter((d, i) => keep(classes[i])).map((d) => d.h))];
+      const filled = marked((x) => !x.includes('open') && !x.includes('variant'));
+      const open = marked((x) => x.includes('open') && !x.includes('variant'));
+      const summaries = shown.map((h) => m.summary?.[h.key]).filter(Boolean);
       const key = [
-        classes.some((x) => !x.includes('open') && !x.includes('variant')) ? '<span><i class="imp-dot"></i> orientation stated (XY)</span>' : '',
-        classes.some((x) => x.includes('open') && !x.includes('variant')) ? '<span><i class="imp-dot open"></i> no stated orientation</span>' : '',
+        filled.length ? `<span><i class="imp-dot"></i> ${esc(filledWords(filled))}</span>` : '',
+        open.length ? `<span><i class="imp-dot open"></i> ${esc([...new Set(open.map(asPublishedWords))].join(' or '))}</span>` : '',
         has('annealed') ? '<span><i class="imp-dot annealed"></i> measured after annealing</span>' : '',
         has('variant') ? '<span><i class="imp-dot variant"></i> special formulation</span>' : '',
         has('claimed') ? '<span><i class="imp-dot claimed"></i> sold as toughened (the maker\'s statement)</span>' : '',
         summaries.some((x) => x.q1 != null) ? '<span><i class="imp-band-key"></i> middle half</span>' : '',
         summaries.some((x) => x.n > 1) ? '<span><i class="imp-median-key"></i> median</span>' : '',
       ].join('');
-      // The products that publish both tests, by name: the pairs the two rows are read for.
-      const both = byKey.get(drawn[0].key).filter((e) => drawn.every((h) => byKey.get(h.key).some((x) => x.g.id === e.g.id))).map((e) => gradeLabel(e.g));
-      const bothLine = drawn.length < 2 ? '' : both.length
-        ? `<p class="fine imp-foot">Both tests: ${esc(plural(both.length, 'product'))} (${esc(andList(both.slice(0, 6)))}${both.length > 6 ? ' and others' : ''}).</p>`
-        : '<p class="fine imp-foot">No product publishes both tests.</p>';
-      const silentLine = silent.length ? `<p class="fine imp-foot">${esc(andList(silent.map((h) => h.labels.plain)))}: no product has one, so ${silent.length > 1 ? 'they have' : 'it has'} no row; ${silent.length > 1 ? 'their' : 'its'} results are listed below.</p>` : '';
-      graph = `<div class="imp-strips">
-        ${drawn.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
-        <div class="imp-row imp-axis"><span class="fine">${esc(drawn[0].unit)}${scale.log ? ', log scale' : ''}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div>
+      const hint = `Select a dot to open its result below${shown.length > 1 ? `; hover to find the same product in the other row${shown.length > 2 ? 's' : ''}` : ''}.`;
+      const strips = drawnGraphs.map((gr, i) => {
+        const scale = stripScale(gr.dots.map((d) => d.e.v.value), gr.unit);
+        const axis = `<div class="imp-row imp-axis"><span class="fine">${esc(gr.unit)}${scale.log ? ', log scale' : ''}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div>`;
+        return `<div class="imp-strips">
+        ${gr.rows.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
+        ${axis}${i < drawnGraphs.length - 1 ? '</div>' : `
         <p class="imp-key fine">${key}</p>
-        <p class="fine imp-hint">Select a dot to open its result below${drawn.length > 1 ? '; hover to find the same product in the other row' : ''}.</p></div>
-        ${spreadSummary(drawn, m)}${silentLine}${bothLine}`;
+        <p class="fine imp-hint">${hint}</p></div>`}`;
+      }).join('');
+      // A row whose headlines all go unread is said; its results are listed below where no other row reads them.
+      const own = (h) => c.ms.some((x) => h.valueProperties.includes(x.property) && !hs.some((o) => o !== h && o.valueProperties.includes(x.property)));
+      const said = (rows, listed) => (rows.length ? `${esc(andList(rows.map((h) => h.labels.plain)))}: no product has one, so ${rows.length > 1 ? 'they have' : 'it has'} no row${listed ? `; ${rows.length > 1 ? 'their' : 'its'} results are listed below` : ''}.` : '');
+      const silentText = [said(silent.filter(own), true), said(silent.filter((h) => !own(h)), false)].filter(Boolean).join(' ');
+      const silentLine = silentText ? `<p class="fine imp-foot">${silentText}</p>` : '';
+      const singleLine = singles.length ? `<p class="fine imp-foot">${singles.map((d) => `${esc(d.h.labels.plain)}: only one product has a value, ${esc(gradeLabel(d.e.g))}'s ${oneValue(d)}.`).join(' ')}</p>` : '';
+      // The products that publish both of a pair, by name where there is one pair: the pairs the rows are read for.
+      // Where the pair is one test on bars printed two ways, the share one gives of the other, product by product.
+      const pairs = cmp.pairLabel ? drawnGraphs.filter((gr) => gr.rows.length === 2) : [];
+      const bothOf = (gr) => byKey.get(gr.rows[0].key).filter((e) => byKey.get(gr.rows[1].key).some((x) => x.g.id === e.g.id)).map((e) => gradeLabel(e.g));
+      const graphName = (gr) => lower(gr.rows[0].labels.plain.replace(/\s*\([^)]*\)$/, ''));
+      let bothLine = '';
+      if (pairs.length === 1 && drawnGraphs.length === 1) {
+        const both = bothOf(pairs[0]);
+        bothLine = both.length
+          ? `<p class="fine imp-foot">${esc(cmp.pairLabel)}: ${esc(plural(both.length, 'product'))} (${esc(andList(both.slice(0, 6)))}${both.length > 6 ? ' and others' : ''}).</p>`
+          : `<p class="fine imp-foot">No product publishes ${esc(lower(cmp.pairLabel))}.</p>`;
+      } else if (pairs.length) {
+        bothLine = `<p class="fine imp-foot">${esc(cmp.pairLabel)}: ${esc(andList(pairs.map((gr, i) => { const n = bothOf(gr).length; return `${n ? (i ? n : plural(n, 'product')) : 'none'} for ${graphName(gr)}`; })))}.</p>`;
+      }
+      const shares = pairs.map((gr) => ({ gr, s: shareOf(gr.rows[0], gr.rows[1], byKey, c) })).filter((x) => x.s);
+      const shareLine = shares.length ? `<p class="fine imp-foot">${esc(`${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction}, for products whose two values are compared, from one document and in one state: ${andList(shares.map(({ gr, s }) => (s.length === 1 ? `${graphName(gr)} ${pct(s[0])} (1 product)`
+        : `${graphName(gr)} ${pct(middle(s))} (${pct(Math.min(...s))}⁠–⁠${pct(Math.max(...s))}, ${s.length} products)`)))}.`)}</p>` : '';
+      graph = `${strips}
+        ${spreadSummary(shown, m)}${singleLine}${silentLine}${bothLine}${shareLine}`;
     }
     // The line a dot's record carries: its mark, where it sits, and what changed its bar. A twin's dot is its
     // sibling's record (D89), which then carries a line for each product it stands for.
     const lines = new Map();
-    for (const h of graph ? hs : []) {
+    for (const h of shown) {
       for (const e of byKey.get(h.key)) {
         const x = c.msById.get(e.v.measurementId);
         const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
@@ -1307,7 +1432,7 @@ function drawerComparisons(m, c, tab) {
         const whose = x && e.g.id !== x.gradeId ? ` for ${gradeLabel(e.g)} too (${e.v.from?.label ?? 'the same sheet'})` : '';
         // The maker's quote is the mark itself: in the reason where it is why, else after the line.
         const chip = claimed ? toughenedMark(owner, c).trim() : '';
-        const reason = outOfMedian(e, m.summary?.[h.key], c);
+        const reason = outOfMedian(h, e, m.summary?.[h.key], c);
         const place = !reason ? 'in the median' : `not in the median (${reason === 'sold as toughened' && chip ? chip : esc(reason)})`;
         const state = changedState(x, e.v);
         const line = `<div class="cond on-graph" data-on-graph="${esc(h.key)}"><i class="imp-dot${mark ? ` ${mark}` : ''}" aria-hidden="true"></i><span><b>On the graph${esc(whose)}:</b> ${place}${
@@ -1316,34 +1441,39 @@ function drawerComparisons(m, c, tab) {
       }
     }
     const compared = hs.filter((h) => h.comparisonNote).map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
-    // How the two tests differ and what is compared: the caption and each test's note, one closed line, open on request.
-    const about = `<details class="imp-about"><summary>How Charpy and Izod differ, and what is compared</summary>${caption ? `<p class="fine">${esc(caption)}</p>` : ''}${compared}</details>`;
+    // How the tests differ and what is compared: the caption and each test's note, one closed line, open on request.
+    const about = `<details class="imp-about"><summary>${esc(cmp.about)}</summary>${caption ? `<p class="fine">${esc(caption)}</p>` : ''}${compared}</details>`;
     const drawnIds = new Set(dots.map((d) => d.e.v.measurementId));
-    const headlineOf = (x) => hs.find((h) => h.valueProperties.includes(x.property)) ?? null;
+    const namedIds = new Set(singles.map((d) => d.e.v.measurementId));
     // What the results below are, counted by why each is or is not drawn, so the counts under the headings add up.
     const tally = (records, { secondWord } = {}) => {
       const counts = new Map();
-      for (const x of records) { const k = impactWhy(x, headlineOf(x), c, drawnIds); counts.set(k, (counts.get(k) ?? 0) + 1); }
-      const drawnN = counts.get('drawn') ?? 0;
+      for (const x of records) { const k = notDrawnWhy(x, hs, c, drawnIds, namedIds); counts.set(k, (counts.get(k) ?? 0) + 1); }
+      const drawnN = counts.get('drawn') ?? 0, namedN = counts.get('named') ?? 0;
       counts.delete('drawn');
+      counts.delete('named');
       const parts = [...counts].sort((p, q) => q[1] - p[1]).map(([k, n]) => (k === 'second' && secondWord ? secondWord(n) : whyWords(k, n)));
-      return { drawnN, parts, rest: records.length - drawnN };
+      return { drawnN, namedN, parts, rest: records.length - drawnN - namedN };
     };
-    const one = dots.length === 1 ? dots[0] : null;
     const lead = (records) => {
       const n = records.length;
       if (graph) {
         const t = tally(records);
-        return `<p class="fine imp-tally">Of the ${n} results below, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn above${t.parts.length ? `; the other ${t.rest}: ${esc(andList(t.parts))}` : ''}.</p>`;
+        return `<p class="fine imp-tally">Of the ${n} results below, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn above${t.namedN ? ` and ${t.namedN} named above` : ''}${t.parts.length ? `; the other ${t.rest}: ${esc(andList(t.parts))}` : ''}.</p>`;
       }
-      if (!one) {
+      if (!singles.length) {
         const t = tally(records);
         return `<p class="fine imp-none">No graph: no product has a value to draw. ${n === 1 ? 'The result below' : `The ${n} results below`}: ${esc(andList(t.parts))}.</p>`;
       }
+      if (singles.length > 1) {
+        const t = tally(records);
+        return `<p class="fine imp-none">No graph: no scale has two products' values to draw, only ${andList(singles.map((d) => `${esc(gradeLabel(d.e.g))}'s ${esc(lower(d.h.labels.plain))} of ${oneValue(d)}`))}.${
+          t.parts.length ? ` The other ${t.rest === 1 ? 'result' : `${t.rest} results`} below: ${esc(andList(t.parts))}.` : ''}</p>`;
+      }
+      const [one] = singles;
       const t = tally(records, { secondWord: (k) => `${k} more of that product` });
       return `<p class="fine imp-none">No graph: only one product has a value to draw, ${esc(gradeLabel(one.e.g))}'s ${esc(lower(one.h.labels.plain))} of
-        <button type="button" class="link-btn" data-row="${esc(one.e.v.measurementId)}">${esc(fmtBounded(one.e.v.value, one.h.unit, one.e.v.interval))}</button>${
-        one.e.v.level === 'as-published' ? ', with no stated orientation' : ''}.${t.parts.length ? ` The other ${t.rest === 1 ? 'result' : `${t.rest} results`} below: ${esc(andList(t.parts))}.` : ' It is the only result below.'}</p>`;
+        ${oneValue(one)}.${t.parts.length ? ` The other ${t.rest === 1 ? 'result' : `${t.rest} results`} below: ${esc(andList(t.parts))}.` : ' It is the only result below.'}</p>`;
     };
     const html = (recordBlocks, records) => makerBlock(topic, records.length, 'value', graph
       ? `<section class="imp-compare" data-comparison="${esc(topic)}">${graph}</section>${about}
@@ -1354,7 +1484,8 @@ function drawerComparisons(m, c, tab) {
 }
 
 function spreadTable(m, c) {
-  const rows = REGISTRY.headlines.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s);
+  // Every headline, those drawn in the drawer alone too (D139).
+  const rows = REGISTRY.allHeadlines.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s);
   if (!rows.length) return '';
   const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}–${fmtNumber(x.max)}`);
   return `${scrollTable(`<table class="grid spread-table"><thead><tr>
@@ -1522,15 +1653,15 @@ function tabBody(tab, c) {
     // What the property is, where properties.csv says it (why there is an impact heading whose test is unclear, D133),
     // then the comparison notes of the selectable properties that read some of its values.
     const describe = (p) => { const d = REGISTRY.properties.find((x) => x.name === p)?.description; return stated(d) ? `<p class="fine cmp-note prop-note">${esc(d)}</p>` : ''; };
-    const notes = (p) => describe(p) + REGISTRY.headlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
+    const notes = (p) => describe(p) + REGISTRY.allHeadlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
       .map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
     const shown = list.filter((p) => rows.some((x) => x.property === p));
     const block = (p, note = notes, lines = new Map()) => {
       const group = rows.filter((x) => x.property === p).sort(byValue);
       return makerBlock(propertyName(p), group.length, 'value', note(p) + group.map((x) => measurementRow(x, c, { compact: true, extra: lines.get(x.id) ?? '' })).join(''), { cls: 'prop-block' });
     };
-    // Headlines drawn side by side (D133) are one heading with every record they are chosen from, in the place of the
-    // first of those properties: notched Charpy beside notched Izod, product by product, then the Charpy, Izod and
+    // Headlines drawn side by side (D133, D139) are one heading with every record they are chosen from, in the place of
+    // the first of those properties: notched Charpy beside notched Izod, product by product, then the Charpy, Izod and
     // test-unclear records, each property's block inside it. Each comparison note is said once there, not per block.
     const comparisons = drawerComparisons(m, c, tab);
     const blocks = [];
@@ -1633,7 +1764,7 @@ function tabBody(tab, c) {
     // material's own results pair each with its requirement.
     const requirementOf = new Map((evaluation?.results ?? []).map((r) => [r.criterion, r.constraint]));
     const failText = (criteria) => criteria.map((k) => (requirementOf.has(k) ? describeConstraint(requirementOf.get(k)) : k)).join('; ');
-    const typicalOf = new Set(Object.values(m.summary ?? {}).map((s) => s.typical).filter(Boolean));
+    const typicalOf = new Set(REGISTRY.headlines.map((h) => m.summary?.[h.key]?.typical).filter(Boolean));
     // Colour. The field was collected on every grade, but it does not hold what a buyer wants: on 132 of 144 grades it
     // is the same sentence saying properties may vary by colour, and on the others it names the colour of the specimen
     // that was tested. So the caveat is said once, above the products, and a product shows its colour only where the

@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderDrawer, impactWhy } from '../app/js/ui/detail.js';
+import { renderDrawer, notDrawnWhy } from '../app/js/ui/detail.js';
 import { assess } from '../build/src/products.js';
 import { useRegistry } from '../app/js/ui/registry.js';
 
@@ -132,10 +132,6 @@ test('what is drawn decides itself: no graph without two dots, no row for a test
 });
 
 test('why a result is not drawn is the build\'s reason, and the counted line adds up to the lists under it', () => {
-  const MAP = [[/no usable numeric/, 'noNumber'], [/^measures /, 'unclear'], [/^in /, 'unit'], [/implausible/, 'implausible'],
-    [/moulded/, 'moulded'], [/moisture conditioning/, 'conditioned'], [/annealed, and the product publishes/, 'annealed'],
-    [/an unnotched bar/, 'unnotched'], [/whether the bar was notched/, 'notch'], [/^tested at/, 'temperature'],
-    [/^measured to/, 'standard'], [/ measurement, not /, 'direction'], [/./, 'notPrinted']];
   const props = new Set(IMPACT.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
   let checked = 0;
   for (const m of db.materials.filter((x) => !x.familyEntry)) {
@@ -147,12 +143,11 @@ test('why a result is not drawn is the build\'s reason, and the counted line add
     const c = { ms, gradeById };
     for (const x of records.filter((y) => !y.quarantined)) {
       const h = IMPACT.find((d) => d.valueProperties.includes(x.property)) ?? null;
-      const why = impactWhy(x, h, c, drawnIds);
+      const why = notDrawnWhy(x, IMPACT, c, drawnIds);
       const r = assess(x, h ?? IMPACT[0], ms.filter((y) => y.gradeId === x.gradeId));
       if (r.excluded) {
-        const want = MAP.find(([re]) => re.test(r.excluded))[1];
-        const got = why.startsWith('unit:') ? 'unit' : ['cold', 'hot'].includes(why) ? 'temperature' : why;
-        assert.equal(got, want, `${m.id} ${x.id}: the build says "${r.excluded}"`);
+        const got = why.split(':')[0] === 'resin' ? 'moulded' : why.split(':')[0];
+        assert.equal(got, r.why, `${m.id} ${x.id}: the build says "${r.excluded}"`);
       } else assert.ok(['drawn', 'second', 'retired', 'reference'].includes(why), `${m.id} ${x.id}: the build takes it, the drawer says ${why}`);
       checked++;
     }
