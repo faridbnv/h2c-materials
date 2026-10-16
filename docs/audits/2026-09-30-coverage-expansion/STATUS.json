@@ -1,5 +1,5 @@
 {
-  "dataRelease": "c708db2c04f2",
+  "dataRelease": "0f7d899924f5",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -127,7 +127,7 @@
       "baseline": 1163,
       "current": 1180,
       "added": 17,
-      "edited_existing": 147,
+      "edited_existing": 148,
       "removed": 0
     },
     "headline_definitions": {
@@ -239,7 +239,7 @@
       "baseline": 1828,
       "current": 2016,
       "added": 188,
-      "edited_existing": 122,
+      "edited_existing": 123,
       "removed": 0
     }
   },

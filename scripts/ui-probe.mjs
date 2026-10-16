@@ -365,13 +365,25 @@ try {
   await click('.drawer [data-tab="Thermal"]');
   await sleep(200);
   results['13-drawer-pla-heat'] = await comparisonText('Heat deflection and glass transition');
-  for (const [id, name, views] of [['M027', 'abs', ['impact', 'heat']], ['M081', 'hips', ['impact']], ['M020', 'petg', ['tensile']]]) {
+  // Print temperatures across products (D139): PLA, the largest; then a dot selected opens its profile in its maker's
+  // list below; PEEK, whose every product is outside the H2C's limits; ABS, with chambers part of whose window is above.
+  await click('.drawer [data-tab="Printing"]');
+  await sleep(200);
+  results['13-drawer-pla-print'] = await comparisonText('Print temperatures across products');
+  await evaluate(`(() => { const d = document.querySelector('.drawer-body .print-block .imp-dot[data-profile]'); d.click(); return true; })()`);
+  await sleep(300);
+  results['13-drawer-pla-print-dot'] = await evaluate(`(() => { const t = document.querySelector('.drawer-body .profile-block.target');
+    return ['Tab: ' + document.querySelector('.drawer [data-tab][aria-selected="true"]')?.dataset.tab, 'List open: ' + !!t?.closest('details')?.open,
+      ...(t?.innerText ?? 'NO PROFILE MARKED').replace(/[ \\t]+/g, ' ').split('\\n').filter(Boolean).slice(0, 3)].join('\\n'); })()`);
+  const TABS = { impact: 'Mechanical', tensile: 'Mechanical', heat: 'Thermal', print: 'Printing' };
+  const NAMES = { impact: 'Impact tests', tensile: 'Tensile tests, XY and Z', heat: 'Heat deflection and glass transition', print: 'Print temperatures across products' };
+  for (const [id, name, views] of [['M027', 'abs', ['impact', 'heat', 'print']], ['M081', 'hips', ['impact']], ['M020', 'petg', ['tensile']], ['M097', 'peek', ['print']]]) {
     await click(`#lens tr[data-material="${id}"]`);
     await until(`!!document.querySelector('.drawer [data-tab="Mechanical"]')`, `the ${name} drawer`);
     for (const view of views) {
-      await click(`.drawer [data-tab="${view === 'heat' ? 'Thermal' : 'Mechanical'}"]`);
+      await click(`.drawer [data-tab="${TABS[view]}"]`);
       await sleep(200);
-      results[`13-drawer-${name}-${view}`] = await comparisonText({ impact: 'Impact tests', tensile: 'Tensile tests, XY and Z', heat: 'Heat deflection and glass transition' }[view]);
+      results[`13-drawer-${name}-${view}`] = await comparisonText(NAMES[view]);
     }
   }
 

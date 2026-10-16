@@ -154,7 +154,7 @@ detail. The generator names one that runs longer.
 | D136 | The completeness round: what the held sheets print is held once, and found where it is printed | The owner had four open problems worked through together, then the tooling debt, then the makers' statements nobody had read. Values the held sheets print but the tables lacked were read on their pages and entered; copies of a maker's own sheet registered beside it hold their rows once; a scanned page's words can now be searched; and the open-problems page says what is true. Where a reading claimed a held number was wrong, it was the cell next to it every time, and no held number changed. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and extends D85 (the record tier) and D89 (which twin a product reads) |
 | D137 | Product predictions and evidence verdicts stay separate; exclusion needs independent scenario validation | A missing product value may show an estimate, but it never passes. Only separately validated bounds may exclude it; unresolved options remain visible with the evidence needed next. | In force |
 | D138 | A round's record leaves the working tree when it closes; the text reader and the estimate stage are frozen | The repository keeps what a person needs to read and run the tool. A finished round's migrations move to `archive/migrations/`, and its working files (readings, proposals, held rows, render dumps) move to the private evidence store, each listed with its size and SHA-256 in the round's `PACKETS.md`; git history keeps every byte. The import's text reader takes no new layout rules, and the estimate model no new physics, without a decision. | In force; it extends D35 (every value from its page: a packet's digest proves its bytes), D72 (nothing is deleted from the data: this moves files, not records) and D85 (the record tier, whose `source_facts` lane is now built only where the private cache is), and holds D58 (no new branch in the estimate model) at every round's close |
-| D139 | Tensile results across XY and Z, and heat deflection beside the glass transition, are drawn as impact is | The drawer's Impact tests heading (a dot per product, the median table, then every result with its document) has two siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row) and Heat deflection and glass transition on Thermal (HDT at 0.45 MPa, HDT at 1.8 MPa and Tg on one °C scale). Three rows exist only for them, tensile modulus Z, elongation at break Z and HDT at 1.8 MPa: drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D89 (twins), D92 (a Z value is one the sheet says is Z) and D99 (a product's states), and decides nothing |
+| D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing |
 
 <!-- end index -->
 
@@ -4467,65 +4467,50 @@ The frozen baseline, unchanged-data/published-value checks, independent validati
 
 ---
 
-## D139. Tensile results across XY and Z, and heat deflection beside the glass transition, are drawn as impact is
+## D139. Tensile, heat and print temperatures are drawn product by product, as impact is
 
-> **In plain words:** The drawer's Impact tests heading (a dot per product, the median table, then every result with its document) has two siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row) and Heat deflection and glass transition on Thermal (HDT at 0.45 MPa, HDT at 1.8 MPa and Tg on one °C scale). Three rows exist only for them, tensile modulus Z, elongation at break Z and HDT at 1.8 MPa: drawn in the drawer alone, never a filter, a column or an answer. No answer moved.
-> **Status:** In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D89 (twins), D92 (a Z value is one the sheet says is Z) and D99 (a product's states), and decides nothing.
+> **In plain words:** The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved.
+> **Status:** In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing.
 
 *Decided by the owner on 2026-10-16 ([GOALS-LOG](GOALS-LOG.md)), each of four answers the recommended one; built in the
-[drawer comparisons round](audits/2026-10-16-drawer-comparisons/README.md).*
+[drawer comparisons round](audits/2026-10-16-drawer-comparisons/README.md).* Vicat (its A50 or B50 method typed on none
+of its 504 rows) and flexural results (Z from 18 materials) stay lists.
 
-The owner read the impact heading and found it a good setup for more of the drawer. Asked which comparisons, whether
-their new rows should be filters, how to lay out the tensile one and what Printing should get, the owner chose two
-headings, drawer-only rows, one tensile heading with three graphs, and printing second, once these have been seen.
-Vicat (its A50 or B50 method typed on none of its 504 rows) and flexural results (Z from 18 materials) stay lists.
+- **Which headlines are drawn together, and a comparison's own words, are data.** drawer_comparisons.csv holds the
+  heading, the title of its closed line on how the tests differ and its pair label ("Both tests", "Both orientations");
+  Drawer comparison names the row, and the caption is the method.csv rule of the same Topic (m414, m415). The registry
+  refuses a comparison with no caption, under two headlines, properties of two domains or of another comparison, or a
+  pair label over a unit with other than two headlines (REGISTRY-COMPARISON).
+- **A graph per unit**, its headlines in registry order on one scale; a temperature's scale is linear from the round
+  step below its lowest value, over at least 10 °C, never logarithmic. A heading needs two headlines that apply, so an
+  elastomer keeps its glass transition as a property of its own.
+- **Drawn in the drawer alone** (Drawer only). Each product's value and each spread are computed as for every headline
+  and shown in the heading, on product cards and in the Products tab's spread table; the row is no filter, axis, table or
+  export column, scenario key or decision state, and moves no basis sentence. Each excludes a value whose sheet states no
+  orientation or no load (a new Unstated load column; HEADLINE-LOAD), so a value with no stated HDT load stays on the
+  0.45 MPa row, drawn once. Making one selectable is setting the column FALSE.
+- **Z as a share of XY**, per property, for products whose two values are both compared, from one document and one
+  state: median, range, count (PLA: tensile strength 64 %, 27 % to 111 %, 37 products). Worked out on the page.
+- **Print temperatures** come from each product's print gate (grades[].print): its own sheet, a shared one, or the
+  guide's row (hollow, drawn and never counted, since one row speaks for every product that reads it). The medians of
+  the lowest and highest settings are the typical window; the H2C's limit is a dashed line where it is near the values;
+  the products outside it are those its gate's verdict puts there; what is not drawn is counted by why. A dot opens its
+  profile. Worked out on the page (print-spread.js); nothing is stored.
+- **The words come from each headline** ("no stated orientation" or "no stated test load"). Impact tests renders as
+  before except three phrases, each now true of its lists: "of an unclear test" reads "of impact strength, test
+  unclear"; "not on a printed bar" names the bar it was; and a test no product has a value of says its results are
+  listed below only where there are some.
+- **Why a record is not drawn is the build's reason**: assess returns a code (ASSESS_ORDER), and a record two rows
+  refuse is counted by the one it got furthest with; tests check the drawer against the build on every record of every
+  comparison (8,190) and every print dot (5,436) on every material.
+- **A flat bar before a printed specimen** for a headline with no direction: Stratasys PC's 1.8 MPa value was an XZ
+  bar's beside an XY one. No value chosen before moved.
 
-- **Which headlines are drawn together, and the words of a whole comparison, are data.** drawer_comparisons.csv holds a
-  row per comparison: its heading, the title of its closed line on how the tests differ, and the label of its line
-  naming the products that publish both of a pair ("Both tests", "Both orientations"). headline_definitions.csv's
-  Drawer comparison names the row, and the caption stays the method.csv rule of the same Topic (m414 made the table
-  with Impact tests, in the words its heading printed; m415 added the two). The registry refuses a comparison with no
-  caption, fewer than two headlines, properties of two domains or of another comparison, or a pair label over a unit
-  with other than two headlines (REGISTRY-COMPARISON).
-- **A graph per unit.** A comparison's headlines of one unit share one scale, in registry order, so the tensile heading
-  draws three graphs (GPa, MPa, %) and the others one. A temperature is an interval, not a ratio: its scale is linear,
-  from the round step below its lowest value, over at least 10 °C, never logarithmic. A heading is drawn only where two
-  of its headlines apply, so an elastomer, which no heat deflection applies to, keeps its glass transition as a
-  property of its own.
-- **Drawn in the drawer alone** (Drawer only, a column of headline_definitions.csv). Each product's value and each
-  material's spread are computed as for every headline, and shown in the heading, on product cards and in the Products
-  tab's spread table; but the row is no filter, chart axis, table or export column, or scenario key (a link naming one
-  drops it like an unknown key), it makes no decision state (products.js productStates holds it in a product's first
-  state only), and it moves neither a material's basis sentence nor the maker a tab opens on. Each excludes a value
-  whose sheet states no orientation (the Z rows, as the layer strength always has) or no load (HDT at 1.8 MPa, through
-  a new Unstated load column; HEADLINE-LOAD), so none is ever as published and a value whose sheet names no HDT load is
-  drawn once, hollow, on the 0.45 MPa row as before. Their filter, axis and export cells are filled, so making one
-  selectable is setting the column FALSE.
-- **Z as a share of XY.** For a pair of one test on bars printed two ways, the heading says, per property, what share of
-  its XY value a product's Z value is, for the products whose two values are both compared, from one document, of one
-  property and in one state: the median, the range and the count (PLA: tensile strength 64 %, 27 % to 111 %, 37
-  products). Worked out on the page from the products' own values; nothing is stored or converted.
-- **The words come from each headline.** A hollow dot is "no stated orientation" or "no stated test load", the key's
-  filled dot "orientation stated (XY or Z)", "test load stated" or "compared", and the table's rule names the rows a
-  value with no stated orientation or load may stand on. Impact tests renders as before except three phrases, each now
-  true of the lists under it: "of an unclear test" reads "of impact strength, test unclear", the block's own title; "not
-  on a printed bar" names the bar it was (printed at a setting the product is not meant for, or below 100 % infill);
-  and a test no product has a value of says its results are listed below only where the material has some.
-- **Why a record is not drawn is the build's reason.** assess returns a code beside its words (ASSESS_ORDER), and the
-  drawer's count mirrors it; a record two rows refuse (an XZ bar, refused by XY and by Z) is counted by the one it got
-  furthest with. test/drawer-comparisons.test.js checks, on every material, that the dots are the spread, that every
-  dot's record says where it sits, and that the drawer and the build agree on all 8,190 records of every comparison.
-- **A flat bar before a printed specimen.** For a headline with no direction, a flat bar is now preferred before a stated
-  specimen: Stratasys PC's 1.8 MPa value was an XZ bar's beside an XY one. No value chosen before moved.
-
-**Checked.** Claude Sonnet agents read every material's three headings against a checklist (377 headings: 143 tensile,
-112 impact, 122 heat): every count added up; they found an abbreviation lower-cased in a sentence ("hDT", 18 headings), a
-scale of one tick where every product gives one temperature (2), and middle halves and shares printed as ranges of one
-number (9), each fixed; and two sheets whose values read oddly, recorded as printed and filed in OPEN-PROBLEMS (§15,
-§30.5). A blind re-read of 40 newly drawn values (14 HDT at 1.8 MPa, 13 tensile moduli Z, 13 elongations Z) found every
-value as its page prints it; one condition, a Fiberon sheet's annealing footnote over its heat deflection, is the
-reading §32.10 already records. templates.csv, states, gates and screening are unchanged; the snapshot gained the three
-rows' product values and spreads.
+**Checked.** Claude Sonnet agents read every material's headings against a checklist (521: 143 tensile, 112 impact,
+122 heat, 144 print); every count added up, and the faults they found are fixed (an abbreviation lower-cased, a one-tick
+scale, ranges of one number, crossing medians, a window given at one end, a misspelt product: ThermaX PEEK, m416) or
+filed as the sheets print them (OPEN-PROBLEMS §15, §30.5). A blind re-read of 40 newly drawn values found every one as
+its page prints it. templates.csv, states, gates and screening are unchanged.
 
 ## Bugs worth remembering
 

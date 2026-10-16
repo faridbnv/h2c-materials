@@ -927,7 +927,7 @@ G095-02,M095,DURAPRO PC-PBT,within,within,unknown,recommended,no-special-concern
 G096-01,M096,FLUORX PVDF,within,within,unknown,unknown,no-special-concern,not-needed,
 G096-02,M096,Fluorodur,within,within,unknown,unknown,unknown,unknown,
 G096-03,M096,KOLTRON,unknown,unknown,unknown,unknown,unknown,unknown,
-G097-01,M097,Themax PEEK,exceeds,exceeds,exceeds-recommended,unknown,no-special-concern,required,
+G097-01,M097,ThermaX PEEK,exceeds,exceeds,exceeds-recommended,unknown,no-special-concern,required,
 G097-02,M097,PEEK,exceeds,exceeds,exceeds,unknown,unknown,unknown,
 G097-03,M097,PEEK,exceeds,within,within,unknown,unknown,required,
 G097-04,M097,LUVOCOM 3F PEEK 9581,exceeds,within,unknown,unknown,unknown,required,

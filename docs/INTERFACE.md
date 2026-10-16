@@ -1057,6 +1057,25 @@ as that enclosure" (D93).
 limits, or counts them axis by axis, and a line says how many settings came from the Bambu Lab Filament Guide and how
 many from a data sheet shared with another product; each product in Products says which.
 
+**Print temperatures across products (D139).** The Printing tab opens with one closed heading, **Print temperatures
+across products**, above the guide's row and the profiles. Opened, it draws each product's print settings as its print
+gate reads them (grades[].print: its own sheet, a sheet it shares, or the guide's row): for the nozzle, the bed and the
+heated chamber, a row of each product's lowest setting above a row of its highest on one °C scale, and for drying one
+row of temperatures. A dot is filled where the product's own sheet, or one it shares (D89), gives the setting, hollow
+where it is read from Bambu Lab's Filament Guide, a diamond for a special formulation; the middle half and the median
+are of the filled ones, worked out on the page as the build summarises a headline (the guide's value is drawn and never
+counted, since one row speaks for every product that reads it). The H2C's limit (350 °C nozzle, 120 °C bed, 65 °C
+chamber) is a dashed line where it is near the values, within a quarter of their span or 10 °C above the highest;
+far above them, the axis says so, so PLA's windows are not squeezed against 350 °C. Under the graphs: a table of each
+row's count, median, middle half and range, with what is drawn and not counted; the **typical window**, the medians of
+the lowest and highest settings ("nozzle 195–230 °C, bed 45–60 °C"); the products **outside the H2C's limits**, by
+their print gate's own verdict (so a nozzle or bed window whose highest end is above the limit is outside, and a
+chamber window part of which is above it is partial), or a sentence that none is; and what is **not drawn**, by
+setting and why (a chamber that needs none, an enclosure asked with no temperature, a window open at one end, a
+drying statement with no temperature), so the counts square with the products below. Selecting a dot opens the
+profile its value is read from, in its maker's list, marked; a guide's dot opens the guide's row. Nothing is drawn where
+no setting has two values one of which is a sheet's.
+
 **The guide's row in the Printing tab.** For a material the guide names, the Printing tab opens with the guide's row,
 above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guide for PLA") with the row's ID as a
 tag. A line says what it is: what the printer maker's guide states for its type, standing in for a product's print

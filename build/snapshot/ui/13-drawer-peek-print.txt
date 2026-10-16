@@ -1,0 +1,52 @@
+Nozzle, lowest
+7 products
+Nozzle, highest
+7 products
+°C, H2C limit 350
+350
+400
+450
+500
+Bed, lowest
+7 products
+Bed, highest
+7 products
+°C, H2C limit 120
+100
+150
+200
+250
+Heated chamber, lowest
+5 products
+Heated chamber, highest
+5 products
+°C, H2C limit 65
+50
+100
+150
+200
+250
+Drying
+5 products
+°C
+110
+120
+130
+140
+the product's data sheet, or one it shares
+middle half
+median
+the H2C's limit
+Select a dot to open its print profile below; hover to find the same product's other dots.
+Setting, °C n Median Middle half Range
+Nozzle, lowest 7 390 390–400 360⁠–⁠420
+Nozzle, highest 7 440 425–445 400⁠–⁠480
+Bed, lowest 7 120 115–130 110⁠–⁠160
+Bed, highest 7 150 120–170 120⁠–⁠250
+Heated chamber, lowest 5 90 90–100 70⁠–⁠160
+Heated chamber, highest 5 140 100–150 90⁠–⁠230
+Drying 5 120 120 110⁠–⁠140
+n counts the products whose own data sheet, or one they share, gives the setting; a value read from Bambu Lab's Filament Guide and a special formulation are drawn, not counted.
+Typical window, the medians of the lowest and highest settings: nozzle 390⁠–⁠440 °C, bed 120⁠–⁠150 °C, heated chamber 90⁠–⁠140 °C and drying 120 °C.
+Outside the H2C's limits (nozzle 350 °C, bed 120 °C and heated chamber 65 °C): nozzle: 3DXTECH ThermaX PEEK (400⁠–⁠480 °C), iSANMATE PEEK (390⁠–⁠430 °C), SUNLU PEEK (390⁠–⁠420 °C), LEHVOSS LUVOCOM 3F PEEK 9581 (390⁠–⁠440 °C), 3D4Makers R-PEEK (400⁠–⁠450 °C), 3D4Makers PEEK (360⁠–⁠400 °C) and Ensinger TECAFIL PEEK EV natural - 1.75 mm (420⁠–⁠440 °C); bed: 3DXTECH ThermaX PEEK (140⁠–⁠180 °C), iSANMATE PEEK (110⁠–⁠150 °C), 3D4Makers R-PEEK (120⁠–⁠160 °C) and Ensinger TECAFIL PEEK EV natural - 1.75 mm (160⁠–⁠250 °C); heated chamber: 3DXTECH ThermaX PEEK (70⁠–⁠140 °C, its recommended setting above), iSANMATE PEEK (90⁠–⁠150 °C), 3D4Makers R-PEEK (90 °C), 3D4Makers PEEK (100 °C) and Ensinger TECAFIL PEEK EV natural - 1.75 mm (160⁠–⁠230 °C).
+Not drawn: heated chamber, 1 print at room temperature and 1 state none; drying, 2 state none.

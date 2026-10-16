@@ -1,0 +1,60 @@
+Nozzle, lowest
+54 products
+Nozzle, highest
+54 products
+°C; H2C limit 350 °C, above the scale
+200
+220
+240
+260
+280
+300
+Bed, lowest
+55 products
+Bed, highest
+55 products
+°C, H2C limit 120
+40
+60
+80
+100
+120
+140
+Heated chamber, lowest
+11 products
+Heated chamber, highest
+9 products
+°C, H2C limit 65
+0
+20
+40
+60
+80
+100
+Drying
+52 products
+°C
+50
+60
+70
+80
+90
+the product's data sheet, or one it shares
+from Bambu Lab's Filament Guide for ABS
+special formulation
+middle half
+median
+the H2C's limit
+Select a dot to open its print profile below; hover to find the same product's other dots.
+Setting, °C n Median Middle half Range
+Nozzle, lowest 46 240 223–244 210⁠–⁠270
+Also drawn, not counted: 6 from the guide (240) and 2 special formulations (230⁠–⁠240).
+Nozzle, highest 46 265 260–270 240⁠–⁠300
+Also drawn, not counted: 6 from the guide (280) and 2 special formulations (255⁠–⁠260).
+Bed, lowest 42 90 80–100 55⁠–⁠120
+Also drawn, not counted: 10 from the guide (90) and 3 special formulations (80⁠–⁠100).
+Bed, highest 42 110 100–110 55⁠–⁠130
+Also drawn, not counted: 10 from the guide (100) and 3 special formulations (90⁠–⁠100).
+Heated chamber, lowest 11 45 25–55 0⁠–⁠90
+Heated chamber, highest 9 60 50–80 40⁠–⁠90
+Drying 29 70 60–80 50⁠–⁠90

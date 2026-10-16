@@ -1,0 +1,5 @@
+Tab: Printing
+List open: true
+3DXTECH ECOMAX PLA Current manufacturer product guidance ID
+Nozzle
+190-220C within

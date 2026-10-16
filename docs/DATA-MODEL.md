@@ -235,8 +235,10 @@ each retrieved source whose text is not in it (D105).
   variantClass,                  // a commercial variant class (silk, particle-filled), or null
   familyEntry,                   // null, or { kind: 'family' | 'alias', why, members: [{ id, name }] }
   gradeIds: [],                  // its active procurement grades
-  headline: { density, tensileModulusXY, tensileStrengthXY, tensileStrengthZ, elongationXY, charpyNotched, izodNotched,
-              hdt045, glassTransition, priceCADkg },   // one per row of headline_definitions.csv, then the price
+  headline: { density, tensileModulusXY, tensileModulusZ, tensileStrengthXY, tensileStrengthZ, elongationXY, elongationZ,
+              charpyNotched, izodNotched, hdt045, hdt18, glassTransition, priceCADkg },   // one per row of
+                                 // headline_definitions.csv, then the price; tensileModulusZ, elongationZ and hdt18 are
+                                 // drawn in the drawer alone (Drawer only, D139)
                                  // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, twins, asPublished, variants } },
   headlineBasis,                 // what its headline values represent, one sentence chosen by rule (D70)
@@ -361,9 +363,13 @@ recipe", Form off-recipe: colorFabb's lightweight PETs printed unfoamed, D95). T
 specimen are the same to it; a raw material value is still not the product's, as for every headline. Each of the four
 rows added since D92 carries a Comparison note, which the drawer shows above the values it leaves out (D92, D94); a row
 may also name its test Standard, which a value naming only other standards does not meet (the Izod row's ISO 180, D94).
-A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: the two
-impact rows name "Impact tests", a Topic of method.csv whose rule is the caption, and the Mechanical tab draws them one
-above the other, a product each, never converted (D133).
+A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: a row of
+drawer_comparisons.csv (Impact tests; Tensile tests, XY and Z; Heat deflection and glass transition), whose method.csv
+rule of the same Topic is the caption. Its tab draws the rows of one unit on one scale, a product each, never converted
+(D133, D139). A row that is Drawer only (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa) is computed per
+product and as a spread like any other, but is no filter, axis, table or export column, scenario key or decision state,
+and excludes a value whose sheet states no orientation or load (Unstated direction or Unstated load excluded), so a
+value with no stated HDT load stays on the 0.45 MPa row, as published (D139).
 A row's Sold as toughened says what its spread does with the products product_claims.csv marks: "set apart" on the two
 impact rows since m390, so their comparable values leave the median and range, as a declared variant's do, and the
 spread's `claimed` lists them apart with their count and range ("named" would keep them in the median and only name

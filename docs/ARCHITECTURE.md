@@ -89,7 +89,7 @@ The plotting library is still most of what the file weighs: 4.3 of the page's 8.
 | `csv.js` | The canonical CSV format: parse, and write in the one form every table is kept in. |
 | `schema.js` | Check every table against `schema/tables/`: columns, types, missing states, patterns, vocabularies, uniqueness, references (including IDs inside lists and prose), canonical format and `data/manifest.json`. |
 | `load.js` / `source.js` | Read the tables into raw row objects, and (`source.js`) each file's SHA-256 for the audit record. No interpretation. |
-| `registry.js` | The property registry: what each property and headline means, which materials it applies to (Applies to may test the material's columns and its polymer's Morphology), and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57). |
+| `registry.js` | The property registry: what each property and headline means, which materials it applies to (Applies to may test the material's columns and its polymer's Morphology), and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57), and the comparisons the drawer draws (`drawer_comparisons.csv`, checked by REGISTRY-COMPARISON; D139). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
 | `normalize/direction.js` | Twelve spellings of build direction onto ten canonical values (a source's own label and a ±45° raster get their own values; three spellings are unknown), and which may be compared with which. |
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm², ISO 75's method letter ("HDT/A", "Method B") among them; a load stated as a number outranks a letter beside it, and a text naming both loads states neither. The test temperature a wording states ("23 °C", "@23° C", "+24°C", "150℃"). |
@@ -225,7 +225,7 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 
 | Module | Responsibility |
 |---|---|
-| `registry.js` | Builds the interface's property definitions from the database's registry at start-up: labels, filters, axes, table columns, export headers and the drawer's property tabs. |
+| `registry.js` | Builds the interface's property definitions from the database's registry at start-up: labels, filters, axes, table columns, export headers and the drawer's property tabs, from the selectable headlines; the drawer's comparisons read every headline, the drawer-only ones too (D139). |
 | `labels.js` | The single vocabulary. What every property, criterion, gate verdict and chamber statement is called, in plain words with the technical name behind it. Nothing else names them. |
 | `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated, and never rounds a value across a requirement's threshold (D54). |
 | `popover.js` | One explanation popover for every mark whose meaning is more than its glyph: each such mark is a button (`explainButton` in `format.js`) that opens it, from touch and keyboard too, never a title alone (D61). |
@@ -238,7 +238,8 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 | `parallel.js` | Parallel coordinates, hand-drawn in SVG. |
 | `heatmap.js` | The coverage lens. |
 | `compare.js` | Up to six shortlisted materials side by side, or one against a familiar baseline, with their measurement conditions, and the passing products' own print gates beside the material's window. |
-| `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). |
+| `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). Its Mechanical, Thermal and Printing tabs open on the comparison headings, a product per dot (D133, D139). |
+| `print-spread.js` | Each product's lowest and highest print temperatures, as its print gate reads them, and their medians: the Printing tab's heading (D139), worked out on the page and deciding nothing. |
 | `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen, which tells all-failed from none-confirmable. |
 | `start.js` | The opening panel, and the compact active-requirements header that replaces it: the answer, the requirements, how products are judged and what annealing would add (D99), the "H2C printability not checked" line, the notes one press away. |
 | `templates.js` | Application templates. They populate controls and then get out of the way. Every one asks the H2C's print gates (`PRINTABLE`, D101). |
@@ -294,7 +295,7 @@ tab for its domain, counts as coverage evidence, and is checked for unit and app
 
 **A new selectable property (headline).** A row in `data/tables/headline_definitions.csv`; each product's
 value is then chosen from its measurements by rule, and each material shows its products' spread. The filter rail, charts, table, export,
-drawer and engine pick it up from the registry; materials outside "Applies to" show it as not
+drawer and engine pick it up from the registry (a row that is Drawer only reaches the drawer alone, D139); materials outside "Applies to" show it as not
 applicable with the reason. `test/new-property.test.js` does exactly this for an elastomer-only
 Shore A hardness. Only estimation needs code: mark it Estimated only after adding `HEAD` (`estimate/model.js`) and `kindOf`
 (`estimate/observations.js`) cases and its scale, floors, precision thresholds and conversions in

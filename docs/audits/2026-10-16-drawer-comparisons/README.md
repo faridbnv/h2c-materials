@@ -6,8 +6,9 @@
 > table, every result with its document) in more of the drawer, and chose two headings: Tensile tests, XY and Z, and
 > Heat deflection and glass transition, with three rows drawn in the drawer alone (tensile modulus Z, elongation at
 > break Z, HDT at 1.8 MPa). Claude Opus designed it, wrote the code and the migrations m414 and m415, and judged every
-> finding; Claude Sonnet agents wrote tests from its specifications, read all 377 headings against a checklist and
-> re-read 40 newly drawn values blind. No answer moved (D139). Printing comes next, once the owner has seen these.
+> finding; Claude Sonnet agents wrote tests from its specifications, read all 521 headings against a checklist and
+> re-read 40 newly drawn values blind. Then, once the owner had seen them, Print temperatures across products on the
+> Printing tab. No answer moved (D139).
 
 ## What was built
 
@@ -47,7 +48,19 @@ Read and kept, with why:
 
 40 newly drawn values, all as their pages print them ([blind-draw/RESULT.md](blind-draw/RESULT.md)).
 
-## Not done here
+## Print temperatures (the second step)
 
-Printing, the second step the owner chose: each product's lowest and highest nozzle, bed, chamber and drying
-temperature as dots, the H2C's limit drawn, built after the owner has seen this round's headings.
+The owner saw the three headings and chose to go on (2026-10-16). The Printing tab opens with **Print temperatures
+across products**: each product's lowest and highest nozzle, bed and heated-chamber setting and its drying temperature,
+as its print gate reads them, the guide's values hollow and never counted, the H2C's limit dashed where it is near the
+values, the typical window (the medians), the products outside the limits by their gate's verdict, and what is not
+drawn by why (`app/js/ui/print-spread.js`, page-side; `build:diff` shows no change). `test/print-spread.test.js` checks
+the 5,436 dots of 144 materials against `g.print`, the table, the window, the outside line and the counts.
+
+A Claude Sonnet agent read all 144 headings (`sweep/print-findings.md`). Every count squared with the products.
+Fixed: a window given at one end said as "open at one end" without the end (now "gives only a lowest setting"); a
+single product's window printed without "at least" or "up to"; "ask an enclosure with no temperature"; two medians
+that cross where few products give both ends (now said by name); and a decision number in a sentence. The product
+"Themax PEEK" is 3DXTECH's ThermaX PEEK, as its sheet's heading prints it (m416; "Themax" is the shop's file name).
+Odd-looking settings it listed (Extrudr PEARL at 140–210 °C, Fabru PBT's 160–200 °C bed, Grupa Azoty POM's 70–140 °C
+chamber, LEHVOSS PEI at 400–450 °C) are what their profiles' sheets print.

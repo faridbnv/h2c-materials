@@ -9,6 +9,7 @@ import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, 
 import { renderWhy } from './explain.js';
 import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS, H2C_STATUS, h2cStatusLabel, h2cLimit } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
+import { printSpread } from './print-spread.js';
 import { evidenceSummary } from '../engine/coverage.js';
 import { hardenedShare, hardenedWords } from '../engine/products.js';
 
@@ -125,7 +126,7 @@ const TAB_HELP = {
   },
   Mechanical: (n) => (n ? `${plural(n, 'published mechanical value')}, by property. Each names its product and the document it comes from.` : 'No mechanical value is on file for this material.'),
   Thermal: (n) => (n ? `${plural(n, 'published thermal value')}, by property. Each names its product and the document it comes from.` : 'No thermal value is on file for this material.'),
-  Printing: (n, c) => (n ? `${plural(n, 'print profile')}, by maker: the settings each product's documents give.${c.guide ? ' The Bambu Lab Filament Guide comes first; a product uses it only where its own sheet is silent.' : ''}` : 'No print profile is on file for this material.'),
+  Printing: (n, c) => (n ? `${plural(n, 'print profile')}, by maker: the settings each product's documents give, after their temperatures drawn product by product.${c.guide ? ' The Bambu Lab Filament Guide comes before the profiles; a product uses it only where its own sheet is silent.' : ''}` : 'No print profile is on file for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'statement')} on chemicals, water, UV, fire and handling, by category. Makers rarely give the concentration, temperature or duration: treat them as indications, not design data.` : 'No statement on chemicals, water or other exposure is on file for this material.'),
   Price: (n) => (n ? `${plural(n, 'shop listing')}, sampled, not live. Canadian shops first; a foreign shop only where no Canadian one sells the product.` : 'No sampled shop listed this material.'),
   Evidence: (n) => (n ? `The ${plural(n, 'document')} this material's values were read from, by publisher, with links to the originals; then its known gaps. One document can cover several products.` : 'No document is on file for this material.'),
@@ -785,6 +786,16 @@ export function renderDrawer(host, state, actions) {
     for (let x = row.closest('details'); x; x = x.parentElement?.closest('details')) x.open = true;
     requestAnimationFrame(() => row.scrollIntoView({ block: 'center', behavior: 'smooth' }));
   }));
+  // A print temperature's dot opens the profile its value is read from, in its maker's list below, or the guide's row.
+  host.querySelectorAll('.print-block [data-profile], .print-block [data-guide]').forEach((d) => d.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    const target = d.dataset.profile ? host.querySelector(`.profile-block[data-profile-id="${CSS.escape(d.dataset.profile)}"]`) : host.querySelector('.guide-block');
+    if (!target) return;
+    host.querySelectorAll('.profile-block.target').forEach((r) => r.classList.remove('target'));
+    target.classList.add('target');
+    for (let x = target.closest('details'); x; x = x.parentElement?.closest('details')) x.open = true;
+    requestAnimationFrame(() => target.scrollIntoView({ block: 'center', behavior: 'smooth' }));
+  }));
   const search = host.querySelector('[data-search]');
   if (search) {
     search.addEventListener('input', () => { drawerQuery = search.value; applySearch(host); });
@@ -1134,8 +1145,9 @@ function stack(entries, pct) {
   return Math.max(1, rows.length);
 }
 
-/** What a hollow dot's sheet leaves unstated: the orientation, or the test load, its row's test is defined at (D84). */
-const asPublishedWords = (h) => (h.direction ? 'no stated orientation' : 'no stated test load');
+/** What a hollow dot's sheet leaves unstated: the orientation, or the test load, its row's test is defined at (D84); or,
+ *  on a row that says so, where else its value was read (a print setting from the printer maker's guide). */
+const asPublishedWords = (h) => h.openWords ?? (h.direction ? 'no stated orientation' : 'no stated test load');
 /** What a row compares its products on, said of the products that state it: the bar's orientation (XY), or the test load. */
 function statedWhat(hs) {
   const dirs = [...new Set(hs.map((h) => h.direction))];
@@ -1153,8 +1165,12 @@ function filledWords(hs) {
 const dotClass = (h, e, c) => [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '',
   h.toughened && soldToughened(e.g, e.v, c) ? 'claimed' : ''].filter(Boolean).join(' ');
 
-/** One headline's row of dots: a product each, the middle half of the comparable ones shaded and their median marked. */
-function dotRow(h, entries, s, scale, c, gradeLabel) {
+/**
+ * One headline's row of dots: a product each, the middle half of the comparable ones shaded and their median marked. A
+ * dot opens its record (`data-row`), or the target its value carries; `limit` is a line drawn across the track (the
+ * H2C's limit on a print setting).
+ */
+function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '' } = {}) {
   const rows = stack(entries, scale.pct);
   const band = s?.q1 != null ? `<span class="imp-band" style="left:${scale.pct(s.q1)}%;width:${Math.max(scale.pct(s.q3) - scale.pct(s.q1), 0.5)}%"></span>` : '';
   const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of ${s.n} products on a comparable basis: ${fmtNumber(s.median, h.unit)}`)}"></span>` : '';
@@ -1165,11 +1181,11 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
       e.variant ? 'special formulation, left out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
     const cls = dotClass(h, e, c);
-    return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" data-row="${esc(e.v.measurementId)}" data-grade="${esc(e.g.id)}"
+    return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" ${e.v.target ?? `data-row="${esc(e.v.measurementId)}"`} data-grade="${esc(e.g.id)}"
       style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
   }).join('');
   return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
-    <span class="imp-track" style="height:${8 + rows * 9}px">${gridLines(scale)}${band}${median}${dots}</span></div>`;
+    <span class="imp-track" style="height:${8 + rows * 9}px">${gridLines(scale)}${limit}${band}${median}${dots}</span></div>`;
 }
 
 /**
@@ -1488,6 +1504,109 @@ function drawerComparisons(m, c, tab) {
   }).filter(Boolean);
 }
 
+// Why a product's setting is not drawn, counted: "3 state none", "60 need none".
+const PRINT_NOT_DRAWN = {
+  unknown: 'state none', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
+  recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
+  'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+};
+const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };
+
+/**
+ * Print temperatures across a material's products (D139): a closed heading at the top of Printing, a graph per setting
+ * with each product's lowest and highest temperature as dots on one °C scale (drying one row), the H2C's limit drawn
+ * where it is near the products' values, a table whose medians are the typical window, the products outside the H2C's
+ * limits by their print gate's verdict, and why the others are not drawn. A dot opens its product's profile below, or
+ * the guide's row where its value is the guide's. Nothing is drawn where no setting has two values, one a sheet's.
+ */
+function printTemperatures(m, c) {
+  c.msById ??= new Map(c.ms.map((x) => [x.id, x]));
+  const axes = printSpread(c.grades.filter(isProduct));
+  const guideName = c.guide?.name ?? 'Bambu Lab\'s Filament Guide';
+  const gradeLabel = (g) => gradeName(g) || g.id;
+  const own = (a) => a.rows.flatMap((r) => r.entries).filter((e) => e.origin !== 'guide');
+  const drawn = axes.filter((a) => a.rows.reduce((n, r) => n + r.entries.length, 0) > 1 && own(a).length);
+  if (!drawn.length) return '';
+  const def = (r) => ({ key: r.key, labels: { plain: r.label }, unit: '°C', openWords: `from ${guideName}` });
+  const asDot = (e) => ({ g: e.g, variant: e.variant, v: { value: e.value, level: e.origin === 'guide' ? 'as-published' : 'comparable',
+    from: e.origin === 'twin' ? { label: e.label } : null, target: e.profileId ? `data-profile="${esc(e.profileId)}"` : 'data-guide="1"' } });
+  // A window as its sheet gives it: both ends, one value, or one end open ("at least 50").
+  const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fmtNumber(lo)}` : lo == null ? `up to ${fmtNumber(hi)}`
+    : lo === hi ? fmtNumber(lo) : `${fmtNumber(lo)}\u2060–\u2060${fmtNumber(hi)}`);
+  const dots = drawn.flatMap((a) => a.rows.flatMap((r) => r.entries.map((e) => ({ a, e }))));
+  const strips = drawn.map((a, i) => {
+    const values = a.rows.flatMap((r) => r.entries.map((e) => e.value));
+    const lo = Math.min(...values), hi = Math.max(...values);
+    // The limit is drawn where it is near the products' values (within a quarter of their span, or 10 °C, above the
+    // highest); far above them, the axis says where it is, so PLA's windows are not squeezed against a 350 °C line.
+    const limit = a.limit ? h2cLimit(a.axis) : null;
+    const onScale = limit != null && limit <= hi + Math.max((hi - lo) / 4, 10);
+    const scale = stripScale(onScale ? [...values, limit] : values, '°C');
+    const line = onScale ? `<span class="imp-limit" style="left:${scale.pct(limit)}%" title="${esc(`The H2C's limit: ${limit} °C`)}"></span>` : '';
+    const rows = a.rows.filter((r) => r.entries.length).map((r) => dotRow(def(r), r.entries.map(asDot), r.summary, scale, c, gradeLabel, { limit: line })).join('');
+    const unit = `°C${limit == null ? '' : onScale ? `, H2C limit ${fmtNumber(limit)}` : `; H2C limit ${fmtNumber(limit)} °C, above the scale`}`;
+    return `<div class="imp-strips">
+        ${rows}
+        <div class="imp-row imp-axis"><span class="fine">${esc(unit)}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div></div>`;
+  }).join('');
+  const has = (k) => dots.some(({ e }) => k(e));
+  const key = [
+    has((e) => e.origin !== 'guide' && !e.variant) ? '<span><i class="imp-dot"></i> the product\'s data sheet, or one it shares</span>' : '',
+    has((e) => e.origin === 'guide' && !e.variant) ? `<span><i class="imp-dot open"></i> ${esc(`from ${guideName}`)}</span>` : '',
+    has((e) => e.variant) ? '<span><i class="imp-dot variant"></i> special formulation</span>' : '',
+    drawn.some((a) => a.rows.some((r) => r.summary.q1 != null)) ? '<span><i class="imp-band-key"></i> middle half</span>' : '',
+    drawn.some((a) => a.rows.some((r) => r.summary.n > 1)) ? '<span><i class="imp-median-key"></i> median</span>' : '',
+    strips.includes('imp-limit') ? '<span><i class="imp-limit-key"></i> the H2C\'s limit</span>' : '',
+  ].join('');
+  // The table: a row a row, and under each the values drawn and not counted.
+  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}\u2060–\u2060${fmtNumber(x.max)}`);
+  const rowsOf = drawn.flatMap((a) => a.rows.filter((r) => r.entries.length));
+  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted">n</th><th class="num">Median</th>
+      <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${rowsOf.map((r) => {
+    const s = r.summary;
+    const apart = [s.guide ? `${s.guide.n} from the guide (${span(s.guide)})` : null, s.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : null].filter(Boolean);
+    return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(fmtNumber(s.median)) : '—'}</td>
+      <td class="num">${s.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s.n ? esc(span(s)) : '—'}</td></tr>
+      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not counted: ${esc(andList(apart))}.</td></tr>` : ''}`;
+  }).join('')}</tbody></table>`);
+  // The typical window: the medians of the lowest and the highest settings, and drying's.
+  const typical = drawn.map((a) => {
+    const [low, high] = a.rows.map((r) => (r.summary.n ? r.summary.median : null));
+    if (low == null && high == null) return null;
+    // Two medians of different products can cross where few give both ends; then each is said by name.
+    if (low != null && high != null && low > high) return `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C`;
+    return `${lower(a.label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`;
+  }).filter(Boolean);
+  const outside = axes.filter((a) => a.outside.length).map((a) => `${lower(a.label)}: ${andList(a.outside.map((o) => `${gradeLabel(o.g)} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
+  const limits = axes.filter((a) => a.limit).map((a) => `${lower(a.label)} ${fmtNumber(h2cLimit(a.axis))} °C`);
+  const lines = [
+    `n counts the products whose own data sheet, or one they share, gives the setting; a value read from ${guideName} and a special formulation are drawn, not counted.`,
+    typical.length ? `Typical window, the medians of the lowest and highest settings: ${andList(typical)}.` : null,
+    outside.length ? `Outside the H2C's limits (${andList(limits)}): ${outside.join('; ')}.` : `No product's setting is outside the H2C's limits (${andList(limits)}).`,
+  ].filter(Boolean);
+  // What is not drawn, by setting and why, so the counts above square with the products below.
+  // A setting one product's sheet, or only the guide, gives: said with its window as the sheet gives it.
+  const windowOf = (a, g) => (a.axis === 'drying' ? fmtNumber(g.print.drying.tempC) : windowText(g.print[a.axis].min, g.print[a.axis].max));
+  const single = axes.filter((a) => !drawn.includes(a) && a.rows.some((r) => r.entries.length)).map((a) => {
+    const es = a.rows.flatMap((r) => r.entries);
+    const mine = own(a);
+    return mine.length ? `${a.label}: only ${gradeLabel(mine[0].g)}'s sheet gives one (${windowOf(a, mine[0].g)} °C).`
+      : `${a.label}: only ${guideName} gives one (${windowOf(a, es[0].g)} °C), read by ${plural(new Set(es.map((e) => e.g.id)).size, 'product')}.`;
+  });
+  const oneEnd = (n, end) => (n ? `${n} ${n === 1 ? 'gives' : 'give'} only a ${end} setting` : null);
+  const missing = axes.filter((a) => a.notDrawn.size || a.oneEnd?.low || a.oneEnd?.high).map((a) => `${lower(a.label)}, ${andList([...[...a.notDrawn].map(([why, n]) => `${n} ${PRINT_NOT_DRAWN[why]}`),
+    oneEnd(a.oneEnd?.low ?? 0, 'lowest'), oneEnd(a.oneEnd?.high ?? 0, 'highest')].filter(Boolean))}`);
+  const products = new Set(dots.map(({ e }) => e.g.id)).size;
+  const body = `<section class="imp-compare print-compare" data-comparison="Print temperatures across products">${strips}
+      <p class="imp-key fine">${key}</p>
+      <p class="fine imp-hint">Select a dot to open its print profile below; hover to find the same product's other dots.</p>
+      ${table}
+      ${lines.map((l) => `<p class="fine imp-foot">${esc(l)}</p>`).join('')}
+      ${single.length ? `<p class="fine imp-foot">${esc(single.join(' '))}</p>` : ''}
+      ${missing.length ? `<p class="fine imp-foot">Not drawn: ${esc(missing.join('; '))}.</p>` : ''}</section>`;
+  return makerBlock('Print temperatures across products', products, 'product', body, { cls: 'prop-block imp-block print-block' });
+}
+
 function spreadTable(m, c) {
   // Every headline, those drawn in the drawer alone too (D139).
   const rows = REGISTRY.allHeadlines.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s);
@@ -1693,7 +1812,8 @@ function tabBody(tab, c) {
 
   if (tab === 'Printing') {
     const guide = guideBlock(m, c);
-    if (!profiles.length) return guide || empty('Printing');
+    const temperatures = printTemperatures(m, c);
+    if (!profiles.length) return temperatures + guide || empty('Printing');
     const leadingMaker = leadMaker(m, c);
     const note = (t) => `<br><span class="missing" style="font-size:11px">${t}</span>`;
     // AMS and H2C routing are shown on a profile only where it says more than "verify the exact grade", which nearly all
@@ -1703,7 +1823,7 @@ function tabBody(tab, c) {
     const routingNote = `<p class="fine">AMS and H2C nozzle routing: ${profiles.filter(saysMore).length ? `shown on the ${plural(profiles.filter(saysMore).length, 'profile')} that ${profiles.filter(saysMore).length === 1 ? 'says' : 'say'} more than` : 'every profile says only'} "verify the exact grade". Not used as a filter.</p>`;
     const profileBlock = (p) => {
       const g = c.gradeById.get(p.gradeId);
-      return `<div class="profile-block" data-search-item="${esc([gradeName(g), g?.manufacturer, p.profile, p.id].filter(stated).join(' '))}">
+      return `<div class="profile-block" data-profile-id="${esc(p.id)}" data-search-item="${esc([gradeName(g), g?.manufacturer, p.profile, p.id].filter(stated).join(' '))}">
       <h3 class="block-title">${esc(gradeName(g) || 'Product not named')}${stated(p.profile) ? ` <span class="fine">${esc(p.profile)}</span>` : ''}${ids(['Profile', p.id], ['Product', p.gradeId])}</h3>
       <dl class="kv">
         <dt>Nozzle</dt><dd>${esc(p.nozzle.text)} ${gateChip(p.gates.nozzle, 'Nozzle')}</dd>
@@ -1731,7 +1851,7 @@ function tabBody(tab, c) {
         </dl></details>` : ''}
       <div class="cond meas-foot">${[p.sourceId, p.h2cSourceId].filter(stated).map((sid) => `<button type="button" class="link-btn" data-open-source="${esc(sid)}" title="Opens this document in Sources">${esc(sourceName(c.sourceById.get(sid), sid))}</button>`).join('; ')}</div></div>`;
     };
-    return guide + routingNote + searchBox('a product or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not named', leadingMaker)
+    return temperatures + guide + routingNote + searchBox('a product or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not named', leadingMaker)
       .map(([maker, group]) => makerBlock(maker, group.length, 'print profile', group.map(profileBlock).join(''), { open: maker === leadingMaker })).join('');
   }
 
