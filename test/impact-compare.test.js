@@ -1,14 +1,16 @@
 // Notched Charpy beside notched Izod in the drawer (D133): one heading with a row of dots per test, a product each, on
 // one scale, a table of what each median is of, then every record under its property. The rows must be the material's
 // spread exactly (build/src/products.js), each dot the product's own value, the record it stands for saying where it
-// sits, and a bar's state the one the build reads, a page's statement included (D116).
+// sits, and a bar's state the one the build reads, a page's statement included (D116). The checks that hold for every
+// material and every comparison (the dots are the spread, every record says where it sits, what is drawn decides itself,
+// why a record is not drawn is the build's reason, the counted line adds up) live in drawer-comparisons.test.js; this file
+// keeps the spot checks on the impact heading.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderDrawer, notDrawnWhy } from '../app/js/ui/detail.js';
-import { assess } from '../build/src/products.js';
+import { renderDrawer } from '../app/js/ui/detail.js';
 import { useRegistry } from '../app/js/ui/registry.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -41,7 +43,6 @@ const graphLines = (html) => html.split('<div class="evidence-row').slice(1).fla
   const mid = r.match(/data-mid="([^"]+)"/)[1];
   return [...r.matchAll(/<div class="cond on-graph" data-on-graph="([^"]+)">([\s\S]*?)<\/span><\/div>/g)].map((l) => ({ mid, key: l[1], text: l[2].replace(/<[^>]+>/g, '') }));
 });
-const median = (xs) => { const s = [...xs].sort((a, b) => a - b), k = s.length >> 1; return s.length % 2 ? s[k] : (s[k - 1] + s[k]) / 2; };
 
 test('the impact headlines are the ones the data names, and nothing else is drawn this way', () => {
   assert.deepEqual(IMPACT.map((h) => h.key), ['charpyNotched', 'izodNotched']);
@@ -77,96 +78,6 @@ test('a schedule its page states once for the table is the bar\'s state, never "
   assert.ok(line, 'the record its dot stands for says so');
   assert.match(line.text, /annealed at 100 °C for 16 h \(stated once on its page\)/);
   assert.doesNotMatch(line.text, /not stated/);
-});
-
-test('every dot\'s record says where it sits, and the ones "in the median" are the median the table prints', () => {
-  for (const m of db.materials.filter((x) => !x.familyEntry && IMPACT.some((h) => x.summary?.[h.key]))) {
-    const html = mechanical(m.id);
-    if (!html.includes('<section class="imp-compare"')) continue;
-    const lines = graphLines(html);
-    IMPACT.forEach((h, i) => {
-      const dots = rowsOf(html)[i] ?? [];
-      const mine = lines.filter((l) => l.key === h.key);
-      assert.equal(mine.length, dots.length, `${m.id} ${h.key}: a line per dot`);
-      for (const d of dots) assert.ok(mine.some((l) => l.mid === d.mid), `${m.id} ${h.key} ${d.mid}: its record is listed and marked`);
-      for (const l of mine) assert.equal(msById.get(l.mid).property, h.valueProperties[0], `${m.id} ${l.mid}: under its own test`);
-      const s = m.summary?.[h.key];
-      const inMedian = mine.filter((l) => /: in the median\b/.test(l.text)).map((l) => gradeById.get(rowsOf(html)[i].find((d) => d.mid === l.mid).gid).headline[h.key].value);
-      assert.equal(inMedian.length, s?.n ?? 0, `${m.id} ${h.key}: the products in the median`);
-      if (s?.n) assert.ok(Math.abs(median(inMedian) - s.median) < 1e-6 * Math.max(1, s.median), `${m.id} ${h.key}: median ${median(inMedian)} = ${s.median}`);
-    });
-  }
-});
-
-test('what is drawn decides itself: no graph without two dots, no row for a test without one, no table without a median', () => {
-  const seen = { none: 0, one: 0, noMedian: 0, silentRow: 0, full: 0 };
-  for (const m of db.materials.filter((x) => !x.familyEntry)) {
-    const html = mechanical(m.id);
-    if (!html.includes('class="prop-block imp-block"')) continue;
-    const products = db.grades.filter((g) => g.materialId === m.id && !g.retired);
-    const dots = IMPACT.map((h) => (m.headline?.[h.key]?.notApplicable ? 0 : products.filter((g) => g.headline?.[h.key]).length));
-    // A spread needs two points: with none or one, a sentence and no graph.
-    const total = dots.reduce((a, b) => a + b, 0);
-    if (total < 2) {
-      seen[total ? 'one' : 'none'] = (seen[total ? 'one' : 'none'] ?? 0) + 1;
-      assert.ok(!html.includes('<section class="imp-compare"'), `${m.id}: no graph`);
-      assert.match(html, total ? /No graph: only one product has a value to draw, [^<]*<button type="button" class="link-btn" data-row="V\d+">/ : /No graph: no product has a value to draw\. /, `${m.id}: says why`);
-      assert.ok(!html.includes('data-on-graph'), `${m.id}: no record says it is on a graph`);
-      continue;
-    }
-    IMPACT.forEach((h, i) => assert.equal(html.includes(`data-headline="${h.key}"`), dots[i] > 0, `${m.id} ${h.key}: a row only with a dot`));
-    if (dots.some((n) => !n)) { seen.silentRow++; assert.match(section(html), /: no product has one, so it has no row/, `${m.id}: the missing row is said`); }
-    const compared = IMPACT.some((h, i) => dots[i] && m.summary?.[h.key]?.n);
-    assert.equal(section(html).includes('class="grid imp-summary"'), compared, `${m.id}: a median table only with a median`);
-    if (!compared) { seen.noMedian++; assert.match(section(html), /No median: none of the (\d+ )?values? drawn (is compared|states the bar(?:'|&#39;)s orientation)/, `${m.id}: says why there is no median`); } else seen.full++;
-    // The key names only the marks a dot carries.
-    const key = section(html).match(/<p class="imp-key fine">([\s\S]*?)<\/p>/)[1];
-    const drawnClasses = rowsOf(html).flat().map((d) => d.cls);
-    // A special formulation is a diamond whatever its orientation, so "no stated orientation" is keyed by a circle only.
-    for (const mark of ['open', 'annealed', 'variant', 'claimed']) {
-      const carried = drawnClasses.some((x) => x.includes(mark) && (mark !== 'open' || !x.includes('variant')));
-      assert.equal(key.includes(`imp-dot ${mark}`), carried, `${m.id}: the key's ${mark} mark`);
-    }
-  }
-  // Every kind occurs in the data, so each branch above was taken.
-  for (const [k, n] of Object.entries(seen)) assert.ok(n > 0, `some material shows ${k}`);
-});
-
-test('why a result is not drawn is the build\'s reason, and the counted line adds up to the lists under it', () => {
-  const props = new Set(IMPACT.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
-  let checked = 0;
-  for (const m of db.materials.filter((x) => !x.familyEntry)) {
-    const ms = db.measurements.filter((x) => x.materialId === m.id);
-    const records = ms.filter((x) => props.has(x.property) && !(!x.numeric && !x.qualitative && /^not published$/i.test(String(x.dataStatus ?? '').trim())));
-    if (!records.length) continue;
-    const products = (m.gradeIds ?? []).map((id) => gradeById.get(id)).filter((g) => g && !g.retired);
-    const drawnIds = new Set(products.flatMap((g) => IMPACT.map((h) => g.headline?.[h.key]?.measurementId).filter(Boolean)));
-    const c = { ms, gradeById };
-    for (const x of records.filter((y) => !y.quarantined)) {
-      const h = IMPACT.find((d) => d.valueProperties.includes(x.property)) ?? null;
-      const why = notDrawnWhy(x, IMPACT, c, drawnIds);
-      const r = assess(x, h ?? IMPACT[0], ms.filter((y) => y.gradeId === x.gradeId));
-      if (r.excluded) {
-        const got = why.split(':')[0] === 'resin' ? 'moulded' : why.split(':')[0];
-        assert.equal(got, r.why, `${m.id} ${x.id}: the build says "${r.excluded}"`);
-      } else assert.ok(['drawn', 'second', 'retired', 'reference'].includes(why), `${m.id} ${x.id}: the build takes it, the drawer says ${why}`);
-      checked++;
-    }
-    // The line above the lists counts every result in them.
-    const html = mechanical(m.id);
-    if (!html.includes('class="prop-block imp-block"')) continue;
-    const said = html.match(/Of the (\d+) results below|The (\d+) results below|(The result below|It is the only result below)|The other (\d+) results below|The other (result) below/);
-    assert.ok(said, `${m.id}: a counted line`);
-    const n = said[1] ? +said[1] : said[2] ? +said[2] : said[3] ? 1 : said[4] ? +said[4] + 1 : 2;
-    assert.equal(n, records.length, `${m.id}: the counted line covers every result listed`);
-    // Its parts add up too.
-    const line = html.match(/<p class="fine imp-(?:tally|none)">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, '');
-    const after = (line.match(/(?:the other \d+|below): (.*)$/)?.[1] ?? '').trim();
-    const sum = [...after.matchAll(/(?:^|, | and )(\d+) /g)].reduce((a, x) => a + +x[1], 0);
-    const drawn = +(line.match(/, (\d+) (?:is|are) drawn above/)?.[1] ?? (/only one product/.test(line) ? 1 : 0));
-    if (after.trim()) assert.equal(sum + drawn, records.length, `${m.id}: "${line}"`);
-  }
-  assert.ok(checked > 1000, `${checked} results checked`);
 });
 
 test('a product\'s name is text, never markup', () => {

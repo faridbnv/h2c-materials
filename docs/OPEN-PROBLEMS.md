@@ -301,6 +301,15 @@ it was given:
 - **Four raw cells on MakerBot Tough** hold the metric column ("63.3 MPa", V006674 to V006677) where the test method belongs; the sheet names
   "ASTM D628" (sic) and D790 in a footnote. The values are moulded (m155) and decide nothing.
 
+**A heat deflection with no stated load beside its twins' 1.8 MPa value** (drawer comparisons, 2026-10-16, D139). The
+new HDT at 1.8 MPa row takes only a value whose sheet states that load, so a value with none is drawn once, hollow, on
+the 0.45 MPa row. On PPSU, FormFutura's sheet prints 207 °C with no load (V009575) where its twins' sheets, iSANMATE's
+and 3D4Makers', print the same 207 °C at 1.8 MPa (V001674, V006954): the three products are drawn hollow at 207 °C on
+the 0.45 MPa row and filled at 207 °C on the 1.8 MPa row, above 3DXTECH's 190 °C at 0.45 MPa. The unloaded value is
+very likely the 1.8 MPa one. Nothing decides on it unless as-published values are admitted, where a lower-load filter
+reads a heavier-load value, the cautious side; FormFutura's answer, or the owner's word that a twin's stated load
+speaks for the unloaded copy, would settle it.
+
 ```bash
 npm run audit:gaps   # the answers that still change when as-published values are admitted
 npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and (notes like '%m155%' or notes like '%m168%') group by 1"
@@ -1030,6 +1039,12 @@ in its benefits list and 87 MPa and 240 °C in its description; Siraya Tech's PE
 100%" three times (6.7, 7.6, 8.5 MPa) with nothing to tell them apart; UltiMaker's Precision ASA sheet prints its
 tensile modulus as 2,167 MPa on p. 1 and 2,100 MPa on p. 2. Each row holds what its line prints; the maker is the
 source that can settle them.
+
+colorFabb's PA Blue Metal Detectable sheet prints "Heat Deflection temperature (amorphous) 60 ˚C ISO 75-1" and "Heat
+Deflection Temperature (A) 90 ˚C ISO 75" (V011123, V011126): a value at no stated load below the same sheet's 1.8 MPa
+value (method A). The drawer's heat heading shows the product at 60 °C, hollow, on the 0.45 MPa row and at 90 °C on
+the 1.8 MPa row (found by the sweep of every material's new headings, D139). The 60 °C may be another quantity of an
+amorphous phase, or a misprint; colorFabb is the source that can settle it.
 
 ### 30.7. Garbled text layers
 

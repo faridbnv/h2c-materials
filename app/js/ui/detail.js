@@ -881,7 +881,8 @@ function knowHowOf(db) {
   }
   return knowHowIndex.get(db);
 }
-const lower = (t) => t.charAt(0).toLowerCase() + t.slice(1);
+// The first letter in lower case, inside a sentence; an abbreviation (HDT, PLA) keeps its capitals.
+const lower = (t) => (/^[A-Z][A-Z]/.test(t) ? t : t.charAt(0).toLowerCase() + t.slice(1));
 const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 const andList = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
 const RECIPE_WORDS = { chamber: 'chamber or enclosure need', drying: 'drying schedule', annealing: 'annealing schedule' };
@@ -1088,9 +1089,11 @@ const roundStep = (span) => {
 };
 function stripScale(values, unit) {
   if (unit === '°C') {
-    const lo = Math.min(...values), hiValue = Math.max(...values);
-    // At least a 10 °C span, so two products a degree apart are not drawn at the ends of the track.
-    const step = roundStep(Math.max(hiValue - lo, 10));
+    // At least a 10 °C span about the values, so two products a degree apart, or at one value, are not drawn at the
+    // ends of the track or on a scale of one tick.
+    const mid = (Math.min(...values) + Math.max(...values)) / 2;
+    const lo = Math.min(...values, mid - 5), hiValue = Math.max(...values, mid + 5);
+    const step = roundStep(hiValue - lo);
     const from = Math.floor(lo / step) * step;
     const hi = Math.ceil(hiValue / step) * step;
     const ticks = [];
@@ -1175,7 +1178,7 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
  */
 function spreadSummary(hs, m) {
   // A range never breaks across lines at its dash (U+2060 joins the dash to its numbers).
-  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}⁠–⁠${fmtNumber(x.max)}`);
+  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}\u2060–\u2060${fmtNumber(x.max)}`);
   const apartOf = (h, s) => [s?.asPublished ? `${s.asPublished.n} with ${asPublishedWords(h)} (${span(s.asPublished)})` : null,
     s?.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : null,
     s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : null].filter(Boolean);
@@ -1184,7 +1187,7 @@ function spreadSummary(hs, m) {
     const s = m.summary?.[h.key];
     const apart = apartOf(h, s);
     return `<tr><th scope="row">${esc(h.labels.plain)}${units.size > 1 ? ` <span class="u">${esc(h.unit)}</span>` : ''}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>
-      <td class="num">${s?.q1 != null ? esc(`${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s?.n ? esc(span(s)) : '—'}</td></tr>
+      <td class="num">${s?.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s?.n ? esc(span(s)) : '—'}</td></tr>
       ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : ''}`;
   };
   const claimed = hs.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s?.claimed);
@@ -1415,8 +1418,10 @@ function drawerComparisons(m, c, tab) {
         bothLine = `<p class="fine imp-foot">${esc(cmp.pairLabel)}: ${esc(andList(pairs.map((gr, i) => { const n = bothOf(gr).length; return `${n ? (i ? n : plural(n, 'product')) : 'none'} for ${graphName(gr)}`; })))}.</p>`;
       }
       const shares = pairs.map((gr) => ({ gr, s: shareOf(gr.rows[0], gr.rows[1], byKey, c) })).filter((x) => x.s);
-      const shareLine = shares.length ? `<p class="fine imp-foot">${esc(`${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction}, for products whose two values are compared, from one document and in one state: ${andList(shares.map(({ gr, s }) => (s.length === 1 ? `${graphName(gr)} ${pct(s[0])} (1 product)`
-        : `${graphName(gr)} ${pct(middle(s))} (${pct(Math.min(...s))}⁠–⁠${pct(Math.max(...s))}, ${s.length} products)`)))}.`)}</p>` : '';
+      // A share every product gives alike is said once, without a range of one number.
+      const shareWords = (gr, s) => (pct(Math.min(...s)) === pct(Math.max(...s)) ? `${graphName(gr)} ${pct(s[0])} (${plural(s.length, 'product')})`
+        : `${graphName(gr)} ${pct(middle(s))} (${pct(Math.min(...s))}\u2060–\u2060${pct(Math.max(...s))}, ${s.length} products)`);
+      const shareLine = shares.length ? `<p class="fine imp-foot">${esc(`${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction}, for products whose two values are compared, from one document and in one state: ${andList(shares.map(({ gr, s }) => shareWords(gr, s)))}.`)}</p>` : '';
       graph = `${strips}
         ${spreadSummary(shown, m)}${singleLine}${silentLine}${bothLine}${shareLine}`;
     }

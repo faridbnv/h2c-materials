@@ -151,3 +151,91 @@ test("the physical relations travel in the registry, each over real properties a
     if (rel.lower === rel.higher) assert.ok(rel.lowerLoadMPa > rel.higherLoadMPa, `${rel.id}: the heavier load is the lower value`);
   }
 });
+
+// The drawer's comparisons (drawer_comparisons.csv, D133, D139): what a comparison and a Drawer-only headline must be is
+// checked while the registry compiles. Each case starts from the real tables, changes one thing and compiles the registry
+// alone (no database is built).
+const HDT = 'Heat deflection and glass transition';
+const registryIssues = (edit = () => {}) => {
+  const wb = structuredClone(base);
+  edit(wb);
+  const issues = [];
+  const compiled = compileRegistry(wb, issues);
+  return { compiled, issues: issues.filter((i) => i.level === 'error' && (i.code === 'REGISTRY-COMPARISON' || i.code === 'REGISTRY-HEADLINE')) };
+};
+const headlineRow = (wb, key) => wb['Headline definitions'].rows.find((r) => r.HeadlineKey === key);
+const messages = (issues, code) => issues.filter((i) => i.code === code).map((i) => `${i.where}: ${i.message}`);
+
+test('the drawer comparisons compile from the tables with no comparison or headline issue', () => {
+  const { compiled, issues } = registryIssues();
+  assert.deepEqual(issues, []);
+  assert.deepEqual(compiled.comparisons.map((c) => c.name), ['Impact tests', 'Tensile tests, XY and Z', HDT]);
+  assert.deepEqual(compiled.comparisons.map((c) => c.pairLabel), ['Both tests', 'Both orientations', null]);
+  assert.deepEqual(compiled.headlines.filter((h) => h.drawerOnly).map((h) => h.key), ['tensileModulusZ', 'elongationZ', 'hdt18']);
+});
+
+test('a comparison with no caption in method.csv is an error', () => {
+  const { issues } = registryIssues((wb) => {
+    wb.Method.rows = wb.Method.rows.filter((r) => !(r.Section === 'Comparison' && r.Topic === 'Tensile tests, XY and Z'));
+  });
+  assert.deepEqual(messages(issues, 'REGISTRY-COMPARISON'), ['drawer_comparisons Tensile tests, XY and Z: Its caption, a method.csv row of Section Comparison and this Topic, is missing']);
+});
+
+test('a comparison that fewer than two headlines name is an error', () => {
+  const { issues } = registryIssues((wb) => {
+    for (const key of ['hdt045', 'glassTransition']) headlineRow(wb, key)['Drawer comparison'] = 'Not applicable';
+  });
+  assert.deepEqual(messages(issues, 'REGISTRY-COMPARISON'), [`drawer_comparisons ${HDT}: 1 headline(s) name it; a comparison draws two or more`]);
+});
+
+test('a comparison whose headlines read properties of two domains is an error', () => {
+  const { issues } = registryIssues((wb) => { headlineRow(wb, 'density')['Drawer comparison'] = HDT; });
+  const found = messages(issues, 'REGISTRY-COMPARISON');
+  assert.equal(found.length, 1, found.join(' | '));
+  assert.match(found[0], new RegExp(`^drawer_comparisons ${HDT}: Its headlines read properties of (physical and thermal|thermal and physical); one heading is drawn on one tab$`));
+});
+
+test('a property in two comparisons is an error', () => {
+  const { issues } = registryIssues((wb) => {
+    const again = structuredClone(headlineRow(wb, 'charpyNotched'));
+    Object.assign(again, { HeadlineKey: 'charpyNotchedAgain', 'Export header': 'Notched Charpy again', 'Drawer comparison': 'Impact tests again' });
+    wb['Headline definitions'].rows.push(again);
+    wb['Drawer comparisons'].rows.push({ ...structuredClone(wb['Drawer comparisons'].rows[0]), Comparison: 'Impact tests again' });
+    wb.Method.rows.push({ ...structuredClone(wb.Method.rows.find((r) => r.Section === 'Comparison' && r.Topic === 'Impact tests')), Topic: 'Impact tests again' });
+  });
+  const found = messages(issues, 'REGISTRY-COMPARISON');
+  assert.ok(found.includes('drawer_comparisons Impact tests again: Charpy strength is already in the comparison Impact tests; a record is listed under one heading'), found.join(' | '));
+  assert.ok(found.includes('drawer_comparisons Impact tests again: Impact strength is already in the comparison Impact tests; a record is listed under one heading'), found.join(' | '));
+});
+
+test('a pair label on a comparison with three headlines in one unit is an error', () => {
+  const { issues } = registryIssues((wb) => { wb['Drawer comparisons'].rows.find((r) => r.Comparison === HDT)['Pair label'] = 'All three'; });
+  assert.deepEqual(messages(issues, 'REGISTRY-COMPARISON'), [`drawer_comparisons ${HDT}: Pair label "All three" names a pair, but 3 of its headlines are in °C`]);
+});
+
+test('a headline naming a comparison that has no row is an error', () => {
+  const { issues } = registryIssues((wb) => { headlineRow(wb, 'charpyNotched')['Drawer comparison'] = 'Impact test'; });
+  const found = messages(issues, 'REGISTRY-COMPARISON');
+  assert.ok(found.includes('headline_definitions charpyNotched: Drawer comparison "Impact test" names no row of drawer_comparisons.csv'), found.join(' | '));
+});
+
+test('a Drawer-only headline must hold no value a decision could read', () => {
+  const cases = [
+    ['hdt18', { 'Table column': 'TRUE' }, 'Table column is TRUE'],
+    ['hdt18', { Estimated: 'TRUE' }, 'Estimated is TRUE'],
+    ['tensileModulusZ', { 'Unstated direction': 'as-published' }, 'a value with no stated direction would be as published'],
+    ['hdt18', { 'Unstated load': 'as-published' }, 'a value with no stated load would be as published'],
+    ['hdt18', { 'Drawer comparison': 'Not applicable' }, 'it names no Drawer comparison'],
+  ];
+  for (const [key, change, problem] of cases) {
+    const { issues } = registryIssues((wb) => { Object.assign(headlineRow(wb, key), change); });
+    const found = messages(issues, 'REGISTRY-COMPARISON').filter((m) => m.startsWith(`headline_definitions ${key}: Drawer only, but `));
+    assert.equal(found.length, 1, `${key} ${JSON.stringify(change)}: ${messages(issues, 'REGISTRY-COMPARISON').join(' | ')}`);
+    assert.ok(found[0].includes(problem), `${key} ${JSON.stringify(change)}: ${found[0]}`);
+  }
+});
+
+test('a headline with a load but no Unstated load is an error', () => {
+  const { issues } = registryIssues((wb) => { headlineRow(wb, 'hdt045')['Unstated load'] = 'Not applicable'; });
+  assert.deepEqual(messages(issues, 'REGISTRY-HEADLINE'), ['headline_definitions hdt045: Load MPa 0.45 needs an Unstated load (as-published or excluded)']);
+});

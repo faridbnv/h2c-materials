@@ -491,51 +491,73 @@ part read elsewhere labelled "data sheet shared with …" or "from Bambu Lab's F
 its maker says (each quote with its document and page, and a **limits** mark where a reviewer recorded what the claim
 does not say), its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
 
-**Impact tests, one heading (D133).** Mechanical shows everything on impact under one closed heading, **Impact tests**,
-in the place of the first impact property, instead of a comparison beside three property headings. Opened, it shows:
+**Comparisons, one heading each (D133, D139).** Three closed headings draw a material's products against the
+headlines a reader compares them on, each in the place of the first property it reads, instead of a block per
+property:
 
-- the two notched tests drawn one above the other on one kJ/m² scale with labelled ticks (logarithmic, at 1, 2 and 5 of
-  each decade, once the largest value is more than ten times the smallest): a dot per product at its published value
-  (filled: orientation stated; hollow: no stated orientation; square: measured after annealing; diamond: a special
-  formulation), the middle half of the compared products shaded and their median a line;
-- a small table, a test a row: how many products are compared, their median, middle half and range, and on a line
-  under it the products drawn but left out of the median, by why (no stated orientation, special formulation, sold as
-  toughened), then the products that publish both tests, by name;
-- one closed line, **How Charpy and Izod differ, and what is compared**: method.csv's caption (how the tests differ,
-  that nothing is converted) and each test's comparison note, there for a reader who asks;
+- **Tensile tests, XY and Z** (Mechanical): tensile modulus, tensile strength and elongation at break, each a scale
+  with an XY row and a Z row;
+- **Impact tests** (Mechanical): notched Charpy and notched Izod on one kJ/m² scale;
+- **Heat deflection and glass transition** (Thermal): HDT at 0.45 MPa, HDT at 1.8 MPa and Tg on one °C scale.
+
+Opened, a heading shows:
+
+- a graph per unit, its rows one above the other on one scale with labelled ticks (logarithmic, at 1, 2 and 5 of each
+  decade, once the largest value is more than ten times the smallest; a temperature always linear, from the round step
+  below its lowest value): a dot per product at its published value (filled: the orientation or load the row asks for
+  is stated; hollow: no stated orientation or test load; square: measured after annealing; diamond: a special
+  formulation; coloured: sold as toughened, impact only), the middle half of the compared products shaded and their
+  median a line;
+- a small table, a row a row: how many products are compared, their median, middle half and range (each row with its
+  unit where the heading has several), and on a line under it the products drawn but left out of the median, by why;
+  then a line for a row of a unit with only one product's value, naming it; then the products that publish both of a
+  pair (Impact: "Both tests", by name; Tensile: "Both orientations", counted per property) and, for tensile, Z as a share
+  of XY for the products whose two values are compared, from one document and in one state (median, range and count);
+- one closed line on how the tests differ and what is compared: method.csv's caption (how the tests differ, that
+  nothing is converted) and each row's comparison note, there for a reader who asks;
 - **Every result, with its document**: one line counting the results below by what each is ("Of the 269 results
   below, 63 are drawn above; the other 206: 47 with no stated notch, 40 unnotched, 39 in J/m, 32 on moulded bars, …"),
-  so the counts under the property headings add up, then the property blocks (Charpy impact strength, Izod impact
-  strength, and Impact strength, test unclear, where the material has them), closed, each with every value, its product
-  and its source. The record a dot stands for carries a line **On the graph** with the dot's mark: in the median, or
-  not and why, what changed its bar (annealed, conditioned; from the build's typed fields, "stated once on its page"
-  where a page heading supplied it), and a **sold as toughened** mark with the maker's quote. A sibling's record that a
-  twin reads (D89) carries a line for each product it stands for.
+  so the counts under the property headings add up, then the property blocks the heading reads (the three tensile
+  strengths, tensile modulus, elongation at break and at yield; Charpy, Izod and Impact strength, test unclear; HDT and
+  the glass transition), closed, each with every value, its product and its source. The record a dot stands for carries
+  a line **On the graph** with the dot's mark: in the median, or not and why, what changed its bar (annealed,
+  conditioned; from the build's typed fields, "stated once on its page" where a page heading supplied it), and a **sold
+  as toughened** mark with the maker's quote. A sibling's record that a twin reads (D89) carries a line for each product
+  it stands for.
 
 What is drawn decides itself, from the products' values, with no list of materials anywhere:
 
-- **No graph with fewer than two values.** A spread needs two points. The heading then opens on one line that says why
-  and counts the results below, so it never seems to contradict them: "No graph: no product has a value to draw. The
-  2 results below: 2 on moulded bars." (ASA-AF), or "No graph: only one product has a value to draw, iSANMATE ASA Glass
-  Fiber's notched Izod impact of 9 kJ/m², with no stated orientation. The other 14 results below: 6 on moulded bars, 5
-  with no stated notch, 2 unnotched and 1 struck cold." (ASA-GF; the value opens its record). The closed line on how
-  the tests differ and the lists follow; nothing else.
+- **A heading only where two of its rows apply.** An elastomer, which no heat deflection applies to, keeps its glass
+  transition as a property of its own.
+- **No graph with fewer than two values on a scale.** A spread needs two points. Where no scale has two, the heading
+  opens on one line that says why and counts the results below, so it never seems to contradict them: "No graph: no
+  product has a value to draw. The 2 results below: 2 on moulded bars." (ASA-AF), or "No graph: only one product has a
+  value to draw, iSANMATE ASA Glass Fiber's notched Izod impact of 9 kJ/m², with no stated orientation. The other 14
+  results below: 6 on moulded bars, 5 with no stated notch, 2 unnotched and 1 struck cold." (ASA-GF; the value opens
+  its record). The closed line on how the tests differ and the lists follow; nothing else.
 - **A row only for a test with a value.** A test no product has a value of gets no empty row; a line under the table
-  says so and that its results are listed below.
+  says so, and that its results are listed below where the material has any.
 - **A key only for the marks drawn**, and the middle half and median only where a row has them.
 - **No median table without a median.** Where none of the values drawn is compared, one sentence says so and why
   ("No median: none of the 5 values drawn states the bar's orientation (XY), and only those that do are compared."),
   instead of a table of dashes.
 
 Why each result is or is not drawn is read from its typed fields in the order the build reads them (products.js
-assess); test/impact-compare.test.js checks the two agree on every impact record, and that each counted line adds up.
+assess and its reason codes); a record two rows refuse (an XZ bar, refused by both XY and Z) is counted by the one it
+got furthest with. test/drawer-comparisons.test.js checks the drawer and the build agree on every record of every
+comparison, that the dots are each material's spread, and that each counted line adds up.
 
 There is no product-by-product table: it repeated the lists (most of a material's impact records were in both), and
-few products publish both tests (23 of 386 when it was removed; PLA has one). Hovering a product's dot on one row lights its dot on the other; selecting
-a dot (or the one value a sentence names) opens its list on this tab, marks its record and brings it into view, and
-the record's document opens Sources.
-Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv; a property they read is
-folded into the heading. A material where neither headline applies keeps its impact properties as headings of their own.
+few products publish both tests (23 of 386 when it was removed; PLA has one). Hovering a product's dot lights its dots in
+the heading's other rows; selecting a dot (or a value a sentence names) opens its list in the heading, marks its record
+and brings it into view, and the record's document opens Sources.
+Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv, naming a row of
+drawer_comparisons.csv that holds the heading, the closed line's title and the pair label; a property they read is
+folded into the heading. Three rows exist only for these headings, **Drawer only** (D139): tensile modulus Z,
+elongation at break Z and HDT at 1.8 MPa. Each product's value and the material's spread are computed as for every
+headline and shown in the heading, on product cards and in the Products tab's spread table, but none is a filter, a
+chart axis, a table or export column, or a scenario key; each takes only a value whose sheet states its orientation or
+load, so a value whose sheet states no load is drawn once, hollow on the 0.45 MPa row.
 
 **Impact strength, test unclear (D133).** The third impact property holds results whose sheet names no test, or names
 both (a Charpy label beside an Izod standard). Its note says so, its values are never compared, and each carries a line
@@ -996,12 +1018,12 @@ source and opens what it finds. (Until phase 4 a "representative grade" was mark
 D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line with its
 count, and inside it every value with its product and source, largest first, keeping the two short conditions
 (post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
-across a property's values. A property another replaced holds no values and is never listed as not published. Where a selectable property compares only some of a property's values, its comparison
-note opens the property's block and says which, and why the rest are shown but not compared: above the impact results
-(said once, in the Impact tests heading), that only a notched Charpy bar (ISO 179) or a notched Izod bar (ISO 180, D94)
-in kJ/m² at room temperature is; under each tensile strength, that only a bar the source
-says it pulled along Z is a layer strength; under the glass transition, that a resin supplier's value is the raw
-material's (D92). With estimates on, each product ends with what the model says of it, one line per headline it
+across a property's values, except in the three comparison headings, which draw each product's chosen value (D133,
+D139). A property another replaced holds no values and is never listed as not published. Where a headline compares only
+some of a property's values, its comparison note says which, and why the rest are shown but not compared, once, in its
+heading's closed line: that only a notched Charpy bar (ISO 179) or a notched Izod bar (ISO 180, D94) in kJ/m² at room
+temperature is; that only a bar the source says it pulled along Z is a Z value; that a resin supplier's glass transition
+is the raw material's (D92). A property in no heading (an elastomer's glass transition) opens its block with the note. With estimates on, each product ends with what the model says of it, one line per headline it
 publishes no comparable value for (D81); in Confirmed only it shows nothing. (The layout probe's check for estimates in
 a Confirmed-only drawer opens ABS-CF's Overview, not this tab.)
 

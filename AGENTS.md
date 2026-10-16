@@ -273,7 +273,10 @@ product's value is chosen from its measurements by rule. The filter rail, charts
 Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise. Say whether annealing or absorbed water changes the value ("Changes with annealing", "Changes with moisture", D99):
 a value measured in such a state then decides only for a product judged in that state. What a value must be is
 a column of the row, never a branch in `products.js`: its direction and what a value with none is (Unstated direction),
-its load, its notch and its test temperature (D92), and the test standard a value that names one must name (D94). Say in Comparison note what it leaves out; the drawer shows it.
+its load, its notch and its test temperature (D92), and the test standard a value that names one must name (D94). Say in Comparison note what it leaves out; the drawer shows it. To draw it product by product beside others in the
+drawer, name a row of `drawer_comparisons.csv` in Drawer comparison (the caption is the method.csv rule of the same
+Topic); a headline wanted only there is Drawer only TRUE, which keeps it out of the rail, the table, the charts, the export
+and every answer, and needs Estimated and Table column FALSE and an unstated direction or load excluded (D139).
 
 ## Importing a batch of data sheets
 

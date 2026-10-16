@@ -579,3 +579,23 @@ with a recommendation each, the owner chose:
 3. **OPEN-PROBLEMS is filed by subject**, its section numbers kept as the items' names.
 
 Built as D138; the record is [the maintainability round](audits/2026-10-15-maintainability-round/README.md).
+
+## Decided on 2026-10-16, the impact heading's way of reading reaches tensile and heat results
+
+The owner read what the impact round built in the drawer (a dot per product, the median table, then every result with
+its document) and found it a good setup for more of the drawer: mechanical, thermal "and maybe even printing". Asked
+four questions, each with a recommendation, the owner chose every recommended answer:
+
+1. **Two more headings.** Mechanical gets **Tensile tests, XY and Z**: tensile modulus, tensile strength and elongation
+   at break, each a scale with an XY row and a Z row. Thermal gets **Heat deflection and glass transition**: HDT at 0.45
+   MPa, HDT at 1.8 MPa and Tg on one °C scale. Vicat (its A50 or B50 method is typed on none of its rows) and flexural
+   results stay property lists.
+2. **The new rows are drawn in the drawer alone** (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): no filter,
+   table or export column, chart axis or answer reads them; one can be made selectable later, when a part needs it.
+3. **One tensile heading with three graphs**, as Impact tests is one heading, rather than three headings.
+4. **Printing comes second**, after the owner has seen the first two: each product's lowest and highest print
+   temperature as dots, the H2C's limit drawn, a dot opening its profile.
+
+Claude Opus designed, judged and wrote the code and migrations (m414, m415); Claude Sonnet agents wrote tests from its
+specifications, read every material's new headings against a checklist and re-read a sample of the newly drawn values
+on their pages. Built as D139.
