@@ -13,6 +13,13 @@
     "edited_existing": 82,
     "removed": 0
   },
+  "drawer_comparisons": {
+    "baseline": 0,
+    "current": 3,
+    "added": 3,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "evidence": {
     "baseline": 5306,
     "current": 8490,
@@ -43,8 +50,8 @@
   },
   "headline_definitions": {
     "baseline": 10,
-    "current": 10,
-    "added": 0,
+    "current": 13,
+    "added": 3,
     "edited_existing": 10,
     "removed": 0
   },
@@ -85,8 +92,8 @@
   },
   "method": {
     "baseline": 51,
-    "current": 53,
-    "added": 2,
+    "current": 55,
+    "added": 4,
     "edited_existing": 1,
     "removed": 0
   },
