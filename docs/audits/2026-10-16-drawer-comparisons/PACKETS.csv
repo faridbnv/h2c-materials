@@ -1,0 +1,4 @@
+Path,Bytes,SHA256,Commit
+blind-draw/input.csv,15150,cc2d65f88fc53d36da3a839a015707f237a3e7681b5d58fa233ca5c45adfaa43,cf9ac5d5b9c4
+blind-draw/key.csv,7913,21a9981d53c95d357d0fcd7f48245ba22c25f71816d168478b5e44fef89222a4,cf9ac5d5b9c4
+sweep/value-checks.txt,8500,88e49150a7fb932caf6baad2b240474d1b207e001583f3ca259a64cdfc99082f,cf9ac5d5b9c4

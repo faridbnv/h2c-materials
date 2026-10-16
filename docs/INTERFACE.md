@@ -508,7 +508,7 @@ Opened, a heading shows:
   is stated; hollow: no stated orientation or test load; square: measured after annealing; diamond: a special
   formulation; coloured: sold as toughened, impact only), the middle half of the compared products shaded and their
   median a line;
-- a small table, a row a row: how many products are compared, their median, middle half and range (each row with its
+- a small table, a line per row: how many products are compared, their median, middle half and range (each row with its
   unit where the heading has several), and on a line under it the products drawn but left out of the median, by why;
   then a line for a row of a unit with only one product's value, naming it; then the products that publish both of a
   pair (Impact: "Both tests", by name; Tensile: "Both orientations", counted per property) and, for tensile, Z as a share
@@ -663,6 +663,7 @@ its policies, its migrations or the words it coined for them.
 | The drawer's Overview | Is this material a candidate, on which product, and what must I verify? | How many products pass, the evidence per requirement, H2C printability, key properties, limitations |
 | Products | Which product do I buy, and how do I print it? | Each product's verdict, print settings and where they come from, its values, its maker's statements |
 | Mechanical, Thermal, Environment | What exactly was measured, and how? | Every value with its method, orientation, specimen and condition |
+| The comparison headings (D133, D139) | Where do this material's products sit, test by test, and how does each print? | A dot per product, the medians, then every result or profile with its document |
 | Sources | Can I trust and trace this number? | The documents, what each covers, the link to the original, the known gaps |
 | A popover | What does this mark mean for my decision? | At most four sentences, in standard terms |
 
@@ -1063,21 +1064,22 @@ gate reads them (grades[].print: its own sheet, a sheet it shares, or the guide'
 heated chamber, a row of each product's lowest setting above a row of its highest on one °C scale, and for drying one
 row of temperatures. A dot is filled where the product's own sheet, or one it shares (D89), gives the setting, hollow
 where it is read from Bambu Lab's Filament Guide, a diamond for a special formulation; the middle half and the median
-are of the filled ones, worked out on the page as the build summarises a headline (the guide's value is drawn and never
-counted, since one row speaks for every product that reads it). The H2C's limit (350 °C nozzle, 120 °C bed, 65 °C
-chamber) is a dashed line where it is near the values, within a quarter of their span or 10 °C above the highest;
+are of the products whose own or shared sheet gives the setting, special formulations left out, worked out on the page
+as the build summarises a headline (the guide's value is drawn and never counted, since one row speaks for every product
+that reads it). The H2C's limit (350 °C nozzle, 120 °C bed, 65 °C chamber) is a dashed line where it is near the
+values, no further above the highest than the larger of a quarter of their span and 10 °C;
 far above them, the axis says so, so PLA's windows are not squeezed against 350 °C. Under the graphs: a table of each
-row's count, median, middle half and range, with what is drawn and not counted; the **typical window**, the medians of
-the lowest and highest settings ("nozzle 195–230 °C, bed 45–60 °C"); the products **outside the H2C's limits**, by
+row's count, median, middle half and range, with what is drawn and not counted; the **medians of the lowest and highest
+settings**, the window most products share ("nozzle 195–230 °C, bed 45–60 °C"); the products **outside the H2C's limits**, by
 their print gate's own verdict (so a nozzle or bed window whose highest end is above the limit is outside, and a
 chamber window part of which is above it is partial), or a sentence that none is; and what is **not drawn**, by
-setting and why (a chamber that needs none, an enclosure asked with no temperature, a window open at one end, a
-drying statement with no temperature), so the counts square with the products below. Selecting a dot opens the
+setting and why (a chamber that needs none, an enclosure asked for with no temperature, a window that gives only one
+end, a drying statement with no temperature), so the counts square with the products below. Selecting a dot opens the
 profile its value is read from, in its maker's list, marked; a guide's dot opens the guide's row. Nothing is drawn where
 no setting has two values one of which is a sheet's.
 
-**The guide's row in the Printing tab.** For a material the guide names, the Printing tab opens with the guide's row,
-above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guide for PLA") with the row's ID as a
+**The guide's row in the Printing tab.** For a material the guide names, the Printing tab shows the guide's row after
+the print temperatures heading, above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guide for PLA") with the row's ID as a
 tag. A line says what it is: what the printer maker's guide states for its type, standing in for a product's print
 gate only where the product's own sheet, and a twin's, say nothing on that part, labelled there as the guide's and
 never the maker's; how many of the material's products read a part from it; and why the row speaks for this
@@ -1086,7 +1088,7 @@ required, no temperature (the H2C's heated chamber counts)"; "no temperature sta
 answer as the guide prints it, with its reading ("Optional: not needed"); its nozzle line, with whether a hardened nozzle is
 required; its drying line, with how the build reads it (required, optional, not needed); and its source, with the column and rows. A
 material the guide does not name has no such block, and a material with a guide row but no profile of its own shows
-the block alone.
+the block alone, after the print temperatures heading where one is drawn.
 
 ## The decision on the page (version 2.1)
 

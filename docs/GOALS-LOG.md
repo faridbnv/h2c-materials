@@ -594,8 +594,9 @@ four questions, each with a recommendation, the owner chose every recommended an
    table or export column, chart axis or answer reads them; one can be made selectable later, when a part needs it.
 3. **One tensile heading with three graphs**, as Impact tests is one heading, rather than three headings.
 4. **Printing comes second**, after the owner has seen the first two: each product's lowest and highest print
-   temperature as dots, the H2C's limit drawn, a dot opening its profile.
+   temperature as dots, the H2C's limit drawn, a dot opening its profile. The owner saw them the same day and said to go
+   on; it was built then.
 
-Claude Opus designed, judged and wrote the code and migrations (m414, m415); Claude Sonnet agents wrote tests from its
-specifications, read every material's new headings against a checklist and re-read a sample of the newly drawn values
-on their pages. Built as D139.
+Claude Opus designed, judged and wrote the code and migrations (m414 to m416); Claude Sonnet agents wrote tests from its
+specifications, read every material's new headings against a checklist, re-read a sample of the newly drawn values on
+their pages and proofread the living documents. Built as D139, and pushed to main at the owner's word.

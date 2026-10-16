@@ -238,7 +238,7 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 | `parallel.js` | Parallel coordinates, hand-drawn in SVG. |
 | `heatmap.js` | The coverage lens. |
 | `compare.js` | Up to six shortlisted materials side by side, or one against a familiar baseline, with their measurement conditions, and the passing products' own print gates beside the material's window. |
-| `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). Its Mechanical, Thermal and Printing tabs open on the comparison headings, a product per dot (D133, D139). |
+| `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). Its Mechanical and Thermal tabs draw the comparison headings in the place of the first property each reads, and its Printing tab opens on the print temperatures, a product per dot (D133, D139). |
 | `print-spread.js` | Each product's lowest and highest print temperatures, as its print gate reads them, and their medians: the Printing tab's heading (D139), worked out on the page and deciding nothing. |
 | `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen, which tells all-failed from none-confirmable. |
 | `start.js` | The opening panel, and the compact active-requirements header that replaces it: the answer, the requirements, how products are judged and what annealing would add (D99), the "H2C printability not checked" line, the notes one press away. |

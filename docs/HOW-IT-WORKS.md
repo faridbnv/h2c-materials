@@ -298,6 +298,15 @@ products compared, 6 kJ/m² (middle half 3.97 to 7.9, range 2.16 to 20.3, 2026-1
 (5.76 to 72.3) are listed beside it. A product's
 name is never the reason, and the mark is a claim, not a test: colorFabb's PET HIGH SPEED PRO, sold with "increased toughness", publishes 1.2.
 
+**Tensile, heat and print settings are drawn the same way** (D139). Mechanical's **Tensile tests, XY and Z** draws
+tensile modulus, strength and elongation at break, each an XY row and a Z row (a bar pulled across its layers is the
+same test on a differently built bar, so nothing is converted), with Z as a share of XY for the products whose two
+values are both compared, from one document. Thermal's **Heat deflection and glass transition** draws HDT at 0.45 and
+1.8 MPa and Tg on one °C scale. Printing's **Print temperatures across products** draws each product's lowest and
+highest nozzle, bed and chamber setting and its drying temperature, the H2C's limit as a line, the medians as the window
+most products share, and the products outside the limits by their print gate's verdict. Tensile modulus Z, elongation
+at break Z and HDT at 1.8 MPa exist for these headings alone: no filter, column or answer reads them.
+
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one
 filed under the whole material, is shown as context and never passes it.

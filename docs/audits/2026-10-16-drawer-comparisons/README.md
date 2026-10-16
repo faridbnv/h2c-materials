@@ -5,8 +5,8 @@
 > **In short.** The owner asked for the impact heading's way of reading a material (a dot per product, the median
 > table, every result with its document) in more of the drawer, and chose two headings: Tensile tests, XY and Z, and
 > Heat deflection and glass transition, with three rows drawn in the drawer alone (tensile modulus Z, elongation at
-> break Z, HDT at 1.8 MPa). Claude Opus designed it, wrote the code and the migrations m414 and m415, and judged every
-> finding; Claude Sonnet agents wrote tests from its specifications, read all 521 headings against a checklist and
+> break Z, HDT at 1.8 MPa). Claude Opus designed it, wrote the code and the migrations m414 to m416, and judged every
+> finding; Claude Sonnet agents wrote tests from its specifications, read all 521 headings (377, then 144 print) and
 > re-read 40 newly drawn values blind. Then, once the owner had seen them, Print temperatures across products on the
 > Printing tab. No answer moved (D139).
 
@@ -53,7 +53,7 @@ Read and kept, with why:
 The owner saw the three headings and chose to go on (2026-10-16). The Printing tab opens with **Print temperatures
 across products**: each product's lowest and highest nozzle, bed and heated-chamber setting and its drying temperature,
 as its print gate reads them, the guide's values hollow and never counted, the H2C's limit dashed where it is near the
-values, the typical window (the medians), the products outside the limits by their gate's verdict, and what is not
+values, the medians of the lowest and highest settings, the products outside the limits by their gate's verdict, and what is not
 drawn by why (`app/js/ui/print-spread.js`, page-side; `build:diff` shows no change). `test/print-spread.test.js` checks
 the 5,436 dots of 144 materials against `g.print`, the table, the window, the outside line and the counts.
 

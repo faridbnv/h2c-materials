@@ -1,6 +1,6 @@
 // Print temperatures across products (D139): the closed heading at the top of the Printing tab, off app/js/ui/print-spread.js
 // and printTemperatures in detail.js. Each dot must be a product's own setting as its print gate reads it, the table and the
-// typical window the spread of those dots, the "outside the H2C's limits" line the gate's own verdicts, the counts square
+// median line the spread of those dots, the "outside the H2C's limits" line the gate's own verdicts, the counts square
 // with the products, and the H2C's limit drawn only where it is near the values.
 //
 // Rendering is the cost (verify:fast has a budget), so each material's Printing tab is rendered once, here, and every test
@@ -372,7 +372,7 @@ test('the table is the spread: each row\'s n, median, middle half and range are 
   assert.ok(seen.rows > 100 && seen.quartiles > 20 && seen.apart > 0, JSON.stringify(seen));
 });
 
-test('the typical window names, for each drawn setting, the medians of its lowest and highest rows', () => {
+test('the medians line names, for each drawn setting, the medians of its lowest and highest rows', () => {
   let checked = 0;
   for (const x of withHeading()) {
     const parts = [];
@@ -384,9 +384,9 @@ test('the typical window names, for each drawn setting, the medians of its lowes
       parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C`
         : `${lower(a.label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`);
     }
-    const line = footLines(x.heading).find((l) => l.startsWith('Typical window'));
+    const line = footLines(x.heading).find((l) => l.startsWith('Medians of the lowest and highest settings'));
     if (!parts.length) { assert.equal(line, undefined, `${x.m.id}: no window where no row has a counted value`); continue; }
-    assert.equal(line, `Typical window, the medians of the lowest and highest settings: ${andList(parts)}.`, x.m.id);
+    assert.equal(line, `Medians of the lowest and highest settings: ${andList(parts)}.`, x.m.id);
     // And the medians are the products' own: worked out from g.print here, not from the spread.
     for (const [axis, s] of Object.entries(x.settings)) {
       if (!s.drawn) continue;
@@ -398,7 +398,7 @@ test('the typical window names, for each drawn setting, the medians of its lowes
     }
     checked++;
   }
-  assert.ok(checked > 20, `${checked} typical windows`);
+  assert.ok(checked > 20, `${checked} medians lines`);
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -124,9 +124,9 @@ const TAB_HELP = {
     const refs = n - products.length;
     return `${plural(products.length, 'product')} you can buy, from ${plural(makers, 'maker')}${refs ? `, and ${plural(refs, 'reference grade')}` : ''}. Each shows its result, how to print it, its values and what its maker says.`;
   },
-  Mechanical: (n) => (n ? `${plural(n, 'published mechanical value')}, by property. Each names its product and the document it comes from.` : 'No mechanical value is on file for this material.'),
-  Thermal: (n) => (n ? `${plural(n, 'published thermal value')}, by property. Each names its product and the document it comes from.` : 'No thermal value is on file for this material.'),
-  Printing: (n, c) => (n ? `${plural(n, 'print profile')}, by maker: the settings each product's documents give, after their temperatures drawn product by product.${c.guide ? ' The Bambu Lab Filament Guide comes before the profiles; a product uses it only where its own sheet is silent.' : ''}` : 'No print profile is on file for this material.'),
+  Mechanical: (n) => (n ? `${plural(n, 'published mechanical value')}, by property, with the tensile and impact results drawn product by product. Each names its product and the document it comes from.` : 'No mechanical value is on file for this material.'),
+  Thermal: (n) => (n ? `${plural(n, 'published thermal value')}, by property, with heat deflection and the glass transition drawn product by product. Each names its product and the document it comes from.` : 'No thermal value is on file for this material.'),
+  Printing: (n, c) => (n ? `Every product's print temperatures drawn together, then ${plural(n, 'print profile')} by maker: the settings each product's documents give.${c.guide ? ' The Bambu Lab Filament Guide comes before the profiles; a product uses it only where its own sheet is silent.' : ''}` : 'No print profile is on file for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'statement')} on chemicals, water, UV, fire and handling, by category. Makers rarely give the concentration, temperature or duration: treat them as indications, not design data.` : 'No statement on chemicals, water or other exposure is on file for this material.'),
   Price: (n) => (n ? `${plural(n, 'shop listing')}, sampled, not live. Canadian shops first; a foreign shop only where no Canadian one sells the product.` : 'No sampled shop listed this material.'),
   Evidence: (n) => (n ? `The ${plural(n, 'document')} this material's values were read from, by publisher, with links to the originals; then its known gaps. One document can cover several products.` : 'No document is on file for this material.'),
@@ -1515,7 +1515,7 @@ const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended s
 /**
  * Print temperatures across a material's products (D139): a closed heading at the top of Printing, a graph per setting
  * with each product's lowest and highest temperature as dots on one °C scale (drying one row), the H2C's limit drawn
- * where it is near the products' values, a table whose medians are the typical window, the products outside the H2C's
+ * where it is near the products' values, a table whose medians of the lowest and highest settings are the window most products share, the products outside the H2C's
  * limits by their print gate's verdict, and why the others are not drawn. A dot opens its product's profile below, or
  * the guide's row where its value is the guide's. Nothing is drawn where no setting has two values, one a sheet's.
  */
@@ -1558,7 +1558,7 @@ function printTemperatures(m, c) {
     drawn.some((a) => a.rows.some((r) => r.summary.n > 1)) ? '<span><i class="imp-median-key"></i> median</span>' : '',
     strips.includes('imp-limit') ? '<span><i class="imp-limit-key"></i> the H2C\'s limit</span>' : '',
   ].join('');
-  // The table: a row a row, and under each the values drawn and not counted.
+  // The table: a line per row, and under each the values drawn and not counted.
   const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}\u2060–\u2060${fmtNumber(x.max)}`);
   const rowsOf = drawn.flatMap((a) => a.rows.filter((r) => r.entries.length));
   const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted">n</th><th class="num">Median</th>
@@ -1569,7 +1569,7 @@ function printTemperatures(m, c) {
       <td class="num">${s.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s.n ? esc(span(s)) : '—'}</td></tr>
       ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not counted: ${esc(andList(apart))}.</td></tr>` : ''}`;
   }).join('')}</tbody></table>`);
-  // The typical window: the medians of the lowest and the highest settings, and drying's.
+  // The medians of the lowest and the highest settings, and drying's: the window most products share.
   const typical = drawn.map((a) => {
     const [low, high] = a.rows.map((r) => (r.summary.n ? r.summary.median : null));
     if (low == null && high == null) return null;
@@ -1581,7 +1581,7 @@ function printTemperatures(m, c) {
   const limits = axes.filter((a) => a.limit).map((a) => `${lower(a.label)} ${fmtNumber(h2cLimit(a.axis))} °C`);
   const lines = [
     `n counts the products whose own data sheet, or one they share, gives the setting; a value read from ${guideName} and a special formulation are drawn, not counted.`,
-    typical.length ? `Typical window, the medians of the lowest and highest settings: ${andList(typical)}.` : null,
+    typical.length ? `Medians of the lowest and highest settings: ${andList(typical)}.` : null,
     outside.length ? `Outside the H2C's limits (${andList(limits)}): ${outside.join('; ')}.` : `No product's setting is outside the H2C's limits (${andList(limits)}).`,
   ].filter(Boolean);
   // What is not drawn, by setting and why, so the counts above square with the products below.

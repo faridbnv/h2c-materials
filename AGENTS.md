@@ -274,9 +274,12 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 a value measured in such a state then decides only for a product judged in that state. What a value must be is
 a column of the row, never a branch in `products.js`: its direction and what a value with none is (Unstated direction),
 its load, its notch and its test temperature (D92), and the test standard a value that names one must name (D94). Say in Comparison note what it leaves out; the drawer shows it. To draw it product by product beside others in the
-drawer, name a row of `drawer_comparisons.csv` in Drawer comparison (the caption is the method.csv rule of the same
-Topic); a headline wanted only there is Drawer only TRUE, which keeps it out of the rail, the table, the charts, the export
-and every answer, and needs Estimated and Table column FALSE and an unstated direction or load excluded (D139).
+drawer, name a row of `drawer_comparisons.csv` in Drawer comparison. A new comparison is a row there (heading, the title
+of its closed line, its pair label or Not applicable) and a method.csv row of Section Comparison and the same Topic, its
+caption, with two headlines or more whose properties are of one domain and in no other comparison. A headline wanted
+only there is Drawer only TRUE, which keeps it out of the rail, the table, the charts, the export and every answer: it
+must be a measurement headline naming a comparison, Estimated and Table column FALSE, with no lower bound or reference
+property, and an unstated direction or load excluded (REGISTRY-COMPARISON, D139).
 
 ## Importing a batch of data sheets
 
