@@ -13,7 +13,8 @@ import { useRegistry } from '../app/js/ui/registry.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
-useRegistry(db.registry);
+// The impact heading alone, as these tests have read it since D133; every comparison is tested in drawer-comparisons.test.js.
+useRegistry({ ...db.registry, comparisons: db.registry.comparisons.filter((x) => x.name === 'Impact tests') });
 const group = (rows) => { const m = new Map(); for (const r of rows) { if (!m.has(r.materialId)) m.set(r.materialId, []); m.get(r.materialId).push(r); } return m; };
 const ctx = { measurementsByMaterial: group(db.measurements), evidenceByMaterial: group(db.evidence), coverageByMaterial: group(db.coverage) };
 const gradeById = new Map(db.grades.map((g) => [g.id, g]));

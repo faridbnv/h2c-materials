@@ -1653,7 +1653,7 @@ function tabBody(tab, c) {
     // What the property is, where properties.csv says it (why there is an impact heading whose test is unclear, D133),
     // then the comparison notes of the selectable properties that read some of its values.
     const describe = (p) => { const d = REGISTRY.properties.find((x) => x.name === p)?.description; return stated(d) ? `<p class="fine cmp-note prop-note">${esc(d)}</p>` : ''; };
-    const notes = (p) => describe(p) + REGISTRY.allHeadlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
+    const notes = (p) => describe(p) + REGISTRY.allHeadlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p) && !m.headline?.[h.key]?.notApplicable)
       .map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
     const shown = list.filter((p) => rows.some((x) => x.property === p));
     const block = (p, note = notes, lines = new Map()) => {

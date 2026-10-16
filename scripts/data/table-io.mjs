@@ -141,14 +141,17 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       changes.push({ table: name, record: label, action: 'Edited', field, before, after });
       return true;
     },
-    append(name, row) {
+    append(name, row, { after = null } = {}) {
       const t = table(name);
       const unknown = Object.keys(row).filter((k) => !t.header.includes(k));
       if (unknown.length) throw new Error(`${name}: unknown columns ${unknown.join(', ')}`);
       const id = row[pkOf(name)];
       if (id != null && api.find(name, id)) throw new Error(`${name}: ${pkOf(name)} ${id} already exists`);
       const clean = Object.fromEntries(t.header.map((h) => [h, row[h] == null || row[h] === '' ? null : String(row[h]).trim()]));
-      t.rows.push(clean);
+      // A table whose row order is read (headline_definitions: the order of the rail, the table and the drawer's rows)
+      // takes a row after the one it belongs beside.
+      if (after != null) t.rows.splice(t.rows.indexOf(api.get(name, after)) + 1, 0, clean);
+      else t.rows.push(clean);
       t.dirty = true;
       changes.push({ table: name, record: id, action: 'Added', field: null, before: null, after: null });
       return clean;

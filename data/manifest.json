@@ -66,8 +66,8 @@
       "sha256": "8f65483ba3fa35a8d070ded15a850ccad463ad75045ce7e4d79e10af735dcbab"
     },
     "method": {
-      "rows": 53,
-      "sha256": "1e31fa67974e4e6f873df7c44a07f0c065ead0955d9bc8241023fbf7f62555d0"
+      "rows": 55,
+      "sha256": "c2b7790097eb51cfa7812163b241cbcfc82b962394ea8436bead98d6a1e49e64"
     },
     "reference": {
       "rows": 114,
@@ -98,12 +98,12 @@
       "sha256": "e6ed4997f37929f64a7df2a7ec4f3bdbcf9bf0d94aed7b39986dae4b7d18d9f1"
     },
     "headline_definitions": {
-      "rows": 10,
-      "sha256": "9c5811df1545c423fff6f12d3cc4c0f84ba5478635064f184f3dfdcfc335439d"
+      "rows": 13,
+      "sha256": "e55ef3dfc385228aa9509e8fac535aa7884a7beab1b875e18322f4c3da4c3296"
     },
     "drawer_comparisons": {
-      "rows": 1,
-      "sha256": "45577d5d577c43ca411accdb32dc78263ea49e44e1bab0997a62b962308b2743"
+      "rows": 3,
+      "sha256": "f9bc4777a39bcf7ff70b85019328f3685acb92c8e47a378f31d535f9f9a13e82"
     },
     "polymers": {
       "rows": 48,

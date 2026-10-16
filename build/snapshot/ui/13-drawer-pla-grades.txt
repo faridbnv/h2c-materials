@@ -2,12 +2,15 @@ Across its products: median and range, and what their makers say
 Property Median Range Products Left out of the range
 Density kg/m³ 1,240 1,170–1,329 158 of 176 16 special formulations (800–4,000)
 Tensile modulus (XY) GPa 2.58 0.433–4.24 52 of 176 42 with no stated orientation (0.379–4.78); 12 special formulations (0.715–4.73)
+Tensile modulus (Z) GPa 2.02 0.873–2.69 28 of 176 2 special formulations (0.603–3.2)
 Tensile strength (XY) MPa 45 26–70.9 67 of 176 56 with no stated orientation (30–71); 12 special formulations (13.7–65)
 Tensile strength (Z) MPa 30.8 8.7–43.5 38 of 176 3 special formulations (14.5–21.7)
 Elongation at break (XY) % 7.23 1.2–65 63 of 176 47 with no stated orientation (2.5–84); 11 special formulations (2.4–36)
+Elongation at break (Z) % 2.89 0.9–9.6 33 of 176 2 special formulations (1.8–7.91)
 Notched Charpy impact kJ/m² 6 2.16–20.3 14 of 169 17 with no stated orientation (1.8–29.8); 7 special formulations (1.8–7); 7 sold as toughened (5.76–72.3)
 Notched Izod impact kJ/m² 5 4.5–6.5 6 of 175 11 with no stated orientation (2–19.8); 5 special formulations (5.5–18.1); 1 sold as toughened (10)
 HDT at 0.45 MPa °C 55 50–135 89 of 176 31 with no stated test load (53–108); 8 special formulations (55–89)
+HDT at 1.8 MPa °C 55 52–75 41 of 176 3 special formulations (45–54.1)
 Glass transition (Tg) °C 58.9 54–67.5 75 of 176 7 special formulations (55–62.4)
 Price CAD/kg 33.7 18–80 26 of 176 2 special formulations (23–65)
 Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.
@@ -75,6 +78,3 @@ Prusa Research
 UltiMaker
 1 product
 Raise3D
-3 products
-3D-Fuel
-1 product

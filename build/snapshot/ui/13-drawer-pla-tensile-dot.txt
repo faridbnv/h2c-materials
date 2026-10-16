@@ -1,0 +1,5 @@
+Tab: Mechanical
+List open: true
+3DXTECH ECOMAX PLA — 2.87 GPa
+On the graph: in the median.
+XY · printed specimen · ISO 527

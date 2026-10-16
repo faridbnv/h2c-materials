@@ -1,15 +1,5 @@
-Tensile modulus
-210 values
-Tensile strength (yield or break not stated)
-228 values
-Tensile yield strength
-56 values
-Tensile break strength
-39 values
-Elongation at break
-241 values
-Elongation at yield
-31 values
+Tensile tests, XY and Z
+805 values
 Tensile strain at strength
 9 values
 Flexural modulus

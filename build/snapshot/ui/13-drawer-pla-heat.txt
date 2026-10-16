@@ -1,0 +1,28 @@
+HDT at 0.45 MPa
+128 products
+HDT at 1.8 MPa
+44 products
+Glass transition (Tg)
+82 products
+°C
+40
+60
+80
+100
+120
+140
+compared
+no stated test load
+measured after annealing
+special formulation
+middle half
+median
+Select a dot to open its result below; hover to find the same product in the other rows.
+Test, °C n Median Middle half Range
+HDT at 0.45 MPa 89 55 53.8–59 50⁠–⁠135
+Also drawn, not in the median: 31 with no stated test load (53⁠–⁠108) and 8 special formulations (55⁠–⁠89).
+HDT at 1.8 MPa 41 55 54–58 52⁠–⁠75
+Also drawn, not in the median: 3 special formulations (45⁠–⁠54.1).
+Glass transition (Tg) 75 58.9 55–61 54⁠–⁠67.5
+Also drawn, not in the median: 7 special formulations (55⁠–⁠62.4).
+n counts the products compared, special formulations left out: on the HDT at 0.45 MPa row, those whose sheet states the test load; on the others, every product drawn. The median, middle half and range are of these alone.

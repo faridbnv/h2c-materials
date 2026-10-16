@@ -344,25 +344,35 @@ try {
   await click('.drawer [data-tab="Mechanical"]');
   await sleep(200);
   results['13-drawer-pla-mechanical'] = await drawerText();
-  // Notched Charpy beside notched Izod (D133): the rows of dots and their counts, then the product table opened. PLA is
-  // the largest; ABS has products that publish both tests; HIPS has a pair on a comparable basis.
-  const impactText = () => evaluate(`(() => { const s = document.querySelector('.drawer-body .imp-compare'); if (!s) return 'NO COMPARISON';
+  // A drawer comparison (D133, D139), opened: its rows of dots and their counts, its table and the lines under it. Notched
+  // Charpy beside notched Izod: PLA is the largest; ABS has products that publish both tests; HIPS has a pair on a
+  // comparable basis. Tensile XY beside Z: PLA, and PETG with the most products that publish a Z strength. Heat
+  // deflection beside the glass transition: PLA, and ABS with the most products that publish HDT at 1.8 MPa.
+  const comparisonText = (name) => evaluate(`(() => { const s = document.querySelector('.drawer-body .imp-compare[data-comparison="${name}"]'); if (!s) return 'NO COMPARISON';
     for (let d = s.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;
     for (const d of s.querySelectorAll('details')) d.open = true;
     return s.innerText.replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n'); })()`);
-  results['13-drawer-pla-impact'] = await impactText();
-  // A dot selected stays on Mechanical and opens the record it stands for in the list below (D133), not Sources.
-  await evaluate(`(() => { const d = document.querySelector('.drawer-body .imp-dot[data-row].claimed') ?? document.querySelector('.drawer-body .imp-dot[data-row]'); d.click(); return true; })()`);
-  await sleep(300);
-  results['13-drawer-pla-impact-dot'] = await evaluate(`(() => { const t = document.querySelector('.drawer-body .evidence-row.target');
+  // A dot selected stays on its tab and opens the record it stands for in its heading's list (D133), not Sources.
+  const dotText = (name) => evaluate(`(() => { const s = document.querySelector('.drawer-body .imp-compare[data-comparison="${name}"]');
+    const d = s?.querySelector('.imp-dot[data-row].claimed') ?? s?.querySelector('.imp-dot[data-row]'); if (!d) return 'NO DOT'; d.click(); return true; })()`)
+    .then(() => sleep(300)).then(() => evaluate(`(() => { const t = document.querySelector('.drawer-body .evidence-row.target');
     return ['Tab: ' + document.querySelector('.drawer [data-tab][aria-selected="true"]')?.dataset.tab, 'List open: ' + !!t?.closest('details')?.open,
-      ...(t?.innerText ?? 'NO RECORD MARKED').replace(/[ \\t]+/g, ' ').split('\\n').filter(Boolean).slice(0, 3)].join('\\n'); })()`);
-  for (const [id, name] of [['M027', 'abs'], ['M081', 'hips']]) {
+      ...(t?.innerText ?? 'NO RECORD MARKED').replace(/[ \\t]+/g, ' ').split('\\n').filter(Boolean).slice(0, 3)].join('\\n'); })()`));
+  results['13-drawer-pla-impact'] = await comparisonText('Impact tests');
+  results['13-drawer-pla-impact-dot'] = await dotText('Impact tests');
+  results['13-drawer-pla-tensile'] = await comparisonText('Tensile tests, XY and Z');
+  results['13-drawer-pla-tensile-dot'] = await dotText('Tensile tests, XY and Z');
+  await click('.drawer [data-tab="Thermal"]');
+  await sleep(200);
+  results['13-drawer-pla-heat'] = await comparisonText('Heat deflection and glass transition');
+  for (const [id, name, views] of [['M027', 'abs', ['impact', 'heat']], ['M081', 'hips', ['impact']], ['M020', 'petg', ['tensile']]]) {
     await click(`#lens tr[data-material="${id}"]`);
     await until(`!!document.querySelector('.drawer [data-tab="Mechanical"]')`, `the ${name} drawer`);
-    await click('.drawer [data-tab="Mechanical"]');
-    await sleep(200);
-    results[`13-drawer-${name}-impact`] = await impactText();
+    for (const view of views) {
+      await click(`.drawer [data-tab="${view === 'heat' ? 'Thermal' : 'Mechanical'}"]`);
+      await sleep(200);
+      results[`13-drawer-${name}-${view}`] = await comparisonText({ impact: 'Impact tests', tensile: 'Tensile tests, XY and Z', heat: 'Heat deflection and glass transition' }[view]);
+    }
   }
 
   // A material answered by its products (D83): the stiff-fixture template ranked by specific stiffness, each row its
