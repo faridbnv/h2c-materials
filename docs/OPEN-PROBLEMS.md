@@ -6,7 +6,7 @@ What the database holds is counted in [build/snapshot/counts.md](../build/snapsh
 does not hold, or holds with a known doubt, so that a reader can tell a gap someone is working on from one nobody has
 noticed.
 
-**How to read it.** Sections 1 to 29 and 35 keep their numbers. Sections 30 to 34 and 36 were each "what one round left open";
+**How to read it.** Sections 1 to 29 and 35 keep their numbers. Sections 30 to 34, 36 and 37 were each "what one round left open";
 their items are filed by subject as §30.1, §30.2 and so on, each opening with the round it came from, and keep that
 round's figures as its history. The counts in the table are today's (`npm run docs:open-problems` writes them at a
 round's close). The table at the end says where every section went. `npm run sql -- --snapshot "<query>"` answers an
@@ -1318,6 +1318,95 @@ npm run sql --silent -- "select manufacturer, count(*) from grades where status 
 npm run sql --silent -- "select publisher, count(*) from sources where publisher like 'UltiMaker%' or publisher like 'Airtech%' group by 1"
 ```
 
+### 37.3. Two documents of one product that disagree, where the page shows one
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**One product, two documents.** Bambu Lab PC's Technical Data Sheet V2.0 prints tensile 62 MPa (XY) and 56 MPa (Z), its
+V3.0 55 and 34 MPa; the product's value is V2.0's (90 % across the layers, the top bar of PC's figure) and V3.0's is "a
+second value of a product already drawn", with no word that it is a newer revision. 3D4Makers PEI Ultem 1010's data
+sheet gives 340–360 °C and a 120 °C bed, its product page 360–400 °C and 120–160 °C (above the H2C's bed). Flashforge
+PET-GF's data sheet gives a 260–280 °C nozzle, its product page 260–290 °C, which the page counts. Spectrum S-Flex
+Carbon's 2024 portfolio prints "HDT A - 134°C" (typed at 1.8 MPa, D141) where its own data sheet gives 134 °C at 0.45 MPa
+and 70 °C at 1.8 MPa. Which document speaks for the product is a ruling per pair (newest revision, data sheet over
+product page), not a rule this round could set.
+
+```bash
+npm run sql --silent -- "select measurementid, gradeid, normalized_value, direction, sourceid from measurements where gradeid in (select gradeid from grades where product_name = 'PC' and manufacturer like 'Bambu%') and property like 'Tensile%strength%'"
+```
+
+### 37.4. More copies counted as products
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Copies.** Beside §32.6, the blind read found tables printed twice and counted twice in their material's medians: QIDI
+PET-GF and Raise3D Industrial PET GF; Polymaker FIBERON PA12-CF10, PolyMide PA12 CF and Raise3D Industrial PA12 CF;
+Spectrum THE FILAMENT TPU 82A and 87A and The Filament's own; Flashforge and SIDDAMENT PPA-CF; Fiberlogy PCTG+CF10 and
+FormFutura AthenaX CF10; Bambu Lab and Kingroon ABS. Each pair needs its sheets read side by side before a Shared
+formulation key joins them (D89).
+
+### 37.5. A product sold only in 2.85 mm
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**A diameter the H2C does not take.** BigRep BVOH's sheet gives "Diameter 2.85 mm" and no 1.75 mm; it counts among
+BVOH's four products, its window among those all four accept. Diameters are free text on the grades
+(`Check 1.75 mm variant` on 1,091 of them), so nothing can set a 2.85 mm-only product aside; whether to type the
+diameter, or to retire such a product, is the owner's call.
+
+### 37.7. A sentence copied onto a maker's page
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**"Highly hygroscopic wood fibers".** Bambu Lab's PAHT-CF and TPU 95A HF product pages carry a sentence written for its
+wood-filled PLA ("As this filament contains highly hygroscopic wood fibers ..."). The records hold it as published
+(Q05685, Q05679) with the reviewer's caveat in their Exposure cell, which no page shows, so PAHT-CF's What makers say
+quotes it among its pitfalls. A state for "copied from another product's page" would keep it on the records page; that
+is a vocabulary change, not done here.
+
+### 37.8. Fillers named or not
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**POM's filler.** POM / Acetal's Modifier is "Commercial variant / undisclosed", so its page says "filler not disclosed",
+though two of its three products read as plain acetal copolymer (densities 1,420 and 1,340 kg/m³). **The rail's facet.**
+Since step 5 the drawer's lede and the pages name a filler the materials table names (aramid fibre, PTFE, ceramic ...),
+but the reinforcement facet still files those 18 materials with the undisclosed variants, and the rail's filter and the
+charts' shapes say "Undisclosed variant" for them.
+
+### 37.12. Originals behind a sign-in
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**FormFutura's SharePoint.** FormFutura's data sheets are served from formfutura.sharepoint.com, which opens a Microsoft
+sign-in page to a reader without an account; the records page's "Open the original" leads there for PPSU, BVOH, PP,
+PLA Wood (EasyWood, EasyCork) and others. The cached copies are the documents read; the links need FormFutura's public
+download addresses.
+
+```bash
+npm run sql --silent -- "select count(*) from documents where url like '%sharepoint.com%'"
+```
+
+### 37.15. Values the blind read could not settle
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Unsettled.** Spectrum PA6 CF15's 170 MPa and 15 GPa (no stated orientation) sit far above every other PA6-CF (112 MPa,
+8.64 GPa at most) and are shown, not compared; whether they are a moulded bar's is not on its sheet. iSANMATE PLA-CF's
+120 MPa and 25 GPa are printed in a column headed "Specimen ISO 3167 A", the multipurpose bar, which may be moulded or
+printed; it is recorded as specimen not stated.
+
+### 37.6. Makers' statements under another topic, untranslated, or a table's fragment
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Topics.** The know-how readers filed benefits under Pitfalls and limitations on PET-CF (Bambu Lab), CPE (Fiberlogy CPE
+ANTIBAC), PPA-CF (Bambu Lab), PA12 and PA6-CF (Extrudr DuraPro), and a water-uptake statement under UV and outdoor on
+PA12 (3DXTECH). **Language.** SUNLU PCL's statements are quoted in Chinese, twice under two topics, and in a chemical row.
+**Fragments.** Spectrum THE FILAMENT ASA CF's "Dry box recommended No" and "Ruby or hardened nozzle recommended Yes" are a
+table's cells quoted as sentences; the first reads as the opposite of what it means. Each is a reading of its page, for
+the next know-how round (§13).
+
 ---
 
 ## What the model and the tools cannot do
@@ -1663,6 +1752,78 @@ of the model that needs a decision and a back-test row (D58).
 ```bash
 grep '^M110,' build/snapshot/headlines.csv
 ```
+
+**PA12's elongation.** The pages now compare an estimate with the values its products publish without a basis in one
+unit (it said PCL's 0.35 GPa disagreed with a range printed in MPa); where they do disagree, PA12's estimated elongation
+at break (200 to 380 %, "good precision") sits above every listed value, 150 % at most.
+
+
+### 37.1. The drawer's nearest value and the page's first screen
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Two choices of the value shown where no product's is compared.** The drawer's Overview shows the build's nearest
+related value (materials[].headline[key].related.best), which can be a resin's moulded bar or a value flagged
+implausible; the page's first screen shows the products' own values that lack the basis first, and the nearest after.
+They disagree on PA12 (43 MPa moulded against 45–60 MPa), PP, PEEK (Izod 138 kJ/m², flagged implausible, against 6) and
+TPU-CF (0.035 GPa against 0.2 GPa). Making the drawer show what the page shows is a change of the selector's
+Overview, and the build's ranking of related values should not put a flagged value first; neither was done in this round.
+
+```bash
+npm run sql --silent -- "select materialid, measurementid, data_status from measurements where data_status like '%implausible%' and materialid = 'M097'"
+```
+
+### 37.2. The drawer's printability verdict is its best product's
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**"Within" beside "4 above".** The drawer's H2C printability rows give the material's gate, which is its best product's
+("Within, Bed 110–250 °C" on PEEK), beside counts that say most products ask for more; the page leads with the counts.
+The verdict is right for "can any product be printed", which the selector asks; its wording could say so.
+
+### 37.10. Foamed filaments' density
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Filament and foamed part.** PLA Aero's density median, 1,100 kg/m³, mixes the filament's (1,100 to 1,240) with foamed
+prints' (350 to 900), and TPU-LW counts Siraya Tech Flex TPU Air at 880 kg/m³, a foamed part's at 240 °C, beside
+filament densities (§30.6).
+
+### 37.11. Print profiles with no setting
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Empty profiles.** 3DXTECH Thermax PEKK-A's (P0125) and CarbonX CF PA12's (P0068) profiles hold no setting: their sheets
+print only the specimens' print conditions. They count among their materials' print profiles.
+
+```bash
+npm run sql --silent -- "select profileid, gradeid, nozzle_c, bed_c, chamber_c, drying, locator from profiles where profileid in ('P0125', 'P0068')"
+```
+
+### 37.14. Project words the drawer and Sources still show
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Left in view.** TPU 85A's drawer "About this entry" prints its identity note with a file path and a migration name
+(`scripts/migrate/m141-...csv`); four textbook and workbook sources are published as "User-supplied reference", which
+the Sources table lists as a publisher where a material's records cite them.
+
+### 37.16. A drying range typed at its upper end
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Drying.** "80-100°C for 6-12 hours" (Raise3D PPA-GF) is typed 100 °C for 12 h, so PPA-GF's typical drying reads
+100 °C for 8 h where its sheets begin at 80 °C. Typing a range by its upper end is the drying parser's rule; whether a
+typical schedule should be drawn from the lower ends is a ruling, not made here.
+
+### 37.17. What the round's own checks leave
+
+*From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
+
+**Checks.** A scan of all 76 pages found, after the fixes, no figure text cut or overlapping at 390 px and two overlaps of
+2 to 3 px at 1,180 px; the interface probe holds its eight pages to none. The estimate stage refits to every data change
+(m433 to m436 moved many materials' estimated modulus and HDT a little); it is frozen as code, not as output (D138).
+verify:fast's first run after a data change was measured at the round's close (README of the round).
 
 ---
 
@@ -2219,3 +2380,18 @@ node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parit
 | §35 | Product uncertainty: implemented contract and remaining certification limits (D137) | What the model and the tools cannot do |
 | §36.1 | Makers spelt two ways among products, and publishers left as they were | Sources that conflict, cannot be read or cannot be reached, and identities |
 | §36.2 | PCTG-GF's estimates sit above its own sheets | What the model and the tools cannot do |
+| §37.1 | The drawer's nearest value and the page's first screen | What the model and the tools cannot do |
+| §37.2 | The drawer's printability verdict is its best product's | What the model and the tools cannot do |
+| §37.3 | Two documents of one product that disagree, where the page shows one | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.4 | More copies counted as products | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.5 | A product sold only in 2.85 mm | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.6 | Makers' statements under another topic, untranslated, or a table's fragment | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.7 | A sentence copied onto a maker's page | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.8 | Fillers named or not | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.10 | Foamed filaments' density | What the model and the tools cannot do |
+| §37.11 | Print profiles with no setting | What the model and the tools cannot do |
+| §37.12 | Originals behind a sign-in | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.14 | Project words the drawer and Sources still show | What the model and the tools cannot do |
+| §37.15 | Values the blind read could not settle | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §37.16 | A drying range typed at its upper end | What the model and the tools cannot do |
+| §37.17 | What the round's own checks leave | What the model and the tools cannot do |

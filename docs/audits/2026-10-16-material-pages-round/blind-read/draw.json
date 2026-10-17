@@ -1,0 +1,54 @@
+{
+ "seed": 20261017,
+ "of": 76,
+ "readers": [
+  [
+   "M016 PLA Glow",
+   "M067 PET-CF",
+   "M032 ASA Aero",
+   "M097 PEEK",
+   "M019 PLA-GF",
+   "M159 TPU 85A class and softer",
+   "M027 ABS",
+   "M164 Nylon, maker-undisclosed polyamide",
+   "M068 PET-GF",
+   "M037 PC-CF"
+  ],
+  [
+   "M170 TPS",
+   "M089 CPE",
+   "M054 PA12-GF",
+   "M149 PCL",
+   "M029 ABS-CF",
+   "M070 PPA-CF",
+   "M018 PLA-CF",
+   "M052 PA12",
+   "M017 PLA Aero",
+   "M050 PA6-CF"
+  ],
+  [
+   "M071 PPA-GF",
+   "M035 PC",
+   "M102 PPSU",
+   "M076 BVOH",
+   "M150 TPU-LW",
+   "M030 ABS-ESD",
+   "M051 PA6-GF",
+   "M082 PP",
+   "M014 PLA Wood",
+   "M144 PCTG-CF"
+  ],
+  [
+   "M098 PEKK",
+   "M024 PETG-CF",
+   "M087 POM / Acetal",
+   "M008 PLA Silk",
+   "M129 TPU-CF",
+   "M110 PCTG-GF",
+   "M053 PA12-CF",
+   "M099 PEI / ULTEM",
+   "M059 PA612-CF",
+   "M033 ASA-CF"
+  ]
+ ]
+}
