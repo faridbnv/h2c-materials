@@ -65,6 +65,7 @@
     "ui:check": "node scripts/ui-probe.mjs",
     "ui:fuzz": "node scripts/ui-fuzz.mjs",
     "ui:fuzz:full": "node scripts/ui-fuzz.mjs --n 2000",
+    "pages": "node scripts/pages/render.mjs",
     "scale": "node --test test/scale.check.js",
     "scale:budget": "node scripts/scale-budget.mjs",
     "reproducible": "node --test test/reproducible.check.js",

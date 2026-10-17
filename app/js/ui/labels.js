@@ -317,6 +317,37 @@ export const WHY_WORDS = {
 export const whyWords = (key, n) => (key.startsWith('unit:') ? `${n} in ${key.slice(5)}`
   : key.startsWith('property:') ? `${n} of ${lower(propertyName(key.slice(9)))}` : WHY_WORDS[key](n));
 
+/**
+ * The same reasons said of one record, as a material page's records table gives them beside each value: "unnotched",
+ * "on a moulded bar". A key whose phrase reads the same alone is WHY_WORDS's without its count.
+ */
+const WHY_ONE = {
+  held: 'held back', noNumber: 'no number', implausible: 'flagged implausible', moulded: 'on a moulded bar',
+  resin: 'the resin\'s, its supplier\'s value', film: 'on film', filament: 'on a filament strand',
+  direction: 'on a bar in another orientation', second: 'another value of a product already drawn',
+  retired: 'a product no longer listed', reference: 'a reference grade, not a product',
+};
+export const whyOne = (key) => (key.startsWith('unit:') ? `in ${key.slice(5)}`
+  : key.startsWith('property:') ? `${lower(propertyName(key.slice(9)))}, listed, not drawn`
+    : WHY_ONE[key] ?? WHY_WORDS[key](1).replace(/^1 /, ''));
+
+/**
+ * An environment statement's verdict (evidence[].verdict) as a column of a material page's matrix: a statement with no
+ * rating is "described in words"; the others read as their code.
+ */
+const ENV_VERDICT_WORDS = { narrative: 'described in words', 'no-data': 'no data', 'self-extinguishing': 'self-extinguishing' };
+export const envVerdictWords = (v) => ENV_VERDICT_WORDS[v] ?? String(v ?? '').replace(/-/g, ' ');
+
+/** A coverage row's status (coverage.csv) in a sentence: "Quarantined" is a value held back (D124). */
+export const coverageStatusWords = (s) => (s === 'Quarantined' ? 'held back' : String(s ?? '').toLowerCase());
+
+/** A material summary's review status (material_summaries.csv, Review status), as its byline says it. */
+export const SUMMARY_STATUS = {
+  draft: 'Draft, not yet reviewed by the owner',
+  'reviewed by the owner': 'Reviewed by the owner',
+  revise: 'Marked for revision by the owner',
+};
+
 /** A part of a product's recipe its maker's documents may leave unsaid (grades[].knowHow.recipe). */
 export const RECIPE_WORDS = { chamber: 'chamber or enclosure need', drying: 'drying schedule', annealing: 'annealing schedule' };
 /** A know-how topic in a list of what a maker leaves unsaid; a topic the vocabulary gains later reads as its name. */

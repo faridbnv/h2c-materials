@@ -447,12 +447,17 @@ export function priceSampleWords(meta, { canadianOnly = false } = {}) {
 export function convertedMark(converted) {
   if (!converted) return '';
   const from = converted.currencies.join(' and ');
+  return explainButton('¤', convertedNote(converted), { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
+}
+
+/** What convertedMark explains, in words: which prices came from a foreign listing, from which currency, at what rate. */
+export function convertedNote(converted) {
+  const from = converted.currencies.join(' and ');
   const which = converted.products
     ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} from a foreign listing`
     : 'A foreign listing\'s price';
-  const text = `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
+  return `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
     + `sells ${converted.products ? 'those products' : 'this product'}. Shipping and duty are not included.`;
-  return explainButton('¤', text, { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */

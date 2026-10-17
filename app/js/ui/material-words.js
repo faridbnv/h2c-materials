@@ -193,9 +193,13 @@ export function leftOutWords(h, s) {
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : ''].filter(Boolean);
 }
 
-/** The rows a comparison does not draw because no product has a value (material-facts.js comparisonsOf silentListed and silentUnlisted). */
-export function silentRowsWords(listed, unlisted) {
-  const said = (rows, isListed) => (rows.length ? `${andList(rows.map((h) => h.labels.plain))}: no product has one, so ${rows.length > 1 ? 'they have' : 'it has'} no row${isListed ? `; ${rows.length > 1 ? 'their' : 'its'} results are listed below` : ''}.` : '');
+/**
+ * The rows a comparison does not draw because no product has a value (material-facts.js comparisonsOf silentListed and
+ * silentUnlisted). `where` says where the listed rows' results are: below them in the drawer, on the records page on a
+ * material page.
+ */
+export function silentRowsWords(listed, unlisted, where = 'listed below') {
+  const said = (rows, isListed) => (rows.length ? `${andList(rows.map((h) => h.labels.plain))}: no product has one, so ${rows.length > 1 ? 'they have' : 'it has'} no row${isListed ? `; ${rows.length > 1 ? 'their' : 'its'} results are ${where}` : ''}.` : '');
   return [said(listed, true), said(unlisted, false)].filter(Boolean).join(' ');
 }
 

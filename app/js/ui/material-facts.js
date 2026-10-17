@@ -247,8 +247,9 @@ export function identity(m, c) {
 // only for them, so a PLA is never told it has "not measured" an elastomer's Shore hardness.
 // A property replaced by another holds no values (the build refuses any use of it), so it is not one a material could
 // be missing: PLA was told Izod strength was not published beside its Izod impact strength values.
-/** The registered properties a tab (Mechanical or Thermal) lists for a material, in registry order. */
-export const tabProperties = (tab, m) => propertiesInDomain(tab === 'Mechanical' ? 'mechanical' : 'thermal')
+/** The registered properties a tab (Mechanical or Thermal) lists for a material, in registry order; 'Physical' (a material
+ *  page's section, not a drawer tab) lists the physical domain's. */
+export const tabProperties = (tab, m) => propertiesInDomain(tab === 'Mechanical' ? 'mechanical' : tab === 'Physical' ? 'physical' : 'thermal')
   .filter((p) => propertyApplies(p, m) && !REGISTRY.properties.find((x) => x.name === p)?.replacedBy);
 
 /** The coverage domains whose rows say why a tab is empty, by tab key. */
