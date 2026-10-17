@@ -209,14 +209,6 @@ export function describeConstraint(c) {
   }
 }
 
-/**
- * The requirements an estimate screened a material out of, in the pills' words. The engine's `screenedBy` holds its
- * criterion strings ("hdt045 >= 100, tensileModulusXY >= 3"), which reached the screened chip and the export as they
- * were: internal keys beside pills that said "Heat resistance at least 100 °C".
- */
-export const screenedByText = (evaluation) => (evaluation?.unresolved ?? [])
-  .filter((r) => r.screened).map((r) => describeConstraint(r.constraint));
-
 /** The screened requirements split by what screened them: an estimate, or the base polymer's published behaviour (D64). */
 export const screenedByKind = (evaluation) => {
   const screened = (evaluation?.unresolved ?? []).filter((r) => r.screened);
@@ -354,9 +346,6 @@ export const whyOne = (key) => (key.startsWith('unit:') ? `in ${key.slice(5)}`
  */
 const ENV_VERDICT_WORDS = { narrative: 'described in words', 'no-data': 'no data', 'self-extinguishing': 'self-extinguishing' };
 export const envVerdictWords = (v) => ENV_VERDICT_WORDS[v] ?? String(v ?? '').replace(/-/g, ' ');
-
-/** A coverage row's status (coverage.csv) in a sentence: "Quarantined" is a value held back (D124). */
-export const coverageStatusWords = (s) => (s === 'Quarantined' ? 'held back' : String(s ?? '').toLowerCase());
 
 /** A material summary's review status (material_summaries.csv, Review status), as its byline says it. */
 export const SUMMARY_STATUS = {

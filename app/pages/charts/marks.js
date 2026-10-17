@@ -34,7 +34,6 @@ export const keyMark = (marks) => `<svg class="key-mk" width="16" height="14" ar
 export const keyBand = '<svg class="key-mk" width="18" height="14" aria-hidden="true" focusable="false"><rect class="band" x="1" y="1" width="16" height="12"/></svg>';
 export const keyMedian = '<svg class="key-mk" width="10" height="14" aria-hidden="true" focusable="false"><line class="median" x1="5" x2="5" y1="0" y2="14"/></svg>';
 export const keyLimit = '<svg class="key-mk" width="10" height="14" aria-hidden="true" focusable="false"><line class="limit" x1="5" x2="5" y1="0" y2="14"/></svg>';
-export const keyDiagonal = '<svg class="key-mk" width="16" height="14" aria-hidden="true" focusable="false"><line class="diagonal" x1="1" x2="15" y1="13" y2="1"/></svg>';
 
 /** A figure's key: only the marks actually drawn, each [markup, words]. */
 export const keyList = (items) => (items.length

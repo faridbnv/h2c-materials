@@ -10,8 +10,7 @@
 // page's size, raw and gzipped, and the time the render took.
 //
 // A page's written summary is the database's (materials[].written, compiled from material_summaries.csv by
-// build/src/written.js): edit the table and the page shows it after the next build. The prototypes' samples of the
-// design review (--sample-summaries until step 4) were filled the same way, and the build's fill replaced them.
+// build/src/written.js): edit the table and the page shows it after the next build.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, statSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';

@@ -14,8 +14,6 @@ export const PRINT_AXES = [
   { axis: 'chamber', label: 'Heated chamber', limit: true },
   { axis: 'drying', label: 'Drying', limit: false },
 ];
-/** Why a product's chamber is not drawn: its state, in the words of the Printing tab. */
-export const CHAMBER_STATES = ['not-required', 'enclosed', 'recommended', 'ambient', 'no-setpoint', 'unknown'];
 /** A print gate verdict that puts a product outside the H2C's limits (build/src/gates.js). */
 export const OUTSIDE = ['exceeds', 'exceeds-recommended', 'partial'];
 

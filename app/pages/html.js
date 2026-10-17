@@ -34,8 +34,5 @@ export const jsonIsland = (id, value) => `<script type="application/json" id="${
 /** A data table inside its own sideways scroll box, so a wide table never scrolls the page on a phone. */
 export const tableBox = (html, cls = '') => `<div class="table-box${cls ? ` ${cls}` : ''}">${html}</div>`;
 
-/** Paragraphs from plain text, each escaped. Empty strings are left out. */
-export const paras = (lines, cls = '') => lines.filter(Boolean).map((t) => `<p${cls ? ` class="${cls}"` : ''}>${esc(t)}</p>`).join('');
-
 /** The records page of a material, and an anchor on it. */
 export const recordsHref = (id, anchor = '') => `${id}-records.html${anchor}`;

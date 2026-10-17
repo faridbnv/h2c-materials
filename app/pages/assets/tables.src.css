@@ -9,7 +9,6 @@
 :root {
   /* The records page's finder bar, on screens where it sits above the results (set from its height by the script). */
   --rf-h: 0px;
-  --row-hover: color-mix(in srgb, var(--accent-soft) 55%, var(--bg));
 }
 /* A sticky table head stops under what the frame keeps at the top of the screen: its bar (--head-h) and, where it is
    one, the strip of section links (--strip-h), both measured by page.js. The finder replaces the records page's strip. */
@@ -217,7 +216,7 @@ table.pt tr.pc-row > td { padding: .1rem 0 1.3rem; text-align: left; white-space
 /* ================================================================ the records page */
 
 /* The finder replaces the strip of section links and the old find box: its record types count and filter them. */
-.page-records:has(.rf:not([hidden])) .toc, .page-records:has(.rf:not([hidden])) .rec-tools { display: none !important; }
+.page-records:has(.rf:not([hidden])) .toc { display: none !important; }
 
 .rf { font-size: .9375rem; }
 .rf-bar { display: flex; flex-direction: column; gap: .35rem; }
@@ -413,7 +412,7 @@ td.drawn small:last-child { margin-bottom: 0; }
 
 @media (prefers-reduced-motion: reduce) { .px::before { transition: none; } }
 @media print {
-  .pt-tools, .pt-own, .rf, .rg-more { display: none !important; }
+  .pt-tools, .rf, .rg-more { display: none !important; }
   table.pt thead, table.rt thead { position: static !important; }
   table.pt tr.pc-row { display: none !important; }
   .rg tr.c, .rg--flat tbody { display: table-row-group; }

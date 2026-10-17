@@ -1,3 +1,6 @@
+# A record of the material pages round's blind read (2026-10-17): it read the four readers' findings from that session's
+# scratch folder (S below), which no longer exists, and wrote judged.csv there; VERDICTS.csv beside it is what it gave.
+# It does not run elsewhere.
 import csv, re
 S='/private/tmp/claude-501/-Users-farid-Documents-h2c-materials-branch/9fce9350-145b-4738-8aa8-79b23e9dc465/scratchpad/blind'
 rows=[]

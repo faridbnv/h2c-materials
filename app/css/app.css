@@ -137,7 +137,6 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 [data-label]::after {
   content: attr(data-label); content: attr(data-label) / ""; font-weight: 600; height: 0; overflow: hidden; visibility: hidden;
 }
-.segmented-label { font-size: var(--t-small); color: var(--ink-3); margin-right: -8px; }
 
 /* ---------------------------------------------------------------- main split */
 .main { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); min-height: 0; }
@@ -355,7 +354,6 @@ table.grid td.name { font-weight: 600; }
 .missing { color: var(--ink-3); font-size: var(--t-small); }
 .missing.dash { font-size: var(--t-table); }
 .print-window { font-size: var(--t-table); }
-.table-note .dash { color: var(--ink-3); }
 
 /* Provenance in the number itself. */
 .v-parsed { text-decoration: underline dotted 1px; text-underline-offset: 3px; cursor: help; }
@@ -420,8 +418,6 @@ table.grid td.name { font-weight: 600; }
 .src-block { scroll-margin-top: 8px; }
 .src-block + .src-block { margin-top: 18px; }
 .src-meta { font-size: var(--t-small); color: var(--ink-3); margin: -6px 0 8px; }
-.src-head { font-size: var(--t-small); color: var(--ink-3); margin: 14px 0 6px; }
-.src-block:first-child .src-head { margin-top: 0; }
 .src-block.target > .src-title { border-left: 3px solid var(--accent); padding-left: 8px; }
 /* The drawer's collapsed groups: a maker's grades, sources or profiles, and a property's values. */
 .maker-block, .prop-block { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 8px; }
@@ -436,15 +432,12 @@ table.grid td.name { font-weight: 600; }
 .maker-block > summary .n, .prop-block > summary .n { margin-left: auto; color: var(--ink-3); font-weight: 400; font-size: var(--t-label); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .maker-body { padding: 4px 12px 12px; border-top: 1px solid var(--border); }
 .maker-body .grade-block:first-child .block-title, .maker-body .profile-block:first-child .block-title, .maker-body > div:first-child .src-title { margin-top: 8px; }
-.index-rank { margin-top: 10px; }
-.index-rank-head { font-size: var(--t-label); color: var(--ink-3); margin-bottom: 4px; }
-.index-rank ol { margin: 0; padding-left: 22px; font-size: var(--t-small); line-height: 1.7; }
 .drawer-search-row { margin: 0 0 12px; }
 .drawer-search { width: 100%; box-sizing: border-box; padding: 8px 10px; font: inherit; font-size: var(--t-body); border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--ink); }
 .grade-ests { margin: 10px 0 4px; }
 .grade-est { font-size: var(--t-small); margin: 3px 0; }
 .grade-est .fine { color: var(--ink-3); font-size: var(--t-label); }
-.meas-foot .link-btn, .src-head .link-btn { text-align: left; }
+.meas-foot .link-btn { text-align: left; }
 .meas-foot .link-btn { color: var(--accent); }
 /* Conditions every measurement from one source shares, said once above them. */
 .shared-conds { border-left: 2px solid var(--border-strong); padding: 2px 0 2px 10px; margin: 0 0 6px; }
@@ -556,7 +549,6 @@ h3.sec:first-child { margin-top: 0; }
 
 .legend-note { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
 .legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
-#index-card + .legend-note { margin-top: 12px; line-height: 1.55; }
 
 /* ---------------------------------------------------------------- Ashby decision workspace (D107 to D111)
    The question in one bar, the controls as three rows (Draw, Also, Line) with More the one menu, opening over the chart
@@ -782,7 +774,6 @@ h3.sec:first-child { margin-top: 0; }
 /* ---------------------------------------------------------------- coverage lens */
 table.cov { border-collapse: collapse; font-size: 12px; }
 table.cov th { font-weight: 600; font-size: 11px; text-align: left; padding: 5px 7px; color: var(--ink-3); }
-table.cov th.rot { writing-mode: vertical-rl; transform: rotate(180deg); height: 130px; vertical-align: bottom; }
 table.cov td { padding: 0; }
 table.cov .cell {
   width: 26px; height: 24px; border: 1px solid var(--surface); cursor: pointer;
@@ -1016,18 +1007,10 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
 .rail-more > summary::-webkit-details-marker { display: none; }
 .rail-more p { font-size: var(--t-label); color: var(--ink-2); line-height: 1.5; margin: 6px 0 0; }
 .control label .info-mark { margin-left: 4px; vertical-align: 1px; }
-.rail-pinned { padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
 .toggle { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: var(--t-body); cursor: pointer; }
-.rail-pinned .avail { font-size: var(--t-label); color: var(--ink-3); margin: 5px 0 0 26px; }
-.rail-pinned .toggle.printable { margin-top: 10px; }
 /* How the part is made and used (D99): annealing and the service state, beside the scope. */
 .state-line { margin: 8px 0 0; font-size: var(--t-body); color: var(--ink-2); }
 .state-line .btn { margin: 0 6px; }
-.rail-state-head { font-size: var(--t-label); font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
-.rail-state .anneal-max { display: block; margin: 6px 0 0 26px; font-size: var(--t-label); }
-.rail-state .anneal-max input { width: 5.5em; }
-.rail-state .service-state { border: 0; padding: 0; margin: 12px 0 0; display: grid; gap: 4px; font-size: var(--t-body); }
-.rail-state .service-state legend { font-weight: 600; padding: 0; margin-bottom: 4px; }
 
 /* Status chips that filter the table are buttons and must read as buttons. */
 button.chip { border: 1px solid transparent; cursor: pointer; font-family: inherit; }
@@ -1049,13 +1032,6 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .spread-n { opacity: 0.85; }
 .drawer .spread, .compare .spread, .legend-row .spread { display: inline; margin-left: 4px; }
 .share { display: block; margin-top: 2px; font-size: 0.78em; color: var(--ink-2); white-space: nowrap; }
-.table-note { font-size: var(--t-small); color: var(--ink-3); margin: 14px 2px 0; max-width: 80ch; line-height: 1.5; }
-.related-list { margin-top: 8px; border-left: 3px solid var(--border-strong); padding-left: 11px; }
-.related-head { font-size: var(--t-label); color: var(--ink-3); margin-bottom: 5px; }
-.related-item { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: var(--t-small); padding: 4px 0; }
-.related-item .rv { font-variant-numeric: tabular-nums; font-weight: 600; }
-.related-item .why { grid-column: 1 / -1; color: var(--unknown); font-size: var(--t-label); }
-.related-item .cond { grid-column: 1 / -1; color: var(--ink-3); font-size: var(--t-label); }
 .statusbar-label { font-size: var(--t-small); color: var(--ink-2); font-weight: 600; margin-right: 2px; }
 
 /* ---------------------------------------------------------------- parallel axes picker */
@@ -1093,8 +1069,6 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .sw.gap { background: var(--unknown-bg); color: var(--unknown); }
 .sw.bad { background: var(--fail-bg); color: var(--fail); }
 .sw.none { background: var(--surface-2); color: var(--ink-3); }
-.cov-other { margin-top: 14px; max-width: 90ch; font-size: var(--t-small); color: var(--ink-2); line-height: 1.55; }
-.cov-other .sw { display: inline-grid; width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; place-items: center; font-size: 11px; font-weight: 700; }
 
 .cov-scroll { overflow: auto; border: 1px solid var(--border); border-radius: var(--radius); }
 table.cov2 { border-collapse: collapse; width: 100%; font-size: var(--t-small); }
@@ -1119,10 +1093,6 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .cov-cell.bad { background: var(--fail-bg); color: var(--fail); }
 .cov-cell.none { background: var(--surface-2); color: var(--ink-3); }
 .cov-cell:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
-/* The rarely published properties, under the grid rather than as a column every row fails. */
-.cov-sparse { margin-top: 18px; max-width: 90ch; }
-.cov-sparse p { font-size: var(--t-small); color: var(--ink-2); line-height: 1.55; margin: 6px 0; }
-.cov-sparse p.fine { color: var(--ink-3); }
 .linkish { border: 0; background: none; padding: 0; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
 .linkish:hover { color: var(--accent); text-decoration: underline; }
 
@@ -1248,18 +1218,6 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .callout { padding: 12px 14px; border-radius: var(--radius); font-size: var(--t-body); margin-bottom: 14px; }
 .callout.bad { background: var(--fail-bg); color: var(--fail); }
 
-/* Cards start at the top of their row: a card whose label wraps is taller, and the others no longer look offset beside it. */
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; align-items: start; }
-.fact-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 13px; background: var(--surface); }
-/* Its own name: as "empty" it also took the empty-state block's 40px margins (.empty), so a card without a value sat
-   40px lower than its neighbours and left a gap under every row. */
-.fact-card.fact-empty { background: var(--surface-2); }
-.fact-card.warn { border-color: var(--unknown); }
-.fact-label { font-size: var(--t-label); color: var(--ink-3); font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
-.fact-value { font-size: 21px; font-weight: 650; margin: 7px 0 5px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.fact-hint { font-size: var(--t-label); color: var(--ink-3); line-height: 1.4; }
-.fact-warn { font-size: var(--t-label); color: var(--unknown); margin-top: 6px; line-height: 1.4; }
-
 .facts-list { row-gap: 9px; margin-bottom: 14px; }
 .fact { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; font-size: var(--t-body); }
 .fact-why { color: var(--ink-2); font-size: var(--t-small); }
@@ -1332,7 +1290,6 @@ details.est-card[open] > summary { margin-bottom: 6px; }
 .est-group-note { margin-top: 8px; }
 .est-card .est-span { font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; margin: 4px 0; }
 .est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
-.est-card .est-peers { font-size: var(--t-label); color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
 
 /* ---------------------------------------------------------------- table bar and new cells */
 .table-bar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 12px; }

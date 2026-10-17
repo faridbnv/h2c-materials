@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// A record of the material pages round (2026-10-16 and 17). Since step 3 these checks run in verify as the CNT section
+// of test/pages.check.js (npm run pages:check), which folded them in; this copy still runs, and is kept as the round's.
+//
 // Cross-section counts on every material page: renders each page the page rule admits (and its records page) from
 // dist/db.json, and checks that the counts one section gives agree with the counts another gives for the same thing,
 // each on its stated basis. A reviewer found them disagreeing (2026-10-16): "64 of 73 publish a drying schedule" beside

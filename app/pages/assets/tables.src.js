@@ -134,7 +134,6 @@
     var total = Number(at(panel, 'data-total')), boxes = {}, pick = {}, names = {}, state;
     var blank = () => ({ q: '', type: [], property: [], orientation: [], product: '', doc: '' });
     panel.hidden = false;
-    $$('.rec-tools').forEach(x => x.hidden = true);
     F.forEach(f => boxes[f] = $$('input[data-f="' + f + '"]', panel));
     // An orientation chip stands for the stated orientations it groups (XY with the sheets' words for a flat bar).
     var codes = {};

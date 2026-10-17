@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// The material pages round's tool (2026-10-16 and 17), kept for any later change to the drawer's code (app/js/ui): run
+// it before and after, on the same database. The baselines the round's documents record are of their day's data.
+//
 // The drawer's golden digests (material pages round, step 1): one SHA-256 per rendered drawer, and one over them all, so
 // that moving the drawer's data shaping into app/js/ui/material-facts.js (and its words, scales and labels beside it)
 // can be shown to change its HTML by not one byte. Run it on the tree before the change and after, and compare:

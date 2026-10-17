@@ -180,7 +180,6 @@ main { min-width: 0; overflow-x: clip; }
 .note, .fig-note { max-width: 80ch; margin: .6rem 0 0; font-size: var(--t-small); color: var(--ink-2); }
 .gap { max-width: var(--measure); margin: .75rem 0; }
 .gap b { font-weight: 600; }
-.absent b { color: var(--ink); font-weight: 600; }
 .not-on-file { margin: 4rem 0 0; padding-top: .9rem; border-top: 1px solid var(--border-strong); max-width: var(--measure); color: var(--ink-2); }
 .not-on-file b { color: var(--ink); font-weight: 600; }
 .to-records { margin: 3.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--border-strong); }
@@ -238,15 +237,14 @@ q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 .fig-track, .fig-ticks { display: block; width: 100%; overflow: visible; }
 line.grid { stroke: var(--border); stroke-width: 1; }
 .fig-track .base, .axis-line, .base { stroke: var(--border-strong); stroke-width: 1; }
-.fig-ticks line, .ctx-ticks line { stroke: var(--border-strong); }
-.fig-ticks text, .ctx-ticks text, .sc-labels text { font-family: var(--f-sans); font-size: 12.5px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.fig-ticks line { stroke: var(--border-strong); }
+.fig-ticks text, .sc-labels text { font-family: var(--f-sans); font-size: 12.5px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
 .band { fill: var(--accent-soft); }
 .median { stroke: var(--ink-2); stroke-width: 2; }
 .limit { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
 .limit-label { font: 500 12.5px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .callout { font: 500 12.5px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .callout-line { stroke: var(--ink-3); stroke-width: 1; }
-.diagonal { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
 .key-mk .band { fill: var(--accent-soft); stroke: var(--border); }
 .mk { fill: var(--accent); stroke: var(--accent); stroke-width: 1.5; }
 .mk--open { fill: var(--surface); stroke-width: 2.25; }
@@ -312,7 +310,6 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
   table.glance tr.kf > td.num:not(.typ):not(.rng)::after { content: " products compared"; }
   table.glance tr.kf--none { grid-template-areas: "name name" "typ typ"; }
   table.glance tr.kf--none > td.none { grid-area: typ; padding: .2rem 0 0; }
-  table.glance tr.kf--none > td.prof { display: none; }
   table.glance tr.grp th { border-bottom: 1px solid var(--border-strong); }
   .glance-box::before { content: "Each track runs from the lowest material, left, to the highest, right."; display: block; font-size: .875rem; color: var(--ink-2); margin-bottom: .3rem; }
 }
@@ -459,29 +456,7 @@ table.matrix td.total { color: var(--ink-2); }
 table.topics tr.none th, table.topics tr.none td { color: var(--ink-2); }
 table.props td.spans { white-space: normal; min-width: 9rem; }
 
-/* The products table: sortable, each row a product the figures light. Kept for the Products section's own styles. */
-table.products { font-size: .875rem; }
-table.products th, table.products td { padding-right: .55rem; }
-table.products .num { padding-left: .45rem; }
-table.products thead th { white-space: nowrap; vertical-align: bottom; }
-table.products thead .u { display: block; font-weight: 400; }
-table.products tbody th { min-width: 10.5rem; white-space: normal; }
-.row-note { display: block; margin-top: .1rem; font-size: .75rem; font-weight: 400; color: var(--ink-3); line-height: 1.35; }
-table.products td.dry { white-space: normal; min-width: 7rem; font-size: .8125rem; color: var(--ink-2); }
-table.products th[data-sort] button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; white-space: nowrap; }
-table.products th[data-sort] button:hover { color: var(--ink); }
-table.products th[aria-sort="ascending"] button::after { content: " \2191"; }
-table.products th[aria-sort="descending"] button::after { content: " \2193"; }
-table.products tbody th a { color: var(--ink); text-decoration: none; }
-table.products tbody th a:hover { color: var(--accent); text-decoration: underline; }
-table.products tbody tr.lit, table.products tbody tr:target { background: var(--accent-soft); }
-table.products td { white-space: nowrap; }
-.vm { display: inline-block; width: 8px; height: 8px; margin-right: .35rem; vertical-align: .05em; background: var(--accent); border: 1.5px solid var(--accent); border-radius: 50%; }
-.vm--open { background: transparent; }
-.vm--annealed { border-radius: 1px; }
-.vm--variant { background: transparent; border-color: var(--ink-3); border-radius: 1px; transform: rotate(45deg) scale(.85); }
 .fx { margin-left: .15rem; color: var(--ink-3); }
-.table-key { margin: 0 0 .9rem; }
 
 /* ---------------------------------------------------------------- printing, environment, makers, sources */
 
@@ -492,7 +467,6 @@ table.products td { white-space: nowrap; }
 .facts dd { margin: 0; color: var(--ink-2); }
 .split { display: grid; gap: 1.5rem 2.5rem; }
 @media (min-width: 900px) { .split { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: start; } }
-.split .note:first-child { margin-top: 0; }
 .env-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); gap: 1.4rem 2.5rem; margin-top: 1rem; }
 .env-cat h4, .topic h4 { font: 600 1rem/1.3 var(--f-sans); margin: 0 0 .5rem; }
 .env-cat ul, .topic ul { list-style: none; margin: 0; padding: 0; }
@@ -532,56 +506,12 @@ table.products td { white-space: nowrap; }
 
 .foot { margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--ink); font-size: 1rem; color: var(--ink-2); }
 .foot-standing { font: 400 1.1875rem/1.5 var(--f-serif); color: var(--ink); max-width: 58ch; }
-.foot-stamps { display: flex; flex-wrap: wrap; gap: .75rem 2.5rem; margin: 1.25rem 0; }
-.foot-stamps div { display: flex; flex-direction: column; }
-.foot-stamps dt { font-size: .875rem; color: var(--ink-2); }
-.foot-stamps dd { margin: 0; color: var(--ink); }
 .foot b { color: var(--ink); font-weight: 600; }
 .foot-fine { font-size: var(--t-small); color: var(--ink-2); }
 
 /* ---------------------------------------------------------------- the records page (its own styles extend these) */
 
-.rec-tools { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem 1.5rem; margin: 1.75rem 0 0; padding: .9rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
-.rec-tools label { display: flex; flex-direction: column; gap: .25rem; font-size: .8125rem; color: var(--ink-2); min-width: min(100%, 17rem); }
-.rec-tools .rec-filter { min-width: min(100%, 23rem); }
-.rec-tools input, .rec-tools select { font: inherit; font-size: .9375rem; color: var(--ink); background: var(--bg); border: 1px solid var(--border-strong); border-radius: 4px; padding: .4rem .6rem; width: 100%; }
-.rec-shown { margin: 0; font-size: .8125rem; color: var(--ink-3); }
-.rec-sec { margin-top: 3.5rem; }
-.rec-title { font: 500 clamp(1.4rem, 1.25rem + .6vw, 1.75rem)/1.2 var(--f-serif); margin: 0 0 .5rem; padding-top: .85rem; border-top: 1px solid var(--border-strong); }
-.rec-title small { margin-left: .5rem; font: 400 .9375rem var(--f-sans); color: var(--ink-3); }
-.rec-note { max-width: 92ch; font-size: .9375rem; color: var(--ink-2); margin: 0 0 1rem; }
-table.rec { font-size: .8125rem; line-height: 1.4; }
-table.rec th, table.rec td { padding: .4rem .75rem .4rem 0; line-height: 1.35; overflow-wrap: anywhere; }
-table.rec tbody th { font-weight: 600; }
-table.rec td.id { font-family: var(--mono); font-size: .6875rem; color: var(--ink-3); overflow-wrap: anywhere; }
-table.rec td.raw, table.rec td .raw { color: var(--ink-2); }
-table.rec td.raw.none { color: var(--ink-3); }
-table.rec td.src a, table.rec td.src .loc { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-table.rec td.src a { color: var(--ink); text-decoration-color: var(--border-strong); }
-table.rec td.v, table.rec td.num { white-space: normal; }
-table.rec td.v .tag { display: table; margin: .2rem 0 0 auto; }
-table.rec tr:target, table.rec tr.lit { background: var(--accent-soft); }
-table.rec tr[hidden] { display: none; }
-table.rec q { font-family: var(--f-serif); font-size: .9375rem; }
-.rec-box { overflow-x: auto; }
-/* Chrome ignores min-width on a table: below 1,000 px a records table takes a fixed width and scrolls in its box. */
-table.grid.rec { width: 62rem; table-layout: fixed; }
-/* Where the tables fit the page, their columns are fixed, their headings stay in view and the page scrolls only down. */
-@media (min-width: 1000px) {
-  .rec-box { overflow: visible; }
-  table.grid.rec { width: 100%; }
-  table.rec thead th { position: sticky; top: calc(var(--head-h) + var(--strip-h)); z-index: 2; background: var(--bg); box-shadow: 0 1px 0 var(--border-strong); }
-}
-.loc { display: block; font-size: .75rem; color: var(--ink-3); }
 td.drawn { color: var(--ink-2); }
-.drawn-line { display: flex; gap: .4rem; align-items: baseline; }
-.drawn-line .key-mk { transform: translateY(2px); }
-.drawn-line + .drawn-line { margin-top: .2rem; }
-.fold > summary { cursor: pointer; list-style: none; display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.fold > summary::-webkit-details-marker { display: none; }
-.fold > summary:hover { color: var(--ink); }
-.fold[open] > summary { display: none; }
-.tag { display: inline-block; padding: 0 .3rem; font-size: .6875rem; line-height: 1.5; color: var(--ink-2); border: 1px solid var(--border-strong); border-radius: 3px; white-space: nowrap; }
 .missing { color: var(--ink-3); }
 
 /* ---------------------------------------------------------------- the index: every material, by family and polymer */
@@ -622,7 +552,7 @@ table.ix tbody tr.group:first-child th { padding-top: .5rem; }
     --ink: #111; --ink-2: #3f3f3a; --ink-3: #6d6d65; --accent: #1f5f8b; --accent-soft: #e4eef5; --claim: #7d3c86;
   }
   body { font-size: 10pt; }
-  .topbar, .toc, .tip, .rec-tools, .skip, .theme { display: none !important; }
+  .topbar, .toc, .tip, .skip, .theme { display: none !important; }
   .layout { display: block; max-width: none; padding: 0; }
   .fig, .est, .nofig, .facts div, table.grid tr, .env-cat, .topic, .db, .pw { break-inside: avoid; }
   .sec-head, .sub-title, .fig-head { break-after: avoid; }

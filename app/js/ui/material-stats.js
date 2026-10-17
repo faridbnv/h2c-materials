@@ -11,7 +11,7 @@
 
 import { REGISTRY } from './registry.js';
 import { h2cLimit, materialName } from './labels.js';
-import { isProduct, spreadEntries, dotMarks, rankOf } from './material-facts.js';
+import { isProduct, dotMarks, rankOf } from './material-facts.js';
 import { rowSummary } from './print-spread.js';
 import { stripScale } from './scales.js';
 
@@ -332,6 +332,3 @@ export function heatLadder(m, c, extra = []) {
 
 /** The products of a material (no reference grades). */
 export const productsOf = (c) => c.grades.filter(isProduct);
-
-/** Each product's own value of a key property with the product (spreadEntries), as a Map by grade ID. */
-export const valuesByGrade = (m, c, key) => new Map(spreadEntries(m, c, key).map((e) => [e.g.id, e]));

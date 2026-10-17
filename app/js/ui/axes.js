@@ -7,8 +7,6 @@
 // unit, Pareto direction, and the value properties, direction and load that map it onto measurements.
 export const AXIS_DEFS = [];
 
-export const axisByKey = (k) => AXIS_DEFS.find((a) => a.key === k) ?? AXIS_DEFS[0];
-
 /**
  * Does a measurement qualify for this axis under the chosen comparability?
  *
@@ -128,9 +126,4 @@ export function pairCompatibility(a, b, mode, inv = {}) {
   }
   const ok = mode === 'broad' || !conflicts.length;
   return { ok, conflicts, missing, basis, strict: !conflicts.length };
-}
-
-/** Two measurements of different properties can share a point only if their conditions agree (pairCompatibility). */
-export function pairable(a, b, mode, inv = {}) {
-  return pairCompatibility(a, b, mode, inv).ok;
 }
