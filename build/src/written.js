@@ -28,8 +28,9 @@
 //                                             modulus (XY)" as the page writes it there)
 //   {nozzle.window} {bed.window}              the window most of its products give, as the page's On the H2C plate says
 //                                             it ("195–230 °C", or "at least 50 °C"; material-highlights.js settingWindow)
-//   {drying.schedule}                         the typical drying schedule of the products whose own or shared sheet gives
-//                                             one ("50 °C for 6 h"; material-highlights.js dryingSchedule)
+//   {drying.schedule}                         the drying schedule of the products whose own or shared sheet gives one,
+//                                             or the span where they differ ("50 °C for 6 h", "100–140 °C, 6–8 h";
+//                                             material-highlights.js dryingSchedule)
 //   {zshare.tensileStrength}                  the median share of its flat value its products keep across the layers
 //                                             ("62 %"), and .tensileModulus, .elongation, .flexuralStrength,
 //                                             .flexuralModulus (material-highlights.js zShare)
@@ -162,9 +163,14 @@ function fillPrintField(field, fc) {
     return { parts: [{ field: `${field}.from`, value: w.from }, { text: '–' }, { field: `${field}.to`, value: w.to, unit: '°C' }] };
   }
   if (what === 'drying') {
+    // One schedule where the products agree, the span where they differ ("100–140 °C, 6–8 h"): never a median no maker gave.
     const d = dryingSchedule(products);
     if (!d) return { refused: `{${field}}: no product of ${m.name} gives a drying temperature on its own sheet or one it shares` };
-    return { parts: [{ field: `${field}.temp`, value: d.tempC, unit: '°C' }, ...(d.hours != null ? [{ text: ' for ' }, { field: `${field}.hours`, value: d.hours, unit: 'h' }] : [])] };
+    const span = (name, lo, hi, unit) => (lo === hi ? [{ field: `${field}.${name}`, value: lo, unit }]
+      : [{ field: `${field}.${name}.from`, value: lo }, { text: '–' }, { field: `${field}.${name}.to`, value: hi, unit }]);
+    // "at 50 °C for 6 h", "at 50–60 °C for 4 h", "at 100–140 °C, 4–12 h": "for" wherever the time is one.
+    const oneTime = d.hoursMin === d.hoursMax;
+    return { parts: [...span('temp', d.tempMin, d.tempMax, '°C'), ...(d.hoursMin != null ? [{ text: oneTime ? ' for ' : ', ' }, ...span('hours', d.hoursMin, d.hoursMax, 'h')] : [])] };
   }
   const pair = ZSHARE_PAIRS[which];
   const s = pair ? zShare(products, pair[0], pair[1], msById, gradeById) : null;

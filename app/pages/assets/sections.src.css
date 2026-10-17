@@ -25,6 +25,11 @@ a.prod { color: var(--accent); }
 .said-topic h4 { margin: 0 0 6px; font: 600 var(--t-s)/1.4 var(--f-sans); }
 .said-topic h4 small { font-weight: 400; color: var(--ink-2); margin-left: 6px; }
 
+/* A source's words set as plain text, "after" it: this project's reading of a reference, not a quotation. */
+.said--after .said-text { color: var(--ink); }
+.said--after .said-who { font-style: italic; }
+.absent { margin-top: 24px; }
+
 /* ------------------------------------------------------------------ folds */
 details.more { margin-top: 24px; max-width: 72ch; }
 details.more > summary { cursor: pointer; font-weight: 600; font-size: var(--t-s); color: var(--ink); padding: 6px 0; }
@@ -56,8 +61,10 @@ table.grid.layers thead th[scope="colgroup"] { text-align: center; }
 /* What each sheet publishes (thin data). */
 .sheet-table { margin-top: 8px; }
 .ov-sec table.grid.sheets { width: auto; }
-table.grid.sheets thead th { white-space: normal; vertical-align: bottom; }
-table.grid.sheets thead th.num { min-width: 8rem; max-width: 14rem; }
+/* Heads wrap, never run into the next column: a long name is shortened to its maker and telling words (common.js). */
+.ov-sec table.grid.sheets thead th, .ov-sec table.grid.sheets thead th a { white-space: normal; overflow-wrap: anywhere; vertical-align: bottom; }
+table.grid.sheets thead th.num { min-width: 7rem; max-width: 12rem; }
+table.grid.sheets td.open .cv-n { color: var(--ink-2); font-style: italic; }
 table.grid.sheets .also { display: block; font-weight: 400; font-size: var(--t-xs); color: var(--ink-2); }
 table.grid.sheets .also a { color: var(--ink-2); }
 table.grid.sheets .cv { display: block; white-space: nowrap; }
@@ -98,6 +105,8 @@ ul.doc-list li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid v
 
 @media (max-width: 719px) {
   .sec-open { font-size: 17px; }
+  .ov-sec table.grid th.prop { width: auto; min-width: 0; max-width: 8.5rem; }
+  table.grid.settings td, table.grid.settings thead th:not(.prop) { min-width: 0; }
   .sec-sub { margin-top: 36px; }
   .method-head h1 { font-size: 36px; }
   ul.doc-list { columns: 1; }

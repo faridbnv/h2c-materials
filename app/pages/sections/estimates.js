@@ -8,7 +8,7 @@
 import { esc, tableBox } from '../html.js';
 import { fmtNumber, fmtRange, estimateDisplay } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { inText, countWords } from '../findings.js';
+import { inText, countWords, glue } from '../findings.js';
 import { andList } from '../../js/ui/material-words.js';
 import { para } from './common.js';
 
@@ -39,13 +39,13 @@ export default {
       const d = estimateDisplay(e, { ownUnit: true });
       const plausible = d.plausible ? `${d.plausible[0]}⁠–⁠${d.plausible[1]} ${d.unit}` : '—';
       const precision = e.precision === 'poor' ? 'poor: an order of magnitude only' : e.precision === 'fair' ? 'fair: a rough guide' : e.precision;
-      return `<tr data-rec="${esc(`${m.id}/${h.key}/estimate`)}" data-estimate="${esc(h.key)}"><th scope="row">${esc(h.labels.plain)}</th>`
-        + `<td class="num"><span data-v="${esc(e.lo)}" data-key="${esc(h.key)}" data-stat="estimate.lo">${esc(d.lo)}</span>⁠–⁠<span data-v="${esc(e.hi)}" data-key="${esc(h.key)}" data-stat="estimate.hi">${esc(d.hi)}</span> ${esc(d.unit)} <span class="dagger" aria-label="estimate">†</span></td>`
-        + `<td class="num">${esc(plausible)}</td><td>${esc(precision)}</td><td>${esc(beside(h, m, d))}</td></tr>`;
+      return `<tr data-rec="${esc(`${m.id}/${h.key}/estimate`)}" data-estimate="${esc(h.key)}"><th scope="row" class="prop">${esc(h.labels.plain)}</th>`
+        + `<td class="num" data-label="Likely"><span data-v="${esc(e.lo)}" data-key="${esc(h.key)}" data-stat="estimate.lo">${esc(d.lo)}</span>⁠–⁠<span data-v="${esc(e.hi)}" data-key="${esc(h.key)}" data-stat="estimate.hi">${esc(d.hi)}</span> ${esc(d.unit)} <span class="dagger" aria-label="estimate">†</span></td>`
+        + `<td class="num" data-label="Plausible">${esc(plausible)}</td><td data-label="Precision">${esc(precision)}</td><td data-label="Beside what is published">${esc(beside(h, m, d))}</td></tr>`;
     });
     const wins = windows.map(([k, label]) => {
       const w = m.print[k];
-      return `<tr data-rec="${esc(`${m.id}/${k}`)}" data-estimate="${esc(k)}"><th scope="row">${esc(label)}</th><td class="num">${esc(fmtRange(w.lo, w.hi))} ${esc(w.unit)} <span class="dagger" aria-label="estimate">†</span></td><td class="num">—</td><td>${esc('a starting point to verify')}</td><td>${esc(`no product publishes one; estimated from ${w.basis}`)}</td></tr>`;
+      return `<tr data-rec="${esc(`${m.id}/${k}`)}" data-estimate="${esc(k)}"><th scope="row" class="prop">${esc(label)}</th><td class="num" data-label="Likely">${esc(fmtRange(w.lo, w.hi))} ${esc(w.unit)} <span class="dagger" aria-label="estimate">†</span></td><td class="num" data-label="Plausible">—</td><td data-label="Precision">${esc('a starting point to verify')}</td><td data-label="Beside what is published">${esc(`no product publishes one; estimated from ${w.basis}`)}</td></tr>`;
     });
     const named = est.map((h) => inText(h.labels.plain));
     const lead = est.length
@@ -54,6 +54,6 @@ export default {
     const pct = (p) => Math.round(p * 100);
     const table = tableBox(`<table class="grid est"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Likely</th><th scope="col" class="num">Plausible</th><th scope="col">Precision</th><th scope="col">Beside what is published</th></tr></thead><tbody>${[...rows, ...wins].join('')}</tbody></table>`);
     const fold = `<details class="more"><summary>${esc('What likely and plausible mean')}</summary><p class="sec-p">${esc(`Tested against known values, a likely range held the true value ${pct(levels.likely) / 10} times in 10, and a plausible range ${pct(levels.plausible) / 5} times in 20.`)} <a href="method.html#estimates">How the estimates are made</a>.</p></details>`;
-    return { empty: false, html: `<div class="fence">${para([lead, 'An estimate is a range, never a product\'s value, and nothing above rests on it.'])}${table}${fold}</div>`, stats: { estimates: rows.length + wins.length } };
+    return { empty: false, html: glue(`<div class="fence">${para([lead, 'An estimate is a range, never a product\'s value, and nothing above rests on it.'])}${table}${fold}</div>`), stats: { estimates: rows.length + wins.length } };
   },
 };

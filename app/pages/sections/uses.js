@@ -7,8 +7,11 @@
 import { esc, tableBox } from '../html.js';
 import { indexDb, environmentMatrix, stated } from '../../js/ui/material-facts.js';
 import { verdictWords as polymerVerdict, andList } from '../../js/ui/material-words.js';
-import { quoteOrder, verdictWords } from '../findings.js';
+import { quoteOrder, verdictWords, glue } from '../findings.js';
 import { subhead, quote, quotes, readerText } from './common.js';
+
+/** A label's first letter in lower case inside a sentence, an abbreviation kept ("UV and outdoor" stays). */
+const lowerFirst = (t) => (/^[A-Z][a-z]/.test(String(t ?? '')) ? String(t).charAt(0).toLowerCase() + String(t).slice(1) : String(t ?? ''));
 import { PRINT_CATEGORIES, makersOwn, general } from './printing.js';
 
 /** Material-level statements of these categories are uses and limits: said in the first two lists. */
@@ -68,7 +71,7 @@ export default {
     const rows = f.rows.filter((r) => r.records.length && r.filterable);
     const chem = [];
     if (rows.length) {
-      chem.push(tableBox(`<table class="grid chem"><thead><tr><th scope="col">Exposure</th><th scope="col">What makers say</th><th scope="col" class="num">Statements</th></tr></thead><tbody>${rows.map((r) => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(verdictWords(r.records, makerOf, { quotable: readerText }))}</td><td class="num">${r.total}</td></tr>`).join('')}</tbody></table>`));
+      chem.push(tableBox(`<table class="grid chem"><thead><tr><th scope="col">Exposure</th><th scope="col">What makers say</th><th scope="col" class="num">Statements</th></tr></thead><tbody>${rows.map((r) => `<tr><th scope="row" class="prop">${esc(r.label)}</th><td data-label="What makers say">${esc(verdictWords(r.records))}</td><td class="num" data-label="Statements">${r.total}</td></tr>`).join('')}</tbody></table>`));
     }
     // Food contact, disposal, safety and the like, as the products' makers state them (each product's are on its card).
     const other = pick(c, f.rows.filter((r) => !r.filterable).flatMap((r) => r.records).filter((e) => !general(e) && readerText(e.finding)).map((e) => ({ ...e, text: e.finding })), 4);
@@ -78,14 +81,19 @@ export default {
     if (generalSaid.length) chem.push(`<p class="sec-p">${esc(`Of ${m.name} in general:`)}</p>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: e.categoryLabel ?? '' })))}`);
     if (rows.length) chem.push(`<p class="sec-note">${esc('Makers rarely give the concentration, temperature or duration, so these are indications, not design data. Each product\'s statements are on its card.')}</p>`);
     const poly = c.poly ?? [];
-    if (poly.length) {
+    if (poly.length === 1) {
+      // One row of reference data is a sentence, not a table.
+      const p0 = poly[0];
+      const agents = andList((p0.agents ?? []).map((a) => `${lowerFirst(a.agent)}, ${polymerVerdict(a.verdict)}`));
+      chem.push(`<p class="sec-p" data-rec="${esc(p0.id)}">${esc(`Reference data for plain ${p0.polymerId} resin, where no maker of these products speaks: ${lowerFirst(p0.categoryLabel)}, ${polymerVerdict(p0.verdict)}${agents ? ` (${agents})` : ''}. Fillers, pigments and printing change it, so it never stands for these products.`)}</p>`);
+    } else if (poly.length) {
       const polymer = poly[0]?.polymerId ?? 'the base polymer';
       chem.push(`<p class="sec-p">${esc(`Where no maker of these products speaks to an exposure, reference data for plain ${polymer} resin is shown. Fillers, pigments and printing change it, so it never stands for these products.`)}</p>`
-        + tableBox(`<table class="grid resin"><thead><tr><th scope="col">${esc(`${polymer} resin`)}</th><th scope="col">Verdict</th><th scope="col">Agents</th></tr></thead><tbody>${poly.map((p) => `<tr data-rec="${esc(p.id)}"><th scope="row">${esc(p.categoryLabel)}</th><td>${esc(polymerVerdict(p.verdict))}</td><td>${esc(andList((p.agents ?? []).map((a) => `${a.agent} (${polymerVerdict(a.verdict)})`)))}</td></tr>`).join('')}</tbody></table>`));
+        + tableBox(`<table class="grid resin"><thead><tr><th scope="col">${esc(`${polymer} resin`)}</th><th scope="col">Verdict</th><th scope="col">Agents</th></tr></thead><tbody>${poly.map((p) => `<tr data-rec="${esc(p.id)}"><th scope="row" class="prop">${esc(p.categoryLabel)}</th><td data-label="Verdict">${esc(polymerVerdict(p.verdict))}</td><td data-label="Agents">${esc(andList((p.agents ?? []).map((a) => `${a.agent} (${polymerVerdict(a.verdict)})`)))}</td></tr>`).join('')}</tbody></table>`));
     }
     if (chem.length) parts.push(subhead('Chemicals and environment') + chem.join(''));
     else if (parts.length) parts.push(subhead('Chemicals and environment') + `<p class="sec-p">${esc('No maker of these products publishes resistance to a named chemical, to water or to sunlight.')}</p>`);
     if (!parts.length) return { empty: true, html: '', stats: {} };
-    return { empty: false, html: parts.join('\n'), stats: {} };
+    return { empty: false, html: glue(parts.join('\n')), stats: {} };
   },
 };

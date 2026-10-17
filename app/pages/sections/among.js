@@ -4,7 +4,7 @@
 
 import { indexDb } from '../../js/ui/material-facts.js';
 import { rankTable } from '../../js/ui/material-facts.js';
-import { peersWords, standingWords } from '../findings.js';
+import { peersWords, standingWords, glue } from '../findings.js';
 import { opening, drawFigure, figureConfig } from './common.js';
 
 export default {
@@ -20,7 +20,7 @@ export default {
     if (!words.length && !figs.length) return { empty: true, html: '', stats: {} };
     return {
       empty: false,
-      html: `${opening(words)}\n${figs.map((f) => f.html).join('\n')}`,
+      html: glue(`${opening(words)}\n${figs.map((f) => f.html).join('\n')}`),
       stats: { figures: figs.reduce((n, f) => n + (f.stats?.figures ?? 1), 0), dots: figs.reduce((n, f) => n + (f.stats?.dots ?? 0), 0), peers: peers.map((p) => p.id) },
     };
   },

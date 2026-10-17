@@ -9,8 +9,8 @@ import { REGISTRY } from '../../js/ui/registry.js';
 import { comparisonsOf, measuredIn } from '../../js/ui/material-facts.js';
 import { propertyName } from '../../js/ui/labels.js';
 import { layerPairs, summarise } from '../../js/ui/material-stats.js';
-import { mechanicalWords, num, fmtD } from '../findings.js';
-import { opening, drawFigure, figureConfig, sheetColumns, sheetTable, subhead, tableBox } from './common.js';
+import { mechanicalWords, num, fmtD, glue } from '../findings.js';
+import { opening, drawFigure, figureConfig, subhead, tableBox, stripMin, publishedKeys, headlineTable, absentLine } from './common.js';
 
 /** The strips this section draws (figures.js STRIP_SETS.mechanical). */
 const KEYS = ['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY', 'charpyNotched', 'izodNotched'];
@@ -23,14 +23,14 @@ const LAYER_ROWS = [
 const headline = (key) => REGISTRY.allHeadlines.find((h) => h.key === key) ?? null;
 
 /** A median with its middle half under it, or a dash. */
-function medianCell(m, key) {
+function medianCell(m, key, label = '') {
   const s = m.summary?.[key];
-  if (!s?.n) return '<td class="num none">—</td><td class="num n"></td>';
+  if (!s?.n) return `<td class="num none" data-label="${esc(label)}">—</td><td class="num n" data-label="Products"></td>`;
   // The unit is in the row's head; the display rule reads it.
   const unit = headline(key)?.unit;
   const v = (x, stat) => num(x, { key, stat, shown: fmtD(x, unit).replace(/ \S+$/, '') }).html;
   const mid = s.q1 != null ? `<span class="mh">${v(s.q1, 'q1')}⁠–⁠${v(s.q3, 'q3')}</span>` : '';
-  return `<td class="num typ"><b>${v(s.median, 'median')}</b>${mid}</td><td class="num n">${num(s.n, { key, stat: 'n', shown: String(s.n) }).html}</td>`;
+  return `<td class="num typ" data-label="${esc(label)}"><b>${v(s.median, 'median')}</b>${mid}</td><td class="num n" data-label="Products">${num(s.n, { key, stat: 'n', shown: String(s.n) }).html}</td>`;
 }
 
 /** The share of its flat value each product keeps across the layers, for one property: { median, n } or null. */
@@ -48,8 +48,8 @@ function layerTable(c) {
   const comps = comparisonsOf(m, c, 'Mechanical');
   const rows = LAYER_ROWS.filter(([, xy, z]) => m.summary?.[xy]?.n || m.summary?.[z]?.n).map(([label, xy, z]) => {
     const share = shareOf(c, comps, xy, z);
-    return `<tr><th scope="row">${esc(label)} <span class="u">${esc(headline(xy)?.unit ?? '')}</span></th>${medianCell(m, xy)}${medianCell(m, z)}`
-      + `<td class="num share">${share ? `<b>${esc(`${Math.round(share.median * 100)} %`)}</b><span class="mh">${esc(`${share.n} ${share.n === 1 ? 'product' : 'products'}`)}</span>` : '—'}</td></tr>`;
+    return `<tr><th scope="row" class="prop">${esc(label)} <span class="u">${esc(headline(xy)?.unit ?? '')}</span></th>${medianCell(m, xy, 'Flat (XY)')}${medianCell(m, z, 'Across the layers (Z)')}`
+      + `<td class="num share" data-label="Z as a share of XY">${share ? `<b>${esc(`${Math.round(share.median * 100)} %`)}</b><span class="mh">${esc(`${share.n} ${share.n === 1 ? 'product' : 'products'}`)}</span>` : '—'}</td></tr>`;
   });
   if (!rows.length) return '';
   return `<div class="layer-table">${subhead('Flat and across the layers')}${tableBox(`<table class="grid layers"><thead>`
@@ -73,6 +73,9 @@ function thinRows(c) {
   return rows;
 }
 
+/** What a missing key property is called in the line that says it is not published. */
+const ABSENT_WORDS = { tensileStrengthXY: 'tensile strength', tensileModulusXY: 'tensile modulus', tensileStrengthZ: 'strength across the layers', elongationXY: 'elongation at break' };
+
 export default {
   id: 'mechanical',
   title: 'Mechanical properties',
@@ -81,17 +84,28 @@ export default {
     const mi = measuredIn(c, 'Mechanical');
     if (!mi.rows.length) return { empty: true, html: '', stats: {} };
     const keys = figureConfig('STRIP_SETS', {}).mechanical ?? KEYS;
-    const ranked = Math.max(0, ...keys.map((k) => m.summary?.[k]?.n ?? 0));
-    const parts = [opening(mechanicalWords(c))];
+    const min = stripMin();
+    const published = publishedKeys(c, keys);
+    // A property compared on enough products is a strip; the rest a table of what each sheet publishes; every value
+    // once, in one or the other.
+    const stripped = published.filter((k) => (m.summary?.[k]?.n ?? 0) >= min);
+    const tabled = published.filter((k) => !stripped.includes(k));
+    const impactMissing = !published.includes('charpyNotched') && !published.includes('izodNotched');
+    const unnotched = impactMissing && c.ms.some((x) => /impact/i.test(x.property) && x.numeric && /unnotched/i.test(x.notch ?? ''));
+    const absent = [...['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY'].filter((k) => keys.includes(k) && !published.includes(k)).map((k) => ABSENT_WORDS[k]),
+      impactMissing ? `notched impact${unnotched ? ' (its sheets give unnotched values only)' : ''}` : null].filter(Boolean);
+    const parts = [opening(mechanicalWords(c).filter((x) => !/unnotched/.test(String(x))))];
     let figures = 0, dots = 0;
     const add = (f) => { if (!f.empty && f.html) { parts.push(f.html); figures += f.stats?.figures ?? 1; dots += f.stats?.dots ?? 0; } };
-    if (ranked >= 4) add(drawFigure('stripsFigure', c, env, keys, { id: 'mechanical' }));
-    else {
-      const mech = new Set(mi.properties);
-      parts.push(sheetTable(c, sheetColumns(c, (x) => mech.has(x.property)), thinRows(c), { fmt: (v, u) => fmtD(v, u) }));
+    if (stripped.length) add(drawFigure('stripsFigure', c, env, stripped, { id: 'mechanical' }));
+    if (tabled.length) parts.push(headlineTable(c, tabled, { fmt: (v, u) => fmtD(v, u) }));
+    // Across the layers: drawn, and tabled, only where some product publishes a value across the layers.
+    const hasZ = publishedKeys(c, ['tensileStrengthZ', 'tensileModulusZ', 'elongationZ', 'flexuralStrengthZ', 'flexuralModulusZ']).length > 0;
+    if (hasZ) {
+      add(drawFigure('layersFigure', c, env, {}));
+      parts.push(layerTable(c));
     }
-    add(drawFigure('layersFigure', c, env, {}));
-    parts.push(layerTable(c));
-    return { empty: false, html: parts.filter(Boolean).join('\n'), stats: { figures, dots } };
+    parts.push(absentLine(c, absent));
+    return { empty: false, html: glue(parts.filter(Boolean).join('\n')), stats: { figures, dots } };
   },
 };

@@ -5,9 +5,10 @@
 
 import { esc, tableBox } from '../html.js';
 import { GAP_STATUS, productNameOrId, stated } from '../../js/ui/material-facts.js';
+import { REGISTRY } from '../../js/ui/registry.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import * as FIGURES from '../figures.js';
-import { isSay, plain, productHref } from '../findings.js';
+import { isSay, plain, productHref, glue } from '../findings.js';
 import { toHash, newScenario } from '../../js/engine/scenario.js';
 
 export { tableBox };
@@ -52,17 +53,29 @@ export const productA = (c, g) => (g ? `<a class="prod" href="${esc(productHref(
 const pageOf = (locator) => /^p\. ?\d+/.exec(String(locator ?? ''))?.[0] ?? null;
 
 /**
- * A statement in its maker's own words: the quote, then whose it is (the product, linked to its card, or the
- * document's publisher and title for one about the material in general), the kind of document and its page. `rec` puts
- * the record's ID on it (`data-rec`), for a record this page holds: a statement about the material in general. A
- * product's statement is its card's record and carries none.
+ * Whether a statement is a maker's own words, to be set in quotation marks: a maker's statement collected word for word
+ * (db.knowHow), or an evidence record of one product's maker (Evidence type "Manufacturer statement" on a product). An
+ * evidence record about the material in general, a study's or a reference's, is this project's reading of its source:
+ * the data holds no mark of which words are verbatim, so it is set as plain text, "after" its source (OPEN-PROBLEMS).
+ */
+export const verbatim = (k) => (k.evidenceType == null ? true : stated(k.gradeId) && k.evidenceType === 'Manufacturer statement');
+
+/**
+ * A statement: in quotation marks where it is its maker's own words (`verbatim`), with whose it is (the product, linked
+ * to its card) and the kind of document and its page; otherwise as plain text, "after" its source's publisher and title.
+ * `rec` puts the record's ID on it (`data-rec`), for a record this page holds: a statement about the material in general.
+ * A product's statement is its card's record and carries none.
  */
 export function quote(c, k, { text = k.text ?? k.finding, rec = false, extra = '' } = {}) {
   const s = c.sourceById.get(k.sourceId);
   const g = stated(k.gradeId) ? c.gradeById.get(k.gradeId) : null;
   const where = [sourceKind(s).toLowerCase(), pageOf(k.locator)].filter(Boolean).join(', ');
-  const who = g ? `${productA(c, g)}, ${esc(where)}` : `${esc([s?.publisher, s?.title].filter(stated).join(', ') || 'a reference')}`;
-  return `<li class="said"${rec ? ` data-rec="${esc(k.id)}"` : ''}><q>${esc(String(text ?? '').trim())}</q>${extra ? ` <span class="said-what">${esc(extra)}</span>` : ''} <span class="said-who">${who}</span></li>`;
+  const source = [s?.publisher, String(s?.title ?? '').replace(/\s*-\s*PMC Lock$/, '')].filter(stated).join(', ') || 'a reference';
+  const words = esc(glue(String(text ?? '').trim()));
+  const what = extra ? ` <span class="said-what">${esc(extra)}</span>` : '';
+  if (!verbatim(k)) return `<li class="said said--after"${rec ? ` data-rec="${esc(k.id)}"` : ''}><span class="said-text">${words}</span>${what} <span class="said-who">${esc(`after ${source}`)}</span></li>`;
+  const who = g ? `${productA(c, g)}, ${esc(where)}` : esc(source);
+  return `<li class="said"${rec ? ` data-rec="${esc(k.id)}"` : ''}><q>${words}</q>${what} <span class="said-who">${who}</span></li>`;
 }
 
 /** A list of quotes. */
@@ -166,3 +179,74 @@ export function sheetTable(c, cols, rows, { fmt, caption = '', conditions = true
   }
   return `<div class="sheet-table">${tableBox(table)}</div>`;
 }
+
+// ------------------------------------------------------------------ fewer products than a strip needs
+
+/** How few products compared leave a property out of a strip (figures.js STRIP_MIN, where it has landed). */
+export const stripMin = () => FIGURES.STRIP_MIN ?? 4;
+
+/**
+ * A column head that fits: a product's name, or where it is long, its maker and the words that tell it from the other
+ * columns of the same maker ("3DXTECH 9085"), the full name in the link's title.
+ */
+export function shortHeads(gs) {
+  const words = (g) => String(g.product ?? '').split(/\s+/).filter(Boolean);
+  return new Map(gs.map((g) => {
+    const full = productNameOrId(g);
+    if (full.length <= 24 || !stated(g.manufacturer)) return [g.id, full];
+    const same = gs.filter((x) => x.manufacturer === g.manufacturer && x !== g).map((x) => new Set(words(x)));
+    const own = words(g).filter((w) => w.toLowerCase() !== String(g.manufacturer).toLowerCase());
+    const telling = same.length ? own.filter((w) => same.every((set) => !set.has(w))) : own.slice(0, 2);
+    return [g.id, `${g.manufacturer} ${(telling.length ? telling : own).slice(0, 2).join(' ')}`.trim()];
+  }));
+}
+
+/** A product's name as a short column head, linked to its card, its full name as the link's title. */
+export const headA = (c, g, short) => `<a class="prod" href="${esc(productHref(c, g.id))}" title="${esc(productNameOrId(g))}">${esc(short)}</a>`;
+
+/**
+ * What each product publishes of `keys` (grades[].headline: each product's own value, as the strips would draw it), as a
+ * table: properties down and products across where there are four columns or fewer, else products down. A product
+ * that reads another's sheet for every one of these values (a data sheet shared with it, D89) is named under that
+ * product's column. A value not ranked (no stated orientation or load) says so under it; one measured after annealing
+ * too. `fmt(value, unit)` prints a value. Each cell carries its measurement's ID (`data-mid`), not as a record.
+ */
+export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes it' } = {}) {
+  const hs = keys.map((k) => REGISTRY.allHeadlines.find((h) => h.key === k)).filter(Boolean);
+  const products = c.grades.filter((g) => !g.retired && !/-R\d+$/.test(g.id) && hs.some((h) => g.headline?.[h.key]));
+  if (!products.length || !hs.length) return '';
+  // Readers: every value of these keys read from one sibling's sheet.
+  const readerOf = new Map();
+  for (const g of products) {
+    const vs = hs.map((h) => g.headline?.[h.key]).filter(Boolean);
+    const from = vs.length && vs.every((v) => v.from?.origin === 'twin') ? vs[0].from.gradeId : null;
+    if (from && vs.every((v) => v.from.gradeId === from) && products.some((x) => x.id === from)) readerOf.set(g.id, from);
+  }
+  const cols = products.filter((g) => !readerOf.has(g.id)).map((g) => ({ g, readers: products.filter((x) => readerOf.get(x.id) === g.id) }));
+  const short = shortHeads(cols.map((col) => col.g));
+  const live = hs.filter((h) => cols.some((col) => col.g.headline?.[h.key]));
+  const note = (h, v) => [v.level === 'as-published' ? (h.direction ? 'orientation not stated' : 'load not stated') : null, v.anneal ? 'after annealing' : null].filter(Boolean).join(', ');
+  const cell = (col, h, label) => {
+    const v = col.g.headline?.[h.key];
+    if (!v) return `<td class="num none" data-label="${esc(label)}">not published</td>`;
+    const n = note(h, v);
+    return `<td class="num${v.level === 'as-published' ? ' open' : ''}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}><span class="cv"><span class="cv-n">${esc(fmt(v.value, h.unit))}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
+  };
+  const head = (col) => `${headA(c, col.g, short.get(col.g.id))}${col.readers.length ? ` <span class="also">and ${col.readers.map((g) => headA(c, g, productNameOrId(g))).join(', ')}</span>` : ''}`;
+  let table;
+  if (cols.length <= 4) {
+    table = `<table class="grid sheets"><thead><tr><th scope="col" class="prop">${esc(caption)}</th>${cols.map((col) => `<th scope="col" class="num">${head(col)}</th>`).join('')}</tr></thead><tbody>`
+      + live.map((h) => `<tr><th scope="row" class="prop">${esc(h.labels.plain)}</th>${cols.map((col) => cell(col, h, short.get(col.g.id))).join('')}</tr>`).join('')
+      + '</tbody></table>';
+  } else {
+    table = `<table class="grid sheets sheets--long"><thead><tr><th scope="col" class="prop">Product</th>${live.map((h) => `<th scope="col" class="num">${esc(h.labels.plain)}</th>`).join('')}</tr></thead><tbody>`
+      + cols.map((col) => `<tr><th scope="row" class="prop">${head(col)}</th>${live.map((h) => cell(col, h, h.labels.plain)).join('')}</tr>`).join('') + '</tbody></table>';
+  }
+  return `<div class="sheet-table">${tableBox(table)}</div>`;
+}
+
+/** The keys some product of the material publishes a value of, ranked or as published (grades[].headline). */
+export const publishedKeys = (c, keys) => keys.filter((k) => c.grades.some((g) => !g.retired && !/-R\d+$/.test(g.id) && g.headline?.[k]));
+
+/** One line at the end of a section, said once where the reader looks: "Not published for PEI-CF: strength across the layers." */
+export const absentLine = (c, words) => (words.length ? `<p class="sec-note absent">${esc(`Not published for ${c.m.name}: ${words.length < 2 ? words.join('') : `${words.slice(0, -1).join(', ')} and ${words.at(-1)}`}.`)}</p>` : '');

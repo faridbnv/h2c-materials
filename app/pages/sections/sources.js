@@ -8,7 +8,7 @@ import { gapSplit, sourceBlockFacts } from '../../js/ui/material-facts.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import { plural, andList } from '../../js/ui/material-words.js';
-import { daysWords, dayWords } from '../findings.js';
+import { daysWords, dayWords, glue } from '../findings.js';
 import { para, subhead, shownGap, gapItem } from './common.js';
 
 /** How many publishers the table names; the rest are counted, and every document is in the list below. */
@@ -45,8 +45,12 @@ export default {
       const kinds = new Map();
       for (const d of docs) kinds.set(sourceKind(d.s), (kinds.get(sourceKind(d.s)) ?? 0) + 1);
       const kindList = [...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${fmtNumber(n)} ${(n === 1 ? KIND_ONE : KIND_MANY)[k] ?? k.toLowerCase()}`);
+      // Bambu Lab's Filament Guide and its printer documentation give print settings, not values: said apart, under the
+      // table, so they are never counted as a publisher of the material's values.
+      const printOnly = (d) => !d.gave.values && (d.gave.guide || d.s?.sourceClass === 'Printer documentation');
+      const settingsDocs = docs.filter(printOnly);
       const publishers = new Map();
-      for (const d of docs) {
+      for (const d of docs.filter((x) => !printOnly(x))) {
         const p = d.s?.publisher ?? 'Publisher not named';
         const x = publishers.get(p) ?? { documents: 0, values: 0, products: new Set() };
         x.documents++;
@@ -54,14 +58,20 @@ export default {
         for (const id of c.documents.get(d.sid).grades) x.products.add(id);
         publishers.set(p, x);
       }
-      parts.push(para([`${plural(docs.length, 'document')} from ${plural(publishers.size, 'publisher')} (${andList(kindList)})${dates.length ? `, read ${daysWords(dates[0], dates.at(-1))}` : ''}.`,
+      const pubN = new Set(docs.map((d) => d.s?.publisher).filter(Boolean)).size;
+      parts.push(para([`${plural(docs.length, 'document')} from ${plural(pubN, 'publisher')} (${andList(kindList)})${dates.length ? `, read ${daysWords(dates[0], dates.at(-1))}` : ''}.`,
         `Each value on ${m.name}'s Products page names its document and page, and links to the original.`]));
       const ranked = [...publishers].sort((a, b) => b[1].documents - a[1].documents || b[1].values - a[1].values || a[0].localeCompare(b[0]));
       const rest = ranked.slice(PUBLISHERS);
       parts.push(tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th></tr></thead><tbody>`
-        + ranked.slice(0, PUBLISHERS).map(([p, x]) => `<tr><th scope="row">${esc(p)}</th><td class="num">${x.documents}</td><td class="num">${fmtNumber(x.values)}</td><td class="num">${x.products.size}</td></tr>`).join('')
+        + ranked.slice(0, PUBLISHERS).map(([p, x]) => `<tr><th scope="row" class="prop">${esc(p)}</th><td class="num" data-label="Documents">${x.documents}</td><td class="num" data-label="Values">${fmtNumber(x.values)}</td><td class="num" data-label="Products">${x.products.size}</td></tr>`).join('')
         + (rest.length ? `<tr class="apart"><td colspan="4">${esc(`and ${plural(rest.length, 'more publisher')}, with ${plural(rest.reduce((n, [, x]) => n + x.documents, 0), 'document')}`)}</td></tr>` : '')
         + '</tbody></table>'));
+      for (const d of settingsDocs) {
+        const n = d.gave.guide ? c.grades.filter((g) => Object.values(g.print?.from ?? {}).some((f) => f?.origin === 'guide')).length : c.documents.get(d.sid).grades.size;
+        const name = d.gave.guide ? 'Bambu Lab\'s Filament Guide' : [d.s?.publisher, String(d.s?.title ?? '').replace(/\s*\|.*$/, '')].filter(Boolean).join(', ');
+        if (n) parts.push(`<p class="sec-note">${esc(`${name}: print settings for ${plural(n, 'product')}${d.gave.guide ? ' whose own sheets are silent' : ''}.`)}</p>`);
+      }
     }
     if (gaps.length) parts.push(`${subhead('Known gaps', 'known-gaps')}<ul class="gaps">${gaps.map(gapItem).join('')}</ul>`);
     if (docs.length) {
@@ -75,6 +85,6 @@ export default {
       };
       parts.push(`<details class="more docs" id="documents"><summary>${esc(`Every document (${fmtNumber(docs.length)})`)}</summary><ul class="doc-list">${sorted.map(item).join('')}</ul></details>`);
     }
-    return { empty: false, html: parts.join('\n'), stats: { documents: docs.length, gaps: gaps.length } };
+    return { empty: false, html: glue(parts.join('\n')), stats: { documents: docs.length, gaps: gaps.length } };
   },
 };

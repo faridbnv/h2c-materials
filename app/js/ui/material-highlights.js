@@ -177,10 +177,17 @@ export function settingWindow(products, axis) {
   return s ? { from: s.from, to: s.to } : null;
 }
 
-/** The typical drying schedule of the products whose own or shared sheet gives one (material-stats.js dryingStats): `{ tempC, hours }` or null. */
+/**
+ * The drying schedules of the products whose own or shared sheet gives one (material-stats.js dryingStats, its counted
+ * entries): `{ tempMin, tempMax, hoursMin, hoursMax }`, one schedule where they agree and the span where they differ, never
+ * a median schedule no maker gave; null where none gives a temperature.
+ */
 export function dryingSchedule(products) {
   const d = dryingStats(products);
-  return d.temps.n ? { tempC: d.temps.median, hours: d.hours.n ? d.hours.median : null } : null;
+  const counted = d.entries.filter((e) => e.counted);
+  if (!counted.length) return null;
+  const temps = counted.map((e) => e.value), hours = counted.map((e) => e.hours).filter((h) => h != null);
+  return { tempMin: Math.min(...temps), tempMax: Math.max(...temps), hoursMin: hours.length ? Math.min(...hours) : null, hoursMax: hours.length ? Math.max(...hours) : null };
 }
 
 /** The XY and Z headlines of each property a summary may give the across-the-layers share of. */

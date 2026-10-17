@@ -443,11 +443,11 @@ to its source.
 
 **Header.** The material's name, its full name once, and one identity line: base polymer, filler, and how many products
 from how many makers ("ASA · carbon-fibre filled · 17 products from 15 makers"), then its Bambu Lab status as a chip,
-under the rail's display names. A material with a page of its own (below, "The material pages") has a **Full page ↗**
-link before Shortlist (on a phone the arrow alone, its words kept for a screen reader, so the head stays one row), which
-opens the page in a new tab so the selector keeps its place; its title says that a downloaded copy of the selector needs
-its release's material pages zip unzipped beside it. The link is the only way from the selector to the pages (the
-owner's decision of 2026-10-16).
+under the rail's display names. A material with a page of its own (below, "The material pages") has a **Full page**
+link before Shortlist, which opens the page in the same tab carrying the selection, so the page's *Back to your results*
+returns to the selector as it was (D145); its title says that a downloaded copy of the selector needs its release's
+material pages zip unzipped beside it. The selector's status bar has a quiet *Material pages* link to the index, which
+carries the selection the same way (the owner's word of 2026-10-17).
 
 **Overview.** With requirements set it opens on **the answer**: how many of its products meet all the requirements,
 how many fail one and how many publish too little to judge, with *Show the products*. Then **Your requirements**, the
@@ -640,86 +640,82 @@ recorded under each member) above the list of members.
 
 ## The material pages
 
-A material with enough on file has a page of its own, built beside the selector by the build (stage 8, D142): a static
-document to read top to bottom, wider than the 620 px drawer, with figures the drawer has no room for, and every record
-behind it one link away. **The reader** is the drawer's: an engineer checking a material, here with time to read it
-whole, print it or send it. **Its purpose** is to understand the material across its products before or after the
-selector's answer; it decides nothing. No requirement is set on a page, no product passes or fails there, the status
-colours never appear in a figure, and its footer says so with the method's sentence that data-sheet values are not
-design allowables.
+A material with enough on file has two pages of their own, built beside the selector by the build (stage 8; D142, as
+reimagined in D145): an **Overview** to read and a **Products** page to choose from. **The reader** is the drawer's: an
+engineer checking a material, here with time to read it whole, print it or send it. **Its purpose** is to understand the
+material across its products before or after the selector's answer; it decides nothing. No requirement is set on a page,
+no product passes or fails there, the status colours never appear, and its colophon says that data-sheet values are
+not design allowables.
 
 **Which materials.** Those the page rule admits (`PAGE_RULE` in `app/js/ui/page-rule.js`): at least three products and
 twenty measured values with a number. The same function decides the drawer's link, the index, the README's count and
-the tests; `build/snapshot/pages.csv` lists every material with its page or what it falls short on. A material beyond
-the H2C's capability that qualifies has a full page, which says so first. A group name has none.
+the tests; `build/snapshot/pages.csv` lists every material with its page or what it falls short on, and the five
+alternatives its page compares it with. A material beyond the H2C's capability that qualifies has full pages that say
+so first. A group name has none.
 
-**A material's page** (`materials/<id>.html`), in reading order (`SECTIONS`, `app/pages/sections/index.js`):
+**The Overview** (`materials/<id>.html`), in reading order (`SECTIONS`, `app/pages/sections/index.js`):
 
-- **The masthead**: the name, the names it is also sold under, the full name, and the first screen. Six typical numbers
-  (tensile strength XY and Z, tensile modulus XY, HDT at both loads, notched Charpy), each with how many products it
-  rests on, and the nozzle and bed windows most products accept; then a line against each of the two materials with the
-  most products, median against median; then polymer, filler, Bambu Lab status, products and makers.
-- **In short**, the written summary, whose every number is filled from the data when the page is built, its byline and
-  review status beside it.
-- **At a glance**, the property profile: each key property's median, range and middle half in four groups (stiffness
-  and strength, toughness, heat, weight and cost), on a track that shows where it sits among every material's medians.
-- **Strength and stiffness**: a map of every material's median tensile strength against its tensile modulus, this
-  material's products and their middle half drawn over it; what each product keeps across the layers (Z against XY, for
-  products that publish both in one document and state); the notched impact tests.
-- **Heat**: one ladder from the glass transition through heat deflection at both loads to Vicat and melting, with the
-  H2C's chamber limit, and a map of heat deflection against strength.
-- **How to print it on the H2C**: every product's nozzle, bed and chamber window, with how many products accept each
-  temperature, against the H2C's limits; drying, hardened nozzle and AMS.
-- **Products**, one table to choose from. Its columns: the product; Key values (how many of the table's values it
-  publishes, the default order, most documented first); tensile strength and modulus, XY and Z; notched impact (Charpy,
-  or Izod labelled where a product publishes no Charpy); HDT at both loads; price; nozzle over bed, with a hardened-nozzle
-  icon; chamber and drying. A column no product fills is left out and named under the table. A quiet shade gives a
-  value's quarter within its column; a value not compared is grey and marked hollow; icons mark a shared data sheet, sold
-  as toughened, a special formulation and annealed, each said once in the key and in full under *How to read this
-  table*. A search and three toggles (*Only with* Z values, own data sheet, Canadian price) narrow it, any column sorts,
-  the first 25 are shown and the rest behind *Show all*; a row opens to its card (`#product-<id>` opens one). On a phone
-  each product is two lines, its name and four values chosen under *Columns*. Without the script the table reads in full.
-- **What makers say**, by topic, the engineering topics open and the marketing ones closed; **Chemicals and
-  environment**; **Physical properties**; **Price**, each product's price per kilogram and its strength against its
-  price; **Estimated values**, fenced and marked †; **Sources and known gaps**; and the footer, with what the numbers are
-  not and the way back to the selector, the material's drawer open.
+- **The first screen**: the name and full name, one identity sentence (filler, products and makers, Bambu Lab's
+  standing), the tabs *Overview | Products*; a plate of six key figures (tensile modulus and strength XY, strength Z,
+  notched Charpy, HDT at 0.45 MPa, price), each the median with how many products and their middle half and a small
+  drawing of their spread, a figure no product publishes said quietly; under it one **evidence line**: well, partly or
+  thinly documented, and the one reason values cannot be ranked. Then the written summary beside **On the H2C**
+  (nozzle, bed, heated chamber, drying, nozzle type: what most products give).
+- **Among the materials**: a sentence against the first two alternatives; *Against its alternatives* (the material and
+  five others chosen by rule, `peerSet`: the same polymer filled or not, then the most documented of about the same heat
+  resistance; never one beyond the H2C's limits), each linked to its page; *Among all materials*, two maps on frames the
+  same on every page (strength against modulus, HDT against price).
+- **Mechanical properties**, **Thermal properties**: two sentences each, the products' strips (a dot per product, from
+  four products; fewer are a table of what each sheet publishes), what the layers keep (Z against XY), the products
+  well above the rest, named.
+- **Printing on the H2C**: every print and service temperature on one axis against the H2C's limits; the settings table
+  (most products and the Bambu Lab Filament Guide, or a column per product under six); hardened nozzle, after printing,
+  what makers say about printing it.
+- **Products**: who makes it, the products that stand out (a fact per line, never a verdict) and the way to the
+  Products page; **Uses, limitations and chemicals**; **Density and price**; **Other properties, as published**;
+  **Estimated values** (only where a key figure is missing or cannot be ranked, fenced); **Sources** (publishers, kinds
+  of document, this material's own known gaps, every document behind a fold); the **colophon** (what the numbers are
+  not, the way back, release and dates, who wrote the summary and its review status, *Copy the citation*).
 
-A section with nothing on file leaves the page and the contents; one line before Sources names them ("Not on file for
-…"). A sticky contents rail at 1,080 px and wider, a strip of section links below that; every link, to a section
-(`#mechanical`, `#printing`, …) or a figure (`#fig-3-1`), lands below the sticky bar. The top bar carries the mark, the
-way to the index, the page and its records, *Open in the selector* and the theme, which follows the system's and is the
-selector's choice once made; a printed page is always light.
+A section with nothing to say leaves the page silently; absence is said once, where the reader would look. The page says
+each fact once: the first screen gives the number, a section interprets it, a figure's title states what only it shows.
 
-**The figure grammar.** Inline SVG drawn by the build, one grammar for every figure: a number and a title that states
-what it shows, a key only of the marks drawn, the plot, and a caption with one line on how to read it and *How this is
-counted* closed beneath (what is counted, drawn apart and not drawn, and why, the figure's numbers as a table, the way
-to the records). A product is a mark: filled is compared, hollow is drawn and not counted (no stated orientation or load, or a print
-setting from the Bambu Lab Filament Guide), a square was measured after annealing, a grey diamond is a special
-formulation left out of the median, and the claim colour marks a product sold as toughened (the maker's statement, never
-a verdict). The accent marks this material, grey every other. Hovering or focusing a product lights it in every figure; its name shows in a tooltip, and a click opens its row
-in Products. Inter sets the text and the figures, Newsreader the name, the section titles and the summary; both are
-embedded (SIL Open Font License 1.1), so a page opened from disk looks as it does on the site.
+**The Products page** (`materials/<id>-products.html`): the head with *Products* selected, one line that follows the
+sort, a search and *Sort by* (a column heading sorts too; a second press reverses), the key of only the marks used, then
+the list. Sorting by a value splits the list into labelled groups in a fixed order: compared, then shown as published
+(no stated orientation or load), then not published. A row is a native disclosure; its card holds every record of that
+product, values grouped by document with their conditions and the sheet's own row label, whether the Overview counts
+each and why not, print settings with where each comes from, price, statements and documents. Reference and study
+specimens come last. `#G…` opens a product's card, `#V…` a value. Under six products the cards open; on a phone each
+row is two lines. Every record of a material appears exactly once across its two pages, except the project's own
+selection notes and the maintainers' coverage notes (`offThePages`).
 
-**The records page** (`materials/<id>-records.html`): every record behind the page as it is recorded, raw, each with its
-ID in its own cell: measurements by property with every condition and the document and page it was read from, and,
-where a figure draws the group, whether each value is in its median and why not; print profiles; maker statements in
-their own words; environment statements; price listings; documents, with what each gave and the link to the original;
-known gaps and review notes. A finder above the tables narrows them by type, product, document, orientation, property
-and text, each choice with how many records it holds, and keeps the choice in the address
-(`#type=…&property=…&orientation=…&product=…&doc=…&q=…`), so a section's link from the main page opens the records it
-counts. A measurement a figure draws carries a badge saying whether it is in the median, and why not. The last table
-puts the known gaps first and then, closed and quieter, the notes meant for the data's maintainers.
+**The figure grammar.** Inline SVG drawn by the build in one grammar: a title that states what the figure shows, the
+question it answers, a key of only the marks drawn, the plot, one line on how to read it, and *The figure as a table*
+closed beneath (its numbers, what this material leaves out, the link to the method page). One scale per property on
+every page; a value beyond an axis is a chevron at the edge, its value in the tooltip. A product is a dot: filled is in
+the median, hollow and lighter is shown as published, a square was measured after annealing, a grey diamond has an
+added filler or additive, orange marks a product sold as toughened (the maker's statement, never a verdict). The data
+colour marks this material, grey every other. Hovering or focusing a product lights it in every figure; a click opens
+its card on the Products page.
+
+**The way around.** One sticky bar: the mark and *Materials* lead to the index, then the material and the section in
+view (a list of the sections and *How the numbers are worked out*), and *Back to your results*. Arrived from the selector
+(`?from=`, kept for the tab and taken out of the address), every return reopens the selector as the reader left it, with
+the drawer on the material of the page in view; arrived otherwise, it reads *Open in the selector*. **The index**
+(`materials/index.html`) lists the materials with a page by family, each with its products, one search that also finds
+the names a material is sold under, and the materials without a page in one line per family. **The method page**
+(`materials/method.html`) holds the explanations every page would otherwise repeat. **The stub**
+(`materials/<id>-records.html`) sends the old records page's links to the Products page or to Sources.
+
+**Type and colour.** Inter for text and figures, Newsreader for the names, section titles and the summary, both
+embedded; 16 px body; the selector's tokens, light and dark, the theme following the selector's choice; a printed page
+is light, without controls, with the address and page numbers.
 
 **One set of facts.** The drawer and the pages show a material from the same compiled fields through one facts layer
-(`app/js/ui/material-facts.js`, with the shared sentences, scales and display statistics beside it): which records, in
-which order, counted how, drawn or not and why is decided there once, and only the markup differs, so the two cannot
-tell different stories. The pages add figures the drawer has no room for; neither decides anything. ARCHITECTURE.md says
-how the build renders them (stage 8) and how the agreement is checked.
-
-**The index** (`materials/index.html`) lists every material by family and polymer, each with its Bambu Lab status, its
-products and measured values, linked where it has a page and, where it has none, what it falls short on in one line;
-group names are listed with the materials they stand for. Every page links to it from its top bar and its footer; the
-selector does not.
+(`app/js/ui/material-facts.js`, with the shared sentences, scales and display statistics beside it); what the pages add
+is display statistics computed at render time (`material-stats.js`, `material-highlights.js`), one rule for each
+statement a page makes twice (a print window: `typicalWindow`; a shown gap: `shownGap`). Neither decides anything.
 
 **Where they are.** Beside the selector's page: in `dist/materials/`, on the site at `materials/`, and in a release as
 `H2C_Material_Pages_<snapshot>_<release>.zip`, to unzip in the folder that holds a downloaded copy of the selector. A
@@ -789,8 +785,8 @@ its policies, its migrations or the words it coined for them.
 | Mechanical, Thermal, Environment | What exactly was measured, and how? | Every value with its method, orientation, specimen and condition |
 | The comparison headings (D133, D139) | Where do this material's products sit, test by test, and how does each print? | A dot per product, the medians, then every result or profile with its document |
 | Sources | Can I trust and trace this number? | The documents, what each covers, the link to the original, the known gaps |
-| A material's page | What is this material like across its products, read whole? | Its typical values and where they sit among the materials, product by product, how it prints, what makers say, what is not on file; nothing judged |
-| A records page | Which record is behind that figure, exactly as recorded? | Every record raw, with its conditions, its document and page, whether a figure counts it and why not, and its ID |
+| A material's Overview | What is this material like across its products, and how far can I trust it? | Its key figures and their spread, against its alternatives, its products' values section by section, how it prints on the H2C, what makers say; how well documented, said once; nothing judged |
+| A material's Products page | Which product, and which record is behind that value? | Every product, searched and sorted; each opens to every value with its conditions, document and page, whether the Overview counts it and why not, its print settings, price and statements |
 | A popover | What does this mark mean for my decision? | At most four sentences, in standard terms |
 
 **Engineering terms stay; the project's coinages do not.** Where the database has its own word, the page says what an

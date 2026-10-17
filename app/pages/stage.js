@@ -1,5 +1,6 @@
 // Node only: the build's stage 8 (build/src/index.js), after the bundle. It renders the material pages (render.js
-// renderSite: every page the page rule admits, its records page, the index and the shared assets) from the compiled
+// renderSite: every material the page rule admits, its Overview, its Products page and the stub at its old records
+// address; the index, the method page and the shared assets) from the compiled
 // database, writes them to dist/materials/, and returns what the manifest records of them. Nothing here decides
 // anything, and nothing the build has made before this stage reads it.
 //
@@ -132,6 +133,6 @@ export async function pagesStage({ projectRoot, dbJson, selectorFile }) {
   const ms = Math.round(performance.now() - t0);
   const { pages, recordsPages } = result.stats;
   const mb = (total / 1024 / 1024).toFixed(1);
-  console.log(`pages  ${pages} pages, ${recordsPages} records pages and the index, ${mb} MB in all, ${cached ? `read from the build cache in ${ms} ms` : `in ${ms} ms`}`);
+  console.log(`pages  ${pages} Overviews, ${recordsPages} Products pages, the index and the method page, ${mb} MB in all, ${cached ? `read from the build cache in ${ms} ms` : `in ${ms} ms`}`);
   return { digest, pages, recordsPages, bytes: total, ms, cached };
 }
