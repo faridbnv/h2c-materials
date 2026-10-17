@@ -1,6 +1,6 @@
-// Display statistics the material pages draw and the drawer does not: where a material's medians stand among every
-// material's, how many of its products accept each print temperature, how much of the flat value each product keeps
-// across the layers, a strength against stiffness map of every material, and a ladder of its temperatures. Pure data, no
+// Display statistics the material pages draw and the drawer does not: how many of its products accept each print
+// temperature, how much of the flat value each product keeps across the layers, the alternatives to a material and the
+// frames of the maps and strips that compare them, and a ladder of its temperatures. Pure data, no
 // markup, no words: the pages' sentences are app/pages/findings.js's. Every input is a compiled field (materials[].headline,
 // .summary, grades[].print, grades[].headline through material-facts.js spreadEntries, measurements[]) or a count of
 // them; nothing here chooses a product's value, decides a gate or estimates, and the drawer reads none of it.
@@ -10,106 +10,14 @@
 // the nearest two.
 
 import { REGISTRY } from './registry.js';
-import { h2cLimit, materialName } from './labels.js';
-import { isProduct, dotMarks, rankOf, materialContext, spreadEntries, shareOf } from './material-facts.js';
+import { h2cLimit } from './labels.js';
+import { isProduct, dotMarks, materialContext, spreadEntries, shareOf } from './material-facts.js';
 import { rowSummary } from './print-spread.js';
 import { stripScale } from './scales.js';
 import { pageOf } from './page-rule.js';
 
 /** A summary `{ n, median, q1, q3, min, max }` of plain numbers, on the build's rule (quartiles from four values). */
 export const summarise = (values) => rowSummary(values.map((value) => ({ value, origin: 'own', variant: false })));
-
-// ------------------------------------------------------------------ standing among the materials
-
-/**
- * Where `value` falls among every other material's median of one key property (`rank` is material-facts.js
- * rankTable()[key]): `{ pct, below, level, above, others }`, `pct` the share of the other materials' medians below it
- * (a tie counts half), 0 to 100. Null where no other material has a value.
- */
-export function percentileAmong(rank, materialId, value) {
-  if (!rank || !Number.isFinite(value)) return null;
-  const others = rank.entries.filter((x) => x.id !== materialId);
-  if (!others.length) return null;
-  const below = others.filter((x) => x.value < value).length;
-  const level = others.filter((x) => x.value === value).length;
-  return { pct: ((below + level / 2) / others.length) * 100, below, level, above: others.length - below - level, others: others.length };
-}
-
-/**
- * A material's standing on each key property in `keys` (registry headline keys; the selectable ones by default), from its
- * median (materials[].headline[key].value, a measured median, never an estimate) and its products' middle half
- * (materials[].summary[key].q1, q3), placed among every other material's median (`ranks`, material-facts.js rankTable).
- * One row per key, in the order given: `{ key, h, known, median, n, q1, q3, min, max, at (percentileAmong of the median),
- * lo, hi (the quartiles' places, 0 to 100, or null under four products), rank (material-facts.js rankOf) }`; a key the
- * material has no comparable value for is `{ key, h, known: false }`.
- */
-export function propertyProfile(m, ranks, keys = REGISTRY.headlines.map((h) => h.key)) {
-  return keys.map((key) => {
-    const h = REGISTRY.allHeadlines.find((x) => x.key === key) ?? null;
-    const e = m.headline?.[key];
-    if (!h || !e?.known) return { key, h, known: false };
-    const s = m.summary?.[key] ?? {};
-    const sp = e.spread ?? {};
-    const rank = ranks?.[key];
-    const at = percentileAmong(rank, m.id, e.value);
-    const q1 = s.q1 ?? sp.q1 ?? null, q3 = s.q3 ?? sp.q3 ?? null;
-    return {
-      key, h, known: true, median: e.value, n: sp.n ?? s.n ?? 1, q1, q3, min: sp.min ?? e.value, max: sp.max ?? e.value,
-      at, lo: q1 != null ? percentileAmong(rank, m.id, q1)?.pct ?? null : null, hi: q3 != null ? percentileAmong(rank, m.id, q3)?.pct ?? null : null,
-      rank: rank ? rankOf(rank, m.id) : null,
-    };
-  });
-}
-
-// ------------------------------------------------------------------ the material map
-
-/**
- * Every material's median of two key properties, for a map of one against the other (strength against stiffness, the way
- * an Ashby chart places materials), zoomed on this material's neighbourhood. `{ points: [{ id, name, x, y, products,
- * self }] (every material with a known median of both, rankTable), xLog, yLog (each axis on the scale rule: logarithmic
- * where its values span more than ten times), nearest: [ids] (the other materials by their distance from this one's
- * medians in the map's own space: decades on a logarithmic axis, hundreds of °C on a linear one), window: { x: [lo, hi],
- * y: [lo, hi] } (the box holding this material's medians, the points in `include` (its products and middle half) and the
- * `neighbours` nearest materials, padded), landmarks: [ids] (the `label` nearest, named on the map) }`. By rule, never by
- * hand; the material itself is never a landmark.
- */
-export function materialMap(db, ranks, xKey, yKey, materialId, { label = 7, neighbours = 24, include = [] } = {}) {
-  const xs = new Map((ranks?.[xKey]?.entries ?? []).map((e) => [e.id, e.value]));
-  const ys = new Map((ranks?.[yKey]?.entries ?? []).map((e) => [e.id, e.value]));
-  const byId = new Map(db.materials.map((m) => [m.id, m]));
-  const points = [...xs.keys()].filter((id) => ys.has(id)).map((id) => {
-    const m = byId.get(id);
-    return { id, name: materialName(m.name).primary ?? m.name, x: xs.get(id), y: ys.get(id), products: m.gradeIds?.length ?? 0, self: id === materialId };
-  });
-  const xLog = stripScale(points.map((p) => p.x), REGISTRY.allHeadlines.find((h) => h.key === xKey)?.unit).log;
-  const yLog = stripScale(points.map((p) => p.y), REGISTRY.allHeadlines.find((h) => h.key === yKey)?.unit).log;
-  // The map's own space: a decade on a logarithmic axis is as far as 100 units on a linear one (°C).
-  const tx = (v) => (xLog ? Math.log10(v) : v / 100), ty = (v) => (yLog ? Math.log10(v) : v / 100);
-  const self = points.find((p) => p.self);
-  const dist = (p) => Math.hypot(tx(p.x) - tx(self.x), ty(p.y) - ty(self.y));
-  const others = points.filter((p) => !p.self).sort((a, b) => dist(a) - dist(b) || a.name.localeCompare(b.name));
-  if (!self) return { points, xLog, yLog, nearest: others.map((p) => p.id), window: null, landmarks: [] };
-  const held = [self, ...include.filter((p) => Number.isFinite(p.x) && Number.isFinite(p.y)), ...others.slice(0, neighbours)];
-  const span = (vals, t, log) => {
-    const lo = Math.min(...vals.map(t)), hi = Math.max(...vals.map(t));
-    const pad = Math.max((hi - lo) * 0.08, log ? 0.12 : 0.08);
-    const back = (v) => (log ? 10 ** v : v * 100);
-    return [back(lo - pad), back(hi + pad)];
-  };
-  const window = { x: span(held.map((p) => p.x), tx, xLog), y: span(held.map((p) => p.y), ty, yLog) };
-  const inside = (p) => p.x >= window.x[0] && p.x <= window.x[1] && p.y >= window.y[0] && p.y <= window.y[1];
-  return { points, xLog, yLog, nearest: others.map((p) => p.id), window, landmarks: others.filter(inside).slice(0, label).map((p) => p.id) };
-}
-
-/**
- * The materials a reader knows to place a value by: the `count` with the most products (then by name), never `except`.
- * The property profile ticks them on its tracks.
- */
-export function landmarkMaterials(db, count = 3, except = null) {
-  return db.materials.filter((m) => !m.familyEntry && m.id !== except)
-    .sort((a, b) => (b.gradeIds?.length ?? 0) - (a.gradeIds?.length ?? 0) || a.name.localeCompare(b.name)).slice(0, count)
-    .map((m) => ({ id: m.id, name: materialName(m.name).primary ?? m.name }));
-}
 
 /**
  * A material's medians against another material's, key by key (`keys`, registry headline keys), from the compiled
@@ -289,29 +197,6 @@ export function dryingStats(products) {
   }
   const counted = entries.filter((e) => e.counted);
   return { temps: rowSummary(entries), hours: summarise(counted.map((e) => e.hours).filter((x) => x != null)), products: products.length, entries };
-}
-
-/** The print settings a product's gate can read from elsewhere (grades[].print.from), in the order a print is set up. */
-export const SETTING_ORDER = ['nozzle', 'bed', 'chamber', 'drying', 'enclosure', 'hardenedNozzle', 'anneal'];
-
-/**
- * Where products' settings were read when their own sheet is silent (grades[].print.from[setting].origin): for 'guide'
- * (Bambu Lab's Filament Guide) and 'twin' (a sheet they share), `{ products (taking at least one setting from it),
- * settings: [[setting, products]] (SETTING_ORDER, those with any) }`.
- */
-export function settingOrigins(products) {
-  const out = {};
-  for (const origin of ['guide', 'twin']) {
-    const per = new Map();
-    let any = 0;
-    for (const g of products) {
-      const from = Object.entries(g.print?.from ?? {}).filter(([, f]) => f?.origin === origin);
-      if (from.length) any++;
-      for (const [k] of from) per.set(k, (per.get(k) ?? 0) + 1);
-    }
-    out[origin] = { products: any, settings: [...SETTING_ORDER.filter((k) => per.has(k)), ...[...per.keys()].filter((k) => !SETTING_ORDER.includes(k))].map((k) => [k, per.get(k)]) };
-  }
-  return out;
 }
 
 // ------------------------------------------------------------------ the temperatures a part meets

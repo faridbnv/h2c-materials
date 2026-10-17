@@ -21,13 +21,7 @@ ${key}<div class="fig-plot"${label ? ` role="img" aria-label="${esc(label)}"` : 
 }
 
 /** The closed line under a figure or a table: what is counted and how, opened by a reader who wants it. */
-export const howCounted = (body, summary = 'How this is counted') => `<details class="counted"><summary>${esc(summary)}</summary><div class="counted-body">${body}</div></details>`;
-
-/** A method rule inside "How this is counted": its question as a small heading, then the rule's words. */
-export const aboutLine = (summary, body) => `<div class="about"><h4>${esc(summary)}</h4>${body}</div>`;
-
-/** A figure's anchor from its number: "fig-4-2". */
-export const figId = (n) => `fig-${String(n).replace('.', '-')}`;
+const howCounted = (body, summary = 'How this is counted') => `<details class="counted"><summary>${esc(summary)}</summary><div class="counted-body">${body}</div></details>`;
 
 /**
  * A figure of the reimagined pages: `<figure class="fig" id="fig-<slug>" data-figure="<kind>">` holding its title (the
