@@ -4635,9 +4635,11 @@ removing a needed check or any accuracy. Built by Claude (an agent) on a branch,
   54 children in one run and 48 in three parts before, 54 in both since; the 2,578 readings are the same either way).
   CI's views job and three scenario jobs run beside the data job, and the weekly 2,000 run in four parts. The
   repository is public, so a job costs no minutes; each part builds the page itself (40 s).
-- **Effect.** On a 4-core Linux container, from an empty build cache, `verify` took 749 s side by side where the same
-  steps take about 1,089 s one after another. Per push, CI's longest job becomes the data job. The owner's machine has
-  ten cores, where more steps fit beside the tests.
+- **Effect.** On a 4-core Linux container, each run from an empty build cache, `verify` took 746 s where the runner
+  before it took 1,069 s on the same commit (199 s of the difference is the scale re-run, the rest the audit, the views
+  and the snapshot beside the tests); `verify:fast` 203 s where it took 214 s (the tests are nearly all of it). Each
+  third of the 300 scenarios took 82 to 87 s where all 300 took 254 s, so per push CI's longest job becomes the data
+  job. The owner's machine has ten cores, where more steps fit beside the tests; its times are still to be measured.
 - **Found on the way.** `sqlite.test.js` skipped its full-text test only where `.cache/text` did not exist, so in a
   checkout without the private cache the import tests' fixtures made a second `verify` fail it. It is now skipped where
   the cache holds no registered source's text, and runs in full where it does.
