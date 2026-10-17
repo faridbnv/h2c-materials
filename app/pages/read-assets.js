@@ -3,10 +3,9 @@
 //
 // The stylesheets, in the order buildAssets puts them: the shared tokens (app/css/tokens.css), the faces, the frame
 // (frame.src.css, track A), the sections' (sections.src.css, track B), the figures' (figures.src.css, track C) and the
-// Products page's (products.src.css, track A). A track's file that has not landed yet is read as null; the old pages
-// stylesheet (pages.src.css) is read while it is in the tree, for the sections and figures not yet restyled.
+// Products page's (products.src.css, track A).
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 /** The faces embedded in assets/pages.css, from app/pages/assets/fonts (FONTS.md says where they come from). */
@@ -20,17 +19,16 @@ const LICENCES = ['Inter-OFL.txt', 'Newsreader-OFL.txt'];
 /** The assets' inputs, from a checkout's root. */
 export function readAssets(projectRoot) {
   const at = (...p) => join(projectRoot, ...p);
-  const maybe = (...p) => (existsSync(at(...p)) ? readFileSync(at(...p), 'utf8') : null);
+  const read = (...p) => readFileSync(at(...p), 'utf8');
   const fonts = at('app/pages/assets/fonts');
   return {
     tokensCss: readFileSync(at('app/css/tokens.css'), 'utf8'),
-    pagesCss: maybe('app/pages/assets/pages.src.css'),
-    frameCss: maybe('app/pages/assets/frame.src.css'),
-    sectionsCss: maybe('app/pages/assets/sections.src.css'),
-    figuresCss: maybe('app/pages/assets/figures.src.css'),
-    productsCss: maybe('app/pages/assets/products.src.css'),
+    frameCss: read('app/pages/assets/frame.src.css'),
+    sectionsCss: read('app/pages/assets/sections.src.css'),
+    figuresCss: read('app/pages/assets/figures.src.css'),
+    productsCss: read('app/pages/assets/products.src.css'),
     pageJs: readFileSync(at('app/pages/assets/page.js'), 'utf8'),
-    productsJs: maybe('app/pages/assets/products.src.js'),
+    productsJs: read('app/pages/assets/products.src.js'),
     fonts: FACES.map((f) => ({ ...f, base64: readFileSync(join(fonts, f.file)).toString('base64') })),
     licences: LICENCES.map((name) => [name, readFileSync(join(fonts, name), 'utf8')]),
   };
