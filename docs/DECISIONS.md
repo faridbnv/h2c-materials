@@ -4642,7 +4642,10 @@ removing a needed check or any accuracy. Built by Claude (an agent) on a branch,
   job. The owner's machine has ten cores, where more steps fit beside the tests; its times are still to be measured.
 - **Found on the way.** `sqlite.test.js` skipped its full-text test only where `.cache/text` did not exist, so in a
   checkout without the private cache the import tests' fixtures made a second `verify` fail it. It is now skipped where
-  the cache holds no registered source's text, and runs in full where it does.
+  the cache holds no registered source's text, and runs in full where it does. And on CI the build stored nothing:
+  `npm ci` writes `build/node_modules/.package-lock.json` within 2 s of the build starting, and the cache stays off in
+  such a process, so the whole estimate stage was built a second time later in the job (one after another, inside the
+  tests; side by side, the snapshot waited 93 s for it). The data and trend jobs wait 3 s before verify.
 - **What would break if reversed.** A push waits twice as long for the same checks, and the full local run waits for
   steps that could have shared the machine.
 

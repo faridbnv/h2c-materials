@@ -55,9 +55,11 @@ jobs:
         run: npm ci
 
       # The build cache (.cache/build, build/src/build-cache.js) is never restored in CI: every result this job uses
-      # is built cold once, and the audit builds again with the cache off.
+      # is built cold once, and the audit builds again with the cache off. The cache stays off in a process started
+      # within 2 s of a change to a file it hashes, and npm ci has just written build/node_modules/.package-lock.json:
+      # without the wait the build stored nothing, and the tests and the snapshot built the whole database again (D142).
       - name: Start from an empty build cache
-        run: rm -rf .cache/build
+        run: rm -rf .cache/build && sleep 3
 
       - name: Verify the data, the build and the tests
         run: node scripts/verify.mjs --group data
@@ -147,8 +149,10 @@ jobs:
       - name: Install the import tools' dependencies
         run: npm ci
 
+      # The wait lets the build store its result (see the data job), so the reproducible-build check's second build is
+      # read from the cache, as it is meant to be compared.
       - name: Start from an empty build cache
-        run: rm -rf .cache/build
+        run: rm -rf .cache/build && sleep 3
 
       # The scale check at twice today's data, judged against its time budget (CI enforces it), and the build run twice
       # to show it is reproducible.
