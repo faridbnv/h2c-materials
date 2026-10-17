@@ -169,7 +169,7 @@ export function countedLine(f, c, tab) {
   const parts = t.counts.map(([why, k]) => pageWhy(why, k));
   return {
     records,
-    line: `Of the ${records.length} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} the products' own values${t.namedN ? ` and ${t.namedN} ${t.namedN === 1 ? 'is' : 'are'} named alone` : ''}.${parts.length ? ` The other ${t.rest}: ${andList(parts)}.` : ''}`,
+    line: `Of the ${records.length} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn${t.namedN ? ` and ${t.namedN} ${t.namedN === 1 ? 'is' : 'are'} named in the text, the only result of ${t.namedN === 1 ? 'its' : 'their'} test` : ''}.${parts.length ? ` The other ${t.rest}: ${andList(parts)}.` : ''}`,
     tally: t,
   };
 }

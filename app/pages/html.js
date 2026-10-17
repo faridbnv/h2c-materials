@@ -12,6 +12,17 @@ export const count = (n, word, many = `${word}s`) => `${fmtNumber(n)} ${n === 1 
 /** A place on a track, in per cent, to two decimals: "41.23%". Figures are fluid because x is never in pixels. */
 export const pct = (v) => `${Number(Math.max(0, Math.min(100, v)).toFixed(2))}%`;
 
+/**
+ * About how wide a label is in Inter at `size` px: capitals and digits wider than lower case, punctuation narrower. The
+ * figures place and thin their labels by it; a flat 6.3 px a character let capitals and tabular digits at 12.5 px run
+ * into each other (the 2026-10-17 blind read at 390 px).
+ */
+export function textPx(text, size = 12.5) {
+  let w = 0;
+  for (const ch of String(text)) w += /[A-Z]/.test(ch) ? 8.6 : /[0-9]/.test(ch) ? 7.4 : /[a-z]/.test(ch) ? 6.7 : /[\s.,:;'’()\/-]/.test(ch) ? 3.8 : /[−–—%°+]/.test(ch) ? 7.6 : 7;
+  return (w * size) / 12.5;
+}
+
 /** Attributes from an object, escaped; null, undefined and false are left out, true is a bare attribute. */
 export const attrs = (o = {}) => Object.entries(o)
   .filter(([, v]) => v != null && v !== false && v !== '')

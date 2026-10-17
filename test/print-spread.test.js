@@ -381,7 +381,7 @@ test('the medians line names, for each drawn setting, the medians of its lowest 
       const [low, high] = a.rows.map((r) => (r.summary.n ? r.summary.median : null));
       if (low == null && high == null) continue;
       // Two medians of different products can cross; then each is said by name.
-      parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C`
+      parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C, medians of different products`
         : `${lower(a.label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`);
     }
     const line = footLines(x.heading).find((l) => l.startsWith('Medians of the lowest and highest settings'));

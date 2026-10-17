@@ -6,7 +6,7 @@
 import { esc } from '../html.js';
 import { h2cLimit } from '../../js/ui/labels.js';
 import { fmtNumber } from '../../js/ui/format.js';
-import { measuredIn, comparisonsOf } from '../../js/ui/material-facts.js';
+import { measuredIn, comparisonsOf, spreadEntries } from '../../js/ui/material-facts.js';
 import { heatLadder, printsAmorphous } from '../../js/ui/material-stats.js';
 import { EMPTY_LINES, plural, andList, medianRule, apartWords } from '../../js/ui/material-words.js';
 import { ladderPlot } from '../charts/ladder.js';
@@ -42,7 +42,15 @@ export default {
     const rows = heatLadder(m, c, LADDER_EXTRA);
     const comps = comparisonsOf(m, c, 'Thermal');
     const covered = new Set([...comps.flatMap((f) => [...f.properties]), ...rows.filter((r) => !r.compared).map((r) => r.id)]);
-    const out = [findingsBlock(heatFindings(rows, { name: m.name, amorphous: printsAmorphous(m, c.db) }))];
+    // The products that give HDT at both loads, comparably: where the heavier load's median is not the lower, the two
+    // medians rest on different products, and the finding says so.
+    const both = (() => {
+      const keys = rows.filter((r) => r.h?.loadMPa != null && r.compared).map((r) => r.h.key);
+      if (keys.length !== 2) return null;
+      const [a, b] = keys.map((k) => new Set(spreadEntries(m, c, k).filter((e) => e.v.level === 'comparable' && !e.variant).map((e) => e.g.id)));
+      return [...a].filter((id) => b.has(id)).length;
+    })();
+    const out = [findingsBlock(heatFindings(rows, { name: m.name, amorphous: printsAmorphous(m, c.db), both }))];
     let figures = 0;
     if (rows.length) {
       for (const r of rows) {

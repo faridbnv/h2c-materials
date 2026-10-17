@@ -5,7 +5,7 @@
 
 import { stack } from './scale.js';
 import { mark } from './marks.js';
-import { attrs, esc, pct } from '../html.js';
+import { attrs, esc, pct, textPx } from '../html.js';
 
 /** The vertical distance between stacked dots, and a track's height for a number of stacked rows. */
 export const DOT_ROW = 10;
@@ -31,17 +31,27 @@ export function dotTrack({ entries, scale, summary = null, limit = null }) {
   // Two names that would run into each other on a laptop's track (about 640 px) are set apart: the lower one ends at its
   // dot, the higher one starts at its own.
   const sorted = [...calls].sort((a, b) => a.x - b.x);
-  const width = (e) => e.callout.length * 6.9;
-  const anchors = new Map(sorted.map((e) => [e, e.x < 15 ? 'start' : e.x > 85 ? 'end' : 'middle']));
+  const width = (e) => textPx(e.callout);
+  // A name centred on its dot unless it would run off the track (about 640 px on a laptop): then it starts or ends there.
+  const anchors = new Map(sorted.map((e) => { const x = (e.x / 100) * 640, w = width(e); return [e, x - w / 2 < 0 ? 'start' : x + w / 2 > 640 ? 'end' : 'middle']; }));
+  const at = (e, px) => { const w = width(e), a = anchors.get(e), x = (e.x / 100) * px; return a === 'start' ? [x + 4, x + 4 + w] : a === 'end' ? [x - 4 - w, x - 4] : [x - w / 2, x + w / 2]; };
   for (let i = 1; i < sorted.length; i++) {
     const a = sorted[i - 1], b = sorted[i];
-    const gap = ((b.x - a.x) / 100) * 640;
-    if (gap < (width(a) + width(b)) / 2 + 12) { anchors.set(a, 'end'); anchors.set(b, 'start'); }
+    if (at(a, 640)[1] + 8 > at(b, 640)[0]) { anchors.set(a, 'end'); anchors.set(b, 'start'); }
   }
-  const named = calls.map((e) => {
+  // A name set apart that then runs off the track is left out (its dot keeps its value on hover).
+  const dropped = new Set(sorted.filter((e) => at(e, 640)[0] < -2 || at(e, 640)[1] > 642));
+  // On a phone's track (about 250 px) a name that would run off the track or into its neighbour is left out (class alt,
+  // hidden below 720 px); the dot keeps its value on hover.
+  const NARROW = 250;
+  const extent = (e) => at(e, NARROW);
+  const narrowFits = new Map(sorted.map((e) => { const [l, r] = extent(e); return [e, l >= 0 && r <= NARROW]; }));
+  for (let i = 1; i < sorted.length; i++) if (extent(sorted[i - 1])[1] + 6 > extent(sorted[i])[0]) { narrowFits.set(sorted[i - 1], false); narrowFits.set(sorted[i], false); }
+  const named = calls.filter((e) => !dropped.has(e)).map((e) => {
     const anchor = anchors.get(e);
-    return `<line class="callout-line" x1="${pct(e.x)}" x2="${pct(e.x)}" y1="${top - 3}" y2="${base - e.row * DOT_ROW - 6}"/>`
-      + `<text class="callout" x="${pct(e.x)}" y="${top - 6}" dx="${anchor === 'end' ? 4 : anchor === 'start' ? -4 : 0}" text-anchor="${anchor}">${esc(e.callout)}</text>`;
+    const alt = narrowFits.get(e) ? '' : ' alt';
+    return `<line class="callout-line${alt}" x1="${pct(e.x)}" x2="${pct(e.x)}" y1="${top - 3}" y2="${base - e.row * DOT_ROW - 6}"/>`
+      + `<text class="callout${alt}" x="${pct(e.x)}" y="${top - 6}" dx="${anchor === 'end' ? -4 : anchor === 'start' ? 4 : 0}" text-anchor="${anchor}">${esc(e.callout)}</text>`;
   }).join('');
   return `<svg class="fig-track" height="${h}" aria-hidden="true" focusable="false">${grid}${band}${line}${median}`
     + `<line class="base" x1="0" x2="100%" y1="${h - 0.5}" y2="${h - 0.5}"/>${named}${dots}</svg>`;

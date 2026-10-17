@@ -209,6 +209,7 @@ export function estimateDisplay(e, { ownUnit = false } = {}) {
     lo, hi, centre, plausible, unit,
     num: (v) => fmtNumber(k(v)),
     rescaled: unit !== e.unit,
+    factor,
     columnUnit: e.unit,
     inColumn: unit !== e.unit ? fmtRangeParts(e.lo, e.hi) : null,
   };
@@ -457,7 +458,7 @@ export function convertedNote(converted) {
     ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} from a foreign listing`
     : 'A foreign listing\'s price';
   return `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
-    + `sells ${converted.products ? 'those products' : 'this product'}. Shipping and duty are not included.`;
+    + `sells ${converted.products > 1 ? 'those products' : converted.products === 1 ? 'that product' : 'this product'}. Shipping and duty are not included.`;
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */

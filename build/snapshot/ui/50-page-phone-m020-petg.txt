@@ -3,6 +3,7 @@ document width: fits the screen
 spill: none
 clipped cells: none in 16 tables
 hidden controls: 0
+figure text: all of it readable
 sections (13): masthead, in-short, key-figures, mechanical, thermal, printing, products, makers-say, environment, physical, price, sources, footer
 figures: 9, with an svg 9, with a caption 9
 contents: strip, 11 links, sticky

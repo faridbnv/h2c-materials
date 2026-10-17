@@ -10,6 +10,8 @@ import { fmtNumber } from './format.js';
 import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, OUTSIDE_WORDS, h2cLimit, namedFiller } from './labels.js';
 import { hardenedWords } from '../engine/products.js';
 import { plural, lower, cap, andList, inSentence, stated } from './text.js';
+import { dryingAdvice } from './material-stats.js';
+import { productName } from './material-facts.js';
 
 export { plural, lower, cap, andList, inSentence };
 
@@ -274,7 +276,7 @@ export function printLines(f) {
   const typical = f.typical.map(({ label, low, high }) => {
     if (low == null && high == null) return null;
     // Two medians of different products can cross where few give both ends; then each is said by name.
-    if (low != null && high != null && low > high) return `${lower(label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C`;
+    if (low != null && high != null && low > high) return `${lower(label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C, medians of different products`;
     return `${lower(label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`;
   }).filter(Boolean);
   const outside = f.outside.map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
@@ -310,19 +312,30 @@ export const printCountWords = (n) => `${n.within} within${n.over ? `, ${n.over}
 /** The hardened-nozzle line of a material's printability, by its gate (materials[].gates.abrasive) and its products' share. */
 export function hardenedFactWords(gate, hard, someHard) {
   if (someHard) {
-    return `${cap(hardenedWords(hard))}: ${hard.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing; Products shows which.`;
+    return `${cap(hardenedWords(hard))}: ${hard.needing.slice(0, 4).map((g) => productName(g)).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing; Products shows which.`;
   }
   return gate === 'requires-hardened' ? 'Required: the filler wears out a brass nozzle.' : gate === 'no-special-concern'
     ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.';
 }
 
-/** The drying line of a material's printability, by its gate (materials[].gates.drying) and its products' own drying need. */
+/** What the products with drying advice (material-stats.js dryingAdvice) ask for, where not all ask the same: "3 call for drying and 1 says it is not needed". Empty otherwise. */
+export function dryingNeedsWords(a) {
+  const needs = [[a.needs.required, 'call', 'calls', 'for drying'], [a.needs.optional, 'advise', 'advises', 'it only for wet filament'], [a.needs['not-needed'], 'say', 'says', 'it is not needed']].filter(([n]) => n);
+  return needs.length > 1 ? andList(needs.map(([n, many, one, w]) => `${n} ${n === 1 ? one : many} ${w}`)) : '';
+}
+
+/**
+ * The drying line of a material's printability, by its gate (materials[].gates.drying), with how many of its products
+ * have drying advice counted as the material page counts it (material-stats.js dryingAdvice: their own sheet, a sheet
+ * they share or the Bambu Lab Filament Guide), and how many of those call for drying where not all do.
+ */
 export function dryingFactWords(gate, products) {
-  const count = (need) => products.filter((g) => g.print?.drying?.need === need).length;
-  const share = (need) => (count(need) ? ` (${count(need)} of ${plural(products.length, 'product')}); Products gives each one` : '; Printing gives its wording');
-  if (gate === 'required') return `A drying schedule is published${share('required')}.`;
-  if (gate === 'optional') return `Its sources advise drying only for a condition, such as wet filament${share('optional')}.`;
-  if (gate === 'not-needed') return `Its sources say drying is not needed${share('not-needed')}.`;
+  const a = dryingAdvice(products);
+  const split = dryingNeedsWords(a) ? `: ${dryingNeedsWords(a)}` : '';
+  const share = () => (a.have ? ` (${a.have} of ${plural(products.length, 'product')} ${a.have === 1 ? 'has' : 'have'} drying advice${split}); Products gives each one` : '; Printing gives its wording');
+  if (gate === 'required') return `A drying schedule is published${share()}.`;
+  if (gate === 'optional') return `Its sources advise drying only for a condition, such as wet filament${share()}.`;
+  if (gate === 'not-needed') return `Its sources say drying is not needed${share()}.`;
   return 'No source states whether to dry it. That does not mean it needs none.';
 }
 

@@ -5,7 +5,7 @@
 // under each figure's "How this is counted".
 
 import { fmtNumber } from '../js/ui/format.js';
-import { envVerdictWords } from '../js/ui/labels.js';
+import { envVerdictWords, propertyName } from '../js/ui/labels.js';
 import { plural, andList, lower, cap, windowText, asPublishedWords } from '../js/ui/material-words.js';
 
 /** A share in plain words where it is near a simple fraction ("about two thirds"), else "about 68 %". */
@@ -57,6 +57,27 @@ export function acceptSubject(k, n, total = n) {
   if (k === 'all') return `${n === 2 ? 'both' : `all ${n}`} ${part ? 'counted ' : ''}products${of}`;
   if (k === 'most') return part ? `most of the ${n} counted products${of}` : 'most products';
   return part ? `${k} of the ${n} counted products${of}` : `${k} of ${n} products`;
+}
+
+/**
+ * What a key property's nearest value on file (materials[].headline[key].related.best, its measurement `x`) is, where
+ * no product's is compared: the condition it lacks or has instead, in the order an engineer would ask, short enough for
+ * the first screen: "at 0.45 MPa", "a moulded bar", "tested at -30 °C", "unnotched", "test unclear", "orientation not
+ * stated". The first screen and the At a glance table say it in these words alone, so a 0.45 MPa value under "HDT at
+ * 1.8 MPa" is never read as one, nor a moulded bar as a printed one of unstated orientation.
+ */
+export function nearestLacks(h, b, x) {
+  const unstated = (v) => !v || /^(unknown|not-stated|Not published|Not applicable|not-applicable)$/i.test(String(v));
+  const out = [];
+  const name = propertyName(b.property ?? '');
+  if (b.property && !h.valueProperties?.includes(b.property)) out.push(/test unclear/i.test(name) ? 'test unclear' : lower(name));
+  if (h.loadMPa != null) out.push(b.loadMPa != null ? (b.loadMPa !== h.loadMPa ? `at ${fmtNumber(b.loadMPa)} MPa` : null) : 'load not stated');
+  if (h.notch) out.push(unstated(x?.notch) ? 'notch not stated' : x.notch !== h.notch ? lower(x.notch) : null);
+  const moulded = b.printed === false && /moulded|resin/i.test(`${x?.specimenForm ?? ''} ${b.why ?? ''}`);
+  if (moulded) out.push('a moulded bar');
+  else if (h.direction) out.push(unstated(b.direction) ? 'orientation not stated' : b.direction !== h.direction ? `${b.direction} bar` : null);
+  if (h.testTemperatureC != null && Number.isFinite(x?.testTemperatureC) && Math.abs(x.testTemperatureC - h.testTemperatureC) > 3) out.push(`tested at ${fmtNumber(x.testTemperatureC)} °C`);
+  return out.filter(Boolean);
 }
 
 // ------------------------------------------------------------------ the first screen
@@ -167,8 +188,12 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
   else if (chamber && (none || given)) {
     if (none) out.push(`${none} of ${plural(products, 'product')} ${none === 1 ? 'needs' : 'need'} no heated chamber${basisTail(noneFrom, none)}.`);
     if (given) {
-      const ask = chamber.most && given > 1 ? `mostly ${span(chamber.most)}` : given === 1 ? `${windowText(chamber.windows.find((w) => w.counted).min, chamber.windows.find((w) => w.counted).max)} °C` : `${span(chamber.peak)} for ${chamber.peak.k} of them`;
-      out.push(`${given === 1 ? 'The one whose sheet gives a chamber temperature asks for' : `The ${given} whose sheets give a chamber temperature ask for`} ${ask}${chamberOutside ? `, and ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
+      // Windows that share no temperature are each said ("40 – 60 °C and 100 °C"), never "40 – 60 °C for 1 of them".
+      const counted = chamber.windows.filter((w) => w.counted);
+      const each = andList([...new Set(counted.map((w) => `${windowText(w.min, w.max)} °C`))]);
+      const ask = chamber.most && given > 1 ? `mostly ${span(chamber.most)}` : given === 1 ? `${windowText(counted[0].min, counted[0].max)} °C`
+        : chamber.peak.k > 1 ? `${span(chamber.peak)} for ${chamber.peak.k} of them` : each;
+      out.push(`${given === 1 ? 'The one whose sheet gives a chamber temperature asks for' : `The ${given} whose sheets give a chamber temperature ask for`} ${ask}${chamberOutside ? `${given > 1 && chamber.peak.k === 1 && !chamber.most ? ';' : ', and'} ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
     }
   }
   // A hardened nozzle, said only where some product needs one.
@@ -227,7 +252,7 @@ export function strengthFindings(m, { shares, hs }) {
 // ------------------------------------------------------------------ heat
 
 /** The heat findings from the ladder's rows (material-stats.js heatLadder): HDT at each load, the glass transition, the rest as published. */
-export function heatFindings(rows, { name = null, amorphous = null } = {}) {
+export function heatFindings(rows, { name = null, amorphous = null, both = null } = {}) {
   const out = [];
   const typical = (r) => fmtNumber(r.summary.median, '°C');
   const across = (r, first) => (r.summary.n === 1 ? 'from one product' : `across ${first ? plural(r.summary.n, 'product') : fmtNumber(r.summary.n)}`);
@@ -240,8 +265,12 @@ export function heatFindings(rows, { name = null, amorphous = null } = {}) {
   } else if (tg) out.push(tg.summary.n === 1 ? `One product gives a glass transition of ${typical(tg)}.` : `The glass transition is typically ${typical(tg)}, across ${plural(tg.summary.n, 'product')}.`);
   // Two loads within 3 °C of each other: said with why, where the polymer's data says it prints amorphous
   // (polymers[].morphology, .asPrinted), and only there.
-  if (hdt.length === 2 && tg && amorphous === true && Math.abs(hdt[0].summary.median - hdt[1].summary.median) <= 3) {
-    out.push(`As printed, ${name} solidifies amorphous, so it softens near its glass transition (${typical(tg)}) and the two loads give nearly the same HDT.`);
+  const near = hdt.length === 2 && tg && amorphous === true && Math.abs(hdt[0].summary.median - hdt[1].summary.median) <= 3;
+  if (near) out.push(`As printed, ${name} solidifies amorphous, so it softens near its glass transition (${typical(tg)}) and the two loads give nearly the same HDT.`);
+  // A heavier load gives a product a lower HDT; two medians that say otherwise are of different products.
+  if (hdt.length === 2 && hdt[1].summary.n && hdt[0].summary.n && both != null
+    && (hdt[1].summary.median > hdt[0].summary.median || (!near && hdt[1].summary.median === hdt[0].summary.median))) {
+    out.push(`The heavier load's median is not the lower because the two rest on different products: ${both ? `${plural(both, 'product')} ${both === 1 ? 'gives' : 'give'} both` : 'none gives both'}.`);
   }
   const pub = rows.filter((r) => !r.compared);
   if (pub.length) {
@@ -281,8 +310,12 @@ export function environmentFindings(f, polymer, makerOf) {
   const top = [...f.rows].filter((r) => r.filterable).map((r) => ({ r, n: makers(r.records).size })).filter((x) => x.n > 1).sort((a, b) => b.n - a.n).slice(0, 4);
   const said = [];
   for (const { r, n } of top) {
+    // A maker counts for a verdict only where every statement it makes in the category gives that verdict: one that
+    // says "good" for weak acids and "poor" for strong ones speaks to both and stands for neither.
+    const verdictsOf = new Map();
+    for (const e of r.records) { if (!telling(e.verdict)) continue; const k = makerOf(e); if (!k) continue; (verdictsOf.get(k) ?? verdictsOf.set(k, new Set()).get(k)).add(e.verdict); }
     const by = new Map();
-    for (const e of r.records) { if (!telling(e.verdict)) continue; const k = makerOf(e); if (!k) continue; (by.get(e.verdict) ?? by.set(e.verdict, new Set()).get(e.verdict)).add(k); }
+    for (const [k, vs] of verdictsOf) if (vs.size === 1) { const [only] = vs; (by.get(only) ?? by.set(only, new Set()).get(only)).add(k); }
     const [v, set] = [...by].sort((a, b) => b[1].size - a[1].size)[0] ?? [];
     if (v && set.size / n >= 2 / 3) said.push({ v, text: `${set.size} of ${n} ${said.some((x) => x.v === v) ? 'on' : 'makers that speak to'} ${lower(r.label)}` });
     if (said.length === 3) break;
@@ -298,12 +331,14 @@ export function environmentFindings(f, polymer, makerOf) {
   return out;
 }
 
-/** What makers say: how many products have statements, and the engineering topics most makers speak to. */
+/**
+ * What makers say: how many products have statements, and the engineering topics the most makers speak to, each with
+ * its count of makers ("most makers" would claim more than half, which three makers of twelve are not).
+ */
 export function makersFindings(f, open) {
   const out = [`${f.collected} of ${plural(f.total, 'product')} have statements from their makers beyond the numbers, in the makers' own words, not test results.`];
   const top = [...open].filter((t) => t.makers > 1).sort((a, b) => b.makers - a.makers).slice(0, 3);
-  if (top.length > 1) out.push(`On how it prints and behaves, most makers speak to ${andList(top.map((t) => lower(t.topic)))}: ${andList(top.map((t) => fmtNumber(t.makers)))} makers.`);
-  else if (top.length) out.push(`On how it prints and behaves, most makers speak to ${lower(top[0].topic)}: ${top[0].makers} makers.`);
+  if (top.length) out.push(`On how it prints and behaves, ${top.length === 1 ? 'the topic the most makers speak to is' : 'the topics the most makers speak to are'} ${andList(top.map((t, i) => `${lower(t.topic)} (${fmtNumber(t.makers)}${i ? '' : ' makers'})`))}.`);
   return out;
 }
 

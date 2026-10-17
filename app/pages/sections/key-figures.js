@@ -16,7 +16,7 @@ import { profileTrack, profileHead } from '../charts/profile.js';
 import { figure, figId } from '../charts/figure.js';
 import { PROFILE_GROUPS } from '../figures.js';
 import { findingsBlock, notesHtml, figureCounter, middleHalf } from './common.js';
-import { glanceFindings } from '../findings.js';
+import { glanceFindings, nearestLacks } from '../findings.js';
 
 /** A range of a spread with a published bound's sign at its end where it is one ("5–650+"), as the selector prints it. */
 const spreadRange = (s) => (s.min === s.max && !s.bounds ? esc(fmtNumber(s.min))
@@ -46,13 +46,7 @@ function noneShort(e, h, c) {
   if (a?.n) return `Not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`}, with ${asPublishedWords(h)}`;
   const b = e?.related?.best;
   if (b) {
-    const x = c.msById.get(b.measurementId);
-    const unstated = (v) => !v || ['unknown', 'not-applicable'].includes(v) || !stated(v);
-    const cond = [
-      h.notch ? (unstated(x?.notch) ? 'notch not stated' : lower(x.notch)) : null,
-      h.direction ? (unstated(b.direction) ? 'orientation not stated' : b.direction) : null,
-      h.loadMPa != null ? (b.loadMPa != null ? `at ${fmtNumber(b.loadMPa)} MPa` : 'load not stated') : null,
-    ].filter(Boolean);
+    const cond = nearestLacks(h, b, c.msById.get(b.measurementId));
     const n = e.related.count;
     const g = e.related.grades;
     return `${n === 1 ? 'One value' : `${n} values`} from ${g === 1 ? 'one product\'s own sheet' : `${g} products' own sheets`}, none comparable. Nearest: ${propertyName(b.property)}, ${cond.length ? `${cond.join(', ')}, ` : ''}${fmtBounded(b.value, b.unit, b.interval)}`;
@@ -137,7 +131,7 @@ export default {
         s ? (() => { const out = leftOutWords(h, s); return out.length ? `Left out of the median: ${andList(out)}.` : null; })() : null,
         s?.claimed ? `${toughenedSplit(s, h.unit)} ${TOUGHENED_NOTE_SHORT}` : null,
         e.converted ? convertedNote(e.converted) : null,
-        h.kind === 'price' ? `Prices from ${priceSampleWords(c.db.meta)}.` : null,
+        h.kind === 'price' ? `Prices from a sample of ${priceSampleWords(c.db.meta)}.` : null,
         rank ? rankWords(rankOf(rank, m.id)) : null,
       ].filter(Boolean);
       notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(said.join(' '))}</p>`);

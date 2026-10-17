@@ -8,11 +8,11 @@
 import { esc, tableBox } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { hardenedShare } from '../../js/engine/products.js';
-import { isProduct, printFacts, printCounts, guideFacts } from '../../js/ui/material-facts.js';
+import { isProduct, printFacts, printCounts, guideFacts, productName } from '../../js/ui/material-facts.js';
 import { printWindows, dryingStats, dryingAdvice, settingOrigins } from '../../js/ui/material-stats.js';
 import {
   plural, andList, cap, joinedSpan, windowText, printApartWords, printLines, printSingles, printMissing,
-  amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES,
+  amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES, dryingNeedsWords,
 } from '../../js/ui/material-words.js';
 import { stripScale } from '../charts/scale.js';
 import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
@@ -47,7 +47,7 @@ function mediansTable(pf) {
 /** The drying temperatures as one strip of dots (the dot grammar), with the typical schedule beside it. */
 function dryingStrip(d, guideName) {
   const entries = d.entries.map((e) => ({ v: { value: e.value }, marks: [e.origin === 'guide' ? 'open' : '', e.variant ? 'variant' : ''].filter(Boolean),
-    data: { 'data-grade': e.g.id, 'data-v': `${fmtNumber(e.value)}${e.hours != null ? ` °C for ${fmtNumber(e.hours)} h` : ''}`, 'data-from': e.origin === 'guide' ? `from ${guideName}` : null } }));
+    data: { 'data-grade': e.g.id, 'data-v': `${fmtNumber(e.value)} °C${e.hours != null ? ` for ${fmtNumber(e.hours)} h` : ''}`, 'data-from': e.origin === 'guide' ? `from ${guideName}` : null } }));
   if (entries.length < 2) return '';
   const scale = stripScale(entries.map((e) => e.v.value), '°C');
   const t = d.temps, h = d.hours;
@@ -104,7 +104,7 @@ const guideLines = (text) => String(text ?? '').split(/(?<=\))\s+(?=[A-Z])/).map
 /** The hardened-nozzle line: which products need one, by name, or what the sources say. */
 function hardenedLine(gate, hard) {
   if (hard.need && hard.need < hard.total) {
-    return `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} one: ${hard.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing.`;
+    return `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} one: ${hard.needing.slice(0, 4).map((g) => productName(g)).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing.`;
   }
   if (hard.need) return hard.total === 1 ? 'Its product needs one.' : `All ${hard.total} products need one.`;
   return gate === 'requires-hardened' ? 'Required: the filler wears out a brass nozzle.' : gate === 'no-special-concern' ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.';
@@ -117,7 +117,8 @@ function hardenedLine(gate, hard) {
 function dryingLine(gate, products, d, advice) {
   if (!advice.have) return gate === 'not-needed' ? 'Its sources say drying is not needed.' : 'No source states whether to dry it. That does not mean it needs none.';
   const typical = d?.temps?.n > 1 ? ` Typically ${fmtNumber(d.temps.median)} °C${d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}.` : '';
-  return `${advice.have} of ${plural(products.length, 'product')} ${advice.have === 1 ? 'has' : 'have'} drying advice: ${basisWords(advice, advice.have)}.${typical}`;
+  const needs = dryingNeedsWords(advice);
+  return `${advice.have} of ${plural(products.length, 'product')} ${advice.have === 1 ? 'has' : 'have'} drying advice: ${basisWords(advice, advice.have)}${needs ? `; ${needs}` : ''}.${typical}`;
 }
 
 export default {
@@ -174,7 +175,19 @@ export default {
       const at = (p) => (p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`);
       const peaks = [['nozzle', 'on the nozzle'], ['bed', 'on the bed']].filter(([axis]) => drawable(pw[axis]) && !pw[axis].every).map(([axis, where]) => ({ p: pw[axis], where }));
       const total = products.length;
-      const title = peaks.length ? `${andList(peaks.map(({ p, where }) => `${at(p)} ${where}`))} ${peaks.length > 1 ? 'suit' : 'suits'} the most products: ${andList(peaks.map(({ p }) => (p.n < total ? `${p.peak.k} of the ${p.n} counted (of ${total})` : `${p.peak.k} of ${p.n}`)))}`
+      // The window the first screen and the findings name: the span more than half accept where there is one, else the
+      // temperature the most accept; never a second definition of the same window.
+      const phrase = ({ p }) => (p.most ? { q: acceptSubject('most', p.n, total), span: `${windowText(p.most.from, p.most.to)} °C` }
+        : { q: acceptSubject(p.peak.k, p.n, total), span: at(p), one: p.peak.k === 1 });
+      const said = peaks.map((x) => ({ ...phrase(x), where: x.where, p: x.p }));
+      // Both "most" over different counts: one subject that names both counts.
+      if (said.length > 1 && said.every((x) => x.p.most) && said[0].q !== said[1].q) {
+        said[0].q = `most of the counted products (${said[0].p.n} and ${said[1].p.n}${said.some((x) => x.p.n < total) ? ` of ${total}` : ''})`;
+        said[1].q = said[0].q;
+      }
+      const title = said.length ? (said.length > 1 && said[0].q === said[1].q
+        ? `${cap(said[0].q)} accept ${said[0].span} ${said[0].where} and ${said[1].span} ${said[1].where}`
+        : said.map((x, i) => `${i ? x.q : cap(x.q)} ${x.one ? 'accepts' : 'accept'} ${x.span} ${x.where}`).join('; '))
         : pw.nozzle.every ? `${cap(acceptSubject('all', pw.nozzle.n, total))} accept ${windowText(pw.nozzle.every.from, pw.nozzle.every.to)} °C on the nozzle`
           : 'The temperatures its products accept';
       const countedN = drawn.map((p) => `${p.n} for the ${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}`);
@@ -190,7 +203,7 @@ export default {
         read: esc('A bar is one product\'s window, from its lowest to its highest setting. Above the bars, the height is how many products accept each temperature, and the highlighted span is what more than half of them accept.'),
         counted: notesHtml([
           `Counted: the products whose own data sheet, or one they share, gives both ends of the window. That is ${andList(countedN)}.`,
-          notCounted.length ? `Drawn but not counted: ${andList(notCounted)}. The guide speaks for every product that reads it, so it is drawn once per product and counted for none.` : null,
+          notCounted.length ? `Drawn but not counted: ${andList(notCounted)}.${drawn.some((p) => p.guide) ? ' The guide speaks for every product that reads it, so it is drawn once per product and counted for none.' : ''}` : null,
           'The height at each whole degree is how many counted windows include it. The dashed line is half of them.',
           missing ? `Not drawn: ${missing}.` : null,
           ...printLines(pf), printSingles(pf),

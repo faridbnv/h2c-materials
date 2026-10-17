@@ -13,6 +13,9 @@ import { keyMark, keyList } from '../charts/marks.js';
 import { figure, figId } from '../charts/figure.js';
 import { notesHtml, middleHalf } from './common.js';
 
+/** Names listed so that one with a comma in it ("Nylon-GF, maker-undisclosed polyamide") still counts as one: semicolons between them. */
+const nameList = (xs) => (xs.some((x) => x.includes(',')) && xs.length > 1 ? `${xs.slice(0, -1).join('; ')}; and ${xs.at(-1)}` : andList(xs));
+
 /** The map of `pair` ({ x, y } headline keys) for a material, as figure `no`; null where the material lacks either median. */
 export function mapFigure(c, env, pair, no) {
   const m = c.m;
@@ -49,7 +52,11 @@ export function mapFigure(c, env, pair, no) {
   // The title: where its products' middle half sits, the vertical axis's value first, as the map is read.
   const w = pair.words ?? { x: lower(hx.labels.plain), y: lower(hy.labels.plain) };
   const title = box ? `${m.name} among the materials: middle half ${w.y} ${middleHalf(sy)} ${hy.unit} at ${w.x} ${middleHalf(sx)} ${hx.unit}`
-    : `${m.name} among the materials: typical ${w.y} ${fmtNumber(self.median.y, hy.unit)} at ${w.x} ${fmtNumber(self.median.x, hx.unit)}`;
+    : `${m.name} among the materials: median ${w.y} ${fmtNumber(self.median.y, hy.unit)}, median ${w.x} ${fmtNumber(self.median.x, hx.unit)}`;
+  // Where the two medians rest on different products, the material's place is not one product's pair of values.
+  const nx = m.headline[pair.x].spread?.n ?? 1, ny = m.headline[pair.y].spread?.n ?? 1;
+  const apart = !box && (nx !== points.length || ny !== points.length)
+    ? ` ${m.name}'s own place is its two medians, of ${plural(ny, 'product')} and ${plural(nx, 'product')}; ${points.length ? `${plural(points.length, 'product')} ${points.length === 1 ? 'gives' : 'give'} both` : 'no product gives both'}.` : '';
   const logs = [plot.xLog ? lower(hx.labels.plain) : null, plot.yLog ? lower(hy.labels.plain) : null].filter(Boolean);
   return {
     dots: points.length,
@@ -57,9 +64,9 @@ export function mapFigure(c, env, pair, no) {
       id: figId(no), n: no, title, data: { 'data-map': `${pair.x}-${pair.y}` }, cls: 'fig--map', key,
       plot: plot.html,
       label: `Map of ${lower(hy.labels.plain)} against ${lower(hx.labels.plain)}: ${map.points.length} materials' typical values as points, ${m.name}'s ${plural(points.length, 'product')} over them${box ? `, its middle half ${middleHalf(sx)} ${hx.unit} by ${middleHalf(sy)} ${hy.unit}` : ''}.`,
-      read: esc(`Each grey point is another material's typical values, the nearest named. The blue marks are ${m.name}'s products. ${offWords}`),
+      read: esc(`Each grey point is another material's typical values, the nearest named. The blue marks are ${m.name}'s products.${apart} ${offWords}`),
       counted: notesHtml([
-        `The grey points are the typical values, the medians of their products, of the other materials that publish both comparably: ${map.points.length - 1} in all. The view holds ${m.name}'s products, their middle half and its ${Math.min(24, map.points.length - 1)} nearest materials, measured on the map's own scales. Named are the nearest ${plural(map.landmarks.length, 'material')} in view: ${andList(named)}. A name that would cover another is left out.`,
+        `The grey points are the typical values, the medians of their products, of the other materials that publish both comparably: ${map.points.length - 1} in all. The view holds ${m.name}'s products, their middle half and its ${Math.min(24, map.points.length - 1)} nearest materials, measured on the map's own scales. Named are the nearest ${plural(map.landmarks.length, 'material')} in view: ${nameList(named)}. A name that would cover another is left out.`,
         `${m.name}'s marks are ${plural(points.length, 'product')} with both values compared, each the product's own value, compared on the key property's basis. Special formulations are left out.${only ? ` ${only} more ${only === 1 ? 'publishes' : 'publish'} only one of the two, or one not compared.` : ''}`,
         logs.length === 2 ? 'Both axes are logarithmic: equal steps are equal ratios, as on an Ashby chart.' : logs.length ? `The ${logs[0]} axis is logarithmic: equal steps are equal ratios.` : null,
       ]),

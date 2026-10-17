@@ -9,7 +9,7 @@ import { fmtNumber, fmtBounded, publishedBound } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { identity, stated, isProduct } from '../../js/ui/material-facts.js';
 import { printWindows, landmarkMaterials, compareMedians } from '../../js/ui/material-stats.js';
-import { versusWords, acceptSubject } from '../findings.js';
+import { versusWords, acceptSubject, nearestLacks } from '../findings.js';
 import { ledeWords, describeFacets, windowText, plural, asPublishedWords } from '../../js/ui/material-words.js';
 import { h2cStatusLabel, H2C_STATUS, FILLER, namedFiller } from '../../js/ui/labels.js';
 import { FIRST_SCREEN } from '../figures.js';
@@ -41,8 +41,8 @@ function keyCell(m, key, c) {
   if (a?.n) return cell(key, h.labels.plain, esc(a.min === a.max ? fmtNumber(a.min) : `${fmtNumber(a.min)}–${fmtNumber(a.max)}`), h.unit, `${lack}, ${plural(a.n, 'product')}, not compared`, 'open');
   const b = e?.related?.best;
   if (b) {
-    const x = c.msById.get(b.measurementId);
-    const lacks = [h.notch && !stated(x?.notch) ? 'notch not stated' : null, h.direction && ['unknown', 'not-applicable', undefined, null].includes(b.direction) ? 'orientation not stated' : null].filter(Boolean);
+    // The first two conditions on the first screen; At a glance says them all.
+    const lacks = nearestLacks(h, b, c.msById.get(b.measurementId)).slice(0, 2);
     return cell(key, h.labels.plain, esc(fmtNumber(b.value)), b.unit, `${lacks.join(', ') || 'not on its basis'}, not compared`, 'open');
   }
   return cell(key, h.labels.plain, 'Not published', '', '', 'none');

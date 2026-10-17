@@ -321,11 +321,11 @@ export const FILLED_WORDS = { 'carbon-fibre': 'carbon-fibre filled', 'glass-fibr
 export const WHY_WORDS = {
   held: (n) => `${n} held back`, noNumber: (n) => `${n} with no number`,
   implausible: (n) => `${n} flagged implausible`, moulded: (n) => (n === 1 ? '1 on a moulded bar' : `${n} on moulded bars`),
-  resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} on film`, filament: (n) => `${n} on filament strands`,
+  resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} measured on film`, filament: (n) => `${n} on filament strands`,
   offRecipe: (n) => `${n} printed at a setting the product is not meant for`, partialInfill: (n) => `${n} printed below 100 % infill`,
   notPrinted: (n) => `${n} not on a printed bar`, conditioned: (n) => `${n} after moisture conditioning`,
   annealed: (n) => `${n} annealed beside an as-printed value`, unnotched: (n) => `${n} unnotched`, notched: (n) => `${n} notched`, notch: (n) => `${n} with no stated notch`,
-  cold: (n) => `${n} struck cold`, hot: (n) => `${n} struck hot`, standard: (n) => `${n} to another standard`,
+  cold: (n) => `${n} tested below room temperature`, hot: (n) => `${n} tested above room temperature`, standard: (n) => `${n} to another standard`,
   direction: (n) => (n === 1 ? '1 on a bar in another orientation' : `${n} on bars in another orientation`),
   unstatedDirection: (n) => `${n} with no stated orientation`, load: (n) => `${n} at another test load`, unstatedLoad: (n) => `${n} with no stated test load`,
   second: (n) => `${n} more of ${n === 1 ? 'a product' : 'products'} already drawn`, retired: (n) => `${n} of products no longer listed`,

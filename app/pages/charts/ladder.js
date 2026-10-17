@@ -38,7 +38,7 @@ function splitAt(rows) {
 }
 
 /** The tick row under the ladder: each zone's ticks at their places, thinned where they would collide. */
-function ticks(zones, { wide = 440, narrow = 240 } = {}) {
+function ticks(zones, { wide = 440, narrow = 190 } = {}) {
   const all = zones.flatMap((z) => z.scale.ticks.map((v) => ({ v, p: z.at(v) })));
   const texts = all.map((t) => fmtNumber(t.v)), places = all.map((t) => t.p);
   const fits = labelsFit(texts, places, wide), fitsNarrow = labelsFit(texts, places, narrow);
@@ -48,7 +48,8 @@ function ticks(zones, { wide = 440, narrow = 240 } = {}) {
   }).join('');
   const lines = zones.map((z) => `<line class="axis-line" x1="${pct(z.from)}" x2="${pct(z.to)}" y1="0.5" y2="0.5"/>`).join('');
   // The break: two short slashes on the axis between the zones.
-  const brk = zones.length > 1 ? `<text class="brk-mark" x="${pct((zones[0].to + zones[1].from) / 2)}" y="5" text-anchor="middle">//</text>` : '';
+  // Drawn as two strokes on the axis line, above the tick labels: as text, "//" ran into the labels beside the break.
+  const brk = zones.length > 1 ? `<svg class="brk-mark" x="${pct((zones[0].to + zones[1].from) / 2)}" y="0" overflow="visible"><path d="M-6 5L-2 -3M2 5L6 -3"/></svg>` : '';
   return `<svg class="fig-ticks" height="22" aria-hidden="true" focusable="false">${lines}${marks}${brk}</svg>`;
 }
 
@@ -88,13 +89,14 @@ export function ladderPlot(rows, { limit = null, limitWords = '' } = {}) {
     const band = s.q1 != null ? `<rect class="r-band" x="${pct(X(s.q1))}" y="${y - 7}" width="${pct(Math.max(X(s.q3) - X(s.q1), 0.5))}" height="14" rx="3"/>` : '';
     const tick = `<line class="r-med" x1="${pct(X(s.median))}" x2="${pct(X(s.median))}" y1="${y - 11}" y2="${y + 11}"/>`;
     const p = X(s.median);
-    const anchor = p > 88 ? 'end' : 'start';
+    // A value near the right end is set to the left of its tick: on a phone's narrow plot "220 °C" ran off at 75 %.
+    const anchor = p > 70 ? 'end' : 'start';
     const label = `<text class="r-val" x="${pct(p)}" y="${y - 13}" dx="${anchor === 'end' ? -4 : 4}" text-anchor="${anchor}">${esc(fmtNumber(s.median, '°C'))}</text>`;
     return `<g class="${cls}" data-rung="${esc(r.id)}">${range}${cuts}${band}${tick}${label}</g>`;
   }).join('');
   const lz = zones.find((z) => z.withLimit);
   const line = lz ? `<line class="limit" x1="${pct(lz.at(limit))}" x2="${pct(lz.at(limit))}" y1="2" y2="${h}"/>`
-    + `<text class="limit-label" x="${pct(lz.at(limit))}" y="11" dx="${lz.at(limit) > 55 ? -5 : 5}" text-anchor="${lz.at(limit) > 55 ? 'end' : 'start'}">${esc(limitWords)}</text>` : '';
+    + [[limitWords, 'wide-only'], [`H2C ${fmtNumber(limit, '°C')}`, 'narrow-only']].map(([words, cls]) => `<text class="limit-label ${cls}" x="${pct(lz.at(limit))}" y="11" dx="${lz.at(limit) > 55 ? -5 : 5}" text-anchor="${lz.at(limit) > 55 ? 'end' : 'start'}">${esc(words)}</text>`).join('') : '';
   // Each label in full, and short for a phone's narrow column ("HDT 1.8", "Vicat").
   const labels = rows.map((r) => `<li class="${r.compared ? '' : 'pub'}"><span class="l-long">${esc(r.label)}</span><span class="l-short">${esc(r.short ?? r.label)}</span>${r.sub ? `<small>${esc(r.sub)}</small>` : ''}</li>`).join('');
   return `<div class="ladder"><ol class="ladder-labels" style="--top:${TOP}px;--rung:${RUNG}px">${labels}</ol>`

@@ -3,17 +3,19 @@
 // neighbour on a track `wide` px wide is left out (the tick stays); one that fits there but not on a phone's track
 // (`narrow` px) carries `alt`, which a narrow screen hides. The ends are kept before the middle.
 
-import { esc, pct } from '../html.js';
+import { esc, pct, textPx } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 
-/** About how wide a tick label is at 11 px: digits and separators are about 6.3 px each. */
-const labelPx = (text) => text.length * 6.3 + 2;
+/** About how wide a tick label is at 12.5 px (html.js textPx). */
+const labelPx = (text) => textPx(text) + 2;
 
 /** Which of a scale's tick labels fit on a track `px` wide: a flag per tick, ends first. */
 export function labelsFit(texts, places, px) {
   const keep = texts.map(() => false);
   if (!texts.length) return keep;
-  const room = (i, j) => Math.abs(places[j] - places[i]) * px / 100 >= (labelPx(texts[i]) + labelPx(texts[j])) / 2 + 6;
+  // Each label's extent as it is anchored: an end label runs left of its tick by its whole width, a start label right.
+  const extent = (i) => { const x = (places[i] / 100) * px, w = labelPx(texts[i]); return places[i] >= 99.5 ? [x - w, x] : places[i] <= 0.5 ? [x, x + w] : [x - w / 2, x + w / 2]; };
+  const room = (i, j) => { const [a, b] = places[i] <= places[j] ? [i, j] : [j, i]; return extent(b)[0] - extent(a)[1] >= 6; };
   const last = texts.length - 1;
   keep[0] = true;
   if (last > 0 && room(0, last)) keep[last] = true;

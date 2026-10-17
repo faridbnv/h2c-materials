@@ -38,7 +38,10 @@ function onFile(h, m, d) {
   const lacks = h.direction ? 'without a stated orientation' : 'without a stated test load';
   // Where the estimate's likely range does not hold those values, the model and the sheets disagree: said plainly.
   // Against the likely range as the card prints it, so a value the printed range shows is never said to be outside it.
-  const lo = Number(String(d?.lo ?? e?.lo).replace(/,/g, '')), hi = Number(String(d?.hi ?? e?.hi).replace(/,/g, ''));
+  // The printed range is in the card's own unit (0.23–0.63 GPa printed as 230–630 MPa): back to the column's, which the
+  // published values are in, before they are compared.
+  const f = d?.factor ?? 1;
+  const lo = Number(String(d?.lo ?? e?.lo).replace(/,/g, '')) / (d ? f : 1), hi = Number(String(d?.hi ?? e?.hi).replace(/,/g, '')) / (d ? f : 1);
   const outside = e && Number.isFinite(lo) && Number.isFinite(hi) && (a.min < lo || a.max > hi);
   const text = outside
     ? `This estimate does not include the ${span} ${who} ${a.n === 1 ? 'publishes' : 'publish'} ${lacks}; the model and the sheets disagree.`

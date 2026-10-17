@@ -62,8 +62,11 @@ function drawnCell(x, c, ix) {
 /** The value as its document publishes it: a bound's sign, the number, ± its spread, the unit; words where it gave words. */
 function valueCell(x) {
   const op = x.operator === '>' || x.operator === '<' ? `${x.operator} ` : '';
+  // A published range ("45~50") is shown as the range, which is how it is judged (D54); the value it is drawn at is its
+  // lower end.
+  const range = x.interval?.kind === 'range' && Number.isFinite(x.interval.lo) && Number.isFinite(x.interval.hi) && x.interval.hi > x.interval.lo;
   const v = x.numeric
-    ? `${esc(`${op}${fmtNumber(x.value)}`)}${unitText(x.unit) ? `<small>${esc(` ${unitText(x.unit)}`)}</small>` : ''}${x.uncertainty ? `<small class="pm">${esc(`± ${fmtNumber(x.uncertainty)}`)}</small>` : ''}`
+    ? `${esc(range ? `${fmtNumber(x.interval.lo)}–${fmtNumber(x.interval.hi)}` : `${op}${fmtNumber(x.value)}`)}${unitText(x.unit) ? `<small>${esc(` ${unitText(x.unit)}`)}</small>` : ''}${x.uncertainty ? `<small class="pm">${esc(`± ${fmtNumber(x.uncertainty)}`)}</small>` : ''}`
     : x.qualitative && x.raw?.value ? `<span class="raw">${esc(x.raw.value)}</span><small> in words</small>`
       : `<span class="missing">${esc(STATUS_WORDS[x.dataStatus] ?? x.dataStatus ?? '')}</span>`;
   const tags = [x.quarantined ? 'held back' : null, x.implausible ? 'physically implausible' : null, x.corrected ? 'transcription corrected' : null].filter(Boolean);
