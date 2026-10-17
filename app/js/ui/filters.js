@@ -381,7 +381,9 @@ function body(group, materials, cs, db, ctx = {}) {
     </div>`);
     // Which values decide (D84). Values whose source leaves the test direction or load unstated read like moulded bars
     // and flatter a printed part, so they are counted apart unless the reader admits them.
-    const asPublished = db.grades.reduce((n, gr) => n + Object.values(gr.headline ?? {}).filter((v) => v.level === 'as-published').length, 0);
+    // The selectable headlines' values only: one drawn in the drawer alone (D139) is never admitted to an answer.
+    const selectable = new Set(db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
+    const asPublished = db.grades.reduce((n, gr) => n + Object.entries(gr.headline ?? {}).filter(([k, v]) => selectable.has(k) && v.level === 'as-published').length, 0);
     const admits = ctx?.evidence === 'as-published';
     out.push(`<div class="control" data-active="${admits}">
       <label><input type="checkbox" data-evidence-level ${admits ? 'checked' : ''}> Include values with no stated orientation or load</label>

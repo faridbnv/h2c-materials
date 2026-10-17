@@ -124,7 +124,7 @@ const TAB_HELP = {
     const refs = n - products.length;
     return `${plural(products.length, 'product')} you can buy, from ${plural(makers, 'maker')}${refs ? `, and ${plural(refs, 'reference grade')}` : ''}. Each shows its result, how to print it, its values and what its maker says.`;
   },
-  Mechanical: (n) => (n ? `${plural(n, 'published mechanical value')}, by property, with the tensile and impact results drawn product by product. Each names its product and the document it comes from.` : 'No mechanical value is on file for this material.'),
+  Mechanical: (n) => (n ? `${plural(n, 'published mechanical value')}, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.` : 'No mechanical value is on file for this material.'),
   Thermal: (n) => (n ? `${plural(n, 'published thermal value')}, by property, with heat deflection and the glass transition drawn product by product. Each names its product and the document it comes from.` : 'No thermal value is on file for this material.'),
   Printing: (n, c) => (n ? `Every product's print temperatures drawn together, then ${plural(n, 'print profile')} by maker: the settings each product's documents give.${c.guide ? ' The Bambu Lab Filament Guide comes before the profiles; a product uses it only where its own sheet is silent.' : ''}` : 'No print profile is on file for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'statement')} on chemicals, water, UV, fire and handling, by category. Makers rarely give the concentration, temperature or duration: treat them as indications, not design data.` : 'No statement on chemicals, water or other exposure is on file for this material.'),
@@ -827,6 +827,8 @@ const LEVEL_NOTE = {
   'unstated-direction': 'The source does not state the specimen orientation, so this may be a moulded or differently oriented bar. It is used only if Data quality includes values with no stated orientation or load.',
   'load-not-stated': 'The source does not state the HDT load, so this value is used only if Data quality includes values with no stated orientation or load.',
 };
+// A headline drawn in the drawer alone (D139) decides nothing, whatever Data quality admits.
+const DRAWER_LEVEL_NOTE = 'The source does not state the specimen orientation, so this may be a moulded or differently oriented bar. It is drawn hollow in its comparison and left out of the median; no answer reads it.';
 
 /** A product's own value for each headline (build/src/products.js): its measurement, and a mark where it is not comparable. */
 function productValues(g, c) {
@@ -840,7 +842,7 @@ function productValues(g, c) {
       ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="${esc(note ? `${note} Opens the measurement in Sources` : 'Opens the measurement in Sources')}">${shown}<span class="evidence-dot" aria-hidden="true"></span></button>`
       : `${shown}${v.observations ? ` <span class="fine">(${plural(v.observations, 'listing')})</span>` : ''}`;
     const mark = v.level === 'as-published'
-      ? ` ${explainButton('not comparable', LEVEL_NOTE[v.caveat] ?? 'Not comparable.', { cls: 'missing lvl', head: 'Orientation or load not stated' })}` : '';
+      ? ` ${explainButton('not comparable', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Not comparable.', { cls: 'missing lvl', head: 'Orientation or load not stated' })}` : '';
     const anneal = v.anneal ? ` <span class="fine">annealed${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
     return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}${fromNote(v.from)}</dd>`;
   });
@@ -1365,7 +1367,8 @@ function drawerComparisons(m, c, tab) {
     const topic = cmp.name;
     const hs = REGISTRY.allHeadlines.filter((h) => h.drawerComparison === topic && !m.headline?.[h.key]?.notApplicable
       && h.valueProperties.some((p) => inTab.has(p)));
-    const properties = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
+    // What it reads, and what it lists without drawing (another endpoint of the test, D140).
+    const properties = new Set([...hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]), ...(cmp.listed ?? []).filter((p) => inTab.has(p))]);
     // Two of its headlines must apply: an elastomer, which no heat deflection applies to, keeps its glass transition as
     // a property of its own.
     if (hs.length < 2 || !c.ms.some((x) => properties.has(x.property) && x.numeric && !x.quarantined)) return null;
@@ -1433,11 +1436,15 @@ function drawerComparisons(m, c, tab) {
       } else if (pairs.length) {
         bothLine = `<p class="fine imp-foot">${esc(cmp.pairLabel)}: ${esc(andList(pairs.map((gr, i) => { const n = bothOf(gr).length; return `${n ? (i ? n : plural(n, 'product')) : 'none'} for ${graphName(gr)}`; })))}.</p>`;
       }
-      const shares = pairs.map((gr) => ({ gr, s: shareOf(gr.rows[0], gr.rows[1], byKey, c) })).filter((x) => x.s);
+      const shared = pairs.map((gr) => ({ gr, s: shareOf(gr.rows[0], gr.rows[1], byKey, c) }));
+      const shares = shared.filter((x) => x.s);
+      // A pair some product publishes both of, but none in one document and state, is said to have no share.
+      const noShare = shared.filter((x) => !x.s && bothOf(x.gr).length && x.gr.rows[0].direction && x.gr.rows[1].direction && x.gr.rows[0].direction !== x.gr.rows[1].direction);
       // A share every product gives alike is said once, without a range of one number.
       const shareWords = (gr, s) => (pct(Math.min(...s)) === pct(Math.max(...s)) ? `${graphName(gr)} ${pct(s[0])} (${plural(s.length, 'product')})`
         : `${graphName(gr)} ${pct(middle(s))} (${pct(Math.min(...s))}\u2060–\u2060${pct(Math.max(...s))}, ${s.length} products)`);
-      const shareLine = shares.length ? `<p class="fine imp-foot">${esc(`${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction}, for products whose two values are compared, from one document and in one state: ${andList(shares.map(({ gr, s }) => shareWords(gr, s)))}.`)}</p>` : '';
+      const shareLine = shares.length ? `<p class="fine imp-foot">${esc(`${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction}, for products whose two values are compared, from one document and in one state: ${andList(shares.map(({ gr, s }) => shareWords(gr, s)))}.${
+        noShare.length ? ` None for ${andList(noShare.map(({ gr }) => graphName(gr)))}.` : ''}`)}</p>` : '';
       graph = `${strips}
         ${spreadSummary(shown, m)}${singleLine}${silentLine}${bothLine}${shareLine}`;
     }
@@ -1463,7 +1470,10 @@ function drawerComparisons(m, c, tab) {
     }
     const compared = hs.filter((h) => h.comparisonNote).map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
     // How the tests differ and what is compared: the caption and each test's note, one closed line, open on request.
-    const about = `<details class="imp-about"><summary>${esc(cmp.about)}</summary>${caption ? `<p class="fine">${esc(caption)}</p>` : ''}${compared}</details>`;
+    // A second closed line where the comparison names one: how its tests relate to another heading's (D140).
+    const noteRule = cmp.note ? c.db.method?.find((r) => r.topic === cmp.note)?.rule : null;
+    const about = `<details class="imp-about"><summary>${esc(cmp.about)}</summary>${caption ? `<p class="fine">${esc(caption)}</p>` : ''}${compared}</details>${
+      noteRule ? `<details class="imp-about"><summary>${esc(cmp.note)}</summary><p class="fine">${esc(noteRule)}</p></details>` : ''}`;
     const drawnIds = new Set(dots.map((d) => d.e.v.measurementId));
     const namedIds = new Set(singles.map((d) => d.e.v.measurementId));
     // What the results below are, counted by why each is or is not drawn, so the counts under the headings add up.
@@ -1488,7 +1498,7 @@ function drawerComparisons(m, c, tab) {
       }
       if (singles.length > 1) {
         const t = tally(records);
-        return `<p class="fine imp-none">No graph: no scale has two products' values to draw, only ${andList(singles.map((d) => `${esc(gradeLabel(d.e.g))}'s ${esc(lower(d.h.labels.plain))} of ${oneValue(d)}`))}.${
+        return `<p class="fine imp-none">No graph: no scale has two products' values to draw. One product each: ${singles.map((d) => `${esc(gradeLabel(d.e.g))}'s ${esc(lower(d.h.labels.plain))} of ${oneValue(d)}`).join('; ')}.${
           t.parts.length ? ` The other ${t.rest === 1 ? 'result' : `${t.rest} results`} below: ${esc(andList(t.parts))}.` : ''}</p>`;
       }
       const [one] = singles;

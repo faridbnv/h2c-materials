@@ -44,7 +44,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 |---|---|
 | `properties.csv` | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
 | `headline_definitions.csv` | Every headline: kind, unit, value and related properties, direction and test load and what a value with none is to it, notch and test temperature, a comparison note, the drawer comparison it is drawn in and whether it is drawn in the drawer alone (D139), labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
-| `drawer_comparisons.csv` | The comparisons the material drawer draws as one heading each (Impact tests; Tensile tests, XY and Z; Heat deflection and glass transition): the heading, the title of its closed line on how the tests differ, and the label of its line naming the products that publish both of a pair. Its caption is the method.csv rule of the same Topic (D133, D139) |
+| `drawer_comparisons.csv` | The comparisons the material drawer draws as one heading each (Impact tests; Tensile tests, XY and Z; Flexural tests, XY and Z; Heat deflection and glass transition): the heading, the title of its closed line on how the tests differ, the label of its line naming the products that publish both of a pair, the properties it lists without drawing (tensile strain at strength), and a second closed line's method.csv Topic (how flexural and tensile results relate). Its caption is the method.csv rule of the same Topic (D133, D139, D140) |
 | `plausibility_windows.csv` | The range a published value can credibly fall in, per property, unit and class of material: outside a hard bound it is impossible, outside a soft bound a person looks at it (D82, MEAS-PHYSICS-WINDOW) |
 | `physical_relations.csv` | The orderings physics fixes between two properties, one row each: the lower and the higher property, what the two values must share to be one test (grade, source, direction, unit, specimen form, moisture, post-processing; for HDT the test load), the margin, the materials it holds for, the code a broken pair raises, and where it is used. The data lint reads it for published measurements (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS), and the build refuses a headline lower bound (`headline_definitions.csv`) it does not cover (RELATIONS-HEADLINE-DRIFT) |
 
@@ -236,9 +236,10 @@ each retrieved source whose text is not in it (D105).
   familyEntry,                   // null, or { kind: 'family' | 'alias', why, members: [{ id, name }] }
   gradeIds: [],                  // its active procurement grades
   headline: { density, tensileModulusXY, tensileModulusZ, tensileStrengthXY, tensileStrengthZ, elongationXY, elongationZ,
+              flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY, flexuralStrengthZ,
               charpyNotched, izodNotched, hdt045, hdt18, glassTransition, priceCADkg },   // one per row of
-                                 // headline_definitions.csv, then the price; tensileModulusZ, elongationZ and hdt18 are
-                                 // drawn in the drawer alone (Drawer only, D139)
+                                 // headline_definitions.csv, then the price; the Z rows, the flexural rows and hdt18 are
+                                 // drawn in the drawer alone (Drawer only, D139, D140)
                                  // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, twins, asPublished, variants } },
   headlineBasis,                 // what its headline values represent, one sentence chosen by rule (D70)
@@ -364,12 +365,13 @@ specimen are the same to it; a raw material value is still not the product's, as
 rows added since D92 carries a Comparison note, which the drawer shows above the values it leaves out (D92, D94); a row
 may also name its test Standard, which a value naming only other standards does not meet (the Izod row's ISO 180, D94).
 A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: a row of
-drawer_comparisons.csv (Impact tests; Tensile tests, XY and Z; Heat deflection and glass transition), whose method.csv
-rule of the same Topic is the caption. Its tab draws the rows of one unit on one scale, a product each, never converted
-(D133, D139). A row that is Drawer only (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa) is computed per
-product and as a spread like any other, but is no filter, axis, table or export column, scenario key or decision state,
-and excludes a value whose sheet states no orientation or load (Unstated direction or Unstated load excluded), so a
-value with no stated HDT load stays on the 0.45 MPa row, as published (D139).
+drawer_comparisons.csv (Impact tests; Tensile tests, XY and Z; Flexural tests, XY and Z; Heat deflection and glass
+transition), whose method.csv rule of the same Topic is the caption. Its tab draws the rows of one unit on one scale, a
+product each, never converted (D133, D139). A row that is Drawer only (the tensile and flexural Z rows, the flexural XY
+rows, HDT at 1.8 MPa) is computed per product and as a spread like any other, but is no filter, axis, table or export
+column, scenario key or decision state; its values with no stated orientation are drawn hollow and counted apart, as a
+selectable headline's are (D140), and HDT at 1.8 MPa excludes a value with no stated load, so such a value stays on the
+0.45 MPa row, drawn once (D139).
 A row's Sold as toughened says what its spread does with the products product_claims.csv marks: "set apart" on the two
 impact rows since m390, so their comparable values leave the median and range, as a declared variant's do, and the
 spread's `claimed` lists them apart with their count and range ("named" would keep them in the median and only name

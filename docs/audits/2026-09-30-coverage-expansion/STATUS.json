@@ -1,5 +1,5 @@
 {
-  "dataRelease": "0f7d899924f5",
+  "dataRelease": "5047edd13dd3",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -97,8 +97,8 @@
     },
     "drawer_comparisons": {
       "baseline": 0,
-      "current": 3,
-      "added": 3,
+      "current": 4,
+      "added": 4,
       "edited_existing": 0,
       "removed": 0
     },
@@ -132,8 +132,8 @@
     },
     "headline_definitions": {
       "baseline": 10,
-      "current": 13,
-      "added": 3,
+      "current": 17,
+      "added": 7,
       "edited_existing": 10,
       "removed": 0
     },
@@ -174,15 +174,15 @@
     },
     "method": {
       "baseline": 51,
-      "current": 55,
-      "added": 4,
+      "current": 57,
+      "added": 6,
       "edited_existing": 1,
       "removed": 0
     },
     "page_context": {
       "baseline": 0,
-      "current": 1006,
-      "added": 1006,
+      "current": 1007,
+      "added": 1007,
       "edited_existing": 0,
       "removed": 0
     },

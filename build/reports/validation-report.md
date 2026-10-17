@@ -40,6 +40,10 @@ What a selection criterion can actually decide, out of 175 canonical materials.
 | tensileStrengthZ | 57 |
 | elongationXY | 104 |
 | elongationZ | 56 |
+| flexuralModulusXY | 90 |
+| flexuralModulusZ | 38 |
+| flexuralStrengthXY | 92 |
+| flexuralStrengthZ | 40 |
 | charpyNotched | 50 |
 | izodNotched | 35 |
 | hdt045 | 99 |
@@ -128,7 +132,7 @@ its plausible range wholly fails.
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
 | density | 912 | 120 | 80% | 95% | ×1.1 | 0.0257 (16898 pairs) |
-| tensileModulusXY | 1350 | 83 | 81% | 95% | ×1.48 | 0.288 (2141 pairs) |
+| tensileModulusXY | 1349 | 83 | 81% | 95% | ×1.48 | 0.288 (2141 pairs) |
 | tensileStrengthXY | 1447 | 67 | 81% | 96% | ×1.39 | 0.22 (3627 pairs) |
 | elongationXY | 1109 | 86 | 80% | 95% | ×3.65 | 0.689 (3175 pairs) |
 | hdt045 | 1246 | 80 | 80% | 94% | 20.3 °C | 4.19 (6023 pairs) |
@@ -204,7 +208,7 @@ EST-GRADE-OUTLIER, 35 grades: PLA 8, PLA Wood 3, PLA Aero 3, PA12-CF 3, PPA-CF 3
 
 Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 276 observations):
 
-By material: PLA 36, PETG 13, TPU 95A class 13, PLA Aero 12, PPA-CF 11, PA12-CF 10, ABS 9, PA6-CF 9, PLA Wood 8, PLA-CF 7, PLA Silk 7, PPA-GF 7, PA6 6, PA6-GF 5, PP-CF 5, PPS-CF 5, TPU harder than 95A 5, PC 5, PETG-CF 4, PA12-GF 4, CPE-CF 4, nGen FLEX 4, PCL 4, CPE 4, ABS-GF 4, PET-GF 4, PLA Metal 3, PP 3, PLA-NF 3, ASA Aero 3, PAHT-CF 3, BVOH 3, nGen / Amphora 3, ABS-CF 3, PA12 3, TPC / TPEE 2, PA66 2, PLA-EC 2, PAHT-CE 2, PET-LW 2, OBC 2, TPC-ESD 2, PBAT 2, TPU 85A class and softer 2, TPU 90A class 2, ASA 2, ASA-CF 2, PA6/66 2, PA612-CF 2, PPA 2, PVDF 2, COC 2, PLA Marble 1, PLA Sparkle 1, PVA 1, POM / Acetal 1, PA612-ESD 1, PPS-GF 1, PC-CF 1, HIPS 1, PC-ABS 1, PC-PBT 1.
+By material: PLA 36, PETG 13, TPU 95A class 13, PLA Aero 12, PPA-CF 11, PA12-CF 10, ABS 9, PA6-CF 9, PLA Wood 8, PLA-CF 7, PLA Silk 7, PPA-GF 7, PA6 6, PP-CF 5, PPS-CF 5, TPU harder than 95A 5, PC 5, PETG-CF 4, PA6-GF 4, PA12-GF 4, CPE-CF 4, nGen FLEX 4, PCL 4, CPE 4, ABS-GF 4, PET-GF 4, PLA Metal 3, PP 3, PLA-NF 3, ASA Aero 3, ASA-CF 3, PAHT-CF 3, BVOH 3, nGen / Amphora 3, ABS-CF 3, PA12 3, TPC / TPEE 2, PA66 2, PLA-EC 2, PAHT-CE 2, PET-LW 2, OBC 2, TPC-ESD 2, PBAT 2, TPU 85A class and softer 2, TPU 90A class 2, ASA 2, PA6/66 2, PA612-CF 2, PPA 2, PVDF 2, COC 2, PLA Marble 1, PLA Sparkle 1, PVA 1, POM / Acetal 1, PA612-ESD 1, PPS-GF 1, PC-CF 1, HIPS 1, PC-ABS 1, PC-PBT 1.
 
 - PLA, density: density 1240, 1000 (V007470, V013434)
 - PLA, density: density 1240 (V008736)
@@ -284,10 +288,10 @@ By material: PLA 36, PETG 13, TPU 95A class 13, PLA Aero 12, PPA-CF 11, PA12-CF 
 - ASA Aero, tensileModulusXY: tensile XY 0.824 (V005747)
 - ASA Aero, tensileModulusXY: tensile moulded 2.2 (V011587)
 - ASA Aero, tensileModulusXY: flexural moulded 2.3 (V011590)
+- ASA-CF, tensileModulusXY: tensile XY 0.85 (V005198)
 - PAHT-CF, tensileModulusXY: tensile Z 2.75 (V009943)
 - PA6-CF, tensileModulusXY: tensile moulded 1.1 (V004325)
 - PA6-CF, tensileModulusXY: tensile unk 6 (V013080)
-- PA6-GF, tensileModulusXY: flexural XY 0.2, 0.0575 (V005395, V005396)
 - PA12-CF, tensileModulusXY: tensile unk 0.5 (V010096)
 - PA612-ESD, tensileModulusXY: tensile Z 1.7844 (V001239)
 - PPA-CF, tensileModulusXY: tensile Z 4.3 (V001311)
@@ -488,7 +492,7 @@ Measured headlines far outside their prediction (worth a second look at the sour
 - ASA Aero, density: 460 kg/m³, expected about 1030
 - PA6-GS, density: 1010 kg/m³, expected about 1310
 - PLA-EC, density: 1240 kg/m³, expected about 1530
-- PBAT, tensileModulusXY: 0.006 GPa, expected about 0.985
+- PBAT, tensileModulusXY: 0.006 GPa, expected about 1.01
 - PA6, hdt045: 140 °C, expected about 90.2
 - PA12, hdt045: 135 °C, expected about 86.1
 
@@ -498,7 +502,7 @@ Every one of the 175 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (5645 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (7032 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
@@ -520,5 +524,5 @@ interface can say so rather than implying a certainty it does not have.
 - `PARSE-UNREAD` **profiles** — 1 process temperature cells were not parsed: P1612 nozzle: "75-85℃"
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
-- `EST-OUTLIER` **materials** — 6 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1310); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 0.985); PA6 hdt045 140 (expected about 90.2); PA12 hdt045 135 (expected about 86.1)
-- `EST-FAMILY-ORDER` **materials** — 5 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.79 (estimate) < ASA 2.1746; PBT-GF hdt045 172.5 < PBT 180; PA12-AF hdt045 97 (estimate) < PA12 135; Nylon-CF, maker-undisclosed polyamide tensileModulusXY 2.16 < Nylon, maker-undisclosed polyamide 3
+- `EST-OUTLIER` **materials** — 6 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1310); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 1.01); PA6 hdt045 140 (expected about 90.2); PA12 hdt045 135 (expected about 86.1)
+- `EST-FAMILY-ORDER` **materials** — 5 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.8 (estimate) < ASA 2.1746; PBT-GF hdt045 172.5 < PBT 180; PA12-AF hdt045 97 (estimate) < PA12 135; Nylon-CF, maker-undisclosed polyamide tensileModulusXY 2.16 < Nylon, maker-undisclosed polyamide 3

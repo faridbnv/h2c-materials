@@ -491,12 +491,16 @@ part read elsewhere labelled "data sheet shared with …" or "from Bambu Lab's F
 its maker says (each quote with its document and page, and a **limits** mark where a reviewer recorded what the claim
 does not say), its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
 
-**Comparisons, one heading each (D133, D139).** Three closed headings draw a material's products against the
+**Comparisons, one heading each (D133, D139, D140).** Four closed headings draw a material's products against the
 headlines a reader compares them on, each in the place of the first property it reads, instead of a block per
 property:
 
 - **Tensile tests, XY and Z** (Mechanical): tensile modulus, tensile strength and elongation at break, each a scale
-  with an XY row and a Z row;
+  with an XY row and a Z row; tensile strain at strength is listed inside it, not drawn;
+- **Flexural tests, XY and Z** (Mechanical): flexural modulus and flexural strength, each a scale with an XY row and a
+  Z row; flexural elongation at break and the stress at conventional deflection are listed inside it, and a second
+  closed line, **How flexural and tensile results relate**, says what beam theory gives (the moduli alike for a solid,
+  uniform bar; flexural strength usually a third to three quarters above tensile) and why a printed bar departs from it;
 - **Impact tests** (Mechanical): notched Charpy and notched Izod on one kJ/m² scale;
 - **Heat deflection and glass transition** (Thermal): HDT at 0.45 MPa, HDT at 1.8 MPa and Tg on one °C scale.
 
@@ -517,8 +521,9 @@ Opened, a heading shows:
   nothing is converted) and each row's comparison note, there for a reader who asks;
 - **Every result, with its document**: one line counting the results below by what each is ("Of the 269 results
   below, 63 are drawn above; the other 206: 47 with no stated notch, 40 unnotched, 39 in J/m, 32 on moulded bars, …"),
-  so the counts under the property headings add up, then the property blocks the heading reads (the three tensile
-  strengths, tensile modulus, elongation at break and at yield; Charpy, Izod and Impact strength, test unclear; HDT and
+  so the counts under the property headings add up, then the property blocks the heading reads or lists (the three tensile
+  strengths, tensile modulus, elongation at break and at yield, tensile strain at strength; flexural modulus and strength,
+  flexural elongation at break, the stress at conventional deflection; Charpy, Izod and Impact strength, test unclear; HDT and
   the glass transition), closed, each with every value, its product and its source. The record a dot stands for carries
   a line **On the graph** with the dot's mark: in the median, or not and why, what changed its bar (annealed,
   conditioned; from the build's typed fields, "stated once on its page" where a page heading supplied it), and a **sold

@@ -129,7 +129,8 @@ test('an impact value is a notched bar of the headline\'s own test, in its unit,
   assert.ok(impact.length, 'a headline sets a notch');
   for (const def of impact) {
     const values = valuesOf(def);
-    assert.ok(values.length > 100, `${def.key}: only ${values.length} product values`);
+    // A floor that says the rule is reached, not a coverage target: a drawer-only flexural Z row has fewer (D140).
+    assert.ok(values.length > (def.drawerOnly ? 50 : 100), `${def.key}: only ${values.length} product values`);
     for (const { g, v, m } of values) {
       const where = `${g.id} ${def.key} ${m.id}`;
       assert.ok(def.valueProperties.includes(m.property), `${where} is ${m.property}: an Izod value is never a Charpy value, nor a Charpy value an Izod one`);
@@ -148,7 +149,8 @@ test('a headline that excludes an unstated direction holds only values the sourc
   assert.ok(strict.length, 'a headline excludes an unstated direction');
   for (const def of strict) {
     const values = valuesOf(def);
-    assert.ok(values.length > 100, `${def.key}: only ${values.length} product values`);
+    // A floor that says the rule is reached, not a coverage target: a drawer-only flexural Z row has fewer (D140).
+    assert.ok(values.length > (def.drawerOnly ? 50 : 100), `${def.key}: only ${values.length} product values`);
     for (const { g, v, m } of values) {
       assert.equal(m.direction, def.direction, `${g.id} ${def.key} ${m.id}`);
       assert.equal(v.level, LEVEL.COMPARABLE, `${g.id} ${def.key}`);

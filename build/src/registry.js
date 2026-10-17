@@ -92,7 +92,10 @@ export function compileRegistry(wb, issues) {
 
   // The comparisons the drawer draws (drawer_comparisons.csv, D133, D139): a heading each, with the words that belong to
   // the whole comparison. Its caption is the method.csv rule of the same Topic.
-  const comparisons = (wb['Drawer comparisons']?.rows ?? []).map((r) => ({ name: r.Comparison, about: r.About, pairLabel: orNull(r['Pair label']) }));
+  // A comparison may list properties it does not draw (another endpoint of the test, D140) and carry a second closed
+  // line, a method.csv rule of its own Topic.
+  const comparisons = (wb['Drawer comparisons']?.rows ?? []).map((r) => ({ name: r.Comparison, about: r.About, pairLabel: orNull(r['Pair label']),
+    listed: list(r['Listed properties']), note: orNull(r['Note topic']) }));
   const comparisonNames = new Set(comparisons.map((x) => x.name));
   const captions = new Set((wb.Method?.rows ?? []).filter((r) => r.Section === 'Comparison').map((r) => r.Topic));
   const headlines = wb['Headline definitions'].rows.map((r) => {
@@ -179,10 +182,11 @@ export function compileRegistry(wb, issues) {
 }
 
 /**
- * What a drawer comparison must be to be drawn as one heading on one tab (D139): its caption written, two headlines or
- * more, their properties in one domain and in no other comparison, a pair where it names one; and a headline drawn in
- * the drawer alone must be drawn there, and must hold no value a decision could read: none estimated, none in the
- * table, none as published (an unstated direction or load excluded), no bound and no reference envelope.
+ * What a drawer comparison must be to be drawn as one heading on one tab (D139, D140): its caption written, and its note
+ * where it names one, two headlines or more, their properties and the ones it lists in one domain and in no other
+ * comparison, a pair where it names one; and a headline drawn in the drawer alone must be drawn there, and must hold no
+ * value a decision could read: none estimated, none in the table, no bound and no reference envelope. Its values with no
+ * stated orientation are drawn hollow and counted apart, as a selectable headline's are, and never reach a decision.
  */
 function checkComparisons(comparisons, headlines, { captions, propertyByName, err }) {
   const owner = new Map();
@@ -190,9 +194,12 @@ function checkComparisons(comparisons, headlines, { captions, propertyByName, er
     const where = `drawer_comparisons ${cmp.name}`;
     const hs = headlines.filter((h) => h.drawerComparison === cmp.name);
     if (!captions.has(cmp.name)) err('REGISTRY-COMPARISON', where, 'Its caption, a method.csv row of Section Comparison and this Topic, is missing');
+    if (cmp.note && !captions.has(cmp.note)) err('REGISTRY-COMPARISON', where, `Note topic "${cmp.note}" is no method.csv row of Section Comparison`);
     if (hs.length < 2) err('REGISTRY-COMPARISON', where, `${hs.length} headline(s) name it; a comparison draws two or more`);
-    const props = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
-    const domains = new Set(hs.flatMap((h) => h.valueProperties.map((p) => propertyByName.get(p)?.domain)));
+    const read = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
+    for (const p of cmp.listed.filter((x) => read.has(x))) err('REGISTRY-COMPARISON', where, `${p} is listed, but a headline of the comparison already reads it`);
+    const props = new Set([...read, ...cmp.listed]);
+    const domains = new Set([...hs.flatMap((h) => h.valueProperties), ...cmp.listed].map((p) => propertyByName.get(p)?.domain));
     if (domains.size > 1) err('REGISTRY-COMPARISON', where, `Its headlines read properties of ${[...domains].join(' and ')}; one heading is drawn on one tab`);
     for (const p of props) {
       if (owner.has(p)) err('REGISTRY-COMPARISON', where, `${p} is already in the comparison ${owner.get(p)}; a record is listed under one heading`);
@@ -214,8 +221,6 @@ function checkComparisons(comparisons, headlines, { captions, propertyByName, er
       h.estimated ? 'Estimated is TRUE' : null,
       h.lowerBounds ? 'it has lower bound properties' : null,
       h.referenceProperty ? 'it has a reference property' : null,
-      h.direction && h.unstatedDirection !== 'excluded' ? 'a value with no stated direction would be as published' : null,
-      h.loadMPa != null && h.unstatedLoad !== 'excluded' ? 'a value with no stated load would be as published' : null,
     ].filter(Boolean);
     if (problems.length) err('REGISTRY-COMPARISON', where, `Drawer only, but ${problems.join('; ')}`);
   }

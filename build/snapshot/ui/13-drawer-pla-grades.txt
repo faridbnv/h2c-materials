@@ -7,6 +7,10 @@ Tensile strength (XY) MPa 45 26–70.9 67 of 176 56 with no stated orientation (
 Tensile strength (Z) MPa 30.8 8.7–43.5 38 of 176 3 special formulations (14.5–21.7)
 Elongation at break (XY) % 7.23 1.2–65 63 of 176 47 with no stated orientation (2.5–84); 11 special formulations (2.4–36)
 Elongation at break (Z) % 2.89 0.9–9.6 33 of 176 2 special formulations (1.8–7.91)
+Flexural modulus (XY) GPa 2.75 2.14–3.98 55 of 176 48 with no stated orientation (1.93–3.8); 14 special formulations (2.04–8.8)
+Flexural modulus (Z) GPa 2.41 1.77–3.29 17 of 176 —
+Flexural strength (XY) MPa 75.9 42.6–115 59 of 176 48 with no stated orientation (43–115); 11 special formulations (29.6–122)
+Flexural strength (Z) MPa 54 21.1–68 17 of 176 —
 Notched Charpy impact kJ/m² 6 2.16–20.3 14 of 169 17 with no stated orientation (1.8–29.8); 7 special formulations (1.8–7); 7 sold as toughened (5.76–72.3)
 Notched Izod impact kJ/m² 5 4.5–6.5 6 of 175 11 with no stated orientation (2–19.8); 5 special formulations (5.5–18.1); 1 sold as toughened (10)
 HDT at 0.45 MPa °C 55 50–135 89 of 176 31 with no stated test load (53–108); 8 special formulations (55–89)
@@ -74,7 +78,3 @@ Yousu
 3D4Makers
 3 products
 Prusa Research
-5 products
-UltiMaker
-1 product
-Raise3D

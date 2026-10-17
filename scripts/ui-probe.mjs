@@ -346,7 +346,7 @@ try {
   results['13-drawer-pla-mechanical'] = await drawerText();
   // A drawer comparison (D133, D139), opened: its rows of dots and their counts, its table and the lines under it. Notched
   // Charpy beside notched Izod: PLA is the largest; ABS has products that publish both tests; HIPS has a pair on a
-  // comparable basis. Tensile XY beside Z: PLA, and PETG with the most products that publish a Z strength. Heat
+  // comparable basis. Tensile XY beside Z, and flexural (D140): PLA, and PETG with the most products that publish a Z strength. Heat
   // deflection beside the glass transition: PLA, and ABS with the most products that publish HDT at 1.8 MPa.
   const comparisonText = (name) => evaluate(`(() => { const s = document.querySelector('.drawer-body .imp-compare[data-comparison="${name}"]'); if (!s) return 'NO COMPARISON';
     for (let d = s.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;
@@ -362,6 +362,7 @@ try {
   results['13-drawer-pla-impact-dot'] = await dotText('Impact tests');
   results['13-drawer-pla-tensile'] = await comparisonText('Tensile tests, XY and Z');
   results['13-drawer-pla-tensile-dot'] = await dotText('Tensile tests, XY and Z');
+  results['13-drawer-pla-flexural'] = await comparisonText('Flexural tests, XY and Z');
   await click('.drawer [data-tab="Thermal"]');
   await sleep(200);
   results['13-drawer-pla-heat'] = await comparisonText('Heat deflection and glass transition');

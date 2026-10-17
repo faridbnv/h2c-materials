@@ -301,11 +301,12 @@ name is never the reason, and the mark is a claim, not a test: colorFabb's PET H
 **Tensile, heat and print settings are drawn the same way** (D139). Mechanical's **Tensile tests, XY and Z** draws
 tensile modulus, strength and elongation at break, each an XY row and a Z row (a bar pulled across its layers is the
 same test on a differently built bar, so nothing is converted), with Z as a share of XY for the products whose two
-values are both compared, from one document. Thermal's **Heat deflection and glass transition** draws HDT at 0.45 and
+values are both compared, from one document; **Flexural tests, XY and Z** draws flexural modulus and strength the same
+way, with a closed line on how flexural and tensile results relate (D140). Thermal's **Heat deflection and glass transition** draws HDT at 0.45 and
 1.8 MPa and Tg on one °C scale. Printing's **Print temperatures across products** draws each product's lowest and
 highest nozzle, bed and chamber setting and its drying temperature, the H2C's limit as a line, the medians as the window
-most products share, and the products outside the limits by their print gate's verdict. Tensile modulus Z, elongation
-at break Z and HDT at 1.8 MPa exist for these headings alone: no filter, column or answer reads them.
+most products share, and the products outside the limits by their print gate's verdict. The Z rows, the flexural rows
+and HDT at 1.8 MPa exist for these headings alone: no filter, column or answer reads them.
 
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one

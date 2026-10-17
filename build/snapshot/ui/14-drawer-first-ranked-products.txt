@@ -26,6 +26,10 @@ Tensile strength (XY)
 65 MPa
 Elongation at break (XY)
 1.7 %
+Flexural modulus (XY)
+5.32 GPa
+Flexural strength (XY)
+85 MPa
 HDT at 0.45 MPa
 139 °C
 Not stated by the maker: anything beyond its numbers and annealing schedule.

@@ -1521,7 +1521,7 @@
           }
         },
         "comparisons": {
-          "description": "The comparisons the material drawer draws (data/tables/drawer_comparisons.csv, D133, D139): a heading each, its name, the title of its closed line on how the tests differ, and the label of its line naming the products that publish both of a pair, or null.",
+          "description": "The comparisons the material drawer draws (data/tables/drawer_comparisons.csv, D133, D139, D140): a heading each, its name, the title of its closed line on how the tests differ, the label of its line naming the products that publish both of a pair, or null, the properties it lists without drawing, and the method.csv Topic of its second closed line, or null.",
           "type": "array",
           "items": {
             "type": "object",
@@ -1529,7 +1529,9 @@
             "required": [
               "name",
               "about",
-              "pairLabel"
+              "pairLabel",
+              "listed",
+              "note"
             ],
             "properties": {
               "name": {
@@ -1539,6 +1541,20 @@
                 "type": "string"
               },
               "pairLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "listed": {
+                "description": "Properties the heading lists under it without drawing them (D140).",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "note": {
+                "description": "The method.csv Topic shown as a second closed line under the heading, or null (D140).",
                 "type": [
                   "string",
                   "null"

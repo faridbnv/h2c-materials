@@ -1,15 +1,7 @@
 Tensile tests, XY and Z
-805 values
-Tensile strain at strength
-9 values
-Flexural modulus
-196 values
-Flexural strength
-197 values
-Flexural elongation at break
-3 values
-Flexural stress at conventional deflection
-2 values
+814 values
+Flexural tests, XY and Z
+398 values
 Impact tests
 274 values
 Hardness

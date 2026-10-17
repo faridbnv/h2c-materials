@@ -154,7 +154,8 @@ detail. The generator names one that runs longer.
 | D136 | The completeness round: what the held sheets print is held once, and found where it is printed | The owner had four open problems worked through together, then the tooling debt, then the makers' statements nobody had read. Values the held sheets print but the tables lacked were read on their pages and entered; copies of a maker's own sheet registered beside it hold their rows once; a scanned page's words can now be searched; and the open-problems page says what is true. Where a reading claimed a held number was wrong, it was the cell next to it every time, and no held number changed. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and extends D85 (the record tier) and D89 (which twin a product reads) |
 | D137 | Product predictions and evidence verdicts stay separate; exclusion needs independent scenario validation | A missing product value may show an estimate, but it never passes. Only separately validated bounds may exclude it; unresolved options remain visible with the evidence needed next. | In force |
 | D138 | A round's record leaves the working tree when it closes; the text reader and the estimate stage are frozen | The repository keeps what a person needs to read and run the tool. A finished round's migrations move to `archive/migrations/`, and its working files (readings, proposals, held rows, render dumps) move to the private evidence store, each listed with its size and SHA-256 in the round's `PACKETS.md`; git history keeps every byte. The import's text reader takes no new layout rules, and the estimate model no new physics, without a decision. | In force; it extends D35 (every value from its page: a packet's digest proves its bytes), D72 (nothing is deleted from the data: this moves files, not records) and D85 (the record tier, whose `source_facts` lane is now built only where the private cache is), and holds D58 (no new branch in the estimate model) at every round's close |
-| D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing |
+| D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing; extended by D140 (flexural results, listed properties and notes; a drawer-only row may draw an unstated orientation hollow) |
+| D140 | Flexural results are drawn as tensile ones are, beside how the two relate; tensile strain at strength is listed under the tensile tests | The flexural modulus and strength the Mechanical tab already listed are drawn as the tensile results are: one closed heading, Flexural tests, XY and Z, an XY row and a Z row per property, a product per dot. A second closed line under it says how flexural and tensile results relate in theory, and why a printed bar departs from it. Tensile strain at strength moves inside the tensile heading as a list, not a graph. Four flexural rows are drawn in the drawer alone. No answer moved. | In force; it extends D139 (a comparison may list properties it does not draw and carry a second closed line; a drawer-only row may draw a value with no stated orientation, hollow and out of the median) and decides nothing |
 
 <!-- end index -->
 
@@ -4470,7 +4471,7 @@ The frozen baseline, unchanged-data/published-value checks, independent validati
 ## D139. Tensile, heat and print temperatures are drawn product by product, as impact is
 
 > **In plain words:** The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved.
-> **Status:** In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing.
+> **Status:** In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing; extended by D140 (flexural results, listed properties and notes; a drawer-only row may draw an unstated orientation hollow).
 
 *Decided by the owner on 2026-10-16 ([GOALS-LOG](GOALS-LOG.md)), each of four answers the recommended one; built in the
 [drawer comparisons round](audits/2026-10-16-drawer-comparisons/README.md).* Vicat (its A50 or B50 method typed on none
@@ -4511,6 +4512,47 @@ of its 504 rows) and flexural results (Z from 18 materials) stay lists.
 scale, ranges of one number, crossing medians, a window given at one end, a misspelt product: ThermaX PEEK, m416) or
 filed as the sheets print them (OPEN-PROBLEMS §15, §30.5). A blind re-read of 40 newly drawn values found every one as
 its page prints it. templates.csv, states, gates and screening are unchanged.
+
+## D140. Flexural results are drawn as tensile ones are, beside how the two relate; tensile strain at strength is listed under the tensile tests
+
+> **In plain words:** The flexural modulus and strength the Mechanical tab already listed are drawn as the tensile results are: one closed heading, Flexural tests, XY and Z, an XY row and a Z row per property, a product per dot. A second closed line under it says how flexural and tensile results relate in theory, and why a printed bar departs from it. Tensile strain at strength moves inside the tensile heading as a list, not a graph. Four flexural rows are drawn in the drawer alone. No answer moved.
+> **Status:** In force; it extends D139 (a comparison may list properties it does not draw and carry a second closed line; a drawer-only row may draw a value with no stated orientation, hollow and out of the median) and decides nothing.
+
+*Decided by the owner on 2026-10-16 ([GOALS-LOG](GOALS-LOG.md)); built in the
+[flexural comparison round](audits/2026-10-16-flexural-comparison/README.md).*
+
+The owner asked, of what the drawer already holds, for "the same thing for the flexural", an expandable explanation "in
+a subtle way" of the theoretical relation of flexural and tensile results, and tensile strain at strength under the
+tensile heading, "if not a good idea tell me why".
+
+- **Flexural tests, XY and Z.** flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY and flexuralStrengthZ are
+  Drawer only rows (m417): each product's value and each spread are computed as for every headline, shown in the
+  heading, on product cards and in the Products tab's spread table, and read by no filter, column or answer. As on the
+  tensile XY rows, a flexural value whose sheet states no orientation stands on the XY row, hollow and out of the median;
+  a Z row takes only a bar the sheet says stood upright. PLA: flexural modulus XY 2.75 GPa over 55 products, flexural
+  strength XY 75.9 MPa over 59; Z gives 88 % and 66 % of XY for the 17 and 16 products whose two values are compared.
+- **How flexural and tensile results relate**, a method.csv rule shown as a second closed line under the heading
+  (drawer_comparisons.csv, Note topic): beam theory gives a solid, uniform bar one modulus in bending and in tension, and
+  a flexural strength above the tensile one (only the outer face reaches the peak stress; past yield the elastic formula
+  overstates it); a printed bar's perimeters, infill, layer bonds and a short span move it off that. Nothing is converted.
+- **Tensile strain at strength is listed, not drawn** (drawer_comparisons.csv, Listed properties): its block moves inside
+  the tensile heading, with its documents, counted in the heading's line ("9 of tensile strain at strength" on PLA).
+  Drawn, it would have been a third row on the elongation scale, which is another endpoint (the strain at the highest
+  stress, a few per cent for a plastic that yields, against elongation at break), it is published for 79 values, 45 of
+  them with no orientation, and only 8 materials have two products with one. Flexural elongation at break and the
+  stress at conventional deflection (the stress at 3.5 % strain where the bar does not break) are listed under the
+  flexural heading for the same reasons.
+- **A drawer-only row may draw a value with no stated orientation.** D139 had required every drawer-only row to exclude
+  one, so that none reached the rail's count of such values or the product card's note that Data quality admits it;
+  both now read the selectable headlines only (filters.js, and a product card's note for a drawer-only value says no
+  answer reads it). HDT at 1.8 MPa still excludes a value with no stated load, which keeps one value from two rows.
+
+**Checked.** A Claude Sonnet agent read all 117 flexural headings against the checklist of D139: every count added up;
+a pair with no share now says so, and one-value sentences are separated. A blind re-read of 20 newly drawn flexural
+values found all 20 as their pages print them, and Trilan PC's "Specimen Conditions" block, which its rows had not taken,
+became a page statement (m418). Flashforge PA6-GF20's bending moduli of 200 and 57.5 MPa, the swapped twins of its
+already flagged bending strengths, are flagged physically implausible (m419). The tests of D139 run on every comparison
+and record, the four new rows' too; templates.csv, gates and screening are unchanged ([the round](audits/2026-10-16-flexural-comparison/README.md)).
 
 ## Bugs worth remembering
 

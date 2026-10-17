@@ -107,6 +107,8 @@ function graphsOf(h) {
   });
 }
 const label = (h) => `${h.m.id} ${h.tab} "${h.cmp.name}"`;
+/** What a heading holds: what its tests read, and the properties it lists without drawing (D140). */
+const propsOf = (h) => new Set([...h.hs.flatMap((x) => [...x.valueProperties, ...x.relatedProperties]), ...(h.cmp.listed ?? [])]);
 
 test('every comparison is drawn on some materials, and only where two of its tests apply', () => {
   const seen = Object.fromEntries(db.registry.comparisons.map((c) => [c.name, 0]));
@@ -217,7 +219,7 @@ test('why a record is not drawn is the build\'s reason', () => {
   let checked = 0;
   const reasons = new Set();
   for (const h of headings()) {
-    const props = new Set(h.hs.flatMap((x) => [...x.valueProperties, ...x.relatedProperties]));
+    const props = propsOf(h);
     const ms = ctx.measurementsByMaterial.get(h.m.id) ?? [];
     const records = ms.filter((x) => props.has(x.property) && h.inTab.has(x.property) && !x.quarantined && !(!x.numeric && !x.qualitative && /^not published$/i.test(String(x.dataStatus ?? '').trim())));
     const drawnIds = new Set([...h.dots.values()].flat().map((d) => d.mid)), namedIds = new Set(h.named);
@@ -227,7 +229,8 @@ test('why a record is not drawn is the build\'s reason', () => {
       const results = reads.map((y) => assess(x, y, ms.filter((z) => z.gradeId === x.gradeId)));
       const said = notDrawnWhy(x, h.hs, c, drawnIds, namedIds);
       const got = said.split(':')[0] === 'resin' ? 'moulded' : said.split(':')[0];
-      if (!reads.length) assert.equal(got, 'property', `${label(h)} ${x.id}: no test of the heading reads ${x.property}`);
+      // assess asks for a number before the property (ASSESS_ORDER), so a listed record stated in words has no number.
+      if (!reads.length) assert.equal(got, x.numeric ? 'property' : 'noNumber', `${label(h)} ${x.id}: no test of the heading reads ${x.property}`);
       else if (results.some((r) => !r.excluded)) assert.ok(['drawn', 'named', 'second', 'retired', 'reference'].includes(said), `${label(h)} ${x.id}: a test takes it, the drawer says ${said}`);
       else {
         // Refused by every test that reads it: counted by the one it got furthest with.
@@ -248,7 +251,7 @@ test('the counted line adds up to the lists under it', () => {
   let checked = 0;
   for (const h of headings()) {
     const n = h.records.split('<div class="evidence-row').length - 1;
-    const props = new Set(h.hs.flatMap((x) => [...x.valueProperties, ...x.relatedProperties]));
+    const props = propsOf(h);
     const listed = (ctx.measurementsByMaterial.get(h.m.id) ?? []).filter((x) => props.has(x.property) && h.inTab.has(x.property) && !(!x.numeric && !x.qualitative && /^not published$/i.test(String(x.dataStatus ?? '').trim())));
     assert.equal(n, listed.length, `${label(h)}: every record of its tests is listed`);
     const line = h.prefix.match(/<p class="fine imp-(?:tally|none)">([\s\S]*?)<\/p>/);
@@ -331,7 +334,11 @@ test('"both" and the share are the products\' own values', () => {
     // A share every product gives alike (one product, or several at one rounded per cent) is said once, with its count.
     const items = shares.map(({ g, list }) => (pct(Math.min(...list)) === pct(Math.max(...list)) ? `${name(g)} ${pct(list[0])} (${list.length} product${list.length === 1 ? '' : 's'})`
       : `${name(g)} ${pct(median(list))} (${pct(Math.min(...list))}${WJ}–${WJ}${pct(Math.max(...list))}, ${list.length} products)`));
-    const andList = items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
+    const join = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
+    // A pair some product publishes both of, with no product's two values from one document and state, is said to have none.
+    const none = pairs.filter((g) => !shares.some((x) => x.g === g) && g.rows[0].direction !== g.rows[1].direction
+      && h.entries.get(g.rows[0].key).some((e) => h.entries.get(g.rows[1].key).some((y) => y.g.id === e.g.id))).map(name);
+    const andList = `${join(items)}${none.length ? `. None for ${join(none)}` : ''}`;
     assert.ok(shareLine.startsWith(`${shares[0].g.rows[1].direction} as a share of ${shares[0].g.rows[0].direction}, `), `${label(h)}: names the two orientations; "${shareLine}"`);
     assert.ok(shareLine.endsWith(`: ${andList}.`), `${label(h)}: the printed share is the products' own; expected "${andList}", got "${shareLine}"`);
     seen.share += shares.length;

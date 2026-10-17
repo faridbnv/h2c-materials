@@ -19,11 +19,11 @@
     },
     "measurements": {
       "rows": 15418,
-      "sha256": "5faca62c0d4f52dd11d6ef0c9c402efbbe01260610008e82182379ec7e24b1ad"
+      "sha256": "1d405b9b07d63fbea4061b18009cec7ad27d25fa2297a353fd9bcac93fc3bb83"
     },
     "page_context": {
-      "rows": 1006,
-      "sha256": "c6c38998607e2058044fe90e8e53c501d660efdabd2334f362297155856e3e49"
+      "rows": 1007,
+      "sha256": "fe062afb30332a51f3b1218dd3d9c5ca24d8cf1a1e023cee230b6aed6668f2f5"
     },
     "impact_test_guesses": {
       "rows": 60,
@@ -66,8 +66,8 @@
       "sha256": "8f65483ba3fa35a8d070ded15a850ccad463ad75045ce7e4d79e10af735dcbab"
     },
     "method": {
-      "rows": 55,
-      "sha256": "c2b7790097eb51cfa7812163b241cbcfc82b962394ea8436bead98d6a1e49e64"
+      "rows": 57,
+      "sha256": "912fe008fc98dc297ee63eec4b59f3c345a1184d10ef6b89fccf0dbda5218e95"
     },
     "reference": {
       "rows": 114,
@@ -98,12 +98,12 @@
       "sha256": "e6ed4997f37929f64a7df2a7ec4f3bdbcf9bf0d94aed7b39986dae4b7d18d9f1"
     },
     "headline_definitions": {
-      "rows": 13,
-      "sha256": "e55ef3dfc385228aa9509e8fac535aa7884a7beab1b875e18322f4c3da4c3296"
+      "rows": 17,
+      "sha256": "087cc33109c248c40234dc28618ccac45d050c984764055876e4e92748e95eb4"
     },
     "drawer_comparisons": {
-      "rows": 3,
-      "sha256": "f9bc4777a39bcf7ff70b85019328f3685acb92c8e47a378f31d535f9f9a13e82"
+      "rows": 4,
+      "sha256": "ea2ebe74a8ce78fd0b3ea98d8c7b727616f314aeb9ef217cb10be5eb5303437e"
     },
     "polymers": {
       "rows": 48,

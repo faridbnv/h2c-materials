@@ -600,3 +600,18 @@ four questions, each with a recommendation, the owner chose every recommended an
 Claude Opus designed, judged and wrote the code and migrations (m414 to m416); Claude Sonnet agents wrote tests from its
 specifications, read every material's new headings against a checklist, re-read a sample of the newly drawn values on
 their pages and proofread the living documents. Built as D139, and pushed to main at the owner's word.
+
+## Decided on 2026-10-16, later: flexural results drawn, their relation to tensile ones explained
+
+Having seen the tensile, heat and print temperature headings, the owner asked, of what the drawer already holds, for
+"the same thing for the flexural", an expandable explanation "in a subtle way" of the theoretical relation of flexural
+and tensile results, and tensile strain at strength under the tensile heading, "if not a good idea tell me why"; then to
+make everything coherent, complete the repository and push.
+
+- **Flexural tests, XY and Z** on Mechanical: flexural modulus and strength, each an XY row and a Z row, drawn in the
+  drawer alone, with a closed line **How flexural and tensile results relate**.
+- **Tensile strain at strength** is listed inside the tensile heading rather than drawn, since it is another endpoint
+  than elongation at break, seldom published (8 materials with two products) and mostly with no orientation; the reply
+  to the owner said why.
+
+Built as D140 (m417) by Claude Opus, Claude Sonnet agents sweeping the headings and re-reading a blind sample.

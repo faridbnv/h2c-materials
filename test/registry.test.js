@@ -152,10 +152,11 @@ test("the physical relations travel in the registry, each over real properties a
   }
 });
 
-// The drawer's comparisons (drawer_comparisons.csv, D133, D139): what a comparison and a Drawer-only headline must be is
+// The drawer's comparisons (drawer_comparisons.csv, D133, D139, D140): what a comparison and a Drawer-only headline must be is
 // checked while the registry compiles. Each case starts from the real tables, changes one thing and compiles the registry
 // alone (no database is built).
 const HDT = 'Heat deflection and glass transition';
+const FLEX = 'Flexural tests, XY and Z';
 const registryIssues = (edit = () => {}) => {
   const wb = structuredClone(base);
   edit(wb);
@@ -169,9 +170,12 @@ const messages = (issues, code) => issues.filter((i) => i.code === code).map((i)
 test('the drawer comparisons compile from the tables with no comparison or headline issue', () => {
   const { compiled, issues } = registryIssues();
   assert.deepEqual(issues, []);
-  assert.deepEqual(compiled.comparisons.map((c) => c.name), ['Impact tests', 'Tensile tests, XY and Z', HDT]);
-  assert.deepEqual(compiled.comparisons.map((c) => c.pairLabel), ['Both tests', 'Both orientations', null]);
-  assert.deepEqual(compiled.headlines.filter((h) => h.drawerOnly).map((h) => h.key), ['tensileModulusZ', 'elongationZ', 'hdt18']);
+  assert.deepEqual(compiled.comparisons.map((c) => c.name), ['Impact tests', 'Tensile tests, XY and Z', HDT, FLEX]);
+  assert.deepEqual(compiled.comparisons.map((c) => c.pairLabel), ['Both tests', 'Both orientations', null, 'Both orientations']);
+  assert.deepEqual(compiled.comparisons.map((c) => c.listed), [[], ['Tensile strain at strength'], [], ['Flexural elongation at break', 'Flexural stress at conventional deflection']]);
+  assert.deepEqual(compiled.comparisons.map((c) => c.note), [null, null, null, 'How flexural and tensile results relate']);
+  assert.deepEqual(compiled.headlines.filter((h) => h.drawerOnly).map((h) => h.key),
+    ['tensileModulusZ', 'elongationZ', 'flexuralModulusXY', 'flexuralModulusZ', 'flexuralStrengthXY', 'flexuralStrengthZ', 'hdt18']);
 });
 
 test('a comparison with no caption in method.csv is an error', () => {
@@ -223,8 +227,7 @@ test('a Drawer-only headline must hold no value a decision could read', () => {
   const cases = [
     ['hdt18', { 'Table column': 'TRUE' }, 'Table column is TRUE'],
     ['hdt18', { Estimated: 'TRUE' }, 'Estimated is TRUE'],
-    ['tensileModulusZ', { 'Unstated direction': 'as-published' }, 'a value with no stated direction would be as published'],
-    ['hdt18', { 'Unstated load': 'as-published' }, 'a value with no stated load would be as published'],
+    ['hdt18', { 'Lower bound properties': 'HDT', 'Lower bound load MPa': '1.8' }, 'it has lower bound properties'],
     ['hdt18', { 'Drawer comparison': 'Not applicable' }, 'it names no Drawer comparison'],
   ];
   for (const [key, change, problem] of cases) {
@@ -233,6 +236,25 @@ test('a Drawer-only headline must hold no value a decision could read', () => {
     assert.equal(found.length, 1, `${key} ${JSON.stringify(change)}: ${messages(issues, 'REGISTRY-COMPARISON').join(' | ')}`);
     assert.ok(found[0].includes(problem), `${key} ${JSON.stringify(change)}: ${found[0]}`);
   }
+});
+
+test('a Drawer-only headline may draw a value with no stated orientation, hollow and counted apart (D140)', () => {
+  const { issues } = registryIssues((wb) => { headlineRow(wb, 'tensileModulusZ')['Unstated direction'] = 'as-published'; });
+  assert.deepEqual(messages(issues, 'REGISTRY-COMPARISON'), []);
+});
+
+test('a listed property a test of the comparison already reads, or one of another comparison, is an error', () => {
+  const read = registryIssues((wb) => { wb['Drawer comparisons'].rows.find((r) => r.Comparison === FLEX)['Listed properties'] = 'Flexural modulus'; });
+  assert.ok(messages(read.issues, 'REGISTRY-COMPARISON').some((m) => m === `drawer_comparisons ${FLEX}: Flexural modulus is listed, but a headline of the comparison already reads it`), messages(read.issues, 'REGISTRY-COMPARISON').join(' | '));
+  const twice = registryIssues((wb) => { wb['Drawer comparisons'].rows.find((r) => r.Comparison === FLEX)['Listed properties'] = 'Tensile strain at strength'; });
+  assert.ok(messages(twice.issues, 'REGISTRY-COMPARISON').some((m) => /Tensile strain at strength is already in the comparison Tensile tests, XY and Z/.test(m)), messages(twice.issues, 'REGISTRY-COMPARISON').join(' | '));
+  const domain = registryIssues((wb) => { wb['Drawer comparisons'].rows.find((r) => r.Comparison === FLEX)['Listed properties'] = 'Vicat softening temperature'; });
+  assert.ok(messages(domain.issues, 'REGISTRY-COMPARISON').some((m) => /one heading is drawn on one tab/.test(m)), messages(domain.issues, 'REGISTRY-COMPARISON').join(' | '));
+});
+
+test('a note that names no caption in method.csv is an error', () => {
+  const { issues } = registryIssues((wb) => { wb['Drawer comparisons'].rows.find((r) => r.Comparison === FLEX)['Note topic'] = 'How bending works'; });
+  assert.deepEqual(messages(issues, 'REGISTRY-COMPARISON'), [`drawer_comparisons ${FLEX}: Note topic "How bending works" is no method.csv row of Section Comparison`]);
 });
 
 test('a headline with a load but no Unstated load is an error', () => {

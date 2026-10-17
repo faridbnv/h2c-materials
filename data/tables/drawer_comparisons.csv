@@ -1,4 +1,5 @@
-Comparison,About,Pair label
-Impact tests,"How Charpy and Izod differ, and what is compared",Both tests
-"Tensile tests, XY and Z","How XY and Z differ, and what is compared",Both orientations
-Heat deflection and glass transition,"How the two HDT loads and Tg differ, and what is compared",Not applicable
+Comparison,About,Pair label,Listed properties,Note topic
+Impact tests,"How Charpy and Izod differ, and what is compared",Both tests,Not applicable,Not applicable
+"Tensile tests, XY and Z","How XY and Z differ, and what is compared",Both orientations,Tensile strain at strength,Not applicable
+Heat deflection and glass transition,"How the two HDT loads and Tg differ, and what is compared",Not applicable,Not applicable,Not applicable
+"Flexural tests, XY and Z","How XY and Z differ, and what is compared",Both orientations,Flexural elongation at break; Flexural stress at conventional deflection,How flexural and tensile results relate
