@@ -121,67 +121,18 @@ export function gapItem(r) {
 
 // ------------------------------------------------------------------ thin data: what each sheet publishes
 
-/**
- * The columns of a thin section's table (fewer than four products compared): one per product whose own documents give a
- * value `test` admits (a measurement with a number, not held back or flagged implausible), the products that read its
- * sheet (a data sheet shared with it, D89) named beside it. `[{ g, readers: [g], xs: [measurement] }]`, most values first.
- */
-export function sheetColumns(c, test) {
-  const products = c.grades.filter((g) => !g.retired && !/-R\d+$/.test(g.id));
-  const cols = products.map((g) => ({ g, readers: [], xs: c.ms.filter((x) => x.gradeId === g.id && x.numeric && !x.quarantined && !x.implausible && test(x)) }));
-  const byId = new Map(cols.map((col) => [col.g.id, col]));
-  for (const col of cols.filter((x) => !x.xs.length)) {
-    const from = Object.values(col.g.headline ?? {}).find((v) => v?.from?.origin === 'twin')?.from?.gradeId;
-    if (from && byId.get(from)?.xs.length) byId.get(from).readers.push(col.g);
-  }
-  return cols.filter((col) => col.xs.length).sort((a, b) => b.xs.length - a.xs.length || a.g.id.localeCompare(b.g.id));
-}
-
-/** A cell's values as markup: each distinct value a line, with the kind of document beside it where two documents differ. */
-function cellHtml(c, xs, fmt) {
-  const distinct = [...new Map(xs.map((x) => [`${x.value}|${x.unit}`, x])).values()];
-  const kind = (x) => sourceKind(c.sourceById.get(x.sourceId)).toLowerCase();
-  const kinds = new Set(distinct.map(kind));
-  const many = distinct.length > 1 && kinds.size > 1;
-  return distinct.map((x) => `<span class="cv"><span class="cv-n">${esc(fmt(x.value, x.unit))}</span>${many ? ` <small>${esc(kind(x))}</small>` : ''}</span>`).join('');
-}
-
-/** What a column's sheets state about their bars, once: the standards and whether the orientation and specimen are given. */
-function conditionsText(xs) {
-  const standards = [...new Set(xs.flatMap((x) => x.standards ?? []))].slice(0, 3);
-  const unstated = (v) => !v || /unknown|not[- ]stated|not published/i.test(String(v));
-  const dirs = xs.filter((x) => x.direction !== 'not-applicable');
-  const noDir = dirs.length && dirs.every((x) => unstated(x.direction));
-  const noSpec = xs.every((x) => /^Not published/i.test(String(x.specimenType ?? '')));
-  const lacks = noDir && noSpec ? 'specimen and orientation not stated' : noDir ? 'orientation not stated' : noSpec ? 'specimen not stated' : '';
-  return [standards.join(', '), lacks].filter(Boolean).join('; ') || '—';
-}
+/** The most products a table sets across, a column each; more are set down, a row each. The settings table follows it. */
+export const ACROSS_MAX = 5;
+/** The page's products, in the one order every table of the page sets them in. */
+export const pageProducts = (c) => c.grades.filter((g) => !g.retired && !/-R\d+$/.test(g.id));
 
 /**
- * A thin section's table: `rows` [{ label, pick(xs) → measurements }] against the columns (sheetColumns), properties down
- * and sheets across where there are four sheets or fewer, else products down. `fmt(value, unit)` prints a value. Each
- * cell carries its measurements' IDs (`data-mid`), not as records: a product's measurements are its card's.
+ * A product-by-product table's frame, the same on every one of a page: a `sheet-table` box naming how many value columns
+ * it has (`data-cols`) and how it is set (`data-layout`: products across or down), a column group (the row heads'
+ * column, `col-prop`, then `col-p` a value column), so every such table of a page lines its products up on one grid.
  */
-export function sheetTable(c, cols, rows, { fmt, caption = '', conditions = true } = {}) {
-  const live = rows.filter((r) => cols.some((col) => r.pick(col.xs).length));
-  if (!cols.length || !live.length) return '';
-  const head = (col) => `${productA(c, col.g)}${col.readers.length ? ` <span class="also">and ${col.readers.map((g) => productA(c, g)).join(', ')}</span>` : ''}`;
-  const cell = (col, r) => { const xs = r.pick(col.xs); return xs.length ? `<td class="num" data-mid="${esc(xs.map((x) => x.id).join(' '))}">${cellHtml(c, xs, fmt)}</td>` : '<td class="num none">not published</td>'; };
-  let table;
-  if (cols.length <= 4) {
-    table = `<table class="grid sheets"><thead><tr><th scope="col" class="prop">${esc(caption || 'As each sheet publishes it')}</th>${cols.map((col) => `<th scope="col" class="num">${head(col)}</th>`).join('')}</tr></thead><tbody>`
-      + live.map((r) => `<tr><th scope="row" class="prop">${esc(r.label)}</th>${cols.map((col) => cell(col, r)).join('')}</tr>`).join('')
-      + (conditions ? `<tr class="cond"><th scope="row" class="prop">As stated</th>${cols.map((col) => `<td class="num">${esc(conditionsText(col.xs))}</td>`).join('')}</tr>` : '')
-      + '</tbody></table>';
-  } else {
-    table = `<table class="grid sheets sheets--long"><thead><tr><th scope="col" class="prop">Product</th>${live.map((r) => `<th scope="col" class="num">${esc(r.label)}</th>`).join('')}</tr></thead><tbody>`
-      + cols.map((col) => `<tr><th scope="row" class="prop">${head(col)}</th>${live.map((r) => cell(col, r)).join('')}</tr>`).join('') + '</tbody></table>';
-  }
-  return `<div class="sheet-table">${tableBox(table)}</div>`;
-}
-
-// ------------------------------------------------------------------ fewer products than a strip needs
-
+export const sheetFrame = (inner, n, layout, cls) => `<div class="sheet-table" data-cols="${n}" data-layout="${layout}">${tableBox(
+  `<table class="grid ${cls}"><colgroup><col class="col-prop">${'<col class="col-p">'.repeat(n)}</colgroup>${inner}</table>`)}</div>`;
 
 /**
  * A column head that fits: a product's name, or where it is long, its maker and the words that tell it from the other
@@ -202,45 +153,45 @@ export function shortHeads(gs) {
 /** A product's name as a short column head, linked to its card, its full name as the link's title. */
 export const headA = (c, g, short) => `<a class="prod" href="${esc(productHref(c, g.id))}" title="${esc(productNameOrId(g))}">${esc(short)}</a>`;
 
+/** The line under a table with a value read from a shared sheet: what its grey says. */
+export const SHARED_NOTE = 'In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.';
+
 /**
  * What each product publishes of `keys` (grades[].headline: each product's own value, as the strips would draw it), as a
- * table: properties down and products across where there are four columns or fewer, else products down. A product
- * that reads another's sheet for every one of these values (a data sheet shared with it, D89) is named under that
- * product's column. A value not ranked (no stated orientation or load) says so under it; one measured after annealing
- * too. `fmt(value, unit)` prints a value. Each cell carries its measurement's ID (`data-mid`), not as a record.
+ * table on the page's grid (sheetFrame): every product of the page across, in the page's order, where there are
+ * ACROSS_MAX or fewer, properties down; else the products that publish one down, the properties across. A value read
+ * from a data sheet the product shares (D89) is in grey, the sheet's product in its title; one not ranked (no stated
+ * orientation or load) says so under it, and one measured after annealing too. `fmt(value, unit)` prints a value. Each
+ * cell carries its measurement's ID (`data-mid`), not as a record.
  */
 export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes it' } = {}) {
   const hs = keys.map((k) => REGISTRY.allHeadlines.find((h) => h.key === k)).filter(Boolean);
-  const products = c.grades.filter((g) => !g.retired && !/-R\d+$/.test(g.id) && hs.some((h) => g.headline?.[h.key]));
-  if (!products.length || !hs.length) return '';
-  // Readers: every value of these keys read from one sibling's sheet.
-  const readerOf = new Map();
-  for (const g of products) {
-    const vs = hs.map((h) => g.headline?.[h.key]).filter(Boolean);
-    const from = vs.length && vs.every((v) => v.from?.origin === 'twin') ? vs[0].from.gradeId : null;
-    if (from && vs.every((v) => v.from.gradeId === from) && products.some((x) => x.id === from)) readerOf.set(g.id, from);
-  }
-  const cols = products.filter((g) => !readerOf.has(g.id)).map((g) => ({ g, readers: products.filter((x) => readerOf.get(x.id) === g.id) }));
-  const short = shortHeads(cols.map((col) => col.g));
-  const live = hs.filter((h) => cols.some((col) => col.g.headline?.[h.key]));
+  const all = pageProducts(c);
+  const live = hs.filter((h) => all.some((g) => g.headline?.[h.key]));
+  if (!all.length || !live.length) return '';
   const note = (h, v) => [v.level === 'as-published' ? (h.direction ? 'orientation not stated' : 'load not stated') : null, v.anneal ? 'after annealing' : null].filter(Boolean).join(', ');
-  const cell = (col, h, label) => {
-    const v = col.g.headline?.[h.key];
+  const twinOf = (v) => (v?.from?.origin === 'twin' ? c.gradeById.get(v.from.gradeId) ?? null : null);
+  const cell = (g, h, label) => {
+    const v = g.headline?.[h.key];
     if (!v) return `<td class="num none" data-label="${esc(label)}">not published</td>`;
-    const n = note(h, v);
-    return `<td class="num${v.level === 'as-published' ? ' open' : ''}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}><span class="cv"><span class="cv-n">${esc(fmt(v.value, h.unit))}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
+    const n = note(h, v), twin = twinOf(v);
+    const cls = ['num', v.level === 'as-published' ? 'open' : '', twin ? 'from' : ''].filter(Boolean).join(' ');
+    return `<td class="${cls}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}${twin ? ` title="${esc(`From the data sheet shared with ${productNameOrId(twin)}`)}"` : ''}>`
+      + `<span class="cv"><span class="cv-n">${esc(fmt(v.value, h.unit))}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
   };
-  const head = (col) => `${headA(c, col.g, short.get(col.g.id))}${col.readers.length ? ` <span class="also">and ${col.readers.map((g) => headA(c, g, productNameOrId(g))).join(', ')}</span>` : ''}`;
-  let table;
-  if (cols.length <= 4) {
-    table = `<table class="grid sheets"><thead><tr><th scope="col" class="prop">${esc(caption)}</th>${cols.map((col) => `<th scope="col" class="num">${head(col)}</th>`).join('')}</tr></thead><tbody>`
-      + live.map((h) => `<tr><th scope="row" class="prop">${esc(h.labels.plain)}</th>${cols.map((col) => cell(col, h, short.get(col.g.id))).join('')}</tr>`).join('')
-      + '</tbody></table>';
-  } else {
-    table = `<table class="grid sheets sheets--long"><thead><tr><th scope="col" class="prop">Product</th>${live.map((h) => `<th scope="col" class="num">${esc(h.labels.plain)}</th>`).join('')}</tr></thead><tbody>`
-      + cols.map((col) => `<tr><th scope="row" class="prop">${head(col)}</th>${live.map((h) => cell(col, h, h.labels.plain)).join('')}</tr>`).join('') + '</tbody></table>';
+  const shared = live.some((h) => all.some((g) => twinOf(g.headline?.[h.key])));
+  const foot = shared ? `<p class="sec-note">${esc(SHARED_NOTE)}</p>` : '';
+  if (all.length <= ACROSS_MAX) {
+    const short = shortHeads(all);
+    const inner = `<thead><tr><th scope="col" class="prop">${esc(caption)}</th>${all.map((g) => `<th scope="col" class="num col-p">${headA(c, g, short.get(g.id))}</th>`).join('')}</tr></thead><tbody>`
+      + live.map((h) => `<tr><th scope="row" class="prop">${esc(h.labels.plain)}</th>${all.map((g) => cell(g, h, short.get(g.id))).join('')}</tr>`).join('') + '</tbody>';
+    return sheetFrame(inner, all.length, 'across', 'sheets') + foot;
   }
-  return `<div class="sheet-table">${tableBox(table)}</div>`;
+  const rows = all.filter((g) => live.some((h) => g.headline?.[h.key]));
+  const short = shortHeads(rows);
+  const inner = `<thead><tr><th scope="col" class="prop">Product</th>${live.map((h) => `<th scope="col" class="num col-p">${esc(h.labels.plain)}</th>`).join('')}</tr></thead><tbody>`
+    + rows.map((g) => `<tr><th scope="row" class="prop">${headA(c, g, short.get(g.id))}</th>${live.map((h) => cell(g, h, h.labels.plain)).join('')}</tr>`).join('') + '</tbody>';
+  return sheetFrame(inner, live.length, 'down', 'sheets sheets--long') + foot;
 }
 
 /** The keys some product of the material publishes a value of, ranked or as published (grades[].headline). */

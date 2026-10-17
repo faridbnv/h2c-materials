@@ -125,18 +125,30 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     const keyAttr = r.h?.key ?? r.id;
     const o = [grid(ROW)];
     if (!r.compared) {
-      // As published, under each sheet's own test: each product's value and their range, never a median no sheet gave.
+      // As published, under each sheet's own test: each product's value, or the range of the values its documents give
+      // (77 and 89 °C: 77–89 °C, never 83), marks closer than about 6 px drawn as one range; the label spans every mark.
       used.add('pub');
-      const vals = publishedValues(c, r.id);
-      if (s.min !== s.max) o.push(`<line class="dv-peer-range" x1="${pct(X(s.min))}" x2="${pct(X(s.max))}" y1="${mid}" y2="${mid}"/>`);
-      for (const v of vals) o.push(`<line class="tm-pub tp" x1="${pct(X(v.value))}" x2="${pct(X(v.value))}" y1="${mid - 7}" y2="${mid + 7}" data-t="${esc(`${withUnit(v.value, '°C')}, as published by ${v.name}`)}"/>`);
-      const span = spanUnit(s.min, s.max, '°C');
-      // The span beside the range, on the side with room on a phone's track too.
-      const right = X(s.max) > 60;
-      o.push(`<text class="dv-val" x="${pct(right ? X(s.min) : X(s.max))}" y="${mid - 6}" dx="${right ? -6 : 6}" text-anchor="${right ? 'end' : 'start'}">${esc(span)}</text>`);
-      const sub = `${products(vals.length || s.n)}, as published`;
+      const per = publishedValues(c, r.id);
+      if (!per.length) continue;
+      const lo = Math.min(...per.map((v) => v.min)), hi = Math.max(...per.map((v) => v.max));
+      const groups = [];
+      for (const v of per) {
+        const last = groups.at(-1);
+        if (last && X(v.min) - X(last.max) < 1.5) { last.max = Math.max(last.max, v.max); last.items.push(v); } else groups.push({ min: v.min, max: v.max, items: [v] });
+      }
+      for (const gr of groups) {
+        const t = gr.items.map((v) => `${v.name}: ${spanUnit(v.min, v.max, '°C')}`).join('; ');
+        if (X(gr.max) - X(gr.min) < 0.6) o.push(`<line class="tm-pub tp" x1="${pct(X(gr.min))}" x2="${pct(X(gr.min))}" y1="${mid - 7}" y2="${mid + 7}" data-t="${esc(`${t}, as published`)}"/>`);
+        // A range is one solid bar, no end ticks (two ticks a few pixels apart read as a letter H).
+        else o.push(`<rect class="tm-pubrange tp" x="${pct(X(gr.min))}" y="${mid - 5}" width="${pct(Math.max(X(gr.max) - X(gr.min), 0.6))}" height="10" rx="2" data-t="${esc(`${t}, as published`)}"/>`);
+      }
+      if (groups.length > 1) o.unshift(`<line class="dv-peer-range" x1="${pct(X(lo))}" x2="${pct(X(hi))}" y1="${mid}" y2="${mid}"/>`);
+      const span = spanUnit(lo, hi, '°C');
+      const right = X(hi) > 60;
+      o.push(`<text class="dv-val" x="${pct(right ? X(lo) : X(hi))}" y="${mid - 6}" dx="${right ? -6 : 6}" text-anchor="${right ? 'end' : 'start'}">${esc(span)}</text>`);
+      const sub = `${products(per.length)}, as published`;
       rows.push(rowHtml(` data-key="${esc(keyAttr)}"`, r.label, sub, rowSvg(o.join(''), `${r.label}: ${span}, ${sub}.`)));
-      twin.push([r.label, span, String(vals.length || s.n), '—']);
+      twin.push([r.label, span, String(per.length), '—']);
       continue;
     }
     if (s.min !== s.max) o.push(`<line class="dv-self-range" x1="${pct(X(s.min))}" x2="${pct(X(s.max))}" y1="${mid}" y2="${mid}"/>`);
@@ -157,16 +169,19 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
   const soft = m.headline?.hdt045?.known ? { v: m.headline.hdt045.value, what: 'softens' } : m.headline?.glassTransition?.known ? { v: m.headline.glassTransition.value, what: 'softens' } : null;
   const chamberLimit = pw.chamber.limit;
   let title;
-  if (out.length) {
-    // Every product that gives a window on these settings asks for more than the H2C gives, or only some.
-    const all = out.every((x) => pw[x.axis] && x.list.length >= pw[x.axis].windows.length);
-    const settings = andList(out.map((x) => word[x.axis] ?? x.label.toLowerCase()));
-    title = all ? `${name}'s ${settings} ${out.length > 1 ? 'run' : 'runs'} past what the H2C gives`
-      : `Some ${name} products' ${settings} ${out.length > 1 ? 'settings run' : 'setting runs'} past what the H2C gives`;
+  // Settings on which every product that gives one asks for more than the H2C gives lead the title; a few products
+  // beyond a limit follow what governs the rest: where it softens against the chamber.
+  const allOut = out.filter((x) => pw[x.axis] && x.list.length >= Math.max(1, pw[x.axis].windows.length + pw[x.axis].ends.length));
+  const someOut = new Set(out.flatMap((x) => x.list.map((l) => l.g.id))).size;
+  const tail = someOut && !allOut.length ? `; ${someOut} ${someOut === 1 ? 'product asks' : 'products ask'} for more than the H2C gives` : '';
+  if (allOut.length) {
+    const settings = andList(allOut.map((x) => word[x.axis] ?? x.label.toLowerCase()));
+    title = `${name}'s ${settings} ${allOut.length > 1 ? 'run' : 'runs'} past what the H2C gives`;
   } else if (soft && chamberLimit != null && soft.v < chamberLimit) {
-    title = `${name} softens near ${withUnit(soft.v, '°C')}, below the H2C's ${chamberLimit}${NBSP}°C chamber`;
+    title = `${name} softens near ${withUnit(soft.v, '°C')}, below the H2C's ${chamberLimit}${NBSP}°C chamber${tail}`;
   } else if (soft && chamberLimit != null) {
-    title = `${name} prints within the H2C's limits and softens near ${withUnit(soft.v, '°C')}, above its ${chamberLimit}${NBSP}°C chamber`;
+    title = someOut ? `${name} softens near ${withUnit(soft.v, '°C')}, above the H2C's ${chamberLimit}${NBSP}°C chamber${tail}`
+      : `${name} prints within the H2C's limits and softens near ${withUnit(soft.v, '°C')}, above its ${chamberLimit}${NBSP}°C chamber`;
   } else title = `${name}'s print settings and service temperatures against the H2C's limits`;
   const key = keyOf([...(used.has('shade') ? [KEY.shade()] : []), ...(used.has('most') ? [KEY.most()] : []), ...(used.has('oneEnd') ? [KEY.oneEnd()] : []),
     ...(used.has('limit') ? [KEY.limit()] : []), ...(dry.entries.length ? [KEY.product()] : []), ...(ladder.some((r) => r.compared) ? [KEY.selfCell(name)] : []), ...(used.has('pub') ? [KEY.pubCell()] : [])]);
@@ -184,18 +199,18 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
 }
 
 /**
- * Each product's value of a property published under its sheet's own test (Vicat, melting), as heatLadder reads them: a
- * product's own numeric °C values, not held back or flagged implausible, their median where it gives several. Display
- * only. [{ g, name, value }], lowest first.
+ * Each product's values of a property published under its sheet's own test (Vicat, melting), as heatLadder reads them:
+ * a product's own numeric °C values, not held back or flagged implausible, products with an added filler or additive
+ * left out; where its documents give several, their lowest and highest. Display only. [{ g, name, min, max }].
  */
 function publishedValues(c, property) {
   const byGrade = new Map();
   for (const x of c.ms) {
     if (x.property !== property || !x.numeric || x.unit !== '°C' || x.quarantined || x.implausible || !Number.isFinite(x.value)) continue;
     const g = c.gradeById.get(x.gradeId);
-    if (!g || g.retired || !isProduct(g)) continue;
+    if (!g || g.retired || !isProduct(g) || g.variant) continue;
     (byGrade.get(g.id) ?? byGrade.set(g.id, { g, values: [] }).get(g.id)).values.push(x.value);
   }
-  const med = (vs) => { const v = [...vs].sort((a, b) => a - b), n = v.length; return n % 2 ? v[(n - 1) / 2] : (v[n / 2 - 1] + v[n / 2]) / 2; };
-  return [...byGrade.values()].map(({ g, values }) => ({ g, name: productName(g), value: med(values) })).sort((a, b) => a.value - b.value);
+  return [...byGrade.values()].map(({ g, values }) => ({ g, name: productName(g), min: Math.min(...values), max: Math.max(...values) }))
+    .sort((a, b) => a.min - b.min || a.max - b.max);
 }

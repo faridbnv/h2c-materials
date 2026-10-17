@@ -163,7 +163,7 @@ export function mapsFigure(c, env = {}, opts = {}) {
     title: `Where ${name} sits among the ${n} ${kind} materials on file`,
     question: 'Where is it in the landscape: stiffness against strength, heat resistance against price?',
     key, plot: `<div class="mp">${panels.map((p) => p.html).join('')}</div>`, label: null,
-    read: `Grey points are every other ${kind} material's medians, on frames that are the same on every ${kind} material's page; the alternatives are named, and a chevron at an edge marks a material beyond the frame.`,
+    read: `Grey points are every other ${kind} material's medians; the alternatives are named.`,
     table: twinTable(head, rows), leaves, method: 'maps',
   });
   return { html, empty: false, stats: { figures: 1, dots: panels.reduce((t, p) => t + p.points + p.prods, 0) } };

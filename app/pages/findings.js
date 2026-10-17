@@ -15,7 +15,7 @@ import { esc, attrs } from './html.js';
 import * as NUMBERS from './numbers.js';
 import { fmtNumber, dryingWords, priceSampleWords, readableUnit } from '../js/ui/format.js';
 import { REGISTRY } from '../js/ui/registry.js';
-import { H2C_STATUS, propertyName, envVerdictWords } from '../js/ui/labels.js';
+import { propertyName, envVerdictWords } from '../js/ui/labels.js';
 import { identity, productNameOrId, printFacts, printCounts, priceRows, stated, groupByMaker } from '../js/ui/material-facts.js';
 import { printWindows, dryingStats, dryingAdvice, compareMedians, printsAmorphous, heatLadder, typicalWindow } from '../js/ui/material-stats.js';
 import { plural, lower, cap, andList, windowText, scheduleWords } from '../js/ui/material-words.js';
@@ -133,17 +133,46 @@ export function whatItIs(m, db) {
   return m.facets?.supportMaterial?.value ? `${words}, a support material` : words;
 }
 
-/** The head's identity sentence: what it is, its products and makers, and Bambu Lab's standing. */
+/** Words a name may say another way: "Fiber" and "Fibre", "Reinforced" and "filled", ESD and anti-static. */
+const SAME_WORD = { fiber: 'fibre', reinforced: 'filled', electrostatic: 'static', dissipative: 'static', esd: 'static', anti: 'static', lightweight: 'foaming' };
+const STOP = new Set(['a', 'an', 'and', 'of', 'the', 'for', 'in', 'with']);
+const wordsOf = (t) => new Set(String(t ?? '').toLowerCase().split(/[^a-z0-9]+/).filter((w) => w && !STOP.has(w)).map((w) => SAME_WORD[w] ?? w));
+
+/**
+ * Bambu Lab's standing in a sentence an engineer would write (labels.js H2C_STATUS says it as a filter label): what the
+ * listing covers, and for an unlisted material what the page shows instead. A material beyond the H2C's capability says
+ * so in the head's callout, so it has none here.
+ */
+function standingLede(m) {
+  // A type's name where it is one short abbreviation ("PLA", "PETG-GF"); a descriptive name reads as "this material type".
+  const named = /^[A-Z0-9][A-Z0-9+/-]*$/.test(m.name);
+  switch (m.h2cStatus) {
+    case 'Official Bambu product': return 'Bambu Lab sells its own filament of this material for the H2C.';
+    case 'Officially listed family': return `Bambu Lab lists ${named ? `${m.name} as a material type` : 'this material type'} for the H2C; the listing covers the type, not each brand.`;
+    case 'Conditional': return 'Bambu Lab does not list this material for the H2C; Printing on the H2C, below, gives the conditions it prints under.';
+    case 'Theoretical': return 'Bambu Lab does not list this material for the H2C; its published process temperatures are within the printer\'s limits.';
+    default: return '';
+  }
+}
+
+/** The head's identity sentence: what it is where the full name above it does not say so, its products and makers, and Bambu Lab's standing. */
 export function identitySentence(c) {
   const id = identity(c.m, c);
-  // A material beyond the H2C's capability says so in the head's callout; the identity line does not say it again.
-  const lede = c.m.excluded ? '' : H2C_STATUS[c.m.h2cStatus]?.lede ?? '';
+  const lede = c.m.excluded ? '' : standingLede(c.m);
   const makers = id.makers === 1 ? 'one maker' : `${fmtNumber(id.makers)} makers`;
-  // The head shows the full name above this line: where what the material is says no more than it, it is not repeated.
+  // The head shows the name and the full name above this line: what the material is is said only where it adds a word
+  // to them ("a support material"), never to restate a filler or variant the full name already names.
   const what = whatItIs(c.m, c.db);
-  const full = stated(c.m.fullName) ? sentenceCase(c.m.fullName) : '';
-  if (!full || what.toLowerCase() === full.toLowerCase()) return say`${cap(plural(id.products, 'product'))} from ${makers}.${lede ? ` ${lede}` : ''}`;
-  return say`${what}, ${plural(id.products, 'product')} from ${makers}.${lede ? ` ${lede}` : ''}`;
+  const shown = wordsOf(`${c.m.fullName} ${c.m.name} ${c.m.basePolymer}`);
+  const support = /, a support material$/.test(what);
+  const core = what.replace(/, a support material$/, '');
+  // A group word ("copolyester") and "filled" (said of a filler the full name names) add nothing a reader lacks.
+  const group = new Set([...Object.values(GROUP_WORD), 'filled']);
+  const adds = [...wordsOf(core)].some((w) => !shown.has(w) && !group.has(w));
+  const count = plural(id.products, 'product');
+  if (adds) return say`${what}, ${count} from ${makers}.${lede ? ` ${lede}` : ''}`;
+  if (support && !shown.has('support')) return say`A support material, ${count} from ${makers}.${lede ? ` ${lede}` : ''}`;
+  return say`${cap(count)} from ${makers}.${lede ? ` ${lede}` : ''}`;
 }
 
 // ------------------------------------------------------------------ how well documented (the evidence line)
@@ -370,7 +399,7 @@ export function standOutLines(c) {
     else {
       const bits = stateWords(x);
       const also = x.also ? `, and it keeps the most strength across the layers, ${Math.round(x.also.share * 100)} % of its flat value` : '';
-      const readers = x.readers?.length ? ` (${andList(x.readers.map(productNameOrId))} ${x.readers.length === 1 ? 'prints' : 'print'} the same sheet)` : '';
+      const readers = x.readers?.length ? ` (${andList(x.readers.map(productNameOrId))} ${x.readers.length === 1 ? 'shares its' : 'share its'} data sheet)` : '';
       detail = say`, ${num(x.v.value, { key: x.key, stat: 'product', unit: h?.unit, grade: x.g.id })}${readers}${bits.length ? `, ${andList(bits)}` : ''}${also}.`;
     }
     const link = productLink(c, x.g);
@@ -601,46 +630,65 @@ export function priceSampleLine(c) {
  * "mixed", with the counts. A statement in words with no verdict is counted as "without a verdict".
  */
 export function verdictWords(records) {
-  const total = records.length;
+  // A "no data" statement says nothing, so it is not counted; a statement in words alone counts but gives no verdict.
+  const said = records.filter((e) => e.verdict !== 'no-data');
+  const n = said.length;
+  if (!n) return records.length ? 'No data published' : '';
   const counts = new Map();
-  for (const e of records) {
-    const v = e.verdict === 'narrative' ? 'without a verdict' : e.verdict === 'no-data' ? 'no data' : envVerdictWords(e.verdict);
-    counts.set(v, (counts.get(v) ?? 0) + 1);
-  }
+  for (const e of said) if (e.verdict !== 'narrative') counts.set(e.verdict, (counts.get(e.verdict) ?? 0) + 1);
   const list = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-  if (!list.length) return '';
+  const of = (k) => (k === n ? (n === 1 ? 'in its one statement' : n === 2 ? 'in both statements' : `in all ${fmtNumber(n)} statements`) : `in ${fmtNumber(k)} of ${fmtNumber(n)} statements`);
+  if (!list.length) return `Described without a verdict, ${of(n)}`;
   const [top, k] = list[0];
-  if (list.length === 1) return top === 'without a verdict' ? 'stated without a verdict' : top;
-  const lead = !['without a verdict', 'no data'].includes(top) && k / total >= 2 / 3 ? `mostly ${top}` : 'mixed';
-  return `${lead}: ${list.map(([v, n]) => `${n} ${v}`).join(', ')}`;
+  const word = cap(envVerdictWords(top));
+  // One verdict, the others in words only: it is that verdict, however few say it.
+  if (list.length === 1) return `${word}, ${of(k)}${k / n < 2 / 3 ? (n - k === 1 ? '; the other gives no verdict' : '; the others give no verdict') : ''}`;
+  if (k / n >= 2 / 3) return `${word}, ${of(k)}`;
+  const disagree = list.reduce((s, [, x]) => s + x, 0);
+  return `Mixed: ${fmtNumber(disagree)} statements disagree`;
 }
 
 // ------------------------------------------------------------------ statements chosen by rule
 
-/** A statement worth quoting first: a number with its unit, or an instruction. */
-const SPECIFIC = /\d\s?(?:°C|%|mm\/s|mm|h\b|hours?|min(?:utes)?\b)|\b(?:use|dry|scale|recommend|avoid|keep|store|reduce|increase|set|print at|measure|preheat)\b/i;
+/**
+ * A statement worth quoting first: a number with its unit, a printing condition (a nozzle, annealing, drying, an
+ * enclosure), or an instruction, a verb where an instruction stands (at a sentence's start, or after "should", "must",
+ * "recommend"): "Use a hardened nozzle", "it is recommended to dry", never the "use" of "safe for home use".
+ */
+const NUMBER_UNIT = /\d\s?(?:°C|°F|%|mm\/s|mm|µm|h\b|hrs?\b|hours?|min(?:utes)?\b)/i;
+const CONDITION = /\b(?:nozzles?|anneal(?:ed|ing)?|dry(?:ing)?|dried|dry ?box|dryer|desiccant|enclosure|heated chamber|build plate|glue stick|bed temperature)\b/i;
+const INSTRUCTION = /(?:^|[.;:!]\s+|\b(?:should|must|needs? to|recommend(?:ed|s)?(?: to)?|advised? to|best to|try to|please|we suggest)\s+(?:to\s+)?(?:be\s+)?)(?:use|using|set|avoid|keep|store|reduce|increase|lower|raise|print|preheat|measure|scale|enable|disable|apply|clean|turn)\b/i;
+const SPECIFIC = { test: (t) => NUMBER_UNIT.test(t) || CONDITION.test(t) || INSTRUCTION.test(t) };
+/** A claim that sells and instructs nothing: never quoted where the topic has an instructive statement. */
+const CLAIM = /\b(?:odou?rless|odou?r[- ]free|(?:fully |100 ?% )?biodegradable|compostable|eco[- ]?friendly|easy to print|easy[- ]to[- ]use|hassle[- ]free|perfect|amazing|excellent|superior|premium|best[- ]in[- ]class|unmatched|outstanding)\b/i;
+/** Whether a statement instructs: a number with its unit, a condition, or an instruction (use, dry, set, avoid, anneal, nozzle). */
+export const instructive = (t) => SPECIFIC.test(String(t ?? ''));
 /** Topics that sell rather than inform: quoted after the others. */
 const SELLING = new Set(['Benefits', 'Good for']);
 /**
- * Statements ordered as a page quotes them: a sentence of readable length (six to forty words) first, then a specific
- * one (a number with its unit, or an instruction; `prefer` adds a pattern of its own), then one that informs before one
- * that sells, a data sheet's before a product page's, and the maker with the most products here; at most one of a text.
+ * Statements ordered as a page quotes them: an instructive one first (a number with its unit, a condition, or an
+ * instruction; `prefer` adds a pattern of its own), then a sentence of readable length (six to forty words), a data
+ * sheet's before a product page's, one that informs before one that sells, and the maker with the most products here;
+ * at most one of a text. Where any statement instructs, a pure claim ("odourless", "easy to print") is left out.
  */
 export function quoteOrder(list, c, { prefer = null, perProduct = false } = {}) {
   const makers = new Map();
   for (const g of productsOf(c)) makers.set(g.manufacturer, (makers.get(g.manufacturer) ?? 0) + 1);
   const sheet = (k) => (/TDS|data sheet/i.test(c.sourceById.get(k.sourceId)?.sourceClass ?? '') ? 0 : 1);
   const words = (t) => String(t ?? '').trim().split(/\s+/).length;
+  const text = (k) => k.text ?? k.finding ?? '';
+  const claim = (k) => CLAIM.test(text(k)) && !instructive(text(k));
   const score = (k) => {
-    const t = k.text ?? k.finding ?? '';
-    return [words(t) >= 6 && words(t) <= 40 ? 0 : 1, prefer ? (prefer.test(t) ? 0 : 1) : 0, SPECIFIC.test(t) ? 0 : 1, SELLING.has(k.topic) ? 1 : 0, sheet(k),
+    const t = text(k);
+    return [prefer ? (prefer.test(t) ? 0 : 1) : 0, instructive(t) ? 0 : 1, words(t) >= 6 && words(t) <= 40 ? 0 : 1, sheet(k), claim(k) ? 1 : 0, SELLING.has(k.topic) ? 1 : 0,
       -(makers.get(c.gradeById.get(k.gradeId)?.manufacturer) ?? 0)];
   };
-  const keyed = list.map((k) => ({ k, s: score(k) }));
+  const anyInstructs = list.some((k) => instructive(text(k)));
+  const keyed = list.filter((k) => !(anyInstructs && claim(k))).map((k) => ({ k, s: score(k) }));
   keyed.sort((a, b) => { for (let i = 0; i < a.s.length; i++) if (a.s[i] !== b.s[i]) return a.s[i] - b.s[i]; return String(a.k.id).localeCompare(String(b.k.id)); });
   const seen = new Set(), products = new Set();
   return keyed.map((x) => x.k).filter((k) => {
-    const key = String(k.text ?? k.finding ?? '').slice(0, 80);
+    const key = String(text(k)).slice(0, 80);
     if (seen.has(key) || (perProduct && stated(k.gradeId) && products.has(k.gradeId))) return false;
     seen.add(key);
     products.add(k.gradeId);

@@ -1,7 +1,7 @@
 // Printing on the H2C: what to set, what is needed and what goes wrong. Every temperature on one axis first (figures.js
 // temperaturesFigure: the settings against the H2C's limits, and where a part softens); one sentence (findings.js
 // the plate says the rest); the settings, what most products give beside the Bambu Lab Filament Guide's row (D88), or product by
-// product under six products, from each product's print gate (grades[].print) and its profiles' AMS words; the products
+// product where there are five or fewer (on the page's grid, common.js sheetFrame), from each product's print gate (grades[].print) and its profiles' AMS words; the products
 // that need a hardened nozzle; what annealing makers publish; and what makers say about printing it, in their words.
 
 import { esc, tableBox } from '../html.js';
@@ -10,8 +10,8 @@ import { printWindows, typicalWindow } from '../../js/ui/material-stats.js';
 import { hardenedShare } from '../../js/engine/products.js';
 import { dryingWords, fmtNumber } from '../../js/ui/format.js';
 import { settingWords, guideEnclosureWords, andList, windowText } from '../../js/ui/material-words.js';
-import { onTheH2cRows, quoteOrder, nWords, fmtD, glue } from '../findings.js';
-import { drawFigure, subhead, quote, quotes, productA, readerText, shortHeads, headA } from './common.js';
+import { onTheH2cRows, quoteOrder, instructive, nWords, fmtD, glue } from '../findings.js';
+import { drawFigure, subhead, quote, quotes, productA, readerText, shortHeads, headA, sheetFrame, pageProducts, ACROSS_MAX } from './common.js';
 
 /** The makers' topics about printing (db.meta.knowHow.topics), the order a print is set up in where makers tie. */
 const PRINT_TOPICS = ['Printing advice', 'Warping and shrinkage', 'Moisture sensitivity', 'Nozzle wear', 'Adhesion between layers', 'Supports and removal', 'Odour and emissions'];
@@ -60,28 +60,32 @@ function guideCells(g) {
 /** The settings table: what most products give and the guide's row, or each product's under six products. */
 function settingsTable(c) {
   const m = c.m;
-  const products = c.grades.filter((g) => isProduct(g) && !g.retired);
+  const products = pageProducts(c);
   const rows = onTheH2cRows(c);
   const byKey = Object.fromEntries(rows.map((r) => [r.key, r]));
-  const LABELS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber'], ['drying', 'Drying'], ['hardened', 'Nozzle type'], ['ams', 'AMS']];
-  if (products.length < 6) {
+  // The AMS: a row only where two products' sheets or more speak to it; one product's word is on its card.
+  const amsSaid = products.map((g) => [g, amsOf(c, g)]).filter(([, t]) => t.length);
+  const LABELS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber'], ['drying', 'Drying'], ['hardened', 'Nozzle type'], ...(amsSaid.length >= 2 ? [['ams', 'AMS']] : [])];
+  if (products.length <= ACROSS_MAX) {
+    // Product by product, on the grid of the page's other product tables (common.js sheetFrame): the same products, in
+    // the same order, under the same heads.
     const anyFrom = products.some((g) => Object.keys(g.print?.from ?? {}).length);
     const short = shortHeads(products);
-    const head = `<tr><th scope="col" class="prop">Setting</th>${products.map((g) => `<th scope="col">${headA(c, g, short.get(g.id))}</th>`).join('')}</tr>`;
+    const head = `<tr><th scope="col" class="prop">Setting</th>${products.map((g) => `<th scope="col" class="col-p">${headA(c, g, short.get(g.id))}</th>`).join('')}</tr>`;
     const body = LABELS.map(([k, label]) => `<tr data-print="${k}"><th scope="row" class="prop">${esc(label)}</th>${products.map((g) => (k === 'ams'
       ? `<td data-label="${esc(short.get(g.id))}">${esc(amsOf(c, g).map((t) => `"${t}"`).join('; ') || 'not stated')}</td>` : productCell(g, k, short.get(g.id)))).join('')}</tr>`).join('');
-    return `${tableBox(`<table class="grid settings settings--each"><thead>${head}</thead><tbody>${body}</tbody></table>`)}`
+    return sheetFrame(`<thead>${head}</thead><tbody>${body}</tbody>`, products.length, 'across', 'settings settings--each')
       + (anyFrom ? `<p class="sec-note">${esc('In grey, a setting a product reads from a data sheet it shares or from Bambu Lab\'s Filament Guide, where its own sheet is silent.')}</p>` : '');
   }
   // What most products give: the plate's rows, with the chamber's given windows and the AMS statements beside them.
   const ch = printWindows(products, 'chamber');
   const chw = typicalWindow(ch);
   const chamberGiven = chw ? `${windowText(chw.from, chw.to)} °C` : null;
-  // The AMS: each product whose sheet states it, by name, and how many others say nothing.
-  const amsSaid = products.map((g) => [g, amsOf(c, g)]).filter(([, t]) => t.length);
-  const amsWords = amsSaid.length
-    ? `${amsSaid.slice(0, 2).map(([g, t]) => `${productNameOrId(g)}: "${t.join('; ')}"`).join('; ')}${amsSaid.length > 2 ? `; ${amsSaid.length - 2} more say so` : ''}; the other ${fmtNumber(products.length - amsSaid.length)}: not stated`
-    : 'not stated';
+  // The AMS: how many sheets name it, the rest silent, and one product's words as an example.
+  const [ex, exWords] = amsSaid[0] ?? [];
+  const amsWords = amsSaid.length >= 2
+    ? `${amsSaid.length === products.length ? `All ${fmtNumber(products.length)}` : fmtNumber(amsSaid.length)} products' sheets name it${amsSaid.length < products.length ? '; the rest are silent' : ''}. ${productNameOrId(ex)}: "${exWords.join('; ')}"`
+    : '';
   const most = {
     nozzle: byKey.nozzle, bed: byKey.bed,
     chamber: { value: byKey.chamber.value === 'none needed' && chamberGiven ? `none; sheets that give one say ${chamberGiven}` : byKey.chamber.value, note: byKey.chamber.note },
@@ -131,27 +135,33 @@ function afterPrinting(c, statements, used) {
   return `${subhead('After printing')}${lead ? `<p class="sec-p">${esc(lead)}</p>` : ''}${quotes([...said.map((k) => quote(c, k)), ...envQuoted.map((e) => quote(c, e, { text: e.finding })), ...envGeneral.map((e) => quote(c, e, { text: e.finding, rec: true }))])}`;
 }
 
-/** What makers say about printing it: one statement a topic, the most-spoken topics open, the rest behind a fold. */
+/**
+ * What makers say about printing it: by topic, the instructive statements first (findings.js quoteOrder). A topic whose
+ * makers instruct is open, up to three; one where they only claim is behind the fold, its best claim the maker's.
+ */
 function makersOnPrinting(c, statements, used) {
   const m = c.m;
   const counts = m.knowHow?.topics ?? {};
-  const topics = PRINT_TOPICS.filter((t) => statements.some((k) => k.topic === t && !used.has(k.id)))
-    .sort((a, b) => (counts[b]?.makers ?? 0) - (counts[a]?.makers ?? 0) || PRINT_TOPICS.indexOf(a) - PRINT_TOPICS.indexOf(b));
   const all = statements.filter((k) => PRINT_TOPICS.includes(k.topic) && !used.has(k.id));
   const every = all.length <= 12;
+  const ordered = new Map(PRINT_TOPICS.map((t) => [t, quoteOrder(all.filter((k) => k.topic === t), c)]).filter(([, l]) => l.length));
+  const topics = [...ordered.keys()]
+    .sort((a, b) => (instructive(ordered.get(b)[0].text) ? 1 : 0) - (instructive(ordered.get(a)[0].text) ? 1 : 0)
+      || (counts[b]?.makers ?? 0) - (counts[a]?.makers ?? 0) || PRINT_TOPICS.indexOf(a) - PRINT_TOPICS.indexOf(b));
   const block = (t) => {
-    const list = quoteOrder(all.filter((k) => k.topic === t), c);
+    const list = ordered.get(t);
     const shown = every ? list : list.slice(0, 1);
-    const n = counts[t]?.makers ?? new Set(list.map((k) => c.gradeById.get(k.gradeId)?.manufacturer)).size;
-    return `<div class="said-topic"><h4>${esc(t)} <small>${esc(n === 1 ? 'one maker' : `${n} makers`)}</small></h4>${quotes(shown.map((k) => quote(c, k)))}</div>`;
+    return `<div class="said-topic"><h4>${esc(t)}</h4>${quotes(shown.map((k) => quote(c, k)))}</div>`;
   };
   // Statements about the material in general on printing it (a printer maker's or a guide's), this page's records.
   const generalSaid = c.ev.filter((e) => makersOwn(e) && general(e) && ['print-quality', 'moisture'].includes(e.category));
   if (!topics.length && !generalSaid.length) return '';
-  const open = every ? topics : topics.slice(0, 3), rest = every ? [] : topics.slice(3);
+  const instructs = topics.filter((t) => instructive(ordered.get(t)[0].text));
+  const open = (every ? instructs : instructs.slice(0, 3));
+  const rest = topics.filter((t) => !open.includes(t));
   const gen = generalSaid.length ? `<div class="said-topic"><h4>${esc(`On ${m.name} in general`)}</h4>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: stated(e.topic) && !/rubric/i.test(e.topic) ? e.topic : '' })))}</div>` : '';
-  return `${subhead('What makers say about printing it')}<div class="said-topics">${open.map(block).join('')}${gen}</div>`
-    + (rest.length ? `<details class="more"><summary>${esc(`More from makers: ${andList(rest.map((t) => t.toLowerCase()))}`)}</summary><div class="said-topics">${rest.map(block).join('')}</div></details>` : '');
+  return `${subhead('What makers say about printing it')}${open.length || gen ? `<div class="said-topics">${open.map(block).join('')}${gen}</div>` : ''}`
+    + (rest.length ? `<details class="more"><summary>${esc(`${open.length || gen ? 'More from makers' : 'From makers'}: ${andList(rest.map((t) => t.toLowerCase()))}`)}</summary><div class="said-topics">${rest.map(block).join('')}</div></details>` : '');
 }
 
 export default {

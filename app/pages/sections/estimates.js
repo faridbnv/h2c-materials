@@ -2,8 +2,9 @@
 // key property the build's estimate stage gives a range for (materials[].headline[key].estimate) and each estimated
 // print window (materials[].print.*Estimate), in one table: the likely range (80 %), the plausible range (95 %), how
 // precise it is, and how it sits beside what the products publish (materials[].summary[key].asPublished). Fenced off and
-// marked †, in the selector's own terms (format.js estimateDisplay); an estimate never makes a material pass, and nothing
-// else on the page rests on one.
+// said in the selector's own terms (format.js estimateDisplay); an estimate never makes a material pass, and nothing
+// else on the page rests on one. Its precision is said from its own ends, as printed: how many times the high end is the
+// low one, or for a temperature how many degrees lie between them.
 
 import { esc, tableBox } from '../html.js';
 import { fmtNumber, fmtRange, estimateDisplay } from '../../js/ui/format.js';
@@ -11,6 +12,16 @@ import { REGISTRY } from '../../js/ui/registry.js';
 import { inText, countWords, glue } from '../findings.js';
 import { andList } from '../../js/ui/material-words.js';
 import { para } from './common.js';
+
+/** An estimate's precision from its likely range as printed: "a factor of 2.8 between its ends", "35 °C between its ends". */
+function precisionWords(d) {
+  const lo = Number(String(d.lo).replace(/,/g, '')), hi = Number(String(d.hi).replace(/,/g, ''));
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return '—';
+  if (/°C/.test(d.unit)) return `${fmtNumber(hi - lo)} °C between its ends`;
+  if (!(lo > 0)) return '—';
+  const r = hi / lo;
+  return r >= 1.5 ? `a factor of ${fmtNumber(Math.round(r * 10) / 10)} between its ends` : `its high end ${fmtNumber(Math.round((r - 1) * 100))} % above its low end`;
+}
 
 /** How an estimate sits beside the values its products publish without a stated basis. */
 function beside(h, m, d) {
@@ -38,14 +49,14 @@ export default {
       const e = m.headline[h.key].estimate;
       const d = estimateDisplay(e, { ownUnit: true });
       const plausible = d.plausible ? `${d.plausible[0]}⁠–⁠${d.plausible[1]} ${d.unit}` : '—';
-      const precision = e.precision === 'poor' ? 'poor: an order of magnitude only' : e.precision === 'fair' ? 'fair: a rough guide' : e.precision;
+      const precision = precisionWords(d);
       return `<tr data-rec="${esc(`${m.id}/${h.key}/estimate`)}" data-estimate="${esc(h.key)}"><th scope="row" class="prop">${esc(h.labels.plain)}</th>`
-        + `<td class="num" data-label="Likely"><span data-v="${esc(e.lo)}" data-key="${esc(h.key)}" data-stat="estimate.lo">${esc(d.lo)}</span>⁠–⁠<span data-v="${esc(e.hi)}" data-key="${esc(h.key)}" data-stat="estimate.hi">${esc(d.hi)}</span> ${esc(d.unit)} <span class="dagger" aria-label="estimate">†</span></td>`
+        + `<td class="num" data-label="Likely"><span data-v="${esc(e.lo)}" data-key="${esc(h.key)}" data-stat="estimate.lo">${esc(d.lo)}</span>⁠–⁠<span data-v="${esc(e.hi)}" data-key="${esc(h.key)}" data-stat="estimate.hi">${esc(d.hi)}</span> ${esc(d.unit)}</td>`
         + `<td class="num" data-label="Plausible">${esc(plausible)}</td><td data-label="Precision">${esc(precision)}</td><td data-label="Beside what is published">${esc(beside(h, m, d))}</td></tr>`;
     });
     const wins = windows.map(([k, label]) => {
       const w = m.print[k];
-      return `<tr data-rec="${esc(`${m.id}/${k}`)}" data-estimate="${esc(k)}"><th scope="row" class="prop">${esc(label)}</th><td class="num" data-label="Likely">${esc(fmtRange(w.lo, w.hi))} ${esc(w.unit)} <span class="dagger" aria-label="estimate">†</span></td><td class="num" data-label="Plausible">—</td><td data-label="Precision">${esc('a starting point to verify')}</td><td data-label="Beside what is published">${esc(`no product publishes one; estimated from ${w.basis}`)}</td></tr>`;
+      return `<tr data-rec="${esc(`${m.id}/${k}`)}" data-estimate="${esc(k)}"><th scope="row" class="prop">${esc(label)}</th><td class="num" data-label="Likely">${esc(fmtRange(w.lo, w.hi))} ${esc(w.unit)}</td><td class="num" data-label="Plausible">—</td><td data-label="Precision">${esc('a starting point to verify')}</td><td data-label="Beside what is published">${esc(`no product publishes one; estimated from ${w.basis}`)}</td></tr>`;
     });
     const named = est.map((h) => inText(h.labels.plain));
     const lead = est.length

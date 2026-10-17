@@ -10,7 +10,7 @@
 
 import { esc, pct, fmtDisplay, NBSP, beyond, headline, shortName, withUnit, spanUnit, products, andList, orList, inText, figContext, gridLines, edgeMark, tickLabels, KEY, keyOf, twinTable } from './kit.js';
 import { figFrame } from './figure.js';
-import { materialCell, peerContrast, propertyScale, isFlexible } from '../../js/ui/material-stats.js';
+import { materialCell, peerContrast, propertyScale, isFlexible, compareMedians } from '../../js/ui/material-stats.js';
 import { spanDisplay } from '../numbers.js';
 import { PEER_COLUMNS } from '../figures.js';
 
@@ -74,6 +74,43 @@ function valueLabel(at, y, t, tick = 18) {
   return `<text class="dv-val" x="${pct(at)}" y="${y - tick / 2 - 3}" dx="${anchor === 'start' ? -2 : anchor === 'end' ? 2 : 0}" text-anchor="${anchor}">${esc(t)}</text>`;
 }
 
+// How a property's difference is said, by key: [higher, lower]; HDT is said as a difference in °C.
+const CONTRAST = {
+  tensileModulusXY: ['is stiffer', 'is less stiff'],
+  tensileStrengthXY: ['is stronger flat', 'is weaker flat'],
+  tensileStrengthZ: ['is stronger across the layers', 'is weaker across the layers'],
+  charpyNotched: ['is tougher in notched Charpy', 'is less tough in notched Charpy'],
+  priceCADkg: ['costs more', 'costs less'],
+};
+
+/**
+ * Where no property leads or trails by the margin, the finding the medians support (material-stats.js compareMedians,
+ * 5 % or 3 °C apart): the property on which this material differs from most of its alternatives in one direction, and
+ * the strongest in the other, e.g. "PLA is stiffer than PETG and ABS but softens 15–40 °C lower". A description, never a
+ * verdict; null where nothing differs from at least two alternatives.
+ */
+function contrastTitle(m, peers, keys) {
+  const name = shortName(m);
+  const per = keys.map((key) => {
+    const rows = peers.map((p) => ({ p, c: compareMedians(m, p, [key])[0] })).filter((x) => x.c);
+    const diff = rows.filter((x) => !x.c.same);
+    return { key, n: rows.length, up: diff.filter((x) => x.c.value > 0), down: diff.filter((x) => x.c.value < 0) };
+  }).filter((x) => x.key === 'hdt045' || CONTRAST[x.key]);
+  const strength = (xs) => xs.length * 10 + xs.reduce((t, x) => t + Math.abs(x.c.kind === 'diff' ? x.c.value / 50 : x.c.value), 0) / Math.max(1, xs.length);
+  const pick = (dir, not) => per.filter((x) => x !== not && x[dir].length >= 2 && x[dir].length * 2 >= x.n).sort((a, b) => strength(b[dir]) - strength(a[dir]))[0] ?? null;
+  const pos = pick('up'), neg = pick('down', pos);
+  const clause = (x, dir, names) => {
+    const xs = x[dir];
+    const than = names ? ` than ${andList(xs.slice(0, 3).map((r) => shortName(r.p)))}${xs.length > 3 ? ' and others' : ''}` : '';
+    if (x.key === 'hdt045') { const d = xs.map((r) => Math.abs(r.c.value)); return `softens ${spanUnit(Math.min(...d), Math.max(...d), '°C')} ${dir === 'up' ? 'higher' : 'lower'}${than}`; }
+    return `${CONTRAST[x.key][dir === 'up' ? 0 : 1]}${than}`;
+  };
+  if (pos && neg) return `${name} ${clause(pos, 'up', true)} but ${clause(neg, 'down', false)}`;
+  if (pos) return `${name} ${clause(pos, 'up', true)}`;
+  if (neg) return `${name} ${clause(neg, 'down', true)}`;
+  return null;
+}
+
 export function peersFigure(c, env = {}, opts = {}) {
   const k = figContext(c, env);
   const m = c.m;
@@ -127,14 +164,14 @@ export function peersFigure(c, env = {}, opts = {}) {
       const name = href ? `<a href="${esc(href)}">${esc(shortName(r))}</a>` : esc(shortName(r));
       return `<div class="pe-name${self ? ' pe-name--self' : ''}" data-mat="${esc(r.id)}" data-name="${esc(shortName(r))}"${self ? ' data-self=""' : ' data-alt="1"'}>${name}<span>${esc(products(r.gradeIds.length))}</span></div>`;
     }).join('') + '</div>';
-  const plot = `<div class="pe" style="--rows:${rows.length};--cols:${cols.length}">${names}${svgs.join('')}</div>`;
+  const plot = `<p class="pe-cue" aria-hidden="true">Scroll sideways for every column →</p><div class="pe-wrap"><div class="pe" style="--rows:${rows.length};--cols:${cols.length}">${names}${svgs.join('')}</div></div>`;
 
   // The finding: where this material leads or trails its alternatives by a clear margin.
   const said = peerContrast(m, peers, cols.map((col) => col.key));
   const words = (keys) => andList(keys.map((key) => inText(headline(key)).replace(/ \(XY\)$/, '')));
   const parts = [said.high.length ? `the highest ${words(said.high)}` : '', said.low.length ? `the lowest ${words(said.low)}` : ''].filter(Boolean);
   const name = shortName(m);
-  const title = parts.length ? `Against its alternatives, ${name} has ${parts.join(' and ')}` : `${name} against its alternatives`;
+  const title = parts.length ? `Against its alternatives, ${name} has ${parts.join(' and ')}` : contrastTitle(m, peers, cols.map((col) => col.key)) ?? `${name} against its alternatives`;
   const kinds = new Set(cols.flatMap((col) => col.cells.map((x, i) => (x ? `${i ? 'peer' : 'self'}-${x.kind}` : null))));
   const key = keyOf([KEY.selfCell(name), KEY.peerCell(), KEY.range(), KEY.rug(), ...(kinds.has('self-open') || kinds.has('peer-open') ? [KEY.open()] : []), ...(clipped ? [KEY.clip()] : [])]);
   const table = twinTable(['Material', ...cols.map((col) => `${col.title} (${col.h.unit})`)], rows.map((r, i) => [
@@ -154,7 +191,7 @@ export function peersFigure(c, env = {}, opts = {}) {
     slug: opts.id ?? 'alternatives', kind: 'peers', title,
     question: 'How does it compare with what an engineer would buy instead?',
     key, plot, label: null,
-    read: `Each row is a material, each column a property on the scale it has on every page: the bar is the middle half of a material's products, the tick their median, the hairline their lowest to highest. The ticks above the rows are every material's median; those beyond the scale are counted at its ends, and a chevron marks a value beyond it.`,
+    read: `Each row is a material, each column a property: the bar is the middle half of a material's products, the tick their median, the hairline their lowest to highest; the ticks above the rows are every material's median.`,
     table, leaves, method: 'alternatives',
   });
   return { html, empty: false, stats: { figures: 1, dots: marks } };

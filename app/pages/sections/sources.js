@@ -69,8 +69,11 @@ export default {
         + '</tbody></table>'));
       for (const d of settingsDocs) {
         const n = d.gave.guide ? c.grades.filter((g) => Object.values(g.print?.from ?? {}).some((f) => f?.origin === 'guide')).length : c.documents.get(d.sid).grades.size;
-        const name = d.gave.guide ? 'Bambu Lab\'s Filament Guide' : [d.s?.publisher, String(d.s?.title ?? '').replace(/\s*\|.*$/, '')].filter(Boolean).join(', ');
-        if (n) parts.push(`<p class="sec-note">${esc(`${name}: print settings for ${plural(n, 'product')}${d.gave.guide ? ' whose own sheets are silent' : ''}.`)}</p>`);
+        const title = String(d.s?.title ?? '').replace(/\s*\|.*$/, '');
+        const name = d.gave.guide ? 'Bambu Lab\'s Filament Guide' : [d.s?.publisher, title].filter(Boolean).join(', ');
+        // What each is, in a few words, since both are Bambu Lab's and both give print settings.
+        const what = d.gave.guide ? 'print settings per material type' : /\bH2C\b/.test(title) ? 'the H2C\'s printer guide' : 'printer documentation';
+        if (n) parts.push(`<p class="sec-note">${esc(`${name} (${what}): ${d.gave.guide ? `read for ${plural(n, 'product')} whose own sheets are silent` : `print settings for ${plural(n, 'product')}`}.`)}</p>`);
       }
     }
     if (gaps.length) parts.push(`${subhead('Known gaps', 'known-gaps')}<ul class="gaps">${gaps.map(gapItem).join('')}</ul>`);

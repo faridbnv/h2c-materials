@@ -38,13 +38,18 @@ function strip(c, k, key) {
   const entries = h ? spreadEntries(c.m, c, key) : [];
   if (!inStrip(c.m, key) || !entries.length) return null;
   const s = c.m.summary?.[key] ?? {};
-  // The property's scale; zoomed to the products where they sit in a narrow part of it (modified products aside).
+  // The property's scale, zoomed where most products sit in a narrow part of it: the ranked products' 5th to 95th
+  // percentile (all but the modified ones where fewer than four are ranked). A few far off (PLA's annealed HDTs of 75 to
+  // 135 °C) then lie beyond the zoom, drawn as chevrons at its edge, their values on hover and in the table.
   const fixed = propertyScale(k.db, k.ranks, key, isFlexible(c.m));
+  const ranked = entries.filter((e) => !e.variant && e.v.level === 'comparable').map((e) => e.v.value);
   const plain = entries.filter((e) => !e.variant).map((e) => e.v.value);
-  const vals = plain.length ? plain : entries.map((e) => e.v.value);
+  const vals = (ranked.length >= 4 ? ranked : plain.length ? plain : entries.map((e) => e.v.value)).sort((a, b) => a - b);
+  const q = (p) => { const i = (vals.length - 1) * p, lo = Math.floor(i); return vals[lo] + (vals[Math.min(lo + 1, vals.length - 1)] - vals[lo]) * (i - lo); };
+  const core = vals.length >= 10 ? [q(0.05), q(0.95)] : [vals[0], vals.at(-1)];
   let sc = fixed, zoomed = false;
-  if (!fixed) { sc = zoomScale(vals, h.unit, false); zoomed = true; }
-  else if (Math.min(...vals) !== Math.max(...vals) && (fixed.pct(Math.max(...vals)) - fixed.pct(Math.min(...vals))) < ZOOM * 100) { sc = zoomScale(vals, h.unit, fixed.log); zoomed = true; }
+  if (!fixed) { sc = zoomScale(core, h.unit, false); zoomed = true; }
+  else if (core[0] !== core[1] && (fixed.pct(core[1]) - fixed.pct(core[0])) < ZOOM * 100) { sc = zoomScale(core, h.unit, fixed.log); zoomed = true; }
   const X = (v) => sc.pct(v);
   const levels = [];
   const placed = [...entries].sort((a, b) => a.v.value - b.v.value || a.g.id.localeCompare(b.g.id)).map((e) => {
@@ -82,7 +87,8 @@ function strip(c, k, key) {
   const n = s.n ?? 0;
   const open = placed.filter((p) => p.marks.includes('open')).length;
   const scaleWords = zoomed ? `scale ${tickText(sc.from)}–${tickText(sc.hi)}${NBSP}${h.unit}${sc.log ? ', log' : ''}` : `${h.unit}${sc.log ? ', log scale' : ''}`;
-  const sub = `${scaleWords} · ${n ? products(n) : 'as published only'}`;
+  // What the reader sees: how many marks, and how many of them are ranked (in the band and the median).
+  const sub = `${scaleWords} · ${n === entries.length ? `${products(n)}, all ranked` : n ? `${n} ranked of ${entries.length} shown` : `${entries.length} shown, none ranked`}`;
   const clipped = placed.some((p) => p.side);
   const html = `<div class="st-row" data-key="${esc(key)}" data-unit="${esc(h.unit)}" data-open="as published: orientation or load not stated">`
     + `<div class="st-label">${esc(h.labels.plain)}<small>${esc(sub)}</small></div>`
@@ -118,8 +124,11 @@ function titleOf(id, m, rows, total) {
 export function stripsFigure(c, env = {}, keys = [], opts = {}) {
   const k = figContext(c, env);
   const id = opts.id ?? 'products';
+  // The how-to-read is said once a page, on its first strips figure.
+  const first = !k.stripsSaid;
   const rows = keys.map((key) => strip(c, k, key)).filter(Boolean);
   if (!rows.length) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
+  k.stripsSaid = true;
   const m = c.m;
   const name = shortName(m);
   const total = m.gradeIds.length;
@@ -141,8 +150,8 @@ export function stripsFigure(c, env = {}, keys = [], opts = {}) {
   const html = figFrame({
     slug: `products-${id}`, kind: `strips-${id}`, title: titleOf(id, m, rows, total), question: QUESTIONS[id] ?? 'How do its products spread?',
     key, plot: rows.map((r) => r.html).join(''), label: null,
-    read: 'One mark per product, on the scale the property has on every page (zoomed where its products sit close together, as its label says); the band is the middle half of the products ranked and the line their median.',
-    howto: 'Hover a product to find it in every figure; select one to open its card on the Products page.',
+    read: first ? 'One mark per product on each property\'s scale (zoomed where its products sit close together, as its label says); the band is the middle half of the products ranked and the line their median.' : '',
+    howto: first ? 'Hover or select a product to find it in every figure; its name opens its card on the Products page.' : '',
     table, leaves, method: 'products',
   });
   return { html, empty: false, stats: { figures: 1, dots: rows.reduce((t, r) => t + r.entries.length, 0) } };
