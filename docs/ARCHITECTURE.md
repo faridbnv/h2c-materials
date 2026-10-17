@@ -83,8 +83,9 @@ no backend and no network. That rules out CDN references, which is why the libra
 the dependency versions are pinned.
 
 The compiled database ships gzipped and base64-encoded, inflated at boot with `DecompressionStream`.
-On 2026-10-14 it was about 36 MB raw, most of it measurements, and 3.3 MB embedded once gzipped and base64-encoded.
-The plotting library is still most of what the file weighs: 4.3 of the page's 8.2 MB ("Scale" below says how far that holds).
+On 2026-10-17 it was about 39 MB raw, most of it measurements, and 3.6 MB embedded once gzipped and base64-encoded.
+The plotting library is still most of what the file weighs: 4.3 of the page's 8.4 MB ("Scale" below says how far that
+holds). The build prints sizes in MiB (8.0 for the page).
 
 The material pages are not in it (D142). They are separate static files beside it, in `dist/materials/` (on the site
 at `materials/`; a release carries them as one zip), because a page per material would multiply the one file's weight
@@ -104,10 +105,10 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `load.js` / `source.js` | Read the tables into raw row objects, and (`source.js`) each file's SHA-256 for the audit record. No interpretation. |
 | `registry.js` | The property registry: what each property and headline means, which materials it applies to (Applies to may test the material's columns and its polymer's Morphology), and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57), and the comparisons the drawer draws (`drawer_comparisons.csv`, checked by REGISTRY-COMPARISON; D139). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
-| `normalize/direction.js` | Twelve spellings of build direction onto ten canonical values (a source's own label and a ±45° raster get their own values; three spellings are unknown), and which may be compared with which. |
+| `normalize/direction.js` | Thirteen spellings of build direction onto eleven canonical values (a source's own label, a ±45° raster and a YX bar get their own values; three spellings are unknown), and which may be compared with which. |
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm², ISO 75's method letter ("HDT/A", "Method B") among them; a load stated as a number outranks a letter beside it, and a text naming both loads states neither. The test temperature a wording states ("23 °C", "@23° C", "+24°C", "150℃"). |
 | `normalize/standards.js` | The standards a Standard / load text names, at family level and one spelling each (DIN's five-digit numbers and ISO's "ISO-R" among them); it checks the typed Standards column (D76). |
-| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying (its need, required, optional, not-needed or unknown, and an open duration such as "6+ h": D127, D129), abrasion. The chamber's partial window, its answers in words, and an enclosure the H2C's chamber meets (`enclosed`, D90, D93). |
+| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying (its need, required, optional, not-needed or unknown, and an open duration such as "6+ h": D127, D129), abrasion. The chamber's partial window, its answers in words, and an enclosure the H2C's chamber meets (`enclosed`, D90, D93). A number a cell states that is not a temperature (a nozzle size, a speed, hours) is set aside (`stripNonTemperatures`); every other is read as stated, and one outside its axis's plausible window (`TEMP_WINDOW` in `recipe.js`) is typed as stated and reported (PROCESS-WINDOW-IMPLAUSIBLE), never dropped (D141). |
 | `normalize/chemical.js` | Environment topics onto canonical categories (`schema/vocab/environment-topics.csv`); findings onto verdicts. |
 | `normalize/moisture.js` | The moisture state at test (dry, conditioned, not-stated): the typed Moisture state column, and a reader of what the Moisture condition wording plainly says, which checks it (D53, D68). |
 | `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament, off-recipe), the typed Post-processing state (as-printed, annealed, not-stated) and anneal schedule with the readers that check them, and whether an annealed value has an as-printed twin (D56, D68, D95). A denied annealing ("has not been annealed") reads as as-printed first (D129). |
@@ -122,7 +123,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `product-claims.js` | What a maker sells a product as, where it matters to how its values are read (`product_claims.csv`, D133): each claim points at the maker's own recorded statement, whose words must speak of what the claim is about (PRODUCT-CLAIM-REFERENCE, PRODUCT-CLAIM-WORDS); shown beside the product's values, and products sold as toughened are set apart from the impact medians. |
 | `written.js` | The written summaries at the head of the material pages (D142): each row of `material_summaries.csv` becomes `materials[].written` (who, when, review status, and its text as parts), every placeholder filled from the material's compiled spreads and the counts its page shows, after products.js. A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); the lint finds a number typed by hand (SUMMARY-NUMBER, lint-rules.js). It decides nothing. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
-| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data, and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
+| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data (the moisture domain also counts its makers' own statements on moisture sensitivity, which decide nothing, D143), and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
 | `build-cache.js` | The result of `buildDatabase` stored in `.cache/build/` under a SHA-256 of everything it depends on, so the callers that compile the same tables run the estimate stage once (below, "Scale"). The same store keeps the material pages (stage 8), keyed by `digestFiles` over the renderer's code, the database's SHA-256 and the selector's file name. |
 | `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (conversions, limits, the fit's judgements) and the tables it reads (`polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `solver.js` the kernel solved block by chemical group (D79), `calibration.js`, `bounds.js` ranges and their limits (a material's range contains every product's proven floor; a semicrystalline polymer's melting point is a ceiling on its heat deflection, D126), `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `floors.js` back-tests the floors (`meta.estimateModel.properties.*.floors`), and `order.js` checks that no estimate or product value shown breaks an order its own measurements set (EST-ORDER, PRODUCT-ORDER; D126). `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate never passes; D137 adds independent product exclusion certification in `product-screening.js`. |
@@ -193,7 +194,8 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, both without the material pages, and prints every difference in `dist/db.json`. |
 | `data/db-diff.mjs` | Every difference by path between two `dist/db.json` files (`--summary` groups them); what `build-diff.mjs` prints with. |
 | `ensure-db.mjs` | Runs `npm run build` before `npm test`, so the database tests read current inputs. |
-| `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views; the snapshot's `pages.csv` and the probe's `50-page-*` views are the material pages'. |
+| `snapshot.mjs`, `ui-probe.mjs`, `lib/page-products-check.js` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views; the snapshot's `pages.csv` and the probe's `50-page-*` views are the material pages' (`--only pages` runs those alone), and `page-products-check.js`, evaluated inside a page, sorts, searches, toggles and pages its Products table as a reader would. |
+| `lib/run-steps.mjs`, `scale-budget.mjs` | How `verify` and `verify:fast` run their steps, side by side or one at a time, and print the table (`runGraph`, D144); the scale check's timings judged against their budget, last in `verify`. |
 | `pages/render.mjs` | `npm run pages -- M020 M001` (or `--all`): renders material pages into `dist/materials/` while their design is worked on, after emptying it: the named materials only (or all with `--all`), so `npm run build` comes before `pages:check`; the build's stage 8 writes them all. A page's written summary is the database's (`materials[].written`). |
 | `pages/fields.mjs`, `pages/page-text.mjs`, `pages/add-summaries.mjs` | The written summaries' tools (D142): `npm run pages:fields -- <id>`, every field a material's summary can fill with the value the build would put there, and what it refuses, asked of `build/src/written.js` itself; `npm run pages:text -- <id>`, the page the build wrote as text, section by section; `npm run pages:add-summaries -- <file.csv>`, a file's rows into `material_summaries.csv` through table-io, all or none (`--revise` replaces, naming the cells it replaces; `--check` writes nothing), a material with no page, a placeholder the build refuses or a lint finding refusing the file. `pages/lib.mjs` holds what they share. |
 | `pages/subset-fonts.mjs` | Run once: downloads Inter and Newsreader, checks their SHA-256 and their licence (SIL Open Font License 1.1, no Reserved Font Name), subsets them to what the pages use and writes `app/pages/assets/fonts/` with `FONTS.md`. |
@@ -222,8 +224,8 @@ checks, interface views (the selector's and the material pages') and 300 rendere
 scale and reproducible-build checks (`npm run scale`, `npm run reproducible`), before a commit. Both scripts run every step even when one fails and list the
 failures at the end (`scripts/lib/run-steps.mjs`), so one run shows everything that is wrong. The steps that do not need
 each other run side by side, each printed whole when it finishes (D144): the documents' checks while the build runs, the
-audit, the snapshot and the views beside the tests; the import tests after the unit tests, the reproducible-build check
-alone after every step that reads `dist/`, and the timed scale check alone and last. `--serial` runs one step at a time. The
+audit, the snapshot and the views beside the tests; the import tests after the unit tests, the timed scale check alone after every other step, the
+reproducible-build check alone after it (it rebuilds `dist/`), and the scale budget judged last. `--serial` runs one step at a time. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify`'s data group, its views and its rendered scenarios in three parts side by side on every push
 to main and on pull requests, and its
@@ -280,19 +282,35 @@ The shared design tokens (the palette light and dark, the status colours, the ra
 
 Run by the build's stage 8 in Node, never in the selector. They read the compiled database through `app/js/ui/`
 (the facts, words, statistics and scales above) and decide nothing; `app/pages` is outside the release's inputs (D96), so
-a change to the pages' design is not a new release (D142).
+a change to the pages' design is not a new release (D142). So are the interface around the engine (`app/js/ui` but
+`templates.js`) and `app/css`: `RELEASE_INPUTS` in `build/src/release.js` names the tables, the schema, `build/src` and
+`build/mappings`, the engine with the templates, and the locked dependencies, and `test/release.test.js` asserts that the
+engine and the templates are in and the rest of `app/` is out.
+
+**Kept from disagreeing.** The drawer and the pages are two renderers of one set of facts. Which records, in which
+order, counted how, drawn or not and why is chosen once, in `material-facts.js`; the shared sentences are
+`material-words.js`, which takes every word for a stored code from `labels.js`; numbers become text in `format.js`; the
+scales are `scales.js`. A number the build does not hold is compiled in `build/src/`, where the contract checks it and
+the drawer can read the same field, never worked out in a page alone (`written.js` fills a summary's numbers so). The
+guards: `test/material-facts.test.js` holds the contracts the two share against the rendered drawer (the context, the
+tab counts, the page rule, the scale rule, a product's name, the rank table); `test/material-stats.test.js` holds each
+page-only statistic to the compiled fields; `test/drawer-comparisons.test.js` and `test/print-spread.test.js` hold the
+drawer's comparison headings and print temperatures to the build; `test/summaries.test.js` holds the summaries' fill;
+and `test/pages.check.js` (`npm run pages:check`, in `verify` after the build: P1 to P14, the index, and the counts one
+section gives against another's) holds every number on every page to the database it was rendered from, and the
+drawer's Full page link to the page rule (P13).
 
 | Module | Responsibility |
 |---|---|
-| `render.js` | `renderSite(db, env)`: every page the page rule admits, its records page, the index and the shared assets, as text, from the database alone. Pure: no file is read or written. `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
+| `render.js` | `renderSite(db, env)`: every page the page rule admits, its records page, the index and the shared assets, as text, from the database alone. No file is read or written (it sets the ui modules' registry and baseline, as the selector does at start). `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
 | `stage.js` | Node only: stage 8. The build cache, the write to `dist/.materials-<pid>/` and the rename into `dist/materials/`, the budgets, and the digest the manifest records. |
 | `read-assets.js` | Node only: reads what the shared assets are made of (tokens, stylesheets, scripts, the faces, the licences) for `buildAssets`. |
 | `shell.js` | The document around every page: head, the sticky top bar, the contents (a rail at 1,080 px and wider, a strip below), the main element and its stamps. |
-| `sections/` | A material page's sections, in reading order (`SECTIONS` in `sections/index.js`); each `render(c, env)` returns its HTML and whether it is empty, and an empty one leaves the page and is named in one "Not on file" line. |
+| `sections/` | A material page's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, records?, render(c, env, place) }`, returning `{ html, empty, stats }`, and an empty one leaves the page and is named in one "Not on file" line. |
 | `records/` | A records page's tables (`RECORD_SECTIONS`), every record of its kind raw with its ID, and the finder above them. |
 | `index-page.js` | The index of every listed material by family and polymer, linked where it has a page, and what it falls short on where it has none. |
-| `charts/` | The figures' grammar: scales, marks, axes, dot plots, context strips, scatters, print windows, the heat ladder, the map, and the figure frame with its caption and "How this is counted". |
-| `figures.js` | What the pages draw beyond the drawer, as configuration (the first screen's numbers, the maps, the profile's groups, the ladder's rungs). |
+| `charts/` | The figures' grammar: scales, marks, axes, dot plots, dumbbells (XY against Z, product by product), the property profile's tracks, scatters, print windows, the heat ladder, the map, the rank line, and the figure frame with its caption and "How this is counted". |
+| `figures.js` | What the pages draw beyond the drawer, as configuration: the first screen's numbers and comparison lines (`FIRST_SCREEN`), the maps (`MATERIAL_MAPS`), the scatters of two properties (`FIGURE_PAIRS`), the profile's groups (`PROFILE_GROUPS`), the ladder's extra rungs (`LADDER_EXTRA`), the makers' topics' order (`MAKER_TOPICS`) and the tests tabulated across the layers (`LAYER_TESTS`). |
 | `findings.js`, `numbers.js`, `html.js` | The sentences a section opens with; numbers in scientific notation where they are very large or small; markup helpers. |
 | `budget.js` | What a page, a records page, the stylesheet, the script and the set may weigh (`PAGE_BUDGET`). |
 | `tables-asset.js`, `assets/` | The stylesheet sources (`pages.src.css`, `tables.src.css`), the classic page script (`page.js`, `tables.src.js`) and the embedded faces with their licences (`fonts/`, `FONTS.md`). |
@@ -374,15 +392,23 @@ category without importing anything from `ui/`.
 **A new lens.** Add it to `renderLens` in `main.js` and to the lens bar in `app/index.html`. Read
 `state.rows`; never re-filter.
 
-**A new section on the material pages.** One file in `app/pages/sections/` (`{ id, title, render(c, env) }`, reading
-only the material's facts) and one line in `SECTIONS` (`app/pages/sections/index.js`); with nothing on file it returns
-`empty` and leaves the page, named in the "Not on file" line (its words in `ABSENT`, `render.js`). A new property,
-headline or comparison needs no page code: the pages read the registry as the drawer does.
+**A new section on the material pages.** One file in `app/pages/sections/` (`{ id, title, records?, render(c, env,
+place) }`, reading only the material's facts) and one line in `SECTIONS` (`app/pages/sections/index.js`); with nothing
+on file it returns `empty` and leaves the page, named in the "Not on file" line (its words in `ABSENT`, `render.js`). A
+new property, headline or comparison needs no page code: the pages read the registry as the drawer does. A section
+decides nothing, and a number it needs that the build does not hold is compiled (above, "Kept from disagreeing").
 
-**A new figure on the material pages.** A new map (a scatter of two key properties) or a new rung or group is one line
-in `app/pages/figures.js`; a new kind of figure is a module in `app/pages/charts/`, drawn with the shared marks and
+**A new figure on the material pages.** A new map of every material (`MATERIAL_MAPS`), a scatter of two properties
+within the material (`FIGURE_PAIRS`), a rung (`LADDER_EXTRA`) or a profile group (`PROFILE_GROUPS`) is one line in
+`app/pages/figures.js`; a new kind of figure is a module in `app/pages/charts/`, drawn with the shared marks and
 `figure()` so it has a title, a key, a caption and "How this is counted". A new records table is one file in
-`app/pages/records/` and a line in its list.
+`app/pages/records/` and a line in its list (`RECORD_SECTIONS`).
+
+**A new field a written summary can name.** A count or a part of a headline's spread is added in `build/src/written.js`
+(`COUNT_FIELDS`, `HEADLINE_PARTS`, and their fill), from compiled values only, never an estimate; `npm run pages:fields
+-- <MaterialID>` then lists it with its value. A field a material cannot fill stops the build (SUMMARY-PLACEHOLDER), and
+`test/summaries.test.js` guards the fill. The page formats a filled value as its key figures do; the stored part keeps
+the raw number.
 
 ## The build, stage by stage
 
@@ -476,7 +502,9 @@ the parsers check them (PARSE-MISMATCH unless Parse review explains the differen
 here shipped and are now pinned by tests:
 
 - A leading minus in the number pattern made the range dash in `255-275C` read as the sign of -275,
-  which failed the plausibility window and collapsed the range to its lower end.
+  which failed the plausibility window and collapsed the range to its lower end. Until D141 that window also filtered
+  a cell's numbers before the window was read, so `450 - 520 °C` was typed as 450; a plausibility window is now a check,
+  never a filter: a number outside it is typed as stated and reported (PROCESS-WINDOW-IMPLAUSIBLE).
 - `Room Temp. Annealing temp. and time 100 °C/16H PolyDissolve S1` is a room-temperature chamber
   plus a post-print anneal. Scraping its 100 °C as a chamber requirement wrongly excluded four
   printable support materials.
@@ -727,13 +755,14 @@ skipped with `--validate-only` and `--no-estimates`; `--no-pages` builds everyth
   code digest), the database's SHA-256 and the selector's file name; a hit writes the stored files.
 - **Whole or not at all.** Written to `dist/.materials-<pid>/` and renamed into place, so no reader sees half a folder.
 - **Weighed.** Each page, the stylesheet, the script and the set against `app/pages/budget.js`: over budget is a
-  warning, over twice it stops the build (and `pages.check.js` fails over budget).
+  warning printed as `[PAGE-BUDGET]` (a word of the stage's own, not in the rule catalogue), over twice it stops the
+  build, and `pages.check.js` fails over budget.
 - **Recorded.** `dist/manifest.json` gets `outputs['materials/']`, the SHA-256 over the sorted
   `"<sha256>  materials/<path>"` lines, and `pages` (the count of pages, of records pages, and their bytes), so the
   reproducible-build check covers the pages too.
 
-It prints one line: `pages  76 pages, 76 records pages and the index, 29.2 MB in all, in 1080 ms`, or `read from the build
-cache in … ms`. Rendering every page takes about a second; a cache hit about a tenth of that.
+It prints one line, for example `pages  76 pages, 76 records pages and the index, 29.2 MB in all, in 1080 ms` (MiB, as the
+bundle's line), or `read from the build cache in … ms`. Rendering every page takes about a second; a cache hit about a tenth of that.
 
 ### Verifying a build
 
@@ -747,8 +776,8 @@ open dist/H2C_Material_Selector_*.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
 
-The end-to-end check is the worked example from the architecture brief: H2C-relevant, HDT at least
-100 °C, modulus at least 3 GPa, density at most 1500 kg/m3, Strict mode: the "Outdoor structural part" template, which
+The end-to-end check is the worked example from the architecture brief: H2C-relevant and within the H2C's
+temperature limits (D101), HDT at least 100 °C, modulus at least 3 GPa, density at most 1500 kg/m3, Strict mode: the "Outdoor structural part" template, which
 adds a build material and an optional price. Its candidates are that template's Strict rows in
 `build/snapshot/templates.csv`, nearly all fibre-reinforced engineering polymers. Every one should explain itself and
 trace to a MeasurementID, a GradeID and a SourceID.
@@ -783,7 +812,8 @@ run found hundreds of values the original transcription had dropped (migrations 
 
 `npm run snapshot` writes `build/snapshot/`: every headline (value, or estimate with its likely and plausible
 ranges and the range that may screen), process gates, each template's candidates in Strict, Explore and Explore
-with estimates, and every build warning by record. `npm run ui:check` drives the built page in headless Chrome
+with estimates, and every build warning by record, with the products, spreads, states, print gates, environment
+verdicts, claims, screening ends and pages the head of `scripts/snapshot.mjs` lists, one file each. `npm run ui:check` drives the built page in headless Chrome
 through the default view, every template in both modes, each shared link reopened, and Compare, and compares what
 a reader sees with `build/snapshot/ui/`. The default, template, ranked and family views record each results table as
 a summary (its headers, one line per row, the first eight rows in full), so a data change does not rewrite whole tables;
@@ -830,16 +860,16 @@ estimate model dominates. Its Gaussian process is cubic in the size of each chem
 observations, because `estimate/solver.js` solves the kernel block by block, so the largest group sets the pace (D77,
 D79).
 
-**Where the design holds, and what changes first.** Measured on 2026-10-14 (the architecture review). Each first change
-keeps the page one file on GitHub Pages; none is needed at today's size.
+**Where the design holds, and what changes first.** Judged on 2026-10-14 (the architecture review), the sizes measured
+again on 2026-10-17. Each first change keeps the page one file on GitHub Pages; none is needed at today's size.
 
 | What grows | Today | Holds to about | First change when it does not |
 |---|---|---|---|
-| The page | 8.2 MB: the database 3.3 MB embedded, the plotting library 4.3 MB | three times the data (Pages allows 100 MB a file) | the measurements as a second static file beside the page, read when a drawer opens; then a lighter chart for the one view that uses the plotting library |
-| The database in the browser | 36 MB parsed, half of it measurements | three times (a parse of 100 MB takes seconds and about 1 GB on a laptop) | the same split; a long string repeated on every row (the print parameters) stored once and referred to |
+| The page | 8.4 MB: the database 3.6 MB embedded, the plotting library 4.3 MB | three times the data (Pages allows 100 MB a file) | the measurements as a second static file beside the page, read when a drawer opens; then a lighter chart for the one view that uses the plotting library |
+| The database in the browser | 39 MB parsed, half of it measurements | three times (a parse of 100 MB takes seconds and about 1 GB on a laptop) | the same split; a long string repeated on every row (the print parameters) stored once and referred to |
 | The estimate stage | 14 s, and 85 s at twice the data on the owner's machine; 140 s at twice the data on CI's runner (2026-10-15) | not much past twice the data on CI, whose weekly trend job enforces the 150 s budget; CI builds it cold on every push | CI keeps the stage's result keyed by its inputs, as the local build cache does; the result is the same |
 | `verify:fast` | about a minute | at its 90 s budget | the import fixtures' build and the 23 tests that read `dist/db.json` |
-| The tables | 15,400 measurements, 1,180 grades | tens of thousands of rows; the schema gate takes a second | nothing: CSV under a schema scales further than a person can review it |
+| The tables | 15,400 measurement rows and 1,180 grade rows (the active ones are counted in `build/snapshot/counts.md`) | tens of thousands of rows; the schema gate takes a second | nothing: CSV under a schema scales further than a person can review it |
 | The results table | 152 materials | about 400 | rows drawn as they scroll into view |
 | Adding a data sheet | a batch at a time | bounded by reading, not code | the page-read path (IMPORTING.md), with the text reader as its check |
 

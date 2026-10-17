@@ -19,7 +19,8 @@ ones. Use it to get to a short list quickly and honestly; then read the exact gr
 
 ## The path from a data sheet to a number on the screen
 
-Eight stages, each a separate piece of the project, so that a mistake in one is caught before the next. Read the
+Eight steps, each a separate piece of the project, so that a mistake in one is caught before the next (numbered for
+this reading; the build's own stages, numbered 0 to 8, are in [ARCHITECTURE.md](ARCHITECTURE.md#the-build-stage-by-stage)). Read the
 diagram top to bottom: beige is the outside world, blue is data you can open in a text editor, green is computation,
 amber is a check that can stop the build, purple is what ships. The dotted lines at the bottom are the checks that run
 against the finished article rather than inside it.
@@ -88,6 +89,7 @@ flowchart TB
     CTRT --> DBJS["dist/db.json · the compiled database"]
     DBJS --> BNDL["Bundle · compress the data, inline the interface,<br/>the stylesheet and the plotting library"]
     BNDL --> HTML["One HTML file · works offline,<br/>from a local file or a shared drive, no server"]
+    DBJS --> MPGS["dist/materials · a page of its own for each well-documented material,<br/>from the same compiled database · it decides nothing"]
 
     subgraph PAGE["8 · The page · nothing here reads a data sheet or recomputes a headline"]
         direction LR
@@ -100,7 +102,7 @@ flowchart TB
 
     subgraph CHK["Kept honest by, outside the build"]
         direction LR
-        CK1["npm run verify · gate, lint, tests, source-to-page audit,<br/>review snapshot, interface views, 300 rendered scenarios"]
+        CK1["npm run verify · gate, lint, tests, source-to-page audit,<br/>review snapshot, material pages against the database,<br/>interface views, 300 rendered scenarios"]
         CK2["build/snapshot · every headline, gate, template result and<br/>screening end, committed, so a change shows its effect in its own diff"]
         CK3["Weekly · 2,000 random sets of requirements through the<br/>built page, compared with the engine run on its own"]
         CK4["npm run trace · any number back to its measurement,<br/>grade, source and page"]
@@ -133,7 +135,7 @@ Two properties of this shape are worth naming, because they are what make the nu
 drifted cannot reach the page at all, so what you are reading was, at the moment it was built, consistent with every
 rule the project asserts about itself.
 
-**Estimates are a layer, not an ingredient.** Stage 5 only adds to the database stage 4 produced. The core builds and
+**Estimates are a layer, not an ingredient.** Step 5 only adds to the database step 4 produced. The core builds and
 validates without it, which is a check that runs on every commit. No measured value, gate or verdict can quietly
 depend on inference.
 
@@ -264,12 +266,19 @@ What it does compute is the selection: which materials meet your requirements. T
 tested on its own, and every week two thousand random sets of requirements are run through the rendered page and
 compared with the same logic run outside the browser, so the screen cannot drift from the rules.
 
+Beside the page, the build writes from the same compiled database a page of its own for each material with at least
+three products and twenty measured values (`build/snapshot/pages.csv` lists them): a written summary whose every
+number the build fills from the data, figures product by product, and every record behind it one link away. The
+drawer's **Full page** link opens it. It sets no requirement and decides nothing, and it reads the same facts the drawer
+does, so the two cannot disagree ([INTERFACE.md, "The material pages"](INTERFACE.md#the-material-pages)). A downloaded
+copy of the page needs its release's material pages zip unzipped beside it for the link to open.
+
 ## A material is the spread of its products
 
 A material such as PLA is not one number: its nearly two hundred products differ. Each product's own values are chosen from
 its own data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as
 printed), and a material's cell shows **the typical value of its products (their median), with their range and how
-many products under it**: `2.58` over `0.433–4.24 · 52` for PLA's stiffness (2026-10-07). The range is different products, not the
+many products under it**: `2.53` over `0.95–4.24 · 55` for PLA's stiffness (2026-10-17). The range is different products, not the
 uncertainty of one.
 
 A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
@@ -305,8 +314,9 @@ values are both compared, from one document; **Flexural tests, XY and Z** draws 
 way, with a closed line on how flexural and tensile results relate (D140). Thermal's **Heat deflection and glass transition** draws HDT at 0.45 and
 1.8 MPa and Tg on one °C scale. Printing's **Print temperatures across products** draws each product's lowest and
 highest nozzle, bed and chamber setting and its drying temperature, the H2C's limit as a line, the medians as the window
-most products share, and the products outside the limits by their print gate's verdict. The Z rows, the flexural rows
-and HDT at 1.8 MPa exist for these headings alone: no filter, column or answer reads them.
+most products share, and the products outside the limits by their print gate's verdict. The Z modulus and elongation
+rows, the flexural rows and HDT at 1.8 MPa exist for these headings alone: no filter, column or answer reads them; tensile
+strength Z is the layer strength, a selectable property.
 
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one
@@ -325,8 +335,8 @@ pass. Every value also says which conditions its sheet left unstated and the scr
 moisture state, treatment) and the method it names: "comparable" is a screening policy, not a laboratory equivalence.
 
 Values whose source does not state the test direction or load are counted apart: they often read like moulded bars
-(of PLA's products, variants apart, 6 of the 52 that state an XY stiffness reach 3 GPa; 24 of the 42 that state no
-direction claim 3 GPa or more, 2026-10-07). They are shown and not compared, unless you tick **Include values with no
+(of PLA's products, variants apart, 6 of the 55 that state an XY stiffness reach 3 GPa; 24 of the 39 that state no
+direction claim 3 GPa or more, 2026-10-17). They are shown and not compared, unless you tick **Include values with no
 stated orientation or load** in the Data quality filters. The layer strength never counts a value with no stated direction, ticked
 or not: a bar pulled in an unstated direction is not a bar pulled across the layers (D92).
 
@@ -337,7 +347,7 @@ evidence.
 
 | On screen | What it is | Can it satisfy a requirement? |
 |---|---|---|
-| `2.58` over `0.433–4.24 · 52` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
+| `2.53` over `0.95–4.24 · 55` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
 | `4.43` | **Measured, one product.** The only product that publishes it comparably | Yes |
 | `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (elongation at yield in the stretch column), a moulded resin value, an annealed part. Shown so you know something is known | No |
 | `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. In Explore mode it can rule a material *out* |

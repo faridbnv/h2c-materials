@@ -861,7 +861,7 @@ nothing: the headline it would have backed is estimated.
 ## The reference layer
 
 `dist/reference.json` is separate from `db.json` and must stay that way. 114 generic engineering
-materials as uncited min/max envelopes, ten shown by default.
+materials as uncited min/max envelopes, ten of them preselected for when the layer is switched on.
 
 The Method table's Legacy crosswalk maps column for column onto the original reference and sets the governing
 rule: *uncited numeric values are not imported*. So the reference set is a drawing layer. It is
