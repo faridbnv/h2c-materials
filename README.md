@@ -171,7 +171,8 @@ schema/db.schema.json                   the contract for the compiled database
 schema/estimate-model.schema.json       the contract for the estimate model's configuration
 
 build/src/pipeline.js                   the stages every caller runs: compile, the estimate stage, validate
-build/src/                              check -> load -> normalize -> compile -> estimates -> validate -> contract -> bundle
+build/src/                              check -> load -> normalize -> compile -> estimates -> validate -> contract -> bundle,
+                                        then the material pages (stage 8, app/pages/)
 build/src/estimate/                     the estimate stage, an overlay on the compiled database (D58)
 build/src/coverage-rules.js             one definition of what counts as a material's own data
 build/mappings/estimate-model.json      the estimate model's conversions, physical limits and fitting judgements, reviewed like code
