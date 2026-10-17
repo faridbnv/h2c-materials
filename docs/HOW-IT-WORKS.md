@@ -267,9 +267,10 @@ tested on its own, and every week two thousand random sets of requirements are r
 compared with the same logic run outside the browser, so the screen cannot drift from the rules.
 
 Beside the page, the build writes from the same compiled database a page of its own for each material with at least
-three products and twenty measured values (`build/snapshot/pages.csv` lists them): a written summary whose every
-number the build fills from the data, figures product by product, and every record behind it one link away. The
-drawer's **Full page** link opens it. It sets no requirement and decides nothing, and it reads the same facts the drawer
+three products and twenty measured values (`build/snapshot/pages.csv` lists them): an Overview, with a written summary
+whose every number the build fills from the data, the material against five alternatives, its products' values section
+by section and how it prints, and a Products page, where each product opens to every record behind it. The drawer's
+**Full page** link opens it in the same tab, and the page's *Back to your results* returns to the selector as it was. It sets no requirement and decides nothing, and it reads the same facts the drawer
 does, so the two cannot disagree ([INTERFACE.md, "The material pages"](INTERFACE.md#the-material-pages)). A downloaded
 copy of the page needs its release's material pages zip unzipped beside it for the link to open.
 

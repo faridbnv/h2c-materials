@@ -21,7 +21,7 @@ Three layers, separated on purpose, each with a rule about what it may not do.
             |
             |   PAGES   a page per well-documented material, from dist/db.json   app/pages/
             v
-  dist/materials/<id>.html, <id>-records.html, index.html, assets/   static, beside it; they decide nothing
+  dist/materials/<id>.html, <id>-products.html, index.html, method.html, assets/   static, beside it; decide nothing
 ```
 
 Inside the application, the same separation again:
@@ -89,8 +89,8 @@ holds). The build prints sizes in MiB (8.0 for the page).
 
 The material pages are not in it (D142). They are separate static files beside it, in `dist/materials/` (on the site
 at `materials/`; a release carries them as one zip), because a page per material would multiply the one file's weight
-and none of them is needed to answer a question: the selector works without them, and only the drawer's Full page link
-leads to them. They keep the same rule against the network: their fonts are embedded in their one stylesheet as data:
+and none of them is needed to answer a question: the selector works without them; the drawer's Full page link and the
+status bar's Material pages link lead to them, carrying the selection so the pages' way back restores it (D145). They keep the same rule against the network: their fonts are embedded in their one stylesheet as data:
 URIs and their script is a classic one, because a browser refuses font files and module scripts from `file://`, so a
 page opened from disk, from an unzipped release, reads and works as it does on the site.
 
@@ -270,7 +270,8 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 | `brief.js` | A chosen product's decision brief (D103), written from the engine's own answer. |
 | `material-facts.js` | One material's facts as the drawer and the material pages show them (`materialContext`: selected, counted, grouped, summarised), before any markup or sentence, so the two renderers never disagree. Its API: `docs/audits/2026-10-16-material-pages-round/FACTS-API.md`. |
 | `material-words.js` | The sentences the drawer and the material pages share, as plain text, unescaped: each renderer escapes them. |
-| `material-stats.js` | Display statistics only the material pages draw (where a material's medians stand among every material's, how many products accept each print temperature, what a product keeps across the layers, the material map, the heat ladder). Pure data; it decides nothing. |
+| `material-stats.js` | Display statistics only the material pages draw: the alternatives (`peerSet`), one scale per property (`propertyScale`) and the maps' fixed frames, how many products accept each print temperature (`printWindows`) and the window a page states (`typicalWindow`), what a product keeps across the layers, the heat ladder. Pure data; it decides nothing. |
+| `material-highlights.js` | What the pages single out, from compiled fields: the evidence tier, the products well above the rest, the windows, drying and Z shares a summary may name (`build/src/written.js` reads the same functions). Display only. |
 | `scales.js` | The one scale rule for a row of values drawn product by product, read by the drawer's comparison headings and print temperatures and by the pages' figures. |
 | `text.js` | Plain-text helpers every sentence is put together with (a count with its noun, a list in prose, whether a cell states anything), imported by `labels.js`, `material-words.js` and `material-facts.js` alike. |
 | `page-rule.js` | Which materials have a page of their own (`PAGE_RULE`, `pageOf`; D142): read by the build's stage 8, the drawer's Full page link, the pages' index, the README's status line and the tests. |
@@ -296,24 +297,25 @@ guards: `test/material-facts.test.js` holds the contracts the two share against 
 tab counts, the page rule, the scale rule, a product's name, the rank table); `test/material-stats.test.js` holds each
 page-only statistic to the compiled fields; `test/drawer-comparisons.test.js` and `test/print-spread.test.js` hold the
 drawer's comparison headings and print temperatures to the build; `test/summaries.test.js` holds the summaries' fill;
-and `test/pages.check.js` (`npm run pages:check`, in `verify` after the build: P1 to P14, the index, and the counts one
-section gives against another's) holds every number on every page to the database it was rendered from, and the
-drawer's Full page link to the page rule (P13).
+and `test/pages.check.js` (`npm run pages:check`, in `verify` after the build: P1 to P14, REC and the index) holds every
+number and figure mark on every page to the database it was rendered from, every record to exactly one place across a
+material's two pages, the ways back to the selector, and the drawer's Full page link to the page rule (P13).
 
 | Module | Responsibility |
 |---|---|
-| `render.js` | `renderSite(db, env)`: every page the page rule admits, its records page, the index and the shared assets, as text, from the database alone. No file is read or written (it sets the ui modules' registry and baseline, as the selector does at start). `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
+| `render.js` | `renderSite(db, env)`: for every material the page rule admits, its Overview, its Products page and the stub at its old records address; the index, the method page and the shared assets, as text, from the database alone. No file is read or written (it sets the ui modules' registry and baseline, as the selector does at start). `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
 | `stage.js` | Node only: stage 8. The build cache, the write to `dist/.materials-<pid>/` and the rename into `dist/materials/`, the budgets, and the digest the manifest records. |
 | `read-assets.js` | Node only: reads what the shared assets are made of (tokens, stylesheets, scripts, the faces, the licences) for `buildAssets`. |
-| `shell.js` | The document around every page: head, the sticky top bar, the contents (a rail at 1,080 px and wider, a strip below), the main element and its stamps. |
-| `sections/` | A material page's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, records?, render(c, env, place) }`, returning `{ html, empty, stats }`, and an empty one leaves the page and is named in one "Not on file" line. |
-| `records/` | A records page's tables (`RECORD_SECTIONS`), every record of its kind raw with its ID, and the finder above them. |
-| `index-page.js` | The index of every listed material by family and polymer, linked where it has a page, and what it falls short on where it has none. |
-| `charts/` | The figures' grammar: scales, marks, axes, dot plots, dumbbells (XY against Z, product by product), the property profile's tracks, scatters, print windows, the heat ladder, the map, the rank line, and the figure frame with its caption and "How this is counted". |
-| `figures.js` | What the pages draw beyond the drawer, as configuration: the first screen's numbers and comparison lines (`FIRST_SCREEN`), the maps (`MATERIAL_MAPS`), the scatters of two properties (`FIGURE_PAIRS`), the profile's groups (`PROFILE_GROUPS`), the ladder's extra rungs (`LADDER_EXTRA`), the makers' topics' order (`MAKER_TOPICS`) and the tests tabulated across the layers (`LAYER_TESTS`). |
-| `findings.js`, `numbers.js`, `html.js` | The sentences a section opens with; numbers in scientific notation where they are very large or small; markup helpers. |
-| `budget.js` | What a page, a records page, the stylesheet, the script and the set may weigh (`PAGE_BUDGET`). |
-| `tables-asset.js`, `assets/` | The stylesheet sources (`pages.src.css`, `tables.src.css`), the classic page script (`page.js`, `tables.src.js`) and the embedded faces with their licences (`fonts/`, `FONTS.md`). |
+| `shell.js` | The document around every page: head, the sticky bar (the mark and *Materials* to the index, the material, the section in view with the list of sections, *Back to your results*), the tabs, the main element and its stamps. |
+| `sections/` | The Overview's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, render(c, env) }`, returning `{ html, empty, stats }`; an empty one leaves the page silently. `masthead.js` holds the first screen (key figures, evidence line, summary, *On the H2C*), `footer.js` the colophon. |
+| `products/` | The Products page: the list, its search and sort, and each product's card with every record of that product (`card.js`). |
+| `records/` | What the cards reuse of the retired records page (`common.js`, `measurements.js`), and `placement.js`: where every record of a material is shown, and `offThePages`, the two kinds no page shows. |
+| `method-page.js`, `index-page.js`, `stub.js` | *How the numbers are worked out*, written once; the index of materials by family, with one search; the redirect at each old records address. |
+| `charts/` | The five figures (`peers.js` against the alternatives, `map.js` among all materials, `strips.js` the products per section, `layers.js` across the layers, `temperatures.js` every temperature on one axis), the key figures' small drawing (`mini.js`), and their grammar: scales, marks, axes, the frame with its table twin (`figure.js`, `kit.js`, `marks.js`, `axis.js`, `scale.js`). |
+| `figures.js` | What the figures draw, as configuration: the alternatives' columns (`PEER_COLUMNS`), the maps (`MAP_PANELS`), each section's strips (`STRIP_SETS`) and the one rule for a strip (`STRIP_MIN`, `inStrip`), the layer pairs (`LAYER_PAIRS`), the ladder's extra rungs (`LADDER_EXTRA`); and the figure functions, re-exported. |
+| `findings.js`, `numbers.js`, `html.js` | The page's own sentences (the drawer's are `material-words.js`); numbers as the pages print them (`fmtDisplay`: three significant figures, whole degrees, a no-break space before the unit); markup helpers. |
+| `budget.js` | What an Overview, a Products page, a stub, the stylesheet, the script and the set may weigh (`PAGE_BUDGET`). |
+| `tables-asset.js`, `assets/` | The stylesheet sources (`frame.src.css`, `sections.src.css`, `figures.src.css`, `products.src.css`), the classic scripts (`page.js`, `products.src.js`) and the embedded faces with their licences (`fonts/`, `FONTS.md`). |
 
 ## State
 
@@ -758,10 +760,10 @@ skipped with `--validate-only` and `--no-estimates`; `--no-pages` builds everyth
   warning printed as `[PAGE-BUDGET]` (a word of the stage's own, not in the rule catalogue), over twice it stops the
   build, and `pages.check.js` fails over budget.
 - **Recorded.** `dist/manifest.json` gets `outputs['materials/']`, the SHA-256 over the sorted
-  `"<sha256>  materials/<path>"` lines, and `pages` (the count of pages, of records pages, and their bytes), so the
+  `"<sha256>  materials/<path>"` lines, and `pages` (the count of Overviews, of Products pages, and their bytes), so the
   reproducible-build check covers the pages too.
 
-It prints one line, for example `pages  76 pages, 76 records pages and the index, 29.2 MB in all, in 1080 ms` (MiB, as the
+It prints one line, for example `pages  76 Overviews, 76 Products pages, the index and the method page, 26.8 MB in all, in 1308 ms` (MiB, as the
 bundle's line), or `read from the build cache in … ms`. Rendering every page takes about a second; a cache hit about a tenth of that.
 
 ### Verifying a build

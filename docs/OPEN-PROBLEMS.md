@@ -1359,7 +1359,7 @@ diameter, or to retire such a product, is the owner's call.
 **"Highly hygroscopic wood fibers".** Bambu Lab's PAHT-CF and TPU 95A HF product pages carry a sentence written for its
 wood-filled PLA ("As this filament contains highly hygroscopic wood fibers ..."). The records hold it as published
 (Q05685, Q05679) with the reviewer's caveat in their Exposure cell, which no page shows, so PAHT-CF's What makers say
-quotes it among its pitfalls. A state for "copied from another product's page" would keep it on the records page; that
+quotes it among its pitfalls. A state for "copied from another product's page" would keep it in the product's card only; that
 is a vocabulary change, not done here.
 
 ### 37.8. Fillers named or not
@@ -1377,7 +1377,7 @@ charts' shapes say "Undisclosed variant" for them.
 *From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
 
 **FormFutura's SharePoint.** FormFutura's data sheets are served from formfutura.sharepoint.com, which opens a Microsoft
-sign-in page to a reader without an account; the records page's "Open the original" leads there for PPSU, BVOH, PP,
+sign-in page to a reader without an account; a product card's link to the original leads there for PPSU, BVOH, PP,
 PLA Wood (EasyWood, EasyCork) and others. The cached copies are the documents read; the links need FormFutura's public
 download addresses.
 
@@ -1830,6 +1830,11 @@ verify:fast from an empty build cache took 78.8 s at the round's close, within i
 
 *From the material pages round, 2026-10-17 (D142): the final engineer review, 70/100, left for the owner as it is ([the round](audits/2026-10-16-material-pages-round/README.md#step-5-the-blind-read-the-data-it-found-and-the-close)).*
 
+**Since the pages were reimagined (D145, 2026-10-17)** changes 2 and 3 are done (the byline in the colophon, no
+provenance line in the reading path, no rank tracks, maps on fixed frames, no one-dot figure), 4 in part (Izod and values
+not compared in groups of their own on the Products page) and 5 (a thin page compact, its estimate left as it is). Change
+1 (one rule for Z) and the inconsistencies below still stand.
+
 **Its five changes, ranked.** (1) One rule for Z everywhere: read a ZX or ZY bar as Z by its long axis and show the
 sheet's code beside it ("Z (ZX)"), where D143 keeps a ZX bar whose sheet neither says nor draws it upright as ZX
 (3D-Fuel Pro PLA's "ZX Axis" is not drawn, Raise3D's "(ZX)" and AzureFilm's are Z), and prefer a data sheet's ZX bar
@@ -1850,6 +1855,28 @@ from medians (64 %) beside the text's median of shares (68 %), unexplained; colo
 unexplained asterisk, not marked annealed; a 190 °C melting temperature drawn for PETG; PLA's records facet counting a
 "Not published" thermal conductivity row; PCTG-GF's density range "—" for three products; a "Show all 4" button over
 four rows already shown.
+
+
+### 37.19. What the reimagined pages leave
+
+*From the pages-reimagined round, 2026-10-17 (D145): what its two independent reviews and the summaries' judges found
+that the pages cannot fix ([the plan](audits/2026-10-17-pages-reimagined/PLAN.md)).*
+
+**A nozzle a sheet asks for, recorded nowhere.** Nanovia PEI CF's sheet asks for a reinforced nozzle and both PEI-CF
+makers are quoted asking for a hardened one, but no print profile of Nanovia PEI CF or 3DXTECH's PEI holds a
+hardened-nozzle setting, so the page counts one of three. A re-read of their sheets' print tables would record it.
+**Verbatim or paraphrase.** A statement records no flag for whether its text is the source's own words; the pages set a
+reference source's statement (a knowledge base, a study, a guidance document) as plain text "after <source>", never as a
+quote, and a maker's in quotation marks. A recorded flag would let a page quote what was quoted.
+**Source titles.** Two titles carry a site's furniture or a typo as recorded: "… - PMC Lock" and Bambu Lab's "H2C
+Filamant Printing Guide".
+**A glass-filled grade sold as toughened.** Fiberlogy PCTG+GF10 carries the "sold as toughened" mark because its sheet
+says "increased strength, stiffness, and impact resistance"; to an engineer a GF10 grade is not a toughened grade. Whether
+"impact resistance" alone makes a toughened claim is a ruling on `product_claims.csv`, not made here.
+**Two words for one thing.** The pages say "added filler or additive" where the drawer says "special formulation" (a
+page-side mapping, so the drawer did not move); aligning the drawer is a change of its own.
+**The summaries are drafts.** All 76 were rewritten to D145's rules, drafted by Claude Sonnet and judged against their
+pages by Claude Opus (55 of 76 changed after drafting); none is reviewed by the owner yet.
 
 ---
 
