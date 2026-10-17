@@ -46,7 +46,7 @@ ROW ABS | PASS / 16 of 19 products | 1,050 / 1,020–1,120 · 46 / annealed medi
 ROW ABS-AF | PASS / 1 of 2 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | passing: 88 / all products: 88 | 127↗ | ☆
 ROW ABS-ESD | PASS / 1 of 2 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | passing: 98 / all products: 97 / 96–98 · 5 | 223 / 199–247 · 2 / ¤↗ / out of stock | ☆
 ROW ABS-GF | PASS / 8 of 8 products | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 / annealed median | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | passing: 82–100 / all products: 97 / 82–100 · 9 | 39↗ | ☆
-ROW ASA | PASS / 14 of 16 products | 1,070 / 1,040–1,130 · 33 | 2.17 / 0.943–2.45 · 11 | 38.5 / 30.2–45 · 12 | 6.6 / 1.9–15 · 12 | passing: 82–103 / all products: 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗ | ☆
+ROW ASA | PASS / 14 of 16 products | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | passing: 82–103 / all products: 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗ | ☆
 ROW ASA Aero | PASS / 1 of 2 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | passing: 85 / all products: 77.5 / 70–85 · 2 | 64↗ | ☆
 ROW ASA-CF | PASS / 5 of 5 products | 1,095 / 1,020–1,170 · 16 | 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | passing: 86–130 / all products: 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
 ROW ASA-GF | PASS / 3 of 3 products | 1,130 / 1,100–1,170 · 6 | 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | passing: 86–98 / all products: 91.5 / 86–98 · 4 | 96↗ | ☆
@@ -67,7 +67,7 @@ ROW PC-ABS · PASS 1 of 5 products
 ROW PC-CF · PASS 1 of 3 products
 ROW PET-CF · PASS 2 of 3 products
 ROW PET-GF · PASS 2 of 2 products
-ROW PETG · PASS 1 of 46 products
+ROW PETG · PASS 1 of 44 products
 ROW PLA · PASS 7 of 87 products
 ROW PLA blend · PASS 2 of 5 products
 ROW PLA-CF · PASS 1 of 9 products

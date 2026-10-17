@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //
-// Build entry point. Runs the five stages in order and fails the whole build on any validation
+// Build entry point. Runs the stages in order and fails the whole build on any validation
 // error, so a broken snapshot can never reach a distributable file.
 //
 //   check      every table against its declared schema             schema.js
@@ -10,15 +10,17 @@
 //   validate   references, citations, consistency; estimates      validate.js, estimate/validate.js
 //   (pipeline.js runs compile, estimate and validate for the build, the snapshot, the audit and the tests)
 //   bundle     gzip the data, inline the libraries, emit HTML     bundle.js
+//   pages      the material pages, beside the HTML                app/pages/stage.js (loaded only when pages are built)
 //
-// `npm run validate` stops after the report; `npm run build` continues to the bundle; `--no-estimates` builds the core
-// database without the estimate stage.
+// `npm run validate` stops after the report; `npm run build` continues to the bundle and the pages; `--no-estimates`
+// builds the core database without the estimate stage, and no pages; `--no-pages` builds everything but the pages. A
+// build without pages removes dist/materials/, so no page of an earlier build is left beside a page it does not match.
 // See docs/ARCHITECTURE.md, "The build, stage by stage".
 
-import { writeFileSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotDate } from './load.js';
 import { readSource } from './source.js';
@@ -51,6 +53,8 @@ const BUILD = buildDate();
 const validateOnly = process.argv.includes('--validate-only');
 // The core database alone, without the estimate stage: it must validate, because nothing in the core may rest on inference.
 const withEstimates = !process.argv.includes('--no-estimates');
+// The material pages (stage 8) are drawn from the whole database, estimates included; a core-only build has none.
+const withPages = withEstimates && !process.argv.includes('--no-pages');
 
 async function main() {
   const issues = [];
@@ -102,24 +106,33 @@ async function main() {
   if (validateOnly) return;
 
   mkdirSync(join(projectRoot, 'dist'), { recursive: true });
-  writeFileSync(join(projectRoot, 'dist/db.json'), JSON.stringify(db));
-  writeFileSync(join(projectRoot, 'dist/reference.json'), JSON.stringify(reference));
-  console.log(`db.json -> ${(JSON.stringify(db).length / 1024 / 1024).toFixed(2)} MB`);
-  console.log(`reference.json -> ${(JSON.stringify(reference).length / 1024).toFixed(0)} KB`);
+  // Serialised once: written, measured, and the material pages' cache key and source.
+  const dbJson = JSON.stringify(db);
+  const referenceJson = JSON.stringify(reference);
+  writeFileSync(join(projectRoot, 'dist/db.json'), dbJson);
+  writeFileSync(join(projectRoot, 'dist/reference.json'), referenceJson);
+  console.log(`db.json -> ${(dbJson.length / 1024 / 1024).toFixed(2)} MB`);
+  console.log(`reference.json -> ${(referenceJson.length / 1024).toFixed(0)} KB`);
 
   const out = await bundle({ projectRoot, buildRoot, db, reference, meta: { snapshot: SNAPSHOT, build: BUILD, release: RELEASE } });
   console.log(`\n${out.path.split('/').pop()} -> ${(out.bytes / 1024 / 1024).toFixed(2)} MB self-contained`);
 
-  writeFileSync(join(projectRoot, 'dist/manifest.json'), JSON.stringify(releaseManifest(out.path, SNAPSHOT, RELEASE), null, 2) + '\n');
+  // Stage 8, after the bundle: the pages link to the selector's file by its name. The renderer is loaded only here.
+  const pages = withPages
+    ? await (await import('../../app/pages/stage.js')).pagesStage({ projectRoot, dbJson, selectorFile: basename(out.path) })
+    : (rmSync(join(projectRoot, 'dist/materials'), { recursive: true, force: true }), null);
+
+  writeFileSync(join(projectRoot, 'dist/manifest.json'), JSON.stringify(releaseManifest(out.path, SNAPSHOT, RELEASE, pages), null, 2) + '\n');
   console.log('manifest -> dist/manifest.json');
 }
 
 /**
  * What this release was built from and what it produced, so a published page can be traced to the
  * exact data, schema, rules and code: its release ID and the digests it is made of (D96), the commit, whether the tree
- * was clean, the runtime and locked dependencies, input hashes and output hashes.
+ * was clean, the runtime and locked dependencies, input hashes and output hashes. `pages` is stage 8's result, or null
+ * when the build made none: then the manifest names no pages.
  */
-function releaseManifest(htmlPath, snapshot, release) {
+function releaseManifest(htmlPath, snapshot, release, pages = null) {
   const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
   const git = (...args) => { try { return execFileSync('git', args, { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return null; } };
   const tree = (dir, filter = () => true) => sha(readdirSync(join(projectRoot, dir), { recursive: true }).filter((f) => filter(f) && !f.endsWith('/')).sort()
@@ -145,7 +158,10 @@ function releaseManifest(htmlPath, snapshot, release) {
       'db.json': file('dist/db.json'),
       'reference.json': file('dist/reference.json'),
       [htmlPath.split('/').pop()]: sha(readFileSync(htmlPath)),
+      // Every file of the material pages, as one digest over their "<sha256>  materials/<path>" lines (app/pages/stage.js).
+      ...(pages ? { 'materials/': pages.digest } : {}),
     },
+    ...(pages ? { pages: { pages: pages.pages, recordsPages: pages.recordsPages, bytes: pages.bytes } } : {}),
   };
 }
 

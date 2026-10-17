@@ -129,7 +129,7 @@ detail. The generator names one that runs longer.
 | D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material) |
 | D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
 | D113 | A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada | A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one. | In force; it amends D19 (a foreign listing prices a product but is never an offer here) and D83 (a converted price is one of a material's products' prices) |
-| D114 | Absence is derived too: the coverage page says the same thing for the same records | Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited. | In force; it extends D74 |
+| D114 | Absence is derived too: the coverage page says the same thing for the same records | Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited. | In force; it extends D74; amended by D143 (a maker's own statement on moisture sensitivity counts in the Moisture / environmental domain) |
 | D115 | A Parse review explains the columns it names; a typed endpoint is a number its cell states | A note that explains why one typed value differs from what the parser reads now names that column, and silences the check for that column alone. A typed temperature must be a number its own cell prints, and an open bound ("> 80 °C") stays open, whatever any note says. | In force; it narrows the Parse review of m08 |
 | D116 | What a page states once, its values inherit | A data sheet often says something once for a whole table, such as "all specimens annealed at 80 °C" or "printed specimens, dry". That statement is now recorded once per page, and every value on the page that says nothing for itself inherits it; a value that says the opposite keeps its own words and is flagged. | In force |
 | D117 | A row says how many products pass, and shows the passing products' own values | A material's row now says "PASS · 7 of 200 products" instead of a bare PASS, shows the range of the products that pass beside the range of all of them, says when a pass rests on a declared variant or on a value with no test direction or treatment stated, splits an UNKNOWN into how many products measure below and how many publish nothing, and gives every material-level fact (a hardened nozzle, a typical value's state) the count of products it is true of. | In force; it amends D83 (how a material's verdict is shown, not how it is decided) |
@@ -157,6 +157,8 @@ detail. The generator names one that runs longer.
 | D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing; extended by D140 (flexural results, listed properties and notes; a drawer-only row may draw an unstated orientation hollow) |
 | D140 | Flexural results are drawn as tensile ones are, beside how the two relate; tensile strain at strength is listed under the tensile tests | The flexural modulus and strength the Mechanical tab already listed are drawn as the tensile results are: one closed heading, Flexural tests, XY and Z, an XY row and a Z row per property, a product per dot. A second closed line under it says how flexural and tensile results relate in theory, and why a printed bar departs from it. Tensile strain at strength moves inside the tensile heading as a list, not a graph. Four flexural rows are drawn in the drawer alone. No answer moved. | In force; it extends D139 (a comparison may list properties it does not draw and carry a second closed line; a drawer-only row may draw a value with no stated orientation, hollow and out of the median) and decides nothing |
 | D141 | A plausibility window is a check, never a filter; a reader's silence is checked against the cell's own words | The temperature parser used to throw away a number outside what it thought plausible and read the window from what was left, so "450 - 520 °C" became the point 450 and a 75–85 °C nozzle became no nozzle at all; the typed columns, written from the parser, carried the collapse where the mismatch check could not see it. Now every number a cell states is read, one outside the window is shown as a warning, and the same was done for the readers of drying, hardened nozzles, nozzle diameters and heat-deflection loads. | In force; it extends D115 (a typed endpoint is a number its cell states) and D49 (the parsers check the typed columns) |
+| D142 | A material with three products and twenty measured values has a page of its own, generated by the build and deciding nothing | Each well-documented material (at least three products and twenty measured values: 76 of 152 when it was built) gets a static page beside the selector, opened from the drawer's Full page link: its typical values and where they sit among the materials, product-by-product figures, how it prints, its products, what makers say, and every record behind it on a records page. The build writes them on every run; they are display only and change no answer. | In force (drafted at step 3 of the material pages round; completed when the round closes, with the written summaries of step 4) |
+| D143 | What the material pages' reviews changed in the rules: Prusa's Horizontal bar is XY, a YX bar is its own, a maker's moisture word is a moisture record | Two engineers reviewing the new material pages found faults in the data. Fixing them changed three rules. Prusa Polymers' data sheets print their test bars in two columns, "Horizontal" and "Vertical xz", which were kept as the sheet's words and compared with nothing; Prusa's own documents show the Horizontal bar is the flat XY bar and the Vertical xz bar the one on its edge, so they are typed so, and Prusament's products are compared with every other product's flat bars. A bar a sheet labels YX beside its own XY bar is recorded YX, a flat bar of its own, where it was shown as "orientation not stated". And a maker's own statement on how its filament takes up water ("moderately hygroscopic, pre-dry at 75 °C for 24 h") now counts as a moisture record on the coverage page, where 48 materials said they had none. | In force; it applies D92 and D140 (a Z value is one the sheet says is Z; an XZ or ZX bar is shown, not compared) and amends D114 (what the moisture domain counts) |
 
 <!-- end index -->
 
@@ -3578,7 +3580,7 @@ price with its stated VAT, a rate not printed, a missing rate, a Canadian price 
 ## D114. Absence is derived too: the coverage page says the same thing for the same records
 
 > **In plain words:** Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited.
-> **Status:** In force; it extends D74.
+> **Status:** In force; it extends D74; amended by D143 (a maker's own statement on moisture sensitivity counts in the Moisture / environmental domain).
 
 *Found on 2026-09-30, when the owner asked whether the coverage page was correct after the price pass. Every cell agreed
 with the records (no gap beside data, no evidence claimed without it), but the page said one thing two ways. Built by
@@ -4602,6 +4604,94 @@ m421.*
 - **What would break if reversed.** A window collapses silently again, and the next PEEK, PCL or "3M" cell is typed
   wrong with the check that exists for it blind. What the sweep left (readers' spellings, a standard-deviation column
   430 rows carry in brackets, unknown standards bodies) is in OPEN-PROBLEMS §11 and §12.
+
+## D142. A material with three products and twenty measured values has a page of its own, generated by the build and deciding nothing
+
+> **In plain words:** Each well-documented material (at least three products and twenty measured values: 76 of 152 when it was built) gets a static page beside the selector, opened from the drawer's Full page link: its typical values and where they sit among the materials, product-by-product figures, how it prints, its products, what makers say, and every record behind it on a records page. The build writes them on every run; they are display only and change no answer.
+> **Status:** In force (drafted at step 3 of the material pages round; completed when the round closes, with the written summaries of step 4).
+
+*Asked for and answered by the owner on 2026-10-16 ([GOALS-LOG](GOALS-LOG.md), eight answers), the design approved after
+two reviews; built in the [material pages round](audits/2026-10-16-material-pages-round/README.md) to its
+[plan](audits/2026-10-16-material-pages-round/PLAN.md).*
+
+- **Display only, from one facts layer.** A page computes no deciding value: every number is the compiled database's
+  (`dist/db.json`) or a count of its records, and what a page and the drawer show of a material is chosen once, in
+  `app/js/ui/material-facts.js`, its sentences in `material-words.js`, its scales in `scales.js`. Moving the drawer onto
+  that layer changed none of its 11,900 renders by a byte. Where a page needs a number the build does not hold, it is
+  compiled, never worked out in the page alone; display statistics the drawer does not draw (`material-stats.js`)
+  choose no value and decide nothing.
+- **One threshold, one function.** `PAGE_RULE` and `pageOf` (`app/js/ui/page-rule.js`): products are the active ones,
+  values the measurements with a number. The build stage, the drawer's link, the index, the README's count and the tests
+  read it; `build/snapshot/pages.csv` lists every material's page or what it falls short on. A material beyond the H2C's
+  capability that qualifies has a full page that says so first; a group name has none.
+- **Generated, outside the release.** Stage 8 of the build renders them (`app/pages/stage.js`), from the published
+  database's own text, through the build cache, into `dist/materials/` whole or not at all. `app/pages` is not a
+  release input (D96): a change to the pages' design makes no new release, and the manifest records the pages' digest
+  (`outputs['materials/']`), so the reproducible-build check covers them.
+- **Processed on the page, raw on the records page.** The main page shows the data as the build compiled and
+  selected it, findings first and the counting behind a fold; its records page lists every record raw with its ID, its
+  document and page, and whether a figure counts it and why not. A section with nothing on file leaves the page and is
+  named in one line.
+- **Written summaries under rules** (step 4): no number typed by hand (placeholders the build fills), its author, date
+  and review status shown, and it decides nothing.
+- **One figure grammar, embedded typefaces.** Inline SVG drawn by the build in one grammar (the drawer's marks; a
+  title that says what is drawn, a caption, "How this is counted"); Inter and Newsreader under the SIL Open Font License
+  1.1, embedded as data: URIs with a classic script, so a page opened from disk works as on the site.
+- **Where they are.** On the site at `materials/`; in each release as `H2C_Material_Pages_<snapshot>_<release>.zip`, to
+  unzip beside the downloaded selector; the drawer's Full page link is the only way in from the selector (no top-bar
+  link), and an index of every material, linked from every page, is not linked from the selector.
+- **Checked.** `npm run pages:check` holds every page against the build (files, sections, counts, key figures, ranks,
+  marks against the drawer's facts and the build's own `assess`, print windows, links, stamps, budgets, no record ID or
+  coinage in the text, and a fresh render equal byte for byte); the interface probe opens eight pages on three screens
+  (layout, contents, fonts, lighting, every anchor's landing, the Products table); `build:diff` shows 0 differences and
+  templates.csv is unchanged.
+- **What would break if reversed.** A second renderer of the same facts drifts from the drawer, a summary's number goes
+  stale beside the value it repeats, or a page decides what the selector did not.
+
+## D143. What the material pages' reviews changed in the rules: Prusa's Horizontal bar is XY, a YX bar is its own, a maker's moisture word is a moisture record
+
+> **In plain words:** Two engineers reviewing the new material pages found faults in the data. Fixing them changed three rules. Prusa Polymers' data sheets print their test bars in two columns, "Horizontal" and "Vertical xz", which were kept as the sheet's words and compared with nothing; Prusa's own documents show the Horizontal bar is the flat XY bar and the Vertical xz bar the one on its edge, so they are typed so, and Prusament's products are compared with every other product's flat bars. A bar a sheet labels YX beside its own XY bar is recorded YX, a flat bar of its own, where it was shown as "orientation not stated". And a maker's own statement on how its filament takes up water ("moderately hygroscopic, pre-dry at 75 °C for 24 h") now counts as a moisture record on the coverage page, where 48 materials said they had none.
+> **Status:** In force; it applies D92 and D140 (a Z value is one the sheet says is Z; an XZ or ZX bar is shown, not compared) and amends D114 (what the moisture domain counts).
+
+*Decided by Claude Opus on 2026-10-17 in the data round the owner ran beside the material pages
+([GOALS-LOG](GOALS-LOG.md); [the round](audits/2026-10-17-data-review-fixes/README.md)), as its brief allowed "only if
+the pages support it".*
+
+- **Prusa's columns (m424).** Every Prusament sheet heads its printed-specimen table "Property\Print Direction |
+  Horizontal | Vertical xz". The PLA High Speed sheet defines its "tensile strength anisotropy coefficient" as the ratio
+  of tensile strength "in the Z axis and in the XY axis" and prints 0.6 beside an interlayer adhesion of 41 MPa and a
+  Horizontal tensile yield strength of 68 MPa: 41 / 68. Prusa's product page gives three more coefficients ("PLA and PC
+  Blend both have r = 0.33, whereas PETG has r = 0.38"), and each is that sheet's interlayer adhesion over its
+  Horizontal strength (17 / 51, 21 / 63, 18 / 47); the template's later edition (Prusament PA11, in the import ledger)
+  heads the column "Horizontal xy". So the Horizontal column is XY. The Vertical xz bar is as strong as the Horizontal
+  one or stronger and two to five times the sheet's interlayer adhesion: it lies on its edge and is pulled along its
+  layers, which ISO/ASTM 52921 calls XZ, the sheet's label. 201 values of 19 products are typed so; the two source-label
+  values of the Direction vocabulary stay for a sheet that defines neither. Prusa's interlayer adhesion is its Z
+  tensile strength by the same coefficient, measured by Prusa's own method; it stays its own property (OPEN-PROBLEMS §15).
+- **A YX bar is its own (m427).** Essentium's PA and PA-CF sheets print a YX column beside XY and ZX and draw the YX
+  bar lying flat; 3D-Fuel Pro PLA heads a "YX Axis" column beside its "XY Axis". By ISO/ASTM 52921 a YX bar lies flat
+  with its length along Y: another bar than the XY one, which the sheet prints beside it, as a ±45° bar beside an XY
+  one is not its XY value (D91). Such a row was typed "Stated, not a usable direction", which the build reads as
+  unknown and the page showed as "orientation not stated". YX is now a value of the Direction vocabulary, compared
+  with nothing but itself (`normalize/direction.js`); 13 rows. The same sweep typed every other XZ, ZX and X-Z label by
+  D92's rule, sheet by sheet: 48 upright tensile bars whose sheets say or show it, left ZX beside siblings already Z
+  (32 of them on five Stratasys sheets that draw "Upright (ZX)"), 20 of Eryone's template "X-Z" rows (D123), and one
+  flexural value typed XY in a "(ZX, Flat)" column. AzureFilm's ZX tensile bars are Z because its sheets draw them
+  standing; 3D-Fuel's stay ZX because its sheet draws nothing.
+- **A maker's moisture word (m426, `build/src/coverage-rules.js`).** The Moisture / environmental domain counted only
+  environmental evidence: a storage note filed under Environmental counted, the same note in a maker's know-how did not,
+  so PCTG-GF read "No exposure, solubility or moisture record from its own sources" beside FormFutura's "PCTG is
+  moderately hygroscopic and therefore it is recommended to pre-dry the filament at 75°C for approximately 24 hours".
+  The domain now counts a material's own know-how statements on moisture sensitivity, and its finding says how many
+  are such statements; they stay in the know-how tier and decide nothing. 48 derived Gap rows become Evidence recorded,
+  and two stored Gap rows that the records now contradict (PPA, PPS-GF) are superseded by rows naming the statements.
+- **Effect.** No verdict moved. Prusament's PP-CF and PP-GF products now count, and fail the stiffness of three
+  templates, so PP-CF and PP-GF pass for some of their products where all passed (20 rows of templates.csv); PLA,
+  PETG, ASA, PC, PC-CF and PVB count more products (30 rows). The estimate model learns from the new XY values, and
+  PA612, which no product publishes, is screened out of the 5 GPa stiffness requirement under Explore with estimates
+  (its plausible modulus now tops at 4.73 GPa).
+- **What would break if reversed.** 201 published values of a major maker would again stand beside every XY and XZ value
+  without being compared, and the material pages would show Prusament's flat bars as an orientation nobody defined.
 
 ## Bugs worth remembering
 

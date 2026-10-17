@@ -7,12 +7,10 @@ CONTEXT-DIRECTION,V000716,Direction,"Re-read 2026-10-01 against the cached sheet
 CONTEXT-DIRECTION,V000940,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Flagged Z line is the bending row above; 40.3 kJ/m² is the unnotched X-Y impact value; the guard matched a neighbouring line.",2026-10-01
 CONTEXT-DIRECTION,V001038,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Page prints (X-Y) and (Z) both as 31.4 ± 1.5; row is the Z line; the guard matched a neighbouring line.",2026-10-01
 CONTEXT-DIRECTION,V004349,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Flagged quote is the X-Y tensile line; this row's own line is (Z-X); the guard matched a neighbouring line.",2026-10-01
-CONTEXT-DIRECTION,V004370,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004372,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004374,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004376,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004378,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
-CONTEXT-DIRECTION,V004390,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004392,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004394,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01
 CONTEXT-DIRECTION,V004396,Direction,"Re-read 2026-10-01 against the cached sheet (error-class sweep): Line label is Z-X; guard matched the X-Y label above it",2026-10-01

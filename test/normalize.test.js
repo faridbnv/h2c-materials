@@ -322,6 +322,14 @@ test('a ±45° raster is its own orientation, comparable only with itself (C-06)
   assert.equal(directionsComparable('raster-45', 'XY'), false);
 });
 
+test('a YX bar beside the sheet\'s own XY bar is its own label, comparable only with itself (D143)', () => {
+  const d = normalizeDirection('YX');
+  assert.equal(d.mapped, true);
+  assert.equal(d.canonical, 'YX');
+  assert.equal(directionsComparable('YX', 'XY'), false);
+  assert.equal(directionsComparable('YX', 'YX'), true);
+});
+
 test('the error-class sweep of 2026-10-01: the spellings the readers found unread', () => {
   // ISO 75's method letter in its slash, hyphen and "Method" spellings, and a stated load outranking a mislabelled letter.
   for (const [text, load] of [['HDT/A D3418', 1.8], ['HDT-A ISO-R 75 Method A', 1.8], ['HDT/B', 0.45], ['ISO 75：Method B', 0.45], ['ISO 75: Method A (0.45 MPa)', 0.45]]) {

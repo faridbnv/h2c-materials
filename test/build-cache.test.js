@@ -6,7 +6,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { canonicalDigest, keyOf, encodeEntry, decodeEntry, Uncacheable } from '../build/src/build-cache.js';
+import { mkdirSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
+import { canonicalDigest, keyOf, encodeEntry, decodeEntry, Uncacheable, digestFiles } from '../build/src/build-cache.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 
@@ -81,4 +82,36 @@ test('one stored result serves every build label, each hit stamped with the labe
   assert.equal(second.db.meta.build, 'label-b');
   if (second.cached) assert.equal(second.cached.key, first.cached?.key ?? second.cached.key, 'the second label read the first one\'s entry');
   assert.deepEqual({ ...second.db, meta: { ...second.db.meta, build: 'label-a' } }, first.db);
+});
+
+test('the digest of a folder of code follows its files\' names and bytes, and is no digest while a file is newer than the process', () => {
+  // A folder of the checkout's own (digestFiles reads paths from the project root), in the git-ignored cache folder.
+  const rel = `.cache/test-digest-files-${process.pid}`;
+  const dir = join(root, rel);
+  const past = new Date(Date.now() - 3600e3);
+  const put = (name, text) => { writeFileSync(join(dir, name), text); utimesSync(join(dir, name), past, past); };
+  rmSync(dir, { recursive: true, force: true });
+  mkdirSync(join(dir, 'sub'), { recursive: true });
+  try {
+    put('a.js', 'export const a = 1;\n');
+    put('sub/b.js', 'export const b = 2;\n');
+    const first = digestFiles([rel]);
+    assert.match(first, /^[0-9a-f]{64}$/);
+    assert.equal(digestFiles([rel]), first, 'the same files give the same digest');
+    put('sub/b.js', 'export const b = 3;\n');
+    assert.notEqual(digestFiles([rel]), first, 'a changed byte is another digest');
+    put('sub/b.js', 'export const b = 2;\n');
+    assert.equal(digestFiles([rel]), first);
+    put('sub/c.js', '');
+    assert.notEqual(digestFiles([rel]), first, 'a new file, even an empty one, is another digest');
+    rmSync(join(dir, 'sub/c.js'));
+    put('.DS_Store', 'litter');
+    assert.equal(digestFiles([rel]), first, 'operating-system litter is no code');
+    // A file written after this process started may not be what it loaded: no digest, so nothing is read or stored.
+    writeFileSync(join(dir, 'a.js'), 'export const a = 1;\n');
+    assert.equal(digestFiles([rel]), null);
+    assert.equal(digestFiles([`${rel}-missing`]), null, 'a folder that cannot be read gives no digest');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

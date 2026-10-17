@@ -96,6 +96,15 @@ test('a derived coverage row speaks only where no stored row does, and only for 
     const named = c.finding.replace(/^Not published by its own products: /, '').replace(/\.$/, '').split(', ');
     assert.deepEqual(named.filter((p) => published.has(p)), [], `${c.id} names a property the material publishes`);
   }
+  // A maker's own statement on moisture sensitivity is a moisture record of the material's own sources (D143): no
+  // material whose makers say how their filament takes up water reads as if none had.
+  for (const m of db.materials.filter((x) => !x.familyEntry)) {
+    const said = db.knowHow.filter((k) => k.materialId === m.id && k.topic === 'Moisture sensitivity').map((k) => k.id);
+    if (!said.length) continue;
+    const row = db.coverage.find((c) => c.materialId === m.id && c.domain === 'Moisture / environmental' && c.status !== 'Superseded');
+    assert.ok(row && row.status !== 'Gap', `${m.id} reads "${row?.status}" on moisture beside its makers' ${said.join(', ')}`);
+    assert.ok(said.every((id) => domainData(db, m)['Moisture / environmental'].includes(id)));
+  }
   // No derived row may carry an ID any record cites: nothing in the tables points at one.
   const ids = new Set(derived.map((c) => c.id));
   assert.ok(!stored.some((c) => ids.has(c.id)));

@@ -22,6 +22,7 @@ import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseCsvText } from '../build/src/csv.js';
 import { statusCounts } from './lib/status-counts.mjs';
+import { pageRuleWords } from '../app/js/ui/page-rule.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const START = '<!-- status:begin -->';
@@ -132,7 +133,7 @@ export function renderStatus(counts, acc, date) {
     '',
     'Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by `npm run snapshot`.',
     '',
-    wrap(`- **What it holds.** ${capital(about(counts.products))} products, ${figure(counts.measurements)} measured values and ${figure(counts.sources)} source documents. The page lists ${m.listed} materials: the ${m.judged} the H2C can print, which the tool judges, and ${m.excluded} it shows only to say why they are out (high-temperature plastics such as PEEK and PEI that need a hotter printer, and metal or ceramic sintering filaments).`),
+    wrap(`- **What it holds.** ${capital(about(counts.products))} products, ${figure(counts.measurements)} measured values and ${figure(counts.sources)} source documents. The page lists ${m.listed} materials: the ${m.judged} the H2C can print, which the tool judges, and ${m.excluded} it shows only to say why they are out (high-temperature plastics such as PEEK and PEI that need a hotter printer, and metal or ceramic sintering filaments).${counts.pages != null ? ` ${capital(about(counts.pages))} materials have a page of their own: those with at least ${pageRuleWords()}, opened from the selector's drawer.` : ''}`),
     wrap(`- **How accurate it is.** Records are checked by random samples read against their source pages. The latest, of ${acc.latest.sample} records, found ${latest}${earlier}, and each cause was fixed everywhere it occurred.${sealed} Every check so far was done by an AI; a person's spot-check is still to come.`),
     wrap(`- **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for ${about(u.chamber)} products), drying (${about(u.drying)}), or, for some products, the nozzle or bed temperature (${edge}). Several hundred products publish no strength, stiffness or heat-resistance value. Reading the documents already held again will not close these: they need documents that print the values, or the makers.`),
     wrap('- **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test prints.'),

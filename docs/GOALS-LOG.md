@@ -616,6 +616,31 @@ make everything coherent, complete the repository and push.
 
 Built as D140 (m417) by Claude Opus, Claude Sonnet agents sweeping the headings and re-reading a blind sample.
 
+## Decided on 2026-10-16, a page of its own for each well-documented material
+
+The owner proposed an independent HTML page per material, opened from the drawer, "like a wiki page": a summary
+written by us, then the material's data with figures beyond what the drawer can hold, designed to be read with
+pleasure, and asked for a critical assessment against GitHub Pages' limits, CI load, maintenance and design
+([assessment](audits/2026-10-16-material-pages/README.md)). Asked eight questions, each with a recommendation, the
+owner chose:
+
+1. **Not every material.** A page needs at least 3 products and 20 measured values (76 of 152 materials on the day);
+   the recommendation had been every listed material.
+2. **A written summary is allowed** under the recommended rules: no number typed by hand (a placeholder the build
+   fills), its author, date and review status shown, deciding nothing; agents draft, the owner reviews.
+3. **An embedded typeface, done professionally**, rather than the recommended system fonts.
+4. **Processed, selected data on the page**, and every record behind a link on a records page: "Reading that much raw
+   data and that many sources is not going to happen by any user. The page should contain usable data."
+5. **SVG figures drawn by the build**, designed professionally and consistently.
+6. **Three prototype pages first**, approved before the rest.
+7. **The pages travel with each GitHub release** as a zip.
+8. **Only the drawer links to a page**; the recommended top-bar link was declined.
+
+Then the owner asked for the execution to be planned with agents, Opus for logic and design and Sonnet for labour,
+around one source of truth so the pages cannot diverge from the drawer, and approved the
+[plan](audits/2026-10-16-material-pages-round/PLAN.md). Built in the
+[material pages round](audits/2026-10-16-material-pages-round/README.md).
+
 ## Decided on 2026-10-17, a plausibility window is a check, never a filter
 
 The owner saw, in the PEEK-CF drawer, LEHVOSS's "450 - 520 °C" nozzle beside a material window of 380–460 °C, and asked
@@ -631,3 +656,21 @@ for the root cause, what else it touched, and a fix; then for "any other issues 
   OPEN-PROBLEMS §3, §4, §11 and §12.
 
 Built as D141 (m420, m421) by Claude, with two Claude Opus agents sweeping the readers.
+
+## Decided on 2026-10-17, a data round on what the material pages' reviews found
+
+Two reviewers, each reading the new per-material pages as a mechanical engineer, scored them, and both found faults
+that were in the data, not the pages: the pages show the data as it is. The owner chose to fix those faults in a round
+of their own, run in parallel with the pages work on its own branch (data-review-fixes), and to decide its merging.
+
+- **What the pages showed, fixed on the documents.** Kingroon's reprints of Bambu Lab's tables carry what each page
+  states; tests only an elastomer is put through apply to elastomers (and tear strength and the 100 % stress to the
+  polyolefins); Prusa's Horizontal and Vertical xz test bars are XY and XZ, as Prusa's own coefficient shows; eleven
+  tensile moduli their own sheets rule out are flagged; a maker's word on moisture counts on the coverage page; one
+  publisher is spelt one way; words broken at line ends, OCR-garbled titles and every XZ, ZX and YX label are as the
+  sheets print them; two reasons say what their documents say.
+- **Rules changed** (D143): Prusa's columns, a YX bar recorded as its own label, a maker's moisture statement a moisture
+  record.
+
+Built by Claude Opus (m422 to m432, D143), with Claude Sonnet agents sweeping publishers, broken words, titles and
+orientation labels and re-reading a blind sample; not pushed, and not merged into main.

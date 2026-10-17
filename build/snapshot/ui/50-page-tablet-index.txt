@@ -1,0 +1,9 @@
+viewport 820x1100
+document width: fits the screen
+spill: none
+clipped cells: none in 20 tables
+hidden controls: 0
+sections (22): masthead, family PLA, family PETG, family ABS, family ASA, family Polycarbonate, family Flexible Elastomers, family Nylon / Polyamide, family PET Engineering, family High-Performance Engineering, family Support / Soluble, family Support / Interface (empty), family Styrenics, family Polyolefins, family Acetals, family Copolyesters, family PVB / Specialty Polymers, family Polymer Blends, family Fluoropolymers, family Industrial High-Temperature, family Metal and Ceramic Sintering (empty), footer
+figures: 0, with an svg 0, with a caption 0
+contents: strip, 20 links, sticky
+fonts: Inter loaded, Newsreader loaded

@@ -3,11 +3,11 @@ Tensile tests, XY and Z
 Flexural tests, XY and Z
 398 values
 Impact tests
-274 values
+275 values
 Hardness
 18 values
 Interlayer adhesion strength
 5 values
 Named on a data sheet without a value: flexural modulus (Polymaker PolySonic PLA), flexural strength (Polymaker PolySonic PLA), charpy strength (Polymaker PolySonic PLA).
 NOT PUBLISHED FOR THIS MATERIAL
-Compression strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile stress at 100 % elongation · Tensile stress at 200 % elongation · Tensile stress at 300 % elongation · Tensile stress at 400 % elongation. A gap, not a zero or a low value.
+Compression strength · Fatigue life · Abrasion loss · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation. A gap, not a zero or a low value.

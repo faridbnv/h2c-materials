@@ -64,7 +64,7 @@ G001-200,M001,,Toughened or impact-modified,SUNLU PLA+: Q01033
 M001,PLA,charpyNotched,Toughened or impact-modified,"7 of 14: 5.76-72.3 (G001-20 G001-23 G001-24 G001-29 G001-30 G001-62 G006-01); others 14: 2.16-20.3, median 6"
 M001,PLA,izodNotched,Toughened or impact-modified,"1 of 6: 10-10 (G001-143); others 6: 4.5-6.5, median 5"
 M018,PLA-CF,charpyNotched,Toughened or impact-modified,"1 of 2: 7.6-7.6 (G018-01); others 2: 5.5-6.65, median 6.075"
-M020,PETG,charpyNotched,Toughened or impact-modified,"1 of 6: 11.6-11.6 (G020-16); others 6: 2.6-8.6, median 5.575"
+M020,PETG,charpyNotched,Toughened or impact-modified,"1 of 8: 11.6-11.6 (G020-16); others 8: 2.6-8.6, median 6"
 M026,PETG-ESD,charpyNotched,Toughened or impact-modified,1 of 1: 5.7-5.7 (G026-05); others none
 M027,ABS,charpyNotched,Toughened or impact-modified,"1 of 5: 14.48-14.48 (G027-08); others 5: 10.51-21.5, median 20.03"
 M066,PET,charpyNotched,Toughened or impact-modified,1 of 1: 1.2-1.2 (G066-03); others none

@@ -33,6 +33,8 @@ const GROUPS = {
     ['data audit', ...node('scripts/audit-data.mjs')],
     ['context audit', ...node('scripts/audit/context-witness.mjs')],
     ['snapshot', ...node('scripts/snapshot.mjs', '--check')],
+    // The material pages in dist/materials/ against the database they were rendered from (test/pages.check.js, P1 to P14).
+    ['material pages', 'npm', ['run', 'pages:check']],
     // Every relative link in the Markdown leads somewhere, and every round's exported packets are recorded (D138).
     ['links', ...node('scripts/docs-links.mjs', '--check')],
     ['packets', ...node('scripts/data/packets.mjs', '--check')],

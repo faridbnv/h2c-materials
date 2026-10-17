@@ -18,12 +18,12 @@
       "sha256": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2"
     },
     "measurements": {
-      "rows": 15418,
-      "sha256": "0647eb7fe80c117d38199a1a438300354b82e6cf67d5686c3c4f4f3c90e53ed6"
+      "rows": 15420,
+      "sha256": "79aa93632f4bc1aedc132e735bef3d83887e3c9be8a53d0d968ad3a68c1e0209"
     },
     "page_context": {
-      "rows": 1007,
-      "sha256": "fe062afb30332a51f3b1218dd3d9c5ca24d8cf1a1e023cee230b6aed6668f2f5"
+      "rows": 1010,
+      "sha256": "a9ed6177f08298eb388b137818589a34b8db2566ed9271fed46e8a2281e16f50"
     },
     "impact_test_guesses": {
       "rows": 60,
@@ -35,7 +35,7 @@
     },
     "evidence": {
       "rows": 8490,
-      "sha256": "a5a270a146c679840b36a7f822dd5f87bf400c4a47927eb44cb374957c899286"
+      "sha256": "26f801967781be2f5098f41fb4fd4634a75b0c5180b71889ccbe7ba4958fbbda"
     },
     "know_how_reads": {
       "rows": 1753,
@@ -59,11 +59,11 @@
     },
     "sources": {
       "rows": 2016,
-      "sha256": "3aa5b7ddb6aaa13f27d3279352ba91b49f0a79a66a98cb72eea94b2fa5c6e789"
+      "sha256": "0afff47ec3e53f6265089f8258b827303aa447caf81ec7dce0a4eea5b42a8031"
     },
     "coverage": {
-      "rows": 951,
-      "sha256": "8f65483ba3fa35a8d070ded15a850ccad463ad75045ce7e4d79e10af735dcbab"
+      "rows": 953,
+      "sha256": "cb2b596678a3c449aee81cc16b7762e3dc68810fc3e9cc79721a9d08ad807abb"
     },
     "method": {
       "rows": 57,
@@ -83,7 +83,7 @@
     },
     "product_claims": {
       "rows": 62,
-      "sha256": "05cc623fbf26470bf5665716e4537ac9d2cc1c9ed11baa047a023a4e365374df"
+      "sha256": "dbf4aacd0a9d5ba9d7aa90429f63ecebb2897e54f468ac8ea927239533668be5"
     },
     "material_links": {
       "rows": 830,
@@ -91,11 +91,11 @@
     },
     "print_guide_materials": {
       "rows": 17,
-      "sha256": "57098444745f30c043a85818375165c17f607b3479ba27d0404f9e066b2c6464"
+      "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
     },
     "properties": {
       "rows": 50,
-      "sha256": "e6ed4997f37929f64a7df2a7ec4f3bdbcf9bf0d94aed7b39986dae4b7d18d9f1"
+      "sha256": "221adab17d97bb69aeb00551d2e0acd77145006a8c766f6fe8e5127b000c3aa0"
     },
     "headline_definitions": {
       "rows": 17,
