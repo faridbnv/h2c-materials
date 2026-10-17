@@ -62,7 +62,7 @@ jobs:
         run: rm -rf .cache/build && sleep 3
 
       # Two cores: the runner's four CPUs are two cores' hyperthreads, and the tests and the audit side by side took
-      # 241 s and 99 s where one after the other they take 134 s and 22.5 s (PR #2's runs, D142); the short checks
+      # 241 s and 99 s where one after the other they take 134 s and 22.5 s (PR #2's runs, D144); the short checks
       # still run beside the build.
       - name: Verify the data, the build and the tests
         run: node scripts/verify.mjs --group data --jobs 2
