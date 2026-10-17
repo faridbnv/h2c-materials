@@ -110,3 +110,32 @@ export function dotScale(values, unit) {
   for (let v = from; v <= top + step / 2; v += step) ticks.push(Number(v.toPrecision(6)));
   return { log: false, from, hi: top, ticks, pct: (v) => Math.max(0, Math.min(100, ((v - from) / (top - from)) * 100)) };
 }
+
+/** Where a value lies against a scale: -1 below its start (or not positive on a logarithmic scale), 1 past its end, 0 on it. */
+export const beyond = (scale, v) => ((scale.log && !(v > 0)) || v < scale.from ? -1 : v > scale.hi ? 1 : 0);
+
+/**
+ * A scale zoomed to `values`, of the kind given (`log` true or false), with round ticks: logarithmic at 1, 2 and 5 of
+ * each decade from the step at or below the lowest to the one at or above the highest; linear from the round step at or
+ * below the lowest to the one at or above the highest. The material pages' product strips use it where their products sit
+ * in a narrow part of the property's fixed scale (material-stats.js propertyScale), and say so.
+ */
+export function zoomScale(values, unit, log) {
+  const lo = Math.min(...values), hi = Math.max(...values);
+  if (log && lo > 0) {
+    const steps = [];
+    for (let e = Math.floor(Math.log10(lo)) - 1; e <= Math.ceil(Math.log10(hi)) + 1; e++) for (const n of NICE) steps.push(Number((n * 10 ** e).toPrecision(3)));
+    const from = steps.filter((v) => v <= lo).at(-1) ?? lo;
+    let top = steps.find((v) => v >= hi) ?? hi;
+    if (top <= from) top = steps.find((v) => v > from) ?? from * 2;
+    const span = Math.log10(top) - Math.log10(from);
+    return { log: true, from, hi: top, ticks: steps.filter((v) => v >= from && v <= top),
+      pct: (v) => Math.max(0, Math.min(100, ((Math.log10(Math.max(v, from)) - Math.log10(from)) / span) * 100)) };
+  }
+  const step = roundStep(hi - lo || Math.abs(hi) * 0.2 || 1);
+  const from = Math.floor(lo / step) * step;
+  const top = Math.max(Math.ceil(hi / step) * step, from + step);
+  const ticks = [];
+  for (let v = from; v <= top + step / 2; v += step) ticks.push(Number(v.toPrecision(6)));
+  return { log: false, from, hi: top, ticks, pct: (v) => Math.max(0, Math.min(100, ((v - from) / (top - from)) * 100)) };
+}

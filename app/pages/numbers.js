@@ -38,8 +38,14 @@ export function fmtDisplay(v, unit) {
   return Math.abs(p) >= 1000 ? p.toLocaleString('en-CA', { maximumFractionDigits: 0 }) : String(p);
 }
 
-/** fmtDisplay with its unit: "45.5 MPa", "55 °C", "34 CAD/kg". */
-export const fmtDisplayUnit = (v, unit) => (unit ? `${fmtDisplay(v, unit)} ${unit}` : fmtDisplay(v, unit));
+/** The space between a number and its unit: no break, so "350 °C" never wraps between the two. */
+export const NBSP = '\u00a0';
 
-/** A display span: "40–53" (word-joined dash), one number where both print alike. */
+/** fmtDisplay with its unit, joined by a no-break space: "45.5 MPa", "55 °C", "34 CAD/kg". */
+export const fmtDisplayUnit = (v, unit) => (unit ? `${fmtDisplay(v, unit)}${NBSP}${unit}` : fmtDisplay(v, unit));
+
+/** A display span: "40–53" (word-joined dash), one number where both print alike; with `unit` given, "40–53 MPa". */
 export const spanDisplay = (lo, hi, unit) => { const a = fmtDisplay(lo, unit), b = fmtDisplay(hi, unit); return a === b ? a : `${a}⁠–⁠${b}`; };
+
+/** A display span with its unit, no-break joined: "40–53 MPa". */
+export const spanDisplayUnit = (lo, hi, unit) => (unit ? `${spanDisplay(lo, hi, unit)}${NBSP}${unit}` : spanDisplay(lo, hi, unit));

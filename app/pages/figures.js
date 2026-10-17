@@ -66,11 +66,11 @@ export const LAYER_TESTS = ['Tensile tests, XY and Z', 'Flexural tests, XY and Z
  * registry headline key, its column title and the line under it.
  */
 export const PEER_COLUMNS = [
-  { key: 'tensileModulusXY', title: 'Modulus (XY)', sub: 'tensile · GPa' },
-  { key: 'tensileStrengthXY', title: 'Strength (XY)', sub: 'tensile · MPa' },
-  { key: 'tensileStrengthZ', title: 'Strength (Z)', sub: 'across layers · MPa' },
-  { key: 'charpyNotched', title: 'Notched Charpy', sub: 'impact · kJ/m²' },
-  { key: 'hdt045', title: 'HDT', sub: 'at 0.45 MPa · °C' },
+  { key: 'tensileModulusXY', title: 'Modulus (XY)', sub: 'GPa' },
+  { key: 'tensileStrengthXY', title: 'Strength (XY)', sub: 'MPa' },
+  { key: 'tensileStrengthZ', title: 'Strength (Z)', sub: 'MPa' },
+  { key: 'charpyNotched', title: 'Notched Charpy', sub: 'kJ/m²' },
+  { key: 'hdt045', title: 'HDT 0.45 MPa', sub: '°C' },
   { key: 'priceCADkg', title: 'Price', sub: 'CAD/kg' },
 ];
 
@@ -79,6 +79,9 @@ export const MAP_PANELS = [
   { x: 'tensileModulusXY', y: 'tensileStrengthXY' },
   { x: 'priceCADkg', y: 'hdt045' },
 ];
+
+/** A product strip is drawn for a property only where at least this many products publish it; under it, a table. */
+export const STRIP_MIN = 4;
 
 /** The product strips each section draws (charts/strips.js stripsFigure), by the figure's id. */
 export const STRIP_SETS = {

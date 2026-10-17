@@ -6,7 +6,7 @@
 // and the shares as a sorted line. Where no product publishes both for any pair, the panels give way to the strips alone.
 // x in per cent, y in px.
 
-import { esc, pct, textPx, fmtDisplay, headline, shortName, withUnit, products, andList, orList, figContext, productMark, kindsOf, noteOf, productName, fitLabels, KEY, keyOf, twinTable } from './kit.js';
+import { esc, pct, textPx, fmtDisplay, NBSP, tickText, tickLabels, headline, shortName, withUnit, products, andList, orList, figContext, productMark, kindsOf, noteOf, productName, fitLabels, KEY, keyOf, twinTable } from './kit.js';
 import { figFrame } from './figure.js';
 import { spreadEntries } from '../../js/ui/material-facts.js';
 import { layerPairs, layerShareOf, summarise } from '../../js/ui/material-stats.js';
@@ -16,7 +16,7 @@ import { LAYER_PAIRS } from '../figures.js';
 
 const SIDE = 220;           // the plot's height, px
 const WIDE = 300, NARROW = 300;
-const sharePct = (r) => `${Math.round(r * 100)} %`;
+const sharePct = (r) => `${Math.round(r * 100)}${NBSP}%`;
 
 function panel(c, k, pair, plotted) {
   const m = c.m;
@@ -28,14 +28,14 @@ function panel(c, k, pair, plotted) {
   const others = k.peers.map((p) => ({ p, s: layerShareOf(k.db, p, ha, hb) })).filter((x) => x.s);
   const unit = ha.unit;
   const o = [];
+  let logged = false;
   if (pairs.length) {
     const sc = stripScale(pairs.flatMap((p) => [p.xy.v.value, p.z.v.value]), unit);
+    logged = sc.log;
     const X = (v) => sc.pct(v), Y = (v) => yOf(sc, v, SIDE);
-    for (const t of sc.ticks) o.push(`<line class="dv-grid" x1="${pct(X(t))}" x2="${pct(X(t))}" y1="0" y2="${SIDE}"/><line class="dv-grid" x1="0" x2="100%" y1="${Y(t)}" y2="${Y(t)}"/><text x="-5" y="${(Y(t) + 4).toFixed(1)}" text-anchor="end">${esc(fmtDisplay(t, ''))}</text>`);
+    for (const t of sc.ticks) o.push(`<line class="dv-grid" x1="${pct(X(t))}" x2="${pct(X(t))}" y1="0" y2="${SIDE}"/><line class="dv-grid" x1="0" x2="100%" y1="${Y(t)}" y2="${Y(t)}"/><text x="-5" y="${(Y(t) + 4).toFixed(1)}" text-anchor="end">${esc(tickText(t))}</text>`);
     o.push(`<line class="dv-axis" x1="0" x2="100%" y1="${SIDE + 0.5}" y2="${SIDE + 0.5}"/>`);
-    const xl = sc.ticks.map((t) => ({ t: fmtDisplay(t, ''), at: X(t) })).map((it) => ({ ...it, w: textPx(it.t, 11.5), anchor: it.at >= 99.5 ? 'end' : it.at <= 0.5 ? 'start' : 'middle' }));
-    const fits = fitLabels(xl, WIDE);
-    xl.forEach((it, i) => { if (fits[i]) o.push(`<text x="${pct(it.at)}" y="${SIDE + 15}" text-anchor="${it.anchor}">${esc(it.t)}</text>`); });
+    o.push(tickLabels(sc, SIDE + 15, { wide: WIDE, narrow: NARROW }));
     // Rays Z = r × XY, clipped to the frame; each labelled at its far end where it clears the one above.
     const said = [];
     const ray = (r, cls, label) => {
@@ -66,10 +66,11 @@ function panel(c, k, pair, plotted) {
   const list = [...(own ? [{ name: shortName(m), share: own.share, self: true }] : []), ...others.map(({ p, s }) => ({ name: shortName(p), share: s.share }))].sort((a, b) => b.share - a.share || a.name.localeCompare(b.name));
   const sub = own ? `Z keeps ${sharePct(own.share)} of XY, median of ${products(own.n)}` : `No ${shortName(m)} product publishes both`;
   const html = `<div class="ly-panel" data-key="${esc(hb.key)}" data-xkey="${esc(ha.key)}"><p class="ly-title">${esc(pair.title)}</p><p class="ly-sub">${esc(sub)}</p>`
-    + (pairs.length ? `<div class="ly-plot"><svg class="ly-svg" width="100%" height="${SIDE + 20}" role="img" aria-label="${esc(`${pair.title} across the layers against flat, ${products(pairs.length)}; median share ${sharePct(own.share)}.`)}">${o.join('')}</svg></div><p class="ly-x">${esc(`flat (XY), ${unit}${'' }`)}</p>` : '')
+    + (pairs.length ? `<div class="ly-plot"><svg class="ly-svg" width="100%" height="${SIDE + 20}" role="img" aria-label="${esc(`${pair.title} across the layers against flat, ${products(pairs.length)}; median share ${sharePct(own.share)}.`)}">${o.join('')}</svg></div><p class="ly-x">${esc(`flat (XY), ${unit}${logged ? ', log scale on both axes' : ''}`)}</p>` : '')
     + `<div class="ly-strip">${list.length ? `<svg class="ly-svg" width="100%" height="30" role="img" aria-label="${esc(`Share kept across the layers: ${list.map((x) => `${x.name} ${sharePct(x.share)}`).join(', ')}.`)}">${strip.join('')}</svg>` : ''}`
     + `<p class="ly-list">${list.length ? `Share kept: ${list.map((x) => (x.self ? `<b>${esc(x.name)} ${sharePct(x.share)}</b>` : `${esc(x.name)} ${sharePct(x.share)}`)).join(' · ')}` : esc('No alternative publishes both either.')}</p></div></div>`;
   plotted.push(...pairs);
+  // (A panel with no pair of its own shows its alternatives' strip under a line saying so.)
   return { html, pair, pairs, own, others, unit, ha, hb };
 }
 
@@ -79,7 +80,9 @@ export function layersFigure(c, env = {}, opts = {}) {
   const name = shortName(m);
   const plotted = [];
   const panels = LAYER_PAIRS.map((pair) => panel(c, k, pair, plotted)).filter(Boolean);
-  if (!panels.some((p) => p.pairs.length || p.others.length)) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
+  // No figure of the alternatives' shares alone: where no product of this material publishes both XY and Z from one
+  // sheet, the section says so in a line.
+  if (!panels.some((p) => p.pairs.length)) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
   const any = panels.some((p) => p.pairs.length);
   const owned = panels.filter((p) => p.own);
   const title = owned.length

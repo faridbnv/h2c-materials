@@ -8,61 +8,70 @@
 // Each column is its own SVG, x in per cent of the column, rows at fixed px heights matching the names column, so the
 // figure is fluid; under 720 px it scrolls sideways inside its box with the names held at the left (figures.src.css).
 
-import { esc, pct, textPx, fmtDisplay, headline, shortName, withUnit, spanUnit, products, andList, orList, inText, figContext, gridLines, KEY, keyOf, twinTable } from './kit.js';
+import { esc, pct, fmtDisplay, NBSP, beyond, headline, shortName, withUnit, spanUnit, products, andList, orList, inText, figContext, gridLines, edgeMark, tickLabels, KEY, keyOf, twinTable } from './kit.js';
 import { figFrame } from './figure.js';
-import { materialCell, peerContrast } from '../../js/ui/material-stats.js';
-import { stripScale } from '../../js/ui/scales.js';
+import { materialCell, peerContrast, propertyScale, isFlexible } from '../../js/ui/material-stats.js';
+import { spanDisplay } from '../numbers.js';
 import { PEER_COLUMNS } from '../figures.js';
 
 export const ROW = 34;
 const RUG = 26;
 
-/** One column's scale: the scale rule over the rows' lowest, highest and medians (and values as published). */
-export function columnScale(cells, unit) {
-  const vals = cells.flatMap((x) => (x ? [x.min, x.max, x.median].filter((v) => Number.isFinite(v)) : []));
-  return vals.length ? stripScale(vals, unit) : null;
-}
+/**
+ * A key property's scale on this page: the property's own, the same on every page of the material's kind
+ * (material-stats.js propertyScale), so a column, a key figure's small drawing and the next page's agree.
+ */
+export const columnScale = (c, key) => { const k = figContext(c); return propertyScale(k.db, k.ranks, key, isFlexible(c.m)); };
 
 /** The cells of every row for one key, this material first. */
 export const columnCells = (rows, key) => rows.map((r) => materialCell(r, key));
 
-function cellSvg(r, c, h, X, y, self) {
+/**
+ * A cell's marks on scale `sc`: the hairline, the band and the median tick, each held inside the scale; an end beyond it
+ * a chevron at the edge, the median beyond it a chevron in the tick's place. `k` 'self' or 'peer'; `h` the headline.
+ * Also the key figures' small drawing's (mini.js).
+ */
+export function cellMarks(cell, sc, y, k, { tick = 18, band = 10, label = null } = {}) {
+  const X = (v) => sc.pct(v);
+  const o = [];
+  if (cell.kind === 'open') {
+    if (cell.min !== cell.max) o.push(`<line class="dv-open-line" x1="${pct(X(cell.min))}" x2="${pct(X(cell.max))}" y1="${y}" y2="${y}"/>`);
+    for (const v of new Set([cell.min, cell.max])) {
+      const b = beyond(sc, v);
+      o.push(b ? edgeMark(b, b < 0 ? 0 : 100, y, `dv-open-chev`) : `<circle class="dv-open" cx="${pct(X(v))}" cy="${y}" r="${band > 8 ? 4 : 3.6}"/>`);
+    }
+    if (label) o.push(valueLabel(X(cell.max), y, label, tick));
+    return o.join('');
+  }
+  if (cell.min !== cell.max) {
+    o.push(`<line class="dv-${k}-range" x1="${pct(X(cell.min))}" x2="${pct(X(cell.max))}" y1="${y}" y2="${y}"/>`);
+    for (const v of [cell.min, cell.max]) { const b = beyond(sc, v); if (b && v !== cell.median) o.push(edgeMark(b, b < 0 ? 0 : 100, y, `dv-${k}-chev`)); }
+  }
+  if (cell.q1 != null && cell.q3 != null && !(beyond(sc, cell.q1) === beyond(sc, cell.q3) && beyond(sc, cell.q1) !== 0)) {
+    o.push(`<rect class="dv-${k}-band" x="${pct(X(cell.q1))}" y="${y - band / 2}" width="${pct(Math.max(X(cell.q3) - X(cell.q1), 0.8))}" height="${band}" rx="2"/>`);
+  }
+  const b = beyond(sc, cell.median);
+  o.push(b ? edgeMark(b, b < 0 ? 0 : 100, y, `dv-${k}-chev dv-chev--big`)
+    : `<svg x="${pct(X(cell.median))}" y="${y}" overflow="visible"><rect class="dv-${k}" x="-1.5" y="${-tick / 2}" width="3" height="${tick}" rx="1.5"/></svg>`);
+  if (label) o.push(valueLabel(X(cell.median), y, label, tick));
+  return o.join('');
+}
+
+function cellSvg(r, c, h, sc, y, self) {
   const k = self ? 'self' : 'peer';
   const hooks = (v, t) => ` data-mat="${esc(r.id)}" data-key="${esc(h.key)}" data-v="${v}" data-name="${esc(shortName(r))}" data-t="${esc(t)}"`;
   if (c.kind === 'open') {
-    const vals = [...new Set([c.min, c.max])];
     const t = `${spanUnit(c.min, c.max, h.unit)} from ${products(c.n)}, as published: orientation or load not stated`;
-    return `<g class="pe-cell cx dv-${k}-open"${hooks(c.max, t)} data-kind="as-published">`
-      + (vals.length > 1 ? `<line class="dv-open-line" x1="${pct(X(c.min))}" x2="${pct(X(c.max))}" y1="${y}" y2="${y}"/>` : '')
-      + vals.map((v) => `<circle class="dv-open" cx="${pct(X(v))}" cy="${y}" r="4"/>`).join('')
-      + (self ? valueLabel(X(c.max), y, fmtDisplay(c.max, h.unit)) : '') + '</g>';
+    return `<g class="pe-cell cx dv-${k}-open"${hooks(c.max, t)} data-kind="as-published">${cellMarks(c, sc, y, k, { label: self ? fmtDisplay(c.max, h.unit) : null })}</g>`;
   }
   const t = `median ${withUnit(c.median, h.unit)}${c.q1 != null ? `, middle half ${spanUnit(c.q1, c.q3, h.unit)}` : ''}${c.min !== c.max ? `, lowest to highest ${spanUnit(c.min, c.max, h.unit)}` : ''}, ${products(c.n)}`;
-  return `<g class="pe-cell cx"${hooks(c.median, t)} data-kind="compared">`
-    + (c.min !== c.max ? `<line class="dv-${k}-range" x1="${pct(X(c.min))}" x2="${pct(X(c.max))}" y1="${y}" y2="${y}"/>` : '')
-    + (c.q1 != null && c.q3 != null ? `<rect class="dv-${k}-band" x="${pct(X(c.q1))}" y="${y - 5}" width="${pct(Math.max(X(c.q3) - X(c.q1), 0.8))}" height="10" rx="2"/>` : '')
-    + `<svg x="${pct(X(c.median))}" y="${y}" overflow="visible"><rect class="dv-${k}" x="-1.5" y="-9" width="3" height="18" rx="1.5"/></svg>`
-    + (self ? valueLabel(X(c.median), y, fmtDisplay(c.median, h.unit)) : '') + '</g>';
+  return `<g class="pe-cell cx"${hooks(c.median, t)} data-kind="compared">${cellMarks(c, sc, y, k, { label: self ? fmtDisplay(c.median, h.unit) : null })}</g>`;
 }
 
-/** This material's median over its tick, kept inside the column near its ends. */
-function valueLabel(at, y, t) {
+/** This material's value over its mark, kept inside the column near its ends. */
+function valueLabel(at, y, t, tick = 18) {
   const anchor = at < 12 ? 'start' : at > 88 ? 'end' : 'middle';
-  return `<text class="dv-val" x="${pct(at)}" y="${y - 12}" dx="${anchor === 'start' ? -2 : anchor === 'end' ? 2 : 0}" text-anchor="${anchor}">${esc(t)}</text>`;
-}
-
-/** The scale's labels under a narrow column: its ends anchored inward, a middle one where it clears both. */
-function columnTicks(sc, y) {
-  const t = sc.ticks;
-  const lab = (i, a) => `<text x="${pct(sc.pct(t[i]))}" y="${y}" text-anchor="${a}">${esc(fmtDisplay(t[i], ''))}</text>`;
-  let out = lab(0, 'start') + (t.length > 1 ? lab(t.length - 1, 'end') : '');
-  const mid = Math.round((t.length - 1) / 2);
-  if (t.length > 2 && mid > 0 && mid < t.length - 1) {
-    // About 110 px a column on a laptop: the middle label where it clears the ends there.
-    const W = 110, x = (sc.pct(t[mid]) / 100) * W, half = textPx(fmtDisplay(t[mid], ''), 11.5) / 2;
-    if (x - half > textPx(fmtDisplay(t[0], ''), 11.5) + 6 && x + half < W - textPx(fmtDisplay(t.at(-1), ''), 11.5) - 6) out += lab(mid, 'middle');
-  }
-  return out;
+  return `<text class="dv-val" x="${pct(at)}" y="${y - tick / 2 - 3}" dx="${anchor === 'start' ? -2 : anchor === 'end' ? 2 : 0}" text-anchor="${anchor}">${esc(t)}</text>`;
 }
 
 export function peersFigure(c, env = {}, opts = {}) {
@@ -73,40 +82,42 @@ export function peersFigure(c, env = {}, opts = {}) {
   if (!peers.length) return empty;
   const rows = [m, ...peers];
   const cols = PEER_COLUMNS.map((col) => ({ ...col, h: headline(col.key) })).filter((col) => col.h)
-    .map((col) => ({ ...col, cells: columnCells(rows, col.key) })).filter((col) => col.cells.some(Boolean));
+    .map((col) => ({ ...col, cells: columnCells(rows, col.key), sc: columnScale(c, col.key) })).filter((col) => col.sc && col.cells.some(Boolean));
   if (!cols.length || !cols.some((col) => col.cells[0])) return empty;
   const H = RUG + rows.length * ROW + 20;
-  let marks = 0;
+  let marks = 0, clipped = false;
   const svgs = cols.map((col) => {
-    const h = col.h, sc = columnScale(col.cells, h.unit);
+    const h = col.h, sc = col.sc;
     const X = (v) => sc.pct(v);
     // This material's row, banded in the accent's tint; the gridlines at the scale's ticks.
     const o = [`<rect class="pe-selfband" x="0" y="${RUG}" width="100%" height="${ROW}"/>`, gridLines(sc, 4, H - 20)];
-    // The rug: every material's median within the scale, one path in a 0–100 box stretched to the column, counted beyond
-    // it; this material's own tick drawn apart, in the accent.
+    // The rug: every material's median on the scale, one path in a 0–100 box stretched to the column; those beyond it
+    // counted in words at its ends; this material's own tick drawn apart, in the accent.
     let below = 0, above = 0, ownAt = null;
     const ticks = [];
     for (const e of k.ranks[col.key]?.entries ?? []) {
-      if (e.value < sc.from) { below++; continue; }
-      if (e.value > sc.hi) { above++; continue; }
+      const b = beyond(sc, e.value);
+      if (b < 0) { below++; continue; }
+      if (b > 0) { above++; continue; }
       if (e.id === m.id) { ownAt = X(e.value); continue; }
       ticks.push(`M${X(e.value).toFixed(2)} 7V19`);
     }
     o.push(`<svg x="0" y="0" width="100%" height="${RUG}" viewBox="0 0 100 ${RUG}" preserveAspectRatio="none"><path class="dv-rug" d="${ticks.join('')}" vector-effect="non-scaling-stroke"/></svg>`);
     if (ownAt != null) o.push(`<line class="dv-rug--self" x1="${pct(ownAt)}" x2="${pct(ownAt)}" y1="4" y2="22"/>`);
-    if (below) o.push(`<text class="dv-rugn" x="0" y="3" dy="-2">‹ ${below}</text>`);
-    if (above) o.push(`<text class="dv-rugn" x="100%" y="3" dy="-2" text-anchor="end">${above} ›</text>`);
+    if (below) o.push(`<text class="dv-rugn" x="0" y="3" dy="-2">${below}${NBSP}below</text>`);
+    if (above) o.push(`<text class="dv-rugn" x="100%" y="3" dy="-2" text-anchor="end">${above}${NBSP}above</text>`);
     const own = col.cells[0];
-    if (own?.kind === 'compared') o.push(`<line class="dv-guide" x1="${pct(X(own.median))}" x2="${pct(X(own.median))}" y1="${RUG}" y2="${H - 20}"/>`);
+    if (own?.kind === 'compared' && !beyond(sc, own.median)) o.push(`<line class="dv-guide" x1="${pct(X(own.median))}" x2="${pct(X(own.median))}" y1="${RUG}" y2="${H - 20}"/>`);
     col.cells.forEach((cell, i) => {
       const y = RUG + i * ROW + ROW / 2;
       if (!cell) { o.push(`<text class="dv-none" x="50%" y="${y + 4}" text-anchor="middle">—</text>`); return; }
       marks++;
-      o.push(cellSvg(rows[i], cell, h, X, y, i === 0));
+      if ([cell.min, cell.max, cell.median].some((v) => v != null && beyond(sc, v))) clipped = true;
+      o.push(cellSvg(rows[i], cell, h, sc, y, i === 0));
     });
     o.push(`<line class="dv-axis" x1="0" x2="100%" y1="${H - 19.5}" y2="${H - 19.5}"/>`);
-    o.push(`<g class="dv-ticks">${columnTicks(sc, H - 6)}</g>`);
-    return `<div class="pe-col" data-key="${esc(col.key)}"><div class="pe-h"><b>${esc(col.title)}</b><span>${esc(col.sub)}</span></div>`
+    o.push(`<g class="dv-ticks">${tickLabels(sc, H - 6, { wide: 110, narrow: 110 })}</g>`);
+    return `<div class="pe-col" data-key="${esc(col.key)}"><div class="pe-h"><b>${esc(col.title)}</b><span>${esc(`${col.sub}${sc.log ? ' · log scale' : ''}`)}</span></div>`
       + `<svg class="pe-svg" width="100%" height="${H}" aria-hidden="true" focusable="false">${o.join('')}</svg></div>`;
   });
   const names = `<div class="pe-names"><div class="pe-h"></div><div class="pe-rugname">All materials</div>`
@@ -125,14 +136,14 @@ export function peersFigure(c, env = {}, opts = {}) {
   const name = shortName(m);
   const title = parts.length ? `Against its alternatives, ${name} has ${parts.join(' and ')}` : `${name} against its alternatives`;
   const kinds = new Set(cols.flatMap((col) => col.cells.map((x, i) => (x ? `${i ? 'peer' : 'self'}-${x.kind}` : null))));
-  const key = keyOf([KEY.selfCell(name), KEY.peerCell(), KEY.range(), KEY.rug(), ...(kinds.has('self-open') || kinds.has('peer-open') ? [KEY.open()] : [])]);
+  const key = keyOf([KEY.selfCell(name), KEY.peerCell(), KEY.range(), KEY.rug(), ...(kinds.has('self-open') || kinds.has('peer-open') ? [KEY.open()] : []), ...(clipped ? [KEY.clip()] : [])]);
   const table = twinTable(['Material', ...cols.map((col) => `${col.title} (${col.h.unit})`)], rows.map((r, i) => [
     shortName(r) + (i ? '' : ' (this material)'),
     ...cols.map((col) => {
       const x = col.cells[i];
       if (!x) return '—';
-      if (x.kind === 'open') return `${spanUnit(x.min, x.max, '').trim()} as published (${x.n})`;
-      return `${fmtDisplay(x.median, col.h.unit)}${x.q1 != null ? ` (${spanUnit(x.q1, x.q3, col.h.unit).replace(` ${col.h.unit}`, '')})` : ''} · ${x.n}`;
+      if (x.kind === 'open') return `${spanDisplay(x.min, x.max, col.h.unit)} as published (${x.n})`;
+      return `${fmtDisplay(x.median, col.h.unit)}${x.q1 != null ? ` (${spanDisplay(x.q1, x.q3, col.h.unit)})` : ''} · ${x.n}`;
     }),
   ]));
   const lacks = cols.filter((col) => !col.cells[0]).map((col) => inText(col.h));
@@ -143,7 +154,7 @@ export function peersFigure(c, env = {}, opts = {}) {
     slug: opts.id ?? 'alternatives', kind: 'peers', title,
     question: 'How does it compare with what an engineer would buy instead?',
     key, plot, label: null,
-    read: `Each row is a material, each column a property on its own scale: the bar is the middle half of a material's products, the tick their median, the hairline their lowest to highest. The ticks above the rows are every material's median.`,
+    read: `Each row is a material, each column a property on the scale it has on every page: the bar is the middle half of a material's products, the tick their median, the hairline their lowest to highest. The ticks above the rows are every material's median; those beyond the scale are counted at its ends, and a chevron marks a value beyond it.`,
     table, leaves, method: 'alternatives',
   });
   return { html, empty: false, stats: { figures: 1, dots: marks } };

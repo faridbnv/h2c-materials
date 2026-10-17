@@ -482,3 +482,27 @@ export function mapFrame(db, ranks, xKey, yKey, flexible = false) {
   const frame = (vs, unit) => { const all = stripScale(vs, unit); if (!all.log) return all; const t = stripScale(trim(vs), unit); return t.log ? t : all; };
   return { points, xs: frame(points.map((p) => p.x), unitOf(xKey)), ys: frame(points.map((p) => p.y), unitOf(yKey)) };
 }
+
+// ------------------------------------------------------------------ one scale per property, on every page
+
+const PROPERTY_SCALES = new WeakMap();
+
+/**
+ * The scale a key property is drawn on, the same on every page of a kind (rigid or flexible, facets.flexible): the scale
+ * rule (scales.js stripScale) over the kind's materials' medians (material-facts.js rankTable `ranks`), without the two
+ * furthest at each end where the kind has more than eight, so a few far-off materials do not set it. A property is thus
+ * logarithmic or linear on every page alike. Values beyond it are drawn as an edge marker by the figures. null where no
+ * material of the kind has a median.
+ */
+export function propertyScale(db, ranks, key, flexible = false) {
+  let cache = PROPERTY_SCALES.get(db);
+  if (!cache) PROPERTY_SCALES.set(db, (cache = new Map()));
+  const id = `${key}|${flexible ? 'flexible' : 'rigid'}`;
+  if (cache.has(id)) return cache.get(id);
+  const byId = new Map(db.materials.map((m) => [m.id, m]));
+  const vals = (ranks?.[key]?.entries ?? []).filter((e) => { const m = byId.get(e.id); return m && flexibleOf(m) === flexible; }).map((e) => e.value).sort((a, b) => a - b);
+  const unit = REGISTRY.allHeadlines.find((h) => h.key === key)?.unit;
+  const sc = vals.length ? stripScale(vals.length > 8 ? vals.slice(2, -2) : vals, unit) : null;
+  cache.set(id, sc);
+  return sc;
+}

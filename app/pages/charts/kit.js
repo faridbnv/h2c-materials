@@ -13,14 +13,19 @@
 // data-xkey and data-xv the horizontal one.
 
 import { esc, pct, textPx, attrs } from '../html.js';
-import { fmtDisplay } from '../numbers.js';
+import { fmtDisplay, NBSP } from '../numbers.js';
+import { fmtNumber } from '../../js/ui/format.js';
+import { beyond } from '../../js/ui/scales.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { indexDb, rankTable, productNameOrId } from '../../js/ui/material-facts.js';
 import { peerSet } from '../../js/ui/material-stats.js';
 import { materialName } from '../../js/ui/labels.js';
 import { pageOf } from '../../js/ui/page-rule.js';
 
-export { esc, pct, textPx, attrs, fmtDisplay };
+export { esc, pct, textPx, attrs, fmtDisplay, NBSP, beyond };
+
+/** A tick's label: the round value at its place, exactly ("1,275", "2.5", "0.05"), never rounded further. */
+export const tickText = (v) => fmtNumber(v);
 
 /** A registry headline by key (drawer-only ones included). */
 export const headline = (key) => REGISTRY.allHeadlines.find((h) => h.key === key) ?? null;
@@ -29,12 +34,12 @@ export const headline = (key) => REGISTRY.allHeadlines.find((h) => h.key === key
 export const shortName = (m) => materialName(m.name).primary ?? m.name;
 
 /** A value with its unit, at display precision: "45.5 MPa". */
-export const withUnit = (v, unit) => (unit ? `${fmtDisplay(v, unit)} ${unit}` : fmtDisplay(v, unit));
+export const withUnit = (v, unit) => (unit ? `${fmtDisplay(v, unit)}${NBSP}${unit}` : fmtDisplay(v, unit));
 
 /** A span at display precision, word-joined: "40–53 MPa", or one value where both print alike. */
 export function spanUnit(lo, hi, unit) {
   const a = fmtDisplay(lo, unit), b = fmtDisplay(hi, unit);
-  return `${a === b ? a : `${a}⁠–⁠${b}`}${unit ? ` ${unit}` : ''}`;
+  return `${a === b ? a : `${a}⁠–⁠${b}`}${unit ? `${NBSP}${unit}` : ''}`;
 }
 
 /** "1 product", "71 products". */
@@ -100,10 +105,16 @@ export function noteOf(marks) {
  * A product's mark: a dot, a square after annealing, a diamond for a modified product; hollow where not compared; the
  * claim colour where sold as toughened. `x` per cent (a number), `y` px; `data` its hooks.
  */
-export function productMark(marks, x, y, data) {
-  const shape = marks.includes('variant') ? 'dv-dia' : marks.includes('annealed') ? 'dv-sq' : 'dv-dot';
-  const cls = ['mk', 'dv-p', ...marks.map((k) => `mk--${k}`)].join(' ');
-  return `<use href="#${shape}" class="${cls}" x="${pct(x)}" y="${Number(y.toFixed(1))}"${attrs(data)}/>`;
+export function productMark(marks, x, y, data, side = 0) {
+  const shape = side < 0 ? 'dv-chev-l' : side > 0 ? 'dv-chev-r' : marks.includes('variant') ? 'dv-dia' : marks.includes('annealed') ? 'dv-sq' : 'dv-dot';
+  const cls = ['mk', 'dv-p', ...(side ? ['dv-clip'] : []), ...marks.map((k) => `mk--${k}`)].join(' ');
+  return `<use href="#${shape}" class="${cls}" x="${pct(side < 0 ? 0 : side > 0 ? 100 : x)}" y="${Number(y.toFixed(1))}"${attrs(data)}/>`;
+}
+
+/** An edge marker for a value beyond its axis: a chevron at the edge (`side` -1 left, 1 right, -2 down, 2 up), classed. */
+export function edgeMark(side, x, y, cls, data = {}) {
+  const id = side === -1 ? 'dv-chev-l' : side === 1 ? 'dv-chev-r' : side === 2 ? 'dv-chev-u' : 'dv-chev-d';
+  return `<use href="#${id}" class="dv-clip ${cls}" x="${typeof x === 'number' ? pct(x) : x}" y="${typeof y === 'number' ? Number(y.toFixed(1)) : y}"${attrs(data)}/>`;
 }
 
 /** A product mark's hooks for value `v` of headline `h` (`e` a spreadEntries entry). */
@@ -135,16 +146,41 @@ export function fitLabels(items, px, gap = 6) {
   return keep;
 }
 
-/** The tick labels of a scale as an SVG row, thinned for a track `wide` px wide (and hidden on a phone's `narrow` one). */
-export function tickRow(scale, { height = 18, wide = 640, narrow = 280, y = 13, cls = 'dv-ticks' } = {}) {
-  const items = scale.ticks.map((v) => {
-    const at = scale.pct(v), t = fmtDisplay(v, '');
-    return { v, at, t, w: textPx(t, 11.5), anchor: at >= 99.5 ? 'end' : at <= 0.5 ? 'start' : 'middle' };
-  });
-  const fits = fitLabels(items, wide), fitsNarrow = fitLabels(items, narrow);
-  const marks = items.map((it, i) => `<line class="dv-tk" x1="${pct(it.at)}" x2="${pct(it.at)}" y1="0" y2="3"/>`
-    + (fits[i] ? `<text x="${pct(it.at)}" y="${y}" text-anchor="${it.anchor}"${fitsNarrow[i] ? '' : ' class="alt"'}>${esc(it.t)}</text>` : '')).join('');
-  return `<svg class="${cls}" width="100%" height="${height}" aria-hidden="true" focusable="false"><line class="dv-axis" x1="0" x2="100%" y1="0.5" y2="0.5"/>${marks}</svg>`;
+/**
+ * Which of a scale's ticks are labelled on a track `px` wide: every k-th from the first, the smallest k at which none
+ * runs into the next or off the track, so the labels stay evenly spaced (on a logarithmic scale, decades first). `base`
+ * makes k a multiple of it (a phone's labels a subset of a laptop's). Returns { keep: Set(index), k }.
+ */
+export function strideTicks(sc, px, { size = 11.5, gap = 8, base = 1 } = {}) {
+  const t = sc.ticks, pos = t.map((v) => sc.pct(v)), txt = t.map(tickText);
+  const box = (i) => { const x = (pos[i] / 100) * px, w = textPx(txt[i], size); return pos[i] <= 0.5 ? [x, x + w] : pos[i] >= 99.5 ? [x - w, x] : [x - w / 2, x + w / 2]; };
+  const fits = (idx) => idx.every((i, j) => { const b = box(i); return b[0] >= -1 && b[1] <= px + 1 && (j === 0 || b[0] >= box(idx[j - 1])[1] + gap); });
+  const all = t.map((_, i) => i);
+  // On a logarithmic scale, the decades (1, 10, 100) before every k-th of all.
+  const decades = sc.log ? all.filter((i) => Math.abs(Math.log10(t[i]) - Math.round(Math.log10(t[i]))) < 1e-9) : [];
+  for (let k = base; k <= t.length; k += base) {
+    const idx = all.filter((i) => i % k === 0);
+    if (fits(idx)) return { keep: new Set(idx), k };
+    if (sc.log && k === base && decades.length > 1 && fits(decades)) return { keep: new Set(decades), k: 'decades' };
+  }
+  return { keep: new Set([0]), k: t.length };
+}
+
+/** A scale's tick labels at y, as SVG text: evenly thinned for a laptop's track, a phone's subset marked "alt". */
+export function tickLabels(sc, y, { wide = 640, narrow = 300, size = 11.5 } = {}) {
+  const w = strideTicks(sc, wide, { size });
+  const n = strideTicks(sc, narrow, { size, base: typeof w.k === 'number' ? w.k : 1 });
+  return sc.ticks.map((v, i) => {
+    if (!w.keep.has(i)) return '';
+    const at = sc.pct(v), a = at <= 0.5 ? 'start' : at >= 99.5 ? 'end' : 'middle';
+    return `<text x="${pct(at)}" y="${y}" text-anchor="${a}"${n.keep.has(i) ? '' : ' class="alt"'}>${esc(tickText(v))}</text>`;
+  }).join('');
+}
+
+/** The tick labels of a scale as an SVG row under a track, thinned evenly (tickLabels). */
+export function tickRow(scale, { height = 18, wide = 640, narrow = 300, y = 13, cls = 'dv-ticks' } = {}) {
+  const marks = scale.ticks.map((v) => `<line class="dv-tk" x1="${pct(scale.pct(v))}" x2="${pct(scale.pct(v))}" y1="0" y2="3"/>`).join('');
+  return `<svg class="${cls}" width="100%" height="${height}" aria-hidden="true" focusable="false"><line class="dv-axis" x1="0" x2="100%" y1="0.5" y2="0.5"/>${marks}${tickLabels(scale, y, { wide, narrow })}</svg>`;
 }
 
 /** Gridlines at a scale's ticks, from y1 to y2 px. */
@@ -162,7 +198,8 @@ export const KEY = {
   open: () => [keySvg('<circle class="dv-open" cx="8" cy="7" r="4"/>'), 'as published: orientation or load not stated'],
   rug: () => [keySvg('<path class="dv-rug" d="M2 1V13M5 1V13M7 1V13M12 1V13"/><line class="dv-rug--self" x1="9.5" x2="9.5" y1="0" y2="14"/>'), 'each material\'s median (top row)'],
   product: () => [keySvg('<use href="#dv-dot" class="dv-p" x="8" y="7"/>'), 'a product'],
-  productOpen: () => [keySvg('<use href="#dv-dot" class="dv-p mk--open" x="8" y="7"/>'), 'as published: orientation or load not stated'],
+  productOpen: () => [keySvg('<use href="#dv-dot" class="dv-p mk--open" x="8" y="7"/>'), 'as published: orientation or load not stated, kept out of the median'],
+  clip: () => [keySvg('<use href="#dv-chev-r" class="dv-clip dv-p" x="8" y="7"/>'), 'beyond the scale (its value on hover and in the table)'],
   annealed: () => [keySvg('<use href="#dv-sq" class="dv-p mk--annealed" x="8" y="7"/>'), 'measured after annealing'],
   variant: () => [keySvg('<use href="#dv-dia" class="dv-p mk--variant" x="8" y="7"/>'), 'added filler or additive, kept out of the median'],
   claimed: () => [keySvg('<use href="#dv-dot" class="dv-p mk--claimed" x="8" y="7"/>'), 'sold as toughened (maker\'s statement)'],
@@ -186,5 +223,5 @@ export const keyOf = (items) => (items.length ? `<ul class="fig-key">${items.map
 /** A table twin: a caption-less table, `head` the header cells' texts, `rows` arrays of cell texts (the first a row head). */
 export function twinTable(head, rows, { numeric = true } = {}) {
   return `<div class="table-box"><table class="dv-twin"><thead><tr>${head.map((h, i) => `<th scope="col"${i && numeric ? ' class="num"' : ''}>${esc(h)}</th>`).join('')}</tr></thead>`
-    + `<tbody>${rows.map((r) => `<tr>${r.map((cell, i) => (i ? `<td${numeric ? ' class="num"' : ''}>${esc(cell)}</td>` : `<th scope="row">${esc(cell)}</th>`)).join('')}</tr>`).join('')}</tbody></table></div>`;
+    + `<tbody>${rows.map((r) => `<tr>${r.map((cell, i) => (i ? `<td${numeric ? ' class="num"' : ''} data-label="${esc(head[i] ?? '')}">${esc(cell)}</td>` : `<th scope="row">${esc(cell)}</th>`)).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
