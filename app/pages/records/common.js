@@ -99,7 +99,10 @@ export const standardWords = (x) => (stated(x.standardText) ? x.standardText : n
  * annealing or as printed, test temperature, notch, the impact test it probably was, and the specimen's print
  * settings; each with the sheet's own words a tap away where they say more than the chip.
  */
-export function conditionChips(x) {
+export const conditionChips = (x) => conditionChipList(x).join('');
+
+/** The same chips as a list, one HTML string each, so a group of values can state the ones they share once. */
+export function conditionChipList(x) {
   const out = [];
   const state = changedState(x, null);
   if (x.moistureState === 'dry') out.push(chip('dry', stated(x.moisture) ? x.moisture : ''));
@@ -113,7 +116,7 @@ export function conditionChips(x) {
   if (x.notch === 'Notched' || x.notch === 'Unnotched') out.push(chip(x.notch.toLowerCase()));
   if (x.testGuess) out.push(chip(testGuessHead(x.testGuess).replace(/\.$/, '')));
   if (stated(x.printParameters)) out.push(chip('print settings', x.printParameters));
-  return out.join('');
+  return out;
 }
 
 // ------------------------------------------------------------------ the counts and medians a group head shows

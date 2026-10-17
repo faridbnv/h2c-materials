@@ -314,6 +314,47 @@
   var release = function () { if (touched || (tip && !tip.hidden)) { touched = null; light(null); hideTip(); } };
   window.addEventListener('scroll', release, { passive: true });
 
+  /* ------------------------------------------------------------ the first screen's two columns, balanced */
+  // On the H2C sits beside the summary. Where its rows run more than 60 px past the summary, they take two columns,
+  // unless that leaves the bigger hole the other way; measured once the faces are in, and again on a resize.
+  var h2c = doc.querySelector('.first .h2c'), left = doc.querySelector('.first-left');
+  function balance() {
+    if (!h2c || !left) return;
+    h2c.classList.remove('h2c--two', 'h2c--fill');
+    var moved = left && left.querySelector('.h2c-foot--left');
+    if (moved) { moved.classList.remove('h2c-foot--left'); h2c.appendChild(moved); }
+    if (getComputedStyle(h2c.parentNode).gridTemplateColumns.split(' ').length < 2) return;
+    var gap = function () { return Math.abs(h2c.getBoundingClientRect().height - left.getBoundingClientRect().height); };
+    var foot = h2c.querySelector('.h2c-foot');
+    // Three ways to set the card, tried in turn: as it is, its rows in two columns, and those with its closing line on
+    // the H2C's limits moved under the summary, where the column has room. The first that leaves no hole over 60 px is
+    // kept; failing that, the one with the smallest.
+    var set = function (k) {
+      h2c.classList.toggle('h2c--two', k > 0);
+      if (!foot) return;
+      if (k === 2) { foot.classList.add('h2c-foot--left'); left.appendChild(foot); }
+      else if (foot.parentNode !== h2c) { foot.classList.remove('h2c-foot--left'); h2c.appendChild(foot); }
+    };
+    var best = 0, least = Infinity;
+    for (var k = 0; k <= (foot ? 2 : 1); k++) {
+      set(k);
+      var g = gap();
+      if (g <= 60) { best = k; least = g; break; }
+      if (g < least) { best = k; least = g; }
+    }
+    set(best);
+    // A card left a little shorter than the summary takes the column's height, its rows spaced to fill it: no hole
+    // beside the summary. A large shortfall is left as it is, rather than rows set far apart.
+    var short = left.getBoundingClientRect().height - h2c.getBoundingClientRect().height;
+    if (short > 24 && short <= 120) h2c.classList.add('h2c--fill');
+  }
+  if (h2c && left) {
+    balance();
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(balance);
+    window.addEventListener('resize', balance);
+    window.addEventListener('beforeprint', balance);
+  }
+
   /* ------------------------------------------------------------ a data table's cells named, for the phone */
   // On a phone (frame.src.css) a table.grid stacks each row as label/value pairs, the label a cell's data-label. A cell
   // its table did not name takes its column's heading (the last header row, its colspans counted).

@@ -124,10 +124,20 @@ time { font-variant-numeric: tabular-nums; }
 
 /* key figures */
 .kf-wrap { margin-top: 32px; }
-.kf { margin: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.kf-cell { padding: 18px 20px 16px; border-left: 1px solid var(--border); min-width: 0; display: grid; grid-row: span 4; grid-template-rows: subgrid; align-content: start; row-gap: 0; }
-.kf-cell:first-child { border-left: 0; }
-.kf-cell dt { font-size: var(--t-s); font-weight: 500; color: var(--ink-2); line-height: 1.3; }
+.kf { margin: 0; display: flex; flex-wrap: wrap; }
+.kf-cell { flex: 1 1 0; padding: 18px 20px 16px; border-left: 1px solid var(--border); min-width: 0; display: flex; flex-direction: column; }
+.kf-cell:nth-child(1 of .kf-cell) { border-left: 0; }
+/* Two lines kept for every name, so the values stand on one line across the plate. */
+.kf-cell dt { font-size: var(--t-s); font-weight: 500; color: var(--ink-2); line-height: 1.3; min-height: 2.6em; }
+/* The key figures a material does not publish (or that do not apply), in the plate's order in the markup and set, by
+   order, in one quiet line under the others, behind a rule. */
+.kf:has(.kf-cell):has(.kf-gone)::after { content: ""; order: 1; flex: 0 0 100%; border-top: 1px solid var(--border); }
+.kf-gone { order: 2; display: flex; gap: .3em; margin: 0 .3em 0 0; padding: 10px 0 12px; font-size: var(--t-s); color: var(--ink-2); line-height: 1.4; }
+.kf-gone--na { order: 3; }
+.kf-gone--lead { padding-left: 20px; }
+.kf-gone dt, .kf-gone dd { margin: 0; }
+.kf-gone dt { color: var(--ink); font-weight: 500; }
+.kf-gone-h { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .kf-cell dd { margin: 0; }
 .kf-v { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 5px; margin-top: 4px; }
 .kf-n { font-size: var(--t-num); font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-variant-numeric: tabular-nums; }
@@ -138,27 +148,41 @@ time { font-variant-numeric: tabular-nums; }
 .kf-s svg { display: block; width: 100%; height: auto; overflow: visible; }
 .kf-f { margin-top: 6px !important; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.4; }
 .kf-f span { display: block; }
-.kf-ev { margin: 10px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: var(--measure); }
+.kf-ev { margin: 18px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: var(--measure); }
 .kf-ev b { color: var(--ink); font-weight: 600; }
 
 /* the summary beside On the H2C */
-.first { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; margin-top: 40px; align-items: start; }
+.first { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 40px; align-items: start; }
 .first--alone { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
 .sum-text p { margin: 0 0 .7rem; font: 400 var(--t-xl)/1.6 var(--f-serif); max-width: 62ch; text-wrap: pretty; }
 .sum-tag { margin: 4px 0 0; }
 .tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--border-strong); border-radius: 999px; padding: 1px 9px; }
-.h2c { padding: 16px 22px 14px; }
-.h2c-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 4px; }
+.h2c { padding: 14px 20px 12px; }
+.h2c-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 2px; }
 .h2c-h h2 { margin: 0; font: 600 var(--t-m)/1.3 var(--f-sans); }
 .h2c-h a { font-size: var(--t-s); white-space: nowrap; }
 .h2c dl { margin: 0; }
-.h2c dl > div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); align-items: baseline; gap: 1px 12px; padding: 9px 0; border-top: 1px solid var(--border); }
+.h2c dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); align-items: baseline; gap: 0 12px; padding: 4px 0; border-top: 1px solid var(--border); }
 .h2c dl > div:first-child { border-top: 0; }
-.h2c dt { color: var(--ink-2); font-size: 15px; }
+.h2c dt { color: var(--ink-2); font-size: 15px; grid-row: span 2; }
 .h2c dd { margin: 0; }
+/* Two columns of rows where one would leave a hole beside the summary (masthead.js h2cLayout). */
+.h2c--two dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+.h2c--two dl > div { grid-template-columns: minmax(0, 1fr); padding: 5px 0; }
+.h2c--two .h2c-k, .h2c--two .h2c-foot { line-height: 1.3; }
+.h2c--two dl > div:nth-child(2) { border-top: 0; }
+.h2c--two dl > div { align-content: start; }
+/* The card stretched to the summary's height (page.js), its rows spaced evenly down it. */
+.first > .h2c--fill { align-self: stretch; display: flex; flex-direction: column; }
+.h2c--fill dl { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; }
+.h2c--fill.h2c--two dl { display: grid; align-content: space-between; }
+.h2c--two dt { font-size: var(--t-xs); }
+.h2c--two .h2c-k { grid-column: 1; }
+.h2c--two dt { grid-row: auto; }
 .h2c-v { font-weight: 600; }
-.h2c-k { grid-column: 2; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.4; }
-.h2c-foot { margin: 6px 0 0; padding-top: 10px; border-top: 1px solid var(--border); font-size: var(--t-xs); color: var(--ink-2); }
+.h2c-k { grid-column: 2; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.35; }
+.h2c-foot--left { border-top: 0 !important; margin-top: 14px !important; padding-top: 0 !important; }
+.h2c-foot { margin: 4px 0 0; padding-top: 8px; border-top: 1px solid var(--border); font-size: var(--t-xs); line-height: 1.4; color: var(--ink-2); }
 
 /* the Overview's sections: the title here, the inside the sections' stylesheet */
 .ov-sec { margin-top: 104px; }
@@ -168,6 +192,7 @@ time { font-variant-numeric: tabular-nums; }
 .handoff { margin-top: 104px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 40px; align-items: start; padding: 28px 32px; }
 .handoff h2 { margin: 0; font: 500 30px/1.15 var(--f-serif); }
 .handoff-makers { margin: 8px 0 0; color: var(--ink-2); max-width: 72ch; }
+.handoff-go { margin: 18px 0 0; }
 .handoff-note { margin: 14px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: 80ch; }
 .stand { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; max-width: 80ch; }
 .stand li { padding-left: 14px; position: relative; }
@@ -181,6 +206,7 @@ time { font-variant-numeric: tabular-nums; }
 .col-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 .col-fine { font-size: var(--t-xs); color: var(--ink-2); }
 .col-fine a { color: var(--ink-2); }
+.col-summary small { display: block; margin-top: 2px; }
 .col-cite .btn { min-height: 30px; font-size: var(--t-xs); margin-left: 4px; vertical-align: middle; }
 
 /* the colophon's link to the method page */
@@ -189,11 +215,27 @@ time { font-variant-numeric: tabular-nums; }
 /* the print line: the page's address and release, printed at the top of the first page */
 .print-line { display: none; }
 
+/* The per-sheet tables and the settings table (B's sheetFrame: a div.sheet-table naming its value columns in data-cols,
+   a colgroup of col-prop then col-p, one product order): one grid on every page, so a product keeps its column all the
+   way down. A fixed property column, equal value columns no wider than --pc each, every head on its bottom line. */
+.sheet-table { margin-top: 8px; --pc: 11rem; --prop: 15rem; }
+.sheet-table > .table-box > table { table-layout: fixed; width: 100%; }
+.sheet-table[data-cols="1"] > .table-box > table { max-width: calc(var(--prop) + 1 * var(--pc)); }
+.sheet-table[data-cols="2"] > .table-box > table { max-width: calc(var(--prop) + 2 * var(--pc)); }
+.sheet-table[data-cols="3"] > .table-box > table { max-width: calc(var(--prop) + 3 * var(--pc)); }
+.sheet-table[data-cols="4"] > .table-box > table { max-width: calc(var(--prop) + 4 * var(--pc)); }
+.sheet-table[data-cols="5"] > .table-box > table { max-width: calc(var(--prop) + 5 * var(--pc)); }
+.sheet-table col.col-prop { width: var(--prop); }
+.ov-sec .sheet-table th.prop { width: var(--prop); min-width: 0; }
+.sheet-table thead th { vertical-align: bottom; white-space: normal; overflow-wrap: anywhere; }
+.sheet-table th, .sheet-table td { overflow-wrap: anywhere; min-width: 0; }
+
 /* A data table on a phone (B's and the colophon's table.grid): each row a block, each cell a label/value pair named by
    its data-label, so nothing scrolls sideways in a 358 px column. */
 @media (max-width: 600px) {
   .table-box:has(table.grid) { overflow: visible; }
-  table.grid:has([data-label]) { display: block; width: 100%; min-width: 0; }
+  table.grid:has([data-label]) { display: block; width: 100%; min-width: 0; max-width: none !important; }
+  table.grid:has([data-label]) colgroup { display: none; }
   table.grid:has([data-label]) thead { display: none; }
   table.grid:has([data-label]) tbody, table.grid:has([data-label]) tfoot { display: block; }
   table.grid:has([data-label]) tr { display: block; padding: 8px 0; border-top: 1px solid var(--border); }
@@ -215,9 +257,10 @@ time { font-variant-numeric: tabular-nums; }
 /* ---------------------------------------------------------------- narrower */
 
 @media (max-width: 1079px) {
-  .kf { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .kf-cell:nth-child(4) { border-left: 0; }
-  .kf-cell:nth-child(n+4) { border-top: 1px solid var(--border); }
+  .kf-cell { flex: 0 0 33.333%; }
+  .kf-cell dt { min-height: 0; }
+  .kf-cell:nth-child(4 of .kf-cell) { border-left: 0; }
+  .kf-cell:nth-child(n+4 of .kf-cell) { border-top: 1px solid var(--border); }
   .first { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .colophon { grid-template-columns: minmax(0, 1fr); }
 }
@@ -234,11 +277,16 @@ time { font-variant-numeric: tabular-nums; }
   .phead { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
   .tabs { display: flex; margin-top: 4px; }
   .tabs a { flex: 1; }
-  .kf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .kf-cell { padding: 14px 14px 12px; border-left: 0; border-top: 1px solid var(--border); }
-  .kf-cell:nth-child(-n+2) { border-top: 0; }
-  .kf-cell:nth-child(even) { border-left: 1px solid var(--border); }
-  .kf-cell:nth-child(4) { border-left: 1px solid var(--border); }
+  .kf-cell { flex: 0 0 50%; padding: 14px 14px 12px; border-left: 0; border-top: 1px solid var(--border); }
+  .kf-cell:nth-child(-n+2 of .kf-cell) { border-top: 0; }
+  .kf-cell:nth-child(even of .kf-cell) { border-left: 1px solid var(--border); }
+  .kf-cell:nth-child(4 of .kf-cell) { border-left: 1px solid var(--border); }
+  /* On a phone the quiet line is a short list: each figure on its own line, under its own head. */
+  .kf-gone { flex: 0 0 100%; margin: 0; padding: 2px 14px; }
+  .kf-gone:nth-child(1 of .kf-gone) { padding-top: 10px; }
+  .kf-gone:nth-last-child(1 of .kf-gone) { padding-bottom: 12px; }
+  .kf-gone-h { position: static !important; width: auto; height: auto; overflow: visible; clip-path: none; }
+  .kf-sep { display: none; }
   .h2c { padding: 14px 16px 12px; }
   .h2c dl > div { grid-template-columns: 7.6rem minmax(0, 1fr); }
   .ov-sec, .handoff { margin-top: 72px; }
@@ -269,18 +317,20 @@ time { font-variant-numeric: tabular-nums; }
   .print-line::before { content: attr(data-print-url) ", " attr(data-print-release); }
   body { background: #fff; font-size: 12.5px; }
   /* The page is set a little smaller on paper, so figures keep their titles and short sections share a page. */
-  .page { max-width: none; padding: 0; overflow: visible; zoom: .86; }
+  .page { max-width: none; padding: 0; overflow: visible; zoom: .8; }
   .plate:not(.pcard), figure, .fig, .h2c, .kf-wrap, .handoff { break-inside: avoid; }
   .ov-h, h2, h3 { break-after: avoid; }
   .phead { padding-top: 0; }
   .kf-wrap { margin-top: 16px; }
   .first { margin-top: 18px; gap: 18px; }
   .ov-sec, .handoff { margin-top: 26px; break-before: auto; }
-  .colophon { margin-top: 28px; padding: 14px 0 0; break-inside: avoid; gap: 6px 24px; }
+  /* The colophon stays with Sources: no page holds the footer alone. */
+  .colophon { margin-top: 28px; padding: 14px 0 0; break-inside: avoid; break-before: avoid; gap: 6px 24px; }
+  #sources { break-after: avoid; }
   /* The first screen keeps its laptop layout on paper: six figures across, the summary beside On the H2C. */
-  .kf { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .kf-cell { flex: 1 1 0; }
   .kf-cell { border-top: 0 !important; border-left: 1px solid var(--border) !important; padding: 10px 10px 8px; }
-  .kf-cell:first-child { border-left: 0 !important; }
+  .kf-cell:nth-child(1 of .kf-cell) { border-left: 0 !important; }
   .first { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }

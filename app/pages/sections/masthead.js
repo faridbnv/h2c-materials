@@ -10,7 +10,7 @@
 // what it has and draws nothing in its place: no number is typed here, and nothing here decides anything.
 
 import { esc } from '../html.js';
-import { fmtNumber } from '../../js/ui/format.js';
+import { fmtNumber, fmtBounded, publishedBound } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { identity, stated, isProduct, printCounts } from '../../js/ui/material-facts.js';
 import { printWindows, dryingStats, typicalWindow } from '../../js/ui/material-stats.js';
@@ -26,8 +26,14 @@ const PLATE_KEYS = ['tensileModulusXY', 'tensileStrengthXY', 'tensileStrengthZ',
 const plateKeys = () => (Array.isArray(FIG.PEER_COLUMNS) && FIG.PEER_COLUMNS.length ? FIG.PEER_COLUMNS.map((x) => (typeof x === 'string' ? x : x.key)) : PLATE_KEYS);
 
 /** A displayed number: track C's display precision where it has landed, else the pages' own form. */
-export const disp = (v) => (typeof NUM.fmtDisplay === 'function' ? NUM.fmtDisplay(v) : (NUM.fmtPage ?? fmtNumber)(v));
-const span = (lo, hi) => (lo === hi ? disp(lo) : `${disp(lo)}–${disp(hi)}`);
+export const disp = (v, unit) => (typeof NUM.fmtDisplay === 'function' ? NUM.fmtDisplay(v, unit) : (NUM.fmtPage ?? fmtNumber)(v));
+const span = (lo, hi, unit) => (lo === hi ? disp(lo, unit) : `${disp(lo, unit)}–${disp(hi, unit)}`);
+
+/** A published bound's sign as the drawer prints it ("> 200"), or nothing for a point value. */
+const boundSign = (interval) => { const t = interval ? fmtBounded(1, null, interval) : ''; return /^[<>≤≥]/.test(t) ? `${t.split(' ')[0]} ` : ''; };
+
+/** How a key figure is named in the line of those not published under the plate. */
+const MISSING_WORDS = { tensileModulusXY: 'tensile modulus', tensileStrengthXY: 'tensile strength', tensileStrengthZ: 'strength across the layers', charpyNotched: 'notched impact', hdt045: 'HDT at 0.45 MPa', priceCADkg: 'price' };
 
 /** A word track B provides, or null where it has not landed: its functions are called guarded, never assumed. */
 const words = (name, ...args) => (typeof F[name] === 'function' ? F[name](...args) : null);
@@ -41,35 +47,52 @@ const sayHtml = (x) => (x == null ? '' : typeof x === 'string' ? esc(x) : x.html
  */
 function keyFigure(c, key) {
   const h = REGISTRY.allHeadlines.find((x) => x.key === key);
-  if (!h) return '';
+  if (!h) return null;
   const m = c.m;
   const e = m.headline?.[key];
   const s = m.summary?.[key];
   const label = `<dt>${esc(h.labels.plain)}</dt>`;
   const unit = h.unit ? `<span class="kf-u">${esc(h.unit)}</span>` : '';
+  const quiet = (state) => ({ missing: true, key, state, words: MISSING_WORDS[key] ?? h.labels.plain.toLowerCase() });
   if (e?.known) {
     const n = s?.n ?? e.spread?.n ?? 1;
     const lo = s?.q1 ?? e.spread?.q1, hi = s?.q3 ?? e.spread?.q3;
-    const foot = n >= 4 && lo != null && hi != null ? [plural(n, 'product'), `middle half ${span(lo, hi)}`]
-      : n >= 2 ? [plural(n, 'product'), span(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max)] : ['one product'];
+    const foot = n >= 4 && lo != null && hi != null ? [plural(n, 'product'), `middle half ${span(lo, hi, h.unit)}`]
+      : n >= 2 ? [plural(n, 'product'), span(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max, h.unit)] : ['one product'];
     const mini = typeof FIG.miniSpread === 'function' ? FIG.miniSpread(c, key) : '';
-    return `<div class="kf-cell" data-key="${esc(key)}" data-v="${esc(e.value)}" data-n="${n}">${label}`
-      + `<dd class="kf-v"><span class="kf-n">${esc(disp(e.value))}</span>${unit}</dd>`
-      + `<dd class="kf-s"${mini ? '' : ' data-pending="miniSpread"'}>${mini ?? ''}</dd><dd class="kf-f">${foot.map((t) => `<span>${esc(t)}</span>`).join('<span class="vh"> · </span>')}</dd></div>`;
+    // The value as every other place on the page prints it (numbers.js fmtDisplay), a published bound's sign kept.
+    return { html: `<div class="kf-cell" data-key="${esc(key)}" data-v="${esc(e.value)}" data-n="${n}">${label}`
+      + `<dd class="kf-v"><span class="kf-n">${esc(`${boundSign(publishedBound(e))}${disp(e.value, h.unit)}`)}</span>${unit}</dd>`
+      + `<dd class="kf-s"${mini ? '' : ' data-pending="miniSpread"'}>${mini ?? ''}</dd><dd class="kf-f">${foot.map((t) => `<span>${esc(t)}</span>`).join('<span class="vh"> · </span>')}</dd></div>` };
   }
-  if (e?.notApplicable) {
-    return `<div class="kf-cell kf-cell--none" data-key="${esc(key)}" data-state="na">${label}<dd class="kf-v"><span class="kf-none">Not applicable</span></dd><dd class="kf-s"></dd><dd class="kf-f"></dd></div>`;
-  }
+  if (e?.notApplicable) return quiet('na');
   const a = s?.asPublished;
   if (a?.n) {
-    return `<div class="kf-cell kf-cell--open" data-key="${esc(key)}" data-state="as-published" data-n="${a.n}">${label}`
-      + `<dd class="kf-v"><span class="kf-n">${esc(span(a.min, a.max))}</span>${unit}</dd><dd class="kf-s"></dd>`
-      + `<dd class="kf-f">${esc(`as published · ${asPublishedWords(h)}`)}</dd></div>`;
+    return { html: `<div class="kf-cell kf-cell--open" data-key="${esc(key)}" data-state="as-published" data-n="${a.n}">${label}`
+      + `<dd class="kf-v"><span class="kf-n">${esc(span(a.min, a.max, h.unit))}</span>${unit}</dd><dd class="kf-s"></dd>`
+      + `<dd class="kf-f">${esc(`as published · ${asPublishedWords(h)}`)}</dd></div>` };
   }
-  const b = e?.related?.best;
-  const lacks = b && typeof F.nearestLacks === 'function' ? F.nearestLacks(h, b, c.msById.get(b.measurementId)).slice(0, 1) : [];
-  return `<div class="kf-cell kf-cell--none" data-key="${esc(key)}" data-state="missing">${label}<dd class="kf-v"><span class="kf-none">Not published</span></dd><dd class="kf-s"></dd>`
-    + `<dd class="kf-f">${lacks.length ? esc(`${lacks[0]} only`) : ''}</dd></div>`;
+  return quiet('missing');
+}
+
+/**
+ * The plate: every key figure in the alternatives' column order, so a reader (and the check) meets them as that table
+ * runs. A figure with no value takes no cell: CSS sets it, out of that order, in one quiet line under the others ("Not
+ * published: strength across the layers, notched impact. Not applicable: …"). Each keeps its data-key and data-state.
+ */
+function plate(c) {
+  const figs = plateKeys().map((k) => keyFigure(c, k)).filter(Boolean);
+  if (!figs.length) return '';
+  const HEADS = { missing: 'Not published:', na: 'Not applicable:' };
+  const of = (state) => figs.filter((f) => f.missing && f.state === state);
+  const lead = (of('missing')[0] ?? of('na')[0]);
+  const quiet = (f) => {
+    const list = of(f.state), i = list.indexOf(f), last = i === list.length - 1;
+    const cls = ['kf-gone', `kf-gone--${f.state}`, f === lead ? 'kf-gone--lead' : ''].filter(Boolean).join(' ');
+    return `<div class="${cls}" data-key="${esc(f.key)}" data-state="${f.state}"><dt${i ? ' class="kf-gone-h"' : ''}>${esc(HEADS[f.state])}</dt>`
+      + `<dd>${esc(f.words)}<span class="kf-sep">${last ? '.' : ','}</span></dd></div>`;
+  };
+  return `<dl class="kf plate">${figs.map((f) => (f.missing ? quiet(f) : f.html)).join('')}</dl>`;
 }
 
 /** The written summary's parts as paragraphs, a filled number printed as plain words (a blank line starts a paragraph). */
@@ -171,14 +194,14 @@ export default {
       lines: identityHtml(c) + (m.excluded ? '<p class="callout"><b>Beyond H2C capability.</b> Kept for reference, never a candidate: it needs more heat than the H2C gives.</p>' : ''),
       tabs: tabsNav({ id: m.id, name: id.primary, n: products, current: 'overview' }),
     });
-    // The evidence line: B's { tier, head, html } (the head in bold, quietly), or a plain Say or string.
+    // The evidence line: B's { tier, head, html } (the head in bold, quietly), or a plain Say or string. It sits under
+    // the summary, in the left column, so the column beside On the H2C leaves no hole.
     const ev = words('evidenceLine', c);
     const evidence = ev ? `${ev.head ? `<b>${sayHtml(ev.head)}</b> ` : ''}${ev.html ?? sayHtml(ev)}` : '';
-    const plate = `<section class="kf-wrap" data-section="key-figures" aria-label="Key figures: the median of the products that publish each value">`
-      + `<dl class="kf plate">${plateKeys().map((k) => keyFigure(c, k)).join('')}</dl>`
-      + `${evidence ? `<p class="kf-ev" data-tier="${esc(ev.tier ?? '')}">${evidence}</p>` : ''}</section>`;
+    const keyFigures = `<section class="kf-wrap" data-section="key-figures" aria-label="Key figures: the median of the products that publish each value">${plate(c)}</section>`;
     const summary = summaryBlock(c);
-    const first = `<div class="first${summary ? '' : ' first--alone'}">${summary}${h2cPlate(c, env.hasPrinting !== false)}</div>`;
-    return { html: `${head}\n${plate}\n${first}`, empty: false, stats: { filled: (m.written?.parts ?? []).filter((p) => p.field).length } };
+    const left = `${summary}${evidence ? `<p class="kf-ev" data-tier="${esc(ev.tier ?? '')}">${evidence}</p>` : ''}`;
+    const first = `<div class="first${left ? '' : ' first--alone'}">${left ? `<div class="first-left">${left}</div>` : ''}${h2cPlate(c, env.hasPrinting !== false)}</div>`;
+    return { html: `${head}\n${keyFigures}\n${first}`, empty: false, stats: { filled: (m.written?.parts ?? []).filter((p) => p.field).length } };
   },
 };

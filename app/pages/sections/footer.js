@@ -19,6 +19,15 @@ export function readSpan(c) {
   return dates.length ? { from: dates[0], to: dates.at(-1) } : null;
 }
 
+/**
+ * How the summary's review status is said in the colophon (SUMMARY_STATUS keys), in a reader's words; the page checks
+ * (test/pages.check.js P12) read the same words.
+ */
+export const SUMMARY_REVIEW_WORDS = { draft: 'has not yet been reviewed', 'reviewed by the owner': 'has been reviewed by the owner', revise: 'is marked for revision' };
+
+/** The colophon's line on the summary: drafted with AI assistance, when, its review status, then who in small print. */
+export const summaryNote = (w) => `The summary above was drafted with AI assistance (Claude) on ${w.on} and ${SUMMARY_REVIEW_WORDS[w.status] ?? String(SUMMARY_STATUS[w.status] ?? w.status).toLowerCase()}.`;
+
 /** The colophon of a material's page; `page` is the page it closes, 'overview' or 'products'. */
 export function colophon(c, env, page = 'overview') {
   const m = c.m;
@@ -28,8 +37,8 @@ export function colophon(c, env, page = 'overview') {
   const readWords = read ? (read.from === read.to ? `documents read ${read.from}` : `documents read ${read.from} to ${read.to}`) : null;
   const cite = `${m.name}. ${BRAND}, material pages, release ${st.release}${readWords ? `, ${readWords}` : ''}.`;
   const w = m.written;
-  // The status in the words the labels give it (labels.js SUMMARY_STATUS), as the drawer would say it.
-  const byline = w?.parts?.length ? `Summary by ${w.by}, ${w.on}. ${SUMMARY_STATUS[w.status] ?? w.status}.` : null;
+  // The summary's authorship and review status, quietly, in a reader's words (summaryNote).
+  const byline = w?.parts?.length ? summaryNote(w) : null;
   const n = c.grades.filter(isProduct).length;
   const other = page === 'overview'
     ? `<a class="btn" href="${esc(productsHref(m.id))}">Products <span class="n">${esc(fmtNumber(n))}</span></a>`
@@ -42,7 +51,7 @@ ${env.methodHref ? `<p class="col-method"><a href="${esc(env.methodHref)}">How t
 </div>
 <div class="col-fine" data-release="${esc(st.release)}">
 <p>${esc(BRAND)}, release <span class="mono">${esc(st.release)}</span>${read ? `. ${esc(readWords.charAt(0).toUpperCase() + readWords.slice(1)).replace(/\d{4}-\d{2}-\d{2}/g, (d) => day(d))}` : ''}; built <time>${esc(day(st.build))}</time>.</p>
-${byline && page === 'overview' ? `<p data-written-status="${esc(w.status)}">${esc(byline)}</p>` : ''}
+${byline && page === 'overview' ? `<p class="col-summary" data-written-status="${esc(w.status)}">${esc(byline)} <small>${esc(`Drafted by ${w.by}.`)}</small></p>` : ''}
 <p class="col-cite"><span>To cite this page: </span><span data-cite>${esc(cite)}</span> <button type="button" class="btn btn-quiet" data-copy hidden>${ICON.copy}<span>Copy the citation</span></button></p>
 </div>
 </footer>`;

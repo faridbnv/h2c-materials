@@ -59,31 +59,21 @@ table.grid.layers thead th[scope="colgroup"] { text-align: center; }
 .ov-sec table.grid thead th.num { text-align: right; }
 
 /* What each sheet publishes (thin data). */
-.sheet-table { margin-top: 8px; }
-.ov-sec table.grid.sheets { width: auto; }
-/* Heads wrap, never run into the next column: a long name is shortened to its maker and telling words (common.js). */
 .ov-sec table.grid.sheets thead th, .ov-sec table.grid.sheets thead th a { white-space: normal; overflow-wrap: anywhere; vertical-align: bottom; }
-table.grid.sheets thead th.num { min-width: 7rem; max-width: 12rem; }
 table.grid.sheets td.open .cv-n { color: var(--ink-2); font-style: italic; }
-table.grid.sheets .also { display: block; font-weight: 400; font-size: var(--t-xs); color: var(--ink-2); }
-table.grid.sheets .also a { color: var(--ink-2); }
-table.grid.sheets .cv { display: block; white-space: nowrap; }
+table.grid.sheets td.from .cv-n { color: var(--ink-2); }
+table.grid.sheets .cv { display: block; }
 table.grid.sheets .cv small { display: block; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.3; }
 table.grid.sheets .cv + .cv { margin-top: 4px; }
-table.grid.sheets tr.cond td, table.grid.sheets tr.cond th { font-size: var(--t-s); color: var(--ink-2); font-weight: 400; white-space: normal; }
 
-/* Print settings: words, left under left-aligned heads. */
-.ov-sec table.grid.settings { width: auto; min-width: min(100%, 640px); }
+/* Print settings: words, left under left-aligned heads; their widths are the sheet tables' grid (frame.src.css). */
 .ov-sec table.grid.settings th, .ov-sec table.grid.settings td { text-align: left; }
-table.grid.settings thead th:not(.prop) { min-width: 9rem; white-space: normal; vertical-align: bottom; }
-table.grid.settings td { min-width: 9rem; }
 table.grid.settings .set-note { display: block; font-size: var(--t-xs); color: var(--ink-2); }
 table.grid.settings td.guide { color: var(--ink); }
 table.grid.settings td.from { color: var(--ink-2); font-style: italic; }
 
 /* Chemicals, resin reference data, other properties, estimates, publishers. */
 table.grid.chem td:nth-child(2) { min-width: 14rem; }
-table.grid.est .dagger { color: var(--ink-2); margin-left: 2px; }
 .fence { padding: 4px 0 0; }
 .fence > .sec-p:first-child { margin-top: 0; }
 

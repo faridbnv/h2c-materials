@@ -37,17 +37,20 @@ const ICONS = {
 const SPRITE = `<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0"><defs>${Object.entries(ICONS).map(([k, d]) => `<symbol id="pi-${k}" viewBox="0 0 20 20">${d}</symbol>`).join('')}</defs></svg>`;
 const icon = (k, words) => `<svg class="pi pi--${k}" role="img" aria-label="${esc(words)}"><title>${esc(words)}</title><use href="#pi-${k}"/></svg>`;
 
-/** The list's columns under their headings. A property column sorts high first; price and the print settings low first. */
+/**
+ * The list's columns under their headings: a heading names the property and its unit ("Tensile strength, MPa"), its
+ * columns carry only what tells them apart ("XY", "Z"), so no column's name wraps where its neighbour's does not. A
+ * property column sorts high first; price and the print settings low first.
+ */
 const GROUPS = [
-  ['Strength and stiffness', ['tensileStrengthXY', 'tensileStrengthZ', 'tensileModulusXY']],
-  ['Impact', ['impact']],
-  ['HDT', ['hdt045', 'hdt18']],
-  ['Cost', ['priceCADkg']],
-  ['Printing on the H2C', ['nozzle', 'bed', 'chamber', 'drying']],
+  ['Tensile strength', 'MPa', [['tensileStrengthXY', 'XY'], ['tensileStrengthZ', 'Z']]],
+  ['Tensile modulus', 'GPa', [['tensileModulusXY', 'XY']]],
+  ['Notched impact', 'kJ/m²', [['impact', 'Charpy']]],
+  ['HDT', '°C', [['hdt045', '0.45 MPa'], ['hdt18', '1.8 MPa']]],
+  ['Price', null, [['priceCADkg', 'CAD/kg']]],
+  ['Printing on the H2C', '°C', [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Chamber'], ['drying', 'Drying']]],
 ];
 const PRINT = { nozzle: 'Nozzle', bed: 'Bed', chamber: 'Heated chamber', drying: 'Drying' };
-/** A column's label under its group's heading, where the registry's short label would repeat the heading. */
-const SUB = { hdt045: '0.45 MPa', hdt18: '1.8 MPa' };
 /** What a phone shows beside each name until the reader sorts by another column. */
 const PHONE = ['tensileStrengthXY', 'tensileModulusXY', 'hdt045', 'priceCADkg'];
 
@@ -76,13 +79,13 @@ function columnsOf(c, rows, kinds) {
     if (!rows.some((r) => r.values[key])) { silent.push(lower(h.labels.plain)); return null; }
     return {
       key, label: label ?? h.labels.short, short: h.labels.short, title: h.labels.plain, unit: h.unit, dir: 'desc',
-      words: [`As published: ${h.direction ? 'orientation' : 'test load'} not stated`, `${h.labels.plain} not published`],
+      words: [`As published: ${h.direction ? 'orientation' : 'test load'} not stated`, '', `${h.labels.plain} not published`],
       read: (r) => {
         const v = r.values[key];
         if (!v) return null;
         const cls = [v.level === 'as-published' ? 'o' : '', v.anneal ? 'a' : '', r.variant ? 'd' : ''].filter(Boolean);
         cls.forEach((k) => kinds.add(k));
-        return { text: `${signOf(v)}${disp(v.value)}`, v: v.value, g: v.level === 'as-published' ? 'o' : 'c', cls };
+        return { text: `${signOf(v)}${disp(v.value, h.unit)}`, v: v.value, g: v.level === 'as-published' ? 'o' : 'c', cls };
       },
     };
   };
@@ -92,14 +95,16 @@ function columnsOf(c, rows, kinds) {
     if (!h || !rows.some((r) => r.values[main] || r.values[other])) { silent.push('notched impact'); return null; }
     return {
       key: 'impact', label: h.labels.short, short: h.labels.short, title: h.labels.plain, unit: h.unit, dir: 'desc',
-      words: [`As published: orientation not stated${o ? `, or ${lower(o.labels.plain)} where no ${lower(h.labels.short.split(' ')[0])} is published` : ''}`, 'Notched impact not published'],
+      // Izod in Charpy's place is a third group of its own, after the Charpy values shown as published.
+      words: ['As published: orientation not stated', `${o ? `${o.labels.plain}, not ranked with ${h.labels.short.split(' ')[0]}` : ''}`, 'Notched impact not published'],
       read: (r) => {
         const v = r.values[main] ?? r.values[other];
         if (!v) return null;
         const izod = !r.values[main];
         const cls = [v.level === 'as-published' ? 'o' : '', v.anneal ? 'a' : '', r.variant ? 'd' : '', izod ? 'iz' : ''].filter(Boolean);
         cls.forEach((k) => kinds.add(k));
-        return { text: `${signOf(v)}${disp(v.value)}`, small: izod ? o?.labels.short.split(' ')[0] ?? '' : '', v: v.value, g: izod || v.level === 'as-published' ? 'o' : 'c', cls };
+        // Izod in Charpy's place is not compared (data-g 'o') and sorts in a group of its own (data-izod).
+        return { text: `${signOf(v)}${disp(v.value, h.unit)}`, small: izod ? o?.labels.short.split(' ')[0] ?? '' : '', v: v.value, g: izod || v.level === 'as-published' ? 'o' : 'c', izod, cls };
       },
     };
   };
@@ -107,11 +112,11 @@ function columnsOf(c, rows, kinds) {
     if (!rows.some((r) => r.price)) { silent.push('price'); return null; }
     const h = hBy.get('priceCADkg');
     return {
-      key: 'priceCADkg', label: 'Price', short: 'Price', title: h?.labels.plain ?? 'Price', unit: 'CAD/kg', dir: 'asc', words: ['', 'Not in the price sample'],
+      key: 'priceCADkg', label: 'Price', short: 'Price', title: h?.labels.plain ?? 'Price', unit: 'CAD/kg', dir: 'asc', words: ['', '', 'Not in the price sample'],
       read: (r) => {
         if (!r.price) return null;
         if (r.price.converted) kinds.add('converted');
-        return { text: disp(r.price.value), v: r.price.value, g: 'c', cls: r.price.converted ? ['pv-fx'] : [] };
+        return { text: disp(r.price.value, 'CAD/kg'), v: r.price.value, g: 'c', cls: r.price.converted ? ['pv-fx'] : [] };
       },
     };
   };
@@ -120,7 +125,7 @@ function columnsOf(c, rows, kinds) {
     if (!rows.some(has)) { silent.push(lower(PRINT[axis])); return null; }
     return {
       key: axis, label: axis === 'chamber' ? 'Chamber' : PRINT[axis], short: axis === 'chamber' ? 'Chamber' : PRINT[axis], title: PRINT[axis], unit: axis === 'drying' ? '°C, h' : '°C', dir: 'asc',
-      words: ['From Bambu Lab\'s Filament Guide', `${PRINT[axis]} not stated`],
+      words: ['From Bambu Lab\'s Filament Guide', '', `${PRINT[axis]} not stated`],
       read: (r) => {
         const p = r.print;
         if (!p) return null;
@@ -131,7 +136,7 @@ function columnsOf(c, rows, kinds) {
           if (!d || d.need === 'unknown') return null;
           const cls = [guide || d.need === 'optional' ? 'g' : ''].filter(Boolean);
           if (d.need === 'not-needed') return { text: 'none', v: 0, g: guide ? 'o' : 'c', cls };
-          if (!Number.isFinite(d.tempC)) return { text: d.need === 'optional' ? 'if wet' : 'dry before use', v: null, g: guide ? 'o' : 'c', cls };
+          if (!Number.isFinite(d.tempC)) return { text: d.need === 'optional' ? 'if wet' : 'dry first', v: null, g: guide ? 'o' : 'c', cls };
           return { text: fmtNumber(d.tempC), small: d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${fmtNumber(d.hours)} h` : '', v: d.tempC, g: guide ? 'o' : 'c', cls };
         }
         const s = settingCell(p[axis]);
@@ -143,9 +148,9 @@ function columnsOf(c, rows, kinds) {
     };
   };
   const cols = [];
-  for (const [group, keys] of GROUPS) {
-    const leaves = keys.map((k) => (k === 'impact' ? impact() : k === 'priceCADkg' ? price() : PRINT[k] ? print(k) : property(k, SUB[k]))).filter(Boolean);
-    leaves.forEach((col) => cols.push({ ...col, group }));
+  for (const [name, unit, keys] of GROUPS) {
+    const leaves = keys.map(([k, sub]) => { const col = k === 'impact' ? impact() : k === 'priceCADkg' ? price() : PRINT[k] ? print(k) : property(k); return col ? { ...col, label: sub } : null; }).filter(Boolean);
+    leaves.forEach((col) => cols.push({ ...col, group: unit ? `${name}, ${unit}` : name }));
   }
   return { cols, silent };
 }
@@ -189,6 +194,7 @@ function keyLine(kinds, methodHref) {
     kinds.has('twin') ? [icon('twin', 'Data sheet shared'), 'shared data sheet'] : null,
     kinds.has('hardened') ? [icon('hardened', 'Hardened nozzle'), 'hardened nozzle'] : null,
     kinds.has('converted') ? ['<span class="km km--fx" aria-hidden="true">¤</span>', 'converted price'] : null,
+    ['<span class="km" aria-hidden="true">—</span>', 'not published'],
   ].filter(Boolean);
   const method = methodHref ? `<p class="pl-method"><a href="${esc(methodHref)}">How the numbers are worked out</a></p>` : '';
   if (!k.length) return method;
@@ -209,9 +215,9 @@ function productRow(c, r, cols, own, twins, ix, { open, phone }) {
     const base = `pv${ph >= 0 ? ` pv-ph pv-ph${ph + 1}` : ''}`;
     // The column's name for a screen reader and, on a phone, above the value: its short name and unit.
     const label = `<span class="pv-l">${esc(col.short ?? col.title)}${col.unit ? `, ${esc(col.unit)}` : ''}</span>`;
-    if (!x) return `<span class="${base}" data-k="${esc(col.key)}">${label}</span>`;
+    if (!x) return `<span class="${base} pv-none" data-k="${esc(col.key)}">${label}<span class="pv-t" aria-label="not published">—</span></span>`;
     const cls = [base, ...x.cls].join(' ');
-    return `<span class="${cls}" data-k="${esc(col.key)}"${x.v != null ? ` data-v="${x.v}"` : ''} data-g="${x.g}">${label}<span class="pv-t">${esc(x.text)}${x.small ? `<small>${esc(x.small)}</small>` : ''}${x.hard ? icon('hardened', 'Hardened nozzle needed') : ''}</span></span>`;
+    return `<span class="${cls}" data-k="${esc(col.key)}"${x.v != null ? ` data-v="${x.v}"` : ''} data-g="${x.g}"${x.izod ? ' data-izod' : ''}>${label}<span class="pv-t">${esc(x.text)}${x.small ? `<small>${esc(x.small)}</small>` : ''}${x.hard ? icon('hardened', 'Hardened nozzle needed') : ''}</span></span>`;
   }).join('');
   const q = [r.name, r.maker, ...twins].filter(Boolean).join(' ').toLowerCase();
   return `<details class="pr" id="${esc(r.id)}" data-grade="${esc(r.id)}" data-q="${esc(q)}"${open ? ' open' : ''}>`
@@ -261,10 +267,14 @@ export function renderProductsPage(db, id, env) {
   const refList = refs.map(rowHtml).join('\n');
 
   // The head: a heading per group, its columns under it, each a sort button (the select below is the same state).
-  const template = `minmax(12rem, 2.3fr) ${cols.map((col) => (PRINT[col.key] ? '1.25fr' : '1fr')).join(' ')}`;
+  // The name takes what the numbers can spare, so most names keep to one line.
+  // The impact column carries Izod's tag beside its number ("19.8 Izod") and the nozzle column a hardened-nozzle mark
+  // beside its window ("310–350 ⛉"): each a little wider than the others, so neither is cut.
+  const WIDE = { impact: '1.05fr', nozzle: '1.35fr' };
+  const template = `minmax(15rem, 3.5fr) ${cols.map((col) => WIDE[col.key] ?? (PRINT[col.key] ? '1.05fr' : '.8fr')).join(' ')}`;
   const groups = [];
   for (const col of cols) { const last = groups.at(-1); if (last && last[0] === col.group) last[1].push(col); else groups.push([col.group, [col]]); }
-  const button = (col) => `<button type="button" data-sort="${esc(col.key)}" tabindex="-1" title="${esc(`Sort by ${lower(col.title)}, ${col.dir === 'desc' ? 'high' : 'low'} first`)}"><span>${esc(col.label)}</span>${col.unit ? `<small>${esc(col.unit)}</small>` : ''}</button>`;
+  const button = (col) => `<button type="button" data-sort="${esc(col.key)}" tabindex="-1" title="${esc(`Sort by ${lower(col.title)}, ${col.dir === 'desc' ? 'high' : 'low'} first`)}"><span>${esc(col.label)}</span></button>`;
   // Two rows: every group's label on the first, every column's name and unit on the second, bottom-aligned.
   const head = `<div class="pl-h" aria-hidden="true"><span class="pl-hn"><button type="button" data-sort="name" tabindex="-1" title="Sort by name"><span>Product</span></button></span>`
     + groups.map(([g, cs]) => `<div class="pl-hg" style="grid-column: span ${cs.length}"><span class="pl-g">${esc(g)}</span>${cs.map(button).join('')}</div>`).join('') + '</div>';

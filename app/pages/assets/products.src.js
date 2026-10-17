@@ -50,18 +50,19 @@
       if (k === 'docs') ordered = rows.slice().sort(function (a, b) { return a._i - b._i; });
       else if (k === 'name') ordered = rows.slice().sort(function (a, b) { return a._n < b._n ? -1 : a._n > b._n ? 1 : a._i - b._i; });
       else {
-        groups = [[], [], []];
+        // Compared values, then values shown as published, then Izod in Charpy's place, then none.
+        groups = [[], [], [], []];
         rows.forEach(function (r) {
           var c = cellOf(r, k), g = c && c.getAttribute('data-g');
-          groups[g === 'c' ? 0 : g === 'o' ? 1 : 2].push({ r: r, v: num(c) });
+          groups[g === 'c' ? 0 : g === 'o' ? (c.hasAttribute('data-izod') ? 2 : 1) : 3].push({ r: r, v: num(c) });
         });
         var by = function (a, b) {
           if (a.v === null || b.v === null) return a.v === b.v ? a.r._i - b.r._i : a.v === null ? 1 : -1;
           return (desc ? b.v - a.v : a.v - b.v) || a.r._i - b.r._i;
         };
         // The groups keep their order whichever way the values run: compared, then shown and not counted, then none.
-        groups[0].sort(by); groups[1].sort(by);
-        groups[2].sort(function (a, b) { return a.r._n < b.r._n ? -1 : a.r._n > b.r._n ? 1 : 0; });
+        groups[0].sort(by); groups[1].sort(by); groups[2].sort(by);
+        groups[3].sort(function (a, b) { return a.r._n < b.r._n ? -1 : a.r._n > b.r._n ? 1 : 0; });
         ordered = [];
       }
       $$('.pl-grp', body).forEach(function (x) { x.remove(); });

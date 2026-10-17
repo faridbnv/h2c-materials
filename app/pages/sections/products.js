@@ -3,8 +3,8 @@
 // never a verdict), and the page's one primary button, "Compare the N products". The table, its cards and every record
 // behind them are the Products page's (app/pages/products/).
 //
-// A bare section: it writes its own plate and heading, and the bar's section list leaves it out (the list ends with the
-// Products page itself).
+// An ordinary section, titled and spaced as the others (render.js writes its heading); the bar's section list leaves it
+// out, since the list ends with the Products page itself.
 
 import { esc, productsHref } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
@@ -42,7 +42,6 @@ function standOut(c, line) {
 export default {
   id: 'products',
   title: 'Products',
-  bare: true,
   menu: false,
   render(c) {
     const products = c.grades.filter(isProduct);
@@ -52,15 +51,10 @@ export default {
     const lede = b?.lede ? sayHtml(b.lede) : esc(`${plural(products.length, 'product')} from ${plural(makers, 'maker')}. ${makersLine(products)}`);
     const lines = typeof F.standOutLines === 'function' ? F.standOutLines(c) ?? [] : [];
     const button = b?.button ?? (products.length === 1 ? 'See the product' : `Compare the ${fmtNumber(products.length)} products`);
-    const html = `<section class="handoff plate" id="products" data-section="products" aria-labelledby="products-h">
-<div class="handoff-text">
-<h2 id="products-h">Products</h2>
-<p class="handoff-makers">${lede}</p>
+    const html = `<p class="lead handoff-makers">${lede}</p>
 ${lines.length ? `<ul class="stand">${lines.map((l) => standOut(c, l)).join('')}</ul>` : ''}
 ${b?.closing ? `<p class="handoff-note">${sayHtml(b.closing)}</p>` : ''}
-</div>
-<a class="btn btn-primary" href="${esc(productsHref(c.m.id))}">${esc(button)}</a>
-</section>`;
+<p class="handoff-go"><a class="btn btn-primary" href="${esc(productsHref(c.m.id))}">${esc(button)}</a></p>`;
     return { html, empty: false, stats: {} };
   },
 };
