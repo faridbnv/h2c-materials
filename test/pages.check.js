@@ -935,7 +935,8 @@ function p11(S) {
 // ---------------------------------------------------------------------------------------------------------------------
 // P12  written summaries
 
-/** The summary's tag beside it (masthead.js): a draft and one under revision say so; a reviewed one carries none. */
+/** The summary's review status, as the colophon says it (the same words as sections/footer.js SUMMARY_REVIEW_WORDS). */
+const SUMMARY_REVIEW_WORDS = { draft: 'has not yet been reviewed', 'reviewed by the owner': 'has been reviewed by the owner', revise: 'is marked for revision' };
 
 function p12(S) {
   for (const m of S.listed.filter((x) => x.written)) check('P12', m.id, S.withPage.includes(m), 'a written summary on a material with no page');
@@ -958,7 +959,7 @@ function p12(S) {
     check('P12', who, !tag.length, () => `a status tag beside the summary: ${tag.map((t) => t.attrs['data-written-status']).join(' ')}`);
     const by = byline.filter((n) => !sec || !up(n, 'data-section') || up(n, 'data-section') !== sec);
     const t = by.length === 1 ? textOf(by[0]) : '';
-    check('P12', who, by.length === 1 && by[0].attrs['data-written-status'] === w.status && t.includes(w.by) && t.includes(String(w.on)) && t.includes(SUMMARY_STATUS[w.status] ?? w.status), () => `byline "${t || `${by.length} bylines`}"`);
+    check('P12', who, by.length === 1 && by[0].attrs['data-written-status'] === w.status && t.includes(w.by) && t.includes(String(w.on)) && t.includes(SUMMARY_REVIEW_WORDS[w.status] ?? SUMMARY_STATUS[w.status] ?? w.status), () => `byline "${t || `${by.length} bylines`}"`);
     // Every filled number: the compiled value, printed as plain text.
     const fields = w.parts.filter((p) => p.field);
     const spans = withAttrs(sec, 'data-field');
@@ -1071,7 +1072,7 @@ function ix(S) {
   const names = S.db.materials.filter((m) => m.familyEntry);
   check('IX', 'names', same(aliases.map((n) => n.attrs['data-alias']), names.map((m) => m.id)), () => `names: ${diff(aliases.map((n) => n.attrs['data-alias']), names.map((m) => m.id))}`);
   // Each names only the materials it stands for and links those with a page, or, standing for a whole family's worth,
-  // links the one family whose list holds every member a reader can find there (those on sale).
+  // links the one family where its members with a page are; those without one are in the index's closing list.
   const onSale = new Set(shown.map((m) => m.id));
   for (const n of aliases) {
     const e = names.find((m) => m.id === n.attrs['data-alias']);
@@ -1082,7 +1083,8 @@ function ix(S) {
     if (!named.length && links.length === 1 && links[0].startsWith('#')) {
       const fam = descendants(page.main).find((x) => x.attrs?.id === links[0].slice(1));
       const inFam = new Set(fam ? withAttrs(fam, 'data-mat').map((x) => x.attrs['data-mat']) : []);
-      const missing = [...members].filter((id) => onSale.has(id) && !inFam.has(id));
+      const paged = new Set(S.withPage.map((m) => m.id));
+      const missing = [...members].filter((id) => onSale.has(id) && (paged.has(id) ? !inFam.has(id) : !byId.has(id)));
       check('IX', e.id, !!fam && !missing.length, () => `links ${links[0]}, which ${fam ? `lacks ${missing.join(' ')}` : 'is not on the page'}`);
       continue;
     }
