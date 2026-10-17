@@ -284,6 +284,21 @@ only there is Drawer only TRUE, which keeps it out of the rail, the table, the c
 must be a measurement headline naming a comparison, Estimated and Table column FALSE, with no lower bound or reference
 property (REGISTRY-COMPARISON, D139); a value with no stated orientation is drawn hollow and counted apart (D140).
 
+**Write or revise a material's summary.** A material with a page has one row of `material_summaries.csv` (D142): a
+paragraph of 60 to 100 words for the engineer reading its page, saying what it is, what makers sell it for, how it
+prints on the H2C and behaves in service, and what is thinly published, every claim one its page states (`npm run
+pages:text -- M020`). It types no number: at most two, each a placeholder the build fills (`npm run pages:fields --
+M020` lists them with their values: `{products}`, `{hdt045.median}`, `{hdt045.label}` for a name with a figure in it),
+so the summary moves with the data. It compares the material with no other (the page's first screen does that), uses no
+superlative or verdict, says a maker's statement as the maker's and the Bambu Lab Filament Guide's or the resin data's
+as theirs, and lists in Notes the release it read and the sections each claim rests on. Write the rows to a CSV with the
+table's columns, then `npm run pages:add-summaries -- rows.csv --check` and without `--check` (`--revise` replaces a
+row, naming what it replaces): it refuses the whole file for a material with no page, a placeholder the build cannot
+fill (SUMMARY-PLACEHOLDER) or a number typed by hand (SUMMARY-NUMBER). Written by names who wrote it (an agent as
+"Claude Sonnet (agent)"), and Review status starts at draft; the owner sets reviewed by the owner or revise, in batches,
+since each change makes a new release. A data change that leaves a placeholder with nothing to fill stops the build with
+SUMMARY-PLACEHOLDER naming the material and the field: re-word the summary, never fill the number by hand.
+
 ## Importing a batch of data sheets
 
 **Open since 2026-10-05.** The owner paused imports on 2026-09-25, until the re-center in `docs/GOALS.md` was built,
