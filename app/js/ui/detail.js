@@ -17,6 +17,7 @@ import { describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, E
 import { REGISTRY } from './registry.js';
 import { hardenedShare } from '../engine/products.js';
 import { stripScale, stack } from './scales.js';
+import { pageOf } from './page-rule.js';
 import {
   stated, isProduct, productName, productNameOrId, sourceName, originalOf, groupBy, groupByMaker, leadMaker, materialContext, productDocuments,
   identity, emptyReasons, gapSplit, largestFirst, measuredIn, measurementFacts, sourceBlockFacts,
@@ -434,6 +435,8 @@ export function renderDrawer(host, state, actions) {
   const tab = asked in counts ? asked : 'Overview';
   const pinned = state.scenario.shortlist.includes(m.id);
   const id = identity(m, c);
+  // The material's own page, where the page rule gives it one (page-rule.js): it opens beside the selector, in a new tab.
+  const page = pageOf(m, c.ms);
 
   host.innerHTML = `
   <div class="drawer" role="dialog" aria-label="${esc(m.name)} detail">
@@ -448,7 +451,9 @@ export function renderDrawer(host, state, actions) {
             ${explainButton(esc(h2cStatusLabel(m.h2cStatus)), H2C_STATUS[m.h2cStatus]?.meaning ?? m.h2cStatus, { cls: `chip ${m.excluded ? 'chip-FAIL' : 'chip-neutral'} chip-small h2c-chip`, head: 'Bambu Lab status' })}
           </div>
         </div>
-        <button type="button" class="btn btn-sm shortlist-btn" id="drawer-pin" aria-pressed="${pinned}"
+        ${page ? `<a class="btn btn-sm page-link" href="${esc(page)}" target="_blank" rel="noopener"
+          title="This material's page, in a new tab. A downloaded copy of the selector needs its release's material pages zip unzipped beside it."><span class="page-link-words">Full page</span> <span aria-hidden="true">↗</span></a>
+        ` : ''}<button type="button" class="btn btn-sm shortlist-btn" id="drawer-pin" aria-pressed="${pinned}"
           title="${pinned ? 'On the shortlist. Press to remove it.' : 'Add to the shortlist'}"><span aria-hidden="true">${pinned ? '★' : '☆'}</span> Shortlist</button>
         <button class="icon-btn" id="drawer-close" aria-label="Close">✕</button>
       </div>

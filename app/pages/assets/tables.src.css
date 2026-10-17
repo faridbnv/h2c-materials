@@ -132,7 +132,10 @@ table.pt td small { margin-left: .2rem; font-size: .6875rem; font-style: normal;
 /* Nozzle over bed, two short lines, the hardened-nozzle icon beside them; chamber and drying by their icons. */
 table.pt td.nb > span { display: block; font-size: .875rem; line-height: 1.2; }
 table.pt td.nb > span.nil::before { content: "\2014"; color: var(--border-strong); }
-table.pt td.nb .pi { float: left; margin: .1rem .25rem 0 0; }
+/* The hardened-nozzle icon sits in the cell's own left padding, so the cell is as wide as the icon and the two lines
+   together (a floated icon was left out of the cell's width and pushed the lines past its edge). */
+table.pt td.nb:has(> .pi) { position: relative; padding-left: calc(.4rem + 21px); }
+table.pt td.nb > .pi { position: absolute; left: .4rem; top: .45rem; margin: 0; }
 table.pt td.pp { text-align: left; white-space: normal; font-size: .875rem; line-height: 1.2; }
 table.pt td.pp > span { display: flex; align-items: center; gap: .25rem; white-space: nowrap; }
 table.pt td.pp .pi { width: 14px; height: 14px; }
@@ -183,6 +186,8 @@ table.pt tr.pc-row > td { padding: .1rem 0 1.3rem; text-align: left; white-space
   table.pt tbody > tr:first-child > * { padding: 0; border: 0; text-align: left; background: none !important; }
   table.pt tbody th { grid-column: 1 / -1; width: auto; font-weight: 600; }
   table.pt td { white-space: normal; }
+  table.pt tbody > tr:first-child > td.nb:has(> .pi) { padding-left: 21px; }
+  table.pt td.nb > .pi { left: 0; top: .05rem; }
   table.pt tbody:has(.px input:checked) > tr.pc-row { display: block; }
   table.pt tr.pc-row > td { padding: .2rem 0 1.1rem; border: 0; }
   .pc { padding: 0; }
@@ -324,7 +329,9 @@ table.rt tr[hidden], table.rt tbody[hidden] { display: none !important; }
 .rt--p .k-raw { width: 13%; } .rt--p .k-cd { width: 18%; } .rt--p .k-src { width: 24%; } .rt--p .k-id { width: 6%; }
 .rt--s .k-p { width: 17%; } .rt--s .k-q { width: 54%; } .rt--s .k-src { width: 21%; } .rt--s .k-id { width: 8%; }
 .rt--e .k-kind { width: 11%; } .rt--e .k-q { width: 34%; } .rt--e .k-cd { width: 14%; } .rt--e .k-p { width: 13%; } .rt--e .k-src { width: 20%; } .rt--e .k-id { width: 8%; }
-.rt--l .k-p { width: 13%; } .rt--l .k-raw { width: 23%; } .rt--l .k-v { width: 9%; } .rt--l .k-kind { width: 9%; } .rt--l .k-drawn { width: 20%; } .rt--l .k-id { width: 8%; }
+.rt--l .k-p { width: 13%; } .rt--l .k-raw { width: 19%; } .rt--l .k-v { width: 9%; } .rt--l .k-kind { width: 9%; } .rt--l .k-seen { width: 13%; } .rt--l .k-drawn { width: 20%; } .rt--l .k-id { width: 8%; }
+/* A date is not broken at its hyphens (no line may break before a digit), so its column is as wide as one. */
+table.rt td.seen { white-space: nowrap; }
 .rt--d .k-p { width: 25%; } .rt--d .k-kind { width: 15%; } .rt--d .k-cd { width: 17%; } .rt--d .k-src { width: 15%; } .rt--d .k-id { width: 11%; }
 .rt--n .k-p { width: 18%; } .rt--n .k-kind { width: 13%; } .rt--n .k-q { width: 61%; } .rt--n .k-id { width: 8%; }
 

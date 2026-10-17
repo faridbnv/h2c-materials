@@ -143,13 +143,21 @@ function comparisonKey(k) {
 /** One product's value in a sentence: "iSANMATE ASA Glass Fiber's notched Izod impact of 9 kJ/m², with no stated orientation". */
 export const oneValue = ({ h, e }) => `${productNameOrId(e.g)}'s ${lower(h.labels.plain)} of ${fmtBounded(e.v.value, h.unit, e.v.interval)}${e.v.level === 'as-published' ? `, with ${asPublishedWords(h)}` : ''}`;
 
+/**
+ * Why a result is not drawn, counted, in the page's words: labels.js whyWords, except the results of a study's or a
+ * resin's reference specimens, which the drawer counts as "reference grades", a word of the database's own that the
+ * page does not use (INTERFACE, "Words": a grade is a product). The drawer's wording is left as it stands, so that this
+ * round changes its HTML only by the Full page link.
+ */
+const pageWhy = (why, k) => (why === 'reference' ? `${k} from ${k === 1 ? 'a study or a resin\'s reference sheet' : 'studies or resins\' reference sheets'}, not products` : whyWords(why, k));
+
 /** The records a comparison reads (its properties shown in the tab), and their count by why each is or is not drawn, as a sentence. */
 export function countedLine(f, c, tab) {
   const mi = measuredIn(c, tab);
   const props = mi.shown.filter((p) => f.properties.has(p));
   const records = mi.rows.filter((x) => props.includes(x.property));
   const t = f.tally(records);
-  const parts = t.counts.map(([why, k]) => whyWords(why, k));
+  const parts = t.counts.map(([why, k]) => pageWhy(why, k));
   return {
     records,
     line: `Of the ${records.length} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} the products' own values${t.namedN ? ` and ${t.namedN} ${t.namedN === 1 ? 'is' : 'are'} named alone` : ''}.${parts.length ? ` The other ${t.rest}: ${andList(parts)}.` : ''}`,
@@ -168,10 +176,10 @@ export const comparisonAbout = (f) => aboutLine(f.cmp.about, `${f.caption ? `<p>
 export function noGraphWords(f, c, tab) {
   const { records, tally: t } = countedLine(f, c, tab);
   const n = records.length;
-  const parts = t.counts.map(([why, k]) => whyWords(why, k));
+  const parts = t.counts.map(([why, k]) => pageWhy(why, k));
   if (!f.singles.length) return `No product has a value to compare. ${n === 1 ? 'The result on file' : `The ${n} results on file`}: ${andList(parts)}.`;
   if (f.singles.length > 1) return `No test has two products' values to compare. One product each: ${f.singles.map(oneValue).join('; ')}.${parts.length ? ` The other ${t.rest === 1 ? 'result' : `${t.rest} results`} on file: ${andList(parts)}.` : ''}`;
-  const words = t.counts.map(([why, k]) => (why === 'second' ? `${k} more of that product` : whyWords(why, k)));
+  const words = t.counts.map(([why, k]) => (why === 'second' ? `${k} more of that product` : pageWhy(why, k)));
   return `Only one product has a value to compare, ${oneValue(f.singles[0])}.${words.length ? ` The other ${t.rest === 1 ? 'result' : `${t.rest} results`} on file: ${andList(words)}.` : ' It is the only result on file.'}`;
 }
 
@@ -292,7 +300,7 @@ export function otherProperties(c, tab, covered, anchor, { title = 'Other proper
     return { property: p, label: propertyName(p), values: xs.length, products: new Set(xs.map((x) => x.gradeId)).size, spans };
   });
   const table = list.length
-    ? `<h3 class="sub-title">${esc(title)}</h3>${tableBox(`<table class="grid props"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th><th scope="col" class="num">Lowest–highest, as published</th></tr></thead><tbody>${list.map((o) => `<tr><th scope="row">${esc(o.label)}</th><td class="num vals">${o.values}</td><td class="num">${o.products}</td><td class="num spans">${o.spans.length ? o.spans.map(esc).join('<br>') : '—'}</td></tr>`).join('')}</tbody></table>`)}`
+    ? `<h3 class="sub-title">${esc(title)}</h3>${tableBox(`<table class="grid props"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th><th scope="col" class="num">Lowest–highest, as published</th></tr></thead><tbody>${list.map((o) => `<tr><th scope="row">${esc(o.label)}</th><td class="num vals" data-noun="${o.values === 1 ? 'value' : 'values'}">${o.values}</td><td class="num" data-noun="${o.products === 1 ? 'product' : 'products'}">${o.products}</td><td class="num spans">${o.spans.length ? o.spans.map(esc).join('<br>') : '—'}</td></tr>`).join('')}</tbody></table>`)}`
     : '';
   // A product names a property without a value only where it has none of that property at all: not on its own sheet,
   // and not as a value a shared sheet gives it (grades[].headline).

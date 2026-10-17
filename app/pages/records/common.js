@@ -55,8 +55,15 @@ export function flatGroups({ groups, cols, cls = '', noun, cap = FLAT_CAP }) {
   return `<div class="rg rg--flat" data-cap="${cap}"><table class="rt${cls ? ` ${cls}` : ''}">${colgroup(cols)}<thead><tr class="rg-c">${heads(cols)}</tr></thead>${bodies}</table>${more(i, cap)}</div>`;
 }
 
-/** Where a record was read: its document by name (a link to its row in Documents) and its place in it. */
-export const sourceCell = (c, sid, locator) => `<td class="src"><a href="#doc-${esc(sid)}">${esc(sourceName(c.sourceById.get(sid), sid))}</a>${stated(locator) ? `<small>${esc(locator)}</small>` : ''}</td>`;
+/**
+ * Where a record was read: its document by name and its place in it. The name links to the document's row in Documents,
+ * which lists the material's own documents; a resin's reference data (D64) cites a producer's document that is not one
+ * of them, and is named without a link rather than with one that leads nowhere.
+ */
+export const sourceCell = (c, sid, locator) => {
+  const name = esc(sourceName(c.sourceById.get(sid), sid));
+  return `<td class="src">${c.documents.has(sid) ? `<a href="#doc-${esc(sid)}">${name}</a>` : `<span>${name}</span>`}${stated(locator) ? `<small>${esc(locator)}</small>` : ''}</td>`;
+};
 
 /** A record's ID, in its own cell: the only place an ID stands as text. */
 export const idCell = (id) => `<td class="id">${esc(id ?? '')}</td>`;

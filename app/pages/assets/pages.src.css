@@ -383,15 +383,16 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
   .l-short { display: block; }
   .ladder-labels .pub .l-short::after { content: "as published"; display: block; font-size: .8125rem; color: var(--ink-2); }
   .ladder-labels small { display: none; }
-  /* The properties on file: each a short card, its name, then how many products and the values as published. */
+  /* The properties on file: each a short card, its name, then how many values and products and the values as published
+     (the head's words, which a card has no head for, from each count's own data-noun). */
   table.grid.props, table.grid.props tbody, table.grid.props tr, table.grid.props th, table.grid.props td { display: block; }
   table.grid.props thead { display: none; }
-  table.grid.props tr { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+  table.grid.props tr { display: grid; grid-template-columns: auto auto minmax(0, 1fr); column-gap: .9rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
   table.grid.props tr > * { border: 0; padding: 0; }
   table.grid.props tr > th { grid-column: 1 / -1; }
   table.grid.props td.num { text-align: left; white-space: nowrap; color: var(--ink-2); font-size: .9375rem; }
-  table.grid.props td.num:not(.spans)::after { content: " products"; }
-  table.grid.props td.spans { text-align: right; color: var(--ink); white-space: normal; }
+  table.grid.props td.num[data-noun]::after { content: " " attr(data-noun); }
+  table.grid.props td.spans { text-align: right; color: var(--ink); white-space: normal; min-width: 0; }
 }
 .ladder-labels { list-style: none; margin: 0; padding: var(--top) 0 0; }
 .ladder-labels li { height: var(--rung); display: flex; flex-direction: column; justify-content: center; line-height: 1.25; font-size: var(--t-small); overflow: hidden; }
@@ -581,6 +582,28 @@ td.drawn { color: var(--ink-2); }
 .fold[open] > summary { display: none; }
 .tag { display: inline-block; padding: 0 .3rem; font-size: .6875rem; line-height: 1.5; color: var(--ink-2); border: 1px solid var(--border-strong); border-radius: 3px; white-space: nowrap; }
 .missing { color: var(--ink-3); }
+
+/* ---------------------------------------------------------------- the index: every material, by family and polymer */
+
+.page-index .sec[data-section="family"] { margin-top: 3.5rem; }
+.sec-sub { font-size: var(--t-small); color: var(--ink-2); }
+table.ix { max-width: 52rem; }
+table.ix tbody th { font-weight: 400; }
+table.ix tbody th a, table.ix .ix-name { font-weight: 600; font-size: 1.0625rem; }
+table.ix .ix-name { color: var(--ink); }
+table.ix .ix-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .6rem; margin-top: .15rem; }
+table.ix .ix-full { font-size: .875rem; color: var(--ink-2); line-height: 1.35; }
+table.ix .ix-chip { font-size: .8125rem; line-height: 1.55; }
+/* The contents' last line is a family like the others here, not the way to the records it is on a material's page. */
+@media (min-width: 1080px) { .page-index .toc li:last-child { margin-top: 0; } }
+table.ix .ix-why { display: block; margin-top: .3rem; font-size: .875rem; color: var(--ink-2); line-height: 1.35; }
+table.ix tr.group th { padding-top: 1.1rem; }
+table.ix tbody tr.group:first-child th { padding-top: .5rem; }
+.ix-names { max-width: var(--measure); }
+.ix-names .sub-title { margin: 1.75rem 0 .5rem; font-size: 1rem; }
+.ix-names ul { list-style: none; margin: 0; padding: 0; }
+.ix-names li { margin: 0 0 .35rem; padding-left: .85rem; border-left: 2px solid var(--border); color: var(--ink-2); font-size: var(--t-small); }
+.ix-open { margin: 1.25rem 0 0; }
 
 /* ---------------------------------------------------------------- the tooltip a figure's mark shows */
 

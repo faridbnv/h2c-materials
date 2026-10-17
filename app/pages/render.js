@@ -3,9 +3,11 @@
 // stage 8 and scripts/pages/render.mjs do that), and nothing here decides anything. Every fact is material-facts.js's,
 // every word material-words.js's or labels.js's, every number format.js's.
 //
-//   renderSite(db, env)                 → { files: [[path, text]], stats }   every page, its records page, the assets
+//   renderSite(db, env)                 → { files: [[path, text]], stats }   every page, its records page, the index,
+//                                         the assets
 //   renderMaterialPage(db, id, env)     → { path, html, stats }
 //   renderRecordsPage(db, id, env)      → { path, html, stats }
+//   renderIndexPage(db, env, ix)        → { path, html, stats }   index-page.js
 //   prepare(db)                         the registry, the H2C's limits and the environment labels, as main.js sets them
 //   pageEnv(db, options)                the env the renderer reads: { index, ranks, stamps, selectorHref, assets, links }
 //   buildAssets(input)                  → [[path, text]]   assets/pages.css (tokens, fonts, styles), page.js, licences
@@ -22,6 +24,7 @@ import { documentShell, BRAND } from './shell.js';
 import { esc, recordsHref, count } from './html.js';
 import { andList } from '../js/ui/material-words.js';
 import { selectorLink } from './sections/common.js';
+import { renderIndexPage } from './index-page.js';
 
 /** The module state every shared function reads, set from the database, every time a render starts (FACTS-API.md 1). */
 export function prepare(db) {
@@ -30,7 +33,10 @@ export function prepare(db) {
   setEnvironmentLabels(db.meta.environmentCategories);
 }
 
-/** The renderer's env for a database: lookups, every material's medians, the stamps and the selector's file name. */
+/**
+ * The renderer's env for a database: lookups, every material's medians, the stamps, the selector's file name and the
+ * links every page's top bar and footer carry (the index's, which every page links to).
+ */
 export function pageEnv(db, { assets = null, selectorFile = null, links = {} } = {}) {
   const meta = db.meta;
   return {
@@ -39,7 +45,7 @@ export function pageEnv(db, { assets = null, selectorFile = null, links = {} } =
     stamps: { release: meta.release?.id ?? 'unidentified', snapshot: meta.snapshot, build: meta.build },
     selectorHref: selectorFile ? `../${selectorFile}` : null,
     assets,
-    links,
+    links: { index: 'index.html', ...links },
   };
 }
 
@@ -117,7 +123,12 @@ export function renderRecordsPage(db, id, env) {
 <p class="mast-lede">${esc(`The records behind the ${m.name} page, as they are recorded: each value with the conditions and document it was read from, each print profile and statement in its document's own words, each with its ID for tracing it in the data tables.`)}</p>
 <dl class="mast-counts">${counts.map(({ s, n }) => `<div class="count"><dt><a href="#${esc(s.id)}">${esc(s.title)}</a></dt><dd data-count="${esc(s.id)}" data-n="${n}">${esc(fmtNumber(n))}</dd></div>`).join('')}</dl>
 </header>`;
-  const body = `<section class="sec sec--masthead" data-section="masthead" data-empty="false">${head}</section>\n${RECORD_SECTIONS.map((s) => s.render(c)).join('\n')}`;
+  const st = env.stamps;
+  const foot = `<footer class="foot">
+<p><a class="foot-link" href="${esc(`${id}.html`)}">${esc(`${m.name}, the material page`)}</a>${env.links?.index ? ` · <a href="${esc(env.links.index)}">Every material page</a>` : ''}</p>
+<p class="foot-fine" data-release="${esc(st.release)}">${esc(BRAND)}: release <span class="mono">${esc(st.release)}</span>, built <time>${esc(String(st.build).replace(/-/g, '⁠-⁠'))}</time>.</p>
+</footer>`;
+  const body = `<section class="sec sec--masthead" data-section="masthead" data-empty="false">${head}</section>\n${RECORD_SECTIONS.map((s) => s.render(c)).join('\n')}\n<section class="sec sec--footer" data-section="footer" data-empty="false">${foot}</section>`;
   const html = documentShell({
     title: `${m.name} records: ${BRAND}`,
     description: `Every record behind the ${m.name} material page: measurements, print profiles, maker statements, environment statements, price listings, documents and review notes.`,
@@ -147,8 +158,9 @@ export function buildAssets(input) {
 
 /**
  * Every page: for each material the page rule admits (or those named in `env.only`), its main page and its records
- * page, and the assets where `env.assets` holds them (snapshot and tests pass null). Returns the files, relative to
- * dist/, and what each weighs.
+ * page; the index of them all (index-page.js), which lists every material whether it was rendered or not; and the
+ * assets where `env.assets` holds them (snapshot and tests pass null). Returns the files, relative to dist/, and what
+ * each weighs.
  */
 export function renderSite(db, env) {
   prepare(db);
@@ -163,6 +175,8 @@ export function renderSite(db, env) {
     files.push([main.path, main.html], [records.path, records.html]);
     pages.push({ id, bytes: main.html.length, recordsBytes: records.html.length, ...main.stats, rows: records.stats.rows });
   }
+  const index = renderIndexPage(db, env, ix);
+  files.push([index.path, index.html]);
   if (env.assets) files.push(...buildAssets(env.assets));
-  return { files, stats: { pages: ids.length, recordsPages: ids.length, perPage: pages } };
+  return { files, stats: { pages: ids.length, recordsPages: ids.length, index: index.stats, perPage: pages } };
 }

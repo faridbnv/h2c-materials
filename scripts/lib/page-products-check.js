@@ -1,8 +1,11 @@
-// Sorts the Products table by every sortable column, both ways, and after each sort searches and toggles; asserts that
-// the products listed are exactly those whose names match (or that carry the toggle's flag), the first 25 of them in the
-// current order until "Show all", every one after it; that the count says how many match; and that every row is in the
-// column's order (blanks last). Run in a page (Runtime.evaluate) on a material page with a Products table; it returns a
-// summary with the failures. The table shows a value per cell index; each sortable heading names its index (data-i).
+// The Products table check of the material pages. scripts/ui-probe.mjs reads this file and evaluates it inside each
+// material page with a Products table (Runtime.evaluate, awaited), at the laptop and the phone screen; it is not a
+// module and is not run by Node. It sorts the table by every sortable column, both ways, and after each sort searches and
+// toggles; it asserts that the products listed are exactly those whose names match (or that carry the toggle's flag), the
+// first 25 of them in the current order until "Show all", every one after it; that the count says how many match; and
+// that every row is in the column's order (blanks last). It returns { products, sortable, queries, checks, failures,
+// first }, where failures is a count and first holds the first three. The table shows a value per cell index; each
+// sortable heading names its index (data-i).
 (async () => {
   const table = document.querySelector('table[data-products]');
   const sec = table.closest('section');

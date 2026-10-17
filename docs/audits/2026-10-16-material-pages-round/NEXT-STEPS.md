@@ -1,4 +1,4 @@
-> **Working notes** (2026-10-17): the coordinator's plan for what follows step 3 and the parallel data round, written so a restart loses nothing. The round README records what was done.
+> **Current** (2026-10-17), working notes: the coordinator's plan for what follows step 3 and the parallel data round, written so a restart loses nothing. The round README records what was done.
 
 # What comes after step 3 and the data round (coordinator's notes, 2026-10-17)
 

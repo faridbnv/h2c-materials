@@ -1,6 +1,6 @@
 // The footer: what the page's numbers are and are not (method.csv, Transferable allowables), the way back to the selector
-// with the material open, how to cite the page, and one colophon line: when its documents were read, the release and
-// build it was made from, and the typefaces.
+// with the material open, the index of every material page, how to cite the page, and one colophon line: when its
+// documents were read, the release and build it was made from, and the typefaces.
 
 import { esc } from '../html.js';
 import { stated } from '../../js/ui/material-facts.js';
@@ -25,6 +25,7 @@ export default {
     const html = `<footer class="foot">
 ${standing ? `<p class="foot-standing">${esc(standing)}</p>` : ''}
 ${selector ? `<p><a class="foot-link" href="${esc(selector)}">Open ${esc(m.name)} in the selector</a>, where requirements can be set and its products judged against them.</p>` : ''}
+${env.links?.index ? `<p><a href="${esc(env.links.index)}">Every material page</a>, by family and polymer.</p>` : ''}
 <p><b>To cite this page:</b> ${esc(cite)}</p>
 <p class="foot-fine" data-release="${esc(st.release)}">${esc(BRAND)}: ${read ? esc(`${read.charAt(0).toUpperCase()}${read.slice(1)}`).replace(/\d{4}-\d{2}-\d{2}/g, (d) => day(d)) : ''}; release <span class="mono">${esc(st.release)}</span>, built <time>${esc(day(st.build))}</time>. Set in Inter and Newsreader, under the <a href="assets/Inter-OFL.txt">SIL Open Font License</a>.</p>
 </footer>`;

@@ -21,3 +21,18 @@ export function pageOf(m, ms) {
   const f = pageFacts(m, ms);
   return f.products >= PAGE_RULE.minProducts && f.values >= PAGE_RULE.minValues ? `${PAGES_DIR}/${m.id}.html` : null;
 }
+
+/** The rule in words, its numbers PAGE_RULE's: "3 products and 20 measured values". */
+export const pageRuleWords = () => `${PAGE_RULE.minProducts} products and ${PAGE_RULE.minValues} measured values`;
+
+/**
+ * Why a material has no page, as what it falls short on ("2 products", "2 products and 15 measured values"), or null
+ * where it has one. A family entry has none for another reason (it is not a material) and gets null here too.
+ */
+export function shortOf(m, ms) {
+  if (m.familyEntry || pageOf(m, ms)) return null;
+  const f = pageFacts(m, ms);
+  const say = (n, one, many) => `${n.toLocaleString('en-CA')} ${n === 1 ? one : many}`;
+  return [f.products < PAGE_RULE.minProducts ? say(f.products, 'product', 'products') : null,
+    f.values < PAGE_RULE.minValues ? say(f.values, 'measured value', 'measured values') : null].filter(Boolean).join(' and ');
+}

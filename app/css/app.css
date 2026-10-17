@@ -1393,6 +1393,15 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
 
 /* The shortlist star, on and off without relying on the glyph alone. */
 .shortlist-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+/* The drawer's link to the material's own page: a button to look at, a link to open (a new tab, so the selector stays).
+   On a phone its words are kept for a screen reader and the arrow alone is shown, so the drawer's head stays one row
+   within the screen beside Shortlist and Close. */
+.page-link { position: relative; display: inline-flex; align-items: center; gap: 4px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.page-link:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 600px) {
+  .page-link { padding: 4px 9px; }
+  .page-link-words { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 
 /* Filter rail: plain name leads, the sentence under it says what the property means, and the
    example lives here rather than as a grey placeholder that read like a set value. */
