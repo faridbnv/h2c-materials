@@ -1,5 +1,5 @@
 viewport 820x1100
-document width 820
+document width: fits the screen
 spill: none
 clipped cells: none in 24 tables
 hidden controls: 0
