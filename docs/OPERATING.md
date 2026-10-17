@@ -27,8 +27,8 @@ it; reading a source page again, importing a sheet or closing a round needs it.
 |---|---|---|
 | `npm run verify:fast` | while you work, about a minute | format, schema, lint, the build and the tests |
 | `npm run verify` | before a commit, about eight minutes; needs Chrome | everything, including the page driven in a browser |
-| `npm run build` | to open the page | writes `dist/H2C_Material_Selector_<date>_<release>.html` |
-| `npm run build:diff` | before you commit a change | what the working tree does to the compiled database, against the last commit; a change meant to move nothing says `0 difference(s)` |
+| `npm run build` | to open the page | writes `dist/H2C_Material_Selector_<date>_<release>.html`, the material pages in `dist/materials/` and `dist/manifest.json` |
+| `npm run build:diff` | before you commit a change | what the working tree does to the compiled database, against the last commit; a change meant to move nothing says `0 difference(s)`. It builds without the material pages and removes `dist/materials/`: `npm run build` again before `pages:check` |
 | `npm run trace -- <ID>` | to see where a number comes from | a material, product or measurement back to its source and page |
 
 A build rewrites `build/reports/validation-report.md`; commit it with the change it belongs to.
@@ -91,7 +91,9 @@ material pages beside it at `materials/` (`https://pdynamics.ca/h2c-materials/ma
 `materials/index.html`), so the drawer's Full page links open there. A new release is kept as a GitHub release
 `h2c-<release>` with the selector's page, its manifest and `H2C_Material_Pages_<snapshot>_<release>.zip`, the material
 pages zipped; its notes say to unzip the zip in the folder that holds the downloaded page, which is what makes the Full
-page links open from disk. A release kept before it had its zip gets it on the next build of that release.
+page links open from disk. A release kept before it had its zip gets it on the next build of that release. The zip is
+written once for a release and kept: a later change to the pages' design alone (not a new release, D96) changes the
+site's pages, not that release's zip.
 
 If Verify fails on CI but passed locally: CI is Linux x64 with the Node version `.nvmrc` names. Run the failing group
 there (`node scripts/verify.mjs --group data`, `--group views`, `--group scenarios --shard 2/3` or `--group trend`) under `npx -y node@$(cat .nvmrc)`;

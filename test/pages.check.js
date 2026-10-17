@@ -11,7 +11,7 @@
 //   npm run build && npm run pages:check
 //
 // It reads only: nothing is built or written here. It fails with "run npm run build" when dist/materials/ is missing or
-// does not match dist/db.json and dist/manifest.json. `verify` runs it after the snapshot check (scripts/verify.mjs),
+// does not match dist/db.json and dist/manifest.json. `verify` runs it after the build, beside the snapshot check (scripts/verify.mjs),
 // which is why it is not in `npm test`. Every invariant collects its failures, with the material, so one run shows every
 // problem; a failing test prints the first twenty.
 //

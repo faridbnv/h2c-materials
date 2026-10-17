@@ -131,6 +131,6 @@ export async function pagesStage({ projectRoot, dbJson, selectorFile }) {
   const ms = Math.round(performance.now() - t0);
   const { pages, recordsPages } = result.stats;
   const mb = (total / 1024 / 1024).toFixed(1);
-  console.log(`pages  ${pages} pages, ${recordsPages} records pages, index (${mb} MB) ${cached ? `read from the build cache in ${ms} ms` : `in ${ms} ms`}`);
+  console.log(`pages  ${pages} pages, ${recordsPages} records pages and the index, ${mb} MB in all, ${cached ? `read from the build cache in ${ms} ms` : `in ${ms} ms`}`);
   return { digest, pages, recordsPages, bytes: total, ms, cached };
 }

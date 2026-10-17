@@ -74,7 +74,7 @@ npm run hooks                     # once per clone: the pre-commit data check
 
 npm run verify:fast               # while you work: format, schema, lint, generated docs, build and tests (about a minute)
 npm run verify                    # before a commit: every check, the page in a browser included (about eight minutes)
-npm run build                     # -> dist/H2C_Material_Selector_<snapshot>_<release>.html and dist/manifest.json
+npm run build                     # -> dist/H2C_Material_Selector_<snapshot>_<release>.html, dist/materials/ (the material pages), dist/manifest.json
 npm run build:diff                # what a change did to the compiled database, against HEAD
 npm run trace -- PETG             # any value back to its measurement, product and source page
 ```
@@ -92,7 +92,8 @@ rather than hiding them, so that page is where they are listed, each with the qu
 the published values physics rules out, the source conflicts nobody has been able to settle, the conditions the
 reader could not pair, and the materials nothing has been published about.
 
-Open the file in `dist/` in any current browser. Nothing else is required.
+Open the file in `dist/` in any current browser. Nothing else is required; its drawer's Full page links open the pages in
+`dist/materials/` beside it.
 
 ## Publishing
 
@@ -112,6 +113,8 @@ release-stamped filename and the validation report are published alongside it:
 | `/h2c-materials/H2C_Material_Selector_<snapshot>_<release>.html` | The same page under its own name: its data date, and its release |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
 | `/h2c-materials/manifest.json` | The release, the digests it is made of, the commit, the runtime, input hashes and output hashes the page was built from |
+| `/h2c-materials/materials/index.html` | Every material page, by family and polymer |
+| `/h2c-materials/materials/<MaterialID>.html` | One material's page; `<MaterialID>-records.html` every record behind it |
 
 ### Releases
 
@@ -122,8 +125,9 @@ inputs give the same ID on any day, and a change to any of them gives another ev
 under *Save / share*; every saved scenario, link, CSV export and decision brief carries it, and a scenario reopened on
 another release says so before it asks its question again.
 
-Every release published from `main` is kept for good as a GitHub release named `h2c-<release>`, with its page and
-manifest attached: download the page and open it from disk to see the answers a scenario was saved with, offline. The
+Every release published from `main` is kept for good as a GitHub release named `h2c-<release>`, with its page, its
+manifest and its material pages (`H2C_Material_Pages_<snapshot>_<release>.zip`, to unzip in the folder that holds the
+page) attached: download the page and open it from disk to see the answers a scenario was saved with, offline. The
 site itself always serves the current release.
 
 To check a deployment, wait for the latest `main` **Publish to Pages** workflow to succeed, then read the live
@@ -179,9 +183,10 @@ app/js/ui/                              rendering and interaction
 app/js/ui/registry.js                   labels, filters, axes, columns and export, built from the registry
 app/js/ui/labels.js                     the one vocabulary: what every criterion and verdict is called
 app/js/main.js                          the only place that holds state
+app/pages/                              the material pages' renderer, the build's stage 8 (D142)
 
 test/                                   engine, data gate, registry, contract, database and import (ingest-*) tests;
-                                        the scale and reproducible-build checks (*.check.js), which verify runs
+                                        the scale, reproducible-build and material pages' checks (*.check.js), which verify runs
 scripts/data/                           fmt, check, lint and build-finding review, new, new-material, retire, new-id, diff, the edit API, review workbook, scale data, the SQLite file, the source store, packets (a round's working files to the private store)
 scripts/lib/                            shared helpers: guarded source edits, proposals applied quote by quote, checks on a cached sheet's text, headless Chrome
 scripts/audit/                          source completeness (every PDF source re-read for values not in the tables),
@@ -192,6 +197,7 @@ scripts/build-diff.mjs                  what a change did to the compiled databa
 scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interface views (build/snapshot/)
 scripts/ui-fuzz.mjs, lib/cdp.mjs        random scenarios through the built page, checked against the engine; shared headless Chrome
 scripts/trace.mjs                       a headline back to its source
+scripts/pages/                          the material pages' tools: render (design work), fields, page text, add-summaries, subset-fonts
 scripts/audit-data.mjs                  record/family inventory and source-to-HTML checks
 scripts/docs-*.mjs                      the generated documents and their checks: rules, data dictionary, decision index, README status, history marks, Markdown links, open-problem counts
 scripts/round-close.mjs                 what a closing round leaves open; moves its migrations to archive/migrations/

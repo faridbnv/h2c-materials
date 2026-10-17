@@ -26,7 +26,7 @@ generated and never edited, and the retired Excel workbooks are history. Before 
 ```bash
 npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 80 s after a data change, about 45 s when nothing the build reads changed; budget 90 s)
 npm run verify        # verify:fast, then the import tests, the campaign page, audit, snapshot, the material pages, links, packets, interface views (the selector's and the material pages'), 300 rendered scenarios, the scale and reproducible-build checks: before a commit; every step runs even if one fails, the steps that do not need each other run side by side, and the failures are listed at the end
-npm run build:diff    # what the change did to the compiled database, against HEAD
+npm run build:diff    # what the change did to the compiled database, against HEAD (it builds without the material pages and removes dist/materials/: npm run build before pages:check)
 ```
 
 `verify` fails on a new lint finding, on an unreviewed build finding, on a context-audit finding without a reason
@@ -287,17 +287,21 @@ property (REGISTRY-COMPARISON, D139); a value with no stated orientation is draw
 **Write or revise a material's summary.** A material with a page has one row of `material_summaries.csv` (D142): a
 paragraph of 60 to 100 words for the engineer reading its page, saying what it is, what makers sell it for, how it
 prints on the H2C and behaves in service, and what is thinly published, every claim one its page states (`npm run
-pages:text -- M020`). It types no number: at most two, each a placeholder the build fills (`npm run pages:fields --
+pages:text -- M020`). It types no number: each is a placeholder the build fills, and the checklist asks for at most two (`npm run pages:fields --
 M020` lists them with their values: `{products}`, `{hdt045.median}`, `{hdt045.label}` for a name with a figure in it),
 so the summary moves with the data. It compares the material with no other (the page's first screen does that), uses no
 superlative or verdict, says a maker's statement as the maker's and the Bambu Lab Filament Guide's or the resin data's
 as theirs, and lists in Notes the release it read and the sections each claim rests on. Write the rows to a CSV with the
 table's columns, then `npm run pages:add-summaries -- rows.csv --check` and without `--check` (`--revise` replaces a
 row, naming what it replaces): it refuses the whole file for a material with no page, a placeholder the build cannot
-fill (SUMMARY-PLACEHOLDER) or a number typed by hand (SUMMARY-NUMBER). Written by names who wrote it (an agent as
+fill (SUMMARY-PLACEHOLDER) or a number typed by hand (SUMMARY-NUMBER), and notes a length outside 60 to 100 words
+without refusing it (it counts neither the numbers nor the claims: the judge does). `pages:fields` and `pages:text`
+build first where `dist/db.json` is stale. Written by names who wrote it (an agent as
 "Claude Sonnet (agent)"), and Review status starts at draft; the owner sets reviewed by the owner or revise, in batches,
 since each change makes a new release. A data change that leaves a placeholder with nothing to fill stops the build with
-SUMMARY-PLACEHOLDER naming the material and the field: re-word the summary, never fill the number by hand.
+SUMMARY-PLACEHOLDER naming the material and the field: re-word the summary, never fill the number by hand. One that
+takes a material below the page rule leaves its row standing, and `pages:check` (P12) then fails: nothing is deleted,
+so the owner decides whether the row waits for the page to return.
 
 ## Importing a batch of data sheets
 
