@@ -651,6 +651,30 @@ reason: the requirements rule them out, the result chips hide them, or, when bot
 matches nothing says so, says what search looks at, suggests searching the polymer instead, and offers **Clear the
 search**.
 
+## The frame
+
+The top bar, the status bar and the rail's head are the frame around the results, and they stay quiet so the results
+can be loud (2026-10-17, after readers called the top of the page overwhelming). Five rules hold them together:
+
+- **Neutral tones.** The accent marks only what is selected or focused. A segmented control is a grey track with the
+  chosen option raised on it in the accent's ink; the solid accent blocks it replaced, the mode switch and the view
+  tabs one above the other, had been the loudest things on screen before any result was.
+- **Group by what a control decides.** The mode and the estimates switch share one panel, because together they decide
+  what missing data does. They had read as five unrelated boxes: an uppercase label, two filled buttons, a dashed box, a
+  ? and a line of grey text. The estimates switch is drawn as the switch it is, not as a dashed box that read as broken.
+- **Sentence case.** No uppercase labels in the frame ("Materials with missing data", "Show in table", "Filters").
+- **One icon language.** Line icons in a 20 px box on a 1.7 px stroke: the search, Filters, Save / share, the theme, the
+  rail's Hide, and one per rail group, so a group is found by shape as well as by name. An icon never replaces a word
+  that has no other place: a button shown as an icon keeps its words as its name and title.
+- **Provenance at the foot.** The data snapshot and release sit at the right end of the status bar, always visible, where
+  the top bar hid them below 1600 px. The status chips are pills: tinted with their own edge while shown, outlined while
+  hidden, with the ☑ / ☐ box kept so on and off differ without colour.
+
+The name is **Filament Atlas**: it says what the tool is, not which printer it was first built for. The H2C is named where
+it decides something: the rail's *Printing on the H2C*, the gates, the templates. The mark (on the page and as the
+browser icon) is three printed layers on the accent. The built file's name, the exports and the briefs still say H2C
+Material Selector, which links, scripts and saved files rely on.
+
 ## Words
 
 Every sentence on the page is written for one reader and one purpose (D124, the owner's ruling of 2026-10-04).
@@ -939,11 +963,14 @@ laid a 390 px phone out at 533 px with the right side clipped. Colour never the 
   box scrolls only when its table is wider than it is, because a box that can scroll sideways also scrolls vertically, and
   the column headings would stop sticking under a wide screen's scrolled results. Squeezed instead, 46 of 207 cells had
   overprinted their neighbours at 820 px and 132 at 390 px.
-- **The top bar** is one row from 1101 px: the theme button is a sun or a moon up to 1600 px, with "Switch to light
-  theme" or "Switch to dark theme" kept as its name and title (with its words it took a second row of its own from 1401
-  to 1600 px), its buttons are one height, and below 1400 px the mode's label sits above its buttons. Below 600 px
-  it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode buttons with Let
-  estimates rule out materials; the title goes, since the browser tab carries it. It had been four rows on a phone.
+- **The top bar** is one row from 1101 px, in four zones: the name, the search, the two missing-data settings in one
+  panel (the mode and Let estimates rule out materials, divided by a rule), and the page's actions. The theme button is a
+  sun or a moon at every width, with "Switch to light theme" or "Switch to dark theme" kept as its name and title (with
+  its words it took a second row of its own from 1401 to 1600 px); Save / share is its arrow alone up to 1300 px, with
+  its words kept the same way. Its buttons are one height, and up to 1500 px the mode's label sits above its buttons.
+  Below 600 px it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode
+  buttons with Let estimates rule out materials, without the panel's box; the name goes, since the browser tab carries
+  it. It had been four rows on a phone.
 - **The view tabs**, below 1100 px, and **the drawer's eight tabs**, below 1100 px, are each one strip that scrolls
   sideways with the active tab kept in sight, rather than two and three wrapped rows.
 - **The drawer**, below 1100 px, covers the screen and is a modal dialog: `aria-modal`, the page behind it inert, a
@@ -1127,7 +1154,7 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
 - **Chosen products** (D103) live under *Save / share*: each with its current answer, the release it was chosen on, its
   decision brief, a note, and the team's own test results; the shortlist bar says how many are chosen.
 - **The filter rail below 1,100 px is a modal dialog** (F10), as the material drawer is.
-- **The release** (D96) is in the top bar and under *Save / share*, and in every export and brief.
+- **The release** (D96) is at the right end of the status bar and under *Save / share*, and in every export and brief.
 
 ## Product uncertainty groups (D137)
 
