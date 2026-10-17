@@ -12,26 +12,26 @@ M018,PLA-CF,materials/M018.html,,19,246,17,31,masthead in-short key-figures mech
 M019,PLA-GF,materials/M019.html,,4,82,4,8,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,13,137,111.6,136.9,draft
 M020,PETG,materials/M020.html,,73,1057,35,127,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,406,1923,304.7,1268.1,draft
 M024,PETG-CF,materials/M024.html,,24,299,21,40,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,130,497,186.2,372.7,draft
-M025,PETG-GF,materials/M025.html,,5,62,5,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,20,138,102.0,125.1,draft
-M026,PETG-ESD,materials/M026.html,,9,123,9,21,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,53,234,139.1,202.3,draft
+M025,PETG-GF,materials/M025.html,,5,62,5,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,20,138,102.1,125.1,draft
+M026,PETG-ESD,materials/M026.html,,9,123,9,21,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,53,234,139.2,202.3,draft
 M027,ABS,materials/M027.html,,55,784,31,90,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,299,1248,265.5,831.0,draft
 M028,ABS-GF,materials/M028.html,,11,156,11,21,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,72,283,155.0,229.9,draft
 M029,ABS-CF,materials/M029.html,,11,130,10,24,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,61,318,139.8,240.2,draft
 M030,ABS-ESD,materials/M030.html,,11,100,10,17,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,45,198,125.3,166.1,draft
 M031,ASA,materials/M031.html,,40,588,33,64,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,205,924,227.0,653.4,draft
-M032,ASA Aero,materials/M032.html,,4,61,4,8,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,17,125,107.5,132.4,draft
+M032,ASA Aero,materials/M032.html,,4,61,4,8,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,17,125,107.6,132.4,draft
 M033,ASA-CF,materials/M033.html,,17,180,15,30,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,103,390,174.2,292.0,draft
-M034,ASA-GF,materials/M034.html,,6,108,6,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,32,215,122.5,180.7,draft
-M035,PC,materials/M035.html,,22,403,16,42,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,135,655,188.7,496.9,draft
+M034,ASA-GF,materials/M034.html,,6,108,6,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,32,215,122.6,180.7,draft
+M035,PC,materials/M035.html,,22,403,16,42,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,135,655,188.8,496.9,draft
 M036,PC FR,,2 products,2,53,2,7,,,,,,,none
-M037,PC-CF,materials/M037.html,,10,125,8,19,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,39,245,125.3,199.2,draft
+M037,PC-CF,materials/M037.html,,10,125,8,19,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,39,245,125.4,199.2,draft
 M038,PC-GF,materials/M038.html,,3,57,3,6,masthead in-short key-figures mechanical thermal printing products makers-say environment physical sources footer,7,21,114,110.5,115.9,draft
 M045,PEBA,materials/M045.html,,10,129,7,18,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,5,28,274,98.5,195.6,draft
 M046,TPC / TPEE,materials/M046.html,,12,132,7,32,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,36,378,108.8,269.0,draft
 M048,PAHT-CF,materials/M048.html,,5,190,4,10,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,37,264,129.4,259.3,draft
 M049,PA6,materials/M049.html,,9,98,6,18,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price estimates sources footer,5,33,233,104.9,184.6,draft
 M050,PA6-CF,materials/M050.html,,14,196,13,26,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,86,359,167.1,286.3,draft
-M051,PA6-GF,materials/M051.html,,11,207,10,19,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,71,358,159.9,308.6,draft
+M051,PA6-GF,materials/M051.html,,11,207,10,19,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,71,358,159.9,308.7,draft
 M052,PA12,materials/M052.html,,8,134,7,23,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price estimates sources footer,5,31,240,106.6,209.8,draft
 M053,PA12-CF,materials/M053.html,,15,228,14,32,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,74,427,152.5,332.3,draft
 M054,PA12-GF,materials/M054.html,,3,35,3,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,13,92,99.3,98.6,draft
@@ -47,7 +47,7 @@ M066,PET,materials/M066.html,,7,63,4,15,masthead in-short key-figures mechanical
 M067,PET-CF,materials/M067.html,,8,172,7,14,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,51,281,148.1,252.4,draft
 M068,PET-GF,materials/M068.html,,4,74,4,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,43,186,133.6,157.8,draft
 M069,PPA,,2 products,2,46,2,6,,,,,,,none
-M070,PPA-CF,materials/M070.html,,8,167,6,17,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,39,306,136.2,261.7,draft
+M070,PPA-CF,materials/M070.html,,8,167,6,17,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,39,306,136.3,261.7,draft
 M071,PPA-GF,materials/M071.html,,5,91,4,10,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,34,222,124.9,194.2,draft
 M072,PPS,,2 products and 17 measured values,2,17,2,7,,,,,,,none
 M073,PPS-CF,materials/M073.html,,7,123,7,10,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,59,203,147.4,192.6,draft
@@ -65,7 +65,7 @@ M084,PP-GF,,2 products,2,27,2,5,,,,,,,none
 M085,PE,,2 products,2,22,2,5,,,,,,,none
 M086,OBC,,2 products,2,27,2,4,,,,,,,none
 M087,POM / Acetal,materials/M087.html,,3,38,3,7,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,10,95,99.9,90.8,draft
-M088,PCTG,materials/M088.html,,8,111,8,16,masthead in-short key-figures mechanical thermal printing products makers-say physical price sources footer,7,34,196,115.6,151.8,draft
+M088,PCTG,materials/M088.html,,8,111,8,16,masthead in-short key-figures mechanical thermal printing products makers-say physical price sources footer,7,34,196,115.7,151.8,draft
 M089,CPE,materials/M089.html,,5,76,3,14,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,19,141,106.5,120.3,draft
 M090,CPE-CF,materials/M090.html,,3,26,3,9,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,6,76,91.4,79.3,draft
 M091,CoPE,,1 product,1,28,1,5,,,,,,,none

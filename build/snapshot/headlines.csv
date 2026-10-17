@@ -863,7 +863,7 @@ M051,PA6-GF,flexuralStrengthZ,value,75.45,MPa,,,,,2,G051-01,V000960
 M051,PA6-GF,charpyNotched,value,8.6,kJ/m²,,,,,2,G051-01,V000962
 M051,PA6-GF,izodNotched,value,10.5,kJ/m²,,,,,1,G051-06,V004589
 M051,PA6-GF,hdt045,value,184,°C,,,,,10,G051-01,V000949
-M051,PA6-GF,hdt18,value,155,°C,,,,,6,G051-11,V011592
+M051,PA6-GF,hdt18,value,157,°C,,,,,5,G051-03,V001176
 M051,PA6-GF,glassTransition,value,70,°C,,,,,5,G051-02,V001169
 M051,PA6-GF,priceCADkg,value,83.98,CAD/kg,,,,,3,G051-09,
 M052,PA12,density,value,1010,kg/m³,,,,,6,G052-07,V011057

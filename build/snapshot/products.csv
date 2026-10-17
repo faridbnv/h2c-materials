@@ -5027,7 +5027,6 @@ G051-10,M051,STYX PA6-GF30,hdt045,180,comparable,,V002721,,,,twin G051-04
 G051-10,M051,STYX PA6-GF30,hdt18,65,comparable,,V002720,,,,twin G051-04
 G051-10,M051,STYX PA6-GF30,priceCADkg,145.98,comparable,,CA0193,,,,
 G051-11,M051,PA6/66-GF30-FR,hdt045,161,comparable,,V009369,,,,
-G051-11,M051,PA6/66-GF30-FR,hdt18,153,comparable,,V011592,,,,
 G052-01,M052,AMIDEX Nylon 12,priceCADkg,242.14,comparable,,CA0322,,,,
 G052-02,M052,DURAPRO PA12,tensileModulusXY,1.5,as-published,unstated-direction,V012123,,,,
 G052-02,M052,DURAPRO PA12,tensileStrengthXY,50,as-published,unstated-direction,V012124,,,,
