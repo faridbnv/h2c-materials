@@ -5,8 +5,8 @@ density,this-material,top,93,0,6,0.975,yes
 density,this-material,bottom,93,2,6,0.025,yes
 density,family,top,120,8,8,0.975026,yes
 density,family,bottom,120,4,8,0.025,yes
-tensileModulusXY,this-grade,top,78,3,5,0.975,yes
-tensileModulusXY,this-grade,bottom,78,0,5,0.025,yes
+tensileModulusXY,this-grade,top,78,2,5,0.975,yes
+tensileModulusXY,this-grade,bottom,78,1,5,0.025,yes
 tensileModulusXY,this-material,top,69,2,4,0.975,yes
 tensileModulusXY,this-material,bottom,69,1,4,0.025,yes
 tensileModulusXY,family,top,83,1,5,0.975,yes
