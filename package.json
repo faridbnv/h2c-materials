@@ -82,6 +82,7 @@
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",
+    "subset-font": "2.9.0",
     "xlsx": "^0.18.5"
   },
   "engines": {
