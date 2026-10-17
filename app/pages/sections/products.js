@@ -52,7 +52,7 @@ export default {
       // A special formulation's reason is the database's own words (grades.csv, Variant), shown as recorded.
       const variant = r.variant ? `special formulation: <span class="raw">${esc(r.variant)}</span>` : '';
       return `<tr id="product-${esc(r.id)}" data-grade="${esc(r.id)}"><th scope="row" data-v="${esc(r.name.toLowerCase())}"><a href="${esc(recordsHref(c.m.id, `#product=${r.id}`))}" data-grade="${esc(r.id)}">${esc(r.name)}</a>`
-        + `${variant || notes.length ? `<span class="row-note">${[variant, ...notes.map(esc)].filter(Boolean).join('; ')}</span>` : ''}</th>`
+        + `${variant || notes.length ? `<span class="row-note">${[variant, ...notes.map(esc)].filter(Boolean).join('<br>')}</span>` : ''}</th>`
         + `${cells}${settings}</tr>`;
     }).join('');
     const sortable = (label, unit, kind, cls = '') => `<th scope="col"${cls ? ` class="${cls}"` : ''} data-sort="${kind}"><button type="button">${esc(label)}${unit ? `<span class="u">${esc(unit)}</span>` : ''}</button></th>`;
@@ -66,7 +66,7 @@ export default {
       kinds.has('converted') ? '<li><span class="fx">¤</span> price converted from a foreign listing</li>' : '',
     ].join('');
     const products = rows.filter((r) => r.product).length, refs = rows.length - products;
-    const lead = `${count(products, 'product')} you can buy${refs ? `, and ${count(refs, 'resin or study reference')} that ${refs === 1 ? 'is' : 'are'} not a product` : ''}, by maker. Each value is the product's own, as the build chose it from its records; a blank cell is not published. Select a column to sort; a product's name opens its records.`;
+    const lead = `${count(products, 'product')} you can buy${refs ? `, and ${count(refs, 'resin or study reference')} that ${refs === 1 ? 'is' : 'are'} not a product` : ''}, by maker. Each value is the product's own, as the build chose it from its records. A blank cell is not published. Select a column to sort by it, and a product's name to open its records.`;
     const html = `<p class="lead">${esc(lead)}</p>${key ? `<ul class="fig-key table-key">${key}</ul>` : ''}`
       + tableBox(`<table class="grid products" data-sortable>${head}<tbody>${body}</tbody></table>`, 'products-box')
       + '<p class="fig-note">Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet\'s values are for the colour it tested.</p>';

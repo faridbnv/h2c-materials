@@ -17,6 +17,8 @@
   --gap: 3rem;
   --gutter: 16px;
   --plate-pad: 1.1rem;
+  /* The tone of a figure's marks while another product is lit: pale, solid, and the theme's own (it follows the tokens). */
+  --fade: color-mix(in srgb, var(--ink-3) 32%, var(--surface));
 }
 @media (min-width: 720px) { :root { --gutter: 2rem; --plate-pad: 1.6rem; } }
 
@@ -189,8 +191,11 @@ q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 .mk--variant { fill: var(--surface); stroke: var(--ink-3); }
 .mk--claimed { fill: var(--claim); stroke: var(--claim); }
 .mk--claimed.mk--open { fill: var(--surface); }
-.fig-plot .mk { cursor: pointer; transition: opacity .12s ease; }
-body.lighting .fig-plot .mk:not(.lit) { opacity: .16; }
+.fig-plot .mk { cursor: pointer; transition: fill .12s ease, stroke .12s ease; }
+/* While a product is lit, the others turn one solid pale tone, never a transparency: a stack of faded marks that
+   overlap would add up to a dark one and read as lit. */
+body.lighting .fig-plot .mk:not(.lit) { fill: var(--fade); stroke: var(--fade); }
+body.lighting .fig-plot .mk--open:not(.lit), body.lighting .fig-plot .mk--variant:not(.lit) { fill: var(--surface); }
 .mk.lit { stroke: var(--ink); stroke-width: 2.25; }
 .fig .table-box { margin-top: 1.4rem; }
 .fig figcaption { margin-top: 1.1rem; padding-top: .85rem; border-top: 1px solid var(--border); font-size: .875rem; color: var(--ink-2); max-width: 100ch; }
@@ -314,6 +319,7 @@ table.products td { white-space: nowrap; }
 
 .rec-tools { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem 1.5rem; margin: 1.75rem 0 0; padding: .9rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
 .rec-tools label { display: flex; flex-direction: column; gap: .25rem; font-size: .8125rem; color: var(--ink-2); min-width: min(100%, 17rem); }
+.rec-tools .rec-filter { min-width: min(100%, 23rem); }
 .rec-tools input, .rec-tools select { font: inherit; font-size: .9375rem; color: var(--ink); background: var(--bg); border: 1px solid var(--border-strong); border-radius: 4px; padding: .4rem .6rem; width: 100%; }
 .rec-shown { margin: 0; font-size: .8125rem; color: var(--ink-3); }
 .rec-sec { margin-top: 3.5rem; scroll-margin-top: 3.5rem; }

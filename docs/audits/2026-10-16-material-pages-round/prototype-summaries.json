@@ -3,18 +3,18 @@
     "by": "Sample for the design review, Claude Opus (agent)",
     "on": "2026-10-16",
     "status": "draft",
-    "summary": "PETG here is an unfilled, glycol-modified copolyester: {products} products from {makers} makers. Bars printed flat (XY) give a median tensile strength of {tensileStrengthXY.median} over the {tensileStrengthXY.n} products that state their orientation, and a median elongation at break of {elongationXY.median}; bars pulled across the layers (Z) give {tensileStrengthZ.median}. {hdt045.label} has a median of {hdt045.median} over {hdt045.n} products, and the glass transition one of {glassTransition.median}. Only {charpyNotched.n} products publish a notched Charpy value on a comparable basis, so impact is thinly documented. Printing on the H2C gives each product's print temperatures, and Products each product's own values."
+    "summary": "PETG here is an unfilled, glycol-modified copolyester, sold as {products} products from {makers} makers. Bars printed flat (XY) give a median tensile strength of {tensileStrengthXY.median} over the {tensileStrengthXY.n} products that state their orientation. Their median elongation at break is {elongationXY.median}. Bars pulled across the layers (Z) give a median tensile strength of {tensileStrengthZ.median}. {hdt045.label} has a median of {hdt045.median} over {hdt045.n} products, and the glass transition a median of {glassTransition.median}. Only {charpyNotched.n} products publish a notched Charpy value on a comparable basis, so its impact behaviour is thinly documented."
   },
   "M001": {
     "by": "Sample for the design review, Claude Opus (agent)",
     "on": "2026-10-16",
     "status": "draft",
-    "summary": "PLA here is unfilled polylactic acid: {products} products from {makers} makers. Bars printed flat (XY) give a median tensile modulus of {tensileModulusXY.median} and a median tensile strength of {tensileStrengthXY.median}, over the {tensileStrengthXY.n} products that state their orientation; elongation at break has a median of {elongationXY.median}. {hdt045.label} has a median of {hdt045.median}, close to the glass transition median of {glassTransition.median}. The notched Charpy median of {charpyNotched.median} leaves out the products their makers sell as toughened, which Mechanical draws apart. Where a product's own sheet is silent on a print setting, Bambu Lab's Filament Guide for PLA fills it, and the page says so."
+    "summary": "PLA here is unfilled polylactic acid, sold as {products} products from {makers} makers. Bars printed flat (XY) give a median tensile modulus of {tensileModulusXY.median} and a median tensile strength of {tensileStrengthXY.median}, over the {tensileStrengthXY.n} products that state their orientation. Their median elongation at break is {elongationXY.median}. {hdt045.label} has a median of {hdt045.median}, close to the median glass transition of {glassTransition.median}. The notched Charpy median of {charpyNotched.median} is of the products not sold as toughened. The products their makers sell as toughened or impact-modified are counted apart from it."
   },
   "M110": {
     "by": "Sample for the design review, Claude Opus (agent)",
     "on": "2026-10-16",
     "status": "draft",
-    "summary": "PCTG-GF is a glass-fibre-filled PCTG copolyester, here as {products} products from {makers} makers, some of which share one data sheet. Its products give a density of {density.median}; their {hdt045.label} is {hdt045.median}, and their {hdt18.label} {hdt18.median}. No product states the orientation of its tensile bars, so its tensile values are listed but not compared, and Estimated, not measured gives a likely range instead. Printing on the H2C names the products that need a hardened nozzle. Its price in the sample comes from a foreign listing, converted to Canadian dollars."
+    "summary": "PCTG-GF is a glass-fibre-filled PCTG copolyester, sold as {products} products from {makers} makers, some of which share one data sheet. Its products give a density of {density.median}. Their {hdt045.label} is {hdt045.median}, and their {hdt18.label} is {hdt18.median}. No product states the orientation of its tensile bars, so its tensile values are on file but not compared. Some of its products need a hardened nozzle. Its price in the sample comes from a foreign listing, converted to Canadian dollars."
   }
 }

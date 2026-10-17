@@ -5,7 +5,7 @@
 import { esc } from '../html.js';
 import { STATUS_WORDS, propertyName, whyOne } from '../../js/ui/labels.js';
 import { tabProperties, comparisonsOf, notDrawnWhy, productNameOrId, measurementFacts } from '../../js/ui/material-facts.js';
-import { measuredValue, outOfMedianWords, alsoForWords, changedState, testGuessHead, conditionLine } from '../../js/ui/material-words.js';
+import { measuredValue, outOfMedianWords, alsoForWords, changedState, testGuessHead, conditionLine, cap } from '../../js/ui/material-words.js';
 import { keyMark } from '../charts/marks.js';
 import { recordTable, headRow, sourceCell, idCell, fold } from './common.js';
 
@@ -35,7 +35,7 @@ function drawnCell(x, c, ix) {
     const lines = (ix.lines.get(x.id) ?? []).map((o) => {
       const place = o.reason ? `drawn, not in the median (${outOfMedianWords(o.reason, o.h)})` : 'drawn, in the median';
       const state = changedState(x, o.e.v);
-      return `<span class="drawn-line">${keyMark(o.marks)}${esc(`${place}${o.alsoFor ? alsoForWords(productNameOrId(o.e.g), o.e.v.from) : ''}${state.length ? `; ${state.join(', ')}` : ''}`)}</span>`;
+      return `<span class="drawn-line">${keyMark(o.marks)}<span>${esc(`${place}${o.alsoFor ? alsoForWords(productNameOrId(o.e.g), o.e.v.from) : ''}.`)}${state.length ? `<span class="loc">${esc(`${cap(state.join(', '))}.`)}</span>` : ''}</span></span>`;
     });
     return `<td class="drawn" data-why="drawn">${lines.join('')}</td>`;
   }

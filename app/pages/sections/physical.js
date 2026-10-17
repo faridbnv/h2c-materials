@@ -17,7 +17,7 @@ export default {
       return { empty: true, html: emptyBody(c, 'No physical value is on file for this material.', { anchor: '#measurements-physical' }) + other.html, stats: {} };
     }
     const products = new Set(mi.rows.map((x) => x.gradeId)).size;
-    const lead = `${count(mi.rows.length, 'published physical value')} from ${count(products, 'product')}. Density is compared as a key figure; the others are counted here.`;
+    const lead = `${count(mi.rows.length, 'published physical value')} from ${count(products, 'product')}. Density is compared as a key figure. The others are counted here.`;
     return { empty: false, html: `<p class="lead">${esc(lead)}</p>${other.html}`, stats: {} };
   },
 };

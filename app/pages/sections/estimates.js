@@ -14,7 +14,7 @@ import { plural, andList } from '../../js/ui/material-words.js';
 function evidence(e, d, c) {
   if (!e.evidence?.length) return '';
   return `<ul class="est-evidence">${e.evidence.map((ev) => {
-    const items = ev.items.map((i) => `${i.property} ${fmtNumber(i.value)} ${i.unit}${i.direction && !['not-applicable', 'unknown'].includes(i.direction) ? ` (${i.direction})` : ''}`).join('; ');
+    const items = andList(ev.items.map((i) => `${i.property} ${fmtNumber(i.value)} ${i.unit}${i.direction && !['not-applicable', 'unknown'].includes(i.direction) ? ` (${i.direction})` : ''}`));
     const whose = ev.sameGrade ? 'the same product' : productNameOrId(c.gradeById.get(ev.gradeId) ?? { id: 'another product' });
     // The build says a value of the property itself needs no conversion in its own words ("The headline's own
     // semantics"); the page says it in the reader's.
@@ -52,10 +52,10 @@ export default {
       const w = m.print[k];
       const words = k === 'chamberEstimate'
         ? `No source publishes a chamber temperature. Research of 2026-09-13 places it in this band, based on ${w.basis}. It is not a print setting and changes no result.${w.caution ? ` ${w.caution}` : ''}`
-        : `No source publishes this window. Estimated as the ${w.basis} (${(w.peers ?? []).map((p) => `${p.name} ${fmtNumber(p.min)}–${fmtNumber(p.max)}`).join(', ')}). A starting point to verify; it changes no result.`;
+        : `No source publishes this window. Estimated as the ${w.basis} (${(w.peers ?? []).map((p) => `${p.name} ${fmtNumber(p.min)}–${fmtNumber(p.max)}`).join(', ')}). A starting point to verify. It changes no result.`;
       return `<div class="est" data-estimate="${esc(k)}"><h3 class="est-name">${esc(`${label}: estimated, not published`)}</h3><p class="est-range"><span class="est-num">${esc(fmtRange(w.lo, w.hi))}</span> <span class="kf-unit">${esc(w.unit)}</span><span class="dagger" aria-label="estimate">†</span></p><p>${esc(words)}</p></div>`;
     });
-    const lead = `${plural(est.length + windows.length, 'estimate')}, for what this material's products do not publish comparably. Estimates fill gaps from related data and similar materials; tested on known values, a likely range held ${pct(levels.likely)} of the time and a plausible range ${pct(levels.plausible)}. An estimate never makes a material pass, and nothing else on this page rests on one.`;
+    const lead = `${plural(est.length + windows.length, 'estimate')}, for what this material's products do not publish comparably. Estimates fill gaps from related data and similar materials. Tested on known values, a likely range held ${pct(levels.likely)} of the time and a plausible range ${pct(levels.plausible)}. An estimate never makes a material pass, and nothing else on this page rests on one.`;
     return { empty: false, html: `<div class="fence"><p class="lead">${esc(lead)}</p><div class="est-grid">${[...cards, ...wins].join('')}</div></div>`, stats: { estimates: est.length + windows.length } };
   },
 };

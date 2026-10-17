@@ -3,12 +3,12 @@
 // table of the properties no figure draws. Every number is the build's or a count of records; every word is the shared
 // words' (material-words.js, labels.js) or says what is drawn.
 
-import { esc, recordsHref, tableBox } from '../html.js';
+import { esc, recordsHref, tableBox, count } from '../html.js';
 import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
 import { propertyName, whyWords, coverageStatusWords } from '../../js/ui/labels.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import {
-  emptyReasons, measuredIn, comparisonsOf, dotMarks, spreadEntries, productNameOrId,
+  emptyReasons, measuredIn, comparisonsOf, dotMarks, spreadEntries, productNameOrId, GAP_STATUS,
 } from '../../js/ui/material-facts.js';
 import {
   plural, lower, andList, asPublishedWords, filledWords, apartWords, medianRule, noMedianWhy, toughenedSplit,
@@ -37,28 +37,44 @@ export const recordsLink = (c, anchor, words) => `<a class="rec-link" href="${es
  */
 const RECORD_NAME = /(?<!ASTM )\b(?:V\d{6}|G\d{3}-(?:\d{2}|R\d+)(?:-R\d+)?|M\d{3}|P\d{4}|Q\d{5}|C\d{5}|CA\d{4}|P[BC]\d{5}|m\d{2,3}|R\d{3}|D\d{2,3}|[A-Z][A-Z0-9]{0,2}-[A-Za-z0-9]+-[A-Za-z0-9-]+)\b/;
 const PROJECT_WORDS = /\b(headlines?|representative grade|workbook|migration|ruling|quarantin\w*|admitted|coverage record)\b/i;
+/** The stored Bambu Lab statuses INTERFACE's table renames ("Theoretical"), where a note quotes them. */
+const STORED_STATUS = /\b(Theoretical|Official Bambu product|Officially listed family)\b|"Conditional"/;
 export const namesRecords = (text) => RECORD_NAME.test(String(text ?? ''));
-export const readerText = (text) => !namesRecords(text) && !PROJECT_WORDS.test(String(text ?? ''));
+export const readerText = (text) => !namesRecords(text) && !PROJECT_WORDS.test(String(text ?? '')) && !STORED_STATUS.test(String(text ?? ''));
 
-/** A coverage row in the reviewer's words, or, where those words are not reader text, its domain and status alone. */
-export function reviewerWords(r) {
-  const head = `${r.domain === 'Sparse properties' ? 'Rarely published properties' : r.domain ?? ''}, ${coverageStatusWords(r.status)}`;
-  return readerText(r.finding) ? { head, text: r.finding ?? '' } : { head, text: null };
+/**
+ * The coverage rows a reader is shown on the main page: a gap, a conflict, a held-back value or another of the known-gap
+ * statuses (material-facts.js GAP_STATUS) whose note is reader text. The others stay on the records page, counted.
+ */
+export const shownGap = (r) => GAP_STATUS.has(r.status) && readerText(r.finding);
+
+/** A coverage row's heading: its domain and status, in the page's words. */
+const gapHead = (r) => `${r.domain === 'Sparse properties' ? 'Rarely published properties' : r.domain ?? ''}, ${coverageStatusWords(r.status)}`;
+
+/** A known gap as a paragraph: its domain and status, then the reviewer's words. */
+export const gapPara = (r) => `<p class="gap"><b>${esc(gapHead(r))}.</b> ${esc(r.finding ?? '')}</p>`;
+
+/** The review notes not shown on the main page, counted in one line with the way to them; empty where there are none. */
+export const furtherNotes = (c, n) => (n ? `${count(n, 'further review note')} ${n === 1 ? 'is' : 'are'} on ${recordsLink(c, '#review-notes', 'the records page')}.` : '');
+
+/** Coverage rows as the main page shows them: the gaps a reader is shown, then one line counting the rest. */
+export function gapList(c, rows, extra = 0) {
+  const shown = rows.filter(shownGap);
+  const rest = rows.length - shown.length + extra;
+  return `${shown.map(gapPara).join('')}${rest ? `<p class="fig-note">${furtherNotes(c, rest)}</p>` : ''}`;
 }
-
-/** A known gap as a paragraph: its domain and status, then the reviewer's words or where to read them. */
-export const gapPara = (c, r) => {
-  const w = reviewerWords(r);
-  return `<p class="gap"><b>${esc(w.head)}.</b> ${w.text ? esc(w.text) : `<span class="missing">The reviewer's note is written for the data's maintainers; it is on ${recordsLink(c, '#review-notes', 'the records page')}.</span>`}</p>`;
-};
 
 /**
  * An empty section's body: one line saying what is not on file, the recorded reason in the reviewer's words where a
- * coverage row gives one (material-facts.js emptyReasons), and the way to the records page.
+ * coverage row gives one that a reader is shown (material-facts.js emptyReasons), the rest counted, and the way to the
+ * records page.
  */
 export function emptyBody(c, line, { tab = null, anchor = '', link = 'See the records page' } = {}) {
-  const reasons = (tab ? emptyReasons(c, tab) : []).map(reviewerWords);
-  return `<p class="empty">${esc(line)}${reasons.map((w) => ` <span class="empty-why">${esc(w.text ? `${w.head}: ${w.text}` : `${w.head} (the reviewer's note is written for the data's maintainers; it is on the records page).`)}</span>`).join('')} ${recordsLink(c, anchor, link)}.</p>`;
+  const rows = tab ? emptyReasons(c, tab) : [];
+  const shown = rows.filter(shownGap);
+  const rest = rows.length - shown.length;
+  return `<p class="empty">${esc(line)}${shown.map((r) => ` <span class="empty-why">${esc(`${gapHead(r)}: ${r.finding ?? ''}`)}</span>`).join('')}`
+    + ` ${rest ? `<span class="empty-why">${furtherNotes(c, rest)}</span>` : `${recordsLink(c, anchor, link)}.`}</p>`;
 }
 
 /** Numbers the figures of a section: "4.1", "4.2". */
@@ -172,7 +188,7 @@ export function comparisonBlocks(c, tab, nextFig, anchor, extras = () => []) {
     const shares = shareWords(f.shares, f.noShare);
     const t = f.tally(records);
     const parts = t.counts.map(([why, k]) => whyWords(why, k));
-    const counted = `Of the ${n} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn${t.namedN ? ` and ${t.namedN} named under the table` : ''}${parts.length ? `; the other ${t.rest}: ${andList(parts)}` : ''}.`;
+    const counted = `Of the ${n} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn${t.namedN ? ` and ${t.namedN} named under the table` : ''}.${parts.length ? ` The other ${t.rest}: ${andList(parts)}.` : ''}`;
     const rowsWords = f.shown.map((h) => `${h.labels.plain}, ${plural(f.byKey.get(h.key).length, 'product')}`).join('; ');
     figures++;
     const no = nextFig();
@@ -308,7 +324,7 @@ export function otherProperties(c, tab, covered, anchor, { title = 'Other proper
     : '';
   const named = mi.named.length ? `<p class="fig-note">Named on a data sheet without a value: ${esc(andList([...new Map(mi.named.map((x) => [`${x.property}|${x.gradeId}`, `${inSentence(propertyName(x.property))} (${productNameOrId(c.gradeById.get(x.gradeId) ?? { id: 'a product' })})`])).values()]))}.</p>` : '';
   const absent = mi.absent.length ? `<p class="fig-note absent"><b>Not published for this material:</b> ${esc(mi.absent.map(propertyName).join(', '))}. A gap, not a zero or a low value.</p>` : '';
-  const gaps = mi.gaps.length ? `<h3 class="sub-title">Known gaps</h3>${mi.gaps.map((r) => gapPara(c, r)).join('')}` : '';
+  const gaps = mi.gaps.length ? `<h3 class="sub-title">Known gaps</h3>${gapList(c, mi.gaps)}` : '';
   return { html: `${table}${named}${absent}${gaps}`, properties: props.length };
 }
 

@@ -6,7 +6,7 @@ import { esc, tableBox, count } from '../html.js';
 import { gapSplit, sourceBlockFacts } from '../../js/ui/material-facts.js';
 import { plural, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { sourceKind } from '../../js/ui/labels.js';
-import { emptyBody, recordsLink, gapPara } from './common.js';
+import { emptyBody, recordsLink, gapList } from './common.js';
 
 /** How many publishers the page lists by name; the rest are counted, and every one is on the records page. */
 const PUBLISHERS = 12;
@@ -18,9 +18,9 @@ export default {
   render(c) {
     const docs = [...c.documents].map(([sid, d]) => sourceBlockFacts(sid, d, c));
     const { gaps, notes } = gapSplit(c.cov);
-    const gapHtml = `<h3 class="sub-title" id="known-gaps">Known gaps</h3>${gaps.length
-      ? gaps.map((r) => gapPara(c, r)).join('')
-      : `<p class="empty">${esc(EMPTY_LINES.gaps)}</p>`}${notes.length ? `<p class="fig-note">${recordsLink(c, '#review-notes', `${plural(notes.length, 'review note')} on settled questions`)}.</p>` : ''}`;
+    // The known gaps a reader is shown, in the reviewer's words; the other gaps and the notes on settled questions are
+    // counted, and are on the records page.
+    const gapHtml = `<h3 class="sub-title" id="known-gaps">Known gaps</h3>${gaps.length ? '' : `<p class="empty">${esc(EMPTY_LINES.gaps)}</p>`}${gapList(c, gaps, notes.length)}`;
     if (!docs.length) return { empty: true, html: emptyBody(c, EMPTY_LINES.Evidence, { tab: 'Evidence', anchor: '#documents' }) + gapHtml, stats: {} };
     const dates = docs.map((d) => d.accessDate).filter(Boolean).sort();
     const kinds = new Map();

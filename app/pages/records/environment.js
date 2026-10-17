@@ -18,7 +18,7 @@ export default {
       + `<td>${esc(stated(e.gradeId) ? productNameOrId(c.gradeById.get(e.gradeId) ?? { id: e.gradeId }) : 'the material in general')}</td>`
       + `${sourceCell(c, e.sourceId, e.locator)}${rawCell(e.exposure, 50)}${idCell(e.id)}</tr>`).join('');
     const resin = c.poly.flatMap((p) => p.agents.map((a) => `<tr data-eid="${esc(a.id)}" data-grade=""><th scope="row">${esc(p.categoryLabel)}</th><td>${esc(verdictWords(a.verdict))}</td>`
-      + `<td class="quote"><q>${esc(a.finding)}</q></td><td>${esc([a.agent, a.conditions].filter(stated).join('; '))}</td><td>${esc(`${p.polymerId} resin, not these products`)}</td>`
+      + `<td class="quote"><q>${esc(a.finding)}</q></td><td>${esc([a.agent, a.conditions].filter(stated).join('. '))}</td><td>${esc(`${p.polymerId} resin, not these products`)}</td>`
       + `${sourceCell(c, a.sourceId, a.locator)}${rawCell(a.notes, 50)}${idCell(a.id)}</tr>`)).join('');
     const n = c.ev.length + c.poly.reduce((k, p) => k + p.agents.length, 0);
     return recordTable({

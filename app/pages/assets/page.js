@@ -80,7 +80,10 @@
     if (!grade) { doc.body.classList.remove('lighting'); return; }
     doc.body.classList.add('lighting');
     $$('[data-grade="' + cssEscape(grade) + '"]').forEach(function (x) {
-      if (x.matches('.mk, tr')) x.classList.add('lit');
+      if (!x.matches('.mk, tr')) return;
+      x.classList.add('lit');
+      // Drawn last in its plot, so no faded mark covers it.
+      if (x.matches('.mk') && x.parentNode.lastElementChild !== x) x.parentNode.appendChild(x);
     });
   }
   function cssEscape(s) { return window.CSS && CSS.escape ? CSS.escape(s) : String(s).replace(/["\\]/g, '\\$&'); }

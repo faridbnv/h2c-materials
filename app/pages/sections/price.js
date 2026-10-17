@@ -6,7 +6,7 @@ import { esc, tableBox } from '../html.js';
 import { fmtNumber, priceSampleWords, convertedNote } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { spreadEntries, priceRows } from '../../js/ui/material-facts.js';
-import { plural, joinedSpan, andList, UNUSED_WORDS, EMPTY_LINES } from '../../js/ui/material-words.js';
+import { plural, joinedSpan, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { FIGURE_PAIRS } from '../figures.js';
 import { stripScale } from '../charts/scale.js';
 import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
@@ -14,6 +14,14 @@ import { axisRow } from '../charts/axis.js';
 import { keyMark, keyBand, keyMedian, keyList } from '../charts/marks.js';
 import { figure } from '../charts/figure.js';
 import { emptyBody, recordsLink, figureCounter, pairScatter } from './common.js';
+
+/** Why listings are not used for a price, a sentence for each reason (material-facts.js priceRows().unused; the
+ *  records page gives each listing's own, in UNUSED_WORDS). */
+const NOT_USED = {
+  quarantined: (n) => `${plural(n, 'listing')} ${n === 1 ? 'is a different product' : 'are of different products'}, and not used.`,
+  'no-regular': (n) => `${plural(n, 'listing')} ${n === 1 ? 'records' : 'record'} no regular price per kilogram, and ${n === 1 ? 'is' : 'are'} not used.`,
+  another: (n) => `${plural(n, 'listing')} ${n === 1 ? 'is' : 'are'} not used, because another listing of the same product is: Canadian listings come before foreign ones.`,
+};
 
 export default {
   id: 'price',
@@ -47,7 +55,7 @@ export default {
     const used = listings.filter((r) => r.used).length;
     const unused = Object.entries(listings.reduce((acc, r) => { if (r.unused) acc[r.unused] = (acc[r.unused] ?? 0) + 1; return acc; }, {}));
     const notes = [
-      `Listings from ${priceSampleWords(c.db.meta)}: ${used} of ${plural(listings.length, 'listing')} ${used === 1 ? 'is' : 'are'} used.${unused.length ? ` Not used: ${andList(unused.map(([why, n]) => `${n}: ${UNUSED_WORDS[why].replace(/\.$/, '').toLowerCase()}`))}.` : ''}`,
+      `Listings from ${priceSampleWords(c.db.meta)}: ${used} of ${plural(listings.length, 'listing')} ${used === 1 ? 'is' : 'are'} used.${unused.map(([why, n]) => ` ${NOT_USED[why]?.(n) ?? `${plural(n, 'listing')} ${n === 1 ? 'is' : 'are'} not used.`}`).join('')}`,
       m.headline[h.key]?.converted ? convertedNote(m.headline[h.key].converted) : null,
     ].filter(Boolean).map((t) => `<p class="fig-note">${esc(t)}</p>`).join('');
     const no = next();

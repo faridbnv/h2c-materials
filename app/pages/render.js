@@ -95,7 +95,7 @@ export function renderRecordsPage(db, id, env) {
 <p class="mast-lede">${esc(`The records behind the ${m.name} page, as they are recorded: each value with the conditions and document it was read from, each print profile and statement in its document's own words, each with its ID for tracing it in the data tables.`)}</p>
 <dl class="mast-counts">${counts.map(({ s, n }) => `<div class="count"><dt><a href="#${esc(s.id)}">${esc(s.title)}</a></dt><dd data-count="${esc(s.id)}" data-n="${n}">${esc(fmtNumber(n))}</dd></div>`).join('')}</dl>
 <div class="rec-tools" hidden>
-<label class="rec-filter"><span>Find</span><input type="search" data-filter placeholder="a property, product, document or ID" aria-label="Find in the records"></label>
+<label class="rec-filter"><span>Find</span><input type="search" data-filter placeholder="Property, product, document or ID" aria-label="Find in the records"></label>
 <label class="rec-product"><span>Product</span><select data-product><option value="">Every product</option>${products.map(([gid, name]) => `<option value="${esc(gid)}">${esc(name)}</option>`).join('')}</select></label>
 <p class="rec-shown" data-shown aria-live="polite"></p>
 </div>

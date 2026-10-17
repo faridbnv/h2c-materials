@@ -26,7 +26,7 @@ export default {
     const statements = c.grades.flatMap((g) => (byGrade.get(g.id) ?? []).map((k) => ({ k, g })));
     const silent = makersSilentWords(f.states);
     const recipe = makersRecipeWords(f.recipe);
-    const lead = `${f.collected} of ${plural(f.total, 'product')} have statements from their makers.${silent.length ? ` ${cap(silent.join('; '))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}`;
+    const lead = `${f.collected} of ${plural(f.total, 'product')} have statements from their makers.${silent.length ? ` ${cap(andList(silent))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}`;
     const table = tableBox(`<table class="grid topics"><thead><tr><th scope="col">Topic</th><th scope="col" class="num">Makers</th><th scope="col" class="num">Products</th></tr></thead><tbody>${f.topics.map((t) => `<tr${t.stated ? '' : ' class="none"'}><th scope="row">${esc(t.topic)}</th><td class="num">${t.makers} of ${f.makers}</td><td class="num">${t.stated ? t.products : '—'}</td></tr>`).join('')}</tbody></table>`);
     const quotes = f.topics.filter((t) => t.stated).map((t) => {
       const chosen = [];

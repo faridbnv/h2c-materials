@@ -15,7 +15,7 @@ export default {
     const sorted = [...c.profiles].sort((a, b) => name(a).localeCompare(name(b)) || (a.id < b.id ? -1 : 1));
     // The settings a print is set up with, each in its document's words; the rest of what the profile records, folded.
     const other = (p) => {
-      const parts = [['Enclosure', p.enclosure], ['Nozzle type', [p.nozzleMaterial, p.nozzleDiameter?.text].filter(stated).join('; ')], ['Abrasion', p.abrasion?.text],
+      const parts = [['Enclosure', p.enclosure], ['Nozzle type', [p.nozzleMaterial, p.nozzleDiameter?.text].filter(stated).join(', ')], ['Abrasion', p.abrasion?.text],
         ['Plate', p.plate], ...(p.notes ?? []).map((x) => [x.topic, x.text]), ['Failure modes', p.failureModes]].filter(([, t]) => stated(t));
       if (!parts.length) return '<td class="raw none">—</td>';
       return `<td class="raw">${fold(parts.map(([k, t]) => `${k}: ${t}`).join('. '), 60, parts.map(([k, t]) => `<b>${esc(k)}:</b> ${esc(t)}`).join('<br>'))}</td>`;

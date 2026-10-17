@@ -85,8 +85,16 @@ function guideBlock(f) {
   ];
   return `<div class="guide"><h3 class="sub-title">${esc(g.name)}</h3>
 <p class="fig-note">${esc(`Used only where a product's own data sheet, and one it shares, are silent on a setting: ${f.readBy ? `${plural(f.readBy, 'product')} here ${f.readBy === 1 ? 'takes' : 'take'} at least one setting from it` : 'no product here needs it'}.`)}</p>
-<dl class="facts facts--guide">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd class="raw">${esc(v)}</dd></div>`).join('')}</dl></div>`;
+<dl class="facts facts--guide">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd class="raw">${guideLines(v)}</dd></div>`).join('')}</dl></div>`;
 }
+
+/**
+ * A guide cell as the guide prints it, each of its entries on a line of its own. The stored text has no line breaks: it
+ * runs one build plate's window into the next ("Smooth PEI Plate (60 - 80 °C) Textured PEI Plate (60 - 80 °C)"), so a
+ * line is broken only at the space the stored text leaves after a closing bracket, before the next entry's name. Not a
+ * word is changed.
+ */
+const guideLines = (text) => String(text ?? '').split(/(?<=\))\s+(?=[A-Z])/).map(esc).join('<br>');
 
 export default {
   id: 'printing',

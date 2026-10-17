@@ -7,12 +7,24 @@ import { esc } from '../html.js';
 import { fmtNumber, fmtBounded, fmtBoundedKind, publishedBound, relatedNote, missingText, convertedNote, priceSampleWords } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { productNameOrId, rankOf } from '../../js/ui/material-facts.js';
-import { leftOutWords, toughenedSplit, TOUGHENED_NOTE_SHORT, plural } from '../../js/ui/material-words.js';
+import { leftOutWords, toughenedSplit, TOUGHENED_NOTE_SHORT, plural, andList } from '../../js/ui/material-words.js';
 import { contextStrip, rankWords } from '../charts/context.js';
 
 /** A range of a spread with a published bound's sign at its end where it is one ("5–650+"), as the selector prints it. */
 const spreadRange = (s) => (s.min === s.max && !s.bounds ? esc(fmtNumber(s.min))
   : `${fmtBoundedKind(esc(fmtNumber(s.min)), s.bounds?.min)}–${fmtBoundedKind(esc(fmtNumber(s.max)), s.bounds?.max)}`);
+
+/**
+ * Whether a key property's technical name says something its title does not: a test method (a standard, "ISO 179") or a
+ * qualifier in brackets ("yield or break"). Spelling the title out ("Heat deflection temperature at 0.45 MPa" under "HDT
+ * at 0.45 MPa"), or glossing its orientation ("across the layers"), adds nothing, and the line is left out.
+ */
+function addsToTitle(h) {
+  const plain = h.labels.plain.toLowerCase(), technical = h.labels.technical ?? '';
+  const standard = /\b(?:ISO|ASTM|IEC|DIN|UL)\s?\d+/.exec(technical)?.[0];
+  if (standard && !plain.includes(standard.toLowerCase())) return true;
+  return [...technical.matchAll(/\(([^)]+)\)/g)].map((x) => x[1]).some((q) => !plain.includes(q.toLowerCase()) && !/layers|orientation/i.test(q) && !/^(?:ISO|ASTM)/.test(q));
+}
 
 function knownTile(h, c, env) {
   const m = c.m;
@@ -31,14 +43,14 @@ function knownTile(h, c, env) {
     typical && sp.n > 1 && sp.min === sp.max && !sp.bounds ? `All ${sp.n} give ${fmtBounded(e.value, h.unit, publishedBound(e))}.` : null,
     typical && sp.n > 1 && (sp.min !== sp.max || sp.bounds) ? `Nearest the median: ${productNameOrId(typical)}, ${fmtBounded(e.typical.value, h.unit, e.typical.interval)}.` : null,
     typical && sp.n === 1 ? `One product: ${productNameOrId(typical)}.` : null,
-    s ? (() => { const out = leftOutWords(h, s); return out.length ? `Left out of the median: ${out.join('; ')}.` : null; })() : null,
+    s ? (() => { const out = leftOutWords(h, s); return out.length ? `Left out of the median: ${andList(out)}.` : null; })() : null,
     s?.claimed && !s.claimed.setApart ? `${toughenedSplit(s, h.unit)} ${TOUGHENED_NOTE_SHORT}` : null,
     s?.claimed?.setApart ? TOUGHENED_NOTE_SHORT : null,
     e.converted ? convertedNote(e.converted) : null,
     h.kind === 'price' ? `Prices from ${priceSampleWords(c.db.meta)}.` : null,
   ].filter(Boolean);
   const r = rank ? rankOf(rank, m.id) : null;
-  const method = h.labels.technical && h.labels.technical !== h.labels.plain ? `<p class="kf-method">${esc(h.labels.technical)}</p>` : '';
+  const method = addsToTitle(h) ? `<p class="kf-method">${esc(h.labels.technical)}</p>` : '';
   return `<div class="kf" data-kf="${esc(h.key)}" data-median="${esc(e.value)}" data-min="${esc(sp.min)}" data-max="${esc(sp.max)}" data-n="${esc(sp.n)}">
 <h3 class="kf-name">${esc(h.labels.plain)}</h3>${method}
 <p class="kf-value"><span class="kf-num">${esc(value)}</span><span class="kf-unit">${esc(h.unit)}</span></p>
