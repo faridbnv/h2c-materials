@@ -8,7 +8,7 @@ import { esc, tableBox } from '../html.js';
 import { indexDb, environmentMatrix, stated } from '../../js/ui/material-facts.js';
 import { verdictWords as polymerVerdict, andList } from '../../js/ui/material-words.js';
 import { quoteOrder, verdictWords } from '../findings.js';
-import { subhead, quote, quotes } from './common.js';
+import { subhead, quote, quotes, readerText } from './common.js';
 import { PRINT_CATEGORIES, makersOwn, general } from './printing.js';
 
 /** Material-level statements of these categories are uses and limits: said in the first two lists. */
@@ -50,7 +50,7 @@ export default {
     // What makers warn about.
     const warn = pick(c, of('Pitfalls and limitations'), 5);
     const warnGen = gen(LIMIT_CATEGORIES);
-    const warnProduct = own.filter((e) => !general(e) && LIMIT_CATEGORIES.has(e.category)).slice(0, Math.max(0, 5 - warn.length));
+    const warnProduct = own.filter((e) => !general(e) && LIMIT_CATEGORIES.has(e.category) && readerText(e.finding)).slice(0, Math.max(0, 5 - warn.length));
     if (warn.length || warnGen.length || warnProduct.length) {
       parts.push(subhead('What makers warn about') + quotes([...warn.map((k) => quote(c, k)), ...warnProduct.map((e) => quote(c, e, { text: e.finding })), ...warnGen.map((e) => quote(c, e, { text: e.finding, rec: true }))]));
     }
@@ -68,10 +68,10 @@ export default {
     const rows = f.rows.filter((r) => r.records.length && r.filterable);
     const chem = [];
     if (rows.length) {
-      chem.push(tableBox(`<table class="grid chem"><thead><tr><th scope="col">Exposure</th><th scope="col">What makers say</th><th scope="col" class="num">Statements</th></tr></thead><tbody>${rows.map((r) => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(verdictWords(r.records, makerOf))}</td><td class="num">${r.total}</td></tr>`).join('')}</tbody></table>`));
+      chem.push(tableBox(`<table class="grid chem"><thead><tr><th scope="col">Exposure</th><th scope="col">What makers say</th><th scope="col" class="num">Statements</th></tr></thead><tbody>${rows.map((r) => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(verdictWords(r.records, makerOf, { quotable: readerText }))}</td><td class="num">${r.total}</td></tr>`).join('')}</tbody></table>`));
     }
     // Food contact, disposal, safety and the like, as the products' makers state them (each product's are on its card).
-    const other = pick(c, f.rows.filter((r) => !r.filterable).flatMap((r) => r.records).filter((e) => !general(e)).map((e) => ({ ...e, text: e.finding })), 4);
+    const other = pick(c, f.rows.filter((r) => !r.filterable).flatMap((r) => r.records).filter((e) => !general(e) && readerText(e.finding)).map((e) => ({ ...e, text: e.finding })), 4);
     if (other.length) chem.push(`<p class="sec-p">${esc('On food contact, disposal and safety, as makers state them:')}</p>${quotes(other.map((e) => quote(c, e, { text: e.finding, extra: e.categoryLabel ?? '' })))}`);
     // What guides and references say of the material in general: this page's records, every one.
     const generalSaid = env2.filter(general);

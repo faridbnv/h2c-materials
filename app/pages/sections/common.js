@@ -81,8 +81,18 @@ const STORED_STATUS = /\b(Theoretical|Official Bambu product|Officially listed f
 const MAINTAINER_WORDS = /\b(?:20\d\d-\d\d-\d\d|re-read|SHA-256|estimate band|no document cited|recorded (?:with|from|as))\b/i;
 export const readerText = (text) => !RECORD_NAME.test(String(text ?? '')) && !PROJECT_WORDS.test(String(text ?? '')) && !STORED_STATUS.test(String(text ?? ''));
 
-/** A coverage row a reader is shown: a gap of the material, in reader text, not a review step's or a note on the records. */
-export const shownGap = (r) => GAP_STATUS.has(r.status) && r.domain !== 'Mandatory review' && readerText(r.finding) && !MAINTAINER_WORDS.test(String(r.finding ?? ''));
+/**
+ * Gaps a section says where the reader looks, never as a known gap: the rarely published properties (the same list on
+ * every page; a tile or a table says "not published") and the price's (Density and price says where it was converted).
+ */
+const SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
+/**
+ * A coverage row a reader is shown under Sources' Known gaps: a gap of the material, in reader text, not a review step's
+ * or a note on the records, and not one another section says. The one rule: Sources shows these, and the Products page's
+ * placement (records/placement.js) excuses every other row.
+ */
+export const shownGap = (r) => GAP_STATUS.has(r.status) && r.domain !== 'Mandatory review' && !SAID_ELSEWHERE.has(r.domain)
+  && readerText(r.finding) && !MAINTAINER_WORDS.test(String(r.finding ?? ''));
 
 /** A coverage row's subject in a reader's words. */
 const DOMAIN_WORDS = {

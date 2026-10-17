@@ -36,10 +36,8 @@ export default {
   render(c) {
     const m = c.m;
     const docs = [...c.documents].map(([sid, d]) => sourceBlockFacts(sid, d, c));
-    // The material's own gaps a reader is shown, less the list of rarely published properties (the same on every page:
-    // a tile or a table says "not published" where the reader looks) and the price's (Density and price says it).
-    const SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
-    const gaps = gapSplit(c.cov).gaps.filter((r) => shownGap(r) && !SAID_ELSEWHERE.has(r.domain));
+    // The material's own gaps a reader is shown (common.js shownGap, the one rule the Products page's placement reads too).
+    const gaps = gapSplit(c.cov).gaps.filter(shownGap);
     if (!docs.length && !gaps.length) return { empty: true, html: '', stats: {} };
     const parts = [];
     if (docs.length) {

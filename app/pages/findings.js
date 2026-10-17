@@ -588,12 +588,13 @@ export function priceSampleLine(c) {
  * What makers say on one exposure, by the verdict two thirds of its makers give, else two thirds of its statements,
  * else "mixed"; "in words only" where none states a verdict. `makerOf(e)` names a statement's maker.
  */
-export function verdictWords(records, makerOf) {
+export function verdictWords(records, makerOf, { quotable = () => true } = {}) {
   const telling = records.filter((e) => !['narrative', 'no-data'].includes(e.verdict));
   if (!telling.length) {
     if (records.every((e) => e.verdict === 'no-data')) return 'no data';
-    // Said in words only: the first statement's opening words, quoted, so the reader sees what kind of thing is said.
-    const first = String(records.find((e) => e.verdict === 'narrative')?.finding ?? '').trim();
+    // Said in words only: the first statement's opening words, quoted, so the reader sees what kind of thing is said;
+    // a statement in the data's own words (`quotable` false: "recorded in Properties") is never quoted.
+    const first = String(records.find((e) => e.verdict === 'narrative' && quotable(e.finding))?.finding ?? '').trim();
     const words = first.split(/\s+/);
     return first ? `in words: \u201C${words.slice(0, 9).join(' ').replace(/[,;:.]+$/, '')}${words.length > 9 ? '\u2026' : ''}\u201D` : 'stated without a verdict';
   }

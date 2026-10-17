@@ -6,10 +6,13 @@
 //
 //   - the project's own reading of a source, not a document's words: an evidence record whose Evidence type (or
 //     topic) is "Selection interpretation" (a printability rubric, a shared selection principle: PLA's Q00318, Q00353);
+//   - an environment record whose words are a reviewer's note rather than a document's (they name the project's records
+//     or speak its own words, sections/common.js readerText: "Grade-specific fatigue observations are recorded in
+//     Properties"), which is the maintainers';
 //   - the maintainers' coverage notes: a coverage row (recorded, or derived by the build) that is not a known gap a
 //     reader is shown (sections/common.js shownGap).
 
-import { shownGap } from '../sections/common.js';
+import { shownGap, readerText } from '../sections/common.js';
 
 /** The topic, or Evidence type, of the project's own reading of a source. */
 export const SELECTION_INTERPRETATION = 'Selection interpretation';
@@ -21,7 +24,10 @@ export const SELECTION_INTERPRETATION = 'Selection interpretation';
  */
 export function offThePages(type, record) {
   if (!record) return false;
-  if (type === 'statement' || type === 'environment') return record.topic === SELECTION_INTERPRETATION || record.evidenceType === SELECTION_INTERPRETATION;
+  if (type === 'statement' || type === 'environment') {
+    if (record.topic === SELECTION_INTERPRETATION || record.evidenceType === SELECTION_INTERPRETATION) return true;
+    return type === 'environment' && !readerText(record.finding);
+  }
   if (type === 'coverage') return !shownGap(record);
   return false;
 }

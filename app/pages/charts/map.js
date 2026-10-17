@@ -220,11 +220,24 @@ function mapPanel(c, k, { x: xKey, y: yKey }) {
     labels.push({ text: shortName(p), at: X(px), y: Y(py), id: p.id });
   }
   const blocked = (w) => [...labels.map((l) => [(l.at / 100) * w - 6, l.y - 6, (l.at / 100) * w + 6, l.y + 6]), ...blocks.map((f) => f(w))];
-  const wide = placeNames(labels, WIDE, blocked), narrow = placeNames(labels, NARROW, blocked, wide);
+  const wide = placeNames(labels, WIDE, blocked);
+  // On a phone's plot this material's name takes its place first (its laptop place where that fits, else one of its own,
+  // else beneath the mark, anchored away from the nearer edge); the alternatives' names then keep their laptop places
+  // where those clear it, and are hidden there otherwise.
+  const selfAt = labels.findIndex((l) => l.self);
+  const selfNarrow = selfAt < 0 ? null : placeNames([labels[selfAt]], NARROW, blocked, [wide[selfAt]])[0]
+    ?? placeNames([labels[selfAt]], NARROW, blocked)[0] ?? (labels[selfAt].at > 50 ? 7 : 6);
+  const narrow = placeNames(labels, NARROW, blocked, labels.map((l, i) => (i === selfAt ? selfNarrow : wide[i])));
+  if (selfAt >= 0) narrow[selfAt] = selfNarrow;
+  const text = (l, k, cls) => { const [dx, dy, a] = PLACES[k]; return `<text class="dv-maplab${l.self ? ' dv-maplab--self' : ''}${cls}" x="${pct(l.at)}" y="${(l.y + dy).toFixed(1)}" dx="${dx}" text-anchor="${a}"${l.id ? ` data-mat="${esc(l.id)}"` : ''}>${esc(l.text)}</text>`; };
   labels.forEach((l, i) => {
-    if (wide[i] == null) return;
-    const [dx, dy, a] = PLACES[wide[i]];
-    o.push(`<text class="dv-maplab${l.self ? ' dv-maplab--self' : ''}${narrow[i] == null && !l.self ? ' alt' : ''}" x="${pct(l.at)}" y="${(l.y + dy).toFixed(1)}" dx="${dx}" text-anchor="${a}"${l.id ? ` data-mat="${esc(l.id)}"` : ''}>${esc(l.text)}</text>`);
+    if (!l.self) { if (wide[i] != null) o.push(text(l, wide[i], narrow[i] == null ? ' alt' : '')); return; }
+    // This material's own name is never left out. Where its laptop place runs off a phone's plot, the phone gets a place
+    // of its own (beneath or beside the mark, anchored away from the nearer edge), drawn in its stead there.
+    const nk = narrow[i];
+    const wk = wide[i] ?? nk;
+    if (wk === nk) o.push(text(l, wk, ''));
+    else o.push(text(l, wk, ' dv-wide'), text(l, nk, ' dv-narrow'));
   });
   const lacks = [!cx ? inText(hx) : null, !cy ? inText(hy) : null].filter(Boolean);
   const html = `<div class="mp-panel" data-key="${esc(yKey)}" data-xkey="${esc(xKey)}"><p class="mp-title">${esc(`${hy.labels.plain} against ${inText(hx)}`)}</p>`

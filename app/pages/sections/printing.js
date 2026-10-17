@@ -34,10 +34,10 @@ const amsOf = (c, g) => [...new Set(c.profiles.filter((p) => p.gradeId === g.id)
 /** A setting's cell, product by product: its words, greyed where read from a sheet it shares or from the guide. */
 function productCell(g, axis) {
   const p = g.print ?? {};
-  const from = p.from?.[axis === 'nozzle-type' ? 'hardenedNozzle' : axis];
+  const from = p.from?.[axis === 'hardened' ? 'hardenedNozzle' : axis];
   let words;
   if (axis === 'drying') words = dryingWords(p.drying);
-  else if (axis === 'nozzle-type') words = p.hardenedNozzle === true ? 'hardened' : p.hardenedNozzle === false ? 'standard' : 'not stated';
+  else if (axis === 'hardened') words = p.hardenedNozzle === true ? 'hardened' : p.hardenedNozzle === false ? 'standard' : 'not stated';
   else if (axis === 'chamber' && ['not-required', 'ambient'].includes(p.chamber?.state)) words = 'none needed';
   else words = p[axis] ? settingWords(p[axis]) : 'not published';
   const title = from?.label ?? (from?.origin === 'guide' ? 'from Bambu Lab\'s Filament Guide' : null);
@@ -51,7 +51,7 @@ function guideCells(g) {
     nozzle: lines(g.nozzle?.text), bed: lines(g.bed?.text),
     chamber: esc(g.chamber?.state === 'enclosed' ? 'enclosure required' : `enclosure ${guideEnclosureWords(g.enclosureState)}`),
     drying: esc(g.drying ? dryingWords(g.drying) : 'not stated'),
-    'nozzle-type': esc(g.abrasion?.requiresHardened === true ? 'hardened' : g.abrasion?.requiresHardened === false ? 'any' : 'not stated'),
+    hardened: esc(g.abrasion?.requiresHardened === true ? 'hardened' : g.abrasion?.requiresHardened === false ? 'any' : 'not stated'),
     ams: '—',
   };
 }
@@ -62,7 +62,7 @@ function settingsTable(c) {
   const products = c.grades.filter((g) => isProduct(g) && !g.retired);
   const rows = onTheH2cRows(c);
   const byKey = Object.fromEntries(rows.map((r) => [r.key, r]));
-  const LABELS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber'], ['drying', 'Drying'], ['nozzle-type', 'Nozzle type'], ['ams', 'AMS']];
+  const LABELS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber'], ['drying', 'Drying'], ['hardened', 'Nozzle type'], ['ams', 'AMS']];
   if (products.length < 6) {
     const anyFrom = products.some((g) => Object.keys(g.print?.from ?? {}).length);
     const head = `<tr><th scope="col" class="prop">Setting</th>${products.map((g) => `<th scope="col">${productA(c, g)}</th>`).join('')}</tr>`;
@@ -79,7 +79,7 @@ function settingsTable(c) {
   const most = {
     nozzle: byKey.nozzle, bed: byKey.bed,
     chamber: { value: byKey.chamber.value === 'none needed' && chamberGiven ? `none; sheets that give one say ${chamberGiven}` : byKey.chamber.value, note: byKey.chamber.note },
-    drying: byKey.drying, 'nozzle-type': byKey['nozzle-type'],
+    drying: byKey.drying, hardened: byKey['nozzle-type'],
     ams: { value: ams.length ? ams.slice(0, 2).map(([t, g]) => `${productNameOrId(g)}: "${t}"`).join('; ') : 'not stated', note: ams.length > 2 ? `and ${ams.length - 2} more` : '' },
   };
   const guide = c.guide ? guideCells(c.guide) : null;
@@ -114,7 +114,7 @@ function afterPrinting(c, statements, used) {
   const scheds = annealed.flatMap((g) => g.print.anneal.filter((a) => a.tempC != null)).sort((a, b) => a.tempC - b.tempC || (b.hours ?? 0) - (a.hours ?? 0));
   const said = quoteOrder(statements.filter((k) => ANNEAL.test(k.text)), c, { prefer: SCHEDULE, perProduct: true }).slice(0, SHOWN);
   for (const k of said) used.add(k.id);
-  const envProduct = c.ev.filter((e) => makersOwn(e) && e.category === 'post-processing' && !general(e));
+  const envProduct = c.ev.filter((e) => makersOwn(e) && e.category === 'post-processing' && !general(e) && readerText(e.finding));
   const envGeneral = c.ev.filter((e) => makersOwn(e) && e.category === 'post-processing' && general(e));
   const envQuoted = quoteOrder(envProduct.map((e) => ({ ...e, text: e.finding })).filter((e) => ANNEAL.test(e.text)), c, { prefer: SCHEDULE, perProduct: true }).slice(0, Math.max(0, SHOWN - said.length));
   if (!annealed.length && !said.length && !envGeneral.length && !envQuoted.length) return '';

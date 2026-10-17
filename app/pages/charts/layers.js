@@ -56,11 +56,13 @@ function panel(c, k, pair, plotted) {
       o.push(productMark(marks, X(p.xy.v.value), Y(p.z.v.value), data));
     }
   }
-  // The alternatives' shares on one strip, this material's as a dot.
+  // The alternatives' shares on one strip, this material's as a dot. A share is not a median: it rides in data-share (a
+  // fraction, Z over XY: 0.62 is 62 %, the median of layerShareOf's shares) with the Z key in data-skey, and the marks carry
+  // no data-key or data-v, so nothing reads them as a material's median; data-mat stays for lighting.
   const SX = (r) => (Math.min(r, 1.2) / 1.2) * 100;
   const strip = [`<line class="dv-axis" x1="0" x2="100%" y1="12.5" y2="12.5"/>`, ...[0, 0.5, 1].map((r) => `<line class="dv-grid" x1="${pct(SX(r))}" x2="${pct(SX(r))}" y1="2" y2="15"/><text x="${pct(SX(r))}" y="27" text-anchor="${r ? 'middle' : 'start'}">${sharePct(r)}</text>`)];
-  for (const { p, s } of others) strip.push(`<line class="dv-peer cx" x1="${pct(SX(s.share))}" x2="${pct(SX(s.share))}" y1="2" y2="12" style="stroke:var(--dv-peer);stroke-width:2" data-mat="${esc(p.id)}" data-name="${esc(shortName(p))}" data-key="${esc(hb.key)}" data-v="${s.share}" data-t="${esc(`Z keeps ${sharePct(s.share)} of XY, median of ${products(s.n)}`)}" data-alt="1"/>`);
-  if (own) strip.push(`<circle class="dv-selfdot cx" cx="${pct(SX(own.share))}" cy="8" r="4.5" data-mat="${esc(m.id)}" data-name="${esc(shortName(m))}" data-key="${esc(hb.key)}" data-v="${own.share}" data-t="${esc(`Z keeps ${sharePct(own.share)} of XY, median of ${products(own.n)}`)}" data-self=""/>`);
+  for (const { p, s } of others) strip.push(`<line class="dv-peer cx" x1="${pct(SX(s.share))}" x2="${pct(SX(s.share))}" y1="2" y2="12" style="stroke:var(--dv-peer);stroke-width:2" data-mat="${esc(p.id)}" data-name="${esc(shortName(p))}" data-share="${s.share}" data-skey="${esc(hb.key)}" data-t="${esc(`Z keeps ${sharePct(s.share)} of XY, median of ${products(s.n)}`)}" data-alt="1"/>`);
+  if (own) strip.push(`<circle class="dv-selfdot cx" cx="${pct(SX(own.share))}" cy="8" r="4.5" data-mat="${esc(m.id)}" data-name="${esc(shortName(m))}" data-share="${own.share}" data-skey="${esc(hb.key)}" data-t="${esc(`Z keeps ${sharePct(own.share)} of XY, median of ${products(own.n)}`)}" data-self=""/>`);
   const list = [...(own ? [{ name: shortName(m), share: own.share, self: true }] : []), ...others.map(({ p, s }) => ({ name: shortName(p), share: s.share }))].sort((a, b) => b.share - a.share || a.name.localeCompare(b.name));
   const sub = own ? `Z keeps ${sharePct(own.share)} of XY, median of ${products(own.n)}` : `No ${shortName(m)} product publishes both`;
   const html = `<div class="ly-panel" data-key="${esc(hb.key)}" data-xkey="${esc(ha.key)}"><p class="ly-title">${esc(pair.title)}</p><p class="ly-sub">${esc(sub)}</p>`

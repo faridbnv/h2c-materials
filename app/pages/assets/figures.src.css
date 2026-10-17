@@ -97,7 +97,8 @@ table.dv-twin .num { text-align: right; white-space: nowrap; }
 .dv-maplab { paint-order: stroke; stroke: var(--dv-surface); stroke-width: 3px; stroke-linejoin: round; }
 .dv-fig svg .dv-maplab--self { fill: var(--ink); font-weight: 700; font-size: 12.5px; }
 /* A name that does not fit a phone's narrow track. */
-@media (max-width: 719px) { .dv-fig .alt { display: none; } }
+@media (max-width: 719px) { .dv-fig .alt, .dv-fig .dv-wide { display: none; } }
+@media (min-width: 720px) { .dv-fig .dv-narrow { display: none; } }
 
 /* Lighting: the page script adds .lit to a product's marks (data-grade) or a material's (data-mat) and body.lighting. */
 body.lighting .dv-fig .dv-p:not(.lit) { fill: var(--dv-fade); stroke: var(--dv-surface); }

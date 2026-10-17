@@ -13,8 +13,9 @@ import { esc, count } from '../html.js';
 import { fmtNumber, dryingWords } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne, envVerdictWords } from '../../js/ui/labels.js';
 import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct } from '../../js/ui/material-facts.js';
-import { settingWords, annealWords, outOfMedianWords, noPriceWords, quarantineWords, foreignPriceWords, UNUSED_WORDS, envConditionWords, andList, plural } from '../../js/ui/material-words.js';
+import { settingWords, annealWords, outOfMedianWords, noPriceWords, foreignPriceWords, UNUSED_WORDS, envConditionWords, andList, plural } from '../../js/ui/material-words.js';
 import { orientationWords, specimenWords, standardWords, conditionChips } from '../records/common.js';
+import { readerText } from '../sections/common.js';
 
 const DOMAINS = [['Mechanical', 'mechanical'], ['Thermal', 'thermal'], ['Physical', 'physical']];
 
@@ -30,14 +31,40 @@ export function publishedText(x) {
   return STATUS_WORDS[x.dataStatus] ?? (stated(v) && v !== 'N/A' ? v : 'named, no value given');
 }
 
-/** A document by name, linked to its original where one can be opened, with the place in it. */
-export function documentRef(c, sid, locator = '') {
-  const s = c.sourceById.get(sid);
-  const name = esc(sourceName(s, sid));
-  const o = originalOf(s);
-  const link = o && !o.local ? `<a href="${esc(o.url)}" rel="noopener" target="_blank">${name}</a>` : name;
-  return `<span class="doc" data-doc="${esc(sid)}">${link}${stated(locator) ? `<small>${esc(locator)}</small>` : ''}</span>`;
+/**
+ * A locator or a record's note as a reader is shown it (sections/common.js readerText decides what is reader text): each
+ * part ("p. 1: Tensile Strength - Z (G020-44)"; "Enclosure read with its row whole (m375)") loses a parenthesis that
+ * names the project's own records; a part that names a place in the document keeps that place, and a part that is
+ * otherwise about the records (a reviewer's note) is the maintainers' and is left off.
+ */
+export function readerLocator(text) {
+  if (!stated(text)) return '';
+  return String(text).split(/;\s*/).map((part) => {
+    if (readerText(part)) return part;
+    const kept = part.replace(/\s*\(([^()]*)\)/g, (m, inner) => (readerText(inner) ? m : '')).trim();
+    return /^(p\.|pp\.|page|table|tab\.|section|fig)/i.test(kept) && readerText(kept) ? kept : null;
+  }).filter(Boolean).join('; ');
 }
+
+/**
+ * A document by name, linked to its original where one can be opened, with the place in it. A record citing two
+ * documents ("R-H2C-SPECS; H2C-WIKI") names each; a document recorded with no name a reader could look for is said so.
+ */
+export function documentRef(c, sid, locator = '') {
+  const one = (id) => {
+    const s = c.sourceById.get(id);
+    const n = sourceName(s, id);
+    const name = esc(readerText(n) ? n : 'a document with no title recorded');
+    const o = originalOf(s);
+    return o && !o.local ? `<a href="${esc(o.url)}" rel="noopener" target="_blank">${name}</a>` : name;
+  };
+  const place = readerLocator(locator);
+  return `<span class="doc" data-doc="${esc(sid)}">${String(sid).split(/;\s*/).filter(Boolean).map(one).join('; ')}${place ? `<small>${esc(place)}</small>` : ''}</span>`;
+}
+
+/** Words the shared sentences use that a reader of the pages is given in content's words (the drawer keeps its own). */
+const PAGE_WORDS = [[/\bspecial formulation\b/g, 'added filler or additive'], [/\ba reference grade, not a product\b/g, 'a reference specimen, not a product for sale']];
+const pageWords = (t) => PAGE_WORDS.reduce((x, [re, w]) => x.replace(re, w), String(t ?? ''));
 
 /**
  * Whether the Overview uses a measurement, in content's words: "In the median", "Shown, not in the median: {why}",
@@ -48,11 +75,11 @@ function useWords(x, ix) {
   const why = ix.why(x);
   if (why === 'none') return '';
   if (why === 'named') return 'Shown as published (the only value of its test)';
-  if (why !== 'drawn') return `Not shown: ${whyOne(why)}`;
+  if (why !== 'drawn') return pageWords(`Not shown: ${whyOne(why)}`);
   const reasons = (ix.lines.get(x.id) ?? []).map((o) => (o.reason ? outOfMedianWords(o.reason, o.h) : null));
   if (reasons.length && reasons.every((r) => r === null)) return 'In the median';
   const r = reasons.find(Boolean);
-  return r ? `Shown, not in the median: ${r}` : 'In the median';
+  return r ? pageWords(`Shown, not in the median: ${r}`) : 'In the median';
 }
 
 /** A measurement's orientation or load beside its property's name ("XY", "at 0.45 MPa"). */
@@ -86,7 +113,7 @@ function valuesTable(c, g, ms, ix) {
       const tags = [x.quarantined ? 'held back' : null, x.implausible ? 'physically implausible' : null, x.corrected ? 'transcription corrected' : null].filter(Boolean);
       return `<tr id="${esc(x.id)}" data-rec="${esc(x.id)}"${same ? ' class="same"' : ''}>`
         + `<th scope="row">${same ? `<span class="vh">${esc(propertyName(x.property))}</span>` : esc(propertyName(x.property))}${aspect(x) ? `<small>${esc(aspect(x))}</small>` : ''}</th>`
-        + `<td class="pc-v">${esc(publishedText(x))}${tags.map((t) => `<span class="tg">${esc(t)}</span>`).join('')}${stated(x.locator) ? `<small>${esc(x.locator)}</small>` : ''}</td>`
+        + `<td class="pc-v">${esc(publishedText(x))}${tags.map((t) => `<span class="tg">${esc(t)}</span>`).join('')}${readerLocator(x.locator) ? `<small>${esc(readerLocator(x.locator))}</small>` : ''}</td>`
         + `<td class="pc-c"><span>${esc(specimenWords(x))}, ${esc(std ?? 'no standard stated')}</span>${conditionChips(x)}</td>`
         + `<td class="pc-u">${esc(useWords(x, ix))}</td></tr>`;
     }).join('');
@@ -140,10 +167,12 @@ function priceBlock(c, g, listings) {
   const li = listings.map((r) => {
     const p = r.p;
     const price = r.perKg != null ? `${fmtNumber(r.perKg)} CAD/kg` : r.salePerKg != null ? `${fmtNumber(r.salePerKg)}${r.currency !== 'CAD' ? ` ${r.currency}` : ''} per kg, sale price` : 'no price';
-    const why = r.unused === 'quarantined' ? quarantineWords(p) || UNUSED_WORDS.quarantined : r.unused === 'no-regular' ? noPriceWords(p) : r.unused ? UNUSED_WORDS[r.unused] : r.converted ? foreignPriceWords(p) : '';
+    // A listing set aside is said so, without the reviewer's note on it; a reason in the project's words is left off.
+    const raw = r.unused === 'quarantined' ? '' : r.unused === 'no-regular' ? noPriceWords(p) : r.unused ? UNUSED_WORDS[r.unused] : r.converted ? foreignPriceWords(p) : '';
+    const why = readerText(raw) ? raw : '';
     const shop = /^https?:\/\//i.test(p.url ?? '') ? `<a href="${esc(p.url)}" rel="noopener" target="_blank">${esc(p.retailer)}</a>` : esc(p.retailer);
     return `<li data-rec="${esc(r.id)}"><span>${shop}: ${esc(price)}${stated(p.variant) ? `<small>${esc(p.variant)}</small>` : ''}</span>`
-      + `<small>${esc([r.used ? 'in its price' : 'not in its price', why, p.accessDate ? `seen ${p.accessDate}` : ''].filter(Boolean).join('; '))}</small></li>`;
+      + `<small>${esc([r.used ? 'in its price' : r.unused === 'quarantined' ? 'Not used: the listing was set aside' : 'not in its price', why, p.accessDate ? `seen ${p.accessDate}` : ''].filter(Boolean).join('; '))}</small></li>`;
   }).join('');
   return `${head}<details class="pc-more"><summary>${esc(plural(listings.length, 'listing'))}</summary><ul class="pc-list">${li}</ul></details>`;
 }
@@ -173,7 +202,7 @@ export function productNotes(c, g, twins) {
   return [
     twins.length ? `Data sheet shared with ${andList(twins)}: their values are one table, recorded once.` : null,
     isProduct(g) ? null : 'A resin or study reference, not a product you can buy.',
-    g.variant ? `Modified: ${g.variant}. Its values are kept out of the material's medians.` : null,
+    g.variant ? `Modified: ${pageWords(g.variant)}. Its values are kept out of the material's medians.` : null,
     t ? `Sold as toughened or impact-modified: "${t.statement?.text ?? ''}"${t.where ? ` (${t.where})` : ''}. The maker's statement, not a test result.` : null,
   ].filter(Boolean);
 }
