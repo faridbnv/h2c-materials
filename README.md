@@ -93,8 +93,8 @@ rather than hiding them, so that page is where they are listed, each with the qu
 the published values physics rules out, the source conflicts nobody has been able to settle, the conditions the
 reader could not pair, and the materials nothing has been published about.
 
-Open the file in `dist/` in any current browser. Nothing else is required; its drawer's Full page links open the pages in
-`dist/materials/` beside it.
+Open the file in `dist/` in any current browser. Nothing else is required; its drawer's Full page links and the status
+bar's Material pages link open the pages in `dist/materials/` beside it, and their Back to your results returns to it.
 
 ## Publishing
 
@@ -114,8 +114,9 @@ release-stamped filename and the validation report are published alongside it:
 | `/h2c-materials/H2C_Material_Selector_<snapshot>_<release>.html` | The same page under its own name: its data date, and its release |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
 | `/h2c-materials/manifest.json` | The release, the digests it is made of, the commit, the runtime, input hashes and output hashes the page was built from |
-| `/h2c-materials/materials/index.html` | Every material page, by family and polymer |
-| `/h2c-materials/materials/<MaterialID>.html` | One material's page; `<MaterialID>-records.html` every record behind it |
+| `/h2c-materials/materials/index.html` | Every material with a page, by family |
+| `/h2c-materials/materials/<MaterialID>.html` | One material's Overview; `<MaterialID>-products.html` its products, each with every record behind it (`-records.html` redirects there) |
+| `/h2c-materials/materials/method.html` | How the numbers on the material pages are worked out |
 
 ### Releases
 

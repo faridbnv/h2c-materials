@@ -1077,19 +1077,20 @@ function keepDecisionNotes() {
 }
 
 // Where the reader was in the results, kept for the tab beside the notes (D145): a trip to a material page and back
-// reloads the selector from its link, so the view's scroll comes back when the selection is the same one, whichever
-// material's drawer the return opens. A different selection starts at the top, as it always did.
+// reloads the selector from its link, so the view's scroll and the drawer's tab come back when the selection is the same
+// one, whichever material's drawer the return opens. A different selection starts at the top, as it always did.
 const SCROLL_KEY = 'atlas-scroll';
 const sameSelection = (a, b) => {
   try { const x = JSON.parse(decodeURIComponent(a)), y = JSON.parse(decodeURIComponent(b)); delete x.m; delete y.m; return JSON.stringify(x) === JSON.stringify(y); } catch { return false; }
 };
 function keepScroll() {
   window.addEventListener('pagehide', () => {
-    try { sessionStorage.setItem(SCROLL_KEY, JSON.stringify({ hash: toHash(state.scenario), lens: document.getElementById('lens').scrollTop, page: window.scrollY })); } catch { /* private mode */ }
+    try { sessionStorage.setItem(SCROLL_KEY, JSON.stringify({ hash: toHash(state.scenario), lens: document.getElementById('lens').scrollTop, page: window.scrollY, tab: state.drawerTab })); } catch { /* private mode */ }
   });
   try {
     const kept = JSON.parse(sessionStorage.getItem(SCROLL_KEY) ?? 'null');
     if (kept && sameSelection(kept.hash, toHash(state.scenario))) {
+      if (kept.tab && kept.tab !== state.drawerTab && state.selectedMaterialId) { state.drawerTab = kept.tab; renderDrawerHost(); }
       requestAnimationFrame(() => { document.getElementById('lens').scrollTop = kept.lens || 0; if (kept.page) window.scrollTo(0, kept.page); });
     }
   } catch { /* nothing kept */ }
