@@ -1,6 +1,6 @@
 # Operating the tool
 
-> **In short.** For a person keeping the tool running without an agent: what it is, the five commands, and the three jobs that come up most, step by step: correct a value, add a data sheet, publish; then how a round of work is closed. Each step names the section of [AGENTS.md](../AGENTS.md) or [IMPORTING.md](IMPORTING.md) that holds the full rules; this page is the short way in.
+> **In short.** For a person keeping the tool running without an agent: what it is, the five commands, and the three jobs that come up most, step by step: correct a value, add a data sheet, publish; then reviewing a material's written summary, and how a round of work is closed. Each step names the section of [AGENTS.md](../AGENTS.md) or [IMPORTING.md](IMPORTING.md) that holds the full rules; this page is the short way in.
 
 ## What it is
 
@@ -27,12 +27,15 @@ it; reading a source page again, importing a sheet or closing a round needs it.
 | Command | When | What it tells you |
 |---|---|---|
 | `npm run verify:fast` | while you work, about a minute | format, schema, lint, the build and the tests |
-| `npm run verify` | before a commit, about eight minutes; needs Chrome | everything, including the page driven in a browser |
+| `npm run verify` | before a commit, about seven minutes; needs Chrome | everything, including the page driven in a browser |
 | `npm run build` | to open the page | writes `dist/H2C_Material_Selector_<date>_<release>.html`, the material pages in `dist/materials/` and `dist/manifest.json` |
 | `npm run build:diff` | before you commit a change | what the working tree does to the compiled database, against the last commit; a change meant to move nothing says `0 difference(s)`. It builds without the material pages and removes `dist/materials/`: `npm run build` again before `pages:check` |
 | `npm run trace -- <ID>` | to see where a number comes from | a material, product or measurement back to its source and page |
 
-A build rewrites `build/reports/validation-report.md`; commit it with the change it belongs to.
+A build rewrites `build/reports/validation-report.md`; commit it with the change it belongs to. While you work on the
+material pages' design, `npm run pages -- M020 M001` (or `--all`) renders those pages alone into `dist/materials/`,
+after emptying it, from `dist/db.json`; `npm run build` again before `npm run pages:check`, which compares every number
+on every page with the build.
 
 ## Correct a published value
 
@@ -82,10 +85,11 @@ AGENTS.md: commit and push to `main` only when the owner asks.
    "nothing open").
 3. Merge into `main` and push: `git checkout main && git pull --ff-only && git merge --ff-only <branch> && git push origin main`.
    If `main` has moved since you branched, rebase the branch on it and run `npm run verify` again first.
-4. Watch the two workflows: `gh run list --branch main`. **Verify** runs the data and interface checks; **Publish to
-   Pages** builds the page and deploys it only after Verify passed.
+4. Watch the two workflows: `gh run list --branch main`. **Verify** runs the data checks, the interface views and the
+   300 rendered scenarios (in three parts) side by side; **Publish to Pages** builds the page and the material pages and
+   deploys them only after Verify passed.
 5. Check the live page is the one you pushed: `https://pdynamics.ca/h2c-materials/manifest.json` must name your commit,
-   and its `release` must match the page's top bar.
+   and its `release` must match the one at the right end of the page's status bar.
 
 What Publish to Pages puts out: the site serves the selector at its root, its manifest and validation report, and the
 material pages beside it at `materials/` (`https://pdynamics.ca/h2c-materials/materials/M020.html`; the index is
@@ -100,6 +104,19 @@ If Verify fails on CI but passed locally: CI is Linux x64 with the Node version 
 there (`node scripts/verify.mjs --group data`, `--group views`, `--group scenarios --shard 2/3` or `--group trend`) under `npx -y node@$(cat .nvmrc)`;
 a failure that only CI shows has been a floating-point difference between processors before (an exact comparison where a
 tolerance was meant). Never weaken a check to make it pass; AGENTS.md says why.
+
+## Review or revise a written summary
+
+The full rules: AGENTS.md, "Write or revise a material's summary". Each material with a page has a short written
+summary at its head, one row of `data/tables/material_summaries.csv`, drafted by an agent and shown with its author,
+date and review status; its numbers are placeholders the build fills.
+
+1. Read the page as a reader does: `npm run pages:text -- M020`, and `npm run pages:fields -- M020` for the numbers a
+   summary may name.
+2. Write the rows you reviewed or rewrote to a CSV with the table's columns, Review status set to `reviewed by the
+   owner` or `revise`, then `npm run pages:add-summaries -- rows.csv --revise --check`, and the same without `--check`.
+3. `npm run build`, `npm run pages:check` and `npm run verify`, then commit. The table is part of the release, so each
+   change makes a new release ID: review in batches.
 
 ## Closing a round
 

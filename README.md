@@ -74,7 +74,7 @@ npm run doctor                    # what this checkout can run, and what each mi
 npm run hooks                     # once per clone: the pre-commit data check
 
 npm run verify:fast               # while you work: format, schema, lint, generated docs, build and tests (about a minute)
-npm run verify                    # before a commit: every check, the page in a browser included (about eight minutes)
+npm run verify                    # before a commit: every check, the page in a browser included (about seven minutes)
 npm run build                     # -> dist/H2C_Material_Selector_<snapshot>_<release>.html, dist/materials/ (the material pages), dist/manifest.json
 npm run build:diff                # what a change did to the compiled database, against HEAD
 npm run trace -- PETG             # any value back to its measurement, product and source page
@@ -99,8 +99,8 @@ Open the file in `dist/` in any current browser. Nothing else is required; its d
 ## Publishing
 
 `.github/workflows/verify.yml` runs `verify`'s data checks, interface views and rendered scenarios (in three parts), side
-by side, on every push to `main` and on pull requests; when all pass, `.github/workflows/pages.yml` rebuilds the selector from `data/tables` at that commit and
-publishes it to GitHub Pages. A branch is checked locally (`npm run verify`, every step) before it is merged; the scale
+by side, on every push to `main` and on pull requests; when all pass, `.github/workflows/pages.yml` rebuilds the page and the material pages from `data/tables` at that
+commit and publishes them to GitHub Pages. A branch is checked locally (`npm run verify`, every step) before it is merged; the scale
 and reproducible-build checks and 2,000 random scenarios run weekly. The
 distributable HTML is **not committed**, so the published page cannot drift from the source of truth, and a database
 that fails validation stops in CI and never reaches the site.
@@ -122,8 +122,8 @@ release-stamped filename and the validation report are published alongside it:
 A **release** is the content that decides every answer: the tables, the schema, the build's rules, the selection
 engine and the templates, and the locked dependencies (D96). Its twelve-character ID is a digest of them, so the same
 inputs give the same ID on any day, and a change to any of them gives another even on the same data date (the date in
-`method.csv` is for a reader, and stayed one date while the data changed). The page shows its release in the top bar and
-under *Save / share*; every saved scenario, link, CSV export and decision brief carries it, and a scenario reopened on
+`method.csv` is for a reader, and stayed one date while the data changed). The page shows its release at the right end of its
+status bar and under *Save / share*; every saved scenario, link, CSV export and decision brief carries it, and a scenario reopened on
 another release says so before it asks its question again.
 
 Every release published from `main` is kept for good as a GitHub release named `h2c-<release>`, with its page, its
@@ -133,7 +133,7 @@ site itself always serves the current release.
 
 To check a deployment, wait for the latest `main` **Publish to Pages** workflow to succeed, then read the live
 [`manifest.json`](https://pdynamics.ca/h2c-materials/manifest.json). Its `commit` must match the deployed `main`
-commit, and its `release` must match the page's top bar and the corresponding `h2c-<release>` GitHub release.
+commit, and its `release` must match the one in the page's status bar and the corresponding `h2c-<release>` GitHub release.
 The data snapshot date can remain unchanged across releases; it does not identify the latest version.
 The documentation and private source cache are not part of the public site: maintained docs live in this repository,
 and original manufacturer documents stay in the private source store.
@@ -175,8 +175,9 @@ build/src/                              check -> load -> normalize -> compile ->
 build/src/estimate/                     the estimate stage, an overlay on the compiled database (D58)
 build/src/coverage-rules.js             one definition of what counts as a material's own data
 build/mappings/estimate-model.json      the estimate model's conversions, physical limits and fitting judgements, reviewed like code
-build/snapshot/                         the committed review snapshot: counts, headlines, products and spreads, print gates,
-                                        environment, templates, warnings, screening ends, interface views
+build/snapshot/                         the committed review snapshot: counts, headlines, products and spreads, each
+                                        product's states, print gates, environment, makers' claims, templates, warnings,
+                                        screening ends, the material pages, interface views
 build/reports/                          the validation report, regenerated every build
 
 app/js/engine/                          the selection logic. Pure: no DOM, never imports from ui/

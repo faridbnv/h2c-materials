@@ -29,14 +29,14 @@ Three things are useful to know before opening any document here:
 
 | Document | Answers |
 |---|---|
-| [OPERATING.md](OPERATING.md) | For a person keeping the tool running: the five commands, and how to correct a value, add a data sheet and publish |
+| [OPERATING.md](OPERATING.md) | For a person keeping the tool running: the five commands, and how to correct a value, add a data sheet, publish (the site's material pages and each release's pages zip too) and review a material's written summary |
 | [GOALS.md](GOALS.md) | What is the tool for, who is it for, and how is a change judged? |
 | [GOALS-LOG.md](GOALS-LOG.md) | What has the owner decided, and when? (dated, newest last) |
 | [HOW-IT-WORKS.md](HOW-IT-WORKS.md) | For an engineer using the tool: how a data sheet becomes a number on the screen, what each kind of number means, how far to trust it, and what the tool is not |
 | [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) | What is known to be wrong or missing right now, and what would fix each? |
-| [DATA-MODEL.md](DATA-MODEL.md) | What is this number, which table holds it, and how much should I trust it? |
-| [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | How is the code put together, how do the tables become the page, and where does a change go? |
+| [DATA-MODEL.md](DATA-MODEL.md) | What is this number, which table holds it, and how much should I trust it? (the material pages' written summaries too) |
+| [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? The selector's frame, views and drawer, and [the material pages](INTERFACE.md#the-material-pages) |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | How is the code put together, how do the tables become the page and the material pages (stage 8 of [the build](ARCHITECTURE.md#the-build-stage-by-stage)), and where does a change go? |
 | [../AGENTS.md](../AGENTS.md) | How do I change data safely (for people and AI agents alike)? |
 | [IMPORTING.md](IMPORTING.md) | How does a batch of makers' data sheets enter the database? (open since 2026-10-05) |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? ([DECISIONS-ARCHIVE.md](DECISIONS-ARCHIVE.md) holds the few no longer in force) |
