@@ -128,6 +128,14 @@ test('{key.label} is the headline\'s plain name, even where no product publishes
   assert.deepEqual(field('glassT.label'), { parts: [{ text: 'Glass transition' }] });
 });
 
+test('a headline\'s name inside a sentence is lower-cased as the page writes it there, an abbreviation kept', () => {
+  const texts = (t) => fillSummary(t, fc()).parts.map((p) => p.text ?? `#${p.value}`).join('');
+  assert.equal(texts('{impact.label} is not published.'), 'Impact strength is not published.');
+  assert.equal(texts('Its {impact.label} is not published.'), 'Its impact strength is not published.');
+  assert.equal(texts('It is stiff. {impact.label} is not published.'), 'It is stiff. Impact strength is not published.');
+  assert.equal(texts('At {hdt045.label} it gives {hdt045.median}.'), 'At HDT at 0.45 MPa it gives #60.');
+});
+
 test('the price is a headline like any other, in its own unit', () => {
   assert.deepEqual(field('price.median'), { parts: [{ field: 'price.median', value: 25, unit: 'CAD/kg' }] });
   assert.deepEqual(field('price.range').parts.at(-1), { field: 'price.max', value: 40, unit: 'CAD/kg' });
@@ -348,6 +356,7 @@ test('the numbers typed by hand are found, and nothing else is', () => {
     ['Antistatic to IEC 61340-5-1.', []],
     ['Terms follow ISO/ASTM 52900.', []],
     ['PA6, PA12 and PA6T are polyamides.', []],
+    ['A polyamide 12, a nylon 6 and PA 612 by their types.', []],
     // A material whose Base polymer is "PA6" must not leave the "/66" of PA6/66 behind as a number.
     ['PA6/66 is a copolymer.', []],
     ['Printed on the H2C with the AMS 2 Pro or the AMS HT.', []],

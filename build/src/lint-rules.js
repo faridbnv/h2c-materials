@@ -129,7 +129,8 @@ const PLACEHOLDER = /\{[^{}]*\}/g;
 const STANDARD = /\b(?:ISO\/ASTM|ISO\/IEC|ISO|ASTM|IEC|DIN|EN|UL|ANSI|JIS|GB\/T|BS|NF|SAE)\s?(?:[A-Z]{1,2}\s?)?\d+(?:[-–.:/]\d+)*(?:\/\d*[A-Za-z]+\d*)?\b|\b(?:V-?[012]|5V[AB])\b/g;
 // Names with a figure in them that no table holds: the printer and its units, a polyamide by its type, "3D printing".
 const FIXED_NAMES = ['H2C', 'H2D', 'H2S', 'X1C', 'X1E', 'P1S', 'P1P', 'A1 mini', 'A1', 'AMS 2 Pro', 'AMS HT', '3D'];
-const POLYAMIDE = /\bPA\d{1,4}[A-Z]{0,2}(?:\/\d{1,4})?\b/g;
+// A polyamide by its type, as an abbreviation or in words: PA6, PA6/66, PA6T, polyamide 12, nylon 612.
+const POLYAMIDE = /\b(?:PA ?|polyamide |nylon )\d{1,4}[A-Z]{0,2}(?:\/\d{1,4})?\b/gi;
 const UNIT_TOKEN = /^\d+(?:[.,]\d+)?(?:mm|cm|m|kg|g|%|c|°c|mpa|gpa|ml|l|h|s)$/i;
 const NUMBER_WORDS = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|hundreds|dozen|dozens';
 const RECORD_NOUNS = 'products?|makers?|manufacturers?|brands?|suppliers?|values?|measurements?|results?|data sheets?|sheets?|documents?|profiles?|listings?|prices?|grades?|sources?|materials?';

@@ -1,0 +1,41 @@
+MaterialID,Material,Measured values,Band,Batch,Claims checked,"False claims, first pass",False claims found,"Checklist faults, first pass",Second pass,"False claims, second pass",Judge's correction,Page or data finding
+M001,PLA,2430,largest,batch-1,8,0,None,guide not named: no heated chamber and drying counts include products read from the Bambu Lab Filament Guide,named the Bambu Lab Filament Guide for the heated chamber and drying counts (15); split the uses so no maker is credited with the other's (16).,0,None,None
+M020,PETG,1057,largest,batch-2,8,0,None,None,No change,0,None,None
+M027,ABS,784,largest,batch-3,8,0,None,guide not named: drying count includes products read from the Bambu Lab Filament Guide,"named the Bambu Lab Filament Guide beside sheets for the enclosure (class 15); made the uses a list of what makers name, not two separate claims (class 16).",0,None,None
+M031,ASA,588,largest,batch-4,8,0,None,guide not named: enclosure count includes products read from the Bambu Lab Filament Guide,No change,0,"the enclosure count includes products read from the Bambu Lab Filament Guide, which the summary now names",None
+M035,PC,403,largest,batch-5,8,0,None,guide not named: drying count includes products read from the Bambu Lab Filament Guide,"dropped heat resistance to stay within 100 words after the fill; dropped production parts and warping, which one maker each supports (class 16); drying advice now names the Bambu Lab Filament Guide (class 15).",0,None,None
+M008,PLA Silk,310,largest,batch-6,7,0,None,None,No change,0,None,None
+M024,PETG-CF,299,largest,batch-7,8,0,None,"guide named for drying, not for the heated chamber count",named the guide for the no-heated-chamber count (class 15).,0,None,None
+M161,TPU 95A class,247,largest,batch-8,8,1,"guide read as own sheet: ""their sheets give drying advice"": 10 of the 27 products' drying advice is read from the Bambu Lab Filament Guide, not their sheets",guide not named: no heated chamber count includes the guide,changed the chamber and drying sentence to name the Bambu Lab Filament Guide (class 15); reworded the impact and price count (class 13).,0,None,None
+M018,PLA-CF,246,largest,batch-1,8,0,None,guide not named: no heated chamber and drying counts include the guide,named the Bambu Lab Filament Guide for the heated chamber and drying counts (15).,0,None,None
+M053,PA12-CF,228,largest,batch-2,9,0,None,None,class 13: 'few' on a count of one.,0,"""only a product has a price"" reworded",None
+M052,PA12,133,middle,batch-5,8,0,None,None,No change,0,None,None
+M046,TPC / TPEE,132,middle,batch-6,8,0,None,None,No change,0,None,None
+M029,ABS-CF,130,middle,batch-7,8,1,"state none misread: ""Most sheets state no heated chamber is needed"": the page's ""7 state none"" means seven sheets give no chamber setting; no sheet says a chamber is not needed",None,"uses now attributed to single makers (class 16); removed ""state no heated chamber is needed"", since ""state none"" means silent (class 14).",0,None,None
+M045,PEBA,129,middle,batch-8,8,0,None,None,"dropped cushioning, which only one maker supports (class 16).",0,None,None
+M037,PC-CF,125,middle,batch-1,9,0,None,None,"""structural parts"" credited to a maker rather than makers (16).",0,None,None
+M026,PETG-ESD,123,middle,batch-2,8,0,None,None,class 16 and 13.,0,None,None
+M073,PPS-CF,123,middle,batch-3,8,0,None,None,drying advice now credited to sheet or the Bambu Lab Filament Guide (class 15); heat and flame resistance given to a maker as only one says it (class 16).,0,None,None
+M093,PVB,114,middle,batch-4,8,0,None,None,"split the two single-maker uses between ""a maker"" and ""another"" (16).",0,None,None
+M088,PCTG,111,middle,batch-5,8,0,None,None,No change,0,None,None
+M034,ASA-GF,108,middle,batch-6,8,0,None,None,uses split between the makers who state them (class 16).,0,None,"page: the masthead says notched Charpy has no stated orientation, At a glance says it is a moulded bar"
+M165,"Nylon-CF, maker-undisclosed polyamide",106,middle,batch-7,7,0,None,None,No change,0,None,"page: masthead ""all 2 products accept"""
+M030,ABS-ESD,100,middle,batch-8,7,0,None,None,"split the uses between the makers who state them (class 16); drying advice now said of products, one count being a shared sheet (class 15).",0,None,None
+M049,PA6,98,middle,batch-1,9,0,None,None,"low shrinkage rests on one maker, so ""a maker"" (16).",0,None,None
+M168,PLA blend,97,middle,batch-2,7,0,None,"comparison with another material through a maker's words: ""temperatures similar to PLA's""",class 17: comparison with PLA removed; class 13.,0,None,None
+M059,PA612-CF,92,middle,batch-3,8,0,None,None,No change,0,None,data: a statement of Raise3D Industrial PA12 CF+ appears on PA612-CF's page
+M071,PPA-GF,91,middle,batch-4,8,0,None,None,"dropped aerospace, which only one maker states (16).",0,None,None
+M012,PLA Marble,89,middle,batch-5,8,0,None,None,No change,0,None,None
+M011,PLA Metal,88,middle,batch-6,8,0,None,None,uses split by maker (class 16).,0,None,"page: ""all 3 products accept"" on a material of 9 products"
+M164,"Nylon, maker-undisclosed polyamide",87,middle,batch-7,8,0,None,None,"dropped drying, which only a maker addresses (class 16).",0,None,None
+M019,PLA-GF,82,middle,batch-8,7,0,None,None,split the uses between the makers who state them (class 16); replaced few products where the count is one (class 13).,0,None,None
+M087,POM / Acetal,38,smallest,batch-3,7,1,"one maker as makers: ""Makers ... describe sliding and wear behaviour"": only Fabru / purefil says it",None,"sliding and wear behaviour given to a maker, as one sheet says it (class 16).",0,None,None
+M054,PA12-GF,35,smallest,batch-4,8,0,None,None,No change,0,None,None
+M149,PCL,35,smallest,batch-5,7,0,None,None,"orthotic dropped, one maker's; 'few products have drying advice' replaced because the page's count is one (class 13).",0,None,None
+M106,ABS-AF,34,smallest,batch-6,7,1,"count word: ""Some products need a hardened nozzle"": 1 of 3 does",None,count word for one product (class 13). Second pass: count word (class 13).,0,"""only a product publishes tensile figures"" reworded","page: masthead filler ""Other variant, filler not disclosed"" on an aramid-fibre ABS"
+M144,PCTG-CF,32,smallest,batch-7,8,0,None,None,No change,0,None,None
+M167,"TPE, maker-undisclosed elastomer",28,smallest,batch-8,7,0,None,None,No change,0,None,None
+M090,CPE-CF,26,smallest,batch-1,7,1,"count word: ""some have drying advice"": 1 of 3 does",None,"""some have drying advice"" changed because the page counts one product (13).",0,None,None
+M096,PVDF,24,smallest,batch-2,8,0,None,None,class 16; class 13.,0,"""only a product has a price"" reworded","page: Known gaps keeps project wording (""Mandatory review"", ""estimate band"")"
+M118,PEI-CF,22,smallest,batch-3,8,0,None,None,"only one maker names aerospace and only one strength, so now a maker names aerospace and makers describe stiffness (class 16).",0,None,"page: Known gaps ""H2C status ... recorded with no document cited""; ""both products accept"" on a material of 3"
+M110,PCTG-GF,20,smallest,batch-4,7,0,None,None,No change,0,None,None

@@ -24,7 +24,8 @@
 //   {key.range}                               its lowest to its highest, as "min–max unit"
 //   {key.n} {key.products}                    how many products it compares; how many products it was read across
 //   {key.typical}                             the product nearest the median, by name
-//   {key.label}                               the headline's name ("HDT at 0.45 MPa")
+//   {key.label}                               the headline's name ("HDT at 0.45 MPa"; inside a sentence "tensile
+//                                             modulus (XY)" as the page writes it there)
 //
 // `key` is any HeadlineKey of headline_definitions.csv, the price included.
 
@@ -34,6 +35,9 @@ import { productName } from './products.js';
 export const COUNT_FIELDS = ['products', 'makers', 'values', 'profiles'];
 /** What a summary may ask of a headline. */
 export const HEADLINE_PARTS = ['median', 'min', 'max', 'q1', 'q3', 'range', 'n', 'products', 'typical', 'label'];
+
+/** A name inside a sentence: "tensile modulus (XY)", but "HDT at 0.45 MPa" keeps its capitals (app/js/ui/text.js inSentence). */
+const inSentence = (name) => (/^[A-Z][a-z]/.test(name) ? name.charAt(0).toLowerCase() + name.slice(1) : name);
 
 /** A well-formed placeholder: braces around anything but another brace. */
 const PLACEHOLDER = /\{([^{}]*)\}/g;
@@ -98,7 +102,7 @@ export function fillField(field, fc) {
   const h = headlines.get(key);
   if (!h) return { refused: `{${field}} names no field the build fills: a count (${COUNT_FIELDS.join(', ')}), name, or a headline key of headline_definitions.csv with .${HEADLINE_PARTS.join('|.')}` };
   if (!HEADLINE_PARTS.includes(part)) return { refused: `{${field}}: ${key} is a headline, and .${part ?? ''} is not one of what a summary may ask of it (.${HEADLINE_PARTS.join(', .')})` };
-  if (part === 'label') return { parts: [{ text: h.labels.plain }] };
+  if (part === 'label') return { parts: [{ text: fc.midSentence ? inSentence(h.labels.plain) : h.labels.plain }] };
   const s = m.summary?.[key];
   if (m.headline?.[key]?.notApplicable) return { refused: `{${field}}: ${h.labels.plain} does not apply to ${m.name}` };
   if (!s?.n) return { refused: `{${field}}: none of ${m.name}'s products publishes ${h.labels.plain} on a comparable basis` };
@@ -148,7 +152,8 @@ export function fillSummary(text, fc) {
   for (const x of String(text).matchAll(PLACEHOLDER)) {
     words(text.slice(last, x.index));
     last = x.index + x[0].length;
-    const f = fillField(x[1].trim(), fc);
+    // A headline's name inside a sentence is written as the page writes it there, its first letter lower-cased.
+    const f = fillField(x[1].trim(), { ...fc, midSentence: /\S/.test(text.slice(0, x.index)) && !/[.!?]\s*$/.test(text.slice(0, x.index)) });
     if (f.refused) refusals.push(f.refused); else parts.push(...f.parts);
   }
   words(text.slice(last));
