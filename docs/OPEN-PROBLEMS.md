@@ -38,8 +38,8 @@ campaign's open targets are in its [status page](audits/2026-09-30-coverage-expa
 
 ## Coverage, in one number
 
-Of the 951 coverage rows on 2026-10-07, 379 are superseded by a later row; of the 572 that stand, 245 record a gap, a
-comparability limitation, a reviewed limitation or a partial resolution, and the rest a resolution, recorded evidence,
+Of the 953 coverage rows on 2026-10-17, 381 are superseded by a later row; of the 572 that stand, 243 record a gap, a
+comparability limitation, a reviewed limitation or a partial resolution (951, 379 and 245 on 2026-10-07), and the rest a resolution, recorded evidence,
 a conflict or a property that does not apply (the query below counts them). Those are not defects; they are the database saying what it does not know. How many material values come
 from products and how many are estimated is generated in `build/snapshot/counts.md`, and each material's headline,
 with its products, in `build/snapshot/headlines.csv`; every estimate says how far to trust it. (A table of headline
@@ -90,7 +90,7 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   65C for 4 hours. Query: products whose `knowHow.recipe.chamber` or `.drying` is `collected` while `print.chamber.state`
   and `print.enclosure`, or `print.drying`, are unknown.
 
-- **24 products with no value of their own have no twin to read** (29 on 2026-09-27). D89 lets a product whose sheet prints a
+- **23 products with no value of their own have no twin to read** (24 on 2026-10-07, 29 on 2026-09-27). D89 lets a product whose sheet prints a
   same-material sibling's table (R053) read that sibling's values and recipe; the twins now do
   ([counts.md](../build/snapshot/counts.md) counts them). The others are reprints of another material's table (R166
   and its like) or products whose sibling holds nothing: no formulation key spans two materials, so they read nothing.
@@ -314,7 +314,7 @@ it was given:
   Prusa's sheets print a "Tensile strength anisotropy coefficient", the ratio of the tensile strength "in the Z axis and
   in the XY axis", and it is each sheet's "Interlayer Adhesion [MPa]" over its Horizontal tensile yield strength. The
   interlayer adhesion is measured by Prusa's own method ("Prusa Polymers" in the Method column), not ISO 527, so it stays
-  the property Interlayer adhesion strength and is not the layer strength (D92) of 19 Prusament products; whether a
+  the property Interlayer adhesion strength and is not the layer strength (D92) of 15 Prusament products; whether a
   maker's own Z test may stand for ISO 527's is a decision.
 - **QIDI's "Z-X Axis" column** (data review fixes, m427). QIDI's PETG-CF, PETG-GF and PETG Rapido sheets head their
   tensile tables "3D Printed X-Y Axis | X-Z Axis | Z-X Axis" and draw, on another page, a flat "X-Y axis" bar and an
@@ -347,7 +347,7 @@ say. What stays out is recorded and shown in the drawer, its headline's comparis
 procurement products on 2026-10-07, with the figure of 2026-09-26 or 2026-09-27 beside it where it moved; the query
 below gives the current ones:
 
-- **94 products publish a Charpy value with no notch stated** and no notched one (65 on 2026-09-26, 75 before m196;
+- **94 products publish a Charpy value with no notch stated** and no notched one (91 on 2026-10-17; 65 on 2026-09-26, 75 before m196;
   the products entered since brought more). m196 re-read the
   heading of every Charpy row with no notch (164) on its cached page and set the notch on the 17 whose page states it:
   12 notched (Bambu Lab's "(notched)" under the second value of its X-Y cell, BASF's extended sheets, QIDI's 缺口冲击强度,
@@ -360,21 +360,21 @@ below gives the current ones:
   full impact table (Charpy and Izod, notched and unnotched, dry and conditioned, in XY, XZ and ZX) of which the import
   kept one number each; m298 (2026-10-02) recorded every cell of it in its column.
 - **Notched Izod is its own filter now** (D94, m195), because many products publish a notched Izod value and no
-  notched Charpy one (izod_only in the query, 226; 160 on 2026-09-27): 186 products have a notched Izod value in kJ/m² (116 then).
+  notched Charpy one (izod_only in the query, 226; 224 on 2026-10-17; 160 on 2026-09-27): 186 products have a notched Izod value in kJ/m² (116 then).
   Still without a notched impact value of either test: **75 products
   whose only notched impact value is Izod in J/m** (47 then) (ASTM D256, energy per metre of notch, which needs the bar's
   thickness no sheet here prints), and **14 whose only notched Izod in kJ/m² names ASTM D256** (13 then): their makers converted
   a J/m value with a thickness they do not give, which the owner ruled out (D94). Both are shown, never compared.
   Two notched Charpy rows cite a tensile or film standard (ASTM D882 and ISO 527; a third was a copy, retired) and still count, since the
   Charpy row names no standard; a re-read of those sheets would say whether the citation is a slip.
-- **Products that publish their across-layer tensile strength only under an XZ or ZX label** (xz_zx_only: 32; 33 on
+- **Products that publish their across-layer tensile strength only under an XZ or ZX label** (xz_zx_only: 32; 26 on 2026-10-17, after m427 typed 48 upright bars Z, D143; 33 on
   2026-09-27, 38 before m191, which made Z the tensile rows of six whose sheets show or say the bar stood upright:
   BASF's "ZX | Upright" columns, Essentium's drawing, two Eryone sentences naming the "X-Z" value the "Z-axis tensile
   strength"). Since m301 (2026-10-02) the owner's ruling makes the other Eryone "X-Z" sheets of that template Z too
   (D123; 27 sheets, 8.7 to 47 MPa). Left, because nothing on the page says how the bar stood: SUNLU's two "(Z-X)" sheets
   (their drawings show only flat bars), Flashforge HS PLA's
-  "(X-Z)", iSANMATE PEI 9085's "ZX Orientation", Prusament PVB's "Vertical xz" (49 MPa beside a horizontal 50 MPa, and
-  a separate interlayer adhesion of 9 MPa, so not across the layers), Markforged Onyx GF's XZ (73.7 MPa, above its
+  "(X-Z)", iSANMATE PEI 9085's "ZX Orientation", Prusament PVB's Vertical xz bar, typed XZ since m424 (49 MPa beside a horizontal 50 MPa,
+  and a separate interlayer adhesion of 9 MPa, so not across the layers), Markforged Onyx GF's XZ (73.7 MPa, above its
   XY), Stratasys ABS-M30i's XZ ("on side long edge") and LEHVOSS's LUVOCOM 3F PAHT 9825 NT's "100% infill - ZX"
   (m198). The Direction vocabulary gives ISO/ASTM 52921's meanings now (XZ on its edge, ZX upright).
 - **Eryone's and SUNLU's test bars' printing conditions are on their rows since m300** ("All splines are printed under
@@ -616,8 +616,14 @@ Eleven more were flagged in the data review fixes (m425, 2026-10-17), after the 
 |---|---|
 | V004389, V004390, V004369, V004370 | SUNLU PETG 2.0's and PLA+ Silk 2.0's tensile moduli of 300 to 597 MPa, a fourth to a fifth of the flexural moduli the same sheets print for the same bars |
 | V011510 | Spectrum PLA Tough's "E-modulus" of 432,8 MPa: its 53,2 MPa strength over its 14,50 % strain at maximum force, a sixth of its 2493 MPa flexural modulus |
-| V008789, V008803, V008830, V008977, V008997, V009131 | 3DJake's six PLA "E-Modulus" values of 370 to 476 MPa, each its sheet's yield stress over a yield strain of 7 to 11 % | The sweep (§11) flagged
-24 more, of the same classes and a few new ones (a notched impact above the polymer's unnotched, a glass transition
+| V008789, V008803, V008830, V008977, V008997, V009131 | 3DJake's six PLA "E-Modulus" values of 370 to 476 MPa, each its sheet's yield stress over a yield strain of 7 to 11 % |
+
+Six more since: Flashforge PA6-GF20's two bending moduli of 200 and 57.5 MPa, its sheet's modulus and strength rows
+swapped (V005395, V005396, m419, D140), and four flagged in the material pages round (m436): Stratasys
+PA6/66-GF30-FR's 35 °C at 264 psi beside 161 °C at 66 psi (V009370), and Fiberlogy CPE's notched Izod of 93 kJ/m² on
+three records (V005511, V013131, V014804). The query below counts 162.
+
+The sweep (§11) flagged 24 more, of the same classes and a few new ones (a notched impact above the polymer's unnotched, a glass transition
 above the sheet's own Vicat, a yield equal to the break); their reasons are in their rows. Fifteen more were flagged
 as they entered: fourteen with batches b09 to b33 (a PLA's glass transition of 160 °C, a PLA's flexural modulus of
 3.8 MPa, heat deflections of a carbon-fibre TPU), and a Raise3D polycarbonate "decomposing" at 129 °C, which m135's
@@ -839,14 +845,6 @@ and PolyMax PC each sit on one grade). Still open:
   more may wait where the names differ by more than a revision.
 - **3D-Fuel's Pro PCTG is named "Pro PCTG" since m299** (G088-04). Its profile P1279 says it "typically doesn't require
   an enclosure"; its nozzle and bed are read from its twin (the PCTG table it shares) and its drying from P1154.
-- **A title that is only the kind of document is not flagged**: "Technical Data Sheet" on 43 sources (2026-10-15), a few
-  "Technical Specifications" and "TECHNICAL DATA SHEET", and Polymaker's slogan "Innovators in 3D printing"; the query
-  lists them. Some sheets print exactly that as their heading, so a rule would not be precise; the product name beside
-  it is what a re-read adds.
-
-```bash
-npm run sql --silent -- "select sourceid, title from sources where lower(title) in ('technical data sheet', 'technical specifications', 'technical data sheet tm tm', 'innovators in 3d printing')"
-```
 
 ---
 
@@ -1419,7 +1417,7 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 183 | See item 2. Ten went in the data review fixes (m425), whose values are now flagged. |
+| `MEAS-PHYSICS-WINDOW` | 179 | See item 2. Ten went in the data review fixes (m425), whose values are now flagged, and five in the material pages round (m436). |
 | `IMPACT-UNIT-STANDARD` | 25 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256); kept as printed, compared only in its own unit. |
 | `MEAS-PHYSICS-STRAIN` | 32 | See item 2. |
 | `MEAS-PHYSICS-ORDER` | 33 | See item 2. |
@@ -1432,13 +1430,13 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `TEXT-FULLWIDTH` | 4 | Full-width punctuation a sheet prints inside Chinese text, kept as printed. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 | `COVERAGE-SUPERSEDED` | 2 | "Evidence recorded" rows each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
-| `HEADLINE-FAMILY-UNLISTED` | 1 | Heat deflection does not name Flexible Elastomers, on purpose (D56). |
+| `HEADLINE-FAMILY-UNLISTED` | 2 | Heat deflection at 0.45 MPa and at 1.8 MPa do not name Flexible Elastomers, on purpose: a rigid-bar test means nothing for an elastomer (D56). |
 | `MEAS-LOCATOR-DIRECTION` | 5 | PC-Max's page 2 figures show flat bars with Z through the thickness; the locator names that axis as figure context, not a Z-loaded result, and XY is supported (V011803 to V011807, 2026-10-03). |
 | `MEAS-PHYSICS-HDT-LOADS` | 2 | Heat deflection at the lighter load below the heavier: Prusament rPLA's 1 °C inversion is within ISO 75 repeatability (V013711); the lint paired two different columns of one sheet (V014653). |
 | `CONTEXT-ROW-CONTRADICTS-PAGE` | 1 | SUNLU PCL's bars were printed at 260 °C, far above its recommended 75-85 °C: a printed bar off the product's recipe (D95), a narrower form of the page's printed specimen (V010184, m365). |
 | `GRADE-KEY-PRODUCTS` | 3 | Spectrum's PLA Premium sheet prints one table for five products already keyed together; the table is recorded on the key's carrier grade (R053) and the others read it. Spectrum ASA-X CF10 prints FormFutura ApolloX CF10's table, which also prints two Charpy values Spectrum's does not (check round 3), and FormFutura ApolloX Kevlar prints Spectrum ASA Kevlar's (quality round). PLA Nature holds Spectrum's portfolio row of its own since m410; its siblings read the key's carrier, the one holding most of the table (D136). |
 
-Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-17 after the data review fixes, 388 in all, and
+Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-17 after the material pages round, 384 in all, and
 the command below counts them again. `npm run audit:data` refuses stale acceptances in the data; this documentation
 table must also be refreshed when the accepted rows change.
 
@@ -1446,19 +1444,20 @@ table must also be refreshed when the accepted rows change.
 cut -d, -f1 data/review/accepted-findings.csv | tail -n +2 | sort | uniq -c | sort -rn
 ```
 
-**Acceptances that say a value backs nothing while it backs a product's value** (data review fixes, 2026-10-17). 25
-window and order acceptances give as their reason that the value "backs no headline", and 18 of them are a product's
-value all the same, because only a flagged value backs nothing (D55): Eryone ASA's 0.94 GPa and Hyper-Speed ABS's Z
-0.22 GPa tensile moduli, six Flashforge values (ASA-CF10, PC/ABS, Silk, PLA Pro and PLA-CF10 moduli of 0.8 to 1.15
-GPa, Flexible's 6 MPa modulus and 7 MPa flexural strength), Fiberlogy CPE ANTIBAC's notched Izod of 93 kJ/m², four
-purefil values (POM, PVC-P, LCP), three of colorFabb nGen_FLEX's, and Stratasys PA6/66-GF30-FR's 35 °C heat deflection
-at 1.8 MPa. m425 flagged the ten whose sheets rule them out (SUNLU's 2.0 sheets, Spectrum PLA Tough, 3DJake's six
-secant moduli); each of the 18 needs its page read again, and then either the flag or a reason that does not claim it
+**Acceptances that say a value backs nothing while it backs a product's value** (data review fixes, 2026-10-17).
+Window and order acceptances on 23 values (25 rows) give as their reason that the value "backs no headline", and 16 of
+those values are a product's value all the same, because only a flagged value backs nothing (D55): Eryone ASA's 0.94 GPa
+and Hyper-Speed ABS's Z 0.22 GPa tensile moduli, six Flashforge values (ASA-CF10, PC/ABS, Silk, PLA Pro and PLA-CF10
+moduli of 0.8 to 1.15 GPa, Flexible's 6 MPa modulus and 7 MPa flexural strength), four purefil values (POM, PVC-P, LCP)
+and three of colorFabb nGen_FLEX's. m425 flagged the ten whose sheets rule them out (SUNLU's 2.0 sheets, Spectrum PLA
+Tough, 3DJake's six secant moduli), and m436 two more of the list (Fiberlogy CPE ANTIBAC's notched Izod of 93 kJ/m²
+and Stratasys PA6/66-GF30-FR's 35 °C heat deflection at 1.8 MPa), whose acceptances went with them; each of the 16
+needs its page read again, and then either the flag or a reason that does not claim it
 backs nothing. AddNorth Koltron's tensile modulus of 562 MPa beside its own 2645 MPa flexural modulus (V010180) is of
 m425's class and is not flagged.
 
 ```bash
-npm run sql --silent -- --build "select measurementid, gradeid, headline_key, value from products_compiled where measurementid in ('V005008','V005140','V005198','V005228','V005347','V005357','V005367','V005368','V005465','V005511','V005602','V005617','V005726','V005729','V005859','V005861','V005863','V009370')"
+npm run sql --silent -- --build "select measurementid, gradeid, headline_key, value from products_compiled where measurementid in ('V005008','V005140','V005198','V005228','V005347','V005357','V005367','V005368','V005465','V005602','V005617','V005726','V005729','V005859','V005861','V005863')"
 ```
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:
@@ -1581,7 +1580,8 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   which its profile now holds (m299).
 - **The values never transcribed that this list named are recorded since m298** (D123). Stratasys PA6/66-GF30-FR's
   Tables 4 and 5 are recorded since the reader round (m342, 30 values on pp. 6 and 7); its XY heat deflection at 264 psi
-  prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as printed. The three leads seen while reading are
+  prints 35 °C beside 161 °C at 66 psi and 153 °C XZ; the 35 °C is flagged physically implausible since m436, so the
+  product's value at that load is none. The three leads seen while reading are
   closed since the quality round (2026-10-07): PolyFlex TPU95's ISO 37 table is held (its 400 % stress added, and two
   rows whose unit the sheet misprints held back, m407); Eryone light-weight PLA's X-Y elongation printed "MPa 3" is held
   back as printed (m407); Raise3D Hyper Core PPA CF25 (G070-08) is keyed to its own sheet (m396). `npm run
@@ -1657,8 +1657,8 @@ sits far from what the model expects of a solid print (EST-OUTLIER, accepted wit
 
 *From the reader round, 2026-10-04 (m338 to m354; D125, D126).*
 
-**Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table,
-V012362) is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
+**Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table;
+V012362, its example here, is a retired duplicate since D141) is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
 
 ### 31.7. The guide's drying is the type's, not the product's
 
@@ -1944,11 +1944,11 @@ and counts exact product states. It leaves these, each with where it is counted:
 - **One requirement per property.** The rail holds each property's one requirement, and the chart's requirement lines
   open it there (D108); a two-sided interval, or a box drawn on the chart, needs a scenario and engine decision first.
 - **The spread inside a material's box is the sheets'.** Since D108 a box is the middle half of the material's own
-  products, variants apart, and PLA's is about 1,222–1,240 kg/m³ by 1.9–2.9 GPa on 2026-10-07 (1,230–1,250 by 1.5–2.8 when D108 drew it); its
-  whiskers still reach 0.43 and 4.2 GPa.
+  products, variants apart, and PLA's is about 1,222–1,240 kg/m³ by 1.9–2.9 GPa on 2026-10-17 (1,230–1,250 by 1.5–2.8
+  when D108 drew it); its whiskers reach 0.95 and 4.2 GPa.
   Printed bars' stiffness depends on how they were printed and pulled: PLA's lowest values are printed bars to GB/T 1040
-  at 50 mm/min (Eryone), to ISO 527 with no print settings stated (Flashforge, near 1 GPa) and a toughened grade to ASTM
-  D638 (Spectrum PLA Tough, 0.43 GPa, 100 % infill), beside solid PLA's usual 3 to 4 GPa. The engine compares them as
+  at 50 mm/min (Eryone) and to ISO 527 with no print settings stated (Flashforge), near 1 GPa, beside solid PLA's usual
+  3 to 4 GPa; Spectrum PLA Tough's 0.43 GPa to ASTM D638 was its strength over its strain and is flagged since m425. The engine compares them as
   "comparable" (printed, stated direction, dry or unstated); telling a sheet's method apart from its material is a data
   and rules question, not the chart's. The second query lists a material's products by stiffness with their standards.
 - **Toughened grades sit beside plain ones** (2026-10-06, D133). The impact medians set apart the products their
@@ -1996,8 +1996,8 @@ on its own. What it could not, by who settles it:
     2026-10-05 and are settled (D130, m368).
 - **The makers.** purefil PA6 GF10's two bed rows (§28); the source contradictions of §§23 to 26; the conditions of §15.
 - **People.** The decisive-value spot-check (C3) and the team trial (C7). Every review in this pass was an AI's.
-- **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's 35 °C heat deflection at 264 psi; Braskem
-  PP-CF's two beds; and in §11, BVOH's Extended TDS conditions. (PolyFlex TPU95's ISO 37 table, Raise3D Hyper Core PPA CF25's key and
+- **Leads the readers saw**, recorded in §28: Braskem PP-CF's two beds (Stratasys PA6/66-GF30-FR's 35 °C heat
+  deflection at 264 psi is flagged since m436); and in §11, BVOH's Extended TDS conditions. (PolyFlex TPU95's ISO 37 table, Raise3D Hyper Core PPA CF25's key and
   Eryone light-weight PLA's elongation in MPa are closed since the quality round, m396 and m407.)
 
 ```sh

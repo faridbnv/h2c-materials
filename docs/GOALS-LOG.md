@@ -628,9 +628,11 @@ owner chose:
    the recommendation had been every listed material.
 2. **A written summary is allowed** under the recommended rules: no number typed by hand (a placeholder the build
    fills), its author, date and review status shown, deciding nothing; agents draft, the owner reviews.
-3. **An embedded typeface, done professionally**, rather than the recommended system fonts.
+3. **An embedded typeface, done professionally**, at once, where the recommendation had been the tool's own fonts and a
+   decision on a typeface after seeing the prototypes.
 4. **Processed, selected data on the page**, and every record behind a link on a records page: "Reading that much raw
-   data and that many sources is not going to happen by any user. The page should contain usable data."
+   data and that many sources is not going to happen by any user. The page should contain usable data." (The
+   recommendation had been every record on the page up to 3 MB, and a separate page beyond.)
 5. **SVG figures drawn by the build**, designed professionally and consistently.
 6. **Three prototype pages first**, approved before the rest.
 7. **The pages travel with each GitHub release** as a zip.
@@ -638,8 +640,27 @@ owner chose:
 
 Then the owner asked for the execution to be planned with agents, Opus for logic and design and Sonnet for labour,
 around one source of truth so the pages cannot diverge from the drawer, and approved the
-[plan](audits/2026-10-16-material-pages-round/PLAN.md). Built in the
-[material pages round](audits/2026-10-16-material-pages-round/README.md).
+[plan](audits/2026-10-16-material-pages-round/PLAN.md).
+
+The owner then scored the three prototype pages 65/100: "not easy to read… both because of way of writing and
+graphics", figures "almost what is already available in the drawer", and product tables "pure headaches to read and
+scroll or search". After the redesign and two engineer reviews (66 and 72), the owner chose to go on, with one more
+page pass and no further review. On 2026-10-17 the owner chose to run the build stage (step 3) and a data round on
+what the reviews found at the same time (below), and to take the pages to main through a pull request first, then the
+verify speed-up (below), then the summaries and the blind read on a branch from main.
+
+Built as D142 in the [material pages round](audits/2026-10-16-material-pages-round/README.md); merged by the owner as
+#3 (0a5259c1, with the data round) and #4 (f0e69019, the summaries and the close).
+
+## Decided on 2026-10-16, the tool is named Filament Atlas
+
+Readers had called the top of the page overwhelming. A redesign of its frame (the header, the status bar and the
+filter rail, in one quiet design language) named the tool **Filament Atlas**, with a mark of three printed layers: a
+name that says what the tool is, not which printer it was first built for. The owner merged it (#1, 9aac19e2) and
+uses the name from then on. The H2C is still named where it decides something (the rail's Printing on the H2C, the
+gates, the templates); the built file's name, the exports and the briefs keep H2C Material Selector, which links,
+scripts and saved files rely on ([INTERFACE.md, "The frame"](INTERFACE.md#the-frame)). Built by Claude (an agent);
+the living documents name the tool so since 2026-10-17.
 
 ## Decided on 2026-10-17, a plausibility window is a check, never a filter
 
@@ -673,7 +694,19 @@ of their own, run in parallel with the pages work on its own branch (data-review
   record.
 
 Built by Claude Opus (m422 to m432, D143), with Claude Sonnet agents sweeping publishers, broken words, titles and
-orientation labels and re-reading a blind sample; not pushed, and not merged into main.
+orientation labels and re-reading a blind sample; merged into the material pages' branch, and to main by the owner
+with it as #3 (0a5259c1).
+
+## Decided on 2026-10-17, the checks take less time and lose none
+
+The owner found the checks too slow and asked whether they are all needed, then to make them faster without removing
+a needed check or any accuracy. Every check was found to guard what no other does, and none was dropped or loosened.
+`npm run verify` and `verify:fast` now run the steps that need nothing of each other side by side, CI runs the 300
+rendered scenarios as three jobs beside the data and views jobs (the weekly 2,000 as four), and the scale budget
+re-runs a miss only where a miss can fail. On a 4-core Linux container, from an empty build cache, verify took 746 s
+where it had taken 1,069 s; on the owner's 10-core machine, with the material pages' checks in, 432 s where the same
+checks one at a time took 627 s. Built as D144 by Claude (an agent) on a branch, renumbered from D142 when the material
+pages took that number, and merged by the owner as #2 (1b9c107f).
 
 ## Built on 2026-10-17, the material pages' summaries, their blind read and the round's close
 
@@ -694,4 +727,4 @@ page, and a blind read of the pages before the round closed.
   the owner's to decide (OPEN-PROBLEMS §37.18).
 
 Built by Claude Opus on `material-pages-summaries` (D142, m433 to m436), with Claude Sonnet agents drafting, editing and
-reading; not pushed, for the owner to decide.
+reading; merged to main by the owner as #4 (f0e69019).
