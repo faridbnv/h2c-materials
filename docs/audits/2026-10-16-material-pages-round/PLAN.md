@@ -1,6 +1,7 @@
 # A page per material (D141): execution plan
 
-> **Historical record** (2026-10-16): the plan the owner approved before the round began; the round's [README](README.md) says what was built.
+> **Historical record** (2026-10-16): the plan the owner approved before the round began; the round's [README](README.md) says what was built. The
+> decision it names D141 is **D142**: main took D141 on 2026-10-17 for the plausibility-window fix.
 
 ## Context
 

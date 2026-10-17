@@ -60,3 +60,14 @@ no comparison; bookkeeping and coinages remain in places ("as the build chose it
 guide" beside "66 products"); and the thin page keeps empty sections and estimates that disagree with its sheets.
 About half of that is data (the reprints, the implausible moduli, the estimates, Bambu Lab's PETG HF guide row read for
 every PETG product), the rest the pages. The owner decides whether to go on.
+
+## Main moved on: D141 taken, heat loads and print windows typed again
+
+On 2026-10-17 main fixed a parser that dropped a print window's or a heat-deflection load's stated number when it fell
+outside a plausibility window (D141, m420, m421): five print windows, three drying cells and 41 heat-deflection loads
+were typed again, and three scenario answers moved. For this round: its decision is **D142** (the plan and the
+assessment named D141 before main used it); the pages' numbers move with the data once main is merged, so the drawer's
+golden baseline and the page-count check are recorded again on the merged tree before step 3 changes the drawer on
+purpose; and the reviewer's hollow "no stated load" mark in PETG's HDT column (Spectrum's "method=A/B") is expected to
+go. Main's reader sweep left its findings in OPEN-PROBLEMS §3, §4, §11 and §12; this round's three data problems above
+are not among them.
