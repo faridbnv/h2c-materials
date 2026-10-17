@@ -98,9 +98,9 @@ function layersFigure(groups, c, no) {
       id: figId(no), n: no, title: `Across the layers, ${bare(main.xy).toLowerCase()} keeps ${pctOf(main)} of its flat value`, data: { 'data-layers': 'tensile' }, cls: 'fig--layers', key,
       plot: `<div class="db-grid">${panels.join('')}</div>`,
       label: `For each product that publishes both orientations, its flat and across-the-layers value: ${rows.map((r) => `${lower(bare(r.xy))}, ${plural(r.pairs.length, 'product')}, median share ${pctOf(r)}`).join('; ')}.`,
-      read: esc('A row is one product: its flat value in grey, its value across the layers in blue, and the share it keeps. Rows run from the product that keeps the most.'),
+      read: esc(`A row is one product: its flat value in grey, its value across the layers in blue, and the share it keeps. Rows run from the product that keeps the most.${rows.some((r) => r.pairs.some((p) => p.ratio > 1)) ? ' * Z above XY is unusual for a printed part; check those sheets.' : ''}`),
       counted: notesHtml([
-        'A product is drawn where it publishes both orientations of the test from one document, in one annealing state, and is not a special formulation: the products whose share can be read. Its own values are the build\'s, as in the table above.',
+        'A product is drawn where it publishes both orientations of the test from one document, in one annealing state, and is not a special formulation: the products whose share can be read. Its values are the ones the table above compares.',
         `The large figure is the median of the shares: ${andList(rows.map((r) => `${lower(bare(r.xy))} ${pctOf(r)}, ${r.share.min === r.share.max ? '' : `from ${Math.round(r.share.min * 100)} to ${Math.round(r.share.max * 100)} %, `}${plural(r.pairs.length, 'product')}`))}.`,
         m.summary?.tensileStrengthZ?.n && main.pairs.length < m.summary.tensileStrengthZ.n ? `More products publish a Z value than are drawn here: the others publish no comparable flat value from the same document.` : null,
       ]),

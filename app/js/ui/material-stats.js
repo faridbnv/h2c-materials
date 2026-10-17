@@ -13,6 +13,7 @@ import { REGISTRY } from './registry.js';
 import { h2cLimit, materialName } from './labels.js';
 import { isProduct, spreadEntries, dotMarks, rankOf } from './material-facts.js';
 import { rowSummary } from './print-spread.js';
+import { stripScale } from './scales.js';
 
 /** A summary `{ n, median, q1, q3, min, max }` of plain numbers, on the build's rule (quartiles from four values). */
 export const summarise = (values) => rowSummary(values.map((value) => ({ value, origin: 'own', variant: false })));
@@ -63,12 +64,15 @@ export function propertyProfile(m, ranks, keys = REGISTRY.headlines.map((h) => h
 
 /**
  * Every material's median of two key properties, for a map of one against the other (strength against stiffness, the way
- * an Ashby chart places materials): `{ points: [{ id, name, x, y, products, self }], landmarks: [ids] }`, every material
- * with a known median of both (`ranks`, rankTable). The landmarks are named on the map by rule, never by hand: the
- * `count` with the most products (then by name), and the material named as this one's base polymer where it is on the
- * map and not among them; never the material itself, which is drawn apart.
+ * an Ashby chart places materials), zoomed on this material's neighbourhood. `{ points: [{ id, name, x, y, products,
+ * self }] (every material with a known median of both, rankTable), xLog, yLog (each axis on the scale rule: logarithmic
+ * where its values span more than ten times), nearest: [ids] (the other materials by their distance from this one's
+ * medians in the map's own space: decades on a logarithmic axis, hundreds of °C on a linear one), window: { x: [lo, hi],
+ * y: [lo, hi] } (the box holding this material's medians, the points in `include` (its products and middle half) and the
+ * `neighbours` nearest materials, padded), landmarks: [ids] (the `label` nearest, named on the map) }`. By rule, never by
+ * hand; the material itself is never a landmark.
  */
-export function materialMap(db, ranks, xKey, yKey, materialId, { count = 8 } = {}) {
+export function materialMap(db, ranks, xKey, yKey, materialId, { label = 7, neighbours = 24, include = [] } = {}) {
   const xs = new Map((ranks?.[xKey]?.entries ?? []).map((e) => [e.id, e.value]));
   const ys = new Map((ranks?.[yKey]?.entries ?? []).map((e) => [e.id, e.value]));
   const byId = new Map(db.materials.map((m) => [m.id, m]));
@@ -76,12 +80,34 @@ export function materialMap(db, ranks, xKey, yKey, materialId, { count = 8 } = {
     const m = byId.get(id);
     return { id, name: materialName(m.name).primary ?? m.name, x: xs.get(id), y: ys.get(id), products: m.gradeIds?.length ?? 0, self: id === materialId };
   });
-  const others = points.filter((p) => !p.self);
-  const landmarks = [...others].sort((a, b) => b.products - a.products || a.name.localeCompare(b.name)).slice(0, count).map((p) => p.id);
-  const self = byId.get(materialId);
-  const base = self && others.find((p) => byId.get(p.id).name === self.basePolymer);
-  if (base && !landmarks.includes(base.id)) landmarks.push(base.id);
-  return { points, landmarks };
+  const xLog = stripScale(points.map((p) => p.x), REGISTRY.allHeadlines.find((h) => h.key === xKey)?.unit).log;
+  const yLog = stripScale(points.map((p) => p.y), REGISTRY.allHeadlines.find((h) => h.key === yKey)?.unit).log;
+  // The map's own space: a decade on a logarithmic axis is as far as 100 units on a linear one (°C).
+  const tx = (v) => (xLog ? Math.log10(v) : v / 100), ty = (v) => (yLog ? Math.log10(v) : v / 100);
+  const self = points.find((p) => p.self);
+  const dist = (p) => Math.hypot(tx(p.x) - tx(self.x), ty(p.y) - ty(self.y));
+  const others = points.filter((p) => !p.self).sort((a, b) => dist(a) - dist(b) || a.name.localeCompare(b.name));
+  if (!self) return { points, xLog, yLog, nearest: others.map((p) => p.id), window: null, landmarks: [] };
+  const held = [self, ...include.filter((p) => Number.isFinite(p.x) && Number.isFinite(p.y)), ...others.slice(0, neighbours)];
+  const span = (vals, t, log) => {
+    const lo = Math.min(...vals.map(t)), hi = Math.max(...vals.map(t));
+    const pad = Math.max((hi - lo) * 0.08, log ? 0.12 : 0.08);
+    const back = (v) => (log ? 10 ** v : v * 100);
+    return [back(lo - pad), back(hi + pad)];
+  };
+  const window = { x: span(held.map((p) => p.x), tx, xLog), y: span(held.map((p) => p.y), ty, yLog) };
+  const inside = (p) => p.x >= window.x[0] && p.x <= window.x[1] && p.y >= window.y[0] && p.y <= window.y[1];
+  return { points, xLog, yLog, nearest: others.map((p) => p.id), window, landmarks: others.filter(inside).slice(0, label).map((p) => p.id) };
+}
+
+/**
+ * The materials a reader knows to place a value by: the `count` with the most products (then by name), never `except`.
+ * The property profile ticks them on its tracks.
+ */
+export function landmarkMaterials(db, count = 3, except = null) {
+  return db.materials.filter((m) => !m.familyEntry && m.id !== except)
+    .sort((a, b) => (b.gradeIds?.length ?? 0) - (a.gradeIds?.length ?? 0) || a.name.localeCompare(b.name)).slice(0, count)
+    .map((m) => ({ id: m.id, name: materialName(m.name).primary ?? m.name }));
 }
 
 // ------------------------------------------------------------------ across the layers
@@ -118,7 +144,7 @@ export function layerPairs(a, b, byKey, c) {
  *
  * `{ axis, limit, windows: [{ g, min, max, origin, variant, counted, profileId }] (lowest end first), n (counted),
  * guide, variant (drawn, not counted), oneEnd (windows with one end), ends: [{ g, min, max, origin }] (those windows),
- * states: Map(state → products with no window),
+ * states: Map(state → products with no window), stateOrigins: Map(state → { own, twin, guide }) (where each state was read),
  * runs: [{ from, to, k }] (whole degrees, k the counted windows that include every degree from..to), peak: { k, from, to }
  * (the widest run of the most, the lowest of equals), most: { from, to } | null (the degrees more than half the counted
  * windows include, about the peak), every: { from, to } | null (those all of them include) }`. Runs, peak, most and every
@@ -130,10 +156,18 @@ export function printWindows(products, axis) {
   const states = new Map();
   let oneEnd = 0;
   const ends = [];
+  const stateOrigins = new Map();
   for (const g of products) {
     const v = g.print?.[axis];
-    if (v?.state !== 'range') { states.set(v?.state ?? 'unknown', (states.get(v?.state ?? 'unknown') ?? 0) + 1); continue; }
     const origin = g.print?.from?.[axis]?.origin ?? 'own';
+    if (v?.state !== 'range') {
+      const state = v?.state ?? 'unknown';
+      states.set(state, (states.get(state) ?? 0) + 1);
+      const o = stateOrigins.get(state) ?? { own: 0, twin: 0, guide: 0 };
+      o[origin] = (o[origin] ?? 0) + 1;
+      stateOrigins.set(state, o);
+      continue;
+    }
     if (v.min == null || v.max == null) { oneEnd++; ends.push({ g, min: v.min ?? null, max: v.max ?? null, origin }); continue; }
     const variant = !variantOnly && !!g.variant;
     windows.push({ g, min: v.min, max: v.max, origin, variant, counted: origin !== 'guide' && !variant, profileId: v.profileId ?? null });
@@ -142,7 +176,7 @@ export function printWindows(products, axis) {
   const counted = windows.filter((w) => w.counted);
   const n = counted.length;
   const out = { axis, limit: h2cLimit(axis) ?? null, windows, n, guide: windows.filter((w) => w.origin === 'guide' && !w.variant).length,
-    variant: windows.filter((w) => w.variant).length, oneEnd, ends, states, runs: [], peak: null, most: null, every: null };
+    variant: windows.filter((w) => w.variant).length, oneEnd, ends, states, stateOrigins, runs: [], peak: null, most: null, every: null };
   if (!n) return out;
   const lo = Math.floor(Math.min(...counted.map((w) => w.min))), hi = Math.ceil(Math.max(...counted.map((w) => w.max)));
   for (let t = lo; t <= hi; t++) {
@@ -168,6 +202,24 @@ export function printWindows(products, axis) {
 
 /** How many counted windows include temperature `t` (printWindows' runs). */
 export const acceptedAt = (pw, t) => pw.runs.find((r) => r.from <= t && t <= r.to)?.k ?? 0;
+
+/**
+ * What the products' print gates say about drying (grades[].print.drying), by where it was read: `{ have (products with
+ * drying advice: a schedule, advice for a condition, or that none is needed), own, twin, guide (of those, read from
+ * their own sheet, a sheet they share, Bambu Lab's Filament Guide), none (products with no advice), needs: { required,
+ * optional, not-needed } }`.
+ */
+export function dryingAdvice(products) {
+  const out = { have: 0, own: 0, twin: 0, guide: 0, none: 0, needs: { required: 0, optional: 0, 'not-needed': 0 } };
+  for (const g of products) {
+    const d = g.print?.drying;
+    if (!d || !(d.need in out.needs)) { out.none++; continue; }
+    out.have++;
+    out.needs[d.need]++;
+    out[g.print?.from?.drying?.origin ?? 'own']++;
+  }
+  return out;
+}
 
 /**
  * The drying temperatures and times the products' own sheets give (grades[].print.drying, a sheet a product shares

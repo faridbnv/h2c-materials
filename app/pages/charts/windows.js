@@ -62,6 +62,6 @@ export function windowPanel(pw, { label, peakWords, guideName }) {
   }).join('');
   const stack = `<svg class="pw-bars" height="${h}" aria-hidden="true" focusable="false">${band(h)}${scale.ticks.map((t) => `<line class="grid" x1="${pct(X(t))}" x2="${pct(X(t))}" y1="0" y2="${h}"/>`).join('')}${limitLine(h)}${bars}</svg>`;
   const axis = tickSvg(scale, { wide: 420, narrow: 300 });
-  const html = `<div class="pw" data-setting="${esc(pw.axis)}"><h4 class="pw-title">${esc(label)}</h4>${curve}${stack}${axis}<p class="pw-unit">°C${!onScale && pw.limit != null ? `, the H2C reaches ${esc(fmtNumber(pw.limit))} °C` : ''}</p></div>`;
+  const html = `<div class="pw" data-setting="${esc(pw.axis)}" data-n="${pw.n}" data-peak="${pw.peak?.k ?? ''}"><h4 class="pw-title">${esc(label)}</h4>${curve}${stack}${axis}<p class="pw-unit">°C${!onScale && pw.limit != null ? `, the H2C reaches ${esc(fmtNumber(pw.limit))} °C` : ''}</p></div>`;
   return { html, scale, onScale };
 }

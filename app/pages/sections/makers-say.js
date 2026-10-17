@@ -1,16 +1,19 @@
-// What makers say: across the material's products, how many makers say something on each topic (materials[].knowHow),
-// and, per topic, one statement from each of the four makers with the most products here that say something on it, in
-// their own words; then what their documents leave unsaid. Every statement is on the records page.
+// What makers say: across the material's products, what their makers write beyond the numbers (materials[].knowHow),
+// topic by topic, in their own words. The engineering topics come first and open (figures.js MAKER_TOPICS), two
+// statements each, from the makers with the most products here that say something on it; the marketing topics are
+// closed, with how many makers speak to each. Every statement is on the records page.
 
 import { esc, tableBox } from '../html.js';
 import { indexDb, makersSayFacts, productNameOrId, stated } from '../../js/ui/material-facts.js';
-import { cap, andList, sitesLine, makersSilentWords, makersRecipeWords } from '../../js/ui/material-words.js';
+import { plural } from '../../js/ui/material-words.js';
 import { sourceKind } from '../../js/ui/labels.js';
-import { emptyBody, recordsLink, findingsBlock } from './common.js';
+import { howCounted } from '../charts/figure.js';
+import { MAKER_TOPICS } from '../figures.js';
+import { emptyBody, recordsLink, findingsBlock, notesHtml } from './common.js';
 import { makersFindings } from '../findings.js';
 
-/** How many makers a topic quotes, those with the most products of this material first. */
-const MAKERS_QUOTED = 4;
+/** How many statements a topic quotes, from different makers, those with the most products of this material first. */
+const QUOTED = 2;
 
 export default {
   id: 'makers-say',
@@ -25,28 +28,39 @@ export default {
     for (const g of c.grades) if (stated(g.manufacturer)) products.set(g.manufacturer, (products.get(g.manufacturer) ?? 0) + 1);
     const makers = [...products].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name]) => name);
     const statements = c.grades.flatMap((g) => (byGrade.get(g.id) ?? []).map((k) => ({ k, g })));
-    const silent = makersSilentWords(f.states);
-    const recipe = makersRecipeWords(f.recipe);
-    const lead = `${silent.length ? `${cap(andList(silent))}. ` : ''}${sitesLine(f.sitesSearched, f.total)}`;
-    const table = tableBox(`<table class="grid topics"><thead><tr><th scope="col">Topic</th><th scope="col" class="num">Makers</th><th scope="col" class="num">Products</th></tr></thead><tbody>${f.topics.map((t) => `<tr${t.stated ? '' : ' class="none"'}><th scope="row">${esc(t.topic)}</th><td class="num">${t.makers} of ${f.makers}</td><td class="num">${t.stated ? t.products : '—'}</td></tr>`).join('')}</tbody></table>`);
-    const quotes = f.topics.filter((t) => t.stated).map((t) => {
+    const quotesOf = (t) => {
       const chosen = [];
       for (const maker of makers) {
         const first = statements.find((x) => x.k.topic === t.topic && x.g.manufacturer === maker);
         if (first) chosen.push(first);
-        if (chosen.length === MAKERS_QUOTED) break;
+        if (chosen.length === QUOTED) break;
       }
-      if (!chosen.length) return '';
-      return `<section class="topic"><h4>${esc(t.topic)}</h4><ul>${chosen.map(({ k, g }) => {
-        const s = c.sourceById.get(k.sourceId);
-        const page = /^p\. ?\d+/.exec(String(k.locator ?? ''))?.[0];
-        return `<li><q>${esc(k.text)}</q> <span class="src">${esc(`${productNameOrId(g)}, ${sourceKind(s).toLowerCase()}${page ? `, ${page}` : ''}`)}</span></li>`;
-      }).join('')}</ul></section>`;
-    }).join('');
-    const html = `${findingsBlock(makersFindings(f))}
-<div class="quotes">${quotes}</div>
-<h3 class="sub-title">Topics, by how many makers speak to them</h3>
-<div class="split">${table}<div class="split-note"><p class="note">${esc(`Under each topic above: one statement from each of the ${MAKERS_QUOTED} makers with the most products here that say something on it, its first as recorded. ${lead}`)} ${recordsLink(c, '#statements', 'Every statement, with its document')}.</p>${recipe.length ? `<p class="note">${esc(`Not stated by their documents: ${andList(recipe)}.`)}</p>` : ''}</div></div>`;
+      return chosen;
+    };
+    const quote = ({ k, g }) => {
+      const s = c.sourceById.get(k.sourceId);
+      const page = /^p\. ?\d+/.exec(String(k.locator ?? ''))?.[0];
+      return `<li><q>${esc(k.text)}</q> <span class="src">${esc(`${productNameOrId(g)}, ${sourceKind(s).toLowerCase()}${page ? `, ${page}` : ''}`)}</span></li>`;
+    };
+    const said = f.topics.filter((t) => t.stated);
+    const rank = (t) => { const i = MAKER_TOPICS.open.indexOf(t.topic); return i < 0 ? MAKER_TOPICS.open.length : i; };
+    const open = said.filter((t) => !MAKER_TOPICS.closed.includes(t.topic)).sort((a, b) => rank(a) - rank(b));
+    const closed = said.filter((t) => MAKER_TOPICS.closed.includes(t.topic));
+    const counts = (t) => `${plural(t.makers, 'maker')}, ${plural(t.products, 'product')}`;
+    const topic = (t) => {
+      const q = quotesOf(t);
+      return q.length ? `<section class="topic"><h4>${esc(t.topic)} <small>${esc(counts(t))}</small></h4><ul>${q.map(quote).join('')}</ul></section>` : '';
+    };
+    const shut = (t) => {
+      const q = quotesOf(t);
+      return q.length ? `<details class="topic-more"><summary>${esc(t.topic)} <small>${esc(counts(t))}</small></summary><ul>${q.map(quote).join('')}</ul></details>` : '';
+    };
+    const table = tableBox(`<table class="grid topics"><thead><tr><th scope="col">Topic</th><th scope="col" class="num">Makers</th><th scope="col" class="num">Products</th></tr></thead><tbody>${f.topics.map((t) => `<tr${t.stated ? '' : ' class="none"'}><th scope="row">${esc(t.topic)}</th><td class="num">${t.makers} of ${f.makers}</td><td class="num">${t.stated ? t.products : '—'}</td></tr>`).join('')}</tbody></table>`);
+    const html = `${findingsBlock(makersFindings(f, open))}
+<div class="quotes">${open.map(topic).join('')}</div>
+${closed.length ? `<div class="quotes-shut">${closed.map(shut).join('')}</div>` : ''}
+${howCounted(notesHtml([`Under each topic: one statement from each of the ${QUOTED} makers with the most products here that say something on it, its first as recorded. The products counted are those whose makers' documents say something on the topic.`]) + table
+  + `<p>${recordsLink(c, '#statements', 'Every statement, with its document, on the records page')}.</p>`)}`;
     return { empty: false, html, stats: {} };
   },
 };

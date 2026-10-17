@@ -18,4 +18,6 @@ import estimates from './estimates.js';
 import sources from './sources.js';
 import footer from './footer.js';
 
-export const SECTIONS = [masthead, inShort, keyFigures, printing, mechanical, thermal, physical, environment, products, makersSay, price, estimates, sources, footer];
+// The order an engineer reads in: what it is, its numbers, strength, heat, how to print it, which product, what makers
+// warn about, chemicals, the other physical properties, cost, what is estimated, and where every number comes from.
+export const SECTIONS = [masthead, inShort, keyFigures, mechanical, thermal, printing, products, makersSay, environment, physical, price, estimates, sources, footer];

@@ -7,9 +7,10 @@
 import { esc } from '../html.js';
 import { fmtNumber, fmtBounded, fmtBoundedKind, publishedBound, relatedNote, missingText, convertedNote, priceSampleWords } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { productNameOrId, rankOf } from '../../js/ui/material-facts.js';
-import { propertyProfile } from '../../js/ui/material-stats.js';
-import { leftOutWords, toughenedSplit, TOUGHENED_NOTE_SHORT, andList } from '../../js/ui/material-words.js';
+import { productNameOrId, rankOf, stated } from '../../js/ui/material-facts.js';
+import { propertyName } from '../../js/ui/labels.js';
+import { propertyProfile, landmarkMaterials, percentileAmong } from '../../js/ui/material-stats.js';
+import { leftOutWords, toughenedSplit, TOUGHENED_NOTE_SHORT, andList, lower, plural, asPublishedWords } from '../../js/ui/material-words.js';
 import { rankWords } from '../charts/context.js';
 import { profileTrack, profileHead } from '../charts/profile.js';
 import { figure, figId } from '../charts/figure.js';
@@ -32,11 +33,30 @@ function addsToTitle(h) {
   return [...technical.matchAll(/\(([^)]+)\)/g)].map((x) => x[1]).some((q) => !plain.includes(q.toLowerCase()) && !/layers|orientation/i.test(q) && !/^(?:ISO|ASTM)/.test(q));
 }
 
-/** Why a key property has no typical value, short for the table and in full for "How this is counted". */
-function noneShort(e) {
+/**
+ * Why a key property has no typical value, short for the table: not applicable, not published, or the values on file
+ * and what the nearest one is (its property, the condition the key property asks for that it lacks, its value), so a
+ * reader sees what is there and why it is not compared.
+ */
+function noneShort(e, h, c) {
   if (e?.notApplicable) return 'Not applicable';
-  // The nearest value on file, and why it is not compared, in the build's own words up to their first clause.
-  if (e?.related?.best) return `${fmtBounded(e.related.best.value, e.related.best.unit, e.related.best.interval)} on file, not compared: ${String(e.related.best.why ?? '').split(',')[0]}`;
+  // Products that give it without the basis it is compared on (no stated orientation or load): said as the strength
+  // section and the estimates say it, on the same count.
+  const a = c.m.summary?.[h.key]?.asPublished;
+  if (a?.n) return `Not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`}, with ${asPublishedWords(h)}`;
+  const b = e?.related?.best;
+  if (b) {
+    const x = c.msById.get(b.measurementId);
+    const unstated = (v) => !v || ['unknown', 'not-applicable'].includes(v) || !stated(v);
+    const cond = [
+      h.notch ? (unstated(x?.notch) ? 'notch not stated' : lower(x.notch)) : null,
+      h.direction ? (unstated(b.direction) ? 'orientation not stated' : b.direction) : null,
+      h.loadMPa != null ? (b.loadMPa != null ? `at ${fmtNumber(b.loadMPa)} MPa` : 'load not stated') : null,
+    ].filter(Boolean);
+    const n = e.related.count;
+    const g = e.related.grades;
+    return `${n === 1 ? 'One value' : `${n} values`} from ${g === 1 ? 'one product\'s own sheet' : `${g} products' own sheets`}, none comparable. Nearest: ${propertyName(b.property)}, ${cond.length ? `${cond.join(', ')}, ` : ''}${fmtBounded(b.value, b.unit, b.interval)}`;
+  }
   if (e?.related) return 'On file, not compared';
   return 'Not published';
 }
@@ -66,6 +86,14 @@ export default {
     const byKey = new Map(rows.map((r) => [r.key, r]));
     const next = figureCounter(place.n);
     const notes = [];
+    // The landmarks every track ticks by name (the materials with the most products), and each track's ends.
+    const landmarks = landmarkMaterials(c.db, 3, m.id);
+    const trackMarks = (r, rank) => {
+      const others = (rank?.entries ?? []).filter((x) => x.id !== m.id);
+      const marks = landmarks.map((l) => ({ l, e: others.find((x) => x.id === l.id) })).filter(({ e }) => e)
+        .map(({ l, e }) => ({ name: l.name, at: percentileAmong(rank, m.id, e.value).pct }));
+      return { ends: others.length ? [others[0].value, others.at(-1).value] : null, marks };
+    };
     const tr = (key) => {
       const r = byKey.get(key);
       const h = r.h ?? REGISTRY.headlines.find((x) => x.key === key);
@@ -74,7 +102,7 @@ export default {
       if (!r.known) {
         const est = e && !e.known && e.estimate ? ' <a href="#estimates">See the estimate</a>.' : '';
         notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(noneWords(e))}</p>`);
-        return `<tr class="kf kf--none" data-kf="${esc(key)}"><th scope="row">${esc(h.labels.plain)}${method}</th><td class="none" colspan="4">${esc(noneShort(e))}.${est}</td></tr>`;
+        return `<tr class="kf kf--none" data-kf="${esc(key)}"><th scope="row">${esc(h.labels.plain)}${method}</th><td class="none" colspan="4">${esc(noneShort(e, h, c))}.${est}</td></tr>`;
       }
       const sp = e.spread ?? { n: 1, min: e.value, max: e.value };
       const s = m.summary?.[key];
@@ -98,22 +126,22 @@ export default {
         + `<th scope="row">${esc(h.labels.plain)}${method}</th>`
         + `<td class="num typ"><b>${esc(fmtBounded(e.value, null, publishedBound(e)))}</b> <span class="u">${esc(h.unit)}</span></td>`
         + `<td class="num rng">${range}</td><td class="num">${esc(String(sp.n))}</td>`
-        + `<td class="prof">${r.at ? profileTrack(r) : ''}</td></tr>`;
+        + `<td class="prof">${r.at ? profileTrack(r, trackMarks(r, rank)) : ''}</td></tr>`;
     };
     const body = groups.map((g) => `<tbody><tr class="grp"><th scope="rowgroup" colspan="5">${esc(g.title)}</th></tr>${g.keys.map(tr).join('')}</tbody>`).join('');
     const table = `<div class="glance-box"><table class="grid glance"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Typical</th><th scope="col" class="num">Range</th>`
-      + `<th scope="col" class="num">Products</th><th scope="col" class="prof">${profileHead}</th></tr></thead>${body}</table></div>`;
+      + `<th scope="col" class="num">Products compared</th><th scope="col" class="prof">${profileHead}</th></tr></thead>${body}</table></div>`;
     const known = rows.filter((r) => r.known);
     const no = next();
     const counted = notesHtml([
       'Typical is the median of the products that publish the property on a comparable basis: half of them give more, half less. Range is the lowest to the highest of those products, and Products counts them. The middle half, said below, is the range of the middle half of them.',
-      'The track places the typical value among every other material\'s typical value for the property: the left end is the lowest material, the right end the highest. The band is where the middle half of this material\'s products would sit among them. It compares materials\' medians, not single products, and only materials with a measured value.',
+      `The track places the typical value among every other material's typical value for the property: the left end is the lowest material, the right end the highest, each with its value under it. The band is where the middle half of this material's products would sit among them. Ticked by name are ${andList(landmarks.map((l) => l.name))}, the materials with the most products, where they publish the property. It compares materials' medians, not single products, and only materials with a measured value.`,
     ]) + notes.join('');
     const html = findingsBlock(glanceFindings(name, rows)) + figure({
       id: figId(no), n: no, title: `Typical values, and where each sits among the materials`, cls: 'fig--glance', data: { 'data-glance': 'profile' },
       plot: table,
       label: null,
-      read: esc('Typical is the median of its products. The dot places it among every other material\'s typical value, and the band covers the middle half of its products.'),
+      read: esc('Typical is the median of the products compared, and range their lowest to highest. The dot places it among every other material\'s typical value, the band covers the middle half of its products, and the materials with the most products are ticked by name.'),
       counted,
     });
     return { empty: false, html, stats: { figures: 1, keyFigures: known.length } };

@@ -36,7 +36,8 @@ export function dumbbellPanel({ pairs, title, unit, median, head, key }) {
       + `<use href="#${shape}" class="mk mk--xy" x="${pct(X(p.xy.v.value))}" y="${y}"${data(p.xy, flat)}/>`
       + `<use href="#${shape}" class="mk mk--z" x="${pct(X(p.z.v.value))}" y="${y}"${data(p.z, across)}/>`;
   }).join('');
-  const names = rows.map((p) => `<li data-grade="${esc(p.g.id)}"><span class="db-name" title="${esc(p.name)}">${esc(p.name)}</span><span class="db-share">${esc(sharePercent(p.ratio))}</span></li>`).join('');
+  // A Z value above the XY value is marked: unusual for a printed part, so its sheet is worth checking.
+  const names = rows.map((p) => `<li data-grade="${esc(p.g.id)}"><span class="db-name" title="${esc(p.name)}">${esc(p.name)}</span><span class="db-share${p.ratio > 1 ? ' over' : ''}">${esc(sharePercent(p.ratio))}${p.ratio > 1 ? '*' : ''}</span></li>`).join('');
   return `<div class="db" data-pair="${esc(key)}"><div class="db-head"><p class="db-big">${esc(sharePercent(median))}</p><p class="db-what"><b>${esc(title)}</b> ${esc(head)}</p></div>`
     + `<div class="db-body"><ol class="db-names" style="--row:${ROW}px">${names}</ol>`
     + `<div class="db-plot"><svg class="db-svg" height="${h}" aria-hidden="true" focusable="false">${grid}${marks}</svg>${tickSvg(scale, { wide: 260, narrow: 200 })}`

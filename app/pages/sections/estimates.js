@@ -8,7 +8,7 @@ import { fmtNumber, fmtRange, estimateDisplay } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { estimateTitle, ESTIMATE_STRENGTH } from '../../js/ui/labels.js';
 import { productNameOrId } from '../../js/ui/material-facts.js';
-import { plural, andList } from '../../js/ui/material-words.js';
+import { plural, andList, asPublishedWords } from '../../js/ui/material-words.js';
 
 /** What an estimate rests on, a line per piece of evidence: the record's property and value, whose it is, and what it gives here. */
 function evidence(e, d, c) {
@@ -23,9 +23,21 @@ function evidence(e, d, c) {
   }).join('')}</ul>`;
 }
 
+/**
+ * What the products publish of an estimated key property without its basis (materials[].summary[key].asPublished: no
+ * stated orientation or load), said beside the estimate so the two are read together: "On file, not compared: 3 products
+ * give 55 MPa, with no stated orientation."
+ */
+function onFile(h, m) {
+  const a = m.summary?.[h.key]?.asPublished;
+  if (!a?.n) return '';
+  const span = a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`;
+  return `<p class="est-onfile">${esc(`On file, not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${span}, with ${asPublishedWords(h)}.`)}</p>`;
+}
+
 export default {
   id: 'estimates',
-  title: 'Estimated, not measured',
+  title: 'Estimated values',
   render(c) {
     const m = c.m;
     const est = REGISTRY.headlines.filter((h) => { const x = m.headline?.[h.key]; return x && !x.known && x.estimate; });
@@ -46,7 +58,9 @@ export default {
       return `<div class="est" data-estimate="${esc(h.key)}"><h3 class="est-name">${esc(h.labels.plain)}</h3>`
         + `<p class="est-range"><span class="est-num">~${esc(d.lo)}–${esc(d.hi)}</span> <span class="kf-unit">${esc(d.unit)}</span><span class="dagger" aria-label="estimate">†</span></p>`
         + `<p class="est-basis">${esc(`${e.precision} precision, ${basis}.`)}</p>`
-        + `<p>${esc(estimateTitle({ ...e, screenLimit: null }, d))}</p>${evidence(e, d, c)}</div>`;
+        + onFile(h, m)
+        // The selector's sentence, less what an estimate may do there: what it may exclude is the selector's business.
+        + `<p>${esc(estimateTitle({ ...e, screenLimit: null, canScreen: false }, d).replace(/(Precision: \w+), [^.]*requirement[^.]*\./, '$1.'))}</p>${evidence(e, d, c)}</div>`;
     });
     const wins = windows.map(([k, label]) => {
       const w = m.print[k];

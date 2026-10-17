@@ -8,7 +8,7 @@ import { esc, recordsHref, tableBox, count } from '../html.js';
 import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
 import { propertyName, whyWords, coverageStatusWords } from '../../js/ui/labels.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { emptyReasons, measuredIn, dotMarks, spreadEntries, productNameOrId, GAP_STATUS } from '../../js/ui/material-facts.js';
+import { emptyReasons, measuredIn, dotMarks, spreadEntries, productNameOrId, outOfMedian, GAP_STATUS } from '../../js/ui/material-facts.js';
 import {
   plural, lower, andList, asPublishedWords, filledWords, apartWords, medianRule, noMedianWhy, toughenedSplit,
   TOUGHENED_NOTE_SHORT, silentRowsWords, pairWords, joinedSpan,
@@ -19,7 +19,8 @@ import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
 import { axisRow } from '../charts/axis.js';
 import { keyMark, keyBand, keyMedian, keyList } from '../charts/marks.js';
 import { scatterPlot } from '../charts/scatter.js';
-import { figure, aboutLine, figId } from '../charts/figure.js';
+import { figure, aboutLine, figId, howCounted } from '../charts/figure.js';
+import { spanText } from '../numbers.js';
 import { toHash, newScenario } from '../../js/engine/scenario.js';
 
 /** The selector with this material's drawer open, as a link the engine's own scenario hash writes (null without a selector). */
@@ -42,7 +43,7 @@ export const notesHtml = (lines) => lines.filter(Boolean).map((t) => `<p>${esc(t
  * (ASTM D648) is not a record.
  */
 const RECORD_NAME = /(?<!ASTM )\b(?:V\d{6}|G\d{3}-(?:\d{2}|R\d+)(?:-R\d+)?|M\d{3}|P\d{4}|Q\d{5}|C\d{5}|CA\d{4}|P[BC]\d{5}|m\d{2,3}|R\d{3}|D\d{2,3}|[A-Z][A-Z0-9]{0,2}-[A-Za-z0-9]+-[A-Za-z0-9-]+)\b/;
-const PROJECT_WORDS = /\b(headlines?|representative grade|workbook|migration|ruling|quarantin\w*|admitted|coverage record)\b/i;
+const PROJECT_WORDS = /\b(headlines?|representative grade|workbook|migration|ruling|quarantin\w*|admitted|coverage record|aggregat\w*|observations?|family-level|screen(?:ed|ing)?|grade-specific|recorded in (?:Properties|Printing|Evidence|Coverage))\b/i;
 /** The stored Bambu Lab statuses INTERFACE's table renames ("Theoretical"), where a note quotes them. */
 const STORED_STATUS = /\b(Theoretical|Official Bambu product|Officially listed family)\b|"Conditional"/;
 export const namesRecords = (text) => RECORD_NAME.test(String(text ?? ''));
@@ -174,11 +175,14 @@ export function comparisonFigure(f, c, tab, no, { title, anchor, read }) {
   const graphs = f.drawnGraphs.map((gr) => {
     const scale = stripScale(gr.dots.map((d) => d.e.v.value), gr.unit);
     const rows = gr.rows.map((h) => {
-      const entries = f.byKey.get(h.key).map((e) => ({ v: e.v, marks: dotMarks(h, e, c), data: dotData(e) }));
+      // The highest and the lowest of the values compared are named on the track.
+      const inMedian = f.byKey.get(h.key).filter((e) => !outOfMedian(h, e, m.summary?.[h.key], c));
+      const ends = inMedian.length > 2 ? [inMedian.reduce((a, b) => (b.v.value < a.v.value ? b : a)), inMedian.reduce((a, b) => (b.v.value > a.v.value ? b : a))] : [];
+      const entries = f.byKey.get(h.key).map((e) => ({ v: e.v, marks: dotMarks(h, e, c), data: dotData(e), callout: ends.includes(e) ? productNameOrId(e.g) : null }));
       dots += entries.length;
       return dotRow({
         data: { 'data-headline': h.key, 'data-unit': h.unit, 'data-open': asPublishedWords(h) },
-        label: h.labels.plain, sub: plural(entries.length, 'product'),
+        label: h.labels.plain, sub: `${entries.length} shown, ${m.summary?.[h.key]?.n ?? 0} compared`,
         track: dotTrack({ entries, scale, summary: m.summary?.[h.key] }),
       });
     });
@@ -222,6 +226,15 @@ export function pairScatter(c, pair, no, { title } = {}) {
       data: { 'data-grade': e.g.id, 'data-v': `${fmtBounded(e.v.value, hx.unit, e.v.interval)}, ${fmtBounded(f.v.value, hy.unit, f.v.interval)}` } };
   });
   if (points.length < 2) return null;
+  // Named on the plot: the most of the vertical property per unit of the horizontal one, and the highest of it, among
+  // the products not set apart (a price axis: the most strength per CAD).
+  const plain = points.filter((p) => !p.marks.includes('variant') && !p.marks.includes('open') && p.x > 0);
+  if (plain.length > 2) {
+    const best = plain.reduce((a, b) => (b.y / b.x > a.y / a.x ? b : a));
+    const top = plain.reduce((a, b) => (b.y > a.y ? b : a));
+    best.label = productNameOrId(best.g);
+    if (top !== best) top.label = productNameOrId(top.g);
+  }
   const only = new Set([...ex.map((e) => e.g.id), ...ey.keys()]).size - points.length;
   const xs = stripScale(points.map((p) => p.x), hx.unit), ys = stripScale(points.map((p) => p.y), hy.unit);
   const marks = new Set(points.flatMap((p) => p.marks));
@@ -257,20 +270,35 @@ export function pairScatter(c, pair, no, { title } = {}) {
  */
 export function otherProperties(c, tab, covered, anchor, { title = 'Other properties on file' } = {}) {
   const mi = measuredIn(c, tab);
-  const props = mi.shown.filter((p) => !covered.has(p));
+  // A key property a figure or a finding gives on its compared basis is not listed again on another basis.
+  const keyProps = new Set(REGISTRY.allHeadlines.flatMap((h) => h.valueProperties));
+  const props = mi.shown.filter((p) => !covered.has(p) && !keyProps.has(p));
   const list = props.map((p) => {
     const xs = mi.rows.filter((x) => x.property === p);
     const numeric = xs.filter((x) => x.numeric && !x.quarantined && !x.implausible);
     const units = [...new Set(numeric.map((x) => x.unit))];
-    const spans = units.map((u) => { const vs = numeric.filter((x) => x.unit === u).map((x) => x.value); return `${joinedSpan({ min: Math.min(...vs), max: Math.max(...vs) })}${u && u !== 'Dimensionless' ? ` ${u}` : ''}`; });
+    const spans = units.map((u) => { const vs = numeric.filter((x) => x.unit === u).map((x) => x.value); return `${spanText(Math.min(...vs), Math.max(...vs))}${u && u !== 'Dimensionless' ? ` ${u}` : ''}`; });
     return { property: p, label: propertyName(p), values: xs.length, products: new Set(xs.map((x) => x.gradeId)).size, spans };
   });
   const table = list.length
-    ? `<h3 class="sub-title">${esc(title)}</h3>${tableBox(`<table class="grid props"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Products</th><th scope="col" class="num">Lowest–highest, as published</th></tr></thead><tbody>${list.map((o) => `<tr><th scope="row">${esc(o.label)}</th><td class="num">${o.products}</td><td class="num spans">${o.spans.length ? o.spans.map(esc).join('<br>') : '—'}</td></tr>`).join('')}</tbody></table>`)}`
-      + `<p class="note">Each value is as its sheet publishes it, under its own test conditions, so these are not compared. ${recordsLink(c, anchor, 'Every value, with its conditions and document')}.</p>`
+    ? `<h3 class="sub-title">${esc(title)}</h3>${tableBox(`<table class="grid props"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th><th scope="col" class="num">Lowest–highest, as published</th></tr></thead><tbody>${list.map((o) => `<tr><th scope="row">${esc(o.label)}</th><td class="num vals">${o.values}</td><td class="num">${o.products}</td><td class="num spans">${o.spans.length ? o.spans.map(esc).join('<br>') : '—'}</td></tr>`).join('')}</tbody></table>`)}`
     : '';
-  const named = mi.named.length ? `<p class="note">Named on a data sheet without a value: ${esc(andList([...new Map(mi.named.map((x) => [`${x.property}|${x.gradeId}`, `${inText(propertyName(x.property))} (${productNameOrId(c.gradeById.get(x.gradeId) ?? { id: 'a product' })})`])).values()]))}.</p>` : '';
-  const absent = mi.absent.length ? `<p class="note absent"><b>Not published for this material:</b> ${esc(mi.absent.map(propertyName).join(', '))}. A gap, not a zero or a low value.</p>` : '';
+  // A product names a property without a value only where it has none of that property at all: not on its own sheet,
+  // and not as a value a shared sheet gives it (grades[].headline).
+  const hasValue = (x) => c.ms.some((y) => y.gradeId === x.gradeId && y.property === x.property && y.numeric)
+    || Object.entries(c.gradeById.get(x.gradeId)?.headline ?? {}).some(([k, v]) => v && REGISTRY.allHeadlines.find((h) => h.key === k)?.valueProperties.includes(x.property));
+  const namedOnly = mi.named.filter((x) => !hasValue(x));
+  const named = namedOnly.length ? `Named on a data sheet without a value: ${andList([...new Map(namedOnly.map((x) => [`${x.property}|${x.gradeId}`, `${inText(propertyName(x.property))} (${productNameOrId(c.gradeById.get(x.gradeId) ?? { id: 'a product' })})`])).values()])}.` : '';
+  // The key properties of this domain no record names at all: a gap, said in "How this is counted", never padded with
+  // properties that only some materials have.
+  const inTab = new Set(mi.properties);
+  const absentKeys = REGISTRY.allHeadlines.filter((h) => h.valueProperties.some((p) => inTab.has(p)) && !c.m.headline?.[h.key]?.notApplicable
+    && !c.ms.some((x) => [...h.valueProperties, ...h.relatedProperties].includes(x.property)));
+  const absent = absentKeys.length ? `Key properties no product publishes: ${andList(absentKeys.map((h) => h.labels.plain))}. A gap, not a zero or a low value.` : '';
+  const counted = table || named || absent ? howCounted(notesHtml([
+    list.length ? 'Each value is as its sheet publishes it, under its own test conditions, so these are not compared. Values counts the published values; Products, the products whose own sheet gives one.' : null,
+    named, absent,
+  ]) + (list.length ? `<p>${recordsLink(c, anchor, 'Every value, with its conditions and document, on the records page')}.</p>` : '')) : '';
   const gaps = mi.gaps.length ? `<h3 class="sub-title">Known gaps</h3>${gapList(c, mi.gaps)}` : '';
-  return { html: `${table}${named}${absent}${gaps}`, properties: props.length, list };
+  return { html: `${table}${counted}${gaps}`, properties: props.length, list };
 }

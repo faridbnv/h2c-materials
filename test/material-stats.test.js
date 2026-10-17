@@ -12,7 +12,7 @@ import { indexDb, materialContext, rankTable, rankOf, comparisonsOf, shareOf, is
 import { printSpread } from '../app/js/ui/print-spread.js';
 import { pageOf } from '../app/js/ui/page-rule.js';
 import {
-  percentileAmong, propertyProfile, materialMap, layerPairs, printWindows, acceptedAt, dryingStats, heatLadder, summarise,
+  percentileAmong, propertyProfile, materialMap, landmarkMaterials, layerPairs, printWindows, acceptedAt, dryingStats, dryingAdvice, heatLadder, summarise,
 } from '../app/js/ui/material-stats.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -77,18 +77,29 @@ test('layerPairs gives shareOf\'s shares, product by product, for every pair of 
   assert.ok(pairs > 100, `${pairs} products with both orientations`);
 });
 
-test('materialMap places every material with both medians, and names the eight with most products and the base polymer', () => {
+test('materialMap places every material with both medians, zooms on its neighbourhood and names the nearest', () => {
   for (const m of PAGED.slice(0, 30)) {
-    const map = materialMap(db, ranks, 'tensileModulusXY', 'tensileStrengthXY', m.id);
+    if (!m.headline?.tensileModulusXY?.known || !m.headline?.tensileStrengthXY?.known) continue;
+    const include = [{ x: m.summary.tensileModulusXY.min, y: m.summary.tensileStrengthXY.min }];
+    const map = materialMap(db, ranks, 'tensileModulusXY', 'tensileStrengthXY', m.id, { include });
     const both = ranks.tensileModulusXY.entries.filter((e) => ranks.tensileStrengthXY.entries.some((f) => f.id === e.id));
     assert.equal(map.points.length, both.length, `${m.id}: every material with both`);
-    assert.ok(!map.landmarks.includes(m.id), `${m.id}: never named as a landmark itself`);
-    const others = map.points.filter((p) => !p.self).sort((a, b) => b.products - a.products || a.name.localeCompare(b.name));
-    assert.deepEqual(map.landmarks.slice(0, 8), others.slice(0, 8).map((p) => p.id), `${m.id}: the eight with the most products`);
-    const base = others.find((p) => db.materials.find((x) => x.id === p.id).name === m.basePolymer);
-    if (base) assert.ok(map.landmarks.includes(base.id), `${m.id}: its base polymer ${base.name} is named`);
-    assert.ok(map.landmarks.length <= 9);
+    assert.ok(!map.landmarks.includes(m.id) && !map.nearest.includes(m.id), `${m.id}: never named as a landmark itself`);
+    // Nearest first, in the map's own space; the landmarks are the nearest that lie in the window, in that order.
+    const self = map.points.find((p) => p.self);
+    const t = (v, log) => (log ? Math.log10(v) : v / 100);
+    const d = (id) => { const p = map.points.find((x) => x.id === id); return Math.hypot(t(p.x, map.xLog) - t(self.x, map.xLog), t(p.y, map.yLog) - t(self.y, map.yLog)); };
+    for (let i = 1; i < map.nearest.length; i++) assert.ok(d(map.nearest[i - 1]) <= d(map.nearest[i]) + 1e-12, `${m.id}: nearest in order`);
+    const inside = (p) => p.x >= map.window.x[0] && p.x <= map.window.x[1] && p.y >= map.window.y[0] && p.y <= map.window.y[1];
+    assert.deepEqual(map.landmarks, map.nearest.filter((id) => inside(map.points.find((p) => p.id === id))).slice(0, 7), `${m.id}: the nearest in view`);
+    assert.ok(inside(self) && include.every(inside), `${m.id}: the window holds the material and what it was asked to`);
   }
+});
+
+test('landmarkMaterials are the materials with the most products, never the one asked about', () => {
+  const l = landmarkMaterials(db, 3, 'M001');
+  const sorted = db.materials.filter((m) => !m.familyEntry && m.id !== 'M001').sort((a, b) => b.gradeIds.length - a.gradeIds.length || a.name.localeCompare(b.name));
+  assert.deepEqual(l.map((x) => x.id), sorted.slice(0, 3).map((m) => m.id));
 });
 
 test('printWindows counts each degree the counted windows include, and its spans hold what they say', () => {
@@ -107,6 +118,8 @@ test('printWindows counts each degree the counted windows include, and its spans
       const a = spread.find((x) => x.axis === axis);
       assert.equal(pw.windows.length + pw.oneEnd, a.rows[0].entries.length + a.oneEnd.high, `${m.id} ${axis}: windows and one-ended ones`);
       assert.equal(pw.oneEnd, a.oneEnd.low + a.oneEnd.high, `${m.id} ${axis}: one-ended windows`);
+      // Where each product with no window had its state read: every one is counted once.
+      for (const [state, k] of pw.states) { const o = pw.stateOrigins.get(state); assert.equal(o.own + o.twin + o.guide, k, `${m.id} ${axis} ${state}`); }
       if (!pw.n) { assert.equal(pw.peak, null); continue; }
       for (const t of [pw.runs[0].from, pw.peak.from, pw.runs.at(-1).to]) {
         assert.equal(acceptedAt(pw, t), counted.filter((w) => w.min <= t && t <= w.max).length, `${m.id} ${axis} at ${t}`);
@@ -115,6 +128,9 @@ test('printWindows counts each degree the counted windows include, and its spans
       if (pw.most) for (let t = pw.most.from; t <= pw.most.to; t++) assert.ok(acceptedAt(pw, t) > pw.n / 2, `${m.id} ${axis}: ${t} in the most span`);
       if (pw.every) for (let t = pw.every.from; t <= pw.every.to; t++) assert.equal(acceptedAt(pw, t), pw.n, `${m.id} ${axis}: ${t} in every window`);
     }
+    const adv = dryingAdvice(products);
+    assert.equal(adv.own + adv.twin + adv.guide, adv.have, `${m.id}: drying advice by where it was read`);
+    assert.equal(adv.have + adv.none, products.length, `${m.id}: every product counted once`);
     const d = dryingStats(products);
     assert.deepEqual(d.temps, spread.find((x) => x.axis === 'drying').rows[0].summary, `${m.id}: drying as print-spread summarises it`);
   }

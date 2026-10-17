@@ -19,6 +19,24 @@ export function fractionWords(r) {
 /** A property's name inside a sentence: lower case, unless it begins with a name (Vicat, Charpy, Izod, Shore) or an abbreviation. */
 export const inText = (label) => (/^(?:Vicat|Charpy|Izod|Shore|Rockwell|Barcol)\b/.test(label) ? label : lower(label));
 
+/**
+ * Where a count was read, in the words every section uses: "from their own sheet", "from a sheet they share", "from
+ * Bambu Lab's guide". `o` is { own, twin, guide }; `n` the total. One source says so once; several are listed.
+ */
+export function basisWords(o, n) {
+  const parts = [[o.own, 'from their own sheet'], [o.twin, 'from a sheet they share'], [o.guide, 'from Bambu Lab\'s guide']].filter(([k]) => k);
+  if (!parts.length) return '';
+  if (parts.length === 1) return parts[0][0] === n ? (n === 1 ? parts[0][1].replace('their', 'its').replace('they share', 'it shares') : `all ${parts[0][1]}`) : `${parts[0][0]} ${parts[0][1]}`;
+  return andList(parts.map(([k, w]) => `${k} ${w}`));
+}
+/** The basis as a sentence's tail: ", 27 from their own sheet and 27 from Bambu Lab's guide", or ", all from their own sheet". */
+const basisTail = (o, n) => {
+  const single = [['own', 'by their own sheets'], ['twin', 'by a sheet they share'], ['guide', 'by Bambu Lab\'s guide']].find(([k]) => o[k] === n && n);
+  if (single) return `, ${n === 1 ? single[1].replace('their own sheets', 'its own sheet').replace('they share', 'it shares') : single[1]}`;
+  const w = basisWords(o, n);
+  return w ? `: ${w}` : '';
+};
+
 /** A share as a whole per cent. */
 const pc = (r) => `${Math.round(r * 100)} %`;
 
@@ -76,7 +94,7 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
   const out = [];
   const n = windowPhrase(nozzle), b = windowPhrase(bed);
   const on = (p, where) => `${p.text} on the ${where}`;
-  if (n && b && n.q && n.q === b.q && n.q !== 'one') out.push(`${cap(n.q)} accept ${on(n, 'nozzle')} and ${on(b, 'bed')}.`);
+  if (n && b && n.q && n.q === b.q && n.q !== 'one') out.push(`By their own or a shared sheet, ${n.q} accept ${on(n, 'nozzle')} and ${on(b, 'bed')}.`);
   else {
     for (const [p, where] of [[n, 'nozzle'], [b, 'bed']]) {
       if (!p) continue;
@@ -88,7 +106,7 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
           highs.length ? `${highs.length === 1 ? 'one gives' : `${highs.length} give`} only a highest, ${span1(highs)}` : null].filter(Boolean);
         out.push(`One product gives a ${where} window, ${p.text}${ends.length ? `, and ${andList(ends)}` : ''}.`);
       }
-      else if (p.q) out.push(`${cap(p.q)} accept ${on(p, where)}.`);
+      else if (p.q) out.push(`By their own or a shared sheet, ${p.q} accept ${on(p, where)}.`);
       else out.push(`No ${where} temperature suits more than half the products: at most ${p.text}.`);
     }
   }
@@ -99,24 +117,25 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
       : `${a.list.length === products ? `All ${products} products ask` : `${a.list.length} of ${plural(products, 'product')} ask`} for more ${a.axis} heat than the H2C's ${fmtNumber(a.limit)} °C`));
     out.push(`${said.join(', and ')}.`);
   }
-  // The heated chamber: how many need none, and what those that give one ask for.
+  // The heated chamber: how many need none, by where that was read, and what those whose sheets give one ask for.
   const none = (chamber?.states.get('not-required') ?? 0) + (chamber?.states.get('ambient') ?? 0);
-  const given = chamber?.windows.length ?? 0;
-  if (chamber && none === products && !given) out.push(`None of its ${plural(products, 'product')} needs a heated chamber.`);
+  const noneFrom = ['not-required', 'ambient'].map((k) => chamber?.stateOrigins.get(k) ?? {}).reduce((a, o) => ({ own: a.own + (o.own ?? 0), twin: a.twin + (o.twin ?? 0), guide: a.guide + (o.guide ?? 0) }), { own: 0, twin: 0, guide: 0 });
+  const given = chamber?.n ?? 0;
+  if (chamber && none === products && !given) out.push(`None of its ${plural(products, 'product')} needs a heated chamber${basisTail(noneFrom, none)}.`);
   else if (chamber && (none || given)) {
-    const ask = given ? (chamber.most && chamber.n > 1 ? `mostly ${span(chamber.most)}` : chamber.n === 1 ? `${windowText(chamber.windows[0].min, chamber.windows[0].max)} °C` : `${span(chamber.peak)} for ${chamber.peak.k} of them`) : null;
-    if (none) out.push(`${none} of ${plural(products, 'product')} ${none === 1 ? 'needs' : 'need'} no heated chamber.`);
+    if (none) out.push(`${none} of ${plural(products, 'product')} ${none === 1 ? 'needs' : 'need'} no heated chamber${basisTail(noneFrom, none)}.`);
     if (given) {
-      out.push(`${given === 1 ? 'The one that gives a chamber temperature asks for' : `The ${given} that give a chamber temperature ask for`} ${ask}${chamberOutside ? `, and ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
+      const ask = chamber.most && given > 1 ? `mostly ${span(chamber.most)}` : given === 1 ? `${windowText(chamber.windows.find((w) => w.counted).min, chamber.windows.find((w) => w.counted).max)} °C` : `${span(chamber.peak)} for ${chamber.peak.k} of them`;
+      out.push(`${given === 1 ? 'The one whose sheet gives a chamber temperature asks for' : `The ${given} whose sheets give a chamber temperature ask for`} ${ask}${chamberOutside ? `, and ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
     }
   }
   // A hardened nozzle, said only where some product needs one.
   if (hard?.need) out.push(hard.need === hard.total ? `${hard.total === 1 ? 'Its product needs' : `All ${hard.total} products need`} a hardened nozzle.` : `${hard.need} of ${hard.total} products need a hardened nozzle.`);
   else if (abrasive === 'requires-hardened') out.push('Its filler calls for a hardened nozzle.');
-  // Drying.
+  // Drying: the typical schedule of the products whose own or shared sheet gives one.
   const t = drying?.temps, h = drying?.hours;
-  if (t?.n > 1) out.push(`Products that give a drying schedule typically dry at ${fmtNumber(t.median)} °C${h?.n ? ` for ${fmtNumber(h.median)} h` : ''}.`);
-  else if (t?.n === 1) out.push(`One product gives a drying schedule: ${fmtNumber(t.median)} °C${h?.n ? ` for ${fmtNumber(h.median)} h` : ''}.`);
+  if (t?.n > 1) out.push(`Products whose own or shared sheet gives a drying schedule typically dry at ${fmtNumber(t.median)} °C${h?.n ? ` for ${fmtNumber(h.median)} h` : ''}.`);
+  else if (t?.n === 1) out.push(`One product's sheet gives a drying schedule: ${fmtNumber(t.median)} °C${h?.n ? ` for ${fmtNumber(h.median)} h` : ''}.`);
   else if (dryingGate === 'not-needed') out.push('Its sources say drying is not needed.');
   return out.slice(0, 4);
 }
@@ -139,9 +158,9 @@ export function strengthFindings(m, { shares, hs }) {
     const h = hs.find((x) => x.key === 'tensileStrengthXY');
     const said = [['tensileStrengthXY', 'a tensile strength', 'MPa'], ['tensileModulusXY', 'a modulus', 'GPa'], ['elongationXY', 'an elongation at break', '%']]
       .map(([k, words, unit]) => [s(k)?.n ? null : s(k)?.asPublished, words, unit]).filter(([a]) => a?.n)
-      .map(([a, words, unit]) => `${words} of ${a.min === a.max ? fmtNumber(a.min, unit) : `${fmtNumber(a.min)} to ${fmtNumber(a.max, unit)}`}`);
+      .map(([a, words, unit], i) => `${i ? a.n : plural(a.n, 'product')} ${i ? '' : a.n === 1 ? 'gives ' : 'give '}${words} of ${a.min === a.max ? fmtNumber(a.min, unit) : `${fmtNumber(a.min)} to ${fmtNumber(a.max, unit)}`}`);
     out.push(`No product states ${h ? asPublishedWords(h).replace(/^no stated /, 'the ') : 'the orientation'} of its tensile bars, so none is compared.`);
-    out.push(`As published, they give ${andList(said)}.`);
+    out.push(`As published, ${andList(said)}.`);
   }
   const strength = shares.find((x) => x.key === 'tensileStrengthXY');
   if (strength?.n > 1) {
@@ -169,15 +188,14 @@ export function strengthFindings(m, { shares, hs }) {
 export function heatFindings(rows) {
   const out = [];
   const typical = (r) => fmtNumber(r.summary.median, '°C');
-  const hdt = rows.filter((r) => r.h?.loadMPa != null).sort((a, b) => b.h.loadMPa - a.h.loadMPa);
-  if (hdt.length) {
-    const one = hdt.every((r) => r.summary.n === 1);
-    const same = hdt.length > 1 && hdt.every((r) => r.summary.median === hdt[0].summary.median);
-    out.push(same ? `Typical HDT is ${typical(hdt[0])} at both ${andList(hdt.map((r) => `${fmtNumber(r.h.loadMPa)}`).reverse())} MPa.`
-      : `${one ? 'One product gives an HDT of' : 'Typical HDT is'} ${andList(hdt.map((r) => `${typical(r)} at ${fmtNumber(r.h.loadMPa)} MPa`))}.`);
-  }
+  const across = (r, first) => (r.summary.n === 1 ? 'from one product' : `across ${first ? plural(r.summary.n, 'product') : fmtNumber(r.summary.n)}`);
+  // HDT at each load, lightest first, with how many products each rests on, and the glass transition beside them.
+  const hdt = rows.filter((r) => r.h?.loadMPa != null).sort((a, b) => a.h.loadMPa - b.h.loadMPa);
   const tg = rows.find((r) => r.h && r.h.loadMPa == null);
-  if (tg) out.push(tg.summary.n === 1 ? `One product gives a glass transition of ${typical(tg)}.` : `The glass transition is typically ${typical(tg)}.`);
+  if (hdt.length) {
+    const many = hdt.some((r) => r.summary.n > 1);
+    out.push(`HDT is ${many ? 'typically ' : ''}${andList(hdt.map((r, i) => `${typical(r)} at ${fmtNumber(r.h.loadMPa)} MPa ${across(r, !i)}`))}${tg ? `, with the glass transition at ${typical(tg)} ${across(tg, false)}` : ''}.`);
+  } else if (tg) out.push(tg.summary.n === 1 ? `One product gives a glass transition of ${typical(tg)}.` : `The glass transition is typically ${typical(tg)}, across ${plural(tg.summary.n, 'product')}.`);
   const pub = rows.filter((r) => !r.compared);
   if (pub.length) {
     const say = (r, i) => `${inText(r.label)} ${r.summary.n === 1 ? `is ${typical(r)}, from one product` : `${i ? '' : 'is '}typically ${typical(r)}`}`;
@@ -192,7 +210,8 @@ export function heatFindings(rows) {
 export function physicalFindings(m, others) {
   const out = [];
   const d = m.summary?.density;
-  if (d?.n) out.push(`Density is typically ${fmtNumber(d.median, 'kg/m³')}, from ${plural(d.n, 'product')}.`);
+  if (d?.n) out.push(d.n === 1 ? `One product gives a density of ${fmtNumber(d.median, 'kg/m³')}.`
+    : `Density is typically ${fmtNumber(d.median, 'kg/m³')}, the median of ${plural(d.n, 'product')}${d.twins ? `, ${d.twins === 1 ? 'one of them from a sheet it shares' : `${d.twins} of them from a sheet they share`}` : ''}.`);
   const named = others.filter((o) => o.property !== 'Density').sort((a, b) => b.products - a.products).slice(0, 3);
   if (named.length) out.push(`${cap(andList(named.map((o) => lower(o.label))))} ${named.length === 1 ? 'is' : 'are'} published too, each under its own sheet's test conditions.`);
   return out;
@@ -218,29 +237,28 @@ export function environmentFindings(f, polymer) {
   // resistance, say not resistant".
   const verdicts = [...new Set(said.map((x) => x.v))];
   const clauses = verdicts.map((v) => { const xs = said.filter((x) => x.v === v); return `${xs.length > 1 ? `${xs.slice(0, -1).map((x) => x.text).join(', ')}, and ${xs.at(-1).text},` : xs[0].text} say ${envVerdictWords(v)}`; });
-  if (clauses.length) out.push(`${cap(andList(clauses))}.`);
+  for (const x of clauses.slice(0, 2)) out.push(`${cap(x)}.`);
   if (f.rows.length) out.push('Makers rarely give the concentration, temperature or duration, so these are indications, not design data.');
   if (f.polymer.length) out.push(`${f.rows.length ? 'Where no document tests these products' : 'No document tests these products here'}, reference data for plain ${polymer} resin is shown apart. It never stands for the products.`);
   return out;
 }
 
-/** What makers say: how many products have statements, and the topics most makers speak to. */
-export function makersFindings(f) {
-  const out = [`${f.collected} of ${plural(f.total, 'product')} have statements from their makers beyond the numbers.`];
-  const top = f.topics.filter((t) => t.stated && t.makers > 1).sort((a, b) => b.makers - a.makers).slice(0, 3);
-  if (top.length > 1) out.push(`The topics most makers speak to are ${andList(top.map((t) => lower(t.topic)))}: ${andList(top.map((t) => fmtNumber(t.makers)))} makers.`);
-  else if (top.length) out.push(`The topic most makers speak to is ${lower(top[0].topic)}: ${top[0].makers} makers.`);
-  out.push('These are their own words, not test results.');
+/** What makers say: how many products have statements, and the engineering topics most makers speak to. */
+export function makersFindings(f, open) {
+  const out = [`${f.collected} of ${plural(f.total, 'product')} have statements from their makers beyond the numbers, in the makers' own words, not test results.`];
+  const top = [...open].filter((t) => t.makers > 1).sort((a, b) => b.makers - a.makers).slice(0, 3);
+  if (top.length > 1) out.push(`On how it prints and behaves, most makers speak to ${andList(top.map((t) => lower(t.topic)))}: ${andList(top.map((t) => fmtNumber(t.makers)))} makers.`);
+  else if (top.length) out.push(`On how it prints and behaves, most makers speak to ${lower(top[0].topic)}: ${top[0].makers} makers.`);
   return out;
 }
 
 /** Price: the typical price per kilogram, its middle half, and how many products have one. */
-export function priceFindings(s, priced, products, converted) {
+export function priceFindings(s, priced, products, converted, apart = 0) {
   const out = [];
-  if (s?.n) {
-    out.push(`${s.n === 1 ? 'One product has a price' : `Typically ${fmtNumber(s.median, 'CAD/kg')}`}${s.n === 1 ? `: ${fmtNumber(s.median, 'CAD/kg')}` : ''}${s.q1 != null ? `, with the middle half of products at ${fmtNumber(s.q1)}–${fmtNumber(s.q3, 'CAD/kg')}` : ''}.`);
-  }
-  out.push(`${priced} of ${plural(products, 'product')} ${priced === 1 ? 'has' : 'have'} a regular price in the sample, never a sale price.`);
+  if (s?.n > 1) {
+    out.push(`Typically ${fmtNumber(s.median, 'CAD/kg')}, the median of ${plural(s.n, 'product')}${s.q1 != null ? `, with the middle half at ${fmtNumber(s.q1)}–${fmtNumber(s.q3, 'CAD/kg')}` : ''}.`);
+    out.push(`${priced} of ${plural(products, 'product')} ${priced === 1 ? 'has' : 'have'} a regular price in the sample, never a sale price${apart ? `; ${apart === 1 ? 'one is a special formulation' : `${apart} are special formulations`}, set apart from the median` : ''}.`);
+  } else if (s?.n === 1) out.push(`One of its ${plural(products, 'product')} has a regular price in the sample: ${fmtNumber(s.median, 'CAD/kg')}.`);
   if (converted) out.push(converted);
   return out;
 }

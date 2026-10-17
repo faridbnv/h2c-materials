@@ -136,8 +136,22 @@ main { min-width: 0; }
 .count dt { font-size: var(--t-small); color: var(--ink-2); margin-top: .15rem; }
 .count dt a { color: inherit; text-decoration: none; }
 .count dt a:hover { color: var(--accent); text-decoration: underline; }
-.mast-facts { display: flex; flex-wrap: wrap; gap: .75rem 2.25rem; margin: 1.4rem 0 0; }
+/* The first screen's numbers: each key value with what it rests on, four to a row, two on a phone. */
+.mast-numbers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; margin: 1.6rem 0 0; padding: 1rem 0 0; border-top: 1px solid var(--ink); }
+@media (min-width: 720px) { .mast-numbers { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem 2rem; } }
+.kn { margin: 0; min-width: 0; }
+.kn dt { font-size: .875rem; line-height: 1.3; color: var(--ink-2); }
+.kn dd { margin: .2rem 0 0; font-size: 1rem; line-height: 1.2; }
+.kn dd b { font: 600 1.5rem/1.1 var(--f-sans); letter-spacing: -.015em; }
+@media (min-width: 720px) { .kn dd b { font-size: 1.75rem; } }
+.kn dd .u { color: var(--ink-2); font-size: .9375rem; }
+.kn dd small { display: block; margin-top: .2rem; font-size: .8125rem; color: var(--ink-2); }
+.kn-none { font-size: 1rem; color: var(--ink-2); }
+.inventory { display: flex; flex-wrap: wrap; gap: 1rem 3rem; margin: 0 0 1.75rem; }
+.inventory .count dd { font-size: 1.5rem; }
+.mast-facts { display: flex; flex-wrap: wrap; gap: .75rem 2.25rem; margin: 1.2rem 0 0; }
 .mast-facts div { display: flex; flex-direction: column; min-width: 0; }
+@media (max-width: 719px) { .mast-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.25rem; } .mast-facts .chip { border-radius: 8px; line-height: 1.4; padding: .1rem .55rem; } }
 .mast-facts dt { font-size: .875rem; color: var(--ink-2); }
 .mast-facts dd { margin: 0; font-size: 1rem; }
 .chip { display: inline-block; border: 1px solid var(--border-strong); border-radius: 999px; padding: 0 .65rem; font-size: .875rem; line-height: 1.65; color: var(--ink-2); background: var(--surface); }
@@ -212,7 +226,7 @@ q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 .fig-axis .fig-label small { display: inline; margin-left: .35rem; }
 @media (min-width: 720px) { .fig-axis .fig-label { order: 0; } .fig-axis .fig-label small { display: block; margin: 0; } }
 .fig-track, .fig-ticks { display: block; width: 100%; overflow: visible; }
-.grid { stroke: var(--border); stroke-width: 1; }
+line.grid { stroke: var(--border); stroke-width: 1; }
 .fig-track .base, .axis-line, .base { stroke: var(--border-strong); stroke-width: 1; }
 .fig-ticks line, .ctx-ticks line { stroke: var(--border-strong); }
 .fig-ticks text, .ctx-ticks text, .sc-labels text { font-family: var(--f-sans); font-size: 12px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
@@ -220,13 +234,15 @@ q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 .median { stroke: var(--ink-2); stroke-width: 2; }
 .limit { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
 .limit-label { font: 500 12px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.callout { font: 500 12px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.callout-line { stroke: var(--ink-3); stroke-width: 1; }
 .diagonal { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
 .key-mk .band { fill: var(--accent-soft); stroke: var(--border); }
 .mk { fill: var(--accent); stroke: var(--accent); stroke-width: 1.5; }
-.mk--open { fill: var(--surface); }
+.mk--open { fill: var(--surface); stroke-width: 2.25; }
 .mk--variant { fill: var(--surface); stroke: var(--ink-3); }
 .mk--claimed { fill: var(--claim); stroke: var(--claim); }
-.mk--claimed.mk--open { fill: var(--surface); }
+.mk--claimed.mk--open { fill: var(--surface); stroke-width: 2.25; }
 .fig-plot .mk, .fig-plot .wb { cursor: pointer; transition: fill .12s ease, stroke .12s ease; }
 /* While a product is lit, the others turn one solid pale tone, never a transparency: a stack of faded marks that
    overlap would add up to a dark one and read as lit. */
@@ -267,6 +283,9 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .pq--mid { stroke: var(--ink-3); }
 .pband { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); }
 .pdot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+.plm { stroke: var(--ink-2); stroke-width: 1.25; }
+.pend, .plm-name { font: 400 12px var(--f-sans); fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.plm-name { fill: var(--ink); }
 /* On a phone, each property is a small card: its name and typical value, its place, then its range and count. */
 @media (max-width: 719px) {
   table.glance, table.glance tbody, table.glance tr, table.glance td, table.glance th { display: block; }
@@ -279,7 +298,7 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
   table.glance tr.kf > .rng { grid-area: rng; text-align: left; padding: 0; font-size: .875rem; }
   table.glance tr.kf > .rng::before { content: "Range "; color: var(--ink-2); }
   table.glance tr.kf > td.num:not(.typ):not(.rng) { grid-area: n; font-size: .875rem; color: var(--ink-2); }
-  table.glance tr.kf > td.num:not(.typ):not(.rng)::after { content: " products"; }
+  table.glance tr.kf > td.num:not(.typ):not(.rng)::after { content: " products compared"; }
   table.glance tr.kf--none { grid-template-areas: "name name" "typ typ"; }
   table.glance tr.kf--none > td.none { grid-area: typ; padding: .2rem 0 0; }
   table.glance tr.kf--none > td.prof { display: none; }
@@ -296,7 +315,7 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .mself { font: 650 13px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .leader line { stroke: var(--ink-3); stroke-width: 1; }
 @media (max-width: 719px) { svg.leader.alt { display: none; } }
-.mbox { fill: color-mix(in srgb, var(--accent) 12%, transparent); stroke: var(--accent); stroke-width: 1; }
+.mbox { fill: color-mix(in srgb, var(--accent) 20%, transparent); stroke: var(--accent); stroke-width: 1.75; }
 .mmed { stroke: var(--accent); stroke-width: 1.5; }
 .sc--map .mk { stroke: var(--bg); stroke-width: 1.5; }
 .sc--map .mk.lit { stroke: var(--ink); }
@@ -314,8 +333,8 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .agree { fill: var(--agree); }
 .peak { font: 600 12.5px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .wb { stroke: var(--accent); stroke-linecap: butt; shape-rendering: crispEdges; }
-.wb--guide { stroke: var(--ctx-strong); }
-.wb--variant { stroke: var(--ctx); }
+.wb--guide { stroke: var(--ctx-strong); stroke-dasharray: 5 3; }
+.wb--variant { stroke: var(--ctx); opacity: .75; }
 .pw-unit, .db-unit, .ladder-unit { margin: .1rem 0 0; font-size: .875rem; color: var(--ink-2); }
 .pw-dry { margin-top: 1.75rem; }
 
@@ -336,6 +355,7 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .db-names li { display: flex; justify-content: space-between; gap: .5rem; height: var(--row, 18px); line-height: var(--row, 18px); font-size: 12.5px; color: var(--ink-2); }
 .db-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .db-share { font-variant-numeric: tabular-nums; color: var(--ink); flex: none; }
+.db-share.over { font-weight: 700; }
 .db-names li.lit { color: var(--ink); font-weight: 600; }
 .db-svg { display: block; width: 100%; overflow: visible; }
 .db-line { stroke: var(--border-strong); stroke-width: 2; }
@@ -469,6 +489,13 @@ table.products td { white-space: nowrap; }
 .cond { font-size: .875rem; color: var(--ink-2); }
 .src { display: block; margin-top: .15rem; font-size: .875rem; color: var(--ink-2); }
 .more { font-size: .875rem; color: var(--ink-2); margin: 0; }
+.env-cat h4 small, .topic h4 small { font-weight: 400; color: var(--ink-2); margin-left: .35rem; }
+.quotes-shut { display: grid; gap: .3rem; margin-top: 1.25rem; }
+.topic-more > summary { cursor: pointer; font-weight: 600; font-size: 1rem; width: fit-content; }
+.topic-more > summary small { font-weight: 400; color: var(--ink-2); margin-left: .35rem; }
+.topic-more ul { list-style: none; margin: .5rem 0 .75rem; padding: 0; }
+.topic-more li { margin: 0 0 .6rem; padding-left: .85rem; border-left: 2px solid var(--border); }
+.topic-more q { font-family: var(--f-serif); font-size: 1.0625rem; line-height: 1.45; }
 .quotes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 23rem), 1fr)); gap: 1.4rem 2.5rem; margin-top: .5rem; }
 .guide { margin-top: 1.5rem; }
 .guide > .note { margin-bottom: .8rem; }
@@ -485,6 +512,7 @@ table.products td { white-space: nowrap; }
 .kf-unit { font: 500 1rem/1 var(--f-sans); color: var(--ink-2); letter-spacing: 0; }
 .dagger { align-self: flex-start; font-size: 1rem; color: var(--ink-2); }
 .est-basis { font-size: .875rem; color: var(--ink-2); }
+.est-onfile { color: var(--ink); font-size: var(--t-small); }
 .est-evidence { margin: .5rem 0 0; padding-left: 1.1rem; font-size: .875rem; }
 
 /* ---------------------------------------------------------------- footer */

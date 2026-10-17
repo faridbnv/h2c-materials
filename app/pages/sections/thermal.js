@@ -16,17 +16,14 @@ import { mapFigure } from './maps.js';
 import { emptyBody, otherProperties, figureCounter, findingsBlock, notesHtml, recordsLink, countedLine, comparisonAbout, medianTable, middleHalf } from './common.js';
 import { heatFindings } from '../findings.js';
 
-/** The ladder's title, its finding: "Typically HDT 64.5–70 °C and glass transition 80 °C". */
+/** The ladder's title, its finding, each property named: "HDT 70 °C at 0.45 MPa and 64.5 °C at 1.8 MPa; Tg 80 °C". */
 function ladderTitle(rows) {
-  const v = (r) => fmtNumber(r.summary.median);
-  const hdt = rows.filter((r) => r.h?.loadMPa != null).map((r) => r.summary.median);
+  const v = (r) => fmtNumber(r.summary.median, '°C');
+  const hdt = rows.filter((r) => r.h?.loadMPa != null).sort((a, b) => a.h.loadMPa - b.h.loadMPa);
   const tg = rows.find((r) => r.h && r.h.loadMPa == null);
-  const parts = [
-    hdt.length ? `HDT ${hdt.length > 1 && Math.min(...hdt) !== Math.max(...hdt) ? `${fmtNumber(Math.min(...hdt))}–${fmtNumber(Math.max(...hdt))}` : fmtNumber(hdt[0])} °C` : null,
-    tg ? `glass transition ${v(tg)} °C` : null,
-  ].filter(Boolean);
-  if (parts.length) return `Typically ${andList(parts)}`;
-  return `${rows[0].label}: typically ${v(rows[0])} °C, as published`;
+  const parts = [hdt.length ? `HDT ${andList(hdt.map((r) => `${v(r)} at ${fmtNumber(r.h.loadMPa)} MPa`))}` : null, tg ? `Tg ${v(tg)}` : null].filter(Boolean);
+  if (parts.length) return parts.join('; ');
+  return `${rows[0].label} ${v(rows[0])}, as published`;
 }
 
 export default {

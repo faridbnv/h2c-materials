@@ -18,10 +18,7 @@ export function mapFigure(c, env, pair, no) {
   const m = c.m;
   const hx = REGISTRY.allHeadlines.find((h) => h.key === pair.x), hy = REGISTRY.allHeadlines.find((h) => h.key === pair.y);
   if (!hx || !hy || !m.headline?.[pair.x]?.known || !m.headline?.[pair.y]?.known) return null;
-  const map = materialMap(c.db, env.ranks, pair.x, pair.y, m.id);
-  const lm = new Set(map.landmarks);
-  const context = map.points.filter((p) => !p.self).map((p) => ({ ...p, landmark: lm.has(p.id) }));
-  // Each product with both values compared, its own as the build chose them (spreadEntries), special formulations left out.
+  // Each product with both values compared, its own (spreadEntries), special formulations left out.
   const ex = new Map(spreadEntries(m, c, pair.x).map((e) => [e.g.id, e]));
   const ey = spreadEntries(m, c, pair.y);
   const points = ey.filter((e) => ex.has(e.g.id) && e.v.level === 'comparable' && ex.get(e.g.id).v.level === 'comparable' && !e.variant && !ex.get(e.g.id).variant).map((e) => {
@@ -31,9 +28,17 @@ export function mapFigure(c, env, pair, no) {
   });
   const sx = m.summary?.[pair.x], sy = m.summary?.[pair.y];
   const box = sx?.q1 != null && sy?.q1 != null ? { x1: sx.q1, x2: sx.q3, y1: sy.q1, y2: sy.q3 } : null;
+  // The map zoomed on this material's neighbourhood: its products, its middle half and its nearest materials.
+  const map = materialMap(c.db, env.ranks, pair.x, pair.y, m.id, { include: [...points, ...(box ? [{ x: box.x1, y: box.y1 }, { x: box.x2, y: box.y2 }] : [])] });
+  const lm = new Set(map.landmarks);
+  const context = map.points.filter((p) => !p.self).map((p) => ({ ...p, landmark: lm.has(p.id) }));
   const self = { name: m.name, median: { x: m.headline[pair.x].value, y: m.headline[pair.y].value }, box, points };
-  const plot = materialMapPlot({ context, self, xUnit: hx.unit, yUnit: hy.unit, xTitle: `${hx.labels.plain}, ${hx.unit}`, yTitle: `${hy.labels.plain}, ${hy.unit}` });
+  const plot = materialMapPlot({ context, self, xUnit: hx.unit, yUnit: hy.unit, xTitle: `${hx.labels.plain}, ${hx.unit}`, yTitle: `${hy.labels.plain}, ${hy.unit}`, window: map.window });
   const named = context.filter((p) => p.landmark).map((p) => p.name);
+  // The materials beyond the scales, by side.
+  const o = plot.off;
+  const sides = [[o.left, 'to the left'], [o.right, 'to the right'], [o.below, 'below'], [o.above, 'above']].filter(([k]) => k).map(([k, where]) => `${k} ${where}`);
+  const offWords = o.total ? `${plural(o.total, 'other material')} ${o.total === 1 ? 'lies' : 'lie'} off this view: ${andList(sides)}.` : '';
   const key = keyList([
     points.length ? [keyMark([]), esc(`a ${m.name} product`)] : null,
     points.some((p) => p.marks.includes('annealed')) ? [keyMark(['annealed']), 'measured after annealing'] : null,
@@ -42,8 +47,9 @@ export function mapFigure(c, env, pair, no) {
   ].filter(Boolean));
   const only = new Set([...ex.keys(), ...ey.map((e) => e.g.id)]).size - points.length;
   // The title: where its products' middle half sits, the vertical axis's value first, as the map is read.
-  const title = box ? `${m.name} among the materials: ${middleHalf(sy)} ${hy.unit} at ${middleHalf(sx)} ${hx.unit}`
-    : `${m.name} among the materials: ${fmtNumber(self.median.y, hy.unit)} at ${fmtNumber(self.median.x, hx.unit)}`;
+  const w = pair.words ?? { x: lower(hx.labels.plain), y: lower(hy.labels.plain) };
+  const title = box ? `${m.name} among the materials: ${w.y} ${middleHalf(sy)} ${hy.unit} at ${w.x} ${middleHalf(sx)} ${hx.unit}`
+    : `${m.name} among the materials: ${w.y} ${fmtNumber(self.median.y, hy.unit)} at ${w.x} ${fmtNumber(self.median.x, hx.unit)}`;
   const logs = [plot.xLog ? lower(hx.labels.plain) : null, plot.yLog ? lower(hy.labels.plain) : null].filter(Boolean);
   return {
     dots: points.length,
@@ -51,10 +57,10 @@ export function mapFigure(c, env, pair, no) {
       id: figId(no), n: no, title, data: { 'data-map': `${pair.x}-${pair.y}` }, cls: 'fig--map', key,
       plot: plot.html,
       label: `Map of ${lower(hy.labels.plain)} against ${lower(hx.labels.plain)}: ${map.points.length} materials' typical values as points, ${m.name}'s ${plural(points.length, 'product')} over them${box ? `, its middle half ${middleHalf(sx)} ${hx.unit} by ${middleHalf(sy)} ${hy.unit}` : ''}.`,
-      read: esc(`Every other material on file is a grey point at its typical values. ${m.name}'s products are the blue marks.`),
+      read: esc(`Each grey point is another material's typical values, the nearest named. The blue marks are ${m.name}'s products. ${offWords}`),
       counted: notesHtml([
-        `The grey points are the typical values, the medians of their products, of the ${map.points.length - 1} other materials that publish both comparably. Named are the ${map.landmarks.length > 8 ? `8 with the most products, and ${named.at(-1)}, the base polymer of ${m.name}` : `${map.landmarks.length} with the most products`}: ${andList(named)}. A name that would cover another is left out.`,
-        `${m.name}'s marks are ${plural(points.length, 'product')} with both values compared, each its own as the build chose it. Special formulations are left out.${only ? ` ${only} more ${only === 1 ? 'publishes' : 'publish'} only one of the two, or one not compared.` : ''}`,
+        `The grey points are the typical values, the medians of their products, of the other materials that publish both comparably: ${map.points.length - 1} in all. The view holds ${m.name}'s products, their middle half and its ${Math.min(24, map.points.length - 1)} nearest materials, measured on the map's own scales. Named are the nearest ${plural(map.landmarks.length, 'material')} in view: ${andList(named)}. A name that would cover another is left out.`,
+        `${m.name}'s marks are ${plural(points.length, 'product')} with both values compared, each the product's own value, compared on the key property's basis. Special formulations are left out.${only ? ` ${only} more ${only === 1 ? 'publishes' : 'publish'} only one of the two, or one not compared.` : ''}`,
         logs.length === 2 ? 'Both axes are logarithmic: equal steps are equal ratios, as on an Ashby chart.' : logs.length ? `The ${logs[0]} axis is logarithmic: equal steps are equal ratios.` : null,
       ]),
     }),

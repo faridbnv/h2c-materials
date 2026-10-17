@@ -86,8 +86,10 @@
     var pending = false;
     var mark = function () {
       pending = false;
-      // The last section whose top has reached the line a jump puts headings on (with a pixel's slack).
-      var line = offset() + 2;
+      // The last section whose heading has come into the upper part of the view, below the bar: the line a jump puts
+      // headings on, and a reading margin under it, so a section is current as soon as its heading is read, not only
+      // once it reaches the bar.
+      var line = offset() + Math.min(160, window.innerHeight * 0.25);
       var top = targets[0];
       for (var i = 0; i < targets.length; i++) if (targets[i].el.getBoundingClientRect().top <= line) top = targets[i];
       // At the foot of the page the last section is current, however short it is.

@@ -5,7 +5,7 @@
 import { esc, tableBox } from '../html.js';
 import { fmtNumber, priceSampleWords, convertedNote } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { spreadEntries, priceRows } from '../../js/ui/material-facts.js';
+import { spreadEntries, priceRows, productNameOrId } from '../../js/ui/material-facts.js';
 import { plural, joinedSpan, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { FIGURE_PAIRS } from '../figures.js';
 import { stripScale } from '../charts/scale.js';
@@ -38,10 +38,13 @@ export default {
     }
     const next = figureCounter(place.n);
     const s = m.summary?.[h.key];
-    const dots = entries.map((e) => ({ v: e.v, marks: [e.v.converted ? 'open' : '', e.variant ? 'variant' : ''].filter(Boolean), data: { 'data-grade': e.g.id, 'data-v': fmtNumber(e.v.value) } }));
+    // The cheapest and the dearest of the products compared are named on the strip.
+    const plain = entries.filter((e) => !e.variant);
+    const ends = plain.length > 2 ? [plain.reduce((a, b) => (b.v.value < a.v.value ? b : a)), plain.reduce((a, b) => (b.v.value > a.v.value ? b : a))] : [];
+    const dots = entries.map((e) => ({ v: e.v, marks: [e.v.converted ? 'open' : '', e.variant ? 'variant' : ''].filter(Boolean), data: { 'data-grade': e.g.id, 'data-v': fmtNumber(e.v.value) }, callout: ends.includes(e) ? productNameOrId(e.g) : null }));
     const marks = new Set(dots.flatMap((d) => d.marks));
     const scale = stripScale(entries.map((e) => e.v.value), h.unit);
-    const graph = dotGraph([dotRow({ data: { 'data-headline': h.key, 'data-unit': h.unit, 'data-open': 'converted from a foreign listing' }, label: 'Price per kilogram', sub: plural(entries.length, 'product'),
+    const graph = dotGraph([dotRow({ data: { 'data-headline': h.key, 'data-unit': h.unit, 'data-open': 'converted from a foreign listing' }, label: 'Price per kilogram', sub: `${entries.length} shown, ${s?.n ?? 0} compared`,
       track: dotTrack({ entries: dots, scale, summary: s }) })], axisRow(scale, h.unit));
     const key = keyList([
       dots.some((d) => !d.marks.length) ? [keyMark([]), 'a Canadian listing'] : null,
@@ -67,9 +70,9 @@ export default {
       read: esc('A dot is one product\'s price: the median of its listings\' regular prices per kilogram, Canadian where it has any. Sampled prices, not live ones.'),
       counted: notesHtml(notes) + table + `<p>${recordsLink(c, '#prices', 'Every listing, on the records page')}.</p>`,
     });
-    const scatters = FIGURE_PAIRS.filter((p) => p.section === 'price').map((p) => pairScatter(c, p, next(), { title: 'Strength against price, product by product' })).filter(Boolean);
+    const scatters = FIGURE_PAIRS.filter((p) => p.section === 'price').map((p) => pairScatter(c, p, next(), { title: 'Strength against price, the most strength per CAD named' })).filter(Boolean);
     const conv = m.headline[h.key]?.converted ? convertedNote(m.headline[h.key].converted) : null;
-    const findings = priceFindings(s, entries.length, m.gradeIds.length, conv);
+    const findings = priceFindings(s, entries.length, m.gradeIds.length, conv, s?.variants?.n ?? 0);
     return { empty: false, html: `${findingsBlock(findings)}${fig}${scatters.map((x) => x.html).join('')}`, stats: { figures: 1 + scatters.length, dots: entries.length + scatters.reduce((n, x) => n + x.dots, 0) } };
   },
 };

@@ -35,7 +35,7 @@ export default {
     }
     const status = SUMMARY_STATUS[w.status] ?? w.status;
     const html = `<div class="summary">${paragraphs(w.parts)}</div>
-<p class="byline" data-written-status="${esc(w.status)}">${esc(w.by)}. Written on <time>${esc(w.on)}</time>. ${esc(status)}. Every figure in it is filled from the data when the page is built. It decides nothing.</p>`;
+<p class="byline" data-written-status="${esc(w.status)}">${esc(w.by)}, <time>${esc(w.on)}</time>. ${esc(status)}. Its numbers are filled from the data, and it decides nothing.</p>`;
     return { empty: false, html, stats: { filled: w.parts.filter((p) => p.field).length } };
   },
 };

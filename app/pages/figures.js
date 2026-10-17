@@ -9,9 +9,15 @@
  * section a map is drawn in; both axes are logarithmic where the scale rule makes them so (scales.js stripScale).
  */
 export const MATERIAL_MAPS = [
-  { x: 'tensileModulusXY', y: 'tensileStrengthXY', section: 'mechanical' },
-  { x: 'tensileStrengthXY', y: 'hdt045', section: 'thermal' },
+  { x: 'tensileModulusXY', y: 'tensileStrengthXY', section: 'mechanical', words: { x: 'modulus', y: 'strength' } },
+  { x: 'tensileStrengthXY', y: 'hdt045', section: 'thermal', words: { x: 'strength', y: 'HDT' } },
 ];
+
+/**
+ * The first screen's numbers, under the material's name: these key properties' typical values with how many products
+ * each rests on, then the nozzle and bed windows most products accept.
+ */
+export const FIRST_SCREEN = { keys: ['tensileStrengthXY', 'tensileStrengthZ', 'tensileModulusXY', 'hdt045', 'hdt18', 'charpyNotched'] };
 
 /** The scatters of two key properties product by product, within the material (the price section's). */
 export const FIGURE_PAIRS = [
@@ -35,6 +41,16 @@ export const PROFILE_GROUPS = [
  * conditions vary from sheet to sheet.
  */
 export const LADDER_EXTRA = ['Vicat softening temperature', 'Melting temperature'];
+
+/**
+ * The order of the makers' topics (db.meta.knowHow.topics): the engineering ones first and open, the marketing ones
+ * closed with their counts. A topic named in neither list is open, after these.
+ */
+export const MAKER_TOPICS = {
+  open: ['Pitfalls and limitations', 'Warping and shrinkage', 'Moisture sensitivity', 'Printing advice', 'Nozzle wear', 'Adhesion between layers',
+    'Precision and tolerance', 'Supports and removal', 'Odour and emissions'],
+  closed: ['Good for', 'Benefits', 'Surface finish'],
+};
 
 /** The tests the strength section tabulates flat (XY) against across the layers (Z): comparison names (registry.comparisons). */
 export const LAYER_TESTS = ['Tensile tests, XY and Z', 'Flexural tests, XY and Z'];

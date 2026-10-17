@@ -293,7 +293,7 @@ export default {
       kinds.has('iz') ? ['<span class="ko ki">6<small>Izod</small></span>', 'Izod', 'Notched Izod where the product publishes no notched Charpy: another test, not compared with Charpy.'] : null,
       kinds.has('twin') ? [icon('twin', 'Same data sheet'), 'same data sheet', 'The product shares its data sheet with another product, as recorded: hover it for which. Their values are one table.'] : null,
       kinds.has('tough') ? [icon('tough', 'Sold as toughened'), 'sold as toughened', 'Sold as toughened or impact-modified: the maker\'s statement, not a test.'] : null,
-      kinds.has('variant') ? [icon('variant', 'Special formulation'), 'special formulation', 'A special formulation (a filler or grade the material\'s name does not describe): its values are left out of the medians.'] : null,
+      kinds.has('variant') ? [icon('variant', 'Special formulation'), 'special formulation', 'A special formulation (a filler or additive the material\'s name does not describe): its values are left out of the medians.'] : null,
       kinds.has('reference') ? [icon('reference', 'Reference'), 'reference', 'A resin or study reference, not a product you can buy.'] : null,
       kinds.has('hardened') ? [icon('hardened', 'Hardened nozzle'), 'hardened nozzle', 'A hardened nozzle is required; hollow where the Bambu Lab Filament Guide says so.'] : null,
       kinds.has('converted') ? ['<span class="fx">¤</span>', 'foreign price', 'The price was converted to CAD from a foreign listing.'] : null,
@@ -316,7 +316,7 @@ export default {
       + '<p class="pt-none" data-none hidden>No product matches. Clear the search or a toggle to see more.</p>'
       + jsonIsland('product-cards', { records: recordsHref(c.m.id), ncol, words: CARD_WORDS, strings, cards })
       + `${silent.length ? `<p class="fig-note">${esc(`Not published by any product: ${silent.join(', ')}.`)}</p>` : ''}`
-      + '<p class="fig-note">Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet\'s values are for the colour it tested.</p>';
+      + '<p class="fig-note">Products are kept by name, not by colour. Pigment can change strength and stiffness, and a data sheet\'s values are for the colour it tested.</p>';
     return { empty: false, html, stats: { rows: rows.length } };
   },
 };

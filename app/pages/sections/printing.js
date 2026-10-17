@@ -9,9 +9,9 @@ import { esc, tableBox } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { hardenedShare } from '../../js/engine/products.js';
 import { isProduct, printFacts, printCounts, guideFacts } from '../../js/ui/material-facts.js';
-import { printWindows, dryingStats } from '../../js/ui/material-stats.js';
+import { printWindows, dryingStats, dryingAdvice } from '../../js/ui/material-stats.js';
 import {
-  plural, andList, cap, joinedSpan, windowText, printApartWords, printLines, printSingles, printMissing, printOriginsWords,
+  plural, andList, cap, joinedSpan, windowText, printApartWords, printLines, printSingles, printMissing,
   amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES,
 } from '../../js/ui/material-words.js';
 import { stripScale } from '../charts/scale.js';
@@ -21,7 +21,7 @@ import { keyLimit, keyList } from '../charts/marks.js';
 import { windowPanel } from '../charts/windows.js';
 import { figure, figId, howCounted } from '../charts/figure.js';
 import { emptyBody, recordsLink, figureCounter, findingsBlock, notesHtml, middleHalf } from './common.js';
-import { printFindings } from '../findings.js';
+import { printFindings, basisWords } from '../findings.js';
 
 const SETTINGS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber']];
 
@@ -86,14 +86,14 @@ function hardenedLine(gate, hard) {
   return gate === 'requires-hardened' ? 'Required: the filler wears out a brass nozzle.' : gate === 'no-special-concern' ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.';
 }
 
-/** The drying line: how many products publish a schedule, or what the sources say. */
-function dryingLine(gate, products, d) {
-  const n = (need) => products.filter((g) => g.print?.drying?.need === need).length;
-  const typical = d?.temps?.n > 1 ? `, typically ${fmtNumber(d.temps.median)} °C${d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}` : '';
-  if (gate === 'required') return `${n('required')} of ${plural(products.length, 'product')} publish a drying schedule${typical}.`;
-  if (gate === 'optional') return `Its sources advise drying only for a condition, such as wet filament: ${n('optional')} of ${plural(products.length, 'product')}.`;
-  if (gate === 'not-needed') return 'Its sources say drying is not needed.';
-  return 'No source states whether to dry it. That does not mean it needs none.';
+/**
+ * The drying line: how many products have drying advice and where each was read (material-stats.js dryingAdvice), and
+ * the typical schedule of those whose own or shared sheet gives one; or what the sources say where none has any.
+ */
+function dryingLine(gate, products, d, advice) {
+  if (!advice.have) return gate === 'not-needed' ? 'Its sources say drying is not needed.' : 'No source states whether to dry it. That does not mean it needs none.';
+  const typical = d?.temps?.n > 1 ? ` Typically ${fmtNumber(d.temps.median)} °C${d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}.` : '';
+  return `${advice.have} of ${plural(products.length, 'product')} have drying advice: ${basisWords(advice, advice.have)}.${typical}`;
 }
 
 export default {
@@ -112,6 +112,7 @@ export default {
     const next = figureCounter(place.n);
     const pw = Object.fromEntries(SETTINGS.map(([axis]) => [axis, printWindows(products, axis)]));
     const drying = dryingStats(products);
+    const advice = dryingAdvice(products);
     const hard = hardenedShare(c.grades);
     const chamberOutside = pf.outside.find((a) => a.axis === 'chamber')?.list.length ?? 0;
     const findings = printFindings({
@@ -135,9 +136,9 @@ export default {
     if (panels.length) {
       const drawn = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis]) => pw[axis]);
       const key = keyList([
-        ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc('a product\'s window, from its data sheet or one it shares')],
-        drawn.some((p) => p.guide) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--guide" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc(`from ${pf.guideName}, not counted`)] : null,
-        drawn.some((p) => p.variant) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--variant" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', 'special formulation, not counted'] : null,
+        ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc('a product\'s window, from its own sheet or a sheet it shares')],
+        drawn.some((p) => p.guide) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--guide" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc('from Bambu Lab\'s guide, drawn but not counted')] : null,
+        drawn.some((p) => p.variant) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--variant" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', 'special formulation, drawn but not counted'] : null,
         panels.some((x) => x.onScale) ? [keyLimit, esc('the H2C\'s limit')] : null,
       ].filter(Boolean));
       dots = drawn.reduce((n, p) => n + p.windows.length, 0) + drying.entries.length;
@@ -168,16 +169,16 @@ export default {
       });
     }
 
-    const read = counts ? printOriginsWords(counts.origins) : [];
     const facts = [
       ['Hardened nozzle', hardenedLine(m.gates.abrasive, hard)],
-      ['Drying', dryingLine(m.gates.drying, products, drying)],
-      ['AMS', amsSummary(c.profiles)],
-      read.length ? ['Where a sheet is silent', `${cap(andList(read))}.`] : null,
+      ['Drying', dryingLine(m.gates.drying, products, drying, advice)],
+      // Bambu Lab's notes that only say a product is not verified are left out: they say nothing about this material.
+      ['AMS', amsSummary(c.profiles).split(/(?<=\.) (?=Bambu's notes?)/).filter((t) => !/^Bambu's notes? [^:]*: "not verified[^"]*"(?: \(\d+ of \d+ profiles\))?\.?$/i.test(t)).join(' ')],
+      counts && (counts.origins.guide || counts.origins.twin) ? ['Where a sheet is silent', `${cap(andList([counts.origins.guide ? `${plural(counts.origins.guide, 'setting')} from Bambu Lab's guide` : '', counts.origins.twin ? `${plural(counts.origins.twin, 'setting')} from a sheet they share` : ''].filter(Boolean)))}.`] : null,
     ].filter(Boolean);
     const html = `${findingsBlock(findings)}${fig}
 <h3 class="sub-title">Nozzle, drying and AMS</h3>
-<dl class="facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+<dl class="facts" data-drying-have="${advice.have}" data-drying-own="${advice.own}" data-drying-twin="${advice.twin}" data-drying-guide="${advice.guide}" data-products="${products.length}">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
 ${!panels.length && pf.rows.length ? howCounted(notesHtml([...printLines(pf), printSingles(pf), printMissing(pf) ? `Not counted: ${printMissing(pf)}.` : null]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : ''), 'How the settings are counted') : ''}
 ${guide ? guideBlock(guide) : ''}
 <p class="note">${recordsLink(c, '#profiles', `All ${plural(c.profiles.length, 'print profile')}, with their documents`)}.</p>`;

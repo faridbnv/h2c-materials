@@ -49,10 +49,22 @@ const around = (x, y) => [
  * y1, y2 } | null, points: [{ x, y, marks, data }] }; `xUnit`, `yUnit`, `xTitle`, `yTitle`; `height` in px. Returns
  * { html, xLog, yLog }: the plot's markup and whether each axis is logarithmic.
  */
-export function materialMapPlot({ context, self, xUnit, yUnit, xTitle, yTitle, height = 380, wide = 760, narrow = 300 }) {
-  const allX = [...context.map((p) => p.x), ...self.points.map((p) => p.x), self.median.x];
-  const allY = [...context.map((p) => p.y), ...self.points.map((p) => p.y), self.median.y];
+export function materialMapPlot({ context, self, xUnit, yUnit, xTitle, yTitle, window = null, height = 380, wide = 760, narrow = 300 }) {
+  // The scales hold the window (this material's neighbourhood) where one is given, else every point.
+  const allX = window ? [...window.x, ...self.points.map((p) => p.x), self.median.x] : [...context.map((p) => p.x), ...self.points.map((p) => p.x), self.median.x];
+  const allY = window ? [...window.y, ...self.points.map((p) => p.y), self.median.y] : [...context.map((p) => p.y), ...self.points.map((p) => p.y), self.median.y];
   const xs = stripScale(allX, xUnit), ys = stripScale(allY, yUnit);
+  // Other materials beyond the scales are not drawn; each is counted on the side it lies furthest past.
+  const tx = (v) => (xs.log ? Math.log10(Math.max(v, 1e-12)) : v), ty = (v) => (ys.log ? Math.log10(Math.max(v, 1e-12)) : v);
+  const spanX = tx(xs.hi) - tx(xs.from) || 1, spanY = ty(ys.hi) - ty(ys.from) || 1;
+  const off = { total: 0, left: 0, right: 0, below: 0, above: 0 };
+  const shown = [];
+  for (const p of context) {
+    const ex = [['left', (tx(xs.from) - tx(p.x)) / spanX], ['right', (tx(p.x) - tx(xs.hi)) / spanX], ['below', (ty(ys.from) - ty(p.y)) / spanY], ['above', (ty(p.y) - ty(ys.hi)) / spanY]]
+      .filter(([, d]) => d > 1e-9).sort((a, b) => b[1] - a[1]);
+    if (ex.length) { off.total++; off[ex[0][0]]++; } else shown.push(p);
+  }
+  context = shown;
   const X = (v) => xs.pct(v), Y = (v) => yOf(ys, v, height);
   const vgrid = xs.ticks.map((v) => `<line class="grid" x1="${pct(X(v))}" x2="${pct(X(v))}" y1="0" y2="${height}"/>`).join('');
   const hgrid = ys.ticks.map((v) => `<line class="grid" x1="0" x2="100%" y1="${Y(v)}" y2="${Y(v)}"/>`).join('');
@@ -93,7 +105,7 @@ export function materialMapPlot({ context, self, xUnit, yUnit, xTitle, yTitle, h
   const labels = items.map((it, i) => {
     if (chosen[i] == null) return '';
     const c = it.places[chosen[i]];
-    const alt = onPhone[i] == null ? ' alt' : '';
+    const alt = onPhone[i] == null && !it.self ? ' alt' : '';
     // A leader is drawn as a short line in its own SVG at the point, offset in px (a line cannot mix % and px).
     const leader = c.leader ? `<svg x="${pct(c.x)}" y="${c.y.toFixed(1)}" overflow="visible" class="leader${alt}"><line x1="${Math.sign(c.leader[0]) * 3}" y1="${Math.sign(c.leader[1]) * 3}" x2="${c.leader[0]}" y2="${c.leader[1]}"/></svg>` : '';
     return `${leader}<text class="${it.self ? 'mself' : 'mland'}${alt}" x="${pct(c.x)}" y="${c.y.toFixed(1)}" dx="${c.dx}" dy="${c.dy}" text-anchor="${c.anchor}">${esc(it.text)}</text>`;
@@ -106,5 +118,5 @@ export function materialMapPlot({ context, self, xUnit, yUnit, xTitle, yTitle, h
     + `<line class="axis-line" x1="0" x2="100%" y1="${height - 0.5}" y2="${height - 0.5}"/><line class="axis-line" x1="0.5" x2="0.5" y1="0" y2="${height}"/>`
     + `${others}${box}${cross}${own}<g class="sc-labels">${xlabels}${ylabels}</g><g class="map-names">${labels}</g></svg></div>`
     + `<div class="sc-x">${esc(xTitle)}${xs.log ? ', log scale' : ''}</div></div>`;
-  return { html, xLog: xs.log, yLog: ys.log };
+  return { html, xLog: xs.log, yLog: ys.log, off };
 }

@@ -25,9 +25,14 @@ export function scatterPlot({ points, xs, ys, height = 280, diagonal = false, xT
   const ylabels = ys.ticks.map((v) => `<text x="-8" y="${yOf(ys, v, height) + 4}" text-anchor="end">${esc(fmtNumber(v))}</text>`).join('');
   const diag = diagonal ? `<line class="diagonal" x1="0" x2="100%" y1="${height}" y2="0"/>` : '';
   const marks = points.map((p) => mark(p.marks, pct(xs.pct(p.x)), yOf(ys, p.y, height), p.data)).join('');
+  // A point with a `label` is named beside it: to its right, or to its left near the right edge.
+  const named = points.filter((p) => p.label).map((p) => {
+    const x = xs.pct(p.x), y = yOf(ys, p.y, height);
+    return `<text class="callout" x="${pct(x)}" y="${y + 4}" dx="${x > 70 ? -9 : 9}" text-anchor="${x > 70 ? 'end' : 'start'}">${esc(p.label)}</text>`;
+  }).join('');
   return `<div class="sc"><div class="sc-y">${esc(yTitle)}${ys.log ? ', log scale' : ''}</div>`
     + `<div class="sc-plot"><svg class="sc-svg" height="${height}" aria-hidden="true" focusable="false">${vgrid}${hgrid}`
     + `<line class="axis-line" x1="0" x2="100%" y1="${height - 0.5}" y2="${height - 0.5}"/><line class="axis-line" x1="0.5" x2="0.5" y1="0" y2="${height}"/>`
-    + `${diag}${marks}<g class="sc-labels">${xlabels}${ylabels}</g></svg></div>`
+    + `${diag}${marks}${named}<g class="sc-labels">${xlabels}${ylabels}</g></svg></div>`
     + `<div class="sc-x">${esc(xTitle)}${xs.log ? ', log scale' : ''}</div></div>`;
 }

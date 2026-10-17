@@ -1,9 +1,12 @@
-// Sources: the documents the material's records cite (material-facts.js documents), counted by kind and by publisher,
-// when they were read, and the known gaps in the reviewer's words. Every document, with what it covers and gave and the
+// Sources: how much is on file (products and makers, measurement records and those with a number, print profiles,
+// documents: the same counts the records page heads its tables with), the documents the material's records cite
+// (material-facts.js documents), counted by kind and by publisher, when they were read, and the known gaps in the
+// reviewer's words. Every document, with what it covers and gave and the
 // link to its original, is on the records page.
 
 import { esc, tableBox, count } from '../html.js';
-import { gapSplit, sourceBlockFacts } from '../../js/ui/material-facts.js';
+import { gapSplit, sourceBlockFacts, identity } from '../../js/ui/material-facts.js';
+import { fmtNumber } from '../../js/ui/format.js';
 import { plural, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import { emptyBody, recordsLink, gapList, findingsBlock } from './common.js';
@@ -46,7 +49,16 @@ export default {
     const kindTable = tableBox(`<table class="grid kinds"><thead><tr><th scope="col">Kind of document</th><th scope="col" class="num">Documents</th></tr></thead><tbody>${[...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => `<tr><th scope="row">${esc(k)}</th><td class="num">${n}</td></tr>`).join('')}</tbody></table>`);
     const pubTable = tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values given</th><th scope="col" class="num">Products covered</th></tr></thead><tbody>${shown.map(([p, x]) => `<tr><th scope="row">${esc(p)}</th><td class="num">${x.documents}</td><td class="num">${x.values}</td><td class="num">${x.products.size}</td></tr>`).join('')}`
       + `${rest.length ? `<tr class="apart"><td colspan="4">${esc(`And ${plural(rest.length, 'more publisher')}, with ${plural(rest.reduce((n, [, x]) => n + x.documents, 0), 'document')}.`)}</td></tr>` : ''}</tbody></table>`);
-    const html = `${findingsBlock(lead)}<div class="split">${pubTable}${kindTable}</div>
+    // What is on file, as the records page counts it: every measurement record, and those that carry a number.
+    const id = identity(c.m, c);
+    const inv = [
+      ['products', id.products, `${id.products === 1 ? 'product' : 'products'} from ${plural(id.makers, 'maker')}`],
+      ['measurements', c.ms.length, `measurement records, ${fmtNumber(c.summary.numericMeasurements)} with a number`],
+      ['profiles', c.profiles.length, c.profiles.length === 1 ? 'print profile' : 'print profiles'],
+      ['documents', c.documents.size, c.documents.size === 1 ? 'document' : 'documents'],
+    ];
+    const inventory = `<dl class="inventory">${inv.map(([k, n, words]) => `<div class="count"><dt>${esc(words)}</dt><dd data-count="${k}" data-n="${n}">${esc(fmtNumber(n))}</dd></div>`).join('')}</dl>`;
+    const html = `${findingsBlock(lead)}${inventory}<div class="split">${pubTable}${kindTable}</div>
 <p class="note">${recordsLink(c, '#documents', 'Every document, with what it covers and gave and a link to the original')}.</p>${gapHtml}`;
     return { empty: false, html, stats: { documents: docs.length } };
   },
