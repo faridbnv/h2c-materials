@@ -37,10 +37,10 @@ const more = (n, cap) => (n > cap ? `<label class="rg-more"><input type="checkbo
  * One group as a block: a table whose head is the group's name with its counts, then the column labels; its rows past
  * the cap carry class `c` (hidden until "Show all"). `attrs` are the block's data attributes (data-group, data-unit…).
  */
-export function groupBlock({ title, stats = '', note = '', attrs = '', cols, rows, cls = '', cap = CAP }) {
+export function groupBlock({ title, stats = '', note = '', aside = '', attrs = '', cols, rows, cls = '', cap = CAP }) {
   const body = rows.map((r, i) => (i < cap ? r : r.replace(/^<tr/, '<tr class="c"'))).join('');
   return `<div class="rg"${attrs} data-cap="${cap}"><table class="rt${cls ? ` ${cls}` : ''}">${colgroup(cols)}<thead>`
-    + `<tr class="rg-h"><th colspan="${cols.length}" scope="colgroup"><span class="rg-t">${esc(title)}</span><span class="rg-s" data-stats>${stats}</span>${note ? `<span class="rg-note">${esc(note)}</span>` : ''}</th></tr>`
+    + `<tr class="rg-h"><th colspan="${cols.length}" scope="colgroup"><span class="rg-t">${esc(title)}</span><span class="rg-s" data-stats>${stats}</span>${aside ? `<span class="rg-main">${esc(aside)}</span>` : ''}${note ? `<span class="rg-note">${esc(note)}</span>` : ''}</th></tr>`
     + `<tr class="rg-c">${heads(cols)}</tr></thead><tbody>${body}</tbody></table>${more(rows.length, cap)}</div>`;
 }
 

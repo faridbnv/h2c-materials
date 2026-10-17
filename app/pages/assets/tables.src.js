@@ -22,17 +22,16 @@
   // ---------------------------------------------------------------- Products
   var pt = doc.querySelector('table[data-products]');
   if (pt) (table => {
-    var sec = table.closest('section') || doc, tools = sec.querySelector('.pt-tools'), box = table.parentNode;
-    var find = sec.querySelector('[data-find]'), toggles = $$('[data-t]', sec);
+    var sec = table.closest('section') || doc, CAP = 25, all = false;
+    var find = sec.querySelector('[data-find]'), toggles = $$('[data-t]', sec), more = sec.querySelector('[data-more]');
     var bodies = Array.from(table.tBodies);
-    var keys = ['name', 'docs'].concat($$('thead .pt-c th', table).map(th => at(th, 'data-k')));
+    var nameOf = b => b.rows[0].querySelector('.pn').textContent.toLowerCase() + ' ' + (at(b.rows[0].querySelector('.px'), 'title') || '').toLowerCase();
     // Each product's words to search, kept on its own rows, so a sort that moves them moves its words with them.
-    var nameOf = b => b.rows[0].querySelector('.pn').textContent.toLowerCase();
     bodies.forEach(b => b.q = nameOf(b));
     var data = null;
     try { data = JSON.parse(doc.getElementById('product-cards').textContent); } catch (e) { data = null; }
-    if (tools) tools.hidden = false;
-    if (data) table.classList.add('ready');
+    $$('.pt-tools', sec).forEach(t => t.hidden = false);
+    table.classList.add('ready');
 
     function card(b) {
       var id = at(b.rows[0], 'data-grade'), d = data && data.cards[id];
@@ -64,64 +63,61 @@
       if (tr && !ev.target.closest('a, button, label, input') && !String(window.getSelection())) open(tr, !tr.querySelector('.px input').checked);
     });
 
+    // What is listed: every product the search and toggles let through, the first 25 in the current order unless all.
     function apply() {
       var ts = terms(find ? find.value : ''), on = toggles.filter(t => t.checked), n = 0;
       bodies.forEach(b => {
         var ok = hasAll(b.q, ts) && on.every(t => b.hasAttribute('data-' + at(t, 'data-t')));
         if (b.hidden === ok) b.hidden = !ok;
+        if (ok) b.classList.toggle('c', !all && n >= CAP);
         if (ok) n++;
       });
       var shown = sec.querySelector('[data-shown]'), none = sec.querySelector('[data-none]');
       if (shown) shown.textContent = n === bodies.length ? count(n, 'product') : 'Showing ' + fmtNumber(n) + ' of ' + count(bodies.length, 'product');
       if (none) none.hidden = n > 0;
-      fit();
+      if (more) { more.parentNode.hidden = n <= CAP; more.textContent = all ? 'Show the first ' + CAP : 'Show all ' + fmtNumber(n); }
     }
-    function sort(key, dir) {
-      var col = keys.indexOf(key), th = table.querySelector('thead [data-k="' + sel(key) + '"]');
-      if (col < 0 || !th) return;
-      var num = at(th.querySelector('button'), 'data-sort') === 'num';
+    if (more) more.addEventListener('click', () => { all = !all; apply(); });
+    function sort(i, dir) {
+      var ths = $$('thead th[data-i="' + i + '"]', table), btn = ths[0] && ths[0].querySelector('button');
+      if (!btn) return;
+      var num = at(btn, 'data-sort') === 'num';
       $$('thead [aria-sort]', table).forEach(x => x.removeAttribute('aria-sort'));
-      th.setAttribute('aria-sort', dir > 0 ? 'ascending' : 'descending');
+      ths.forEach(th => th.setAttribute('aria-sort', dir > 0 ? 'ascending' : 'descending'));
       var val = b => {
-        var c = b.rows[0].cells[col], v = at(c, 'data-v');
+        var c = b.rows[0].cells[i], v = at(c, 'data-v');
         if (!num) return b.q;
         if (v == null) { v = /(\d+(?:\.\d+)?)(?!.*\d)/.exec(c.textContent.replace(/,/g, '')); v = v ? v[1] : ''; }
         return v === '' ? null : Number(v);
       };
       bodies.sort((a, b) => order(val(a), val(b), dir)).forEach(b => table.appendChild(b));
+      apply();
     }
-    var first = key => { var b = table.querySelector('thead [data-k="' + sel(key) + '"] button'); return b && at(b, 'data-first') === 'asc' ? 1 : -1; };
-    $$('thead button[data-sort]', table).forEach(b => {
-      b.addEventListener('click', () => {
-        var th = b.closest('th'), now = at(th, 'aria-sort');
-        sort(at(th, 'data-k'), now ? (now === 'ascending' ? -1 : 1) : first(at(th, 'data-k')));
-      });
-    });
+    $$('thead button[data-sort]', table).forEach(b => b.addEventListener('click', () => {
+      var th = b.closest('th'), now = at(th, 'aria-sort');
+      sort(at(th, 'data-i'), now ? (now === 'ascending' ? -1 : 1) : at(b, 'data-first') === 'asc' ? 1 : -1);
+    }));
     if (find) find.addEventListener('input', later(apply, 80));
     toggles.forEach(t => t.addEventListener('change', apply));
-    // The head stays in view while the table fits the page; a wider one scrolls in its own box, a card as wide as the box.
-    function fit() { box.classList.toggle('fits', table.offsetWidth <= box.clientWidth + 1); table.style.setProperty('--box-w', box.clientWidth + 'px'); edge(); if (head) hold(); }
-    var edge = () => box.parentNode.toggleAttribute('data-more', box.scrollLeft + box.clientWidth < box.scrollWidth - 2);
-    box.addEventListener('scroll', edge, { passive: true });
-    window.addEventListener('resize', later(fit, 100));
-    // A table wider than the page scrolls sideways in its box, where a sticky head cannot hold: the script holds it,
-    // moving it down the table as the page scrolls, under the frame's bar.
-    var head = table.tHead, frame = 0;
-    var hold = () => {
-      frame = 0;
-      var y = 0;
-      if (!box.classList.contains('fits')) {
-        var cs = getComputedStyle(table), top = parseFloat(cs.getPropertyValue('--head-h')) + parseFloat(cs.getPropertyValue('--strip-h') || 0) || 0;
-        var r = table.getBoundingClientRect();
-        y = Math.max(0, Math.min(top - r.top, r.height - head.offsetHeight * 2));
-      }
-      head.style.transform = y ? 'translateY(' + y + 'px)' : '';
-    };
-    window.addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(hold); }, { passive: true });
+
+    // "Columns": the four values a two-line row shows; a fifth chosen lets go of the one chosen longest ago.
+    var picks = $$('.pt-cols input', sec), chosen = picks.filter(p => p.checked);
+    picks.forEach(p => p.addEventListener('change', () => {
+      chosen = chosen.filter(x => x !== p);
+      if (p.checked) chosen.push(p);
+      if (chosen.length > 4) chosen.shift().checked = false;
+      var set = chosen.map(x => at(x, 'data-c'));
+      $$('thead .pt-p th[data-i]', table).concat(...bodies.map(b => Array.from(b.rows[0].cells))).forEach(c => {
+        var i = at(c, 'data-i') || String(c.cellIndex);
+        if (+i > 1) c.classList.toggle('on', set.indexOf(i) >= 0);
+      });
+    }));
+
+    // #product-<id> (a figure's mark leads there): its row, shown and opened.
     function fromHash() {
       var m = /^#product-(.+)$/.exec(location.hash), tr = m && doc.getElementById('product-' + decodeURIComponent(m[1]));
       if (!tr || !table.contains(tr)) return;
-      if (tr.parentNode.hidden) { if (find) find.value = ''; toggles.forEach(t => t.checked = false); apply(); }
+      if (tr.parentNode.hidden || tr.parentNode.classList.contains('c')) { if (find) find.value = ''; toggles.forEach(t => t.checked = false); all = true; apply(); }
       open(tr, true);
       tr.scrollIntoView({ block: 'center' });
     }
@@ -198,6 +194,8 @@
       });
       var filtered = n !== total;
       groups.forEach(g => place(g, filtered));
+      // The maintainers' notes open when what is asked for is among them.
+      $$('.rs-maint', main).forEach(d => { if (filtered) d.open = !!d.querySelector('tbody tr:not(.gr):not([hidden])'); });
       secs.forEach(s => {
         var k = tally.type[at(s.el, 'data-type')] || 0;
         if (state.type.length && state.type.indexOf(at(s.el, 'data-type')) < 0) k = 0;
@@ -284,6 +282,7 @@
       var el = id && doc.getElementById(decodeURIComponent(id));
       if (!el || !main.contains(el)) return;
       if (el.closest('[hidden]')) { state = blank(); show(); apply(true); }
+      if (el.closest('details:not([open])')) el.closest('details').open = true;
       if (el.matches('tr.c')) el.closest('.rg').querySelector('.rg-more input').checked = true;
       el.scrollIntoView({ block: el.matches('tr') ? 'center' : 'start' });
     }

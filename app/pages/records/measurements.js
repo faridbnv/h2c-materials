@@ -9,7 +9,7 @@ import { fmtNumber } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne } from '../../js/ui/labels.js';
 import { tabProperties, comparisonsOf, notDrawnWhy, productNameOrId } from '../../js/ui/material-facts.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { outOfMedianWords, alsoForWords, cap } from '../../js/ui/material-words.js';
+import { outOfMedianWords, alsoForWords, cap, plural } from '../../js/ui/material-words.js';
 import { typeSection, groupBlock, sourceCell, idCell, conditionChips, orientationWords, specimenWords, standardWords, countable, unitText, statsWords } from './common.js';
 
 const DOMAINS = [['Mechanical', 'mechanical'], ['Thermal', 'thermal'], ['Physical', 'physical']];
@@ -89,10 +89,21 @@ export default {
       if (!xs.some((x) => x.thermal)) return [[propertyName(p), xs]];
       const by = new Map();
       for (const x of xs) (by.get(loadOf(x)) ?? by.set(loadOf(x), []).get(loadOf(x))).push(x);
-      return [...by].sort((a, b) => (a[0] === 'none') - (b[0] === 'none') || a[0] - b[0]).map(([load, ys]) => [loadTitle(p, load), ys]);
+      return [...by].sort((a, b) => (a[0] === 'none') - (b[0] === 'none') || a[0] - b[0]).map(([load, ys]) => [loadTitle(p, load), ys, load]);
     };
 
-    const group = (p, title, list) => {
+    // Beside a group's median of the values it lists: the main page's, where it differs, and what it is over. That one
+    // compares products on one basis (one value a product, its orientation and load), so the two need not agree.
+    const median = (vs) => { const t = [...vs].sort((a, b) => a - b), k = t.length >> 1; return t.length % 2 ? t[k] : (t[k - 1] + t[k]) / 2; };
+    const mainPage = (p, load, listed) => {
+      const hs = REGISTRY.allHeadlines.filter((h) => h.kind === 'measurement' && h.valueProperties?.includes(p) && (h.loadMPa == null || h.loadMPa === load) && (load == null || load === 'none' ? h.loadMPa == null : true) && c.m.summary?.[h.key]?.n);
+      if (!hs.length) return '';
+      const parts = hs.map((h, i) => { const s = c.m.summary[h.key]; return { h, s, text: `${hs.length > 1 && h.direction ? `${h.direction} ` : ''}${fmtNumber(s.median)} ${h.unit} over ${i ? fmtNumber(s.n) : plural(s.n, 'compared product')}` }; });
+      if (listed?.length > 1 && parts.every(({ s }) => fmtNumber(s.median) === fmtNumber(median(listed)))) return '';
+      return `main page: ${parts.map((x) => x.text).join('; ')}`;
+    };
+
+    const group = (p, title, list, load = null) => {
       const xs = list.sort((a, b) => name(a).localeCompare(name(b)) || (b.value ?? -Infinity) - (a.value ?? -Infinity) || (a.id < b.id ? -1 : 1));
       // The unit most of its values are in is the group's; a value in another counts under its own (Izod in kJ/m² and J/m).
       const units = new Map();
@@ -115,6 +126,7 @@ export default {
         title, cols, rows, cls: 'rt--m',
         attrs: ` data-group="${esc(title)}" data-prop="${esc(p)}"${main ? ` data-unit="${esc(main)}"` : ''}`,
         stats: statsWords(xs.length, 'measurement', [...units].sort((a, b) => (a[0] === main ? -1 : b[0] === main ? 1 : 0))),
+        aside: mainPage(p, load, units.get(main)),
         note: figure ? '' : 'No figure on the main page draws this property.',
       });
     };
@@ -122,7 +134,7 @@ export default {
     const domains = [...DOMAINS.map(([tab, key]) => [key, tab]), ['other', 'Other']]
       .map(([key, label]) => [key, label, properties.filter((p) => (domainOf.get(p) ?? 'other') === key)])
       .filter(([, , ps]) => ps.length);
-    const body = domains.map(([key, label, ps]) => `<div class="dom" id="measurements-${key}"><h3 class="dom-h">${esc(label)}</h3>${ps.flatMap((p) => parts(p).map(([title, xs]) => group(p, title, xs))).join('')}</div>`).join('');
+    const body = domains.map(([key, label, ps]) => `<div class="dom" id="measurements-${key}"><h3 class="dom-h">${esc(label)}</h3>${ps.flatMap((p) => parts(p).map(([title, xs, load]) => group(p, title, xs, load))).join('')}</div>`).join('');
     return typeSection({
       id: 'measurements', title: 'Measurements', n: c.ms.length, noun: 'measurement', body,
       empty: 'No measurement is on file for this material.',
