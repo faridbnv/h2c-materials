@@ -202,7 +202,10 @@ run in `verify` (`npm run test:ingest`), not here, to keep `verify:fast` within 
 `npm run verify` adds the import tests, the coverage campaign's page, the audits (`audit:data`, and `audit:context` where
 the text cache is), the review snapshot, the link and packet checks, interface views and 300 rendered scenarios, and the
 scale and reproducible-build checks (`npm run scale`, `npm run reproducible`), before a commit. Both scripts run every step even when one fails and list the
-failures at the end (`scripts/lib/run-steps.mjs`), so one run shows everything that is wrong. The
+failures at the end (`scripts/lib/run-steps.mjs`), so one run shows everything that is wrong. The steps that do not need
+each other run side by side, each printed whole when it finishes (D142): the documents' checks while the build runs, the
+audit, the snapshot and the views beside the tests; the import tests after the unit tests, the reproducible-build check
+alone after every step that reads `dist/`, and the timed scale check alone and last. `--serial` runs one step at a time. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify`'s data and interface groups side by side on every push to main and on pull requests, and its
 scale and reproducible-build checks and 2,000 rendered scenarios on a new seed every week, and
@@ -704,8 +707,10 @@ the rendered-scenario run compares every cell with the engine. Both are checked 
 `npm run ui:fuzz`, the last of `verify`'s interface steps (300 scenarios; 2,000 on a new seed weekly in CI), runs seeded random scenarios through the built page (every
 requirement kind and operator, thresholds at the evidence itself, assumptions, searches, templates) in Strict and
 Explore with estimates on and off, reads the table and the Ashby chart, and compares rows, verdicts, count, chips,
-points, envelopes, front, legend, rounding, reasons and link round trips with the engine run in Node. 300 scenarios
-take about 20 seconds and 2,000 about 2 minutes; `--n 3000 --seed N` runs more. Examples of any violation, each with its seed, scenario and link, go to
+points, envelopes, front, legend, rounding, reasons and link round trips with the engine run in Node. Each scenario is
+rendered in four settings and two lenses, so the run is the page's own drawing time: 300 scenarios took 341 s and 2,000
+took 40 minutes on CI's runner (2026-10-15 and 10-17), which runs them in parts side by side (`--shard K/N`, D142);
+`--n 3000 --seed N` runs more. Examples of any violation, each with its seed, scenario and link, go to
 `$TMPDIR/h2c-ui-fuzz/violations.jsonl`. The method is in `docs/audits/2026-09-15-filtering-estimates-data/ui-fuzz/NOTES.md`.
 
 `npm run audit:data` also reviews the per-record build findings against `data/review/accepted-findings.csv`
@@ -728,8 +733,8 @@ independent rebuild and the reproducibility test do, and CI starts with it empty
 
 `test/scale.check.js` (`npm run scale`) doubles the data (every material and its records cloned under new IDs) and runs the
 gate, compile and validate; it asserts correctness and writes the timings to `build/reports/scale.json`, which
-`scripts/scale-budget.mjs` judges last in `verify` (a miss is re-run once; it fails on CI or with `--enforce-budget`, and
-is a warning on a slower machine). On 2026-09-21 the build was 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s
+`scripts/scale-budget.mjs` judges last in `verify` (where a miss can fail, on CI or with `--enforce-budget`, it is re-run
+once; elsewhere it is a warning from one run, D142). On 2026-09-21 the build was 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s
 to validate at 158 materials and 11,096 measurements; doubled, the estimate stage took about 59 s against a budget of
 150 s (`test/scale.check.js` keeps the history). What the database holds today is in `build/snapshot/counts.md`. The
 estimate model dominates. Its Gaussian process is cubic in the size of each chemical group rather than in all the

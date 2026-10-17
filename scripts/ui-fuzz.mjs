@@ -8,6 +8,9 @@
 //
 //   npm run ui:fuzz                     2,000 scenarios (about 2.5 minutes); exit 1 on any violation
 //   npm run ui:fuzz -- --n 3000 --seed 7   the audit's full run, or another seed
+//   npm run ui:fuzz -- --n 300 --shard 2/3 the second of three parts of the same 300 scenarios (CI runs the parts as
+//                                         parallel jobs): every part draws all of them from the seed and runs its own,
+//                                         so the parts together are exactly the run they divide (D142)
 //   Without Chrome it reports "skipped" and exits 0, unless --require is given (CI).
 //
 //   node scripts/ui-fuzz.mjs [--n 2000] [--seed 1] [--tabs 8]
@@ -17,6 +20,7 @@
 //        [--roundtrip 0.05] share of scenarios whose link is reopened in a fresh load and compared
 //        [--tmp DIR]      scratch directory for the Chrome profile and the scenario files (default: os tmpdir)
 //        [--out DIR]      where results.json and violations.jsonl go (default: this directory)
+//        [--shard K/N]    run the K-th of N parts of the scenarios; a child scenario is in its parent's part (I8)
 //
 // Invariants (see NOTES.md): I1 table rows and verdicts, I2 count and chips, I3 Strict ignores the estimates
 // switch, I4 Ashby points/envelopes/front/legend (Material typicals), I5 display rounding against thresholds, I6
@@ -41,6 +45,9 @@ const TABS = Number(arg('tabs', 8));
 const IMPORT_SHARE = Number(arg('import', 0.8));
 const ROUNDTRIP_SHARE = Number(arg('roundtrip', 0.05));
 const OUT = resolve(arg('out', join(tmpdir(), 'h2c-ui-fuzz')));
+const SHARD = arg('shard', null);
+const [PART, PARTS] = SHARD === null ? [1, 1] : SHARD.split('/').map(Number);
+if (!(Number.isInteger(PART) && Number.isInteger(PARTS) && PART >= 1 && PART <= PARTS)) { console.error(`ui:fuzz: --shard takes K/N with 1 <= K <= N, not "${SHARD}"`); process.exit(2); }
 mkdirSync(OUT, { recursive: true });
 const TMP_BASE = arg('tmp', null);
 // Reload a tab after this many in-app imports. Every Ashby render used to leak a Plotly resize listener and its plot
@@ -724,7 +731,28 @@ async function openTab(k) {
 const t0 = Date.now();
 const scenarios = [];
 for (let i = 0; i < N; i++) scenarios.push(genScenario(i, scenarios));
+// The part this run takes (--shard). Every part draws all N scenarios from the seed, so a scenario is the same in every
+// part; each family (a scenario and the children built on it, which I8 compares with their parent) goes whole to one
+// part, the largest families first, each to the part with the fewest scenarios so far.
+const mine = (() => {
+  if (PARTS === 1) return scenarios;
+  const rootOf = (s) => (s.parent === null ? s.i : rootOf(scenarios[s.parent]));
+  const families = new Map();
+  for (const s of scenarios) { const r = rootOf(s); if (!families.has(r)) families.set(r, []); families.get(r).push(s); }
+  const sizes = Array(PARTS).fill(0);
+  const part = new Map();
+  for (const [r, f] of [...families].sort((a, b) => b[1].length - a[1].length || a[0] - b[0])) {
+    const k = sizes.indexOf(Math.min(...sizes));
+    part.set(r, k); sizes[k] += f.length;
+  }
+  return scenarios.filter((s) => part.get(rootOf(s)) === PART - 1);
+})();
 const rendered = new Map();   // i -> { S1: ids, X0: ids, X1: ids }
+// When each scenario has been read (or failed to be). A child compares its rows with its parent's (I8), and waits for
+// its parent to finish first: every child is compared, not only the ones whose parent another tab happened to finish
+// sooner (51 of the 54 children of seed 1's 300 in one run, 48 in the same 300 run in three parts; all 54 since, D142).
+// The parent was taken from the list before its child, so it is being read or is done, and the wait ends.
+const finished = new Map(mine.map((s) => { let settle; const p = new Promise((r) => { settle = r; }); return [s.i, { p, settle }]; }));
 let next = 0, done = 0, loads = 0, imports = 0, importFallbacks = 0, readings = 0, roundtrips = 0;
 const timing = { load: 0, import: 0, run: 0, oracle: 0 };
 
@@ -735,8 +763,8 @@ function perms(start) {
 }
 
 async function worker(t) {
-  while (next < scenarios.length) {
-    const s = scenarios[next++];
+  while (next < mine.length) {
+    const s = mine[next++];
     s.order = perms(s.start);
     t.errors.length = 0; t.dialogs.length = 0;
     // The page validates what a link or file carries and leaves out what it cannot evaluate, with a warning (A-05, A-06).
@@ -761,7 +789,7 @@ async function worker(t) {
       timing.run += Date.now() - a;
     } catch (err) {
       violate('H-harness', `harness error: ${err.message.split('\n')[0].slice(0, 80)}`, s, `${s.start}|${s.startLens}`, { error: err.message.slice(0, 400), errors: t.errors.slice(0, 3), dialogs: t.dialogs });
-      t.loaded = false; done++; continue;
+      t.loaded = false; done++; finished.get(s.i).settle(); continue;
     }
     if (process.env.FZ_DUMP && s.i === Number(process.env.FZ_DUMP)) for (const [k, v] of Object.entries(res)) console.log('DUMP', k, JSON.stringify(v).slice(0, 700));
     s.constraints = validated.scenario.constraints;
@@ -792,6 +820,8 @@ async function worker(t) {
     if (notIn(R.S1, R.X1).length) violate('I8-mono-policy', 'Strict row missing from Explore+estimates', s, 'X1|table', { ids: notIn(R.S1, R.X1) });
     if (notIn(R.X1, R.X0).length) violate('I8-mono-policy', 'Explore+estimates row missing from Explore no-estimates', s, 'X0|table', { ids: notIn(R.X1, R.X0) });
     rendered.set(s.i, R);
+    finished.get(s.i).settle();
+    if (s.parent !== null && finished.has(s.parent)) await finished.get(s.parent).p;
     if (s.parent !== null && rendered.has(s.parent)) {
       const P = rendered.get(s.parent);
       for (const k of ['S1', 'X0', 'X1']) { check('I8-mono-add'); const extra = notIn(R[k], P[k]); if (extra.length) violate('I8-mono-add', `adding a mandatory requirement adds a row (${k})`, s, `${k}|table`, { parent: s.parent, added: extra }); }
@@ -811,13 +841,13 @@ async function worker(t) {
       } catch (err) { violate('H-harness', `roundtrip error: ${err.message.slice(0, 80)}`, s, `${st}|${lens}`, { error: err.message.slice(0, 300) }); t.loaded = false; }
     }
     done++;
-    if (done % 250 === 0) { console.log(`${done}/${N} scenarios, ${readings} readings, ${((Date.now() - t0) / 1000).toFixed(1)} s`); writeResults(true); }
+    if (done % 250 === 0) { console.log(`${done}/${mine.length} scenarios, ${readings} readings, ${((Date.now() - t0) / 1000).toFixed(1)} s`); writeResults(true); }
   }
 }
 
 function writeResults(partial = false) {
   const out = {
-    partial, seed: SEED, scenariosRequested: N, scenariosRun: done, tabs: TABS, runtimeSeconds: Number(((Date.now() - t0) / 1000).toFixed(1)),
+    partial, seed: SEED, scenariosRequested: N, shard: `${PART}/${PARTS}`, scenariosInShard: mine.length, scenariosRun: done, tabs: TABS, runtimeSeconds: Number(((Date.now() - t0) / 1000).toFixed(1)),
     recycleEvery: RECYCLE, pageLoads: loads, inAppImports: imports, importFallbacks, roundtrips, readings,
     msPerScenario: done ? Number(((Date.now() - t0) * TABS / done).toFixed(1)) : null,
     timingMsTotalAcrossTabs: timing, avgLoadMs: loads ? Math.round(timing.load / loads) : null, avgImportMs: imports ? Math.round(timing.import / imports) : null,
@@ -833,10 +863,10 @@ try {
   await Promise.all(tabs.map(worker));
 } finally {
   const out = writeResults(false);
-  console.log(`done: ${out.scenariosRun} scenarios, ${out.readings} readings, ${out.runtimeSeconds} s (${out.pageLoads} loads, ${out.inAppImports} imports)`);
+  console.log(`done: ${out.scenariosRun} scenarios${PARTS > 1 ? ` (part ${PART} of ${PARTS} of ${N})` : ''}, ${out.readings} readings, ${out.runtimeSeconds} s (${out.pageLoads} loads, ${out.inAppImports} imports)`);
   for (const [k, v] of Object.entries(out.invariants)) if (v.violations) console.log(`  ${k}: ${v.violations} of ${v.checks}`);
   const violations = Object.values(out.invariants).reduce((n, v) => n + v.violations, 0);
-  if (violations || out.scenariosRun < N) { console.error(`ui:fuzz: ${violations} violation(s) or unfinished scenarios; examples with seed, scenario and link in ${join(OUT, 'violations.jsonl')}`); process.exitCode = 1; }
+  if (violations || out.scenariosRun < mine.length) { console.error(`ui:fuzz: ${violations} violation(s) or unfinished scenarios; examples with seed, scenario and link in ${join(OUT, 'violations.jsonl')}`); process.exitCode = 1; }
   try { ws.close(); } catch { /* closed */ }
   proc.kill();
   await sleep(400);

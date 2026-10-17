@@ -157,6 +157,7 @@ detail. The generator names one that runs longer.
 | D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing; extended by D140 (flexural results, listed properties and notes; a drawer-only row may draw an unstated orientation hollow) |
 | D140 | Flexural results are drawn as tensile ones are, beside how the two relate; tensile strain at strength is listed under the tensile tests | The flexural modulus and strength the Mechanical tab already listed are drawn as the tensile results are: one closed heading, Flexural tests, XY and Z, an XY row and a Z row per property, a product per dot. A second closed line under it says how flexural and tensile results relate in theory, and why a printed bar departs from it. Tensile strain at strength moves inside the tensile heading as a list, not a graph. Four flexural rows are drawn in the drawer alone. No answer moved. | In force; it extends D139 (a comparison may list properties it does not draw and carry a second closed line; a drawer-only row may draw a value with no stated orientation, hollow and out of the median) and decides nothing |
 | D141 | A plausibility window is a check, never a filter; a reader's silence is checked against the cell's own words | The temperature parser used to throw away a number outside what it thought plausible and read the window from what was left, so "450 - 520 °C" became the point 450 and a 75–85 °C nozzle became no nozzle at all; the typed columns, written from the parser, carried the collapse where the mismatch check could not see it. Now every number a cell states is read, one outside the window is shown as a warning, and the same was done for the readers of drying, hardened nozzles, nozzle diameters and heat-deflection loads. | In force; it extends D115 (a typed endpoint is a number its cell states) and D49 (the parsers check the typed columns) |
+| D142 | Verify runs side by side what does not depend on each other, and CI runs the rendered scenarios in parts | `npm run verify`, `verify:fast` and CI ran every check one after another, although most read what they read and write nothing another reads; a run took as long as all of them added up. Now each step says which steps it follows, and the ones that need nothing of each other run at the same time on the machine's cores. CI runs the 300 rendered scenarios as three jobs side by side, each a third of the same 300, and the weekly 2,000 as four. Every check, scenario, view and test still runs, with the same thresholds. | In force; it amends D131's process (a scale-budget miss is re-run only where it can fail; CI's interface job is a views job and three scenario jobs) |
 
 <!-- end index -->
 
@@ -4602,6 +4603,46 @@ m421.*
 - **What would break if reversed.** A window collapses silently again, and the next PEEK, PCL or "3M" cell is typed
   wrong with the check that exists for it blind. What the sweep left (readers' spellings, a standard-deviation column
   430 rows carry in brackets, unknown standards bodies) is in OPEN-PROBLEMS §11 and §12.
+
+## D142. Verify runs side by side what does not depend on each other, and CI runs the rendered scenarios in parts
+
+> **In plain words:** `npm run verify`, `verify:fast` and CI ran every check one after another, although most read what they read and write nothing another reads; a run took as long as all of them added up. Now each step says which steps it follows, and the ones that need nothing of each other run at the same time on the machine's cores. CI runs the 300 rendered scenarios as three jobs side by side, each a third of the same 300, and the weekly 2,000 as four. Every check, scenario, view and test still runs, with the same thresholds.
+> **Status:** In force; it amends D131's process (a scale-budget miss is re-run only where it can fail; CI's interface job is a views job and three scenario jobs).
+
+*Asked by the owner on 2026-10-17: the checks take too long; find whether they are needed, then make them faster without
+removing a needed check or any accuracy. Built by Claude (an agent) on a branch, not on `main`.*
+
+- **What the time was** (CI's logs, the commits, GOALS C13). Per push, CI took 8 to 9 minutes: the data job 3 m 24 s and
+  the interface job 7 m 45 s, of which the 300 rendered scenarios were 341 s (the page draws each scenario in four
+  settings and two lenses; no fixed wait in the harness). The weekly 2,000 scenarios took 39 m 49 s. Locally `verify`
+  took 467 to 490 s on the owner's machine, 170 to 360 s of it the scale check and its re-run on a miss (2026-10-14,
+  10-15).
+- **Every check is needed.** Each guards what no other does: the tables' form and schema, the generated documents, the
+  build and its tests, the import tests, an uncached compile against the page (the audit), the snapshot, the views, the
+  rendered scenarios against the engine, the doubled data, the reproducible bytes. None was dropped or loosened.
+- **Side by side** (`scripts/lib/run-steps.mjs`, `runGraph`). A step names the steps it follows, the cores it keeps busy
+  (the test runner and the browser's tabs claim several) and whether it runs alone; a step's output is printed whole when
+  it ends, and the table says when each began. Three orders are kept on purpose: the import tests follow the unit tests
+  (they write their fixtures' text into `.cache/text`, which a unit test's cache digest reads); the reproducible-build
+  check runs alone after every step that reads `dist/`, which it rewrites; and the scale check runs alone and last,
+  because it is timed. With `--enforce-budget`, verify:fast's steps run first with nothing beside them, so the 90 s
+  budget is still their own time. `--serial` runs one step at a time; `--plan` prints the order without running it.
+- **The scale budget re-runs a miss only where a miss can fail** (CI and `--enforce-budget`). Elsewhere the second run
+  could only change a warning, and it cost the owner's `verify` another full scale run whenever the machine was loaded.
+- **The scenarios in parts** (`ui-fuzz --shard K/N`). Every part draws all the scenarios from the seed and runs its
+  own share, so the parts together are the run they divide; a scenario built on another (I8 compares it with its parent)
+  goes in its parent's part, and now waits for its parent to finish, so every child is compared (seed 1's 300: 51 of
+  54 children in one run and 48 in three parts before, 54 in both since; the 2,578 readings are the same either way).
+  CI's views job and three scenario jobs run beside the data job, and the weekly 2,000 run in four parts. The
+  repository is public, so a job costs no minutes; each part builds the page itself (40 s).
+- **Effect.** On a 4-core Linux container, from an empty build cache, `verify` took 749 s side by side where the same
+  steps take about 1,089 s one after another. Per push, CI's longest job becomes the data job. The owner's machine has
+  ten cores, where more steps fit beside the tests.
+- **Found on the way.** `sqlite.test.js` skipped its full-text test only where `.cache/text` did not exist, so in a
+  checkout without the private cache the import tests' fixtures made a second `verify` fail it. It is now skipped where
+  the cache holds no registered source's text, and runs in full where it does.
+- **What would break if reversed.** A push waits twice as long for the same checks, and the full local run waits for
+  steps that could have shared the machine.
 
 ## Bugs worth remembering
 

@@ -25,7 +25,7 @@ generated and never edited, and the retired Excel workbooks are history. Before 
 
 ```bash
 npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 80 s after a data change, about 45 s when nothing the build reads changed; budget 90 s)
-npm run verify        # verify:fast, then the import tests, the campaign page, audit, snapshot, links, packets, interface views, 300 rendered scenarios, the scale and reproducible-build checks: before a commit; every step runs even if one fails, and the failures are listed at the end
+npm run verify        # verify:fast, then the import tests, the campaign page, audit, snapshot, links, packets, interface views, 300 rendered scenarios, the scale and reproducible-build checks: before a commit; every step runs even if one fails, the steps that do not need each other run side by side, and the failures are listed at the end
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
@@ -42,7 +42,7 @@ views and the rendered scenarios drive a headless browser). `verify` also runs t
 The build result is cached by content in `.cache/build/` (`build/src/build-cache.js`): the same tables, code, runtime
 and options give the stored result back instead of running the estimate stage again, which is what keeps
 `verify:fast` inside its budget. The key covers everything the build reads, so a stale hit is not possible;
-`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify`'s data and interface checks side by side on every push to
+`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify`'s data checks, its interface views and its 300 rendered scenarios (in three parts) side by side on every push to
 main and on pull requests (a branch is checked locally, every step, before it is merged), publishes the page once they
 have passed, and runs the scale and reproducible-build checks and 2,000 scenarios on a new seed every week (`node
 scripts/verify.mjs --group trend` and `npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`

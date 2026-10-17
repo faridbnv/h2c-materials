@@ -94,8 +94,8 @@ Open the file in `dist/` in any current browser. Nothing else is required.
 
 ## Publishing
 
-`.github/workflows/verify.yml` runs `verify`'s data and interface checks, side by side, on every push to `main` and on
-pull requests; when both pass, `.github/workflows/pages.yml` rebuilds the selector from `data/tables` at that commit and
+`.github/workflows/verify.yml` runs `verify`'s data checks, interface views and rendered scenarios (in three parts), side
+by side, on every push to `main` and on pull requests; when all pass, `.github/workflows/pages.yml` rebuilds the selector from `data/tables` at that commit and
 publishes it to GitHub Pages. A branch is checked locally (`npm run verify`, every step) before it is merged; the scale
 and reproducible-build checks and 2,000 random scenarios run weekly. The
 distributable HTML is **not committed**, so the published page cannot drift from the source of truth, and a database

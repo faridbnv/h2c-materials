@@ -1,14 +1,18 @@
-# Verify every push to main and every pull request, in two jobs that run side by side (scripts/verify.mjs groups):
+# Verify every push to main and every pull request, in jobs that run side by side (scripts/verify.mjs groups):
 #   data       format, schema, lint, the generated documents, build and tests, the import tests, the source-to-HTML
 #              audit, the review snapshot, and the check that no record was deleted;
-#   interface  the interface views and 300 random rendered scenarios, in headless Chrome.
-# Publishing (pages.yml) runs after both pass on main and only builds and deploys: the gate runs once per push, not
-# twice. Once a week, and on demand, the trend job runs the scale check (twice today's data, within its time budget)
-# and the reproducible-build check, and 2,000 rendered scenarios run on a new seed. Those watch how the build grows and
-# whether it stays deterministic, which no single push decides, so they left the per-push gate on 2026-10-05 (the
-# owner's decision, D131): a push waits about half as long. Every step still runs locally before a push (npm run
-# verify). A push to another branch is checked locally and here when it is opened as a pull request. Node is the version
-# .nvmrc names, the one local runs use, so a model refit is not a different Node's arithmetic as well (D131).
+#   views      the interface views, in headless Chrome;
+#   scenarios  the 300 random rendered scenarios, in three parts of about 100, each in headless Chrome: every part
+#              draws the same 300 from the seed and runs its own, so together they are the run they divide (D142).
+# The interface was one job until 2026-10-17, and its 300 scenarios alone (341 s) made a push wait 7 m 45 s where the
+# data job took 3 m 24 s; in parts, the data job is the longest (D142). Publishing (pages.yml) runs after every job has
+# passed on main and only builds and deploys: the gate runs once per push, not twice. Once a week, and on demand, the
+# trend job runs the scale check (twice today's data, within its time budget) and the reproducible-build check, and
+# 2,000 rendered scenarios run on a new seed, in four parts. Those watch how the build grows and whether it stays
+# deterministic, which no single push decides, so they left the per-push gate on 2026-10-05 (the owner's decision,
+# D131). Every step still runs locally before a push (npm run verify). A push to another branch is checked locally and
+# here when it is opened as a pull request. Node is the version .nvmrc names, the one local runs use, so a model refit
+# is not a different Node's arithmetic as well (D131).
 
 name: Verify
 
@@ -62,7 +66,7 @@ jobs:
         run: |
           if git rev-parse HEAD~1 >/dev/null 2>&1; then node scripts/data/diff.mjs HEAD~1 HEAD --fail-on-removed; fi
 
-  interface:
+  views:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
@@ -85,10 +89,43 @@ jobs:
       - name: Start from an empty build cache
         run: rm -rf .cache/build
 
-      # The interface views (ui-probe --require) and the 300 rendered scenarios; a Chrome that opens no debugging port
-      # is launched once more (scripts/lib/cdp.mjs) rather than failing the run.
-      - name: Verify the interface
-        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/verify.mjs --group interface
+      # The interface views (ui-probe --require); a Chrome that opens no debugging port is launched once more
+      # (scripts/lib/cdp.mjs) rather than failing the run.
+      - name: Verify the interface views
+        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/verify.mjs --group views
+
+  scenarios:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    strategy:
+      # Every part runs to the end, as every step of verify does, so one run names every failing part.
+      fail-fast: false
+      matrix:
+        part: [1, 2, 3]
+    name: scenarios (${{ matrix.part }} of 3)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Install the import tools' dependencies
+        run: npm ci
+
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
+      # This part of the 300 rendered scenarios (ui-fuzz --shard); a scenario built on another is in that one's part.
+      - name: Verify the rendered scenarios, part ${{ matrix.part }} of 3
+        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/verify.mjs --group scenarios --shard ${{ matrix.part }}/3
 
   trend:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -121,6 +158,12 @@ jobs:
   fuzz-full:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    # The 2,000 scenarios took 40 minutes in one job (2026-10-15); in four parts of the same 2,000, about a quarter.
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [1, 2, 3, 4]
+    name: fuzz-full (${{ matrix.part }} of 4)
     steps:
       - uses: actions/checkout@v4
 
@@ -142,12 +185,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      # A new seed each run, so the weekly runs cover different scenarios; a failure names its seed and link.
-      - name: 2,000 random rendered scenarios compared with the engine
-        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/ui-fuzz.mjs --n 2000 --seed ${{ inputs.seed || github.run_number }} --require --out fuzz-out
+      # A new seed each run, so the weekly runs cover different scenarios; a failure names its seed and link. Every part
+      # uses the run's one seed, so the four parts are the 2,000 scenarios that seed draws.
+      - name: 2,000 random rendered scenarios compared with the engine, part ${{ matrix.part }} of 4
+        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/ui-fuzz.mjs --n 2000 --seed ${{ inputs.seed || github.run_number }} --shard ${{ matrix.part }}/4 --require --out fuzz-out
 
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-fuzz-violations
+          name: ui-fuzz-violations-${{ matrix.part }}
           path: fuzz-out/
