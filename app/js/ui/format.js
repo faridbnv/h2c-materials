@@ -268,7 +268,7 @@ export function relatedNote(entry) {
     // A property with no direction (a glass transition, a density) is never said to lack one.
     + ` (${b.property}${dir ? `, ${dir}` : b.direction === 'not-applicable' ? '' : ', orientation not stated'}).`
     + ` Not compared: ${b.why}.`
-    + `${more ? ` ${more} more value${more === 1 ? '' : 's'} from ${r.grades} product${r.grades === 1 ? '' : 's'}.` : ''}`
+    + `${more ? ` ${more} more value${more === 1 ? '' : 's'} on file, ${r.grades === 1 ? 'of the same product' : `of ${r.grades} products in all`}.` : ''}`
     + `${boundOf(b.interval) ? ` ${boundNote(b.interval, b.value, b.unit)}` : ''}`
     + ' No filter uses it.';
 }

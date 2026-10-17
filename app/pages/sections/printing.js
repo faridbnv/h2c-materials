@@ -151,6 +151,11 @@ export default {
     // A setting is drawn where three counted windows or more give it and they do not all agree: otherwise the
     // findings say it in full, and a figure would add nothing.
     const drawable = (p) => p.n > 2 && !(p.every && p.windows.filter((w) => w.counted).every((w) => w.min === p.every.from && w.max === p.every.to));
+    // A setting given but not drawn, and why, so a window said above with no panel below is never a puzzle.
+    const undrawn = SETTINGS.filter(([axis]) => pw[axis].n && !drawable(pw[axis])).map(([axis, label]) => (pw[axis].n < 3
+      ? `${label}: ${pw[axis].n === 1 ? 'one product gives' : `${pw[axis].n} products give`} a full window, said above; a setting is drawn from three`
+      : `${label}: all ${pw[axis].n} counted windows are the same, said above`));
+    const undrawnLine = undrawn.length ? `Not drawn as a panel: ${undrawn.join('; ')}.` : null;
     const panels = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis, label]) => {
       const p = pw[axis];
       const at = p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`;
@@ -206,6 +211,7 @@ export default {
           notCounted.length ? `Drawn but not counted: ${andList(notCounted)}.${drawn.some((p) => p.guide) ? ' The guide speaks for every product that reads it, so it is drawn once per product and counted for none.' : ''}` : null,
           'The height at each whole degree is how many counted windows include it. The dashed line is half of them.',
           missing ? `Not drawn: ${missing}.` : null,
+          undrawnLine,
           ...printLines(pf), printSingles(pf),
         ]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : '') + `<p>${recordsLink(c, '#profiles', 'Every print profile, with its document, on the records page')}.</p>`,
       });
@@ -221,7 +227,7 @@ export default {
     const html = `${findingsBlock(findings)}${fig}
 <h3 class="sub-title">Nozzle, drying and AMS</h3>
 <dl class="facts" data-drying-have="${advice.have}" data-drying-own="${advice.own}" data-drying-twin="${advice.twin}" data-drying-guide="${advice.guide}" data-products="${products.length}">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-${!panels.length && pf.rows.length ? howCounted(notesHtml([...printLines(pf), printSingles(pf), printMissing(pf) ? `Not counted: ${printMissing(pf)}.` : null]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : ''), 'How the settings are counted') : ''}
+${!panels.length && pf.rows.length ? howCounted(notesHtml([undrawnLine, ...printLines(pf), printSingles(pf), printMissing(pf) ? `Not counted: ${printMissing(pf)}.` : null]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : ''), 'How the settings are counted') : ''}
 ${guide ? guideBlock(guide, m.name) : ''}
 <p class="note">${recordsLink(c, '#profiles', `All ${plural(c.profiles.length, 'print profile')}, with their documents`)}.</p>`;
     return { empty: false, html, stats: { figures: fig && panels.length ? 1 : 0, dots } };

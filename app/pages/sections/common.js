@@ -5,7 +5,7 @@
 // (material-words.js, labels.js), findings.js's, or says what a figure draws.
 
 import { esc, recordsHref, tableBox, count } from '../html.js';
-import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
+import { fmtNumber, fmtBounded, fmtBoundedKind } from '../../js/ui/format.js';
 import { propertyName, whyWords } from '../../js/ui/labels.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { emptyReasons, measuredIn, dotMarks, spreadEntries, productNameOrId, outOfMedian, GAP_STATUS } from '../../js/ui/material-facts.js';
@@ -128,7 +128,8 @@ export function medianTable(hs, m) {
     const apart = apartWords(h, s);
     return `<tr><th scope="row">${esc(h.labels.plain)}${units.size > 1 ? ` <span class="u">${esc(h.unit)}</span>` : ''}</th>`
       + `<td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>`
-      + `<td class="num">${s?.q1 != null ? esc(middleHalf(s)) : '—'}</td><td class="num">${s?.n ? esc(joinedSpan(s)) : '—'}</td></tr>`
+      // A published bound at an end keeps its sign ("<1–8.2"), as At a glance prints it.
+      + `<td class="num">${s?.q1 != null ? esc(middleHalf(s)) : '—'}</td><td class="num">${!s?.n ? '—' : s.bounds ? `${fmtBoundedKind(esc(fmtNumber(s.min)), s.bounds.min)}–${fmtBoundedKind(esc(fmtNumber(s.max)), s.bounds.max)}` : esc(joinedSpan(s))}</td></tr>`
       + (apart.length ? `<tr class="apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : '');
   };
   return tableBox(`<table class="grid sum"><thead><tr><th scope="col">Test${units.size > 1 ? '' : `, <span class="u">${esc(hs[0].unit)}</span>`}</th>`
@@ -327,6 +328,7 @@ export function otherProperties(c, tab, covered, anchor, { title = 'Other proper
     list.length ? 'Each value is as its sheet publishes it, under its own test conditions, so these are not compared. Values counts the published values; Products, the products whose own sheet gives one.' : null,
     named, absent,
   ]) + (list.length ? `<p>${recordsLink(c, anchor, 'Every value, with its conditions and document, on the records page')}.</p>` : '')) : '';
-  const gaps = mi.gaps.length ? `<h3 class="sub-title">Known gaps</h3>${gapList(c, mi.gaps)}` : '';
+  // A heading only over a gap the reader is shown; the maintainers' notes alone are one line to the records page.
+  const gaps = mi.gaps.some(shownGap) ? `<h3 class="sub-title">Known gaps</h3>${gapList(c, mi.gaps)}` : mi.gaps.length ? `<p class="note">${furtherNotes(c, mi.gaps.length)}</p>` : '';
   return { html: `${table}${counted}${gaps}`, properties: props.length, list };
 }
