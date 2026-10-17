@@ -11,7 +11,9 @@
 //   after   the names of the steps it follows (finished, passed or failed); '*' for every step listed before it. A name
 //           not in the list is left out, so a group run on its own keeps the order of the steps it has.
 //   cores   how many cores it keeps busy (default 1). A step that runs its own workers (the test runner, the browser's
-//           tabs) says so, and steps start only while the cores they claim are free.
+//           tabs) says so, and steps start only while the cores they claim are free. A step that could start but
+//           waits for cores keeps the steps listed after it from starting first, so a run of short steps cannot
+//           keep it waiting.
 //   alone   nothing runs beside it: a step that is timed against a budget, or one that rewrites what other steps read.
 //
 // Both return what happened without printing a table or exiting, so a test can drive them; main adds the table, a line
@@ -111,7 +113,8 @@ export function runGraph(steps, { cwd = root, jobs = CORES, write = (s) => proce
           if (running.size === 0) { waiting.splice(waiting.indexOf(step), 1); start(step); }
           break;
         }
-        if (step.cores > free) continue;
+        // It waits for cores, and nothing listed after it takes them first.
+        if (step.cores > free) break;
         waiting.splice(waiting.indexOf(step), 1);
         free -= step.cores;
         start(step);

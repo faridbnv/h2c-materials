@@ -102,6 +102,18 @@ test('side by side: a step that runs alone has the machine to itself, and the co
   }
 });
 
+test('side by side: a step waiting for cores is not overtaken by the steps listed after it', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-graph-'));
+  try {
+    // On two cores: while 'first' runs, 'heavy' cannot start, and 'small' (one core, free) must not start before it.
+    await runGraph([[...timed('first', dir), { after: [] }], [...timed('heavy', dir), { after: [], cores: 2 }], [...timed('small', dir), { after: [] }]], { jobs: 2, write: () => {} });
+    assert.ok(span(dir, 'heavy')[0] >= span(dir, 'first')[1], 'the two-core step waited for the core in use');
+    assert.ok(span(dir, 'small')[0] >= span(dir, 'heavy')[1], 'the step listed after it did not take the free core first');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('side by side: a step without an order follows every step before it, and output is printed whole', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'h2c-graph-'));
   try {
