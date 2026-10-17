@@ -656,3 +656,21 @@ for the root cause, what else it touched, and a fix; then for "any other issues 
   OPEN-PROBLEMS §3, §4, §11 and §12.
 
 Built as D141 (m420, m421) by Claude, with two Claude Opus agents sweeping the readers.
+
+## Decided on 2026-10-17, a data round on what the material pages' reviews found
+
+Two reviewers, each reading the new per-material pages as a mechanical engineer, scored them, and both found faults
+that were in the data, not the pages: the pages show the data as it is. The owner chose to fix those faults in a round
+of their own, run in parallel with the pages work on its own branch (data-review-fixes), and to decide its merging.
+
+- **What the pages showed, fixed on the documents.** Kingroon's reprints of Bambu Lab's tables carry what each page
+  states; tests only an elastomer is put through apply to elastomers (and tear strength and the 100 % stress to the
+  polyolefins); Prusa's Horizontal and Vertical xz test bars are XY and XZ, as Prusa's own coefficient shows; eleven
+  tensile moduli their own sheets rule out are flagged; a maker's word on moisture counts on the coverage page; one
+  publisher is spelt one way; words broken at line ends, OCR-garbled titles and every XZ, ZX and YX label are as the
+  sheets print them; two reasons say what their documents say.
+- **Rules changed** (D143): Prusa's columns, a YX bar recorded as its own label, a maker's moisture statement a moisture
+  record.
+
+Built by Claude Opus (m422 to m432, D143), with Claude Sonnet agents sweeping publishers, broken words, titles and
+orientation labels and re-reading a blind sample; not pushed, and not merged into main.

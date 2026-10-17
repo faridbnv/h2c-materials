@@ -43,9 +43,9 @@ PA6-CF
 PA6-GF
 4.35
 2.85–5.36 · 4
-0.00196
+0.00223
 log scale
-19.4
+17.1
 all 152 candidates
 Tensile strength (XY) MPa
 ASA-CF
@@ -58,7 +58,7 @@ PA6-GF
 82.3
 62.8–98.9 · 6
 7
-299
+281
 all 152 candidates
 Tensile strength (Z) MPa
 ASA-CF
@@ -83,7 +83,7 @@ PA6-CF
 PA6-GF
 4.95
 2.4–12.5 · 6
-0.641
+0.657
 log scale
 1,050
 all 152 candidates

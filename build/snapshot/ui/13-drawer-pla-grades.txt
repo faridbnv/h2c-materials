@@ -1,15 +1,15 @@
 Across its products: median and range, and what their makers say
 Property Median Range Products Left out of the range
 Density kg/m³ 1,240 1,170–1,329 158 of 176 16 special formulations (800–4,000)
-Tensile modulus (XY) GPa 2.58 0.433–4.24 52 of 176 42 with no stated orientation (0.379–4.78); 12 special formulations (0.715–4.73)
-Tensile modulus (Z) GPa 2.02 0.873–2.69 28 of 176 2 special formulations (0.603–3.2)
-Tensile strength (XY) MPa 45 26–70.9 67 of 176 56 with no stated orientation (30–71); 12 special formulations (13.7–65)
-Tensile strength (Z) MPa 30.8 8.7–43.5 38 of 176 3 special formulations (14.5–21.7)
+Tensile modulus (XY) GPa 2.53 0.95–4.24 55 of 176 39 with no stated orientation (1.44–4.78); 12 special formulations (0.715–4.73)
+Tensile modulus (Z) GPa 1.98 0.873–2.69 29 of 176 2 special formulations (0.603–3.2)
+Tensile strength (XY) MPa 45.5 26–70.9 71 of 176 56 with no stated orientation (30–71); 12 special formulations (13.7–65)
+Tensile strength (Z) MPa 30.6 8.7–43.5 39 of 176 3 special formulations (14.5–21.7)
 Elongation at break (XY) % 7.23 1.2–65 63 of 176 47 with no stated orientation (2.5–84); 11 special formulations (2.4–36)
-Elongation at break (Z) % 2.89 0.9–9.6 33 of 176 2 special formulations (1.8–7.91)
-Flexural modulus (XY) GPa 2.75 2.14–3.98 55 of 176 48 with no stated orientation (1.93–3.8); 14 special formulations (2.04–8.8)
+Elongation at break (Z) % 2.89 0.9–9.6 35 of 176 2 special formulations (1.8–7.91)
+Flexural modulus (XY) GPa 2.87 2.14–3.98 59 of 176 48 with no stated orientation (1.93–3.8); 14 special formulations (2.04–8.8)
 Flexural modulus (Z) GPa 2.41 1.77–3.29 17 of 176 —
-Flexural strength (XY) MPa 75.9 42.6–115 59 of 176 48 with no stated orientation (43–115); 11 special formulations (29.6–122)
+Flexural strength (XY) MPa 76 42.6–115 63 of 176 48 with no stated orientation (43–115); 11 special formulations (29.6–122)
 Flexural strength (Z) MPa 54 21.1–68 17 of 176 —
 Notched Charpy impact kJ/m² 6 2.16–20.3 14 of 169 17 with no stated orientation (1.8–29.8); 7 special formulations (1.8–7); 7 sold as toughened (5.76–72.3)
 Notched Izod impact kJ/m² 5 4.5–6.5 6 of 175 11 with no stated orientation (2–19.8); 5 special formulations (5.5–18.1); 1 sold as toughened (10)

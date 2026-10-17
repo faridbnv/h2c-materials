@@ -1,5 +1,5 @@
 {
-  "dataRelease": "39a195b466e8",
+  "dataRelease": "9dfb39275b42",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -67,14 +67,14 @@
     },
     "excluded": 17,
     "grades": 1180,
-    "measurements": 14816,
-    "numericMeasurements": 14623,
+    "measurements": 14818,
+    "numericMeasurements": 14625,
     "quarantined": 36,
     "profiles": 1835,
     "evidence": 868,
     "prices": 365,
     "sources": 2016,
-    "coverage": 951,
+    "coverage": 953,
     "knowHow": 7601,
     "polymerEnvironment": 353,
     "polymerEvidence": 314,
@@ -90,9 +90,9 @@
     },
     "coverage": {
       "baseline": 805,
-      "current": 951,
-      "added": 146,
-      "edited_existing": 82,
+      "current": 953,
+      "added": 148,
+      "edited_existing": 84,
       "removed": 0
     },
     "drawer_comparisons": {
@@ -106,7 +106,7 @@
       "baseline": 5306,
       "current": 8490,
       "added": 3184,
-      "edited_existing": 262,
+      "edited_existing": 318,
       "removed": 0
     },
     "family_entries": {
@@ -167,9 +167,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 15418,
-      "added": 3882,
-      "edited_existing": 2919,
+      "current": 15420,
+      "added": 3884,
+      "edited_existing": 2953,
       "removed": 0
     },
     "method": {
@@ -181,8 +181,8 @@
     },
     "page_context": {
       "baseline": 0,
-      "current": 1007,
-      "added": 1007,
+      "current": 1010,
+      "added": 1010,
       "edited_existing": 0,
       "removed": 0
     },
@@ -205,6 +205,13 @@
       "current": 33,
       "added": 0,
       "edited_existing": 20,
+      "removed": 0
+    },
+    "print_guide_materials": {
+      "baseline": 17,
+      "current": 17,
+      "added": 0,
+      "edited_existing": 1,
       "removed": 0
     },
     "product_claims": {
@@ -232,14 +239,14 @@
       "baseline": 44,
       "current": 50,
       "added": 6,
-      "edited_existing": 1,
+      "edited_existing": 3,
       "removed": 0
     },
     "sources": {
       "baseline": 1828,
       "current": 2016,
       "added": 188,
-      "edited_existing": 123,
+      "edited_existing": 530,
       "removed": 0
     }
   },
