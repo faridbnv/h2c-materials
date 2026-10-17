@@ -3,7 +3,7 @@
 > **Current** (2026-10-17). An independent review done to [REVIEW-BRIEF.md](../REVIEW-BRIEF.md), of the frozen
 > build copied to the scratchpad (`review2/materials/` and the selector beside it), opened as `file://` pages in
 > headless Chrome at 1280 px and 390 px, light and dark, plus one A4 printout. I read no code, no other review and no
-> proposal before scoring. Screenshots are in [shots-2/](shots-2/); `shots-2/m/` holds side-by-side phone strips.
+> proposal before scoring. Screenshots are in [shots-2/](../PACKETS.md); `shots-2/m/` holds side-by-side phone strips.
 
 ## Scores
 

@@ -7,7 +7,7 @@
 **What I reviewed.** Release `c844a6d3440a`, built 2026-10-17 11:35. The build in `dist/` was replaced while I was
 working: my first PLA shots showed release `f4b5d1d2458f`. So I copied the new build into my scratchpad and reviewed
 that copy, so nothing could move under me again. Every screenshot below is of `c844a6d3440a`. Shots are in
-[`shots/`](shots/), at 1280 px (height 1000) and 390 px (height 844), in light and dark. "y=" gives a position in page
+[`shots/`](../PACKETS.md), at 1280 px (height 1000) and 390 px (height 844), in light and dark. "y=" gives a position in page
 pixels at 1280 px.
 
 **What I could not test.** A real phone (touch scrolling, the hover-only tooltips on touch), Safari and Firefox,

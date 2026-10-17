@@ -47,3 +47,7 @@ build/reports/leverage/
 # Local output of npm run ingest:quality and npm run audit:reader-recall: generated over the whole text cache (2026-10-15).
 build/reports/text-quality/
 build/reports/reader-recall/
+
+# The pages-reimagined round's screenshots (2026-10-17): about 25 MB of PNG, kept on the machine that took them; the
+# reviews name them as paths, not links.
+docs/audits/2026-10-17-pages-reimagined/**/*.png

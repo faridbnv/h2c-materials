@@ -729,3 +729,24 @@ page, and a blind read of the pages before the round closed.
 
 Built by Claude Opus on `material-pages-summaries` (D142, m433 to m436), with Claude Sonnet agents drafting, editing and
 reading; merged to main by the owner as #4 (f0e69019).
+
+## Decided and built on 2026-10-17, the material pages reimagined
+
+The owner read the first material pages and asked for them to be reimagined, not patched: the text was not one account
+from the first line to the last, the links and the way back were badly designed, the plots dull, the index a confusing
+wiki, and the products page buggy and over-filtered. Three expert agents (UI/UX, content, data visualisation) each
+proposed their side; the executor decided where they differed against the tool's goals and planned the build
+([plan](audits/2026-10-17-pages-reimagined/PLAN.md)). The owner took its three recommendations: a quiet link from the
+selector to the index, the page rule unchanged, and the alternatives listed for a read and kept to materials the H2C
+can print. Midway the owner asked for the work to go much faster: weak parts were cut rather than polished, the
+executor implemented the Overview directly, and a fixed definition of done replaced a full review per round.
+
+- **Built (D145).** Each material has an Overview and a Products page; the records page redirects; the index is a list
+  by family; one bar and a *Back to your results* that restores the selection, the drawer, its tab and the scroll;
+  five kinds of figure on one scale per property; one evidence line instead of caveats in every sentence; the 76
+  summaries rewritten as drafts (Claude Sonnet drafted, Claude Opus judged them against their pages, 55 changed).
+- **Measured.** Three independent Claude Opus reviews, each by a reviewer who had seen no earlier version, scored the
+  pages 58, 66 and 72 of 100 (the first pages 65 to 72 before); PLA's Overview 14,250 px at the second review, about
+  10,900 at the close. No scenario answer, headline or gate moved. What the reviews leave is OPEN-PROBLEMS §37.19.
+
+Built by Claude Opus with three Claude Opus expert agents and Claude Sonnet drafters, on the branch `pages-reimagined`.
