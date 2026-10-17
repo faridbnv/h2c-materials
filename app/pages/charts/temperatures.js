@@ -8,7 +8,7 @@
 
 import { esc, pct, textPx, fmtDisplay, shortName, withUnit, spanUnit, products, andList, orList, figContext, productMark, fitLabels, KEY, keyOf, twinTable } from './kit.js';
 import { figFrame } from './figure.js';
-import { printWindows, dryingStats, heatLadder, productsOf } from '../../js/ui/material-stats.js';
+import { printWindows, dryingStats, heatLadder, productsOf, typicalWindow } from '../../js/ui/material-stats.js';
 import { printFacts } from '../../js/ui/material-facts.js';
 import { stripScale, limitOnScale } from '../../js/ui/scales.js';
 import { LADDER_EXTRA } from '../figures.js';
@@ -73,7 +73,8 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     const none = (p.states.get('not-required') ?? 0) + (p.states.get('ambient') ?? 0);
     const extra = [p.ends.length && p.n < 10 ? `${p.ends.length} give one end only` : '', a === 'chamber' && none ? `${none} need none` : ''].filter(Boolean).join('; ');
     let sub;
-    if (p.n >= 3 && p.most) sub = `${spanUnit(p.most.from, p.most.to, '°C')}, accepted by ${p.every ? 'all' : 'most of the'} ${p.n} products that give a window`;
+    const tw = typicalWindow(p);
+    if (p.n >= 3 && tw && tw.share !== 'peak') sub = `${spanUnit(tw.from, tw.to, '°C')}, accepted by ${tw.share === 'all' ? 'all' : 'most of the'} ${p.n} products that give a window`;
     else if (p.n) sub = `${p.n} of ${products(prods.length)} give a window`;
     else if (a === 'chamber' && none) sub = none === prods.length ? `none needed by any of the ${products(prods.length)}` : `none needed by ${none} of ${prods.length}`;
     else sub = p.windows.length ? 'only Bambu Lab\'s guide gives a window' : 'no window published';
@@ -127,14 +128,15 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
   const axis = `<div class="tm-axis"><div></div><div><svg class="dv-ticks" width="100%" height="18" aria-hidden="true" focusable="false"><line class="dv-axis" x1="0" x2="100%" y1="0.5" y2="0.5"/>${tl.map((it, i) => `<line class="dv-tk" x1="${pct(it.at)}" x2="${pct(it.at)}" y1="0" y2="3"/>${tf[i] ? `<text x="${pct(it.at)}" y="14" text-anchor="${it.anchor}"${tfn[i] ? '' : ' class="alt"'}>${esc(it.t)}</text>` : ''}`).join('')}</svg><p class="tm-unit">°C</p></div></div>`;
 
   // The finding.
-  const nz = pw.nozzle.n >= 3 ? pw.nozzle.most : null, bd = pw.bed.n >= 3 ? pw.bed.most : null;
+  const tw = (p) => { const r = p.n >= 3 ? typicalWindow(p) : null; return r && r.share !== 'peak' ? r : null; };
+  const nz = tw(pw.nozzle), bd = tw(pw.bed);
   const out = printFacts(m, c).outside ?? [];
   const beyond = new Set(out.flatMap((x) => x.list.map((l) => l.g.id))).size;
   // The H2C's limits of the settings the title states, and only those.
   const lims = [nz && pw.nozzle.limit != null ? `${pw.nozzle.limit} °C nozzle` : null, bd && pw.bed.limit != null ? `${pw.bed.limit} °C bed` : null].filter(Boolean);
   const tail = beyond ? `; ${beyond} ${beyond === 1 ? 'asks' : 'ask'} for more than the H2C gives` : lims.length ? `, inside the H2C's ${andList(lims)} ${lims.length > 1 ? 'limits' : 'limit'}` : '';
   let title;
-  if (nz) title = `${pw.nozzle.every ? `All ${pw.nozzle.n}` : 'Most'} ${name} products print at ${spanUnit(nz.from, nz.to, '°C')}${bd ? ` on a ${spanUnit(bd.from, bd.to, '°C')} bed` : ''}${tail}`;
+  if (nz) title = `${nz.share === 'all' && (!bd || bd.share === 'all') ? `All ${pw.nozzle.n}` : 'Most'} ${name} products print at ${spanUnit(nz.from, nz.to, '°C')}${bd ? ` on a ${spanUnit(bd.from, bd.to, '°C')} bed` : ''}${tail}`;
   else if (pw.nozzle.n) title = `${name}'s ${products(pw.nozzle.n).replace('products', 'sheets').replace('product', 'sheet')} give ${andList(pw.nozzle.windows.filter((w) => w.counted).map((w) => spanUnit(w.min, w.max, '°C')).filter((v, i, a) => a.indexOf(v) === i))} on the nozzle${tail}`;
   else title = `Where ${name} prints and softens, on one axis`;
   const key = keyOf([...(used.has('shade') ? [KEY.shade()] : []), ...(used.has('most') ? [KEY.most()] : []), ...(used.has('oneEnd') ? [KEY.oneEnd()] : []),

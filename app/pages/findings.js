@@ -17,7 +17,7 @@ import { fmtNumber, dryingWords, priceSampleWords, readableUnit } from '../js/ui
 import { REGISTRY } from '../js/ui/registry.js';
 import { H2C_STATUS, propertyName, envVerdictWords } from '../js/ui/labels.js';
 import { identity, productNameOrId, printFacts, printCounts, priceRows, stated, groupByMaker } from '../js/ui/material-facts.js';
-import { printWindows, dryingStats, dryingAdvice, compareMedians, printsAmorphous, heatLadder } from '../js/ui/material-stats.js';
+import { printWindows, dryingStats, dryingAdvice, compareMedians, printsAmorphous, heatLadder, typicalWindow } from '../js/ui/material-stats.js';
 import { hardenedShare } from '../js/engine/products.js';
 import { plural, lower, cap, andList, windowText, scheduleWords } from '../js/ui/material-words.js';
 import { evidenceTier, standOut, standOutProducts, standing, productsOf, KEY_FIGURES } from '../js/ui/material-highlights.js';
@@ -222,9 +222,10 @@ function windowRow(products, axis) {
     const ends = endWords();
     return { value: unit(w.min, w.max), note: `one product${ends.length ? `; ${andList(ends)}` : ''}`, pw };
   }
-  if (pw.every) return { value: unit(pw.every.from, pw.every.to), note: all(pw.n), pw };
-  if (pw.most) return { value: unit(pw.most.from, pw.most.to), note: 'most products that give one', pw };
-  return { value: unit(pw.peak.from, pw.peak.to), note: `${fmtNumber(pw.peak.k)} of ${fmtNumber(pw.n)} that give one`, pw };
+  const r = typicalWindow(pw);
+  if (r.share === 'all') return { value: unit(r.from, r.to), note: all(pw.n), pw };
+  if (r.share === 'most') return { value: unit(r.from, r.to), note: 'most products that give one', pw };
+  return { value: unit(r.from, r.to), note: `${fmtNumber(r.k)} of ${fmtNumber(pw.n)} that give one`, pw };
 }
 
 /** The heated chamber in brief: none needed, or the window most give. */

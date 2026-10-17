@@ -13,7 +13,7 @@ import { esc } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { identity, stated, isProduct, printCounts } from '../../js/ui/material-facts.js';
-import { printWindows, dryingStats } from '../../js/ui/material-stats.js';
+import { printWindows, dryingStats, typicalWindow } from '../../js/ui/material-stats.js';
 import { identityLine, windowText, plural, asPublishedWords } from '../../js/ui/material-words.js';
 import { H2C_STATUS, h2cLimit } from '../../js/ui/labels.js';
 import * as F from '../findings.js';
@@ -109,15 +109,14 @@ function h2cRowsFromFacts(c) {
   const win = (axis, label) => {
     const pw = printWindows(products, axis);
     if (!pw.n) return { key: axis, label, value: 'Not stated', note: '' };
-    if (pw.n === 1) { const w = pw.windows.find((x) => x.counted); return { key: axis, label, value: `${windowText(w.min, w.max)} °C`, note: 'one product' }; }
-    const r = pw.every ?? pw.most ?? pw.peak;
-    return { key: axis, label, value: `${windowText(r.from, r.to)} °C`, note: pw.every ? `all ${pw.n} products that give one` : pw.most ? 'most products that give one' : `${pw.peak.k} of ${pw.n} products that give one` };
+    const r = typicalWindow(pw);
+    return { key: axis, label, value: `${windowText(r.from, r.to)} °C`, note: r.share === 'one' ? 'one product' : r.share === 'all' ? `all ${pw.n} products that give one` : r.share === 'most' ? 'most products that give one' : `${r.k} of ${pw.n} products that give one` };
   };
   const chamber = (() => {
     const pw = printWindows(products, 'chamber');
     const none = (pw.states.get('not-required') ?? 0) + (pw.states.get('ambient') ?? 0);
     if (none > pw.n) return { key: 'chamber', label: 'Heated chamber', value: 'Not needed', note: `${none} of ${total} products` };
-    if (pw.n) { const r = pw.every ?? pw.most ?? pw.peak; return { key: 'chamber', label: 'Heated chamber', value: `${windowText(r.from, r.to)} °C`, note: pw.n === 1 ? 'one product' : `${pw.n} products give one` }; }
+    if (pw.n) { const r = typicalWindow(pw); return { key: 'chamber', label: 'Heated chamber', value: `${windowText(r.from, r.to)} °C`, note: pw.n === 1 ? 'one product' : `${pw.n} products give one` }; }
     return { key: 'chamber', label: 'Heated chamber', value: 'Not stated', note: '' };
   })();
   const drying = (() => {

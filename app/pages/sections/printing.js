@@ -6,7 +6,7 @@
 
 import { esc, tableBox } from '../html.js';
 import { indexDb, isProduct, stated, productNameOrId } from '../../js/ui/material-facts.js';
-import { printWindows } from '../../js/ui/material-stats.js';
+import { printWindows, typicalWindow } from '../../js/ui/material-stats.js';
 import { hardenedShare } from '../../js/engine/products.js';
 import { dryingWords } from '../../js/ui/format.js';
 import { settingWords, guideEnclosureWords, andList, windowText } from '../../js/ui/material-words.js';
@@ -73,7 +73,8 @@ function settingsTable(c) {
   }
   // What most products give: the plate's rows, with the chamber's given windows and the AMS statements beside them.
   const ch = printWindows(products, 'chamber');
-  const chamberGiven = ch.n ? (ch.most ? `${windowText(ch.most.from, ch.most.to)} °C` : ch.every ? `${windowText(ch.every.from, ch.every.to)} °C` : `${windowText(ch.peak.from, ch.peak.to)} °C`) : null;
+  const chw = typicalWindow(ch);
+  const chamberGiven = chw ? `${windowText(chw.from, chw.to)} °C` : null;
   const ams = [...new Map(products.flatMap((g) => amsOf(c, g).map((t) => [t, g]))).entries()];
   const most = {
     nozzle: byKey.nozzle, bed: byKey.bed,

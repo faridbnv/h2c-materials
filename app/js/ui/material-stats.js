@@ -234,6 +234,23 @@ export function printWindows(products, axis) {
   return out;
 }
 
+/**
+ * The window a page states for one print setting (D145): the span more than half of the counted windows include, said
+ * "all" only where every window includes the whole of it; the one window where only one is counted; the widest run of
+ * the most where no span reaches half. One rule, so the On the H2C plate, the settings table, the temperatures figure
+ * and a summary's {nozzle.window} cannot give two numbers for one setting (PA6 read "260 °C, all 7" beside "250–280 °C,
+ * accepted by all 7", where all seven accept 260 °C alone). `{ from, to, share: 'one' | 'all' | 'most' | 'peak', k }` or
+ * null.
+ */
+export function typicalWindow(pw) {
+  if (!pw?.n) return null;
+  if (pw.n === 1) { const w = pw.windows.find((x) => x.counted); return w ? { from: w.min, to: w.max, share: 'one', k: 1 } : null; }
+  const s = pw.most ?? pw.peak;
+  if (!s) return null;
+  const all = !!pw.every && pw.every.from === s.from && pw.every.to === s.to;
+  return { from: s.from, to: s.to, share: !pw.most ? 'peak' : all ? 'all' : 'most', k: pw.most ? null : pw.peak.k };
+}
+
 /** How many counted windows include temperature `t` (printWindows' runs). */
 export const acceptedAt = (pw, t) => pw.runs.find((r) => r.from <= t && t <= r.to)?.k ?? 0;
 

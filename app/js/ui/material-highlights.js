@@ -6,7 +6,7 @@
 
 import { REGISTRY } from './registry.js';
 import { isProduct, spreadEntries, soldToughened, comparisonsOf, documents, stated } from './material-facts.js';
-import { layerPairs, summarise, printWindows, dryingStats } from './material-stats.js';
+import { layerPairs, summarise, printWindows, dryingStats, typicalWindow } from './material-stats.js';
 
 /** The key figures at the head of a page, in the order the first figure draws them (PLAN.md, "The pages"). */
 export const KEY_FIGURES = ['tensileModulusXY', 'tensileStrengthXY', 'tensileStrengthZ', 'charpyNotched', 'hdt045', 'priceCADkg'];
@@ -163,8 +163,8 @@ export function standing(m, ranks, key) {
 
 /**
  * The window of one print setting most of a material's products give, as the page's *On the H2C* plate says it
- * (material-stats.js printWindows): the one counted window where there is one, the span all accept, the span more than
- * half accept, or the span the most accept; a lowest setting alone where only "at least" is given. `{ from, to }` (`to`
+ * (material-stats.js typicalWindow, one rule for the plate, the table, the figure and the summary); a lowest setting alone
+ * where only "at least" is given. `{ from, to }` (`to`
  * null for "at least"), or null where no product gives one.
  */
 export function settingWindow(products, axis) {
@@ -173,9 +173,8 @@ export function settingWindow(products, axis) {
     const lows = pw.ends.filter((e) => e.min != null && e.max == null);
     return lows.length ? { from: Math.min(...lows.map((e) => e.min)), to: null } : null;
   }
-  if (pw.n === 1) { const w = pw.windows.find((x) => x.counted); return { from: w.min, to: w.max }; }
-  const s = pw.every ?? pw.most ?? pw.peak;
-  return { from: s.from, to: s.to };
+  const s = typicalWindow(pw);
+  return s ? { from: s.from, to: s.to } : null;
 }
 
 /** The typical drying schedule of the products whose own or shared sheet gives one (material-stats.js dryingStats): `{ tempC, hours }` or null. */
