@@ -104,7 +104,7 @@ const guideLines = (text) => String(text ?? '').split(/(?<=\))\s+(?=[A-Z])/).map
 /** The hardened-nozzle line: which products need one, by name, or what the sources say. */
 function hardenedLine(gate, hard) {
   if (hard.need && hard.need < hard.total) {
-    return `${hard.need} of ${hard.total} products need one: ${hard.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing.`;
+    return `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} one: ${hard.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing.`;
   }
   if (hard.need) return hard.total === 1 ? 'Its product needs one.' : `All ${hard.total} products need one.`;
   return gate === 'requires-hardened' ? 'Required: the filler wears out a brass nozzle.' : gate === 'no-special-concern' ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.';
@@ -117,7 +117,7 @@ function hardenedLine(gate, hard) {
 function dryingLine(gate, products, d, advice) {
   if (!advice.have) return gate === 'not-needed' ? 'Its sources say drying is not needed.' : 'No source states whether to dry it. That does not mean it needs none.';
   const typical = d?.temps?.n > 1 ? ` Typically ${fmtNumber(d.temps.median)} °C${d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}.` : '';
-  return `${advice.have} of ${plural(products.length, 'product')} have drying advice: ${basisWords(advice, advice.have)}.${typical}`;
+  return `${advice.have} of ${plural(products.length, 'product')} ${advice.have === 1 ? 'has' : 'have'} drying advice: ${basisWords(advice, advice.have)}.${typical}`;
 }
 
 export default {

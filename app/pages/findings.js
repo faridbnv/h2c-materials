@@ -156,7 +156,7 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
   const over = (outside ?? []).filter((a) => a.axis !== 'chamber' && a.list.length);
   if (over.length) {
     const said = over.map((a, i) => (i ? `${a.list.length === products ? 'all' : a.list.length} for more ${a.axis} heat than its ${fmtNumber(a.limit)} °C`
-      : `${a.list.length === products ? `All ${products} products ask` : `${a.list.length} of ${plural(products, 'product')} ask`} for more ${a.axis} heat than the H2C's ${fmtNumber(a.limit)} °C`));
+      : `${a.list.length === products ? `All ${products} products ask` : `${a.list.length} of ${plural(products, 'product')} ${a.list.length === 1 ? 'asks' : 'ask'}`} for more ${a.axis} heat than the H2C's ${fmtNumber(a.limit)} °C`));
     out.push(`${said.join(', and ')}.`);
   }
   // The heated chamber: how many need none, by where that was read, and what those whose sheets give one ask for.
@@ -172,7 +172,7 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
     }
   }
   // A hardened nozzle, said only where some product needs one.
-  if (hard?.need) out.push(hard.need === hard.total ? `${hard.total === 1 ? 'Its product needs' : `All ${hard.total} products need`} a hardened nozzle.` : `${hard.need} of ${hard.total} products need a hardened nozzle.`);
+  if (hard?.need) out.push(hard.need === hard.total ? `${hard.total === 1 ? 'Its product needs' : `All ${hard.total} products need`} a hardened nozzle.` : `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} a hardened nozzle.`);
   else if (abrasive === 'requires-hardened') out.push('Its filler calls for a hardened nozzle.');
   // Drying: the typical schedule of the products whose own or shared sheet gives one.
   const t = drying?.temps, h = drying?.hours;
