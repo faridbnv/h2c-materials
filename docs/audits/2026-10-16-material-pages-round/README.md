@@ -93,3 +93,15 @@ records page keeps the maintainers' notes in a closed group. Then main was fetch
 
 The reviewer's hollow "no stated load" mark in PETG's HDT column went with main's fix: Spectrum PET-G HT100's 94 °C is
 read at 0.45 MPa and compared, and PETG's 0.45 MPa median now rests on 46 products.
+
+## Step 3 and a data round, in parallel
+
+Asked whether to go on to step 3 or to a data round on what the reviews found, the owner chose both at once. Step 3
+(the build stage, the drawer's Full page link, the index page, the site and the release zip, the checks, D142) runs here
+on `material-pages`. The data round runs on its own branch, `data-review-fixes`, cut from main at c69ff7b1, in a
+separate worktree that reads this checkout's source caches and writes none of them; it takes D143 if it changes a rule.
+Its scope is the review's data findings above and the reviewers' unverified ones (implausible moduli in ranges, a stale
+moisture gap, one publisher spelt two ways, line-break hyphens in statements, OCR-garbled titles, orientation wordings,
+a toughened claim on a glass-filled product, the PETG HF guide row read for PETG); the estimates' disagreement waits on
+the frozen estimate stage (D138), and main's reader-sweep gaps stay in OPEN-PROBLEMS. The two branches merge later, main
+fetched as it stands at that moment.
