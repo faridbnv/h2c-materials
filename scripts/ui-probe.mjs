@@ -302,7 +302,7 @@ const productsCheck = readFileSync(join(root, 'scripts/lib/page-products-check.j
 const PRODUCTS_MS = 10 * 60 * 1000;
 // Where the Products check runs, by page and screen. The table and its script are the same on every page, and the check
 // takes 20 to 30 s a page (it waits on every search), five pages on two screens were four and a half minutes of the
-// interface group: it runs on a table that pages (PETG, 66 products, past the first 25) on the laptop and the phone,
+// views group (CI's views job): it runs on a table that pages (PETG, 66 products, past the first 25) on the laptop and the phone,
 // and on a short one (PCTG-GF, 3 products) on the laptop. Every page still has its sorting checked.
 const PRODUCTS_CHECKED = { 'm020-petg': ['laptop', 'phone'], 'm110-pctg-gf': ['laptop'] };
 // How far from its line a jump may land a heading, in pixels: the line is the bottom of what covers the top of the screen

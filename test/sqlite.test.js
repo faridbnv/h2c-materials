@@ -190,7 +190,13 @@ test('writing the SQLite file leaves dist/db.json as it was', () => {
   assert.equal(hashOf(join(root, 'dist/db.json')), dbJsonBefore);
 });
 
-test('the full-text index finds a document by its words, page by page', { skip: !existsSync(cacheDir('text')) && 'no text cache (.cache/text): the index is built only where the documents were read' }, () => {
+// The corpus is the sources registered as retrieved. The import tests read their own fixtures through the same text
+// cache, so a checkout without the private cache can still have a .cache/text holding only theirs: the index then has
+// none of the corpus to find, and the test is skipped there as where there is no cache at all. Where the cache holds a
+// registered source's text, it runs in full.
+const corpusText = existsSync(cacheDir('text')) ? readCsv(join(root, 'data/tables/sources.csv')).records.map((r) => r.values)
+  .filter((r) => RETRIEVED.includes(r['Access state']) && /^[0-9a-f]{64}$/.test(r.SHA256) && existsSync(cacheDir('text', `${r.SHA256}.json`))).length : 0;
+test('the full-text index finds a document by its words, page by page', { skip: !corpusText && 'no registered source\'s text in the text cache (.cache/text): the index is built only where the documents were read' }, () => {
   assert.ok(result.record.fulltext, 'the text cache is present but no index was built');
   const [{ pages }] = all("SELECT COUNT(*) AS pages FROM documents_fts WHERE view = 'text'");
   const [{ expected }] = all('SELECT SUM(text_pages) AS expected FROM documents');

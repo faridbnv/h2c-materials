@@ -2,7 +2,7 @@
 // The scale timings, judged against their budgets (test/scale.check.js writes them to build/reports/scale.json and
 // keeps the history the budgets were set against).
 //
-//   npm run scale:budget                       print the table; a miss is a warning
+//   npm run scale:budget                       print the table; a miss is a warning, from the one run
 //   npm run scale:budget -- --enforce-budget   a miss that survives a re-run is a failure (so is it when CI is set)
 //
 // The timings used to be assertions inside the scale check. On a slow machine, one syncing a folder to the cloud for
@@ -10,8 +10,10 @@
 // failed the audit and the local run had nothing to show for it. Correctness stays in the check, which now fails only
 // for a wrong result. Time is judged here, last, and only where the machine can be held to it: CI, and the machine the
 // budgets were set on (--enforce-budget). Anywhere else an overrun is a warning, because a slow machine says nothing
-// about the code. A miss gets one re-run of `npm run scale`, and each timing is the better of the two runs, since one
-// slow minute is noise and two are not.
+// about the code. Where a miss can fail, it gets one re-run of `npm run scale`, and each timing is the better of the two
+// runs, since one slow minute is noise and two are not. Where it cannot, it is not re-run (2026-10-17, D144): the second
+// run cost `npm run verify` another 85 to 180 s on the owner's machine and could only change a warning's wording, and
+// the warning says it is one run's reading.
 
 import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -36,7 +38,7 @@ const over = (r) => TIMINGS.filter((k) => r[k] > r.budgets[k]);
 
 let report = readReport();
 let reran = false;
-if (over(report).length) {
+if (over(report).length && enforce) {
   console.log(`scale budget: ${over(report).join(', ')} over budget; running \`npm run scale\` once more and keeping the better of the two.`);
   const first = report;
   const r = spawnSync('npm', ['run', 'scale'], { cwd: root, stdio: 'inherit', shell: process.platform === 'win32' });
@@ -60,4 +62,4 @@ if (enforce) {
   console.error(`\nscale budget: over budget after a re-run: ${what}.`);
   process.exit(1);
 }
-console.warn(`\nwarning: scale budget: over budget: ${what}. Not a failure here; --enforce-budget (or CI) makes it one, on the machine the budgets were set on.`);
+console.warn(`\nwarning: scale budget: over budget on one run: ${what}. Not a failure here, so not run again; --enforce-budget (or CI) re-runs a miss and makes one that stays a failure, on the machine the budgets were set on.`);

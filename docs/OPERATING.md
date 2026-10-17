@@ -94,7 +94,7 @@ pages zipped; its notes say to unzip the zip in the folder that holds the downlo
 page links open from disk. A release kept before it had its zip gets it on the next build of that release.
 
 If Verify fails on CI but passed locally: CI is Linux x64 with the Node version `.nvmrc` names. Run the failing group
-there (`node scripts/verify.mjs --group data`, `--group interface` or `--group trend`) under `npx -y node@$(cat .nvmrc)`;
+there (`node scripts/verify.mjs --group data`, `--group views`, `--group scenarios --shard 2/3` or `--group trend`) under `npx -y node@$(cat .nvmrc)`;
 a failure that only CI shows has been a floating-point difference between processors before (an exact comparison where a
 tolerance was meant). Never weaken a check to make it pass; AGENTS.md says why.
 
