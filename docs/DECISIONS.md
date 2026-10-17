@@ -157,6 +157,8 @@ detail. The generator names one that runs longer.
 | D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing; extended by D140 (flexural results, listed properties and notes; a drawer-only row may draw an unstated orientation hollow) |
 | D140 | Flexural results are drawn as tensile ones are, beside how the two relate; tensile strain at strength is listed under the tensile tests | The flexural modulus and strength the Mechanical tab already listed are drawn as the tensile results are: one closed heading, Flexural tests, XY and Z, an XY row and a Z row per property, a product per dot. A second closed line under it says how flexural and tensile results relate in theory, and why a printed bar departs from it. Tensile strain at strength moves inside the tensile heading as a list, not a graph. Four flexural rows are drawn in the drawer alone. No answer moved. | In force; it extends D139 (a comparison may list properties it does not draw and carry a second closed line; a drawer-only row may draw a value with no stated orientation, hollow and out of the median) and decides nothing |
 | D141 | A plausibility window is a check, never a filter; a reader's silence is checked against the cell's own words | The temperature parser used to throw away a number outside what it thought plausible and read the window from what was left, so "450 - 520 °C" became the point 450 and a 75–85 °C nozzle became no nozzle at all; the typed columns, written from the parser, carried the collapse where the mismatch check could not see it. Now every number a cell states is read, one outside the window is shown as a warning, and the same was done for the readers of drying, hardened nozzles, nozzle diameters and heat-deflection loads. | In force; it extends D115 (a typed endpoint is a number its cell states) and D49 (the parsers check the typed columns) |
+| D142 | Reserved for the material pages round | This number is held for the decision of the material pages round, which is being built on its own branch (material-pages) at the same time as this data round; the data round was told to take D143. This entry is replaced by that round's when the two branches meet. | Reserved; replaced when branch material-pages is merged |
+| D143 | What the material pages' reviews changed in the rules: Prusa's Horizontal bar is XY | Two engineers reviewing the new material pages found faults in the data. Fixing them changed one rule: Prusa Polymers' data sheets print their test bars in two columns, "Horizontal" and "Vertical xz", which were kept as the sheet's words and compared with nothing; Prusa's own documents show the Horizontal bar is the flat XY bar and the Vertical xz bar the one on its edge, so they are typed so, and Prusament's products are compared with every other product's flat bars. | In force; it applies D92 and D140 (a Z value is one the sheet says is Z; an XZ or ZX bar is shown, not compared) |
 
 <!-- end index -->
 
@@ -4602,6 +4604,39 @@ m421.*
 - **What would break if reversed.** A window collapses silently again, and the next PEEK, PCL or "3M" cell is typed
   wrong with the check that exists for it blind. What the sweep left (readers' spellings, a standard-deviation column
   430 rows carry in brackets, unknown standards bodies) is in OPEN-PROBLEMS §11 and §12.
+
+## D142. Reserved for the material pages round
+
+> **In plain words:** This number is held for the decision of the material pages round, which is being built on its own branch (material-pages) at the same time as this data round; the data round was told to take D143. This entry is replaced by that round's when the two branches meet.
+> **Status:** Reserved; replaced when branch material-pages is merged.
+
+## D143. What the material pages' reviews changed in the rules: Prusa's Horizontal bar is XY
+
+> **In plain words:** Two engineers reviewing the new material pages found faults in the data. Fixing them changed one rule: Prusa Polymers' data sheets print their test bars in two columns, "Horizontal" and "Vertical xz", which were kept as the sheet's words and compared with nothing; Prusa's own documents show the Horizontal bar is the flat XY bar and the Vertical xz bar the one on its edge, so they are typed so, and Prusament's products are compared with every other product's flat bars.
+> **Status:** In force; it applies D92 and D140 (a Z value is one the sheet says is Z; an XZ or ZX bar is shown, not compared).
+
+*Decided by Claude Opus on 2026-10-17 in the data round the owner ran beside the material pages
+([GOALS-LOG](GOALS-LOG.md); [the round](audits/2026-10-17-data-review-fixes/README.md)), as its brief allowed "only if
+the pages support it".*
+
+- **Prusa's columns (m424).** Every Prusament sheet heads its printed-specimen table "Property\Print Direction |
+  Horizontal | Vertical xz". The PLA High Speed sheet defines its "tensile strength anisotropy coefficient" as the ratio
+  of tensile strength "in the Z axis and in the XY axis" and prints 0.6 beside an interlayer adhesion of 41 MPa and a
+  Horizontal tensile yield strength of 68 MPa: 41 / 68. Prusa's product page gives three more coefficients ("PLA and PC
+  Blend both have r = 0.33, whereas PETG has r = 0.38"), and each is that sheet's interlayer adhesion over its
+  Horizontal strength (17 / 51, 21 / 63, 18 / 47); the template's later edition (Prusament PA11, in the import ledger)
+  heads the column "Horizontal xy". So the Horizontal column is XY. The Vertical xz bar is as strong as the Horizontal
+  one or stronger and two to five times the sheet's interlayer adhesion: it lies on its edge and is pulled along its
+  layers, which ISO/ASTM 52921 calls XZ, the sheet's label. 201 values of 19 products are typed so; the two source-label
+  values of the Direction vocabulary stay for a sheet that defines neither. Prusa's interlayer adhesion is its Z
+  tensile strength by the same coefficient, measured by Prusa's own method; it stays its own property (OPEN-PROBLEMS §15).
+- **Effect.** No verdict moved. Prusament's PP-CF and PP-GF products now count, and fail the stiffness of three
+  templates, so PP-CF and PP-GF pass for some of their products where all passed (20 rows of templates.csv); PLA,
+  PETG, ASA, PC, PC-CF and PVB count more products (30 rows). The estimate model learns from the new XY values, and
+  PA612, which no product publishes, is screened out of the 5 GPa stiffness requirement under Explore with estimates
+  (its plausible modulus now tops at 4.73 GPa).
+- **What would break if reversed.** 201 published values of a major maker would again stand beside every XY and XZ value
+  without being compared, and the material pages would show Prusament's flat bars as an orientation nobody defined.
 
 ## Bugs worth remembering
 
