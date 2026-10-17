@@ -41,7 +41,14 @@ acceptances that say a value backs nothing while it backs a product's value.
   texts. PLA's comparable tensile modulus now runs from 0.95 GPa, PETG's from 1.0.
 - **Interface views** (`npm run ui:check -- --write`): 20 views, as above; the PLA drawer no longer lists the
   elastomer tests as not published.
-- **verify:fast** stayed within its budget at every commit (42 to 75 s); the full `npm run verify`: see below.
+- **verify:fast** stayed within its budget at every commit (42 to 75 s). The full `npm run verify` passed every one of
+  its 20 steps on the closed round (713 s; its verify:fast steps 69 s; 300 rendered scenarios agree with the engine; the
+  context audit, with the text cache, found nothing new). A first full run had failed three steps, each fixed before
+  the close: the blind draw's verdicts file lacked the Verdict column the README's status block reads, and two
+  context-audit acceptances of SUNLU's moduli went stale when m425 flagged them.
+- **Round close.** m422 to m432 are in archive/migrations/, and the round's four working files in the private store
+  ([PACKETS.md](PACKETS.md)). m420 and m421, main's D141 round, stay in scripts/migrate/ for that round to close, so
+  `npm run round:close` names them as its one open item.
 
 ## The blind read
 

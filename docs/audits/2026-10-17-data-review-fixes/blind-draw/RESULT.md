@@ -4,7 +4,7 @@
 
 20 records drawn at random (seed 20261017) from the 868 the round changed (sources 470, measurements 318, evidence 65,
 properties 6, coverage 4, page_context 3, product_claims 1, print_guide_materials 1), read by a Claude Sonnet reader
-who had not seen the migrations, against each record's document ([draw](draw-20261017.json),
+who had not seen the migrations, against each record's document ([draw](../PACKETS.md),
 [verdicts](verdicts-20261017.csv); its Decided column is the final call).
 
 - **18 right.** Two of them could not be read against a page: 3D Printing Canada's catalogue page (no cached copy; the
