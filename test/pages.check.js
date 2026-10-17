@@ -63,8 +63,8 @@ import { renderSite, pageEnv, prepare } from '../app/pages/render.js';
 import { readAssets } from '../app/pages/read-assets.js';
 import { PAGE_BUDGET } from '../app/pages/budget.js';
 import { SECTIONS } from '../app/pages/sections/index.js';
-import { PEER_COLUMNS, MAP_PANELS, STRIP_SETS, LAYER_PAIRS } from '../app/pages/figures.js';
-import { PAGES_DIR, pageOf } from '../app/js/ui/page-rule.js';
+import { PEER_COLUMNS, MAP_PANELS, STRIP_SETS, STRIP_MIN, LAYER_PAIRS } from '../app/pages/figures.js';
+import { PAGES_DIR, pageOf, pageFacts } from '../app/js/ui/page-rule.js';
 import { indexDb, materialContext, identity, spreadEntries, originalOf, isProduct, stated, soldToughened } from '../app/js/ui/material-facts.js';
 import { peerSet, printWindows, dryingStats, layerPairs } from '../app/js/ui/material-stats.js';
 import { fmtNumber } from '../app/js/ui/format.js';
@@ -628,8 +628,9 @@ function p5(S) {
       const keys = [...new Set(marks.map((n) => n.attrs['data-key']))];
       const set = STRIP_SETS[id];
       if (check('P5', `${who} ${fig.attrs.id}`, !!set, `a strip figure "${id}" with no set in STRIP_SETS`)) {
-        const want = set.filter((k) => prop(k) && spreadEntries(m, c, k).length);
-        check('P5', `${who} ${fig.attrs.id}`, sameList(keys, want), () => `strips ${keys.join(' ')}, the set's properties a product publishes ${want.join(' ')}`);
+        // A strip where at least STRIP_MIN products are ranked in the median; fewer are the section's per-sheet table.
+        const want = set.filter((k) => prop(k) && spreadEntries(m, c, k).length && (m.summary?.[k]?.n ?? 0) >= STRIP_MIN);
+        check('P5', `${who} ${fig.attrs.id}`, sameList(keys, want), () => `strips ${keys.join(' ')}, the set's properties at least ${STRIP_MIN} products are ranked on ${want.join(' ')}`);
       }
       for (const key of keys) {
         const h = prop(key);
@@ -784,7 +785,8 @@ function p7(S) {
     const c = S.contexts.get(page.materialId);
     if (!c || page.kind === 'stub') { check('P7', page.file, !external.length, () => `an external link on the ${page.kind} page: ${external[0]?.attrs.href}`); continue; }
     const allowed = new Set();
-    for (const sid of c.documents.keys()) { const o = originalOf(S.ix.sourceById.get(sid)); if (o && !o.local) allowed.add(o.url); }
+    // A record may cite two documents in one cell ("X; R-H2C-SPECS"): the card names and links each.
+    for (const key of c.documents.keys()) for (const sid of String(key).split(/\s*;\s*/)) { const o = originalOf(S.ix.sourceById.get(sid)); if (o && !o.local) allowed.add(o.url); }
     for (const p of c.prices) if (/^https?:/i.test(p.url ?? '')) allowed.add(p.url);
     for (const a of external) check('P7', page.file, allowed.has(a.attrs.href), () => `${a.attrs.href} is not the URL of a document or listing of this material`);
     // Each cited document with an original is linked from its line in Sources.
@@ -934,7 +936,6 @@ function p11(S) {
 // P12  written summaries
 
 /** The summary's tag beside it (masthead.js): a draft and one under revision say so; a reviewed one carries none. */
-const TAGGED = new Set(['draft', 'revise']);
 
 function p12(S) {
   for (const m of S.listed.filter((x) => x.written)) check('P12', m.id, S.withPage.includes(m), 'a written summary on a material with no page');
@@ -951,9 +952,10 @@ function p12(S) {
       continue;
     }
     if (!check('P12', who, !!sec, 'a written summary, but no summary on the page')) continue;
-    // Its status beside it, and its byline in the colophon.
+    // Its author and status in the colophon, nothing beside the summary (D145: the owner's "author and status shown",
+    // said once, out of the reading path).
     const tag = withAttrs(sec, 'data-written-status');
-    check('P12', who, TAGGED.has(w.status) ? tag.length === 1 && tag[0].attrs['data-written-status'] === w.status : !tag.length, () => `status tag ${tag.map((t) => t.attrs['data-written-status']).join(' ') || 'none'}, written ${w.status}`);
+    check('P12', who, !tag.length, () => `a status tag beside the summary: ${tag.map((t) => t.attrs['data-written-status']).join(' ')}`);
     const by = byline.filter((n) => !sec || !up(n, 'data-section') || up(n, 'data-section') !== sec);
     const t = by.length === 1 ? textOf(by[0]) : '';
     check('P12', who, by.length === 1 && by[0].attrs['data-written-status'] === w.status && t.includes(w.by) && t.includes(String(w.on)) && t.includes(SUMMARY_STATUS[w.status] ?? w.status), () => `byline "${t || `${by.length} bylines`}"`);
@@ -1052,8 +1054,10 @@ function ix(S) {
   const entries = withAttrs(page.main, 'data-mat').filter((n) => !up(n.parent, 'data-mat') && !up(n, 'data-alias'));
   const byId = new Map();
   for (const n of entries) { const id = n.attrs['data-mat']; (byId.get(id) ?? byId.set(id, []).get(id)).push(n); }
-  check('IX', 'materials', same([...byId.keys()], S.listed.map((m) => m.id)), () => `entries: ${diff([...byId.keys()], S.listed.map((m) => m.id))}`);
-  for (const m of S.listed) {
+  // A material with no product on sale is left out (D145: "PA612 (0)" told a reader nothing); every other is listed.
+  const shown = S.listed.filter((m) => pageFacts(m, S.ix.measurementsByMaterial.get(m.id) ?? []).products > 0);
+  check('IX', 'materials', same([...byId.keys()], shown.map((m) => m.id)), () => `entries: ${diff([...byId.keys()], shown.map((m) => m.id))}`);
+  for (const m of shown) {
     const at = byId.get(m.id) ?? [];
     if (!at.length) continue;
     check('IX', m.id, at.length === 1, `listed ${at.length} times`);
@@ -1066,13 +1070,22 @@ function ix(S) {
   const aliases = withAttrs(page.main, 'data-alias');
   const names = S.db.materials.filter((m) => m.familyEntry);
   check('IX', 'names', same(aliases.map((n) => n.attrs['data-alias']), names.map((m) => m.id)), () => `names: ${diff(aliases.map((n) => n.attrs['data-alias']), names.map((m) => m.id))}`);
-  // Each names only the materials it stands for, and links those with a page.
+  // Each names only the materials it stands for and links those with a page, or, standing for a whole family's worth,
+  // links the one family whose list holds every member a reader can find there (those on sale).
+  const onSale = new Set(shown.map((m) => m.id));
   for (const n of aliases) {
     const e = names.find((m) => m.id === n.attrs['data-alias']);
     if (!e) continue;
     const members = new Set((e.familyEntry.members ?? []).map((x) => x.id));
     const named = withAttrs(n, 'data-mat').map((x) => x.attrs['data-mat']);
     const links = query(n, 'a[href]').map((a) => a.attrs.href);
+    if (!named.length && links.length === 1 && links[0].startsWith('#')) {
+      const fam = descendants(page.main).find((x) => x.attrs?.id === links[0].slice(1));
+      const inFam = new Set(fam ? withAttrs(fam, 'data-mat').map((x) => x.attrs['data-mat']) : []);
+      const missing = [...members].filter((id) => onSale.has(id) && !inFam.has(id));
+      check('IX', e.id, !!fam && !missing.length, () => `links ${links[0]}, which ${fam ? `lacks ${missing.join(' ')}` : 'is not on the page'}`);
+      continue;
+    }
     const paged = named.filter((id) => S.withPage.some((m) => m.id === id)).map((id) => `${id}.html`);
     check('IX', e.id, named.every((id) => members.has(id)) && same(links, paged), () => `names ${named.join(' ') || 'none'} and links ${links.join(' ') || 'none'}; it stands for ${[...members].join(' ')}`);
   }

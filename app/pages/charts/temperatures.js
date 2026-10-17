@@ -14,7 +14,8 @@ import { stripScale, limitOnScale } from '../../js/ui/scales.js';
 import { LADDER_EXTRA } from '../figures.js';
 
 const ROW = 34;
-const WIDE = 640, NARROW = 300;
+// The narrowest track each layout gives (about 410 px from 720 px screens up, 340 px on a phone).
+const WIDE = 410, NARROW = 340;
 const AXES = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber']];
 
 const rowHtml = (attrsText, label, sub, svg) => `<div class="tm-row"${attrsText}><div class="tm-label">${esc(label)}${sub ? `<small>${esc(sub)}</small>` : ''}</div>${svg}</div>`;

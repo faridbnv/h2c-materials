@@ -143,7 +143,9 @@ import { headline, shortName, withUnit, spanUnit, products as productsWord, andL
 import { isFlexible, materialCell } from '../../js/ui/material-stats.js';
 
 const MAP_H = 280;
-const WIDE = 460, NARROW = 300;
+// The narrowest plot each layout gives: two panels side by side from 1,000 px (about 410 px each), one under the other
+// below it (at least 300 px on a phone). Names placed there fit at every wider width.
+const WIDE = 410, NARROW = 300;
 
 /** The places beside a point, in px: right, left, above, below, then the diagonals. */
 const PLACES = [[8, 4, 'start'], [-8, 4, 'end'], [0, -9, 'middle'], [0, 17, 'middle'], [8, -8, 'start'], [-8, -8, 'end'], [8, 15, 'start'], [-8, 15, 'end']];

@@ -157,7 +157,7 @@ body.lighting .dv-fig circle[data-mat]:not(.lit), body.lighting .dv-fig .dv-mapl
 
 /* ---------------------------------------------------------------- Among all materials */
 .mp { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
-@media (min-width: 860px) { .mp { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .mp { grid-template-columns: 1fr 1fr; } }
 .mp-panel { min-width: 0; }
 .mp-title { margin: 0 0 .35rem; font-size: .875rem; font-weight: 600; }
 .mp-y { font-size: .8125rem; color: var(--ink-2); margin: 0 0 .2rem; }
@@ -175,7 +175,7 @@ body.lighting .dv-fig circle[data-mat]:not(.lit), body.lighting .dv-fig .dv-mapl
 
 /* ---------------------------------------------------------------- across the layers */
 .ly { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
-@media (min-width: 860px) { .ly { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .ly { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .ly-panel { min-width: 0; }
 .ly-title { margin: 0; font-size: .875rem; font-weight: 600; }
 .ly-sub { margin: .1rem 0 .4rem; font-size: .8125rem; color: var(--ink-2); }

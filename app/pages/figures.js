@@ -82,6 +82,11 @@ export const MAP_PANELS = [
 
 /** A product strip is drawn for a property only where at least this many products publish it; under it, a table. */
 export const STRIP_MIN = 4;
+/**
+ * The one rule for a strip (D145): a property is drawn product by product where at least STRIP_MIN products are ranked
+ * in its median (materials[].summary[key].n); with fewer, the section lists what each sheet publishes in a table.
+ */
+export const inStrip = (m, key) => (m.summary?.[key]?.n ?? 0) >= STRIP_MIN;
 
 /** The product strips each section draws (charts/strips.js stripsFigure), by the figure's id. */
 export const STRIP_SETS = {

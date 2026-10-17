@@ -28,8 +28,8 @@ export function colophon(c, env, page = 'overview') {
   const readWords = read ? (read.from === read.to ? `documents read ${read.from}` : `documents read ${read.from} to ${read.to}`) : null;
   const cite = `${m.name}. ${BRAND}, material pages, release ${st.release}${readWords ? `, ${readWords}` : ''}.`;
   const w = m.written;
-  const REVIEW = { draft: 'not yet reviewed by the owner', 'reviewed by the owner': 'reviewed by the owner', revise: 'marked for revision by the owner' };
-  const byline = w?.parts?.length ? `Summary: drafted by ${w.by}, ${w.on}; ${REVIEW[w.status] ?? String(SUMMARY_STATUS[w.status] ?? w.status).toLowerCase()}.` : null;
+  // The status in the words the labels give it (labels.js SUMMARY_STATUS), as the drawer would say it.
+  const byline = w?.parts?.length ? `Summary by ${w.by}, ${w.on}. ${SUMMARY_STATUS[w.status] ?? w.status}.` : null;
   const n = c.grades.filter(isProduct).length;
   const other = page === 'overview'
     ? `<a class="btn" href="${esc(productsHref(m.id))}">Products <span class="n">${esc(fmtNumber(n))}</span></a>`

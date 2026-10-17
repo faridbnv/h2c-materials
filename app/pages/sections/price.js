@@ -4,7 +4,8 @@
 // value on a strip (figures.js stripsFigure, STRIP_SETS['density-price']), and how the prices were sampled, said once.
 
 import { densityWords, priceWords, priceSampleLine, plain, fmtD, glue } from '../findings.js';
-import { opening, para, drawFigure, figureConfig, stripMin, publishedKeys, headlineTable } from './common.js';
+import { inStrip } from '../figures.js';
+import { opening, para, drawFigure, figureConfig, publishedKeys, headlineTable } from './common.js';
 
 const KEYS = ['density', 'priceCADkg'];
 
@@ -19,9 +20,8 @@ export default {
     if (!m.summary?.priceCADkg?.n && !price.length) price.push(plain(`No ${m.name} product has a price in the sample.`));
     if (!density && !m.summary?.priceCADkg?.n && !c.prices.length) return { empty: true, html: '', stats: {} };
     const keys = figureConfig('STRIP_SETS', {})['density-price'] ?? KEYS;
-    const min = stripMin();
     const published = publishedKeys(c, keys);
-    const stripped = published.filter((k) => (m.summary?.[k]?.n ?? 0) >= min);
+    const stripped = published.filter((k) => inStrip(m, k));
     const tabled = published.filter((k) => !stripped.includes(k));
     const fig = stripped.length ? drawFigure('stripsFigure', c, env, stripped, { id: 'density-price' }) : { empty: true, html: '' };
     const priced = m.summary?.priceCADkg?.n || c.prices.length;

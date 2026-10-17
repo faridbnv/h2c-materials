@@ -10,7 +10,8 @@ import { comparisonsOf, measuredIn } from '../../js/ui/material-facts.js';
 import { propertyName } from '../../js/ui/labels.js';
 import { layerPairs, summarise } from '../../js/ui/material-stats.js';
 import { mechanicalWords, num, fmtD, glue } from '../findings.js';
-import { opening, drawFigure, figureConfig, subhead, tableBox, stripMin, publishedKeys, headlineTable, absentLine } from './common.js';
+import { inStrip } from '../figures.js';
+import { opening, drawFigure, figureConfig, subhead, tableBox, publishedKeys, headlineTable, absentLine } from './common.js';
 
 /** The strips this section draws (figures.js STRIP_SETS.mechanical). */
 const KEYS = ['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY', 'charpyNotched', 'izodNotched'];
@@ -84,11 +85,10 @@ export default {
     const mi = measuredIn(c, 'Mechanical');
     if (!mi.rows.length) return { empty: true, html: '', stats: {} };
     const keys = figureConfig('STRIP_SETS', {}).mechanical ?? KEYS;
-    const min = stripMin();
     const published = publishedKeys(c, keys);
     // A property compared on enough products is a strip; the rest a table of what each sheet publishes; every value
     // once, in one or the other.
-    const stripped = published.filter((k) => (m.summary?.[k]?.n ?? 0) >= min);
+    const stripped = published.filter((k) => inStrip(m, k));
     const tabled = published.filter((k) => !stripped.includes(k));
     const impactMissing = !published.includes('charpyNotched') && !published.includes('izodNotched');
     const unnotched = impactMissing && c.ms.some((x) => /impact/i.test(x.property) && x.numeric && /unnotched/i.test(x.notch ?? ''));

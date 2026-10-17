@@ -14,14 +14,16 @@ import { figFrame } from './figure.js';
 import { spreadEntries, dotMarks } from '../../js/ui/material-facts.js';
 import { widestSpread, propertyScale, isFlexible } from '../../js/ui/material-stats.js';
 import { zoomScale } from '../../js/ui/scales.js';
-import { STRIP_MIN } from '../figures.js';
+import { STRIP_MIN, inStrip } from '../figures.js';
 import { spanDisplay } from '../numbers.js';
 
 const GAP = 1.3;        // per cent of the track between two dots on one level (about 8 px on a laptop)
 const LEVELS = 7;
 const PITCH = 8.6;      // px between levels
 const CALL = 16;        // px for the names over the dots
-const WIDE = 640, NARROW = 300;
+// The narrowest track each layout gives: about 450 px from 720 px screens up (the label column beside the track), about
+// 340 px on a phone (the track under its label). Names and ticks that fit there fit at every wider width.
+const WIDE = 450, NARROW = 340;
 /** A strip zooms where its products' values span less than this share of the property's scale. */
 const ZOOM = 0.25;
 
@@ -34,7 +36,7 @@ const QUESTIONS = {
 function strip(c, k, key) {
   const h = headline(key);
   const entries = h ? spreadEntries(c.m, c, key) : [];
-  if (entries.length < STRIP_MIN) return null;
+  if (!inStrip(c.m, key) || !entries.length) return null;
   const s = c.m.summary?.[key] ?? {};
   // The property's scale; zoomed to the products where they sit in a narrow part of it (modified products aside).
   const fixed = propertyScale(k.db, k.ranks, key, isFlexible(c.m));

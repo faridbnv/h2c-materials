@@ -6,7 +6,8 @@
 
 import { measuredIn } from '../../js/ui/material-facts.js';
 import { thermalWords, fmtD, glue } from '../findings.js';
-import { opening, drawFigure, figureConfig, stripMin, publishedKeys, headlineTable, absentLine } from './common.js';
+import { inStrip } from '../figures.js';
+import { opening, drawFigure, figureConfig, publishedKeys, headlineTable, absentLine } from './common.js';
 
 const KEYS = ['hdt045', 'hdt18', 'glassTransition'];
 
@@ -18,9 +19,8 @@ export default {
     const mi = measuredIn(c, 'Thermal');
     if (!mi.rows.length) return { empty: true, html: '', stats: {} };
     const keys = figureConfig('STRIP_SETS', {}).thermal ?? KEYS;
-    const min = stripMin();
     const published = publishedKeys(c, keys);
-    const stripped = published.filter((k) => (m.summary?.[k]?.n ?? 0) >= min);
+    const stripped = published.filter((k) => inStrip(m, k));
     const tabled = published.filter((k) => !stripped.includes(k));
     const parts = [opening(thermalWords(c))];
     let figures = 0, dots = 0;

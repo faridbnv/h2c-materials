@@ -15,7 +15,8 @@ import { yOf } from './scale.js';
 import { LAYER_PAIRS } from '../figures.js';
 
 const SIDE = 220;           // the plot's height, px
-const WIDE = 300, NARROW = 300;
+// The narrowest plot each layout gives: three side by side from 1,000 px (about 255 px each), one under another below.
+const WIDE = 250, NARROW = 300;
 const sharePct = (r) => `${Math.round(r * 100)}${NBSP}%`;
 
 function panel(c, k, pair, plotted) {

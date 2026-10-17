@@ -88,7 +88,7 @@ export const quotes = (items, cls = 'said-list') => (items.length ? `<ul class="
  * "R166", "S-PET-TDS-AthenaX-GF10") or speaks the database's own words for itself ("headline", "representative grade").
  * Such a note is the maintainers' and leaves the pages (PLAN.md: the drawer and the tables keep it).
  */
-const RECORD_NAME = /(?<!ASTM )\b(?:V\d{6}|G\d{3}-(?:\d{2}|R\d+)(?:-R\d+)?|M\d{3}|P\d{4}|Q\d{5}|C\d{5}|CA\d{4}|P[BC]\d{5}|m\d{2,3}|R\d{3}|D\d{2,3}|[A-Z][A-Z0-9]{0,2}-[A-Za-z0-9]+-[A-Za-z0-9-]+)\b/;
+const RECORD_NAME = /(?<!ASTM )\b(?:V\d{6}|G\d{3}-(?:\d{2,3}|R\d+)(?:-R\d+)?|M\d{3}|P\d{4}|Q\d{5}|C\d{5}|CA\d{4}|P[BC]\d{5}|m\d{2,3}|R\d{3}|D\d{2,3}|[A-Z][A-Z0-9]{0,2}-[A-Za-z0-9]+-[A-Za-z0-9-]+)\b/;
 const PROJECT_WORDS = /\b(headlines?|representative grade|workbook|migration|ruling|quarantin\w*|admitted|coverage record|aggregat\w*|observations?|family-level|screen(?:ed|ing)?|grade-specific|recorded in (?:Properties|Printing|Evidence|Coverage))\b/i;
 const STORED_STATUS = /\b(Theoretical|Official Bambu product|Officially listed family)\b|"Conditional"/;
 const MAINTAINER_WORDS = /\b(?:20\d\d-\d\d-\d\d|re-read|SHA-256|estimate band|no document cited|recorded (?:with|from|as))\b/i;
@@ -182,8 +182,6 @@ export function sheetTable(c, cols, rows, { fmt, caption = '', conditions = true
 
 // ------------------------------------------------------------------ fewer products than a strip needs
 
-/** How few products compared leave a property out of a strip (figures.js STRIP_MIN, where it has landed). */
-export const stripMin = () => FIGURES.STRIP_MIN ?? 4;
 
 /**
  * A column head that fits: a product's name, or where it is long, its maker and the words that tell it from the other
