@@ -45,7 +45,7 @@ test('building the same tree twice produces the same bytes', () => {
   const manifest = read('manifest.json');
   assert.equal(manifest.outputs['db.json'], before['db.json']);
   assert.equal(manifest.outputs['materials/'], pagesBefore);
-  // The page count the manifest states is the main pages on disk: a material's <id>.html, not its records page or the index.
+  // The page count the manifest states is the main pages on disk: a material's <id>.html (its Overview), not its Products page, its records stub or the index.
   assert.equal(manifest.pages.pages, pageFiles().filter((f) => /^M\d+\.html$/.test(f)).length);
   assert.match(manifest.commit ?? '', /^[0-9a-f]{40}$/);
 });

@@ -1,7 +1,7 @@
 # The hub: the page as it would read
 
-> **Current** (2026-10-17). Proposed text of `materials/index.html` by PROPOSAL.md. Numbers from `dist/db.json`
-> (`materials[].summary[key].median` and `.n`); three families written out, the rest follow the same pattern.
+> **Historical record** (2026-10-17). Proposed text of `materials/index.html` by PROPOSAL.md. Numbers from `dist/db.json`
+> (`materials[].summary[key].median` and `.n`); three families written out, the rest follow the same pattern. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ---
 

@@ -112,7 +112,6 @@ table.dv-twin .num { text-align: right; white-space: nowrap; }
 .dv-peerdot { fill: var(--dv-peer); stroke: var(--dv-surface); stroke-width: 2; }
 .dv-selfprod { fill: var(--dv-selfprod); }
 .dv-selfdot { fill: var(--dv-self); stroke: var(--dv-surface); stroke-width: 2; }
-.dv-selfopen { fill: var(--dv-surface); stroke: var(--dv-self); stroke-width: 2.25; }
 .dv-cross { stroke: var(--dv-self); stroke-width: 2; stroke-linecap: round; }
 .dv-ray { stroke: var(--dv-grid); stroke-width: 1.25; }
 .dv-ray--own { stroke: var(--dv-self); stroke-width: 1.5; opacity: .55; }
@@ -121,7 +120,6 @@ table.dv-twin .num { text-align: right; white-space: nowrap; }
 .dv-most { fill: none; stroke: var(--ink); stroke-width: 1.25; }
 .dv-limit { stroke: var(--ink); stroke-width: 1.5; }
 .dv-beyond { fill: var(--dv-beyond); }
-.dv-fig svg .dv-limlab { fill: var(--ink); font-size: 11px; font-weight: 500; paint-order: stroke; stroke: var(--dv-surface); stroke-width: 3px; stroke-linejoin: round; }
 .dv-oneend { stroke: var(--dv-self); stroke-width: 1.25; opacity: .6; }
 .dv-oneend-dot { fill: var(--dv-self); }
 .dv-maplab { paint-order: stroke; stroke: var(--dv-surface); stroke-width: 3px; stroke-linejoin: round; }
@@ -196,7 +194,6 @@ body.lighting .dv-fig circle[data-mat]:not(.lit), body.lighting .dv-fig .dv-mapl
 .ly-strip { margin-top: .6rem; padding-left: 2.2rem; }
 .ly-list { margin: .35rem 0 0; font-size: .8125rem; color: var(--ink-2); line-height: 1.45; }
 .ly-list b { color: var(--ink); }
-.ly-none { margin: .2rem 0 0; font-size: .875rem; color: var(--ink-2); }
 
 /* ---------------------------------------------------------------- every temperature on one axis */
 .tm-group { margin: .9rem 0 .2rem; font-size: .875rem; font-weight: 600; color: var(--ink-2); }

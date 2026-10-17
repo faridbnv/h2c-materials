@@ -1,8 +1,8 @@
 # The material pages' words, reimagined (content expert)
 
-> **Current** (2026-10-17). The content expert's proposal for the pages-reimagined round (BRIEF.md beside it). Full page
+> **Historical record** (2026-10-17). The content expert's proposal for the pages-reimagined round (BRIEF.md beside it). Full page
 > texts: [PLA.md](PLA.md) (195 products), [PCTG-GF.md](PCTG-GF.md) (3, the thinnest), [HUB.md](HUB.md). Screens of the
-> current pages: `shots/`.
+> current pages: `shots/`. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ## The vision on one screen
 

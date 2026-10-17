@@ -1,10 +1,10 @@
 # The material pages, reimagined: structure, navigation and the visual system
 
-> **Current** (2026-10-17), working proposal, the UI/UX expert's part of the pages-reimagined round ([BRIEF](../BRIEF.md)).
-> Mockups from `dist/db.json` (real numbers; dashed boxes are the other experts' slots): [material-PLA.html](mockups/material-PLA.html),
-> [products-PLA.html](mockups/products-PLA.html) (`?sort=hdt045`: sorted), [hub.html](mockups/hub.html); add `?theme=dark`,
+> **Historical record** (2026-10-17), working proposal, the UI/UX expert's part of the pages-reimagined round ([BRIEF](../BRIEF.md)).
+> Mockups from `dist/db.json` (real numbers; dashed boxes are the other experts' slots): [material-PLA.html](../PACKETS.md),
+> [products-PLA.html](../PACKETS.md) (`?sort=hdt045`: sorted), [hub.html](../PACKETS.md); add `?theme=dark`,
 > `?menu=open` or `?from=none` (a reader who did not come from the selector). Screenshots beside them at 1280 and
-> 390 px, light and dark. Today's pages: `shots/now-*`; bugs I hit: `shots/bug-*`. Generator: `mockups/build-mockups.mjs`.
+> 390 px, light and dark. Today's pages: `shots/now-*`; bugs I hit: `shots/bug-*`. Generator: `mockups/build-mockups.mjs`. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ## In one screen
 

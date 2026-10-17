@@ -1,9 +1,9 @@
 # The checks of the reimagined pages: what fails, and whose
 
-> **Current** (2026-10-17), working notes of the pages-reimagined round, for the executor: what `npm run pages:check`
+> **Historical record** (2026-10-17), working notes of the pages-reimagined round, for the executor: what `npm run pages:check`
 > and `npm run ui:check -- --only pages` report on the pages as they stood at the end of the checks' rewrite, by track.
 > Every figure re-derives with `PAGES_CHECK_ALL=1 node --test test/pages.check.js` (every failure, not the first twenty)
-> and `node scripts/ui-probe.mjs --only pages`.
+> and `node scripts/ui-probe.mjs --only pages`. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ## Run times
 

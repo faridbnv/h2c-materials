@@ -1352,7 +1352,8 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
 
 /* The shortlist star, on and off without relying on the glyph alone. */
 .shortlist-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
-/* The drawer's link to the material's own page: a button to look at, a link to open (a new tab, so the selector stays).
+/* The drawer's link to the material's own page: a button to look at, a link to open in the same tab, carrying the
+   selection so the page's way back restores it (D145).
    On a phone its words are kept for a screen reader and the arrow alone is shown, so the drawer's head stays one row
    within the screen beside Shortlist and Close. */
 .page-link { position: relative; display: inline-flex; align-items: center; gap: 4px; color: var(--ink); text-decoration: none; white-space: nowrap; }

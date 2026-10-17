@@ -4639,7 +4639,7 @@ two reviews; built in the [material pages round](audits/2026-10-16-material-page
   number: each is a placeholder the build fills from the compiled values (`build/src/written.js`: `{products}`,
   `{hdt045.median}`, `{hdt045.label}`; never an estimate), so no sentence repeats a number gone stale; one the material
   cannot fill stops the build (SUMMARY-PLACEHOLDER), a number typed by hand is a lint finding (SUMMARY-NUMBER). It reads
-  as the reviews taught: 60 to 100 words that characterise, at most two numbers, no narration of the page, no
+  as the reviews taught: 60 to 100 words (40 to 75 since D145, with no count) that characterise, at most two numbers, no narration of the page, no
   comparison, no verdict, a maker's words as the maker's, every claim one its page states (its sections in Notes). The
   byline shows who wrote it, when, and its review status; agents draft, an Opus judge reads a sample, the owner reviews
   in batches (each change of the table is a new release).

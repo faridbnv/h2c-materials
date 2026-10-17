@@ -93,10 +93,10 @@ AGENTS.md: commit and push to `main` only when the owner asks.
 
 What Publish to Pages puts out: the site serves the selector at its root, its manifest and validation report, and the
 material pages beside it at `materials/` (`https://pdynamics.ca/h2c-materials/materials/M020.html`; the index is
-`materials/index.html`), so the drawer's Full page links open there. A new release is kept as a GitHub release
+`materials/index.html`), so the drawer's Full page links and the status bar's Material pages link open there, in the same tab. A new release is kept as a GitHub release
 `h2c-<release>` with the selector's page, its manifest and `H2C_Material_Pages_<snapshot>_<release>.zip`, the material
-pages zipped; its notes say to unzip the zip in the folder that holds the downloaded page, which is what makes the Full
-page links open from disk. A release kept before it had its zip gets it on the next build of that release. The zip is
+pages zipped; its notes say to unzip the zip in the folder that holds the downloaded page, which is what makes those
+links open from disk. A release kept before it had its zip gets it on the next build of that release. The zip is
 written once for a release and kept: a later change to the pages' design alone (not a new release, D96) changes the
 site's pages, not that release's zip.
 
@@ -108,8 +108,9 @@ tolerance was meant). Never weaken a check to make it pass; AGENTS.md says why.
 ## Review or revise a written summary
 
 The full rules: AGENTS.md, "Write or revise a material's summary". Each material with a page has a short written
-summary at its head, one row of `data/tables/material_summaries.csv`, drafted by an agent and shown with its author,
-date and review status; its numbers are placeholders the build fills.
+summary at the head of its Overview, one row of `data/tables/material_summaries.csv`, drafted by an agent; the page's
+colophon says it was drafted with AI assistance, when, and its review status. It is 40 to 75 words, and its numbers
+(at most two) are placeholders the build fills.
 
 1. Read the page as a reader does: `npm run pages:text -- M020`, and `npm run pages:fields -- M020` for the numbers a
    summary may name.

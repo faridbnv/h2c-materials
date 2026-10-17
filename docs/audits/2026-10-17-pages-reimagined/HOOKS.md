@@ -1,7 +1,7 @@
 # The pages' data hooks, for the checks
 
-> **Current** (2026-10-17), working notes of the pages-reimagined round: the attributes each track's markup emits so
-> `test/pages.check.js` and the interface probe can hold a page to the facts without parsing its words.
+> **Historical record** (2026-10-17), working notes of the pages-reimagined round: the attributes each track's markup emits so
+> `test/pages.check.js` and the interface probe can hold a page to the facts without parsing its words. It describes the tool as it was then; the round's [README](README.md) says what was built.
 
 ## Files (track A)
 

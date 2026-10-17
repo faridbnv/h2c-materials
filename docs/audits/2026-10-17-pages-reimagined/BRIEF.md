@@ -1,7 +1,7 @@
 # The material pages, reimagined: the brief for the three experts
 
-> **Current** (2026-10-17), working brief for the pages-reimagined round. The plan that follows from it is PLAN.md
-> beside it.
+> **Historical record** (2026-10-17), working brief for the pages-reimagined round. The plan that follows from it is PLAN.md
+> beside it. It describes the tool as it was then; the round's [README](README.md) says what was built.
 
 ## Why this round exists
 

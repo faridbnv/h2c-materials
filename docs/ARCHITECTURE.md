@@ -121,7 +121,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values and those of a source that states no specimen, D55, D126); products.js fills each one its products publish comparably. |
 | `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate and drying its material's guide row (D88, D127), never for a product with a Variant (D129), each so read labelled. Every product's decision states (`states`, D99): as printed and dry, each annealing schedule, conditioned, each holding only its own values, with the conditions each value admitted unstated. Its twins (`twins`). Checks the pins in `headlines.csv`. A strength taken from a yield or break stress is the greatest of the stress endpoints one test prints (D126). The engine judges the products. |
 | `product-claims.js` | What a maker sells a product as, where it matters to how its values are read (`product_claims.csv`, D133): each claim points at the maker's own recorded statement, whose words must speak of what the claim is about (PRODUCT-CLAIM-REFERENCE, PRODUCT-CLAIM-WORDS); shown beside the product's values, and products sold as toughened are set apart from the impact medians. |
-| `written.js` | The written summaries at the head of the material pages (D142): each row of `material_summaries.csv` becomes `materials[].written` (who, when, review status, and its text as parts), every placeholder filled from the material's compiled spreads and the counts its page shows, after products.js. A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); the lint finds a number typed by hand (SUMMARY-NUMBER, lint-rules.js). It decides nothing. |
+| `written.js` | The written summaries at the head of the material pages (D142): each row of `material_summaries.csv` becomes `materials[].written` (who, when, review status, and its text as parts), every placeholder filled from the material's compiled spreads, its print windows, drying and layer shares (read from `material-highlights.js`), after products.js. A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); the lint finds a number typed by hand (SUMMARY-NUMBER) and a count of products, makers, values or profiles, which the page's head already says (SUMMARY-COUNT, D145; both in lint-rules.js). It decides nothing. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data (the moisture domain also counts its makers' own statements on moisture sensitivity, which decide nothing, D143), and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
@@ -271,7 +271,7 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 | `material-facts.js` | One material's facts as the drawer and the material pages show them (`materialContext`: selected, counted, grouped, summarised), before any markup or sentence, so the two renderers never disagree. Its API: `docs/audits/2026-10-16-material-pages-round/FACTS-API.md`. |
 | `material-words.js` | The sentences the drawer and the material pages share, as plain text, unescaped: each renderer escapes them. |
 | `material-stats.js` | Display statistics only the material pages draw: the alternatives (`peerSet`), one scale per property (`propertyScale`) and the maps' fixed frames, how many products accept each print temperature (`printWindows`) and the window a page states (`typicalWindow`), what a product keeps across the layers, the heat ladder. Pure data; it decides nothing. |
-| `material-highlights.js` | What the pages single out, from compiled fields: the evidence tier, the products well above the rest, the windows, drying and Z shares a summary may name (`build/src/written.js` reads the same functions). Display only. |
+| `material-highlights.js` | What the pages single out, from compiled fields: the six key figures (`KEY_FIGURES`), the evidence tier, the products well above the rest and the product holding the highest or lowest value of each key property, where a material stands among the others, and the windows, drying and Z shares a summary may name (`build/src/written.js` reads the same functions). Display only. |
 | `scales.js` | The one scale rule for a row of values drawn product by product, read by the drawer's comparison headings and print temperatures and by the pages' figures. |
 | `text.js` | Plain-text helpers every sentence is put together with (a count with its noun, a list in prose, whether a cell states anything), imported by `labels.js`, `material-words.js` and `material-facts.js` alike. |
 | `page-rule.js` | Which materials have a page of their own (`PAGE_RULE`, `pageOf`; D142): read by the build's stage 8, the drawer's Full page link, the pages' index, the README's status line and the tests. |
@@ -297,24 +297,25 @@ guards: `test/material-facts.test.js` holds the contracts the two share against 
 tab counts, the page rule, the scale rule, a product's name, the rank table); `test/material-stats.test.js` holds each
 page-only statistic to the compiled fields; `test/drawer-comparisons.test.js` and `test/print-spread.test.js` hold the
 drawer's comparison headings and print temperatures to the build; `test/summaries.test.js` holds the summaries' fill;
-and `test/pages.check.js` (`npm run pages:check`, in `verify` after the build: P1 to P14, REC and the index) holds every
-number and figure mark on every page to the database it was rendered from, every record to exactly one place across a
-material's two pages, the ways back to the selector, and the drawer's Full page link to the page rule (P13).
+and `test/pages.check.js` (`npm run pages:check`, in `verify` after the build: P1 to P3 and P5 to P14, REC and IX; P4,
+the rank tracks, and CNT went with the old pages) holds every number and figure mark on every page to the database it
+was rendered from, every record to exactly one place across a material's Overview and Products page, the ways back to
+the selector, and the drawer's Full page link to the page rule (P13).
 
 | Module | Responsibility |
 |---|---|
-| `render.js` | `renderSite(db, env)`: for every material the page rule admits, its Overview, its Products page and the stub at its old records address; the index, the method page and the shared assets, as text, from the database alone. No file is read or written (it sets the ui modules' registry and baseline, as the selector does at start). `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
+| `render.js` | `renderSite(db, env)`: for every material the page rule admits, its Overview (`<id>.html`), its Products page (`<id>-products.html`) and the stub at its old records address (`<id>-records.html`); the index, the method page and the shared assets, as text, from the database alone. No file is read or written (it sets the ui modules' registry and baseline, as the selector does at start). `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
 | `stage.js` | Node only: stage 8. The build cache, the write to `dist/.materials-<pid>/` and the rename into `dist/materials/`, the budgets, and the digest the manifest records. |
 | `read-assets.js` | Node only: reads what the shared assets are made of (tokens, stylesheets, scripts, the faces, the licences) for `buildAssets`. |
 | `shell.js` | The document around every page: head, the sticky bar (the mark and *Materials* to the index, the material, the section in view with the list of sections, *Back to your results*), the tabs, the main element and its stamps. |
-| `sections/` | The Overview's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, render(c, env) }`, returning `{ html, empty, stats }`; an empty one leaves the page silently. `masthead.js` holds the first screen (key figures, evidence line, summary, *On the H2C*), `footer.js` the colophon. |
+| `sections/` | The Overview's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, render(c, env) }`, returning `{ html, empty, stats }`; an empty one leaves the page silently. `masthead.js` holds the first screen (the name and tabs, the six key figures, the summary with the evidence line beside *On the H2C*), `footer.js` the colophon. |
 | `products/` | The Products page: the list, its search and sort, and each product's card with every record of that product (`card.js`). |
-| `records/` | What the cards reuse of the retired records page (`common.js`, `measurements.js`), and `placement.js`: where every record of a material is shown, and `offThePages`, the two kinds no page shows. |
+| `records/` | What the cards reuse of the retired records page (`common.js`, `measurements.js`), and `placement.js`: where every record of a material is shown, and `offThePages`, the records no page shows (the project's own reading of a source, a reviewer's note among the environment statements, a coverage note that is not a known gap a reader is shown). |
 | `method-page.js`, `index-page.js`, `stub.js` | *How the numbers are worked out*, written once; the index of materials by family, with one search; the redirect at each old records address. |
 | `charts/` | The five figures (`peers.js` against the alternatives, `map.js` among all materials, `strips.js` the products per section, `layers.js` across the layers, `temperatures.js` every temperature on one axis), the key figures' small drawing (`mini.js`), and their grammar: scales, marks, axes, the frame with its table twin (`figure.js`, `kit.js`, `marks.js`, `scale.js`). |
 | `figures.js` | What the figures draw, as configuration: the alternatives' columns (`PEER_COLUMNS`), the maps (`MAP_PANELS`), each section's strips (`STRIP_SETS`) and the one rule for a strip (`STRIP_MIN`, `inStrip`), the layer pairs (`LAYER_PAIRS`), the ladder's extra rungs (`LADDER_EXTRA`); and the figure functions, re-exported. |
 | `findings.js`, `numbers.js`, `html.js` | The page's own sentences (the drawer's are `material-words.js`); numbers as the pages print them (`fmtDisplay`: three significant figures, whole degrees, a no-break space before the unit); markup helpers. |
-| `budget.js` | What an Overview, a Products page, a stub, the stylesheet, the script and the set may weigh (`PAGE_BUDGET`). |
+| `budget.js` | What an Overview (also the index and the method page), a Products page, a stub, the stylesheet, the script and the set may weigh (`PAGE_BUDGET`: `main`, `products`, `records`, `css`, `script`, `set`). |
 | `tables-asset.js`, `assets/` | The stylesheet sources (`frame.src.css`, `sections.src.css`, `figures.src.css`, `products.src.css`), the classic scripts (`page.js`, `products.src.js`) and the embedded faces with their licences (`fonts/`, `FONTS.md`). |
 
 ## State
@@ -394,17 +395,18 @@ category without importing anything from `ui/`.
 **A new lens.** Add it to `renderLens` in `main.js` and to the lens bar in `app/index.html`. Read
 `state.rows`; never re-filter.
 
-**A new section on the material pages.** One file in `app/pages/sections/` (`{ id, title, records?, render(c, env,
-place) }`, reading only the material's facts) and one line in `SECTIONS` (`app/pages/sections/index.js`); with nothing
-on file it returns `empty` and leaves the page, named in the "Not on file" line (its words in `ABSENT`, `render.js`). A
+**A new section on the material pages.** One file in `app/pages/sections/` (`{ id, title, render(c, env) }`, reading only the material's facts) and one line in `SECTIONS` (`app/pages/sections/index.js`); with nothing
+on file it returns `empty` and leaves the page silently (the page says nothing of a section it lacks). A
 new property, headline or comparison needs no page code: the pages read the registry as the drawer does. A section
 decides nothing, and a number it needs that the build does not hold is compiled (above, "Kept from disagreeing").
 
-**A new figure on the material pages.** A new map of every material (`MATERIAL_MAPS`), a scatter of two properties
-within the material (`FIGURE_PAIRS`), a rung (`LADDER_EXTRA`) or a profile group (`PROFILE_GROUPS`) is one line in
-`app/pages/figures.js`; a new kind of figure is a module in `app/pages/charts/`, drawn with the shared marks and
-`figure()` so it has a title, a key, a caption and "How this is counted". A new records table is one file in
-`app/pages/records/` and a line in its list (`RECORD_SECTIONS`).
+**A new figure on the material pages.** A new column of the alternatives (`PEER_COLUMNS`), a map of every material
+(`MAP_PANELS`), a property in a section's strips (`STRIP_SETS`), a pair across the layers (`LAYER_PAIRS`) or a rung on
+the heat ladder (`LADDER_EXTRA`) is one line in `app/pages/figures.js`; a new kind of figure is a module in
+`app/pages/charts/`, drawn with the shared marks and `figure()` so it has a title, a key, a caption and its table twin.
+A new kind of record shown on a product's card is written in `app/pages/products/card.js`, and
+`app/pages/records/placement.js` says whether it belongs on a page at all (`offThePages`); `pages:check` (REC) then holds
+it to exactly one place.
 
 **A new field a written summary can name.** A count or a part of a headline's spread is added in `build/src/written.js`
 (`COUNT_FIELDS`, `HEADLINE_PARTS`, and their fill), from compiled values only, never an estimate; `npm run pages:fields
@@ -745,8 +747,9 @@ output, the material pages among them (`outputs['materials/']`). Pages publishes
 ### Stage 8: Material pages — `app/pages/stage.js`
 
 After the bundle, because the pages link back to the selector's file by its name: a page of its own for every material
-the page rule admits (`app/js/ui/page-rule.js`: at least three products and twenty measured values; D142), its records
-page, the index and the shared assets, into `dist/materials/`. The renderer is loaded only for this stage, and is
+the page rule admits (`app/js/ui/page-rule.js`: at least three products and twenty measured values; D142), its Overview
+and its Products page (D145) and a stub at its old records address, the index, the method page and the shared assets,
+into `dist/materials/`. The renderer is loaded only for this stage, and is
 skipped with `--validate-only` and `--no-estimates`; `--no-pages` builds everything else and removes
 `dist/materials/`, so no page of an earlier build is left beside a database it does not match (`build:diff` builds so).
 
@@ -756,11 +759,11 @@ skipped with `--validate-only` and `--no-estimates`; `--no-pages` builds everyth
   (`digestFiles` over `app/pages`, `app/js/ui`, `app/js/engine` and `app/css`, with the same guard as the build's own
   code digest), the database's SHA-256 and the selector's file name; a hit writes the stored files.
 - **Whole or not at all.** Written to `dist/.materials-<pid>/` and renamed into place, so no reader sees half a folder.
-- **Weighed.** Each page, the stylesheet, the script and the set against `app/pages/budget.js`: over budget is a
+- **Weighed.** Each Overview, Products page, stub, the stylesheet, the script and the set against `app/pages/budget.js`: over budget is a
   warning printed as `[PAGE-BUDGET]` (a word of the stage's own, not in the rule catalogue), over twice it stops the
   build, and `pages.check.js` fails over budget.
 - **Recorded.** `dist/manifest.json` gets `outputs['materials/']`, the SHA-256 over the sorted
-  `"<sha256>  materials/<path>"` lines, and `pages` (the count of Overviews, of Products pages, and their bytes), so the
+  `"<sha256>  materials/<path>"` lines, and `pages` (the count of Overviews, of Products pages (the key `recordsPages`), and their bytes), so the
   reproducible-build check covers the pages too.
 
 It prints one line, for example `pages  76 Overviews, 76 Products pages, the index and the method page, 26.8 MB in all, in 1308 ms` (MiB, as the
@@ -820,8 +823,11 @@ a reader sees with `build/snapshot/ui/`. The default, template, ranked and famil
 a summary (its headers, one line per row, the first eight rows in full), so a data change does not rewrite whole tables;
 the rendered-scenario run compares every cell with the engine. Both are checked by `verify`; a change commits its diff.
 The material pages have their own: `build/snapshot/pages.csv` (every listed material's page or what it falls short
-on, its sections, figures, records and sizes), the probe's `50-page-<screen>-<page>` views of eight pages on three
-screens (layout, contents, fonts, lighting, every anchor's landing, the Products table's sorting and search), and
+on, its products, values, makers and documents, its sections, figures, dots and the sizes of its Overview and Products
+page, and the five alternatives it is compared with), the probe's `50-page-<screen>-<page>` views of ten pages (the
+Overview and the Products page of PLA, PETG, PPS-CF and PCTG-GF, the index and the method page) on three
+screens (layout, contents, fonts, lighting, every anchor's landing, the Products list's sorting and search) and a return
+trip from the selector's drawer and back, and
 `npm run pages:check` (every number on every page against the build, in `verify`'s data group).
 
 `npm run ui:fuzz`, the last of `verify`'s interface steps (300 scenarios; 2,000 on a new seed weekly in CI), runs seeded random scenarios through the built page (every

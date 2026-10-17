@@ -1,9 +1,9 @@
 # The material pages, reimagined: the plan
 
-> **Current** (2026-10-17), the executor's plan for the pages-reimagined round, from the three experts' proposals
+> **Historical record** (2026-10-17), the executor's plan for the pages-reimagined round, from the three experts' proposals
 > ([UX](ux/PROPOSAL.md), [content](content/PROPOSAL.md), [data visualisation](dataviz/PROPOSAL.md)) and the
 > [brief](BRIEF.md). Where they conflict, the decision below is final; it is judged against `docs/GOALS.md` (a workbench
-> that turns requirements into a defensible shortlist, then products; every number traceable; screening-grade evidence).
+> that turns requirements into a defensible shortlist, then products; every number traceable; screening-grade evidence). It describes the tool as it was then; the round's [README](README.md) says what was built.
 
 ## In short
 

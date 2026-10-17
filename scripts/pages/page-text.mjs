@@ -3,7 +3,8 @@
 // summary's claims against, section by section.
 //
 //   npm run pages:text -- M020              PETG's page (dist/materials/M020.html) as text
-//   npm run pages:text -- M020 --records    its records page instead
+//   npm run pages:text -- M020 --products   its Products page instead (its cards are built by the page's script, so
+//                                           the text holds the list, not the cards)
 //
 // It reads the page the build wrote, after building where dist/db.json is stale, and says which release it is of.
 // It writes nothing.
@@ -16,7 +17,7 @@ const args = process.argv.slice(2);
 const id = args.find((a) => !a.startsWith('--'));
 if (!id) { console.error('Name a material: npm run pages:text -- M020'); process.exit(2); }
 const db = loadDb({ quiet: true });
-const file = join(root, 'dist/materials', `${id}${args.includes('--records') ? '-records' : ''}.html`);
+const file = join(root, 'dist/materials', `${id}${args.includes('--products') ? '-products' : ''}.html`);
 if (!existsSync(file)) {
   console.error(db.materials.some((m) => m.id === id) ? `${id} has no page (npm run pages:fields -- ${id} says why), or the build did not write the pages: npm run build.` : `${id}: no such material.`);
   process.exit(2);

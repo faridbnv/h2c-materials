@@ -1,8 +1,8 @@
 # Writing a material's summary: the brief for the drafters
 
-> **Current** (2026-10-17). Brief for the agents who draft the 76 material summaries in the pages-reimagined round
+> **Historical record** (2026-10-17). Brief for the agents who draft the 76 material summaries in the pages-reimagined round
 > (step 3 of PLAN.md). The rules are AGENTS.md, "Write or revise a material's summary"; this brief puts them in a
-> checklist and gives two models. You write drafts; the owner reviews them.
+> checklist and gives two models. You write drafts; the owner reviews them. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ## What a summary is for
 

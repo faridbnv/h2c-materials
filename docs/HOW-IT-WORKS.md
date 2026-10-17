@@ -270,9 +270,11 @@ Beside the page, the build writes from the same compiled database a page of its 
 three products and twenty measured values (`build/snapshot/pages.csv` lists them): an Overview, with a written summary
 whose every number the build fills from the data, the material against five alternatives, its products' values section
 by section and how it prints, and a Products page, where each product opens to every record behind it. The drawer's
-**Full page** link opens it in the same tab, and the page's *Back to your results* returns to the selector as it was. It sets no requirement and decides nothing, and it reads the same facts the drawer
-does, so the two cannot disagree ([INTERFACE.md, "The material pages"](INTERFACE.md#the-material-pages)). A downloaded
-copy of the page needs its release's material pages zip unzipped beside it for the link to open.
+**Full page** link opens it in the same tab, as does the *Material pages* link in the selector's status bar, which
+leads to an index by family. Both carry the selection, and the page's *Back to your results* returns to the selector as
+it was. The pages set no requirement and decide nothing, and they read the same facts the drawer does, so the two
+cannot disagree ([INTERFACE.md, "The material pages"](INTERFACE.md#the-material-pages)). A downloaded copy of the page
+needs its release's material pages zip unzipped beside it for the links to open.
 
 ## A material is the spread of its products
 

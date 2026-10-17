@@ -1,8 +1,8 @@
 # The engineer's review of the reimagined pages
 
-> **Current** (2026-10-17). The independent review at step 4 of [PLAN.md](../PLAN.md), done to
+> **Historical record** (2026-10-17). The independent review at step 4 of [PLAN.md](../PLAN.md), done to
 > [REVIEW-BRIEF.md](../REVIEW-BRIEF.md). It scores only what the pages show on screen and on paper. I read no code and
-> no other document of the round.
+> no other document of the round. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 **What I reviewed.** Release `c844a6d3440a`, built 2026-10-17 11:35. The build in `dist/` was replaced while I was
 working: my first PLA shots showed release `f4b5d1d2458f`. So I copied the new build into my scratchpad and reviewed

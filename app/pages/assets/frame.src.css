@@ -142,7 +142,6 @@ time { font-variant-numeric: tabular-nums; }
 .kf-v { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 5px; margin-top: 4px; }
 .kf-n { font-size: var(--t-num); font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-variant-numeric: tabular-nums; }
 .kf-u { font-size: 15px; color: var(--ink-2); }
-.kf-none { font-size: var(--t-xs); font-weight: 400; color: var(--ink-2); line-height: 1.4; padding-top: 4px; }
 .kf-cell--open .kf-n { color: var(--ink-2); font-style: italic; font-weight: 500; }
 .kf-s { margin-top: 10px !important; min-height: 30px; }
 .kf-s svg { display: block; width: 100%; height: auto; overflow: visible; }
@@ -153,10 +152,7 @@ time { font-variant-numeric: tabular-nums; }
 
 /* the summary beside On the H2C */
 .first { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 40px; align-items: start; }
-.first--alone { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
 .sum-text p { margin: 0 0 .7rem; font: 400 var(--t-xl)/1.6 var(--f-serif); max-width: 62ch; text-wrap: pretty; }
-.sum-tag { margin: 4px 0 0; }
-.tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--border-strong); border-radius: 999px; padding: 1px 9px; }
 .h2c { padding: 14px 20px 12px; }
 .h2c-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 2px; }
 .h2c-h h2 { margin: 0; font: 600 var(--t-m)/1.3 var(--f-sans); }
@@ -189,8 +185,6 @@ time { font-variant-numeric: tabular-nums; }
 .ov-h { margin: 0 0 16px; font: 500 var(--t-h2)/1.15 var(--f-serif); letter-spacing: -.01em; }
 
 /* the Products hand-off */
-.handoff { margin-top: 104px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 40px; align-items: start; padding: 28px 32px; }
-.handoff h2 { margin: 0; font: 500 30px/1.15 var(--f-serif); }
 .handoff-makers { margin: 8px 0 0; color: var(--ink-2); max-width: 72ch; }
 .handoff-go { margin: 18px 0 0; }
 .handoff-note { margin: 14px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: 80ch; }
@@ -292,8 +286,7 @@ time { font-variant-numeric: tabular-nums; }
   .kf-sep { display: none; }
   .h2c { padding: 14px 16px 12px; }
   .h2c dl > div { grid-template-columns: 7.6rem minmax(0, 1fr); }
-  .ov-sec, .handoff { margin-top: 72px; }
-  .handoff { grid-template-columns: minmax(0, 1fr); padding: 22px 18px; }
+  .ov-sec { margin-top: 72px; }
   .colophon { margin-top: 80px; }
 }
 
@@ -321,12 +314,12 @@ time { font-variant-numeric: tabular-nums; }
   body { background: #fff; font-size: 12.5px; }
   /* The page is set a little smaller on paper, so figures keep their titles and short sections share a page. */
   .page { max-width: none; padding: 0; overflow: visible; zoom: .8; }
-  .plate:not(.pcard), figure, .fig, .h2c, .kf-wrap, .handoff { break-inside: avoid; }
+  .plate:not(.pcard), figure, .fig, .h2c, .kf-wrap { break-inside: avoid; }
   .ov-h, h2, h3 { break-after: avoid; }
   .phead { padding-top: 0; }
   .kf-wrap { margin-top: 16px; }
   .first { margin-top: 18px; gap: 18px; }
-  .ov-sec, .handoff { margin-top: 26px; break-before: auto; }
+  .ov-sec { margin-top: 26px; break-before: auto; }
   /* The colophon stays with Sources: no page holds the footer alone. */
   .colophon { margin-top: 28px; padding: 14px 0 0; break-inside: avoid; break-before: avoid; gap: 6px 24px; }
   #sources { break-after: avoid; }

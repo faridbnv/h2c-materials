@@ -1,6 +1,6 @@
 # The engineer's review of the reimagined pages: the brief
 
-> **Current** (2026-10-17), the brief for the independent review at step 4 of [PLAN.md](PLAN.md).
+> **Historical record** (2026-10-17), the brief for the independent review at step 4 of [PLAN.md](PLAN.md). It describes the tool as it was then; the round's [README](README.md) says what was built.
 
 ## Who you are
 

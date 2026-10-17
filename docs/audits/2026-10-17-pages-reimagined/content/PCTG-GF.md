@@ -1,8 +1,8 @@
 # PCTG-GF: the page as it would read
 
-> **Current** (2026-10-17). Proposed full text of PCTG-GF's page (M110, 3 products, the thinnest), by the rules in
+> **Historical record** (2026-10-17). Proposed full text of PCTG-GF's page (M110, 3 products, the thinnest), by the rules in
 > PROPOSAL.md, its thin-page rules above all. Every number is taken from the current page (release ee8eb64a0259) or
-> `dist/db.json`; comments name the field where it is not obvious.
+> `dist/db.json`; comments name the field where it is not obvious. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ---
 

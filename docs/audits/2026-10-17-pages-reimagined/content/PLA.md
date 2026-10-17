@@ -1,8 +1,8 @@
 # PLA: the page as it would read
 
-> **Current** (2026-10-17). Proposed full text of PLA's page (M001, 195 products), by the rules in PROPOSAL.md. Every
+> **Historical record** (2026-10-17). Proposed full text of PLA's page (M001, 195 products), by the rules in PROPOSAL.md. Every
 > number is taken from the current page (release ee8eb64a0259) or `dist/db.json`; comments name the field where it is not
-> obvious. Figures are slots: `[Figure: what it answers — title — caption]`. Layout and drawing are the other experts'.
+> obvious. Figures are slots: `[Figure: what it answers — title — caption]`. Layout and drawing are the other experts'. It describes the tool as it was then; the round's [README](../README.md) says what was built.
 
 ---
 

@@ -274,8 +274,11 @@ Written by and Written on, `status` its Review status (`draft`, `reviewed by the
 `{ field, value, unit?, bound? }` that the page formats as its key figures. A summary types no number: each is a
 placeholder the build fills from the compiled database, never from an estimate (`build/src/written.js`): `{products}`,
 `{makers}`, `{values}`, `{profiles}` and `{name}`, or, for any HeadlineKey, `{key.median}`, `min`, `max`, `q1`, `q3`
-(from four products), `range`, `n`, `products`, `typical` and `label`. One the material cannot fill stops the build
-(SUMMARY-PLACEHOLDER), and a number typed outside a placeholder is a lint finding (SUMMARY-NUMBER). Notes is for the
+(from four products), `range`, `n`, `products`, `typical` and `label`, and the print fields `{nozzle.window}`,
+`{bed.window}`, `{drying.schedule}` and `{zshare.<property>}` (the share of the flat value its products keep across the
+layers). The four counts still fill, but a summary that names one is a lint finding (SUMMARY-COUNT, D145: the page's head
+says how many products and makers there are). One the material cannot fill stops the build (SUMMARY-PLACEHOLDER), and a
+number typed outside a placeholder is a lint finding (SUMMARY-NUMBER). Notes is for the
 data's maintainers and is never shown. How a summary is written and revised is AGENTS.md's.
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans

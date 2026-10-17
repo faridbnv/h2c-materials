@@ -201,8 +201,8 @@ export function leftOutWords(h, s) {
 
 /**
  * The rows a comparison does not draw because no product has a value (material-facts.js comparisonsOf silentListed and
- * silentUnlisted). `where` says where the listed rows' results are: below them in the drawer, on the records page on a
- * material page.
+ * silentUnlisted). `where` says where the listed rows' results are: below them in the drawer, in each product's card on
+ * a material's Products page.
  */
 export function silentRowsWords(listed, unlisted, where = 'listed below') {
   const said = (rows, isListed) => (rows.length ? `${andList(rows.map((h) => h.labels.plain))}: no product has one, so ${rows.length > 1 ? 'they have' : 'it has'} no row${isListed ? `; ${rows.length > 1 ? 'their' : 'its'} results are ${where}` : ''}.` : '');

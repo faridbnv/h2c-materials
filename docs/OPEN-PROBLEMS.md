@@ -1358,8 +1358,8 @@ diameter, or to retire such a product, is the owner's call.
 
 **"Highly hygroscopic wood fibers".** Bambu Lab's PAHT-CF and TPU 95A HF product pages carry a sentence written for its
 wood-filled PLA ("As this filament contains highly hygroscopic wood fibers ..."). The records hold it as published
-(Q05685, Q05679) with the reviewer's caveat in their Exposure cell, which no page shows, so PAHT-CF's What makers say
-quotes it among its pitfalls. A state for "copied from another product's page" would keep it in the product's card only; that
+(Q05685, Q05679) with the reviewer's caveat in their Exposure cell, which no page shows, so PAHT-CF's page quoted it
+among its pitfalls (its section is now *Uses, limitations and chemicals*; not rechecked there). A state for "copied from another product's page" would keep it in the product's card only; that
 is a vocabulary change, not done here.
 
 ### 37.8. Fillers named or not
@@ -1764,9 +1764,10 @@ at break (200 to 380 %, "good precision") sits above every listed value, 150 % a
 
 **Two choices of the value shown where no product's is compared.** The drawer's Overview shows the build's nearest
 related value (materials[].headline[key].related.best), which can be a resin's moulded bar or a value flagged
-implausible; the page's first screen shows the products' own values that lack the basis first, and the nearest after.
-They disagree on PA12 (43 MPa moulded against 45–60 MPa), PP, PEEK (Izod 138 kJ/m², flagged implausible, against 6) and
-TPU-CF (0.035 GPa against 0.2 GPa). Making the drawer show what the page shows is a change of the selector's
+implausible; the page's key figure (since D145) shows the range of the products' own values that lack the basis, "as
+published", and never the nearest. They disagree on PA12 (43 MPa moulded against 45–60 MPa), PP, PEEK (Izod 138 kJ/m²,
+flagged implausible, against 6) and TPU-CF (0.035 GPa against 0.2 GPa), as measured on the earlier pages and not
+rechecked on the new ones. Making the drawer show what the page shows is a change of the selector's
 Overview, and the build's ranking of related values should not put a flagged value first; neither was done in this round.
 
 ```bash
@@ -1821,7 +1822,8 @@ typical schedule should be drawn from the lower ends is a ruling, not made here.
 *From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
 
 **Checks.** A scan of all 76 pages found, after the fixes, no figure text cut or overlapping at 390 px and two overlaps of
-2 to 3 px at 1,180 px; the interface probe holds its eight pages to none. The estimate stage refits to every data change
+2 to 3 px at 1,180 px; the interface probe holds its pages to none (since D145 ten of them: the Overview and the Products page of four
+materials, the index and the method page). The estimate stage refits to every data change
 (m433 to m436 moved many materials' estimated modulus and HDT a little); it is frozen as code, not as output (D138).
 verify:fast from an empty build cache took 78.8 s at the round's close, within its 90 s budget (56.1 s warm), so the
 117.7 s of step 2 is not open.
@@ -1833,7 +1835,8 @@ verify:fast from an empty build cache took 78.8 s at the round's close, within i
 **Since the pages were reimagined (D145, 2026-10-17)** changes 2 and 3 are done (the byline in the colophon, no
 provenance line in the reading path, no rank tracks, maps on fixed frames, no one-dot figure), 4 in part (Izod and values
 not compared in groups of their own on the Products page) and 5 (a thin page compact, its estimate left as it is). Change
-1 (one rule for Z) and the inconsistencies below still stand.
+1 (one rule for Z) and the inconsistencies below still stand, except PLA's records facet and the "Show all 4" button,
+which went with the records page and the Products table's toggles; the others were not rechecked on the new pages.
 
 **Its five changes, ranked.** (1) One rule for Z everywhere: read a ZX or ZY bar as Z by its long axis and show the
 sheet's code beside it ("Z (ZX)"), where D143 keeps a ZX bar whose sheet neither says nor draws it upright as ZX
@@ -1881,6 +1884,11 @@ with 37 values or more still runs to about 2,700 px, its Conditions cell prints 
 shown" and the chemicals' "described without a verdict" read as bookkeeping to a reader (the second review had asked
 for the first); *Back to your results* opens the drawer of the last material read, which a reader may not expect; a
 thin page (PEI-CF) still runs about six screens, its printing figure and settings table most of it.
+**Found while taking the last screenshots.** In a product card, a document group whose values share a condition the group
+heading does not state repeats it as a chip on every row (Polymaker HT PLA's second document repeats "annealed at a
+temperature its sheet does not state for a time its sheet does not state" on each value). PEI-CF's temperatures figure
+shows HDT at 0.45 MPa as "200 °C" in its service row, where the key figure and the per-sheet table say "> 200 °C"
+(Nanovia's value is recorded with the operator ">"): the figure's row drops the bound's sign.
 **The summaries are drafts.** All 76 were rewritten to D145's rules, drafted by Claude Sonnet and judged against their
 pages by Claude Opus (55 of 76 changed after drafting); none is reviewed by the owner yet.
 

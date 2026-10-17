@@ -1,6 +1,6 @@
 # The interface
 
-> **In short.** Why the page looks and behaves as it does. One screen serves someone who wants a shortlist and an engineer who wants the evidence behind it, for data that is sparse and says so. This document covers the workflow (requirements, the ranked table and chart, a material's drawer with its products and their print recipes), the words the page uses and why, and its visual vocabulary.
+> **In short.** Why the page looks and behaves as it does. One screen serves someone who wants a shortlist and an engineer who wants the evidence behind it, for data that is sparse and says so. This document covers the workflow (requirements, the ranked table and chart, a material's drawer with its products and their print recipes, the page of its own that each well-documented material has), the words the page uses and why, and its visual vocabulary.
 
 ## The problem it is shaped around
 
@@ -686,8 +686,9 @@ each fact once: the first screen gives the number, a section interprets it, a fi
 **The Products page** (`materials/<id>-products.html`): the head with *Products* selected, one line that follows the
 sort, a search and *Sort by* (a column heading sorts too; a second press reverses), the key of only the marks used, then
 the list. Sorting by a value splits the list into labelled groups in a fixed order: compared, then shown as published
-(no stated orientation or load), then a notched Izod value where no Charpy is published, then not published ("—"). A
-row is a native disclosure; its card holds every record of that product, values grouped by document (the conditions
+(no stated orientation or load, or a setting from the Bambu Lab Filament Guide), then a notched Izod value where no
+Charpy is published, then not published ("—"); in the sorted column a thin rule under each compared value shows its
+place in the column's range. A row is a native disclosure; its card holds every record of that product, values grouped by document (the conditions
 they share said once in the group's heading, a second edition's identical values said once), the sheet's own row
 label, whether each is in the Overview's median and why not, print settings with where each comes from, price, the
 maker's statements folded, and documents. Reference and study
@@ -707,10 +708,11 @@ its card on the Products page.
 **The way around.** One sticky bar: the mark and *Materials* lead to the index, then the material and the section in
 view (a list of the sections and *How the numbers are worked out*), and *Back to your results*. Arrived from the selector
 (`?from=`, kept for the tab and taken out of the address), every return reopens the selector as the reader left it, with
-the drawer on the material of the page in view; arrived otherwise, it reads *Open in the selector*. **The index**
+the drawer on the material of the page in view; the selector keeps the chosen products' notes, the view's scroll and the
+drawer's tab for the tab (browser session storage), and nothing else; arrived otherwise, it reads *Open in the selector*. **The index**
 (`materials/index.html`) lists the materials with a page by family, each with its products, one search that also finds
-the names a material is sold under, read row by row, the most documented family first, and the materials without a page
-in one closing block. **The method page**
+the names a material is sold under, read row by row, the families with most pages first, and the materials without a page
+in one closing block, a line per family. **The method page**
 (`materials/method.html`) holds the explanations every page would otherwise repeat. **The stub**
 (`materials/<id>-records.html`) sends the old records page's links to the Products page or to Sources.
 
@@ -807,7 +809,7 @@ engineer would:
 | in the H2C's scope, outside the printer's envelope | beyond H2C capability |
 | the printer maker's guide | the Bambu Lab Filament Guide |
 | Official Bambu product, Officially listed family, Conditional, Theoretical | Bambu Lab filament, Type on Bambu's H2C list, Unlisted, usable with conditions, Unlisted, within H2C temperatures |
-| typical (of a material), headline | median of its products, key property (the material pages head a column "Typical" and define it once, beside the table, as the median of the products compared) |
+| typical (of a material), headline | median of its products, key property (the material pages say "typically" in a sentence, head a column "Median", and define it once, on the method page, as the median of the products compared) |
 | typical: annealed | annealed median |
 | screened (outside the fuzz-pinned chip and header words) | excluded by an estimate, excluded by resin reference data |
 | quarantined | held back |
@@ -1090,6 +1092,11 @@ laid a 390 px phone out at 533 px with the right side clipped. Colour never the 
 `npm run ui:check` fails on any layout failure at 1180, 820 and 390 px: a page wider than the screen, anything past its
 right edge outside a scroll box, a clipped table cell, a control off screen, estimates in the Confirmed-only drawer, or a
 full-screen drawer that is not modal. The drawer is measured on its Overview, Mechanical, Printing, Price and Sources tabs.
+The same check opens the material pages on the same three screens: the Overview and the Products page of PLA, PETG,
+PPS-CF and PCTG-GF, the index and the method page. It fails on a page wider than the screen, a figure without a caption,
+a bar that is not sticky, a way back off screen, a font not loaded or a missing page. It also scrolls to every section the
+bar lists, runs the Products page's search and each of its sorts, and makes one trip from a drawer's Full page to the
+Overview, the Products page and back, which must reopen the selector with the same selection and that material's drawer.
 
 Compare leads with the requirements, missing-data rule and snapshot, on screen and in the print
 stylesheet, so a printed comparison says which question it answers.
