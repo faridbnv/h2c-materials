@@ -1,22 +1,29 @@
-// Printing on the H2C: how many of the material's products the H2C can print, setting by setting, from each product's
-// own print gate (grades[].print); every product's print temperatures drawn together (D139: its lowest and highest
-// nozzle, bed and heated-chamber setting and its drying temperature, the H2C's limit where it is near); then the
-// hardened nozzle, drying, the AMS and where a silent sheet's settings were read. The words are the drawer's.
+// How to print it: the nozzle, bed and heated-chamber temperatures most of the material's products accept, from each
+// product's own print gate (grades[].print) counted by material-stats.js printWindows, drawn as every product's window
+// with how many accept each temperature over them; drying as a strip with its typical schedule; then the hardened
+// nozzle, the AMS, where a silent sheet's settings were read and the Bambu Lab Filament Guide's row. The bookkeeping
+// (what is counted, drawn and not counted, not drawn and why, the medians, the H2C's limits) is under "How this is
+// counted".
 
 import { esc, tableBox } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { hardenedShare } from '../../js/engine/products.js';
 import { isProduct, printFacts, printCounts, guideFacts } from '../../js/ui/material-facts.js';
+import { printWindows, dryingStats } from '../../js/ui/material-stats.js';
 import {
-  plural, andList, joinedSpan, printAxisUnit, printApartWords, printLines, printSingles, printMissing, printOriginsWords, hardenedFactWords,
-  dryingFactWords, amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES,
+  plural, andList, cap, joinedSpan, windowText, printApartWords, printLines, printSingles, printMissing, printOriginsWords,
+  amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES,
 } from '../../js/ui/material-words.js';
 import { stripScale } from '../charts/scale.js';
 import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
 import { axisRow } from '../charts/axis.js';
-import { keyMark, keyBand, keyMedian, keyLimit, keyList } from '../charts/marks.js';
-import { figure } from '../charts/figure.js';
-import { emptyBody, recordsLink, figureCounter } from './common.js';
+import { keyLimit, keyList } from '../charts/marks.js';
+import { windowPanel } from '../charts/windows.js';
+import { figure, figId, howCounted } from '../charts/figure.js';
+import { emptyBody, recordsLink, figureCounter, findingsBlock, notesHtml, middleHalf } from './common.js';
+import { printFindings } from '../findings.js';
+
+const SETTINGS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber']];
 
 /** The H2C's limits against the products, setting by setting (printCounts), as a table. */
 function limitsTable(f) {
@@ -25,51 +32,27 @@ function limitsTable(f) {
     + `<td class="num">${esc(fmtNumber(n.limit, '°C'))}</td><td class="num">${n.within}</td><td class="num">${n.over}</td><td class="num">${n.unknown}</td></tr>`).join('')}</tbody></table>`);
 }
 
-/** Every product's print temperatures, a graph per setting (printFacts().drawn), as the drawer's Printing tab draws them. */
-function temperaturesFigure(f, c, no) {
-  let dots = 0;
-  const graphs = f.drawn.map((d) => {
-    const scale = stripScale(d.onScale ? [...d.values, d.limit] : d.values, '°C');
-    const limit = d.onScale ? scale.pct(d.limit) : null;
-    const rows = d.rows.map((r) => {
-      const entries = r.entries.map((e) => ({
-        v: { value: e.value }, marks: [e.origin === 'guide' ? 'open' : '', e.variant ? 'variant' : ''].filter(Boolean),
-        data: { 'data-grade': e.g.id, 'data-profile': e.profileId ?? null, 'data-guide': e.origin === 'guide' ? 'true' : null, 'data-v': fmtNumber(e.value), 'data-from': e.origin === 'twin' ? e.label : null },
-      }));
-      dots += entries.length;
-      return dotRow({ data: { 'data-row': r.key, 'data-unit': '°C', 'data-open': `from ${f.guideName}` }, label: r.label, sub: plural(entries.length, 'product'), track: dotTrack({ entries, scale, summary: r.summary, limit }) });
-    });
-    return dotGraph(rows, axisRow(scale, printAxisUnit(d.limit, d.onScale)), { 'data-setting': d.axis });
-  });
-  const k = f.marks;
-  const key = keyList([
-    k.own ? [keyMark([]), esc('the product\'s data sheet, or one it shares')] : null,
-    k.guide ? [keyMark(['open']), esc(`from ${f.guideName}`)] : null,
-    k.variant ? [keyMark(['variant']), 'special formulation'] : null,
-    k.band ? [keyBand, 'middle half'] : null,
-    k.median ? [keyMedian, 'median'] : null,
-    k.limit ? [keyLimit, esc('the H2C\'s limit')] : null,
-  ].filter(Boolean));
-  const table = tableBox(`<table class="grid sum"><thead><tr><th scope="col">Setting, <span class="u">°C</span></th><th scope="col" class="num" title="Products counted">n</th>`
-    + `<th scope="col" class="num">Median</th><th scope="col" class="num">Middle half</th><th scope="col" class="num">Range</th></tr></thead><tbody>${f.rows.map((r) => {
+/** The medians of every product's lowest and highest setting and its drying temperature (printFacts().rows), as a table. */
+function mediansTable(pf) {
+  return tableBox(`<table class="grid sum"><thead><tr><th scope="col">Setting, <span class="u">°C</span></th><th scope="col" class="num" title="Products counted">n</th>`
+    + `<th scope="col" class="num">Median</th><th scope="col" class="num">Middle half</th><th scope="col" class="num">Range</th></tr></thead><tbody>${pf.rows.map((r) => {
       const s = r.summary;
       const apart = printApartWords(s);
       return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(fmtNumber(s.median)) : '—'}</td>`
-        + `<td class="num">${s.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s.n ? esc(joinedSpan(s)) : '—'}</td></tr>`
+        + `<td class="num">${s.q1 != null ? esc(middleHalf(s)) : '—'}</td><td class="num">${s.n ? esc(joinedSpan(s)) : '—'}</td></tr>`
         + (apart.length ? `<tr class="apart"><td colspan="5">Also drawn, not counted: ${esc(andList(apart))}.</td></tr>` : '');
     }).join('')}</tbody></table>`);
-  const single = printSingles(f);
-  const missing = printMissing(f);
-  const notes = [...printLines(f), single, missing ? `Not drawn: ${missing}.` : ''].filter(Boolean).map((t) => `<p class="fig-note">${esc(t)}</p>`).join('');
-  return {
-    dots,
-    html: figure({
-      id: `fig-${no.replace('.', '-')}`, n: no, title: 'Print temperatures across products', data: { 'data-print': 'temperatures' },
-      key, plot: graphs.join(''), table, notes,
-      label: `Dot plot, one dot per product and setting: ${f.drawn.map((d) => `${d.label.toLowerCase()}, ${plural(new Set(d.rows.flatMap((r) => r.entries.map((e) => e.g.id))).size, 'product')}`).join('; ')}.`,
-      caption: `${esc(`A dot is one product's lowest or highest setting, or its drying temperature, as its own data sheet, a sheet it shares, or ${f.guideName} gives it: ${plural(f.products, 'product')} drawn.`)} ${recordsLink(c, '#profiles', 'Every print profile, with its document, is on the records page')}.`,
-    }),
-  };
+}
+
+/** The drying temperatures as one strip of dots (the dot grammar), with the typical schedule beside it. */
+function dryingStrip(d, guideName) {
+  const entries = d.entries.map((e) => ({ v: { value: e.value }, marks: [e.origin === 'guide' ? 'open' : '', e.variant ? 'variant' : ''].filter(Boolean),
+    data: { 'data-grade': e.g.id, 'data-v': `${fmtNumber(e.value)}${e.hours != null ? ` °C for ${fmtNumber(e.hours)} h` : ''}`, 'data-from': e.origin === 'guide' ? `from ${guideName}` : null } }));
+  if (entries.length < 2) return '';
+  const scale = stripScale(entries.map((e) => e.v.value), '°C');
+  const t = d.temps, h = d.hours;
+  const sub = t.n ? `typically ${fmtNumber(t.median)} °C${h.n ? ` for ${fmtNumber(h.median)} h` : ''}` : '';
+  return `<div class="pw-dry">${dotGraph([dotRow({ data: { 'data-row': 'drying', 'data-unit': '°C', 'data-open': `from ${guideName}` }, label: 'Drying', sub, track: dotTrack({ entries, scale, summary: t }) })], axisRow(scale, '°C'), { 'data-setting': 'drying' })}</div>`;
 }
 
 /**
@@ -84,21 +67,38 @@ function guideBlock(f) {
     ['Enclosure', guideEnclosureWords(g.enclosureState)], ['Nozzle type', `${g.nozzleSizeMaterial}: ${guideHardenedWords(g.abrasion.requiresHardened)}`],
   ];
   return `<div class="guide"><h3 class="sub-title">${esc(g.name)}</h3>
-<p class="fig-note">${esc(`Used only where a product's own data sheet, and one it shares, are silent on a setting: ${f.readBy ? `${plural(f.readBy, 'product')} here ${f.readBy === 1 ? 'takes' : 'take'} at least one setting from it` : 'no product here needs it'}.`)}</p>
+<p class="note">${esc(`Read for a product only where its own data sheet, and one it shares, are silent on a setting. ${f.readBy ? `${plural(f.readBy, 'product')} here ${f.readBy === 1 ? 'takes' : 'take'} at least one setting from it.` : 'No product here needs it.'}`)}</p>
 <dl class="facts facts--guide">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd class="raw">${guideLines(v)}</dd></div>`).join('')}</dl></div>`;
 }
 
 /**
- * A guide cell as the guide prints it, each of its entries on a line of its own. The stored text has no line breaks: it
- * runs one build plate's window into the next ("Smooth PEI Plate (60 - 80 °C) Textured PEI Plate (60 - 80 °C)"), so a
- * line is broken only at the space the stored text leaves after a closing bracket, before the next entry's name. Not a
- * word is changed.
+ * A guide cell as the guide prints it, each of its entries on a line of its own: a line is broken only at the space the
+ * stored text leaves after a closing bracket, before the next entry's name. Not a word is changed.
  */
 const guideLines = (text) => String(text ?? '').split(/(?<=\))\s+(?=[A-Z])/).map(esc).join('<br>');
 
+/** The hardened-nozzle line: which products need one, by name, or what the sources say. */
+function hardenedLine(gate, hard) {
+  if (hard.need && hard.need < hard.total) {
+    return `${hard.need} of ${hard.total} products need one: ${hard.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing.`;
+  }
+  if (hard.need) return hard.total === 1 ? 'Its product needs one.' : `All ${hard.total} products need one.`;
+  return gate === 'requires-hardened' ? 'Required: the filler wears out a brass nozzle.' : gate === 'no-special-concern' ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.';
+}
+
+/** The drying line: how many products publish a schedule, or what the sources say. */
+function dryingLine(gate, products, d) {
+  const n = (need) => products.filter((g) => g.print?.drying?.need === need).length;
+  const typical = d?.temps?.n > 1 ? `, typically ${fmtNumber(d.temps.median)} °C${d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}` : '';
+  if (gate === 'required') return `${n('required')} of ${plural(products.length, 'product')} publish a drying schedule${typical}.`;
+  if (gate === 'optional') return `Its sources advise drying only for a condition, such as wet filament: ${n('optional')} of ${plural(products.length, 'product')}.`;
+  if (gate === 'not-needed') return 'Its sources say drying is not needed.';
+  return 'No source states whether to dry it. That does not mean it needs none.';
+}
+
 export default {
   id: 'printing',
-  title: 'Printing on the H2C',
+  title: 'How to print it on the H2C',
   records: '#profiles',
   render(c, env, place) {
     const m = c.m;
@@ -110,28 +110,77 @@ export default {
       return { empty: true, html: emptyBody(c, EMPTY_LINES.Printing, { tab: 'Printing', anchor: '#profiles' }), stats: {} };
     }
     const next = figureCounter(place.n);
-    const answer = counts
-      ? (counts.all ? `All ${plural(counts.products, 'product')} ${counts.products === 1 ? 'is' : 'are'} within the H2C's nozzle, bed and chamber limits, each on its own settings.`
-        : `${counts.products === 1 ? 'Its product' : `Its ${counts.products} products`}, each on its own settings, against the H2C's limits:`)
-      : '';
-    const read = counts ? printOriginsWords(counts.origins) : [];
-    const fig = pf.drawn.length ? temperaturesFigure(pf, c, next()) : null;
-    const nofig = !fig ? `<div class="nofig"><h3 class="sub-title">Print temperatures across products</h3><p>${esc(['No graph: no setting has two products\' values, one of them from a data sheet.', printSingles(pf), printMissing(pf) ? `Not drawn: ${printMissing(pf)}.` : ''].filter(Boolean).join(' '))}</p></div>` : '';
+    const pw = Object.fromEntries(SETTINGS.map(([axis]) => [axis, printWindows(products, axis)]));
+    const drying = dryingStats(products);
     const hard = hardenedShare(c.grades);
-    const someHard = m.gates.abrasive === 'requires-hardened' && hard.total > 1 && hard.need < hard.total;
+    const chamberOutside = pf.outside.find((a) => a.axis === 'chamber')?.list.length ?? 0;
+    const findings = printFindings({
+      nozzle: pw.nozzle, bed: pw.bed, chamber: pw.chamber, products: products.length, chamberOutside, limit: pw.chamber.limit,
+      drying, hard, abrasive: m.gates.abrasive, dryingGate: m.gates.drying,
+      outside: pf.outside.map((a) => ({ ...a, limit: pf.limits.find((l) => l.axis === a.axis)?.limit })),
+    });
+
+    // The figure: a panel for each setting two counted windows or more give, and the drying strip.
+    // A setting is drawn where three counted windows or more give it and they do not all agree: otherwise the
+    // findings say it in full, and a figure would add nothing.
+    const drawable = (p) => p.n > 2 && !(p.every && p.windows.filter((w) => w.counted).every((w) => w.min === p.every.from && w.max === p.every.to));
+    const panels = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis, label]) => {
+      const p = pw[axis];
+      const at = p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`;
+      return windowPanel(p, { label, peakWords: p.every ? `all ${p.n} accept ${windowText(p.every.from, p.every.to)} °C` : `${p.peak.k} of ${p.n} accept ${at}`, guideName: pf.guideName });
+    });
+    const strip = dryingStrip(drying, pf.guideName);
+    let fig = '';
+    let dots = 0;
+    if (panels.length) {
+      const drawn = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis]) => pw[axis]);
+      const key = keyList([
+        ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc('a product\'s window, from its data sheet or one it shares')],
+        drawn.some((p) => p.guide) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--guide" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc(`from ${pf.guideName}, not counted`)] : null,
+        drawn.some((p) => p.variant) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--variant" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', 'special formulation, not counted'] : null,
+        panels.some((x) => x.onScale) ? [keyLimit, esc('the H2C\'s limit')] : null,
+      ].filter(Boolean));
+      dots = drawn.reduce((n, p) => n + p.windows.length, 0) + drying.entries.length;
+      // The title: the setting the most products accept, nozzle and bed, with how many accept it.
+      const at = (p) => (p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`);
+      const peaks = [['nozzle', 'on the nozzle'], ['bed', 'on the bed']].filter(([axis]) => drawable(pw[axis]) && !pw[axis].every).map(([axis, where]) => ({ p: pw[axis], where }));
+      const title = peaks.length ? `${andList(peaks.map(({ p, where }) => `${at(p)} ${where}`))} ${peaks.length > 1 ? 'suit' : 'suits'} the most products: ${andList(peaks.map(({ p }) => `${p.peak.k} of ${p.n}`))}`
+        : pw.nozzle.every ? `${cap(pw.nozzle.n === 2 ? 'both products' : `all ${pw.nozzle.n} products`)} accept ${windowText(pw.nozzle.every.from, pw.nozzle.every.to)} °C on the nozzle`
+          : 'The temperatures its products accept';
+      const countedN = drawn.map((p) => `${p.n} for the ${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}`);
+      const notCounted = drawn.flatMap((p) => [p.guide ? `${plural(p.guide, `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()} window`)} from ${pf.guideName}` : null,
+        p.variant ? `${plural(p.variant, `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()} window`)} of special formulations` : null]).filter(Boolean);
+      const missing = printMissing(pf);
+      const no = next();
+      fig = figure({
+        id: figId(no), n: no, title, data: { 'data-print': 'windows' }, cls: 'fig--print',
+        key,
+        plot: `<div class="pw-grid">${panels.map((x) => x.html).join('')}</div>${strip}`,
+        label: `Print windows of each product, with how many products accept each temperature: ${drawn.map((p) => `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}, ${plural(p.n, 'product')} counted, ${p.most ? `most accept ${p.most.from} to ${p.most.to} °C` : `at most ${p.peak.k} accept one temperature`}`).join('; ')}.`,
+        read: esc('A bar is one product\'s window, from its lowest to its highest setting. Above the bars, the height is how many products accept each temperature, and the darker span is what more than half of them accept.'),
+        counted: notesHtml([
+          `Counted: the products whose own data sheet, or one they share, gives both ends of the window. That is ${andList(countedN)}.`,
+          notCounted.length ? `Drawn but not counted: ${andList(notCounted)}. The guide speaks for every product that reads it, so it is drawn once per product and counted for none.` : null,
+          'The height at each whole degree is how many counted windows include it. The dashed line is half of them.',
+          missing ? `Not drawn: ${missing}.` : null,
+          ...printLines(pf), printSingles(pf),
+        ]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : '') + `<p>${recordsLink(c, '#profiles', 'Every print profile, with its document, on the records page')}.</p>`,
+      });
+    }
+
+    const read = counts ? printOriginsWords(counts.origins) : [];
     const facts = [
-      ['Hardened nozzle', hardenedFactWords(m.gates.abrasive, hard, someHard)],
-      ['Drying', dryingFactWords(m.gates.drying, products)],
+      ['Hardened nozzle', hardenedLine(m.gates.abrasive, hard)],
+      ['Drying', dryingLine(m.gates.drying, products, drying)],
       ['AMS', amsSummary(c.profiles)],
-      read.length ? ['Where a sheet is silent', `${andList(read)}. Products shows which.`] : null,
+      read.length ? ['Where a sheet is silent', `${cap(andList(read))}.`] : null,
     ].filter(Boolean);
-    const html = `<p class="lead">${esc(answer)}</p>
-${counts && !counts.all ? limitsTable(counts) : ''}
-${fig?.html ?? nofig}
-<h3 class="sub-title">How it prints</h3>
+    const html = `${findingsBlock(findings)}${fig}
+<h3 class="sub-title">Nozzle, drying and AMS</h3>
 <dl class="facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+${!panels.length && pf.rows.length ? howCounted(notesHtml([...printLines(pf), printSingles(pf), printMissing(pf) ? `Not counted: ${printMissing(pf)}.` : null]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : ''), 'How the settings are counted') : ''}
 ${guide ? guideBlock(guide) : ''}
-<p class="fig-note">${recordsLink(c, '#profiles', `All ${plural(c.profiles.length, 'print profile')}, with their documents`)}.</p>`;
-    return { empty: false, html, stats: { figures: fig ? 1 : 0, dots: fig?.dots ?? 0 } };
+<p class="note">${recordsLink(c, '#profiles', `All ${plural(c.profiles.length, 'print profile')}, with their documents`)}.</p>`;
+    return { empty: false, html, stats: { figures: fig && panels.length ? 1 : 0, dots } };
   },
 };

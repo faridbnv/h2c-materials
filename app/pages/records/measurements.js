@@ -1,13 +1,15 @@
-// Every measurement of the material, by domain and property in the registry's order, with its value as published, the
-// conditions its record holds, whether a figure on the material page draws it (and, if not, why: the build's own
-// reason, material-facts.js notDrawnWhy, in labels.js whyOne's words), its document and its ID.
+// Every measurement of the material, by domain and then by property in the registry's order, each property a group
+// with how many values it lists and, per unit, their median and range. A row: the product, the value as published,
+// its orientation, specimen and standard, the other conditions its record states (as chips), whether a figure on the
+// main page draws it (a badge: in the median, not compared, not drawn and why: the build's own reason,
+// material-facts.js notDrawnWhy, in labels.js whyOne's words), its document and its ID.
 
 import { esc } from '../html.js';
+import { fmtNumber } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne } from '../../js/ui/labels.js';
-import { tabProperties, comparisonsOf, notDrawnWhy, productNameOrId, measurementFacts } from '../../js/ui/material-facts.js';
-import { measuredValue, outOfMedianWords, alsoForWords, changedState, testGuessHead, conditionLine, cap } from '../../js/ui/material-words.js';
-import { keyMark } from '../charts/marks.js';
-import { recordTable, headRow, sourceCell, idCell, fold } from './common.js';
+import { tabProperties, comparisonsOf, notDrawnWhy, productNameOrId } from '../../js/ui/material-facts.js';
+import { outOfMedianWords, alsoForWords, cap } from '../../js/ui/material-words.js';
+import { typeSection, groupBlock, sourceCell, idCell, conditionChips, orientationWords, specimenWords, standardWords, countable, unitText, statsWords } from './common.js';
 
 const DOMAINS = [['Mechanical', 'mechanical'], ['Thermal', 'thermal'], ['Physical', 'physical']];
 
@@ -24,32 +26,41 @@ export function drawnIndex(c) {
   }
   return {
     lines,
+    drawsProperty: (p) => byProperty.has(p),
     why: (x) => { const f = byProperty.get(x.property); return f ? notDrawnWhy(x, f.hs, c, f.drawnIds, f.namedIds) : 'none'; },
   };
 }
 
-/** The Drawn cell: the mark it is drawn with and where it sits, or why it is not drawn. */
+/** A mark as the figures draw it, in CSS: dot, hollow (open), square (annealed), diamond (variant), coloured (claimed). */
+export const tableMark = (marks) => `<i class="tm${marks.map((k) => ` tm--${k}`).join('')}" aria-hidden="true"></i>`;
+
+/** Where the main page puts a value: a badge (with the mark it is drawn with) and, under it, why, in a few words. */
 function drawnCell(x, c, ix) {
   const why = ix.why(x);
+  if (why === 'none') return '<td class="drawn" data-why="none"></td>';
   if (why === 'drawn') {
     const lines = (ix.lines.get(x.id) ?? []).map((o) => {
-      const place = o.reason ? `drawn, not in the median (${outOfMedianWords(o.reason, o.h)})` : 'drawn, in the median';
-      const state = changedState(x, o.e.v);
-      return `<span class="drawn-line">${keyMark(o.marks)}<span>${esc(`${place}${o.alsoFor ? alsoForWords(productNameOrId(o.e.g), o.e.v.from) : ''}.`)}${state.length ? `<span class="loc">${esc(`${cap(state.join(', '))}.`)}</span>` : ''}</span></span>`;
+      const reason = o.reason ? outOfMedianWords(o.reason, o.h) : null;
+      const label = !reason ? 'In the median' : o.reason === 'as-published' ? 'Not compared' : 'Not in the median';
+      const also = o.alsoFor ? alsoForWords(productNameOrId(o.e.g), o.e.v.from).trim() : '';
+      return `<span class="bd${reason ? ' bd--apart' : ''}">${tableMark(o.marks)}${esc(label)}</span>${reason || also ? `<small>${esc(cap([reason, also].filter(Boolean).join('; ')))}</small>` : ''}`;
     });
     return `<td class="drawn" data-why="drawn">${lines.join('')}</td>`;
   }
-  const words = why === 'named' ? 'named on the page, the only value of its test' : why === 'none' ? 'no figure draws this property' : `not drawn: ${whyOne(why)}`;
-  return `<td class="drawn" data-why="${esc(why)}">${esc(words)}</td>`;
+  const label = why === 'named' ? 'Named in a sentence' : 'Not drawn';
+  const reason = why === 'named' ? 'the only value of its test' : whyOne(why);
+  return `<td class="drawn" data-why="${esc(why)}"><span class="bd bd--not">${esc(label)}</span><small>${esc(cap(reason))}</small></td>`;
 }
 
+/** The value as its document publishes it: a bound's sign, the number, ± its spread, the unit; words where it gave words. */
 function valueCell(x) {
   const op = x.operator === '>' || x.operator === '<' ? `${x.operator} ` : '';
-  const v = x.numeric ? esc(`${op}${measuredValue(x).trim()}`)
-    : x.qualitative && x.raw?.value ? `<span class="raw">${esc(x.raw.value)}</span> <span class="tag">in words</span>`
+  const v = x.numeric
+    ? `${esc(`${op}${fmtNumber(x.value)}`)}${unitText(x.unit) ? `<small>${esc(` ${unitText(x.unit)}`)}</small>` : ''}${x.uncertainty ? `<small class="pm">${esc(`± ${fmtNumber(x.uncertainty)}`)}</small>` : ''}`
+    : x.qualitative && x.raw?.value ? `<span class="raw">${esc(x.raw.value)}</span><small> in words</small>`
       : `<span class="missing">${esc(STATUS_WORDS[x.dataStatus] ?? x.dataStatus ?? '')}</span>`;
   const tags = [x.quarantined ? 'held back' : null, x.implausible ? 'physically implausible' : null, x.corrected ? 'transcription corrected' : null].filter(Boolean);
-  return `<td class="num v">${v}${tags.map((t) => ` <span class="tag">${esc(t)}</span>`).join('')}</td>`;
+  return `<td class="v">${v}${tags.map((t) => `<span class="tg">${esc(t)}</span>`).join('')}</td>`;
 }
 
 export default {
@@ -59,32 +70,48 @@ export default {
   count: (c) => c.ms.length,
   render(c) {
     const ix = drawnIndex(c);
-    const order = new Map();
-    let i = 0;
-    for (const [tab] of DOMAINS) for (const p of tabProperties(tab, c.m)) order.set(p, i++);
-    const domainOf = new Map(DOMAINS.flatMap(([tab, key]) => tabProperties(tab, c.m).map((p) => [p, key])));
     const name = (x) => productNameOrId(c.gradeById.get(x.gradeId) ?? { id: x.gradeId });
-    const sorted = [...c.ms].sort((a, b) => (order.get(a.property) ?? 1e9) - (order.get(b.property) ?? 1e9) || a.property.localeCompare(b.property)
-      || name(a).localeCompare(name(b)) || (b.value ?? -Infinity) - (a.value ?? -Infinity) || (a.id < b.id ? -1 : 1));
-    const groups = [...DOMAINS.map(([tab, key]) => [key, tab]), ['other', 'Other']].map(([key, label]) => [key, label, sorted.filter((x) => (domainOf.get(x.property) ?? 'other') === key)]).filter(([, , xs]) => xs.length);
-    // The conditions its record holds: orientation, specimen, standard, moisture and notch on one line (the drawer's), then
-    // post-processing, test temperature and the specimen's print settings, folded where long.
-    const more = (x) => {
-      const f = measurementFacts(x, c);
-      if (!f.more.length) return '<td class="raw none">—</td>';
-      const text = f.more.map(([k, t]) => `${k}: ${t}`).join('. ');
-      return `<td class="raw">${fold(text, 60, f.more.map(([k, t]) => `<b>${esc(k)}:</b> ${esc(t)}`).join('<br>'))}</td>`;
+    const domainOf = new Map(DOMAINS.flatMap(([tab, key]) => tabProperties(tab, c.m).map((p) => [p, key])));
+    const order = new Map(DOMAINS.flatMap(([tab]) => tabProperties(tab, c.m)).map((p, i) => [p, i]));
+    const byProperty = new Map();
+    for (const x of c.ms) (byProperty.get(x.property) ?? byProperty.set(x.property, []).get(x.property)).push(x);
+    const properties = [...byProperty.keys()].sort((a, b) => (order.get(a) ?? 1e9) - (order.get(b) ?? 1e9) || a.localeCompare(b));
+
+    const group = (p) => {
+      const xs = byProperty.get(p).sort((a, b) => name(a).localeCompare(name(b)) || (b.value ?? -Infinity) - (a.value ?? -Infinity) || (a.id < b.id ? -1 : 1));
+      // The unit most of its values are in is the group's; a value in another counts under its own (Izod in kJ/m² and J/m).
+      const units = new Map();
+      for (const x of xs.filter(countable)) (units.get(x.unit) ?? units.set(x.unit, []).get(x.unit)).push(x.value);
+      const main = [...units].sort((a, b) => b[1].length - a[1].length)[0]?.[0] ?? null;
+      const figure = ix.drawsProperty(p);
+      const oriented = xs.some((x) => orientationWords(x));
+      const cols = [['Product', 'p'], ['Value', 'v'], ...(oriented ? [['Orien\u00adtation', 'or']] : []), ['Specimen and standard', 'sp'], ['Conditions', 'cd'],
+        ...(figure ? [['On the main page', 'drawn']] : []), ['Document', 'src'], ['ID', 'id']];
+      const rows = xs.map((x) => {
+        const o = orientationWords(x);
+        const std = standardWords(x);
+        const n = countable(x) ? ` data-n="${x.value}"${x.unit !== main ? ` data-u="${esc(x.unit)}"` : ''}` : '';
+        return `<tr data-mid="${esc(x.id)}" data-grade="${esc(x.gradeId)}"${o ? ` data-o="${esc(x.direction)}"` : ''}${n}>`
+          + `<th scope="row">${esc(name(x))}</th>${valueCell(x)}${oriented ? `<td class="or">${esc(o)}</td>` : ''}`
+          + `<td class="sp">${esc(specimenWords(x))}<small>${esc(std ?? 'no standard stated')}</small></td>`
+          + `<td class="cd">${conditionChips(x)}</td>${figure ? drawnCell(x, c, ix) : ''}${sourceCell(c, x.sourceId, x.locator)}${idCell(x.id)}</tr>`;
+      });
+      return groupBlock({
+        title: propertyName(p), cols, rows, cls: 'rt--m',
+        attrs: ` data-group="${esc(propertyName(p))}" data-prop="${esc(p)}"${main ? ` data-unit="${esc(main)}"` : ''}`,
+        stats: statsWords(xs.length, 'measurement', [...units].sort((a, b) => (a[0] === main ? -1 : b[0] === main ? 1 : 0))),
+        note: figure ? '' : 'No figure on the main page draws this property.',
+      });
     };
-    const row = (x) => `<tr data-mid="${esc(x.id)}" data-grade="${esc(x.gradeId)}"><th scope="row">${esc(propertyName(x.property))}${x.testGuess ? `<span class="loc">${esc(testGuessHead(x.testGuess))}</span>` : ''}</th>`
-      + `<td>${esc(name(x))}</td>${valueCell(x)}<td>${esc(conditionLine(x) || '—')}</td>${more(x)}`
-      + drawnCell(x, c, ix) + sourceCell(c, x.sourceId, x.locator) + idCell(x.id) + '</tr>';
-    const head = headRow([['Property'], ['Product'], ['Value', 'num'], ['Conditions'], ['Also recorded'], ['On the page'], ['Document'], ['ID']]);
-    const rows = groups.map(([key, label, xs]) => `<tbody id="measurements-${key}"><tr class="group"><th scope="rowgroup" colspan="8">${esc(`${label}: ${xs.length}`)}</th></tr>${xs.map(row).join('')}</tbody>`).join('');
-    return recordTable({
-      id: 'measurements', title: 'Measurements', n: c.ms.length, noun: 'measurement', head, rows,
-      empty: 'No measurement is on file for this material.', widths: [11, 13, 11, 18, 14, 14, 13, 6],
-      note: '<p class="rec-note">Each value as its document publishes it, with the conditions recorded beside it. On the page says whether a figure draws it, with the mark it is drawn with, or why it is not drawn.</p>',
+
+    const domains = [...DOMAINS.map(([tab, key]) => [key, tab]), ['other', 'Other']]
+      .map(([key, label]) => [key, label, properties.filter((p) => (domainOf.get(p) ?? 'other') === key)])
+      .filter(([, , ps]) => ps.length);
+    const body = domains.map(([key, label, ps]) => `<div class="dom" id="measurements-${key}"><h3 class="dom-h">${esc(label)}</h3>${ps.map(group).join('')}</div>`).join('');
+    return typeSection({
+      id: 'measurements', title: 'Measurements', n: c.ms.length, noun: 'measurement', body,
+      empty: 'No measurement is on file for this material.',
+      note: '<p class="rs-note">Each value as its document publishes it; tap a condition for the sheet\'s own words. A property\'s median and range are of the values it lists, whatever their conditions (bounds and held-back values left out). The main page compares products on one basis: On the main page says where each value stands there.</p>',
     });
   },
 };
-

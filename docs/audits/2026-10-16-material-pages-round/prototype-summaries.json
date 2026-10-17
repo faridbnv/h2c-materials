@@ -3,18 +3,18 @@
     "by": "Sample for the design review, Claude Opus (agent)",
     "on": "2026-10-16",
     "status": "draft",
-    "summary": "PETG here is an unfilled, glycol-modified copolyester, sold as {products} products from {makers} makers. Bars printed flat (XY) give a median tensile strength of {tensileStrengthXY.median} over the {tensileStrengthXY.n} products that state their orientation. Their median elongation at break is {elongationXY.median}. Bars pulled across the layers (Z) give a median tensile strength of {tensileStrengthZ.median}. {hdt045.label} has a median of {hdt045.median} over {hdt045.n} products, and the glass transition a median of {glassTransition.median}. Only {charpyNotched.n} products publish a notched Charpy value on a comparable basis, so its impact behaviour is thinly documented."
+    "summary": "PETG here is unfilled, glycol-modified polyethylene terephthalate, sold as {products} products from {makers} makers. Printed flat, its products typically reach a tensile strength of {tensileStrengthXY.median} at a modulus of {tensileModulusXY.median}, and stretch {elongationXY.median} before they break. Pulled across the layers, the typical strength is {tensileStrengthZ.median}. {hdt045.label} is typically {hdt045.median}, and the glass transition {glassTransition.median}. Notched impact values are scarce: {charpyNotched.n} products publish a notched Charpy value on a comparable basis."
   },
   "M001": {
     "by": "Sample for the design review, Claude Opus (agent)",
     "on": "2026-10-16",
     "status": "draft",
-    "summary": "PLA here is unfilled polylactic acid, sold as {products} products from {makers} makers. Bars printed flat (XY) give a median tensile modulus of {tensileModulusXY.median} and a median tensile strength of {tensileStrengthXY.median}, over the {tensileStrengthXY.n} products that state their orientation. Their median elongation at break is {elongationXY.median}. {hdt045.label} has a median of {hdt045.median}, close to the median glass transition of {glassTransition.median}. The notched Charpy median of {charpyNotched.median} is of the products not sold as toughened. The products their makers sell as toughened or impact-modified are counted apart from it."
+    "summary": "PLA here is unfilled polylactic acid, sold as {products} products from {makers} makers. Printed flat, its products typically reach a tensile strength of {tensileStrengthXY.median} at a modulus of {tensileModulusXY.median}, and stretch {elongationXY.median} before they break. Pulled across the layers, the typical strength is {tensileStrengthZ.median}. Its heat deflection lies close to its glass transition: {hdt045.label} is typically {hdt045.median}, the glass transition {glassTransition.median}. The typical notched Charpy value of {charpyNotched.median} leaves out the products their makers sell as toughened."
   },
   "M110": {
     "by": "Sample for the design review, Claude Opus (agent)",
     "on": "2026-10-16",
     "status": "draft",
-    "summary": "PCTG-GF is a glass-fibre-filled PCTG copolyester, sold as {products} products from {makers} makers, some of which share one data sheet. Its products give a density of {density.median}. Their {hdt045.label} is {hdt045.median}, and their {hdt18.label} is {hdt18.median}. No product states the orientation of its tensile bars, so its tensile values are on file but not compared. Some of its products need a hardened nozzle. Its price in the sample comes from a foreign listing, converted to Canadian dollars."
+    "summary": "PCTG-GF is PCTG copolyester filled with glass fibre, sold as {products} products from {makers} makers, some of them on one shared data sheet. Its products give a density of {density.median}, an {hdt045.label} of {hdt045.median} and an {hdt18.label} of {hdt18.median}. No product states the orientation of its tensile bars, so their strength is on file but not compared. Some of its products need a hardened nozzle, and its one price in the sample comes from a foreign listing, converted to Canadian dollars."
   }
 }

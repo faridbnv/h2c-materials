@@ -12,8 +12,9 @@ import { stripScale } from '../charts/scale.js';
 import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
 import { axisRow } from '../charts/axis.js';
 import { keyMark, keyBand, keyMedian, keyList } from '../charts/marks.js';
-import { figure } from '../charts/figure.js';
-import { emptyBody, recordsLink, figureCounter, pairScatter } from './common.js';
+import { figure, figId } from '../charts/figure.js';
+import { emptyBody, recordsLink, figureCounter, pairScatter, findingsBlock, notesHtml } from './common.js';
+import { priceFindings } from '../findings.js';
 
 /** Why listings are not used for a price, a sentence for each reason (material-facts.js priceRows().unused; the
  *  records page gives each listing's own, in UNUSED_WORDS). */
@@ -57,16 +58,18 @@ export default {
     const notes = [
       `Listings from ${priceSampleWords(c.db.meta)}: ${used} of ${plural(listings.length, 'listing')} ${used === 1 ? 'is' : 'are'} used.${unused.map(([why, n]) => ` ${NOT_USED[why]?.(n) ?? `${plural(n, 'listing')} ${n === 1 ? 'is' : 'are'} not used.`}`).join('')}`,
       m.headline[h.key]?.converted ? convertedNote(m.headline[h.key].converted) : null,
-    ].filter(Boolean).map((t) => `<p class="fig-note">${esc(t)}</p>`).join('');
+    ].filter(Boolean);
     const no = next();
     const fig = figure({
-      id: `fig-${no.replace('.', '-')}`, n: no, title: 'Price per kilogram, product by product', data: { 'data-price': 'products' },
-      key, plot: graph, table, notes,
+      id: figId(no), n: no, title: 'Each product\'s price per kilogram', data: { 'data-price': 'products' },
+      key, plot: graph,
       label: `Dot plot of price per kilogram, one dot per product: ${plural(entries.length, 'product')}.`,
-      caption: `${esc(`A dot is one product's price: the median of its listings' regular prices per kilogram, Canadian where it has any. Sampled prices, not live ones.`)} ${recordsLink(c, '#prices', 'Every listing is on the records page')}.`,
+      read: esc('A dot is one product\'s price: the median of its listings\' regular prices per kilogram, Canadian where it has any. Sampled prices, not live ones.'),
+      counted: notesHtml(notes) + table + `<p>${recordsLink(c, '#prices', 'Every listing, on the records page')}.</p>`,
     });
-    const scatters = FIGURE_PAIRS.filter((p) => p.section === 'price').map((p) => pairScatter(c, p, next)).filter(Boolean);
-    const lead = `${entries.length} of its ${plural(m.gradeIds.length, 'product')} ${entries.length === 1 ? 'has' : 'have'} a price in the sample: the regular price per kilogram of its listings, never a sale price.`;
-    return { empty: false, html: `<p class="lead">${esc(lead)}</p>${fig}${scatters.map((x) => x.html).join('')}`, stats: { figures: 1 + scatters.length, dots: entries.length + scatters.reduce((n, x) => n + x.dots, 0) } };
+    const scatters = FIGURE_PAIRS.filter((p) => p.section === 'price').map((p) => pairScatter(c, p, next(), { title: 'Strength against price, product by product' })).filter(Boolean);
+    const conv = m.headline[h.key]?.converted ? convertedNote(m.headline[h.key].converted) : null;
+    const findings = priceFindings(s, entries.length, m.gradeIds.length, conv);
+    return { empty: false, html: `${findingsBlock(findings)}${fig}${scatters.map((x) => x.html).join('')}`, stats: { figures: 1 + scatters.length, dots: entries.length + scatters.reduce((n, x) => n + x.dots, 0) } };
   },
 };

@@ -6,7 +6,7 @@ import { esc, tableBox, count } from '../html.js';
 import { gapSplit, sourceBlockFacts } from '../../js/ui/material-facts.js';
 import { plural, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { sourceKind } from '../../js/ui/labels.js';
-import { emptyBody, recordsLink, gapList } from './common.js';
+import { emptyBody, recordsLink, gapList, findingsBlock } from './common.js';
 
 /** How many publishers the page lists by name; the rest are counted, and every one is on the records page. */
 const PUBLISHERS = 12;
@@ -37,12 +37,17 @@ export default {
     const ranked = [...publishers].sort((a, b) => b[1].documents - a[1].documents || b[1].values - a[1].values || a[0].localeCompare(b[0]));
     const shown = ranked.slice(0, PUBLISHERS);
     const rest = ranked.slice(PUBLISHERS);
-    const lead = `${count(docs.length, 'document')} from ${count(publishers.size, 'publisher')}${dates.length ? `, read between ${dates[0]} and ${dates.at(-1)}` : ''}. One document can cover several products, and a product can have several documents.`;
+    const top = [...kinds].sort((a, b) => b[1] - a[1])[0];
+    // A date is never broken at its hyphens (U+2060, word joiner).
+    const day = (d) => String(d).replace(/-/g, '\u2060-\u2060');
+    const sheets = top?.[0] === 'Data sheet' ? (top[1] === docs.length ? ', all of them data sheets' : `, ${top[1]} of them data sheets`) : '';
+    const lead = [`${count(docs.length, 'document')} from ${count(publishers.size, 'publisher')}${sheets}${dates.length ? `, read between ${day(dates[0])} and ${day(dates.at(-1))}` : ''}.`,
+      'Every value traces to one of them, with its page and its test conditions.'];
     const kindTable = tableBox(`<table class="grid kinds"><thead><tr><th scope="col">Kind of document</th><th scope="col" class="num">Documents</th></tr></thead><tbody>${[...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => `<tr><th scope="row">${esc(k)}</th><td class="num">${n}</td></tr>`).join('')}</tbody></table>`);
     const pubTable = tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values given</th><th scope="col" class="num">Products covered</th></tr></thead><tbody>${shown.map(([p, x]) => `<tr><th scope="row">${esc(p)}</th><td class="num">${x.documents}</td><td class="num">${x.values}</td><td class="num">${x.products.size}</td></tr>`).join('')}`
       + `${rest.length ? `<tr class="apart"><td colspan="4">${esc(`And ${plural(rest.length, 'more publisher')}, with ${plural(rest.reduce((n, [, x]) => n + x.documents, 0), 'document')}.`)}</td></tr>` : ''}</tbody></table>`);
-    const html = `<p class="lead">${esc(lead)}</p><div class="split">${pubTable}${kindTable}</div>
-<p class="fig-note">${recordsLink(c, '#documents', 'Every document, with what it covers and gave and a link to the original')}.</p>${gapHtml}`;
+    const html = `${findingsBlock(lead)}<div class="split">${pubTable}${kindTable}</div>
+<p class="note">${recordsLink(c, '#documents', 'Every document, with what it covers and gave and a link to the original')}.</p>${gapHtml}`;
     return { empty: false, html, stats: { documents: docs.length } };
   },
 };

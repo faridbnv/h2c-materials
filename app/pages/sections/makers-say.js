@@ -4,9 +4,10 @@
 
 import { esc, tableBox } from '../html.js';
 import { indexDb, makersSayFacts, productNameOrId, stated } from '../../js/ui/material-facts.js';
-import { plural, cap, andList, sitesLine, makersSilentWords, makersRecipeWords } from '../../js/ui/material-words.js';
+import { cap, andList, sitesLine, makersSilentWords, makersRecipeWords } from '../../js/ui/material-words.js';
 import { sourceKind } from '../../js/ui/labels.js';
-import { emptyBody, recordsLink } from './common.js';
+import { emptyBody, recordsLink, findingsBlock } from './common.js';
+import { makersFindings } from '../findings.js';
 
 /** How many makers a topic quotes, those with the most products of this material first. */
 const MAKERS_QUOTED = 4;
@@ -26,7 +27,7 @@ export default {
     const statements = c.grades.flatMap((g) => (byGrade.get(g.id) ?? []).map((k) => ({ k, g })));
     const silent = makersSilentWords(f.states);
     const recipe = makersRecipeWords(f.recipe);
-    const lead = `${f.collected} of ${plural(f.total, 'product')} have statements from their makers.${silent.length ? ` ${cap(andList(silent))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}`;
+    const lead = `${silent.length ? `${cap(andList(silent))}. ` : ''}${sitesLine(f.sitesSearched, f.total)}`;
     const table = tableBox(`<table class="grid topics"><thead><tr><th scope="col">Topic</th><th scope="col" class="num">Makers</th><th scope="col" class="num">Products</th></tr></thead><tbody>${f.topics.map((t) => `<tr${t.stated ? '' : ' class="none"'}><th scope="row">${esc(t.topic)}</th><td class="num">${t.makers} of ${f.makers}</td><td class="num">${t.stated ? t.products : '—'}</td></tr>`).join('')}</tbody></table>`);
     const quotes = f.topics.filter((t) => t.stated).map((t) => {
       const chosen = [];
@@ -42,9 +43,10 @@ export default {
         return `<li><q>${esc(k.text)}</q> <span class="src">${esc(`${productNameOrId(g)}, ${sourceKind(s).toLowerCase()}${page ? `, ${page}` : ''}`)}</span></li>`;
       }).join('')}</ul></section>`;
     }).join('');
-    const html = `<p class="lead">${esc(lead)}</p>
-<div class="split">${table}<div class="split-note"><p class="fig-note">${esc(`Under each topic: one statement from each of the ${MAKERS_QUOTED} makers with the most products here that say something on it, its first as recorded. Statements are the makers' own words, not test results.`)} ${recordsLink(c, '#statements', 'Every statement, with its document')}.</p>${recipe.length ? `<p class="fig-note">${esc(`Not stated by their documents: ${andList(recipe)}.`)}</p>` : ''}</div></div>
-<div class="quotes">${quotes}</div>`;
+    const html = `${findingsBlock(makersFindings(f))}
+<div class="quotes">${quotes}</div>
+<h3 class="sub-title">Topics, by how many makers speak to them</h3>
+<div class="split">${table}<div class="split-note"><p class="note">${esc(`Under each topic above: one statement from each of the ${MAKERS_QUOTED} makers with the most products here that say something on it, its first as recorded. ${lead}`)} ${recordsLink(c, '#statements', 'Every statement, with its document')}.</p>${recipe.length ? `<p class="note">${esc(`Not stated by their documents: ${andList(recipe)}.`)}</p>` : ''}</div></div>`;
     return { empty: false, html, stats: {} };
   },
 };

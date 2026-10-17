@@ -3,6 +3,7 @@
 
 import { esc } from '../html.js';
 import { selectorLink } from './common.js';
+import { BRAND } from '../shell.js';
 
 export default {
   id: 'footer',
@@ -12,7 +13,7 @@ export default {
     const standing = c.db.method?.find((r) => r.topic === 'Transferable allowables')?.rule;
     const st = env.stamps;
     const selector = selectorLink(c, env);
-    const cite = `${m.name}. H2C material pages, release ${st.release} (data of ${st.snapshot}), built ${st.build}.`;
+    const cite = `${m.name}. ${BRAND}, material pages, release ${st.release} (data of ${st.snapshot}), built ${st.build}.`;
     const html = `<footer class="foot">
 ${standing ? `<p class="foot-standing">${esc(standing)}</p>` : ''}
 <dl class="foot-stamps"><div><dt>Release</dt><dd class="mono">${esc(st.release)}</dd></div><div><dt>Data of</dt><dd><time>${esc(st.snapshot)}</time></dd></div><div><dt>Built</dt><dd><time>${esc(st.build)}</time></dd></div></dl>
