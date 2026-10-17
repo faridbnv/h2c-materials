@@ -43,8 +43,21 @@ const pc = (r) => `${Math.round(r * 100)} %`;
 /** A temperature span, word-joined: "230–255 °C", or one temperature. */
 const span = (w) => `${windowText(w.from, w.to)} °C`;
 
-/** "54" or "all 3" or "both", the products a quantity counts. */
-const allOf = (n) => (n === 2 ? 'both products' : `all ${n} products`);
+/**
+ * Who a print window rests on, as the subject of "accept": the products counted (their own or a shared sheet gives both
+ * ends; a special formulation's window and one read from Bambu Lab's guide are drawn apart, material-stats.js
+ * printWindows) and, where they are fewer than the material's products, how many those are, so "all 3" on a material
+ * of nine is never read as all of them. `k` is 'all', 'most' or how many accept; `n` the products counted; `total` the
+ * material's products. "all 9 products", "both products", "all 3 counted products (of 9)", "2 of the 5 counted
+ * products (of 9)". The first screen, the findings and the figure say it in these words alone.
+ */
+export function acceptSubject(k, n, total = n) {
+  const part = n < total;
+  const of = part ? ` (of ${total})` : '';
+  if (k === 'all') return `${n === 2 ? 'both' : `all ${n}`} ${part ? 'counted ' : ''}products${of}`;
+  if (k === 'most') return part ? `most of the ${n} counted products${of}` : 'most products';
+  return part ? `${k} of the ${n} counted products${of}` : `${k} of ${n} products`;
+}
 
 // ------------------------------------------------------------------ the first screen
 
@@ -98,14 +111,17 @@ export function glanceFindings(name, rows) {
 
 // ------------------------------------------------------------------ printing
 
-/** How a setting's counted windows agree, as a phrase with its quantifier first: "most products accept 230–255 °C". */
-function windowPhrase(pw) {
+/**
+ * How a setting's counted windows agree, as a phrase with its quantifier first: "most products accept 230–255 °C";
+ * `total` the material's products, said where fewer are counted (acceptSubject).
+ */
+function windowPhrase(pw, total) {
   if (!pw || !pw.n) return null;
   const counted = pw.windows.filter((w) => w.counted);
   if (pw.n === 1) return { q: 'one', text: `${windowText(counted[0].min, counted[0].max)} °C` };
-  if (pw.every) return { q: allOf(pw.n), text: span(pw.every) };
-  if (pw.most) return { q: 'most products', text: span(pw.most) };
-  return { q: null, text: `${pw.peak.k} of ${pw.n} products accept ${span(pw.peak)}` };
+  if (pw.every) return { q: acceptSubject('all', pw.n, total), text: span(pw.every) };
+  if (pw.most) return { q: acceptSubject('most', pw.n, total), text: span(pw.most) };
+  return { q: null, part: pw.n < total, text: `${acceptSubject(pw.peak.k, pw.n, total)} accept ${span(pw.peak)}` };
 }
 
 /**
@@ -114,7 +130,7 @@ function windowPhrase(pw) {
  */
 export function printFindings({ nozzle, bed, chamber, products, chamberOutside, limit, drying, hard, abrasive, dryingGate, outside = [] }) {
   const out = [];
-  const n = windowPhrase(nozzle), b = windowPhrase(bed);
+  const n = windowPhrase(nozzle, products), b = windowPhrase(bed, products);
   const on = (p, where) => `${p.text} on the ${where}`;
   if (n && b && n.q && n.q === b.q && n.q !== 'one') out.push(`By their own or a shared sheet, ${n.q} accept ${on(n, 'nozzle')} and ${on(b, 'bed')}.`);
   else {
@@ -129,7 +145,7 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
         out.push(`One product gives a ${where} window, ${p.text}${ends.length ? `, and ${andList(ends)}` : ''}.`);
       }
       else if (p.q) out.push(`By their own or a shared sheet, ${p.q} accept ${on(p, where)}.`);
-      else out.push(`No ${where} temperature suits more than half the products: at most ${p.text}.`);
+      else out.push(`No ${where} temperature suits more than half the ${p.part ? 'counted ' : ''}products: at most ${p.text}.`);
     }
   }
   // Nozzle and bed settings above the H2C's limits (the build's own gate verdicts), said where any product asks for more.

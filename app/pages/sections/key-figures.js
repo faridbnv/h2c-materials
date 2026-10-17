@@ -60,9 +60,30 @@ function noneShort(e, h, c) {
   if (e?.related) return 'On file, not compared';
   return 'Not published';
 }
-function noneWords(e) {
+/**
+ * Why a key property has no typical value, in full under "How this is counted". Where products give it without the
+ * basis it is compared on, those values come first, in the words the first screen and the table use, and the other
+ * values on file after them: the nearest of those is said as another value (another document of the same product,
+ * where it is), so a value without a stated bar and a moulded bar of the same number are never read as one value
+ * described two ways.
+ */
+function noneWords(e, h, c) {
   if (!e) return missingText(null);
   if (e.notApplicable) return `Not applicable. ${e.notApplicable.reason}`;
+  const a = c.m.summary?.[h.key]?.asPublished;
+  if (a?.n && e.related) {
+    const open = c.grades.map((g) => g.headline?.[h.key]).filter((v) => v?.level === 'as-published' && v.measurementId);
+    const openIds = new Set(open.map((v) => v.measurementId));
+    const others = e.related.items.filter((i) => !openIds.has(i.measurementId));
+    const lead = `Not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`}, with ${asPublishedWords(h)}.`;
+    if (!others.length) return `${lead} No filter uses it.`;
+    const b = others.find((i) => i.measurementId === e.related.best.measurementId) ?? others[0];
+    const own = open.map((v) => c.msById.get(v.measurementId)).find((x) => x?.gradeId === b.gradeId);
+    const where = own ? (own.sourceId === b.sourceId ? ', of the same product' : ', from another document of the same product') : '';
+    const products = new Set(others.map((i) => i.gradeId)).size;
+    return `${lead} ${others.length === 1 ? 'One other value' : `${others.length} other values`} from ${plural(products, 'product')} ${others.length === 1 ? 'is' : 'are'} on file, none comparable.`
+      + ` The nearest, ${fmtBounded(b.value, null, b.interval)} ${b.unit} (${b.property}${where}): ${b.why}. No filter uses it.`;
+  }
   if (e.related) return relatedNote(e);
   return missingText(e);
 }
@@ -101,7 +122,7 @@ export default {
       const method = addsToTitle(h) ? `<span class="meth">${esc(h.labels.technical)}</span>` : '';
       if (!r.known) {
         const est = e && !e.known && e.estimate ? ' <a href="#estimates">See the estimate</a>.' : '';
-        notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(noneWords(e))}</p>`);
+        notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(noneWords(e, h, c))}</p>`);
         return `<tr class="kf kf--none" data-kf="${esc(key)}"><th scope="row">${esc(h.labels.plain)}${method}</th><td class="none" colspan="4">${esc(noneShort(e, h, c))}.${est}</td></tr>`;
       }
       const sp = e.spread ?? { n: 1, min: e.value, max: e.value };

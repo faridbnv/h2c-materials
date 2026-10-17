@@ -9,9 +9,9 @@ import { fmtNumber, fmtBounded, publishedBound } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { identity, stated, isProduct } from '../../js/ui/material-facts.js';
 import { printWindows, landmarkMaterials, compareMedians } from '../../js/ui/material-stats.js';
-import { versusWords } from '../findings.js';
+import { versusWords, acceptSubject } from '../findings.js';
 import { ledeWords, describeFacets, windowText, plural, asPublishedWords } from '../../js/ui/material-words.js';
-import { h2cStatusLabel, H2C_STATUS, FILLER } from '../../js/ui/labels.js';
+import { h2cStatusLabel, H2C_STATUS, FILLER, namedFiller } from '../../js/ui/labels.js';
 import { FIRST_SCREEN } from '../figures.js';
 
 /**
@@ -48,15 +48,19 @@ function keyCell(m, key, c) {
   return cell(key, h.labels.plain, 'Not published', '', '', 'none');
 }
 
-/** A print window most products accept (printWindows): the span more than half of them include, all of them, or one. */
+/**
+ * A print window most products accept (printWindows): the span more than half of them include, all of them, or one;
+ * where fewer products are counted than the material has, how many (findings.js acceptSubject).
+ */
 function windowCell(products, axis, label) {
   const pw = printWindows(products, axis);
   const counted = pw.windows.filter((w) => w.counted);
+  const total = products.length;
   if (!pw.n) return cell(axis, label, 'Not published', '', '', 'none');
   if (pw.n === 1) return cell(axis, label, esc(windowText(counted[0].min, counted[0].max)), '°C', 'one product');
-  if (pw.every) return cell(axis, label, esc(windowText(pw.every.from, pw.every.to)), '°C', `all ${pw.n} products accept`);
-  if (pw.most) return cell(axis, label, esc(windowText(pw.most.from, pw.most.to)), '°C', `most of ${pw.n} products accept`);
-  return cell(axis, label, esc(windowText(pw.peak.from, pw.peak.to)), '°C', `${pw.peak.k} of ${pw.n} products accept`);
+  if (pw.every) return cell(axis, label, esc(windowText(pw.every.from, pw.every.to)), '°C', `${acceptSubject('all', pw.n, total)} accept`);
+  if (pw.most) return cell(axis, label, esc(windowText(pw.most.from, pw.most.to)), '°C', `${pw.n < total ? acceptSubject('most', pw.n, total) : `most of ${pw.n} products`} accept`);
+  return cell(axis, label, esc(windowText(pw.peak.from, pw.peak.to)), '°C', `${acceptSubject(pw.peak.k, pw.n, total)} accept`);
 }
 
 export default {
@@ -73,7 +77,7 @@ export default {
     // A filler the material's name does not carry: its special formulations that declare or show one (grades[].variant,
     // a vocabulary value), counted, so "Unfilled" does not hide a steel-filled product filed under it.
     const filled = products.filter((g) => /filler/i.test(String(g.variant ?? ''))).length;
-    const filler = FILLER[id.reinforcement] ?? id.reinforcement ?? '';
+    const filler = namedFiller(m)?.name ?? FILLER[id.reinforcement] ?? id.reinforcement ?? '';
     const fillerText = filler ? `${filler}${filled ? ` (${plural(filled, 'special formulation')} ${filled === 1 ? 'carries' : 'carry'} a filler)` : ''}` : '';
     const numbers = [...FIRST_SCREEN.keys.map((k) => keyCell(m, k, c)), windowCell(products, 'nozzle', 'Nozzle'), windowCell(products, 'bed', 'Bed')].join('');
     // Against the materials a reader knows best (the two with the most products, by rule), median by median.

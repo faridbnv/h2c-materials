@@ -449,6 +449,11 @@ function p2(S) {
       check('P2', who, facts.get('Products') === `${fmtNumber(products.length)} from ${plural(makers, 'maker')}`, () => `Products "${facts.get('Products')}", tables ${products.length} from ${makers} makers`);
       check('P2', who, facts.get('Bambu Lab status') === h2cStatusLabel(m.h2cStatus), () => `status "${facts.get('Bambu Lab status')}", expected "${h2cStatusLabel(m.h2cStatus)}"`);
       if (stated(m.basePolymer)) check('P2', who, facts.get('Polymer') === m.basePolymer, () => `polymer "${facts.get('Polymer')}", expected ${m.basePolymer}`);
+      // A filler the materials table names (aramid fibre, PTFE, ceramic) is never said to be undisclosed (labels.js namedFiller).
+      const mod = String(m.modifier ?? '');
+      if (mod && !/undisclosed|^Not |Unfilled|^(?:Carbon|Glass) fibre$|ESD|Foaming/i.test(mod)) {
+        check('P2', who, !/not disclosed/i.test(`${facts.get('Filler') ?? ''} ${textOf(query1(mast, 'p.mast-lede') ?? { kids: [] })}`), () => `the filler "${mod}" is named, the masthead says "${facts.get('Filler')}"`);
+      }
       check('P2', who, !!mast.parent && (query1(mast, 'p.callout') ? !!m.excluded : !m.excluded), 'the beyond-capability callout only for an excluded material');
     }
     const description = page.q1('meta[name=description]')?.attrs.content ?? '';
@@ -564,9 +569,14 @@ function p3(S) {
         } else check('P3', w, hasClass(kn, 'kn--none') || hasClass(kn, 'kn--open'), 'no comparable value but drawn as a typical one');
       } else if (key === 'nozzle' || key === 'bed') {
         const counted = windowsOf(c, key).filter((x) => x.counted).length;
+        const total = c.grades.filter(isProduct).length;
         if (!counted) check('P3', w, hasClass(kn, 'kn--none'), 'no counted window but a window shown');
         else {
-          check('P3', w, counted === 1 ? small === 'one product' : new RegExp(`^(?:all|most of|\\d+ of) ${counted} products accept$`).test(small), () => `says "${small}", windows counted ${counted}`);
+          // Where fewer products are counted than the material has, the count says of how many: "all 3" on a material
+          // of nine is never read as all of them.
+          const said = counted === total ? `(?:${counted === 2 ? 'both' : `all ${counted}`}|most of ${counted}|\\d+ of ${counted}) products`
+            : `(?:${counted === 2 ? 'both' : `all ${counted}`} counted products|most of the ${counted} counted products|\\d+ of the ${counted} counted products) \\(of ${total}\\)`;
+          check('P3', w, counted === 1 ? small === 'one product' : new RegExp(`^${said} accept$`).test(small), () => `says "${small}", windows counted ${counted} of ${total} products`);
         }
       }
     }
@@ -923,6 +933,8 @@ const COINAGES = [
   /printer's envelope/i, /printer maker's guide/i, /Official Bambu product/, /Officially listed family/, /\bTheoretical\b/, /"Conditional"/,
   /\bheadlines?\b/i, /\bquarantin\w*/i, /track only/i, /preference only/i, /coverage records?/i, /evidence recorded/i, /family entr(?:y|ies)/i,
   /\bmigrations?\b/i, /\bworkbook\b/i, /representative grade/i, /\bscreened\b/i, /\bgrade-specific\b/i,
+  // A maintainers' note in the reading path: a review step, a dated reading, the records' own state (common.js shownGap).
+  /Mandatory review/i, /estimate band/i, /no document cited/i, /\bre-read \d{4}-\d{2}-\d{2}/i, /SHA-256/, /Partially resolved \d{4}/i,
 ];
 
 function p9(S) {
@@ -1187,7 +1199,7 @@ function cnt(S) {
 
     // Nozzle and bed: the first screen's count and the panel's.
     for (const axis of ['nozzle', 'bed']) {
-      const first = new RegExp(`data-key="${axis}"[\\s\\S]*?<small>(?:most of|all) (\\d+) products accept</small>`).exec(page);
+      const first = new RegExp(`data-key="${axis}"[\\s\\S]*?<small>(?:most of (?:the )?|all )(\\d+) (?:counted )?products(?: \\(of \\d+\\))? accept</small>`).exec(page);
       const panel = new RegExp(`class="pw" data-setting="${axis}" data-n="(\\d+)"`).exec(printing);
       if (first && panel) ck(`${axis} window`, Number(first[1]) === Number(panel[1]), `first screen ${first[1]}, figure ${panel[1]}`);
     }

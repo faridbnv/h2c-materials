@@ -7,7 +7,7 @@
 // decides anything, and nothing reads the page.
 
 import { fmtNumber } from './format.js';
-import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, OUTSIDE_WORDS, h2cLimit } from './labels.js';
+import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, OUTSIDE_WORDS, h2cLimit, namedFiller } from './labels.js';
 import { hardenedWords } from '../engine/products.js';
 import { plural, lower, cap, andList, inSentence, stated } from './text.js';
 
@@ -17,12 +17,16 @@ export { plural, lower, cap, andList, inSentence };
 
 /**
  * What the identity line does not say about the material, in a sentence: that it is a support, an elastomer, a foaming
- * grade or a variant whose filler is not disclosed. The filler itself is in the identity line.
+ * grade, a variant with a filler the materials table names (labels.js namedFiller), or one whose filler is not
+ * disclosed. The filler itself is in the identity line.
  */
 export function describeFacets(m) {
   const bits = [];
   if (m.facets.reinforcement.value === 'foaming') bits.push('A foaming filament, for lightweight parts.');
-  if (m.facets.reinforcement.value === 'undisclosed') bits.push('A commercial variant whose filler is not disclosed.');
+  if (m.facets.reinforcement.value === 'undisclosed') {
+    const named = namedFiller(m);
+    bits.push(named ? `A variant with ${named.words}.` : 'A commercial variant whose filler is not disclosed.');
+  }
   if (m.facets.supportMaterial.value) bits.push('A support or interface material, not a build material.');
   if (m.facets.flexible.value) bits.push('A flexible elastomer.');
   return bits.join(' ');

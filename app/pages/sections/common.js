@@ -53,7 +53,16 @@ export const readerText = (text) => !namesRecords(text) && !PROJECT_WORDS.test(S
  * The coverage rows a reader is shown on the main page: a gap, a conflict, a held-back value or another of the known-gap
  * statuses (material-facts.js GAP_STATUS) whose note is reader text. The others stay on the records page, counted.
  */
-export const shownGap = (r) => GAP_STATUS.has(r.status) && readerText(r.finding);
+export const shownGap = (r) => GAP_STATUS.has(r.status) && !MAINTAINER_DOMAINS.has(r.domain) && readerText(r.finding) && !MAINTAINER_WORDS.test(String(r.finding ?? ''));
+
+/**
+ * A known gap that speaks of the review rather than of the material is the maintainers' note, kept on the records page:
+ * a review step's own row ("Mandatory review: Reviewed for exclusion, processing boundary or support route"), a note
+ * that dates its own reading ("re-read 2026-09-13", "Partially resolved 2026-09-11"), or one about the records
+ * themselves ("recorded with no document cited behind it", "assigns no estimate band"). P9 holds the page to it.
+ */
+const MAINTAINER_DOMAINS = new Set(['Mandatory review']);
+const MAINTAINER_WORDS = /\b(?:20\d\d-\d\d-\d\d|re-read|SHA-256|estimate band|no document cited|recorded (?:with|from|as))\b/i;
 
 /** A coverage row's domain in plain words: what the reader is told it is about. */
 const DOMAIN_WORDS = {

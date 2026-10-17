@@ -49,7 +49,7 @@ const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fmtNumber
   : lo === hi ? fmtNumber(lo) : `${fmtNumber(lo)}${WJ}–${WJ}${fmtNumber(hi)}`);
 const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };
 const NOT_DRAWN_WORDS = {
-  unknown: 'state none', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
+  unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
 };

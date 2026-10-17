@@ -74,6 +74,23 @@ export const FILLER = {
 };
 
 /**
+ * A filler the materials table names (Modifier / filler) that the reinforcement facet files with the undisclosed
+ * variants (compile.js deriveFacets: aramid fibre, ceramic, PTFE…): its name, and its words after "A variant with".
+ * Such a material's filler is disclosed, and is never said not to be. Null where the modifier names no filler.
+ */
+const NAMED_FILLER = {
+  'Aramid fibre': ['Aramid fibre', 'aramid fibre'], Ceramic: ['Ceramic filler', 'a ceramic filler'],
+  'Electrically conductive': ['Electrically conductive filler', 'an electrically conductive filler'], 'Glass spheres': ['Glass spheres', 'glass spheres'],
+  PTFE: ['PTFE', 'PTFE'], 'Natural fibre': ['Natural fibre', 'natural fibre'], Graphene: ['Graphene', 'graphene'], 'Metal powder': ['Metal powder', 'metal powder'],
+};
+export function namedFiller(m) {
+  const mod = String(m?.modifier ?? '');
+  if (m?.facets?.reinforcement?.value !== 'undisclosed' || !mod || /undisclosed|^Not /i.test(mod)) return null;
+  const [name, words] = NAMED_FILLER[mod] ?? [mod, mod];
+  return { name, words };
+}
+
+/**
  * A process gate's verdict in words: a heading, a chip and the decision brief's phrase. Three screens and the brief
  * used to carry their own copy of this table, which is how a new verdict reaches one screen and not the next. The state
  * a chip is coloured by is the engine's own answer to the verdict (GATE_STATUS), not a second copy of it.
@@ -358,9 +375,13 @@ export const TOPIC_WORDS = {
   'Printing advice': 'printing advice',
 };
 
-/** Why a product's print setting is not drawn (print-spread.js notDrawn), counted: "3 state none", "60 need none". */
+/**
+ * Why a product's print setting is not drawn (print-spread.js notDrawn), counted: "3 say nothing" (no sheet, shared
+ * sheet or guide row gives the setting; "state none" was read as "need none"), "60 need none". The drawer and the
+ * material pages say it in these words.
+ */
 export const PRINT_NOT_DRAWN = {
-  unknown: 'state none', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
+  unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
 };

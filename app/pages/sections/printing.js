@@ -21,7 +21,7 @@ import { keyLimit, keyList } from '../charts/marks.js';
 import { windowPanel } from '../charts/windows.js';
 import { figure, figId, howCounted } from '../charts/figure.js';
 import { emptyBody, recordsLink, figureCounter, findingsBlock, notesHtml, middleHalf, readerText } from './common.js';
-import { printFindings, basisWords } from '../findings.js';
+import { printFindings, basisWords, acceptSubject } from '../findings.js';
 
 const SETTINGS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber']];
 
@@ -153,7 +153,10 @@ export default {
     const panels = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis, label]) => {
       const p = pw[axis];
       const at = p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`;
-      return windowPanel(p, { label, peakWords: p.every ? `all ${p.n} accept ${windowText(p.every.from, p.every.to)} °C` : `${p.peak.k} of ${p.n} accept ${at}`, guideName: pf.guideName });
+      // The label at the peak is short (it sits in the plot, on a phone too): "counted" where fewer are counted than the
+      // material has products, whose number the title and the findings say.
+      const counted = p.n < products.length ? ' counted' : '';
+      return windowPanel(p, { label, peakWords: p.every ? `${p.n === 2 ? 'both' : `all ${p.n}`}${counted} accept ${windowText(p.every.from, p.every.to)} °C` : `${p.peak.k} of ${p.n}${counted} accept ${at}`, guideName: pf.guideName });
     });
     const strip = dryingStrip(drying, pf.guideName);
     let fig = '';
@@ -170,8 +173,9 @@ export default {
       // The title: the setting the most products accept, nozzle and bed, with how many accept it.
       const at = (p) => (p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`);
       const peaks = [['nozzle', 'on the nozzle'], ['bed', 'on the bed']].filter(([axis]) => drawable(pw[axis]) && !pw[axis].every).map(([axis, where]) => ({ p: pw[axis], where }));
-      const title = peaks.length ? `${andList(peaks.map(({ p, where }) => `${at(p)} ${where}`))} ${peaks.length > 1 ? 'suit' : 'suits'} the most products: ${andList(peaks.map(({ p }) => `${p.peak.k} of ${p.n}`))}`
-        : pw.nozzle.every ? `${cap(pw.nozzle.n === 2 ? 'both products' : `all ${pw.nozzle.n} products`)} accept ${windowText(pw.nozzle.every.from, pw.nozzle.every.to)} °C on the nozzle`
+      const total = products.length;
+      const title = peaks.length ? `${andList(peaks.map(({ p, where }) => `${at(p)} ${where}`))} ${peaks.length > 1 ? 'suit' : 'suits'} the most products: ${andList(peaks.map(({ p }) => (p.n < total ? `${p.peak.k} of the ${p.n} counted (of ${total})` : `${p.peak.k} of ${p.n}`)))}`
+        : pw.nozzle.every ? `${cap(acceptSubject('all', pw.nozzle.n, total))} accept ${windowText(pw.nozzle.every.from, pw.nozzle.every.to)} °C on the nozzle`
           : 'The temperatures its products accept';
       const countedN = drawn.map((p) => `${p.n} for the ${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}`);
       const notCounted = drawn.flatMap((p) => [p.guide ? `${plural(p.guide, `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()} window`)} from ${pf.guideName}` : null,
