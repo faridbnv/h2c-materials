@@ -4626,7 +4626,10 @@ removing a needed check or any accuracy. Built by Claude (an agent) on a branch,
   (they write their fixtures' text into `.cache/text`, which a unit test's cache digest reads); the reproducible-build
   check runs alone after every step that reads `dist/`, which it rewrites; and the scale check runs alone and last,
   because it is timed. With `--enforce-budget`, verify:fast's steps run first with nothing beside them, so the 90 s
-  budget is still their own time. `--serial` runs one step at a time; `--plan` prints the order without running it.
+  budget is still their own time. A step waiting for cores holds back the steps listed after it, so short steps never
+  keep it waiting. `--serial` runs one step at a time; `--plan` prints the order; `--jobs N` caps the cores. CI's
+  data job runs with `--jobs 2`: its runner's four CPUs are two cores' hyperthreads, and there the tests and the audit
+  side by side took 241 s and 99 s where one after the other they take 134 s and 22.5 s.
 - **The scale budget re-runs a miss only where a miss can fail** (CI and `--enforce-budget`). Elsewhere the second run
   could only change a warning, and it cost the owner's `verify` another full scale run whenever the machine was loaded.
 - **The scenarios in parts** (`ui-fuzz --shard K/N`). Every part draws all the scenarios from the seed and runs its
