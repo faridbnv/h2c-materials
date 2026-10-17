@@ -114,7 +114,7 @@ const FILLER_ADJ = {
 /** The polymer group a name adds to an abbreviation where the abbreviation does not say it (polymers[].group). */
 const GROUP_WORD = { copolyester: 'copolyester', elastomer: 'elastomer' };
 /** A full name in sentence case: "Polyamide 6 (nylon 6)"; abbreviations and Shore keep their capitals. */
-const sentenceCase = (t) => cap(String(t).split(/(\s+|\/|\(|\))/).map((w, i) => (i && /^[A-Z][a-z]/.test(w) && !/^(Shore|Nylon)$/.test(w) ? w.toLowerCase() : w)).join(''));
+const sentenceCase = (t) => cap(String(t).split(/(\s+|\/|\(|\)|-)/).map((w, i) => (i && /^[A-Z][a-z]/.test(w) && !/^(Shore|Nylon)$/.test(w) ? w.toLowerCase() : w)).join(''));
 
 /** What a material is, in an engineer's words: "Glass-fibre-filled PCTG copolyester", "Polylactic acid", "Silk PLA". */
 export function whatItIs(m, db) {
@@ -241,7 +241,8 @@ function chamberRow(products) {
   }
   const w = windowRow(products, 'chamber');
   if (!w) return { value: 'not stated', note: '', pw };
-  const top = Math.max(...pw.windows.filter((x) => x.counted).map((x) => x.max));
+  // Said beyond the limit only where the window shown goes past it, not where another product's does.
+  const top = Number(String(w.value).match(/(\d+)\D*$/)?.[1]);
   return { ...w, note: `${w.note}${limit != null && top > limit ? `; beyond the H2C's ${fmtNumber(limit)} °C` : ''}` };
 }
 

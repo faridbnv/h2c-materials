@@ -1,0 +1,29 @@
+MaterialID,Verdict,Faults
+M017,pass,
+M075,fixed,"unattributed: ""Makers sell it as support for complex multi-extrusion printing"" rests on one maker's sheet (FormFutura Atlas Support)"
+M052,fixed,"unattributed: ""Makers sell it for humid environments where impact strength, sliding friction and wear resistance matter"" is one maker's sentence (Fabru)"
+M097,pass,
+M071,pass,
+M015,fixed,"unattributed: ""Makers sell it for decorative items, toys, accessories and cosplay props"" is one maker's list (SUNLU)"
+M038,pass,
+M159,pass,
+M046,fixed,"false claim: ""parts that bend continuously, such as in fashion and healthcare"" joins two makers' claims into one the page does not make (Fabru: continuously bent parts; NinjaTek: soft parts for fashion and healthcare)"
+M081,pass,
+M067,fixed,"unattributed: ""Makers sell it for jigs, fixtures and functional parts"" rests on one maker's sheet (Raise3D)"
+M164,fixed,"unattributed: ""Makers sell it for functional prototypes and end-use parts in automotive and industrial products"" is one maker's sentence (UltiMaker)"
+M083,pass,
+M019,pass,
+M054,pass,
+M144,pass,
+M033,pass,
+M082,pass,
+M037,fixed,"overstated: ""it ... needs a hardened nozzle"" where the page says 7 of 10 products need one"
+M070,pass,
+M012,fixed,"unattributed: ""Makers sell it for sculptures, artworks and architectural prints"" is one maker's sentence (Eryone)"
+M032,pass,
+M059,pass,
+M053,pass,
+M160,pass,
+M045,fixed,"unattributed: ""makers say to dry it thoroughly before every print"" is one maker's sentence (Siraya Tech)"
+M088,fixed,"unattributed: ""Makers sell it for packaging, electronic housings and biomedical applications"" is one maker's sentence (FormFutura AthenaX); unattributed: ""makers call it moderately hygroscopic"" rests on the same sheet"
+M034,fixed,"false claim: ""outdoor end-use parts such as garden furniture and automotive interiors"" makes automotive interiors outdoor parts, which the maker (Eryone) does not say"

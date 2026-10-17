@@ -1,0 +1,21 @@
+MaterialID,Verdict,Faults,Note
+M001,pass,,"The model summary; every claim on the page, two numbers, 75 words."
+M020,fixed,"rule: four numbers ({hdt045.median}, {glassTransition.median}, {nozzle.window}, {drying.schedule}); unattributed: ""holders and brackets"" are Prusa Knowledge Base's words, said as makers'","Glass transition and drying schedule said in words (""below its glass transition"", ""most products call for drying"")."
+M027,fixed,rule: three numbers ({nozzle.window} beside {hdt045.median} and {zshare.tensileStrength}),Nozzle window dropped; the plate gives it.
+M031,fixed,"style: ""it keeps less strength across the layers than printed flat"" says what is true of every printed part","Now the share it keeps ({zshare.tensileStrength}), and the chamber heat some products ask beyond the H2C, its deciding print need."
+M008,fixed,"false claim: ""a PLA variant with an undisclosed filler"" is not on the page (its head says ""Silk PLA""); rule: three numbers","Identity as the page gives it (""a silk-effect PLA""); drying in words."
+M161,fixed,"false claim: ""most makers call for drying"" where the page says 26 of 27 products call for it; rule: three numbers; style: ""rated in a Shore A hardness class""","""Nearly every product calls for drying""; the hardness class is in its name."
+M014,fixed,"rule: three numbers ({hdt045.median}, {nozzle.window}, {bed.window})",Bed window dropped; standard nozzle for most products said beside the maker's abrasion-resistant nozzle.
+M024,pass,,"Every claim on the page (the trade-off in impact resistance is Extrudr's, attributed to a maker)."
+M035,fixed,"rule: four numbers; style: leaves out the deciding H2C fact (several products ask for more bed and chamber heat than the H2C gives) and says ""many ask for an enclosure""","Rewritten round the page: amorphous, HDT at its glass transition, drying, and the bed and chamber heat beyond the H2C."
+M018,pass,,"""Makers sell it for functional parts, design projects and everyday prototyping"" rests on one maker's words; acceptable as worded, a candidate for ""a maker""."
+M073,pass,,"Acids and alkalis rest on one statement each, solvents on two; ""makers say"" is broad but on the page."
+M057,fixed,rule: three numbers ({drying.schedule} beside {hdt045.median} and {nozzle.window}),"""Every product calls for drying""."
+M049,fixed,"rule: three numbers ({hdt045.range}, {glassTransition.range}, {drying.schedule}); false claim: ""needs drying"" where 5 of 9 products call for it","""Makers advise drying""; the page's semicrystalline sentence used."
+M066,fixed,rule: three numbers ({glassTransition.range} beside {hdt045.range} and {nozzle.window}),"Glass transition range dropped; the two ranges overlap, so ""below"" would not hold."
+M089,pass,,"Food-contact certificate and gloss attributed to a maker, drying to Prusa's knowledge base, as the page has them."
+M110,pass,,The model summary.
+M118,fixed,"unattributed: ""makers recommend … a heated chamber"" rests on one sheet's chamber setting","Says its sheets ask for more bed and chamber heat than the H2C gives; ""beyond H2C capability"" in the page's words."
+M096,pass,,"""Heated Chamber Recommended"" and ""No drying needed!"" are 3DXTECH's, attributed to a maker."
+M150,fixed,rule: three numbers ({bed.window} beside tensile strength and elongation),"Drying for every product said in words; stringing and oozing tied to the foam, as the makers say."
+M129,pass,,UV resistance is on the page (Chemicals and environment); nozzle and stiffness claims attributed.

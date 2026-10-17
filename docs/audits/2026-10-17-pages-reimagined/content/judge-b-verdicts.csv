@@ -1,0 +1,29 @@
+MaterialID,Verdict,Faults
+M125,fixed,"overstated: ""its makers' nozzle windows of {nozzle.window}"" (one window is 380–420 °C and one maker gives none; the span is what most windows accept)"
+M068,pass,
+M087,pass,
+M162,fixed,"unattributed and overstated: ""makers call for thorough drying before every print"" is Siraya Tech's sentence; the page says 9 of 15 products call for drying"
+M028,pass,
+M011,pass,
+M016,pass,
+M093,pass,
+M165,pass,
+M076,pass,
+M090,pass,
+M050,pass,
+M029,pass,
+M026,pass,
+M098,pass,
+M167,fixed,"overstated: ""certifies it compostable"" where the sheet says compostable to EN 13432 and certifies only the absence of endocrine disruptors"
+M102,pass,
+M094,pass,
+M030,fixed,"unattributed: ""makers say it absorbs moisture easily"" rests on Flashforge's sheet alone"
+M025,pass,
+M170,pass,
+M149,pass,
+M106,pass,
+M099,pass,
+M051,pass,
+M168,fixed,"one sheet said of the material: ""A maker recommends it for lower temperature applications: its HDT … is {hdt045.median}"" ties BigRep PRO HT's own advice (on its HDT of 61 °C) to the material's median; another product is sold for high-temperature use"
+M048,fixed,"rule: five sentences (""Across the layers…"" and ""On the H2C…"" now one)"
+M013,pass,
