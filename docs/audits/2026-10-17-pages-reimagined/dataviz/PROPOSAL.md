@@ -1,10 +1,10 @@
 # The figures, reimagined: the data-visualisation proposal
 
-> **Working proposal** (2026-10-17), the data-visualisation expert's part of the pages-reimagined round
+> **Current** (2026-10-17), working proposal, the data-visualisation expert's part of the pages-reimagined round
 > ([BRIEF](../BRIEF.md)). Prototypes from real data: [prototypes/M001.html](prototypes/M001.html) (PLA, the largest),
 > [prototypes/M110.html](prototypes/M110.html) (PCTG-GF, the thinnest), [prototypes/M073.html](prototypes/M073.html)
 > (PPS-CF, the median), made by [prototypes/make.mjs](prototypes/make.mjs) through the facts layer; screenshots in
-> [shots/](shots/) (`now-*` today's pages, `proto-*` the prototypes, light and dark).
+> `shots/` (kept out of the repository; `now-*` today's pages, `proto-*` the prototypes, light and dark).
 
 ## In one screen
 

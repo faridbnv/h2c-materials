@@ -18,23 +18,24 @@
 // the same file and a difference is a layout change. A drawer step measures the drawer's own tables: the table behind
 // it is the table step's, and counting it again charged the drawer with the table's failures.
 //
-// Last, the material pages the build writes beside the selector (dist/materials/, opened from disk with file://): eight
-// of them, on the same three screens: a material's page for PLA, PETG, ASA-CF, PCTG-GF and PEEK, the index of materials,
-// and the records pages of PLA and PCTG-GF. Each is opened (openPage: the page's own main[data-page] and its fonts) and
-// recorded as 50-page-<screen>-<slug>.txt. Like the layout files above, a page file names and counts and gives no
-// positions: the layout lines (a page wider than the screen, elements past its right edge outside a scroll container,
-// clipped table cells), the sections present and which are empty, the figures with an svg and a caption, the state of
-// the contents (a sticky rail at 1,080 px and wider, a strip below it, and on a records page a strip at every width),
-// the fonts loaded, and whether lighting a product across the figures and sorting the Products table work. On the
+// Last, the material pages the build writes beside the selector (dist/materials/, opened from disk with file://; the
+// pages reimagined of 2026-10-17): the Overview and the Products page of PLA, PETG, PPS-CF and PCTG-GF, the index of
+// materials and the page on how the numbers are worked out, on the same three screens. Each is opened (openPage: the
+// page's own main[data-page] and its fonts) and recorded as 50-page-<screen>-<slug>.txt. Like the layout files above, a
+// page file names and counts and gives no positions: the layout lines (a page wider than the screen, elements past its
+// right edge outside a scroll container, clipped table cells, a figure's words cut or set over each other), the
+// sections present, the figures with an svg and a caption, the bar (sticky, its list of sections, the way back on
+// screen), the fonts loaded, and on an Overview whether pointing at a product lights it across the figures. On the
 // laptop and the phone two checks that drive the page as a reader does run too, and record only their counts: every
-// contents link and every figure anchor (and on a records page every group) must land its heading within 4 px of the
-// line under whatever covers the top of the screen (the sticky bar, the strip, a records page's finder) plus the
-// stylesheet's gap, with the contents marking the clicked section current (checkAnchors, below), and the Products table's
-// sorts, searches, toggles and paging (scripts/lib/page-products-check.js, evaluated in the page, on PETG's and
-// PCTG-GF's tables: PRODUCTS_CHECKED). A records page has no contents: its finder replaces them, as a column from
-// 1,100 px and as a bar below.
-// A figure without a caption, a rail on a phone, a strip where the rail should be, a font that is not loaded, a missing
-// page and any failure of those checks fail the check like a selector layout failure.
+// section the bar lists, every figure and three product cards must land within 4 px of the line under whatever covers
+// the top of the screen (the bar, the Products page's controls and its list's head) plus the stylesheet's 16 px, the bar
+// naming the section reached (checkAnchors, below); and on a Products page its search, every sort it offers and a
+// product's address (scripts/lib/page-products-check.js, evaluated in the page). Last, a return trip: an Overview opened
+// from the selector's drawer (?from=<the selection>) takes the selection out of its address, and its way back, and the
+// Products page's after it in the same tab, reopen the selector with that selection and the material's drawer
+// (50-page-return-trip.txt).
+// A figure without a caption, a bar that is not sticky, a way back off screen, a font that is not loaded, a missing page
+// and any failure of those checks fail the check like a selector layout failure.
 //
 //   npm run ui:check                     compare with build/snapshot/ui; exit 1 on a difference, a page error or any
 //                                        layout failure those files record, listed by step
@@ -290,106 +291,92 @@ const recordLayout = async (screen, step, { drawer = false, strict = false } = {
 };
 
 // The material pages (dist/materials/, written by the build beside the selector; opened here from disk, as a reader
-// opens them). The slug names the page's file under build/snapshot/ui: 50-page-<screen>-<slug>.txt. The kind is the page's
-// own main[data-page]. The materials are a large one (PLA), the middle of the field (PETG), two with fillers (ASA-CF,
-// PCTG-GF) and the hardest to print (PEEK); the records pages are the largest and a middle one.
+// opens them). The slug names the page's file under build/snapshot/ui: 50-page-<screen>-<slug>.txt. The kind is the
+// page's own main[data-page]. Four materials, each its Overview and its Products page: the largest (PLA, 195 products),
+// the middle of the field (PETG), a fibre-filled one with a few products whose cards start closed (PPS-CF), and one of
+// three, whose cards start open (PCTG-GF); then the index and the method page.
 const materialsDir = join(root, 'dist/materials');
-const PAGES = [['m001-pla', 'M001.html', 'material'], ['m020-petg', 'M020.html', 'material'], ['m033-asa-cf', 'M033.html', 'material'],
-  ['m110-pctg-gf', 'M110.html', 'material'], ['m097-peek', 'M097.html', 'material'], ['index', 'index.html', 'index'],
-  ['m001-records', 'M001-records.html', 'records'], ['m110-records', 'M110-records.html', 'records']];
-// Run in the page by the Products step. A table of a few hundred products takes it well over the usual 60 s of a call.
+const PAGES = [
+  ['m001-pla', 'M001.html', 'overview'], ['m001-pla-products', 'M001-products.html', 'products'],
+  ['m020-petg', 'M020.html', 'overview'], ['m020-petg-products', 'M020-products.html', 'products'],
+  ['m073-pps-cf', 'M073.html', 'overview'], ['m073-pps-cf-products', 'M073-products.html', 'products'],
+  ['m110-pctg-gf', 'M110.html', 'overview'], ['m110-pctg-gf-products', 'M110-products.html', 'products'],
+  ['index', 'index.html', 'hub'], ['method', 'method.html', 'method'],
+];
+// Run in a Products page by its step, on the laptop and the phone: its search, every sort and a product's address. It
+// takes a second or two a page (the search waits out the list's 120 ms pause after typing).
 const productsCheck = readFileSync(join(root, 'scripts/lib/page-products-check.js'), 'utf8');
-const PRODUCTS_MS = 10 * 60 * 1000;
-// Where the Products check runs, by page and screen. The table and its script are the same on every page, and the check
-// takes 20 to 30 s a page (it waits on every search), five pages on two screens were four and a half minutes of the
-// views group (CI's views job): it runs on a table that pages (PETG, 66 products, past the first 25) on the laptop and the phone,
-// and on a short one (PCTG-GF, 3 products) on the laptop. Every page still has its sorting checked.
-const PRODUCTS_CHECKED = { 'm020-petg': ['laptop', 'phone'], 'm110-pctg-gf': ['laptop'] };
-// How far from its line a jump may land a heading, in pixels: the line is the bottom of what covers the top of the screen
-// (the sticky bar, the strip where the contents are one, and on a records page the finder where it lies across the page)
-// plus the gap the stylesheet sets: 16 px (--anchor-gap), and 8 px (.5rem) for a records page's groups, whose scroll margin
-// tables.src.css sets on its own.
+const PRODUCTS_MS = 2 * 60 * 1000;
+// How far from its line a jump may land its target, in pixels: the line is the bottom of what covers the top of the
+// screen (the sticky bar; on a Products page its controls, and over the list its head) plus the gap the stylesheet sets
+// (frame.src.css --anchor-top: 16 px).
 const ANCHOR_TOLERANCE = 4;
-const ANCHOR_GAP = { material: 16, index: 16, records: 8 };
+const ANCHOR_GAP = 16;
 
 // Open a page and wait for what a reader waits for: the page's own main element, then its fonts (the faces are data: URIs
 // and load when the text first uses them, which moves the layout). The address is checked too, so the page left behind by
-// the last step is never mistaken for the new one.
-const openPage = async (url) => {
+// the last step is never mistaken for the new one; `landed` is the address the page settles on where it rewrites its own.
+const openPage = async (url, landed = url) => {
   await send('Page.navigate', { url });
-  await until(`location.href === ${JSON.stringify(url)} && document.readyState === 'complete' && !!document.querySelector('main[data-page]')`, 'the page to render');
+  await until(`location.href === ${JSON.stringify(landed)} && document.readyState === 'complete' && !!document.querySelector('main[data-page]')`, 'the page to render');
   await evaluate('document.fonts.ready.then(() => true)');
   await sleep(200);
 };
 
-// What the page holds, as names and counts: its sections (and which are empty), its figures, the contents and the fonts.
+// What the page holds, as names and counts: its sections, its figures, the bar and the fonts.
 const pageFacts = () => evaluate(`(() => {
   const main = document.querySelector('main[data-page]');
-  const sections = [...main.querySelectorAll('[data-section], section.rs[data-type]')].map((s) => ({
-    name: s.dataset.section === 'family' ? 'family ' + s.dataset.family : s.dataset.section ?? 'records ' + s.dataset.type, empty: s.dataset.empty === 'true' }));
+  const sections = [...main.querySelectorAll('[data-section]')].map((s) => (s.dataset.section === 'family' ? 'family ' + s.dataset.family : s.dataset.section));
   const figures = [...main.querySelectorAll('figure')].map((f) => ({ id: f.id, svg: !!f.querySelector('svg'), caption: (f.querySelector('figcaption')?.textContent ?? '').trim().length > 0 }));
-  const toc = document.querySelector('.toc');
-  let contents = null;
-  if (toc) {
-    const r = toc.getBoundingClientRect(), bar = document.querySelector('.topbar').getBoundingClientRect(), m = main.getBoundingClientRect();
-    const strip = getComputedStyle(toc).getPropertyValue('--is-strip').trim() === '1';
-    contents = { shown: r.width > 0, strip, links: toc.querySelectorAll('a[href^="#"]').length, sticky: getComputedStyle(toc).position === 'sticky',
-      // A rail stands left of the text; a strip lies under the top bar and spans the page.
-      placed: strip ? Math.abs(r.top - bar.bottom) <= 1 && r.width >= innerWidth - 2 : r.right <= m.left + 1 };
-  }
-  // A records page's finder replaces the contents: a column beside the groups, or below 1,100 px a bar across the page.
-  const rfBox = main.querySelector(':scope > .rf')?.getBoundingClientRect();
-  const finder = rfBox && rfBox.width > 0 ? { column: rfBox.width < main.clientWidth * 0.6 } : null;
+  const bar = document.querySelector('.atlas-bar');
+  const back = document.querySelector('.atlas-bar [data-return]');
+  const box = back?.getBoundingClientRect();
+  const facts = bar ? { sticky: getComputedStyle(bar).position === 'sticky', top: bar.getBoundingClientRect().top <= 0.5,
+    sections: document.querySelectorAll('.atlas-bar .here-list a[href^="#"]').length, back: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth + 1 } : null;
   // The skip link waits off screen until it is focused; it is not a control the reader cannot reach.
   const skipOff = [...document.querySelectorAll('a.skip')].filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && (r.left >= innerWidth || r.right <= 0); }).length;
-  return { kind: main.dataset.page, sections, figures, contents, finder, skipOff, fonts: [...document.fonts].map((f) => ({ family: f.family.replace(/["']/g, ''), status: f.status })) };
+  return { kind: main.dataset.page, sections, figures, bar: facts, skipOff, fonts: [...document.fonts].map((f) => ({ family: f.family.replace(/["']/g, ''), status: f.status })) };
 })()`);
 
 // Lighting a product across the figures: the pointer on a mark lights that product's marks and fades the rest, and
-// leaving the figure puts it back; so does the pointer on the product's row in Products. Events are dispatched as the
-// browser would deliver them (page.js listens for pointermove on the figure and mouseenter on the row).
+// leaving the figure puts it back; so does the pointer on the product's name outside the figures. Events are dispatched
+// as the browser would deliver them (page.js listens for pointermove and pointerleave on a figure's svg, pointerover and
+// pointerout on the page).
 const lightingWorks = () => evaluate(`(() => {
-  const marks = [...document.querySelectorAll('.fig-plot .mk[data-grade]')].filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; });
-  const m = marks[0];
+  const seen = (e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+  const m = [...document.querySelectorAll('figure .mk[data-grade]')].find(seen);
   if (!m) return 'no figure mark carries a product';
-  const r = m.getBoundingClientRect(), plot = m.closest('.fig-plot');
-  const lit = () => document.body.classList.contains('lighting') && document.querySelectorAll('.fig-plot .mk.lit, .fig-plot .wb.lit').length > 0;
+  const r = m.getBoundingClientRect(), svg = m.closest('svg');
+  const lit = () => document.body.classList.contains('lighting') && document.querySelectorAll('figure .mk.lit').length > 0;
   const clear = () => !document.body.classList.contains('lighting') && !document.querySelector('.lit');
   m.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, clientX: r.left + r.width / 2, clientY: r.top + r.height / 2, pointerType: 'mouse' }));
   if (!lit()) return 'a mark under the pointer lit no product';
-  plot.dispatchEvent(new PointerEvent('pointerleave'));
+  svg.dispatchEvent(new PointerEvent('pointerleave'));
   if (!clear()) return 'leaving the figure left a product lit';
-  const row = [...document.querySelectorAll('table[data-products] tbody tr[data-grade]')].find((t) => t.getAttribute('data-grade') === m.getAttribute('data-grade'));
-  if (row) {
-    row.dispatchEvent(new MouseEvent('mouseenter'));
-    if (!lit()) return 'a product row lit none of its marks';
-    row.dispatchEvent(new MouseEvent('mouseleave'));
-    if (!clear()) return 'leaving the row left a product lit';
+  const name = [...document.querySelectorAll('main [data-grade]')].find((el) => !el.closest('svg') && seen(el) && document.querySelector('figure .mk[data-grade="' + CSS.escape(el.dataset.grade) + '"]'));
+  if (name) {
+    name.dispatchEvent(new PointerEvent('pointerover', { bubbles: true, pointerType: 'mouse' }));
+    if (!lit()) return 'a product\\'s name lit none of its marks';
+    name.dispatchEvent(new PointerEvent('pointerout', { bubbles: true, pointerType: 'mouse' }));
+    if (!clear()) return 'leaving a product\\'s name left it lit';
   }
   return 'works';
 })()`);
 
-// One click on the first sortable heading of Products must set aria-sort on it.
-const sortingWorks = () => evaluate(`(() => {
-  const th = [...document.querySelectorAll('table[data-products] thead tr:not(.pt-p) th[data-i]')].find((t) => t.querySelector('button'));
-  if (!th) return 'no sortable heading';
-  const before = th.getAttribute('aria-sort');
-  th.querySelector('button').click();
-  const after = th.getAttribute('aria-sort');
-  return after && after !== before ? 'works' : 'a click on a heading did not change aria-sort (' + before + ' to ' + after + ')';
-})()`);
-
-// Every contents link and every figure anchor, clicked (or, for a figure, put in the address) from the top of the page:
-// the target must land within ANCHOR_TOLERANCE of the line under the sticky bar (and strip) plus ANCHOR_GAP, or, when the
-// page ends before it can get there, no higher than the line; and a contents link must leave its section marked current
-// (aria-current), except at the foot of the page, where the last section is current whatever the click. Returns the count
-// and, per failure, a sentence with the measurements.
-const checkAnchors = async (kind) => {
-  const gap = ANCHOR_GAP[kind];
-  // The contents' links that are on screen (a records page's are replaced by its finder), the figures, and a records
-  // page's groups, which are reached by their address.
-  const targets = await evaluate(`[...document.querySelectorAll('.toc a[href^="#"]')].filter((a) => a.getBoundingClientRect().width > 0).map((a) => ({ href: a.getAttribute('href'), toc: true }))
-    .concat([...document.querySelectorAll('figure[id], main section.rs[id]')].map((f) => ({ href: '#' + f.id, toc: false })))`);
+// Every section the bar lists, every figure, and on a Products page its first, middle and last product's card, reached
+// from the top of the page (a section by its link in the bar, the rest by the address): the target must land within
+// ANCHOR_TOLERANCE of the line under what covers the top of the screen plus ANCHOR_GAP, or, where the page starts or ends
+// before it can get there, no higher than that cover; and a section reached by the bar must leave the bar naming it
+// (its link aria-current), except at the foot of the page, where the last section is current whatever the click.
+// Returns the count and, per failure, a sentence with the measurements.
+const checkAnchors = async () => {
+  const targets = await evaluate(`(() => {
+    const bar = [...document.querySelectorAll('.atlas-bar .here-list a[href^="#"]')].map((a) => ({ href: a.getAttribute('href'), bar: true }));
+    const figs = [...document.querySelectorAll('main figure[id]')].map((f) => ({ href: '#' + f.id, bar: false }));
+    const cards = [...document.querySelectorAll('[data-products] details[data-grade]')];
+    const some = [...new Set([cards[0], cards[Math.floor(cards.length / 2)], cards.at(-1)].filter(Boolean))];
+    return [...bar, ...figs, ...some.map((d) => ({ href: '#' + d.id, bar: false }))];
+  })()`);
   const failures = [];
   for (const t of targets) {
     const r = JSON.parse(await evaluate(`(async () => {
@@ -397,46 +384,57 @@ const checkAnchors = async (kind) => {
       window.scrollTo(0, 0); history.replaceState(null, '', location.pathname);
       await frames();
       const href = ${JSON.stringify(t.href)};
-      const link = document.querySelector('.toc a[href=' + JSON.stringify(href) + ']');
+      const link = ${t.bar} ? document.querySelector('.atlas-bar .here-list a[href=' + JSON.stringify(href) + ']') : null;
       if (link) link.click(); else location.hash = href;
-      await new Promise((done) => setTimeout(done, 120));
+      await new Promise((done) => setTimeout(done, 150));
       await frames();
       const el = document.getElementById(href.slice(1));
-      const bar = document.querySelector('.topbar').getBoundingClientRect().bottom;
-      const toc = document.querySelector('.toc'), tocBox = toc.getBoundingClientRect();
-      const strip = tocBox.width > 0 && getComputedStyle(toc).getPropertyValue('--is-strip').trim() === '1' ? tocBox.bottom : 0;
-      const finder = document.querySelector('main > .rf')?.getBoundingClientRect();
-      const across = finder && finder.width > document.querySelector('main').clientWidth * 0.6 ? finder.bottom : 0;
-      const covered = Math.max(bar, strip, across);
-      const current = document.querySelector('.toc a[aria-current="true"]')?.getAttribute('href');
-      // The section the contents should mark: the last whose top is within the reading margin under the bar.
-      const line = covered + ${gap} + Math.min(160, innerHeight * 0.25);
-      const links = [...document.querySelectorAll('.toc a[href^="#"]')].map((a) => a.getAttribute('href'));
+      // What covers the top of the screen: the bar and a Products page's controls, each where it is stuck at its sticky
+      // offset (above that it is still in the page's flow and covers nothing); and in a list with a sticky head, the head,
+      // which a card lands under whether it is stuck there or sits in the flow just above the card.
+      const stuck = (e) => { if (!e || e.hidden) return 0; const s = getComputedStyle(e); if (s.position !== 'sticky' && s.position !== 'fixed') return 0; const b = e.getBoundingClientRect(); return b.height > 0 && Math.abs(b.top - (parseFloat(s.top) || 0)) <= 1 ? b.bottom : 0; };
+      const head = el?.closest('.pl')?.querySelector('.pl-h');
+      const ctl = Math.max(stuck(document.querySelector('.atlas-bar')), stuck(document.querySelector('.pl-ctl')));
+      const covered = ctl + (head && getComputedStyle(head).position === 'sticky' ? head.getBoundingClientRect().height : 0);
+      // The section the bar should name (page.js): the last whose top is within the reading margin under the bar.
+      const line = ctl + ${ANCHOR_GAP} + Math.min(160, innerHeight * 0.25);
+      const links = [...document.querySelectorAll('.atlas-bar .here-list a[href^="#"]')].map((a) => a.getAttribute('href'));
       let want = links[0];
       for (const h of links) { const s = document.getElementById(h.slice(1)); if (s && s.getBoundingClientRect().top <= line) want = h; }
-      return JSON.stringify({ top: el.getBoundingClientRect().top, covered, atEnd: scrollY >= document.documentElement.scrollHeight - innerHeight - 1, current, want });
+      const current = document.querySelector('.atlas-bar .here-list a[aria-current="true"]')?.getAttribute('href');
+      return JSON.stringify({ found: !!el, top: el ? el.getBoundingClientRect().top : 0, covered, atEnd: scrollY >= document.documentElement.scrollHeight - innerHeight - 1, atStart: scrollY <= 0, current, want });
     })()`));
-    const line = r.covered + gap;
-    const placed = r.atEnd ? r.top >= r.covered - 0.5 : Math.abs(r.top - line) <= ANCHOR_TOLERANCE;
-    const marked = !t.toc || r.atEnd || r.current === r.want;
-    if (!placed) failures.push(`${t.href} lands at ${r.top.toFixed(1)} px, not ${line.toFixed(1)} (the bar and strip cover ${r.covered.toFixed(1)}${r.atEnd ? ', the page ends' : ''})`);
-    else if (!marked) failures.push(`${t.href} was clicked and the contents mark ${r.current ?? 'nothing'}, not ${r.want}`);
+    const line = r.covered + ANCHOR_GAP;
+    if (!r.found) { failures.push(`${t.href} is not on the page`); continue; }
+    const placed = r.atEnd || r.atStart ? r.top >= r.covered - 0.5 : Math.abs(r.top - line) <= ANCHOR_TOLERANCE;
+    const marked = !t.bar || r.atEnd || r.current === r.want;
+    if (!placed) failures.push(`${t.href} lands at ${r.top.toFixed(1)} px, not ${line.toFixed(1)} (what is sticky covers ${r.covered.toFixed(1)}${r.atEnd ? ', the page ends' : ''})`);
+    else if (!marked) failures.push(`${t.href} was chosen in the bar and it names ${r.current ?? 'nothing'}, not ${r.want}`);
   }
+  await evaluate('(window.scrollTo(0, 0), history.replaceState(null, "", location.pathname), true)');
   return { checked: targets.length, failures };
 };
 
-// A figure's words that a reader cannot read: an SVG text cut by the figure (or the svg, where it clips) or by the
-// screen, or set over another text of the same svg by more than 4 px each way. The 2026-10-17 blind read found peak and
-// limit labels cut at 390 px on 17 of 40 pages, which the spill check could not see inside a clipping svg.
+// A figure's words that a reader cannot read: an SVG text cut by what clips it (its svg where the svg clips, any element
+// around it that clips sideways, and the screen), or set over another text of the same svg by more than 4 px each way.
+// The 2026-10-17 blind read found peak and limit labels cut at 390 px on 17 of 40 pages, which the spill check could not
+// see inside a clipping svg. A figure that scrolls sideways on a narrow screen (the alternatives) holds its words within
+// reach: the screen's edge does not cut what such a box scrolls to.
 const figureText = () => evaluate(`(() => {
   const W = innerWidth, out = [];
   const vis = (el) => { const s = getComputedStyle(el); return s.display !== 'none' && s.visibility !== 'hidden'; };
   for (const svg of document.querySelectorAll('figure svg')) {
     if (!vis(svg) || !svg.getBoundingClientRect().width) continue;
-    const b0 = getComputedStyle(svg).overflow !== 'visible' ? svg.getBoundingClientRect() : (svg.closest('figure') ?? svg).getBoundingClientRect();
-    const boxes = [...svg.querySelectorAll(':scope > text, :scope > g > text')].filter((t) => vis(t) && t.textContent.trim()).map((t) => [t, t.getBoundingClientRect()]).filter(([, r]) => r.width > 0);
+    let left = -Infinity, right = Infinity, scrolls = false;
+    for (let el = svg; el && el !== document.body && !scrolls; el = el.parentElement) {
+      const s = getComputedStyle(el);
+      if (el !== svg && el.scrollWidth > el.clientWidth + 1 && /auto|scroll/.test(s.overflowX)) { scrolls = true; break; }
+      if (el instanceof SVGSVGElement ? s.overflow !== 'visible' : /hidden|clip|auto|scroll/.test(s.overflowX)) { const b = el.getBoundingClientRect(); left = Math.max(left, b.left); right = Math.min(right, b.right); }
+    }
+    if (!scrolls) { left = Math.max(left, 0); right = Math.min(right, W); }
+    const boxes = [...svg.querySelectorAll(':scope > text, :scope > g > text, :scope > a > text')].filter((t) => vis(t) && t.textContent.trim()).map((t) => [t, t.getBoundingClientRect()]).filter(([, r]) => r.width > 0);
     const fig = svg.closest('figure')?.id ?? 'a figure';
-    for (const [t, r] of boxes) if (r.left < Math.max(0, b0.left) - 1 || r.right > Math.min(W, b0.right) + 1) out.push(fig + ': "' + t.textContent.trim().slice(0, 30) + '" cut');
+    for (const [t, r] of boxes) if (r.left < left - 1 || r.right > right + 1) out.push(fig + ': "' + t.textContent.trim().slice(0, 30) + '" cut');
     for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
       const [a, A] = boxes[i], [c, C] = boxes[j];
       if (Math.min(A.right, C.right) - Math.max(A.left, C.left) > 4 && Math.min(A.bottom, C.bottom) - Math.max(A.top, C.top) > 4) out.push(fig + ': "' + a.textContent.trim().slice(0, 20) + '" over "' + c.textContent.trim().slice(0, 20) + '"');
@@ -480,32 +478,20 @@ const recordPage = async (screen, [slug, file, kind]) => {
   if (unreadable.length) fail(`${unreadable.length} figure text(s) cut or overlapping: ${unreadable.slice(0, 4).join('; ')}`);
   notes[key] = [`scrolls sideways: ${m.sideways.length ? m.sideways.join('; ') : 'none'}`];
 
-  lines.push(`sections (${facts.sections.length}): ${facts.sections.map((s) => s.name + (s.empty ? ' (empty)' : '')).join(', ') || 'none'}`);
+  lines.push(`sections (${facts.sections.length}): ${facts.sections.join(', ') || 'none'}`);
   if (!facts.sections.length) fail('the page holds no section');
-
   const withSvg = facts.figures.filter((f) => f.svg).length, withCaption = facts.figures.filter((f) => f.caption).length;
   lines.push(`figures: ${facts.figures.length}, with an svg ${withSvg}, with a caption ${withCaption}`);
   for (const f of facts.figures) if (!f.caption) fail(`the figure ${f.id || '(no id)'} has no figcaption`);
 
-  // The contents: a sticky rail from 1,080 px, a strip below that. A records page has none: its finder replaces them, as a
-  // column from 1,100 px and as a bar across the page below that.
-  const c = facts.contents;
-  if (kind === 'records') {
-    if (!facts.finder) { lines.push('finder: none'); fail('the records finder is not shown'); }
-    else {
-      lines.push(`finder: ${facts.finder.column ? 'column' : 'bar'}, contents replaced`);
-      if (facts.finder.column !== (screen.width >= 1100)) fail(`the finder is a ${facts.finder.column ? 'column' : 'bar'} on a ${screen.width} px screen; it is a ${screen.width >= 1100 ? 'column' : 'bar'} there`);
-      if (c?.shown) fail('the contents strip is shown beside the finder, which replaces it');
-    }
-  } else if (!c) { lines.push('contents: none'); fail('the page has no contents'); }
+  // The bar: sticky at the top on every screen, its list of the page's sections, the way back to the selector on screen.
+  const b = facts.bar;
+  if (!b) { lines.push('bar: none'); fail('the page has no bar'); }
   else {
-    const wantRail = screen.width >= 1080;
-    lines.push(`contents: ${c.strip ? 'strip' : 'rail'}, ${c.links} links${c.sticky ? ', sticky' : ''}`);
-    if (!c.shown) fail('the contents are not shown');
-    if (c.strip === wantRail) fail(`the contents are a ${c.strip ? 'strip' : 'rail'} on a ${screen.width} px ${kind} page; they are a ${wantRail ? 'rail' : 'strip'} there`);
-    if (!c.sticky) fail('the contents are not sticky');
-    if (!c.placed) fail(`the ${c.strip ? 'strip is not under the top bar across the page' : 'rail is not left of the text'}`);
-    if (!c.links) fail('the contents have no link');
+    lines.push(`bar: ${b.sticky ? 'sticky' : 'not sticky'}, ${b.sections} section${b.sections === 1 ? '' : 's'} listed, the way back ${b.back ? 'on screen' : 'off screen'}`);
+    if (!b.sticky || !b.top) fail('the bar is not sticky at the top of the screen');
+    if (!b.back) fail('the way back to the selector is not on screen');
+    if (kind !== 'hub' && !b.sections) fail('the bar lists no section');
   }
 
   // Both families must have a face that is loaded; a face that is in error, or a family with none loaded, is a page set in
@@ -520,30 +506,24 @@ const recordPage = async (screen, [slug, file, kind]) => {
   const broken = facts.fonts.filter((f) => f.status === 'error');
   if (broken.length) fail(`${broken.length} font face(s) failed to load: ${broken.map((f) => f.family).join(', ')}`);
 
-  const hasProducts = await evaluate(`!!document.querySelector('table[data-products]')`);
-  if (kind === 'material') {
+  if (kind === 'overview') {
     const lit = await lightingWorks();
     lines.push(`lighting: ${lit}`);
     if (lit !== 'works') fail(`lighting: ${lit}`);
   }
-  if (hasProducts) {
-    const sorted = await sortingWorks();
-    lines.push(`sorting: ${sorted}`);
-    if (sorted !== 'works') fail(`sorting: ${sorted}`);
-  } else if (kind === 'material') { lines.push('sorting: no Products table'); fail('a material page without a Products table'); }
 
   if (screen.name !== 'tablet') {
-    const anchors = await checkAnchors(kind);
+    const anchors = await checkAnchors();
     lines.push(`anchors: ${anchors.checked} checked`);
     for (const a of anchors.failures) fail(`anchor ${a}`);
-    if (!anchors.checked) fail('no contents link or figure to check');
-    if (hasProducts && PRODUCTS_CHECKED[slug]?.includes(screen.name)) {
+    if (!anchors.checked && kind !== 'hub') fail('no section, figure or card to reach');
+    if (kind === 'products') {
       const t1 = Date.now();
       let r;
       try { r = await evaluate(productsCheck, PRODUCTS_MS); } catch (e) { r = { error: e.message }; }
       if (r.error) { lines.push('products: could not run'); fail(`the Products check could not run: ${r.error}`); }
       else {
-        lines.push(`products: ${r.checks} checks`);
+        lines.push(`products: ${r.products} products, ${r.sorts} sorts, ${r.queries.length} searches, ${r.checks} checks`);
         if (r.failures) fail(`${r.failures} of ${r.checks} Products checks failed, the first ${JSON.stringify(r.first)}`);
         if (!r.checks) fail('the Products check ran no check');
       }
@@ -551,6 +531,46 @@ const recordPage = async (screen, [slug, file, kind]) => {
     }
   }
   notes[key].push(`page ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+  results[key] = lines.join('\n');
+};
+
+// The return trip (D145): the selector's drawer opens an Overview with ?from=<its own hash>. The page keeps the selection
+// for the tab and takes it out of its address; every way back (a[data-return], and the mark in the bar) then reopens the
+// selector with that selection and the drawer on the page's material; the Products page opened next in the same tab
+// does too. A selection with one requirement, on the laptop; the tab's stored selection is cleared after, so no other
+// view sees it.
+const returnTrip = async () => {
+  const key = '50-page-return-trip';
+  const fail = (what) => layoutProblems.push(`${key}: ${what}`);
+  const { newScenario, toHash, fromHash } = await import('../app/js/engine/scenario.js');
+  const asked = { ...newScenario(builtMeta), constraints: [{ kind: 'numeric', property: 'hdt045', operator: '>=', value: 60, mandatory: true }] };
+  // A selection compared as its link writes it (toHash): reading one stamps it with the time it was read.
+  const want = toHash(fromHash(toHash({ ...asked, openMaterial: 'M001' }), builtMeta).scenario);
+  const lines = [];
+  const backs = () => evaluate(`[...document.querySelectorAll('[data-return], [data-return-brand]')].map((a) => a.getAttribute('href'))`);
+  const holds = (hrefs, where) => {
+    const read = hrefs.map((h) => { try { return fromHash(h.split('#')[1] ?? '', builtMeta)?.scenario ?? null; } catch { return null; } });
+    const ok = read.filter((s) => s && toHash(s) === want).length;
+    lines.push(`${where}: ${ok} of ${hrefs.length} ways back reopen the selection with M001's drawer`);
+    if (!hrefs.length) fail(`${where}: no way back`);
+    else if (ok !== hrefs.length) fail(`${where}: a way back reopens ${decodeURIComponent(read.map((s) => (s ? toHash(s) : 'nothing')).find((h) => h !== want) ?? '').slice(0, 200)}, not the selection with M001's drawer`);
+  };
+  await send('Emulation.setDeviceMetricsOverride', { width: 1180, height: 760, deviceScaleFactor: 1, mobile: false });
+  try {
+    const overview = pathToFileURL(join(materialsDir, 'M001.html')).href;
+    await openPage(`${overview}?from=${toHash(asked)}`, overview);
+    lines.push('the address: the selection taken out of it');
+    holds(await backs(), 'the Overview');
+    lines.push(`the way back reads: ${await evaluate(`document.querySelector('.atlas-bar [data-return] .ret-long')?.textContent ?? 'nothing'`)}`);
+    const products = pathToFileURL(join(materialsDir, 'M001-products.html')).href;
+    await openPage(products);
+    holds(await backs(), 'the Products page, next in the tab');
+  } catch (e) {
+    fail(`the return trip did not finish: ${e.message}`);
+  } finally {
+    await evaluate(`(() => { try { sessionStorage.removeItem('atlas-return'); } catch {} return true; })()`).catch(() => true);
+    await send('Emulation.clearDeviceMetricsOverride');
+  }
   results[key] = lines.join('\n');
 };
 
@@ -941,8 +961,8 @@ try {
     }
   }
 
-  // The material pages, on the same three screens. A page the build did not write is a failure: the pages are part of what
-  // it builds (npm run build, without --no-pages).
+  // The material pages, on the same three screens, then the return trip. A page the build did not write is a failure:
+  // the pages are part of what it builds (npm run build, without --no-pages).
   const missing = PAGES.filter(([, file]) => !existsSync(join(materialsDir, file))).map(([, file]) => file);
   if (missing.length) errors.push(`dist/materials lacks ${missing.join(', ')}; run npm run build`);
   else {
@@ -956,6 +976,7 @@ try {
       await send('Emulation.clearDeviceMetricsOverride');
       await send('Emulation.setTouchEmulationEnabled', { enabled: false });
     }
+    await returnTrip();
   }
 } catch (e) {
   errors.push(e.message);

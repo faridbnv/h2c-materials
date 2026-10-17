@@ -1,6 +1,6 @@
 # The material pages, reimagined: structure, navigation and the visual system
 
-> **Working proposal** (2026-10-17), the UI/UX expert's part of the pages-reimagined round ([BRIEF](../BRIEF.md)).
+> **Current** (2026-10-17), working proposal, the UI/UX expert's part of the pages-reimagined round ([BRIEF](../BRIEF.md)).
 > Mockups from `dist/db.json` (real numbers; dashed boxes are the other experts' slots): [material-PLA.html](mockups/material-PLA.html),
 > [products-PLA.html](mockups/products-PLA.html) (`?sort=hdt045`: sorted), [hub.html](mockups/hub.html); add `?theme=dark`,
 > `?menu=open` or `?from=none` (a reader who did not come from the selector). Screenshots beside them at 1280 and

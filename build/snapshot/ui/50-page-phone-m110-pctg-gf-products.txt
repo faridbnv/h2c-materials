@@ -1,0 +1,13 @@
+viewport 390x844
+document width: fits the screen
+spill: none
+clipped cells:
+  pc-t: 6 of 60
+hidden controls: 0
+figure text: all of it readable
+sections (2): products-list, colophon
+figures: 0, with an svg 0, with a caption 0
+bar: sticky, 1 section listed, the way back on screen
+fonts: Inter loaded, Newsreader loaded
+anchors: 4 checked
+products: 3 products, 11 sorts, 5 searches, 57 checks
