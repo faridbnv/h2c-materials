@@ -47,3 +47,16 @@ OPEN-PROBLEMS when the round closes; the pages show the data as it is.
   300 and 400 % elongation, so a rigid material lists them as not published.
 - **Prusament's "Horizontal" and "Vertical XZ" bars are never compared**: they are kept as source labels
   (G001-87, G001-90, G001-144), so Prusament PLA's tensile values stand nowhere on its material's comparisons.
+
+## The second engineer review
+
+After the review pass (ba9a1d82, 4e8ec388), a fresh Claude Opus reviewer, who had seen neither earlier version, scored
+the pages 72/100 on 2026-10-16 (first minute 7, writing 6, figure insight 7, figure craft 7, choosing a product 6,
+finding a record 8, trust 7, thin data 6, navigation 8, typography 7). Anchors, the records finder and the figures
+that answer a question (what Z keeps of XY, print windows, the heat ladder) were its strongest points. What holds the
+score down, in its words and ranked: the Products table does not fit a laptop and truncates names into lookalikes;
+reprinted sheets and physically implausible values sit inside medians and ranges; the first screen gives numbers but
+no comparison; bookkeeping and coinages remain in places ("as the build chose it", "36 settings from Bambu Lab's
+guide" beside "66 products"); and the thin page keeps empty sections and estimates that disagree with its sheets.
+About half of that is data (the reprints, the implausible moduli, the estimates, Bambu Lab's PETG HF guide row read for
+every PETG product), the rest the pages. The owner decides whether to go on.
