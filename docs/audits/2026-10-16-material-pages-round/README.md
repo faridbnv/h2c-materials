@@ -119,3 +119,18 @@ on a cold cache after a data change). The interface views, now with the 24 page 
 Next, on the owner's word of 2026-10-17: this branch goes to main through a pull request first; then the draft #2 (verify
 side by side, CI's scenarios in parts) is brought up to date with it, its decision renumbered D144 and its timings
 measured again with the page checks in, and merged; then steps 4 and 5 on a branch from main.
+
+## On main, and the other pull request reconciled
+
+On the owner's word (2026-10-17), this round's branch went to main first as pull request #3: its first CI run failed the
+eight laptop page views, because CI's Linux Chrome draws a 15 px scrollbar where macOS draws an overlay one and a page
+that scrolls its document read 1165 px wide; the views now say whether a page fits the room it has (9740bb91). The second
+run passed and #3 was merged (0a5259c1); main's Verify and Pages passed, and the site serves the material pages.
+
+The draft #2 (verify runs side by side, CI runs the rendered scenarios in parts) had also taken D142. It was brought up
+to date with main and its own latest commit, renumbered **D144** throughout, the material pages' check placed in its
+step order (after the build), and the shared documents made to describe both (AGENTS, ARCHITECTURE, GOALS C13, the
+probe's comments). On the combined tree, from an empty build cache on the owner's 10-core machine, verify took 432 s
+side by side where the same checks one at a time took 627 s; verify:fast's steps 88.4 s. Its CI passed (the longest job
+4 m 54 s, where #3's interface job had taken 11 m 12 s) and it was merged (1b9c107f). Steps 4 and 5 follow on
+`material-pages-summaries`, from that main.
