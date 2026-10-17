@@ -1,0 +1,56 @@
+/* H2C shared design tokens: the palette, light and dark, the status colours, the radius and the font stacks.
+   Read by the selector (bundled ahead of its own stylesheet into its one style element) and by the material
+   pages, so the two are one design. What only the selector uses (its rail and drawer widths, its type scale) is
+   in its own stylesheet. The status palette is reserved for the four constraint states and nothing else. */
+
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #f2f2ef;
+  --border: #dcdcd6;
+  --border-strong: #bcbcb4;
+  --ink: #1a1a18;
+  --ink-2: #55554e;
+  --ink-3: #85857c;
+  --accent: #1f5f8b;
+  --accent-soft: #e4eef5;
+  /* Text on an accent fill. White on the dark theme's light blue read at about 2:1. */
+  --on-accent: #fff;
+
+  /* Status palette. Used for nothing else. */
+  --pass: #1d6f42;      --pass-bg: #e4f2e9;
+  --fail: #a32b1f;      --fail-bg: #fae8e6;
+  --unknown: #8a6100;   --unknown-bg: #fbf0da;
+  --indet: #24568f;     --indet-bg: #e6eefa;
+  /* A product its maker sells as toughened (D133): a maker's claim, not a verdict, so none of the verdict colours. */
+  --claim: #7d3c86;     --claim-bg: #f4e8f5;
+
+  --radius: 7px;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
+    --border: #32353d; --border-strong: #474b55;
+    --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
+    --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
+    --pass: #63c68c; --pass-bg: #12301f;
+    --fail: #f08a7d; --fail-bg: #3a1a16;
+    --unknown: #e0b458; --unknown-bg: #352a10;
+    --indet: #85b4ea; --indet-bg: #16283f;
+    --claim: #d895e0; --claim-bg: #33203a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
+  --border: #32353d; --border-strong: #474b55;
+  --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
+  --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
+  --pass: #63c68c; --pass-bg: #12301f;
+  --fail: #f08a7d; --fail-bg: #3a1a16;
+  --unknown: #e0b458; --unknown-bg: #352a10;
+  --indet: #85b4ea; --indet-bg: #16283f;
+  --claim: #d895e0; --claim-bg: #33203a;
+}

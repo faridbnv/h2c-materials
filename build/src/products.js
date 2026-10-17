@@ -54,8 +54,12 @@ const sameSchedule = (a, t) => (a?.tempC ?? null) === (t?.tempC ?? null) && (a?.
 export const scheduleText = (t) => `at ${t?.tempC != null ? `${t.tempC} °C` : 'a temperature not stated'} for ${t?.hours != null ? `${t.hours} h` : 'a time not stated'}`;
 
 // Why a measurement is not a headline's value, as a code beside assess's words (`why`), in the order assess asks. The
-// drawer counts the records under a comparison by it (app/js/ui/detail.js, notDrawnWhy, D139), and a record two of a
-// comparison's headlines refuse is counted by the one it got further with.
+// drawer and the material pages count the records under a comparison by it, and a record two of a comparison's
+// headlines refuse is counted by the one it got further with (D139). Their copy is NOT_DRAWN_ORDER in
+// app/js/ui/material-facts.js (refusedBy, notDrawnWhy), which the page cannot import from here; it differs on purpose:
+// it adds 'resin' (a moulded value under a headline with no bar to orient or load), and lacks 'notConditioned' and
+// 'notAnnealed', which assess returns only when asked about a state, which a comparison never is.
+// test/drawer-comparisons.test.js holds the two against each other on every record of every comparison.
 export const ASSESS_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'moulded', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
   'notConditioned', 'conditioned', 'notAnnealed', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad'];
 const SPECIMEN_WHY = { moulded: 'moulded', film: 'film', filament: 'filament' };

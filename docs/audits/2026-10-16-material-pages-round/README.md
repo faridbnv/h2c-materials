@@ -13,7 +13,7 @@
 
 | Step | What | State |
 |---|---|---|
-| 1 | One shared facts layer for the drawer and the pages (`app/js/ui/material-facts.js`, scales, words, the page rule, shared design tokens); the drawer's output unchanged | in progress |
+| 1 | One shared facts layer for the drawer and the pages (`app/js/ui/material-facts.js`, scales, words, the page rule, shared design tokens); the drawer's output unchanged | done: 11,900 drawer renders byte-identical before and after; 0 database differences; verify:fast, 83 interface views and 300 rendered scenarios green; [API](FACTS-API.md) |
 | 2 | Fonts, the page design system and chart grammar, three prototype pages (PETG, PLA, PCTG-GF) | waiting |
 | Gate | The owner approves the prototypes | waiting |
 | 3 | Build stage 8, the records and index pages, the drawer's Full page link, the release zip, the checks | waiting |

@@ -7,6 +7,7 @@
 // changes, so links, saved scenarios and exports made before a rename still read.
 
 import { GATE_STATUS } from '../engine/constraints.js';
+import { lower } from './text.js';
 
 // Filled from the database's registry at start-up (registry.js, useRegistry): one row per headline in
 // data/tables/headline_definitions.csv supplies short, plain, technical, unit, hint and better.
@@ -263,3 +264,74 @@ export function materialName(name) {
   if (i < 0) return { primary: s, aka: null };
   return { primary: s.slice(0, i).trim(), aka: s.slice(i + 3).trim() };
 }
+
+// ------------------------------------------------------------------ the drawer's and the pages' words for stored codes
+//
+// Moved from detail.js (material pages round, step 1) so the drawer and the material pages name a stored code alike
+// (D124). Each is a map from a value the build compiles to the words an engineer reads; a value no map names reads as
+// itself.
+
+/** A measurement's specimen orientation (measurements[].direction), where the stored code is not the words. */
+export const DIRECTION_WORDS = {
+  unknown: 'orientation not stated', 'horizontal-source-label': '"horizontal" (the sheet\'s word)',
+  'vertical-xz-source-label': '"vertical XZ" (the sheet\'s word)', 'along-flow': 'along the melt flow', 'raster-45': '±45° raster',
+};
+/** A measurement's specimen type (measurements[].specimenType), where the stored value is not the words. */
+export const SPECIMEN_WORDS = { 'Raw material value': 'moulded bar (resin supplier\'s value)', 'Printed part': 'printed part', 'Printed specimen': 'printed specimen' };
+/** A property whose stored name does not say what a data sheet would (properties.csv). */
+export const PROPERTY_WORDS = { 'Tensile strength (endpoint unspecified)': 'Tensile strength (yield or break not stated)', 'Charpy strength': 'Charpy impact strength', 'Impact strength': 'Impact strength, test unclear' };
+/** A property by its name on the page. */
+export const propertyName = (p) => PROPERTY_WORDS[p] ?? p;
+/** A measurement's Data status, where it holds the value back, in words. */
+export const STATUS_WORDS = { 'Unresolved unit / layout': 'held back: the sheet\'s unit or table layout is unclear' };
+
+/** What kind of document a source is (sources[].sourceClass), as an engineer would name it. */
+export const SOURCE_KIND = {
+  'Manufacturer TDS': 'Data sheet', 'Manufacturer product page or guide': 'Maker\'s product page or guide', 'Manufacturer SDS': 'Safety data sheet',
+  'Resin supplier data sheet': 'Resin supplier\'s data sheet', 'Retailer catalogue': 'Retailer listing', 'Printer documentation': 'Printer documentation',
+  'Peer-reviewed study': 'Peer-reviewed study', 'Safety guidance': 'Safety guidance', 'Reference or register': 'Reference',
+};
+export const sourceKind = (s) => SOURCE_KIND[s?.sourceClass] ?? s?.sourceClass ?? 'Source';
+
+/** A material's filler (facets.reinforcement.value) in its identity line: "carbon-fibre filled". */
+export const FILLED_WORDS = { 'carbon-fibre': 'carbon-fibre filled', 'glass-fibre': 'glass-fibre filled', esd: 'anti-static (ESD)', foaming: 'foaming', unfilled: 'unfilled' };
+
+/**
+ * Why a record under a comparison is or is not drawn (material-facts.js notDrawnWhy), counted: "80 unnotched", "1 on a
+ * moulded bar". A key is one of NOT_DRAWN_ORDER's, or held, second, retired or reference; "unit:" and "property:" keys
+ * carry their unit or property after the colon.
+ */
+export const WHY_WORDS = {
+  held: (n) => `${n} held back`, noNumber: (n) => `${n} with no number`,
+  implausible: (n) => `${n} flagged implausible`, moulded: (n) => (n === 1 ? '1 on a moulded bar' : `${n} on moulded bars`),
+  resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} on film`, filament: (n) => `${n} on filament strands`,
+  offRecipe: (n) => `${n} printed at a setting the product is not meant for`, partialInfill: (n) => `${n} printed below 100 % infill`,
+  notPrinted: (n) => `${n} not on a printed bar`, conditioned: (n) => `${n} after moisture conditioning`,
+  annealed: (n) => `${n} annealed beside an as-printed value`, unnotched: (n) => `${n} unnotched`, notched: (n) => `${n} notched`, notch: (n) => `${n} with no stated notch`,
+  cold: (n) => `${n} struck cold`, hot: (n) => `${n} struck hot`, standard: (n) => `${n} to another standard`,
+  direction: (n) => (n === 1 ? '1 on a bar in another orientation' : `${n} on bars in another orientation`),
+  unstatedDirection: (n) => `${n} with no stated orientation`, load: (n) => `${n} at another test load`, unstatedLoad: (n) => `${n} with no stated test load`,
+  second: (n) => `${n} more of ${n === 1 ? 'a product' : 'products'} already drawn`, retired: (n) => `${n} of products no longer listed`,
+  reference: (n) => `${n} of reference grades`,
+};
+export const whyWords = (key, n) => (key.startsWith('unit:') ? `${n} in ${key.slice(5)}`
+  : key.startsWith('property:') ? `${n} of ${lower(propertyName(key.slice(9)))}` : WHY_WORDS[key](n));
+
+/** A part of a product's recipe its maker's documents may leave unsaid (grades[].knowHow.recipe). */
+export const RECIPE_WORDS = { chamber: 'chamber or enclosure need', drying: 'drying schedule', annealing: 'annealing schedule' };
+/** A know-how topic in a list of what a maker leaves unsaid; a topic the vocabulary gains later reads as its name. */
+export const TOPIC_WORDS = {
+  'Good for': 'applications', Benefits: 'benefits', 'Pitfalls and limitations': 'pitfalls', 'Warping and shrinkage': 'warping',
+  'Precision and tolerance': 'dimensional accuracy', 'Surface finish': 'surface finish', 'Adhesion between layers': 'layer adhesion',
+  'Moisture sensitivity': 'moisture', 'Nozzle wear': 'nozzle wear', 'Odour and emissions': 'odour', 'Supports and removal': 'supports',
+  'Printing advice': 'printing advice',
+};
+
+/** Why a product's print setting is not drawn (print-spread.js notDrawn), counted: "3 state none", "60 need none". */
+export const PRINT_NOT_DRAWN = {
+  unknown: 'state none', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
+  recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
+  'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+};
+/** What a print gate verdict outside the H2C's limits adds after a product's window (print-spread.js OUTSIDE). */
+export const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };
