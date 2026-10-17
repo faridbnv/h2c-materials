@@ -162,3 +162,25 @@ The owner took the three recommendations, "careful that they serve the high leve
 3. **The alternatives** are listed in `pages.csv` for a read. To serve the goal (filaments the H2C can print), an
    alternative is never a material beyond the H2C's limits, also on such a material's own page, where the alternatives
    are what could be printed instead.
+
+## Revised approach (the owner, 2026-10-17: "much more efficient and faster")
+
+Three review loops moved the score 58 → 66 at the cost of hours: seams between discipline-split tracks, the executor
+relaying, a fresh full review each round, and polish spent on weak parts. From here: **cut before polishing** (done:
+PLA's Overview 14,250 → 10,900 px, every value one press away); **the executor implements** the Overview directly; the
+frame's agent finishes the Products page and the index; **a fixed definition of done**, checked by the executor from the
+checks and screenshots in minutes; **one final independent review**, time-boxed; what it leaves goes to OPEN-PROBLEMS.
+
+**Done means** (from both reviews' costliest findings):
+
+1. No bookkeeping in the reading path: no tallies, no "Counted", no topic counts, no record-like sentences.
+2. One quantity, one form, everywhere on a page (the plate, figures, text), a published bound's sign kept.
+3. Nothing spills, ghosts or overlaps at 1280, 820 or 390 px (the probe holds it).
+4. Strips readable: zoomed where products sit, counts that match the marks.
+5. Products page: a name column that does not wrap half the names, "—" for nothing published, Izod apart from Charpy,
+   a card under 1,500 px.
+6. Tables on one grid within a page; headers on one baseline.
+7. A thin page reads in about three screens, with a plate of what is published and one line of what is not.
+8. The hub reads in rows, its order stated, the materials without a page in one closing block.
+9. The way back restores the selection, the drawer and its tab, and the scroll.
+10. pages:check 16 of 16, the probe without layout failure, npm test green.
