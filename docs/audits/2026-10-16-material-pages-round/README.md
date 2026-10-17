@@ -71,3 +71,25 @@ golden baseline and the page-count check are recorded again on the merged tree b
 purpose; and the reviewer's hollow "no stated load" mark in PETG's HDT column (Spectrum's "method=A/B") is expected to
 go. Main's reader sweep left its findings in OPEN-PROBLEMS §3, §4, §11 and §12; this round's three data problems above
 are not among them.
+
+## The final page pass, and main merged again
+
+On the owner's word, one more page pass on the second review's page findings, without a further review (d2b1c388,
+894e6fb8): the first screen compares the material with the two most common ones; the sample summaries characterise
+instead of reciting numbers; one meaning per word ("range" lowest to highest, "middle half" said); sections with nothing
+on file leave the page; the Products table fits a laptop column with names in full and a two-line list on a phone; the
+records page keeps the maintainers' notes in a closed group. Then main was fetched as it stood (c69ff7b1) and merged
+(17b8ec01): only the owner's decision log conflicted, both entries kept in date order. On the merged tree:
+
+| Check | Result |
+|---|---|
+| Drawer golden | a new baseline recorded on the merged data (TOTAL 11900 25398b25…, two runs identical); 793 renders moved with main's data, none with code (the merge changed nothing under `app/`) |
+| verify:fast | 651 of 651 tests; 42.6 s warm; the first run after the data change took 117.7 s, over the 90 s budget, measured again in step 3 |
+| Interface views | 83 of 83 match, no layout failure |
+| Review snapshot | current |
+| All 76 pages | rendered; page-counts.mjs 755 cross-section checks, 0 disagreements |
+| Anchors | 108 of 108 land below the sticky header, at 1180 and 390 px |
+| Products check | 2,088 checks, 0 failures, at 1180 and 390 px |
+
+The reviewer's hollow "no stated load" mark in PETG's HDT column went with main's fix: Spectrum PET-G HT100's 94 °C is
+read at 0.45 MPa and compared, and PETG's 0.45 MPa median now rests on 46 products.
