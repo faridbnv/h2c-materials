@@ -615,3 +615,28 @@ make everything coherent, complete the repository and push.
   to the owner said why.
 
 Built as D140 (m417) by Claude Opus, Claude Sonnet agents sweeping the headings and re-reading a blind sample.
+
+## Decided on 2026-10-16, a page of its own for each well-documented material
+
+The owner proposed an independent HTML page per material, opened from the drawer, "like a wiki page": a summary
+written by us, then the material's data with figures beyond what the drawer can hold, designed to be read with
+pleasure, and asked for a critical assessment against GitHub Pages' limits, CI load, maintenance and design
+([assessment](audits/2026-10-16-material-pages/README.md)). Asked eight questions, each with a recommendation, the
+owner chose:
+
+1. **Not every material.** A page needs at least 3 products and 20 measured values (76 of 152 materials on the day);
+   the recommendation had been every listed material.
+2. **A written summary is allowed** under the recommended rules: no number typed by hand (a placeholder the build
+   fills), its author, date and review status shown, deciding nothing; agents draft, the owner reviews.
+3. **An embedded typeface, done professionally**, rather than the recommended system fonts.
+4. **Processed, selected data on the page**, and every record behind a link on a records page: "Reading that much raw
+   data and that many sources is not going to happen by any user. The page should contain usable data."
+5. **SVG figures drawn by the build**, designed professionally and consistently.
+6. **Three prototype pages first**, approved before the rest.
+7. **The pages travel with each GitHub release** as a zip.
+8. **Only the drawer links to a page**; the recommended top-bar link was declined.
+
+Then the owner asked for the execution to be planned with agents, Opus for logic and design and Sonnet for labour,
+around one source of truth so the pages cannot diverge from the drawer, and approved the
+[plan](audits/2026-10-16-material-pages-round/PLAN.md). Built in the
+[material pages round](audits/2026-10-16-material-pages-round/README.md).
