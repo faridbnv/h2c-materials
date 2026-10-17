@@ -33,6 +33,8 @@ test('the interface around the engine is not part of a release; the engine and t
   const paths = Object.values(RELEASE_INPUTS).flat();
   assert.ok(paths.includes('app/js/engine') && paths.includes('app/js/ui/templates.js'));
   assert.ok(!paths.some((p) => p === 'app' || p === 'app/js' || p === 'app/js/ui' || p.startsWith('app/css')));
+  // The material pages' renderer only draws what the release decided: a change to the pages' design is not a new release (D96).
+  assert.ok(!paths.some((p) => p.startsWith('app/pages')), 'the material pages (app/pages) are not a release input (D96)');
 });
 
 test('the built database, its page and its name carry the release of this tree', () => {

@@ -40,7 +40,7 @@ test('a command that cannot start counts as a failure and the run goes on', () =
   assert.equal(failed[0].status, 1);
 });
 
-// The side-by-side runner (runGraph, D142): the same promise as runSteps, that every step runs and every failure is
+// The side-by-side runner (runGraph, D144): the same promise as runSteps, that every step runs and every failure is
 // named, and three more: a step starts only after the steps it follows, a step that runs alone has the machine to itself,
 // and no more cores are claimed than the run allows. Each step below writes when it began and ended to a file of its own.
 // Two steps that must run side by side meet: each marks that it has begun and ends only once the other has begun too,

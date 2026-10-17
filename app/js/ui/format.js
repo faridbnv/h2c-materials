@@ -253,6 +253,26 @@ export const missingText = (entry) => MISSING_FULL[entry?.missing] ?? MISSING_FU
 export const missingLabel = (entry) => MISSING_LABEL[entry?.missing] ?? MISSING_LABEL['not-published'];
 
 /**
+ * What a headline with no comparable value says of the nearest value on file (entry.related, compiled by the build):
+ * the value, its property and orientation, why it is not compared, how many more there are, and that no filter uses it.
+ * The explanation of the related mark wherever renderValue draws one; the material pages say it too.
+ */
+export function relatedNote(entry) {
+  const r = entry.related;
+  const b = r.best;
+  const dir = b.direction && b.direction !== 'not-applicable' && b.direction !== 'unknown' ? b.direction : null;
+  const more = r.count - 1;
+  const shown = fmtBounded(b.value, null, b.interval);
+  return `No product publishes this on a comparable basis. Nearest value on file: ${shown} ${b.unit}`
+    // A property with no direction (a glass transition, a density) is never said to lack one.
+    + ` (${b.property}${dir ? `, ${dir}` : b.direction === 'not-applicable' ? '' : ', orientation not stated'}).`
+    + ` Not compared: ${b.why}.`
+    + `${more ? ` ${more} more value${more === 1 ? '' : 's'} from ${r.grades} product${r.grades === 1 ? '' : 's'}.` : ''}`
+    + `${boundOf(b.interval) ? ` ${boundNote(b.interval, b.value, b.unit)}` : ''}`
+    + ' No filter uses it.';
+}
+
+/**
  * Render a headline entry with its provenance and an evidence affordance.
  *
  * Where there is no headline but related measurements exist, show them. 31 materials have a
@@ -294,18 +314,10 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
         : explainButton(esc(label), text, { cls: 'missing', head: label });
     }
     const b = r.best;
-    const dir = b.direction && b.direction !== 'not-applicable' && b.direction !== 'unknown' ? b.direction : null;
-    const more = r.count - 1;
     // Quiet by design: a value plus one marker. The earlier version stacked shouty uppercase tags
     // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
     const shown = fmtBounded(b.value, null, b.interval);
-    const title = `No product publishes this on a comparable basis. Nearest value on file: ${shown} ${b.unit}`
-      // A property with no direction (a glass transition, a density) is never said to lack one.
-      + ` (${b.property}${dir ? `, ${dir}` : b.direction === 'not-applicable' ? '' : ', orientation not stated'}).`
-      + ` Not compared: ${b.why}.`
-      + `${more ? ` ${more} more value${more === 1 ? '' : 's'} from ${r.grades} product${r.grades === 1 ? '' : 's'}.` : ''}`
-      + `${boundOf(b.interval) ? ` ${boundNote(b.interval, b.value, b.unit)}` : ''}`
-      + ' No filter uses it.';
+    const title = relatedNote(entry);
     return explainButton(`<span class="rv">${esc(shown)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span>`, title,
     { cls: 'related', head: 'Published, not comparable', action: 'measurement', id: b.measurementId });
@@ -376,13 +388,32 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
   const medianBound = boundOf(publishedBound(entry));
   const median = `${medianBound ? `${esc(medianBound.sign)} ` : ''}${fmtAgainst(entry.value, thresholds, unit)}`;
   const lo = fmtBoundedKind(fmtAgainst(s.min, thresholds, null), s.bounds?.min), hi = fmtBoundedKind(fmtAgainst(s.max, thresholds, null), s.bounds?.max) + (unit ? ` ${unit}` : '');
+  const title = spreadNote(entry);
+  const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
+  // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2"); in the table the
+  // value says it, and a line under it would only repeat it (the 1024 x 768 layout guard, reader round). The count is in
+  // the value's explanation.
+  const same = s.min === s.max && !s.bounds;
+  if (compact && same) return `${main}${convertedMark(entry.converted)}`;
+  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${same ? hi : `${lo}–${hi}`}<span class="spread-n"> · ${s.n}</span></span>`;
+  return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
+}
+
+/**
+ * What a material's value as its products' spread rests on (entry.spread, D83), in words: how many products, their
+ * range and middle half, the twins counted as products, the bounds, the products that do not report it, the values set
+ * apart and why, and the products sold as toughened. The explanation of the median wherever renderValue draws a spread;
+ * the material pages say it too.
+ */
+export function spreadNote(entry) {
+  const s = entry.spread;
   const apart = [
     s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
     s.variants ? `${s.variants.n} special formulation${s.variants.n === 1 ? '' : 's'}, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
     // Products their makers sell as toughened, where the headline sets them apart (D133).
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened or impact-modified by ${s.claimed.n === 1 ? 'its maker' : 'their makers'} (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`})` : null,
   ].filter(Boolean);
-  const title = `Median of ${s.n} products that report it on a comparable basis. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+  return `Median of ${s.n} products that report it on a comparable basis. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, interquartile ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
     + `${s.twins ? ` ${s.twins === 1 ? 'One of them shares' : `${s.twins} of them share`} a data sheet with another product and ${s.twins === 1 ? 'counts as a product' : 'count as products'} of ${s.twins === 1 ? 'its' : 'their'} own.` : ''}`
@@ -393,14 +424,6 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     // Products their makers sell as toughened stay in the median; the popover says how many, and what the others give (D133).
     + `${s.claimed && !s.claimed.setApart ? ` Included: ${s.claimed.n} ${s.claimed.n === 1 ? 'product its maker sells' : 'products their makers sell'} as toughened or impact-modified (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`}).${
       s.claimed.others ? ` Without them the median is ${fmtNumber(s.claimed.others.median)} (${s.claimed.others.min === s.claimed.others.max ? fmtNumber(s.claimed.others.min) : `${fmtNumber(s.claimed.others.min)} to ${fmtNumber(s.claimed.others.max)}`}, ${s.claimed.others.n} product${s.claimed.others.n === 1 ? '' : 's'}).` : ''}` : ''}`;
-  const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
-  // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2"); in the table the
-  // value says it, and a line under it would only repeat it (the 1024 x 768 layout guard, reader round). The count is in
-  // the value's explanation.
-  const same = s.min === s.max && !s.bounds;
-  if (compact && same) return `${main}${convertedMark(entry.converted)}`;
-  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${same ? hi : `${lo}–${hi}`}<span class="spread-n"> · ${s.n}</span></span>`;
-  return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
 }
 
 /**
@@ -424,12 +447,17 @@ export function priceSampleWords(meta, { canadianOnly = false } = {}) {
 export function convertedMark(converted) {
   if (!converted) return '';
   const from = converted.currencies.join(' and ');
+  return explainButton('¤', convertedNote(converted), { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
+}
+
+/** What convertedMark explains, in words: which prices came from a foreign listing, from which currency, at what rate. */
+export function convertedNote(converted) {
+  const from = converted.currencies.join(' and ');
   const which = converted.products
     ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} from a foreign listing`
     : 'A foreign listing\'s price';
-  const text = `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
+  return `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
     + `sells ${converted.products ? 'those products' : 'this product'}. Shipping and duty are not included.`;
-  return explainButton('¤', text, { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */

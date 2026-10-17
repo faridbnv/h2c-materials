@@ -25,7 +25,9 @@ const run = (cmd, args, cwd) => execFileSync(cmd, args, { cwd, encoding: 'utf8',
 
 function buildAt(dir, label) {
   try {
-    run(process.execPath, ['build/src/index.js'], dir);
+    // Without the material pages (stage 8): they are drawn from the database compared here and decide nothing, and the
+    // working tree's dist/materials is then removed, not left beside a database it may not match (npm run build).
+    run(process.execPath, ['build/src/index.js', '--no-pages'], dir);
   } catch (e) {
     console.error(`The build of ${label} failed:\n${(e.stdout ?? '').split('\n').filter((l) => /ERROR|failed/.test(l)).slice(0, 20).join('\n')}${e.stderr ?? ''}`);
     process.exit(2);

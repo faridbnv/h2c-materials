@@ -16,7 +16,8 @@
 // file modified after this process started (its modules may be older than the bytes on disk) turns the cache off for
 // that call or that process. A hit returns a fresh deserialised copy, so a caller may mutate what it gets.
 //
-// H2C_NO_BUILD_CACHE=1 turns it off; `buildDatabase(wb, { cache: false })` turns it off for one call.
+// H2C_NO_BUILD_CACHE=1 turns it off; `buildDatabase(wb, { cache: false })` turns it off for one call. The same store
+// keeps the material pages (build stage 8, app/pages/stage.js), keyed by digestFiles over the renderer's code.
 // The entries live in .cache/build/ (git-ignored), least recently used first out beyond MAX_BYTES.
 
 import { createHash, randomBytes } from 'node:crypto';
@@ -121,6 +122,10 @@ function codeDigest(files) {
   return createHash('sha256').update(JSON.stringify({ FORMAT, runtime, files: files.map((f) => [f.file, f.sha256]) })).digest('hex');
 }
 
+// 2 s: the coarsest timestamp a filesystem keeps. A file modified within this window of the process's start, or after
+// it, may be newer than the module the process loaded from it.
+const LATE_MS = 2000;
+
 // The code digest, taken once per process. A file modified after this process started may be newer than the module
 // this process loaded from it, so the key could name code that is not what runs: the cache stays off for the process.
 let code;
@@ -129,13 +134,48 @@ function processCode() {
   try {
     const files = codeFiles();
     const started = performance.timeOrigin;
-    const late = files.find((f) => f.mtimeMs >= started - 2000); // 2 s: the coarsest timestamp a filesystem keeps
+    const late = files.find((f) => f.mtimeMs >= started - LATE_MS);
     code = late ? null : codeDigest(files);
     if (late) process.emitWarning(`build cache off in this process: ${late.file} changed after it started`);
   } catch {
     code = null;
   }
   return code;
+}
+
+// Operating-system litter is no code (release.js ignores it too).
+const LITTER = /^(\.DS_Store|Thumbs\.db)$/;
+
+/**
+ * The digest of every file under these folders (paths from the project root), for a result that depends on code
+ * outside the build's own: the material pages' renderer (app/pages/stage.js) keys its stored pages with it. It covers
+ * each file's path and bytes, in path order, and the runtime (Node's version, platform and architecture, and ICU's
+ * version). Null, so that nothing is read or stored, when a file was modified within LATE_MS of this process's start or
+ * after it (as the code digest is: its module may be older than its bytes on disk), or a folder cannot be read.
+ */
+export function digestFiles(roots) {
+  try {
+    const files = [];
+    for (const dir of roots) {
+      for (const f of readdirSync(join(projectRoot, dir), { recursive: true, withFileTypes: true })) {
+        if (f.isFile() && !LITTER.test(f.name)) files.push(relative(projectRoot, join(f.parentPath, f.name)).split('\\').join('/'));
+      }
+    }
+    const started = performance.timeOrigin;
+    const pairs = [];
+    for (const file of files.sort()) {
+      const path = join(projectRoot, file);
+      if (statSync(path).mtimeMs >= started - LATE_MS) {
+        process.emitWarning(`build cache off for this result: ${file} changed after this process started`);
+        return null;
+      }
+      pairs.push([file, createHash('sha256').update(readFileSync(path)).digest('hex')]);
+    }
+    const runtime = [process.version, process.platform, process.arch, process.versions.icu ?? 'no-icu'];
+    return createHash('sha256').update(JSON.stringify({ format: 'h2c-files 1', runtime, files: pairs })).digest('hex');
+  } catch {
+    return null;
+  }
 }
 
 /** The key for a build of `wb` with these options by the code whose digest is `code`. */

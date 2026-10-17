@@ -25,7 +25,7 @@ generated and never edited, and the retired Excel workbooks are history. Before 
 
 ```bash
 npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 80 s after a data change, about 45 s when nothing the build reads changed; budget 90 s)
-npm run verify        # verify:fast, then the import tests, the campaign page, audit, snapshot, links, packets, interface views, 300 rendered scenarios, the scale and reproducible-build checks: before a commit; every step runs even if one fails, the steps that do not need each other run side by side, and the failures are listed at the end
+npm run verify        # verify:fast, then the import tests, the campaign page, audit, snapshot, the material pages, links, packets, interface views (the selector's and the material pages'), 300 rendered scenarios, the scale and reproducible-build checks: before a commit; every step runs even if one fails, the steps that do not need each other run side by side, and the failures are listed at the end
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
@@ -34,8 +34,10 @@ npm run build:diff    # what the change did to the compiled database, against HE
 CI holds no text cache, so there it prints SKIPPED and a warning and passes: run it in a checkout that has the cache
 before a push), on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale decisions index, README status block or coverage-campaign page, on a stale `build/snapshot/`, on a
-relative Markdown link that leads nowhere, on an exported packet still tracked, and on any disagreement between the rendered page and the
-engine over 300 random scenarios (seven to eight minutes in all, as GOALS C13 measures it: the interface
+relative Markdown link that leads nowhere, on an exported packet still tracked, on a material page that disagrees with the build
+(`npm run pages:check`), and on any disagreement between the rendered page and the
+engine over 300 random scenarios (about seven minutes in all on the owner's machine, steps side by side, as GOALS C13
+measures it: the interface
 views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
 (`npm run test:ingest`), which `verify:fast` leaves out to stay within its budget.
 

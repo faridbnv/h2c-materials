@@ -1,0 +1,12 @@
+viewport 1180x760
+document width 1180
+spill: none
+clipped cells: none in 13 tables
+hidden controls: 0
+sections (12): masthead, in-short (empty), key-figures, mechanical, thermal, printing, products, makers-say, environment, physical, sources, footer
+figures: 6, with an svg 6, with a caption 6
+contents: rail, 10 links, sticky
+fonts: Inter loaded, Newsreader loaded
+lighting: works
+sorting: works
+anchors: 16 checked

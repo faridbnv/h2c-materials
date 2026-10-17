@@ -25,6 +25,9 @@
 //   build/snapshot/states.csv      every product's decision states (D99) where a state's value is not the product's
 //                                   published value the table shows: an annealed or conditioned state's own values, and
 //                                   an as-printed state without the annealed value the table shows
+//   build/snapshot/pages.csv       every listed material's page: whether it has one and, where it has none, what it falls
+//                                   short on; its products, values, makers and documents; the sections, figures and
+//                                   dots drawn; the size of the page and of its records page (D142)
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -39,6 +42,9 @@ import { runSelection, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
 import { productsByMaterial, productGates } from '../app/js/engine/products.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 import { activeProducts, statusCounts } from './lib/status-counts.mjs';
+import { renderSite, pageEnv } from '../app/pages/render.js';
+import { indexDb, materialContext, identity } from '../app/js/ui/material-facts.js';
+import { pageOf, pageFacts, shortOf } from '../app/js/ui/page-rule.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dir = join(root, 'build/snapshot');
@@ -172,6 +178,33 @@ for (const g of [...db.grades].filter((x) => !x.retired && x.states).sort((a, b)
   }
 }
 
+// Every listed material's page, rendered here from the snapshot's own database with the stamps masked, so a new release or
+// build date moves no row and a change to a page's design or content shows in the diff of the change that made it. No
+// selector link (selectorFile null) and no assets: the pages' bytes are what the rows count, not their stylesheet.
+const pageRows = (() => {
+  const env = pageEnv(db, { assets: null });
+  env.stamps = { release: 'masked', snapshot: 'masked', build: 'masked' };
+  const { files, stats } = renderSite(db, env);
+  const text = new Map(files);
+  const ix = indexDb(db);
+  const perPage = new Map(stats.perPage.map((p) => [p.id, p]));
+  const kb = (s) => (Buffer.byteLength(s) / 1024).toFixed(1);
+  return db.materials.filter((m) => !m.familyEntry).map((m) => {
+    const ms = ix.measurementsByMaterial.get(m.id) ?? [];
+    const path = pageOf(m, ms);
+    const c = materialContext(db, m.id, { showEstimates: true });
+    const p = perPage.get(m.id);
+    const html = path ? text.get(path) : null;
+    const records = path ? text.get(path.replace(/\.html$/, '-records.html')) : null;
+    return { MaterialID: m.id, Material: m.name, Page: path ?? '', Why: path ? '' : shortOf(m, ms),
+      Products: pageFacts(m, ms).products, Values: pageFacts(m, ms).values,
+      Makers: identity(m, c).makers, Documents: c.documents.size,
+      Sections: html ? [...html.matchAll(/data-section="([^"]+)"/g)].map((x) => x[1]).join(' ') : '',
+      Figures: p?.figures ?? '', Dots: p?.dots ?? '', RecordsRows: p?.rows ?? '',
+      KB: html ? kb(html) : '', RecordsKB: records ? kb(records) : '', Summary: m.written?.status ?? 'none' };
+  });
+})();
+
 // The numbers the docs would otherwise repeat and let go stale (re-center phase 5; GOALS rule 9, "counts are
 // generated"): what the database holds, counted from the build the snapshot compares. Docs link here.
 // Products are the active procurement grades; a study or reference grade (-R#) is not one. The totals the README states
@@ -219,6 +252,7 @@ const files = {
   'environment.csv': csvText(['MaterialID', 'Category', 'Record', 'GradeID', 'Level', 'Verdict', 'Qualified', 'Screens'], environmentRows),
   'print.csv': csvText(Object.keys(printRows[0]), printRows),
   'states.csv': csvText(['GradeID', 'MaterialID', 'Product', 'State', 'Headline', 'Value', 'Measurement', 'Shown', 'From'], stateRows),
+  'pages.csv': csvText(Object.keys(pageRows[0]), pageRows),
 };
 
 if (process.argv.includes('--check')) {
@@ -228,5 +262,5 @@ if (process.argv.includes('--check')) {
 } else {
   mkdirSync(dir, { recursive: true });
   for (const [f, text] of Object.entries(files)) writeFileSync(join(dir, f), text);
-  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries, ${printRows.length} product print gates, ${stateRows.length} state values`);
+  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries, ${printRows.length} product print gates, ${stateRows.length} state values, ${pageRows.filter((r) => r.Page).length} of ${pageRows.length} materials with a page`);
 }

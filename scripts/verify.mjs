@@ -16,7 +16,7 @@
 // overall budget for verify, only the total printed. Chrome is needed for the interface steps; a check that cannot run
 // has not passed, so a missing browser is a failure here too.
 //
-// The steps that do not need each other run side by side (D142): the documents' checks, the build, the audit, the
+// The steps that do not need each other run side by side (D144): the documents' checks, the build, the audit, the
 // snapshot and the browser checks read what they read and write nothing another step reads. Each says what it follows
 // (scripts/lib/run-steps.mjs). Three orders are kept on purpose: the import tests follow the unit tests, because they
 // put their fixtures' text in .cache/text and a unit test and the context audit read that cache; the reproducible-build
@@ -55,6 +55,9 @@ const GROUPS = {
     ['context audit', ...node('scripts/audit/context-witness.mjs'), { after: ['import tests'] }],
     // After the build, so its build of the tables is the one the build stored (.cache/build).
     ['snapshot', ...node('scripts/snapshot.mjs', '--check'), afterBuild],
+    // The material pages in dist/materials/ against the database they were rendered from (test/pages.check.js, P1 to
+    // P14). After the build, which renders them (stage 8); it writes nothing another step reads.
+    ['material pages', 'npm', ['run', 'pages:check'], afterBuild],
     // Every relative link in the Markdown leads somewhere, and every round's exported packets are recorded (D138).
     ['links', ...node('scripts/docs-links.mjs', '--check'), { after: [] }],
     ['packets', ...node('scripts/data/packets.mjs', '--check'), { after: [] }],

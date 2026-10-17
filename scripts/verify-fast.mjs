@@ -8,7 +8,7 @@
 //   npm run verify:fast -- --jobs 4              at most four cores busy (default: every core)
 //
 // A step that fails does not stop the rest (scripts/lib/run-steps.mjs says why), so one run shows every problem. The
-// steps that do not need each other run side by side (D142): the documents' checks while the build runs, the tests and
+// steps that do not need each other run side by side (D144): the documents' checks while the build runs, the tests and
 // the README's status once it has; each step's output is printed whole when it finishes. The budget is set on the
 // owner's machine, so by default a slower one is told the total is over and still passes; --enforce-budget is for the
 // machine the budget is set on, where an overrun is a failure. The list is exported for scripts/verify.mjs, which runs

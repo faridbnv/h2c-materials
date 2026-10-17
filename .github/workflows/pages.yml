@@ -62,21 +62,39 @@ jobs:
       - name: Build
         run: npm run build
 
+      # The material pages (build stage 8, dist/materials) as one file for the release: the selector's drawer links
+      # to materials/<id>.html beside the page, so a page downloaded from its release opens those links once the zip
+      # is unzipped next to it. -X leaves out the file attributes a zip would otherwise carry from this runner.
+      - name: Zip the material pages
+        run: |
+          id=$(node -p "require('./dist/manifest.json').release")
+          snapshot=$(node -p "require('./dist/manifest.json').snapshot")
+          (cd dist && zip -qrX "H2C_Material_Pages_${snapshot}_${id}.zip" materials)
+          ls -la dist/H2C_Material_Pages_*.zip
+
       # A release's page is kept for good where a saved scenario can find it (D96): a GitHub release named by its ID,
-      # created once, with the page and its manifest attached. The site below always serves the current release, so
-      # the page of an older one is fetched from its release, never from the site.
+      # created once, with the page, its manifest and its material pages attached. The site below always serves the
+      # current release, so the page of an older one is fetched from its release, never from the site. A release kept
+      # before its material pages were built gets their zip the first time a build of it has one; one that has a zip
+      # keeps it (a change to the pages' design alone is not a new release, D96, D142).
       - name: Keep this release's page
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           id=$(node -p "require('./dist/manifest.json').release")
           snapshot=$(node -p "require('./dist/manifest.json').snapshot")
+          pages="dist/H2C_Material_Pages_${snapshot}_${id}.zip"
           if gh release view "h2c-$id" >/dev/null 2>&1; then
             echo "Release h2c-$id is kept already"
+            if gh release view "h2c-$id" --json assets --jq '.assets[].name' | grep -q '^H2C_Material_Pages_.*\.zip$'; then
+              echo "and has its material pages"
+            else
+              gh release upload "h2c-$id" "$pages"
+            fi
           else
-            gh release create "h2c-$id" dist/H2C_Material_Selector_*.html dist/manifest.json --target "$COMMIT" \
+            gh release create "h2c-$id" dist/H2C_Material_Selector_*.html dist/manifest.json "$pages" --target "$COMMIT" \
               --title "H2C Material Selector, release $id" \
-              --notes "The page of release $id (data $snapshot), built and verified from $COMMIT. Download it and open it from disk; it needs no network."
+              --notes "The page of release $id (data $snapshot), built and verified from $COMMIT. Download it and open it from disk; it needs no network. Its material pages are in $(basename "$pages"): unzip it in the folder that holds the page, so that the drawer's Full page links open."
           fi
 
       - name: Assemble the site
@@ -90,6 +108,8 @@ jobs:
           cp build/reports/validation-report.md _site/validation-report.md
           # What the page was built from: commit, input hashes and output hashes.
           cp dist/manifest.json _site/manifest.json
+          # The material pages, beside the page, where the drawer's Full page links find them (materials/<id>.html).
+          cp -r dist/materials _site/materials
           # Tell GitHub Pages not to run the output through Jekyll.
           touch _site/.nojekyll
           ls -la _site

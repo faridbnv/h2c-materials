@@ -11,7 +11,7 @@
 // for a wrong result. Time is judged here, last, and only where the machine can be held to it: CI, and the machine the
 // budgets were set on (--enforce-budget). Anywhere else an overrun is a warning, because a slow machine says nothing
 // about the code. Where a miss can fail, it gets one re-run of `npm run scale`, and each timing is the better of the two
-// runs, since one slow minute is noise and two are not. Where it cannot, it is not re-run (2026-10-17, D142): the second
+// runs, since one slow minute is noise and two are not. Where it cannot, it is not re-run (2026-10-17, D144): the second
 // run cost `npm run verify` another 85 to 180 s on the owner's machine and could only change a warning's wording, and
 // the warning says it is one run's reading.
 

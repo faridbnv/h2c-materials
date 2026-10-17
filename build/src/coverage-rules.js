@@ -39,6 +39,10 @@ const foreignPrice = (db, id) => {
  * notes a material owns but that were written for its family, and no rule over evidence domains expresses that: six
  * materials say Gap there beside records of their own, truthfully. Those rows stay stored (m48).
  */
+/** A material's makers' statements on moisture sensitivity, from the know-how tier (db.knowHow, D85). */
+export const MOISTURE_KNOW_HOW = 'Moisture sensitivity';
+const moistureKnowHow = (db, material) => (db.knowHow ?? []).filter((k) => k.materialId === material.id && k.topic === MOISTURE_KNOW_HOW);
+
 export function domainData(db, material) {
   const own = (rows) => rows.filter((r) => r.materialId === material.id);
   const measured = own(db.measurements).filter((m) => (m.numeric || m.qualitative) && !m.quarantined);
@@ -52,7 +56,10 @@ export function domainData(db, material) {
     'Print setup': own(db.profiles).filter((p) => !p.retired)
       .filter((p) => ['nozzle', 'bed', 'chamber'].some((a) => p[a].state !== 'unknown') || p.drying.state === 'stated')
       .map((p) => p.id),
-    'Moisture / environmental': own(db.evidence).filter((e) => ENVIRONMENT_CATEGORIES.has(e.category)).map((e) => e.id),
+    // A maker's own statement on how its product takes up water (moderately hygroscopic, dry at 75 °C for 24 h, keep in a
+    // dry box) is a moisture record of its own sources, as a storage or handling note under Environmental is; it sits in
+    // the know-how tier, which screens nothing (D85), so it counts here and decides nothing (D143).
+    'Moisture / environmental': [...own(db.evidence).filter((e) => ENVIRONMENT_CATEGORIES.has(e.category)), ...moistureKnowHow(db, material)].map((e) => e.id),
     // A Canadian listing only: a price converted from a foreign one prices the material and closes no Canadian gap (D113).
     'Canadian price': material.headline.priceCADkg?.known ? material.headline.priceCADkg.priceIds.filter((id) => !foreignPrice(db, id)) : [],
   };
@@ -68,7 +75,10 @@ export const DERIVED_FINDING = {
   Mechanical: (m, ids) => `${ids.length} mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.`,
   Thermal: (m, ids) => `${ids.length} thermal measurement(s) of this material's own grades. HDT, Tg and Vicat are not continuous-service ratings.`,
   'Print setup': (m, ids) => `${ids.length} print profile(s) publishing a nozzle, bed, chamber or drying setting: ${ids.join(', ')}. Check other setup fields individually.`,
-  'Moisture / environmental': (m, ids) => `${ids.length} exposure, solubility or moisture record(s) from this material's own sources. Test conditions are rarely stated; not a chemical database.`,
+  'Moisture / environmental': (m, ids, db) => {
+    const statements = moistureKnowHow(db, m).length;
+    return `${ids.length} exposure, solubility or moisture record(s) from this material's own sources${statements ? `, ${statements === ids.length ? (ids.length === 1 ? 'it' : 'all of them') : `${statements} of them`} its makers' statements on moisture sensitivity (drying, storage, water uptake)` : ''}. Test conditions are rarely stated; not a chemical database.`;
+  },
   'Canadian price': (m, ids) => `${ids.length} in-stock regular-price observation(s), before tax/shipping.`,
 };
 
@@ -127,7 +137,7 @@ export function derivedCoverage(db) {
       if (stored.has(`${material.id}\u0000${domain}`)) continue;
       const ids = data[domain] ?? [];
       const row = (status, finding) => out.push({ id: derivedId(material.id, domain), materialId: material.id, domain, status, manufacturerCount: null, finding, derived: true });
-      if (ids.length) { row('Evidence recorded', DERIVED_FINDING[domain](material, ids)); continue; }
+      if (ids.length) { row('Evidence recorded', DERIVED_FINDING[domain](material, ids, db)); continue; }
       // Absence is a restatement of the records too (D114), except for a family entry, which owns no product and whose
       // stored rows say Not applicable where it had findings.
       if (material.familyEntry || !DERIVED_ABSENT[domain]) continue;

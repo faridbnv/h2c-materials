@@ -6,34 +6,9 @@
    controls are grouped by what they decide rather than set side by side as boxes of five different kinds. */
 
 :root {
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --surface-2: #f2f2ef;
-  --border: #dcdcd6;
-  --border-strong: #bcbcb4;
-  --ink: #1a1a18;
-  --ink-2: #55554e;
-  --ink-3: #85857c;
-  --accent: #1f5f8b;
-  --accent-soft: #e4eef5;
-  /* Text on an accent fill. White on the dark theme's light blue read at about 2:1. */
-  --on-accent: #fff;
-
-  /* Status palette. Used for nothing else. */
-  --pass: #1d6f42;      --pass-bg: #e4f2e9;
-  --fail: #a32b1f;      --fail-bg: #fae8e6;
-  --unknown: #8a6100;   --unknown-bg: #fbf0da;
-  --indet: #24568f;     --indet-bg: #e6eefa;
-  /* A product its maker sells as toughened (D133): a maker's claim, not a verdict, so none of the verdict colours. */
-  --claim: #7d3c86;     --claim-bg: #f4e8f5;
-
-  --radius: 7px;
-  /* The raised selection inside a segmented control, and the frame's panels. */
-  --shadow-sm: 0 1px 2px rgba(20, 20, 18, .10), 0 0 0 1px rgba(20, 20, 18, .06);
+  /* The selector's own layout and type, beside the shared tokens (tokens.css, bundled ahead of this stylesheet). */
   --rail: 340px;
   --drawer: 620px;
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* One type scale, used everywhere. The previous build ran 11px labels against a 14px base,
      which is what made the interface hard on the eye. */
@@ -42,33 +17,6 @@
   --t-table: 14px;
   --t-small: 13px;
   --t-label: 12.5px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
-    --border: #32353d; --border-strong: #474b55;
-    --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
-    --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
-    --pass: #63c68c; --pass-bg: #12301f;
-    --fail: #f08a7d; --fail-bg: #3a1a16;
-    --unknown: #e0b458; --unknown-bg: #352a10;
-    --indet: #85b4ea; --indet-bg: #16283f;
-    --claim: #d895e0; --claim-bg: #33203a;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
-  --border: #32353d; --border-strong: #474b55;
-  --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
-  --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
-  --pass: #63c68c; --pass-bg: #12301f;
-  --fail: #f08a7d; --fail-bg: #3a1a16;
-  --unknown: #e0b458; --unknown-bg: #352a10;
-  --indet: #85b4ea; --indet-bg: #16283f;
-  --claim: #d895e0; --claim-bg: #33203a;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
 }
 
 * { box-sizing: border-box; }
@@ -1445,6 +1393,15 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
 
 /* The shortlist star, on and off without relying on the glyph alone. */
 .shortlist-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+/* The drawer's link to the material's own page: a button to look at, a link to open (a new tab, so the selector stays).
+   On a phone its words are kept for a screen reader and the arrow alone is shown, so the drawer's head stays one row
+   within the screen beside Shortlist and Close. */
+.page-link { position: relative; display: inline-flex; align-items: center; gap: 4px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.page-link:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 600px) {
+  .page-link { padding: 4px 9px; }
+  .page-link-words { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 
 /* Filter rail: plain name leads, the sentence under it says what the property means, and the
    example lives here rather than as a grey placeholder that read like a set value. */

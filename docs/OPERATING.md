@@ -86,6 +86,13 @@ AGENTS.md: commit and push to `main` only when the owner asks.
 5. Check the live page is the one you pushed: `https://pdynamics.ca/h2c-materials/manifest.json` must name your commit,
    and its `release` must match the page's top bar.
 
+What Publish to Pages puts out: the site serves the selector at its root, its manifest and validation report, and the
+material pages beside it at `materials/` (`https://pdynamics.ca/h2c-materials/materials/M020.html`; the index is
+`materials/index.html`), so the drawer's Full page links open there. A new release is kept as a GitHub release
+`h2c-<release>` with the selector's page, its manifest and `H2C_Material_Pages_<snapshot>_<release>.zip`, the material
+pages zipped; its notes say to unzip the zip in the folder that holds the downloaded page, which is what makes the Full
+page links open from disk. A release kept before it had its zip gets it on the next build of that release.
+
 If Verify fails on CI but passed locally: CI is Linux x64 with the Node version `.nvmrc` names. Run the failing group
 there (`node scripts/verify.mjs --group data`, `--group views`, `--group scenarios --shard 2/3` or `--group trend`) under `npx -y node@$(cat .nvmrc)`;
 a failure that only CI shows has been a floating-point difference between processors before (an exact comparison where a

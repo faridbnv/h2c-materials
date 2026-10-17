@@ -13,6 +13,9 @@ export const DIRECTION = {
   // An alternating ±45° raster beside the sheet's own XY bar (Essentium PPS-CF) is its own orientation, neither XY nor Z
   // (audit 2026-09-15, C-06). A tensile value a sheet labels only by its ±45° raster is recorded XY (D91).
   RASTER_45: 'raster-45',
+  // A bar labelled YX beside the sheet's own XY bar (Essentium, 3D-Fuel): flat, its length along Y by ISO/ASTM 52921, so
+  // another bar than the XY one; kept as its label and compared with nothing but itself (D143).
+  YX: 'YX',
   NOT_APPLICABLE: 'not-applicable',
   UNKNOWN: 'unknown',
 };
@@ -26,6 +29,7 @@ const MAP = new Map([
   ['Vertical XZ (source label)', DIRECTION.VERTICAL_XZ_LABEL],
   ['Along flow', DIRECTION.ALONG_FLOW],
   ['45/45', DIRECTION.RASTER_45],
+  ['YX', DIRECTION.YX],
   ['Not applicable', DIRECTION.NOT_APPLICABLE],
   ['Not published', DIRECTION.UNKNOWN],
   // Two reviewed forms of unknown (m47). Both are unknown to the build; they differ in what the source did, and in
@@ -45,6 +49,7 @@ const STRICT_EQUIVALENCE = {
   [DIRECTION.VERTICAL_XZ_LABEL]: [DIRECTION.VERTICAL_XZ_LABEL],
   [DIRECTION.ALONG_FLOW]: [DIRECTION.ALONG_FLOW],
   [DIRECTION.RASTER_45]: [DIRECTION.RASTER_45],
+  [DIRECTION.YX]: [DIRECTION.YX],
   [DIRECTION.NOT_APPLICABLE]: [DIRECTION.NOT_APPLICABLE],
   [DIRECTION.UNKNOWN]: [DIRECTION.UNKNOWN],
 };

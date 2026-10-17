@@ -15,6 +15,9 @@ import { pageName } from './release.js';
 
 const escapeForScript = (s) => s.replace(/<\/script/gi, '<\\/script');
 
+/** The stylesheets app/index.html links, in its order; the bundle inlines them, in this order, into one <style>. */
+const STYLESHEETS = ['css/tokens.css', 'css/app.css'];
+
 async function bundleApp(appRoot) {
   const result = await esbuild({
     entryPoints: [join(appRoot, 'js/main.js')],
@@ -29,7 +32,9 @@ async function bundleApp(appRoot) {
 export async function bundle({ projectRoot, buildRoot, db, reference, meta }) {
   const appRoot = join(projectRoot, 'app');
   const html = readFileSync(join(appRoot, 'index.html'), 'utf8');
-  const css = readFileSync(join(appRoot, 'css/app.css'), 'utf8');
+  // The shared design tokens first, then the selector's own stylesheet, as one <style>: the material pages read the
+  // same tokens, and a CSS @import would be a second request the single file cannot make.
+  const css = STYLESHEETS.map((f) => readFileSync(join(appRoot, f), 'utf8')).join('\n');
   const plotly = readFileSync(join(buildRoot, 'node_modules/plotly.js-dist-min/plotly.min.js'), 'utf8');
   const app = await bundleApp(appRoot);
 
@@ -44,7 +49,7 @@ export async function bundle({ projectRoot, buildRoot, db, reference, meta }) {
   };
 
   let out = html;
-  out = put(out, '<link rel="stylesheet" href="css/app.css">', `<style>\n${css}\n</style>`);
+  out = put(out, STYLESHEETS.map((f) => `<link rel="stylesheet" href="${f}">`).join('\n'), `<style>\n${css}\n</style>`);
   out = put(out, '<script src="js/main.js" type="module"></script>', [
     `<script type="application/octet-stream" id="db-data" data-encoding="gzip+base64">${pack(db)}</script>`,
     `<script type="application/octet-stream" id="reference-data" data-encoding="gzip+base64">${pack(reference)}</script>`,
@@ -55,7 +60,7 @@ export async function bundle({ projectRoot, buildRoot, db, reference, meta }) {
     `<title>Filament Atlas</title>\n<meta name="generator" content="H2C selector release ${meta.release?.id ?? 'unidentified'}, database snapshot ${meta.snapshot}, build ${meta.build}">`);
 
   // The placeholder must be gone exactly once, and no fragment of it may survive anywhere.
-  if (out.includes('js/main.js') || out.includes('css/app.css')) {
+  if (out.includes('js/main.js') || STYLESHEETS.some((f) => out.includes(f))) {
     throw new Error('bundle: a source path survived into the output, so a replacement misfired');
   }
 

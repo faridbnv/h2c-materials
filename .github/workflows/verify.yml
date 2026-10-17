@@ -3,9 +3,9 @@
 #              audit, the review snapshot, and the check that no record was deleted;
 #   views      the interface views, in headless Chrome;
 #   scenarios  the 300 random rendered scenarios, in three parts of about 100, each in headless Chrome: every part
-#              draws the same 300 from the seed and runs its own, so together they are the run they divide (D142).
+#              draws the same 300 from the seed and runs its own, so together they are the run they divide (D144).
 # The interface was one job until 2026-10-17, and its 300 scenarios alone (341 s) made a push wait 7 m 45 s where the
-# data job took 3 m 24 s; in parts, the data job is the longest (D142). Publishing (pages.yml) runs after every job has
+# data job took 3 m 24 s; in parts, the data job is the longest (D144). Publishing (pages.yml) runs after every job has
 # passed on main and only builds and deploys: the gate runs once per push, not twice. Once a week, and on demand, the
 # trend job runs the scale check (twice today's data, within its time budget) and the reproducible-build check, and
 # 2,000 rendered scenarios run on a new seed, in four parts. Those watch how the build grows and whether it stays
@@ -57,7 +57,7 @@ jobs:
       # The build cache (.cache/build, build/src/build-cache.js) is never restored in CI: every result this job uses
       # is built cold once, and the audit builds again with the cache off. The cache stays off in a process started
       # within 2 s of a change to a file it hashes, and npm ci has just written build/node_modules/.package-lock.json:
-      # without the wait the build stored nothing, and the tests and the snapshot built the whole database again (D142).
+      # without the wait the build stored nothing, and the tests and the snapshot built the whole database again (D144).
       - name: Start from an empty build cache
         run: rm -rf .cache/build && sleep 3
 

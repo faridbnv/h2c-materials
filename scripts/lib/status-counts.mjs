@@ -6,6 +6,7 @@
 // and write the snapshot. snapshot.mjs imports these functions instead.
 
 import { productGates } from '../../app/js/engine/products.js';
+import { pageOf } from '../../app/js/ui/page-rule.js';
 
 /** Products are the active procurement grades; a retired grade and a study or reference grade (-R#) are not products. */
 export const activeProducts = (db) => db.grades.filter((g) => !g.retired && !/-R\d+$/.test(g.id));
@@ -18,11 +19,14 @@ export const activeProducts = (db) => db.grades.filter((g) => !g.retired && !/-R
  *  - unknown: the products whose print gate on that axis is unknown, counted as the engine judges it (productGates),
  *    the same reading build/snapshot/print.csv records.
  *  - priceDates: the days the price listings in use were read on.
+ *  - pages: the listed materials with a page of their own, by the page rule (app/js/ui/page-rule.js pageOf).
  */
 export function statusCounts(db) {
   const products = activeProducts(db);
   const listed = db.materials.filter((m) => !m.familyEntry);
   const materialById = new Map(db.materials.map((m) => [m.id, m]));
+  const measurementsBy = new Map();
+  for (const x of db.measurements) { if (!measurementsBy.has(x.materialId)) measurementsBy.set(x.materialId, []); measurementsBy.get(x.materialId).push(x); }
   const unknown = { chamber: 0, drying: 0, nozzle: 0, bed: 0 };
   for (const g of products) {
     const gates = productGates(materialById.get(g.materialId), g);
@@ -43,6 +47,8 @@ export function statusCounts(db) {
     measurements: db.measurements.length,
     sources: db.sources.length,
     unknown,
+    // A material page, where the rule the build writes them by gives one (D142).
+    pages: listed.filter((m) => pageOf({ ...m, gradeIds: m.gradeIds ?? [] }, measurementsBy.get(m.id) ?? [])).length,
     // The days the prices in use were read on, oldest first: a listing is read once and never refreshed (GOALS, C16).
     priceDates: [...new Set((db.prices ?? []).filter((p) => !p.quarantined && p.accessDate).map((p) => p.accessDate))].sort(),
   };

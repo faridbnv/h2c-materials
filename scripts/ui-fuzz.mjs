@@ -10,7 +10,7 @@
 //   npm run ui:fuzz -- --n 3000 --seed 7   the audit's full run, or another seed
 //   npm run ui:fuzz -- --n 300 --shard 2/3 the second of three parts of the same 300 scenarios (CI runs the parts as
 //                                         parallel jobs): every part draws all of them from the seed and runs its own,
-//                                         so the parts together are exactly the run they divide (D142)
+//                                         so the parts together are exactly the run they divide (D144)
 //   Without Chrome it reports "skipped" and exits 0, unless --require is given (CI).
 //
 //   node scripts/ui-fuzz.mjs [--n 2000] [--seed 1] [--tabs 8]
@@ -750,7 +750,7 @@ const mine = (() => {
 const rendered = new Map();   // i -> { S1: ids, X0: ids, X1: ids }
 // When each scenario has been read (or failed to be). A child compares its rows with its parent's (I8), and waits for
 // its parent to finish first: every child is compared, not only the ones whose parent another tab happened to finish
-// sooner (51 of the 54 children of seed 1's 300 in one run, 48 in the same 300 run in three parts; all 54 since, D142).
+// sooner (51 of the 54 children of seed 1's 300 in one run, 48 in the same 300 run in three parts; all 54 since, D144).
 // The parent was taken from the list before its child, so it is being read or is done, and the wait ends.
 const finished = new Map(mine.map((s) => { let settle; const p = new Promise((r) => { settle = r; }); return [s.i, { p, settle }]; }));
 let next = 0, done = 0, loads = 0, imports = 0, importFallbacks = 0, readings = 0, roundtrips = 0;

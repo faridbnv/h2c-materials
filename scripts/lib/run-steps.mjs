@@ -4,7 +4,7 @@
 // the table says which took how long and which failed, and the exit code is non-zero if any did.
 //
 // A STEPS list is [name, command, args, order?] entries. runSteps runs them one at a time; runGraph runs side by side
-// the ones that do not need each other (2026-10-17, D142), which is most of verify: the documents' checks, the build,
+// the ones that do not need each other (2026-10-17, D144), which is most of verify: the documents' checks, the build,
 // the audit and the browser checks read what they read and write nothing another step reads. `order` says what a step
 // needs, and a step without it waits for every step before it, as in runSteps:
 //

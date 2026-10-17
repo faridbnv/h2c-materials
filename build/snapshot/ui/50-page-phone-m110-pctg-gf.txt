@@ -1,0 +1,12 @@
+viewport 390x844
+document width 390
+spill: none
+clipped cells: none in 9 tables
+hidden controls: 0
+sections (13): masthead, in-short (empty), key-figures, mechanical, thermal, printing, products, makers-say, physical, price, estimates, sources, footer
+figures: 3, with an svg 3, with a caption 3
+contents: strip, 11 links, sticky
+fonts: Inter loaded, Newsreader loaded
+lighting: works
+sorting: works
+anchors: 14 checked

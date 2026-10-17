@@ -442,7 +442,11 @@ to its source.
 
 **Header.** The material's name, its full name once, and one identity line: base polymer, filler, and how many products
 from how many makers ("ASA · carbon-fibre filled · 17 products from 15 makers"), then its Bambu Lab status as a chip,
-under the rail's display names.
+under the rail's display names. A material with a page of its own (below, "The material pages") has a **Full page ↗**
+link before Shortlist (on a phone the arrow alone, its words kept for a screen reader, so the head stays one row), which
+opens the page in a new tab so the selector keeps its place; its title says that a downloaded copy of the selector needs
+its release's material pages zip unzipped beside it. The link is the only way from the selector to the pages (the
+owner's decision of 2026-10-16).
 
 **Overview.** With requirements set it opens on **the answer**: how many of its products meet all the requirements,
 how many fail one and how many publish too little to judge, with *Show the products*. Then **Your requirements**, the
@@ -632,6 +636,60 @@ each.
 A family entry has no tabs, and its drawer says why in one line (its measurements, profiles, grades and prices are
 recorded under each member) above the list of members.
 
+## The material pages
+
+A material with enough on file has a page of its own, built beside the selector by the build (stage 8, D142): a static
+document to read top to bottom, wider than the 620 px drawer, with figures the drawer has no room for, and every record
+behind it one link away. **The reader** is the drawer's: an engineer checking a material, here with time to read it
+whole, print it or send it. **Its purpose** is to understand the material across its products before or after the
+selector's answer; it decides nothing. No requirement is set on a page, no product passes or fails there, the status
+colours never appear in a figure, and its footer says so with the method's sentence that data-sheet values are not
+design allowables.
+
+**Which materials.** Those the page rule admits (`PAGE_RULE` in `app/js/ui/page-rule.js`): at least three products and
+twenty measured values with a number. The same function decides the drawer's link, the index, the README's count and
+the tests; `build/snapshot/pages.csv` lists every material with its page or what it falls short on. A material beyond
+the H2C's capability that qualifies has a full page, which says so first. A group name has none.
+
+**A material's page** (`materials/<id>.html`), in reading order: the masthead (name, full name, the first screen's
+typical numbers with what each rests on, the comparison with the two materials with the most products, polymer, filler,
+Bambu Lab status, products and makers); **In short**, the written summary, whose every number is filled from the data
+when the page is built (its byline and review status beside it); **At a glance**, each key property's median, range and
+middle half with where it sits among every material's medians; **Strength and stiffness** and **Heat**, product by
+product, with what Z keeps of XY and the heat ladder; **How to print it on the H2C**, how many products accept each
+nozzle, bed and chamber temperature against the H2C's limits, drying, hardened nozzle and AMS; **Products**, a table to
+choose from (sortable, searchable, the first 25 and *Show all*), each row opening a card; **What makers say**;
+**Chemicals and environment**; **Physical properties**; **Price**; **Estimated values**, fenced and marked †; **Sources
+and known gaps**; and the footer with the way back to the selector, the material's drawer open. A section with nothing on
+file leaves the page and the contents; one line before Sources names them ("Not on file for …"). A sticky contents
+rail at 1,080 px and wider, a strip of section links below that; every link lands below the sticky bar.
+
+**The figure grammar.** Inline SVG drawn by the build, one grammar for every figure: a number and a title that states
+what it shows, a key only of the marks drawn, the plot, and a caption with one line on how to read it and *How this is
+counted* closed beneath (what is counted, drawn apart and not drawn, and why, the figure's numbers as a table, the way
+to the records). A product is a mark: filled is compared, hollow is drawn and not counted (no stated orientation or load, or a print
+setting from the Bambu Lab Filament Guide), a square was measured after annealing, a grey diamond is a special
+formulation left out of the median, and the claim colour marks a product sold as toughened (the maker's statement, never
+a verdict). The accent marks this material, grey every other. Hovering or focusing a product lights it in every figure; its name shows in a tooltip, and a click opens its row
+in Products. Inter sets the text and the figures, Newsreader the name, the section titles and the summary; both are
+embedded (SIL Open Font License 1.1), so a page opened from disk looks as it does on the site.
+
+**The records page** (`materials/<id>-records.html`): every record behind the page as it is recorded, raw, each with its
+ID in its own cell: measurements by property with every condition and the document and page it was read from, and,
+where a figure draws the group, whether each value is in its median and why not; print profiles; maker statements in
+their own words; environment statements; price listings; documents, with what each gave and the link to the original;
+known gaps and review notes. A finder above the tables narrows them by type, product, document, orientation, property
+and text, and keeps the choice in the address, so a section's link from the main page opens the records it counts.
+
+**The index** (`materials/index.html`) lists every material by family and polymer, each with its Bambu Lab status, its
+products and measured values, linked where it has a page and, where it has none, what it falls short on in one line;
+group names are listed with the materials they stand for. Every page links to it from its top bar and its footer; the
+selector does not.
+
+**Where they are.** Beside the selector's page: in `dist/materials/`, on the site at `materials/`, and in a release as
+`H2C_Material_Pages_<snapshot>_<release>.zip`, to unzip in the folder that holds a downloaded copy of the selector. A
+change to the pages' design alone is not a new release (D96, D142).
+
 ## Search
 
 Matching is by word, not by substring: a query term has to begin a word of the material's name,
@@ -696,6 +754,8 @@ its policies, its migrations or the words it coined for them.
 | Mechanical, Thermal, Environment | What exactly was measured, and how? | Every value with its method, orientation, specimen and condition |
 | The comparison headings (D133, D139) | Where do this material's products sit, test by test, and how does each print? | A dot per product, the medians, then every result or profile with its document |
 | Sources | Can I trust and trace this number? | The documents, what each covers, the link to the original, the known gaps |
+| A material's page | What is this material like across its products, read whole? | Its typical values and where they sit among the materials, product by product, how it prints, what makers say, what is not on file; nothing judged |
+| A records page | Which record is behind that figure, exactly as recorded? | Every record raw, with its conditions, its document and page, whether a figure counts it and why not, and its ID |
 | A popover | What does this mark mean for my decision? | At most four sentences, in standard terms |
 
 **Engineering terms stay; the project's coinages do not.** Where the database has its own word, the page says what an

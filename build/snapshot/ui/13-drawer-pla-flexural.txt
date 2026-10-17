@@ -1,5 +1,5 @@
 Flexural modulus (XY)
-117 products
+121 products
 Flexural modulus (Z)
 17 products
 GPa
@@ -10,7 +10,7 @@ GPa
 8
 10
 Flexural strength (XY)
-118 products
+122 products
 Flexural strength (Z)
 17 products
 MPa
@@ -28,10 +28,10 @@ middle half
 median
 Select a dot to open its result below; hover to find the same product in the other rows.
 Test n Median Middle half Range
-Flexural modulus (XY) GPa 55 2.75 2.41–3.05 2.14⁠–⁠3.98
+Flexural modulus (XY) GPa 59 2.87 2.43–3.1 2.14⁠–⁠3.98
 Also drawn, not in the median: 48 with no stated orientation (1.93⁠–⁠3.8) and 14 special formulations (2.04⁠–⁠8.8).
 Flexural modulus (Z) GPa 17 2.41 2.07–2.74 1.77⁠–⁠3.29
-Flexural strength (XY) MPa 59 75.9 69–84 42.6⁠–⁠115
+Flexural strength (XY) MPa 63 76 69.5–84 42.6⁠–⁠115
 Also drawn, not in the median: 48 with no stated orientation (43⁠–⁠115) and 11 special formulations (29.6⁠–⁠122).
 Flexural strength (Z) MPa 17 54 42–59 21.1⁠–⁠68
 n counts the products compared, special formulations left out: on the XY rows, those whose sheet states the bar's orientation (XY); on the others, every product drawn. The median, middle half and range are of these alone.
