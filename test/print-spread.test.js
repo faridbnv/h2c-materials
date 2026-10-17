@@ -74,7 +74,8 @@ function readSetting(products, axis) {
       else count(!v ? 'unknown' : v.need === 'not-needed' ? 'not-needed' : 'no-temperature');
       continue;
     }
-    if (v?.state !== 'range') { count(v?.state ?? 'unknown'); continue; }
+    const enclosure = axis === 'chamber' && (v?.state ?? 'unknown') === 'unknown' ? ({ required: 'enclosed', recommended: 'recommended' })[g.print?.enclosure] : null;
+    if (v?.state !== 'range') { count(enclosure ?? v?.state ?? 'unknown'); continue; }
     if (v.min != null) rows[`${axis}Low`].push({ ...base, value: v.min, profileId: v.profileId ?? null }); else oneEnd.high++;
     if (v.max != null) rows[`${axis}High`].push({ ...base, value: v.max, profileId: v.profileId ?? null }); else oneEnd.low++;
   }
