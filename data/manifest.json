@@ -18,12 +18,12 @@
       "sha256": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2"
     },
     "measurements": {
-      "rows": 15418,
-      "sha256": "0647eb7fe80c117d38199a1a438300354b82e6cf67d5686c3c4f4f3c90e53ed6"
+      "rows": 15420,
+      "sha256": "2e862c5e99e0de5dd7336f61dbd9c0fed0e5b224b4b03997a7b61a199d481027"
     },
     "page_context": {
-      "rows": 1007,
-      "sha256": "fe062afb30332a51f3b1218dd3d9c5ca24d8cf1a1e023cee230b6aed6668f2f5"
+      "rows": 1010,
+      "sha256": "a9ed6177f08298eb388b137818589a34b8db2566ed9271fed46e8a2281e16f50"
     },
     "impact_test_guesses": {
       "rows": 60,

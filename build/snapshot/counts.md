@@ -15,8 +15,8 @@ rather than repeat a number.
 | … reading values from a twin's sheet | 81 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 471 | where their own sheet is silent (D88); 33 guide rows |
 | … with a maker's know-how statement | 1,060 | lane 3 |
-| Measurements | 14,816 | active rows |
-| … with a usable number | 14,623 |  |
+| Measurements | 14,818 | active rows |
+| … with a usable number | 14,625 |  |
 | Product values | 7,243 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 1,119 | headline cells of in-scope materials |
 | Material values estimated | 138 | where no product publishes (D43) |
