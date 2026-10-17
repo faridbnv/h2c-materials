@@ -14,8 +14,8 @@
 | Step | What | State |
 |---|---|---|
 | 1 | One shared facts layer for the drawer and the pages (`app/js/ui/material-facts.js`, scales, words, the page rule, shared design tokens); the drawer's output unchanged | done: 11,900 drawer renders byte-identical before and after; 0 database differences; verify:fast, 83 interface views and 300 rendered scenarios green; [API](FACTS-API.md) |
-| 2 | Fonts, the page design system and chart grammar, three prototype pages (PETG, PLA, PCTG-GF) | waiting |
-| Gate | The owner approves the prototypes | waiting |
+| 2 | Fonts, the page design system and chart grammar, three prototype pages (PETG, PLA, PCTG-GF) | done: Inter and Newsreader (approved); the renderer, chart grammar and three prototypes with their records pages; every page renders in 0.4 s; the drawer still byte-identical |
+| Gate | The owner approves the prototypes | prototypes shown to the owner on 2026-10-16; waiting for the answer |
 | 3 | Build stage 8, the records and index pages, the drawer's Full page link, the release zip, the checks | waiting |
 | 4 | The written summaries: table, placeholders, lint, drafts, judging | waiting |
 | 5 | Blind read of 40 pages, documents, close | waiting |
