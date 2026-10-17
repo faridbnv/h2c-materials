@@ -557,12 +557,14 @@ few products publish both tests (23 of 386 when it was removed; PLA has one). Ho
 the heading's other rows; selecting a dot (or a value a sentence names) opens its list in the heading, marks its record
 and brings it into view, and the record's document opens Sources.
 Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv, naming a row of
-drawer_comparisons.csv that holds the heading, the closed line's title and the pair label; a property they read is
-folded into the heading. Three rows exist only for these headings, **Drawer only** (D139): tensile modulus Z,
-elongation at break Z and HDT at 1.8 MPa. Each product's value and the material's spread are computed as for every
-headline and shown in the heading, on product cards and in the Products tab's spread table, but none is a filter, a
-chart axis, a table or export column, or a scenario key; each takes only a value whose sheet states its orientation or
-load, so a value whose sheet states no load is drawn once, hollow on the 0.45 MPa row.
+drawer_comparisons.csv that holds the heading, the closed line's title, the pair label, the properties it lists without
+drawing and a second closed line's topic; a property they read or it lists is folded into the heading. Seven rows exist
+only for these headings, **Drawer only** (D139, D140): tensile modulus Z, elongation at break Z, the four flexural rows
+and HDT at 1.8 MPa. Each product's value and the material's spread are computed as for every headline and shown in the
+heading, on product cards and in the Products tab's spread table, but none is a filter, a chart axis, a table or export
+column, or a scenario key. A value with no stated orientation stands hollow on an XY row, out of the median; HDT at 1.8
+MPa takes only a value whose sheet states its load, so a value whose sheet states none is drawn once, hollow on the
+0.45 MPa row.
 
 **Impact strength, test unclear (D133).** The third impact property holds results whose sheet names no test, or names
 both (a Charpy label beside an Izod standard). Its note says so, its values are never compared, and each carries a line
@@ -1024,8 +1026,8 @@ source and opens what it finds. (Until phase 4 a "representative grade" was mark
 D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line with its
 count, and inside it every value with its product and source, largest first, keeping the two short conditions
 (post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
-across a property's values, except in the three comparison headings, which draw each product's chosen value (D133,
-D139). A property another replaced holds no values and is never listed as not published. Where a headline compares only
+across a property's values, except in the comparison headings, which draw each product's chosen value (D133, D139,
+D140). A property another replaced holds no values and is never listed as not published. Where a headline compares only
 some of a property's values, its comparison note says which, and why the rest are shown but not compared, once, in its
 heading's closed line: that only a notched Charpy bar (ISO 179) or a notched Izod bar (ISO 180, D94) in kJ/m² at room
 temperature is; that only a bar the source says it pulled along Z is a Z value; that a resin supplier's glass transition
