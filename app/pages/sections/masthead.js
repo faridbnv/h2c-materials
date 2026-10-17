@@ -14,7 +14,7 @@ import { fmtNumber, fmtBounded, publishedBound } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { identity, stated, isProduct, printCounts } from '../../js/ui/material-facts.js';
 import { printWindows, dryingStats, typicalWindow } from '../../js/ui/material-stats.js';
-import { identityLine, windowText, plural, asPublishedWords } from '../../js/ui/material-words.js';
+import { identityLine, windowText, plural, asPublishedWords, andList } from '../../js/ui/material-words.js';
 import { H2C_STATUS, h2cLimit } from '../../js/ui/labels.js';
 import * as F from '../findings.js';
 import * as FIG from '../figures.js';
@@ -158,7 +158,8 @@ function h2cFoot(c) {
   const limits = pc.axes.map((a) => `${a.label === 'Chamber' ? 'heated chamber' : a.label.toLowerCase()} ${fmtNumber(h2cLimit(a.axis))} °C`);
   const over = pc.axes.filter((a) => a.over);
   if (!over.length) return `No product's setting is beyond the H2C's limits: ${limits.join(', ')}.`;
-  return `${over.map((a) => `${plural(a.over, 'product')} ${a.over === 1 ? 'asks' : 'ask'} for more ${a.label === 'Chamber' ? 'chamber heat' : `${a.label.toLowerCase()} heat`} than the H2C gives`).join('; ')}. The H2C's limits: ${limits.join(', ')}.`;
+  // Said once, short: the head already says a material beyond the H2C's capability is (the second review).
+  return `Beyond the H2C's limits (${limits.join(', ')}): ${andList(over.map((a) => `${a.label === 'Chamber' ? 'chamber' : a.label.toLowerCase()} for ${plural(a.over, 'product')}`))}.`;
 }
 
 function h2cPlate(c, hasPrinting) {

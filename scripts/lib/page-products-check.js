@@ -64,13 +64,14 @@
       continue;
     }
     const desc = words.dir?.[k] === 'desc';
-    const cells = list.map((r) => { const c = r.querySelector(`summary [data-k="${CSS.escape(k)}"]`); const g = c?.getAttribute('data-g'); const v = c?.getAttribute('data-v'); return { id: r.getAttribute('data-grade'), g: g === 'c' ? 0 : g === 'o' ? 1 : 2, v: v == null || v === '' ? null : Number(v) }; });
+    // An Izod value in the Charpy column (data-izod) is a group of its own after the Charpy ones shown as published (D145).
+    const cells = list.map((r) => { const c = r.querySelector(`summary [data-k="${CSS.escape(k)}"]`); const g = c?.getAttribute('data-g'); const v = c?.getAttribute('data-v'); return { id: r.getAttribute('data-grade'), g: g === 'c' ? 0 : g === 'o' ? (c.hasAttribute('data-izod') ? 1.5 : 1) : 2, v: v == null || v === '' ? null : Number(v) }; });
     const back = cells.findIndex((x, i) => i > 0 && x.g < cells[i - 1].g);
     expect(back < 0, { k, problem: 'a group out of place (compared, then as published, then none)', at: back, before: cells[back - 1], after: cells[back] });
-    for (const g of [0, 1]) {
+    for (const g of [0, 1, 1.5]) {
       const vs = cells.filter((x) => x.g === g);
       const bad = vs.findIndex((x, i) => i > 0 && (vs[i - 1].v === null ? x.v !== null : x.v !== null && (desc ? x.v > vs[i - 1].v : x.v < vs[i - 1].v)));
-      expect(bad < 0, { k, group: g ? 'as published' : 'compared', problem: `not ${desc ? 'high' : 'low'} first`, at: bad, a: vs[bad - 1], b: vs[bad] });
+      expect(bad < 0, { k, group: g === 1.5 ? 'Izod' : g ? 'as published' : 'compared', problem: `not ${desc ? 'high' : 'low'} first`, at: bad, a: vs[bad - 1], b: vs[bad] });
     }
   }
   // Sorted and searched at once: the search narrows, the groups keep their order.
@@ -80,7 +81,7 @@
     const q = queries[1] ?? '';
     await search(q);
     const got = shown();
-    const g = got.map((r) => { const c = r.querySelector(`summary [data-k="${CSS.escape(k)}"]`)?.getAttribute('data-g'); return c === 'c' ? 0 : c === 'o' ? 1 : 2; });
+    const g = got.map((r) => { const e = r.querySelector(`summary [data-k="${CSS.escape(k)}"]`); const c = e?.getAttribute('data-g'); return c === 'c' ? 0 : c === 'o' ? (e.hasAttribute('data-izod') ? 1.5 : 1) : 2; });
     expect(g.every((x, i) => !i || x >= g[i - 1]) && countOf() === got.length, { k, q, problem: 'sorted and searched, the groups or the count are wrong' });
     await search('');
   }

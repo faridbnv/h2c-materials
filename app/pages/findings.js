@@ -445,7 +445,8 @@ export function standingWords(c, ranks) {
   const n = high.length + low.length;
   const which = n === 1 ? 'it is' : n === 2 ? 'both are' : 'each is';
   return joinSay([`Among the materials, ${m.name} has ${has.join(has.length > 1 && high.length > 1 ? ', and ' : ' and ')}: ${which} in ${quarter} of the materials that publish ${n === 2 ? 'them' : 'it'}.`,
-    mid.length ? `Its ${lbl(mid)} ${mid.length === 1 ? 'sits' : 'sit'} in the middle half.` : null]);
+    // Two named at most: a longer list is the rest, and the figure below names each.
+    mid.length > 2 ? 'The rest of its key properties sit in the middle half.' : mid.length ? `Its ${lbl(mid)} ${mid.length === 1 ? 'sits' : 'sit'} in the middle half.` : null]);
 }
 
 /** How one median differs from another's, as an engineer says it, or null where the two are about the same. */

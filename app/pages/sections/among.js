@@ -2,6 +2,7 @@
 // peerSet, by rule), said for the first two, and among every material on file, by its high and low properties; then the
 // two figures that draw it (figures.js peersFigure, mapsFigure). It places the material; it does not restate its numbers.
 
+import { evidenceTier } from '../../js/ui/material-highlights.js';
 import { indexDb } from '../../js/ui/material-facts.js';
 import { rankTable } from '../../js/ui/material-facts.js';
 import { peersWords, standingWords, glue } from '../findings.js';
@@ -16,7 +17,10 @@ export default {
     const peerSet = figureConfig('peerSet', null);
     const peers = typeof peerSet === 'function' ? peerSet(c.db, c.m, ix, { max: 5 }) : [];
     const words = [...peersWords(c, peers), standingWords(c, ranks)].filter(Boolean);
-    const figs = [drawFigure('peersFigure', c, env, {}), drawFigure('mapsFigure', c, env, {})].filter((f) => !f.empty && f.html);
+    // A thinly documented material is placed by the alternatives grid alone: on the landscape maps its point would rest on
+    // one or two sheets, and the maps cost a thin page a screen (D145, the reviews: a thin page reads short).
+    const thin = evidenceTier(c.m, c)?.tier === 'thinly';
+    const figs = [drawFigure('peersFigure', c, env, {}), thin ? { empty: true } : drawFigure('mapsFigure', c, env, {})].filter((f) => !f.empty && f.html);
     if (!words.length && !figs.length) return { empty: true, html: '', stats: {} };
     return {
       empty: false,
