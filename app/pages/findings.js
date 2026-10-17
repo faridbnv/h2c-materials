@@ -121,7 +121,7 @@ function windowPhrase(pw, total) {
   if (pw.n === 1) return { q: 'one', text: `${windowText(counted[0].min, counted[0].max)} °C` };
   if (pw.every) return { q: acceptSubject('all', pw.n, total), text: span(pw.every) };
   if (pw.most) return { q: acceptSubject('most', pw.n, total), text: span(pw.most) };
-  return { q: null, part: pw.n < total, text: `${acceptSubject(pw.peak.k, pw.n, total)} accept ${span(pw.peak)}` };
+  return { q: null, k: pw.peak.k, n: pw.n, total, text: span(pw.peak) };
 }
 
 /**
@@ -145,7 +145,11 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
         out.push(`One product gives a ${where} window, ${p.text}${ends.length ? `, and ${andList(ends)}` : ''}.`);
       }
       else if (p.q) out.push(`By their own or a shared sheet, ${p.q} accept ${on(p, where)}.`);
-      else out.push(`No ${where} temperature suits more than half the ${p.part ? 'counted ' : ''}products: at most ${p.text}.`);
+      else {
+        const verb = p.k === 1 ? 'accepts' : 'accept';
+        out.push(p.n < p.total ? `No ${where} temperature suits more than half of the ${p.n} counted products (of ${p.total}): at most ${p.k} ${verb} ${p.text}.`
+          : `No ${where} temperature suits more than half the products: at most ${p.k} of ${p.n} products ${verb} ${p.text}.`);
+      }
     }
   }
   // Nozzle and bed settings above the H2C's limits (the build's own gate verdicts), said where any product asks for more.

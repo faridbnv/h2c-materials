@@ -576,7 +576,7 @@ function p3(S) {
           // of nine is never read as all of them.
           const said = counted === total ? `(?:${counted === 2 ? 'both' : `all ${counted}`}|most of ${counted}|\\d+ of ${counted}) products`
             : `(?:${counted === 2 ? 'both' : `all ${counted}`} counted products|most of the ${counted} counted products|\\d+ of the ${counted} counted products) \\(of ${total}\\)`;
-          check('P3', w, counted === 1 ? small === 'one product' : new RegExp(`^${said} accept$`).test(small), () => `says "${small}", windows counted ${counted} of ${total} products`);
+          check('P3', w, counted === 1 ? small === 'one product' : new RegExp(`^${said} accepts?$`).test(small), () => `says "${small}", windows counted ${counted} of ${total} products`);
         }
       }
     }

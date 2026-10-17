@@ -156,7 +156,7 @@ export default {
       // The label at the peak is short (it sits in the plot, on a phone too): "counted" where fewer are counted than the
       // material has products, whose number the title and the findings say.
       const counted = p.n < products.length ? ' counted' : '';
-      return windowPanel(p, { label, peakWords: p.every ? `${p.n === 2 ? 'both' : `all ${p.n}`}${counted} accept ${windowText(p.every.from, p.every.to)} °C` : `${p.peak.k} of ${p.n}${counted} accept ${at}`, guideName: pf.guideName });
+      return windowPanel(p, { label, peakWords: p.every ? `${p.n === 2 ? 'both' : `all ${p.n}`}${counted} accept ${windowText(p.every.from, p.every.to)} °C` : `${p.peak.k} of ${p.n}${counted} ${p.peak.k === 1 ? 'accepts' : 'accept'} ${at}`, guideName: pf.guideName });
     });
     const strip = dryingStrip(drying, pf.guideName);
     let fig = '';

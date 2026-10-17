@@ -60,7 +60,7 @@ function windowCell(products, axis, label) {
   if (pw.n === 1) return cell(axis, label, esc(windowText(counted[0].min, counted[0].max)), '°C', 'one product');
   if (pw.every) return cell(axis, label, esc(windowText(pw.every.from, pw.every.to)), '°C', `${acceptSubject('all', pw.n, total)} accept`);
   if (pw.most) return cell(axis, label, esc(windowText(pw.most.from, pw.most.to)), '°C', `${pw.n < total ? acceptSubject('most', pw.n, total) : `most of ${pw.n} products`} accept`);
-  return cell(axis, label, esc(windowText(pw.peak.from, pw.peak.to)), '°C', `${acceptSubject(pw.peak.k, pw.n, total)} accept`);
+  return cell(axis, label, esc(windowText(pw.peak.from, pw.peak.to)), '°C', `${acceptSubject(pw.peak.k, pw.n, total)} ${pw.peak.k === 1 ? 'accepts' : 'accept'}`);
 }
 
 export default {
