@@ -41,6 +41,8 @@ a:hover { text-decoration-thickness: 2px; }
 p { margin: 0 0 .75rem; }
 h1, h2, h3, h4 { text-wrap: balance; }
 [id] { scroll-margin-top: var(--anchor-top); }
+/* Hidden means hidden, whatever display a rule gives the element (a search's hidden row was still shown). */
+[hidden] { display: none !important; }
 .mono { font-family: var(--mono); font-size: .875em; letter-spacing: 0; }
 time { font-variant-numeric: tabular-nums; }
 .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -130,13 +132,14 @@ time { font-variant-numeric: tabular-nums; }
 .kf-v { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 5px; margin-top: 4px; }
 .kf-n { font-size: var(--t-num); font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-variant-numeric: tabular-nums; }
 .kf-u { font-size: 15px; color: var(--ink-2); }
-.kf-none { font-size: 17px; font-weight: 500; color: var(--ink-2); line-height: 2; }
+.kf-none { font-size: var(--t-xs); font-weight: 400; color: var(--ink-2); line-height: 1.4; padding-top: 4px; }
 .kf-cell--open .kf-n { color: var(--ink-2); font-style: italic; font-weight: 500; }
 .kf-s { margin-top: 10px !important; min-height: 30px; }
 .kf-s svg { display: block; width: 100%; height: auto; overflow: visible; }
 .kf-f { margin-top: 6px !important; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.4; }
 .kf-f span { display: block; }
-.kf-ev { margin: 10px 4px 0; font-size: var(--t-s); color: var(--ink-2); max-width: 90ch; }
+.kf-ev { margin: 10px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: var(--measure); }
+.kf-ev b { color: var(--ink); font-weight: 600; }
 
 /* the summary beside On the H2C */
 .first { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; margin-top: 40px; align-items: start; }
@@ -179,6 +182,28 @@ time { font-variant-numeric: tabular-nums; }
 .col-fine { font-size: var(--t-xs); color: var(--ink-2); }
 .col-fine a { color: var(--ink-2); }
 .col-cite .btn { min-height: 30px; font-size: var(--t-xs); margin-left: 4px; vertical-align: middle; }
+
+/* the colophon's link to the method page */
+.col-method { margin-top: 14px !important; font-size: var(--t-s); }
+
+/* the print line: the page's address and release, printed at the top of the first page */
+.print-line { display: none; }
+
+/* A data table on a phone (B's and the colophon's table.grid): each row a block, each cell a label/value pair named by
+   its data-label, so nothing scrolls sideways in a 358 px column. */
+@media (max-width: 600px) {
+  .table-box:has(table.grid) { overflow: visible; }
+  table.grid:has([data-label]) { display: block; width: 100%; min-width: 0; }
+  table.grid:has([data-label]) thead { display: none; }
+  table.grid:has([data-label]) tbody, table.grid:has([data-label]) tfoot { display: block; }
+  table.grid:has([data-label]) tr { display: block; padding: 8px 0; border-top: 1px solid var(--border); }
+  table.grid:has([data-label]) th, table.grid:has([data-label]) td { display: block; width: auto; min-width: 0; border: 0; padding: 2px 0; text-align: left; white-space: normal; overflow-wrap: anywhere; }
+  table.grid:has([data-label]) [data-label] { display: grid; grid-template-columns: minmax(6rem, 40%) minmax(0, 1fr); column-gap: 12px; }
+  table.grid:has([data-label]) [data-label]::before { content: attr(data-label); color: var(--ink-2); font-size: var(--t-xs); font-weight: 400; }
+  table.grid:has([data-label]) td:empty { display: none; }
+  table.grid:has([data-label]) td, table.grid:has([data-label]) td * { white-space: normal !important; }
+  table.grid:has([data-label]) tbody th:not([data-label]) { font-weight: 600; }
+}
 
 /* the stub */
 .stub { padding: 56px 0 120px; max-width: 64ch; }
@@ -223,6 +248,7 @@ time { font-variant-numeric: tabular-nums; }
 
 /* ---------------------------------------------------------------- print, motion */
 
+@page { size: A4; margin: 14mm 13mm 16mm; @bottom-right { content: counter(page) " / " counter(pages); font: 8pt "Inter", sans-serif; color: #55554e; } @bottom-left { font: 8pt "Inter", sans-serif; color: #55554e; } }
 @media print {
   /* A printed page is always light, whatever the theme on screen: the shared tokens' light values, at a specificity
      above the dark blocks' (:root:not([data-theme="light"]), :root[data-theme="dark"]), the figures' data colour too. */
@@ -232,14 +258,29 @@ time { font-variant-numeric: tabular-nums; }
     --ink: #1a1a18; --ink-2: #55554e; --ink-3: #85857c; --accent: #1f5f8b; --accent-soft: #e4eef5; --on-accent: #fff;
     --claim: #b4540a; --claim-bg: #fbeee3; --dv-self: #1d65a3;
     --shadow-sm: none; --shadow-pop: none; --bar-h: 0px; --ctl-h: 0px; --plh-h: 0px;
+    --t-h1: 40px; --t-h2: 22px; --t-xl: 15px; --t-l: 14px; --t-m: 12.5px; --t-num: 24px;
   }
-  .atlas-bar, .tabs, .col-nav, .skip, .tip, [data-copy], .pl-ctl, .ix-tools { display: none !important; }
-  body { background: #fff; }
-  .page { max-width: none; padding: 0; overflow: visible; }
-  .plate:not(.pcard), figure, .h2c, .kf-wrap, .handoff { break-inside: avoid; }
+  /* Every control and interaction hint leaves the paper: the bar, the tabs, the buttons, "Printing in full", the
+     list's controls, a closed figure table, and any line the figures mark .no-print ("Hover a product…"). */
+  .atlas-bar, .tabs, .col-nav, .col-method, .skip, .tip, [data-copy], .pl-ctl, .pl-keyd > summary, .ix-tools, .btn, .btn-primary,
+  .h2c-h a, .no-print, details.fig-data:not([open]), .here { display: none !important; }
+  /* The page's address and release, from the line's attributes (an address holds the material's ID, kept out of text). */
+  .print-line { display: block; margin: 0 0 8px; font-size: 8pt; color: #55554e; }
+  .print-line::before { content: attr(data-print-url) ", " attr(data-print-release); }
+  body { background: #fff; font-size: 12.5px; }
+  /* The page is set a little smaller on paper, so figures keep their titles and short sections share a page. */
+  .page { max-width: none; padding: 0; overflow: visible; zoom: .86; }
+  .plate:not(.pcard), figure, .fig, .h2c, .kf-wrap, .handoff { break-inside: avoid; }
   .ov-h, h2, h3 { break-after: avoid; }
   .phead { padding-top: 0; }
-  .ov-sec, .handoff { margin-top: 36px; }
-  .colophon { margin-top: 40px; }
+  .kf-wrap { margin-top: 16px; }
+  .first { margin-top: 18px; gap: 18px; }
+  .ov-sec, .handoff { margin-top: 26px; break-before: auto; }
+  .colophon { margin-top: 28px; padding: 14px 0 0; break-inside: avoid; gap: 6px 24px; }
+  /* The first screen keeps its laptop layout on paper: six figures across, the summary beside On the H2C. */
+  .kf { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .kf-cell { border-top: 0 !important; border-left: 1px solid var(--border) !important; padding: 10px 10px 8px; }
+  .kf-cell:first-child { border-left: 0 !important; }
+  .first { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }

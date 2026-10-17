@@ -44,6 +44,12 @@ export const returnLink = (href, { cls = '', long = 'Open in the selector', shor
   ? `<a class="btn ret${cls ? ` ${cls}` : ''}" data-return href="${esc(href)}">${ICON.back}<span class="ret-long">${esc(long)}</span><span class="ret-short">${esc(short)}</span></a>`
   : '');
 
+/** The plain footer of a page with no material (the method page): the way back, every material, the release. */
+export const siteFooter = (stamps, returnHref) => `<footer class="colophon colophon--site" data-section="colophon"><div class="col-main">
+<p class="col-standing">Data-sheet values describe test specimens, not design allowables.</p>
+<div class="col-nav">${returnLink(returnHref, { long: 'Open the selector' })}<a class="btn" href="index.html">All materials</a></div></div>
+<div class="col-fine" data-release="${esc(stamps.release)}"><p>${esc(BRAND)}, release <span class="mono">${esc(stamps.release)}</span>; built <time>${esc(String(stamps.build))}</time>.</p></div></footer>`;
+
 /**
  * The tabs of a material's two pages: `{ id, n, current }`, current 'overview' or 'products'; n the products. Each tab
  * is a link (`data-tab`), the current one marked aria-current.
@@ -94,13 +100,15 @@ function crumbsNav(crumbs, sections, more, label) {
  * `products` a map of product ID to name for the figures' tooltips, or null; `head` extra lines for <head> (the stub's
  * redirect).
  */
-export function documentShell({ kind, title, description, stamps, material = null, crumbs = [], sections = [], tabs = null, returnHref = null, body, products = null, head = '', hereLabel = null }) {
+export function documentShell({ kind, title, description, stamps, material = null, crumbs = [], sections = [], tabs = null, returnHref = null, body, products = null, head = '', hereLabel = null, methodHref = 'method.html', printPath = null }) {
   // The hub's way back opens a fresh selector with no drawer: "Open the selector" until a selection is stored.
   const cold = kind === 'hub' ? { long: 'Open the selector' } : {};
   const more = [];
   if (tabs?.overview && kind !== 'overview') more.push({ href: tabs.overview.href, words: tabs.overview.words ?? 'Overview', sep: true });
   if (tabs?.products && kind !== 'products') more.push({ href: tabs.products.href, words: 'Products', n: fmtNumber(tabs.products.n), sep: !more.length });
   if (tabs?.index) more.push({ href: tabs.index, words: 'All materials', sep: !more.length });
+  // The shared page on how the numbers are worked out closes the list, wherever it has been rendered.
+  if (methodHref && kind !== 'method' && (tabs || sections.length)) more.push({ href: methodHref, words: 'How the numbers are worked out', sep: !more.length });
   const brand = `${MARK}<span class="bar-name">${esc(BRAND)}</span>`;
   return `<!doctype html>
 <html lang="en-CA">
@@ -120,12 +128,14 @@ ${head}${THEME}
 <a class="skip" href="#main">Skip to the content</a>
 ${marks.SPRITE ?? ''}
 <header class="atlas-bar"><div class="bar-in">
-${returnHref ? `<a class="bar-brand" data-return-brand href="${esc(returnHref)}" title="The selector">${brand}</a>` : `<span class="bar-brand">${brand}</span>`}
+<a class="bar-brand" href="index.html" title="Every material">${brand}</a>
 ${crumbsNav(crumbs, sections, more, hereLabel)}
 <div class="bar-end">${returnLink(returnHref, cold)}<button type="button" class="icon-btn" data-theme-toggle aria-label="Dark theme" title="Light or dark" hidden>${ICON.theme}</button></div>
 </div></header>
 <main id="main" class="page"${attrs({ 'data-page': kind, 'data-material': material, 'data-release': stamps.release, 'data-snapshot': stamps.snapshot, 'data-build': stamps.build })}>
+<p class="print-line" aria-hidden="true" data-print-url="${esc(printPath ?? `materials/${material ? `${material}${kind === 'products' ? '-products' : ''}.html` : kind === 'hub' ? 'index.html' : `${kind}.html`}`)}" data-print-release="${esc(`${BRAND}, release ${stamps.release}`)}"></p>
 ${body}
+${kind === 'method' ? siteFooter(stamps, returnHref) : ''}
 </main>
 <div class="tip" id="tip" aria-hidden="true" hidden></div>
 ${products ? jsonIsland('product-names', products) : ''}

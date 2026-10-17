@@ -90,7 +90,15 @@
     }
   }
 
-  // Printing: the light theme for the printout (the stylesheet forces its colours too), the reader's own back after.
+  // Printing: the page's address in the print line and at the foot of every printed page, the page number beside it
+  // (the stylesheet's @page boxes), and the light theme for the printout, the reader's own back after.
+  try {
+    var here = location.href.split('#')[0].split('?')[0];
+    $$('[data-print-url]').forEach(function (el) { el.setAttribute('data-print-url', here); });
+    var ps = doc.createElement('style');
+    ps.textContent = '@media print { @page { @bottom-left { content: ' + JSON.stringify(here) + '; } } }';
+    doc.head.appendChild(ps);
+  } catch (e) { /* the print line keeps the page's path */ }
   var printed = null;
   window.addEventListener('beforeprint', function () { printed = root.getAttribute('data-theme'); root.setAttribute('data-theme', 'light'); });
   window.addEventListener('afterprint', function () { if (printed) root.setAttribute('data-theme', printed); else root.removeAttribute('data-theme'); printed = null; });
@@ -305,6 +313,34 @@
   doc.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { light(null); hideTip(); } });
   var release = function () { if (touched || (tip && !tip.hidden)) { touched = null; light(null); hideTip(); } };
   window.addEventListener('scroll', release, { passive: true });
+
+  /* ------------------------------------------------------------ a data table's cells named, for the phone */
+  // On a phone (frame.src.css) a table.grid stacks each row as label/value pairs, the label a cell's data-label. A cell
+  // its table did not name takes its column's heading (the last header row, its colspans counted).
+  $$('table.grid').forEach(function (t) {
+    var rows = t.tHead ? t.tHead.rows : [];
+    if (!rows.length) return;
+    var names = [];
+    Array.prototype.forEach.call(rows[rows.length - 1].cells, function (th) {
+      for (var i = 0; i < (th.colSpan || 1); i++) names.push(th.textContent.replace(/\s+/g, ' ').trim());
+    });
+    // A first header row whose cells span the second (a group over its columns) lends its words where the last is blank.
+    if (rows.length > 1) {
+      var top = [], k = 0;
+      Array.prototype.forEach.call(rows[0].cells, function (th) { for (var i = 0; i < (th.colSpan || 1); i++) top[k++] = { text: th.textContent.replace(/\s+/g, ' ').trim(), rows: th.rowSpan || 1 }; });
+      var j = 0;
+      names = top.map(function (x) { return x.rows > 1 ? x.text : (x.text + (names[j] ? ' ' + names[j++] : '')).trim(); });
+    }
+    Array.prototype.forEach.call(t.tBodies, function (b) {
+      Array.prototype.forEach.call(b.rows, function (tr) {
+        var col = 0;
+        Array.prototype.forEach.call(tr.cells, function (cell) {
+          if (!cell.hasAttribute('data-label') && names[col] && cell.colSpan === 1 && col > 0) cell.setAttribute('data-label', names[col]);
+          col += cell.colSpan || 1;
+        });
+      });
+    });
+  });
 
   /* ------------------------------------------------------------ copying the citation */
   $$('[data-copy]').forEach(function (b) {

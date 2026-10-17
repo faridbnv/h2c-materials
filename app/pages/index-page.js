@@ -48,8 +48,9 @@ export function renderIndexPage(db, env, ix) {
   // Families in order of how many materials with a page they hold, most first; one with none goes last.
   const ranked = families.map(([family, members], i) => {
     const materials = members.filter((m) => !m.familyEntry);
-    return { family, i, materials, paged: materials.filter((m) => hasPage.has(m.id)).sort(byCount), unpaged: materials.filter((m) => !hasPage.has(m.id)).sort(byCount) };
-  }).filter((f) => f.materials.length).sort((a, b) => b.paged.length - a.paged.length || a.i - b.i);
+    // A material with no product (every one retired or moved) is not listed: there is nothing of it to read.
+    return { family, i, materials, paged: materials.filter((m) => hasPage.has(m.id)).sort(byCount), unpaged: materials.filter((m) => !hasPage.has(m.id) && products(m) > 0).sort(byCount) };
+  }).filter((f) => f.paged.length || f.unpaged.length).sort((a, b) => b.paged.length - a.paged.length || a.i - b.i);
   const noneLine = (list) => (list.length ? `<p class="ix-line ix-nopage">No page yet: ${list.map((m, i) => `<span data-mat="${esc(m.id)}" data-q="${esc(words(m))}">${esc(m.name)} (${esc(i ? fmtNumber(products(m)) : plural(products(m), 'product'))})</span>`).join('')}.</p>` : '');
   const blocks = ranked.map(({ family, paged, unpaged }) => {
     const id = slug(family);
@@ -69,16 +70,26 @@ ${noneLine(unpaged)}
   });
   // The names that are not materials (another name for one, a name for a group of them) are not listed: the search
   // finds them and shows where each leads, "PLA Matte → PLA". They wait here, hidden, for it.
+  // A name that is not a material leads either to its materials, each a link where every one has a page, or to its
+  // family ("PA (polyamide) → see the family Nylon / Polyamide"): one line never mixes links with plain names.
+  const familyOf = new Map(ranked.map((f) => [f.family, slug(f.family)]));
   const names = db.materials.filter((m) => m.familyEntry).map((e) => {
-    const members = e.familyEntry.members ?? [];
-    return `<li data-alias="${esc(e.id)}" data-q="${esc(`${e.name} ${members.map((x) => byId.get(x.id)?.name ?? x.name).join(' ')}`.toLowerCase())}" hidden>${esc(e.name)} → ${andList(members.map(nameLink))}</li>`;
+    const members = (e.familyEntry.members ?? []).map((x) => byId.get(x.id) ?? { id: x.id, name: x.name });
+    const full = stated(e.fullName) && e.fullName !== e.name ? e.fullName : null;
+    const label = !full ? e.name : full.includes('(') ? `${e.name}, ${full}` : `${e.name} (${full})`;
+    const fams = [...new Set(members.map((x) => (stated(x.family) ? x.family : e.family)).filter(Boolean))];
+    const to = members.length && members.every((x) => hasPage.has(x.id))
+      ? andList(members.map((x) => `<a href="${esc(`${x.id}.html`)}" data-mat="${esc(x.id)}">${esc(x.name)}</a>`))
+      : fams.length === 1 && familyOf.has(fams[0]) ? `see the family <a href="#${esc(familyOf.get(fams[0]))}">${esc(fams[0])}</a>`
+        : esc(andList(members.map((x) => x.name)));
+    return `<li data-alias="${esc(e.id)}" data-q="${esc(`${label} ${members.map((x) => x.name).join(' ')} ${fams.join(' ')}`.toLowerCase())}" hidden>${esc(label)} → ${to}</li>`;
   }).join('');
   const aliasList = names ? `<ul class="ix-aliases" data-aliases aria-label="Other names">${names}</ul>` : '';
 
   const st = env.stamps;
   const reads = db.sources.map((s) => s.accessDate).filter((d) => stated(d) && /^\d{4}-\d{2}-\d{2}$/.test(d)).sort();
   const lede = `A page for each of the ${fmtNumber(hasPage.size)} materials with enough published data, by family. To set requirements and get a shortlist, use the selector.`;
-  const body = `<header class="phead phead--hub" id="top"><div class="phead-id"><h1 class="pname">Materials</h1><p class="pid">${esc(lede)}</p></div></header>
+  const body = `<header class="phead phead--hub" id="top"><div class="phead-id"><h1 class="pname">Materials</h1><p class="pid">${esc(lede)}</p>${env.methodHref ? `<p class="ix-method"><a href="${esc(env.methodHref)}">How the numbers are worked out</a></p>` : ''}</div></header>
 <div class="ix-tools" hidden><label class="find">${ICON.search}<input type="search" data-ix-find placeholder="Find a material, polymer or name" aria-label="Find a material, polymer or name" autocomplete="off" spellcheck="false"></label>
 <p class="ix-count" data-count aria-live="polite">${esc(`${count(listed.length, 'material')}, ${fmtNumber(hasPage.size)} with a page`)}</p></div>
 <p class="ix-none" data-ix-none hidden>No material matches "<span data-ix-q></span>".</p>

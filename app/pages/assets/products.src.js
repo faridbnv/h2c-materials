@@ -28,16 +28,24 @@
     var find = ctl.querySelector('[data-find]'), sel = ctl.querySelector('[data-sortby]'), counter = ctl.querySelector('[data-count]');
     var none = pl.querySelector('[data-none]'), noneQ = pl.querySelector('[data-none-q]'), clear = pl.querySelector('[data-clear]');
     var heads = $$('.pl-h [data-sort]', pl);
-    var state = { q: '', sort: 'docs' };
+    var state = { q: '', sort: 'docs', dir: null };
+    var line = doc.querySelector('[data-sort-line]');
     rows.forEach(function (r, i) { r._i = i; r._q = r.getAttribute('data-q') || ''; r._n = (r.querySelector('.pn-t') || r).textContent.toLowerCase(); });
     ctl.hidden = false;
+    // On a phone the key folds into its "Key" disclosure.
+    var keyd = doc.querySelector('.pl-keyd');
+    if (keyd && window.matchMedia && window.matchMedia('(max-width: 719px)').matches) keyd.open = false;
     var noun = function (n) { return n === 1 ? words.noun[0] : words.noun[1]; };
     var cellOf = function (r, k) { return r.querySelector('.pv[data-k="' + k + '"]'); };
     var num = function (c) { var v = c && c.getAttribute('data-v'); return v == null || v === '' ? null : Number(v); };
+    var labels = {};
+    if (sel) $$('option', sel).forEach(function (o) { labels[o.value] = o.textContent; });
+    // A column's own direction (a property high first, price and settings low first), or its reverse after a second click.
+    var dirOf = function () { return state.dir || words.dir[state.sort] || 'asc'; };
 
     function apply() {
       var k = state.sort, ts = terms(state.q);
-      var desc = words.dir[k] === 'desc';
+      var dir = dirOf(), desc = dir === 'desc';
       var ordered, groups = null;
       if (k === 'docs') ordered = rows.slice().sort(function (a, b) { return a._i - b._i; });
       else if (k === 'name') ordered = rows.slice().sort(function (a, b) { return a._n < b._n ? -1 : a._n > b._n ? 1 : a._i - b._i; });
@@ -51,6 +59,7 @@
           if (a.v === null || b.v === null) return a.v === b.v ? a.r._i - b.r._i : a.v === null ? 1 : -1;
           return (desc ? b.v - a.v : a.v - b.v) || a.r._i - b.r._i;
         };
+        // The groups keep their order whichever way the values run: compared, then shown and not counted, then none.
         groups[0].sort(by); groups[1].sort(by);
         groups[2].sort(function (a, b) { return a.r._n < b.r._n ? -1 : a.r._n > b.r._n ? 1 : 0; });
         ordered = [];
@@ -69,19 +78,28 @@
           if (head) { if (n) { head.textContent = head._label + ' '; var s = doc.createElement('span'); s.textContent = '(' + fmt(n) + ' ' + noun(n) + ')'; head.appendChild(s); } else head.remove(); }
         });
       } else ordered.forEach(place);
-      // The sorted column, and its bars: a value's share of the column's largest, for a property or a price.
+      // The sorted column: a thin rule under each compared value, its length the value's place in the column's range.
       $$('.pv.sorted', pl).forEach(function (c) { c.classList.remove('sorted'); c.style.removeProperty('--w'); });
       if (groups) {
         var cells = $$('.pv[data-k="' + k + '"]', body);
-        var max = 0;
-        cells.forEach(function (c) { var v = num(c); if (v !== null && v > max) max = v; });
-        var bars = (desc || k === 'priceCADkg') && max > 0 && cells.every(function (c) { var v = num(c); return v === null || v >= 0; });
-        cells.forEach(function (c) { c.classList.add('sorted'); var v = num(c); if (bars && v !== null) c.style.setProperty('--w', (100 * v / max).toFixed(1) + '%'); });
+        var vs = cells.filter(function (c) { return c.getAttribute('data-g') === 'c'; }).map(num).filter(function (v) { return v !== null; });
+        var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs);
+        cells.forEach(function (c) {
+          c.classList.add('sorted');
+          var v = num(c);
+          if (v !== null && c.getAttribute('data-g') === 'c' && vs.length > 1) c.style.setProperty('--w', (hi > lo ? 15 + 85 * (v - lo) / (hi - lo) : 100).toFixed(1) + '%');
+        });
         var phone = cells.length && cells[0].classList.contains('pv-ph');
         if (phone) pl.removeAttribute('data-extra'); else pl.setAttribute('data-extra', '');
       } else pl.removeAttribute('data-extra');
-      heads.forEach(function (b) { var on = b.getAttribute('data-sort') === k; b.setAttribute('aria-pressed', on ? 'true' : 'false'); if (on) b.setAttribute('data-dir', words.dir[k] || 'asc'); });
-      if (sel && sel.value !== k) sel.value = k;
+      heads.forEach(function (b) { var on = b.getAttribute('data-sort') === k; b.setAttribute('aria-pressed', on ? 'true' : 'false'); if (on) b.setAttribute('data-dir', dir); else b.removeAttribute('data-dir'); });
+      // The select and the opening line say the order the list is in.
+      var first = words.first && words.first[dir];
+      if (sel) {
+        if (sel.value !== k) sel.value = k;
+        $$('option', sel).forEach(function (o) { o.textContent = o.value === k && groups && first ? words.title[k] + ', ' + first[1] : labels[o.value]; });
+      }
+      if (line) line.textContent = k === 'docs' ? words.docs : k === 'name' ? words.name : 'Sorted by ' + words.title[k] + ', ' + (first ? first[0] : '') + '.';
       var total = rows.length;
       counter.textContent = ts.length ? fmt(shown) + ' of ' + fmt(total) + ' ' + noun(total) : fmt(total) + ' ' + noun(total);
       none.hidden = shown > 0;
@@ -89,8 +107,16 @@
     }
     var onFind = later(function () { state.q = find.value; apply(); }, 120);
     find.addEventListener('input', onFind);
-    if (sel) sel.addEventListener('change', function () { state.sort = sel.value; apply(); });
-    heads.forEach(function (b) { b.addEventListener('click', function () { state.sort = b.getAttribute('data-sort'); apply(); }); });
+    if (sel) sel.addEventListener('change', function () { state.sort = sel.value; state.dir = null; apply(); });
+    // A second click on the sorted column reverses it.
+    heads.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-sort');
+        if (k === state.sort && k !== 'docs' && k !== 'name') state.dir = dirOf() === 'desc' ? 'asc' : 'desc';
+        else { state.sort = k; state.dir = null; }
+        apply();
+      });
+    });
     if (clear) clear.addEventListener('click', function () { find.value = ''; state.q = ''; apply(); find.focus(); });
     doc.addEventListener('keydown', function (ev) {
       if (ev.key === '/' && !(ev.target.closest && ev.target.closest('input, select, textarea'))) { ev.preventDefault(); find.focus(); }
@@ -113,7 +139,9 @@
     function apply() {
       var ts = terms(input.value);
       var n = 0;
-      items.forEach(function (x) { var on = !ts.length || hasAll(x.getAttribute('data-q'), ts); x.hidden = !on; if (on && x.hasAttribute('data-mat')) n++; });
+      items.forEach(function (x) { var on = !ts.length || hasAll(x.getAttribute('data-q'), ts); x.hidden = !on; });
+      // The count is of the materials shown, with a page or not.
+      n = $$('[data-mat][data-q]', ix).filter(function (x) { return !x.hidden; }).length;
       lines.forEach(function (l) { var sp = $$('[data-q]', l); l.hidden = sp.length > 0 && sp.every(function (x) { return x.hidden; }); });
       blocks.forEach(function (b) { b.hidden = !!ts.length && !$$('[data-q]', b).some(function (x) { return !x.hidden; }); });
       var named = 0;

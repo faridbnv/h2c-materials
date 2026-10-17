@@ -28,7 +28,8 @@ export function colophon(c, env, page = 'overview') {
   const readWords = read ? (read.from === read.to ? `documents read ${read.from}` : `documents read ${read.from} to ${read.to}`) : null;
   const cite = `${m.name}. ${BRAND}, material pages, release ${st.release}${readWords ? `, ${readWords}` : ''}.`;
   const w = m.written;
-  const byline = w?.parts?.length ? `The summary was written by ${w.by}, ${w.on}. ${SUMMARY_STATUS[w.status] ?? w.status}. Its numbers are filled from the data.` : null;
+  const REVIEW = { draft: 'not yet reviewed by the owner', 'reviewed by the owner': 'reviewed by the owner', revise: 'marked for revision by the owner' };
+  const byline = w?.parts?.length ? `Summary: drafted by ${w.by}, ${w.on}; ${REVIEW[w.status] ?? String(SUMMARY_STATUS[w.status] ?? w.status).toLowerCase()}.` : null;
   const n = c.grades.filter(isProduct).length;
   const other = page === 'overview'
     ? `<a class="btn" href="${esc(productsHref(m.id))}">Products <span class="n">${esc(fmtNumber(n))}</span></a>`
@@ -37,12 +38,12 @@ export function colophon(c, env, page = 'overview') {
 <div class="col-main">
 ${standing ? `<p class="col-standing">${esc(standing)}</p>` : ''}
 <div class="col-nav">${returnLink(selectorLink(c, env))}${other}</div>
+${env.methodHref ? `<p class="col-method"><a href="${esc(env.methodHref)}">How the numbers are worked out</a></p>` : ''}
 </div>
 <div class="col-fine" data-release="${esc(st.release)}">
 <p>${esc(BRAND)}, release <span class="mono">${esc(st.release)}</span>${read ? `. ${esc(readWords.charAt(0).toUpperCase() + readWords.slice(1)).replace(/\d{4}-\d{2}-\d{2}/g, (d) => day(d))}` : ''}; built <time>${esc(day(st.build))}</time>.</p>
 ${byline && page === 'overview' ? `<p data-written-status="${esc(w.status)}">${esc(byline)}</p>` : ''}
 <p class="col-cite"><span>To cite this page: </span><span data-cite>${esc(cite)}</span> <button type="button" class="btn btn-quiet" data-copy hidden>${ICON.copy}<span>Copy the citation</span></button></p>
-<p>Set in Inter and Newsreader, under the <a href="assets/Inter-OFL.txt">SIL Open Font License</a>.</p>
 </div>
 </footer>`;
 }

@@ -64,6 +64,8 @@ export function pageEnv(db, { assets = null, selectorFile = null, links = {} } =
     selectorHref: selectorFile ? `../${selectorFile}` : null,
     assets,
     links: { index: 'index.html', ...links },
+    // The shared page on how the numbers are worked out, where track B's module has landed.
+    methodHref: typeof methodPage?.renderMethodPage === 'function' ? 'method.html' : null,
   };
 }
 
@@ -108,6 +110,7 @@ ${r.html}
     sections: [{ id: 'top', title: 'Overview' }, ...sections],
     tabs: { products: { href: productsHref(m.id), n }, index: env.links?.index ?? null },
     returnHref: selectorLink(c, env),
+    methodHref: env.methodHref,
     body: parts.filter(Boolean).join('\n'),
     products: productNames(c),
   });

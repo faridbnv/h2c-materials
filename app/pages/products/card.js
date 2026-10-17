@@ -67,19 +67,40 @@ const PAGE_WORDS = [[/\bspecial formulation\b/g, 'added filler or additive'], [/
 const pageWords = (t) => PAGE_WORDS.reduce((x, [re, w]) => x.replace(re, w), String(t ?? ''));
 
 /**
- * Whether the Overview uses a measurement, in content's words: "In the median", "Shown, not in the median: {why}",
- * "Not shown: {why}", "Shown as published (the only value of its test)"; nothing where no figure draws its property.
- * `ix` is records/measurements.js drawnIndex (the drawer's comparisons, material-facts.js notDrawnWhy).
+ * Why the Overview does not count a value, by the build's reason (material-facts.js notDrawnWhy, drawnIndex's lines),
+ * in the reader's words; the drawer keeps its own (labels.js WHY_ONE). No project word, the reasons' meaning kept.
+ */
+const NOT_COUNTED = {
+  held: 'held back', noNumber: 'no number given', implausible: 'physically implausible as published', moulded: 'measured on a moulded bar',
+  resin: 'the resin supplier\'s value, not a printed part', film: 'measured on film', filament: 'measured on a filament strand',
+  offRecipe: 'printed at a setting the product is not meant for', partialInfill: 'printed below 100 % infill', notPrinted: 'not on a printed bar',
+  conditioned: 'measured after moisture conditioning', annealed: 'annealed; the as-printed value is counted', unnotched: 'unnotched', notched: 'notched',
+  notch: 'notch not stated', cold: 'tested below room temperature', hot: 'tested above room temperature', standard: 'to another standard',
+  direction: 'measured on a bar in another orientation', unstatedDirection: 'no orientation stated', load: 'at another test load',
+  unstatedLoad: 'no test load stated', second: 'another value of this product is counted', retired: 'a product no longer listed',
+  reference: 'a reference specimen, not a product for sale',
+  // A value drawn but kept out of the median, by the comparison's reason.
+  variant: 'added filler or additive', toughened: 'sold as toughened, set apart',
+};
+
+/**
+ * Whether the Overview counts a measurement: "Counted", "Not counted: <why>", "Shown as published: the only value of
+ * its test", or nothing where no figure draws its property. `ix` is records/measurements.js drawnIndex.
  */
 function useWords(x, ix) {
   const why = ix.why(x);
   if (why === 'none') return '';
-  if (why === 'named') return 'Shown as published (the only value of its test)';
-  if (why !== 'drawn') return pageWords(`Not shown: ${whyOne(why)}`);
-  const reasons = (ix.lines.get(x.id) ?? []).map((o) => (o.reason ? outOfMedianWords(o.reason, o.h) : null));
-  if (reasons.length && reasons.every((r) => r === null)) return 'In the median';
-  const r = reasons.find(Boolean);
-  return r ? pageWords(`Shown, not in the median: ${r}`) : 'In the median';
+  if (why === 'named') return 'Shown as published: the only value of its test';
+  if (why !== 'drawn') {
+    if (why.startsWith('unit:')) return `Not counted: in ${why.slice(5)}`;
+    if (why.startsWith('property:')) return 'Listed under other properties';
+    return `Not counted: ${NOT_COUNTED[why] ?? pageWords(whyOne(why))}`;
+  }
+  const lines = ix.lines.get(x.id) ?? [];
+  const o = lines.find((l) => l.reason);
+  if (!lines.length || !o) return 'Counted';
+  if (o.reason === 'as-published') return `Not counted: ${o.h?.direction ? 'no orientation stated' : 'no test load stated'}`;
+  return `Not counted: ${NOT_COUNTED[o.reason] ?? pageWords(outOfMedianWords(o.reason, o.h) ?? o.reason)}`;
 }
 
 /** A measurement's orientation or load beside its property's name ("XY", "at 0.45 MPa"). */
@@ -100,20 +121,39 @@ function valuesTable(c, g, ms, ix) {
   const dir = { XY: 0, Z: 1 };
   const byProperty = (a, b) => (order.get(a.property) ?? 1e9) - (order.get(b.property) ?? 1e9) || a.property.localeCompare(b.property)
     || (dir[a.direction] ?? 2) - (dir[b.direction] ?? 2) || (a.thermal?.loadMPa ?? 0) - (b.thermal?.loadMPa ?? 0) || (a.id < b.id ? -1 : 1);
-  // Documents in the order of the first value each gave, most values first where they tie on that.
+  const perDoc = new Map();
+  for (const x of ms) perDoc.set(x.sourceId, (perDoc.get(x.sourceId) ?? 0) + 1);
+  // One value published alike in two documents (two versions of a sheet) is one row, "also in" the other: the row kept
+  // is the one the Overview counts, else the one from the document that gives most. Each record keeps its ID.
+  const same = (x) => [x.property, x.direction, x.thermal?.loadMPa ?? '', x.notch ?? '', x.operator ?? '', x.value, x.unit, x.interval?.lo ?? '', x.interval?.hi ?? ''].join('|');
+  const twins = new Map();
+  for (const x of ms) if (x.numeric) (twins.get(same(x)) ?? twins.set(same(x), []).get(same(x))).push(x);
+  const also = new Map();
+  const folded = new Set();
+  for (const list of twins.values()) {
+    if (list.length < 2 || new Set(list.map((x) => x.sourceId)).size < 2) continue;
+    const keep = [...list].sort((a, b) => (ix.why(b) === 'drawn') - (ix.why(a) === 'drawn') || perDoc.get(b.sourceId) - perDoc.get(a.sourceId) || (a.id < b.id ? -1 : 1))[0];
+    const rest = list.filter((x) => x !== keep && x.sourceId !== keep.sourceId);
+    if (!rest.length) continue;
+    also.set(keep.id, rest);
+    rest.forEach((x) => folded.add(x.id));
+  }
   const docs = new Map();
-  for (const x of [...ms].sort(byProperty)) (docs.get(x.sourceId) ?? docs.set(x.sourceId, []).get(x.sourceId)).push(x);
+  for (const x of [...ms].sort(byProperty)) if (!folded.has(x.id)) (docs.get(x.sourceId) ?? docs.set(x.sourceId, []).get(x.sourceId)).push(x);
   const groups = [...docs].sort((a, b) => b[1].length - a[1].length);
+  const docName = (sid) => { const n = sourceName(c.sourceById.get(sid), sid); return readerText(n) ? n : 'another document'; };
   const body = groups.map(([sid, xs]) => {
     let last = null;
     const rows = xs.map((x) => {
-      const same = x.property === last;
+      const sameProp = x.property === last;
       last = x.property;
       const std = standardWords(x);
       const tags = [x.quarantined ? 'held back' : null, x.implausible ? 'physically implausible' : null, x.corrected ? 'transcription corrected' : null].filter(Boolean);
-      return `<tr id="${esc(x.id)}" data-rec="${esc(x.id)}"${same ? ' class="same"' : ''}>`
-        + `<th scope="row">${same ? `<span class="vh">${esc(propertyName(x.property))}</span>` : esc(propertyName(x.property))}${aspect(x) ? `<small>${esc(aspect(x))}</small>` : ''}</th>`
-        + `<td class="pc-v">${esc(publishedText(x))}${tags.map((t) => `<span class="tg">${esc(t)}</span>`).join('')}${readerLocator(x.locator) ? `<small>${esc(readerLocator(x.locator))}</small>` : ''}</td>`
+      const where = readerLocator(x.locator);
+      const alsoIn = (also.get(x.id) ?? []).map((y) => `<span class="pc-also" id="${esc(y.id)}" data-rec="${esc(y.id)}">${esc(`also in ${docName(y.sourceId)}`)}</span>`).join('');
+      return `<tr id="${esc(x.id)}" data-rec="${esc(x.id)}"${sameProp ? ' class="same"' : ''}>`
+        + `<th scope="row">${sameProp ? `<span class="vh">${esc(propertyName(x.property))}</span>` : esc(propertyName(x.property))}${aspect(x) ? `<small>${esc(aspect(x))}</small>` : ''}</th>`
+        + `<td class="pc-v">${esc(publishedText(x))}${tags.map((t) => `<span class="tg">${esc(t)}</span>`).join('')}${where ? `<small>${esc(where)}</small>` : ''}${alsoIn}</td>`
         + `<td class="pc-c"><span>${esc(specimenWords(x))}, ${esc(std ?? 'no standard stated')}</span>${conditionChips(x)}</td>`
         + `<td class="pc-u">${esc(useWords(x, ix))}</td></tr>`;
     }).join('');
@@ -214,13 +254,13 @@ export function productNotes(c, g, twins) {
 export function productCard(c, g, own, twins, ix) {
   const notes = productNotes(c, g, twins);
   const docs = productDocuments(c, g);
-  const block = (html) => `<div class="pc-block">${html}</div>`;
+  const block = (html, wide = false) => `<div class="pc-block${wide ? ' pc-block--wide' : ''}">${html}</div>`;
   const side = [
     block(`<h3>Print settings</h3>${settingsList(c, g)}${profilesList(c, own.profiles)}`),
     block(`<h3>Price</h3>${priceBlock(c, g, own.listings)}${docs.length ? `<h3>${esc(docs.length === 1 ? 'Its document' : `Its ${count(docs.length, 'document')}`)}</h3><ul class="pc-list pc-docs">${docs.map((sid) => `<li>${documentRef(c, sid)}</li>`).join('')}</ul>` : ''}`),
     own.statements.length || own.specimen.length || own.environment.length ? block(`${own.statements.length ? `<h3>Maker's statements</h3>${statementsList(c, own.statements)}` : ''}`
       + `${own.specimen.length ? `<h3>Specimen preparation</h3>${specimenList(c, own.specimen)}` : ''}`
-      + `${own.environment.length ? `<h3>Chemicals and environment</h3>${environmentList(c, own.environment)}` : ''}`) : '',
+      + `${own.environment.length ? `<h3>Chemicals and environment</h3>${environmentList(c, own.environment)}` : ''}`, true) : '',
   ].filter(Boolean).join('');
   return `<div class="pcard">
 <div class="pc-head"><p class="pc-name">${esc(productNameOrId(g))}${stated(g.manufacturer) ? `<small>${esc(g.manufacturer)}</small>` : ''}</p>${notes.map((t) => `<p class="pc-note">${esc(t)}</p>`).join('')}</div>

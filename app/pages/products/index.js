@@ -131,7 +131,7 @@ function columnsOf(c, rows, kinds) {
           if (!d || d.need === 'unknown') return null;
           const cls = [guide || d.need === 'optional' ? 'g' : ''].filter(Boolean);
           if (d.need === 'not-needed') return { text: 'none', v: 0, g: guide ? 'o' : 'c', cls };
-          if (!Number.isFinite(d.tempC)) return { text: d.need === 'optional' ? 'optional' : 'yes', v: null, g: guide ? 'o' : 'c', cls };
+          if (!Number.isFinite(d.tempC)) return { text: d.need === 'optional' ? 'if wet' : 'dry before use', v: null, g: guide ? 'o' : 'c', cls };
           return { text: fmtNumber(d.tempC), small: d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${fmtNumber(d.hours)} h` : '', v: d.tempC, g: guide ? 'o' : 'c', cls };
         }
         const s = settingCell(p[axis]);
@@ -177,20 +177,23 @@ function recordsByProduct(c) {
 }
 
 /** The key: only the marks this list uses, each said once. */
-function keyLine(kinds) {
-  // Each entry is a mark, never a sample number, then content's words for it.
+function keyLine(kinds, methodHref) {
+  // Each entry is a mark, never a sample number, then content's words for it, short enough for two lines on a laptop.
   const k = [
-    kinds.has('o') || kinds.has('iz') ? ['<span class="km km--o" aria-hidden="true">○</span>', 'as published: orientation or load not stated'] : null,
+    kinds.has('o') || kinds.has('iz') ? ['<span class="km km--o" aria-hidden="true">○</span>', 'orientation or load not stated'] : null,
     kinds.has('a') ? ['<span class="km km--a" aria-hidden="true"></span>', 'measured after annealing'] : null,
-    kinds.has('guide') ? ['<span class="km km--g" aria-hidden="true">Aa</span>', 'a setting from Bambu Lab\'s Filament Guide'] : null,
-    kinds.has('iz') ? ['<span class="km km--iz" aria-hidden="true">Izod</span>', 'notched Izod where no Charpy is published'] : null,
-    kinds.has('tough') ? [icon('tough', 'Sold as toughened'), 'sold as toughened (the maker\'s statement)'] : null,
-    kinds.has('variant') ? [icon('variant', 'Modified'), 'modified: an added filler or additive, kept out of the medians'] : null,
-    kinds.has('twin') ? [icon('twin', 'Data sheet shared'), 'data sheet shared with another product'] : null,
-    kinds.has('hardened') ? [icon('hardened', 'Hardened nozzle'), 'hardened nozzle needed'] : null,
-    kinds.has('converted') ? ['<span class="km km--fx" aria-hidden="true">¤</span>', 'price converted from a foreign listing'] : null,
+    kinds.has('guide') ? ['<span class="km km--g" aria-hidden="true">Aa</span>', 'from Bambu Lab\'s Filament Guide'] : null,
+    kinds.has('iz') ? ['<span class="km km--iz" aria-hidden="true">Izod</span>', 'Izod where no Charpy is published'] : null,
+    kinds.has('tough') ? [icon('tough', 'Sold as toughened'), 'sold as toughened'] : null,
+    kinds.has('variant') ? [icon('variant', 'Modified'), 'added filler or additive'] : null,
+    kinds.has('twin') ? [icon('twin', 'Data sheet shared'), 'shared data sheet'] : null,
+    kinds.has('hardened') ? [icon('hardened', 'Hardened nozzle'), 'hardened nozzle'] : null,
+    kinds.has('converted') ? ['<span class="km km--fx" aria-hidden="true">¤</span>', 'converted price'] : null,
   ].filter(Boolean);
-  return k.length ? `<ul class="pl-keys" aria-label="Marks">${k.map(([mark, words]) => `<li>${mark}<span>${esc(words)}</span></li>`).join('')}</ul>` : '';
+  const method = methodHref ? `<p class="pl-method"><a href="${esc(methodHref)}">How the numbers are worked out</a></p>` : '';
+  if (!k.length) return method;
+  // On a phone the key folds into "Key" (the script closes it there); a laptop shows it open, its summary hidden.
+  return `<details class="pl-keyd" open><summary>Key</summary><ul class="pl-keys" aria-label="Marks">${k.map(([mark, words]) => `<li>${mark}<span>${esc(words)}</span></li>`).join('')}</ul></details>${method}`;
 }
 
 /** One product's row and card. */
@@ -216,10 +219,12 @@ function productRow(c, r, cols, own, twins, ix, { open, phone }) {
     + productCard(c, r.g, own, twins, ix) + '</details>';
 }
 
-/** The opening line under the name: track B's words where they have landed, content's otherwise. */
-function openingLine(c, n, makers) {
-  if (typeof F.productsLine === 'function') { const t = F.productsLine(c); if (t) return t; }
-  return `${plural(n, 'product')} from ${plural(makers, 'maker')}. Sorted by how much each publishes; select a column to sort, a product to see its values, print settings and documents.`;
+/**
+ * The opening line under the name: how many products from how many makers, then the order the list is in (the script
+ * keeps it with the sort: "Sorted by HDT at 0.45 MPa, highest first."), then what the reader can do. Content's words.
+ */
+function openingLine(n, makers) {
+  return `${esc(`${plural(n, 'product')} from ${plural(makers, 'maker')}.`)} <span data-sort-line>Most documented first.</span> ${esc('Select a column to sort, a product to see its values, print settings and documents.')}`;
 }
 
 /** The Products page of a material: { path, html, stats }. */
@@ -260,22 +265,29 @@ export function renderProductsPage(db, id, env) {
   const groups = [];
   for (const col of cols) { const last = groups.at(-1); if (last && last[0] === col.group) last[1].push(col); else groups.push([col.group, [col]]); }
   const button = (col) => `<button type="button" data-sort="${esc(col.key)}" tabindex="-1" title="${esc(`Sort by ${lower(col.title)}, ${col.dir === 'desc' ? 'high' : 'low'} first`)}"><span>${esc(col.label)}</span>${col.unit ? `<small>${esc(col.unit)}</small>` : ''}</button>`;
-  const head = `<div class="pl-h" aria-hidden="true"><span class="pl-hn"><button type="button" data-sort="name" tabindex="-1" title="Sort by name">Product</button></span>`
-    + groups.map(([g, cs]) => `<div class="pl-hg" style="grid-column: span ${cs.length}"><span class="pl-g">${esc(g)}</span><div class="pl-hl">${cs.map(button).join('')}</div></div>`).join('') + '</div>';
+  // Two rows: every group's label on the first, every column's name and unit on the second, bottom-aligned.
+  const head = `<div class="pl-h" aria-hidden="true"><span class="pl-hn"><button type="button" data-sort="name" tabindex="-1" title="Sort by name"><span>Product</span></button></span>`
+    + groups.map(([g, cs]) => `<div class="pl-hg" style="grid-column: span ${cs.length}"><span class="pl-g">${esc(g)}</span>${cs.map(button).join('')}</div>`).join('') + '</div>';
   const options = [['docs', 'Most documented'], ['name', 'Name'], ...cols.map((col) => [col.key, `${col.title}, ${col.dir === 'desc' ? 'high' : 'low'} first`])];
   const controls = `<div class="pl-ctl" hidden><div class="pl-ctl-in">`
     + `<label class="find">${ICON.search}<input type="search" data-find placeholder="Find a product or maker" aria-label="Find a product or maker" autocomplete="off" spellcheck="false"></label>`
     + `<label class="sortby"><span>Sort by</span><select data-sortby>${options.map(([v, t]) => `<option value="${esc(v)}">${esc(t)}</option>`).join('')}</select></label>`
     + `<p class="pl-count" data-count aria-live="polite">${esc(count(rows.length, 'product'))}</p></div></div>`;
-  const words = { groups: Object.fromEntries(cols.map((col) => [col.key, col.words])), dir: Object.fromEntries(cols.map((col) => [col.key, col.dir])), noun: ['product', 'products'] };
+  const words = {
+    groups: Object.fromEntries(cols.map((col) => [col.key, col.words])), dir: Object.fromEntries(cols.map((col) => [col.key, col.dir])),
+    title: Object.fromEntries(cols.map((col) => [col.key, col.title])), noun: ['product', 'products'],
+    // The sort, said: the list's order in the opening line and in the select.
+    first: { desc: ['highest first', 'high first'], asc: ['lowest first', 'low first'] }, docs: 'Most documented first.', name: 'Sorted by name.',
+  };
   const makers = new Set(rows.map((r) => r.maker).filter(Boolean)).size;
   const body = `${pageHead({
     name: ident.primary, aka: ident.aka,
-    lines: `<p class="pid">${esc(openingLine(c, rows.length, makers))}</p>`,
+    // A material beyond the H2C's capability says so first, as its Overview does.
+    lines: `${m.excluded ? '<p class="callout"><b>Beyond H2C capability.</b> Kept for reference, never a candidate: it needs more heat than the H2C gives.</p>' : ''}<p class="pid">${openingLine(rows.length, makers)}</p>`,
     tabs: tabsNav({ id: m.id, name: ident.primary, n: rows.length, current: 'products' }),
   })}
 ${SPRITE}${controls}
-${keyLine(kinds)}
+${keyLine(kinds, env.methodHref)}
 <section class="pl" data-products data-section="products-list" aria-label="${esc(`${ident.primary} products`)}" style="--pl-cols: ${template}">
 ${head}
 <div class="pl-body">
@@ -299,6 +311,7 @@ ${colophon(c, env, 'products')}`;
     hereLabel: '',
     tabs: { overview: { href: `${m.id}.html`, words: `${ident.primary} overview` }, index: env.links?.index ?? null },
     returnHref: selectorLink(c, env),
+    methodHref: env.methodHref,
     body,
   });
   return { path: `materials/${productsHref(m.id)}`, html, stats: { rows: n, products: rows.length, references: refs.length } };

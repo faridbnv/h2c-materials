@@ -87,15 +87,12 @@ function paragraphs(parts) {
   return out.map((x) => x.join('').trim()).filter(Boolean).map((t) => `<p>${t}</p>`).join('');
 }
 
-/** The summary's tag: a draft says so beside it; its byline is in the colophon. */
-const TAG = { draft: 'Draft', revise: 'Under revision' };
 
 function summaryBlock(c) {
   const w = c.m.written;
   if (!w?.parts?.length) return '';
-  const tag = TAG[w.status];
-  return `<section class="sum" data-section="summary" aria-label="In short"><div class="sum-text">${paragraphs(w.parts)}</div>`
-    + `${tag ? `<p class="sum-tag" data-written-status="${esc(w.status)}"><span class="tag">${esc(tag)}</span></p>` : ''}</section>`;
+  // Who wrote it and its review status are in the colophon (footer.js), as the owner decided; nothing beside it.
+  return `<section class="sum" data-section="summary" aria-label="In short"><div class="sum-text">${paragraphs(w.parts)}</div></section>`;
 }
 
 /**
