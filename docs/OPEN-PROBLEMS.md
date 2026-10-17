@@ -1826,6 +1826,31 @@ typical schedule should be drawn from the lower ends is a ruling, not made here.
 verify:fast from an empty build cache took 78.8 s at the round's close, within its 90 s budget (56.1 s warm), so the
 117.7 s of step 2 is not open.
 
+### 37.18. What the final review of PETG, PLA and PCTG-GF leaves
+
+*From the material pages round, 2026-10-17 (D142): the final engineer review, 70/100, left for the owner as it is ([the round](audits/2026-10-16-material-pages-round/README.md#step-5-the-blind-read-the-data-it-found-and-the-close)).*
+
+**Its five changes, ranked.** (1) One rule for Z everywhere: read a ZX or ZY bar as Z by its long axis and show the
+sheet's code beside it ("Z (ZX)"), where D143 keeps a ZX bar whose sheet neither says nor draws it upright as ZX
+(3D-Fuel Pro PLA's "ZX Axis" is not drawn, Raise3D's "(ZX)" and AzureFilm's are Z), and prefer a data sheet's ZX bar
+over a filament guide's "Z" with no specimen (QIDI PETG RAPIDO). (2) The byline to the footer, the provenance lines
+("By their own or a shared sheet", "Where a sheet is silent", "has no row named PETG", "(1 of 129 profiles)") behind the
+fold, and three verdict lines in the hero (heat, across the layers, print). (3) The comparison figures: every tick of
+At a glance's rank tracks named, the maps naming PLA, PETG, ABS, ASA, PC and PA rather than the nearest, a log axis on
+the strength map, PETG's heat map not cut at 100 °C (43 materials off it), no one-dot price figure. (4) The Products
+table cell by cell: a yield beside a break marked, a published range printed as one, Izod in a column of its own, two
+brands' identical sheets said. (5) PCTG-GF's page compacted, and its tensile estimate made consistent: it lists the two
+55 MPa yields among its inputs while saying it does not include them, and calls "good precision" an interval that
+excludes all three published values (§36.2).
+**Its inconsistencies.** PETG's figure says 14 products publish both tensile strengths, its table shows 16 (QIDI
+ToughPETG-HF's XY is a yield, its Z a break; RAPIDO's two come from two documents); Polymaker PolyLite PETG's older
+"not resistant" to weak acids (Q00079) stands beside its data sheet's "Good" (Q05540) and both count; impact marks 30
+where the note says 29 drawn (a shared sheet's value, V013622, drawn twice) and PLA's 68 against 64; the hero's Z/XY
+from medians (64 %) beside the text's median of shares (68 %), unexplained; colorFabb PLA-HP's 135 °C HDT with an
+unexplained asterisk, not marked annealed; a 190 °C melting temperature drawn for PETG; PLA's records facet counting a
+"Not published" thermal conductivity row; PCTG-GF's density range "—" for three products; a "Show all 4" button over
+four rows already shown.
+
 ---
 
 ## What needs a person, the owner or a test
@@ -2396,3 +2421,4 @@ node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parit
 | §37.15 | Values the blind read could not settle | Sources that conflict, cannot be read or cannot be reached, and identities |
 | §37.16 | A drying range typed at its upper end | What the model and the tools cannot do |
 | §37.17 | What the round's own checks leave | What the model and the tools cannot do |
+| §37.18 | What the final review of PETG, PLA and PCTG-GF leaves | What the model and the tools cannot do |
