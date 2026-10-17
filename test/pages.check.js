@@ -719,7 +719,11 @@ function p5(S) {
     const first = new Map();
     for (const f of comps) for (const p of f.properties) if (!first.has(p)) first.set(p, f);
     const lines = new Map();
-    for (const f of comps) if (f.drawnGraphs.length) for (const o of f.onGraph) lines.set(o.mid, (lines.get(o.mid) ?? 0) + 1);
+    // A badge per key property, reason and mark a record is drawn with: a product that shares its sheet (a twin) and is
+    // drawn the same way is named on that badge, not given a second one.
+    const ways = new Map();
+    for (const f of comps) if (f.drawnGraphs.length) for (const o of f.onGraph) (ways.get(o.mid) ?? ways.set(o.mid, new Set()).get(o.mid)).add(`${o.h.key}|${o.reason ?? ''}|${o.marks.join('+')}`);
+    for (const [mid, set] of ways) lines.set(mid, set.size);
     const gm = (x) => c.ms.filter((z) => z.gradeId === x.gradeId);
     for (const tr of query(sec, 'tr[data-mid]')) {
       const x = c.msById.get(tr.attrs['data-mid']);
@@ -732,6 +736,10 @@ function p5(S) {
       const said = notDrawnWhy(x, f.hs, c, f.drawnIds, f.namedIds);
       check('P5', w, cell.attrs['data-why'] === said, () => `page says "${cell.attrs['data-why']}", notDrawnWhy says "${said}"`);
       if (said === 'drawn') check('P5', w, query(cell, 'span.bd').length === (lines.get(x.id) ?? 0), () => `${query(cell, 'span.bd').length} lines for a record drawn ${lines.get(x.id) ?? 0} times`);
+      if (said === 'drawn') {
+        const twins = comps.flatMap((g) => g.onGraph).filter((o) => o.mid === x.id && o.alsoFor).map((o) => o.e.g);
+        for (const g of twins) check('P5', w, textOf(cell).toLowerCase().includes(`for ${g.manufacturer ? `${g.manufacturer} ` : ''}${g.product ?? g.id} too`.toLowerCase()), () => `drawn for ${g.id} too, which the badge does not name ("${textOf(cell).slice(0, 120)}")`);
+      }
       // Against the build's own reason for refusing a record (assess, called here directly).
       const reads = f.hs.filter((y) => y.valueProperties.includes(x.property));
       const results = reads.map((y) => assess(x, y, gm(x)));

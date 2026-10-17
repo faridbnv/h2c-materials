@@ -40,12 +40,18 @@ function drawnCell(x, c, ix) {
   const why = ix.why(x);
   if (why === 'none') return '<td class="drawn" data-why="none"></td>';
   if (why === 'drawn') {
-    const lines = (ix.lines.get(x.id) ?? []).map((o) => {
+    // One badge per way the value is drawn: where it stands for a product sharing its sheet in the same way (a twin,
+    // D89), that product is named on the same badge, never under a second badge that repeats the first.
+    const badges = new Map();
+    for (const o of ix.lines.get(x.id) ?? []) {
       const reason = o.reason ? outOfMedianWords(o.reason, o.h) : null;
       const label = !reason ? 'In the median' : o.reason === 'as-published' ? 'Not compared' : 'Not in the median';
-      const also = o.alsoFor ? alsoForWords(productNameOrId(o.e.g), o.e.v.from).trim() : '';
-      return `<span class="bd${reason ? ' bd--apart' : ''}">${tableMark(o.marks)}${esc(label)}</span>${reason || also ? `<small>${esc(cap([reason, also].filter(Boolean).join('; ')))}</small>` : ''}`;
-    });
+      const key = `${o.h.key}|${o.reason ?? ''}|${o.marks.join('+')}`;
+      const b = badges.get(key) ?? badges.set(key, { label, reason, marks: o.marks, also: [] }).get(key);
+      if (o.alsoFor) b.also.push(alsoForWords(productNameOrId(o.e.g), o.e.v.from).trim());
+    }
+    const lines = [...badges.values()].map(({ label, reason, marks, also }) => `<span class="bd${reason ? ' bd--apart' : ''}">${tableMark(marks)}${esc(label)}</span>`
+      + `${reason || also.length ? `<small>${esc(cap([reason, ...also].filter(Boolean).join('; ')))}</small>` : ''}`);
     return `<td class="drawn" data-why="drawn">${lines.join('')}</td>`;
   }
   const label = why === 'named' ? 'Named in a sentence' : 'Not drawn';
