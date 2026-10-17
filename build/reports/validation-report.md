@@ -199,9 +199,9 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
 | density | 832 | 1.34 | 1.97 | 0.799 | 0.95 | yes |
-| tensileModulusXY | 315 | 1.12 | 1.29 | 0.797 | 0.949 | yes |
-| tensileStrengthXY | 333 | 1.21 | 1.21 | 0.787 | 0.946 | yes |
-| elongationXY | 364 | 1.14 | 1.16 | 0.791 | 0.951 | yes |
+| tensileModulusXY | 315 | 1.12 | 1.29 | 0.8 | 0.949 | yes |
+| tensileStrengthXY | 333 | 1.21 | 1.21 | 0.787 | 0.943 | yes |
+| elongationXY | 364 | 1.14 | 1.16 | 0.794 | 0.948 | yes |
 | hdt045 | 445 | 1.98 | 3 | 0.789 | 0.924 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
 EST-GRADE-OUTLIER, 35 grades: PLA 8, PLA Wood 3, PLA Aero 3, PA12-CF 3, PPA-CF 3, PPA-GF 3, PA6-CF 2, PP-CF 2, PLA Marble 1, PP 1, POM / Acetal 1, ABS 1, TPU 85A class and softer 1, PETG 1, PA6 1, PET-GF 1.
