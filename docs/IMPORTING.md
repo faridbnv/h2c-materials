@@ -34,14 +34,15 @@ for products still missing a nozzle or bed temperature (batch b42) entered throu
 and complete. On 2026-10-05 the owner opened gap round 2 (GOALS-LOG, "Decided on 2026-10-05, gap round 2"): the thirteen
 held sheets (batch b43; ten entered) and the makers' own pages for products still without a nozzle or bed (batch b44)
 entered through this pipeline, each bounded and complete; their packets are
-`docs/audits/2026-10-05-gap-round-2/ingest/b43-packet.json` and `b44-packet.json`. Also on 2026-10-05, in check round 3, the owner had the 123 registered documents whose bytes were lost fetched again
+`docs/audits/2026-10-05-gap-round-2/ingest/b43-packet.json` and, in the private store since that round closed,
+`b44-packet.json` (the round's [PACKETS.md](audits/2026-10-05-gap-round-2/PACKETS.md) lists it). Also on 2026-10-05, in check round 3, the owner had the 123 registered documents whose bytes were lost fetched again
 (GOALS-LOG, "Decided on 2026-10-05, check round 3", item 2). That is not an import: a copy that hashes to the recorded digest
 is the registered document and went back into the store; a page that changed since is kept as a later copy in
 `.cache/later-copies/` (backed up with the store), read by checks, and not registered, so no record cites it (D131,
 `docs/audits/2026-10-05-check-round-3/refetch/`). The round also changed what the import reads: a build plate or a shop
 card is not a composition (m369), and the temperature parser sets a °F window aside beside a °C one (m381). Reading the sheets already registered again is not an import and travels a path of its own, described
 under "Reading a registered sheet again" below (D123, D125). The owner lifted the general pause on 2026-10-05.
-What follows is the procedure for an authorized batch.
+What follows is the procedure for a batch.
 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.

@@ -8,7 +8,7 @@ Two readers share one screen: someone who wants a shortlist, and an engineer who
 behind it. Progressive disclosure answers that.
 
 This dataset adds a harder problem. It is sparse, and deliberately honest about being sparse.
-Tensile strength is published for about two in three of the materials, a price was sampled for about one product in five, and
+Tensile strength is published for about seven in ten of the materials, a price was sampled for about one product in five, and
 most process fields for almost none (the filter rail states each count, from the build it ships with). A conventional
 filter interface renders that as a tool that looks broken. **Making absence
 legible and useful, rather than invisible, is the design problem.** Most of what follows is
@@ -255,8 +255,9 @@ record states a verdict; it cannot pass there, and its line says "No maker state
 
 The most consequential control, so it sits in the top bar under its own label, "Materials
 with missing data", shown at every width ("Missing data" on a phone; "Candidate confidence" until the trial of
-2026-10-01 read it as a statistical confidence), beside the buttons on a wide screen and above them at 1400 px
-and narrower: below 1100 px it used to be hidden, leaving two unlabelled buttons. The internal policy names remain Strict and Explore; the buttons describe the result
+2026-10-01 read it as a statistical confidence), beside the buttons on a wide screen and above them at 1500 px
+and narrower (beside them again from 601 to 1100 px, where the panel has a row of its own): below 1100 px it used to be
+hidden, leaving two unlabelled buttons. The internal policy names remain Strict and Explore; the buttons describe the result
 set in plain language. Those two names, **Confirmed only** and **Include uncertain**, come from one place
 (`POLICY_LABELS` in `app/js/ui/labels.js`) and every sentence about the mode uses them: the Why excluded tab, the
 excluded search hits, the results heading, Compare and Save / share. They had also been called "leave it out" and
@@ -497,7 +498,8 @@ does not say), its Sources and its product details. A card stays as the reader l
 
 **Comparisons, one heading each (D133, D139, D140).** Four closed headings draw a material's products against the
 headlines a reader compares them on, each in the place of the first property it reads, instead of a block per
-property:
+property (a fifth, Print temperatures across products, opens the Printing tab, D139; it is described with the print gates
+below):
 
 - **Tensile tests, XY and Z** (Mechanical): tensile modulus, tensile strength and elongation at break, each a scale
   with an XY row and a Z row; tensile strain at strength is listed inside it, not drawn;
@@ -651,18 +653,42 @@ twenty measured values with a number. The same function decides the drawer's lin
 the tests; `build/snapshot/pages.csv` lists every material with its page or what it falls short on. A material beyond
 the H2C's capability that qualifies has a full page, which says so first. A group name has none.
 
-**A material's page** (`materials/<id>.html`), in reading order: the masthead (name, full name, the first screen's
-typical numbers with what each rests on, the comparison with the two materials with the most products, polymer, filler,
-Bambu Lab status, products and makers); **In short**, the written summary, whose every number is filled from the data
-when the page is built (its byline and review status beside it); **At a glance**, each key property's median, range and
-middle half with where it sits among every material's medians; **Strength and stiffness** and **Heat**, product by
-product, with what Z keeps of XY and the heat ladder; **How to print it on the H2C**, how many products accept each
-nozzle, bed and chamber temperature against the H2C's limits, drying, hardened nozzle and AMS; **Products**, a table to
-choose from (sortable, searchable, the first 25 and *Show all*), each row opening a card; **What makers say**;
-**Chemicals and environment**; **Physical properties**; **Price**; **Estimated values**, fenced and marked †; **Sources
-and known gaps**; and the footer with the way back to the selector, the material's drawer open. A section with nothing on
-file leaves the page and the contents; one line before Sources names them ("Not on file for …"). A sticky contents
-rail at 1,080 px and wider, a strip of section links below that; every link lands below the sticky bar.
+**A material's page** (`materials/<id>.html`), in reading order (`SECTIONS`, `app/pages/sections/index.js`):
+
+- **The masthead**: the name, the names it is also sold under, the full name, and the first screen. Six typical numbers
+  (tensile strength XY and Z, tensile modulus XY, HDT at both loads, notched Charpy), each with how many products it
+  rests on, and the nozzle and bed windows most products accept; then a line against each of the two materials with the
+  most products, median against median; then polymer, filler, Bambu Lab status, products and makers.
+- **In short**, the written summary, whose every number is filled from the data when the page is built, its byline and
+  review status beside it.
+- **At a glance**, the property profile: each key property's median, range and middle half in four groups (stiffness
+  and strength, toughness, heat, weight and cost), on a track that shows where it sits among every material's medians.
+- **Strength and stiffness**: a map of every material's median tensile strength against its tensile modulus, this
+  material's products and their middle half drawn over it; what each product keeps across the layers (Z against XY, for
+  products that publish both in one document and state); the notched impact tests.
+- **Heat**: one ladder from the glass transition through heat deflection at both loads to Vicat and melting, with the
+  H2C's chamber limit, and a map of heat deflection against strength.
+- **How to print it on the H2C**: every product's nozzle, bed and chamber window, with how many products accept each
+  temperature, against the H2C's limits; drying, hardened nozzle and AMS.
+- **Products**, one table to choose from. Its columns: the product; Key values (how many of the table's values it
+  publishes, the default order, most documented first); tensile strength and modulus, XY and Z; notched impact (Charpy,
+  or Izod labelled where a product publishes no Charpy); HDT at both loads; price; nozzle over bed, with a hardened-nozzle
+  icon; chamber and drying. A column no product fills is left out and named under the table. A quiet shade gives a
+  value's quarter within its column; a value not compared is grey and marked hollow; icons mark a shared data sheet, sold
+  as toughened, a special formulation and annealed, each said once in the key and in full under *How to read this
+  table*. A search and three toggles (*Only with* Z values, own data sheet, Canadian price) narrow it, any column sorts,
+  the first 25 are shown and the rest behind *Show all*; a row opens to its card (`#product-<id>` opens one). On a phone
+  each product is two lines, its name and four values chosen under *Columns*. Without the script the table reads in full.
+- **What makers say**, by topic, the engineering topics open and the marketing ones closed; **Chemicals and
+  environment**; **Physical properties**; **Price**, each product's price per kilogram and its strength against its
+  price; **Estimated values**, fenced and marked †; **Sources and known gaps**; and the footer, with what the numbers are
+  not and the way back to the selector, the material's drawer open.
+
+A section with nothing on file leaves the page and the contents; one line before Sources names them ("Not on file for
+…"). A sticky contents rail at 1,080 px and wider, a strip of section links below that; every link, to a section
+(`#mechanical`, `#printing`, …) or a figure (`#fig-3-1`), lands below the sticky bar. The top bar carries the mark, the
+way to the index, the page and its records, *Open in the selector* and the theme, which follows the system's and is the
+selector's choice once made; a printed page is always light.
 
 **The figure grammar.** Inline SVG drawn by the build, one grammar for every figure: a number and a title that states
 what it shows, a key only of the marks drawn, the plot, and a caption with one line on how to read it and *How this is
@@ -679,7 +705,16 @@ ID in its own cell: measurements by property with every condition and the docume
 where a figure draws the group, whether each value is in its median and why not; print profiles; maker statements in
 their own words; environment statements; price listings; documents, with what each gave and the link to the original;
 known gaps and review notes. A finder above the tables narrows them by type, product, document, orientation, property
-and text, and keeps the choice in the address, so a section's link from the main page opens the records it counts.
+and text, each choice with how many records it holds, and keeps the choice in the address
+(`#type=…&property=…&orientation=…&product=…&doc=…&q=…`), so a section's link from the main page opens the records it
+counts. A measurement a figure draws carries a badge saying whether it is in the median, and why not. The last table
+puts the known gaps first and then, closed and quieter, the notes meant for the data's maintainers.
+
+**One set of facts.** The drawer and the pages show a material from the same compiled fields through one facts layer
+(`app/js/ui/material-facts.js`, with the shared sentences, scales and display statistics beside it): which records, in
+which order, counted how, drawn or not and why is decided there once, and only the markup differs, so the two cannot
+tell different stories. The pages add figures the drawer has no room for; neither decides anything. ARCHITECTURE.md says
+how the build renders them (stage 8) and how the agreement is checked.
 
 **The index** (`materials/index.html`) lists every material by family and polymer, each with its Bambu Lab status, its
 products and measured values, linked where it has a page and, where it has none, what it falls short on in one line;
@@ -1029,7 +1064,8 @@ laid a 390 px phone out at 533 px with the right side clipped. Colour never the 
   panel (the mode and Let estimates rule out materials, divided by a rule), and the page's actions. The theme button is a
   sun or a moon at every width, with "Switch to light theme" or "Switch to dark theme" kept as its name and title (with
   its words it took a second row of its own from 1401 to 1600 px); Save / share is its arrow alone up to 1300 px, with
-  its words kept the same way. Its buttons are one height, and up to 1500 px the mode's label sits above its buttons.
+  its words kept the same way. Its buttons are one height, and up to 1500 px the mode's label sits above its buttons (from 601 to 1100 px, on the
+  panel's own row, beside them).
   Below 600 px it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode
   buttons with Let estimates rule out materials, without the panel's box; the name goes, since the browser tab carries
   it. It had been four rows on a phone.

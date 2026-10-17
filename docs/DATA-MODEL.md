@@ -206,7 +206,8 @@ polymers           the polymer identities the estimate model knows (polymers.csv
 polymerEnvironment a base polymer's published environmental behaviour, per category and agent (D64)
 polymerEvidence    those rows attached to each material with no record of its own in the category: one inferred,
                    polymer-level verdict per category; shown, may screen, never passes (D64)
-registry           { properties, headlines, relations }: what every property and headline means, and the orders physics fixes (D126)
+registry           { properties, headlines, comparisons, relations }: what every property and headline means, the
+                   comparisons the drawer draws (drawer_comparisons.csv, D139), and the orders physics fixes (D126)
 ```
 
 `dist/h2c.sqlite` (`npm run sql`, D75) holds the same tables for queries. It also holds the **record tier** (D85),
@@ -239,8 +240,8 @@ each retrieved source whose text is not in it (D105).
   headline: { density, tensileModulusXY, tensileModulusZ, tensileStrengthXY, tensileStrengthZ, elongationXY, elongationZ,
               flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY, flexuralStrengthZ,
               charpyNotched, izodNotched, hdt045, hdt18, glassTransition, priceCADkg },   // one per row of
-                                 // headline_definitions.csv, then the price; the Z rows, the flexural rows and hdt18 are
-                                 // drawn in the drawer alone (Drawer only, D139, D140)
+                                 // headline_definitions.csv, then the price; tensile modulus and elongation Z, the
+                                 // flexural rows and hdt18 are drawn in the drawer alone (Drawer only, D139, D140)
                                  // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, twins, asPublished, variants } },
   headlineBasis,                 // what its headline values represent, one sentence chosen by rule (D70)
@@ -266,6 +267,16 @@ each retrieved source whose text is not in it (D105).
 ```
 
 `schema/db.schema.json` (`$defs.material`) is the contract, and says which fields a family entry leaves out.
+
+`written` is the material page's summary (D142), from its row of `material_summaries.csv`: `by` and `on` the row's
+Written by and Written on, `status` its Review status (`draft`, `reviewed by the owner` or `revise`,
+`schema/vocab/summary-status.csv`), and `parts` the text cut at its placeholders, each part `{ text }` or a filled
+`{ field, value, unit?, bound? }` that the page formats as its key figures. A summary types no number: each is a
+placeholder the build fills from the compiled database, never from an estimate (`build/src/written.js`): `{products}`,
+`{makers}`, `{values}`, `{profiles}` and `{name}`, or, for any HeadlineKey, `{key.median}`, `min`, `max`, `q1`, `q3`
+(from four products), `range`, `n`, `products`, `typical` and `label`. One the material cannot fill stops the build
+(SUMMARY-PLACEHOLDER), and a number typed outside a placeholder is a lint finding (SUMMARY-NUMBER). Notes is for the
+data's maintainers and is never shown. How a summary is written and revised is AGENTS.md's.
 
 `print` answers "what do I set it to". It is the union of the material's profiles, so a range spans
 every profile that published one, with the count behind it. A material whose profiles publish no nozzle or bed window,
@@ -354,7 +365,7 @@ of the nine measured ones (the price compares listings, not measurements):
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
 | Density, heat deflection (0.45 MPa) | a printed or unstated specimen; heat deflection at 0.45 MPa | heat deflection with no load stated | a moulded, film or filament specimen; heat deflection at another load |
-| Tensile modulus, tensile strength, elongation at break (XY) | direction XY | no direction stated | Z, XZ, ZX or a source's own label |
+| Tensile modulus, tensile strength, elongation at break (XY) | direction XY (Prusa's Horizontal bar since D143) | no direction stated | Z, XZ, ZX, YX (a flat bar along Y, kept as its label, D143) or a source's own label |
 | **Tensile strength (Z)** (`tensileStrengthZ`) | direction Z, the source's own word | none | no direction stated (almost always a flat or moulded bar); XY; XZ or ZX, whose use by sheets is not settled |
 | **Notched Charpy impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
 | **Notched Izod impact** (`izodNotched`, D94) | Izod, notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | no direction stated | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
@@ -369,8 +380,8 @@ may also name its test Standard, which a value naming only other standards does 
 A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: a row of
 drawer_comparisons.csv (Impact tests; Tensile tests, XY and Z; Flexural tests, XY and Z; Heat deflection and glass
 transition), whose method.csv rule of the same Topic is the caption. Its tab draws the rows of one unit on one scale, a
-product each, never converted (D133, D139). A row that is Drawer only (the tensile and flexural Z rows, the flexural XY
-rows, HDT at 1.8 MPa) is computed per product and as a spread like any other, but is no filter, axis, table or export
+product each, never converted (D133, D139). A row that is Drawer only (tensile modulus Z and elongation at break Z, the four
+flexural rows, HDT at 1.8 MPa; tensile strength Z stays selectable) is computed per product and as a spread like any other, but is no filter, axis, table or export
 column, scenario key or decision state; its values with no stated orientation are drawn hollow and counted apart, as a
 selectable headline's are (D140), and HDT at 1.8 MPa excludes a value with no stated load, so such a value stays on the
 0.45 MPa row, drawn once (D139).
@@ -757,7 +768,8 @@ product it is about (`coverage.csv` GradeID, m213), and a conflict about one pro
 
 Coverage is terminal: it reports gaps and never feeds candidate selection. It still must describe
 the records truthfully. `build/src/coverage-rules.js` defines what counts as own data for Mechanical,
-Thermal, Print setup, Moisture / environmental and Canadian price coverage. The same definitions
+Thermal, Print setup, Moisture / environmental (environmental evidence, and a maker's statement on moisture sensitivity,
+D143) and Canadian price coverage. The same definitions
 drive both the coverage rows the build derives, evidence and absence (D74, D114), and validation, so a row cannot say `Gap` beside its own data,
 claim `Evidence recorded` on another material's family notes, or quote the wrong manufacturer count.
 
@@ -787,7 +799,9 @@ Both the quote and note are escaped as text. This field does not enter the selec
 
 They are the record tier (D85) made visible, and never decide anything. `build/src/know-how.js` moves them out of
 `db.evidence` into `db.knowHow`, so the engine's evidence, the environment criteria, the polymer-level layer (D64),
-coverage and the evidence counts are what they were without them; a scenario cannot name the category, because only
+coverage and the evidence counts are what they were without them, with one exception: a maker's statement on moisture
+sensitivity is a moisture record of the material's own sources, so it counts in the Moisture / environmental coverage
+domain and closes its derived gap there, deciding nothing (D143); a scenario cannot name the category, because only
 filterable categories reach `meta.environmentCategories`. `test/know-how.test.js` runs the six templates with the
 statements put back beside the evidence and finds every answer unchanged.
 
