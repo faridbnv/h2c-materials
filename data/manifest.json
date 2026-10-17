@@ -62,8 +62,8 @@
       "sha256": "3aa5b7ddb6aaa13f27d3279352ba91b49f0a79a66a98cb72eea94b2fa5c6e789"
     },
     "coverage": {
-      "rows": 951,
-      "sha256": "8f65483ba3fa35a8d070ded15a850ccad463ad75045ce7e4d79e10af735dcbab"
+      "rows": 953,
+      "sha256": "cb2b596678a3c449aee81cc16b7762e3dc68810fc3e9cc79721a9d08ad807abb"
     },
     "method": {
       "rows": 57,
