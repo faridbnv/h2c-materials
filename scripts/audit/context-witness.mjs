@@ -82,8 +82,11 @@ for (const r of live) {
   if (lineStd.length && NA(r.Standards)) add('CONTEXT-STANDARD', id, 'Standards', `the line names ${lineStd.map((x) => x.name).join(', ')}; Standards is ${r.Standards} — ${q}`);
   else if (lineStd.length && !NA(r.Standards) && !lineStd.some((x) => rowDigits.has(x.digits))) add('CONTEXT-STANDARD', id, 'Standards', `the line names ${lineStd.map((x) => x.name).join(', ')}; Standards is ${r.Standards} — ${q}`);
   if (/Izod|Charpy|Impact/i.test(r.Property)) {
-    const un = /un-?notch/i.test(lc); const no = /(^|[^n])notch(ed)?\b/i.test(lc.replace(/un-?notch(ed)?/gi, ''));
+    // Fiberlogy's pages print "(uncharved)" for unnotched; a Chinese label says 缺口 (notch). A line that states a notch
+    // beside a row that states none is a finding too (m434: nine such rows read "notch not stated").
+    const un = /un-?notch|uncharved/i.test(lc); const no = /(^|[^n])notch(ed)?\b|缺口/i.test(lc.replace(/un-?notch(ed)?/gi, ''));
     if ((un && !no && r.Notch === 'Notched') || (no && !un && r.Notch === 'Unnotched')) add('CONTEXT-NOTCH', id, 'Notch', `the line says ${un ? 'unnotched' : 'notched'}; Notch is ${r.Notch} — ${q}`);
+    else if (un !== no && NA(r.Notch)) add('CONTEXT-NOTCH', id, 'Notch', `the line says ${un ? 'unnotched' : 'notched'}; Notch is ${r.Notch} — ${q}`);
   }
 }
 

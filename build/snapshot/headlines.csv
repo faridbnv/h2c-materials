@@ -2747,7 +2747,7 @@ M162,TPU harder than 95A,flexuralModulusXY,value,0.1,GPa,,,,,1,G039-23,V012231
 M162,TPU harder than 95A,flexuralModulusZ,none,,GPa,,,,,,,
 M162,TPU harder than 95A,flexuralStrengthXY,none,,MPa,,,,,,,
 M162,TPU harder than 95A,flexuralStrengthZ,none,,MPa,,,,,,,
-M162,TPU harder than 95A,charpyNotched,none,,kJ/m²,,,,,,,
+M162,TPU harder than 95A,charpyNotched,value,62,kJ/m²,,,,,1,G039-23,V012233
 M162,TPU harder than 95A,izodNotched,none,,kJ/m²,,,,,,,
 M162,TPU harder than 95A,hdt045,not applicable,,°C,,,,,,,
 M162,TPU harder than 95A,hdt18,not applicable,,°C,,,,,,,

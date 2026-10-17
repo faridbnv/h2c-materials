@@ -197,7 +197,7 @@ M020,PETG,flexuralModulusXY,69,23,1,1.61,1.8985,2.075,2.65,G020-13,27: 1.174-2.2
 M020,PETG,flexuralModulusZ,69,8,1.27645,1.52,1.71382,1.847185,2.2076,G020-35,,1: 1.75703-1.75703,
 M020,PETG,flexuralStrengthXY,69,25,41.9,66,70,75,100.2,G020-18,28: 45-80,2: 75-77.1,1
 M020,PETG,flexuralStrengthZ,69,9,39.9,53.2,55,56,59.7,G020-72,,1: 30.1-30.1,
-M020,PETG,charpyNotched,68,8,2.6,4.8875,6,6.8,8.6,G020-29,4: 1.25-20,2: 1.7-3.5,1
+M020,PETG,charpyNotched,67,8,2.6,4.8875,6,6.8,8.6,G020-29,4: 1.25-20,2: 1.7-3.5,1
 M020,PETG,izodNotched,69,4,3,3,3.5,4.125,4.5,G020-19,10: 2-17,,
 M020,PETG,hdt045,69,46,63,68,70,71,94,G020-01,12: 65-79,2: 71.1-80,3
 M020,PETG,hdt18,69,22,58,62,64.5,68,74.8,G020-46,,2: 62-70,1
@@ -516,7 +516,7 @@ M049,PA6,flexuralModulusXY,7,0,,,,,,,6: 1.65-3.56,,
 M049,PA6,flexuralModulusZ,7,0,,,,,,,,,
 M049,PA6,flexuralStrengthXY,7,0,,,,,,,5: 70-112,,
 M049,PA6,flexuralStrengthZ,7,0,,,,,,,,,
-M049,PA6,charpyNotched,7,0,,,,,,,3: 6-6.8,,
+M049,PA6,charpyNotched,7,0,,,,,,,4: 5-6.8,,
 M049,PA6,izodNotched,7,0,,,,,,,2: 5-95,,
 M049,PA6,hdt045,7,3,60,,140,,143,G049-06,2: 60-186,,
 M049,PA6,hdt18,7,2,50,,70,,90,G049-06,,2: 90-90,
@@ -2349,7 +2349,7 @@ M162,TPU harder than 95A,flexuralModulusXY,15,1,0.1,,0.1,,0.1,G039-23,3: 0.11-0.
 M162,TPU harder than 95A,flexuralModulusZ,15,0,,,,,,,,,
 M162,TPU harder than 95A,flexuralStrengthXY,15,0,,,,,,,,,
 M162,TPU harder than 95A,flexuralStrengthZ,15,0,,,,,,,,,
-M162,TPU harder than 95A,charpyNotched,15,0,,,,,,,,,
+M162,TPU harder than 95A,charpyNotched,15,1,62,,62,,62,G039-23,,,
 M162,TPU harder than 95A,izodNotched,15,0,,,,,,,,,
 M162,TPU harder than 95A,glassTransition,15,6,-30,-26.5,-16,-11.5,-9,G039-45,,,
 M162,TPU harder than 95A,priceCADkg,15,1,47.49,,47.49,,47.49,G040-01,,,
