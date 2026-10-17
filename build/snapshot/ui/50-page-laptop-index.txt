@@ -4,7 +4,7 @@ spill: none
 clipped cells: none in 0 tables
 hidden controls: 0
 figure text: all of it readable
-sections (21): family PLA, family Nylon / Polyamide, family Flexible Elastomers, family Industrial High-Temperature, family ABS, family Copolyesters, family PETG, family ASA, family Polycarbonate, family PET Engineering, family High-Performance Engineering, family Support / Soluble, family Polyolefins, family PVB / Specialty Polymers, family Styrenics, family Acetals, family Polymer Blends, family Fluoropolymers, family Support / Interface, family Metal and Ceramic Sintering, colophon
+sections (20): family PLA, family Nylon / Polyamide, family Flexible Elastomers, family Industrial High-Temperature, family ABS, family Copolyesters, family PETG, family ASA, family Polycarbonate, family PET Engineering, family High-Performance Engineering, family Support / Soluble, family Polyolefins, family PVB / Specialty Polymers, family Styrenics, family Acetals, family Polymer Blends, family Fluoropolymers, without-a-page, colophon
 figures: 0, with an svg 0, with a caption 0
 bar: sticky, 0 sections listed, the way back on screen
 fonts: Inter loaded, Newsreader loaded

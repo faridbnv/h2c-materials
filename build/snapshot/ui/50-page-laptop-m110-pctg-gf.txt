@@ -1,12 +1,12 @@
 viewport 1180x760
 document width: fits the screen
 spill: none
-clipped cells: none in 10 tables
+clipped cells: none in 9 tables
 hidden controls: 0
 figure text: all of it readable
-sections (13): key-figures, summary, on-the-h2c, among, mechanical, thermal, printing, products, uses, price, estimates, sources, colophon
-figures: 5, with an svg 5, with a caption 5
-bar: sticky, 9 sections listed, the way back on screen
+sections (14): key-figures, summary, on-the-h2c, among, mechanical, thermal, printing, products, uses, price, other, estimates, sources, colophon
+figures: 2, with an svg 2, with a caption 2
+bar: sticky, 10 sections listed, the way back on screen
 fonts: Inter loaded, Newsreader loaded
 lighting: works
-anchors: 14 checked
+anchors: 12 checked

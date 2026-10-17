@@ -663,19 +663,22 @@ so first. A group name has none.
   (nozzle, bed, heated chamber, drying, nozzle type: what most products give).
 - **Among the materials**: a sentence against the first two alternatives; *Against its alternatives* (the material and
   five others chosen by rule, `peerSet`: the same polymer filled or not, then the most documented of about the same heat
-  resistance; never one beyond the H2C's limits), each linked to its page; *Among all materials*, two maps on frames the
-  same on every page (strength against modulus, HDT against price).
-- **Mechanical properties**, **Thermal properties**: two sentences each, the products' strips (a dot per product, from
-  four products; fewer are a table of what each sheet publishes), what the layers keep (Z against XY), the products
-  well above the rest, named.
+  resistance; never one beyond the H2C's limits, a foaming material only against another), each linked to its page;
+  *Among all materials*, two maps on frames the same on every page (strength against modulus, HDT against price), a
+  panel only where the material has a median on both axes, and none on a thinly documented page.
+- **Mechanical properties**, **Thermal properties**: two sentences each, the products' strips (a dot per product where
+  at least four products are ranked, `inStrip`; fewer are a table of what each sheet publishes, all such tables on one
+  grid), what the layers keep (Z against XY, its property-by-property table folded beneath), the products well above
+  the rest, named.
 - **Printing on the H2C**: every print and service temperature on one axis against the H2C's limits; the settings table
   (most products and the Bambu Lab Filament Guide, or a column per product under six); hardened nozzle, after printing,
   what makers say about printing it.
 - **Products**: who makes it, the products that stand out (a fact per line, never a verdict) and the way to the
-  Products page; **Uses, limitations and chemicals**; **Density and price**; **Other properties, as published**;
-  **Estimated values** (only where a key figure is missing or cannot be ranked, fenced); **Sources** (publishers, kinds
-  of document, this material's own known gaps, every document behind a fold); the **colophon** (what the numbers are
-  not, the way back, release and dates, who wrote the summary and its review status, *Copy the citation*).
+  Products page; **Uses, limitations and chemicals** (three warnings open, the rest folded; each exposure one verdict
+  with its count); **Density and price**, in words; **Other properties, as published**, one line and a fold;
+  **Estimated values** (only where a key figure is missing or cannot be ranked, fenced); **Sources** (one paragraph,
+  this material's own known gaps, every document and the publisher table behind a fold); the **colophon** (what the
+  numbers are not, the way back, release and dates, who wrote the summary and its review status, *Copy the citation*).
 
 A section with nothing to say leaves the page silently; absence is said once, where the reader would look. The page says
 each fact once: the first screen gives the number, a section interprets it, a figure's title states what only it shows.
@@ -683,9 +686,11 @@ each fact once: the first screen gives the number, a section interprets it, a fi
 **The Products page** (`materials/<id>-products.html`): the head with *Products* selected, one line that follows the
 sort, a search and *Sort by* (a column heading sorts too; a second press reverses), the key of only the marks used, then
 the list. Sorting by a value splits the list into labelled groups in a fixed order: compared, then shown as published
-(no stated orientation or load), then not published. A row is a native disclosure; its card holds every record of that
-product, values grouped by document with their conditions and the sheet's own row label, whether the Overview counts
-each and why not, print settings with where each comes from, price, statements and documents. Reference and study
+(no stated orientation or load), then a notched Izod value where no Charpy is published, then not published ("—"). A
+row is a native disclosure; its card holds every record of that product, values grouped by document (the conditions
+they share said once in the group's heading, a second edition's identical values said once), the sheet's own row
+label, whether each is in the Overview's median and why not, print settings with where each comes from, price, the
+maker's statements folded, and documents. Reference and study
 specimens come last. `#G…` opens a product's card, `#V…` a value. Under six products the cards open; on a phone each
 row is two lines. Every record of a material appears exactly once across its two pages, except the project's own
 selection notes and the maintainers' coverage notes (`offThePages`).
@@ -704,7 +709,8 @@ view (a list of the sections and *How the numbers are worked out*), and *Back to
 (`?from=`, kept for the tab and taken out of the address), every return reopens the selector as the reader left it, with
 the drawer on the material of the page in view; arrived otherwise, it reads *Open in the selector*. **The index**
 (`materials/index.html`) lists the materials with a page by family, each with its products, one search that also finds
-the names a material is sold under, and the materials without a page in one line per family. **The method page**
+the names a material is sold under, read row by row, the most documented family first, and the materials without a page
+in one closing block. **The method page**
 (`materials/method.html`) holds the explanations every page would otherwise repeat. **The stub**
 (`materials/<id>-records.html`) sends the old records page's links to the Products page or to Sources.
 

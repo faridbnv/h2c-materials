@@ -4788,9 +4788,11 @@ the three built it in their own files; an independent engineer review scored eac
   once, where the reader looks. No bookkeeping, no project word, no repeated caveat (the checks refuse them).
 - **Five figures, one grammar.** Against five alternatives chosen by rule (`peerSet`: the same polymer filled or not,
   then the most documented of about the same heat resistance; never a material beyond the H2C's limits), two maps on
-  fixed frames, the products' strips in each section (from four products; fewer are a per-sheet table), what the layers
-  keep (Z against XY), and every print and service temperature on one axis against the H2C's limits. One scale per
-  property on every page, one data colour for the material, grey for the rest, a table twin behind each.
+  fixed frames, the products' strips in each section (where four products are ranked, `inStrip`; fewer are a per-sheet
+  table), what the layers keep (Z against XY), and every print and service temperature on one axis against the H2C's
+  limits. One scale per property on every page, one data colour for the material, grey for the rest, a table twin behind
+  each. A thinly documented page is placed by its alternatives alone, and reads short; the weak last third of a long page
+  (warnings, general statements, other properties, the publisher table) sits behind folds, every value one press away.
 - **One rule per statement.** A print window is the span most products accept, "all" only where every one accepts all
   of it (`typicalWindow`); a gap is shown by one rule (`shownGap`); a value no sheet gave is never shown (a median
   drying schedule or Vicat becomes the span). Display statistics stay in `material-stats.js` and

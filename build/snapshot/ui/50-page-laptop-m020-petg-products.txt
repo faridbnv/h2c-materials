@@ -9,4 +9,4 @@ figures: 0, with an svg 0, with a caption 0
 bar: sticky, 1 section listed, the way back on screen
 fonts: Inter loaded, Newsreader loaded
 anchors: 4 checked
-products: 73 products, 13 sorts, 5 searches, 65 checks
+products: 73 products, 13 sorts, 5 searches, 76 checks

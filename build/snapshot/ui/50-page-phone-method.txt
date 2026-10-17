@@ -4,7 +4,7 @@ spill: none
 clipped cells: none in 0 tables
 hidden controls: 0
 figure text: all of it readable
-sections (16): method-typical, method-compared, method-evidence, method-alternatives, method-maps, method-products, method-layers, method-flexural, method-impact, method-heat, method-temperatures, method-settings, method-standout, method-prices, method-estimates, method-sources
+sections (17): method-typical, method-compared, method-evidence, method-alternatives, method-maps, method-products, method-layers, method-flexural, method-impact, method-heat, method-temperatures, method-settings, method-standout, method-prices, method-estimates, method-sources, colophon
 figures: 0, with an svg 0, with a caption 0
 bar: sticky, 16 sections listed, the way back on screen
 fonts: Inter loaded, Newsreader loaded

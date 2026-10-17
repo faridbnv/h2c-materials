@@ -263,7 +263,10 @@ export function peerSet(db, m, ix, { max = 5 } = {}) {
   const hasPage = (x) => !x.familyEntry && !!pageOf(x, ix.measurementsByMaterial.get(x.id) ?? []);
   // Never a material beyond the H2C's limits (materials[].excluded), on any page, an excluded material's own included:
   // the alternatives are what an engineer could print on the H2C instead.
-  const pool = db.materials.filter((x) => x.id !== m.id && hasPage(x) && !x.excluded && !x.variantClass && !supportOf(x) && flexibleOf(x) === flexibleOf(m) && !esdOf(x));
+  // A foaming (lightweight) material is an alternative only to another: its density and stiffness are of another kind,
+  // and nobody weighs PLA Aero against PETG (materials[].facets.reinforcement 'foaming', which has no variant class).
+  const foaming = (x) => x.facets?.reinforcement?.value === 'foaming';
+  const pool = db.materials.filter((x) => x.id !== m.id && hasPage(x) && !x.excluded && !x.variantClass && !supportOf(x) && flexibleOf(x) === flexibleOf(m) && !esdOf(x) && foaming(x) === foaming(m));
   const same = pool.filter((x) => x.basePolymer === m.basePolymer)
     .sort((a, b) => (fibreOf(a) === fibreOf(m)) - (fibreOf(b) === fibreOf(m)) || byProducts(a, b)).slice(0, 2);
   // Heat resistance places the others: HDT at 0.45 MPa, or the glass transition where this material has no HDT.
