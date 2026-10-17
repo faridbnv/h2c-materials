@@ -1,6 +1,9 @@
-/* H2C Material Selector — design system.
+/* Filament Atlas — design system.
    Engineering-document calm, not dashboard. One accent for interaction; the status palette is
-   reserved exclusively for the four constraint states so chips never compete with decoration. */
+   reserved exclusively for the four constraint states so chips never compete with decoration.
+   Quiet chrome, loud results: the top bar, the status bar and the rail's head are the frame, in neutral tones, labels in
+   sentence case and line icons on one stroke (20 px box, 1.7 px). The accent marks only what is selected or focused, and
+   controls are grouped by what they decide rather than set side by side as boxes of five different kinds. */
 
 :root {
   /* The selector's own layout and type, beside the shared tokens (tokens.css, bundled ahead of this stylesheet). */
@@ -39,53 +42,69 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
    shortlist sat under the browser's own toolbar with no way to scroll to them. */
 
 /* One row where it fits, and a second rather than squeezed buttons where it does not: labels wrapped inside their
-   buttons ("Confirmed / only") once the bar carried the estimates reason and a theme button that says what it does. */
+   buttons ("Confirmed / only") once the bar carried the estimates reason and a theme button that says what it does.
+   Four zones, left to right: the name, the search, the two missing-data settings in one panel, and the page's actions. */
 .topbar {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 7px 14px; min-height: 52px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 8px 16px; min-height: 58px;
   background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0;
 }
 @media (min-width: 601px) { .topbar .btn, .segmented button { white-space: nowrap; } }
-.topbar h1 { font-size: 15px; font-weight: 650; margin: 0; letter-spacing: -0.01em; white-space: nowrap; flex-shrink: 0; }
-@media (max-width: 1600px) { .meta-chip { display: none; } }
+.topbar h1 { margin: 0; white-space: nowrap; flex-shrink: 0; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 700; letter-spacing: -0.015em; }
+.brand-mark { width: 26px; height: 26px; flex: 0 0 auto; }
+.brand-mark rect { fill: var(--accent); }
+.brand-mark path { fill: none; stroke: var(--on-accent); stroke-width: 3; stroke-linecap: round; }
 .topbar .spacer { flex: 1; }
 /* On a second row, Save / share and the theme button sit at the right as they do on one. */
 #btn-scenario { margin-left: auto; }
-/* Words where the bar has room, an icon where it has not (the button keeps the words as its name and title). The theme
-   button's words pushed the bar onto a second row at every laptop width from 1100 to 1400 px. */
-.btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-.btn-icon .icon {
+/* One icon language for the frame: a 20 px box drawn in a 1.7 px stroke. */
+.icon {
   width: 16px; height: 16px; flex: 0 0 auto; fill: none; stroke: currentColor;
   stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
 }
-#btn-scenario .icon, #btn-theme .icon { display: none; }
-/* The bar's buttons are one height, whether they hold words or an icon. */
-.topbar .btn { min-height: 32px; }
-#btn-filters { align-items: center; }
-/* Up to 1600 px, where the data chip is hidden too: with its words the theme button took a second row of its own at
-   every width from 1401 to 1600 px. */
-@media (max-width: 1600px) {
-  #btn-theme { min-width: 34px; padding: 5px 8px; }
-  #btn-theme .btn-text { display: none; }
-  #btn-theme .icon { display: block; }
-}
-@media (max-width: 1400px) {
+.btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+/* The bar's buttons are one height, whether they hold words or an icon, and quieter than the settings beside them:
+   the frame's actions are borderless until pointed at. */
+.topbar .btn { min-height: 34px; border-color: transparent; background: transparent; color: var(--ink-2); border-radius: 8px; }
+.topbar .btn:hover { background: var(--surface-2); color: var(--ink); }
+#btn-filters { align-items: center; border-color: var(--border-strong); color: var(--ink); }
+/* The theme button is a sun or a moon at every width; its words ("Switch to dark theme") stay its name and title. */
+#btn-theme { min-width: 34px; padding: 5px 8px; }
+#btn-theme .btn-text { display: none; }
+@media (max-width: 1500px) {
   /* The mode's label above its buttons rather than beside them: the same words in 160 px less of the bar's width. */
   .topbar .mode-group { flex-direction: column; align-items: flex-start; gap: 1px; }
   .topbar .mode-label { font-size: 11px; line-height: 1.25; }
-  .topbar .mode-group .segmented button { padding-block: 5px; }
+  .topbar .mode-group .segmented button { padding-block: 3px; }
 }
-.search { position: relative; }
+@media (max-width: 1300px) {
+  .topbar .search { flex-basis: 220px; }
+  /* Save / share keeps its words as its name and title, and shows its arrow. */
+  #btn-scenario { min-width: 34px; padding: 5px 8px; }
+  #btn-scenario .btn-text { display: none; }
+}
+/* The missing-data settings: the mode and the estimates switch in one panel, divided by a rule. */
+.data-settings {
+  display: flex; align-items: center; gap: 14px; padding: 4px 6px 4px 12px; min-height: 44px;
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
+}
+.data-settings .est-group { border-left: 1px solid var(--border); padding-left: 14px; }
+.search { position: relative; flex: 0 1 300px; min-width: 0; }
+.search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-3); pointer-events: none; }
 .search input {
-  width: 260px; padding: 6px 28px 6px 10px; border: 1px solid var(--border-strong);
-  border-radius: var(--radius); background: var(--bg);
+  width: 100%; min-height: 36px; padding: 6px 32px 6px 34px; border: 1px solid var(--border);
+  border-radius: 999px; background: var(--surface-2); transition: background .12s, border-color .12s;
 }
+.search input:hover { border-color: var(--border-strong); }
+.search input:focus { background: var(--surface); border-color: var(--accent); }
 /* The "/" shortcut, shown in the box until it is used. Nothing on screen had said it existed. */
 .search-key {
-  position: absolute; right: 7px; top: 50%; transform: translateY(-50%); pointer-events: none;
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none;
   font: 600 11px/1 var(--mono); color: var(--ink-3); border: 1px solid var(--border-strong); border-radius: 4px; padding: 2px 5px;
+  background: var(--surface);
 }
 .search input:focus + .search-key, .search input:not(:placeholder-shown) + .search-key { display: none; }
-@media (hover: none) { .search-key { display: none; } .search input { padding-right: 10px; } }
+@media (hover: none) { .search-key { display: none; } .search input { padding-right: 12px; } }
 
 /* Hidden until it has focus: the first stop for a keyboard, straight to the results. */
 .skip-link {
@@ -95,16 +114,22 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .skip-link:focus { top: 8px; }
 .lens-view:focus { outline: none; }
 .lens-view:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 
-/* Segmented control. The unknown-data mode lives here, never in a filter group. */
-.segmented { display: inline-flex; border: 1px solid var(--border-strong); border-radius: var(--radius); overflow: hidden; }
-.segmented button {
-  padding: 7px 14px; border: 0; background: var(--surface); cursor: pointer;
-  font-size: var(--t-body); border-right: 1px solid var(--border);
+/* Segmented control. The unknown-data mode lives here, never in a filter group. A track with the chosen option raised on
+   it in the accent's ink: the solid accent blocks it replaces, two of them stacked under the top bar, were the loudest
+   things on the screen before a result was. */
+.segmented {
+  display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 9px;
+  background: var(--surface-2);
 }
-.segmented button:last-child { border-right: 0; }
-.segmented button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 600; }
+.segmented button {
+  padding: 5px 13px; border: 0; background: transparent; cursor: pointer; border-radius: 6px;
+  font-size: var(--t-body); color: var(--ink-2);
+}
+.segmented button:hover { color: var(--ink); background: color-mix(in srgb, var(--surface) 55%, transparent); }
+.segmented button[aria-pressed="true"] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
+.data-settings .segmented { background: var(--bg); }
 /* A tab label that turns bold when selected keeps the width of its bold form, so selecting a tab does not move its
    neighbours (the view tabs and the drawer's tabs shifted a few pixels on every change). The copy is hidden and has no
    text for a screen reader. */
@@ -122,22 +147,37 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   overflow-y: auto; padding-bottom: 24px; min-height: 0;
 }
 .rail-head {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0;
-  background: var(--surface); z-index: 2;
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 12px 10px 16px; border-bottom: 1px solid var(--border); position: sticky; top: 0;
+  background: var(--surface); z-index: 2; min-height: 52px;
 }
-.rail-head h2 { font-size: var(--t-label); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin: 0; font-weight: 650; }
+.rail-head h2 { display: inline-flex; align-items: center; gap: 8px; flex: 1; font-size: var(--t-base); color: var(--ink); margin: 0; font-weight: 650; }
+.rail-head h2 .icon { color: var(--ink-3); }
 .icon-btn {
   border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius);
   cursor: pointer; padding: 3px 7px; color: var(--ink-2); line-height: 1;
 }
 .icon-btn:hover { background: var(--surface-2); }
+.rail-head .icon-btn { border-color: transparent; min-width: 30px; min-height: 30px; }
+.rail-head .icon-btn:hover { color: var(--ink); }
+/* An action in words that needs no box: the accent's ink, underlined on hover. */
+.text-btn {
+  border: 0; background: none; padding: 4px 6px; border-radius: 6px; cursor: pointer;
+  font-size: var(--t-small); font-weight: 600; color: var(--accent);
+}
+.text-btn:hover { text-decoration: underline; background: var(--accent-soft); }
 
 .group { border-bottom: 1px solid var(--border); }
 .group > summary {
-  display: flex; align-items: center; gap: 9px; padding: 13px 16px; cursor: pointer;
+  display: flex; align-items: center; gap: 10px; padding: 12px 14px 12px 16px; cursor: pointer;
   font-weight: 650; font-size: var(--t-body); list-style: none; user-select: none;
 }
+.group > summary:hover { background: var(--surface-2); }
+.group-icon { color: var(--ink-3); }
+.group[open] > summary .group-icon, .group > summary:hover .group-icon { color: var(--accent); }
+/* The collapse mark sits at the right edge, after the badge when a group has one. */
+.group > summary > .chevron { margin-left: 4px; }
+.group > summary > .count[data-zero="true"] + .chevron { margin-left: auto; }
 .group > summary::-webkit-details-marker { display: none; }
 /* One disclosure mark for every collapsible heading: a chevron drawn in CSS, large enough to read as a control. The
    10 px "▸" glyph it replaces rendered about 4 px wide in grey and read as a dot. */
@@ -208,7 +248,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 /* ---------------------------------------------------------------- status bar */
 /* The chips wrap onto a second line rather than widen the page (see .app). */
 .statusbar {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 10px 16px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 8px 16px; min-height: 46px;
   border-top: 1px solid var(--border); background: var(--surface); font-size: var(--t-body); flex-shrink: 0;
 }
 .statusbar .chip { min-width: 0; }
@@ -880,8 +920,6 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
   .rail { position: fixed; inset: 0 auto 0 0; width: min(340px, 92vw); z-index: 35; box-shadow: 4px 0 24px rgba(0,0,0,.18); display: none; }
   .main[data-rail-open="true"] .rail { display: block; }
   .main[data-rail-open="true"] .rail-backdrop { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.28); z-index: 34; }
-  .rail-head { gap: 8px; }
-  .rail-head h2 { flex: 1; }
   .lens-bar { flex-wrap: wrap; }
   /* One strip of view tabs that scrolls sideways, with the active one kept in sight (main.js), rather than two rows. */
   .lens-bar .segmented { flex-wrap: nowrap; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
@@ -893,39 +931,45 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
   .drawer-tabs { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
   .drawer-tabs button { flex: 0 0 auto; }
 }
+/* A tablet or a small laptop: the top bar is two rows, the name, the search and the actions, then the missing-data panel
+   on a row of its own, its label beside its buttons since the row has room. With the actions under the first row's end
+   the bar was 123 px tall at 1024 x 768, and the Warm environment template showed two result rows before scrolling. */
+@media (min-width: 601px) and (max-width: 1100px) {
+  .data-settings { order: 5; min-height: 0; padding: 3px 6px 3px 12px; }
+  .topbar .mode-group { flex-direction: row; align-items: center; gap: 9px; }
+  .topbar .mode-label { font-size: var(--t-small); line-height: inherit; }
+}
 @media (max-width: 800px) {
   .lens-bar { gap: 8px; }
-  .topbar h1 { font-size: 13px; }
-  .search input { width: 140px; }
+  .brand { font-size: 14px; }
+  .topbar .search { flex-basis: 200px; }
 }
 /* The pre-D107 option cards, one under another (no longer drawn). */
 /* A phone. The top bar is two rows: the search with Filters, Save / share and the theme as icons, then the
-   missing-data switch with Use estimates. The title goes (the browser tab carries it). It was three or four rows, which
+   missing-data panel, the mode beside Let estimates rule out materials. The title goes (the browser tab carries it). It was three or four rows, which
    with the tabs, the status bar and the shortlist left the results about 350 px of an 844 px screen. */
 @media (max-width: 600px) {
   .topbar { padding: 6px 10px; gap: 6px 8px; min-height: 0; }
   .topbar h1, .topbar .spacer { display: none; }
-  .search { order: 1; flex: 1 1 150px; min-width: 0; }
-  .search input { width: 100%; }
-  #btn-scenario { order: 2; margin-left: 0; min-width: 34px; min-height: 32px; padding: 5px 8px; }
-  #btn-scenario .btn-text { display: none; }
-  #btn-scenario .icon { display: block; }
+  .topbar .search { order: 1; flex: 1 1 150px; min-width: 0; }
+  #btn-scenario { order: 2; margin-left: 0; }
   #btn-theme { order: 3; }
-  .topbar .mode-group { order: 4; }
+  /* The panel's box goes on a phone, where its height is the results': the rule between the two settings stays. */
+  .data-settings { order: 4; flex: 1 1 100%; gap: 10px; padding: 0; min-height: 0; background: none; border: 0; border-radius: 0; }
+  .data-settings .est-group { padding-left: 8px; }
   .topbar .mode-label { font-size: 10.5px; }
   .topbar .mode-group .segmented button { padding: 5px 7px; font-size: 12.5px; white-space: nowrap; }
   /* The inference switch with its ? and its note under it, so the pair fits beside the mode buttons on one row. Its
      label, "Use estimates and polymer data", wraps inside its own box on a phone rather than push the switch to a
      third row (D62): the group takes what is left of the row, and the mode group beside it is two lines tall anyway. */
   .topbar .est-group {
-    order: 5; display: grid; grid-template-columns: 24px auto; grid-template-areas: "toggle toggle" "info note";
+    display: grid; grid-template-columns: 24px auto; grid-template-areas: "toggle toggle" "info note";
     align-items: center; gap: 2px 6px; flex: 1 1 120px; min-width: 0;
   }
   .topbar .est-line { display: contents; }
-  .topbar .est-toggle { grid-area: toggle; gap: 5px; padding: 2px 6px; white-space: normal; line-height: 1.2; justify-self: start; }
+  .topbar .est-toggle { grid-area: toggle; gap: 6px; padding: 2px 0; white-space: normal; line-height: 1.2; justify-self: start; font-size: 12.5px; }
   .topbar .est-group .info-mark { grid-area: info; }
   .topbar .est-reason, .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
-  .meta-chip { order: 6; }
   .cmp-cond { padding-left: 0; }
 
   /* The page scrolls as a whole, so the status bar and the shortlist are reached by scrolling to them. Fitted into one
@@ -1012,7 +1056,7 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .related-item .rv { font-variant-numeric: tabular-nums; font-weight: 600; }
 .related-item .why { grid-column: 1 / -1; color: var(--unknown); font-size: var(--t-label); }
 .related-item .cond { grid-column: 1 / -1; color: var(--ink-3); font-size: var(--t-label); }
-.statusbar-label { font-size: var(--t-label); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; font-weight: 650; }
+.statusbar-label { font-size: var(--t-small); color: var(--ink-2); font-weight: 600; margin-right: 2px; }
 
 /* ---------------------------------------------------------------- parallel axes picker */
 .pc-axes { border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 15px; margin-bottom: 16px; background: var(--surface); }
@@ -1224,14 +1268,25 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .est-group { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; flex-shrink: 0; }
 .est-line { display: flex; align-items: center; gap: 4px; }
 .est-toggle {
-  display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small);
-  border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 3px 10px; cursor: pointer;
-  white-space: nowrap; color: var(--ink-2); flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-small);
+  border-radius: var(--radius); padding: 2px 4px 2px 0; cursor: pointer;
+  white-space: nowrap; color: var(--ink); flex-shrink: 0;
 }
-.est-toggle:hover { border-color: var(--accent); color: var(--accent); }
+/* The checkbox drawn as a switch: it is one, on or off, and a dashed box beside the mode had read as broken. */
+.est-toggle input {
+  appearance: none; -webkit-appearance: none; margin: 0; flex: 0 0 auto; position: relative; cursor: inherit;
+  width: 30px; height: 18px; border-radius: 999px; background: var(--border-strong); transition: background .15s;
+}
+.est-toggle input::after {
+  content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, .25); transition: transform .15s;
+}
+.est-toggle input:checked { background: var(--accent); }
+.est-toggle input:checked::after { transform: translateX(12px); }
+.est-toggle:hover input:not(:disabled) { box-shadow: 0 0 0 3px var(--accent-soft); }
 /* Under Confirmed only: visibly off, with its reason under it. */
-.est-toggle[data-disabled="true"] { color: var(--ink-3); cursor: not-allowed; border-color: var(--border); }
-.est-toggle[data-disabled="true"]:hover { color: var(--ink-3); border-color: var(--border); }
+.est-toggle[data-disabled="true"] { color: var(--ink-3); cursor: not-allowed; }
+.est-toggle[data-disabled="true"] input { opacity: .45; }
 .est-reason { font-size: 11px; color: var(--ink-3); white-space: nowrap; padding-left: 2px; }
 .info-mark {
   width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--ink-2);
@@ -1316,8 +1371,7 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
    in a monospace line at the far corner of the screen. */
 .mode-group { display: flex; align-items: center; gap: 9px; }
 .mode-label {
-  font-size: var(--t-label); color: var(--ink-3); text-transform: uppercase;
-  letter-spacing: .04em; white-space: nowrap;
+  font-size: var(--t-small); color: var(--ink-2); font-weight: 600; white-space: nowrap;
 }
 /* The label stays at every width; a phone gets the short form. */
 .mode-label-short { display: none; }
@@ -1397,7 +1451,12 @@ tr.baseline-row .name { color: var(--accent); }
 .start-limits p, .start-limits li { font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
 .start-limits ul { margin: 8px 0; padding-left: 20px; }
 .start-limits li { margin-bottom: 6px; }
-.statusbar-idle { font-size: var(--t-small); color: var(--ink-3); }
+.statusbar-idle { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-small); color: var(--ink-3); }
+/* The result filters as toggles: a tinted fill with its own edge while shown, an outline while hidden. */
+.statusbar button.chip { padding: 3px 11px; border-radius: 999px; font-size: var(--t-small); }
+.statusbar button.chip[aria-pressed="true"] { outline: 0; border-color: currentColor; }
+.statusbar button.chip[aria-pressed="false"] { background: transparent; border-color: var(--border-strong); color: var(--ink-2); }
+.statusbar button.chip-screened[aria-pressed="false"] { border-style: dashed; border-color: var(--unknown); color: var(--unknown); }
 
 /* Estimate spans in Compare. A span, not a bar: there is no value to fill to, and drawing one
    would invent a number. The hatch says "somewhere in here" the way a solid fill cannot. */

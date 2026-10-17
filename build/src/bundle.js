@@ -56,8 +56,8 @@ export async function bundle({ projectRoot, buildRoot, db, reference, meta }) {
     `<script>${escapeForScript(plotly)}</script>`,
     `<script>${escapeForScript(app)}</script>`,
   ].join('\n'));
-  out = put(out, '<title>H2C Material Selector</title>',
-    `<title>H2C Material Selector</title>\n<meta name="generator" content="H2C selector release ${meta.release?.id ?? 'unidentified'}, database snapshot ${meta.snapshot}, build ${meta.build}">`);
+  out = put(out, '<title>Filament Atlas</title>',
+    `<title>Filament Atlas</title>\n<meta name="generator" content="H2C selector release ${meta.release?.id ?? 'unidentified'}, database snapshot ${meta.snapshot}, build ${meta.build}">`);
 
   // The placeholder must be gone exactly once, and no fragment of it may survive anywhere.
   if (out.includes('js/main.js') || STYLESHEETS.some((f) => out.includes(f))) {
