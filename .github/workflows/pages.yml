@@ -93,7 +93,7 @@ jobs:
             fi
           else
             gh release create "h2c-$id" dist/H2C_Material_Selector_*.html dist/manifest.json "$pages" --target "$COMMIT" \
-              --title "H2C Material Selector, release $id" \
+              --title "Filament Atlas, release $id" \
               --notes "The page of release $id (data $snapshot), built and verified from $COMMIT. Download it and open it from disk; it needs no network. Its material pages are in $(basename "$pages"): unzip it in the folder that holds the page, so that the drawer's Full page links open."
           fi
 

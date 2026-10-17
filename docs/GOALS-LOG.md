@@ -657,7 +657,8 @@ Built as D142 in the [material pages round](audits/2026-10-16-material-pages-rou
 Readers had called the top of the page overwhelming. A redesign of its frame (the header, the status bar and the
 filter rail, in one quiet design language) named the tool **Filament Atlas**, with a mark of three printed layers: a
 name that says what the tool is, not which printer it was first built for. The owner merged it (#1, 9aac19e2) and
-uses the name from then on. The H2C is still named where it decides something (the rail's Printing on the H2C, the
+said of it, to the agent building the material pages: "The only meaningful change is change of the name of the
+tool to Fillament Atlas and some graphical logos. Consider it from now on." The H2C is still named where it decides something (the rail's Printing on the H2C, the
 gates, the templates); the built file's name, the exports and the briefs keep H2C Material Selector, which links,
 scripts and saved files rely on ([INTERFACE.md, "The frame"](INTERFACE.md#the-frame)). Built by Claude (an agent);
 the living documents name the tool so since 2026-10-17.

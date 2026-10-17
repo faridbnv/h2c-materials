@@ -2,6 +2,11 @@
 
 > **Historical record** (2026-10-17): written for one round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
 
+> **Corrected on 2026-10-17**, in the repository-wide coherence pass: two figures below were wrong when written. Prusa's
+> Horizontal and Vertical xz columns typed by m424 are 201 values of **15 products on 19 sheets**, not of 19 products; and
+> PA612's plausible tensile modulus topped at 4.11 GPa at the round's close, not 4.73 (4.51 since). D143 carries the
+> corrected figures.
+
 > **In short.** Two reviewers scored the new material pages as mechanical engineers and found faults that were in the
 > data, not the pages. The owner had them fixed in a round of their own, on branch data-review-fixes, beside the pages
 > work, and kept the merge for himself. Claude Opus judged every change on its page and wrote the migrations m422 to

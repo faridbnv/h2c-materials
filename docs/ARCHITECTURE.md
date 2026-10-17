@@ -769,8 +769,7 @@ bundle's line), or `read from the build cache in … ms`. Rendering every page t
 ```bash
 npm run verify                   # verify:fast, import tests, the campaign page, audit, context audit, review
                                  # snapshot, the material pages, links, packets, interface views, 300 rendered
-                                 # scenarios, scale and
-                                 # reproducible-build checks
+                                 # scenarios, scale and reproducible-build checks
 npm run build:diff               # what the change did to dist/db.json
 open dist/H2C_Material_Selector_*.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
