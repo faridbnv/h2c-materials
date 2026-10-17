@@ -89,7 +89,10 @@ export default {
     const warnGen = gen(LIMIT_CATEGORIES);
     const warnProduct = own.filter((e) => !general(e) && LIMIT_CATEGORIES.has(e.category) && readerText(e.finding)).slice(0, Math.max(0, 5 - warn.length));
     if (warn.length || warnGen.length || warnProduct.length) {
-      parts.push(subhead('What makers warn about') + quotes([...warn.map((k) => quote(c, k)), ...warnProduct.map((e) => quote(c, e, { text: e.finding })), ...warnGen.map((e) => quote(c, e, { text: e.finding, rec: true }))]));
+      // Three open, the rest behind one fold: the page reads on, the statements stay one press away.
+      const all = [...warn.map((k) => quote(c, k)), ...warnProduct.map((e) => quote(c, e, { text: e.finding })), ...warnGen.map((e) => quote(c, e, { text: e.finding, rec: true }))];
+      parts.push(subhead('What makers warn about') + quotes(all.slice(0, 3))
+        + (all.length > 3 ? `<details class="more"><summary>${esc(`${all.length - 3} more`)}</summary>${quotes(all.slice(3))}</details>` : ''));
     }
 
     // Finish and accuracy, closed.
@@ -112,7 +115,7 @@ export default {
     if (other.length) chem.push(`<p class="sec-p">${esc('On food contact, disposal and safety, as makers state them:')}</p>${quotes(other.map((e) => quote(c, e, { text: e.finding, extra: e.categoryLabel ?? '' })))}`);
     // What guides and references say of the material in general: this page's records, every one.
     const generalSaid = env2.filter(general);
-    if (generalSaid.length) chem.push(`<p class="sec-p">${esc(`Of ${m.name} in general:`)}</p>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: e.categoryLabel ?? '' })))}`);
+    if (generalSaid.length) chem.push(`<details class="more"><summary>${esc(`What guides and references say of ${m.name} in general (${generalSaid.length})`)}</summary>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: e.categoryLabel ?? '' })))}</details>`);
     if (rows.length) chem.push(`<p class="sec-note">${esc('Makers rarely give the concentration, temperature or duration, so these are indications, not design data. Each product\'s statements are on its card.')}</p>`);
     const poly = c.poly ?? [];
     if (poly.length === 1) {

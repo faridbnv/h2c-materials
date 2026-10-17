@@ -23,7 +23,9 @@ export default {
     const published = publishedKeys(c, keys);
     const stripped = published.filter((k) => inStrip(m, k));
     const tabled = published.filter((k) => !stripped.includes(k));
-    const fig = stripped.length ? drawFigure('stripsFigure', c, env, stripped, { id: 'density-price' }) : { empty: true, html: '' };
+    // No figure: across products a density varies little and the price sample is thin, so two sentences say it
+    // (the second review: the figure "adds little"); a product's own price is on the Products page, sortable.
+    const fig = { empty: true, html: '' };
     const priced = m.summary?.priceCADkg?.n || c.prices.length;
     return {
       empty: false,

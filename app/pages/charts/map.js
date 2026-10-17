@@ -141,8 +141,10 @@ function mapPanel(c, k, { x: xKey, y: yKey }) {
 export function mapsFigure(c, env = {}, opts = {}) {
   const k = figContext(c, env);
   const m = c.m;
-  const panels = MAP_PANELS.map((pnl) => mapPanel(c, k, pnl)).filter(Boolean);
-  if (!panels.some((p) => p.self !== 'none')) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
+  // A panel is drawn where this material has a median on both of its axes: a landscape with only a hollow "as published"
+  // point, or none, told a thin page's reader little and cost a screen (D145, the second review).
+  const panels = MAP_PANELS.map((pnl) => mapPanel(c, k, pnl)).filter((p) => p && p.self !== 'none' && p.self !== 'open');
+  if (!panels.length) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
   const name = shortName(m);
   const kind = isFlexible(m) ? 'flexible' : 'rigid';
   const n = new Set(MAP_PANELS.flatMap((pnl) => [...(k.ranks[pnl.x]?.entries ?? []), ...(k.ranks[pnl.y]?.entries ?? [])].map((e) => e.id))

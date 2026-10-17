@@ -40,6 +40,7 @@ export default {
     const gaps = gapSplit(c.cov).gaps.filter(shownGap);
     if (!docs.length && !gaps.length) return { empty: true, html: '', stats: {} };
     const parts = [];
+    let publisherTable = '';
     if (docs.length) {
       const dates = docs.map((d) => d.accessDate).filter(Boolean).sort();
       const kinds = new Map();
@@ -63,7 +64,7 @@ export default {
         `Each value on ${m.name}'s Products page names its document and page, and links to the original.`]));
       const ranked = [...publishers].sort((a, b) => b[1].documents - a[1].documents || b[1].values - a[1].values || a[0].localeCompare(b[0]));
       const rest = ranked.slice(PUBLISHERS);
-      parts.push(tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th></tr></thead><tbody>`
+      publisherTable = (tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th></tr></thead><tbody>`
         + ranked.slice(0, PUBLISHERS).map(([p, x]) => `<tr><th scope="row" class="prop">${esc(p)}</th><td class="num" data-label="Documents">${x.documents}</td><td class="num" data-label="Values">${fmtNumber(x.values)}</td><td class="num" data-label="Products">${x.products.size}</td></tr>`).join('')
         + (rest.length ? `<tr class="apart"><td colspan="4">${esc(`and ${plural(rest.length, 'more publisher')}, with ${plural(rest.reduce((n, [, x]) => n + x.documents, 0), 'document')}`)}</td></tr>` : '')
         + '</tbody></table>'));
@@ -86,7 +87,7 @@ export default {
         const covers = d.covers.length && d.covers.length <= 3 ? `, for ${andList(d.covers)}` : d.covers.length > 3 ? `, for ${d.covers.length} products` : '';
         return `<li class="doc" data-rec="${esc(d.sid)}">${link} <span class="doc-meta">${esc(`${sourceKind(d.s)}${d.accessDate ? `, read ${dayWords(d.accessDate)}` : ''}${gave.length ? `; gave ${andList(gave)}` : ''}${covers}`)}${d.original?.kind ? ` <span class="doc-kind">${esc(d.original.kind)}</span>` : ''}</span></li>`;
       };
-      parts.push(`<details class="more docs" id="documents"><summary>${esc(`Every document (${fmtNumber(docs.length)})`)}</summary><ul class="doc-list">${sorted.map(item).join('')}</ul></details>`);
+      parts.push(`<details class="more docs" id="documents"><summary>${esc(`Every document (${fmtNumber(docs.length)}), by publisher`)}</summary>${publisherTable}<ul class="doc-list">${sorted.map(item).join('')}</ul></details>`);
     }
     return { empty: false, html: glue(parts.join('\n')), stats: { documents: docs.length, gaps: gaps.length } };
   },

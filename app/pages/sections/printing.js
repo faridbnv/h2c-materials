@@ -157,7 +157,7 @@ function makersOnPrinting(c, statements, used) {
   const generalSaid = c.ev.filter((e) => makersOwn(e) && general(e) && ['print-quality', 'moisture'].includes(e.category));
   if (!topics.length && !generalSaid.length) return '';
   const instructs = topics.filter((t) => instructive(ordered.get(t)[0].text));
-  const open = (every ? instructs : instructs.slice(0, 3));
+  const open = (every ? instructs.slice(0, 3) : instructs.slice(0, 2));
   const rest = topics.filter((t) => !open.includes(t));
   const gen = generalSaid.length ? `<div class="said-topic"><h4>${esc(`On ${m.name} in general`)}</h4>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: stated(e.topic) && !/rubric/i.test(e.topic) ? e.topic : '' })))}</div>` : '';
   return `${subhead('What makers say about printing it')}${open.length || gen ? `<div class="said-topics">${open.map(block).join('')}${gen}</div>` : ''}`

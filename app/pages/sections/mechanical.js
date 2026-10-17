@@ -103,7 +103,8 @@ export default {
     const hasZ = publishedKeys(c, ['tensileStrengthZ', 'tensileModulusZ', 'elongationZ', 'flexuralStrengthZ', 'flexuralModulusZ']).length > 0;
     if (hasZ) {
       add(drawFigure('layersFigure', c, env, {}));
-      parts.push(layerTable(c));
+      const lt = layerTable(c);
+      if (lt) parts.push(`<details class="more"><summary>${esc('Flat and across the layers, property by property')}</summary>${lt}</details>`);
     }
     parts.push(absentLine(c, absent));
     return { empty: false, html: glue(parts.filter(Boolean).join('\n')), stats: { figures, dots } };
