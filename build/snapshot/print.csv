@@ -707,7 +707,7 @@ G046-07,M046,FlexiFil,within,within,unknown,unknown,unknown,unknown,
 G048-01,M048,PAHT-CF,within,within,within,recommended,requires-hardened,required,hardenedNozzle: guide PG029
 G048-02,M048,Ultrafuse PAHT CF15,within,within,within,recommended,requires-hardened,required,chamber: guide PG029; enclosure: guide PG029
 G048-03,M048,LUVOCOM 3F PA CF 9742 BK,within,within,within,recommended,requires-hardened,required,chamber: guide PG029; enclosure: guide PG029
-G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,within,within,within,recommended,requires-hardened,required,chamber: guide PG029; enclosure: guide PG029; hardenedNozzle: guide PG029
+G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,within,within,within,recommended,requires-hardened,required,chamber: guide PG029; enclosure: guide PG029
 G048-05,M048,PAHT CF,within,within,within,recommended,requires-hardened,required,bed: guide PG029; chamber: guide PG029; enclosure: guide PG029; drying: guide PG029
 G049-01,M049,pa6 neat bk,within,within,unknown,recommended,no-special-concern,optional,
 G049-02,M049,STYX PA6,within,within,unknown,recommended,unknown,required,nozzle: twin G049-03; bed: twin G049-03; chamber: twin G049-03; enclosure: twin G049-03
@@ -1000,7 +1000,7 @@ G124-01,M124,3DXSTAT ESD-PPS,within,exceeds,partial,unknown,no-special-concern,r
 G125-01,M125,CarbonX Carbon Fiber PEEK,unknown,unknown,unknown,unknown,unknown,unknown,
 G125-02,M125,CarbonX 20% Carbon Fiber PEEK,unknown,unknown,unknown,unknown,unknown,unknown,
 G125-03,M125,TECAFIL PEEK EV CF30 black - 1.75 mm,exceeds,exceeds,exceeds,unknown,unknown,required,
-G125-04,M125,LUVOCOM 3F PEEK CF 9676 BK,exceeds,within,unknown,unknown,unknown,unknown,
+G125-04,M125,LUVOCOM 3F PEEK CF 9676 BK,exceeds,within,unknown,unknown,requires-hardened,unknown,
 G125-05,M125,CF PEEK,exceeds,exceeds,exceeds,unknown,unknown,unknown,
 G126-01,M126,3DXSTAT ESD-TPU (90A),within,within,within,unknown,no-special-concern,required,
 G126-02,M126,FLEX MEDIUM ESD,within,within,within,not-needed,no-special-concern,required,

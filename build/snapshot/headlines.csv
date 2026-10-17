@@ -1645,8 +1645,8 @@ M097,PEEK,flexuralStrengthZ,none,,MPa,,,,,,,
 M097,PEEK,charpyNotched,none,,kJ/m²,,,,,,,
 M097,PEEK,izodNotched,none,,kJ/m²,,,,,,,
 M097,PEEK,hdt045,value,143.5,°C,,,,,2,G097-01,V001618
-M097,PEEK,hdt18,value,156,°C,,,,,3,G097-06,V007429
-M097,PEEK,glassTransition,value,143,°C,,,,,5,G097-01,V001617
+M097,PEEK,hdt18,value,152,°C,,,,,1,G097-02,V001749
+M097,PEEK,glassTransition,value,143,°C,,,,,4,G097-01,V001617
 M097,PEEK,priceCADkg,none,,CAD/kg,,,,,,,
 M098,PEKK,density,value,1275,kg/m³,,,,,4,G098-01,V001619
 M098,PEKK,tensileModulusXY,value,2.921,GPa,,,,,3,G098-05,V008960
