@@ -35,7 +35,7 @@
     },
     "evidence": {
       "rows": 8490,
-      "sha256": "a5a270a146c679840b36a7f822dd5f87bf400c4a47927eb44cb374957c899286"
+      "sha256": "26f801967781be2f5098f41fb4fd4634a75b0c5180b71889ccbe7ba4958fbbda"
     },
     "know_how_reads": {
       "rows": 1753,
@@ -59,7 +59,7 @@
     },
     "sources": {
       "rows": 2016,
-      "sha256": "4ece980f3c232c969bdd11acdd7e51f8569e0e5966bdf45d6a225e1c923818ad"
+      "sha256": "f4c65d892b5853c1a39fbc2ec91e0f7c8c1d6d7b92903e458d8d87a14fd05cea"
     },
     "coverage": {
       "rows": 953,
@@ -83,7 +83,7 @@
     },
     "product_claims": {
       "rows": 62,
-      "sha256": "05cc623fbf26470bf5665716e4537ac9d2cc1c9ed11baa047a023a4e365374df"
+      "sha256": "dbf4aacd0a9d5ba9d7aa90429f63ecebb2897e54f468ac8ea927239533668be5"
     },
     "material_links": {
       "rows": 830,
@@ -91,7 +91,7 @@
     },
     "print_guide_materials": {
       "rows": 17,
-      "sha256": "57098444745f30c043a85818375165c17f607b3479ba27d0404f9e066b2c6464"
+      "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
     },
     "properties": {
       "rows": 50,
