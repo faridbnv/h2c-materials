@@ -4618,10 +4618,9 @@ two reviews; built in the [material pages round](audits/2026-10-16-material-page
 - **Display only, from one facts layer.** A page computes no deciding value: every number is the compiled database's
   (`dist/db.json`) or a count of its records, and what a page and the drawer show of a material is chosen once, in
   `app/js/ui/material-facts.js`, its sentences in `material-words.js`, its scales in `scales.js`. Moving the drawer onto
-  that layer changed none of its 11,900 renders by a byte; since then a word changed there changes both (step 5 moved
-  the drawer's drying count, its "say nothing", its named fillers and its tally words on purpose). The numbers a page
-  draws that the build does not hold (how many products accept each temperature, ranks, what Z keeps of XY) are
-  display statistics worked out at render time in `material-stats.js`: they choose no value and decide nothing.
+  that layer changed none of its 11,900 renders by a byte; since then a word changed there changes both (step 5 did so
+  on purpose). What a page draws that the build does not hold (how many products accept each temperature, ranks, what
+  Z keeps of XY) is display statistics worked out at render time (`material-stats.js`), deciding nothing.
 - **One threshold, one function.** `PAGE_RULE` and `pageOf` (`app/js/ui/page-rule.js`): products are the active ones,
   values the measurements with a number. The build stage, the drawer's link, the index, the README's count and the tests
   read it; `build/snapshot/pages.csv` lists every material's page or what it falls short on. A material beyond the H2C's
@@ -4636,18 +4635,13 @@ two reviews; built in the [material pages round](audits/2026-10-16-material-page
   named in one line.
 - **Written summaries under rules** (step 4). A page opens with a paragraph written for it, one row of
   `material_summaries.csv` per material with a page: editorial, in the data tables, deciding nothing. It types no
-  number: each is a placeholder the build fills from the material's compiled values (`build/src/written.js`:
-  `{products}`, `{hdt045.median}`, `{hdt045.label}` and the rest; never an estimate), so a corrected measurement moves
-  the summary with it and no sentence repeats a number that has gone stale. A placeholder the material cannot fill
-  stops the build (SUMMARY-PLACEHOLDER) and the summary is re-worded, never filled by hand; a number typed outside one,
-  or a count of records spelled out, is a lint finding (SUMMARY-NUMBER). The reviews taught how one reads: 60 to 100
-  words that characterise rather than recite (at most two numbers), what the material is, what makers sell it for, how
-  it prints and behaves in service, what is thinly published; no narration of the page, no comparison with another
-  material (the first screen compares from the data), no superlative or verdict; a maker's words as the maker's, the
-  Bambu Lab Filament Guide's and resin data's as theirs; every claim one its page states, its sections named in the
-  row's Notes. The byline shows who wrote it, when, and its review status (draft, reviewed by the owner, revise); agents
-  draft, an Opus judge reads a sample against the pages, and the owner reviews in batches, since each change of the
-  table makes a new release. A material's page that has none says so.
+  number: each is a placeholder the build fills from the compiled values (`build/src/written.js`: `{products}`,
+  `{hdt045.median}`, `{hdt045.label}`; never an estimate), so no sentence repeats a number gone stale; one the material
+  cannot fill stops the build (SUMMARY-PLACEHOLDER), a number typed by hand is a lint finding (SUMMARY-NUMBER). It reads
+  as the reviews taught: 60 to 100 words that characterise, at most two numbers, no narration of the page, no
+  comparison, no verdict, a maker's words as the maker's, every claim one its page states (its sections in Notes). The
+  byline shows who wrote it, when, and its review status; agents draft, an Opus judge reads a sample, the owner reviews
+  in batches (each change of the table is a new release).
 - **One figure grammar, embedded typefaces.** Inline SVG drawn by the build in one grammar (the drawer's marks; a
   title that says what is drawn, a caption, "How this is counted"); Inter and Newsreader under the SIL Open Font License
   1.1, embedded as data: URIs with a classic script, so a page opened from disk works as on the site.
@@ -4661,18 +4655,14 @@ two reviews; built in the [material pages round](audits/2026-10-16-material-page
   (layout, contents, fonts, lighting, every anchor's landing, the Products table, figure text cut or set over another);
   the pages' code moves nothing in `build:diff` and templates.csv (a summary moves `materials[].written`, its own
   material's alone).
-- **What the blind read taught** (step 5: four readers of 40 pages by a seeded draw, a proofreader, an engineer's
-  review). A count says what it is of: a print window "all 3 counted products (of 9)", the drawer's drying advice
-  counted as the page counts it, a maker for a verdict only where all its statements give it, a price's own sellers;
-  a sheet's silence is "say nothing", never read as "need none", and a stated enclosure is that, not silence; a filler
-  the materials table names is never "not disclosed"; the nearest value where none is compared says what it is (at
-  another load, a moulded bar, tested cold); medians that cross between loads say they are of different products; the
-  project's own reading of a source (a Selection interpretation) is never quoted as a maker's words; the maintainers'
-  notes leave the reading path; figure text is placed by its width and the probe fails a page where any is cut or set
-  over another. Found on the way and fixed in the data: moulded bars typed so (m433), notches a row states (m434), the
-  Z rule's caption as applied and the project's words typed as its own (m435), values the held sheets print (m436); and
-  in the rule, a heat deflection or density with no direction is a flat bar's only (`build/src/products.js` assess),
-  where D123 had ordered it first. What the read leaves is OPEN-PROBLEMS §37.
+- **What the blind read taught** (step 5: four readers of 40 pages, a proofreader, an engineer's review). A count says
+  what it is of ("all 3 counted products (of 9)"; drying advice counted alike in the drawer; a maker for a verdict only
+  where all its statements give it; a price's own sellers); a sheet's silence is "say nothing", a stated enclosure an
+  ask; a filler the table names is never "not disclosed"; a nearest value says what it is (at another load, a moulded
+  bar); the project's own reading of a source is never quoted as a maker's; figure text is placed by its width and the
+  probe fails a page where any is cut or overlapping. In the data, m433 to m436; in the rule, a heat deflection or
+  density with no direction is a flat bar's only (`build/src/products.js` assess, where D123 had ordered it first).
+  What it leaves is OPEN-PROBLEMS §37.
 - **What would break if reversed.** A second renderer of the same facts drifts from the drawer, a summary's number goes
   stale beside the value it repeats, or a page decides what the selector did not.
 
