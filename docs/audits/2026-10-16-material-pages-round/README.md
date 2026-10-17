@@ -105,3 +105,17 @@ moisture gap, one publisher spelt two ways, line-break hyphens in statements, OC
 a toughened claim on a glass-filled product, the PETG HF guide row read for PETG); the estimates' disagreement waits on
 the frozen estimate stage (D138), and main's reader-sweep gaps stay in OPEN-PROBLEMS. The two branches merge later, main
 fetched as it stands at that moment.
+
+## Step 3 done, the data round merged, the integrated tree verified
+
+Step 3 is committed (7c68b693): the build renders the pages, the drawer links to them, and the site and each release
+carry them. Main had not moved (c69ff7b1), and the data round was merged (e0c8c761): DECISIONS.md kept this round's
+D142 in place of the data round's placeholder, and D143 after it; the generated files were rebuilt from the merged data.
+With the Full page link removed, all 11,900 drawer renders equal the baseline recorded on main's data. On the integrated
+tree, from an empty build cache and with nothing else running, `npm run verify` passed all 21 steps in 627 s; verify:fast's
+steps took 86.9 s, within the 90 s budget (the 93 s and 118 s seen earlier were measured beside another full verify and
+on a cold cache after a data change). The interface views, now with the 24 page views, took 191 s.
+
+Next, on the owner's word of 2026-10-17: this branch goes to main through a pull request first; then the draft #2 (verify
+side by side, CI's scenarios in parts) is brought up to date with it, its decision renumbered D144 and its timings
+measured again with the page checks in, and merged; then steps 4 and 5 on a branch from main.
