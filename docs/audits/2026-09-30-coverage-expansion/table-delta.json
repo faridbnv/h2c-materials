@@ -24,7 +24,7 @@
     "baseline": 5306,
     "current": 8490,
     "added": 3184,
-    "edited_existing": 318,
+    "edited_existing": 343,
     "removed": 0
   },
   "family_entries": {
@@ -57,8 +57,8 @@
   },
   "impact_test_guesses": {
     "baseline": 0,
-    "current": 60,
-    "added": 60,
+    "current": 59,
+    "added": 59,
     "edited_existing": 0,
     "removed": 0
   },
@@ -92,9 +92,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15420,
-    "added": 3884,
-    "edited_existing": 2953,
+    "current": 15424,
+    "added": 3888,
+    "edited_existing": 2956,
     "removed": 0
   },
   "method": {
@@ -106,8 +106,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 1010,
-    "added": 1010,
+    "current": 1012,
+    "added": 1012,
     "edited_existing": 0,
     "removed": 0
   },
@@ -162,8 +162,8 @@
   },
   "properties": {
     "baseline": 44,
-    "current": 50,
-    "added": 6,
+    "current": 51,
+    "added": 7,
     "edited_existing": 3,
     "removed": 0
   },

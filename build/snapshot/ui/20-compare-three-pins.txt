@@ -43,9 +43,9 @@ PA6-CF
 PA6-GF
 4.35
 2.85–5.36 · 4
-0.00223
+0.0022
 log scale
-17.1
+17.9
 all 152 candidates
 Tensile strength (XY) MPa
 ASA-CF
@@ -70,7 +70,7 @@ PA6-CF
 PA6-GF
 60.7
 27–61.4 · 3
-7.5
+2
 61.4
 widened to a value shown
 Elongation at break (XY) %
@@ -123,7 +123,7 @@ PA6-CF
 PA6-GF
 184
 161–210 · 10
-42.5
+42.9
 300
 all 152 candidates
 Glass transition (Tg) °C
