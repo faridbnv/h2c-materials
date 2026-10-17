@@ -4,6 +4,8 @@
 //
 //   npm run pages -- M020 M001 M110                     those materials' pages and records pages, and the assets
 //   npm run pages -- --all                              every material the page rule admits (page-rule.js pageOf)
+//   npm run pages -- M001 --out <dir>                   into <dir>/materials/ instead of dist/materials/, so several
+//                                                       people working on the design at once do not overwrite each other
 //
 // It reads dist/db.json, building it first when it is missing or older than data/ or build/src, and writes nothing
 // but dist/materials/, which it empties first, so no page of an earlier render is left beside these. It prints each
@@ -13,7 +15,7 @@
 // build/src/written.js): edit the table and the page shows it after the next build.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, statSync, readdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -23,7 +25,9 @@ import { readAssets } from '../../app/pages/read-assets.js';
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const args = process.argv.slice(2);
 const all = args.includes('--all');
-const ids = args.filter((a) => !a.startsWith('--'));
+const outAt = args.indexOf('--out');
+const outRoot = outAt >= 0 ? resolve(args[outAt + 1] ?? '') : null;
+const ids = args.filter((a, i) => !a.startsWith('--') && !(outAt >= 0 && i === outAt + 1));
 if (!all && !ids.length) {
   console.error('Name the materials (npm run pages -- M020 M001) or pass --all.');
   process.exit(2);
@@ -50,11 +54,12 @@ const { files, stats } = renderSite(db, env);
 const ms = performance.now() - t0;
 if (!all) for (const id of ids) if (!stats.perPage.some((p) => p.id === id)) console.warn(`${id}: no page (not a material the page rule admits).`);
 
-const out = join(root, 'dist/materials');
+const base = outRoot ?? join(root, 'dist');
+const out = join(base, 'materials');
 rmSync(out, { recursive: true, force: true });
 const sizes = [];
 for (const [path, text] of files) {
-  const file = join(root, 'dist', path);
+  const file = join(base, path);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, text);
   const bytes = Buffer.byteLength(text);
@@ -73,5 +78,5 @@ if (all) console.log(`  median ${kb(median(mains.map((s) => s.bytes)))}, ${kb(me
 console.log(`Records pages (${records.length}), largest first:`); show(all ? records.slice(0, 5) : records);
 if (all) console.log(`  median ${kb(median(records.map((s) => s.bytes)))}, ${kb(median(records.map((s) => s.gzip)))} gz; all ${kb(records.reduce((n, s) => n + s.bytes, 0))}`);
 console.log('Assets:'); show(assets);
-console.log(`Set: ${kb(sizes.reduce((n, s) => n + s.bytes, 0))}, ${kb(sizes.reduce((n, s) => n + s.gzip, 0))} gz, in dist/materials/.`);
+console.log(`Set: ${kb(sizes.reduce((n, s) => n + s.bytes, 0))}, ${kb(sizes.reduce((n, s) => n + s.gzip, 0))} gz, in ${outRoot ? out : 'dist/materials/'}.`);
 

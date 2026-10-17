@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLA: Filament Atlas</title>
+<meta name="color-scheme" content="light dark">
+<style>
+/* Filament Atlas pages, reimagined: the UX mockups' stylesheet (one copy inlined in each mockup).
+   Palette = app/css/tokens.css unchanged; type, space and components are the proposal's. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(../../../../../app/pages/assets/fonts/Inter-Variable.subset.woff2) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url(../../../../../app/pages/assets/fonts/Newsreader-Variable.subset.woff2) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: swap;
+  src: url(../../../../../app/pages/assets/fonts/Newsreader-Italic-Variable.subset.woff2) format("woff2"); }
+
+:root {
+  --bg: #f7f7f5; --surface: #ffffff; --surface-2: #f2f2ef; --border: #dcdcd6; --border-strong: #bcbcb4;
+  --ink: #1a1a18; --ink-2: #55554e; --ink-3: #85857c; --accent: #1f5f8b; --accent-soft: #e4eef5; --on-accent: #fff;
+  --claim: #7d3c86;
+  --shadow-sm: 0 1px 2px rgba(20, 20, 18, .10), 0 0 0 1px rgba(20, 20, 18, .06);
+  --shadow-pop: 0 8px 28px rgba(20, 20, 18, .14), 0 0 0 1px rgba(20, 20, 18, .08);
+  --f-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-serif: "Newsreader", "Inter", Georgia, serif;
+  --t-xs: 13px; --t-s: 14px; --t-m: 16px; --t-l: 19px; --t-xl: 21px; --t-h2: 32px; --t-num: 34px; --t-h1: 64px;
+  --r-ctl: 7px; --r-plate: 12px;
+  --content: 1120px; --gutter: 16px; --bar-h: 56px;
+  --ctx: color-mix(in srgb, var(--ink-3) 46%, var(--surface));
+}
+@media (min-width: 720px) { :root { --gutter: 32px; } }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c; --border: #32353d; --border-strong: #474b55;
+    --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d; --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
+    --claim: #d895e0;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
+    --shadow-pop: 0 10px 30px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .1);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c; --border: #32353d; --border-strong: #474b55;
+  --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d; --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
+  --claim: #d895e0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
+  --shadow-pop: 0 10px 30px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 var(--t-m)/1.55 var(--f-sans);
+  font-feature-settings: "tnum" 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.num, .kf-n, td, .pv { font-variant-numeric: tabular-nums; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wrap { max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+.icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ------------------------------------------------------------ the bar: the same frame as the selector's */
+.bar { position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--border); }
+.bar-in { display: flex; align-items: center; gap: 14px; min-height: var(--bar-h); }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.brand svg { width: 26px; height: 26px; }
+.brand rect { fill: var(--accent); } .brand path { fill: none; stroke: var(--on-accent); stroke-width: 3; stroke-linecap: round; }
+.brand-name { font-size: 16px; font-weight: 700; letter-spacing: -.015em; }
+.crumbs ol { display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; list-style: none; font-size: 15px; color: var(--ink-2); }
+.crumbs li { display: flex; align-items: center; }
+.crumbs li::before { content: ""; width: 16px; height: 16px; margin: 0 4px; background: var(--ink-3);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3.5 10.5 8 6 12.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3.5 10.5 8 6 12.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+.crumbs a { color: var(--ink-2); text-decoration: none; padding: 4px 6px; border-radius: var(--r-ctl); }
+.crumbs a:hover { color: var(--ink); background: var(--surface-2); }
+.here { position: relative; }
+.here-btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; color: var(--ink); background: transparent; border: 0; border-radius: var(--r-ctl); padding: 4px 6px 4px 8px; cursor: pointer; }
+.here-btn:hover, .here-btn[aria-expanded="true"] { background: var(--surface-2); }
+.here-btn b { font-weight: 600; }
+.here-btn .here-sec { color: var(--ink-2); }
+.here-btn .here-sec::before { content: ""; display: inline-block; width: 1px; height: 14px; background: var(--border-strong); margin: 0 8px 0 2px; vertical-align: -2px; }
+.menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 270px; background: var(--surface); border-radius: 10px; box-shadow: var(--shadow-pop); padding: 6px; display: none; }
+.menu[data-open] { display: block; }
+.menu a { display: flex; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 6px; color: var(--ink); text-decoration: none; font-size: 15px; }
+.menu a:hover { background: var(--surface-2); }
+.menu a[aria-current] { color: var(--accent); font-weight: 600; background: var(--accent-soft); }
+.menu .m-n { color: var(--ink-2); font-size: var(--t-xs); }
+.menu hr { border: 0; border-top: 1px solid var(--border); margin: 6px 4px; }
+.bar-end { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+.btn { display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px 0 11px; font: 500 var(--t-s)/1 var(--f-sans);
+  color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-ctl); text-decoration: none; white-space: nowrap; cursor: pointer; }
+.btn:hover { border-color: var(--ink-3); text-decoration: none; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; padding: 0 18px; height: 42px; font-size: 15px; }
+.btn-primary:hover { filter: brightness(1.08); }
+.icon-btn { width: 36px; height: 36px; display: inline-grid; place-items: center; color: var(--ink-2); background: transparent; border: 0; border-radius: var(--r-ctl); cursor: pointer; }
+.icon-btn:hover { background: var(--surface-2); color: var(--ink); }
+.short { display: none; }
+
+/* ------------------------------------------------------------ the page head */
+.head { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 12px 32px; padding-top: 40px; }
+.name { margin: 0; font: 600 var(--t-h1)/.95 var(--f-serif); letter-spacing: -.022em; }
+.full { margin: 8px 0 0; font: italic 400 22px/1.3 var(--f-serif); color: var(--ink-2); }
+.idline { margin: 14px 0 0; color: var(--ink-2); max-width: 62ch; }
+.tabs { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-top: 10px; }
+.tabs a { display: inline-flex; align-items: baseline; gap: 7px; padding: 7px 16px; border-radius: 7px; color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; }
+.tabs a:hover { color: var(--ink); }
+.tabs a[aria-current] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
+.tabs .n { font-size: var(--t-xs); color: var(--ink-2); font-weight: 500; }
+
+/* ------------------------------------------------------------ plates and slots */
+.plate { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-plate); }
+.slot { position: relative; outline: 1.5px dashed color-mix(in srgb, var(--accent) 55%, transparent); outline-offset: 5px; border-radius: 4px; }
+.slot::after { content: attr(data-slot); position: absolute; top: -14px; right: 6px; font: 600 11px/1.4 var(--f-sans); color: var(--accent);
+  background: var(--accent-soft); padding: 1px 7px; border-radius: 4px; white-space: nowrap; z-index: 2; }
+.box { display: grid; place-items: center; text-align: center; color: var(--ink-2); font-size: var(--t-s); padding: 16px; border-radius: 8px;
+  background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--border) 45%, transparent) 10px 11px); }
+.box b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+
+/* key figures */
+.kf { margin: 0; display: grid; grid-template-columns: repeat(6, 1fr); }
+.kf > div { padding: 20px 20px 18px; border-left: 1px solid var(--border); min-width: 0; }
+.kf > div:first-child { border-left: 0; }
+.kf dt { font-size: var(--t-s); font-weight: 500; color: var(--ink-2); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kf dd { margin: 0; }
+.kf-v { display: flex; align-items: baseline; gap: 5px; margin-top: 6px; }
+.kf-n { font-size: var(--t-num); font-weight: 600; letter-spacing: -.025em; line-height: 1; }
+.kf-u { font-size: 15px; color: var(--ink-2); }
+.kf-s { display: block; margin-top: 12px; }
+.kf-s svg { display: block; width: 100%; height: 38px; overflow: visible; margin-top: 14px; }
+.kf-f { margin-top: 6px !important; font-size: var(--t-xs); color: var(--ink-2); }
+.wh-track { stroke: var(--border-strong); stroke-width: 1.5; }
+.wh-band { fill: color-mix(in srgb, var(--accent) 26%, var(--surface)); }
+.wh-med { stroke: var(--accent); stroke-width: 3; }
+.wh-end { stroke: var(--ink-3); stroke-width: 1.5; }
+.wh-ref { stroke: var(--ink-2); stroke-width: 1.2; }
+.wh-lab { font: 500 10.5px var(--f-sans); fill: var(--ink-2); }
+.kf-wrap { position: relative; margin-top: 36px; }
+
+/* first screen: summary and the H2C plate */
+.first { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; margin-top: 40px; align-items: start; }
+.summary p { margin: 0; font: 400 var(--t-xl)/1.6 var(--f-serif); max-width: 62ch; text-wrap: pretty; }
+.summary .by { margin-top: 14px; font: 400 var(--t-xs)/1.5 var(--f-sans); color: var(--ink-2); }
+.h2c { padding: 18px 22px 16px; }
+.h2c-h { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 6px; }
+.h2c-h h2 { margin: 0; font: 600 var(--t-m)/1.3 var(--f-sans); }
+.h2c-h a { font-size: var(--t-s); }
+.h2c dl { margin: 0; }
+.h2c dl > div { display: grid; grid-template-columns: 8.5rem 1fr auto; align-items: baseline; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--border); }
+.h2c dl > div:first-child { border-top: 0; }
+.h2c dt { color: var(--ink-2); font-size: 15px; }
+.h2c dd { margin: 0; font-weight: 600; }
+.h2c dd.k { font-weight: 400; color: var(--ink-2); font-size: var(--t-xs); text-align: right; }
+.h2c dd small { display: block; font-weight: 400; color: var(--ink-2); font-size: var(--t-xs); line-height: 1.45; margin-top: 2px; }
+.h2c .foot { margin: 8px 0 0; padding-top: 10px; border-top: 1px solid var(--border); font-size: var(--t-xs); color: var(--ink-2); }
+
+/* sections */
+.sec { margin-top: 104px; }
+.sec > h2 { margin: 0; font: 500 var(--t-h2)/1.15 var(--f-serif); letter-spacing: -.01em; }
+.lead { margin: 14px 0 0; font-size: var(--t-l); line-height: 1.5; max-width: 60ch; }
+.figs { display: grid; gap: 28px; margin-top: 32px; }
+.figs.two { grid-template-columns: 1fr 1fr; }
+.method { margin-top: 8px; font-size: var(--t-s); color: var(--ink-2); }
+.handoff { margin-top: 104px; display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: start; padding: 28px 32px; }
+.handoff h2 { margin: 0; font: 500 30px/1.15 var(--f-serif); }
+.handoff p { margin: 8px 0 0; color: var(--ink-2); max-width: 70ch; }
+.toc-line { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 28px; font-size: 15px; }
+.toc-line a { color: var(--ink-2); text-decoration: none; }
+.toc-line a:hover { color: var(--accent); text-decoration: underline; }
+
+/* footer */
+.foot-band { margin-top: 112px; border-top: 1px solid var(--border); padding: 32px 0 56px; display: grid; grid-template-columns: 1fr auto; gap: 24px 48px; }
+.foot-band p { margin: 0 0 10px; color: var(--ink-2); font-size: 15px; max-width: 64ch; }
+.foot-band .fine { font-size: var(--t-xs); }
+.foot-band .fine time { white-space: nowrap; }
+.foot-nav { display: flex; gap: 10px; flex-wrap: wrap; align-items: start; }
+
+/* ------------------------------------------------------------ products explorer */
+.ctl { position: sticky; top: var(--bar-h); z-index: 20; background: var(--bg); margin-top: 28px; padding: 12px 0; }
+.ctl-row { display: flex; align-items: center; gap: 12px 16px; flex-wrap: wrap; }
+.find { display: flex; align-items: center; gap: 8px; height: 40px; width: min(360px, 100%); padding: 0 14px; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 999px; color: var(--ink-2); }
+.find input { border: 0; outline: 0; background: transparent; font: inherit; color: var(--ink); width: 100%; }
+.find:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.sortby { display: flex; align-items: center; gap: 8px; font-size: var(--t-s); color: var(--ink-2); }
+.sortby select { height: 40px; font: 500 15px var(--f-sans); color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-ctl); padding: 0 34px 0 12px; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%2385857c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; background-size: 16px; }
+.count { margin-left: auto; font-size: var(--t-s); color: var(--ink-2); }
+.keys { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0 0 6px; padding: 0; list-style: none; font-size: var(--t-xs); color: var(--ink-2); }
+.keys li { display: inline-flex; align-items: center; gap: 6px; }
+.pl { --cols: minmax(230px, 2.1fr) repeat(7, minmax(52px, .62fr)) minmax(78px, .8fr) minmax(58px, .66fr) minmax(56px, .62fr) minmax(70px, .76fr); margin-top: 6px; }
+.pl-h { display: grid; grid-template-columns: var(--cols); align-items: end; column-gap: 10px; position: sticky; top: calc(var(--bar-h) + 64px); background: var(--bg); z-index: 10; padding: 10px 0 8px; border-bottom: 1px solid var(--border-strong); }
+.pl-g { font-size: 12.5px; font-weight: 600; color: var(--ink-2); padding-bottom: 6px; margin-bottom: 4px; border-bottom: 1px solid var(--border); text-align: center; }
+.pl-h button { font: 500 var(--t-xs)/1.25 var(--f-sans); color: var(--ink-2); background: none; border: 0; padding: 4px 0; cursor: pointer; text-align: right; width: 100%; }
+.pl-h button.l { text-align: left; }
+.pl-h button small { display: block; font-weight: 400; color: var(--ink-3); }
+.pl-h button[aria-sort] { color: var(--accent); font-weight: 650; }
+.pl-h button:hover { color: var(--ink); }
+.pl { position: relative; z-index: 0; isolation: isolate; }
+.pr { border-bottom: 1px solid var(--border); }
+.pr > summary { position: relative; z-index: 0; }
+.pr > summary { display: grid; grid-template-columns: var(--cols); column-gap: 10px; align-items: baseline; padding: 10px 0; cursor: pointer; list-style: none; }
+.pr > summary::-webkit-details-marker { display: none; }
+.pr > summary:hover { background: color-mix(in srgb, var(--surface-2) 70%, transparent); }
+.pn { display: flex; align-items: baseline; gap: 7px; font-weight: 500; font-size: 15px; line-height: 1.3; min-width: 0; }
+.pn::before { content: ""; flex: none; width: 10px; height: 10px; background: var(--ink-3); transform: translateY(1px);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3.5 1.5 7 5 3.5 8.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3.5 1.5 7 5 3.5 8.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat; transition: transform .15s; }
+.pr[open] > summary .pn::before { transform: translateY(1px) rotate(90deg); }
+.mk { display: inline-flex; gap: 4px; align-items: center; }
+.mk svg { width: 14px; height: 14px; fill: none; stroke: var(--ink-2); stroke-width: 1.6; }
+.mk .tough { stroke: var(--claim); }
+.pv { text-align: right; font-size: 15px; white-space: nowrap; }
+.pv.o { color: var(--ink-2); font-style: italic; }
+.pv.o::before { content: "○"; font-style: normal; font-size: 9px; margin-right: 3px; vertical-align: 2px; }
+.pv.a::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent); margin-right: 5px; vertical-align: 2px; }
+.pv.g { color: var(--ink-2); font-style: italic; }
+.pv.bar { background: linear-gradient(to right, color-mix(in srgb, var(--accent) 16%, transparent) var(--w), transparent var(--w)); border-radius: 2px; padding-right: 4px; }
+.pv .hd { color: var(--ink-2); margin-left: 4px; }
+.pv .hd svg { width: 13px; height: 13px; vertical-align: -1px; fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.pv small { color: var(--ink-2); font-size: 12px; }
+.grp { padding: 22px 0 8px; font-size: var(--t-s); font-weight: 600; color: var(--ink-2); border-bottom: 1px solid var(--border); }
+.grp span { font-weight: 400; }
+.card { margin: 2px 0 18px 18px; padding: 22px 24px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px 40px; }
+.card h3 { margin: 0 0 8px; font: 600 var(--t-s)/1.3 var(--f-sans); color: var(--ink-2); }
+.card dl { margin: 0; display: grid; grid-template-columns: auto auto 1fr; gap: 3px 14px; font-size: 15px; }
+.card dt { color: var(--ink-2); } .card dd { margin: 0; font-weight: 600; text-align: right; }
+.cond { grid-column: 1 / -1; font-size: var(--t-xs); color: var(--ink-2); padding: 2px 0 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+.cond a { color: var(--ink-2); }
+.card .side dl { grid-template-columns: 8.5rem 1fr; }
+.card .side dd { text-align: left; }
+.card .side dd small { display: block; font-weight: 400; color: var(--ink-2); font-size: var(--t-xs); }
+.card .more { margin-top: 14px; font-size: var(--t-s); display: flex; gap: 6px 16px; flex-wrap: wrap; }
+
+/* ------------------------------------------------------------ hub */
+.hub-head { padding-top: 44px; max-width: 760px; }
+.hub-tools { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.fams { columns: 3; column-gap: 56px; margin-top: 40px; }
+.fam { break-inside: avoid; margin: 0 0 40px; }
+.fam h2 { margin: 0 0 8px; font: 500 24px/1.2 var(--f-serif); }
+.fam ul { margin: 0; padding: 0; list-style: none; }
+.fam li { display: flex; align-items: baseline; gap: 8px; padding: 3px 0; }
+.fam li a { color: var(--ink); text-decoration: none; font-weight: 500; }
+.fam li a:hover { color: var(--accent); text-decoration: underline; }
+.fam li .lead-dots { flex: 1; border-bottom: 1.5px dotted var(--border-strong); transform: translateY(-4px); min-width: 12px; }
+.fam li .c { font-size: var(--t-s); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.fam .also { margin: 8px 0 0; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5; }
+
+/* ------------------------------------------------------------ narrow */
+@media (max-width: 1079px) {
+  .kf { grid-template-columns: repeat(3, 1fr); }
+  .kf > div:nth-child(4) { border-left: 0; } .kf > div:nth-child(n+4) { border-top: 1px solid var(--border); }
+  .first { grid-template-columns: 1fr; gap: 32px; }
+  .fams { columns: 2; }
+  .pl { overflow-x: auto; }
+}
+@media (max-width: 719px) {
+  :root { --t-h1: 44px; --t-h2: 27px; --t-num: 28px; --t-xl: 19px; --bar-h: 52px; }
+  .brand-name, .crumbs .hub-crumb, .long { display: none; }
+  .short { display: inline; }
+  .crumbs li:first-child::before, .crumbs .hub-crumb + li::before { display: none; }
+  .bar-in { gap: 6px; }
+  .btn { padding: 0 10px 0 8px; }
+  .head { grid-template-columns: 1fr; padding-top: 24px; }
+  .tabs { display: flex; margin-top: 4px; } .tabs a { flex: 1; justify-content: center; }
+  .kf { grid-template-columns: 1fr 1fr; margin-top: 24px; }
+  .kf > div { padding: 14px 14px 12px; border-left: 0; border-top: 1px solid var(--border); }
+  .kf > div:nth-child(-n+2) { border-top: 0; } .kf > div:nth-child(even) { border-left: 1px solid var(--border); }
+  .kf > div:nth-child(4) { border-left: 1px solid var(--border); }
+  .kf dt { min-height: 0; }
+  .sec { margin-top: 72px; } .handoff { margin-top: 72px; grid-template-columns: 1fr; padding: 22px; }
+  .figs.two { grid-template-columns: 1fr; }
+  .foot-band { grid-template-columns: 1fr; }
+  .h2c dl > div { grid-template-columns: 7.6rem 1fr; }
+  .h2c dd.k { grid-column: 2; text-align: left; }
+  .kf dt { white-space: normal; }
+  .fams { columns: 1; }
+  .ctl { position: static; }
+  .count { margin-left: 0; }
+  .find { width: 100%; }
+  .pl-h { display: none; }
+  .pr > summary { display: block; padding: 12px 0; }
+  .pr > summary .pn { font-size: 16px; font-weight: 600; }
+  .pr > summary .pv { display: none; }
+  .pr > summary .pv.ph { display: inline-flex; flex-direction: column; align-items: flex-start; width: 25%; margin-top: 8px; text-align: left; font-size: 15px; }
+  .pr > summary .pv.ph::after { content: attr(data-l); order: -1; font: normal 400 11.5px/1.3 var(--f-sans); color: var(--ink-2); white-space: normal; }
+  .pr > summary .pv.ph.bar { background: none; } .pr > summary .pv.ph.sorted { color: var(--accent); font-weight: 650; }
+  .pv.o::before, .pv.a::before { display: none; }
+  .card { grid-template-columns: 1fr; margin-left: 0; padding: 18px; }
+}
+@media print {
+  .bar, .tabs, .ctl, .foot-nav, .menu { display: none !important; }
+  :root { --bg: #fff; } body { background: #fff; color: #000; }
+  .plate, figure, .card { break-inside: avoid; }
+  .sec > h2 { break-after: avoid; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+</style>
+</head>
+<body>
+<a class="vh" href="#main">Skip to the content</a>
+<header class="bar"><div class="bar-in wrap">
+<a class="brand" href="../../../../../dist/H2C_Material_Selector_2026-09-21_ee8eb64a0259.html" title="The selector"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M9 22h14M11 16.5h10M13 11h6"/></svg><span class="brand-name">Filament Atlas</span></a>
+<nav class="crumbs" aria-label="You are here"><ol><li class="hub-crumb"><a href="hub.html">Materials</a></li><li class="here"><button class="here-btn" type="button" aria-expanded="false" aria-controls="sections"><b>PLA</b><span class="here-sec long">Overview</span><svg class="icon" viewBox="0 0 20 20" aria-hidden="true" style="width:16px;height:16px"><path d="M6 8l4 4 4-4"/></svg></button><div class="menu" id="sections" aria-label="PLA, on this page">
+<a href="#top" aria-current="true"><span>Overview</span></a>
+<a href="#among"><span>Among the materials</span></a>
+<a href="#mechanical"><span>Mechanical properties</span></a>
+<a href="#thermal"><span>Thermal properties</span></a>
+<a href="#printing"><span>Printing on the H2C</span></a>
+<a href="#uses"><span>Uses, limitations and chemicals</span></a>
+<a href="#price"><span>Price</span></a>
+<a href="#other"><span>Other properties, as published</span></a>
+<a href="#sources"><span>Sources</span></a>
+<hr><a href="products-PLA.html"><span>Products</span><span class="m-n">195</span></a>
+<a href="hub.html"><span>All materials</span><span class="m-n">76 pages</span></a></div></li></ol></nav>
+<div class="bar-end">
+<a class="btn" data-return href="../../../../../dist/H2C_Material_Selector_2026-09-21_ee8eb64a0259.html#%7B%22m%22%3A%22M001%22%7D"><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 5 3 10l5 5M3.5 10H17"/></svg><span class="long">Back to your results</span><span class="short">Results</span></a>
+<button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark" title="Light or dark"><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6.6"/><path d="M10 3.4a6.6 6.6 0 0 1 0 13.2Z" fill="currentColor" stroke="none"/></svg></button>
+</div></div></header>
+<main id="main" class="wrap">
+
+<header class="head" id="top">
+  <div>
+    <h1 class="name">PLA</h1>
+    <p class="full">Polylactic acid</p>
+    <p class="idline slot" data-slot="Content slot: identity sentence">Unfilled PLA, sold as 195 products by 40 makers. A material type on Bambu Lab's H2C list, though not every brand of it is.</p>
+  </div>
+  <nav class="tabs" aria-label="PLA pages"><a href="#top" aria-current="page">Overview</a><a href="products-PLA.html">Products <span class="n">195</span></a></nav>
+</header>
+
+<section class="kf-wrap slot" data-slot="Layout: UX. Spread drawing under each number: dataviz slot" aria-label="Key figures: the median of the products that publish each value">
+<dl class="kf plate">
+<div><dt>Tensile modulus XY</dt><dd class="kf-v"><span class="kf-n">2.53</span><span class="kf-u">GPa</span></dd>
+<dd class="kf-s"><svg role="img" aria-label="Products range 0.95 to 4.24; middle half 1.93 to 2.87; PETG 1.68, ABS 2.2">
+<line class="wh-track" x1="3.70%" x2="96.30%" y1="14" y2="14"/>
+<line class="wh-end" x1="3.70%" x2="3.70%" y1="9" y2="19"/><line class="wh-end" x1="96.30%" x2="96.30%" y1="9" y2="19"/>
+<rect class="wh-band" x="31.19%" y="9" width="26.41%" height="10" rx="2"/>
+<line class="wh-med" x1="48.20%" x2="48.20%" y1="6" y2="22"/><line class="wh-ref" x1="24.36%" x2="24.36%" y1="4" y2="14"/><text class="wh-lab" x="24.36%" y="1" text-anchor="middle">PETG</text><line class="wh-ref" x1="38.88%" x2="38.88%" y1="14" y2="24"/><text class="wh-lab" x="38.88%" y="34" text-anchor="middle">ABS</text></svg></dd><dd class="kf-f">55 products, 0.95 to 4.24</dd></div>
+<div><dt>Tensile strength XY</dt><dd class="kf-v"><span class="kf-n">45.5</span><span class="kf-u">MPa</span></dd>
+<dd class="kf-s"><svg role="img" aria-label="Products range 26 to 70.9; middle half 40 to 53; PETG 47, ABS 34.5">
+<line class="wh-track" x1="3.70%" x2="96.30%" y1="14" y2="14"/>
+<line class="wh-end" x1="3.70%" x2="3.70%" y1="9" y2="19"/><line class="wh-end" x1="96.30%" x2="96.30%" y1="9" y2="19"/>
+<rect class="wh-band" x="32.60%" y="9" width="26.78%" height="10" rx="2"/>
+<line class="wh-med" x1="43.94%" x2="43.94%" y1="6" y2="22"/><line class="wh-ref" x1="47.03%" x2="47.03%" y1="4" y2="14"/><text class="wh-lab" x="47.03%" y="1" text-anchor="middle">PETG</text><line class="wh-ref" x1="21.21%" x2="21.21%" y1="14" y2="24"/><text class="wh-lab" x="21.21%" y="34" text-anchor="middle">ABS</text></svg></dd><dd class="kf-f">71 products, 26 to 70.9</dd></div>
+<div><dt>Tensile strength Z</dt><dd class="kf-v"><span class="kf-n">30.6</span><span class="kf-u">MPa</span></dd>
+<dd class="kf-s"><svg role="img" aria-label="Products range 8.7 to 43.5; middle half 22.9 to 34; PETG 30.2, ABS 27.3">
+<line class="wh-track" x1="3.70%" x2="96.30%" y1="14" y2="14"/>
+<line class="wh-end" x1="3.70%" x2="3.70%" y1="9" y2="19"/><line class="wh-end" x1="96.30%" x2="96.30%" y1="9" y2="19"/>
+<rect class="wh-band" x="41.62%" y="9" width="29.53%" height="10" rx="2"/>
+<line class="wh-med" x1="61.84%" x2="61.84%" y1="6" y2="22"/><line class="wh-ref" x1="60.91%" x2="60.91%" y1="4" y2="14"/><text class="wh-lab" x="60.91%" y="1" text-anchor="middle">PETG</text><line class="wh-ref" x1="53.06%" x2="53.06%" y1="14" y2="24"/><text class="wh-lab" x="53.06%" y="34" text-anchor="middle">ABS</text></svg></dd><dd class="kf-f">39 products, 8.7 to 43.5</dd></div>
+<div><dt>Notched Charpy</dt><dd class="kf-v"><span class="kf-n">6</span><span class="kf-u">kJ/m²</span></dd>
+<dd class="kf-s"><svg role="img" aria-label="Products range 2.16 to 20.3; middle half 3.97 to 7.9; PETG 6, ABS 20">
+<line class="wh-track" x1="3.70%" x2="96.30%" y1="14" y2="14"/>
+<line class="wh-end" x1="3.70%" x2="3.70%" y1="9" y2="19"/><line class="wh-end" x1="96.30%" x2="96.30%" y1="9" y2="19"/>
+<rect class="wh-band" x="12.94%" y="9" width="20.06%" height="10" rx="2"/>
+<line class="wh-med" x1="23.30%" x2="23.30%" y1="6" y2="22"/><line class="wh-ref" x1="23.30%" x2="23.30%" y1="4" y2="14"/><text class="wh-lab" x="23.30%" y="1" text-anchor="middle">PETG</text><line class="wh-ref" x1="94.92%" x2="94.92%" y1="14" y2="24"/><text class="wh-lab" x="94.92%" y="34" text-anchor="middle">ABS</text></svg></dd><dd class="kf-f">14 products, 2.16 to 20.3</dd></div>
+<div><dt>HDT at 0.45 MPa</dt><dd class="kf-v"><span class="kf-n">55</span><span class="kf-u">°C</span></dd>
+<dd class="kf-s"><svg role="img" aria-label="Products range 50 to 135; middle half 53.8 to 59; PETG 70, ABS 95">
+<line class="wh-track" x1="3.70%" x2="96.30%" y1="14" y2="14"/>
+<line class="wh-end" x1="3.70%" x2="3.70%" y1="9" y2="19"/><line class="wh-end" x1="96.30%" x2="96.30%" y1="9" y2="19"/>
+<rect class="wh-band" x="7.82%" y="9" width="5.69%" height="10" rx="2"/>
+<line class="wh-med" x1="9.15%" x2="9.15%" y1="6" y2="22"/><line class="wh-ref" x1="25.49%" x2="25.49%" y1="4" y2="14"/><text class="wh-lab" x="25.49%" y="1" text-anchor="middle">PETG</text><line class="wh-ref" x1="52.72%" x2="52.72%" y1="14" y2="24"/><text class="wh-lab" x="52.72%" y="34" text-anchor="middle">ABS</text></svg></dd><dd class="kf-f">89 products, 50 to 135</dd></div>
+<div><dt>Price</dt><dd class="kf-v"><span class="kf-n">33.7</span><span class="kf-u">CAD/kg</span></dd>
+<dd class="kf-s"><svg role="img" aria-label="Products range 18 to 80; middle half 28 to 40; PETG 26, ABS 40">
+<line class="wh-track" x1="3.70%" x2="96.30%" y1="14" y2="14"/>
+<line class="wh-end" x1="3.70%" x2="3.70%" y1="9" y2="19"/><line class="wh-end" x1="96.30%" x2="96.30%" y1="9" y2="19"/>
+<rect class="wh-band" x="18.64%" y="9" width="17.92%" height="10" rx="2"/>
+<line class="wh-med" x1="27.10%" x2="27.10%" y1="6" y2="22"/><line class="wh-ref" x1="15.66%" x2="15.66%" y1="4" y2="14"/><text class="wh-lab" x="15.66%" y="1" text-anchor="middle">PETG</text><line class="wh-ref" x1="36.56%" x2="36.56%" y1="14" y2="24"/><text class="wh-lab" x="36.56%" y="34" text-anchor="middle">ABS</text></svg></dd><dd class="kf-f">26 products, 18 to 80</dd></div>
+</dl>
+</section>
+
+<div class="first">
+  <section class="summary slot" data-slot="Content slot: the summary">
+    <h2 class="vh">In short</h2>
+    <p>PLA is polylactic acid filament, sold as 195 products, a few of them filled. Makers describe it as easy to print, and prototypes and educational projects are among the uses they name. Most products need no heated chamber, many by the Bambu Lab Filament Guide. A few need a hardened nozzle, and most have drying advice from their sheets or the guide. It softens near its glass transition; its products' median HDT at 0.45 MPa is 55&nbsp;°C. Of the makers that speak to acid and alkali resistance, most say not resistant.</p>
+    <p class="by">Written by Claude Sonnet (agent), revised by Claude Opus (agent), 2026-10-17. A draft, not yet reviewed by the owner. Its numbers are filled from the data.</p>
+  </section>
+  <section class="h2c plate" aria-labelledby="h2c-h">
+    <div class="h2c-h"><h2 id="h2c-h">On the H2C</h2><a href="#printing">Printing in full</a></div>
+    <dl>
+      <div><dt>Nozzle</dt><dd>195–230 °C</dd><dd class="k">most of 169</dd></div>
+      <div><dt>Bed</dt><dd>50–60 °C</dd><dd class="k">most of 159</dd></div>
+      <div><dt>Heated chamber</dt><dd>Not needed</dd><dd class="k">160 of 195</dd></div>
+      <div><dt>Drying</dt><dd>50 °C for 6 h</dd><dd class="k">typical of 183</dd></div>
+      <div><dt>Hardened nozzle</dt><dd>Not needed</dd><dd class="k">6 of 195 need one</dd></div>
+    </dl>
+    <p class="foot slot" data-slot="Content slot: words">Counted over the products whose own or shared data sheet states the setting. No product asks for more than the H2C gives: nozzle 350 °C, bed 120 °C, heated chamber 65 °C.</p>
+  </section>
+</div>
+
+
+<section class="sec" id="among" aria-labelledby="among-h">
+  <h2 id="among-h">Among the materials</h2>
+  <p class="lead slot" data-slot="Content slot: the opening">Where PLA sits against what an engineer would weigh it against, then among every material.</p>
+  <div class="figs">
+    <div class="slot" data-slot="Dataviz slot"><div class="box" style="min-height:360px"><div><b>Figure 1. Against its alternatives</b>PLA-CF, PLA-GF, PETG, PLA blend, ABS: same six columns as the key figures above; names link to their pages</div></div></div>
+    <div class="figs two">
+      <div class="slot" data-slot="Dataviz slot"><div class="box" style="min-height:280px"><div><b>Figure 2a. Strength against stiffness</b>Every material's median, fixed frame</div></div></div>
+      <div class="slot" data-slot="Dataviz slot"><div class="box" style="min-height:280px"><div><b>Figure 2b. HDT against price</b>Every material's median, fixed frame</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="mechanical" aria-labelledby="mechanical-h">
+  <h2 id="mechanical-h">Mechanical properties</h2>
+  <p class="lead slot" data-slot="Content slot: the opening">Flat and across the layers, and how tough.</p>
+  <div class="figs">
+    <div class="slot" data-slot="Dataviz slot"><div class="box" style="min-height:300px"><div><b>Figure 3. Its products, property by property</b>A dot per product, linked across strips; a click opens the product on the Products page</div></div></div>
+    <div class="slot" data-slot="Dataviz slot"><div class="box" style="min-height:240px"><div><b>Figure 4. Across the layers</b>Z against XY, product by product</div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="thermal" aria-labelledby="thermal-h">
+  <h2 id="thermal-h">Thermal properties</h2>
+  <p class="lead slot" data-slot="Content slot: the opening">At what temperature it softens under load.</p>
+</section>
+
+<section class="sec" id="printing" aria-labelledby="printing-h">
+  <h2 id="printing-h">Printing on the H2C</h2>
+  <p class="lead slot" data-slot="Content slot: the opening">What to set, what it needs, what goes wrong.</p>
+  <div class="figs">
+    <div class="slot" data-slot="Dataviz slot"><div class="box" style="min-height:280px"><div><b>Figure 5. Every temperature on one axis</b>Tg, HDT, print windows, drying, the H2C's limits</div></div></div>
+    <div class="slot" data-slot="Content slot"><div class="box" style="min-height:200px"><div><b>Settings, with where each comes from</b>Own sheet, a shared sheet, Bambu Lab's Filament Guide; drying, hardened nozzle, AMS; makers' printing notes</div></div></div>
+  </div>
+</section>
+
+<section class="handoff plate" id="products" aria-labelledby="handoff-h">
+  <div>
+    <h2 id="handoff-h">195 products from 40 makers</h2>
+    <p>eSUN 21, Spectrum 19, SUNLU 14, Polymaker 13, FormFutura 13, colorFabb 12, Fiberlogy 9, Eryone 8 and 32 more makers.</p>
+    <div class="slot" data-slot="Content slot: products that stand out" style="margin-top:18px"><div class="box" style="min-height:120px"><div><b>Products that stand out</b>Most values published, highest strength XY and Z, keeps most across the layers, highest HDT, highest Charpy, lowest price: a fact per line, each linking to its product</div></div></div>
+  </div>
+  <a class="btn btn-primary" href="products-PLA.html">Compare the 195 products</a>
+</section>
+
+<section class="sec" id="uses" aria-labelledby="uses-h"><h2 id="uses-h">Uses, limitations and chemicals</h2>
+  <div class="figs"><div class="slot" data-slot="Content slot"><div class="box" style="min-height:220px"><div><b>What makers sell it for and warn about; chemicals, UV, moisture</b>In the makers' own words, by topic</div></div></div></div></section>
+<section class="sec" id="price" aria-labelledby="price-h"><h2 id="price-h">Price</h2>
+  <div class="figs"><div class="slot" data-slot="Content slot"><div class="box" style="min-height:140px"><div><b>Price per kilogram</b>Median 33.7 CAD/kg of 26 products; the product strip is Figure 3's</div></div></div></div></section>
+<section class="sec" id="other" aria-labelledby="other-h"><h2 id="other-h">Other properties, as published</h2>
+  <div class="figs"><div class="slot" data-slot="Content slot"><div class="box" style="min-height:120px"><div><b>A table</b>Hardness, interlayer adhesion, Vicat, melting, decomposition…</div></div></div></div></section>
+<section class="sec" id="sources" aria-labelledby="sources-h"><h2 id="sources-h">Sources</h2>
+  <div class="figs two"><div class="slot" data-slot="Content slot"><div class="box" style="min-height:200px"><div><b>281 documents, by publisher</b>Each opens to its documents and the link to the original</div></div></div><div class="slot" data-slot="Content slot"><div class="box" style="min-height:200px"><div><b>Known gaps</b>Not published by any product: compression strength, CTE, thermal conductivity, fatigue, creep…</div></div></div></div></section>
+
+<footer class="foot-band">
+  <div>
+    <p class="slot" data-slot="Content slot">Data-sheet values describe test specimens, not design allowables. Confirm the exact product, its conditioning and your part's geometry with your own print.</p>
+    <div class="foot-nav">
+      <a class="btn" data-return href="../../../../../dist/H2C_Material_Selector_2026-09-21_ee8eb64a0259.html"><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 5 3 10l5 5M3.5 10H17"/></svg><span class="long">Back to your results</span><span class="short">Results</span></a>
+      <a class="btn" href="products-PLA.html">Products <span class="num" style="color:var(--ink-2)">195</span></a>
+    </div>
+  </div>
+  <div>
+    <p class="fine">Release ee8eb64a0259. Documents read 2026-09-10 to 2026-10-05; built 2026-10-17.<br>2,440 measurements, 297 print profiles and 281 documents behind this page.</p>
+    <button class="btn" type="button"><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="9.5" height="9.5" rx="1.5"/><path d="M13 7V4.5A1 1 0 0 0 12 3.5H4.5a1 1 0 0 0-1 1V12a1 1 0 0 0 1 1H7"/></svg>Copy the citation</button>
+  </div>
+</footer>
+</main>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var root = document.documentElement;
+  if (q.get('theme')) root.dataset.theme = q.get('theme');
+  // The return button: "Back to your results" when the tab came from the selector (?from=), else "Open in the selector".
+  var cold = q.get('from') === 'none';
+  document.querySelectorAll('[data-return]').forEach(function(a){ a.querySelector('.long').textContent = cold ? 'Open in the selector' : 'Back to your results'; a.querySelector('.short').textContent = cold ? 'Selector' : 'Results'; });
+  var btn = document.querySelector('.here-btn'), menu = document.getElementById('sections');
+  if (btn && menu) {
+    var set = function(on){ btn.setAttribute('aria-expanded', on); if (on) menu.setAttribute('data-open',''); else menu.removeAttribute('data-open'); };
+    btn.addEventListener('click', function(){ set(btn.getAttribute('aria-expanded') !== 'true'); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { set(false); btn.focus(); } });
+    if (q.get('menu') === 'open') set(true);
+  }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){ b.addEventListener('click', function(){
+    var dark = getComputedStyle(root).getPropertyValue('--bg').trim() === '#15161a'; root.dataset.theme = dark ? 'light' : 'dark'; }); });
+  var st = q.get('sort'); if (st) { document.querySelectorAll('div[data-state]').forEach(function(el){ el.hidden = el.dataset.state !== st; }); var sel = document.querySelector('.sortby select'); if (sel) sel.selectedIndex = 6; var h = document.querySelector('[data-hdt]'); if (h) { h.setAttribute('aria-sort','descending'); h.innerHTML = '0.45 MPa ↓<small>°C, high first</small>'; } }
+  if (q.get('open') === 'none') document.querySelectorAll('details[open]').forEach(function(d){ d.open = false; });
+})();
+</script>
+</body>
+</html>
