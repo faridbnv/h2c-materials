@@ -1,7 +1,7 @@
 MaterialID,Material,Page,Why,Products,Values,Makers,Documents,Sections,Figures,Dots,RecordsRows,KB,RecordsKB,Summary
 M001,PLA,materials/M001.html,,195,2430,40,281,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,1019,4271,587.7,2693.9,draft
 M008,PLA Silk,materials/M008.html,,33,310,15,47,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,195,639,203.2,469.0,draft
-M011,PLA Metal,materials/M011.html,,9,88,5,16,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,35,244,129.6,197.5,draft
+M011,PLA Metal,materials/M011.html,,9,88,5,16,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,35,244,129.5,197.5,draft
 M012,PLA Marble,materials/M012.html,,6,89,6,12,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,41,155,132.2,154.7,draft
 M013,PLA Sparkle,materials/M013.html,,4,52,4,7,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,16,100,110.5,117.6,draft
 M014,PLA Wood,materials/M014.html,,20,216,18,31,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,89,430,162.7,309.4,draft
@@ -14,7 +14,7 @@ M020,PETG,materials/M020.html,,73,1057,35,127,masthead in-short key-figures mech
 M024,PETG-CF,materials/M024.html,,24,299,21,40,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,130,497,186.2,372.7,draft
 M025,PETG-GF,materials/M025.html,,5,62,5,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,20,138,102.0,125.1,draft
 M026,PETG-ESD,materials/M026.html,,9,123,9,21,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,53,234,139.1,202.3,draft
-M027,ABS,materials/M027.html,,55,784,31,90,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,299,1248,265.5,830.9,draft
+M027,ABS,materials/M027.html,,55,784,31,90,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,299,1248,265.5,831.0,draft
 M028,ABS-GF,materials/M028.html,,11,156,11,21,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,72,283,155.0,229.9,draft
 M029,ABS-CF,materials/M029.html,,11,130,10,24,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,61,318,139.8,240.2,draft
 M030,ABS-ESD,materials/M030.html,,11,100,10,17,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,45,198,125.3,166.1,draft
@@ -31,9 +31,9 @@ M046,TPC / TPEE,materials/M046.html,,12,132,7,32,masthead in-short key-figures m
 M048,PAHT-CF,materials/M048.html,,5,190,4,10,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,37,264,129.4,259.3,draft
 M049,PA6,materials/M049.html,,9,98,6,18,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price estimates sources footer,5,33,233,104.9,184.6,draft
 M050,PA6-CF,materials/M050.html,,14,196,13,26,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,86,359,167.1,286.3,draft
-M051,PA6-GF,materials/M051.html,,11,207,10,19,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,71,358,160.0,308.6,draft
-M052,PA12,materials/M052.html,,8,133,7,23,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price estimates sources footer,5,31,239,106.6,209.2,draft
-M053,PA12-CF,materials/M053.html,,15,228,14,32,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,74,427,152.7,332.3,draft
+M051,PA6-GF,materials/M051.html,,11,207,10,19,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,71,358,159.9,308.6,draft
+M052,PA12,materials/M052.html,,8,134,7,23,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price estimates sources footer,5,31,240,106.6,209.8,draft
+M053,PA12-CF,materials/M053.html,,15,228,14,32,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,8,74,427,152.5,332.3,draft
 M054,PA12-GF,materials/M054.html,,3,35,3,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,13,92,99.3,98.6,draft
 M055,PA66,,2 products,2,25,2,7,,,,,,,none
 M056,PA66-CF,,0 products and 0 measured values,0,0,0,0,,,,,,,none
@@ -45,9 +45,9 @@ M064,PA-ESD,,1 product and 8 measured values,1,8,1,3,,,,,,,none
 M065,PA612-ESD,,1 product,1,36,1,3,,,,,,,none
 M066,PET,materials/M066.html,,7,63,4,15,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,21,182,110.6,155.5,draft
 M067,PET-CF,materials/M067.html,,8,172,7,14,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,51,281,148.1,252.4,draft
-M068,PET-GF,materials/M068.html,,4,73,4,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,40,185,133.0,157.2,draft
+M068,PET-GF,materials/M068.html,,4,74,4,11,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,43,186,133.6,157.8,draft
 M069,PPA,,2 products,2,46,2,6,,,,,,,none
-M070,PPA-CF,materials/M070.html,,8,167,6,17,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,39,306,136.2,261.6,draft
+M070,PPA-CF,materials/M070.html,,8,167,6,17,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,39,306,136.2,261.7,draft
 M071,PPA-GF,materials/M071.html,,5,91,4,10,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,34,222,124.9,194.2,draft
 M072,PPS,,2 products and 17 measured values,2,17,2,7,,,,,,,none
 M073,PPS-CF,materials/M073.html,,7,123,7,10,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,9,59,203,147.4,192.6,draft
@@ -66,7 +66,7 @@ M085,PE,,2 products,2,22,2,5,,,,,,,none
 M086,OBC,,2 products,2,27,2,4,,,,,,,none
 M087,POM / Acetal,materials/M087.html,,3,38,3,7,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,10,95,99.9,90.8,draft
 M088,PCTG,materials/M088.html,,8,111,8,16,masthead in-short key-figures mechanical thermal printing products makers-say physical price sources footer,7,34,196,115.6,151.8,draft
-M089,CPE,materials/M089.html,,5,76,3,14,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,21,141,108.3,120.3,draft
+M089,CPE,materials/M089.html,,5,76,3,14,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,7,19,141,106.5,120.3,draft
 M090,CPE-CF,materials/M090.html,,3,26,3,9,masthead in-short key-figures mechanical thermal printing products makers-say environment physical price sources footer,6,6,76,91.4,79.3,draft
 M091,CoPE,,1 product,1,28,1,5,,,,,,,none
 M092,nGen / Amphora,,1 product,1,31,1,8,,,,,,,none
@@ -79,7 +79,7 @@ M098,PEKK,materials/M098.html,,6,142,5,10,masthead in-short key-figures mechanic
 M099,PEI / ULTEM,materials/M099.html,,13,208,9,20,masthead in-short key-figures mechanical thermal printing products makers-say physical sources footer,6,43,313,121.9,244.5,draft
 M100,PSU,,1 product and 8 measured values,1,8,1,4,,,,,,,none
 M101,PESU / PES,,1 product and 8 measured values,1,8,1,4,,,,,,,none
-M102,PPSU,materials/M102.html,,4,47,4,7,masthead in-short key-figures mechanical thermal printing products makers-say physical sources footer,5,7,94,83.3,82.5,draft
+M102,PPSU,materials/M102.html,,4,47,4,7,masthead in-short key-figures mechanical thermal printing products makers-say physical sources footer,5,7,94,83.7,82.3,draft
 M103,PP Lightweight,,1 product and 8 measured values,1,8,1,4,,,,,,,none
 M104,PA6-CE,,1 product and 10 measured values,1,10,1,5,,,,,,,none
 M105,ASA-EC,,1 product and 17 measured values,1,17,1,4,,,,,,,none
@@ -145,7 +145,7 @@ M166,"Nylon-GF, maker-undisclosed polyamide",,1 product,1,30,1,1,,,,,,,none
 M167,"TPE, maker-undisclosed elastomer",materials/M167.html,,5,28,2,6,masthead in-short key-figures mechanical thermal printing products makers-say physical sources footer,3,14,71,66.7,72.5,draft
 M168,PLA blend,materials/M168.html,,9,97,5,18,masthead in-short key-figures mechanical thermal printing products makers-say physical price sources footer,6,31,220,91.6,164.5,draft
 M169,PLA blend-CF,,2 products,2,40,2,6,,,,,,,none
-M170,TPS,materials/M170.html,,5,47,4,9,masthead in-short key-figures mechanical thermal printing products makers-say physical price sources footer,5,14,127,83.3,111.0,draft
+M170,TPS,materials/M170.html,,5,49,4,9,masthead in-short key-figures mechanical thermal printing products makers-say physical price sources footer,5,14,129,85.1,112.4,draft
 M171,316L stainless steel sintering filament,,2 products and 1 measured value,2,1,2,4,,,,,,,none
 M172,Silicon carbide sintering filament,,1 product and 1 measured value,1,1,1,2,,,,,,,none
 M173,Alumina sintering filament,,1 product and 1 measured value,1,1,1,2,,,,,,,none
