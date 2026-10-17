@@ -1072,7 +1072,7 @@ function renderScenario(host) {
   }
   hydrate(fromLink?.scenario ?? newScenario(db.meta));
 
-  // Provenance matters, but not more than everything else in the top bar. The full record is in
+  // Provenance matters, but not more than the results: it sits at the end of the status bar, and the full record is in
   // the Scenario panel, which already carried it.
   const meta = document.getElementById('meta');
   meta.textContent = `data ${db.meta.snapshot}${db.meta.release ? ` · release ${db.meta.release.id}` : ''}`;

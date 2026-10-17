@@ -30,6 +30,18 @@ import { PRINTABLE, printCheck } from './templates.js';
 const GROUPS = ['Material family', 'Mechanical', 'Thermal', 'Environment', 'Compatibility', 'Part condition', 'Cost', 'Evidence'];
 const GROUP_LABEL = { Compatibility: 'Printing on the H2C', Cost: 'Cost and availability', Evidence: 'Data quality' };
 const OPEN_BY_DEFAULT = new Set(['Material family', 'Mechanical', 'Thermal', 'Compatibility']);
+// A line icon beside each heading, drawn as the top bar's are (20 px box, 1.7 px stroke), so a group is found by shape
+// as well as by name in a rail of eight.
+const GROUP_ICON = {
+  'Material family': '<path d="M10 2.5l7 3.8-7 3.8-7-3.8z"/><path d="M3 10l7 3.8 7-3.8M3 13.7l7 3.8 7-3.8"/>',
+  Mechanical: '<path d="M3 7.5v5M5.5 5.5v9M14.5 5.5v9M17 7.5v5M5.5 10h9"/>',
+  Thermal: '<path d="M8 11.5V4a2 2 0 0 1 4 0v7.5a3.5 3.5 0 1 1-4 0z"/><path d="M10 8v5.5"/>',
+  Environment: '<circle cx="10" cy="10" r="3.2"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M4.3 15.7l1.4-1.4M14.3 5.7l1.4-1.4"/>',
+  Compatibility: '<path d="M3.5 3.5h13v4h-13zM8 7.5v3l2 2.5 2-2.5v-3M5 16.5h10"/>',
+  'Part condition': '<path d="M10 2.8c-2.7 3.6-4.6 6.3-4.6 8.6a4.6 4.6 0 0 0 9.2 0c0-2.3-1.9-5-4.6-8.6z"/>',
+  Cost: '<path d="M3 10.6V3.5A.5.5 0 0 1 3.5 3h7.1l6.4 6.4-7.6 7.6z"/><circle cx="7" cy="7" r="1.2"/>',
+  Evidence: '<path d="M10 2.5l6 2.5v4.6c0 3.7-2.6 6.4-6 7.9-3.4-1.5-6-4.2-6-7.9V5z"/><path d="M7.3 10l2 2 3.6-3.8"/>',
+};
 
 const H2C_STATUSES = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical'];
 const REINFORCEMENT = ['carbon-fibre', 'glass-fibre', 'unfilled', 'esd', 'foaming', 'undisclosed'];
@@ -88,7 +100,7 @@ export function renderFilters(host, state, actions) {
     const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
     const inner = group === 'Part condition' ? partCondition(scenario, db) : body(group, materials, cs, db, state.ctx);
     parts.push(`<details class="group" data-group="${group}" ${open ? 'open' : ''}>
-      <summary><span class="chevron" aria-hidden="true"></span>${esc(GROUP_LABEL[group] ?? group)}<span class="count" data-zero="${n === 0}">${n} set</span></summary>
+      <summary><svg class="icon group-icon" viewBox="0 0 20 20" aria-hidden="true">${GROUP_ICON[group] ?? ''}</svg>${esc(GROUP_LABEL[group] ?? group)}<span class="count" data-zero="${n === 0}">${n} set</span><span class="chevron" aria-hidden="true"></span></summary>
       <div class="group-body">${inner}</div>
     </details>`);
   }
