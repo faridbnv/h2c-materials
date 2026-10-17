@@ -260,5 +260,5 @@ and its estimate made consistent. They are for the owner, as they are (OPEN-PROB
 | Drawer | renders moved on purpose: drying line, "say nothing", named fillers, tally words, the Z caption, the enclosure count |
 | Figure text at 390 px | a scan of all 76 pages: 864 cut or overlapping before, 0 after; 2 overlaps of 2 to 3 px at 1,180 px |
 | verify:fast | 78.8 s from an empty build cache, 56.1 s warm (budget 90 s) |
-| verify | VERIFYLINE |
+| verify | all 22 steps passed in 379 s side by side (the interface views 211 s, 300 rendered scenarios 86 s, the scale check 95 s), main unmoved at 1b9c107f |
 | pages:check | 17 invariants green (P1 to P14, IX, CNT) |
