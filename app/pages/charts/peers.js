@@ -105,7 +105,10 @@ function contrastTitle(m, peers, keys) {
     if (x.key === 'hdt045') { const d = xs.map((r) => Math.abs(r.c.value)); return `softens ${spanUnit(Math.min(...d), Math.max(...d), '°C')} ${dir === 'up' ? 'higher' : 'lower'}${than}`; }
     return `${CONTRAST[x.key][dir === 'up' ? 0 : 1]}${than}`;
   };
-  if (pos && neg) return `${name} ${clause(pos, 'up', true)} but ${clause(neg, 'down', false)}`;
+  // The second clause names its own alternatives unless they are the first's: "stronger than PLA-CF, PLA-GF and ABS"
+  // did not soften lower than PLA-CF (56 °C against 55), and the title said it did (the final review).
+  const same = (a, b) => a.length === b.length && a.every((x) => b.some((y) => y.p.id === x.p.id));
+  if (pos && neg) return `${name} ${clause(pos, 'up', true)} but ${clause(neg, 'down', !same(pos.up, neg.down))}`;
   if (pos) return `${name} ${clause(pos, 'up', true)}`;
   if (neg) return `${name} ${clause(neg, 'down', true)}`;
   return null;

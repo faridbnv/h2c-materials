@@ -229,6 +229,9 @@ time { font-variant-numeric: tabular-nums; }
 .ov-sec .sheet-table th.prop { width: var(--prop); min-width: 0; }
 .sheet-table thead th { vertical-align: bottom; white-space: normal; overflow-wrap: anywhere; }
 .sheet-table th, .sheet-table td { overflow-wrap: anywhere; min-width: 0; }
+/* Product heads apart from their neighbours: two long names ran together ("…GF10Fiberlogy…", the final review). */
+.sheet-table thead th + th { padding-left: 16px; }
+@media (max-width: 600px) { .sheet-table th, .sheet-table td { text-align: left !important; } .sheet-table thead th + th { padding-left: 0; } }
 
 /* A data table on a phone (B's and the colophon's table.grid): each row a block, each cell a label/value pair named by
    its data-label, so nothing scrolls sideways in a 358 px column. */

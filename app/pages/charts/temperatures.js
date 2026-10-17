@@ -79,11 +79,11 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     // The limit's line closes the row; its value is said under the row's name, where no mark can cover it.
     if (onScale) o.push(`<line class="dv-limit" x1="${pct(X(lim))}" x2="${pct(X(lim))}" y1="1" y2="${ROW - 1}"/>`);
     const none = (p.states.get('not-required') ?? 0) + (p.states.get('ambient') ?? 0);
-    const extra = [p.ends.length && p.n < 10 ? `${p.ends.length} give one end only` : '', a === 'chamber' && none ? `${none} need none` : ''].filter(Boolean).join('; ');
+    const extra = [p.ends.length && p.n < 10 ? `${p.ends.length} ${p.ends.length === 1 ? 'gives' : 'give'} one end only` : '', a === 'chamber' && none ? `${none} ${none === 1 ? 'needs' : 'need'} none` : ''].filter(Boolean).join('; ');
     let sub;
     const tw = typicalWindow(p);
     if (p.n >= 3 && tw && tw.share !== 'peak') sub = `${spanUnit(tw.from, tw.to, '°C')}, accepted by ${tw.share === 'all' ? 'all' : 'most of the'} ${p.n} products that give a window`;
-    else if (p.n) sub = `${p.n} of ${products(prods.length)} give a window`;
+    else if (p.n) sub = `${p.n} of ${products(prods.length)} ${p.n === 1 ? 'gives' : 'give'} a window`;
     else if (a === 'chamber' && none) sub = none === prods.length ? `none needed by any of the ${products(prods.length)}` : `none needed by ${none} of ${prods.length}`;
     else sub = p.windows.length ? 'only Bambu Lab\'s guide gives a window' : 'no window published';
     if (extra && (p.n || a !== 'chamber' || !none)) sub += `; ${extra}`;

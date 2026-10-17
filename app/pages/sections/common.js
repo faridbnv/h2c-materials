@@ -72,6 +72,12 @@ export function quote(c, k, { text = k.text ?? k.finding, rec = false, extra = '
   const where = [sourceKind(s).toLowerCase(), pageOf(k.locator)].filter(Boolean).join(', ');
   const source = [s?.publisher, String(s?.title ?? '').replace(/\s*-\s*PMC Lock$/, '')].filter(stated).join(', ') || 'a reference';
   const words = esc(glue(String(text ?? '').trim()));
+  // A sentence quoted once on a page is not quoted again in a later section (PETG quoted one of Bambu Lab's three times,
+  // the final review); a record only the Overview holds (rec) is always shown, so it stays on the page.
+  const said = (c.quotedOnPage ??= new Set());
+  const key = String(text ?? '').toLowerCase().replace(/\W+/g, ' ').trim();
+  if (!rec && said.has(key)) return '';
+  said.add(key);
   const what = extra ? ` <span class="said-what">${esc(extra)}</span>` : '';
   if (!verbatim(k)) return `<li class="said said--after"${rec ? ` data-rec="${esc(k.id)}"` : ''}><span class="said-text">${words}</span>${what} <span class="said-who">${esc(`after ${source}`)}</span></li>`;
   const who = g ? `${productA(c, g)}, ${esc(where)}` : esc(source);
@@ -79,7 +85,7 @@ export function quote(c, k, { text = k.text ?? k.finding, rec = false, extra = '
 }
 
 /** A list of quotes. */
-export const quotes = (items, cls = 'said-list') => (items.length ? `<ul class="${esc(cls)}">${items.join('')}</ul>` : '');
+export const quotes = (items, cls = 'said-list') => { const xs = items.filter(Boolean); return xs.length ? `<ul class="${esc(cls)}">${xs.join('')}</ul>` : ''; };
 
 // ------------------------------------------------------------------ known gaps: the reader's, never the maintainers'
 
@@ -177,8 +183,10 @@ export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes
     const n = note(h, v), twin = twinOf(v);
     const cls = ['num', v.level === 'as-published' ? 'open' : '', twin ? 'from' : ''].filter(Boolean).join(' ');
     return `<td class="${cls}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}${twin ? ` title="${esc(`From the data sheet shared with ${productNameOrId(twin)}`)}"` : ''}>`
-      + `<span class="cv"><span class="cv-n">${esc(fmt(v.value, h.unit))}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
+      + `<span class="cv"><span class="cv-n">${esc(`${sign(v)}${fmt(v.value, h.unit)}`)}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
   };
+  // A published bound keeps its sign here as on the plate and in the drawer ("> 200 °C"), from the value's record.
+  const sign = (v) => { const op = c.msById?.get(v.measurementId)?.operator; return op && /^[<>≤≥]=?$/.test(op) ? `${op} ` : ''; };
   const shared = live.some((h) => all.some((g) => twinOf(g.headline?.[h.key])));
   const foot = shared ? `<p class="sec-note">${esc(SHARED_NOTE)}</p>` : '';
   if (all.length <= ACROSS_MAX) {
