@@ -76,7 +76,7 @@ ROW PC · PASS 11 of 15 products
 ROW PC FR · PASS 1 of 2 products
 ROW PC-ABS · PASS 1 of 5 products
 ROW PC-CF · PASS 1 of 3 products
-ROW PCL · PASS 1 of 1 product
+ROW PCL · PASS 2 of 2 products
 ROW PCTG · PASS 6 of 6 products
 ROW PCTG-CF · PASS 3 of 3 products
 ROW PCTG-GF · PASS 3 of 3 products

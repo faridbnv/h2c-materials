@@ -1,5 +1,5 @@
 HDT at 0.45 MPa
-30 products
+28 products
 HDT at 1.8 MPa
 26 products
 Glass transition (Tg)
@@ -19,7 +19,7 @@ median
 Select a dot to open its result below; hover to find the same product in the other rows.
 Test, °C n Median Middle half Range
 HDT at 0.45 MPa 23 95 91–97 78.9⁠–⁠118
-Also drawn, not in the median: 4 with no stated test load (65⁠–⁠95) and 3 special formulations (85⁠–⁠97).
+Also drawn, not in the median: 3 with no stated test load (65⁠–⁠95) and 2 special formulations (90.5⁠–⁠97).
 HDT at 1.8 MPa 25 85 81–97 70⁠–⁠113
 Also drawn, not in the median: 1 special formulation (85).
 Glass transition (Tg) 20 105 105–108 81⁠–⁠126

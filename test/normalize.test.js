@@ -294,7 +294,8 @@ test('process tolerances retain both ends around the nominal temperature', () =>
     const p = parseTemperature(text);
     assert.equal(p.min,min,text); assert.equal(p.max,max,text);
   }
-  assert.ok(parseTemperature('490 ±20°C', {plausible:[100,500]}).unparsed);
+  // Outside the plausible window the tolerance's ends are still read, and flagged (D141).
+  assert.deepEqual(parseTemperature('490 ±20°C', {plausible:[100,500]}).implausible, [510]);
 });
 
 test('limonene support cannot back water-solubility evidence', () => {
@@ -484,4 +485,68 @@ test('check round 3: the moisture reader reads the wordings the tables hold most
   assert.equal(readMoistureState('All specimens were conditioned at room temperature for 24h prior to testing'), 'not-stated');
   assert.equal(readMoistureState('<20% RH during printing/storage'), null);
   assert.equal(readMoistureState('Kept dry; TDS recommends drying before printing'), null);
+});
+
+// Regression (D141): the plausibility window filtered the numbers of a cell, so a stated endpoint outside it vanished
+// and the window collapsed onto what was left. "450 - 520 °C" (LEHVOSS's PEEK CF nozzle) became the point 450, "75-85℃"
+// (SUNLU's PCL nozzle) nothing at all, and the typed columns written from the parser carried the collapse where
+// PARSE-MISMATCH could not see it. The window is a check now: the endpoint is read as stated and the reading says it
+// is outside.
+test('a stated endpoint outside the plausible window is read as stated and flagged, never dropped', () => {
+  const peek = parseTemperature('450 - 520 °C', { plausible: [100, 500] });
+  assert.deepEqual([peek.min, peek.max, peek.implausible], [450, 520, [520]]);
+  const pcl = parseTemperature('75-85℃', { plausible: [100, 500] });
+  assert.deepEqual([pcl.state, pcl.min, pcl.max, pcl.implausible], [PROCESS_STATE.RANGE, 75, 85, [75, 85]]);
+  assert.equal(parseTemperature('75-85℃', { plausible: [50, 550] }).implausible, undefined);
+  const bed = parseTemperature('30 -500 ºC', { plausible: [0, 250] });
+  assert.deepEqual([bed.min, bed.max, bed.implausible], [30, 500, [500]]);
+  const bio = parseTemperature('± 95 – 130° C', { plausible: [100, 500] });
+  assert.deepEqual([bio.min, bio.max], [95, 130]);
+  const tol = parseTemperature('490 ±20°C', { plausible: [100, 500] });
+  assert.deepEqual([tol.min, tol.max, tol.tolerance, tol.implausible], [470, 510, 20, [510]]);
+});
+
+// A number that is not a temperature is set aside before the window is read: a nozzle size, a layer height, a flow, a
+// speed, and a word with a number in it ("3M adhesive", "3D printer"). The 3 of "3M" was a bed minimum of 3 °C (P0418).
+test('a nozzle size, a speed or a word with a number in it is not a temperature', () => {
+  const read = (t, plausible = [50, 550]) => { const p = parseTemperature(t, { plausible }); return [p.state, p.min, p.max]; };
+  assert.deepEqual(read('50-60℃(When using 3M adhesive to bond PP sheets)', [0, 250]), [PROCESS_STATE.RANGE, 50, 60]);
+  assert.deepEqual(read('250°C (0.4mm nozzle, 0.2mm layer, 0.38mm line width, 4.0 mm³/s)'), [PROCESS_STATE.RANGE, 250, 250]);
+  assert.deepEqual(read('190-210℃/50-80mm/s'), [PROCESS_STATE.RANGE, 190, 210]);
+  assert.deepEqual(read('210-230℃ / ≤30mm/s'), [PROCESS_STATE.RANGE, 210, 230]);
+  assert.deepEqual(read('90 - 110°C for 3D printers', [0, 250]), [PROCESS_STATE.RANGE, 90, 110]);
+  const chamber = parseTemperature('it is recommended to use a 3D printer with an enclosed and heated chamber', { plausible: [0, 250] });
+  assert.deepEqual([chamber.state, chamber.min, chamber.max], [PROCESS_STATE.RECOMMENDED, null, null]);
+  assert.deepEqual(read('255-275C'), [PROCESS_STATE.RANGE, 255, 275]);
+});
+
+// "Minimum 70˚C chamber temp highly recommended." is an at-least value in a word (P1752); typed as 70–70 it looked like
+// a point the printer could reach, and OPEN-BOUND-WINDOW could not see it because the parser read it the same way.
+test('a minimum in words is an open bound', () => {
+  const p = parseTemperature('Minimum 70˚C chamber temp highly recommended.', { plausible: [0, 250] });
+  assert.deepEqual([p.min, p.max, p.openHigh], [70, null, true]);
+  assert.equal(withinH2C(p, H2C_BASELINE.chamberC, { partialWindow: true }).verdict, 'exceeds');
+  assert.deepEqual(['min', 'max'].map((k) => parseTemperature('at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+', { plausible: [0, 250] })[k]), [60, 100]);
+});
+
+// The parser sweep of 2026-10-17 (D141): a drying cell's bracketed unit, an "hr", and a condition in other words; a
+// nozzle-diameter cell's comma decimal, leading dot, slicer version, printer name and a size it rules out.
+test('a drying schedule is read whatever the unit\'s spelling, and a condition in Kimya\'s words is optional', () => {
+  assert.equal(parseDrying('65 (˚C)').tempC, 65);
+  const fiberlogy = parseDrying('~80 ° c for 8-12hr (Only dry if filament is wet, over drying/repeat drying can damage filament)');
+  assert.deepEqual([fiberlogy.tempC, fiberlogy.hours, fiberlogy.hoursOpen, fiberlogy.need], [80, 12, false, 'optional']);
+  const kimya = parseDrying('dried in an oven or vacuum oven at 100 – 120˚C for 4 – 8 hours if the material absorbs more than 500ppm moisture');
+  assert.deepEqual([kimya.tempC, kimya.hours, kimya.need], [120, 8, 'optional']);
+});
+
+test('a nozzle diameter is read through a comma decimal, a leading dot, a version number and a printer name', () => {
+  const read = (t) => { const p = parseNozzleDiameters(t); return [p.diameters, p.minimum, p.atLeast]; };
+  assert.deepEqual(read('0,4 mm'), [[0.4], 0.4, false]);
+  assert.deepEqual(read('≥ 0,2 mm'), [[], 0.2, true]);
+  assert.deepEqual(read('.4mm diameter minimum'), [[], 0.4, true]);
+  assert.deepEqual(read('Simplify 3D v.4.1.2 0.4 mm'), [[0.4], 0.4, false]);
+  assert.deepEqual(read('Bambu P1S 0.4 mm Orcaslicer2.10'), [[0.4], 0.4, false]);
+  assert.deepEqual(read('0.2 mm Nozzle NOT Compatible; 0.4 mm'), [[0.4], 0.4, false]);
+  assert.deepEqual(read('at least 0.6 mm'), [[], 0.6, true]);
+  assert.deepEqual(read('0.4, 0.6, 0.8 mm'), [[0.4, 0.6, 0.8], 0.4, false]);
 });

@@ -2,7 +2,6 @@ GradeID,MaterialID,Product,State,Headline,Value,Measurement,Shown,From
 G001-06,M001,PLA Matt,as-printed,hdt045,,,116,
 G001-06,M001,PLA Matt,as-printed,hdt18,,,66,
 G001-06,M001,PLA Matt,annealed:90:4,hdt045,116,V002780,116,
-G001-06,M001,PLA Matt,annealed:x:x,hdt045,116,V012362,116,
 G001-07,M001,Huracan PLA,as-printed,flexuralModulusXY,,,2.5,
 G001-07,M001,Huracan PLA,as-printed,flexuralStrengthXY,,,75,
 G001-07,M001,Huracan PLA,as-printed,hdt045,,,80,
@@ -359,7 +358,6 @@ G019-01,M019,Polymaker HT PLA GF,annealed:x:x,tensileStrengthXY,50.2,V000367,50.
 G019-01,M019,Polymaker HT PLA GF,annealed:x:x,tensileStrengthZ,22.46,V000368,23.68,
 G020-05,M020,PET-G FR V0,as-printed,hdt18,58,V010491,58,twin G020-67
 G020-05,M020,PET-G FR V0,annealed:x:x,hdt045,63,V002684,63,
-G020-09,M020,PET-G MATT,as-printed,hdt045,80,V012427,80,
 G020-09,M020,PET-G MATT,as-printed,hdt18,,,70,
 G020-09,M020,PET-G MATT,annealed:x:x,hdt045,80,V002964,80,
 G020-67,M020,PET-G VO,annealed:x:x,hdt045,63,V002684,63,twin G020-05
@@ -1048,7 +1046,6 @@ G106-01,M106,ABS Kevlar,annealed:x:x,hdt045,88,V002761,88,
 G106-02,M106,ABSKevlar,as-printed,hdt045,,,88,
 G106-02,M106,ABSKevlar,as-printed,hdt18,,,75,
 G106-02,M106,ABSKevlar,annealed:x:x,hdt045,88,V011825,88,
-G112-01,M112,PC/PTFE,as-printed,hdt045,140,V012396,140,
 G112-01,M112,PC/PTFE,as-printed,hdt18,,,130,
 G112-01,M112,PC/PTFE,annealed:x:x,hdt045,140,V003067,140,
 G157-02,M157,Eel,conditioned,tensileModulusXY,0.298,V012287,0.305,

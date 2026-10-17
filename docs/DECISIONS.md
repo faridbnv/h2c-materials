@@ -156,6 +156,7 @@ detail. The generator names one that runs longer.
 | D138 | A round's record leaves the working tree when it closes; the text reader and the estimate stage are frozen | The repository keeps what a person needs to read and run the tool. A finished round's migrations move to `archive/migrations/`, and its working files (readings, proposals, held rows, render dumps) move to the private evidence store, each listed with its size and SHA-256 in the round's `PACKETS.md`; git history keeps every byte. The import's text reader takes no new layout rules, and the estimate model no new physics, without a decision. | In force; it extends D35 (every value from its page: a packet's digest proves its bytes), D72 (nothing is deleted from the data: this moves files, not records) and D85 (the record tier, whose `source_facts` lane is now built only where the private cache is), and holds D58 (no new branch in the estimate model) at every round's close |
 | D139 | Tensile, heat and print temperatures are drawn product by product, as impact is | The drawer's Impact tests heading (a dot per product, a median table, then every result with its document) has three siblings: Tensile tests, XY and Z on Mechanical (modulus, strength and elongation at break, each an XY row and a Z row), Heat deflection and glass transition on Thermal (HDT at 0.45 and 1.8 MPa and Tg on one °C scale), and Print temperatures across products on Printing (each product's lowest and highest nozzle, bed and chamber setting, and its drying temperature, with the H2C's limit). Three rows exist only for them (tensile modulus Z, elongation at break Z, HDT at 1.8 MPa): drawn in the drawer alone, never a filter, a column or an answer. No answer moved. | In force; it extends D133 to any comparison the data names, holds D84 (a value with no stated orientation or load is counted apart), D88 and D89 (the guide's and a twin's settings, labelled), D92 (a Z value is one the sheet says is Z) and D99, and decides nothing; extended by D140 (flexural results, listed properties and notes; a drawer-only row may draw an unstated orientation hollow) |
 | D140 | Flexural results are drawn as tensile ones are, beside how the two relate; tensile strain at strength is listed under the tensile tests | The flexural modulus and strength the Mechanical tab already listed are drawn as the tensile results are: one closed heading, Flexural tests, XY and Z, an XY row and a Z row per property, a product per dot. A second closed line under it says how flexural and tensile results relate in theory, and why a printed bar departs from it. Tensile strain at strength moves inside the tensile heading as a list, not a graph. Four flexural rows are drawn in the drawer alone. No answer moved. | In force; it extends D139 (a comparison may list properties it does not draw and carry a second closed line; a drawer-only row may draw a value with no stated orientation, hollow and out of the median) and decides nothing |
+| D141 | A plausibility window is a check, never a filter; a reader's silence is checked against the cell's own words | The temperature parser used to throw away a number outside what it thought plausible and read the window from what was left, so "450 - 520 °C" became the point 450 and a 75–85 °C nozzle became no nozzle at all; the typed columns, written from the parser, carried the collapse where the mismatch check could not see it. Now every number a cell states is read, one outside the window is shown as a warning, and the same was done for the readers of drying, hardened nozzles, nozzle diameters and heat-deflection loads. | In force; it extends D115 (a typed endpoint is a number its cell states) and D49 (the parsers check the typed columns) |
 
 <!-- end index -->
 
@@ -4554,6 +4555,54 @@ became a page statement (m418). Flashforge PA6-GF20's bending moduli of 200 and 
 already flagged bending strengths, are flagged physically implausible (m419). The tests of D139 run on every comparison
 and record, the four new rows' too; templates.csv, gates and screening are unchanged ([the round](audits/2026-10-16-flexural-comparison/README.md)).
 
+## D141. A plausibility window is a check, never a filter; a reader's silence is checked against the cell's own words
+
+> **In plain words:** The temperature parser used to throw away a number outside what it thought plausible and read the window from what was left, so "450 - 520 °C" became the point 450 and a 75–85 °C nozzle became no nozzle at all; the typed columns, written from the parser, carried the collapse where the mismatch check could not see it. Now every number a cell states is read, one outside the window is shown as a warning, and the same was done for the readers of drying, hardened nozzles, nozzle diameters and heat-deflection loads.
+> **Status:** In force; it extends D115 (a typed endpoint is a number its cell states) and D49 (the parsers check the typed columns).
+
+*Found by the owner on 2026-10-17 in the PEEK-CF drawer, where LEHVOSS's "450 - 520 °C" stood beside a material
+window of 380–460 °C. Built by Claude (an agent), with two agents sweeping the other readers; the record is m420 and
+m421.*
+
+- **The parser was its own judge.** `parseTemperature` filtered a cell's numbers by a plausibility window (nozzle
+  100–500 °C, bed and chamber 0–250 °C) before reading the window, so a stated endpoint outside it vanished and the
+  window collapsed onto what was left: LUVOCOM 3F PEEK CF's 450–520 °C was typed 450–450 (P0940), SUNLU's PCL 75–85 °C
+  nozzle no window (P1612), iSANMATE's TPU bed "30 -500 ºC" the point 30 (P0050). It also read a number inside a word
+  ("3M adhesive", a bed minimum of 3 °C, P0418; "3D printer" before m102) and "Minimum 70 °C" as the point 70 (P1752).
+  The typed columns were written from the parser (m08), so PARSE-MISMATCH compared the parser with itself; only a
+  reviewer who had noticed could write a Parse review (P1906's "± 95 – 130° C" had one).
+- **The rule.** A number a cell states that is not a temperature (a nozzle size, a speed, a flow, a share, hours, a
+  word with a number in it) is set aside first (`stripNonTemperatures`, shared with PARSE-TEXT-BOUNDS); every number
+  left is read; one outside the axis's window is typed as stated and reported, PROCESS-WINDOW-IMPLAUSIBLE, so a
+  misprint or a slip in transcription is seen rather than dropped. The windows are nozzle 50–550 °C (an industrial
+  printer reaches 520 °C, a polycaprolactone prints from 60 °C), bed and chamber 0–250 °C. "Minimum N" is an open
+  bound, like "> N".
+- **The same class elsewhere** (two agents swept every typed column against its reader; m420, m421): the drying reader
+  had not read a bracketed unit ("65 (˚C)", P0030), "hr" (P1914) or "if the material absorbs more than 500ppm
+  moisture" (P1891); the hardened-nozzle reader took Stratasys's "standard … or hardened" head for a requirement
+  (P1793, held FALSE under a review); the nozzle-diameter reader lost a comma decimal in 101 cells ("0,4 mm") and
+  read "≥ 0,2 mm" as 2 mm; and the heat-deflection load reader did not know Spectrum's "method=A" / "method=B" (33
+  rows), Stratasys's "266 psi" and "18.6 kg" or "ISO 75 B**", so 41 loads stood as not stated, and eight method-A
+  (1.80 MPa) values were the 0.45 MPa headline of eleven products (PETG-CF, PA6, PA6-CE, PA6-GS, PC-PTFE, ASA and
+  PET-G among them).
+- **What a typed value is corrected from.** Each cell's own words, as transcribed: the typed endpoint must be a
+  number its cell states (D115), and the cells are the sheets' words. No page was read again (the three hosts are
+  denied to the session). P0050's 500 °C bed is held at the 30 the cell states, under a review and
+  PROCESS-WINDOW-IMPLAUSIBLE, until its page is read (OPEN-PROBLEMS §3); V012429's "method=A" is typed 1.8 MPa although
+  the product's own sheet prints the same 134 °C at 0.45 MPa (§4).
+- **Effect** (`npm run build:diff`, snapshot). Five print windows and three drying cells typed again; PEEK-CF's
+  material window 380–520 °C; PCL's SUNLU product passes the nozzle gate where it was unknown; Stratasys ASA needs no
+  hardened nozzle, which clears ASA's material gate; Essentium PA-CF's drying is optional; 41 HDT loads typed, 11
+  products' 0.45 MPa heat deflection moved to the 1.8 MPa row, PA6's outlier warning gone, PA6-CE's and PA6-GS's
+  estimates widened to what one 1.8 MPa value supports; 136 nozzle-diameter lists read. One portfolio row retired as a
+  duplicate of its sheet's (V012362). PEEK-CF stays excluded. Scenario answers that moved (`npm run ui:check`): PCL
+  passes Flexible component and Indoor prototype with two products judged where one was (the nozzle gate), PETG
+  passes Warm environment on one product's 94 °C now read at 0.45 MPa, and ABS's heat heading draws 28 products
+  where 30 stood; 300 rendered scenarios agree with the engine.
+- **What would break if reversed.** A window collapses silently again, and the next PEEK, PCL or "3M" cell is typed
+  wrong with the check that exists for it blind. What the sweep left (readers' spellings, a standard-deviation column
+  430 rows carry in brackets, unknown standards bodies) is in OPEN-PROBLEMS §11 and §12.
+
 ## Bugs worth remembering
 
 Each is pinned by a test. They are listed because all of them produced plausible-looking wrong
@@ -4562,6 +4611,7 @@ answers rather than failing.
 | Bug | What it did | Pinned by |
 |---|---|---|
 | Leading minus in the number pattern | Read the dash in `255-275C` as the sign of -275, which failed the plausibility window and collapsed the range to 255 | `normalize.test.js` |
+| A plausibility window used as a filter | Dropped a stated endpoint outside it and collapsed the window onto what was left: `450 - 520 °C` typed as 450, `75-85℃` as no nozzle, `3M adhesive` as a 3 °C bed; the typed columns written from the parser hid it from PARSE-MISMATCH (D141) | `normalize.test.js`, `typed-values.test.js`, PROCESS-WINDOW-IMPLAUSIBLE |
 | Annealing text scraped as a chamber requirement | `Room Temp. Annealing temp. and time 100 °C/16H` wrongly excluded four printable support materials | `normalize.test.js` |
 | Silence outranking evidence in gates | Reported PEEK as "unknown" despite two profiles demanding 430 and 480 °C | `database.test.js` |
 | Excel booleans | SheetJS renders them `TRUE`/`FALSE` while the stored XML holds `1`/`0`; every price headline failed to verify | `normalize.test.js` |

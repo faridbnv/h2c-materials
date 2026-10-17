@@ -29,7 +29,7 @@ M027,ABS,within,within,within,within,no-special-concern,required
 M028,ABS-GF,within,within,within,within,requires-hardened,required
 M029,ABS-CF,within,within,within,partial,requires-hardened,required
 M030,ABS-ESD,within,within,within,within,no-special-concern,required
-M031,ASA,within,within,within,within,requires-hardened,required
+M031,ASA,within,within,within,within,no-special-concern,required
 M032,ASA Aero,within,within,within,within,no-special-concern,required
 M033,ASA-CF,within,within,within,within,requires-hardened,required
 M034,ASA-GF,within,within,within,within,requires-hardened,required

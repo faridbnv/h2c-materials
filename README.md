@@ -32,7 +32,7 @@ Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md
   corrections, found 15 with a wrong cell, 2 of them in a cell that can change an answer. Every check so far was done by
   an AI; a person's spot-check is still to come.
 - **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for about 300 products), drying
-  (about 200), or, for some products, the nozzle or bed temperature (36 for the nozzle and 34 for the bed). Several
+  (about 200), or, for some products, the nozzle or bed temperature (35 for the nozzle and 34 for the bed). Several
   hundred products publish no strength, stiffness or heat-resistance value. Reading the documents already held again
   will not close these: they need documents that print the values, or the makers.
 - **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test

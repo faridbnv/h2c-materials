@@ -542,7 +542,7 @@ G031-29,M031,ASA Prime,unknown,within,unknown,unknown,unknown,unknown,
 G031-30,M031,ASA,within,within,within,recommended,no-special-concern,required,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-31,M031,ASA,within,within,within,recommended,no-special-concern,optional,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020; drying: guide PG020
 G031-32,M031,ASA,within,within,within,recommended,no-special-concern,required,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
-G031-33,M031,ASA,within,within,within,recommended,requires-hardened,optional,nozzle: guide PG020; bed: guide PG020; chamber: guide PG020; enclosure: guide PG020; drying: guide PG020
+G031-33,M031,ASA,within,within,within,recommended,no-special-concern,optional,nozzle: guide PG020; bed: guide PG020; chamber: guide PG020; enclosure: guide PG020; drying: guide PG020
 G031-34,M031,ASA,within,within,within,recommended,no-special-concern,required,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-35,M031,ASA,within,within,partial,recommended,no-special-concern,required,hardenedNozzle: guide PG020
 G031-36,M031,ApolloX,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG020
@@ -1038,7 +1038,7 @@ G148-01,M148,LUVOCOM 3F PAHT 9936 BK,within,within,unknown,unknown,requires-hard
 G148-02,M148,LUVOCOM 3F PAHT KK 50056 BK,within,within,unknown,unknown,requires-hardened,required,
 G149-01,M149,Capa 6500 Polycaprolactone,unknown,unknown,unknown,unknown,unknown,unknown,
 G149-02,M149,Facilan PCL100,within,within,unknown,unknown,unknown,unknown,
-G149-03,M149,PCL,unknown,within,within,unknown,unknown,unknown,
+G149-03,M149,PCL,within,within,within,unknown,unknown,unknown,
 G149-04,M149,BioFil - PCL,within,within,within,not-needed,unknown,required,
 G150-01,M150,FILAFLEX FOAMY,within,within,unknown,unknown,unknown,required,
 G150-02,M150,TPU LW,within,within,unknown,unknown,unknown,required,
@@ -1072,7 +1072,7 @@ G165-01,M165,PA-CF low warp,within,within,unknown,unknown,requires-hardened,requ
 G165-02,M165,Onyx,unknown,unknown,unknown,unknown,unknown,unknown,
 G165-03,M165,Onyx FR,unknown,unknown,unknown,unknown,unknown,unknown,
 G165-04,M165,FDM Nylon-CF10,unknown,unknown,unknown,unknown,requires-hardened,unknown,
-G165-05,M165,Essentium PA-CF,within,within,unknown,unknown,unknown,required,
+G165-05,M165,Essentium PA-CF,within,within,unknown,unknown,unknown,optional,
 G166-01,M166,Onyx GF,unknown,unknown,unknown,unknown,unknown,unknown,
 G167-01,M167,TPE 22D,within,within,within,unknown,unknown,optional,
 G167-02,M170,Flexfill TPE 90A,within,within,unknown,unknown,unknown,unknown,

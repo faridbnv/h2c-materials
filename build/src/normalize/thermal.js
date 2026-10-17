@@ -19,13 +19,16 @@ const NORMALISE_PUNCT = (s) => String(s)
 // B is 0.45 MPa. Until 2026-10-01 the slash and hyphen spellings read as no load (the data audit, RC3).
 // ASTM D648 states its loads in psi as often as in MPa (66 psi = 0.455 MPa, 264 psi = 1.82 MPa), and older sheets in
 // kgf/cm² (4.6 = 0.45 MPa, 18.5 = 1.8 MPa) (audit 2026-09-15, C-08).
+// Spectrum's portfolio prints the method letter alone ("method=A", "method=B", 33 rows) and Stratasys the ASTM load as
+// "266 psi" and "18.6 kg": read as no load, the method-A values stood as the 0.45 MPa headline of eleven products (the
+// parser sweep of 2026-10-17, D141). "ISO 75 B**" names method B with a footnote mark.
 const LOAD_CLASSES = [
   { load: 0.45, label: '0.45 MPa',
-    values: [/0[.,]45[05]?\s*(?:MPa|MN\s*\/\s*m)/i, /0\.45[05]?(?!\d)/, /(?<![\d.])66\s*psi/i, /(?<![\d.])4[.,]6\s*kgf/i],
-    methods: [/ISO\s*75(?:-2)?\s*\/\s*B\b/i, /\bHDT\s*[-\/]?\s*B\b/, /ISO\s*-?\s*(?:R\s*)?75\b[^;]*?\bMethod\s*B\b/i] },
+    values: [/0[.,]45[05]?\s*(?:MPa|MN\s*\/\s*m)/i, /0\.45[05]?(?!\d)/, /(?<![\d.])66\s*psi/i, /(?<![\d.])4[.,]6\s*kgf?\b/i],
+    methods: [/ISO\s*75(?:-2)?\s*[\/ ]\s*B\b/i, /\bHDT\s*[-\/]?\s*B\b/, /ISO\s*-?\s*(?:R\s*)?75\b[^;]*?\bMethod\s*B\b/i, /\bmethod\s*[=:]\s*B\b/i] },
   { load: 1.8, label: '1.8 MPa',
-    values: [/1[.,]8(?:[0-2]0?)?\s*(?:MPa|MN\s*\/\s*m)/i, /1\.8(?:[0-2]0?)?(?!\d)/, /(?<![\d.])264\s*psi/i, /(?<![\d.])18[.,]5\s*kgf/i],
-    methods: [/ISO\s*75(?:-2)?\s*\/\s*A\b/i, /\bHDT\s*[-\/]?\s*A\b/, /ISO\s*-?\s*(?:R\s*)?75\b[^;]*?\bMethod\s*A\b/i] },
+    values: [/1[.,]8(?:[0-2]0?)?\s*(?:MPa|MN\s*\/\s*m)/i, /1\.8(?:[0-2]0?)?(?!\d)/, /(?<![\d.])26[46]\s*psi/i, /(?<![\d.])18[.,][56]\s*kgf?\b/i],
+    methods: [/ISO\s*75(?:-2)?\s*[\/ ]\s*A\b/i, /\bHDT\s*[-\/]?\s*A\b/, /ISO\s*-?\s*(?:R\s*)?75\b[^;]*?\bMethod\s*A\b/i, /\bmethod\s*[=:]\s*A\b/i] },
 ];
 
 const STANDARDS = [
