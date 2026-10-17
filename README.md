@@ -1,12 +1,13 @@
-# H2C FDM Material Selection Tool
+# Filament Atlas
 
-**Live: [pdynamics.ca/h2c-materials](https://pdynamics.ca/h2c-materials/)** · one HTML page that also runs offline from a
-file, with no server.
+**Live: [pdynamics.ca/h2c-materials](https://pdynamics.ca/h2c-materials/)** · one HTML page, with a page of its own for
+each well-documented material beside it, that also runs offline from a file, with no server.
 
 ## What it is
 
-A tool for a small engineering team choosing a 3D-printing filament for the team's Bambu Lab H2C printer. You say what a
-part must do (survive 100 °C, be at least this stiff, be as light as possible), and it answers in two steps:
+Filament Atlas is a tool for a small engineering team choosing a 3D-printing filament for the team's Bambu Lab H2C
+printer. It was the H2C Material Selector until 2026-10-16; the built file keeps that name. You say what a part must
+do (survive 100 °C, be at least this stiff, be as light as possible), and it answers in two steps:
 
 - **Which kinds of filament** (PLA, PETG, carbon-filled nylon and so on) can do it, and whether the H2C can print them.
 - **Which products**, from which makers, pass: how to print each one, how it should be treated, and what its maker says

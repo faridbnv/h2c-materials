@@ -1,6 +1,6 @@
 # Architecture
 
-> **In short.** For someone changing code. The tool is three layers: the data tables (the source of truth, changed only through checked scripts), a build that validates them and compiles one database file, and the page, which reads that file and never changes it. This document gives the shape of each layer, the build stage by stage, the module map, and where a change goes; why each choice was made is in [DECISIONS.md](DECISIONS.md), and where things stand in the [README](../README.md).
+> **In short.** For someone changing code. Filament Atlas is three layers: the data tables (the source of truth, changed only through checked scripts), a build that validates them and compiles one database file, and the page, which reads that file and never changes it. This document gives the shape of each layer, the build stage by stage, the module map, and where a change goes; why each choice was made is in [DECISIONS.md](DECISIONS.md), and where things stand in the [README](../README.md).
 
 ## The shape of the thing
 

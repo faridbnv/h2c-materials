@@ -1,4 +1,4 @@
-# What this tool is for
+# What Filament Atlas is for
 
 > **In short.** This page is the owner's. It says what the tool is for (a workbench that turns a part's requirements into a defensible shortlist of filaments the H2C can print, then of products), the seven-step method it follows, a scorecard rating each part of the tool, and the working rules every change is held to. Every decision the owner has made, dated, newest last, is in [GOALS-LOG.md](GOALS-LOG.md). A change of direction is written here first and logged there. Where things stand today is in the [README](../README.md); what is wrong or missing, in [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md).
 

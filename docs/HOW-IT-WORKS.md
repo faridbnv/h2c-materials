@@ -1,4 +1,4 @@
-# How the material selector works, for an engineer using it
+# How Filament Atlas works, for an engineer using it
 
 This is for someone choosing a filament for a part on a Bambu Lab H2C who wants to know where the numbers on the
 screen come from, what each kind of number means, and how far to trust it. It assumes you read technical data sheets
@@ -9,7 +9,7 @@ single HTML file you can download and open with no internet.
 
 ## What the tool is, and is not
 
-The tool is a screening and comparison aid. You state requirements (stiffness at least 3 GPa, heat resistance at
+Filament Atlas is a screening and comparison aid. You state requirements (stiffness at least 3 GPa, heat resistance at
 least 100 °C, printable on the H2C, resists oils), and it tells you which of the materials in the database have products the recorded
 evidence says pass, fail, or cannot be judged, which products those are, and why, with a link from every number to the document it came from.
 

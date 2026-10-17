@@ -1,12 +1,12 @@
 # Working on the data
 
-> **In short.** The rules for changing the data, for people and AI agents alike: data changes only in `data/tables/*.csv`, through checked scripts that name the value they replace; nothing is deleted; every source is fingerprinted; and the automatic checks (`npm run verify`) must pass before a commit. Below are the commands, the rules the tooling enforces, and a recipe for each common change. What the tool is for, and where it stands, are in [docs/GOALS.md](docs/GOALS.md) and the [README](README.md).
+> **In short.** The rules for changing the data, for people and AI agents alike: data changes only in `data/tables/*.csv`, through checked scripts that name the value they replace; nothing is deleted; every source is fingerprinted; and the automatic checks (`npm run verify`) must pass before a commit. Below are the commands, the rules the tooling enforces, and a recipe for each common change. What the tool (Filament Atlas) is for, and where it stands, are in [docs/GOALS.md](docs/GOALS.md) and the [README](README.md).
 
 **Read `docs/GOALS.md` first.** It says what the tool is for, the method it follows, how it is scored, and the
 working rules every change is judged by: name the step it improves, record everything but verify what decides, show
 how many scenario answers it moved, and keep `verify:fast` within its budget.
 
-This file is for anyone changing the H2C material database: the owner and the AI agents alike. It says
+This file is for anyone changing Filament Atlas's material database: the owner and the AI agents alike. It says
 where data lives, how to change it without breaking anything, and what the build will refuse. The
 reasons behind the rules are in `docs/DECISIONS.md` (D35, and D45 onwards). Every column and vocabulary
 is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by code, in `docs/RULES.md`.

@@ -2,16 +2,17 @@
 
 ## Start here
 
-The tool helps a small engineering team pick a 3D-printing filament for its Bambu Lab H2C printer: it turns what a part
-must do into a shortlist of filament types the H2C can print, then of the products that pass, each with how to print it
-and where every number comes from. The [README](../README.md) says, in plain words, what it is, where things stand and
-what is still missing. Read that first; this page is the map of everything else.
+Filament Atlas (the H2C Material Selector until 2026-10-16) helps a small engineering team pick a 3D-printing filament
+for its Bambu Lab H2C printer: it turns what a part must do into a shortlist of filament types the H2C can print, then
+of the products that pass, each with how to print it and where every number comes from. The [README](../README.md)
+says, in plain words, what it is, where things stand and what is still missing. Read that first; this page is the map
+of everything else.
 
 Three things are useful to know before opening any document here:
 
 - **The data is a set of tables** (`data/tables/*.csv`), each column described in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).
-  A build turns them into the one HTML page that is the tool. Every value names the source document and page it was read
-  from.
+  A build turns them into the one HTML page that is the tool, and a page of its own for each well-documented material
+  beside it. Every value names the source document and page it was read from.
 - **The project moves in rounds of work.** Each round starts from the owner's decision (recorded, dated, in
   [GOALS-LOG.md](GOALS-LOG.md)), changes the data through small scripts that check each value against its source page
   ("migrations", numbered m1, m2 and so on), records the reasons as numbered decisions (D1, D2 and so on, in

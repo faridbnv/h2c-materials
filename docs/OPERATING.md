@@ -4,9 +4,10 @@
 
 ## What it is
 
-One HTML page, the selector, built from the CSV tables in `data/tables/` by `npm run build`. Every number in it comes
-from a table row that names its source document and page. GitHub checks every push to `main` and publishes the page to
-GitHub Pages (pdynamics.ca/h2c-materials). Nothing is typed into the page, and nothing in `dist/` is edited by hand.
+Filament Atlas: one HTML page, the selector, and beside it a page of its own for each well-documented material, all
+built from the CSV tables in `data/tables/` by `npm run build`. Every number in them comes from a table row that names
+its source document and page. GitHub checks every push to `main` and publishes them to GitHub Pages
+(pdynamics.ca/h2c-materials). Nothing is typed into the page, and nothing in `dist/` is edited by hand.
 
 Once per clone, with Node 24 or later, Chrome or Chromium (for `npm run verify`) and the GitHub CLI `gh` (to watch a
 publish):
