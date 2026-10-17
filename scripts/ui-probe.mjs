@@ -437,18 +437,22 @@ const recordPage = async (screen, [slug, file, kind]) => {
   const facts = await pageFacts();
   if (facts.kind !== kind) fail(`main[data-page] is "${facts.kind}", not "${kind}"`);
 
-  const overflow = m.documentWidth > screen.width;
+  // A material page scrolls its document, so a classic scrollbar (Linux's Chrome on CI) takes 15 px of the screen that
+  // an overlay one (macOS) does not: the page is held to the room it has, the document element's client width, and the
+  // view says whether it fits rather than a width that depends on the machine (2026-10-17, CI read 1165 where macOS 1180).
+  const room = await evaluate('document.documentElement.clientWidth');
+  const overflow = m.documentWidth > room;
   const byClass = {};
   for (const t of m.tables) { const c = byClass[t.cls || 'table'] ??= { tables: 0, clipped: 0, cells: 0 }; c.tables++; c.clipped += t.clipped; c.cells += t.cells; }
   const clippedClasses = Object.entries(byClass).filter(([, c]) => c.clipped);
   const lines = [
     `viewport ${screen.width}x${screen.height}`,
-    `document width ${m.documentWidth}${overflow ? ' OVERFLOW' : ''}`,
+    overflow ? `document width ${m.documentWidth} OVERFLOW (room ${room})` : 'document width: fits the screen',
     m.spill.length ? `spill:\n${m.spill.slice(0, LISTED).map((p) => `  ${p}`).join('\n')}${m.spill.length > LISTED ? `\n  +${m.spill.length - LISTED} more` : ''}` : 'spill: none',
     clippedClasses.length ? `clipped cells:\n${clippedClasses.map(([c, v]) => `  ${c}: ${v.clipped} of ${v.cells}`).join('\n')}` : `clipped cells: none in ${m.tables.length} tables`,
     `hidden controls: ${m.offScreen - facts.skipOff}`,
   ];
-  if (overflow) fail(`the page is ${m.documentWidth} px wide on a ${screen.width} px screen`);
+  if (overflow) fail(`the page is ${m.documentWidth} px wide where it has ${room} px of a ${screen.width} px screen`);
   if (m.spill.length) fail(`${m.spill.length} element(s) past the right edge of the screen: ${m.spill.slice(0, 5).join('; ')}${m.spill.length > 5 ? '; ...' : ''}`);
   for (const [c, v] of clippedClasses) fail(`${v.clipped} of ${v.cells} cells clipped in ${c}`);
   notes[key] = [`scrolls sideways: ${m.sideways.length ? m.sideways.join('; ') : 'none'}`];
