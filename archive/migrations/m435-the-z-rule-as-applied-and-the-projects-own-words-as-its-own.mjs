@@ -7,7 +7,7 @@
 //    stood upright (Stratasys's "Upright (ZX)", Essentium's drawing, AzureFilm's standing bars) or where its maker's
 //    template uses the label for its upright bar (Eryone's "X-Z", the owner's ruling of 2026-10-02). Four blind readers
 //    of 40 pages took the caption at its word and reported Eryone's, Essentium's, Stratasys's and AzureFilm's Z values
-//    as breaking it, on 14 pages. The caption now says the rule as it is applied.
+//    as breaking it, on 12 pages. The caption now says the rule as it is applied.
 // 2. Twenty-two evidence rows from the first rounds (Q00254 to Q00362) are the project's own words, typed "Manufacturer
 //    statement": a researcher's printability rubric ("Researcher classification from published processing cautions:
 //    4/5"), paraphrases ("Automotive components ... are manufacturer-proposed applications. No design allowable is
