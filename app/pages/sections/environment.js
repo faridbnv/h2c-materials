@@ -24,7 +24,8 @@ export default {
       return { empty: true, html: emptyBody(c, EMPTY_LINES.Environment, { tab: 'Environment', anchor: '#environment' }), stats: {} };
     }
     const polymer = c.poly[0]?.polymerId ?? 'the base polymer';
-    const parts = [findingsBlock(environmentFindings(f, polymer))];
+    const makerOf = (e) => { const g = stated(e.gradeId) ? c.gradeById.get(e.gradeId) : null; return (stated(g?.manufacturer) ? g.manufacturer : null) ?? c.sourceById.get(e.sourceId)?.publisher ?? null; };
+    const parts = [findingsBlock(environmentFindings(f, polymer, makerOf))];
     if (f.rows.length) {
       const total = f.rows.reduce((n, r) => n + r.total, 0);
       const usable = f.rows.filter((r) => r.filterable), other = f.rows.filter((r) => !r.filterable);

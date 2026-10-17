@@ -34,7 +34,7 @@ export function documentShell({ title, description, kind, materialId = null, sta
     `<button type="button" class="theme" data-theme-toggle hidden>${THEME_ICON}<span class="theme-words">Dark theme</span></button>`,
   ].filter(Boolean).join('');
   const brand = `${MARK}<span class="brand-name">${esc(BRAND)}</span><span class="brand-part">Material pages</span>`;
-  const contents = toc.length ? `<nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ol>${toc.map((s) => `<li><a href="#${esc(s.id)}"${s.empty ? ' data-empty="true"' : ''}><span class="toc-n">${s.n != null ? esc(s.n) : ''}</span><span class="toc-t">${esc(s.title)}</span></a></li>`).join('')}</ol></nav>` : '';
+  const contents = toc.length ? `<nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ol>${toc.map((s) => `<li><a href="${esc(s.href ?? `#${s.id}`)}"${s.empty ? ' data-empty="true"' : ''}><span class="toc-n">${s.n != null ? esc(s.n) : ''}</span><span class="toc-t">${esc(s.title)}</span></a></li>`).join('')}</ol></nav>` : '';
   return `<!doctype html>
 <html lang="en-CA">
 <head>

@@ -7,7 +7,7 @@ import { esc } from '../html.js';
 import { h2cLimit } from '../../js/ui/labels.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { measuredIn, comparisonsOf } from '../../js/ui/material-facts.js';
-import { heatLadder } from '../../js/ui/material-stats.js';
+import { heatLadder, printsAmorphous } from '../../js/ui/material-stats.js';
 import { EMPTY_LINES, plural, andList, medianRule, apartWords } from '../../js/ui/material-words.js';
 import { ladderPlot } from '../charts/ladder.js';
 import { figure, figId } from '../charts/figure.js';
@@ -42,7 +42,7 @@ export default {
     const rows = heatLadder(m, c, LADDER_EXTRA);
     const comps = comparisonsOf(m, c, 'Thermal');
     const covered = new Set([...comps.flatMap((f) => [...f.properties]), ...rows.filter((r) => !r.compared).map((r) => r.id)]);
-    const out = [findingsBlock(heatFindings(rows))];
+    const out = [findingsBlock(heatFindings(rows, { name: m.name, amorphous: printsAmorphous(m, c.db) }))];
     let figures = 0;
     if (rows.length) {
       for (const r of rows) {

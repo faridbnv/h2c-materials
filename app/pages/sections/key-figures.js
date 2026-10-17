@@ -132,6 +132,8 @@ export default {
     const table = `<div class="glance-box"><table class="grid glance"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Typical</th><th scope="col" class="num">Range</th>`
       + `<th scope="col" class="num">Products compared</th><th scope="col" class="prof">${profileHead}</th></tr></thead>${body}</table></div>`;
     const known = rows.filter((r) => r.known);
+    const ofs = known.filter((r) => r.at).map((r) => r.at.others + 1);
+    const ofSpan = ofs.length ? (Math.min(...ofs) === Math.max(...ofs) ? `${ofs[0]}` : `${Math.min(...ofs)} to ${Math.max(...ofs)}`) : '';
     const no = next();
     const counted = notesHtml([
       'Typical is the median of the products that publish the property on a comparable basis: half of them give more, half less. Range is the lowest to the highest of those products, and Products counts them. The middle half, said below, is the range of the middle half of them.',
@@ -141,7 +143,7 @@ export default {
       id: figId(no), n: no, title: `Typical values, and where each sits among the materials`, cls: 'fig--glance', data: { 'data-glance': 'profile' },
       plot: table,
       label: null,
-      read: esc('Typical is the median of the products compared, and range their lowest to highest. The dot places it among every other material\'s typical value, the band covers the middle half of its products, and the materials with the most products are ticked by name.'),
+      read: esc(`Typical is the median of the products compared, and range their lowest to highest. Each track is the typical value's rank among the ${ofSpan} materials that publish the property; its ends give the lowest and highest material's value. The band covers the middle half of its products, and ${andList(landmarks.map((l) => l.name))} are ticked by name.`),
       counted,
     });
     return { empty: false, html, stats: { figures: 1, keyFigures: known.length } };

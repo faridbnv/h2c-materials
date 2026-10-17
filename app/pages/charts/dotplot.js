@@ -31,7 +31,7 @@ export function dotTrack({ entries, scale, summary = null, limit = null }) {
   // Two names that would run into each other on a laptop's track (about 640 px) are set apart: the lower one ends at its
   // dot, the higher one starts at its own.
   const sorted = [...calls].sort((a, b) => a.x - b.x);
-  const width = (e) => e.callout.length * 6.6;
+  const width = (e) => e.callout.length * 6.9;
   const anchors = new Map(sorted.map((e) => [e, e.x < 15 ? 'start' : e.x > 85 ? 'end' : 'middle']));
   for (let i = 1; i < sorted.length; i++) {
     const a = sorted[i - 1], b = sorted[i];

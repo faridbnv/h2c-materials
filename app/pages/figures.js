@@ -17,7 +17,11 @@ export const MATERIAL_MAPS = [
  * The first screen's numbers, under the material's name: these key properties' typical values with how many products
  * each rests on, then the nozzle and bed windows most products accept.
  */
-export const FIRST_SCREEN = { keys: ['tensileStrengthXY', 'tensileStrengthZ', 'tensileModulusXY', 'hdt045', 'hdt18', 'charpyNotched'] };
+export const FIRST_SCREEN = {
+  keys: ['tensileStrengthXY', 'tensileStrengthZ', 'tensileModulusXY', 'hdt045', 'hdt18', 'charpyNotched'],
+  // The comparison lines under them, against the two materials with the most products: these medians, in this order.
+  versus: ['tensileModulusXY', 'tensileStrengthXY', 'tensileStrengthZ', 'hdt045', 'charpyNotched', 'priceCADkg'],
+};
 
 /** The scatters of two key properties product by product, within the material (the price section's). */
 export const FIGURE_PAIRS = [

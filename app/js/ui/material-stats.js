@@ -110,6 +110,39 @@ export function landmarkMaterials(db, count = 3, except = null) {
     .map((m) => ({ id: m.id, name: materialName(m.name).primary ?? m.name }));
 }
 
+/**
+ * A material's medians against another material's, key by key (`keys`, registry headline keys), from the compiled
+ * medians (materials[].headline[key].value, known only): `[{ key, h, a (this one's), b (the other's), kind: 'diff'
+ * (°C: a − b) | 'ratio' (a / b − 1), value, n (this one's products compared), same (within `same` of the other's
+ * value, 5 % by default) }]`, only keys both
+ * know. Display only.
+ */
+export function compareMedians(m, other, keys, { same = 0.05 } = {}) {
+  return keys.map((key) => {
+    const h = REGISTRY.allHeadlines.find((x) => x.key === key);
+    const ea = m.headline?.[key], eb = other.headline?.[key];
+    if (!h || !ea?.known || !eb?.known || !(eb.value > 0)) return null;
+    const a = ea.value, b = eb.value;
+    const kind = h.unit === '°C' ? 'diff' : 'ratio';
+    return { key, h, a, b, n: ea.spread?.n ?? m.summary?.[key]?.n ?? 1, kind, value: kind === 'diff' ? a - b : a / b - 1, same: Math.abs(a - b) <= same * Math.abs(b) };
+  }).filter(Boolean);
+}
+
+/**
+ * How a polymer solidifies in a print (polymers[].morphology and .asPrinted, by the material's estimate identity): true
+ * where it is amorphous, or a semicrystalline polymer that prints amorphous (and, for one that does so unless
+ * fibre-filled, the material is not fibre-filled); false where it crystallises; null where the data does not say.
+ */
+export function printsAmorphous(m, db) {
+  const p = (db.polymers ?? []).find((x) => x.id === m.estimateIdentity);
+  if (!p) return null;
+  if (p.morphology === 'amorphous') return true;
+  if (p.asPrinted === 'prints amorphous') return true;
+  if (p.asPrinted === 'prints amorphous unless fibre-filled') return !m.facets?.fibre?.value;
+  if (p.morphology === 'semicrystalline') return false;
+  return null;
+}
+
 // ------------------------------------------------------------------ across the layers
 
 /**
@@ -238,6 +271,29 @@ export function dryingStats(products) {
   }
   const counted = entries.filter((e) => e.counted);
   return { temps: rowSummary(entries), hours: summarise(counted.map((e) => e.hours).filter((x) => x != null)), products: products.length, entries };
+}
+
+/** The print settings a product's gate can read from elsewhere (grades[].print.from), in the order a print is set up. */
+export const SETTING_ORDER = ['nozzle', 'bed', 'chamber', 'drying', 'enclosure', 'hardenedNozzle', 'anneal'];
+
+/**
+ * Where products' settings were read when their own sheet is silent (grades[].print.from[setting].origin): for 'guide'
+ * (Bambu Lab's Filament Guide) and 'twin' (a sheet they share), `{ products (taking at least one setting from it),
+ * settings: [[setting, products]] (SETTING_ORDER, those with any) }`.
+ */
+export function settingOrigins(products) {
+  const out = {};
+  for (const origin of ['guide', 'twin']) {
+    const per = new Map();
+    let any = 0;
+    for (const g of products) {
+      const from = Object.entries(g.print?.from ?? {}).filter(([, f]) => f?.origin === origin);
+      if (from.length) any++;
+      for (const [k] of from) per.set(k, (per.get(k) ?? 0) + 1);
+    }
+    out[origin] = { products: any, settings: [...SETTING_ORDER.filter((k) => per.has(k)), ...[...per.keys()].filter((k) => !SETTING_ORDER.includes(k))].map((k) => [k, per.get(k)]) };
+  }
+  return out;
 }
 
 // ------------------------------------------------------------------ the temperatures a part meets

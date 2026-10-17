@@ -7,7 +7,7 @@
 import { attrs, esc, pct } from '../html.js';
 import { fmtPage } from '../numbers.js';
 
-const CHAR = 6.6;    // about how wide a character of a 12 px label is
+const CHAR = 6.9;    // about how wide a character of a 12 px label is
 const TRACK = 230;   // the track's width on a laptop, px, for fitting the labels
 
 /**
@@ -38,4 +38,4 @@ export function profileTrack(r, { ends = null, marks = [] } = {}) {
 }
 
 /** The profile column's heading: what the ends mean, in plain words. */
-export const profileHead = '<span class="ph"><span>Lowest material</span><span>Highest</span></span>';
+export const profileHead = '<span class="ph-t">Rank among materials</span><span class="ph"><span>lowest</span><span>highest</span></span>';

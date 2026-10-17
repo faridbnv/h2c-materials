@@ -70,7 +70,7 @@ export default {
       read: esc('A dot is one product\'s price: the median of its listings\' regular prices per kilogram, Canadian where it has any. Sampled prices, not live ones.'),
       counted: notesHtml(notes) + table + `<p>${recordsLink(c, '#prices', 'Every listing, on the records page')}.</p>`,
     });
-    const scatters = FIGURE_PAIRS.filter((p) => p.section === 'price').map((p) => pairScatter(c, p, next(), { title: 'Strength against price, the most strength per CAD named' })).filter(Boolean);
+    const scatters = FIGURE_PAIRS.filter((p) => p.section === 'price').map((p) => pairScatter(c, p, next(), { title: 'Strength against price, product by product' })).filter(Boolean);
     const conv = m.headline[h.key]?.converted ? convertedNote(m.headline[h.key].converted) : null;
     const findings = priceFindings(s, entries.length, m.gradeIds.length, conv, s?.variants?.n ?? 0);
     return { empty: false, html: `${findingsBlock(findings)}${fig}${scatters.map((x) => x.html).join('')}`, stats: { figures: 1 + scatters.length, dots: entries.length + scatters.reduce((n, x) => n + x.dots, 0) } };

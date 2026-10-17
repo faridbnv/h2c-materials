@@ -55,7 +55,7 @@ function layerTable(groups, c, anchor) {
   const rows = groups.flatMap((g) => g.rows).filter((r) => m.summary?.[r.xy.key]?.n || m.summary?.[r.xy.key]?.asPublished?.n || (r.z && m.summary?.[r.z.key]?.n));
   if (!rows.length) return '';
   const body = rows.map((r) => `<tr data-pair="${esc(r.xy.key)}"><th scope="row">${esc(bare(r.xy))} <span class="u">${esc(r.xy.unit)}</span></th>${typicalCell(r.xy, m, 'Flat (XY)')}${typicalCell(r.z, m, 'Across (Z)')}`
-    + `<td class="num share" data-label="Z keeps">${r.share ? `<b>${esc(`${Math.round(r.share.median * 100)} %`)}</b><span class="mh">${esc(plural(r.share.n, 'product'))}</span>` : '—'}</td></tr>`).join('');
+    + `<td class="num share" data-label="Z/XY">${r.share ? `<b>${esc(`${Math.round(r.share.median * 100)} %`)}</b><span class="mh">${esc(plural(r.share.n, 'product'))}</span>` : '—'}</td></tr>`).join('');
   const counted = groups.flatMap((g) => {
     const hs = g.f.shown.length ? g.f.shown : g.f.hs;
     const apart = hs.map((h) => [h, apartWords(h, m.summary?.[h.key])]).filter(([, a]) => a.length).map(([h, a]) => `${h.labels.plain}: ${andList(a)}.`);
@@ -65,10 +65,10 @@ function layerTable(groups, c, anchor) {
       countedLine(g.f, c, 'Mechanical').line]), comparisonAbout(g.f)];
   }).join('');
   return `<div class="tbl" id="layers-table"><h3 class="sub-title">Flat and across the layers</h3>${tableBox(`<table class="grid layers"><thead>`
-    + '<tr><th scope="col" rowspan="2">Property</th><th scope="colgroup" colspan="2" class="grp-h">Printed flat (XY)</th><th scope="colgroup" colspan="2" class="grp-h">Across the layers (Z)</th><th scope="col" rowspan="2" class="num">Z keeps of XY</th></tr>'
+    + '<tr><th scope="col" rowspan="2">Property</th><th scope="colgroup" colspan="2" class="grp-h">Printed flat (XY)</th><th scope="colgroup" colspan="2" class="grp-h">Across the layers (Z)</th><th scope="col" rowspan="2" class="num">Z/XY</th></tr>'
     + '<tr><th scope="col" class="num">Typical</th><th scope="col" class="num">Products</th><th scope="col" class="num">Typical</th><th scope="col" class="num">Products</th></tr>'
     + `</thead><tbody>${body}</tbody></table>`)}${rows.some((r) => m.summary?.[r.xy.key]?.n) ? '<p class="fig-read">Typical is the median of the products, with the middle half of them under it.</p>' : ''}`
-    + howCounted(notesHtml(['Z keeps of XY: for each product whose two values are compared, from one document and in one annealing state, its Z value as a share of its XY value. The figure is the median of those shares, and under it how many products give one.'])
+    + howCounted(notesHtml(['Z/XY: for each product whose two values are compared, from one document and in one annealing state, its Z value as a share of its XY value. The figure is the median of those shares, and under it how many products give one.'])
       + counted + `<p>${recordsLink(c, anchor, 'Every result, with its document, on the records page')}.</p>`) + '</div>';
 }
 

@@ -46,6 +46,28 @@ const span = (w) => `${windowText(w.from, w.to)} °C`;
 /** "54" or "all 3" or "both", the products a quantity counts. */
 const allOf = (n) => (n === 2 ? 'both products' : `all ${n} products`);
 
+// ------------------------------------------------------------------ the first screen
+
+/**
+ * One comparison line from material-stats.js compareMedians: "tensile modulus 35 % lower, HDT at 0.45 MPa 15 °C higher,
+ * tensile strength about the same". Percent for ratios, °C differences for temperatures, "about the same" within 5 %.
+ */
+export function versusWords(rows) {
+  if (!rows.length) return '';
+  // Short names: the test is the first screen's own, so "tensile" and "impact" add nothing here.
+  const name = (r) => (r.key === 'priceCADkg' ? 'price' : inText(r.h.labels.plain.replace(/^Tensile /, '').replace(/ impact$/, '')));
+  // A median of one product is said to be one: a comparison on it is a single sheet's word.
+  const one = (r) => (r.n === 1 ? ' (one product)' : '');
+  const differ = rows.filter((r) => !r.same).map((r) => {
+    if (r.kind === 'diff') return `${name(r)} ${fmtNumber(Math.abs(r.value))} °C ${r.value > 0 ? 'higher' : 'lower'}${one(r)}`;
+    // Twice or more is said as a multiple: "2.3 times as high", not "130 % higher".
+    if (r.value >= 1) return `${name(r)} ${(r.a / r.b).toFixed(1)} times as high${one(r)}`;
+    return `${name(r)} ${Math.round(Math.abs(r.value) * 100)} % ${r.value > 0 ? 'higher' : 'lower'}${one(r)}`;
+  });
+  const same = rows.filter((r) => r.same).map((r) => `${name(r)}${one(r)}`);
+  return [differ.join(', '), same.length ? `${andList(same)} about the same` : ''].filter(Boolean).join('; ');
+}
+
 // ------------------------------------------------------------------ at a glance
 
 /**
@@ -185,7 +207,7 @@ export function strengthFindings(m, { shares, hs }) {
 // ------------------------------------------------------------------ heat
 
 /** The heat findings from the ladder's rows (material-stats.js heatLadder): HDT at each load, the glass transition, the rest as published. */
-export function heatFindings(rows) {
+export function heatFindings(rows, { name = null, amorphous = null } = {}) {
   const out = [];
   const typical = (r) => fmtNumber(r.summary.median, '°C');
   const across = (r, first) => (r.summary.n === 1 ? 'from one product' : `across ${first ? plural(r.summary.n, 'product') : fmtNumber(r.summary.n)}`);
@@ -196,6 +218,11 @@ export function heatFindings(rows) {
     const many = hdt.some((r) => r.summary.n > 1);
     out.push(`HDT is ${many ? 'typically ' : ''}${andList(hdt.map((r, i) => `${typical(r)} at ${fmtNumber(r.h.loadMPa)} MPa ${across(r, !i)}`))}${tg ? `, with the glass transition at ${typical(tg)} ${across(tg, false)}` : ''}.`);
   } else if (tg) out.push(tg.summary.n === 1 ? `One product gives a glass transition of ${typical(tg)}.` : `The glass transition is typically ${typical(tg)}, across ${plural(tg.summary.n, 'product')}.`);
+  // Two loads within 3 °C of each other: said with why, where the polymer's data says it prints amorphous
+  // (polymers[].morphology, .asPrinted), and only there.
+  if (hdt.length === 2 && tg && amorphous === true && Math.abs(hdt[0].summary.median - hdt[1].summary.median) <= 3) {
+    out.push(`As printed, ${name} solidifies amorphous, so it softens near its glass transition (${typical(tg)}) and the two loads give nearly the same HDT.`);
+  }
   const pub = rows.filter((r) => !r.compared);
   if (pub.length) {
     const say = (r, i) => `${inText(r.label)} ${r.summary.n === 1 ? `is ${typical(r)}, from one product` : `${i ? '' : 'is '}typically ${typical(r)}`}`;
@@ -221,23 +248,31 @@ export function physicalFindings(m, others) {
  * Chemicals and the environment: for the categories with the most statements, the verdict most of them state where
  * two thirds or more agree; then that makers rarely give the conditions.
  */
-export function environmentFindings(f, polymer) {
+export function environmentFindings(f, polymer, makerOf) {
   const out = [];
   const telling = (v) => !['narrative', 'no-data'].includes(v);
-  const top = [...f.rows].filter((r) => r.filterable && r.total > 1).sort((a, b) => b.total - a.total).slice(0, 4);
-  const total = f.rows.reduce((n, r) => n + r.total, 0);
-  if (total) out.push(`${plural(total, 'statement')} by makers and other documents speak to ${plural(f.rows.length, 'topic')}.`);
+  // Makers, not statements: one maker's sheet often says the same of each of its products, so a statement count would
+  // weigh a maker by how many products it sells. A maker is the product's (grades[].manufacturer), else the document's
+  // publisher.
+  const makers = (records) => new Set(records.map(makerOf).filter(Boolean));
+  const all = makers(f.rows.flatMap((r) => r.records));
+  const statements = f.rows.reduce((k, r) => k + r.total, 0);
+  if (all.size) out.push(`${all.size === 1 ? 'One maker or publisher speaks' : `${all.size} makers and other publishers speak`} to ${plural(f.rows.length, 'topic')}, in ${plural(statements, 'statement')}. Counted by maker, since one maker often says the same of each of its products:`);
+  const top = [...f.rows].filter((r) => r.filterable).map((r) => ({ r, n: makers(r.records).size })).filter((x) => x.n > 1).sort((a, b) => b.n - a.n).slice(0, 4);
   const said = [];
-  for (const r of top) {
-    const [v, k] = Object.entries(r.counts).sort((a, b) => b[1] - a[1])[0] ?? [];
-    if (v && telling(v) && k / r.total >= 2 / 3) said.push({ v, text: `${k} of ${r.total} ${said.some((x) => x.v === v) ? 'on' : 'statements on'} ${lower(r.label)}` });
+  for (const { r, n } of top) {
+    const by = new Map();
+    for (const e of r.records) { if (!telling(e.verdict)) continue; const k = makerOf(e); if (!k) continue; (by.get(e.verdict) ?? by.set(e.verdict, new Set()).get(e.verdict)).add(k); }
+    const [v, set] = [...by].sort((a, b) => b[1].size - a[1].size)[0] ?? [];
+    if (v && set.size / n >= 2 / 3) said.push({ v, text: `${set.size} of ${n} ${said.some((x) => x.v === v) ? 'on' : 'makers that speak to'} ${lower(r.label)}` });
     if (said.length === 3) break;
   }
-  // Categories that say the same are said together: "8 of 12 statements on acid resistance, and 8 of 12 on alkali
+  // Categories that say the same are said together: "5 of 7 makers that speak to acid resistance, and 4 of 5 on alkali
   // resistance, say not resistant".
   const verdicts = [...new Set(said.map((x) => x.v))];
   const clauses = verdicts.map((v) => { const xs = said.filter((x) => x.v === v); return `${xs.length > 1 ? `${xs.slice(0, -1).map((x) => x.text).join(', ')}, and ${xs.at(-1).text},` : xs[0].text} say ${envVerdictWords(v)}`; });
-  for (const x of clauses.slice(0, 2)) out.push(`${cap(x)}.`);
+  if (clauses.length) for (const x of clauses.slice(0, 2)) out.push(`${cap(x)}.`);
+  else if (all.size) out[out.length - 1] = out.at(-1).replace(/ Counted by maker.*$/, '');
   if (f.rows.length) out.push('Makers rarely give the concentration, temperature or duration, so these are indications, not design data.');
   if (f.polymer.length) out.push(`${f.rows.length ? 'Where no document tests these products' : 'No document tests these products here'}, reference data for plain ${polymer} resin is shown apart. It never stands for the products.`);
   return out;

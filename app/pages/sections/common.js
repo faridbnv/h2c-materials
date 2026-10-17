@@ -6,7 +6,7 @@
 
 import { esc, recordsHref, tableBox, count } from '../html.js';
 import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
-import { propertyName, whyWords, coverageStatusWords } from '../../js/ui/labels.js';
+import { propertyName, whyWords } from '../../js/ui/labels.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { emptyReasons, measuredIn, dotMarks, spreadEntries, productNameOrId, outOfMedian, GAP_STATUS } from '../../js/ui/material-facts.js';
 import {
@@ -55,11 +55,23 @@ export const readerText = (text) => !namesRecords(text) && !PROJECT_WORDS.test(S
  */
 export const shownGap = (r) => GAP_STATUS.has(r.status) && readerText(r.finding);
 
-/** A coverage row's heading: its domain and status, in the page's words. */
-const gapHead = (r) => `${r.domain === 'Sparse properties' ? 'Rarely published properties' : r.domain ?? ''}, ${coverageStatusWords(r.status)}`;
+/** A coverage row's domain in plain words: what the reader is told it is about. */
+const DOMAIN_WORDS = {
+  'Canadian price': 'Price', 'Moisture / environmental': 'Moisture and chemicals', 'Print setup': 'Printing', 'Source conflict': 'Sources that disagree',
+  'Post-processing / application': 'Post-processing', 'H2C status': 'Bambu Lab status', Comparability: 'Comparing values', 'Measurement parsing': 'Reading the values',
+};
 
-/** A known gap as a paragraph: its domain and status, then the reviewer's words. */
-export const gapPara = (r) => `<p class="gap"><b>${esc(gapHead(r))}.</b> ${esc(r.finding ?? '')}</p>`;
+/**
+ * A coverage row in plain words: a heading and the reviewer's finding. A rarely published property's row reads "Not
+ * published by any product: …"; any other row is headed by what it is about, and its finding follows as written.
+ */
+const gapParts = (r) => (r.domain === 'Sparse properties'
+  ? { head: 'Not published by any product', text: String(r.finding ?? '').replace(/^Not published by its own products:\s*/i, '') }
+  : { head: DOMAIN_WORDS[r.domain] ?? r.domain ?? '', text: r.finding ?? '' });
+const gapHead = (r) => gapParts(r).head;
+
+/** A known gap as a paragraph: what it is about, then the reviewer's words. */
+export const gapPara = (r) => { const g = gapParts(r); return `<p class="gap"><b>${esc(g.head)}:</b> ${esc(g.text)}</p>`; };
 
 /** The review notes not shown on the main page, counted in one line with the way to them; empty where there are none. */
 export const furtherNotes = (c, n) => (n ? `${count(n, 'further review note')} ${n === 1 ? 'is' : 'are'} on ${recordsLink(c, '#review-notes', 'the records page')}.` : '');
@@ -80,7 +92,7 @@ export function emptyBody(c, line, { tab = null, anchor = '', link = 'See the re
   const rows = tab ? emptyReasons(c, tab) : [];
   const shown = rows.filter(shownGap);
   const rest = rows.length - shown.length;
-  return `<p class="empty">${esc(line)}${shown.map((r) => ` <span class="empty-why">${esc(`${gapHead(r)}: ${r.finding ?? ''}`)}</span>`).join('')}`
+  return `<p class="empty">${esc(line)}${shown.map((r) => ` <span class="empty-why">${esc(`${gapHead(r)}: ${gapParts(r).text}`)}</span>`).join('')}`
     + ` ${rest ? `<span class="empty-why">${furtherNotes(c, rest)}</span>` : `${recordsLink(c, anchor, link)}.`}</p>`;
 }
 
@@ -226,14 +238,13 @@ export function pairScatter(c, pair, no, { title } = {}) {
       data: { 'data-grade': e.g.id, 'data-v': `${fmtBounded(e.v.value, hx.unit, e.v.interval)}, ${fmtBounded(f.v.value, hy.unit, f.v.interval)}` } };
   });
   if (points.length < 2) return null;
-  // Named on the plot: the most of the vertical property per unit of the horizontal one, and the highest of it, among
-  // the products not set apart (a price axis: the most strength per CAD).
-  const plain = points.filter((p) => !p.marks.includes('variant') && !p.marks.includes('open') && p.x > 0);
+  // Named on the plot: the lowest and the highest of the horizontal property (on a price axis, the cheapest and the
+  // dearest), among the products not set apart.
+  const plain = points.filter((p) => !p.marks.includes('variant') && !p.marks.includes('open'));
   if (plain.length > 2) {
-    const best = plain.reduce((a, b) => (b.y / b.x > a.y / a.x ? b : a));
-    const top = plain.reduce((a, b) => (b.y > a.y ? b : a));
-    best.label = productNameOrId(best.g);
-    if (top !== best) top.label = productNameOrId(top.g);
+    const low = plain.reduce((a, b) => (b.x < a.x ? b : a)), high = plain.reduce((a, b) => (b.x > a.x ? b : a));
+    low.label = productNameOrId(low.g);
+    high.label = productNameOrId(high.g);
   }
   const only = new Set([...ex.map((e) => e.g.id), ...ey.keys()]).size - points.length;
   const xs = stripScale(points.map((p) => p.x), hx.unit), ys = stripScale(points.map((p) => p.y), hy.unit);

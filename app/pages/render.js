@@ -20,6 +20,7 @@ import { RECORD_SECTIONS } from './records/index.js';
 import { tablesScript } from './tables-asset.js';
 import { documentShell, BRAND } from './shell.js';
 import { esc, recordsHref, count } from './html.js';
+import { andList } from '../js/ui/material-words.js';
 import { selectorLink } from './sections/common.js';
 
 /** The module state every shared function reads, set from the database, every time a render starts (FACTS-API.md 1). */
@@ -49,26 +50,47 @@ const recordsPath = (id) => `${PAGES_DIR}/${recordsHref(id)}`;
 /** Product names by ID, for the figures' tooltips (a classic script reads them; IDs never stand in a sentence). */
 const productNames = (c) => Object.fromEntries(c.grades.map((g) => [g.id, productNameOrId(g)]));
 
+/** What a section that has nothing on file is called in the "Not on file" line. */
+const ABSENT = {
+  printing: 'print settings', mechanical: 'mechanical values', thermal: 'thermal values', physical: 'physical values',
+  environment: 'statements on chemicals and environment', products: 'products', 'makers-say': 'maker statements', price: 'prices',
+  estimates: 'estimates', sources: 'documents',
+};
+
 /** A material's main page. */
 export function renderMaterialPage(db, id, env) {
   const c = materialContext(db, id, { showEstimates: true });
   if (!c) throw new Error(`renderMaterialPage: ${id} is not a material with a page`);
   const stats = { figures: 0, dots: 0, empty: [] };
   const toc = [];
-  const body = SECTIONS.map((s, i) => {
-    const n = s.title ? i : null;
-    const r = s.render(c, env, { n });
+  // A section with nothing on file leaves the page and the contents; one line before Sources says which they are. The
+  // written summary stays, empty or not: its absence is said where it would be.
+  const KEEP = new Set(['in-short']);
+  const absent = [];
+  const parts = [];
+  let n = 0;
+  for (const s of SECTIONS) {
+    const place = { n: s.title ? n + 1 : null };
+    const r = s.render(c, env, place);
+    if (r.empty) stats.empty.push(s.id);
+    if (s.title && r.empty && !KEEP.has(s.id)) { const w = r.absent ?? ABSENT[s.id] ?? s.title.toLowerCase(); if (w) absent.push(w); continue; }
     stats.figures += r.stats?.figures ?? 0;
     stats.dots += r.stats?.dots ?? 0;
-    if (r.empty) stats.empty.push(s.id);
-    if (!s.title) return `<section class="sec sec--${esc(s.id)}" data-section="${esc(s.id)}" data-empty="false">${r.html}</section>`;
+    if (!s.title) { parts.push({ id: s.id, html: `<section class="sec sec--${esc(s.id)}" data-section="${esc(s.id)}" data-empty="false">${r.html}</section>` }); continue; }
+    n++;
     toc.push({ id: s.id, n, title: s.title, empty: r.empty });
-    return `<section class="sec" id="${esc(s.id)}" data-section="${esc(s.id)}" data-empty="${r.empty ? 'true' : 'false'}" aria-labelledby="${esc(s.id)}-h">
+    parts.push({ id: s.id, html: `<section class="sec" id="${esc(s.id)}" data-section="${esc(s.id)}" data-empty="${r.empty ? 'true' : 'false'}" aria-labelledby="${esc(s.id)}-h">
 <div class="sec-head"><span class="sec-n">${n}</span><h2 id="${esc(s.id)}-h">${esc(s.title)}</h2></div>
 ${r.html}
-</section>`;
-  }).join('\n');
-  toc.push({ id: 'records-link', n: null, title: 'Every record', empty: false });
+</section>` });
+  }
+  if (absent.length) {
+    const line = `<p class="not-on-file" data-absent="${esc(stats.empty.filter((x) => !KEEP.has(x)).join(' '))}"><b>${esc(`Not on file for ${c.m.name}:`)}</b> ${esc(`${andList(absent)}.`)} <a href="${esc(recordsHref(c.m.id))}">Every record on file</a>.</p>`;
+    const at = parts.findIndex((p) => p.id === 'sources' || p.id === 'footer');
+    parts.splice(at < 0 ? parts.length : at, 0, { id: 'absent', html: line });
+  }
+  const body = parts.map((p) => p.html).join('\n');
+  toc.push({ id: 'records-link', href: recordsHref(c.m.id), n: null, title: 'Every record', empty: false });
   const m = c.m;
   const selector = selectorLink(c, env);
   const html = documentShell({

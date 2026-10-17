@@ -219,5 +219,9 @@
     a.addEventListener('blur', function () { light(null); });
   });
   doc.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { light(null); hideTip(); } });
+  // A tapped product stays lit only while the reader looks at it: a scroll, or a tap anywhere outside a figure, lets it go.
+  var release = function () { if (touched || (tip && !tip.hidden)) { touched = null; light(null); hideTip(); } };
+  window.addEventListener('scroll', release, { passive: true });
+  doc.addEventListener('click', function (ev) { if (!(ev.target.closest && ev.target.closest('.fig-plot'))) release(); });
 
 })();

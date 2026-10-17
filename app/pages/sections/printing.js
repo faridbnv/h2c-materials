@@ -9,7 +9,7 @@ import { esc, tableBox } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { hardenedShare } from '../../js/engine/products.js';
 import { isProduct, printFacts, printCounts, guideFacts } from '../../js/ui/material-facts.js';
-import { printWindows, dryingStats, dryingAdvice } from '../../js/ui/material-stats.js';
+import { printWindows, dryingStats, dryingAdvice, settingOrigins } from '../../js/ui/material-stats.js';
 import {
   plural, andList, cap, joinedSpan, windowText, printApartWords, printLines, printSingles, printMissing,
   amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES,
@@ -20,7 +20,7 @@ import { axisRow } from '../charts/axis.js';
 import { keyLimit, keyList } from '../charts/marks.js';
 import { windowPanel } from '../charts/windows.js';
 import { figure, figId, howCounted } from '../charts/figure.js';
-import { emptyBody, recordsLink, figureCounter, findingsBlock, notesHtml, middleHalf } from './common.js';
+import { emptyBody, recordsLink, figureCounter, findingsBlock, notesHtml, middleHalf, readerText } from './common.js';
 import { printFindings, basisWords } from '../findings.js';
 
 const SETTINGS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber']];
@@ -55,11 +55,21 @@ function dryingStrip(d, guideName) {
   return `<div class="pw-dry">${dotGraph([dotRow({ data: { 'data-row': 'drying', 'data-unit': '°C', 'data-open': `from ${guideName}` }, label: 'Drying', sub, track: dotTrack({ entries, scale, summary: t }) })], axisRow(scale, '°C'), { 'data-setting': 'drying' })}</div>`;
 }
 
+/** What a setting is called in "take their … from": the settings of a print gate in plain words. */
+const SETTING_WORDS = { nozzle: 'nozzle', bed: 'bed', chamber: 'chamber', drying: 'drying', enclosure: 'enclosure need', hardenedNozzle: 'nozzle type', anneal: 'annealing' };
+
+/** "66 products take at least one setting from Bambu Lab's guide: 4 their nozzle, 5 their bed, …" (settingOrigins). */
+function originLine(o, from) {
+  if (!o.products) return '';
+  const list = o.settings.map(([k, n], i) => `${n} ${i ? '' : 'their '}${SETTING_WORDS[k] ?? k}`);
+  return `${o.products === 1 ? 'One product takes' : `${o.products} products take`} at least one setting from ${from}: ${andList(list)}.`;
+}
+
 /**
  * The Bambu Lab Filament Guide's row for the material's type (D88), as the guide prints it: read for a product only where
  * the product's own data sheet, and one it shares, say nothing on a setting.
  */
-function guideBlock(f) {
+function guideBlock(f, name) {
   const g = f.guide;
   const rows = [
     ['Nozzle', g.nozzle.text], ['Bed', g.bed.text],
@@ -67,8 +77,22 @@ function guideBlock(f) {
     ['Enclosure', guideEnclosureWords(g.enclosureState)], ['Nozzle type', `${g.nozzleSizeMaterial}: ${guideHardenedWords(g.abrasion.requiresHardened)}`],
   ];
   return `<div class="guide"><h3 class="sub-title">${esc(g.name)}</h3>
-<p class="note">${esc(`Read for a product only where its own data sheet, and one it shares, are silent on a setting. ${f.readBy ? `${plural(f.readBy, 'product')} here ${f.readBy === 1 ? 'takes' : 'take'} at least one setting from it.` : 'No product here needs it.'}`)}</p>
+<p class="note">${esc(`Read for a product only where its own sheet, and a sheet it shares, are silent on a setting.${f.readBy ? '' : ' No product here needs it.'}`)}</p>
+${rowNote(f, name)}
 <dl class="facts facts--guide">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd class="raw">${guideLines(v)}</dd></div>`).join('')}</dl></div>`;
+}
+
+/**
+ * Where the guide's row is named for another type than the material (PETG reads its PETG HF row): which row it is, and
+ * why, in the mapping's own Reason (print_guide_materials.csv), its record names taken out; left unsaid where the
+ * reason speaks only in record names.
+ */
+function rowNote(f, name) {
+  const type = f.guide.guideType;
+  if (!type || type === name) return '';
+  const why = String(f.why ?? '').replace(/\s*(?:since\s+)?m\d+\s*\(D\d+\)/g, '').replace(/\s*\(D\d+\)/g, '').replace(/\s+([,;.])/g, '$1').trim();
+  const reason = why && readerText(why) ? ` ${why.charAt(0).toUpperCase()}${why.slice(1)}${/[.]$/.test(why) ? '' : '.'}` : '';
+  return `<p class="note">${esc(`Bambu Lab's guide has no row named ${name}; its ${type} row is read.${reason}`)}</p>`;
 }
 
 /**
@@ -113,6 +137,7 @@ export default {
     const pw = Object.fromEntries(SETTINGS.map(([axis]) => [axis, printWindows(products, axis)]));
     const drying = dryingStats(products);
     const advice = dryingAdvice(products);
+    const origins = settingOrigins(products);
     const hard = hardenedShare(c.grades);
     const chamberOutside = pf.outside.find((a) => a.axis === 'chamber')?.list.length ?? 0;
     const findings = printFindings({
@@ -158,7 +183,7 @@ export default {
         key,
         plot: `<div class="pw-grid">${panels.map((x) => x.html).join('')}</div>${strip}`,
         label: `Print windows of each product, with how many products accept each temperature: ${drawn.map((p) => `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}, ${plural(p.n, 'product')} counted, ${p.most ? `most accept ${p.most.from} to ${p.most.to} °C` : `at most ${p.peak.k} accept one temperature`}`).join('; ')}.`,
-        read: esc('A bar is one product\'s window, from its lowest to its highest setting. Above the bars, the height is how many products accept each temperature, and the darker span is what more than half of them accept.'),
+        read: esc('A bar is one product\'s window, from its lowest to its highest setting. Above the bars, the height is how many products accept each temperature, and the highlighted span is what more than half of them accept.'),
         counted: notesHtml([
           `Counted: the products whose own data sheet, or one they share, gives both ends of the window. That is ${andList(countedN)}.`,
           notCounted.length ? `Drawn but not counted: ${andList(notCounted)}. The guide speaks for every product that reads it, so it is drawn once per product and counted for none.` : null,
@@ -174,13 +199,13 @@ export default {
       ['Drying', dryingLine(m.gates.drying, products, drying, advice)],
       // Bambu Lab's notes that only say a product is not verified are left out: they say nothing about this material.
       ['AMS', amsSummary(c.profiles).split(/(?<=\.) (?=Bambu's notes?)/).filter((t) => !/^Bambu's notes? [^:]*: "not verified[^"]*"(?: \(\d+ of \d+ profiles\))?\.?$/i.test(t)).join(' ')],
-      counts && (counts.origins.guide || counts.origins.twin) ? ['Where a sheet is silent', `${cap(andList([counts.origins.guide ? `${plural(counts.origins.guide, 'setting')} from Bambu Lab's guide` : '', counts.origins.twin ? `${plural(counts.origins.twin, 'setting')} from a sheet they share` : ''].filter(Boolean)))}.`] : null,
+      origins.guide.products || origins.twin.products ? ['Where a sheet is silent', [originLine(origins.guide, 'Bambu Lab\'s guide'), originLine(origins.twin, 'a sheet they share')].filter(Boolean).join(' ')] : null,
     ].filter(Boolean);
     const html = `${findingsBlock(findings)}${fig}
 <h3 class="sub-title">Nozzle, drying and AMS</h3>
 <dl class="facts" data-drying-have="${advice.have}" data-drying-own="${advice.own}" data-drying-twin="${advice.twin}" data-drying-guide="${advice.guide}" data-products="${products.length}">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
 ${!panels.length && pf.rows.length ? howCounted(notesHtml([...printLines(pf), printSingles(pf), printMissing(pf) ? `Not counted: ${printMissing(pf)}.` : null]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : ''), 'How the settings are counted') : ''}
-${guide ? guideBlock(guide) : ''}
+${guide ? guideBlock(guide, m.name) : ''}
 <p class="note">${recordsLink(c, '#profiles', `All ${plural(c.profiles.length, 'print profile')}, with their documents`)}.</p>`;
     return { empty: false, html, stats: { figures: fig && panels.length ? 1 : 0, dots } };
   },

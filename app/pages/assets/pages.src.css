@@ -86,7 +86,8 @@ time { font-variant-numeric: tabular-nums; }
 }
 @media (max-width: 479px) { .topbar-links a[href*="#"] { display: none; } }
 .layout { padding-bottom: 5rem; }
-main { min-width: 0; }
+/* Nothing in the text may widen the page on a phone: a phone browser would zoom the whole page out to show it. */
+main { min-width: 0; overflow-x: clip; }
 
 /* ---------------------------------------------------------------- contents: a strip below 1,080 px, a rail above */
 
@@ -147,6 +148,12 @@ main { min-width: 0; }
 .kn dd .u { color: var(--ink-2); font-size: .9375rem; }
 .kn dd small { display: block; margin-top: .2rem; font-size: .8125rem; color: var(--ink-2); }
 .kn-none { font-size: 1rem; color: var(--ink-2); }
+.kn--open dd b { color: var(--ink-3); font-weight: 500; }
+.kn--open dd .u { color: var(--ink-3); }
+.mast-vs { margin: 1.1rem 0 0; padding: .75rem 0 0; border-top: 1px solid var(--border); max-width: 90ch; }
+.mast-vs p { margin: 0 0 .35rem; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.mast-vs b { font-weight: 600; }
+@media (max-width: 719px) { .mast-vs p { font-size: .9375rem; } }
 .inventory { display: flex; flex-wrap: wrap; gap: 1rem 3rem; margin: 0 0 1.75rem; }
 .inventory .count dd { font-size: 1.5rem; }
 .mast-facts { display: flex; flex-wrap: wrap; gap: .75rem 2.25rem; margin: 1.2rem 0 0; }
@@ -174,6 +181,8 @@ main { min-width: 0; }
 .gap { max-width: var(--measure); margin: .75rem 0; }
 .gap b { font-weight: 600; }
 .absent b { color: var(--ink); font-weight: 600; }
+.not-on-file { margin: 4rem 0 0; padding-top: .9rem; border-top: 1px solid var(--border-strong); max-width: var(--measure); color: var(--ink-2); }
+.not-on-file b { color: var(--ink); font-weight: 600; }
 .to-records { margin: 3.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--border-strong); }
 q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 
@@ -229,12 +238,12 @@ q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 line.grid { stroke: var(--border); stroke-width: 1; }
 .fig-track .base, .axis-line, .base { stroke: var(--border-strong); stroke-width: 1; }
 .fig-ticks line, .ctx-ticks line { stroke: var(--border-strong); }
-.fig-ticks text, .ctx-ticks text, .sc-labels text { font-family: var(--f-sans); font-size: 12px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.fig-ticks text, .ctx-ticks text, .sc-labels text { font-family: var(--f-sans); font-size: 12.5px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
 .band { fill: var(--accent-soft); }
 .median { stroke: var(--ink-2); stroke-width: 2; }
 .limit { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
-.limit-label { font: 500 12px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
-.callout { font: 500 12px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.limit-label { font: 500 12.5px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.callout { font: 500 12.5px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .callout-line { stroke: var(--ink-3); stroke-width: 1; }
 .diagonal { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
 .key-mk .band { fill: var(--accent-soft); stroke: var(--border); }
@@ -275,7 +284,8 @@ table.glance tr.grp th { padding: 1.2rem 0 .35rem; font-size: .875rem; font-weig
 table.glance tbody:first-of-type tr.grp th { padding-top: .6rem; }
 table.glance td.none { color: var(--ink-2); font-size: var(--t-small); text-align: left; padding-left: .9rem; }
 table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; padding-right: 0; padding-left: 1.4rem; }
-.ph { position: relative; display: flex; justify-content: space-between; font-weight: 500; }
+.ph-t { display: block; text-align: center; }
+.ph { position: relative; display: flex; justify-content: space-between; font-weight: 400; color: var(--ink-2); }
 .ph span { white-space: nowrap; }
 .ptrack { display: block; width: 100%; overflow: visible; }
 .pbase { stroke: var(--border-strong); stroke-width: 1; }
@@ -284,7 +294,7 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .pband { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); }
 .pdot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
 .plm { stroke: var(--ink-2); stroke-width: 1.25; }
-.pend, .plm-name { font: 400 12px var(--f-sans); fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.pend, .plm-name { font: 400 12.5px var(--f-sans); fill: var(--ink-2); font-variant-numeric: tabular-nums; }
 .plm-name { fill: var(--ink); }
 /* On a phone, each property is a small card: its name and typical value, its place, then its range and count. */
 @media (max-width: 719px) {
@@ -311,7 +321,7 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .sc--map .sc-plot { padding-top: .75rem; }
 .cx { fill: var(--ctx); }
 .cx--land { fill: var(--ctx-strong); }
-.mland { font: 500 12px var(--f-sans); fill: var(--ink-2); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.mland { font: 500 12.5px var(--f-sans); fill: var(--ink-2); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .mself { font: 650 13px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .leader line { stroke: var(--ink-3); stroke-width: 1; }
 @media (max-width: 719px) { svg.leader.alt { display: none; } }
@@ -331,7 +341,7 @@ table.glance td.prof, table.glance th.prof { width: 32%; min-width: 11rem; paddi
 .run-edge { stroke: var(--accent); stroke-width: 1.25; }
 .half { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; }
 .agree { fill: var(--agree); }
-.peak { font: 600 12.5px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.peak { font: 600 13px var(--f-sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .wb { stroke: var(--accent); stroke-linecap: butt; shape-rendering: crispEdges; }
 .wb--guide { stroke: var(--ctx-strong); stroke-dasharray: 5 3; }
 .wb--variant { stroke: var(--ctx); opacity: .75; }
@@ -513,6 +523,7 @@ table.products td { white-space: nowrap; }
 .dagger { align-self: flex-start; font-size: 1rem; color: var(--ink-2); }
 .est-basis { font-size: .875rem; color: var(--ink-2); }
 .est-onfile { color: var(--ink); font-size: var(--t-small); }
+.est-onfile--off { font-weight: 600; padding-left: .7rem; border-left: 3px solid var(--ink); }
 .est-evidence { margin: .5rem 0 0; padding-left: 1.1rem; font-size: .875rem; }
 
 /* ---------------------------------------------------------------- footer */

@@ -8,7 +8,7 @@ import { fmtNumber, fmtRange, estimateDisplay } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { estimateTitle, ESTIMATE_STRENGTH } from '../../js/ui/labels.js';
 import { productNameOrId } from '../../js/ui/material-facts.js';
-import { plural, andList, asPublishedWords } from '../../js/ui/material-words.js';
+import { plural, andList } from '../../js/ui/material-words.js';
 
 /** What an estimate rests on, a line per piece of evidence: the record's property and value, whose it is, and what it gives here. */
 function evidence(e, d, c) {
@@ -28,11 +28,22 @@ function evidence(e, d, c) {
  * stated orientation or load), said beside the estimate so the two are read together: "On file, not compared: 3 products
  * give 55 MPa, with no stated orientation."
  */
-function onFile(h, m) {
+function onFile(h, m, d) {
   const a = m.summary?.[h.key]?.asPublished;
   if (!a?.n) return '';
+  const e = m.headline?.[h.key]?.estimate;
   const span = a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`;
-  return `<p class="est-onfile">${esc(`On file, not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${span}, with ${asPublishedWords(h)}.`)}</p>`;
+  const products = m.gradeIds?.length ?? 0;
+  const who = a.n === products ? (a.n === 2 ? 'both products' : `all ${a.n} products`) : plural(a.n, 'product');
+  const lacks = h.direction ? 'without a stated orientation' : 'without a stated test load';
+  // Where the estimate's likely range does not hold those values, the model and the sheets disagree: said plainly.
+  // Against the likely range as the card prints it, so a value the printed range shows is never said to be outside it.
+  const lo = Number(String(d?.lo ?? e?.lo).replace(/,/g, '')), hi = Number(String(d?.hi ?? e?.hi).replace(/,/g, ''));
+  const outside = e && Number.isFinite(lo) && Number.isFinite(hi) && (a.min < lo || a.max > hi);
+  const text = outside
+    ? `This estimate does not include the ${span} ${who} ${a.n === 1 ? 'publishes' : 'publish'} ${lacks}; the model and the sheets disagree.`
+    : `On file, not compared: ${who} ${a.n === 1 ? 'gives' : 'give'} ${span}, ${lacks}.`;
+  return `<p class="est-onfile${outside ? ' est-onfile--off' : ''}">${esc(text)}</p>`;
 }
 
 export default {
@@ -47,7 +58,7 @@ export default {
       const line = missing.length
         ? `No estimate is given for the key properties this material does not publish (${andList(missing.map((h) => h.labels.plain))}).`
         : 'Every key property of this material has a measured value, or does not apply to it, so none is estimated.';
-      return { empty: true, html: `<p class="empty">${esc(line)}</p>`, stats: {} };
+      return { empty: true, absent: missing.length ? 'estimates' : '', html: `<p class="empty">${esc(line)}</p>`, stats: {} };
     }
     const levels = est.map((h) => m.headline[h.key].estimate.levels).find(Boolean) ?? { likely: 0.8, plausible: 0.95 };
     const pct = (p) => `${Math.round(p * 100)}%`;
@@ -58,9 +69,9 @@ export default {
       return `<div class="est" data-estimate="${esc(h.key)}"><h3 class="est-name">${esc(h.labels.plain)}</h3>`
         + `<p class="est-range"><span class="est-num">~${esc(d.lo)}–${esc(d.hi)}</span> <span class="kf-unit">${esc(d.unit)}</span><span class="dagger" aria-label="estimate">†</span></p>`
         + `<p class="est-basis">${esc(`${e.precision} precision, ${basis}.`)}</p>`
-        + onFile(h, m)
+        + onFile(h, m, d)
         // The selector's sentence, less what an estimate may do there: what it may exclude is the selector's business.
-        + `<p>${esc(estimateTitle({ ...e, screenLimit: null, canScreen: false }, d).replace(/(Precision: \w+), [^.]*requirement[^.]*\./, '$1.'))}</p>${evidence(e, d, c)}</div>`;
+        + `<p>${esc(estimateTitle({ ...e, screenLimit: null, canScreen: false }, d).replace(/(Precision: \w+), [^.]*requirement[^.]*\./, '$1.').replace(/ It never makes a material pass\./, ''))}</p>${evidence(e, d, c)}</div>`;
     });
     const wins = windows.map(([k, label]) => {
       const w = m.print[k];

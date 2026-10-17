@@ -48,8 +48,8 @@ export function mapFigure(c, env, pair, no) {
   const only = new Set([...ex.keys(), ...ey.map((e) => e.g.id)]).size - points.length;
   // The title: where its products' middle half sits, the vertical axis's value first, as the map is read.
   const w = pair.words ?? { x: lower(hx.labels.plain), y: lower(hy.labels.plain) };
-  const title = box ? `${m.name} among the materials: ${w.y} ${middleHalf(sy)} ${hy.unit} at ${w.x} ${middleHalf(sx)} ${hx.unit}`
-    : `${m.name} among the materials: ${w.y} ${fmtNumber(self.median.y, hy.unit)} at ${w.x} ${fmtNumber(self.median.x, hx.unit)}`;
+  const title = box ? `${m.name} among the materials: middle half ${w.y} ${middleHalf(sy)} ${hy.unit} at ${w.x} ${middleHalf(sx)} ${hx.unit}`
+    : `${m.name} among the materials: typical ${w.y} ${fmtNumber(self.median.y, hy.unit)} at ${w.x} ${fmtNumber(self.median.x, hx.unit)}`;
   const logs = [plot.xLog ? lower(hx.labels.plain) : null, plot.yLog ? lower(hy.labels.plain) : null].filter(Boolean);
   return {
     dots: points.length,
