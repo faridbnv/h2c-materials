@@ -115,6 +115,8 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .lens-view:focus { outline: none; }
 .lens-view:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.pages-link { font-size: var(--t-label); color: var(--ink-2); white-space: nowrap; margin-right: 12px; text-underline-offset: 2px; }
+.pages-link:hover { color: var(--accent); }
 
 /* Segmented control. The unknown-data mode lives here, never in a filter group. A track with the chosen option raised on
    it in the accent's ink: the solid accent blocks it replaces, two of them stacked under the top bar, were the loudest

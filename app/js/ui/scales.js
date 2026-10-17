@@ -92,3 +92,21 @@ export function limitOnScale(limit, values) {
   const lo = Math.min(...values), hi = Math.max(...values);
   return limit <= hi + Math.max((hi - lo) / 4, LIMIT_NEAR_C);
 }
+
+/**
+ * A dot strip's scale (the material pages' product strips): stripScale, except that a linear strip whose lowest value is
+ * above half its highest starts at the round step at or below the lowest, as a temperature strip does. Dots, unlike bars,
+ * need no zero baseline, and a material's densities of 1,170 to 1,330 kg/m³ drawn from zero are one blot. Logarithmic and
+ * °C strips are stripScale's own. `{ log, from, hi, ticks, pct }`, as stripScale returns.
+ */
+export function dotScale(values, unit) {
+  const s = stripScale(values, unit);
+  const lo = Math.min(...values), hi = Math.max(...values);
+  if (s.log || unit === '°C' || lo === hi || !(lo > hi / 2)) return s;
+  const step = roundStep(hi - lo || Math.abs(hi) * 0.1 || 1);
+  const from = Math.floor(lo / step) * step;
+  const top = Math.max(Math.ceil(hi / step) * step, from + step);
+  const ticks = [];
+  for (let v = from; v <= top + step / 2; v += step) ticks.push(Number(v.toPrecision(6)));
+  return { log: false, from, hi: top, ticks, pct: (v) => Math.max(0, Math.min(100, ((v - from) / (top - from)) * 100)) };
+}

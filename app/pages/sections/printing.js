@@ -1,235 +1,170 @@
-// How to print it: the nozzle, bed and heated-chamber temperatures most of the material's products accept, from each
-// product's own print gate (grades[].print) counted by material-stats.js printWindows, drawn as every product's window
-// with how many accept each temperature over them; drying as a strip with its typical schedule; then the hardened
-// nozzle, the AMS, where a silent sheet's settings were read and the Bambu Lab Filament Guide's row. The bookkeeping
-// (what is counted, drawn and not counted, not drawn and why, the medians, the H2C's limits) is under "How this is
-// counted".
+// Printing on the H2C: what to set, what is needed and what goes wrong. Every temperature on one axis first (figures.js
+// temperaturesFigure: the settings against the H2C's limits, and where a part softens); one sentence (findings.js
+// printingWords); the settings, what most products give beside the Bambu Lab Filament Guide's row (D88), or product by
+// product under six products, from each product's print gate (grades[].print) and its profiles' AMS words; the products
+// that need a hardened nozzle; what annealing makers publish; and what makers say about printing it, in their words.
 
 import { esc, tableBox } from '../html.js';
-import { fmtNumber } from '../../js/ui/format.js';
+import { indexDb, isProduct, stated, productNameOrId } from '../../js/ui/material-facts.js';
+import { printWindows } from '../../js/ui/material-stats.js';
 import { hardenedShare } from '../../js/engine/products.js';
-import { isProduct, printFacts, printCounts, guideFacts, productName } from '../../js/ui/material-facts.js';
-import { printWindows, dryingStats, dryingAdvice, settingOrigins } from '../../js/ui/material-stats.js';
-import {
-  plural, andList, cap, joinedSpan, windowText, printApartWords, printLines, printSingles, printMissing,
-  amsSummary, guideEnclosureWords, guideHardenedWords, EMPTY_LINES, dryingNeedsWords,
-} from '../../js/ui/material-words.js';
-import { stripScale } from '../charts/scale.js';
-import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
-import { axisRow } from '../charts/axis.js';
-import { keyLimit, keyList } from '../charts/marks.js';
-import { windowPanel } from '../charts/windows.js';
-import { figure, figId, howCounted } from '../charts/figure.js';
-import { emptyBody, recordsLink, figureCounter, findingsBlock, notesHtml, middleHalf, readerText } from './common.js';
-import { printFindings, basisWords, acceptSubject } from '../findings.js';
+import { dryingWords } from '../../js/ui/format.js';
+import { settingWords, guideEnclosureWords, andList, windowText } from '../../js/ui/material-words.js';
+import { printingWords, onTheH2cRows, quoteOrder, nWords, fmtD } from '../findings.js';
+import { opening, drawFigure, subhead, quote, quotes, productA, readerText } from './common.js';
 
-const SETTINGS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber']];
+/** The makers' topics about printing (db.meta.knowHow.topics), the order a print is set up in where makers tie. */
+const PRINT_TOPICS = ['Printing advice', 'Warping and shrinkage', 'Moisture sensitivity', 'Nozzle wear', 'Adhesion between layers', 'Supports and removal', 'Odour and emissions'];
+/** The environment categories about printing a part (evidence[].category): said here, not under Uses. */
+export const PRINT_CATEGORIES = new Set(['print-quality', 'post-processing', 'moisture']);
+/** A statement in a maker's or another document's own words, not the project's reading of one (Selection interpretation). */
+export const makersOwn = (e) => e.evidenceType !== 'Selection interpretation';
+/** A statement about the material in general (no product): this page's record, carrying its ID. */
+export const general = (e) => !stated(e.gradeId);
+const ANNEAL = /anneal|heat[- ]?treat|post[- ]?cur/i;
+const SHOWN = 3;
+/** A range's dash joined to its numbers, so it never breaks there (U+2060), once. */
+const joinDash = (t) => String(t).replace(/(?<!\u2060)–(?!\u2060)/g, '\u2060–\u2060');
+/** An annealing statement worth quoting first: a temperature, a time, an oven or a scale. */
+const SCHEDULE = /\d\s?°C|\d\s?(?:min(?:utes)?|h|hours?)\b|oven|scal(?:e|ed|ing)|measure/i;
 
-/** The H2C's limits against the products, setting by setting (printCounts), as a table. */
-function limitsTable(f) {
-  return tableBox(`<table class="grid limits"><thead><tr><th scope="col">Setting</th><th scope="col" class="num">H2C limit</th><th scope="col" class="num">Within</th>`
-    + `<th scope="col" class="num">Above or partly within</th><th scope="col" class="num">Not published</th></tr></thead><tbody>${f.axes.map((n) => `<tr><th scope="row">${esc(n.label)}</th>`
-    + `<td class="num">${esc(fmtNumber(n.limit, '°C'))}</td><td class="num">${n.within}</td><td class="num">${n.over}</td><td class="num">${n.unknown}</td></tr>`).join('')}</tbody></table>`);
+/** A grade's AMS words, from its profiles' routing (the maker's own statement, not Bambu Lab's "verify" notes). */
+const amsOf = (c, g) => [...new Set(c.profiles.filter((p) => p.gradeId === g.id).map((p) => String(p.routing?.amsPublished ?? '').trim()).filter(stated))];
+
+/** A setting's cell, product by product: its words, greyed where read from a sheet it shares or from the guide. */
+function productCell(g, axis) {
+  const p = g.print ?? {};
+  const from = p.from?.[axis === 'nozzle-type' ? 'hardenedNozzle' : axis];
+  let words;
+  if (axis === 'drying') words = dryingWords(p.drying);
+  else if (axis === 'nozzle-type') words = p.hardenedNozzle === true ? 'hardened' : p.hardenedNozzle === false ? 'standard' : 'not stated';
+  else if (axis === 'chamber' && ['not-required', 'ambient'].includes(p.chamber?.state)) words = 'none needed';
+  else words = p[axis] ? settingWords(p[axis]) : 'not published';
+  const title = from?.label ?? (from?.origin === 'guide' ? 'from Bambu Lab\'s Filament Guide' : null);
+  return `<td class="${from ? 'from' : ''}"${title ? ` title="${esc(title)}"` : ''}>${esc(words.replace(/–/g, '⁠–⁠'))}</td>`;
 }
 
-/** The medians of every product's lowest and highest setting and its drying temperature (printFacts().rows), as a table. */
-function mediansTable(pf) {
-  return tableBox(`<table class="grid sum"><thead><tr><th scope="col">Setting, <span class="u">°C</span></th><th scope="col" class="num" title="Products counted">n</th>`
-    + `<th scope="col" class="num">Median</th><th scope="col" class="num">Middle half</th><th scope="col" class="num">Range</th></tr></thead><tbody>${pf.rows.map((r) => {
-      const s = r.summary;
-      const apart = printApartWords(s);
-      return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(fmtNumber(s.median)) : '—'}</td>`
-        + `<td class="num">${s.q1 != null ? esc(middleHalf(s)) : '—'}</td><td class="num">${s.n ? esc(joinedSpan(s)) : '—'}</td></tr>`
-        + (apart.length ? `<tr class="apart"><td colspan="5">Also drawn, not counted: ${esc(andList(apart))}.</td></tr>` : '');
-    }).join('')}</tbody></table>`);
+/** The guide's row, as it prints it, a cell per setting (D88). */
+function guideCells(g) {
+  const lines = (t) => String(t ?? '').split(/(?<=\))\s+(?=[A-Z])/).map(esc).join('<br>');
+  return {
+    nozzle: lines(g.nozzle?.text), bed: lines(g.bed?.text),
+    chamber: esc(g.chamber?.state === 'enclosed' ? 'enclosure required' : `enclosure ${guideEnclosureWords(g.enclosureState)}`),
+    drying: esc(g.drying ? dryingWords(g.drying) : 'not stated'),
+    'nozzle-type': esc(g.abrasion?.requiresHardened === true ? 'hardened' : g.abrasion?.requiresHardened === false ? 'any' : 'not stated'),
+    ams: '—',
+  };
 }
 
-/** The drying temperatures as one strip of dots (the dot grammar), with the typical schedule beside it. */
-function dryingStrip(d, guideName) {
-  const entries = d.entries.map((e) => ({ v: { value: e.value }, marks: [e.origin === 'guide' ? 'open' : '', e.variant ? 'variant' : ''].filter(Boolean),
-    data: { 'data-grade': e.g.id, 'data-v': `${fmtNumber(e.value)} °C${e.hours != null ? ` for ${fmtNumber(e.hours)} h` : ''}`, 'data-from': e.origin === 'guide' ? `from ${guideName}` : null } }));
-  if (entries.length < 2) return '';
-  const scale = stripScale(entries.map((e) => e.v.value), '°C');
-  const t = d.temps, h = d.hours;
-  const sub = t.n ? `typically ${fmtNumber(t.median)} °C${h.n ? ` for ${fmtNumber(h.median)} h` : ''}` : '';
-  return `<div class="pw-dry">${dotGraph([dotRow({ data: { 'data-row': 'drying', 'data-unit': '°C', 'data-open': `from ${guideName}` }, label: 'Drying', sub, track: dotTrack({ entries, scale, summary: t }) })], axisRow(scale, '°C'), { 'data-setting': 'drying' })}</div>`;
-}
-
-/** What a setting is called in "take their … from": the settings of a print gate in plain words. */
-const SETTING_WORDS = { nozzle: 'nozzle', bed: 'bed', chamber: 'chamber', drying: 'drying', enclosure: 'enclosure need', hardenedNozzle: 'nozzle type', anneal: 'annealing' };
-
-/** "66 products take at least one setting from Bambu Lab's guide: 4 their nozzle, 5 their bed, …" (settingOrigins). */
-function originLine(o, from) {
-  if (!o.products) return '';
-  const list = o.settings.map(([k, n], i) => `${n} ${i ? '' : 'their '}${SETTING_WORDS[k] ?? k}`);
-  return `${o.products === 1 ? 'One product takes' : `${o.products} products take`} at least one setting from ${from}: ${andList(list)}.`;
-}
-
-/**
- * The Bambu Lab Filament Guide's row for the material's type (D88), as the guide prints it: read for a product only where
- * the product's own data sheet, and one it shares, say nothing on a setting.
- */
-function guideBlock(f, name) {
-  const g = f.guide;
-  const rows = [
-    ['Nozzle', g.nozzle.text], ['Bed', g.bed.text],
-    ['Chamber', g.chamber.state === 'unknown' ? 'no temperature stated' : g.chamber.state === 'enclosed' ? 'enclosure required, no temperature (the H2C\'s heated chamber counts)' : g.chamber.text],
-    ['Enclosure', guideEnclosureWords(g.enclosureState)], ['Nozzle type', `${g.nozzleSizeMaterial}: ${guideHardenedWords(g.abrasion.requiresHardened)}`],
-  ];
-  return `<div class="guide"><h3 class="sub-title">${esc(g.name)}</h3>
-<p class="note">${esc(`Read for a product only where its own sheet, and a sheet it shares, are silent on a setting.${f.readBy ? '' : ' No product here needs it.'}`)}</p>
-${rowNote(f, name)}
-<dl class="facts facts--guide">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd class="raw">${guideLines(v)}</dd></div>`).join('')}</dl></div>`;
-}
-
-/**
- * Where the guide's row is named for another type than the material (PETG reads its PETG HF row): which row it is, and
- * why, in the mapping's own Reason (print_guide_materials.csv), its record names taken out; left unsaid where the
- * reason speaks only in record names.
- */
-function rowNote(f, name) {
-  const type = f.guide.guideType;
-  if (!type || type === name) return '';
-  const why = String(f.why ?? '').replace(/\s*(?:since\s+)?m\d+\s*\(D\d+\)/g, '').replace(/\s*\(D\d+\)/g, '').replace(/\s+([,;.])/g, '$1').trim();
-  const reason = why && readerText(why) ? ` ${why.charAt(0).toUpperCase()}${why.slice(1)}${/[.]$/.test(why) ? '' : '.'}` : '';
-  return `<p class="note">${esc(`Bambu Lab's guide has no row named ${name}; its ${type} row is read.${reason}`)}</p>`;
-}
-
-/**
- * A guide cell as the guide prints it, each of its entries on a line of its own: a line is broken only at the space the
- * stored text leaves after a closing bracket, before the next entry's name. Not a word is changed.
- */
-const guideLines = (text) => String(text ?? '').split(/(?<=\))\s+(?=[A-Z])/).map(esc).join('<br>');
-
-/** The hardened-nozzle line: which products need one, by name, or what the sources say. */
-function hardenedLine(gate, hard) {
-  if (hard.need && hard.need < hard.total) {
-    return `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} one: ${hard.needing.slice(0, 4).map((g) => productName(g)).join(', ')}${hard.need > 4 ? ` and ${hard.need - 4} more` : ''}. The others state no need or say nothing.`;
+/** The settings table: what most products give and the guide's row, or each product's under six products. */
+function settingsTable(c) {
+  const m = c.m;
+  const products = c.grades.filter((g) => isProduct(g) && !g.retired);
+  const rows = onTheH2cRows(c);
+  const byKey = Object.fromEntries(rows.map((r) => [r.key, r]));
+  const LABELS = [['nozzle', 'Nozzle'], ['bed', 'Bed'], ['chamber', 'Heated chamber'], ['drying', 'Drying'], ['nozzle-type', 'Nozzle type'], ['ams', 'AMS']];
+  if (products.length < 6) {
+    const anyFrom = products.some((g) => Object.keys(g.print?.from ?? {}).length);
+    const head = `<tr><th scope="col" class="prop">Setting</th>${products.map((g) => `<th scope="col">${productA(c, g)}</th>`).join('')}</tr>`;
+    const body = LABELS.map(([k, label]) => `<tr data-print="${k}"><th scope="row" class="prop">${esc(label)}</th>${products.map((g) => (k === 'ams'
+      ? `<td>${esc(amsOf(c, g).map((t) => `"${t}"`).join('; ') || 'not stated')}</td>` : productCell(g, k))).join('')}</tr>`).join('');
+    return `${tableBox(`<table class="grid settings settings--each"><thead>${head}</thead><tbody>${body}</tbody></table>`)}`
+      + (anyFrom ? `<p class="sec-note">${esc('In grey, a setting a product reads from a data sheet it shares or from Bambu Lab\'s Filament Guide, where its own sheet is silent.')}</p>` : '');
   }
-  if (hard.need) return hard.total === 1 ? 'Its product needs one.' : `All ${hard.total} products need one.`;
-  return gate === 'requires-hardened' ? 'Required: the filler wears out a brass nozzle.' : gate === 'no-special-concern' ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.';
+  // What most products give: the plate's rows, with the chamber's given windows and the AMS statements beside them.
+  const ch = printWindows(products, 'chamber');
+  const chamberGiven = ch.n ? (ch.most ? `${windowText(ch.most.from, ch.most.to)} °C` : ch.every ? `${windowText(ch.every.from, ch.every.to)} °C` : `${windowText(ch.peak.from, ch.peak.to)} °C`) : null;
+  const ams = [...new Map(products.flatMap((g) => amsOf(c, g).map((t) => [t, g]))).entries()];
+  const most = {
+    nozzle: byKey.nozzle, bed: byKey.bed,
+    chamber: { value: byKey.chamber.value === 'none needed' && chamberGiven ? `none; sheets that give one say ${chamberGiven}` : byKey.chamber.value, note: byKey.chamber.note },
+    drying: byKey.drying, 'nozzle-type': byKey['nozzle-type'],
+    ams: { value: ams.length ? ams.slice(0, 2).map(([t, g]) => `${productNameOrId(g)}: "${t}"`).join('; ') : 'not stated', note: ams.length > 2 ? `and ${ams.length - 2} more` : '' },
+  };
+  const guide = c.guide ? guideCells(c.guide) : null;
+  const cell = (r) => `<td>${esc(String(r?.value ?? 'not published').replace(/–/g, '⁠–⁠'))}${r?.note ? ` <span class="set-note">${esc(r.note)}</span>` : ''}</td>`;
+  const head = `<tr><th scope="col" class="prop">Setting</th><th scope="col">${esc(`Most ${m.name} products`)}</th>${guide ? `<th scope="col">${esc(c.guide.name ?? 'Bambu Lab Filament Guide')}</th>` : ''}</tr>`;
+  const body = LABELS.map(([k, label]) => `<tr data-print="${k}"><th scope="row" class="prop">${esc(label)}</th>${cell(most[k])}${guide ? `<td class="guide">${guide[k]}</td>` : ''}</tr>`).join('');
+  const type = c.guide?.guideType;
+  const why = type && type !== m.name ? String(c.guide.materials?.find((x) => x.materialId === m.id)?.reason ?? '').replace(/\s*(?:since\s+)?m\d+\s*\(D\d+\)/g, '').replace(/\s*\(D\d+\)/g, '').trim() : '';
+  const notes = [
+    'Where a product\'s own sheet is silent, its setting comes from a sheet it shares or from Bambu Lab\'s guide; each product\'s card says which.',
+    type && type !== m.name ? `Bambu Lab's guide has no column named ${m.name}; its ${type} column is shown.${why && readerText(why) ? ` ${why.charAt(0).toUpperCase()}${why.slice(1)}${/\.$/.test(why) ? '' : '.'}` : ''}` : null,
+  ].filter(Boolean);
+  return `${tableBox(`<table class="grid settings"><thead>${head}</thead><tbody>${body}</tbody></table>`)}<p class="sec-note">${esc(notes.join(' '))}</p>`;
 }
 
-/**
- * The drying line: how many products have drying advice and where each was read (material-stats.js dryingAdvice), and
- * the typical schedule of those whose own or shared sheet gives one; or what the sources say where none has any.
- */
-function dryingLine(gate, products, d, advice) {
-  if (!advice.have) return gate === 'not-needed' ? 'Its sources say drying is not needed.' : 'No source states whether to dry it. That does not mean it needs none.';
-  const typical = d?.temps?.n > 1 ? ` Typically ${fmtNumber(d.temps.median)} °C${d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}.` : '';
-  const needs = dryingNeedsWords(advice);
-  return `${advice.have} of ${plural(products.length, 'product')} ${advice.have === 1 ? 'has' : 'have'} drying advice: ${basisWords(advice, advice.have)}${needs ? `; ${needs}` : ''}.${typical}`;
+/** The products that need a hardened nozzle, by name, where some do and the table does not name them. */
+function hardenedLine(c) {
+  const hard = hardenedShare(c.grades);
+  if (!hard.need || hard.need === hard.total || hard.total < 6) return '';
+  const names = hard.needing.map((g) => productA(c, g));
+  const list = names.length <= 8 ? names : [...names.slice(0, 7), `${names.length - 7} more`];
+  return `<p class="sec-p"><b>${esc('Hardened nozzle.')}</b> ${esc(`${hard.need === 1 ? 'One product needs' : `${nWords(hard.need, 'product').replace(/^./, (x) => x.toUpperCase())} need`} one:`)} ${list.length > 1 ? `${list.slice(0, -1).join(', ')} and ${list.at(-1)}` : list[0]}.</p>`;
+}
+
+/** A schedule in a reader's words: "110 °C for 20 min", "50 °C for 8 h". */
+const schedule = (a) => `${fmtD(a.tempC, '°C')}${a.hours != null ? ` for ${a.hours < 1 ? `${Math.round(a.hours * 60)} min` : `${fmtD(a.hours)} h`}` : ''}`;
+
+/** After printing: the annealing schedules products publish values after, and what makers say about annealing. */
+function afterPrinting(c, statements, used) {
+  const products = c.grades.filter((g) => isProduct(g) && !g.retired);
+  const annealed = products.filter((g) => (g.print?.anneal ?? []).length);
+  const scheds = annealed.flatMap((g) => g.print.anneal.filter((a) => a.tempC != null)).sort((a, b) => a.tempC - b.tempC || (b.hours ?? 0) - (a.hours ?? 0));
+  const said = quoteOrder(statements.filter((k) => ANNEAL.test(k.text)), c, { prefer: SCHEDULE, perProduct: true }).slice(0, SHOWN);
+  for (const k of said) used.add(k.id);
+  const envProduct = c.ev.filter((e) => makersOwn(e) && e.category === 'post-processing' && !general(e));
+  const envGeneral = c.ev.filter((e) => makersOwn(e) && e.category === 'post-processing' && general(e));
+  const envQuoted = quoteOrder(envProduct.map((e) => ({ ...e, text: e.finding })).filter((e) => ANNEAL.test(e.text)), c, { prefer: SCHEDULE, perProduct: true }).slice(0, Math.max(0, SHOWN - said.length));
+  if (!annealed.length && !said.length && !envGeneral.length && !envQuoted.length) return '';
+  const lead = annealed.length && scheds.length
+    ? `${nWords(annealed.length, 'product').replace(/^./, (x) => x.toUpperCase())} ${annealed.length === 1 ? 'publishes' : 'publish'} values measured after annealing${scheds.length > 1 && schedule(scheds[0]) !== schedule(scheds.at(-1)) ? `, on schedules from ${schedule(scheds[0])} to ${schedule(scheds.at(-1))}` : `, at ${schedule(scheds[0])}`}.`
+    : annealed.length ? `${nWords(annealed.length, 'product').replace(/^./, (x) => x.toUpperCase())} ${annealed.length === 1 ? 'publishes' : 'publish'} values measured after annealing.` : '';
+  return `${subhead('After printing')}${lead ? `<p class="sec-p">${esc(lead)}</p>` : ''}${quotes([...said.map((k) => quote(c, k)), ...envQuoted.map((e) => quote(c, e, { text: e.finding })), ...envGeneral.map((e) => quote(c, e, { text: e.finding, rec: true }))])}`;
+}
+
+/** What makers say about printing it: one statement a topic, the most-spoken topics open, the rest behind a fold. */
+function makersOnPrinting(c, statements, used) {
+  const m = c.m;
+  const counts = m.knowHow?.topics ?? {};
+  const topics = PRINT_TOPICS.filter((t) => statements.some((k) => k.topic === t && !used.has(k.id)))
+    .sort((a, b) => (counts[b]?.makers ?? 0) - (counts[a]?.makers ?? 0) || PRINT_TOPICS.indexOf(a) - PRINT_TOPICS.indexOf(b));
+  const all = statements.filter((k) => PRINT_TOPICS.includes(k.topic) && !used.has(k.id));
+  const every = all.length <= 12;
+  const block = (t) => {
+    const list = quoteOrder(all.filter((k) => k.topic === t), c);
+    const shown = every ? list : list.slice(0, 1);
+    const n = counts[t]?.makers ?? new Set(list.map((k) => c.gradeById.get(k.gradeId)?.manufacturer)).size;
+    return `<div class="said-topic"><h4>${esc(t)} <small>${esc(n === 1 ? 'one maker' : `${n} makers`)}</small></h4>${quotes(shown.map((k) => quote(c, k)))}</div>`;
+  };
+  // Statements about the material in general on printing it (a printer maker's or a guide's), this page's records.
+  const generalSaid = c.ev.filter((e) => makersOwn(e) && general(e) && ['print-quality', 'moisture'].includes(e.category));
+  if (!topics.length && !generalSaid.length) return '';
+  const open = every ? topics : topics.slice(0, 3), rest = every ? [] : topics.slice(3);
+  const gen = generalSaid.length ? `<div class="said-topic"><h4>${esc(`On ${m.name} in general`)}</h4>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: stated(e.topic) && !/rubric/i.test(e.topic) ? e.topic : '' })))}</div>` : '';
+  return `${subhead('What makers say about printing it')}<div class="said-topics">${open.map(block).join('')}${gen}</div>`
+    + (rest.length ? `<details class="more"><summary>${esc(`More from makers: ${andList(rest.map((t) => t.toLowerCase()))}`)}</summary><div class="said-topics">${rest.map(block).join('')}</div></details>` : '');
 }
 
 export default {
   id: 'printing',
-  title: 'How to print it on the H2C',
-  records: '#profiles',
-  render(c, env, place) {
-    const m = c.m;
-    const products = c.grades.filter(isProduct);
-    const counts = printCounts(c.grades);
-    const pf = printFacts(m, c);
-    const guide = guideFacts(m, c);
-    if (!c.profiles.length && !pf.drawn.length && !guide) {
-      return { empty: true, html: emptyBody(c, EMPTY_LINES.Printing, { tab: 'Printing', anchor: '#profiles' }), stats: {} };
-    }
-    const next = figureCounter(place.n);
-    const pw = Object.fromEntries(SETTINGS.map(([axis]) => [axis, printWindows(products, axis)]));
-    const drying = dryingStats(products);
-    const advice = dryingAdvice(products);
-    const origins = settingOrigins(products);
-    const hard = hardenedShare(c.grades);
-    const chamberOutside = pf.outside.find((a) => a.axis === 'chamber')?.list.length ?? 0;
-    const findings = printFindings({
-      nozzle: pw.nozzle, bed: pw.bed, chamber: pw.chamber, products: products.length, chamberOutside, limit: pw.chamber.limit,
-      drying, hard, abrasive: m.gates.abrasive, dryingGate: m.gates.drying,
-      outside: pf.outside.map((a) => ({ ...a, limit: pf.limits.find((l) => l.axis === a.axis)?.limit })),
-    });
-
-    // The figure: a panel for each setting two counted windows or more give, and the drying strip.
-    // A setting is drawn where three counted windows or more give it and they do not all agree: otherwise the
-    // findings say it in full, and a figure would add nothing.
-    const drawable = (p) => p.n > 2 && !(p.every && p.windows.filter((w) => w.counted).every((w) => w.min === p.every.from && w.max === p.every.to));
-    // A setting given but not drawn, and why, so a window said above with no panel below is never a puzzle.
-    const undrawn = SETTINGS.filter(([axis]) => pw[axis].n && !drawable(pw[axis])).map(([axis, label]) => (pw[axis].n < 3
-      ? `${label}: ${pw[axis].n === 1 ? 'one product gives' : `${pw[axis].n} products give`} a full window, said above; a setting is drawn from three`
-      : `${label}: all ${pw[axis].n} counted windows are the same, said above`));
-    const undrawnLine = undrawn.length ? `Not drawn as a panel: ${undrawn.join('; ')}.` : null;
-    const panels = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis, label]) => {
-      const p = pw[axis];
-      const at = p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`;
-      // The label at the peak is short (it sits in the plot, on a phone too): "counted" where fewer are counted than the
-      // material has products, whose number the title and the findings say.
-      const counted = p.n < products.length ? ' counted' : '';
-      return windowPanel(p, { label, peakWords: p.every ? `${p.n === 2 ? 'both' : `all ${p.n}`}${counted} accept ${windowText(p.every.from, p.every.to)} °C` : `${p.peak.k} of ${p.n}${counted} ${p.peak.k === 1 ? 'accepts' : 'accept'} ${at}`, guideName: pf.guideName });
-    });
-    const strip = dryingStrip(drying, pf.guideName);
-    let fig = '';
-    let dots = 0;
-    if (panels.length) {
-      const drawn = SETTINGS.filter(([axis]) => drawable(pw[axis])).map(([axis]) => pw[axis]);
-      const key = keyList([
-        ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc('a product\'s window, from its own sheet or a sheet it shares')],
-        drawn.some((p) => p.guide) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--guide" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', esc('from Bambu Lab\'s guide, drawn but not counted')] : null,
-        drawn.some((p) => p.variant) ? ['<svg class="key-mk" width="22" height="14" aria-hidden="true" focusable="false"><line class="wb wb--variant" x1="2" x2="20" y1="7" y2="7" style="stroke-width:3px"/></svg>', 'special formulation, drawn but not counted'] : null,
-        panels.some((x) => x.onScale) ? [keyLimit, esc('the H2C\'s limit')] : null,
-      ].filter(Boolean));
-      dots = drawn.reduce((n, p) => n + p.windows.length, 0) + drying.entries.length;
-      // The title: the setting the most products accept, nozzle and bed, with how many accept it.
-      const at = (p) => (p.peak.from === p.peak.to ? `${fmtNumber(p.peak.from)} °C` : `${windowText(p.peak.from, p.peak.to)} °C`);
-      const peaks = [['nozzle', 'on the nozzle'], ['bed', 'on the bed']].filter(([axis]) => drawable(pw[axis]) && !pw[axis].every).map(([axis, where]) => ({ p: pw[axis], where }));
-      const total = products.length;
-      // The window the first screen and the findings name: the span more than half accept where there is one, else the
-      // temperature the most accept; never a second definition of the same window.
-      const phrase = ({ p }) => (p.most ? { q: acceptSubject('most', p.n, total), span: `${windowText(p.most.from, p.most.to)} °C` }
-        : { q: acceptSubject(p.peak.k, p.n, total), span: at(p), one: p.peak.k === 1 });
-      const said = peaks.map((x) => ({ ...phrase(x), where: x.where, p: x.p }));
-      // Both "most" over different counts: one subject that names both counts.
-      if (said.length > 1 && said.every((x) => x.p.most) && said[0].q !== said[1].q) {
-        said[0].q = `most of the counted products (${said[0].p.n} and ${said[1].p.n}${said.some((x) => x.p.n < total) ? ` of ${total}` : ''})`;
-        said[1].q = said[0].q;
-      }
-      const title = said.length ? (said.length > 1 && said[0].q === said[1].q
-        ? `${cap(said[0].q)} accept ${said[0].span} ${said[0].where} and ${said[1].span} ${said[1].where}`
-        : said.map((x, i) => `${i ? x.q : cap(x.q)} ${x.one ? 'accepts' : 'accept'} ${x.span} ${x.where}`).join('; '))
-        : pw.nozzle.every ? `${cap(acceptSubject('all', pw.nozzle.n, total))} accept ${windowText(pw.nozzle.every.from, pw.nozzle.every.to)} °C on the nozzle`
-          : 'The temperatures its products accept';
-      const countedN = drawn.map((p) => `${p.n} for the ${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}`);
-      const notCounted = drawn.flatMap((p) => [p.guide ? `${plural(p.guide, `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()} window`)} from ${pf.guideName}` : null,
-        p.variant ? `${plural(p.variant, `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()} window`)} of special formulations` : null]).filter(Boolean);
-      const missing = printMissing(pf);
-      const no = next();
-      fig = figure({
-        id: figId(no), n: no, title, data: { 'data-print': 'windows' }, cls: 'fig--print',
-        key,
-        plot: `<div class="pw-grid">${panels.map((x) => x.html).join('')}</div>${strip}`,
-        label: `Print windows of each product, with how many products accept each temperature: ${drawn.map((p) => `${SETTINGS.find(([a]) => a === p.axis)[1].toLowerCase()}, ${plural(p.n, 'product')} counted, ${p.most ? `most accept ${p.most.from} to ${p.most.to} °C` : `at most ${p.peak.k} accept one temperature`}`).join('; ')}.`,
-        read: esc('A bar is one product\'s window, from its lowest to its highest setting. Above the bars, the height is how many products accept each temperature, and the highlighted span is what more than half of them accept.'),
-        counted: notesHtml([
-          `Counted: the products whose own data sheet, or one they share, gives both ends of the window. That is ${andList(countedN)}.`,
-          notCounted.length ? `Drawn but not counted: ${andList(notCounted)}.${drawn.some((p) => p.guide) ? ' The guide speaks for every product that reads it, so it is drawn once per product and counted for none.' : ''}` : null,
-          'The height at each whole degree is how many counted windows include it. The dashed line is half of them.',
-          missing ? `Not drawn: ${missing}.` : null,
-          undrawnLine,
-          ...printLines(pf), printSingles(pf),
-        ]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : '') + `<p>${recordsLink(c, '#profiles', 'Every print profile, with its document, on the records page')}.</p>`,
-      });
-    }
-
-    const facts = [
-      ['Hardened nozzle', hardenedLine(m.gates.abrasive, hard)],
-      ['Drying', dryingLine(m.gates.drying, products, drying, advice)],
-      // Bambu Lab's notes that only say a product is not verified are left out: they say nothing about this material.
-      ['AMS', amsSummary(c.profiles).split(/(?<=\.) (?=Bambu's notes?)/).filter((t) => !/^Bambu's notes? [^:]*: "not verified[^"]*"(?: \(\d+ of \d+ profiles\))?\.?$/i.test(t)).join(' ')],
-      origins.guide.products || origins.twin.products ? ['Where a sheet is silent', [originLine(origins.guide, 'Bambu Lab\'s guide'), originLine(origins.twin, 'a sheet they share')].filter(Boolean).join(' ')] : null,
-    ].filter(Boolean);
-    const html = `${findingsBlock(findings)}${fig}
-<h3 class="sub-title">Nozzle, drying and AMS</h3>
-<dl class="facts" data-drying-have="${advice.have}" data-drying-own="${advice.own}" data-drying-twin="${advice.twin}" data-drying-guide="${advice.guide}" data-products="${products.length}">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-${!panels.length && pf.rows.length ? howCounted(notesHtml([undrawnLine, ...printLines(pf), printSingles(pf), printMissing(pf) ? `Not counted: ${printMissing(pf)}.` : null]) + mediansTable(pf) + (counts && !counts.all ? limitsTable(counts) : ''), 'How the settings are counted') : ''}
-${guide ? guideBlock(guide, m.name) : ''}
-<p class="note">${recordsLink(c, '#profiles', `All ${plural(c.profiles.length, 'print profile')}, with their documents`)}.</p>`;
-    return { empty: false, html, stats: { figures: fig && panels.length ? 1 : 0, dots } };
+  title: 'Printing on the H2C',
+  render(c, env = {}) {
+    const products = c.grades.filter((g) => isProduct(g) && !g.retired);
+    if (!products.length || (!c.profiles.length && !products.some((g) => g.print?.profileIds?.length || Object.keys(g.print?.from ?? {}).length))) return { empty: true, html: '', stats: {} };
+    const fig = drawFigure('temperaturesFigure', c, env, {});
+    const byGrade = (env.index ?? indexDb(c.db)).knowHowByGrade;
+    const statements = products.flatMap((g) => byGrade.get(g.id) ?? []);
+    const used = new Set();
+    const after = afterPrinting(c, statements, used);
+    const html = [
+      fig.empty ? '' : fig.html,
+      opening(printingWords(c)),
+      settingsTable(c),
+      hardenedLine(c),
+      after,
+      makersOnPrinting(c, statements, used),
+    ].filter(Boolean).join('\n');
+    return { empty: false, html, stats: { figures: fig.empty ? 0 : (fig.stats?.figures ?? 1), dots: fig.stats?.dots ?? 0 } };
   },
 };

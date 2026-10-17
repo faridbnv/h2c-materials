@@ -1,52 +1,28 @@
-// Estimated, not measured: each key property with no comparable value that the build's estimate stage gives a range
-// for (materials[].headline[key].estimate), and each estimated print window (materials[].print.*Estimate). Fenced off
-// from the measured sections and marked †, in the selector's own words (labels.js estimateTitle, format.js
-// estimateDisplay), with what each rests on. An estimate never makes a material pass.
+// Estimated values: only where a key figure is missing or published only without a stated orientation or load. Each
+// key property the build's estimate stage gives a range for (materials[].headline[key].estimate) and each estimated
+// print window (materials[].print.*Estimate), in one table: the likely range (80 %), the plausible range (95 %), how
+// precise it is, and how it sits beside what the products publish (materials[].summary[key].asPublished). Fenced off and
+// marked †, in the selector's own terms (format.js estimateDisplay); an estimate never makes a material pass, and nothing
+// else on the page rests on one.
 
-import { esc } from '../html.js';
+import { esc, tableBox } from '../html.js';
 import { fmtNumber, fmtRange, estimateDisplay } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { estimateTitle, ESTIMATE_STRENGTH } from '../../js/ui/labels.js';
-import { productNameOrId } from '../../js/ui/material-facts.js';
-import { plural, andList } from '../../js/ui/material-words.js';
+import { inText, countWords } from '../findings.js';
+import { andList } from '../../js/ui/material-words.js';
+import { para } from './common.js';
 
-/** What an estimate rests on, a line per piece of evidence: the record's property and value, whose it is, and what it gives here. */
-function evidence(e, d, c) {
-  if (!e.evidence?.length) return '';
-  return `<ul class="est-evidence">${e.evidence.map((ev) => {
-    const items = andList(ev.items.map((i) => `${i.property} ${fmtNumber(i.value)} ${i.unit}${i.direction && !['not-applicable', 'unknown'].includes(i.direction) ? ` (${i.direction})` : ''}`));
-    const whose = ev.sameGrade ? 'the same product' : productNameOrId(c.gradeById.get(ev.gradeId) ?? { id: 'another product' });
-    // The build says a value of the property itself needs no conversion in its own words ("The headline's own
-    // semantics"); the page says it in the reader's.
-    const how = /headline's own/i.test(ev.conversion) ? 'The same property, not converted' : ev.conversion;
-    return `<li>${esc(`${items}, ${whose}: about ${d.num(ev.converted)} ${d.unit} for this property. ${how}.`)}${ev.conflict ? ' <b>Disagrees with the rest and is down-weighted.</b>' : ''}</li>`;
-  }).join('')}</ul>`;
-}
-
-/**
- * What the products publish of an estimated key property without its basis (materials[].summary[key].asPublished: no
- * stated orientation or load), said beside the estimate so the two are read together: "On file, not compared: 3 products
- * give 55 MPa, with no stated orientation."
- */
-function onFile(h, m, d) {
+/** How an estimate sits beside the values its products publish without a stated basis. */
+function beside(h, m, d) {
   const a = m.summary?.[h.key]?.asPublished;
-  if (!a?.n) return '';
-  const e = m.headline?.[h.key]?.estimate;
-  const span = a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`;
-  const products = m.gradeIds?.length ?? 0;
-  const who = a.n === products ? (a.n === 2 ? 'both products' : `all ${a.n} products`) : plural(a.n, 'product');
-  const lacks = h.direction ? 'without a stated orientation' : 'without a stated test load';
-  // Where the estimate's likely range does not hold those values, the model and the sheets disagree: said plainly.
-  // Against the likely range as the card prints it, so a value the printed range shows is never said to be outside it.
-  // The printed range is in the card's own unit (0.23–0.63 GPa printed as 230–630 MPa): back to the column's, which the
-  // published values are in, before they are compared.
-  const f = d?.factor ?? 1;
-  const lo = Number(String(d?.lo ?? e?.lo).replace(/,/g, '')) / (d ? f : 1), hi = Number(String(d?.hi ?? e?.hi).replace(/,/g, '')) / (d ? f : 1);
-  const outside = e && Number.isFinite(lo) && Number.isFinite(hi) && (a.min < lo || a.max > hi);
-  const text = outside
-    ? `This estimate does not include the ${span} ${who} ${a.n === 1 ? 'publishes' : 'publish'} ${lacks}; the model and the sheets disagree.`
-    : `On file, not compared: ${who} ${a.n === 1 ? 'gives' : 'give'} ${span}, ${lacks}.`;
-  return `<p class="est-onfile${outside ? ' est-onfile--off' : ''}">${esc(text)}</p>`;
+  if (!a?.n) return 'no product publishes it';
+  const f = d.factor ?? 1;
+  const span = a.min === a.max ? fmtNumber(a.min * f, d.unit) : `${fmtNumber(a.min * f)}–${fmtNumber(a.max * f, d.unit)}`;
+  const lo = Number(String(d.lo).replace(/,/g, '')), hi = Number(String(d.hi).replace(/,/g, ''));
+  const v = [a.min * f, a.max * f];
+  const who = a.n === 1 ? 'one product gives' : `${countWords(a.n)} products give`;
+  const where = v[1] < lo ? 'below the likely range' : v[0] > hi ? 'above the likely range' : v[0] <= lo + (hi - lo) * 0.15 ? 'at its low end' : v[1] >= hi - (hi - lo) * 0.15 ? 'at its high end' : 'inside it';
+  return `${who} ${span} without a stated ${h.direction ? 'orientation' : 'test load'}, ${where}`;
 }
 
 export default {
@@ -55,35 +31,29 @@ export default {
   render(c) {
     const m = c.m;
     const est = REGISTRY.headlines.filter((h) => { const x = m.headline?.[h.key]; return x && !x.known && x.estimate; });
-    const windows = [['nozzleEstimate', 'Nozzle'], ['bedEstimate', 'Bed'], ['chamberEstimate', 'Chamber']].filter(([k]) => m.print?.[k]);
-    if (!est.length && !windows.length) {
-      const missing = REGISTRY.headlines.filter((h) => { const x = m.headline?.[h.key]; return !x?.known && !x?.notApplicable; });
-      const line = missing.length
-        ? `No estimate is given for the key properties this material does not publish (${andList(missing.map((h) => h.labels.plain))}).`
-        : 'Every key property of this material has a measured value, or does not apply to it, so none is estimated.';
-      return { empty: true, absent: missing.length ? 'estimates' : '', html: `<p class="empty">${esc(line)}</p>`, stats: {} };
-    }
+    const windows = [['nozzleEstimate', 'Nozzle window'], ['bedEstimate', 'Bed window'], ['chamberEstimate', 'Chamber window']].filter(([k]) => m.print?.[k]);
+    if (!est.length && !windows.length) return { empty: true, html: '', stats: {} };
     const levels = est.map((h) => m.headline[h.key].estimate.levels).find(Boolean) ?? { likely: 0.8, plausible: 0.95 };
-    const pct = (p) => `${Math.round(p * 100)}%`;
-    const cards = est.map((h) => {
+    const rows = est.map((h) => {
       const e = m.headline[h.key].estimate;
       const d = estimateDisplay(e, { ownUnit: true });
-      const basis = ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength;
-      return `<div class="est" data-estimate="${esc(h.key)}"><h3 class="est-name">${esc(h.labels.plain)}</h3>`
-        + `<p class="est-range"><span class="est-num">~${esc(d.lo)}–${esc(d.hi)}</span> <span class="kf-unit">${esc(d.unit)}</span><span class="dagger" aria-label="estimate">†</span></p>`
-        + `<p class="est-basis">${esc(`${e.precision} precision, ${basis}.`)}</p>`
-        + onFile(h, m, d)
-        // The selector's sentence, less what an estimate may do there: what it may exclude is the selector's business.
-        + `<p>${esc(estimateTitle({ ...e, screenLimit: null, canScreen: false }, d).replace(/(Precision: \w+), [^.]*requirement[^.]*\./, '$1.').replace(/ It never makes a material pass\./, ''))}</p>${evidence(e, d, c)}</div>`;
+      const plausible = d.plausible ? `${d.plausible[0]}⁠–⁠${d.plausible[1]} ${d.unit}` : '—';
+      const precision = e.precision === 'poor' ? 'poor: an order of magnitude only' : e.precision === 'fair' ? 'fair: a rough guide' : e.precision;
+      return `<tr data-rec="${esc(`${m.id}/${h.key}/estimate`)}" data-estimate="${esc(h.key)}"><th scope="row">${esc(h.labels.plain)}</th>`
+        + `<td class="num"><span data-v="${esc(e.lo)}" data-key="${esc(h.key)}" data-stat="estimate.lo">${esc(d.lo)}</span>⁠–⁠<span data-v="${esc(e.hi)}" data-key="${esc(h.key)}" data-stat="estimate.hi">${esc(d.hi)}</span> ${esc(d.unit)} <span class="dagger" aria-label="estimate">†</span></td>`
+        + `<td class="num">${esc(plausible)}</td><td>${esc(precision)}</td><td>${esc(beside(h, m, d))}</td></tr>`;
     });
     const wins = windows.map(([k, label]) => {
       const w = m.print[k];
-      const words = k === 'chamberEstimate'
-        ? `No source publishes a chamber temperature. Research of 2026-09-13 places it in this band, based on ${w.basis}. It is not a print setting and changes no result.${w.caution ? ` ${w.caution}` : ''}`
-        : `No source publishes this window. Estimated as the ${w.basis} (${(w.peers ?? []).map((p) => `${p.name} ${fmtNumber(p.min)}–${fmtNumber(p.max)}`).join(', ')}). A starting point to verify. It changes no result.`;
-      return `<div class="est" data-estimate="${esc(k)}"><h3 class="est-name">${esc(`${label}: estimated, not published`)}</h3><p class="est-range"><span class="est-num">${esc(fmtRange(w.lo, w.hi))}</span> <span class="kf-unit">${esc(w.unit)}</span><span class="dagger" aria-label="estimate">†</span></p><p>${esc(words)}</p></div>`;
+      return `<tr data-rec="${esc(`${m.id}/${k}`)}" data-estimate="${esc(k)}"><th scope="row">${esc(label)}</th><td class="num">${esc(fmtRange(w.lo, w.hi))} ${esc(w.unit)} <span class="dagger" aria-label="estimate">†</span></td><td class="num">—</td><td>${esc('a starting point to verify')}</td><td>${esc(`no product publishes one; estimated from ${w.basis}`)}</td></tr>`;
     });
-    const lead = `${plural(est.length + windows.length, 'estimate')}, for what this material's products do not publish comparably. Estimates fill gaps from related data and similar materials. Tested on known values, a likely range held ${pct(levels.likely)} of the time and a plausible range ${pct(levels.plausible)}. An estimate never makes a material pass, and nothing else on this page rests on one.`;
-    return { empty: false, html: `<div class="fence"><p class="lead">${esc(lead)}</p><div class="est-grid">${[...cards, ...wins].join('')}</div></div>`, stats: { estimates: est.length + windows.length } };
+    const named = est.map((h) => inText(h.labels.plain));
+    const lead = est.length
+      ? `No product publishes ${named.length === 1 ? `a ${named[0]}` : `values of ${andList(named)}`} that can be ranked, so the selector estimates ${named.length === 1 ? 'it' : 'them'} from the products' related values and similar materials.`
+      : 'No product publishes these print windows, so the selector estimates them from similar materials.';
+    const pct = (p) => Math.round(p * 100);
+    const table = tableBox(`<table class="grid est"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Likely</th><th scope="col" class="num">Plausible</th><th scope="col">Precision</th><th scope="col">Beside what is published</th></tr></thead><tbody>${[...rows, ...wins].join('')}</tbody></table>`);
+    const fold = `<details class="more"><summary>${esc('What likely and plausible mean')}</summary><p class="sec-p">${esc(`Tested against known values, a likely range held the true value ${pct(levels.likely) / 10} times in 10, and a plausible range ${pct(levels.plausible) / 5} times in 20.`)} <a href="method.html#estimates">How the estimates are made</a>.</p></details>`;
+    return { empty: false, html: `<div class="fence">${para([lead, 'An estimate is a range, never a product\'s value, and nothing above rests on it.'])}${table}${fold}</div>`, stats: { estimates: rows.length + wins.length } };
   },
 };

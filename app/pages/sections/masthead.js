@@ -1,107 +1,188 @@
-// The masthead: the material's name, the name it is also called and its full name, then its typical engineering
-// numbers on the first screen (figures.js FIRST_SCREEN: each key property's median with how many products it is the
-// median of, and the nozzle and bed windows most products accept, material-stats.js printWindows), then what it is
-// (polymer, filler, family, Bambu Lab's standing). A material beyond the H2C's capability says so before anything else.
-// How much is on file is counted under Sources; the release and the data's date are in the footer.
+// The Overview's first screen (the pages reimagined, 2026-10-17): the head (name, full name, the identity sentence, the
+// tabs Overview | Products), a plate of six key figures (each the median of the products that publish it comparably,
+// with how many they are and their middle half, its products' spread drawn small, and the evidence line as the plate's
+// foot), then the written summary beside an "On the H2C" plate (nozzle, bed, heated chamber, drying, hardened nozzle).
+// A material beyond the H2C's capability says so first.
+//
+// Every number is the compiled database's, through the facts layer (materials[].headline and .summary, the products'
+// print gates); the words are findings.js's (track B) where it has them, the shared words' otherwise; the small
+// spread drawing is the figures' (track C, figures.js miniSpread). Where one of those is not there yet, the plate says
+// what it has and draws nothing in its place: no number is typed here, and nothing here decides anything.
 
 import { esc } from '../html.js';
-import { fmtNumber, fmtBounded, publishedBound } from '../../js/ui/format.js';
+import { fmtNumber } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { identity, stated, isProduct } from '../../js/ui/material-facts.js';
-import { printWindows, landmarkMaterials, compareMedians } from '../../js/ui/material-stats.js';
-import { versusWords, acceptSubject, nearestLacks } from '../findings.js';
-import { ledeWords, describeFacets, windowText, plural, asPublishedWords } from '../../js/ui/material-words.js';
-import { h2cStatusLabel, H2C_STATUS, FILLER, namedFiller } from '../../js/ui/labels.js';
-import { FIRST_SCREEN } from '../figures.js';
+import { identity, stated, isProduct, printCounts } from '../../js/ui/material-facts.js';
+import { printWindows, dryingStats } from '../../js/ui/material-stats.js';
+import { identityLine, windowText, plural, asPublishedWords } from '../../js/ui/material-words.js';
+import { H2C_STATUS, h2cLimit } from '../../js/ui/labels.js';
+import * as F from '../findings.js';
+import * as FIG from '../figures.js';
+import * as NUM from '../numbers.js';
+import { pageHead, tabsNav } from '../shell.js';
+
+/** The plate's key figures, in the order of the figure that compares the material with its alternatives (track C). */
+const PLATE_KEYS = ['tensileModulusXY', 'tensileStrengthXY', 'tensileStrengthZ', 'charpyNotched', 'hdt045', 'priceCADkg'];
+const plateKeys = () => (Array.isArray(FIG.PEER_COLUMNS) && FIG.PEER_COLUMNS.length ? FIG.PEER_COLUMNS.map((x) => (typeof x === 'string' ? x : x.key)) : PLATE_KEYS);
+
+/** A displayed number: track C's display precision where it has landed, else the pages' own form. */
+export const disp = (v) => (typeof NUM.fmtDisplay === 'function' ? NUM.fmtDisplay(v) : (NUM.fmtPage ?? fmtNumber)(v));
+const span = (lo, hi) => (lo === hi ? disp(lo) : `${disp(lo)}–${disp(hi)}`);
+
+/** A word track B provides, or null where it has not landed: its functions are called guarded, never assumed. */
+const words = (name, ...args) => (typeof F[name] === 'function' ? F[name](...args) : null);
+/** B's words as markup: a string is escaped here, a Say ({ text, html }) brings its own escaped markup. */
+const sayHtml = (x) => (x == null ? '' : typeof x === 'string' ? esc(x) : x.html ?? esc(x.text ?? ''));
 
 /**
- * One number of the first screen: its name, its value and unit, and what it rests on. `kind` is '' (a typical value),
- * 'open' (a value published without the basis it is compared on: grey, its condition said) or 'none' (no value).
+ * One key figure: its name, its median and unit, its products' spread drawn small, and what it rests on. The cell
+ * carries the checks' hooks: data-key, data-v (the median as compiled, unrounded) and data-n, or data-state where there
+ * is no compared median (as-published, missing, na).
  */
-const cell = (key, label, value, unit, basis, kind = '') => `<div class="kn${kind ? ` kn--${kind}` : ''}" data-key="${esc(key)}"><dt>${esc(label)}</dt>`
-  + `<dd>${kind === 'none' ? `<span class="kn-none">${esc(value)}</span>` : `<b>${value}</b>${unit ? ` <span class="u">${esc(unit)}</span>` : ''}`}${basis ? `<small>${esc(basis)}</small>` : ''}</dd></div>`;
-
-/**
- * A key property's typical value: the median of the products that publish it comparably, and how many they are. Where
- * none does, the values published without the basis it is compared on, in grey with what they lack (materials[].summary
- * [key].asPublished), else the nearest value on file and what it lacks (materials[].headline[key].related).
- */
-function keyCell(m, key, c) {
+function keyFigure(c, key) {
   const h = REGISTRY.allHeadlines.find((x) => x.key === key);
   if (!h) return '';
+  const m = c.m;
   const e = m.headline?.[key];
   const s = m.summary?.[key];
+  const label = `<dt>${esc(h.labels.plain)}</dt>`;
+  const unit = h.unit ? `<span class="kf-u">${esc(h.unit)}</span>` : '';
   if (e?.known) {
-    const n = e.spread?.n ?? s?.n ?? 1;
-    return cell(key, h.labels.plain, esc(fmtBounded(e.value, null, publishedBound(e))), h.unit, n === 1 ? 'one product' : `median of ${n} products`);
+    const n = s?.n ?? e.spread?.n ?? 1;
+    const lo = s?.q1 ?? e.spread?.q1, hi = s?.q3 ?? e.spread?.q3;
+    const foot = n >= 4 && lo != null && hi != null ? [plural(n, 'product'), `middle half ${span(lo, hi)}`]
+      : n >= 2 ? [plural(n, 'product'), span(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max)] : ['one product'];
+    const mini = typeof FIG.miniSpread === 'function' ? FIG.miniSpread(c, key) : '';
+    return `<div class="kf-cell" data-key="${esc(key)}" data-v="${esc(e.value)}" data-n="${n}">${label}`
+      + `<dd class="kf-v"><span class="kf-n">${esc(disp(e.value))}</span>${unit}</dd>`
+      + `<dd class="kf-s"${mini ? '' : ' data-pending="miniSpread"'}>${mini ?? ''}</dd><dd class="kf-f">${foot.map((t) => `<span>${esc(t)}</span>`).join('<span class="vh"> · </span>')}</dd></div>`;
   }
-  if (e?.notApplicable) return cell(key, h.labels.plain, 'Not applicable', '', '', 'none');
+  if (e?.notApplicable) {
+    return `<div class="kf-cell kf-cell--none" data-key="${esc(key)}" data-state="na">${label}<dd class="kf-v"><span class="kf-none">Not applicable</span></dd><dd class="kf-s"></dd><dd class="kf-f"></dd></div>`;
+  }
   const a = s?.asPublished;
-  const lack = h.direction ? 'orientation not stated' : 'load not stated';
-  if (a?.n) return cell(key, h.labels.plain, esc(a.min === a.max ? fmtNumber(a.min) : `${fmtNumber(a.min)}–${fmtNumber(a.max)}`), h.unit, `${lack}, ${plural(a.n, 'product')}, not compared`, 'open');
-  const b = e?.related?.best;
-  if (b) {
-    // The first two conditions on the first screen; At a glance says them all.
-    const lacks = nearestLacks(h, b, c.msById.get(b.measurementId)).slice(0, 2);
-    return cell(key, h.labels.plain, esc(fmtNumber(b.value)), b.unit, `${lacks.join(', ') || 'not on its basis'}, not compared`, 'open');
+  if (a?.n) {
+    return `<div class="kf-cell kf-cell--open" data-key="${esc(key)}" data-state="as-published" data-n="${a.n}">${label}`
+      + `<dd class="kf-v"><span class="kf-n">${esc(span(a.min, a.max))}</span>${unit}</dd><dd class="kf-s"></dd>`
+      + `<dd class="kf-f">${esc(`as published · ${asPublishedWords(h)}`)}</dd></div>`;
   }
-  return cell(key, h.labels.plain, 'Not published', '', '', 'none');
+  const b = e?.related?.best;
+  const lacks = b && typeof F.nearestLacks === 'function' ? F.nearestLacks(h, b, c.msById.get(b.measurementId)).slice(0, 1) : [];
+  return `<div class="kf-cell kf-cell--none" data-key="${esc(key)}" data-state="missing">${label}<dd class="kf-v"><span class="kf-none">Not published</span></dd><dd class="kf-s"></dd>`
+    + `<dd class="kf-f">${lacks.length ? esc(`${lacks[0]} only`) : ''}</dd></div>`;
+}
+
+/** The written summary's parts as paragraphs, a filled number printed as plain words (a blank line starts a paragraph). */
+function paragraphs(parts) {
+  const out = [[]];
+  for (const p of parts ?? []) {
+    if (p.field) {
+      const sign = typeof p.bound === 'string' ? `${p.bound} ` : p.bound?.sign ? `${p.bound.sign} ` : '';
+      const value = typeof p.value === 'number' ? fmtNumber(p.value) : String(p.value ?? '');
+      out.at(-1).push(`<span data-field="${esc(p.field)}" data-value="${esc(p.value)}">${esc(`${sign}${value}${p.unit ? ` ${p.unit}` : ''}`)}</span>`);
+      continue;
+    }
+    String(p.text ?? '').split(/\n\s*\n/).forEach((t, i) => { if (i) out.push([]); if (t) out.at(-1).push(esc(t.replace(/\s*\n\s*/g, ' '))); });
+  }
+  return out.map((x) => x.join('').trim()).filter(Boolean).map((t) => `<p>${t}</p>`).join('');
+}
+
+/** The summary's tag: a draft says so beside it; its byline is in the colophon. */
+const TAG = { draft: 'Draft', revise: 'Under revision' };
+
+function summaryBlock(c) {
+  const w = c.m.written;
+  if (!w?.parts?.length) return '';
+  const tag = TAG[w.status];
+  return `<section class="sum" data-section="summary" aria-label="In short"><div class="sum-text">${paragraphs(w.parts)}</div>`
+    + `${tag ? `<p class="sum-tag" data-written-status="${esc(w.status)}"><span class="tag">${esc(tag)}</span></p>` : ''}</section>`;
 }
 
 /**
- * A print window most products accept (printWindows): the span more than half of them include, all of them, or one;
- * where fewer products are counted than the material has, how many (findings.js acceptSubject).
+ * The On the H2C plate's rows where track B's onTheH2cRows has not landed: each setting most products' own or shared
+ * sheets give, from their print gates (material-stats.js printWindows, dryingStats; grades[].print), with how many it
+ * rests on. B's words replace these when they land.
  */
-function windowCell(products, axis, label) {
-  const pw = printWindows(products, axis);
-  const counted = pw.windows.filter((w) => w.counted);
+function h2cRowsFromFacts(c) {
+  const products = c.grades.filter(isProduct);
   const total = products.length;
-  if (!pw.n) return cell(axis, label, 'Not published', '', '', 'none');
-  if (pw.n === 1) return cell(axis, label, esc(windowText(counted[0].min, counted[0].max)), '°C', 'one product');
-  if (pw.every) return cell(axis, label, esc(windowText(pw.every.from, pw.every.to)), '°C', `${acceptSubject('all', pw.n, total)} accept`);
-  if (pw.most) return cell(axis, label, esc(windowText(pw.most.from, pw.most.to)), '°C', `${pw.n < total ? acceptSubject('most', pw.n, total) : `most of ${pw.n} products`} accept`);
-  return cell(axis, label, esc(windowText(pw.peak.from, pw.peak.to)), '°C', `${acceptSubject(pw.peak.k, pw.n, total)} ${pw.peak.k === 1 ? 'accepts' : 'accept'}`);
+  const win = (axis, label) => {
+    const pw = printWindows(products, axis);
+    if (!pw.n) return { key: axis, label, value: 'Not stated', note: '' };
+    if (pw.n === 1) { const w = pw.windows.find((x) => x.counted); return { key: axis, label, value: `${windowText(w.min, w.max)} °C`, note: 'one product' }; }
+    const r = pw.every ?? pw.most ?? pw.peak;
+    return { key: axis, label, value: `${windowText(r.from, r.to)} °C`, note: pw.every ? `all ${pw.n} products that give one` : pw.most ? 'most products that give one' : `${pw.peak.k} of ${pw.n} products that give one` };
+  };
+  const chamber = (() => {
+    const pw = printWindows(products, 'chamber');
+    const none = (pw.states.get('not-required') ?? 0) + (pw.states.get('ambient') ?? 0);
+    if (none > pw.n) return { key: 'chamber', label: 'Heated chamber', value: 'Not needed', note: `${none} of ${total} products` };
+    if (pw.n) { const r = pw.every ?? pw.most ?? pw.peak; return { key: 'chamber', label: 'Heated chamber', value: `${windowText(r.from, r.to)} °C`, note: pw.n === 1 ? 'one product' : `${pw.n} products give one` }; }
+    return { key: 'chamber', label: 'Heated chamber', value: 'Not stated', note: '' };
+  })();
+  const drying = (() => {
+    const d = dryingStats(products);
+    const t = d.temps;
+    if (!t?.n) return { key: 'drying', label: 'Drying', value: 'Not stated', note: '' };
+    const hours = d.hours?.n ? ` for ${fmtNumber(d.hours.median)} h` : '';
+    return { key: 'drying', label: 'Drying', value: `${fmtNumber(t.median)} °C${hours}`, note: t.n === 1 ? 'one product' : `the median of ${t.n} products` };
+  })();
+  const hard = products.filter((g) => g.print?.hardenedNozzle === true).length;
+  const hardened = { key: 'hardened', label: 'Hardened nozzle', value: hard * 2 > total ? 'Needed' : 'Not needed', note: hard ? `${hard} of ${total} products need one` : '' };
+  return [win('nozzle', 'Nozzle'), win('bed', 'Bed'), chamber, drying, hardened];
+}
+
+/** The plate's foot: whether any product asks for more than the H2C gives (material-facts.js printCounts). */
+function h2cFoot(c) {
+  const pc = printCounts(c.grades);
+  if (!pc) return '';
+  const limits = pc.axes.map((a) => `${a.label === 'Chamber' ? 'heated chamber' : a.label.toLowerCase()} ${fmtNumber(h2cLimit(a.axis))} °C`);
+  const over = pc.axes.filter((a) => a.over);
+  if (!over.length) return `No product's setting is beyond the H2C's limits: ${limits.join(', ')}.`;
+  return `${over.map((a) => `${plural(a.over, 'product')} ${a.over === 1 ? 'asks' : 'ask'} for more ${a.label === 'Chamber' ? 'chamber heat' : `${a.label.toLowerCase()} heat`} than the H2C gives`).join('; ')}. The H2C's limits: ${limits.join(', ')}.`;
+}
+
+function h2cPlate(c, hasPrinting) {
+  const b = words('onTheH2cRows', c);
+  const rows = Array.isArray(b) ? b : Array.isArray(b?.rows) ? b.rows : h2cRowsFromFacts(c);
+  const foot = (b && !Array.isArray(b) && b.note) || h2cFoot(c);
+  // The checks read each row by its setting: nozzle, bed, chamber, drying, hardened (B names the last 'nozzle-type').
+  const KEY = { 'nozzle-type': 'hardened', hardenedNozzle: 'hardened' };
+  const row = (r) => `<div data-print="${esc(KEY[r.key] ?? r.key)}"><dt>${sayHtml(r.label)}</dt><dd class="h2c-v">${sayHtml(r.value)}</dd>${r.note ? `<dd class="h2c-k">${sayHtml(r.note)}</dd>` : ''}</div>`;
+  return `<section class="h2c plate" aria-labelledby="h2c-h" data-section="on-the-h2c"${Array.isArray(b) || b?.rows ? '' : ' data-pending="onTheH2cRows"'}>`
+    + `<div class="h2c-h"><h2 id="h2c-h">On the H2C</h2>${hasPrinting ? '<a href="#printing">Printing in full</a>' : ''}</div>`
+    + `<dl>${rows.map(row).join('')}</dl>${foot ? `<p class="h2c-foot">${sayHtml(foot)}</p>` : ''}</section>`;
+}
+
+/** The identity sentence (track B), else the shared identity line, marked as waiting for it. */
+function identityHtml(c) {
+  const s = words('identitySentence', c);
+  if (s) return `<p class="pid">${sayHtml(s)}</p>`;
+  const id = identity(c.m, c);
+  const lede = H2C_STATUS[c.m.h2cStatus]?.lede;
+  return `<p class="pid" data-pending="identitySentence">${esc(identityLine(id))}.${lede ? ` ${esc(lede)}` : ''}</p>`;
 }
 
 export default {
   id: 'masthead',
   title: null,
-  render(c) {
+  render(c, env = {}) {
     const m = c.m;
     const id = identity(m, c);
-    const products = c.grades.filter(isProduct);
-    const fact = (label, value) => (value ? `<div><dt>${esc(label)}</dt><dd>${value}</dd></div>` : '');
-    const status = `<span class="chip" title="${esc(H2C_STATUS[m.h2cStatus]?.meaning ?? '')}">${esc(h2cStatusLabel(m.h2cStatus))}</span>`;
-    // Beyond the H2C's capability, the callout says what the status lede would; the facets are said alone.
-    const lede = m.excluded ? describeFacets(m) : ledeWords(m);
-    // A filler the material's name does not carry: its special formulations that declare or show one (grades[].variant,
-    // a vocabulary value), counted, so "Unfilled" does not hide a steel-filled product filed under it.
-    const filled = products.filter((g) => /filler/i.test(String(g.variant ?? ''))).length;
-    const filler = namedFiller(m)?.name ?? FILLER[id.reinforcement] ?? id.reinforcement ?? '';
-    const fillerText = filler ? `${filler}${filled ? ` (${plural(filled, 'special formulation')} ${filled === 1 ? 'carries' : 'carry'} a filler)` : ''}` : '';
-    const numbers = [...FIRST_SCREEN.keys.map((k) => keyCell(m, k, c)), windowCell(products, 'nozzle', 'Nozzle'), windowCell(products, 'bed', 'Bed')].join('');
-    // Against the materials a reader knows best (the two with the most products, by rule), median by median.
-    const versus = landmarkMaterials(c.db, 2, m.id).map((l) => {
-      const other = c.materialById.get(l.id);
-      const words = versusWords(compareMedians(m, other, FIRST_SCREEN.versus));
-      return words ? `<p data-versus="${esc(l.id)}"><b>Against ${esc(l.name)}:</b> ${esc(words)}.</p>` : '';
-    }).join('');
-    const html = `<header class="mast">
-<h1 class="mast-name">${esc(id.primary)}</h1>
-${id.aka ? `<p class="mast-aka">also called ${esc(id.aka)}</p>` : ''}
-${id.fullName ? `<p class="mast-full">${esc(id.fullName)}</p>` : ''}
-${m.excluded ? '<p class="callout"><b>Beyond H2C capability.</b> Kept for reference, never a candidate: it needs more heat than the H2C gives.</p>' : ''}
-<dl class="mast-numbers" aria-label="Typical values">${numbers}</dl>
-${versus ? `<div class="mast-vs">${versus}</div>` : ''}
-<dl class="mast-facts">
-${fact('Polymer', esc(stated(m.basePolymer) ? m.basePolymer : ''))}
-${fact('Filler', esc(fillerText))}
-${stated(m.family) && m.family !== m.basePolymer ? fact('Family', esc(m.family)) : ''}
-${fact('Bambu Lab status', status)}
-${fact('Products', esc(`${fmtNumber(id.products)} from ${plural(id.makers, 'maker')}`))}
-</dl>
-${lede ? `<p class="mast-lede">${esc(lede)}</p>` : ''}
-</header>`;
-    return { html, empty: false, stats: {} };
+    const products = c.grades.filter(isProduct).length;
+    const head = pageHead({
+      name: id.primary, aka: id.aka, fullName: id.fullName,
+      lines: identityHtml(c) + (m.excluded ? '<p class="callout"><b>Beyond H2C capability.</b> Kept for reference, never a candidate: it needs more heat than the H2C gives.</p>' : ''),
+      tabs: tabsNav({ id: m.id, name: id.primary, n: products, current: 'overview' }),
+    });
+    // The evidence line: B's { tier, head, html } (the head in bold, quietly), or a plain Say or string.
+    const ev = words('evidenceLine', c);
+    const evidence = ev ? `${ev.head ? `<b>${sayHtml(ev.head)}</b> ` : ''}${ev.html ?? sayHtml(ev)}` : '';
+    const plate = `<section class="kf-wrap" data-section="key-figures" aria-label="Key figures: the median of the products that publish each value">`
+      + `<dl class="kf plate">${plateKeys().map((k) => keyFigure(c, k)).join('')}</dl>`
+      + `${evidence ? `<p class="kf-ev" data-tier="${esc(ev.tier ?? '')}">${evidence}</p>` : ''}</section>`;
+    const summary = summaryBlock(c);
+    const first = `<div class="first${summary ? '' : ' first--alone'}">${summary}${h2cPlate(c, env.hasPrinting !== false)}</div>`;
+    return { html: `${head}\n${plate}\n${first}`, empty: false, stats: { filled: (m.written?.parts ?? []).filter((p) => p.field).length } };
   },
 };

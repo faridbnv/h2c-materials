@@ -7,10 +7,15 @@
 // three embedded faces 439 KB (318 KB gzipped); the set 31.4 MB (4.0 MB gzipped). The script's budget was raised to
 // 30 KB the same day, when the redesign added the Products table and the records finder (page.js and tables.src.js
 // together about 27 KB).
+//
+// Since the pages were reimagined (2026-10-17) a material's records are on its Products page, each in its product's
+// card, so the Products page takes the records page's budget (`products`), and the records page is a stub of a few
+// kilobytes (`records`, kept for its address). The main page (`main`) is the Overview, the index and the method page.
 
 export const PAGE_BUDGET = {
   main: { raw: 850_000, gzip: 105_000 },
-  records: { raw: 4_600_000, gzip: 400_000 },
+  products: { raw: 4_600_000, gzip: 400_000 },
+  records: { raw: 20_000, gzip: 6_000 },
   // The shared stylesheet with its embedded fonts, and the page script (a classic script, no library).
   css: { raw: 660_000, gzip: 480_000 },
   script: { raw: 30_000 },

@@ -1,13 +1,20 @@
-// The document around a material page or a records page: head (title, the Filament Atlas mark as the icon, the shared
-// stylesheet and script, linked relatively so a page opened from disk finds them), a sticky top bar with the brand, the
-// contents (a sticky rail at 1,080 px and wider, a sticky strip of section links below that, under the top bar), the
-// main element carrying the page's stamps (the test hooks), and the product names the figures' tooltips read.
+// The frame around every material page (the pages reimagined, 2026-10-17): the document's head (title, the Filament
+// Atlas mark as the icon, the shared stylesheet and script, linked relatively so a page opened from disk finds them),
+// one sticky top bar shaped like the selector's, the main element carrying the page's stamps (the checks' hooks), and
+// the product names the figures' tooltips read.
 //
-// Every anchor on the page lands below the top bar (and the strip, where it is one): the stylesheet sets
-// scroll-margin-top from --anchor-top, which it estimates per width and page.js sets from the measured bar.
+// The bar: the mark and the tool's name (to the selector), then where the reader is, "Materials › PLA", the last crumb a
+// disclosure that names the section in view and lists every section, the Products page and all materials; on the right
+// the way back to the selector and the theme. The way back is a link to the selector with this material's drawer open
+// (render.js returnHref, sections/common.js selectorLink); the page's script turns it into "Back to your results" when
+// the tab came from the selector (?from=, kept per tab in sessionStorage 'atlas-return'), with the reader's selection.
+//
+// `pageHead` is the head of a material's two pages: its name, full name, the lines under it, and the tabs Overview |
+// Products. Nothing here decides anything.
 
 import { attrs, esc, jsonIsland } from './html.js';
-import { SPRITE } from './charts/marks.js';
+import { fmtNumber } from '../js/ui/format.js';
+import * as marks from './charts/marks.js';
 
 /** The tool's name, as the selector's frame names it. */
 export const BRAND = 'Filament Atlas';
@@ -16,25 +23,85 @@ export const BRAND = 'Filament Atlas';
 const THEME = '<script>try{var t=localStorage.getItem("h2c-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>';
 
 /** The mark, as the selector draws it, and as the tab's icon. */
-const MARK = '<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9 22h14M11 16.5h10M13 11h6"/></svg>';
+const MARK = '<svg class="bar-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9 22h14M11 16.5h10M13 11h6"/></svg>';
 const FAVICON = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'8\' fill=\'%231f5f8b\'/%3E%3Cpath d=\'M9 22h14M11 16.5h10M13 11h6\' stroke=\'white\' stroke-width=\'3\' fill=\'none\' stroke-linecap=\'round\'/%3E%3C/svg%3E';
 
-/** The theme button's icon: a half-filled circle, in the selector's 20 px line-icon language. */
-const THEME_ICON = '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.6"/><path class="fill" d="M10 3.4a6.6 6.6 0 0 1 0 13.2Z"/></svg>';
+/** Icons in the selector's 20 px line language. */
+export const ICON = {
+  back: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M8 5 3 10l5 5M3.5 10H17"/></svg>',
+  theme: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.6"/><path class="fill" d="M10 3.4a6.6 6.6 0 0 1 0 13.2Z"/></svg>',
+  down: '<svg class="icon icon-s" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6 8l4 4 4-4"/></svg>',
+  search: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>',
+  copy: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="7" y="7" width="9.5" height="9.5" rx="1.5"/><path d="M13 7V4.5A1 1 0 0 0 12 3.5H4.5a1 1 0 0 0-1 1V12a1 1 0 0 0 1 1H7"/></svg>',
+};
 
 /**
- * A whole page. `kind` is material, records or index; `toc` is [{ id, n, title, empty }]; `products` a map of product
- * ID to name (the tooltips'), or null; `links` the top bar's: { index, selector, records, page }.
+ * The way back to the selector: a link (`data-return`) whose static href opens the selector with this material's
+ * drawer and nothing else set; the script rebuilds it from the reader's own selection where the tab came from the
+ * selector. `cls` adds classes; the words are the cold ones until the script knows better.
  */
-export function documentShell({ title, description, kind, materialId = null, stamps, toc = [], body, products = null, links = {} }) {
-  const bar = [
-    links.page ? `<a href="${esc(links.page.href)}">${esc(links.page.words)}</a>` : '',
-    links.records ? `<a href="${esc(links.records.href)}">${esc(links.records.words)}</a>` : '',
-    links.selector ? `<a href="${esc(links.selector)}">Open in the selector</a>` : '',
-    `<button type="button" class="theme" data-theme-toggle hidden>${THEME_ICON}<span class="theme-words">Dark theme</span></button>`,
-  ].filter(Boolean).join('');
-  const brand = `${MARK}<span class="brand-name">${esc(BRAND)}</span><span class="brand-part">Material pages</span>`;
-  const contents = toc.length ? `<nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ol>${toc.map((s) => `<li><a href="${esc(s.href ?? `#${s.id}`)}"${s.empty ? ' data-empty="true"' : ''}><span class="toc-n">${s.n != null ? esc(s.n) : ''}</span><span class="toc-t">${esc(s.title)}</span></a></li>`).join('')}</ol></nav>` : '';
+export const returnLink = (href, { cls = '', long = 'Open in the selector', short = 'Selector' } = {}) => (href
+  ? `<a class="btn ret${cls ? ` ${cls}` : ''}" data-return href="${esc(href)}">${ICON.back}<span class="ret-long">${esc(long)}</span><span class="ret-short">${esc(short)}</span></a>`
+  : '');
+
+/**
+ * The tabs of a material's two pages: `{ id, n, current }`, current 'overview' or 'products'; n the products. Each tab
+ * is a link (`data-tab`), the current one marked aria-current.
+ */
+export function tabsNav({ id, name, n, current }) {
+  const tab = (key, href, words, extra = '') => `<a href="${esc(href)}" data-tab="${key}"${key === 'products' ? ` data-n="${n}"` : ''}${current === key ? ' aria-current="page"' : ''}>${words}${extra}</a>`;
+  return `<nav class="tabs" aria-label="${esc(`${name} pages`)}">${tab('overview', `${id}.html`, 'Overview')}${tab('products', `${id}-products.html`, 'Products', ` <span class="n">${esc(fmtNumber(n))}</span>`)}</nav>`;
+}
+
+/**
+ * The head of a material's page: the name (and the name it is also called), the full name, the lines under them (HTML,
+ * already escaped) and the tabs.
+ */
+export function pageHead({ name, aka = null, fullName = null, lines = '', tabs = '' }) {
+  return `<header class="phead" id="top">
+<div class="phead-id">
+<h1 class="pname">${esc(name)}</h1>
+${aka ? `<p class="paka">also called ${esc(aka)}</p>` : ''}
+${fullName ? `<p class="pfull">${esc(fullName)}</p>` : ''}
+${lines}
+</div>
+${tabs}
+</header>`;
+}
+
+/**
+ * The bar's crumbs: `crumbs` [{ href, words }] lead to the current page; the last is the page itself. Where `sections`
+ * are given ([{ id, title }], the sections that render, in order), the last crumb is a disclosure: the page's name, the
+ * section in view (the script keeps it), and the list of every section, then `more` [{ href, words, n }] (the other
+ * page of the material, every material).
+ */
+function crumbsNav(crumbs, sections, more, label) {
+  if (!crumbs.length) return '';
+  const head = crumbs.slice(0, -1).map((x) => `<li class="crumb"><a href="${esc(x.href)}">${esc(x.words)}</a></li>`).join('');
+  const last = crumbs.at(-1);
+  if (!sections.length && !more.length) return `<nav class="crumbs" aria-label="You are here"><ol>${head}<li class="crumb crumb-here"><span aria-current="page">${esc(last.words)}</span></li></ol></nav>`;
+  const items = sections.map((s, i) => `<li><a href="#${esc(s.id)}"${i === 0 ? ' aria-current="true"' : ''}>${esc(s.title)}</a></li>`).join('');
+  const rest = more.map((x) => `<li${x.sep ? ' class="sep"' : ''}><a href="${esc(x.href)}">${esc(x.words)}${x.n != null ? `<span class="n">${esc(x.n)}</span>` : ''}</a></li>`).join('');
+  return `<nav class="crumbs" aria-label="You are here"><ol>${head}<li class="crumb crumb-here"><details class="here">`
+    + `<summary aria-label="${esc(`${last.words}: the sections of this page`)}"><b>${esc(last.words)}</b><span class="here-sec" data-here>${esc(label ?? sections[0]?.title ?? '')}</span>${ICON.down}</summary>`
+    + `<div class="here-list"><ul>${items}${rest}</ul></div></details></li></ol></nav>`;
+}
+
+/**
+ * A whole page. `kind` is overview, products, hub, method or stub; `material` the material's ID (or null); `crumbs`
+ * [{ href, words }], the last the page itself; `sections` [{ id, title }] for the bar's list; `tabs` the material's
+ * pages for that list's foot ({ products: { href, n }, index: href }); `returnHref` the static way back to the selector;
+ * `products` a map of product ID to name for the figures' tooltips, or null; `head` extra lines for <head> (the stub's
+ * redirect).
+ */
+export function documentShell({ kind, title, description, stamps, material = null, crumbs = [], sections = [], tabs = null, returnHref = null, body, products = null, head = '', hereLabel = null }) {
+  // The hub's way back opens a fresh selector with no drawer: "Open the selector" until a selection is stored.
+  const cold = kind === 'hub' ? { long: 'Open the selector' } : {};
+  const more = [];
+  if (tabs?.overview && kind !== 'overview') more.push({ href: tabs.overview.href, words: tabs.overview.words ?? 'Overview', sep: true });
+  if (tabs?.products && kind !== 'products') more.push({ href: tabs.products.href, words: 'Products', n: fmtNumber(tabs.products.n), sep: !more.length });
+  if (tabs?.index) more.push({ href: tabs.index, words: 'All materials', sep: !more.length });
+  const brand = `${MARK}<span class="bar-name">${esc(BRAND)}</span>`;
   return `<!doctype html>
 <html lang="en-CA">
 <head>
@@ -45,20 +112,21 @@ export function documentShell({ title, description, kind, materialId = null, sta
 <meta name="generator" content="${esc(BRAND)} material pages, release ${esc(stamps.release)}, database snapshot ${esc(stamps.snapshot)}, build ${esc(stamps.build)}">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="${FAVICON}">
-${THEME}
+${head}${THEME}
 <link rel="stylesheet" href="assets/pages.css">
 <script src="assets/page.js" defer></script>
 </head>
-<body class="page-${esc(kind)}">
+<body class="kind-${esc(kind)}">
 <a class="skip" href="#main">Skip to the content</a>
-${SPRITE}
-<header class="topbar"><div class="topbar-in">${links.index ? `<a class="brand" href="${esc(links.index)}">${brand}</a>` : `<span class="brand">${brand}</span>`}<span class="topbar-links">${bar}</span></div></header>
-<div class="layout">
-${contents}
-<main id="main"${attrs({ 'data-page': kind, 'data-material': materialId, 'data-release': stamps.release, 'data-snapshot': stamps.snapshot, 'data-build': stamps.build })}>
+${marks.SPRITE ?? ''}
+<header class="atlas-bar"><div class="bar-in">
+${returnHref ? `<a class="bar-brand" data-return-brand href="${esc(returnHref)}" title="The selector">${brand}</a>` : `<span class="bar-brand">${brand}</span>`}
+${crumbsNav(crumbs, sections, more, hereLabel)}
+<div class="bar-end">${returnLink(returnHref, cold)}<button type="button" class="icon-btn" data-theme-toggle aria-label="Dark theme" title="Light or dark" hidden>${ICON.theme}</button></div>
+</div></header>
+<main id="main" class="page"${attrs({ 'data-page': kind, 'data-material': material, 'data-release': stamps.release, 'data-snapshot': stamps.snapshot, 'data-build': stamps.build })}>
 ${body}
 </main>
-</div>
 <div class="tip" id="tip" aria-hidden="true" hidden></div>
 ${products ? jsonIsland('product-names', products) : ''}
 </body>

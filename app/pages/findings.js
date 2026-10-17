@@ -1,71 +1,653 @@
-// The findings a section opens with: two to four short sentences, each one idea, saying what the data shows in an
-// engineer's words. Every number comes from the facts layer (material-facts.js, material-stats.js, the compiled
-// materials[].summary) through format.js; nothing is typed, nothing judges a product or decides an answer. Plain text,
-// unescaped: the section escapes it. The bookkeeping (what is counted, what is left out and why) is not said here but
-// under each figure's "How this is counted".
+// The Overview's words: every sentence a material's page says in its own voice, from the facts layer (material-facts.js,
+// material-stats.js, material-highlights.js) and the compiled fields, never typed. The rules are content/PROPOSAL.md's
+// (docs/audits/2026-10-17-pages-reimagined): the answer first, one idea a sentence, a caveat said once (the evidence
+// line), the fact rather than the bookkeeping, engineering terms kept and the project's own words left out.
+//
+// A sentence is a Say: `{ text, html, toString() }`, the plain words and the same words as markup, each compiled value
+// in it wrapped `<span data-v="<unrounded>" data-key="<headline key>" data-stat="median|q1|q3|min|max|n|product">` so the
+// page check can hold it to the facts. Build one with the `say` tag and `num` (or `plain`), join them with `joinSay` and
+// `andSay`. Nothing here decides anything or judges a product.
+//
+// The contract with the frame (track A): identitySentence, evidenceLine, onTheH2cRows, onTheH2cLine, standOutLines and
+// productsHandoffWords, each from a material's context (material-facts.js materialContext).
 
-import { fmtNumber } from '../js/ui/format.js';
-import { envVerdictWords, propertyName } from '../js/ui/labels.js';
-import { plural, andList, lower, cap, windowText, asPublishedWords } from '../js/ui/material-words.js';
+import { esc, attrs } from './html.js';
+import * as NUMBERS from './numbers.js';
+import { fmtNumber, dryingWords, priceSampleWords, readableUnit } from '../js/ui/format.js';
+import { REGISTRY } from '../js/ui/registry.js';
+import { H2C_STATUS, propertyName, envVerdictWords } from '../js/ui/labels.js';
+import { identity, productNameOrId, printFacts, printCounts, priceRows, stated, groupByMaker } from '../js/ui/material-facts.js';
+import { printWindows, dryingStats, dryingAdvice, compareMedians, printsAmorphous, heatLadder } from '../js/ui/material-stats.js';
+import { hardenedShare } from '../js/engine/products.js';
+import { plural, lower, cap, andList, windowText, scheduleWords } from '../js/ui/material-words.js';
+import { evidenceTier, standOut, standOutProducts, standing, productsOf, KEY_FIGURES } from '../js/ui/material-highlights.js';
 
-/** A share in plain words where it is near a simple fraction ("about two thirds"), else "about 68 %". */
-export function fractionWords(r) {
-  if (r >= 0.95) return 'nearly all';
-  const FRACTIONS = [[1 / 4, 'a quarter'], [1 / 3, 'a third'], [1 / 2, 'half'], [2 / 3, 'two thirds'], [3 / 4, 'three quarters'], [0.9, 'nine tenths']];
-  const near = FRACTIONS.find(([f]) => Math.abs(r - f) <= 0.025);
-  return near ? `about ${near[1]}` : `about ${Math.round(r * 100)} %`;
+// ------------------------------------------------------------------ sentences with their numbers marked
+
+const SAY = Symbol('say');
+const mk = (text, html) => ({ [SAY]: true, text, html, toString() { return text; } });
+/** Whether `x` is a Say. */
+export const isSay = (x) => !!x?.[SAY];
+/** Plain words as a Say. */
+export const plain = (t) => mk(String(t ?? ''), esc(String(t ?? '')));
+/** Raw markup as a Say (a link, an element): its text is its markup's text. */
+export const markup = (html, text) => mk(text ?? String(html).replace(/<[^>]*>/g, ''), html);
+
+/** A display number: the facts layer's value as the Overview prints it (numbers.js fmtDisplay where it has landed). */
+export const fmtD = (v, unit) => (typeof NUMBERS.fmtDisplay === 'function'
+  ? (unit ? `${NUMBERS.fmtDisplay(v, unit)} ${unit}` : NUMBERS.fmtDisplay(v))
+  : fmtNumber(v, unit));
+
+/**
+ * A compiled value in a sentence: its display form, marked with the unrounded value and the field it states (`key` a
+ * headline key, `stat` the summary's field: median, q1, q3, min, max, n; or 'product' with `grade`). Without `key` it is
+ * a display statistic (a share, a window, a count of records) and is not marked.
+ */
+export function num(value, { key = null, stat = 'median', unit = null, grade = null, shown = null } = {}) {
+  const text = shown ?? fmtD(value, unit);
+  if (!key) return plain(text);
+  return mk(text, `<span${attrs({ 'data-v': value, 'data-key': key, 'data-stat': stat, 'data-grade': grade })}>${esc(text)}</span>`);
 }
+
+/** A sentence from a template: interpolated Says keep their markup, anything else is escaped. */
+export function say(strings, ...vals) {
+  let text = '', html = '';
+  strings.forEach((s, i) => {
+    text += s;
+    html += esc(s);
+    if (i >= vals.length) return;
+    const v = vals[i];
+    if (isSay(v)) { text += v.text; html += v.html; } else if (v != null && v !== false) { text += String(v); html += esc(String(v)); }
+  });
+  return mk(text, html);
+}
+/** Says joined by a separator. */
+export const joinSay = (parts, sep = ' ') => { const xs = parts.filter((p) => p && (isSay(p) ? p.text : p)).map((p) => (isSay(p) ? p : plain(p))); return mk(xs.map((p) => p.text).join(sep), xs.map((p) => p.html).join(esc(sep))); };
+/** Says as a list in prose: "a", "a and b", "a, b and c". */
+export function andSay(parts) {
+  const xs = parts.filter(Boolean).map((p) => (isSay(p) ? p : plain(p)));
+  if (xs.length < 2) return xs[0] ?? plain('');
+  return joinSay([joinSay(xs.slice(0, -1), ', '), xs.at(-1)], ' and ');
+}
+/** A Say with its first letter in capitals (where it starts with words, not a number). */
+export const capSay = (s) => (isSay(s) ? mk(cap(s.text), /^</.test(s.html) ? s.html : cap(s.html)) : plain(cap(String(s))));
+
+/** A range of two compiled values of one key, joined so it never breaks at its dash: "40–53 MPa". */
+export const spanSay = (lo, hi, { key = null, unit = null, stats = ['min', 'max'] } = {}) => (lo === hi
+  ? num(lo, { key, stat: stats[0], unit })
+  : say`${num(lo, { key, stat: stats[0] })}⁠–⁠${num(hi, { key, stat: stats[1], unit })}`);
+
+/** A date as a reader writes it: "10 Sep 2026". */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+export const dayWords = (iso) => { const m = /^(\d{4})-(\d\d)-(\d\d)/.exec(String(iso ?? '')); return m ? `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]}` : String(iso ?? ''); };
+/** Two dates as a span: "10 Sep–5 Oct 2026", one date where both are one. */
+export function daysWords(a, b) {
+  if (!a || a === b) return dayWords(a ?? b);
+  const [x, y] = [dayWords(a), dayWords(b)];
+  return a.slice(0, 4) === b.slice(0, 4) ? `${x.replace(/ \d{4}$/, '')}–${y}` : `${x}–${y}`;
+}
+
+/** Small numbers in words, as prose prints them: "two products", "12 products". */
+const WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+export const countWords = (n) => (n >= 0 && n < WORDS.length ? WORDS[n] : fmtNumber(n));
+/** A count with its noun, the number in words under eleven: "three products". */
+export const nWords = (n, word, many = `${word}s`) => `${countWords(n)} ${n === 1 ? word : many}`;
 
 /** A property's name inside a sentence: lower case, unless it begins with a name (Vicat, Charpy, Izod, Shore) or an abbreviation. */
 export const inText = (label) => (/^(?:Vicat|Charpy|Izod|Shore|Rockwell|Barcol)\b/.test(label) ? label : lower(label));
+const headline = (key) => REGISTRY.allHeadlines.find((h) => h.key === key) ?? null;
+const labelOf = (key) => headline(key)?.labels.plain ?? key;
+
+/** A link to a product's card on the material's Products page. */
+export const productHref = (c, gradeId) => `${c.m.id}-products.html#${gradeId}`;
+/** A product's name as a link to its card. */
+export const productLink = (c, g) => markup(`<a class="prod" href="${esc(productHref(c, g.id))}" data-grade="${esc(g.id)}">${esc(productNameOrId(g))}</a>`, productNameOrId(g));
+
+// ------------------------------------------------------------------ what the material is (the head)
+
+/** A filler as an adjective before the polymer: "Glass-fibre-filled PCTG". */
+const FILLER_ADJ = {
+  'Glass fibre': 'Glass-fibre-filled', 'Carbon fibre': 'Carbon-fibre-filled', 'Aramid fibre': 'Aramid-fibre-filled', 'Natural fibre': 'Natural-fibre-filled',
+  'Glass spheres': 'Glass-sphere-filled', Ceramic: 'Ceramic-filled', PTFE: 'PTFE-filled', Graphene: 'Graphene-filled', 'Metal powder': 'Metal-powder-filled',
+  'ESD formulation': 'Anti-static (ESD)', 'Electrically conductive': 'Electrically conductive', Foaming: 'Foaming, lightweight',
+};
+/** The polymer group a name adds to an abbreviation where the abbreviation does not say it (polymers[].group). */
+const GROUP_WORD = { copolyester: 'copolyester', elastomer: 'elastomer' };
+/** A full name in sentence case: "Polyamide 6 (nylon 6)"; abbreviations and Shore keep their capitals. */
+const sentenceCase = (t) => cap(String(t).split(/(\s+|\/|\(|\))/).map((w, i) => (i && /^[A-Z][a-z]/.test(w) && !/^(Shore|Nylon)$/.test(w) ? w.toLowerCase() : w)).join(''));
+
+/** What a material is, in an engineer's words: "Glass-fibre-filled PCTG copolyester", "Polylactic acid", "Silk PLA". */
+export function whatItIs(m, db) {
+  const poly = (db.polymers ?? []).find((p) => p.id === m.estimateIdentity);
+  const base = stated(m.basePolymer) ? m.basePolymer : m.name;
+  const full = stated(m.fullName) ? m.fullName : m.name;
+  let words;
+  if (/not disclosed/i.test(full)) words = sentenceCase(full);
+  else if (FILLER_ADJ[m.modifier]) {
+    const group = GROUP_WORD[poly?.group];
+    words = `${FILLER_ADJ[m.modifier]} ${base}${group && !base.toLowerCase().includes(group) ? ` ${group}` : ''}`;
+  } else if (/variant/i.test(m.modifier ?? '') && / - /.test(full)) words = `${sentenceCase(full.split(' - ').slice(1).join(' - '))} ${base}`;
+  else words = sentenceCase(full);
+  return m.facets?.supportMaterial?.value ? `${words}, a support material` : words;
+}
+
+/** The head's identity sentence: what it is, its products and makers, and Bambu Lab's standing. */
+export function identitySentence(c) {
+  const id = identity(c.m, c);
+  const lede = H2C_STATUS[c.m.h2cStatus]?.lede ?? '';
+  const makers = id.makers === 1 ? 'one maker' : `${fmtNumber(id.makers)} makers`;
+  return say`${whatItIs(c.m, c.db)}, ${plural(id.products, 'product')} from ${makers}.${lede ? ` ${lede}` : ''}`;
+}
+
+// ------------------------------------------------------------------ how well documented (the evidence line)
+
+const HEADS = { well: 'Well documented', partly: 'Partly documented', thinly: 'Thinly documented' };
+/** "tensile strength (Z) rests on 3 products". */
+const restsOn = (t) => say`${inText(t.h.labels.plain)} rests on ${num(t.n, { key: t.key, stat: 'n', shown: plural(t.n, 'product') })}`;
+const isAre = (xs) => (xs.length === 1 ? 'is' : 'are');
+const names = (ts) => andList(ts.map((t) => inText(t.h.labels.plain)));
+
+/** The definition of a key figure, said once on the page. */
+function definition(c) {
+  const m = c.m;
+  const variants = productsOf(c).some((g) => g.variant);
+  const toughened = !!m.summary?.charpyNotched?.claimed?.setApart;
+  const apart = variants && toughened ? 'Products with an added filler or additive, and for notched impact those sold as toughened, are shown but kept out of the medians.'
+    : variants ? 'Products with an added filler or additive are shown but kept out of the medians.'
+      : toughened ? 'For notched impact, products sold as toughened are shown but kept out of the median.' : '';
+  return joinSay(['Each figure is the median of the products that publish it with a stated orientation or test load, and beside it the middle half of them.', apart]);
+}
+
+/** Why the values published cannot be ranked, said once: "No sheet states how its tensile bars were printed, so …". */
+function openReason(t) {
+  if (!t.openOnly.length) return null;
+  const dir = t.openOnly.filter((x) => x.h.direction), load = t.openOnly.filter((x) => !x.h.direction);
+  const tests = [...new Set(dir.map((x) => (/tensile|elongation/i.test(x.h.labels.plain) ? 'tensile' : /flexural/i.test(x.h.labels.plain) ? 'flexural' : 'test')))];
+  const parts = [];
+  if (dir.length) parts.push(`No sheet states how its ${andList(tests)} bars were printed, so ${names(dir)} ${isAre(dir)} shown as published and not ranked against other materials.`);
+  if (load.length) parts.push(`No sheet states the test load of its ${names(load)}, so ${load.length === 1 ? 'it is' : 'they are'} shown as published and not ranked against other materials.`);
+  return parts.join(' ');
+}
+
+/** The makers whose documents give the values: "two makers' documents: Spectrum's, which FormFutura AthenaX GF10 shares, and Fiberlogy's". */
+function makersWords(c, t) {
+  const ms = t.makers;
+  if (!ms.length) return 'no document with a number';
+  const one = ({ maker, readers }) => (readers.length ? `${maker}'s, which ${andList(readers.map(productNameOrId))} ${readers.length === 1 ? 'shares' : 'share'}` : `${maker}'s`);
+  if (ms.length > 3) return `${fmtNumber(ms.length)} makers' documents`;
+  const list = ms.length === 1 ? one(ms[0]) : `${ms.slice(0, -1).map(one).join(', ')}${ms.some((x) => x.readers.length) ? ',' : ''} and ${one(ms.at(-1))}`;
+  return `${ms.length === 1 ? 'one maker\'s documents' : `${countWords(ms.length)} makers' documents`}: ${list}`;
+}
 
 /**
- * Where a count was read, in the words every section uses: "from their own sheet", "from a sheet they share", "from
- * Bambu Lab's guide". `o` is { own, twin, guide }; `n` the total. One source says so once; several are listed.
+ * The evidence line: how well documented the material is, why where it matters, and what a key figure is, said once on
+ * the page. `{ tier, head ('Well documented'…), text, html, toString() }`; the head is not in the text.
  */
-export function basisWords(o, n) {
-  const parts = [[o.own, 'from their own sheet'], [o.twin, 'from a sheet they share'], [o.guide, 'from Bambu Lab\'s guide']].filter(([k]) => k);
-  if (!parts.length) return '';
-  if (parts.length === 1) return parts[0][0] === n ? (n === 1 ? parts[0][1].replace('their', 'its').replace('they share', 'it shares') : `all ${parts[0][1]}`) : `${parts[0][0]} ${parts[0][1]}`;
-  return andList(parts.map(([k, w]) => `${k} ${w}`));
+export function evidenceLine(c) {
+  const t = evidenceTier(c.m, c);
+  let body;
+  if (t.tier === 'well') {
+    body = joinSay([`${fmtNumber(t.documents)} documents from ${plural(t.publishers, 'publisher')}${t.dataSheets ? `, ${t.dataSheets === t.documents ? 'all' : fmtNumber(t.dataSheets)} of them data sheets` : ''}.`, definition(c)]);
+  } else if (t.tier === 'partly') {
+    const byN = [...new Set(t.weak.map((x) => x.n))].map((n) => t.weak.filter((x) => x.n === n));
+    const restsOnAll = byN.map((g, i) => (g.length === 1 ? (i ? say`${inText(g[0].h.labels.plain)} on ${plural(g[0].n, 'product')}` : restsOn(g[0]))
+      : say`${names(g)} ${i ? 'on' : 'rest on'} ${plural(g[0].n, 'product')} each`));
+    const parts = [...restsOnAll, t.missing.length ? plain(`${names(t.missing)} ${isAre(t.missing)} not published`) : null,
+      t.openOnly.length ? plain(`${names(t.openOnly)} ${t.openOnly.length === 1 ? 'is' : 'are'} published only without a stated orientation or test load`) : null].filter(Boolean);
+    body = joinSay([say`${capSay(andSay(parts))}.`, definition(c)]);
+  } else {
+    const word = t.makers.length <= 1 ? 'one sheet\'s word' : t.makers.length === 2 ? 'one or two sheets\' word' : 'a few sheets\' word';
+    body = joinSay([`${cap(nWords(t.products, 'product'))}, with values from ${makersWords(c, t)}.`, openReason(t), t.ranked.length ? `Read each figure as ${word}.` : null]);
+  }
+  return { ...body, tier: t.tier, head: HEADS[t.tier], facts: t, toString() { return `${HEADS[t.tier]}: ${body.text}`; } };
 }
-/** The basis as a sentence's tail: ", 27 from their own sheet and 27 from Bambu Lab's guide", or ", all from their own sheet". */
-const basisTail = (o, n) => {
-  const single = [['own', 'by their own sheets'], ['twin', 'by a sheet they share'], ['guide', 'by Bambu Lab\'s guide']].find(([k]) => o[k] === n && n);
-  if (single) return `, ${n === 1 ? single[1].replace('their own sheets', 'its own sheet').replace('they share', 'it shares') : single[1]}`;
-  const w = basisWords(o, n);
-  return w ? `: ${w}` : '';
+
+// ------------------------------------------------------------------ printing on the H2C, in brief
+
+/** The products' window of one setting, with who gives it: { value, note }, or null where none is published. */
+function windowRow(products, axis) {
+  const pw = printWindows(products, axis);
+  const total = products.length;
+  const unit = (from, to) => `${windowText(from, to)} °C`;
+  const all = (n) => (n === total ? (n === 2 ? 'both products' : `all ${fmtNumber(n)} products`) : `all ${fmtNumber(n)} that give one`);
+  const lows = pw.ends.filter((e) => e.min != null && e.max == null), highs = pw.ends.filter((e) => e.max != null && e.min == null);
+  const endWords = () => [lows.length ? `${countWords(lows.length)} ${lows.length === 1 ? 'gives' : 'give'} at least ${fmtNumber(Math.min(...lows.map((e) => e.min)))} °C` : null,
+    highs.length ? `${countWords(highs.length)} ${highs.length === 1 ? 'gives' : 'give'} up to ${fmtNumber(Math.max(...highs.map((e) => e.max)))} °C` : null].filter(Boolean);
+  if (!pw.n) {
+    if (lows.length) return { value: `at least ${fmtNumber(Math.min(...lows.map((e) => e.min)))} °C`, note: plural(lows.length, 'product'), pw };
+    return null;
+  }
+  if (pw.n === 1) {
+    const w = pw.windows.find((x) => x.counted);
+    const ends = endWords();
+    return { value: unit(w.min, w.max), note: `one product${ends.length ? `; ${andList(ends)}` : ''}`, pw };
+  }
+  if (pw.every) return { value: unit(pw.every.from, pw.every.to), note: all(pw.n), pw };
+  if (pw.most) return { value: unit(pw.most.from, pw.most.to), note: 'most products that give one', pw };
+  return { value: unit(pw.peak.from, pw.peak.to), note: `${fmtNumber(pw.peak.k)} of ${fmtNumber(pw.n)} that give one`, pw };
+}
+
+/** The heated chamber in brief: none needed, or the window most give. */
+function chamberRow(products) {
+  const pw = printWindows(products, 'chamber');
+  const total = products.length;
+  const none = (pw.states.get('not-required') ?? 0) + (pw.states.get('ambient') ?? 0);
+  const limit = pw.limit;
+  if (none && (none * 2 >= total || !pw.n)) {
+    const note = none === total ? (total === 2 ? 'both products' : `all ${fmtNumber(total)} products`) : `${fmtNumber(none)} of ${fmtNumber(total)} products`;
+    const w = windowRow(products, 'chamber');
+    return { value: 'none needed', note, given: pw.n ? w : null, pw };
+  }
+  const w = windowRow(products, 'chamber');
+  if (!w) return { value: 'not stated', note: '', pw };
+  const top = Math.max(...pw.windows.filter((x) => x.counted).map((x) => x.max));
+  return { ...w, note: `${w.note}${limit != null && top > limit ? `; beyond the H2C's ${fmtNumber(limit)} °C` : ''}` };
+}
+
+/** Drying in brief: the typical schedule of the products whose own or shared sheet gives one, and what most ask. */
+function dryingRow(c, products) {
+  const d = dryingStats(products);
+  const a = dryingAdvice(products);
+  const total = products.length;
+  const asks = a.needs.required >= a.needs.optional
+    ? (a.needs.required === total ? (total === 2 ? 'both products call for it' : `all ${fmtNumber(total)} products call for it`) : `${fmtNumber(a.needs.required)} of ${fmtNumber(total)} products call for it`)
+    : 'most advise it only for wet filament';
+  if (d.temps.n) return { value: `${fmtNumber(d.temps.median)} °C${d.hours.n ? ` for ${fmtNumber(d.hours.median)} h` : ''}`, note: a.have ? asks : '', d, a };
+  if (a.needs['not-needed'] && a.needs['not-needed'] * 2 >= a.have) return { value: 'not needed', note: `${fmtNumber(a.needs['not-needed'])} of ${fmtNumber(total)} products say so`, d, a };
+  const g = c.guide?.drying;
+  if (g?.tempC != null) return { value: dryingWords(g), note: 'Bambu Lab\'s guide', d, a };
+  return { value: c.m.gates?.drying === 'not-needed' ? 'not needed' : 'not stated', note: '', d, a };
+}
+
+/** The hardened nozzle in brief. */
+function nozzleTypeRow(c) {
+  const hard = hardenedShare(c.grades);
+  const { need, total } = hard;
+  if (need && need * 2 > total) return { value: 'hardened', note: need === total ? (total === 1 ? 'its product' : `all ${fmtNumber(total)} products`) : `${fmtNumber(need)} of ${fmtNumber(total)} products`, hard };
+  if (need) return { value: 'standard', note: `${fmtNumber(need)} of ${fmtNumber(total)} products need a hardened one`, hard };
+  if (c.m.gates?.abrasive === 'requires-hardened') return { value: 'hardened', note: 'the filler wears a brass nozzle', hard };
+  if (hard.notNeeded || c.m.gates?.abrasive === 'no-special-concern') return { value: 'standard', note: '', hard };
+  return { value: 'not stated', note: '', hard };
+}
+
+/**
+ * The *On the H2C* plate's rows, in the order a print is set up: `[{ key, label, value, note }]` for the nozzle, bed,
+ * heated chamber, drying and nozzle type. Plain text. `note` says who gives it ("most products that give one").
+ */
+export function onTheH2cRows(c) {
+  const products = productsOf(c);
+  const out = [];
+  const nozzle = windowRow(products, 'nozzle'), bed = windowRow(products, 'bed'), chamber = chamberRow(products), drying = dryingRow(c, products), type = nozzleTypeRow(c);
+  out.push({ key: 'nozzle', label: 'Nozzle', value: nozzle?.value ?? 'not published', note: nozzle?.note ?? '' });
+  out.push({ key: 'bed', label: 'Bed', value: bed?.value ?? 'not published', note: bed?.note ?? '' });
+  out.push({ key: 'chamber', label: 'Heated chamber', value: chamber.value, note: chamber.note });
+  out.push({ key: 'drying', label: 'Drying', value: drying.value, note: drying.note });
+  out.push({ key: 'nozzle-type', label: 'Nozzle type', value: type.value === 'standard' ? 'standard (brass)' : type.value, note: type.note });
+  return out;
+}
+
+/** One line on the H2C's limits: within all of them, or which settings ask for more than it gives. */
+export function onTheH2cLine(c) {
+  const pf = printFacts(c.m, c);
+  const counts = printCounts(c.grades);
+  const total = productsOf(c).length;
+  const over = pf.outside.filter((a) => a.list.length);
+  if (over.length) {
+    const AXIS = { nozzle: 'nozzle', bed: 'bed', chamber: 'chamber' };
+    return plain(`${cap(andList(over.map((a, i) => `${a.list.length === total ? (total === 2 ? 'both products' : `all ${fmtNumber(total)} products`) : `${fmtNumber(a.list.length)} of ${i ? fmtNumber(total) : plural(total, 'product')}`} ${a.list.length === 1 ? 'asks' : 'ask'} for more ${AXIS[a.axis] ?? lower(a.label)} heat than the H2C's ${fmtNumber(pf.limits.find((l) => l.axis === a.axis)?.limit)} °C`)))}.`);
+  }
+  if (counts?.all) return plain('Every product\'s settings are within the H2C\'s limits.');
+  return plain('No product asks for more than the H2C gives.');
+}
+
+// ------------------------------------------------------------------ products that stand out, and the hand-off
+
+/** A product value's state, in words: sold as toughened, measured after annealing, the products that read its sheet. */
+function stateWords(x) {
+  const bits = [];
+  if (x.toughened) bits.push('sold as toughened');
+  if (x.v?.anneal) bits.push(`measured after annealing ${scheduleWords(x.v.anneal)}`);
+  if (x.v?.converted) bits.push('converted from a foreign price');
+  return bits;
+}
+
+/**
+ * The products that stand out (material-highlights.js standOutProducts), a fact a line: `[{ gradeId, label, name, href,
+ * detail (Say), text, html }]`, the html with the product's name linked to its card; [] under six products.
+ */
+export function standOutLines(c) {
+  return standOutProducts(c).map((x) => {
+    const h = x.key ? headline(x.key) : null;
+    let detail;
+    if (x.kind === 'documented') detail = plain(x.others ? `, and ${plural(x.others, 'other')} that ${x.others === 1 ? 'publishes' : 'publish'} as much.` : ', with values for more properties than any other.');
+    else if (x.kind === 'layers') detail = say`, ${Math.round(x.share * 100)} % of its flat tensile strength (the median product keeps ${Math.round(x.median * 100)} %).`;
+    else {
+      const bits = stateWords(x);
+      const also = x.also ? `, and it keeps the most strength across the layers, ${Math.round(x.also.share * 100)} % of its flat value` : '';
+      const readers = x.readers?.length ? ` (${andList(x.readers.map(productNameOrId))} ${x.readers.length === 1 ? 'prints' : 'print'} the same sheet)` : '';
+      detail = say`, ${num(x.v.value, { key: x.key, stat: 'product', unit: h?.unit, grade: x.g.id })}${readers}${bits.length ? `, ${andList(bits)}` : ''}${also}.`;
+    }
+    const link = productLink(c, x.g);
+    return { gradeId: x.g.id, kind: x.kind, label: x.label, name: productNameOrId(x.g), href: productHref(c, x.g.id), detail,
+      text: `${x.label}: ${link.text}${detail.text}`, html: `${esc(x.label)}: ${link.html}${detail.html}` };
+  });
+}
+
+/**
+ * The Products hand-off's words: `{ lede (Say: the products and who makes them), button ('Compare the 195 products'),
+ * href, closing (Say, or null where no product is named as standing out) }`.
+ */
+export function productsHandoffWords(c) {
+  const products = productsOf(c);
+  const makers = groupByMaker(products).filter(([k]) => stated(k)).map(([maker, gs]) => ({ maker, n: gs.length })).sort((a, b) => b.n - a.n || a.maker.localeCompare(b.maker));
+  const n = products.length;
+  const several = makers.filter((x) => x.n > 1);
+  const lede = makers.length <= 3
+    ? plain(`${cap(nWords(n, 'product'))} from ${makers.length === 1 ? `one maker, ${makers[0].maker}` : `${countWords(makers.length)} makers: ${andList(makers.map((x) => x.maker))}`}.`)
+    : !several.length ? plain(`${fmtNumber(n)} products, one from each of ${fmtNumber(makers.length)} makers.`)
+      : plain(`${fmtNumber(n)} products from ${fmtNumber(makers.length)} makers; the most from ${andList(several.slice(0, 3).map((x) => `${x.maker} (${x.n})`))}.`);
+  return {
+    lede, button: `Compare the ${n === 2 ? 'two' : fmtNumber(n)} products`, href: `${c.m.id}-products.html`,
+    closing: standOutProducts(c).length ? plain('These are published values, not recommendations: the selector judges each product against your requirements.') : null,
+  };
+}
+
+// ------------------------------------------------------------------ among the materials
+
+/** The properties the standing sentence speaks of, in the order an engineer reads a sheet. */
+const STANDING_KEYS = ['tensileModulusXY', 'tensileStrengthXY', 'tensileStrengthZ', 'elongationXY', 'charpyNotched', 'hdt045', 'density', 'priceCADkg'];
+
+/** Where the material sits among every material: its high and low properties, and those in the middle half. */
+export function standingWords(c, ranks) {
+  const m = c.m;
+  const rows = STANDING_KEYS.map((key) => ({ key, at: standing(m, ranks, key) })).filter((r) => r.at && m.summary?.[r.key]?.n);
+  if (!rows.length) return null;
+  const high = rows.filter((r) => r.at.pct >= 75), low = rows.filter((r) => r.at.pct <= 25), mid = rows.filter((r) => r.at.pct > 25 && r.at.pct < 75);
+  const lbl = (rs) => andList(rs.map((r) => inText(labelOf(r.key))));
+  if (!high.length && !low.length) return plain(`Among the materials, ${m.name} sits in the middle half on every property it publishes comparably.`);
+  const has = [high.length ? `a high ${lbl(high)}` : null, low.length ? `a low ${lbl(low)}` : null].filter(Boolean);
+  const quarter = high.length && low.length ? 'the top or bottom quarter' : high.length ? 'the top quarter' : 'the lowest quarter';
+  const n = high.length + low.length;
+  const which = n === 1 ? 'it is' : n === 2 ? 'both are' : 'each is';
+  return joinSay([`Among the materials, ${m.name} has ${has.join(has.length > 1 && high.length > 1 ? ', and ' : ' and ')}: ${which} in ${quarter} of the materials that publish ${n === 2 ? 'them' : 'it'}.`,
+    mid.length ? `Its ${lbl(mid)} ${mid.length === 1 ? 'sits' : 'sit'} in the middle half.` : null]);
+}
+
+/** How one median differs from another's, as an engineer says it, or null where the two are about the same. */
+const ADJ = {
+  tensileModulusXY: ['stiffer', 'less stiff', 'as stiff'], tensileStrengthXY: ['stronger flat', 'weaker flat', 'as strong flat'],
+  tensileStrengthZ: ['stronger across the layers', 'weaker across the layers', 'as strong across the layers'],
+  charpyNotched: ['tougher in notched impact', 'less tough in notched impact', 'as tough in notched impact'],
+  priceCADkg: ['more expensive', 'less expensive', 'as expensive'],
+};
+function differ(r, other) {
+  const on = other.summary?.[r.key]?.n ?? 0;
+  if (r.n < 2 || on < 2) return null;
+  if (r.kind === 'diff') return Math.abs(r.value) <= 3 ? null : { r, size: Math.abs(r.value) / Math.max(1, Math.abs(r.b)), hdt: true };
+  if (r.same) return null;
+  return { r, size: Math.abs(Math.log(r.a / r.b)) };
+}
+const differWords = ({ r }) => {
+  const [more, less, as] = ADJ[r.key] ?? ['higher', 'lower', 'as high'];
+  if (r.a / r.b >= 2) return `${(r.a / r.b).toFixed(1)} times ${as}`;
+  return `${Math.round(Math.abs(r.value) * 100)} % ${r.value > 0 ? more : less}`;
 };
 
-/** A share as a whole per cent. */
-const pc = (r) => `${Math.round(r * 100)} %`;
-
-/** A temperature span, word-joined: "230–255 °C", or one temperature. */
-const span = (w) => `${windowText(w.from, w.to)} °C`;
-
-/**
- * Who a print window rests on, as the subject of "accept": the products counted (their own or a shared sheet gives both
- * ends; a special formulation's window and one read from Bambu Lab's guide are drawn apart, material-stats.js
- * printWindows) and, where they are fewer than the material's products, how many those are, so "all 3" on a material
- * of nine is never read as all of them. `k` is 'all', 'most' or how many accept; `n` the products counted; `total` the
- * material's products. "all 9 products", "both products", "all 3 counted products (of 9)", "2 of the 5 counted
- * products (of 9)". The first screen, the findings and the figure say it in these words alone.
- */
-export function acceptSubject(k, n, total = n) {
-  const part = n < total;
-  const of = part ? ` (of ${total})` : '';
-  if (k === 'all') return `${n === 2 ? 'both' : `all ${n}`} ${part ? 'counted ' : ''}products${of}`;
-  if (k === 'most') return part ? `most of the ${n} counted products${of}` : 'most products';
-  return part ? `${k} of the ${n} counted products${of}` : `${k} of ${n} products`;
+/** The first two alternatives (material-stats.js peerSet), against this material, in a sentence each. */
+export function peersWords(c, peers) {
+  const m = c.m;
+  const out = [];
+  for (const p of peers ?? []) {
+    if (out.length === 2) break;
+    const rows = compareMedians(m, p, KEY_FIGURES);
+    // A filled material against its own unfilled polymer: what the filler does to it, said first.
+    const base = p.basePolymer === m.basePolymer && /unfilled/i.test(p.modifier ?? '') && FILLER_ADJ[m.modifier];
+    const hdt = rows.find((r) => r.key === 'hdt045');
+    if (base && hdt && (m.summary?.hdt045?.n ?? 0) >= 2 && (p.summary?.hdt045?.n ?? 0) >= 2) {
+      const d = hdt.a - hdt.b;
+      const verb = Math.abs(d) <= 3 ? `adds little to ${p.name}'s heat resistance` : d > 0 ? `raises ${p.name}'s HDT at 0.45 MPa by ${fmtD(Math.abs(d), '°C')}` : `lowers ${p.name}'s HDT at 0.45 MPa by ${fmtD(Math.abs(d), '°C')}`;
+      out.push(say`${cap(lower(m.modifier))} ${verb}: ${m.name}'s HDT at 0.45 MPa is ${num(hdt.a, { key: 'hdt045', unit: '°C' })} against ${fmtD(hdt.b, '°C')}.`);
+      continue;
+    }
+    const diffs = rows.map((r) => differ(r, p)).filter(Boolean).sort((a, b) => b.size - a.size).slice(0, 3);
+    if (!diffs.length) {
+      const both = rows.filter((r) => r.n >= 2 && (p.summary?.[r.key]?.n ?? 0) >= 2);
+      if (both.length === 1) out.push(say`Against ${p.name}, ${m.name}'s ${inText(both[0].h.labels.plain)} is about the same: ${num(both[0].a, { key: both[0].key, unit: both[0].h.unit })} against ${fmtD(both[0].b, both[0].h.unit)}.`);
+      else if (both.length) out.push(plain(`Against ${p.name}, ${m.name}'s medians are about the same on ${andList(both.map((r) => inText(r.h.labels.plain)))}.`));
+      continue;
+    }
+    const adj = diffs.filter((x) => !x.hdt).map(differWords);
+    const heat = diffs.find((x) => x.hdt);
+    const heatWords = heat ? `its HDT at 0.45 MPa is ${fmtD(Math.abs(heat.r.value), '°C')} ${heat.r.value > 0 ? 'higher' : 'lower'}` : null;
+    out.push(plain(adj.length ? `Against ${p.name}, ${m.name} is ${andList(adj)}${heatWords ? `, and ${heatWords}` : ''}.` : `Against ${p.name}, ${m.name}'s ${heatWords.replace(/^its /, '')}.`));
+  }
+  return out;
 }
 
+// ------------------------------------------------------------------ mechanical properties
+
+/** A value's display in a unit a reader reads easily (a soft elastomer's 0.0159 GPa as 15.9 MPa, format.js readableUnit). */
+const readable = (v, unit, ref = v) => { const r = readableUnit(unit, ref); return fmtD(v * r.factor, r.unit); };
+/** A summary's median as a Say, with its unit. */
+const med = (m, key) => { const s = m.summary[key]; const unit = headline(key)?.unit; return num(s.median, { key, unit, shown: readable(s.median, unit, s.max ?? s.median) }); };
+/** A summary's published-only span: "55 MPa", "39–70 MPa". */
+const openSpan = (m, key) => {
+  const a = m.summary[key].asPublished, unit = headline(key)?.unit, r = readableUnit(unit, a.max);
+  if (r.factor === 1) return spanSay(a.min, a.max, { key, unit, stats: ['asPublished.min', 'asPublished.max'] });
+  return a.min === a.max ? num(a.min, { key, stat: 'asPublished.min', shown: readable(a.min, unit, a.max) })
+    : say`${num(a.min, { key, stat: 'asPublished.min', shown: fmtD(a.min * r.factor) })}\u2060–\u2060${num(a.max, { key, stat: 'asPublished.max', shown: readable(a.max, unit) })}`;
+};
+
+/** The mechanical section's opening: the flat tensile values, with elongation, and the bending values, two sentences. */
+export function mechanicalWords(c) {
+  const m = c.m;
+  const s = (k) => m.summary?.[k];
+  const out = [];
+  if (s('tensileStrengthXY')?.n) {
+    const mod = s('tensileModulusXY')?.n ? say` at a modulus of ${med(m, 'tensileModulusXY')}` : '';
+    const el = s('elongationXY')?.n ? say`, and breaks at ${med(m, 'elongationXY')} elongation` : '';
+    out.push(say`Printed flat (XY), ${m.name} typically reaches a tensile strength of ${med(m, 'tensileStrengthXY')}${mod}${el}.`);
+  } else {
+    const open = [['tensileStrengthXY', 'a tensile strength'], ['tensileModulusXY', 'a modulus'], ['elongationXY', 'an elongation at break']].filter(([k]) => !s(k)?.n && s(k)?.asPublished?.n);
+    if (open.length) out.push(say`As published, its products give ${andSay(open.map(([k, w]) => say`${w} of ${openSpan(m, k)}`))}.`);
+    else if (s('tensileModulusXY')?.n) out.push(say`Printed flat (XY), ${m.name}'s tensile modulus is typically ${med(m, 'tensileModulusXY')}.`);
+  }
+  if (s('flexuralStrengthXY')?.n && s('flexuralModulusXY')?.n) out.push(say`In bending, its flexural strength is typically ${med(m, 'flexuralStrengthXY')} at a flexural modulus of ${med(m, 'flexuralModulusXY')}.`);
+  // Impact: where no product publishes a notched value, what its sheets give instead, in one clause.
+  if (!s('charpyNotched')?.n && !s('izodNotched')?.n && !s('charpyNotched')?.asPublished?.n && !s('izodNotched')?.asPublished?.n) {
+    const impact = c.ms.filter((x) => /impact/i.test(x.property) && x.numeric);
+    if (impact.length && impact.every((x) => /unnotched/i.test(x.notch ?? ''))) out.push(plain('Its sheets publish only unnotched impact values.'));
+  }
+  return out.slice(0, 3);
+}
+
+// ------------------------------------------------------------------ thermal properties
+
+/** The thermal section's opening: where it softens and why, the products well above the rest, Vicat and melting. */
+export function thermalWords(c, { table = false } = {}) {
+  const m = c.m;
+  const s = (k) => m.summary?.[k];
+  const out = [];
+  const a = s('hdt045'), b = s('hdt18'), tg = s('glassTransition');
+  const amorphous = printsAmorphous(m, c.db);
+  const at = (k, x) => (x.n >= 4 ? med(m, k) : spanSay(x.min, x.max, { key: k, unit: '°C' }));
+  if (a?.n && b?.n && tg?.n && amorphous === true && Math.abs(a.median - b.median) <= 3) {
+    out.push(say`${m.name} is amorphous as printed, so it softens at its glass transition, typically ${med(m, 'glassTransition')}: its HDT is ${at('hdt045', a)} under 0.45 MPa and ${at('hdt18', b)} under 1.8 MPa.`);
+  } else if (a?.n) {
+    const lead = a.n >= 4 ? say`${m.name}'s HDT is typically ${at('hdt045', a)} under 0.45 MPa` : say`Its products put HDT at ${at('hdt045', a)} under 0.45 MPa`;
+    out.push(say`${lead}${b?.n ? say` and ${at('hdt18', b)} under 1.8 MPa` : ''}${tg?.n ? say`, ${tg.n >= 4 ? 'with its glass transition typically at' : 'against a glass transition of'} ${at('glassTransition', tg)}` : ''}.`);
+    if (amorphous === false && tg?.n && a.median - tg.median >= 20) out.push(plain(`Semicrystalline, it carries light load well above its glass transition.`));
+  } else if (tg?.n) out.push(say`Its glass transition is ${tg.n >= 4 ? 'typically ' : ''}${at('glassTransition', tg)}.`);
+  // The products well above the rest, by name, with their state.
+  const so = standOut(m, c, 'hdt045');
+  if (so?.list.length) {
+    const named = so.list.slice(0, 3).map((e) => say`${productNameOrId(e.g)} (${num(e.v.value, { key: 'hdt045', stat: 'product', unit: '°C', grade: e.g.id })}${e.v.anneal ? `, annealed ${scheduleWords(e.v.anneal)}` : ''})`);
+    const lo = Math.min(...so.list.map((e) => e.v.value)), hi = Math.max(...so.list.map((e) => e.v.value));
+    out.push(so.list.length === 1
+      ? say`One product publishes far more at 0.45 MPa: ${named[0]}.`
+      : say`${cap(nWords(so.list.length, 'product'))} publish ${fmtD(lo)} to ${fmtD(hi, '°C')} at 0.45 MPa${so.annealed ? `, ${countWords(so.annealed)} of them after annealing` : ''}. The highest are ${andSay(named)}.`);
+  }
+  // Vicat and melting, as published, where no table says them.
+  if (!table) {
+    const rows = heatLadder(m, c, ['Vicat softening temperature', 'Melting temperature']).filter((r) => !r.compared);
+    const said = rows.map((r, i) => `${r.id === 'Vicat softening temperature' ? 'Vicat softening' : 'melting'} ${i ? '' : 'is '}${r.summary.n > 1 ? 'typically ' : ''}${fmtD(r.summary.median, '°C')}${r.summary.n === 1 ? ', from one product' : ''}`);
+    if (said.length) out.push(plain(`As published, ${andList(said)}.`));
+  }
+  return out;
+}
+
+// ------------------------------------------------------------------ printing on the H2C
+
 /**
- * What a key property's nearest value on file (materials[].headline[key].related.best, its measurement `x`) is, where
- * no product's is compared: the condition it lacks or has instead, in the order an engineer would ask, short enough for
- * the first screen: "at 0.45 MPa", "a moulded bar", "tested at -30 °C", "unnotched", "test unclear", "orientation not
- * stated". The first screen and the At a glance table say it in these words alone, so a 0.45 MPa value under "HDT at
- * 1.8 MPa" is never read as one, nor a moulded bar as a printed one of unstated orientation.
+ * The printing section's opening, one sentence: within the H2C's limits or not, the heated chamber, and the nozzle; then
+ * which settings ask for more than the H2C gives, where any does.
  */
+export function printingWords(c) {
+  const m = c.m;
+  const products = productsOf(c);
+  const pf = printFacts(m, c);
+  const over = pf.outside.filter((a) => a.list.length);
+  const ch = chamberRow(products);
+  const hard = hardenedShare(c.grades);
+  const total = products.length;
+  const parts = [];
+  if (!over.length) parts.push('prints within every H2C limit');
+  if (ch.value === 'none needed') parts.push('needs no heated chamber');
+  else if (ch.value !== 'not stated' && !over.some((a) => a.axis === 'chamber')) {
+    // A window that starts near room temperature is a chamber kept warm, not a heated one.
+    const from = Number(String(ch.value).match(/\d+/)?.[0]);
+    parts.push(`asks for ${from <= 30 ? 'a chamber' : 'a heated chamber'} at ${ch.value}`);
+  }
+  // The nozzle: a contrast ("but") only where the rest said the material is easy on the printer.
+  const easy = parts.length > 0;
+  let nozzle = null;
+  if (hard.need === total && total) nozzle = { hard: true, words: total === 1 ? 'its product needs a hardened nozzle' : `all ${countWords(total)} products need a hardened nozzle` };
+  else if (hard.need * 2 > total) nozzle = { hard: true, words: `${countWords(hard.need)} of its ${countWords(total)} products need a hardened nozzle` };
+  else if (hard.need) nozzle = { hard: false, words: `all but ${nWords(hard.need, 'product')} print with a standard nozzle` };
+  else if (m.gates?.abrasive === 'requires-hardened') nozzle = { hard: true, words: 'its filler calls for a hardened nozzle' };
+  else if (m.gates?.abrasive === 'no-special-concern' || hard.notNeeded) nozzle = { hard: false, words: 'prints with a standard nozzle' };
+  const out = [];
+  if (parts.length) {
+    if (nozzle && /^prints/.test(nozzle.words)) out.push(plain(`${m.name} ${andList([...parts, nozzle.words])}.`));
+    else out.push(plain(`${m.name} ${andList(parts)}${!nozzle ? '' : nozzle.hard && easy ? `, but ${nozzle.words}` : `, and ${nozzle.words}`}.`));
+  } else if (nozzle) out.push(plain(/^prints/.test(nozzle.words) ? `${m.name} ${nozzle.words}.` : `${cap(nozzle.words)}.`));
+  if (over.length) out.push(onTheH2cLine(c));
+  return out;
+}
+
+// ------------------------------------------------------------------ density and price
+
+/** The density sentence. */
+export function densityWords(c) {
+  const m = c.m;
+  const d = m.summary?.density;
+  if (!d?.n) return null;
+  if (d.n === 1) return say`One product gives a density of ${med(m, 'density')}.`;
+  if (d.min === d.max) return say`All ${countWords(d.n)} products give a density of ${med(m, 'density')}.`;
+  return say`${m.name}'s density is typically ${med(m, 'density')}${d.q1 != null ? say`, the middle half ${spanSay(d.q1, d.q3, { key: 'density', unit: 'kg/m³', stats: ['q1', 'q3'] })}` : ''}, across ${num(d.n, { key: 'density', stat: 'n', shown: plural(d.n, 'product') })}.`;
+}
+
+/** The price sentences: the typical price and the lowest, or the one product's, and the Canadian listings not used. */
+export function priceWords(c) {
+  const m = c.m;
+  const s = m.summary?.priceCADkg;
+  const out = [];
+  const rows = priceRows(c);
+  if (s?.n > 1) {
+    const low = standOutProducts(c).find((x) => x.kind === 'low' && x.key === 'priceCADkg')
+      ?? (() => { const e = productsOf(c).filter((g) => g.headline?.priceCADkg && !g.variant).sort((a, b) => a.headline.priceCADkg.value - b.headline.priceCADkg.value)[0]; return e ? { g: e, v: e.headline.priceCADkg } : null; })();
+    out.push(say`${m.name} typically costs ${med(m, 'priceCADkg')}${s.q1 != null ? say`, the middle half ${spanSay(s.q1, s.q3, { key: 'priceCADkg', unit: 'CAD/kg', stats: ['q1', 'q3'] })}` : ''}, across the ${num(s.n, { key: 'priceCADkg', stat: 'n', shown: plural(s.n, 'product') })} with a regular price in the sample${low ? say`; the lowest is ${productLink(c, low.g)} at ${num(low.v.value, { key: 'priceCADkg', stat: 'product', unit: 'CAD/kg', grade: low.g.id })}` : ''}.`);
+  } else if (s?.n === 1) {
+    const g = c.gradeById.get(s.typical);
+    const listing = rows.find((r) => r.used && r.p.gradeId === s.typical);
+    const fx = listing?.converted && listing.p.fx ? `, from ${listing.p.retailer}'s listing in ${listing.p.currency}, converted at the Bank of Canada rate of ${dayWords(listing.p.fx.date)}` : '';
+    out.push(say`One product has a sampled price: ${g ? productLink(c, g) : 'one product'} at ${num(s.median, { key: 'priceCADkg', unit: 'CAD/kg' })}${fx}.${listing?.converted ? ' No Canadian shop in the sample sells it.' : ''}`);
+  }
+  // A Canadian shop's listing of a product with no price in the sample: the reader learns the product is sold here.
+  const priced = new Set(rows.filter((r) => r.used).map((r) => r.p.gradeId));
+  const unpriced = (s?.n ?? 0) >= 4 ? [] : rows.filter((r) => !r.used && !r.foreign && r.unused === 'no-regular' && !priced.has(r.p.gradeId));
+  for (const r of unpriced.slice(0, 3)) {
+    const g = r.product;
+    out.push(say`${r.p.retailer} lists ${g ? productLink(c, g) : 'a product'}${/out of stock/i.test(r.p.stock ?? '') ? ', out of stock when sampled,' : ''} with no regular price recorded.`);
+  }
+  return out;
+}
+
+/** The sampling sentence, said once, last. */
+export function priceSampleLine(c) {
+  const ps = c.db.meta.priceSample;
+  if (!ps) return plain(`Regular prices, never sale prices, ${priceSampleWords(c.db.meta)}; shipping and tax are not included.`);
+  return plain(`Regular prices, never sale prices, sampled from ${plural(ps.canadianRetailers, 'Canadian shop')}${ps.foreignSellers ? ` and ${plural(ps.foreignSellers, 'foreign shop')}` : ''} between ${daysWords(ps.from, ps.to).replace('–', ' and ')}; shipping and tax are not included.`);
+}
+
+// ------------------------------------------------------------------ chemicals and environment
+
+/**
+ * What makers say on one exposure, by the verdict two thirds of its makers give, else two thirds of its statements,
+ * else "mixed"; "in words only" where none states a verdict. `makerOf(e)` names a statement's maker.
+ */
+export function verdictWords(records, makerOf) {
+  const telling = records.filter((e) => !['narrative', 'no-data'].includes(e.verdict));
+  if (!telling.length) {
+    if (records.every((e) => e.verdict === 'no-data')) return 'no data';
+    // Said in words only: the first statement's opening words, quoted, so the reader sees what kind of thing is said.
+    const first = String(records.find((e) => e.verdict === 'narrative')?.finding ?? '').trim();
+    const words = first.split(/\s+/);
+    return first ? `in words: \u201C${words.slice(0, 9).join(' ').replace(/[,;:.]+$/, '')}${words.length > 9 ? '\u2026' : ''}\u201D` : 'stated without a verdict';
+  }
+  const byMaker = new Map();
+  for (const e of telling) { const k = makerOf(e) ?? e.sourceId; (byMaker.get(k) ?? byMaker.set(k, new Set()).get(k)).add(e.verdict); }
+  const makerVotes = new Map();
+  for (const vs of byMaker.values()) if (vs.size === 1) { const [v] = vs; makerVotes.set(v, (makerVotes.get(v) ?? 0) + 1); }
+  const [mv, mn] = [...makerVotes].sort((a, b) => b[1] - a[1])[0] ?? [];
+  if (mv && byMaker.size > 1 && mn / byMaker.size >= 2 / 3) return `${envVerdictWords(mv)} (${mn} of ${byMaker.size} makers)`;
+  if (mv && byMaker.size === 1 && makerVotes.size === 1) return `${envVerdictWords(mv)}`;
+  const counts = new Map();
+  for (const e of telling) counts.set(e.verdict, (counts.get(e.verdict) ?? 0) + 1);
+  const [sv, sn] = [...counts].sort((a, b) => b[1] - a[1])[0];
+  if (sn / telling.length >= 2 / 3) {
+    const rest = [...counts].filter(([v]) => v !== sv).map(([v, n]) => `${n} ${envVerdictWords(v)}`);
+    return `mostly ${envVerdictWords(sv)} (${sn} of ${telling.length} statements${rest.length ? `; ${andList(rest)}` : ''})`;
+  }
+  return `mixed: ${andList([...counts].sort((a, b) => b[1] - a[1]).map(([v, n]) => `${n} ${envVerdictWords(v)}`))}`;
+}
+
+// ------------------------------------------------------------------ statements chosen by rule
+
+/** A statement worth quoting first: a number with its unit, or an instruction. */
+const SPECIFIC = /\d\s?(?:°C|%|mm\/s|mm|h\b|hours?|min(?:utes)?\b)|\b(?:use|dry|scale|recommend|avoid|keep|store|reduce|increase|set|print at|measure|preheat)\b/i;
+/** Topics that sell rather than inform: quoted after the others. */
+const SELLING = new Set(['Benefits', 'Good for']);
+/**
+ * Statements ordered as a page quotes them: a sentence of readable length (six to forty words) first, then a specific
+ * one (a number with its unit, or an instruction; `prefer` adds a pattern of its own), then one that informs before one
+ * that sells, a data sheet's before a product page's, and the maker with the most products here; at most one of a text.
+ */
+export function quoteOrder(list, c, { prefer = null, perProduct = false } = {}) {
+  const makers = new Map();
+  for (const g of productsOf(c)) makers.set(g.manufacturer, (makers.get(g.manufacturer) ?? 0) + 1);
+  const sheet = (k) => (/TDS|data sheet/i.test(c.sourceById.get(k.sourceId)?.sourceClass ?? '') ? 0 : 1);
+  const words = (t) => String(t ?? '').trim().split(/\s+/).length;
+  const score = (k) => {
+    const t = k.text ?? k.finding ?? '';
+    return [words(t) >= 6 && words(t) <= 40 ? 0 : 1, prefer ? (prefer.test(t) ? 0 : 1) : 0, SPECIFIC.test(t) ? 0 : 1, SELLING.has(k.topic) ? 1 : 0, sheet(k),
+      -(makers.get(c.gradeById.get(k.gradeId)?.manufacturer) ?? 0)];
+  };
+  const keyed = list.map((k) => ({ k, s: score(k) }));
+  keyed.sort((a, b) => { for (let i = 0; i < a.s.length; i++) if (a.s[i] !== b.s[i]) return a.s[i] - b.s[i]; return String(a.k.id).localeCompare(String(b.k.id)); });
+  const seen = new Set(), products = new Set();
+  return keyed.map((x) => x.k).filter((k) => {
+    const key = String(k.text ?? k.finding ?? '').slice(0, 80);
+    if (seen.has(key) || (perProduct && stated(k.gradeId) && products.has(k.gradeId))) return false;
+    seen.add(key);
+    products.add(k.gradeId);
+    return true;
+  });
+}
+
+// ------------------------------------------------------------------ kept for the frame's first screen until it is rebuilt
+
+/** Where a key property's nearest value on file lacks the condition it is compared on, in short words (the first screen's). */
 export function nearestLacks(h, b, x) {
   const unstated = (v) => !v || /^(unknown|not-stated|Not published|Not applicable|not-applicable)$/i.test(String(v));
   const out = [];
@@ -80,275 +662,20 @@ export function nearestLacks(h, b, x) {
   return out.filter(Boolean);
 }
 
-// ------------------------------------------------------------------ the first screen
+/** Who a print window rests on (the old first screen's words): "all 3 products", "most products". */
+export function acceptSubject(k, n, total = n) {
+  if (k === 'all') return n === total ? (n === 2 ? 'both products' : `all ${n} products`) : `all ${n} that give one`;
+  if (k === 'most') return 'most products that give one';
+  return `${k} of ${n} that give one`;
+}
 
-/**
- * One comparison line from material-stats.js compareMedians: "tensile modulus 35 % lower, HDT at 0.45 MPa 15 °C higher,
- * tensile strength about the same". Percent for ratios, °C differences for temperatures, "about the same" within 5 %.
- */
+/** One comparison line (the old first screen's): "tensile modulus 35 % lower, HDT at 0.45 MPa 15 °C higher". */
 export function versusWords(rows) {
   if (!rows.length) return '';
-  // Short names: the test is the first screen's own, so "tensile" and "impact" add nothing here.
   const name = (r) => (r.key === 'priceCADkg' ? 'price' : inText(r.h.labels.plain.replace(/^Tensile /, '').replace(/ impact$/, '')));
-  // A median of one product is said to be one: a comparison on it is a single sheet's word.
-  const one = (r) => (r.n === 1 ? ' (one product)' : '');
-  const differ = rows.filter((r) => !r.same).map((r) => {
-    if (r.kind === 'diff') return `${name(r)} ${fmtNumber(Math.abs(r.value))} °C ${r.value > 0 ? 'higher' : 'lower'}${one(r)}`;
-    // Twice or more is said as a multiple: "2.3 times as high", not "130 % higher".
-    if (r.value >= 1) return `${name(r)} ${(r.a / r.b).toFixed(1)} times as high${one(r)}`;
-    return `${name(r)} ${Math.round(Math.abs(r.value) * 100)} % ${r.value > 0 ? 'higher' : 'lower'}${one(r)}`;
-  });
-  const same = rows.filter((r) => r.same).map((r) => `${name(r)}${one(r)}`);
+  const differ = rows.filter((r) => !r.same).map((r) => (r.kind === 'diff' ? `${name(r)} ${fmtNumber(Math.abs(r.value))} °C ${r.value > 0 ? 'higher' : 'lower'}`
+    : r.value >= 1 ? `${name(r)} ${(r.a / r.b).toFixed(1)} times as high` : `${name(r)} ${Math.round(Math.abs(r.value) * 100)} % ${r.value > 0 ? 'higher' : 'lower'}`));
+  const same = rows.filter((r) => r.same).map(name);
   return [differ.join(', '), same.length ? `${andList(same)} about the same` : ''].filter(Boolean).join('; ');
 }
 
-// ------------------------------------------------------------------ at a glance
-
-/**
- * Where the material's typical values stand among every material's (material-stats.js propertyProfile rows), by quarter,
- * and how many products they rest on.
- */
-export function glanceFindings(name, rows) {
-  const known = rows.filter((r) => r.known && r.at);
-  const label = (r) => lower(r.h.labels.plain);
-  const high = known.filter((r) => r.at.pct >= 75), low = known.filter((r) => r.at.pct <= 25);
-  const are = (xs) => (xs.length === 1 ? 'is' : 'are');
-  const out = [];
-  if (high.length) out.push(`Against every other material on file, ${name}'s typical ${andList(high.map(label))} ${are(high)} in the top quarter.`);
-  if (low.length) out.push(`${high.length ? 'Its' : `Against every other material on file, ${name}'s`} typical ${andList(low.map(label))} ${are(low)} in the bottom quarter.`);
-  const mid = known.length - high.length - low.length;
-  if (mid && (high.length || low.length)) out.push(`${mid === 1 ? 'Its other key property sits' : `Its other ${mid} key properties sit`} in the middle half.`);
-  else if (mid) out.push(`Against every other material on file, ${name}'s typical values all sit in the middle half.`);
-  if (known.length < rows.length) {
-    const none = rows.length - known.length;
-    out.push(`${known.length ? `Only ${known.length} of its ${rows.length} key properties have` : 'None of its key properties has'} a typical value. The other ${none === 1 ? 'is' : `${none} are`} not published, or not on a comparable basis.`);
-  } else if (known.length) {
-    const ns = known.map((r) => r.n);
-    const fewest = known.filter((r) => r.n === Math.min(...ns));
-    out.push(`Each typical value rests on ${Math.min(...ns) === Math.max(...ns) ? plural(ns[0], 'product') : `${fmtNumber(Math.min(...ns))} to ${fmtNumber(Math.max(...ns))} products`}${Math.min(...ns) <= 6 && Math.min(...ns) !== Math.max(...ns) ? `, the fewest for ${andList(fewest.map(label))}` : ''}.`);
-  }
-  return out;
-}
-
-// ------------------------------------------------------------------ printing
-
-/**
- * How a setting's counted windows agree, as a phrase with its quantifier first: "most products accept 230–255 °C";
- * `total` the material's products, said where fewer are counted (acceptSubject).
- */
-function windowPhrase(pw, total) {
-  if (!pw || !pw.n) return null;
-  const counted = pw.windows.filter((w) => w.counted);
-  if (pw.n === 1) return { q: 'one', text: `${windowText(counted[0].min, counted[0].max)} °C` };
-  if (pw.every) return { q: acceptSubject('all', pw.n, total), text: span(pw.every) };
-  if (pw.most) return { q: acceptSubject('most', pw.n, total), text: span(pw.most) };
-  return { q: null, k: pw.peak.k, n: pw.n, total, text: span(pw.peak) };
-}
-
-/**
- * The print findings: the nozzle and bed windows most products accept (material-stats.js printWindows), the heated
- * chamber, a hardened nozzle where one is needed, the drying schedule. At most four sentences.
- */
-export function printFindings({ nozzle, bed, chamber, products, chamberOutside, limit, drying, hard, abrasive, dryingGate, outside = [] }) {
-  const out = [];
-  const n = windowPhrase(nozzle, products), b = windowPhrase(bed, products);
-  const on = (p, where) => `${p.text} on the ${where}`;
-  if (n && b && n.q && n.q === b.q && n.q !== 'one') out.push(`By their own or a shared sheet, ${n.q} accept ${on(n, 'nozzle')} and ${on(b, 'bed')}.`);
-  else {
-    for (const [p, where] of [[n, 'nozzle'], [b, 'bed']]) {
-      if (!p) continue;
-      if (p.q === 'one') {
-        const pw = where === 'nozzle' ? nozzle : bed;
-        const lows = pw.ends.filter((e) => e.min != null).map((e) => e.min), highs = pw.ends.filter((e) => e.max != null).map((e) => e.max);
-        const span1 = (xs) => (Math.min(...xs) === Math.max(...xs) ? `${fmtNumber(xs[0])} °C` : `${fmtNumber(Math.min(...xs))} to ${fmtNumber(Math.max(...xs))} °C`);
-        const ends = [lows.length ? `${lows.length === 1 ? 'one gives' : `${lows.length} give`} only a lowest setting, ${span1(lows)}` : null,
-          highs.length ? `${highs.length === 1 ? 'one gives' : `${highs.length} give`} only a highest, ${span1(highs)}` : null].filter(Boolean);
-        out.push(`One product gives a ${where} window, ${p.text}${ends.length ? `, and ${andList(ends)}` : ''}.`);
-      }
-      else if (p.q) out.push(`By their own or a shared sheet, ${p.q} accept ${on(p, where)}.`);
-      else {
-        const verb = p.k === 1 ? 'accepts' : 'accept';
-        out.push(p.n < p.total ? `No ${where} temperature suits more than half of the ${p.n} counted products (of ${p.total}): at most ${p.k} ${verb} ${p.text}.`
-          : `No ${where} temperature suits more than half the products: at most ${p.k} of ${p.n} products ${verb} ${p.text}.`);
-      }
-    }
-  }
-  // Nozzle and bed settings above the H2C's limits (the build's own gate verdicts), said where any product asks for more.
-  const over = (outside ?? []).filter((a) => a.axis !== 'chamber' && a.list.length);
-  if (over.length) {
-    const said = over.map((a, i) => (i ? `${a.list.length === products ? 'all' : a.list.length} for more ${a.axis} heat than its ${fmtNumber(a.limit)} °C`
-      : `${a.list.length === products ? `All ${products} products ask` : `${a.list.length} of ${plural(products, 'product')} ${a.list.length === 1 ? 'asks' : 'ask'}`} for more ${a.axis} heat than the H2C's ${fmtNumber(a.limit)} °C`));
-    out.push(`${said.join(', and ')}.`);
-  }
-  // The heated chamber: how many need none, by where that was read, and what those whose sheets give one ask for.
-  const none = (chamber?.states.get('not-required') ?? 0) + (chamber?.states.get('ambient') ?? 0);
-  const noneFrom = ['not-required', 'ambient'].map((k) => chamber?.stateOrigins.get(k) ?? {}).reduce((a, o) => ({ own: a.own + (o.own ?? 0), twin: a.twin + (o.twin ?? 0), guide: a.guide + (o.guide ?? 0) }), { own: 0, twin: 0, guide: 0 });
-  const given = chamber?.n ?? 0;
-  if (chamber && none === products && !given) out.push(`None of its ${plural(products, 'product')} needs a heated chamber${basisTail(noneFrom, none)}.`);
-  else if (chamber && (none || given)) {
-    if (none) out.push(`${none} of ${plural(products, 'product')} ${none === 1 ? 'needs' : 'need'} no heated chamber${basisTail(noneFrom, none)}.`);
-    if (given) {
-      // Windows that share no temperature are each said ("40 – 60 °C and 100 °C"), never "40 – 60 °C for 1 of them".
-      const counted = chamber.windows.filter((w) => w.counted);
-      const each = andList([...new Set(counted.map((w) => `${windowText(w.min, w.max)} °C`))]);
-      const ask = chamber.most && given > 1 ? `mostly ${span(chamber.most)}` : given === 1 ? `${windowText(counted[0].min, counted[0].max)} °C`
-        : chamber.peak.k > 1 ? `${span(chamber.peak)} for ${chamber.peak.k} of them` : each;
-      out.push(`${given === 1 ? 'The one whose sheet gives a chamber temperature asks for' : `The ${given} whose sheets give a chamber temperature ask for`} ${ask}${chamberOutside ? `${given > 1 && chamber.peak.k === 1 && !chamber.most ? ';' : ', and'} ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
-    }
-  }
-  // A hardened nozzle, said only where some product needs one.
-  if (hard?.need) out.push(hard.need === hard.total ? `${hard.total === 1 ? 'Its product needs' : `All ${hard.total} products need`} a hardened nozzle.` : `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} a hardened nozzle.`);
-  else if (abrasive === 'requires-hardened') out.push('Its filler calls for a hardened nozzle.');
-  // Drying: the typical schedule of the products whose own or shared sheet gives one.
-  const t = drying?.temps, h = drying?.hours;
-  if (t?.n > 1) out.push(`Products whose own or shared sheet gives a drying schedule typically dry at ${fmtNumber(t.median)} °C${h?.n ? ` for ${fmtNumber(h.median)} h` : ''}.`);
-  else if (t?.n === 1) out.push(`One product's sheet gives a drying schedule: ${fmtNumber(t.median)} °C${h?.n ? ` for ${fmtNumber(h.median)} h` : ''}.`);
-  else if (dryingGate === 'not-needed') out.push('Its sources say drying is not needed.');
-  return out.slice(0, 4);
-}
-
-// ------------------------------------------------------------------ strength and stiffness
-
-/**
- * The strength findings: the typical flat (XY) tensile strength and modulus, what is kept across the layers (Z, the
- * median share of products that publish both), and the typical notched impact.
- */
-export function strengthFindings(m, { shares, hs }) {
-  const s = (k) => m.summary?.[k];
-  const v = (k, unit) => fmtNumber(s(k).median, unit);
-  const out = [];
-  const st = s('tensileStrengthXY'), mo = s('tensileModulusXY');
-  if (st?.n && mo?.n) out.push(`Printed flat (XY), typical tensile strength is ${v('tensileStrengthXY', 'MPa')} and modulus ${v('tensileModulusXY', 'GPa')}.`);
-  else if (st?.n) out.push(`Printed flat (XY), typical tensile strength is ${v('tensileStrengthXY', 'MPa')}.`);
-  else if (st?.asPublished?.n) {
-    // Nothing compared: what the sheets give, as published, said once with why it is not compared.
-    const h = hs.find((x) => x.key === 'tensileStrengthXY');
-    const said = [['tensileStrengthXY', 'a tensile strength', 'MPa'], ['tensileModulusXY', 'a modulus', 'GPa'], ['elongationXY', 'an elongation at break', '%']]
-      .map(([k, words, unit]) => [s(k)?.n ? null : s(k)?.asPublished, words, unit]).filter(([a]) => a?.n)
-      .map(([a, words, unit], i) => `${i ? a.n : plural(a.n, 'product')} ${i ? '' : a.n === 1 ? 'gives ' : 'give '}${words} of ${a.min === a.max ? fmtNumber(a.min, unit) : `${fmtNumber(a.min)} to ${fmtNumber(a.max, unit)}`}`);
-    out.push(`No product states ${h ? asPublishedWords(h).replace(/^no stated /, 'the ') : 'the orientation'} of its tensile bars, so none is compared.`);
-    out.push(`As published, ${andList(said)}.`);
-  }
-  const strength = shares.find((x) => x.key === 'tensileStrengthXY');
-  if (strength?.n > 1) {
-    const words = fractionWords(strength.median);
-    out.push(/%/.test(words) ? `Across the layers, expect ${words} of the flat strength, the median of ${strength.n} products that publish both.`
-      : `Across the layers, expect ${words} of the flat strength: ${pc(strength.median)} at the median of ${strength.n} products that publish both.`);
-  }
-  else if (strength?.n === 1) out.push(`One product publishes both orientations. Its strength across the layers is ${pc(strength.median)} of its flat strength.`);
-  else if (s('tensileStrengthZ')?.n) out.push(`Across the layers (Z), typical tensile strength is ${v('tensileStrengthZ', 'MPa')}.`);
-  const more = shares.filter((x) => x.key !== 'tensileStrengthXY' && x.n > 1 && /^tensile|^elongation/.test(x.key));
-  if (more.length && strength?.n > 1) out.push(`${cap(andList(more.map((x, i) => `${i ? '' : 'the '}${lower(x.name)} ${i ? '' : 'keeps '}${pc(x.median)}`)))}.`);
-  const impact = ['charpyNotched', 'izodNotched'].filter((k) => s(k)?.n);
-  if (impact.length) {
-    const name = (k, i) => { const p = hs.find((x) => x.key === k)?.labels.plain ?? k; return i ? lower(p).replace(/ impact$/, '') : p; };
-    const one = (k, i) => (s(k).n > 1 ? `${name(k, i)} ${i ? '' : 'is typically '}${v(k, 'kJ/m²')}, from ${i ? fmtNumber(s(k).n) : plural(s(k).n, 'product')}`
-      : `${name(k, i)} ${i ? '' : 'is '}${v(k, 'kJ/m²')}, from ${i ? 'one' : 'one product'}`);
-    out.push(`${impact.map(one).join(', and ')}.`);
-  }
-  return out.slice(0, 4);
-}
-
-// ------------------------------------------------------------------ heat
-
-/** The heat findings from the ladder's rows (material-stats.js heatLadder): HDT at each load, the glass transition, the rest as published. */
-export function heatFindings(rows, { name = null, amorphous = null, both = null } = {}) {
-  const out = [];
-  const typical = (r) => fmtNumber(r.summary.median, '°C');
-  const across = (r, first) => (r.summary.n === 1 ? 'from one product' : `across ${first ? plural(r.summary.n, 'product') : fmtNumber(r.summary.n)}`);
-  // HDT at each load, lightest first, with how many products each rests on, and the glass transition beside them.
-  const hdt = rows.filter((r) => r.h?.loadMPa != null).sort((a, b) => a.h.loadMPa - b.h.loadMPa);
-  const tg = rows.find((r) => r.h && r.h.loadMPa == null);
-  if (hdt.length) {
-    const many = hdt.some((r) => r.summary.n > 1);
-    out.push(`HDT is ${many ? 'typically ' : ''}${andList(hdt.map((r, i) => `${typical(r)} at ${fmtNumber(r.h.loadMPa)} MPa ${across(r, !i)}`))}${tg ? `, with the glass transition at ${typical(tg)} ${across(tg, false)}` : ''}.`);
-  } else if (tg) out.push(tg.summary.n === 1 ? `One product gives a glass transition of ${typical(tg)}.` : `The glass transition is typically ${typical(tg)}, across ${plural(tg.summary.n, 'product')}.`);
-  // Two loads within 3 °C of each other: said with why, where the polymer's data says it prints amorphous
-  // (polymers[].morphology, .asPrinted), and only there.
-  const near = hdt.length === 2 && tg && amorphous === true && Math.abs(hdt[0].summary.median - hdt[1].summary.median) <= 3;
-  if (near) out.push(`As printed, ${name} solidifies amorphous, so it softens near its glass transition (${typical(tg)}) and the two loads give nearly the same HDT.`);
-  // A heavier load gives a product a lower HDT; two medians that say otherwise are of different products.
-  if (hdt.length === 2 && hdt[1].summary.n && hdt[0].summary.n && both != null
-    && (hdt[1].summary.median > hdt[0].summary.median || (!near && hdt[1].summary.median === hdt[0].summary.median))) {
-    out.push(`The heavier load's median is not the lower because the two rest on different products: ${both ? `${plural(both, 'product')} ${both === 1 ? 'gives' : 'give'} both` : 'none gives both'}.`);
-  }
-  const pub = rows.filter((r) => !r.compared);
-  if (pub.length) {
-    const say = (r, i) => `${inText(r.label)} ${r.summary.n === 1 ? `is ${typical(r)}, from one product` : `${i ? '' : 'is '}typically ${typical(r)}`}`;
-    out.push(`As published, ${andList(pub.map(say))}.`);
-  }
-  return out;
-}
-
-// ------------------------------------------------------------------ the other sections
-
-/** Physical: the density, and which other properties are published, by how many products. */
-export function physicalFindings(m, others) {
-  const out = [];
-  const d = m.summary?.density;
-  if (d?.n) out.push(d.n === 1 ? `One product gives a density of ${fmtNumber(d.median, 'kg/m³')}.`
-    : `Density is typically ${fmtNumber(d.median, 'kg/m³')}, the median of ${plural(d.n, 'product')}${d.twins ? `, ${d.twins === 1 ? 'one of them from a sheet it shares' : `${d.twins} of them from a sheet they share`}` : ''}.`);
-  const named = others.filter((o) => o.property !== 'Density').sort((a, b) => b.products - a.products).slice(0, 3);
-  if (named.length) out.push(`${cap(andList(named.map((o) => lower(o.label))))} ${named.length === 1 ? 'is' : 'are'} published too, each under its own sheet's test conditions.`);
-  return out;
-}
-
-/**
- * Chemicals and the environment: for the categories with the most statements, the verdict most of them state where
- * two thirds or more agree; then that makers rarely give the conditions.
- */
-export function environmentFindings(f, polymer, makerOf) {
-  const out = [];
-  const telling = (v) => !['narrative', 'no-data'].includes(v);
-  // Makers, not statements: one maker's sheet often says the same of each of its products, so a statement count would
-  // weigh a maker by how many products it sells. A maker is the product's (grades[].manufacturer), else the document's
-  // publisher.
-  const makers = (records) => new Set(records.map(makerOf).filter(Boolean));
-  const all = makers(f.rows.flatMap((r) => r.records));
-  const statements = f.rows.reduce((k, r) => k + r.total, 0);
-  if (all.size) out.push(`${all.size === 1 ? 'One maker or publisher speaks' : `${all.size} makers and other publishers speak`} to ${plural(f.rows.length, 'topic')}, in ${plural(statements, 'statement')}. Counted by maker, since one maker often says the same of each of its products:`);
-  const top = [...f.rows].filter((r) => r.filterable).map((r) => ({ r, n: makers(r.records).size })).filter((x) => x.n > 1).sort((a, b) => b.n - a.n).slice(0, 4);
-  const said = [];
-  for (const { r, n } of top) {
-    // A maker counts for a verdict only where every statement it makes in the category gives that verdict: one that
-    // says "good" for weak acids and "poor" for strong ones speaks to both and stands for neither.
-    const verdictsOf = new Map();
-    for (const e of r.records) { if (!telling(e.verdict)) continue; const k = makerOf(e); if (!k) continue; (verdictsOf.get(k) ?? verdictsOf.set(k, new Set()).get(k)).add(e.verdict); }
-    const by = new Map();
-    for (const [k, vs] of verdictsOf) if (vs.size === 1) { const [only] = vs; (by.get(only) ?? by.set(only, new Set()).get(only)).add(k); }
-    const [v, set] = [...by].sort((a, b) => b[1].size - a[1].size)[0] ?? [];
-    if (v && set.size / n >= 2 / 3) said.push({ v, text: `${set.size} of ${n} ${said.some((x) => x.v === v) ? 'on' : 'makers that speak to'} ${lower(r.label)}` });
-    if (said.length === 3) break;
-  }
-  // Categories that say the same are said together: "5 of 7 makers that speak to acid resistance, and 4 of 5 on alkali
-  // resistance, say not resistant".
-  const verdicts = [...new Set(said.map((x) => x.v))];
-  const clauses = verdicts.map((v) => { const xs = said.filter((x) => x.v === v); return `${xs.length > 1 ? `${xs.slice(0, -1).map((x) => x.text).join(', ')}, and ${xs.at(-1).text},` : xs[0].text} say ${envVerdictWords(v)}`; });
-  if (clauses.length) for (const x of clauses.slice(0, 2)) out.push(`${cap(x)}.`);
-  else if (all.size) out[out.length - 1] = out.at(-1).replace(/ Counted by maker.*$/, '');
-  if (f.rows.length) out.push('Makers rarely give the concentration, temperature or duration, so these are indications, not design data.');
-  if (f.polymer.length) out.push(`${f.rows.length ? 'Where no document tests these products' : 'No document tests these products here'}, reference data for plain ${polymer} resin is shown apart. It never stands for the products.`);
-  return out;
-}
-
-/**
- * What makers say: how many products have statements, and the engineering topics the most makers speak to, each with
- * its count of makers ("most makers" would claim more than half, which three makers of twelve are not).
- */
-export function makersFindings(f, open) {
-  const out = [`${f.collected} of ${plural(f.total, 'product')} have statements from their makers beyond the numbers, in the makers' own words, not test results.`];
-  const top = [...open].filter((t) => t.makers > 1).sort((a, b) => b.makers - a.makers).slice(0, 3);
-  if (top.length) out.push(`On how it prints and behaves, ${top.length === 1 ? 'the topic the most makers speak to is' : 'the topics the most makers speak to are'} ${andList(top.map((t, i) => `${lower(t.topic)} (${fmtNumber(t.makers)}${i ? '' : ' makers'})`))}.`);
-  return out;
-}
-
-/** Price: the typical price per kilogram, its middle half, and how many products have one. */
-export function priceFindings(s, priced, products, converted, apart = 0) {
-  const out = [];
-  if (s?.n > 1) {
-    out.push(`Typically ${fmtNumber(s.median, 'CAD/kg')}, the median of ${plural(s.n, 'product')}${s.q1 != null ? `, with the middle half at ${fmtNumber(s.q1)}–${fmtNumber(s.q3, 'CAD/kg')}` : ''}.`);
-    out.push(`${priced} of ${plural(products, 'product')} ${priced === 1 ? 'has' : 'have'} a regular price in the sample, never a sale price${apart ? `; ${apart === 1 ? 'one is a special formulation' : `${apart} are special formulations`}, set apart from the median` : ''}.`);
-  } else if (s?.n === 1) out.push(`One of its ${plural(products, 'product')} has a regular price in the sample: ${fmtNumber(s.median, 'CAD/kg')}.`);
-  if (converted) out.push(converted);
-  return out;
-}

@@ -1,65 +1,82 @@
-// Sources: how much is on file (products and makers, measurement records and those with a number, print profiles,
-// documents: the same counts the records page heads its tables with), the documents the material's records cite
-// (material-facts.js documents), counted by kind and by publisher, when they were read, and the known gaps in the
-// reviewer's words. Every document, with what it covers and gave and the
-// link to its original, is on the records page.
+// Sources: where every number comes from. The documents the material's records cite (material-facts.js documents), by
+// kind and by publisher, when they were read; the known gaps, in the reviewer's words (coverage rows a reader is shown,
+// common.js shownGap; the maintainers' notes leave the pages); and, closed, every document with what it gave and the
+// link to its original. Each product's values, with their document and page, are on its card on the Products page.
 
-import { esc, tableBox, count } from '../html.js';
-import { gapSplit, sourceBlockFacts, identity } from '../../js/ui/material-facts.js';
+import { esc, tableBox } from '../html.js';
+import { gapSplit, sourceBlockFacts } from '../../js/ui/material-facts.js';
 import { fmtNumber } from '../../js/ui/format.js';
-import { plural, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { sourceKind } from '../../js/ui/labels.js';
-import { emptyBody, recordsLink, gapList, findingsBlock } from './common.js';
+import { plural, andList } from '../../js/ui/material-words.js';
+import { daysWords, dayWords } from '../findings.js';
+import { para, subhead, shownGap, gapItem } from './common.js';
 
-/** How many publishers the page lists by name; the rest are counted, and every one is on the records page. */
+/** How many publishers the table names; the rest are counted, and every document is in the list below. */
 const PUBLISHERS = 12;
+
+/** A kind of document in a sentence, one and many. */
+const KIND_ONE = {
+  'Data sheet': 'data sheet', 'Maker\'s product page or guide': 'maker\'s product page or guide', 'Safety data sheet': 'safety data sheet',
+  'Resin supplier\'s data sheet': 'resin supplier\'s data sheet', 'Retailer listing': 'retailer listing', 'Printer documentation': 'printer document',
+  'Peer-reviewed study': 'peer-reviewed study', 'Safety guidance': 'safety guidance document', Reference: 'reference',
+};
+const KIND_MANY = {
+  'Data sheet': 'data sheets', 'Maker\'s product page or guide': 'makers\' product pages and guides', 'Safety data sheet': 'safety data sheets',
+  'Resin supplier\'s data sheet': 'resin suppliers\' data sheets', 'Retailer listing': 'retailer listings', 'Printer documentation': 'printer documents',
+  'Peer-reviewed study': 'peer-reviewed studies', 'Safety guidance': 'safety guidance documents', Reference: 'references',
+};
+
+/** What a document gave, in a list: "12 values", "print settings", "3 maker statements". */
+const gaveWords = (g) => [g.values ? plural(g.values, 'value') : null, g.profiles ? 'print settings' : null, g.statements ? plural(g.statements, 'maker statement') : null,
+  g.environment ? plural(g.environment, 'statement on chemicals or use', 'statements on chemicals or use') : null, g.guide ? 'its Filament Guide column' : null].filter(Boolean);
 
 export default {
   id: 'sources',
-  title: 'Sources and known gaps',
-  records: '#documents',
+  title: 'Sources',
   render(c) {
+    const m = c.m;
     const docs = [...c.documents].map(([sid, d]) => sourceBlockFacts(sid, d, c));
-    const { gaps, notes } = gapSplit(c.cov);
-    // The known gaps a reader is shown, in the reviewer's words; the other gaps and the notes on settled questions are
-    // counted, and are on the records page.
-    const gapHtml = `<h3 class="sub-title" id="known-gaps">Known gaps</h3>${gaps.length ? '' : `<p class="empty">${esc(EMPTY_LINES.gaps)}</p>`}${gapList(c, gaps, notes.length)}`;
-    if (!docs.length) return { empty: true, html: emptyBody(c, EMPTY_LINES.Evidence, { tab: 'Evidence', anchor: '#documents' }) + gapHtml, stats: {} };
-    const dates = docs.map((d) => d.accessDate).filter(Boolean).sort();
-    const kinds = new Map();
-    for (const d of docs) kinds.set(sourceKind(d.s), (kinds.get(sourceKind(d.s)) ?? 0) + 1);
-    const publishers = new Map();
-    for (const d of docs) {
-      const p = d.s?.publisher ?? 'Publisher not named';
-      const x = publishers.get(p) ?? { documents: 0, values: 0, products: new Set() };
-      x.documents++;
-      x.values += d.gave.values ?? 0;
-      for (const id of c.documents.get(d.sid).grades) x.products.add(id);
-      publishers.set(p, x);
+    // The material's own gaps a reader is shown, less the list of rarely published properties (the same on every page:
+    // a tile or a table says "not published" where the reader looks) and the price's (Density and price says it).
+    const SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
+    const gaps = gapSplit(c.cov).gaps.filter((r) => shownGap(r) && !SAID_ELSEWHERE.has(r.domain));
+    if (!docs.length && !gaps.length) return { empty: true, html: '', stats: {} };
+    const parts = [];
+    if (docs.length) {
+      const dates = docs.map((d) => d.accessDate).filter(Boolean).sort();
+      const kinds = new Map();
+      for (const d of docs) kinds.set(sourceKind(d.s), (kinds.get(sourceKind(d.s)) ?? 0) + 1);
+      const kindList = [...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${fmtNumber(n)} ${(n === 1 ? KIND_ONE : KIND_MANY)[k] ?? k.toLowerCase()}`);
+      const publishers = new Map();
+      for (const d of docs) {
+        const p = d.s?.publisher ?? 'Publisher not named';
+        const x = publishers.get(p) ?? { documents: 0, values: 0, products: new Set() };
+        x.documents++;
+        x.values += d.gave.values ?? 0;
+        for (const id of c.documents.get(d.sid).grades) x.products.add(id);
+        publishers.set(p, x);
+      }
+      parts.push(para([`${plural(docs.length, 'document')} from ${plural(publishers.size, 'publisher')} (${andList(kindList)})${dates.length ? `, read ${daysWords(dates[0], dates.at(-1))}` : ''}.`,
+        `Each value on ${m.name}'s Products page names its document and page, and links to the original.`]));
+      const ranked = [...publishers].sort((a, b) => b[1].documents - a[1].documents || b[1].values - a[1].values || a[0].localeCompare(b[0]));
+      const rest = ranked.slice(PUBLISHERS);
+      parts.push(tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values</th><th scope="col" class="num">Products</th></tr></thead><tbody>`
+        + ranked.slice(0, PUBLISHERS).map(([p, x]) => `<tr><th scope="row">${esc(p)}</th><td class="num">${x.documents}</td><td class="num">${fmtNumber(x.values)}</td><td class="num">${x.products.size}</td></tr>`).join('')
+        + (rest.length ? `<tr class="apart"><td colspan="4">${esc(`and ${plural(rest.length, 'more publisher')}, with ${plural(rest.reduce((n, [, x]) => n + x.documents, 0), 'document')}`)}</td></tr>` : '')
+        + '</tbody></table>'));
     }
-    const ranked = [...publishers].sort((a, b) => b[1].documents - a[1].documents || b[1].values - a[1].values || a[0].localeCompare(b[0]));
-    const shown = ranked.slice(0, PUBLISHERS);
-    const rest = ranked.slice(PUBLISHERS);
-    const top = [...kinds].sort((a, b) => b[1] - a[1])[0];
-    // A date is never broken at its hyphens (U+2060, word joiner).
-    const day = (d) => String(d).replace(/-/g, '\u2060-\u2060');
-    const sheets = top?.[0] === 'Data sheet' ? (top[1] === docs.length ? ', all of them data sheets' : `, ${top[1]} of them data sheets`) : '';
-    const lead = [`${count(docs.length, 'document')} from ${count(publishers.size, 'publisher')}${sheets}${dates.length ? `, read between ${day(dates[0])} and ${day(dates.at(-1))}` : ''}.`,
-      'Every value traces to one of them, with its page and its test conditions.'];
-    const kindTable = tableBox(`<table class="grid kinds"><thead><tr><th scope="col">Kind of document</th><th scope="col" class="num">Documents</th></tr></thead><tbody>${[...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => `<tr><th scope="row">${esc(k)}</th><td class="num">${n}</td></tr>`).join('')}</tbody></table>`);
-    const pubTable = tableBox(`<table class="grid publishers"><thead><tr><th scope="col">Publisher</th><th scope="col" class="num">Documents</th><th scope="col" class="num">Values given</th><th scope="col" class="num">Products covered</th></tr></thead><tbody>${shown.map(([p, x]) => `<tr><th scope="row">${esc(p)}</th><td class="num">${x.documents}</td><td class="num">${x.values}</td><td class="num">${x.products.size}</td></tr>`).join('')}`
-      + `${rest.length ? `<tr class="apart"><td colspan="4">${esc(`And ${plural(rest.length, 'more publisher')}, with ${plural(rest.reduce((n, [, x]) => n + x.documents, 0), 'document')}.`)}</td></tr>` : ''}</tbody></table>`);
-    // What is on file, as the records page counts it: every measurement record, and those that carry a number.
-    const id = identity(c.m, c);
-    const inv = [
-      ['products', id.products, `${id.products === 1 ? 'product' : 'products'} from ${plural(id.makers, 'maker')}`],
-      ['measurements', c.ms.length, `measurement records, ${fmtNumber(c.summary.numericMeasurements)} with a number`],
-      ['profiles', c.profiles.length, c.profiles.length === 1 ? 'print profile' : 'print profiles'],
-      ['documents', c.documents.size, c.documents.size === 1 ? 'document' : 'documents'],
-    ];
-    const inventory = `<dl class="inventory">${inv.map(([k, n, words]) => `<div class="count"><dt>${esc(words)}</dt><dd data-count="${k}" data-n="${n}">${esc(fmtNumber(n))}</dd></div>`).join('')}</dl>`;
-    const html = `${findingsBlock(lead)}${inventory}<div class="split">${pubTable}${kindTable}</div>
-<p class="note">${recordsLink(c, '#documents', 'Every document, with what it covers and gave and a link to the original')}.</p>${gapHtml}`;
-    return { empty: false, html, stats: { documents: docs.length } };
+    if (gaps.length) parts.push(`${subhead('Known gaps', 'known-gaps')}<ul class="gaps">${gaps.map(gapItem).join('')}</ul>`);
+    if (docs.length) {
+      const sorted = [...docs].sort((a, b) => String(a.s?.publisher ?? '').localeCompare(String(b.s?.publisher ?? '')) || String(a.s?.title ?? '').localeCompare(String(b.s?.title ?? '')));
+      const item = (d) => {
+        const title = [d.s?.publisher, d.s?.title].filter(Boolean).join(', ') || 'Untitled document';
+        const link = d.original && !d.original.local ? `<a href="${esc(d.original.url)}" rel="noopener">${esc(title)}</a>` : esc(title);
+        const gave = gaveWords(d.gave);
+        const covers = d.covers.length && d.covers.length <= 3 ? `, for ${andList(d.covers)}` : d.covers.length > 3 ? `, for ${d.covers.length} products` : '';
+        return `<li class="doc" data-rec="${esc(d.sid)}">${link} <span class="doc-meta">${esc(`${sourceKind(d.s)}${d.accessDate ? `, read ${dayWords(d.accessDate)}` : ''}${gave.length ? `; gave ${andList(gave)}` : ''}${covers}`)}${d.original?.kind ? ` <span class="doc-kind">${esc(d.original.kind)}</span>` : ''}</span></li>`;
+      };
+      parts.push(`<details class="more docs" id="documents"><summary>${esc(`Every document (${fmtNumber(docs.length)})`)}</summary><ul class="doc-list">${sorted.map(item).join('')}</ul></details>`);
+    }
+    return { empty: false, html: parts.join('\n'), stats: { documents: docs.length, gaps: gaps.length } };
   },
 };

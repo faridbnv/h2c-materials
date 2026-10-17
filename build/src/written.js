@@ -26,15 +26,28 @@
 //   {key.typical}                             the product nearest the median, by name
 //   {key.label}                               the headline's name ("HDT at 0.45 MPa"; inside a sentence "tensile
 //                                             modulus (XY)" as the page writes it there)
+//   {nozzle.window} {bed.window}              the window most of its products give, as the page's On the H2C plate says
+//                                             it ("195–230 °C", or "at least 50 °C"; material-highlights.js settingWindow)
+//   {drying.schedule}                         the typical drying schedule of the products whose own or shared sheet gives
+//                                             one ("50 °C for 6 h"; material-highlights.js dryingSchedule)
+//   {zshare.tensileStrength}                  the median share of its flat value its products keep across the layers
+//                                             ("62 %"), and .tensileModulus, .elongation, .flexuralStrength,
+//                                             .flexuralModulus (material-highlights.js zShare)
 //
-// `key` is any HeadlineKey of headline_definitions.csv, the price included.
+// `key` is any HeadlineKey of headline_definitions.csv, the price included. The counts ({products}, {makers}, {values},
+// {profiles}) still fill, so older summaries build, but a summary that names one is a SUMMARY-COUNT lint finding: the
+// page's head says how many products and makers there are, and a summary says what the material is (pages reimagined,
+// 2026-10-17).
 
 import { productName } from './products.js';
+import { settingWindow, dryingSchedule, zShare, ZSHARE_PAIRS } from '../../app/js/ui/material-highlights.js';
 
 /** The counts a summary may name, as the page's masthead counts them. */
 export const COUNT_FIELDS = ['products', 'makers', 'values', 'profiles'];
 /** What a summary may ask of a headline. */
 export const HEADLINE_PARTS = ['median', 'min', 'max', 'q1', 'q3', 'range', 'n', 'products', 'typical', 'label'];
+/** The fields of how it prints and how it holds across the layers, each from the page's own display rules. */
+export const PRINT_FIELDS = ['nozzle.window', 'bed.window', 'drying.schedule', ...Object.keys(ZSHARE_PAIRS).map((k) => `zshare.${k}`)];
 
 /** A name inside a sentence: "tensile modulus (XY)", but "HDT at 0.45 MPa" keeps its capitals (app/js/ui/text.js inSentence). */
 const inSentence = (name) => (/^[A-Z][a-z]/.test(name) ? name.charAt(0).toLowerCase() + name.slice(1) : name);
@@ -66,7 +79,7 @@ function boundSign(interval) {
 export function fillContext(m, ix, registry) {
   const products = (ix.grades.get(m.id) ?? []).filter((g) => !g.retired && isProduct(g));
   return {
-    m,
+    m, products, msById: new Map((ix.measurements.get(m.id) ?? []).map((x) => [x.id, x])),
     counts: {
       products: products.length,
       makers: new Set(products.map((g) => g.manufacturer).filter(stated)).size,
@@ -96,11 +109,12 @@ export function fillField(field, fc) {
   const { m, counts, headlines } = fc;
   if (COUNT_FIELDS.includes(field)) return { parts: [{ field, value: counts[field] }] };
   if (field === 'name') return { parts: [{ text: m.name }] };
+  if (PRINT_FIELDS.includes(field)) return fillPrintField(field, fc);
   const at = field.indexOf('.');
   const key = at < 0 ? field : field.slice(0, at);
   const part = at < 0 ? null : field.slice(at + 1);
   const h = headlines.get(key);
-  if (!h) return { refused: `{${field}} names no field the build fills: a count (${COUNT_FIELDS.join(', ')}), name, or a headline key of headline_definitions.csv with .${HEADLINE_PARTS.join('|.')}` };
+  if (!h) return { refused: `{${field}} names no field the build fills: name, ${PRINT_FIELDS.map((f) => `{${f}}`).join(', ')}, or a headline key of headline_definitions.csv with .${HEADLINE_PARTS.join('|.')}` };
   if (!HEADLINE_PARTS.includes(part)) return { refused: `{${field}}: ${key} is a headline, and .${part ?? ''} is not one of what a summary may ask of it (.${HEADLINE_PARTS.join(', .')})` };
   if (part === 'label') return { parts: [{ text: fc.midSentence ? inSentence(h.labels.plain) : h.labels.plain }] };
   const s = m.summary?.[key];
@@ -134,6 +148,28 @@ export function fillField(field, fc) {
     }
     default: return { refused: `{${field}} is not a field the build fills` };
   }
+}
+
+/** A print window, a drying schedule or an across-the-layers share, as parts, or why it cannot be filled. */
+function fillPrintField(field, fc) {
+  const { products = [], msById = new Map(), gradeById = new Map(), m } = fc;
+  const [what, which] = field.split('.');
+  if (what === 'nozzle' || what === 'bed') {
+    const w = settingWindow(products, what);
+    if (!w) return { refused: `{${field}}: no product of ${m.name} gives a ${what} window` };
+    if (w.to == null) return { parts: [{ text: 'at least ' }, { field: `${field}.from`, value: w.from, unit: '°C' }] };
+    if (w.from === w.to) return { parts: [{ field: `${field}.from`, value: w.from, unit: '°C' }] };
+    return { parts: [{ field: `${field}.from`, value: w.from }, { text: '–' }, { field: `${field}.to`, value: w.to, unit: '°C' }] };
+  }
+  if (what === 'drying') {
+    const d = dryingSchedule(products);
+    if (!d) return { refused: `{${field}}: no product of ${m.name} gives a drying temperature on its own sheet or one it shares` };
+    return { parts: [{ field: `${field}.temp`, value: d.tempC, unit: '°C' }, ...(d.hours != null ? [{ text: ' for ' }, { field: `${field}.hours`, value: d.hours, unit: 'h' }] : [])] };
+  }
+  const pair = ZSHARE_PAIRS[which];
+  const s = pair ? zShare(products, pair[0], pair[1], msById, gradeById) : null;
+  if (!s) return { refused: `{${field}}: no product of ${m.name} publishes both its flat and its across-the-layers value from one sheet` };
+  return { parts: [{ field, value: Math.round(s.median * 100), unit: '%' }] };
 }
 
 /**

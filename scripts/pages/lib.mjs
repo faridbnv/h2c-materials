@@ -53,6 +53,7 @@ export function pageText(html) {
     .replace(/<(p|div|figcaption|table|caption|dt|dd|blockquote)\b[^>]*>/gi, '\n')
     .replace(/<[^>]+>/g, '');
   t = decode(t);
-  return t.split('\n').map((l) => l.replace(/[ \t\u00a0\u2060]+/g, ' ').trim()).filter((l, i, a) => l || (a[i - 1] ?? '') !== '')
+  // A closing span leaves a space; none stands before the punctuation that follows a filled number ("78 °C.").
+  return t.split('\n').map((l) => l.replace(/[ \t\u00a0\u2060]+/g, ' ').replace(/ ([,.;:!?)])(?=\s|$)/g, '$1').trim()).filter((l, i, a) => l || (a[i - 1] ?? '') !== '')
     .join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
 }

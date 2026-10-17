@@ -10,7 +10,8 @@
 // and with it the file, when its material has no page (app/js/ui/page-rule.js), already has a summary (or, with
 // --revise, has none), its Review status is not in schema/vocab/summary-status.csv, its date is not a date, a
 // placeholder cannot be filled (the build's own fill, build/src/written.js: SUMMARY-PLACEHOLDER), or the lint finds a
-// number typed by hand or a text fault in it (SUMMARY-NUMBER, TEXT-*). A summary outside 60 to 100 words is said, not
+// number typed by hand, a count of its products or makers, or a text fault in it (SUMMARY-NUMBER, SUMMARY-COUNT, TEXT-*).
+// A summary outside 40 to 75 words is said, not
 // refused. Rows go in through table-io (scripts/data/table-io.mjs); a revision names the cells it replaces, so a row
 // that changed since the file was written stops it. Then: npm run build, npm run data:diff.
 
@@ -65,7 +66,7 @@ for (const r of rows) {
   for (const reason of fillSummary(r.Summary ?? '', fillContext(m, ix, db.registry)).refusals) no(`SUMMARY-PLACEHOLDER ${reason}`);
   for (const f of findings.filter((x) => x.record === id)) no(`${f.code} ${f.field}: ${f.message}`);
   const words = String(r.Summary ?? '').replace(/\{[^{}]*\}/g, 'x').split(/\s+/).filter(Boolean).length;
-  if (words < 60 || words > 100) notes.push(`${id}: ${words} words (the checklist asks for 60 to 100)`);
+  if (words < 40 || words > 75) notes.push(`${id}: ${words} words (the checklist asks for 40 to 75)`);
 }
 
 for (const n of notes) console.log(`  note     ${n}`);

@@ -1,30 +1,48 @@
-// The material pages' renderer: a page per material the page rule admits (page-rule.js pageOf), its records page, and
-// the shared assets, as text, from the compiled database alone. Pure: no file is read or written here (the build's
-// stage 8 and scripts/pages/render.mjs do that), and nothing here decides anything. Every fact is material-facts.js's,
-// every word material-words.js's or labels.js's, every number format.js's.
+// The material pages' renderer (the pages reimagined, 2026-10-17): for each material the page rule admits
+// (page-rule.js pageOf) its Overview and its Products page, and a stub at its old records page's address; the index of
+// every material; the shared page on how the numbers are worked out (track B's method-page.js, where it has landed);
+// and the shared assets. Pure: no file is read or written here (the build's stage 8 and scripts/pages/render.mjs do
+// that), and nothing here decides anything. Every fact is material-facts.js's, every word material-words.js's,
+// findings.js's or labels.js's, every number format.js's or numbers.js's.
 //
-//   renderSite(db, env)                 → { files: [[path, text]], stats }   every page, its records page, the index,
-//                                         the assets
-//   renderMaterialPage(db, id, env)     → { path, html, stats }
-//   renderRecordsPage(db, id, env)      → { path, html, stats }
-//   renderIndexPage(db, env, ix)        → { path, html, stats }   index-page.js
+//   renderSite(db, env)                 → { files: [[path, text]], stats }   every page, its Products page and stub, the
+//                                         index, the method page, the assets
+//   renderMaterialPage(db, id, env)     → { path, html, stats }              the Overview
+//   renderProductsPage(db, id, env)     → { path, html, stats }              products/index.js
+//   renderStub(id, name, env)           → { path, html }                     stub.js
+//   renderIndexPage(db, env, ix)        → { path, html, stats }              index-page.js
 //   prepare(db)                         the registry, the H2C's limits and the environment labels, as main.js sets them
 //   pageEnv(db, options)                the env the renderer reads: { index, ranks, stamps, selectorHref, assets, links }
-//   buildAssets(input)                  → [[path, text]]   assets/pages.css (tokens, fonts, styles), page.js, licences
+//   buildAssets(input)                  → [[path, text]]   assets/pages.css (tokens, faces, the frame, the sections',
+//                                         the figures' and the Products page's styles), page.js, the licences
+//
+// A section (sections/index.js, track B) is `{ id, title, render(c, env, place) → { html, empty, stats } }`. A titled
+// one is wrapped here: <section id data-section> with its title as an h2, no number. A bare one (`bare: true`) writes
+// its own section; an untitled one (the masthead, the colophon) is placed as it is. One with nothing to say leaves the
+// page silently. The bar's list of sections is every titled one that renders, unless it says `menu: false`.
 
 import { useRegistry } from '../js/ui/registry.js';
 import { setH2cBaseline, setEnvironmentLabels } from '../js/ui/labels.js';
-import { indexDb, materialContext, rankTable, productNameOrId } from '../js/ui/material-facts.js';
-import { fmtNumber } from '../js/ui/format.js';
+import { indexDb, materialContext, rankTable, productNameOrId, identity, isProduct } from '../js/ui/material-facts.js';
 import { pageOf, PAGES_DIR } from '../js/ui/page-rule.js';
 import { SECTIONS } from './sections/index.js';
-import { RECORD_SECTIONS } from './records/index.js';
-import { tablesScript } from './tables-asset.js';
+import { productsScript } from './tables-asset.js';
 import { documentShell, BRAND } from './shell.js';
-import { esc, recordsHref, count } from './html.js';
-import { andList } from '../js/ui/material-words.js';
+import { esc, count, productsHref } from './html.js';
 import { selectorLink } from './sections/common.js';
 import { renderIndexPage } from './index-page.js';
+import { renderProductsPage } from './products/index.js';
+import { renderStub } from './stub.js';
+
+export { renderProductsPage, renderStub, renderIndexPage };
+
+// Track B's shared page on how the numbers are worked out: rendered once where its module has landed.
+let methodPage = null;
+try {
+  methodPage = await import('./method-page.js');
+} catch (e) {
+  if (e?.code !== 'ERR_MODULE_NOT_FOUND' || !String(e.message).includes('method-page.js')) throw e;
+}
 
 /** The module state every shared function reads, set from the database, every time a render starts (FACTS-API.md 1). */
 export function prepare(db) {
@@ -35,7 +53,7 @@ export function prepare(db) {
 
 /**
  * The renderer's env for a database: lookups, every material's medians, the stamps, the selector's file name and the
- * links every page's top bar and footer carry (the index's, which every page links to).
+ * links every page's bar carries (the index's).
  */
 export function pageEnv(db, { assets = null, selectorFile = null, links = {} } = {}) {
   const meta = db.meta;
@@ -51,116 +69,75 @@ export function pageEnv(db, { assets = null, selectorFile = null, links = {} } =
 
 /** The name of a page's file, relative to dist/: materials/M020.html. */
 const mainPath = (id) => `${PAGES_DIR}/${id}.html`;
-const recordsPath = (id) => `${PAGES_DIR}/${recordsHref(id)}`;
 
 /** Product names by ID, for the figures' tooltips (a classic script reads them; IDs never stand in a sentence). */
 const productNames = (c) => Object.fromEntries(c.grades.map((g) => [g.id, productNameOrId(g)]));
 
-/** What a section that has nothing on file is called in the "Not on file" line. */
-const ABSENT = {
-  printing: 'print settings', mechanical: 'mechanical values', thermal: 'thermal values', physical: 'physical values',
-  environment: 'statements on chemicals and environment', products: 'products', 'makers-say': 'maker statements', price: 'prices',
-  estimates: 'estimates', sources: 'documents',
-};
-
-/** A material's main page. */
+/** A material's Overview. */
 export function renderMaterialPage(db, id, env) {
   const c = materialContext(db, id, { showEstimates: true });
   if (!c) throw new Error(`renderMaterialPage: ${id} is not a material with a page`);
+  const m = c.m;
+  const ident = identity(m, c);
   const stats = { figures: 0, dots: 0, empty: [] };
-  const toc = [];
-  // A section with nothing on file leaves the page and the contents; one line before Sources says which they are. The
-  // written summary stays, empty or not: its absence is said where it would be.
-  const KEEP = new Set(['in-short']);
-  const absent = [];
-  const parts = [];
-  let n = 0;
-  for (const s of SECTIONS) {
-    const place = { n: s.title ? n + 1 : null };
-    const r = s.render(c, env, place);
-    if (r.empty) stats.empty.push(s.id);
-    if (s.title && r.empty && !KEEP.has(s.id)) { const w = r.absent ?? ABSENT[s.id] ?? s.title.toLowerCase(); if (w) absent.push(w); continue; }
+  const sections = [];
+  const parts = new Array(SECTIONS.length).fill('');
+  // The masthead names the sections it links to ("Printing in full"), so it renders after the others.
+  const order = SECTIONS.map((s, i) => [s, i]).sort((a, b) => (a[0].id === 'masthead') - (b[0].id === 'masthead'));
+  const rendered = new Set();
+  for (const [s, i] of order) {
+    const r = s.render(c, s.id === 'masthead' ? { ...env, hasPrinting: rendered.has('printing') } : env, { n: null });
+    if (r.empty) { stats.empty.push(s.id); continue; }
+    rendered.add(s.id);
     stats.figures += r.stats?.figures ?? 0;
     stats.dots += r.stats?.dots ?? 0;
-    if (!s.title) { parts.push({ id: s.id, html: `<section class="sec sec--${esc(s.id)}" data-section="${esc(s.id)}" data-empty="false">${r.html}</section>` }); continue; }
-    n++;
-    toc.push({ id: s.id, n, title: s.title, empty: r.empty });
-    parts.push({ id: s.id, html: `<section class="sec" id="${esc(s.id)}" data-section="${esc(s.id)}" data-empty="${r.empty ? 'true' : 'false'}" aria-labelledby="${esc(s.id)}-h">
-<div class="sec-head"><span class="sec-n">${n}</span><h2 id="${esc(s.id)}-h">${esc(s.title)}</h2></div>
+    if (!s.title || s.bare) { parts[i] = r.html; continue; }
+    parts[i] = `<section class="ov-sec" id="${esc(s.id)}" data-section="${esc(s.id)}" aria-labelledby="${esc(s.id)}-h">
+<h2 class="ov-h" id="${esc(s.id)}-h">${esc(r.title ?? s.title)}</h2>
 ${r.html}
-</section>` });
+</section>`;
   }
-  if (absent.length) {
-    const line = `<p class="not-on-file" data-absent="${esc(stats.empty.filter((x) => !KEEP.has(x)).join(' '))}"><b>${esc(`Not on file for ${c.m.name}:`)}</b> ${esc(`${andList(absent)}.`)} <a href="${esc(recordsHref(c.m.id))}">Every record on file</a>.</p>`;
-    const at = parts.findIndex((p) => p.id === 'sources' || p.id === 'footer');
-    parts.splice(at < 0 ? parts.length : at, 0, { id: 'absent', html: line });
-  }
-  const body = parts.map((p) => p.html).join('\n');
-  toc.push({ id: 'records-link', href: recordsHref(c.m.id), n: null, title: 'Every record', empty: false });
-  const m = c.m;
-  const selector = selectorLink(c, env);
+  for (const s of SECTIONS) if (s.title && rendered.has(s.id) && s.menu !== false) sections.push({ id: s.id, title: s.title });
+  const n = c.grades.filter(isProduct).length;
   const html = documentShell({
+    kind: 'overview',
     title: `${m.name}: ${BRAND}`,
-    description: `${m.name}${m.fullName && m.fullName !== m.name ? ` (${m.fullName})` : ''}: ${count(c.grades.length, 'product')}, ${count(c.summary.numericMeasurements, 'measured value')} and ${count(c.documents.size, 'document')}, for an engineer choosing a filament for the Bambu Lab H2C.`,
-    kind: 'material', materialId: m.id, stamps: env.stamps,
-    toc,
-    body: `${body}\n<p class="to-records" id="records-link"><a href="${esc(recordsHref(m.id))}">${esc(`Every record behind this page: ${count(c.ms.length, 'measurement')}, ${count(c.profiles.length, 'print profile')}, ${count(c.documents.size, 'document')} and the rest, each with its ID`)}</a></p>`,
+    description: `${m.name}${m.fullName && m.fullName !== m.name ? ` (${m.fullName})` : ''}: ${count(n, 'product')}, ${count(c.summary.numericMeasurements, 'measured value')} and ${count(c.documents.size, 'document')}, for an engineer choosing a filament for the Bambu Lab H2C.`,
+    stamps: env.stamps, material: m.id,
+    crumbs: [...(env.links?.index ? [{ href: env.links.index, words: 'Materials' }] : []), { href: `${m.id}.html`, words: ident.primary }],
+    sections: [{ id: 'top', title: 'Overview' }, ...sections],
+    tabs: { products: { href: productsHref(m.id), n }, index: env.links?.index ?? null },
+    returnHref: selectorLink(c, env),
+    body: parts.filter(Boolean).join('\n'),
     products: productNames(c),
-    links: { index: env.links?.index ?? null, selector, records: { href: recordsHref(m.id), words: 'Every record' } },
   });
   return { path: mainPath(id), html, stats };
 }
 
-/** A material's records page: every record behind its main page, raw, with its ID. */
-export function renderRecordsPage(db, id, env) {
-  const c = materialContext(db, id, { showEstimates: true });
-  if (!c) throw new Error(`renderRecordsPage: ${id} is not a material with a page`);
-  const m = c.m;
-  const counts = RECORD_SECTIONS.map((s) => ({ s, n: s.count(c) }));
-  const head = `<header class="mast mast--records">
-<p class="mast-back"><a href="${esc(`${id}.html`)}">${esc(`${m.name}, the material page`)}</a></p>
-<h1 class="mast-name">${esc(m.name)} <span class="mast-sub">every record</span></h1>
-<p class="mast-lede">${esc(`The records behind the ${m.name} page, as they are recorded: each value with the conditions and document it was read from, each print profile and statement in its document's own words, each with its ID for tracing it in the data tables.`)}</p>
-<dl class="mast-counts">${counts.map(({ s, n }) => `<div class="count"><dt><a href="#${esc(s.id)}">${esc(s.title)}</a></dt><dd data-count="${esc(s.id)}" data-n="${n}">${esc(fmtNumber(n))}</dd></div>`).join('')}</dl>
-</header>`;
-  const st = env.stamps;
-  const foot = `<footer class="foot">
-<p><a class="foot-link" href="${esc(`${id}.html`)}">${esc(`${m.name}, the material page`)}</a>${env.links?.index ? ` · <a href="${esc(env.links.index)}">Every material page</a>` : ''}</p>
-<p class="foot-fine" data-release="${esc(st.release)}">${esc(BRAND)}: release <span class="mono">${esc(st.release)}</span>, built <time>${esc(String(st.build).replace(/-/g, '⁠-⁠'))}</time>.</p>
-</footer>`;
-  const body = `<section class="sec sec--masthead" data-section="masthead" data-empty="false">${head}</section>\n${RECORD_SECTIONS.map((s) => s.render(c)).join('\n')}\n<section class="sec sec--footer" data-section="footer" data-empty="false">${foot}</section>`;
-  const html = documentShell({
-    title: `${m.name} records: ${BRAND}`,
-    description: `Every record behind the ${m.name} material page: measurements, print profiles, maker statements, environment statements, price listings, documents and review notes.`,
-    kind: 'records', materialId: m.id, stamps: env.stamps,
-    toc: counts.map(({ s, n }) => ({ id: s.id, n: null, title: s.title, empty: n === 0 })),
-    body,
-    links: { index: env.links?.index ?? null, page: { href: `${id}.html`, words: `${m.name} page` } },
-  });
-  return { path: recordsPath(id), html, stats: { rows: counts.reduce((k, x) => k + x.n, 0) } };
-}
-
 /**
  * The shared assets: assets/pages.css (the shared tokens, the embedded faces as data: URIs so a page opened from disk
- * keeps them, then the pages' own styles), assets/page.js and the font licences beside them. `input` is { tokensCss,
- * pagesCss, pageJs, tablesCss, tablesJs, fonts: [{ family, style, weight, base64 }], licences: [[name, text]] }, read by
- * the caller. tables.src.js follows page.js as tables-asset.js makes it.
+ * keeps them, then the frame, the sections', the figures' and the Products page's styles), assets/page.js (the frame's
+ * script, then the Products page's and the index's) and the font licences beside them. `input` is read by
+ * read-assets.js. While track B's or C's stylesheet has not landed, the old pages stylesheet stands in front of the
+ * frame for the sections and figures not yet restyled; the frame's rules come after it and win.
  */
 export function buildAssets(input) {
   const faces = input.fonts.map((f) => `@font-face {\n  font-family: "${f.family}";\n  font-style: ${f.style};\n  font-weight: ${f.weight};\n  font-display: swap;\n  src: url(data:font/woff2;base64,${f.base64}) format("woff2");\n}`).join('\n');
-  const css = `/* Filament Atlas material pages. Generated by app/pages/render.js from app/css/tokens.css, the faces in app/pages/assets/fonts\n   (SIL Open Font License 1.1, licences beside this file) and app/pages/assets/pages.src.css, then tables.src.css. Do not edit. */\n${input.tokensCss}\n${faces}\n${input.pagesCss}\n${input.tablesCss ?? ''}`;
+  const legacy = input.pagesCss && (!input.sectionsCss || !input.figuresCss) ? input.pagesCss : '';
+  const parts = [input.tokensCss, faces, legacy, input.frameCss, input.sectionsCss, input.figuresCss, input.productsCss].filter(Boolean);
+  const css = `/* Filament Atlas material pages. Generated by app/pages/render.js from app/css/tokens.css, the faces in app/pages/assets/fonts\n   (SIL Open Font License 1.1, licences beside this file), then app/pages/assets/frame.src.css, sections.src.css, figures.src.css\n   and products.src.css. Do not edit. */\n${parts.join('\n')}`;
   return [
     [`${PAGES_DIR}/assets/pages.css`, css],
-    [`${PAGES_DIR}/assets/page.js`, `${input.pageJs}\n${tablesScript(input.tablesJs)}`],
+    [`${PAGES_DIR}/assets/page.js`, `${input.pageJs}\n${productsScript(input.productsJs)}`],
     ...input.licences.map(([name, text]) => [`${PAGES_DIR}/assets/${name}`, text]),
   ];
 }
 
 /**
- * Every page: for each material the page rule admits (or those named in `env.only`), its main page and its records
- * page; the index of them all (index-page.js), which lists every material whether it was rendered or not; and the
- * assets where `env.assets` holds them (snapshot and tests pass null). Returns the files, relative to dist/, and what
- * each weighs.
+ * Every page: for each material the page rule admits (or those named in `env.only`), its Overview, its Products page
+ * and the stub at its old records page's address; the index of them all, which lists every material whether it was
+ * rendered or not; the method page; and the assets where `env.assets` holds them (snapshot and tests pass null).
+ * Returns the files, relative to dist/, and what each weighs.
  */
 export function renderSite(db, env) {
   prepare(db);
@@ -171,12 +148,17 @@ export function renderSite(db, env) {
   const pages = [];
   for (const id of ids) {
     const main = renderMaterialPage(db, id, env);
-    const records = renderRecordsPage(db, id, env);
-    files.push([main.path, main.html], [records.path, records.html]);
-    pages.push({ id, bytes: main.html.length, recordsBytes: records.html.length, ...main.stats, rows: records.stats.rows });
+    const products = renderProductsPage(db, id, env);
+    const stub = renderStub(id, ix.materialById.get(id).name, env);
+    files.push([main.path, main.html], [products.path, products.html], [stub.path, stub.html]);
+    pages.push({ id, bytes: main.html.length, recordsBytes: products.html.length, productsBytes: products.html.length, ...main.stats, rows: products.stats.rows });
   }
   const index = renderIndexPage(db, env, ix);
   files.push([index.path, index.html]);
+  if (typeof methodPage?.renderMethodPage === 'function') {
+    const method = methodPage.renderMethodPage(db, env);
+    if (method?.path && method.html != null) files.push([method.path, method.html]);
+  }
   if (env.assets) files.push(...buildAssets(env.assets));
-  return { files, stats: { pages: ids.length, recordsPages: ids.length, index: index.stats, perPage: pages } };
+  return { files, stats: { pages: ids.length, recordsPages: ids.length, productsPages: ids.length, index: index.stats, perPage: pages } };
 }

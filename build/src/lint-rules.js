@@ -45,6 +45,7 @@ export const LINT_RULES = {
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same open status; an older finding may have been overtaken by a newer one. Resolved rows are closed events and may stand side by side.',
   'SUMMARY-NUMBER': 'A written summary (material_summaries.csv) states a number by hand: a value, a temperature, a count in figures, or a count of its products, makers, values or documents spelled out ("three makers"). A number in a summary is the data\'s, written as a placeholder the build fills ({hdt045.median}, {products}, {hdt045.label} for a headline\'s name), or it is said without a number (D142). A standard (ISO 527-2, ASTM D638, UL 94 V-0) and a name with a figure in it (PA6, H2C, AMS 2 Pro, 3D printing, a material\'s, product\'s or maker\'s own name) are not numbers.',
+  'SUMMARY-COUNT': 'A written summary (material_summaries.csv) counts the material\'s products, makers, values or profiles: a count placeholder ({products}, {makers}, {values}, {profiles}) or a count of products or makers in figures or words ("195 products", "three makers"). The page\'s head says how many products and makers there are, and its evidence line how well documented the material is; a summary says what the material is, what it is sold for, how it behaves and the one thing to know printing it (pages reimagined, 2026-10-17). Re-word it without the count.',
   'HEADLINE-FAMILY-UNLISTED': 'A headline limited to named families leaves out a family with candidate materials that nobody named: a new rigid family would have no heat deflection at all, and no warning. Name the family in Applies to, or accept with why the headline means nothing for it (an elastomer, D56).',
 };
 
@@ -171,6 +172,14 @@ export function summaryNumbers(text, names) {
   const found = [...t.matchAll(/[A-Za-z]*\d[\d.,]*(?:\s?(?:%|°C|°F|°|MPa|GPa|kJ\/m²|J\/m|kg\/m³|g\/cm³|mm|µm|h|min|CAD\/kg|CAD|kg|g)(?![A-Za-z]))?/g)].map((x) => x[0].replace(/[.,]+$/, '').trim());
   const spelled = [...String(text ?? '').replace(PLACEHOLDER, ' ').matchAll(SPELLED_COUNT)].map((x) => x[0].trim());
   return [...new Set([...found, ...spelled])];
+}
+
+/** A summary's counts of its own products, makers, values or profiles: their placeholders, and counts typed in figures or words. */
+const COUNT_PLACEHOLDER = /\{\s*(?:products|makers|values|profiles)\s*\}/g;
+const TYPED_COUNT = new RegExp(`\\b(?:\\d[\\d,]*|${NUMBER_WORDS})\\s+(?:[A-Za-z-]+\\s+)?(?:products?|makers?|manufacturers?)\\b`, 'gi');
+export function summaryCounts(text) {
+  const t = String(text ?? '');
+  return [...new Set([...t.matchAll(COUNT_PLACEHOLDER), ...t.replace(COUNT_PLACEHOLDER, ' ').matchAll(TYPED_COUNT)].map((x) => x[0].trim()))];
 }
 
 export function lintData(tables, schemas) {
@@ -606,6 +615,8 @@ export function lintData(tables, schemas) {
     for (const r of summaries) {
       const found = summaryNumbers(r.Summary, names);
       if (found.length) add('SUMMARY-NUMBER', 'material_summaries', r.MaterialID, 'Summary', found.map((x) => JSON.stringify(x)).join(', '));
+      const counts = summaryCounts(r.Summary);
+      if (counts.length) add('SUMMARY-COUNT', 'material_summaries', r.MaterialID, 'Summary', counts.map((x) => JSON.stringify(x)).join(', '));
     }
   }
   return findings;

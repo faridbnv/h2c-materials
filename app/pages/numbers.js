@@ -21,3 +21,25 @@ export function fmtPage(v, unit) {
 
 /** A span of two numbers that never breaks at its dash (U+2060), or one number where both are one. */
 export const spanText = (lo, hi) => (lo === hi ? fmtPage(lo) : `${fmtPage(lo)}⁠–⁠${fmtPage(hi)}`);
+
+/**
+ * A value as the Overview and its figures print it (display only; the Products page prints values exactly as published):
+ * whole degrees for °C; whole dollars from 10 CAD/kg; whole per cent from 10 %; otherwise three significant figures, with
+ * thousands grouped (1,240) and very large or small numbers as fmtPage writes them. No unit is appended: `fmtDisplay(v,
+ * unit)` reads the unit for its rule only. "—" for a value that is not a number.
+ */
+export function fmtDisplay(v, unit) {
+  if (v === null || v === undefined || !Number.isFinite(v)) return '—';
+  const a = Math.abs(v);
+  if (a && (a >= 1e6 || a < 1e-3)) return fmtPage(v);
+  if (unit === '°C') return fmtNumber(Math.round(v) || 0);
+  if ((unit === 'CAD/kg' || unit === '%') && a >= 10) return fmtNumber(Math.round(v));
+  const p = Number(v.toPrecision(3));
+  return Math.abs(p) >= 1000 ? p.toLocaleString('en-CA', { maximumFractionDigits: 0 }) : String(p);
+}
+
+/** fmtDisplay with its unit: "45.5 MPa", "55 °C", "34 CAD/kg". */
+export const fmtDisplayUnit = (v, unit) => (unit ? `${fmtDisplay(v, unit)} ${unit}` : fmtDisplay(v, unit));
+
+/** A display span: "40–53" (word-joined dash), one number where both print alike. */
+export const spanDisplay = (lo, hi, unit) => { const a = fmtDisplay(lo, unit), b = fmtDisplay(hi, unit); return a === b ? a : `${a}⁠–⁠${b}`; };

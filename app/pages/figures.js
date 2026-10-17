@@ -58,3 +58,46 @@ export const MAKER_TOPICS = {
 
 /** The tests the strength section tabulates flat (XY) against across the layers (Z): comparison names (registry.comparisons). */
 export const LAYER_TESTS = ['Tensile tests, XY and Z', 'Flexural tests, XY and Z'];
+
+// ------------------------------------------------------------------ the five figures (pages-reimagined round)
+
+/**
+ * The columns of "Against its alternatives" (charts/peers.js) and, in this order, the first screen's key figures: each a
+ * registry headline key, its column title and the line under it.
+ */
+export const PEER_COLUMNS = [
+  { key: 'tensileModulusXY', title: 'Modulus (XY)', sub: 'tensile · GPa' },
+  { key: 'tensileStrengthXY', title: 'Strength (XY)', sub: 'tensile · MPa' },
+  { key: 'tensileStrengthZ', title: 'Strength (Z)', sub: 'across layers · MPa' },
+  { key: 'charpyNotched', title: 'Notched Charpy', sub: 'impact · kJ/m²' },
+  { key: 'hdt045', title: 'HDT', sub: 'at 0.45 MPa · °C' },
+  { key: 'priceCADkg', title: 'Price', sub: 'CAD/kg' },
+];
+
+/** The two maps of "Among all materials" (charts/map.js): y against x, each a registry headline key. */
+export const MAP_PANELS = [
+  { x: 'tensileModulusXY', y: 'tensileStrengthXY' },
+  { x: 'priceCADkg', y: 'hdt045' },
+];
+
+/** The product strips each section draws (charts/strips.js stripsFigure), by the figure's id. */
+export const STRIP_SETS = {
+  mechanical: ['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY', 'charpyNotched', 'izodNotched'],
+  thermal: ['hdt045', 'hdt18', 'glassTransition'],
+  'density-price': ['density', 'priceCADkg'],
+};
+
+/** The pairs of "Across the layers" (charts/layers.js): flat (XY) and across the layers (Z), by registry key. */
+export const LAYER_PAIRS = [
+  { xy: 'tensileStrengthXY', z: 'tensileStrengthZ', title: 'Tensile strength', word: 'strength' },
+  { xy: 'tensileModulusXY', z: 'tensileModulusZ', title: 'Tensile modulus', word: 'stiffness' },
+  { xy: 'elongationXY', z: 'elongationZ', title: 'Elongation at break', word: 'elongation' },
+];
+
+export { peersFigure } from './charts/peers.js';
+export { mapsFigure } from './charts/map.js';
+export { stripsFigure } from './charts/strips.js';
+export { layersFigure } from './charts/layers.js';
+export { temperaturesFigure } from './charts/temperatures.js';
+export { miniSpread } from './charts/mini.js';
+export { peerSet } from '../js/ui/material-stats.js';

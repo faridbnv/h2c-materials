@@ -125,3 +125,142 @@ export function materialMapPlot({ context, self, xUnit, yUnit, xTitle, yTitle, w
     + `<div class="sc-x">${esc(xTitle)}${xs.log ? ', log scale' : ''}</div></div>`;
   return { html, xLog: xs.log, yLog: ys.log, off };
 }
+
+// ================================================================== "Among all materials" (pages-reimagined round)
+//
+// Two maps of every material's median (figures.js MAP_PANELS: tensile strength against tensile modulus, the Ashby chart;
+// HDT at 0.45 MPa against price, cost against heat resistance), on frames that are the same on every page of a kind
+// (rigid or flexible: material-stats.js mapFrame), so a reader learns them once. Every other material a small grey
+// point; the alternatives (peerSet) larger, in ink, named; this material's median a ring-edged accent dot with its
+// products' middle halves as a cross, and its products (both values compared, not modified) as pale accent points.
+// Where it publishes the two only with no stated orientation, a hollow ring marks those values. x in per cent, y in px.
+
+import { mapFrame } from '../../js/ui/material-stats.js';
+import { spreadEntries } from '../../js/ui/material-facts.js';
+import { MAP_PANELS } from '../figures.js';
+import { figFrame } from './figure.js';
+import { headline, shortName, withUnit, spanUnit, products as productsWord, andList, orList, inText, figContext, KEY, keyOf, twinTable, fmtDisplay, fitLabels } from './kit.js';
+import { isFlexible, materialCell } from '../../js/ui/material-stats.js';
+
+const MAP_H = 280;
+const WIDE = 460, NARROW = 300;
+
+/** The places beside a point, in px: right, left, above, below, then the diagonals. */
+const PLACES = [[8, 4, 'start'], [-8, 4, 'end'], [0, -9, 'middle'], [0, 17, 'middle'], [8, -8, 'start'], [-8, -8, 'end'], [8, 15, 'start'], [-8, 15, 'end']];
+
+/** Where each name goes on a plot `w` px wide: the first place clear of the plot's edge, the blocked boxes and the names before. */
+function placeNames(items, w, blocked, fixed = null) {
+  const boxes = blocked(w);
+  return items.map((it, i) => {
+    const tw = textPx(it.text, it.self ? 12.5 : 11.5) + 2;
+    const order = fixed ? (fixed[i] == null ? [] : [fixed[i]]) : PLACES.map((_, k) => k);
+    const k = order.find((j) => {
+      const [dx, dy, a] = PLACES[j];
+      const x = (it.at / 100) * w + dx;
+      const x0 = a === 'start' ? x : a === 'end' ? x - tw : x - tw / 2;
+      const b = [x0, it.y + dy - 11, x0 + tw, it.y + dy + 3];
+      if (b[0] < 0 || b[2] > w || b[1] < 0 || b[3] > MAP_H) return false;
+      if (boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1])) return false;
+      boxes.push(b);
+      return true;
+    });
+    return k ?? null;
+  });
+}
+
+function mapPanel(c, k, { x: xKey, y: yKey }) {
+  const m = c.m;
+  const hx = headline(xKey), hy = headline(yKey);
+  const { points, xs, ys } = mapFrame(k.db, k.ranks, xKey, yKey, isFlexible(m));
+  if (!xs || !hx || !hy) return null;
+  const X = (v) => xs.pct(v), Y = (v) => yOf(ys, v, MAP_H);
+  const o = [];
+  for (const t of xs.ticks) o.push(`<line class="dv-grid" x1="${pct(X(t))}" x2="${pct(X(t))}" y1="0" y2="${MAP_H}"/>`);
+  for (const t of ys.ticks) o.push(`<line class="dv-grid" x1="0" x2="100%" y1="${Y(t)}" y2="${Y(t)}"/><text x="-6" y="${(Y(t) + 4).toFixed(1)}" text-anchor="end">${esc(fmtDisplay(t, ''))}</text>`);
+  o.push(`<line class="dv-axis" x1="0" x2="100%" y1="${MAP_H + 0.5}" y2="${MAP_H + 0.5}"/>`);
+  // The x labels, thinned at a laptop's and a phone's width.
+  const xl = xs.ticks.map((t) => ({ t: fmtDisplay(t, ''), at: X(t) })).map((it) => ({ ...it, w: textPx(it.t, 11.5), anchor: it.at >= 99.5 ? 'end' : it.at <= 0.5 ? 'start' : 'middle' }));
+  const fits = fitLabels(xl, WIDE), fitsN = fitLabels(xl, NARROW);
+  xl.forEach((it, i) => { if (fits[i]) o.push(`<text x="${pct(it.at)}" y="${MAP_H + 15}" text-anchor="${it.anchor}"${fitsN[i] ? '' : ' class="alt"'}>${esc(it.t)}</text>`); });
+  const peerIds = new Set(k.peers.map((p) => p.id));
+  const hooks = (id, name, vx, vy) => ` data-mat="${esc(id)}" data-name="${esc(name)}" data-key="${esc(yKey)}" data-v="${vy}" data-xkey="${esc(xKey)}" data-xv="${vx}" data-t="${esc(`${withUnit(vx, hx.unit)}, ${withUnit(vy, hy.unit)}`)}"`;
+  for (const p of points) {
+    if (p.id === m.id || peerIds.has(p.id)) continue;
+    o.push(`<circle class="dv-ctx cx" cx="${pct(X(p.x))}" cy="${Y(p.y)}" r="2.6"${hooks(p.id, shortName(p.m), p.x, p.y)}/>`);
+  }
+  // This material's products with both values compared, then its medians.
+  const ex = new Map(spreadEntries(m, c, xKey).filter((e) => e.v.level === 'comparable' && !e.variant).map((e) => [e.g.id, e]));
+  const prods = spreadEntries(m, c, yKey).filter((e) => e.v.level === 'comparable' && !e.variant && ex.has(e.g.id));
+  for (const e of prods) {
+    const vx = ex.get(e.g.id).v.value, vy = e.v.value;
+    o.push(`<circle class="mk dv-selfprod" cx="${pct(X(vx))}" cy="${Y(vy)}" r="2.8" data-grade="${esc(e.g.id)}" data-key="${esc(yKey)}" data-v="${vy}" data-xkey="${esc(xKey)}" data-xv="${vx}" data-kind="compared" data-t="${esc(`${withUnit(vx, hx.unit)}, ${withUnit(vy, hy.unit)}`)}"/>`);
+  }
+  const cx = materialCell(m, xKey), cy = materialCell(m, yKey);
+  const labels = [];
+  const blocks = [];
+  let self = 'none';
+  if (cx?.kind === 'compared' && cy?.kind === 'compared') {
+    self = 'compared';
+    if (cx.q1 != null) { o.push(`<line class="dv-cross" x1="${pct(X(cx.q1))}" x2="${pct(X(cx.q3))}" y1="${Y(cy.median)}" y2="${Y(cy.median)}"/>`); blocks.push((w) => [(X(cx.q1) / 100) * w - 2, Y(cy.median) - 3, (X(cx.q3) / 100) * w + 2, Y(cy.median) + 3]); }
+    if (cy.q1 != null) { o.push(`<line class="dv-cross" x1="${pct(X(cx.median))}" x2="${pct(X(cx.median))}" y1="${Y(cy.q3)}" y2="${Y(cy.q1)}"/>`); blocks.push((w) => [(X(cx.median) / 100) * w - 3, Y(cy.q3) - 2, (X(cx.median) / 100) * w + 3, Y(cy.q1) + 2]); }
+    o.push(`<circle class="dv-selfdot cx" cx="${pct(X(cx.median))}" cy="${Y(cy.median)}" r="5.5"${hooks(m.id, shortName(m), cx.median, cy.median)} data-self=""/>`);
+    labels.push({ text: shortName(m), at: X(cx.median), y: Y(cy.median), self: true });
+  } else if (cx && cy) {
+    self = 'open';
+    const vx = cx.kind === 'compared' ? cx.median : (cx.min + cx.max) / 2, vy = cy.kind === 'compared' ? cy.median : (cy.min + cy.max) / 2;
+    o.push(`<circle class="dv-selfopen cx" cx="${pct(X(vx))}" cy="${Y(vy)}" r="5.5"${hooks(m.id, shortName(m), vx, vy)} data-self="" data-kind="as-published"/>`);
+    labels.push({ text: `${shortName(m)}, as published`, at: X(vx), y: Y(vy), self: true });
+  }
+  const shown = [];
+  for (const p of k.peers) {
+    const px = p.headline?.[xKey]?.known ? p.headline[xKey].value : null, py = p.headline?.[yKey]?.known ? p.headline[yKey].value : null;
+    if (px == null || py == null) continue;
+    shown.push(p);
+    o.push(`<circle class="dv-peerdot cx" cx="${pct(X(px))}" cy="${Y(py)}" r="4"${hooks(p.id, shortName(p), px, py)} data-alt="1"/>`);
+    labels.push({ text: shortName(p), at: X(px), y: Y(py), id: p.id });
+  }
+  const blocked = (w) => [...labels.map((l) => [(l.at / 100) * w - 6, l.y - 6, (l.at / 100) * w + 6, l.y + 6]), ...blocks.map((f) => f(w))];
+  const wide = placeNames(labels, WIDE, blocked), narrow = placeNames(labels, NARROW, blocked, wide);
+  labels.forEach((l, i) => {
+    if (wide[i] == null) return;
+    const [dx, dy, a] = PLACES[wide[i]];
+    o.push(`<text class="dv-maplab${l.self ? ' dv-maplab--self' : ''}${narrow[i] == null && !l.self ? ' alt' : ''}" x="${pct(l.at)}" y="${(l.y + dy).toFixed(1)}" dx="${dx}" text-anchor="${a}"${l.id ? ` data-mat="${esc(l.id)}"` : ''}>${esc(l.text)}</text>`);
+  });
+  const lacks = [!cx ? inText(hx) : null, !cy ? inText(hy) : null].filter(Boolean);
+  const html = `<div class="mp-panel" data-key="${esc(yKey)}" data-xkey="${esc(xKey)}"><p class="mp-title">${esc(`${hy.labels.plain} against ${inText(hx)}`)}</p>`
+    + (self === 'none' ? `<p class="mp-y">${esc(`${shortName(m)} publishes no ${orList(lacks)}; its alternatives are named.`)}</p>` : '')
+    + `<p class="mp-y">${esc(`${hy.unit}${ys.log ? ', log scale' : ''}`)}</p><div class="mp-plot"><svg class="mp-svg" width="100%" height="${MAP_H + 20}" role="img" aria-label="${esc(`${hy.labels.plain} against ${inText(hx)}: every material's median as a point; ${shortName(m)} and its alternatives ${andList(shown.map(shortName))} named.`)}">${o.join('')}</svg></div>`
+    + `<p class="mp-x">${esc(`${hx.labels.plain}, ${hx.unit}${xs.log ? ', log scale' : ''}`)}</p></div>`;
+  return { html, self, points: points.length, hx, hy, cx, cy, xKey, yKey, prods: prods.length, lacks };
+}
+
+export function mapsFigure(c, env = {}, opts = {}) {
+  const k = figContext(c, env);
+  const m = c.m;
+  const panels = MAP_PANELS.map((pnl) => mapPanel(c, k, pnl)).filter(Boolean);
+  if (!panels.some((p) => p.self !== 'none')) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
+  const name = shortName(m);
+  const kind = isFlexible(m) ? 'flexible' : 'rigid';
+  const n = new Set(MAP_PANELS.flatMap((pnl) => [...(k.ranks[pnl.x]?.entries ?? []), ...(k.ranks[pnl.y]?.entries ?? [])].map((e) => e.id))
+    .filter((id) => { const x = k.db.materials.find((mm) => mm.id === id); return x && isFlexible(x) === isFlexible(m); })).size;
+  const anyProducts = panels.some((p) => p.prods);
+  const anyOpen = panels.some((p) => p.self === 'open');
+  const key = keyOf([KEY.selfDot(name), ...(anyProducts ? [KEY.selfProduct(name)] : []), ...(anyOpen ? [KEY.open()] : []), KEY.peerDot(), KEY.context()]);
+  const rows = [m, ...k.peers].map((r) => [shortName(r) + (r === m ? ' (this material)' : ''), ...panels.flatMap((p) => [p.xKey, p.yKey].map((key) => {
+    const x = materialCell(r, key);
+    const u = headline(key).unit;
+    return !x ? '—' : x.kind === 'open' ? `${spanUnit(x.min, x.max, u)} as published` : `${withUnit(x.median, u)} · ${x.n}`;
+  }))]);
+  const head = ['Material', ...panels.flatMap((p) => [p.hx, p.hy].map((h) => h.labels.plain))];
+  const lacks = [...new Set(panels.flatMap((p) => p.lacks))];
+  const leaves = lacks.length ? `${name} publishes no ${orList(lacks)} with a stated orientation or test, so it is not placed on that map.` : '';
+  const html = figFrame({
+    slug: opts.id ?? 'among-materials', kind: 'maps',
+    title: `Where ${name} sits among the ${n} ${kind} materials on file`,
+    question: 'Where is it in the landscape: stiffness against strength, heat resistance against price?',
+    key, plot: `<div class="mp">${panels.map((p) => p.html).join('')}</div>`, label: null,
+    read: `Grey points are every other ${kind} material's medians, on frames that are the same on every ${kind} material's page; the alternatives are named.`,
+    table: twinTable(head, rows), leaves, method: 'maps',
+  });
+  return { html, empty: false, stats: { figures: 1, dots: panels.reduce((t, p) => t + p.points + p.prods, 0) } };
+}

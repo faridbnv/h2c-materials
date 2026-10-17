@@ -141,15 +141,24 @@ milestone.
    a sample of 20, applied with `pages:add-summaries --revise`, all as drafts for the owner.
 4. **Review**: a fresh Opus reviewer who has seen no version reads the rendered pages as an engineer (PLA, PETG, PPS-CF,
    PCTG-GF, their Products pages, the hub; laptop and phone; light and dark) and scores them against the owner's bar
-   and each line of the critique above; target 85 of 100. One fix pass by the owning tracks.
+   and each line of the critique above; target 85 of 100. It also checks, as the owner asked on 2026-10-17, the
+   **alignment** (columns, baselines, numbers on their decimal point or right edge, labels to their marks, plates and
+   figures to one grid, nothing a few pixels off), the **tables** (headers, units, widths, wrapping, scanning a row,
+   sorting, the phone's form) and the **visual eye flow** (where the eye lands first on each screen, whether it moves
+   from the answer to the detail in reading order, what competes for attention, white space and rhythm between
+   sections), besides the words, figures, navigation, the return trip, links, thin pages, dark mode and print. One fix
+   pass by the owning tracks.
 5. **Close** (D): INTERFACE "The material pages", D145, ARCHITECTURE, AGENTS' summary recipe, GOALS-LOG, OPEN-PROBLEMS
    §37; `npm run snapshot`, `ui:check -- --write`, `verify` green and `verify:fast` within 90 s; commit on this branch
    and ask the owner before a pull request.
 
-## Questions for the owner (not blocking)
+## Questions for the owner, answered on 2026-10-17
 
-1. **A link from the selector to the hub.** Recommended: one quiet *All material pages* link at the foot of the
-   selector's material search; it reverses part of D142. Until answered, the hub is reached from any page's bar.
-2. **The page rule counts products, not independent sheets** (PCTG-GF's three products rest on two sheets).
-   Recommended: keep it now, and revisit when the data next grows by a third.
-3. **The alternatives rule's picks** (PLA: PLA-CF, PLA-GF, PETG, PLA blend, ABS) are listed in `pages.csv` for a read.
+The owner took the three recommendations, "careful that they serve the high level constraints and goals of the tool":
+
+1. **A link from the selector to the hub**: one quiet *Material pages* link in the selector's status bar, beside the
+   release, carrying the selection like the drawer's *Full page*. It amends D142's "only the drawer links to a page".
+2. **The page rule** stays as it is (products, not independent sheets); revisit when the data next grows by a third.
+3. **The alternatives** are listed in `pages.csv` for a read. To serve the goal (filaments the H2C can print), an
+   alternative is never a material beyond the H2C's limits, also on such a material's own page, where the alternatives
+   are what could be printed instead.

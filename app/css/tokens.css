@@ -22,8 +22,10 @@
   --fail: #a32b1f;      --fail-bg: #fae8e6;
   --unknown: #8a6100;   --unknown-bg: #fbf0da;
   --indet: #24568f;     --indet-bg: #e6eefa;
-  /* A product its maker sells as toughened (D133): a maker's claim, not a verdict, so none of the verdict colours. */
-  --claim: #7d3c86;     --claim-bg: #f4e8f5;
+  /* A product its maker sells as toughened (D133): a maker's claim, not a verdict, so none of the verdict colours. An
+     orange since 2026-10-17 (D145): the purple read as the accent to a deuteranope; this passes the colour-vision checks
+     against the accent in both themes. */
+  --claim: #b4540a;     --claim-bg: #fbeee3;
 
   --radius: 7px;
   /* The raised selection inside a segmented control, and the frame's panels. */
@@ -42,7 +44,7 @@
     --fail: #f08a7d; --fail-bg: #3a1a16;
     --unknown: #e0b458; --unknown-bg: #352a10;
     --indet: #85b4ea; --indet-bg: #16283f;
-    --claim: #d895e0; --claim-bg: #33203a;
+    --claim: #d4732f; --claim-bg: #3a2414;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
   }
 }
@@ -55,6 +57,6 @@
   --fail: #f08a7d; --fail-bg: #3a1a16;
   --unknown: #e0b458; --unknown-bg: #352a10;
   --indet: #85b4ea; --indet-bg: #16283f;
-  --claim: #d895e0; --claim-bg: #33203a;
+  --claim: #d4732f; --claim-bg: #3a2414;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
 }

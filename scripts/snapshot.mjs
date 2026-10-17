@@ -27,7 +27,8 @@
 //                                   an as-printed state without the annealed value the table shows
 //   build/snapshot/pages.csv       every listed material's page: whether it has one and, where it has none, what it falls
 //                                   short on; its products, values, makers and documents; the sections, figures and
-//                                   dots drawn; the size of the page and of its records page (D142)
+//                                   dots drawn; the size of the Overview and of its Products page (D142, D145); the
+//                                   five alternatives the page compares it with
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -44,6 +45,7 @@ import { TEMPLATES } from '../app/js/ui/templates.js';
 import { activeProducts, statusCounts } from './lib/status-counts.mjs';
 import { renderSite, pageEnv } from '../app/pages/render.js';
 import { indexDb, materialContext, identity } from '../app/js/ui/material-facts.js';
+import { peerSet } from '../app/js/ui/material-stats.js';
 import { pageOf, pageFacts, shortOf } from '../app/js/ui/page-rule.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -195,13 +197,16 @@ const pageRows = (() => {
     const c = materialContext(db, m.id, { showEstimates: true });
     const p = perPage.get(m.id);
     const html = path ? text.get(path) : null;
-    const records = path ? text.get(path.replace(/\.html$/, '-records.html')) : null;
+    const products = path ? text.get(path.replace(/\.html$/, '-products.html')) : null;
     return { MaterialID: m.id, Material: m.name, Page: path ?? '', Why: path ? '' : shortOf(m, ms),
       Products: pageFacts(m, ms).products, Values: pageFacts(m, ms).values,
       Makers: identity(m, c).makers, Documents: c.documents.size,
       Sections: html ? [...html.matchAll(/data-section="([^"]+)"/g)].map((x) => x[1]).join(' ') : '',
       Figures: p?.figures ?? '', Dots: p?.dots ?? '', RecordsRows: p?.rows ?? '',
-      KB: html ? kb(html) : '', RecordsKB: records ? kb(records) : '', Summary: m.written?.status ?? 'none' };
+      KB: html ? kb(html) : '', ProductsKB: products ? kb(products) : '', Summary: m.written?.status ?? 'none',
+      // The five materials a page compares this one with (material-stats.js peerSet, D145): display only, listed so the
+      // rule's picks can be read and every change to them shows in a diff.
+      Alternatives: path ? peerSet(db, m, ix, { max: 5 }).map((x) => x.name).join('; ') : '' };
   });
 })();
 

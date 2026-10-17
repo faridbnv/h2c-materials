@@ -2,7 +2,7 @@
 // Renders material pages into dist/materials/ from dist/db.json, for working on their design: the build's stage 8
 // (step 3) renders every page itself.
 //
-//   npm run pages -- M020 M001 M110                     those materials' pages and records pages, and the assets
+//   npm run pages -- M020 M001 M110                     those materials' Overviews and Products pages, and the assets
 //   npm run pages -- --all                              every material the page rule admits (page-rule.js pageOf)
 //   npm run pages -- M001 --out <dir>                   into <dir>/materials/ instead of dist/materials/, so several
 //                                                       people working on the design at once do not overwrite each other
@@ -69,13 +69,13 @@ for (const [path, text] of files) {
 const kb = (n) => `${(n / 1024).toFixed(1)} KB`;
 const show = (list) => list.forEach((s) => console.log(`  ${s.path.padEnd(36)} ${kb(s.bytes).padStart(11)} ${kb(s.gzip).padStart(11)} gz`));
 const mains = sizes.filter((s) => /\/M\d+\.html$/.test(s.path)).sort((a, b) => b.bytes - a.bytes);
-const records = sizes.filter((s) => /-records\.html$/.test(s.path)).sort((a, b) => b.bytes - a.bytes);
+const records = sizes.filter((s) => /-products\.html$/.test(s.path)).sort((a, b) => b.bytes - a.bytes);
 const assets = sizes.filter((s) => s.path.includes('/assets/'));
 const median = (xs) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[s.length >> 1] : 0; };
-console.log(`Rendered ${stats.pages} material pages and ${stats.recordsPages} records pages in ${(ms / 1000).toFixed(2)} s.`);
-console.log(`Main pages (${mains.length}), largest first:`); show(all ? mains.slice(0, 5) : mains);
+console.log(`Rendered ${stats.pages} Overviews and ${stats.recordsPages} Products pages in ${(ms / 1000).toFixed(2)} s.`);
+console.log(`Overviews (${mains.length}), largest first:`); show(all ? mains.slice(0, 5) : mains);
 if (all) console.log(`  median ${kb(median(mains.map((s) => s.bytes)))}, ${kb(median(mains.map((s) => s.gzip)))} gz; all ${kb(mains.reduce((n, s) => n + s.bytes, 0))}`);
-console.log(`Records pages (${records.length}), largest first:`); show(all ? records.slice(0, 5) : records);
+console.log(`Products pages (${records.length}), largest first:`); show(all ? records.slice(0, 5) : records);
 if (all) console.log(`  median ${kb(median(records.map((s) => s.bytes)))}, ${kb(median(records.map((s) => s.gzip)))} gz; all ${kb(records.reduce((n, s) => n + s.bytes, 0))}`);
 console.log('Assets:'); show(assets);
 console.log(`Set: ${kb(sizes.reduce((n, s) => n + s.bytes, 0))}, ${kb(sizes.reduce((n, s) => n + s.gzip, 0))} gz, in ${outRoot ? out : 'dist/materials/'}.`);

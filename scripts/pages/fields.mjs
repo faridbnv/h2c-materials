@@ -6,10 +6,12 @@
 //   npm run pages:fields -- M020 --json     the same as JSON
 //
 // It asks build/src/written.js, the build's own fill, of every field, so what it lists is what the build will accept and
-// what it refuses is a SUMMARY-PLACEHOLDER error. Values are shown as the page prints them (format.js fmtNumber); the
+// what it refuses is a SUMMARY-PLACEHOLDER error. The counts fill too, but a summary that names one is a SUMMARY-COUNT
+// lint finding; they are listed apart, for reference. Values are shown as the page prints them (format.js fmtNumber); the
 // parts the build stores keep the raw number. It reads dist/db.json (built first where it is stale) and writes nothing.
 
-import { fillField, fillContext, indexForFill, COUNT_FIELDS, HEADLINE_PARTS } from '../../build/src/written.js';
+import { fillField, fillContext, indexForFill, COUNT_FIELDS, HEADLINE_PARTS, PRINT_FIELDS } from '../../build/src/written.js';
+import { printWindows } from '../../app/js/ui/material-stats.js';
 import { fmtNumber } from '../../app/js/ui/format.js';
 import { pageOf } from '../../app/js/ui/page-rule.js';
 import { loadDb } from './lib.mjs';
@@ -26,9 +28,13 @@ const fc = fillContext(m, indexForFill(db), db.registry);
 const shown = (parts) => parts.map((p) => (p.field ? `${p.bound ? `${p.bound} ` : ''}${fmtNumber(p.value)}${p.unit ? ` ${p.unit}` : ''}` : p.text)).join('');
 const ask = (field) => { const r = fillField(field, fc); return r.refused ? { field, refused: r.refused } : { field, shows: shown(r.parts) }; };
 
+// How many products a window rests on, said beside it: a summary should not give one sheet's window as the material's.
+const windowNote = (axis) => { const pw = printWindows(fc.products, axis); return pw.n === 1 ? `one product's window${pw.ends.length ? `; ${pw.ends.length} more give one end only` : ''}` : pw.n ? `${pw.every ? 'all' : 'most'} of the ${pw.n} products that give one` : 'a lowest setting only'; };
 const out = {
   material: m.id, name: m.name, release: db.meta.release?.id ?? null, page: pageOf(m, db.measurements.filter((x) => x.materialId === m.id)),
-  fields: [...COUNT_FIELDS, 'name'].map(ask),
+  fields: ['name'].map(ask),
+  printing: PRINT_FIELDS.map((f) => { const a = ask(f); return /^(nozzle|bed)\./.test(f) && !a.refused ? { ...a, note: windowNote(f.split('.')[0]) } : a; }),
+  counts: COUNT_FIELDS.map((f) => ({ ...ask(f), note: 'not in a summary (SUMMARY-COUNT): the page\'s head says it' })),
   headlines: db.registry.headlines.map((h) => {
     const parts = HEADLINE_PARTS.map((p) => ask(`${h.key}.${p}`));
     return { key: h.key, label: h.labels.plain, fillable: parts.filter((p) => !p.refused), refused: parts.filter((p) => p.refused) };
@@ -41,6 +47,10 @@ if (args.includes('--json')) {
   console.log(`${m.name} (${m.id}): the fields its summary can fill, from release ${out.release}${out.page ? '' : '. It has no page, so it takes no summary'}.`);
   console.log('Write a number only as one of these placeholders; the build fills it.\n');
   for (const f of out.fields) console.log(`  {${f.field}}`.padEnd(34) + (f.refused ?? f.shows));
+  console.log('\nPrinting and across the layers');
+  for (const f of out.printing) console.log(`  {${f.field}}`.padEnd(34) + (f.refused ? `not fillable (${f.refused.replace(/^\{[^}]+\}:?\s*/, '')})` : `${f.shows}${f.note ? `   (${f.note})` : ''}`));
+  console.log('\nCounts, never in a summary (SUMMARY-COUNT)');
+  for (const f of out.counts) console.log(`  {${f.field}}`.padEnd(34) + (f.refused ?? f.shows));
   for (const h of out.headlines) {
     console.log(`\n${h.label} (${h.key})`);
     for (const f of h.fillable) console.log(`  {${f.field}}`.padEnd(34) + f.shows);

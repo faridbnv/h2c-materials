@@ -34,5 +34,14 @@ export const jsonIsland = (id, value) => `<script type="application/json" id="${
 /** A data table inside its own sideways scroll box, so a wide table never scrolls the page on a phone. */
 export const tableBox = (html, cls = '') => `<div class="table-box${cls ? ` ${cls}` : ''}">${html}</div>`;
 
-/** The records page of a material, and an anchor on it. */
+/**
+ * The records page of a material, and an anchor on it. Since the pages were reimagined (2026-10-17) it is a stub that
+ * sends an old link on to where its record lives now (stub.js): the Products page, or the Overview's Sources.
+ */
 export const recordsHref = (id, anchor = '') => `${id}-records.html${anchor}`;
+
+/** A material's Products page, and an anchor on it ('#G001-01' opens that product's card, '#V000050' a value in it). */
+export const productsHref = (id, anchor = '') => `${id}-products.html${anchor}`;
+
+/** A material's Overview page. */
+export const overviewHref = (id, anchor = '') => `${id}.html${anchor}`;

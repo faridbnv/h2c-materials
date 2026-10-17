@@ -284,21 +284,29 @@ only there is Drawer only TRUE, which keeps it out of the rail, the table, the c
 must be a measurement headline naming a comparison, Estimated and Table column FALSE, with no lower bound or reference
 property (REGISTRY-COMPARISON, D139); a value with no stated orientation is drawn hollow and counted apart (D140).
 
-**Write or revise a material's summary.** A material with a page has one row of `material_summaries.csv` (D142): a
-paragraph of 60 to 100 words for the engineer reading its page, saying what it is, what makers sell it for, how it
-prints on the H2C and behaves in service, and what is thinly published, every claim one its page states (`npm run
-pages:text -- M020`). It types no number: each is a placeholder the build fills, and the checklist (D142) asks for at most two (`npm run pages:fields --
-M020` lists them with their values: `{products}`, `{hdt045.median}`, `{hdt045.label}` for a name with a figure in it),
-so the summary moves with the data. It compares the material with no other (the page's first screen does that), uses no
-superlative or verdict, says a maker's statement as the maker's and the Bambu Lab Filament Guide's or the resin data's
-as theirs, and lists in Notes the release it read and the sections each claim rests on. Write the rows to a CSV with the
-table's columns, then `npm run pages:add-summaries -- rows.csv --check` and without `--check` (`--revise` replaces a
-row, naming what it replaces): it refuses the whole file for a material with no page, a placeholder the build cannot
-fill (SUMMARY-PLACEHOLDER) or a number typed by hand (SUMMARY-NUMBER), and notes a length outside 60 to 100 words
-without refusing it (it counts neither the numbers nor the claims: the judge does). `pages:fields` and `pages:text`
-build first where `dist/db.json` is stale. Written by names who wrote it (an agent as
-"Claude Sonnet (agent)"), and Review status starts at draft; the owner sets reviewed by the owner or revise, in batches
-(the reviewed rows through `pages:add-summaries -- rows.csv --revise`), since each change makes a new release. A data change that leaves a placeholder with nothing to fill stops the build with
+**Write or revise a material's summary.** A material with a page has one row of `material_summaries.csv` (D142): the
+lede of its Overview, what an engineer would tell a colleague in twenty seconds. Three or four sentences, 40 to 75 words,
+no semicolons: what it is in engineering terms and what makers sell it for; how it behaves in service; and the one
+thing that decides how it prints on the H2C (a hardened nozzle, drying, chamber heat, a plate), or the main limitation
+its makers state. The page's head already gives its products and makers, its six key figures and how well documented it
+is, so a summary never counts products, makers or values (SUMMARY-COUNT refuses `{products}`, `{makers}`, `{values}`,
+`{profiles}` and "195 products", "three makers"), never says what is not published or not ranked, never says where a
+count was read ("many by the Bambu Lab Filament Guide"), never compares the material with another (the first figure
+does that), and uses no superlative or verdict. Every claim is one its page states (`npm run pages:text -- M020`); a
+maker's statement is the maker's ("a maker sells it for…"), and the Bambu Lab Filament Guide's or the resin data's are
+theirs. It types no number: each is a placeholder the build fills, at most two (`npm run pages:fields -- M020` lists
+them with their values: `{hdt045.median}`, `{hdt045.label}` for a name with a figure in it, `{nozzle.window}`,
+`{bed.window}`, `{drying.schedule}`, `{zshare.tensileStrength}`; never a window one product gives as the material's), so
+the summary moves with the data; a filled number prints as plain words. Notes list the release it read and the sections
+each claim rests on. Write the rows to a CSV with the table's columns, then `npm run pages:add-summaries -- rows.csv
+--check` and without `--check` (`--revise` replaces a row, naming what it replaces): it refuses the whole file for a
+material with no page, a placeholder the build cannot fill (SUMMARY-PLACEHOLDER), a number typed by hand
+(SUMMARY-NUMBER) or a count (SUMMARY-COUNT), and notes a length outside 40 to 75 words without refusing it.
+`pages:fields` and `pages:text` build first where `dist/db.json` is stale; `pages:text` reads the pages in
+`dist/materials/`, so render them first (`npm run pages -- --all`) after a change to the pages' code. Written by names
+who wrote it (an agent as "Claude Sonnet (agent)"), and Review status starts at draft; the owner sets reviewed by the
+owner or revise, in batches (the reviewed rows through `pages:add-summaries -- rows.csv --revise`), since each change
+makes a new release. A data change that leaves a placeholder with nothing to fill stops the build with
 SUMMARY-PLACEHOLDER naming the material and the field: re-word the summary, never fill the number by hand. One that
 takes a material below the page rule leaves its row standing, and `pages:check` (P12) then fails: nothing is deleted,
 so the owner decides whether the row waits for the page to return.

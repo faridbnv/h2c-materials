@@ -11,9 +11,10 @@
 
 import { REGISTRY } from './registry.js';
 import { h2cLimit, materialName } from './labels.js';
-import { isProduct, dotMarks, rankOf } from './material-facts.js';
+import { isProduct, dotMarks, rankOf, materialContext, spreadEntries, shareOf } from './material-facts.js';
 import { rowSummary } from './print-spread.js';
 import { stripScale } from './scales.js';
+import { pageOf } from './page-rule.js';
 
 /** A summary `{ n, median, q1, q3, min, max }` of plain numbers, on the build's rule (quartiles from four values). */
 export const summarise = (values) => rowSummary(values.map((value) => ({ value, origin: 'own', variant: false })));
@@ -332,3 +333,135 @@ export function heatLadder(m, c, extra = []) {
 
 /** The products of a material (no reference grades). */
 export const productsOf = (c) => c.grades.filter(isProduct);
+
+// ------------------------------------------------------------------ the alternatives, and comparing with them
+
+const known = (m, key) => (m.headline?.[key]?.known ? m.headline[key].value : null);
+const fibreOf = (m) => !!m.facets?.fibre?.value;
+const flexibleOf = (m) => !!m.facets?.flexible?.value;
+const supportOf = (m) => !!m.facets?.supportMaterial?.value || String(m.family ?? '').startsWith('Support');
+const esdOf = (m) => !!m.facets?.esd?.value;
+const byProducts = (a, b) => (b.gradeIds?.length ?? 0) - (a.gradeIds?.length ?? 0) || a.name.localeCompare(b.name);
+
+/** Whether a material is drawn among the flexible ones (its own frame on the maps, its own alternatives). */
+export const isFlexible = flexibleOf;
+
+/**
+ * The materials an engineer weighs this one against, by rule (display only; nothing is chosen by hand and nothing here
+ * decides): of the materials with a page (page-rule.js pageOf), leaving out special classes (materials[].variantClass:
+ * silk, particle-filled), support materials, ESD grades, and flexible with rigid (facets.flexible): up to two of the same
+ * base polymer (materials[].basePolymer), the other fibre state first (facets.fibre), then by products; the two with the
+ * most products of the same fibre state whose median HDT at 0.45 MPa lies within the larger of 20 °C and 20 % of this
+ * one's (its glass transition where it has no HDT); the one with the most products above that window; filled to `max` by
+ * the nearest HDT. A material with neither (the flexible ones) takes its own polymer's, then the most documented. Never a
+ * material beyond the H2C's limits (materials[].excluded), on any page. Deterministic: every tie is broken by name. `ix` is
+ * material-facts.js indexDb(db). Returns the materials, in that order.
+ */
+export function peerSet(db, m, ix, { max = 5 } = {}) {
+  const hasPage = (x) => !x.familyEntry && !!pageOf(x, ix.measurementsByMaterial.get(x.id) ?? []);
+  // Never a material beyond the H2C's limits (materials[].excluded), on any page, an excluded material's own included:
+  // the alternatives are what an engineer could print on the H2C instead.
+  const pool = db.materials.filter((x) => x.id !== m.id && hasPage(x) && !x.excluded && !x.variantClass && !supportOf(x) && flexibleOf(x) === flexibleOf(m) && !esdOf(x));
+  const same = pool.filter((x) => x.basePolymer === m.basePolymer)
+    .sort((a, b) => (fibreOf(a) === fibreOf(m)) - (fibreOf(b) === fibreOf(m)) || byProducts(a, b)).slice(0, 2);
+  // Heat resistance places the others: HDT at 0.45 MPa, or the glass transition where this material has no HDT.
+  const prop = known(m, 'hdt045') != null ? 'hdt045' : known(m, 'glassTransition') != null ? 'glassTransition' : null;
+  const others = pool.filter((x) => !same.includes(x) && x.basePolymer !== m.basePolymer && fibreOf(x) === fibreOf(m));
+  const out = [...same];
+  if (prop) {
+    const h = known(m, prop);
+    const rated = others.filter((x) => known(x, prop) != null);
+    const win = Math.max(20, 0.2 * Math.abs(h));
+    out.push(...rated.filter((x) => Math.abs(known(x, prop) - h) <= win).sort(byProducts).slice(0, 2));
+    out.push(...rated.filter((x) => known(x, prop) > h + win && !out.includes(x)).sort(byProducts).slice(0, 1));
+    const near = rated.filter((x) => !out.includes(x)).sort((a, b) => Math.abs(known(a, prop) - h) - Math.abs(known(b, prop) - h) || a.name.localeCompare(b.name));
+    for (const x of near) { if (out.length >= max) break; out.push(x); }
+  }
+  // Where heat places too few, the most documented of the rest.
+  for (const x of others.filter((o) => !out.includes(o)).sort(byProducts)) { if (out.length >= max) break; out.push(x); }
+  return out.slice(0, max);
+}
+
+/**
+ * One material's value of one key property, as the pages draw it: `{ kind: 'compared', median, q1, q3, min, max, n }`
+ * from materials[].headline[key] (a measured median, never an estimate) and materials[].summary[key] (quartiles from four
+ * products); else `{ kind: 'open', min, max, n }` from summary[key].asPublished (values with no stated orientation or load,
+ * not compared); else null.
+ */
+export function materialCell(m, key) {
+  const e = m.headline?.[key], s = m.summary?.[key] ?? {};
+  if (e?.known) {
+    const sp = e.spread ?? {};
+    return { kind: 'compared', median: e.value, q1: s.q1 ?? sp.q1 ?? null, q3: s.q3 ?? sp.q3 ?? null,
+      min: s.min ?? sp.min ?? e.value, max: s.max ?? sp.max ?? e.value, n: s.n ?? sp.n ?? 1 };
+  }
+  if (s.asPublished?.n) return { kind: 'open', min: s.asPublished.min, max: s.asPublished.max, n: s.asPublished.n };
+  return null;
+}
+
+/**
+ * Z as a share of XY over a material's products (material-facts.js shareOf, on headlines `a` and `b`, registry
+ * headline objects): `{ share (the median), n, shares }`, or null where no product publishes both from one sheet. `c` may
+ * be passed for the material's own context; another material's is built.
+ */
+export function layerShareOf(db, mat, a, b, c = null) {
+  const cc = c ?? materialContext(db, mat.id, { showEstimates: true });
+  const byKey = new Map([a, b].map((h) => [h.key, spreadEntries(mat, cc, h.key)]));
+  const shares = shareOf(a, b, byKey, cc);
+  return shares ? { share: summarise(shares).median, n: shares.length, shares } : null;
+}
+
+/**
+ * Which key property's products spread most: the largest q3 / q1 among `keys` with four compared products or more
+ * (materials[].summary[key]), as `{ key, q1, q3, n, ratio }`, or null.
+ */
+export function widestSpread(m, keys) {
+  let best = null;
+  for (const key of keys) {
+    const s = m.summary?.[key];
+    if (!s || (s.n ?? 0) < 4 || !(s.q1 > 0) || s.q3 == null) continue;
+    const ratio = s.q3 / s.q1;
+    if (!best || ratio > best.ratio) best = { key, q1: s.q1, q3: s.q3, n: s.n, ratio };
+  }
+  return best;
+}
+
+/**
+ * Where this material's median stands against its alternatives' on each key: `{ high: [keys], low: [keys] }`, a key
+ * counted only where three materials or more have a median and this one leads (or trails) the next by 5 % (3 °C for a
+ * temperature), as compareMedians calls two values the same.
+ */
+export function peerContrast(m, peers, keys) {
+  const out = { high: [], low: [] };
+  for (const key of keys) {
+    const h = REGISTRY.allHeadlines.find((x) => x.key === key);
+    const own = known(m, key);
+    if (!h || own == null) continue;
+    const vals = [own, ...peers.map((p) => known(p, key)).filter((v) => v != null)].sort((a, b) => b - a);
+    if (vals.length < 3) continue;
+    const clear = (a, b) => (h.unit === '°C' ? a - b >= 3 : a >= b * 1.05);
+    if (vals[0] === own && clear(own, vals[1])) out.high.push(key);
+    if (vals.at(-1) === own && clear(vals.at(-2), own)) out.low.push(key);
+  }
+  return out;
+}
+
+/**
+ * The frame of a map of every material's median of `yKey` against `xKey` (material-facts.js rankTable `ranks`), one per
+ * kind (rigid or flexible, facets.flexible), the same on every page of that kind: the scale rule over the kind's medians,
+ * and, on a logarithmic axis, without the two furthest out at each end where the axis stays logarithmic, so a few far-off
+ * materials (a modulus of 0.005 GPa) do not set it; they are drawn pinned to its edge. A linear axis holds every material. `{ points: [{ id, m, x, y }], xs, ys }`, `xs` and
+ * `ys` stripScale results.
+ */
+export function mapFrame(db, ranks, xKey, yKey, flexible = false) {
+  const unitOf = (key) => REGISTRY.allHeadlines.find((h) => h.key === key)?.unit;
+  const byId = new Map(db.materials.map((m) => [m.id, m]));
+  const xs0 = new Map((ranks?.[xKey]?.entries ?? []).map((e) => [e.id, e.value]));
+  const ys0 = new Map((ranks?.[yKey]?.entries ?? []).map((e) => [e.id, e.value]));
+  const points = [...xs0.keys()].filter((id) => ys0.has(id) && flexibleOf(byId.get(id)) === flexible)
+    .map((id) => ({ id, m: byId.get(id), x: xs0.get(id), y: ys0.get(id) }));
+  if (!points.length) return { points, xs: null, ys: null };
+  const trim = (vs) => (vs.length > 8 ? [...vs].sort((a, b) => a - b).slice(2, -2) : vs);
+  const frame = (vs, unit) => { const all = stripScale(vs, unit); if (!all.log) return all; const t = stripScale(trim(vs), unit); return t.log ? t : all; };
+  return { points, xs: frame(points.map((p) => p.x), unitOf(xKey)), ys: frame(points.map((p) => p.y), unitOf(yKey)) };
+}

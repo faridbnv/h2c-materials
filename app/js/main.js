@@ -690,6 +690,8 @@ function pushHash() {
 let openRequirements = () => {};
 
 function wireChrome() {
+  // The material pages' index opens in this tab with the selection as it is now, as the drawer's Full page does (D145).
+  document.getElementById('pages-link').addEventListener('click', (e) => { e.currentTarget.href = `materials/index.html?from=${toHash(state.scenario)}`; });
   document.getElementById('search').addEventListener('input', (e) => {
     state.search = e.target.value; recompute(); renderCount(); renderLens();
   });
@@ -1053,6 +1055,27 @@ function renderScenario(host) {
 
 // ------------------------------------------------------------------ start
 
+// A chosen product's note and test results travel in a saved file, not in the link (D103). A trip to a material page
+// and back in this tab reloads the selector from its link, so they are kept for the tab (sessionStorage) and given back
+// to the same chosen product, in the same state, when it returns (D145). Nothing else is kept, and a new tab starts empty.
+const NOTES_KEY = 'atlas-decision-notes';
+function keepDecisionNotes() {
+  try {
+    const kept = JSON.parse(sessionStorage.getItem(NOTES_KEY) ?? '[]');
+    for (const d of state.scenario.decisions ?? []) {
+      const k = kept.find((x) => x.gradeId === d.gradeId && (x.stateId ?? null) === (d.stateId ?? null));
+      if (k && !d.note && !d.tests?.length) { d.note = k.note ?? null; d.tests = Array.isArray(k.tests) ? k.tests : []; }
+    }
+  } catch { /* private mode, or nothing kept */ }
+  window.addEventListener('pagehide', () => {
+    try {
+      const notes = (state.scenario.decisions ?? []).filter((d) => d.note || d.tests?.length)
+        .map((d) => ({ gradeId: d.gradeId, stateId: d.stateId ?? null, note: d.note ?? null, tests: d.tests ?? [] }));
+      sessionStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+    } catch { /* private mode */ }
+  });
+}
+
 (async function start() {
   try { const t = localStorage.getItem('h2c-theme'); if (t) document.documentElement.dataset.theme = t; } catch { /* ignore */ }
 
@@ -1071,6 +1094,7 @@ function renderScenario(host) {
     linkProblem = err.message;
   }
   hydrate(fromLink?.scenario ?? newScenario(db.meta));
+  keepDecisionNotes();
 
   // Provenance matters, but not more than the results: it sits at the end of the status bar, and the full record is in
   // the Scenario panel, which already carried it.

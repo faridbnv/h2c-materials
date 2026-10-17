@@ -33,11 +33,12 @@ const FORMAT = 'h2c-pages 1';
 
 const sha256 = (s) => createHash('sha256').update(s).digest('hex');
 
-/** The budget a file is held to, by its path relative to dist/: a main page or the index, a records page, an asset. */
+/** The budget a file is held to, by its path relative to dist/: an Overview, the index or the method page, a Products page, a records stub, an asset. */
 function budgetOf(path) {
   if (path.endsWith('/assets/pages.css')) return { kind: 'stylesheet', ...PAGE_BUDGET.css };
   if (path.endsWith('/assets/page.js')) return { kind: 'script', ...PAGE_BUDGET.script };
-  if (path.endsWith('-records.html')) return { kind: 'records page', ...PAGE_BUDGET.records };
+  if (path.endsWith('-products.html')) return { kind: 'Products page', ...PAGE_BUDGET.products };
+  if (path.endsWith('-records.html')) return { kind: 'records stub', ...PAGE_BUDGET.records };
   if (path.endsWith('.html')) return { kind: 'page', ...PAGE_BUDGET.main };
   return null;
 }
