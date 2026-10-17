@@ -180,6 +180,18 @@ npm run sql --silent -- "select count(*), count(distinct sourceid) from measurem
 
 ---
 
+- **Where the profile readers' rule is a policy, not a spelling** (the reader sweep of 2026-10-17, D141; the readers'
+  gaps it found were fixed, m420). The enclosure reader has no rule for "not mandatory", "open-frame compatible" or a
+  "Yes" answering an open-frame question, so its catch-all reads them as recommended while reviewers typed the same
+  words not-needed under D33: G151-01's P0994 is recommended and P1304 (same text, reviewed) not-needed; so P0883,
+  P0088 against P1285, P0090 against P1283, P0169, P1282, P1733 and P1734. The hardened-nozzle reader reads prose that
+  accepts a stainless nozzle as hardened required (P1664, P1805, P1842, P1829, P0499, P0528, P1662) where a "Hardened
+  Steel / Stainless Steel" list deliberately reads no answer, and "wears brass faster" as a requirement (P0158, P0113,
+  P0899, P0886, P0869, P1682, P1259; P1680 and P1245 "for large objects"). The drying reader reads "once opened for a
+  while it is advised to dry" (P1808, P1810) and "depending on moisture" (P0117) as required where QIDI's "if opened for
+  a long time" reads optional. Each wants a decision on what the words mean for the gate, then one rule; none is a
+  misread of a number.
+
 ### 13. Makers' know-how: what the reading left, and where it may be wrong
 
 Found by re-center lane 3 (m140, 2026-09-25), which recorded 4,502 statements in the makers' words on 888 products
@@ -636,6 +648,12 @@ Quarantined (Data status "Unresolved unit / layout"): kept with the reason, neve
   as a Vicat, a neighbouring row's value under a row that prints "-".
 - **A unit the sheet misprints** (m407): Polymaker PolyFlex TPU95's 33.6 MPa under "Tensile strain" and its elongation
   of 551.2 "MPa", and Eryone's elongation printed "MPa 3".
+- **A print cell that states what no printer does** (2026-10-17, D141): iSANMATE TPU's bed "30 -500 ºC" (P0050, G039-02,
+  I-TPU-TDS). The parser used to drop the 500 silently; now it reads it, and the typed window is held at the 30 the cell
+  states under a review until the page is read again (its host is denied to the session that found it; the cell most
+  likely slipped from a "30-50"). PROCESS-WINDOW-IMPLAUSIBLE names it on every build. Beside it, two nozzle-diameter
+  cells: P0982 (G076-03) holds the filament's "1.75mm" where its Locator says "Diameter", and P1617 prints "≥0.04mm",
+  most likely 0.4; neither has a typed column, and the drawer shows the cell's words.
 
 ```bash
 npm run sql --silent -- "select measurementid, materialid, property, raw_value from measurements
@@ -659,6 +677,11 @@ npm run sql --silent -- "select measurementid, materialid, property, raw_value f
 
 Each was read again from its page images in the reader round (2026-10-04, D125): every one stands as its sources print
 it, so none could be corrected from the page, and each still waits on what its row names.
+
+**Not a coverage row, recorded here (m421, D141):** V012429, Spectrum's portfolio prints G129-01's heat deflection as
+134 °C "method=A" (ISO 75 method A, 1.80 MPa), and the product's own sheet prints 134 °C at 0.45 MPa. The load is typed
+from the portfolio's own words, 1.8 MPa, so the value stands on the 1.8 MPa row; one of the two documents is wrong, and
+the pages decide which.
 
 C01110 (ABS: a PLA Pure listing, CA0069, filed under ABS) is resolved: the listing is filed under PLA Pure (G001-183)
 since m233, once the price pass gave that grade listings of its own. C01136 (Fiberon PET-GF15's chamber) is resolved:
@@ -1342,6 +1365,34 @@ each class it named across the whole table (the record: `sweep/README.md`). Stil
   J/m (5.7 J/m on PET CF15): recorded as printed, never compared with kJ/m² values (D94).
 - **The values beyond |z| 3 the 200 did not reach** stay in `v_measurement_z` (560 of the 671 the query lists on
   2026-10-07, 405 of 530 on 2026-09-27; the rest are the sweep's own); EST-GRADE-OUTLIER raises the worst of them at grade level.
+
+- **What the reader sweep of 2026-10-17 found and did not fix** (D141; m421 fixed the heat-deflection loads). Each
+  typed column was written from its reader, so a reader's gap is invisible to PARSE-MISMATCH; these are the gaps an
+  agent found by re-running each reader with its filters loosened, each to be corrected on its page or by a reader that
+  learns the spelling, never by hand from this list:
+  - *Ranges and spreads the Raw value column holds and nothing reads.* V000506 (G025-01) "190--220" is the point 190;
+    V015015 (G114-02) "21 - 25 g/10min" is 21 though its Notes say "Range 21 - 25"; V015336 (G027-43) "2.9 - 2.7" and
+    V015337 (G035-24) "3.0 - 2.8" store the upper bound below the value and collapse to it; V007622 (G048-02) "103.2 MPa"
+    carries an upper bound of 18.2 the cell never states (its grade's Z value, V002466). Seventeen rows of G091-02
+    (V015037 to V015054) print "±" (for example "2514.6±71.1 MPa") with Raw uncertainty ± Not applicable, five of them
+    headlines. A standard deviation printed in brackets after the value is not carried on 430 rows (119 of G098-06,
+    G165-04 and G165-05 whose Notes say the bracket is the deviation; 311 of Stratasys's sheets, G027-42, G027-44,
+    G031-33, G035-23, G051-11, G052-R1, G081-07, G094-09, G099-08), where V001862 and V002006 carry it and D54 relies on it.
+  - *Standards the reader does not know.* "ISO 52 7, GB/T 1040" reads as ISO 52 (V006925, V006993, V007002, V007061);
+    "IS O 179" (V002055) reads as none; UL 746 / 746B (20 rows), ANSI ESD S11.11 (6), JIS K (8 rows of G167-14, among
+    them V014446, "JIS K 7110", G167-14's notched Izod headline, which passes the headline's ISO 180 filter only because
+    its standard is unread; JIS K 7110 is aligned with ISO 180) and DIN 16742 / 16901 (12 rows; in seven the only
+    standard typed is ISO 3167, the specimen standard) are typed Not published; GB/T 1040.2, 1043.1, 1033.1 and 1634.2
+    (26 rows) do not group with their family.
+  - *Annealing and test temperature.* V006277 (G020-05) is located "HDT 0,45 MN/m2, wyżarzone" (Polish: annealed) with
+    Post-processing Not published, and is G020-05's 0.45 MPa headline (63 °C), which keeps annealed values out; V003031
+    (G001-14) is typed annealed with Anneal °C and Anneal h Not applicable where Not published is meant. "190°" without a
+    C (V012507) and "72 °F" (V014791) read as no test temperature; V009987 and V009995 print 72F in their standard and
+    locator and record none.
+  - *Ambiguous, for a page.* Raise3D's "103 (90)" and "142 (110)" heat deflections (G059-03); "2.00 (27)" GPa
+    (V014982); "4 5" read as 45 (V001161); "8% -0,02" (V012870); 22 ASTM numbers printed without their letter ("ASTM
+    831", "ASTM256"); V002176's ASTM D792 typed from an editor's note; garbled standards typed as printed (ISO 36, ISO
+    15075, ISO 572, ISO 727, ISO 3164, ASTM D3638, ASTM D738, "GB/T 31" on four rows).
 
 ```sql
 select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;

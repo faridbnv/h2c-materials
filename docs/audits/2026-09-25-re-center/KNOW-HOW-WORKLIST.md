@@ -33,6 +33,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA6-CF (M050) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 2 / 2 / 11 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 1 | — |
 | PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 195 | 82 / 104 / 157 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 2 of 73 | 24 / 25 / 51 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-GF (M051) | Indoor prototype; Outdoor structural part; Warm environment | collected | 1 of 11 | 2 / 4 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 2 / 6 | — |
@@ -44,10 +45,10 @@ documents were read and give none of one is listed under "Recipe silent".
 | PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 5 / 7 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
-| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 73 | 24 / 25 / 51 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
 | PA12-CF (M053) | Indoor prototype; Warm environment | collected | 1 of 15 | 5 / 4 / 9 | MatterHackers (matterhackers.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 8 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 2 / 3 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PCL (M149) | Flexible component; Indoor prototype | collected | 1 of 4 | 1 / 2 / 3 | iSANMATE (isanmate.com) |
 | PP Lightweight (M103) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PVDF-ESD (M120) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-AF (M106) | Indoor prototype; Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
@@ -72,7 +73,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 27 | 13 / 9 / 24 | — |
 | PLA Wood (M014) | Indoor prototype | collected | 2 of 20 | 9 / 9 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PA12 (M052) | Indoor prototype | collected | 1 of 8 | 3 / 1 / 4 | Fillamentum (fillamentum.com) |
-| PCL (M149) | Indoor prototype | collected | 1 of 4 | 1 / 2 / 3 | iSANMATE (isanmate.com) |
 | PET (M066) | Indoor prototype | collected | 1 of 7 | 1 / 2 / 3 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | TPE, maker-undisclosed elastomer (M167) | Indoor prototype | collected | 1 of 5 | 1 / 1 / 3 | Flashforge (after-support.flashforge.jp, flashforge.com) |
 | TPU-ESD (M126) | Indoor prototype | collected | 1 of 2 | 0 / 0 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |

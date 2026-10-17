@@ -5,9 +5,11 @@
 import { parseTemperature, withinH2C, parseAbrasion, parseDrying, parseEnclosure, H2C_BASELINE, PROCESS_STATE, REQUIREMENT } from './normalize/process.js';
 import { applyProfileTyped } from './typed-values.js';
 
-// Plausibility windows keep a stray number in a sentence from being read as a temperature.
-// An industrial printer's build chamber reaches 250 °C (Kumovis R1 for PEEK: "Build chamber temperature 160 - 230 °C").
-export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 250] };
+// Plausibility windows: a stated endpoint outside one is typed as stated and reported (PROCESS-WINDOW-IMPLAUSIBLE), never
+// dropped (D141; until then the parser filtered by them, and "450 - 520 °C" was typed as the point 450). An industrial
+// printer's build chamber reaches 250 °C (Kumovis R1 for PEEK: "Build chamber temperature 160 - 230 °C") and its nozzle
+// 520 °C (LEHVOSS's LUVOCOM 3F PEEK CF: "450 - 520 °C"); a polycaprolactone prints from 60 °C (SUNLU's PCL: "75-85℃").
+export const TEMP_WINDOW = { nozzle: [50, 550], bed: [0, 250], chamber: [0, 250] };
 
 /**
  * A row's recipe: nozzle, bed and chamber windows, enclosure, drying and hardened nozzle, and the gates. `where` names
@@ -48,6 +50,11 @@ export function readRecipe(r, issues, { where, unreadWhere, abrasionColumn = 'Ab
   }
   for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber], ['Enclosure', enclosure]]) {
     if (p.unparsed) issues.push({ level: 'warn', code: 'PARSE-UNREAD', where: unreadWhere, message: `${name} text not parsed: "${p.text}"` });
+  }
+  // A stated endpoint outside the axis's plausible window is read as stated and shown here, so a misprint or a slip in
+  // transcription is seen rather than silently dropped (D141). The typed columns decide, as always.
+  for (const [name, p, axis] of [['Nozzle', nozzle, 'nozzle'], ['Bed', bed, 'bed'], ['Chamber', chamber, 'chamber']]) {
+    if (p.implausible) issues.push({ level: 'warn', code: 'PROCESS-WINDOW-IMPLAUSIBLE', where, message: `${name} "${p.text}" states ${p.implausible.join(', ')} °C, outside the plausible ${TEMP_WINDOW[axis].join('–')} °C; it is typed as stated (${p.min ?? 'open'}–${p.max ?? 'open'}): check the cell against its page` });
   }
   // "enclosed" says the H2C's heated chamber is the enclosure asked for: a printer maker's guide's, on its own printers
   // (D90), or a filament maker's that states no temperature, for a type that guide asks an enclosure for (D93). Only a

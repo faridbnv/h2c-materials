@@ -1,7 +1,7 @@
 COUNT 107 shown PASS + UNKNOWN
-STATUS ☑ PASS 38 | ☑ UNKNOWN 85 | ☐ FAIL 29 | ☐ SCREENED 16
-38 of the 152 materials meet these requirements
-Warm environment template · 85 more could not be checked, listed flagged, except 16 screened out
+STATUS ☑ PASS 39 | ☑ UNKNOWN 84 | ☐ FAIL 29 | ☐ SCREENED 16
+39 of the 152 materials meet these requirements
+Warm environment template · 84 more could not be checked, listed flagged, except 16 screened out
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -42,8 +42,8 @@ PC
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Supported candidates (38)
-TABLE 38 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
+Supported candidates (39)
+TABLE 39 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
 ROW ABS | PASS / 16 of 19 products | 1,050 / 1,020–1,120 · 46 / annealed median | 2.2 / 1.77–2.38 · 13 / annealed median | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | passing: 85–105 / all products: 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
 ROW ABS-AF | PASS / 1 of 2 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–17† | passing: 88 / all products: 88 | 127↗ | ☆
 ROW ABS-ESD | PASS / 1 of 2 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | passing: 98 / all products: 97 / 96–98 · 5 | 223 / 199–247 · 2 / ¤↗ / out of stock | ☆
@@ -69,6 +69,7 @@ ROW PC-ABS · PASS 1 of 5 products
 ROW PC-CF · PASS 1 of 3 products
 ROW PET-CF · PASS 2 of 3 products
 ROW PET-GF · PASS 2 of 2 products
+ROW PETG · PASS 1 of 46 products
 ROW PLA · PASS 7 of 87 products
 ROW PLA blend · PASS 2 of 5 products
 ROW PLA-CF · PASS 1 of 9 products
@@ -82,4 +83,4 @@ ROW PPA · PASS 1 of 1 product
 ROW PPA-CF · PASS 3 of 3 products
 ROW PPA-GF · PASS 1 of 1 product
 ROW PVDF-ESD · PASS 1 of 1 product
-Insufficient evidence (69) — included in counts and exports
+Insufficient evidence (68) — included in counts and exports

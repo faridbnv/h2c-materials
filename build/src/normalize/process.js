@@ -51,8 +51,9 @@ export const REQUIREMENT = {
 const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b|无需(?:热床|加热)/i;
 // "It is recommended to print using a heated chamber." recommends one without a temperature (the profile root-cause
 // sweep of 2026-10-02).
-// Fiberlogy's "enclosed and heated chamber recommended" does the same (reader round, 2026-10-04).
-const RECOMMENDED_RE = /^recommended\b|(?<!\bnot\s)\brecommended\s+to\s+print\s+(?:using|with|in)\s+an?\s+heated\s+chamber\b|\bheated\s+chambers?\s+(?:is\s+)?recommended\b/i;
+// Fiberlogy's "enclosed and heated chamber recommended" does the same (reader round, 2026-10-04), and so does "it is
+// recommended to use a 3D printer with an enclosed and heated chamber" (P1303; the parser sweep of 2026-10-17, D141).
+const RECOMMENDED_RE = /^recommended\b|(?<!\bnot\s)\brecommended\s+to\s+(?:print|use)\b[^.;]*\bheated\s+chamber\b|\bheated\s+chambers?\s+(?:is\s+)?recommended\b/i;
 // Polymaker marks the whole window after its numbers: "70 – 80 (recommended) (˚C)", "70-80 (˚C)(Recommended)". A bracket
 // holding a number as well ("230~260 ℃ (recommended: 240℃)") recommends a point inside a window, which stays required.
 const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
@@ -79,8 +80,11 @@ const NON_HEATED_RE = /\bnon-?heated\s+(?:printing\s+)?ch?ambers?\b|\bpassively\
 // "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
 // upper end published.
 // Fillamentum prints the plus before the unit: "Hot pad 100+ °C".
-const AT_LEAST_RE = /^(?:(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+|(?:>|≥|>=)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}|(\d+(?:\.\d+)?)\s*\+\s*[^\d\s]{1,3})$/;
-const AT_LEAST_LEAD_RE = /^(?:>|≥|>=)\s*(\d+(?:\.\d+)?)()\s*[^\d\s]{0,3}\s+[^\d]*$/;
+// "Minimum 70˚C chamber temp highly recommended." (Flashforge's ASA-CF, P1752) says the same with a word; read as numbers it
+// was the single point 70 (2026-10-17, D141).
+const AT_LEAST_WORD = '(?:>|≥|>=|minimum|min\\.?|at least|mindestens)';
+const AT_LEAST_RE = new RegExp(`^(?:(\\d+(?:\\.\\d+)?)\\s*[^\\d\\s+]{0,3}\\s*\\+|${AT_LEAST_WORD}\\s*(\\d+(?:\\.\\d+)?)\\s*[^\\d\\s]{0,3}|(\\d+(?:\\.\\d+)?)\\s*\\+\\s*[^\\d\\s]{1,3})$`, 'i');
+const AT_LEAST_LEAD_RE = new RegExp(`^${AT_LEAST_WORD}\\s*(\\d+(?:\\.\\d+)?)()\\s*[^\\d\\s]{0,3}\\s+[^\\d]*$`, 'i');
 // "< 80°C" (Spectrum's PA6 Low Warp GF30 bed) and "≤ 60 °C" are at-most values: an upper end, with no lower end
 // published. Read as a number, "< 80°C" was the single point 80 (the control re-read of 2026-10-01).
 const AT_MOST_RE = /^(?:<|≤|<=|＜)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}(?:\s+[^\d]*)?$/;
@@ -88,6 +92,28 @@ const AT_MOST_RE = /^(?:<|≤|<=|＜)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}(?:\s+[^\d
 // 室温 (room temperature) on SUNLU's TPU sheet (reader round, 2026-10-04).
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?|normal\s+temp\w*)\b|常温|室温|^normal$/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
+
+// Numbers a process cell states that are not temperatures: a nozzle size or layer height ("0.4mm nozzle"), a speed
+// ("50-80 mm/s", "≤30mm/s"), a flow ("4.0 mm³/s"), a share, hours or months, a mass, and a word with a number in it
+// ("3D printers", "3M adhesive", "3DLac"). Read as temperatures they shifted a window: the data audit of 2026-10-01 found
+// a bed minimum of 3 °C from "for 3D printers" and 24 °C from "a shelf life of 24 months", and 2026-10-17 one of 3 °C
+// from "3M adhesive" (D141). A number followed by C or F is a temperature and stays. Shared with the typed-value check
+// (typed-values.js, PARSE-TEXT-BOUNDS), so the two read one set of numbers.
+export const stripNonTemperatures = (s) => String(s ?? '')
+  .replace(/\d+(?:\.\d+)?(?:\s*-\s*\d+(?:\.\d+)?)?\s*(?:mm[³3]?\/s|mm\/s|mm\b|%|h\b|hours?\b|months?\b|g\b|kg\b)/gi, ' ')
+  .replace(/\b\d+(?:\.\d+)?[A-BD-EG-Za-bd-eg-z][A-Za-z]*\b/g, ' ');
+
+// The numbers a cell states, in reading order, and those outside the axis's plausible window. The window is a check,
+// never a filter: a stated number outside it is still the cell's own endpoint (D115), and the reading says so
+// (`implausible`) so that PROCESS-WINDOW-IMPLAUSIBLE can show it. Filtered out, the number vanished and the window
+// collapsed onto what was left: "450 - 520 °C" became the single point 450 and "75-85℃" (a polycaprolactone's nozzle)
+// nothing at all, and the typed columns written from the parser (m08) carried the collapse where PARSE-MISMATCH could
+// not see it (D141).
+function statedTemperatures(s, [lo, hi]) {
+  const nums = (s.match(/\d+(?:\.\d+)?/g) || []).map(Number);
+  const implausible = nums.filter((n) => n < lo || n > hi);
+  return { nums, implausible: implausible.length ? implausible : undefined };
+}
 
 /**
  * Parse a process temperature cell into a range, a categorical state, or unknown, together with
@@ -108,6 +134,7 @@ export function parseTemperature(raw, opts = {}) {
   // check round 3's sealed draw). It is set aside where a Celsius number stays to read.
   const celsiusOnly = s.replace(/[(/]?\s*\d+(?:\.\d+)?\s*(?:-\s*\d+(?:\.\d+)?\s*)?F\b\s*\)?/g, ' ').replace(/\s+/g, ' ').trim();
   if (celsiusOnly !== s && /\d\s*C\b/.test(celsiusOnly)) s = celsiusOnly;
+  s = stripNonTemperatures(s).replace(/\s+/g, ' ').trim();
   if (NO_SETPOINT_RE.test(s) || DASH_RE.test(s)) {
     return { text, state: PROCESS_STATE.NO_SETPOINT, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
   }
@@ -115,18 +142,17 @@ export function parseTemperature(raw, opts = {}) {
     return { text, state: PROCESS_STATE.NOT_REQUIRED, requirement: REQUIREMENT.NONE, min: null, max: null };
   }
   // "> 80 °C recommended" and "≥ 90 °C for large parts": an at-least value followed by words, still an open bound.
+  const window = opts.plausible || [0, 500];
   const atLeast = s.match(AT_LEAST_RE) ?? s.match(AT_LEAST_LEAD_RE);
   if (atLeast) {
-    const [lo, hi] = opts.plausible || [0, 500];
     const min = Number(atLeast[1] ?? atLeast[2] ?? atLeast[3]);
-    if (min >= lo && min <= hi) return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min, max: null, openHigh: true };
+    return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min, max: null, openHigh: true, implausible: statedTemperatures(String(min), window).implausible };
   }
 
   const atMost = s.match(AT_MOST_RE);
   if (atMost) {
-    const [lo, hi] = opts.plausible || [0, 500];
     const max = Number(atMost[1]);
-    if (max >= lo && max <= hi) return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min: null, max, openLow: true };
+    return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min: null, max, openLow: true, implausible: statedTemperatures(String(max), window).implausible };
   }
 
   // Cut trailing clauses that are not about this process parameter.
@@ -139,7 +165,6 @@ export function parseTemperature(raw, opts = {}) {
   else if (RECOMMENDED_RE.test(s) || RECOMMENDED_MARK_RE.test(s) || RECOMMENDED_IF_RE.test(s)) requirement = REQUIREMENT.RECOMMENDED;
 
   const ambient = AMBIENT_RE.test(s);
-  const [lo, hi] = opts.plausible || [0, 500];
 
   // A tolerance is centred on the nominal setting; its second number is not an endpoint. The unit may stand
   // between the two: Nobufil prints "Print temperature 260°C ± 10" on fourteen sheets, and without the unit in
@@ -149,8 +174,7 @@ export function parseTemperature(raw, opts = {}) {
   if (tolerance) {
     const centre = Number(tolerance[1]), delta = Number(tolerance[2]);
     const min = centre - delta, max = centre + delta;
-    if (min < lo || max > hi) return { text, state: PROCESS_STATE.UNKNOWN, requirement, min: null, max: null, unparsed: true };
-    return { text, state: PROCESS_STATE.RANGE, requirement, min, max, tolerance: delta };
+    return { text, state: PROCESS_STATE.RANGE, requirement, min, max, tolerance: delta, implausible: statedTemperatures(`${min} ${max}`, window).implausible };
   }
 
   // A point the maker recommends inside a window is not one of its ends: Flashforge prints "Room temperature~60℃ (40℃
@@ -158,11 +182,11 @@ export function parseTemperature(raw, opts = {}) {
   s = s.replace(/\(\s*(?:recommended\s*:?\s*)?\d+(?:\.\d+)?\s*[°º˚]?\s*C?\s*(?:recommended)?\s*\)/gi, (m) => (/recommended/i.test(m) ? ' ' : m));
 
   // No leading minus in the pattern. These temperatures are never negative, and accepting one
-  // makes the range dash in "255-275C" read as the sign of -275, which then fails the plausibility
-  // window and silently collapses the range to its lower end.
-  const nums = (s.match(/\d+(?:\.\d+)?/g) || []).map(Number).filter((n) => n >= lo && n <= hi);
+  // makes the range dash in "255-275C" read as the sign of -275, which then failed the plausibility
+  // window and silently collapsed the range to its lower end.
+  const { nums, implausible } = statedTemperatures(s, window);
 
-  const base = { text, requirement, strippedTail: strippedTail || undefined };
+  const base = { text, requirement, strippedTail: strippedTail || undefined, implausible };
 
   if (nums.length === 0) {
     if (requirement === REQUIREMENT.NONE) return { ...base, state: PROCESS_STATE.NOT_REQUIRED, min: null, max: null };
@@ -331,13 +355,20 @@ export function parseEnclosure(raw) {
   return { text, state: 'unknown', unparsed: true };
 }
 
-/** Nozzle diameters: "0.4, 0.6, 0.8 mm", "0.2, 0.4,0.6, 0.8mm", ">=0.4 mm". */
+/**
+ * Nozzle diameters: "0.4, 0.6, 0.8 mm", "0.2, 0.4,0.6, 0.8mm", ">=0.4 mm". A comma decimal ("0,4 mm", 101 cells), a
+ * leading dot (".4mm"), a slicer version ("Simplify 3D v.4.1.2", "Orcaslicer2.10") and a size the cell rules out ("0.2 mm
+ * Nozzle NOT Compatible") were read as numbers alone: "≥ 0,2 mm" gave a minimum of 2 mm (the parser sweep of 2026-10-17,
+ * D141). An at-least in words ("at least 0.6 mm", "minimum", "or larger") is one too. No typed column reads this: the
+ * drawer shows the cell's words, and the compiled list is for the audit.
+ */
+const NOT_A_DIAMETER_RE = /\bv\.?\s*\d+(?:\.\d+)+|[A-Za-z]+\d+(?:\.\d+)*[A-Za-z]*|\d+(?:[.,]\d+)?\s*mm\s+(?:nozzles?\s+)?not\s+(?:compatible|supported|recommended)\b|\bnot\s+(?:compatible|supported)\s+(?:with\s+)?\d+(?:[.,]\d+)?\s*mm\b/gi;
 export function parseNozzleDiameters(raw) {
   const text = raw == null ? '' : String(raw).trim();
   if (!text || /^not published$/i.test(text)) return { text, diameters: [], minimum: null, state: PROCESS_STATE.UNKNOWN };
-  const s = clean(text).replace(/[≥]/g, '>=');
+  const s = clean(text).replace(/[≥]/g, '>=').replace(NOT_A_DIAMETER_RE, ' ').replace(/(\d),(\d)/g, '$1.$2').replace(/(^|[^\d])\.(\d)/g, '$10.$2');
   const nums = (s.match(/\d+(?:\.\d+)?/g) || []).map(Number).filter((n) => n >= 0.1 && n <= 2);
-  const atLeast = />=\s*\d/.test(s);
+  const atLeast = />=?\s*\d/.test(s) || /\b(?:at\s+least|minimum|min\.?|larger|bigger|above|or\s+(?:more|up|greater))\b/i.test(s);
   return {
     text,
     diameters: atLeast ? [] : [...new Set(nums)].sort((a, b) => a - b),
@@ -424,6 +455,8 @@ const OPTIONAL_NEED_RE = new RegExp([
   String.raw`\b(?:if|when)\s+the\s+(?:spools?|filament|material)\s+(?:has|have)\s+been\s+exposed\s+to\s+(?:moisture|humidity)`,
   // colorFabb's "If absorbed moisture levels are too high ... Drying is advised" (check round 3's sealed sample).
   String.raw`\bif\s+absorbed\s+moisture\b`,
+  // Kimya's "if the material absorbs more than 500ppm moisture" (the parser sweep of 2026-10-17, D141).
+  String.raw`\bif\s+the\s+(?:filament|material)\s+absorbs\b`,
   // QIDI's "If the filament has been opened for a long time and problems such as air bubbles ... appear, please dry",
   // "If you find the printing quality decreases after ASA has been exposed in the air", "After the material is damp,
   // ... Please dry the filament in an oven", and DuPont's "If excessive moisture absorption has occurred, then the resin
@@ -450,7 +483,7 @@ const NOT_NEEDED_RE = new RegExp([
 
 /** Does the sheet ask for drying? 'required', 'optional' or 'not-needed' (a cell with no statement is 'unknown' before this runs). */
 // A drying time that starts at nothing, Extrudr's "Drying time 0–4 h", is a step the maker lets the reader skip.
-const ZERO_HOURS_RE = /(?<![\d.,])0\s*[-–~]\s*\d+(?:[.,]\d+)?\s*(?:h|hours?|hrs)\b/i;
+const ZERO_HOURS_RE = /(?<![\d.,])0\s*[-–~]\s*\d+(?:[.,]\d+)?\s*(?:h|hours?|hrs?)\b/i;
 function dryingNeed(s) {
   const scale = NEED_SCALE_RE.exec(s);
   const body = scale ? s.replace(scale[0], ' ') : s;
@@ -464,9 +497,10 @@ function dryingNeed(s) {
 
 // Hours with no upper end: "6+ hours", "> 5 h", "at least 8 hours", "minimum drying time 3 h", "more than 4 hours", "4 hours or
 // longer". The number is the lower bound. A window ("at least 4 to 16 hours", "4-6 h") is hours stated, not an open end.
-const DRYING_HOURS_RE = /(\d+(?:\.\d+)?)\s*\+?\s*(?:h|hour|hours|hrs)\b/i;
+// "8-12hr" (Fiberlogy, P1914) spells the hour "hr" (the parser sweep of 2026-10-17, D141).
+const DRYING_HOURS_RE = /(\d+(?:\.\d+)?)\s*\+?\s*(?:h|hour|hours|hrs?)\b/i;
 const OPEN_BEFORE_RE = /\b(?:at\s+least|minimum|minimal|more\s+than|longer\s+than|over)\b[^;,.]*$|[>＞≥]\s*$/i;
-const OPEN_AFTER_RE = /^\s*(?:h|hours?|hrs)\b\s*(?:\+|or\s+(?:longer|more))/i;
+const OPEN_AFTER_RE = /^\s*(?:h|hours?|hrs?)\b\s*(?:\+|or\s+(?:longer|more))/i;
 function hoursAreOpen(source, m) {
   const before = source.slice(0, m.index);
   if (/\d\s*(?:to|-|~)\s*$/i.test(before)) return false;
@@ -484,12 +518,13 @@ export function parseDrying(raw) {
   // A cell that joins two methods ("Blast drying oven 55 °C, 8 h; X1 heatbed 65-75 °C, 12 h") is read by its first.
   const first = /\d/.test(s.split(/;\s*/)[0]) ? s.split(/;\s*/)[0] : s;
   // Eryone prints the unit on the lower end only: "75℃-85, 6h" is 75 to 85 °C (P0445).
-  const tempRange = first.match(/(\d{2,3})\s*C?\s*[-–~]\s*(\d{2,3})\s*C/i) ?? first.match(/(\d{2,3})\s*C\s*[-–~]\s*(\d{2,3})\b(?![.,]?\d|\s*(?:h|hours?|hrs|min)\b)/i);
-  const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs)?\s*[-–~]\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
+  const tempRange = first.match(/(\d{2,3})\s*C?\s*[-–~]\s*(\d{2,3})\s*\(?\s*C/i) ?? first.match(/(\d{2,3})\s*C\s*[-–~]\s*(\d{2,3})\b(?![.,]?\d|\s*(?:h|hours?|hrs?|min)\b)/i);
+  const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs?)?\s*[-–~]\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs?)\b/i);
   // The first schedule the cell states decides: Bambu Lab's guide prints "Blast Drying Oven: 55 °C, 8 h X1 Series
   // Heatbed: 65 - 75 °C, 12 h", and a window further on is the other method's.
-  const single = first.match(/(\d{2,3})\s*C/i), singleHours = first.match(DRYING_HOURS_RE);
-  const tempMatch = tempRange && (!single || tempRange.index <= single.index + single[0].length) ? [null, tempRange[2]] : single || first.match(/:\s*(\d{2,3})/) || s.match(/(\d{2,3})\s*C/i);
+  // Polymaker brackets the unit, "65 (˚C)" (P0030): the number before a bracketed C is the temperature (D141).
+  const single = first.match(/(\d{2,3})\s*\(?\s*C/i), singleHours = first.match(DRYING_HOURS_RE);
+  const tempMatch = tempRange && (!single || tempRange.index <= single.index + single[0].length) ? [null, tempRange[2]] : single || first.match(/:\s*(\d{2,3})/) || s.match(/(\d{2,3})\s*\(?\s*C/i);
   const windowFirst = hourRange && (!singleHours || hourRange.index <= singleHours.index + singleHours[0].length);
   const hourMatch = windowFirst ? [null, hourRange[2]] : singleHours || s.match(DRYING_HOURS_RE);
   // The open end is read from the text around the number that decides; a window never has one.

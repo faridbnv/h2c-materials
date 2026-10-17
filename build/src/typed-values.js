@@ -11,6 +11,7 @@
 // (count, tolerance, text it stripped) stay in the compiled record.
 
 import { readMoistureState } from './normalize/moisture.js';
+import { stripNonTemperatures } from './normalize/process.js';
 import { readPostProcessingState } from './normalize/specimen.js';
 import { readStandards } from './normalize/standards.js';
 import { readTestTemperature } from './normalize/thermal.js';
@@ -115,9 +116,9 @@ export function checkReviewScope(r, issues, where, columns) {
 // The numbers a process cell states, and the endpoints its wording implies: the ends of a tolerance ("270 ± 10"), a
 // Fahrenheit reading in Celsius, and room temperature where the cell says so.
 function statedNumbers(text) {
-  // "3D" and "24 months" are words with a number in them, not temperatures the cell states: m08 read a bed minimum of 3
-  // from "for 3D printers" and 24 from "a shelf life of 24 months".
-  const t = String(text ?? '').replace(/\b\d+\s*(?:D\b|months?\b|mm\b|mm\/s\b|%|h\b|hours?\b|g\b|kg\b)/gi, ' ');
+  // "3D", "3M" and "24 months" are words with a number in them, not temperatures the cell states: m08 read a bed minimum
+  // of 3 from "for 3D printers" and 24 from "a shelf life of 24 months". The parser strips the same set (D141).
+  const t = stripNonTemperatures(text);
   const out = (t.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
   for (const x of [...out]) out.push(Math.round((x - 32) * 5 / 9));
   for (const m of t.matchAll(/(\d+(?:\.\d+)?)\s*[°º˚∞]?\s*[CF℃]?\s*(?:±|\+\/-|\+-)\s*(\d+(?:\.\d+)?)/g)) out.push(Number(m[1]) - Number(m[2]), Number(m[1]) + Number(m[2]));

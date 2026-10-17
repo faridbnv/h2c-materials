@@ -615,3 +615,19 @@ make everything coherent, complete the repository and push.
   to the owner said why.
 
 Built as D140 (m417) by Claude Opus, Claude Sonnet agents sweeping the headings and re-reading a blind sample.
+
+## Decided on 2026-10-17, a plausibility window is a check, never a filter
+
+The owner saw, in the PEEK-CF drawer, LEHVOSS's "450 - 520 °C" nozzle beside a material window of 380–460 °C, and asked
+for the root cause, what else it touched, and a fix; then for "any other issues like this".
+
+- **The temperature parser filtered a cell's numbers by a plausibility window before reading the window**, so a stated
+  endpoint outside it vanished and the window collapsed onto what was left; the typed columns, written from the parser,
+  carried the collapse where PARSE-MISMATCH could not see it. Five print windows, three drying cells, one hardened-nozzle
+  flag and 41 heat-deflection loads were typed again from their cells' own words (m420, m421), and the readers learnt
+  the spellings; a number outside a window is now read and reported (PROCESS-WINDOW-IMPLAUSIBLE). Three scenario
+  answers moved: PCL passes Flexible component and Indoor prototype, PETG passes Warm environment.
+- **Two agents swept every other typed column against its reader.** What they found and the change did not fix is in
+  OPEN-PROBLEMS §3, §4, §11 and §12.
+
+Built as D141 (m420, m421) by Claude, with two Claude Opus agents sweeping the readers.
