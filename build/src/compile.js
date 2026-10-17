@@ -272,6 +272,7 @@ const DIRECTION_NOTE = {
   'vertical-xz-source-label': 'source says "vertical XZ" without defining the build orientation',
   'along-flow': 'measured along flow',
   'raster-45': 'printed with a ±45° raster beside the sheet\'s own XY bar, so not its XY value (D91)',
+  YX: 'labelled YX, a flat bar whose length runs along Y beside the sheet\'s own XY bar, so not its XY value (D143)',
   'not-applicable': null,
   unknown: 'direction not stated by the source, so it cannot be read as XY',
 };
