@@ -27,9 +27,9 @@
 // A re-run is a no-op; a run after the data moved stops.
 //
 //   node scripts/migrate/m436-what-the-blind-read-traced-to-the-sheets.mjs
-import { openTables } from '../data/table-io.mjs';
-import { addValue, withNote } from '../lib/source-edits.mjs';
-import { onSheet } from '../lib/sweep-shared.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
+import { addValue, withNote } from '../../scripts/lib/source-edits.mjs';
+import { onSheet } from '../../scripts/lib/sweep-shared.mjs';
 
 const MIGRATION = 'm436';
 const DATE = '2026-10-17';

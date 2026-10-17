@@ -20,7 +20,7 @@
 // A re-run is a no-op; a run after the data moved stops.
 //
 //   node scripts/migrate/m435-the-z-rule-as-applied-and-the-projects-own-words-as-its-own.mjs
-import { openTables } from '../data/table-io.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
 
 const MIGRATION = 'm435';
 const t = openTables();
