@@ -4,14 +4,13 @@
 // width and y in px, so the plot is fluid; the names are placed where they collide with nothing at a laptop's width, and
 // those that would collide on a phone are hidden there (class "alt").
 
-import { esc, pct } from '../html.js';
+import { esc, pct, textPx } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { mark } from './marks.js';
 import { yOf, stripScale } from './scale.js';
 import { labelsFit } from './axis.js';
 
-const CHAR_PX = 6.7; // about how wide a character of a 12 px label is
-const LINE_PX = 13;
+const LINE_PX = 16;
 
 /**
  * Where each name goes: the first of its candidate places (each { x, y in per cent and px, dx, dy, anchor }) that keeps
@@ -22,15 +21,17 @@ function placeLabels(items, width, height, blocked, fixed = null) {
   const boxes = [...blocked];
   const hit = (b) => b.x0 < 0 || b.x1 > width || b.y0 < 0 || b.y1 > height || boxes.some((o) => b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0);
   const boxOf = (it, c) => {
-    const w = it.text.length * CHAR_PX + 2, px = (c.x / 100) * width + c.dx, base = c.y + c.dy;
+    const w = textPx(it.text, it.self ? 13 : 12.5) + 2, px = (c.x / 100) * width + c.dx, base = c.y + c.dy;
     const x0 = c.anchor === 'start' ? px : c.anchor === 'end' ? px - w : px - w / 2;
     return { x0, x1: x0 + w, y0: base - LINE_PX + 3, y1: base + 3 };
   };
   return items.map((it, i) => {
     const order = fixed ? (fixed[i] == null ? [] : [fixed[i]]) : it.places.map((_, k) => k);
     let k = order.find((j) => !hit(boxOf(it, it.places[j])));
-    // This material's own name is never left out: where nothing is free, it takes its first place.
+    // This material's own name is never left out: where nothing is free, it takes its first place. Drawn on a phone
+    // where it does not fit, it still takes its room there, so no other name is set over it.
     if (k == null && it.force && !fixed) k = 0;
+    if (k == null && it.force && fixed && fixed[i] != null) { boxes.push(boxOf(it, it.places[fixed[i]])); return null; }
     if (k == null) return null;
     boxes.push(boxOf(it, it.places[k]));
     return k;
@@ -108,7 +109,11 @@ export function materialMapPlot({ context, self, xUnit, yUnit, xTitle, yTitle, w
     const alt = onPhone[i] == null && !it.self ? ' alt' : '';
     // A leader is drawn as a short line in its own SVG at the point, offset in px (a line cannot mix % and px).
     const leader = c.leader ? `<svg x="${pct(c.x)}" y="${c.y.toFixed(1)}" overflow="visible" class="leader${alt}"><line x1="${Math.sign(c.leader[0]) * 3}" y1="${Math.sign(c.leader[1]) * 3}" x2="${c.leader[0]}" y2="${c.leader[1]}"/></svg>` : '';
-    return `${leader}<text class="${it.self ? 'mself' : 'mland'}${alt}" x="${pct(c.x)}" y="${c.y.toFixed(1)}" dx="${c.dx}" dy="${c.dy}" text-anchor="${c.anchor}">${esc(it.text)}</text>`;
+    const at = `x="${pct(c.x)}" y="${c.y.toFixed(1)}" dx="${c.dx}" dy="${c.dy}" text-anchor="${c.anchor}"`;
+    // This material's own name, where it does not fit a phone's plot, is said there up to its comma ("Nylon-CF").
+    const short = it.self && onPhone[i] == null && it.text.includes(',') ? it.text.split(',')[0] : null;
+    return short ? `${leader}<text class="mself wide-only" ${at}>${esc(it.text)}</text><text class="mself narrow-only" ${at}>${esc(short)}</text>`
+      : `${leader}<text class="${it.self ? 'mself' : 'mland'}${alt}" ${at}>${esc(it.text)}</text>`;
   }).join('');
 
   const others = context.map((p) => `<circle class="cx${p.landmark ? ' cx--land' : ''}" cx="${pct(X(p.x))}" cy="${Y(p.y)}" r="${p.landmark ? 3.6 : 3}" data-name="${esc(p.name)}" data-v="${esc(`${fmtNumber(p.x, xUnit)}, ${fmtNumber(p.y, yUnit)}`)}"/>`).join('');

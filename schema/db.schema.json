@@ -2562,6 +2562,44 @@
             "$ref": "#/$defs/headlineSummary"
           }
         },
+        "written": {
+          "type": "object",
+          "description": "The written summary at the head of the material's page (material_summaries.csv, build/src/written.js, D142): who wrote it, when, whether the owner has reviewed it, and its text as parts, each number a placeholder filled from the material's compiled values. Present only for a material with a summary; it decides nothing.",
+          "additionalProperties": false,
+          "required": ["by", "on", "status", "parts"],
+          "properties": {
+            "by": { "type": "string" },
+            "on": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+            "status": { "enum": ["draft", "reviewed by the owner", "revise"] },
+            "parts": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "Words, or a name filled from the data (the material's, a headline's, the typical product's).",
+                    "additionalProperties": false,
+                    "required": ["text"],
+                    "properties": { "text": { "type": "string" } }
+                  },
+                  {
+                    "type": "object",
+                    "description": "A number filled from the data: its placeholder's field, its raw value, its unit, and a published bound's sign where it is one.",
+                    "additionalProperties": false,
+                    "required": ["field", "value"],
+                    "properties": {
+                      "field": { "type": "string" },
+                      "value": { "type": "number" },
+                      "unit": { "type": "string" },
+                      "bound": { "enum": [">", "≥", "<", "≤"] }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
         "knowHow": {
           "type": "object",
           "description": "Makers' know-how across the material's products (build/src/know-how.js): its state (collected if any product has a statement), its products by state, how many makers make them, per topic how many makers and products have a statement, statements on the material itself, how many of its products' makers' sites were searched, and its products by state for each part of the print recipe. Absent for a family entry.",

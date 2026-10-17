@@ -16,7 +16,7 @@ import { profileTrack, profileHead } from '../charts/profile.js';
 import { figure, figId } from '../charts/figure.js';
 import { PROFILE_GROUPS } from '../figures.js';
 import { findingsBlock, notesHtml, figureCounter, middleHalf } from './common.js';
-import { glanceFindings } from '../findings.js';
+import { glanceFindings, nearestLacks } from '../findings.js';
 
 /** A range of a spread with a published bound's sign at its end where it is one ("5–650+"), as the selector prints it. */
 const spreadRange = (s) => (s.min === s.max && !s.bounds ? esc(fmtNumber(s.min))
@@ -46,13 +46,7 @@ function noneShort(e, h, c) {
   if (a?.n) return `Not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`}, with ${asPublishedWords(h)}`;
   const b = e?.related?.best;
   if (b) {
-    const x = c.msById.get(b.measurementId);
-    const unstated = (v) => !v || ['unknown', 'not-applicable'].includes(v) || !stated(v);
-    const cond = [
-      h.notch ? (unstated(x?.notch) ? 'notch not stated' : lower(x.notch)) : null,
-      h.direction ? (unstated(b.direction) ? 'orientation not stated' : b.direction) : null,
-      h.loadMPa != null ? (b.loadMPa != null ? `at ${fmtNumber(b.loadMPa)} MPa` : 'load not stated') : null,
-    ].filter(Boolean);
+    const cond = nearestLacks(h, b, c.msById.get(b.measurementId));
     const n = e.related.count;
     const g = e.related.grades;
     return `${n === 1 ? 'One value' : `${n} values`} from ${g === 1 ? 'one product\'s own sheet' : `${g} products' own sheets`}, none comparable. Nearest: ${propertyName(b.property)}, ${cond.length ? `${cond.join(', ')}, ` : ''}${fmtBounded(b.value, b.unit, b.interval)}`;
@@ -60,9 +54,30 @@ function noneShort(e, h, c) {
   if (e?.related) return 'On file, not compared';
   return 'Not published';
 }
-function noneWords(e) {
+/**
+ * Why a key property has no typical value, in full under "How this is counted". Where products give it without the
+ * basis it is compared on, those values come first, in the words the first screen and the table use, and the other
+ * values on file after them: the nearest of those is said as another value (another document of the same product,
+ * where it is), so a value without a stated bar and a moulded bar of the same number are never read as one value
+ * described two ways.
+ */
+function noneWords(e, h, c) {
   if (!e) return missingText(null);
   if (e.notApplicable) return `Not applicable. ${e.notApplicable.reason}`;
+  const a = c.m.summary?.[h.key]?.asPublished;
+  if (a?.n && e.related) {
+    const open = c.grades.map((g) => g.headline?.[h.key]).filter((v) => v?.level === 'as-published' && v.measurementId);
+    const openIds = new Set(open.map((v) => v.measurementId));
+    const others = e.related.items.filter((i) => !openIds.has(i.measurementId));
+    const lead = `Not compared: ${plural(a.n, 'product')} ${a.n === 1 ? 'gives' : 'give'} ${a.min === a.max ? fmtNumber(a.min, h.unit) : `${fmtNumber(a.min)}–${fmtNumber(a.max, h.unit)}`}, with ${asPublishedWords(h)}.`;
+    if (!others.length) return `${lead} No filter uses it.`;
+    const b = others.find((i) => i.measurementId === e.related.best.measurementId) ?? others[0];
+    const own = open.map((v) => c.msById.get(v.measurementId)).find((x) => x?.gradeId === b.gradeId);
+    const where = own ? (own.sourceId === b.sourceId ? ', of the same product' : ', from another document of the same product') : '';
+    const products = new Set(others.map((i) => i.gradeId)).size;
+    return `${lead} ${others.length === 1 ? 'One other value' : `${others.length} other values`} from ${plural(products, 'product')} ${others.length === 1 ? 'is' : 'are'} on file, none comparable.`
+      + ` The nearest, ${fmtBounded(b.value, null, b.interval)} ${b.unit} (${b.property}${where}): ${b.why}. No filter uses it.`;
+  }
   if (e.related) return relatedNote(e);
   return missingText(e);
 }
@@ -101,7 +116,7 @@ export default {
       const method = addsToTitle(h) ? `<span class="meth">${esc(h.labels.technical)}</span>` : '';
       if (!r.known) {
         const est = e && !e.known && e.estimate ? ' <a href="#estimates">See the estimate</a>.' : '';
-        notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(noneWords(e))}</p>`);
+        notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(noneWords(e, h, c))}</p>`);
         return `<tr class="kf kf--none" data-kf="${esc(key)}"><th scope="row">${esc(h.labels.plain)}${method}</th><td class="none" colspan="4">${esc(noneShort(e, h, c))}.${est}</td></tr>`;
       }
       const sp = e.spread ?? { n: 1, min: e.value, max: e.value };
@@ -116,7 +131,7 @@ export default {
         s ? (() => { const out = leftOutWords(h, s); return out.length ? `Left out of the median: ${andList(out)}.` : null; })() : null,
         s?.claimed ? `${toughenedSplit(s, h.unit)} ${TOUGHENED_NOTE_SHORT}` : null,
         e.converted ? convertedNote(e.converted) : null,
-        h.kind === 'price' ? `Prices from ${priceSampleWords(c.db.meta)}.` : null,
+        h.kind === 'price' ? `Prices from a sample of ${priceSampleWords(c.db.meta)}.` : null,
         rank ? rankWords(rankOf(rank, m.id)) : null,
       ].filter(Boolean);
       notes.push(`<p><b>${esc(h.labels.plain)}.</b> ${esc(said.join(' '))}</p>`);

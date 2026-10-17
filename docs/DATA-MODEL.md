@@ -25,6 +25,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `fx_rates.csv` | the Bank of Canada rate a foreign listing is compared at, one per currency and date (D113) |
 | `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
 | `coverage.csv` | Gaps, conflicts, judgements and unresolved items; a replaced finding is Superseded, not deleted. The build adds a row of its own for each domain a material's records prove and no stored row speaks for (D74) |
+| `material_summaries.csv` | The written summary at the head of a material's page, one row per material with a page: words for a reader, every number in them a placeholder the build fills from the material's compiled values, with who wrote it, when, and whether the owner has reviewed it (draft, reviewed by the owner, revise). Editorial: it decides nothing (D142). The build refuses a row on a family entry; `pages:add-summaries` and `pages:check` (P12) refuse one on a material below the page rule |
 | `method.csv` | The rules the database was built under |
 | `reference.csv` | Generic reference materials, a drawing layer only: category and name |
 | `reference_envelopes.csv` | Each reference material's min/max envelope, one row per property (D67); the properties and their units are `schema/vocab/reference-properties.csv` |
@@ -259,7 +260,8 @@ each retrieved source whose text is not in it (D105).
   bestUses, limitations,                 // prose true of this material alone
   identity: { notes, h2cEvidence },      // identity notes; its h2c-status citations
   evidenceIds: { use, environmental, durability, safety, polymer },
-  knowHow                                // makers' know-how across its products (below); absent for a family entry
+  knowHow,                               // makers' know-how across its products (below); absent for a family entry
+  written                                // its page's written summary, { by, on, status, parts }; only where one is written (D142)
 }
 ```
 

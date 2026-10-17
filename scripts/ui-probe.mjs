@@ -425,6 +425,26 @@ const checkAnchors = async (kind) => {
   return { checked: targets.length, failures };
 };
 
+// A figure's words that a reader cannot read: an SVG text cut by the figure (or the svg, where it clips) or by the
+// screen, or set over another text of the same svg by more than 4 px each way. The 2026-10-17 blind read found peak and
+// limit labels cut at 390 px on 17 of 40 pages, which the spill check could not see inside a clipping svg.
+const figureText = () => evaluate(`(() => {
+  const W = innerWidth, out = [];
+  const vis = (el) => { const s = getComputedStyle(el); return s.display !== 'none' && s.visibility !== 'hidden'; };
+  for (const svg of document.querySelectorAll('figure svg')) {
+    if (!vis(svg) || !svg.getBoundingClientRect().width) continue;
+    const b0 = getComputedStyle(svg).overflow !== 'visible' ? svg.getBoundingClientRect() : (svg.closest('figure') ?? svg).getBoundingClientRect();
+    const boxes = [...svg.querySelectorAll(':scope > text, :scope > g > text')].filter((t) => vis(t) && t.textContent.trim()).map((t) => [t, t.getBoundingClientRect()]).filter(([, r]) => r.width > 0);
+    const fig = svg.closest('figure')?.id ?? 'a figure';
+    for (const [t, r] of boxes) if (r.left < Math.max(0, b0.left) - 1 || r.right > Math.min(W, b0.right) + 1) out.push(fig + ': "' + t.textContent.trim().slice(0, 30) + '" cut');
+    for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
+      const [a, A] = boxes[i], [c, C] = boxes[j];
+      if (Math.min(A.right, C.right) - Math.max(A.left, C.left) > 4 && Math.min(A.bottom, C.bottom) - Math.max(A.top, C.top) > 4) out.push(fig + ': "' + a.textContent.trim().slice(0, 20) + '" over "' + c.textContent.trim().slice(0, 20) + '"');
+    }
+  }
+  return out;
+})()`);
+
 // One page on one screen as text (50-page-<screen>-<slug>), and the failures in it. Like a layout record it names and
 // counts, never positions. The anchor and Products checks drive the page and so run only where a reader scrolls and
 // taps differently: the laptop and the phone.
@@ -455,6 +475,9 @@ const recordPage = async (screen, [slug, file, kind]) => {
   if (overflow) fail(`the page is ${m.documentWidth} px wide where it has ${room} px of a ${screen.width} px screen`);
   if (m.spill.length) fail(`${m.spill.length} element(s) past the right edge of the screen: ${m.spill.slice(0, 5).join('; ')}${m.spill.length > 5 ? '; ...' : ''}`);
   for (const [c, v] of clippedClasses) fail(`${v.clipped} of ${v.cells} cells clipped in ${c}`);
+  const unreadable = await figureText();
+  lines.push(unreadable.length ? `figure text cut or overlapping:\n${unreadable.slice(0, LISTED).map((x) => `  ${x}`).join('\n')}` : 'figure text: all of it readable');
+  if (unreadable.length) fail(`${unreadable.length} figure text(s) cut or overlapping: ${unreadable.slice(0, 4).join('; ')}`);
   notes[key] = [`scrolls sideways: ${m.sideways.length ? m.sideways.join('; ') : 'none'}`];
 
   lines.push(`sections (${facts.sections.length}): ${facts.sections.map((s) => s.name + (s.empty ? ' (empty)' : '')).join(', ') || 'none'}`);

@@ -6,7 +6,7 @@ import { esc, tableBox } from '../html.js';
 import { fmtNumber, priceSampleWords, convertedNote } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { spreadEntries, priceRows, productNameOrId } from '../../js/ui/material-facts.js';
-import { plural, joinedSpan, EMPTY_LINES } from '../../js/ui/material-words.js';
+import { plural, andList, joinedSpan, EMPTY_LINES } from '../../js/ui/material-words.js';
 import { FIGURE_PAIRS } from '../figures.js';
 import { stripScale } from '../charts/scale.js';
 import { dotTrack, dotRow, dotGraph } from '../charts/dotplot.js';
@@ -58,8 +58,12 @@ export default {
       + `${s?.variants ? `<tr class="apart"><td colspan="5">${esc(`Also drawn, not in the median: ${plural(s.variants.n, 'special formulation')} (${joinedSpan(s.variants)}).`)}</td></tr>` : ''}</tbody></table>`);
     const used = listings.filter((r) => r.used).length;
     const unused = Object.entries(listings.reduce((acc, r) => { if (r.unused) acc[r.unused] = (acc[r.unused] ?? 0) + 1; return acc; }, {}));
+    // This material's listings, by the sellers they come from; the whole sample's shops are said apart, so a single
+    // listing is never read as coming from sixteen shops.
+    const canadian = new Set(listings.filter((r) => !r.foreign).map((r) => r.p.retailer)), foreign = new Set(listings.filter((r) => r.foreign).map((r) => r.p.retailer));
+    const from = andList([canadian.size ? plural(canadian.size, 'Canadian retailer') : null, foreign.size ? plural(foreign.size, 'foreign seller') : null].filter(Boolean));
     const notes = [
-      `Listings from ${priceSampleWords(c.db.meta)}: ${used} of ${plural(listings.length, 'listing')} ${used === 1 ? 'is' : 'are'} used.${unused.map(([why, n]) => ` ${NOT_USED[why]?.(n) ?? `${plural(n, 'listing')} ${n === 1 ? 'is' : 'are'} not used.`}`).join('')}`,
+      `${listings.length === 1 ? 'Its one listing comes' : `Its ${plural(listings.length, 'listing')} come`} from ${from}, in a sample of ${priceSampleWords(c.db.meta)}: ${used} of ${plural(listings.length, 'listing')} ${used === 1 ? 'is' : 'are'} used.${unused.map(([why, n]) => ` ${NOT_USED[why]?.(n) ?? `${plural(n, 'listing')} ${n === 1 ? 'is' : 'are'} not used.`}`).join('')}`,
       m.headline[h.key]?.converted ? convertedNote(m.headline[h.key].converted) : null,
     ].filter(Boolean);
     const no = next();

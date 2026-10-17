@@ -118,6 +118,10 @@ export function assess(m, def, gradeMeasurements, state = null) {
     if (def.unstatedDirection === 'excluded') return { excluded: `the source states no direction, and a ${def.direction} value is one it says is ${def.direction}`, why: 'unstatedDirection' };
     caveat = 'unstated-direction';
   }
+  // A headline with no direction (heat deflection, density) is a flat bar's: an edge or upright bar's value is another
+  // bar's (D92, D123), shown and never the product's, also where the product's flat bar is held back or implausible
+  // (Stratasys PA6/66-GF30-FR's XY 35 °C at 264 psi, m436, left its XZ 153 °C as the product's).
+  if (!def.direction && ['Z', 'XZ', 'ZX'].includes(m.direction)) return { excluded: `a ${m.direction} bar, and ${def.key ?? 'this property'} is a flat bar's`, why: 'direction' };
   if (def.loadMPa != null) {
     if (m.thermal?.loadStated) {
       if (Math.abs(m.thermal.loadMPa - def.loadMPa) > LOAD_TOLERANCE_MPA) return { excluded: `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa`, why: 'load' };

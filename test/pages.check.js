@@ -11,7 +11,7 @@
 //   npm run build && npm run pages:check
 //
 // It reads only: nothing is built or written here. It fails with "run npm run build" when dist/materials/ is missing or
-// does not match dist/db.json and dist/manifest.json. `verify` runs it after the snapshot check (scripts/verify.mjs),
+// does not match dist/db.json and dist/manifest.json. `verify` runs it after the build, beside the snapshot check (scripts/verify.mjs),
 // which is why it is not in `npm test`. Every invariant collects its failures, with the material, so one run shows every
 // problem; a failing test prints the first twenty.
 //
@@ -64,6 +64,7 @@ import { limitOnScale } from '../app/js/ui/scales.js';
 import { REGISTRY } from '../app/js/ui/registry.js';
 import { fromHash } from '../app/js/engine/scenario.js';
 import { renderDrawer } from '../app/js/ui/detail.js';
+import { dryingFactWords } from '../app/js/ui/material-words.js';
 import { assess, ASSESS_ORDER } from '../build/src/products.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -319,7 +320,8 @@ function onFile(S, c) {
     printing: db.profiles.some((p) => p.materialId === m.id && !p.retired) || db.printGuide.some((g) => g.materials.some((y) => y.materialId === m.id)),
     products: products.length > 0,
     'makers-say': Object.values(m.knowHow?.products ?? {}).some((n) => n > 0),
-    environment: db.evidence.some((e) => e.materialId === m.id) || (db.polymerEvidence ?? []).some((e) => e.materialId === m.id),
+    // The project's own reading of a source (m435) is on the records page only.
+    environment: db.evidence.some((e) => e.materialId === m.id && e.evidenceType !== 'Selection interpretation') || (db.polymerEvidence ?? []).some((e) => e.materialId === m.id),
     price: !!priceKey && products.filter((g) => m.gradeIds.includes(g.id)).some((g) => g.headline?.[priceKey]),
     estimates: db.registry.headlines.some((h) => !h.drawerOnly && !m.headline?.[h.key]?.known && m.headline?.[h.key]?.estimate) || !!(m.print?.nozzleEstimate || m.print?.bedEstimate || m.print?.chamberEstimate),
     sources: documentIds(S, m).size > 0,
@@ -449,6 +451,11 @@ function p2(S) {
       check('P2', who, facts.get('Products') === `${fmtNumber(products.length)} from ${plural(makers, 'maker')}`, () => `Products "${facts.get('Products')}", tables ${products.length} from ${makers} makers`);
       check('P2', who, facts.get('Bambu Lab status') === h2cStatusLabel(m.h2cStatus), () => `status "${facts.get('Bambu Lab status')}", expected "${h2cStatusLabel(m.h2cStatus)}"`);
       if (stated(m.basePolymer)) check('P2', who, facts.get('Polymer') === m.basePolymer, () => `polymer "${facts.get('Polymer')}", expected ${m.basePolymer}`);
+      // A filler the materials table names (aramid fibre, PTFE, ceramic) is never said to be undisclosed (labels.js namedFiller).
+      const mod = String(m.modifier ?? '');
+      if (mod && !/undisclosed|^Not |Unfilled|^(?:Carbon|Glass) fibre$|ESD|Foaming/i.test(mod)) {
+        check('P2', who, !/not disclosed/i.test(`${facts.get('Filler') ?? ''} ${textOf(query1(mast, 'p.mast-lede') ?? { kids: [] })}`), () => `the filler "${mod}" is named, the masthead says "${facts.get('Filler')}"`);
+      }
       check('P2', who, !!mast.parent && (query1(mast, 'p.callout') ? !!m.excluded : !m.excluded), 'the beyond-capability callout only for an excluded material');
     }
     const description = page.q1('meta[name=description]')?.attrs.content ?? '';
@@ -561,12 +568,25 @@ function p3(S) {
         if (e?.known) {
           const n = e.spread?.n ?? m.summary?.[key]?.n ?? 1;
           check('P3', w, !!b && textOf(b) === fmtBounded(e.value, null, publishedBound(e)) && small === (n === 1 ? 'one product' : `median of ${n} products`), () => `shows "${b ? textOf(b) : ''}" "${small}", compiled ${e.value} of ${n}`);
-        } else check('P3', w, hasClass(kn, 'kn--none') || hasClass(kn, 'kn--open'), 'no comparable value but drawn as a typical one');
+        } else {
+          check('P3', w, hasClass(kn, 'kn--none') || hasClass(kn, 'kn--open'), 'no comparable value but drawn as a typical one');
+          // A nearest value at another load, or on a moulded bar, says so on the first screen (findings.js nearestLacks).
+          const b = !m.summary?.[key]?.asPublished?.n ? e?.related?.best : null;
+          if (b && hasClass(kn, 'kn--open')) {
+            if (h.loadMPa != null && b.loadMPa != null && b.loadMPa !== h.loadMPa) check('P3', w, small.includes(`at ${fmtNumber(b.loadMPa)} MPa`), () => `a value at ${b.loadMPa} MPa under ${h.labels.plain} says "${small}"`);
+            if (b.printed === false && /moulded|resin/i.test(String(b.why ?? ''))) check('P3', w, small.includes('moulded'), () => `a moulded bar says "${small}"`);
+          }
+        }
       } else if (key === 'nozzle' || key === 'bed') {
         const counted = windowsOf(c, key).filter((x) => x.counted).length;
+        const total = c.grades.filter(isProduct).length;
         if (!counted) check('P3', w, hasClass(kn, 'kn--none'), 'no counted window but a window shown');
         else {
-          check('P3', w, counted === 1 ? small === 'one product' : new RegExp(`^(?:all|most of|\\d+ of) ${counted} products accept$`).test(small), () => `says "${small}", windows counted ${counted}`);
+          // Where fewer products are counted than the material has, the count says of how many: "all 3" on a material
+          // of nine is never read as all of them.
+          const said = counted === total ? `(?:${counted === 2 ? 'both' : `all ${counted}`}|most of ${counted}|\\d+ of ${counted}) products`
+            : `(?:${counted === 2 ? 'both' : `all ${counted}`} counted products|most of the ${counted} counted products|\\d+ of the ${counted} counted products) \\(of ${total}\\)`;
+          check('P3', w, counted === 1 ? small === 'one product' : new RegExp(`^${said} accepts?$`).test(small), () => `says "${small}", windows counted ${counted} of ${total} products`);
         }
       }
     }
@@ -676,7 +696,7 @@ function p5(S) {
       const tabProps = propertiesOf(S, 'mechanical', m);
       const records = c.ms.filter((x) => props.has(x.property) && tabProps.has(x.property) && !namedOnly(x));
       const body = textOf(query1(fig, 'details.counted .counted-body') ?? { kids: [] });
-      const line = /Of the (\d+) results on file for these tests, (\d+) (?:is|are) the products' own values(?: and (\d+) (?:is|are) named alone)?\.(?: The other (\d+): (.*?)\.)?(?= |$)/.exec(body);
+      const line = /Of the (\d+) results on file for these tests, (\d+) (?:is|are) drawn(?: and (\d+) (?:is|are) named in the text, the only result of (?:its|their) test)?\.(?: The other (\d+): (.*?)\.)?(?= |$)/.exec(body);
       check('P5', `${who} ${f.topic}`, !!line, 'no counted line');
       if (line) {
         const n = Number(line[1]), drawn = Number(line[2]), named = Number(line[3] ?? 0), rest = Number(line[4] ?? 0);
@@ -709,7 +729,11 @@ function p5(S) {
     const first = new Map();
     for (const f of comps) for (const p of f.properties) if (!first.has(p)) first.set(p, f);
     const lines = new Map();
-    for (const f of comps) if (f.drawnGraphs.length) for (const o of f.onGraph) lines.set(o.mid, (lines.get(o.mid) ?? 0) + 1);
+    // A badge per key property, reason and mark a record is drawn with: a product that shares its sheet (a twin) and is
+    // drawn the same way is named on that badge, not given a second one.
+    const ways = new Map();
+    for (const f of comps) if (f.drawnGraphs.length) for (const o of f.onGraph) (ways.get(o.mid) ?? ways.set(o.mid, new Set()).get(o.mid)).add(`${o.h.key}|${o.reason ?? ''}|${o.marks.join('+')}`);
+    for (const [mid, set] of ways) lines.set(mid, set.size);
     const gm = (x) => c.ms.filter((z) => z.gradeId === x.gradeId);
     for (const tr of query(sec, 'tr[data-mid]')) {
       const x = c.msById.get(tr.attrs['data-mid']);
@@ -722,6 +746,10 @@ function p5(S) {
       const said = notDrawnWhy(x, f.hs, c, f.drawnIds, f.namedIds);
       check('P5', w, cell.attrs['data-why'] === said, () => `page says "${cell.attrs['data-why']}", notDrawnWhy says "${said}"`);
       if (said === 'drawn') check('P5', w, query(cell, 'span.bd').length === (lines.get(x.id) ?? 0), () => `${query(cell, 'span.bd').length} lines for a record drawn ${lines.get(x.id) ?? 0} times`);
+      if (said === 'drawn') {
+        const twins = comps.flatMap((g) => g.onGraph).filter((o) => o.mid === x.id && o.alsoFor).map((o) => o.e.g);
+        for (const g of twins) check('P5', w, textOf(cell).toLowerCase().includes(`for ${g.manufacturer ? `${g.manufacturer} ` : ''}${g.product ?? g.id} too`.toLowerCase()), () => `drawn for ${g.id} too, which the badge does not name ("${textOf(cell).slice(0, 120)}")`);
+      }
       // Against the build's own reason for refusing a record (assess, called here directly).
       const reads = f.hs.filter((y) => y.valueProperties.includes(x.property));
       const results = reads.map((y) => assess(x, y, gm(x)));
@@ -769,7 +797,7 @@ function p6(S) {
       for (const b of bars) {
         const x = w.find((y) => y.g.id === b.attrs['data-grade']);
         if (!x) continue;
-        check('P6', ww, b.attrs['data-v'] === `${fmtNumber(x.min)}–${fmtNumber(x.max)} °C`, () => `${x.g.id} bar says ${b.attrs['data-v']}, sheet ${x.min}–${x.max}`);
+        check('P6', ww, b.attrs['data-v'] === `${x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}–${fmtNumber(x.max)}`} °C`, () => `${x.g.id} bar says ${b.attrs['data-v']}, sheet ${x.min}–${x.max}`);
         check('P6', ww, hasClass(b, 'wb--guide') === (x.origin === 'guide') && hasClass(b, 'wb--variant') === x.variant, () => `${x.g.id} bar kinds (guide ${x.origin === 'guide'}, variant ${x.variant})`);
         check('P6', ww, (b.attrs['data-profile'] ?? null) === x.profileId, () => `${x.g.id} bar profile ${b.attrs['data-profile']}, gate ${x.profileId}`);
       }
@@ -923,6 +951,8 @@ const COINAGES = [
   /printer's envelope/i, /printer maker's guide/i, /Official Bambu product/, /Officially listed family/, /\bTheoretical\b/, /"Conditional"/,
   /\bheadlines?\b/i, /\bquarantin\w*/i, /track only/i, /preference only/i, /coverage records?/i, /evidence recorded/i, /family entr(?:y|ies)/i,
   /\bmigrations?\b/i, /\bworkbook\b/i, /representative grade/i, /\bscreened\b/i, /\bgrade-specific\b/i,
+  // A maintainers' note in the reading path: a review step, a dated reading, the records' own state (common.js shownGap).
+  /Mandatory review/i, /estimate band/i, /no document cited/i, /\bre-read \d{4}-\d{2}-\d{2}/i, /SHA-256/, /Partially resolved \d{4}/i,
 ];
 
 function p9(S) {
@@ -940,6 +970,12 @@ function p9(S) {
     // The makers' topics are headings the page writes; none says "grade" for a product.
     for (const th of page.q('table.topics tbody th')) check('P9', page.file, !/\bgrades?\b/i.test(textOf(th)), () => `a maker topic is headed "${textOf(th)}"`);
     check('P9', page.file, !bad.length, () => `project word "${bad[0][0]}" in "${text.slice(Math.max(0, bad[0].index - 50), bad[0].index + 50)}"`);
+    // The project's own reading of a source is never quoted as a statement on a material page (m435).
+    if (!records) {
+      const quoted = new Set(page.q('section[data-section=environment] q').map((n) => textOf(n).trim()));
+      const own = (S.db.evidence ?? []).filter((e) => e.evidenceType === 'Selection interpretation' && quoted.has(String(e.finding).trim()));
+      check('P9', page.file, !own.length, () => `the project's own reading quoted as a statement: "${own[0]?.finding.slice(0, 80)}"`);
+    }
   }
   // Standards and polymer names are not record IDs.
   const probe = 'ASTM D256, ISO 527, ISO 179-1, D638, PA6, PA612, PA12-CF, H2C, ISO 75-2';
@@ -1017,7 +1053,7 @@ function p12(S) {
       // The number is the data's: a statistic of a key property's compiled spread, or a count of records.
       const [key, stat] = p.field.split('.');
       const sum = m.summary?.[key];
-      if (stat && sum && ['median', 'min', 'max', 'q1', 'q3', 'n'].includes(stat) && sum[stat] != null) check('P12', `${who} ${p.field}`, sum[stat] === p.value, () => `compiled ${sum[stat]}, summary ${p.value}`);
+      if (stat && sum && ['median', 'min', 'max', 'q1', 'q3', 'n', 'products'].includes(stat) && sum[stat] != null) check('P12', `${who} ${p.field}`, sum[stat] === p.value, () => `compiled ${sum[stat]}, summary ${p.value}`);
       const id = identity(m, c);
       const counts = { products: id.products, makers: id.makers, values: c.summary.numericMeasurements, profiles: c.profiles.length };
       if (p.field in counts) check('P12', `${who} ${p.field}`, counts[p.field] === p.value, () => `count ${counts[p.field]}, summary ${p.value}`);
@@ -1167,6 +1203,18 @@ function cnt(S) {
       ck('drying', own + twin + guide === have && have <= products, `${own} + ${twin} + ${guide} against ${have} of ${products}`);
       const said = /(\d+) of (\d+) products? ha(?:s|ve) drying advice/.exec(plainText(sectionHtml(page, 'printing')));
       if (have) ck('drying sentence', said && num(said[1]) === have && num(said[2]) === products, `says ${said?.[0]}, counted ${have} of ${products}`);
+      // The drawer's drying line counts the same products (material-words.js dryingFactWords).
+      const drawer = /\((\d+) of (\d+) products? ha(?:s|ve) drying advice/.exec(dryingFactWords(m.gates.drying, c.grades.filter(isProduct)));
+      if (drawer) ck('drawer drying', num(drawer[1]) === have && num(drawer[2]) === products, `the drawer says ${drawer[0]}, the page ${have} of ${products}`);
+    }
+
+    // An estimate said to disagree with the sheets: the values published without their basis lie outside its likely range,
+    // in one unit (0.35 GPa was said to disagree with 0.23–0.63 GPa printed as 230–630 MPa).
+    for (const seg of page.split('data-estimate="').slice(1)) {
+      const key = seg.slice(0, seg.indexOf('"'));
+      if (!seg.split('data-estimate=')[0].includes('est-onfile--off')) continue;
+      const e = m.headline?.[key]?.estimate, a = m.summary?.[key]?.asPublished;
+      if (e && a) ck(`${key} disagreement`, a.min < e.lo * 0.999 || a.max > e.hi * 1.001, `published ${a.min}–${a.max}, likely ${e.lo}–${e.hi} ${e.unit}`);
     }
 
     // Measurement records: Sources, the records page and the closing link count them alike.
@@ -1187,9 +1235,13 @@ function cnt(S) {
 
     // Nozzle and bed: the first screen's count and the panel's.
     for (const axis of ['nozzle', 'bed']) {
-      const first = new RegExp(`data-key="${axis}"[\\s\\S]*?<small>(?:most of|all) (\\d+) products accept</small>`).exec(page);
+      const first = new RegExp(`data-key="${axis}"[\\s\\S]*?<small>(?:most of (?:the )?|all )(\\d+) (?:counted )?products(?: \\(of \\d+\\))? accept</small>`).exec(page);
       const panel = new RegExp(`class="pw" data-setting="${axis}" data-n="(\\d+)"`).exec(printing);
       if (first && panel) ck(`${axis} window`, Number(first[1]) === Number(panel[1]), `first screen ${first[1]}, figure ${panel[1]}`);
+      // The figure's title names the window the first screen names, never a second definition of it.
+      const shown = new RegExp(`data-key="${axis}"[^>]*><dt>[^<]*</dt><dd><b>([^<]+)</b>`).exec(page)?.[1];
+      const title = plainText(/<figure[^>]*data-print="windows"[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/.exec(printing)?.[1] ?? '');
+      if (shown && title.includes(`on the ${axis}`)) ck(`${axis} title`, title.includes(`${plainText(shown)} °C on the ${axis}`), `title "${title}", first screen ${plainText(shown)} °C`);
     }
 
     // Density: Physical's median count and At a glance's.

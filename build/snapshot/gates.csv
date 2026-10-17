@@ -123,7 +123,7 @@ M121,TPI,excluded,exceeds,exceeds,exceeds,requires-hardened,required
 M122,PEKK-CF,excluded,exceeds,exceeds,exceeds-recommended,requires-hardened,required
 M123,PEI-ESD,excluded,exceeds,exceeds,unknown,unknown,required
 M124,PPS-ESD,within,within,exceeds,partial,no-special-concern,required
-M125,PEEK-CF,excluded,exceeds,within,exceeds,unknown,required
+M125,PEEK-CF,excluded,exceeds,within,exceeds,requires-hardened,required
 M126,TPU-ESD,within,within,within,within,no-special-concern,required
 M127,PEEK-GF,excluded,unknown,unknown,unknown,unknown,unknown
 M128,PC-ABS-CF,within,within,within,unknown,requires-hardened,required

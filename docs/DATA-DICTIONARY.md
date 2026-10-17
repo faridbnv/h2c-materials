@@ -25,6 +25,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [impact_test_guesses](#impact_test_guesses) | MeasurementID | A reviewer's reading of which test an impact result was, where the record's own words do not settle it (property Impact strength: the sheet names no test, or names Charpy and Izod at once). Written beside the value in the drawer; the record is not moved and never compared (D133). |
 | [know_how_reads](#know_how_reads) | SourceID + Scope | Which sources were read for makers' know-how, how, when and by whom: one row per source and scope. It is the one fact about know-how the build cannot derive, because a document with no statement recorded from it may have been read and found silent, or never read. The build reads it with the statements (evidence.csv, Domain "Makers' know-how") to give every product and material its know-how state: collected, sheet silent (maker site not yet searched), searched with nothing published, or no document read (build/src/know-how.js, DATA-MODEL.md). |
 | [material_links](#material_links) | MaterialID + Link + RecordID | Records a material cites, one per row, in citation order. printing cites print profiles or evidence records (the first profile supplies the material's nozzle, bed and chamber guidance); h2c-status cites sources for its H2C status; use, durability and safety cite evidence records, which may be family context from another material. Environmental evidence is not listed: it is always the material's own environmental records. |
+| [material_summaries](#material_summaries) | MaterialID | The written summary at the head of a material's page (D142), one row per material that has a page: words for a reader, editorial and deciding nothing. It states no number by hand: every number is a placeholder in braces ({products}, {hdt045.median}) that the build fills from the material's compiled values when the page is built, so it cannot go stale beside the value it repeats. The page shows who wrote it, when, and whether the owner has reviewed it. |
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
@@ -261,6 +262,19 @@ lists the missing states a column accepts instead of a value; a blank required c
 | MaterialID | editorial | string | yes |  | → materials.MaterialID | Material that cites the record. |
 | Link | editorial | string | yes |  | [material-links](#vocab-material-links) | What the citation supports. |
 | RecordID | editorial | string | yes |  | → undefined.undefined | The cited profile (P), evidence record (Q) or source. The build checks the kind matches the link. |
+
+### material_summaries
+
+`data/tables/material_summaries.csv` (Material summaries). The written summary at the head of a material's page (D142), one row per material that has a page: words for a reader, editorial and deciding nothing. It states no number by hand: every number is a placeholder in braces ({products}, {hdt045.median}) that the build fills from the material's compiled values when the page is built, so it cannot go stale beside the value it repeats. The page shows who wrote it, when, and whether the owner has reviewed it.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| MaterialID | key | string | yes |  | → materials.MaterialID | The material the summary heads the page of: one with a page (app/js/ui/page-rule.js), never a family entry. |
+| Summary | prose | string | yes |  |  | The summary, one paragraph. A number appears only as a placeholder the build fills: {products}, {makers}, {values}, {profiles} (counts of the material's records), {name}, and for a headline key of headline_definitions.csv {key.median}, {key.min}, {key.max}, {key.range}, {key.q1}, {key.q3} (with at least four products compared), {key.n} (products compared), {key.products}, {key.typical} (the product nearest the median) and {key.label} (its name). A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); a number typed outside one is a lint finding (SUMMARY-NUMBER). |
+| Written by | editorial | string | yes |  |  | Who wrote it: the owner, a person, or an agent named as one ("Claude Sonnet (agent)"), and who corrected it where someone did. Shown in the byline. |
+| Written on | editorial | date | yes |  |  | The date it was written or last revised (YYYY-MM-DD). Shown in the byline. |
+| Review status | editorial | string | yes |  | [summary-status](#vocab-summary-status) | Whether the owner has read it: draft, reviewed by the owner, or revise. Shown in the byline. |
+| Notes | prose | string | yes | Not applicable |  | For maintainers, never shown on the page: the release the page was read from, the page sections each claim rests on, and what the writer could not say and why. Not applicable: nothing to add. |
 
 ### materials
 
@@ -1620,6 +1634,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|
 | In stock |  |
 | Out of stock |  |
+
+<a id="vocab-summary-status"></a>
+### summary-status
+
+`schema/vocab/summary-status.csv`, used by material_summaries.Review status.
+
+| Value | Meaning |
+|---|---|
+| draft | Written by an agent or a maintainer and not yet read by the owner: shown on the page with its byline saying so. |
+| reviewed by the owner | The owner has read the summary against its page and kept it as it stands. |
+| revise | The owner has read it and asked for it to be written again; it is shown, with its byline saying so, until a revision replaces it. |
 
 <a id="vocab-units"></a>
 ### units

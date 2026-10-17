@@ -511,6 +511,8 @@ export function refusedBy(x, h, c) {
     if (!UNSTATED_DIRECTIONS.has(x.direction)) return 'direction';
     if (h.unstatedDirection === 'excluded') return 'unstatedDirection';
   }
+  // A headline with no direction is a flat bar's (build/src/products.js assess).
+  if (!h.direction && ['Z', 'XZ', 'ZX'].includes(x.direction)) return 'direction';
   if (h.loadMPa != null) {
     if (x.thermal?.loadStated) { if (Math.abs(x.thermal.loadMPa - h.loadMPa) > 0.01) return 'load'; }
     else if (h.unstatedLoad === 'excluded') return 'unstatedLoad';

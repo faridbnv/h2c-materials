@@ -5,7 +5,7 @@
 // under each figure's "How this is counted".
 
 import { fmtNumber } from '../js/ui/format.js';
-import { envVerdictWords } from '../js/ui/labels.js';
+import { envVerdictWords, propertyName } from '../js/ui/labels.js';
 import { plural, andList, lower, cap, windowText, asPublishedWords } from '../js/ui/material-words.js';
 
 /** A share in plain words where it is near a simple fraction ("about two thirds"), else "about 68 %". */
@@ -43,8 +43,42 @@ const pc = (r) => `${Math.round(r * 100)} %`;
 /** A temperature span, word-joined: "230–255 °C", or one temperature. */
 const span = (w) => `${windowText(w.from, w.to)} °C`;
 
-/** "54" or "all 3" or "both", the products a quantity counts. */
-const allOf = (n) => (n === 2 ? 'both products' : `all ${n} products`);
+/**
+ * Who a print window rests on, as the subject of "accept": the products counted (their own or a shared sheet gives both
+ * ends; a special formulation's window and one read from Bambu Lab's guide are drawn apart, material-stats.js
+ * printWindows) and, where they are fewer than the material's products, how many those are, so "all 3" on a material
+ * of nine is never read as all of them. `k` is 'all', 'most' or how many accept; `n` the products counted; `total` the
+ * material's products. "all 9 products", "both products", "all 3 counted products (of 9)", "2 of the 5 counted
+ * products (of 9)". The first screen, the findings and the figure say it in these words alone.
+ */
+export function acceptSubject(k, n, total = n) {
+  const part = n < total;
+  const of = part ? ` (of ${total})` : '';
+  if (k === 'all') return `${n === 2 ? 'both' : `all ${n}`} ${part ? 'counted ' : ''}products${of}`;
+  if (k === 'most') return part ? `most of the ${n} counted products${of}` : 'most products';
+  return part ? `${k} of the ${n} counted products${of}` : `${k} of ${n} products`;
+}
+
+/**
+ * What a key property's nearest value on file (materials[].headline[key].related.best, its measurement `x`) is, where
+ * no product's is compared: the condition it lacks or has instead, in the order an engineer would ask, short enough for
+ * the first screen: "at 0.45 MPa", "a moulded bar", "tested at -30 °C", "unnotched", "test unclear", "orientation not
+ * stated". The first screen and the At a glance table say it in these words alone, so a 0.45 MPa value under "HDT at
+ * 1.8 MPa" is never read as one, nor a moulded bar as a printed one of unstated orientation.
+ */
+export function nearestLacks(h, b, x) {
+  const unstated = (v) => !v || /^(unknown|not-stated|Not published|Not applicable|not-applicable)$/i.test(String(v));
+  const out = [];
+  const name = propertyName(b.property ?? '');
+  if (b.property && !h.valueProperties?.includes(b.property)) out.push(/test unclear/i.test(name) ? 'test unclear' : lower(name));
+  if (h.loadMPa != null) out.push(b.loadMPa != null ? (b.loadMPa !== h.loadMPa ? `at ${fmtNumber(b.loadMPa)} MPa` : null) : 'load not stated');
+  if (h.notch) out.push(unstated(x?.notch) ? 'notch not stated' : x.notch !== h.notch ? lower(x.notch) : null);
+  const moulded = b.printed === false && /moulded|resin/i.test(`${x?.specimenForm ?? ''} ${b.why ?? ''}`);
+  if (moulded) out.push('a moulded bar');
+  else if (h.direction) out.push(unstated(b.direction) ? 'orientation not stated' : b.direction !== h.direction ? `${b.direction} bar` : null);
+  if (h.testTemperatureC != null && Number.isFinite(x?.testTemperatureC) && Math.abs(x.testTemperatureC - h.testTemperatureC) > 3) out.push(`tested at ${fmtNumber(x.testTemperatureC)} °C`);
+  return out.filter(Boolean);
+}
 
 // ------------------------------------------------------------------ the first screen
 
@@ -98,14 +132,17 @@ export function glanceFindings(name, rows) {
 
 // ------------------------------------------------------------------ printing
 
-/** How a setting's counted windows agree, as a phrase with its quantifier first: "most products accept 230–255 °C". */
-function windowPhrase(pw) {
+/**
+ * How a setting's counted windows agree, as a phrase with its quantifier first: "most products accept 230–255 °C";
+ * `total` the material's products, said where fewer are counted (acceptSubject).
+ */
+function windowPhrase(pw, total) {
   if (!pw || !pw.n) return null;
   const counted = pw.windows.filter((w) => w.counted);
   if (pw.n === 1) return { q: 'one', text: `${windowText(counted[0].min, counted[0].max)} °C` };
-  if (pw.every) return { q: allOf(pw.n), text: span(pw.every) };
-  if (pw.most) return { q: 'most products', text: span(pw.most) };
-  return { q: null, text: `${pw.peak.k} of ${pw.n} products accept ${span(pw.peak)}` };
+  if (pw.every) return { q: acceptSubject('all', pw.n, total), text: span(pw.every) };
+  if (pw.most) return { q: acceptSubject('most', pw.n, total), text: span(pw.most) };
+  return { q: null, k: pw.peak.k, n: pw.n, total, text: span(pw.peak) };
 }
 
 /**
@@ -114,7 +151,7 @@ function windowPhrase(pw) {
  */
 export function printFindings({ nozzle, bed, chamber, products, chamberOutside, limit, drying, hard, abrasive, dryingGate, outside = [] }) {
   const out = [];
-  const n = windowPhrase(nozzle), b = windowPhrase(bed);
+  const n = windowPhrase(nozzle, products), b = windowPhrase(bed, products);
   const on = (p, where) => `${p.text} on the ${where}`;
   if (n && b && n.q && n.q === b.q && n.q !== 'one') out.push(`By their own or a shared sheet, ${n.q} accept ${on(n, 'nozzle')} and ${on(b, 'bed')}.`);
   else {
@@ -129,14 +166,18 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
         out.push(`One product gives a ${where} window, ${p.text}${ends.length ? `, and ${andList(ends)}` : ''}.`);
       }
       else if (p.q) out.push(`By their own or a shared sheet, ${p.q} accept ${on(p, where)}.`);
-      else out.push(`No ${where} temperature suits more than half the products: at most ${p.text}.`);
+      else {
+        const verb = p.k === 1 ? 'accepts' : 'accept';
+        out.push(p.n < p.total ? `No ${where} temperature suits more than half of the ${p.n} counted products (of ${p.total}): at most ${p.k} ${verb} ${p.text}.`
+          : `No ${where} temperature suits more than half the products: at most ${p.k} of ${p.n} products ${verb} ${p.text}.`);
+      }
     }
   }
   // Nozzle and bed settings above the H2C's limits (the build's own gate verdicts), said where any product asks for more.
   const over = (outside ?? []).filter((a) => a.axis !== 'chamber' && a.list.length);
   if (over.length) {
     const said = over.map((a, i) => (i ? `${a.list.length === products ? 'all' : a.list.length} for more ${a.axis} heat than its ${fmtNumber(a.limit)} °C`
-      : `${a.list.length === products ? `All ${products} products ask` : `${a.list.length} of ${plural(products, 'product')} ask`} for more ${a.axis} heat than the H2C's ${fmtNumber(a.limit)} °C`));
+      : `${a.list.length === products ? `All ${products} products ask` : `${a.list.length} of ${plural(products, 'product')} ${a.list.length === 1 ? 'asks' : 'ask'}`} for more ${a.axis} heat than the H2C's ${fmtNumber(a.limit)} °C`));
     out.push(`${said.join(', and ')}.`);
   }
   // The heated chamber: how many need none, by where that was read, and what those whose sheets give one ask for.
@@ -147,12 +188,16 @@ export function printFindings({ nozzle, bed, chamber, products, chamberOutside, 
   else if (chamber && (none || given)) {
     if (none) out.push(`${none} of ${plural(products, 'product')} ${none === 1 ? 'needs' : 'need'} no heated chamber${basisTail(noneFrom, none)}.`);
     if (given) {
-      const ask = chamber.most && given > 1 ? `mostly ${span(chamber.most)}` : given === 1 ? `${windowText(chamber.windows.find((w) => w.counted).min, chamber.windows.find((w) => w.counted).max)} °C` : `${span(chamber.peak)} for ${chamber.peak.k} of them`;
-      out.push(`${given === 1 ? 'The one whose sheet gives a chamber temperature asks for' : `The ${given} whose sheets give a chamber temperature ask for`} ${ask}${chamberOutside ? `, and ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
+      // Windows that share no temperature are each said ("40 – 60 °C and 100 °C"), never "40 – 60 °C for 1 of them".
+      const counted = chamber.windows.filter((w) => w.counted);
+      const each = andList([...new Set(counted.map((w) => `${windowText(w.min, w.max)} °C`))]);
+      const ask = chamber.most && given > 1 ? `mostly ${span(chamber.most)}` : given === 1 ? `${windowText(counted[0].min, counted[0].max)} °C`
+        : chamber.peak.k > 1 ? `${span(chamber.peak)} for ${chamber.peak.k} of them` : each;
+      out.push(`${given === 1 ? 'The one whose sheet gives a chamber temperature asks for' : `The ${given} whose sheets give a chamber temperature ask for`} ${ask}${chamberOutside ? `${given > 1 && chamber.peak.k === 1 && !chamber.most ? ';' : ', and'} ${chamberOutside === 1 ? 'one goes' : `${chamberOutside} go`} above the H2C's ${fmtNumber(limit)} °C` : ''}.`);
     }
   }
   // A hardened nozzle, said only where some product needs one.
-  if (hard?.need) out.push(hard.need === hard.total ? `${hard.total === 1 ? 'Its product needs' : `All ${hard.total} products need`} a hardened nozzle.` : `${hard.need} of ${hard.total} products need a hardened nozzle.`);
+  if (hard?.need) out.push(hard.need === hard.total ? `${hard.total === 1 ? 'Its product needs' : `All ${hard.total} products need`} a hardened nozzle.` : `${hard.need} of ${hard.total} products ${hard.need === 1 ? 'needs' : 'need'} a hardened nozzle.`);
   else if (abrasive === 'requires-hardened') out.push('Its filler calls for a hardened nozzle.');
   // Drying: the typical schedule of the products whose own or shared sheet gives one.
   const t = drying?.temps, h = drying?.hours;
@@ -207,7 +252,7 @@ export function strengthFindings(m, { shares, hs }) {
 // ------------------------------------------------------------------ heat
 
 /** The heat findings from the ladder's rows (material-stats.js heatLadder): HDT at each load, the glass transition, the rest as published. */
-export function heatFindings(rows, { name = null, amorphous = null } = {}) {
+export function heatFindings(rows, { name = null, amorphous = null, both = null } = {}) {
   const out = [];
   const typical = (r) => fmtNumber(r.summary.median, '°C');
   const across = (r, first) => (r.summary.n === 1 ? 'from one product' : `across ${first ? plural(r.summary.n, 'product') : fmtNumber(r.summary.n)}`);
@@ -220,8 +265,12 @@ export function heatFindings(rows, { name = null, amorphous = null } = {}) {
   } else if (tg) out.push(tg.summary.n === 1 ? `One product gives a glass transition of ${typical(tg)}.` : `The glass transition is typically ${typical(tg)}, across ${plural(tg.summary.n, 'product')}.`);
   // Two loads within 3 °C of each other: said with why, where the polymer's data says it prints amorphous
   // (polymers[].morphology, .asPrinted), and only there.
-  if (hdt.length === 2 && tg && amorphous === true && Math.abs(hdt[0].summary.median - hdt[1].summary.median) <= 3) {
-    out.push(`As printed, ${name} solidifies amorphous, so it softens near its glass transition (${typical(tg)}) and the two loads give nearly the same HDT.`);
+  const near = hdt.length === 2 && tg && amorphous === true && Math.abs(hdt[0].summary.median - hdt[1].summary.median) <= 3;
+  if (near) out.push(`As printed, ${name} solidifies amorphous, so it softens near its glass transition (${typical(tg)}) and the two loads give nearly the same HDT.`);
+  // A heavier load gives a product a lower HDT; two medians that say otherwise are of different products.
+  if (hdt.length === 2 && hdt[1].summary.n && hdt[0].summary.n && both != null
+    && (hdt[1].summary.median > hdt[0].summary.median || (!near && hdt[1].summary.median === hdt[0].summary.median))) {
+    out.push(`The heavier load's median is not the lower because the two rest on different products: ${both ? `${plural(both, 'product')} ${both === 1 ? 'gives' : 'give'} both` : 'none gives both'}.`);
   }
   const pub = rows.filter((r) => !r.compared);
   if (pub.length) {
@@ -261,8 +310,12 @@ export function environmentFindings(f, polymer, makerOf) {
   const top = [...f.rows].filter((r) => r.filterable).map((r) => ({ r, n: makers(r.records).size })).filter((x) => x.n > 1).sort((a, b) => b.n - a.n).slice(0, 4);
   const said = [];
   for (const { r, n } of top) {
+    // A maker counts for a verdict only where every statement it makes in the category gives that verdict: one that
+    // says "good" for weak acids and "poor" for strong ones speaks to both and stands for neither.
+    const verdictsOf = new Map();
+    for (const e of r.records) { if (!telling(e.verdict)) continue; const k = makerOf(e); if (!k) continue; (verdictsOf.get(k) ?? verdictsOf.set(k, new Set()).get(k)).add(e.verdict); }
     const by = new Map();
-    for (const e of r.records) { if (!telling(e.verdict)) continue; const k = makerOf(e); if (!k) continue; (by.get(e.verdict) ?? by.set(e.verdict, new Set()).get(e.verdict)).add(k); }
+    for (const [k, vs] of verdictsOf) if (vs.size === 1) { const [only] = vs; (by.get(only) ?? by.set(only, new Set()).get(only)).add(k); }
     const [v, set] = [...by].sort((a, b) => b[1].size - a[1].size)[0] ?? [];
     if (v && set.size / n >= 2 / 3) said.push({ v, text: `${set.size} of ${n} ${said.some((x) => x.v === v) ? 'on' : 'makers that speak to'} ${lower(r.label)}` });
     if (said.length === 3) break;
@@ -278,12 +331,14 @@ export function environmentFindings(f, polymer, makerOf) {
   return out;
 }
 
-/** What makers say: how many products have statements, and the engineering topics most makers speak to. */
+/**
+ * What makers say: how many products have statements, and the engineering topics the most makers speak to, each with
+ * its count of makers ("most makers" would claim more than half, which three makers of twelve are not).
+ */
 export function makersFindings(f, open) {
   const out = [`${f.collected} of ${plural(f.total, 'product')} have statements from their makers beyond the numbers, in the makers' own words, not test results.`];
   const top = [...open].filter((t) => t.makers > 1).sort((a, b) => b.makers - a.makers).slice(0, 3);
-  if (top.length > 1) out.push(`On how it prints and behaves, most makers speak to ${andList(top.map((t) => lower(t.topic)))}: ${andList(top.map((t) => fmtNumber(t.makers)))} makers.`);
-  else if (top.length) out.push(`On how it prints and behaves, most makers speak to ${lower(top[0].topic)}: ${top[0].makers} makers.`);
+  if (top.length) out.push(`On how it prints and behaves, ${top.length === 1 ? 'the topic the most makers speak to is' : 'the topics the most makers speak to are'} ${andList(top.map((t, i) => `${lower(t.topic)} (${fmtNumber(t.makers)}${i ? '' : ' makers'})`))}.`);
   return out;
 }
 

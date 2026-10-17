@@ -1,5 +1,5 @@
 {
-  "dataRelease": "9dfb39275b42",
+  "dataRelease": "ee8eb64a0259",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -67,8 +67,8 @@
     },
     "excluded": 17,
     "grades": 1180,
-    "measurements": 14818,
-    "numericMeasurements": 14625,
+    "measurements": 14822,
+    "numericMeasurements": 14629,
     "quarantined": 36,
     "profiles": 1835,
     "evidence": 868,
@@ -106,7 +106,7 @@
       "baseline": 5306,
       "current": 8490,
       "added": 3184,
-      "edited_existing": 318,
+      "edited_existing": 343,
       "removed": 0
     },
     "family_entries": {
@@ -139,8 +139,8 @@
     },
     "impact_test_guesses": {
       "baseline": 0,
-      "current": 60,
-      "added": 60,
+      "current": 59,
+      "added": 59,
       "edited_existing": 0,
       "removed": 0
     },
@@ -158,6 +158,13 @@
       "edited_existing": 0,
       "removed": 1
     },
+    "material_summaries": {
+      "baseline": 0,
+      "current": 76,
+      "added": 76,
+      "edited_existing": 0,
+      "removed": 0
+    },
     "materials": {
       "baseline": 175,
       "current": 175,
@@ -167,9 +174,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 15420,
-      "added": 3884,
-      "edited_existing": 2953,
+      "current": 15424,
+      "added": 3888,
+      "edited_existing": 2956,
       "removed": 0
     },
     "method": {
@@ -181,8 +188,8 @@
     },
     "page_context": {
       "baseline": 0,
-      "current": 1010,
-      "added": 1010,
+      "current": 1012,
+      "added": 1012,
       "edited_existing": 0,
       "removed": 0
     },
@@ -237,8 +244,8 @@
     },
     "properties": {
       "baseline": 44,
-      "current": 50,
-      "added": 6,
+      "current": 51,
+      "added": 7,
       "edited_existing": 3,
       "removed": 0
     },

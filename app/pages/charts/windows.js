@@ -41,13 +41,13 @@ export function windowPanel(pw, { label, peakWords, guideName }) {
     + `<path class="run" d="${area((r) => !inMost(r))}"/><path class="run run--most" d="${area(inMost)}"/>`
     + `<path class="run-edge" d="${top}" fill="none" vector-effect="non-scaling-stroke"/></svg>`;
   const halfLine = pw.n > 1 ? `<line class="half" x1="0" x2="100%" y1="${yk(half).toFixed(1)}" y2="${yk(half).toFixed(1)}"/>` : '';
-  const peak = pw.peak;
-  const peakX = peak ? (left(peak.from) + right(peak.to)) / 2 : null;
-  const peakAnchor = peakX == null ? 'middle' : peakX > 78 ? 'end' : peakX < 22 ? 'start' : 'middle';
-  const peakLabel = peak && peakWords ? `<text class="peak" x="${pct(peakX)}" y="${(yk(peak.k) - 7).toFixed(1)}" text-anchor="${peakAnchor}">${esc(peakWords)}</text>` : '';
+  // The words at the peak sit above the plot, in the page's text: inside the plot a sentence ran off a phone's screen
+  // or across the limit's label wherever the peak lay near an edge.
+  const peakLabel = '';
   const band = (h) => (most ? `<rect class="agree" x="${pct(left(most.from))}" y="0" width="${pct(right(most.to) - left(most.from))}" height="${h}"/>` : '');
   const limitLine = (h, top = 0) => (onScale ? `<line class="limit" x1="${pct(X(pw.limit))}" x2="${pct(X(pw.limit))}" y1="${top}" y2="${h}"/>` : '');
-  const limitLabel = onScale ? `<text class="limit-label" x="${pct(X(pw.limit))}" y="11" dx="-5" text-anchor="end">${esc(`H2C max ${fmtNumber(pw.limit)} °C`)}</text>` : '';
+  // The limit's label beside its line, on the side with room: to its left, or to its right where the line is near the left edge.
+  const limitLabel = onScale ? `<text class="limit-label" x="${pct(X(pw.limit))}" y="11" ${X(pw.limit) < 40 ? 'dx="5" text-anchor="start"' : 'dx="-5" text-anchor="end"'}>${esc(`H2C max ${fmtNumber(pw.limit)} °C`)}</text>` : '';
   const curve = `<svg class="pw-curve" height="${HEAD + CURVE}" aria-hidden="true" focusable="false">${band(HEAD + CURVE)}${shape}${halfLine}`
     + `<line class="base" x1="0" x2="100%" y1="${HEAD + CURVE - 0.5}" y2="${HEAD + CURVE - 0.5}"/>${limitLine(HEAD + CURVE)}${peakLabel}${limitLabel}</svg>`;
 
@@ -58,10 +58,10 @@ export function windowPanel(pw, { label, peakWords, guideName }) {
     const cls = ['wb', w.origin === 'guide' ? 'wb--guide' : '', w.variant ? 'wb--variant' : ''].filter(Boolean).join(' ');
     const from = w.origin === 'guide' ? `from ${guideName}` : w.origin === 'twin' ? 'data sheet shared with another product' : null;
     return `<line class="${cls}" x1="${pct(left(w.min))}" x2="${pct(right(w.max))}" y1="${y}" y2="${y}" style="stroke-width:${pitch > 1 ? pitch - 1 : 1}px"`
-      + ` data-grade="${esc(w.g.id)}"${w.profileId ? ` data-profile="${esc(w.profileId)}"` : ''} data-v="${esc(`${fmtNumber(w.min)}–${fmtNumber(w.max)} °C`)}"${from ? ` data-from="${esc(from)}"` : ''}/>`;
+      + ` data-grade="${esc(w.g.id)}"${w.profileId ? ` data-profile="${esc(w.profileId)}"` : ''} data-v="${esc(`${w.min === w.max ? fmtNumber(w.min) : `${fmtNumber(w.min)}–${fmtNumber(w.max)}`} °C`)}"${from ? ` data-from="${esc(from)}"` : ''}/>`;
   }).join('');
   const stack = `<svg class="pw-bars" height="${h}" aria-hidden="true" focusable="false">${band(h)}${scale.ticks.map((t) => `<line class="grid" x1="${pct(X(t))}" x2="${pct(X(t))}" y1="0" y2="${h}"/>`).join('')}${limitLine(h)}${bars}</svg>`;
   const axis = tickSvg(scale, { wide: 420, narrow: 300 });
-  const html = `<div class="pw" data-setting="${esc(pw.axis)}" data-n="${pw.n}" data-peak="${pw.peak?.k ?? ''}"><h4 class="pw-title">${esc(label)}</h4>${curve}${stack}${axis}<p class="pw-unit">°C${!onScale && pw.limit != null ? `, the H2C reaches ${esc(fmtNumber(pw.limit))} °C` : ''}</p></div>`;
+  const html = `<div class="pw" data-setting="${esc(pw.axis)}" data-n="${pw.n}" data-peak="${pw.peak?.k ?? ''}"><h4 class="pw-title">${esc(label)}</h4>${peakWords ? `<p class="pw-peak">${esc(peakWords)}</p>` : ''}${curve}${stack}${axis}<p class="pw-unit">°C${!onScale && pw.limit != null ? `, the H2C reaches ${esc(fmtNumber(pw.limit))} °C` : ''}</p></div>`;
   return { html, scale, onScale };
 }

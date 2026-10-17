@@ -303,7 +303,7 @@ export default {
     const sortable = (col) => col.key !== 'print';
     const button = (label, unit, kind, first) => `<button type="button" data-sort="${kind}" data-first="${first}"><span>${esc(label)}</span>${unit ? `<span class="u">${esc(unit)}</span>` : ''}</button>`;
     const leafHead = (col, label, unit, rowspan) => `<th scope="col"${rowspan ? ' rowspan="2"' : ''} data-i="${col.i}"${col.key === 'print' ? ' class="pp"' : ''}>${sortable(col) ? button(label, unit, 'num', col.key === 'priceCADkg' ? 'asc' : 'desc') : `<span>${esc(label)}</span>${unit ? `<span class="u">${esc(unit)}</span>` : ''}`}</th>`;
-    const docsTitle = `How many of the ${keyProps.length} key properties the product publishes`;
+    const docsTitle = `How many of the ${keyProps.length} values this table holds the product publishes`;
     const row1 = groups.map((g) => (g.length > 1 || g[0].sub
       ? `<th scope="colgroup" colspan="${g.length}" class="pt-gh">${esc(groupHead(g))}<span class="u">${esc(g[0].unit)}</span></th>`
       : leafHead(g[0], g[0].h ? groupHead(g) : g[0].short, g[0].unit, true))).join('');

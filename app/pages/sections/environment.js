@@ -11,6 +11,9 @@ import { emptyBody, recordsLink, findingsBlock, notesHtml } from './common.js';
 import { howCounted } from '../charts/figure.js';
 import { environmentFindings } from '../findings.js';
 
+/** A statement in a maker's or another document's own words, not the project's reading of one (m435). */
+export const makersOwn = (e) => e.evidenceType !== 'Selection interpretation';
+
 /** How many statements a category shows on the page; the records page has every one. */
 const SHOWN = 2;
 
@@ -19,7 +22,9 @@ export default {
   title: 'Chemicals and environment',
   records: '#environment',
   render(c) {
-    const f = environmentMatrix(c);
+    // The project's own reading of a source (Evidence type "Selection interpretation": a printability rubric, a
+    // paraphrase) is not a statement of a maker's, so it is not quoted as one here; the records page lists it as recorded.
+    const f = environmentMatrix({ ...c, ev: c.ev.filter(makersOwn) });
     if (!f.rows.length && !f.polymer.length) {
       return { empty: true, html: emptyBody(c, EMPTY_LINES.Environment, { tab: 'Environment', anchor: '#environment' }), stats: {} };
     }

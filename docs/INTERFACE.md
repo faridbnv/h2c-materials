@@ -770,7 +770,7 @@ engineer would:
 | in the H2C's scope, outside the printer's envelope | beyond H2C capability |
 | the printer maker's guide | the Bambu Lab Filament Guide |
 | Official Bambu product, Officially listed family, Conditional, Theoretical | Bambu Lab filament, Type on Bambu's H2C list, Unlisted, usable with conditions, Unlisted, within H2C temperatures |
-| typical (of a material), headline | median of its products, key property |
+| typical (of a material), headline | median of its products, key property (the material pages head a column "Typical" and define it once, beside the table, as the median of the products compared) |
 | typical: annealed | annealed median |
 | screened (outside the fuzz-pinned chip and header words) | excluded by an estimate, excluded by resin reference data |
 | quarantined | held back |
@@ -875,7 +875,9 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 - **Products** draws each product that meets every requirement, in the state its answer is in (annealed at its
   schedule where annealing is permitted, conditioned where that is asked), coloured by family and shaped by filler as
   every view shapes it (D110: circle unfilled, diamond carbon fibre, square glass fibre, triangle ESD, star foaming,
-  hexagon an undisclosed variant). A value the
+  hexagon a variant the reinforcement facet does not name: its filler undisclosed, or one the materials table names that
+  the facet files with them, aramid fibre, ceramic, PTFE and the like, which the drawer's lede and the material pages
+  name; the rail's label stays "Other variant, filler not disclosed"). A value the
   registry declares unchanged by the state, a density, is read from the product's first state, and the inspector says
   so. A pass is the filled shape; unresolved products (the shape hollow) and failed ones (small and faint) are drawn by
   their chips under Also, never ranked,
@@ -1167,8 +1169,9 @@ row's count, median, middle half and range, with what is drawn and not counted; 
 settings**, the window most products share ("nozzle 195–230 °C, bed 45–60 °C"); the products **outside the H2C's limits**, by
 their print gate's own verdict (so a nozzle or bed window whose highest end is above the limit is outside, and a
 chamber window part of which is above it is partial), or a sentence that none is; and what is **not drawn**, by
-setting and why (a chamber that needs none, an enclosure asked for with no temperature, a window that gives only one
-end, a drying statement with no temperature), so the counts square with the products below. Selecting a dot opens the
+setting and why (no sheet, shared sheet or guide row gives the setting, "say nothing"; a chamber that needs none; an
+enclosure asked for or recommended with no temperature; room temperature; a window that gives only one end; a drying
+statement with no temperature), so the counts square with the products below. Selecting a dot opens the
 profile its value is read from, in its maker's list, marked; a guide's dot opens the guide's row. Nothing is drawn where
 no setting has two values one of which is a sheet's.
 

@@ -40,12 +40,18 @@ function drawnCell(x, c, ix) {
   const why = ix.why(x);
   if (why === 'none') return '<td class="drawn" data-why="none"></td>';
   if (why === 'drawn') {
-    const lines = (ix.lines.get(x.id) ?? []).map((o) => {
+    // One badge per way the value is drawn: where it stands for a product sharing its sheet in the same way (a twin,
+    // D89), that product is named on the same badge, never under a second badge that repeats the first.
+    const badges = new Map();
+    for (const o of ix.lines.get(x.id) ?? []) {
       const reason = o.reason ? outOfMedianWords(o.reason, o.h) : null;
       const label = !reason ? 'In the median' : o.reason === 'as-published' ? 'Not compared' : 'Not in the median';
-      const also = o.alsoFor ? alsoForWords(productNameOrId(o.e.g), o.e.v.from).trim() : '';
-      return `<span class="bd${reason ? ' bd--apart' : ''}">${tableMark(o.marks)}${esc(label)}</span>${reason || also ? `<small>${esc(cap([reason, also].filter(Boolean).join('; ')))}</small>` : ''}`;
-    });
+      const key = `${o.h.key}|${o.reason ?? ''}|${o.marks.join('+')}`;
+      const b = badges.get(key) ?? badges.set(key, { label, reason, marks: o.marks, also: [] }).get(key);
+      if (o.alsoFor) b.also.push(alsoForWords(productNameOrId(o.e.g), o.e.v.from).trim());
+    }
+    const lines = [...badges.values()].map(({ label, reason, marks, also }) => `<span class="bd${reason ? ' bd--apart' : ''}">${tableMark(marks)}${esc(label)}</span>`
+      + `${reason || also.length ? `<small>${esc(cap([reason, ...also].filter(Boolean).join('; ')))}</small>` : ''}`);
     return `<td class="drawn" data-why="drawn">${lines.join('')}</td>`;
   }
   const label = why === 'named' ? 'Named in a sentence' : 'Not drawn';
@@ -56,8 +62,11 @@ function drawnCell(x, c, ix) {
 /** The value as its document publishes it: a bound's sign, the number, ± its spread, the unit; words where it gave words. */
 function valueCell(x) {
   const op = x.operator === '>' || x.operator === '<' ? `${x.operator} ` : '';
+  // A published range ("45~50") is shown as the range, which is how it is judged (D54); the value it is drawn at is its
+  // lower end.
+  const range = x.interval?.kind === 'range' && Number.isFinite(x.interval.lo) && Number.isFinite(x.interval.hi) && x.interval.hi > x.interval.lo;
   const v = x.numeric
-    ? `${esc(`${op}${fmtNumber(x.value)}`)}${unitText(x.unit) ? `<small>${esc(` ${unitText(x.unit)}`)}</small>` : ''}${x.uncertainty ? `<small class="pm">${esc(`± ${fmtNumber(x.uncertainty)}`)}</small>` : ''}`
+    ? `${esc(range ? `${fmtNumber(x.interval.lo)}–${fmtNumber(x.interval.hi)}` : `${op}${fmtNumber(x.value)}`)}${unitText(x.unit) ? `<small>${esc(` ${unitText(x.unit)}`)}</small>` : ''}${x.uncertainty ? `<small class="pm">${esc(`± ${fmtNumber(x.uncertainty)}`)}</small>` : ''}`
     : x.qualitative && x.raw?.value ? `<span class="raw">${esc(x.raw.value)}</span><small> in words</small>`
       : `<span class="missing">${esc(STATUS_WORDS[x.dataStatus] ?? x.dataStatus ?? '')}</span>`;
   const tags = [x.quarantined ? 'held back' : null, x.implausible ? 'physically implausible' : null, x.corrected ? 'transcription corrected' : null].filter(Boolean);

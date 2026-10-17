@@ -12,7 +12,7 @@ Outdoor structural part,"Strict, annealing permitted",M050,PA6-CF,PASS,all,6,0,8
 Outdoor structural part,"Strict, annealing permitted",M051,PA6-GF,PASS,some,2,1,8,11,G051-02,as-printed,yes,
 Outdoor structural part,"Strict, annealing permitted",M053,PA12-CF,PASS,some,1,2,12,15,G053-08,annealed:100:16,yes,
 Outdoor structural part,"Strict, annealing permitted",M067,PET-CF,PASS,some,3,1,4,8,G067-01,annealed:80:12,yes,
-Outdoor structural part,"Strict, annealing permitted",M068,PET-GF,PASS,all,1,0,3,4,G068-02,annealed:120:16,yes,
+Outdoor structural part,"Strict, annealing permitted",M068,PET-GF,PASS,all,2,0,2,4,G068-02,annealed:120:16,yes,
 Outdoor structural part,"Strict, annealing permitted",M071,PPA-GF,PASS,all,1,0,4,5,G071-01,as-printed,yes,
 Outdoor structural part,"Strict, annealing permitted",M073,PPS-CF,PASS,some,1,2,4,7,G073-04,annealed:125:16,yes,
 Outdoor structural part,"Strict, annealing permitted",M083,PP-CF,PASS,some,1,2,2,5,G083-01,as-printed,yes,

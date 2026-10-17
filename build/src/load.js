@@ -20,6 +20,7 @@ export const TABLES = [
   { file: 'fx_rates', sheet: 'FX rates' },
   { file: 'sources', sheet: 'Sources' },
   { file: 'coverage', sheet: 'Coverage' },
+  { file: 'material_summaries', sheet: 'Material summaries' },
   { file: 'method', sheet: 'Method' },
   { file: 'headlines', sheet: 'Headlines' },
   { file: 'material_links', sheet: 'Material links' },

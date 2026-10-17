@@ -2,7 +2,7 @@
 // the plot's width and y in px, so the plot is fluid. Where both axes are one property in two orientations (Z against
 // XY) they share one scale, and the diagonal is drawn where Z equals XY.
 
-import { esc, pct } from '../html.js';
+import { esc, pct, textPx } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { mark } from './marks.js';
 import { yOf } from './scale.js';
@@ -27,10 +27,16 @@ export function scatterPlot({ points, xs, ys, height = 280, diagonal = false, xT
   const marks = points.map((p) => mark(p.marks, pct(xs.pct(p.x)), yOf(ys, p.y, height), p.data)).join('');
   // A point with a `label` is named beside it: to its right in the left half, to its left in the right half, so a long
   // name stays inside a phone's narrow plot.
-  const named = points.filter((p) => p.label).map((p) => {
-    const x = xs.pct(p.x), y = yOf(ys, p.y, height);
-    return `<text class="callout" x="${pct(x)}" y="${y + 4}" dx="${x > 50 ? -9 : 9}" text-anchor="${x > 50 ? 'end' : 'start'}">${esc(p.label)}</text>`;
-  }).join('');
+  // A name that has no room on a phone's plot (`narrow` px), or would cross the other named there, is hidden on a phone
+  // (class alt); the mark keeps its value on hover.
+  const calls = points.filter((p) => p.label).map((p) => {
+    const x = xs.pct(p.x), y = yOf(ys, p.y, height), w = textPx(p.label);
+    const at = (px) => { const c = (x / 100) * px; return x > 50 ? [c - 9 - w, c - 9] : [c + 9, c + 9 + w]; };
+    return { p, x, y, w, at };
+  });
+  const fitsAt = (k, px) => { const [l, r] = calls[k].at(px); return l >= 0 && r <= px
+    && calls.every((o, j) => j === k || Math.abs(o.y - calls[k].y) > 13 || o.at(px)[1] + 4 < l || o.at(px)[0] - 4 > r); };
+  const named = calls.map((cl, k) => `<text class="callout${fitsAt(k, narrow) ? '' : ' alt'}" x="${pct(cl.x)}" y="${cl.y + 4}" dx="${cl.x > 50 ? -9 : 9}" text-anchor="${cl.x > 50 ? 'end' : 'start'}">${esc(cl.p.label)}</text>`).join('');
   return `<div class="sc"><div class="sc-y">${esc(yTitle)}${ys.log ? ', log scale' : ''}</div>`
     + `<div class="sc-plot"><svg class="sc-svg" height="${height}" aria-hidden="true" focusable="false">${vgrid}${hgrid}`
     + `<line class="axis-line" x1="0" x2="100%" y1="${height - 0.5}" y2="${height - 0.5}"/><line class="axis-line" x1="0.5" x2="0.5" y1="0" y2="${height}"/>`

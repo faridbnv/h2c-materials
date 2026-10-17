@@ -49,7 +49,7 @@ const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fmtNumber
   : lo === hi ? fmtNumber(lo) : `${fmtNumber(lo)}${WJ}–${WJ}${fmtNumber(hi)}`);
 const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };
 const NOT_DRAWN_WORDS = {
-  unknown: 'state none', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
+  unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
 };
@@ -74,7 +74,8 @@ function readSetting(products, axis) {
       else count(!v ? 'unknown' : v.need === 'not-needed' ? 'not-needed' : 'no-temperature');
       continue;
     }
-    if (v?.state !== 'range') { count(v?.state ?? 'unknown'); continue; }
+    const enclosure = axis === 'chamber' && (v?.state ?? 'unknown') === 'unknown' ? ({ required: 'enclosed', recommended: 'recommended' })[g.print?.enclosure] : null;
+    if (v?.state !== 'range') { count(enclosure ?? v?.state ?? 'unknown'); continue; }
     if (v.min != null) rows[`${axis}Low`].push({ ...base, value: v.min, profileId: v.profileId ?? null }); else oneEnd.high++;
     if (v.max != null) rows[`${axis}High`].push({ ...base, value: v.max, profileId: v.profileId ?? null }); else oneEnd.low++;
   }
@@ -381,7 +382,7 @@ test('the medians line names, for each drawn setting, the medians of its lowest 
       const [low, high] = a.rows.map((r) => (r.summary.n ? r.summary.median : null));
       if (low == null && high == null) continue;
       // Two medians of different products can cross; then each is said by name.
-      parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C`
+      parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C, medians of different products`
         : `${lower(a.label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`);
     }
     const line = footLines(x.heading).find((l) => l.startsWith('Medians of the lowest and highest settings'));

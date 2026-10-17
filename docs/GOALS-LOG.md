@@ -674,3 +674,24 @@ of their own, run in parallel with the pages work on its own branch (data-review
 
 Built by Claude Opus (m422 to m432, D143), with Claude Sonnet agents sweeping publishers, broken words, titles and
 orientation labels and re-reading a blind sample; not pushed, and not merged into main.
+
+## Built on 2026-10-17, the material pages' summaries, their blind read and the round's close
+
+The owner's plan for the material pages (D142, 2026-10-16) ended in two steps: a written summary at the head of each
+page, and a blind read of the pages before the round closed.
+
+- **The summaries.** 76 paragraphs, one per material with a page, in `material_summaries.csv`: every number a
+  placeholder the build fills from the data, so none goes stale; drafted by Claude Sonnet agents from the pages alone,
+  40 judged claim by claim by Claude Opus (5 false claims in the first pass, 0 after the second), and a style pass that
+  revised 70 of them. All are drafts for the owner to review in batches.
+- **The blind read.** Four Claude Sonnet readers read 40 pages by a seeded draw against their records pages, the drawer
+  and the documents, and a fifth proofread the documents. Of their 233 findings, 152 were fixed at their cause (the
+  drawer's drying count, counts that did not say what they were of, figure text cut on a phone, the project's own words
+  quoted as a maker's, the nearest value's conditions), 38 are by design, 35 are left in OPEN-PROBLEMS §37. The data they
+  traced was corrected in m433 to m436; no scenario answer moved.
+- **The final review.** A fresh Claude Opus reviewer read PETG, PLA and PCTG-GF as a mechanical engineer and scored
+  them 70/100 (the prototypes 65, the reviews between 66 and 72); its five changes and the inconsistencies it found are
+  the owner's to decide (OPEN-PROBLEMS §37.18).
+
+Built by Claude Opus on `material-pages-summaries` (D142, m433 to m436), with Claude Sonnet agents drafting, editing and
+reading; not pushed, for the owner to decide.

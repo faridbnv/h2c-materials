@@ -30,7 +30,8 @@ Inside the application, the same separation again:
   app/js/engine/     pure decision logic. No DOM, no globals, no imports from ui/
   app/js/ui/         rendering and interaction. Imports engine freely
   app/js/main.js     the only place that holds state and wires the two together
-  app/pages/         the material pages' renderer, run by the build in Node. Imports ui/ and engine/; nothing imports it
+  app/pages/         the material pages' renderer, run by the build's stage 8 in Node. Imports ui/ and engine/ (stage.js also
+                     the build's cache); nothing in app/ imports it
 ```
 
 **The engine never imports from `ui/`.** That is what makes the selection logic testable without a
@@ -119,6 +120,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values and those of a source that states no specimen, D55, D126); products.js fills each one its products publish comparably. |
 | `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate and drying its material's guide row (D88, D127), never for a product with a Variant (D129), each so read labelled. Every product's decision states (`states`, D99): as printed and dry, each annealing schedule, conditioned, each holding only its own values, with the conditions each value admitted unstated. Its twins (`twins`). Checks the pins in `headlines.csv`. A strength taken from a yield or break stress is the greatest of the stress endpoints one test prints (D126). The engine judges the products. |
 | `product-claims.js` | What a maker sells a product as, where it matters to how its values are read (`product_claims.csv`, D133): each claim points at the maker's own recorded statement, whose words must speak of what the claim is about (PRODUCT-CLAIM-REFERENCE, PRODUCT-CLAIM-WORDS); shown beside the product's values, and products sold as toughened are set apart from the impact medians. |
+| `written.js` | The written summaries at the head of the material pages (D142): each row of `material_summaries.csv` becomes `materials[].written` (who, when, review status, and its text as parts), every placeholder filled from the material's compiled spreads and the counts its page shows, after products.js. A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); the lint finds a number typed by hand (SUMMARY-NUMBER, lint-rules.js). It decides nothing. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data, and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
@@ -192,7 +194,8 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `data/db-diff.mjs` | Every difference by path between two `dist/db.json` files (`--summary` groups them); what `build-diff.mjs` prints with. |
 | `ensure-db.mjs` | Runs `npm run build` before `npm test`, so the database tests read current inputs. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views; the snapshot's `pages.csv` and the probe's `50-page-*` views are the material pages'. |
-| `pages/render.mjs` | `npm run pages -- M020 M001` (or `--all`): renders material pages into `dist/materials/` while their design is worked on; the build's stage 8 writes them all. `--sample-summaries` puts sample written summaries into a copy of the database, for a design review only. |
+| `pages/render.mjs` | `npm run pages -- M020 M001` (or `--all`): renders material pages into `dist/materials/` while their design is worked on, after emptying it: the named materials only (or all with `--all`), so `npm run build` comes before `pages:check`; the build's stage 8 writes them all. A page's written summary is the database's (`materials[].written`). |
+| `pages/fields.mjs`, `pages/page-text.mjs`, `pages/add-summaries.mjs` | The written summaries' tools (D142): `npm run pages:fields -- <id>`, every field a material's summary can fill with the value the build would put there, and what it refuses, asked of `build/src/written.js` itself; `npm run pages:text -- <id>`, the page the build wrote as text, section by section; `npm run pages:add-summaries -- <file.csv>`, a file's rows into `material_summaries.csv` through table-io, all or none (`--revise` replaces, naming the cells it replaces; `--check` writes nothing), a material with no page, a placeholder the build refuses or a lint finding refusing the file. `pages/lib.mjs` holds what they share. |
 | `pages/subset-fonts.mjs` | Run once: downloads Inter and Newsreader, checks their SHA-256 and their licence (SIL Open Font License 1.1, no Reserved Font Name), subsets them to what the pages use and writes `app/pages/assets/fonts/` with `FONTS.md`. |
 | `ui-fuzz.mjs` | `npm run ui:fuzz`: seeded random scenarios through the built page in headless Chrome, in every Strict/Explore/estimates setting, table and chart compared with the engine in Node (D57). |
 | `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. Both are checked by `verify:fast`, with the decisions index. |
@@ -276,7 +279,7 @@ The shared design tokens (the palette light and dark, the status colours, the ra
 ### Material pages, `app/pages/`
 
 Run by the build's stage 8 in Node, never in the selector. They read the compiled database through `app/js/ui/`
-(the facts, words, numbers and scale above) and decide nothing; `app/pages` is outside the release's inputs (D96), so
+(the facts, words, statistics and scales above) and decide nothing; `app/pages` is outside the release's inputs (D96), so
 a change to the pages' design is not a new release (D142).
 
 | Module | Responsibility |
@@ -397,8 +400,8 @@ npm run data:check     the schema gate alone, in about a second
 npm run build          full build, ending in a distributable HTML file, the material pages and the manifest
 npm run validate       stops after the report; writes no dist artefacts
 npm test               builds, then engine, data gate, registry, contract, database and interface-logic tests;
-                       the import tests (test:ingest) and the scale and reproducible-build checks (*.check.js)
-                       run in verify
+                       the import tests (test:ingest), the material pages' check (pages:check) and the scale and
+                       reproducible-build checks (*.check.js) run in verify
 ```
 
 Everything runs from `build/src/index.js`, and every caller (the build, the snapshot, the audit, the trace and the tests)
@@ -729,8 +732,8 @@ skipped with `--validate-only` and `--no-estimates`; `--no-pages` builds everyth
   `"<sha256>  materials/<path>"` lines, and `pages` (the count of pages, of records pages, and their bytes), so the
   reproducible-build check covers the pages too.
 
-It prints one line: `pages  76 pages, 76 records pages, index (29.1 MB) in 1080 ms`, or `read from the build cache in
-… ms`. Rendering every page takes about a second; a cache hit about a tenth of that.
+It prints one line: `pages  76 pages, 76 records pages and the index, 29.2 MB in all, in 1080 ms`, or `read from the build
+cache in … ms`. Rendering every page takes about a second; a cache hit about a tenth of that.
 
 ### Verifying a build
 

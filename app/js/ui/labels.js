@@ -74,6 +74,23 @@ export const FILLER = {
 };
 
 /**
+ * A filler the materials table names (Modifier / filler) that the reinforcement facet files with the undisclosed
+ * variants (compile.js deriveFacets: aramid fibre, ceramic, PTFE…): its name, and its words after "A variant with".
+ * Such a material's filler is disclosed, and is never said not to be. Null where the modifier names no filler.
+ */
+const NAMED_FILLER = {
+  'Aramid fibre': ['Aramid fibre', 'aramid fibre'], Ceramic: ['Ceramic filler', 'a ceramic filler'],
+  'Electrically conductive': ['Electrically conductive filler', 'an electrically conductive filler'], 'Glass spheres': ['Glass spheres', 'glass spheres'],
+  PTFE: ['PTFE', 'PTFE'], 'Natural fibre': ['Natural fibre', 'natural fibre'], Graphene: ['Graphene', 'graphene'], 'Metal powder': ['Metal powder', 'metal powder'],
+};
+export function namedFiller(m) {
+  const mod = String(m?.modifier ?? '');
+  if (m?.facets?.reinforcement?.value !== 'undisclosed' || !mod || /undisclosed|^Not /i.test(mod)) return null;
+  const [name, words] = NAMED_FILLER[mod] ?? [mod, mod];
+  return { name, words };
+}
+
+/**
  * A process gate's verdict in words: a heading, a chip and the decision brief's phrase. Three screens and the brief
  * used to carry their own copy of this table, which is how a new verdict reaches one screen and not the next. The state
  * a chip is coloured by is the engine's own answer to the verdict (GATE_STATUS), not a second copy of it.
@@ -304,11 +321,11 @@ export const FILLED_WORDS = { 'carbon-fibre': 'carbon-fibre filled', 'glass-fibr
 export const WHY_WORDS = {
   held: (n) => `${n} held back`, noNumber: (n) => `${n} with no number`,
   implausible: (n) => `${n} flagged implausible`, moulded: (n) => (n === 1 ? '1 on a moulded bar' : `${n} on moulded bars`),
-  resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} on film`, filament: (n) => `${n} on filament strands`,
+  resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} measured on film`, filament: (n) => `${n} on filament strands`,
   offRecipe: (n) => `${n} printed at a setting the product is not meant for`, partialInfill: (n) => `${n} printed below 100 % infill`,
   notPrinted: (n) => `${n} not on a printed bar`, conditioned: (n) => `${n} after moisture conditioning`,
   annealed: (n) => `${n} annealed beside an as-printed value`, unnotched: (n) => `${n} unnotched`, notched: (n) => `${n} notched`, notch: (n) => `${n} with no stated notch`,
-  cold: (n) => `${n} struck cold`, hot: (n) => `${n} struck hot`, standard: (n) => `${n} to another standard`,
+  cold: (n) => `${n} tested below room temperature`, hot: (n) => `${n} tested above room temperature`, standard: (n) => `${n} to another standard`,
   direction: (n) => (n === 1 ? '1 on a bar in another orientation' : `${n} on bars in another orientation`),
   unstatedDirection: (n) => `${n} with no stated orientation`, load: (n) => `${n} at another test load`, unstatedLoad: (n) => `${n} with no stated test load`,
   second: (n) => `${n} more of ${n === 1 ? 'a product' : 'products'} already drawn`, retired: (n) => `${n} of products no longer listed`,
@@ -358,9 +375,13 @@ export const TOPIC_WORDS = {
   'Printing advice': 'printing advice',
 };
 
-/** Why a product's print setting is not drawn (print-spread.js notDrawn), counted: "3 state none", "60 need none". */
+/**
+ * Why a product's print setting is not drawn (print-spread.js notDrawn), counted: "3 say nothing" (no sheet, shared
+ * sheet or guide row gives the setting; "state none" was read as "need none"), "60 need none". The drawer and the
+ * material pages say it in these words.
+ */
 export const PRINT_NOT_DRAWN = {
-  unknown: 'state none', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
+  unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
 };

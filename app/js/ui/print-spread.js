@@ -72,7 +72,11 @@ export function printSpread(products) {
         continue;
       }
       if (OUTSIDE.includes(v?.verdict)) outside.push({ g, verdict: v.verdict, min: v.min, max: v.max, origin: base.origin });
-      if (v?.state !== 'range') { count(v?.state ?? 'unknown'); continue; }
+      // A chamber no sheet gives a temperature for, on a product whose sheet asks for an enclosure, is counted as that ask,
+      // never as saying nothing (the blind read of 2026-10-17: "7 say nothing" beside 3DJake's "a closed build chamber is
+      // required").
+      const enclosure = axis === 'chamber' && (v?.state ?? 'unknown') === 'unknown' ? ({ required: 'enclosed', recommended: 'recommended' })[g.print?.enclosure] : null;
+      if (v?.state !== 'range') { count(enclosure ?? v?.state ?? 'unknown'); continue; }
       const entry = { ...base, profileId: v.profileId ?? null };
       if (v.min != null) rows[0].entries.push({ ...entry, value: v.min }); else oneEnd.high++;
       if (v.max != null) rows[1].entries.push({ ...entry, value: v.max }); else oneEnd.low++;

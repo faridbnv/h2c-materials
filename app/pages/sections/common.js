@@ -5,7 +5,7 @@
 // (material-words.js, labels.js), findings.js's, or says what a figure draws.
 
 import { esc, recordsHref, tableBox, count } from '../html.js';
-import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
+import { fmtNumber, fmtBounded, fmtBoundedKind } from '../../js/ui/format.js';
 import { propertyName, whyWords } from '../../js/ui/labels.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { emptyReasons, measuredIn, dotMarks, spreadEntries, productNameOrId, outOfMedian, GAP_STATUS } from '../../js/ui/material-facts.js';
@@ -53,7 +53,16 @@ export const readerText = (text) => !namesRecords(text) && !PROJECT_WORDS.test(S
  * The coverage rows a reader is shown on the main page: a gap, a conflict, a held-back value or another of the known-gap
  * statuses (material-facts.js GAP_STATUS) whose note is reader text. The others stay on the records page, counted.
  */
-export const shownGap = (r) => GAP_STATUS.has(r.status) && readerText(r.finding);
+export const shownGap = (r) => GAP_STATUS.has(r.status) && !MAINTAINER_DOMAINS.has(r.domain) && readerText(r.finding) && !MAINTAINER_WORDS.test(String(r.finding ?? ''));
+
+/**
+ * A known gap that speaks of the review rather than of the material is the maintainers' note, kept on the records page:
+ * a review step's own row ("Mandatory review: Reviewed for exclusion, processing boundary or support route"), a note
+ * that dates its own reading ("re-read 2026-09-13", "Partially resolved 2026-09-11"), or one about the records
+ * themselves ("recorded with no document cited behind it", "assigns no estimate band"). P9 holds the page to it.
+ */
+const MAINTAINER_DOMAINS = new Set(['Mandatory review']);
+const MAINTAINER_WORDS = /\b(?:20\d\d-\d\d-\d\d|re-read|SHA-256|estimate band|no document cited|recorded (?:with|from|as))\b/i;
 
 /** A coverage row's domain in plain words: what the reader is told it is about. */
 const DOMAIN_WORDS = {
@@ -119,7 +128,8 @@ export function medianTable(hs, m) {
     const apart = apartWords(h, s);
     return `<tr><th scope="row">${esc(h.labels.plain)}${units.size > 1 ? ` <span class="u">${esc(h.unit)}</span>` : ''}</th>`
       + `<td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>`
-      + `<td class="num">${s?.q1 != null ? esc(middleHalf(s)) : '—'}</td><td class="num">${s?.n ? esc(joinedSpan(s)) : '—'}</td></tr>`
+      // A published bound at an end keeps its sign ("<1–8.2"), as At a glance prints it.
+      + `<td class="num">${s?.q1 != null ? esc(middleHalf(s)) : '—'}</td><td class="num">${!s?.n ? '—' : s.bounds ? `${fmtBoundedKind(esc(fmtNumber(s.min)), s.bounds.min)}–${fmtBoundedKind(esc(fmtNumber(s.max)), s.bounds.max)}` : esc(joinedSpan(s))}</td></tr>`
       + (apart.length ? `<tr class="apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : '');
   };
   return tableBox(`<table class="grid sum"><thead><tr><th scope="col">Test${units.size > 1 ? '' : `, <span class="u">${esc(hs[0].unit)}</span>`}</th>`
@@ -160,7 +170,7 @@ export function countedLine(f, c, tab) {
   const parts = t.counts.map(([why, k]) => pageWhy(why, k));
   return {
     records,
-    line: `Of the ${records.length} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} the products' own values${t.namedN ? ` and ${t.namedN} ${t.namedN === 1 ? 'is' : 'are'} named alone` : ''}.${parts.length ? ` The other ${t.rest}: ${andList(parts)}.` : ''}`,
+    line: `Of the ${records.length} results on file for these tests, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn${t.namedN ? ` and ${t.namedN} ${t.namedN === 1 ? 'is' : 'are'} named in the text, the only result of ${t.namedN === 1 ? 'its' : 'their'} test` : ''}.${parts.length ? ` The other ${t.rest}: ${andList(parts)}.` : ''}`,
     tally: t,
   };
 }
@@ -318,6 +328,7 @@ export function otherProperties(c, tab, covered, anchor, { title = 'Other proper
     list.length ? 'Each value is as its sheet publishes it, under its own test conditions, so these are not compared. Values counts the published values; Products, the products whose own sheet gives one.' : null,
     named, absent,
   ]) + (list.length ? `<p>${recordsLink(c, anchor, 'Every value, with its conditions and document, on the records page')}.</p>` : '')) : '';
-  const gaps = mi.gaps.length ? `<h3 class="sub-title">Known gaps</h3>${gapList(c, mi.gaps)}` : '';
+  // A heading only over a gap the reader is shown; the maintainers' notes alone are one line to the records page.
+  const gaps = mi.gaps.some(shownGap) ? `<h3 class="sub-title">Known gaps</h3>${gapList(c, mi.gaps)}` : mi.gaps.length ? `<p class="note">${furtherNotes(c, mi.gaps.length)}</p>` : '';
   return { html: `${table}${counted}${gaps}`, properties: props.length, list };
 }
