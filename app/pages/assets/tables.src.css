@@ -2,9 +2,10 @@
    render.js buildAssets appends this file to assets/pages.css, after pages.src.css. Colour comes from the shared tokens
    (app/css/tokens.css) only, so both themes follow; no status colour appears here.
 
-   The one loud thing is the mark under each number in Products: a hairline track from the column's lowest value to its
-   highest, the value as a dot (hollow where it is not compared), the material's median as a tick. Read down a column,
-   the dots are its spread. Everything else is quiet: hairline rows, tabular numbers, headings that stay in view. */
+   The one loud thing is the mark under each number in Products: a hairline in the cell's lower edge from the column's
+   lowest value to its highest, the value as a dot (hollow where it is not compared), the material's median as a tick.
+   Read down a column, the dots are its spread. Everything else is quiet: hairline rows, tabular numbers, one line a
+   product, headings that stay in view. */
 
 :root {
   /* The records page's finder bar, on screens where it sits above the results (set from its height by the script). */
@@ -45,37 +46,62 @@
 .tgl:has(input:focus-visible), .rg-more:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tgl-n { font-size: .8125rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .tgl:has(input:checked) .tgl-n { color: inherit; opacity: .8; }
-.pt-sortby { display: none; align-items: center; gap: .5rem; font-size: .875rem; color: var(--ink-2); }
-.pt-sortby select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 6px; padding: .35rem .5rem; }
 .pt-shown { margin: 0 0 0 auto; font-size: .875rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .pt-only { align-self: center; margin-right: .1rem; font-size: .8125rem; color: var(--ink-3); }
-.pt-key { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; list-style: none; margin: 0 0 1rem; padding: 0; font-size: .8125rem; line-height: 1.4; color: var(--ink-2); }
-.pt-key li { display: inline-flex; align-items: center; gap: .5rem; }
-.pt-key .pips { flex: none; }
-.kt { flex: none; display: inline-block; width: 2.6rem; height: 9px; background:
-  radial-gradient(circle, var(--accent) 3px, transparent 3.5px) 72% 50% / 8px 8px no-repeat,
-  linear-gradient(90deg, transparent 3.5px, var(--ink-3) 3.5px 4.5px, transparent 4.5px) 40% 50% / 8px 9px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
 .pt-none { margin: 1rem 0 0; color: var(--ink-2); }
 
-.pt-box { margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); }
-.pt-box.fits { overflow: visible; }
-table.pt { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9375rem; line-height: 1.35; font-variant-numeric: tabular-nums lining-nums; }
-table.pt th, table.pt td { padding: .55rem .42rem .5rem; text-align: right; vertical-align: top; white-space: nowrap; border-bottom: 1px solid var(--border); background: var(--bg); }
-table.pt th:first-child { padding-left: 0; }
-table.pt tr > :last-child { padding-right: 0; }
+/* The key: the marks on this table on one line, what each means in full a click away. */
+.pt-keys { margin: 0 0 .7rem; font-size: .8125rem; line-height: 1.4; color: var(--ink-2); }
+.pt-key { display: flex; flex-wrap: wrap; gap: .25rem 1.15rem; list-style: none; margin: 0; padding: 0; }
+.pt-key li, .pt-help li { display: inline-flex; align-items: center; gap: .4rem; }
+.pt-key .pips, .pt-help .pips { flex: none; }
+.pt-help { margin-top: .3rem; }
+.pt-help > summary { width: fit-content; cursor: pointer; color: var(--ink-2); }
+.pt-help > summary:hover { color: var(--ink); }
+.pt-help ul { display: grid; gap: .4rem; max-width: 92ch; list-style: none; margin: .5rem 0 .2rem; padding: 0; }
+.pt-help li { display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); align-items: baseline; }
+.pt-help li > :only-child { grid-column: 2; }
+.kt { flex: none; display: inline-block; width: 2.6rem; height: 9px; background:
+  radial-gradient(circle, var(--accent) 2.6px, transparent 3.1px) 72% 50% / 7px 7px no-repeat,
+  linear-gradient(90deg, transparent 3px, var(--ink-3) 3px 4px, transparent 4px) 40% 50% / 7px 9px no-repeat,
+  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
+.ko { font-style: italic; font-synthesis: style; color: var(--ink-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ko::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: .3rem; vertical-align: .08em; border: 1.3px solid var(--ink-3); border-radius: 50%; }
+.ko small { margin-left: .2rem; font-size: .6875rem; font-style: normal; }
+.ki::before { display: none; }
 
-/* The head: the groups over the columns, then each column's name and unit, both in view while the rows scroll. */
-table.pt thead th { font-size: .8125rem; font-weight: 600; line-height: 1.25; color: var(--ink-2); vertical-align: bottom; border-bottom-color: var(--border-strong); }
-table.pt thead .pt-g th { padding-top: .35rem; padding-bottom: .3rem; text-align: center; color: var(--ink-3); font-weight: 500; }
-table.pt thead .pt-g th[scope="colgroup"] { border-bottom: 1px solid var(--border-strong); box-shadow: inset 8px 0 0 var(--bg), inset -8px 0 0 var(--bg); }
-table.pt thead .pt-c th { padding-top: .35rem; white-space: normal; min-width: 3.6rem; }
-/* Where the table fits the page, its head stays in view under the frame's bar; where it is wider, the product column
-   stays at the left as the table scrolls sideways in its box. */
-.pt-box.fits table.pt thead { position: sticky; top: calc(var(--head-h, 0px) + var(--strip-h, 0px)); z-index: 3; }
-.pt-box:not(.fits) table.pt tbody th, .pt-box:not(.fits) table.pt thead th.pt-name { position: sticky; left: 0; z-index: 2; }
-table.pt thead th[rowspan] { vertical-align: bottom; }
+/* Icons beside a product's name, in the frame's line language at 15 px. */
+.pi { flex: none; width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; color: var(--ink-3); vertical-align: -.15em; }
+.pi--tough { color: var(--claim); }
+.pi--twin { color: var(--ink-2); }
+.pi--hardened { color: var(--ink); width: 17px; height: 17px; }
+.pi--open { opacity: .5; }
+
+/* The table, one line a product. Where it fits the page its head stays in view under the frame's bar; where it is wider
+   it scrolls sideways in its own box, the product column held at the left and the head held by the script. */
+/* Where the table runs past the box's right edge, the edge fades, so a reader knows to scroll it sideways. */
+.pt-frame { position: relative; }
+.pt-frame[data-more]::after { content: ""; position: absolute; top: 0; right: 0; bottom: 1px; width: 2.25rem; pointer-events: none; background: linear-gradient(to right, transparent, var(--bg)); z-index: 5; }
+.table-box.pt-box { margin: 0; padding: 0; overflow: visible; }
+.table-box.pt-box:not(.fits) { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
+table.pt { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9375rem; line-height: 1.2; font-variant-numeric: tabular-nums lining-nums; }
+table.pt th, table.pt td { padding: .3rem .45rem .62rem; text-align: right; vertical-align: top; white-space: nowrap; border-bottom: 1px solid var(--border); background-color: var(--bg); }
+table.pt tr > :first-child { padding-left: 0; }
+table.pt tr > :last-child { padding-right: .2rem; }
+table.pt thead { z-index: 3; }
+.pt-box.fits table.pt thead { position: sticky; top: calc(var(--head-h, 0px) + var(--strip-h, 0px)); }
+.pt-box:not(.fits) table.pt thead { position: relative; will-change: transform; }
+.pt-box:not(.fits) table.pt tbody th, .pt-box:not(.fits) table.pt thead th.pt-name { position: sticky; left: 0; z-index: 2; box-shadow: 1px 0 0 var(--border); }
+.pt-box:not(.fits) table.pt thead th.pt-name { z-index: 4; }
+
+/* The head: the groups over the columns, then each column's name and unit. */
+table.pt thead th { padding-top: .3rem; padding-bottom: .35rem; font-size: .75rem; font-weight: 600; line-height: 1.2; color: var(--ink-2); vertical-align: bottom; border-bottom-color: var(--border-strong); }
+table.pt thead .pt-g th { padding-top: .45rem; padding-bottom: .2rem; text-align: center; color: var(--ink-3); font-weight: 500; }
+table.pt thead .pt-g th[scope="colgroup"] { border-bottom: 1px solid var(--border-strong); box-shadow: inset 6px 0 0 var(--bg), inset -6px 0 0 var(--bg); }
+table.pt thead .pt-c th { white-space: normal; min-width: 3.3rem; }
 table.pt thead th.pt-name { text-align: left; }
+table.pt thead th.dc { min-width: 0; }
+table.pt thead .pt-c th[data-k="hardened"] { min-width: 0; max-width: 4.2rem; }
 table.pt thead button { position: relative; font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; line-height: inherit; }
 table.pt thead button:hover { color: var(--ink); }
 table.pt thead .u { display: block; font-weight: 400; color: var(--ink-3); }
@@ -85,81 +111,77 @@ table.pt thead th[aria-sort] button > span:first-child::after { position: absolu
 table.pt thead th[aria-sort="descending"] button > span:first-child::after { content: "\2193"; }
 table.pt thead th.pt-name[aria-sort] button > span:first-child::after { position: static; margin-left: .25em; }
 
-/* The product: its name opens its card; it stays at the left when the table scrolls sideways. */
-table.pt tbody th { text-align: left; white-space: normal; min-width: 9.5rem; max-width: 15rem; font-weight: 500; }
-.px { display: inline-flex; align-items: baseline; gap: .45rem; }
-/* The chevron that opens a card, once the script that builds cards has started. */
+/* The product: its name on one line (in full in its title and its card), its marks as icons; the name opens its card. */
+table.pt tbody th { text-align: left; font-weight: 500; }
+.pr { display: flex; align-items: center; gap: .3rem; max-width: 11.75rem; }
+.px { display: inline-flex; align-items: center; gap: .4rem; min-width: 0; }
+.pn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 table.pt.ready .px { cursor: pointer; }
 table.pt:not(.ready) .px input { display: none; }
 table.pt:not(.ready) .px::before { visibility: hidden; }
-.px::before { content: ""; flex: none; width: .45rem; height: .45rem; border-right: 1.5px solid var(--ink-3); border-bottom: 1.5px solid var(--ink-3); transform: translateY(-.2em) rotate(-45deg); transition: transform .15s ease; }
-.px:has(input:checked)::before { transform: translateY(-.3em) rotate(45deg); border-color: var(--accent); }
+.px::before { content: ""; flex: none; width: .38rem; height: .38rem; border-right: 1.5px solid var(--ink-3); border-bottom: 1.5px solid var(--ink-3); transform: rotate(-45deg); transition: transform .15s ease; }
+.px:has(input:checked)::before { transform: translateY(-.1em) rotate(45deg); border-color: var(--accent); }
 .px:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 table.pt.ready .px:hover .pn { color: var(--accent); }
-.pt-tags { display: flex; flex-wrap: wrap; gap: .2rem .35rem; margin: .2rem 0 0 .9rem; }
-.pt-tags span { font-size: .6875rem; font-weight: 500; line-height: 1.45; color: var(--ink-2); padding: 0 .35rem; border: 1px solid var(--border-strong); border-radius: 3px; }
 
 /* How well a product is documented: one pip per key property, filled where published, hollow where published without
    a stated orientation or load, faint where not published. Drawn from three CSS numbers, no element per pip. */
-.pips { position: relative; display: inline-block; box-sizing: border-box; width: calc(var(--t) * 5px); height: 6px; padding-left: calc((var(--f) + var(--o)) * 5px);
-  background: radial-gradient(circle at 2.5px 3px, var(--border-strong) 1.1px, transparent 1.5px) 0 0 / 5px 6px repeat-x border-box content-box; }
+.pips { position: relative; display: inline-block; box-sizing: border-box; width: calc(var(--t) * 3.5px); height: 6px; padding-left: calc((var(--f) + var(--o)) * 3.5px); vertical-align: .05em;
+  background: radial-gradient(circle at 1.75px 3px, var(--border-strong) .8px, transparent 1.2px) 0 0 / 3.5px 6px repeat-x border-box content-box; }
 .pips::before, .pips::after { content: ""; position: absolute; top: 0; height: 6px; }
-.pips::before { left: 0; width: calc(var(--f) * 5px); background: radial-gradient(circle at 2.5px 3px, var(--accent) 1.9px, transparent 2.3px) 0 0 / 5px 6px repeat-x; }
-.pips::after { left: calc(var(--f) * 5px); width: calc(var(--o) * 5px); background: radial-gradient(circle at 2.5px 3px, transparent .9px, var(--accent) 1.1px 1.9px, transparent 2.3px) 0 0 / 5px 6px repeat-x; }
+.pips::before { left: 0; width: calc(var(--f) * 3.5px); background: radial-gradient(circle at 1.75px 3px, var(--accent) 1.35px, transparent 1.75px) 0 0 / 3.5px 6px repeat-x; }
+.pips::after { left: calc(var(--f) * 3.5px); width: calc(var(--o) * 3.5px); background: radial-gradient(circle at 1.75px 3px, transparent .55px, var(--accent) .75px 1.35px, transparent 1.75px) 0 0 / 3.5px 6px repeat-x; }
 table.pt td.dc { text-align: left; }
-table.pt td.dc span { display: block; margin-top: .3rem; font-size: .8125rem; color: var(--ink-2); }
+table.pt td.dc span { margin-left: .4rem; font-size: .8125rem; color: var(--ink-2); }
 
-/* A number and, under it, where it sits in its column. */
-table.pt td.o::before, table.pt td.a::before, table.pt td.d::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: .35rem; vertical-align: .06em; border: 1.5px solid var(--accent); border-radius: 50%; }
-table.pt td.a::before { background: var(--accent); border-radius: 1px; }
-table.pt td.o.a::before { background: transparent; }
-table.pt td.d::before { border-color: var(--ink-3); border-radius: 1px; transform: rotate(45deg) scale(.85); }
-table.pt td.w { white-space: normal; font-size: .8125rem; line-height: 1.3; color: var(--ink-2); }
-table.pt td[style*="--a"] { white-space: normal; }
-table.pt td[style]::after { content: ""; display: block; width: 100%; min-width: 3.1rem; max-width: 4.75rem; height: 9px; margin: .35rem 0 0 auto; }
-table.pt td[style*="--x"]::after { background:
-  radial-gradient(circle, var(--accent) 3px, transparent 3.5px) calc(var(--x) * 100%) 50% / 8px 8px no-repeat,
-  linear-gradient(90deg, transparent 3.5px, var(--ink-3) 3.5px 4.5px, transparent 4.5px) calc(var(--m, -9) * 100%) 50% / 8px 9px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
-table.pt td.o[style*="--x"]::after { background:
-  radial-gradient(circle, transparent 1.7px, var(--accent) 1.9px 3.1px, transparent 3.5px) calc(var(--x) * 100%) 50% / 8px 8px no-repeat,
-  linear-gradient(90deg, transparent 3.5px, var(--ink-3) 3.5px 4.5px, transparent 4.5px) calc(var(--m, -9) * 100%) 50% / 8px 9px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
-table.pt td.d[style*="--x"]::after { background:
-  radial-gradient(circle, transparent 1.7px, var(--ink-3) 1.9px 3.1px, transparent 3.5px) calc(var(--x) * 100%) 50% / 8px 8px no-repeat,
-  linear-gradient(90deg, transparent 3.5px, var(--ink-3) 3.5px 4.5px, transparent 4.5px) calc(var(--m, -9) * 100%) 50% / 8px 9px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
-table.pt td.a:not(.o):not(.d)[style*="--x"]::after { background:
-  linear-gradient(var(--accent), var(--accent)) calc(var(--x) * 100%) 50% / 7px 7px no-repeat,
-  linear-gradient(90deg, transparent 3.5px, var(--ink-3) 3.5px 4.5px, transparent 4.5px) calc(var(--m, -9) * 100%) 50% / 8px 9px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
-/* The material's median, set on the table per column (--m3 for the third), read by each cell's track. */
+/* A number, and in its cell's lower edge a hairline from the column's lowest to its highest value: the dot is this
+   product, the tick the material's median (set on the table per column, --m3 for the third). */
 table.pt td:nth-child(3) { --m: var(--m3, -9); } table.pt td:nth-child(4) { --m: var(--m4, -9); } table.pt td:nth-child(5) { --m: var(--m5, -9); }
 table.pt td:nth-child(6) { --m: var(--m6, -9); } table.pt td:nth-child(7) { --m: var(--m7, -9); } table.pt td:nth-child(8) { --m: var(--m8, -9); }
 table.pt td:nth-child(9) { --m: var(--m9, -9); } table.pt td:nth-child(10) { --m: var(--m10, -9); } table.pt td:nth-child(11) { --m: var(--m11, -9); }
 table.pt td:nth-child(12) { --m: var(--m12, -9); } table.pt td:nth-child(13) { --m: var(--m13, -9); } table.pt td:nth-child(14) { --m: var(--m14, -9); }
-/* A print window: a bar from its lowest to its highest setting; hollow where it was read from the guide. */
-table.pt td[style*="--a"]::after { background:
-  linear-gradient(90deg, transparent calc(2px + (100% - 7px) * var(--a)), var(--accent) 0 calc(5px + (100% - 7px) * var(--b)), transparent 0) 0 50% / 100% 4px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
-table.pt td.o[style*="--a"]::after { background:
-  linear-gradient(90deg, transparent calc(2px + (100% - 7px) * var(--a)), color-mix(in srgb, var(--accent) 35%, var(--bg)) 0 calc(5px + (100% - 7px) * var(--b)), transparent 0) 0 50% / 100% 4px no-repeat,
-  linear-gradient(var(--border-strong), var(--border-strong)) 0 50% / 100% 1px no-repeat; }
+table.pt td:nth-child(15) { --m: var(--m15, -9); } table.pt td:nth-child(16) { --m: var(--m16, -9); }
+table.pt td[style] { background-origin: content-box; background-repeat: no-repeat; }
+table.pt td[style*="--x"] {
+  background-image: radial-gradient(circle, var(--accent) 2.6px, transparent 3.1px), linear-gradient(90deg, transparent 3px, var(--ink-3) 3px 4px, transparent 4px), linear-gradient(var(--border-strong), var(--border-strong));
+  background-position: calc(var(--x) * 100%) calc(100% + 5.5px), calc(var(--m, -9) * 100%) calc(100% + 5px), 0 calc(100% + 8.5px);
+  background-size: 7px 7px, 7px 8px, 100% 1px; }
+table.pt td.o[style*="--x"], table.pt td.iz[style*="--x"], table.pt td.opt[style*="--x"] { background-image: radial-gradient(circle, transparent 1.4px, var(--ink-3) 1.6px 2.7px, transparent 3.1px), linear-gradient(90deg, transparent 3px, var(--ink-3) 3px 4px, transparent 4px), linear-gradient(var(--border-strong), var(--border-strong)); }
+table.pt td.d[style*="--x"] { background-image: radial-gradient(circle, transparent 1.4px, var(--ink-3) 1.6px 2.7px, transparent 3.1px), linear-gradient(90deg, transparent 3px, var(--ink-3) 3px 4px, transparent 4px), linear-gradient(var(--border-strong), var(--border-strong)); }
+table.pt td.a:not(.o):not(.d)[style*="--x"] { background-image: linear-gradient(var(--accent), var(--accent)), linear-gradient(90deg, transparent 3px, var(--ink-3) 3px 4px, transparent 4px), linear-gradient(var(--border-strong), var(--border-strong));
+  background-size: 6px 6px, 7px 8px, 100% 1px; background-position: calc(var(--x) * 100%) calc(100% + 6px), calc(var(--m, -9) * 100%) calc(100% + 5px), 0 calc(100% + 8.5px); }
+/* A print window: a bar from its lowest to its highest setting; pale where it was read from the guide. */
+table.pt td[style*="--a"] {
+  background-image: linear-gradient(90deg, transparent calc(2px + (100% - 7px) * var(--a)), var(--accent) 0 calc(5px + (100% - 7px) * var(--b)), transparent 0), linear-gradient(var(--border-strong), var(--border-strong));
+  background-position: 0 calc(100% + 7.5px), 0 calc(100% + 8.5px); background-size: 100% 3px, 100% 1px; }
+table.pt td.o[style*="--a"] { background-image: linear-gradient(90deg, transparent calc(2px + (100% - 7px) * var(--a)), color-mix(in srgb, var(--accent) 35%, var(--bg)) 0 calc(5px + (100% - 7px) * var(--b)), transparent 0), linear-gradient(var(--border-strong), var(--border-strong)); }
+/* Values not compared: grey italic with the hollow mark; another test (Izod for Charpy) grey and labelled. */
+table.pt td.o, table.pt td.iz, table.pt td.opt { font-style: italic; font-synthesis: style; color: var(--ink-3); }
+table.pt td.o::before, table.pt td.a::before, table.pt td.d::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: .3rem; vertical-align: .08em; border: 1.3px solid var(--accent); border-radius: 50%; }
+table.pt td.o::before { border-color: var(--ink-3); }
+table.pt td.a::before { background: var(--accent); border-radius: 1px; }
+table.pt td.o.a::before { background: transparent; }
+table.pt td.d::before { border-color: var(--ink-3); border-radius: 1px; transform: rotate(45deg) scale(.85); }
+table.pt td small { margin-left: .2rem; font-size: .6875rem; font-style: normal; color: var(--ink-3); }
+table.pt td.w { font-size: .8125rem; color: var(--ink-3); }
+table.pt td.hn { text-align: center; padding-bottom: .3rem; }
 .fx { margin-left: .15rem; color: var(--ink-3); }
 
 /* Rows: a hairline each; the row under the pointer, a lit product and an opened one tinted. */
-table.pt tbody:hover > tr:first-child > *, table.pt tbody > tr.lit > *, table.pt tbody > tr:target > * { background: var(--row-hover); }
-table.pt tbody:has(.px input:checked) > tr:first-child > * { background: var(--surface); border-bottom-color: transparent; }
+table.pt tbody:hover > tr:first-child > *, table.pt tbody > tr.lit > *, table.pt tbody > tr:target > * { background-color: var(--row-hover); }
+table.pt tbody:has(.px input:checked) > tr:first-child > * { background-color: var(--surface); border-bottom-color: transparent; }
 table.pt tbody[hidden] { display: none !important; }
 /* A product a figure's mark leads to lands below the table's two-row head. */
-table.pt tbody tr { scroll-margin-top: calc(var(--head-h, 0px) + var(--strip-h, 0px) + 6.5rem); }
+table.pt tbody tr { scroll-margin-top: calc(var(--head-h, 0px) + var(--strip-h, 0px) + 5rem); }
 
-/* A product's card, under its row. */
+/* A product's card, under its row; held at the left of the box when the table scrolls sideways. */
 table.pt tr.pc-row { display: none; }
 table.pt tbody:has(.px input:checked) > tr.pc-row { display: table-row; }
-table.pt tr.pc-row > td { padding: .2rem 0 1.4rem; text-align: left; white-space: normal; background: var(--surface); border-bottom: 1px solid var(--border-strong); }
-.pc { position: sticky; left: 0; box-sizing: border-box; width: min(100%, calc(100vw - 2 * var(--gutter))); display: grid; gap: 1rem 2.75rem; padding: 0 0 0 .9rem; font-size: .875rem; line-height: 1.45; }
-@media (min-width: 900px) { .pc { grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr); } .pc-notes { grid-column: 1 / -1; } }
+table.pt tr.pc-row > td { padding: .1rem 0 1.3rem; text-align: left; white-space: normal; background-color: var(--surface); border-bottom: 1px solid var(--border-strong); }
+.pc { position: sticky; left: 0; box-sizing: border-box; width: var(--box-w, 100%); max-width: 100%; display: grid; gap: .9rem 2.5rem; padding: 0 .9rem; font-size: .875rem; line-height: 1.45; }
+.pt-box:not(.fits) .pc { max-width: none; }
+@media (min-width: 900px) { .pc { grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr); } .pc-name, .pc-notes { grid-column: 1 / -1; } }
+.pc-name { margin: .2rem 0 0; font-size: 1rem; font-weight: 600; color: var(--ink); }
 .pc-notes { margin: 0; color: var(--ink); }
 .pc-h { margin: .2rem 0 .45rem; font-size: .8125rem; font-weight: 600; color: var(--ink-2); }
 .pc-side .pc-h:not(:first-child) { margin-top: 1.1rem; }
@@ -175,28 +197,15 @@ table.pt tr.pc-row > td { padding: .2rem 0 1.4rem; text-align: left; white-space
 .pc-none { margin: 0; color: var(--ink-3); }
 .pc-links { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin: 0; }
 
-/* On a phone each product is a card: its name, how documented, then its numbers in a grid, each with its name. */
+/* A phone: the same table, smaller, in its box; the product column narrower. */
 @media (max-width: 719px) {
-  .pt-sortby { display: inline-flex; }
   .pt-find { max-width: none; flex-basis: 100%; }
   .pt-shown { margin-left: 0; flex-basis: 100%; }
-  .pt-box { margin: 0; padding: 0; overflow: visible; }
-  table.pt, table.pt tbody, table.pt tr, table.pt th, table.pt td { display: block; }
-  table.pt thead { display: none; }
-  table.pt { border-top: 1px solid var(--border-strong); }
-  table.pt tbody { border-bottom: 1px solid var(--border); }
-  table.pt tbody > tr:first-child { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem .9rem; padding: .85rem 0 .9rem; }
-  table.pt th, table.pt td { padding: 0; border: 0; text-align: left; background: none; }
-  table.pt tbody th { position: static; grid-column: 1 / -1; max-width: none; font-size: 1rem; font-weight: 600; }
-  table.pt td.dc { grid-column: 1 / -1; display: flex; align-items: center; gap: .6rem; }
-  table.pt td.dc span { margin: 0; }
-  table.pt td[data-l]:not(.dc)::before { content: attr(data-l); display: block; width: auto; height: auto; margin: 0 0 .1rem; border: 0; border-radius: 0; background: none; transform: none; font-size: .75rem; font-weight: 400; color: var(--ink-3); white-space: normal; }
-  table.pt td[style]::after { margin: .3rem 0 0; max-width: 5.5rem; }
-  table.pt td:not(.w):not(.dc):empty::after { content: "—"; color: var(--ink-3); }
-  table.pt tbody:has(.px input:checked) > tr.pc-row { display: block; }
-  table.pt tr.pc-row > td { padding: .2rem 0 1.1rem; border: 0; background: none; }
-  table.pt tbody:has(.px input:checked) { background: var(--surface); margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); }
-  .pc { width: auto; padding-left: 0; }
+  table.pt { font-size: .875rem; }
+  .pr { max-width: 9.5rem; }
+  table.pt td.dc .pips { display: none; }
+  .pt-key { display: none; }
+  .pt-help { margin-top: 0; }
   .pc-set dl { grid-template-columns: minmax(0, 1fr) auto; }
   .pc-print { grid-template-columns: 7.5rem minmax(0, 1fr); }
 }
@@ -225,13 +234,24 @@ table.pt tr.pc-row > td { padding: .2rem 0 1.4rem; text-align: left; white-space
 /* Orientations and properties as chips that wrap. */
 .rf-g[data-for] { display: flex; flex-wrap: wrap; gap: .3rem; }
 .rf-g[data-for] .rf-l, .rf-g[data-for] .rf-sub { flex-basis: 100%; }
+/* The record counts under the page's title, on one line: the finder counts them as it filters. */
+body.page-records .mast--records .mast-counts { display: flex; flex-wrap: wrap; gap: .15rem 1.4rem; max-width: none; margin: 1.1rem 0 0; padding: .55rem 0 0; border-top: 1px solid var(--border-strong); }
+body.page-records .mast--records .mast-counts .count { flex-direction: row-reverse; align-items: baseline; justify-content: flex-end; gap: .3rem; }
+body.page-records .mast--records .mast-counts dd { font: 600 .9375rem/1.45 var(--f-sans); letter-spacing: 0; }
+body.page-records .mast--records .mast-counts dt { margin: 0; font-size: .9375rem; line-height: 1.45; color: var(--ink-2); }
+@media (max-width: 719px) { body.page-records .mast--records .mast-counts { gap: .05rem .9rem; } body.page-records .mast--records .mast-counts dd, body.page-records .mast--records .mast-counts dt { font-size: .8125rem; } }
 .rf-g[data-for] .rf-c { max-width: 100%; margin: 0; padding: .15rem .6rem; gap: .4rem; font-size: .8125rem; line-height: 1.35; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--surface); }
 .rf-g[data-for] .rf-c input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .rf-g[data-for] .rf-c span:first-of-type { flex: 0 1 auto; }
 .rf-g[data-for] .rf-c:has(input:checked) { color: var(--on-accent); background: var(--accent); border-color: var(--accent); font-weight: 500; }
 .rf-g[data-for] .rf-c:has(input:checked) .rf-k { color: inherit; opacity: .8; }
 .rf-g[data-for] .rf-c:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
-.rf-g[data-for] .rf-c.zero:not(:has(input:checked)) { border-style: dashed; background: none; }
+.rf-g[data-for] .rf-c.zero:not(:has(input:checked)) { display: none; }
+.rf-note { flex-basis: 100%; margin: -.05rem 0 .1rem .1rem; font-size: .75rem; line-height: 1.35; color: var(--ink-3); }
+.rf-other { flex-basis: 100%; margin-top: .1rem; font-size: .8125rem; }
+.rf-other > summary { width: fit-content; cursor: pointer; color: var(--ink-2); }
+.rf-other > summary .rf-k { margin-left: .4rem; }
+.rf-chips { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .35rem; }
 .rf-pick { position: relative; display: block; }
 .rf-x { position: absolute; right: .3rem; top: 50%; transform: translateY(-50%); width: 1.6rem; height: 1.6rem; font: inherit; font-size: 1.1rem; line-height: 1; color: var(--ink-2); background: none; border: 0; border-radius: 4px; cursor: pointer; }
 .rf-x:hover { color: var(--ink); background: var(--surface-2); }
@@ -381,8 +401,9 @@ td.drawn small:last-child { margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { .px::before { transition: none; } }
 @media print {
   .pt-tools, .pt-own, .rf, .rg-more { display: none !important; }
-  table.pt thead th, table.rt thead th { position: static; }
+  table.pt thead, table.rt thead { position: static !important; }
   table.pt tr.pc-row { display: none !important; }
+  .table-box.pt-box { max-height: none !important; overflow: visible !important; }
   .rg tr.c, .rg--flat tbody { display: table-row-group; }
   .rg tr.c { display: table-row !important; }
 }

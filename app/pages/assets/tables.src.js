@@ -23,10 +23,12 @@
   var pt = doc.querySelector('table[data-products]');
   if (pt) (table => {
     var sec = table.closest('section') || doc, tools = sec.querySelector('.pt-tools'), box = table.parentNode;
-    var find = sec.querySelector('[data-find]'), toggles = $$('[data-t]', sec), sortby = sec.querySelector('[data-sortby]');
+    var find = sec.querySelector('[data-find]'), toggles = $$('[data-t]', sec);
     var bodies = Array.from(table.tBodies);
     var keys = ['name', 'docs'].concat($$('thead .pt-c th', table).map(th => at(th, 'data-k')));
-    var texts = bodies.map(b => b.rows[0].cells[0].textContent.toLowerCase());
+    // Each product's words to search, kept on its own rows, so a sort that moves them moves its words with them.
+    var nameOf = b => b.rows[0].querySelector('.pn').textContent.toLowerCase();
+    bodies.forEach(b => b.q = nameOf(b));
     var data = null;
     try { data = JSON.parse(doc.getElementById('product-cards').textContent); } catch (e) { data = null; }
     if (tools) tools.hidden = false;
@@ -44,7 +46,7 @@
       var small = t => t ? '<small>' + esc(t) + '</small>' : '';
       var link = (h, t) => '<a href="' + esc(data.records + '#' + h + 'product=' + encodeURIComponent(id)) + '">' + esc(t) + '</a>';
       for (i = 0; d[2] && i < d[2].length; i += 3) print += '<dt>' + esc(S[d[2][i]]) + '</dt><dd>' + esc(d[2][i + 1]) + small(S[d[2][i + 2]]) + '</dd>';
-      html = (d[0] ? '<p class="pc-notes">' + esc(d[0]) + '</p>' : '') + '<div class="pc-vals"><p class="pc-h">' + esc(w.values) + '</p>'
+      html = '<p class="pc-name">' + esc(d[5]) + '</p>' + (d[0] ? '<p class="pc-notes">' + esc(d[0]) + '</p>' : '') + '<div class="pc-vals"><p class="pc-h">' + esc(w.values) + '</p>'
         + (sets.length ? sets.map(k => '<div class="pc-set"><dl>' + by[k].join('') + '</dl>' + (S[k] ? '<p>' + esc(S[k]) + '</p>' : '') + '</div>').join('') : none(w.noValues))
         + '</div><div class="pc-side"><p class="pc-h">' + esc(w.print) + '</p>' + (print ? '<dl class="pc-print">' + print + '</dl>' : none(w.noPrint))
         + (d[3] ? '<dl class="pc-print"><dt>' + esc(w.price) + '</dt><dd>' + esc(d[3][0]) + small(d[3][1]) + '</dd></dl>' : '')
@@ -64,8 +66,8 @@
 
     function apply() {
       var ts = terms(find ? find.value : ''), on = toggles.filter(t => t.checked), n = 0;
-      bodies.forEach((b, i) => {
-        var ok = hasAll(texts[i], ts) && on.every(t => b.hasAttribute('data-' + at(t, 'data-t')));
+      bodies.forEach(b => {
+        var ok = hasAll(b.q, ts) && on.every(t => b.hasAttribute('data-' + at(t, 'data-t')));
         if (b.hidden === ok) b.hidden = !ok;
         if (ok) n++;
       });
@@ -82,12 +84,11 @@
       th.setAttribute('aria-sort', dir > 0 ? 'ascending' : 'descending');
       var val = b => {
         var c = b.rows[0].cells[col], v = at(c, 'data-v');
-        if (!num) return c.textContent.toLowerCase();
+        if (!num) return b.q;
         if (v == null) { v = /(\d+(?:\.\d+)?)(?!.*\d)/.exec(c.textContent.replace(/,/g, '')); v = v ? v[1] : ''; }
         return v === '' ? null : Number(v);
       };
       bodies.sort((a, b) => order(val(a), val(b), dir)).forEach(b => table.appendChild(b));
-      if (sortby) sortby.value = key;
     }
     var first = key => { var b = table.querySelector('thead [data-k="' + sel(key) + '"] button'); return b && at(b, 'data-first') === 'asc' ? 1 : -1; };
     $$('thead button[data-sort]', table).forEach(b => {
@@ -96,12 +97,27 @@
         sort(at(th, 'data-k'), now ? (now === 'ascending' ? -1 : 1) : first(at(th, 'data-k')));
       });
     });
-    if (sortby) sortby.addEventListener('change', () => sort(sortby.value, first(sortby.value)));
     if (find) find.addEventListener('input', later(apply, 80));
     toggles.forEach(t => t.addEventListener('change', apply));
-    // The head stays in view while the table fits the page; a wider one scrolls sideways in its box instead.
-    function fit() { box.classList.toggle('fits', table.offsetWidth <= box.clientWidth + 1); }
+    // The head stays in view while the table fits the page; a wider one scrolls in its own box, a card as wide as the box.
+    function fit() { box.classList.toggle('fits', table.offsetWidth <= box.clientWidth + 1); table.style.setProperty('--box-w', box.clientWidth + 'px'); edge(); if (head) hold(); }
+    var edge = () => box.parentNode.toggleAttribute('data-more', box.scrollLeft + box.clientWidth < box.scrollWidth - 2);
+    box.addEventListener('scroll', edge, { passive: true });
     window.addEventListener('resize', later(fit, 100));
+    // A table wider than the page scrolls sideways in its box, where a sticky head cannot hold: the script holds it,
+    // moving it down the table as the page scrolls, under the frame's bar.
+    var head = table.tHead, frame = 0;
+    var hold = () => {
+      frame = 0;
+      var y = 0;
+      if (!box.classList.contains('fits')) {
+        var cs = getComputedStyle(table), top = parseFloat(cs.getPropertyValue('--head-h')) + parseFloat(cs.getPropertyValue('--strip-h') || 0) || 0;
+        var r = table.getBoundingClientRect();
+        y = Math.max(0, Math.min(top - r.top, r.height - head.offsetHeight * 2));
+      }
+      head.style.transform = y ? 'translateY(' + y + 'px)' : '';
+    };
+    window.addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(hold); }, { passive: true });
     function fromHash() {
       var m = /^#product-(.+)$/.exec(location.hash), tr = m && doc.getElementById('product-' + decodeURIComponent(m[1]));
       if (!tr || !table.contains(tr)) return;
@@ -124,6 +140,9 @@
     panel.hidden = false;
     $$('.rec-tools').forEach(x => x.hidden = true);
     F.forEach(f => boxes[f] = $$('input[data-f="' + f + '"]', panel));
+    // An orientation chip stands for the stated orientations it groups (XY with the sheets' words for a flat bar).
+    var codes = {};
+    boxes.orientation.forEach(b => codes[b.value] = (at(b, 'data-codes') || b.value).split(' '));
     P.forEach(f => {
       var input = panel.querySelector('input[data-f="' + f + '"]');
       if (!input) return;
@@ -157,12 +176,13 @@
     }
     function show() {
       q.value = state.q;
-      F.forEach(f => { boxes[f].forEach(b => b.checked = state[f].indexOf(b.value) >= 0); });
+      F.forEach(f => { boxes[f].forEach(b => { b.checked = state[f].indexOf(b.value) >= 0; if (b.checked && b.closest('details.rf-other')) b.closest('details').open = true; }); });
       P.forEach(f => { if (pick[f]) pick[f].input.value = state[f] ? pick[f].byId[state[f]] || '' : ''; });
     }
     function apply(write) {
-      var ts = terms(state.q), tally = { type: {}, property: {}, orientation: {} }, n = 0;
-      var inF = (f, v) => !state[f].length || state[f].indexOf(v) >= 0;
+      var ts = terms(state.q), tally = { type: {}, property: {}, orientation: {} }, n = 0, oSel = [];
+      state.orientation.forEach(v => oSel = oSel.concat(codes[v] || [v]));
+      var inF = (f, v) => !state[f].length || (f === 'orientation' ? oSel : state[f]).indexOf(v) >= 0;
       var add = (f, v) => tally[f][v] = (tally[f][v] || 0) + 1;
       rows.forEach(r => {
         if (ts.length && !r.text) r.text = r.label + ' ' + r.tr.textContent.toLowerCase();
@@ -186,7 +206,7 @@
         $$('.dom', s.el).forEach(d => d.hidden = !d.querySelector('.rg:not([hidden])'));
       });
       F.forEach(f => {
-        boxes[f].forEach(b => { var k = tally[f][b.value] || 0; b.parentNode.querySelector('[data-k]').textContent = fmtNumber(k); b.parentNode.classList.toggle('zero', !k); });
+        boxes[f].forEach(b => { var k = (f === 'orientation' ? codes[b.value] : [b.value]).reduce((n, v) => n + (tally[f][v] || 0), 0); b.parentNode.querySelector('[data-k]').textContent = fmtNumber(k); b.parentNode.classList.toggle('zero', !k); });
       });
       var on = state.type.length + state.property.length + state.orientation.length + (state.product ? 1 : 0) + (state.doc ? 1 : 0);
       panel.querySelector('[data-on]').textContent = on ? on : '';
@@ -249,6 +269,7 @@
       h.split('&').forEach(kv => {
         var i = kv.indexOf('='), k = kv.slice(0, i), v;
         try { v = decodeURIComponent(kv.slice(i + 1).replace(/\+/g, ' ')); } catch (e) { return; }
+        if (k === 'orientation' && !codes[v]) v = Object.keys(codes).find(c => codes[c].indexOf(v) >= 0) || v;
         if (F.indexOf(k) >= 0) (k === 'property' ? props(v) : [v]).forEach(x => { if (state[k].indexOf(x) < 0) state[k].push(x); });
         else if (k in state) state[k] = v;
       });

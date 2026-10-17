@@ -8,6 +8,7 @@ import { esc } from '../html.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne } from '../../js/ui/labels.js';
 import { tabProperties, comparisonsOf, notDrawnWhy, productNameOrId } from '../../js/ui/material-facts.js';
+import { REGISTRY } from '../../js/ui/registry.js';
 import { outOfMedianWords, alsoForWords, cap } from '../../js/ui/material-words.js';
 import { typeSection, groupBlock, sourceCell, idCell, conditionChips, orientationWords, specimenWords, standardWords, countable, unitText, statsWords } from './common.js';
 
@@ -77,8 +78,22 @@ export default {
     for (const x of c.ms) (byProperty.get(x.property) ?? byProperty.set(x.property, []).get(x.property)).push(x);
     const properties = [...byProperty.keys()].sort((a, b) => (order.get(a) ?? 1e9) - (order.get(b) ?? 1e9) || a.localeCompare(b));
 
-    const group = (p) => {
-      const xs = byProperty.get(p).sort((a, b) => name(a).localeCompare(name(b)) || (b.value ?? -Infinity) - (a.value ?? -Infinity) || (a.id < b.id ? -1 : 1));
+    // A heat deflection is three tests, not one: its values are grouped by their typed load (thermal.loadMPa), 0.45 MPa,
+    // 1.8 MPa and any other, and those whose load is not stated, each with its own median. Any property the build reads
+    // a test load for is split so.
+    const loadOf = (x) => (x.thermal?.loadStated && Number.isFinite(x.thermal.loadMPa) ? x.thermal.loadMPa : 'none');
+    const loadTitle = (p, load) => (load === 'none' ? `${propertyName(p)}, load not stated`
+      : REGISTRY.allHeadlines.find((h) => h.loadMPa === load && h.valueProperties?.includes(p))?.labels.plain ?? `${propertyName(p)} at ${fmtNumber(load)} MPa`);
+    const parts = (p) => {
+      const xs = byProperty.get(p);
+      if (!xs.some((x) => x.thermal)) return [[propertyName(p), xs]];
+      const by = new Map();
+      for (const x of xs) (by.get(loadOf(x)) ?? by.set(loadOf(x), []).get(loadOf(x))).push(x);
+      return [...by].sort((a, b) => (a[0] === 'none') - (b[0] === 'none') || a[0] - b[0]).map(([load, ys]) => [loadTitle(p, load), ys]);
+    };
+
+    const group = (p, title, list) => {
+      const xs = list.sort((a, b) => name(a).localeCompare(name(b)) || (b.value ?? -Infinity) - (a.value ?? -Infinity) || (a.id < b.id ? -1 : 1));
       // The unit most of its values are in is the group's; a value in another counts under its own (Izod in kJ/m² and J/m).
       const units = new Map();
       for (const x of xs.filter(countable)) (units.get(x.unit) ?? units.set(x.unit, []).get(x.unit)).push(x.value);
@@ -97,8 +112,8 @@ export default {
           + `<td class="cd">${conditionChips(x)}</td>${figure ? drawnCell(x, c, ix) : ''}${sourceCell(c, x.sourceId, x.locator)}${idCell(x.id)}</tr>`;
       });
       return groupBlock({
-        title: propertyName(p), cols, rows, cls: 'rt--m',
-        attrs: ` data-group="${esc(propertyName(p))}" data-prop="${esc(p)}"${main ? ` data-unit="${esc(main)}"` : ''}`,
+        title, cols, rows, cls: 'rt--m',
+        attrs: ` data-group="${esc(title)}" data-prop="${esc(p)}"${main ? ` data-unit="${esc(main)}"` : ''}`,
         stats: statsWords(xs.length, 'measurement', [...units].sort((a, b) => (a[0] === main ? -1 : b[0] === main ? 1 : 0))),
         note: figure ? '' : 'No figure on the main page draws this property.',
       });
@@ -107,11 +122,11 @@ export default {
     const domains = [...DOMAINS.map(([tab, key]) => [key, tab]), ['other', 'Other']]
       .map(([key, label]) => [key, label, properties.filter((p) => (domainOf.get(p) ?? 'other') === key)])
       .filter(([, , ps]) => ps.length);
-    const body = domains.map(([key, label, ps]) => `<div class="dom" id="measurements-${key}"><h3 class="dom-h">${esc(label)}</h3>${ps.map(group).join('')}</div>`).join('');
+    const body = domains.map(([key, label, ps]) => `<div class="dom" id="measurements-${key}"><h3 class="dom-h">${esc(label)}</h3>${ps.flatMap((p) => parts(p).map(([title, xs]) => group(p, title, xs))).join('')}</div>`).join('');
     return typeSection({
       id: 'measurements', title: 'Measurements', n: c.ms.length, noun: 'measurement', body,
       empty: 'No measurement is on file for this material.',
-      note: '<p class="rs-note">Each value as its document publishes it; tap a condition for the sheet\'s own words. A property\'s median and range are of the values it lists, whatever their conditions (bounds and held-back values left out). The main page compares products on one basis: On the main page says where each value stands there.</p>',
+      note: '<p class="rs-note">Every measurement on file, as its document publishes it, grouped by property; a group\'s median and range are of the values it lists. The badge says whether the main page\'s figures draw a value and, if not, why.</p>',
     });
   },
 };

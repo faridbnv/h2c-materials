@@ -13,7 +13,14 @@ const SEARCH_ICON = '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><c
 const FILTER_ICON = '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M6 10h8M8.5 15h3"/></svg>';
 
 /** A checkable chip: its label and its count, which the script keeps for the other filters as they are set. */
-const option = (f, value, label, n, also = '') => `<label class="rf-c"><input type="checkbox" data-f="${f}" value="${esc(value)}"${also ? ` data-also="${esc(also)}"` : ''}><span>${esc(label)}</span><span class="rf-k" data-k>${esc(fmtNumber(n))}</span></label>`;
+const option = (f, value, label, n, also = '', codes = '') => `<label class="rf-c"><input type="checkbox" data-f="${f}" value="${esc(value)}"${also ? ` data-also="${esc(also)}"` : ''}${codes ? ` data-codes="${esc(codes)}"` : ''}><span>${esc(label)}</span><span class="rf-k" data-k>${esc(fmtNumber(n))}</span></label>`;
+
+/**
+ * Orientations as an engineer looks for them: XY (with the sheets' words for a flat bar), Z, not stated, and the other
+ * wordings (on edge, upright ZX, along the melt flow…) together and closed. Finding only: each row keeps its own words.
+ */
+const ORIENTATION_GROUPS = [['XY', 'XY', ['XY', 'horizontal-source-label']], ['Z', 'Z', ['Z']], ['unknown', 'not stated', ['unknown']]];
+const orientationWords = (d) => (d === 'unknown' ? 'not stated' : DIRECTION_WORDS[d] ?? d);
 
 /** A text field with suggestions (a datalist): typing narrows them; a value names one product or document. */
 const picker = (f, label, placeholder, options) => `<div class="rf-g"><label class="rf-l" for="rf-${f}">${esc(label)}</label>`
@@ -41,11 +48,17 @@ export function filterPanel(c, types) {
   const first = (d) => { const g = c.gradeById.get([...d.grades][0]); return g ? productNameOrId(g) : null; };
   const docs = distinct([...c.documents].map(([sid, d]) => [sid, sourceName(c.sourceById.get(sid), sid), first(d)])
     .sort((a, b) => a[1].localeCompare(b[1])));
-  // Orientations as stated: XY and Z first, the rest by how often, "not stated" last; a property without one is none.
+  // Orientations as stated, counted; then grouped for finding (ORIENTATION_GROUPS), the rest as other wordings.
   const dirs = new Map();
   for (const x of c.ms) if (x.direction && x.direction !== 'not-applicable') dirs.set(x.direction, (dirs.get(x.direction) ?? 0) + 1);
-  const rank = (d) => (d === 'XY' ? 0 : d === 'Z' ? 1 : d === 'unknown' ? 3 : 2);
-  const orientations = [...dirs].sort((a, b) => rank(a[0]) - rank(b[0]) || b[1] - a[1]);
+  const grouped = new Set(ORIENTATION_GROUPS.flatMap(([, , codes]) => codes));
+  const main = ORIENTATION_GROUPS.map(([value, label, codes]) => ({ value, label, codes: codes.filter((d) => dirs.has(d)) }))
+    .filter((o) => o.codes.length).map((o) => ({ ...o, n: o.codes.reduce((k, d) => k + dirs.get(d), 0) }));
+  const others = [...dirs].filter(([d]) => !grouped.has(d)).sort((a, b) => b[1] - a[1]);
+  const xyWords = main.find((o) => o.value === 'XY')?.codes.filter((d) => d !== 'XY').map(orientationWords) ?? [];
+  const orientationHtml = main.map((o) => option('orientation', o.value, o.label, o.n, '', o.codes.join(' '))
+    + (o.value === 'XY' && xyWords.length ? `<p class="rf-note">${esc(`XY includes ${xyWords.join(', ')}`)}</p>` : '')).join('')
+    + (others.length ? `<details class="rf-other"><summary>Other wordings<span class="rf-k">${esc(fmtNumber(others.reduce((k, [, n]) => k + n, 0)))}</span></summary><div class="rf-chips">${others.map(([d, n]) => option('orientation', d, orientationWords(d), n)).join('')}</div></details>` : '');
   // Properties by domain in the registry's order, as the measurements are grouped below.
   const byProperty = new Map();
   for (const x of c.ms) byProperty.set(x.property, (byProperty.get(x.property) ?? 0) + 1);
@@ -70,7 +83,7 @@ export function filterPanel(c, types) {
 <fieldset class="rf-g"><legend class="rf-l">Record type</legend>${types.map(({ s, n }) => option('type', s.id, s.title, n)).join('')}</fieldset>
 ${picker('product', 'Product', 'Every product', products)}
 ${picker('doc', 'Document', 'Every document', docs)}
-${orientations.length ? `<fieldset class="rf-g" data-for="measurements"><legend class="rf-l">Orientation<small>measurements</small></legend>${orientations.map(([d, n]) => option('orientation', d, d === 'unknown' ? 'not stated' : DIRECTION_WORDS[d] ?? d, n)).join('')}</fieldset>` : ''}
+${dirs.size ? `<fieldset class="rf-g" data-for="measurements"><legend class="rf-l">Orientation<small>measurements</small></legend>${orientationHtml}</fieldset>` : ''}
 ${props.length ? `<fieldset class="rf-g rf-props" data-for="measurements"><legend class="rf-l">Property<small>measurements</small></legend>${props.map(([label, ps]) => `<p class="rf-sub">${esc(label)}</p>${ps.map((p) => option('property', p, propertyName(p), byProperty.get(p), alsoOf(p))).join('')}`).join('')}</fieldset>` : ''}
 <button type="button" class="rf-clear" data-clear hidden>Clear every filter</button>
 </details>
