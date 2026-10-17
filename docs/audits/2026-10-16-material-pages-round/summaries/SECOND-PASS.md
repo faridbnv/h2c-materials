@@ -1,3 +1,5 @@
+> **Historical record** (2026-10-16): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Second drafting pass for your batch: the judge found 5 false claims in a sample of 40 drafts, over the limit of 4, so every batch is revised against the fault classes below. Read this, then revise your own rows.
 
 The judge read 40 drafts claim by claim against their pages (312 claims). The false claims fell into four classes; one checklist fault is added as a fifth. Re-read EACH of your summaries against its page for EACH class, fix what fails, and leave what is right alone (do not rewrite a sound summary for style).

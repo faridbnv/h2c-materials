@@ -17,7 +17,7 @@
 | 2 | Fonts, the page design system and chart grammar, three prototype pages (PETG, PLA, PCTG-GF) | done: Inter and Newsreader (approved); the renderer, chart grammar and three prototypes with their records pages; every page renders in 0.4 s; the drawer still byte-identical |
 | Gate | The owner approves the prototypes | prototypes shown to the owner on 2026-10-16; waiting for the answer |
 | 3 | Build stage 8, the records and index pages, the drawer's Full page link, the release zip, the checks | waiting |
-| 4 | The written summaries: table, placeholders, lint, drafts, judging | waiting |
+| 4 | The written summaries: table, placeholders, lint, drafts, judging | done: 76 summaries in `material_summaries.csv`, all draft; 40 judged, 5 false claims in the first pass, 0 after the second ([below](#step-4-the-written-summaries)) |
 | 5 | Blind read of 40 pages, documents, close | waiting |
 
 ## The owner's review and the redesign
@@ -134,3 +134,42 @@ probe's comments). On the combined tree, from an empty build cache on the owner'
 side by side where the same checks one at a time took 627 s; verify:fast's steps 88.4 s. Its CI passed (the longest job
 4 m 54 s, where #3's interface job had taken 11 m 12 s) and it was merged (1b9c107f). Steps 4 and 5 follow on
 `material-pages-summaries`, from that main.
+
+## Step 4: the written summaries
+
+On `material-pages-summaries`, cut from main at 1b9c107f, on 2026-10-17. The summaries extend D142; they take no
+decision of their own.
+
+- **The table and the fill.** `data/tables/material_summaries.csv` (MaterialID, Summary, Written by, Written on, Review
+  status from `schema/vocab/summary-status.csv`, Notes for maintainers). `build/src/written.js` fills each placeholder
+  after the products' spreads are compiled, into `materials[].written`, with the field semantics the prototypes'
+  samples used; the dev renderer's `--sample-summaries` went, so the build's fill is the only one. A field the material
+  cannot fill, a stray brace, or a row on a group name is SUMMARY-PLACEHOLDER (error); a number typed outside a
+  placeholder, or a count of records spelled out, is SUMMARY-NUMBER (lint). `test/summaries.test.js` (43 tests, Claude
+  Sonnet from the specification; it found the names applied before the polyamide types).
+- **The tools.** `npm run pages:fields -- <id>`, `npm run pages:text -- <id>`, `npm run pages:add-summaries --
+  <file.csv>` (all or none, `--check`, `--revise`); the recipe "Write or revise a material's summary" in AGENTS.md.
+- **Drafting.** Eight Claude Sonnet drafters, about ten materials each, read only each page's text and its fields
+  ([brief](summaries/DRAFTER-BRIEF.md)). Every draft passed the build's fill and the lint before it was judged.
+- **Judging.** Claude Opus read 40 drafts claim by claim on their pages, the 10 largest, 20 middle and 10 smallest by
+  measured values ([JUDGED.csv](summaries/JUDGED.csv)): 312 claims, 5 false. Four classes: a count word on a single
+  product ("some products need a hardened nozzle", 1 of 3; twice), the printing section's "7 state none" read as "no
+  chamber needed", drying advice read from the Bambu Lab Filament Guide given to "their sheets", and one maker's words
+  given to "makers". Over the limit of 4, so every batch was revised against them and a fifth class, no comparison
+  through a maker's words ([second pass](summaries/SECOND-PASS.md)); the 27 judged drafts it changed were read again, and
+  the 40 hold no false claim. The judge reworded six summaries' "only a product has a price" and named the guide in
+  ASA's enclosure count (Written by says "corrected by Claude Opus (agent)"); [drafts/pass-1/](summaries/drafts/pass-1/)
+  keeps the first pass.
+- **Checks.** `build:diff`: `db.materials[].written` on the 76 materials and nothing else; `pages:check` green (P12, 889
+  checks); `data:lint` no new finding; snapshot `pages.csv` and the 15 page views moved (In short no longer empty).
+
+Left for step 5 from what the drafters and the judge met on the pages: "N state none" in the printing counts reads as
+"none needed" (six of eight drafters asked; `labels.js` NOT_DRAWN); "all 3 products accept" on a material of nine, and
+"all 2" and "both" likewise, count the products that give the setting; ASA-GF's notched Charpy is "orientation not
+stated" in the masthead and "a moulded bar" in At a glance; Known gaps keep bookkeeping ("Mandatory review", "estimate
+band", "H2C status ... recorded with no document cited"); ABS-AF's and POM's mastheads call the filler undisclosed. And
+for the data: Raise3D Industrial PA12 CF+ is a product of PA612-CF (its filing to be checked); a Bambu Lab statement on
+PAHT-CF speaks of "highly hygroscopic wood fibers"; PEEK's HDT at 0.45 MPa median (2 products) sits below its 1.8 MPa one (3); PEEK-CF's
+printing says no source mentions nozzle wear beside a maker's "abrasion resistant" nozzle. The 36 drafts not judged were
+revised in the second pass; all 76 wait for the owner's review.
+

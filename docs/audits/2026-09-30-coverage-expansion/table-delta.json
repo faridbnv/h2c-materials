@@ -76,6 +76,13 @@
     "edited_existing": 0,
     "removed": 1
   },
+  "material_summaries": {
+    "baseline": 0,
+    "current": 76,
+    "added": 76,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "materials": {
     "baseline": 175,
     "current": 175,

@@ -1,5 +1,5 @@
 {
-  "dataRelease": "9dfb39275b42",
+  "dataRelease": "7436a1327336",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -157,6 +157,13 @@
       "added": 1,
       "edited_existing": 0,
       "removed": 1
+    },
+    "material_summaries": {
+      "baseline": 0,
+      "current": 76,
+      "added": 76,
+      "edited_existing": 0,
+      "removed": 0
     },
     "materials": {
       "baseline": 175,
