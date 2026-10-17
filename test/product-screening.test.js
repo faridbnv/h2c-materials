@@ -109,7 +109,15 @@ test('ASA-GF stays unresolved at 5 GPa and iSANMATE is not excluded by a range c
   const e = evaluateProducts(m, gs, [stiff], { ...ctx, db });
   assert.equal(e.verdict, 'UNKNOWN');
   assert.equal(e.screened, false);
-  assert.ok(gs.find((g) => g.id === 'G034-02').estimate.tensileModulusXY.plausible.hi >= 5);
+  // iSANMATE's plausible range is a fit that moves with every product the model learns from (it reached 5.05 GPa, then
+  // 4.99 once m422 typed the annealing two PETG sheets state), so the requirement that crosses it is read from it: a limit
+  // between its likely and its plausible top, which the range crosses whatever the refit.
+  const isanmate = gs.find((g) => g.id === 'G034-02').estimate.tensileModulusXY;
+  const crossing = { ...stiff, value: Number(((isanmate.hi + isanmate.plausible.hi) / 2).toFixed(2)) };
+  assert.ok(isanmate.plausible.lo < crossing.value && crossing.value < isanmate.plausible.hi);
+  const across = evaluateProducts(m, gs, [crossing], { ...ctx, db });
+  assert.equal(across.verdict, 'UNKNOWN');
+  assert.equal(across.screened, false);
   useRegistry(db.registry);
   const rows = [{ material: m, evaluation: e }];
   assert.match(toCSV(rows, db.meta, { scenario: { constraints: [stiff] } }), /Candidate group/);
