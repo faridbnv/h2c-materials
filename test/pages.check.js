@@ -1017,7 +1017,7 @@ function p12(S) {
       // The number is the data's: a statistic of a key property's compiled spread, or a count of records.
       const [key, stat] = p.field.split('.');
       const sum = m.summary?.[key];
-      if (stat && sum && ['median', 'min', 'max', 'q1', 'q3', 'n'].includes(stat) && sum[stat] != null) check('P12', `${who} ${p.field}`, sum[stat] === p.value, () => `compiled ${sum[stat]}, summary ${p.value}`);
+      if (stat && sum && ['median', 'min', 'max', 'q1', 'q3', 'n', 'products'].includes(stat) && sum[stat] != null) check('P12', `${who} ${p.field}`, sum[stat] === p.value, () => `compiled ${sum[stat]}, summary ${p.value}`);
       const id = identity(m, c);
       const counts = { products: id.products, makers: id.makers, values: c.summary.numericMeasurements, profiles: c.profiles.length };
       if (p.field in counts) check('P12', `${who} ${p.field}`, counts[p.field] === p.value, () => `count ${counts[p.field]}, summary ${p.value}`);

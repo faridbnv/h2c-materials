@@ -27,6 +27,7 @@ import { attachKnowHow } from './know-how.js';
 import { attachProductClaims } from './product-claims.js';
 import { indexPageContext, contextFor, inheritPageContext } from './page-context.js';
 import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.js';
+import { attachWritten } from './written.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
@@ -704,6 +705,9 @@ export function compile(wb, { snapshot, build }) {
   attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, issues });
   const selectable = new Set(registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
   for (const m of materials) m.headlineBasis = headlineBasis(m, selectable);
+  // The written summaries at the head of the material pages (D142), their placeholders filled from the spreads just
+  // compiled: a number in one is the data's, never typed (written.js).
+  attachWritten(materials, wb['Material summaries']?.rows ?? [], { grades, measurements, profiles, registry, issues });
 
   // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
   // are not compiled here: the estimate stage (build/src/estimate/) adds them to the finished database.

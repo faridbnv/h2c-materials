@@ -44,6 +44,7 @@ export const LINT_RULES = {
   'SOURCE-TITLE-NOT-TITLE': 'A source Title that is not the document\'s own title: a shop page\'s chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf), "untitled", or page furniture (a credit line such as "supported by", a lone mark such as "TM" or "1", the first word of a two-line heading such as "TECHNICAL", a "Page: 1" or "Version: 3.0" label); write the title the publisher printed on the sheet or page, or Not published where it prints none.',
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same open status; an older finding may have been overtaken by a newer one. Resolved rows are closed events and may stand side by side.',
+  'SUMMARY-NUMBER': 'A written summary (material_summaries.csv) states a number by hand: a value, a temperature, a count in figures, or a count of its products, makers, values or documents spelled out ("three makers"). A number in a summary is the data\'s, written as a placeholder the build fills ({hdt045.median}, {products}, {hdt045.label} for a headline\'s name), or it is said without a number (D142). A standard (ISO 527-2, ASTM D638, UL 94 V-0) and a name with a figure in it (PA6, H2C, AMS 2 Pro, 3D printing, a material\'s, product\'s or maker\'s own name) are not numbers.',
   'HEADLINE-FAMILY-UNLISTED': 'A headline limited to named families leaves out a family with candidate materials that nobody named: a new rigid family would have no heat deflection at all, and no warning. Name the family in Applies to, or accept with why the headline means nothing for it (an elastomer, D56).',
 };
 
@@ -97,7 +98,7 @@ export const isTitle = (title) => {
   return !(CHROME.test(t) || FILE_NAME.test(t) || /^untitled$/i.test(t) || FURNITURE(t));
 };
 
-const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment', 'print_guide', 'print_guide_materials', 'fx_rates', 'product_claims', 'impact_test_guesses', 'drawer_comparisons'];
+const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment', 'print_guide', 'print_guide_materials', 'fx_rates', 'product_claims', 'impact_test_guesses', 'drawer_comparisons', 'material_summaries'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 /**
@@ -119,6 +120,56 @@ export function valueTwins(active, gradeRows) {
     if (shared >= 5 && shared >= 0.8 * smaller) out.set(k, { shared, smaller });
   }
   return out;
+}
+
+// ---- written summaries (D142): no number outside a placeholder
+const PLACEHOLDER = /\{[^{}]*\}/g;
+// A standard's designation, its parts and its specimen type: ISO 527-2/1A, ISO 179-1/1eA, ASTM D638, IEC 61340-5-1,
+// ISO/ASTM 52900; and the UL 94 ratings.
+const STANDARD = /\b(?:ISO\/ASTM|ISO\/IEC|ISO|ASTM|IEC|DIN|EN|UL|ANSI|JIS|GB\/T|BS|NF|SAE)\s?(?:[A-Z]{1,2}\s?)?\d+(?:[-–.:/]\d+)*(?:\/\d*[A-Za-z]+\d*)?\b|\b(?:V-?[012]|5V[AB])\b/g;
+// Names with a figure in them that no table holds: the printer and its units, a polyamide by its type, "3D printing".
+const FIXED_NAMES = ['H2C', 'H2D', 'H2S', 'X1C', 'X1E', 'P1S', 'P1P', 'A1 mini', 'A1', 'AMS 2 Pro', 'AMS HT', '3D'];
+const POLYAMIDE = /\bPA\d{1,4}[A-Z]{0,2}(?:\/\d{1,4})?\b/g;
+const UNIT_TOKEN = /^\d+(?:[.,]\d+)?(?:mm|cm|m|kg|g|%|c|°c|mpa|gpa|ml|l|h|s)$/i;
+const NUMBER_WORDS = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|hundreds|dozen|dozens';
+const RECORD_NOUNS = 'products?|makers?|manufacturers?|brands?|suppliers?|values?|measurements?|results?|data sheets?|sheets?|documents?|profiles?|listings?|prices?|grades?|sources?|materials?';
+// "three makers", "two of its products", "twenty published values": a count of records in words goes stale as a figure does.
+const SPELLED_COUNT = new RegExp(`\\b(?:${NUMBER_WORDS})\\b(?:[\\s-]+(?!(?:${RECORD_NOUNS})\\b)[A-Za-z']+){0,2}?[\\s-]+(?:${RECORD_NOUNS})\\b`, 'gi');
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * The names a summary may write with a figure in them, from the tables: every material's name, abbreviation, full name
+ * and base polymer, every product's name and maker, as whole phrases and as their words that mix letters and figures
+ * (PA6 of "PA6-CF", 95A of "TPU 95A"). A phrase or word that is only a number ("1.75mm") is not a name.
+ */
+export function summaryNames(tables) {
+  const phrases = new Set(FIXED_NAMES);
+  const cells = [
+    ...(tables.materials?.rows ?? []).flatMap((m) => [m['Original name'], m.Abbreviation, m['Full name'], m['Base polymer']]),
+    ...(tables.grades?.rows ?? []).flatMap((g) => [g['Product name'], g.Manufacturer]),
+  ];
+  for (const cell of cells) {
+    const v = String(cell ?? '').trim();
+    if (!/\d/.test(v) || /^Not /.test(v)) continue;
+    if (/[A-Za-z]{2}/.test(v)) phrases.add(v);
+    for (const w of v.split(/[\s,;()]+/).flatMap((x) => [x, ...x.split(/[-/]/)])) {
+      if (/\d/.test(w) && /[A-Za-z]/.test(w) && !UNIT_TOKEN.test(w)) phrases.add(w.replace(/[.:]+$/, ''));
+    }
+  }
+  const list = [...phrases].filter(Boolean).sort((a, b) => b.length - a.length);
+  return new RegExp(`(?<![A-Za-z0-9])(?:${list.map(escapeRe).join('|')})(?![A-Za-z0-9])`, 'gi');
+}
+
+/**
+ * What a summary states as a number by hand, as the words found ("240 °C", "three makers"): its figures once the
+ * placeholders, the standards and the names are taken out, and the counts of records it spells out. Empty when none.
+ */
+export function summaryNumbers(text, names) {
+  // A polyamide's type before the names: "PA6" from a material's name would leave the "/66" of PA6/66 behind.
+  const t = String(text ?? '').replace(PLACEHOLDER, ' ').replace(STANDARD, ' ').replace(POLYAMIDE, ' ').replace(names, ' ');
+  const found = [...t.matchAll(/[A-Za-z]*\d[\d.,]*(?:\s?(?:%|°C|°F|°|MPa|GPa|kJ\/m²|J\/m|kg\/m³|g\/cm³|mm|µm|h|min|CAD\/kg|CAD|kg|g)(?![A-Za-z]))?/g)].map((x) => x[0].replace(/[.,]+$/, '').trim());
+  const spelled = [...String(text ?? '').replace(PLACEHOLDER, ' ').matchAll(SPELLED_COUNT)].map((x) => x[0].trim());
+  return [...new Set([...found, ...spelled])];
 }
 
 export function lintData(tables, schemas) {
@@ -545,6 +596,15 @@ export function lintData(tables, schemas) {
     for (const col of SHEET_WIDE) {
       const holder = ps.find((p) => stated(p[col])); if (!holder) continue;
       for (const p of ps) if (!stated(p[col])) add('PROFILE-SIBLING-SILENT', 'profiles', p.ProfileID, col, `${holder.ProfileID}, another row of the same sheet, holds "${String(holder[col]).slice(0, 60)}"`);
+    }
+  }
+  // A written summary's numbers are placeholders the build fills (D142, written.js); one typed by hand goes stale.
+  const summaries = tables.material_summaries?.rows ?? [];
+  if (summaries.length) {
+    const names = summaryNames(tables);
+    for (const r of summaries) {
+      const found = summaryNumbers(r.Summary, names);
+      if (found.length) add('SUMMARY-NUMBER', 'material_summaries', r.MaterialID, 'Summary', found.map((x) => JSON.stringify(x)).join(', '));
     }
   }
   return findings;

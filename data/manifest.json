@@ -65,6 +65,10 @@
       "rows": 953,
       "sha256": "cb2b596678a3c449aee81cc16b7762e3dc68810fc3e9cc79721a9d08ad807abb"
     },
+    "material_summaries": {
+      "rows": 0,
+      "sha256": "08469a3287a55bc5fa3e4ec1e17fe80e613e5fcf8d2473511ae949c533a05575"
+    },
     "method": {
       "rows": 57,
       "sha256": "912fe008fc98dc297ee63eec4b59f3c345a1184d10ef6b89fccf0dbda5218e95"

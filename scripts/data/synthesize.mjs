@@ -53,6 +53,8 @@ export function synthesize(factor, outRoot) {
     copy('evidence', originals.evidence.filter(own), ['EvidenceID', 'MaterialID', 'GradeID']);
     copy('prices', originals.prices.filter(own), ['PriceID', 'MaterialID', 'GradeID']);
     copy('coverage', originals.coverage.filter(own), ['CoverageID', 'MaterialID']);
+    // A copy has its original's records, so its original's summary fills from them as it does.
+    copy('material_summaries', originals.material_summaries.filter(own), ['MaterialID']);
     copy('headlines', originals.headlines.filter(own), ['MaterialID', 'MeasurementID']);
     // A material may cite a family entry's records as family context (the TPU classes cite TPU's, m141). Those are not
     // copied, so a copy cites the original.

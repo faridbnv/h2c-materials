@@ -1,0 +1,14 @@
+{
+  "$comment": "Contract for data/tables/material_summaries.csv. Checked by build/src/schema.js; its placeholders filled by build/src/written.js (SUMMARY-PLACEHOLDER), its text linted by build/src/lint-rules.js (SUMMARY-NUMBER).",
+  "title": "Material summaries",
+  "description": "The written summary at the head of a material's page (D142), one row per material that has a page: words for a reader, editorial and deciding nothing. It states no number by hand: every number is a placeholder in braces ({products}, {hdt045.median}) that the build fills from the material's compiled values when the page is built, so it cannot go stale beside the value it repeats. The page shows who wrote it, when, and whether the owner has reviewed it.",
+  "primaryKey": "MaterialID",
+  "fields": [
+    { "name": "MaterialID", "type": "string", "role": "key", "description": "The material the summary heads the page of: one with a page (app/js/ui/page-rule.js), never a family entry.", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true, "unique": true } },
+    { "name": "Summary", "type": "string", "role": "prose", "description": "The summary, one paragraph. A number appears only as a placeholder the build fills: {products}, {makers}, {values}, {profiles} (counts of the material's records), {name}, and for a headline key of headline_definitions.csv {key.median}, {key.min}, {key.max}, {key.range}, {key.q1}, {key.q3} (with at least four products compared), {key.n} (products compared), {key.products}, {key.typical} (the product nearest the median) and {key.label} (its name). A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); a number typed outside one is a lint finding (SUMMARY-NUMBER).", "constraints": { "required": true } },
+    { "name": "Written by", "type": "string", "role": "editorial", "description": "Who wrote it: the owner, a person, or an agent named as one (\"Claude Sonnet (agent)\"), and who corrected it where someone did. Shown in the byline.", "constraints": { "required": true } },
+    { "name": "Written on", "type": "date", "role": "editorial", "description": "The date it was written or last revised (YYYY-MM-DD). Shown in the byline.", "constraints": { "required": true } },
+    { "name": "Review status", "type": "string", "role": "editorial", "description": "Whether the owner has read it: draft, reviewed by the owner, or revise. Shown in the byline.", "vocabulary": "summary-status", "constraints": { "required": true } },
+    { "name": "Notes", "type": "string", "role": "prose", "description": "For maintainers, never shown on the page: the release the page was read from, the page sections each claim rests on, and what the writer could not say and why. Not applicable: nothing to add.", "missing": ["Not applicable"], "constraints": { "required": true } }
+  ]
+}
