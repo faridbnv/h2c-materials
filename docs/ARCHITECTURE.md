@@ -378,11 +378,12 @@ uncertainty, or a bound from a `>` or `<` operator. The engine judges a value pl
 flags a threshold inside the spread (D54); a range and a bound stay intervals. Unbounded ends are `null`, not `Infinity`,
 because this is serialised to JSON and `JSON.stringify` would turn Infinity into null anyway.
 
-**Direction** (`direction.js`). Twelve spellings onto ten canonical values. Some are the source's own words rather
+**Direction** (`direction.js`). Thirteen spellings onto eleven canonical values. Some are the source's own words rather
 than a confirmed build orientation, so `Horizontal (source label)` gets its own value and never merges into XY, in the
-engine or in the estimate model; `Not published`, `Unstated` and `Stated, not a usable direction` are all unknown to
-the build, and differ only in whether someone has read the source. A tensile value a sheet labels only by a ±45°
-raster is XY (D91); `45/45` is a ±45° bar the sheet labels beside its own XY bar, its own value.
+engine or in the estimate model (Prusa's sheets, which define theirs, are typed XY and XZ since D143); `Not published`,
+`Unstated` and `Stated, not a usable direction` are all unknown to the build, and differ only in whether someone has
+read the source. A tensile value a sheet labels only by a ±45° raster is XY (D91); `45/45` is a ±45° bar the sheet
+labels beside its own XY bar, and `YX` a flat bar the sheet labels YX beside it (D143), each its own value.
 The Method table's rule: an unknown direction is not XY. A locator naming a direction the Direction column does not
 record is a lint finding (MEAS-LOCATOR-DIRECTION): 18 Z results coded unknown once skewed every estimate.
 

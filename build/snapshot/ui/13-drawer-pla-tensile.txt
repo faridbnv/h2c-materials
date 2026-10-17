@@ -1,17 +1,18 @@
 Tensile modulus (XY)
 106 products
 Tensile modulus (Z)
-30 products
-GPa, log scale
-0.2
-0.5
+31 products
+GPa
+0
 1
 2
+3
+4
 5
 Tensile strength (XY)
-135 products
+139 products
 Tensile strength (Z)
-41 products
+42 products
 MPa
 0
 20
@@ -21,7 +22,7 @@ MPa
 Elongation at break (XY)
 121 products
 Elongation at break (Z)
-35 products
+37 products
 %, log scale
 0.5
 1
@@ -39,18 +40,18 @@ middle half
 median
 Select a dot to open its result below; hover to find the same product in the other rows.
 Test n Median Middle half Range
-Tensile modulus (XY) GPa 52 2.58 1.88–2.87 0.433⁠–⁠4.24
-Also drawn, not in the median: 42 with no stated orientation (0.379⁠–⁠4.78) and 12 special formulations (0.715⁠–⁠4.73).
-Tensile modulus (Z) GPa 28 2.02 1.66–2.49 0.873⁠–⁠2.69
+Tensile modulus (XY) GPa 55 2.53 1.93–2.87 0.95⁠–⁠4.24
+Also drawn, not in the median: 39 with no stated orientation (1.44⁠–⁠4.78) and 12 special formulations (0.715⁠–⁠4.73).
+Tensile modulus (Z) GPa 29 1.98 1.67–2.48 0.873⁠–⁠2.69
 Also drawn, not in the median: 2 special formulations (0.603⁠–⁠3.2).
-Tensile strength (XY) MPa 67 45 40–53 26⁠–⁠70.9
+Tensile strength (XY) MPa 71 45.5 40–53 26⁠–⁠70.9
 Also drawn, not in the median: 56 with no stated orientation (30⁠–⁠71) and 12 special formulations (13.7⁠–⁠65).
-Tensile strength (Z) MPa 38 30.8 22.5–34.1 8.7⁠–⁠43.5
+Tensile strength (Z) MPa 39 30.6 22.9–34 8.7⁠–⁠43.5
 Also drawn, not in the median: 3 special formulations (14.5⁠–⁠21.7).
 Elongation at break (XY) % 63 7.23 4.12–12.3 1.2⁠–⁠65
 Also drawn, not in the median: 47 with no stated orientation (2.5⁠–⁠84) and 11 special formulations (2.4⁠–⁠36).
-Elongation at break (Z) % 33 2.89 2.3–4.9 0.9⁠–⁠9.6
+Elongation at break (Z) % 35 2.89 2.28–4.85 0.9⁠–⁠9.6
 Also drawn, not in the median: 2 special formulations (1.8⁠–⁠7.91).
 n counts the products compared, special formulations left out: on the XY rows, those whose sheet states the bar's orientation (XY); on the others, every product drawn. The median, middle half and range are of these alone.
-Both orientations: 30 products for tensile modulus, 41 for tensile strength and 35 for elongation at break.
-Z as a share of XY, for products whose two values are compared, from one document and in one state: tensile modulus 89 % (67 %⁠–⁠103 %, 27 products), tensile strength 64 % (27 %⁠–⁠111 %, 37 products) and elongation at break 59 % (3 %⁠–⁠246 %, 33 products).
+Both orientations: 31 products for tensile modulus, 42 for tensile strength and 37 for elongation at break.
+Z as a share of XY, for products whose two values are compared, from one document and in one state: tensile modulus 89 % (67 %⁠–⁠103 %, 28 products), tensile strength 62 % (27 %⁠–⁠111 %, 38 products) and elongation at break 59 % (3 %⁠–⁠246 %, 35 products).

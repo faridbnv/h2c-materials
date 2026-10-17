@@ -1,0 +1,316 @@
+[
+ {
+  "n": 1,
+  "table": "sources",
+  "record": "R-EXTRUDR-durapro-abs-TDS-fr",
+  "check": {
+   "Title": "FICHE DE DONNÉES TECHNIQUES DURAPRO ABS"
+  },
+  "context": {
+   "SourceID": "R-EXTRUDR-durapro-abs-TDS-fr",
+   "Locator": "Document / product page",
+   "Publisher": "Extrudr",
+   "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/durapro-abs-TDS-fr.pdf"
+  }
+ },
+ {
+  "n": 2,
+  "table": "measurements",
+  "record": "V012791",
+  "check": {
+   "Direction": "Z"
+  },
+  "context": {
+   "SourceID": "R-ESSENTIUM-TDS-Essentium-TPU-80A-Z",
+   "Property": "Elongation at break",
+   "Raw value": "109",
+   "Locator": "p. 1: Elongation at Break, % (ZX)",
+   "GradeID": "G039-38",
+   "MaterialID": "M159"
+  }
+ },
+ {
+  "n": 3,
+  "table": "sources",
+  "record": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+  "check": {
+   "Publisher": "MatterHackers"
+  },
+  "context": {
+   "SourceID": "R-MATTERHACKERS-PRO-SERIES-XNT7Rt",
+   "Locator": "Document / product page",
+   "Title": "TECHNICAL DATA SHEET - PRO Series TPU",
+   "URL": "https://www.matterhackers.com/r/XNT7Rt"
+  }
+ },
+ {
+  "n": 4,
+  "table": "measurements",
+  "record": "V007789",
+  "check": {
+   "Specimen type": "Printed specimen",
+   "Moisture condition": "Dried before testing (see preparation)",
+   "Moisture state": "dry",
+   "Post-processing": "All the specimens were annealed and dried at 65 °C for 8 h before testing",
+   "Post-processing state": "annealed",
+   "Anneal °C": "65",
+   "Anneal h": "8"
+  },
+  "context": {
+   "SourceID": "B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet",
+   "Property": "Elongation at break",
+   "Raw value": "8.2 ± 1.3 %",
+   "Locator": "p. 2: Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040",
+   "GradeID": "G023-01",
+   "MaterialID": "M020"
+  }
+ },
+ {
+  "n": 5,
+  "table": "sources",
+  "record": "R-3DJAKE-3DJAKE-23-TDS-HYPER-PETG-EN",
+  "check": {
+   "Publisher": "3DJake"
+  },
+  "context": {
+   "SourceID": "R-3DJAKE-3DJAKE-23-TDS-HYPER-PETG-EN",
+   "Locator": "Document / product page",
+   "Title": "Hyper PETG Filament Technical Data Sheet",
+   "URL": "https://3d.nice-cdn.com/upload/file/23_TDS_HYPER_PETG_EN_.pdf"
+  }
+ },
+ {
+  "n": 6,
+  "table": "measurements",
+  "record": "V015268",
+  "check": {
+   "Direction": "XZ"
+  },
+  "context": {
+   "SourceID": "S-PVB-b4ef2bf6-technical-data-sheet-1",
+   "Property": "Flexural modulus",
+   "Raw value": "3.4 ± 0.3 GPa",
+   "Locator": "p. 2: Flexural Modulus (Vertical XZ (source label))",
+   "GradeID": "G083-03",
+   "MaterialID": "M083"
+  }
+ },
+ {
+  "n": 7,
+  "table": "properties",
+  "record": "Compression set",
+  "check": {
+   "Applies to": "Family: Flexible Elastomers",
+   "Not applicable reason": "Compression set is how much of a squeeze a rubbery material keeps; a rigid plastic is not tested for it."
+  },
+  "context": {
+   "Property": "Compression set",
+   "Domain": "mechanical"
+  }
+ },
+ {
+  "n": 8,
+  "table": "measurements",
+  "record": "V007780",
+  "check": {
+   "Specimen type": "Printed specimen",
+   "Moisture condition": "Dried before testing (see preparation)",
+   "Moisture state": "dry",
+   "Post-processing": "All the specimens were annealed and dried at 65 °C for 8 h before testing",
+   "Post-processing state": "annealed",
+   "Anneal °C": "65",
+   "Anneal h": "8"
+  },
+  "context": {
+   "SourceID": "B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet",
+   "Property": "Glass transition temperature",
+   "Raw value": "70 °C",
+   "Locator": "p. 2: Glass Transition Temperature DSC, 10 °C/min",
+   "GradeID": "G023-01",
+   "MaterialID": "M020"
+  }
+ },
+ {
+  "n": 9,
+  "table": "evidence",
+  "record": "Q03307",
+  "check": {
+   "Finding": "Spectrum PEBA is a premium-class flexible filament that combines the elasticity of rubber with the durability of an engineering polymer."
+  },
+  "context": {
+   "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PEBA",
+   "Locator": "p. 1",
+   "GradeID": "G045-02",
+   "MaterialID": "M045",
+   "Topic": "Benefits",
+   "Domain": "Makers' know-how"
+  }
+ },
+ {
+  "n": 10,
+  "table": "sources",
+  "record": "R-NANOVIA-PLA-EF-3D850",
+  "check": {
+   "Title": "Nanovia PLA EF 3D850 : Endocrine disruptor free : Nanovia"
+  },
+  "context": {
+   "SourceID": "R-NANOVIA-PLA-EF-3D850",
+   "Locator": "Document / product page",
+   "Publisher": "Nanovia",
+   "URL": "https://nanovia.tech/en/ref/nanovia-pla-ef/"
+  }
+ },
+ {
+  "n": 11,
+  "table": "sources",
+  "record": "R-NANOVIA-TPE-22D",
+  "check": {
+   "Title": "Nanovia TPE 22D : Flexible shock absorption : Nanovia"
+  },
+  "context": {
+   "SourceID": "R-NANOVIA-TPE-22D",
+   "Locator": "Document / product page",
+   "Publisher": "Nanovia",
+   "URL": "https://nanovia.tech/en/ref/nanovia-tpe-22d/"
+  }
+ },
+ {
+  "n": 12,
+  "table": "sources",
+  "record": "CA-3DPC3",
+  "check": {
+   "Publisher": "3D Printing Canada"
+  },
+  "context": {
+   "SourceID": "CA-3DPC3",
+   "Locator": "Document / product page",
+   "Title": "CA 3DPC3",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=3"
+  }
+ },
+ {
+  "n": 13,
+  "table": "evidence",
+  "record": "Q07258",
+  "check": {
+   "Finding": "Essentium PA-CF is readily printable with a wide processing window, providing a highly accessible engineering-grade solution or open platform and even open-air printers."
+  },
+  "context": {
+   "SourceID": "R-ESSENTIUM-TDS-Essentium-PA-CF",
+   "Locator": "p. 1",
+   "GradeID": "G165-05",
+   "MaterialID": "M165",
+   "Topic": "Benefits",
+   "Domain": "Makers' know-how"
+  }
+ },
+ {
+  "n": 14,
+  "table": "measurements",
+  "record": "V013543",
+  "check": {
+   "Direction": "XY"
+  },
+  "context": {
+   "SourceID": "S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet",
+   "Property": "Tensile yield strength",
+   "Raw value": "50.6 ± 1",
+   "Locator": "p. 2: Tensile Yield Strength [MPa] (Horizontal (source label))",
+   "GradeID": "G001-77",
+   "MaterialID": "M001"
+  }
+ },
+ {
+  "n": 15,
+  "table": "sources",
+  "record": "R-BASF-POLYSTYRENE-STYROLUX",
+  "check": {
+   "Publisher": "BASF"
+  },
+  "context": {
+   "SourceID": "R-BASF-POLYSTYRENE-STYROLUX",
+   "Locator": "p. 12: Resistance to chemicals; p. 13: Aging behavior",
+   "Title": "Polystyrene and Styrolux: General-purpose polystyrene (GPPS), High-impact polystyrene (HIPS), Styrene / butadiene-block copolymer (S/B/S)",
+   "URL": "https://zeus.phys.uconn.edu/wiki/images/Polystyrene_properties.pdf"
+  }
+ },
+ {
+  "n": 16,
+  "table": "measurements",
+  "record": "V015419",
+  "check": {
+   "Property": "Charpy strength",
+   "Raw value": "26.6 ± 2.8 kJ/m²;",
+   "Notch": "Unnotched",
+   "Direction": "XY",
+   "Specimen type": "Not published (do not assume printed)",
+   "Post-processing state": "not-stated"
+  },
+  "context": {
+   "SourceID": "R-3DJAKE-KINGROON-PLA-Basic-Technical-Data-Sheet-V1-0",
+   "Locator": "p. 2: Impact Strength (X-Y) (unnotched, the first of the cell's two values)",
+   "GradeID": "G001-192"
+  },
+  "added": true
+ },
+ {
+  "n": 17,
+  "table": "sources",
+  "record": "R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil",
+  "check": {
+   "Publisher": "Fabru"
+  },
+  "context": {
+   "SourceID": "R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil",
+   "Locator": "Document / product page",
+   "Title": "Styrol-Acrylnitril (SAN)",
+   "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/787%2FMaterialdatenblatt+SAN+purefil.pdf"
+  }
+ },
+ {
+  "n": 18,
+  "table": "sources",
+  "record": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+  "check": {
+   "Publisher": "Extrudr"
+  },
+  "context": {
+   "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+   "Locator": "Document / exact product page",
+   "Title": "FLEX HARD official maker product page",
+   "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/"
+  }
+ },
+ {
+  "n": 19,
+  "table": "measurements",
+  "record": "V013664",
+  "check": {
+   "Direction": "XZ"
+  },
+  "context": {
+   "SourceID": "S-PVB-e032493a-tds-pc-space-grade-en",
+   "Property": "Tensile modulus",
+   "Raw value": "3.7 ± 0.1",
+   "Locator": "p. 2: Tensile Modulus [GPa] (Vertical XZ (source label))",
+   "GradeID": "G037-06",
+   "MaterialID": "M037"
+  }
+ },
+ {
+  "n": 20,
+  "table": "evidence",
+  "record": "Q02492",
+  "check": {
+   "Finding": "The advantage of this material is its excellent weather resistance, high retention of physical features and low level of yellowing."
+  },
+  "context": {
+   "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-ASA-Extrafill-03012019",
+   "Locator": "p. 1",
+   "GradeID": "G031-14",
+   "MaterialID": "M031",
+   "Topic": "Benefits",
+   "Domain": "Makers' know-how"
+  }
+ }
+]
