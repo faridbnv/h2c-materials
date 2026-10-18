@@ -97,6 +97,9 @@ function compileMeasurements(rows, fatigueRows, issues, pageContextRows = []) {
       const h = applyLoadTyped(r, parseHdtStandard(r['Standard / load']), issues);
       m.thermal = { standard: h.standard, loadMPa: h.loadMPa, loadStated: h.loadStated, label: h.label, origin: ORIGIN.PARSED };
     }
+    // A value the product's name states (TPU 95A, PA6-GF30) is evidence of its grade, never a headline's value (D150).
+    // Set only where it holds, so every other record keeps its shape.
+    if (status?.nominal) m.nominal = true;
     checkMeasurementReviewStale(r, issues);
     if (r.Property === 'Fatigue life') {
       // The loading lives in data/tables/fatigue_tests.csv, one row per fatigue measurement (m31).

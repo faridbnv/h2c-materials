@@ -1,0 +1,85 @@
+GradeID	Material	Manufacturer	Product	Composition	SourceIDs
+G018-01	PLA-CF	Bambu Lab	PLA-CF	Polylactic acid  carbon fiber	B-pla-cf-TDS
+G018-02	PLA-CF	Spectrum	THE FILAMENT PLA CF	Not published	S-SPECTRUM-eng-tds-the-filament-pla-cf
+G018-03	PLA-CF	Spectrum	PLA Carbon	Not published	S-SPECTRUM-en-tds-spectrum-pla-carbon
+G018-04	PLA-CF	3DXTECH	CarbonX CF-PLA	Not published	X-ECOMAX-CarbonX-CF-PLA-TDS-v3
+G018-05	PLA-CF	Polymaker	Polymaker Polylite PLA CF	with carbon fiber designed for functional (p. 1  as the sheet states it)	S-POLYCN-TDS-Polymaker-Polylite-PLA-CF-V6-0-2026-06-09-EN S-POLYCN-PolyLite-PLA-CF-TDS-US-5-1
+G018-07	PLA-CF	Extrudr	PLA BASIC CF	PLA Basic CF combines the user-friendly nature of PLA with the enhanced stiffness and technical appearance of carbon fiber (p. 1  as the sheet states it)	R-EXTRUDR-pla-basic-cf-TDS-en R-EXTRUDR-pla-basic-cf-TDS-de-3 R-EXTRUDR-PRINT-20260929-af22746e0274
+G018-08	PLA-CF	SUNLU	PLA Carbon Fiber	Product Name:PLA Carbon Fiber (p. 1  as the sheet states it)	R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94 R-SUNLU-PLA-Carbon-Fiber
+G018-09	PLA-CF	Eryone	PLA-CF	Not published	R-ERYONE-eryone-pla-cf-tds
+G018-10	PLA-CF	Flashforge	PLACF10	material containing 10% carbon fiber. PLACF10 has excellent dimensional stability  (p. 1  as the sheet states it)	D-FLASH-PLA-CF-TDS-EN
+G018-11	PLA-CF	eSUN	ePLA CF	By incorporating German-imported organic impregnated short-cut carbon fibers into PLA  we have enhanced the strength and modulus (p. 1  as the sheet states it)	S-PEBA-ePLA-CF-TDS
+G018-12	PLA-CF	SIDDAMENT	PLA Carbon Fiber	PLA Carbon Fiber - Technical Datasheet (p. 1  as the sheet states it)	S-PCGF-PLA-Carbon-Fiber-TDS-Siddament
+G018-13	PLA-CF	QIDI	PLA-CF	Chopped carbon fiber reinforced PLA FDM material. (p. 1  as the sheet states it)	R-QIDI-PLA-CF R-QIDI-FILAMENT-GUIDE
+G018-14	PLA-CF	Protopasta	Carbon Fiber Composite HTPLA	Additives 10% by weight high-purity  milled carbon fiber (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-TDS-CarbonFiber-HTPLA-1-0-1
+G018-15	PLA-CF	Protopasta	Original Carbon Fiber Composite PLA	Additives 10% by weight high-purity  milled carbon fiber (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-TDS-Original-CarbonFiber-PLA-1-0-1
+G018-16	PLA-CF	Nobufil	PLAx CF	Nobufil PLAx CF is a sustainable 10% carbon fiber reinforced modified PLA made from recycled (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-TDS-PLAx-CF-25-02
+G018-17	PLA-CF	CreatBot	PLA-CF	Not published	R-FILAMENT2PRINT-CreatBot-PLA D-CREATBOT-PLA-CF-PAGE
+G018-18	PLA-CF	iSANMATE	PLA CF	碳纤维增强，黑色/Reinforced with carbon fibers  black (p. 1  as the sheet states it)	I-PLA-PLA-CF-TDS
+G018-19	PLA-CF	3DJake	ecoPLA CF	Not published	R-3DJAKE-TDS-3DJAKE-ecoPLA-CF
+G018-20	PLA-CF	Creality	Hyper PLA-CF	PLA with 4 % carbon fibre (p. 1: "HYPER PLA CF is filled with 4% carbon fiber material")	R-3DJAKE-3DJAKE-14-TDS-hyper-PLA-CF-EN
+G019-01	PLA-GF	Polymaker	Polymaker HT PLA GF	Not published	S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1 S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN
+G019-02	PLA-GF	iSANMATE	PLA Glass Fiber	Conflict: GF heading  CF description	I-PLA-Glass-Fiber-Technical-Data-Sheet
+G019-03	PLA-GF	eSUN	PLA GF	PLA-GF is a printing consumable developed on the basis of PLA  in which 15-20% glass fiber is added to greatly enhance the rigidity and impact (p. 1  as the sheet states it)	S-PEBA-eSUN-PLA-GF-Filament-TDS-V1-0-1
+G019-04	PLA-GF	Nobufil	PLAx GF	Nobufil PLAx GF is a sustainable 10% glass fiber reinforced modified PLA made from recycled (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-c9047f-1e9c2a0b33dd4d3eb764ce6233abe759
+G024-01	PETG-CF	Bambu Lab	PETG-CF	PETG  carbon fiber	B-petg-cf-TDS
+G024-02	PETG-CF	Polymaker	Fiberon PETG-rCF08	Recycled carbon-fibre reinforced PETG; the product designation states 8 % recycled carbon fibre (TDS p. 1). Recycled fibre is not a declared variant class in this database	R-FIBERON-PETGRCF08-TDS
+G024-03	PETG-CF	Spectrum	PET-G Carbon	Not published	S-SPECTRUM-en-tds-spectrum-petg-carbon S-SPECTRUM-pl-tds-spectrum-petg-carbon R-SPECTRUM-PORTFOLIO-2024
+G024-04	PETG-CF	Spectrum	THE FILAMENT PETG CF	Not published	S-SPECTRUM-eng-tds-the-filament-petg-cf
+G024-05	PETG-CF	3DXTECH	CarbonX Carbon Fiber PETG	Technical Data Sheet: CarbonX™ Carbon Fiber PETG 3D Printing Filament (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF-PETG-TDS-v3
+G024-06	PETG-CF	SUNLU	PETG Carbon Fiber	Product Name: PETG Carbon Fiber (p. 1  as the sheet states it)	R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce
+G024-07	PETG-CF	Eryone	PETG-CF	valve switches.The carbon fiber content is approximately 15%. (p. 1  as the sheet states it)	R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9af0d6
+G024-08	PETG-CF	Flashforge	PETGCF10	containing 10% carbon fiber. PETGCF10 has excellent dimensional stability and rigidity (p. 1  as the sheet states it)	D-FLASH-PETG-CF-TDS-EN
+G024-09	PETG-CF	Extrudr	XPETG CF	Not published	R-EXTRUDR-xpetg-cf-TDS-fr R-EXTRUDR-xpetg-cf-TDS-en R-EXTRUDR-PRIORITY-20261003-88316f653878
+G024-10	PETG-CF	3D4Makers	PETGCarbon	Not published	R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers D-3D4MAKERS-PETG-CARBON-PAGE
+G024-11	PETG-CF	Nanovia	PETG CF	Nanovia PETG CF : Carbon fiber reinforced quantity (p. 1  as the sheet states it)	R-NANOVIA-PETG-CF
+G024-12	PETG-CF	SIDDAMENT	PETG CF V2s	Not published	S-PCGF-PETG-CF-v2
+G024-13	PETG-CF	FormFutura	CarbonFil CF03	CarbonFil CF03 is PETG with circa 3% added carbon fibers. It combines PETG properties with the aesthetics of (p. 1  as the sheet states it)	S-PET-formfutura-tds-carbonfilcf03
+G024-14	PETG-CF	SIDDAMENT	PETG Carbon Fiber	PETG Carbon Fiber - Technical Datasheet (p. 1  as the sheet states it)	S-PCGF-PETG-Carbon-Fiber-TDS-Siddament
+G024-15	PETG-CF	eSUN	PETG CF	Adding carbon fiber reinforced materials to PETG and modifying  it strengthens the rigidity and toughness of PETG. (p. 1  as the sheet states it)	S-PEBA-PETG-CF-TDS-V1-2024-07-02
+G024-16	PETG-CF	QIDI	PETG CF	of use of PETG with the strength of carbon fiber  resulting in prints that are (p. 2  as the sheet states it)	R-QIDI-PETG-CF R-QIDI-FILAMENT-GUIDE
+G024-17	PETG-CF	3DJake	easyPETG CF	Not published	R-3DJAKE-3DJAKE-TDS-3DJAKE-PETG-CF
+G024-18	PETG-CF	Nobufil	PETG CF	Nobufil PETG CF is a sustainable 10% carbon fiber reinforced PETG made from recycled industrial (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-TDS-PETG-CF-23-12
+G024-19	PETG-CF	Siraya Tech	Fibreheart PETG CF Pro	Material Glycol-modified Polyethylene Terephthalate + 10% short cut carbon fiber (p. 1  as the sheet states it)	D-SIRAYA-fibreheart-petg-cf-pro-filament-technical-data-tds
+G024-20	PETG-CF	Raise3D	Hyper Speed PETG CF	Raise3D Hyper Speed PETG CF is a carbon fiber reinforced (8 wt.% recycled CF) Polyethylene Terephthalate Glycol modified (PETG) (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0
+G024-21	PETG-CF	FormFutura	CarbonFil	10% more impact resistant  which is a remarkable feature for carbon-fibre reinforced filament. (p. 1  as the sheet states it)	S-PET-TDS-CarbonFil
+G024-22	PETG-CF	iSANMATE	PETG CF	PETG carbon fiber material is modified by adding carbon fiber on the (p. 1  as the sheet states it)	I-PLA-PETG-CF-TDS
+G024-23	PETG-CF	Fiberlogy	PETG+CF	Not published	R-FIBERLOGY-FIBERLOGY-PETGCF-TDS D-FIBERLOGY-PETGCF-FILAMENT-PAGE
+G024-24	PETG-CF	Recreus	PET-G CF	~ CARBON FIBER (p. 1  as the sheet states it)	R-RECREUS-PET-G-CF-TECHNICAL-DATA-SHEET-TDS-2022 R-RECREUS-PETG-CF
+G025-01	PETG-GF	iSANMATE	PETG Glass Fiber	Not published	I-PETG-Glass-Fiber-Technical-Data-Sheet
+G025-02	PETG-GF	Eryone	PETG-GF	PETG with 10% glass fibre (TDS)	R-ERYONE-PETG-GF-TDS R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5 R-ERYONE-PRINT-20260928-9e82297a5891
+G025-03	PETG-GF	Nanovia	PETG GF UV	Nanovia PETG GF UV : Glass fiber reinforced quantity (p. 1  as the sheet states it)	R-NANOVIA-PETG-GF-UV
+G025-04	PETG-GF	QIDI	PETG GF	QIDI PETG-GF  compounded with 5% short-cut glass fibers  combines the (p. 2  as the sheet states it)	R-QIDI-PETG-GF R-QIDI-FILAMENT-GUIDE
+G025-05	PETG-GF	Nobufil	PETG GF	Nobufil PETG CF is a sustainable 10% glass fiber reinforced PETG made from recycled industrial waste (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-TDS-PETG-GF-26-04
+G028-01	ABS-GF	Bambu Lab	ABS-GF	Acrylonitrile - butadiene - styrene  glass fiber	B-abs-gf-TDS
+G028-02	ABS-GF	Siraya Tech	Fibreheart ABS-GF	Acrylonitrile Butadiene Styrene (CAS 9003-56-9) 78-82 %  Glass Fiber (CAS 65997-17-3) 18-22 %  as the SDS declares (D-SIRAYA-Fibreheart-ABS-GF-SDS  p. 2  section 3)	D-SIRAYA-Fibreheart-ABS-GF-TDS
+G028-03	ABS-GF	3DXTECH	FibreX ABS+GF10 Glass Fiber ABS	Technical Data Sheet: FibreX™ ABS+GF10 Glass Fiber ABS (p. 1  as the sheet states it)	X-ECOMAX-FIBREX-GF-ABS-TDS-v1
+G028-04	ABS-GF	SUNLU	ABS-GF	Not published	R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0 R-SUNLU-ABS-GF-TDS
+G028-05	ABS-GF	Eryone	Glass Fiber ABS	enclosures  and structural components. Note: The glass fiber content is 10%. (p. 1  as the sheet states it)	R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15
+G028-06	ABS-GF	Flashforge	ABSGF10	reinforced with 10% glass fiber. It offers excellent dimensional stability  bending strength  (p. 1  as the sheet states it)	D-FLASH-ABS-GF-TDS-EN
+G028-07	ABS-GF	Fiberlogy	ABS GF	Not published	R-FIBERLOGY-FIBERLOGY-ABSGF-TDS D-FIBERLOGY-ABSGF-FILAMENT-PAGE
+G028-09	ABS-GF	eSUN	eABS-GF	Adding glass fiber reinforced materials to ABS and modifying it strengthens the rigidity and toughness of ABS it has excellent impact (p. 1  as the sheet states it)	S-PEBA-ABS-GF-TDS-V1-2024-07-02
+G028-10	ABS-GF	QIDI	NexABS-GF25	25% glass fiber to improve its mechanical properties. (p. 1  as the sheet states it)	R-QIDI-ABS-GF25 R-QIDI-FILAMENT-GUIDE
+G028-11	ABS-GF	Fabru	Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10)	Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10) (p. 1  as the sheet states it)	R-FABRU-3491-Material-data-sheet-ABS-GF10-purefil R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil
+G028-12	ABS-GF	iSANMATE	ABS Glass Fiber	ABS Glass Fiber Technical Data Sheet (p. 1  as the sheet states it)	I-PLA-ABS-Glass-Fiber-Technical-Data-Sheet I-PLA-ABS-GF-TDS
+G029-01	ABS-CF	3DXTECH	CarbonX CF ABS	Not published	X-CarbonX-CF-ABS-TDS-v3
+G029-02	ABS-CF	iSANMATE	CF ABS	Not published	I-CF-ABS-TDS
+G029-03	ABS-CF	Extrudr	DURAPRO ABS CF	DuraPro ABS CF is a carbon fiber-reinforced high-performance ABS filament designed for technical applications where maximum (p. 1  as the sheet states it)	R-EXTRUDR-durapro-abs-cf-TDS-en R-EXTRUDR-PRINT-20260928-526b472f69cc
+G029-04	ABS-CF	Eryone	ABS-CF	that combine strength and rigidity.The carbon fiber content is approximately 10%. (p. 1  as the sheet states it)	R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4
+G029-05	ABS-CF	Nanovia	ABS CF	Nanovia ABS CF : Carbon fiber reinforced quantity (p. 1  as the sheet states it)	R-NANOVIA-ABS-CF
+G029-06	ABS-CF	eSUN	ABS CF	Adding carbon fiber reinforced materials to ABS and modifying  it strengthens the rigidity and toughness of ABS. eABS-CF has excellent impact (p. 1  as the sheet states it)	S-PEBA-ABS-CF-TDS-V1-2024-07-02 S-ESUN-PRINT-20260928-84a9e8286c29
+G029-07	ABS-CF	SIDDAMENT	ABS Carbon Fiber	ABS Carbon Fiber - Technical Datasheet (p. 1  as the sheet states it)	S-PCGF-ABS-Carbon-Fiber-TDS-Siddament
+G029-08	ABS-CF	Siraya Tech	Fibreheart ABS CF Core	Carbon fiber reinforced ABS filaments are susceptible to moisture absorption  which can affect print quality. (p. 1  as the sheet states it)	D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds
+G029-09	ABS-CF	Raise3D	Hyper Core ABS CF15	core where most of the carbon fiber (15 wt.%) are well-aligned and distributed. During high speed (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Hyper-Core-ABS-CF15-TDS-V1-0
+G029-10	ABS-CF	3DJake	ABS CF	Not published	R-3DJAKE-TDS-3DJAKE-ABS-CF
+G029-11	ABS-CF	3DXTECH	TriMax Carbon Fiber ABS Model Material	Technical Data Sheet: TriMaxTM Carbon Fiber ABS Model Material (p. 1  as the sheet states it)	X-ECOMAX-TriMax-CF-ABS-TDS-v1
+G033-01	ASA-CF	Bambu Lab	ASA-CF	acrylonitrile - styrene - acrylate	B-asa-cf-TDS
+G033-02	ASA-CF	3DXTECH	CarbonX CF ASA	ASA Resin (CAS 26299-47-8) > 85 %  Carbon Fiber (CAS 308063-67-4) < 15 %  as the SDS declares (X-CarbonX-CF-ASA-SDS-v1-1  p. 1  section 3)	X-CarbonX-CF-ASA-TDS-v1
+G033-03	ASA-CF	Spectrum	THE FILAMENT ASA CF	Not published	S-SPECTRUM-en-tds-the-filament-asa-cf R-3DJAKE-EN-TDS-The-Filament-ASA-CF
+G033-04	ASA-CF	Spectrum	ASA-X CF10	Not published	S-SPECTRUM-en-tds-spectrum-asax-cf10
+G033-05	ASA-CF	Extrudr	DURAPRO ASA CF	Carbon fiber content ASTM D785 %vol 12 (p. 1  as the sheet states it)	R-EXTRUDR-durapro-asa-cf-TDS-en
+G033-06	ASA-CF	Eryone	ASA-CF	to cold weather and UV radiation. Due to the addition of carbon fiber  its stiffness is 60% (p. 1  as the sheet states it)	R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571
+G033-07	ASA-CF	Flashforge	ASACF10	material containing 10% carbon fiber. ASACF10 has excellent dimensional stability  (p. 1  as the sheet states it)	D-FLASH-ASA-CF-TDS-EN
+G033-08	ASA-CF	Fabru / purefil	ASA CF10	Not published	R-FABRU-PUREFIL-7739-Scheda-tecnica-del-materiale-ASA-CF10-purefil R-FABRU-7738-Fiche-technique-du-mat-riau-ASA-CF10-purefil
+G033-09	ASA-CF	Fillamentum	ASA CF10 Carbon	Polymer base Acrylic-styrene-acrylonitrile copolymer + carbon fibers (p. 1  as the sheet states it)	R-FILLAMENTUM-Fillamentum-ASA-CF10-Carbon
+G033-11	ASA-CF	Polymaker	FIBERON ASA CF08	better mechanical properties by adding 8% carbon fiber. It also (p. 1  as the sheet states it)	R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN R-POLYMAKER-PRIORITY-20261003-749f634c9bfa

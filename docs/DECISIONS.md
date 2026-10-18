@@ -165,6 +165,7 @@ detail. The generator names one that runs longer.
 | D147 | The selector and the material pages read as one tool: one computation per fact, one word per thing, one frame | The owner found the selector and the material pages each very good but substantially different, and asked for small changes that make them feel like one tool. Five reviews and a product manager's combination proposed 54 changes; the owner chose 45, and they were built. The drawer and the page now say each fact from one function and in one set of words: dates as "13 Sep 2026", one name for Bambu Lab's guide, a bound with its sign, one count of gaps, the page's evidence word. Both surfaces print one provenance line and share one theme button, three corner radii and one typeface, and every page ends in one footer band. The drawer's products open in one stated order and link to their cards on the Products page, the decision brief names the material page, and Parallel lines draws each line's result and the requirements in the Ashby chart's family colours, where blue now means only "this material". No answer moved. | In force. It amends D145 (the colophon is a footer band after the main element on every page kind, its byline one sentence; the theme button is the selector's) and D146 (more of the shared words live in `app/js/ui`; the drawer's Products tab opens on the product *Your requirements* shows), and rewords the guide label D124 gave D88: "from Bambu Lab's Filament Guide for PLA" is now "from the Bambu Lab Filament Guide (PLA column)" |
 | D148 | A property that does not apply hides a material whatever the estimates switch says; the switch is "Use estimates and resin data" | A property that does not apply to a material (an elastomer's HDT) now hides it under Include whether estimates are on or off, and says "Does not apply", never "Screened by an estimate" or "Not published". The estimates switch is renamed "Use estimates and resin data", and its help says what it does today. No page or export says a material's own estimate can rule out a material that has products, since that estimate is never read. "Why the rest were excluded" counts only the hides the page shows, a preset keeps the reader's Leave out or Include, and annealing is no longer offered where the annealed value misses too. No verdict moved. | In force. It amends D43 (a property that does not apply no longer screens "the same way" as an estimate, under the switch: it hides by definition) and D137's wording (its "all new numerical screening is disabled" covers the estimate of a material with products too, which is never read: only a material with no product is judged on its own estimate), and dates a note on D138's "32 of 673" |
 | D149 | Four physics checks on what a sheet prints, and the values they settled | A PLA was offered for a 100 °C outdoor bracket on colorFabb PLA-HP's 135 °C, a figure its own sheet footnotes as obtained after annealing; six more PLA heat values sat 25 to 34 °C above their sheet's glass transition, and a 6 MPa PBAT passed an 80 °C heat test. Four checks now look for such values, and every value they found was read on its page and settled: recorded as the page says (annealed), flagged physically implausible, held back where two documents disagree on the load, or kept with the reason written down. PLA leaves the outdoor bracket's estimated candidates, and PLA-CF, PLA-NF and PBAT stop meeting Warm environment. | In force (screening build, stage 2a, 2026-10-18). It amends D55's list of what physics rules out (four checks join it) and D141's reading of a method letter for two rows. Number provisional until the stage merges |
+| D150 | Fibre content is a recorded property, and Shore A and Shore D hardness are selectable | Each fibre-filled product now carries the fibre load its own sheets state, as a number with the page's words: 150 of the 252 such products have one, and the other 102 state none on any sheet read. A figure that only the product's name gives (PA6-GF30) is kept as the name's rating, never as a test result. Shore A and Shore D hardness became properties a reader can filter, chart and export. No answer moved: nothing asks either yet. | In force (screening build, stage 2b, 2026-10-18). It adds a property and two selectable headlines by D46's recipe and gives D60's Data status "Nominal from product designation" its rule in the build: never a headline's value. Number provisional until the stage merges |
 
 <!-- end index -->
 
@@ -5015,6 +5016,46 @@ and the stage's report [stage-2a.md](audits/2026-10-18-screening-build/stage-2a.
 - **What would break if reversed.** PLA would pass a 100 °C bracket on an annealed figure read as printed, a 6 MPa
   filament a heat test, and a carbon-fibre PETG would weigh less than plain PETG; a number one document prints at
   1.8 MPa and another at 0.45 MPa would decide at the heavier load.
+
+## D150. Fibre content is a recorded property, and Shore A and Shore D hardness are selectable
+
+> **In plain words:** Each fibre-filled product now carries the fibre load its own sheets state, as a number with the page's words: 150 of the 252 such products have one, and the other 102 state none on any sheet read. A figure that only the product's name gives (PA6-GF30) is kept as the name's rating, never as a test result. Shore A and Shore D hardness became properties a reader can filter, chart and export. No answer moved: nothing asks either yet.
+> **Status:** In force (screening build, stage 2b, 2026-10-18). It adds a property and two selectable headlines by D46's recipe and gives D60's Data status "Nominal from product designation" its rule in the build: never a headline's value. Number provisional until the stage merges.
+
+*The screening review's changes C37 and C38 ([review](audits/2026-10-18-screening-review/RECOMMENDATIONS.md),
+decisions 3 and 8). Three Claude Sonnet readers read the sheets; Claude Opus 5.5, the reviewer the owner appointed, read
+what they missed and judged their calls ([stage-2b.md](audits/2026-10-18-screening-build/stage-2b.md), the judged rows in
+[SPOT-CHECK.md](audits/2026-10-18-screening-build/SPOT-CHECK.md)).*
+
+- **Fibre content** is a row of `properties.csv` (physical, %), applying to the carbon, glass, aramid and natural fibre
+  materials: the load the maker states, by weight unless the row says otherwise, a range kept as printed. It is a
+  record: no headline reads it, and it moves no answer. C32's fibre caps and C40's checks will read it.
+- **How it was read.** Readers went through every registered sheet of the 252 products in the reading schema; the
+  reviewer read the registered sheets the readers' packets left out (eleven products the readers found nothing for, and
+  plain statements where a reader had only a name). `ingest:read-reconcile` checked each quote on the page's text,
+  `ingest:read-proposals` mapped what the page bore out, and m444 applied 146 values (141 products; 9 more read a
+  twin's sheet, D89). Every row keeps the page's words, its source, page and locator.
+- **The reviewer's calls** (`review.csv`, each with its reason). A figure only a name gives (12 products) is recorded
+  with the name as its raw value and Data status "Nominal from product designation". QIDI's skin-core sheets state the
+  core's load (the shell is unfilled), and say so in Notes; Raise3D's and Siraya Tech's state the filament's, most of it
+  in the core. Extrudr's "12 %vol" is by volume, another quantity, and is not recorded (its grade's composition keeps
+  the words). "Approximately", "circa" and "about" stay in Notes. CarbonFil's two revisions keep a row each (20 %
+  undated, 15 % of 2024). Flashforge PET-GF's cached sheet says 15 % where its uncached description says 30 %: recorded
+  as the sheet prints it, the conflict in OPEN-PROBLEMS §4.
+- **A nominal value decides nothing.** The build marks it (`nominal`), and `assess` refuses it for every headline, as
+  the vocabulary always said; the charts do not plot it. The four TPU and PEBA ratings of m29 are the first it touches.
+- **Shore A and Shore D** are two rows of `headline_definitions.csv` reading Hardness, one scale each, never compared;
+  a value whose scale the sheet does not name, a Rockwell value, a moulded plaque's and a name's rating stay records.
+  Mechanical filter group, "no harder than", not estimated, not a table column. 70 products publish Shore A (15
+  materials), 89 Shore D (46). A material page keeps listing hardness under Other properties: no section draws it.
+- **Two tool fixes on the way.** A range is no longer a twin of its lower end (a safety data sheet's 15-20 % beside a
+  data sheet's 15 %), and a reading with no label no longer writes an empty quotation into its note.
+- **Checked.** `build:diff`: the two headlines and the 146 rows only, no estimate path; the decision census over 138
+  cases moved nothing ([stage-2b-diff.md](audits/2026-10-18-screening-build/stage-2b-diff.md)). `npm test` 719 tests,
+  all passing; `verify:fast` 39.1 s; five `ui:check` views moved (the new rows, a count now out of twelve limits, and
+  PLA's products listed SUNLU first, its typical product for Shore D).
+- **What would break if reversed.** The fibre caps and contradiction checks of C32 and C40 would have no number to
+  read, a name's rating would decide as a test, and a seal's softness could not be asked.
 
 ## Bugs worth remembering
 

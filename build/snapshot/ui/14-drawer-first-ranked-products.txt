@@ -34,7 +34,7 @@ Flexural strength (XY)
 HDT at 0.45 MPa
 139 °C
 Not stated by the maker: anything beyond its numbers and annealing schedule.
-Sources 3DXTECH, Technical Data Sheet: FibreX™ PP+GF30 3D Printing Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, FibreX™ PP+GF30 Polypropylene
+Sources 3DXTECH, Technical Data Sheet: FibreX™ PP+GF30 3D Printing Filament; 3DXTECH, FibreX™ PP+GF30 Polypropylene; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki
 Product details
 Across its products: median and range, and what their makers say
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.

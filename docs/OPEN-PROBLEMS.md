@@ -572,6 +572,20 @@ check round 3) are among them (§32.4).
 **A comparison page's settings.** Fillamentum's Fishy Filaments page prints a working temperature for each product
 column; 0rCA (G050-09) holds no print profile, and the column was not read for one.
 
+### 38.2. Fibre content no sheet states
+
+*From the screening build, stage 2b, 2026-10-18 (m444; D150).*
+
+**102 of the 252 fibre-filled products state no fibre load** on any registered sheet that was read: three readers read
+every one of them and the reviewer read the sheets their packets left out. 141 have a value of their own and 9 read a
+twin's (D89). The 102 are a known gap, not a defect: a maker who publishes none is asked through a new document (the
+import pipeline), never estimated. Twelve of the 141 rest on the product's name alone (PA6-GF30), recorded as nominal;
+a sheet that states the figure in words would replace it.
+
+```bash
+npm run sql --silent -- "select count(*) as fibre_products, sum(exists (select 1 from measurements m where m.gradeid = g.gradeid and m.property = 'Fibre content')) as own_row from grades g join materials t on t.materialid = g.materialid where g.status = 'active' and g.role = 'procurement' and t.modifier_filler in ('Carbon fibre','Glass fibre','Aramid fibre','Natural fibre')"
+```
+
 ---
 
 ## Sources that conflict, cannot be read or cannot be reached, and identities
@@ -737,6 +751,12 @@ cannot be read from the pages, so no load is guessed: the 0.45 MPa reading stand
 | colorFabb PA Blue Metal Detectable | July 2023 "Heat Deflection Temperature (A) 90" beside "(amorphous) 60", "(A)" defined nowhere; November 2023 "HDT-B 90" from the raw-material supplier | V011126 |
 | Spectrum S-Flex Carbon | 2025 portfolio "HDT A - 134°C" (typed 1.8 MPa by m421); its own sheet 134 °C at 0.45 and 70 °C at 1.81 MPa | V012429 (the sheet speaks for its product, §32.8) |
 | colorFabb ASA | 2023 raw-material "HDT-B 87"; 2020 sheet 96 °C at 0.45 and 87 °C at 1.8 MPa | nothing: the 2020 sheet orders its two loads, and the 2023 value is a resin supplier's, which never decides for a printed part |
+
+**Not coverage rows, recorded here: Flashforge PET-GF's fibre load (m444, D150).** Its grade's composition reads "PET
+with 30% glass fibre (manufacturer description)" from D-FLASH-PETGF, a document with no cached text to check it
+against; its cached data sheet (D-FLASH-PET-GF-TDS-EN, p. 1) says "a polyester-based composite containing 15% glass
+fiber". Fibre content records the 15 % the cached sheet prints; the 30 % is not guessed at, and the composition cell
+keeps its words until Flashforge, or a fetch of the description that can be read, says which is right.
 
 FormFutura ApolloX Kevlar's 95 °C at 1.81 MPa, above its own 89 °C at 0.45 MPa and out of line with its twin Spectrum
 ASA Kevlar's 79 °C, is flagged (§2). Prusament rPLA Natural Pigments' Wine sheet prints 59 °C at 0.45 and 60 °C at 1.8
@@ -1334,6 +1354,12 @@ Dark, Glitter, Stone Age, ESD and Premium; both languages of Extrudr's PLA BASIC
 Fabru prints one table for PLA and LW-PLA. A formulation key cannot span two materials (R166), so each keeps its own
 sheet's values; whether a variant's sheet reports its own test is the maker's to say. The 19 cross-maker reprints the
 round read stay two products (§30.10).
+
+**Spectrum pctg cf10 under CPE-CF.** Since stage 2b of the screening build (m444, D150) recorded each sheet's 10 % carbon
+fibre, Spectrum's pctg cf10 (G090-02, CPE-CF) and FormFutura AthenaX CF10 (G144-01, PCTG-CF) share 8 of 10 values, one
+table under two materials, as Spectrum's PCTG GF10 and AthenaX GF10 share theirs under one (PCTG-GF). Filing Spectrum's
+product under PCTG-CF would let the two be one formulation; it moves a product, and so its answers, and is left for a
+ruling (the finding is accepted with this reason).
 
 ### 34.1. Values read and held back
 
@@ -2013,6 +2039,23 @@ D145's quiet link and D146's calmer first screen); C53, the pages' mark leading 
 (it reverses D145); C54, "Compare these in the selector" from a page's alternatives (it would replace the reader's
 shortlist; with V17).
 
+### 38.3. What the fibre readings and the Shore headlines leave
+
+*From the screening build, stage 2b, 2026-10-18 (m444; D150).*
+
+**The basis is in words.** Fibre content has no typed column for its basis: "by weight" is the default the property's
+description states, and a skin-core filament's row says in Notes whether its figure is the core's (QIDI NexABS-GF25,
+ASA-CF20 Core: the filament holds less) or the filament's (Raise3D Hyper Core, Siraya Tech's Core lines). A rule that
+reads the number (C32's caps, C40's checks) must read those two QIDI rows as an upper bound. A load by volume (Extrudr
+DuraPro ASA CF, "12 %vol") is not recorded; its grade's composition keeps the words. **The reading tools.** The
+reconciler's number check does not split a number printed inside a name ("CF15"), so a name's figure waits for a second
+reading; and the proposals hold a composition stated as "approximately" as a maker's claim (prose-claim), a rule written
+for service temperatures. The stage's reviewer decided both by hand ([review.csv](audits/2026-10-18-screening-build/fibre/review.csv)).
+**Shore hardness on the pages and in the drawer.** A material page lists hardness under Other properties only, as
+before: no section draws Shore A or D. The drawer's headline list shows Shore A for a rigid material as "0 of N", as it
+does any headline its products do not publish. The four TPU and PEBA ratings their names give (TPU 95A) are no Shore
+value, as their Data status always said, so those products state no Shore A hardness to a filter.
+
 ---
 
 ## What needs a person, the owner or a test
@@ -2585,3 +2628,6 @@ node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parit
 | §37.19 | What the reimagined pages leave | What the model and the tools cannot do |
 | §37.20 | What the selector refinement leaves | What the model and the tools cannot do |
 | §37.21 | What the coherence review leaves | What the model and the tools cannot do |
+| §38.1 | A product its estimate identity does not describe (nGen_FLEX) | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §38.2 | Fibre content no sheet states | Values makers do not publish |
+| §38.3 | What the fibre readings and the Shore headlines leave | What the model and the tools cannot do |

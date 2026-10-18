@@ -18,8 +18,8 @@
       "sha256": "8c07c395ec60a273f2c34e820eb486c3f7344ae18a9dc8f6d46906da520819b3"
     },
     "measurements": {
-      "rows": 15430,
-      "sha256": "bb5159b18d45fef727033f486f21cb20394c52389f694634b317f42c67c9e641"
+      "rows": 15576,
+      "sha256": "e535f8e59eaae7024c0c4ae0d91544cdc08224564b4cc493570703abe754ccdf"
     },
     "page_context": {
       "rows": 1012,
@@ -98,12 +98,12 @@
       "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
     },
     "properties": {
-      "rows": 51,
-      "sha256": "439f0c3dd6daef2a38ab70a60cade4a9ee330e8d20e368dc1e12002c719db4a7"
+      "rows": 52,
+      "sha256": "e490ca7a2685fee9544d95dd918ac554f608c3b13b72892b9312e57932963ccb"
     },
     "headline_definitions": {
-      "rows": 17,
-      "sha256": "087cc33109c248c40234dc28618ccac45d050c984764055876e4e92748e95eb4"
+      "rows": 19,
+      "sha256": "0114aea69f5231c306844c8f87c4dfac7319469aa2e0aa9ee8f77ad007ebe831"
     },
     "drawer_comparisons": {
       "rows": 4,

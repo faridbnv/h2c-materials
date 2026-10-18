@@ -122,6 +122,17 @@ test('a value is added with a like-row, a locator that tells its twins apart, an
   assert.ok(reasons.includes('quote-not-on-cached-text'));
 });
 
+test('a range on one sheet is not a twin of its lower end on another, while the same point twice is (stage 2b)', () => {
+  const rows = [
+    value({ Field: 'Density', Raw: '1.2 g/cm3', Lo: '1.2', Unit: 'g/cm3', Label: 'Density', SourceID: 'S-1' }),
+    value({ Field: 'Density', Raw: '1.2-1.3', Lo: '1.2', Hi: '1.3', Unit: 'g/cm3', Label: 'Density', SourceID: 'S-3' }),
+    value({ Field: 'Density', Raw: '1.2 g/cm3', Lo: '1.2', Unit: 'g/cm3', Label: 'Density', SourceID: 'S-4' }),
+  ];
+  const out = build(rows, { quoteOnSheet: () => true });
+  assert.deepEqual(out.valuesAdd.map((v) => [v.SourceID, v['Normalized value'], v['Normalized upper bound']]), [['S-1', '1200', 'Not applicable'], ['S-3', '1200', '1300']]);
+  assert.deepEqual(out.held.map((h) => [h.SourceID, h.reason]), [['S-4', 'already-held-elsewhere']]);
+});
+
 test('a visual-only reading is held until a second reading agrees, and then goes out', () => {
   const r = value({ Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Presence: 'visual-only', SecondRead: 'pending' });
   assert.equal(build([r]).valuesAdd.length, 0);

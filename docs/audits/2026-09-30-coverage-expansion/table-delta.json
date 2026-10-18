@@ -50,8 +50,8 @@
   },
   "headline_definitions": {
     "baseline": 10,
-    "current": 17,
-    "added": 7,
+    "current": 19,
+    "added": 9,
     "edited_existing": 10,
     "removed": 0
   },
@@ -92,8 +92,8 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15430,
-    "added": 3894,
+    "current": 15576,
+    "added": 4040,
     "edited_existing": 2968,
     "removed": 0
   },
@@ -169,8 +169,8 @@
   },
   "properties": {
     "baseline": 44,
-    "current": 51,
-    "added": 7,
+    "current": 52,
+    "added": 8,
     "edited_existing": 3,
     "removed": 0
   },

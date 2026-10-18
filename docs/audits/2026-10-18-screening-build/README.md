@@ -15,7 +15,7 @@
 | 0 | Nothing: records the owner's answers, the harness that compares answers, and a wider watch on the frozen estimate model | C01 (in part) | Built |
 | 1 | The switch reads "Use estimates and resin data"; a property that does not apply hides the material whatever the switch says; a preset keeps your Include choice; plainer words | C02–C04, C07–C10, C20, C39 | Built, merged ([report](stage-1.md)) |
 | 2a | Data corrections that decide answers (PLA-HP's annealed 135 °C, six PLA heat values above their glass transition, PBAT's 90 °C, one HDT at two loads, purefil ABS's modulus, two carbon-fibre PETG densities, CarbonFil's 2024 sheet), four new physics checks; the printer guide needed no new mapping ([report](stage-2a.md), [answers moved](stage-2a-diff.md), [spot-check list](SPOT-CHECK.md)) | C11–C15, C17 | Built, merged ([report](stage-2a.md))|
-| 2b | Fibre content as a number; Shore hardness selectable (C13's and C14's re-reads were done in 2a) | C37, C38 | Planned |
+| 2b | Fibre content as a number: 150 of the 252 fibre-filled products carry the load their sheets state ([report](stage-2b.md), [answers moved: none](stage-2b-diff.md), [spot-check list](SPOT-CHECK.md)); Shore A and Shore D hardness selectable (C13's and C14's re-reads were done in 2a) | C37, C38 | Built (awaiting merge) |
 | 3a | A printer window the H2C covers in part passes, flagged; a silent chamber decided by the kind of plastic; a near miss is "on the line" | C21, C33, C34 | Planned |
 | 3b | A value measured another way decides in its safe direction (the evidence ledger); a plastic's physics may settle a requirement | C22–C24, C31, C32, C35, C40 | Planned |
 | 3c | The list sorted by what would settle each material: one check away, not enough data, unlikely to meet; the deciding product named; Flexible component asks for softness | C05, C06, C18, C19, C25, C30 | Planned |
@@ -48,3 +48,4 @@ node docs/audits/2026-10-18-screening-build/decision-census.mjs --diff before.js
 | [stage-1.md](stage-1.md), [stage-1-diff.md](stage-1-diff.md) | Stage 1's report, and the answers it moved, case by case |
 | [SPOT-CHECK.md](SPOT-CHECK.md) | The owner's list of every value an agent changed or flagged, with the page's words and the reason |
 | [ingest/](ingest/) | Stage 2a's import batch b46 (CarbonFil's 2024 sheet): its row builders, its proposal and the packet m442 pins |
+| [fibre/](fibre/) | Stage 2b's fibre readings, the tool's check of each, its proposals, the reviewer's decisions (review.csv, review.mjs) and the folder m444 applies |

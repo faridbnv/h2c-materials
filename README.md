@@ -24,7 +24,7 @@ allowables, and it does not replace the product's own data sheet.
 
 Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by `npm run snapshot`.
 
-- **What it holds.** About 1,100 products, 14,800 measured values and 2,000 source documents. The page lists 152
+- **What it holds.** About 1,100 products, 15,000 measured values and 2,000 source documents. The page lists 152
   materials: the 135 the H2C can print, which the tool judges, and 17 it shows only to say why they are out
   (high-temperature plastics such as PEEK and PEI that need a hotter printer, and metal or ceramic sintering filaments).
   76 materials have a page of their own: those with at least 3 products and 20 measured values, opened from the

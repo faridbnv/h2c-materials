@@ -7,7 +7,8 @@
 > where the layout decided (a Claude Sonnet reader had read them first). Each row gives the page's own words, what was
 > done and why. "Flagged" means the value is kept and shown but decides nothing (marked physically implausible).
 > "Held back" means the same for a value whose meaning the page leaves unclear. Pick any few rows and open the page:
-> the record IDs and pages are in the last column of each table.
+> the record IDs and pages are in the last column of each table. Stage 2b's calls on fibre content are in the last
+> section.
 
 ## Values changed, flagged or held back
 
@@ -67,3 +68,57 @@ These resin-like sheets say nothing about how their bars were made, so no specim
 stretch (a stray "after printed as a part." on p. 2 belongs to no row), Fillamentum CPE HG100's 150 %, Spectrum PCTG's
 220 %, and Spectrum PETG Lite's 160 % (its strength row cites D 882, the film test, and is already recorded as a film;
 its stretch row cites ASTM D638). iSANMATE PLA CF's 25 GPa modulus was already a moulded-bar value.
+
+## Stage 2b: the fibre loads the reviewer judged
+
+Three Claude Sonnet readers read every fibre-filled product's sheets for a stated fibre load. Claude Opus 5.5 judged their
+hard cases and read the sheets their packets left out. Only those calls are below; the other values are as their page
+prints them, each with its words and page. Every decision and its reason is in [fibre/review.csv](fibre/review.csv).
+
+**Skin-core filaments: whose figure is it?**
+
+| Product | What the page says | Decision |
+|---|---|---|
+| QIDI NexABS-GF25 | "The inner core is ABS reinforced with 25% chopped glass fiber, and the outer shell is unfilled ABS resin" (V015478, p. 2) | Kept, noted as the core's content; the p. 1 line with the same 25 % not recorded twice |
+| QIDI ASA-CF20 Core | "The inner core is ASA reinforced with 20% chopped carbon fiber, and the outer shell is" pure ASA (V015488, p. 2) | Kept, noted as the core's content; the p. 1 line not recorded twice |
+| Raise3D Hyper Core ABS CF15, PPA CF25, PPA GF25 | "a fiber-rich inner core where most of the carbon fiber (25 wt.%) are well-aligned" (V015481, V015534, V015539, p. 1) | Kept as the filament's load, most of it in the core, as the names say |
+| Siraya Tech Fibreheart PPA-CF Core | "Higher fiber content (25%)"; its safety data sheet: "Carbon Fiber 7440-44-0 20-25" (V015529, p. 1) | Kept as the filament's load: the safety data sheet covers the filament as sold |
+| Siraya Tech Fibreheart ABS-CF Core | "20% core-concentrated carbon fiber" (V015480, p. 1) | Kept as the filament's load, read as its PPA-CF Core sibling's |
+
+**A figure only the name gives** (recorded as a rating, never a test result):
+
+| Product | The name on the page | Record |
+|---|---|---|
+| Polymaker Fiberon PETG-rCF08 | "Fiberon™ PETG-rCF08" | V015569 |
+| 3DXTECH FibreX ABS+GF10 | "FibreX™ ABS+GF10 Glass Fiber ABS" | V015475 |
+| Fillamentum ASA CF10 Carbon | "ASA CF10 Carbon" | V015486 |
+| 3DXTECH AmideX PA6-GF30 | "AmideX™ PA6-GF30 Glass Fiber Nylon" | V015572 |
+| Polymaker Fiberon PA12-CF10 | "Fiberon™ PA12-CF10 is carbon fiber reinforced" | V015510 |
+| 3DXTECH FibreX PA12+GF30 | "[PA12+GF30]" | V015574 |
+| Polymaker Fiberon PET-CF17 | "Fiberon™ PET-CF17 is a carbon fiber reinforced PET" | V015518 |
+| BASF Ultrafuse PET CF15 | "Ultrafuse® PET CF15" (a reader's quoted sentence is on no page) | V015568 |
+| Polymaker Fiberon PPS-CF10 | "Fiberon™ PPS-CF10 is a carbon fiber reinforced PPS" | V015542 |
+| 3DXTECH ThermaX PEI GF30 | "ThermaX™ PEI GF30 [Made using ULTEM™ PEI]" | V015575 |
+| 3DXTECH ThermaX PEEK GF20 | "ThermaX™ PEEK GF20" | V015576 |
+| colorFabb nGen CF10 | "Technical datasheet nGen CF10" | V015559 |
+
+**Other calls**
+
+| Product | What the page says | Decision |
+|---|---|---|
+| Extrudr DuraPro ASA CF | "Carbon fiber content ASTM D785 %vol 12" | Not recorded: by volume (about 19 % by weight), and ASTM D785 is a hardness test; its composition keeps the words |
+| FormFutura CarbonFil | Undated sheet "reinforced with 20% ... carbon fibres" (V015470); sheet of 23-8-2024 "a 15% carbon fiber reinforced PETG" (V015442) | A row each; a reader had filed the 15 % under the undated sheet |
+| Flashforge PET-GF | Data sheet "containing 15% glass fiber" (V015523); its description (no readable text) says 30 % | 15 % recorded; the conflict is in OPEN-PROBLEMS §4 |
+| Eryone PETG-CF, PA6-CF, PA12-CF | "The carbon fiber content is approximately 15%" (and 20 %, 20 %) (V015570, V015571, V015573) | Kept, "approximately" in the note; the tool had held them as marketing claims |
+| FormFutura CarbonFil CF03, iSANMATE HDPE Glass Fiber | "circa 3%" (V015466), "about 25%" (V015558) | Kept, the word in the note |
+| Spectrum ABS Kevlar | 2025 portfolio row "ABS Kevlar 10% Aramid fiber reinforced" (V015443, p. 21) | Recorded from the 2025 portfolio; the 2024 portfolio's line, read at low confidence, not used |
+| Siraya Tech Fibreheart ABS-GF | Safety data sheet "Glass Fiber 65997-17-3 18-22", column "Approx. Weight (%)" (V015440, p. 2) | Recorded as the range; the readers had not been given this sheet |
+| 3DXTECH CarbonX CF ASA | Safety data sheet "Carbon Fiber 308063-67-4 <15" (V015441, p. 1) | Recorded as a bound, under 15 % |
+
+**Sheets the readers were not given, read by the reviewer.** 3DJake ecoPLA CF 5 % (V015431), easyPETG CF 10 % (V015432),
+ABS CF 12 % (V015435), ASA CF 12 % (V015436); iSANMATE PETG Glass Fiber 20 %, the caption of its "Reinforced
+Composition" picture (V015433); SIDDAMENT ABS Carbon Fiber 15 % by weight (V015434); Fillamentum CPE CF112 Carbon
+12.5 % (V015437) and Nylon AF80 Aramid 8 % (V015439); 3DXTECH CarbonX PEI 9085 15 % (V015438). And plain statements
+that replace a name's figure: Spectrum PA6 CF15 and PET CF15 from the 2025 portfolio (V015445, V015444), Eryone ABS-CF's
+product page (V015446), Polymaker's pages for PA6-CF20, PA6-GF25 and PA612-CF15 (V015447 to V015449), 3DXTECH's pages
+for FibreX PP+GF30 and CarbonX PEKK-A CF15 (V015450, V015451).

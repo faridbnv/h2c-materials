@@ -139,6 +139,18 @@ PA6-GF
 -60
 225
 all 152 materials
+Shore A hardness Shore A
+Not published for any shortlisted material.
+Shore D hardness Shore D
+ASA-CF
+74
+PA6-CF
+77
+PA6-GF
+Not published
+27
+85
+all 152 materials
 Price CAD/kg
 Price at most 100 CAD/kg (reported, not required)
 ASA-CF
@@ -185,6 +197,6 @@ all products: within
  required published
 Data on file
 Material Key properties published Estimated Products Measurements
-ASA-CF 10 of 10 — 17 182
-PA6-CF 10 of 10 — 14 196
-PA6-GF 10 of 10 — 11 212
+ASA-CF 11 of 12 — 17 192
+PA6-CF 11 of 12 — 14 204
+PA6-GF 10 of 12 — 11 218

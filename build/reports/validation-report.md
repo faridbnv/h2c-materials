@@ -14,8 +14,8 @@ Database snapshot 2026-09-21 · build 2026-10-18
 | retiredDuplicates | measurements 602, evidence 21, profiles 80 |
 | excluded | 17 |
 | grades | 1180 |
-| measurements | 14828 |
-| numericMeasurements | 14628 |
+| measurements | 14974 |
+| numericMeasurements | 14774 |
 | quarantined | 43 |
 | profiles | 1836 |
 | evidence | 868 |
@@ -49,6 +49,8 @@ What a selection criterion can actually decide, out of 175 canonical materials.
 | hdt045 | 98 |
 | hdt18 | 78 |
 | glassTransition | 94 |
+| shoreA | 15 |
+| shoreD | 46 |
 | priceCADkg | 108 |
 
 ## H2C envelope gate
@@ -481,7 +483,7 @@ Every one of the 175 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (7081 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (7240 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

@@ -30,7 +30,8 @@ export const AXIS_DEFS = [];
  * trust.
  */
 export function measurementMatches(m, axis, mode) {
-  if (!axis.measurement || !m.numeric || m.quarantined || m.implausible) return null;
+  // A rating the product's name gives (TPU 95A) is not a measurement to plot (D150).
+  if (!axis.measurement || !m.numeric || m.quarantined || m.implausible || m.nominal) return null;
   if (!axis.measurement.properties.includes(m.property)) return null;
   // Another unit is another quantity, in either mode: an impact value in J/m is energy per metre of notch, and becomes
   // kJ/m² only with the bar's thickness (D92). So is a bar with the other notch.

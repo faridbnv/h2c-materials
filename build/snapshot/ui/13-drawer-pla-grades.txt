@@ -1,4 +1,4 @@
-195 products you can buy, from 40 makers. Each shows its result, how to print it, its values and what its maker says. By maker; eSUN first, its products most often the material's typical value.
+195 products you can buy, from 40 makers. Each shows its result, how to print it, its values and what its maker says. By maker; SUNLU first, its products most often the material's typical value.
 Across its products: median and range, and what their makers say
 Property Median Range Products Kept out of the median
 Density kg/m³ 1,240 1,170⁠–⁠1,330 158 of 176 16 with an added filler or additive (800⁠–⁠4,000)
@@ -17,6 +17,8 @@ Notched Izod impact kJ/m² 5 4.5⁠–⁠6.5 6 of 175 11 with no stated orientat
 HDT at 0.45 MPa °C 55 50⁠–⁠135 86 of 176 31 with no stated test load (53⁠–⁠108); 7 with an added filler or additive (55⁠–⁠60)
 HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 176 3 with an added filler or additive (45⁠–⁠54)
 Glass transition (Tg) °C 59 54⁠–⁠68 75 of 176 7 with an added filler or additive (55⁠–⁠62)
+Shore A hardness Shore A — — 0 of 176 —
+Shore D hardness Shore D 82 80⁠–⁠86 7 of 176 1 with an added filler or additive (72)
 Price CAD/kg 34 18⁠–⁠80 26 of 176 2 with an added filler or additive (23⁠–⁠65)
 Median and range of the products that publish it with a stated orientation or test load. The range is the products' lowest to highest.
 Notched Charpy impact. The median and middle half are of the other 14 products. The 7 products their makers sell as toughened or impact-modified give 5.76 to 72.3 kJ/m² and are set apart, as products with an added filler or additive are. "Sold as toughened" is the maker's statement, not a test result.
@@ -37,44 +39,42 @@ Supports and removal: 8 of 40 makers (39 products)
 Printing advice: 19 of 40 makers (33 products)
 Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (179 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
-eSUN
-21 products
-eSUN PLA-Lite
-Strength XY 53 MPa · HDT 0.45 53 °C
-eSUN PLA-Matte
-Strength XY 26 MPa · HDT 0.45 51 °C
-eSUN PLA+CMYK
-Price 80 CAD/kg
-eSUN PLA Matte Dual
-eSUN PLA+
-Strength XY 70.4 MPa · HDT 0.45 53.8 °C
-eSUN PLA-Rock
-Price 25 CAD/kg
-eSUN PLA HF
-Strength XY 64.3 MPa · HDT 0.45 52.5 °C · Price 18 CAD/kg
-eSUN ePLA-Magic
-Price 40 CAD/kg
-eSUN PLA Basic EN
-Strength XY 64.3 MPa · HDT 0.45 53.6 °C
-eSUN eStars-PLA
-eSUN ePLA HS
-eSUN PLA Cast EN
-Strength XY 53.5 MPa · HDT 0.45 55.5 °C
-eSUN PLA+HS
-Strength XY 53.1 MPa · HDT 0.45 54 °C
-eSUN ePLA-Chameleon
-Price 40 CAD/kg
-eSUN PLA+HS Silver
-eSUN PLA UV Color Change
-eSUN ePLA Matte
-Price 24.5 CAD/kg
-eSUN eMarble
-eSUN ePLA ST
-eSUN PLA Clear
-eSUN eTwinkling
+SUNLU
+14 products
+SUNLU PLA Lite
 variant
+Strength XY 27 MPa · HDT 0.45 55 °C
+SUNLU PLA
+Modulus XY 3.5 GPa · Strength XY 40 MPa · HDT 0.45 55 °C
+SUNLU High Speed PLA
+Modulus XY 3.28 GPa · Strength XY 39 MPa · HDT 0.45 57 °C
+SUNLU PLA-METALLIC PLA
+Strength XY 45 MPa · HDT 0.45 56 °C
+SUNLU PLA Matte Dual-Color
+Strength XY 39 MPa · HDT 0.45 55 °C
+SUNLU PLA Rainbow
+Strength XY 50 MPa · HDT 0.45 57 °C
+SUNLU High Speed PLA+2.0
+Strength XY 40 MPa · HDT 0.45 56.5 °C
+SUNLU PLA Matte
+Modulus XY 4.78 GPa · Strength XY 50.5 MPa · HDT 0.45 53 °C
+SUNLU APLA
+Modulus XY 4.69 GPa · Strength XY 51.3 MPa · HDT 0.45 53 °C
+SUNLU PLA Classic
+variant
+Strength XY 28 MPa · HDT 0.45 55 °C
+SUNLU PLA Meta
+Modulus XY 2 GPa · Strength XY 50 MPa · HDT 0.45 53 °C
+SUNLU PLA+2.0
+sold as toughened
+Strength XY 46 MPa · HDT 0.45 56 °C
+SUNLU High Speed Matte PLA
+variant
+Strength XY 27 MPa · HDT 0.45 55 °C
+SUNLU PLA+
+sold as toughened
+Modulus XY 3.17 GPa · Strength XY 53.4 MPa · HDT 0.45 53.8 °C
 3DXTECH
 3 products
 iSANMATE
 6 products
-Bambu Lab

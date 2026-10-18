@@ -20,7 +20,7 @@ import { toCSV } from '../app/js/ui/table.js';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NA = 'Not applicable';
 
-function withShoreA({ misfile = false } = {}) {
+function withRebound({ misfile = false } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'h2c-newprop-'));
   cpSync(join(root, 'data'), join(dir, 'data'), { recursive: true });
   cpSync(join(root, 'schema'), join(dir, 'schema'), { recursive: true });
@@ -28,19 +28,19 @@ function withShoreA({ misfile = false } = {}) {
 
   // 1. Register the property, limited to elastomers.
   t.append('properties', {
-    Property: 'Shore A hardness', Domain: 'mechanical', Units: 'Shore A',
-    'Applies to': 'Family: Flexible Elastomers', 'Not applicable reason': 'Shore A hardness describes elastomers; rigid filaments use Shore D or Rockwell scales',
-    Description: 'Indentation hardness on the Shore A scale (ISO 868 / ASTM D2240).',
+    Property: 'Rebound resilience', Domain: 'mechanical', Units: '%',
+    'Applies to': 'Family: Flexible Elastomers', 'Not applicable reason': 'Rebound resilience describes elastomers; a rigid filament does not spring back',
+    Description: 'The share of an impact\'s energy an elastomer gives back (ISO 4662).',
   });
   // 2. Define a headline for it.
   t.append('headline_definitions', {
-    HeadlineKey: 'shoreA', Kind: 'measurement', Unit: 'Shore A', 'Value properties': 'Shore A hardness', 'Related properties': 'Shore A hardness',
+    HeadlineKey: 'reboundResilience', Kind: 'measurement', Unit: '%', 'Value properties': 'Rebound resilience', 'Related properties': 'Rebound resilience',
     'Lower bound properties': NA, 'Lower bound load MPa': NA, 'Lower bound excludes': NA, 'Lower bound basis': NA,
     Direction: NA, 'Unstated direction': NA, 'Load MPa': NA, 'Unstated load': NA, Notch: NA, 'Test temperature °C': NA, Standard: NA, 'Changes with annealing': 'FALSE', 'Changes with moisture': 'FALSE', 'Evidence group': 'mechanical', 'Endpoint note': 'FALSE', 'Comparison note': NA, 'Drawer comparison': NA, 'Drawer only': 'FALSE', 'Sold as toughened': NA,
-    Short: 'Softness', Plain: 'Shore A hardness', Technical: 'Shore A hardness', Hint: 'how soft a flexible part feels; lower is softer',
-    'Axis label': 'Shore A hardness', 'Export header': 'Shore A', Better: 'min', 'Filter group': 'Mechanical', 'Filter operator': '<=',
-    'Filter example': 'e.g. 90 for a soft grip', 'Non-negative': 'TRUE', 'Table column': 'FALSE', Estimated: 'FALSE', 'Reference property': NA,
-    'Applies to': 'Family: Flexible Elastomers', 'Not applicable reason': 'Shore A hardness describes elastomers',
+    Short: 'Rebound', Plain: 'Rebound resilience', Technical: 'Rebound resilience (ISO 4662)', Hint: 'how much of a knock a flexible part gives back',
+    'Axis label': 'Rebound resilience', 'Export header': 'Rebound resilience', Better: 'max', 'Filter group': 'Mechanical', 'Filter operator': '>=',
+    'Filter example': 'e.g. 40 for a lively grip', 'Non-negative': 'TRUE', 'Table column': 'FALSE', Estimated: 'FALSE', 'Reference property': NA,
+    'Applies to': 'Family: Flexible Elastomers', 'Not applicable reason': 'Rebound resilience describes elastomers',
   });
   // 3. Record a measurement for the one product of an elastomer that has one. Nothing selects it: the product's value is
   // chosen by rule, and the material's headline is its products' spread (D83).
@@ -50,10 +50,10 @@ function withShoreA({ misfile = false } = {}) {
   const template = t.rows('measurements').find((r) => r.GradeID === products(elastomer.MaterialID)[0].GradeID);
   const id = t.nextId('measurements');
   t.append('measurements', {
-    ...template, MeasurementID: id, Property: 'Shore A hardness', 'Raw value': '95A', 'Raw unit': 'Shore A', 'Raw numeric': '95',
-    'Raw uncertainty ±': NA, 'Raw upper bound': NA, Operator: '=', 'Conversion factor': '1', 'Normalized value': '95',
-    'Normalized uncertainty ±': NA, 'Normalized upper bound': NA, 'Normalized unit': 'Shore A', 'Data status': 'Published value',
-    Direction: NA, Notch: NA, 'Standard / load': 'ISO 868', Standards: 'ISO 868', Locator: 'test fixture', Notes: NA,
+    ...template, MeasurementID: id, Property: 'Rebound resilience', 'Raw value': '45 %', 'Raw unit': '%', 'Raw numeric': '45',
+    'Raw uncertainty ±': NA, 'Raw upper bound': NA, Operator: '=', 'Conversion factor': '1', 'Normalized value': '45',
+    'Normalized uncertainty ±': NA, 'Normalized upper bound': NA, 'Normalized unit': '%', 'Data status': 'Published value',
+    Direction: NA, Notch: NA, 'Standard / load': 'Not published', Standards: 'Not published', Locator: 'test fixture', Notes: NA,
   });
   let misfiledId = null;
   if (misfile) {
@@ -74,9 +74,9 @@ function compiled(dir, { estimates = true } = {}) {
 }
 
 test('a property for elastomers only is added with data rows alone and reaches every view', () => {
-  const { dir, elastomerId, measurementId } = withShoreA();
+  const { dir, elastomerId, measurementId } = withRebound();
   try {
-    // The core database: every view below reads the compiled headline, and Shore A hardness is not estimated, so the
+    // The core database: every view below reads the compiled headline, and rebound resilience is not estimated, so the
     // estimate stage would add nothing here but twenty seconds (completeness round, D136).
     const { db, schemaIssues, errors } = compiled(dir, { estimates: false });
     assert.deepEqual(schemaIssues, []);
@@ -84,29 +84,29 @@ test('a property for elastomers only is added with data rows alone and reaches e
 
     const elastomer = db.materials.find((m) => m.id === elastomerId);
     const pla = db.materials.find((m) => m.name === 'PLA');
-    assert.equal(elastomer.headline.shoreA.value, 95);
-    assert.equal(elastomer.headline.shoreA.measurementId, measurementId);
-    assert.equal(pla.headline.shoreA.missing, 'not-applicable');
-    assert.match(pla.headline.shoreA.notApplicable.reason, /describes elastomers/);
-    assert.equal(db.meta.headlineCoverage.shoreA, 1);
+    assert.equal(elastomer.headline.reboundResilience.value, 45);
+    assert.equal(elastomer.headline.reboundResilience.measurementId, measurementId);
+    assert.equal(pla.headline.reboundResilience.missing, 'not-applicable');
+    assert.match(pla.headline.reboundResilience.notApplicable.reason, /describes elastomers/);
+    assert.equal(db.meta.headlineCoverage.reboundResilience, 1);
 
     useRegistry(db.registry);
-    assert.equal(PROPERTY.shoreA.plain, 'Shore A hardness');
-    assert.ok(numericFilters().some((f) => f.key === 'shoreA' && f.group === 'Mechanical'), 'filter rail');
-    assert.deepEqual(AXIS_DEFS.find((a) => a.key === 'shoreA').measurement, { properties: ['Shore A hardness'], direction: null }, 'chart axis');
-    assert.ok(exportHeadlines().some((h) => h.header === 'Shore A'), 'export');
-    assert.ok(propertiesInDomain('mechanical').includes('Shore A hardness'), 'Mechanical tab');
-    assert.ok(propertyApplies('Shore A hardness', elastomer) && !propertyApplies('Shore A hardness', pla), 'listed only where it applies');
+    assert.equal(PROPERTY.reboundResilience.plain, 'Rebound resilience');
+    assert.ok(numericFilters().some((f) => f.key === 'reboundResilience' && f.group === 'Mechanical'), 'filter rail');
+    assert.deepEqual(AXIS_DEFS.find((a) => a.key === 'reboundResilience').measurement, { properties: ['Rebound resilience'], direction: null }, 'chart axis');
+    assert.ok(exportHeadlines().some((h) => h.header === 'Rebound resilience'), 'export');
+    assert.ok(propertiesInDomain('mechanical').includes('Rebound resilience'), 'Mechanical tab');
+    assert.ok(propertyApplies('Rebound resilience', elastomer) && !propertyApplies('Rebound resilience', pla), 'listed only where it applies');
 
-    const a = availability(db.materials, 'shoreA');
+    const a = availability(db.materials, 'reboundResilience');
     assert.equal(a.withData, 1);
     assert.equal(a.total, db.materials.filter((m) => m.family === 'Flexible Elastomers').length, 'counted against elastomers, not every material');
 
     const csv = toCSV([elastomer, pla].map((m) => ({ material: m, evaluation: { verdict: 'PASS', eligible: true, failed: [], unresolved: [] } })), db.meta);
     const [header, first, second] = csv.split('\n').filter((l) => !l.startsWith('#'));
-    const col = header.split(',').indexOf('Shore A');
+    const col = header.split(',').indexOf('Rebound resilience');
     assert.ok(col > 0);
-    assert.equal(first.split(',')[col], '95');
+    assert.equal(first.split(',')[col], '45');
     assert.equal(second.split(',')[col], 'not-applicable');
   } finally {
     rmSync(dir, { recursive: true, force: true });
@@ -115,11 +115,11 @@ test('a property for elastomers only is added with data rows alone and reaches e
 });
 
 test('the same property recorded against a rigid filament stops the build', () => {
-  const { dir, misfiledId } = withShoreA({ misfile: true });
+  const { dir, misfiledId } = withRebound({ misfile: true });
   try {
     // The core database: the error is the compiler's, which the estimate stage cannot remove.
     const { errors } = compiled(dir, { estimates: false });
-    assert.ok(errors.some((e) => e.where === `measurements ${misfiledId}` && /Shore A hardness does not apply to PLA/.test(e.message)), errors.map((e) => e.message).join(' | '));
+    assert.ok(errors.some((e) => e.where === `measurements ${misfiledId}` && /Rebound resilience does not apply to PLA/.test(e.message)), errors.map((e) => e.message).join(' | '));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

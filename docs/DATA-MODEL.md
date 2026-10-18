@@ -129,6 +129,13 @@ build reads (D68).
 - **Physically implausible measurements** (Data status "Published value (physically implausible)"): a number the source
   really publishes that physics rules out, with the reason in Notes. It is shown, flagged, and backs no headline,
   estimate, conversion, implied bound or plot point (D55).
+- **A rating the product's name gives** (Data status "Nominal from product designation"): a number only the name states,
+  a TPU's 95A or a nylon's GF30, with the name as its Raw value. It is evidence of the product's grade, read by the
+  estimate model for an elastomer's hardness (D60), and never a headline's value or a plot point (D150).
+- **Fibre content** (`properties.csv`, D150): the fibre load a fibre-filled product's own sheets state, in %, by weight
+  unless the row says otherwise, a range kept as printed. A record that no headline reads: the stiffness caps and
+  contradiction checks to come will (the screening review's C32 and C40). A skin-core filament's row says in Notes
+  whether the figure is its core's or the filament's.
 - **A value read again from its page** (D125): a measurement or page statement that a reader recorded from the page image
   of a registered sheet, because the text layer did not pair the label with its number (two columns, a font that broke a
   label, a scan), is an ordinary row. The page is its Locator, and its note (measurements, Notes; page statements,
@@ -239,7 +246,7 @@ each retrieved source whose text is not in it (D105).
   gradeIds: [],                  // its active procurement grades
   headline: { density, tensileModulusXY, tensileModulusZ, tensileStrengthXY, tensileStrengthZ, elongationXY, elongationZ,
               flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY, flexuralStrengthZ,
-              charpyNotched, izodNotched, hdt045, hdt18, glassTransition, priceCADkg },   // one per row of
+              charpyNotched, izodNotched, hdt045, hdt18, glassTransition, shoreA, shoreD, priceCADkg },   // one per row of
                                  // headline_definitions.csv, then the price; tensile modulus and elongation Z, the
                                  // flexural rows and hdt18 are drawn in the drawer alone (Drawer only, D139, D140)
                                  // its products' spread where they publish comparably (below); decides nothing
@@ -363,7 +370,7 @@ where each part came from; `npm run sql` has `products_compiled` and `summaries_
 ### What each selectable property compares
 
 A headline's row says what a value must be to be a product's value for it (the rule above). What that means for each
-of the nine measured ones (the price compares listings, not measurements):
+of the eleven measured ones (the price compares listings, not measurements):
 
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
@@ -373,6 +380,7 @@ of the nine measured ones (the price compares listings, not measurements):
 | **Notched Charpy impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
 | **Notched Izod impact** (`izodNotched`, D94) | Izod, notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | no direction stated | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
 | **Glass transition (Tg)** (`glassTransition`) | the product's own value, any method (almost all DSC) | none: it has no direction or load | a resin supplier's value (Specimen type Raw material value) |
+| **Shore A hardness**, **Shore D hardness** (`shoreA`, `shoreD`, D150) | Hardness in its own scale, on a printed or unstated specimen | none: it has no direction or load | the other Shore scale, Rockwell, a scale the sheet does not name; a moulded plaque; a rating the product's name gives (Data status Nominal from product designation, TPU 95A) |
 
 Every headline also leaves out a conditioned or implausible value, an annealed one where the product publishes it
 as printed, and a bar printed at a setting the product is not meant for (Specimen type "Printed off the product's

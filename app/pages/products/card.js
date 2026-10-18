@@ -72,7 +72,7 @@ const pageWords = (t) => PAGE_WORDS.reduce((x, [re, w]) => x.replace(re, w), Str
  * in the reader's words; the drawer keeps its own (labels.js WHY_ONE). No project word, the reasons' meaning kept.
  */
 const NOT_COUNTED = {
-  held: 'held back', noNumber: 'no number given', implausible: 'physically implausible as published', moulded: 'measured on a moulded bar',
+  held: 'held back', noNumber: 'no number given', implausible: 'physically implausible as published', nominal: 'rated by the product\'s name, not a test', moulded: 'measured on a moulded bar',
   resin: 'the resin supplier\'s value, not a printed part', film: 'measured on film', filament: 'measured on a filament strand',
   offRecipe: 'printed at a setting the product is not meant for', partialInfill: 'printed below 100 % infill', notPrinted: 'not on a printed bar',
   conditioned: 'measured after moisture conditioning', annealed: 'annealed; the as-printed value is in it', unnotched: 'unnotched', notched: 'notched',
