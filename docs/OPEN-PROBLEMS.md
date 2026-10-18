@@ -1916,9 +1916,9 @@ narrower and more honest, and leave these, each with where it is counted:
 - **The conditioned service state is thinly published.** Asked humid, a product is judged on conditioned values only, and
   few sheets print any (376 published values on 2026-10-07, 154 after the 2026-09-28 gap-closing re-reads): most products are unknown there, which is the true answer.
 - **Some products still lack the print requirements the H2C must be judged by.** Every template now asks printability (D101), so Strict
-  answers shrank when version 2.1 introduced those gates; after gap closure Outdoor passed six materials (seven under Confirmed only on 2026-10-07). `npm run audit:scenario-gaps` lists
+  answers shrank when version 2.1 introduced those gates; after gap closure Outdoor passed six materials (seven under Leave out, then "Confirmed only", on 2026-10-07). `npm run audit:scenario-gaps` lists
   the products one fact from an answer, most of them print recipes ([SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md)).
-- **Include uncertain is wider** (D100): a material with measured failures and unmeasured products is unresolved, and the
+- **Include is wider** (D100): a material with measured failures and unmeasured products is unresolved, and the
   table's "0 of N" says so. Whether a team wants a view of "every tested product fails" apart is for the team trial.
 - **Thirteen recorded rows do not bind to their evidence line** (D97; eleven on 2026-09-28): eleven were corrected
   against their page since, one prints its value against its label, and two are Recreus PLA's density and tensile
@@ -2001,8 +2001,8 @@ and counts exact product states. It leaves these, each with where it is counted:
 - **Cost reaches 221 products.** The cost goal uses each product's own CAD/kg price, converted from USD or EUR where the
   product has no Canadian listing (D113); 221 products and 108 materials have one on 2026-10-07 (214 and 101 after the
   price pass), and the rest are listed as unpriced (§22). The first query counts the products whose price is sampled.
-- **Estimated context is not offered under Confirmed only.** The plan allowed it there as a display layer; it was left
-  out so that Confirmed only stays measured evidence alone everywhere on the page (D107). Under Include uncertain it is
+- **Estimated context is not offered under Leave out.** The plan allowed it there as a display layer; it was left
+  out so that Leave out stays measured evidence alone everywhere on the page (D107). Under Include it is
   drawn only while estimates are on, and never for a conditioned question.
 - **Relative performance is against the first-ranked material only.** The list gives each material's median M as a
   multiple of the first's; a reference the reader names, and display-unit conversion (the page has canonical units only),

@@ -298,8 +298,9 @@ the back-test shows it must be, D59) and the material's own data does not contra
 [the data model](docs/DATA-MODEL.md#estimates) and DECISIONS D43.
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
-labelled "Materials with missing data", and the two buttons read "Confirmed only" and "Include uncertain",
-because the words Strict and Explore told a first-time reader nothing about what they did.*
+labelled "Materials that could not be checked", and the two buttons read "Leave out" and "Include" ("Confirmed
+only" and "Include uncertain" until 2026-10-18), because the words Strict and Explore told a first-time reader nothing
+about what they did.*
 
 ## H2C hardware baseline
 
@@ -320,4 +321,4 @@ does not have. Its warnings name their records: outlying headlines, imprecise es
 materials without measurements. Each record is fixed or accepted with a reason in
 `data/review/accepted-findings.csv`, and `verify` fails on one that is neither (D57).
 
-Product uncertainty (D137): Include uncertain separates supported candidates, estimated candidates to verify and an expandable insufficient-evidence list. Collapsed options stay in counts and exports. Missing product values use their own estimates regardless of sibling coverage; predictions never pass. Independent exclusion permission is currently limited to validated as-printed/dry contexts under the reserved complete-scenario risk budget; no class currently meets that gate. Unsupported scopes remain unresolved. [The fix audit](docs/audits/2026-10-08-product-screening/README.md) records the risk gates and decision differences.
+Product uncertainty (D137): Include (materials that could not be checked) separates supported candidates, estimated candidates to verify and an expandable insufficient-evidence list. Collapsed options stay in counts and exports. Missing product values use their own estimates regardless of sibling coverage; predictions never pass. Independent exclusion permission is currently limited to validated as-printed/dry contexts under the reserved complete-scenario risk budget; no class currently meets that gate. Unsupported scopes remain unresolved. [The fix audit](docs/audits/2026-10-08-product-screening/README.md) records the risk gates and decision differences.
