@@ -41,7 +41,9 @@ export const productNameOrId = (g) => productName(g) || g.id;
  * A source by what a reader knows it as, its publisher and title, rather than its ID. The drawer headed sources
  * "B-abs-filament-TDS" and ended every measurement with that code, which named nothing a reader could look for.
  */
-export const sourceName = (s, id) => (s ? [s.publisher, s.title].filter(stated).join(', ') || id : id);
+/** A publisher as a reader is shown it: the database's own label for a reference it was given reads "Reference" (2026-10-18). */
+export const publisherName = (p) => (p === 'User-supplied reference' ? 'Reference' : p);
+export const sourceName = (s, id) => (s ? [publisherName(s.publisher), s.title].filter(stated).join(', ') || id : id);
 
 /**
  * Where a source's original can be read: `{ url, kind: 'PDF' | 'web page', local: false }` for a link, `{ url, kind:
@@ -879,3 +881,33 @@ export function rankOf(rank, materialId) {
   const v = rank.entries[index].value;
   return { of: rank.entries.length, below: rank.entries.filter((x) => x.value < v).length, above: rank.entries.filter((x) => x.value > v).length, index };
 }
+
+// ------------------------------------------------------------------ reader text: the reader's words, not the maintainers'
+
+/**
+ * A reviewer's note is reader text unless it names records (a record ID, a migration, a ruling: "V000420", "m123",
+ * "R166", "S-PET-TDS-AthenaX-GF10") or speaks the database's own words for itself ("headline", "representative grade").
+ * Such a note is the maintainers' and leaves the pages and, since 2026-10-18, the drawer's rows (it stays behind a record's ID
+ * mark). MAINTAINER_WORDS marks a review step (a date, a re-read, a digest).
+ */
+const RECORD_NAME = /(?<!ASTM )\b(?:V\d{6}|G\d{3}-(?:\d{2,3}|R\d+)(?:-R\d+)?|M\d{3}|P\d{4}|Q\d{5}|C\d{5}|CA\d{4}|P[BC]\d{5}|m\d{2,3}|R\d{3}|D\d{2,3}|[A-Z][A-Z0-9]{0,2}-[A-Za-z0-9]+-[A-Za-z0-9-]+)\b/;
+const PROJECT_WORDS = /\b(headlines?|representative grade|workbook|migration|ruling|quarantin\w*|admitted|coverage record|aggregat\w*|observations?|family-level|screen(?:ed|ing)?|grade-specific|recorded in (?:Properties|Printing|Evidence|Coverage))\b/i;
+const STORED_STATUS = /\b(Theoretical|Official Bambu product|Officially listed family)\b|"Conditional"/;
+export const MAINTAINER_WORDS = /\b(?:20\d\d-\d\d-\d\d|re-read|SHA-256|estimate band|no document cited|recorded (?:with|from|as))\b/i;
+export const readerText = (text) => !RECORD_NAME.test(String(text ?? '')) && !PROJECT_WORDS.test(String(text ?? '')) && !STORED_STATUS.test(String(text ?? ''));
+/** A record's note a reader is shown beside it: reader text that names no review step. */
+export const readerNote = (text) => !!String(text ?? '').trim() && readerText(text) && !MAINTAINER_WORDS.test(String(text ?? ''));
+
+/**
+ * A known gap a reader is shown (the drawer's Known gaps, the pages' Sources): a gap of the material in reader text, not a
+ * review step's note or a note on the records; the rest are the maintainers' Review notes. The pages also leave out the
+ * gaps another of their sections says (sections/common.js shownGap).
+ */
+export const readerGap = (r) => GAP_STATUS.has(r.status) && r.domain !== 'Mandatory review' && readerNote(r.finding);
+
+/** A coverage row's subject in a reader's words. */
+export const GAP_DOMAIN_WORDS = {
+  'Canadian price': 'Price', 'Moisture / environmental': 'Moisture and chemicals', 'Print setup': 'Printing', 'Source conflict': 'Sources that disagree',
+  'Post-processing / application': 'Post-processing', 'H2C status': 'Bambu Lab status', Comparability: 'Comparing values', 'Measurement parsing': 'Reading the values',
+  'Sparse properties': 'Not published by any product',
+};

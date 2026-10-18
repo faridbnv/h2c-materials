@@ -161,6 +161,7 @@ detail. The generator names one that runs longer.
 | D143 | What the material pages' reviews changed in the rules: Prusa's Horizontal bar is XY, a YX bar is its own, a maker's moisture word is a moisture record | Two engineers reviewing the new material pages found faults in the data. Fixing them changed three rules. Prusa Polymers' data sheets print their test bars in two columns, "Horizontal" and "Vertical xz", which were kept as the sheet's words and compared with nothing; Prusa's own documents show the Horizontal bar is the flat XY bar and the Vertical xz bar the one on its edge, so they are typed so, and Prusament's products are compared with every other product's flat bars. A bar a sheet labels YX beside its own XY bar is recorded YX, a flat bar of its own, where it was shown as "orientation not stated". And a maker's own statement on how its filament takes up water ("moderately hygroscopic, pre-dry at 75 °C for 24 h") now counts as a moisture record on the coverage page, where 48 materials said they had none. | In force; it applies D92 and D140 (a Z value is one the sheet says is Z; an XZ or ZX bar is shown, not compared) and amends D114 (what the moisture domain counts) |
 | D144 | Verify runs side by side what does not depend on each other, and CI runs the rendered scenarios in parts | `npm run verify`, `verify:fast` and CI ran every check one after another, although most read what they read and write nothing another reads; a run took as long as all of them added up. Now each step says which steps it follows, and the ones that need nothing of each other run at the same time on the machine's cores. CI runs the 300 rendered scenarios as three jobs side by side, each a third of the same 300, and the weekly 2,000 as four. Every check, scenario, view and test still runs, with the same thresholds. | In force; it amends D131's process (a scale-budget miss is re-run only where it can fail; CI's interface job is a views job and three scenario jobs) |
 | D145 | The material pages reimagined: an Overview and a Products page per material, one way back, five figures | The owner found the first material pages incoherent to read, poorly linked and dull, and asked for them to be reimagined rather than patched. Each material now has an Overview, which explains it across its products in an engineer's order and says once how far to trust it, and a Products page, where its products are searched and sorted and each opens to every value with its document, page and conditions. The records page is a stub that sends old links there, and the index is a plain list of materials by family. Five kinds of figure in one visual language replace nine. The drawer's Full page and a quiet Material pages link in the selector open the pages in the same tab carrying the selection, and Back to your results returns to it as it was. The pages still decide nothing, and no answer moved. | In force. It amends D142 (two pages for one, the records page and its finder retired, a link from the selector to the index, the summaries' rules) and D133's claim colour (an orange a colour-blind reader tells from the accent) |
+| D146 | The selector refined: the drawer reads as the material page reads, and the cold page shows where the results start | The owner asked for the selector's first impression to be calmer and its material drawer easier to read, with subtle changes, everything good recorded first and kept. The drawer now gives one block on printing on the H2C, worked out the way the material page works it out, so the two never print different numbers; its key properties are the page's six key figures in the page's form; its head and tabs take less of the first screen; its graphs borrow the page's key, counts and marks; and the maintainers' notes left its sentences. The main page keeps every control, quieter: the missing-data choice is named for what it does, the rail opens on what a part needs, and the table starts on the first screen. No answer moved. | In force. It amends D145's way the drawer and the pages share words (the On the H2C rows, the display numbers and the reader-text rule now live in `app/js/ui`), D124's tab strip (counts on Products and Sources only) and D139's print temperatures (open by default, the limit drawn as the pages draw it) |
 
 <!-- end index -->
 
@@ -4808,6 +4809,51 @@ the three built it in their own files; an independent engineer review scored eac
   runs the Products page's search and sorts and a return trip.
 - **What would break if reversed.** The reader is back to a long audit to scroll, a filter panel whose states contradict,
   a way back that loses their requirements, and figures that restate a table.
+
+## D146. The selector refined: the drawer reads as the material page reads, and the cold page shows where the results start
+
+> **In plain words:** The owner asked for the selector's first impression to be calmer and its material drawer easier to read, with subtle changes, everything good recorded first and kept. The drawer now gives one block on printing on the H2C, worked out the way the material page works it out, so the two never print different numbers; its key properties are the page's six key figures in the page's form; its head and tabs take less of the first screen; its graphs borrow the page's key, counts and marks; and the maintainers' notes left its sentences. The main page keeps every control, quieter: the missing-data choice is named for what it does, the rail opens on what a part needs, and the table starts on the first screen. No answer moved.
+> **Status:** In force. It amends D145's way the drawer and the pages share words (the On the H2C rows, the display numbers and the reader-text rule now live in `app/js/ui`), D124's tab strip (counts on Products and Sources only) and D139's print temperatures (open by default, the limit drawn as the pages draw it).
+
+*Asked by the owner on 2026-10-17 and run as the selector-refinement round
+([its record](audits/2026-10-18-selector-refinement/README.md)): a baseline engineer review (62/100), four expert agents
+(UI and visual, words, graphs, first impression and coherence), one owner gate on before-and-after pairs, a build by
+surface, and a keep register of 45 things that work, each kept or reproduced.*
+
+- **One block on printing, computed once.** The drawer's printability had been a count list and gate rows printing the
+  material's recorded window beside its best product's gate reason, and the two disagreed (PEEK's bed *Within,
+  110–250 °C* under a failed bed requirement; PLA's nozzle given as 260, 210 and 195–230 °C). The drawer now prints the
+  page's *On the H2C* (`print-brief.js` onTheH2cRows, moved from `app/pages/findings.js` unchanged): the window most
+  products give, a chip from every product's own settings against the H2C's limit, the counts in a line, drying and
+  nozzle type as values; the Printing tab states the same window, its table the rows' medians.
+- **The page's key figures, never another record with a star.** The Overview's key properties are the page's six, in its
+  order and display precision (`display-numbers.js`, moved from `app/pages/numbers.js`), median, middle half and
+  products; where no comparable median exists, the values as published, as the page says them (in 11 cells the drawer
+  had starred a different record, PEEK's Charpy 7 against the page's 6). The drawer and the pages' key figures agree in
+  all 389 cells (`measure.mjs` agree).
+- **The product shown is one the reader can act on.** "Your requirements" is shown for a passing product that answers
+  the reported-only lines where the engine's leaves one open; the engine's pick, the answers, the brief and the exports
+  do not change.
+- **One reading order, each fact once.** Answer, requirements, key figures, On the H2C, uses, on file; the head in two
+  lines and the tabs on one row; the H2C standing in the chip only; beyond capability said once with the limits it
+  breaks; INDETERMINATE reads UNKNOWN in the drawer's rows, its mark kept; headings in ink and sentence case; small grey
+  text at 4.5:1 through a selector token (`tokens.css` unchanged).
+- **The graphs in the page's grammar.** Key above, one count ("55 ranked of 106 shown"), hollow meaning shown but not
+  ranked, light marks, an outlined middle half, columns that keep their counts, tables at the page's precision, print
+  temperatures open with the limit drawn as the page draws it.
+- **The maintainers' words behind the ID mark.** A note, a known gap or a sentence that names a review step or a record
+  (a date, "m413", "ruling R166") leaves what a reader reads, by the pages' rule (`readerText`, `readerNote`, `readerGap`,
+  now in `material-facts.js`); it stays one press away.
+- **The main page, polished.** "Materials that could not be checked: Leave out | Include" (stored keys unchanged); the
+  rail opens on Mechanical and Thermal; the four-step line folded and the H2C clause said once (the template
+  descriptions and two requirement reasons, release inputs: the release moved to 3cc2e5f2a439 with no answer moved); one control row above the
+  table; an annealed median drawn as the drawer's square; the currency named; one name for the H2C check; Compare a
+  tick on a log track, Parallel lines a log axis. A probe check holds the table's bar above the fold on a laptop.
+- **Checked.** `build:diff` 0 differences against the round's base; every record each drawer reached before, it reaches
+  after (`drawer-ids.mjs`, line for line); `ui:fuzz` 300 with no violation; `pages:check` 16/16; the measures in the
+  round's TRACKER.
+- **What would break if reversed.** The drawer and the page would again print two windows and two medians for one
+  material, the first screen would open on bookkeeping, and the cold page on a policy switch.
 
 ## Bugs worth remembering
 

@@ -4,7 +4,7 @@
 // layer's (findings.js `num` marks it), every word findings.js's, material-words.js's or labels.js's.
 
 import { esc, tableBox } from '../html.js';
-import { GAP_STATUS, productNameOrId, stated } from '../../js/ui/material-facts.js';
+import { GAP_STATUS, productNameOrId, stated, readerText, readerGap, GAP_DOMAIN_WORDS } from '../../js/ui/material-facts.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import * as FIGURES from '../figures.js';
@@ -89,16 +89,9 @@ export const quotes = (items, cls = 'said-list') => { const xs = items.filter(Bo
 
 // ------------------------------------------------------------------ known gaps: the reader's, never the maintainers'
 
-/**
- * A reviewer's note is reader text unless it names records (a record ID, a migration, a ruling: "V000420", "m123",
- * "R166", "S-PET-TDS-AthenaX-GF10") or speaks the database's own words for itself ("headline", "representative grade").
- * Such a note is the maintainers' and leaves the pages (PLAN.md: the drawer and the tables keep it).
- */
-const RECORD_NAME = /(?<!ASTM )\b(?:V\d{6}|G\d{3}-(?:\d{2,3}|R\d+)(?:-R\d+)?|M\d{3}|P\d{4}|Q\d{5}|C\d{5}|CA\d{4}|P[BC]\d{5}|m\d{2,3}|R\d{3}|D\d{2,3}|[A-Z][A-Z0-9]{0,2}-[A-Za-z0-9]+-[A-Za-z0-9-]+)\b/;
-const PROJECT_WORDS = /\b(headlines?|representative grade|workbook|migration|ruling|quarantin\w*|admitted|coverage record|aggregat\w*|observations?|family-level|screen(?:ed|ing)?|grade-specific|recorded in (?:Properties|Printing|Evidence|Coverage))\b/i;
-const STORED_STATUS = /\b(Theoretical|Official Bambu product|Officially listed family)\b|"Conditional"/;
-const MAINTAINER_WORDS = /\b(?:20\d\d-\d\d-\d\d|re-read|SHA-256|estimate band|no document cited|recorded (?:with|from|as))\b/i;
-export const readerText = (text) => !RECORD_NAME.test(String(text ?? '')) && !PROJECT_WORDS.test(String(text ?? '')) && !STORED_STATUS.test(String(text ?? ''));
+// The rule for reader text (a reviewer's note that names no record, no stored word and no review step) lives in
+// app/js/ui/material-facts.js since 2026-10-18, so the drawer leaves out what the pages leave out.
+export { readerText };
 
 /**
  * Gaps a section says where the reader looks, never as a known gap: the rarely published properties (the same list on
@@ -110,19 +103,12 @@ const SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
  * or a note on the records, and not one another section says. The one rule: Sources shows these, and the Products page's
  * placement (records/placement.js) excuses every other row.
  */
-export const shownGap = (r) => GAP_STATUS.has(r.status) && r.domain !== 'Mandatory review' && !SAID_ELSEWHERE.has(r.domain)
-  && readerText(r.finding) && !MAINTAINER_WORDS.test(String(r.finding ?? ''));
+export const shownGap = (r) => readerGap(r) && !SAID_ELSEWHERE.has(r.domain);
 
-/** A coverage row's subject in a reader's words. */
-const DOMAIN_WORDS = {
-  'Canadian price': 'Price', 'Moisture / environmental': 'Moisture and chemicals', 'Print setup': 'Printing', 'Source conflict': 'Sources that disagree',
-  'Post-processing / application': 'Post-processing', 'H2C status': 'Bambu Lab status', Comparability: 'Comparing values', 'Measurement parsing': 'Reading the values',
-  'Sparse properties': 'Not published by any product',
-};
 /** A known gap as a list item: its subject, then the reviewer's finding in their words, the record's ID on it. */
 export function gapItem(r) {
   const text = r.domain === 'Sparse properties' ? String(r.finding ?? '').replace(/^Not published by its own products:\s*/i, '') : String(r.finding ?? '');
-  return `<li class="gap" data-rec="${esc(r.id)}"><b>${esc(DOMAIN_WORDS[r.domain] ?? r.domain ?? '')}:</b> ${esc(text)}</li>`;
+  return `<li class="gap" data-rec="${esc(r.id)}"><b>${esc(GAP_DOMAIN_WORDS[r.domain] ?? r.domain ?? '')}:</b> ${esc(text)}</li>`;
 }
 
 // ------------------------------------------------------------------ thin data: what each sheet publishes

@@ -395,7 +395,7 @@ What an estimate may do is deliberately limited:
   nothing about a printed part, so it floors nothing. A material's range is the spread of its products, so it contains
   every product's floor. The build refuses to ship an estimate that breaks one of these orders.
 
-In Strict mode ("Confirmed only") estimates are neither shown nor used.
+In Strict mode ("Leave out") estimates are neither shown nor used.
 
 ## The two modes and the four answers
 
@@ -403,9 +403,9 @@ Every requirement gets one of four answers per material: **PASS**, **FAIL**, **U
 **INDETERMINATE** (evidence exists and your threshold cuts through it: a published range of 90 to 120 °C against "at
 least 100"). The mode decides what happens to the last two.
 
-- **Confirmed only (Strict):** only materials with a PASS on every requirement are candidates. Measured evidence only.
+- **Leave out (Strict):** only materials with a PASS on every requirement are candidates. Measured evidence only.
   This is the mode for a shortlist you will act on.
-- **Include uncertain (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
+- **Include (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
   in the database does not hide a material that might suit. With **Let estimates rule out materials** on, estimates may
   screen as above, and so may a base polymer's published behaviour where the material has no record of its own in a
   category and the reference finds the polymer resistant to nothing in it (D64). The SCREENED chip brings screened
@@ -449,8 +449,8 @@ flowchart TB
     VETO -- "no" --> SCRD
 
     OUTC --> MODE{"Which mode are you in?"}
-    MODE -- "Confirmed only:<br/>only a PASS on every requirement" --> KEEP(["On your short list"])
-    MODE -- "Include uncertain:<br/>anything that did not FAIL<br/>and was not screened" --> KEEP
+    MODE -- "Leave out:<br/>only a PASS on every requirement" --> KEEP(["On your short list"])
+    MODE -- "Include:<br/>anything that did not FAIL<br/>and was not screened" --> KEEP
     MODE -- "otherwise" --> DROP(["Not a candidate · the Why excluded tab<br/>names the requirement that removed it"])
 
     classDef good fill:#e8f5ea,stroke:#3f8b58,color:#123020
@@ -545,6 +545,6 @@ store, and its `PACKETS.md` lists them.
 
 ## Missing product values after D137
 
-Include uncertain now separates supported candidates, estimated candidates to verify, and insufficient evidence. The last group is expandable and remains in counts and exports. An estimated candidate is still UNKNOWN: every missing mandatory numerical property's predicted centre meets the limit, but measurement is needed. Missing print or environment evidence cannot be made good by a numerical prediction.
+Include (materials that could not be checked) now separates supported candidates, estimated candidates to verify, and insufficient evidence. The last group is expandable and remains in counts and exports. An estimated candidate is still UNKNOWN: every missing mandatory numerical property's predicted centre meets the limit, but measurement is needed. Missing print or environment evidence cannot be made good by a numerical prediction.
 
 Every product's missing values can read its own estimate even when siblings publish. Estimates never create PASS. Independently validated exclusion is limited to an as-printed/dry comparison with three within printer gates and risk reserved for all five possible numerical predictions; no class currently qualifies. Other scenarios and unsupported properties cannot receive new exclusion permission. Confirmed only keeps its evidence rules. A failing measurement dominates missing data; alternative products and routes are judged individually. A material's displayed spread does not bound unmeasured products. Read the reason and its source conditions, then ask the maker for the exact property/state or test a printed coupon. D137 and OPEN-PROBLEMS §35 record the validation limits.

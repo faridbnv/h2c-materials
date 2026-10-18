@@ -17,7 +17,14 @@
   --t-table: 14px;
   --t-small: 13px;
   --t-label: 12.5px;
+
+  /* Grey text that has to be read (2026-10-18): --ink-3 is 3.5–3.7:1 on the light grounds and 4.3:1 on the dark, under
+     the 4.5:1 small text needs. Text takes this token; borders, marks and an empty tab keep --ink-3. The shared tokens
+     (tokens.css, the material pages' too) are unchanged. */
+  --ink-3-text: #6e6e66;
 }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink-3-text: #8f939c; } }
+:root[data-theme="dark"] { --ink-3-text: #8f939c; }
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -71,26 +78,27 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 /* The theme button is a sun or a moon at every width; its words ("Switch to dark theme") stay its name and title. */
 #btn-theme { min-width: 34px; padding: 5px 8px; }
 #btn-theme .btn-text { display: none; }
-@media (max-width: 1500px) {
-  /* The mode's label above its buttons rather than beside them: the same words in 160 px less of the bar's width. */
-  .topbar .mode-group { flex-direction: column; align-items: flex-start; gap: 1px; }
-  .topbar .mode-label { font-size: 11px; line-height: 1.25; }
-  .topbar .mode-group .segmented button { padding-block: 3px; }
-}
 @media (max-width: 1300px) {
-  .topbar .search { flex-basis: 220px; }
+  .topbar .search { flex-basis: 200px; }
   /* Save / share keeps its words as its name and title, and shows its arrow. */
   #btn-scenario { min-width: 34px; padding: 5px 8px; }
   #btn-scenario .btn-text { display: none; }
 }
-/* The missing-data settings: the mode and the estimates switch in one panel, divided by a rule. */
-.data-settings {
-  display: flex; align-items: center; gap: 14px; padding: 4px 6px 4px 12px; min-height: 44px;
-  background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
+/* A small laptop: the search narrows and the setting takes its short label, so the bar stays one row down to 1101 px. */
+@media (min-width: 1101px) and (max-width: 1250px) {
+  .topbar .search { flex-basis: 150px; }
+  .topbar .mode-label-long { display: none; }
+  .topbar .mode-label-short { display: inline; }
 }
-.data-settings .est-group { border-left: 1px solid var(--border); padding-left: 14px; }
+/* The missing-data settings: the mode and the estimates switch side by side, divided by a rule, with no panel around
+   them. Boxed and filled, with the label stacked over a full-size control, they were the loudest thing on the cold
+   page, a policy set before anything was asked (REVIEW-0 F3, 2026-10-18). One line, the label beside its choice. */
+.data-settings { display: flex; align-items: center; gap: 12px; padding: 0; min-height: 0; }
+.data-settings .est-group { border-left: 1px solid var(--border); padding-left: 12px; }
+.data-settings .segmented { padding: 2px; }
+.data-settings .segmented button { padding: 3px 10px; font-size: var(--t-small); }
 .search { position: relative; flex: 0 1 300px; min-width: 0; }
-.search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-3); pointer-events: none; }
+.search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-3-text); pointer-events: none; }
 .search input {
   width: 100%; min-height: 36px; padding: 6px 32px 6px 34px; border: 1px solid var(--border);
   border-radius: 999px; background: var(--surface-2); transition: background .12s, border-color .12s;
@@ -100,7 +108,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 /* The "/" shortcut, shown in the box until it is used. Nothing on screen had said it existed. */
 .search-key {
   position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none;
-  font: 600 11px/1 var(--mono); color: var(--ink-3); border: 1px solid var(--border-strong); border-radius: 4px; padding: 2px 5px;
+  font: 600 11px/1 var(--mono); color: var(--ink-3-text); border: 1px solid var(--border-strong); border-radius: 4px; padding: 2px 5px;
   background: var(--surface);
 }
 .search input:focus + .search-key, .search input:not(:placeholder-shown) + .search-key { display: none; }
@@ -114,7 +122,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .skip-link:focus { top: 8px; }
 .lens-view:focus { outline: none; }
 .lens-view:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.meta-chip { font-size: var(--t-label); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.meta-chip { font-size: var(--t-label); color: var(--ink-3-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .pages-link { font-size: var(--t-label); color: var(--ink-2); white-space: nowrap; margin-right: 12px; text-underline-offset: 2px; }
 .pages-link:hover { color: var(--accent); }
 
@@ -131,7 +139,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 }
 .segmented button:hover { color: var(--ink); background: color-mix(in srgb, var(--surface) 55%, transparent); }
 .segmented button[aria-pressed="true"] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
-.data-settings .segmented { background: var(--bg); }
+.data-settings .segmented { background: var(--surface-2); }
 /* A tab label that turns bold when selected keeps the width of its bold form, so selecting a tab does not move its
    neighbours (the view tabs and the drawer's tabs shifted a few pixels on every change). The copy is hidden and has no
    text for a screen reader. */
@@ -153,7 +161,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   background: var(--surface); z-index: 2; min-height: 52px;
 }
 .rail-head h2 { display: inline-flex; align-items: center; gap: 8px; flex: 1; font-size: var(--t-base); color: var(--ink); margin: 0; font-weight: 650; }
-.rail-head h2 .icon { color: var(--ink-3); }
+.rail-head h2 .icon { color: var(--ink-3-text); }
 .icon-btn {
   border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius);
   cursor: pointer; padding: 3px 7px; color: var(--ink-2); line-height: 1;
@@ -174,7 +182,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   font-weight: 650; font-size: var(--t-body); list-style: none; user-select: none;
 }
 .group > summary:hover { background: var(--surface-2); }
-.group-icon { color: var(--ink-3); }
+.group-icon { color: var(--ink-3-text); }
 .group[open] > summary .group-icon, .group > summary:hover .group-icon { color: var(--accent); }
 /* The collapse mark sits at the right edge, after the badge when a group has one. */
 .group > summary > .chevron { margin-left: 4px; }
@@ -200,7 +208,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 
 /* A control states its own data availability before it is touched. */
 .control label { display: block; font-size: var(--t-body); font-weight: 600; margin-bottom: 4px; }
-.control .avail { font-size: var(--t-label); color: var(--ink-3); margin-bottom: 7px; line-height: 1.45; }
+.control .avail { font-size: var(--t-label); color: var(--ink-3-text); margin-bottom: 7px; line-height: 1.45; }
 .control .avail .caveat { color: var(--unknown); display: block; margin-top: 2px; }
 .control .row { display: flex; gap: 6px; align-items: center; }
 .control select, .control input[type="number"], .control input[type="text"] {
@@ -209,12 +217,12 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 }
 .control input[type="number"] { width: 92px; }
 .control select.op { width: 62px; }
-.control .unit { font-size: 12px; color: var(--ink-3); }
+.control .unit { font-size: 12px; color: var(--ink-3-text); }
 .control .clear { margin-left: auto; }
 .control[data-active="true"] label { color: var(--accent); }
 .checks { display: grid; gap: 5px; }
 .checks label { display: flex; gap: 9px; align-items: baseline; font-weight: 400; font-size: var(--t-body); margin: 0; }
-.checks .n { margin-left: auto; color: var(--ink-3); font-size: var(--t-label); font-variant-numeric: tabular-nums; }
+.checks .n { margin-left: auto; color: var(--ink-3-text); font-size: var(--t-label); font-variant-numeric: tabular-nums; }
 /* A chosen family opens its polymers beneath it, indented to its label. */
 .family-chip .sub-checks { margin: 4px 0 4px 22px; }
 .family-chip .sub-checks label { font-size: var(--t-label); }
@@ -234,13 +242,13 @@ summary:hover > .chevron::before { border-color: var(--accent); }
   border-bottom: 1px solid var(--border); background: var(--surface); flex-wrap: wrap;
 }
 .candidate-count { font-weight: 650; font-size: 17px; letter-spacing: -0.01em; padding-block: 6px; }
-.candidate-count small { font-weight: 400; color: var(--ink-3); font-size: var(--t-small); margin-left: 7px; }
+.candidate-count small { font-weight: 400; color: var(--ink-3-text); font-size: var(--t-small); margin-left: 7px; }
 .lens-bar .spacer { flex: 1; }
 /* The view tabs with the line under them that says what the active view is for (the tab names alone did not say). The
    line starts under the first tab wherever the tabs sit; it had been right-aligned on a row of its own, under tabs that
    had wrapped to the left. It takes the strip's width and never sets it, so a long line does not move the tabs. */
 .lens-nav { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; max-width: 100%; }
-.lens-help { width: 0; min-width: 100%; margin: 0; font-size: var(--t-small); color: var(--ink-3); }
+.lens-help { width: 0; min-width: 100%; margin: 0; font-size: var(--t-small); color: var(--ink-3-text); }
 .lens-bar button[disabled] { opacity: .45; cursor: not-allowed; }
 /* min-width 0: a grid item is otherwise at least as wide as its widest content, and where the view does not scroll itself
    (a phone) a wide table would widen the page instead of scrolling in its own box. */
@@ -281,6 +289,9 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 .chip-INDETERMINATE { background: var(--indet-bg); color: var(--indet); }
 .chip-INDETERMINATE::before { content: "◐"; }
 .chip-neutral { background: var(--surface-2); color: var(--ink-2); }
+/* "not tested" on every row of the cold table is quiet text, not a chip: 152 grey pills had been the table's loudest
+   column before anything was asked. It keeps the chip's class, which the fuzz reads. */
+.chip.chip-quiet { background: none; padding: 0; font-weight: 400; font-size: var(--t-small); color: var(--ink-3-text); }
 
 .btn {
   padding: 7px 14px; border: 1px solid var(--border-strong); background: var(--surface);
@@ -296,7 +307,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 16px;
   border-top: 1px solid var(--border); background: var(--surface-2); flex-shrink: 0;
 }
-.tray .label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+.tray .label { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 600; }
 .tray-notice { font-size: var(--t-small); color: var(--unknown); font-weight: 600; }
 .pin {
   display: inline-flex; align-items: center; gap: 2px; background: var(--surface);
@@ -308,7 +319,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
    24 px each way: it was 16 by 20, a hard target on a touch screen. */
 .pin button[data-unpin] {
   display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px;
-  border: 0; border-radius: 50%; background: none; cursor: pointer; color: var(--ink-3); padding: 0;
+  border: 0; border-radius: 50%; background: none; cursor: pointer; color: var(--ink-3-text); padding: 0;
 }
 .pin button[data-unpin]:hover { color: var(--fail); }
 
@@ -317,7 +328,8 @@ summary:hover > .chevron::before { border-color: var(--accent); }
    percentages are the widths columns take where the table has room, and each kind of column has a minimum; below the sum
    of those the table scrolls sideways in its box (format.js scrollTable) instead of squeezing its cells. */
 table.grid { border-collapse: collapse; width: 100%; table-layout: auto; font-size: var(--t-table); }
-table.grid th, table.grid td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); }
+/* 7 px, not 10: about one more row of candidates in a laptop's first view (REVIEW-0 F10). */
+table.grid th, table.grid td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); }
 table.grid .name { min-width: 176px; }
 table.grid .state { min-width: 104px; }
 table.grid .num { min-width: 96px; }
@@ -348,19 +360,19 @@ table.grid thead th {
   padding-top: 9px; padding-bottom: 9px; border-bottom: 1px solid var(--border-strong);
 }
 table.grid thead th.num { text-align: right; }
-table.grid thead th .u { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-3); }
+table.grid thead th .u { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-3-text); }
 table.grid tbody tr:hover { background: var(--surface-2); }
 table.grid tbody tr[data-selected="true"] { background: var(--accent-soft); }
 table.grid td.num { text-align: right; font-variant-numeric: tabular-nums; font-size: var(--t-table); white-space: nowrap; }
 table.grid td.name { font-weight: 600; }
-.missing { color: var(--ink-3); font-size: var(--t-small); }
+.missing { color: var(--ink-3-text); font-size: var(--t-small); }
 .missing.dash { font-size: var(--t-table); }
 .print-window { font-size: var(--t-table); }
 
 /* Provenance in the number itself. */
 .v-parsed { text-decoration: underline dotted 1px; text-underline-offset: 3px; cursor: help; }
 .v-derived { font-style: italic; cursor: help; }
-.v-derived::after { content: "◦"; font-size: 9px; vertical-align: super; color: var(--ink-3); }
+.v-derived::after { content: "◦"; font-size: 9px; vertical-align: super; color: var(--ink-3-text); }
 .v-assumed { background: var(--unknown-bg); color: var(--unknown); padding: 0 3px; border-radius: 3px; }
 /* A measured value is the button that opens its measurement, and the dot is its marker. The button is at least
    24 px each way; negative margins keep it from making the row taller. Inline-block, not flex: the children of a flex
@@ -374,6 +386,9 @@ table.grid td.name { font-weight: 600; }
 .evidence-value:hover > span:first-child { text-decoration: underline dotted 1px; text-underline-offset: 3px; }
 .evidence-value:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
 .load-mark, .fx-mark { font-size: 10px; font-weight: 700; color: var(--unknown); vertical-align: super; margin-left: 1px; padding: 0 2px; }
+/* A median from annealed (filled) or conditioned (open) bars: the drawer's square, 8 px, on the median's line. */
+.state-mark { display: inline-block; width: 8px; height: 8px; margin-left: 5px; vertical-align: 1px; border: 1.5px solid var(--accent); background: var(--accent); border-radius: 1px; box-sizing: border-box; }
+.state-mark.state-conditioned { background: var(--surface); }
 .load-mark.mark::after, .fx-mark.mark::after { left: -4px; right: -4px; top: -8px; bottom: -8px; }
 .not-checked { margin: 10px 0 0 !important; padding: 8px 11px; border-left: 3px solid var(--unknown); background: var(--unknown-bg); color: var(--ink) !important; border-radius: 0 var(--radius) var(--radius) 0; }
 
@@ -381,34 +396,42 @@ table.grid td.name { font-weight: 600; }
 .drawer {
   position: fixed; top: 0; right: 0; bottom: 0; width: var(--drawer); max-width: 100vw;
   background: var(--surface); border-left: 1px solid var(--border); z-index: 40;
-  display: grid; grid-template-rows: auto auto 1fr; box-shadow: -8px 0 28px rgba(0,0,0,.13);
+  display: grid; grid-template-rows: auto auto 1fr; grid-template-columns: minmax(0, 1fr); box-shadow: -8px 0 28px rgba(0,0,0,.13);
 }
-.drawer-head { padding: 14px 18px; border-bottom: 1px solid var(--border); }
-.drawer-head h2 { margin: 0 0 4px; font-size: 21px; letter-spacing: -0.015em; }
+.drawer-head { padding: 12px 18px 10px; border-bottom: 1px solid var(--border); }
+.drawer-head h2 { margin: 0 0 2px; font-size: 21px; letter-spacing: -0.015em; }
+/* The full name on the name's line (2026-10-18): the head is two lines, the name and what it is, and the content starts
+   about a hundred pixels higher than when each had a line of its own. */
+/* The name's column may be narrower than its words: a long full name wraps rather than pushing Shortlist off a phone. */
+.drawer-head .head-main { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.drawer-head h2 .h2-full { font-size: var(--t-body); font-weight: 400; letter-spacing: 0; color: var(--ink-2); margin-left: 6px; }
+.drawer-head .id-line { margin-top: 2px; }
 .drawer-head .sub { color: var(--ink-2); font-size: var(--t-body); }
 /* The close button at the top, the height of the Shortlist button beside it; in Save / share it had stretched to the
    height of the heading and its line. */
 .drawer-head .icon-btn { align-self: flex-start; min-width: 30px; min-height: 30px; }
 /* Wrap, never hide. At 620px the nine tabs need about 906px, so Price, Evidence and Coverage
    used to overflow with no scrollbar or arrow. Evidence is the whole point of the tool. */
-.drawer-tabs { display: flex; flex-wrap: wrap; gap: 2px 0; padding: 0 12px; border-bottom: 1px solid var(--border); }
+.drawer-tabs { display: flex; flex-wrap: wrap; gap: 2px 0; padding: 0 10px; border-bottom: 1px solid var(--border); }
 .drawer-tabs button {
-  border: 0; background: none; padding: 10px 11px; cursor: pointer; font-size: var(--t-small);
+  border: 0; background: none; padding: 9px 5px; cursor: pointer; font-size: var(--t-small);
   border-bottom: 2px solid transparent; white-space: nowrap; color: var(--ink-2);
 }
 .drawer-tabs button[aria-selected="true"] { border-bottom-color: var(--accent); color: var(--ink); font-weight: 600; }
 /* A tab with nothing behind it is visibly quiet rather than hidden. */
-.drawer-tabs button[data-empty="true"] { color: var(--ink-3); }
-.drawer-tabs .n { font-size: var(--t-label); font-weight: 400; color: var(--ink-3); margin-left: 5px; font-variant-numeric: tabular-nums; }
+.drawer-tabs button[data-empty="true"] { color: var(--ink-3-text); }
+.drawer-tabs .n { font-size: var(--t-label); font-weight: 400; color: var(--ink-3-text); margin-left: 5px; font-variant-numeric: tabular-nums; }
 .drawer-body { overflow-y: auto; overscroll-behavior: contain; padding: 16px 18px 40px; }
 /* The tab strip and the one line under it saying what the open tab lists: one grid row, so the body keeps the last. */
 .drawer-nav { border-bottom: 1px solid var(--border); min-width: 0; }
 .drawer-nav .drawer-tabs { border-bottom: 1px solid var(--border); }
 .drawer-help { margin: 0; padding: 7px 18px 8px; font-size: var(--t-small); color: var(--ink-2); line-height: 1.4; }
+/* The tab's line is the first line of its body since 2026-10-18, not a row of the sticky strip: it scrolls away. */
+.drawer-body > .drawer-help { padding: 0; margin: 0 0 14px; }
 
 /* An internal ID, beside what it names rather than as its heading. */
 .tag {
-  display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--ink-3); letter-spacing: 0;
+  display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--ink-3-text); letter-spacing: 0;
   text-transform: none; border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; margin: 0 2px; vertical-align: 1px;
   white-space: nowrap;
 }
@@ -419,7 +442,7 @@ table.grid td.name { font-weight: 600; }
 .src-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .src-block { scroll-margin-top: 8px; }
 .src-block + .src-block { margin-top: 18px; }
-.src-meta { font-size: var(--t-small); color: var(--ink-3); margin: -6px 0 8px; }
+.src-meta { font-size: var(--t-small); color: var(--ink-3-text); margin: -6px 0 8px; }
 .src-block.target > .src-title { border-left: 3px solid var(--accent); padding-left: 8px; }
 /* The drawer's collapsed groups: a maker's grades, sources or profiles, and a property's values. */
 .maker-block, .prop-block { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 8px; }
@@ -431,19 +454,19 @@ table.grid td.name { font-weight: 600; }
 }
 .maker-block[open] > summary::before, .prop-block[open] > summary::before { transform: rotate(45deg); margin-bottom: 4px; }
 .maker-block > summary:hover::before, .prop-block > summary:hover::before { border-color: var(--accent); }
-.maker-block > summary .n, .prop-block > summary .n { margin-left: auto; color: var(--ink-3); font-weight: 400; font-size: var(--t-label); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.maker-block > summary .n, .prop-block > summary .n { margin-left: auto; color: var(--ink-3-text); font-weight: 400; font-size: var(--t-label); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .maker-body { padding: 4px 12px 12px; border-top: 1px solid var(--border); }
 .maker-body .grade-block:first-child .block-title, .maker-body .profile-block:first-child .block-title, .maker-body > div:first-child .src-title { margin-top: 8px; }
 .drawer-search-row { margin: 0 0 12px; }
 .drawer-search { width: 100%; box-sizing: border-box; padding: 8px 10px; font: inherit; font-size: var(--t-body); border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--ink); }
 .grade-ests { margin: 10px 0 4px; }
 .grade-est { font-size: var(--t-small); margin: 3px 0; }
-.grade-est .fine { color: var(--ink-3); font-size: var(--t-label); }
+.grade-est .fine { color: var(--ink-3-text); font-size: var(--t-label); }
 .meas-foot .link-btn { text-align: left; }
 .meas-foot .link-btn { color: var(--accent); }
 /* Conditions every measurement from one source shares, said once above them. */
 .shared-conds { border-left: 2px solid var(--border-strong); padding: 2px 0 2px 10px; margin: 0 0 6px; }
-.shared-head { font-size: var(--t-label); color: var(--ink-3); font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
+.shared-head { font-size: var(--t-small); color: var(--ink-2); font-weight: 650; }
 .shared-conds .cond-more { margin-bottom: 4px; }
 /* A long paragraph shows its first words; the rest is one press away. */
 details.longtext > summary { list-style: none; cursor: pointer; }
@@ -462,7 +485,7 @@ details.longtext > summary:focus-visible { outline: 2px solid var(--accent); out
 /* Family-level guidance behind a Best uses pointer. */
 .family-guidance { margin: 6px 0 0; padding-left: 18px; font-size: var(--t-body); line-height: 1.55; }
 .family-guidance li { margin-bottom: 6px; }
-.fine-line { display: block; font-size: var(--t-small); color: var(--ink-3); }
+.fine-line { display: block; font-size: var(--t-small); color: var(--ink-3-text); }
 .family-scope { margin-top: 0; }
 .unresolved { color: var(--unknown); }
 .cov-row .chip { margin-left: 6px; }
@@ -481,9 +504,14 @@ details.longtext > summary:focus-visible { outline: 2px solid var(--accent); out
 .grid tr.quarantined td { border-bottom-color: transparent; }
 
 .kv { display: grid; grid-template-columns: minmax(150px, 36%) 1fr; gap: 9px 16px; font-size: var(--t-body); margin: 0 0 20px; }
-.kv dt { color: var(--ink-3); }
+.kv dt { color: var(--ink-3-text); }
 .kv dd { margin: 0; }
-h3.sec { font-size: var(--t-label); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 26px 0 11px; font-weight: 650; }
+/* A section's heading leads (2026-10-18): the material page's plate heading, in ink and sentence case. It had been the
+   faintest type on the drawer, 12.5 px grey capitals, so the structure read from the bold lines under it. */
+h3.sec { font-size: 15px; color: var(--ink); margin: 26px 0 10px; font-weight: 650; letter-spacing: -0.005em; }
+.sec-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 26px 0 10px; }
+.sec-row h3.sec { margin: 0; }
+.sec-row .link-btn { font-size: var(--t-small); }
 h3.sec:first-child { margin-top: 0; }
 
 /* A section with no data shows the coverage record that explains the absence. */
@@ -497,7 +525,7 @@ h3.sec:first-child { margin-top: 0; }
 .evidence-row {
   border-top: 1px solid var(--border); padding: 12px 0; font-size: var(--t-body);
 }
-.evidence-row .cond { color: var(--ink-3); font-size: var(--t-small); margin-top: 4px; }
+.evidence-row .cond { color: var(--ink-3-text); font-size: var(--t-small); margin-top: 4px; }
 
 /* ---------------------------------------------------------------- explain panel */
 .explain-row { display: grid; grid-template-columns: auto 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); align-items: start; }
@@ -512,6 +540,11 @@ h3.sec:first-child { margin-top: 0; }
 .relax { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); }
 .relax .bar { height: 4px; background: var(--fail); border-radius: 2px; margin-top: 5px; }
 .relax .held { height: 4px; background: var(--unknown); border-radius: 2px; margin-top: 3px; }
+/* The H2C's three temperature checks under their one name, and the reported-only rows apart under a rule. */
+.relax-group-head { font-weight: 650; font-size: var(--t-small); padding: 10px 0 2px; }
+.relax-group > .relax { padding-left: 14px; }
+.relax-reported { margin-top: 14px; border-top: 2px solid var(--border-strong); }
+.relax-reported .relax .bar { opacity: .45; }
 
 /* ---------------------------------------------------------------- empty states */
 .empty { max-width: 620px; margin: 40px auto; text-align: left; }
@@ -531,7 +564,7 @@ h3.sec:first-child { margin-top: 0; }
 /* ---------------------------------------------------------------- Ashby lens: what every view shares
    The swap button, the menus' help lines, the notices, the plot, the key under it and the folded notes. */
 .axis-swap { flex: 0 0 auto; margin-bottom: 1px; padding-block: 7px; }
-.opt-help { margin: 0; font-size: var(--t-label); color: var(--ink-3); line-height: 1.45; }
+.opt-help { margin: 0; font-size: var(--t-label); color: var(--ink-3-text); line-height: 1.45; }
 .ashby-notices { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .ashby-notices:empty { display: none; }
 .ashby-notices .banner { margin-bottom: 0; }
@@ -546,11 +579,11 @@ h3.sec:first-child { margin-top: 0; }
   font-size: var(--t-label); color: var(--ink-2);
 }
 .ashby-key .key-item { display: inline-flex; align-items: center; gap: 6px; }
-.ashby-key .key-note { color: var(--ink-3); }
+.ashby-key .key-note { color: var(--ink-3-text); }
 .key-glyph { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; stroke: currentColor; }
 
-.legend-note { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
-.legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.legend-note { font-size: 12px; color: var(--ink-3-text); margin-top: 8px; }
+.legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; }
 
 /* ---------------------------------------------------------------- Ashby decision workspace (D107 to D111)
    The question in one bar, the controls as three rows (Draw, Also, Line) with More the one menu, opening over the chart
@@ -562,17 +595,17 @@ h3.sec:first-child { margin-top: 0; }
   display: flex; flex-direction: column; gap: 2px; font-size: var(--t-small);
 }
 .ws-goal-row, .ws-asked { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
-.ws-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); min-width: 3.6em; }
+.ws-label { font-size: var(--t-label); font-weight: 650; color: var(--ink-3-text); min-width: 3.6em; }
 .ws-goal-row select {
   padding: 4px 8px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
   background: var(--bg); color: var(--ink); max-width: 100%; min-width: 0;
 }
 .ws-formula { color: var(--ink-2); cursor: help; }
 .ws-question .formula, .ws-line .formula, .ws-results .formula { font-family: var(--mono); font-size: 12.5px; color: var(--accent); }
-.ws-geom { color: var(--ink-3); }
+.ws-geom { color: var(--ink-3-text); }
 .ws-asked-list { display: inline-flex; flex-wrap: wrap; gap: 4px 0; color: var(--ink-2); }
-.ws-asked-list > span + span::before { content: '·'; margin: 0 7px; color: var(--ink-3); }
-.ws-asked-none { color: var(--ink-3); }
+.ws-asked-list > span + span::before { content: '·'; margin: 0 7px; color: var(--ink-3-text); }
+.ws-asked-none { color: var(--ink-3-text); }
 .ws-research { display: inline-flex; align-items: center; gap: 6px; }
 .ws-research .btn-sm { padding: 2px 8px; }
 .warn-text { color: var(--unknown); }
@@ -584,7 +617,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
 .ws-start-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 10px; background: var(--bg); }
 .ws-start-card h3 { margin: 0 0 2px; font-size: var(--t-body); }
-.ws-start-card p { margin: 0 0 8px; color: var(--ink-3); font-size: var(--t-label); line-height: 1.45; }
+.ws-start-card p { margin: 0 0 8px; color: var(--ink-3-text); font-size: var(--t-label); line-height: 1.45; }
 .ws-start-members { display: flex; flex-wrap: wrap; gap: 6px; }
 .ws-member {
   display: grid; grid-template-columns: auto 1fr; grid-template-areas: "sketch name" "sketch free"; align-items: center; gap: 0 8px;
@@ -595,7 +628,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-sketch { grid-area: sketch; width: 48px; color: var(--ink-2); }
 .ws-sketch svg { width: 48px; height: 18px; fill: currentColor; stroke: currentColor; display: block; }
 .ws-member-name { grid-area: name; font-weight: 650; font-size: var(--t-small); }
-.ws-member-free { grid-area: free; font-size: 11.5px; color: var(--ink-3); line-height: 1.3; }
+.ws-member-free { grid-area: free; font-size: 11.5px; color: var(--ink-3-text); line-height: 1.3; }
 
 .ws-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 12px; align-items: start; }
 /* Every view keeps one layout (D111): the list beside the chart. Material typicals had moved it under the chart. */
@@ -606,12 +639,12 @@ h3.sec:first-child { margin-top: 0; }
 .ws-controls { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .ws-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px; font-size: var(--t-small); }
 .ws-row + .ws-row { border-top: 1px solid var(--border); }
-.ws-row-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); width: 3.4em; flex: 0 0 auto; }
+.ws-row-label { font-size: var(--t-label); font-weight: 650; color: var(--ink-3-text); width: 3.4em; flex: 0 0 auto; }
 .ws-row-sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 2px; }
 .ws-row-end { margin-left: auto; }
 .ws-views button { padding-block: 3px; }
 .ws-axis { display: inline-flex; align-items: center; gap: 4px; }
-.ws-axis-label { color: var(--ink-3); font-size: 14px; width: 1em; text-align: center; }
+.ws-axis-label { color: var(--ink-3-text); font-size: 14px; width: 1em; text-align: center; }
 .ws-axis select, .ws-chip-select {
   padding: 3px 6px; font-size: var(--t-small); border: 1px solid var(--border-strong); border-radius: var(--radius);
   background: var(--bg); color: var(--ink); max-width: 13.5em;
@@ -623,7 +656,7 @@ h3.sec:first-child { margin-top: 0; }
   font: inherit; font-size: var(--t-small); padding: 1px 10px; border-radius: 999px; cursor: pointer;
   border: 1px solid var(--border-strong); background: var(--bg); color: var(--ink-2);
 }
-.ws-chip::before { content: '+ '; color: var(--ink-3); }
+.ws-chip::before { content: '+ '; color: var(--ink-3-text); }
 .ws-chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
 .ws-chip[aria-pressed="true"]::before { content: '✓ '; color: var(--accent); }
 .ws-chip:hover:not(:disabled) { border-color: var(--accent); }
@@ -647,12 +680,12 @@ h3.sec:first-child { margin-top: 0; }
   background: none; color: var(--ink); cursor: pointer;
 }
 .ws-menu-item:hover:not(:disabled), .ws-menu-item:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
-.ws-menu-item:disabled { color: var(--ink-3); cursor: default; }
+.ws-menu-item:disabled { color: var(--ink-3-text); cursor: default; }
 .ws-evidence-chip {
   font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-top: 1px solid var(--border);
   background: var(--unknown-bg); border-left: 3px solid var(--unknown);
 }
-.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); color: var(--ink-3-text); }
 .ws-menu-panel h4:first-child { margin-top: 0; }
 .ws-menu-item[aria-pressed="true"] { font-weight: 650; }
 .ws-menu-item[aria-pressed="true"]::before { content: '● '; color: var(--accent); }
@@ -660,7 +693,7 @@ h3.sec:first-child { margin-top: 0; }
 /* The axis bar, at the top of the chart it sets: the vertical axis at the left, the horizontal at the right. */
 .ws-plot-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .ws-axisbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 3px 8px; border-bottom: 1px solid var(--border); font-size: var(--t-small); }
-.ws-axis-unit { color: var(--ink-3); font-size: var(--t-label); }
+.ws-axis-unit { color: var(--ink-3-text); font-size: var(--t-label); }
 .ws-plot-area { position: relative; padding: 0 4px; }
 /* What narrows the picture, said on it with the way back. */
 .ws-axis-pair { display: inline-flex; align-items: center; gap: 8px; }
@@ -698,7 +731,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-list { padding: 8px 10px 10px; flex: 1 1 auto; overflow: auto; min-height: 120px; }
 .ws-mat.is-picked { background: var(--accent-soft); border-radius: 5px; box-shadow: inset 3px 0 0 var(--accent); }
 .ws-mat-name[aria-pressed="true"] { text-decoration: underline; }
-.ws-zoom-btn { padding: 0 6px; min-height: 22px; color: var(--ink-3); }
+.ws-zoom-btn { padding: 0 6px; min-height: 22px; color: var(--ink-3-text); }
 .ws-zoom-btn:hover { color: var(--accent); }
 .ws-filter { width: 100%; padding: 5px 8px; font: inherit; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--ink); margin-bottom: 6px; }
 .ws-list-head h3 { margin: 2px 0 2px; font-size: var(--t-body); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
@@ -708,13 +741,13 @@ h3.sec:first-child { margin-top: 0; }
 .ws-mat-head { display: flex; align-items: center; gap: 6px; }
 .ws-mat-head .ws-mat-name { font-weight: 650; text-decoration: none; text-align: left; flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .ws-mat-head .shortlist-btn { padding: 0 6px; min-height: 22px; }
-.ws-place { font-weight: 700; color: var(--ink-3); min-width: 1.4em; font-variant-numeric: tabular-nums; }
+.ws-place { font-weight: 700; color: var(--ink-3-text); min-width: 1.4em; font-variant-numeric: tabular-nums; }
 .ws-median { margin-left: auto; white-space: nowrap; }
-.ws-rel { color: var(--ink-3); font-size: 11.5px; }
+.ws-rel { color: var(--ink-3-text); font-size: 11.5px; }
 .ws-sub { color: var(--ink-2); margin-left: calc(1.4em + 6px); line-height: 1.35; font-size: var(--t-label); }
 .ws-best .link-btn { text-align: left; text-decoration-color: var(--border-strong); }
 .ws-mat-pairs { margin-left: calc(1.4em + 6px); }
-.ws-mat-pairs > summary { cursor: pointer; color: var(--ink-3); font-size: var(--t-label); }
+.ws-mat-pairs > summary { cursor: pointer; color: var(--ink-3-text); font-size: var(--t-label); }
 .ws-mat-pairs ul, .ws-nearby { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
 /* The chart's line, drawn into the ranking where it falls. */
 .ws-line-mark { display: flex; align-items: center; gap: 8px; color: #1f5f8b; font-size: var(--t-label); font-weight: 650; }
@@ -725,7 +758,7 @@ h3.sec:first-child { margin-top: 0; }
 }
 .ws-pair-btn:hover, .ws-pair-btn:focus-visible, .ws-pair-btn[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent); }
 .ws-pair-name { font-weight: 600; }
-.ws-pair-vals { display: block; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ws-pair-vals { display: block; color: var(--ink-3-text); font-variant-numeric: tabular-nums; }
 .ws-unranked, .ws-gaps { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 6px; }
 .ws-unranked > summary, .ws-gaps > summary { cursor: pointer; color: var(--ink-2); }
 .ws-unranked ul, .ws-gaps ul { margin: 4px 0; padding-left: 18px; }
@@ -738,12 +771,12 @@ h3.sec:first-child { margin-top: 0; }
 .ws-inspector .kv dd { overflow-wrap: anywhere; }
 /* In the narrow details panel each value sits under its label, at the panel's full width, not in a thin second column. */
 .ws-detail-body .kv { display: block; }
-.ws-detail-body .kv dt { margin-top: 8px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+.ws-detail-body .kv dt { margin-top: 8px; font-size: var(--t-label); color: var(--ink-3-text); }
 .ws-detail-body .kv dd { margin: 2px 0 0; }
 .ws-insp-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .ws-context-note { margin: 4px 0; }
-.ws-reading { font-size: 12px; color: var(--ink-3); margin-top: 0; }
-.ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.ws-reading { font-size: 12px; color: var(--ink-3-text); margin-top: 0; }
+.ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; }
 .ws-reading p { margin: 4px 0 0; line-height: 1.55; }
 .ws .ashby-key { margin-top: 0; padding: 5px 10px; }
 
@@ -775,7 +808,7 @@ h3.sec:first-child { margin-top: 0; }
 
 /* ---------------------------------------------------------------- coverage lens */
 table.cov { border-collapse: collapse; font-size: 12px; }
-table.cov th { font-weight: 600; font-size: 11px; text-align: left; padding: 5px 7px; color: var(--ink-3); }
+table.cov th { font-weight: 600; font-size: 11px; text-align: left; padding: 5px 7px; color: var(--ink-3-text); }
 table.cov td { padding: 0; }
 table.cov .cell {
   width: 26px; height: 24px; border: 1px solid var(--surface); cursor: pointer;
@@ -786,7 +819,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 /* ---------------------------------------------------------------- compare */
 .cmp-prop { margin-bottom: 22px; }
 .cmp-prop h4 { margin: 0 0 3px; font-size: 13px; }
-.cmp-prop .unit { color: var(--ink-3); font-weight: 400; font-size: 12px; }
+.cmp-prop .unit { color: var(--ink-3-text); font-weight: 400; font-size: 12px; }
 /* The name and value columns give way on a narrow screen before the bar does; fixed 168 and 118 px left a phone a
    bar of a few pixels. */
 .cmp-bar { display: grid; grid-template-columns: minmax(90px, 168px) minmax(0, 1fr) minmax(70px, 118px); gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
@@ -798,6 +831,8 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-bar .bounds { position: absolute; top: 5px; height: 6px; border-left: 2px solid var(--ink-3); border-right: 2px solid var(--ink-3); }
 .cmp-bar .val { text-align: right; font-family: var(--mono); font-size: 12px; }
 .cmp-bar .related-tick { position: absolute; top: 2px; width: 3px; height: 12px; margin-left: -1px; background: var(--ink-3); border-radius: 1px; }
+/* The value on a log track: a tick, not a bar from the left end. */
+.cmp-bar .value-tick { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--accent); border-radius: 1px; z-index: 1; }
 /* A requirement across the track: an upright line past both edges, above the bar and any estimate span, in the colour
    the Ashby chart draws requirements in. A tracked one is dashed. The heading names it in words. */
 .cmp-bar .cmp-threshold { position: absolute; top: -4px; bottom: -4px; width: 0; margin-left: -1px; border-left: 2px solid var(--fail); z-index: 1; }
@@ -811,8 +846,8 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-req-mark.tracked { border-left-style: dashed; }
 /* The track's ends, under the bars, as an axis: what a bar's length is measured against. */
 .cmp-bar.cmp-axis { padding: 0; }
-.cmp-scale { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border-strong); padding-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
-.cmp-scale-note { font-size: var(--t-label); color: var(--ink-3); text-align: right; line-height: 1.25; }
+.cmp-scale { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border-strong); padding-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3-text); }
+.cmp-scale-note { font-size: var(--t-label); color: var(--ink-3-text); text-align: right; line-height: 1.25; }
 /* A track spanning more than a hundredfold is on a log scale, and says so between its ends. */
 /* The two ends stay on their line, as on a linear track, and the words go on a line of their own under them. */
 .cmp-scale.log { display: grid; grid-template-columns: auto auto; justify-content: space-between; gap: 0 8px; }
@@ -821,9 +856,9 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-context .fine { margin: 4px 0 0; }
 .cond-more { margin: 4px 0 2px; }
 .drawer a:not(.btn) { color: var(--accent); }
-.grid tr.quarantined td { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--border-strong); }
+.grid tr.quarantined td { color: var(--ink-3-text); text-decoration: line-through; text-decoration-color: var(--border-strong); }
 .grid tr.quarantined td:first-child { text-decoration: none; }
-.cmp-cond { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono); padding: 5px 0 0 140px; }
+.cmp-cond { font-size: 11.5px; color: var(--ink-3-text); font-family: var(--mono); padding: 5px 0 0 140px; }
 .cmp-cond .differ { color: var(--unknown); font-weight: 600; }
 
 /* ---------------------------------------------------------------- drawer: headlines side by side (D133) */
@@ -832,6 +867,10 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
    the Material ranges view draws one. A product's dot on one row lights its dot on the other. */
 /* imp-*: the drawer's comparison headings (D133, D139), impact first, now tensile, heat and print temperatures too. */
 .imp-compare { margin: 0 0 16px; }
+/* The material pages' marks (figures.src.css): drawn-but-not-ranked marks in a light grey, the middle half a tint with
+   edges that holds in both themes, the H2C's limit a line with the range beyond it washed. Values here, not in tokens.css. */
+.imp-block { --imp-light: color-mix(in srgb, var(--ink-3) 62%, var(--surface)); --imp-band: color-mix(in srgb, var(--accent) 13%, transparent);
+  --imp-band-edge: color-mix(in srgb, var(--accent) 50%, transparent); --imp-beyond: color-mix(in srgb, var(--ink-3) 16%, transparent); }
 .imp-row { display: grid; grid-template-columns: minmax(84px, 150px) minmax(0, 1fr); gap: 10px; align-items: end; padding: 3px 0; font-size: 12.5px; }
 .imp-label { display: flex; flex-direction: column; line-height: 1.25; overflow-wrap: anywhere; }
 .imp-label .fine { font-size: 11px; }
@@ -840,34 +879,43 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-row > .imp-track, .imp-axis > .imp-scale { margin: 0 7px; }
 /* The scale's ticks, labelled under the rows, and their faint lines across the tracks behind the dots. */
 .imp-grid { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px solid var(--border); }
-.imp-scale { position: relative; display: block; height: 16px; border-top: 1px solid var(--border-strong); font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+.imp-scale { position: relative; display: block; height: 16px; border-top: 1px solid var(--border-strong); font-family: var(--mono); font-size: 11px; color: var(--ink-3-text); }
 .imp-scale > span { position: absolute; top: 2px; transform: translateX(-50%); white-space: nowrap; }
 .imp-scale > span.start { transform: none; }
 .imp-scale > span.end { transform: translateX(-100%); }
 .imp-axis > .fine { align-self: start; font-size: 11px; }
-.imp-band { position: absolute; top: 0; bottom: 0; background: var(--accent-soft); }
+.imp-band { position: absolute; top: 0; bottom: 0; background: var(--imp-band); box-shadow: inset 1px 0 0 var(--imp-band-edge), inset -1px 0 0 var(--imp-band-edge); }
 .imp-median { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px solid var(--ink-2); }
-.imp-dot { position: absolute; display: block; width: 9px; height: 9px; margin-left: -4.5px; padding: 0; border: 1.5px solid var(--accent); background: var(--accent); border-radius: 50%; cursor: pointer; }
-.imp-dot.open { background: var(--surface); }
+.imp-dot { position: absolute; display: block; width: 7px; height: 7px; margin-left: -3.5px; padding: 0; border: 1.25px solid var(--accent); background: var(--accent); border-radius: 50%; cursor: pointer; }
+.imp-dot.open { background: var(--surface); border-color: var(--imp-light); }
 .imp-dot.annealed { border-radius: 1px; }
-.imp-dot.variant { border-color: var(--ink-3); background: var(--surface); border-radius: 1px; transform: rotate(45deg) scale(.85); }
+.imp-dot.variant { border-color: var(--imp-light); background: var(--surface); border-radius: 1px; transform: rotate(45deg) scale(.9); }
 .imp-dot.claimed { border-color: var(--claim); background: var(--claim); }
-.imp-dot.claimed.open { background: var(--surface); }
-.chip-claim { background: var(--claim-bg); color: var(--claim); }
+.imp-dot.claimed.open { background: var(--surface); border-color: var(--claim); }
+/* A column of one value taller than its dots show apart: its count over it, on the track's own ground. */
+.imp-count { position: absolute; z-index: 2; transform: translateX(-50%); padding: 0 2px; border-radius: 2px; background: var(--surface-2);
+  font: 10px/1.1 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; pointer-events: none; }
+.chip-claim { background: var(--claim-bg); color: color-mix(in srgb, var(--claim) 78%, var(--ink)); } /* 4.5:1 for its small text in both themes (2026-10-18) */
 .imp-split { margin: 4px 0 0; }
 .test-guess { color: var(--ink-2); }
 .test-guess b { color: var(--unknown); font-weight: 600; }
 .imp-block .imp-compare { padding: 4px 2px 0; }
 .imp-dot:hover, .imp-dot.partner { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); z-index: 2; }
 .imp-axis { padding-top: 0; }
-.imp-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; }
+.imp-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 2px 0 10px; }
 .imp-key span { display: inline-flex; align-items: center; gap: 5px; }
 .imp-key .imp-dot { position: static; margin: 0; cursor: default; }
-.imp-band-key { display: inline-block; width: 14px; height: 9px; background: var(--accent-soft); border: 1px solid var(--border); }
+.imp-band-key { position: relative; display: inline-block; width: 14px; height: 9px; background: var(--imp-band); box-shadow: inset 1px 0 0 var(--imp-band-edge), inset -1px 0 0 var(--imp-band-edge); }
+.imp-band-key::after { content: ""; position: absolute; left: 6px; top: -2px; bottom: -2px; border-left: 2px solid var(--ink-2); }
 .imp-median-key { display: inline-block; width: 0; height: 11px; border-left: 2px solid var(--ink-2); }
 /* The H2C's limit across a print temperature's track (D139), and the profile a print dot opened. */
-.imp-limit { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px dashed var(--fail); z-index: 1; }
-.imp-limit-key { display: inline-block; width: 0; height: 11px; border-left: 2px dashed var(--fail); }
+.imp-limit { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 1.5px solid var(--ink); z-index: 1; }
+.imp-beyond { position: absolute; top: 0; bottom: 0; right: 0; background: var(--imp-beyond); }
+.imp-limit-key { display: inline-block; width: 8px; height: 11px; border-left: 1.5px solid var(--ink); background: var(--imp-beyond); }
+/* Print temperatures: each setting a group, headed by its name, unit and the H2C's limit. */
+.imp-ghead { margin: 0 0 4px; font-size: 12.5px; color: var(--ink-2); }
+.imp-ghead b { font-weight: 600; color: var(--ink); }
+.print-compare .imp-strips + .imp-strips { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); }
 .profile-block.target { outline: 2px solid var(--accent); outline-offset: 2px; }
 .imp-summary { margin-top: 10px; }
 table.grid.imp-summary .num { white-space: nowrap; }
@@ -884,13 +932,15 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
 .on-graph .imp-dot { position: static; flex: none; margin: 0; cursor: default; transform: translateY(1px); }
 .on-graph .imp-dot.variant { transform: translateY(1px) rotate(45deg) scale(.85); }
 .on-graph b { font-weight: 600; }
-.imp-summary .imp-apart td { padding-top: 1px; font-size: var(--t-small); color: var(--ink-3); white-space: normal; }
+.imp-summary .imp-apart td { padding-top: 1px; font-size: var(--t-small); color: var(--ink-3-text); white-space: normal; }
 .imp-foot { margin: 4px 0 0; max-width: 100ch; }
 .imp-sub { margin: 16px 0 4px; font-size: var(--t-body); }
 .imp-records { margin-top: 6px; }
 /* Where nothing is drawn, one line says why, counted; how the tests differ is one closed line under it. */
 .imp-none { margin: 4px 0 6px; max-width: 100ch; }
 .imp-tally { margin: 0 0 6px; max-width: 100ch; }
+details.imp-tally > summary { cursor: pointer; font-size: var(--t-small); color: var(--ink-2); }
+details.imp-tally > p { margin: 4px 0 0; }
 .imp-about { margin: 10px 0 0; }
 .imp-about > summary { cursor: pointer; font-size: var(--t-small); color: var(--ink-2); }
 .imp-about > p { margin: 6px 0; max-width: 100ch; }
@@ -923,12 +973,14 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
   #drawer-host:has(> .drawer)::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.28); z-index: 39; }
   .drawer-tabs { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
   .drawer-tabs button { flex: 0 0 auto; }
+  /* The strip fades at its right edge, so a tab cut there ("Therma") reads as more to the right (2026-10-18). */
+  .drawer .drawer-tabs { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); padding-right: 32px; }
 }
 /* A tablet or a small laptop: the top bar is two rows, the name, the search and the actions, then the missing-data panel
    on a row of its own, its label beside its buttons since the row has room. With the actions under the first row's end
    the bar was 123 px tall at 1024 x 768, and the Warm environment template showed two result rows before scrolling. */
 @media (min-width: 601px) and (max-width: 1100px) {
-  .data-settings { order: 5; min-height: 0; padding: 3px 6px 3px 12px; }
+  .data-settings { order: 5; }
   .topbar .mode-group { flex-direction: row; align-items: center; gap: 9px; }
   .topbar .mode-label { font-size: var(--t-small); line-height: inherit; }
 }
@@ -962,7 +1014,7 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
   .topbar .est-line { display: contents; }
   .topbar .est-toggle { grid-area: toggle; gap: 6px; padding: 2px 0; white-space: normal; line-height: 1.2; justify-self: start; font-size: 12.5px; }
   .topbar .est-group .info-mark { grid-area: info; }
-  .topbar .est-reason, .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
+  .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
   .cmp-cond { padding-left: 0; }
 
   /* The page scrolls as a whole, so the status bar and the shortlist are reached by scrolling to them. Fitted into one
@@ -1002,7 +1054,7 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
 .part-state .segmented { margin-bottom: 7px; }
 .part-state .anneal-max { margin: 0 0 7px; display: flex; gap: 6px; align-items: center; color: var(--ink-2); }
 .part-state .anneal-max input { width: 5.5em; }
-.group-body > .avail { font-size: var(--t-label); color: var(--ink-3); line-height: 1.45; }
+.group-body > .avail { font-size: var(--t-label); color: var(--ink-3-text); line-height: 1.45; }
 .control .sub-check { align-items: flex-start; }
 .control .sub-check input { margin-top: 2px; }
 .rail-more > summary { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: var(--t-label); color: var(--ink-2); font-weight: 600; list-style: none; }
@@ -1038,12 +1090,12 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 
 /* ---------------------------------------------------------------- parallel axes picker */
 .pc-axes { border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 15px; margin-bottom: 16px; background: var(--surface); }
-.pc-axes-head { font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 650; margin-bottom: 10px; }
+.pc-axes-head { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 650; margin-bottom: 10px; }
 .pc-axes-head span { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 8px; }
 .pc-axis-list { display: flex; gap: 9px; flex-wrap: wrap; }
 .pc-axis { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-strong); border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: var(--t-small); }
 .pc-axis.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-.pc-axis .pc-n { color: var(--ink-3); font-variant-numeric: tabular-nums; font-size: var(--t-label); }
+.pc-axis .pc-n { color: var(--ink-3-text); font-variant-numeric: tabular-nums; font-size: var(--t-label); }
 .pc-axis.on .pc-n { color: var(--accent); }
 
 /* ---------------------------------------------------------------- coverage lens */
@@ -1052,7 +1104,7 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .cov-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
 .cov-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 11px 13px; background: var(--surface); }
 .cov-card-title { font-size: var(--t-small); font-weight: 650; margin-bottom: 8px; }
-.cov-card-n { font-size: var(--t-label); color: var(--ink-3); margin-top: 7px; font-variant-numeric: tabular-nums; }
+.cov-card-n { font-size: var(--t-label); color: var(--ink-3-text); margin-top: 7px; font-variant-numeric: tabular-nums; }
 .cov-meter { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--surface-2); }
 .cov-meter .seg.ok { background: var(--pass); }
 .cov-meter .seg.partial { background: var(--indet); }
@@ -1070,7 +1122,7 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .sw.partial { background: var(--indet-bg); color: var(--indet); }
 .sw.gap { background: var(--unknown-bg); color: var(--unknown); }
 .sw.bad { background: var(--fail-bg); color: var(--fail); }
-.sw.none { background: var(--surface-2); color: var(--ink-3); }
+.sw.none { background: var(--surface-2); color: var(--ink-3-text); }
 
 .cov-scroll { overflow: auto; border: 1px solid var(--border); border-radius: var(--radius); }
 table.cov2 { border-collapse: collapse; width: 100%; font-size: var(--t-small); }
@@ -1084,7 +1136,7 @@ table.cov2 thead th.mat { z-index: 2; }
 table.cov2 td { padding: 3px 6px; text-align: center; border-bottom: 1px solid var(--border); }
 table.cov2 tbody tr:hover td { background: var(--surface-2); }
 table.cov2 tbody tr:hover td.mat { background: var(--surface-2); }
-table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); padding-right: 14px; }
+table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-text); padding-right: 14px; }
 .cov-cell {
   width: 30px; height: 26px; border: 0; border-radius: 4px; cursor: pointer;
   font-size: 12px; font-weight: 700; font-family: inherit; display: block; margin: 0 auto;
@@ -1093,42 +1145,38 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .cov-cell.partial { background: var(--indet-bg); color: var(--indet); }
 .cov-cell.gap { background: var(--unknown-bg); color: var(--unknown); }
 .cov-cell.bad { background: var(--fail-bg); color: var(--fail); }
-.cov-cell.none { background: var(--surface-2); color: var(--ink-3); }
+.cov-cell.none { background: var(--surface-2); color: var(--ink-3-text); }
 .cov-cell:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
 .linkish { border: 0; background: none; padding: 0; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
 .linkish:hover { color: var(--accent); text-decoration: underline; }
 
 /* ---------------------------------------------------------------- start panel */
-.start { max-width: 1000px; margin: 0 0 28px; }
-.start-flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-.start-flow .step { font-size: var(--t-small); color: var(--ink-2); display: inline-flex; align-items: center; gap: 7px; }
-.start-flow .step b {
-  display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%;
-  background: var(--accent-soft); color: var(--accent); font-size: var(--t-label);
-}
-.start-flow i { color: var(--ink-3); font-style: normal; }
-.start h2 { font-size: 20px; margin: 0 0 6px; letter-spacing: -0.015em; font-weight: 650; }
-.start > p { color: var(--ink-2); margin: 0 0 18px; max-width: 70ch; }
-.start-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 11px; margin-bottom: 22px; }
+/* The cold page, tighter (2026-10-18): the cards, the facts and the promise closer together, so the table's bar and
+   its first rows come into a laptop's first view (TRACKER M2a). Every template and every sentence stays. */
+.start { max-width: 1000px; margin: 0 0 12px; }
+.start h2 { font-size: 19px; margin: 0 0 3px; letter-spacing: -0.015em; font-weight: 650; }
+.start > p { color: var(--ink-2); margin: 0 0 12px; max-width: none; }
+.start-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; margin-bottom: 8px; }
+/* Text from the top: in a row of cards of different lengths it had floated to each card's middle. */
 .start-card {
-  display: grid; gap: 5px; text-align: left; padding: 14px 16px; cursor: pointer;
+  display: grid; align-content: start; gap: 2px; text-align: left; padding: 8px 14px 9px; cursor: pointer;
   border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface);
   font: inherit; color: inherit;
 }
 .start-card:hover { border-color: var(--accent); background: var(--accent-soft); }
 .start-card-name { font-weight: 650; font-size: var(--t-body); }
-.start-card-desc { font-size: var(--t-small); color: var(--ink-2); line-height: 1.45; }
-.start-facts { display: flex; gap: 26px; flex-wrap: wrap; font-size: var(--t-small); color: var(--ink-2); padding-top: 16px; border-top: 1px solid var(--border); }
+.start-card-desc { font-size: var(--t-small); color: var(--ink-2); line-height: 1.4; }
+.start-facts { display: flex; gap: 4px 22px; flex-wrap: wrap; font-size: var(--t-small); color: var(--ink-2); padding-top: 7px; border-top: 1px solid var(--border); }
 .start-facts b { color: var(--ink); font-variant-numeric: tabular-nums; }
-.start-note { font-size: var(--t-small); color: var(--ink-3); margin: 12px 0 0; max-width: 74ch; }
+.start-note { font-size: var(--t-small); color: var(--ink-3-text); margin: 4px 0 0; max-width: none; }
 
 /* ---------------------------------------------------------------- parallel coordinates (svg) */
 .pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
 .pc-svg { display: block; overflow: visible; }
 .pc-line-axis { stroke: var(--border-strong); stroke-width: 1; }
 .pc-lbl { fill: var(--ink); font-size: 12.5px; font-weight: 650; }
-.pc-lbl-unit { fill: var(--ink-3); font-size: 11px; }
-.pc-tick { fill: var(--ink-3); font-size: 11px; font-variant-numeric: tabular-nums; }
+.pc-lbl-unit { fill: var(--ink-3-text); font-size: 11px; }
+.pc-tick { fill: var(--ink-3-text); font-size: 11px; font-variant-numeric: tabular-nums; }
 .pc-poly { fill: none; stroke-width: 1.75; transition: stroke-width .1s, opacity .1s; pointer-events: none; }
 /* Each line's pointer target: transparent and 14 px wide, so a finger can hit a line drawn under 2 px wide. */
 .pc-hit { fill: none; stroke: transparent; stroke-width: 14; cursor: pointer; }
@@ -1145,7 +1193,7 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 }
 .pc-readout-text { flex: 1 1 260px; line-height: 1.5; }
 .pc-readout-text b { color: var(--ink); margin-right: 4px; }
-.pc-readout-family { color: var(--ink-3); margin-right: 8px; }
+.pc-readout-family { color: var(--ink-3-text); margin-right: 8px; }
 .pc-readout-value { display: inline-block; margin-right: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pc-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 14px 0 6px; font-size: var(--t-small); color: var(--ink-2); }
 .pc-key { display: inline-flex; align-items: center; gap: 7px; }
@@ -1195,17 +1243,18 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
   border-radius: 999px; padding: 5px 8px 5px 14px; cursor: pointer; font-weight: 600;
 }
 .pill:hover { background: var(--fail-bg); border-color: var(--fail); color: var(--fail); }
-.pill .x { font-size: 15px; line-height: 1; opacity: .7; }
+/* The × at the pill's own ink: faded to .7 it fell to 3.2:1 (TRACKER M6). */
+.pill .x { font-size: 15px; line-height: 1; }
 .pill.soft { border-style: dashed; border-color: var(--border-strong); background: var(--surface); color: var(--ink-2); font-weight: 400; }
 /* The tracked requirements are a row of their own, so their label never reads as part of the required pills. */
 .pill-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-basis: 100%; }
 .pill-group .pill-label { margin-left: 0; }
-.pill-label { font-size: var(--t-label); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; font-weight: 650; margin-left: 6px; }
+.pill-label { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 650; margin-left: 6px; }
 
 /* ---------------------------------------------------------------- scenario drawer */
 .sc-summary { display: flex; gap: 20px; align-items: flex-start; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); margin-bottom: 8px; }
 .sc-big { font-size: 40px; font-weight: 650; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-.sc-big span { display: block; font-size: var(--t-small); font-weight: 400; color: var(--ink-3); letter-spacing: 0; margin-top: 6px; }
+.sc-big span { display: block; font-size: var(--t-small); font-weight: 400; color: var(--ink-3-text); letter-spacing: 0; margin-top: 6px; }
 .sc-lines { display: grid; gap: 6px; font-size: var(--t-small); color: var(--ink-2); padding-top: 4px; }
 .sc-lines .warn { color: var(--unknown); font-weight: 600; }
 .sc-actions { display: grid; gap: 8px; }
@@ -1216,7 +1265,7 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 
 /* ---------------------------------------------------------------- detail: plain-language overview */
 .lede { font-size: var(--t-body); line-height: 1.6; color: var(--ink); margin: 0 0 4px; }
-.fine { font-size: var(--t-small); color: var(--ink-3); margin: 10px 0 0; line-height: 1.5; }
+.fine { font-size: var(--t-small); color: var(--ink-3-text); margin: 10px 0 0; line-height: 1.5; }
 .callout { padding: 12px 14px; border-radius: var(--radius); font-size: var(--t-body); margin-bottom: 14px; }
 .callout.bad { background: var(--fail-bg); color: var(--fail); }
 
@@ -1244,10 +1293,11 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .est-toggle input:checked { background: var(--accent); }
 .est-toggle input:checked::after { transform: translateX(12px); }
 .est-toggle:hover input:not(:disabled) { box-shadow: 0 0 0 3px var(--accent-soft); }
-/* Under Confirmed only: visibly off, with its reason under it. */
-.est-toggle[data-disabled="true"] { color: var(--ink-3); cursor: not-allowed; }
+/* With the materials that could not be checked left out: visibly off. Its reason is in its ? and its title, and is read
+   aloud with it; the visible caption under it made the panel two lines tall. */
+.est-toggle[data-disabled="true"] { color: var(--ink-3-text); cursor: not-allowed; }
 .est-toggle[data-disabled="true"] input { opacity: .45; }
-.est-reason { font-size: 11px; color: var(--ink-3); white-space: nowrap; padding-left: 2px; }
+.est-reason { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .info-mark {
   width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--ink-2);
   font-size: 12px; font-weight: 700; text-align: center; line-height: 22px;
@@ -1268,11 +1318,11 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 /* An imprecise estimate is an order of magnitude, and looks it. */
 .est.est-poor { opacity: 0.7; font-style: italic; }
 /* Not applicable is a statement, not a gap. */
-.na { font-size: var(--t-small); color: var(--ink-3); font-style: italic; }
+.na { font-size: var(--t-small); color: var(--ink-3-text); font-style: italic; }
 .est-card.na-card { border-style: solid; border-color: var(--border); background: transparent; }
-.est-card .est-span .fine { font-size: var(--t-label); font-weight: 400; color: var(--ink-3); }
+.est-card .est-span .fine { font-size: var(--t-label); font-weight: 400; color: var(--ink-3-text); }
 .est-card .est-evidence { margin: 8px 0 0; padding-left: 18px; font-size: var(--t-label); color: var(--ink-2); line-height: 1.6; }
-.est-card .est-evidence .tag { font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; margin: 0 3px; }
+.est-card .est-evidence .tag { font-size: 10.5px; color: var(--ink-3-text); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; margin: 0 3px; }
 .est-card {
   border: 1px dashed var(--unknown); background: var(--unknown-bg); border-radius: var(--radius);
   padding: 12px 14px; margin-top: 10px;
@@ -1294,12 +1344,20 @@ details.est-card[open] > summary { margin-bottom: 6px; }
 .est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
 
 /* ---------------------------------------------------------------- table bar and new cells */
-.table-bar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 12px; }
+.table-bar { display: flex; align-items: center; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 8px; }
 /* The column chooser says what each set is for, on screen. */
 .colset-pick { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.colset-help { font-size: var(--t-small); color: var(--ink-3); }
+/* The column set's one-line help is read aloud with its buttons and is their title; shown, it pushed Compare against onto
+   a second row above the table (REVIEW-0 F10). */
+.colset-help { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* One stable line of marks, each a button that opens its definition. */
-.legend-row { display: flex; gap: 4px 16px; flex-wrap: wrap; flex-basis: 100%; font-size: var(--t-label); color: var(--ink-3); }
+.legend-row { display: flex; align-items: center; gap: 4px 14px; flex-wrap: wrap; flex-basis: 100%; font-size: var(--t-label); color: var(--ink-3-text); }
+/* The marks a few cells carry (close to the limit, converted, an annealed median) behind one fold, so the
+   legend is one line; opened, they take a line of their own. */
+.legend-more > summary { cursor: pointer; color: var(--ink-2); list-style: none; display: inline-flex; align-items: center; gap: 2px; }
+.legend-more > summary::-webkit-details-marker { display: none; }
+.legend-more[open] { flex-basis: 100%; }
+.legend-more-body { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; }
 .legend-row .lg { display: inline-block; color: var(--ink-2); }
 .legend-row .lg .load-mark { vertical-align: baseline; font-size: var(--t-label); }
 .lg-est { color: var(--unknown); font-style: italic; border-bottom: 1px dashed var(--unknown); }
@@ -1308,7 +1366,7 @@ details.est-card[open] > summary { margin-bottom: 6px; }
   flex-basis: 100%; margin: 0; padding: 6px 10px; font-size: var(--t-small); color: var(--ink);
   background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0;
 }
-.row-sub { display: block; font-weight: 400; font-size: var(--t-label); color: var(--ink-3); margin-top: 2px; }
+.row-sub { display: block; font-weight: 400; font-size: var(--t-label); color: var(--ink-3-text); margin-top: 2px; }
 .need {
   display: inline-block; font-size: var(--t-label); background: var(--unknown-bg); color: var(--unknown);
   border-radius: 4px; padding: 2px 7px; margin: 1px 3px 1px 0; white-space: nowrap;
@@ -1319,7 +1377,7 @@ a.buy:hover { color: var(--accent); text-decoration: underline; }
 /* The arrow on its own, beside a price or words that are buttons of their own: a 24 px target that moves nothing. */
 a.buy.buy-arrow { display: inline-block; min-width: 24px; padding: 4px 2px; margin: -4px 0; text-align: center; }
 a.buy.buy-arrow .buy-mark { margin-left: 0; }
-.oos { display: block; margin-left: auto; font-size: var(--t-label); color: var(--ink-3); }
+.oos { display: block; margin-left: auto; font-size: var(--t-label); color: var(--ink-3-text); }
 /* A listing with no usable price: two words and the arrow, on one line. */
 .unpriced { white-space: nowrap; }
 .no-price, .offer-price { font-size: var(--t-small); color: var(--ink-2); }
@@ -1332,6 +1390,7 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
 .mode-label {
   font-size: var(--t-small); color: var(--ink-2); font-weight: 600; white-space: nowrap;
 }
+.topbar .mode-label { font-weight: 500; }
 /* The label stays at every width; a phone gets the short form. */
 .mode-label-short { display: none; }
 @media (max-width: 600px) {
@@ -1351,22 +1410,26 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
 }
 
 /* The shortlist star, on and off without relying on the glyph alone. */
+.shortlist-btn { white-space: nowrap; }
 .shortlist-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
 /* The drawer's link to the material's own page: a button to look at, a link to open in the same tab, carrying the
    selection so the page's way back restores it (D145).
-   On a phone its words are kept for a screen reader and the arrow alone is shown, so the drawer's head stays one row
-   within the screen beside Shortlist and Close. */
+   On a phone its full words are kept for a screen reader and the short word "Page" is shown, so the drawer's head stays
+   one row within the screen beside Shortlist and Close (it had shown an empty pill: the arrow its rule spoke of was
+   never drawn). */
 .page-link { position: relative; display: inline-flex; align-items: center; gap: 4px; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .page-link:hover { color: var(--accent); border-color: var(--accent); }
+.page-link-short { display: none; }
 @media (max-width: 600px) {
   .page-link { padding: 4px 9px; }
   .page-link-words { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .page-link-short { display: inline; }
 }
 
 /* Filter rail: plain name leads, the sentence under it says what the property means, and the
    example lives here rather than as a grey placeholder that read like a set value. */
-.control .sub-label { font-size: var(--t-label); color: var(--ink-3); margin: 2px 0 4px; font-weight: 400; }
-.control .eg { font-size: var(--t-label); color: var(--ink-3); margin-top: 5px; font-style: italic; }
+.control .sub-label { font-size: var(--t-label); color: var(--ink-3-text); margin: 2px 0 4px; font-weight: 400; }
+.control .eg { font-size: var(--t-label); color: var(--ink-3-text); margin-top: 5px; font-style: italic; }
 .field-error { font-size: var(--t-label); color: var(--fail); margin-top: 5px; font-weight: 600; }
 .control input[aria-invalid="true"] { border-color: var(--fail); }
 .control select.op { width: auto; min-width: 92px; }
@@ -1398,7 +1461,7 @@ tr.baseline-row .name { color: var(--accent); }
 .excluded-group { margin-top: 28px; border-top: 1px solid var(--border); padding-top: 16px; }
 .excluded-group h3 { font-size: var(--t-body); font-weight: 650; color: var(--ink-2); margin: 0 0 10px; }
 .excluded-group .why-cell { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
-.empty-line { color: var(--ink-3); font-size: var(--t-small); margin: 14px 2px; }
+.empty-line { color: var(--ink-3-text); font-size: var(--t-small); margin: 14px 2px; }
 
 /* The measurement someone clicked through to, marked once they arrive. */
 .evidence-row.target {
@@ -1411,7 +1474,7 @@ tr.baseline-row .name { color: var(--accent); }
 }
 
 /* What the database does not cover, said before anyone goes hunting for it. */
-.start-limits { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
+.start-limits { margin-top: 2px; }
 .start-limits summary {
   cursor: pointer; font-size: var(--t-small); font-weight: 650; color: var(--ink-2);
   display: flex; align-items: center; gap: 6px; list-style: none;
@@ -1420,11 +1483,14 @@ tr.baseline-row .name { color: var(--accent); }
 .start-limits p, .start-limits li { font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
 .start-limits ul { margin: 8px 0; padding-left: 20px; }
 .start-limits li { margin-bottom: 6px; }
-.statusbar-idle { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-small); color: var(--ink-3); }
+.statusbar-idle { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-small); color: var(--ink-3-text); }
 /* The result filters as toggles: a tinted fill with its own edge while shown, an outline while hidden. */
 .statusbar button.chip { padding: 3px 11px; border-radius: 999px; font-size: var(--t-small); }
 .statusbar button.chip[aria-pressed="true"] { outline: 0; border-color: currentColor; }
 .statusbar button.chip[aria-pressed="false"] { background: transparent; border-color: var(--border-strong); color: var(--ink-2); }
+/* The last state shown cannot be hidden, so its chip is disabled, but its count is still the answer: it stays at full
+   ink, not faded to 2.1:1 like a control that does nothing (TRACKER M6). */
+.statusbar button.chip[disabled][aria-pressed="true"] { opacity: 1; }
 .statusbar button.chip-screened[aria-pressed="false"] { border-style: dashed; border-color: var(--unknown); color: var(--unknown); }
 
 /* Estimate spans in Compare. A span, not a bar: there is no value to fill to, and drawing one
@@ -1471,7 +1537,7 @@ tr.baseline-row .name { color: var(--accent); }
 /* Makers' know-how: each statement in the maker's words, with where it stands in a smaller, quieter line. */
 .maker-quotes { margin: 0; padding: 0 0 0 16px; }
 .maker-quotes li + li { margin-top: 3px; }
-.maker-src { font-size: var(--t-label); color: var(--ink-3); }
+.maker-src { font-size: var(--t-label); color: var(--ink-3-text); }
 .lvl { font-size: var(--t-label); }
 .rank-line { color: var(--accent); }
 .rank-pick { display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small); color: var(--ink-2); }
@@ -1484,7 +1550,7 @@ tr.baseline-row .name { color: var(--accent); }
 /* ---------------------------------------------------------------- the drawer for an engineer (D124) */
 /* Record IDs, one small mark that opens them: never in the sentence. */
 .mark.id-mark {
-  font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px;
+  font-size: 10.5px; color: var(--ink-3-text); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px;
   margin-left: 4px; line-height: 1.5; vertical-align: 1px; font-family: var(--mono);
 }
 .mark.id-mark:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
@@ -1501,9 +1567,18 @@ tr.baseline-row .name { color: var(--accent); }
 .key-props { display: grid; grid-template-columns: minmax(130px, 40%) 1fr; gap: 7px 14px; margin: 4px 0 10px; font-size: var(--t-body); }
 .key-props dt { margin: 0; }
 .key-props dd { margin: 0; }
-.key-props dd.kp-empty { color: var(--ink-3); }
+.key-props dd.kp-empty { color: var(--ink-3-text); }
+/* The page's key figures (2026-10-18): the median large, the middle half and the count small beside it, as the page's plate
+   prints them; the other headlines on one line under them. */
+.key-figs .kp-v { font-weight: 600; }
+.key-figs .kp-f { font-size: var(--t-small); color: var(--ink-2); margin-left: 6px; }
+.kp-also { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 6px; line-height: 1.7; }
+.kp-also .kp-sep { color: var(--ink-3-text); }
+.kp-missing { color: var(--ink-3-text); }
+.h2c-v { font-weight: 600; margin-left: 4px; }
 .mark.prop-name { text-decoration: underline dotted 1px; text-underline-offset: 3px; color: var(--ink-2); text-align: left; }
 .print-answer { margin: 4px 0; font-size: var(--t-body); }
+.price-answer { font-size: var(--t-body); margin: 0 0 10px; }
 .data-line { font-size: var(--t-small); color: var(--ink-2); margin: 18px 0 6px; padding-top: 12px; border-top: 1px solid var(--border); }
 .data-line .link-btn { margin-left: 6px; }
 .overview-foot { margin-top: 10px; }
@@ -1515,7 +1590,7 @@ tr.baseline-row .name { color: var(--accent); }
   background: none; border: 0; padding: 7px 0; cursor: pointer; font: inherit; color: var(--ink);
 }
 .grade-toggle .grade-name { font-weight: 650; font-size: var(--t-body); }
-.grade-toggle .grade-keys { flex-basis: 100%; padding-left: 22px; font-size: var(--t-small); color: var(--ink-3); }
+.grade-toggle .grade-keys { flex-basis: 100%; padding-left: 22px; font-size: var(--t-small); color: var(--ink-3-text); }
 .grade-toggle[aria-expanded="true"] > .chevron::before { transform: rotate(45deg); margin: 0 0 3px; }
 .grade-toggle:hover > .chevron::before { border-color: var(--accent); }
 .grade-head .choose-btn { margin-top: 5px; flex: 0 0 auto; }
@@ -1524,7 +1599,7 @@ tr.baseline-row .name { color: var(--accent); }
 .grade-docs .shared-head { display: inline; margin-right: 6px; }
 /* Sources: what a document covers and gave, and its record notes out of the way. */
 .src-covers { font-size: var(--t-small); color: var(--ink-2); margin: 2px 0; }
-.record-notes { margin: 3px 0 0; font-size: var(--t-label); color: var(--ink-3); }
+.record-notes { margin: 3px 0 0; font-size: var(--t-label); color: var(--ink-3-text); }
 .record-notes > summary { cursor: pointer; }
 .review-notes { margin-top: 10px; }
 /* On a phone a maker's quotes take the full width under their topic, not a third of it. */

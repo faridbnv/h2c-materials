@@ -1,6 +1,6 @@
 COUNT 10 shown PASS
 STATUS ☑ PASS 10 | ☐ UNKNOWN 90 | ☐ FAIL 52
-GOAL
+Goal
 None: compare two properties
 Tie, minimum mass, stiffness prescribed
 Beam, minimum mass, stiffness prescribed
@@ -12,18 +12,18 @@ Beam, minimum material cost, stiffness prescribed
 Tie, minimum material cost, strength prescribed
 Maximise M = E^(1/2) / ρ
 Cross-section area free, its proportions fixed; length fixed
-ASKED
+Asked
 As printed, dry
-Within H2C capability and temperature limits
+Within H2C capability · Nozzle, bed and chamber within H2C limits
 Tensile modulus (XY) at least 3 GPa
 Density at most 1250 kg/m³
 Change in Filters
-DRAW
+Draw
 Material typicals
 Material ranges
 Products
 More ▾
-ALSO
+Also
 Unknown
 Failing
 Estimates
@@ -35,7 +35,7 @@ Familiar: PETG
 Familiar: ABS
 Familiar: ASA
 Familiar: PC
-LINE
+Line
 M =
 ▼
 ▲
@@ -111,7 +111,7 @@ Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
 Colour is polymer family
 Drawn: 15 products from 10 materials, each meeting every requirement.
-READING THIS CHART
+Reading this chart
 Ranking
 M = E^(1/2) / ρ
 Each material by the median M of its passing products, in GPa^½/(Mg/m³); n is how many products it rests on.

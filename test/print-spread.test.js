@@ -16,6 +16,7 @@ import { useRegistry } from '../app/js/ui/registry.js';
 import { setH2cBaseline } from '../app/js/ui/labels.js';
 import { esc, fmtNumber, fmtBounded } from '../app/js/ui/format.js';
 import { printSpread, rowSummary, PRINT_AXES, OUTSIDE } from '../app/js/ui/print-spread.js';
+import { fmtDisplay, spanDisplay } from '../app/js/ui/display-numbers.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
@@ -52,6 +53,11 @@ const NOT_DRAWN_WORDS = {
   unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+};
+const NOT_DRAWN_ONE = {
+  unknown: 'says nothing', 'not-required': 'needs none', enclosed: 'asks for an enclosure and gives no temperature (the H2C\'s heated chamber counts)',
+  recommended: 'recommends an enclosure and gives no temperature', ambient: 'prints at room temperature', 'no-setpoint': 'gives no set point',
+  'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
 };
 
 // ---- an independent reading of the spread, straight off the products ----
@@ -355,17 +361,19 @@ test('the table is the spread: each row\'s n, median, middle half and range are 
         if (counted.length >= 4) { near(s.q1, quantileOf(counted, 0.25), `${x.m.id} ${r.label}: q1`); near(s.q3, quantileOf(counted, 0.75), `${x.m.id} ${r.label}: q3`); seen.quartiles++; }
         else assert.equal(s.q1, undefined, `${x.m.id} ${r.label}: no quartiles from fewer than four values`);
       }
-      // The page against the summary, as the page formats it.
+      // The page against the summary, at the material pages' display precision (display-numbers.js): whole degrees.
       assert.equal(row.n, String(s.n), `${x.m.id} ${r.label}: n printed`);
-      assert.equal(row.median, s.n ? fmtNumber(s.median) : '—', `${x.m.id} ${r.label}: median printed`);
-      assert.equal(row.middle, s.q1 != null ? (s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—', `${x.m.id} ${r.label}: middle half printed`);
-      assert.equal(row.range, s.n ? (s.min === s.max ? fmtNumber(s.min) : `${fmtNumber(s.min)}${WJ}–${WJ}${fmtNumber(s.max)}`) : '—', `${x.m.id} ${r.label}: range printed`);
+      assert.equal(row.median, s.n ? fmtDisplay(s.median, '°C') : '—', `${x.m.id} ${r.label}: median printed`);
+      assert.equal(row.middle, s.q1 != null ? spanDisplay(s.q1, s.q3, '°C') : '—', `${x.m.id} ${r.label}: middle half printed`);
+      assert.equal(row.range, s.n ? spanDisplay(s.min, s.max, '°C') : '—', `${x.m.id} ${r.label}: range printed`);
       const guide = r.entries.filter((e) => !e.variant && e.origin === 'guide'), variants = r.entries.filter((e) => e.variant);
       assert.equal(row.apart !== null, guide.length + variants.length > 0, `${x.m.id} ${r.label}: a line for the values drawn and not counted`);
       if (row.apart) {
         seen.apart++;
-        if (guide.length) assert.ok(row.apart.includes(`${guide.length} from the guide (`), `${x.m.id} ${r.label}: ${row.apart}`);
-        if (variants.length) assert.ok(row.apart.includes(`${plural(variants.length, 'special formulation')} (`), `${x.m.id} ${r.label}: ${row.apart}`);
+        assert.ok(row.apart.startsWith('Not counted: '), `${x.m.id} ${r.label}: ${row.apart}`);
+        // Each value drawn and not counted is counted here, with its range.
+        if (guide.length) assert.ok(row.apart.includes(`${guide.length} from the guide (${spanDisplay(Math.min(...guide.map((e) => e.value)), Math.max(...guide.map((e) => e.value)), '°C')})`), `${x.m.id} ${r.label}: ${row.apart}`);
+        if (variants.length) assert.ok(row.apart.includes(`${variants.length} with an added filler or additive (${spanDisplay(Math.min(...variants.map((e) => e.value)), Math.max(...variants.map((e) => e.value)), '°C')})`), `${x.m.id} ${r.label}: ${row.apart}`);
       }
       seen.rows++;
     }
@@ -373,33 +381,19 @@ test('the table is the spread: each row\'s n, median, middle half and range are 
   assert.ok(seen.rows > 100 && seen.quartiles > 20 && seen.apart > 0, JSON.stringify(seen));
 });
 
-test('the medians line names, for each drawn setting, the medians of its lowest and highest rows', () => {
+test('the window line says what the Overview\'s On the H2C says, setting by setting (one statistic for one setting, D146)', () => {
   let checked = 0;
   for (const x of withHeading()) {
-    const parts = [];
-    for (const a of x.spread) {
-      if (!x.settings[a.axis].drawn) continue;
-      const [low, high] = a.rows.map((r) => (r.summary.n ? r.summary.median : null));
-      if (low == null && high == null) continue;
-      // Two medians of different products can cross; then each is said by name.
-      parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C, medians of different products`
-        : `${lower(a.label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`);
-    }
-    const line = footLines(x.heading).find((l) => l.startsWith('Medians of the lowest and highest settings'));
-    if (!parts.length) { assert.equal(line, undefined, `${x.m.id}: no window where no row has a counted value`); continue; }
-    assert.equal(line, `Medians of the lowest and highest settings: ${andList(parts)}.`, x.m.id);
-    // And the medians are the products' own: worked out from g.print here, not from the spread.
-    for (const [axis, s] of Object.entries(x.settings)) {
-      if (!s.drawn) continue;
-      for (const [key, entries] of Object.entries(s.rows)) {
-        const counted = entries.filter((e) => !e.variant && e.origin !== 'guide').map((e) => e.value);
-        if (!counted.length) continue;
-        assert.ok(line.includes(fmtNumber(medianOf(counted))), `${x.m.id} ${key}: the window holds the median ${medianOf(counted)} (${line})`);
-      }
-    }
+    const host = { innerHTML: '', querySelectorAll: () => [], querySelector: (q) => ['#drawer-close', '#drawer-pin'].includes(q) ? { addEventListener() {} } : null };
+    renderDrawer(host, { db, selectedMaterialId: x.m.id, drawerTab: 'Overview', selection: { evaluations: [] }, scenario: { shortlist: [], unknownPolicy: 'strict' }, ctx }, {});
+    const overview = new Map([...host.innerHTML.matchAll(/data-print="(nozzle|bed|chamber|drying)"[\s\S]*?<b>([^<]*)<\/b> <span class="h2c-v">([^<]*)<\/span>/g)]
+      .map(([, key, label, value]) => [key, `${lower(text(label))} ${text(value)}`]).filter(([, v]) => !/ not (published|stated)$/.test(v)));
+    const line = footLines(x.heading).find((l) => l.startsWith('The window most products give'));
+    if (!overview.size) { assert.equal(line, undefined, `${x.m.id}: no window line where the Overview gives none`); continue; }
+    assert.equal(line, `The window most products give, as the Overview gives it: ${andList([...overview.values()])}.`, x.m.id);
     checked++;
   }
-  assert.ok(checked > 20, `${checked} medians lines`);
+  assert.ok(checked > 20, `${checked} window lines`);
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -463,7 +457,7 @@ test('the counts square with the products: drawn plus not drawn is every product
       // The page says what printSpread counts.
       const oneEnd = (n, end) => (n ? `${n} ${n === 1 ? 'gives' : 'give'} only a ${end} setting` : null);
       if (s.notDrawn.size || s.oneEnd.low || s.oneEnd.high) {
-        missingWanted.push(`${lower(LABEL[axis])}, ${andList([...[...s.notDrawn].map(([why, n]) => `${n} ${NOT_DRAWN_WORDS[why]}`),
+        missingWanted.push(`${lower(LABEL[axis])}, ${andList([...[...s.notDrawn].map(([why, n]) => `${n} ${(n === 1 ? NOT_DRAWN_ONE : NOT_DRAWN_WORDS)[why]}`),
           oneEnd(s.oneEnd.low, 'lowest'), oneEnd(s.oneEnd.high, 'highest')].filter(Boolean))}`);
         seen.notDrawn += notDrawn;
         seen.open += s.oneEnd.low + s.oneEnd.high;
@@ -489,22 +483,27 @@ test('the products dots stand for are the material\'s products, none missing and
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-test('the H2C\'s limit is drawn where it is near the values, and the axis says where it is when it is far above them', () => {
+test('the H2C\'s limit is drawn where it is near the values, and the setting\'s head says where it is when it is far above them', () => {
   const seen = { on: 0, above: 0, none: 0 };
   for (const x of withHeading()) {
     const parts = x.heading.split('<div class="imp-strips">').slice(1);
     const drawn = PRINT_AXES.filter((a) => x.settings[a.axis].drawn);
     assert.equal(parts.length, drawn.length, `${x.m.id}: a graph per drawn setting`);
     drawn.forEach(({ axis, limit }, i) => {
-      const part = parts[i].split('<p class="imp-key')[0];
+      const part = parts[i];
       const values = x.settings[axis].entries.map((e) => e.value);
       const lo = Math.min(...values), hi = Math.max(...values);
+      // The setting's head names it, its unit and the H2C's limit; the axis under its rows says only the unit.
+      const head = unesc(/^\s*<p class="imp-ghead"><b>([^<]*)<\/b> · ([^<]*)<\/p>/.exec(part)?.slice(1).join(' · ') ?? '');
       const axisText = unesc(/class="imp-row imp-axis"><span class="fine">([^<]*)</.exec(part)?.[1] ?? '');
+      assert.equal(axisText, '°C', `${x.m.id} ${axis}: the axis says only °C`);
       const spans = (part.match(/<span class="imp-limit"/g) ?? []).length;
+      const washes = (part.match(/<span class="imp-beyond"/g) ?? []).length;
+      assert.equal(washes, spans, `${x.m.id} ${axis}: the range beyond the limit is washed wherever the limit is drawn`);
       const rowsDrawn = Object.values(x.settings[axis].rows).filter((r) => r.length).length;
       if (!limit) {
         assert.equal(spans, 0, `${x.m.id} ${axis}: no limit on drying`);
-        assert.equal(axisText, '°C', `${x.m.id} ${axis}: the axis says only °C`);
+        assert.equal(head, `${LABEL[axis]} · °C`, `${x.m.id} ${axis}: the head says only its name and °C`);
         seen.none++;
         return;
       }
@@ -512,11 +511,11 @@ test('the H2C\'s limit is drawn where it is near the values, and the axis says w
       const near = lim <= hi + Math.max((hi - lo) / 4, 10);
       if (near) {
         assert.equal(spans, rowsDrawn, `${x.m.id} ${axis}: the limit ${lim} is drawn in each of the ${rowsDrawn} tracks (values ${lo} to ${hi})`);
-        assert.equal(axisText, `°C, H2C limit ${fmtNumber(lim)}`, `${x.m.id} ${axis}: axis label`);
+        assert.equal(head, `${LABEL[axis]} · °C · the H2C reaches ${fmtNumber(lim)} °C`, `${x.m.id} ${axis}: the setting's head`);
         seen.on++;
       } else {
         assert.equal(spans, 0, `${x.m.id} ${axis}: the limit ${lim} is far above the values ${lo} to ${hi} and is not drawn`);
-        assert.equal(axisText, `°C; H2C limit ${fmtNumber(lim)} °C, above the scale`, `${x.m.id} ${axis}: axis label`);
+        assert.equal(head, `${LABEL[axis]} · °C · the H2C reaches ${fmtNumber(lim)} °C, above this scale`, `${x.m.id} ${axis}: the setting's head`);
         seen.above++;
       }
     });

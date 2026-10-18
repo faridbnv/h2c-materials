@@ -14,6 +14,9 @@ import { AXIS_DEFS } from './axes.js';
 import { buildFamilyColors, esc, fmtNumber, fmtBounded, publishedBound } from './format.js';
 import { prop } from './labels.js';
 
+/** An axis is logarithmic when its drawn values' largest is more than this many times their smallest (Compare's rule). */
+const LOG_AXIS_RATIO = 100;
+
 const DEFAULT_AXES = ['density', 'tensileModulusXY', 'elongationXY', 'hdt045'];
 const PAD = { top: 62, right: 62, bottom: 54, left: 62 };
 const HEIGHT = 460;
@@ -104,20 +107,24 @@ function draw(host, usable, chosen, db, state, actions, estimateOnly = []) {
   const innerH = HEIGHT - PAD.top - PAD.bottom;
   const step = axes.length > 1 ? innerW / (axes.length - 1) : 0;
 
-  // Each axis scaled to its own range across the drawn set, which is what makes the shape readable.
+  // Each axis scaled to its own range across the drawn set, which is what makes the shape readable. An axis whose drawn
+  // values are all positive and span more than a hundredfold is logarithmic, by Compare's rule: one elastomer at 400 %
+  // elongation had pressed every other line onto the floor of a linear axis (REVIEW-0 F9, 2026-10-18).
   const scales = axes.map((a) => {
     const vs = usable.map((r) => r.material.headline[a.key].value);
     let lo = Math.min(...vs), hi = Math.max(...vs);
+    const log = lo > 0 && hi / lo > LOG_AXIS_RATIO;
     if (lo === hi) { const d = Math.abs(lo) * 0.1 || 1; lo -= d; hi += d; }
-    return { lo, hi };
+    return { lo, hi, log };
   });
 
   const xAt = (i) => PAD.left + i * step;
   // End axes anchor inward so their labels and ticks cannot run off the drawing.
   const anchor = (i) => (i === 0 ? 'start' : i === axes.length - 1 ? 'end' : 'middle');
   const yAt = (i, v) => {
-    const { lo, hi } = scales[i];
-    return PAD.top + innerH - ((v - lo) / (hi - lo)) * innerH;
+    const { lo, hi, log } = scales[i];
+    const t = log ? Math.log10 : (x) => x;
+    return PAD.top + innerH - ((t(v) - t(lo)) / (t(hi) - t(lo))) * innerH;
   };
 
   const lines = usable.map(({ material: m, evaluation: e }) => {
@@ -144,7 +151,7 @@ function draw(host, usable, chosen, db, state, actions, estimateOnly = []) {
         <g class="pc-axis-g" aria-hidden="true">
           <line x1="${xAt(i)}" y1="${PAD.top}" x2="${xAt(i)}" y2="${PAD.top + innerH}" class="pc-line-axis"/>
           <text x="${xAt(i)}" y="${PAD.top - 38}" class="pc-lbl" text-anchor="${anchor(i)}">${esc(prop(a.key).short)}</text>
-          <text x="${xAt(i)}" y="${PAD.top - 25}" class="pc-lbl-unit" text-anchor="${anchor(i)}">${esc(a.unit)}</text>
+          <text x="${xAt(i)}" y="${PAD.top - 25}" class="pc-lbl-unit" text-anchor="${anchor(i)}">${esc(a.unit)}${scales[i].log ? ' · log' : ''}</text>
           <text x="${xAt(i)}" y="${PAD.top - 8}" class="pc-tick" text-anchor="${anchor(i)}">${fmtNumber(scales[i].hi)}</text>
           <text x="${xAt(i)}" y="${PAD.top + innerH + 17}" class="pc-tick" text-anchor="${anchor(i)}">${fmtNumber(scales[i].lo)}</text>
         </g>`).join('')}
@@ -163,7 +170,7 @@ function draw(host, usable, chosen, db, state, actions, estimateOnly = []) {
     <div class="legend-note">
       ${lines.length} of ${state.rows.length} candidates have all ${axes.length} properties and are drawn.
       ${state.rows.length - lines.length ? `${state.rows.length - lines.length} do not, and are left out rather than drawn at zero.` : ''}
-      Each axis is scaled to its own range across the drawn set. Point at a line to read it and click it to open the material;
+      Each axis is scaled to its own range across the drawn set${scales.some((x) => x.log) ? '; one whose values span more than a hundredfold is logarithmic, marked log' : ''}. Point at a line to read it and click it to open the material;
       on a touch screen, tap a line to read it, then Open material. From the keyboard, Tab reaches each line and Enter opens it.
       ${estimateOnly.length ? `<br><b>${estimateOnly.length} of those</b> have an estimated range on at
         least one of these axes rather than a gap: ${esc(estimateOnly.slice(0, 8).map((r) => r.material.name).join(', '))}${estimateOnly.length > 8 ? ` and ${estimateOnly.length - 8} more` : ''}.

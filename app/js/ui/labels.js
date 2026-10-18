@@ -22,13 +22,26 @@ export const prop = (key) => PROPERTY[key] ?? { short: key, plain: key, technica
  */
 // "Candidate confidence" read as a statistical confidence; the switch decides whether materials with missing data are
 // listed (the PM trial of 2026-10-01, PM-09).
-export const POLICY_CONTROL = 'Materials with missing data';
+// "Materials with missing data: Confirmed only / Include uncertain" made an engineer stop twice (REVIEW-0, 2026-10-18):
+// the control names the materials it is about, those whose data cannot settle a requirement, and what to do with them.
+export const POLICY_CONTROL = 'Materials that could not be checked';
 /** The same label where a phone has no room for the long one. The control is never left unlabelled. */
-export const POLICY_CONTROL_SHORT = 'Missing data';
+export const POLICY_CONTROL_SHORT = 'Could not be checked';
 /** An environment requirement in words. Water solubility is not water resistance: a nylon does not dissolve in water and
  * still takes it up, so it reads "Does not dissolve in water" (the PM trial, PM-11). */
 export const envRequirement = (category) => (category === 'water-solubility' ? 'Does not dissolve in water' : `Resists ${envNoun(category)}`);
-export const POLICY_LABELS = { strict: 'Confirmed only', exploration: 'Include uncertain' };
+export const POLICY_LABELS = { strict: 'Leave out', exploration: 'Include' };
+/**
+ * The H2C's three temperature checks under one name, wherever the main page names them together: the pill, the rail's
+ * checkbox, Why excluded and the brief. The pill said "Within H2C temperature limits" and Why excluded listed three
+ * rows, so one requirement had two names (REVIEW-0 F11, 2026-10-18).
+ */
+export const H2C_CHECK = 'Nozzle, bed and chamber within H2C limits';
+/** The choice in a sentence, where the buttons' two words alone would not read ("With Include, …"). */
+export const POLICY_PHRASE = {
+  strict: 'with the materials that could not be checked left out',
+  exploration: 'with the materials that could not be checked included',
+};
 export const policyLabel = (policy) => POLICY_LABELS[policy] ?? POLICY_LABELS.strict;
 
 // The H2C's limits, from the build (db.meta.h2cBaseline); set once at start-up. Every label that names a limit reads
@@ -56,7 +69,7 @@ export const GATE = {
 export const H2C_STATUS = {
   'Official Bambu product': { label: 'Bambu Lab filament', meaning: 'Bambu Lab sells a filament of this material for the H2C. As a filter it passes Bambu Lab\'s own spools only.',
     lede: 'Bambu Lab sells a filament of it for the H2C.' },
-  'Officially listed family': { label: 'Type on Bambu\'s H2C list', meaning: 'Bambu Lab lists this material type for the H2C, though not every brand of it.',
+  'Officially listed family': { label: 'Type on Bambu Lab\'s H2C list', meaning: 'Bambu Lab lists this material type for the H2C, though not every brand of it.',
     lede: 'A material type on Bambu Lab\'s H2C list, though not every brand of it is.' },
   Conditional: { label: 'Unlisted, usable with conditions', meaning: 'Not on Bambu Lab\'s list. It prints on the H2C under conditions, which the Printing tab gives.',
     lede: 'Not on Bambu Lab\'s list; it prints on the H2C under the conditions given in Printing.' },
@@ -99,7 +112,7 @@ export const GATE_VERDICT = {
   within: { word: 'Within', short: 'within', against: 'within the H2C' },
   partial: { word: 'Partly within', short: 'partly within', against: 'partly within the H2C' },
   'exceeds-recommended': { word: 'Above recommended', short: 'above recommended', against: 'recommended above the H2C' },
-  exceeds: { word: 'Exceeds', short: 'exceeds', against: 'beyond the H2C' },
+  exceeds: { word: 'Beyond', short: 'beyond', against: 'beyond the H2C' },
   unknown: { word: 'No data', short: 'no data', against: 'not judged against the H2C' },
 };
 export const gateVerdict = (v) => {
@@ -153,7 +166,7 @@ export function estimateTitle(e, d) {
   return `Estimate, not a measurement: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} interval), centre ${d.centre}${unit}.${column}${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its product is also filed under ${e.sharedWith.name}.` : ''}`
     + ` ${e.precision === 'poor' ? 'Poor precision: treat it as an order of magnitude only.' : `Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`}`
-    + ` It never makes a material pass.${e.canScreen ? ` With ${POLICY_LABELS.exploration}, it excludes this material from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+    + ` It never makes a material pass.${e.canScreen ? ` ${POLICY_PHRASE.exploration.charAt(0).toUpperCase()}${POLICY_PHRASE.exploration.slice(1)}, it excludes this material from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
 }
 
 /**
@@ -321,7 +334,7 @@ export const WHY_WORDS = {
   direction: (n) => (n === 1 ? '1 on a bar in another orientation' : `${n} on bars in another orientation`),
   unstatedDirection: (n) => `${n} with no stated orientation`, load: (n) => `${n} at another test load`, unstatedLoad: (n) => `${n} with no stated test load`,
   second: (n) => `${n} more of ${n === 1 ? 'a product' : 'products'} already drawn`, retired: (n) => `${n} of products no longer listed`,
-  reference: (n) => `${n} of reference grades`,
+  reference: (n) => `${n} on reference specimens, not for sale`,
 };
 export const whyWords = (key, n) => (key.startsWith('unit:') ? `${n} in ${key.slice(5)}`
   : key.startsWith('property:') ? `${n} of ${lower(propertyName(key.slice(9)))}` : WHY_WORDS[key](n));
@@ -373,6 +386,12 @@ export const PRINT_NOT_DRAWN = {
   unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+};
+/** The same, of one product ("1 says nothing", not "1 say nothing"). */
+export const PRINT_NOT_DRAWN_ONE = {
+  unknown: 'says nothing', 'not-required': 'needs none', enclosed: 'asks for an enclosure and gives no temperature (the H2C\'s heated chamber counts)',
+  recommended: 'recommends an enclosure and gives no temperature', ambient: 'prints at room temperature', 'no-setpoint': 'gives no set point',
+  'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
 };
 /** What a print gate verdict outside the H2C's limits adds after a product's window (print-spread.js OUTSIDE). */
 export const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };

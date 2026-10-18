@@ -11,7 +11,7 @@
 import { availability } from '../engine/coverage.js';
 import { runSelection } from '../engine/constraints.js';
 import { esc, priceSampleWords, explainButton } from './format.js';
-import { prop, envLabel, envRequirement, GATE, H2C_STATUS, FILLER } from './labels.js';
+import { prop, envLabel, envRequirement, GATE, H2C_STATUS, FILLER, H2C_CHECK } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 import { PRINTABLE, printCheck } from './templates.js';
 
@@ -29,7 +29,9 @@ import { PRINTABLE, printCheck } from './templates.js';
 // checks used to sit above every group and again under Compatibility at the bottom; they are one group now.
 const GROUPS = ['Material family', 'Mechanical', 'Thermal', 'Environment', 'Compatibility', 'Part condition', 'Cost', 'Evidence'];
 const GROUP_LABEL = { Compatibility: 'Printing on the H2C', Cost: 'Cost and availability', Evidence: 'Data quality' };
-const OPEN_BY_DEFAULT = new Set(['Material family', 'Mechanical', 'Thermal', 'Compatibility']);
+// The rail opens on what a part needs (2026-10-18, REVIEW-0 F14): open, the 25-row family list had pushed density,
+// modulus and HDT about 850 px down. The family group opens itself when a family, polymer or filler is ticked.
+const OPEN_BY_DEFAULT = new Set(['Mechanical', 'Thermal', 'Compatibility']);
 // A line icon beside each heading, drawn as the top bar's are (20 px box, 1.7 px stroke), so a group is found by shape
 // as well as by name in a rail of eight.
 const GROUP_ICON = {
@@ -97,10 +99,13 @@ export function renderFilters(host, state, actions) {
   const parts = [];
   for (const group of GROUPS) {
     const n = activeIn(group);
-    const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
+    // The build-material check sits in the family group but is set by every template: alone, it names itself on the
+    // badge ("1 set" read as a family picked) and leaves the group closed.
+    const buildOnly = group === 'Material family' && n === 1 && cs.some((c) => c.facet === 'supportMaterial');
+    const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || (n > 0 && !buildOnly);
     const inner = group === 'Part condition' ? partCondition(scenario, db) : body(group, materials, cs, db, state.ctx);
     parts.push(`<details class="group" data-group="${group}" ${open ? 'open' : ''}>
-      <summary><svg class="icon group-icon" viewBox="0 0 20 20" aria-hidden="true">${GROUP_ICON[group] ?? ''}</svg>${esc(GROUP_LABEL[group] ?? group)}<span class="count" data-zero="${n === 0}">${n} set</span><span class="chevron" aria-hidden="true"></span></summary>
+      <summary><svg class="icon group-icon" viewBox="0 0 20 20" aria-hidden="true">${GROUP_ICON[group] ?? ''}</svg>${esc(GROUP_LABEL[group] ?? group)}<span class="count" data-zero="${n === 0}">${buildOnly ? 'Build materials only' : `${n} set`}</span><span class="chevron" aria-hidden="true"></span></summary>
       <div class="group-body">${inner}</div>
     </details>`);
   }
@@ -145,7 +150,7 @@ function partCondition(scenario, db) {
       <div class="segmented seg-sm" role="group" aria-labelledby="seg-moisture">
         ${seg('moisture', 'dry', dry, 'Dry')}${seg('moisture', 'conditioned', !dry, 'Conditioned')}</div>
       <div class="avail">Data sheets test dry bars. Conditioned judges only values measured after moisture conditioning,
-        which ${conditioned} products publish, so most materials become unknown and Confirmed only leaves them out.</div>
+        which ${conditioned} products publish, so most materials could not be checked and are left out unless included.</div>
     </div>`;
 }
 
@@ -228,7 +233,7 @@ function body(group, materials, cs, db, ctx = {}) {
         + `<span class="caveat">${partial} publish a window the H2C reaches only in part; they stay unresolved</span>`;
     };
     out.push(`<div class="control print-check" data-active="${check !== 'none'}">
-      <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> Within H2C temperature limits</label>
+      <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> ${H2C_CHECK}</label>
       <div class="avail">Checks each product's published nozzle, bed and chamber temperatures. Where its data sheet is
         silent, a data sheet shared with another product, then the Bambu Lab Filament Guide, stands in; the drawer says which.</div>
       <div class="checks sub-checks">${['nozzle', 'bed', 'chamber'].map((gate) => `

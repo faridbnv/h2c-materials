@@ -30,17 +30,18 @@
     <!-- The most consequential control in the product. Top level, never inside a filter group.
          It carries its own label and its own consequence: the meaning used to live only in a
          tooltip and in a monospace line at the far corner of the screen that read like a log. -->
-    <!-- The two settings that decide what missing data does, in one panel: they used to read as five unrelated boxes. -->
+    <!-- The two settings that decide what missing data does, side by side and quiet: they had read as five unrelated boxes,
+         then as the loudest box on the page before any requirement was set (2026-10-18). -->
     <div class="data-settings">
     <div class="mode-group">
-      <span class="mode-label" id="mode-label"><span class="mode-label-long">Materials with missing data</span><span class="mode-label-short">Missing data</span></span>
+      <span class="mode-label" id="mode-label"><span class="mode-label-long">Materials that could not be checked</span><span class="mode-label-short">Could not be checked</span></span>
       <div class="segmented" role="group" aria-labelledby="mode-label">
-        <button id="mode-strict" aria-pressed="true" title="Show only materials confirmed to meet every requirement.">Confirmed only</button>
-        <button id="mode-explore" aria-pressed="false" title="Also show materials that may qualify but still need verification. Estimates and a base polymer's published behaviour can screen out clear mismatches.">Include uncertain</button>
+        <button id="mode-strict" aria-pressed="true" title="Leave out the materials whose data cannot settle a requirement: only those confirmed to meet every requirement are listed.">Leave out</button>
+        <button id="mode-explore" aria-pressed="false" title="Also list the materials whose data cannot settle a requirement, flagged, with what is missing for each. Estimates and a base polymer's published behaviour can then screen out clear mismatches.">Include</button>
       </div>
     </div>
 
-    <!-- Shown in both modes. Under Confirmed only it is disabled and says why beside it; it used to be hidden, so a
+    <!-- Shown in both modes. Left out, it is disabled, and its ? and its name for a screen reader say why; it used to be hidden, so a
          reader in the default mode never learned estimates exist. What the switch governs sits one press away. One
          switch governs all inference: estimates of missing numbers and a base polymer's published behaviour (D64). The
          element ids and the scenario field keep their names, so links and the fuzz keep working. -->
@@ -50,10 +51,10 @@
           <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Let estimates rule out materials</span></label>
         <button type="button" class="mark info-mark" aria-label="What estimates and polymer data are" aria-haspopup="dialog" aria-expanded="false"
           data-explain-head="Let estimates rule out materials"
-          data-explain="Where a material publishes nothing, the tool can estimate the value from related values and similar materials, and can read its base polymer's resin reference data for chemicals. Neither ever makes a material pass. With this on, an estimate excludes a material only when its whole plausible range misses the requirement, and resin data only when it reports the polymer attacked or dissolved. It works only under Include uncertain; Confirmed only uses each material's own data alone."
-          title="Where a material publishes nothing, the tool can estimate the value from related values and similar materials, and can read its base polymer's resin reference data for chemicals. Neither ever makes a material pass. With this on, an estimate excludes a material only when its whole plausible range misses the requirement, and resin data only when it reports the polymer attacked or dissolved. It works only under Include uncertain; Confirmed only uses each material's own data alone.">?</button>
+          data-explain="Where a material publishes nothing, the tool can estimate the value from related values and similar materials, and can read its base polymer's resin reference data for chemicals. Neither ever makes a material pass. With this on, an estimate excludes a material only when its whole plausible range misses the requirement, and resin data only when it reports the polymer attacked or dissolved. It works only when the materials that could not be checked are included; left out, each material is judged on its own data alone."
+          title="Where a material publishes nothing, the tool can estimate the value from related values and similar materials, and can read its base polymer's resin reference data for chemicals. Neither ever makes a material pass. With this on, an estimate excludes a material only when its whole plausible range misses the requirement, and resin data only when it reports the polymer attacked or dissolved. It works only when the materials that could not be checked are included; left out, each material is judged on its own data alone.">?</button>
       </div>
-      <span class="est-reason" id="est-reason">Only under Include uncertain</span>
+      <span class="est-reason" id="est-reason">Works only when the materials that could not be checked are included</span>
       <span class="est-ruled" id="est-ruled" hidden></span>
     </div>
     </div>

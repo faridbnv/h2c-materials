@@ -354,10 +354,10 @@ function compareReading(s, key, r, o) {
     check('I2-header');
     const c = o.sel.counts, explore = SETTINGS[set.slice(0, 2)].u === 'exploration';
     const hm = /(\d+) of the (\d+) materials meet/.exec(r.head ?? '');
-    // The line under the heading (F09) counts the materials that could not be checked: left out under Confirmed only,
-    // listed flagged under Include uncertain, where it also says how many an estimate or the base polymer's published
+    // The line under the heading (F09) counts the materials that could not be checked: left out, or listed flagged when
+    // they are included, where it also says how many an estimate or the base polymer's published
     // behaviour (D64) screened out of the list.
-    const umS = /(\d+) more could not be checked, left out under Confirmed only/.exec(r.head ?? '');
+    const umS = /(\d+) more could not be checked and are left out/.exec(r.head ?? '');
     const umX = /(\d+) more could not be checked, listed flagged(?:, except (\d+) screened out)?/.exec(r.head ?? '');
     const um = explore ? umX : umS;
     const screenedShown = umX?.[2] === undefined ? 0 : Number(umX[2]);

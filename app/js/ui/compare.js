@@ -5,9 +5,10 @@
 
 import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, estimateDisplay, chip, wireEvidence, explainButton, missingText, missingLabel, scrollTable, markTableOverflow } from './format.js';
-import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel } from './labels.js';
+import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel, H2C_CHECK } from './labels.js';
 import { productGates, hardenedShare, hardenedWords } from '../engine/products.js';
 import { indexById, rankingFor } from '../engine/indices.js';
+import { lower } from './text.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 /** A track is drawn on a log scale when its candidates' largest value is more than this many times their smallest. */
@@ -133,10 +134,11 @@ export function renderCompare(host, state, actions) {
     });
     const differ = new Set(conds.filter(Boolean)).size > 1;
 
-    if (log) logTracks.push(prop(a.key).plain.toLowerCase());
+    // In a sentence, as a data sheet writes it: "tensile modulus (XY)", "notched Charpy impact" (it had lower-cased XY and Charpy).
+    if (log) logTracks.push(lower(prop(a.key).plain));
     return `<div class="cmp-prop${log ? ' log-track' : ''}">
       <h4 title="${esc(prop(a.key).technical)}">${esc(prop(a.key).plain)} <span class="unit">${esc(a.unit)}</span>${requirements.length
-        ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (reported only)' : ''}</span>`).join(' ')}</span>` : ''}</h4>
+        ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (reported, not required)' : ''}</span>`).join(' ')}</span>` : ''}</h4>
       ${picked.map((m) => {
         const h = m.headline[a.key];
         const who = `${esc(m.name)}${isAnchor(m) ? ' <span class="anchor-tag">baseline</span>' : ''}`;
@@ -173,8 +175,10 @@ export function renderCompare(host, state, actions) {
             <span class="val">${explainButton(`~${d.lo}–${d.hi}<span class="est-mark">†</span>`, title,
               { cls: `est est-${e.precision}`, head: 'Estimate, not a measurement', action: 'estimate', id: m.id })}</span></div>`;
         }
-        // The bar fills from the track's low end, the lowest candidate, so its length is the material's place in the
-        // database's range; the end labels under the bars say what that range is.
+        // On a linear track the bar fills from the track's low end, the lowest material, so its length is the material's
+        // place in the database's range; the end labels under the bars say what that range is. On a log track a length from
+        // the left end means nothing (0.005 to 10 GPa: PLA and PLA Silk drew alike), so the value is a tick on the track
+        // (REVIEW-0 F9, 2026-10-18).
         const bounds = h.spread && h.spread.n > 1
           // The range of its products, behind the typical value's bar: different products, not the spread of one.
           ? `<span class="bounds spread-bounds" title="${esc(`Its ${h.spread.n} products range from ${fmtNumber(h.spread.min)} to ${fmtNumber(h.spread.max)}`)}" style="left:${pct(h.spread.min)}%;width:${Math.max(pct(h.spread.max) - pct(h.spread.min), 1)}%"></span>`
@@ -182,14 +186,14 @@ export function renderCompare(host, state, actions) {
           ? `<span class="bounds" style="left:${pct(h.interval.lo)}%;width:${pct(h.interval.hi) - pct(h.interval.lo)}%"></span>` : '';
         return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}">
           <span>${who}</span>
-          <span class="track"><span class="fill" style="width:${pct(h.value)}%"></span>${bounds}${lines}</span>
+          <span class="track">${log ? `<span class="value-tick" style="left:${pct(h.value)}%"></span>` : `<span class="fill" style="width:${pct(h.value)}%"></span>`}${bounds}${lines}</span>
           <span class="val">${renderValue(h)}</span></div>`;
       }).join('')}
       <div class="cmp-bar cmp-axis">
         <span></span>
         <span class="cmp-scale${log ? ' log' : ''}"><span>${esc(fmtNumber(lo))}</span>${log ? '<span class="cmp-scale-kind">log scale</span>' : ''}<span>${esc(fmtNumber(hi))}</span></span>
         <span class="cmp-scale-note">${beyond ? 'requirement past the end'
-          : !widened ? `all ${candidates.length} candidates`
+          : !widened ? `all ${candidates.length} materials`
           : requirements.some((c) => c.value < base.lo || c.value > base.hi) ? 'widened to the requirement' : 'widened to a value shown'}</span>
       </div>
       <div class="cmp-cond">${conds.map((c, i) => c ? `${esc(picked[i].name)}: ${esc(c)}` : '').filter(Boolean).join(' | ')}
@@ -206,9 +210,15 @@ export function renderCompare(host, state, actions) {
   // What was asked, on screen and on paper. A printed comparison used to carry the bars and nothing
   // that said which question they answered, under which rule, from which snapshot.
   const hard = scenario.constraints.filter((c) => c.mandatory !== false);
+  // The nozzle, bed and chamber checks under the one name the pill and the rail give them, where all three are set.
+  const namedOnce = (cs) => {
+    const gates = cs.filter((c) => c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate));
+    if (gates.length < 3) return cs.map((c) => esc(describeConstraint(c)));
+    return cs.flatMap((c) => (!gates.includes(c) ? [esc(describeConstraint(c))] : c === gates[0] ? [esc(H2C_CHECK)] : []));
+  };
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
-      <div><b>Requirements:</b> ${hard.length ? hard.map((c) => esc(describeConstraint(c))).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
+      <div><b>Requirements:</b> ${hard.length ? namedOnce(hard).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
       <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? '; estimates and resin data may exclude a material, never pass one' : ''}.
         Release ${esc(db.meta.release?.id ?? 'unidentified')}, data of ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. A material's values span its products: check the exact
         product in its Products tab before you buy or print.</div>
@@ -243,10 +253,10 @@ export function renderCompare(host, state, actions) {
       <div class="spacer" style="flex:1"></div>
       <button class="btn btn-sm" id="cmp-print">Print summary</button>
     </div>
-    <p class="fine cmp-intro">Each track runs from the lowest to the highest of all ${candidates.length} candidate materials${useEstimates ? ', estimates included' : ''},
+    <p class="fine cmp-intro">Each track runs from the lowest to the highest of all ${candidates.length} materials${useEstimates ? ', estimates included' : ''},
       so a bar's length shows where a material sits among them.${logTracks.length
-        ? ` Tracks spanning more than a hundredfold (${logTracks.join(' and ')}) use a log scale.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
-        ? ' An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end.' : ''}
+        ? ` Tracks spanning more than a hundredfold (${logTracks.join(' and ')}) use a log scale, where a tick marks the value.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
+        ? ' An upright line is a requirement, dashed if it is reported, not required; a track widens to show one past the candidates, or marks it at its end.' : ''}
       ${anyBounds ? 'The <b>|—|</b> marks are the range of the material\'s products, or a range or scatter the source reported. ' : ''}${anyRelated ? 'A <b>*</b> is a published value that is not comparable, drawn as a tick; select it for why.' : ''}</p>
     ${blocks}
     <h3 class="sec">H2C printability</h3>

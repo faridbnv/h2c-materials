@@ -71,10 +71,15 @@ const ctx = {
 function stripOf(materialId) {
   const host = { innerHTML: '', querySelectorAll: () => [], querySelector: (s) => ['#drawer-close', '#drawer-pin'].includes(s) ? { addEventListener() {} } : null };
   renderDrawer(host, { db, selectedMaterialId: materialId, drawerTab: 'Overview', selection: { evaluations: [] }, scenario: { shortlist: [], unknownPolicy: 'strict' }, ctx }, {});
-  // Each tab button is `<button role="tab" data-tab="KEY" …><span data-label="LABEL">LABEL</span><span class="n">N</span></button>`;
-  // Overview carries no count.
+  // Each tab button is `<button role="tab" data-tab="KEY" …><span data-label="LABEL">LABEL</span><span class="n">N</span></button>`
+  // where the strip prints a count (Products and Sources, since 2026-10-18), and carries `title="LABEL: N"` where it does
+  // not; Overview carries no count.
   const counts = {};
-  for (const t of host.innerHTML.matchAll(/data-tab="(\w+)"[^>]*>\s*<span data-label="[^"]*">[^<]*<\/span>(?:<span class="n">(\d+)<\/span>)?\s*<\/button>/g)) counts[t[1]] = t[2] === undefined ? null : Number(t[2]);
+  const num = (t) => Number(t.replace(/,/g, ''));
+  for (const t of host.innerHTML.matchAll(/data-tab="(\w+)"([^>]*)>\s*<span data-label="[^"]*">[^<]*<\/span>(?:<span class="n">([\d,]+)<\/span>)?\s*<\/button>/g)) {
+    const titled = t[2].match(/title="[^":]*: ([\d,]+)"/);
+    counts[t[1]] = t[3] !== undefined ? num(t[3]) : titled ? num(titled[1]) : null;
+  }
   return counts;
 }
 

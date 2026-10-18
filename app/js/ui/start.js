@@ -5,8 +5,8 @@
 // offers the application templates as the first move. It disappears the moment a filter is applied.
 
 import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
-import { esc } from './format.js';
-import { describeConstraint, POLICY_LABELS, GATE } from './labels.js';
+import { esc, fmtNumber } from './format.js';
+import { describeConstraint, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
 
 /**
  * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
@@ -20,16 +20,11 @@ export function renderStart(state, actions) {
   const { db } = state;
   return `
   <section class="start">
-    <div class="start-flow">
-      <span class="step"><b>1</b> Set requirements</span><i>&rsaquo;</i>
-      <span class="step"><b>2</b> Read the candidates</span><i>&rsaquo;</i>
-      <span class="step"><b>3</b> Compare the trade-offs</span><i>&rsaquo;</i>
-      <span class="step"><b>4</b> Check the evidence</span>
-    </div>
-
+    <!-- The four-step line (set requirements, read the candidates, compare, check the evidence) was folded away on
+         2026-10-18 with the owner's word: it stood between the reader and the templates, and the view tabs and the
+         drawer already walk those steps. The H2C clause, once in each of the six cards, is said here once. -->
     <h2>Start from a typical part, or set your own requirements in Filters.</h2>
-    <p>A template only fills in the controls. Every value it sets stays editable, and nothing is
-      decided for you.</p>
+    <p>A template fills in the controls, each editable, and decides nothing. All six ask for a build material the H2C prints.</p>
 
     <div class="start-grid">
       ${TEMPLATES.map((t, i) => `
@@ -41,12 +36,11 @@ export function renderStart(state, actions) {
 
     <div class="start-facts">
       <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> within H2C capability</span>
-      <span><b>${db.meta.counts.measurements}</b> measurements, each traceable to its source</span>
+      <span><b>${fmtNumber(db.meta.counts.measurements)}</b> measurements, each traceable to its source</span>
       <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
         <b>${db.meta.headlineCoverage.priceCADkg}</b> a price</span>
     </div>
-    <p class="start-note">Where a property was never published, the tool shows the gap rather than a guess, so no
-      material is ranked on a number nobody measured.</p>
+    <p class="start-note">No material is ranked on a number nobody measured: a property never published shows as a gap, not a guess.</p>
 
     ${limits(db)}
   </section>`;
@@ -123,15 +117,15 @@ export function renderActive(state, actions) {
   const pill = (c, i) => `<button class="pill${c.mandatory === false ? ' soft' : ''}" data-drop="${i}"
       title="Remove this requirement">${esc(describe(c))}<span class="x" aria-hidden="true">\u00d7</span></button>`;
 
-  // Under Include uncertain the table lists the materials that could not be checked beside the ones that passed, so
+  // Included, the table lists the materials that could not be checked beside the ones that passed, so
   // the heading counts both. "15 meet these requirements" above 23 rows read as a contradiction; the other 8 were
   // listed and nothing on screen said what they were. An estimate may hold some of them out, and that is said too.
   const screened = explore && state.ctx?.useEstimates ? counts.screened : 0;
   const unknownClause = counts.unknown && explore ? `, and ${counts.unknown} more could not be checked for missing data` : '';
   const unknownSentence = !counts.unknown ? ''
-    : explore ? `${POLICY_LABELS.exploration} lists those ${counts.unknown} flagged${screened
+    : explore ? `Included, those ${counts.unknown} are listed flagged${screened
       ? `, except the ${screened} excluded by an estimate or by resin reference data; the SCREENED chip at the bottom shows them` : ''}. `
-    : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
+    : `${counts.unknown} more could not be checked for missing data and are left out; ${POLICY_LABELS.exploration} at the top lists them, flagged. `;
 
   // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
   // it would add are named in the button's title, so the line stays one line.
@@ -150,7 +144,7 @@ export function renderActive(state, actions) {
   const shownHard = printable ? hard.filter((c) => !(c.kind === 'gate' && printGates.has(c.gate))) : hard;
   const firstSentence = (t) => (String(t).match(/^[^.:]+[.:]/)?.[0] ?? String(t)).replace(/[.:]$/, '');
   const beside = [scenario.template ? `${scenario.template} template${sameAsTemplate ? '' : ', changed'}` : null,
-    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}` : `, left out under ${POLICY_LABELS.strict}`}` : null].filter(Boolean).join(' · ');
+    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}` : ' and are left out'}` : null].filter(Boolean).join(' · ');
   return `
   <section class="active compact">
     <div class="active-head">
@@ -165,9 +159,9 @@ export function renderActive(state, actions) {
       </div>
     </div>
     <div class="pills" title="Press a requirement to remove it">
-      ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">Within H2C temperature limits<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
+      ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">${H2C_CHECK}<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
       ${shownHard.map((c) => pill(c, cs.indexOf(c))).join('')}
-      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
+      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">Reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
     ${stateLine}
     ${check === 'all' ? '' : `<p class="state-line research-line"><b>${check === 'none' ? 'H2C printability not checked:' : `H2C printability partly checked: ${esc(printGatesMissing(cs).map((g) => GATE[g].plain).join(' and '))} not checked.`}</b>
