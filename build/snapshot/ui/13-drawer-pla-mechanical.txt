@@ -11,4 +11,4 @@ Interlayer adhesion strength
 5 values
 Named on a data sheet without a value: flexural modulus (Polymaker PolySonic PLA), flexural strength (Polymaker PolySonic PLA), charpy strength (Polymaker PolySonic PLA).
 Not published for this material
-Compression strength · Fatigue life · Abrasion loss · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile impact strength. A gap, not a zero or a low value.
+Compression strength · Fatigue life · Abrasion loss · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile impact strength. Also fracture toughness, creep compliance and coefficient of friction, which few data sheets publish. A gap, not a zero or a low value.

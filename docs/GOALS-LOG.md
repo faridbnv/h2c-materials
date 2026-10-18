@@ -775,3 +775,31 @@ reproduce six keep items in new form.
 Built by Claude Opus with four Claude Opus expert agents (UI and visual, words, graphs, first impression and coherence)
 and two Claude Opus reviewers, on the branch `selector-refinement` ([the round](audits/2026-10-18-selector-refinement/README.md)).
 
+
+## Decided and built on 2026-10-18, the selector and the material pages made one tool
+
+The owner found the selector and the material pages "very good, but also substantially very different", and asked for a
+review, not a build: where they are incoherent, what each could borrow from the other, whether more coherence is worth
+it, and which small fixes would make them feel like one tool ([brief](audits/2026-10-18-coherence-review/BRIEF.md)).
+Five expert agents reviewed the frame, the flow, the drawer against the page, the graphs and the words, and a product
+manager combined them into changes C01 to C54 and judgements V01 to V36
+([recommendations](audits/2026-10-18-coherence-review/RECOMMENDATIONS.md)). The owner chose all of S1 (the shared words
+and helpers, C01 to C13), the *do* changes of S2 to S5 (C14 to C22, C23 to C29 with C31 as the footer's option B, C32 to
+C39, C40 to C44) and, of S6, the two leaning yes, C50 (Inter in the selector) and C51 (one meaning per colour).
+
+- **Built (D147).** The drawer and the page say each fact from one function and in one set of words: dates as "13 Sep
+  2026", one name for the guide, a bound with its sign, the gap count the list shows, the page's evidence word, a count
+  of statements per exposure, the price the page's way. One provenance line on both surfaces ("release 9ca94d31fc5d ·
+  documents read 10 Sep–7 Oct 2026"), one theme button, three radii, Inter in both, and a footer band that ends every
+  page. The way back lands on the drawer's Products tab, whose products open in one stated order and link to their cards;
+  the decision brief names the material page; the shortlist star follows the material's name. Parallel lines draws each
+  line's result and the requirements, opens on the properties asked, and takes the Ashby chart's family colours, in
+  which no family is blue.
+- **Measured.** No scenario answer moved: `build:diff` lists words only, and every snapshot CSV but `pages.csv` is
+  unchanged; the release moved from 3cc2e5f2a439 to 9ca94d31fc5d. `npm test` 709 of 709, `pages:check` 16 of 16, 300
+  rendered scenarios, no layout failure, and every record each drawer reached it still reaches. What the round leaves,
+  the six *later* changes (C30, C45 to C49) and the three the owner was advised against (C52 to C54), is OPEN-PROBLEMS
+  §37.21.
+
+Built by Claude Opus as executor, with four tracks side by side (words and frame by Claude Opus, charts and hand-offs by
+Claude Sonnet), on the branch `coherence-review` ([the build](audits/2026-10-18-coherence-review/BUILD.md)).

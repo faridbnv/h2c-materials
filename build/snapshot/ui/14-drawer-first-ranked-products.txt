@@ -1,4 +1,4 @@
-2 products you can buy, from 2 makers. Each shows its result, how to print it, its values and what its maker says.
+2 products you can buy, from 2 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; Prusa Research first, its products most often the material's typical value.
 Meet all your requirements
 1 product
 3DXTECH FIBREX GF PP
@@ -10,7 +10,7 @@ Nozzle
 240–270 °C within
 Bed
 80–110 °C within
-Chamber
+Heated chamber
 not required within
 Enclosure
 not published
@@ -38,7 +38,7 @@ Sources 3DXTECH, Technical Data Sheet: FibreX™ PP+GF30 3D Printing Filament; B
 Product details
 Across its products: median and range, and what their makers say
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
-3DXTECH
-1 product
 Prusa Research
+1 product
+3DXTECH
 1 product

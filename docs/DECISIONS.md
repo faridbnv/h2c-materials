@@ -162,6 +162,7 @@ detail. The generator names one that runs longer.
 | D144 | Verify runs side by side what does not depend on each other, and CI runs the rendered scenarios in parts | `npm run verify`, `verify:fast` and CI ran every check one after another, although most read what they read and write nothing another reads; a run took as long as all of them added up. Now each step says which steps it follows, and the ones that need nothing of each other run at the same time on the machine's cores. CI runs the 300 rendered scenarios as three jobs side by side, each a third of the same 300, and the weekly 2,000 as four. Every check, scenario, view and test still runs, with the same thresholds. | In force; it amends D131's process (a scale-budget miss is re-run only where it can fail; CI's interface job is a views job and three scenario jobs) |
 | D145 | The material pages reimagined: an Overview and a Products page per material, one way back, five figures | The owner found the first material pages incoherent to read, poorly linked and dull, and asked for them to be reimagined rather than patched. Each material now has an Overview, which explains it across its products in an engineer's order and says once how far to trust it, and a Products page, where its products are searched and sorted and each opens to every value with its document, page and conditions. The records page is a stub that sends old links there, and the index is a plain list of materials by family. Five kinds of figure in one visual language replace nine. The drawer's Full page and a quiet Material pages link in the selector open the pages in the same tab carrying the selection, and Back to your results returns to it as it was. The pages still decide nothing, and no answer moved. | In force. It amends D142 (two pages for one, the records page and its finder retired, a link from the selector to the index, the summaries' rules) and D133's claim colour (an orange a colour-blind reader tells from the accent) |
 | D146 | The selector refined: the drawer reads as the material page reads, and the cold page shows where the results start | The owner asked for the selector's first impression to be calmer and its material drawer easier to read, with subtle changes, everything good recorded first and kept. The drawer now gives one block on printing on the H2C, worked out the way the material page works it out, so the two never print different numbers; its key properties are the page's six key figures in the page's form; its head and tabs take less of the first screen; its graphs borrow the page's key, counts and marks; and the maintainers' notes left its sentences. The main page keeps every control, quieter: the missing-data choice is named for what it does, the rail opens on what a part needs, and the table starts on the first screen. No answer moved. | In force. It amends D145's way the drawer and the pages share words (the On the H2C rows, the display numbers and the reader-text rule now live in `app/js/ui`), D124's tab strip (counts on Products and Sources only) and D139's print temperatures (open by default, the limit drawn as the pages draw it) |
+| D147 | The selector and the material pages read as one tool: one computation per fact, one word per thing, one frame | The owner found the selector and the material pages each very good but substantially different, and asked for small changes that make them feel like one tool. Five reviews and a product manager's combination proposed 54 changes; the owner chose 45, and they were built. The drawer and the page now say each fact from one function and in one set of words: dates as "13 Sep 2026", one name for Bambu Lab's guide, a bound with its sign, one count of gaps, the page's evidence word. Both surfaces print one provenance line and share one theme button, three corner radii and one typeface, and every page ends in one footer band. The drawer's products open in one stated order and link to their cards on the Products page, the decision brief names the material page, and Parallel lines draws each line's result and the requirements in the Ashby chart's family colours, where blue now means only "this material". No answer moved. | In force. It amends D145 (the colophon is a footer band after the main element on every page kind, its byline one sentence; the theme button is the selector's) and D146 (more of the shared words live in `app/js/ui`; the drawer's Products tab opens on the product *Your requirements* shows), and rewords the guide label D124 gave D88: "from Bambu Lab's Filament Guide for PLA" is now "from the Bambu Lab Filament Guide (PLA column)" |
 
 <!-- end index -->
 
@@ -4854,6 +4855,66 @@ surface, and a keep register of 45 things that work, each kept or reproduced.*
   round's TRACKER.
 - **What would break if reversed.** The drawer and the page would again print two windows and two medians for one
   material, the first screen would open on bookkeeping, and the cold page on a policy switch.
+
+## D147. The selector and the material pages read as one tool: one computation per fact, one word per thing, one frame
+
+> **In plain words:** The owner found the selector and the material pages each very good but substantially different, and asked for small changes that make them feel like one tool. Five reviews and a product manager's combination proposed 54 changes; the owner chose 45, and they were built. The drawer and the page now say each fact from one function and in one set of words: dates as "13 Sep 2026", one name for Bambu Lab's guide, a bound with its sign, one count of gaps, the page's evidence word. Both surfaces print one provenance line and share one theme button, three corner radii and one typeface, and every page ends in one footer band. The drawer's products open in one stated order and link to their cards on the Products page, the decision brief names the material page, and Parallel lines draws each line's result and the requirements in the Ashby chart's family colours, where blue now means only "this material". No answer moved.
+> **Status:** In force. It amends D145 (the colophon is a footer band after the main element on every page kind, its byline one sentence; the theme button is the selector's) and D146 (more of the shared words live in `app/js/ui`; the drawer's Products tab opens on the product *Your requirements* shows), and rewords the guide label D124 gave D88: "from Bambu Lab's Filament Guide for PLA" is now "from the Bambu Lab Filament Guide (PLA column)".
+
+*Asked by the owner on 2026-10-18 as a review only ([brief](audits/2026-10-18-coherence-review/BRIEF.md)): five expert
+reviews (the frame, the flow, the drawer against the page, the graphs, the words) combined by a product manager into
+changes C01 to C54 and judgements V01 to V36 ([recommendations](audits/2026-10-18-coherence-review/RECOMMENDATIONS.md)).
+The owner chose all of S1, the *do* changes of S2 to S5 and, of S6, C50 and C51; four tracks built them side by side and
+the executor merged them ([build](audits/2026-10-18-coherence-review/BUILD.md)).*
+
+- **One computation per fact.** What both surfaces say is said by one function in `app/js/ui`, moved out of
+  `app/pages`, which re-exports it: sentences with their marked numbers (`say.js`), the evidence line and the key
+  properties' basis sentence (`evidence-line.js`), dates and the provenance line (`dates.js`), the count of statements
+  per exposure (`statementVerdictWords`), the gap rule (`shownGap`), the price-sample sentence, the beyond-the-limits
+  line, and the products' order (`product-order.js`). So the drawer gives the page's evidence word ("Thinly
+  documented", C20), counts its known gaps as Sources lists them, a gap another tab states said there once and none
+  lost (C21), heads each exposure with the page's count ("not resistant, in 8 of 12 statements", C22), counts only the
+  price listings it used (C16), and every table and figure prints a bounded median with its sign ("> 200 °C", C14).
+- **One word per thing.** A date a person reads is "13 Sep 2026", a span "10 Sep–7 Oct 2026", the citation and the brief
+  included; ISO only where a machine reads (C02). The guide is "the Bambu Lab Filament Guide (PLA column)", then "the
+  guide" (C05). "Beyond" the H2C's limits, *Heated chamber*, *Maker*, *Shop*, "kept out of the median", "key
+  properties", "1,500 kg/m³" in a requirement and a reason, a range's unit once (C04 to C13). The environment caveat is
+  one method.csv row both read (m437, C11); identity notes and availability sit under *Record notes* (C08).
+- **One frame.** The selector's status bar and every page's closing line print one provenance line, "release
+  9ca94d31fc5d · documents read 10 Sep–7 Oct 2026" (`provenanceWords`); "data 2026-09-21", a snapshot's name that read
+  as a date of the data older than the documents, went into the tooltip (C03). Three radius tokens (`--r-ctl`,
+  `--r-track`, `--r-plate`), buttons at weight 500, one moon-or-sun theme button named for what a press switches to, the
+  stored theme applied in the selector's head before the first paint, the pages' bar on the selector's white at 58 px,
+  the mark kept on a phone, *Full page →*, the drawer's full name on its own line (C23 to C29), and Inter in the
+  selector, the pages' embedded subset (C50).
+- **One footer.** Every page kind ends in a full-width band set after its main element: the standing sentence, the ways
+  out (the way back, the material's other page, *All materials*, the method page), on a material's pages the citation
+  with *Copy the citation* and *Print this page* and on its Overview the summary's authorship in one sentence, and one
+  closing line with the mark, the provenance line and the build's day (C31, the owner's option B).
+- **The way across.** From a Products page the way back opens the drawer on its Products tab; with no requirement,
+  shortlist or chosen product it reads *Back to the selector* (C32, C33). The drawer's Products tab opens on its search,
+  then the passing products, the one *Your requirements* shows first and the rest most documented first by the Products
+  page's own key, then every product by maker, its first line saying so (C34, C35); a closed product line shows the
+  page's columns (C36) and an opened one links to its card on the Products page (C37). The decision brief names the
+  material page and the product's card (C38). The shortlist star is a 44 px column straight after Material (C39).
+- **One meaning per colour.** Parallel lines draws each line's result as the Ashby chart does (could not be checked
+  dashed, failed faded), each requirement across its axis as Compare does, opens on the properties asked, names a set of
+  15 lines or fewer and shares the selection with the Ashby chart (C40 to C44). One call (`familyColors`) colours the
+  families in Parallel lines, the Ashby chart and the decision view, with one grey "Other families"; no family takes the
+  accent blue that means "this material", and PLA and PETG are an orange and a teal (C43, C51).
+- **Left, and why.** C30 and C45 to C49 are worth doing later, at lower value (one search field; the lenses' ticks,
+  spread and outliers, Compare in the pages' glyph, one log-scale wording); C52 to C54 the owner was advised against, as
+  they go back on D145 and D146 or replace the shortlist. All nine are in OPEN-PROBLEMS §37.21. What differs on purpose
+  stays: the selector judges and the page explains, the drawer's full record against the page's chosen one, the two bars
+  and tab styles, the serif on the pages only (V22 to V28).
+- **Checked.** `build:diff` lists words only (the guide's labels and names, gate reasons, m437's method row); every
+  `build/snapshot/*.csv` but `pages.csv` is byte-identical; the release moved from 3cc2e5f2a439 to 9ca94d31fc5d with no
+  answer moved. `npm test` 709 of 709, `pages:check` 16 of 16, 300 rendered scenarios, no layout failure in `ui:check`,
+  and each drawer reaches the records it reached before (`drawer-ids.mjs`, 28,950 of 30,992).
+- **What would break if reversed.** The two surfaces would again print one fact two ways (a date, the guide's name, a
+  bound, a gap count), the provenance would read as a stale data date, each page kind would end differently, a reader
+  back to choose a product would land on the wrong tab, and Parallel lines would draw a failing line as a passing one,
+  in a colour that elsewhere means "this material".
 
 ## Bugs worth remembering
 

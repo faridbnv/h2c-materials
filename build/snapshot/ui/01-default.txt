@@ -45,156 +45,156 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 152 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW 316L stainless steel sintering filament / Metal and Ceramic Sintering | not tested | 7,190 | — | — | — | n/a | — | ☆
-ROW ABS | not tested | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
-ROW ABS-AF | not tested | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | 88 | 127↗ | ☆
-ROW ABS-CF | not tested | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗ | ☆
-ROW ABS-ESD | not tested | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock | ☆
-ROW ABS-GF | not tested | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
-ROW Alumina sintering filament / Metal and Ceramic Sintering | not tested | 3,776 | — | — | — | n/a | — | ☆
-ROW ASA | not tested | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗ | ☆
-ROW ASA Aero · not tested
-ROW ASA-AF · not tested
-ROW ASA-CF · not tested
-ROW ASA-EC · not tested
-ROW ASA-GF · not tested
-ROW BVOH · not tested
-ROW COC · not tested
-ROW CoPE · not tested
-ROW CPE · not tested
-ROW CPE-CF · not tested
-ROW HIPS · not tested
-ROW LCP · not tested
-ROW nGen · not tested
-ROW nGen FLEX · not tested
-ROW nGen-CF · not tested
-ROW Nylon-CF, maker-undisclosed polyamide · not tested
-ROW Nylon-GF, maker-undisclosed polyamide · not tested
-ROW Nylon, maker-undisclosed polyamide · not tested
-ROW OBC · not tested
-ROW PA-ESD · not tested
-ROW PA12 · not tested
-ROW PA12-AF · not tested
-ROW PA12-CF · not tested
-ROW PA12-GF · not tested
-ROW PA6 · not tested
-ROW PA6-CE · not tested
-ROW PA6-CF · not tested
-ROW PA6-GF · not tested
-ROW PA6-GS · not tested
-ROW PA6/66 · not tested
-ROW PA6/66-CF · not tested
-ROW PA612 · not tested
-ROW PA612-CF · not tested
-ROW PA612-ESD · not tested
-ROW PA612-GF · not tested
-ROW PA66 · not tested
-ROW PA66-CF · not tested
-ROW PAHT · not tested
-ROW PAHT-CE · not tested
-ROW PAHT-CF · not tested
-ROW PBAT · not tested
-ROW PBT · not tested
-ROW PBT-GF · not tested
-ROW PC · not tested
-ROW PC FR · not tested
-ROW PC-ABS · not tested
-ROW PC-ABS-CF · not tested
-ROW PC-ASA · not tested
-ROW PC-CF · not tested
-ROW PC-ESD · not tested
-ROW PC-GF · not tested
-ROW PC-PBT · not tested
-ROW PC-PBT-CF · not tested
-ROW PC-PTFE · not tested
-ROW PCL · not tested
-ROW PCTG · not tested
-ROW PCTG-CF · not tested
-ROW PCTG-GF · not tested
-ROW PE · not tested
-ROW PE-GF · not tested
-ROW PEBA · not tested
-ROW PEEK · not tested
-ROW PEEK-CF · not tested
-ROW PEEK-GF · not tested
-ROW PEI · not tested
-ROW PEI-CF · not tested
-ROW PEI-ESD · not tested
-ROW PEI-GF · not tested
-ROW PEKK · not tested
-ROW PEKK-CF · not tested
-ROW PEKK-ESD · not tested
-ROW PESU · not tested
-ROW PET · not tested
-ROW PET-CF · not tested
-ROW PET-GF · not tested
-ROW PET-LW · not tested
-ROW PETG · not tested
-ROW PETG-CF · not tested
-ROW PETG-ESD · not tested
-ROW PETG-GF · not tested
-ROW PETG-GR · not tested
-ROW PETG-PTFE · not tested
-ROW PLA · not tested
-ROW PLA Aero · not tested
-ROW PLA blend · not tested
-ROW PLA blend-CF · not tested
-ROW PLA Galaxy · not tested
-ROW PLA Glow · not tested
-ROW PLA Marble · not tested
-ROW PLA Metal · not tested
-ROW PLA Silk · not tested
-ROW PLA Sparkle · not tested
-ROW PLA Wood · not tested
-ROW PLA-CE · not tested
-ROW PLA-CF · not tested
-ROW PLA-EC · not tested
-ROW PLA-ESD · not tested
-ROW PLA-GF · not tested
-ROW PLA-GR · not tested
-ROW PLA-NF · not tested
-ROW PLA-PHA · not tested
-ROW PLA-PHB · not tested
-ROW POM · not tested
-ROW PP · not tested
-ROW PP Lightweight · not tested
-ROW PP-CF · not tested
-ROW PP-GF · not tested
-ROW PPA · not tested
-ROW PPA-CF · not tested
-ROW PPA-GF · not tested
-ROW PPE-PS · not tested
-ROW PPS · not tested
-ROW PPS-CF · not tested
-ROW PPS-ESD · not tested
-ROW PPS-GF · not tested
-ROW PPSU · not tested
-ROW PSU · not tested
-ROW PVA · not tested
-ROW PVB · not tested
-ROW PVC · not tested
-ROW PVDF · not tested
-ROW PVDF-ESD · not tested
-ROW SAN · not tested
-ROW SBC · not tested
-ROW Silicon carbide sintering filament · not tested
-ROW Support for ABS · not tested
-ROW Support for PA/PET · not tested
-ROW Support for PLA · not tested
-ROW Support for PLA/PETG · not tested
-ROW TPC · not tested
-ROW TPC-ESD · not tested
-ROW TPE, maker-undisclosed elastomer · not tested
-ROW TPI · not tested
-ROW TPS · not tested
-ROW TPU 85A class and softer · not tested
-ROW TPU 90A class · not tested
-ROW TPU 95A class · not tested
-ROW TPU harder than 95A · not tested
-ROW TPU-CF · not tested
-ROW TPU-EC · not tested
-ROW TPU-ESD · not tested
-ROW TPU-GF · not tested
-ROW TPU-LW · not tested
-ROW TPV · not tested
+TABLE 152 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW 316L stainless steel sintering filament / Metal and Ceramic Sintering | ☆ | not tested | 7,190 | — | — | — | n/a | —
+ROW ABS | ☆ | not tested | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
+ROW ABS-AF | ☆ | not tested | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | 88 | 127↗
+ROW ABS-CF | ☆ | not tested | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗
+ROW ABS-ESD | ☆ | not tested | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock
+ROW ABS-GF | ☆ | not tested | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗
+ROW Alumina sintering filament / Metal and Ceramic Sintering | ☆ | not tested | 3,776 | — | — | — | n/a | —
+ROW ASA | ☆ | not tested | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗
+ROW ASA Aero · ☆
+ROW ASA-AF · ☆
+ROW ASA-CF · ☆
+ROW ASA-EC · ☆
+ROW ASA-GF · ☆
+ROW BVOH · ☆
+ROW COC · ☆
+ROW CoPE · ☆
+ROW CPE · ☆
+ROW CPE-CF · ☆
+ROW HIPS · ☆
+ROW LCP · ☆
+ROW nGen · ☆
+ROW nGen FLEX · ☆
+ROW nGen-CF · ☆
+ROW Nylon-CF, maker-undisclosed polyamide · ☆
+ROW Nylon-GF, maker-undisclosed polyamide · ☆
+ROW Nylon, maker-undisclosed polyamide · ☆
+ROW OBC · ☆
+ROW PA-ESD · ☆
+ROW PA12 · ☆
+ROW PA12-AF · ☆
+ROW PA12-CF · ☆
+ROW PA12-GF · ☆
+ROW PA6 · ☆
+ROW PA6-CE · ☆
+ROW PA6-CF · ☆
+ROW PA6-GF · ☆
+ROW PA6-GS · ☆
+ROW PA6/66 · ☆
+ROW PA6/66-CF · ☆
+ROW PA612 · ☆
+ROW PA612-CF · ☆
+ROW PA612-ESD · ☆
+ROW PA612-GF · ☆
+ROW PA66 · ☆
+ROW PA66-CF · ☆
+ROW PAHT · ☆
+ROW PAHT-CE · ☆
+ROW PAHT-CF · ☆
+ROW PBAT · ☆
+ROW PBT · ☆
+ROW PBT-GF · ☆
+ROW PC · ☆
+ROW PC FR · ☆
+ROW PC-ABS · ☆
+ROW PC-ABS-CF · ☆
+ROW PC-ASA · ☆
+ROW PC-CF · ☆
+ROW PC-ESD · ☆
+ROW PC-GF · ☆
+ROW PC-PBT · ☆
+ROW PC-PBT-CF · ☆
+ROW PC-PTFE · ☆
+ROW PCL · ☆
+ROW PCTG · ☆
+ROW PCTG-CF · ☆
+ROW PCTG-GF · ☆
+ROW PE · ☆
+ROW PE-GF · ☆
+ROW PEBA · ☆
+ROW PEEK · ☆
+ROW PEEK-CF · ☆
+ROW PEEK-GF · ☆
+ROW PEI · ☆
+ROW PEI-CF · ☆
+ROW PEI-ESD · ☆
+ROW PEI-GF · ☆
+ROW PEKK · ☆
+ROW PEKK-CF · ☆
+ROW PEKK-ESD · ☆
+ROW PESU · ☆
+ROW PET · ☆
+ROW PET-CF · ☆
+ROW PET-GF · ☆
+ROW PET-LW · ☆
+ROW PETG · ☆
+ROW PETG-CF · ☆
+ROW PETG-ESD · ☆
+ROW PETG-GF · ☆
+ROW PETG-GR · ☆
+ROW PETG-PTFE · ☆
+ROW PLA · ☆
+ROW PLA Aero · ☆
+ROW PLA blend · ☆
+ROW PLA blend-CF · ☆
+ROW PLA Galaxy · ☆
+ROW PLA Glow · ☆
+ROW PLA Marble · ☆
+ROW PLA Metal · ☆
+ROW PLA Silk · ☆
+ROW PLA Sparkle · ☆
+ROW PLA Wood · ☆
+ROW PLA-CE · ☆
+ROW PLA-CF · ☆
+ROW PLA-EC · ☆
+ROW PLA-ESD · ☆
+ROW PLA-GF · ☆
+ROW PLA-GR · ☆
+ROW PLA-NF · ☆
+ROW PLA-PHA · ☆
+ROW PLA-PHB · ☆
+ROW POM · ☆
+ROW PP · ☆
+ROW PP Lightweight · ☆
+ROW PP-CF · ☆
+ROW PP-GF · ☆
+ROW PPA · ☆
+ROW PPA-CF · ☆
+ROW PPA-GF · ☆
+ROW PPE-PS · ☆
+ROW PPS · ☆
+ROW PPS-CF · ☆
+ROW PPS-ESD · ☆
+ROW PPS-GF · ☆
+ROW PPSU · ☆
+ROW PSU · ☆
+ROW PVA · ☆
+ROW PVB · ☆
+ROW PVC · ☆
+ROW PVDF · ☆
+ROW PVDF-ESD · ☆
+ROW SAN · ☆
+ROW SBC · ☆
+ROW Silicon carbide sintering filament · ☆
+ROW Support for ABS · ☆
+ROW Support for PA/PET · ☆
+ROW Support for PLA · ☆
+ROW Support for PLA/PETG · ☆
+ROW TPC · ☆
+ROW TPC-ESD · ☆
+ROW TPE, maker-undisclosed elastomer · ☆
+ROW TPI · ☆
+ROW TPS · ☆
+ROW TPU 85A class and softer · ☆
+ROW TPU 90A class · ☆
+ROW TPU 95A class · ☆
+ROW TPU harder than 95A · ☆
+ROW TPU-CF · ☆
+ROW TPU-EC · ☆
+ROW TPU-ESD · ☆
+ROW TPU-GF · ☆
+ROW TPU-LW · ☆
+ROW TPV · ☆

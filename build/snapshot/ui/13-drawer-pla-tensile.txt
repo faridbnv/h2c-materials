@@ -53,4 +53,4 @@ Not ranked: 47 with no stated orientation (2.5⁠–⁠84), 11 with an added fil
 Elongation at break (Z) % 35 2.89 2.28⁠–⁠4.85 0.9⁠–⁠9.6
 Not ranked: 2 with an added filler or additive (1.8⁠–⁠7.91).
 Both XY and Z published: 31 products for tensile modulus, 42 for tensile strength and 37 for elongation at break.
-Kept across the layers, Z as a share of XY (median of the products with both from one document): tensile modulus 89 % (67 %⁠–⁠103 %, 28 products), tensile strength 62 % (27 %⁠–⁠111 %, 38 products) and elongation at break 59 % (3 %⁠–⁠246 %, 35 products).
+Kept across the layers, Z as a share of XY (median of the products with both from one document): tensile modulus 89 % (67⁠–⁠103 %, 28 products), tensile strength 62 % (27⁠–⁠111 %, 38 products) and elongation at break 59 % (3⁠–⁠246 %, 35 products).

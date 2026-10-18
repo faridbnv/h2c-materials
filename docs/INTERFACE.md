@@ -55,7 +55,11 @@ its headers, one line per row and the first eight rows in full).
 ## One candidate set, five lenses
 
 Table, Ashby, Parallel lines, Data coverage and Compare all render the same filtered set. Switching lens never
-changes membership. A material highlighted in one is highlighted in all.
+changes membership. A material highlighted in one is highlighted in all, and a family is one colour in every view that
+colours by family: the Ashby chart, its work views and Parallel lines take their colours from one call (`familyColors`
+in `format.js`), with one grey key, "Other families", for every family past the palette's eight. No family takes a
+blue, since the accent blue means "this material" in the drawer, in Compare and on the material pages, and PLA and
+PETG, the two a reader compares most, are an orange and a teal (D147).
 
 | Lens | For |
 |---|---|
@@ -91,6 +95,17 @@ over its products' range (since 2026-10-18): a bar's length from the low end mea
 had looked alike. **Parallel lines** takes a log axis by the same rule, labelled "log" under its unit, so one 400 %
 elongation no longer presses every other line to the floor.
 
+**Parallel lines** carries the selector's answer and its question (D147). With UNKNOWN or FAIL shown in the table, a line
+that could not be checked is dashed and one that fails is faded, as the Ashby chart draws them, with a key entry and the
+result in the readout; a failing line had been drawn as a passing one. Each requirement is a short line across its axis,
+as Compare draws one across a track, dashed where it is only reported; one beyond the drawn values sits doubled at that
+end of the axis, with a chevron pointing the way it lies. Until the reader picks axes, the view opens on the properties
+the requirements name, the required ones first, then the reported, filled to four from density, stiffness, elongation
+and HDT, at most five: *Indoor prototype*, which asks about price, had opened with no price axis. A set of 15 lines or
+fewer is named at each line's right end; once anything drawn is shortlisted, those lines are at full weight and the rest
+lighter. The line read is the selection every lens shares: one picked in the Ashby chart is raised here on arrival, and
+one picked here is picked there.
+
 **Data coverage** grids eight domains per candidate. Every cell but Application says what the records show, since D114
 derives a gap as it derives evidence: a blank cell is "not assessed", which only Application, a reviewer's column, can
 be. The price column is "CA price": ✓ a Canadian listing, ◐ a price converted from a foreign listing only (D113), – no
@@ -102,7 +117,8 @@ are not a column: nearly no source publishes them for any filament, so the colum
 recorded") and told one candidate from another by nothing. A table lists each property with how many candidates on
 screen publish it and which, by the rule that derives each material's record (a measurement of its own, numeric or in
 words, not held back). It had been one paragraph per distinct list of what was missing, seven near-identical sentences
-that hid the few materials that do publish one (D124). Every name there opens the material's Known gaps.
+that hid the few materials that do publish one (D124). A name under the conflicts opens the material's Known gaps; a
+name in the rarely published table opens the tab that holds its value, Mechanical or Thermal (D147).
 A cell of the grid opens the material's Sources tab at its Known gaps, where the Coverage tab's rows now are (D124).
 
 A sixth tab, **Why excluded**, sits beside them and is not a lens: it explains what is *not* in the
@@ -453,14 +469,15 @@ quarantined price listing and a physically implausible measurement, and in Compa
 The drawer is where an engineer checks a candidate, so it is ordered by the questions asked of it, and every value leads
 to its source.
 
-**Header.** Two lines (since 2026-10-18; the name, the full name and the identity line had each had a line, and the
-content started at a third of the screen): the material's name with its full name beside it, then one identity line,
-base polymer, filler, and how many products from how many makers ("ASA · carbon-fibre filled · 17 products from 15
-makers"), and its Bambu Lab status as a chip, under the rail's display names; the chip's popover says what the
-standing means, which the Overview's lede no longer repeats. A material with a page of its own (below, "The material pages") has a **Full page**
-link before Shortlist, which opens the page in the same tab carrying the selection, so the page's *Back to your results*
-returns to the selector as it was (D145); its title says that a downloaded copy of the selector needs its release's
-material pages zip unzipped beside it. The selector's status bar has a quiet *Material pages* link to the index, which
+**Header.** The material's name, then its full name on a line of its own at the identity line's size, as the material
+page sets it (D147: beside the name, "Polyethylene Terephthalate Glycol-Modified" had wrapped into three lines by the
+buttons and pushed the tabs down 65 px), then one identity line, base polymer, filler, and how many products from how
+many makers ("ASA · carbon-fibre filled · 17 products from 15 makers"), and its Bambu Lab status as a chip at 12.5 px,
+under the rail's display names; the chip's popover says what the standing means, which the Overview's lede no longer
+repeats. A material with a page of its own (below, "The material pages") has a **Full page →** link ("Page →" on a
+phone) before Shortlist, which opens the page in the same tab carrying the selection, so the page's *Back to your
+results* returns to the selector as it was (D145); its title says that a downloaded copy of the selector needs its
+release's material pages zip unzipped beside it. The selector's status bar has a quiet *Material pages* link to the index, which
 carries the selection the same way (the owner's word of 2026-10-17).
 
 **Overview** (D146, 2026-10-18: in the material page's order and form). With requirements set it opens on **the
@@ -475,14 +492,18 @@ value's **source** button opens the measurement. Then **Key properties**: the ma
 order (tensile modulus and strength XY, strength Z, notched Charpy, HDT at 0.45 MPa, price), each the median, its
 middle half (lowest to highest under four products) and how many products, at the page's display precision
 (`display-numbers.js`), and where no product publishes one with a stated orientation or load, the values as published,
-as the page says them, never another record with a star; the other headlines on one *Also* line. Then **On the H2C**,
+as the page says them, never another record with a star; under them the page's own sentence on what a figure is
+(`keyFiguresBasis`); the other headlines on one *Also* line, where a value published with no stated orientation or load
+says "as published", grey, with the graphs' hollow mark, rather than standing as a median (D147). Then **On the H2C**,
 the page's block (`print-brief.js` onTheH2cRows): nozzle, bed and heated chamber, each the window most products give
 with a chip from every product's own settings against the H2C's limit (Within, Partly within, Beyond, No data) and the
 counts in a line, then drying and nozzle type as values, and one line on where borrowed settings were read; *Printing in
 full* opens Printing. It replaced a count list and gate rows that printed the material's recorded window beside its best
 product's gate reason, which disagreed (PEEK's bed *Within, 110–250 °C* under a failed bed requirement). Then **Typical
-applications**, **Limitations**, **General guidance** for the family, a one-line **On file** count (measurements and
-documents, held-back values, gaps and conflicts where there are any) with the way to Sources, and, once at the foot,
+applications** (ending "after Prusa Research", or whoever's statement it is, as the page says it), **Limitations**,
+**General guidance** for the family, a one-line **On file**: the page's evidence word, well, partly or thinly
+documented, its reasons one press away, then the counts (measurements and documents, held-back values, the known gaps
+as Sources lists them and conflicts, where there are any; D147), with the way to Sources, and, once at the foot,
 the method sentence that data-sheet values are not design allowables. A material beyond the H2C's capability opens on
 one line that names the limits its products break. Without requirements the order is the lede (only where the identity
 line does not say what the material is), Key properties, On the H2C, then the rest. Record IDs are never in these
@@ -517,19 +538,30 @@ cite, not only those behind a measurement. The Coverage tab is Sources' last sec
 conflict and held-back rows in the reviewer's words, by the pages' rule for reader text (`readerGap`, 2026-10-18): a
 row whose words are a review step's ("Reviewed 2026-09-21 (ruling R166, m122-batch-b31)") joins the collapsed **Review
 notes**, with a row that says only that data exists and a reviewer's note on a settled domain; each is named in a
-reader's words ("Sources that disagree"). The internal keys
+reader's words ("Sources that disagree"). A gap another tab states is said there once and not listed again (`shownGap`,
+the pages' rule): the rarely published properties at the end of Mechanical's *Not published* list, the Canadian price in
+Price. The On file line counts the gaps listed, so the count and the list agree (D147). The internal keys
 stay (Grades, Evidence, Coverage): a request for Coverage, from a Data coverage cell or an empty tab, opens Sources at
 Known gaps. A tab with nothing in it says "Nothing on file for this material", gives the recorded reason where there is
-one, and offers the known gaps.
+one, and offers the known gaps where Sources lists any.
 
-**Products.** The passing products come first, under *Meet all your requirements*, the first of them open. Every other
-product is one line until opened: its name, its result and its key values, with **Choose** beside the line rather than
-inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, its print settings (each
-part read elsewhere said once under the card, "Enclosure, hardened nozzle and drying: from Bambu Lab's Filament Guide
-for PLA, where this product's own sheet is silent", where it had followed every cell), its values, what its maker says
-(each quote with its document and page, the source words opening where it is stated, and a **caveat** mark where a
-reviewer recorded what the claim does not say; a maintainer's note on the reading sits behind the ID mark, by the pages'
-rule), the topics its maker leaves unstated in one closed line, its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
+**Products.** The search comes first and filters every list below it; it had sat under up to 63 passing products. Then
+the passing products, under *Meet all your requirements*: the one *Your requirements* shows first, and open, then the
+rest most documented first, by the Products page's own key (`product-order.js`), so one material has one first product
+on both surfaces. Every product then follows by maker, and the tab's first line says the order ("…; all products follow
+by maker; 3DXTECH first, its products most often the material's typical value", D147: a cold list had led with a maker
+chosen by an unstated rule, and PETG had three "first" products). A product is one line until opened: its name, its
+result and its key values, those a requirement asks about or else the first three it publishes of the Products page's
+columns (tensile modulus and strength XY, HDT at 0.45 MPa, price; a bound with its sign), with **Choose** beside the
+line rather than inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, its
+print settings (nozzle, bed, heated chamber; each part read elsewhere said once under the card, "Enclosure, hardened
+nozzle and drying: from the Bambu Lab Filament Guide (PLA column), where this product's own sheet is silent", where it
+had followed every cell), its values, what its maker says (each quote with its document and page, the source words
+opening where it is stated, and a **caveat** mark where a reviewer recorded what the claim does not say; a maintainer's
+note on the reading sits behind the ID mark, by the pages' rule), the topics its maker leaves unstated in one closed
+line, its Sources, **Its card on the Products page** where the material has a page (carrying the selection as *Full
+page* does), and its product details (its maker, a variant "kept out of the material's median"; its availability under
+*Record notes*). A card stays as the reader left it when the drawer is redrawn.
 
 **Comparisons, one heading each (D133, D139, D140).** Four closed headings draw a material's products against the
 headlines a reader compares them on, each in the place of the first property it reads, instead of a block per
@@ -660,6 +692,12 @@ tag. The source's title is the one the sources table records: the heading the do
 measured value opened from the table, the Overview, Compare or the Products tab lands on its measurement, opened and
 marked, whatever is collapsed around it.
 
+**Environment.** Each category a requirement can be set on is headed by what its makers' statements say, counted as the
+material page counts them ("Acid resistance: not resistant, in 8 of 12 statements", `statementVerdictWords`, D147); the
+statements under it stay as they are. It is a count of statements, never the selector's answer, which is each
+product's, at the Overview's top (D98). The tab's first line says once that makers rarely give the concentration,
+temperature or duration, from the method table's row the page reads too (m437).
+
 **Reference data for the resin.** Where a material has no environment record of its own in a category, the Environment tab
 ends with a section headed "Reference data for PLA resin (not these products)" (D64): one line saying that no source tested this material or its
 grades, that what follows is the neat resin's published behaviour from a resin producer's or handbook reference, not a
@@ -690,7 +728,7 @@ A material with enough on file has two pages of their own, built beside the sele
 reimagined in D145): an **Overview** to read and a **Products** page to choose from. **The reader** is the drawer's: an
 engineer checking a material, here with time to read it whole, print it or send it. **Its purpose** is to understand the
 material across its products before or after the selector's answer; it decides nothing. No requirement is set on a page,
-no product passes or fails there, the status colours never appear, and its colophon says that data-sheet values are
+no product passes or fails there, the status colours never appear, and its footer says that data-sheet values are
 not design allowables.
 
 **Which materials.** Those the page rule admits (`PAGE_RULE` in `app/js/ui/page-rule.js`): at least three products and
@@ -723,24 +761,25 @@ so first. A group name has none.
   Products page; **Uses, limitations and chemicals** (three warnings open, the rest folded; each exposure one verdict
   with its count); **Density and price**, in words; **Other properties, as published**, one line and a fold;
   **Estimated values** (only where a key figure is missing or cannot be ranked, fenced); **Sources** (one paragraph,
-  this material's own known gaps, every document and the publisher table behind a fold); the **colophon** (what the
-  numbers are not, the way back, release and dates, who wrote the summary and its review status, *Copy the citation*).
+  this material's own known gaps, every document and the publisher table behind a fold); then the page's **footer**
+  (below).
 
 A section with nothing to say leaves the page silently; absence is said once, where the reader would look. The page says
 each fact once: the first screen gives the number, a section interprets it, a figure's title states what only it shows.
 
 **The Products page** (`materials/<id>-products.html`): the head with *Products* selected, one line that follows the
-sort, a search and *Sort by* (a column heading sorts too; a second press reverses), the key of only the marks used, then
-the list. Sorting by a value splits the list into labelled groups in a fixed order: compared, then shown as published
-(no stated orientation or load, or a setting from the Bambu Lab Filament Guide), then a notched Izod value where no
-Charpy is published, then not published ("—"); in the sorted column a thin rule under each compared value shows its
-place in the column's range. A row is a native disclosure; its card holds every record of that product, values grouped by document (the conditions
-they share said once in the group's heading, a second edition's identical values said once), the sheet's own row
-label, whether each is in the Overview's median and why not, print settings with where each comes from, price, the
-maker's statements folded, and documents. Reference and study
-specimens come last. `#G…` opens a product's card, `#V…` a value. Under six products the cards open; on a phone each
-row is two lines. Every record of a material appears exactly once across its two pages, except the project's own
-selection notes and the maintainers' coverage notes (`offThePages`).
+sort (it opens most documented first, `product-order.js`, the order the drawer's passing products take), a search and
+*Sort by* (a column heading sorts too; a second press reverses), the key of only the marks used, then the list. Sorting
+by a value splits the list into labelled groups in a fixed order: compared, then shown as published (no stated
+orientation or load, or a setting from the Bambu Lab Filament Guide), then a notched Izod value where no Charpy is
+published, then not published ("—"); in the sorted column a thin rule under each compared value shows its place in the
+column's range. A row is a native disclosure; its card holds every record of that product, values grouped by document
+(the conditions they share said once in the group's heading, a second edition's identical values said once), the sheet's
+own row label, whether each is in the Overview's median and why not, print settings with where each comes from, price,
+the maker's statements folded, and documents. Reference and study specimens come last. `#G…` opens a product's card,
+`#V…` a value. Under six products the cards open; on a phone each row is two lines. Every record of a material appears
+exactly once across its two pages, except the project's own selection notes and the maintainers' coverage notes
+(`offThePages`).
 
 **The figure grammar.** Inline SVG drawn by the build in one grammar: a title that states what the figure shows, the
 question it answers, a key of only the marks drawn, the plot, one line on how to read it, and *The figure as a table*
@@ -752,24 +791,42 @@ colour marks this material, grey every other. Hovering or focusing a product lig
 its card on the Products page.
 
 **The way around.** One sticky bar: the mark and *Materials* lead to the index, then the material and the section in
-view (a list of the sections and *How the numbers are worked out*), and *Back to your results*. Arrived from the selector
-(`?from=`, kept for the tab and taken out of the address), every return reopens the selector as the reader left it, with
-the drawer on the material of the page in view; the selector keeps the chosen products' notes, the view's scroll and the
-drawer's tab for the tab (browser session storage), and nothing else; arrived otherwise, it reads *Open in the selector*. **The index**
-(`materials/index.html`) lists the materials with a page by family, each with its products, one search that also finds
-the names a material is sold under, read row by row, the families with most pages first, and the materials without a page
-in one closing block, a line per family. **The method page**
-(`materials/method.html`) holds the explanations every page would otherwise repeat. **The stub**
+view (a list of the sections and *How the numbers are worked out*), and *Back to your results*. Arrived from the
+selector (`?from=`, kept for the tab and taken out of the address), every return reopens the selector as the reader left
+it, with the drawer on the material of the page in view, from a Products page on its Products tab, where a reader back
+from browsing every product chooses one (D147); the selector keeps the chosen products' notes, the view's scroll and the
+drawer's tab for the tab (browser session storage), and nothing else. Where the selection holds no requirement,
+shortlist or chosen product the link reads *Back to the selector*, since there are no results to go back to; arrived
+otherwise, it reads *Open in the selector*. **The index** (`materials/index.html`) lists the materials with a page by
+family, each with its products, one search that also finds the names a material is sold under, read row by row, the
+families with most pages first, and the materials without a page in one closing block, a line per family. **The method
+page** (`materials/method.html`) holds the explanations every page would otherwise repeat. **The stub**
 (`materials/<id>-records.html`) sends the old records page's links to the Products page or to Sources.
 
-**Type and colour.** Inter for text and figures, Newsreader for the names, section titles and the summary, both
-embedded; 16 px body; the selector's tokens, light and dark, the theme following the selector's choice; a printed page
-is light, without controls, with the address and page numbers.
+**The footer.** Every page kind, an Overview, a Products page, the index and the method page, ends in one full-width
+band on the selector's white, set after the main element (D147; it had sat on the content's grey behind a hairline, its
+first sentence read as the last paragraph of Sources, and the page kinds ended three ways): the standing sentence, that
+data-sheet values describe test specimens and are not design allowables; the ways out (the way back, keeping its
+long words on a phone, the material's other page, *All materials*) and *How the numbers are worked out*; on a material's
+pages the citation, with *Copy the citation* and *Print this page*, and on its Overview who wrote the summary, in one
+sentence ("The summary above was drafted by an AI agent (Claude Opus) on 17 Oct 2026 and has not yet been reviewed.");
+and one closing line, the mark, **Filament Atlas** and the selector's status-bar words with the build's day ("Filament
+Atlas · release 9ca94d31fc5d · documents read 10 Sep–7 Oct 2026 · built 17 Oct 2026"). The citation names the documents
+read for this material ("PETG. Filament Atlas, material pages, release 9ca94d31fc5d, documents read 10 Sep–5 Oct
+2026.").
+
+**Type and colour.** Inter for text and figures, as in the selector since D147, Newsreader for the names, section
+titles and the summary, both embedded; 16 px body; the selector's tokens, light and dark, its radii and its theme button
+(a moon or a sun, named for what a press switches to), the theme following the selector's choice; a printed page is
+light, without controls, with the address and page numbers.
 
 **One set of facts.** The drawer and the pages show a material from the same compiled fields through one facts layer
 (`app/js/ui/material-facts.js`, with the shared sentences, scales and display statistics beside it); what the pages add
 is display statistics computed at render time (`material-stats.js`, `material-highlights.js`), one rule for each
-statement a page makes twice (a print window: `typicalWindow`; a shown gap: `shownGap`). Neither decides anything.
+statement a page makes twice (a print window: `typicalWindow`; a shown gap: `shownGap`). Since D147 a sentence both
+surfaces print comes from one function in `app/js/ui`, which the pages' modules re-export: the evidence line
+(`evidence-line.js`), the count of statements per exposure, the gap rule, the price sample, the H2C's limits, a bound's
+sign, dates (`dates.js`) and the products' order (`product-order.js`). Neither decides anything.
 
 **Where they are.** Beside the selector's page: in `dist/materials/`, on the site at `materials/`, and in a release as
 `H2C_Material_Pages_<snapshot>_<release>.zip`, to unzip in the folder that holds a downloaded copy of the selector. A
@@ -797,7 +854,8 @@ search**.
 ## The frame
 
 The top bar, the status bar and the rail's head are the frame around the results, and they stay quiet so the results
-can be loud (2026-10-17, after readers called the top of the page overwhelming). Five rules hold them together:
+can be loud (2026-10-17, after readers called the top of the page overwhelming). These rules hold them together, and
+since D147 the material pages' frame follows them too:
 
 - **Neutral tones.** The accent marks only what is selected or focused. A segmented control is a grey track with the
   chosen option raised on it in the accent's ink; the solid accent blocks it replaced, the mode switch and the view
@@ -811,19 +869,32 @@ can be loud (2026-10-17, after readers called the top of the page overwhelming).
   table", "Filters", "Reported, not required"), and the drawer's section headings are the material page's: ink, sentence
   case, where they had been the faintest type on screen.
 - **Readable grey.** Small grey text that has to be read takes `--ink-3-text` (5.1:1 on the light surface, 5.4:1 dark;
-  `app.css`), never `--ink-3` (3.5–3.7:1), which borders, marks and an empty tab keep; `tokens.css`, shared with the
-  material pages, is unchanged (2026-10-18).
+  `app.css`), never `--ink-3` (3.5–3.7:1), which borders, marks and an empty tab keep; the token is the selector's own,
+  so `tokens.css`, shared with the material pages, did not change for it (2026-10-18).
 - **One icon language.** Line icons in a 20 px box on a 1.7 px stroke: the search, Filters, Save / share, the theme, the
   rail's Hide, and one per rail group, so a group is found by shape as well as by name. An icon never replaces a word
   that has no other place: a button shown as an icon keeps its words as its name and title.
-- **Provenance at the foot.** The data snapshot and release sit at the right end of the status bar, always visible, where
-  the top bar hid them below 1600 px. The status chips are pills: tinted with their own edge while shown, outlined while
-  hidden, with the ☑ / ☐ box kept so on and off differ without colour.
+- **One frame with the pages** (D147). Three radii in `tokens.css`, `--r-ctl` 7 px for a control, `--r-track` 10 px for
+  the track a segmented control sits in, `--r-plate` 12 px for a plate, so the lens tabs and the pages' *Overview |
+  Products* match to the pixel; buttons at weight 500 on both surfaces; one theme button, a moon in the light theme and a
+  sun in the dark, named "Switch to dark theme" or "Switch to light theme", in a 36 px box, the material pages' too (theirs
+  had been a half-filled disc labelled "Dark theme"). The stored theme is applied in the selector's head, before its
+  data loads, as the pages apply it: a reader in the dark theme had seen it open light for a moment each time the way
+  back reopened it. Inter is the selector's face too, the pages' embedded subset, so a number is drawn in the same glyphs
+  on both. The pages' bar sits on the selector's white at 58 px.
+- **Provenance at the foot.** The release and when its documents were read ("release 9ca94d31fc5d · documents read
+  10 Sep–7 Oct 2026", `provenanceWords` in `dates.js`) sit at the right end of the status bar, always visible, where the
+  top bar hid them below 1600 px; on a phone the line wraps rather than lose its last date. The build's day and the
+  database snapshot's name are in its tooltip: "data 2026-09-21", the snapshot's name, had read as a date of the data
+  older than its documents (D147). Every material page's closing line prints the same words. The status chips are
+  pills: tinted with their own edge while shown, outlined while hidden, with the ☑ / ☐ box kept so on and off differ
+  without colour.
 
-The name is **Filament Atlas**: it says what the tool is, not which printer it was first built for. The H2C is named where
-it decides something: the rail's *Printing on the H2C*, the gates, the templates. The mark (on the page and as the
-browser icon) is three printed layers on the accent. The built file's name, the exports and the briefs still say H2C
-Material Selector, which links, scripts and saved files rely on.
+The name is **Filament Atlas**: it says what the tool is, not which printer it was first built for. The H2C is named
+where it decides something: the rail's *Printing on the H2C*, the gates, the templates. The mark (on the page and as the
+browser icon) is three printed layers on the accent, kept on a phone, where only the name goes, as on the pages. The
+built file's name, the exports and the briefs still say H2C Material Selector, which links, scripts and saved files rely
+on.
 
 ## Words
 
@@ -860,7 +931,7 @@ engineer would:
 | admitted for screening | not stated |
 | research mode, print checks off | H2C printability not checked |
 | in the H2C's scope, outside the printer's envelope | beyond H2C capability |
-| the printer maker's guide | the Bambu Lab Filament Guide |
+| the printer maker's guide | the Bambu Lab Filament Guide; one of its rows "the Bambu Lab Filament Guide (PLA column)", then "the guide" (one name on both surfaces since D147, where the drawer had said "Bambu Lab's Filament Guide for PLA") |
 | Official Bambu product, Officially listed family, Conditional, Theoretical | Bambu Lab filament, Type on Bambu Lab's H2C list, Unlisted, usable with conditions, Unlisted, within H2C temperatures |
 | typical (of a material), headline | median of its products, key property (the material pages say "typically" in a sentence, head a column "Median", and define it once, on the method page, as the median of the products compared) |
 | typical: annealed | annealed median (in a table cell, the drawer's square on the median's line, in the legend) |
@@ -868,7 +939,10 @@ engineer would:
 | on a comparable basis | with a stated orientation or test load |
 | Confirmed only, Include uncertain (the missing-data choice) | Leave out, Include, under "Materials that could not be checked" |
 | Within H2C temperature limits; Nozzle ≤ 350 °C, Bed ≤ 120 °C, Chamber ≤ 65 °C named apart | Nozzle, bed and chamber within H2C limits (`H2C_CHECK`), one name on the pill, the rail, Why excluded, the brief and the drawer's Also met |
-| Exceeds (a print gate) | Beyond |
+| Exceeds (a print gate); outside, above (the H2C's limits) | Beyond; beyond the H2C's limits, as the chip says (D147) |
+| retailer, seller | shop (the Price tab's column, the price sample) |
+| Manufacturer, Chamber (a product card) | Maker, Heated chamber |
+| left out of the range (a product's value) | kept out of the median |
 | reference grade | reference specimen, not for sale |
 | sources (in the On file line) | documents |
 | User-supplied reference (a publisher) | Reference |
@@ -880,9 +954,13 @@ engineer would:
 
 **How a sentence is written.** The answer first, then what qualifies it. One idea to a sentence, with no chains of
 semicolons. A caveat that holds for every row is said once, at the top of its view. Numbers and units as a data sheet
-prints them. Record IDs never stand in a sentence on the page: a source button beside a value holds them, with the
-page and the locator (the decision brief and the exports keep them, as records do). A reviewer's, migration's or audit's
-note is not reader text: it sits under a collapsed "Review notes" or "Record notes".
+prints them: thousands grouped, in a requirement and a reason too ("at most 1,500 kg/m³", "Published 1,310 kg/m³"; the
+rail's input keeps "1500"), and a range's unit written once ("40–53 MPa"). A date a person reads is "13 Sep 2026", a
+span "10 Sep–7 Oct 2026", on both surfaces, the citation and the decision brief included (`dayWords`, `daysWords` in
+`app/js/ui/dates.js`, D147); an ISO date only where a machine reads one (the exports, a saved scenario, a file name).
+Record IDs never stand in a sentence on the page: a source button beside a value holds them, with the page and the
+locator (the decision brief and the exports keep them, as records do). A reviewer's, migration's or audit's note is not
+reader text: it sits under a collapsed "Review notes" or "Record notes".
 
 **Names are display, keys are not.** What the page shows is mapped over the stored value (`GROUP_LABEL` in
 `filters.js`, `H2C_STATUS` and the rest in `app/js/ui/labels.js`), so a link, a saved scenario or an export made
@@ -904,10 +982,12 @@ one line; the words open who lists it, when it was seen and whether it was in st
 nothing to buy, and "listed, no price" over "out of stock" took three lines of a desktop column and doubled the row. Under
 a price, "out of stock" is a small second line. A material with no price observation says "No price", not "No CA
 price". A price read from a foreign listing carries a ¤ mark that says from which currency, at which Bank of Canada rate
-date, before VAT, and that no Canadian shop in the sample lists the product (D113). The Price tab lists every observation with its retailer, variant, pack size, price per kilogram, stock and
-whether it is in the sample, a foreign one with its ¤ and the arithmetic from its own currency, under one line giving how
-many shops were sampled and when (a listing's own date is in the
-explanation its "offer" or "no price" opens). A listing with a displayed price but no regular price the sample could
+date, before VAT, and that no Canadian shop in the sample lists the product (D113). The Price tab opens on the price and the listings it is made from, counting only those used ("165 CAD/kg,
+one product's price, from 1 listing in USD, converted", the rate one press away on "converted"), then the material page's
+sentence on the sample ("Regular prices, never sale prices, from 9 Canadian shops and 7 foreign shops, sampled 10 Sep–7
+Oct 2026, not live; shipping and tax are not included", D147). It lists every observation, the unused ones too, with its
+shop, variant, pack size, price per kilogram, stock and whether it is in the sample, a foreign one with its ¤ and the
+arithmetic from its own currency (a listing's own date is in the explanation its "offer" or "no price" opens). A listing with a displayed price but no regular price the sample could
 rely on (44 of the 104 sampled in September 2026) shows the displayed price per kilogram marked "offer", which opens
 who lists it, at what shelf price, and why it is not a regular price; it backs no headline. A listing with no price at
 all reads "no price" the same way, where it had read "n/a". A quarantined listing is struck through and its reason is
@@ -1083,7 +1163,7 @@ Parallel coordinates is drawn in SVG rather than by the plotting library, whose 
 and fails outright on plenty of real machines. It is drawn at the width it is given, down to 520 px; narrower, it keeps
 520 px and scrolls sideways, where it had been scaled down until its labels were 8 px.
 
-A line is read in a readout above the chart: its material, family and value on every axis. A mouse keeps what it had,
+A line is read in a readout above the chart: its material, family, result and value on every axis. A mouse keeps what it had,
 pointing at a line to read it and a click to open the material. On a touch screen the first tap on a line highlights it
 and shows it in the readout, with **Open material** as the next step, where the tap used to open the drawer before the line
 could be read; a tap on the chart away from the lines clears it. Each line takes the pointer 14 px wide, so a finger can
@@ -1105,16 +1185,18 @@ results**, shown when it has focus, which moves focus past the top bar and the f
 had been 68 presses away. The search box shows its `/` shortcut until it is used. Enter on a row opens it; Enter
 or Space on the star, the link or a mark inside the row does only that.
 
-**Shortlist** is the one word for it: the drawer's button reads "☆ Shortlist" and, like the table's star, keeps its
-name and shows its state by `aria-pressed` and a highlighted, filled star. A seventh material is refused with a line in
-the shortlist bar, where a browser alert had pointed at "the tray". The theme button says what pressing it does,
-"Switch to light theme", on screen and to a screen reader alike; it had read "Dark" while its accessible name said the
-opposite. Wording that assumed a desktop layout ("on the left") now says "in Filters". Both drawers take focus when they open, close on
-Escape and return focus to what opened them. Below 1100 CSS pixels, including at high zoom, the
-filter rail is a drawer opened from **Filters**; opening it focuses its close button, not **Clear requirements**,
-which is the first button in its header and which Enter used to press. At phone width the page stays as wide as the
-screen: the status chips and the shortlist tray wrap onto a second line rather than widening the layout, which once
-laid a 390 px phone out at 533 px with the right side clipped. Colour never the sole carrier of meaning.
+**Shortlist** is the one word for it: the drawer's button reads "☆ Shortlist" and, like the table's star, keeps its name
+and shows its state by `aria-pressed` and a highlighted, filled star. The table's star is a 44 px column straight after
+Material, its heading the star itself, named Shortlist (D147): at the table's end it had sat at x = 1364 in a 1280 px
+window with the rail open, off the screen, while Compare tells the reader to use it. A seventh material is refused with
+a line in the shortlist bar, where a browser alert had pointed at "the tray". The theme button says what pressing it
+does, "Switch to light theme", on screen and to a screen reader alike; it had read "Dark" while its accessible name said
+the opposite. Wording that assumed a desktop layout ("on the left") now says "in Filters". Both drawers take focus when
+they open, close on Escape and return focus to what opened them. Below 1100 CSS pixels, including at high zoom, the
+filter rail is a drawer opened from **Filters**; opening it focuses its close button, not **Clear requirements**, which
+is the first button in its header and which Enter used to press. At phone width the page stays as wide as the screen:
+the status chips and the shortlist tray wrap onto a second line rather than widening the layout, which once laid a 390
+px phone out at 533 px with the right side clipped. Colour never the sole carrier of meaning.
 
 **Narrow screens** (DECISIONS D62). What does not fit scrolls sideways inside its own box, and the page never does:
 
@@ -1246,9 +1328,10 @@ product it is; and **Export their products** names them under Values read from a
 read from a twin.
 
 **The printer maker's guide** (D88). Where a product's own sheet and its twin's are both silent on a part of its print
-gate (nozzle, bed, chamber, enclosure, hardened nozzle) or on its drying, it reads its material's row of Bambu Lab's
-Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in **Print settings** then carries "from Bambu Lab's Filament
-Guide for PLA", whoever makes the product (D124); the gate's reason
+gate (nozzle, bed, chamber, enclosure, hardened nozzle) or on its drying, it reads its material's row of the Bambu Lab
+Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in
+**Print settings** then carries "from the Bambu Lab Filament Guide (PLA column)", whoever makes the product (D124, worded
+so by D147); the gate's reason
 ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
 the guide under Recipe read from. The guide fills drying (D127), labelled as the guide's, but never annealing. For the eleven types it asks an
 enclosure for, a chamber so read says "An enclosure is asked for, with no temperature. The H2C's heated chamber (65 °C) counts as that
@@ -1268,7 +1351,7 @@ against its own scale. Opened, it draws each product's print settings as its pri
 gate reads them (grades[].print: its own sheet, a sheet it shares, or the guide's row): for the nozzle, the bed and the
 heated chamber, a row of each product's lowest setting above a row of its highest on one °C scale, and for drying one
 row of temperatures. A dot is filled where the product's own sheet, or one it shares (D89), gives the setting, hollow
-where it is read from Bambu Lab's Filament Guide (shown, not counted, as the key says), a diamond for an added filler or
+where it is read from the Bambu Lab Filament Guide (shown, not counted, as the key says), a diamond for an added filler or
 additive; the middle half and the median
 are of the products whose own or shared sheet gives the setting, special formulations left out, worked out on the page
 as the build summarises a headline (the guide's value is drawn and never counted, since one row speaks for every product
@@ -1288,7 +1371,7 @@ profile its value is read from, in its maker's list, marked; a guide's dot opens
 no setting has two values one of which is a sheet's.
 
 **The guide's row in the Printing tab.** For a material the guide names, the Printing tab shows the guide's row after
-the print temperatures heading, above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guide for PLA") with the row's ID as a
+the print temperatures heading, above the profiles. It is headed by the guide's name ("Bambu Lab Filament Guide (PLA column)") with the row's ID as a
 tag. A line says what it is: what the printer maker's guide states for its type, standing in for a product's print
 gate only where the product's own sheet, and a twin's, say nothing on that part, labelled there as the guide's and
 never the maker's; how many of the material's products read a part from it; and why the row speaks for this
@@ -1327,7 +1410,10 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
   the line drawn into it) and the export all read one result, by passing products; a candidate the goal cannot rank
   says so.
 - **Chosen products** (D103) live under *Save / share*: each with its current answer, the release it was chosen on, its
-  decision brief, a note, and the team's own test results; the shortlist bar says how many are chosen.
+  decision brief, a note, and the team's own test results; the shortlist bar says how many are chosen. The brief names,
+  under its head, the material page and the product's card on its Products page, where the material has a page, so the
+  colleague who receives a decision can read the reasons behind it (D147): in full where the selector is served, and as
+  paths relative to the selector from a downloaded copy, which open only beside its release's unzipped material pages.
 - **The filter rail below 1,100 px is a modal dialog** (F10), as the material drawer is.
 - **The release** (D96) is at the right end of the status bar and under *Save / share*, and in every export and brief.
 

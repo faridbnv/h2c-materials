@@ -18,7 +18,6 @@ import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
 import { renderCompare } from './ui/compare.js';
 import { renderDrawer } from './ui/detail.js';
-import { dayWords } from './ui/dates.js';
 import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc, markTableOverflow, keepInView } from './ui/format.js';
 import { TEMPLATES, PRINTABLE } from './ui/templates.js';

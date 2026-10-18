@@ -9,6 +9,7 @@
 
 import { coverageMatrix, COVERAGE_DOMAINS } from '../engine/coverage.js';
 import { esc, scrollTable, markTableOverflow } from './format.js';
+import { propertiesInDomain } from './registry.js';
 
 // Four readable states, collapsed from the eight the coverage table records.
 const STATE = {
@@ -112,14 +113,16 @@ export function renderCoverage(host, state, actions) {
     ${sparseTable(materials, db, state.ctx)}`;
 
   // A cell opens the material at its Known gaps (Sources), where the record behind the mark is, and so does a material
-  // named under the table; the name in the grid opens the Overview.
+  // named under the conflicts list; one named as publishing a rarely published property opens the tab holding its value
+  // (Known gaps no longer repeats what Mechanical's and Thermal's Not published lists say, coherence round C21); the name
+  // in the grid opens the Overview.
   markTableOverflow(host);
   host.querySelectorAll('[data-open]').forEach((e) => e.addEventListener('click', () =>
-    actions.openMaterial(e.dataset.open, e.dataset.domain ? 'Coverage' : 'Overview')));
+    actions.openMaterial(e.dataset.open, e.dataset.openTab || (e.dataset.domain ? 'Coverage' : 'Overview'))));
 }
 
-/** A material as a link to its record, in its Sources tab's Known gaps. */
-const link = (id, name, domain) => `<button class="link-btn" data-open="${esc(id)}" data-domain="${esc(domain)}">${esc(name)}</button>`;
+/** A material as a link to its record, in its Sources tab's Known gaps, or in the drawer tab `tab` where one is named. */
+const link = (id, name, domain, tab) => `<button class="link-btn" data-open="${esc(id)}" data-domain="${esc(domain)}"${tab ? ` data-open-tab="${esc(tab)}"` : ''}>${esc(name)}</button>`;
 
 /**
  * Conflicts and held-back values recorded in an area the grid has no column for (a composition, a source that
@@ -165,14 +168,15 @@ function sparseTable(materials, db, ctx) {
     for (const p of props) if (own.has(p)) by.get(p).push(m);
   }
   const SHOWN = 6;
-  const who = (list) => (!list.length ? '<span class="missing">none</span>'
-    : list.slice(0, SHOWN).map((m) => link(m.id, m.name, SPARSE)).join(', ') + (list.length > SHOWN ? `, and ${list.length - SHOWN} more` : ''));
+  const thermal = new Set(propertiesInDomain('thermal'));
+  const who = (list, p) => (!list.length ? '<span class="missing">none</span>'
+    : list.slice(0, SHOWN).map((m) => link(m.id, m.name, SPARSE, thermal.has(p) ? 'Thermal' : 'Mechanical')).join(', ') + (list.length > SHOWN ? `, and ${list.length - SHOWN} more` : ''));
   return `<div class="cov-notes">
       <h3 class="sec">Rarely published properties</h3>
       <p class="fine">Almost no filament data sheet gives these, so they are not columns above. For each, the candidates on
         screen whose products publish it; every other candidate has a gap there.</p>
       ${scrollTable(`<table class="grid cov-sparse-table"><thead><tr><th>Property</th><th class="num">Published for</th><th>Candidates</th></tr></thead>
-        <tbody>${props.map((p) => `<tr><td>${esc(p)}</td><td class="num">${by.get(p).length} of ${judged.length}</td><td>${who(by.get(p))}</td></tr>`).join('')}</tbody>
+        <tbody>${props.map((p) => `<tr><td>${esc(p)}</td><td class="num">${by.get(p).length} of ${judged.length}</td><td>${who(by.get(p), p)}</td></tr>`).join('')}</tbody>
       </table>`)}
     </div>`;
 }

@@ -36,4 +36,4 @@ Flexural strength (XY) MPa 63 76 69.5⁠–⁠84 42.6⁠–⁠115
 Not ranked: 48 with no stated orientation (43⁠–⁠115), 11 with an added filler or additive (29.6⁠–⁠122).
 Flexural strength (Z) MPa 17 54 42⁠–⁠59 21.1⁠–⁠68
 Both XY and Z published: 17 products for flexural modulus and 17 for flexural strength.
-Kept across the layers, Z as a share of XY (median of the products with both from one document): flexural modulus 88 % (75 %⁠–⁠97 %, 17 products) and flexural strength 66 % (40 %⁠–⁠93 %, 16 products).
+Kept across the layers, Z as a share of XY (median of the products with both from one document): flexural modulus 88 % (75⁠–⁠97 %, 17 products) and flexural strength 66 % (40⁠–⁠93 %, 16 products).

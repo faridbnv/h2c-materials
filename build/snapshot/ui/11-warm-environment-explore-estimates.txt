@@ -42,44 +42,44 @@ PC
 n/a not applicable
 3 more marks
 Supported candidates (39)
-TABLE 39 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW ABS | PASS / 16 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | passing: 85–105 / all products: 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
-ROW ABS-AF | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–17† | passing: 88 / all products: 88 | 127↗ | ☆
-ROW ABS-ESD | PASS / 1 of 11 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | passing: 98 / all products: 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock | ☆
-ROW ABS-GF | PASS / 8 of 11 products | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | passing: 82–100 / all products: 97 / 82–100 · 9 | 39↗ | ☆
-ROW ASA | PASS / 14 of 40 products | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | passing: 82–103 / all products: 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗ | ☆
-ROW ASA Aero | PASS / 1 of 4 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | passing: 85 / all products: 77.5 / 70–85 · 2 | 64↗ | ☆
-ROW ASA-CF | PASS / 5 of 17 products | 1,095 / 1,020–1,170 · 16 | 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | passing: 86–130 / all products: 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
-ROW ASA-GF | PASS / 3 of 6 products | 1,130 / 1,100–1,170 · 6 | 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | passing: 86–98 / all products: 91.5 / 86–98 · 4 | 96↗ | ☆
-ROW CPE · PASS 3 of 5 products
-ROW HIPS · PASS 2 of 11 products
-ROW PA12-CF · PASS 3 of 15 products
-ROW PA12-GF · PASS 1 of 3 products
-ROW PA6 · PASS 1 of 9 products
-ROW PA6-CF · PASS 8 of 14 products
-ROW PA6-GF · PASS 6 of 11 products
-ROW PA6/66 · PASS 2 of 7 products
-ROW PA612-CF · PASS 1 of 3 products
-ROW PA612-ESD · PASS 1 of 1 product
-ROW PAHT-CF · PASS 1 of 5 products
-ROW PBAT · PASS 1 of 1 product
-ROW PC · PASS 7 of 22 products
-ROW PC-ABS · PASS 1 of 13 products
-ROW PC-CF · PASS 1 of 10 products
-ROW PET-CF · PASS 2 of 8 products
-ROW PET-GF · PASS 2 of 4 products
-ROW PETG · PASS 1 of 73 products
-ROW PLA · PASS 7 of 195 products
-ROW PLA blend · PASS 2 of 9 products
-ROW PLA-CF · PASS 1 of 19 products
-ROW PLA-NF · PASS 1 of 2 products
-ROW PLA-PHB · PASS 1 of 1 product
-ROW PP · PASS 2 of 12 products
-ROW PP Lightweight · PASS 1 of 1 product
-ROW PP-CF · PASS 2 of 5 products
-ROW PP-GF · PASS 2 of 2 products
-ROW PPA · PASS 1 of 2 products
-ROW PPA-CF · PASS 3 of 8 products
-ROW PPA-GF · PASS 1 of 5 products
-ROW PVDF-ESD · PASS 1 of 1 product
+TABLE 39 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW ABS | ☆ | PASS / 16 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | passing: 85–105 / all products: 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
+ROW ABS-AF | ☆ | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–17† | passing: 88 / all products: 88 | 127↗
+ROW ABS-ESD | ☆ | PASS / 1 of 11 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | passing: 98 / all products: 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock
+ROW ABS-GF | ☆ | PASS / 8 of 11 products | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | passing: 82–100 / all products: 97 / 82–100 · 9 | 39↗
+ROW ASA | ☆ | PASS / 14 of 40 products | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | passing: 82–103 / all products: 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗
+ROW ASA Aero | ☆ | PASS / 1 of 4 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | passing: 85 / all products: 77.5 / 70–85 · 2 | 64↗
+ROW ASA-CF | ☆ | PASS / 5 of 17 products | 1,095 / 1,020–1,170 · 16 | 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | passing: 86–130 / all products: 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗
+ROW ASA-GF | ☆ | PASS / 3 of 6 products | 1,130 / 1,100–1,170 · 6 | 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | passing: 86–98 / all products: 91.5 / 86–98 · 4 | 96↗
+ROW CPE · ☆
+ROW HIPS · ☆
+ROW PA12-CF · ☆
+ROW PA12-GF · ☆
+ROW PA6 · ☆
+ROW PA6-CF · ☆
+ROW PA6-GF · ☆
+ROW PA6/66 · ☆
+ROW PA612-CF · ☆
+ROW PA612-ESD · ☆
+ROW PAHT-CF · ☆
+ROW PBAT · ☆
+ROW PC · ☆
+ROW PC-ABS · ☆
+ROW PC-CF · ☆
+ROW PET-CF · ☆
+ROW PET-GF · ☆
+ROW PETG · ☆
+ROW PLA · ☆
+ROW PLA blend · ☆
+ROW PLA-CF · ☆
+ROW PLA-NF · ☆
+ROW PLA-PHB · ☆
+ROW PP · ☆
+ROW PP Lightweight · ☆
+ROW PP-CF · ☆
+ROW PP-GF · ☆
+ROW PPA · ☆
+ROW PPA-CF · ☆
+ROW PPA-GF · ☆
+ROW PVDF-ESD · ☆
 Insufficient evidence (68) — included in counts and exports

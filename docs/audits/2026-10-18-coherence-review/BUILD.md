@@ -36,3 +36,29 @@ The groundwork is on the base branch already: `app/js/ui/dates.js` (`dayWords`, 
    `node docs/audits/2026-10-18-selector-refinement/drawer-ids.mjs` TOTAL unchanged if you touched the drawer.
 5. **Report in under 200 words**: commits, what each C item became, anything not done and why, any file outside your
    list you had to touch.
+
+## Outcome
+
+Merged on `coherence-review` after a9379226 (the groundwork, `app/js/ui/dates.js`, is fbe4951a before it); what each
+change became is [D147](../../DECISIONS.md#d147-the-selector-and-the-material-pages-read-as-one-tool-one-computation-per-fact-one-word-per-thing-one-frame).
+
+| Track | Commits |
+|---|---|
+| A, words and facts | 755dfd6a the shared words, one function per fact for the drawer and the page, and the pages' side (C01–C19); 452ca4c9 the drawer, each fact stated as the page states it (C02–C22) |
+| B, frame and identity | b335c279 three radii, one theme button, the page bar, the drawer's head, one provenance line (C03, C23–C29); 5c33eb62 the footer band, the closing line, the way back on Products (C31–C33); 899dfa8a Inter in the selector (C50) |
+| C, charts | 546c53a0 Parallel lines carry the selector's answer and its question, and the family palette keeps blue for "this material" (C40–C44, C51) |
+| D, hand-offs | 3836a75e the drawer's Products tab: search first, one order said, the page's figures, a link to each card (C34–C37); e67d328c the decision brief names the pages, the shortlist star after the name (C38, C39) |
+
+**Checks at the merge.** `npm test` 709 of 709; `pages:check` 16 of 16; `ui-fuzz` over 300 scenarios, exit 0; `ui:check`
+no layout failure; `drawer-ids.mjs` TOTAL 28950/30992, unchanged; `build:diff` against 0125d29e words only (the guide's
+labels and names, gate reasons, the method row m437 adds, archived in `archive/migrations/`); every `build/snapshot/*.csv`
+byte-identical but `pages.csv` (page sizes). No screening answer moved. Release 3cc2e5f2a439 → 9ca94d31fc5d.
+
+**Not built.** C30 and C45–C49 (later) and C52–C54 (advised against), in OPEN-PROBLEMS §37.21. Closed by the build in
+OPEN-PROBLEMS: §37.19's dropped bound sign (C14), §37.20's Products order and find (C34, C35) and the unattributed
+"Typical applications" (C10).
+
+**At integration.** One import of the date words in `main.js` (two tracks had each added it); the brief's dated line
+keeps both tracks' changes. In Data coverage, a name in the rarely published table now opens the tab holding its value
+(Mechanical or Thermal), since C21 took those properties out of Known gaps. `npm run verify` passed (361 s; verify:fast's
+steps 42 s).

@@ -43,92 +43,92 @@ PC
 n/a not applicable
 3 more marks
 Supported candidates (87)
-TABLE 87 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW ABS | PASS / 46 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
-ROW ABS-AF | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–17† | 88 | 127↗ | ☆
-ROW ABS-ESD | PASS / 1 of 11 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock | ☆
-ROW ABS-GF | PASS / 11 of 11 products | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
-ROW ASA | PASS / 33 of 40 products | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗ | ☆
-ROW ASA Aero | PASS / 1 of 4 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | 77.5 / 70–85 · 2 | 64↗ | ☆
-ROW ASA-AF | PASS / 2 of 3 products | 1,070 | ~1.0–2.9† | ~36–58† | ~3–20† | ~95–105† | 115 / 109–120 · 2 / ↗ | ☆
-ROW ASA-CF | PASS / 16 of 17 products | 1,095 / 1,020–1,170 · 16 | 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
-ROW ASA-EC · PASS 1 of 1 product
-ROW ASA-GF · PASS 4 of 6 products
-ROW CoPE · PASS 1 of 1 product
-ROW CPE · PASS 3 of 5 products
-ROW CPE-CF · PASS 2 of 3 products
-ROW HIPS · PASS 2 of 11 products
-ROW Nylon, maker-undisclosed polyamide · PASS 3 of 7 products
-ROW OBC · PASS 2 of 2 products
-ROW PA12 · PASS 1 of 8 products
-ROW PA12-CF · PASS 4 of 15 products
-ROW PA12-GF · PASS 1 of 3 products
-ROW PA6 · PASS 2 of 9 products
-ROW PA6-CE · PASS 1 of 1 product
-ROW PA6-CF · PASS 14 of 14 products
-ROW PA6-GF · PASS 9 of 11 products
-ROW PA6/66 · PASS 3 of 7 products
-ROW PA612-CF · PASS 1 of 3 products
-ROW PA612-ESD · PASS 1 of 1 product
-ROW PAHT · PASS 1 of 1 product
-ROW PAHT-CF · PASS 5 of 5 products
-ROW PBAT · PASS 1 of 1 product
-ROW PC · PASS 11 of 22 products
-ROW PC FR · PASS 1 of 2 products
-ROW PC-ABS · PASS 1 of 13 products
-ROW PC-CF · PASS 1 of 10 products
-ROW PCL · PASS 2 of 4 products
-ROW PCTG · PASS 6 of 8 products
-ROW PCTG-CF · PASS 3 of 3 products
-ROW PCTG-GF · PASS 3 of 3 products
-ROW PEBA · PASS 1 of 10 products
-ROW PET · PASS 3 of 7 products
-ROW PET-CF · PASS 8 of 8 products
-ROW PET-GF · PASS 3 of 4 products
-ROW PETG · PASS 63 of 73 products
-ROW PETG-CF · PASS 22 of 24 products
-ROW PETG-ESD · PASS 6 of 9 products
-ROW PETG-GF · PASS 1 of 5 products
-ROW PETG-GR · PASS 2 of 2 products
-ROW PETG-PTFE · PASS 2 of 2 products
-ROW PLA · PASS 183 of 195 products
-ROW PLA Aero · PASS 6 of 12 products
-ROW PLA blend · PASS 5 of 9 products
-ROW PLA blend-CF · PASS 1 of 2 products
-ROW PLA Galaxy · PASS 4 of 4 products
-ROW PLA Glow · PASS 5 of 7 products
-ROW PLA Marble · PASS 5 of 6 products
-ROW PLA Metal · PASS 7 of 9 products
-ROW PLA Silk · PASS 23 of 33 products
-ROW PLA Sparkle · PASS 3 of 4 products
-ROW PLA Wood · PASS 10 of 20 products
-ROW PLA-CE · PASS 1 of 1 product
-ROW PLA-CF · PASS 19 of 19 products
-ROW PLA-EC · PASS 1 of 2 products
-ROW PLA-ESD · PASS 2 of 2 products
-ROW PLA-GF · PASS 1 of 4 products
-ROW PLA-GR · PASS 2 of 2 products
-ROW PLA-NF · PASS 2 of 2 products
-ROW PLA-PHB · PASS 1 of 1 product
-ROW PP · PASS 6 of 12 products
-ROW PP Lightweight · PASS 1 of 1 product
-ROW PP-CF · PASS 3 of 5 products
-ROW PP-GF · PASS 2 of 2 products
-ROW PPA · PASS 1 of 2 products
-ROW PPA-CF · PASS 4 of 8 products
-ROW PPA-GF · PASS 1 of 5 products
-ROW PPS-CF · PASS 3 of 7 products
-ROW PPS-GF · PASS 1 of 2 products
-ROW PVB · PASS 5 of 6 products
-ROW PVDF-ESD · PASS 1 of 1 product
-ROW SBC · PASS 1 of 1 product
-ROW TPC · PASS 4 of 12 products
-ROW TPE, maker-undisclosed elastomer · PASS 4 of 5 products
-ROW TPU 85A class and softer · PASS 8 of 18 products
-ROW TPU 90A class · PASS 8 of 12 products
-ROW TPU 95A class · PASS 27 of 27 products
-ROW TPU harder than 95A · PASS 7 of 15 products
-ROW TPU-CF · PASS 3 of 3 products
-ROW TPU-ESD · PASS 2 of 2 products
-ROW TPU-GF · PASS 1 of 1 product
+TABLE 87 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW ABS | ☆ | PASS / 46 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
+ROW ABS-AF | ☆ | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–17† | 88 | 127↗
+ROW ABS-ESD | ☆ | PASS / 1 of 11 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock
+ROW ABS-GF | ☆ | PASS / 11 of 11 products | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗
+ROW ASA | ☆ | PASS / 33 of 40 products | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗
+ROW ASA Aero | ☆ | PASS / 1 of 4 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | 77.5 / 70–85 · 2 | 64↗
+ROW ASA-AF | ☆ | PASS / 2 of 3 products | 1,070 | ~1.0–2.9† | ~36–58† | ~3–20† | ~95–105† | 115 / 109–120 · 2 / ↗
+ROW ASA-CF | ☆ | PASS / 16 of 17 products | 1,095 / 1,020–1,170 · 16 | 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗
+ROW ASA-EC · ☆
+ROW ASA-GF · ☆
+ROW CoPE · ☆
+ROW CPE · ☆
+ROW CPE-CF · ☆
+ROW HIPS · ☆
+ROW Nylon, maker-undisclosed polyamide · ☆
+ROW OBC · ☆
+ROW PA12 · ☆
+ROW PA12-CF · ☆
+ROW PA12-GF · ☆
+ROW PA6 · ☆
+ROW PA6-CE · ☆
+ROW PA6-CF · ☆
+ROW PA6-GF · ☆
+ROW PA6/66 · ☆
+ROW PA612-CF · ☆
+ROW PA612-ESD · ☆
+ROW PAHT · ☆
+ROW PAHT-CF · ☆
+ROW PBAT · ☆
+ROW PC · ☆
+ROW PC FR · ☆
+ROW PC-ABS · ☆
+ROW PC-CF · ☆
+ROW PCL · ☆
+ROW PCTG · ☆
+ROW PCTG-CF · ☆
+ROW PCTG-GF · ☆
+ROW PEBA · ☆
+ROW PET · ☆
+ROW PET-CF · ☆
+ROW PET-GF · ☆
+ROW PETG · ☆
+ROW PETG-CF · ☆
+ROW PETG-ESD · ☆
+ROW PETG-GF · ☆
+ROW PETG-GR · ☆
+ROW PETG-PTFE · ☆
+ROW PLA · ☆
+ROW PLA Aero · ☆
+ROW PLA blend · ☆
+ROW PLA blend-CF · ☆
+ROW PLA Galaxy · ☆
+ROW PLA Glow · ☆
+ROW PLA Marble · ☆
+ROW PLA Metal · ☆
+ROW PLA Silk · ☆
+ROW PLA Sparkle · ☆
+ROW PLA Wood · ☆
+ROW PLA-CE · ☆
+ROW PLA-CF · ☆
+ROW PLA-EC · ☆
+ROW PLA-ESD · ☆
+ROW PLA-GF · ☆
+ROW PLA-GR · ☆
+ROW PLA-NF · ☆
+ROW PLA-PHB · ☆
+ROW PP · ☆
+ROW PP Lightweight · ☆
+ROW PP-CF · ☆
+ROW PP-GF · ☆
+ROW PPA · ☆
+ROW PPA-CF · ☆
+ROW PPA-GF · ☆
+ROW PPS-CF · ☆
+ROW PPS-GF · ☆
+ROW PVB · ☆
+ROW PVDF-ESD · ☆
+ROW SBC · ☆
+ROW TPC · ☆
+ROW TPE, maker-undisclosed elastomer · ☆
+ROW TPU 85A class and softer · ☆
+ROW TPU 90A class · ☆
+ROW TPU 95A class · ☆
+ROW TPU harder than 95A · ☆
+ROW TPU-CF · ☆
+ROW TPU-ESD · ☆
+ROW TPU-GF · ☆
 Insufficient evidence (39) — included in counts and exports

@@ -481,7 +481,7 @@ The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared
 profile, and each product reports **Within**, **Exceeds**, **Partly within** (a chamber window the printer only partly
 reaches), **Above recommended** (a recommended window above the H2C's) or **No data**. Where its own sheet says
 nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
-D89), then Bambu Lab's Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
+D89), then the Bambu Lab Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
 too, each labelled as such wherever it is shown; its own sheet always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the
 drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
 meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a
@@ -498,7 +498,8 @@ keeps it with the state its answer was in and the release it was chosen on. Unde
 has a **decision brief** (Markdown): the question; the verdict and state, with the annealing it needs; every requirement
 with the records it rests on, each number as printed with its source, page and SHA-256; what is not settled; how to print
 and treat it; a suggested confirmation test; and the team's own test results, which you record there and which never
-enter the database (D103).
+enter the database (D103). Where the material has a page, the brief names it and the product's card on its Products
+page, so the colleague who receives it can read the reasons (D147).
 
 Every page, saved scenario, link, export and brief carries a **release** ID: a digest of the data, the rules and the
 engine that decided it (D96). Reopened on another release, even of the same data date, a scenario says so before it asks

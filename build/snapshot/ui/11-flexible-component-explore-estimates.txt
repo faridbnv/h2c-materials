@@ -42,26 +42,26 @@ PC
 n/a not applicable
 3 more marks
 Supported candidates (8)
-TABLE 8 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW OBC / Polyolefins | PASS / 1 of 2 products | 905 | ~0.01–0.42† | 14 | passing: 700 / all products: 700 | n/a | — | ☆
-ROW PA6/66 / Nylon / Polyamide | PASS / 1 of 7 products | 1,120 / 1,080–1,140 · 7 | 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | passing: 100 / all products: 15 / 12.7–100 · 3 | 111 / 102–140 · 5 | 40 / 39–90.7 · 3 / ↗ | ☆
-ROW PBAT / PVB / Specialty Polymers | PASS / 1 of 1 product | 1,250 | 0.006 | 27 | passing: 400 / all products: 400 | 90 | — | ☆
-ROW PCL / PVB / Specialty Polymers | PASS / 1 of 4 products | 1,100 / 1,100–1,130 · 3 | ~0.23–0.63† | ~9–45† | passing: 800 / all products: 800 | 57 | 234EUR | ☆
-ROW PP / Polyolefins | PASS / 2 of 12 products | 900 / 890–960 · 8 | ~0.46–1.05† | 19 | passing: 850–900 / all products: 850 | 80 / 58.5–85 · 3 | 77.5 / 62.5–92.5 · 2 / EUR | ☆
-ROW TPU 85A class and softer / Flexible Elastomers | PASS / 1 of 18 products | 1,180 / 1,070–1,210 · 15 | 0.0159 / 0.0068–0.025 · 2 | 22 / 6.2–30 · 6 | passing: 700 / all products: 643 / 560–729 · 4 | n/a | 58 / 50–158 · 3 / ↗ | ☆
-ROW TPU 90A class / Flexible Elastomers | PASS / 5 of 12 products | 1,210 / 1,120–1,240 · 10 | 0.0053 / 0.0053–0.027 · 3 | 23.7 / 12.5–30 · 5 | passing: 574–1,000 / all products: > 650 / 574–1,000+ · 5 | n/a | 75 / 54–96 · 2 / ↗ | ☆
-ROW TPU 95A class / Flexible Elastomers | PASS / 10 of 27 products | 1,210 / 1,000–1,250 · 25 | 0.027 / 0.006–0.065 · 9 | 28.1 / 17–41.4 · 14 | passing: 265–900 / all products: 501 / 265–900+ · 11 | n/a | 83 / 54–112 · 2 / ↗ | ☆
+TABLE 8 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW OBC / Polyolefins | ☆ | PASS / 1 of 2 products | 905 | ~0.01–0.42† | 14 | passing: 700 / all products: 700 | n/a | —
+ROW PA6/66 / Nylon / Polyamide | ☆ | PASS / 1 of 7 products | 1,120 / 1,080–1,140 · 7 | 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | passing: 100 / all products: 15 / 12.7–100 · 3 | 111 / 102–140 · 5 | 40 / 39–90.7 · 3 / ↗
+ROW PBAT / PVB / Specialty Polymers | ☆ | PASS / 1 of 1 product | 1,250 | 0.006 | 27 | passing: 400 / all products: 400 | 90 | —
+ROW PCL / PVB / Specialty Polymers | ☆ | PASS / 1 of 4 products | 1,100 / 1,100–1,130 · 3 | ~0.23–0.63† | ~9–45† | passing: 800 / all products: 800 | 57 | 234EUR
+ROW PP / Polyolefins | ☆ | PASS / 2 of 12 products | 900 / 890–960 · 8 | ~0.46–1.05† | 19 | passing: 850–900 / all products: 850 | 80 / 58.5–85 · 3 | 77.5 / 62.5–92.5 · 2 / EUR
+ROW TPU 85A class and softer / Flexible Elastomers | ☆ | PASS / 1 of 18 products | 1,180 / 1,070–1,210 · 15 | 0.0159 / 0.0068–0.025 · 2 | 22 / 6.2–30 · 6 | passing: 700 / all products: 643 / 560–729 · 4 | n/a | 58 / 50–158 · 3 / ↗
+ROW TPU 90A class / Flexible Elastomers | ☆ | PASS / 5 of 12 products | 1,210 / 1,120–1,240 · 10 | 0.0053 / 0.0053–0.027 · 3 | 23.7 / 12.5–30 · 5 | passing: 574–1,000 / all products: > 650 / 574–1,000+ · 5 | n/a | 75 / 54–96 · 2 / ↗
+ROW TPU 95A class / Flexible Elastomers | ☆ | PASS / 10 of 27 products | 1,210 / 1,000–1,250 · 25 | 0.027 / 0.006–0.065 · 9 | 28.1 / 17–41.4 · 14 | passing: 265–900 / all products: 501 / 265–900+ · 11 | n/a | 83 / 54–112 · 2 / ↗
 Estimated candidates to verify (10)
 Predicted centres meet the missing numerical requirements. Still UNKNOWN; confirm before choosing.
-TABLE 10 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW CPE / Copolyesters | UNKNOWN / 0 of 5 products / Estimated candidate to verify: 2 products fail at least one requirement; 3 remain unresolved | 1,215 / 1,180–1,270 · 4 | 1.68 / 1.5–1.85 · 2 | 52.5 / 50–55 · 2 | 16.1 / 6.2–26 · 2 | 89.5 / 70–100 · 4 | 62.7↗ | ☆
-ROW PC / Polycarbonate | UNKNOWN / 0 of 22 products / Estimated candidate to verify: 15 products fail at least one requirement; 7 remain unresolved | 1,200 / 1,150–1,230 · 19 | 2.11 / 1.8–2.5 · 11 | 60 / 40–69.1 · 13 | 7 / 3.2–25 · 12 | 119 / 101–144 · 16 | 51 / 39–72 · 5 / ↗ | ☆
-ROW PCTG / Copolyesters | UNKNOWN / 0 of 8 products / Estimated candidate to verify: 1 products fail at least one requirement; 7 remain unresolved | 1,230 | 1.75 | 45 | 24 | 76 / 74–76 · 6 | 48↗ | ☆
-ROW PEBA / Flexible Elastomers | UNKNOWN / none judged / Estimated candidate to verify: 10 products have no complete qualifying evidence | 1,010 / 1,000–1,020 · 7 | 0.09 | 19.7 / 16.5+–32.6 · 5 | 1,050 / 520+–1,110 · 5 | n/a | 106↗ | ☆
-ROW PETG | UNKNOWN / 0 of 73 products / Estimated candidate to verify: 23 products fail at least one requirement; 50 remain unresolved | 1,270 / 1,180–1,300 · 60 | 1.68 / 1–3.5 · 23 | 47 / 31.9–68.4 · 29 | 8.4 / 4.1–90 · 25 | 70 / 63–94 · 46 | 26 / 20–66 · 12 / ↗ | ☆
-ROW PETG-PTFE | UNKNOWN / none judged / Estimated candidate to verify: 2 products have no complete qualifying evidence | 1,320 | ~0.9–2.5† | ~27–58† | ~104–201† | ~48–73† | 86↗ | ☆
-ROW PVB / PVB / Specialty Polymers | UNKNOWN / 0 of 6 products / Estimated candidate to verify: 3 products fail at least one requirement; 3 remain unresolved | 1,100 / 1,080–1,100 · 6 | 2.2 / 1.7–2.21 · 3 | 50.9 / 48–53.2 · 4 | 14 / 5.7–14.5 · 3 | 65 / 55.8–68 · 4 | 85.3 / 71.3–120 · 3 / ↗ | ☆
-ROW TPC / also called TPEE · Flexible Elastomers | UNKNOWN / none judged / Estimated candidate to verify: 12 products have no complete qualifying evidence | 1,150 / 1,070–1,220 · 10 | 0.048 / 0.029–0.067 · 2 | 12.7 / 7.6–17.7 · 2 | 445 / 390–500+ · 2 | n/a | 88 / 74.1–102 · 2 / EUR↗ / out of stock | ☆
-ROW TPU harder than 95A · UNKNOWN none judged
-ROW TPU-ESD · UNKNOWN none judged
+TABLE 10 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW CPE / Copolyesters | ☆ | UNKNOWN / 0 of 5 products / Estimated candidate to verify: 2 products fail at least one requirement; 3 remain unresolved | 1,215 / 1,180–1,270 · 4 | 1.68 / 1.5–1.85 · 2 | 52.5 / 50–55 · 2 | 16.1 / 6.2–26 · 2 | 89.5 / 70–100 · 4 | 62.7↗
+ROW PC / Polycarbonate | ☆ | UNKNOWN / 0 of 22 products / Estimated candidate to verify: 15 products fail at least one requirement; 7 remain unresolved | 1,200 / 1,150–1,230 · 19 | 2.11 / 1.8–2.5 · 11 | 60 / 40–69.1 · 13 | 7 / 3.2–25 · 12 | 119 / 101–144 · 16 | 51 / 39–72 · 5 / ↗
+ROW PCTG / Copolyesters | ☆ | UNKNOWN / 0 of 8 products / Estimated candidate to verify: 1 products fail at least one requirement; 7 remain unresolved | 1,230 | 1.75 | 45 | 24 | 76 / 74–76 · 6 | 48↗
+ROW PEBA / Flexible Elastomers | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 10 products have no complete qualifying evidence | 1,010 / 1,000–1,020 · 7 | 0.09 | 19.7 / 16.5+–32.6 · 5 | 1,050 / 520+–1,110 · 5 | n/a | 106↗
+ROW PETG | ☆ | UNKNOWN / 0 of 73 products / Estimated candidate to verify: 23 products fail at least one requirement; 50 remain unresolved | 1,270 / 1,180–1,300 · 60 | 1.68 / 1–3.5 · 23 | 47 / 31.9–68.4 · 29 | 8.4 / 4.1–90 · 25 | 70 / 63–94 · 46 | 26 / 20–66 · 12 / ↗
+ROW PETG-PTFE | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 2 products have no complete qualifying evidence | 1,320 | ~0.9–2.5† | ~27–58† | ~104–201† | ~48–73† | 86↗
+ROW PVB / PVB / Specialty Polymers | ☆ | UNKNOWN / 0 of 6 products / Estimated candidate to verify: 3 products fail at least one requirement; 3 remain unresolved | 1,100 / 1,080–1,100 · 6 | 2.2 / 1.7–2.21 · 3 | 50.9 / 48–53.2 · 4 | 14 / 5.7–14.5 · 3 | 65 / 55.8–68 · 4 | 85.3 / 71.3–120 · 3 / ↗
+ROW TPC / also called TPEE · Flexible Elastomers | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 12 products have no complete qualifying evidence | 1,150 / 1,070–1,220 · 10 | 0.048 / 0.029–0.067 · 2 | 12.7 / 7.6–17.7 · 2 | 445 / 390–500+ · 2 | n/a | 88 / 74.1–102 · 2 / EUR↗ / out of stock
+ROW TPU harder than 95A · ☆
+ROW TPU-ESD · ☆
 Insufficient evidence (90) — included in counts and exports

@@ -108,8 +108,10 @@ tolerance was meant). Never weaken a check to make it pass; AGENTS.md says why.
 ## Review or revise a written summary
 
 The full rules: AGENTS.md, "Write or revise a material's summary". Each material with a page has a short written
-summary at the head of its Overview, one row of `data/tables/material_summaries.csv`, drafted by an agent; the page's
-colophon says it was drafted with AI assistance, when, and its review status. It is 40 to 75 words, and its numbers
+summary at the head of its Overview, one row of `data/tables/material_summaries.csv`, drafted by an agent; the footer at
+the end of the Overview says so in one sentence ("The summary above was drafted by an AI agent (Claude Opus) on 17 Oct
+2026 and has not yet been reviewed."): who drafted it, when, and its review status, which `pages:check` holds to the
+table's row. It is 40 to 75 words, and its numbers
 (at most two) are placeholders the build fills.
 
 1. Read the page as a reader does: `npm run pages:text -- M020`, and `npm run pages:fields -- M020` for the numbers a

@@ -84,8 +84,8 @@ the dependency versions are pinned.
 
 The compiled database ships gzipped and base64-encoded, inflated at boot with `DecompressionStream`.
 On 2026-10-17 it was about 39 MB raw, most of it measurements, and 3.6 MB embedded once gzipped and base64-encoded.
-The plotting library is still most of what the file weighs: 4.3 of the page's 8.4 MB ("Scale" below says how far that
-holds). The build prints sizes in MiB (8.0 for the page).
+The plotting library is still most of what the file weighs: 4.3 of the page's 8.5 MB ("Scale" below says how far that
+holds; 8.4 before the selector embedded the pages' Inter subset, D147). The build prints sizes in MiB (8.1 for the page).
 
 The material pages are not in it (D142). They are separate static files beside it, in `dist/materials/` (on the site
 at `materials/`; a release carries them as one zip), because a page per material would multiply the one file's weight
@@ -141,7 +141,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `measurement-rules.js` | Independent raw-value, uncertainty, upper-bound, unit and endpoint checks, and no use of a replaced property, used by validation and the systematic audit. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
 | `review-workbook.js` | The generated, read-only Excel review workbook (`npm run data:export-xlsx`). |
-| `bundle.js` | One HTML file, named by its data date and its release: the shared tokens and the selector's stylesheet inlined as one style element, the libraries, the application and both databases. |
+| `bundle.js` | One HTML file, named by its data date and its release: the shared tokens and the selector's stylesheet inlined as one style element, with the material pages' Inter subset as a data: URI and its licence (D147), the libraries, the application and both databases. |
 | `release.js` | The release ID (D96): a digest of the tables, schema, rules, engine, templates and lockfile; the page's name. |
 | `index.js` | Runs the stages, decides whether the build may proceed, stamps the release, runs stage 8 (the material pages, `app/pages/stage.js`, loaded only then; `--no-pages` leaves them out and removes `dist/materials/`), and writes the release manifest. |
 
@@ -251,7 +251,7 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 |---|---|
 | `registry.js` | Builds the interface's property definitions from the database's registry at start-up: labels, filters, axes, table columns, export headers and the drawer's property tabs, from the selectable headlines; the drawer's comparisons read every headline, the drawer-only ones too (D139). |
 | `labels.js` | The single vocabulary. What every property, criterion, gate verdict and chamber statement is called, in plain words with the technical name behind it. Nothing else names them. |
-| `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated, and never rounds a value across a requirement's threshold (D54). |
+| `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated, and never rounds a value across a requirement's threshold (D54). It also holds a published bound's sign before a median (`boundSign`, `medianSign`, so every table and figure prints "> 200 °C" as the key properties do), the price sample's one sentence (`priceSampleSentence`), and the family colours: the palette in one place and one call, `familyColors`, read by the Ashby chart, its work views and Parallel lines, so a family is one colour in all of them and no family takes the accent blue (D147). |
 | `popover.js` | One explanation popover for every mark whose meaning is more than its glyph: each such mark is a button (`explainButton` in `format.js`) that opens it, from touch and keyboard too, never a title alone (D61). |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
 | `table.js` | The results grid and the client-side exports: the candidates with their rank (D102), best product and state; the products with each one's verdict, state and what it is not settled by. |
@@ -259,26 +259,30 @@ scale and reproducible-build checks and 2,000 rendered scenarios on a new seed e
 | `decision.js` | The Ashby lens's work views (D107 to D111): Products and Material ranges, drawn from `workspace.js`; the question bar and the starter; the Draw, Also and Line rows, More, and the axis bar; the pills that say what narrows the chart; the result list and what it remembers (`listUi`), and the details that replace it (D110); the key and the reading note; and the chart's data and image exports. |
 | `chart.js` | What every Ashby view shares: one rule for the chart's size and legend (`lensChartSize`, D111), one resize listener, label placement, axis ranges, readable Log ticks (`logTicks`, D111), the reader's zoom kept across redraws (`zoomMemory`, D109), and the requirement, reference and familiar-filament overlays. |
 | `axes.js` | The chart's axes from the registry, which measurements an axis may draw, and whether two may share a strict evidence point (`pairCompatibility`, D107). |
-| `parallel.js` | Parallel coordinates, hand-drawn in SVG. |
+| `parallel.js` | Parallel coordinates, hand-drawn in SVG: each line's result as the Ashby chart draws it, each requirement across its axis as Compare draws it, the opening axes from the requirements (`openingAxes`), names on a set of 15 lines or fewer, and the selection the lenses share (D147). |
 | `heatmap.js` | The coverage lens. |
 | `compare.js` | Up to six shortlisted materials side by side, or one against a familiar baseline, with their measurement conditions, and the passing products' own print gates beside the material's window. |
 | `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). Its Mechanical and Thermal tabs draw the comparison headings in the place of the first property each reads, and its Printing tab opens on the print temperatures, a product per dot (D133, D139). |
 | `print-spread.js` | Each product's lowest and highest print temperatures, as its print gate reads them, and their medians: the Printing tab's heading (D139), worked out on the page and deciding nothing. |
-| `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen, which tells all-failed from none-confirmable. |
+| `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen, which tells all-failed from none-confirmable; and the product a material's *Your requirements* lines are one product's (`shownProduct`), which the drawer's Products tab lists first (D147). |
 | `start.js` | The opening panel, and the compact active-requirements header that replaces it: the answer, the requirements, how products are judged and what annealing would add (D99), the "H2C printability not checked" line, the notes one press away. |
 | `templates.js` | Application templates. They populate controls and then get out of the way. Every one asks the H2C's print gates (`PRINTABLE`, D101). |
-| `brief.js` | A chosen product's decision brief (D103), written from the engine's own answer. |
-| `material-facts.js` | One material's facts as the drawer and the material pages show them (`materialContext`: selected, counted, grouped, summarised), before any markup or sentence, so the two renderers never disagree; and the one rule for reader text (`readerText`, `readerNote`, `readerGap`, `GAP_DOMAIN_WORDS`, D146), so both leave the maintainers' notes behind an ID mark. Its API: `docs/audits/2026-10-16-material-pages-round/FACTS-API.md`. |
-| `material-words.js` | The sentences the drawer and the material pages share, as plain text, unescaped: each renderer escapes them. |
+| `brief.js` | A chosen product's decision brief (D103), written from the engine's own answer; it names the material page and the product's card on its Products page (`page-rule.js`, D147). |
+| `material-facts.js` | One material's facts as the drawer and the material pages show them (`materialContext`: selected, counted, grouped, summarised), before any markup or sentence, so the two renderers never disagree; and the one rule for reader text (`readerText`, `readerNote`, `readerGap`, `GAP_DOMAIN_WORDS`, D146), so both leave the maintainers' notes behind an ID mark, and for a known gap shown and counted (`shownGap`, D147). Its API: `docs/audits/2026-10-16-material-pages-round/FACTS-API.md`. |
+| `material-words.js` | The sentences the drawer and the material pages share, as plain text, unescaped: each renderer escapes them; among them what an exposure's statements say, counted (`statementVerdictWords`), and the H2C's limits as one list (`h2cLimitsText`, D147). |
 | `material-stats.js` | Display statistics only the material pages draw: the alternatives (`peerSet`), one scale per property (`propertyScale`) and the maps' fixed frames, how many products accept each print temperature (`printWindows`) and the window a page states (`typicalWindow`), what a product keeps across the layers, the heat ladder. Pure data; it decides nothing. |
 | `material-highlights.js` | What the pages single out, from compiled fields: the six key figures (`KEY_FIGURES`), the evidence tier, the products well above the rest and the product holding the highest or lowest value of each key property, where a material stands among the others, and the windows, drying and Z shares a summary may name (`build/src/written.js` reads the same functions). Display only. |
-| `print-brief.js` | *On the H2C* in brief (`onTheH2cRows`, D146): each print setting as most products give it, with who gives it; the drawer's Overview and the material pages' plate and settings table print it from here, so the two give one window per setting. |
+| `print-brief.js` | *On the H2C* in brief (`onTheH2cRows`, D146): each print setting as most products give it, with who gives it; the drawer's Overview and the material pages' plate and settings table print it from here, so the two give one window per setting; and the line on settings beyond the H2C's limits (`beyondLimitsLine`, D147). |
 | `display-numbers.js` | Numbers as a reader's view prints them (`fmtDisplay`, `spanDisplay` and their unit forms, D146): the material pages, the drawer's key figures and its comparison and print tables. The table and every record keep `format.js`'s forms, which the page-against-engine check reads. |
 | `scales.js` | The one scale rule for a row of values drawn product by product, read by the drawer's comparison headings and print temperatures and by the pages' figures. |
 | `text.js` | Plain-text helpers every sentence is put together with (a count with its noun, a list in prose, whether a cell states anything), imported by `labels.js`, `material-words.js` and `material-facts.js` alike. |
-| `page-rule.js` | Which materials have a page of their own (`PAGE_RULE`, `pageOf`; D142): read by the build's stage 8, the drawer's Full page link, the pages' index, the README's status line and the tests. |
+| `page-rule.js` | Which materials have a page of their own (`PAGE_RULE`, `pageOf`; D142): read by the build's stage 8, the drawer's Full page link, the pages' index, the README's status line and the tests; and a material's Products page and a product's card on it (`productsHref`, `productsPageOf`), read by the pages, the drawer's link to a product's card and the decision brief (D147). |
+| `dates.js` | Dates as a person reads them, "13 Sep 2026" and a span "10 Sep–7 Oct 2026" (`dayWords`, `daysWords`), when a set of documents was read (`documentsRead`), and the provenance line the selector's status bar and every page's closing line print (`provenanceWords`, D147). ISO dates stay where a machine reads them. |
+| `say.js` | Sentences with their numbers marked (`say`, `num`, `joinSay`, `andSay`): the plain words for the drawer and the same words as markup for the pages, each compiled value wrapped so `pages:check` can hold it to the facts (moved from `app/pages/findings.js`, D147). |
+| `evidence-line.js` | How well documented a material is (well, partly or thinly documented, and why), and what a key property's figure is (`keyFiguresBasis`): the drawer's On file line and the page's evidence line from one function (D147). |
+| `product-order.js` | The order a material's products are listed in when nothing else is asked, most documented first (`mostDocumentedFirst`): the Products page's opening order and the drawer's passing products, so the two surfaces put the same product first (D147). |
 
-The shared design tokens (the palette light and dark, the status colours, the radius, the font stacks) are
+The shared design tokens (the palette light and dark, the status colours, the three radii, the font stacks, Inter first) are
 `app/css/tokens.css`: the selector bundles them ahead of `app.css`, and the material pages' stylesheet opens with them.
 
 ### Material pages, `app/pages/`
@@ -292,33 +296,36 @@ engine and the templates are in and the rest of `app/` is out.
 
 **Kept from disagreeing.** The drawer and the pages are two renderers of one set of facts. Which records, in which
 order, counted how, drawn or not and why is chosen once, in `material-facts.js`; the shared sentences are
-`material-words.js`, which takes every word for a stored code from `labels.js`; numbers become text in `format.js`; the
-scales are `scales.js`. A number the build does not hold is compiled in `build/src/`, where the contract checks it and
-the drawer can read the same field, never worked out in a page alone (`written.js` fills a summary's numbers so). The
-guards: `test/material-facts.test.js` holds the contracts the two share against the rendered drawer (the context, the
-tab counts, the page rule, the scale rule, a product's name, the rank table); `test/material-stats.test.js` holds each
-page-only statistic to the compiled fields; `test/drawer-comparisons.test.js` and `test/print-spread.test.js` hold the
-drawer's comparison headings and print temperatures to the build; `test/summaries.test.js` holds the summaries' fill;
-and `test/pages.check.js` (`npm run pages:check`, in `verify` after the build: P1 to P3 and P5 to P14, REC and IX; P4,
-the rank tracks, and CNT went with the old pages) holds every number and figure mark on every page to the database it
-was rendered from, every record to exactly one place across a material's Overview and Products page, the ways back to
-the selector, and the drawer's Full page link to the page rule (P13).
+`material-words.js`, which takes every word for a stored code from `labels.js`, with the sentences whose numbers the
+page marks (`say.js`), the evidence line (`evidence-line.js`), the dates and the provenance line (`dates.js`) and the
+products' order (`product-order.js`) beside it, each moved out of `app/pages` so the drawer prints the same words
+(D147); numbers become text in `format.js`; the scales are `scales.js`. A number the build does not hold is compiled in
+`build/src/`, where the contract checks it and the drawer can read the same field, never worked out in a page alone
+(`written.js` fills a summary's numbers so). The guards: `test/material-facts.test.js` holds the contracts the two share
+against the rendered drawer (the context, the tab counts, the page rule, the scale rule, a product's name, the rank
+table); `test/material-stats.test.js` holds each page-only statistic to the compiled fields;
+`test/drawer-comparisons.test.js` and `test/print-spread.test.js` hold the drawer's comparison headings and print
+temperatures to the build; `test/summaries.test.js` holds the summaries' fill; and `test/pages.check.js` (`npm run
+pages:check`, in `verify` after the build: P1 to P3 and P5 to P14, REC and IX; P4, the rank tracks, and CNT went with
+the old pages) holds every number and figure mark on every page to the database it was rendered from, every record to
+exactly one place across a material's Overview and Products page, the ways back to the selector, and the drawer's Full
+page link to the page rule (P13).
 
 | Module | Responsibility |
 |---|---|
 | `render.js` | `renderSite(db, env)`: for every material the page rule admits, its Overview (`<id>.html`), its Products page (`<id>-products.html`) and the stub at its old records address (`<id>-records.html`); the index, the method page and the shared assets, as text, from the database alone. No file is read or written (it sets the ui modules' registry and baseline, as the selector does at start). `pageEnv` makes its env (lookups, every material's medians, the stamps, the selector's file name). |
 | `stage.js` | Node only: stage 8. The build cache, the write to `dist/.materials-<pid>/` and the rename into `dist/materials/`, the budgets, and the digest the manifest records. |
 | `read-assets.js` | Node only: reads what the shared assets are made of (tokens, stylesheets, scripts, the faces, the licences) for `buildAssets`. |
-| `shell.js` | The document around every page: head, the sticky bar (the mark and *Materials* to the index, the material, the section in view with the list of sections, *Back to your results*), the tabs, the main element and its stamps. |
-| `sections/` | The Overview's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, render(c, env) }`, returning `{ html, empty, stats }`; an empty one leaves the page silently. `masthead.js` holds the first screen (the name and tabs, the six key figures, the summary with the evidence line beside *On the H2C*), `footer.js` the colophon. |
+| `shell.js` | The document around every page: head, the sticky bar (the mark and *Materials* to the index, the material, the section in view with the list of sections, *Back to your results*), the tabs, the main element and its stamps, and the footer band set after it on every page kind with its closing line (`siteFooter`, `signOff`, D147). |
+| `sections/` | The Overview's sections, in reading order (`SECTIONS` in `sections/index.js`); each is `{ id, title, render(c, env) }`, returning `{ html, empty, stats }`; an empty one leaves the page silently. `masthead.js` holds the first screen (the name and tabs, the six key figures, the summary with the evidence line beside *On the H2C*), `footer.js` a material page's footer (its summary's authorship and citation, in `shell.js`'s band). |
 | `products/` | The Products page: the list, its search and sort, and each product's card with every record of that product (`card.js`). |
 | `records/` | What the cards reuse of the retired records page (`common.js`, `measurements.js`), and `placement.js`: where every record of a material is shown, and `offThePages`, the records no page shows (the project's own reading of a source, a reviewer's note among the environment statements, a coverage note that is not a known gap a reader is shown). |
 | `method-page.js`, `index-page.js`, `stub.js` | *How the numbers are worked out*, written once; the index of materials by family, with one search; the redirect at each old records address. |
 | `charts/` | The five figures (`peers.js` against the alternatives, `map.js` among all materials, `strips.js` the products per section, `layers.js` across the layers, `temperatures.js` every temperature on one axis), the key figures' small drawing (`mini.js`), and their grammar: scales, marks, axes, the frame with its table twin (`figure.js`, `kit.js`, `marks.js`, `scale.js`). |
 | `figures.js` | What the figures draw, as configuration: the alternatives' columns (`PEER_COLUMNS`), the maps (`MAP_PANELS`), each section's strips (`STRIP_SETS`) and the one rule for a strip (`STRIP_MIN`, `inStrip`), the layer pairs (`LAYER_PAIRS`), the ladder's extra rungs (`LADDER_EXTRA`); and the figure functions, re-exported. |
-| `findings.js`, `numbers.js`, `html.js` | The page's own sentences (the drawer's are `material-words.js`; *On the H2C*'s rows are `app/js/ui/print-brief.js`'s, re-exported); numbers as the pages print them (`numbers.js` re-exports `app/js/ui/display-numbers.js`: three significant figures, whole degrees, a no-break space before the unit); markup helpers. |
+| `findings.js`, `numbers.js`, `html.js` | The page's own sentences (the drawer's are `material-words.js`; *On the H2C*'s rows are `app/js/ui/print-brief.js`'s, and the sentence machinery, the evidence line and the dates `say.js`, `evidence-line.js` and `dates.js`'s, re-exported, D147); numbers as the pages print them (`numbers.js` re-exports `app/js/ui/display-numbers.js`: three significant figures, whole degrees, a no-break space before the unit); markup helpers. |
 | `budget.js` | What an Overview (also the index and the method page), a Products page, a stub, the stylesheet, the script and the set may weigh (`PAGE_BUDGET`: `main`, `products`, `records`, `css`, `script`, `set`). |
-| `tables-asset.js`, `assets/` | The stylesheet sources (`frame.src.css`, `sections.src.css`, `figures.src.css`, `products.src.css`), the classic scripts (`page.js`, `products.src.js`) and the embedded faces with their licences (`fonts/`, `FONTS.md`). |
+| `tables-asset.js`, `assets/` | The stylesheet sources (`frame.src.css`, `sections.src.css`, `figures.src.css`, `products.src.css`), the classic scripts (`page.js`, `products.src.js`) and the embedded faces with their licences (`fonts/`, `FONTS.md`); `tables-asset.js` ships both scripts without their comment lines and indentation (`productsScript`, `pageScript`), which keeps `page.js` within the script budget (D147). |
 
 ## State
 
@@ -734,7 +741,9 @@ or added without declaring stops the build, reported at its JSON path.
 ### Stage 7: Bundle — `bundle.js`
 
 Inlines the two stylesheets (`app/css/tokens.css`, the tokens the material pages share, then `app/css/app.css`) as one
-style element, the plotting library and the application, and embeds both compiled databases gzipped and base64-encoded.
+style element, after the material pages' Inter subset (`app/pages/assets/fonts/`) as a data: URI with its licence, so the
+selector draws text in the pages' face (D147); then the plotting library and the application, and embeds both compiled
+databases gzipped and base64-encoded.
 
 Replacements use a **function**, never a string. `String.replace` interprets `$&`, `` $` `` and `$1`
 in a string replacement, and minified library source is full of such sequences; passing the payload

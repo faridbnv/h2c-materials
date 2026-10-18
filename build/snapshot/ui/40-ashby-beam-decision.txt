@@ -16,7 +16,7 @@ Asked
 As printed, dry
 Within H2C capability · Nozzle, bed and chamber within H2C limits
 Tensile modulus (XY) at least 3 GPa
-Density at most 1250 kg/m³
+Density at most 1,250 kg/m³
 Change in Filters
 Draw
 Material typicals
@@ -98,7 +98,7 @@ PLA
 Other families
 Density (kg/m³) · log
 Tensile modulus (XY) (GPa) · log
-Density at most 1250 kg/m³
+Density at most 1,250 kg/m³
 Tensile modulus (XY) at least 3 GPa
 better: above the line ↖
 Carbon fibre
