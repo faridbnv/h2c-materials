@@ -750,3 +750,28 @@ executor implemented the Overview directly, and a fixed definition of done repla
   10,900 at the close. No scenario answer, headline or gate moved. What the reviews leave is OPEN-PROBLEMS §37.19.
 
 Built by Claude Opus with three Claude Opus expert agents and Claude Sonnet drafters, on the branch `pages-reimagined`.
+
+## Decided and built on 2026-10-18, the selector refined
+
+The owner asked for the selector itself, its main page and its material drawer, to be refined by the method the pages
+had been, with changes "far more subtle": the tool "is good as is", the main screening tool at "an acceptable level".
+The aim was a calmer, more coherent first impression and a drawer that reads, and the owner added that "anything that is
+good in the drawer and in the actual tool should be recorded and then preserved or at least reproduced", with
+first impression and coherence with the material pages weighed as the landing pages. The owner approved a plan with
+priorities (keep what works as a gate, the two landing screens, the drawer's reading flow, coherence with the pages,
+the rest of the main page) measured in a tracker, and answered: the main page polish only, the drawer free to change,
+the material pages link as built, one new release for approved wording. At the gate the owner took all four
+recommendations: fold the step line, the page's form for the drawer's key figures, rename the missing-data choice, and
+reproduce six keep items in new form.
+
+- **Built (D146).** The drawer prints the page's *On the H2C* and key figures, so the two agree (they had disagreed on
+  the print windows, PEEK's bed *Within* under a failed bed requirement, and in 11 starred values); a thinner head and
+  one row of tabs; the product shown for the requirements one the reader can buy; the maintainers' notes behind the ID
+  mark; the graphs in the page's grammar. The main page: "Materials that could not be checked: Leave out | Include",
+  the rail on what a part needs, the step line folded and the H2C clause said once, one control row, the table's marks.
+- **Measured.** A fresh Claude Opus engineer scored the selector 62 before and another 70 after; the keep register's 45
+  items all kept or reproduced; no answer moved. What it leaves is OPEN-PROBLEMS §37.20.
+
+Built by Claude Opus with four Claude Opus expert agents (UI and visual, words, graphs, first impression and coherence)
+and two Claude Opus reviewers, on the branch `selector-refinement` ([the round](audits/2026-10-18-selector-refinement/README.md)).
+

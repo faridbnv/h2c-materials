@@ -8,6 +8,7 @@ import { renderValue, esc, fmtNumber, estimateDisplay, chip, wireEvidence, expla
 import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel, H2C_CHECK } from './labels.js';
 import { productGates, hardenedShare, hardenedWords } from '../engine/products.js';
 import { indexById, rankingFor } from '../engine/indices.js';
+import { lower } from './text.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 /** A track is drawn on a log scale when its candidates' largest value is more than this many times their smallest. */
@@ -133,7 +134,8 @@ export function renderCompare(host, state, actions) {
     });
     const differ = new Set(conds.filter(Boolean)).size > 1;
 
-    if (log) logTracks.push(prop(a.key).plain.toLowerCase());
+    // In a sentence, as a data sheet writes it: "tensile modulus (XY)", "notched Charpy impact" (it had lower-cased XY and Charpy).
+    if (log) logTracks.push(lower(prop(a.key).plain));
     return `<div class="cmp-prop${log ? ' log-track' : ''}">
       <h4 title="${esc(prop(a.key).technical)}">${esc(prop(a.key).plain)} <span class="unit">${esc(a.unit)}</span>${requirements.length
         ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (reported, not required)' : ''}</span>`).join(' ')}</span>` : ''}</h4>

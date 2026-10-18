@@ -1,0 +1,280 @@
+{
+ "words": {
+  "drawers": 2800,
+  "counts": [
+   {
+    "name": "tally \"Of the N results…drawn\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"n counts …\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"Also drawn, not in the median\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"Not used as/by a filter\" variants",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "grammar \"1 … say/give\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"special formulation\"",
+    "drawers": 2,
+    "hits": 8,
+    "example": "M160 Grades: …special formulation…"
+   },
+   {
+    "name": "\"comparable basis\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"reference grade\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"SCREENED chip\"",
+    "drawers": 90,
+    "hits": 90,
+    "example": "M019 Environment: …SCREENED chip…"
+   },
+   {
+    "name": "\"not a test result\" (toughened caveat)",
+    "drawers": 30,
+    "hits": 30,
+    "example": "M001 Grades: …not a test result…"
+   },
+   {
+    "name": "\"not one product's scatter\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "pointer to Products (\"Products shows/gives…\")",
+    "drawers": 298,
+    "hits": 298,
+    "example": "M001 Overview: …Products gives each one…"
+   },
+   {
+    "name": "\"On file:\" bookkeeping line",
+    "drawers": 304,
+    "hits": 304,
+    "example": "M001 Overview: …On file: 2…"
+   },
+   {
+    "name": "\"(n of M profiles)\" counts",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "project decision, ruling or migration in reader text",
+    "drawers": 4,
+    "hits": 4,
+    "example": "M170 Overview: …R056…"
+   },
+   {
+    "name": "\"User-supplied reference\"",
+    "drawers": 0,
+    "hits": 0,
+    "example": null
+   },
+   {
+    "name": "\"Filamant\" (source title typo)",
+    "drawers": 894,
+    "hits": 6719,
+    "example": "M001 Grades: …Filamant…"
+   },
+   {
+    "name": "paragraph or item with 2+ semicolons",
+    "drawers": 381,
+    "hits": 914,
+    "example": "M001 Mechanical: …A tensile bar printed flat (XY) is pulled along its printed lines; a bar printed upright (Z) is pulled across …"
+   }
+  ]
+ },
+ "agree": {
+  "compared": 389,
+  "rows": [],
+  "byKind": {}
+ },
+ "cold": {
+  "1280x800": {
+   "tableBarVisible": true,
+   "tableBarTop": 530,
+   "rowsVisible": 1,
+   "controls": 80,
+   "textNodes": 107,
+   "numbers": 42,
+   "withinH2C": 0,
+   "notTested": 1,
+   "filtersWord": 3,
+   "words": 452
+  },
+  "1180x760": {
+   "tableBarVisible": true,
+   "tableBarTop": 618,
+   "rowsVisible": 0,
+   "controls": 63,
+   "textNodes": 83,
+   "numbers": 38,
+   "withinH2C": 0,
+   "notTested": 0,
+   "filtersWord": 3,
+   "words": 408
+  }
+ },
+ "drawer": [
+  {
+   "material": "PLA",
+   "template": "none",
+   "numbers": 51,
+   "textPieces": 70,
+   "sentences": 14,
+   "words": 240,
+   "productsPointers": 0,
+   "text": "PLA Polylactic Acid PLA · unfilled · 195 products from 40 makers Type on Bambu Lab's H2C list Full page ☆ Shortlist ✕ Overview Products 195 Mechanical Thermal Printing Environment Price Sources 281 Key properties Tensile modulus (XY) 2.53 GPa middle half 1.93⁠–⁠2.87 GPa · 55 products Tensile strength (XY) 45.5 MPa middle half 40⁠–⁠53 MPa · 71 products Tensile strength (Z) 30.6 MPa middle half 22.9⁠–⁠34 MPa · 39 products Notched Charpy impact 6 kJ/m² middle half 3.97⁠–⁠7.9 kJ/m² · 14 products HDT at 0.45 MPa 55 °C middle half 54⁠–⁠59 °C · 89 products Price 34 CAD/kg middle half 28⁠–⁠40 CAD/kg · 26 products Also: Density 1,240 kg/m³ · Elongation at break (XY) 7.23 % · Notched Izod impact 5 kJ/m² · Glass transition (Tg) 59 °C . Each figure is the median of the products that state the test's orientation or load. Select a value to see where it comes from. On the H2C Printing in full Within Nozzle 195⁠–⁠230 °C Most products that give one · All 195 products are within the H2C's 350 °C. Within Bed 50⁠–⁠60 °C Most products that give one · 194 within the H2C's 120 °C and 1 gives no bed temperature. Within Heated chamber none needed 160 of 195 products · 183 within the H2C's 65 °C and 12 give no chamber temperature. Drying 40–65 °C, 3–12 h Most advise it only for wet filament Nozzle type standard for most"
+  },
+  {
+   "material": "PLA",
+   "template": "Indoor prototype",
+   "numbers": 39,
+   "textPieces": 65,
+   "sentences": 15,
+   "words": 226,
+   "productsPointers": 0,
+   "text": "PLA Polylactic Acid PLA · unfilled · 195 products from 40 makers Type on Bambu Lab's H2C list Full page ☆ Shortlist ✕ Overview Products 195 Mechanical Thermal Printing Environment Price Sources 281 PASS Of its 195 products, 183 meet all your requirements and 12 publish too little to judge. Show the products Your requirements Shown for Bambu Lab PLA Basic , one of the 183 that pass. within Price at most 45 CAD/kg reported, not required Published 27.99 CAD/kg Also met: within H2C capability · build material (not a support) · nozzle, bed and chamber within H2C limits. Key properties Tensile modulus (XY) 2.53 GPa middle half 1.93⁠–⁠2.87 GPa · 55 products Tensile strength (XY) 45.5 MPa middle half 40⁠–⁠53 MPa · 71 products Tensile strength (Z) 30.6 MPa middle half 22.9⁠–⁠34 MPa · 39 products Notched Charpy impact 6 kJ/m² middle half 3.97⁠–⁠7.9 kJ/m² · 14 products HDT at 0.45 MPa 55 °C middle half 54⁠–⁠59 °C · 89 products Price 34 CAD/kg middle half 28⁠–⁠40 CAD/kg · 26 products Also: Density 1,240 kg/m³ · Elongation at break (XY) 7.23 % · Notched Izod impact 5 kJ/m² · Glass transition (Tg) 59 °C . Each figure is the median of the products that state the test's orientation or load. Select a value to see where it comes from. On the H2C Printing in full"
+  },
+  {
+   "material": "ABS-CF",
+   "template": "none",
+   "numbers": 52,
+   "textPieces": 68,
+   "sentences": 14,
+   "words": 242,
+   "productsPointers": 0,
+   "text": "ABS-CF Carbon-Fiber-Reinforced Acrylonitrile Butadiene Styrene ABS · carbon-fibre filled · 11 products from 10 makers Type on Bambu Lab's H2C list Full page ☆ Shortlist ✕ Overview Products 11 Mechanical Thermal Printing Environment Price Sources 24 Key properties Tensile modulus (XY) 4.35 GPa middle half 3.75⁠–⁠4.76 GPa · 4 products Tensile strength (XY) 43.7 MPa middle half 32.6⁠–⁠45.5 MPa · 6 products Tensile strength (Z) 28 MPa 16⁠–⁠29.9 MPa · 3 products Notched Charpy impact 8⁠–⁠16.1 kJ/m² as published · no stated orientation HDT at 0.45 MPa 91 °C middle half 84⁠–⁠95 °C · 7 products Price 45 CAD/kg 40⁠–⁠50 CAD/kg · 2 products Also: Density 1,080 kg/m³ · Elongation at break (XY) 1.9 % · Notched Izod impact 14⁠–⁠45 kJ/m² · Glass transition (Tg) 105 °C . Each figure is the median of the products that state the test's orientation or load. Select a value to see where it comes from. On the H2C Printing in full Within Nozzle 240⁠–⁠250 °C Most products that give one · All 11 products are within the H2C's 350 °C. Within Bed 100⁠–⁠110 °C Most products that give one · All 11 products are within the H2C's 120 °C. Beyond Heated chamber 60⁠–⁠70 °C Most products that give one; beyond the H2C's 65 °C · None within the H2C's 65 °C, 3 above or only partly within and 8 give no chamber temperature. Drying 60–85 °C, 4–10 h 7 of 11 products call for it"
+  },
+  {
+   "material": "ABS-CF",
+   "template": "Indoor prototype",
+   "numbers": 41,
+   "textPieces": 64,
+   "sentences": 12,
+   "words": 221,
+   "productsPointers": 0,
+   "text": "ABS-CF Carbon-Fiber-Reinforced Acrylonitrile Butadiene Styrene ABS · carbon-fibre filled · 11 products from 10 makers Type on Bambu Lab's H2C list Full page ☆ Shortlist ✕ Overview Products 11 Mechanical Thermal Printing Environment Price Sources 24 UNKNOWN Of its 11 products, none meets all your requirements, 1 fails at least one and 10 publish too little to judge. Your requirements Shown for its closest product, 3DXTECH CarbonX CF ABS . UNKNOWN Chamber ≤ 65 °C A heated chamber is recommended with no temperature, so 65 °C is not shown to be enough no data Price at most 45 CAD/kg reported, not required No price in the sampled shops Also met: within H2C capability · build material (not a support) · nozzle ≤ 350 °C · bed ≤ 120 °C. Key properties Tensile modulus (XY) 4.35 GPa middle half 3.75⁠–⁠4.76 GPa · 4 products Tensile strength (XY) 43.7 MPa middle half 32.6⁠–⁠45.5 MPa · 6 products Tensile strength (Z) 28 MPa 16⁠–⁠29.9 MPa · 3 products Notched Charpy impact 8⁠–⁠16.1 kJ/m² as published · no stated orientation HDT at 0.45 MPa 91 °C middle half 84⁠–⁠95 °C · 7 products Price 45 CAD/kg 40⁠–⁠50 CAD/kg · 2 products Also: Density 1,080 kg/m³ · Elongation at break (XY) 1.9 % · Notched Izod impact 14⁠–⁠45 kJ/m² · Glass transition (Tg) 105 °C ."
+  },
+  {
+   "material": "PEEK",
+   "template": "none",
+   "numbers": 38,
+   "textPieces": 61,
+   "sentences": 11,
+   "words": 236,
+   "productsPointers": 0,
+   "text": "PEEK Polyether Ether Ketone Industrial High-Temperature · unfilled · 7 products from 6 makers Beyond H2C capability Full page ☆ Shortlist ✕ Overview Products 7 Mechanical Thermal Printing Environment Price Sources 11 Beyond H2C capability. All 7 products ask for a hotter nozzle than the H2C's 350 °C, 4 of 7 products ask for a hotter bed than the H2C's 120 °C and 5 of 7 products ask for a hotter chamber than the H2C's 65 °C. Kept for reference, never a candidate. Key properties Tensile modulus (XY) 3.63 GPa 3.54⁠–⁠3.72 GPa · 2 products Tensile strength (XY) 89.3 MPa 77⁠–⁠100 MPa · 3 products Tensile strength (Z) Not published Notched Charpy impact 6 kJ/m² as published · no stated orientation HDT at 0.45 MPa 144 °C 140⁠–⁠147 °C · 2 products Price Not published Also: Density 1,300 kg/m³ · Elongation at break (XY) 28 % · Notched Izod impact 6 kJ/m² · Glass transition (Tg) 143 °C . Each figure is the median of the products that state the test's orientation or load. Select a value to see where it comes from. On the H2C Printing in full Beyond Nozzle 390⁠–⁠440 °C Most products that give one · None within the H2C's 350 °C and 7 above or only partly within. Partly within Bed 120 °C Most products that give one · 3 within the H2C's 120 °C and 4 above or only partly within."
+  },
+  {
+   "material": "PEEK",
+   "template": "Indoor prototype",
+   "numbers": 26,
+   "textPieces": 46,
+   "sentences": 7,
+   "words": 209,
+   "productsPointers": 0,
+   "text": "PEEK Polyether Ether Ketone Industrial High-Temperature · unfilled · 7 products from 6 makers Beyond H2C capability Full page ☆ Shortlist ✕ Overview Products 7 Mechanical Thermal Printing Environment Price Sources 11 Beyond H2C capability. All 7 products ask for a hotter nozzle than the H2C's 350 °C, 4 of 7 products ask for a hotter bed than the H2C's 120 °C and 5 of 7 products ask for a hotter chamber than the H2C's 65 °C. Kept for reference, never a candidate. FAIL Of its 7 products, none meets all your requirements and 7 fail at least one. Your requirements Shown for its closest product, 3DXTECH ThermaX PEEK . FAIL Within H2C capability Beyond H2C capability: more heat than the H2C gives, or a sintering feedstock FAIL Nozzle ≤ 350 °C Requires up to 480 °C; the H2C reaches only 350 °C FAIL Bed ≤ 120 °C Requires up to 180 °C; the H2C reaches only 120 °C UNKNOWN Chamber ≤ 65 °C Recommends up to 140 °C, above the H2C's 65 °C, but does not require it no data Price at most 45 CAD/kg reported, not required No price in the sampled shops Also met: build material (not a support). Key properties Tensile modulus (XY) 3.63 GPa"
+  },
+  {
+   "material": "PCTG-GF",
+   "template": "none",
+   "numbers": 28,
+   "textPieces": 65,
+   "sentences": 9,
+   "words": 223,
+   "productsPointers": 0,
+   "text": "PCTG-GF Glycol-Modified Polycyclohexylenedimethylene Terephthalate (Glass fibre) PCTG · glass-fibre filled · 3 products from 3 makers Unlisted, within H2C temperatures Full page ☆ Shortlist ✕ Overview Products 3 Mechanical Thermal Printing Environment Price Sources 8 Key properties Tensile modulus (XY) 3.4 GPa as published · no stated orientation Tensile strength (XY) 55 MPa as published · no stated orientation Tensile strength (Z) Not published Notched Charpy impact Not published HDT at 0.45 MPa 78 °C 76⁠–⁠78 °C · 3 products Price 165 CAD/kg USD one product Also: Density 1,310 kg/m³ · Elongation at break (XY) 8 % · Notched Izod impact Not published · Glass transition (Tg) 88 °C . Each figure is the median of the products that state the test's orientation or load. Select a value to see where it comes from. Estimates for the missing values show when materials that could not be checked are included (the top bar's Include), with \"Let estimates rule out materials\" ticked. On the H2C Printing in full Within Nozzle 250⁠–⁠270 °C All 3 products · All 3 products are within the H2C's 350 °C. Within Bed 90⁠–⁠110 °C One product; two give at least 50 °C · All 3 products are within the H2C's 120 °C. Within Heated chamber none needed All 3 products · All 3 products are within the H2C's 65 °C."
+  },
+  {
+   "material": "PCTG-GF",
+   "template": "Indoor prototype",
+   "numbers": 20,
+   "textPieces": 62,
+   "sentences": 9,
+   "words": 191,
+   "productsPointers": 0,
+   "text": "PCTG-GF Glycol-Modified Polycyclohexylenedimethylene Terephthalate (Glass fibre) PCTG · glass-fibre filled · 3 products from 3 makers Unlisted, within H2C temperatures Full page ☆ Shortlist ✕ Overview Products 3 Mechanical Thermal Printing Environment Price Sources 8 PASS Of its 3 products, 3 meet all your requirements. Show the products Your requirements Shown for Fiberlogy PCTG+GF10 , one of the 3 that pass. beyond Price at most 45 CAD/kg reported, not required Published 164.58 CAD/kg Also met: within H2C capability · build material (not a support) · nozzle, bed and chamber within H2C limits. Key properties Tensile modulus (XY) 3.4 GPa as published · no stated orientation Tensile strength (XY) 55 MPa as published · no stated orientation Tensile strength (Z) Not published Notched Charpy impact Not published HDT at 0.45 MPa 78 °C 76⁠–⁠78 °C · 3 products Price 165 CAD/kg USD one product Also: Density 1,310 kg/m³ · Elongation at break (XY) 8 % · Notched Izod impact Not published · Glass transition (Tg) 88 °C . Each figure is the median of the products that state the test's orientation or load. Select a value to see where it comes from."
+  }
+ ],
+ "contrast": {
+  "light cold": {
+   "small": 2652,
+   "failing": 0,
+   "byClass": []
+  },
+  "light indoor table": {
+   "small": 1904,
+   "failing": 0,
+   "byClass": []
+  },
+  "light PLA drawer Overview": {
+   "small": 1986,
+   "failing": 0,
+   "byClass": []
+  },
+  "light PLA drawer Mechanical": {
+   "small": 14930,
+   "failing": 0,
+   "byClass": []
+  },
+  "light PLA drawer Printing": {
+   "small": 8808,
+   "failing": 0,
+   "byClass": []
+  },
+  "dark cold": {
+   "small": 2652,
+   "failing": 0,
+   "byClass": []
+  },
+  "dark indoor table": {
+   "small": 1904,
+   "failing": 0,
+   "byClass": []
+  },
+  "dark PLA drawer Overview": {
+   "small": 1986,
+   "failing": 0,
+   "byClass": []
+  },
+  "dark PLA drawer Mechanical": {
+   "small": 14930,
+   "failing": 0,
+   "byClass": []
+  },
+  "dark PLA drawer Printing": {
+   "small": 8808,
+   "failing": 0,
+   "byClass": []
+  }
+ }
+}

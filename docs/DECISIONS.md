@@ -4825,7 +4825,7 @@ surface, and a keep register of 45 things that work, each kept or reproduced.*
   110–250 °C* under a failed bed requirement; PLA's nozzle given as 260, 210 and 195–230 °C). The drawer now prints the
   page's *On the H2C* (`print-brief.js` onTheH2cRows, moved from `app/pages/findings.js` unchanged): the window most
   products give, a chip from every product's own settings against the H2C's limit, the counts in a line, drying and
-  nozzle type as values.
+  nozzle type as values; the Printing tab states the same window, its table the rows' medians.
 - **The page's key figures, never another record with a star.** The Overview's key properties are the page's six, in its
   order and display precision (`display-numbers.js`, moved from `app/pages/numbers.js`), median, middle half and
   products; where no comparable median exists, the values as published, as the page says them (in 11 cells the drawer
@@ -4846,7 +4846,7 @@ surface, and a keep register of 45 things that work, each kept or reproduced.*
   now in `material-facts.js`); it stays one press away.
 - **The main page, polished.** "Materials that could not be checked: Leave out | Include" (stored keys unchanged); the
   rail opens on Mechanical and Thermal; the four-step line folded and the H2C clause said once (the template
-  descriptions, a release input: the release moved to 4bb15f825013 with no answer moved); one control row above the
+  descriptions and two requirement reasons, release inputs: the release moved to 3cc2e5f2a439 with no answer moved); one control row above the
   table; an annealed median drawn as the drawer's square; the currency named; one name for the H2C check; Compare a
   tick on a log track, Parallel lines a log axis. A probe check holds the table's bar above the fold on a laptop.
 - **Checked.** `build:diff` 0 differences against the round's base; every record each drawer reached before, it reaches

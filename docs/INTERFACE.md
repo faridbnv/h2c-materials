@@ -1276,8 +1276,9 @@ that reads it). The H2C's limit (350 °C nozzle, 120 °C bed, 65 °C chamber) is
 washed, as the material pages draw it (it had been a red dashed line, a failure's colour on something that is not a
 failure), where it is near the values, no further above the highest than the larger of a quarter of their span and 10 °C;
 far above them, the axis says so, so PLA's windows are not squeezed against 350 °C. Under the graphs: a table of each
-row's count, median, middle half and range, with what is drawn and not counted; the **medians of the lowest and highest
-settings**, the window most products share ("nozzle 195–230 °C, bed 45–60 °C"); the products **outside the H2C's limits**, by
+row's count, median, middle half and range, with what is drawn and not counted; **the window most products give, as the
+Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 3–12 h": one statistic
+for one setting since 2026-10-18, where it had given the medians of the lowest and highest settings, which differed); the products **outside the H2C's limits**, by
 their print gate's own verdict (so a nozzle or bed window whose highest end is above the limit is outside, and a
 chamber window part of which is above it is partial), or a sentence that none is; and what is **not drawn**, by
 setting and why (no sheet, shared sheet or guide row gives the setting, "say nothing"; a chamber that needs none; an

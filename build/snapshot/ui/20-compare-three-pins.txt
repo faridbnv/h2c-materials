@@ -17,7 +17,7 @@ ABS
 ASA
 PC
 Print summary
-Each track runs from the lowest to the highest of all 152 materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy) and notched charpy impact) use a log scale, where a tick marks the value. An upright line is a requirement, dashed if it is reported, not required; a track widens to show one past the candidates, or marks it at its end.
+Each track runs from the lowest to the highest of all 152 materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (XY) and elongation at break (XY) and notched Charpy impact) use a log scale, where a tick marks the value. An upright line is a requirement, dashed if it is reported, not required; a track widens to show one past the candidates, or marks it at its end.
 Density kg/m³
 Density at most 1500 kg/m³
 ASA-CF
