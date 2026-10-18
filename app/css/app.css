@@ -895,7 +895,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 /* A column of one value taller than its dots show apart: its count over it, on the track's own ground. */
 .imp-count { position: absolute; z-index: 2; transform: translateX(-50%); padding: 0 2px; border-radius: 2px; background: var(--surface-2);
   font: 10px/1.1 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; pointer-events: none; }
-.chip-claim { background: var(--claim-bg); color: var(--claim); }
+.chip-claim { background: var(--claim-bg); color: color-mix(in srgb, var(--claim) 78%, var(--ink)); } /* 4.5:1 for its small text in both themes (2026-10-18) */
 .imp-split { margin: 4px 0 0; }
 .test-guess { color: var(--ink-2); }
 .test-guess b { color: var(--unknown); font-weight: 600; }

@@ -82,7 +82,7 @@ async function agree() {
   for (const f of readdirSync(pagesDir).filter((x) => /^M\d+\.html$/.test(x))) {
     const id = f.replace('.html', ''); const page = readFileSync(join(pagesDir, f), 'utf8');
     const html = drawerHtml(sit, id, 'Overview');
-    const dl = html.match(/<dl class="key-props">([\s\S]*?)<\/dl>/)?.[1] ?? '';
+    const dl = html.match(/<dl class="key-props[^"]*">([\s\S]*?)<\/dl>/)?.[1] ?? '';
     const drawer = new Map();
     const HEADKEYS = db.registry.properties.filter((p) => p.headline !== false).map((p) => [p.label ?? p.name, p.key]);
     for (const [, dt, dd] of dl.matchAll(/<dt>([\s\S]*?)<\/dt>\s*<dd[^>]*>([\s\S]*?)<\/dd>/g)) drawer.set(readerText(dt), readerText(dd));
@@ -92,13 +92,17 @@ async function agree() {
       compared++;
       const v = attrs.match(/data-v="([^"]+)"/)?.[1]; const n = attrs.match(/data-n="([^"]+)"/)?.[1]; const state = attrs.match(/data-state="([^"]+)"/)?.[1];
       const shown = readerText(rest.match(/<dd class="kf-v">([\s\S]*?)<\/dd>/)?.[1] ?? rest).trim();
-      const aria = rest.match(/lowest to highest ([\d.,]+)\D+?([\d.,]+)/);
+      // The spread the page prints beside its median: the middle half from four products, else lowest to highest (its
+      // foot, kf-f); the drawer prints the same since 2026-10-18 (before, it printed lowest to highest: the aria label).
+      const foot = readerText(rest.match(/<dd class="kf-f">([\s\S]*?)<\/dd>/)?.[1] ?? '');
+      const aria = (foot.match(/([\d.,]+)\s*[–-]\s*([\d.,]+)/) ? [null, ...foot.match(/([\d.,]+)\s*[–-]\s*([\d.,]+)/).slice(1)] : null)
+        ?? rest.match(/lowest to highest ([\d.,]+)\D+?([\d.,]+)/);
       const dv = num(d), dn = d.match(/·\s*(\d+)/)?.[1], dr = d.match(/([\d.,]+)\s*[–-]\s*([\d.,]+)/);
       const issues = [];
       if (state === 'missing' || state === 'na') { if (dv != null && !/Not published|No price|not applicable/i.test(d)) issues.push('page: not published; drawer gives a value'); }
       else if (state === 'as-published') { if (dn) issues.push('page: as published (not compared); drawer gives a median'); }
       else {
-        if (!close(dv, +v)) issues.push(`value ${d.split(' ')[0]} vs ${v}`);
+        if (!close(dv, +v) && dv !== num(shown)) issues.push(`value ${d.split(' ')[0]} vs ${v}`);
         if (sign(d) !== sign(shown)) issues.push(`bound sign "${sign(d)}" vs "${sign(shown)}"`);
         if (n && dn && n !== dn) issues.push(`count ${dn} vs ${n}`);
         if (aria && dr && (!close(num(dr[1]), num(aria[1])) || !close(num(dr[2]), num(aria[2])))) issues.push(`range ${dr[1]}–${dr[2]} vs ${aria[1]}–${aria[2]}`);
