@@ -108,7 +108,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `normalize/direction.js` | Thirteen spellings of build direction onto eleven canonical values (a source's own label, a ±45° raster and a YX bar get their own values; three spellings are unknown), and which may be compared with which. |
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm², ISO 75's method letter ("HDT/A", "Method B") among them; a load stated as a number outranks a letter beside it, and a text naming both loads states neither. The test temperature a wording states ("23 °C", "@23° C", "+24°C", "150℃"). |
 | `normalize/standards.js` | The standards a Standard / load text names, at family level and one spelling each (DIN's five-digit numbers and ISO's "ISO-R" among them); it checks the typed Standards column (D76). |
-| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying (its need, required, optional, not-needed or unknown, and an open duration such as "6+ h": D127, D129), abrasion. The chamber's partial window, its answers in words, and an enclosure the H2C's chamber meets (`enclosed`, D90, D93). A number a cell states that is not a temperature (a nozzle size, a speed, hours) is set aside (`stripNonTemperatures`); every other is read as stated, and one outside its axis's plausible window (`TEMP_WINDOW` in `recipe.js`) is typed as stated and reported (PROCESS-WINDOW-IMPLAUSIBLE), never dropped (D141). |
+| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying (its need, required, optional, not-needed or unknown, and an open duration such as "6+ h": D127, D129), abrasion. A window the H2C covers only from its bottom (`within-low-end` or `edge`, D151), the chamber's answers in words, and an enclosure the H2C's chamber meets (`enclosed`, D90, D93). A number a cell states that is not a temperature (a nozzle size, a speed, hours) is set aside (`stripNonTemperatures`); every other is read as stated, and one outside its axis's plausible window (`TEMP_WINDOW` in `recipe.js`) is typed as stated and reported (PROCESS-WINDOW-IMPLAUSIBLE), never dropped (D141). |
 | `normalize/chemical.js` | Environment topics onto canonical categories (`schema/vocab/environment-topics.csv`); findings onto verdicts. |
 | `normalize/moisture.js` | The moisture state at test (dry, conditioned, not-stated): the typed Moisture state column, and a reader of what the Moisture condition wording plainly says, which checks it (D53, D68). |
 | `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament, off-recipe), the typed Post-processing state (as-printed, annealed, not-stated) and anneal schedule with the readers that check them, and whether an annealed value has an as-printed twin (D56, D68, D95). A denied annealing ("has not been annealed") reads as as-printed first (D129). |
@@ -122,7 +122,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate and drying its material's guide row (D88, D127), never for a product with a Variant (D129), each so read labelled. Every product's decision states (`states`, D99): as printed and dry, each annealing schedule, conditioned, each holding only its own values, with the conditions each value admitted unstated. Its twins (`twins`). Checks the pins in `headlines.csv`. A strength taken from a yield or break stress is the greatest of the stress endpoints one test prints (D126). The engine judges the products. |
 | `product-claims.js` | What a maker sells a product as, where it matters to how its values are read (`product_claims.csv`, D133): each claim points at the maker's own recorded statement, whose words must speak of what the claim is about (PRODUCT-CLAIM-REFERENCE, PRODUCT-CLAIM-WORDS); shown beside the product's values, and products sold as toughened are set apart from the impact medians. |
 | `written.js` | The written summaries at the head of the material pages (D142): each row of `material_summaries.csv` becomes `materials[].written` (who, when, review status, and its text as parts), every placeholder filled from the material's compiled spreads, its print windows, drying and layer shares (read from `material-highlights.js`), after products.js. A field the material cannot fill stops the build (SUMMARY-PLACEHOLDER); the lint finds a number typed by hand (SUMMARY-NUMBER) and a count of products, makers, values or profiles, which the page's head already says (SUMMARY-COUNT, D145; both in lint-rules.js). It decides nothing. |
-| `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
+| `gates.js` | A gate across several print profiles (within beats within at the low end beats on the line beats exceeds beats unknown, D151), for a material and for a product. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data (the moisture domain also counts its makers' own statements on moisture sensitivity, which decide nothing, D143), and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
 | `build-cache.js` | The result of `buildDatabase` stored in `.cache/build/` under a SHA-256 of everything it depends on, so the callers that compile the same tables run the estimate stage once (below, "Scale"). The same store keeps the material pages (stage 8), keyed by `digestFiles` over the renderer's code, the database's SHA-256 and the selector's file name. |
@@ -394,7 +394,9 @@ case is how an internal key reaches the screen.
 give it a status in `GATE_STATUS` in `app/js/engine/constraints.js`, which is what `evaluateGate` answers and what its
 chip is coloured by; and give it its words (`word`, `short`, `against`) in `GATE_VERDICT` in `ui/labels.js`, which the
 table, drawer, Compare and decision brief read. `test/gate-verdicts.test.js` fails until the four, and the compiled
-contract's enum, are the same set. `partial` was the last one added, and four places had their own copy until then.
+contract's enum, are the same set, in the same order. `within-low-end` and `edge` were the last added, replacing
+`partial` (D151), with the page's lists of products beyond the H2C (`print-spread.js` OUTSIDE), the rail's caveat and
+the validation report.
 
 **A new word for something.** It goes in `ui/labels.js` and nowhere else. Environment category names
 are the exception, and only because they belong with the topic rules: they are authored in
@@ -525,10 +527,13 @@ here shipped and are now pinned by tests:
 This stage also distinguishes a **requirement** from a **recommendation**. "Recommended 70-140C if
 possible" exceeds the H2C's 65 °C chamber but does not make the material unprintable.
 
-The chamber has two more answers the other axes do not (DECISIONS D32, D33):
+A window whose upper end is beyond the H2C is read by how much of it the H2C covers, on every axis (DECISIONS D151,
+which amends D32): 5 °C or more from its bottom is `within-low-end`, a pass; less, only its bottom edge, is `edge`, on
+the line; none of it is `exceeds`. A chamber's at-least window ("65˚C+") is read the same way; a nozzle or bed one the
+H2C reaches is within.
 
-- A window the chamber only partly reaches, such as 60–90 °C, is `partial`, not `exceeds`. Nozzle and
-  bed keep the upper-end reading.
+The chamber has one more answer the other axes do not (DECISIONS D33):
+
 - A chamber answered in words stays words. "Not required" and room temperature are `not-required`;
   "Recommended" with no number is `recommended`; a data sheet's "-" is `no-setpoint`. The Enclosure
   column is parsed too, and "not necessary" there means no heated chamber is needed. An enclosure
@@ -579,7 +584,7 @@ are rows in `material_links.csv`.
 Compile also derives, each tagged with its origin so the interface can tell them apart:
 
 - **Process gates** per material, aggregated across its profiles. Precedence is
-  `within > partial > exceeds-recommended > exceeds > unknown`. A known exceedance outranks an
+  `within > within-low-end > edge > exceeds-recommended > exceeds > unknown` (D151). A known exceedance outranks an
   unknown, because silence is not counter-evidence. PEEK publishes two profiles demanding 390–480 °C
   against the printer's 350 °C plus one that publishes nothing; letting the silent profile decide
   would have reported PEEK as "unknown". Among unknowns, a profile that said something in words
@@ -721,7 +726,7 @@ It also checks **cross-record consistency**, not just whether referenced identif
 These checks use `coverage-rules.js`, the same domain definitions compile derives coverage rows from (D74). A derived
 row and the validator therefore cannot disagree about what “has data” means.
 
-The report counts the chamber gate with its partial-window column, and breaks chamber evidence down
+The report counts each gate's verdicts, a window at its low end and one on the line among them, and breaks chamber evidence down
 by kind: a published window, a statement in words, no setpoint, nothing, and how many materials carry
 a band. It lists every band the evidence superseded.
 

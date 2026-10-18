@@ -4,7 +4,7 @@
 /**
  * The gate across a set of print profiles.
  *
- * Precedence: within > partial > exceeds-recommended > exceeds > unknown.
+ * Precedence: within > within-low-end > edge > exceeds-recommended > exceeds > unknown.
  *
  * "within" wins because a printable grade existing is what the question asks. The part that needs
  * care is that a known exceedance must outrank an unknown: PEEK carries two profiles demanding a
@@ -12,10 +12,15 @@
  * Letting the silent profile decide would report PEEK as "unknown" and throw away the evidence that
  * it is out of envelope. Silence is not counter-evidence.
  *
- * "partial" (chamber only) sits just below "within": part of a published window is reachable,
- * which is better than a window the printer misses entirely.
+ * "within-low-end" (D151) sits just below "within": the H2C covers the bottom of the maker's window, at least 5 °C of
+ * it, which is a pass, flagged. "edge" is next: it reaches only the window's bottom, which is on the line. Both are better
+ * than a window the printer misses entirely, and a recommendation above the H2C (D6) is better than a requirement.
  */
-export const GATE_PRECEDENCE = ['within', 'partial', 'exceeds-recommended', 'exceeds', 'unknown'];
+export const GATE_PRECEDENCE = ['within', 'within-low-end', 'edge', 'exceeds-recommended', 'exceeds', 'unknown'];
+
+// Among windows the H2C reaches the bottom of, the one it covers most; then the smallest overshoot.
+const covers = (a, b) => ((a.overlap ?? -Infinity) > (b.overlap ?? -Infinity)
+  || ((a.overlap ?? -Infinity) === (b.overlap ?? -Infinity) && (a.over ?? Infinity) <= (b.over ?? Infinity)) ? a : b);
 
 export function aggregateGate(profiles, axis) {
   if (!profiles.length) return { verdict: 'unknown', reason: 'No print profile recorded' };
@@ -24,11 +29,12 @@ export function aggregateGate(profiles, axis) {
   for (const verdict of GATE_PRECEDENCE) {
     const matches = vs.filter((v) => v.verdict === verdict);
     if (!matches.length) continue;
-    // Among several exceedances, report the smallest overshoot: it is the closest to printable.
-    // Among unknowns, a source that said something in words ("recommended", "-") explains more
-    // than one that said nothing, so it supplies the reason.
-    const chosen = verdict === 'exceeds' || verdict === 'partial'
+    // Among several exceedances, report the smallest overshoot: it is the closest to printable. Among windows the H2C
+    // reaches the bottom of, the one it covers most. Among unknowns, a source that said something in words
+    // ("recommended", "-") explains more than one that said nothing, so it supplies the reason.
+    const chosen = verdict === 'exceeds'
       ? matches.reduce((a, b) => ((a.over ?? Infinity) <= (b.over ?? Infinity) ? a : b))
+      : verdict === 'within-low-end' || verdict === 'edge' ? matches.reduce(covers)
       : verdict === 'unknown' ? (matches.find((v) => v.categorical) ?? matches[0])
       : matches[0];
     const silent = vs.filter((v) => v.verdict === 'unknown').length;

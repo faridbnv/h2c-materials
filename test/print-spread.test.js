@@ -48,7 +48,7 @@ const text = (html) => unesc(html.replace(/<[^>]+>/g, ''));
 const isProduct = (g) => !/-R\d+$/.test(g.id);
 const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fmtNumber(lo)}` : lo == null ? `up to ${fmtNumber(hi)}`
   : lo === hi ? fmtNumber(lo) : `${fmtNumber(lo)}${WJ}–${WJ}${fmtNumber(hi)}`);
-const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };
+const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', edge: ', the H2C reaches only its bottom edge' };
 const NOT_DRAWN_WORDS = {
   unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
@@ -187,7 +187,7 @@ test('printSpread reads each product\'s own, shared and guide settings into rows
     product('G4', { bed: rangeOf(60, null) }),
     product('G5', { chamber: { verdict: 'within', state: 'range', min: 40, max: 60, profileId: 'P5' }, drying: { need: 'not-needed', tempC: null } }),
     product('G6', { chamber: { verdict: 'recommended', state: 'recommended', min: null, max: null }, drying: { need: 'required', tempC: null } }),
-    product('G7', { nozzle: rangeOf(300, 380, { verdict: 'partial' }), chamber: undefined, drying: undefined }),
+    product('G7', { nozzle: rangeOf(350, 380, { verdict: 'edge' }), chamber: undefined, drying: undefined }),
   ];
   const out = Object.fromEntries(printSpread(products).map((a) => [a.axis, a]));
   assert.deepEqual(Object.keys(out), ['nozzle', 'bed', 'chamber', 'drying']);
@@ -197,7 +197,7 @@ test('printSpread reads each product\'s own, shared and guide settings into rows
   assert.equal(out.nozzle.limit, true);
 
   const low = out.nozzle.rows[0].entries, high = out.nozzle.rows[1].entries;
-  assert.deepEqual(low.map((e) => [e.g.id, e.value, e.origin]), [['G1', 190, 'own'], ['G2', 200, 'twin'], ['G3', 250, 'guide'], ['G4', 190, 'own'], ['G5', 190, 'own'], ['G6', 190, 'own'], ['G7', 300, 'own']]);
+  assert.deepEqual(low.map((e) => [e.g.id, e.value, e.origin]), [['G1', 190, 'own'], ['G2', 200, 'twin'], ['G3', 250, 'guide'], ['G4', 190, 'own'], ['G5', 190, 'own'], ['G6', 190, 'own'], ['G7', 350, 'own']]);
   assert.deepEqual(high.map((e) => [e.g.id, e.value]), [['G1', 220], ['G2', 230], ['G3', 260], ['G4', 220], ['G5', 220], ['G6', 220], ['G7', 380]]);
   assert.deepEqual(low.map((e) => e.profileId), ['P1', 'P2', null, 'P1', 'P1', 'P1', 'P1'], 'a dot names the profile of its own setting');
   assert.equal(low[1].label, 'data sheet shared with G1', 'a twin says whose sheet it is');
@@ -205,7 +205,8 @@ test('printSpread reads each product\'s own, shared and guide settings into rows
   assert.deepEqual(out.nozzle.rows[0].summary.guide, { n: 1, min: 250, max: 250 });
   assert.equal(out.nozzle.rows[0].summary.median, 190);
 
-  assert.deepEqual(out.nozzle.outside.map((o) => [o.g.id, o.verdict, o.min, o.max]), [['G7', 'partial', 300, 380]], 'the outside list is the gate\'s verdict');
+  assert.deepEqual(out.nozzle.outside.map((o) => [o.g.id, o.verdict, o.min, o.max]), [['G7', 'edge', 350, 380]], 'the outside list is the gate\'s verdict');
+  assert.deepEqual(out.nozzle.lowEnd, [], 'no window at its low end');
   assert.equal(out.bed.outside.length, 0);
 
   assert.deepEqual(out.bed.rows[0].entries.map((e) => e.g.id), ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7']);
@@ -238,12 +239,14 @@ test('printSpread sets no special formulation apart where every product is one, 
   assert.equal(printSpread([]).every((a) => a.rows.every((r) => r.summary.n === 0)), true, 'no products, no values');
 });
 
-test('printSpread lists a product outside the limits for each verdict in OUTSIDE and for no other', () => {
-  const verdicts = ['within', 'exceeds', 'exceeds-recommended', 'partial', 'unknown', undefined];
+test('printSpread lists a product outside the limits for each verdict in OUTSIDE and for no other, and one at its low end apart', () => {
+  const verdicts = ['within', 'within-low-end', 'edge', 'exceeds', 'exceeds-recommended', 'unknown', undefined];
   const products = verdicts.map((verdict, i) => ({ id: `G${i}`, print: { bed: { verdict, state: 'range', min: 100, max: 130, profileId: 'P' } } }));
   const bed = printSpread(products).find((a) => a.axis === 'bed');
   assert.deepEqual(bed.outside.map((o) => o.g.id), products.filter((g) => OUTSIDE.includes(g.print.bed.verdict)).map((g) => g.id));
-  assert.deepEqual(OUTSIDE, ['exceeds', 'exceeds-recommended', 'partial']);
+  assert.deepEqual(OUTSIDE, ['exceeds', 'exceeds-recommended', 'edge']);
+  // A window whose low end the H2C covers passes (D151): never beyond, said apart.
+  assert.deepEqual(bed.lowEnd.map((o) => o.g.id), ['G1']);
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -413,7 +416,12 @@ test('the products named outside the H2C\'s limits are those whose print gate sa
       named += out.length;
     }
     if (!segments.length) { assert.equal(line, `No product's setting is beyond the H2C's limits: ${limitsText}.`, x.m.id); none++; }
-    else assert.equal(line, `Beyond the H2C's limits (${limitsText}): ${segments.join('; ')}.`, `${x.m.id}: exactly the products whose verdict is exceeds, exceeds-recommended or partial`);
+    else assert.equal(line, `Beyond the H2C's limits (${limitsText}): ${segments.join('; ')}.`, `${x.m.id}: exactly the products whose verdict is exceeds, exceeds-recommended or edge`);
+    // The products within at the low end of their maker's window are named apart, as within (D151).
+    const lowEnd = TEMPERATURE.map((axis) => [axis, x.products.filter((g) => g.print?.[axis]?.verdict === 'within-low-end')]).filter(([, l]) => l.length)
+      .map(([axis, l]) => `${lower(LABEL[axis])}: ${andList(l.map((g) => `${gradeLabel(g)} (${windowText(g.print[axis].min, g.print[axis].max)} °C)`))}`);
+    const lowLine = footLines(x.heading).find((l) => /^Within, at the low end/.test(l));
+    assert.equal(lowLine, lowEnd.length ? `Within, at the low end of the maker's window: ${lowEnd.join('; ')}.` : undefined, `${x.m.id}: the low-end line`);
     // The spread agrees with the gate.
     for (const a of x.spread) {
       assert.deepEqual(a.outside.map((o) => o.g.id), x.products.filter((g) => OUTSIDE.includes(g.print?.[a.axis]?.verdict)).map((g) => g.id), `${x.m.id} ${a.axis}: printSpread's outside list`);

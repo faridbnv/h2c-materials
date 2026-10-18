@@ -48,18 +48,47 @@ test('a recommendation is not a requirement', () => {
   assert.equal(withinH2C(req, 65).verdict, 'exceeds');
 });
 
-// Regression: read by its upper end alone, a chamber window that starts below 65 °C failed outright.
-// Only the chamber gets a partial verdict; nozzle and bed keep the upper-end rule.
-test('a chamber window the printer partly reaches is partial, only when asked for', () => {
+// Regression: read by its upper end alone, a chamber window that starts below 65 °C failed outright (D32). Since D151 a
+// window whose bottom the H2C covers by 5 °C or more is within at its low end, by less only at its edge on the line, for
+// the nozzle, the bed and the chamber alike.
+test('a window the H2C covers the bottom of is within at its low end, or on the line', () => {
   const w = parseTemperature('60 - 90 °C', { plausible: [0, 200] });
-  const partial = withinH2C(w, 65, { partialWindow: true });
-  assert.equal(partial.verdict, 'partial');
-  assert.deepEqual(partial.reachable, { min: 60, max: 65 });
-  assert.equal(withinH2C(w, 65).verdict, 'exceeds');
-  assert.equal(withinH2C(parseTemperature('70-140C', { plausible: [0, 200] }), 65, { partialWindow: true }).verdict, 'exceeds');
-  const rec = withinH2C(parseTemperature('Recommended, up to 50-90°C if available', { plausible: [0, 200] }), 65, { partialWindow: true });
-  assert.equal(rec.verdict, 'partial');
-  assert.match(rec.reason, /^Recommends/);
+  const low = withinH2C(w, 65);
+  assert.equal(low.verdict, 'within-low-end');
+  assert.deepEqual(low.reachable, { min: 60, max: 65 });
+  assert.equal(low.reason, "At the low end of the maker's window (it asks 60–90 °C; the H2C reaches 65 °C)");
+  assert.equal(withinH2C(parseTemperature('70-140C', { plausible: [0, 200] }), 65).verdict, 'exceeds');
+  const rec = withinH2C(parseTemperature('Recommended, up to 50-90°C if available', { plausible: [0, 200] }), 65);
+  assert.equal(rec.verdict, 'within-low-end', 'the overlap is read before a recommendation above the H2C');
+  assert.match(rec.reason, /it recommends 50–90 °C/);
+  // The bed: Spectrum's PC 275 asks 90–130 °C, which the H2C's 120 °C covers by 30 °C; LCP asks 120–150 °C, its edge.
+  assert.equal(withinH2C(parseTemperature('90-130 °C', { plausible: [0, 250] }), H2C_BASELINE.bedC).reason,
+    "At the low end of the maker's window (it asks 90–130 °C; the H2C reaches 120 °C)");
+  const lcp = withinH2C(parseTemperature('120-150 °C', { plausible: [0, 250] }), H2C_BASELINE.bedC);
+  assert.deepEqual([lcp.verdict, lcp.reason], ['edge', "The H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C)"]);
+});
+
+test('the low end starts at 5 °C of the window, for nozzle, bed and chamber, open and closed windows alike', () => {
+  const at = (text, axis, opts) => withinH2C(parseTemperature(text, { plausible: [0, 550] }), H2C_BASELINE[`${axis}C`], opts).verdict;
+  for (const [axis, limit] of [['nozzle', 350], ['bed', 120], ['chamber', 65]]) {
+    assert.equal(at(`${limit - 5}-${limit + 30} °C`, axis), 'within-low-end', `${axis}: 5 °C of the window`);
+    assert.equal(at(`${limit - 4}-${limit + 30} °C`, axis), 'edge', `${axis}: 4 °C of the window`);
+    assert.equal(at(`${limit}-${limit + 30} °C`, axis), 'edge', `${axis}: its bottom edge only`);
+    assert.equal(at(`${limit + 1}-${limit + 30} °C`, axis), 'exceeds', `${axis}: none of the window`);
+    assert.equal(at(`Recommended ${limit + 1}-${limit + 30} °C if available`, axis), 'exceeds-recommended', `${axis}: a recommendation beyond`);
+    assert.equal(at(`${limit - 30}-${limit} °C`, axis), 'within', `${axis}: the whole window`);
+  }
+  // PEKK's nozzle (345–375 °C) is within at its low end, PSU's (350–380 °C) on the line: their materials stay out of
+  // scope, which the scope gate decides apart.
+  assert.equal(at('345-375 °C', 'nozzle'), 'within-low-end');
+  assert.equal(at('350-380 °C', 'nozzle'), 'edge');
+  // An open window: a nozzle or bed the H2C reaches is within; a chamber is read by the overlap.
+  assert.equal(at('≥ 330 °C', 'nozzle'), 'within');
+  assert.equal(at('120 ºC +', 'bed'), 'within');
+  assert.equal(at('60˚C+', 'chamber', { atLeastOverlap: true }), 'within-low-end');
+  assert.equal(at('61˚C+', 'chamber', { atLeastOverlap: true }), 'edge');
+  assert.equal(at('65˚C+', 'chamber', { atLeastOverlap: true }), 'edge');
+  assert.equal(at('66˚C+', 'chamber', { atLeastOverlap: true }), 'exceeds');
 });
 
 test('"no setpoint" and "recommended" are statements, not temperatures', () => {
@@ -138,9 +167,9 @@ test('"none needed" is not required, with the window the sheet gives if one is u
 test('an at-least value is a lower end with no upper end, never within by its upper end', () => {
   const chamber = parseTemperature('65˚C+', { plausible: [0, 200] });
   assert.deepEqual([chamber.state, chamber.min, chamber.max, chamber.openHigh], [PROCESS_STATE.RANGE, 65, null, true]);
-  // The H2C's 65 °C chamber reaches the bottom of an open window and no more: partial, as a window it partly reaches.
-  assert.equal(withinH2C(chamber, H2C_BASELINE.chamberC, { partialWindow: true }).verdict, 'partial');
-  assert.equal(withinH2C(parseTemperature('70°C+', { plausible: [0, 200] }), H2C_BASELINE.chamberC, { partialWindow: true }).verdict, 'exceeds');
+  // The H2C's 65 °C chamber reaches the bottom of an open window and no more: on the line (D151).
+  assert.equal(withinH2C(chamber, H2C_BASELINE.chamberC, { atLeastOverlap: true }).verdict, 'edge');
+  assert.equal(withinH2C(parseTemperature('70°C+', { plausible: [0, 200] }), H2C_BASELINE.chamberC, { atLeastOverlap: true }).verdict, 'exceeds');
   // A bed or nozzle the printer reaches is met; one it does not is exceeded.
   assert.equal(withinH2C(parseTemperature('140 ºC +', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'exceeds');
   assert.equal(withinH2C(parseTemperature('100 ºC +', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'within');
@@ -533,7 +562,7 @@ test('a nozzle size, a speed or a word with a number in it is not a temperature'
 test('a minimum in words is an open bound', () => {
   const p = parseTemperature('Minimum 70˚C chamber temp highly recommended.', { plausible: [0, 250] });
   assert.deepEqual([p.min, p.max, p.openHigh], [70, null, true]);
-  assert.equal(withinH2C(p, H2C_BASELINE.chamberC, { partialWindow: true }).verdict, 'exceeds');
+  assert.equal(withinH2C(p, H2C_BASELINE.chamberC, { atLeastOverlap: true }).verdict, 'exceeds');
   assert.deepEqual(['min', 'max'].map((k) => parseTemperature('at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+', { plausible: [0, 250] })[k]), [60, 100]);
 });
 

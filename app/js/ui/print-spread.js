@@ -14,8 +14,12 @@ export const PRINT_AXES = [
   { axis: 'chamber', label: 'Heated chamber', limit: true },
   { axis: 'drying', label: 'Drying', limit: false },
 ];
-/** A print gate verdict that puts a product outside the H2C's limits (build/src/gates.js). */
-export const OUTSIDE = ['exceeds', 'exceeds-recommended', 'partial'];
+/**
+ * A print gate verdict that puts a product outside the H2C's limits (build/src/gates.js): a window beyond them, one
+ * recommended above them, and one the H2C reaches only at its bottom edge (D151). A window whose low end the H2C covers is
+ * within, and listed apart (`lowEnd`).
+ */
+export const OUTSIDE = ['exceeds', 'exceeds-recommended', 'edge'];
 
 const QUARTILES_FROM = 4;
 const tidy = (x) => Number(x.toPrecision(12));
@@ -46,8 +50,8 @@ export function rowSummary(entries) {
 /**
  * A material's products on each setting: rows of entries `{ g, value, origin: 'own' | 'twin' | 'guide', label,
  * profileId, variant }` (a temperature setting a lowest and a highest row, drying one), each row's summary, the
- * products outside the H2C's limits by the build's own gate verdict, why the others are not drawn, and how many windows
- * give only one end (drawn on that end's row alone).
+ * products outside the H2C's limits by the build's own gate verdict and those within at the low end of their window
+ * (D151), why the others are not drawn, and how many windows give only one end (drawn on that end's row alone).
  * `products` are the material's active products; a material whose every product is a variant sets none apart.
  */
 export function printSpread(products) {
@@ -59,6 +63,7 @@ export function printSpread(products) {
     const notDrawn = new Map();
     const count = (why) => notDrawn.set(why, (notDrawn.get(why) ?? 0) + 1);
     const outside = [];
+    const lowEnd = [];
     const oneEnd = { low: 0, high: 0 };
     for (const g of products) {
       const v = g.print?.[axis];
@@ -70,6 +75,7 @@ export function printSpread(products) {
         continue;
       }
       if (OUTSIDE.includes(v?.verdict)) outside.push({ g, verdict: v.verdict, min: v.min, max: v.max, origin: base.origin });
+      if (v?.verdict === 'within-low-end') lowEnd.push({ g, verdict: v.verdict, min: v.min, max: v.max, origin: base.origin });
       // A chamber no sheet gives a temperature for, on a product whose sheet asks for an enclosure, is counted as that ask,
       // never as saying nothing (the blind read of 2026-10-17: "7 say nothing" beside 3DJake's "a closed build chamber is
       // required").
@@ -80,6 +86,6 @@ export function printSpread(products) {
       if (v.max != null) rows[1].entries.push({ ...entry, value: v.max }); else oneEnd.low++;
     }
     for (const r of rows) r.summary = rowSummary(r.entries);
-    return { axis, label, limit, rows, outside, notDrawn, oneEnd };
+    return { axis, label, limit, rows, outside, lowEnd, notDrawn, oneEnd };
   });
 }

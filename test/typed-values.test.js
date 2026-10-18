@@ -46,7 +46,8 @@ test('a reviewed correction is accepted and decides the gate', () => {
   assert.deepEqual(mismatches, []);
   const p = db.profiles.find((x) => x.id === fixture.ProfileID);
   assert.equal(p.nozzle.max, 360);
-  assert.equal(p.gates.nozzle.verdict, 'exceeds');
+  // The typed maximum decides: the window now runs past the H2C's 350 °C, and the H2C covers its low end (D151).
+  assert.equal(p.gates.nozzle.verdict, 'within-low-end');
 });
 
 test('an HDT test load is typed and checked the same way', () => {
@@ -186,13 +187,14 @@ test('a print profile holds guidance, never how the test bars were printed', () 
   }
 });
 
-// An at-least value ("65˚C+", "> 100 °C") has no upper end: no gate reads it as within by one.
+// An at-least value ("65˚C+", "> 100 °C") has no upper end: no gate reads it as within by one. A chamber is read by how
+// much of the open window the H2C's 65 °C covers (D151).
 test('an at-least window is never within the chamber by its upper end', () => {
   const { db } = run(() => {});
   const open = db.profiles.filter((p) => p.chamber.state === 'range' && p.chamber.max == null && p.chamber.min != null);
   assert.ok(open.length, 'no at-least chamber window to hold the rule to');
   for (const p of open) {
-    const expected = p.chamber.min > 65 ? /^exceeds/ : /^partial$/;
+    const expected = p.chamber.min > 65 ? /^exceeds/ : 65 - p.chamber.min >= 5 ? /^within-low-end$/ : /^edge$/;
     assert.match(p.gates.chamber.verdict, expected, `${p.id}: ${p.chamber.text}`);
   }
 });

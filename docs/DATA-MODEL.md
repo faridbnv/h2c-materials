@@ -695,7 +695,7 @@ The chamber question has four kinds of answer, and only the first is a temperatu
 
 | Kind | Example | Compiled as | Chamber gate |
 |---|---|---|---|
-| A published window | Bambu PC FR, 45–60 °C | `print.chamberC` | within, **partial** where only the bottom of the window is reachable, or exceeds |
+| A published window | Bambu PC FR, 45–60 °C | `print.chamberC` | within; **within at the low end** where the H2C covers 5 °C or more of its bottom; **on the line** (`edge`) where it reaches only the bottom edge; or exceeds |
 | A statement in words | "Not required", "enclosure not necessary", "Recommended", a data sheet's "-" | `print.chamberGuidance`: `not-required`, `recommended` or `no-setpoint` | within for `not-required`; unknown for the other two |
 | An enclosure asked for, with no temperature, for one of the eleven types Bambu Lab's guide asks an enclosure for | Bambu Lab's guide row for ABS (D90); Polymaker ABS's "Closure chamber \| Needed" (D93) | a guide row's or a profile's chamber state `enclosed` | within: the H2C's heated chamber is that enclosure |
 | An estimated band | PPA, ~80–120 °C† | `print.chamberEstimate` | **none**: a band changes no verdict |
@@ -703,8 +703,11 @@ The chamber question has four kinds of answer, and only the first is a temperatu
 How many in-scope materials give each kind, and how many carry a band, is in the validation report's "Chamber
 evidence" section (`build/reports/validation-report.md`), which every build rewrites.
 
-A **partial** window (DECISIONS D32) is chamber-only. Bambu Lab's PPS-CF publishes 60–90 °C; the H2C reaches
-60–65 °C of it, which is neither within nor a failure, so a chamber requirement reports INDETERMINATE.
+A window whose bottom the H2C reaches is read by how much of it the H2C covers (DECISIONS D151, which amended D32's
+chamber-only `partial`), on the nozzle and the bed as on the chamber. Bambu Lab's PPS-CF publishes a 60–90 °C chamber;
+the H2C covers 60–65 °C of it, at least 5 °C, so the chamber passes at the low end of the maker's window. LCP's bed is
+120–150 °C; the H2C's 120 °C is its bottom edge, so a bed requirement reports INDETERMINATE, on the line. An at-least
+chamber ("65˚C+") is read by how much of it the H2C covers too; a nozzle or bed one the H2C reaches is within.
 
 "Enclosure not necessary" counts as not required, because a material that need not be enclosed needs
 no heated chamber. "Enclosure recommended" alone does not count as anything (D33), with one exception: for the eleven

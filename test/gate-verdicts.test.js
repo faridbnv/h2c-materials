@@ -12,7 +12,9 @@ import { GATE_VERDICT, gateVerdict } from '../app/js/ui/labels.js';
 const sorted = (xs) => [...xs].sort();
 
 test('the build, the engine, the page and the contract know the same gate verdicts', () => {
-  assert.deepEqual(sorted(Object.keys(GATE_STATUS)), sorted(GATE_PRECEDENCE));
+  // In the same order: the page names a material's best product's verdict by the engine's order (material-facts.js).
+  assert.deepEqual(Object.keys(GATE_STATUS), GATE_PRECEDENCE);
+  assert.ok(!GATE_PRECEDENCE.includes('partial'), 'partial is retired (D151)');
   assert.deepEqual(sorted(Object.keys(GATE_VERDICT)), sorted(GATE_PRECEDENCE));
   const contract = JSON.parse(readFileSync(new URL('../schema/db.schema.json', import.meta.url), 'utf8'));
   const enums = [];
@@ -31,5 +33,7 @@ test('a chip is coloured by the engine\'s own answer, and an unknown verdict rea
   assert.equal(GATE_STATUS.within, STATUS.PASS);
   assert.equal(GATE_STATUS.exceeds, STATUS.FAIL);
   assert.equal(GATE_STATUS['exceeds-recommended'], STATUS.INDETERMINATE, 'a recommendation never removes a candidate (D6)');
+  assert.equal(GATE_STATUS['within-low-end'], STATUS.PASS, 'a window covered at its low end passes (D151)');
+  assert.equal(GATE_STATUS.edge, STATUS.INDETERMINATE, 'a window reached only at its edge is on the line (D151)');
   assert.deepEqual(gateVerdict('a verdict nobody wrote'), gateVerdict('unknown'));
 });

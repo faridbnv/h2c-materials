@@ -1,4 +1,4 @@
-3DXTECH FIBREX GF PP
+Bambu Lab PPS-CF
 PASS
 chosen 18 Oct 2026 on release <id>
 Download the decision brief

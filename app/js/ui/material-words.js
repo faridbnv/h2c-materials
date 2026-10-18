@@ -359,10 +359,13 @@ export function printLines(f) {
     return `${lower(label)} ${low == null || high == null ? graphNumber(low ?? high, '°C') : graphSpan(low, high, '°C')} °C`;
   }).filter(Boolean);
   const outside = f.outside.map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
+  // Within, but only at the low end of the maker's window (D151): a pass, said so.
+  const lowEnd = (f.lowEnd ?? []).map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C)`))}`);
   // The limits as the material page's On the H2C says them (print-brief.js h2cLimitsText), and "beyond", the chips' word (C04).
   const limits = h2cLimitsText(f.limits);
   return [
     outside.length ? `Beyond the H2C's limits (${limits}): ${outside.join('; ')}.` : `No product's setting is beyond the H2C's limits: ${limits}.`,
+    lowEnd.length ? `Within, at the low end of the maker's window: ${lowEnd.join('; ')}.` : null,
   ].filter(Boolean);
 }
 
@@ -384,8 +387,11 @@ export function printMissing(f) {
 export const printOriginsWords = (origins) => [origins.guide ? `${plural(origins.guide, 'setting')} from the Bambu Lab Filament Guide` : '',
   origins.twin ? `${plural(origins.twin, 'setting')} from a data sheet shared with another product` : ''].filter(Boolean);
 
-/** One axis of the H2C's limits against a material's products (printCounts().axes): "3 within, 1 beyond or only partly within". */
-export const printCountWords = (n) => `${n.within} within${n.over ? `, ${n.over} beyond or only partly within` : ''}${n.unknown ? `, ${n.unknown} not published` : ''}`;
+/**
+ * One axis of the H2C's limits against a material's products (printCounts().axes): "3 within (1 at the low end of its
+ * maker's window), 1 beyond or only partly within".
+ */
+export const printCountWords = (n) => `${n.within} within${n.lowEnd ? ` (${n.lowEnd} at the low end of ${n.lowEnd === 1 ? 'its maker\'s window' : 'their makers\' windows'})` : ''}${n.over ? `, ${n.over} beyond or only partly within` : ''}${n.unknown ? `, ${n.unknown} not published` : ''}`;
 
 /** The hardened-nozzle line of a material's printability, by its gate (materials[].gates.abrasive) and its products' share. */
 export function hardenedFactWords(gate, hard, someHard) {

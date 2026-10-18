@@ -23,8 +23,8 @@
           "because": "The same values state neither the specimen form, the moisture state nor the post-processing: the screening policy admits them, and the verdict must say so." },
         { "product": "G054-01", "verdict": "FAIL", "failedBy": "Chamber", "records": ["P0141"],
           "because": "3DXTECH FIBREX PA12 GF30 meets the three limits (V001014, V001009, V001007), but its print guide asks for a chamber up to 120 °C; the H2C reaches 65 °C." },
-        { "product": "G070-01", "verdict": "UNKNOWN", "records": ["P0089"],
-          "because": "Bambu Lab PPA-CF's sheet asks for a 50-80 °C chamber, which the H2C only partly reaches: unresolved, not failed." },
+        { "product": "G070-01", "verdict": "PASS", "records": ["P0089"],
+          "because": "Bambu Lab PPA-CF's sheet asks for a 50-80 °C chamber, whose low end the H2C's 65 °C covers by 15 °C, and it meets the three limits. (Until the screening build's stage 3a this was unresolved: a window the H2C only partly reached was neither a pass nor a fail. The owner's decision 2 of 2026-10-18, D151: a maker's window says any setting in it works, so one the H2C covers by 5 °C or more passes, at its low end.)" },
         { "product": "G050-01", "verdict": "UNKNOWN", "records": ["V000928", "V000930"],
           "because": "Bambu Lab PA6-CF's sheet measures every property after annealing at 80 °C for 12 h; nothing says how the part performs as printed." },
         { "product": "G050-01", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 80, "hours": 12 }, "records": ["V000928", "V000930", "P0065"],
@@ -41,10 +41,10 @@
       "expect": [
         { "template": "Warm environment", "includesGates": ["nozzle", "bed", "chamber"],
           "because": "The bed is part of printing it; the template checked the nozzle and the chamber only." },
-        { "product": "G035-03", "verdict": "FAIL", "failedBy": "Bed", "records": ["P0203"],
-          "because": "Spectrum PC 275's sheet asks for a 90-130 °C bed; the H2C's reaches 120 °C." },
-        { "product": "G035-21", "verdict": "FAIL", "failedBy": "Bed", "records": ["P0203"],
-          "because": "FormFutura Kratos PC prints PC 275's sheet (the same Shared formulation key, D89), so its bed is PC 275's." }
+        { "product": "G035-03", "verdict": "PASS", "notUnresolvedBy": "bed", "records": ["P0203"],
+          "because": "Spectrum PC 275's sheet asks for a 90-130 °C bed; the H2C's reaches 120 °C, 30 °C into that window, so the bed passes at the low end of the maker's window. (Until the screening build's stage 3a this failed on the bed, read by its upper end. The owner's decision 2 of 2026-10-18, D151.)" },
+        { "product": "G035-21", "verdict": "PASS", "notUnresolvedBy": "bed", "records": ["P0203"],
+          "because": "FormFutura Kratos PC prints PC 275's sheet (the same Shared formulation key, D89), so its bed is PC 275's, and passes at the low end as PC 275's does (D151)." }
       ]
     },
     {

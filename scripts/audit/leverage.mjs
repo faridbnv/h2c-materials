@@ -269,7 +269,7 @@ const withEnclosure = (o, st, guide) => {
   let chamber = o.chamber;
   if (chamber.fromEnclosure && st !== 'not-needed') chamber = { text: chamber.text, state: 'unknown', requirement: 'unknown', min: null, max: null };
   else if (!chamber.fromEnclosure && chamber.state === 'unknown' && !chamber.unparsed && st === 'not-needed') chamber = { ...chamber, state: 'not-required', requirement: 'none', fromEnclosure: true };
-  const gates = chamber === o.chamber ? o.gates : { ...o.gates, chamber: withinH2C(chamber, LIMITS.chamberC, { partialWindow: true, makerEnclosure: guide ? null : o.enclosure }) };
+  const gates = chamber === o.chamber ? o.gates : { ...o.gates, chamber: withinH2C(chamber, LIMITS.chamberC, { atLeastOverlap: true, makerEnclosure: guide ? null : o.enclosure }) };
   return { ...o, enclosureState: st, chamber, gates };
 };
 const STATE_ALTS = (limit) => ({
@@ -282,7 +282,7 @@ function misreadings(o, field, isGuide) {
   const col = field.replace(/ °C$/, '').toLowerCase();
   if (['Nozzle °C', 'Bed °C', 'Chamber °C'].includes(field)) {
     const axis = col, t = o[axis], limit = LIMIT_OF[axis];
-    const gate = (nt) => withinH2C(nt, limit, { partialWindow: axis === 'chamber', makerEnclosure: isGuide ? null : o.enclosure });
+    const gate = (nt) => withinH2C(nt, limit, { atLeastOverlap: axis === 'chamber', makerEnclosure: isGuide ? null : o.enclosure });
     const make = (nt, label, kind) => ({ label, kind, obj: { ...o, [axis]: nt, gates: { ...o.gates, [axis]: gate(nt) } } });
     if (t.state === 'range') return [-20, -10, 10, 20].map((d) => make({ ...t, min: t.min == null ? null : t.min + d, max: t.max == null ? null : t.max + d }, `${d > 0 ? '+' : ''}${d} °C`, 'numeric'));
     // A silent cell has nothing to misread; a chamber read from "no enclosure needed" is the Enclosure cell's, not this one's.

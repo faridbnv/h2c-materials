@@ -256,7 +256,10 @@ function productPrice(gradePrices) {
 function recipeAxis(profiles, axis) {
   const gate = aggregateGate(profiles, axis);
   const same = profiles.filter((p) => p.gates[axis].verdict === gate.verdict);
-  const pick = same.find((p) => p.gates[axis].over === gate.over && p[axis].state === 'range')
+  // The profile whose gate was chosen: its overshoot and its reason, which names its window (D151: of two windows the
+  // H2C reaches the bottom of, the one it covers most, which may share its overshoot with the other).
+  const pick = same.find((p) => p.gates[axis].over === gate.over && p.gates[axis].reason === gate.reason && p[axis].state === 'range')
+    ?? same.find((p) => p.gates[axis].over === gate.over && p[axis].state === 'range')
     ?? same.find((p) => p[axis].state === 'range') ?? same[0];
   const t = pick?.[axis];
   return { verdict: gate.verdict, reason: gate.reason, state: t?.state ?? 'unknown', min: t?.min ?? null, max: t?.max ?? null, profileId: pick?.id ?? null };

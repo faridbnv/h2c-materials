@@ -219,18 +219,21 @@ function body(group, materials, cs, db, ctx = {}) {
     // and a reader may drop one. It used to be a box above every group, with the same three gates repeated here.
     const asked = { nozzle: !!find(cs, (c) => c.gate === 'nozzle'), bed: !!find(cs, (c) => c.gate === 'bed'), chamber: !!find(cs, (c) => c.gate === 'chamber') };
     const check = printCheck(cs);
+    // A window the H2C reaches only at its bottom edge is on the line, unresolved; one it covers the low end of passes (D151).
+    const edgeLine = (gate) => {
+      const edge = materials.filter((m) => m.gates[gate]?.verdict === 'edge').length;
+      return edge ? `<span class="caveat">${edge} publish a window the H2C reaches only at its bottom edge; they stay unresolved</span>` : '';
+    };
     const gateLine = (gate) => {
       if (gate !== 'chamber') {
         const known = materials.filter((m) => m.gates[gate]?.verdict !== 'unknown').length;
-        return `${known} of ${materials.length} publish a ${gate} temperature`;
+        return `${known} of ${materials.length} publish a ${gate} temperature${edgeLine(gate)}`;
       }
       // The chamber is answered by a temperature or in words, and the two are counted apart: "no heated chamber
       // needed" settles the question without being a number.
       const numeric = materials.filter((m) => m.print?.chamberC).length;
       const words = materials.filter((m) => !m.print?.chamberC && m.print?.chamberGuidance?.state === 'not-required').length;
-      const partial = materials.filter((m) => m.gates.chamber?.verdict === 'partial').length;
-      return `${numeric} of ${materials.length} publish a chamber temperature; ${words} more say none is needed`
-        + `<span class="caveat">${partial} publish a window the H2C reaches only in part; they stay unresolved</span>`;
+      return `${numeric} of ${materials.length} publish a chamber temperature; ${words} more say none is needed${edgeLine(gate)}`;
     };
     out.push(`<div class="control print-check" data-active="${check !== 'none'}">
       <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> ${H2C_CHECK}</label>

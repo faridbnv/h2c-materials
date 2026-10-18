@@ -23,13 +23,15 @@ export const STATUS = {
 
 /**
  * What a print gate's verdict answers for a requirement: the one mapping, which the page's chips read too (ui/labels.js
- * gateVerdict). A temperature above what the H2C reaches that a sheet only recommends is not a requirement (D6), so it
- * never removes a candidate on its own; a chamber window the H2C reaches only in part (D32) is one the source cannot
- * settle either way. Silence is unknown.
+ * gateVerdict), in the order a gate across several profiles prefers them (build/src/gates.js GATE_PRECEDENCE). A maker's
+ * window says any setting in it works, so one whose bottom the H2C covers by at least 5 °C passes, at its low end, and
+ * one it reaches only at the bottom edge is on the line (D151, amending D32). A temperature above what the H2C reaches
+ * that a sheet only recommends is not a requirement (D6), so it never removes a candidate on its own. Silence is unknown.
  */
 export const GATE_STATUS = {
   within: STATUS.PASS,
-  partial: STATUS.INDETERMINATE,
+  'within-low-end': STATUS.PASS,
+  edge: STATUS.INDETERMINATE,
   'exceeds-recommended': STATUS.INDETERMINATE,
   exceeds: STATUS.FAIL,
   unknown: STATUS.UNKNOWN,
@@ -412,7 +414,9 @@ function evaluateGate(material, c) {
   const g = material.gates[c.gate];
   const label = `${GATE_LABEL[c.gate] ?? c.gate} within H2C baseline`;
   if (!g) return { status: STATUS.UNKNOWN, criterion: label, reason: 'No print profile recorded' };
-  return { status: GATE_STATUS[g.verdict] ?? STATUS.UNKNOWN, criterion: label, reason: g.reason };
+  // A window the H2C reaches only at its bottom edge is on the line (D151): one test print, or a word with the maker,
+  // settles it.
+  return { status: GATE_STATUS[g.verdict] ?? STATUS.UNKNOWN, criterion: label, reason: g.reason, ...(g.verdict === 'edge' ? { onTheLine: true } : {}) };
 }
 
 // ---------------------------------------------------------------- facets and evidence
@@ -670,6 +674,8 @@ function judgeProduct(material, grade, constraints, ctx) {
     // Budgets are reserved across all numerical predicates at build time. Extra
     // AND requirements cannot undo an existing exclusion; untreated dry is the
     // only inferred route, so other alternatives must still fail on their evidence.
+    // The context is the one the frozen estimate stage validated (build/src/estimate/product-screening.js): all three
+    // gates plainly within, so a window at its low end (D151) is not in it.
     const completeProductContext = !state.treatment && state.moisture === 'dry'
       && ['nozzle', 'bed', 'chamber'].every((a) => grade.print?.[a]?.verdict === 'within');
     return { state, e: evaluateMaterial(view, cs, { ...ctx, completeProductContext }) };
@@ -743,7 +749,7 @@ function productEntry(x) {
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
   if (r.estimate?.screening) out.prediction = {
     centre: r.estimate.centre, plausible: r.estimate.plausible, screenRange: r.estimate.screenRange,
     canScreen: r.estimate.canScreen, scope: r.estimate.screening.context, limitation: r.estimate.screenLimit,

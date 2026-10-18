@@ -55,14 +55,14 @@ What a selection criterion can actually decide, out of 175 canonical materials.
 
 Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
-| Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
-|---|---:|---:|---:|---:|---:|
-| nozzle | 133 | n/a | 11 | 0 | 31 |
-| bed | 133 | n/a | 11 | 0 | 31 |
-| chamber | 96 | 9 | 8 | 1 | 61 |
+| Axis | within | within, at the low end | on the line | exceeds | exceeds (recommendation only) | unknown |
+|---|---:|---:|---:|---:|---:|---:|
+| nozzle | 133 | 3 | 1 | 7 | 0 | 31 |
+| bed | 133 | 1 | 4 | 6 | 0 | 31 |
+| chamber | 96 | 9 | 0 | 8 | 1 | 61 |
 
-A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
-Nozzle and bed are read by the upper end of the window.
+A window whose upper end is beyond the H2C is read by how much of it the H2C covers (D151): 5 C or more from its bottom is
+within, at the low end; less, only its bottom edge, is on the line; none of it exceeds. Nozzle, bed and chamber alike.
 
 ## Chamber evidence
 

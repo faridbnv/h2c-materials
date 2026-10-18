@@ -1,7 +1,7 @@
 // Validation. The build fails on any error. Warnings describe what the tool cannot yet see, which
 // is why the report is a deliverable in its own right rather than console noise.
 
-import { PROCESS_STATE } from './normalize/process.js';
+import { PROCESS_STATE, H2C_LOW_END_C } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
 import { measurementHeadlines, applies } from './registry.js';
 import {
@@ -292,16 +292,16 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
   L.push('');
   L.push(`Baseline ${db.meta.h2cBaseline.nozzleC} C nozzle, ${db.meta.h2cBaseline.bedC} C bed, ${db.meta.h2cBaseline.chamberC} C chamber.`);
   L.push('');
-  L.push('| Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |');
-  L.push('|---|---:|---:|---:|---:|---:|');
+  L.push('| Axis | within | within, at the low end | on the line | exceeds | exceeds (recommendation only) | unknown |');
+  L.push('|---|---:|---:|---:|---:|---:|---:|');
   for (const axis of ['nozzle', 'bed', 'chamber']) {
-    const t = { within: 0, partial: 0, exceeds: 0, 'exceeds-recommended': 0, unknown: 0 };
+    const t = { within: 0, 'within-low-end': 0, edge: 0, exceeds: 0, 'exceeds-recommended': 0, unknown: 0 };
     for (const m of db.materials) t[m.gates[axis].verdict] = (t[m.gates[axis].verdict] ?? 0) + 1;
-    L.push(`| ${axis} | ${t.within} | ${axis === 'chamber' ? t.partial : 'n/a'} | ${t.exceeds} | ${t['exceeds-recommended']} | ${t.unknown} |`);
+    L.push(`| ${axis} | ${t.within} | ${t['within-low-end']} | ${t.edge} | ${t.exceeds} | ${t['exceeds-recommended']} | ${t.unknown} |`);
   }
   L.push('');
-  L.push('A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.');
-  L.push('Nozzle and bed are read by the upper end of the window.');
+  L.push(`A window whose upper end is beyond the H2C is read by how much of it the H2C covers (D151): ${H2C_LOW_END_C} C or more from its bottom is`);
+  L.push('within, at the low end; less, only its bottom edge, is on the line; none of it exceeds. Nozzle, bed and chamber alike.');
   L.push('');
 
   // What the chamber evidence is made of. A temperature, a statement in words and an estimate are

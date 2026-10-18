@@ -260,8 +260,9 @@ preferences: changing one changes what the tool asserts.
 14. **One name per thing.** Every property and every criterion is named by `app/js/ui/labels.js`,
     so no screen can print an internal key while the screen beside it reads plainly.
 15. **A chamber answered in words stays words.** "Not required", "recommended" and a data sheet's "-"
-    are manufacturer evidence and never become a temperature. A chamber window the H2C only partly
-    reaches is partial, never within.
+    are manufacturer evidence and never become a temperature. A nozzle, bed or chamber window the H2C
+    covers by at least 5 °C from its bottom is within, at its low end; one it reaches only at its edge is
+    on the line (D151).
 16. **An estimated chamber band decides nothing.** The research's bands are shown, marked, only where
     no source says anything better, and they can neither clear nor fail a material.
 17. **Nothing enters the data from a report.** Every value is re-read from its source and the
@@ -315,8 +316,9 @@ profile's published requirement and compares it against this envelope. The mater
 polymers and the metal and ceramic sintering filaments. Every one of those polymers that publishes a nozzle
 temperature trips that gate on it; the others publish no print setting. The sintering filaments are never candidates,
 whatever they print at, since the part is the sintered metal's or ceramic's (D87).
-A chamber window that starts inside the envelope and ends above it, such as Bambu PPS-CF's 60–90 °C,
-is reported as partly reachable rather than as a failure.
+A window that starts inside the envelope and ends above it is read by how much of it the H2C covers (D151): Bambu
+PPS-CF's 60–90 °C chamber is within, at its low end; LCP's 120–150 °C bed, which the H2C reaches only at its edge, is on
+the line.
 
 ## The validation report
 

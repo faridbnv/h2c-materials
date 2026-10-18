@@ -482,8 +482,9 @@ and as one requirement in the header. Without it the header says **H2C printabil
 nothing about printing the product.
 
 The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with each product's own published print
-profile, and each product reports **Within**, **Exceeds**, **Partly within** (a chamber window the printer only partly
-reaches), **Above recommended** (a recommended window above the H2C's) or **No data**. Where its own sheet says
+profile, and each product reports **Within**, **Within, at the low end** (a window whose bottom the H2C covers by at
+least 5 °C, a pass, D151), **On the line** (a window the H2C reaches only at its bottom edge, unresolved), **Beyond**,
+**Above recommended** (a recommended window above the H2C's) or **No data**. Where its own sheet says
 nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
 D89), then the Bambu Lab Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
 too, each labelled as such wherever it is shown; its own sheet always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the

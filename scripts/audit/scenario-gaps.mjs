@@ -11,7 +11,7 @@
 //                      state, or the team's coupon; or the question permits the state it is published in
 //   conditions         published without its direction or load: a re-read of the sheet's test conditions, or the maker
 //   source silent      no value, record or recipe at all: the maker's other documents, then the maker, then a coupon
-//   print test         a window the H2C only partly reaches, or a recommendation above it: a test print on the H2C
+//   print test         a window the H2C reaches only at its bottom edge (on the line, D151), or a recommendation above it: a test print on the H2C
 //   treatment          annealed at a schedule its sheet does not state: the maker's schedule
 //
 // A fact the research package of 2026-09-26 already put to the owner or a maker (archive/research-2026-09-26/

@@ -110,7 +110,10 @@ export function namedFiller(m) {
  */
 export const GATE_VERDICT = {
   within: { word: 'Within', short: 'within', against: 'within the H2C' },
-  partial: { word: 'Partly within', short: 'partly within', against: 'partly within the H2C' },
+  // A maker's window whose bottom the H2C covers by 5 °C or more passes, at its low end; one it reaches only at the bottom
+  // edge is on the line (D151).
+  'within-low-end': { word: 'Within, at the low end', short: 'within, low end', against: 'within the H2C, at the low end of its window' },
+  edge: { word: 'On the line', short: 'on the line', against: 'on the line for the H2C' },
   'exceeds-recommended': { word: 'Above recommended', short: 'above recommended', against: 'recommended above the H2C' },
   exceeds: { word: 'Beyond', short: 'beyond', against: 'beyond the H2C' },
   unknown: { word: 'No data', short: 'no data', against: 'not judged against the H2C' },
@@ -429,4 +432,4 @@ export const PRINT_NOT_DRAWN_ONE = {
   'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
 };
 /** What a print gate verdict outside the H2C's limits adds after a product's window (print-spread.js OUTSIDE). */
-export const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };
+export const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', edge: ', the H2C reaches only its bottom edge' };

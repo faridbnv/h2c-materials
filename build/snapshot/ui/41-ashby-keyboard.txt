@@ -1,4 +1,4 @@
-LINE STEPPED 6 products from 5 materials above the line
+LINE STEPPED 6 products from 4 materials above the line
 INSPECTOR
 3DXTECH FIBREX GF PP
 PP-GF · PASS

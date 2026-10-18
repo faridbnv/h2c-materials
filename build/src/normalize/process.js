@@ -5,6 +5,10 @@
 // Method sheet, H2C / Hardware baseline: 350 C nozzle, 120 C bed, 65 C active chamber.
 
 export const H2C_BASELINE = { nozzleC: 350, bedC: 120, chamberC: 65 };
+// How much of a maker's window the H2C must cover for the window to be within, at its low end (D151, the owner's
+// decision 2 of the screening review, 2026-10-18): a maker's window says any setting in it works, so a nozzle, bed or
+// chamber window whose bottom the H2C reaches by at least 5 °C is printable; one it reaches by less is on the line.
+export const H2C_LOW_END_C = 5;
 
 export const PROCESS_STATE = {
   RANGE: 'range',
@@ -210,23 +214,43 @@ export function parseTemperature(raw, opts = {}) {
 }
 
 /**
+ * A window whose bottom the H2C reaches and whose top it does not (D151): within at its low end where the H2C covers at
+ * least H2C_LOW_END_C of it, else on the line. `window` is the maker's window in words, `over` how far its top is beyond
+ * the H2C (null for an open window). `overlap` is how much of it the H2C covers, which a gate across several profiles
+ * ranks by (gates.js).
+ */
+function lowEnd(parsed, limitC, window, over) {
+  const overlap = limitC - parsed.min;
+  const asks = parsed.requirement === REQUIREMENT.RECOMMENDED ? 'recommends' : 'asks';
+  const base = { reachable: { min: parsed.min, max: limitC }, overlap, over };
+  if (overlap >= H2C_LOW_END_C) {
+    return { verdict: 'within-low-end', reason: `At the low end of the maker's window (it ${asks} ${window}; the H2C reaches ${limitC} °C)`, ...base };
+  }
+  const reach = parsed.min === limitC ? `${limitC} °C` : `${parsed.min}–${limitC} °C`;
+  const of = parsed.max == null ? `${parsed.min} °C and above` : window;
+  return { verdict: 'edge', reason: `The H2C reaches only the bottom of the maker's window (${reach} of ${of})`, ...base };
+}
+
+/**
  * Does this material's stated process window fit inside the H2C envelope?
- * The question the gate asks is whether the material *requires* more than the printer provides,
- * so the upper end of the stated range is what matters.
+ * A window the H2C covers whole is within. One whose upper end is beyond the H2C is read by how much of it the H2C
+ * covers (D151, amending D32): a maker's window says any setting in it works, so where the H2C reaches at least
+ * H2C_LOW_END_C of it, from its bottom, the window is within at its low end (`within-low-end`, a pass, flagged); where it
+ * reaches less, only the window's bottom edge, it is on the line (`edge`, unresolved); where it reaches none of it, the
+ * window is beyond the H2C. This holds for the nozzle, the bed and the chamber alike: Bambu's PPS-CF chamber of 60–90 °C
+ * is within at its low end, LCP's bed of 120–150 °C on the line, PEKK's nozzle of 345–375 °C within at its low end
+ * (PEKK stays out of scope, which is decided apart). Until D151 only the chamber had such a verdict ("partial", always
+ * unresolved), and the nozzle and bed were read by their upper end.
  *
  * A recommendation is not a requirement. "Recommended 70-140C if possible" exceeds the 65 C
  * chamber but does not make the material unprintable, so it returns a warning the UI can show
- * rather than a verdict that removes the candidate.
+ * rather than a verdict that removes the candidate (D6). The overlap is read first: a recommended window the H2C covers
+ * the bottom of is within at its low end, or on the line, as a required one is.
  *
- * `partialWindow` is passed for the chamber only. A chamber window of 60-90 C against a 65 C
- * chamber is not a requirement the printer fails: 60-65 C is inside the manufacturer's own window.
- * It is not "within" either, because most of the window cannot be reached, and Bambu says the
- * upper part improves Z strength. So it is its own verdict. Read by the upper end alone it was a
- * hard "exceeds", which failed ABS-CF (50-70 C) outright. Nozzle and bed keep the upper-end rule:
- * there the bottom of a window sits at the hardware's rated maximum, and the six out-of-scope
- * materials trip the gate on exactly those rows (docs/DECISIONS.md, D32).
+ * An at-least window ("65˚C+") has no upper end. A nozzle or bed one the H2C reaches is within; a chamber one is read by
+ * the overlap too (`atLeastOverlap`): the H2C's 65 °C covers 65 − X of a window that starts at X.
  */
-export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosure = null } = {}) {
+export function withinH2C(parsed, limitC, { atLeastOverlap = false, makerEnclosure = null } = {}) {
   if (!parsed) return { verdict: 'unknown', reason: 'No requirement published' };
 
   if (parsed.state === PROCESS_STATE.NOT_REQUIRED || parsed.state === PROCESS_STATE.AMBIENT) {
@@ -250,7 +274,7 @@ export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosur
     return { verdict: 'unknown', reason: 'No temperature published' };
   }
   // An at-least value ("65˚C+") has no upper end, so it is never within by its upper end: the printer reaches it if it
-  // reaches the lower end, and for the chamber that is the bottom of an open window, which is partial.
+  // reaches the lower end. A nozzle or bed is then within; a chamber is read by how much of the open window it covers.
   if (parsed.openHigh && parsed.max == null) {
     const over = parsed.min - limitC;
     if (over > 0) {
@@ -258,23 +282,14 @@ export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosur
         ? { verdict: 'exceeds-recommended', reason: `Recommends at least ${parsed.min} °C, above the H2C's ${limitC} °C, but does not require it`, over }
         : { verdict: 'exceeds', reason: `Requires at least ${parsed.min} °C; the H2C reaches only ${limitC} °C`, over };
     }
-    if (partialWindow) {
-      return { verdict: 'partial', reason: `Needs at least ${parsed.min} °C with no upper end; the H2C reaches only up to ${limitC} °C`, reachable: { min: parsed.min, max: limitC }, over: null };
-    }
+    if (atLeastOverlap) return lowEnd(parsed, limitC, `at least ${parsed.min} °C`, null);
     return { verdict: 'within', reason: `Needs at least ${parsed.min} °C; the H2C reaches ${limitC} °C` };
   }
   if (parsed.max <= limitC) {
     return { verdict: 'within', reason: `Needs up to ${parsed.max} \u00b0C; the H2C reaches ${limitC} \u00b0C` };
   }
-  if (partialWindow && parsed.min !== null && parsed.min <= limitC) {
-    const verb = parsed.requirement === REQUIREMENT.RECOMMENDED ? 'Recommends' : 'Needs';
-    return {
-      verdict: 'partial',
-      reason: `${verb} ${parsed.min}\u2013${parsed.max} \u00b0C; the H2C reaches only up to ${limitC} \u00b0C, part of that window`,
-      reachable: { min: parsed.min, max: limitC },
-      over: parsed.max - limitC,
-    };
-  }
+  // A closed window the H2C reaches the bottom of: within at its low end, or on the line (D151).
+  if (parsed.min !== null && parsed.min <= limitC) return lowEnd(parsed, limitC, `${parsed.min}–${parsed.max} °C`, parsed.max - limitC);
   if (parsed.requirement === REQUIREMENT.RECOMMENDED) {
     return {
       verdict: 'exceeds-recommended',

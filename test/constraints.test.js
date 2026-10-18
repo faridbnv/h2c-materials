@@ -84,11 +84,17 @@ test('a chamber recommendation does not fail a candidate', () => {
   assert.equal(evaluateConstraint(recommended, { kind: 'gate', gate: 'chamber' }).status, STATUS.INDETERMINATE);
 });
 
-// A window the chamber only partly reaches is not a failure and not a pass: the source cannot say
-// whether the reachable part is enough.
-test('a partly reachable chamber window is unresolved', () => {
-  const partial = { id: 'C', gates: { chamber: { verdict: 'partial', reason: 'r' } } };
-  assert.equal(evaluateConstraint(partial, { kind: 'gate', gate: 'chamber' }).status, STATUS.INDETERMINATE);
+// A maker's window says any setting in it works (D151): one whose low end the H2C covers passes, flagged by its verdict
+// and reason; one it reaches only at its bottom edge is on the line, unresolved, for the nozzle, the bed and the chamber.
+test('a window covered at its low end passes, and one reached only at its edge is on the line', () => {
+  for (const gate of ['nozzle', 'bed', 'chamber']) {
+    const low = evaluateConstraint({ id: 'C', gates: { [gate]: { verdict: 'within-low-end', reason: 'At the low end' } } }, { kind: 'gate', gate });
+    assert.equal(low.status, STATUS.PASS, gate);
+    assert.equal(low.reason, 'At the low end', gate);
+    assert.equal(low.onTheLine, undefined, gate);
+    const edge = evaluateConstraint({ id: 'C', gates: { [gate]: { verdict: 'edge', reason: 'r' } } }, { kind: 'gate', gate });
+    assert.deepEqual([edge.status, edge.onTheLine], [STATUS.INDETERMINATE, true], gate);
+  }
 });
 
 test('an indicator environment category never manufactures a PASS', () => {

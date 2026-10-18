@@ -20,7 +20,7 @@ detail. The generator names one that runs longer.
 | D2 | Headline values are verified, never recomputed | A number shown for a product is always a recorded measurement, read from its record, never retyped or recomputed. | Amended by D47 (the value is read from the measurement, not typed twice) and D83 (a product's value is chosen by rule, and a material shows its products' spread) |
 | D3 | Missing data is four states, never zero | Not published, not enough comparable data, not applicable and quarantined are four different answers, and none of them is ever shown as zero. | In force |
 | D4 | INDETERMINATE is not UNKNOWN | "Nobody has measured it" (unknown) and "the evidence straddles your limit" (indeterminate) are different answers and stay apart. | In force |
-| D5 | Evidence outranks silence in gate aggregation | When one print profile states a temperature the H2C cannot reach and another says nothing, the stated one decides. | In force |
+| D5 | Evidence outranks silence in gate aggregation | When one print profile states a temperature the H2C cannot reach and another says nothing, the stated one decides. | In force; its precedence amended by D151: within > within-low-end > edge > exceeds-recommended > exceeds > unknown, and `partial` retired |
 | D6 | A recommendation is not a requirement | A maker's "recommended if possible" setting above what the H2C gives warns, and never rules a material out. | In force |
 | D7 | Only gates that can discriminate become filters | A printing field that almost every source leaves as "verify the exact grade" is shown as evidence, not offered as a filter. | In force |
 | D8 | Related evidence reports one measurement, never a cross-grade range | Values of different products were never to be merged into one range, because it would read as one material's uncertainty. | Its refusal of a range superseded by D83, where a material is the labelled spread of its products |
@@ -47,7 +47,7 @@ detail. The generator names one that runs longer.
 | D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force; extended by D101 (every template also asks the H2C's print gates; without them the page is in research mode, and says so) |
 | D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force; narrowed by D96 (the date is for a reader; a release ID over what decides identifies a page, a scenario and an export) |
 | D31 | A quarantined observation backs nothing | A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing. | In force; amended by D47 (a price median is computed from its sample, so no stored citation is left to check) and m32 (quarantine is a typed column) |
-| D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end. | In force |
+| D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end. | Amended by D151: a window whose bottom the H2C reaches is read by how much of it the H2C covers, for the nozzle, the bed and the chamber alike: 5 °C or more passes, at its low end; less is on the line. `partial` is retired |
 | D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not. | Amended by D90 and D93: for the nine types Bambu Lab's Filament Guide asks an enclosure for, an enclosure asked for with no temperature, by the guide or by the maker's own sheet, reads as within the H2C's chamber; for every other type the reverse inference is still not made |
 | D34 | An estimated chamber band decides nothing | Researched guesses of a chamber temperature are shown, marked, and never pass or exclude a material. | In force |
 | D35 | A research report is re-read against its sources, never transcribed | Every value is entered from its original document, re-read and hash-checked, never copied from a report or a summary. | In force |
@@ -164,6 +164,7 @@ detail. The generator names one that runs longer.
 | D146 | The selector refined: the drawer reads as the material page reads, and the cold page shows where the results start | The owner asked for the selector's first impression to be calmer and its material drawer easier to read, with subtle changes, everything good recorded first and kept. The drawer now gives one block on printing on the H2C, worked out the way the material page works it out, so the two never print different numbers; its key properties are the page's six key figures in the page's form; its head and tabs take less of the first screen; its graphs borrow the page's key, counts and marks; and the maintainers' notes left its sentences. The main page keeps every control, quieter: the missing-data choice is named for what it does, the rail opens on what a part needs, and the table starts on the first screen. No answer moved. | In force. It amends D145's way the drawer and the pages share words (the On the H2C rows, the display numbers and the reader-text rule now live in `app/js/ui`), D124's tab strip (counts on Products and Sources only) and D139's print temperatures (open by default, the limit drawn as the pages draw it) |
 | D147 | The selector and the material pages read as one tool: one computation per fact, one word per thing, one frame | The owner found the selector and the material pages each very good but substantially different, and asked for small changes that make them feel like one tool. Five reviews and a product manager's combination proposed 54 changes; the owner chose 45, and they were built. The drawer and the page now say each fact from one function and in one set of words: dates as "13 Sep 2026", one name for Bambu Lab's guide, a bound with its sign, one count of gaps, the page's evidence word. Both surfaces print one provenance line and share one theme button, three corner radii and one typeface, and every page ends in one footer band. The drawer's products open in one stated order and link to their cards on the Products page, the decision brief names the material page, and Parallel lines draws each line's result and the requirements in the Ashby chart's family colours, where blue now means only "this material". No answer moved. | In force. It amends D145 (the colophon is a footer band after the main element on every page kind, its byline one sentence; the theme button is the selector's) and D146 (more of the shared words live in `app/js/ui`; the drawer's Products tab opens on the product *Your requirements* shows), and rewords the guide label D124 gave D88: "from Bambu Lab's Filament Guide for PLA" is now "from the Bambu Lab Filament Guide (PLA column)" |
 | D148 | A property that does not apply hides a material whatever the estimates switch says; the switch is "Use estimates and resin data" | A property that does not apply to a material (an elastomer's HDT) now hides it under Include whether estimates are on or off, and says "Does not apply", never "Screened by an estimate" or "Not published". The estimates switch is renamed "Use estimates and resin data", and its help says what it does today. No page or export says a material's own estimate can rule out a material that has products, since that estimate is never read. "Why the rest were excluded" counts only the hides the page shows, a preset keeps the reader's Leave out or Include, and annealing is no longer offered where the annealed value misses too. No verdict moved. | In force. It amends D43 (a property that does not apply no longer screens "the same way" as an estimate, under the switch: it hides by definition) and D137's wording (its "all new numerical screening is disabled" covers the estimate of a material with products too, which is never read: only a material with no product is judged on its own estimate), and dates a note on D138's "32 of 673" |
+| D151 | The printer check reads a maker's window by how much of it the H2C covers | A maker's nozzle, bed or chamber window says any setting in it works. Where the H2C covers at least 5 °C of the window from its bottom, the check now passes, flagged "at the low end of the maker's window"; where it reaches only the bottom edge, the check is "on the line", unresolved; where it reaches none of it, the window is beyond the H2C, as before. This holds for the nozzle, the bed and the chamber alike. The chamber's "partial" verdict, always unresolved, is retired, and the nozzle and bed are no longer read by their upper end alone. | In force. It amends D32 (a window the H2C partly reaches is no longer chamber-only, nor always unresolved) and D5's precedence (within > within-low-end > edge > exceeds-recommended > exceeds > unknown) |
 
 <!-- end index -->
 
@@ -219,6 +220,7 @@ measured this", which sends the reader looking for the wrong thing.
 ## D5. Evidence outranks silence in gate aggregation
 
 > **In plain words:** When one print profile states a temperature the H2C cannot reach and another says nothing, the stated one decides.
+> **Status:** In force; its precedence amended by D151: within > within-low-end > edge > exceeds-recommended > exceeds > unknown, and `partial` retired.
 
 A material's process gate aggregates across its profiles with precedence
 `within > partial > exceeds-recommended > exceeds > unknown`. `partial` exists for the chamber only
@@ -575,6 +577,7 @@ observations in its Headline sample, so no stored citation is left to go stale.
 ## D32. A chamber window the printer only partly reaches is partial, and only the chamber has one
 
 > **In plain words:** A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end.
+> **Status:** Amended by D151: a window whose bottom the H2C reaches is read by how much of it the H2C covers, for the nozzle, the bed and the chamber alike: 5 °C or more passes, at its low end; less is on the line. `partial` is retired.
 
 A process window was read by its upper end, because the question is whether a material needs more
 than the printer gives. For a chamber that failed materials whose own window starts below 65 °C:
@@ -4967,6 +4970,46 @@ C02 to C04, C07 to C10, C20 and C39, and its decisions 7 and 10); built as stage
   reason "ask the maker", and hidden with them on under a label that called a definition an estimate; the switch would
   promise exclusions no product estimate makes; Why excluded would count hides the page does not show; and a preset
   would silently drop the reader's Include.
+
+## D151. The printer check reads a maker's window by how much of it the H2C covers
+
+> **In plain words:** A maker's nozzle, bed or chamber window says any setting in it works. Where the H2C covers at least 5 °C of the window from its bottom, the check now passes, flagged "at the low end of the maker's window"; where it reaches only the bottom edge, the check is "on the line", unresolved; where it reaches none of it, the window is beyond the H2C, as before. This holds for the nozzle, the bed and the chamber alike. The chamber's "partial" verdict, always unresolved, is retired, and the nozzle and bed are no longer read by their upper end alone.
+> **Status:** In force. It amends D32 (a window the H2C partly reaches is no longer chamber-only, nor always unresolved) and D5's precedence (within > within-low-end > edge > exceeds-recommended > exceeds > unknown).
+
+*Decided by the owner on 2026-10-18 from the [screening review](audits/2026-10-18-screening-review/README.md) (its change C21
+and verdict V11, decision 2); built as stage 3a of the [screening build](audits/2026-10-18-screening-build/stage-3a.md).*
+
+- **The rule** (`withinH2C`, `build/src/normalize/process.js`; the 5 °C is `H2C_LOW_END_C` beside the H2C's limits). For
+  a closed window from *min* to *max* whose *max* is beyond the H2C's limit *L*, the H2C covers *L − min* of it: 5 °C or
+  more is `within-low-end` (a pass), 0 to 5 °C is `edge` (INDETERMINATE, "on the line", and the engine's result says
+  `onTheLine`), less than nothing is `exceeds`, or `exceeds-recommended` where the sheet only recommends the window (D6).
+  The overlap is read before the recommendation: a recommended 50–90 °C chamber is within at its low end. An open window
+  ("at least X") keeps its reading for the nozzle and the bed (within where the H2C reaches X); a chamber's is read by
+  *65 − X* as a closed one is. A window open at the bottom ("up to 120 °C") keeps its upper-end reading.
+- **Why.** Both of the review's experts: a maker's window is the range the maker says prints well, so a setting the H2C
+  reaches inside it is a setting the maker endorses. The cautious of their two answers for a window the H2C touches only
+  at its edge (LCP's bed of 120–150 °C) is "on the line": one test print, or a word with the maker, settles it.
+- **D32's worry, answered by scope.** D32 kept the nozzle and bed on their upper end because the out-of-scope
+  materials' windows start at the hardware's rating: PEKK's 340–380 °C nozzle is now within at its low end, PSU's
+  350–380 °C on the line. Their exclusion never rested on the gate: the scope gate holds all seventeen out (D5's note,
+  m146), and `database.test.js` now says so.
+- **One commit, every place.** The verdicts are named in `gates.js` (GATE_PRECEDENCE), the engine's GATE_STATUS (in the
+  same order), the page's words (`labels.js` GATE_VERDICT: "Within, at the low end", "On the line"), the products drawn
+  beyond the H2C (`print-spread.js` OUTSIDE: a window at its low end is listed apart, as within), the filter rail's
+  caveat (the windows on the line, now for each gate), the drawer's chip (its material's best product's verdict), the
+  validation report, the spot-check and the contract's enums; `gate-verdicts.test.js` holds them to one set, in order.
+- **The estimate stage is untouched.** Its complete-scenario validation counts a product whose three gates are plainly
+  `within` (`product-screening.js`), and the engine's permission reads the same, so a window at its low end is outside
+  that context; no product passed or left that set, and `build:diff` shows no estimate path moved.
+- **What it did** (the decision census against release 60252f8fcd02, `stage-3a-diff.md`): products passing rose in
+  every preset but Flexible component (Indoor prototype 686 to 722, Warm environment 118 to 141, Outdoor 11 to 21,
+  High-stiffness 6 to 16); 153 product answers moved from fail to unresolved and 33 from fail to pass. Materials passing
+  under Leave out: Indoor prototype 87 to 94, Warm environment 39 to 44, Outdoor 7 to 11, High-stiffness 5 to 8,
+  Lightweight 15 to 16. LCP and PPS-ESD leave the failures for "on the line"; PPA-CF, PPS-CF, PPS-GF and PBT-GF pass the
+  outdoor bracket. Spectrum PC 275 and Kratos PC pass the warm part on their 90–130 °C bed (acceptance S02).
+- **What would break if reversed.** A window whose bottom the H2C reaches comfortably would again fail the nozzle and
+  the bed, and a chamber one stay unresolved, although the maker says that setting prints; LCP's bed would read as a
+  failure the H2C cannot settle, and PPA-CF would leave every outdoor list on a chamber window it covers by 15 °C.
 
 ## Bugs worth remembering
 

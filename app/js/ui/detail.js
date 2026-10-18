@@ -1184,11 +1184,15 @@ function tabBody(tab, c) {
     if (pc) {
       const rowsH2C = Object.fromEntries(onTheH2cRows(c).map((r) => [r.key, r]));
       const axisOf = (k) => pc.axes.find((a) => a.axis === k);
-      const verdictOf = (a) => (!a || a.within + a.over === 0 ? 'unknown' : !a.over ? 'within' : a.within ? 'partial' : 'exceeds');
+      // The chip is the verdict of the product the material's own gate names, the best of its products' (D151).
+      const verdictOf = (a) => (!a || a.within + a.over === 0 ? 'unknown' : a.best);
+      // Products within at the low end of their makers' windows are said among those within (D151).
+      const where = (n) => `the low end of ${n === 1 ? 'its maker\'s window' : 'their makers\' windows'}`;
       const limitLine = (a) => {
         const lim = `the H2C's ${fmtNumber(a.limit)} °C`;
-        if (a.within === pc.products) return pc.products === 1 ? `Its product is within ${lim}.` : pc.products === 2 ? `Both products are within ${lim}.` : `All ${pc.products} products are within ${lim}.`;
-        const bits = [a.within ? `${a.within} within ${lim}` : `none within ${lim}`, a.over ? `${a.over} beyond or only partly within` : null,
+        const low = !a.lowEnd ? '' : a.lowEnd === a.within ? `, ${a.within === 1 ? 'at' : 'all at'} ${where(a.within)}` : ` (${a.lowEnd} at ${where(a.lowEnd)})`;
+        if (a.within === pc.products) return `${pc.products === 1 ? `Its product is within ${lim}` : pc.products === 2 ? `Both products are within ${lim}` : `All ${pc.products} products are within ${lim}`}${low}.`;
+        const bits = [a.within ? `${a.within} within ${lim}${low}` : `none within ${lim}`, a.over ? `${a.over} beyond or only partly within` : null,
           a.unknown ? `${a.unknown} ${a.unknown === 1 ? 'gives' : 'give'} no ${a.axis} temperature` : null].filter(Boolean);
         return `${cap(andList(bits))}.`;
       };

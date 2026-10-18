@@ -13,6 +13,7 @@ import { validateEstimates } from '../build/src/estimate/validate.js';
 import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
 import { readCsv } from '../build/src/csv.js';
 import { GATE_PRECEDENCE } from '../build/src/gates.js';
+import { evaluateConstraint, STATUS } from '../app/js/engine/constraints.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
@@ -193,13 +194,17 @@ test('the excluded materials never read as printable, and trip the envelope gate
   // their part is the sintered metal's. A material whose sheets publish no printing guidance, only the temperature its
   // test bars were printed at, has no window of its own (D63, m170): its gate is unknown, and its exclusion is its H2C
   // status.
+  // Since D151 a nozzle window the H2C covers the low end of passes the nozzle gate (PEKK's 340–380 °C), or is on the line
+  // (PSU's 350–380 °C): none is plainly within, and the scope gate still holds every one of them out.
   const excluded = db.materials.filter((m) => m.excluded && m.h2cStatus === 'Exceeds H2C limits');
   assert.ok(excluded.length >= 6, 'the six audited exclusions are still excluded');
   let published = 0;
   for (const m of excluded) {
+    assert.equal(m.gates.scope, 'excluded', `${m.name} scope gate`);
+    assert.equal(evaluateConstraint(m, { kind: 'gate', gate: 'scope' }).status, STATUS.FAIL, `${m.name} fails the scope gate`);
     if (m.gates.nozzle.verdict === 'unknown') continue;
     published++;
-    assert.equal(m.gates.nozzle.verdict, 'exceeds', `${m.name} nozzle gate`);
+    assert.ok(['exceeds', 'within-low-end', 'edge'].includes(m.gates.nozzle.verdict), `${m.name} nozzle gate: ${m.gates.nozzle.verdict}`);
   }
   assert.ok(published >= 6, 'the six audited exclusions trip the gate on a window they publish');
 });
@@ -565,10 +570,13 @@ test('every profile\'s gate is its own published window against the H2C', () => 
       const w = p[axis];
       const { verdict, reason } = p.gates[axis];
       seen.add(verdict);
-      // An at-least window ("65˚C+", "> 100 °C") has a lower end and no upper: it is judged by its lower end, and the
-      // chamber the H2C reaches only the bottom of is partial.
+      // A window whose bottom the H2C reaches and whose top it does not is read by how much of it the H2C covers (D151):
+      // 5 °C or more is within at its low end, less is on the line.
+      const covered = (min) => (limit[axis] - min >= 5 ? 'within-low-end' : 'edge');
+      // An at-least window ("65˚C+", "> 100 °C") has a lower end and no upper: it is judged by its lower end, and a
+      // chamber the H2C reaches the bottom of by how much of it the H2C covers.
       if (w.state === 'range' && w.max === null && w.min !== null) {
-        const expected = w.min > limit[axis] ? (w.requirement === 'recommended' ? 'exceeds-recommended' : 'exceeds') : axis === 'chamber' ? 'partial' : 'within';
+        const expected = w.min > limit[axis] ? (w.requirement === 'recommended' ? 'exceeds-recommended' : 'exceeds') : axis === 'chamber' ? covered(w.min) : 'within';
         assert.equal(verdict, expected, `${p.id} ${axis}: at least ${w.min} °C against ${limit[axis]} °C`);
         continue;
       }
@@ -576,18 +584,19 @@ test('every profile\'s gate is its own published window against the H2C', () => 
       // the H2C's heated chamber is, and nothing else.
       if (w.state !== 'range' || w.max === null) {
         const cleared = ['not-required', 'ambient'].includes(w.state) || (axis === 'chamber' && w.state === 'enclosed' && verdict === 'within');
-        assert.ok(!['within', 'partial', 'exceeds', 'exceeds-recommended'].includes(verdict) || cleared, `${p.id} ${axis}: ${verdict} with no window`);
+        assert.ok(!['within', 'within-low-end', 'edge', 'exceeds', 'exceeds-recommended'].includes(verdict) || cleared, `${p.id} ${axis}: ${verdict} with no window`);
         continue;
       }
       const expected = w.max <= limit[axis] ? 'within'
-        : axis === 'chamber' && w.min !== null && w.min <= limit[axis] ? 'partial'
+        : w.min !== null && w.min <= limit[axis] ? covered(w.min)
         : w.requirement === 'recommended' ? 'exceeds-recommended' : 'exceeds';
       assert.equal(verdict, expected, `${p.id} ${axis}: ${w.min}-${w.max} °C against ${limit[axis]} °C`);
-      // A window the H2C reaches only in part says how much, and is never within and never a failure (ABS-CF, PPA-CF).
-      if (verdict === 'partial') assert.match(reason, /reaches only/, p.id);
+      // A window the H2C covers only from its bottom says how much (ABS-CF, PPA-CF, LCP).
+      if (verdict === 'within-low-end') assert.match(reason, /low end of the maker's window/, p.id);
+      if (verdict === 'edge') assert.match(reason, /reaches only the bottom/, p.id);
     }
   }
-  for (const v of ['within', 'partial', 'exceeds']) assert.ok(seen.has(v), `no profile is ${v}, so that branch is untested`);
+  for (const v of ['within', 'within-low-end', 'edge', 'exceeds']) assert.ok(seen.has(v), `no profile is ${v}, so that branch is untested`);
 });
 
 test('the snapshot comes from the Method sheet', () => {

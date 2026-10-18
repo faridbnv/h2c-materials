@@ -156,9 +156,9 @@ Every window, word and band in these columns opens its explanation: a range says
 offers the Printing tab, a word quotes what the source said, a band says what it rests on and offers the estimate.
 
 A word never becomes a number, and a band never sits beside a published window. In the drawer the
-same answers appear under "H2C printability": a window the chamber only partly reaches reads
-**Partly within** and says which part is reachable, a statement in words is quoted, and a band gets its own
-card with the basis and caution the research wrote.
+same answers appear under "H2C printability": a window whose bottom the H2C covers reads **Within, at the low end**
+and one it reaches only at its edge **On the line**, each saying the maker's window and what the H2C reaches (D151), a
+statement in words is quoted, and a band gets its own card with the basis and caution the research wrote.
 
 ## The filter rail
 
@@ -240,8 +240,8 @@ hardened nozzle, holds fibre-filled materials with no guidance as unresolved, an
 with a reason that says no requirement was recorded, which is not proof of being safe for brass.
 
 The chamber check counts its two kinds of answer apart: how many materials publish a chamber
-temperature, how many more say no heated chamber is needed, and, as a caveat, how many publish a
-window the H2C only partly reaches, which stay unresolved rather than passing.
+temperature and how many more say no heated chamber is needed. Each of the three checks adds, as a caveat, how many
+materials publish a window the H2C reaches only at its bottom edge, which stay unresolved, on the line (D151).
 
 **Within H2C temperature limits** is one box over the three temperature gates, each indented under it with its data
 line; it is ticked when all three are asked, indeterminate when one or two are. The scope list is a box of its own,
@@ -369,7 +369,7 @@ exports. Always icon plus text, never colour alone.
 | PASS | check | Evidence satisfies the criterion |
 | FAIL | cross | Evidence violates it |
 | UNKNOWN | question | No comparable evidence |
-| INDETERMINATE | half circle | A published range straddles the threshold, or the source leaves it unsettled (a chamber window only partly reachable, a recommended window above the H2C's) |
+| INDETERMINATE | half circle | A published range straddles the threshold, or the source leaves it unsettled (a window the H2C reaches only at its bottom edge, on the line; a recommended window above the H2C's) |
 
 A published mean with its spread is not a range: it passes or fails on its mean, and a threshold inside the spread
 marks the value `≈` "close to the limit" (D54).
@@ -513,8 +513,9 @@ as the page says them, never another record with a star; under them the page's o
 (`keyFiguresBasis`); the other headlines on one *Also* line, where a value published with no stated orientation or load
 says "as published", grey, with the graphs' hollow mark, rather than standing as a median (D147). Then **On the H2C**,
 the page's block (`print-brief.js` onTheH2cRows): nozzle, bed and heated chamber, each the window most products give
-with a chip from every product's own settings against the H2C's limit (Within, Partly within, Beyond, No data) and the
-counts in a line, then drying and nozzle type as values, and one line on where borrowed settings were read; *Printing in
+with a chip from every product's own settings against the H2C's limit (the best product's verdict: Within, Within at the
+low end, On the line, Above recommended, Beyond, No data) and the counts in a line, those at the low end of their
+makers' windows said among those within, then drying and nozzle type as values, and one line on where borrowed settings were read; *Printing in
 full* opens Printing. It replaced a count list and gate rows that printed the material's recorded window beside its best
 product's gate reason, which disagreed (PEEK's bed *Within, 110–250 °C* under a failed bed requirement). Then **Typical
 applications** (ending "after Prusa Research", or whoever's statement it is, as the page says it), **Limitations**,
@@ -1380,8 +1381,9 @@ far above them, the axis says so, so PLA's windows are not squeezed against 350 
 row's count, median, middle half and range, with what is drawn and not counted; **the window most products give, as the
 Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 3–12 h": one statistic
 for one setting since 2026-10-18, where it had given the medians of the lowest and highest settings, which differed); the products **outside the H2C's limits**, by
-their print gate's own verdict (so a nozzle or bed window whose highest end is above the limit is outside, and a
-chamber window part of which is above it is partial), or a sentence that none is; and what is **not drawn**, by
+their print gate's own verdict (a window beyond the limit, one recommended above it, and one the H2C reaches only at
+its bottom edge), or a sentence that none is; the products within only at the low end of their makers' windows on a line
+of their own (D151); and what is **not drawn**, by
 setting and why (no sheet, shared sheet or guide row gives the setting, "say nothing"; a chamber that needs none; an
 enclosure asked for or recommended with no temperature; room temperature; a window that gives only one end; a drying
 statement with no temperature), so the counts square with the products below. Selecting a dot opens the

@@ -15,11 +15,15 @@
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
 import { printSpread } from './print-spread.js';
 import { h2cLimit, materialName } from './labels.js';
+import { GATE_STATUS } from '../engine/constraints.js';
 import { limitOnScale } from './scales.js';
 import { stated } from './text.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
 export { stated };
+
+// The print gate verdicts, best first: the order a gate across several profiles prefers them (build/src/gates.js).
+const GATE_ORDER = Object.keys(GATE_STATUS);
 
 // ------------------------------------------------------------------ products, documents and groups
 
@@ -685,6 +689,8 @@ export function printFacts(m, c) {
     // The medians of the lowest and the highest settings, and drying's: the window most products share.
     typical: drawnAxes.map((a) => { const [low, high = null] = a.rows.map((r) => (r.summary.n ? r.summary.median : null)); return { label: a.label, low, high }; }),
     outside: axes.filter((a) => a.outside.length).map((a) => ({ label: a.label, axis: a.axis, list: a.outside.map((o) => ({ ...o, name: productNameOrId(o.g) })) })),
+    // Within, at the low end of the maker's window (D151): said apart, never as beyond.
+    lowEnd: axes.filter((a) => a.lowEnd?.length).map((a) => ({ label: a.label, axis: a.axis, list: a.lowEnd.map((o) => ({ ...o, name: productNameOrId(o.g) })) })),
     limits: axes.filter((a) => a.limit).map((a) => ({ label: a.label, axis: a.axis, limit: h2cLimit(a.axis) })),
     single: axes.filter((a) => !drawnAxes.includes(a) && a.rows.some((r) => r.entries.length)).map((a) => {
       const es = a.rows.flatMap((r) => r.entries);
@@ -699,21 +705,24 @@ export function printFacts(m, c) {
 
 /**
  * How many of a material's products the H2C can print, axis by axis, from each product's own settings (grades[].print):
- * null where it has no product; else { products, axes: [{ axis, label, limit, within, over, unknown }] for nozzle, bed
- * and chamber, all (every product within on every axis), origins: { twin, guide } (settings read where a product's own
- * sheet is silent, D88, D89) }.
+ * null where it has no product; else { products, axes: [{ axis, label, limit, within, lowEnd, over, unknown, best }] for
+ * nozzle, bed and chamber, all (every product within on every axis), origins: { twin, guide } (settings read where a
+ * product's own sheet is silent, D88, D89) }. A window the H2C covers the low end of is within, and `lowEnd` counts those
+ * among `within` (D151); `best` is the verdict of the product the material's own gate would name (GATE_STATUS's order).
  */
 export function printCounts(grades) {
   const products = grades.filter(isProduct);
   if (!products.length) return null;
   const origins = { twin: 0, guide: 0 };
   const count = (axis) => {
-    const n = { within: 0, over: 0, unknown: 0 };
+    const n = { within: 0, lowEnd: 0, over: 0, unknown: 0, best: 'unknown' };
     for (const g of products) {
       const from = g.print?.from?.[axis];
       const v = g.print?.profileIds.length || from ? g.print[axis].verdict : 'unknown';
-      if (v === 'within') n.within++; else if (v === 'unknown') n.unknown++; else n.over++;
-      if (from && v !== 'unknown') origins[from.origin]++;
+      if (v === 'within' || v === 'within-low-end') n.within++; else if (v === 'unknown') n.unknown++; else n.over++;
+      if (v === 'within-low-end') n.lowEnd++;
+      if (GATE_ORDER.includes(v) && GATE_ORDER.indexOf(v) < GATE_ORDER.indexOf(n.best)) n.best = v;
+      if (from && v !== 'unknown' && from.origin in origins) origins[from.origin]++;
     }
     return n;
   };

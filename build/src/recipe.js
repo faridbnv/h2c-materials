@@ -70,8 +70,9 @@ export function readRecipe(r, issues, { where, unreadWhere, abrasionColumn = 'Ab
     gates: {
       nozzle: withinH2C(nozzle, H2C_BASELINE.nozzleC),
       bed: withinH2C(bed, H2C_BASELINE.bedC),
-      // A maker's own enclosure is said in its words, a guide's as its printer maker's (D93).
-      chamber: withinH2C(chamber, H2C_BASELINE.chamberC, { partialWindow: true, makerEnclosure: guide ? null : r.Enclosure }),
+      // A maker's own enclosure is said in its words, a guide's as its printer maker's (D93). An at-least chamber window
+      // is read by how much of it the H2C covers, as a closed one is (D151); a nozzle or bed one it reaches is within.
+      chamber: withinH2C(chamber, H2C_BASELINE.chamberC, { atLeastOverlap: true, makerEnclosure: guide ? null : r.Enclosure }),
     },
     enclosureState: enclosure.state,
     abrasion: typed.abrasion,

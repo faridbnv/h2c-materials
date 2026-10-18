@@ -1,6 +1,6 @@
-COUNT 15 shown PASS
-STATUS ☑ PASS 15 | ☐ UNKNOWN 82 | ☐ FAIL 55
-15 of the 152 materials meet these requirements
+COUNT 16 shown PASS
+STATUS ☑ PASS 16 | ☐ UNKNOWN 82 | ☐ FAIL 54
+16 of the 152 materials meet these requirements
 Lightweight structure template · 82 more could not be checked and are left out
 Why the rest were excluded
 Clear requirements
@@ -42,7 +42,7 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 15 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+TABLE 16 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS-GF | ☆ | PASS / 2 of 11 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗
 ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗
 ROW ASA-GF | ☆ | PASS / 1 of 6 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 91.5 / 86–98 · 4 | 96↗
@@ -58,3 +58,4 @@ ROW PLA-NF · ☆
 ROW PP-CF · ☆
 ROW PP-GF · ☆
 ROW PPA · ☆
+ROW PPA-CF · ☆

@@ -55,7 +55,7 @@ const conditions = (v) => [v.direction && !/not.applicable/i.test(v.direction) ?
 // Print gates the product's own profile decided.
 const AXES = ['nozzle', 'bed', 'chamber'];
 const gates = draw(products.flatMap((g) => AXES.map((axis) => ({ g, axis, gate: g.print?.[axis] })))
-  .filter((x) => x.gate?.profileId && ['within', 'partial', 'exceeds', 'exceeds-recommended'].includes(x.gate.verdict)), 30);
+  .filter((x) => x.gate?.profileId && ['within', 'within-low-end', 'edge', 'exceeds', 'exceeds-recommended'].includes(x.gate.verdict)), 30);
 
 const knowHow = draw((db.knowHow ?? []).filter((k) => k.gradeId), 30);
 

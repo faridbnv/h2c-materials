@@ -1,44 +1,80 @@
-2 products you can buy, from 2 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; Prusa Research first, its products most often the material's typical value.
+7 products you can buy, from 7 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; Polymaker first, its products most often the material's typical value.
 Meet all your requirements
-1 product
-3DXTECH FIBREX GF PP
+4 products
+Bambu Lab PPS-CF
 PASS
-Modulus XY 6.75 GPa · HDT 0.45 139 °C
+Modulus XY 8.23 GPa · HDT 0.45 264 °C
 Choose this product
 Print settings
 Nozzle
-240–270 °C within
+310–340 °C within
 Bed
-80–110 °C within
+100–120 °C within
 Heated chamber
-not required within
+60–90 °C within, low end
 Enclosure
-not published
+recommended
 Hardened nozzle
 required
 Drying
-not needed
+140 °C for 12 h
+Enclosure and hardened nozzle: from the Bambu Lab Filament Guide (PPS-CF column), where this product's own sheet is silent.
 Values
 Density
-1,120 kg/m³
+1,260 kg/m³
 Tensile modulus (XY)
-6.75 GPa
+8.23 GPa
+Tensile modulus (Z)
+2.85 GPa
 Tensile strength (XY)
-65 MPa
+87 MPa
+Tensile strength (Z)
+24 MPa
 Elongation at break (XY)
-1.7 %
+1.2 %
+Elongation at break (Z)
+0.7 %
 Flexural modulus (XY)
-5.32 GPa
+7.16 GPa
+Flexural modulus (Z)
+2.46 GPa
 Flexural strength (XY)
-85 MPa
+142 MPa
+Flexural strength (Z)
+36 MPa
+Notched Charpy impact
+6.2 kJ/m²
 HDT at 0.45 MPa
-139 °C
-Not stated by the maker: anything beyond its numbers and annealing schedule.
-Sources 3DXTECH, Technical Data Sheet: FibreX™ PP+GF30 3D Printing Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, FibreX™ PP+GF30 Polypropylene
+264 °C
+HDT at 1.8 MPa
+235 °C
+Glass transition (Tg)
+100 °C
+Price
+221 CAD/kg (2 listings)
+What the maker says
+Benefits
+“The combination of PPS resin and carbon fiber gives PPS-CF exceptional properties, including excellent resistance to solvents, corrosion, heat, and flames.” — data sheet, p. 1 ID
+“Additionally, it offers superior strength, stiffness, and dimensional stability, making it a specialized engineering plastic that meets the demands of unique and challenging applications.” — data sheet, p. 1 ID
+Odour and emissions
+“Odor Odorless” — data sheet, p. 3 ID
+Printing advice
+“If higher chamber temperature and nozzle temperature were used (i.g., 90 °C and 335 °C), higher mechanical properties would be obtained, especially the Z-direction's.” — data sheet, p. 3 ID
+Not stated by its maker: 9 topics
+Its environment statements (8)
+Sources Bambu Lab, Bambu Filament Technical Data Sheet - PPS-CF; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki
+Its card on the Products page
 Product details
+Essentium PPS-CF
+PASS
+Modulus XY 7.46 GPa
+Choose this product
+Flashforge PPS-CF
+PASS
+Modulus XY 8 GPa · HDT 0.45 245 °C
+Choose this product
+SIDDAMENT PPS CF
+PASS
+Modulus XY 8 GPa · HDT 0.45 245 °C
+Choose this product
 Across its products: median and range, and what their makers say
-Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
-Prusa Research
-1 product
-3DXTECH
-1 product

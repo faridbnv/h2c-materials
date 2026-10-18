@@ -114,7 +114,7 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   types unknown with an enclosure asked for is one whose maker recommends a heated chamber with no temperature (six on
   2026-10-07, all 3DXTECH; below). m193 merged PolyMax PC's two revisions: the 2018 sheet's "70 – 80 (recommended)" now
   speaks for it beside the V5.5 sheet's unread "Not needed (70°C-100°C)" (below). Query: products of those eleven
-  materials whose `print.chamber.verdict` is `exceeds`, `partial` or `exceeds-recommended`, and those unknown with
+  materials whose `print.chamber.verdict` is `exceeds`, `edge` or `exceeds-recommended`, and those unknown with
   `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Since m209 the build reads the revision Bambu Lab's guide page
   links (B-GUIDE, eighteen types; D88 amended), checked on the page in headless Chrome. ASA-CF and PC FR are mapped to
