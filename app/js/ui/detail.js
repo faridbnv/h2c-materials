@@ -103,7 +103,8 @@ const COUNTED_TABS = ['Grades', 'Evidence'];
 function nothingRecorded(records, { toGaps }) {
   return `<div class="gap empty-tab"><strong>${esc(NOTHING_ON_FILE)}</strong>
     ${records.length
-      ? records.map((r) => `<div class="empty-why">${esc(emptyReasonLine(r))}</div>`).join('')
+      // A recorded reason in a reader's words; a review step's note stays with the known gaps' review notes (readerNote).
+      ? records.filter((r) => readerNote(r.finding ?? r.reason ?? emptyReasonLine(r))).map((r) => `<div class="empty-why">${esc(emptyReasonLine(r))}</div>`).join('')
       : ''}
     ${toGaps ? '<button type="button" class="btn btn-sm" data-tab-link="Coverage">See its known gaps, in Sources</button>' : ''}</div>`;
 }
@@ -262,15 +263,15 @@ function usesSection(m, c) {
     // Typical applications, from the family's own Best uses record, said to be the family's.
     const text = [g.bestUses.prose, ...g.goodFor.map((r) => r.finding)].filter(Boolean);
     if (text.length) {
-      out.push(`<h3 class="sec">Typical applications</h3><p>${text.map(esc).join(' ')}</p>`
+      out.push(`<h3 class="sec">Typical applications</h3><p>${text.map((t) => esc(proseOnly(t))).join(' ')}</p>`
         + g.goodFor.map((r) => `<p class="fine">${cite(r)} (about ${esc(g.owner(r))} in general).</p>`).join(''));
     }
   } else if (stated(m.bestUses)) {
-    out.push(`<h3 class="sec">Typical applications</h3><p>${esc(m.bestUses)}</p>`);
+    out.push(`<h3 class="sec">Typical applications</h3><p>${esc(proseOnly(m.bestUses))}</p>`);
   }
   // What is true of this material. The caveat that is true of every material (method.csv, Transferable allowables) is
   // said once, at the foot of the Overview, not under each material's own limitations (D124).
-  if (g.ownLimitations) out.push(`<h3 class="sec">Limitations</h3><p>${esc(g.ownLimitations)}</p>`);
+  if (g.ownLimitations) out.push(`<h3 class="sec">Limitations</h3><p>${esc(proseOnly(g.ownLimitations))}</p>`);
   if (g.guidance.length || g.unresolved.length) {
     out.push(g.owners.map((name) => `<h3 class="sec">General guidance for ${esc(name)}</h3>
         <p class="fine family-scope">From printing guides ${esc(familyScope(name, m.name))}.</p>
@@ -411,7 +412,7 @@ function renderFamilyEntry(host, m, actions) {
       <p class="fine family-no-tabs">Open ${f.members.length === 1 ? 'it' : 'one'} below for its products, values and print settings.</p>
       <h3 class="sec">${f.kind === 'alias' ? 'The material' : `${plural(f.members.length, 'member')}`}</h3>
       <div class="facts-list">${f.members.map((x) => `<div class="fact"><button class="btn btn-sm" data-open-member="${esc(x.id)}">${esc(x.name)}</button></div>`).join('')}</div>
-      <p class="fine">${esc(f.why)}</p>
+      <p class="fine">${esc(proseOnly(f.why))}</p>
     </div>
   </div>`;
   host.querySelector('#drawer-close').addEventListener('click', actions.closeDrawer);
@@ -655,7 +656,7 @@ const noteOf = (raw, { lede = false } = {}) => {
 function proseOnly(text) {
   const t = String(text ?? '');
   if (readerText(t)) return t;
-  return t.replace(/\s*\(([^()]*)\)/g, (all, inner) => (readerText(inner) ? all : '')).replace(/\s+under D\d{2,3}\b/g, '').replace(/\s+([;,.])/g, '$1').trim();
+  return t.replace(/\s*\(([^()]*)\)/g, (all, inner) => (readerText(inner) ? all : '')).replace(/\s+under D\d{2,3}\b/g, '').replace(/[;,]?\s*ruling R\d{3}\b/g, '').replace(/\s+([;,.])/g, '$1').trim();
 }
 
 /** Where a statement stands, in a few words (a data sheet or the maker's product page, and the page), opening where. */
@@ -700,7 +701,7 @@ function makersSayCounts(m, c) {
   const silent = makersSilentWords(f.states);
   const recipe = makersRecipeWords(f.recipe);
   return `<h3 class="sec">What makers say</h3>
-    <p class="fine"><b>${f.total === 1 && f.collected === 1 ? 'Its one product' : `${f.collected} of ${plural(f.total, 'product')}`}</b> ${f.collected === 1 ? 'has statements from its maker' : 'have statements from their makers'}, quoted under each product.${silent.length ? ` ${cap(silent.join('; '))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}</p>
+    <p class="fine"><b>${f.total === 1 ? 'Its one product' : f.collected ? `${f.collected} of ${plural(f.total, 'product')}` : `None of its ${f.total} products`}</b> ${f.collected === 0 ? (f.total === 1 ? 'has no statement from its maker' : 'has a statement from its maker') : f.collected === 1 ? 'has statements from its maker' : 'have statements from their makers'}${f.collected ? ', quoted under each product' : ''}.${silent.length ? ` ${cap(silent.join('; '))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}</p>
     <ul class="print-counts">${f.topics.map((t) => `<li><b>${esc(t.topic)}</b>: ${t.makers} of ${plural(f.makers, 'maker')}${t.stated ? ` (${plural(t.products, 'product')})` : ''}</li>`).join('')}</ul>
     ${recipe.length ? `<p class="fine">Not stated by their documents: ${esc(andList(recipe))}.</p>` : ''}`;
 }
@@ -1155,7 +1156,7 @@ function tabBody(tab, c) {
     const dataLine = `<p class="data-line"><b>On file:</b> ${esc(onFileWords(summary, docs))}
       <button type="button" class="link-btn" data-tab-link="${summary.gaps || summary.conflicts ? 'Coverage' : 'Evidence'}">See the sources</button></p>`;
     const about = m.identity?.notes && m.identity.notes !== 'Not applicable'
-      ? `<details class="grade-more"><summary>About this entry</summary><p class="fine">${esc(m.identity.notes)}</p></details>` : '';
+      ? `<details class="grade-more"><summary>About this entry</summary><p class="fine">${esc(proseOnly(m.identity.notes))}${proseOnly(m.identity.notes) !== m.identity.notes ? ids(['As recorded:', m.identity.notes]) : ''}</p></details>` : '';
     const standing = db.method.find((r) => r.topic === 'Transferable allowables')?.rule;
     const footer = standing ? `<p class="fine overview-foot">${esc(standing)}</p>` : '';
 
@@ -1185,7 +1186,7 @@ function tabBody(tab, c) {
     // pulled along Z), its note says which, and why the rest stay on record but are not compared (D92).
     // What the property is, where properties.csv says it (why there is an impact heading whose test is unclear, D133),
     // then the comparison notes of the selectable properties that read some of its values.
-    const describe = (p) => { const d = REGISTRY.properties.find((x) => x.name === p)?.description; return stated(d) ? `<p class="fine cmp-note prop-note">${esc(d)}</p>` : ''; };
+    const describe = (p) => { const d = REGISTRY.properties.find((x) => x.name === p)?.description; return stated(d) ? `<p class="fine cmp-note prop-note">${esc(proseOnly(d))}</p>` : ''; };
     const notes = (p) => describe(p) + REGISTRY.allHeadlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p) && !m.headline?.[h.key]?.notApplicable)
       .map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
     const block = (p, note = notes, lines = new Map()) => {
@@ -1213,7 +1214,7 @@ function tabBody(tab, c) {
       ${rows.length ? blocks.join('') + namedHtml : empty(tab)}
       ${absent.length ? `<h3 class="sec">Not published for this material</h3>
         <div class="gap">${absent.map((p) => esc(propertyName(p))).join(' · ')}. A gap, not a zero or a low value.</div>` : ''}
-      ${gaps.length ? `<h3 class="sec">Known gaps</h3>${gaps.map((r) => `<div class="gap"><strong>${esc(r.domain)}: ${esc(r.status.toLowerCase())}.</strong> ${longText(r.finding)}</div>`).join('')}` : ''}`;
+      ${gaps.filter(readerGap).length ? `<h3 class="sec">Known gaps</h3>${gaps.filter(readerGap).map((r) => `<div class="gap"><strong>${esc(GAP_DOMAIN_WORDS[r.domain] ?? r.domain)}: ${esc(r.status.toLowerCase())}.</strong> ${longText(r.finding)}</div>`).join('')}` : ''}${gaps.some((r) => !readerGap(r)) ? `<p class="fine">Review notes on this tab's records are under Sources, Known gaps.</p>` : ''}`;
   }
 
   if (tab === 'Printing') {

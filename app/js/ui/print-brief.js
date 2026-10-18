@@ -47,7 +47,7 @@ function chamberRow(products) {
   const none = (pw.states.get('not-required') ?? 0) + (pw.states.get('ambient') ?? 0);
   const limit = pw.limit;
   if (none && (none * 2 >= total || !pw.n)) {
-    const note = none === total ? (total === 2 ? 'both products' : `all ${fmtNumber(total)} products`) : `${fmtNumber(none)} of ${fmtNumber(total)} products`;
+    const note = none === total ? (total === 1 ? 'its one product' : total === 2 ? 'both products' : `all ${fmtNumber(total)} products`) : `${fmtNumber(none)} of ${fmtNumber(total)} products`;
     const w = windowRow(products, 'chamber');
     return { value: 'none needed', note, given: pw.n ? w : null, pw };
   }
@@ -73,10 +73,10 @@ function dryingRow(c, products) {
   const a = dryingAdvice(products);
   const total = products.length;
   const asks = a.needs.required >= a.needs.optional
-    ? (a.needs.required === total ? (total === 2 ? 'both products call for it' : `all ${fmtNumber(total)} products call for it`) : `${fmtNumber(a.needs.required)} of ${fmtNumber(total)} products ${a.needs.required === 1 ? 'calls' : 'call'} for it`)
+    ? (a.needs.required === total ? (total === 1 ? 'its product calls for it' : total === 2 ? 'both products call for it' : `all ${fmtNumber(total)} products call for it`) : `${fmtNumber(a.needs.required)} of ${fmtNumber(total)} products ${a.needs.required === 1 ? 'calls' : 'call'} for it`)
     : 'most advise it only for wet filament';
   if (d.temps.n) return { value: glue(dryingSpanWords(dryingSchedule(products))), note: a.have ? asks : '', d, a };
-  if (a.needs['not-needed'] && a.needs['not-needed'] * 2 >= a.have) return { value: 'not needed', note: `${fmtNumber(a.needs['not-needed'])} of ${fmtNumber(total)} products say so`, d, a };
+  if (a.needs['not-needed'] && a.needs['not-needed'] * 2 >= a.have) return { value: 'not needed', note: total === 1 ? 'its product says so' : `${fmtNumber(a.needs['not-needed'])} of ${fmtNumber(total)} products ${a.needs['not-needed'] === 1 ? 'says' : 'say'} so`, d, a };
   const g = c.guide?.drying;
   if (g?.tempC != null) return { value: dryingWords(g), note: 'Bambu Lab\'s guide', d, a };
   return { value: c.m.gates?.drying === 'not-needed' ? 'not needed' : 'not stated', note: '', d, a };

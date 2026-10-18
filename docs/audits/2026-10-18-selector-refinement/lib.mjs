@@ -53,7 +53,21 @@ export function drawerHtml(sit, materialId, tab) {
 
 /** Reader text of some HTML: tags out, entities read, maintainers' folds (Record notes, Review notes) left out. */
 export function readerText(html) {
-  const noNotes = html.replace(/<details[^>]*>\s*<summary[^>]*>\s*(?:Record notes|Review notes)[\s\S]*?<\/details>/g, ' ');
+  // The maintainers' folds, nested folds and all: each <details> whose summary is Record notes or Review notes, to its own
+  // closing tag (a "Show all" inside one had ended a lazy match early).
+  let noNotes = '', i = 0;
+  const open = /<details[^>]*>\s*<summary[^>]*>\s*(?:Record notes|Review notes)/g;
+  for (let m; (m = open.exec(html));) {
+    if (m.index < i) continue;
+    noNotes += html.slice(i, m.index) + ' ';
+    let depth = 0, j = m.index;
+    const tag = /<\/?details\b[^>]*>/g;
+    tag.lastIndex = m.index;
+    for (let t; (t = tag.exec(html));) { depth += t[0][1] === '/' ? -1 : 1; if (!depth) { j = tag.lastIndex; break; } }
+    i = j > m.index ? j : html.length;
+    open.lastIndex = i;
+  }
+  noNotes += html.slice(i);
   return noNotes.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;|&#160;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
     .replace(/[ \t\r\n]+/g, ' ').trim();
