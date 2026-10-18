@@ -385,7 +385,8 @@ export function printMissing(f) {
 
 /** Where products' settings were read when their own sheet is silent (material-facts.js printCounts().origins), as a list. */
 export const printOriginsWords = (origins) => [origins.guide ? `${plural(origins.guide, 'setting')} from the Bambu Lab Filament Guide` : '',
-  origins.twin ? `${plural(origins.twin, 'setting')} from a data sheet shared with another product` : ''].filter(Boolean);
+  origins.twin ? `${plural(origins.twin, 'setting')} from a data sheet shared with another product` : '',
+  origins.family ? `${plural(origins.family, 'chamber')} from what the makers of its kind of plastic state` : ''].filter(Boolean);
 
 /**
  * One axis of the H2C's limits against a material's products (printCounts().axes): "3 within (1 at the low end of its

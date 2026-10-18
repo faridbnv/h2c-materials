@@ -6,6 +6,13 @@
     "edited_existing": 0,
     "removed": 5
   },
+  "chamber_need": {
+    "baseline": 0,
+    "current": 20,
+    "added": 20,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "coverage": {
     "baseline": 805,
     "current": 953,

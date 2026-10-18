@@ -1213,7 +1213,9 @@ function tabBody(tab, c) {
         return `<div class="fact plain" data-print="${key}"><div><b>${esc(r.label)}</b> <span class="h2c-v">${esc(r.value)}</span>${r.note ? `<br><span class="fact-why">${esc(cap(r.note))}</span>` : ''}</div></div>`;
       };
       const from = [pc.origins.guide ? `the Bambu Lab Filament Guide (${pc.origins.guide} ${pc.origins.guide === 1 ? 'setting' : 'settings'})` : null,
-        pc.origins.twin ? `a data sheet shared with another product (${pc.origins.twin} ${pc.origins.twin === 1 ? 'setting' : 'settings'})` : null].filter(Boolean);
+        pc.origins.twin ? `a data sheet shared with another product (${pc.origins.twin} ${pc.origins.twin === 1 ? 'setting' : 'settings'})` : null,
+        // A chamber all three leave silent, read from what the makers of its kind of plastic state (D151).
+        pc.origins.family ? `what the makers of its kind of plastic state (${pc.origins.family} ${pc.origins.family === 1 ? 'chamber' : 'chambers'})` : null].filter(Boolean);
       print = `
       <div class="sec-row"><h3 class="sec">On the H2C</h3>${c.counts.Printing ? '<button type="button" class="link-btn" data-tab-link="Printing">Printing in full</button>' : ''}</div>
       <div class="facts-list">

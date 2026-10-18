@@ -162,7 +162,7 @@ const materialById = new Map(db.materials.map((m) => [m.id, m]));
 const printRows = [];
 for (const g of [...db.grades].filter((x) => !x.retired && !/-R\d+$/.test(x.id)).sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }))) {
   const gates = productGates(materialById.get(g.materialId), g);
-  const from = Object.entries(g.print?.from ?? {}).map(([axis, f]) => `${axis}: ${f.origin} ${f.origin === 'twin' ? f.gradeId : f.guideId}`).join('; ');
+  const from = Object.entries(g.print?.from ?? {}).map(([axis, f]) => `${axis}: ${f.origin} ${f.origin === 'twin' ? f.gradeId : f.origin === 'family' ? f.ruleId : f.guideId}`).join('; ');
   printRows.push({ GradeID: g.id, MaterialID: g.materialId, Product: g.product, Nozzle: gates.nozzle.verdict, Bed: gates.bed.verdict, Chamber: gates.chamber.verdict,
     Enclosure: g.print?.enclosure ?? 'unknown', Abrasive: gates.abrasive, Drying: gates.drying, From: from });
 }

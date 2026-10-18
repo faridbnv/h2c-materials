@@ -12,6 +12,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Table | Key | Holds |
 |---|---|---|
 | [chamber_bands](#chamber_bands) | MaterialID | Estimated chamber temperature bands from research, for materials whose sources publish no chamber window. A band is inference: it is shown beside the chamber question, never decides a gate (D6, D34), and is superseded where a source publishes a window or says no heated chamber is needed. A no-band row records a material deliberately given none, and why. |
+| [chamber_need](#chamber_need) | RuleID | What a product's silence about the chamber means for its kind of plastic, read from the makers of that kind who do state one (D151). One row per kind, named by the registry's Applies-to grammar (Family by default; a reviewer may split a family where the data show it). The build counts, per row, the distinct makers whose own sheet or twin's states a chamber and how many of them ask above the H2C's 65 °C; nothing it can count is stored. A within row needs at least 10 makers stating and at most one in ten asking above (CHAMBER-NEED-DRIFT), and no researched band wholly above 65 °C among its materials (CHAMBER-NEED-BAND-CONFLICT). Only a deciding within row decides, for a chamber no own sheet, twin or guide says anything about; a reported row only reports. |
 | [coverage](#coverage) | CoverageID | One row per reviewed coverage question for a material and domain. |
 | [drawer_comparisons](#drawer_comparisons) | Comparison | One row per comparison the material drawer draws (D133, D139): a closed heading on its tab in which the headlines that name it (headline_definitions.csv, Drawer comparison) are drawn product by product, those of one unit on one scale, with every record of the properties they read, and of the properties it lists, under it. The row holds the words that belong to the whole comparison; its caption is the method.csv rule of Section Comparison and the same Topic. |
 | [evidence](#evidence) | EvidenceID | One row per finding: chemical exposure, flammability, application, durability, safety and similar evidence. |
@@ -58,6 +59,19 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Basis | prose | string | yes |  |  | What the band was inferred from, or why there is none. |
 | Caution | prose | string | yes |  |  | What the band cannot say. |
 | Source | editorial | string | yes |  |  | The research report the band comes from. |
+
+### chamber_need
+
+`data/tables/chamber_need.csv` (Chamber need). What a product's silence about the chamber means for its kind of plastic, read from the makers of that kind who do state one (D151). One row per kind, named by the registry's Applies-to grammar (Family by default; a reviewer may split a family where the data show it). The build counts, per row, the distinct makers whose own sheet or twin's states a chamber and how many of them ask above the H2C's 65 °C; nothing it can count is stored. A within row needs at least 10 makers stating and at most one in ten asking above (CHAMBER-NEED-DRIFT), and no researched band wholly above 65 °C among its materials (CHAMBER-NEED-BAND-CONFLICT). Only a deciding within row decides, for a chamber no own sheet, twin or guide says anything about; a reported row only reports.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| RuleID | key | string | yes |  | `^CN\d{2}$` | CN01, CN02, …; never reused. |
+| Applies to | canonical | string | yes |  |  | The kind of plastic, in the registry's Applies-to grammar ("Family: PLA"; clauses separated by ";" must all hold, values within a clause are alternatives). Two rows may not name one material (CHAMBER-NEED-OVERLAP). |
+| Verdict | canonical | string | yes |  | within, unknown | What silence means for the kind: within, the H2C's heated chamber is enough; unknown, it stays unknown. |
+| Status | canonical | string | yes |  | reported, deciding | reported: counted and shown, decides nothing; deciding: a within row reads a truly silent chamber as within, labelled with the counts. Each row is switched to deciding in a commit of its own, with its decision diff. |
+| Reviewed by | editorial | string | yes |  |  | Who reviewed the row, and when: a person, or an agent named as one. |
+| Reason | prose | string | yes |  |  | Why the row says what it says: the counts it was reviewed at, which makers ask above 65 °C and why, and why a family was split, if it was. |
 
 ### coverage
 

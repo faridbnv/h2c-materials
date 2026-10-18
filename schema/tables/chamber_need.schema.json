@@ -1,0 +1,14 @@
+{
+  "$comment": "Contract for data/tables/chamber_need.csv. Checked by build/src/schema.js; compiled by build/src/chamber-need.js (D151).",
+  "title": "Chamber need",
+  "description": "What a product's silence about the chamber means for its kind of plastic, read from the makers of that kind who do state one (D151). One row per kind, named by the registry's Applies-to grammar (Family by default; a reviewer may split a family where the data show it). The build counts, per row, the distinct makers whose own sheet or twin's states a chamber and how many of them ask above the H2C's 65 °C; nothing it can count is stored. A within row needs at least 10 makers stating and at most one in ten asking above (CHAMBER-NEED-DRIFT), and no researched band wholly above 65 °C among its materials (CHAMBER-NEED-BAND-CONFLICT). Only a deciding within row decides, for a chamber no own sheet, twin or guide says anything about; a reported row only reports.",
+  "primaryKey": "RuleID",
+  "fields": [
+    { "name": "RuleID", "type": "string", "role": "key", "description": "CN01, CN02, …; never reused.", "constraints": { "required": true, "unique": true, "pattern": "^CN\\d{2}$" } },
+    { "name": "Applies to", "type": "string", "role": "canonical", "description": "The kind of plastic, in the registry's Applies-to grammar (\"Family: PLA\"; clauses separated by \";\" must all hold, values within a clause are alternatives). Two rows may not name one material (CHAMBER-NEED-OVERLAP).", "constraints": { "required": true, "unique": true } },
+    { "name": "Verdict", "type": "string", "role": "canonical", "description": "What silence means for the kind: within, the H2C's heated chamber is enough; unknown, it stays unknown.", "constraints": { "required": true, "enum": ["within", "unknown"] } },
+    { "name": "Status", "type": "string", "role": "canonical", "description": "reported: counted and shown, decides nothing; deciding: a within row reads a truly silent chamber as within, labelled with the counts. Each row is switched to deciding in a commit of its own, with its decision diff.", "constraints": { "required": true, "enum": ["reported", "deciding"] } },
+    { "name": "Reviewed by", "type": "string", "role": "editorial", "description": "Who reviewed the row, and when: a person, or an agent named as one.", "constraints": { "required": true } },
+    { "name": "Reason", "type": "string", "role": "prose", "description": "Why the row says what it says: the counts it was reviewed at, which makers ask above 65 °C and why, and why a family was split, if it was.", "constraints": { "required": true } }
+  ]
+}

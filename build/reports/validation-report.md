@@ -81,6 +81,34 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 
 32 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), BVOH (20-45 °C; a source says no heated chamber is needed), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), TPC / TPEE (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), PP-GF (20-50 °C; a source says no heated chamber is needed), OBC (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes at least 25 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA (80-120 °C; a source says no heated chamber is needed), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C), PP Lightweight (20-50 °C; a source says no heated chamber is needed).
 
+## Chamber need by kind of plastic
+
+Per row of data/tables/chamber_need.csv: the distinct makers whose own sheet (or a twin's) states a chamber for a
+product of the kind, those asking above 65 C, and the silent chambers a deciding within row read as within (D151).
+
+| Row | Applies to | Verdict | Status | Makers stating | Asking above 65 C | Supports within | Silent chambers filled |
+|---|---|---|---|---:|---:|---|---:|
+| CN01 | Family: ABS | within | reported | 22 | 2 | yes | 0 |
+| CN02 | Family: ASA | unknown | reported | 18 | 2 | no | 0 |
+| CN03 | Family: Acetals | unknown | reported | 1 | 1 | no | 0 |
+| CN04 | Family: Copolyesters | unknown | reported | 9 | 0 | no | 0 |
+| CN05 | Family: Flexible Elastomers | within | reported | 18 | 0 | yes | 0 |
+| CN06 | Family: Fluoropolymers | unknown | reported | 1 | 0 | no | 0 |
+| CN07 | Family: High-Performance Engineering | unknown | reported | 9 | 0 | no | 0 |
+| CN08 | Family: Industrial High-Temperature | unknown | reported | 11 | 9 | no | 0 |
+| CN09 | Family: Metal and Ceramic Sintering | unknown | reported | 1 | 0 | no | 0 |
+| CN10 | Family: Nylon / Polyamide | unknown | reported | 17 | 2 | no | 0 |
+| CN11 | Family: PET Engineering | unknown | reported | 7 | 0 | no | 0 |
+| CN12 | Family: PETG | within | reported | 21 | 0 | yes | 0 |
+| CN13 | Family: PLA | within | reported | 25 | 0 | yes | 0 |
+| CN14 | Family: PVB / Specialty Polymers | unknown | reported | 7 | 0 | no | 0 |
+| CN15 | Family: Polycarbonate | unknown | reported | 11 | 3 | no | 0 |
+| CN16 | Family: Polymer Blends | unknown | reported | 7 | 3 | no | 0 |
+| CN17 | Family: Polyolefins | unknown | reported | 9 | 0 | no | 0 |
+| CN18 | Family: Styrenics | unknown | reported | 4 | 1 | no | 0 |
+| CN19 | Family: Support / Interface | unknown | reported | 2 | 0 | no | 0 |
+| CN20 | Family: Support / Soluble | unknown | reported | 6 | 0 | no | 0 |
+
 ## Environment evidence
 
 A verdict category has findings that reduce to resistant, limited or not resistant, so it

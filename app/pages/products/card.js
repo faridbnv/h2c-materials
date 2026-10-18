@@ -210,6 +210,8 @@ function originWords(c, from) {
   if (!from) return 'own data sheet';
   if (from.origin === 'guide') return 'Bambu Lab Filament Guide';
   if (from.origin === 'twin') return `${productNameOrId(c.gradeById.get(from.gradeId) ?? { id: from.gradeId })}'s data sheet, shared`;
+  // A silent chamber read from what the makers of its kind of plastic state (D151).
+  if (from.origin === 'family') return 'what makers of its kind of plastic state; its own sheet is silent';
   return from.label ?? 'own data sheet';
 }
 

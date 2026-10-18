@@ -299,7 +299,7 @@ function axisOf(profiles, axis) {
  * own sheet says always stands, even where it settles nothing; only silence is filled (D88, D89). A chamber and an
  * enclosure are one question, so a sheet that recommends an enclosure has spoken about the chamber too.
  */
-function speaksTo(profiles, axis) {
+export function speaksTo(profiles, axis) {
   switch (axis) {
     case 'nozzle': case 'bed': return profiles.some((p) => p[axis].state !== 'unknown' || p[axis].unparsed);
     case 'chamber': return profiles.some((p) => p.chamber.state !== 'unknown' || p.chamber.unparsed || p.enclosureState !== 'unknown');

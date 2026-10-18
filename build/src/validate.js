@@ -339,6 +339,19 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
     L.push('');
   }
 
+  // What a silent chamber means for each kind of plastic (chamber_need.csv, D151), with the counts the build makes.
+  if (db.chamberNeed?.length) {
+    L.push('## Chamber need by kind of plastic');
+    L.push('');
+    L.push('Per row of data/tables/chamber_need.csv: the distinct makers whose own sheet (or a twin\'s) states a chamber for a');
+    L.push('product of the kind, those asking above 65 C, and the silent chambers a deciding within row read as within (D151).');
+    L.push('');
+    L.push('| Row | Applies to | Verdict | Status | Makers stating | Asking above 65 C | Supports within | Silent chambers filled |');
+    L.push('|---|---|---|---|---:|---:|---|---:|');
+    for (const r of db.chamberNeed) L.push(`| ${r.id} | ${r.appliesTo} | ${r.verdict} | ${r.status} | ${r.makers} | ${r.above} | ${r.qualifies ? 'yes' : 'no'} | ${r.filled} |`);
+    L.push('');
+  }
+
   L.push('## Environment evidence');
   L.push('');
   L.push('A verdict category has findings that reduce to resistant, limited or not resistant, so it');

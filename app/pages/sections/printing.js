@@ -41,6 +41,8 @@ function productCell(g, axis, label = '') {
   // A standard nozzle only where a sheet says so; the guide's "any size or material" is the guide's, said as such.
   else if (axis === 'hardened') words = p.hardenedNozzle === true ? 'hardened' : p.hardenedNozzle === false ? (from?.origin === 'guide' ? 'any' : 'standard') : 'not stated';
   else if (axis === 'chamber' && ['not-required', 'ambient'].includes(p.chamber?.state)) words = 'none needed';
+  // A chamber its sheets leave silent, read as within from what the makers of its kind of plastic state (D151).
+  else if (axis === 'chamber' && from?.origin === 'family') words = 'not stated; within, by its kind';
   else words = p[axis] ? settingWords(p[axis]) : 'not published';
   const title = from?.label ?? (from?.origin === 'guide' ? 'from the Bambu Lab Filament Guide' : null);
   return `<td${from ? ' class="from"' : ''} data-label="${esc(label)}"${title ? ` title="${esc(title)}"` : ''}>${esc(glue(joinDash(words)))}</td>`;
@@ -76,7 +78,7 @@ function settingsTable(c) {
     const body = LABELS.map(([k, label]) => `<tr data-print="${k}"><th scope="row" class="prop">${esc(label)}</th>${products.map((g) => (k === 'ams'
       ? `<td data-label="${esc(short.get(g.id))}">${esc(amsOf(c, g).map((t) => `"${t}"`).join('; ') || 'not stated')}</td>` : productCell(g, k, short.get(g.id)))).join('')}</tr>`).join('');
     return sheetFrame(`<thead>${head}</thead><tbody>${body}</tbody>`, products.length, 'across', 'settings settings--each')
-      + (anyFrom ? `<p class="sec-note">${esc('In grey, a setting a product reads from a data sheet it shares or from the Bambu Lab Filament Guide, where its own sheet is silent.')}</p>` : '');
+      + (anyFrom ? `<p class="sec-note">${esc(`In grey, a setting a product reads from a data sheet it shares or from the Bambu Lab Filament Guide, where its own sheet is silent${products.some((g) => g.print?.from?.chamber?.origin === 'family') ? ', or a chamber all of them leave silent, read from what the makers of its kind of plastic state' : ''}.`)}</p>` : '');
   }
   // What most products give: the plate's rows, with the chamber's given windows and the AMS statements beside them.
   const ch = printWindows(products, 'chamber');

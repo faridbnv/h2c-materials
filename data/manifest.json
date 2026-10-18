@@ -125,6 +125,10 @@
       "rows": 39,
       "sha256": "85e84f111e5c123ee8f38216db042911ca42a160bedefde734fadd40fbdc41f6"
     },
+    "chamber_need": {
+      "rows": 20,
+      "sha256": "5d72cfe551702e95708fd997879f7172d278430889d34ae3d59d93c42249b8df"
+    },
     "family_entries": {
       "rows": 23,
       "sha256": "e400b234a1e0d1525a74a0fe2927f766b3083a94ccb1902bfabd8b0b2cc671c5"

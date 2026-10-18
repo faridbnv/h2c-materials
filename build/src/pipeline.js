@@ -3,6 +3,7 @@
 //
 //   compile    data tables -> the runtime database, every headline a measurement or a missing state    compile.js
 //   estimate   inference for missing headlines, added as an overlay                                  estimate/
+//   chamber    a truly silent chamber read from its kind of plastic's makers (D151)                  chamber-need.js
 //   validate   the database's invariants, then the estimate stage's                                  validate.js, estimate/validate.js
 //
 // `estimates: false` builds the core database alone. It must validate: nothing in the core may depend on inference.
@@ -17,6 +18,8 @@ import { validate } from './validate.js';
 import { attachEstimates } from './estimate/index.js';
 import { validateEstimates } from './estimate/validate.js';
 import { cacheEnabled, cacheKey, claim, readEntry, writeEntry } from './build-cache.js';
+import { attachChamberNeed } from './chamber-need.js';
+import { materialRowsOf } from './registry.js';
 
 // A result shares a few objects with module constants (db.meta.h2cBaseline, db.meta.estimateModel.levels), so a caller
 // that edits one changes every later build in its process. A result that goes through the cache is a private copy, so
@@ -48,6 +51,9 @@ export function buildDatabase(wb, { snapshot = snapshotDate(wb.Method.rows), bui
     const stage = (name, run) => { const t = performance.now(); const value = run(); timing[name] = Math.round(performance.now() - t); return value; };
     const { db, issues } = stage('compile', () => compile(wb, { snapshot, build }));
     if (estimates) stage('estimate', () => attachEstimates(db));
+    // A silent chamber read from its kind of plastic (D151), after the estimate stage: the frozen stage validates its
+    // product screening on the products whose own sheets, twins or guide settle all three printer checks, and stays so.
+    stage('chamberNeed', () => issues.push(...attachChamberNeed(db, wb, { materialRows: materialRowsOf(wb) })));
     stage('validate', () => issues.push(...validate(db, wb)));
     if (estimates) stage('validateEstimates', () => issues.push(...validateEstimates(db)));
     // Stored only if the build left its input as it found it: a hit skips the stages, so it must skip nothing a caller sees.

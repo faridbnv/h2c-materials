@@ -56,6 +56,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `family_entries.csv` | Canonical names that are families or aliases, not materials (D44), with why |
 | `family_members.csv` | The materials each family entry stands for, in search order |
 | `chamber_bands.csv` | Research chamber bands for materials whose sources publish no window, or why none is given |
+| `chamber_need.csv` | What a product's silence about the chamber means for its kind of plastic (D151): one row per kind (Applies to), within or unknown, reported or deciding, who reviewed it and why. The build counts the makers that state a chamber and those asking above 65 °C; a deciding within row reads a truly silent chamber as within, labelled with the counts |
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
 | `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
@@ -698,6 +699,7 @@ The chamber question has four kinds of answer, and only the first is a temperatu
 | A published window | Bambu PC FR, 45–60 °C | `print.chamberC` | within; **within at the low end** where the H2C covers 5 °C or more of its bottom; **on the line** (`edge`) where it reaches only the bottom edge; or exceeds |
 | A statement in words | "Not required", "enclosure not necessary", "Recommended", a data sheet's "-" | `print.chamberGuidance`: `not-required`, `recommended` or `no-setpoint` | within for `not-required`; unknown for the other two |
 | An enclosure asked for, with no temperature, for one of the eleven types Bambu Lab's guide asks an enclosure for | Bambu Lab's guide row for ABS (D90); Polymaker ABS's "Closure chamber \| Needed" (D93) | a guide row's or a profile's chamber state `enclosed` | within: the H2C's heated chamber is that enclosure |
+| Silence, read from the kind of plastic | A PLA product whose sheet, twin and guide say nothing of the chamber | a product's `print.from.chamber`, origin `family` (`chamber_need.csv`, D151) | within, where its kind's row is deciding and within; else unknown |
 | An estimated band | PPA, ~80–120 °C† | `print.chamberEstimate` | **none**: a band changes no verdict |
 
 How many in-scope materials give each kind, and how many carry a band, is in the validation report's "Chamber

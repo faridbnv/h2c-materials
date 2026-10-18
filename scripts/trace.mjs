@@ -111,6 +111,12 @@ const guideRecord = (ix, id, role, axis) => {
   if (!g) return { kind: 'guide', id, role, found: false };
   return { kind: 'guide', id, role, name: g.name, raw: axis ? g[axis]?.text ?? null : null, ...enclosureWords(g, axis), locator: g.locator, source: sourceRecord(ix.sources, g.sourceId) };
 };
+// A chamber read from what the makers of its kind of plastic state (chamber_need.csv, D151): the row and its counts.
+const chamberNeedRecord = (ix, id, role) => {
+  const r = ix.chamberNeed.get(id);
+  if (!r) return { kind: 'chamber-need', id, role, found: false };
+  return { kind: 'chamber-need', id, role, appliesTo: r.appliesTo, verdict: r.verdict, status: r.status, makers: r.makers, above: r.above, reason: r.reason };
+};
 const evidenceRecord = (ix, id, role) => {
   const e = ix.evidence.get(id);
   if (!e) return { kind: 'evidence', id, role, found: false };
@@ -142,6 +148,8 @@ function requirementRecords(ix, r, { material, grade, state, ctx }) {
     const from = grade.print?.from?.[axis];
     if (from?.origin === 'guide') {
       out.push(guideRecord(ix, from.guideId, from.label, RECIPE_FIELD[c.gate]));
+    } else if (from?.origin === 'family') {
+      out.push(chamberNeedRecord(ix, from.ruleId, from.label));
     } else {
       const owner = from?.origin === 'twin' ? ix.grades.get(from.gradeId) : grade;
       const one = grade.print?.[axis]?.profileId;
@@ -204,7 +212,7 @@ export function traceDecision(db, scenarioText, productId, { requirement = null,
   const verdicts = new Map((entry.states ?? [{ ...entry.state, verdict: entry.verdict }]).map((s) => [s.id, s.verdict]));
   const state = permitted.find((s) => s.id === entry.state.id);
   const ix = {
-    measurements: ctx.measurementById, sources: byId(db.sources), profiles: byId(db.profiles), guides: byId(db.printGuide ?? []),
+    measurements: ctx.measurementById, sources: byId(db.sources), profiles: byId(db.profiles), guides: byId(db.printGuide ?? []), chamberNeed: byId(db.chamberNeed ?? []),
     evidence: byId(db.evidence), prices: byId(db.prices), grades: ctx.gradeById,
   };
 

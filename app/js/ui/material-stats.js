@@ -86,7 +86,7 @@ export function layerPairs(a, b, byKey, c) {
  *
  * `{ axis, limit, windows: [{ g, min, max, origin, variant, counted, profileId }] (lowest end first), n (counted),
  * guide, variant (drawn, not counted), oneEnd (windows with one end), ends: [{ g, min, max, origin }] (those windows),
- * states: Map(state → products with no window), stateOrigins: Map(state → { own, twin, guide }) (where each state was read),
+ * states: Map(state → products with no window), stateOrigins: Map(state → { own, twin, guide, family }) (where each state was read),
  * runs: [{ from, to, k }] (whole degrees, k the counted windows that include every degree from..to), peak: { k, from, to }
  * (the widest run of the most, the lowest of equals), most: { from, to } | null (the degrees more than half the counted
  * windows include, about the peak), every: { from, to } | null (those all of them include) }`. Runs, peak, most and every
@@ -105,7 +105,7 @@ export function printWindows(products, axis) {
     if (v?.state !== 'range') {
       const state = v?.state ?? 'unknown';
       states.set(state, (states.get(state) ?? 0) + 1);
-      const o = stateOrigins.get(state) ?? { own: 0, twin: 0, guide: 0 };
+      const o = stateOrigins.get(state) ?? { own: 0, twin: 0, guide: 0, family: 0 };
       o[origin] = (o[origin] ?? 0) + 1;
       stateOrigins.set(state, o);
       continue;

@@ -666,7 +666,9 @@ export function printFacts(m, c) {
   const axes = printSpread(c.grades.filter(isProduct));
   // A name in a sentence: "the Bambu Lab Filament Guide (PLA column)" (build/src/print-guide.js, C05).
   const guideName = `the ${c.guide?.name ?? 'Bambu Lab Filament Guide'}`;
-  const own = (a) => a.rows.flatMap((r) => r.entries).filter((e) => e.origin !== 'guide');
+  // A maker's own statement is its own sheet's or its twin's (D89): never the guide's, nor its kind of plastic's (D151).
+  const OWN = new Set(['own', 'twin']);
+  const own = (a) => a.rows.flatMap((r) => r.entries).filter((e) => OWN.has(e.origin));
   const drawnAxes = axes.filter((a) => a.rows.reduce((n, r) => n + r.entries.length, 0) > 1 && own(a).length);
   const drawn = drawnAxes.map((a) => {
     const values = a.rows.flatMap((r) => r.entries.map((e) => e.value));
@@ -681,7 +683,7 @@ export function printFacts(m, c) {
     axes, guideName, drawn, dots,
     products: new Set(dots.map(({ e }) => e.g.id)).size,
     marks: {
-      own: has((e) => e.origin !== 'guide' && !e.variant), guide: has((e) => e.origin === 'guide' && !e.variant), variant: has((e) => e.variant),
+      own: has((e) => OWN.has(e.origin) && !e.variant), guide: has((e) => e.origin === 'guide' && !e.variant), variant: has((e) => e.variant),
       band: drawnAxes.some((a) => a.rows.some((r) => r.summary.q1 != null)), median: drawnAxes.some((a) => a.rows.some((r) => r.summary.n > 1)),
       limit: drawn.some((d) => d.onScale),
     },
@@ -706,14 +708,14 @@ export function printFacts(m, c) {
 /**
  * How many of a material's products the H2C can print, axis by axis, from each product's own settings (grades[].print):
  * null where it has no product; else { products, axes: [{ axis, label, limit, within, lowEnd, over, unknown, best }] for
- * nozzle, bed and chamber, all (every product within on every axis), origins: { twin, guide } (settings read where a
- * product's own sheet is silent, D88, D89) }. A window the H2C covers the low end of is within, and `lowEnd` counts those
+ * nozzle, bed and chamber, all (every product within on every axis), origins: { twin, guide, family } (settings read
+ * where a product's own sheet is silent, D88, D89, and a silent chamber read from its kind of plastic, D151) }. A window the H2C covers the low end of is within, and `lowEnd` counts those
  * among `within` (D151); `best` is the verdict of the product the material's own gate would name (GATE_STATUS's order).
  */
 export function printCounts(grades) {
   const products = grades.filter(isProduct);
   if (!products.length) return null;
-  const origins = { twin: 0, guide: 0 };
+  const origins = { twin: 0, guide: 0, family: 0 };
   const count = (axis) => {
     const n = { within: 0, lowEnd: 0, over: 0, unknown: 0, best: 'unknown' };
     for (const g of products) {

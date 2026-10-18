@@ -60,7 +60,7 @@ test('printWindows counts each degree the counted windows include, and its spans
       assert.equal(pw.windows.length + pw.oneEnd, a.rows[0].entries.length + a.oneEnd.high, `${m.id} ${axis}: windows and one-ended ones`);
       assert.equal(pw.oneEnd, a.oneEnd.low + a.oneEnd.high, `${m.id} ${axis}: one-ended windows`);
       // Where each product with no window had its state read: every one is counted once.
-      for (const [state, k] of pw.states) { const o = pw.stateOrigins.get(state); assert.equal(o.own + o.twin + o.guide, k, `${m.id} ${axis} ${state}`); }
+      for (const [state, k] of pw.states) { const o = pw.stateOrigins.get(state); assert.equal(o.own + o.twin + o.guide + o.family, k, `${m.id} ${axis} ${state}`); }
       if (!pw.n) { assert.equal(pw.peak, null); continue; }
       for (const t of [pw.runs[0].from, pw.peak.from, pw.runs.at(-1).to]) {
         assert.equal(acceptedAt(pw, t), counted.filter((w) => w.min <= t && t <= w.max).length, `${m.id} ${axis} at ${t}`);

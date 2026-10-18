@@ -31,6 +31,7 @@ export const TABLES = [
   { file: 'family_entries', sheet: 'Family entries' },
   { file: 'family_members', sheet: 'Family members' },
   { file: 'chamber_bands', sheet: 'Chamber bands' },
+  { file: 'chamber_need', sheet: 'Chamber need' },
   { file: 'polymers', sheet: 'Polymers' },
   { file: 'fatigue_tests', sheet: 'Fatigue tests' },
   { file: 'polymer_environment', sheet: 'Polymer environment' },

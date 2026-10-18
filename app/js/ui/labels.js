@@ -424,12 +424,14 @@ export const PRINT_NOT_DRAWN = {
   unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+  family: 'say nothing, read as within from what the makers of their kind of plastic state',
 };
 /** The same, of one product ("1 says nothing", not "1 say nothing"). */
 export const PRINT_NOT_DRAWN_ONE = {
   unknown: 'says nothing', 'not-required': 'needs none', enclosed: 'asks for an enclosure and gives no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommends an enclosure and gives no temperature', ambient: 'prints at room temperature', 'no-setpoint': 'gives no set point',
   'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
+  family: 'says nothing, read as within from what the makers of its kind of plastic state',
 };
 /** What a print gate verdict outside the H2C's limits adds after a product's window (print-spread.js OUTSIDE). */
 export const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', edge: ', the H2C reaches only its bottom edge' };

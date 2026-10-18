@@ -194,6 +194,16 @@ the same type, with a Reason naming the neighbours it is not, and who mapped it.
 hash-checked page (`scripts/lib/comparison-table.mjs`; m150 is the example). Never enter a product's own statement
 there: that is a profile, and it wins.
 
+**Decide a silent chamber by the kind of plastic.** Where a product's own sheet, its twin's and its guide row say nothing
+at all about the chamber, a row of `chamber_need.csv` for its kind of plastic (Applies to, a Family by default) may read
+the silence as within (D151). The build counts the row's evidence, never a person: the distinct makers whose own sheet
+states a chamber, and those asking above 65 °C (`node scripts/audit/chamber-need.mjs`). A within row needs ten makers
+or more and at most one in ten above (CHAMBER-NEED-DRIFT; a reported row that has them says so, CHAMBER-NEED-READY), and no material with a researched band wholly above 65 °C
+(CHAMBER-NEED-BAND-CONFLICT). A new row is `reported`, with a Reason naming its counts and whatever is odd in them, and
+who reviewed it; it decides only when switched to `deciding` in a commit of its own, with its decision diff. Split a
+family only where its makers' statements show two needs. A chamber "recommended" with no temperature, a sheet's "-" and
+an enclosure asked for are statements and are never filled; neither are the nozzle and the bed, nor a variant.
+
 **Pin a product's value.** Only where the rule chooses the wrong measurement for one product: a row in `headlines.csv`
 with MaterialID, HeadlineKey, MeasurementID and a Reason a reviewer can check against the source. The measurement must
 be that product's own and able to be the headline's value (property, unit, direction or load, a printed or unstated

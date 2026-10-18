@@ -20,7 +20,8 @@ test('the build, the engine, the page and the contract know the same gate verdic
   const enums = [];
   const walk = (node) => {
     if (!node || typeof node !== 'object') return;
-    if (node.properties?.verdict?.enum?.includes('within')) enums.push(node.properties.verdict.enum);
+    // A print gate's verdict: the enums that hold "exceeds" (a chamber_need row's verdict is within or unknown, D151).
+    if (node.properties?.verdict?.enum?.includes('exceeds')) enums.push(node.properties.verdict.enum);
     for (const v of Object.values(node)) walk(v);
   };
   walk(contract);

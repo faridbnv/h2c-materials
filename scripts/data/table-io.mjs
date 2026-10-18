@@ -414,6 +414,7 @@ const ID_FORMATS = {
   polymer_environment: { prefix: 'PB', width: 5 },
   print_guide: { prefix: 'PG', width: 3 },
   page_context: { prefix: 'PC', width: 5 },
+  chamber_need: { prefix: 'CN', width: 2 },
 };
 
 export function nextId(name, ids, { materialId, study = false } = {}) {

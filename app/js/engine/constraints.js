@@ -675,9 +675,10 @@ function judgeProduct(material, grade, constraints, ctx) {
     // AND requirements cannot undo an existing exclusion; untreated dry is the
     // only inferred route, so other alternatives must still fail on their evidence.
     // The context is the one the frozen estimate stage validated (build/src/estimate/product-screening.js): all three
-    // gates plainly within, so a window at its low end (D151) is not in it.
+    // gates plainly within, on the product's own sheets, its twin's or its guide, so a window at its low end and a
+    // chamber read from its kind of plastic (D151, which the build reads after that stage) are not in it.
     const completeProductContext = !state.treatment && state.moisture === 'dry'
-      && ['nozzle', 'bed', 'chamber'].every((a) => grade.print?.[a]?.verdict === 'within');
+      && ['nozzle', 'bed', 'chamber'].every((a) => grade.print?.[a]?.verdict === 'within' && grade.print.from?.[a]?.origin !== 'family');
     return { state, e: evaluateMaterial(view, cs, { ...ctx, completeProductContext }) };
   });
   const rank = (t) => t.e.verdict === STATUS.PASS ? 0 : t.e.verdict === STATUS.UNKNOWN

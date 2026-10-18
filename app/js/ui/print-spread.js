@@ -80,7 +80,8 @@ export function printSpread(products) {
       // never as saying nothing (the blind read of 2026-10-17: "7 say nothing" beside 3DJake's "a closed build chamber is
       // required").
       const enclosure = axis === 'chamber' && (v?.state ?? 'unknown') === 'unknown' ? ({ required: 'enclosed', recommended: 'recommended' })[g.print?.enclosure] : null;
-      if (v?.state !== 'range') { count(enclosure ?? v?.state ?? 'unknown'); continue; }
+      // A chamber its sheets leave silent and its kind of plastic's makers answer (D151) is counted as that answer.
+      if (v?.state !== 'range') { count(enclosure ?? (from?.origin === 'family' ? 'family' : v?.state ?? 'unknown')); continue; }
       const entry = { ...base, profileId: v.profileId ?? null };
       if (v.min != null) rows[0].entries.push({ ...entry, value: v.min }); else oneEnd.high++;
       if (v.max != null) rows[1].entries.push({ ...entry, value: v.max }); else oneEnd.low++;

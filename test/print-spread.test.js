@@ -53,11 +53,13 @@ const NOT_DRAWN_WORDS = {
   unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+  family: 'say nothing, read as within from what the makers of their kind of plastic state',
 };
 const NOT_DRAWN_ONE = {
   unknown: 'says nothing', 'not-required': 'needs none', enclosed: 'asks for an enclosure and gives no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommends an enclosure and gives no temperature', ambient: 'prints at room temperature', 'no-setpoint': 'gives no set point',
   'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
+  family: 'says nothing, read as within from what the makers of its kind of plastic state',
 };
 
 // ---- an independent reading of the spread, straight off the products ----
@@ -81,12 +83,13 @@ function readSetting(products, axis) {
       continue;
     }
     const enclosure = axis === 'chamber' && (v?.state ?? 'unknown') === 'unknown' ? ({ required: 'enclosed', recommended: 'recommended' })[g.print?.enclosure] : null;
-    if (v?.state !== 'range') { count(enclosure ?? v?.state ?? 'unknown'); continue; }
+    // A silent chamber its kind of plastic's makers answer (D151) is counted as that answer.
+    if (v?.state !== 'range') { count(enclosure ?? (base.origin === 'family' ? 'family' : v?.state ?? 'unknown')); continue; }
     if (v.min != null) rows[`${axis}Low`].push({ ...base, value: v.min, profileId: v.profileId ?? null }); else oneEnd.high++;
     if (v.max != null) rows[`${axis}High`].push({ ...base, value: v.max, profileId: v.profileId ?? null }); else oneEnd.low++;
   }
   const entries = Object.values(rows).flat();
-  return { axis, rows, notDrawn, oneEnd, entries, drawn: entries.length > 1 && entries.some((e) => e.origin !== 'guide') };
+  return { axis, rows, notDrawn, oneEnd, entries, drawn: entries.length > 1 && entries.some((e) => e.origin === 'own' || e.origin === 'twin') };
 }
 
 // ---- the rendered Printing tab of every material, once ----

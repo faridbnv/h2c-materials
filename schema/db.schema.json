@@ -723,6 +723,30 @@
         }
       }
     },
+    "chamberNeed": {
+      "type": "array",
+      "description": "What a product's silence about the chamber means for its kind of plastic (data/tables/chamber_need.csv, D151), each row with the counts the build makes: the materials it names, their products (variants left out), the distinct makers whose own sheet or twin's states a chamber, those asking above 65 °C, whether that supports a within row, and how many silent chambers a deciding row filled.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "appliesTo", "verdict", "status", "reviewedBy", "reason", "qualifies", "materials", "products", "makers", "above", "aboveMakers", "filled"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CN\\d{2}$" },
+          "appliesTo": { "type": "string" },
+          "verdict": { "enum": ["within", "unknown"] },
+          "status": { "enum": ["reported", "deciding"] },
+          "reviewedBy": { "type": "string" },
+          "reason": { "type": "string" },
+          "qualifies": { "type": "boolean" },
+          "materials": { "type": "array", "items": { "type": "string" } },
+          "products": { "type": "integer" },
+          "makers": { "type": "integer" },
+          "above": { "type": "integer" },
+          "aboveMakers": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["maker", "gradeIds"], "properties": { "maker": { "type": "string" }, "gradeIds": { "type": "array", "items": { "type": "string" } } } } },
+          "filled": { "type": "integer" }
+        }
+      }
+    },
     "printGuide": {
       "type": "array",
       "description": "A printer maker's filament guide, one entry per type it heads a column with (data/tables/print_guide.csv, D88): its recipe read as a profile's, and the materials it speaks for with why. Read for a product only where its own profiles and its twin's are silent on a part of its print gate; never a product's profile.",
@@ -2854,6 +2878,17 @@
         "label": { "type": "string" }
       }
     },
+    "familyOrigin": {
+      "type": "object",
+      "description": "A chamber no own sheet, twin or guide says anything about, read from what the makers of its kind of plastic state (data/tables/chamber_need.csv, a deciding within row, D151). The label gives the counts.",
+      "additionalProperties": false,
+      "required": ["origin", "ruleId", "label"],
+      "properties": {
+        "origin": { "const": "family" },
+        "ruleId": { "type": "string", "pattern": "^CN\\d{2}$" },
+        "label": { "type": "string" }
+      }
+    },
     "guideOrigin": {
       "type": "object",
       "additionalProperties": false,
@@ -3098,12 +3133,12 @@
         },
         "from": {
           "type": "object",
-          "description": "The parts of the recipe the product's own profiles are silent on and that were read elsewhere: a twin's sheet (D89) or its material's printer maker's guide (D88). Absent when every part is its own.",
+          "description": "The parts of the recipe the product's own profiles are silent on and that were read elsewhere: a twin's sheet (D89), its material's printer maker's guide (D88), or, for a chamber all three leave silent, its kind of plastic's makers (D151). Absent when every part is its own.",
           "additionalProperties": false,
           "properties": {
             "nozzle": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
             "bed": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
-            "chamber": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
+            "chamber": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }, { "$ref": "#/$defs/familyOrigin" }] },
             "enclosure": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
             "hardenedNozzle": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
             "drying": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
