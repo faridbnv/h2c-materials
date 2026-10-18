@@ -1,7 +1,13 @@
+a product
+as published: orientation or load not stated
+measured after annealing
+added filler or additive, kept out of the median
+middle half and median
 Tensile modulus (XY)
-106 products
+55 ranked of 106 shown
+10
 Tensile modulus (Z)
-31 products
+29 ranked of 31 shown
 GPa
 0
 1
@@ -10,9 +16,9 @@ GPa
 4
 5
 Tensile strength (XY)
-139 products
+71 ranked of 139 shown
 Tensile strength (Z)
-42 products
+39 ranked of 42 shown
 MPa
 0
 20
@@ -20,9 +26,9 @@ MPa
 60
 80
 Elongation at break (XY)
-121 products
+63 ranked of 121 shown
 Elongation at break (Z)
-37 products
+35 ranked of 37 shown
 %, log scale
 0.5
 1
@@ -32,26 +38,19 @@ Elongation at break (Z)
 20
 50
 100
-orientation stated (XY or Z)
-no stated orientation
-measured after annealing
-special formulation
-middle half
-median
 Select a dot to open its result below; hover to find the same product in the other rows.
-Test n Median Middle half Range
-Tensile modulus (XY) GPa 55 2.53 1.93–2.87 0.95⁠–⁠4.24
-Also drawn, not in the median: 39 with no stated orientation (1.44⁠–⁠4.78) and 12 special formulations (0.715⁠–⁠4.73).
-Tensile modulus (Z) GPa 29 1.98 1.67–2.48 0.873⁠–⁠2.69
-Also drawn, not in the median: 2 special formulations (0.603⁠–⁠3.2).
-Tensile strength (XY) MPa 71 45.5 40–53 26⁠–⁠70.9
-Also drawn, not in the median: 56 with no stated orientation (30⁠–⁠71) and 12 special formulations (13.7⁠–⁠65).
-Tensile strength (Z) MPa 39 30.6 22.9–34 8.7⁠–⁠43.5
-Also drawn, not in the median: 3 special formulations (14.5⁠–⁠21.7).
-Elongation at break (XY) % 63 7.23 4.12–12.3 1.2⁠–⁠65
-Also drawn, not in the median: 47 with no stated orientation (2.5⁠–⁠84) and 11 special formulations (2.4⁠–⁠36).
-Elongation at break (Z) % 35 2.89 2.28–4.85 0.9⁠–⁠9.6
-Also drawn, not in the median: 2 special formulations (1.8⁠–⁠7.91).
-n counts the products compared, special formulations left out: on the XY rows, those whose sheet states the bar's orientation (XY); on the others, every product drawn. The median, middle half and range are of these alone.
-Both orientations: 31 products for tensile modulus, 42 for tensile strength and 37 for elongation at break.
-Z as a share of XY, for products whose two values are compared, from one document and in one state: tensile modulus 89 % (67 %⁠–⁠103 %, 28 products), tensile strength 62 % (27 %⁠–⁠111 %, 38 products) and elongation at break 59 % (3 %⁠–⁠246 %, 35 products).
+Test Ranked Median Middle half Range
+Tensile modulus (XY) GPa 55 2.53 1.93⁠–⁠2.87 0.95⁠–⁠4.24
+Not ranked: 39 with no stated orientation (1.44⁠–⁠4.78), 12 with an added filler or additive (0.715⁠–⁠4.73).
+Tensile modulus (Z) GPa 29 1.98 1.67⁠–⁠2.48 0.873⁠–⁠2.69
+Not ranked: 2 with an added filler or additive (0.603⁠–⁠3.2).
+Tensile strength (XY) MPa 71 45.5 40⁠–⁠53 26⁠–⁠70.9
+Not ranked: 56 with no stated orientation (30⁠–⁠71), 12 with an added filler or additive (13.7⁠–⁠65).
+Tensile strength (Z) MPa 39 30.6 22.9⁠–⁠34 8.7⁠–⁠43.5
+Not ranked: 3 with an added filler or additive (14.5⁠–⁠21.7).
+Elongation at break (XY) % 63 7.23 4.12⁠–⁠12 1.2⁠–⁠65
+Not ranked: 47 with no stated orientation (2.5⁠–⁠84), 11 with an added filler or additive (2.4⁠–⁠36).
+Elongation at break (Z) % 35 2.89 2.28⁠–⁠4.85 0.9⁠–⁠9.6
+Not ranked: 2 with an added filler or additive (1.8⁠–⁠7.91).
+Both XY and Z published: 31 products for tensile modulus, 42 for tensile strength and 37 for elongation at break.
+Kept across the layers, Z as a share of XY (median of the products with both from one document): tensile modulus 89 % (67 %⁠–⁠103 %, 28 products), tensile strength 62 % (27 %⁠–⁠111 %, 38 products) and elongation at break 59 % (3 %⁠–⁠246 %, 35 products).

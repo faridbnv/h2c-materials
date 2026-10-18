@@ -4,7 +4,7 @@ STATUS ☑ PASS 15 | ☑ UNKNOWN 82 | ☐ FAIL 55
 Lightweight structure template · 82 more could not be checked, listed flagged
 Why the rest were excluded
 Clear requirements
-Within H2C temperature limits
+Nozzle, bed and chamber within H2C limits
 ×
 Within H2C capability
 ×
@@ -20,7 +20,7 @@ Properties
 Printing
 Key properties of each material
 Rank by
-nothing: sort by column
+none (sort by a column)
 Tie, minimum mass, stiffness prescribed
 Beam, minimum mass, stiffness prescribed
 Panel, minimum mass, stiffness prescribed
@@ -41,45 +41,44 @@ PC
 1.2 one measurement
 * published, not comparable
 ~a–b† estimate, italic = rough
-≈ close to the limit
-¤ converted
 n/a not applicable
+3 more marks
 Supported candidates (15)
 TABLE 15 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW ABS-GF | PASS / 2 of 4 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 3.16 / 1.74–4.21 · 5 / annealed median | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
-ROW ASA-CF | PASS / 2 of 4 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
-ROW ASA-GF | PASS / 1 of 2 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 91.5 / 86–98 · 4 | 96↗ | ☆
-ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | PASS / 1 of 4 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107¤ | ☆
-ROW PA6-CF / Nylon / Polyamide | PASS / 4 of 4 products | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 / annealed median | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 / annealed median | 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗ | ☆
-ROW PA6/66 / Nylon / Polyamide | PASS / 1 of 2 products | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 111 / 102–140 · 5 / annealed median | 40 / 39–90.7 · 3 / ↗ | ☆
-ROW PAHT / Nylon / Polyamide | PASS / 1 of 1 product | passing: 1,200 / all products: 1,200 | passing: 3.1 / all products: 3.1 | 82.1 | ~4.4–13.1† | ~94–185† | 162¤ | ☆
-ROW PETG | PASS / 1 of 54 products | passing: 1,250 / all products: 1,270 / 1,180–1,300 · 60 | passing: 2.78 / all products: 1.68 / 1–3.5 · 23 | 47 / 31.9–68.4 · 29 | 8.4 / 4.1–90 · 25 | 70 / 63–94 · 46 | 26 / 20–66 · 12 / ↗ | ☆
-ROW PLA · PASS 16 of 72 products
-ROW PLA Aero · PASS 1 of 6 products
-ROW PLA-CF · PASS 2 of 11 products
+ROW ABS-GF | PASS / 2 of 11 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
+ROW ASA-CF | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
+ROW ASA-GF | PASS / 1 of 6 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 91.5 / 86–98 · 4 | 96↗ | ☆
+ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | PASS / 1 of 7 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR | ☆
+ROW PA6-CF / Nylon / Polyamide | PASS / 4 of 14 products | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗ | ☆
+ROW PA6/66 / Nylon / Polyamide | PASS / 1 of 7 products | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 111 / 102–140 · 5 | 40 / 39–90.7 · 3 / ↗ | ☆
+ROW PAHT / Nylon / Polyamide | PASS / 1 of 1 product | passing: 1,200 / all products: 1,200 | passing: 3.1 / all products: 3.1 | 82.1 | ~4.4–13.1† | ~94–185† | 162EUR | ☆
+ROW PETG | PASS / 1 of 73 products | passing: 1,250 / all products: 1,270 / 1,180–1,300 · 60 | passing: 2.78 / all products: 1.68 / 1–3.5 · 23 | 47 / 31.9–68.4 · 29 | 8.4 / 4.1–90 · 25 | 70 / 63–94 · 46 | 26 / 20–66 · 12 / ↗ | ☆
+ROW PLA · PASS 16 of 195 products
+ROW PLA Aero · PASS 1 of 12 products
+ROW PLA-CF · PASS 2 of 19 products
 ROW PLA-NF · PASS 1 of 2 products
-ROW PP-CF · PASS 1 of 2 products
+ROW PP-CF · PASS 1 of 5 products
 ROW PP-GF · PASS 1 of 2 products
-ROW PPA · PASS 1 of 1 product
+ROW PPA · PASS 1 of 2 products
 Estimated candidates to verify (18)
 Predicted centres meet the missing numerical requirements. Still UNKNOWN; confirm before choosing.
 TABLE 18 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW ABS | UNKNOWN / 0 of 13 products / Estimated candidate to verify: 13 products fail at least one requirement; 42 remain unresolved | 1,050 / 1,020–1,120 · 46 / annealed median | 2.2 / 1.77–2.38 · 13 / annealed median | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
-ROW ASA-EC | UNKNOWN / none judged / Estimated candidate to verify: 1 products have no complete qualifying evidence | 1,170 | ~2.2–3.8† | ~30–49† | ~1.4–5.3† | ~86–106† | 125¤ | ☆
-ROW CPE-CF / Copolyesters | UNKNOWN / 0 of 1 product / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | 78 | 81.3↗ | ☆
-ROW PA12-CF / Nylon / Polyamide | UNKNOWN / none judged / Estimated candidate to verify: 15 products have no complete qualifying evidence | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 / annealed median | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 / annealed median | 150 / 48–185 · 11 | 300↗ | ☆
-ROW PA12-GF / Nylon / Polyamide | UNKNOWN / 0 of 1 product / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247¤ | ☆
-ROW PA6-GF / Nylon / Polyamide | UNKNOWN / 0 of 6 products / Estimated candidate to verify: 6 products fail at least one requirement; 5 remain unresolved | 1,310 / 1,140–1,370 · 9 | 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 / annealed median | 4.95 / 2.4–12.5 · 6 | 184 / 161–210 · 10 / annealed median | 84 / 77–146 · 3 / ↗ | ☆
+ROW ABS | UNKNOWN / 0 of 55 products / Estimated candidate to verify: 13 products fail at least one requirement; 42 remain unresolved | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
+ROW ASA-EC | UNKNOWN / none judged / Estimated candidate to verify: 1 products have no complete qualifying evidence | 1,170 | ~2.2–3.8† | ~30–49† | ~1.4–5.3† | ~86–106† | 125EUR | ☆
+ROW CPE-CF / Copolyesters | UNKNOWN / 0 of 3 products / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | 78 | 81.3↗ | ☆
+ROW PA12-CF / Nylon / Polyamide | UNKNOWN / none judged / Estimated candidate to verify: 15 products have no complete qualifying evidence | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗ | ☆
+ROW PA12-GF / Nylon / Polyamide | UNKNOWN / 0 of 3 products / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD | ☆
+ROW PA6-GF / Nylon / Polyamide | UNKNOWN / 0 of 11 products / Estimated candidate to verify: 6 products fail at least one requirement; 5 remain unresolved | 1,310 / 1,140–1,370 · 9 | 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | 184 / 161–210 · 10 | 84 / 77–146 · 3 / ↗ | ☆
 ROW PAHT-CF / Nylon / Polyamide | UNKNOWN / none judged / Estimated candidate to verify: 5 products have no complete qualifying evidence | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗ | ☆
-ROW PETG-CF | UNKNOWN / 0 of 17 products / Estimated candidate to verify: 17 products fail at least one requirement; 7 remain unresolved | 1,290 / 1,100–1,350 · 24 | 3.4 / 1.77–5.23 · 9 | 49.4 / 32–60 · 10 | 6 / 1.9–14 · 9 | 72 / 68–77 · 14 | 41 / 35–56 · 3 / ↗ | ☆
-ROW PLA Galaxy · UNKNOWN 0 of 1 product
-ROW PLA Glow · UNKNOWN 0 of 3 products
-ROW PLA Marble · UNKNOWN 0 of 3 products
-ROW PLA Silk · UNKNOWN 0 of 11 products
-ROW PLA Sparkle · UNKNOWN 0 of 2 products
-ROW PLA Wood · UNKNOWN 0 of 6 products
-ROW PLA-ESD · UNKNOWN 0 of 1 product
+ROW PETG-CF | UNKNOWN / 0 of 24 products / Estimated candidate to verify: 17 products fail at least one requirement; 7 remain unresolved | 1,290 / 1,100–1,350 · 24 | 3.4 / 1.77–5.23 · 9 | 49.4 / 32–60 · 10 | 6 / 1.9–14 · 9 | 72 / 68–77 · 14 | 41 / 35–56 · 3 / ↗ | ☆
+ROW PLA Galaxy · UNKNOWN 0 of 4 products
+ROW PLA Glow · UNKNOWN 0 of 7 products
+ROW PLA Marble · UNKNOWN 0 of 6 products
+ROW PLA Silk · UNKNOWN 0 of 33 products
+ROW PLA Sparkle · UNKNOWN 0 of 4 products
+ROW PLA Wood · UNKNOWN 0 of 20 products
+ROW PLA-ESD · UNKNOWN 0 of 2 products
 ROW PLA-GR · UNKNOWN none judged
 ROW PPA-CF · UNKNOWN none judged
-ROW PVB · UNKNOWN 0 of 3 products
+ROW PVB · UNKNOWN 0 of 6 products
 Insufficient evidence (64) — included in counts and exports

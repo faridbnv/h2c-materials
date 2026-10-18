@@ -749,6 +749,13 @@ try {
 
         await open(pageUrl);
         await recordLayout(screen, 'default');
+        // The cold page on a laptop shows where the results start (2026-10-18, the selector-refinement round): the table's
+        // bar (Properties or Printing, Rank by, Compare against) above the fold, under the templates; it had started 130 px
+        // below it.
+        if (screen.name === 'laptop') {
+          const fold = await evaluate(`(() => { const lens = document.getElementById('lens').getBoundingClientRect(); const bar = document.querySelector('#lens .table-bar'); const b = bar?.getBoundingClientRect(); return b ? Math.round(b.bottom - Math.min(lens.bottom, innerHeight)) : null; })()`);
+          if (fold === null || fold > 0) layoutProblems.push(`laptop default: the table's bar is ${fold === null ? 'not on the page' : `${fold} px below the fold`}; the cold page shows where the results start`);
+        }
         // Below 1100 px the filter rail covers the results when open, so it is a modal dialog (F10): Shift+Tab from its
         // close button stays inside it, and Escape closes it and returns focus to Filters.
         if (screen.width < 1100) {

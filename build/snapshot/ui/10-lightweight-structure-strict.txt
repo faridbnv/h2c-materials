@@ -1,10 +1,10 @@
 COUNT 15 shown PASS
 STATUS ☑ PASS 15 | ☐ UNKNOWN 82 | ☐ FAIL 55
 15 of the 152 materials meet these requirements
-Lightweight structure template · 82 more could not be checked, left out under Confirmed only
+Lightweight structure template · 82 more could not be checked and are left out
 Why the rest were excluded
 Clear requirements
-Within H2C temperature limits
+Nozzle, bed and chamber within H2C limits
 ×
 Within H2C capability
 ×
@@ -20,7 +20,7 @@ Properties
 Printing
 Key properties of each material
 Rank by
-nothing: sort by column
+none (sort by a column)
 Tie, minimum mass, stiffness prescribed
 Beam, minimum mass, stiffness prescribed
 Panel, minimum mass, stiffness prescribed
@@ -40,22 +40,21 @@ PC
 2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
 * published, not comparable
-≈ close to the limit
-¤ converted
 n/a not applicable
+3 more marks
 TABLE 15 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
-ROW ABS-GF | PASS / 2 of 4 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 3.16 / 1.74–4.21 · 5 / annealed median | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
-ROW ASA-CF | PASS / 2 of 4 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
-ROW ASA-GF | PASS / 1 of 2 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 91.5 / 86–98 · 4 | 96↗ | ☆
-ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | PASS / 1 of 4 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107¤ | ☆
-ROW PA6-CF / Nylon / Polyamide | PASS / 4 of 4 products | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 / annealed median | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 / annealed median | 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗ | ☆
-ROW PA6/66 / Nylon / Polyamide | PASS / 1 of 2 products | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 111 / 102–140 · 5 / annealed median | 40 / 39–90.7 · 3 / ↗ | ☆
-ROW PAHT / Nylon / Polyamide | PASS / 1 of 1 product | passing: 1,200 / all products: 1,200 | passing: 3.1 / all products: 3.1 | 82.1 | — | 80* | 162¤ | ☆
-ROW PETG | PASS / 1 of 54 products | passing: 1,250 / all products: 1,270 / 1,180–1,300 · 60 | passing: 2.78 / all products: 1.68 / 1–3.5 · 23 | 47 / 31.9–68.4 · 29 | 8.4 / 4.1–90 · 25 | 70 / 63–94 · 46 | 26 / 20–66 · 12 / ↗ | ☆
-ROW PLA · PASS 16 of 72 products
-ROW PLA Aero · PASS 1 of 6 products
-ROW PLA-CF · PASS 2 of 11 products
+ROW ABS-GF | PASS / 2 of 11 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
+ROW ASA-CF | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗ | ☆
+ROW ASA-GF | PASS / 1 of 6 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 91.5 / 86–98 · 4 | 96↗ | ☆
+ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | PASS / 1 of 7 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR | ☆
+ROW PA6-CF / Nylon / Polyamide | PASS / 4 of 14 products | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗ | ☆
+ROW PA6/66 / Nylon / Polyamide | PASS / 1 of 7 products | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 111 / 102–140 · 5 | 40 / 39–90.7 · 3 / ↗ | ☆
+ROW PAHT / Nylon / Polyamide | PASS / 1 of 1 product | passing: 1,200 / all products: 1,200 | passing: 3.1 / all products: 3.1 | 82.1 | — | 80* | 162EUR | ☆
+ROW PETG | PASS / 1 of 73 products | passing: 1,250 / all products: 1,270 / 1,180–1,300 · 60 | passing: 2.78 / all products: 1.68 / 1–3.5 · 23 | 47 / 31.9–68.4 · 29 | 8.4 / 4.1–90 · 25 | 70 / 63–94 · 46 | 26 / 20–66 · 12 / ↗ | ☆
+ROW PLA · PASS 16 of 195 products
+ROW PLA Aero · PASS 1 of 12 products
+ROW PLA-CF · PASS 2 of 19 products
 ROW PLA-NF · PASS 1 of 2 products
-ROW PP-CF · PASS 1 of 2 products
+ROW PP-CF · PASS 1 of 5 products
 ROW PP-GF · PASS 1 of 2 products
-ROW PPA · PASS 1 of 1 product
+ROW PPA · PASS 1 of 2 products

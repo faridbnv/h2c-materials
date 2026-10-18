@@ -1,7 +1,13 @@
+a product
+as published: orientation or load not stated
+measured after annealing
+added filler or additive, kept out of the median
+middle half and median
 Flexural modulus (XY)
-121 products
+59 ranked of 121 shown
+12
 Flexural modulus (Z)
-17 products
+17 products, all ranked
 GPa
 0
 2
@@ -10,9 +16,10 @@ GPa
 8
 10
 Flexural strength (XY)
-122 products
+63 ranked of 122 shown
+14
 Flexural strength (Z)
-17 products
+17 products, all ranked
 MPa
 0
 25
@@ -20,20 +27,13 @@ MPa
 75
 100
 125
-orientation stated (XY or Z)
-no stated orientation
-measured after annealing
-special formulation
-middle half
-median
 Select a dot to open its result below; hover to find the same product in the other rows.
-Test n Median Middle half Range
-Flexural modulus (XY) GPa 59 2.87 2.43–3.1 2.14⁠–⁠3.98
-Also drawn, not in the median: 48 with no stated orientation (1.93⁠–⁠3.8) and 14 special formulations (2.04⁠–⁠8.8).
-Flexural modulus (Z) GPa 17 2.41 2.07–2.74 1.77⁠–⁠3.29
-Flexural strength (XY) MPa 63 76 69.5–84 42.6⁠–⁠115
-Also drawn, not in the median: 48 with no stated orientation (43⁠–⁠115) and 11 special formulations (29.6⁠–⁠122).
-Flexural strength (Z) MPa 17 54 42–59 21.1⁠–⁠68
-n counts the products compared, special formulations left out: on the XY rows, those whose sheet states the bar's orientation (XY); on the others, every product drawn. The median, middle half and range are of these alone.
-Both orientations: 17 products for flexural modulus and 17 for flexural strength.
-Z as a share of XY, for products whose two values are compared, from one document and in one state: flexural modulus 88 % (75 %⁠–⁠97 %, 17 products) and flexural strength 66 % (40 %⁠–⁠93 %, 16 products).
+Test Ranked Median Middle half Range
+Flexural modulus (XY) GPa 59 2.87 2.43⁠–⁠3.1 2.14⁠–⁠3.98
+Not ranked: 48 with no stated orientation (1.93⁠–⁠3.8), 14 with an added filler or additive (2.04⁠–⁠8.8).
+Flexural modulus (Z) GPa 17 2.41 2.07⁠–⁠2.74 1.77⁠–⁠3.29
+Flexural strength (XY) MPa 63 76 69.5⁠–⁠84 42.6⁠–⁠115
+Not ranked: 48 with no stated orientation (43⁠–⁠115), 11 with an added filler or additive (29.6⁠–⁠122).
+Flexural strength (Z) MPa 17 54 42⁠–⁠59 21.1⁠–⁠68
+Both XY and Z published: 17 products for flexural modulus and 17 for flexural strength.
+Kept across the layers, Z as a share of XY (median of the products with both from one document): flexural modulus 88 % (75 %⁠–⁠97 %, 17 products) and flexural strength 66 % (40 %⁠–⁠93 %, 16 products).

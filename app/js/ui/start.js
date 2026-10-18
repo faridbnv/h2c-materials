@@ -24,7 +24,7 @@ export function renderStart(state, actions) {
          2026-10-18 with the owner's word: it stood between the reader and the templates, and the view tabs and the
          drawer already walk those steps. The H2C clause, once in each of the six cards, is said here once. -->
     <h2>Start from a typical part, or set your own requirements in Filters.</h2>
-    <p>A template fills in the controls, each one editable, and decides nothing. All six ask for a build material the H2C can print.</p>
+    <p>A template fills in the controls, each editable, and decides nothing. All six ask for a build material the H2C prints.</p>
 
     <div class="start-grid">
       ${TEMPLATES.map((t, i) => `
@@ -40,8 +40,7 @@ export function renderStart(state, actions) {
       <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
         <b>${db.meta.headlineCoverage.priceCADkg}</b> a price</span>
     </div>
-    <p class="start-note">Where a property was never published, the tool shows the gap rather than a guess, so no
-      material is ranked on a number nobody measured.</p>
+    <p class="start-note">No material is ranked on a number nobody measured: a property never published shows as a gap, not a guess.</p>
 
     ${limits(db)}
   </section>`;

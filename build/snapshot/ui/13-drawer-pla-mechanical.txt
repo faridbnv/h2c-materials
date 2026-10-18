@@ -1,3 +1,4 @@
+1,513 published mechanical values, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.
 Tensile tests, XY and Z
 814 values
 Flexural tests, XY and Z
@@ -9,5 +10,5 @@ Hardness
 Interlayer adhesion strength
 5 values
 Named on a data sheet without a value: flexural modulus (Polymaker PolySonic PLA), flexural strength (Polymaker PolySonic PLA), charpy strength (Polymaker PolySonic PLA).
-NOT PUBLISHED FOR THIS MATERIAL
+Not published for this material
 Compression strength · Fatigue life · Abrasion loss · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile impact strength. A gap, not a zero or a low value.

@@ -449,7 +449,7 @@ export function renderDrawer(host, state, actions) {
   <div class="drawer" role="dialog" aria-label="${esc(m.name)} detail">
     <div class="drawer-head">
       <div style="display:flex;align-items:start;gap:10px">
-        <div style="flex:1">
+        <div class="head-main">
           <h2>${esc(id.primary)}${id.fullName ? ` <span class="h2-full">${esc(id.fullName)}</span>` : ''}</h2>
           ${id.aka ? `<div class="sub">also called ${esc(id.aka)}</div>` : ''}
           <div class="sub id-line">

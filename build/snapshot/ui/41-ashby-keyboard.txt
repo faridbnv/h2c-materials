@@ -2,13 +2,13 @@ LINE STEPPED 6 products from 5 materials above the line
 INSPECTOR
 3DXTECH FIBREX GF PP
 PP-GF · PASS
-STATE
+State
 As printed; dry
-TENSILE MODULUS (XY)
+Tensile modulus (XY)
 6.75 GPa this state's own value; moisture, treatment not stated; to ISO 527
-DENSITY
+Density
 1,120 kg/m³ this state's own value; to ISO 1183
-GOAL INDEX
+Goal index
 M = 0.00232 · its material ranks #1, the median of 1 product
 Choose this exact product
 Open its material's products

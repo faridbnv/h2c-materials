@@ -1,40 +1,29 @@
 COUNT 152 materials no requirements set
 STATUS 
-1
-Set requirements
-›
-2
-Read the candidates
-›
-3
-Compare the trade-offs
-›
-4
-Check the evidence
 Start from a typical part, or set your own requirements in Filters.
-A template only fills in the controls. Every value it sets stays editable, and nothing is decided for you.
+A template fills in the controls, each editable, and decides nothing. All six ask for a build material the H2C prints.
 Outdoor structural part
-A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³, within H2C temperature limits.
+A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³.
 Indoor prototype
-A shape you want to hold in your hand tomorrow. Any build material within H2C temperature limits; price at most 45 CAD/kg is reported, not required.
+A shape you want to hold in your hand tomorrow. Any build material; price at most 45 CAD/kg is reported, not required.
 Lightweight structure
-A drone arm or a moving part. Density at most 1250 kg/m³ and tensile modulus at least 2.5 GPa, within H2C temperature limits.
+A drone arm or a moving part. Density at most 1250 kg/m³ and tensile modulus at least 2.5 GPa.
 Warm environment
-A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C, within H2C temperature limits.
+A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C.
 High-stiffness fixture
-A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limits. HDT at least 90 °C is reported, not required.
+A jig or a fixture. Tensile modulus at least 5 GPa; HDT at least 90 °C is reported, not required.
 Flexible component
-A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
+A gasket, a strap or a phone case. Elongation at break at least 100 %.
 152 materials, 135 within H2C capability
-14822 measurements, each traceable to its source
+14,822 measurements, each traceable to its source
 147 have a density, 101 a modulus, 108 a price
-Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
+No material is ranked on a number nobody measured: a property never published shows as a gap, not a guess.
 What this database cannot answer
 Properties
 Printing
 Key properties of each material
 Rank by
-nothing: sort by column
+none (sort by a column)
 Tie, minimum mass, stiffness prescribed
 Beam, minimum mass, stiffness prescribed
 Panel, minimum mass, stiffness prescribed
@@ -54,16 +43,15 @@ PC
 2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
 * published, not comparable
-≈ close to the limit
-¤ converted
 n/a not applicable
+3 more marks
 TABLE 152 rows: Material ▲ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg | Shortlist
 ROW 316L stainless steel sintering filament / Metal and Ceramic Sintering | not tested | 7,190 | — | — | — | n/a | — | ☆
-ROW ABS | not tested | 1,050 / 1,020–1,120 · 46 / annealed median | 2.2 / 1.77–2.38 · 13 / annealed median | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
+ROW ABS | not tested | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗ | ☆
 ROW ABS-AF | not tested | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | 88 | 127↗ | ☆
 ROW ABS-CF | not tested | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗ | ☆
-ROW ABS-ESD | not tested | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / ¤↗ / out of stock | ☆
-ROW ABS-GF | not tested | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 / annealed median | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
+ROW ABS-ESD | not tested | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock | ☆
+ROW ABS-GF | not tested | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗ | ☆
 ROW Alumina sintering filament / Metal and Ceramic Sintering | not tested | 3,776 | — | — | — | n/a | — | ☆
 ROW ASA | not tested | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗ | ☆
 ROW ASA Aero · not tested
