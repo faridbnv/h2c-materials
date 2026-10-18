@@ -394,9 +394,9 @@ export function sitesLine(searched, total) {
 }
 
 /** Where a material's products' documents are silent (material-facts.js makersSayFacts().states), as phrases. */
-export const makersSilentWords = (n) => [n['sheet-silent'] ? `${plural(n['sheet-silent'], 'data sheet')} say nothing beyond their numbers` : '',
+export const makersSilentWords = (n) => [n['sheet-silent'] ? `${plural(n['sheet-silent'], 'data sheet')} ${n['sheet-silent'] === 1 ? 'says' : 'say'} nothing beyond their numbers` : '',
   n['no-document-read'] ? `${n['no-document-read']} ${n['no-document-read'] === 1 ? 'product has' : 'products have'} no document read yet` : '',
-  n['searched-nothing'] ? `${n['searched-nothing']} makers' websites were checked and say nothing more` : ''].filter(Boolean);
+  n['searched-nothing'] ? (n['searched-nothing'] === 1 ? "1 maker's website was checked and says nothing more" : `${n['searched-nothing']} makers' websites were checked and say nothing more`) : ''].filter(Boolean);
 
 /** The parts of a recipe the documents of some products leave unsaid (makersSayFacts().recipe), as phrases. */
 export const makersRecipeWords = (recipe) => recipe.map(([part, x]) => `${RECIPE_WORDS[part]} (${plural(x, 'product')})`);

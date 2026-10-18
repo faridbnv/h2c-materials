@@ -5,7 +5,7 @@
 // offers the application templates as the first move. It disappears the moment a filter is applied.
 
 import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
-import { esc } from './format.js';
+import { esc, fmtNumber } from './format.js';
 import { describeConstraint, POLICY_LABELS, GATE } from './labels.js';
 
 /**
@@ -41,7 +41,7 @@ export function renderStart(state, actions) {
 
     <div class="start-facts">
       <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> within H2C capability</span>
-      <span><b>${db.meta.counts.measurements}</b> measurements, each traceable to its source</span>
+      <span><b>${fmtNumber(db.meta.counts.measurements)}</b> measurements, each traceable to its source</span>
       <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
         <b>${db.meta.headlineCoverage.priceCADkg}</b> a price</span>
     </div>

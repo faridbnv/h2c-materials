@@ -453,7 +453,7 @@ export function renderDrawer(host, state, actions) {
           </div>
         </div>
         ${page ? `<a class="btn btn-sm page-link" href="${esc(page)}"
-          title="This material's page. Its Back to your results returns here as you left it. A downloaded copy of the selector needs its release's material pages zip unzipped beside it."><span class="page-link-words">Full page</span></a>
+          title="This material's page. Its Back to your results returns here as you left it. A downloaded copy of the selector needs its release's material pages zip unzipped beside it."><span class="page-link-words">Full page</span><span class="page-link-short" aria-hidden="true">Page</span></a>
         ` : ''}<button type="button" class="btn btn-sm shortlist-btn" id="drawer-pin" aria-pressed="${pinned}"
           title="${pinned ? 'On the shortlist. Press to remove it.' : 'Add to the shortlist'}"><span aria-hidden="true">${pinned ? '★' : '☆'}</span> Shortlist</button>
         <button class="icon-btn" id="drawer-close" aria-label="Close">✕</button>
