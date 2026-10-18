@@ -1745,8 +1745,10 @@ elastomers whose HDT does not apply and the 3 materials with no product (PA66-CF
 and no material estimate of a material with products screens anything. Of the 436 Insufficient-evidence listings, 234
 point to a miss (a measured product misses and none passes, or every unresolved product's own prediction misses wholly),
 76 meet every number and wait only on a print setting, 15 have no product to buy and 111 are open. An estimated candidate
-is promoted on its prediction's centre, a coin flip in 53 of 105 promoted requirements. Its findings and the changes it
-recommends (C01 to C30, the owner's to choose) are there; C01 files them here by subject.
+is promoted on its prediction's centre, a coin flip in 53 of 105 promoted requirements. Two outside experts, given the
+data but not the rules, proposed how pass, fail and "can't tell" should work. The review's ten decisions for the owner
+and its changes (C01 to C40, in [its recommendations](audits/2026-10-18-screening-review/RECOMMENDATIONS.md)) are there;
+C01 files what stays open here by subject.
 
 ### 36.2. PCTG-GF's estimates sit above its own sheets
 
