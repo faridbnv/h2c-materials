@@ -909,7 +909,9 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   // The same property, number, unit and conditions already held for this product (or one of its formulation key) is held again by
   // nothing new: a maker's portfolio or second sheet reprinting its datasheet adds a twin (MEAS-CROSS-SOURCE-TWIN).
   const conditionKey = (m) => [m.Direction, m['Moisture state'], m['Post-processing state'], m.Notch, m['Test temperature °C'], m['Test load MPa'], m.Operator].join('\u0001');
-  const valueKey = (m) => `${m.Property}\u0001${Number(m['Normalized value'])}\u0001${m['Normalized unit']}\u0001${conditionKey(m)}`;
+  // A range is not a twin of its lower end: "15-20 %" on a safety data sheet is another statement than "15 %" (stage 2b).
+  const upperOf = (m) => (isMissing(m['Normalized upper bound']) ? '' : Number(m['Normalized upper bound']));
+  const valueKey = (m) => `${m.Property}\u0001${Number(m['Normalized value'])}\u0001${upperOf(m)}\u0001${m['Normalized unit']}\u0001${conditionKey(m)}`;
   const heldValues = new Map();
   const remember = (index, gradeId, key, sourceId, id) => {
     const k = `${gradeId}\u0002${key}`;
@@ -962,7 +964,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
     const gate = gateOf(r);
     if (reasons.length || gate.gate !== 'ready') { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
-    const key = valueKey({ Property: p.Property, 'Normalized value': p['Normalized value'], 'Normalized unit': p['Normalized unit'], Direction: p.Direction, 'Moisture state': p['Moisture state'], 'Post-processing state': p['Post-processing state'],
+    const key = valueKey({ Property: p.Property, 'Normalized value': p['Normalized value'], 'Normalized upper bound': p['Normalized upper bound'], 'Normalized unit': p['Normalized unit'], Direction: p.Direction, 'Moisture state': p['Moisture state'], 'Post-processing state': p['Post-processing state'],
       Notch: p.Notch, 'Test temperature °C': p['Test temperature °C'], 'Test load MPa': p['Test load MPa'], Operator: p.Operator });
     const own = rowStates(p);
     const contradicted = tables.page_context.find((c) => c.SourceID === r.SourceID && Number(c.Page) === Number(r.Page) && (c['Applies to'] === 'all' || c['Applies to'] === scopeOf(p.Property))
@@ -1018,7 +1020,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     out.valuesAdd.push({
       gate: 'ready', task: 'reader-round', like: c.like.MeasurementID, SourceID: c.row.SourceID, GradeID: c.grade, MaterialID: grades.get(c.grade).MaterialID,
       ...p, Locator: c.locator, quote: text(c.row.Quote),
-      note: `p. ${c.row.Page}, "${text(c.row.Label)}"${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.`,
+      note: `p. ${c.row.Page}${text(c.row.Label) ? `, "${text(c.row.Label)}"` : ''}${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.`,
       cause: 'gap-fill', sign_view: c.signView ?? '', presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
     });
   }

@@ -1,5 +1,6 @@
 Value,Meaning
 grade,The two values belong to one grade (GradeID).
+formulation,"The two values belong to one formulation: one grade, or grades that share a Shared formulation key, so every document of one product and its twins' sheets (R053, D89) are compared with each other (D149)."
 source,The two values come from one source (SourceID).
 direction,"The two values carry one build direction (XY, Z, Not applicable ...)."
 unit,The two values are in one normalized unit.

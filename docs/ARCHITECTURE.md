@@ -380,7 +380,7 @@ tab for its domain, counts as coverage evidence, and is checked for unit and app
 value is then chosen from its measurements by rule, and each material shows its products' spread. The filter rail, charts, table, export,
 drawer and engine pick it up from the registry (a row that is Drawer only reaches the drawer alone, D139); materials outside "Applies to" show it as not
 applicable with the reason. `test/new-property.test.js` does exactly this for an elastomer-only
-Shore A hardness. Only estimation needs code: mark it Estimated only after adding `HEAD` (`estimate/model.js`) and `kindOf`
+rebound resilience (Shore A and Shore D hardness, the real case, are rows since D150). Only estimation needs code: mark it Estimated only after adding `HEAD` (`estimate/model.js`) and `kindOf`
 (`estimate/observations.js`) cases and its scale, floors, precision thresholds and conversions in
 `build/mappings/estimate-model.json`; the build refuses the flag otherwise, and the calibration check
 says at once whether the model holds.

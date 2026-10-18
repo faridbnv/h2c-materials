@@ -60,7 +60,7 @@ export const scheduleText = (t) => `at ${t?.tempC != null ? `${t.tempC} °C` : '
 // it adds 'resin' (a moulded value under a headline with no bar to orient or load), and lacks 'notConditioned' and
 // 'notAnnealed', which assess returns only when asked about a state, which a comparison never is.
 // test/drawer-comparisons.test.js holds the two against each other on every record of every comparison.
-export const ASSESS_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'moulded', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
+export const ASSESS_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'nominal', 'moulded', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
   'notConditioned', 'conditioned', 'notAnnealed', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad'];
 const SPECIMEN_WHY = { moulded: 'moulded', film: 'film', filament: 'filament' };
 
@@ -79,6 +79,8 @@ export function assess(m, def, gradeMeasurements, state = null) {
   if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}`, why: 'property' };
   if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}`, why: 'unit' };
   if (m.implausible) return { excluded: 'flagged physically implausible', why: 'implausible' };
+  // A rating the product's name gives (TPU 95A, Data status "Nominal from product designation") is not a test (D150).
+  if (m.nominal) return { excluded: 'a rating the product\'s name gives, not a test result', why: 'nominal' };
   if (!isPartSpecimen(m.specimenType)) {
     // A bar printed at a setting the product is not meant for (D95), or below 100 % infill (D130), is printed, but not
     // the product as it is printed.

@@ -566,6 +566,10 @@
           "implausible": {
             "type": "boolean"
           },
+          "nominal": {
+            "description": "Present, and true, on a value the product's name states (Data status Nominal from product designation): evidence of the product's grade, never a headline's value (D150).",
+            "const": true
+          },
           "qualitative": {
             "type": "boolean"
           },

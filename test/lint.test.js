@@ -420,3 +420,77 @@ test('a row of the sheet is named by its row, not by any word "speed" (D120)', (
   assert.deepEqual(run([profile('P1', 'p. 1: Nozzle diameter 0.4 mm'), profile('P2', 'p. 1: Nozzle diameter 0.6 mm')]), []);
 });
 
+// ---- the screening build's physics checks (D149)
+const world = ({ morphology = 'amorphous', modifier = 'Unfilled / unspecified', neatMin = '1170', variant = 'Not applicable', family = 'PLA', grades = [] } = {}) => ({
+  materials: { header: ['MaterialID', 'Estimate identity', 'Modifier / filler', 'Family'], rows: [{ MaterialID: 'M1', 'Estimate identity': 'POLY', 'Modifier / filler': modifier, Family: family }] },
+  polymers: { header: ['PolymerID', 'Morphology', 'Neat density min kg/m³'], rows: [{ PolymerID: 'POLY', Morphology: morphology, 'Neat density min kg/m³': neatMin }] },
+  grades: { header: ['GradeID', 'MaterialID', 'Variant', 'Shared formulation key', 'Status'], rows: [{ GradeID: 'G1-01', MaterialID: 'M1', Variant: variant, 'Shared formulation key': 'S1', Status: 'active' }, ...grades] },
+});
+const physicsOf = (rows, tables = world(), code = 'MEAS-PHYSICS') => lintData({ measurements: { header: Object.keys(rows[0]), rows }, physical_relations: physicalRelations, ...tables }, schemas)
+  .filter((f) => f.code.startsWith(code)).map((f) => `${f.code} ${f.record}`);
+const thermalRow = (id, property, value, o = {}) => row({ MeasurementID: id, MaterialID: 'M1', Property: property, 'Normalized value': String(value), 'Normalized unit': '°C',
+  Direction: 'Not applicable', 'Test load MPa': 'Not applicable', Locator: `p. 1: ${property} ${id}`, 'Post-processing state': 'not-stated', ...o });
+
+test('a glassy bar does not hold 0.45 MPa far above its own glass transition unless it was annealed (PR12)', () => {
+  const hdt = (value, o = {}) => thermalRow('V1', 'HDT', value, { 'Test load MPa': '0.45', ...o });
+  const tg = thermalRow('V2', 'Glass transition temperature', 60);
+  // 3DXTECH's CarbonX CF-PLA: 91 °C beside a glass transition of 60 °C, on a bar printed on a 23 °C bed.
+  assert.deepEqual(physicsOf([hdt(91), tg], world(), 'MEAS-PHYSICS-HDT-TG'), ['MEAS-PHYSICS-HDT-TG V1']);
+  // Within the margin the PLA pairs set (15 °C): a glassy bar's scatter, or a grade crystallising a little as it prints.
+  assert.deepEqual(physicsOf([hdt(75), tg], world(), 'MEAS-PHYSICS-HDT-TG'), []);
+  // An annealed bar has crystallised: Polymaker HT-PLA's 107 °C annealed beside 59.8 °C.
+  assert.deepEqual(physicsOf([hdt(107, { 'Post-processing': 'Annealed at 100 °C for 16 h', 'Post-processing state': 'annealed' }), tg], world(), 'MEAS-PHYSICS-HDT-TG'), []);
+  // A semicrystalline polymer's crystals carry the bar above its glass transition; another sheet's glass transition is
+  // not this bar's.
+  assert.deepEqual(physicsOf([hdt(91), tg], world({ morphology: 'semicrystalline' }), 'MEAS-PHYSICS-HDT-TG'), []);
+  assert.deepEqual(physicsOf([hdt(91), { ...tg, SourceID: 'S2' }], world(), 'MEAS-PHYSICS-HDT-TG'), []);
+  // The 1.8 MPa load is not the relation's.
+  assert.deepEqual(physicsOf([hdt(91, { 'Test load MPa': '1.8' }), tg], world(), 'MEAS-PHYSICS-HDT-TG'), []);
+});
+
+test('an HDT beside a modulus too low for the test is a finding where HDT applies, never where it does not (HDT-SOFT)', () => {
+  const hdt = thermalRow('V1', 'HDT', 90, { 'Test load MPa': '0.45' });
+  const modulus = (id, value, property = 'Tensile modulus') => row({ MeasurementID: id, MaterialID: 'M1', Property: property, 'Normalized value': String(value), Locator: `p. 1: ${property} ${id}` });
+  const headlines = (appliesTo) => ({ headline_definitions: { header: ['HeadlineKey', 'Value properties', 'Applies to'], rows: [{ HeadlineKey: 'hdt045', 'Value properties': 'HDT', 'Applies to': appliesTo }] } });
+  const rigid = { ...world({ family: 'PVB / Specialty Polymers' }), ...headlines('Family: PLA | PVB / Specialty Polymers') };
+  // Flashforge's PBAT "Flexible": 90 °C beside a modulus of 6 to 7 MPa.
+  assert.deepEqual(physicsOf([hdt, modulus('V2', 0.006)], rigid, 'MEAS-PHYSICS-HDT-SOFT'), ['MEAS-PHYSICS-HDT-SOFT V1']);
+  // A rigid bar, or a product whose stiffest modulus is rigid beside one misprinted low one, is not soft.
+  assert.deepEqual(physicsOf([hdt, modulus('V2', 2.4)], rigid, 'MEAS-PHYSICS-HDT-SOFT'), []);
+  assert.deepEqual(physicsOf([hdt, modulus('V2', 0.006), modulus('V3', 2.1, 'Flexural modulus')], rigid, 'MEAS-PHYSICS-HDT-SOFT'), []);
+  // A flagged modulus says nothing; neither does a family HDT does not apply to, whose HDT never decides.
+  assert.deepEqual(physicsOf([hdt, { ...modulus('V2', 0.006), 'Data status': 'Published value (physically implausible)' }], rigid, 'MEAS-PHYSICS-HDT-SOFT'), []);
+  const elastomer = { ...world({ family: 'Flexible Elastomers' }), ...headlines('Family: PLA | PVB / Specialty Polymers') };
+  assert.deepEqual(physicsOf([hdt, modulus('V2', 0.006)], elastomer, 'MEAS-PHYSICS-HDT-SOFT'), []);
+});
+
+test('a fibre- or particle-filled product is not lighter than its neat polymer (FILLED-DENSITY)', () => {
+  const density = (value, o = {}) => row({ MeasurementID: 'V1', MaterialID: 'M1', Property: 'Density', 'Normalized value': String(value), 'Normalized unit': 'kg/m³',
+    Direction: 'Not applicable', 'Specimen type': 'Not published (density specimen form not explicitly established)', Locator: 'p. 1: Density', ...o });
+  const cf = world({ modifier: 'Carbon fibre', neatMin: '1220' });
+  // Recreus PET-G CF: 1,1 g/cm³ for a carbon-fibre PETG whose neat polymer starts at 1.22.
+  assert.deepEqual(physicsOf([density(1100)], cf, 'MEAS-PHYSICS-FILLED-DENSITY'), ['MEAS-PHYSICS-FILLED-DENSITY V1']);
+  // Within 2 % of the neat minimum is scatter and a filament's voids; a range is judged by its upper end.
+  assert.deepEqual(physicsOf([density(1200)], cf, 'MEAS-PHYSICS-FILLED-DENSITY'), []);
+  assert.deepEqual(physicsOf([density(1100, { 'Normalized upper bound': '1250' })], cf, 'MEAS-PHYSICS-FILLED-DENSITY'), []);
+  // A declared lightweight additive, a printed part with its voids, and an unfilled product are not the check's.
+  assert.deepEqual(physicsOf([density(1100)], world({ modifier: 'Carbon fibre', neatMin: '1220', variant: 'lightweight additive' }), 'MEAS-PHYSICS-FILLED-DENSITY'), []);
+  assert.deepEqual(physicsOf([density(1100, { 'Specimen type': 'Printed part' })], cf, 'MEAS-PHYSICS-FILLED-DENSITY'), []);
+  assert.deepEqual(physicsOf([density(1100)], world({ neatMin: '1220' }), 'MEAS-PHYSICS-FILLED-DENSITY'), []);
+  // A grade that declares a dense filler is filled, whatever its material's modifier says.
+  assert.deepEqual(physicsOf([density(1100)], world({ neatMin: '1220', variant: 'undisclosed dense filler' }), 'MEAS-PHYSICS-FILLED-DENSITY'), ['MEAS-PHYSICS-FILLED-DENSITY V1']);
+});
+
+test("HDT at two loads is ordered across one product's documents and its twins' sheets, not across products (PR08)", () => {
+  const hdt = (id, load, value, o = {}) => thermalRow(id, 'HDT', value, { 'Test load MPa': String(load), ...o });
+  const twin = world({ grades: [{ GradeID: 'G1-02', MaterialID: 'M1', Variant: 'Not applicable', 'Shared formulation key': 'S1', Status: 'active' }, { GradeID: 'G1-03', MaterialID: 'M1', Variant: 'Not applicable', 'Shared formulation key': 'S9', Status: 'active' }] });
+  const loads = (rows) => physicsOf(rows, twin, 'MEAS-PHYSICS-HDT-LOADS');
+  // A product page's 1.8 MPa value above its data sheet's 0.45 MPa one.
+  assert.deepEqual(loads([hdt('V1', 0.45, 48, { SourceID: 'S1' }), hdt('V2', 1.8, 50, { SourceID: 'S2' })]), ['MEAS-PHYSICS-HDT-LOADS V1']);
+  // One number at both loads is not out of order.
+  assert.deepEqual(loads([hdt('V1', 0.45, 70, { SourceID: 'S1' }), hdt('V2', 1.8, 70, { SourceID: 'S2' })]), []);
+  // A twin (one Shared formulation key) is the same formulation; another product is not.
+  assert.deepEqual(loads([hdt('V1', 0.45, 89), hdt('V2', 1.8, 95, { GradeID: 'G1-02', SourceID: 'S2' })]), ['MEAS-PHYSICS-HDT-LOADS V1']);
+  assert.deepEqual(loads([hdt('V1', 0.45, 89), hdt('V2', 1.8, 95, { GradeID: 'G1-03', SourceID: 'S2' })]), []);
+});
+

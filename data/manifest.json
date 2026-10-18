@@ -7,19 +7,19 @@
     },
     "grades": {
       "rows": 1180,
-      "sha256": "ecd0d022ead1b597870cdd886a8fc7308f3340935ff2e0027fb44e2bc8a27cf4"
+      "sha256": "383c9166657c302786644b4bd6daef405d527e4b786db332cfbbb61795d6aa82"
     },
     "profiles": {
-      "rows": 1915,
-      "sha256": "be49ae539113d6571ab24f95ebcfbab5db701f3b39fccce84e8be6b97248c1e6"
+      "rows": 1916,
+      "sha256": "62085f121c6a570be8a741d171bb5f9ecf93e58514c0fb087119aeee24952ebe"
     },
     "profile_notes": {
-      "rows": 2500,
-      "sha256": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2"
+      "rows": 2503,
+      "sha256": "8c07c395ec60a273f2c34e820eb486c3f7344ae18a9dc8f6d46906da520819b3"
     },
     "measurements": {
-      "rows": 15424,
-      "sha256": "7158f7a659aef6b6afe36e796fbe8efd5f608d2f76bbcae2db356265620eab0f"
+      "rows": 15576,
+      "sha256": "e535f8e59eaae7024c0c4ae0d91544cdc08224564b4cc493570703abe754ccdf"
     },
     "page_context": {
       "rows": 1012,
@@ -58,8 +58,8 @@
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2016,
-      "sha256": "0afff47ec3e53f6265089f8258b827303aa447caf81ec7dce0a4eea5b42a8031"
+      "rows": 2017,
+      "sha256": "fbecbb17b7399dd7430d62eda6024f30576b947fce10a9455cbc7f2aa1f930af"
     },
     "coverage": {
       "rows": 953,
@@ -98,12 +98,12 @@
       "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
     },
     "properties": {
-      "rows": 51,
-      "sha256": "439f0c3dd6daef2a38ab70a60cade4a9ee330e8d20e368dc1e12002c719db4a7"
+      "rows": 52,
+      "sha256": "e490ca7a2685fee9544d95dd918ac554f608c3b13b72892b9312e57932963ccb"
     },
     "headline_definitions": {
-      "rows": 17,
-      "sha256": "4de418639a51ef02a895190dbc177585aa5d3b0045002c08d744fabe7c9a16bb"
+      "rows": 19,
+      "sha256": "8303fd3963d181e60ffbf8c9cb559effa5d664f65572d474e275f68b8915611e"
     },
     "drawer_comparisons": {
       "rows": 4,
@@ -115,11 +115,11 @@
     },
     "plausibility_windows": {
       "rows": 128,
-      "sha256": "fff5629c602c2d9dac608a79bbb1cd88b95de3f9bf48f7e927d29967ec2bda93"
+      "sha256": "c6d9c0014d27317eff7f281ad29e216a4548f44965a12e960bacc2ca9993e020"
     },
     "physical_relations": {
-      "rows": 11,
-      "sha256": "a183d4bfff8b4a3230a683a7130cb7f30c51d0ffee42a6e354ee42e41f135150"
+      "rows": 12,
+      "sha256": "ce76d0bdea773d2428c5ccc81605c270cae9d2dcd4b526f0866c9eecf33a6c10"
     },
     "chamber_bands": {
       "rows": 39,

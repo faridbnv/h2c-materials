@@ -1,7 +1,7 @@
-COUNT 44 shown PASS
-STATUS ☑ PASS 44 | ☐ UNKNOWN 83 | ☐ FAIL 25
-44 of the 152 materials meet these requirements
-Warm environment template · 83 more could not be checked and are left out
+COUNT 41 shown PASS
+STATUS ☑ PASS 41 | ☐ UNKNOWN 86 | ☐ FAIL 25
+41 of the 152 materials meet these requirements
+Warm environment template · 86 more could not be checked and are left out
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -40,7 +40,7 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 44 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+TABLE 41 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS | ☆ | PASS / 19 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | passing: 85–106 / all products: 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
 ROW ABS-AF | ☆ | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | passing: 88 / all products: 88 | 127↗
 ROW ABS-CF | ☆ | PASS / 2 of 11 products | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | passing: 90–91 / all products: 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗
@@ -62,7 +62,6 @@ ROW PA6/66 · ☆
 ROW PA612-CF · ☆
 ROW PA612-ESD · ☆
 ROW PAHT-CF · ☆
-ROW PBAT · ☆
 ROW PBT-GF · ☆
 ROW PC · ☆
 ROW PC-ABS · ☆
@@ -72,8 +71,6 @@ ROW PET-GF · ☆
 ROW PETG · ☆
 ROW PLA · ☆
 ROW PLA blend · ☆
-ROW PLA-CF · ☆
-ROW PLA-NF · ☆
 ROW PLA-PHB · ☆
 ROW PP · ☆
 ROW PP Lightweight · ☆

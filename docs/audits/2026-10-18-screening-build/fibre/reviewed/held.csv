@@ -1,0 +1,53 @@
+RowID,SourceID,GradeID,Raw,by,reason
+readings-part-1.csv#65,R-QIDI-ABS-GF25,G028-10,25% glass fiber,reviewer,"The same figure as page 2 of the same sheet, where the sheet says it is the inner core's. One row per sheet: the one that says what the figure is."
+readings-part-1.csv#86,R-EXTRUDR-durapro-asa-cf-TDS-en,G033-05,12 %vol,reviewer,"By volume, another quantity: the property records a maker's figure by weight, and 12 % carbon fibre by volume in ASA is about 19 % by weight. The row also names ASTM D785, a hardness method, so its method cell is a template error on the sheet. The grade's Composition / filler keeps the sheet's words."
+readings-part-2.csv#3,R-QIDI-ASA-CF20-CORE,G033-14,20% Carbon fiber,reviewer,"The same figure as page 2 of the same sheet, where the sheet says it is the inner core's. One row per sheet: the one that says what the figure is."
+readings-part-1.csv#45,S-PET-TDS-CarbonFil,G024-21,15% carbon fiber,pipeline,gate:visual-only-awaiting-second-read
+readings-part-1.csv#48,R-FIBERLOGY-FIBERLOGY-PETGCF-TDS,G024-23,10% carbon fiber,pipeline,gate:visual-only-awaiting-second-read
+readings-part-1.csv#53,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5,G025-02,10% glass fiber,pipeline,already-held-elsewhere (proposed for G025-02 from R-ERYONE-PETG-GF-TDS (readings-part-1.csv#52))
+readings-part-1.csv#68,R-FABRU-PUREFIL-680-Materialdatenblatt-ABS-GF10-purefil,G028-11,10% Glasfasern,pipeline,already-held-elsewhere (proposed for G028-11 from R-FABRU-3491-Material-data-sheet-ABS-GF10-purefil (readings-part-1.csv#67))
+readings-part-1.csv#73,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4,G029-04,approximately 10%,pipeline,prose-claim
+readings-part-1.csv#84,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,G033-03,3% CF,pipeline,already-held-elsewhere (proposed for G033-03 from S-SPECTRUM-en-tds-the-filament-asa-cf (readings-part-1.csv#83))
+readings-part-1.csv#90,R-FABRU-PUREFIL-7739-Scheda-tecnica-del-materiale-ASA-CF10-purefil,G033-08,10%,pipeline,already-held-elsewhere (proposed for G033-08 from R-FABRU-7738-Fiche-technique-du-mat-riau-ASA-CF10-purefil (readings-part-1.csv#89))
+readings-part-1.csv#93,R-POLYMAKER-PRIORITY-20261003-749f634c9bfa,G033-11,8% carbon fiber by weight,pipeline,already-held-elsewhere (proposed for G033-11 from R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN (readings-part-1.csv#92))
+readings-part-2.csv#2,S-PET-formfutura-tds-apolloxcf10,G033-12,10% carbon fibers,pipeline,"already-held-elsewhere (the carrier G033-04 of G033-12's formulation key holds it (readings-part-1.csv#85, S-SPECTRUM-en-tds-spectrum-asax-cf10))"
+readings-part-2.csv#5,R-QIDI-FILAMENT-GUIDE,G033-14,ASA-CF20 Core,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#7,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,G033-18,3% CF,pipeline,"already-held-elsewhere (the carrier G033-03 of G033-18's formulation key holds it (readings-part-1.csv#83, S-SPECTRUM-en-tds-the-filament-asa-cf))"
+readings-part-2.csv#13,S-SPECTRUM-EN-TDS-Spectrum-PC-CF-3,G037-02,10% carbon fiber,pipeline,already-held-elsewhere (proposed for G037-02 from S-SPECTRUM-en-tds-spectrum-pc-cf (readings-part-2.csv#11))
+readings-part-2.csv#21,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,G048-02,Ultrafuse PAHT CF15,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#23,S-SPECTRUM-en-tds-spectrum-pa6-cf15,G050-04,PA6 CF15,pipeline,already-held-elsewhere (proposed for G050-04 from R-COVERAGE-20261001-28aad1fe7597 (readings-opus-review.csv#16))
+readings-part-2.csv#24,R-SPECTRUM-PORTFOLIO-2024,G050-04,15% Carbon fiber reinforced,pipeline,already-held-elsewhere (proposed for G050-04 from R-COVERAGE-20261001-28aad1fe7597 (readings-opus-review.csv#16))
+readings-part-2.csv#29,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,G050-11,Fiberon™ PA6-CF20,pipeline,already-held-elsewhere (proposed for G050-11 from R-POLYMAKER-PRIORITY-20261003-aa05f44c1437 (readings-opus-review.csv#18))
+readings-part-2.csv#30,S-PET-formfutura-tds-styxpacf15,G050-13,15% carbon fibers,pipeline,"already-held-elsewhere (the carrier G050-03 of G050-13's formulation key holds it (readings-part-2.csv#22, S-SPECTRUM-en-tds-spectrum-pa6-low-warp-cf15s))"
+readings-part-2.csv#36,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,G051-09,Fiberon™ PA6-GF25,pipeline,already-held-elsewhere (proposed for G051-09 from R-POLYMAKER-PRIORITY-20261003-02efe50f9eac (readings-opus-review.csv#19))
+readings-part-2.csv#37,S-PET-formfutura-tds-styxpagf30,G051-10,30% glass fibers,pipeline,"already-held-elsewhere (the carrier G051-04 of G051-10's formulation key holds it (readings-part-2.csv#33, S-SPECTRUM-en-tds-spectrum-pa6-low-warp-gf30))"
+readings-part-2.csv#41,S-SPECTRUM-EN-TDS-Spectrum-PA12-CF15,G053-03,15% carbon fibers,pipeline,already-held-elsewhere (proposed for G053-03 from S-SPECTRUM-en-tds-spectrum-pa12-cf15 (readings-part-2.csv#40))
+readings-part-2.csv#47,R-FABRU-PUREFIL-804-Materialdatenblatt-PA12-CF15-purefil,G053-12,15% Carbonfaseranteil,pipeline,already-held-elsewhere (proposed for G053-12 from R-FABRU-3495-Material-data-sheet-PA12-CF15-purefil (readings-part-2.csv#46))
+readings-part-2.csv#49,R-FILLAMENTUM-Technical-Data-Sheet-Nylon-CF15-Carbon-03012019,G053-14,Nylon CF15 Carbon,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#51,R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS,G053-16,Nylon PA12+CF15,pipeline,already-held-elsewhere (proposed for G053-16 from D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE (readings-part-2.csv#50))
+readings-part-2.csv#52,R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS,G053-16,Nylon PA12+CF15,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#55,R-FIBERLOGY-FIBERLOGY-NYLONPA12GF15-TDS,G054-03,Nylon PA12+GF15,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#56,R-FIBERLOGY-FIBERLOGY-NYLON-PA12GF15-TDS,G054-03,Nylon PA12+GF15,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#57,S-FIBER-PA612,G059-01,Fiberon™ PA612-CF15,pipeline,already-held-elsewhere (proposed for G059-01 from R-POLYMAKER-PRIORITY-20261003-540bc284ede5 (readings-opus-review.csv#20))
+readings-part-2.csv#61,S-SPECTRUM-en-tds-spectrum-pet-cf15,G067-03,PET CF15,pipeline,gate:visual-only-awaiting-second-read
+readings-part-2.csv#64,D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,G067-05,15 wt% carbon fibers,pipeline,already-held-elsewhere (proposed for G067-05 from D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V2-8c9901cf-e1d5-4e11-b9e2-cd245c298c4f (readings-part-2.csv#63))
+readings-part-3.csv#5,R-FIBERON-PETGF15-TDS,G068-02,PET-GF15,pipeline,already-held-elsewhere (proposed for G068-02 from R-POLYMAKER-PRIORITY-20261003-67deefea2e32 (readings-part-3.csv#4))
+readings-part-3.csv#6,R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02,G068-02,PET-GF15,pipeline,already-held-elsewhere (proposed for G068-02 from R-POLYMAKER-PRIORITY-20261003-67deefea2e32 (readings-part-3.csv#4))
+readings-part-3.csv#10,D-SIRAYA-siraya-tech-fibreheart-paht-cf-ppa-based-tds,G070-02,15% carbon fibers,pipeline,already-held-elsewhere (proposed for G070-02 from D-SIRAYA-Fibreheart-PPA-CF-TDS (readings-part-3.csv#9))
+readings-part-3.csv#17,S-PCGF-PPA-CF-TDS-EN,G070-07,10% carbon fiber,pipeline,"already-held-elsewhere (the carrier G070-06 of G070-07's formulation key holds it (readings-part-3.csv#16, D-FLASH-PPA-CF-TDS-EN))"
+readings-part-3.csv#27,S-PCGF-PPS-CF-TDS-EN,G073-06,10% carbon fiber,pipeline,"already-held-elsewhere (the carrier G073-03 of G073-06's formulation key holds it (readings-part-3.csv#25, D-FLASH-PPS-CF-TDS-EN))"
+readings-part-3.csv#30,X-FIBREX-GF-PP-TDS-v1,G084-01,PP+GF30,pipeline,gate:visual-only-awaiting-second-read
+readings-part-3.csv#33,R-SPECTRUM-PORTFOLIO-2024,G106-01,10% Aramid fiber reinforced,pipeline,gate:low-confidence
+readings-part-3.csv#35,S-PET-TDS-AthenaX-GF10,G110-02,10% glass fibers,pipeline,"already-held-elsewhere (the carrier G110-01 of G110-02's formulation key holds it (readings-part-3.csv#34, S-SPECTRUM-en-tds-spectrum-pctg-gf10))"
+readings-part-3.csv#37,R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS,G110-03,PCTG+GF10,pipeline,gate:visual-only-awaiting-second-read
+readings-part-3.csv#38,R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS-1,G110-03,PCTG+GF10,pipeline,gate:visual-only-awaiting-second-read
+readings-part-3.csv#40,S-PET-TDS-ApolloX-Kevlar,G113-02,10% aramid fibers,pipeline,"already-held-elsewhere (the carrier G113-01 of G113-02's formulation key holds it (readings-part-3.csv#39, S-SPECTRUM-en-tds-spectrum-asa-kevlar))"
+readings-part-3.csv#42,X-ECOMAX-CarbonX-CF15-PEKK-A-TDS-v1,G122-01,PEKK-A CF15,pipeline,gate:visual-only-awaiting-second-read
+readings-part-3.csv#51,R-DREMC-QR-20261007-a23be9ad12ed,G132-02,<10% glass fibre,pipeline,already-held-elsewhere (proposed for G132-02 from R-DREMC-QR-20261007-70f515d2b287 (readings-part-3.csv#50))
+readings-part-3.csv#55,R-COLORFABB-TDS-E-colorFabb-nGen-CF10,G142-01,nGen-CF10,pipeline,gate:visual-only-awaiting-second-read
+readings-part-3.csv#56,R-COLORFABB-PRINT-20260928-25ef08309fc5,G142-01,nGen-CF10,pipeline,already-held-elsewhere (proposed for G142-01 from R-COLORFABB-TDS-nGen-CF10 (readings-part-3.csv#54))
+readings-part-3.csv#60,R-FIBERLOGY-FIBERLOGY-PCTGCF-TDS,G144-03,PCTG+CF10,pipeline,gate:visual-only-awaiting-second-read
+readings-part-3.csv#61,R-3DJAKE-FIBERLOGY-PCTGCF-TDS,G144-03,PCTG+CF10,pipeline,already-held-elsewhere (proposed for G144-03 from D-FIBERLOGY-PCTGCF-FILAMENT-PAGE (readings-part-3.csv#59))
+readings-part-3.csv#63,R-SIRAYA-COVERAGE-20260930-c2563ad36bc5,G151-01,TPU + 15% Glass Fiber (GF),pipeline,already-held-elsewhere (proposed for G151-01 from D-SIRAYA-fibreheart-tpu-gf-filament-tds (readings-part-3.csv#62))
+readings-part-3.csv#65,S-ESUN-PRINT-20260928-333834d1b9db,G156-01,20% carbon fiber,pipeline,already-held-elsewhere (proposed for G156-01 from S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0 (readings-part-3.csv#64))
+readings-part-3.csv#68,R-EXTRUDR-PRINT-20260929-463457967aab,G169-01,10% carbon fibre,pipeline,already-held-elsewhere (proposed for G169-01 from R-EXTRUDR-greentec-pro-cf-TDS-en (readings-part-3.csv#67))

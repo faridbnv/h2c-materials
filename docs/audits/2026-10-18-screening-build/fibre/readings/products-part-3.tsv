@@ -1,0 +1,85 @@
+GradeID	Material	Manufacturer	Product	Composition	SourceIDs
+G067-08	PET-CF	SIDDAMENT	PET CF	carbon fiber. It has the characteristics of temperature resistance  low shrinkage and easy printing. It can (p. 1  as the sheet states it)	S-PCGF-PET-CF-TDS
+G068-01	PET-GF	Flashforge	PET-GF	PET with30% glass fibre (manufacturer description)	D-FLASH-PETGF D-FLASH-PET-GF-TDS-EN
+G068-02	PET-GF	Polymaker	Fiberon PET-GF15	PET  glass fibre (GF15 product designation)	R-FIBERON-PETGF15-TDS R-POLYMAKER-FIBERON-TDS-FIBERON-PET-GF15-v2-0-2026-02-02 R-POLYMAKER-PRIORITY-20261003-67deefea2e32
+G068-04	PET-GF	Raise3D	Industrial PET GF	terephthalate). Well-dispersed 15% glass fibers enhance the rigidity  strength  heat and chemical resistance of (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1
+G068-05	PET-GF	QIDI	PET-GF	15% chopped Glass fiber reinforced Polyethylene Terephthalate FDM material. (p. 1  as the sheet states it)	R-QIDI-PET-GF R-QIDI-FILAMENT-GUIDE
+G070-01	PPA-CF	Bambu Lab	PPA-CF	Semi-aromatic Nylon  carbon fiber	B-ppa-cf-TDS
+G070-02	PPA-CF	Siraya Tech	Fibreheart PPA-CF	Polyphthalamide (PPA) (CAS 27135-32-6) 80-85 %  Carbon Fiber (CAS 7440-44-0) 15-20 %  as the SDS declares (D-SIRAYA-Fibreheart-PPA-CF-SDS  p. 2  section 3)	D-SIRAYA-Fibreheart-PPA-CF-TDS D-SIRAYA-siraya-tech-fibreheart-paht-cf-ppa-based-tds
+G070-03	PPA-CF	Siraya Tech	Fibreheart PPA-CF Core	Polyphthalamide (PPA) (CAS 27135-32-6) 70-80 %  Carbon Fiber (CAS 7440-44-0) 20-25 %  as the SDS declares (D-SIRAYA-Fibreheart-PPA-CF-Core-SDS  p. 2  section 3); the filament is a core-shell construction (TDS p. 3)	D-SIRAYA-Fibreheart-PPA-CF-Core-TDS
+G070-04	PPA-CF	Raise3D	Industrial PPA CF	Polyphthalamide (CAS 27135-32-6) > 80 %  Chopped Carbon (CAS 7440-44-0  EC 231-153-3) 10-30 %  as the SDS declares (D-RAISE3D-Industrial-PPA-CF-SDS-V1-2  p. 2  section 3). The technical data sheet states 15 wt.% chopped carbon fibre  inside that range	D-RAISE3D-Industrial-PPA-CF-TDS-V2-0
+G070-05	PPA-CF	3DXTECH	CarbonX Carbon Fiber High Temp Nylon (HTN)	CarbonX™ Carbon Fiber High Temp Nylon (HTN) 3D Filament (p. 1  as the sheet states it)	X-ECOMAX-CF-HTN-v1 X-ECOMAX-CarbonX-CF-HTN-TDS-v2 XP-carbonx-htn-cf
+G070-06	PPA-CF	Flashforge	PPA-CF	polyphthalamide (PPA) containing 10% carbon fiber  offering high-temperature resistance  low (p. 1  as the sheet states it)	D-FLASH-PPA-CF-TDS-EN
+G070-07	PPA-CF	SIDDAMENT	PPA-CF	the main raw material. PPA-CF is a polyphthalamide raw material containing 10% carbon (p. 1  as the sheet states it)	S-PCGF-PPA-CF-TDS-EN
+G070-08	PPA-CF	Raise3D	Hyper Core PPA CF25	core where most of the carbon fiber (25 wt.%) are well-aligned and distributed. During high speed (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0
+G071-01	PPA-GF	IPCON	PPA-GF	Not published	D-IPCON-PPA
+G071-02	PPA-GF	Siraya Tech	Fibreheart PPA-GF	Polyphthalamide (PPA) (CAS 27135-32-6) 80-85 %  Glass Fiber (CAS 65997-17-3) 15-20 %  as the SDS declares (D-SIRAYA-Fibreheart-PPA-GF-SDS  p. 2  section 3). The technical data sheet states 15 % glass fibre  at the bottom of that range	D-SIRAYA-Fibreheart-PPA-GF-TDS
+G071-03	PPA-GF	Flashforge	PPA-GF	polyphthalamide (PPA) containing 30% glass fiber  offering high-temperature resistance  high (p. 1  as the sheet states it)	D-FLASH-PPA-GF-TDS-EN
+G071-04	PPA-GF	Raise3D	Industrial PPA GF	incorporation of short glass fibers (15wt.%) further improves upon the properties of PPA matrix  which makes PPA (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1
+G071-05	PPA-GF	Raise3D	Hyper Core PPA GF25	core where most of the glass fiber (25 wt.%) are well-aligned and distributed. As a result  Hyper Core (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1
+G073-01	PPS-CF	Bambu Lab	PPS-CF	Polyphenylene sulfide (PPS)  carbon fiber	B-pps-cf-TDS
+G073-02	PPS-CF	Essentium	Essentium PPS-CF	PPS with 15% carbon fibre; LUVOCOM 3F resin	R-ESSENTIUM-PPSCF-TDS
+G073-03	PPS-CF	Flashforge	PPS-CF	polyphenylene sulfide (PPS) containing 10% carbon fiber  offering high-temperature resistance  low (p. 1  as the sheet states it)	D-FLASH-PPS-CF-TDS-EN S-PCGF-PPS-CF-TDS-EN
+G073-04	PPS-CF	Polymaker	FIBERON PPS CF10	Fiberon™ PPS-CF10 is a carbon fiber reinforced PPS (p. 1  as the sheet states it)	R-POLYMAKER-FIBERON-TDS-FIBERON-PPS-CF10-V1-1-EN-1
+G073-05	PPS-CF	LEHVOSS	LUVOCOM 3F PPS CF 9938 BK	with carbon fibers  black (p. 1  as the sheet states it)	R-3D4MAKERS-TDS-pps-cf-9938-bk-filament-en-iso
+G073-06	PPS-CF	SIDDAMENT	PPS CF	carbon fiber. It has high temperature resistance  low moisture absorption  chemical (p. 1  as the sheet states it)	S-PCGF-PPS-CF-TDS-EN
+G073-07	PPS-CF	Raise3D	Industrial PPS CF	Raise3D Industrial PPS CF is a carbon fiber-reinforced (10 wt.%) polyphenylene sulfide (PPS) composite filament designed for high- (p. 1  as the sheet states it)	D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1
+G074-01	PPS-GF	IPCON	PPS-GF	Not published	S-PPSGF-TDS-0
+G074-02	PPS-GF	Polymaker	Fiberon PPS-GF20	Not published	S-FIBER-PPSGF-TDS-2
+G083-01	PP-CF	3DXTECH	CarbonX CF PP	Not published	X-CarbonX-CF-PP-TDSv1
+G083-02	PP-CF	Braskem	FL900PP-CF	from 100% recycled carbon fiber (CF) and is designed to without compromising any of PP’s inherent properties (p. 1  as the sheet states it)	R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF
+G083-03	PP-CF	Prusa Research	Prusament PP Carbon Fiber by Prusa Polymers	Prusament PP Carbon Fiber by Prusa Polymers (p. 1  as the sheet states it)	S-PVB-b4ef2bf6-technical-data-sheet-1
+G083-04	PP-CF	Nanovia	PP CF	Nanovia PP CF : Carbon fiber reinforced (p. 1  as the sheet states it)	R-NANOVIA-PP-CF R-NANOVIA-PRIORITY-20261002-7672b9b52cb5
+G083-05	PP-CF	LEHVOSS	LUVOCOM 3F PP CF 9928 BK	with carbon fibers  black (p. 1  as the sheet states it)	S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK R-LEHVOSS-READER-20261004-ca1190972e2a
+G084-01	PP-GF	3DXTECH	FIBREX GF PP	Not published	X-FIBREX-GF-PP-TDS-v1
+G084-02	PP-GF	Prusa Research	Prusament PP Glass Fiber by Prusa Polymers	Prusament PP Glass Fiber by Prusa Polymers (p. 1  as the sheet states it)	S-PVB-512923fd-tds-pp-glass-fiber-en
+G090-01	CPE-CF	Fillamentum	CPE CF112 Carbon	Not published	S-CPECF
+G090-02	CPE-CF	Spectrum	pctg cf10	Not published	S-SPECTRUM-en-tds-spectrum-pctg-cf10 R-SPECTRUM-PORTFOLIO-2024
+G090-03	CPE-CF	colorFabb	XT-CF20	filament  infused with 20% carbon fibers. This is the perfect filament for parts which need high stiffness. (p. 1  as the sheet states it)	R-COLORFABB-TDS-colorFabb-XT-CF20
+G106-01	ABS-AF	Spectrum	ABS Kevlar	Not published	S-SPECTRUM-en-tds-spectrum-abs-kevlar S-SPECTRUM-pl-tds-spectrum-abs-kevlar R-SPECTRUM-PORTFOLIO-2024
+G106-02	ABS-AF	3D4Makers	ABSKevlar	Not published	R-3D4MAKERS-TDS-ABS-Kevlar-filament-3D4Makers-V1 D-3D4MAKERS-ABS-KEVLAR-PAGE
+G106-03	ABS-AF	Nanovia	ABS AF	Nanovia ABS AF : Aramid fiber reinforced quantity (p. 1  as the sheet states it)	R-NANOVIA-ABS-AF
+G110-01	PCTG-GF	Spectrum	PCTG GF10	• 10% glass fibers (p. 1  as the sheet states it)	S-SPECTRUM-en-tds-spectrum-pctg-gf10 R-SPECTRUM-PORTFOLIO-2024
+G110-02	PCTG-GF	FormFutura	AthenaX GF10	AthenaX GF10 combines all benefits of our AthenaX filament plus 10% glass fibers. This glass fiber (p. 1  as the sheet states it)	S-PET-TDS-AthenaX-GF10
+G110-03	PCTG-GF	Fiberlogy	PCTG+GF10	Not published	R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS-1 D-FIBERLOGY-PCTGGF-FILAMENT-PAGE
+G113-01	ASA-AF	Spectrum	ASA Kevlar	Not published	S-SPECTRUM-en-tds-spectrum-asa-kevlar
+G113-02	ASA-AF	FormFutura	ApolloX Kevlar	Our ApolloX Kevlar combines all benefits of ApolloX filament plus 10% aramid fibers. (p. 1  as the sheet states it)	S-PET-TDS-ApolloX-Kevlar
+G113-03	ASA-AF	Fiberlogy	ASA+AF	Not published	R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS
+G117-01	PEI-GF	3DXTECH	ThermaX PEI GF30	Not published	X-ECOMAX-FIBREX-GF30-ULTEM-PEI-v1
+G118-01	PEI-CF	3DXTECH	CarbonX Carbon Fiber Ultem PEI	Technical Data Sheet: CarbonX™ Carbon Fiber Ultem™ PEI 3D Printing Filament (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF-Ultem-TDS-v3
+G118-02	PEI-CF	3DXTECH	CarbonX Carbon Fiber Ultem 9085	Technical Data Sheet: CarbonX™ Carbon Fiber Ultem™ 9085 3D Printing Filament (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF-Ultem-9085-TDS
+G118-03	PEI-CF	Nanovia	PEI CF Ultem 1010	Nanovia PEI CF Ultem 1010 : Carbon fiber reinforced quantity (p. 1  as the sheet states it)	R-NANOVIA-PEI-CF-Ultem-1010
+G122-01	PEKK-CF	3DXTECH	CarbonX Carbon Fiber PEKK-A CF15	Technical Data Sheet: CarbonX™ Carbon Fiber PEKK-A CF15 [AERO] (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF15-PEKK-A-TDS-v1
+G122-02	PEKK-CF	Nanovia	PEKK-A CF	Nanovia PEKK-A CF : Carbon fiber reinforced quantity (p. 1  as the sheet states it)	R-NANOVIA-PEKK-A-CF
+G125-01	PEEK-CF	3DXTECH	CarbonX Carbon Fiber PEEK	Technical Data Sheet: CarbonX™ Carbon Fiber PEEK 3D Printing Filament (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF-PEEK-TDS-v3
+G125-02	PEEK-CF	3DXTECH	CarbonX 20% Carbon Fiber PEEK	Technical Data Sheet: CarbonX™ 20% Carbon Fiber PEEK 3D Printing Filament (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF20-PEEK-TDS-v1
+G125-03	PEEK-CF	Filament2Print	TECAFIL PEEK EV CF30 black - 1.75 mm	carbon fibres  30% carbon fibres (p. 1  as the sheet states it)	R-FILAMENT2PRINT-Other-3b8e77
+G125-04	PEEK-CF	LEHVOSS	LUVOCOM 3F PEEK CF 9676 BK	with carbon fibers  black (p. 1  as the sheet states it)	S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK
+G125-05	PEEK-CF	iSANMATE	CF PEEK	which allow it to use in harsh environment. CF-PEEK is produced using 10% carbon (p. 1  as the sheet states it)	I-PLA-CF-PEEK-TDS1
+G127-01	PEEK-GF	3DXTECH	ThermaX PEEK GF20	Not published	X-ECOMAX-FIBREX-GF20-PEEK-v2
+G128-01	PC-ABS-CF	3DXTECH	CarbonX Carbon Fiber PC/ABS	Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament (p. 1  as the sheet states it)	X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1
+G129-01	TPU-CF	Spectrum	S-Flex Carbon	durability provided by a 20% carbon fiber reinforce- (p. 1  as the sheet states it)	S-SPECTRUM-en-tds-spectrum-sflex-carbon R-COVERAGE-20261001-28aad1fe7597
+G129-02	TPU-CF	Extrudr	FLEX HARD CF	Note: Due to the abrasive nature of the carbon fibers  a (p. 1  as the sheet states it)	R-EXTRUDR-flex-hard-cf-TDS-en R-EXTRUDR-flex-hard-cf-TDS-de R-EXTRUDR-flex-hard-cf-TDS-en-7bbe64
+G129-07	TPU-CF	Fiberlogy	FiberFlex CF	Not published	R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS R-FIBERLOGY-FIBERLOGY-FIBERFLEX-CF-TDS D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE
+G131-01	PC-PBT-CF	Extrudr	DURAPRO PC-PBT CF	PC-PBT with carbon fibre reinforcement raises the properties of the base material to a new level and makes it one of the most (p. 1  as the sheet states it)	R-EXTRUDR-durapro-pc-pbt-cf-TDS-en R-EXTRUDR-durapro-pc-pbt-cf-TDS-en-3a6807 R-EXTRUDR-durapro-pc-pbt-cf-TDS-it R-EXTRUDR-PRINT-20260928-83ec5c0b3125
+G132-01	PBT-GF	Flashforge	PBT-GF	PBT-GF is a polyester modified material containing 5-10% glass fiber  characterized by (p. 1  as the sheet states it)	D-FLASH-PBT-GF-TDS-EN
+G132-02	PBT-GF	DREMC	PBT GF	PBT with glass fibre under 10 % ("DREMC PBT GF using BASF Ultradur® PBT resin with added GF <10%"  p. 1  as the sheet states it)	R-DREMC-QR-20261007-70f515d2b287 R-DREMC-QR-20261007-a23be9ad12ed
+G138-02	PE-GF	Fabru	Polyethylen high density glass fiber 20% (HDPE GF20)	Polyethylen high density glass fiber 20% (HDPE GF20) (p. 1  as the sheet states it)	R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil
+G138-03	PE-GF	iSANMATE	HDPE Glass Fiber	1.The glass fiber content is high  the proportion is about 25%; (p. 1  as the sheet states it)	I-PLA-HDPE-GF-TDS
+G142-01	nGen-CF	colorFabb	nGen CF10	Our great all-round 3D-printing filament just got better with the addition of a chopped carbon fiber (p. 1  as the sheet states it)	R-COLORFABB-TDS-nGen-CF10 R-COLORFABB-TDS-E-colorFabb-nGen-CF10 R-COLORFABB-PRINT-20260928-25ef08309fc5
+G144-01	PCTG-CF	FormFutura	AthenaX CF10	AthenaX CF10 combines all benefits of our AthenaX filament plus 10% carbon fibers. This carbon fiber (p. 1  as the sheet states it)	S-PET-formfutura-tds-athenaxcf10
+G144-02	PCTG-CF	Nobufil	PCTG CF	Nobufil PCTG CF is a sustainable 10% carbon fiber reinforced PCTG made from recycled industrial (p. 1  as the sheet states it)	R-3DJAKE-3DJAKE-PCTG-CF-tech-data
+G144-03	PCTG-CF	Fiberlogy	PCTG+CF10	Not published	R-FIBERLOGY-FIBERLOGY-PCTGCF-TDS R-3DJAKE-FIBERLOGY-PCTGCF-TDS D-FIBERLOGY-PCTGCF-FILAMENT-PAGE
+G151-01	TPU-GF	Siraya Tech	Fibreheart TPU GF	Material Ther moplast ic Polyu re than e + 15 % short cut glass fiber (p. 1  as the sheet states it)	D-SIRAYA-fibreheart-tpu-gf-filament-tds R-SIRAYA-COVERAGE-20260930-c2563ad36bc5
+G152-01	PLA-NF	Extrudr	FLAX	Not published	R-EXTRUDR-flax-TDS-en R-EXTRUDR-PRINT-20260929-2cccd500d85c
+G152-02	PLA-NF	Nanovia	PLA Flax	Not published	R-NANOVIA-PLA-Flax
+G154-01	PA12-AF	Fillamentum	Nylon AF80 Aramid	a material filled with aramid fibres for (p. 1  as the sheet states it)	R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid D-FILLAMENTUM-NYLON-CF15-PAGE
+G156-01	PA6/66-CF	eSUN	ePA CF	Developed based on nylon 6/66 copolymer  adding 20% carbon fiber greatly enhances the strength  rigidity and tough- (p. 1  as the sheet states it)	S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0 S-ESUN-PRINT-20260928-333834d1b9db
+G165-01	Nylon-CF, maker-undisclosed polyamide	colorFabb	PA-CF low warp	The addition of carbon fibers makes this filament highly abrasive for regular brass nozzle. We (p. 1  as the sheet states it)	R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS
+G165-02	Nylon-CF, maker-undisclosed polyamide	Markforged	Onyx	Onyx is a micro carbon fiber filled nylon (p. 2  as the sheet states it)	R-MARKFORGED-CompositesMaterialDatasheet
+G165-03	Nylon-CF, maker-undisclosed polyamide	Markforged	Onyx FR	Onyx FR is a Blue Card certified UL94 V-0 material that possesses similar mechanical properties to Onyx (p. 2  as the sheet states it)	R-MARKFORGED-CompositesMaterialDatasheet
+G165-04	Nylon-CF, maker-undisclosed polyamide	Stratasys	FDM Nylon-CF10	a composite material combining a blended nylon polymer with 10% chopped carbon fiber (by weight) (p. 2  as the sheet states it)	R-STRATASYS-fdm-nylon-cf10-material-datasheet
+G165-05	Nylon-CF, maker-undisclosed polyamide	Essentium	Essentium PA-CF	a carbon fiber-infused polyamide filament specially formulated for additive manufacturing (p. 1  as the sheet states it)	R-ESSENTIUM-TDS-Essentium-PA-CF
+G166-01	Nylon-GF, maker-undisclosed polyamide	Markforged	Onyx GF	Onyx GF is a chopped-glass-fiber-filled nylon filament built for industrial (p. 1  as the sheet states it)	R-MARKFORGED-Onyx-GF-Material-Datasheet
+G169-01	PLA blend-CF	Extrudr	GREENTEC PRO CF	The composite material contains 10% carbon fibre (p. 1  as the sheet states it) "Biobasiernede Charge auf PLA-Basis  enthält Copolyester und Additive." (D-EXTRUDR-GREENTEC-PRO-CF-MSDS-DE  p. 1)	R-EXTRUDR-greentec-pro-cf-TDS-en D-EXTRUDR-GREENTEC-PRO-CF-MSDS-DE R-EXTRUDR-PRINT-20260929-463457967aab
+G169-02	PLA blend-CF	BigRep	HI-TEMP CF	Material BioPolymer Blend with Carbon Fibers (p. 1  as the sheet states it) "HI-TEMP CF is a PLA blend reinforced with 10% chopped carbon fiber" (D-BIGREP-HI-TEMP-CF-PAGE  p. 1)	R-BIGREP-EZBYxVrNV7NGt4xXE3UWWuwBPYBbMpjmGobs-fcxZTeadg D-BIGREP-HI-TEMP-CF-PAGE

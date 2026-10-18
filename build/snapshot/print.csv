@@ -406,7 +406,7 @@ G024-17,M024,easyPETG CF,within,within,within,not-needed,requires-hardened,optio
 G024-18,M024,PETG CF,within,within,within,not-needed,requires-hardened,required,chamber: guide PG027; enclosure: guide PG027
 G024-19,M024,Fibreheart PETG CF Pro,within,within,unknown,recommended,requires-hardened,required,
 G024-20,M024,Hyper Speed PETG CF,within,within,within,not-needed,requires-hardened,optional,nozzle: guide PG027; bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; drying: guide PG027
-G024-21,M024,CarbonFil,within,within,within,not-needed,requires-hardened,optional,bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027; drying: guide PG027
+G024-21,M024,CarbonFil,within,within,unknown,recommended,requires-hardened,required,hardenedNozzle: guide PG027
 G024-22,M024,PETG CF,within,within,within,not-needed,requires-hardened,optional,nozzle: guide PG027; bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027; drying: guide PG027
 G024-23,M024,PETG+CF,within,within,within,not-needed,requires-hardened,required,
 G024-24,M024,PET-G CF,within,within,within,not-needed,requires-hardened,optional,chamber: guide PG027; enclosure: guide PG027; drying: guide PG027

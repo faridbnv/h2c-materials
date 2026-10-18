@@ -104,6 +104,23 @@ test('a bar printed below full infill is shown but never the product\'s value, w
   for (const x of partial) assert.ok(!Object.values(db.grades.find((g) => g.id === x.gradeId).headline ?? {}).some((h) => h?.measurementId === x.id), `${x.id} decides a headline`);
 });
 
+test('Shore A and Shore D are each their own scale, and a rating the product\'s name gives is never their value (D150)', () => {
+  const shoreA = defs.get('shoreA'), shoreD = defs.get('shoreD');
+  const m = (over) => ({ id: 'V999997', gradeId: 'G999-01', numeric: true, dataStatus: 'Published value', property: 'Hardness', unit: 'Shore A', value: 90,
+    implausible: false, specimenType: 'Not published (do not assume printed)', specimenForm: 'not-stated', moistureState: 'not-stated', postProcessingState: 'not-stated', direction: 'not-applicable', ...over });
+  assert.deepEqual(assess(m({}), shoreA, []), { level: LEVEL.COMPARABLE, caveat: null });
+  assert.equal(assess(m({}), shoreD, []).why, 'unit', 'a Shore A value is no Shore D value');
+  assert.equal(assess(m({ unit: 'Shore (scale not specified by source)' }), shoreA, []).why, 'unit', 'a hardness with no stated scale stays a record');
+  assert.deepEqual(assess(m({ dataStatus: 'Nominal from product designation', nominal: true }), shoreA, []),
+    { excluded: 'a rating the product\'s name gives, not a test result', why: 'nominal' });
+  // Over the database: the four TPU and PEBA ratings their names give (m29) back no Shore value, and no fibre load does.
+  const nominal = new Set(db.measurements.filter((x) => x.dataStatus === 'Nominal from product designation').map((x) => x.id));
+  assert.ok(nominal.size >= 16, `${nominal.size} nominal values`);
+  assert.ok(db.measurements.filter((x) => nominal.has(x.id)).every((x) => x.nominal === true), 'the build marks each nominal value');
+  for (const g of db.grades) for (const [key, v] of Object.entries(g.headline ?? {})) assert.ok(!nominal.has(v.measurementId), `${g.id} ${key} is ${v.measurementId}`);
+  assert.ok(db.grades.some((g) => g.headline?.shoreA?.measurementId) && db.grades.some((g) => g.headline?.shoreD?.measurementId), 'some products publish each scale');
+});
+
 test('a value is as published exactly when the source leaves the direction or the load unstated', () => {
   const hdt = defs.get('hdt045');
   const modulus = defs.get('tensileModulusXY');

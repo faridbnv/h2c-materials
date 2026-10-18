@@ -363,7 +363,7 @@ export const FILLED_WORDS = { 'carbon-fibre': 'carbon-fibre filled', 'glass-fibr
  */
 export const WHY_WORDS = {
   held: (n) => `${n} held back`, noNumber: (n) => `${n} with no number`,
-  implausible: (n) => `${n} flagged implausible`, moulded: (n) => (n === 1 ? '1 on a moulded bar' : `${n} on moulded bars`),
+  implausible: (n) => `${n} flagged implausible`, nominal: (n) => `${n} rated by the product's name, not tested`, moulded: (n) => (n === 1 ? '1 on a moulded bar' : `${n} on moulded bars`),
   resin: (n) => `${n} of the resin, its supplier's value`, film: (n) => `${n} measured on film`, filament: (n) => `${n} on filament strands`,
   offRecipe: (n) => `${n} printed at a setting the product is not meant for`, partialInfill: (n) => `${n} printed below 100 % infill`,
   notPrinted: (n) => `${n} not on a printed bar`, conditioned: (n) => `${n} after moisture conditioning`,

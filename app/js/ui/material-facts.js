@@ -501,13 +501,14 @@ export function shareOf(a, b, byKey, c) {
 // node:path). They differ on purpose: this one adds 'resin' (a moulded value under a headline with no bar to orient or
 // load), and lacks 'notConditioned' and 'notAnnealed', which assess returns only when asked about a state (D99), which a
 // comparison never is. test/drawer-comparisons.test.js holds every record of every comparison against assess.
-export const NOT_DRAWN_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'moulded', 'resin', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
+export const NOT_DRAWN_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'nominal', 'moulded', 'resin', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
   'conditioned', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad'];
 const UNSTATED_DIRECTIONS = new Set(['unknown', 'not-applicable']);
 /** Why headline `h` refuses record `x` (a NOT_DRAWN_ORDER key, "unit:<unit>" for another unit), or null where it takes it. */
 export function refusedBy(x, h, c) {
   if (x.unit !== h.unit) return `unit:${x.unit}`;
   if (x.implausible) return 'implausible';
+  if (x.nominal) return 'nominal';
   if (x.specimenForm === 'off-recipe') return x.specimenType === 'Printed specimen at partial infill' ? 'partialInfill' : 'offRecipe';
   if (!['printed', 'not-stated'].includes(x.specimenForm)) {
     if (x.specimenForm === 'moulded') return h.direction || h.loadMPa != null ? 'moulded' : 'resin';

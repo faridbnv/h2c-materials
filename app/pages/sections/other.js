@@ -17,7 +17,9 @@ export default {
   id: 'other',
   title: 'Other properties, as published',
   render(c) {
-    const keyProps = new Set(REGISTRY.allHeadlines.flatMap((h) => [...h.valueProperties]));
+    // The properties a section of the page draws: a headline in a drawer comparison (the mechanical and thermal strips) or
+    // a table column (density). A selectable headline no section draws, Shore hardness (D150), stays listed here.
+    const keyProps = new Set(REGISTRY.allHeadlines.filter((h) => h.drawerComparison || h.tableColumn).flatMap((h) => [...h.valueProperties]));
     const rows = [];
     for (const tab of ['Mechanical', 'Thermal', 'Physical']) {
       const mi = measuredIn(c, tab);

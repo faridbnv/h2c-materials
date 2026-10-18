@@ -47,7 +47,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `headline_definitions.csv` | Every headline: kind, unit, value and related properties, direction and test load and what a value with none is to it, notch and test temperature, a comparison note, the drawer comparison it is drawn in and whether it is drawn in the drawer alone (D139), labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
 | `drawer_comparisons.csv` | The comparisons the material drawer draws as one heading each (Impact tests; Tensile tests, XY and Z; Flexural tests, XY and Z; Heat deflection and glass transition): the heading, the title of its closed line on how the tests differ, the label of its line naming the products that publish both of a pair, the properties it lists without drawing (tensile strain at strength), and a second closed line's method.csv Topic (how flexural and tensile results relate). Its caption is the method.csv rule of the same Topic (D133, D139, D140) |
 | `plausibility_windows.csv` | The range a published value can credibly fall in, per property, unit and class of material: outside a hard bound it is impossible, outside a soft bound a person looks at it (D82, MEAS-PHYSICS-WINDOW) |
-| `physical_relations.csv` | The orderings physics fixes between two properties, one row each: the lower and the higher property, what the two values must share to be one test (grade, source, direction, unit, specimen form, moisture, post-processing; for HDT the test load), the margin, the materials it holds for, the code a broken pair raises, and where it is used. The data lint reads it for published measurements (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS), and the build refuses a headline lower bound (`headline_definitions.csv`) it does not cover (RELATIONS-HEADLINE-DRIFT) |
+| `physical_relations.csv` | The orderings physics fixes between two properties, one row each: the lower and the higher property, what the two values must share to be one test (grade or formulation, source, direction, unit, specimen form, moisture, post-processing; for HDT the test load), the margin, the materials it holds for, the rows it does not judge, the code a broken pair raises, and where it is used. The data lint reads it for published measurements (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS, MEAS-PHYSICS-HDT-TG), and the build refuses a headline lower bound (`headline_definitions.csv`) it does not cover (RELATIONS-HEADLINE-DRIFT) |
 
 **Mappings**
 
@@ -130,6 +130,13 @@ build reads (D68).
 - **Physically implausible measurements** (Data status "Published value (physically implausible)"): a number the source
   really publishes that physics rules out, with the reason in Notes. It is shown, flagged, and backs no headline,
   estimate, conversion, implied bound or plot point (D55).
+- **A rating the product's name gives** (Data status "Nominal from product designation"): a number only the name states,
+  a TPU's 95A or a nylon's GF30, with the name as its Raw value. It is evidence of the product's grade, read by the
+  estimate model for an elastomer's hardness (D60), and never a headline's value or a plot point (D150).
+- **Fibre content** (`properties.csv`, D150): the fibre load a fibre-filled product's own sheets state, in %, by weight
+  unless the row says otherwise, a range kept as printed. A record that no headline reads: the stiffness caps and
+  contradiction checks to come will (the screening review's C32 and C40). A skin-core filament's row says in Notes
+  whether the figure is its core's or the filament's.
 - **A value read again from its page** (D125): a measurement or page statement that a reader recorded from the page image
   of a registered sheet, because the text layer did not pair the label with its number (two columns, a font that broke a
   label, a scan), is an ordinary row. The page is its Locator, and its note (measurements, Notes; page statements,
@@ -240,7 +247,7 @@ each retrieved source whose text is not in it (D105).
   gradeIds: [],                  // its active procurement grades
   headline: { density, tensileModulusXY, tensileModulusZ, tensileStrengthXY, tensileStrengthZ, elongationXY, elongationZ,
               flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY, flexuralStrengthZ,
-              charpyNotched, izodNotched, hdt045, hdt18, glassTransition, priceCADkg },   // one per row of
+              charpyNotched, izodNotched, hdt045, hdt18, glassTransition, shoreA, shoreD, priceCADkg },   // one per row of
                                  // headline_definitions.csv, then the price; tensile modulus and elongation Z, the
                                  // flexural rows and hdt18 are drawn in the drawer alone (Drawer only, D139, D140)
                                  // its products' spread where they publish comparably (below); decides nothing
@@ -364,7 +371,7 @@ where each part came from; `npm run sql` has `products_compiled` and `summaries_
 ### What each selectable property compares
 
 A headline's row says what a value must be to be a product's value for it (the rule above). What that means for each
-of the nine measured ones (the price compares listings, not measurements):
+of the eleven measured ones (the price compares listings, not measurements):
 
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
@@ -374,6 +381,7 @@ of the nine measured ones (the price compares listings, not measurements):
 | **Notched Charpy impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
 | **Notched Izod impact** (`izodNotched`, D94) | Izod, notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | no direction stated | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
 | **Glass transition (Tg)** (`glassTransition`) | the product's own value, any method (almost all DSC) | none: it has no direction or load | a resin supplier's value (Specimen type Raw material value) |
+| **Shore A hardness**, **Shore D hardness** (`shoreA`, `shoreD`, D150) | Hardness in its own scale, on a printed or unstated specimen | none: it has no direction or load | the other Shore scale, Rockwell, a scale the sheet does not name; a moulded plaque; a rating the product's name gives (Data status Nominal from product designation, TPU 95A) |
 
 Every headline also leaves out a conditioned or implausible value, an annealed one where the product publishes it
 as printed, and a bar printed at a setting the product is not meant for (Specimen type "Printed off the product's
@@ -450,17 +458,24 @@ measurement is never one, and a pin on it stops the build (D55, D56, D95).
 Physics fixes some orders between two numbers, and no number shown may contradict one (D126).
 `physical_relations.csv` lists them, one row each: yield stress and break stress at most the ultimate tensile strength
 (PR06, PR09), the ultimate at most the flexural strength (PR07), elongation at yield and the strain at maximum stress at
-most elongation at break (PR05, PR10), HDT at 1.8 MPa at most HDT at 0.45 MPa (PR08), glass transition at most Vicat
-softening, Vicat and crystallization at most melting (PR01 to PR04), and HDT at most the melting point of a
-semicrystalline polymer (PR11). A row says what the two values must share to be one test (Same test: some of grade,
-source, direction, unit, specimen form, moisture condition and post-processing; the HDT pair also states its two loads), the
-relative and absolute margin a pair may exceed it by, the materials it holds for (Applies to), the lint code a broken
-pair raises, which of the two measurements the finding is recorded on, and its Scope: `measurement` (the lint on
-published values), `headline` (a headline's lower bound) or `both`. Three readers use the one list:
+most elongation at break (PR05, PR10), HDT at 1.8 MPa at most HDT at 0.45 MPa across every document of one product
+and its twins' sheets (PR08), glass transition at most Vicat softening, Vicat and crystallization at most melting (PR01
+to PR04), HDT at most the melting point of a semicrystalline polymer (PR11), and a glassy bar's HDT at 0.45 MPa at most
+15 °C above its own sheet's glass transition unless it was annealed (PR12, D149: the margin is the scatter of the 98 PLA
+pairs). A row says what the two values must share to be one test (Same test: some of grade, formulation (one grade, or
+grades sharing a Shared formulation key), source, direction, unit, specimen form, moisture condition and
+post-processing; the HDT pair also states its two loads), the relative and absolute margin a pair may exceed it by, the
+materials it holds for (Applies to), a kind of row it does not judge (Exempt rows: a heavy-load Vicat, an annealed bar),
+the lint code a broken pair raises, which of the two measurements the finding is recorded on, and its Scope:
+`measurement` (the lint on published values), `headline` (a headline's lower bound) or `both`. Three readers use the
+one list:
 
-- **The data lint** judges every pair of one product's published values against it (MEAS-PHYSICS-ORDER and
-  MEAS-PHYSICS-HDT-LOADS, `build/src/physical-relations.js`). A pair it finds is fixed on the page, flagged physically
-  implausible, or accepted with a reason.
+- **The data lint** judges every pair of one product's published values against it (MEAS-PHYSICS-ORDER,
+  MEAS-PHYSICS-HDT-LOADS and MEAS-PHYSICS-HDT-TG, `build/src/physical-relations.js`). A pair it finds is fixed on the
+  page, flagged physically implausible, held back where two documents dispute its load, or accepted with a reason. Two
+  checks of the same kind are code, not rows, because neither is an order between two properties (D149): an HDT beside
+  the product's stiffest modulus below 225 MPa, where the HDT headlines apply (MEAS-PHYSICS-HDT-SOFT), and a fibre- or
+  particle-filled product more than 2 % lighter than its polymer's neat minimum (MEAS-PHYSICS-FILLED-DENSITY).
 - **The registry.** A headline's Lower bound columns (`headline_definitions.csv`) are the projection of the rows with
   Scope `headline` or `both`; a bound no row covers, or a row no headline reads, stops the build
   (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.

@@ -1,7 +1,7 @@
-COUNT 96 shown PASS + UNKNOWN
-STATUS ☑ PASS 11 | ☑ UNKNOWN 99 | ☐ FAIL 42 | ☐ SCREENED 14
+COUNT 97 shown PASS + UNKNOWN
+STATUS ☑ PASS 11 | ☑ UNKNOWN 100 | ☐ FAIL 41 | ☐ SCREENED 14
 11 of the 152 materials meet these requirements
-Outdoor structural part template · 99 more could not be checked, listed flagged, except 14 screened out
+Outdoor structural part template · 100 more could not be checked, listed flagged, except 14 screened out
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -61,12 +61,11 @@ ROW PPA-CF / High-Performance Engineering | ☆ | PASS / 3 of 8 products | passi
 ROW PPA-GF · ☆
 ROW PPS-CF · ☆
 ROW PPS-GF · ☆
-Estimated candidates to verify (5)
+Estimated candidates to verify (4)
 Predicted centres meet the missing numerical requirements. Still UNKNOWN; confirm before choosing.
-TABLE 5 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+TABLE 4 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS-GF | ☆ | UNKNOWN / 0 of 11 products / Estimated candidate to verify: 5 products fail at least one requirement; 6 remain unresolved | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗
 ROW PA12-CF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 15 products / Estimated candidate to verify: 2 products fail at least one requirement; 13 remain unresolved | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗
 ROW PA12-GF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 3 products / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD
 ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 5 products have no complete qualifying evidence | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
-ROW PLA | ☆ | UNKNOWN / 0 of 195 products / Estimated candidate to verify: 94 products fail at least one requirement; 101 remain unresolved | 1,240 / 1,170–1,329 · 158 | 2.53 / 0.95–4.24 · 55 | 45.5 / 26–70.9 · 71 | 7.23 / 1.2–65 · 63 | 55 / 50–135 · 89 | 33.7 / 18–80 · 26 / ↗
-Insufficient evidence (80) — included in counts and exports
+Insufficient evidence (82) — included in counts and exports

@@ -1,5 +1,5 @@
 {
-  "dataRelease": "70ab4cb33755",
+  "dataRelease": "f7dba33c2af1",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -52,9 +52,9 @@
   "allCataloguePrintGates": {
     "products": 1105,
     "nozzleKnown": 1070,
-    "chamberKnown": 885,
-    "chamberUnknown": 220,
-    "dryingRequired": 622
+    "chamberKnown": 884,
+    "chamberUnknown": 221,
+    "dryingRequired": 623
   },
   "databaseCounts": {
     "materials": 175,
@@ -67,13 +67,13 @@
     },
     "excluded": 17,
     "grades": 1180,
-    "measurements": 14822,
-    "numericMeasurements": 14629,
-    "quarantined": 36,
-    "profiles": 1835,
+    "measurements": 14974,
+    "numericMeasurements": 14774,
+    "quarantined": 43,
+    "profiles": 1836,
     "evidence": 868,
     "prices": 365,
-    "sources": 2016,
+    "sources": 2017,
     "coverage": 953,
     "knowHow": 7601,
     "polymerEnvironment": 353,
@@ -134,13 +134,13 @@
       "baseline": 1163,
       "current": 1180,
       "added": 17,
-      "edited_existing": 148,
+      "edited_existing": 149,
       "removed": 0
     },
     "headline_definitions": {
       "baseline": 10,
-      "current": 17,
-      "added": 7,
+      "current": 19,
+      "added": 9,
       "edited_existing": 10,
       "removed": 0
     },
@@ -181,9 +181,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 15424,
-      "added": 3888,
-      "edited_existing": 2956,
+      "current": 15576,
+      "added": 4040,
+      "edited_existing": 2968,
       "removed": 0
     },
     "method": {
@@ -202,9 +202,16 @@
     },
     "physical_relations": {
       "baseline": 0,
-      "current": 11,
-      "added": 11,
+      "current": 12,
+      "added": 12,
       "edited_existing": 0,
+      "removed": 0
+    },
+    "plausibility_windows": {
+      "baseline": 128,
+      "current": 128,
+      "added": 0,
+      "edited_existing": 1,
       "removed": 0
     },
     "prices": {
@@ -237,29 +244,29 @@
     },
     "profile_notes": {
       "baseline": 2061,
-      "current": 2500,
-      "added": 439,
+      "current": 2503,
+      "added": 442,
       "edited_existing": 0,
       "removed": 0
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1915,
-      "added": 599,
+      "current": 1916,
+      "added": 600,
       "edited_existing": 996,
       "removed": 0
     },
     "properties": {
       "baseline": 44,
-      "current": 51,
-      "added": 7,
+      "current": 52,
+      "added": 8,
       "edited_existing": 3,
       "removed": 0
     },
     "sources": {
       "baseline": 1828,
-      "current": 2016,
-      "added": 188,
+      "current": 2017,
+      "added": 189,
       "edited_existing": 530,
       "removed": 0
     }
