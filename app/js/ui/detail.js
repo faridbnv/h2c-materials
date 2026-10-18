@@ -25,7 +25,7 @@ import { toHash } from '../engine/scenario.js';
 import {
   stated, isProduct, productName, productNameOrId, sourceName, originalOf, groupBy, groupByMaker, leadMaker, materialContext, productDocuments,
   identity, emptyReasons, gapSplit, largestFirst, measuredIn, measurementFacts, sourceBlockFacts,
-  resolvePointers, readerNote, readerText, familyGuidanceFacts, soldToughened, toughenedClaim, dotMarks, notDrawnWhy, comparisonsOf, printFacts, printCounts, guideFacts,
+  resolvePointers, readerNote, readerText, readerGap, GAP_DOMAIN_WORDS, publisherName, familyGuidanceFacts, soldToughened, toughenedClaim, dotMarks, notDrawnWhy, comparisonsOf, printFacts, printCounts, guideFacts,
   routingSaysMore, makersSayFacts, knowHowGapFacts, envGroups, hasEstimates, productEstimates, priceRows,
 } from './material-facts.js';
 import {
@@ -700,7 +700,7 @@ function makersSayCounts(m, c) {
   const silent = makersSilentWords(f.states);
   const recipe = makersRecipeWords(f.recipe);
   return `<h3 class="sec">What makers say</h3>
-    <p class="fine"><b>${f.collected} of ${plural(f.total, 'product')}</b> have statements from their makers, quoted under each product.${silent.length ? ` ${cap(silent.join('; '))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}</p>
+    <p class="fine"><b>${f.total === 1 && f.collected === 1 ? 'Its one product' : `${f.collected} of ${plural(f.total, 'product')}`}</b> ${f.collected === 1 ? 'has statements from its maker' : 'have statements from their makers'}, quoted under each product.${silent.length ? ` ${cap(silent.join('; '))}.` : ''} ${sitesLine(f.sitesSearched, f.total)}</p>
     <ul class="print-counts">${f.topics.map((t) => `<li><b>${esc(t.topic)}</b>: ${t.makers} of ${plural(f.makers, 'maker')}${t.stated ? ` (${plural(t.products, 'product')})` : ''}</li>`).join('')}</ul>
     ${recipe.length ? `<p class="fine">Not stated by their documents: ${esc(andList(recipe))}.</p>` : ''}`;
 }
@@ -990,8 +990,8 @@ function spreadTable(m, c) {
       <td class="num">${s.n} of ${s.products}</td>
       <td>${leftOutWords(h, s).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
-  <p class="fine">Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.</p>
-  ${rows.filter(([, s]) => s.claimed).map(([h, s]) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))} ${TOUGHENED_NOTE_SHORT}</p>`).join('')}`;
+  <p class="fine">Median and range of the products that state the test's orientation or load; the range is between products, not a product's test scatter.</p>
+  ${rows.filter(([, s]) => s.claimed).map(([h, s], i) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))}${i ? '' : ` ${TOUGHENED_NOTE_SHORT}`}</p>`).join('')}`;
 }
 
 /**
@@ -1367,7 +1367,7 @@ function tabBody(tab, c) {
   if (tab === 'Evidence') {
     const docs = [...c.documents];
     const leadingMaker = leadMaker(m, c);
-    const publisher = ([sid]) => c.sourceById.get(sid)?.publisher ?? 'Publisher not named';
+    const publisher = ([sid]) => publisherName(c.sourceById.get(sid)?.publisher ?? 'Publisher not named');
     const blocks = docs.length
       ? searchBox('a document or publisher') + groupBy(docs, publisher, leadingMaker).map(([maker, group]) => makerBlock(maker, group.length, 'document',
         group.map(([sid, d]) => `<div data-search-item="${esc([sourceName(c.sourceById.get(sid), sid), maker, sid].join(' '))}">${sourceBlock(sid, d, c)}</div>`).join(''),
@@ -1375,9 +1375,13 @@ function tabBody(tab, c) {
       : `<div class="gap">${esc(EMPTY_LINES.Evidence)}</div>`;
     // Known gaps: what is missing, uncertain or contested, in the reviewer's words. A row that says only that evidence
     // exists is what the other tabs already show, so it is left out; a reviewer's note on a settled domain is kept, collapsed.
-    const { gaps, notes } = gapSplit(cov);
+    // Since 2026-10-18 by the pages' rule (material-facts.js readerGap): a gap whose words are a review step's ("Reviewed
+    // 2026-09-21 (ruling R166, m122-batch-b31)") joins the review notes, and each is named in a reader's words.
+    const split = gapSplit(cov);
+    const gaps = split.gaps.filter(readerGap);
+    const notes = [...split.gaps.filter((r) => !readerGap(r)), ...split.notes];
     const gapRow = (r) => `<div class="evidence-row cov-row">
-        <div><strong>${esc(r.domain === 'Sparse properties' ? 'Rarely published properties' : r.domain)}</strong> ${chip(statusToState(r.status), r.status)}${r.derived ? '' : ids(['Coverage record', r.id])}</div>
+        <div><strong>${esc(r.domain === 'Sparse properties' ? 'Rarely published properties' : GAP_DOMAIN_WORDS[r.domain] ?? r.domain)}</strong> ${chip(statusToState(r.status), r.status)}${r.derived ? '' : ids(['Coverage record', r.id])}</div>
         <div>${longText(r.finding)}</div></div>`;
     return `${blocks}
       <h3 class="sec" id="known-gaps" tabindex="-1">Known gaps</h3>

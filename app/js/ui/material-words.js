@@ -237,7 +237,7 @@ export const TOUGHENED_NOTE_SHORT = '"Sold as toughened" is the maker\'s stateme
 /** A product's spread line in the Products tab's table (materials[].summary): what is left out of the range, by why. */
 export function leftOutWords(h, s) {
   const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}–${fmtNumber(x.max)}`);
-  return [s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : '',
+  return [s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${s.variants.n} with an added filler or additive (${span(s.variants)})` : '',
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : ''].filter(Boolean);
 }
 

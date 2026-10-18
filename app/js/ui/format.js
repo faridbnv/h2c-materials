@@ -264,7 +264,7 @@ export function relatedNote(entry) {
   const dir = b.direction && b.direction !== 'not-applicable' && b.direction !== 'unknown' ? b.direction : null;
   const more = r.count - 1;
   const shown = fmtBounded(b.value, null, b.interval);
-  return `No product publishes this on a comparable basis. Nearest value on file: ${shown} ${b.unit}`
+  return `No product publishes a comparable value (a stated orientation, test load and endpoint). Nearest value on file: ${shown} ${b.unit}`
     // A property with no direction (a glass transition, a density) is never said to lack one.
     + ` (${b.property}${dir ? `, ${dir}` : b.direction === 'not-applicable' ? '' : ', orientation not stated'}).`
     + ` Not compared: ${b.why}.`
@@ -410,11 +410,11 @@ export function spreadNote(entry) {
   const s = entry.spread;
   const apart = [
     s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
-    s.variants ? `${s.variants.n} special formulation${s.variants.n === 1 ? '' : 's'}, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
+    s.variants ? `${s.variants.n} with an added filler or additive, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
     // Products their makers sell as toughened, where the headline sets them apart (D133).
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened or impact-modified by ${s.claimed.n === 1 ? 'its maker' : 'their makers'} (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`})` : null,
   ].filter(Boolean);
-  return `Median of ${s.n} products that report it on a comparable basis. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+  return `Median of ${s.n} products that state the test's orientation or load. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, interquartile ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
     + `${s.twins ? ` ${s.twins === 1 ? 'One of them shares' : `${s.twins} of them share`} a data sheet with another product and ${s.twins === 1 ? 'counts as a product' : 'count as products'} of ${s.twins === 1 ? 'its' : 'their'} own.` : ''}`

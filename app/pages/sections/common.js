@@ -4,7 +4,7 @@
 // layer's (findings.js `num` marks it), every word findings.js's, material-words.js's or labels.js's.
 
 import { esc, tableBox } from '../html.js';
-import { GAP_STATUS, productNameOrId, stated, readerText, MAINTAINER_WORDS } from '../../js/ui/material-facts.js';
+import { GAP_STATUS, productNameOrId, stated, readerText, readerGap, GAP_DOMAIN_WORDS } from '../../js/ui/material-facts.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import * as FIGURES from '../figures.js';
@@ -103,19 +103,12 @@ const SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
  * or a note on the records, and not one another section says. The one rule: Sources shows these, and the Products page's
  * placement (records/placement.js) excuses every other row.
  */
-export const shownGap = (r) => GAP_STATUS.has(r.status) && r.domain !== 'Mandatory review' && !SAID_ELSEWHERE.has(r.domain)
-  && readerText(r.finding) && !MAINTAINER_WORDS.test(String(r.finding ?? ''));
+export const shownGap = (r) => readerGap(r) && !SAID_ELSEWHERE.has(r.domain);
 
-/** A coverage row's subject in a reader's words. */
-const DOMAIN_WORDS = {
-  'Canadian price': 'Price', 'Moisture / environmental': 'Moisture and chemicals', 'Print setup': 'Printing', 'Source conflict': 'Sources that disagree',
-  'Post-processing / application': 'Post-processing', 'H2C status': 'Bambu Lab status', Comparability: 'Comparing values', 'Measurement parsing': 'Reading the values',
-  'Sparse properties': 'Not published by any product',
-};
 /** A known gap as a list item: its subject, then the reviewer's finding in their words, the record's ID on it. */
 export function gapItem(r) {
   const text = r.domain === 'Sparse properties' ? String(r.finding ?? '').replace(/^Not published by its own products:\s*/i, '') : String(r.finding ?? '');
-  return `<li class="gap" data-rec="${esc(r.id)}"><b>${esc(DOMAIN_WORDS[r.domain] ?? r.domain ?? '')}:</b> ${esc(text)}</li>`;
+  return `<li class="gap" data-rec="${esc(r.id)}"><b>${esc(GAP_DOMAIN_WORDS[r.domain] ?? r.domain ?? '')}:</b> ${esc(text)}</li>`;
 }
 
 // ------------------------------------------------------------------ thin data: what each sheet publishes
