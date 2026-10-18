@@ -9,7 +9,7 @@
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '../engine/indices.js';
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
-import { buildFamilyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
+import { familyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
 import { AXIS_DEFS } from './axes.js';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH, H2C_CHECK } from './labels.js';
 import { printCheck, printGatesMissing } from './templates.js';
@@ -546,8 +546,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const p = scenario.plot;
   const tested = scenario.constraints.length > 0;
   const xD = axisDef(p.x), yD = axisDef(p.y);
-  const asked = scenario.constraints.find((c) => c.kind === 'facet' && c.facet === 'family')?.in ?? [];
-  const colors = buildFamilyColors(db.materials, [...asked, ...(p.promotedFamilies ?? [])]);
+  const colors = familyColors(state);
   const colourGroup = (family) => (colors.isOther(family) ? 'Other families' : family);
   const traces = [];
   const labelPlan = { pins: [], points: [], envelopes: [], fixed: [] };

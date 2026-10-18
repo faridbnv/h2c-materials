@@ -1173,12 +1173,22 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 
 /* ---------------------------------------------------------------- parallel coordinates (svg) */
 .pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
-.pc-svg { display: block; overflow: visible; }
+.pc-svg { display: block; overflow: visible; --pc-base: .75; }
+.pc-svg.crowded { --pc-base: .45; }
 .pc-line-axis { stroke: var(--border-strong); stroke-width: 1; }
 .pc-lbl { fill: var(--ink); font-size: 12.5px; font-weight: 650; }
 .pc-lbl-unit { fill: var(--ink-3-text); font-size: 11px; }
 .pc-tick { fill: var(--ink-3-text); font-size: 11px; font-variant-numeric: tabular-nums; }
-.pc-poly { fill: none; stroke-width: 1.75; transition: stroke-width .1s, opacity .1s; pointer-events: none; }
+/* A line's weight is three things multiplied: how many lines there are, its result, and whether anything is shortlisted
+   (C40, C44). A line that failed is faded, as the Ashby chart fades a mark that did not pass; one that could not be
+   checked is dashed. Once anything drawn is shortlisted, those lines are at full weight and the rest lighter. */
+.pc-line { --pc-verdict: 1; --pc-focus: 1; }
+.pc-line.v-fail { --pc-verdict: .45; }
+.pc-svg.has-short .pc-line { --pc-focus: .5; }
+.pc-svg.has-short .pc-line.short { --pc-base: 1; --pc-focus: .95; }
+.pc-poly { fill: none; stroke-width: 1.75; opacity: calc(var(--pc-base, .75) * var(--pc-verdict, 1) * var(--pc-focus, 1)); transition: stroke-width .1s, opacity .1s; pointer-events: none; }
+.pc-line.short .pc-poly { stroke-width: 2.5; }
+.pc-line.v-unknown .pc-poly, .pc-raised.v-unknown { stroke-dasharray: 7 5; }
 /* Each line's pointer target: transparent and 14 px wide, so a finger can hit a line drawn under 2 px wide. */
 .pc-hit { fill: none; stroke: transparent; stroke-width: 14; cursor: pointer; }
 .pc-bg { fill: transparent; }
@@ -1187,6 +1197,19 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 /* The line being read, drawn again above every other line. */
 .pc-raised { stroke-width: 3.5; opacity: 1; }
 .pc-line:focus-visible .pc-poly { stroke-width: 4; }
+/* A small set is named at its right end, in the ink the page's labels use; the one read is set heavier. */
+.pc-tag { fill: var(--ink-2); font-size: 11px; cursor: pointer; }
+.pc-leader { fill: none; stroke-width: 1; opacity: .6; pointer-events: none; }
+.pc-line.v-fail .pc-tag, .pc-svg.has-short .pc-line:not(.short) .pc-tag { opacity: .75; }
+.pc-line.hot .pc-tag, .pc-line.selected .pc-tag { fill: var(--ink); font-weight: 650; opacity: 1; }
+/* A requirement across its axis, as Compare draws one across a track: the failing colour, dashed where it is only reported
+   (C41). One past the end of the axis is at that end, thicker, with a chevron; no tint, so the lines stay the picture. */
+.pc-reqs { pointer-events: none; }
+.pc-req-line { stroke: var(--fail); stroke-width: 2; }
+.pc-req.tracked .pc-req-line { stroke-dasharray: 3 2.5; opacity: .75; }
+.pc-req.beyond .pc-req-line { stroke-width: 3.5; }
+.pc-req-chev { fill: none; stroke: var(--fail); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pc-req-text { fill: var(--fail); font-size: 10.5px; font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 /* What the line under the pointer, or the one tapped or focused, reads, above the chart, with its one next step. */
 .pc-readout {
   display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; min-height: 44px; margin: 0 0 8px; padding: 6px 10px;
@@ -1199,6 +1222,12 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 .pc-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 14px 0 6px; font-size: var(--t-small); color: var(--ink-2); }
 .pc-key { display: inline-flex; align-items: center; gap: 7px; }
 .pc-key i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.pc-key-mark { flex: none; }
+.pc-key-line { stroke: var(--ink-2); stroke-width: 1.75; }
+.pc-key-line.v-unknown { stroke-dasharray: 5 3.5; }
+.pc-key-line.v-fail { opacity: .35; }
+.pc-key-req { stroke: var(--fail); stroke-width: 2; }
+.pc-key-req.tracked { stroke-dasharray: 3 2.5; }
 
 /* ---------------------------------------------------------------- active requirements header */
 .active { margin: 0 0 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }

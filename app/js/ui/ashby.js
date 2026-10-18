@@ -24,7 +24,7 @@ import { rankingFor } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { WORKSPACE_VIEWS } from '../engine/scenario.js';
 import { COST_AXIS, goalAxes } from '../engine/workspace.js';
-import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange, boundLine, publishedBound, wireEvidence } from './format.js';
+import { familyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange, boundLine, publishedBound, wireEvidence } from './format.js';
 import { download } from './table.js';
 import { AXIS_DEFS, measurementMatches, pairCompatibility } from './axes.js';
 import { prop } from './labels.js';
@@ -486,8 +486,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   const { scenario, reference, db } = state;
   const p = scenario.plot;
   // The families a reader asked for take the first colours, so a family filtered for is never the grey "other".
-  const asked = scenario.constraints.find((c) => c.kind === 'facet' && c.facet === 'family')?.in ?? [];
-  const colors = buildFamilyColors(db.materials, [...asked, ...(p.promotedFamilies ?? [])]);
+  const colors = familyColors(state);
 
   // One trace per family+filler pair keeps colour and shape independent. The legend lists colours only, one entry per
   // family colour (the families past the palette share Other's), and a press on an entry hides every trace of that
