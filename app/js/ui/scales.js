@@ -6,12 +6,15 @@
 // largest is more than ten times the smallest, with ticks at 1, 2 and 5 of each decade; below that it is linear from
 // zero, ticked every round step. A temperature is an interval, not a ratio: its scale is linear from the round step at or
 // below the lowest value (a glass transition may be below zero) and never logarithmic. Dots closer than DOT_GAP per cent
-// of the track stack upward, up to MAX_ROWS rows; past that they overlap, and the table under the rows lists every
-// product. Positions are per cent of the track, so a renderer draws them at any width.
+// of the track stack upward, as many rows as they need; where the rows would pass TRACK_MAX px, the drawer draws them
+// closer (stackPitch), so a column's height stays in proportion to how many products it holds. Positions are per cent of
+// the track, so a renderer draws them at any width.
 
 export const LOG_RATIO = 10;
-export const DOT_GAP = 2.4;
-export const MAX_ROWS = 6;
+export const DOT_GAP = 2;
+/** The drawer's stacked rows (px): a 7 px dot's pitch, and the height a row of dots may take before its pitch tightens. */
+export const DOT_PITCH = 7.5;
+export const TRACK_MAX = 76;
 export const NICE = [1, 2, 5];
 /** A temperature scale spans at least this much about its values, so two products a degree apart are not drawn at the ends. */
 export const MIN_SPAN_C = 10;
@@ -68,19 +71,25 @@ export function stripScale(values, unit) {
 /**
  * Stack a row's dots so none is drawn on another: each entry `{ v: { value } }` gains `x` (its place, per cent) and
  * `row` (0 at the bottom), in order of value. Returns how many rows the dots take, at least one. It sets `x` and `row` on
- * the entries it is given.
+ * the entries it is given. There is no cap: a cap drew 76 products at one setting as tall as 6, so a column's height
+ * stopped counting them; stackPitch keeps the track's height instead.
  */
 export function stack(entries, pct) {
   const rows = [];
   for (const e of [...entries].sort((a, b) => a.v.value - b.v.value)) {
     e.x = pct(e.v.value);
     let row = rows.findIndex((last) => e.x - last >= DOT_GAP);
-    if (row < 0) row = rows.length < MAX_ROWS ? rows.length : rows.indexOf(Math.min(...rows));
+    if (row < 0) row = rows.length;
     rows[row] = e.x;
     e.row = row;
   }
   return Math.max(1, rows.length);
 }
+
+/** The pitch (px) of `rows` stacked rows: DOT_PITCH, closer where they would pass TRACK_MAX, so every column keeps its share. */
+export const stackPitch = (rows) => Math.min(DOT_PITCH, (TRACK_MAX - 8) / Math.max(1, rows));
+/** How many dots of one value show apart at DOT_PITCH; a taller column of one value carries its count. */
+export const COLUMN_SHOWN = Math.floor((TRACK_MAX - 8) / DOT_PITCH);
 
 /**
  * Whether the H2C's limit on a print setting is drawn on the setting's scale: where it is near the products' values

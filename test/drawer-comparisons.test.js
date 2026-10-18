@@ -254,22 +254,27 @@ test('the counted line adds up to the lists under it', () => {
     const props = propsOf(h);
     const listed = (ctx.measurementsByMaterial.get(h.m.id) ?? []).filter((x) => props.has(x.property) && h.inTab.has(x.property) && !(!x.numeric && !x.qualitative && /^not published$/i.test(String(x.dataStatus ?? '').trim())));
     assert.equal(n, listed.length, `${label(h)}: every record of its tests is listed`);
-    const line = h.prefix.match(/<p class="fine imp-(?:tally|none)">([\s\S]*?)<\/p>/);
-    assert.ok(line, `${label(h)}: a counted line`);
-    const body = text(line[1]);
+    // Under a graph, one closed line ("814 results: 460 drawn above, 354 not drawn") whose reasons open beneath it, or one
+    // plain line where every record is drawn; without a graph, a sentence saying why ("No graph: …").
+    const closed = h.prefix.match(/<details class="imp-tally"><summary>([^<]*)<\/summary><p class="fine">([\s\S]*?)<\/p><\/details>/);
+    const plain = h.prefix.match(/<p class="fine imp-(tally|none)">([\s\S]*?)<\/p>/);
+    assert.ok(closed || plain, `${label(h)}: a counted line`);
+    const body = text(closed ? closed[2] : plain[2]);
     // The parts after the colon each begin with the number of records they count.
-    const after = (body.match(/(?:the other \d+|the other results?|results? below|below|other \d+): (.*)$/)?.[1] ?? '').trim();
+    const after = (body.match(/(?:the other \d+|the other results?|results? below|below|other \d+|^Not drawn): (.*)$/)?.[1] ?? '').trim();
     const sum = [...after.matchAll(/(?:^|, | and )(\d+) /g)].reduce((a, x) => a + +x[1], 0);
-    if (/^Of the (\d+) results below/.test(body)) {
-      const said = +body.match(/^Of the (\d+) results below/)[1];
-      const drawn = +body.match(/, (\d+) (?:is|are) drawn above/)[1], named = +(body.match(/ and (\d+) named above/)?.[1] ?? 0);
+    if (closed || plain[1] === 'tally') {
+      const head = text(closed ? closed[1] : plain[2]).replace(/\.$/, '');
+      const m = head.match(/^(\d+) results?: (\d+) drawn above(?:, (\d+) named above)?(?:, (\d+) not drawn)?$/);
+      assert.ok(m, `${label(h)}: the counted line reads "N results: D drawn above, R not drawn", got "${head}"`);
+      const [said, drawn, named, rest] = [+m[1], +m[2], +(m[3] ?? 0), +(m[4] ?? 0)];
       assert.equal(said, n, `${label(h)}: the line counts every record listed`);
       // A twin's dot is its sibling's record, so the records drawn are the distinct ones.
       assert.equal(drawn, new Set([...h.dots.values()].flat().map((d) => d.mid)).size, `${label(h)}: the drawn count is the records the dots stand for`);
       assert.equal(named, new Set(h.named).size, `${label(h)}: the named count is the lone values' records`);
-      assert.equal(drawn + named + sum, n, `${label(h)}: "${body}"`);
-      const rest = body.match(/the other (\d+):/)?.[1];
-      if (rest) assert.equal(+rest, sum, `${label(h)}: "the other ${rest}" is the sum of its parts`);
+      assert.equal(drawn + named + rest, n, `${label(h)}: "${head}"`);
+      assert.equal(!!closed, rest > 0, `${label(h)}: the reasons fold under the line exactly when some record is not drawn`);
+      assert.equal(sum, rest, `${label(h)}: "${rest} not drawn" is the sum of its reasons, "${body}"`);
     } else if (/^No graph: no product has a value to draw\./.test(body)) {
       assert.equal(h.named.length, 0, `${label(h)}: nothing named`);
       assert.equal(+(body.match(/The (\d+) results below/)?.[1] ?? 1), n, `${label(h)}: the line counts every record listed`);
@@ -290,17 +295,20 @@ test('the counted line adds up to the lists under it', () => {
 test('"both" and the share are the products\' own values', () => {
   const seen = { single: 0, multi: 0, none: 0, share: 0, shareOne: 0 };
   for (const h of headings().filter((x) => x.cmp.pairLabel)) {
+    // A pair of orientations is said by what the products publish (material-words.js pairLabelOf); another pair by its label.
+    const dirs = [...new Set(h.hs.map((x) => x.direction).filter(Boolean))];
+    const pairLabel = dirs.length === 2 ? `Both ${dirs.join(' and ')} published` : h.cmp.pairLabel;
     const graphs = graphsOf(h).filter((g) => g.drawn);
     const pairs = graphs.filter((g) => g.rows.length === 2);
     const bothOf = (g) => h.entries.get(g.rows[0].key).filter((e) => h.entries.get(g.rows[1].key).some((y) => y.g.id === e.g.id)).length;
     const lineWith = (re) => [...h.section.matchAll(/<p class="fine imp-foot">([\s\S]*?)<\/p>/g)].map((p) => text(p[1])).find((t) => re.test(t));
-    const said = lineWith(new RegExp(`^(${reEscape(h.cmp.pairLabel)}: |No product publishes ${reEscape(lower(h.cmp.pairLabel))})`));
+    const said = lineWith(new RegExp(`^(${reEscape(pairLabel)}: |No product publishes ${reEscape(lower(pairLabel.replace(/ published$/, '')))})`));
     if (!pairs.length) assert.equal(said, undefined, `${label(h)}: no pair line without a pair of rows`);
     else if (pairs.length === 1 && graphs.length === 1) {
       const n = bothOf(pairs[0]);
       assert.ok(said, `${label(h)}: a pair line`);
       if (n) {
-        assert.match(said, new RegExp(`^${reEscape(h.cmp.pairLabel)}: ${n} products? \\(`), `${label(h)}: ${n} products publish both; "${said}"`);
+        assert.match(said, new RegExp(`^${reEscape(pairLabel)}: ${n} products? \\(`), `${label(h)}: ${n} products publish both; "${said}"`);
         assert.equal(/ and others\)/.test(said), n > 6, `${label(h)}: "and others" only past six`);
         seen.single++;
       } else { assert.match(said, /^No product publishes /, `${label(h)}: none publishes both; "${said}"`); seen.none++; }
@@ -339,7 +347,7 @@ test('"both" and the share are the products\' own values', () => {
     const none = pairs.filter((g) => !shares.some((x) => x.g === g) && g.rows[0].direction !== g.rows[1].direction
       && h.entries.get(g.rows[0].key).some((e) => h.entries.get(g.rows[1].key).some((y) => y.g.id === e.g.id))).map(name);
     const andList = `${join(items)}${none.length ? `. None for ${join(none)}` : ''}`;
-    assert.ok(shareLine.startsWith(`${shares[0].g.rows[1].direction} as a share of ${shares[0].g.rows[0].direction}, `), `${label(h)}: names the two orientations; "${shareLine}"`);
+    assert.ok(shareLine.startsWith(`Kept across the layers, ${shares[0].g.rows[1].direction} as a share of ${shares[0].g.rows[0].direction} (median of the products with both from one document): `), `${label(h)}: names the two orientations; "${shareLine}"`);
     assert.ok(shareLine.endsWith(`: ${andList}.`), `${label(h)}: the printed share is the products' own; expected "${andList}", got "${shareLine}"`);
     seen.share += shares.length;
     seen.shareOne += shares.filter((s) => s.list.length === 1).length;
@@ -362,4 +370,16 @@ test('an elastomer keeps its glass transition: no heat deflection heading, a blo
   const plastic = headings().find((h) => h.cmp.name === name);
   assert.ok(plastic, 'a material draws the comparison');
   assert.ok(!render(plastic.m.id, 'Thermal').replace(plastic.heading, '').includes('maker-name">Glass transition temperature<'),`${plastic.m.id}: the glass transition block is not repeated outside the comparison`);
+});
+
+test('a graph table prints the pages\' precision, and never rounds a number across a requirement on its property', async () => {
+  const { graphNumber, graphSpan } = await import('../app/js/ui/material-words.js');
+  assert.equal(graphNumber(78.9, '°C'), '79', 'whole degrees, as the material pages print them');
+  assert.equal(graphNumber(12.3, '%'), '12');
+  assert.equal(graphNumber(2.534, 'GPa'), '2.53', 'three significant figures');
+  assert.equal(graphSpan(4.123, 12.3, '%'), `4.12${WJ}–${WJ}12`);
+  // HDT at least 79 °C: 78.9 must not read 79, and stays on its own side of the requirement.
+  assert.equal(graphNumber(78.9, '°C', [{ operator: '>=', value: 79 }]), '78.9');
+  assert.equal(graphNumber(50.99, 'CAD/kg', [{ operator: '<', value: 51 }]), '50.99');
+  assert.equal(graphNumber(78.9, '°C', [{ operator: '>=', value: 70 }]), '79', 'a requirement far from it changes nothing');
 });

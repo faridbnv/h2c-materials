@@ -14,11 +14,12 @@ import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, 
 import { fmtDisplayUnit, spanDisplayUnit } from './display-numbers.js';
 import { onTheH2cRows } from './print-brief.js';
 import { KEY_FIGURES } from './material-highlights.js';
+import { GRAPH_KEY, rowCountWords, graphNumber, graphSpan, graphRange, pairLabelOf, tallyWords } from './material-words.js';
 import { renderWhy } from './explain.js';
 import { describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS, H2C_STATUS, h2cStatusLabel, h2cLimit,
   propertyName, STATUS_WORDS, sourceKind, whyWords } from './labels.js';
 import { REGISTRY } from './registry.js';
-import { stripScale, stack } from './scales.js';
+import { stripScale, stack, stackPitch, DOT_PITCH, COLUMN_SHOWN } from './scales.js';
 import { pageOf } from './page-rule.js';
 import { toHash } from '../engine/scenario.js';
 import {
@@ -30,8 +31,8 @@ import {
 import {
   plural, lower, cap, andList, inSentence, ledeWords, identityLine, onFileWords, NOTHING_ON_FILE, EMPTY_LINES, emptyReasonLine, familyScope,
   conditionLine, measuredValue, testGuessHead, namedOnlyWords, gaveWords, scheduleWords, changedState, LEVEL_NOTE, DRAWER_LEVEL_NOTE,
-  asPublishedWords, filledWords, outOfMedianWords, joinedSpan, apartWords, medianRule, noMedianWhy, toughenedSplit, toughenedClaimWords,
-  TOUGHENED_NOTE, TOUGHENED_NOTE_SHORT, leftOutWords, silentRowsWords, pairWords, shareWords, alsoForWords, rangeWords, settingWords, printAxisUnit,
+  asPublishedWords, outOfMedianWords, apartWords, noMedianWhy, toughenedSplit, toughenedClaimWords,
+  TOUGHENED_NOTE, TOUGHENED_NOTE_SHORT, leftOutWords, silentRowsWords, pairWords, shareWords, alsoForWords, rangeWords, settingWords, printSettingHead,
   printApartWords, printLines, printSingles, printMissing, printOriginsWords, printCountWords, hardenedFactWords, dryingFactWords, amsSummary,
   guideEnclosureWords, guideHardenedWords, annealWords, knowHowGap, sitesLine, makersSilentWords, makersRecipeWords, verdictWords,
   envConditionWords, noPriceWords, quarantineWords, foreignPriceWords, UNUSED_WORDS,
@@ -745,53 +746,70 @@ function toughenedMark(g, c) {
 
 // The dots of one row, on a scale shared by the rows of its graph (scales.js), with faint grid lines at its ticks.
 const gridLines = (scale) => scale.ticks.map((v) => `<span class="imp-grid" style="left:${scale.pct(v)}%"></span>`).join('');
-/** A dot's shape: hollow with no stated orientation or load, square annealed, a diamond a special formulation, coloured sold as toughened. */
+/** A dot's shape: hollow where shown and not ranked (no stated orientation or load, or the guide's), square annealed, a diamond an added filler or additive, coloured sold as toughened. */
 const dotClass = (h, e, c) => dotMarks(h, e, c).join(' ');
+/** Per cent of the track between two columns' counts: closer, the smaller column keeps its height alone. */
+const COUNT_GAP = 5;
+/** The numbers a graph's table prints for headline `key`: the requirements on it, which no rounding may cross. */
+const thresholdsOf = (c, key) => (c.scenario?.constraints ?? []).filter((r) => r.property === key && Number.isFinite(r.value) && r.operator);
 
 /**
- * One headline's row of dots: a product each, the middle half of the comparable ones shaded and their median marked. A
- * dot opens its record (`data-row`), or the target its value carries; `limit` is a line drawn across the track (the
- * H2C's limit on a print setting).
+ * One headline's row of dots: a product each, the middle half of the ranked ones shaded and their median marked. A dot
+ * opens its record (`data-row`), or the target its value carries; `limit` is drawn across the track (the H2C's limit on a
+ * print setting, and the range beyond it). The rows a stack needs are drawn closer past the track's height (stackPitch),
+ * so a column's height counts its products, and a column of one value taller than its dots can show apart says how many
+ * it holds. `word` names the products in the median: ranked (a comparison) or counted (a print setting).
  */
-function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '' } = {}) {
+function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '', word = 'ranked' } = {}) {
   const rows = stack(entries, scale.pct);
+  const pitch = stackPitch(rows);
   const band = s?.q1 != null ? `<span class="imp-band" style="left:${scale.pct(s.q1)}%;width:${Math.max(scale.pct(s.q3) - scale.pct(s.q1), 0.5)}%"></span>` : '';
-  const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of ${s.n} products on a comparable basis: ${fmtNumber(s.median, h.unit)}`)}"></span>` : '';
+  const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of the ${s.n} ${word}: ${graphNumber(s.median, h.unit, thresholdsOf(c, h.key))} ${h.unit}`)}"></span>` : '';
   const dots = entries.map((e) => {
     const x = c.msById.get(e.v.measurementId);
     const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
     const kind = [e.v.level === 'as-published' ? asPublishedWords(h) : null, ...changedState(x, e.v),
-      e.variant ? 'special formulation, left out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
+      e.variant ? `added filler or additive, not ${word}` : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
     const cls = dotClass(h, e, c);
     return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" ${e.v.target ?? `data-row="${esc(e.v.measurementId)}"`} data-grade="${esc(e.g.id)}"
-      style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
+      style="left:${e.x}%;bottom:${Number((3 + e.row * pitch).toFixed(1))}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
   }).join('');
-  return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
-    <span class="imp-track" style="height:${8 + rows * 9}px">${gridLines(scale)}${limit}${band}${median}${dots}</span></div>`;
+  // A column of one value with more dots than show apart at full pitch carries its count, over its top dot: the tallest
+  // first, and a neighbour whose count would touch it keeps its height alone (print settings sit 5 °C apart).
+  const columns = new Map();
+  for (const e of entries) { const col = columns.get(e.v.value) ?? { v: e.v.value, n: 0, x: e.x, top: 0 }; col.n++; col.top = Math.max(col.top, e.row); columns.set(e.v.value, col); }
+  const placed = [];
+  const tall = [...columns.values()].filter((col) => col.n > COLUMN_SHOWN).sort((a, b) => b.n - a.n)
+    .filter((col) => { if (placed.some((x) => Math.abs(x - col.x) < COUNT_GAP)) return false; placed.push(col.x); return true; }).map((col) => [col.v, col]);
+  const counts = tall.map(([v, col]) => `<span class="imp-count" aria-hidden="true" style="left:${col.x}%;bottom:${Number((4 + (col.top + 1) * pitch).toFixed(1))}px" title="${esc(`${plural(col.n, 'product')} at ${fmtNumber(v)} ${h.unit}`)}">${col.n}</span>`).join('');
+  const height = 8 + rows * pitch + (tall.length ? 14 : 0);
+  return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${esc(rowCountWords(s?.n ?? 0, entries.length, word))}</span></span>
+    <span class="imp-track" style="height:${Number(height.toFixed(1))}px">${gridLines(scale)}${limit}${band}${median}${dots}${counts}</span></div>`;
 }
 
 /**
  * What each row of dots holds, a test a line: how many products are compared, their median, middle half and range, and
  * the products drawn but left out of the median, by why. Where the rows are in more than one unit, each says its own.
  */
-function spreadSummary(hs, m) {
+function spreadSummary(hs, m, c) {
   const units = new Set(hs.map((h) => h.unit));
   const row = (h) => {
     const s = m.summary?.[h.key];
-    const apart = apartWords(h, s);
-    return `<tr><th scope="row">${esc(h.labels.plain)}${units.size > 1 ? ` <span class="u">${esc(h.unit)}</span>` : ''}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>
-      <td class="num">${s?.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s?.n ? esc(joinedSpan(s)) : '—'}</td></tr>
-      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : ''}`;
+    const th = thresholdsOf(c, h.key);
+    const apart = apartWords(h, s, th);
+    return `<tr><th scope="row">${esc(h.labels.plain)}${units.size > 1 ? ` <span class="u">${esc(h.unit)}</span>` : ''}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(graphNumber(s.median, h.unit, th)) : '—'}</td>
+      <td class="num">${s?.q1 != null ? esc(graphSpan(s.q1, s.q3, h.unit, th)) : '—'}</td><td class="num">${s?.n ? esc(graphRange(s, h.unit, th)) : '—'}</td></tr>
+      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Not ranked: ${esc(apart.join(', '))}.</td></tr>` : ''}`;
   };
   const claimed = hs.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s?.claimed);
   const toughened = `${claimed.some(([, s]) => !s.claimed.setApart) ? ` ${claimed.filter(([, s]) => !s.claimed.setApart).map(([h, s]) => `${h.labels.plain}: ${toughenedSplit(s, h.unit)}`).map(esc).join(' ')}` : ''}${
     claimed.length ? ` ${TOUGHENED_NOTE}` : ''}`;
   // Where no value drawn is compared, a table of dashes says nothing: one sentence says why there is no median.
   if (hs.every((h) => !m.summary?.[h.key]?.n)) return `<p class="fine imp-foot imp-no-median">No median: ${esc(noMedianWhy(hs, m))}.${toughened}</p>`;
-  return `${scrollTable(`<table class="grid imp-summary"><thead><tr><th>Test${units.size > 1 ? '' : `, <span class="u">${esc(hs[0].unit)}</span>`}</th><th class="num" title="Products compared">n</th><th class="num">Median</th>
+  return `${scrollTable(`<table class="grid imp-summary"><thead><tr><th>Test${units.size > 1 ? '' : `, <span class="u">${esc(hs[0].unit)}</span>`}</th><th class="num" title="Products ranked: in the median and middle half">Ranked</th><th class="num">Median</th>
       <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${hs.map(row).join('')}</tbody></table>`)}
-    <p class="fine imp-foot">${esc(medianRule(hs, m))} The median, middle half and range are of these alone.${toughened}</p>`;
+    ${toughened ? `<p class="fine imp-foot">${toughened.trim()}</p>` : ''}`;
 }
 
 /**
@@ -812,15 +830,15 @@ function drawerComparisons(m, c, tab) {
     let graph = '';
     if (drawnGraphs.length) {
       // A key only for the marks drawn, and the middle half and median only where a row has them.
+      // Above the first graph, in the pages' words (GRAPH_KEY); the middle half and median one item, as there.
       const k = f.key;
       const key = [
-        k.filled.length ? `<span><i class="imp-dot"></i> ${esc(filledWords(k.filled))}</span>` : '',
-        k.open.length ? `<span><i class="imp-dot open"></i> ${esc([...new Set(k.open.map(asPublishedWords))].join(' or '))}</span>` : '',
-        k.annealed ? '<span><i class="imp-dot annealed"></i> measured after annealing</span>' : '',
-        k.variant ? '<span><i class="imp-dot variant"></i> special formulation</span>' : '',
-        k.claimed ? '<span><i class="imp-dot claimed"></i> sold as toughened (the maker\'s statement)</span>' : '',
-        k.band ? '<span><i class="imp-band-key"></i> middle half</span>' : '',
-        k.median ? '<span><i class="imp-median-key"></i> median</span>' : '',
+        k.filled.length ? `<span><i class="imp-dot"></i> ${esc(GRAPH_KEY.filled)}</span>` : '',
+        k.open.length ? `<span><i class="imp-dot open"></i> ${esc(GRAPH_KEY.open)}</span>` : '',
+        k.annealed ? `<span><i class="imp-dot annealed"></i> ${esc(GRAPH_KEY.annealed)}</span>` : '',
+        k.variant ? `<span><i class="imp-dot variant"></i> ${esc(GRAPH_KEY.variant)}</span>` : '',
+        k.claimed ? `<span><i class="imp-dot claimed"></i> ${esc(GRAPH_KEY.claimed)}</span>` : '',
+        k.band ? `<span><i class="imp-band-key"></i> ${esc(GRAPH_KEY.band)}</span>` : k.median ? `<span><i class="imp-median-key"></i> ${esc(GRAPH_KEY.median)}</span>` : '',
       ].join('');
       const hint = `Select a dot to open its result below${shown.length > 1 ? `; hover to find the same product in the other row${shown.length > 2 ? 's' : ''}` : ''}.`;
       const strips = drawnGraphs.map((gr, i) => {
@@ -829,7 +847,6 @@ function drawerComparisons(m, c, tab) {
         return `<div class="imp-strips">
         ${gr.rows.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
         ${axis}${i < drawnGraphs.length - 1 ? '</div>' : `
-        <p class="imp-key fine">${key}</p>
         <p class="fine imp-hint">${hint}</p></div>`}`;
       }).join('');
       // A row whose headlines all go unread is said; its results are listed below where no other row reads them.
@@ -838,12 +855,12 @@ function drawerComparisons(m, c, tab) {
       const singleLine = singles.length ? `<p class="fine imp-foot">${singles.map((d) => `${esc(d.h.labels.plain)}: only one product has a value, ${esc(gradeLabel(d.e.g))}'s ${oneValue(d)}.`).join(' ')}</p>` : '';
       // The products that publish both of a pair, by name where there is one pair; and where the pair is one test on
       // bars printed two ways, the share one gives of the other, product by product.
-      const pairText = pairWords(cmp.pairLabel, f.pairs, f.pairs.map((p) => p.both.map(gradeLabel)), drawnGraphs.length === 1);
+      const pairText = pairWords(pairLabelOf(cmp, hs), f.pairs, f.pairs.map((p) => p.both.map(gradeLabel)), drawnGraphs.length === 1);
       const bothLine = pairText ? `<p class="fine imp-foot">${esc(pairText)}</p>` : '';
       const shareText = shareWords(f.shares, f.noShare);
       const shareLine = shareText ? `<p class="fine imp-foot">${esc(shareText)}</p>` : '';
-      graph = `${strips}
-        ${spreadSummary(shown, m)}${singleLine}${silentLine}${bothLine}${shareLine}`;
+      graph = `<p class="imp-key fine">${key}</p>${strips}
+        ${spreadSummary(shown, m, c)}${singleLine}${silentLine}${bothLine}${shareLine}`;
     }
     // The line a dot's record carries: its mark, where it sits, and what changed its bar. A twin's dot is its
     // sibling's record (D89), which then carries a line for each product it stands for.
@@ -873,8 +890,11 @@ function drawerComparisons(m, c, tab) {
     const lead = (records) => {
       const n = records.length;
       if (graph) {
+        // One closed line, the reasons for what is not drawn under it: every record still counted (K31).
         const t = tally(records);
-        return `<p class="fine imp-tally">Of the ${n} results below, ${t.drawnN} ${t.drawnN === 1 ? 'is' : 'are'} drawn above${t.namedN ? ` and ${t.namedN} named above` : ''}${t.parts.length ? `; the other ${t.rest}: ${esc(andList(t.parts))}` : ''}.</p>`;
+        const said = esc(tallyWords(n, t.drawnN, t.namedN, t.parts.length ? t.rest : 0));
+        return t.parts.length ? `<details class="imp-tally"><summary>${said}</summary><p class="fine">Not drawn: ${esc(andList(t.parts))}.</p></details>`
+          : `<p class="fine imp-tally">${said}.</p>`;
       }
       if (!singles.length) {
         const t = tally(records);
@@ -909,49 +929,52 @@ function printTemperatures(m, c) {
   const f = printFacts(m, c);
   if (!f.drawn.length) return '';
   const gradeLabel = productNameOrId;
-  const def = (r) => ({ key: r.key, labels: { plain: r.label }, unit: '°C', openWords: `from ${f.guideName}` });
+  const def = (r) => ({ key: r.key, labels: { plain: r.label }, unit: '°C', openWords: 'from the Bambu Lab Filament Guide' });
   const asDot = (e) => ({ g: e.g, variant: e.variant, v: { value: e.value, level: e.origin === 'guide' ? 'as-published' : 'comparable',
     from: e.origin === 'twin' ? { label: e.label } : null, target: e.profileId ? `data-profile="${esc(e.profileId)}"` : 'data-guide="1"' } });
   // The limit is drawn where it is near the products' values (scales.js limitOnScale); far above them, the axis says
   // where it is, so PLA's windows are not squeezed against a 350 °C line.
+  // Each setting a group headed by its name, its unit and the H2C's limit; the limit a line with the range beyond it washed,
+  // as the material pages draw it.
   const strips = f.drawn.map((d) => {
     const scale = stripScale(d.onScale ? [...d.values, d.limit] : d.values, '°C');
-    const line = d.onScale ? `<span class="imp-limit" style="left:${scale.pct(d.limit)}%" title="${esc(`The H2C's limit: ${d.limit} °C`)}"></span>` : '';
-    const rows = d.rows.map((r) => dotRow(def(r), r.entries.map(asDot), r.summary, scale, c, gradeLabel, { limit: line })).join('');
+    const line = d.onScale ? `<span class="imp-beyond" style="left:${scale.pct(d.limit)}%"></span><span class="imp-limit" style="left:${scale.pct(d.limit)}%" title="${esc(`The H2C reaches ${d.limit} °C`)}"></span>` : '';
+    const rows = d.rows.map((r) => dotRow(def(r), r.entries.map(asDot), r.summary, scale, c, gradeLabel, { limit: line, word: 'counted' })).join('');
     return `<div class="imp-strips">
+        <p class="imp-ghead"><b>${esc(d.label)}</b> · ${esc(printSettingHead(d.limit, d.onScale))}</p>
         ${rows}
-        <div class="imp-row imp-axis"><span class="fine">${esc(printAxisUnit(d.limit, d.onScale))}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div></div>`;
+        <div class="imp-row imp-axis"><span class="fine">°C</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div></div>`;
   }).join('');
   const k = f.marks;
   const key = [
-    k.own ? '<span><i class="imp-dot"></i> the product\'s data sheet, or one it shares</span>' : '',
-    k.guide ? `<span><i class="imp-dot open"></i> ${esc(`from ${f.guideName}`)}</span>` : '',
-    k.variant ? '<span><i class="imp-dot variant"></i> special formulation</span>' : '',
-    k.band ? '<span><i class="imp-band-key"></i> middle half</span>' : '',
-    k.median ? '<span><i class="imp-median-key"></i> median</span>' : '',
-    k.limit ? '<span><i class="imp-limit-key"></i> the H2C\'s limit</span>' : '',
+    k.own ? `<span><i class="imp-dot"></i> ${esc(GRAPH_KEY.own)}</span>` : '',
+    k.guide ? `<span><i class="imp-dot open"></i> ${esc(GRAPH_KEY.guide)}</span>` : '',
+    k.variant ? `<span><i class="imp-dot variant"></i> ${esc(GRAPH_KEY.printVariant)}</span>` : '',
+    k.band ? `<span><i class="imp-band-key"></i> ${esc(GRAPH_KEY.band)}</span>` : k.median ? `<span><i class="imp-median-key"></i> ${esc(GRAPH_KEY.median)}</span>` : '',
+    k.limit ? `<span><i class="imp-limit-key"></i> ${esc(GRAPH_KEY.limit)}</span>` : '',
   ].join('');
   // The table: a line per row, and under each the values drawn and not counted.
-  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted">n</th><th class="num">Median</th>
+  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted: their own data sheet, or one they share, gives the setting">Counted</th><th class="num">Median</th>
       <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${f.rows.map((r) => {
     const s = r.summary;
     const apart = printApartWords(s);
-    return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(fmtNumber(s.median)) : '—'}</td>
-      <td class="num">${s.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s.n ? esc(joinedSpan(s)) : '—'}</td></tr>
-      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not counted: ${esc(andList(apart))}.</td></tr>` : ''}`;
+    return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(graphNumber(s.median, '°C')) : '—'}</td>
+      <td class="num">${s.q1 != null ? esc(graphSpan(s.q1, s.q3, '°C')) : '—'}</td><td class="num">${s.n ? esc(graphRange(s, '°C')) : '—'}</td></tr>
+      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Not counted: ${esc(apart.join(', '))}.</td></tr>` : ''}`;
   }).join('')}</tbody></table>`);
   // What n counts, the window most products share, and the products outside the H2C's limits; then what is not drawn,
   // by setting and why, so the counts above square with the products below.
   const single = printSingles(f);
   const missing = printMissing(f);
-  const body = `<section class="imp-compare print-compare" data-comparison="Print temperatures across products">${strips}
-      <p class="imp-key fine">${key}</p>
+  const body = `<section class="imp-compare print-compare" data-comparison="Print temperatures across products">
+      <p class="imp-key fine">${key}</p>${strips}
       <p class="fine imp-hint">Select a dot to open its print profile below; hover to find the same product's other dots.</p>
       ${table}
       ${printLines(f).map((l) => `<p class="fine imp-foot">${esc(l)}</p>`).join('')}
       ${single ? `<p class="fine imp-foot">${esc(single)}</p>` : ''}
       ${missing ? `<p class="fine imp-foot">Not drawn: ${esc(missing)}.</p>` : ''}</section>`;
-  return makerBlock('Print temperatures across products', f.products, 'product', body, { cls: 'prop-block imp-block print-block' });
+  // Open: the Printing tab's answer, before its profiles.
+  return makerBlock('Print temperatures across products', f.products, 'product', body, { open: true, cls: 'prop-block imp-block print-block' });
 }
 
 /** A material's spread across its products, per key property (materials[].summary): median, range, how many. */

@@ -123,6 +123,31 @@ export const DRAWER_LEVEL_NOTE = 'The source does not state the specimen orienta
 
 // ------------------------------------------------------------------ a comparison's rows (D133, D139)
 
+// The graphs' tables print a median, middle half and range as the material pages print them (display-numbers.js), never
+// rounded across a requirement on the property (format.js fmtAgainst's rule). Imported here, beside the words that use them.
+import { fmtDisplay } from './display-numbers.js';
+import { fmtAgainst } from './format.js';
+
+const SIDE = { '>=': (a, b) => a >= b, '>': (a, b) => a > b, '<=': (a, b) => a <= b, '<': (a, b) => a < b };
+/**
+ * A number in a graph's table at the pages' display precision: "79" for an HDT of 78.9 °C, "12" for 12.3 %. Where that
+ * would put it on the other side of a requirement on its property (`thresholds`, `{ operator, value }`), it keeps the
+ * digits that hold it on its own side, as the table does.
+ */
+export function graphNumber(v, unit, thresholds = []) {
+  const s = fmtDisplay(v, unit);
+  const shown = Number(s.replace(/,/g, ''));
+  const crosses = thresholds.some(({ operator, value }) => SIDE[operator] && (!Number.isFinite(shown) || SIDE[operator](shown, value) !== SIDE[operator](v, value)));
+  return crosses ? fmtAgainst(v, thresholds) : s;
+}
+/** A span of two numbers in a graph's table (graphNumber each), word-joined at its dash; one number where both print alike. */
+export function graphSpan(lo, hi, unit, thresholds = []) {
+  const a = graphNumber(lo, unit, thresholds), b = graphNumber(hi, unit, thresholds);
+  return a === b ? a : `${a}⁠–⁠${b}`;
+}
+/** A spread's range (`{ min, max }`) as a graph's table prints it. */
+export const graphRange = (x, unit, thresholds = []) => graphSpan(x.min, x.max, unit, thresholds);
+
 /** What a hollow dot's sheet leaves unstated: the orientation, or the test load, its row's test is defined at (D84); or,
  *  on a row that says so, where else its value was read (a print setting from the printer maker's guide). */
 export const asPublishedWords = (h) => h.openWords ?? (h.direction ? 'no stated orientation' : 'no stated test load');
@@ -132,35 +157,43 @@ export function statedWhat(hs) {
   if (dirs.every(Boolean)) return `the bar's orientation (${dirs.join(' or ')})`;
   return hs.every((h) => h.loadMPa != null) ? 'the test load' : 'the bar\'s orientation or the test load';
 }
-/** What a filled dot is, in the key: its orientation stated (XY), its test load stated, or, where the rows differ, compared. */
-export function filledWords(hs) {
-  const dirs = [...new Set(hs.map((h) => h.direction))];
-  if (dirs.every(Boolean)) return `orientation stated (${dirs.join(' or ')})`;
-  return hs.every((h) => h.loadMPa != null) ? 'test load stated' : 'compared';
-}
+/**
+ * The key of a comparison's graphs, in the material pages' words (app/pages/charts/kit.js KEY), so a mark means one thing
+ * in the drawer and on the page: hollow is shown, not ranked, and the key says why.
+ */
+export const GRAPH_KEY = {
+  filled: 'a product',
+  open: 'as published: orientation or load not stated',
+  annealed: 'measured after annealing',
+  variant: 'added filler or additive, kept out of the median',
+  claimed: 'sold as toughened (maker\'s statement)',
+  band: 'middle half and median',
+  median: 'median',
+  // Print temperatures: a value read from the guide is drawn hollow, and never counted.
+  own: 'a product\'s data sheet',
+  guide: 'from the Bambu Lab Filament Guide, not counted',
+  printVariant: 'added filler or additive, not counted',
+  limit: 'the H2C\'s limit, and beyond it',
+};
+
+/** A row's count, as the pages' strips say it: "55 ranked of 106 shown", "12 products, all ranked", "6 shown, none ranked". */
+export const rowCountWords = (n, shown, word = 'ranked') => (n === shown ? `${plural(shown, 'product')}, all ${word}`
+  : n ? `${n} ${word} of ${shown} shown` : `${shown} shown, none ${word}`);
+/** A comparison's counted line, closed: "814 results: 460 drawn above, 354 not drawn" (its reasons open beneath it). */
+export const tallyWords = (n, drawn, named, rest) => `${plural(n, 'result')}: ${[`${drawn} drawn above`, named ? `${named} named above` : null, rest ? `${rest} not drawn` : null].filter(Boolean).join(', ')}`;
 /** Why a dot is not in its row's median (material-facts.js outOfMedian's code), in words. */
-export const outOfMedianWords = (code, h) => (code === 'variant' ? 'special formulation' : code === 'as-published' ? asPublishedWords(h) : code === 'toughened' ? 'sold as toughened' : null);
+export const outOfMedianWords = (code, h) => (code === 'variant' ? 'added filler or additive' : code === 'as-published' ? asPublishedWords(h) : code === 'toughened' ? 'sold as toughened' : null);
 
 /** A range of two numbers that never breaks across lines at its dash (U+2060 joins the dash to its numbers). */
 export const joinedSpan = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}⁠–⁠${fmtNumber(x.max)}`);
 
-/** The products drawn on a row but left out of its median (materials[].summary), by why: "3 with no stated orientation (1.8–3)". */
-export const apartWords = (h, s) => [s?.asPublished ? `${s.asPublished.n} with ${asPublishedWords(h)} (${joinedSpan(s.asPublished)})` : null,
-  s?.variants ? `${plural(s.variants.n, 'special formulation')} (${joinedSpan(s.variants)})` : null,
-  s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${joinedSpan(s.claimed)})` : null].filter(Boolean);
-
-/** What n counts in a comparison's table, said under it: which products each row compares. */
-export function medianRule(hs, m) {
-  const apart = hs.some((h) => m.summary?.[h.key]?.claimed?.setApart) ? 'special formulations and products sold as toughened' : 'special formulations';
-  // A row a value with no stated orientation or load may stand on compares only the products whose sheet states it
-  // (D84); a row that excludes such a value, or has nothing to state, compares every product drawn on it.
-  const open = hs.filter((h) => (h.direction && h.unstatedDirection === 'as-published') || (h.loadMPa != null && h.unstatedLoad === 'as-published'));
-  const dirs = [...new Set(open.map((h) => h.direction))];
-  const onRows = dirs.length === 1 && dirs[0] ? `the ${dirs[0]} row${open.length > 1 ? 's' : ''}` : `the ${andList(open.map((h) => h.labels.plain))} row${open.length > 1 ? 's' : ''}`;
-  return open.length === hs.length ? `n counts the products compared: the products whose sheet states ${statedWhat(open)}, except ${apart}.`
-    : open.length ? `n counts the products compared, ${apart} left out: on ${onRows}, those whose sheet states ${statedWhat(open)}; on the other${hs.length - open.length > 1 ? 's' : ''}, every product drawn.`
-      : `n counts the products compared: every product drawn, except ${apart}.`;
-}
+/**
+ * The products drawn on a row but not ranked (materials[].summary), by why, each with its range as the table prints it:
+ * "39 with no stated orientation (1.44–4.78)", "12 with an added filler or additive (0.715–4.73)".
+ */
+export const apartWords = (h, s, thresholds = []) => [s?.asPublished ? `${s.asPublished.n} with ${asPublishedWords(h)} (${graphRange(s.asPublished, h.unit, thresholds)})` : null,
+  s?.variants ? `${s.variants.n} with an added filler or additive (${graphRange(s.variants, h.unit, thresholds)})` : null,
+  s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${graphRange(s.claimed, h.unit, thresholds)})` : null].filter(Boolean);
 
 /** Why a comparison has no median, where none of the values drawn is compared (after "No median: "). */
 export function noMedianWhy(hs, m) {
@@ -170,7 +203,7 @@ export function noMedianWhy(hs, m) {
   const lacking = hs.filter((h) => m.summary?.[h.key]?.asPublished?.n);
   const lack = lacking.every((h) => h.direction) ? 'orientation' : lacking.every((h) => h.loadMPa != null) ? 'test load' : 'orientation or test load';
   const reasons = [opened ? `${opened} ${opened === 1 ? 'states' : 'state'} no ${lack}` : null,
-    variants ? `${variants} ${variants === 1 ? 'is a special formulation' : 'are special formulations'}` : null,
+    variants ? `${variants} ${variants === 1 ? 'has' : 'have'} an added filler or additive` : null,
     claimedN ? `${claimedN} ${claimedN === 1 ? 'is' : 'are'} sold as toughened` : null].filter(Boolean);
   return reasons.length === 1 && opened ? `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn states ${statedWhat(lacking)}, and only those that do are compared`
     : `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn is compared: ${andList(reasons)}`;
@@ -184,7 +217,7 @@ export function toughenedSplit(s, unit) {
   const k = s.claimed;
   const span = (x) => (x.min === x.max ? fmtNumber(x.min, unit) : `${fmtNumber(x.min)} to ${fmtNumber(x.max, unit)}`);
   if (k.setApart) {
-    return `The median and middle half are of the other ${plural(s.n, 'product')}. ${k.n === 1 ? 'The product its maker sells as toughened or impact-modified gives' : `The ${k.n} products their makers sell as toughened or impact-modified give`} ${span(k)} and ${k.n === 1 ? 'is' : 'are'} set apart, as special formulations are.`;
+    return `The median and middle half are of the other ${plural(s.n, 'product')}. ${k.n === 1 ? 'The product its maker sells as toughened or impact-modified gives' : `The ${k.n} products their makers sell as toughened or impact-modified give`} ${span(k)} and ${k.n === 1 ? 'is' : 'are'} set apart, as products with an added filler or additive are.`;
   }
   if (!k.others) {
     return s.n === 1 ? `That product is one its maker sells as toughened or impact-modified (${span(k)}).`
@@ -228,9 +261,18 @@ export const graphName = (gr) => lower(gr.rows[0].labels.plain.replace(/\s*\([^)
 export function pairWords(pairLabel, pairs, names, oneGraph) {
   if (pairs.length === 1 && oneGraph) {
     const both = names[0];
-    return both.length ? `${pairLabel}: ${plural(both.length, 'product')} (${andList(both.slice(0, 6))}${both.length > 6 ? ' and others' : ''}).` : `No product publishes ${lower(pairLabel)}.`;
+    return both.length ? `${pairLabel}: ${plural(both.length, 'product')} (${andList(both.slice(0, 6))}${both.length > 6 ? ' and others' : ''}).` : `No product publishes ${lower(pairLabel.replace(/ published$/, ''))}.`;
   }
   return pairs.length ? `${pairLabel}: ${andList(pairs.map((p, i) => { const n = p.both.length; return `${n ? (i ? n : plural(n, 'product')) : 'none'} for ${graphName(p.gr)}`; }))}.` : '';
+}
+
+/**
+ * The label of a comparison's "both" line: for a pair of orientations, what the products publish ("Both XY and Z
+ * published"); otherwise its drawer_comparisons.csv pair label ("Both tests").
+ */
+export function pairLabelOf(cmp, hs) {
+  const dirs = [...new Set(hs.map((h) => h.direction).filter(Boolean))];
+  return dirs.length === 2 ? `Both ${dirs.join(' and ')} published` : cmp.pairLabel;
 }
 
 /** A share as a whole per cent: "64 %". */
@@ -246,7 +288,7 @@ export function shareWords(shares, noShare) {
   // A share every product gives alike is said once, without a range of one number.
   const one = (gr, s) => (sharePct(Math.min(...s)) === sharePct(Math.max(...s)) ? `${graphName(gr)} ${sharePct(s[0])} (${plural(s.length, 'product')})`
     : `${graphName(gr)} ${sharePct(middle(s))} (${sharePct(Math.min(...s))}⁠–⁠${sharePct(Math.max(...s))}, ${s.length} products)`);
-  return `${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction}, for products whose two values are compared, from one document and in one state: ${andList(shares.map(({ gr, shares: s }) => one(gr, s)))}.${
+  return `Kept across the layers, ${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction} (median of the products with both from one document): ${andList(shares.map(({ gr, shares: s }) => one(gr, s)))}.${
     noShare.length ? ` None for ${andList(noShare.map(({ gr }) => graphName(gr)))}.` : ''}`;
 }
 
@@ -274,24 +316,26 @@ export const settingWords = (a) => (a.state === 'range' && a.max == null && a.mi
 export const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fmtNumber(lo)}` : lo == null ? `up to ${fmtNumber(hi)}`
   : lo === hi ? fmtNumber(lo) : `${fmtNumber(lo)}⁠–⁠${fmtNumber(hi)}`);
 
-/** Under a print setting's graph: its unit, and the H2C's limit, on the scale or above it. */
-export const printAxisUnit = (limit, onScale) => `°C${limit == null ? '' : onScale ? `, H2C limit ${fmtNumber(limit)}` : `; H2C limit ${fmtNumber(limit)} °C, above the scale`}`;
+/** Over a print setting's graph, after its name: its unit, and the H2C's limit, drawn on the scale or above it. */
+export const printSettingHead = (limit, onScale) => `°C${limit == null ? '' : ` · the H2C reaches ${fmtNumber(limit)} °C${onScale ? '' : ', above this scale'}`}`;
 
-/** A print row's values drawn and not counted (print-spread.js rowSummary): from the guide, special formulations. */
-export const printApartWords = (s) => [s.guide ? `${s.guide.n} from the guide (${joinedSpan(s.guide)})` : null, s.variants ? `${plural(s.variants.n, 'special formulation')} (${joinedSpan(s.variants)})` : null].filter(Boolean);
+/** A print row's values drawn and not counted (print-spread.js rowSummary), each with its range: from the guide, an added filler or additive. */
+export const printApartWords = (s) => [s.guide ? `${s.guide.n} from the guide (${graphRange(s.guide, '°C')})` : null,
+  s.variants ? `${s.variants.n} with an added filler or additive (${graphRange(s.variants, '°C')})` : null].filter(Boolean);
+
 
 /** The lines under the print temperatures' table (material-facts.js printFacts): what n counts, the medians, the products outside the H2C's limits. */
 export function printLines(f) {
   const typical = f.typical.map(({ label, low, high }) => {
     if (low == null && high == null) return null;
     // Two medians of different products can cross where few give both ends; then each is said by name.
-    if (low != null && high != null && low > high) return `${lower(label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C, medians of different products`;
-    return `${lower(label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`;
+    // At the table's precision (graphNumber), so a median reads alike in both.
+    if (low != null && high != null && low > high) return `${lower(label)} lowest ${graphNumber(low, '°C')} °C and highest ${graphNumber(high, '°C')} °C, medians of different products`;
+    return `${lower(label)} ${low == null || high == null ? graphNumber(low ?? high, '°C') : graphSpan(low, high, '°C')} °C`;
   }).filter(Boolean);
   const outside = f.outside.map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
   const limits = f.limits.map((a) => `${lower(a.label)} ${fmtNumber(a.limit)} °C`);
   return [
-    `n counts the products whose own data sheet, or one they share, gives the setting; a value read from ${f.guideName} and a special formulation are drawn, not counted.`,
     typical.length ? `Medians of the lowest and highest settings: ${andList(typical)}.` : null,
     outside.length ? `Outside the H2C's limits (${andList(limits)}): ${outside.join('; ')}.` : `No product's setting is outside the H2C's limits (${andList(limits)}).`,
   ].filter(Boolean);
