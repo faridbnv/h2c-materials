@@ -6,7 +6,8 @@
 // levels) or is a rule of the pages' own display code; it decides nothing.
 
 import { esc } from './html.js';
-import { documentShell, BRAND } from './shell.js';
+import { documentShell, siteFooter, returnLink, BRAND } from './shell.js';
+import { documentsRead } from '../js/ui/dates.js';
 import { h2cLimit } from '../js/ui/labels.js';
 import { fmtNumber } from '../js/ui/format.js';
 import { PAGES_DIR } from '../js/ui/page-rule.js';
@@ -85,16 +86,21 @@ export function renderMethodPage(db, env = {}) {
 <p class="sec-open">${esc(`How every material page in ${BRAND} reads its data: what a typical value is, what is ranked and what is shown as published, how the figures are drawn and where each number comes from. It is the same for every material, so it is said here once.`)}</p></header>
 ${list.map(([id, title, paras]) => `<section class="method-part" id="${esc(id)}" data-section="method-${esc(id)}"><h2>${esc(title)}</h2>${paras.map((p) => `<p>${esc(p)}</p>`).join('')}</section>`).join('\n')}
 </article>`;
+  const stamps = env.stamps ?? { release: db.meta.release?.id ?? 'unidentified', snapshot: db.meta.snapshot, build: db.meta.build };
+  // The same ways out as every page: the way back and every material.
+  const footer = siteFooter({ stamps, read: documentsRead(db.sources), standing: 'Data-sheet values describe test specimens, not design allowables.',
+    nav: [returnLink(env.selectorHref ?? null, { long: 'Open the selector' }), '<a class="btn" href="index.html">All materials</a>'] });
   const html = documentShell({
     kind: 'method',
     title: `How the numbers are worked out: ${BRAND}`,
     description: `How ${BRAND}'s material pages work out and draw their numbers: typical values, what is ranked, the alternatives, the figures, print settings, prices and estimates.`,
-    stamps: env.stamps ?? { release: db.meta.release?.id ?? 'unidentified', snapshot: db.meta.snapshot, build: db.meta.build },
+    stamps,
     crumbs: [{ href: 'index.html', words: 'Materials' }, { href: 'method.html', words: 'How the numbers are worked out' }],
     sections: list.map(([id, title]) => ({ id, title })),
     tabs: { index: 'index.html' },
     returnHref: env.selectorHref ?? null,
     body,
+    footer,
   });
   return { path: `${PAGES_DIR}/method.html`, html };
 }

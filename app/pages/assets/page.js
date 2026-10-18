@@ -2,17 +2,18 @@
    script will not load from file://), no library. Every page reads in full without it; it adds:
    - the way back: a tab that came from the selector (?from=<the selector's own hash>, its drawer's "Full page" link or
      its "Material pages" link) keeps that selection in sessionStorage 'atlas-return' and drops it from the address, so a
-     copied link never carries it; every [data-return] link then reads "Back to your results" and opens the selector
-     with the reader's selection, its drawer on the material of the page in view (the index keeps the stored one).
-     Where storage is refused, the selection rides on the internal links instead;
-   - the theme button (the selector's choice, localStorage 'h2c-theme');
+     copied link never carries it; every [data-return] link then reads "Back to your results" ("Back to the selector"
+     where the selection has no requirement, shortlist or chosen product) and opens the selector with the reader's
+     selection, its drawer on the material of the page in view (the index keeps the stored one), from a Products page on
+     its Products tab. Where storage is refused, the selection rides on the internal links instead;
+   - the theme button (the selector's choice, localStorage 'h2c-theme'), its icon and words the selector's;
    - the anchor offset: the measured height of the bar (and of the Products page's sticky controls);
    - the section in view, named in the bar, and its list closing on a choice, Escape or a click outside;
    - a card opened at its anchor (#G… a product, #V… a value in it);
    - lighting: hover or focus anything carrying a product (data-grade) or a material (data-mat), and everything else
      carrying it lights while the rest fades; a figure's mark names itself in a tooltip; a click on a product's mark goes
      to its card on the Products page;
-   - copying the citation.
+   - copying the citation, and printing the page.
    The Products page's search and sort, and the index's search, follow (assets/products.src.js). */
 (function () {
   'use strict';
@@ -40,6 +41,9 @@
   var selection = null;
   if (stored) { try { selection = JSON.parse(stored); } catch (e) { selection = null; } }
   if (selection && typeof selection === 'object') {
+    // Results to go back to: a requirement, a shortlist or a chosen product (C33).
+    var some = function (x) { return Array.isArray(x) && x.length > 0; };
+    var results = some(selection.c) || some(selection.s) || some(selection.h);
     $$('[data-return], [data-return-brand]').forEach(function (a) {
       var base = (a.getAttribute('href') || '').split('#')[0];
       if (!base) return;
@@ -48,8 +52,17 @@
       if (material && kind !== 'hub') o.m = material;
       a.setAttribute('href', base + '#' + encodeURIComponent(JSON.stringify(o)));
       var long = a.querySelector('.ret-long'), short = a.querySelector('.ret-short');
-      if (long) long.textContent = 'Back to your results';
-      if (short) short.textContent = 'Results';
+      if (long) long.textContent = results ? 'Back to your results' : 'Back to the selector';
+      if (short) short.textContent = results ? 'Results' : 'Selector';
+      // From a Products page the drawer opens on its Products, where the passing products are (C32): the tab goes into
+      // the selector's kept place for this tab (main.js keepScroll), which it reads when the selection is the same.
+      if (kind === 'products') a.addEventListener('click', function () {
+        try {
+          var kept = JSON.parse(sessionStorage.getItem('atlas-scroll') || 'null') || { hash: a.getAttribute('href').split('#')[1] || '' };
+          kept.tab = 'Grades';
+          sessionStorage.setItem('atlas-scroll', JSON.stringify(kept));
+        } catch (e) { /* private mode: the drawer opens on its last tab */ }
+      });
     });
     // Storage refused (a file:// page in a browser that gives each file its own origin): the selection travels on.
     if (carried) {
@@ -388,7 +401,12 @@
     });
   });
 
-  /* ------------------------------------------------------------ copying the citation */
+  /* ------------------------------------------------------------ copying the citation, printing the page */
+  $$('[data-print]').forEach(function (b) {
+    if (typeof window.print !== 'function') return;
+    b.hidden = false;
+    b.addEventListener('click', function () { window.print(); });
+  });
   $$('[data-copy]').forEach(function (b) {
     var text = doc.querySelector('[data-cite]');
     if (!text || !navigator.clipboard) return;

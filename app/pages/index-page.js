@@ -8,7 +8,8 @@
 
 import { esc, count } from './html.js';
 import { fmtNumber } from '../js/ui/format.js';
-import { documentShell, BRAND, ICON } from './shell.js';
+import { documentShell, siteFooter, returnLink, BRAND, ICON } from './shell.js';
+import { documentsRead } from '../js/ui/dates.js';
 import { pageOf, pageFacts, pageRuleWords } from '../js/ui/page-rule.js';
 import { stated } from '../js/ui/material-facts.js';
 import { andList, plural } from '../js/ui/material-words.js';
@@ -89,18 +90,20 @@ ${waiting.map(({ family, unpaged }) => `<p class="ix-line ix-nopage" data-family
   const aliasList = names ? `<ul class="ix-aliases" data-aliases aria-label="Other names">${names}</ul>` : '';
 
   const st = env.stamps;
-  const reads = db.sources.map((s) => s.accessDate).filter((d) => stated(d) && /^\d{4}-\d{2}-\d{2}$/.test(d)).sort();
-  const lede = `A page for each of the ${fmtNumber(hasPage.size)} materials with enough published data, by family, the most documented first. To set requirements and get a shortlist, use the selector.`;
-  const body = `<header class="phead phead--hub" id="top"><div class="phead-id"><h1 class="pname">Materials</h1><p class="pid">${esc(lede)}</p>${env.methodHref ? `<p class="ix-method"><a href="${esc(env.methodHref)}">How the numbers are worked out</a></p>` : ''}</div></header>
+  // "Use the selector" is the way back (C33): the page's script sends it to the reader's own selection where it has one.
+  const toSelector = env.selectorHref ? `<a data-return href="${esc(env.selectorHref)}">use the selector</a>` : 'use the selector';
+  const lede = `${esc(`A page for each of the ${fmtNumber(hasPage.size)} materials with enough published data, by family, the most documented first. To set requirements and get a shortlist,`)} ${toSelector}.`;
+  const body = `<header class="phead phead--hub" id="top"><div class="phead-id"><h1 class="pname">Materials</h1><p class="pid">${lede}</p>${env.methodHref ? `<p class="ix-method"><a href="${esc(env.methodHref)}">How the numbers are worked out</a></p>` : ''}</div></header>
 <div class="ix-tools" hidden><label class="find">${ICON.search}<input type="search" data-ix-find placeholder="Find a material, polymer or name" aria-label="Find a material, polymer or name" autocomplete="off" spellcheck="false"></label>
 <p class="ix-count" data-count aria-live="polite">${esc(`${count(listed.length, 'material')}, ${fmtNumber(hasPage.size)} with a page`)}</p></div>
 <p class="ix-none" data-ix-none hidden>No material matches "<span data-ix-q></span>".</p>
 ${aliasList}
 <div class="fams" data-index>
 ${blocks.join('\n')}
-</div>
-<footer class="colophon colophon--hub" data-section="colophon"><div class="col-main"><p class="col-standing">Data-sheet values describe test specimens, not design allowables.</p></div>
-<div class="col-fine" data-release="${esc(st.release)}"><p>${esc(BRAND)}, release <span class="mono">${esc(st.release)}</span>${reads.length ? `; documents read ${esc(reads[0])} to ${esc(reads.at(-1))}` : ''}; built <time>${esc(String(st.build))}</time>.</p></div></footer>`;
+</div>`;
+  // The same ways out as every page: the way back, and the method page (this is every material).
+  const footer = siteFooter({ stamps: st, read: documentsRead(db.sources), cls: 'colophon--hub', standing: 'Data-sheet values describe test specimens, not design allowables.',
+    nav: [returnLink(env.selectorHref, { long: 'Open the selector' })], methodHref: env.methodHref });
   const html = documentShell({
     kind: 'hub',
     title: `Materials: ${BRAND}`,
@@ -109,6 +112,7 @@ ${blocks.join('\n')}
     crumbs: [{ href: 'index.html', words: 'Materials' }],
     returnHref: env.selectorHref,
     body,
+    footer,
   });
   return { path: INDEX_PATH, html, stats: { listed: listed.length, pages: hasPage.size, families: families.length } };
 }

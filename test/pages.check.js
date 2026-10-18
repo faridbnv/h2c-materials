@@ -39,10 +39,11 @@
 //   P8   every internal link resolves to a file and an anchor; each way back opens the selector fresh, with this
 //        material's drawer; the stub sends an old link on to the Products page
 //   P9   no record ID, project coinage or retired phrase in what a reader sees (the text, the tooltips, the list's words)
-//   P10  the release, the snapshot and the build stamped on every page are the database's
+//   P10  the release, the snapshot and the build stamped on every page are the database's; every page ends in the
+//        footer band after its main element, whose closing line prints the selector's provenance words and the build
 //   P11  every file is within its budget (app/pages/budget.js), the set within its own
 //   P12  the written summary: only a material with a page has one; its filled numbers are the compiled values, printed as
-//        plain text, its status and byline said
+//        plain text, its status and byline said (who, the day in the page's date form, the review status)
 //   P13  the drawer has a "Full page" link exactly for the materials with a page, in the same tab, carrying the selection
 //   P14  a fresh render of dist/db.json equals dist/materials/ byte for byte; fonts are embedded data: URIs, licences sit
 //        beside them; the manifest's digest and counts agree with the files
@@ -63,12 +64,14 @@ import { renderSite, pageEnv, prepare } from '../app/pages/render.js';
 import { readAssets } from '../app/pages/read-assets.js';
 import { PAGE_BUDGET } from '../app/pages/budget.js';
 import { SECTIONS } from '../app/pages/sections/index.js';
+import { BRAND } from '../app/pages/shell.js';
 import { PEER_COLUMNS, MAP_PANELS, STRIP_SETS, STRIP_MIN, LAYER_PAIRS } from '../app/pages/figures.js';
 import { PAGES_DIR, pageOf, pageFacts } from '../app/js/ui/page-rule.js';
 import { indexDb, materialContext, identity, spreadEntries, originalOf, isProduct, stated, soldToughened } from '../app/js/ui/material-facts.js';
 import { peerSet, printWindows, dryingStats, layerPairs } from '../app/js/ui/material-stats.js';
 import { fmtNumber, boundSign, medianSign } from '../app/js/ui/format.js';
 import { SUMMARY_STATUS } from '../app/js/ui/labels.js';
+import { dayWords, documentsRead, provenanceWords } from '../app/js/ui/dates.js';
 import { fromHash, toHash, newScenario } from '../app/js/engine/scenario.js';
 import { renderDrawer } from '../app/js/ui/detail.js';
 import { offThePages } from '../app/pages/records/placement.js';
@@ -392,9 +395,9 @@ function p1(S) {
     const { ov, pr } = pagesOf(S, m.id);
     if (!ov || !pr) continue;
     const who = m.id;
-    // The sections present, in SECTIONS' order: the masthead is the page's head, the colophon the footer's.
+    // The sections present, in SECTIONS' order: the masthead is the page's head, the colophon the footer's (after main).
     const at = (id) => (id === 'masthead' ? !!ov.q1('header.phead') && !!withAttrs(ov.main, 'data-section').find((n) => n.attrs['data-section'] === 'key-figures')
-      : id === 'footer' ? !!withAttrs(ov.main, 'data-section').find((n) => n.attrs['data-section'] === 'colophon')
+      : id === 'footer' ? !!withAttrs(ov.tree, 'data-section').find((n) => n.attrs['data-section'] === 'colophon')
         : withAttrs(ov.main, 'data-section').some((n) => n.attrs['data-section'] === id));
     const empty = S.emptyById.get(m.id) ?? new Set();
     const present = SECTIONS.map((s) => s.id).filter(at);
@@ -888,7 +891,9 @@ function p9(S) {
     // What a reader sees: the text, the tooltips the script shows (data-t, data-note), and the Products list's words its
     // script prints (the pl-words island).
     // A quotation is its document's words: a maker's G-code ("M104 S230") is not a record ID.
-    const text = textOf(page.main, (n) => n.tag === 'q');
+    // The footer is set after main and is read with it.
+    const foot = page.q1('footer.colophon');
+    const text = `${textOf(page.main, (n) => n.tag === 'q')}${foot ? ` ${textOf(foot)}` : ''}`;
     const tips = withAttrs(page.main, 'data-t').map((n) => n.attrs['data-t']).concat(withAttrs(page.main, 'data-note').map((n) => n.attrs['data-note'])).join(' · ');
     const island = page.ids.get('pl-words');
     let words = '';
@@ -922,11 +927,16 @@ function p10(S) {
     check('P10', page.file, a['data-release'] === release && a['data-snapshot'] === meta.snapshot && a['data-build'] === meta.build, () => `main stamps ${a['data-release']}/${a['data-snapshot']}/${a['data-build']}, database ${release}/${meta.snapshot}/${meta.build}`);
     const gen = page.q1('meta[name=generator]')?.attrs.content ?? '';
     check('P10', page.file, gen.includes(`release ${release}`) && gen.includes(`snapshot ${meta.snapshot}`) && gen.includes(`build ${meta.build}`), `generator "${gen}"`);
-    if (page.kind === 'overview' || page.kind === 'products') {
-      const foot = withAttrs(page.main, 'data-section').find((n) => n.attrs['data-section'] === 'colophon');
-      const fine = foot && withAttrs(foot, 'data-release')[0];
-      check('P10', page.file, !!fine && fine.attrs['data-release'] === release && textOf(query1(fine, 'span.mono') ?? { kids: [] }) === release && textOf(query1(fine, 'time') ?? { kids: [] }) === String(meta.build),
-        () => `the colophon's stamp "${fine ? textOf(fine).slice(0, 80) : 'none'}"`);
+    if (['overview', 'products', 'hub', 'method'].includes(page.kind)) {
+      // The footer is a band after main (main clips its width), and its closing line says what the selector's status bar
+      // says (dates.js provenanceWords over every source), then the build's day (C03, C31).
+      const foot = withAttrs(page.tree, 'data-section').filter((n) => n.attrs['data-section'] === 'colophon');
+      check('P10', page.file, foot.length === 1 && foot[0].tag === 'footer' && !up(foot[0], 'data-page') && foot[0].parent === page.main?.parent, () => `${foot.length} colophon(s), ${foot[0] && up(foot[0], 'data-page') ? 'inside' : 'not beside'} main`);
+      const sign = foot[0] && query1(foot[0], 'p.col-sign');
+      const time = sign && query1(sign, 'time');
+      const words = `${BRAND} · ${provenanceWords(release, documentsRead(S.db.sources))} · built ${dayWords(meta.build)}`;
+      check('P10', page.file, !!sign && sign.attrs['data-release'] === release && textOf(sign).replace(/\s+/g, ' ').trim() === words && time?.attrs.datetime === String(meta.build),
+        () => `the closing line "${sign ? textOf(sign).slice(0, 120) : 'none'}", not "${words}"`);
     }
   }
   check('P10', 'manifest', S.manifest.release === release && S.manifest.snapshot === meta.snapshot && S.manifest.build === meta.build, `manifest ${S.manifest.release}/${S.manifest.snapshot}/${S.manifest.build}, ${REBUILD}`);
@@ -963,9 +973,9 @@ function p12(S) {
     const who = m.id;
     const sec = withAttrs(ov.main, 'data-section').find((n) => n.attrs['data-section'] === 'summary');
     const w = m.written;
-    const byline = withAttrs(ov.main, 'data-written-status').filter((n) => !up(n, 'data-section') || up(n, 'data-section').attrs['data-section'] === 'colophon');
+    const byline = withAttrs(ov.tree, 'data-written-status').filter((n) => !up(n, 'data-section') || up(n, 'data-section').attrs['data-section'] === 'colophon');
     if (!w?.parts?.length) {
-      check('P12', who, !sec && !withAttrs(ov.main, 'data-field').length && !withAttrs(ov.main, 'data-written-status').length, 'a material with no summary shows one, or its byline');
+      check('P12', who, !sec && !withAttrs(ov.main, 'data-field').length && !withAttrs(ov.tree, 'data-written-status').length, 'a material with no summary shows one, or its byline');
       continue;
     }
     if (!check('P12', who, !!sec, 'a written summary, but no summary on the page')) continue;
@@ -975,7 +985,10 @@ function p12(S) {
     check('P12', who, !tag.length, () => `a status tag beside the summary: ${tag.map((t) => t.attrs['data-written-status']).join(' ')}`);
     const by = byline.filter((n) => !sec || !up(n, 'data-section') || up(n, 'data-section') !== sec);
     const t = by.length === 1 ? textOf(by[0]) : '';
-    check('P12', who, by.length === 1 && by[0].attrs['data-written-status'] === w.status && t.includes(w.by) && t.includes(String(w.on)) && t.includes(SUMMARY_REVIEW_WORDS[w.status] ?? SUMMARY_STATUS[w.status] ?? w.status), () => `byline "${t || `${by.length} bylines`}"`);
+    // One sentence: everyone who wrote it ("Claude Sonnet (agent), revised by Claude Opus (agent)" names Claude Sonnet and
+    // Claude Opus, an agent said as one), the day in the page's date form, and the review status.
+    const names = String(w.by).split(/,\s*revised by\s+/i).map((x) => x.replace(/\s*\(agent\)$/i, '').trim());
+    check('P12', who, by.length === 1 && by[0].attrs['data-written-status'] === w.status && names.every((x) => t.includes(x)) && (!/\(agent\)/i.test(w.by) || /\bAI agents?\b/.test(t)) && t.includes(dayWords(w.on)) && t.includes(SUMMARY_REVIEW_WORDS[w.status] ?? SUMMARY_STATUS[w.status] ?? w.status), () => `byline "${t || `${by.length} bylines`}"`);
     // Every filled number: the compiled value, printed as plain text.
     const fields = w.parts.filter((p) => p.field);
     const spans = withAttrs(sec, 'data-field');

@@ -193,15 +193,20 @@ time { font-variant-numeric: tabular-nums; }
 .stand li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .stand li.lit a { text-decoration-thickness: 2px; }
 
-/* the colophon */
-.colophon { margin-top: 112px; border-top: 1px solid var(--border); padding: 32px 0 56px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; }
+/* the colophon: a band across the width on the selector's white that ends every page (coherence round, C31), its edge
+   the divider; the column inside it is the page's. The closing line runs across the column under a hairline. */
+.colophon { margin-top: 112px; background: var(--surface); border-top: 1px solid var(--border); }
+.col-in { max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 40px var(--gutter) 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; }
 .colophon p { margin: 0 0 10px; }
 .col-standing { color: var(--ink); max-width: 64ch; }
 .col-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 .col-fine { font-size: var(--t-xs); color: var(--ink-2); }
 .col-fine a { color: var(--ink-2); }
-.col-summary small { display: block; margin-top: 2px; }
-.col-cite .btn { min-height: 30px; font-size: var(--t-xs); margin-left: 4px; vertical-align: middle; }
+.col-acts { display: flex; flex-wrap: wrap; gap: 4px; margin: -4px 0 0 -8px !important; }
+.col-acts .btn { min-height: 30px; font-size: var(--t-xs); }
+.col-sign { grid-column: 1 / -1; margin: 8px 0 0 !important; padding: 16px 0 28px; border-top: 1px solid var(--border); font-size: var(--t-xs); color: var(--ink-2); }
+.col-sign b { color: var(--ink); font-weight: 600; }
+.col-mark { width: 18px; height: 18px; margin-right: 8px; vertical-align: -4px; }
 
 /* the colophon's link to the method page */
 .col-method { margin-top: 14px !important; font-size: var(--t-s); }
@@ -259,7 +264,7 @@ time { font-variant-numeric: tabular-nums; }
   .kf-cell:nth-child(4 of .kf-cell) { border-left: 0; }
   .kf-cell:nth-child(n+4 of .kf-cell) { border-top: 1px solid var(--border); }
   .first { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .colophon { grid-template-columns: minmax(0, 1fr); }
+  .col-in { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 719px) {
   :root { --t-h1: 44px; --t-h2: 27px; --t-num: 28px; --t-xl: 19px; --bar-h: 52px; }
@@ -267,9 +272,10 @@ time { font-variant-numeric: tabular-nums; }
   .bar-name, .crumbs .crumb:not(.crumb-here) { display: none; }
   .crumb-here::before { display: none; }
   .here-sec { display: none; }
-  .ret-long { display: none; }
-  .ret-short { display: inline; }
-  .btn.ret { padding: 0 10px 0 8px; min-height: 40px; }
+  /* The bar's way back takes its short words; the footer's keeps its long ones, having the width (C31). */
+  .atlas-bar .ret-long { display: none; }
+  .atlas-bar .ret-short { display: inline; }
+  .atlas-bar .btn.ret { padding: 0 10px 0 8px; min-height: 40px; }
   .icon-btn { width: 40px; height: 40px; }
   .phead { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
   .tabs { display: flex; margin-top: 4px; }
@@ -288,6 +294,7 @@ time { font-variant-numeric: tabular-nums; }
   .h2c dl > div { grid-template-columns: 7.6rem minmax(0, 1fr); }
   .ov-sec { margin-top: 72px; }
   .colophon { margin-top: 80px; }
+  .col-in { padding-top: 32px; gap: 20px; }
 }
 
 /* ---------------------------------------------------------------- print, motion */
@@ -306,7 +313,7 @@ time { font-variant-numeric: tabular-nums; }
   }
   /* Every control and interaction hint leaves the paper: the bar, the tabs, the buttons, "Printing in full", the
      list's controls, a closed figure table, and any line the figures mark .no-print ("Hover a product…"). */
-  .atlas-bar, .tabs, .col-nav, .col-method, .skip, .tip, [data-copy], .pl-ctl, .pl-keyd > summary, .ix-tools, .btn, .btn-primary,
+  .atlas-bar, .tabs, .col-nav, .col-method, .col-acts, .skip, .tip, [data-copy], [data-print], .pl-ctl, .pl-keyd > summary, .ix-tools, .btn, .btn-primary,
   .h2c-h a, .no-print, details.fig-data:not([open]), .here { display: none !important; }
   /* The page's address and release, from the line's attributes (an address holds the material's ID, kept out of text). */
   .print-line { display: block; margin: 0 0 8px; font-size: 8pt; color: #55554e; }
@@ -320,8 +327,10 @@ time { font-variant-numeric: tabular-nums; }
   .kf-wrap { margin-top: 16px; }
   .first { margin-top: 18px; gap: 18px; }
   .ov-sec { margin-top: 26px; break-before: auto; }
-  /* The colophon stays with Sources: no page holds the footer alone. */
-  .colophon { margin-top: 28px; padding: 14px 0 0; break-inside: avoid; break-before: avoid; gap: 6px 24px; }
+  /* The colophon stays with Sources: no page holds the footer alone. On paper it is set as the page is, not a band. */
+  .colophon { margin-top: 28px; background: none; zoom: .8; break-inside: avoid; break-before: avoid; }
+  .col-in { max-width: none; padding: 14px 0 0; gap: 6px 24px; }
+  .col-sign { padding: 8px 0 0; }
   #sources { break-after: avoid; }
   /* The first screen keeps its laptop layout on paper: six figures across, the summary beside On the H2C. */
   .kf-cell { flex: 1 1 0; }

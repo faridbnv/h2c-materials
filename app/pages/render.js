@@ -100,6 +100,10 @@ ${r.html}
 </section>`;
   }
   for (const s of SECTIONS) if (s.title && rendered.has(s.id) && s.menu !== false) sections.push({ id: s.id, title: s.title });
+  // The colophon is the page's footer, set after the main element (shell.js siteFooter).
+  const foot = SECTIONS.findIndex((s) => s.id === 'footer');
+  const footer = parts[foot] ?? '';
+  if (foot >= 0) parts[foot] = '';
   const n = c.grades.filter(isProduct).length;
   const html = documentShell({
     kind: 'overview',
@@ -112,6 +116,7 @@ ${r.html}
     returnHref: selectorLink(c, env),
     methodHref: env.methodHref,
     body: parts.filter(Boolean).join('\n'),
+    footer,
     products: productNames(c),
   });
   return { path: mainPath(id), html, stats };

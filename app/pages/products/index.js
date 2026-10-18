@@ -307,8 +307,7 @@ ${list}
 ${silent.length ? `<p class="pl-note">${esc(`Not published by any product: ${andList(silent)}.`)}</p>` : ''}
 <p class="pl-note">Values are for the colour each sheet tested; pigment can change them.</p>
 ${refs.length ? `<section class="pl pl--ref" data-group="reference" data-section="reference" aria-labelledby="ref-h" style="--pl-cols: ${template}"><h2 id="ref-h">Reference specimens and studies</h2><p class="pl-note">${esc(`${refs.length === 1 ? 'A resin or study specimen' : `${plural(refs.length, 'resin or study specimen')}`}, not ${refs.length === 1 ? 'a product' : 'products'} you can buy.`)}</p><div class="pl-body">${refList}</div></section>` : ''}
-${jsonIsland('pl-words', words)}
-${colophon(c, env, 'products')}`;
+${jsonIsland('pl-words', words)}`;
   const n = all.reduce((k, r) => { const o = records.get(r.id); return k + o.ms.length + o.profiles.length + o.statements.length + o.specimen.length + o.environment.length + o.listings.length; }, 0);
   const html = documentShell({
     kind: 'products',
@@ -322,6 +321,7 @@ ${colophon(c, env, 'products')}`;
     returnHref: selectorLink(c, env),
     methodHref: env.methodHref,
     body,
+    footer: colophon(c, env, 'products'),
   });
   return { path: `materials/${productsHref(m.id)}`, html, stats: { rows: n, products: rows.length, references: refs.length } };
 }

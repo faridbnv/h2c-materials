@@ -326,7 +326,8 @@ const openPage = async (url, landed = url) => {
 // What the page holds, as names and counts: its sections, its figures, the bar and the fonts.
 const pageFacts = () => evaluate(`(() => {
   const main = document.querySelector('main[data-page]');
-  const sections = [...main.querySelectorAll('[data-section]')].map((s) => (s.dataset.section === 'family' ? 'family ' + s.dataset.family : s.dataset.section));
+  // The footer is set after main (a band across the width, coherence round C31) and is counted with the sections.
+  const sections = [...document.querySelectorAll('[data-section]')].map((s) => (s.dataset.section === 'family' ? 'family ' + s.dataset.family : s.dataset.section));
   const figures = [...main.querySelectorAll('figure')].map((f) => ({ id: f.id, svg: !!f.querySelector('svg'), caption: (f.querySelector('figcaption')?.textContent ?? '').trim().length > 0 }));
   const bar = document.querySelector('.atlas-bar');
   const back = document.querySelector('.atlas-bar [data-return]');

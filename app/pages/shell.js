@@ -14,6 +14,7 @@
 
 import { attrs, esc, jsonIsland } from './html.js';
 import { fmtNumber } from '../js/ui/format.js';
+import { dayWords, provenanceWords } from '../js/ui/dates.js';
 import * as marks from './charts/marks.js';
 
 /** The tool's name, as the selector's frame names it. */
@@ -37,6 +38,7 @@ export const ICON = {
   down: '<svg class="icon icon-s" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6 8l4 4 4-4"/></svg>',
   search: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>',
   copy: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="7" y="7" width="9.5" height="9.5" rx="1.5"/><path d="M13 7V4.5A1 1 0 0 0 12 3.5H4.5a1 1 0 0 0-1 1V12a1 1 0 0 0 1 1H7"/></svg>',
+  print: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6 7.5v-4h8v4M6 14H4.5a1 1 0 0 1-1-1V8.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1V13a1 1 0 0 1-1 1H14"/><path d="M6 11.5h8v5H6z"/></svg>',
 };
 
 /**
@@ -48,11 +50,28 @@ export const returnLink = (href, { cls = '', long = 'Open in the selector', shor
   ? `<a class="btn ret${cls ? ` ${cls}` : ''}" data-return href="${esc(href)}">${ICON.back}<span class="ret-long">${esc(long)}</span><span class="ret-short">${esc(short)}</span></a>`
   : '');
 
-/** The plain footer of a page with no material (the method page): the way back, every material, the release. */
-export const siteFooter = (stamps, returnHref) => `<footer class="colophon colophon--site" data-section="colophon"><div class="col-main">
-<p class="col-standing">Data-sheet values describe test specimens, not design allowables.</p>
-<div class="col-nav">${returnLink(returnHref, { long: 'Open the selector' })}<a class="btn" href="index.html">All materials</a></div></div>
-<div class="col-fine" data-release="${esc(stamps.release)}"><p>${esc(BRAND)}, release <span class="mono">${esc(stamps.release)}</span>; built <time>${esc(String(stamps.build))}</time>.</p></div></footer>`;
+/**
+ * The closing line of every page: the mark, the tool's name and the provenance in the selector's status bar's own words
+ * (dates.js provenanceWords: the release and when its documents were read, `read` over every source), then the build's
+ * date (coherence round, C03, C31).
+ */
+export const signOff = (stamps, read) => `<p class="col-sign" data-release="${esc(stamps.release)}">${mark('col-mark')}<b>${esc(BRAND)}</b> · ${esc(provenanceWords(stamps.release, read))} · built <time datetime="${esc(String(stamps.build))}">${esc(dayWords(stamps.build))}</time></p>`;
+
+/**
+ * The footer of every page, a band across the width that ends it (coherence round, C31; the shell sets it after the main
+ * element, which clips its width): the standing sentence, the ways out (`nav`, buttons' HTML: the way back, the
+ * material's other page, every material), the method page, `fine` (a material page's summary note and citation), and
+ * the closing line. `cls` adds a class (the index's).
+ */
+export const siteFooter = ({ stamps, read = null, standing, nav = [], methodHref = null, fine = '', cls = '' }) => `<footer class="colophon${cls ? ` ${cls}` : ''}" data-section="colophon"><div class="col-in">
+<div class="col-main">
+${standing ? `<p class="col-standing">${esc(standing)}</p>` : ''}
+${nav.filter(Boolean).length ? `<div class="col-nav">${nav.filter(Boolean).join('')}</div>` : ''}
+${methodHref ? `<p class="col-method"><a href="${esc(methodHref)}">How the numbers are worked out</a></p>` : ''}
+</div>
+${fine}
+${signOff(stamps, read)}
+</div></footer>`;
 
 /**
  * The tabs of a material's two pages: `{ id, n, current }`, current 'overview' or 'products'; n the products. Each tab
@@ -102,11 +121,12 @@ function crumbsNav(crumbs, sections, more, label) {
  * [{ href, words }], the last the page itself; `sections` [{ id, title }] for the bar's list; `tabs` the material's
  * pages for that list's foot ({ products: { href, n }, index: href }); `returnHref` the static way back to the selector;
  * `products` a map of product ID to name for the figures' tooltips, or null; `head` extra lines for <head> (the stub's
- * redirect).
+ * redirect); `footer` the page's footer (siteFooter), set after the main element.
  */
-export function documentShell({ kind, title, description, stamps, material = null, crumbs = [], sections = [], tabs = null, returnHref = null, body, products = null, head = '', hereLabel = null, methodHref = 'method.html', printPath = null }) {
-  // The hub's way back opens a fresh selector with no drawer: "Open the selector" until a selection is stored.
-  const cold = kind === 'hub' ? { long: 'Open the selector' } : {};
+export function documentShell({ kind, title, description, stamps, material = null, crumbs = [], sections = [], tabs = null, returnHref = null, body, footer = '', products = null, head = '', hereLabel = null, methodHref = 'method.html', printPath = null }) {
+  // The hub's and the method page's way back opens a fresh selector with no drawer: "Open the selector" until a
+  // selection is stored, as their footers say.
+  const cold = kind === 'hub' || kind === 'method' ? { long: 'Open the selector' } : {};
   const more = [];
   if (tabs?.overview && kind !== 'overview') more.push({ href: tabs.overview.href, words: tabs.overview.words ?? 'Overview', sep: true });
   if (tabs?.products && kind !== 'products') more.push({ href: tabs.products.href, words: 'Products', n: fmtNumber(tabs.products.n), sep: !more.length });
@@ -139,8 +159,8 @@ ${crumbsNav(crumbs, sections, more, hereLabel)}
 <main id="main" class="page"${attrs({ 'data-page': kind, 'data-material': material, 'data-release': stamps.release, 'data-snapshot': stamps.snapshot, 'data-build': stamps.build })}>
 <p class="print-line" aria-hidden="true" data-print-url="${esc(printPath ?? `materials/${material ? `${material}${kind === 'products' ? '-products' : ''}.html` : kind === 'hub' ? 'index.html' : `${kind}.html`}`)}" data-print-release="${esc(`${BRAND}, release ${stamps.release}`)}"></p>
 ${body}
-${kind === 'method' ? siteFooter(stamps, returnHref) : ''}
 </main>
+${footer}
 <div class="tip" id="tip" aria-hidden="true" hidden></div>
 ${products ? jsonIsland('product-names', products) : ''}
 </body>
