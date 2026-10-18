@@ -341,7 +341,7 @@ test('"both" and the share are the products\' own values', () => {
     const name = (g) => lower(g.rows[0].labels.plain.replace(/\s*\([^)]*\)$/, ''));
     // A share every product gives alike (one product, or several at one rounded per cent) is said once, with its count.
     const items = shares.map(({ g, list }) => (pct(Math.min(...list)) === pct(Math.max(...list)) ? `${name(g)} ${pct(list[0])} (${list.length} product${list.length === 1 ? '' : 's'})`
-      : `${name(g)} ${pct(median(list))} (${pct(Math.min(...list))}${WJ}–${WJ}${pct(Math.max(...list))}, ${list.length} products)`));
+      : `${name(g)} ${pct(median(list))} (${Math.round(Math.min(...list) * 100)}${WJ}–${WJ}${pct(Math.max(...list))}, ${list.length} products)`));   // a range writes its unit once (C13)
     const join = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
     // A pair some product publishes both of, with no product's two values from one document and state, is said to have none.
     const none = pairs.filter((g) => !shares.some((x) => x.g === g) && g.rows[0].direction !== g.rows[1].direction

@@ -3,6 +3,7 @@
 
 import { estimateTitle } from './labels.js';
 import { boundOf, publishedBound } from '../engine/constraints.js';
+import { dayWords, daysWords } from './dates.js';
 
 export { publishedBound };
 
@@ -48,6 +49,18 @@ export function fmtBounded(v, unit, interval) {
   const s = fmtNumber(v, unit);
   return b && s !== '—' ? `${b.sign} ${s}` : s;
 }
+
+/**
+ * A published bound's sign before a material's or a product's number, with its space ("> "), or '' for a point value: the
+ * key properties print "> 200 °C", and since the coherence round (C14) so does every table and figure that prints the same
+ * median. `entry` is a headline entry (materials[].headline[key], grades[].headline[key]).
+ */
+export const boundSign = (entry) => { const b = boundOf(publishedBound(entry)); return b ? `${b.sign} ` : ''; };
+/**
+ * The sign before a material's median of `key` (materials[].summary[key].median, or `median`), where that median is its
+ * headline's number and a published bound: PEI-CF's HDT at 0.45 MPa is "> 200" in every place that prints it.
+ */
+export const medianSign = (m, key, median = m?.summary?.[key]?.median) => (median != null && m?.headline?.[key]?.known && m.headline[key].value === median ? boundSign(m.headline[key]) : '');
 
 /** What a bound says in a sentence, for a hover or a popover: the sheet's own words, and that the value is not the number. */
 export function boundNote(interval, value, unit) {
@@ -428,17 +441,24 @@ export function spreadNote(entry) {
 }
 
 /**
- * The price sample in words, counted from the build (D113): "3 Canadian retailers, sampled 2026-09-10", or with foreign
- * sellers and a span of dates where it has them. It said "three Canadian retailers" in five places, and would have gone
- * on saying it.
+ * The price sample in words, counted from the build (D113): "3 Canadian shops, sampled 10 Sep 2026", or with foreign
+ * shops and a span of dates where it has them ("9 Canadian shops and 7 foreign shops, sampled 10 Sep–7 Oct 2026"). It
+ * said "three Canadian retailers" in five places, and would have gone on saying it; the material pages say "shops".
  */
 export function priceSampleWords(meta, { canadianOnly = false } = {}) {
   const s = meta.priceSample;
-  if (!s) return `sampled ${meta.pricesSampled ?? meta.snapshot}`;
-  const foreign = !canadianOnly && s.foreignSellers ? ` and ${s.foreignSellers} foreign seller${s.foreignSellers === 1 ? '' : 's'}` : '';
-  const shops = `${s.canadianRetailers} Canadian retailer${s.canadianRetailers === 1 ? '' : 's'}${foreign}`;
-  return `${shops}, sampled ${s.from === s.to ? s.from : `${s.from} to ${s.to}`}`;
+  if (!s) return `sampled ${dayWords(meta.pricesSampled ?? meta.snapshot)}`;
+  const shops = (n, where) => `${n} ${where} shop${n === 1 ? '' : 's'}`;
+  const foreign = !canadianOnly && s.foreignSellers ? ` and ${shops(s.foreignSellers, 'foreign')}` : '';
+  return `${shops(s.canadianRetailers, 'Canadian')}${foreign}, sampled ${daysWords(s.from, s.to)}`;
 }
+
+/**
+ * The price sample said once, in the one sentence the drawer's Price tab and the material page's price section print
+ * (C16): "Regular prices, never sale prices, from 9 Canadian shops and 7 foreign shops, sampled 10 Sep–7 Oct 2026, not
+ * live; shipping and tax are not included."
+ */
+export const priceSampleSentence = (meta) => `Regular prices, never sale prices, ${meta.priceSample ? 'from ' : ''}${priceSampleWords(meta)}, not live; shipping and tax are not included.`;
 
 /**
  * A price read from a foreign listing says so beside the number (D113): converted to CAD at the Bank of Canada's rate,
@@ -458,7 +478,7 @@ export function convertedNote(converted) {
   const which = converted.products
     ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} from a foreign listing`
     : 'A foreign listing\'s price';
-  return `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
+  return `${which}, converted from ${from} at the Bank of Canada rate of ${dayWords(converted.rateDate)}, before VAT. No Canadian shop in the sample `
     + `sells ${converted.products > 1 ? 'those products' : converted.products === 1 ? 'that product' : 'this product'}. Shipping and duty are not included.`;
 }
 

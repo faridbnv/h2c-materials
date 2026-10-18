@@ -13,12 +13,15 @@ import { readRecipe } from './recipe.js';
 
 const FAMILY_ENTRY = 'Family entry';
 
-/** A guide by its publisher and title, as a reader says it: "Bambu Lab's Filament Guide". */
+/**
+ * A guide by its title, as INTERFACE names it: "Bambu Lab Filament Guide", its publisher's name in front where the title
+ * does not start with it. A document's title, not a possessive: "Bambu Lab's Filament Guide" had stood beside "Bambu Lab
+ * Filament Guide" on the two surfaces (coherence round, C05).
+ */
 export function guideName(source) {
   const publisher = source?.publisher ?? 'The publisher';
   const title = String(source?.title ?? 'guide');
-  const rest = title.startsWith(publisher) ? title.slice(publisher.length).trim() : title;
-  return `${publisher}'s ${rest}`;
+  return title.startsWith(publisher) ? title : `${publisher} ${title}`;
 }
 
 /**
@@ -35,7 +38,8 @@ export function compilePrintGuide(rows, materialRows, { sources, materials, issu
       issues.push({ level: 'error', code: 'PRINT-GUIDE-REFERENCE', where, message: `${r.SourceID} is ${!s ? 'not in sources.csv' : `${s.accessState}, citation role ${s.citationRole}`}; a guide row cites a retrieved, cited source` });
     }
     const recipe = readRecipe(r, issues, { where, unreadWhere: where, abrasionColumn: 'Nozzle size / material', guide: true });
-    const name = `${guideName(s)} for ${r['Guide type']}`;
+    // A row is the guide's column for its type: "Bambu Lab Filament Guide (PLA column)"; in a sentence, "the …".
+    const name = `${guideName(s)} (${r['Guide type']} column)`;
     return {
       id: r.PrintGuideID, sourceId: r.SourceID, guideType: r['Guide type'], name, locator: r.Locator,
       materials: [],

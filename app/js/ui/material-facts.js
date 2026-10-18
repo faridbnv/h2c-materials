@@ -414,8 +414,13 @@ export function familyGuidanceFacts(m, c) {
     // What is true of this material. The caveat that is true of every material (method.csv, Transferable allowables) is
     // said once, not under each material's own limitations (D124).
     ownLimitations: fields[1] ? fields[1].prose : stated(m.limitations) ? m.limitations : '',
+    // Whose words the Best uses prose is, where it is a statement on record about the material in general: PLA's is
+    // Prusa Research's, which the material page quotes "after Prusa Research" (C10). Null where it is no record's.
+    bestUsesFrom: !fields[0] && stated(m.bestUses) ? (c.ev ?? []).find((e) => !stated(e.gradeId) && sameWords(e.finding, m.bestUses)) ?? null : null,
   };
 }
+/** Two texts with the same words, case and punctuation aside. */
+const sameWords = (a, b) => { const w = (t) => String(t ?? '').toLowerCase().replace(/\W+/g, ' ').trim(); return !!w(a) && w(a) === w(b); };
 
 // ------------------------------------------------------------------ headlines drawn side by side (D133, D139)
 
@@ -655,7 +660,8 @@ export function comparisonsOf(m, c, tab) {
  */
 export function printFacts(m, c) {
   const axes = printSpread(c.grades.filter(isProduct));
-  const guideName = c.guide?.name ?? 'Bambu Lab\'s Filament Guide';
+  // A name in a sentence: "the Bambu Lab Filament Guide (PLA column)" (build/src/print-guide.js, C05).
+  const guideName = `the ${c.guide?.name ?? 'Bambu Lab Filament Guide'}`;
   const own = (a) => a.rows.flatMap((r) => r.entries).filter((e) => e.origin !== 'guide');
   const drawnAxes = axes.filter((a) => a.rows.reduce((n, r) => n + r.entries.length, 0) > 1 && own(a).length);
   const drawn = drawnAxes.map((a) => {
@@ -900,10 +906,27 @@ export const readerNote = (text) => !!String(text ?? '').trim() && readerText(te
 
 /**
  * A known gap a reader is shown (the drawer's Known gaps, the pages' Sources): a gap of the material in reader text, not a
- * review step's note or a note on the records; the rest are the maintainers' Review notes. The pages also leave out the
- * gaps another of their sections says (sections/common.js shownGap).
+ * review step's note or a note on the records; the rest are the maintainers' Review notes. Both surfaces also leave out
+ * the gaps another of their sections says (shownGap).
  */
 export const readerGap = (r) => GAP_STATUS.has(r.status) && r.domain !== 'Mandatory review' && readerNote(r.finding);
+
+/**
+ * Gaps a section says where the reader looks, never as a known gap: the rarely published properties (the same list on
+ * every material; the property tables say "not published") and the price's (the price says where it was converted, or
+ * that none is known).
+ */
+export const GAPS_SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
+/**
+ * A coverage row a reader is shown under Known gaps, and counted (the drawer's On file line): a gap of the material, in
+ * reader text, not a review step's or a note on the records, and not one another section says. The one rule of both
+ * surfaces since 2026-10-18 (C21, moved from app/pages/sections/common.js); the Products page's placement excuses every
+ * other row.
+ */
+export const shownGap = (r) => readerGap(r) && !GAPS_SAID_ELSEWHERE.has(r.domain);
+
+/** A statement in a maker's or another document's own words, not the project's reading of one (Selection interpretation). */
+export const makersOwn = (e) => e.evidenceType !== 'Selection interpretation';
 
 /** A coverage row's subject in a reader's words. */
 export const GAP_DOMAIN_WORDS = {

@@ -400,9 +400,10 @@ test('the window line says what the Overview\'s On the H2C says, setting by sett
 
 test('the products named outside the H2C\'s limits are those whose print gate says so, per setting', () => {
   let named = 0, none = 0;
-  const limitsText = andList(PRINT_AXES.filter((a) => a.limit).map((a) => `${lower(a.label)} ${fmtNumber(LIMITS[a.axis])} °C`));
+  // The limits as the material page's On the H2C says them, in one list, and "beyond", the chips' word (coherence round, C04).
+  const limitsText = PRINT_AXES.filter((a) => a.limit).map((a) => `${lower(a.label)} ${fmtNumber(LIMITS[a.axis])} °C`).join(', ');
   for (const x of withHeading()) {
-    const line = footLines(x.heading).find((l) => /^(Outside|No product's setting is outside) the H2C's limits/.test(l));
+    const line = footLines(x.heading).find((l) => /^(Beyond|No product's setting is beyond) the H2C's limits/.test(l));
     assert.ok(line, `${x.m.id}: the limits line`);
     const segments = [];
     for (const axis of TEMPERATURE) {
@@ -411,8 +412,8 @@ test('the products named outside the H2C\'s limits are those whose print gate sa
       segments.push(`${lower(LABEL[axis])}: ${andList(out.map((g) => `${gradeLabel(g)} (${windowText(g.print[axis].min, g.print[axis].max)} °C${OUTSIDE_WORDS[g.print[axis].verdict]})`))}`);
       named += out.length;
     }
-    if (!segments.length) { assert.equal(line, `No product's setting is outside the H2C's limits (${limitsText}).`, x.m.id); none++; }
-    else assert.equal(line, `Outside the H2C's limits (${limitsText}): ${segments.join('; ')}.`, `${x.m.id}: exactly the products whose verdict is exceeds, exceeds-recommended or partial`);
+    if (!segments.length) { assert.equal(line, `No product's setting is beyond the H2C's limits: ${limitsText}.`, x.m.id); none++; }
+    else assert.equal(line, `Beyond the H2C's limits (${limitsText}): ${segments.join('; ')}.`, `${x.m.id}: exactly the products whose verdict is exceeds, exceeds-recommended or partial`);
     // The spread agrees with the gate.
     for (const a of x.spread) {
       assert.deepEqual(a.outside.map((o) => o.g.id), x.products.filter((g) => OUTSIDE.includes(g.print?.[a.axis]?.verdict)).map((g) => g.id), `${x.m.id} ${a.axis}: printSpread's outside list`);
@@ -423,7 +424,7 @@ test('the products named outside the H2C\'s limits are those whose print gate sa
 
 test('a product the gate calls outside is named even where its setting is not drawn, and a product within is never named', () => {
   for (const x of withHeading()) {
-    const line = footLines(x.heading).find((l) => /^Outside the H2C's limits/.test(l)) ?? '';
+    const line = footLines(x.heading).find((l) => /^Beyond the H2C's limits/.test(l)) ?? '';
     for (const axis of TEMPERATURE) {
       for (const g of x.products) {
         const v = g.print?.[axis]?.verdict;

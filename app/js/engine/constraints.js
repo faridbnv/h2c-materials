@@ -53,6 +53,11 @@ export function normalizePolicy(value) {
 }
 
 const fmt = (n) => (Number.isFinite(n) ? String(Number(n.toFixed(6))) : String(n));
+/**
+ * A number in a reason a person reads: fmt's digits, the whole part grouped by thousands from 1,000 ("Published 1,310
+ * kg/m³"), as the drawer prints the same value beside it (coherence round, C12). A criterion keeps fmt: it is a key.
+ */
+const fmtWords = (n) => fmt(n).replace(/^(-?)(\d{4,})/, (all, sign, int) => `${sign}${int.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`);
 
 /** A range whose ends may be open (null): "40 to 60", "at least 40", "at most 60". */
 export const rangeText = (lo, hi, unit = '') => `${lo != null && hi != null ? `${fmt(lo)} to ${fmt(hi)}` : lo != null ? `at least ${fmt(lo)}` : `at most ${fmt(hi)}`}${unit ? ` ${unit}` : ''}`;
@@ -145,7 +150,7 @@ function evaluateNumeric(material, c, ctx = {}) {
       // screenRange screens on the plausible range.
       const decides = est.screenRange ?? wide;
       const screenFails = compareInterval({ lo: decides.lo, hi: decides.hi, kind: 'range' }, c.operator, c.value) === STATUS.FAIL;
-      const span = `${fmt(est.lo)} to ${fmt(est.hi)} ${est.unit}`;
+      const span = `${fmtWords(est.lo)} to ${fmtWords(est.hi)} ${est.unit}`;
       // A measurement of the material that bounds this headline from below and meets the requirement vetoes the
       // screen: the headline is at least that value (headline_definitions.csv Lower bound, D48). Other related values,
       // other endpoints and moulded resin values do not bound it; the estimate already carries them.
@@ -154,14 +159,14 @@ function evaluateNumeric(material, c, ctx = {}) {
       const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && permission && !veto.length;
       const reason = plausible === STATUS.FAIL
         ? screened
-          ? `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
+          ? `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
           : veto.length
-            ? `Not published. Estimated ${span} would fail, but its own ${veto[0].property} ${veto[0].measurementId} (${fmt(veto[0].lo)} ${veto[0].unit}) bounds it from below and meets the requirement, so it is not screened`
+            ? `Not published. Estimated ${span} would fail, but its own ${veto[0].property} ${veto[0].measurementId} (${fmtWords(veto[0].lo)} ${veto[0].unit}) bounds it from below and meets the requirement, so it is not screened`
             : est.canScreen && (c.operator.startsWith('>') ? decides.hi != null : decides.lo != null)
               ? `Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`
               : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
-        : `Not published. Estimated ${span} (plausibly ${fmt(wide.lo)} to ${fmt(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
-      const disclosure = h.asPublished ? ` Published ${fmt(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
+        : `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
+      const disclosure = h.asPublished ? ` Published ${fmtWords(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
         : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state)}.`
           : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '';
       const permissionReason = est.screening && !permission ? ' This product is outside the complete printer context used for screening validation.' : '';
@@ -182,7 +187,7 @@ function evaluateNumeric(material, c, ctx = {}) {
       const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the specimen orientation';
       return {
         status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished,
-        reason: `Published ${fmt(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values`,
+        reason: `Published ${fmtWords(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values`,
       };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
@@ -212,13 +217,13 @@ function evaluateNumeric(material, c, ctx = {}) {
   let reason;
   if (status === STATUS.INDETERMINATE) {
     reason = bound
-      ? `Published ${bound.words} ${fmt(h.value)} ${h.unit}, a bound that leaves the threshold on either side of the value`
-      : `Reported range ${fmt(interval.lo)} to ${fmt(interval.hi)} ${h.unit} straddles the threshold`;
+      ? `Published ${bound.words} ${fmtWords(h.value)} ${h.unit}, a bound that leaves the threshold on either side of the value`
+      : `Reported range ${fmtWords(interval.lo)} to ${fmtWords(interval.hi)} ${h.unit} straddles the threshold`;
   } else {
     // A scenario assumption is the reader's own number, never a published one (audit 2026-09-15, A-02).
     reason = h.assumption
-      ? `Assumed ${fmt(h.value)} ${h.unit} (a scenario assumption, not published)`
-      : `Published ${bound ? `${bound.words} ` : ''}${fmt(h.value)}${band ? ` ± ${fmt(h.uncertainty)}` : ''} ${h.unit}`;
+      ? `Assumed ${fmtWords(h.value)} ${h.unit} (a scenario assumption, not published)`
+      : `Published ${bound ? `${bound.words} ` : ''}${fmtWords(h.value)}${band ? ` ± ${fmtWords(h.uncertainty)}` : ''} ${h.unit}`;
     // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
     if (h.caveat) reason += `, test ${h.caveat === 'load-not-stated' ? 'load' : 'orientation'} not stated`;
     // The orientation and the method it was measured to, in one bracket: a pooled method is not an equal one.
@@ -255,7 +260,7 @@ const stateWords = (s) => (s?.treatment ? `after annealing ${schedule(s.treatmen
 /** Why a value the product publishes in another state does not decide in this one, and what would let it (D99). */
 function elsewhereReason(h, state) {
   const e = h.elsewhere[0];
-  const where = `${fmt(e.value)} ${h.unit}`;
+  const where = `${fmtWords(e.value)} ${h.unit}`;
   if (e.treatment && !state?.treatment) {
     return `Published only after annealing ${schedule(e.treatment)} (${where}), and this product is judged as printed. Allow annealing under Part condition to use it`;
   }

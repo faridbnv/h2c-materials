@@ -7,13 +7,17 @@
 // decides anything, and nothing reads the page.
 
 import { fmtNumber } from './format.js';
-import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, PRINT_NOT_DRAWN_ONE, OUTSIDE_WORDS, h2cLimit, namedFiller } from './labels.js';
+import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, PRINT_NOT_DRAWN_ONE, OUTSIDE_WORDS, h2cLimit, namedFiller, envVerdictWords } from './labels.js';
 import { hardenedWords } from '../engine/products.js';
 import { plural, lower, cap, andList, inSentence, stated } from './text.js';
 import { dryingAdvice } from './material-stats.js';
 import { productName } from './material-facts.js';
+import { dayWords } from './dates.js';
 
 export { plural, lower, cap, andList, inSentence };
+
+/** A property's name inside a sentence: lower case, unless it begins with a name (Vicat, Charpy, Izod, Shore) or an abbreviation. */
+export const inText = (label) => (/^(?:Vicat|Charpy|Izod|Shore|Rockwell|Barcol)\b/.test(label) ? label : lower(label));
 
 // ------------------------------------------------------------------ a material
 
@@ -45,13 +49,15 @@ export const identityLine = (id) => [id.base, FILLED_WORDS[id.reinforcement],
   id.products ? `${plural(id.products, 'product')} from ${plural(id.makers, 'maker')}` : 'no product on file'].filter(Boolean).join(' · ');
 
 /**
- * How much is on file, after "On file:": measurements and the documents they were read from (the Sources tab's and the
- * page's word), held-back values, known gaps and conflicts where there are any (none is said by their absence).
+ * How much is on file, after how well documented it is: measurements and the documents they were read from (the Sources
+ * tab's and the page's word), held-back values, known gaps and conflicts where there are any (none is said by their
+ * absence). `shown` counts the known gaps the reader is shown under Sources' Known gaps ({ gaps, conflicts }), so a count
+ * adds up where it is followed (C21); without it, the summary's own counts.
  */
-export const onFileWords = (summary, documents) => [
+export const onFileWords = (summary, documents, shown = summary) => [
   `${fmtNumber(summary.numericMeasurements)} ${summary.numericMeasurements === 1 ? 'measurement' : 'measurements'} from ${fmtNumber(documents)} ${documents === 1 ? 'document' : 'documents'}`,
-  summary.quarantined ? `${summary.quarantined} held back` : null, summary.gaps ? plural(summary.gaps, 'known gap') : null,
-  summary.conflicts ? plural(summary.conflicts, 'unresolved conflict') : null].filter(Boolean).join(' · ');
+  summary.quarantined ? `${summary.quarantined} held back` : null, shown.gaps ? plural(shown.gaps, 'known gap') : null,
+  shown.conflicts ? plural(shown.conflicts, 'unresolved conflict') : null].filter(Boolean).join(' · ');
 
 /** What an empty tab or section says first. */
 export const NOTHING_ON_FILE = 'Nothing on file for this material.';
@@ -67,7 +73,18 @@ export const EMPTY_LINES = {
   gaps: 'No gap, limitation or conflict is recorded for this material.',
 };
 /** One recorded reason a section is empty (a coverage row, material-facts.js emptyReasons), in the reviewer's words. */
-export const emptyReasonLine = (r) => `${r.domain ?? ''}, ${r.status.toLowerCase()}: ${r.finding ?? ''}`;
+export const emptyReasonLine = (r) => `${r.domain ?? ''}, ${r.status.toLowerCase()}: ${gapFindingWords(r)}`;
+/**
+ * A known gap's finding as a reader is shown it: the rarely published properties' list in lower case inside its sentence
+ * ("Not published by its own products: compression strength, coefficient of thermal expansion, …"), as a sentence names a
+ * property (C06).
+ */
+export const gapFindingWords = (r) => {
+  const t = String(r?.finding ?? '');
+  if (r?.domain !== 'Sparse properties') return t;
+  const at = t.indexOf(': ');
+  return at < 0 ? t : `${t.slice(0, at + 2)}${t.slice(at + 2).split(', ').map(inSentence).join(', ')}`;
+};
 
 /** Which material a family's guidance speaks for, said beside it (material-facts.js familyGuidanceFacts). */
 export const familyScope = (name, materialName) => (name === materialName ? 'for the family in general, not one product' : `for ${name} in general, not ${materialName} or its products`);
@@ -94,7 +111,7 @@ export const namedOnlyWords = (x) => `${inSentence(x.property)}${x.direction && 
 
 /** What a document gave (material-facts.js sourceBlockFacts().gave), as a list: "12 values", "print settings (2 profiles)". */
 export const gaveWords = (gave) => [gave.values != null ? plural(gave.values, 'value') : null, gave.profiles ? `print settings (${plural(gave.profiles, 'profile')})` : null,
-  gave.statements ? plural(gave.statements, 'maker statement') : null, gave.environment ? plural(gave.environment, 'environment statement') : null,
+  gave.statements ? plural(gave.statements, 'maker statement') : null, gave.environment ? plural(gave.environment, 'statement on chemicals or use', 'statements on chemicals or use') : null,
   gave.guide ? 'the Bambu Lab Filament Guide entry for this material, in Printing' : null].filter(Boolean);
 
 // ------------------------------------------------------------------ states a value is in
@@ -234,9 +251,9 @@ export const TOUGHENED_NOTE = '"Sold as toughened" is the maker\'s own statement
 /** The same, under the Products tab's spread table. */
 export const TOUGHENED_NOTE_SHORT = '"Sold as toughened" is the maker\'s statement, not a test result.';
 
-/** A product's spread line in the Products tab's table (materials[].summary): what is left out of the range, by why. */
+/** A product's spread line in the Products tab's table (materials[].summary): what is kept out of the median, by why, at the display precision. */
 export function leftOutWords(h, s) {
-  const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}–${fmtNumber(x.max)}`);
+  const span = (x) => graphRange(x, h.unit);
   return [s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${s.variants.n} with an added filler or additive (${span(s.variants)})` : '',
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : ''].filter(Boolean);
 }
@@ -287,7 +304,7 @@ export function shareWords(shares, noShare) {
   if (!shares.length) return '';
   // A share every product gives alike is said once, without a range of one number.
   const one = (gr, s) => (sharePct(Math.min(...s)) === sharePct(Math.max(...s)) ? `${graphName(gr)} ${sharePct(s[0])} (${plural(s.length, 'product')})`
-    : `${graphName(gr)} ${sharePct(middle(s))} (${sharePct(Math.min(...s))}⁠–⁠${sharePct(Math.max(...s))}, ${s.length} products)`);
+    : `${graphName(gr)} ${sharePct(middle(s))} (${Math.round(Math.min(...s) * 100)}⁠–⁠${sharePct(Math.max(...s))}, ${s.length} products)`);
   return `Kept across the layers, ${shares[0].gr.rows[1].direction} as a share of ${shares[0].gr.rows[0].direction} (median of the products with both from one document): ${andList(shares.map(({ gr, shares: s }) => one(gr, s)))}.${
     noShare.length ? ` None for ${andList(noShare.map(({ gr }) => graphName(gr)))}.` : ''}`;
 }
@@ -324,6 +341,14 @@ export const printApartWords = (s) => [s.guide ? `${s.guide.n} from the guide ($
   s.variants ? `${s.variants.n} with an added filler or additive (${graphRange(s.variants, '°C')})` : null].filter(Boolean);
 
 
+/** The H2C's settings by axis, as a sentence names them: the chamber is the heated chamber. */
+const AXIS_WORDS = { nozzle: 'nozzle', bed: 'bed', chamber: 'heated chamber' };
+/**
+ * The H2C's limits as one list, the same on both surfaces (the page's On the H2C foot, the drawer's Printing): "nozzle
+ * 350 °C, bed 120 °C, heated chamber 65 °C". `axes` [{ axis, limit }].
+ */
+export const h2cLimitsText = (axes) => axes.filter((a) => a.limit != null).map((a) => `${AXIS_WORDS[a.axis] ?? a.axis} ${fmtNumber(a.limit)} °C`).join(', ');
+
 /** The lines under the print temperatures' table (material-facts.js printFacts): what n counts, the medians, the products outside the H2C's limits. */
 export function printLines(f) {
   const typical = f.typical.map(({ label, low, high }) => {
@@ -334,9 +359,10 @@ export function printLines(f) {
     return `${lower(label)} ${low == null || high == null ? graphNumber(low ?? high, '°C') : graphSpan(low, high, '°C')} °C`;
   }).filter(Boolean);
   const outside = f.outside.map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
-  const limits = f.limits.map((a) => `${lower(a.label)} ${fmtNumber(a.limit)} °C`);
+  // The limits as the material page's On the H2C says them (print-brief.js h2cLimitsText), and "beyond", the chips' word (C04).
+  const limits = h2cLimitsText(f.limits);
   return [
-    outside.length ? `Outside the H2C's limits (${andList(limits)}): ${outside.join('; ')}.` : `No product's setting is outside the H2C's limits (${andList(limits)}).`,
+    outside.length ? `Beyond the H2C's limits (${limits}): ${outside.join('; ')}.` : `No product's setting is beyond the H2C's limits: ${limits}.`,
   ].filter(Boolean);
 }
 
@@ -358,8 +384,8 @@ export function printMissing(f) {
 export const printOriginsWords = (origins) => [origins.guide ? `${plural(origins.guide, 'setting')} from the Bambu Lab Filament Guide` : '',
   origins.twin ? `${plural(origins.twin, 'setting')} from a data sheet shared with another product` : ''].filter(Boolean);
 
-/** One axis of the H2C's limits against a material's products (printCounts().axes): "3 within, 1 above or only partly within". */
-export const printCountWords = (n) => `${n.within} within${n.over ? `, ${n.over} above or only partly within` : ''}${n.unknown ? `, ${n.unknown} not published` : ''}`;
+/** One axis of the H2C's limits against a material's products (printCounts().axes): "3 within, 1 beyond or only partly within". */
+export const printCountWords = (n) => `${n.within} within${n.over ? `, ${n.over} beyond or only partly within` : ''}${n.unknown ? `, ${n.unknown} not published` : ''}`;
 
 /** The hardened-nozzle line of a material's printability, by its gate (materials[].gates.abrasive) and its products' share. */
 export function hardenedFactWords(gate, hard, someHard) {
@@ -432,7 +458,7 @@ export const annealWords = (list) => (list ?? []).map((x) => `${x.tempC != null 
 
 /** What a product's makers' documents leave unsaid (material-facts.js knowHowGapFacts), as one line; empty where nothing is. */
 export function knowHowGap(f) {
-  const site = f.searchedOn ? ` (website checked ${f.searchedOn})` : '';
+  const site = f.searchedOn ? ` (website checked ${dayWords(f.searchedOn)})` : '';
   if (f.state === 'no-document-read') return `None of this product's documents has been read beyond its numbers${site}.`;
   const missing = f.state === 'collected' ? f.missing.map((t) => TOPIC_WORDS[t] ?? lower(t)) : ['anything beyond its numbers'];
   const all = [...missing, ...f.recipe.map((part) => RECIPE_WORDS[part])];
@@ -459,6 +485,39 @@ export const makersRecipeWords = (recipe) => recipe.map(([part, x]) => `${RECIPE
 /** A polymer-level verdict in words: "not resistant", "soluble". */
 export const verdictWords = (v) => String(v ?? '').replace(/-/g, ' ');
 
+/**
+ * What the statements on one exposure say, counted in one unit, statements, so the counts add up to the row's total:
+ * the verdict all of them give; the verdict two thirds or more give, with its count; else "mixed", with how many
+ * disagree. A statement in words with no verdict is counted as "without a verdict". The material page's Chemicals table
+ * and the drawer's Environment headings print it (moved from app/pages/findings.js, 2026-10-18, C22). It counts makers'
+ * statements; it is not the selector's answer to an environment requirement, which is a product's.
+ */
+export function statementVerdictWords(records) {
+  // A "no data" statement says nothing, so it is not counted; a statement in words alone counts but gives no verdict.
+  const said = records.filter((e) => e.verdict !== 'no-data');
+  const n = said.length;
+  if (!n) return records.length ? 'No data published' : '';
+  const counts = new Map();
+  for (const e of said) if (e.verdict !== 'narrative') counts.set(e.verdict, (counts.get(e.verdict) ?? 0) + 1);
+  const list = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const of = (k) => (k === n ? (n === 1 ? 'in its one statement' : n === 2 ? 'in both statements' : `in all ${fmtNumber(n)} statements`) : `in ${fmtNumber(k)} of ${fmtNumber(n)} statements`);
+  if (!list.length) return `Described without a verdict, ${of(n)}`;
+  const [top, k] = list[0];
+  const word = cap(envVerdictWords(top));
+  // One verdict, the others in words only: it is that verdict, however few say it.
+  if (list.length === 1) return `${word}, ${of(k)}${k / n < 2 / 3 ? (n - k === 1 ? '; the other gives no verdict' : '; the others give no verdict') : ''}`;
+  if (k / n >= 2 / 3) return `${word}, ${of(k)}`;
+  const disagree = list.reduce((s, [, x]) => s + x, 0);
+  return `Mixed, ${fmtNumber(disagree)} statements disagree`;
+}
+
+/**
+ * The caveat on makers' environment statements, said once, from the method table (method.csv, Evidence, Environment
+ * statements; m437, C11): the drawer's Environment tab and the material page's Chemicals and environment read it. ''
+ * where the table has no such rule.
+ */
+export const envCaveat = (db) => db?.method?.find((r) => r.topic === 'Environment statements')?.rule ?? '';
+
 /** A statement's topic is worth saying only where it says more than the heading above it ("Solubility" under Water solubility). */
 export const topicRepeatsHeading = (topic, heading) => { const w = String(topic ?? '').toLowerCase().match(/[a-z]{4,}/g) ?? []; return w.length > 0 && w.every((x) => heading.toLowerCase().includes(x.slice(0, 5))); };
 
@@ -469,13 +528,13 @@ export const envConditionWords = (e, heading) => [topicRepeatsHeading(e.topic, h
 
 const sentenceEnd = (t) => t.replace(/[.\s]*$/, '');
 /** Why a listing with no regular price per kilogram is not used. */
-export const noPriceWords = (p) => `${p.retailer}${p.foreign ? ` (${p.market})` : ''} lists it${Number.isFinite(p.displayedPrice) ? ` at ${fmtNumber(p.displayedPrice)} ${p.currency ?? 'CAD'}` : ''} (seen ${p.accessDate}), `
+export const noPriceWords = (p) => `${p.retailer}${p.foreign ? ` (${p.market})` : ''} lists it${Number.isFinite(p.displayedPrice) ? ` at ${fmtNumber(p.displayedPrice)} ${p.currency ?? 'CAD'}` : ''} (seen ${dayWords(p.accessDate)}), `
   + `but no regular price per kilogram was recorded, so it is not used. ${stated(p.basis) ? `${sentenceEnd(p.basis)}.` : ''}${stated(p.notes) ? ` ${p.notes}` : ''}`;
 /** Why a held-back listing (a different product) is not used, in its reviewer's words. */
 export const quarantineWords = (p) => [String(p.basis ?? '').replace(/^quarantined:\s*/i, ''), p.notes].filter(stated).map(sentenceEnd).join('. ');
 /** How a foreign listing became CAD per kg (D113): its own price per kg before VAT, the rate and its date. */
 export const foreignPriceWords = (p) => `${p.retailer} (${p.market}) lists ${fmtNumber(p.listPrice)} ${p.currency}${p.vatPercent != null ? ` including ${fmtNumber(p.vatPercent)}% VAT` : ''} for ${fmtNumber(p.netMassKg)} kg: `
-  + `${fmtNumber(p.regularPerKgNative)} ${p.currency}/kg before VAT, × ${p.fx.cadPerUnit} CAD per ${p.currency} (Bank of Canada, ${p.fx.date}). `
+  + `${fmtNumber(p.regularPerKgNative)} ${p.currency}/kg before VAT, × ${p.fx.cadPerUnit} CAD per ${p.currency} (Bank of Canada, ${dayWords(p.fx.date)}). `
   + 'Used only where no Canadian shop in the sample sells the product. Shipping, duty and Canadian stock are not included.';
 /** Why a listing is not used for the price (material-facts.js priceRows().unused). */
 export const UNUSED_WORDS = {

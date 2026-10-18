@@ -4,7 +4,7 @@
 // layer's (findings.js `num` marks it), every word findings.js's, material-words.js's or labels.js's.
 
 import { esc, tableBox } from '../html.js';
-import { GAP_STATUS, productNameOrId, stated, readerText, readerGap, GAP_DOMAIN_WORDS } from '../../js/ui/material-facts.js';
+import { productNameOrId, stated, readerText, shownGap, GAP_DOMAIN_WORDS } from '../../js/ui/material-facts.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import * as FIGURES from '../figures.js';
@@ -90,20 +90,9 @@ export const quotes = (items, cls = 'said-list') => { const xs = items.filter(Bo
 // ------------------------------------------------------------------ known gaps: the reader's, never the maintainers'
 
 // The rule for reader text (a reviewer's note that names no record, no stored word and no review step) lives in
-// app/js/ui/material-facts.js since 2026-10-18, so the drawer leaves out what the pages leave out.
-export { readerText };
-
-/**
- * Gaps a section says where the reader looks, never as a known gap: the rarely published properties (the same list on
- * every page; a tile or a table says "not published") and the price's (Density and price says where it was converted).
- */
-const SAID_ELSEWHERE = new Set(['Sparse properties', 'Canadian price']);
-/**
- * A coverage row a reader is shown under Sources' Known gaps: a gap of the material, in reader text, not a review step's
- * or a note on the records, and not one another section says. The one rule: Sources shows these, and the Products page's
- * placement (records/placement.js) excuses every other row.
- */
-export const shownGap = (r) => readerGap(r) && !SAID_ELSEWHERE.has(r.domain);
+// app/js/ui/material-facts.js since 2026-10-18, so the drawer leaves out what the pages leave out; and so, since the
+// coherence round, does the rule for which known gaps a reader is shown and counted (shownGap), which the drawer reads too.
+export { readerText, shownGap };
 
 /** A known gap as a list item: its subject, then the reviewer's finding in their words, the record's ID on it. */
 export function gapItem(r) {

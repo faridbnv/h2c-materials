@@ -126,7 +126,7 @@ function columnsOf(c, rows, kinds) {
     if (!rows.some(has)) { silent.push(lower(PRINT[axis])); return null; }
     return {
       key: axis, label: axis === 'chamber' ? 'Chamber' : PRINT[axis], short: axis === 'chamber' ? 'Chamber' : PRINT[axis], title: PRINT[axis], unit: axis === 'drying' ? '°C, h' : '°C', dir: 'asc',
-      words: ['From Bambu Lab\'s Filament Guide', '', `${PRINT[axis]} not stated`],
+      words: ['From the Bambu Lab Filament Guide', '', `${PRINT[axis]} not stated`],
       read: (r) => {
         const p = r.print;
         if (!p) return null;
@@ -188,7 +188,7 @@ function keyLine(kinds, methodHref) {
   const k = [
     kinds.has('o') || kinds.has('iz') ? ['<span class="km km--o" aria-hidden="true">○</span>', 'orientation or load not stated'] : null,
     kinds.has('a') ? ['<span class="km km--a" aria-hidden="true"></span>', 'measured after annealing'] : null,
-    kinds.has('guide') ? ['<span class="km km--g" aria-hidden="true">Aa</span>', 'from Bambu Lab\'s Filament Guide'] : null,
+    kinds.has('guide') ? ['<span class="km km--g" aria-hidden="true">Aa</span>', 'from the Bambu Lab Filament Guide'] : null,
     kinds.has('iz') ? ['<span class="km km--iz" aria-hidden="true">Izod</span>', 'Izod where no Charpy is published'] : null,
     kinds.has('tough') ? [icon('tough', 'Sold as toughened'), 'sold as toughened'] : null,
     kinds.has('variant') ? [icon('variant', 'Modified'), 'added filler or additive'] : null,

@@ -32,7 +32,7 @@ test('the chart data says what the picture is: release, question, axes, line, po
   const ws = workspaceFor(state);
   const csv = chartDataCSV(state, ws, { view: 'decision' });
   const head = csv.split('\n').filter((l) => l.startsWith('#')).join('\n');
-  for (const want of [/release fixture-1/, /required: .*Density at most 1600/, /x: Density \(kg\/m³\), log; y: Stiffness \(GPa\), log/,
+  for (const want of [/release fixture-1/, /required: .*Density at most 1,600/, /x: Density \(kg\/m³\), log; y: Stiffness \(GPa\), log/,
     /goal: Beam, minimum mass, stiffness prescribed, M = E\^\(1\/2\) \/ rho/, /line at M = 0\.002: 2 products from 2 materials on the better side \(a product on the line included\); a guide, which keeps and removes nothing/,
     /populations: 2 products from 2 materials drawn; 1 passing product not drawable/, /ranges: a material's box is the middle half of its products on each axis \(all of them under four\), whiskers to the lowest and highest, declared variants apart/]) {
     assert.match(head, want);

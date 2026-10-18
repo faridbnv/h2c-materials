@@ -11,84 +11,34 @@
 // The contract with the frame (track A): identitySentence, evidenceLine, onTheH2cRows, onTheH2cLine, standOutLines and
 // productsHandoffWords, each from a material's context (material-facts.js materialContext).
 
-import { esc, attrs } from './html.js';
-import * as NUMBERS from './numbers.js';
-import { dayWords, daysWords } from '../js/ui/dates.js';
-import { fmtNumber, dryingWords, priceSampleWords, readableUnit } from '../js/ui/format.js';
+import { esc } from './html.js';
+import { dayWords } from '../js/ui/dates.js';
+import { fmtNumber, readableUnit, priceSampleSentence, medianSign } from '../js/ui/format.js';
 import { REGISTRY } from '../js/ui/registry.js';
-import { propertyName, envVerdictWords } from '../js/ui/labels.js';
+import { propertyName } from '../js/ui/labels.js';
 import { identity, productNameOrId, printFacts, printCounts, priceRows, stated, groupByMaker } from '../js/ui/material-facts.js';
-import { printWindows, dryingStats, dryingAdvice, compareMedians, printsAmorphous, heatLadder, typicalWindow } from '../js/ui/material-stats.js';
-import { plural, lower, cap, andList, windowText, scheduleWords } from '../js/ui/material-words.js';
-import { evidenceTier, standOut, standOutProducts, standing, productsOf, KEY_FIGURES, dryingSchedule } from '../js/ui/material-highlights.js';
+import { compareMedians, printsAmorphous, heatLadder } from '../js/ui/material-stats.js';
+import { plural, lower, cap, andList, scheduleWords, inText, statementVerdictWords } from '../js/ui/material-words.js';
+import { standOut, standOutProducts, standing, productsOf, KEY_FIGURES } from '../js/ui/material-highlights.js';
+import { glue, countWords, onTheH2cRows, nozzleSay, dryingSpanWords } from '../js/ui/print-brief.js';
+import { isSay, plain, markup, fmtD, num, say, joinSay, andSay, capSay, spanSay } from '../js/ui/say.js';
+import { evidenceLine, keyFiguresBasis, nWords } from '../js/ui/evidence-line.js';
 
 // ------------------------------------------------------------------ sentences with their numbers marked
 
-const SAY = Symbol('say');
-import { glue, countWords, onTheH2cRows, nozzleSay, dryingSpanWords } from '../js/ui/print-brief.js';
-
+// The Say machinery (say, num, plain and the rest) is app/js/ui/say.js's, and the evidence line app/js/ui/evidence-line.js's,
+// since the coherence round (2026-10-18), so the drawer prints what the page prints from the same functions; both are
+// re-exported here for the pages' modules, with the words the drawer shares (print-brief.js, material-words.js).
 export { glue, countWords, onTheH2cRows, nozzleSay, dryingSpanWords };
-const mk = (text, html) => ({ [SAY]: true, text: glue(text), html: glue(html), toString() { return glue(text); } });
-/** Whether `x` is a Say. */
-export const isSay = (x) => !!x?.[SAY];
-/** Plain words as a Say. */
-export const plain = (t) => mk(String(t ?? ''), esc(String(t ?? '')));
-/** Raw markup as a Say (a link, an element): its text is its markup's text. */
-export const markup = (html, text) => mk(text ?? String(html).replace(/<[^>]*>/g, ''), html);
-
-/** A display number: the facts layer's value as the Overview prints it (numbers.js fmtDisplay where it has landed). */
-export const fmtD = (v, unit) => (typeof NUMBERS.fmtDisplay === 'function'
-  ? (unit ? `${NUMBERS.fmtDisplay(v, unit)}\u00a0${unit}` : NUMBERS.fmtDisplay(v))
-  : glue(fmtNumber(v, unit)));
-
-/**
- * A compiled value in a sentence: its display form, marked with the unrounded value and the field it states (`key` a
- * headline key, `stat` the summary's field: median, q1, q3, min, max, n; or 'product' with `grade`). Without `key` it is
- * a display statistic (a share, a window, a count of records) and is not marked.
- */
-export function num(value, { key = null, stat = 'median', unit = null, grade = null, shown = null } = {}) {
-  const text = shown ?? fmtD(value, unit);
-  if (!key) return plain(text);
-  return mk(text, `<span${attrs({ 'data-v': value, 'data-key': key, 'data-stat': stat, 'data-grade': grade })}>${esc(text)}</span>`);
-}
-
-/** A sentence from a template: interpolated Says keep their markup, anything else is escaped. */
-export function say(strings, ...vals) {
-  let text = '', html = '';
-  strings.forEach((s, i) => {
-    text += s;
-    html += esc(s);
-    if (i >= vals.length) return;
-    const v = vals[i];
-    if (isSay(v)) { text += v.text; html += v.html; } else if (v != null && v !== false) { text += String(v); html += esc(String(v)); }
-  });
-  return mk(text, html);
-}
-/** Says joined by a separator. */
-export const joinSay = (parts, sep = ' ') => { const xs = parts.filter((p) => p && (isSay(p) ? p.text : p)).map((p) => (isSay(p) ? p : plain(p))); return mk(xs.map((p) => p.text).join(sep), xs.map((p) => p.html).join(esc(sep))); };
-/** Says as a list in prose: "a", "a and b", "a, b and c". */
-export function andSay(parts) {
-  const xs = parts.filter(Boolean).map((p) => (isSay(p) ? p : plain(p)));
-  if (xs.length < 2) return xs[0] ?? plain('');
-  return joinSay([joinSay(xs.slice(0, -1), ', '), xs.at(-1)], ' and ');
-}
-/** A Say with its first letter in capitals (where it starts with words, not a number). */
-export const capSay = (s) => (isSay(s) ? mk(cap(s.text), /^</.test(s.html) ? s.html : cap(s.html)) : plain(cap(String(s))));
-
-/** A range of two compiled values of one key, joined so it never breaks at its dash: "40–53 MPa". */
-export const spanSay = (lo, hi, { key = null, unit = null, stats = ['min', 'max'] } = {}) => (lo === hi
-  ? num(lo, { key, stat: stats[0], unit })
-  : say`${num(lo, { key, stat: stats[0] })}⁠–⁠${num(hi, { key, stat: stats[1], unit })}`);
+export { isSay, plain, markup, fmtD, num, say, joinSay, andSay, capSay, spanSay };
+export { evidenceLine, keyFiguresBasis, nWords, inText };
+/** What the statements on one exposure say (material-words.js statementVerdictWords, which the drawer prints too). */
+export const verdictWords = statementVerdictWords;
 
 // The date words live in app/js/ui/dates.js since 2026-10-18 (coherence round), so the drawer prints a date as the
 // page does; re-exported here for the pages' modules.
 export { dayWords, daysWords } from '../js/ui/dates.js';
 
-/** A count with its noun, the number in words under eleven: "three products". */
-export const nWords = (n, word, many = `${word}s`) => `${countWords(n)} ${n === 1 ? word : many}`;
-
-/** A property's name inside a sentence: lower case, unless it begins with a name (Vicat, Charpy, Izod, Shore) or an abbreviation. */
-export const inText = (label) => (/^(?:Vicat|Charpy|Izod|Shore|Rockwell|Barcol)\b/.test(label) ? label : lower(label));
 const headline = (key) => REGISTRY.allHeadlines.find((h) => h.key === key) ?? null;
 const labelOf = (key) => headline(key)?.labels.plain ?? key;
 
@@ -169,66 +119,8 @@ export function identitySentence(c) {
 
 // ------------------------------------------------------------------ how well documented (the evidence line)
 
-const HEADS = { well: 'Well documented', partly: 'Partly documented', thinly: 'Thinly documented' };
-/** "tensile strength (Z) rests on 3 products". */
-const restsOn = (t) => say`${inText(t.h.labels.plain)} rests on ${num(t.n, { key: t.key, stat: 'n', shown: plural(t.n, 'product') })}`;
-const isAre = (xs) => (xs.length === 1 ? 'is' : 'are');
-const names = (ts) => andList(ts.map((t) => inText(t.h.labels.plain)));
-
-/** The definition of a key figure, said once on the page. */
-function definition(c) {
-  const m = c.m;
-  const variants = productsOf(c).some((g) => g.variant);
-  const toughened = !!m.summary?.charpyNotched?.claimed?.setApart;
-  const apart = variants && toughened ? 'Products with an added filler or additive, and for notched impact those sold as toughened, are shown but kept out of the medians.'
-    : variants ? 'Products with an added filler or additive are shown but kept out of the medians.'
-      : toughened ? 'For notched impact, products sold as toughened are shown but kept out of the median.' : '';
-  return joinSay(['Each figure is the median of the products that publish it with a stated orientation or test load, and beside it the middle half of them.', apart]);
-}
-
-/** Why the values published cannot be ranked, said once: "No sheet states how its tensile bars were printed, so …". */
-function openReason(t) {
-  if (!t.openOnly.length) return null;
-  const dir = t.openOnly.filter((x) => x.h.direction), load = t.openOnly.filter((x) => !x.h.direction);
-  const tests = [...new Set(dir.map((x) => (/tensile|elongation/i.test(x.h.labels.plain) ? 'tensile' : /flexural/i.test(x.h.labels.plain) ? 'flexural' : 'test')))];
-  const parts = [];
-  if (dir.length) parts.push(`No sheet states how its ${andList(tests)} bars were printed, so ${names(dir)} ${isAre(dir)} shown as published and not ranked against other materials.`);
-  if (load.length) parts.push(`No sheet states the test load of its ${names(load)}, so ${load.length === 1 ? 'it is' : 'they are'} shown as published and not ranked against other materials.`);
-  return parts.join(' ');
-}
-
-/** The makers whose documents give the values: "two makers' documents: Spectrum's, which FormFutura AthenaX GF10 shares, and Fiberlogy's". */
-function makersWords(c, t) {
-  const ms = t.makers;
-  if (!ms.length) return 'no document with a number';
-  const one = ({ maker, readers }) => (readers.length ? `${maker}'s, which ${andList(readers.map(productNameOrId))} ${readers.length === 1 ? 'shares' : 'share'}` : `${maker}'s`);
-  if (ms.length > 3) return `${fmtNumber(ms.length)} makers' documents`;
-  const list = ms.length === 1 ? one(ms[0]) : `${ms.slice(0, -1).map(one).join(', ')}${ms.some((x) => x.readers.length) ? ',' : ''} and ${one(ms.at(-1))}`;
-  return `${ms.length === 1 ? 'one maker\'s documents' : `${countWords(ms.length)} makers' documents`}: ${list}`;
-}
-
-/**
- * The evidence line: how well documented the material is, why where it matters, and what a key figure is, said once on
- * the page. `{ tier, head ('Well documented'…), text, html, toString() }`; the head is not in the text.
- */
-export function evidenceLine(c) {
-  const t = evidenceTier(c.m, c);
-  let body;
-  if (t.tier === 'well') {
-    body = joinSay([`${fmtNumber(t.documents)} documents from ${plural(t.publishers, 'publisher')}${t.dataSheets ? `, ${t.dataSheets === t.documents ? 'all' : fmtNumber(t.dataSheets)} of them data sheets` : ''}.`, definition(c)]);
-  } else if (t.tier === 'partly') {
-    const byN = [...new Set(t.weak.map((x) => x.n))].map((n) => t.weak.filter((x) => x.n === n));
-    const restsOnAll = byN.map((g, i) => (g.length === 1 ? (i ? say`${inText(g[0].h.labels.plain)} on ${plural(g[0].n, 'product')}` : restsOn(g[0]))
-      : say`${names(g)} ${i ? 'on' : 'rest on'} ${plural(g[0].n, 'product')} each`));
-    const parts = [...restsOnAll, t.missing.length ? plain(`${names(t.missing)} ${isAre(t.missing)} not published`) : null,
-      t.openOnly.length ? plain(`${names(t.openOnly)} ${t.openOnly.length === 1 ? 'is' : 'are'} published only without a stated orientation or test load`) : null].filter(Boolean);
-    body = joinSay([say`${capSay(andSay(parts))}.`, definition(c)]);
-  } else {
-    const word = t.makers.length <= 1 ? 'one sheet\'s word' : t.makers.length === 2 ? 'one or two sheets\' word' : 'a few sheets\' word';
-    body = joinSay([`${cap(nWords(t.products, 'product'))}, with values from ${makersWords(c, t)}.`, openReason(t), t.ranked.length ? `Read each figure as ${word}.` : null]);
-  }
-  return { ...body, tier: t.tier, head: HEADS[t.tier], facts: t, toString() { return `${HEADS[t.tier]}: ${body.text}`; } };
-}
+// The evidence line (evidenceLine, and keyFiguresBasis, its definition of a key property's figure) is
+// app/js/ui/evidence-line.js's since 2026-10-18, so the drawer's On file line says it too; re-exported above.
 
 // ------------------------------------------------------------------ printing on the H2C, in brief
 
@@ -381,7 +273,7 @@ export function peersWords(c, peers) {
 /** A value's display in a unit a reader reads easily (a soft elastomer's 0.0159 GPa as 15.9 MPa, format.js readableUnit). */
 const readable = (v, unit, ref = v) => { const r = readableUnit(unit, ref); return fmtD(v * r.factor, r.unit); };
 /** A summary's median as a Say, with its unit. */
-const med = (m, key) => { const s = m.summary[key]; const unit = headline(key)?.unit; return num(s.median, { key, unit, shown: readable(s.median, unit, s.max ?? s.median) }); };
+const med = (m, key) => { const s = m.summary[key]; const unit = headline(key)?.unit; return num(s.median, { key, unit, shown: `${medianSign(m, key)}${readable(s.median, unit, s.max ?? s.median)}` }); };
 /** A summary's published-only span: "55 MPa", "39–70 MPa". */
 const openSpan = (m, key) => {
   const a = m.summary[key].asPublished, unit = headline(key)?.unit, r = readableUnit(unit, a.max);
@@ -492,38 +384,13 @@ export function priceWords(c) {
   return out;
 }
 
-/** The sampling sentence, said once, last. */
-export function priceSampleLine(c) {
-  const ps = c.db.meta.priceSample;
-  if (!ps) return plain(`Regular prices, never sale prices, ${priceSampleWords(c.db.meta)}; shipping and tax are not included.`);
-  return plain(`Regular prices, never sale prices, sampled from ${plural(ps.canadianRetailers, 'Canadian shop')}${ps.foreignSellers ? ` and ${plural(ps.foreignSellers, 'foreign shop')}` : ''} between ${daysWords(ps.from, ps.to).replace('–', ' and ')}; shipping and tax are not included.`);
-}
+/** The sampling sentence, said once, last: format.js priceSampleSentence, which the drawer's Price tab prints too. */
+export const priceSampleLine = (c) => plain(priceSampleSentence(c.db.meta));
 
 // ------------------------------------------------------------------ chemicals and environment
 
-/**
- * What the statements on one exposure say, counted in one unit, statements, so the counts add up to the row's total:
- * the verdict all of them give; "mostly <verdict>" where two thirds or more give one, with every verdict's count; else
- * "mixed", with the counts. A statement in words with no verdict is counted as "without a verdict".
- */
-export function verdictWords(records) {
-  // A "no data" statement says nothing, so it is not counted; a statement in words alone counts but gives no verdict.
-  const said = records.filter((e) => e.verdict !== 'no-data');
-  const n = said.length;
-  if (!n) return records.length ? 'No data published' : '';
-  const counts = new Map();
-  for (const e of said) if (e.verdict !== 'narrative') counts.set(e.verdict, (counts.get(e.verdict) ?? 0) + 1);
-  const list = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-  const of = (k) => (k === n ? (n === 1 ? 'in its one statement' : n === 2 ? 'in both statements' : `in all ${fmtNumber(n)} statements`) : `in ${fmtNumber(k)} of ${fmtNumber(n)} statements`);
-  if (!list.length) return `Described without a verdict, ${of(n)}`;
-  const [top, k] = list[0];
-  const word = cap(envVerdictWords(top));
-  // One verdict, the others in words only: it is that verdict, however few say it.
-  if (list.length === 1) return `${word}, ${of(k)}${k / n < 2 / 3 ? (n - k === 1 ? '; the other gives no verdict' : '; the others give no verdict') : ''}`;
-  if (k / n >= 2 / 3) return `${word}, ${of(k)}`;
-  const disagree = list.reduce((s, [, x]) => s + x, 0);
-  return `Mixed: ${fmtNumber(disagree)} statements disagree`;
-}
+// What the statements on one exposure say (verdictWords) is material-words.js statementVerdictWords since 2026-10-18,
+// so the drawer's Environment headings give the page's answer; re-exported above.
 
 // ------------------------------------------------------------------ statements chosen by rule
 

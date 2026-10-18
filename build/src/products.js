@@ -345,7 +345,7 @@ const twinOrigin = (t) => ({ origin: 'twin', gradeId: t.id, label: `data sheet s
 // "from" the guide says it is not the product's own sheet, whoever makes the product (D124 amends D88's wording).
 // eslint-disable-next-line no-unused-vars
 function guideOrigin(guide, grade, publisher) {
-  return { origin: 'guide', guideId: guide.id, sourceId: guide.sourceId, guide: guide.name, label: `from ${guide.name}` };
+  return { origin: 'guide', guideId: guide.id, sourceId: guide.sourceId, guide: guide.name, label: `from the ${guide.name}` };
 }
 const labelled = (axis, from) => ({ ...axis, reason: `${axis.reason} (${from.label})` });
 

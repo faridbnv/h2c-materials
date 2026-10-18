@@ -67,7 +67,7 @@ import { PEER_COLUMNS, MAP_PANELS, STRIP_SETS, STRIP_MIN, LAYER_PAIRS } from '..
 import { PAGES_DIR, pageOf, pageFacts } from '../app/js/ui/page-rule.js';
 import { indexDb, materialContext, identity, spreadEntries, originalOf, isProduct, stated, soldToughened } from '../app/js/ui/material-facts.js';
 import { peerSet, printWindows, dryingStats, layerPairs } from '../app/js/ui/material-stats.js';
-import { fmtNumber } from '../app/js/ui/format.js';
+import { fmtNumber, boundSign, medianSign } from '../app/js/ui/format.js';
 import { SUMMARY_STATUS } from '../app/js/ui/labels.js';
 import { fromHash, toHash, newScenario } from '../app/js/engine/scenario.js';
 import { renderDrawer } from '../app/js/ui/detail.js';
@@ -618,6 +618,16 @@ function p5(S) {
       const got = withAttrs(pf, 'data-mat', 'data-key', 'data-v').map((n) => `${n.attrs['data-mat']}|${n.attrs['data-key']}|${n.attrs['data-kind']}`);
       const wantCells = mats.flatMap((x) => drawn.map((k) => [x, k, cellOf(x, k)]).filter(([, , cell]) => cell).map(([x, k, cell]) => `${x.id}|${k}|${cell.kind}`));
       check('P5', `${who} alternatives`, same(got, wantCells), () => `cells: ${diff(got, wantCells)}`);
+      // A median that is a published bound keeps its sign where the figure says it, as the plate prints it (C14): its
+      // data-v is the number, its words the sign and the number.
+      for (const x of mats) {
+        for (const k of drawn) {
+          const sign = cellOf(x, k)?.kind === 'compared' ? boundSign(x.headline?.[k]) : '';
+          if (!sign) continue;
+          const n = withAttrs(pf, 'data-mat', 'data-key', 'data-t').find((y) => y.attrs['data-mat'] === x.id && y.attrs['data-key'] === k);
+          check('P5', `${who} alternatives ${x.id} ${k}`, !!n && n.attrs['data-t'].startsWith(`median ${sign}`), () => `a bound's median said "${n?.attrs['data-t'] ?? 'nothing'}", not with its "${sign.trim()}"`);
+        }
+      }
     }
 
     // The strips: each property's marks are its products' own values (spreadEntries), with their kinds; every property
@@ -725,6 +735,12 @@ function p6(S) {
       const got = productMarks(row).filter((n) => n.attrs['data-key'] === 'drying').map((n) => `${n.attrs['data-grade']}|${Number(n.attrs['data-v'])}`);
       const want = dry.entries.map((e) => `${e.g.id}|${e.value}`);
       check('P6', `${who} drying`, same(got, want), () => `drying marks: ${diff(got, want)}`);
+    }
+    // In service: a median that is a published bound keeps its sign, as the plate prints it (C14).
+    for (const row of withAttrs(fig, 'data-key').filter((n) => S.headlines.has(n.attrs['data-key']))) {
+      const key = row.attrs['data-key'];
+      const sign = medianSign(m, key);
+      if (sign) check('P6', `${who} in service ${key}`, textOf(row).includes(`${sign}${fmtNumber(m.summary[key].median)}`) || textOf(row).includes(sign.trim()), () => `"${textOf(row).slice(0, 80)}" prints a bound's median without its "${sign.trim()}"`);
     }
   }
 }

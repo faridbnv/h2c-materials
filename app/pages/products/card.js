@@ -10,6 +10,7 @@
 // labels.js, format.js) or content's card labels (docs/audits/2026-10-17-pages-reimagined/content/PROPOSAL.md).
 
 import { esc, count } from '../html.js';
+import { dayWords } from '../../js/ui/dates.js';
 import { fmtNumber, dryingWords } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne, envVerdictWords } from '../../js/ui/labels.js';
 import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct, isNamedOnly } from '../../js/ui/material-facts.js';
@@ -265,7 +266,7 @@ function priceBlock(c, g, listings) {
     const note = readerText(raw) ? raw : '';
     const shop = /^https?:\/\//i.test(p.url ?? '') ? `<a href="${esc(p.url)}" rel="noopener" target="_blank">${esc(p.retailer)}</a>` : esc(p.retailer);
     return `<li data-rec="${esc(r.id)}"><span>${shop}: ${esc(price)}${stated(p.variant) ? `<small>${esc(p.variant)}</small>` : ''}</span>`
-      + `<small>${esc([r.used ? 'in its price' : `not used: ${why[r.unused] ?? 'not in its price'}`, note, p.accessDate ? `seen ${p.accessDate}` : ''].filter(Boolean).join('; '))}</small></li>`;
+      + `<small>${esc([r.used ? 'in its price' : `not used: ${why[r.unused] ?? 'not in its price'}`, note, p.accessDate ? `seen ${dayWords(p.accessDate)}` : ''].filter(Boolean).join('; '))}</small></li>`;
   }).join('');
   return `${head}<details class="pc-more"><summary>${esc(summary)}</summary><ul class="pc-list">${li}</ul></details>`;
 }

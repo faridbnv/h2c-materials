@@ -6,7 +6,7 @@
 
 import { esc, tableBox } from '../html.js';
 import { indexDb, environmentMatrix, stated } from '../../js/ui/material-facts.js';
-import { verdictWords as polymerVerdict, andList } from '../../js/ui/material-words.js';
+import { verdictWords as polymerVerdict, andList, envCaveat } from '../../js/ui/material-words.js';
 import { quoteOrder, instructive, verdictWords, glue } from '../findings.js';
 import { subhead, quote, quotes, readerText } from './common.js';
 
@@ -116,7 +116,8 @@ export default {
     // What guides and references say of the material in general: this page's records, every one.
     const generalSaid = env2.filter(general);
     if (generalSaid.length) chem.push(`<details class="more"><summary>${esc(`What guides and references say of ${m.name} in general (${generalSaid.length})`)}</summary>${quotes(generalSaid.map((e) => quote(c, e, { text: e.finding, rec: true, extra: e.categoryLabel ?? '' })))}</details>`);
-    if (rows.length) chem.push(`<p class="sec-note">${esc('Makers rarely give the concentration, temperature or duration, so these are indications, not design data. Each product\'s statements are on its card.')}</p>`);
+    // The caveat the drawer's Environment tab says, from the method table (material-words.js envCaveat, C11).
+    if (rows.length) chem.push(`<p class="sec-note">${esc([envCaveat(c.db), 'Each product\'s statements are on its card.'].filter(Boolean).join(' '))}</p>`);
     const poly = c.poly ?? [];
     if (poly.length === 1) {
       // One row of reference data is a sentence, not a table: what the resin does with each agent the reference names.

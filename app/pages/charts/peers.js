@@ -12,6 +12,7 @@ import { esc, pct, fmtDisplay, NBSP, beyond, headline, shortName, withUnit, span
 import { figFrame } from './figure.js';
 import { materialCell, peerContrast, propertyScale, isFlexible, compareMedians } from '../../js/ui/material-stats.js';
 import { spanDisplay } from '../numbers.js';
+import { boundSign } from '../../js/ui/format.js';
 import { PEER_COLUMNS } from '../figures.js';
 
 export const ROW = 34;
@@ -64,8 +65,10 @@ function cellSvg(r, c, h, sc, y, self) {
     const t = `${spanUnit(c.min, c.max, h.unit)} from ${products(c.n)}, as published: orientation or load not stated`;
     return `<g class="pe-cell cx dv-${k}-open"${hooks(c.max, t)} data-kind="as-published">${cellMarks(c, sc, y, k, { label: self ? fmtDisplay(c.max, h.unit) : null })}</g>`;
   }
-  const t = `median ${withUnit(c.median, h.unit)}${c.q1 != null ? `, middle half ${spanUnit(c.q1, c.q3, h.unit)}` : ''}${c.min !== c.max ? `, lowest to highest ${spanUnit(c.min, c.max, h.unit)}` : ''}, ${products(c.n)}`;
-  return `<g class="pe-cell cx"${hooks(c.median, t)} data-kind="compared">${cellMarks(c, sc, y, k, { label: self ? fmtDisplay(c.median, h.unit) : null })}</g>`;
+  // A median that is a published bound keeps its sign, as the key properties print it (PEI-CF's HDT "> 200", C14).
+  const sign = boundSign(r.headline?.[h.key]);
+  const t = `median ${sign}${withUnit(c.median, h.unit)}${c.q1 != null ? `, middle half ${spanUnit(c.q1, c.q3, h.unit)}` : ''}${c.min !== c.max ? `, lowest to highest ${spanUnit(c.min, c.max, h.unit)}` : ''}, ${products(c.n)}`;
+  return `<g class="pe-cell cx"${hooks(c.median, t)} data-kind="compared">${cellMarks(c, sc, y, k, { label: self ? `${sign}${fmtDisplay(c.median, h.unit)}` : null })}</g>`;
 }
 
 /** This material's value over its mark, kept inside the column near its ends. */
@@ -183,7 +186,7 @@ export function peersFigure(c, env = {}, opts = {}) {
       const x = col.cells[i];
       if (!x) return '—';
       if (x.kind === 'open') return `${spanDisplay(x.min, x.max, col.h.unit)} as published (${x.n})`;
-      return `${fmtDisplay(x.median, col.h.unit)}${x.q1 != null ? ` (${spanDisplay(x.q1, x.q3, col.h.unit)})` : ''} · ${x.n}`;
+      return `${boundSign(r.headline?.[col.key])}${fmtDisplay(x.median, col.h.unit)}${x.q1 != null ? ` (${spanDisplay(x.q1, x.q3, col.h.unit)})` : ''} · ${x.n}`;
     }),
   ]));
   const lacks = cols.filter((col) => !col.cells[0]).map((col) => inText(col.h));

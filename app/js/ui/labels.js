@@ -186,8 +186,13 @@ export function screenRangeText(e, fmt, unit = e.unit) {
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
 
-/** Format a number without trailing noise. */
-const n = (v) => (Number.isFinite(v) ? String(Number(Number(v).toFixed(4))) : String(v));
+/**
+ * Format a number without trailing noise, its thousands grouped as every other number on screen is ("1,500 kg/m³", C12):
+ * the digits are the requirement's own, never rounded. The rail's input keeps "1500".
+ */
+const n = (v) => (Number.isFinite(v) ? groupThousands(String(Number(Number(v).toFixed(4)))) : String(v));
+/** A number's whole part grouped by thousands from 1,000 ("1500.5" → "1,500.5"); the digits are kept. */
+export const groupThousands = (s) => String(s).replace(/^(-?)(\d{4,})/, (all, sign, int) => `${sign}${int.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`);
 
 /**
  * One sentence describing a constraint, used by the requirement pills, the explain panel, the

@@ -10,12 +10,13 @@
 // what it has and draws nothing in its place: no number is typed here, and nothing here decides anything.
 
 import { esc } from '../html.js';
-import { fmtNumber, fmtBounded, publishedBound } from '../../js/ui/format.js';
+import { fmtNumber, boundSign } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
-import { identity, stated, isProduct, printCounts } from '../../js/ui/material-facts.js';
+import { identity, stated, isProduct } from '../../js/ui/material-facts.js';
 import { printWindows, dryingStats, typicalWindow } from '../../js/ui/material-stats.js';
-import { identityLine, windowText, plural, asPublishedWords, andList } from '../../js/ui/material-words.js';
-import { H2C_STATUS, h2cLimit } from '../../js/ui/labels.js';
+import { identityLine, windowText, plural, asPublishedWords, inText } from '../../js/ui/material-words.js';
+import { H2C_STATUS } from '../../js/ui/labels.js';
+import { beyondLimitsLine } from '../../js/ui/print-brief.js';
 import * as F from '../findings.js';
 import * as FIG from '../figures.js';
 import * as NUM from '../numbers.js';
@@ -29,11 +30,6 @@ const plateKeys = () => (Array.isArray(FIG.PEER_COLUMNS) && FIG.PEER_COLUMNS.len
 export const disp = (v, unit) => (typeof NUM.fmtDisplay === 'function' ? NUM.fmtDisplay(v, unit) : (NUM.fmtPage ?? fmtNumber)(v));
 const span = (lo, hi, unit) => (lo === hi ? disp(lo, unit) : `${disp(lo, unit)}–${disp(hi, unit)}`);
 
-/** A published bound's sign as the drawer prints it ("> 200"), or nothing for a point value. */
-const boundSign = (interval) => { const t = interval ? fmtBounded(1, null, interval) : ''; return /^[<>≤≥]/.test(t) ? `${t.split(' ')[0]} ` : ''; };
-
-/** How a key figure is named in the line of those not published under the plate. */
-const MISSING_WORDS = { tensileModulusXY: 'tensile modulus', tensileStrengthXY: 'tensile strength', tensileStrengthZ: 'strength across the layers', charpyNotched: 'notched impact', hdt045: 'HDT at 0.45 MPa', priceCADkg: 'price' };
 
 /** A word track B provides, or null where it has not landed: its functions are called guarded, never assumed. */
 const words = (name, ...args) => (typeof F[name] === 'function' ? F[name](...args) : null);
@@ -53,7 +49,9 @@ function keyFigure(c, key) {
   const s = m.summary?.[key];
   const label = `<dt>${esc(h.labels.plain)}</dt>`;
   const unit = h.unit ? `<span class="kf-u">${esc(h.unit)}</span>` : '';
-  const quiet = (state) => ({ missing: true, key, state, words: MISSING_WORDS[key] ?? h.labels.plain.toLowerCase() });
+  // A figure not published is named in the line under the plate by its own label, as the plate, the drawer and the
+  // Products columns name it ("tensile strength (Z)", "notched Charpy impact"), never another name (C19).
+  const quiet = (state) => ({ missing: true, key, state, words: inText(h.labels.plain) });
   if (e?.known) {
     const n = s?.n ?? e.spread?.n ?? 1;
     const lo = s?.q1 ?? e.spread?.q1, hi = s?.q3 ?? e.spread?.q3;
@@ -62,7 +60,7 @@ function keyFigure(c, key) {
     const mini = typeof FIG.miniSpread === 'function' ? FIG.miniSpread(c, key) : '';
     // The value as every other place on the page prints it (numbers.js fmtDisplay), a published bound's sign kept.
     return { html: `<div class="kf-cell" data-key="${esc(key)}" data-v="${esc(e.value)}" data-n="${n}">${label}`
-      + `<dd class="kf-v"><span class="kf-n">${esc(`${boundSign(publishedBound(e))}${disp(e.value, h.unit)}`)}</span>${unit}</dd>`
+      + `<dd class="kf-v"><span class="kf-n">${esc(`${boundSign(e)}${disp(e.value, h.unit)}`)}</span>${unit}</dd>`
       + `<dd class="kf-s"${mini ? '' : ' data-pending="miniSpread"'}>${mini ?? ''}</dd><dd class="kf-f">${foot.map((t) => `<span>${esc(t)}</span>`).join('<span class="vh"> · </span>')}</dd></div>` };
   }
   if (e?.notApplicable) return quiet('na');
@@ -151,16 +149,8 @@ function h2cRowsFromFacts(c) {
   return [win('nozzle', 'Nozzle'), win('bed', 'Bed'), chamber, drying, hardened];
 }
 
-/** The plate's foot: whether any product asks for more than the H2C gives (material-facts.js printCounts). */
-function h2cFoot(c) {
-  const pc = printCounts(c.grades);
-  if (!pc) return '';
-  const limits = pc.axes.map((a) => `${a.label === 'Chamber' ? 'heated chamber' : a.label.toLowerCase()} ${fmtNumber(h2cLimit(a.axis))} °C`);
-  const over = pc.axes.filter((a) => a.over);
-  if (!over.length) return `No product's setting is beyond the H2C's limits: ${limits.join(', ')}.`;
-  // Said once, short: the head already says a material beyond the H2C's capability is (the second review).
-  return `Beyond the H2C's limits (${limits.join(', ')}): ${andList(over.map((a) => `${a.label === 'Chamber' ? 'chamber' : a.label.toLowerCase()} for ${plural(a.over, 'product')}`))}.`;
-}
+/** The plate's foot: whether any product asks for more than the H2C gives (print-brief.js beyondLimitsLine, shared). */
+const h2cFoot = (c) => beyondLimitsLine(c.grades);
 
 function h2cPlate(c, hasPrinting) {
   const b = words('onTheH2cRows', c);
@@ -199,7 +189,7 @@ export default {
     // the summary, in the left column, so the column beside On the H2C leaves no hole.
     const ev = words('evidenceLine', c);
     const evidence = ev ? `${ev.head ? `<b>${sayHtml(ev.head)}</b> ` : ''}${ev.html ?? sayHtml(ev)}` : '';
-    const keyFigures = `<section class="kf-wrap" data-section="key-figures" aria-label="Key figures: the median of the products that publish each value">${plate(c)}</section>`;
+    const keyFigures = `<section class="kf-wrap" data-section="key-figures" aria-label="Key properties: the median of the products that publish each value">${plate(c)}</section>`;
     const summary = summaryBlock(c);
     const left = `${summary}${evidence ? `<p class="kf-ev" data-tier="${esc(ev.tier ?? '')}">${evidence}</p>` : ''}`;
     const first = `<div class="first${left ? '' : ' first--alone'}">${left ? `<div class="first-left">${left}</div>` : ''}${h2cPlate(c, env.hasPrinting !== false)}</div>`;

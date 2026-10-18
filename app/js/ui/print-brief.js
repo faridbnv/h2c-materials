@@ -5,8 +5,9 @@
 
 import { fmtNumber, dryingWords } from './format.js';
 import { printWindows, dryingStats, dryingAdvice, typicalWindow } from './material-stats.js';
-import { plural, andList, windowText } from './material-words.js';
+import { plural, andList, windowText, h2cLimitsText } from './material-words.js';
 import { productsOf, dryingSchedule } from './material-highlights.js';
+import { printCounts } from './material-facts.js';
 
 /** A number held to its unit by a no-break space (U+00A0), so "0.45 MPa" or "350 °C" never breaks across lines. */
 const UNIT = /(\d)[ \t]+(?=(?:°C|°F|MPa|GPa|kPa|kJ\/m²|J\/m|kg\/m³|g\/cm³|g\/10\s?min|cm³\/10\s?min|%|h\b|min\b|s\b|CAD\/kg|CAD\b|USD\b|EUR\b|mm\b|µm|kg\b|Shore\b))/g;
@@ -26,7 +27,7 @@ function windowRow(products, axis) {
   const endWords = () => [lows.length ? `${countWords(lows.length)} ${lows.length === 1 ? 'gives' : 'give'} at least ${fmtNumber(Math.min(...lows.map((e) => e.min)))} °C` : null,
     highs.length ? `${countWords(highs.length)} ${highs.length === 1 ? 'gives' : 'give'} up to ${fmtNumber(Math.max(...highs.map((e) => e.max)))} °C` : null].filter(Boolean);
   if (!pw.n) {
-    if (lows.length) return { value: `at least ${fmtNumber(Math.min(...lows.map((e) => e.min)))} °C`, note: plural(lows.length, 'product'), pw };
+    if (lows.length) return { value: `at least ${fmtNumber(Math.min(...lows.map((e) => e.min)))} °C`, note: `${countWords(lows.length)} ${lows.length === 1 ? 'product' : 'products'}`, pw };
     return null;
   }
   if (pw.n === 1) {
@@ -72,20 +73,23 @@ function dryingRow(c, products) {
   const d = dryingStats(products);
   const a = dryingAdvice(products);
   const total = products.length;
+  // Those that give it as optional are said beside those that call for it, so the count squares with the schedule's
+  // products (PEI-CF: "1 of 3 products calls for it", then "2 products" in the figure; C15).
+  const optional = a.needs.optional ? `; ${fmtNumber(a.needs.optional)} more ${a.needs.optional === 1 ? 'gives' : 'give'} it as optional` : '';
   const asks = a.needs.required >= a.needs.optional
-    ? (a.needs.required === total ? (total === 1 ? 'its product calls for it' : total === 2 ? 'both products call for it' : `all ${fmtNumber(total)} products call for it`) : `${fmtNumber(a.needs.required)} of ${fmtNumber(total)} products ${a.needs.required === 1 ? 'calls' : 'call'} for it`)
+    ? (a.needs.required === total ? (total === 1 ? 'its product calls for it' : total === 2 ? 'both products call for it' : `all ${fmtNumber(total)} products call for it`) : `${fmtNumber(a.needs.required)} of ${fmtNumber(total)} products ${a.needs.required === 1 ? 'calls' : 'call'} for it${optional}`)
     : 'most advise it only for wet filament';
   if (d.temps.n) return { value: glue(dryingSpanWords(dryingSchedule(products))), note: a.have ? asks : '', d, a };
   if (a.needs['not-needed'] && a.needs['not-needed'] * 2 >= a.have) return { value: 'not needed', note: total === 1 ? 'its product says so' : `${fmtNumber(a.needs['not-needed'])} of ${fmtNumber(total)} products ${a.needs['not-needed'] === 1 ? 'says' : 'say'} so`, d, a };
   const g = c.guide?.drying;
-  if (g?.tempC != null) return { value: dryingWords(g), note: 'Bambu Lab\'s guide', d, a };
+  if (g?.tempC != null) return { value: dryingWords(g), note: 'the Bambu Lab Filament Guide', d, a };
   return { value: c.m.gates?.drying === 'not-needed' ? 'not needed' : 'not stated', note: '', d, a };
 }
 
 /**
  * What the sheets say about the nozzle (grades[].print.hardenedNozzle and where it was read, .from.hardenedNozzle):
  * `{ ask, standard, guideAsk, guideAny, silent, total }`, the products whose own or shared sheet asks for a hardened
- * nozzle or says a standard one is enough, those whose setting is Bambu Lab's guide's, and those that say nothing.
+ * nozzle or says a standard one is enough, those whose setting is the Bambu Lab Filament Guide's, and those that say nothing.
  */
 export function nozzleSay(products) {
   const n = { ask: 0, standard: 0, guideAsk: 0, guideAny: 0, silent: 0, total: products.length };
@@ -106,15 +110,15 @@ function nozzleTypeRow(c) {
   const n = nozzleSay(productsOf(c));
   const of = (k) => `${fmtNumber(k)} of ${plural(n.total, 'product')}`;
   const bits = [n.ask ? `${of(n.ask)}' sheets ${n.ask === 1 ? 'asks' : 'ask'} for one` : null, n.standard ? `${fmtNumber(n.standard)} ${n.standard === 1 ? 'says' : 'say'} a standard nozzle is enough` : null,
-    n.guideAsk || n.guideAny ? `Bambu Lab's guide says ${n.guideAsk ? 'hardened' : 'any'} for ${fmtNumber(n.guideAsk + n.guideAny)} more` : null,
+    n.guideAsk || n.guideAny ? `the Bambu Lab Filament Guide says ${n.guideAsk ? 'hardened' : 'any'} for ${fmtNumber(n.guideAsk + n.guideAny)} more` : null,
     n.silent && (n.ask || n.standard || n.guideAsk || n.guideAny) ? 'the rest are silent' : null].filter(Boolean);
   const note = bits.join('; ').replace(/^1 of (\d[\d,]*) products' sheets asks/, 'one of $1 products\' sheets asks').replace(/^(\d[\d,]*) of (\d[\d,]*) products' sheets ask(?!s)/, (all, k, t) => (k === t ? (t === '1' ? 'its sheet asks' : `all ${t} products' sheets ask`) : all));
   let value;
   if (n.ask && n.ask >= n.standard) value = n.standard ? 'hardened for most' : 'hardened';
   else if (n.ask) value = 'standard for most';
   else if (n.standard) value = 'standard';
-  else if (n.guideAsk) value = 'hardened, by Bambu Lab\'s guide';
-  else if (n.guideAny) value = 'any, by Bambu Lab\'s guide';
+  else if (n.guideAsk) value = 'hardened, by the guide';
+  else if (n.guideAny) value = 'any, by the guide';
   else value = 'not stated';
   return { value, note, n };
 }
@@ -133,4 +137,21 @@ export function onTheH2cRows(c) {
   out.push({ key: 'drying', label: 'Drying', value: drying.value, note: drying.note });
   out.push({ key: 'hardened', label: 'Nozzle type', value: type.value, note: type.note });
   return out.map((r) => ({ ...r, value: glue(r.value), note: glue(r.note) }));
+}
+
+/**
+ * Whether any product asks for more than the H2C gives, in one line (material-facts.js printCounts): "No product's
+ * setting is beyond the H2C's limits: nozzle 350 °C, bed 120 °C, heated chamber 65 °C." or "Beyond the H2C's limits
+ * (…): nozzle for 2 products and chamber for 1 product." The material page's On the H2C foot (moved from
+ * app/pages/sections/masthead.js, 2026-10-18, C01); the drawer's Printing tab names the products beyond, in the same
+ * words (material-words.js printLines).
+ */
+export function beyondLimitsLine(grades) {
+  const pc = printCounts(grades);
+  if (!pc) return '';
+  const limits = h2cLimitsText(pc.axes);
+  const over = pc.axes.filter((a) => a.over);
+  if (!over.length) return `No product's setting is beyond the H2C's limits: ${limits}.`;
+  // Said once, short: the head already says a material beyond the H2C's capability is (the second review).
+  return `Beyond the H2C's limits (${limits}): ${andList(over.map((a) => `${a.axis === 'chamber' ? 'chamber' : a.axis} for ${plural(a.over, 'product')}`))}.`;
 }

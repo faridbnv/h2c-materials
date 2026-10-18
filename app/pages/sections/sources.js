@@ -4,7 +4,7 @@
 // link to its original. Each product's values, with their document and page, are on its card on the Products page.
 
 import { esc, tableBox } from '../html.js';
-import { gapSplit, sourceBlockFacts } from '../../js/ui/material-facts.js';
+import { gapSplit, sourceBlockFacts, publisherName } from '../../js/ui/material-facts.js';
 import { fmtNumber } from '../../js/ui/format.js';
 import { sourceKind } from '../../js/ui/labels.js';
 import { plural, andList } from '../../js/ui/material-words.js';
@@ -28,7 +28,7 @@ const KIND_MANY = {
 
 /** What a document gave, in a list: "12 values", "print settings", "3 maker statements". */
 const gaveWords = (g) => [g.values ? plural(g.values, 'value') : null, g.profiles ? 'print settings' : null, g.statements ? plural(g.statements, 'maker statement') : null,
-  g.environment ? plural(g.environment, 'statement on chemicals or use', 'statements on chemicals or use') : null, g.guide ? 'its Filament Guide column' : null].filter(Boolean);
+  g.environment ? plural(g.environment, 'statement on chemicals or use', 'statements on chemicals or use') : null, g.guide ? 'its column for this material\'s type' : null].filter(Boolean);
 
 export default {
   id: 'sources',
@@ -46,20 +46,21 @@ export default {
       const kinds = new Map();
       for (const d of docs) kinds.set(sourceKind(d.s), (kinds.get(sourceKind(d.s)) ?? 0) + 1);
       const kindList = [...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${fmtNumber(n)} ${(n === 1 ? KIND_ONE : KIND_MANY)[k] ?? k.toLowerCase()}`);
-      // Bambu Lab's Filament Guide and its printer documentation give print settings, not values: said apart, under the
+      // The Bambu Lab Filament Guide and Bambu Lab's printer documentation give print settings, not values: said apart, under the
       // table, so they are never counted as a publisher of the material's values.
       const printOnly = (d) => !d.gave.values && (d.gave.guide || d.s?.sourceClass === 'Printer documentation');
       const settingsDocs = docs.filter(printOnly);
       const publishers = new Map();
       for (const d of docs.filter((x) => !printOnly(x))) {
-        const p = d.s?.publisher ?? 'Publisher not named';
+        // A publisher in the reader's word: a reference a user supplied is a "Reference" (INTERFACE), as in the drawer.
+        const p = publisherName(d.s?.publisher ?? 'Publisher not named');
         const x = publishers.get(p) ?? { documents: 0, values: 0, products: new Set() };
         x.documents++;
         x.values += d.gave.values ?? 0;
         for (const id of c.documents.get(d.sid).grades) x.products.add(id);
         publishers.set(p, x);
       }
-      const pubN = new Set(docs.map((d) => d.s?.publisher).filter(Boolean)).size;
+      const pubN = new Set(docs.map((d) => publisherName(d.s?.publisher)).filter(Boolean)).size;
       parts.push(para([`${plural(docs.length, 'document')} from ${plural(pubN, 'publisher')} (${andList(kindList)})${dates.length ? `, read ${daysWords(dates[0], dates.at(-1))}` : ''}.`,
         `Each value on ${m.name}'s Products page names its document and page, and links to the original.`]));
       const ranked = [...publishers].sort((a, b) => b[1].documents - a[1].documents || b[1].values - a[1].values || a[0].localeCompare(b[0]));
@@ -71,7 +72,7 @@ export default {
       for (const d of settingsDocs) {
         const n = d.gave.guide ? c.grades.filter((g) => Object.values(g.print?.from ?? {}).some((f) => f?.origin === 'guide')).length : c.documents.get(d.sid).grades.size;
         const title = String(d.s?.title ?? '').replace(/\s*\|.*$/, '');
-        const name = d.gave.guide ? 'Bambu Lab\'s Filament Guide' : [d.s?.publisher, title].filter(Boolean).join(', ');
+        const name = d.gave.guide ? 'The Bambu Lab Filament Guide' : [publisherName(d.s?.publisher), title].filter(Boolean).join(', ');
         // What each is, in a few words, since both are Bambu Lab's and both give print settings.
         const what = d.gave.guide ? 'print settings per material type' : /\bH2C\b/.test(title) ? 'the H2C\'s printer guide' : 'printer documentation';
         if (n) parts.push(`<p class="sec-note">${esc(`${name} (${what}): ${d.gave.guide ? `read for ${plural(n, 'product')} whose own sheets are silent` : `print settings for ${plural(n, 'product')}`}.`)}</p>`);
@@ -79,9 +80,9 @@ export default {
     }
     if (gaps.length) parts.push(`${subhead('Known gaps', 'known-gaps')}<ul class="gaps">${gaps.map(gapItem).join('')}</ul>`);
     if (docs.length) {
-      const sorted = [...docs].sort((a, b) => String(a.s?.publisher ?? '').localeCompare(String(b.s?.publisher ?? '')) || String(a.s?.title ?? '').localeCompare(String(b.s?.title ?? '')));
+      const sorted = [...docs].sort((a, b) => String(publisherName(a.s?.publisher) ?? '').localeCompare(String(publisherName(b.s?.publisher) ?? '')) || String(a.s?.title ?? '').localeCompare(String(b.s?.title ?? '')));
       const item = (d) => {
-        const title = [d.s?.publisher, d.s?.title].filter(Boolean).join(', ') || 'Untitled document';
+        const title = [publisherName(d.s?.publisher), d.s?.title].filter(Boolean).join(', ') || 'Untitled document';
         const link = d.original && !d.original.local ? `<a href="${esc(d.original.url)}" rel="noopener">${esc(title)}</a>` : esc(title);
         const gave = gaveWords(d.gave);
         const covers = d.covers.length && d.covers.length <= 3 ? `, for ${andList(d.covers)}` : d.covers.length > 3 ? `, for ${d.covers.length} products` : '';

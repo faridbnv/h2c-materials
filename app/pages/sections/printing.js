@@ -5,7 +5,7 @@
 // that need a hardened nozzle; what annealing makers publish; and what makers say about printing it, in their words.
 
 import { esc, tableBox } from '../html.js';
-import { indexDb, isProduct, stated, productNameOrId } from '../../js/ui/material-facts.js';
+import { indexDb, isProduct, stated, productNameOrId, makersOwn } from '../../js/ui/material-facts.js';
 import { printWindows, typicalWindow } from '../../js/ui/material-stats.js';
 import { hardenedShare } from '../../js/engine/products.js';
 import { dryingWords, fmtNumber } from '../../js/ui/format.js';
@@ -17,8 +17,9 @@ import { drawFigure, subhead, quote, quotes, productA, readerText, shortHeads, h
 const PRINT_TOPICS = ['Printing advice', 'Warping and shrinkage', 'Moisture sensitivity', 'Nozzle wear', 'Adhesion between layers', 'Supports and removal', 'Odour and emissions'];
 /** The environment categories about printing a part (evidence[].category): said here, not under Uses. */
 export const PRINT_CATEGORIES = new Set(['print-quality', 'post-processing', 'moisture']);
-/** A statement in a maker's or another document's own words, not the project's reading of one (Selection interpretation). */
-export const makersOwn = (e) => e.evidenceType !== 'Selection interpretation';
+// A statement in a maker's or another document's own words (makersOwn) is material-facts.js's since 2026-10-18, so the
+// drawer's Environment counts the statements this page counts.
+export { makersOwn };
 /** A statement about the material in general (no product): this page's record, carrying its ID. */
 export const general = (e) => !stated(e.gradeId);
 const ANNEAL = /anneal|heat[- ]?treat|post[- ]?cur/i;
@@ -41,7 +42,7 @@ function productCell(g, axis, label = '') {
   else if (axis === 'hardened') words = p.hardenedNozzle === true ? 'hardened' : p.hardenedNozzle === false ? (from?.origin === 'guide' ? 'any' : 'standard') : 'not stated';
   else if (axis === 'chamber' && ['not-required', 'ambient'].includes(p.chamber?.state)) words = 'none needed';
   else words = p[axis] ? settingWords(p[axis]) : 'not published';
-  const title = from?.label ?? (from?.origin === 'guide' ? 'from Bambu Lab\'s Filament Guide' : null);
+  const title = from?.label ?? (from?.origin === 'guide' ? 'from the Bambu Lab Filament Guide' : null);
   return `<td${from ? ' class="from"' : ''} data-label="${esc(label)}"${title ? ` title="${esc(title)}"` : ''}>${esc(glue(joinDash(words)))}</td>`;
 }
 
@@ -75,7 +76,7 @@ function settingsTable(c) {
     const body = LABELS.map(([k, label]) => `<tr data-print="${k}"><th scope="row" class="prop">${esc(label)}</th>${products.map((g) => (k === 'ams'
       ? `<td data-label="${esc(short.get(g.id))}">${esc(amsOf(c, g).map((t) => `"${t}"`).join('; ') || 'not stated')}</td>` : productCell(g, k, short.get(g.id)))).join('')}</tr>`).join('');
     return sheetFrame(`<thead>${head}</thead><tbody>${body}</tbody>`, products.length, 'across', 'settings settings--each')
-      + (anyFrom ? `<p class="sec-note">${esc('In grey, a setting a product reads from a data sheet it shares or from Bambu Lab\'s Filament Guide, where its own sheet is silent.')}</p>` : '');
+      + (anyFrom ? `<p class="sec-note">${esc('In grey, a setting a product reads from a data sheet it shares or from the Bambu Lab Filament Guide, where its own sheet is silent.')}</p>` : '');
   }
   // What most products give: the plate's rows, with the chamber's given windows and the AMS statements beside them.
   const ch = printWindows(products, 'chamber');
@@ -100,8 +101,8 @@ function settingsTable(c) {
   const type = c.guide?.guideType;
   const why = type && type !== m.name ? String(c.guide.materials?.find((x) => x.materialId === m.id)?.reason ?? '').replace(/\s*(?:since\s+)?m\d+\s*\(D\d+\)/g, '').replace(/\s*\(D\d+\)/g, '').trim() : '';
   const notes = [
-    'Where a product\'s own sheet is silent, its setting comes from a sheet it shares or from Bambu Lab\'s guide; each product\'s card says which.',
-    type && type !== m.name ? `Bambu Lab's guide has no column named ${m.name}; its ${type} column is shown.${why && readerText(why) ? ` ${why.charAt(0).toUpperCase()}${why.slice(1)}${/\.$/.test(why) ? '' : '.'}` : ''}` : null,
+    'Where a product\'s own sheet is silent, its setting comes from a sheet it shares or from the Bambu Lab Filament Guide; each product\'s card says which.',
+    type && type !== m.name ? `The guide has no column named ${m.name}; its ${type} column is shown.${why && readerText(why) ? ` ${why.charAt(0).toUpperCase()}${why.slice(1)}${/\.$/.test(why) ? '' : '.'}` : ''}` : null,
   ].filter(Boolean);
   return `${tableBox(`<table class="grid settings"><thead>${head}</thead><tbody>${body}</tbody></table>`)}<p class="sec-note">${esc(notes.join(' '))}</p>`;
 }

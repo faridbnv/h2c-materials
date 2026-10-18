@@ -10,6 +10,7 @@ import { esc, pct, textPx, fmtDisplay, NBSP, tickLabels, productName, shortName,
 import { figFrame } from './figure.js';
 import { printWindows, dryingStats, heatLadder, productsOf, typicalWindow } from '../../js/ui/material-stats.js';
 import { printFacts, isProduct } from '../../js/ui/material-facts.js';
+import { medianSign } from '../../js/ui/format.js';
 import { stripScale, limitOnScale } from '../../js/ui/scales.js';
 import { LADDER_EXTRA } from '../figures.js';
 
@@ -85,9 +86,10 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     if (p.n >= 3 && tw && tw.share !== 'peak') sub = `${spanUnit(tw.from, tw.to, '°C')}, accepted by ${tw.share === 'all' ? 'all' : 'most of the'} ${p.n} products that give a window`;
     else if (p.n) sub = `${p.n} of ${products(prods.length)} ${p.n === 1 ? 'gives' : 'give'} a window`;
     else if (a === 'chamber' && none) sub = none === prods.length ? `none needed by any of the ${products(prods.length)}` : `none needed by ${none} of ${prods.length}`;
-    else sub = p.windows.length ? 'only Bambu Lab\'s guide gives a window' : 'no window published';
+    else sub = p.windows.length ? 'only the Bambu Lab Filament Guide gives a window' : 'no window published';
     if (extra && (p.n || a !== 'chamber' || !none)) sub += `; ${extra}`;
-    if (lim != null) sub += ` · H2C ${onScale ? 'max' : 'reaches'} ${lim}${NBSP}°C`;
+    // The limit in one form, on the scale or past it, as the drawer says it (C04).
+    if (lim != null) sub += ` · the H2C reaches ${lim}${NBSP}°C`;
     if (!p.windows.length && !p.ends.length && !(a === 'chamber' && none)) o.push(`<text x="0" y="${mid + 4}">no product gives one</text>`);
     rows.push(rowHtml(` data-print="${a}"${onScale ? ` data-limit="${lim}"` : ''}`, label, sub, rowSvg(o.join(''), `${label}: ${sub}${lim != null ? `; the H2C reaches ${lim}${NBSP}°C` : ''}.`)));
     twin.push([label, p.n >= 3 && p.most ? spanUnit(p.most.from, p.most.to, '°C') : p.n ? p.windows.filter((w) => w.counted).map((w) => spanUnit(w.min, w.max, '°C')).join('; ') : '—', String(p.n), lim != null ? `${lim}${NBSP}°C` : '—']);
@@ -103,7 +105,7 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
       const lv = seen.get(key) ?? 0;
       seen.set(key, lv + 1);
       const marks = e.variant ? ['variant'] : e.origin === 'guide' ? ['open'] : [];
-      const note = e.origin === 'guide' ? 'Bambu Lab\'s Filament Guide' : e.origin === 'twin' ? 'a data sheet it shares' : null;
+      const note = e.origin === 'guide' ? 'the Bambu Lab Filament Guide' : e.origin === 'twin' ? 'a data sheet it shares' : null;
       o.push(productMark(marks, X(e.value), mid + 5 - Math.min(lv, 3) * 6, { 'data-grade': e.g.id, 'data-key': 'drying', 'data-v': e.value,
         'data-kind': e.variant ? 'variant' : e.origin === 'guide' ? 'as-published' : 'compared', 'data-t': `dry at ${e.value}${NBSP}°C${e.hours != null ? ` for ${fmtDisplay(e.hours, 'h')}${NBSP}h` : ''}`, 'data-note': note }));
       dots++;
@@ -114,7 +116,7 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     const temps = [...new Set(counted.map((e) => e.value))], hoursList = [...new Set(counted.map((e) => e.hours).filter((v) => v != null))];
     const tWords = temps.length ? (temps.length === 1 ? withUnit(temps[0], '°C') : spanUnit(Math.min(...temps), Math.max(...temps), '°C')) : '';
     const hWords = hoursList.length ? (hoursList.length === 1 ? `${fmtDisplay(hoursList[0], 'h')}${NBSP}h` : spanUnit(Math.min(...hoursList), Math.max(...hoursList), 'h')) : '';
-    const sub = counted.length ? `${tWords}${hWords ? (temps.length === 1 && hoursList.length === 1 ? ` for ${hWords}` : `, ${hWords}`) : ''}, ${products(counted.length)}` : 'from Bambu Lab\'s guide only';
+    const sub = counted.length ? `${tWords}${hWords ? (temps.length === 1 && hoursList.length === 1 ? ` for ${hWords}` : `, ${hWords}`) : ''}, ${products(counted.length)}` : 'from the Bambu Lab Filament Guide only';
     rows.push(rowHtml(' data-print="drying"', 'Drying', sub, rowSvg(o.join(''), `Drying: ${sub}.`)));
     twin.push(['Drying', counted.length ? `${tWords}${hWords ? `, ${hWords}` : ''}` : '—', String(counted.length), '—']);
   }
@@ -155,10 +157,12 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     if (s.q1 != null) o.push(`<rect class="dv-self-band" x="${pct(X(s.q1))}" y="${mid - 5}" width="${pct(Math.max(X(s.q3) - X(s.q1), 0.4))}" height="10" rx="2"/>`);
     o.push(`<svg x="${pct(X(s.median))}" y="${mid}" overflow="visible"><rect class="dv-self" x="-1.5" y="-9" width="3" height="18" rx="1.5"/></svg>`);
     const right = X(s.median) > 85;
-    o.push(`<text class="dv-val" x="${pct(X(s.median))}" y="${mid - 6}" dx="${right ? -6 : 6}" text-anchor="${right ? 'end' : 'start'}">${esc(withUnit(s.median, '°C'))}</text>`);
+    // A median that is a published bound keeps its sign, as the key properties print it (PEI-CF's "> 200 °C", C14).
+    const median = `${r.h ? medianSign(m, r.h.key, s.median) : ''}${withUnit(s.median, '°C')}`;
+    o.push(`<text class="dv-val" x="${pct(X(s.median))}" y="${mid - 6}" dx="${right ? -6 : 6}" text-anchor="${right ? 'end' : 'start'}">${esc(median)}</text>`);
     const sub = products(s.n);
-    rows.push(rowHtml(` data-key="${esc(keyAttr)}"`, r.label, sub, rowSvg(o.join(''), `${r.label}: median ${withUnit(s.median, '°C')}${s.q1 != null ? `, middle half ${spanUnit(s.q1, s.q3, '°C')}` : ''}, ${sub}.`)));
-    twin.push([r.label, withUnit(s.median, '°C') + (s.q1 != null ? ` (${spanUnit(s.q1, s.q3, '°C')})` : ''), String(s.n), '—']);
+    rows.push(rowHtml(` data-key="${esc(keyAttr)}"`, r.label, sub, rowSvg(o.join(''), `${r.label}: median ${median}${s.q1 != null ? `, middle half ${spanUnit(s.q1, s.q3, '°C')}` : ''}, ${sub}.`)));
+    twin.push([r.label, median + (s.q1 != null ? ` (${spanUnit(s.q1, s.q3, '°C')})` : ''), String(s.n), '—']);
   }
   // The axis.
   const axis = `<div class="tm-axis"><div></div><div><svg class="dv-ticks" width="100%" height="18" aria-hidden="true" focusable="false"><line class="dv-axis" x1="0" x2="100%" y1="0.5" y2="0.5"/>${sc.ticks.map((t) => `<line class="dv-tk" x1="${pct(X(t))}" x2="${pct(X(t))}" y1="0" y2="3"/>`).join('')}${tickLabels(sc, 14, { wide: WIDE, narrow: NARROW })}</svg><p class="tm-unit">°C</p></div></div>`;
@@ -187,7 +191,7 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
     ...(used.has('limit') ? [KEY.limit()] : []), ...(dry.entries.length ? [KEY.product()] : []), ...(ladder.some((r) => r.compared) ? [KEY.selfCell(name)] : []), ...(used.has('pub') ? [KEY.pubCell()] : [])]);
   const missing = AXES.filter(([a]) => !pw[a].windows.length && !pw[a].ends.length).map(([, l]) => l.toLowerCase());
   const leaves = [missing.length ? `No ${name} product gives a ${orList(missing)} window.` : '', !ladder.length ? `No ${name} product publishes a softening temperature.` : '',
-    `Windows read from Bambu Lab's Filament Guide are not shaded: the guide speaks for every product that reads it.`].filter(Boolean).join(' ');
+    `Windows read from the Bambu Lab Filament Guide are not shaded: the guide speaks for every product that reads it.`].filter(Boolean).join(' ');
   const html = figFrame({
     slug: opts.id ?? 'temperatures', kind: 'temperatures', title,
     question: 'What does printing it on the H2C take, and how hot can a part get?',

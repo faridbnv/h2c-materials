@@ -29,7 +29,8 @@ function medianCell(m, key, label = '') {
   if (!s?.n) return `<td class="num none" data-label="${esc(label)}">—</td><td class="num n" data-label="Products"></td>`;
   // The unit is in the row's head; the display rule reads it.
   const unit = headline(key)?.unit;
-  const v = (x, stat) => num(x, { key, stat, shown: fmtD(x, unit).replace(/ \S+$/, '') }).html;
+  // fmtD joins its unit with a no-break space, which "\s" matches: a range wrote its unit twice ("40 MPa–53 MPa", C13).
+  const v = (x, stat) => num(x, { key, stat, shown: fmtD(x, unit).replace(/\s\S+$/, '') }).html;
   const mid = s.q1 != null ? `<span class="mh">${v(s.q1, 'q1')}⁠–⁠${v(s.q3, 'q3')}</span>` : '';
   return `<td class="num typ" data-label="${esc(label)}"><b>${v(s.median, 'median')}</b>${mid}</td><td class="num n" data-label="Products">${num(s.n, { key, stat: 'n', shown: String(s.n) }).html}</td>`;
 }

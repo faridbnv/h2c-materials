@@ -415,7 +415,8 @@ test("a part read from a printer maker's guide is its material's guide row, only
       const twins = db.grades.filter((t) => isProduct(t) && t !== g && sameKey(t, g));
       // A twin's sheet comes first, except for the hardened nozzle of a product that holds a profile of its own (D127).
       if (!(axis === 'hardenedNozzle' && profilesOf(g.id).length)) assert.ok(twins.every((t) => !speaks(profilesOf(t.id), axis)), `${g.id} ${axis}: a twin speaks, and its sheet comes first`);
-      assert.match(from.label, /^from .+'s .+ for .+$/, `${g.id} ${axis}`);
+      // The guide by its title, its column named (C05): "from the Bambu Lab Filament Guide (PLA column)".
+      assert.match(from.label, /^from the .+ \(.+ column\)$/, `${g.id} ${axis}`);
       if (['nozzle', 'bed', 'chamber'].includes(axis)) {
         const a = g.print[axis];
         assert.deepEqual([a.state, a.min, a.max, a.profileId], [guide[axis].state, guide[axis].min, guide[axis].max, null], `${g.id} ${axis}`);
