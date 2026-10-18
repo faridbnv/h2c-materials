@@ -839,6 +839,10 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
    the Material ranges view draws one. A product's dot on one row lights its dot on the other. */
 /* imp-*: the drawer's comparison headings (D133, D139), impact first, now tensile, heat and print temperatures too. */
 .imp-compare { margin: 0 0 16px; }
+/* The material pages' marks (figures.src.css): drawn-but-not-ranked marks in a light grey, the middle half a tint with
+   edges that holds in both themes. Values here, not in tokens.css. */
+.imp-block { --imp-light: color-mix(in srgb, var(--ink-3) 62%, var(--surface)); --imp-band: color-mix(in srgb, var(--accent) 13%, transparent);
+  --imp-band-edge: color-mix(in srgb, var(--accent) 50%, transparent); }
 .imp-row { display: grid; grid-template-columns: minmax(84px, 150px) minmax(0, 1fr); gap: 10px; align-items: end; padding: 3px 0; font-size: 12.5px; }
 .imp-label { display: flex; flex-direction: column; line-height: 1.25; overflow-wrap: anywhere; }
 .imp-label .fine { font-size: 11px; }
@@ -852,14 +856,14 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-scale > span.start { transform: none; }
 .imp-scale > span.end { transform: translateX(-100%); }
 .imp-axis > .fine { align-self: start; font-size: 11px; }
-.imp-band { position: absolute; top: 0; bottom: 0; background: var(--accent-soft); }
+.imp-band { position: absolute; top: 0; bottom: 0; background: var(--imp-band); box-shadow: inset 1px 0 0 var(--imp-band-edge), inset -1px 0 0 var(--imp-band-edge); }
 .imp-median { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px solid var(--ink-2); }
 .imp-dot { position: absolute; display: block; width: 7px; height: 7px; margin-left: -3.5px; padding: 0; border: 1.25px solid var(--accent); background: var(--accent); border-radius: 50%; cursor: pointer; }
-.imp-dot.open { background: var(--surface); }
+.imp-dot.open { background: var(--surface); border-color: var(--imp-light); }
 .imp-dot.annealed { border-radius: 1px; }
-.imp-dot.variant { border-color: var(--ink-3-text); background: var(--surface); border-radius: 1px; transform: rotate(45deg) scale(.85); }
+.imp-dot.variant { border-color: var(--imp-light); background: var(--surface); border-radius: 1px; transform: rotate(45deg) scale(.9); }
 .imp-dot.claimed { border-color: var(--claim); background: var(--claim); }
-.imp-dot.claimed.open { background: var(--surface); }
+.imp-dot.claimed.open { background: var(--surface); border-color: var(--claim); }
 /* A column of one value taller than its dots show apart: its count over it, on the track's own ground. */
 .imp-count { position: absolute; z-index: 2; transform: translateX(-50%); padding: 0 2px; border-radius: 2px; background: var(--surface-2);
   font: 10px/1.1 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; pointer-events: none; }
@@ -870,10 +874,11 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-block .imp-compare { padding: 4px 2px 0; }
 .imp-dot:hover, .imp-dot.partner { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); z-index: 2; }
 .imp-axis { padding-top: 0; }
-.imp-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; }
+.imp-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 2px 0 10px; }
 .imp-key span { display: inline-flex; align-items: center; gap: 5px; }
 .imp-key .imp-dot { position: static; margin: 0; cursor: default; }
-.imp-band-key { display: inline-block; width: 14px; height: 9px; background: var(--accent-soft); border: 1px solid var(--border); }
+.imp-band-key { position: relative; display: inline-block; width: 14px; height: 9px; background: var(--imp-band); box-shadow: inset 1px 0 0 var(--imp-band-edge), inset -1px 0 0 var(--imp-band-edge); }
+.imp-band-key::after { content: ""; position: absolute; left: 6px; top: -2px; bottom: -2px; border-left: 2px solid var(--ink-2); }
 .imp-median-key { display: inline-block; width: 0; height: 11px; border-left: 2px solid var(--ink-2); }
 /* The H2C's limit across a print temperature's track (D139), and the profile a print dot opened. */
 .imp-limit { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px dashed var(--fail); z-index: 1; }
@@ -901,6 +906,8 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
 /* Where nothing is drawn, one line says why, counted; how the tests differ is one closed line under it. */
 .imp-none { margin: 4px 0 6px; max-width: 100ch; }
 .imp-tally { margin: 0 0 6px; max-width: 100ch; }
+details.imp-tally > summary { cursor: pointer; font-size: var(--t-small); color: var(--ink-2); }
+details.imp-tally > p { margin: 4px 0 0; }
 .imp-about { margin: 10px 0 0; }
 .imp-about > summary { cursor: pointer; font-size: var(--t-small); color: var(--ink-2); }
 .imp-about > p { margin: 6px 0; max-width: 100ch; }
