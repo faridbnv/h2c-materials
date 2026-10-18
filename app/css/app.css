@@ -307,7 +307,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 16px;
   border-top: 1px solid var(--border); background: var(--surface-2); flex-shrink: 0;
 }
-.tray .label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3-text); font-weight: 600; }
+.tray .label { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 600; }
 .tray-notice { font-size: var(--t-small); color: var(--unknown); font-weight: 600; }
 .pin {
   display: inline-flex; align-items: center; gap: 2px; background: var(--surface);
@@ -328,7 +328,8 @@ summary:hover > .chevron::before { border-color: var(--accent); }
    percentages are the widths columns take where the table has room, and each kind of column has a minimum; below the sum
    of those the table scrolls sideways in its box (format.js scrollTable) instead of squeezing its cells. */
 table.grid { border-collapse: collapse; width: 100%; table-layout: auto; font-size: var(--t-table); }
-table.grid th, table.grid td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); }
+/* 7 px, not 10: about one more row of candidates in a laptop's first view (REVIEW-0 F10). */
+table.grid th, table.grid td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); }
 table.grid .name { min-width: 176px; }
 table.grid .state { min-width: 104px; }
 table.grid .num { min-width: 96px; }
@@ -561,7 +562,7 @@ h3.sec:first-child { margin-top: 0; }
 .key-glyph { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; stroke: currentColor; }
 
 .legend-note { font-size: 12px; color: var(--ink-3-text); margin-top: 8px; }
-.legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; }
 
 /* ---------------------------------------------------------------- Ashby decision workspace (D107 to D111)
    The question in one bar, the controls as three rows (Draw, Also, Line) with More the one menu, opening over the chart
@@ -573,7 +574,7 @@ h3.sec:first-child { margin-top: 0; }
   display: flex; flex-direction: column; gap: 2px; font-size: var(--t-small);
 }
 .ws-goal-row, .ws-asked { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
-.ws-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3-text); min-width: 3.6em; }
+.ws-label { font-size: var(--t-label); font-weight: 650; color: var(--ink-3-text); min-width: 3.6em; }
 .ws-goal-row select {
   padding: 4px 8px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
   background: var(--bg); color: var(--ink); max-width: 100%; min-width: 0;
@@ -617,7 +618,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-controls { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .ws-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px; font-size: var(--t-small); }
 .ws-row + .ws-row { border-top: 1px solid var(--border); }
-.ws-row-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3-text); width: 3.4em; flex: 0 0 auto; }
+.ws-row-label { font-size: var(--t-label); font-weight: 650; color: var(--ink-3-text); width: 3.4em; flex: 0 0 auto; }
 .ws-row-sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 2px; }
 .ws-row-end { margin-left: auto; }
 .ws-views button { padding-block: 3px; }
@@ -663,7 +664,7 @@ h3.sec:first-child { margin-top: 0; }
   font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-top: 1px solid var(--border);
   background: var(--unknown-bg); border-left: 3px solid var(--unknown);
 }
-.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3-text); }
+.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); color: var(--ink-3-text); }
 .ws-menu-panel h4:first-child { margin-top: 0; }
 .ws-menu-item[aria-pressed="true"] { font-weight: 650; }
 .ws-menu-item[aria-pressed="true"]::before { content: '● '; color: var(--accent); }
@@ -749,12 +750,12 @@ h3.sec:first-child { margin-top: 0; }
 .ws-inspector .kv dd { overflow-wrap: anywhere; }
 /* In the narrow details panel each value sits under its label, at the panel's full width, not in a thin second column. */
 .ws-detail-body .kv { display: block; }
-.ws-detail-body .kv dt { margin-top: 8px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3-text); }
+.ws-detail-body .kv dt { margin-top: 8px; font-size: var(--t-label); color: var(--ink-3-text); }
 .ws-detail-body .kv dd { margin: 2px 0 0; }
 .ws-insp-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .ws-context-note { margin: 4px 0; }
 .ws-reading { font-size: 12px; color: var(--ink-3-text); margin-top: 0; }
-.ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; }
 .ws-reading p { margin: 4px 0 0; line-height: 1.55; }
 .ws .ashby-key { margin-top: 0; padding: 5px 10px; }
 
@@ -1049,7 +1050,7 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 
 /* ---------------------------------------------------------------- parallel axes picker */
 .pc-axes { border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 15px; margin-bottom: 16px; background: var(--surface); }
-.pc-axes-head { font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3-text); font-weight: 650; margin-bottom: 10px; }
+.pc-axes-head { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 650; margin-bottom: 10px; }
 .pc-axes-head span { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 8px; }
 .pc-axis-list { display: flex; gap: 9px; flex-wrap: wrap; }
 .pc-axis { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-strong); border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: var(--t-small); }
@@ -1207,7 +1208,7 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 /* The tracked requirements are a row of their own, so their label never reads as part of the required pills. */
 .pill-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-basis: 100%; }
 .pill-group .pill-label { margin-left: 0; }
-.pill-label { font-size: var(--t-label); color: var(--ink-3-text); text-transform: uppercase; letter-spacing: .06em; font-weight: 650; margin-left: 6px; }
+.pill-label { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 650; margin-left: 6px; }
 
 /* ---------------------------------------------------------------- scenario drawer */
 .sc-summary { display: flex; gap: 20px; align-items: flex-start; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); margin-bottom: 8px; }
@@ -1302,12 +1303,20 @@ details.est-card[open] > summary { margin-bottom: 6px; }
 .est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
 
 /* ---------------------------------------------------------------- table bar and new cells */
-.table-bar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 12px; }
+.table-bar { display: flex; align-items: center; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 8px; }
 /* The column chooser says what each set is for, on screen. */
 .colset-pick { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.colset-help { font-size: var(--t-small); color: var(--ink-3-text); }
+/* The column set's one-line help is read aloud with its buttons and is their title; shown, it pushed Compare against onto
+   a second row above the table (REVIEW-0 F10). */
+.colset-help { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* One stable line of marks, each a button that opens its definition. */
-.legend-row { display: flex; gap: 4px 16px; flex-wrap: wrap; flex-basis: 100%; font-size: var(--t-label); color: var(--ink-3-text); }
+.legend-row { display: flex; align-items: center; gap: 4px 14px; flex-wrap: wrap; flex-basis: 100%; font-size: var(--t-label); color: var(--ink-3-text); }
+/* The marks a few cells carry (close to the limit, converted, an annealed median) behind one fold, so the
+   legend is one line; opened, they take a line of their own. */
+.legend-more > summary { cursor: pointer; color: var(--ink-2); list-style: none; display: inline-flex; align-items: center; gap: 2px; }
+.legend-more > summary::-webkit-details-marker { display: none; }
+.legend-more[open] { flex-basis: 100%; }
+.legend-more-body { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; }
 .legend-row .lg { display: inline-block; color: var(--ink-2); }
 .legend-row .lg .load-mark { vertical-align: baseline; font-size: var(--t-label); }
 .lg-est { color: var(--unknown); font-style: italic; border-bottom: 1px dashed var(--unknown); }

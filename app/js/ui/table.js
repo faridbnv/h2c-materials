@@ -419,7 +419,7 @@ export function renderTable(host, state, actions) {
   // entry for the estimated windows the Printing columns show. The estimate entry shows whenever estimates do, in both
   // column sets.
   const likely = Math.round((state.db.meta.estimateModel?.levels?.likely ?? 0.8) * 100);
-  const legend = [
+  const common = [
     explainButton('<span class="dash">\u2014</span> not published',
       'No source on file publishes it. A gap, not a zero or a low value. Select a dash for which kind of gap it is.',
       { cls: 'lg', head: 'Not published' }),
@@ -435,6 +435,13 @@ export function renderTable(host, state, actions) {
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
       `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass; with "Let estimates rule out materials" on, it can exclude one. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,
       { cls: 'lg', head: 'Estimate, not a measurement' }) : '',
+    explainButton('<span class="na">n/a</span> not applicable',
+      'The property does not apply to this material, such as HDT of an elastomer. Not a gap.',
+      { cls: 'lg', head: 'Not applicable' }),
+  ].filter(Boolean);
+  // The marks only a few cells carry, behind one fold, so the legend stays one line (REVIEW-0 F10, 2026-10-18). An
+  // estimate is in many cells wherever estimates show, so it stays on the line.
+  const rare = [
     explainButton('<span class="load-mark">\u2248</span> close to the limit',
       'A published mean ± scatter with the threshold inside the scatter. Judged on the mean.',
       { cls: 'lg', head: 'Close to the limit' }),
@@ -442,10 +449,8 @@ export function renderTable(host, state, actions) {
     (state.db.meta.priceSample?.foreignSellers ?? 0) > 0 ? explainButton('<span class="fx-mark">\u00a4</span> converted',
       'A price from a foreign listing, for a product no sampled Canadian shop sells: converted to CAD at the Bank of Canada rate, before VAT. Shipping and duty are not included.',
       { cls: 'lg', head: 'Converted price' }) : '',
-    explainButton('<span class="na">n/a</span> not applicable',
-      'The property does not apply to this material, such as HDT of an elastomer. Not a gap.',
-      { cls: 'lg', head: 'Not applicable' }),
-  ].filter(Boolean).join('');
+  ].filter(Boolean);
+  const legend = common.join('') + (rare.length ? `<details class="legend-more"><summary><span class="chevron" aria-hidden="true"></span>${rare.length === 1 ? 'One more mark' : `${rare.length} more marks`}</summary><div class="legend-more-body">${rare.join('')}</div></details>` : '');
 
   // Hits the filters removed. A search that finds nothing because the requirements already
   // excluded the match reads as "this material is not in the database", which is false.
@@ -529,7 +534,7 @@ export function renderTable(host, state, actions) {
       <label class="rank-pick" title="Orders the results by a performance index, worked out for each passing product; a material ranks by the median of its products.">
         Rank by
         <select data-rank-by>
-          <option value="">nothing: sort by column</option>
+          <option value="">none (sort by a column)</option>
           ${INDICES.map((i) => `<option value="${esc(i.id)}" ${state.scenario.rankBy === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`).join('')}
         </select>
       </label>

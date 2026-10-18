@@ -163,7 +163,7 @@ export function renderActive(state, actions) {
     <div class="pills" title="Press a requirement to remove it">
       ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">Within H2C temperature limits<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
       ${shownHard.map((c) => pill(c, cs.indexOf(c))).join('')}
-      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
+      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">Reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
     ${stateLine}
     ${check === 'all' ? '' : `<p class="state-line research-line"><b>${check === 'none' ? 'H2C printability not checked:' : `H2C printability partly checked: ${esc(printGatesMissing(cs).map((g) => GATE[g].plain).join(' and '))} not checked.`}</b>
