@@ -1,0 +1,5 @@
+/* Mock 3 (graphs expert): the table's marks. The annealed median as the drawer's and pages' square, on the median's line;
+   a converted price names its currency; the legend one line. */
+.ann-mk { display: inline-block; width: 6px; height: 6px; margin-left: 3px; vertical-align: 2px; background: var(--ink-2); border-radius: 1px; }
+.fx-mark { font-size: 9.5px; letter-spacing: .02em; color: var(--ink-2); vertical-align: 1px; }
+.legend-row { flex-wrap: nowrap; gap: 4px 13px; white-space: nowrap; }

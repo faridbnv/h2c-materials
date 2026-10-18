@@ -1,0 +1,19 @@
+/* Mock 1 and 2 (graphs expert): the drawer's dot strips in the pages' grammar. CSS only; the markup is the drawer's. */
+.drawer .imp-dot { width: 7px; height: 7px; margin-left: -3.5px; border-width: 1.25px; }
+/* Hollow and diamond: drawn but not ranked, lighter than the ranked marks (pages: --dv-light). */
+.drawer .imp-dot.open, .drawer .imp-dot.variant { background: var(--surface); border-color: color-mix(in srgb, var(--ink-3) 62%, var(--surface)); }
+.drawer .imp-dot.claimed.open { border-color: var(--claim); }
+/* Middle half: a tint with edges, visible in both themes (pages: --dv-self-soft with a stroke). */
+.drawer .imp-band { background: color-mix(in srgb, var(--accent) 13%, transparent);
+  box-shadow: inset 1px 0 0 color-mix(in srgb, var(--accent) 50%, transparent), inset -1px 0 0 color-mix(in srgb, var(--accent) 50%, transparent); }
+.drawer .imp-band-key { background: color-mix(in srgb, var(--accent) 13%, transparent); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+/* The key above the plot, as on the pages. */
+.drawer .imp-compare > .imp-key { margin: 2px 0 12px; }
+.drawer .imp-count { position: absolute; transform: translateX(-50%); font-size: 10px; line-height: 1; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+/* Print temperatures: one group per setting, headed; the limit as the pages draw it, a solid line with the range beyond it washed. */
+.drawer .print-compare .imp-strips + .imp-strips { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--border); }
+.drawer .g-head { font-size: 12.5px; font-weight: 600; color: var(--ink); margin: 0 0 6px; }
+.drawer .g-head span { font-weight: 400; color: var(--ink-2); }
+.drawer .imp-limit { border-left: 1.5px solid var(--ink); top: 0; bottom: 0; }
+.drawer .imp-beyond { position: absolute; top: 0; bottom: 0; right: 0; background: color-mix(in srgb, var(--ink-3) 16%, transparent); }
+.drawer .imp-limit-key { border-left: 1.5px solid var(--ink); height: 11px; box-shadow: 6px 0 0 0 color-mix(in srgb, var(--ink-3) 25%, transparent); width: 6px; }

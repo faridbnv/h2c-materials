@@ -7,7 +7,7 @@
 
 | # | Priority | Measure | Baseline | After build | Final | Target |
 |---|---|---|---|---|---|---|
-| M1 | P1 | Keep register: kept or reproduced of all items | (KEEP.md, compiled at step 1) | | | 100 %; any loss approved by the owner |
+| M1 | P1 | Keep register: kept or reproduced of all items | 45 items (K01–K45) | | | 100 %; any loss approved by the owner |
 | M2a | P2 | Cold page 1280×800: table bar above the fold; table rows visible | no (bar at 761 px); 0 rows | | | yes; ≥ 3 rows |
 | M2b | P2 | Cold page 1180×760: the same | no (bar at 891 px); 0 rows | | | yes; ≥ 3 rows |
 | M2c | P2 | Cold page 1280×800: visible words / numbers / controls | 402 / 47 / 47 | | | fewer words and numbers; controls unchanged |
@@ -36,5 +36,5 @@
 | M5b | P4 | The same value printed two ways (33.7 against 34) | 22 cells | | | 0, or one stated rule |
 | M5c | P4 | Vocabulary and marks checklist (coherence lead's list) | (step 2) | | | 0 mismatches |
 | M6 | P2–P5 | Small text under 4.5:1 contrast (light / dark), cold page | 405 / 114 elements (`--ink-3` 3.47–3.72:1 light, 4.34:1 dark) | | | 0 / 0, `tokens.css` unchanged |
-| M7 | all | Engineer review (of 100); the baseline's 10 costliest findings resolved | (step 1) | — | | reported; ≥ 8 resolved |
+| M7 | all | Engineer review (of 100); the baseline's 10 costliest findings resolved | 62 ([REVIEW-0](review/REVIEW-0.md)); findings F1–F10 | — | | reported; ≥ 8 resolved |
 | M8 | guard | `build:diff`; drawer records reached (`drawer-ids.mjs`); `ui:fuzz` 300; `pages:check`; `verify:fast` | 0 differences; 28,950 of 30,992 (the rest are coverage rows and price listings the drawer summarises); —; —; — | | | 0; the same set; 0 violations; 16/16; ≤ 90 s |
