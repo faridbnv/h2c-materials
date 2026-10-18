@@ -18,6 +18,7 @@ import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
 import { renderCompare } from './ui/compare.js';
 import { renderDrawer } from './ui/detail.js';
+import { dayWords } from './ui/dates.js';
 import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc, markTableOverflow, keepInView } from './ui/format.js';
 import { TEMPLATES, PRINTABLE } from './ui/templates.js';
@@ -902,7 +903,7 @@ function chosenSection() {
     return `<div class="chosen" data-chosen="${esc(d.gradeId)}">
       <div class="chosen-head"><b>${esc(productLabel(g))}</b>
         ${e ? `<span class="chip chip-${e.verdict}">${esc(e.verdict)}</span>` : '<span class="chip chip-neutral">not judged</span>'}
-        <span class="fine">chosen ${esc(d.chosenOn ?? '')} on release ${esc(d.release ?? 'unidentified')}${d.release && d.release !== today ? `; this page is release ${esc(today ?? '')}` : ''}</span></div>
+        <span class="fine">chosen ${esc(dayWords(d.chosenOn ?? ''))} on release ${esc(d.release ?? 'unidentified')}${d.release && d.release !== today ? `; this page is release ${esc(today ?? '')}` : ''}</span></div>
       <div class="sc-actions chosen-actions">
         <button class="btn btn-sm" data-brief="${esc(d.gradeId)}">Download the decision brief</button>
         <button class="btn btn-sm" data-unchoose="${esc(d.gradeId)}">Remove</button>

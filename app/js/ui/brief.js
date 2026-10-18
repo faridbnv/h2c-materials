@@ -11,6 +11,7 @@
 import { describeConstraint, gateVerdict, H2C_CHECK } from './labels.js';
 import { headlineDef } from './registry.js';
 import { fmtNumber, dryingWords } from './format.js';
+import { dayWords } from './dates.js';
 import { templateByName } from './templates.js';
 import { pageOf, productsPageOf } from './page-rule.js';
 
@@ -74,7 +75,7 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
   const release = db.meta.release?.id ?? 'unidentified';
   const L = [];
   L.push(`# Decision brief: ${productLabel(grade)} (${grade.id})`, '');
-  L.push(`${material.name}${material.fullName ? `, ${material.fullName}` : ''}. Chosen ${decision.chosenOn ?? 'on an unrecorded date'} on release ${decision.release ?? 'unidentified'}${decision.release && decision.release !== release ? `; this brief was written on release ${release}, whose answer is below` : ''} (data of ${db.meta.snapshot}).`, '');
+  L.push(`${material.name}${material.fullName ? `, ${material.fullName}` : ''}. Chosen ${decision.chosenOn ? dayWords(decision.chosenOn) : 'on an unrecorded date'} on release ${decision.release ?? 'unidentified'}${decision.release && decision.release !== release ? `; this brief was written on release ${release}, whose answer is below` : ''} (data of ${db.meta.snapshot}).`, '');
   // Where the reasons behind it are read (C38), for the colleague who receives this: the material's page and the product's
   // card on its Products page, where the material has a page.
   const ms = db.measurements.filter((x) => x.materialId === material.id);

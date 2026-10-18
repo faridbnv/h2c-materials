@@ -1604,7 +1604,16 @@ tr.baseline-row .name { color: var(--accent); }
 .key-figs .kp-f { font-size: var(--t-small); color: var(--ink-2); margin-left: 6px; }
 .kp-also { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 6px; line-height: 1.7; }
 .kp-also .kp-sep { color: var(--ink-3-text); }
+/* A value published with no stated orientation or load, in the Also line: grey, with the graphs' hollow mark (C18). */
+.kp-also-pub { color: var(--ink-3-text); white-space: nowrap; }
+.kp-also-pub .imp-dot { position: static; display: inline-block; margin: 0 4px 0 0; cursor: default; vertical-align: 0; }
 .kp-missing { color: var(--ink-3-text); }
+/* How well documented the material is, the page's word, its reasons one press away (C20). */
+.data-line .evidence-tier { color: var(--ink); text-decoration: underline dotted 1px; text-underline-offset: 3px; }
+/* What an exposure's statements say, beside its heading in the Environment tab (C22): a count, not a verdict. */
+h3.sec .env-verdict { font-weight: 450; color: var(--ink-2); }
+/* "converted" in the Price tab's first line, its rate one press away (C16): words, not a superscript. */
+.fx-mark.fx-words { font-size: inherit; font-weight: inherit; color: inherit; vertical-align: baseline; margin: 0; padding: 0; text-decoration: underline dotted 1px; text-underline-offset: 3px; }
 .h2c-v { font-weight: 600; margin-left: 4px; }
 .mark.prop-name { text-decoration: underline dotted 1px; text-underline-offset: 3px; color: var(--ink-2); text-align: left; }
 .print-answer { margin: 4px 0; font-size: var(--t-body); }

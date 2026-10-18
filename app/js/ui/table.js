@@ -8,6 +8,7 @@
 // the 104 purchase links in the data were rendered nowhere at all.
 
 import { renderValue, chip, esc, fmtNumber, fmtBoundedKind, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
+import { dayWords } from './dates.js';
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 import { INDICES, indexById, rankingFor, indexValue } from '../engine/indices.js';
@@ -394,7 +395,7 @@ export function renderTable(host, state, actions) {
         const h = m.headline.priceCADkg;
         const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id });
         if (!m.buy) return `<td class="num">${inner}</td>`;
-        const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${m.buy.accessDate})`;
+        const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${dayWords(m.buy.accessDate)})`;
         const notStocked = 'No sampled Canadian listing was in stock when sampled. Prices and stock are snapshots, not live.';
         const link = (content, cls = '') => `<a class="buy${cls}" href="${esc(m.buy.url)}" target="_blank" rel="noopener"
           title="${esc(t)}">${content}<span class="buy-mark" aria-label="opens the retailer page">\u2197</span></a>`;
@@ -403,7 +404,7 @@ export function renderTable(host, state, actions) {
         // press away on the words; the arrow beside them opens the listing. A dash with a link arrow had read as nothing
         // to buy.
         if (!h?.known) {
-          const why = `${m.buy.retailer} lists it (seen ${m.buy.accessDate}), but the listing has no usable price.`
+          const why = `${m.buy.retailer} lists it (seen ${dayWords(m.buy.accessDate)}), but the listing has no usable price.`
             + `${m.buy.anyInStock ? '' : ` ${notStocked}`} The arrow opens the listing.`;
           return `<td class="num"><span class="unpriced">${explainButton('no price', why, { cls: 'no-price', head: 'Listed, no price' })}${link('', ' buy-arrow')}</span></td>`;
         }
