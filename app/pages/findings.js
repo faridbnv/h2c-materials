@@ -13,6 +13,7 @@
 
 import { esc, attrs } from './html.js';
 import * as NUMBERS from './numbers.js';
+import { dayWords, daysWords } from '../js/ui/dates.js';
 import { fmtNumber, dryingWords, priceSampleWords, readableUnit } from '../js/ui/format.js';
 import { REGISTRY } from '../js/ui/registry.js';
 import { propertyName, envVerdictWords } from '../js/ui/labels.js';
@@ -79,15 +80,9 @@ export const spanSay = (lo, hi, { key = null, unit = null, stats = ['min', 'max'
   ? num(lo, { key, stat: stats[0], unit })
   : say`${num(lo, { key, stat: stats[0] })}⁠–⁠${num(hi, { key, stat: stats[1], unit })}`);
 
-/** A date as a reader writes it: "10 Sep 2026". */
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-export const dayWords = (iso) => { const m = /^(\d{4})-(\d\d)-(\d\d)/.exec(String(iso ?? '')); return m ? `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]}` : String(iso ?? ''); };
-/** Two dates as a span: "10 Sep–5 Oct 2026", one date where both are one. */
-export function daysWords(a, b) {
-  if (!a || a === b) return dayWords(a ?? b);
-  const [x, y] = [dayWords(a), dayWords(b)];
-  return a.slice(0, 4) === b.slice(0, 4) ? `${x.replace(/ \d{4}$/, '')}–${y}` : `${x}–${y}`;
-}
+// The date words live in app/js/ui/dates.js since 2026-10-18 (coherence round), so the drawer prints a date as the
+// page does; re-exported here for the pages' modules.
+export { dayWords, daysWords } from '../js/ui/dates.js';
 
 /** A count with its noun, the number in words under eleven: "three products". */
 export const nWords = (n, word, many = `${word}s`) => `${countWords(n)} ${n === 1 ? word : many}`;
