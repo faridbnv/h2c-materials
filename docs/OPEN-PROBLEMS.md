@@ -1739,6 +1739,15 @@ The 2026-10-07 finding is preserved in [its historical audit](audits/2026-10-07-
 
 Reproduce with `node docs/audits/2026-10-08-product-screening/replay.mjs --write` against the baseline compiled database named in its README. The original census still reports below-limit observed spreads; it is not an accuracy measure or a list to force out.
 
+**Reviewed 2026-10-18.** [The screening review](audits/2026-10-18-screening-review/README.md) ran the six templates with
+Include and estimates on, on release 9ca94d31fc5d. "Let estimates rule out materials" held out 33 materials in all: 30
+elastomers whose HDT does not apply and the 3 materials with no product (PA66-CF, PA612, PA612-GF); no product prediction
+and no material estimate of a material with products screens anything. Of the 436 Insufficient-evidence listings, 234
+point to a miss (a measured product misses and none passes, or every unresolved product's own prediction misses wholly),
+76 meet every number and wait only on a print setting, 15 have no product to buy and 111 are open. An estimated candidate
+is promoted on its prediction's centre, a coin flip in 53 of 105 promoted requirements. Its findings and the changes it
+recommends (C01 to C30, the owner's to choose) are there; C01 files them here by subject.
+
 ### 36.2. PCTG-GF's estimates sit above its own sheets
 
 *From the data review fixes, 2026-10-17 (m422 to m432; D143).*

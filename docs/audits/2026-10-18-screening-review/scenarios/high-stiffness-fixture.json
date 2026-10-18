@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "release": "9ca94d31fc5d",
+  "dbSnapshot": "2026-09-21",
+  "appBuild": "2026-10-17",
+  "created": "2026-10-18T00:00:00.000Z",
+  "constraints": [
+    {
+      "kind": "gate",
+      "gate": "scope"
+    },
+    {
+      "kind": "facet",
+      "facet": "supportMaterial",
+      "equals": false
+    },
+    {
+      "kind": "gate",
+      "gate": "nozzle"
+    },
+    {
+      "kind": "gate",
+      "gate": "bed"
+    },
+    {
+      "kind": "gate",
+      "gate": "chamber"
+    },
+    {
+      "kind": "numeric",
+      "property": "tensileModulusXY",
+      "operator": ">=",
+      "value": 5,
+      "mandatory": true
+    },
+    {
+      "kind": "numeric",
+      "property": "hdt045",
+      "operator": ">=",
+      "value": 90,
+      "mandatory": false
+    }
+  ],
+  "unknownPolicy": "exploration",
+  "preferences": [],
+  "assumptions": [],
+  "shortlist": [],
+  "plot": {
+    "x": "density",
+    "y": "tensileModulusXY",
+    "xLog": false,
+    "yLog": false,
+    "view": "decision",
+    "showReference": false,
+    "showEstimates": false,
+    "layers": {
+      "failed": false,
+      "unresolved": null,
+      "front": false
+    },
+    "population": "confirmed",
+    "indexM": null,
+    "focus": []
+  },
+  "lens": "table",
+  "openMaterial": null,
+  "useEstimates": true,
+  "columnSet": "properties",
+  "baseline": null,
+  "template": "High-stiffness fixture",
+  "rankBy": null,
+  "evidence": "comparable",
+  "anneal": false,
+  "annealMaxC": null,
+  "moisture": "dry",
+  "decisions": []
+}
