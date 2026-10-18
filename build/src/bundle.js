@@ -18,6 +18,16 @@ const escapeForScript = (s) => s.replace(/<\/script/gi, '<\\/script');
 /** The stylesheets app/index.html links, in its order; the bundle inlines them, in this order, into one <style>. */
 const STYLESHEETS = ['css/tokens.css', 'css/app.css'];
 
+/**
+ * The selector's typeface, the material pages' own (coherence round, C50): the same Inter subset they embed
+ * (app/pages/assets/fonts, FONTS.md), so "2.53 GPa" is drawn in the same glyphs in the drawer and on the page, with its
+ * licence beside it in the stylesheet. tokens.css names it first in --sans.
+ */
+const FACE = { family: 'Inter', weight: '400 700', file: 'pages/assets/fonts/Inter-Variable.subset.woff2', licence: 'pages/assets/fonts/Inter-OFL.txt' };
+const faceCss = (appRoot) => `/* ${FACE.family}, embedded from app/${FACE.file} (app/pages/assets/fonts/FONTS.md), under the SIL Open Font License 1.1:\n`
+  + `${readFileSync(join(appRoot, FACE.licence), 'utf8').replace(/\*\//g, '* /').trim()}\n*/\n`
+  + `@font-face { font-family: "${FACE.family}"; font-style: normal; font-weight: ${FACE.weight}; font-display: swap; src: url(data:font/woff2;base64,${readFileSync(join(appRoot, FACE.file)).toString('base64')}) format("woff2"); }`;
+
 async function bundleApp(appRoot) {
   const result = await esbuild({
     entryPoints: [join(appRoot, 'js/main.js')],
@@ -34,7 +44,7 @@ export async function bundle({ projectRoot, buildRoot, db, reference, meta }) {
   const html = readFileSync(join(appRoot, 'index.html'), 'utf8');
   // The shared design tokens first, then the selector's own stylesheet, as one <style>: the material pages read the
   // same tokens, and a CSS @import would be a second request the single file cannot make.
-  const css = STYLESHEETS.map((f) => readFileSync(join(appRoot, f), 'utf8')).join('\n');
+  const css = [faceCss(appRoot), ...STYLESHEETS.map((f) => readFileSync(join(appRoot, f), 'utf8'))].join('\n');
   const plotly = readFileSync(join(buildRoot, 'node_modules/plotly.js-dist-min/plotly.min.js'), 'utf8');
   const app = await bundleApp(appRoot);
 
