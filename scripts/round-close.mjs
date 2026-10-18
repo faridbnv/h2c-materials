@@ -130,9 +130,15 @@ export const CHECKS = [
   ['packets', ...node('scripts/data/packets.mjs', '--check')],
 ];
 
+// The frozen components (D58, D138): the estimate stage's code and settings, the floors it shares with the compile stage,
+// the data it reads its physics from, and the import's text reader. The screening build of 2026-10-18 added the
+// settings, the floors and the two tables: a change there moves estimates as surely as a change of code does.
+export const FROZEN = ['build/src/estimate', 'build/mappings/estimate-model.json', 'build/src/lower-bounds.js',
+  'data/tables/polymers.csv', 'data/tables/headline_definitions.csv', 'scripts/ingest/propose.mjs'];
+
 function freezeReport(ref) {
   try {
-    return execFileSync('git', ['diff', '--stat', `${ref}..HEAD`, '--', 'build/src/estimate', 'scripts/ingest/propose.mjs'], { cwd: root, encoding: 'utf8' }).trim();
+    return execFileSync('git', ['diff', '--stat', `${ref}..HEAD`, '--', ...FROZEN], { cwd: root, encoding: 'utf8' }).trim();
   } catch {
     return `(no ref ${ref} to compare with)`;
   }

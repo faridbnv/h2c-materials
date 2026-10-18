@@ -134,8 +134,9 @@ A round of work leaves migrations and working files behind, and they leave the w
 3. `npm run packets -- --export ingest-2026-09-18` for any batch's proposals (as in "Add a data sheet").
 4. `npm run docs:open-problems` writes the counts at the head of OPEN-PROBLEMS (about twenty seconds).
 5. `npm run round:close`: it exits 1 while anything is open and lists what. It also prints what changed since `main` in
-   the estimate stage and the import's text reader; both are frozen, and a change there needs a decision and a back-test
-   row (D58, D138).
+   the estimate stage (its code, its settings in `build/mappings/estimate-model.json`, the floors it shares in
+   `build/src/lower-bounds.js`, and `polymers.csv` and `headline_definitions.csv`, which it reads its physics from) and
+   the import's text reader; both are frozen, and a change there needs a decision and a back-test row (D58, D138).
 6. Run `npm run verify` and commit.
 
 ## What to read when

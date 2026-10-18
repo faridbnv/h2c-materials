@@ -341,9 +341,10 @@ npm run round:close                                  # nothing open: every check
 A round folder keeps its reports, its scripts and images, its frozen lists and counted verdicts, and every file a
 living document, table or script names; `npm run packets -- --manifest <round>` says what would move and why each kept
 file stays, and `docs/audits/keep-list.csv` keeps what no rule does. What a round leaves open goes into OPEN-PROBLEMS
-under its subject, never as a section of its own. `round:close` also prints what changed in the estimate stage and the
-import's text reader since `main`: both are frozen, and a change there needs a decision and a back-test row (D58,
-D138).
+under its subject, never as a section of its own. `round:close` also prints what changed since `main` in the estimate
+stage (its code and settings, the floors it shares, and the two tables it reads its physics from: `polymers.csv`,
+`headline_definitions.csv`) and in the import's text reader: both are frozen, and a change there needs a decision and a
+back-test row (D58, D138).
 
 ## Checking your work
 

@@ -10,6 +10,14 @@
 > physics and one-sided evidence settle more cases, and sort the rest by the one check that would settle each. Ten
 > decisions are yours, listed first below, each with a recommendation and what it would change.
 
+## The owner's answers (2026-10-18)
+
+**Yes to decisions 1 to 8 and 10, as recommended. No to decision 9:** PA66-CF, PA612 and PA612-GF stay materials,
+because the owner found them on sale; the sources' missing listings are recorded in OPEN-PROBLEMS §5 for a later search.
+Every change C01 to C40 except C16 is approved, with the architecture's "yes" items, its "later" shared conversion
+layer, and the estimate model reopened for C26 to C29 and C36. The build is recorded in
+[the build round](../2026-10-18-screening-build/README.md).
+
 ## What you need to decide
 
 These ten decisions need your yes or no, the most consequential first. Each names the changes it unlocks (C numbers,

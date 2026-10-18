@@ -803,3 +803,31 @@ C39, C40 to C44) and, of S6, the two leaning yes, C50 (Inter in the selector) an
 
 Built by Claude Opus as executor, with four tracks side by side (words and frame by Claude Opus, charts and hand-offs by
 Claude Sonnet), on the branch `coherence-review` ([the build](audits/2026-10-18-coherence-review/BUILD.md)).
+
+
+## Decided on 2026-10-18, the screening rulings (being built)
+
+The owner asked how the selector treats the materials it could not check, and a review answered it with three engineer
+reviewers, a first-time user who never read the repository, two outside experts who saw only the data, and a product
+manager's synthesis ([the review](audits/2026-10-18-screening-review/README.md)). It put ten decisions to the owner.
+
+- **Chosen.** Yes to decisions 1 to 8 and 10, as recommended: sort the materials that could not be checked by what would
+  settle each (one check away, not enough data, unlikely to meet); decide a sheet's silence on the chamber by the kind of
+  plastic, and pass a printer window the H2C covers in part, flagged; let a plastic's physics settle a requirement nobody
+  measured (rubber stiffness and neat density now, the limits read off the database after a back-test); let a value
+  measured another way decide in its one safe direction, through an evidence ledger; a value just under the limit is on
+  the line; an estimate only orders the list and tags "likely" when the range shown meets the limit; rename the switch
+  "Use estimates and resin data"; the Flexible component preset asks tensile modulus at most 0.1 GPa; the outdoor preset
+  warns that nylons are judged dry. Every change C01 to C40 of the
+  [recommendations](audits/2026-10-18-screening-review/RECOMMENDATIONS.md) except C16, the architecture's "yes" items and
+  its "later" item (one conversion layer shared by the estimate model and the ledger), and the estimate model reopened
+  for C26 to C29 and PLA's class (C36), each with a decision and a back-test (D58, D138).
+- **Declined: decision 9.** PA66-CF, PA612 and PA612-GF stay materials. The owner: "people are selling them, maybe the
+  sources we find are not selling, but I searched and they are sellable". OPEN-PROBLEMS §5 records it for a later
+  search; their behaviour is not changed beyond what the other changes do.
+- **How it is built.** Stage by stage, each stage merged to main once its full `npm run verify` passes on the latest
+  main; a new evidence rule lands reporting only and is switched to deciding in its own commit with its own answer diff;
+  an Opus agent settles each flagged data value against its page and the owner gets the list to spot-check; Opus for
+  design, code, migrations and judging, Sonnet for re-reading sheets, transcribing and sweeps. The plan and the stage
+  reports are in [the build round](audits/2026-10-18-screening-build/README.md).
+

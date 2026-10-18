@@ -69,6 +69,11 @@ What no document the database holds prints: a print setting, a property, a price
   since m223 (D106), both filed by the owner's ruling on the best evidence and marked inferred: Yousu Nylon, whose own
   safety data sheet names PA66 while its melting point (224 °C) is a PA6's, and Spectrum ThermaTech PA, which only
   retailers call PA6/6. Its values are theirs now; a maker's document naming either polyamide settles it.
+- **The owner reports all three on sale (2026-10-18).** The screening review proposed making PA66-CF, PA612 and
+  PA612-GF family entries, since no source the tool holds lists a product to buy. The owner declined: "people are
+  selling them, maybe the sources we find are not selling, but I searched and they are sellable". They stay materials,
+  judged on their estimates as before. Open: search the makers and shops again for each, and enter what is found through
+  the import pipeline ([GOALS-LOG](GOALS-LOG.md), 2026-10-18).
 
 Both are evidence gaps, not defects. Only a manufacturer publishing a sheet fixes them.
 
@@ -1749,6 +1754,13 @@ is promoted on its prediction's centre, a coin flip in 53 of 105 promoted requir
 data but not the rules, proposed how pass, fail and "can't tell" should work. The review's ten decisions for the owner
 and its changes (C01 to C40, in [its recommendations](audits/2026-10-18-screening-review/RECOMMENDATIONS.md)) are there;
 C01 files what stays open here by subject.
+
+**Being built (2026-10-18).** The owner approved the review's changes except C16, and they are being built stage by
+stage ([the build round](audits/2026-10-18-screening-build/README.md)). Until each stage lands, the page behaves as the
+review describes: the switch hides only properties that do not apply and the three materials with no product; an
+estimated candidate needs only its estimate's middle value to meet the limit; "Insufficient evidence" holds the four
+situations above; a printer window the H2C covers in part, and a sheet silent on the chamber, stay unresolved; a value
+measured another way never decides. Each stage takes its part out of this paragraph when it lands.
 
 ### 36.2. PCTG-GF's estimates sit above its own sheets
 
