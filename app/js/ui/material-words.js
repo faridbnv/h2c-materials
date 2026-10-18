@@ -307,24 +307,26 @@ export const settingWords = (a) => (a.state === 'range' && a.max == null && a.mi
 export const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fmtNumber(lo)}` : lo == null ? `up to ${fmtNumber(hi)}`
   : lo === hi ? fmtNumber(lo) : `${fmtNumber(lo)}⁠–⁠${fmtNumber(hi)}`);
 
-/** Under a print setting's graph: its unit, and the H2C's limit, on the scale or above it. */
-export const printAxisUnit = (limit, onScale) => `°C${limit == null ? '' : onScale ? `, H2C limit ${fmtNumber(limit)}` : `; H2C limit ${fmtNumber(limit)} °C, above the scale`}`;
+/** Over a print setting's graph, after its name: its unit, and the H2C's limit, drawn on the scale or above it. */
+export const printSettingHead = (limit, onScale) => `°C${limit == null ? '' : ` · the H2C reaches ${fmtNumber(limit)} °C${onScale ? '' : ', above this scale'}`}`;
 
-/** A print row's values drawn and not counted (print-spread.js rowSummary): from the guide, special formulations. */
-export const printApartWords = (s) => [s.guide ? `${s.guide.n} from the guide (${joinedSpan(s.guide)})` : null, s.variants ? `${plural(s.variants.n, 'special formulation')} (${joinedSpan(s.variants)})` : null].filter(Boolean);
+/** A print row's values drawn and not counted (print-spread.js rowSummary), each with its range: from the guide, an added filler or additive. */
+export const printApartWords = (s) => [s.guide ? `${s.guide.n} from the guide (${graphRange(s.guide, '°C')})` : null,
+  s.variants ? `${s.variants.n} with an added filler or additive (${graphRange(s.variants, '°C')})` : null].filter(Boolean);
+
 
 /** The lines under the print temperatures' table (material-facts.js printFacts): what n counts, the medians, the products outside the H2C's limits. */
 export function printLines(f) {
   const typical = f.typical.map(({ label, low, high }) => {
     if (low == null && high == null) return null;
     // Two medians of different products can cross where few give both ends; then each is said by name.
-    if (low != null && high != null && low > high) return `${lower(label)} lowest ${fmtNumber(low)} °C and highest ${fmtNumber(high)} °C, medians of different products`;
-    return `${lower(label)} ${low == null || high == null ? fmtNumber(low ?? high) : windowText(low, high)} °C`;
+    // At the table's precision (graphNumber), so a median reads alike in both.
+    if (low != null && high != null && low > high) return `${lower(label)} lowest ${graphNumber(low, '°C')} °C and highest ${graphNumber(high, '°C')} °C, medians of different products`;
+    return `${lower(label)} ${low == null || high == null ? graphNumber(low ?? high, '°C') : graphSpan(low, high, '°C')} °C`;
   }).filter(Boolean);
   const outside = f.outside.map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
   const limits = f.limits.map((a) => `${lower(a.label)} ${fmtNumber(a.limit)} °C`);
   return [
-    `n counts the products whose own data sheet, or one they share, gives the setting; a value read from ${f.guideName} and a special formulation are drawn, not counted.`,
     typical.length ? `Medians of the lowest and highest settings: ${andList(typical)}.` : null,
     outside.length ? `Outside the H2C's limits (${andList(limits)}): ${outside.join('; ')}.` : `No product's setting is outside the H2C's limits (${andList(limits)}).`,
   ].filter(Boolean);

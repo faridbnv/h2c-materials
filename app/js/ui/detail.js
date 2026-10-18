@@ -28,8 +28,8 @@ import {
 import {
   plural, lower, cap, andList, inSentence, ledeWords, identityLine, onFileWords, NOTHING_ON_FILE, EMPTY_LINES, emptyReasonLine, familyScope,
   conditionLine, measuredValue, testGuessHead, namedOnlyWords, gaveWords, scheduleWords, changedState, LEVEL_NOTE, DRAWER_LEVEL_NOTE,
-  asPublishedWords, outOfMedianWords, joinedSpan, apartWords, noMedianWhy, toughenedSplit, toughenedClaimWords,
-  TOUGHENED_NOTE, TOUGHENED_NOTE_SHORT, leftOutWords, silentRowsWords, pairWords, shareWords, alsoForWords, rangeWords, settingWords, printAxisUnit,
+  asPublishedWords, outOfMedianWords, apartWords, noMedianWhy, toughenedSplit, toughenedClaimWords,
+  TOUGHENED_NOTE, TOUGHENED_NOTE_SHORT, leftOutWords, silentRowsWords, pairWords, shareWords, alsoForWords, rangeWords, settingWords, printSettingHead,
   printApartWords, printLines, printSingles, printMissing, printOriginsWords, printCountWords, hardenedFactWords, dryingFactWords, amsSummary,
   guideEnclosureWords, guideHardenedWords, annealWords, knowHowGap, sitesLine, makersSilentWords, makersRecipeWords, verdictWords,
   envConditionWords, noPriceWords, quarantineWords, foreignPriceWords, UNUSED_WORDS,
@@ -915,49 +915,52 @@ function printTemperatures(m, c) {
   const f = printFacts(m, c);
   if (!f.drawn.length) return '';
   const gradeLabel = productNameOrId;
-  const def = (r) => ({ key: r.key, labels: { plain: r.label }, unit: '°C', openWords: `from ${f.guideName}` });
+  const def = (r) => ({ key: r.key, labels: { plain: r.label }, unit: '°C', openWords: 'from the Bambu Lab Filament Guide' });
   const asDot = (e) => ({ g: e.g, variant: e.variant, v: { value: e.value, level: e.origin === 'guide' ? 'as-published' : 'comparable',
     from: e.origin === 'twin' ? { label: e.label } : null, target: e.profileId ? `data-profile="${esc(e.profileId)}"` : 'data-guide="1"' } });
   // The limit is drawn where it is near the products' values (scales.js limitOnScale); far above them, the axis says
   // where it is, so PLA's windows are not squeezed against a 350 °C line.
+  // Each setting a group headed by its name, its unit and the H2C's limit; the limit a line with the range beyond it washed,
+  // as the material pages draw it.
   const strips = f.drawn.map((d) => {
     const scale = stripScale(d.onScale ? [...d.values, d.limit] : d.values, '°C');
-    const line = d.onScale ? `<span class="imp-limit" style="left:${scale.pct(d.limit)}%" title="${esc(`The H2C's limit: ${d.limit} °C`)}"></span>` : '';
+    const line = d.onScale ? `<span class="imp-beyond" style="left:${scale.pct(d.limit)}%"></span><span class="imp-limit" style="left:${scale.pct(d.limit)}%" title="${esc(`The H2C reaches ${d.limit} °C`)}"></span>` : '';
     const rows = d.rows.map((r) => dotRow(def(r), r.entries.map(asDot), r.summary, scale, c, gradeLabel, { limit: line, word: 'counted' })).join('');
     return `<div class="imp-strips">
+        <p class="imp-ghead"><b>${esc(d.label)}</b> · ${esc(printSettingHead(d.limit, d.onScale))}</p>
         ${rows}
-        <div class="imp-row imp-axis"><span class="fine">${esc(printAxisUnit(d.limit, d.onScale))}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div></div>`;
+        <div class="imp-row imp-axis"><span class="fine">°C</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div></div>`;
   }).join('');
   const k = f.marks;
   const key = [
-    k.own ? '<span><i class="imp-dot"></i> the product\'s data sheet, or one it shares</span>' : '',
-    k.guide ? `<span><i class="imp-dot open"></i> ${esc(`from ${f.guideName}`)}</span>` : '',
-    k.variant ? '<span><i class="imp-dot variant"></i> special formulation</span>' : '',
-    k.band ? '<span><i class="imp-band-key"></i> middle half</span>' : '',
-    k.median ? '<span><i class="imp-median-key"></i> median</span>' : '',
-    k.limit ? '<span><i class="imp-limit-key"></i> the H2C\'s limit</span>' : '',
+    k.own ? `<span><i class="imp-dot"></i> ${esc(GRAPH_KEY.own)}</span>` : '',
+    k.guide ? `<span><i class="imp-dot open"></i> ${esc(GRAPH_KEY.guide)}</span>` : '',
+    k.variant ? `<span><i class="imp-dot variant"></i> ${esc(GRAPH_KEY.printVariant)}</span>` : '',
+    k.band ? `<span><i class="imp-band-key"></i> ${esc(GRAPH_KEY.band)}</span>` : k.median ? `<span><i class="imp-median-key"></i> ${esc(GRAPH_KEY.median)}</span>` : '',
+    k.limit ? `<span><i class="imp-limit-key"></i> ${esc(GRAPH_KEY.limit)}</span>` : '',
   ].join('');
   // The table: a line per row, and under each the values drawn and not counted.
-  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted">n</th><th class="num">Median</th>
+  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted: their own data sheet, or one they share, gives the setting">Counted</th><th class="num">Median</th>
       <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${f.rows.map((r) => {
     const s = r.summary;
     const apart = printApartWords(s);
-    return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(fmtNumber(s.median)) : '—'}</td>
-      <td class="num">${s.q1 != null ? esc(s.q1 === s.q3 ? fmtNumber(s.q1) : `${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s.n ? esc(joinedSpan(s)) : '—'}</td></tr>
-      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not counted: ${esc(andList(apart))}.</td></tr>` : ''}`;
+    return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(graphNumber(s.median, '°C')) : '—'}</td>
+      <td class="num">${s.q1 != null ? esc(graphSpan(s.q1, s.q3, '°C')) : '—'}</td><td class="num">${s.n ? esc(graphRange(s, '°C')) : '—'}</td></tr>
+      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Not counted: ${esc(apart.join(', '))}.</td></tr>` : ''}`;
   }).join('')}</tbody></table>`);
   // What n counts, the window most products share, and the products outside the H2C's limits; then what is not drawn,
   // by setting and why, so the counts above square with the products below.
   const single = printSingles(f);
   const missing = printMissing(f);
-  const body = `<section class="imp-compare print-compare" data-comparison="Print temperatures across products">${strips}
-      <p class="imp-key fine">${key}</p>
+  const body = `<section class="imp-compare print-compare" data-comparison="Print temperatures across products">
+      <p class="imp-key fine">${key}</p>${strips}
       <p class="fine imp-hint">Select a dot to open its print profile below; hover to find the same product's other dots.</p>
       ${table}
       ${printLines(f).map((l) => `<p class="fine imp-foot">${esc(l)}</p>`).join('')}
       ${single ? `<p class="fine imp-foot">${esc(single)}</p>` : ''}
       ${missing ? `<p class="fine imp-foot">Not drawn: ${esc(missing)}.</p>` : ''}</section>`;
-  return makerBlock('Print temperatures across products', f.products, 'product', body, { cls: 'prop-block imp-block print-block' });
+  // Open: the Printing tab's answer, before its profiles.
+  return makerBlock('Print temperatures across products', f.products, 'product', body, { open: true, cls: 'prop-block imp-block print-block' });
 }
 
 /** A material's spread across its products, per key property (materials[].summary): median, range, how many. */

@@ -840,9 +840,9 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 /* imp-*: the drawer's comparison headings (D133, D139), impact first, now tensile, heat and print temperatures too. */
 .imp-compare { margin: 0 0 16px; }
 /* The material pages' marks (figures.src.css): drawn-but-not-ranked marks in a light grey, the middle half a tint with
-   edges that holds in both themes. Values here, not in tokens.css. */
+   edges that holds in both themes, the H2C's limit a line with the range beyond it washed. Values here, not in tokens.css. */
 .imp-block { --imp-light: color-mix(in srgb, var(--ink-3) 62%, var(--surface)); --imp-band: color-mix(in srgb, var(--accent) 13%, transparent);
-  --imp-band-edge: color-mix(in srgb, var(--accent) 50%, transparent); }
+  --imp-band-edge: color-mix(in srgb, var(--accent) 50%, transparent); --imp-beyond: color-mix(in srgb, var(--ink-3) 16%, transparent); }
 .imp-row { display: grid; grid-template-columns: minmax(84px, 150px) minmax(0, 1fr); gap: 10px; align-items: end; padding: 3px 0; font-size: 12.5px; }
 .imp-label { display: flex; flex-direction: column; line-height: 1.25; overflow-wrap: anywhere; }
 .imp-label .fine { font-size: 11px; }
@@ -881,8 +881,13 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-band-key::after { content: ""; position: absolute; left: 6px; top: -2px; bottom: -2px; border-left: 2px solid var(--ink-2); }
 .imp-median-key { display: inline-block; width: 0; height: 11px; border-left: 2px solid var(--ink-2); }
 /* The H2C's limit across a print temperature's track (D139), and the profile a print dot opened. */
-.imp-limit { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px dashed var(--fail); z-index: 1; }
-.imp-limit-key { display: inline-block; width: 0; height: 11px; border-left: 2px dashed var(--fail); }
+.imp-limit { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 1.5px solid var(--ink); z-index: 1; }
+.imp-beyond { position: absolute; top: 0; bottom: 0; right: 0; background: var(--imp-beyond); }
+.imp-limit-key { display: inline-block; width: 8px; height: 11px; border-left: 1.5px solid var(--ink); background: var(--imp-beyond); }
+/* Print temperatures: each setting a group, headed by its name, unit and the H2C's limit. */
+.imp-ghead { margin: 0 0 4px; font-size: 12.5px; color: var(--ink-2); }
+.imp-ghead b { font-weight: 600; color: var(--ink); }
+.print-compare .imp-strips + .imp-strips { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); }
 .profile-block.target { outline: 2px solid var(--accent); outline-offset: 2px; }
 .imp-summary { margin-top: 10px; }
 table.grid.imp-summary .num { white-space: nowrap; }
