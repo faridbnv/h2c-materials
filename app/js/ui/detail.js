@@ -16,7 +16,7 @@ import { describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, E
   propertyName, STATUS_WORDS, sourceKind, whyWords } from './labels.js';
 import { REGISTRY } from './registry.js';
 import { hardenedShare } from '../engine/products.js';
-import { stripScale, stack } from './scales.js';
+import { stripScale, stack, stackPitch, COLUMN_SHOWN } from './scales.js';
 import { pageOf } from './page-rule.js';
 import { toHash } from '../engine/scenario.js';
 import {
@@ -730,14 +730,18 @@ function toughenedMark(g, c) {
 const gridLines = (scale) => scale.ticks.map((v) => `<span class="imp-grid" style="left:${scale.pct(v)}%"></span>`).join('');
 /** A dot's shape: hollow with no stated orientation or load, square annealed, a diamond a special formulation, coloured sold as toughened. */
 const dotClass = (h, e, c) => dotMarks(h, e, c).join(' ');
+/** Per cent of the track between two columns' counts: closer, the smaller column keeps its height alone. */
+const COUNT_GAP = 5;
 
 /**
  * One headline's row of dots: a product each, the middle half of the comparable ones shaded and their median marked. A
  * dot opens its record (`data-row`), or the target its value carries; `limit` is a line drawn across the track (the
- * H2C's limit on a print setting).
+ * H2C's limit on a print setting). The rows a stack needs are drawn closer past the track's height (stackPitch), so a
+ * column's height counts its products, and a column of one value taller than its dots can show apart says how many.
  */
 function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '' } = {}) {
   const rows = stack(entries, scale.pct);
+  const pitch = stackPitch(rows);
   const band = s?.q1 != null ? `<span class="imp-band" style="left:${scale.pct(s.q1)}%;width:${Math.max(scale.pct(s.q3) - scale.pct(s.q1), 0.5)}%"></span>` : '';
   const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of ${s.n} products on a comparable basis: ${fmtNumber(s.median, h.unit)}`)}"></span>` : '';
   const dots = entries.map((e) => {
@@ -748,10 +752,19 @@ function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '' } = {}) {
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
     const cls = dotClass(h, e, c);
     return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" ${e.v.target ?? `data-row="${esc(e.v.measurementId)}"`} data-grade="${esc(e.g.id)}"
-      style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
+      style="left:${e.x}%;bottom:${Number((3 + e.row * pitch).toFixed(1))}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
   }).join('');
+  // A column of one value with more dots than show apart at full pitch carries its count, over its top dot: the tallest
+  // first, and a neighbour whose count would touch it keeps its height alone (print settings sit 5 °C apart).
+  const columns = new Map();
+  for (const e of entries) { const col = columns.get(e.v.value) ?? { v: e.v.value, n: 0, x: e.x, top: 0 }; col.n++; col.top = Math.max(col.top, e.row); columns.set(e.v.value, col); }
+  const placed = [];
+  const tall = [...columns.values()].filter((col) => col.n > COLUMN_SHOWN).sort((a, b) => b.n - a.n)
+    .filter((col) => { if (placed.some((x) => Math.abs(x - col.x) < COUNT_GAP)) return false; placed.push(col.x); return true; }).map((col) => [col.v, col]);
+  const counts = tall.map(([v, col]) => `<span class="imp-count" aria-hidden="true" style="left:${col.x}%;bottom:${Number((4 + (col.top + 1) * pitch).toFixed(1))}px" title="${esc(`${plural(col.n, 'product')} at ${fmtNumber(v)} ${h.unit}`)}">${col.n}</span>`).join('');
+  const height = 8 + rows * pitch + (tall.length ? 14 : 0);
   return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
-    <span class="imp-track" style="height:${8 + rows * 9}px">${gridLines(scale)}${limit}${band}${median}${dots}</span></div>`;
+    <span class="imp-track" style="height:${Number(height.toFixed(1))}px">${gridLines(scale)}${limit}${band}${median}${dots}${counts}</span></div>`;
 }
 
 /**

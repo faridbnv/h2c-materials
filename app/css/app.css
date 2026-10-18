@@ -854,12 +854,15 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-axis > .fine { align-self: start; font-size: 11px; }
 .imp-band { position: absolute; top: 0; bottom: 0; background: var(--accent-soft); }
 .imp-median { position: absolute; top: -3px; bottom: -3px; width: 0; margin-left: -1px; border-left: 2px solid var(--ink-2); }
-.imp-dot { position: absolute; display: block; width: 9px; height: 9px; margin-left: -4.5px; padding: 0; border: 1.5px solid var(--accent); background: var(--accent); border-radius: 50%; cursor: pointer; }
+.imp-dot { position: absolute; display: block; width: 7px; height: 7px; margin-left: -3.5px; padding: 0; border: 1.25px solid var(--accent); background: var(--accent); border-radius: 50%; cursor: pointer; }
 .imp-dot.open { background: var(--surface); }
 .imp-dot.annealed { border-radius: 1px; }
 .imp-dot.variant { border-color: var(--ink-3-text); background: var(--surface); border-radius: 1px; transform: rotate(45deg) scale(.85); }
 .imp-dot.claimed { border-color: var(--claim); background: var(--claim); }
 .imp-dot.claimed.open { background: var(--surface); }
+/* A column of one value taller than its dots show apart: its count over it, on the track's own ground. */
+.imp-count { position: absolute; z-index: 2; transform: translateX(-50%); padding: 0 2px; border-radius: 2px; background: var(--surface-2);
+  font: 10px/1.1 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; pointer-events: none; }
 .chip-claim { background: var(--claim-bg); color: var(--claim); }
 .imp-split { margin: 4px 0 0; }
 .test-guess { color: var(--ink-2); }
