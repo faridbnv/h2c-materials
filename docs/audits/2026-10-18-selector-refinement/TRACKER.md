@@ -1,5 +1,7 @@
 # The round's measures, tracked
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **Working record** (2026-10-18) of the selector-refinement round ([README](README.md)): each measure at baseline, after
 > the build and at the final review. M2 to M6 re-derive with `node docs/audits/2026-10-18-selector-refinement/measure.mjs`
 > (after `npm run build`; about 70 s), M8's reachability with `drawer-ids.mjs`. Baseline: main at 3de5db23, release

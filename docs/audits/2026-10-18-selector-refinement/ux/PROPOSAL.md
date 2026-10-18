@@ -1,5 +1,7 @@
 # UI and visual: proposal (Part B)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > **Working proposal** (2026-10-18), selector-refinement round. It answers [REVIEW-0](../review/REVIEW-0.md) F4, F3, F10,
 > F13, F14 and my own finding (section heads are the faintest type), against [KEEP.md](../KEEP.md). Inventory:
 > [INVENTORY.md](INVENTORY.md). Mocks are CSS and DOM moves on the built file (`dist/…7f3f14384dab.html`, which predates

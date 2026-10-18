@@ -1,5 +1,7 @@
 # Selector refinement round, 2026-10-18
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **In short.** After the material pages were reimagined (D145), the owner asked for the same method on the selector
 > itself, its main page and its material drawer, with **subtle** changes: the tool is good as it is. The aim is a
 > calmer, more coherent first impression, and a drawer that reads better (eye flow, reading flow, terms, graphs), while

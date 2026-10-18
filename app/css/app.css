@@ -390,8 +390,12 @@ table.grid td.name { font-weight: 600; }
   background: var(--surface); border-left: 1px solid var(--border); z-index: 40;
   display: grid; grid-template-rows: auto auto 1fr; box-shadow: -8px 0 28px rgba(0,0,0,.13);
 }
-.drawer-head { padding: 14px 18px; border-bottom: 1px solid var(--border); }
-.drawer-head h2 { margin: 0 0 4px; font-size: 21px; letter-spacing: -0.015em; }
+.drawer-head { padding: 12px 18px 10px; border-bottom: 1px solid var(--border); }
+.drawer-head h2 { margin: 0 0 2px; font-size: 21px; letter-spacing: -0.015em; }
+/* The full name on the name's line (2026-10-18): the head is two lines, the name and what it is, and the content starts
+   about a hundred pixels higher than when each had a line of its own. */
+.drawer-head h2 .h2-full { font-size: var(--t-body); font-weight: 400; letter-spacing: 0; color: var(--ink-2); margin-left: 6px; }
+.drawer-head .id-line { margin-top: 2px; }
 .drawer-head .sub { color: var(--ink-2); font-size: var(--t-body); }
 /* The close button at the top, the height of the Shortlist button beside it; in Save / share it had stretched to the
    height of the heading and its line. */
@@ -400,7 +404,7 @@ table.grid td.name { font-weight: 600; }
    used to overflow with no scrollbar or arrow. Evidence is the whole point of the tool. */
 .drawer-tabs { display: flex; flex-wrap: wrap; gap: 2px 0; padding: 0 12px; border-bottom: 1px solid var(--border); }
 .drawer-tabs button {
-  border: 0; background: none; padding: 10px 11px; cursor: pointer; font-size: var(--t-small);
+  border: 0; background: none; padding: 9px 9px; cursor: pointer; font-size: var(--t-small);
   border-bottom: 2px solid transparent; white-space: nowrap; color: var(--ink-2);
 }
 .drawer-tabs button[aria-selected="true"] { border-bottom-color: var(--accent); color: var(--ink); font-weight: 600; }
@@ -412,6 +416,8 @@ table.grid td.name { font-weight: 600; }
 .drawer-nav { border-bottom: 1px solid var(--border); min-width: 0; }
 .drawer-nav .drawer-tabs { border-bottom: 1px solid var(--border); }
 .drawer-help { margin: 0; padding: 7px 18px 8px; font-size: var(--t-small); color: var(--ink-2); line-height: 1.4; }
+/* The tab's line is the first line of its body since 2026-10-18, not a row of the sticky strip: it scrolls away. */
+.drawer-body > .drawer-help { padding: 0; margin: 0 0 14px; }
 
 /* An internal ID, beside what it names rather than as its heading. */
 .tag {
@@ -450,7 +456,7 @@ table.grid td.name { font-weight: 600; }
 .meas-foot .link-btn { color: var(--accent); }
 /* Conditions every measurement from one source shares, said once above them. */
 .shared-conds { border-left: 2px solid var(--border-strong); padding: 2px 0 2px 10px; margin: 0 0 6px; }
-.shared-head { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
+.shared-head { font-size: var(--t-small); color: var(--ink-2); font-weight: 650; }
 .shared-conds .cond-more { margin-bottom: 4px; }
 /* A long paragraph shows its first words; the rest is one press away. */
 details.longtext > summary { list-style: none; cursor: pointer; }
@@ -490,7 +496,12 @@ details.longtext > summary:focus-visible { outline: 2px solid var(--accent); out
 .kv { display: grid; grid-template-columns: minmax(150px, 36%) 1fr; gap: 9px 16px; font-size: var(--t-body); margin: 0 0 20px; }
 .kv dt { color: var(--ink-3-text); }
 .kv dd { margin: 0; }
-h3.sec { font-size: var(--t-label); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3-text); margin: 26px 0 11px; font-weight: 650; }
+/* A section's heading leads (2026-10-18): the material page's plate heading, in ink and sentence case. It had been the
+   faintest type on the drawer, 12.5 px grey capitals, so the structure read from the bold lines under it. */
+h3.sec { font-size: 15px; color: var(--ink); margin: 26px 0 10px; font-weight: 650; letter-spacing: -0.005em; }
+.sec-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 26px 0 10px; }
+.sec-row h3.sec { margin: 0; }
+.sec-row .link-btn { font-size: var(--t-small); }
 h3.sec:first-child { margin-top: 0; }
 
 /* A section with no data shows the coverage record that explains the absence. */
@@ -930,6 +941,8 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
   #drawer-host:has(> .drawer)::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.28); z-index: 39; }
   .drawer-tabs { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
   .drawer-tabs button { flex: 0 0 auto; }
+  /* The strip fades at its right edge, so a tab cut there ("Therma") reads as more to the right (2026-10-18). */
+  .drawer .drawer-tabs { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); padding-right: 32px; }
 }
 /* A tablet or a small laptop: the top bar is two rows, the name, the search and the actions, then the missing-data panel
    on a row of its own, its label beside its buttons since the row has room. With the actions under the first row's end
@@ -1512,6 +1525,14 @@ tr.baseline-row .name { color: var(--accent); }
 .key-props dt { margin: 0; }
 .key-props dd { margin: 0; }
 .key-props dd.kp-empty { color: var(--ink-3-text); }
+/* The page's key figures (2026-10-18): the median large, the middle half and the count small beside it, as the page's plate
+   prints them; the other headlines on one line under them. */
+.key-figs .kp-v { font-weight: 600; }
+.key-figs .kp-f { font-size: var(--t-small); color: var(--ink-2); margin-left: 6px; }
+.kp-also { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 6px; line-height: 1.7; }
+.kp-also .kp-sep { color: var(--ink-3-text); }
+.kp-missing { color: var(--ink-3-text); }
+.h2c-v { font-weight: 600; margin-left: 4px; }
 .mark.prop-name { text-decoration: underline dotted 1px; text-underline-offset: 3px; color: var(--ink-2); text-align: left; }
 .print-answer { margin: 4px 0; font-size: var(--t-body); }
 .data-line { font-size: var(--t-small); color: var(--ink-2); margin: 18px 0 6px; padding-top: 12px; border-top: 1px solid var(--border); }

@@ -21,7 +21,7 @@ function windowRow(products, axis) {
   const pw = printWindows(products, axis);
   const total = products.length;
   const unit = (from, to) => `${windowText(from, to)} °C`;
-  const all = (n) => (n === total ? (n === 2 ? 'both products' : `all ${fmtNumber(n)} products`) : `all ${fmtNumber(n)} that give one`);
+  const all = (n) => (n === total ? (n === 2 ? 'both products' : `all ${fmtNumber(n)} products`) : n === 2 ? 'both that give one' : `all ${fmtNumber(n)} that give one`);
   const lows = pw.ends.filter((e) => e.min != null && e.max == null), highs = pw.ends.filter((e) => e.max != null && e.min == null);
   const endWords = () => [lows.length ? `${countWords(lows.length)} ${lows.length === 1 ? 'gives' : 'give'} at least ${fmtNumber(Math.min(...lows.map((e) => e.min)))} °C` : null,
     highs.length ? `${countWords(highs.length)} ${highs.length === 1 ? 'gives' : 'give'} up to ${fmtNumber(Math.max(...highs.map((e) => e.max)))} °C` : null].filter(Boolean);
@@ -105,7 +105,7 @@ export function nozzleSay(products) {
 function nozzleTypeRow(c) {
   const n = nozzleSay(productsOf(c));
   const of = (k) => `${fmtNumber(k)} of ${plural(n.total, 'product')}`;
-  const bits = [n.ask ? `${of(n.ask)}' sheets ${n.ask === 1 ? 'asks' : 'ask'} for one` : null, n.standard ? `${fmtNumber(n.standard)} say a standard nozzle is enough` : null,
+  const bits = [n.ask ? `${of(n.ask)}' sheets ${n.ask === 1 ? 'asks' : 'ask'} for one` : null, n.standard ? `${fmtNumber(n.standard)} ${n.standard === 1 ? 'says' : 'say'} a standard nozzle is enough` : null,
     n.guideAsk || n.guideAny ? `Bambu Lab's guide says ${n.guideAsk ? 'hardened' : 'any'} for ${fmtNumber(n.guideAsk + n.guideAny)} more` : null,
     n.silent && (n.ask || n.standard || n.guideAsk || n.guideAny) ? 'the rest are silent' : null].filter(Boolean);
   const note = bits.join('; ').replace(/^1 of (\d[\d,]*) products' sheets asks/, 'one of $1 products\' sheets asks').replace(/^(\d[\d,]*) of (\d[\d,]*) products' sheets ask(?!s)/, (all, k, t) => (k === t ? (t === '1' ? 'its sheet asks' : `all ${t} products' sheets ask`) : all));

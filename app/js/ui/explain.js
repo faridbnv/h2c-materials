@@ -78,30 +78,48 @@ const MATERIAL_LEVEL = (c) => (c.kind === 'gate' && ['scope', 'nozzle', 'bed', '
 
 /**
  * A material against the requirements, one line per requirement: its result, the requirement, and what decided it, with
- * the measurement one press away. The results are the material's best product's (the first that passes, else the
- * closest), so that product is named once, above the lines; a line that rests on another product names its own. Record
- * IDs stay in the button's title: the line is for reading (D124).
+ * the measurement one press away. The lines are one product's, named once above them; a line that rests on another
+ * product names its own. Record IDs stay in the button's title: the line is for reading (D124).
+ *
+ * The product shown (2026-10-18): the engine's (the first that passes, else the closest), unless it passes while leaving
+ * a requirement that is reported, not required, unanswered and another passing product answers it. PLA had been shown
+ * for a product with no price under a template that reports price, beside 182 passing products, most of them priced.
+ * Display only: the material's answer and the engine's product, which the brief and the exports keep, do not change.
  */
 export function renderWhy(evaluation, { productName } = {}) {
   if (!evaluation.results.length) return `<p class="missing">No requirements are set.</p>`;
-  const best = evaluation.gradeId ?? null;
+  const open = (rows) => rows.some((r) => r.constraint?.mandatory === false && r.status === 'UNKNOWN');
+  const alt = evaluation.verdict === 'PASS' && open(evaluation.results)
+    ? (evaluation.products ?? []).find((p) => p.verdict === 'PASS' && p.results?.length && !open(p.results)) : null;
+  const results = alt ? alt.results : evaluation.results;
+  const best = alt ? alt.gradeId : evaluation.gradeId ?? null;
   const name = (id) => productName?.(id) || 'a product';
-  const trivial = evaluation.results.filter((r) => MATERIAL_LEVEL(r.constraint) && r.status === 'PASS');
-  const rows = evaluation.results.filter((r) => !trivial.includes(r));
-  const head = best ? `<p class="fine why-on">Shown for ${evaluation.verdict === 'PASS' ? 'its best match' : 'its closest product'}, <b>${esc(name(best))}</b>.</p>` : '';
-  // One list, so the result chips share a column and the text beside them one left edge (app.css).
+  const trivial = results.filter((r) => MATERIAL_LEVEL(r.constraint) && r.status === 'PASS');
+  const rows = results.filter((r) => !trivial.includes(r));
+  const passing = evaluation.counts?.pass ?? 0;
+  const head = !best ? '' : evaluation.verdict === 'PASS'
+    ? `<p class="fine why-on">Shown for <b>${esc(name(best))}</b>${passing > 1 ? `, one of the ${passing} that pass` : ', the product that passes'}.</p>`
+    : `<p class="fine why-on">Shown for its closest product, <b>${esc(name(best))}</b>.</p>`;
+  // The three H2C limits a product's settings are within are one requirement to a reader: said once in "Also met".
+  const GATES = ['nozzle', 'bed', 'chamber'];
+  const gates = trivial.filter((r) => r.constraint.kind === 'gate' && GATES.includes(r.constraint.gate));
+  const also = [...trivial.filter((r) => !gates.includes(r)).map((r) => describeConstraint(r.constraint)),
+    ...(gates.length === GATES.length ? ['nozzle, bed and chamber within H2C limits'] : gates.map((r) => describeConstraint(r.constraint)))];
+  // One list, so the result chips share a column and the text beside them one left edge (app.css). A requirement the
+  // product's sheets cannot settle (the engine's INDETERMINATE: a chamber recommended above the H2C's, not required)
+  // reads UNKNOWN, as the table counts it, its half-filled mark and its reason kept.
   return `${head}<div class="explain-list">${rows.map((r) => `
     <div class="explain-row">
-      ${chip(r.status)}
+      ${chip(r.status, r.status === 'INDETERMINATE' ? 'UNKNOWN' : r.status)}
       <div>
-        <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">reported only</span>' : ''}</div>
+        <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">reported, not required</span>' : ''}</div>
         <div class="why">${esc(r.reason)}${r.gradeId && r.gradeId !== best ? ` (${esc(name(r.gradeId))})` : ''}${r.measurementId
           // The measurement a result rests on, one press away (wireEvidence opens it in Sources).
           ? ` <button type="button" class="link-btn src-link" data-measurement="${esc(r.measurementId)}" title="Opens measurement ${esc(r.measurementId)} in Sources">source</button>` : ''}${r.polymer
           // A result that rests on the base polymer's reference data says so, and where its rows are (D64).
           ? ` From reference data for ${esc(r.polymerId)} resin, in the Environment tab.` : ''}</div>
       </div>
-    </div>`).join('')}</div>${trivial.length ? `<p class="fine why-also">Also met: ${esc(trivial.map((r) => describeConstraint(r.constraint)).join(' · '))}.</p>` : ''}`;
+    </div>`).join('')}</div>${also.length ? `<p class="fine why-also">Also met: ${esc(also.join(' · '))}.</p>` : ''}`;
 }
 
 /**

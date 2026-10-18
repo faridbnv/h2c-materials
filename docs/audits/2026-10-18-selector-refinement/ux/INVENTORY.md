@@ -1,5 +1,7 @@
 # UI and visual: inventory (Part A)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > **Working record** (2026-10-18), selector-refinement round. What the screen does to the eye now, before any proposal.
 > Shots: `shots/base/` (B), mine in `ux/shots/` (U): `pla-Mechanical-open-*`, `pla-Printing-open-*` (first heading
 > opened, Indoor prototype), `page-pla-01` (the material page, for comparison). Drawer geometry measured in Chrome at 1280×800.

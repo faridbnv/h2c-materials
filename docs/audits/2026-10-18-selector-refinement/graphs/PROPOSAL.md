@@ -1,5 +1,7 @@
 # Graphs: proposal (Part B)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > Graphs expert, selector-refinement round, 2026-10-18. Answers REVIEW-0 line 8 and findings 8, 9 and 10, against the
 > keep register. Mocks are made from CSS and scripts in `graphs/mocks/` and shot with `shots.mjs`. Nothing in the code
 > or the data has changed.

@@ -1,5 +1,7 @@
 # Words: inventory (Part A)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > **Working record** (2026-10-18), words expert, selector-refinement round. Read from `shots/base/main-cold-01`,
 > `main-indoor-01`, `drawer-pla-*` (all tabs), `build/snapshot/ui/01-default.txt`, and PLA's eight tabs printed with
 > `lib.mjs` (cold and Indoor prototype). Counts are PLA's unless marked M4 (TRACKER baseline, 2,800 drawers).

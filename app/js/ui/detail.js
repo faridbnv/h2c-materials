@@ -10,12 +10,14 @@
 // stored codes labels.js's, and its scales scales.js's. This module draws them: the markup, the sentences that hold a
 // control, and the drawer's own state (which product cards are open, the search box's text).
 
-import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords } from './format.js';
+import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords, spreadNote, convertedMark, publishedBound } from './format.js';
+import { fmtDisplayUnit, spanDisplayUnit } from './display-numbers.js';
+import { onTheH2cRows } from './print-brief.js';
+import { KEY_FIGURES } from './material-highlights.js';
 import { renderWhy } from './explain.js';
 import { describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS, H2C_STATUS, h2cStatusLabel, h2cLimit,
   propertyName, STATUS_WORDS, sourceKind, whyWords } from './labels.js';
 import { REGISTRY } from './registry.js';
-import { hardenedShare } from '../engine/products.js';
 import { stripScale, stack } from './scales.js';
 import { pageOf } from './page-rule.js';
 import { toHash } from '../engine/scenario.js';
@@ -71,27 +73,28 @@ const TABS = [
 ];
 
 /**
- * One line under the tab strip, saying what the open tab holds. Products and Sources had read alike: a product is what
- * you buy, a source is a document its numbers were read from, and one document can cover several products.
+ * The first line of a tab's body, saying what it holds (it had been a line under the tab strip, which took the first
+ * screen's space on every tab). Products and Sources had read alike: a product is what you buy, a source is a document
+ * its numbers were read from, and one document can cover several products. Overview has none: its answer and its
+ * headings say what it holds. Price opens on the price itself (its body's first line).
  */
 const TAB_HELP = {
-  Overview: (n, c) => (c.tested
-    ? 'Whether it meets your requirements, whether the H2C can print it, and its key properties.'
-    : 'What it is, its key properties, and whether the H2C can print it.'),
   Grades: (n, c) => {
     if (!n) return EMPTY_LINES.Grades;
     const products = c.grades.filter(isProduct);
     const makers = new Set(products.map((g) => g.manufacturer).filter(stated)).size;
     const refs = n - products.length;
-    return `${plural(products.length, 'product')} you can buy, from ${plural(makers, 'maker')}${refs ? `, and ${plural(refs, 'reference grade')}` : ''}. Each shows its result, how to print it, its values and what its maker says.`;
+    return `${plural(products.length, 'product')} you can buy, from ${plural(makers, 'maker')}${refs ? `, and ${refs === 1 ? 'one reference specimen' : `${refs} reference specimens`}, not for sale` : ''}. Each shows its result, how to print it, its values and what its maker says.`;
   },
-  Mechanical: (n) => (n ? `${plural(n, 'published mechanical value')}, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.` : EMPTY_LINES.Mechanical),
-  Thermal: (n) => (n ? `${plural(n, 'published thermal value')}, by property, with heat deflection and the glass transition drawn product by product. Each names its product and the document it comes from.` : EMPTY_LINES.Thermal),
-  Printing: (n, c) => (n ? `Every product's print temperatures drawn together, then ${plural(n, 'print profile')} by maker: the settings each product's documents give.${c.guide ? ' The Bambu Lab Filament Guide comes before the profiles; a product uses it only where its own sheet is silent.' : ''}` : EMPTY_LINES.Printing),
-  Environment: (n, c) => (n ? `${plural(n, 'statement')} on chemicals, water, UV, fire and handling, by category. Makers rarely give the concentration, temperature or duration: treat them as indications, not design data.` : EMPTY_LINES.Environment),
-  Price: (n) => (n ? `${plural(n, 'shop listing')}, sampled, not live. Canadian shops first; a foreign shop only where no Canadian one sells the product.` : EMPTY_LINES.Price),
-  Evidence: (n) => (n ? `The ${plural(n, 'document')} this material's values were read from, by publisher, with links to the originals; then its known gaps. One document can cover several products.` : EMPTY_LINES.Evidence),
+  Mechanical: (n) => (n ? `${fmtNumber(n)} published mechanical values, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.` : EMPTY_LINES.Mechanical),
+  Thermal: (n) => (n ? `${fmtNumber(n)} published thermal values, by property, with heat deflection and the glass transition drawn product by product. Each names its product and the document it comes from.` : EMPTY_LINES.Thermal),
+  Printing: (n, c) => (n ? `Every product's print temperatures drawn together, then ${fmtNumber(n)} print ${n === 1 ? 'profile' : 'profiles'} by maker: the settings each product's documents give.${c.guide ? ' The Bambu Lab Filament Guide comes before the profiles; a product uses it only where its own sheet is silent.' : ''}` : EMPTY_LINES.Printing),
+  Environment: (n, c) => (n ? `${fmtNumber(n)} ${n === 1 ? 'statement' : 'statements'} on chemicals, water, UV, fire and handling, by category. Makers rarely give the concentration, temperature or duration: treat them as indications, not design data.` : EMPTY_LINES.Environment),
+  Price: (n) => (n ? '' : EMPTY_LINES.Price),
+  Evidence: (n) => (n ? `The ${fmtNumber(n)} ${n === 1 ? 'document' : 'documents'} this material's values were read from, by publisher, with links to the originals; then its known gaps. One document can cover several products.` : EMPTY_LINES.Evidence),
 };
+/** The tabs whose count a reader uses (2026-10-18): the products to choose from and the documents behind them, as the page counts them. */
+const COUNTED_TABS = ['Grades', 'Evidence'];
 
 /**
  * What an empty tab says: that nothing is on file, the recorded reason where one exists, and the way to the known gaps.
@@ -438,16 +441,16 @@ export function renderDrawer(host, state, actions) {
   const id = identity(m, c);
   // The material's own page, where the page rule gives it one (page-rule.js): it opens in this tab, carrying the selection.
   const page = pageOf(m, c.ms);
+  const help = TAB_HELP[tab]?.(counts[tab], c) ?? '';
 
   host.innerHTML = `
   <div class="drawer" role="dialog" aria-label="${esc(m.name)} detail">
     <div class="drawer-head">
       <div style="display:flex;align-items:start;gap:10px">
         <div style="flex:1">
-          <h2>${esc(id.primary)}</h2>
+          <h2>${esc(id.primary)}${id.fullName ? ` <span class="h2-full">${esc(id.fullName)}</span>` : ''}</h2>
           ${id.aka ? `<div class="sub">also called ${esc(id.aka)}</div>` : ''}
-          ${id.fullName ? `<div class="sub">${esc(id.fullName)}</div>` : ''}
-          <div class="sub" style="margin-top:5px">
+          <div class="sub id-line">
             ${esc(identityLine(id))}
             ${explainButton(esc(h2cStatusLabel(m.h2cStatus)), H2C_STATUS[m.h2cStatus]?.meaning ?? m.h2cStatus, { cls: `chip ${m.excluded ? 'chip-FAIL' : 'chip-neutral'} chip-small h2c-chip`, head: 'Bambu Lab status' })}
           </div>
@@ -462,12 +465,11 @@ export function renderDrawer(host, state, actions) {
     <div class="drawer-nav">
       <div class="drawer-tabs" role="tablist">
         ${TABS.map(([k, label]) => `
-          <button role="tab" data-tab="${k}" aria-selected="${k === tab}" data-empty="${counts[k] === 0}" aria-controls="drawer-panel">
-            <span data-label="${label}">${label}</span>${counts[k] === null ? '' : `<span class="n">${counts[k]}</span>`}</button>`).join('')}
+          <button role="tab" data-tab="${k}" aria-selected="${k === tab}" data-empty="${counts[k] === 0}" aria-controls="drawer-panel"${COUNTED_TABS.includes(k) || counts[k] === null ? '' : ` title="${esc(`${label}: ${fmtNumber(counts[k])}`)}"`}>
+            <span data-label="${label}">${label}</span>${COUNTED_TABS.includes(k) && counts[k] !== null ? `<span class="n">${fmtNumber(counts[k])}</span>` : ''}</button>`).join('')}
       </div>
-      <p class="drawer-help" id="drawer-help">${esc(TAB_HELP[tab](counts[tab], c))}</p>
     </div>
-    <div class="drawer-body" id="drawer-panel" role="tabpanel" aria-describedby="drawer-help">${tabBody(tab, c)}</div>
+    <div class="drawer-body" id="drawer-panel" role="tabpanel"${help ? ' aria-describedby="drawer-help"' : ''}>${help ? `<p class="drawer-help" id="drawer-help">${esc(help)}</p>` : ''}${tabBody(tab, c)}</div>
   </div>`;
 
   markTableOverflow(host);
@@ -577,7 +579,7 @@ function productValues(g, c) {
     const anneal = v.anneal ? ` <span class="fine">annealed${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
     return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}${fromNote(v.from)}</dd>`;
   });
-  return rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : '<div class="fine">This product publishes none of the key properties on a comparable basis.</div>';
+  return rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : '<div class="fine">This product publishes none of the key properties with a stated orientation or test load.</div>';
 }
 
 /**
@@ -701,18 +703,6 @@ function guideBlock(m, c) {
     </dl></div>`;
 }
 
-/** How many of a material's products the H2C can print, axis by axis, from each product's own settings. */
-function productPrintCounts(grades) {
-  const f = printCounts(grades);
-  if (!f) return '';
-  const head = f.all
-    ? `<p class="print-answer"><b>All ${plural(f.products, 'product')} are within the H2C's nozzle, bed and chamber limits.</b></p>`
-    : `<p class="print-answer"><b>${f.products === 1 ? 'Its product' : `Its ${f.products} products`}, against the H2C's limits:</b></p>
-      <ul class="print-counts">${f.axes.map((n) => `<li><b>${n.label}</b> (${n.limit} °C): ${printCountWords(n)}</li>`).join('')}</ul>`;
-  // Where a product's own sheet is silent, a data sheet it shares (D89) or the Bambu Lab Filament Guide (D88) is read.
-  const read = printOriginsWords(f.origins);
-  return `${head}${read.length ? `<p class="fine">Where a product's own data sheet is silent: ${esc(read.join('; '))}. Products shows which.</p>` : ''}`;
-}
 
 // ------------------------------------------------------------------ headlines drawn side by side (D133)
 
@@ -962,31 +952,24 @@ function tabBody(tab, c) {
     // Every headline, labelled and explained exactly as the filter rail and the table label it.
     const HEAD = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint, h.labels.technical, h.comparisonNote]);
 
-    // The section that answers "can I print this" also answers "what do I set it to": the window recorded across its
-    // products, as a guide, beside the H2C's limit.
-    const gateLine = (g, label, window, extra = '') => {
-      if (!g) return '';
-      const { state, word } = gateVerdict(g.verdict);
-      return `<div class="fact"><span class="chip chip-${state}">${esc(word)}</span>
-        <div><b>${esc(label)}</b>${window ? ` ${explainButton(esc(window), 'The range across every print profile of its products, not one setting to dial in. Printing has each profile.',
-          { cls: 'set-to', head: 'Range across its products', action: 'printing', id: m.id })}` : ''}
-          <br><span class="fact-why">${esc(g.reason)}</span>${extra}</div></div>`;
-    };
-    // The chamber can be answered three ways: a temperature, a statement in words, or neither. An
-    // estimated band is shown only in the third and second cases, and never changes the result.
-    const guidance = m.print?.chamberGuidance;
     // Confirmed only means measured evidence only, in the drawer as in every lens: the research band is an estimate.
     const est = showEstimates ? m.print?.chamberEstimate : null;
-    const chamberExtra = `${!m.print?.chamberC && guidance
-        ? `<br><span class="fact-why">${esc(CHAMBER_GUIDANCE[guidance.state]?.title ?? guidance.label)}</span>` : ''}${est
-        ? `<div class="est-card"><h4>Chamber: estimated, not published</h4>
+    const chamberEstimate = est
+      ? `<div class="est-card"><h4>Chamber: estimated, not published</h4>
             <div class="est-span">${fmtRange(est.lo, est.hi, ' – ')} ${esc(est.unit)}</div>
             <div class="est-basis">No source publishes a chamber temperature. Research of 2026-09-13 places it in this band,
               based on ${esc(est.basis)}. It is not a print setting and changes no result.${est.caution ? ` ${esc(est.caution)}` : ''}</div>
-          </div>` : ''}`;
+          </div>` : '';
 
+    // Every product's own settings against the H2C's limits (material-facts.js printCounts): the chips, the counts and
+    // the beyond-capability line below are worked out from them alone, so none can disagree with another.
+    const pc = printCounts(grades);
+    const over = pc ? pc.axes.filter((a) => a.over) : [];
+    const HOTTER = { nozzle: 'a hotter nozzle', bed: 'a hotter bed', chamber: 'a hotter chamber' };
+    // Beyond the H2C's capability, said once, with the limits its products break (2026-10-18): the head's chip names the
+    // standing, and the lede and the capability row no longer say it again.
     const printable = m.excluded
-      ? `<div class="callout bad"><b>Beyond H2C capability.</b> Kept in the database for reference; never a candidate.</div>`
+      ? `<div class="callout bad"><b>Beyond H2C capability.</b> ${over.length ? `${esc(cap(andList(over.map((a) => `${a.over === pc.products ? (pc.products === 1 ? 'its product asks' : `all ${pc.products} products ask`) : `${a.over} of ${plural(pc.products, 'product')} ${a.over === 1 ? 'asks' : 'ask'}`} for ${HOTTER[a.axis]} than the H2C's ${fmtNumber(a.limit)} °C`))))}. ` : ''}Kept for reference, never a candidate.</div>`
       : '';
 
     // With estimates hidden the drawer shows none, as the table does. It says where they are rather than leaving a
@@ -997,57 +980,103 @@ function tabBody(tab, c) {
         : `Estimates for the missing values show under ${esc(POLICY_LABELS.exploration)}, with "Let estimates rule out materials" ticked.`}</p>`
       : '';
 
-    // What it is, in one or two sentences: its filler and Bambu Lab's standing. The full name is in the header already.
-    const lede = `<p class="lede">${esc(ledeWords(m))}</p>`;
+    // What it is, where the identity line in the head does not say it all: a variant's filler, a support material, an
+    // elastomer. Bambu Lab's standing is the head's chip (its popover the sentence), no longer said twice.
+    const ledeText = ledeWords(m);
+    const lede = ledeText ? `<p class="lede">${esc(ledeText)}</p>` : '';
 
-    // Key properties: each one's median over its products, with their range, in one compact list. The meaning and the
-    // basis of each sit behind its name, so the list stays a list.
+    // Key properties as the material's page gives them (2026-10-18): its six key figures in its order, each the median of
+    // the products that publish it with a stated orientation or test load, their middle half (lowest to highest under
+    // four) and how many they are, at the page's display precision; where no such median exists, the values as
+    // published, as the page says them, never another record marked with a star. The other headlines follow on one line.
+    const headOf = (k) => REGISTRY.allHeadlines.find((x) => x.key === k);
+    const figure = (k) => {
+      const h = headOf(k);
+      if (!h) return null;
+      const e = m.headline?.[k], s = m.summary?.[k];
+      const unit = h.unit ?? e?.unit ?? '';
+      const name = explainButton(esc(h.labels.plain), [h.labels.hint, h.comparisonNote].filter(Boolean).join(' '), { cls: 'prop-name', head: h.labels.technical || h.labels.plain });
+      if (e?.known) {
+        const n = s?.n ?? e.spread?.n ?? 1;
+        const lo = s?.q1 ?? e.spread?.q1, hi = s?.q3 ?? e.spread?.q3;
+        const foot = n >= 4 && lo != null && hi != null ? `middle half ${spanDisplayUnit(lo, hi, unit)} · ${plural(n, 'product')}`
+          : n >= 2 ? `${spanDisplayUnit(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max, unit)} · ${plural(n, 'product')}` : 'one product';
+        const signed = fmtBounded(1, null, publishedBound(e));
+        const sign = /^[<>≤≥]/.test(signed) ? `${signed.split(' ')[0]} ` : '';
+        const text = `${sign}${fmtDisplayUnit(e.value, unit)}`;
+        const value = e.spread?.n > 1
+          ? explainButton(`<span class="sv">${esc(text)}</span>`, spreadNote(e), { cls: 'spread-value', head: `Median of ${e.spread.n} products`, action: 'products', id: m.id })
+          : e.measurementId
+            ? `<button type="button" class="evidence-value" data-measurement="${esc(e.measurementId)}" title="Opens the measurement in Sources"><span>${esc(text)}</span><span class="evidence-dot" aria-hidden="true"></span></button>`
+            : `<span>${esc(text)}</span>`;
+        return { k, name, value: `${value}${convertedMark(e.converted)}`, foot };
+      }
+      if (showEstimates && e?.estimate) return { k, name, value: renderValue(e, { showUnit: true, estimates: true, materialId: m.id }), foot: 'estimated, not measured' };
+      if (e?.notApplicable) return { k, name, value: explainButton('not applicable', `Not applicable. ${e.notApplicable.reason}`, { cls: 'na', head: 'Not applicable' }), foot: '', quiet: true };
+      const a = s?.asPublished;
+      if (a?.n) {
+        return { k, name, value: explainButton(esc(spanDisplayUnit(a.min, a.max, unit)), `As published by ${plural(a.n, 'product')}, ${asPublishedWords(h)}: not compared, so no median. Each value is in ${headOf(k)?.domain === 'thermal' ? 'Thermal' : 'Mechanical'}, with its document.`,
+          { cls: 'kp-pub', head: 'As published' }), foot: `as published · ${asPublishedWords(h)}` };
+      }
+      return { k, name, value: '<span class="kp-missing">Not published</span>', foot: '', quiet: true };
+    };
+    const keyFigs = KEY_FIGURES.map(figure).filter(Boolean);
+    const others = HEAD.map(([, k]) => k).filter((k) => !KEY_FIGURES.includes(k)).map(figure).filter(Boolean);
+    const anySpread = HEAD.some(([, k]) => m.headline[k]?.spread);
     const numbers = `
       <h3 class="sec">Key properties</h3>
-      <dl class="key-props">
-        ${HEAD.map(([label, k, hint, technical, note]) => {
-          const h = m.headline[k];
-          return `<dt>${explainButton(esc(label), [hint, note].filter(Boolean).join(' '), { cls: 'prop-name', head: technical || label })}</dt>
-            <dd class="${h?.known ? '' : 'kp-empty'}">${renderValue(h, { showUnit: true, estimates: showEstimates })}${showEstimates && !h?.known && h?.estimate ? ` <span class="fine">estimated ${esc(ESTIMATE_STRENGTH[h.estimate.strength].short)}${unitNote(h.estimate)}</span>` : ''}</dd>`;
-        }).join('')}
+      <dl class="key-props key-figs">
+        ${keyFigs.map((f) => `<dt>${f.name}</dt><dd class="${f.quiet ? 'kp-empty' : ''}"><span class="kp-v">${f.value}</span>${f.foot ? ` <span class="kp-f">${esc(f.foot)}</span>` : ''}</dd>`).join('')}
       </dl>
-      <p class="fine">${HEAD.some(([, k]) => m.headline[k]?.spread)
-        ? 'Median of its products that report the value on a comparable basis, with their range and count: different products, not one product\'s scatter.'
-        : esc((m.headlineBasis ?? '').replace(/[.\s]*$/, '')) + '.'} Select a value to see where it comes from.</p>
+      ${others.length ? `<p class="kp-also">Also: ${others.map((f) => `${f.name} ${f.value}`).join('<span class="kp-sep"> · </span>')}.</p>` : ''}
+      <p class="fine">${anySpread
+        ? 'Each figure is the median of the products that state the test\'s orientation or load. Select a value to see where it comes from.'
+        : esc((m.headlineBasis ?? '').replace(/[.\s]*$/, '')) + '.'}</p>
       ${hiddenEstimates}
       ${estimateGroup(m, HEAD, showEstimates)}`;
 
-    // By product (D83): whether the H2C can print a material is whether it can print its products, each on its own
-    // settings. The windows below are the material's recorded range, kept as a guide; the counts are what decide.
-    const byProduct = productPrintCounts(grades);
-    // The material's hardened-nozzle gate is any product's; the line says how many (PM-03).
-    const hard = hardenedShare(grades);
-    const someHard = m.gates.abrasive === 'requires-hardened' && hard.total > 1 && hard.need < hard.total;
-    const print = `
-      <h3 class="sec">H2C printability</h3>
-      ${byProduct}
+    // On the H2C (2026-10-18): the material page's block (print-brief.js onTheH2cRows), one row per setting, each with a
+    // chip from every product's own settings against the H2C's limit. The drawer had stated printability twice, the
+    // products' counts and then the material's recorded window beside its best product's gate reason, and the two
+    // disagreed (PEEK's bed "Within, 110–250 °C" under a failed bed requirement; PLA's nozzle 260, 210 and 195–230 °C).
+    let print = '';
+    if (pc) {
+      const rowsH2C = Object.fromEntries(onTheH2cRows(c).map((r) => [r.key, r]));
+      const axisOf = (k) => pc.axes.find((a) => a.axis === k);
+      const verdictOf = (a) => (!a || a.within + a.over === 0 ? 'unknown' : !a.over ? 'within' : a.within ? 'partial' : 'exceeds');
+      const limitLine = (a) => {
+        const lim = `the H2C's ${fmtNumber(a.limit)} °C`;
+        if (a.within === pc.products) return pc.products === 1 ? `Its product is within ${lim}.` : pc.products === 2 ? `Both products are within ${lim}.` : `All ${pc.products} products are within ${lim}.`;
+        const bits = [a.within ? `${a.within} within ${lim}` : `none within ${lim}`, a.over ? `${a.over} above or only partly within` : null,
+          a.unknown ? `${a.unknown} ${a.unknown === 1 ? 'gives' : 'give'} no ${a.axis} temperature` : null].filter(Boolean);
+        return `${cap(andList(bits))}.`;
+      };
+      const setting = (key, axis, extra = '') => {
+        const r = rowsH2C[key], a = axisOf(axis);
+        if (!r) return '';
+        const { state, word } = gateVerdict(verdictOf(a));
+        const why = [r.note ? cap(r.note) : '', a ? limitLine(a) : ''].filter(Boolean).join(' · ');
+        return `<div class="fact" data-print="${key}"><span class="chip chip-${state}">${esc(word)}</span>
+          <div><b>${esc(r.label)}</b> <span class="h2c-v">${esc(r.value)}</span>${why ? `<br><span class="fact-why">${esc(why)}</span>` : ''}${verdictOf(a) === 'unknown' ? extra : ''}</div></div>`;
+      };
+      const plainRow = (key) => {
+        const r = rowsH2C[key];
+        if (!r) return '';
+        return `<div class="fact plain" data-print="${key}"><div><b>${esc(r.label)}</b> <span class="h2c-v">${esc(r.value)}</span>${r.note ? `<br><span class="fact-why">${esc(cap(r.note))}</span>` : ''}</div></div>`;
+      };
+      const from = [pc.origins.guide ? `the Bambu Lab Filament Guide (${pc.origins.guide} ${pc.origins.guide === 1 ? 'setting' : 'settings'})` : null,
+        pc.origins.twin ? `a data sheet shared with another product (${pc.origins.twin} ${pc.origins.twin === 1 ? 'setting' : 'settings'})` : null].filter(Boolean);
+      print = `
+      <div class="sec-row"><h3 class="sec">On the H2C</h3>${c.counts.Printing ? '<button type="button" class="link-btn" data-tab-link="Printing">Printing in full</button>' : ''}</div>
       <div class="facts-list">
-        ${gateLine(m.gates.nozzle, 'Nozzle', rangeWords(m.print?.nozzleC), windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}
-        ${gateLine(m.gates.bed, 'Bed', rangeWords(m.print?.bedC), windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
-        ${gateLine(m.gates.chamber, 'Chamber', rangeWords(m.print?.chamberC), chamberExtra)}
-        <div class="fact">
-          ${someHard ? `<span class="chip chip-need">Some products</span>`
-            : m.gates.abrasive === 'requires-hardened'
-            // A requirement is not an ambiguity. The half-filled marker meant "we are not sure"
-            // while the sentence next to it meant "you need one".
-            ? '<span class="chip chip-need">Required</span>'
-            : m.gates.abrasive === 'no-special-concern' ? '<span class="chip chip-PASS">Any nozzle</span>'
-            : '<span class="chip chip-UNKNOWN">No data</span>'}
-          <div><b>Hardened nozzle</b><br><span class="fact-why">${esc(hardenedFactWords(m.gates.abrasive, hard, someHard))}</span></div></div>
-        <div class="fact">
-          ${m.gates.drying === 'unknown'
-            ? '<span class="chip chip-UNKNOWN">No data</span>'
-            : `<span class="chip chip-neutral">${{ required: 'Published', optional: 'Optional', 'not-needed': 'Not needed' }[m.gates.drying]}</span>`}
-          <div><b>Drying</b><br><span class="fact-why">${esc(dryingFactWords(m.gates.drying, grades.filter(isProduct)))}</span></div></div>
-        <div class="fact plain">
-          <div><b>AMS</b><br><span class="fact-why">${esc(amsSummary(profiles))}</span></div></div>
+        ${setting('nozzle', 'nozzle', windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}
+        ${setting('bed', 'bed', windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
+        ${setting('chamber', 'chamber', chamberEstimate)}
+        ${plainRow('drying')}
+        ${plainRow('hardened')}
       </div>
-      <p class="fine">Ranges across its products, as a guide. Each product's own settings are in Products.</p>`;
+      <p class="fine">Each product's settings are its own data sheet's${from.length ? `, or where it is silent ${from.join(' or ')}` : ''}. Products gives each one.</p>`;
+    }
 
     // One line on how much is on file, with the way to the documents and the gaps.
     const docs = c.counts.Evidence;
@@ -1058,7 +1087,8 @@ function tabBody(tab, c) {
     const standing = db.method.find((r) => r.topic === 'Transferable allowables')?.rule;
     const footer = standing ? `<p class="fine overview-foot">${esc(standing)}</p>` : '';
 
-    // With requirements set, the first question is whether a product meets them, then whether the H2C can print it.
+    // With requirements set, the first question is whether a product meets them; then what the material is like and
+    // whether the H2C can print it, in the order its page gives them.
     let answer = '';
     if (c.tested) {
       const n = evaluation?.counts;
@@ -1071,9 +1101,7 @@ function tabBody(tab, c) {
         <h3 class="sec">Your requirements</h3>${renderWhy(evaluation, { productName: (id) => productName(c.gradeById.get(id)) })}`;
     }
     const rest = `${usesSection(m, c)}${dataLine}${about}${footer}`;
-    return c.tested
-      ? `${printable}${lede}${answer}${print}${numbers}${rest}`
-      : `${printable}${lede}${numbers}${print}${rest}`;
+    return `${printable}${lede}${answer}${numbers}${print}${rest}`;
   }
 
   if (tab === 'Mechanical' || tab === 'Thermal') {

@@ -1,5 +1,7 @@
 # The selector, refined: the brief for the four experts
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **Working brief** (2026-10-18) for the selector-refinement round. The plan it serves is the owner-approved plan
 > summarised in [README.md](README.md); the decisions that follow from your proposals will be in PLAN.md beside it.
 

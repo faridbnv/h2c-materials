@@ -53,6 +53,11 @@ const NOT_DRAWN_WORDS = {
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
 };
+const NOT_DRAWN_ONE = {
+  unknown: 'says nothing', 'not-required': 'needs none', enclosed: 'asks for an enclosure and gives no temperature (the H2C\'s heated chamber counts)',
+  recommended: 'recommends an enclosure and gives no temperature', ambient: 'prints at room temperature', 'no-setpoint': 'gives no set point',
+  'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
+};
 
 // ---- an independent reading of the spread, straight off the products ----
 const medianOf = (xs) => { const s = [...xs].sort((a, b) => a - b), k = s.length >> 1; return s.length % 2 ? s[k] : (s[k - 1] + s[k]) / 2; };
@@ -463,7 +468,7 @@ test('the counts square with the products: drawn plus not drawn is every product
       // The page says what printSpread counts.
       const oneEnd = (n, end) => (n ? `${n} ${n === 1 ? 'gives' : 'give'} only a ${end} setting` : null);
       if (s.notDrawn.size || s.oneEnd.low || s.oneEnd.high) {
-        missingWanted.push(`${lower(LABEL[axis])}, ${andList([...[...s.notDrawn].map(([why, n]) => `${n} ${NOT_DRAWN_WORDS[why]}`),
+        missingWanted.push(`${lower(LABEL[axis])}, ${andList([...[...s.notDrawn].map(([why, n]) => `${n} ${(n === 1 ? NOT_DRAWN_ONE : NOT_DRAWN_WORDS)[why]}`),
           oneEnd(s.oneEnd.low, 'lowest'), oneEnd(s.oneEnd.high, 'highest')].filter(Boolean))}`);
         seen.notDrawn += notDrawn;
         seen.open += s.oneEnd.low + s.oneEnd.high;

@@ -1,5 +1,7 @@
 # First impression and coherence: inventory (Part A)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > Working record, 2026-10-18. Baseline `shots/base/`; the pages in `coherence/shots/page-{M001,M001-products,M110,method}-0N.png`.
 
 ## 1. The two landing screens, first five seconds

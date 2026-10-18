@@ -1,5 +1,7 @@
 # The selector, refined: the plan
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **Working plan** (2026-10-18), the executor's decisions from the four proposals ([UI and visual](ux/PROPOSAL.md),
 > [words](words/PROPOSAL.md), [graphs](graphs/PROPOSAL.md), [first impression and coherence](coherence/PROPOSAL.md)),
 > answering the baseline review ([REVIEW-0](review/REVIEW-0.md), 62/100) against the [keep register](KEEP.md). Where

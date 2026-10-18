@@ -1,5 +1,7 @@
 # Graphs: inventory (Part A)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > Graphs expert, selector-refinement round, 2026-10-18. What is drawn, what each mark means, and what must survive.
 > Shots: `shots/base/` (baseline) and `graphs/shots/` (mine: comparison headings opened; `page-*` = material pages).
 

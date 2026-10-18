@@ -56,7 +56,7 @@ export const GATE = {
 export const H2C_STATUS = {
   'Official Bambu product': { label: 'Bambu Lab filament', meaning: 'Bambu Lab sells a filament of this material for the H2C. As a filter it passes Bambu Lab\'s own spools only.',
     lede: 'Bambu Lab sells a filament of it for the H2C.' },
-  'Officially listed family': { label: 'Type on Bambu\'s H2C list', meaning: 'Bambu Lab lists this material type for the H2C, though not every brand of it.',
+  'Officially listed family': { label: 'Type on Bambu Lab\'s H2C list', meaning: 'Bambu Lab lists this material type for the H2C, though not every brand of it.',
     lede: 'A material type on Bambu Lab\'s H2C list, though not every brand of it is.' },
   Conditional: { label: 'Unlisted, usable with conditions', meaning: 'Not on Bambu Lab\'s list. It prints on the H2C under conditions, which the Printing tab gives.',
     lede: 'Not on Bambu Lab\'s list; it prints on the H2C under the conditions given in Printing.' },
@@ -99,7 +99,7 @@ export const GATE_VERDICT = {
   within: { word: 'Within', short: 'within', against: 'within the H2C' },
   partial: { word: 'Partly within', short: 'partly within', against: 'partly within the H2C' },
   'exceeds-recommended': { word: 'Above recommended', short: 'above recommended', against: 'recommended above the H2C' },
-  exceeds: { word: 'Exceeds', short: 'exceeds', against: 'beyond the H2C' },
+  exceeds: { word: 'Beyond', short: 'beyond', against: 'beyond the H2C' },
   unknown: { word: 'No data', short: 'no data', against: 'not judged against the H2C' },
 };
 export const gateVerdict = (v) => {
@@ -373,6 +373,12 @@ export const PRINT_NOT_DRAWN = {
   unknown: 'say nothing', 'not-required': 'need none', enclosed: 'ask for an enclosure and give no temperature (the H2C\'s heated chamber counts)',
   recommended: 'recommend an enclosure and give no temperature', ambient: 'print at room temperature', 'no-setpoint': 'give no set point',
   'not-needed': 'say none is needed', 'no-temperature': 'give no temperature',
+};
+/** The same, of one product ("1 says nothing", not "1 say nothing"). */
+export const PRINT_NOT_DRAWN_ONE = {
+  unknown: 'says nothing', 'not-required': 'needs none', enclosed: 'asks for an enclosure and gives no temperature (the H2C\'s heated chamber counts)',
+  recommended: 'recommends an enclosure and gives no temperature', ambient: 'prints at room temperature', 'no-setpoint': 'gives no set point',
+  'not-needed': 'says none is needed', 'no-temperature': 'gives no temperature',
 };
 /** What a print gate verdict outside the H2C's limits adds after a product's window (print-spread.js OUTSIDE). */
 export const OUTSIDE_WORDS = { exceeds: '', 'exceeds-recommended': ', its recommended setting above', partial: ', part of its window above' };

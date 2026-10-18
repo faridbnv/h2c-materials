@@ -1,5 +1,7 @@
 # Engineer's review of the selector: baseline (REVIEW-0)
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > Baseline review, step 1 of the selector-refinement round, 2026-10-18. The reviewer is an independent mechanical
 > engineer who had never seen the tool. I judged only what is on screen: the built selector
 > `dist/H2C_Material_Selector_2026-09-21_7f3f14384dab.html`, the PLA (`M001`) and PCTG-GF (`M110`) material pages, the

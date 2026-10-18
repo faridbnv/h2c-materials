@@ -7,7 +7,7 @@
 // decides anything, and nothing reads the page.
 
 import { fmtNumber } from './format.js';
-import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, OUTSIDE_WORDS, h2cLimit, namedFiller } from './labels.js';
+import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, PRINT_NOT_DRAWN_ONE, OUTSIDE_WORDS, h2cLimit, namedFiller } from './labels.js';
 import { hardenedWords } from '../engine/products.js';
 import { plural, lower, cap, andList, inSentence, stated } from './text.js';
 import { dryingAdvice } from './material-stats.js';
@@ -34,15 +34,24 @@ export function describeFacets(m) {
   return bits.join(' ');
 }
 
-/** What a material is, in one or two sentences: its facets, then Bambu Lab's standing (the drawer's lede). */
-export const ledeWords = (m) => [describeFacets(m), H2C_STATUS[m.h2cStatus]?.lede].filter(Boolean).join(' ');
+/**
+ * What a material is beyond its identity line (the drawer's lede): a variant's filler, a support material, an elastomer.
+ * Bambu Lab's standing is the head's chip and its popover since 2026-10-18; the lede had said it a second time.
+ */
+export const ledeWords = (m) => describeFacets(m);
 
 /** The identity line from material-facts.js identity(): "ASA · carbon-fibre filled · 17 products from 15 makers". */
 export const identityLine = (id) => [id.base, FILLED_WORDS[id.reinforcement],
   id.products ? `${plural(id.products, 'product')} from ${plural(id.makers, 'maker')}` : 'no product on file'].filter(Boolean).join(' · ');
 
-/** How much is on file, after "On file:": measurements, documents, held-back values, known gaps and conflicts. */
-export const onFileWords = (summary, documents) => `${plural(summary.numericMeasurements, 'measurement')} from ${plural(documents, 'source')}${summary.quarantined ? ` · ${summary.quarantined} held back` : ''} · ${summary.gaps ? plural(summary.gaps, 'known gap') : 'no known gaps'} · ${summary.conflicts ? plural(summary.conflicts, 'unresolved conflict') : 'no unresolved conflicts'}`;
+/**
+ * How much is on file, after "On file:": measurements and the documents they were read from (the Sources tab's and the
+ * page's word), held-back values, known gaps and conflicts where there are any (none is said by their absence).
+ */
+export const onFileWords = (summary, documents) => [
+  `${fmtNumber(summary.numericMeasurements)} ${summary.numericMeasurements === 1 ? 'measurement' : 'measurements'} from ${fmtNumber(documents)} ${documents === 1 ? 'document' : 'documents'}`,
+  summary.quarantined ? `${summary.quarantined} held back` : null, summary.gaps ? plural(summary.gaps, 'known gap') : null,
+  summary.conflicts ? plural(summary.conflicts, 'unresolved conflict') : null].filter(Boolean).join(' · ');
 
 /** What an empty tab or section says first. */
 export const NOTHING_ON_FILE = 'Nothing on file for this material.';
@@ -298,7 +307,7 @@ export function printSingles(f) {
 /** The settings not drawn, by why (printFacts().missing), after "Not drawn: ". Empty where every product is drawn. */
 export function printMissing(f) {
   const oneEnd = (n, end) => (n ? `${n} ${n === 1 ? 'gives' : 'give'} only a ${end} setting` : null);
-  return f.missing.map((a) => `${lower(a.label)}, ${andList([...a.notDrawn.map(([why, n]) => `${n} ${PRINT_NOT_DRAWN[why]}`),
+  return f.missing.map((a) => `${lower(a.label)}, ${andList([...a.notDrawn.map(([why, n]) => `${n} ${(n === 1 ? PRINT_NOT_DRAWN_ONE : PRINT_NOT_DRAWN)[why]}`),
     oneEnd(a.oneEnd.low, 'lowest'), oneEnd(a.oneEnd.high, 'highest')].filter(Boolean))}`).join('; ');
 }
 

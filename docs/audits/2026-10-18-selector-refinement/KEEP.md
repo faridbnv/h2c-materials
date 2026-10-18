@@ -1,5 +1,7 @@
 # The keep register: what works, and must survive the round
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **Working record** (2026-10-18) of the selector-refinement round ([README](README.md)). The owner's rule: "anything that
 > is good in the drawer and in the actual tool should be recorded and then preserved or at least reproduced". Each item:
 > what and where, why it is good, how its loss would be noticed, and, at the final review, **kept**, **reproduced**
