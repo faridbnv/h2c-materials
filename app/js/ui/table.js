@@ -169,19 +169,22 @@ export const printRange = (r) => (!r ? null
   : `${fmtNumber(r.min)}\u2013${fmtNumber(r.max)}`);
 
 /**
- * How many of a material's products meet every requirement (D83), under its verdict: "3 of 27" is three passing of the
- * twenty-seven that could be judged. The products that publish too little to judge are counted in the popover, never
- * against the material.
+ * How many of a material's products meet every requirement (D83), under its verdict: "3 of 27 products" is three
+ * passing of its twenty-seven. The products that publish too little to judge are counted, in the popover, as not
+ * counting against the material.
  */
 export function shareMark(e) {
   const c = e?.counts;
   if (!c) return '';
   const judged = c.pass + c.fail;
   const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
-  const text = judged ? `${c.pass} of ${judged} product${judged === 1 ? '' : 's'}` : 'none judged';
+  // Counted against all its products, as the drawer counts them ("183 of 195 products", REVIEW-0 F12): "183 of 183"
+  // beside the drawer's "Of its 195 products" read as two different materials.
+  const text = judged ? `${c.pass} of ${plural(c.products, 'product')}` : 'none judged';
   const title = judged
-    ? `${c.pass} of the ${plural(judged, 'product')} that could be judged ${c.pass === 1 ? 'meets' : 'meet'} all the requirements.`
-      + `${c.untested ? ` ${c.untested} more publish${c.untested === 1 ? 'es' : ''} too little to judge, and ${c.untested === 1 ? 'does' : 'do'} not count against the material.` : ''}`
+    ? `${c.pass} of its ${plural(c.products, 'product')} ${c.pass === 1 ? 'meets' : 'meet'} all the requirements`
+      + `${c.fail ? `; ${c.fail} ${c.fail === 1 ? 'fails' : 'fail'} at least one` : ''}.`
+      + `${c.untested ? ` The ${c.untested === 1 ? 'one that publishes' : `${c.untested} that publish`} too little to judge ${c.untested === 1 ? 'does' : 'do'} not count against the material.` : ''}`
       // D100: a material fails only when every product fails; one unmeasured product leaves it unresolved.
       + `${!c.pass && c.fail && c.untested ? ' None passes, but not every product fails, so the material is unresolved, not failed.' : ''}`
       + ' Its Products tab lists each and why.'
@@ -208,13 +211,28 @@ export function caveatMark(e) {
   return `<span class="row-sub on-caveat" title="Every passing product passes on a value published without its test ${what}; it counts because Data quality includes such values.">on values with no stated ${what}</span>`;
 }
 
-/** A typical value measured after annealing or conditioning, under a header that judges as printed and dry (PM-06). */
+/**
+ * A typical value measured after annealing or conditioning, under a header that judges as printed and dry (PM-06): the
+ * drawer's square on the median's line, filled for annealed, open for conditioned, with the legend's entry and its title
+ * saying what it means. A third line, "annealed median", had read as contradicting "Values judged: as printed, dry", and
+ * had no legend entry (REVIEW-0 F8, 2026-10-18). The mark has no text, so a cell's text stays the value and its range.
+ */
+export const STATE_MARK_NOTE = {
+  annealed: 'Annealed median: the median comes from a bar annealed after printing; requirements still judge each product as printed.',
+  conditioned: 'Conditioned median: the median comes from a bar conditioned in moist air; requirements still judge each product dry unless Part condition says otherwise.',
+};
 export function typicalStateMark(h, measurementState) {
   const st = measurementState(h?.typical?.measurementId);
   if (!st) return '';
-  const words = [st.annealed ? 'annealed' : null, st.conditioned ? 'conditioned' : null].filter(Boolean).join(', ');
-  return words ? `<span class="row-sub typical-state" title="The median shown comes from ${words} specimens. Results judge each product as printed and dry unless Part condition says otherwise.">${words} median</span>` : '';
+  const kinds = [st.annealed ? 'annealed' : null, st.conditioned ? 'conditioned' : null].filter(Boolean);
+  return kinds.map((k) => `<span class="state-mark state-${k}" role="img" aria-label="${k} median" title="${esc(STATE_MARK_NOTE[k])}"></span>`).join('');
 }
+/** The mark on the median's line: before the range, which is a line of its own in a cell. */
+const withStateMark = (value, mark) => {
+  if (!mark) return value;
+  const at = value.indexOf('<span class="spread"');
+  return at < 0 ? value + mark : value.slice(0, at) + mark + value.slice(at);
+};
 
 /**
  * What an UNKNOWN rests on (the PM trial, PM-02): every product that could be measured fails, and the rest publish
@@ -388,7 +406,7 @@ export function renderTable(host, state, actions) {
         const oos = m.buy.anyInStock ? '' : explainButton('out of stock', notStocked, { cls: 'oos', head: 'Out of stock' });
         return `<td class="num">${nested ? inner : ''}${nested ? link('', ' buy-arrow') : link(inner)}${oos}</td>`;
       }
-      const all = renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id }) + typicalStateMark(m.headline[c.key], measurementState);
+      const all = withStateMark(renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id }), typicalStateMark(m.headline[c.key], measurementState));
       // A material that passes a requirement on some of its products shows those products' values first, and every
       // product's typical and range under it, labelled (PM-01).
       const pass = tested && e?.verdict === 'PASS' && on(c.key).length ? passingValues(e, c.key) : null;
@@ -439,6 +457,13 @@ export function renderTable(host, state, actions) {
       'The property does not apply to this material, such as HDT of an elastomer. Not a gap.',
       { cls: 'lg', head: 'Not applicable' }),
   ].filter(Boolean);
+  // The currencies a converted price on screen came from, and whether an annealed or conditioned median is on screen.
+  const foreignCurrencies = [...new Set(state.db.materials.flatMap((m) => m.headline?.priceCADkg?.converted?.currencies ?? []))].sort();
+  const stateOf = (h) => { const x = h?.typical?.measurementId && (state.measurementById ??= new Map(state.db.measurements.map((y) => [y.id, y]))).get(h.typical.measurementId); return x ? { annealed: x.postProcessingState === 'annealed', conditioned: x.moistureState === 'conditioned' } : {}; };
+  const anyState = { annealed: false, conditioned: false };
+  for (const { material: m } of state.rows ?? []) for (const k of COLUMNS.filter((c) => c.kind === 'headline').map((c) => c.key)) {
+    const st = stateOf(m.headline?.[k]); anyState.annealed ||= !!st.annealed; anyState.conditioned ||= !!st.conditioned;
+  }
   // The marks only a few cells carry, behind one fold, so the legend stays one line (REVIEW-0 F10, 2026-10-18). An
   // estimate is in many cells wherever estimates show, so it stays on the line.
   const rare = [
@@ -446,9 +471,14 @@ export function renderTable(host, state, actions) {
       'A published mean ± scatter with the threshold inside the scatter. Judged on the mean.',
       { cls: 'lg', head: 'Close to the limit' }),
     // Only where a price on screen was converted, like the estimate entry only where estimates show (D113).
-    (state.db.meta.priceSample?.foreignSellers ?? 0) > 0 ? explainButton('<span class="fx-mark">\u00a4</span> converted',
-      'A price from a foreign listing, for a product no sampled Canadian shop sells: converted to CAD at the Bank of Canada rate, before VAT. Shipping and duty are not included.',
+    (state.db.meta.priceSample?.foreignSellers ?? 0) > 0 ? explainButton(`<span class="fx-mark">${esc(foreignCurrencies.join(', ') || 'USD')}</span> converted to CAD`,
+      'A price from a foreign listing, for a product no sampled Canadian shop sells: converted to CAD at the Bank of Canada rate, before VAT, the currency it came from beside it. Shipping and duty are not included.',
       { cls: 'lg', head: 'Converted price' }) : '',
+    // An annealed median, where one is on screen: the drawer's square (REVIEW-0 F8).
+    anyState.annealed ? explainButton('<span class="state-mark state-annealed" aria-hidden="true"></span> annealed median', STATE_MARK_NOTE.annealed.replace(/^Annealed median: t/, 'T'),
+      { cls: 'lg', head: 'Annealed median' }) : '',
+    anyState.conditioned ? explainButton('<span class="state-mark state-conditioned" aria-hidden="true"></span> conditioned median', STATE_MARK_NOTE.conditioned.replace(/^Conditioned median: t/, 'T'),
+      { cls: 'lg', head: 'Conditioned median' }) : '',
   ].filter(Boolean);
   const legend = common.join('') + (rare.length ? `<details class="legend-more"><summary><span class="chevron" aria-hidden="true"></span>${rare.length === 1 ? 'One more mark' : `${rare.length} more marks`}</summary><div class="legend-more-body">${rare.join('')}</div></details>` : '');
 

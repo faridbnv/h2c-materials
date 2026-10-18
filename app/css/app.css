@@ -386,6 +386,9 @@ table.grid td.name { font-weight: 600; }
 .evidence-value:hover > span:first-child { text-decoration: underline dotted 1px; text-underline-offset: 3px; }
 .evidence-value:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
 .load-mark, .fx-mark { font-size: 10px; font-weight: 700; color: var(--unknown); vertical-align: super; margin-left: 1px; padding: 0 2px; }
+/* A median from annealed (filled) or conditioned (open) bars: the drawer's square, 8 px, on the median's line. */
+.state-mark { display: inline-block; width: 8px; height: 8px; margin-left: 5px; vertical-align: 1px; border: 1.5px solid var(--accent); background: var(--accent); border-radius: 1px; box-sizing: border-box; }
+.state-mark.state-conditioned { background: var(--surface); }
 .load-mark.mark::after, .fx-mark.mark::after { left: -4px; right: -4px; top: -8px; bottom: -8px; }
 .not-checked { margin: 10px 0 0 !important; padding: 8px 11px; border-left: 3px solid var(--unknown); background: var(--unknown-bg); color: var(--ink) !important; border-radius: 0 var(--radius) var(--radius) 0; }
 
