@@ -1,0 +1,69 @@
+# Spot-check list for the owner
+
+> **Historical record** (2026-10-18): every value the screening build's stage 2a changed, flagged, held back or kept on purpose, for the owner to spot-check against its page.
+
+> **In short.** You ruled that an Opus agent settles each flagged value against its page and that you get a list to
+> spot-check. This is that list. Claude Opus 5.5 read every page below on its cached text, and on its rendered image
+> where the layout decided (a Claude Sonnet reader had read them first). Each row gives the page's own words, what was
+> done and why. "Flagged" means the value is kept and shown but decides nothing (marked physically implausible).
+> "Held back" means the same for a value whose meaning the page leaves unclear. Pick any few rows and open the page:
+> the record IDs and pages are in the last column of each table.
+
+## Values changed, flagged or held back
+
+| Product | Value | What the page says | Decision | Why |
+|---|---|---|---|---|
+| colorFabb PLA HP | HDT 135 °C at 0.45 MPa | "Heat Deflection Temp.\* HDT-B, ISO 75 135" with the footnote "\*Optimal temperature resistance is obtained after annealing the sample"; p. 2: "an average of a batch of 3D specimens" (V005853, 2024 sheet, p. 1) | Recorded as annealed, schedule not stated | The footnote on the value says how the bar was treated. A glassy PLA bar softens near 55 to 60 °C; 135 °C is a crystallised bar. The description's "without having to anneal" contradicts the footnote, and the 2022 sheet calls the same figure injection-moulded |
+| 3DXTECH SimuBone | HDT 89 °C | "Glass Transition Temperature ... 55", "Deflection Temperature at 0.45 MPa ... 89", bars printed on a "Bed Temp: 23°C" (V010211, p. 1) | Flagged | 34 °C above its own glass transition on a cold-bed print, with no annealing stated |
+| 3DXTECH CarbonX CF-PLA | HDT 91 °C | Glass transition 60 °C, HDT at 0.45 MPa 91 °C, bed 23 °C (V003309, p. 1) | Flagged | 31 °C above its glass transition, same reason |
+| 3DXTECH ECOMAX Tough PLA | HDT 80 °C | Glass transition 55 °C, HDT at 0.45 MPa 80 °C, bed 23 °C (V003212, p. 1) | Flagged | 25 °C above its glass transition, same reason |
+| Nanovia PLA EF 3D850 | HDT 80 to 90 °C | "Tg 55 – 60 °C", "HDT-B (0,45 MPa) 80 – 90 °C", "Max temperature 55 °C" (V007474, web page) | Flagged | 20 to 35 °C above the glass transition; the page's own maximum temperature is 55 °C |
+| Nanovia PLA VX | HDT 80 to 90 °C | "Tg 55 – 60 °C", "HDT at 0,45 MPa 80 – 90 °C", "Max temperature 55 °C" (V007533, web page) | Flagged | Same reason |
+| Nanovia PLA Flax | HDT 80 to 90 °C | "Tg 55 – 60 °C", "DTUL 50 °C", "HDT B (0.45 MPa) 80 – 90 °C", "Max temperature 55 °C" (V010287, web page) | Flagged | Same reason; the page also prints a deflection temperature of 50 °C |
+| Flashforge "Flexible" (PBAT) | HDT 90 °C | "HDT@ 0.455 MPa (66 psi) ISO 75 ℃ 90" beside "Modulus of Elasticity (X-Y) ... 6~7" MPa (V005369, p. 1) | Flagged | A 6 MPa bar bends 7 % under the test load alone; the test's 0.2 % criterion is met almost at once, so 90 °C cannot be this bar's result |
+| purefil COC flex | HDT 60 °C | "Heat deflection temperature 60 °C, 0.45 MPa" beside "Tensile modulus ... 50 MPa", a Shore 89A elastomer (V011485, p. 1) | Flagged | Too soft for the test to mean a rigid part's softening; filed under COC, it would otherwise pass heat questions |
+| Eryone Hyper-Speed ABS | Modulus 217 MPa (X-Z) | "Elastic modulus X-Z ... 217.16" beside X-Y "217.08" (V005140, p. 2) | Flagged | The X-Y figure was already flagged; no ABS is that soft in any direction |
+| FormFutura ApolloX Kevlar | HDT 95 °C at 1.81 MPa | 89 °C at 0.45 and 95 °C at 1.81 MN/m² (V007527, p. 2); its twin Spectrum ASA Kevlar prints 89 and 79 °C | Flagged | A heavier load cannot give a higher temperature; the twin shows the 95 is the odd one |
+| Recreus PET-G CF | Density 1.1 g/cm³ | "Material density 1,1 g/cm3 ISO 1183" for a "carbon fibre-additivated" PETG (V015320, p. 1, read on the image) | Flagged | Plain PETG is 1.22 to 1.30; carbon fibre makes it denser, never lighter |
+| FormFutura CarbonFil (earlier sheet) | Density 1.19 g/cc | "Specific gravity 1.19 g/cc" for a PETG "reinforced with 20% ... carbon fibres" (V009831, p. 1) | Flagged | 20 % carbon fibre gives about 1.35; the 2024 sheet prints 1,32 |
+| purefil ABS | Tensile modulus 2700 MPa | "Tensile modulus (ASTM D790) 2700 MPa" (V005563, p. 1) | Held back | ASTM D790 is the bending test; the label says tension; the page cannot say which |
+| iSANMATE PLA CF | Tensile strength 120 MPa | "Tensile Strength dry, @50mm/min ISO 527 ISO 3167 A MPa 120" in a Specimen column that names ISO 3167 A on every row (V015178, p. 1) | Specimen type set to moulded (raw material) | ISO 3167 A is the injection-moulded test bar; the table's other rows were already recorded so, and the page says nothing of printing |
+| Fiberlogy FiberWORKS PETG | HDT 70 °C at 1.8 MPa | Product page "Heat Deflection Temperature @ 1.8 MPa: 70°C"; data sheet "@ 0.45 MPa ... 70" (V013149) | Held back | One number at two loads; the 0.45 MPa reading is safe either way, so it stays |
+| Fiberlogy PP | HDT 51 °C at 1.8 MPa | Data sheet "@ 1.8 MPa ... 51"; product page "@ 0.45 MPa: 51°C" (V009228) | Held back | Same reason |
+| colorFabb PA Blue Metal Detectable | HDT 90 °C typed at 1.8 MPa | July 2023: "Heat Deflection Temperature (A) 90" beside "(amorphous) 60"; November 2023: "HDT-B 90" from the raw-material supplier (V011126) | Held back | "(A)" is defined nowhere and may mean annealed; the newer sheet calls the same 90 °C method B |
+| Spectrum S-Flex Carbon | HDT 134 °C typed at 1.8 MPa | 2025 portfolio "HDT A - 134°C"; its own sheet "0.45mn/m2 134°C", "1.81mn/m2 70°C" (V012429, p. 23) | Held back | The product's own sheet states the loads; the portfolio is a summary (HDT does not apply to this TPU, so nothing moves) |
+
+## CarbonFil's 2024 sheet, entered as a new source
+
+FormFutura's sheet "Date of update: 23-8-2024" (3DJake's copy, a scan) entered through the import pipeline as
+R-FORMFUTURA-SB-20261018-7b525961687e. It is now the product's own sheet; the earlier sheet's rows stay.
+
+| Value | What the page says | Decision |
+|---|---|---|
+| Fibre content | "CarbonFil is a 15% carbon fiber reinforced PETG" | In the product's composition, beside the earlier sheet's 20 % |
+| Density 1.32 g/cm³ | "Specific gravity 1,32 g/cm3 ISO 1183" | Entered (V015425); now the product's density |
+| Tensile strength at break 45 MPa | "Tensile strenght at break 45 MPa ISO 527-1" | Entered (V015427); now the product's (was 92) |
+| Elongation at break 4.9 % | "Elongation at break 4,9 % ISO 527-1" | Entered (V015428) |
+| Vicat 80 °C | "Vicat softening temperature 80 °C ISO 306" | Entered (V015430) |
+| Flexural modulus 4250 MPa | "Flexural modulus 4250 MPa ISO 527-1" | Entered, held back (V015429): the label says bending, the standard says tension, and the tensile modulus row is empty |
+| Charpy 5.4 kJ/m² | "Impact strenght 5.4 kJ/m2 ISO 179-1eU Charpy notched 23°C" | Entered, held back (V015426): "eU" is the unnotched bar, the condition says notched |
+| Print settings | Nozzle 230 - 275 °C, bed 80 - 90 °C, "Print with Enclosure Yes", drying 40 - 60 °C, 12 h | One print profile (P1916): the product now asks for an enclosure with no temperature, so its chamber is unknown |
+
+## Kept on purpose, with the reason written down
+
+| Product | Value | Why it stays |
+|---|---|---|
+| Polymaker HT-PLA-GF (two sheets) | HDT 75.5 °C "(as printed)", 15.7 °C above its glass transition | The sheet shows the grade crystallising (a crystallisation and a melting point, 114.7 °C once annealed) and it holds 12 % glass fibre |
+| Stratasys PC-ABS | HDT 126.1 °C (printed) and 125.0 °C (moulded) beside a glass transition of 105.3 °C | A blend has two glass transitions; the printed one is the ABS phase's, and the PC phase carries the bar above it |
+| colorFabb nGen_FLEX | HDT 100 °C beside a glass transition of -40 °C and moduli of 130 to 170 MPa | A copolyester elastomer that melts at 205 °C; the value is the resin supplier's, already recorded as moulded, and decides nothing for a printed part |
+| Fiberlogy PLA MINERAL | 2025 sheet's 48 °C at 0.45 MPa, below the 2021 sheet's 50 °C at 1.8 MPa | Two revisions, each in order with itself; the 2021 sheet is still the product's own |
+| Fiberlogy R PP | Product page's 40 °C at 0.45 MPa, below the 2022 sheet's 65 °C at 1.8 MPa | The two documents disagree throughout; the sheet is the product's own |
+| Prusament rPLA Natural Pigments (Wine) | 59 °C at 0.45 MPa and 60 °C at 1.8 MPa | Already accepted: a one-degree inversion is within the test's repeatability |
+| colorFabb ASA | 2023 sheet's "HDT-B 87" beside the 2020 sheet's 96 and 87 °C | The 2020 sheet orders its loads; the 2023 figure is the resin supplier's and never decides for a printed part |
+
+## Looked at and left as they are
+
+These resin-like sheets say nothing about how their bars were made, so no specimen was invented: Yousu PC's 150 %
+stretch (a stray "after printed as a part." on p. 2 belongs to no row), Fillamentum CPE HG100's 150 %, Spectrum PCTG's
+220 %, and Spectrum PETG Lite's 160 % (its strength row cites D 882, the film test, and is already recorded as a film;
+its stretch row cites ASTM D638). iSANMATE PLA CF's 25 GPa modulus was already a moulded-bar value.

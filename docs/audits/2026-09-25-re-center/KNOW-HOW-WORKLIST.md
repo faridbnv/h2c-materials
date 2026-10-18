@@ -32,16 +32,13 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA-CF (M033) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 17 | 3 / 5 / 13 | — |
 | PA6-CF (M050) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 2 / 2 / 11 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 1 | — |
-| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 195 | 82 / 104 / 157 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
+| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 195 | 82 / 104 / 156 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 2 of 73 | 24 / 25 / 51 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-GF (M051) | Indoor prototype; Outdoor structural part; Warm environment | collected | 1 of 11 | 2 / 4 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 2 / 6 | — |
 | PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 1 / 3 | — |
-| PBAT (M133) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PET-CF (M067) | Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 2 / 4 | — |
-| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 19 | 6 / 7 / 15 | — |
-| PLA-NF (M152) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
 | PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 5 / 7 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
@@ -61,11 +58,14 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA6 (M049) | Indoor prototype; Warm environment | collected | 0 of 9 | 2 / 0 / 9 | — |
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
 | PAHT (M147) | Indoor prototype; Lightweight structure | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PBAT (M133) | Flexible component; Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-CF (M037) | Indoor prototype; Warm environment | collected | 0 of 10 | 4 / 3 / 8 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
-| PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 9 / 7 / 19 | — |
+| PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 8 / 6 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 6 / 5 / 10 | — |
 | PLA blend (M168) | Indoor prototype; Warm environment | collected | 0 of 9 | 5 / 3 / 7 | — |
+| PLA-CF (M018) | Indoor prototype; Lightweight structure | collected | 0 of 19 | 6 / 7 / 15 | — |
+| PLA-NF (M152) | Indoor prototype; Lightweight structure | collected | 0 of 2 | 0 / 0 / 2 | — |
 | PLA-PHB (M146) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PPA-CF (M070) | Indoor prototype; Warm environment | collected | 0 of 8 | 3 / 0 / 2 | — |
 | TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 18 | 10 / 10 / 18 | — |

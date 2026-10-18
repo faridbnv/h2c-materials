@@ -9,6 +9,7 @@ import { indexPageContext, contextFor, rowStates, pageStates, specimenApplies, d
 import { DATA_STATUS } from './normalize/values.js';
 import { parseAppliesTo, applies, NOT_MODELLED } from './registry.js';
 import { compileRelations, relationFindings, specimenForm } from './physical-relations.js';
+import { specimenForm as declaredForm } from './normalize/specimen.js';
 
 export const LINT_RULES = {
   'TEXT-LIGATURE': 'A typographic ligature (ﬁ, ﬂ ...) from PDF extraction; write the plain letters.',
@@ -20,7 +21,10 @@ export const LINT_RULES = {
   'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
   'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
   'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY. A thermal or physical row recorded with no direction (Not applicable) is left alone: there the locator names how the bar was printed.',
-  'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
+  'MEAS-PHYSICS-HDT-LOADS': 'One formulation and state publish HDT at 0.45 MPa below HDT at 1.8 MPa, on one document or across its documents and its twins\' sheets (D149); a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, hold back a value whose load the documents dispute, or accept with the reason (two revisions that each order the pair, a one-degree inversion within the test\'s repeatability).',
+  'MEAS-PHYSICS-HDT-TG': 'A glassy polymer\'s HDT at 0.45 MPa more than the margin of physical_relations.csv above its own sheet\'s glass transition, on a bar not annealed (D149). A glassy bar loses its stiffness at its glass transition, so as printed it cannot hold the load much above it: the value is an annealed, crystallised or moulded bar\'s, or a misprint. Re-read the page: record the state it states (annealed, moulded); where it states none, flag it Published value (physically implausible); where it shows the grade crystallising as it prints (a crystallisation and melting point beside an as-printed value), accept with that reason.',
+  'MEAS-PHYSICS-HDT-SOFT': 'An HDT published for a grade of a material the HDT headlines apply to, whose stiffest published tensile or flexural modulus is below 0.225 GPa (D149). ISO 75 records the temperature at which the loaded bar bends a further 0.2 % of outer-fibre strain; the 0.45 MPa load alone strains a bar that soft more than that, so a small fall of its modulus, or creep, meets the criterion, and the number is not the softening of a rigid bar: the reason HDT does not apply to an elastomer. Flag it physically implausible where the sheet\'s own modulus rules it out, or accept with what makes it credible (a resin producer\'s moulded bar near the line).',
+  'MEAS-PHYSICS-FILLED-DENSITY': 'A fibre- or particle-filled grade (carbon or glass fibre, ceramic, metal powder, graphene, a declared or undisclosed dense filler) whose density is below its polymer\'s neat minimum (polymers.csv), and that declares no lightweight additive (D149). Every such filler is denser than the polymer, so a filled compound cannot be lighter than the neat resin: the value is a misprint, another product\'s, or a foamed or porous form the sheet should say. Re-read the sheet; flag it physically implausible, or accept with the reason.',
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
   'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round (the pairs, margins and what a pair must share are data/tables/physical_relations.csv). A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. A Vicat whose own words name the heavy load (50 N, method B) is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. Re-read the rows and correct whichever is on the wrong line.',
   'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
@@ -470,10 +474,59 @@ export function lintData(tables, schemas) {
   const polymerMorphology = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
   const materialRows = (tables.materials?.rows ?? []).map((m) => ({ ...m, Morphology: polymerMorphology.get(m['Estimate identity']) ?? NOT_MODELLED }));
   const materialById = new Map(materialRows.map((m) => [m.MaterialID, m]));
+  // A product's documents and its twins' sheets are one formulation (R053, D89): a relation whose Same test names
+  // "formulation" compares them with each other (PR08, D149). A retired grade keeps its key; it is a grade like any other.
+  const formulationKey = new Map((tables.grades?.rows ?? []).filter((g) => g['Shared formulation key']).map((g) => [g.GradeID, g['Shared formulation key']]));
   for (const relation of compileRelations(tables.physical_relations?.rows, parseAppliesTo, materialRows)) {
-    for (const f of relationFindings(relation, active, (r) => materialById.get(r.MaterialID) ?? { Morphology: NOT_MODELLED }, applies)) {
+    for (const f of relationFindings(relation, active, (r) => materialById.get(r.MaterialID) ?? { Morphology: NOT_MODELLED }, applies, { formulationOf: (g) => formulationKey.get(g) })) {
       add(relation.code, 'measurements', f.record.MeasurementID, 'Normalized value', f.message);
     }
+  }
+
+  // An HDT beside a modulus too low for the test to mean anything (D149). ISO 75 zeroes the bar's deflection under its
+  // load (0.45 MPa, method B) and records the temperature at which it has bent by a further 0.2 % of outer-fibre strain.
+  // A rigid bar of 3 GPa gets there only once its modulus has fallen fourteen-fold, which is the softening the test is
+  // for. A bar below 0.45 / 0.002 = 225 MPa is strained more than 0.2 % by the load alone, and a fall of a fraction of its
+  // modulus, or creep, meets the criterion: a twentieth for a 10 MPa bar. That is the reason HDT does not apply to an
+  // elastomer (headline_definitions.csv), here asked of the product's own numbers: Flashforge's PBAT "Flexible" prints
+  // 90 °C beside a modulus of 6 to 7 MPa. The product's stiffest published modulus decides, so one misprinted low
+  // modulus beside rigid ones does not. A material no HDT headline applies to (an elastomer family) is left alone: its
+  // HDT is shown and never decides, by that rule.
+  const SOFT_MODULUS_GPA = 0.225;
+  const stiffest = new Map();
+  for (const r of active) {
+    if (!['Tensile modulus', 'Flexural modulus'].includes(r.Property) || r['Normalized unit'] !== 'GPa') continue;
+    if ((stiffest.get(r.GradeID)?.value ?? -Infinity) < num(r)) stiffest.set(r.GradeID, { value: num(r), id: r.MeasurementID });
+  }
+  const hdtRules = (tables.headline_definitions?.rows ?? []).filter((h) => String(h['Value properties'] ?? '').split(';').map((s) => s.trim()).includes('HDT'))
+    .map((h) => parseAppliesTo(h['Applies to'], `headline_definitions ${h.HeadlineKey}`, [], materialRows));
+  const hdtApplies = (r) => !hdtRules.length || hdtRules.some((rule) => applies(rule, materialById.get(r.MaterialID) ?? { Morphology: NOT_MODELLED }));
+  for (const r of active.filter((x) => x.Property === 'HDT' && hdtApplies(x))) {
+    const m = stiffest.get(r.GradeID);
+    if (m && m.value < SOFT_MODULUS_GPA) add('MEAS-PHYSICS-HDT-SOFT', 'measurements', r.MeasurementID, 'Normalized value', `HDT ${num(r)} °C on a grade whose stiffest published modulus is ${m.value} GPa (${m.id}), below the ${SOFT_MODULUS_GPA} GPa at which the 0.45 MPa load alone strains a bar the 0.2 % ISO 75 waits for`);
+  }
+
+  // A filled compound lighter than its neat polymer (D149, the screening review's F26). Carbon and glass fibre, mineral and
+  // ceramic particles, metal powder and graphene are all denser than every polymer here, so by the rule of mixtures a
+  // compound that holds them is at least as dense as its neat resin; Recreus prints 1,1 g/cm³ for a carbon-fibre PETG
+  // whose neat polymer starts at 1.22. A grade that declares a lightweight additive (hollow spheres, a foaming agent) is
+  // lighter by design and is left alone, as are the plant fibres and the hollow glass spheres the modifier list names
+  // as lightening. A published range is judged by its upper end, and a printed part's density, which counts its voids,
+  // not at all. Within 2 % of the neat minimum is a density test's scatter and a filament's few voids (the density
+  // scatter of the screening build's plan, C33): Bambu Lab's ASA-CF, PA6-CF, PET-CF and PPS-CF print 1 to 2 % under it.
+  const DENSE_FILLERS = new Set(['Carbon fibre', 'Glass fibre', 'Ceramic', 'Metal powder', 'Graphene']);
+  const FILLED_DENSITY_SCATTER = 0.02;
+  const neatMin = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, Number(p['Neat density min kg/m³'])]));
+  const gradeById = new Map((tables.grades?.rows ?? []).map((g) => [g.GradeID, g]));
+  for (const r of active.filter((x) => x.Property === 'Density' && x['Normalized unit'] === 'kg/m³')) {
+    const material = materialById.get(r.MaterialID), grade = gradeById.get(r.GradeID);
+    if (!material || grade?.Variant === 'lightweight additive' || declaredForm(r['Specimen type'] ?? 'Not published') === 'printed') continue;
+    const filled = DENSE_FILLERS.has(material['Modifier / filler']) || /dense filler$/.test(grade?.Variant ?? '');
+    const floor = neatMin.get(material['Estimate identity']);
+    if (!filled || !(floor > 0)) continue;
+    const upper = Number(r['Normalized upper bound']);
+    const value = Number.isFinite(upper) && upper > num(r) ? upper : num(r);
+    if (value < floor * (1 - FILLED_DENSITY_SCATTER)) add('MEAS-PHYSICS-FILLED-DENSITY', 'measurements', r.MeasurementID, 'Normalized value', `density ${value} kg/m³ on a ${grade?.Variant && /dense filler$/.test(grade.Variant) ? grade.Variant : `${material['Modifier / filler'].toLowerCase()}-filled`} ${material['Estimate identity']}, whose neat polymer is at least ${floor} kg/m³`);
   }
 
   // Sources.

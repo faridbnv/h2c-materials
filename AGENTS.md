@@ -318,7 +318,7 @@ and lifted the pause on 2026-10-05 (GOALS-LOG, check round 3, item 5): a new doc
 through the import pipeline, with no exception to ask for. Nothing was imported when it was lifted. Under the pause the
 owner had opened bounded batches one by one (b34 to b44, the price pass p01 to p04, the coverage campaign's c01 to c14,
 and the re-fetch of the lost documents in check round 3); each is complete, and GOALS-LOG keeps their dates and scope.
-Since the lift the quality round of 2026-10-07 ran b45 and the price batch p05.
+Since the lift the quality round of 2026-10-07 ran b45 and the price batch p05, and the screening build of 2026-10-18 ran b46 (FormFutura CarbonFil's 2024 sheet).
 The coverage campaign's [status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) still record what that
 campaign covered. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import

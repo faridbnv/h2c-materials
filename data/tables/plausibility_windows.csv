@@ -54,7 +54,7 @@ W0052,Izod impact strength,J/m,any,any,Notched,3,10,600,1200,FALSE,Physics: J/m 
 W0053,Izod impact strength,J/m,any,any,any,5,20,2000,4000,FALSE,"As above, unnotched. Observation: 131 to 1003."
 W0054,Impact strength,kJ/m²,any,any,Notched,0.3,1,60,100,FALSE,As the notched Charpy window.
 W0055,Impact strength,kJ/m²,any,any,any,0.5,2,200,400,FALSE,As the unnotched Charpy window.
-W0056,HDT,°C,amorphous,any,any,30,45,180,260,FALSE,Physics: an amorphous bar deflects at its glass transition plus 10 °C at 1.8 MPa and plus 20 °C at 0.45 MPa. Observation: 48 to 140. The soft low is the estimate model's own hdtFloor.
+W0056,HDT,°C,amorphous,any,any,30,45,180,260,FALSE,"Physics: an amorphous bar deflects at or just below its glass transition, a few degrees lower at 1.8 MPa than at 0.45 MPa; PLA's HDT at 0.45 MPa sits a median of 4 °C below its own sheet's glass transition over 98 pairs not annealed, and PR12 holds it within 15 °C above (D149). Observation: 48 to 140. The soft low is the estimate model's own hdtFloor."
 W0057,HDT,°C,semicrystalline,any,any,30,45,280,330,FALSE,Physics: a crystalline bar cannot hold its shape above its melting point. Observation: 48.5 to 264.
 W0058,HDT,°C,high-temp,any,any,60,120,300,350,FALSE,Observation: 140 to 208. Physics: PEEK deflects at about 160 °C at 1.8 MPa.
 W0059,HDT,°C,elastomer,any,any,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,"Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56). Any value is worth a look, and no number bounds it."

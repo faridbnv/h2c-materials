@@ -2499,3 +2499,6 @@ P1913,Adhesion / release,"⚫ Bed Temperature Settings: A bed temperature of 40-
 P1914,Speed,40 mm/s - 100 mm/s (<60mm/s is our recommendation for most pro-consumer hardware)
 P1914,Cooling,LOW-MEDIUM for better surface quality OFF-LOW (<10%) for better strength
 P1914,Warping / shrinkage,"Note 2 : at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+, to reduce warping/material shrinkage during printing on complex parts."
+P1916,Speed,Print speed 25 - 70 mm/s
+P1916,Cooling,Fan speed 0 - 50 %
+P1916,Storage humidity,Print with Dry box No

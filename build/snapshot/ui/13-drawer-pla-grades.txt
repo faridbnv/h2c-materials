@@ -14,7 +14,7 @@ Flexural strength (XY) MPa 76 42.6⁠–⁠115 63 of 176 48 with no stated orien
 Flexural strength (Z) MPa 54 21.1⁠–⁠68 17 of 176 —
 Notched Charpy impact kJ/m² 6 2.16⁠–⁠20.3 14 of 169 17 with no stated orientation (1.8⁠–⁠29.8); 7 with an added filler or additive (1.8⁠–⁠7); 7 sold as toughened (5.76⁠–⁠72.3)
 Notched Izod impact kJ/m² 5 4.5⁠–⁠6.5 6 of 175 11 with no stated orientation (2⁠–⁠19.8); 5 with an added filler or additive (5.5⁠–⁠18.1); 1 sold as toughened (10)
-HDT at 0.45 MPa °C 55 50⁠–⁠135 89 of 176 31 with no stated test load (53⁠–⁠108); 8 with an added filler or additive (55⁠–⁠89)
+HDT at 0.45 MPa °C 55 50⁠–⁠135 86 of 176 31 with no stated test load (53⁠–⁠108); 7 with an added filler or additive (55⁠–⁠60)
 HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 176 3 with an added filler or additive (45⁠–⁠54)
 Glass transition (Tg) °C 59 54⁠–⁠68 75 of 176 7 with an added filler or additive (55⁠–⁠62)
 Price CAD/kg 34 18⁠–⁠80 26 of 176 2 with an added filler or additive (23⁠–⁠65)
@@ -35,7 +35,7 @@ Nozzle wear: 10 of 40 makers (37 products)
 Odour and emissions: 16 of 40 makers (31 products)
 Supports and removal: 8 of 40 makers (39 products)
 Printing advice: 19 of 40 makers (33 products)
-Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (180 products).
+Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (179 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 eSUN
 21 products

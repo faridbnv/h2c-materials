@@ -1,7 +1,7 @@
 // Physical relations: the orderings physics fixes between two properties, read from data/tables/physical_relations.csv.
 //
 // One list serves three readers. The data lint (lint-rules.js) judges every pair of published measurements of one
-// product against it (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS). The registry (registry.js) refuses a headline's
+// product against it (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS, MEAS-PHYSICS-HDT-TG). The registry (registry.js) refuses a headline's
 // lower bounds (headline_definitions.csv) that no relation with Scope headline or both covers, and a headline relation
 // that no headline reads (RELATIONS-HEADLINE-DRIFT), so the two cannot disagree. The compiled list travels in the
 // database's registry for whatever else wants the same orderings.
@@ -9,7 +9,7 @@
 // A relation is: Lower <= Higher, within a margin, for two values that share what its Same test names. The margin is
 // `lower > higher x (1 + relative) + absolute`; a pair outside it is a finding.
 
-import { specimenForm as declaredForm } from './normalize/specimen.js';
+import { specimenForm as declaredForm, readPostProcessingState } from './normalize/specimen.js';
 
 const NA = 'Not applicable';
 
@@ -21,9 +21,12 @@ export const specimenForm = (r) => {
   return form === 'film' || form === 'filament' ? 'strand' : form === 'off-recipe' ? 'off-recipe' : 'bar';
 };
 
-// What each name in Same test reads off a measurement row (schema/vocab/relation-keys.csv).
+// What each name in Same test reads off a measurement row (schema/vocab/relation-keys.csv). `formulationOf` names a
+// grade's formulation: its Shared formulation key, so a product's documents and its twins' (R053, D89) are one
+// formulation, and a grade the caller knows no key for is its own.
 const KEYS = {
   'grade': (r) => r.GradeID,
+  'formulation': (r, { formulationOf }) => formulationOf(r.GradeID),
   'source': (r) => r.SourceID,
   'direction': (r) => r.Direction,
   'unit': (r) => r['Normalized unit'],
@@ -40,8 +43,14 @@ const KEYS = {
 // "B120") is not ordered against the glass transition; a load the row does not state is still ordered. ASTM D1525's
 // "Rate B" is a heating rate, not a load, and names nothing here.
 const HEAVY_VICAT = /\b5\s?kg\b|\b50\s?N\b|(?<!Rate\s?)\bB\s?\/?\s?(50|120)\b/i;
+// An annealed bar is another state of the polymer: a PLA annealed until it crystallises holds a 0.45 MPa load 40 °C
+// above its glass transition (Polymaker's HT-PLA sheets print both states), so a relation that holds only for the glassy
+// state the part is printed in does not judge it (D149). The typed Post-processing state decides; a row without one is
+// read from its words.
+const annealed = (r) => (r['Post-processing state'] ?? readPostProcessingState(r['Post-processing'])) === 'annealed';
 const EXEMPT = {
   'Heavy-load Vicat': (r) => r.Property === 'Vicat softening temperature' && HEAVY_VICAT.test(r['Standard / load'] ?? ''),
+  'Annealed': annealed,
 };
 
 const LOAD_TOLERANCE = 0.05;   // a stated test load matches its relation's within this fraction
@@ -68,9 +77,11 @@ const label = (property, load) => (load == null ? property : `${property} at ${l
 /**
  * Every pair of `rows` (measurements already filtered to the numeric published values) that breaks `relation`.
  * `materialOf(row)` is the row's material in the shape the Applies to rule reads (a Morphology field), or null.
+ * `formulationOf(gradeId)` is the grade's Shared formulation key, which the Same test key "formulation" reads.
  */
-export function* relationFindings(relation, rows, materialOf, applies) {
-  const keyOf = (r) => relation.sameTest.map((k) => KEYS[k](r)).join('\u0000');
+export function* relationFindings(relation, rows, materialOf, applies, { formulationOf = (g) => g } = {}) {
+  const context = { formulationOf: (g) => formulationOf(g) ?? g };
+  const keyOf = (r) => relation.sameTest.map((k) => KEYS[k](r, context)).join('\u0000');
   const exempt = relation.exempt ? EXEMPT[relation.exempt] : () => false;
   const highers = new Map();
   for (const b of rows) {

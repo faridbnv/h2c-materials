@@ -2,8 +2,10 @@
 // value it replaces, so a re-run is a no-op and a run after the data moved stops instead of overwriting; every
 // changed measurement gets a dated note saying what changed and where the source says so.
 
-import { nextId } from '../data/table-io.mjs';
+import { join } from 'node:path';
+import { nextId, projectRoot } from '../data/table-io.mjs';
 import { testTemperatureCell } from '../../build/src/typed-values.js';
+import { readCsv, csvText } from '../../build/src/csv.js';
 
 const NA = 'Not applicable';
 
@@ -64,4 +66,36 @@ export function addValue(t, { like, set, note, migration, date = '2026-09-14', w
   for (const k of ['Stress max MPa', 'Stress min MPa', 'Stress amplitude MPa', 'Frequency Hz', 'Load ratio R', 'Run-out']) delete row[k];
   t.append('measurements', row);
   return row.MeasurementID;
+}
+
+const ACCEPTED = 'data/review/accepted-findings.csv';
+const findingOf = (r) => [r.Code, r.Table, r.Record, r.Field ?? ''].join('\u0000');
+
+/**
+ * Settle lint findings in the migration's own save: `accept` rows ({ Code, Table, Record, Field, Reason }) are written
+ * with the date, each after the last acceptance of its code (or where its code sorts), and `drop` names acceptances
+ * ({ Code, Table, Record, Field }) whose finding the migration removes and that would otherwise stand stale (AGENTS.md:
+ * an accepted finding that no longer occurs must be removed). Staged with the tables, so a refused save leaves neither.
+ * A re-run adds and drops nothing. Returns { added, dropped }.
+ */
+export function settleFindings(t, { accept = [], drop = [], date, root = projectRoot }) {
+  const file = join(root, ACCEPTED);
+  const { header, records } = readCsv(file);
+  const gone = new Set(drop.map((d) => findingOf({ Table: 'measurements', Field: 'Normalized value', ...d })));
+  const all = records.map((r) => r.values);
+  const rows = all.filter((r) => !gone.has(findingOf(r)));
+  const dropped = all.length - rows.length;
+  const have = new Set(rows.map(findingOf));
+  let added = 0;
+  for (const a of accept) {
+    const row = { Code: a.Code, Table: a.Table ?? 'measurements', Record: a.Record, Field: a.Field ?? 'Normalized value', Reason: a.Reason, Accepted: date };
+    if (have.has(findingOf(row))) continue;
+    const last = rows.map((r) => r.Code).lastIndexOf(row.Code);
+    const next = rows.findIndex((r) => r.Code > row.Code);
+    rows.splice(last >= 0 ? last + 1 : next < 0 ? rows.length : next, 0, row);
+    have.add(findingOf(row));
+    added++;
+  }
+  if (added || dropped) t.stageFile(file, csvText(header, rows));
+  return { added, dropped };
 }
