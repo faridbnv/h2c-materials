@@ -20,16 +20,12 @@ export function renderStart(state, actions) {
   const { db } = state;
   return `
   <section class="start">
-    <div class="start-flow">
-      <span class="step"><b>1</b> Set requirements</span><i>&rsaquo;</i>
-      <span class="step"><b>2</b> Read the candidates</span><i>&rsaquo;</i>
-      <span class="step"><b>3</b> Compare the trade-offs</span><i>&rsaquo;</i>
-      <span class="step"><b>4</b> Check the evidence</span>
-    </div>
-
+    <!-- The four-step line (set requirements, read the candidates, compare, check the evidence) was folded away on
+         2026-10-18 with the owner's word: it stood between the reader and the templates, and the view tabs and the
+         drawer already walk those steps. The H2C clause, once in each of the six cards, is said here once. -->
     <h2>Start from a typical part, or set your own requirements in Filters.</h2>
-    <p>A template only fills in the controls. Every value it sets stays editable, and nothing is
-      decided for you.</p>
+    <p>A template only fills in the controls. Every value it sets stays editable, and nothing is decided for you.
+      All six also ask for a build material the H2C can print: nozzle, bed and chamber within its limits.</p>
 
     <div class="start-grid">
       ${TEMPLATES.map((t, i) => `

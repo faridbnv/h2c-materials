@@ -305,7 +305,7 @@ export function renderTable(host, state, actions) {
         return ghost
           ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
           : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${unknownMark(e)}</td>`
-          : `<td class="state"><span class="chip chip-neutral" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
+          : `<td class="state"><span class="chip chip-quiet" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
         if (ghost) return `<td class="pin-col"></td>`;

@@ -289,6 +289,9 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 .chip-INDETERMINATE { background: var(--indet-bg); color: var(--indet); }
 .chip-INDETERMINATE::before { content: "◐"; }
 .chip-neutral { background: var(--surface-2); color: var(--ink-2); }
+/* "not tested" on every row of the cold table is quiet text, not a chip: 152 grey pills had been the table's loudest
+   column before anything was asked. It keeps the chip's class, which the fuzz reads. */
+.chip.chip-quiet { background: none; padding: 0; font-weight: 400; font-size: var(--t-small); color: var(--ink-3-text); }
 
 .btn {
   padding: 7px 14px; border: 1px solid var(--border-strong); background: var(--surface);
@@ -1107,28 +1110,24 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 .linkish:hover { color: var(--accent); text-decoration: underline; }
 
 /* ---------------------------------------------------------------- start panel */
-.start { max-width: 1000px; margin: 0 0 28px; }
-.start-flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-.start-flow .step { font-size: var(--t-small); color: var(--ink-2); display: inline-flex; align-items: center; gap: 7px; }
-.start-flow .step b {
-  display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%;
-  background: var(--accent-soft); color: var(--accent); font-size: var(--t-label);
-}
-.start-flow i { color: var(--ink-3-text); font-style: normal; }
-.start h2 { font-size: 20px; margin: 0 0 6px; letter-spacing: -0.015em; font-weight: 650; }
-.start > p { color: var(--ink-2); margin: 0 0 18px; max-width: 70ch; }
-.start-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 11px; margin-bottom: 22px; }
+/* The cold page, tighter (2026-10-18): the cards, the facts and the promise closer together, so the table's bar and
+   its first rows come into a laptop's first view (TRACKER M2a). Every template and every sentence stays. */
+.start { max-width: 1000px; margin: 0 0 12px; }
+.start h2 { font-size: 19px; margin: 0 0 3px; letter-spacing: -0.015em; font-weight: 650; }
+.start > p { color: var(--ink-2); margin: 0 0 12px; max-width: none; }
+.start-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 9px; margin-bottom: 12px; }
+/* Text from the top: in a row of cards of different lengths it had floated to each card's middle. */
 .start-card {
-  display: grid; gap: 5px; text-align: left; padding: 14px 16px; cursor: pointer;
+  display: grid; align-content: start; gap: 3px; text-align: left; padding: 10px 14px 11px; cursor: pointer;
   border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface);
   font: inherit; color: inherit;
 }
 .start-card:hover { border-color: var(--accent); background: var(--accent-soft); }
 .start-card-name { font-weight: 650; font-size: var(--t-body); }
-.start-card-desc { font-size: var(--t-small); color: var(--ink-2); line-height: 1.45; }
-.start-facts { display: flex; gap: 26px; flex-wrap: wrap; font-size: var(--t-small); color: var(--ink-2); padding-top: 16px; border-top: 1px solid var(--border); }
+.start-card-desc { font-size: var(--t-small); color: var(--ink-2); line-height: 1.4; }
+.start-facts { display: flex; gap: 4px 22px; flex-wrap: wrap; font-size: var(--t-small); color: var(--ink-2); padding-top: 10px; border-top: 1px solid var(--border); }
 .start-facts b { color: var(--ink); font-variant-numeric: tabular-nums; }
-.start-note { font-size: var(--t-small); color: var(--ink-3-text); margin: 12px 0 0; max-width: 74ch; }
+.start-note { font-size: var(--t-small); color: var(--ink-3-text); margin: 4px 0 0; max-width: none; }
 
 /* ---------------------------------------------------------------- parallel coordinates (svg) */
 .pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
@@ -1424,7 +1423,7 @@ tr.baseline-row .name { color: var(--accent); }
 }
 
 /* What the database does not cover, said before anyone goes hunting for it. */
-.start-limits { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
+.start-limits { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 6px; }
 .start-limits summary {
   cursor: pointer; font-size: var(--t-small); font-weight: 650; color: var(--ink-2);
   display: flex; align-items: center; gap: 6px; list-style: none;
