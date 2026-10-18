@@ -1213,7 +1213,8 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
   border-radius: 999px; padding: 5px 8px 5px 14px; cursor: pointer; font-weight: 600;
 }
 .pill:hover { background: var(--fail-bg); border-color: var(--fail); color: var(--fail); }
-.pill .x { font-size: 15px; line-height: 1; opacity: .7; }
+/* The × at the pill's own ink: faded to .7 it fell to 3.2:1 (TRACKER M6). */
+.pill .x { font-size: 15px; line-height: 1; }
 .pill.soft { border-style: dashed; border-color: var(--border-strong); background: var(--surface); color: var(--ink-2); font-weight: 400; }
 /* The tracked requirements are a row of their own, so their label never reads as part of the required pills. */
 .pill-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-basis: 100%; }
@@ -1456,6 +1457,9 @@ tr.baseline-row .name { color: var(--accent); }
 .statusbar button.chip { padding: 3px 11px; border-radius: 999px; font-size: var(--t-small); }
 .statusbar button.chip[aria-pressed="true"] { outline: 0; border-color: currentColor; }
 .statusbar button.chip[aria-pressed="false"] { background: transparent; border-color: var(--border-strong); color: var(--ink-2); }
+/* The last state shown cannot be hidden, so its chip is disabled, but its count is still the answer: it stays at full
+   ink, not faded to 2.1:1 like a control that does nothing (TRACKER M6). */
+.statusbar button.chip[disabled][aria-pressed="true"] { opacity: 1; }
 .statusbar button.chip-screened[aria-pressed="false"] { border-style: dashed; border-color: var(--unknown); color: var(--unknown); }
 
 /* Estimate spans in Compare. A span, not a bar: there is no value to fill to, and drawing one
