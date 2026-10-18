@@ -1909,6 +1909,22 @@ drawer and on the pages they are annealed and an added filler or additive. Chang
 **The decision brief's product.** Your requirements may show a passing product other than the engine's (D146); the
 decision brief and the exports keep the engine's.
 
+
+### 37.21. What the coherence review leaves
+
+*From the coherence review of 2026-10-18 ([recommendations](audits/2026-10-18-coherence-review/RECOMMENDATIONS.md)):
+the changes the product manager rated later, and those the owner was advised against, documented and not built.*
+
+**Later (worth doing, lower value).** C30, one search-field style on the index and the Products page (the selector's
+filled pill); C45, "↑ better" under each Parallel lines axis and three to five real ticks; C46, the products' spread on
+the line being read, "passes on 1 of 9 products"; C47, far outliers parked at an axis end by the pages' "beyond the
+scale" rule; C48, Compare drawn in the pages' glyph (median tick, middle-half bar, range hairline), the first step of
+V17, the short-list trade-off as a strip table; C49, one wording for log scales and counts across the lenses.
+**Advised against, the owner's call.** C52, a line to the material pages on the selector's first screen (it goes back on
+D145's quiet link and D146's calmer first screen); C53, the pages' mark leading to the selector rather than the index
+(it reverses D145); C54, "Compare these in the selector" from a page's alternatives (it would replace the reader's
+shortlist; with V17).
+
 ---
 
 ## What needs a person, the owner or a test
@@ -2480,3 +2496,4 @@ node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parit
 | §37.18 | What the final review of PETG, PLA and PCTG-GF leaves | What the model and the tools cannot do |
 | §37.19 | What the reimagined pages leave | What the model and the tools cannot do |
 | §37.20 | What the selector refinement leaves | What the model and the tools cannot do |
+| §37.21 | What the coherence review leaves | What the model and the tools cannot do |

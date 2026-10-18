@@ -1,5 +1,7 @@
 # The drawer against the material page
 
+> **Historical record** (2026-10-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 > Review only (2026-10-18). PLA (M001), PETG (M020), PCTG-GF (M110), PEI-CF (M118): the selector's drawer, all eight tabs,
 > cold and under Indoor prototype, against each material's Overview and Products pages, read as text with every fold
 > open and checked in screenshots. Screenshots are in this folder. Nothing in the code or data was changed.
