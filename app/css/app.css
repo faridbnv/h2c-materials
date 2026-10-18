@@ -818,6 +818,8 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-bar .bounds { position: absolute; top: 5px; height: 6px; border-left: 2px solid var(--ink-3); border-right: 2px solid var(--ink-3); }
 .cmp-bar .val { text-align: right; font-family: var(--mono); font-size: 12px; }
 .cmp-bar .related-tick { position: absolute; top: 2px; width: 3px; height: 12px; margin-left: -1px; background: var(--ink-3); border-radius: 1px; }
+/* The value on a log track: a tick, not a bar from the left end. */
+.cmp-bar .value-tick { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--accent); border-radius: 1px; z-index: 1; }
 /* A requirement across the track: an upright line past both edges, above the bar and any estimate span, in the colour
    the Ashby chart draws requirements in. A tracked one is dashed. The heading names it in words. */
 .cmp-bar .cmp-threshold { position: absolute; top: -4px; bottom: -4px; width: 0; margin-left: -1px; border-left: 2px solid var(--fail); z-index: 1; }

@@ -173,8 +173,10 @@ export function renderCompare(host, state, actions) {
             <span class="val">${explainButton(`~${d.lo}–${d.hi}<span class="est-mark">†</span>`, title,
               { cls: `est est-${e.precision}`, head: 'Estimate, not a measurement', action: 'estimate', id: m.id })}</span></div>`;
         }
-        // The bar fills from the track's low end, the lowest candidate, so its length is the material's place in the
-        // database's range; the end labels under the bars say what that range is.
+        // On a linear track the bar fills from the track's low end, the lowest material, so its length is the material's
+        // place in the database's range; the end labels under the bars say what that range is. On a log track a length from
+        // the left end means nothing (0.005 to 10 GPa: PLA and PLA Silk drew alike), so the value is a tick on the track
+        // (REVIEW-0 F9, 2026-10-18).
         const bounds = h.spread && h.spread.n > 1
           // The range of its products, behind the typical value's bar: different products, not the spread of one.
           ? `<span class="bounds spread-bounds" title="${esc(`Its ${h.spread.n} products range from ${fmtNumber(h.spread.min)} to ${fmtNumber(h.spread.max)}`)}" style="left:${pct(h.spread.min)}%;width:${Math.max(pct(h.spread.max) - pct(h.spread.min), 1)}%"></span>`
@@ -182,14 +184,14 @@ export function renderCompare(host, state, actions) {
           ? `<span class="bounds" style="left:${pct(h.interval.lo)}%;width:${pct(h.interval.hi) - pct(h.interval.lo)}%"></span>` : '';
         return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}">
           <span>${who}</span>
-          <span class="track"><span class="fill" style="width:${pct(h.value)}%"></span>${bounds}${lines}</span>
+          <span class="track">${log ? `<span class="value-tick" style="left:${pct(h.value)}%"></span>` : `<span class="fill" style="width:${pct(h.value)}%"></span>`}${bounds}${lines}</span>
           <span class="val">${renderValue(h)}</span></div>`;
       }).join('')}
       <div class="cmp-bar cmp-axis">
         <span></span>
         <span class="cmp-scale${log ? ' log' : ''}"><span>${esc(fmtNumber(lo))}</span>${log ? '<span class="cmp-scale-kind">log scale</span>' : ''}<span>${esc(fmtNumber(hi))}</span></span>
         <span class="cmp-scale-note">${beyond ? 'requirement past the end'
-          : !widened ? `all ${candidates.length} candidates`
+          : !widened ? `all ${candidates.length} materials`
           : requirements.some((c) => c.value < base.lo || c.value > base.hi) ? 'widened to the requirement' : 'widened to a value shown'}</span>
       </div>
       <div class="cmp-cond">${conds.map((c, i) => c ? `${esc(picked[i].name)}: ${esc(c)}` : '').filter(Boolean).join(' | ')}
@@ -249,10 +251,10 @@ export function renderCompare(host, state, actions) {
       <div class="spacer" style="flex:1"></div>
       <button class="btn btn-sm" id="cmp-print">Print summary</button>
     </div>
-    <p class="fine cmp-intro">Each track runs from the lowest to the highest of all ${candidates.length} candidate materials${useEstimates ? ', estimates included' : ''},
+    <p class="fine cmp-intro">Each track runs from the lowest to the highest of all ${candidates.length} materials${useEstimates ? ', estimates included' : ''},
       so a bar's length shows where a material sits among them.${logTracks.length
-        ? ` Tracks spanning more than a hundredfold (${logTracks.join(' and ')}) use a log scale.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
-        ? ' An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end.' : ''}
+        ? ` Tracks spanning more than a hundredfold (${logTracks.join(' and ')}) use a log scale, where a tick marks the value.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
+        ? ' An upright line is a requirement, dashed if it is reported, not required; a track widens to show one past the candidates, or marks it at its end.' : ''}
       ${anyBounds ? 'The <b>|—|</b> marks are the range of the material\'s products, or a range or scatter the source reported. ' : ''}${anyRelated ? 'A <b>*</b> is a published value that is not comparable, drawn as a tick; select it for why.' : ''}</p>
     ${blocks}
     <h3 class="sec">H2C printability</h3>
