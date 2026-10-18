@@ -238,7 +238,7 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
   // A chip is a switch whose state is its look: pressed or not. One that does not apply says why, and stays put.
   const chip = (attrs, on, label, why = '', help = '') => `<button type="button" class="ws-chip" ${attrs} aria-pressed="${!!on && !why}" ${why ? `disabled title="${esc(why)}"` : help ? `title="${esc(help)}"` : ''}>${esc(label)}</button>`;
   const productsOnly = view === 'decision' ? '' : 'Drawn in the Products view';
-  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? '"Let estimates rule out materials"' : 'Include uncertain and "Let estimates rule out materials"'}, at the top of the page`;
+  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? '"Let estimates rule out materials"' : '"Include" under Materials that could not be checked, and "Let estimates rule out materials"'}, at the top of the page`;
   const estWhy = work ? (state.estimates?.off ? needs : '')
     : estimates?.measured ? 'Test pairs are measured values only'
       : !state.ctx?.showEstimates ? needs

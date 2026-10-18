@@ -474,7 +474,7 @@ export function renderTable(host, state, actions) {
                 + '<br>Not a failure. The SCREENED chip at the bottom shows these.'
             : e.heldBy.length
               ? `Could not be checked against ${esc(e.unresolved.map((r) => describeConstraint(r.constraint)).join(', '))}.`
-                + ` Not a failure: it is left out because missing data is set to "${POLICY_LABELS.strict}".`
+                + ` Not a failure: it is left out because ${POLICY_CONTROL.toLowerCase()} are set to "${POLICY_LABELS.strict}".`
               : 'Hidden by the result filters at the bottom of the screen.';
           return `<tr data-material="${esc(m.id)}" tabindex="0">
             <td class="name">${esc(primary)}${aka ? `<span class="row-sub">also called ${esc(aka)}</span>` : ''}</td>

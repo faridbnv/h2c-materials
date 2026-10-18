@@ -145,7 +145,7 @@ function partCondition(scenario, db) {
       <div class="segmented seg-sm" role="group" aria-labelledby="seg-moisture">
         ${seg('moisture', 'dry', dry, 'Dry')}${seg('moisture', 'conditioned', !dry, 'Conditioned')}</div>
       <div class="avail">Data sheets test dry bars. Conditioned judges only values measured after moisture conditioning,
-        which ${conditioned} products publish, so most materials become unknown and Confirmed only leaves them out.</div>
+        which ${conditioned} products publish, so most materials could not be checked and are left out unless included.</div>
     </div>`;
 }
 

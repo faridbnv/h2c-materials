@@ -47,8 +47,8 @@ export function renderExclusions(host, state, actions) {
     <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
       Each requirement, ranked by how many candidates it costs. <b>Failed:</b> the published value misses it.
       <b>Could not check:</b> the data is missing; ${explore
-        ? `these stay listed, flagged, under "${POLICY_LABELS.exploration}"`
-        : `these are out only because missing data is set to "${POLICY_LABELS.strict}" in the top bar`}.
+        ? 'these stay listed, flagged, since the materials that could not be checked are included'
+        : `these are out only because the materials that could not be checked are set to "${POLICY_LABELS.strict}" in the top bar`}.
       <b>Removing it</b> counts the materials that would come back without that one requirement.</p>
     ${ranked.map((r, i) => `
       <div class="relax">
@@ -62,8 +62,8 @@ export function renderExclusions(host, state, actions) {
         <button class="btn btn-sm" data-relax="${i}" aria-label="Remove the requirement: ${esc(nameOf(r.constraint))}">Remove</button>
       </div>`).join('')}
     ${explore ? '' : `<p style="margin-top:16px">
-      <button class="btn" id="to-explore">Switch to ${POLICY_LABELS.exploration}</button>
-      <span class="fine">Materials that could not be checked then stay listed, flagged.</span></p>`}`;
+      <button class="btn" id="to-explore">Include the materials that could not be checked</button>
+      <span class="fine">They then stay listed, flagged, with what is missing for each.</span></p>`}`;
 
   host.querySelectorAll('[data-relax]').forEach((b) => b.addEventListener('click', () => {
     actions.removeConstraint(ranked[Number(b.dataset.relax)].constraint);
@@ -160,7 +160,7 @@ export function renderNoResults(host, state, actions) {
   const unconfirmable = scenario.constraints.filter((c) => c.mandatory !== false && unconfirmed(selection, c));
   const explore = scenario.unknownPolicy === 'exploration';
   const next = `<ul class="next-steps">
-      ${counts.unknown ? `<li>${explore ? 'Include uncertain lists them already; the SCREENED chip brings back any an estimate excluded.' : `<button type="button" class="btn btn-sm" id="to-explore">Include uncertain</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
+      ${counts.unknown ? `<li>${explore ? 'The materials that could not be checked are listed already; the SCREENED chip brings back any an estimate excluded.' : `<button type="button" class="btn btn-sm" id="to-explore">Include them</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
       ${unconfirmable.length ? `<li>No data here can confirm ${esc(unconfirmable.map(describeConstraint).join('; '))}. Read what makers say in a material's Environment or Products tab, and plan a test of your own part.</li>` : ''}
       <li>The ranked list below shows which requirement removes the most, and which ones only failed.</li>
     </ul>`;

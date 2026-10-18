@@ -123,15 +123,15 @@ export function renderActive(state, actions) {
   const pill = (c, i) => `<button class="pill${c.mandatory === false ? ' soft' : ''}" data-drop="${i}"
       title="Remove this requirement">${esc(describe(c))}<span class="x" aria-hidden="true">\u00d7</span></button>`;
 
-  // Under Include uncertain the table lists the materials that could not be checked beside the ones that passed, so
+  // Included, the table lists the materials that could not be checked beside the ones that passed, so
   // the heading counts both. "15 meet these requirements" above 23 rows read as a contradiction; the other 8 were
   // listed and nothing on screen said what they were. An estimate may hold some of them out, and that is said too.
   const screened = explore && state.ctx?.useEstimates ? counts.screened : 0;
   const unknownClause = counts.unknown && explore ? `, and ${counts.unknown} more could not be checked for missing data` : '';
   const unknownSentence = !counts.unknown ? ''
-    : explore ? `${POLICY_LABELS.exploration} lists those ${counts.unknown} flagged${screened
+    : explore ? `Included, those ${counts.unknown} are listed flagged${screened
       ? `, except the ${screened} excluded by an estimate or by resin reference data; the SCREENED chip at the bottom shows them` : ''}. `
-    : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
+    : `${counts.unknown} more could not be checked for missing data and are left out; ${POLICY_LABELS.exploration} at the top lists them, flagged. `;
 
   // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
   // it would add are named in the button's title, so the line stays one line.
@@ -150,7 +150,7 @@ export function renderActive(state, actions) {
   const shownHard = printable ? hard.filter((c) => !(c.kind === 'gate' && printGates.has(c.gate))) : hard;
   const firstSentence = (t) => (String(t).match(/^[^.:]+[.:]/)?.[0] ?? String(t)).replace(/[.:]$/, '');
   const beside = [scenario.template ? `${scenario.template} template${sameAsTemplate ? '' : ', changed'}` : null,
-    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}` : `, left out under ${POLICY_LABELS.strict}`}` : null].filter(Boolean).join(' · ');
+    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}` : ' and are left out'}` : null].filter(Boolean).join(' · ');
   return `
   <section class="active compact">
     <div class="active-head">

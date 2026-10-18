@@ -22,13 +22,20 @@ export const prop = (key) => PROPERTY[key] ?? { short: key, plain: key, technica
  */
 // "Candidate confidence" read as a statistical confidence; the switch decides whether materials with missing data are
 // listed (the PM trial of 2026-10-01, PM-09).
-export const POLICY_CONTROL = 'Materials with missing data';
+// "Materials with missing data: Confirmed only / Include uncertain" made an engineer stop twice (REVIEW-0, 2026-10-18):
+// the control names the materials it is about, those whose data cannot settle a requirement, and what to do with them.
+export const POLICY_CONTROL = 'Materials that could not be checked';
 /** The same label where a phone has no room for the long one. The control is never left unlabelled. */
-export const POLICY_CONTROL_SHORT = 'Missing data';
+export const POLICY_CONTROL_SHORT = 'Could not be checked';
 /** An environment requirement in words. Water solubility is not water resistance: a nylon does not dissolve in water and
  * still takes it up, so it reads "Does not dissolve in water" (the PM trial, PM-11). */
 export const envRequirement = (category) => (category === 'water-solubility' ? 'Does not dissolve in water' : `Resists ${envNoun(category)}`);
-export const POLICY_LABELS = { strict: 'Confirmed only', exploration: 'Include uncertain' };
+export const POLICY_LABELS = { strict: 'Leave out', exploration: 'Include' };
+/** The choice in a sentence, where the buttons' two words alone would not read ("With Include, …"). */
+export const POLICY_PHRASE = {
+  strict: 'with the materials that could not be checked left out',
+  exploration: 'with the materials that could not be checked included',
+};
 export const policyLabel = (policy) => POLICY_LABELS[policy] ?? POLICY_LABELS.strict;
 
 // The H2C's limits, from the build (db.meta.h2cBaseline); set once at start-up. Every label that names a limit reads
@@ -153,7 +160,7 @@ export function estimateTitle(e, d) {
   return `Estimate, not a measurement: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} interval), centre ${d.centre}${unit}.${column}${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its product is also filed under ${e.sharedWith.name}.` : ''}`
     + ` ${e.precision === 'poor' ? 'Poor precision: treat it as an order of magnitude only.' : `Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`}`
-    + ` It never makes a material pass.${e.canScreen ? ` With ${POLICY_LABELS.exploration}, it excludes this material from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+    + ` It never makes a material pass.${e.canScreen ? ` ${POLICY_PHRASE.exploration.charAt(0).toUpperCase()}${POLICY_PHRASE.exploration.slice(1)}, it excludes this material from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
 }
 
 /**

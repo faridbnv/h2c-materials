@@ -611,16 +611,17 @@ function render() {
            : `Click to show the ${n} ${what}.`;
   }
   const explore = state.scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION;
-  // Shown in both modes, so a reader in the default mode learns estimates exist; under Confirmed only it is disabled
-  // and says why, where it used to vanish.
+  // Shown in both modes, so a reader in the default mode learns estimates exist; with the materials that could not be
+  // checked left out it is disabled, and its ?, its title and its name for a screen reader say why, where it used to
+  // vanish. The visible caption beside it went into the ? (2026-10-18): it had made the panel the loudest thing on the page.
   const estToggle = document.getElementById('est-toggle');
   const estBox = document.getElementById('use-estimates');
   estBox.checked = state.useEstimates;
   estBox.disabled = !explore;
   estToggle.dataset.disabled = String(!explore);
   document.getElementById('est-reason').hidden = explore;
-  // How many it screened, under the switch where the reason sits under Confirmed only: beside it, the count pushed the
-  // top bar onto a second row at laptop widths.
+  estToggle.title = explore ? '' : 'Works only when the materials that could not be checked are included';
+  // How many it screened, under the switch: beside it, the count pushed the top bar onto a second row at laptop widths.
   const ruled = document.getElementById('est-ruled');
   ruled.textContent = explore && state.useEstimates && counts.screened ? `${counts.screened} screened` : '';
   ruled.hidden = !ruled.textContent;

@@ -78,24 +78,25 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 /* The theme button is a sun or a moon at every width; its words ("Switch to dark theme") stay its name and title. */
 #btn-theme { min-width: 34px; padding: 5px 8px; }
 #btn-theme .btn-text { display: none; }
-@media (max-width: 1500px) {
-  /* The mode's label above its buttons rather than beside them: the same words in 160 px less of the bar's width. */
-  .topbar .mode-group { flex-direction: column; align-items: flex-start; gap: 1px; }
-  .topbar .mode-label { font-size: 11px; line-height: 1.25; }
-  .topbar .mode-group .segmented button { padding-block: 3px; }
-}
 @media (max-width: 1300px) {
-  .topbar .search { flex-basis: 220px; }
+  .topbar .search { flex-basis: 200px; }
   /* Save / share keeps its words as its name and title, and shows its arrow. */
   #btn-scenario { min-width: 34px; padding: 5px 8px; }
   #btn-scenario .btn-text { display: none; }
 }
-/* The missing-data settings: the mode and the estimates switch in one panel, divided by a rule. */
-.data-settings {
-  display: flex; align-items: center; gap: 14px; padding: 4px 6px 4px 12px; min-height: 44px;
-  background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
+/* A small laptop: the search narrows and the setting takes its short label, so the bar stays one row down to 1101 px. */
+@media (min-width: 1101px) and (max-width: 1250px) {
+  .topbar .search { flex-basis: 150px; }
+  .topbar .mode-label-long { display: none; }
+  .topbar .mode-label-short { display: inline; }
 }
-.data-settings .est-group { border-left: 1px solid var(--border); padding-left: 14px; }
+/* The missing-data settings: the mode and the estimates switch side by side, divided by a rule, with no panel around
+   them. Boxed and filled, with the label stacked over a full-size control, they were the loudest thing on the cold
+   page, a policy set before anything was asked (REVIEW-0 F3, 2026-10-18). One line, the label beside its choice. */
+.data-settings { display: flex; align-items: center; gap: 12px; padding: 0; min-height: 0; }
+.data-settings .est-group { border-left: 1px solid var(--border); padding-left: 12px; }
+.data-settings .segmented { padding: 2px; }
+.data-settings .segmented button { padding: 3px 10px; font-size: var(--t-small); }
 .search { position: relative; flex: 0 1 300px; min-width: 0; }
 .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-3-text); pointer-events: none; }
 .search input {
@@ -138,7 +139,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 }
 .segmented button:hover { color: var(--ink); background: color-mix(in srgb, var(--surface) 55%, transparent); }
 .segmented button[aria-pressed="true"] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
-.data-settings .segmented { background: var(--bg); }
+.data-settings .segmented { background: var(--surface-2); }
 /* A tab label that turns bold when selected keeps the width of its bold form, so selecting a tab does not move its
    neighbours (the view tabs and the drawer's tabs shifted a few pixels on every change). The copy is hidden and has no
    text for a screen reader. */
@@ -935,7 +936,7 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
    on a row of its own, its label beside its buttons since the row has room. With the actions under the first row's end
    the bar was 123 px tall at 1024 x 768, and the Warm environment template showed two result rows before scrolling. */
 @media (min-width: 601px) and (max-width: 1100px) {
-  .data-settings { order: 5; min-height: 0; padding: 3px 6px 3px 12px; }
+  .data-settings { order: 5; }
   .topbar .mode-group { flex-direction: row; align-items: center; gap: 9px; }
   .topbar .mode-label { font-size: var(--t-small); line-height: inherit; }
 }
@@ -969,7 +970,7 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
   .topbar .est-line { display: contents; }
   .topbar .est-toggle { grid-area: toggle; gap: 6px; padding: 2px 0; white-space: normal; line-height: 1.2; justify-self: start; font-size: 12.5px; }
   .topbar .est-group .info-mark { grid-area: info; }
-  .topbar .est-reason, .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
+  .topbar .est-ruled { grid-area: note; white-space: normal; line-height: 1.25; max-width: 9em; }
   .cmp-cond { padding-left: 0; }
 
   /* The page scrolls as a whole, so the status bar and the shortlist are reached by scrolling to them. Fitted into one
@@ -1251,10 +1252,11 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 .est-toggle input:checked { background: var(--accent); }
 .est-toggle input:checked::after { transform: translateX(12px); }
 .est-toggle:hover input:not(:disabled) { box-shadow: 0 0 0 3px var(--accent-soft); }
-/* Under Confirmed only: visibly off, with its reason under it. */
+/* With the materials that could not be checked left out: visibly off. Its reason is in its ? and its title, and is read
+   aloud with it; the visible caption under it made the panel two lines tall. */
 .est-toggle[data-disabled="true"] { color: var(--ink-3-text); cursor: not-allowed; }
 .est-toggle[data-disabled="true"] input { opacity: .45; }
-.est-reason { font-size: 11px; color: var(--ink-3-text); white-space: nowrap; padding-left: 2px; }
+.est-reason { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .info-mark {
   width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--ink-2);
   font-size: 12px; font-weight: 700; text-align: center; line-height: 22px;
@@ -1339,6 +1341,7 @@ a.buy.buy-arrow .buy-mark { margin-left: 0; }
 .mode-label {
   font-size: var(--t-small); color: var(--ink-2); font-weight: 600; white-space: nowrap;
 }
+.topbar .mode-label { font-weight: 500; }
 /* The label stays at every width; a phone gets the short form. */
 .mode-label-short { display: none; }
 @media (max-width: 600px) {
