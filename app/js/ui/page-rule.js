@@ -12,6 +12,9 @@ export const PAGE_RULE = { minProducts: 3, minValues: 20 };
 /** The folder the pages are written to, beside the selector's page in dist/ and on the site. */
 export const PAGES_DIR = 'materials';
 
+/** A material's Products page, beside its Overview ('M020-products.html'), and an anchor on it ('#G001-01' opens that product's card, '#V000050' a value in it). */
+export const productsHref = (id, anchor = '') => `${id}-products.html${anchor}`;
+
 /** What the rule reads of a material: its products and its measured values with a number. `ms` are its measurements. */
 export const pageFacts = (m, ms) => ({ products: m.gradeIds.length, values: ms.filter((x) => x.numeric).length });
 
@@ -20,6 +23,14 @@ export function pageOf(m, ms) {
   if (m.familyEntry) return null;
   const f = pageFacts(m, ms);
   return f.products >= PAGE_RULE.minProducts && f.values >= PAGE_RULE.minValues ? `${PAGES_DIR}/${m.id}.html` : null;
+}
+
+/**
+ * A material's Products page, as a path relative to the selector's page ('materials/M020-products.html'), or null where
+ * the material has no page; with a product's ID, that product's card on it ('materials/M020-products.html#G020-01').
+ */
+export function productsPageOf(m, ms, gradeId = null) {
+  return pageOf(m, ms) ? `${PAGES_DIR}/${productsHref(m.id, gradeId ? `#${gradeId}` : '')}` : null;
 }
 
 /** The rule in words, its numbers PAGE_RULE's: "3 products and 20 measured values". */

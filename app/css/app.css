@@ -1597,6 +1597,8 @@ tr.baseline-row .name { color: var(--accent); }
 .grade-body { padding: 0 0 8px 22px; }
 .grade-docs { font-size: var(--t-small); margin: 6px 0; }
 .grade-docs .shared-head { display: inline; margin-right: 6px; }
+/* A product's way to its card on the material's Products page (C37): a line of its own, in the Sources line's size. */
+.grade-card { font-size: var(--t-small); margin: 6px 0; }
 /* Sources: what a document covers and gave, and its record notes out of the way. */
 .src-covers { font-size: var(--t-small); color: var(--ink-2); margin: 2px 0; }
 .record-notes { margin: 3px 0 0; font-size: var(--t-label); color: var(--ink-3-text); }

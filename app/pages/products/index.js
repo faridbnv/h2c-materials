@@ -18,6 +18,7 @@ import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { materialContext, productRows, indexDb, stated, productNameOrId, identity, isProduct, priceRows } from '../../js/ui/material-facts.js';
 import { andList, plural, lower } from '../../js/ui/material-words.js';
+import { mostDocumentedFirst } from '../../js/ui/product-order.js';
 import { documentShell, pageHead, tabsNav, BRAND, ICON } from '../shell.js';
 import { disp } from '../sections/masthead.js';
 import { colophon } from '../sections/footer.js';
@@ -248,11 +249,9 @@ export function renderProductsPage(db, id, env) {
   for (const g of c.grades) if (stated(g.formulationKey)) (byKey.get(g.formulationKey) ?? byKey.set(g.formulationKey, []).get(g.formulationKey)).push(g);
   const records = recordsByProduct(c);
   const ix = drawnIndex(c);
-  // Most documented first: the key values a product publishes, those compared before those not, then maker and name.
-  const keyProps = REGISTRY.allHeadlines.filter((h) => h.kind === 'measurement' && !m.headline?.[h.key]?.notApplicable);
-  const docs = (r) => { const p = keyProps.filter((h) => r.values[h.key]); return [p.length, p.filter((h) => r.values[h.key].level !== 'as-published').length]; };
-  const ordered = rows.map((r) => ({ r, d: docs(r) }))
-    .sort((a, b) => b.d[0] - a.d[0] || b.d[1] - a.d[1] || (a.r.maker ?? '~').localeCompare(b.r.maker ?? '~') || a.r.name.localeCompare(b.r.name)).map((x) => x.r);
+  // Most documented first: the key values a product publishes, those compared before those not, then maker and name
+  // (js/ui/product-order.js, which the drawer's Products tab reads too).
+  const ordered = mostDocumentedFirst(m, rows);
   const phone = PHONE.filter((k) => cols.some((col) => col.key === k));
   for (const col of cols) if (phone.length < 4 && !phone.includes(col.key)) phone.push(col.key);
   const open = rows.length < 6;

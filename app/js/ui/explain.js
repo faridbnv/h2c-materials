@@ -95,6 +95,19 @@ export function renderExclusions(host, state, actions) {
 const MATERIAL_LEVEL = (c) => (c.kind === 'gate' && ['scope', 'nozzle', 'bed', 'chamber'].includes(c.gate)) || (c.kind === 'facet' && c.facet === 'supportMaterial');
 
 /**
+ * The product a material's requirements lines are one product's of (see renderWhy): { gradeId, results }, its results
+ * being what the lines show. The drawer's Products tab opens the same product first, so the two never name two.
+ */
+export function shownProduct(evaluation) {
+  const open = (rows) => rows.some((r) => r.constraint?.mandatory === false && r.status === 'UNKNOWN');
+  const meets = (rows) => rows.every((r) => r.constraint?.mandatory !== false || r.status === 'PASS');
+  const passingProducts = (evaluation.products ?? []).filter((p) => p.verdict === 'PASS' && p.results?.length);
+  const alt = evaluation.verdict === 'PASS' && !meets(evaluation.results)
+    ? passingProducts.find((p) => meets(p.results)) ?? (open(evaluation.results) ? passingProducts.find((p) => !open(p.results)) : null) ?? null : null;
+  return alt ? { gradeId: alt.gradeId, results: alt.results } : { gradeId: evaluation.gradeId ?? null, results: evaluation.results };
+}
+
+/**
  * A material against the requirements, one line per requirement: its result, the requirement, and what decided it, with
  * the measurement one press away. The lines are one product's, named once above them; a line that rests on another
  * product names its own. Record IDs stay in the button's title: the line is for reading (D124).
@@ -106,13 +119,7 @@ const MATERIAL_LEVEL = (c) => (c.kind === 'gate' && ['scope', 'nozzle', 'bed', '
  */
 export function renderWhy(evaluation, { productName } = {}) {
   if (!evaluation.results.length) return `<p class="missing">No requirements are set.</p>`;
-  const open = (rows) => rows.some((r) => r.constraint?.mandatory === false && r.status === 'UNKNOWN');
-  const meets = (rows) => rows.every((r) => r.constraint?.mandatory !== false || r.status === 'PASS');
-  const passingProducts = (evaluation.products ?? []).filter((p) => p.verdict === 'PASS' && p.results?.length);
-  const alt = evaluation.verdict === 'PASS' && !meets(evaluation.results)
-    ? passingProducts.find((p) => meets(p.results)) ?? (open(evaluation.results) ? passingProducts.find((p) => !open(p.results)) : null) ?? null : null;
-  const results = alt ? alt.results : evaluation.results;
-  const best = alt ? alt.gradeId : evaluation.gradeId ?? null;
+  const { gradeId: best, results } = shownProduct(evaluation);
   const name = (id) => productName?.(id) || 'a product';
   const trivial = results.filter((r) => MATERIAL_LEVEL(r.constraint) && r.status === 'PASS');
   const rows = results.filter((r) => !trivial.includes(r));

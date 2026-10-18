@@ -15,13 +15,14 @@ import { fmtDisplayUnit, spanDisplayUnit } from './display-numbers.js';
 import { onTheH2cRows } from './print-brief.js';
 import { KEY_FIGURES } from './material-highlights.js';
 import { GRAPH_KEY, rowCountWords, graphNumber, graphSpan, graphRange, pairLabelOf, tallyWords } from './material-words.js';
-import { renderWhy } from './explain.js';
+import { renderWhy, shownProduct } from './explain.js';
 import { describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS, H2C_STATUS, h2cStatusLabel, h2cLimit,
   propertyName, STATUS_WORDS, sourceKind, whyWords } from './labels.js';
 import { REGISTRY } from './registry.js';
 import { stripScale, stack, stackPitch, DOT_PITCH, COLUMN_SHOWN } from './scales.js';
-import { pageOf } from './page-rule.js';
+import { pageOf, productsPageOf } from './page-rule.js';
 import { toHash } from '../engine/scenario.js';
+import { mostDocumentedFirst, orderRow } from './product-order.js';
 import {
   stated, isProduct, productName, productNameOrId, sourceName, originalOf, groupBy, groupByMaker, leadMaker, materialContext, productDocuments,
   identity, emptyReasons, gapSplit, largestFirst, measuredIn, measurementFacts, sourceBlockFacts,
@@ -85,7 +86,7 @@ const TAB_HELP = {
     const products = c.grades.filter(isProduct);
     const makers = new Set(products.map((g) => g.manufacturer).filter(stated)).size;
     const refs = n - products.length;
-    return `${plural(products.length, 'product')} you can buy, from ${plural(makers, 'maker')}${refs ? `, and ${refs === 1 ? 'one reference specimen' : `${refs} reference specimens`}, not for sale` : ''}. Each shows its result, how to print it, its values and what its maker says.`;
+    return `${plural(products.length, 'product')} you can buy, from ${plural(makers, 'maker')}${refs ? `, and ${refs === 1 ? 'one reference specimen' : `${refs} reference specimens`}, not for sale` : ''}. Each shows its result, how to print it, its values and what its maker says. ${productOrderWords(c)}`;
   },
   Mechanical: (n) => (n ? `${fmtNumber(n)} published mechanical values, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.` : EMPTY_LINES.Mechanical),
   Thermal: (n) => (n ? `${fmtNumber(n)} published thermal values, by property, with heat deflection and the glass transition drawn product by product. Each names its product and the document it comes from.` : EMPTY_LINES.Thermal),
@@ -94,6 +95,35 @@ const TAB_HELP = {
   Price: (n) => (n ? '' : EMPTY_LINES.Price),
   Evidence: (n) => (n ? `The ${fmtNumber(n)} ${n === 1 ? 'document' : 'documents'} this material's values were read from, by publisher, with links to the originals; then its known gaps. One document can cover several products.` : EMPTY_LINES.Evidence),
 };
+/**
+ * The order the Products tab lists in, said in its first line (C35). The products that meet the requirements come first
+ * (passingOrdered), then every product by maker, the maker whose products are most often the material's typical value
+ * leading (the order the Printing and Sources tabs use); with no requirement there is the second list alone.
+ */
+function productOrderWords(c) {
+  const lead = leadMaker(c.m, c);
+  const byMaker = `by maker${lead ? `; ${lead} first, its products most often the material's typical value` : ''}`;
+  const anyPass = c.tested && (c.evaluation?.products ?? []).some((p) => p.verdict === 'PASS');
+  return anyPass ? `Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow ${byMaker}.` : `${cap(byMaker)}.`;
+}
+
+/**
+ * The products that meet every requirement, in the order the tab lists them (C35): the product the Overview's Your
+ * requirements names first (renderWhy's own choice), then the rest most documented first by the Products page's own key
+ * (product-order.js), so one material has one first product on both surfaces.
+ */
+function passingOrdered(c) {
+  if (!c.tested || !c.evaluation) return [];
+  const pass = new Set((c.evaluation.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => p.gradeId));
+  const ordered = mostDocumentedFirst(c.m, c.grades.filter((g) => pass.has(g.id)).map(orderRow)).map((r) => r.g);
+  const shown = shownProduct(c.evaluation).gradeId;
+  const lead = ordered.find((g) => g.id === shown);
+  return lead ? [lead, ...ordered.filter((g) => g !== lead)] : ordered;
+}
+
+/** The figures a closed product line shows when no requirement asks for others: the first three the product publishes (C36), the Products page's columns. */
+const CLOSED_LINE = ['tensileModulusXY', 'tensileStrengthXY', 'hdt045', 'priceCADkg'];
+
 /** The tabs whose count a reader uses (2026-10-18): the products to choose from and the documents behind them, as the page counts them. */
 const COUNTED_TABS = ['Grades', 'Evidence'];
 
@@ -499,6 +529,11 @@ export function renderDrawer(host, state, actions) {
   // The page opens in this tab and carries the selection as it is now (D145), so its Back to your results reopens the
   // selector as the reader left it. The page keeps it for the tab and takes it out of its address; it decides nothing.
   host.querySelector('.page-link')?.addEventListener('click', (ev) => { ev.currentTarget.href = `${page}?from=${toHash(state.scenario)}`; });
+  // A product's card on the page carries the selection the same way, the card's own anchor after it.
+  host.querySelectorAll('.card-link').forEach((a) => a.addEventListener('click', () => {
+    const [path, card] = a.dataset.cardHref.split('#');
+    a.href = `${path}?from=${toHash(state.scenario)}#${card}`;
+  }));
   host.querySelectorAll('[data-choose]').forEach((b) => b.addEventListener('click', () => actions.toggleDecision(b.dataset.choose)));
   host.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tab)));
   host.querySelectorAll('[data-tab-link]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tabLink)));
@@ -1281,16 +1316,17 @@ function tabBody(tab, c) {
     // material's own results pair each with its requirement.
     const requirementOf = new Map((evaluation?.results ?? []).map((r) => [r.criterion, r.constraint]));
     const failText = (criteria) => criteria.map((k) => (requirementOf.has(k) ? describeConstraint(requirementOf.get(k)) : k)).join('; ');
-    const typicalOf = new Set(REGISTRY.headlines.map((h) => m.summary?.[h.key]?.typical).filter(Boolean));
     // Colour. The field was collected on every grade, but it does not hold what a buyer wants: on 132 of 144 grades it
     // is the same sentence saying properties may vary by colour, and on the others it names the colour of the specimen
     // that was tested. So the caveat is said once, above the products, and a product shows its colour only where the
     // tested one is stated.
     const SPEC_COLOUR = /^(white|black|natural|grey|gray|red|blue|green|yellow|orange|clear|transparent)\b/i;
-    const passing = c.tested ? grades.filter((g) => judged.get(g.id)?.verdict === 'PASS') : [];
-    // A product's key values in its one-line summary: the ones asked about, else the first three it publishes.
+    const passing = passingOrdered(c);
+    // A product's key values in its one-line summary: the ones asked about, else the first three it publishes of the
+    // Products page's columns (C36), each with a published bound's sign.
     const asked = new Set((evaluation?.results ?? []).filter((r) => r.constraint.kind === 'numeric').map((r) => r.constraint.property));
-    const keys = (g) => REGISTRY.headlines.filter((h) => g.headline?.[h.key] && (asked.size ? asked.has(h.key) : true)).slice(0, 3)
+    const plate = CLOSED_LINE.map((k) => REGISTRY.headlines.find((h) => h.key === k)).filter(Boolean);
+    const keys = (g) => (asked.size ? REGISTRY.headlines.filter((h) => g.headline?.[h.key] && asked.has(h.key)) : plate.filter((h) => g.headline?.[h.key])).slice(0, 3)
       .map((h) => `${h.labels.short} ${fmtBounded(g.headline[h.key].value, h.unit, g.headline[h.key].interval)}`).join(' · ');
     // The documents a product's values, settings and statements come from, each one press from its block in Sources.
     const docsOf = (g) => productDocuments(c, g);
@@ -1315,6 +1351,7 @@ function tabBody(tab, c) {
         ${productValues(g, c)}
         ${makerSays(g, c)}
         ${docs.length ? `<div class="grade-docs"><span class="shared-head">Sources</span> ${docs.map((sid) => `<button type="button" class="link-btn" data-open-source="${esc(sid)}" title="Opens this document in Sources">${esc(sourceName(c.sourceById.get(sid), sid))}</button>`).join('; ')}</div>` : ''}
+        ${(() => { const card = productsPageOf(m, c.ms, g.id); return card ? `<div class="grade-card"><a class="card-link" href="${esc(card)}" data-card-href="${esc(card)}" title="This product's values by document, whether each is in the median, and why. The page's Back to your results returns here as you left it.">Its card on the Products page</a></div>` : ''; })()}
         <details class="grade-more"><summary>Product details</summary><dl class="kv">
           <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
           <dt>Product</dt><dd>${esc(g.product ?? '')}${ids(['Product', g.id])}</dd>
@@ -1326,16 +1363,20 @@ function tabBody(tab, c) {
         </dl></details>${gradeEstimateLines(g, c)}
       </div></div>`;
     };
-    const firstMaker = passing[0]?.manufacturer ?? grades.find((g) => typicalOf.has(g.id))?.manufacturer ?? null;
+    // The maker whose products are most often the material's typical value leads the list and opens where no product
+    // passes (the order the first line says).
+    const firstMaker = leadMaker(m, c);
     // The products that meet every requirement first, the first of them open with its settings and values (the review
     // of 2026-09-27, F09): that is the answer to "which product". The material's spread and its makers' coverage follow,
     // one press away, open where nothing was asked.
     const context = `<details class="spread-context"${passing.length ? '' : ' open'}><summary>Across its products: median and range, and what their makers say</summary>
       ${spreadTable(m, c)}${makersSayCounts(m, c)}</details>`;
-    return (passing.length ? makerBlock('Meet all your requirements', passing.length, 'product', passing.map((g, i) => block(g, i === 0)).join(''), { open: true, cls: 'maker-block pass-block' }) : '')
+    // The search first (C34), over both lists: with 63 products that pass, it had sat below all of them.
+    return searchBox('a product or maker')
+      + (passing.length ? makerBlock('Meet all your requirements', passing.length, 'product', passing.map((g, i) => block(g, i === 0)).join(''), { open: true, cls: 'maker-block pass-block' }) : '')
       + context
       + '<div class="note">Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet\'s values are for the colour it tested.</div>'
-      + searchBox('a product or maker') + groupByMaker(grades, null).map(([maker, group]) => makerBlock(maker, group.length, 'product', group.map((g) => block(g, !passing.length && group.length === 1 && maker === firstMaker)).join(''), { open: !passing.length && maker === firstMaker })).join('');
+      + groupByMaker(grades, firstMaker).map(([maker, group]) => makerBlock(maker, group.length, 'product', group.map((g) => block(g, !passing.length && group.length === 1 && maker === firstMaker)).join(''), { open: !passing.length && maker === firstMaker })).join('');
   }
 
   if (tab === 'Price') {

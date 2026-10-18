@@ -3,8 +3,9 @@
 // quotes from a maker's own words.
 
 import { esc, fmtNumber } from '../js/ui/format.js';
+import { productsHref } from '../js/ui/page-rule.js';
 
-export { esc };
+export { esc, productsHref };
 
 /** A count with its noun, its number as a data sheet prints it: "1 product", "2,430 measured values". */
 export const count = (n, word, many = `${word}s`) => `${fmtNumber(n)} ${n === 1 ? word : many}`;
@@ -39,9 +40,6 @@ export const tableBox = (html, cls = '') => `<div class="table-box${cls ? ` ${cl
  * sends an old link on to where its record lives now (stub.js): the Products page, or the Overview's Sources.
  */
 export const recordsHref = (id, anchor = '') => `${id}-records.html${anchor}`;
-
-/** A material's Products page, and an anchor on it ('#G001-01' opens that product's card, '#V000050' a value in it). */
-export const productsHref = (id, anchor = '') => `${id}-products.html${anchor}`;
 
 /** A material's Overview page. */
 export const overviewHref = (id, anchor = '') => `${id}.html${anchor}`;
