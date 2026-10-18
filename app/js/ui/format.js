@@ -448,7 +448,8 @@ export function priceSampleWords(meta, { canadianOnly = false } = {}) {
 export function convertedMark(converted) {
   if (!converted) return '';
   const from = converted.currencies.join(' and ');
-  return explainButton('¤', convertedNote(converted), { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
+  // The currency it came from, not a ¤ few readers could name at 10 px (REVIEW-0 F10, 2026-10-18); the rate is in the note.
+  return explainButton(esc(converted.currencies.join('/')), convertedNote(converted), { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
 }
 
 /** What convertedMark explains, in words: which prices came from a foreign listing, from which currency, at what rate. */

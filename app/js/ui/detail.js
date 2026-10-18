@@ -372,7 +372,7 @@ function estimateGroup(m, HEAD, showEstimates) {
     <div class="est-cards">${cards.join('')}</div>
     <p class="fine est-group-note">Estimates fill gaps from related data and similar materials; tested on known values, a likely
       range held ${pct(levels.likely)} of the time and a plausible range ${pct(levels.plausible)}. An estimate never makes a material
-      pass.${anyScreen ? ` With ${esc(POLICY_LABELS.exploration)} and "Let estimates rule out materials" on, it can exclude this material from a requirement its whole range misses, unless one of the material's own measurements could meet it.` : ''}</p>`;
+      pass.${anyScreen ? ` With materials that could not be checked included and "Let estimates rule out materials" on, it can exclude this material from a requirement its whole range misses, unless one of the material's own measurements could meet it.` : ''}</p>`;
 }
 
 /** Said under a Key number whose estimate reads in a smaller unit than its table column: "in MPa, where the table's column is in GPa". */
@@ -1050,7 +1050,7 @@ function tabBody(tab, c) {
     const hiddenEstimates = !showEstimates && hasEstimates(m)
       ? `<p class="fine">${policy === 'exploration'
         ? 'Tick "Let estimates rule out materials" in the top bar to see estimates for the missing values.'
-        : `Estimates for the missing values show under ${esc(POLICY_LABELS.exploration)}, with "Let estimates rule out materials" ticked.`}</p>`
+        : 'Estimates for the missing values show when materials that could not be checked are included (the top bar\'s Include), with "Let estimates rule out materials" ticked.'}</p>`
       : '';
 
     // What it is, where the identity line in the head does not say it all: a variant's filler, a support material, an
@@ -1349,13 +1349,13 @@ function tabBody(tab, c) {
       ? `<p class="price-answer"><b>${esc(fmtDisplayUnit(e.value, 'CAD/kg'))}</b>${convertedMark(e.converted)}, ${(sp?.n ?? e.spread?.n ?? 1) > 1
         ? `the median of ${sp?.n ?? e.spread?.n} products' prices (${esc(spanDisplayUnit(sp?.min ?? e.spread?.min, sp?.max ?? e.spread?.max, 'CAD/kg'))})` : 'one product\'s price'}, from ${fmtNumber(prices.length)} shop ${prices.length === 1 ? 'listing' : 'listings'}.</p>`
       : `<p class="price-answer">No product's price is known: ${fmtNumber(prices.length)} shop ${prices.length === 1 ? 'listing' : 'listings'}, none used.</p>`;
-    return `${priceLine}<div class="note">A product's price is the median of its listings: Canadian where it has any, otherwise foreign ones converted to CAD (¤). ${esc(priceSampleWords(db.meta))}, not live. A struck-through listing is a different product and is not used.</div>
+    return `${priceLine}<div class="note">A product's price is the median of its listings: Canadian where it has any, otherwise foreign ones converted to CAD (marked with their currency). ${esc(priceSampleWords(db.meta))}, not live. A struck-through listing is a different product and is not used.</div>
       ${scrollTable(`<table class="grid price-table"><thead><tr>
       <th class="retailer">Retailer</th><th class="variant">Listing</th><th class="num">kg</th><th class="num">CAD/kg</th><th>Stock</th><th>Used</th></tr></thead>
       <tbody>${prices.map((p) => `<tr data-price="${esc(p.id)}"${p.quarantined ? ` class="quarantined" title="${esc(quarantineWhy(p))}"` : ''}>
         <td class="retailer">${esc(p.retailer)}${p.quarantined ? ' <span class="chip chip-FAIL chip-small">different product</span>' : ''}${ids(['Listing', p.id])}</td><td class="variant">${esc(p.variant ?? '')}</td>
         <td class="num">${fmtNumber(p.netMassKg)}</td>
-        <td class="num">${p.regularPerKg !== null && p.fx ? `${fmtNumber(p.regularPerKg)} ${explainButton('¤', foreignWhy(p), { cls: 'fx-mark', head: `Converted from ${p.currency}`, label: `Converted from ${p.currency}` })}`
+        <td class="num">${p.regularPerKg !== null && p.fx ? `${fmtNumber(p.regularPerKg)} ${explainButton(esc(p.currency), foreignWhy(p), { cls: 'fx-mark', head: `Converted from ${p.currency}`, label: `Converted from ${p.currency}` })}`
           : p.regularPerKg !== null ? fmtNumber(p.regularPerKg)
           // The price the shop showed, per kilogram, marked as a sale price: it backs no value, and the button says why.
           : Number.isFinite(p.displayedPrice) && p.netMassKg > 0

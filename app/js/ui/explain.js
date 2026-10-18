@@ -6,7 +6,7 @@
 
 import { explainExclusions } from '../engine/constraints.js';
 import { chip, esc } from './format.js';
-import { describeConstraint, POLICY_LABELS } from './labels.js';
+import { describeConstraint, POLICY_LABELS, H2C_CHECK } from './labels.js';
 import { lower } from './text.js';
 
 // The panel used to print raw internal keys here: "hdt045 >= 100", "tensileModulusXY >= 3",
@@ -43,28 +43,45 @@ export function renderExclusions(host, state, actions) {
   const ranked = explainExclusions(db.materials.filter((m) => !m.familyEntry), scenario.constraints, ctx);
   const max = Math.max(1, ...ranked.map((r) => r.removed + r.held));
   const explore = state.scenario.unknownPolicy === 'exploration';
-
-  host.innerHTML = `
-    <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
-      Each requirement, ranked by how many candidates it costs. <b>Failed:</b> the published value misses it.
-      <b>Could not check:</b> the data is missing; ${explore
-        ? `these stay listed, flagged, under "${POLICY_LABELS.exploration}"`
-        : `these are out only because missing data is set to "${POLICY_LABELS.strict}" in the top bar`}.
-      <b>Removing it</b> counts the materials that would come back without that one requirement.</p>
-    ${ranked.map((r, i) => `
+  const indexed = ranked.map((r, i) => [r, i]);
+  const required = indexed.filter(([r]) => r.constraint.mandatory !== false);
+  // A requirement reported for each material but never applied removes nothing: it is listed apart, under a rule, so its
+  // counts do not read as candidates it cost.
+  const reported = indexed.filter(([r]) => r.constraint.mandatory === false);
+  const isPrintGate = (r) => r.constraint.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(r.constraint.gate);
+  const printRows = required.filter(([r]) => isPrintGate(r));
+  const relaxRow = (r, i) => `
       <div class="relax">
         <div>
-          <div class="crit">${esc(nameOf(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">reported only</span>' : ''}</div>
+          <div class="crit">${esc(nameOf(r.constraint))}</div>
           <div class="why" style="font-size:12px;color:var(--ink-2)">
             failed ${r.removed} · could not check ${r.held}${r.screened ? ` (${screenedClause(r)})` : ''} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
           <div class="bar" style="width:${(r.removed / max) * 100}%"></div>
           <div class="held" style="width:${(r.held / max) * 100}%"></div>
         </div>
         <button class="btn btn-sm" data-relax="${i}" aria-label="Remove the requirement: ${esc(nameOf(r.constraint))}">Remove</button>
-      </div>`).join('')}
+      </div>`;
+
+  host.innerHTML = `
+    <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
+      Each requirement, ranked by how many candidates it costs. <b>Failed:</b> the published value misses it.
+      <b>Could not check:</b> the data is missing; ${explore
+        ? 'these stay listed, flagged, since the materials that could not be checked are included'
+        : `these are out only because the materials that could not be checked are set to "${POLICY_LABELS.strict}" in the top bar`}.
+      <b>Removing it</b> counts the materials that would come back without that one requirement.</p>
+    ${required.map(([r, i]) => {
+      // The H2C's three temperature checks under the one name the pill and the rail give them (REVIEW-0 F11), placed
+      // where the first of them ranks, each still with its own counts and its Remove.
+      if (!isPrintGate(r) || printRows.length < 2) return relaxRow(r, i);
+      if (r !== printRows[0][0]) return '';
+      return `<div class="relax-group"><div class="relax-group-head">${esc(H2C_CHECK)}</div>${printRows.map(([g, j]) => relaxRow(g, j)).join('')}</div>`;
+    }).join('')}
+    ${reported.length ? `<div class="relax-group relax-reported"><div class="relax-group-head">Reported, not required
+      <span class="fine">shown for each material; it removes none, and its counts say what it would remove if required</span></div>
+      ${reported.map(([r, i]) => relaxRow(r, i)).join('')}</div>` : ''}
     ${explore ? '' : `<p style="margin-top:16px">
-      <button class="btn" id="to-explore">Switch to ${POLICY_LABELS.exploration}</button>
-      <span class="fine">Materials that could not be checked then stay listed, flagged.</span></p>`}`;
+      <button class="btn" id="to-explore">Include the materials that could not be checked</button>
+      <span class="fine">They then stay listed, flagged, with what is missing for each.</span></p>`}`;
 
   host.querySelectorAll('[data-relax]').forEach((b) => b.addEventListener('click', () => {
     actions.removeConstraint(ranked[Number(b.dataset.relax)].constraint);
@@ -105,7 +122,7 @@ export function renderWhy(evaluation, { productName } = {}) {
   const GATES = ['nozzle', 'bed', 'chamber'];
   const gates = trivial.filter((r) => r.constraint.kind === 'gate' && GATES.includes(r.constraint.gate));
   const also = [...trivial.filter((r) => !gates.includes(r)).map((r) => lower(describeConstraint(r.constraint))),
-    ...(gates.length === GATES.length ? ['nozzle, bed and chamber within H2C limits'] : gates.map((r) => describeConstraint(r.constraint)))];
+    ...(gates.length === GATES.length ? [lower(H2C_CHECK)] : gates.map((r) => lower(describeConstraint(r.constraint))))];
   // One list, so the result chips share a column and the text beside them one left edge (app.css). A requirement the
   // product's sheets cannot settle (the engine's INDETERMINATE: a chamber recommended above the H2C's, not required)
   // reads UNKNOWN, as the table counts it, its half-filled mark and its reason kept.
@@ -179,7 +196,7 @@ export function renderNoResults(host, state, actions) {
   const unconfirmable = scenario.constraints.filter((c) => c.mandatory !== false && unconfirmed(selection, c));
   const explore = scenario.unknownPolicy === 'exploration';
   const next = `<ul class="next-steps">
-      ${counts.unknown ? `<li>${explore ? 'Include uncertain lists them already; the SCREENED chip brings back any an estimate excluded.' : `<button type="button" class="btn btn-sm" id="to-explore">Include uncertain</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
+      ${counts.unknown ? `<li>${explore ? 'The materials that could not be checked are listed already; the SCREENED chip brings back any an estimate excluded.' : `<button type="button" class="btn btn-sm" id="to-explore">Include them</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
       ${unconfirmable.length ? `<li>No data here can confirm ${esc(unconfirmable.map(describeConstraint).join('; '))}. Read what makers say in a material's Environment or Products tab, and plan a test of your own part.</li>` : ''}
       <li>The ranked list below shows which requirement removes the most, and which ones only failed.</li>
     </ul>`;

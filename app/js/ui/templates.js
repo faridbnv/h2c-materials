@@ -36,7 +36,7 @@ export const printCheck = (constraints) => {
 export const TEMPLATES = [
   {
     name: 'Outdoor structural part',
-    description: 'A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³, within H2C temperature limits.',
+    description: 'A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³.',
     notChecked: 'UV and weathering. Makers describe them in words and never give a verdict, so no filter can check them. Read the Environment tab of anything you pick.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
@@ -48,7 +48,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Indoor prototype',
-    description: 'A shape you want to hold in your hand tomorrow. Any build material within H2C temperature limits; price at most 45 CAD/kg is reported, not required.',
+    description: 'A shape you want to hold in your hand tomorrow. Any build material; price at most 45 CAD/kg is reported, not required.',
     notChecked: 'Ease of printing. No source rates it. Price is reported, not required: many products have no sampled price, and sourcing comes after the material is chosen.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
@@ -57,7 +57,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Lightweight structure',
-    description: 'A drone arm or a moving part. Density at most 1250 kg/m³ and tensile modulus at least 2.5 GPa, within H2C temperature limits.',
+    description: 'A drone arm or a moving part. Density at most 1250 kg/m³ and tensile modulus at least 2.5 GPa.',
     notChecked: 'Which material is lightest overall. These are thresholds, and the lightest adequate material depends on the part\'s shape and loads. Rank by a performance index, or use the Ashby chart\'s guide line.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
@@ -67,7 +67,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Warm environment',
-    description: 'A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C, within H2C temperature limits.',
+    description: 'A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C.',
     notChecked: 'Printing without chamber heat. The H2C heats its chamber up to 65 °C, and the check assumes it does.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
@@ -76,7 +76,7 @@ export const TEMPLATES = [
   },
   {
     name: 'High-stiffness fixture',
-    description: 'A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limits. HDT at least 90 °C is reported, not required.',
+    description: 'A jig or a fixture. Tensile modulus at least 5 GPa; HDT at least 90 °C is reported, not required.',
     notChecked: 'Deflection of the part. It depends on geometry, print orientation and load as much as on modulus, and the modulus compared is in the print plane (XY).',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
@@ -86,7 +86,7 @@ export const TEMPLATES = [
   },
   {
     name: 'Flexible component',
-    description: 'A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.',
+    description: 'A gasket, a strap or a phone case. Elongation at break at least 100 %.',
     notChecked: 'Recovery, softness and sealing. Elongation at break says none of these; check Shore hardness in the Mechanical tab.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
