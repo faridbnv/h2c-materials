@@ -336,7 +336,6 @@ export function printLines(f) {
   const outside = f.outside.map((a) => `${lower(a.label)}: ${andList(a.list.map((o) => `${o.name} (${windowText(o.min, o.max)} °C${OUTSIDE_WORDS[o.verdict]})`))}`);
   const limits = f.limits.map((a) => `${lower(a.label)} ${fmtNumber(a.limit)} °C`);
   return [
-    typical.length ? `Medians of the lowest and highest settings: ${andList(typical)}.` : null,
     outside.length ? `Outside the H2C's limits (${andList(limits)}): ${outside.join('; ')}.` : `No product's setting is outside the H2C's limits (${andList(limits)}).`,
   ].filter(Boolean);
 }

@@ -414,8 +414,8 @@ export function spreadNote(entry) {
     // Products their makers sell as toughened, where the headline sets them apart (D133).
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened or impact-modified by ${s.claimed.n === 1 ? 'its maker' : 'their makers'} (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`})` : null,
   ].filter(Boolean);
-  return `Median of ${s.n} products that state the test's orientation or load. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
-    + `${s.q1 != null ? `, interquartile ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
+  return `Median of ${s.n} products${s.asPublished ? ' that state the test\'s orientation or load' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+    + `${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
     + `${s.twins ? ` ${s.twins === 1 ? 'One of them shares' : `${s.twins} of them share`} a data sheet with another product and ${s.twins === 1 ? 'counts as a product' : 'count as products'} of ${s.twins === 1 ? 'its' : 'their'} own.` : ''}`
     // A bound is counted as its number; the marks say where that number is one, so no end reads as a measurement.

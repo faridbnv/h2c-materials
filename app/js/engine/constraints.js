@@ -192,7 +192,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     return {
       status: STATUS.UNKNOWN,
       reason: h?.missing === 'not-available-in-market'
-        ? 'No price observation of its own in the sampled shops'
+        ? 'No price in the sampled shops'
         : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon',
       criterion: label,
       missing: h?.missing ?? 'not-published',
@@ -305,7 +305,7 @@ function evaluateGate(material, c) {
       // Scope is the one place exclusion is recorded (m146); the material's Limitations say why it is out (an envelope
       // the H2C cannot reach, or a sintering feedstock whose part is not the printed polymer).
       reason: excluded
-        ? 'Beyond H2C capability; its Limitations say why'
+        ? 'Beyond H2C capability: more heat than the H2C gives, or a sintering feedstock'
         : 'Within H2C capability',
     };
   }

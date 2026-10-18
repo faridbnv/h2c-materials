@@ -381,34 +381,19 @@ test('the table is the spread: each row\'s n, median, middle half and range are 
   assert.ok(seen.rows > 100 && seen.quartiles > 20 && seen.apart > 0, JSON.stringify(seen));
 });
 
-test('the medians line names, for each drawn setting, the medians of its lowest and highest rows', () => {
+test('the window line says what the Overview\'s On the H2C says, setting by setting (one statistic for one setting, D146)', () => {
   let checked = 0;
   for (const x of withHeading()) {
-    const parts = [];
-    for (const a of x.spread) {
-      if (!x.settings[a.axis].drawn) continue;
-      const [low, high] = a.rows.map((r) => (r.summary.n ? r.summary.median : null));
-      if (low == null && high == null) continue;
-      // Two medians of different products can cross; then each is said by name.
-      // At the table's precision, so a median reads alike in the table and the line.
-      parts.push(low != null && high != null && low > high ? `${lower(a.label)} lowest ${fmtDisplay(low, '°C')} °C and highest ${fmtDisplay(high, '°C')} °C, medians of different products`
-        : `${lower(a.label)} ${low == null || high == null ? fmtDisplay(low ?? high, '°C') : spanDisplay(low, high, '°C')} °C`);
-    }
-    const line = footLines(x.heading).find((l) => l.startsWith('Medians of the lowest and highest settings'));
-    if (!parts.length) { assert.equal(line, undefined, `${x.m.id}: no window where no row has a counted value`); continue; }
-    assert.equal(line, `Medians of the lowest and highest settings: ${andList(parts)}.`, x.m.id);
-    // And the medians are the products' own: worked out from g.print here, not from the spread.
-    for (const [axis, s] of Object.entries(x.settings)) {
-      if (!s.drawn) continue;
-      for (const [key, entries] of Object.entries(s.rows)) {
-        const counted = entries.filter((e) => !e.variant && e.origin !== 'guide').map((e) => e.value);
-        if (!counted.length) continue;
-        assert.ok(line.includes(fmtDisplay(medianOf(counted), '°C')), `${x.m.id} ${key}: the window holds the median ${medianOf(counted)} (${line})`);
-      }
-    }
+    const host = { innerHTML: '', querySelectorAll: () => [], querySelector: (q) => ['#drawer-close', '#drawer-pin'].includes(q) ? { addEventListener() {} } : null };
+    renderDrawer(host, { db, selectedMaterialId: x.m.id, drawerTab: 'Overview', selection: { evaluations: [] }, scenario: { shortlist: [], unknownPolicy: 'strict' }, ctx }, {});
+    const overview = new Map([...host.innerHTML.matchAll(/data-print="(nozzle|bed|chamber|drying)"[\s\S]*?<b>([^<]*)<\/b> <span class="h2c-v">([^<]*)<\/span>/g)]
+      .map(([, key, label, value]) => [key, `${lower(text(label))} ${text(value)}`]).filter(([, v]) => !/ not (published|stated)$/.test(v)));
+    const line = footLines(x.heading).find((l) => l.startsWith('The window most products give'));
+    if (!overview.size) { assert.equal(line, undefined, `${x.m.id}: no window line where the Overview gives none`); continue; }
+    assert.equal(line, `The window most products give, as the Overview gives it: ${andList([...overview.values()])}.`, x.m.id);
     checked++;
   }
-  assert.ok(checked > 20, `${checked} medians lines`);
+  assert.ok(checked > 20, `${checked} window lines`);
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

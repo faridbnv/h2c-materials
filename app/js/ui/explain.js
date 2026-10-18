@@ -107,8 +107,10 @@ const MATERIAL_LEVEL = (c) => (c.kind === 'gate' && ['scope', 'nozzle', 'bed', '
 export function renderWhy(evaluation, { productName } = {}) {
   if (!evaluation.results.length) return `<p class="missing">No requirements are set.</p>`;
   const open = (rows) => rows.some((r) => r.constraint?.mandatory === false && r.status === 'UNKNOWN');
-  const alt = evaluation.verdict === 'PASS' && open(evaluation.results)
-    ? (evaluation.products ?? []).find((p) => p.verdict === 'PASS' && p.results?.length && !open(p.results)) : null;
+  const meets = (rows) => rows.every((r) => r.constraint?.mandatory !== false || r.status === 'PASS');
+  const passingProducts = (evaluation.products ?? []).filter((p) => p.verdict === 'PASS' && p.results?.length);
+  const alt = evaluation.verdict === 'PASS' && !meets(evaluation.results)
+    ? passingProducts.find((p) => meets(p.results)) ?? (open(evaluation.results) ? passingProducts.find((p) => !open(p.results)) : null) ?? null : null;
   const results = alt ? alt.results : evaluation.results;
   const best = alt ? alt.gradeId : evaluation.gradeId ?? null;
   const name = (id) => productName?.(id) || 'a product';
@@ -128,7 +130,10 @@ export function renderWhy(evaluation, { productName } = {}) {
   // reads UNKNOWN, as the table counts it, its half-filled mark and its reason kept.
   return `${head}<div class="explain-list">${rows.map((r) => `
     <div class="explain-row">
-      ${chip(r.status, r.status === 'INDETERMINATE' ? 'UNKNOWN' : r.status)}
+      ${r.constraint.mandatory === false
+        // A requirement reported, not required, decides nothing: its mark is neutral, its words say where the value stands.
+        ? `<span class="chip chip-neutral">${{ PASS: 'within', FAIL: 'beyond', UNKNOWN: 'no data', INDETERMINATE: 'no data' }[r.status] ?? esc(r.status)}</span>`
+        : chip(r.status, r.status === 'INDETERMINATE' ? 'UNKNOWN' : r.status)}
       <div>
         <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">reported, not required</span>' : ''}</div>
         <div class="why">${esc(r.reason)}${r.gradeId && r.gradeId !== best ? ` (${esc(name(r.gradeId))})` : ''}${r.measurementId

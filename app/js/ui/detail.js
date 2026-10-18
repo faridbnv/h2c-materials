@@ -971,6 +971,12 @@ function printTemperatures(m, c) {
       <p class="imp-key fine">${key}</p>${strips}
       <p class="fine imp-hint">Select a dot to open its print profile below; hover to find the same product's other dots.</p>
       ${table}
+      ${(() => {
+        // The window most products give, as the Overview's On the H2C gives it (one statistic for one setting, 2026-10-18);
+        // the table above keeps each row's median, middle half and range.
+        const rows = onTheH2cRows(c).filter((r) => ['nozzle', 'bed', 'chamber', 'drying'].includes(r.key) && !/^not (published|stated)$/.test(r.value));
+        return rows.length ? `<p class="fine imp-foot">The window most products give, as the Overview gives it: ${esc(andList(rows.map((r) => `${lower(r.label)} ${r.value}`)))}.</p>` : '';
+      })()}
       ${printLines(f).map((l) => `<p class="fine imp-foot">${esc(l)}</p>`).join('')}
       ${single ? `<p class="fine imp-foot">${esc(single)}</p>` : ''}
       ${missing ? `<p class="fine imp-foot">Not drawn: ${esc(missing)}.</p>` : ''}</section>`;
