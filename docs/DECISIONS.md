@@ -5019,7 +5019,12 @@ and C34 and verdicts V10 and V11, decision 2); built as stage 3a of the [screeni
   High-stiffness 6 to 16); 153 product answers moved from fail to unresolved and 33 from fail to pass. Materials passing
   under Leave out: Indoor prototype 87 to 94, Warm environment 39 to 44, Outdoor 7 to 11, High-stiffness 5 to 8,
   Lightweight 15 to 16. LCP and PPS-ESD leave the failures for "on the line"; PPA-CF, PPS-CF, PPS-GF and PBT-GF pass the
-  outdoor bracket. Spectrum PC 275 and Kratos PC pass the warm part on their 90–130 °C bed (acceptance S02).
+  outdoor bracket. Spectrum PC 275 and Kratos PC pass the warm part on their 90–130 °C bed (acceptance S02). The four
+  rows the makers support decide (PLA, 25 makers, none above; PETG, 21, none; the flexible elastomers, 18, none; ABS, 22,
+  two above) and read 94 silent chambers as within (PLA 39, elastomers 43, ABS 7, PETG 5); 324 product answers move from
+  unresolved to pass, and Flexible component passes 8 to 12 materials (PEBA, TPC, TPU-LW and the hardest TPUs), Indoor
+  prototype 94 to 96, Lightweight structure 16 to 18 (PLA Wood, ABS-CF). Products whose chamber check is unanswered fell
+  from 314 to 220 (OPEN-PROBLEMS §30.3).
 - **What would break if reversed.** A window whose bottom the H2C reaches comfortably would again fail the nozzle and
   the bed, and a chamber one stay unresolved, although the maker says that setting prints; LCP's bed would read as a
   failure the H2C cannot settle, and PPA-CF would leave every outdoor list on a chamber window it covers by 15 °C.

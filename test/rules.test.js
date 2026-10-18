@@ -72,9 +72,9 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // stated and shown; iSANMATE's TPU bed "30 -500 ºC" (P0050) raises it until its page is read again.
   // m216 preserves Spectrum's full no-heated-chamber sentence. Its reviewed typed state is authoritative,
   // while PARSE-UNREAD records that the temperature parser cannot read that prose; no finding is suppressed.
-  // CHAMBER-NEED-READY arrived with D151's table, every row reported: PLA, PETG, the elastomers and ABS have the makers
-  // a deciding within row needs, and say so until each is switched to deciding in a commit of its own.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CHAMBER-NEED-READY', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  // CHAMBER-NEED-READY arrived with D151's table, every row reported, and left when the four rows its makers support
+  // (PLA, PETG, the elastomers, ABS) were switched to deciding: a reported row that qualifies raises it again.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

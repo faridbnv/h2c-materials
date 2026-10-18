@@ -88,19 +88,19 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 
 | Row | Applies to | Verdict | Status | Makers stating | Asking above 65 C | Supports within | Silent chambers filled |
 |---|---|---|---|---:|---:|---|---:|
-| CN01 | Family: ABS | within | reported | 22 | 2 | yes | 0 |
+| CN01 | Family: ABS | within | deciding | 22 | 2 | yes | 7 |
 | CN02 | Family: ASA | unknown | reported | 18 | 2 | no | 0 |
 | CN03 | Family: Acetals | unknown | reported | 1 | 1 | no | 0 |
 | CN04 | Family: Copolyesters | unknown | reported | 9 | 0 | no | 0 |
-| CN05 | Family: Flexible Elastomers | within | reported | 18 | 0 | yes | 0 |
+| CN05 | Family: Flexible Elastomers | within | deciding | 18 | 0 | yes | 43 |
 | CN06 | Family: Fluoropolymers | unknown | reported | 1 | 0 | no | 0 |
 | CN07 | Family: High-Performance Engineering | unknown | reported | 9 | 0 | no | 0 |
 | CN08 | Family: Industrial High-Temperature | unknown | reported | 11 | 9 | no | 0 |
 | CN09 | Family: Metal and Ceramic Sintering | unknown | reported | 1 | 0 | no | 0 |
 | CN10 | Family: Nylon / Polyamide | unknown | reported | 17 | 2 | no | 0 |
 | CN11 | Family: PET Engineering | unknown | reported | 7 | 0 | no | 0 |
-| CN12 | Family: PETG | within | reported | 21 | 0 | yes | 0 |
-| CN13 | Family: PLA | within | reported | 25 | 0 | yes | 0 |
+| CN12 | Family: PETG | within | deciding | 21 | 0 | yes | 5 |
+| CN13 | Family: PLA | within | deciding | 25 | 0 | yes | 39 |
 | CN14 | Family: PVB / Specialty Polymers | unknown | reported | 7 | 0 | no | 0 |
 | CN15 | Family: Polycarbonate | unknown | reported | 11 | 3 | no | 0 |
 | CN16 | Family: Polymer Blends | unknown | reported | 7 | 3 | no | 0 |

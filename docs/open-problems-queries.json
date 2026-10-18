@@ -4,7 +4,7 @@
     { "label": "Products you can buy (active procurement grades)", "item": "", "sql": "select count(*) from grades where status = 'active' and role = 'procurement'" },
     { "label": "Products with no nozzle temperature from any source", "item": "31.3", "snapshot": "build/snapshot/print.csv", "column": "Nozzle", "equals": "unknown" },
     { "label": "Products with no bed temperature from any source", "item": "31.3", "snapshot": "build/snapshot/print.csv", "column": "Bed", "equals": "unknown" },
-    { "label": "Products with no heated-chamber temperature", "item": "30.3", "snapshot": "build/snapshot/print.csv", "column": "Chamber", "equals": "unknown" },
+    { "label": "Products whose heated-chamber check is unanswered", "item": "30.3", "snapshot": "build/snapshot/print.csv", "column": "Chamber", "equals": "unknown" },
     { "label": "Products with no drying statement", "item": "31.3", "snapshot": "build/snapshot/print.csv", "column": "Drying", "equals": "unknown" },
     { "label": "Products with a price of their own", "item": "22", "sql": "select count(distinct gradeid) from prices where quarantined = 0 and headline_sample = 1" },
     { "label": "Materials with a price", "item": "22", "sql": "select count(distinct materialid) from prices where quarantined = 0 and headline_sample = 1" },
