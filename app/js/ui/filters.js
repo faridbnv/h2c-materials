@@ -11,7 +11,7 @@
 import { availability } from '../engine/coverage.js';
 import { runSelection } from '../engine/constraints.js';
 import { esc, priceSampleWords, explainButton } from './format.js';
-import { prop, envLabel, envRequirement, GATE, H2C_STATUS, FILLER } from './labels.js';
+import { prop, envLabel, envRequirement, GATE, H2C_STATUS, FILLER, H2C_CHECK } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 import { PRINTABLE, printCheck } from './templates.js';
 
@@ -233,7 +233,7 @@ function body(group, materials, cs, db, ctx = {}) {
         + `<span class="caveat">${partial} publish a window the H2C reaches only in part; they stay unresolved</span>`;
     };
     out.push(`<div class="control print-check" data-active="${check !== 'none'}">
-      <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> Within H2C temperature limits</label>
+      <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> ${H2C_CHECK}</label>
       <div class="avail">Checks each product's published nozzle, bed and chamber temperatures. Where its data sheet is
         silent, a data sheet shared with another product, then the Bambu Lab Filament Guide, stands in; the drawer says which.</div>
       <div class="checks sub-checks">${['nozzle', 'bed', 'chamber'].map((gate) => `

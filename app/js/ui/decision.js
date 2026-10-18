@@ -11,7 +11,7 @@ import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '.
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
 import { buildFamilyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
 import { AXIS_DEFS } from './axes.js';
-import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH } from './labels.js';
+import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH, H2C_CHECK } from './labels.js';
 import { printCheck, printGatesMissing } from './templates.js';
 import {
   wireResize, placeLabels, axisRange, hexToRgba, requirementOverlay, anchorRequirementLabels, referenceOverlay,
@@ -88,7 +88,7 @@ export function questionStrip(state, ws) {
   const goalOption = (i) => `<option value="${esc(i.id)}" ${index?.id === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`;
   const asked = [
     judged,
-    printable ? `Within H2C ${scoped ? 'capability and ' : ''}temperature limits` : null,
+    printable ? `${scoped ? 'Within H2C capability · ' : ''}${H2C_CHECK}` : null,
     ...hard.map(describeConstraint),
   ].filter(Boolean);
   return `<section class="ws-question" aria-label="The question">
@@ -131,7 +131,7 @@ export function starter(state) {
     <h2>What must the part do?</h2>
     <p>Choose the member and what is prescribed. The chart then draws each product that can do it, in the state it would be used in, with the line that ranks them.</p>
     <label class="toggle ws-start-gates"><input type="checkbox" data-start-gates checked>
-      <span>Also require H2C capability and temperature limits (nozzle, bed and chamber)</span></label>
+      <span>Also require H2C capability, and ${H2C_CHECK.charAt(0).toLowerCase()}${H2C_CHECK.slice(1)}</span></label>
     <div class="ws-start-grid">
       ${card('Lightest stiff part', 'Stiffness prescribed, mass minimised.', ['tie-stiffness', 'beam-stiffness', 'panel-stiffness'])}
       ${card('Lightest strength-limited part', 'Strength prescribed, mass minimised. The recorded strength is a proxy: tensile, its endpoint as each sheet states it.', ['tie-strength', 'beam-strength', 'panel-strength'])}

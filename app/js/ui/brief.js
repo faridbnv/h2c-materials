@@ -8,7 +8,7 @@
 // reopens the question on this release or warns on another (D96). A test result a team records is its own evidence, kept
 // with the decision: it never enters the database, whose sources are makers' documents.
 
-import { describeConstraint, gateVerdict } from './labels.js';
+import { describeConstraint, gateVerdict, H2C_CHECK } from './labels.js';
 import { headlineDef } from './registry.js';
 import { fmtNumber, dryingWords } from './format.js';
 import { templateByName } from './templates.js';
@@ -56,7 +56,7 @@ function testFor(r, state, measurementById) {
     return `${describeConstraint(c)}: print coupons${dir} on this product's recipe${treat}, test to ${method}, and compare with ${fmtNumber(c.value)}${state?.moisture === 'conditioned' ? ' after conditioning them as the part will be' : ''}.`;
   }
   if (c.kind === 'environment') return `${describeConstraint(c)}: expose coupons to the agent, concentration, temperature and time the part will meet, and compare with unexposed ones; a maker's rating names no such condition.`;
-  if (c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)) return 'Within H2C temperature limits: print a first part at the settings above and record whether it warps, delaminates or strings.';
+  if (c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)) return `${H2C_CHECK}: print a first part at the settings above and record whether it warps, delaminates or strings.`;
   return null;
 }
 

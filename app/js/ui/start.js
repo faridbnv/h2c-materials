@@ -6,7 +6,7 @@
 
 import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
 import { esc, fmtNumber } from './format.js';
-import { describeConstraint, POLICY_LABELS, GATE } from './labels.js';
+import { describeConstraint, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
 
 /**
  * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
@@ -161,7 +161,7 @@ export function renderActive(state, actions) {
       </div>
     </div>
     <div class="pills" title="Press a requirement to remove it">
-      ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">Within H2C temperature limits<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
+      ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">${H2C_CHECK}<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
       ${shownHard.map((c) => pill(c, cs.indexOf(c))).join('')}
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">Reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>

@@ -31,6 +31,12 @@ export const POLICY_CONTROL_SHORT = 'Could not be checked';
  * still takes it up, so it reads "Does not dissolve in water" (the PM trial, PM-11). */
 export const envRequirement = (category) => (category === 'water-solubility' ? 'Does not dissolve in water' : `Resists ${envNoun(category)}`);
 export const POLICY_LABELS = { strict: 'Leave out', exploration: 'Include' };
+/**
+ * The H2C's three temperature checks under one name, wherever the main page names them together: the pill, the rail's
+ * checkbox, Why excluded and the brief. The pill said "Within H2C temperature limits" and Why excluded listed three
+ * rows, so one requirement had two names (REVIEW-0 F11, 2026-10-18).
+ */
+export const H2C_CHECK = 'Nozzle, bed and chamber within H2C limits';
 /** The choice in a sentence, where the buttons' two words alone would not read ("With Include, …"). */
 export const POLICY_PHRASE = {
   strict: 'with the materials that could not be checked left out',

@@ -967,7 +967,7 @@ function renderScenario(host) {
           ? `<div class="sc-big">${selection.counts.pass}<span>of ${selection.counts.total} materials pass</span></div>`
           : `<div class="sc-big">${selection.counts.total}<span>materials, nothing tested yet</span></div>`}
         <div class="sc-lines">
-          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} reported only` : ''}</div>
+          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} reported, not required` : ''}</div>
           <div>${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}</div>
           ${scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `<div>Estimates and resin data: ${state.useEstimates ? 'on (may exclude, never pass)' : 'off'}</div>` : ''}
           ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}

@@ -5,7 +5,7 @@
 
 import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, estimateDisplay, chip, wireEvidence, explainButton, missingText, missingLabel, scrollTable, markTableOverflow } from './format.js';
-import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel } from './labels.js';
+import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel, H2C_CHECK } from './labels.js';
 import { productGates, hardenedShare, hardenedWords } from '../engine/products.js';
 import { indexById, rankingFor } from '../engine/indices.js';
 
@@ -136,7 +136,7 @@ export function renderCompare(host, state, actions) {
     if (log) logTracks.push(prop(a.key).plain.toLowerCase());
     return `<div class="cmp-prop${log ? ' log-track' : ''}">
       <h4 title="${esc(prop(a.key).technical)}">${esc(prop(a.key).plain)} <span class="unit">${esc(a.unit)}</span>${requirements.length
-        ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (reported only)' : ''}</span>`).join(' ')}</span>` : ''}</h4>
+        ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (reported, not required)' : ''}</span>`).join(' ')}</span>` : ''}</h4>
       ${picked.map((m) => {
         const h = m.headline[a.key];
         const who = `${esc(m.name)}${isAnchor(m) ? ' <span class="anchor-tag">baseline</span>' : ''}`;
@@ -206,9 +206,15 @@ export function renderCompare(host, state, actions) {
   // What was asked, on screen and on paper. A printed comparison used to carry the bars and nothing
   // that said which question they answered, under which rule, from which snapshot.
   const hard = scenario.constraints.filter((c) => c.mandatory !== false);
+  // The nozzle, bed and chamber checks under the one name the pill and the rail give them, where all three are set.
+  const namedOnce = (cs) => {
+    const gates = cs.filter((c) => c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate));
+    if (gates.length < 3) return cs.map((c) => esc(describeConstraint(c)));
+    return cs.flatMap((c) => (!gates.includes(c) ? [esc(describeConstraint(c))] : c === gates[0] ? [esc(H2C_CHECK)] : []));
+  };
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
-      <div><b>Requirements:</b> ${hard.length ? hard.map((c) => esc(describeConstraint(c))).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
+      <div><b>Requirements:</b> ${hard.length ? namedOnce(hard).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
       <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? '; estimates and resin data may exclude a material, never pass one' : ''}.
         Release ${esc(db.meta.release?.id ?? 'unidentified')}, data of ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. A material's values span its products: check the exact
         product in its Products tab before you buy or print.</div>

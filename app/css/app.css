@@ -527,6 +527,11 @@ h3.sec:first-child { margin-top: 0; }
 .relax { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); }
 .relax .bar { height: 4px; background: var(--fail); border-radius: 2px; margin-top: 5px; }
 .relax .held { height: 4px; background: var(--unknown); border-radius: 2px; margin-top: 3px; }
+/* The H2C's three temperature checks under their one name, and the reported-only rows apart under a rule. */
+.relax-group-head { font-weight: 650; font-size: var(--t-small); padding: 10px 0 2px; }
+.relax-group > .relax { padding-left: 14px; }
+.relax-reported { margin-top: 14px; border-top: 2px solid var(--border-strong); }
+.relax-reported .relax .bar { opacity: .45; }
 
 /* ---------------------------------------------------------------- empty states */
 .empty { max-width: 620px; margin: 40px auto; text-align: left; }
