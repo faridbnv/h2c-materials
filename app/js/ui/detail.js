@@ -24,7 +24,7 @@ import { toHash } from '../engine/scenario.js';
 import {
   stated, isProduct, productName, productNameOrId, sourceName, originalOf, groupBy, groupByMaker, leadMaker, materialContext, productDocuments,
   identity, emptyReasons, gapSplit, largestFirst, measuredIn, measurementFacts, sourceBlockFacts,
-  resolvePointers, familyGuidanceFacts, soldToughened, toughenedClaim, dotMarks, notDrawnWhy, comparisonsOf, printFacts, printCounts, guideFacts,
+  resolvePointers, readerNote, readerText, familyGuidanceFacts, soldToughened, toughenedClaim, dotMarks, notDrawnWhy, comparisonsOf, printFacts, printCounts, guideFacts,
   routingSaysMore, makersSayFacts, knowHowGapFacts, envGroups, hasEstimates, productEstimates, priceRows,
 } from './material-facts.js';
 import {
@@ -597,17 +597,22 @@ function printCard(g) {
   const from = p?.from ?? {};
   const some = !!p?.profileIds.length || Object.keys(from).some((a) => a !== 'anneal');
   if (!some && !p?.anneal?.length) return '<div class="print-card fine">No print settings on file for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
-  // An enclosure with no temperature is the H2C's heated chamber: the guide's (D90) or, for the same types, its maker's
-  // own words (D93), which the gate's reason quotes (material-words.js settingWords).
-  const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(settingWords(p[key]))} ${gateChip(p[key], label)}${fromNote(from[key])}</dd>` : '');
+  // Where a part was read from a data sheet the product shares or from the Bambu Lab Filament Guide, it is said once,
+  // under the card, for every part read from it (2026-10-18): PLA's Products tab had printed "from Bambu Lab's Filament
+  // Guide for PLA" 876 times, after each cell. An enclosure with no temperature is the H2C's heated chamber: the guide's
+  // (D90) or, for the same types, its maker's own words (D93), which the gate's reason quotes (settingWords).
+  const NAMES = { nozzle: 'nozzle', bed: 'bed', chamber: 'chamber', enclosure: 'enclosure', hardenedNozzle: 'hardened nozzle', drying: 'drying', anneal: 'annealing' };
+  const read = new Map();
+  for (const [key, f] of Object.entries(from)) if (f && NAMES[key]) (read.get(f.label) ?? read.set(f.label, []).get(f.label)).push(NAMES[key]);
+  const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(settingWords(p[key]))} ${gateChip(p[key], label)}</dd>` : '');
   const anneal = annealWords(p.anneal);
   return `<div class="print-card"><div class="shared-head">Print settings</div><dl class="kv small">
     ${axis('Nozzle', 'nozzle')}${axis('Bed', 'bed')}${axis('Chamber', 'chamber')}
-    ${some ? `<dt>Enclosure</dt><dd>${esc(p.enclosure === 'unknown' ? 'not published' : p.enclosure.replace(/-/g, ' '))}${fromNote(from.enclosure)}</dd>
-    <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}${fromNote(from.hardenedNozzle)}</dd>
-    <dt>Drying</dt><dd>${esc(dryingWords(p.drying))}${fromNote(from.drying)}</dd>` : ''}
-    ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))} (some of its values were measured after it)${fromNote(from.anneal)}</dd>` : ''}
-  </dl></div>`;
+    ${some ? `<dt>Enclosure</dt><dd>${esc(p.enclosure === 'unknown' ? 'not published' : p.enclosure.replace(/-/g, ' '))}</dd>
+    <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}</dd>
+    <dt>Drying</dt><dd>${esc(dryingWords(p.drying))}</dd>` : ''}
+    ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))} (some of its values were measured after it)</dd>` : ''}
+  </dl>${[...read].map(([label, parts]) => `<p class="fine from-note">${esc(cap(andList(parts)))}: ${esc(label)}, where this product's own sheet is silent.</p>`).join('')}</div>`;
 }
 
 // What a maker writes about printing and using a product beyond its numbers (db.knowHow, build/src/know-how.js): its
@@ -625,25 +630,41 @@ function knowHowOf(db) {
   return knowHowIndex.get(db);
 }
 
-/** Where a statement stands, in a few words: a data sheet or the maker's product page, and the page. */
-function knowHowSource(k, c) {
+/**
+ * A statement's note as the drawer shows it (2026-10-18): a reader's caveat ("printed geometry, test method, service load
+ * and lifetime unstated") beside the quote, one press away; a maintainer's note ("Read 2026-10-05 … (m413)", a restatement
+ * of what the tab's line says once) behind the record's ID mark with its IDs, the pages' rule (material-facts.js
+ * readerNote). About 2,700 of 3,004 had stood as a "review note" button on every line.
+ */
+const RESTATES_LEDE = /\b(?:concentration|duration|temperature|exposure time)\b[^.]*\b(?:not (?:specified|stated|given)|unspecified|unstated)\b/i;
+const noteOf = (raw, { lede = false } = {}) => {
+  const note = String(raw ?? '').trim();
+  if (!note || /^(not published|not applicable|not stated|not recorded|n\/a)\.?$/i.test(note)) return { shown: '', behind: null };
+  if (readerNote(note) && !(lede && RESTATES_LEDE.test(note))) {
+    return { shown: ` ${explainButton('caveat', note, { cls: 'maker-conditions', head: 'What the statement leaves out' })}`, behind: null };
+  }
+  return { shown: '', behind: ['Note:', note] };
+};
+
+/**
+ * A record's prose with the records it names taken out (2026-10-18): "recorded as a Variant under D57 (R078,
+ * m131-grades-the-sweep-found)" reads "recorded as a Variant". A parenthesis that is not reader text and a decision
+ * named after "under" leave the sentence; the full text stays behind the ID mark.
+ */
+function proseOnly(text) {
+  const t = String(text ?? '');
+  if (readerText(t)) return t;
+  return t.replace(/\s*\(([^()]*)\)/g, (all, inner) => (readerText(inner) ? all : '')).replace(/\s+under D\d{2,3}\b/g, '').replace(/\s+([;,.])/g, '$1').trim();
+}
+
+/** Where a statement stands, in a few words (a data sheet or the maker's product page, and the page), opening where. */
+function knowHowSource(k, c, behind = null) {
   const s = c.sourceById.get(k.sourceId);
   const kind = s?.sourceClass === 'Manufacturer product page or guide' ? 'product page'
     : s?.sourceClass === 'Manufacturer TDS' ? 'data sheet' : lower(sourceKind(s));
   const page = /^p\. ?\d+/.exec(String(k.locator ?? ''))?.[0];
   const where = `${sourceName(s, k.sourceId)}${stated(k.locator) ? `, ${k.locator}` : ''}.`;
-  return `<span class="maker-src">— ${esc(kind)}${page ? `, ${esc(page)}` : ''}</span> ${explainButton('where', where, { cls: 'id-mark', head: 'Where this is stated' })}${ids(['Statement', k.id], ['Source', k.sourceId])}`;
-}
-
-/**
- * What a statement does not say, recorded by the reviewer who read it ("printed geometry, test method, service load
- * and lifetime unstated"). It qualifies the quote, so it is one press away beside it, never inside the maker's words.
- */
-function knowHowConditions(k) {
-  const note = String(k.exposure ?? '').trim();
-  // Only an entire missing-state cell is empty guidance. "Not published; ..." may explain a real limit.
-  return note && !/^(not published|not applicable|not stated|not recorded|n\/a)\.?$/i.test(note)
-    ? ` ${explainButton('review note', note, { cls: 'maker-conditions', head: 'Reviewer\'s note on this statement' })}` : '';
+  return `<span class="maker-src">— ${explainButton(esc(`${kind}${page ? `, ${page}` : ''}`), where, { cls: 'src-where', head: 'Where this is stated' })}</span>${ids(['Statement', k.id], ['Source', k.sourceId], ...(behind ? [behind] : []))}`;
 }
 
 function makerSays(g, c) {
@@ -656,13 +677,19 @@ function makerSays(g, c) {
   const other = records.length ? `<details class="grade-more"><summary>Its environment statements (${records.length})</summary><dl class="kv small">
     ${records.map((e) => `<dt>${esc(e.categoryLabel ?? e.domain)}</dt><dd>${esc(e.topic)}: ${esc(e.finding)}</dd>`).join('')}</dl></details>` : '';
   if (!k) return other;
-  // What its documents leave unsaid, and whether its website was checked (material-facts.js knowHowGapFacts).
-  const gap = knowHowGap(knowHowGapFacts(g, topics));
-  if (!own.length) return `<div class="fine maker-says-gap">${esc(gap)}</div>${other}`;
+  // What its documents leave unsaid, and whether its website was checked (material-facts.js knowHowGapFacts), as one
+  // closed line under the quotes (2026-10-18): the list of twelve topics had run under every card.
+  const facts = knowHowGapFacts(g, topics);
+  const gapText = knowHowGap(facts);
+  const n = facts.state === 'collected' ? facts.missing.length + facts.recipe.length : 0;
+  const gap = gapText && n > 1
+    ? `<details class="grade-more maker-gap"><summary>Not stated by its maker: ${n} topics</summary><p class="fine">${esc(gapText)}</p></details>`
+    : gapText ? `<p class="fine">${esc(gapText)}</p>` : '';
+  if (!own.length) return `<div class="fine maker-says-gap">${gapText ? esc(gapText) : ''}</div>${other}`;
   const groups = topics.map((t) => [t, own.filter((x) => x.topic === t)]).filter(([, list]) => list.length);
   return `<div class="maker-says"><div class="shared-head">What the maker says</div><dl class="kv small">
-    ${groups.map(([t, list]) => `<dt>${esc(t)}</dt><dd><ul class="maker-quotes">${list.map((x) => `<li>“${esc(x.text)}” ${knowHowSource(x, c)}${knowHowConditions(x)}</li>`).join('')}</ul></dd>`).join('')}
-  </dl>${gap ? `<p class="fine">${esc(gap)}</p>` : ''}</div>${other}`;
+    ${groups.map(([t, list]) => `<dt>${esc(t)}</dt><dd><ul class="maker-quotes">${list.map((x) => { const n = noteOf(x.exposure); return `<li>“${esc(x.text)}” ${knowHowSource(x, c, n.behind)}${n.shown}</li>`; }).join('')}</ul></dd>`).join('')}
+  </dl>${gap}</div>${other}`;
 }
 
 /** Across a material's products: how many makers say something on each topic, and where the sheets are silent. */
@@ -944,6 +971,28 @@ function spreadTable(m, c) {
   ${rows.filter(([, s]) => s.claimed).map(([h, s]) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))} ${TOUGHENED_NOTE_SHORT}</p>`).join('')}`;
 }
 
+/**
+ * A print profile's settings, the ones it publishes as rows and the ones it does not in one line under them (2026-10-18):
+ * eSUN's profiles had shown eight rows of "Not published" each. Nozzle, bed and chamber always keep their row: the H2C's
+ * verdict is beside them.
+ */
+function profileRows(p, note) {
+  const rows = [
+    ['Nozzle', `${esc(p.nozzle.text)} ${gateChip(p.gates.nozzle, 'Nozzle')}`, true],
+    ['Bed', `${esc(p.bed.text)} ${gateChip(p.gates.bed, 'Bed')}`, true],
+    ['Chamber', `${esc(stated(p.chamber.text) ? p.chamber.text : 'not stated')} ${gateChip(p.gates.chamber, 'Chamber')}
+          ${p.chamber.fromEnclosure || p.chamber.state === 'enclosed' ? note(`Read from the enclosure line: "${esc(p.enclosure)}".`) : ''}
+          ${p.chamber.strippedTail ? note(`Text after the value, not read as a chamber requirement: ${esc(p.chamber.strippedTail)}`) : ''}`, true],
+    ['Nozzle material', p.nozzleMaterial, false], ['Nozzle diameter', p.nozzleDiameter.text, false], ['Abrasion', p.abrasion.text, false],
+    ['Drying', p.drying.text, false, true], ['Enclosure', p.enclosure, false], ['Plate', p.plate, false],
+    ['Support material', p.supportPairing, false], ['Failure modes', p.failureModes, false, true],
+  ];
+  const shown = rows.filter(([, v, keep]) => keep || stated(v));
+  const silent = rows.filter(([, v, keep]) => !keep && !stated(v)).map(([label]) => lower(label));
+  return `<dl class="kv">${shown.map(([label, v, keep, long]) => `<dt>${esc(label)}</dt><dd>${keep ? v : long ? longText(v) : esc(v ?? '')}</dd>`).join('')}</dl>${silent.length
+    ? `<p class="fine profile-silent">Not published: ${esc(andList(silent))}.</p>` : ''}`;
+}
+
 function tabBody(tab, c) {
   const { m, ev, poly, cov, profiles, grades, prices, evaluation, summary, db, showEstimates, policy } = c;
   const empty = (t) => nothingRecorded(emptyReasons(c, t), { toGaps: cov.length > 0 });
@@ -1153,26 +1202,15 @@ function tabBody(tab, c) {
     // AMS and H2C routing are shown on a profile only where it says more than "verify the exact grade", which nearly all
     // say; the tab says so once, at its top.
     const saysMore = routingSaysMore;
-    const routingNote = `<p class="fine">AMS and H2C nozzle routing: ${profiles.filter(saysMore).length ? `shown on the ${plural(profiles.filter(saysMore).length, 'profile')} that ${profiles.filter(saysMore).length === 1 ? 'says' : 'say'} more than` : 'every profile says only'} "verify the exact grade". Not used as a filter.</p>`;
+    // AMS, moved here from the Overview (2026-10-18): what makers state, once, and the routing's "verify the exact grade"
+    // said once for every profile that says only that.
+    const more = profiles.filter(saysMore).length;
+    const routingNote = `<p class="fine"><b>AMS:</b> ${esc(amsSummary(profiles))} AMS and nozzle routing: ${more === 0 ? 'every profile says only' : more === profiles.length ? 'each profile says more than' : `every profile but ${more === 1 ? 'one' : fmtNumber(more)} says only`} "verify the exact grade".</p>`;
     const profileBlock = (p) => {
       const g = c.gradeById.get(p.gradeId);
       return `<div class="profile-block" data-profile-id="${esc(p.id)}" data-search-item="${esc([productName(g), g?.manufacturer, p.profile, p.id].filter(stated).join(' '))}">
       <h3 class="block-title">${esc(productName(g) || 'Product not named')}${stated(p.profile) ? ` <span class="fine">${esc(p.profile)}</span>` : ''}${ids(['Profile', p.id], ['Product', p.gradeId])}</h3>
-      <dl class="kv">
-        <dt>Nozzle</dt><dd>${esc(p.nozzle.text)} ${gateChip(p.gates.nozzle, 'Nozzle')}</dd>
-        <dt>Bed</dt><dd>${esc(p.bed.text)} ${gateChip(p.gates.bed, 'Bed')}</dd>
-        <dt>Chamber</dt><dd>${esc(stated(p.chamber.text) ? p.chamber.text : 'not stated')} ${gateChip(p.gates.chamber, 'Chamber')}
-          ${p.chamber.fromEnclosure || p.chamber.state === 'enclosed' ? note(`Read from the enclosure line: "${esc(p.enclosure)}".`) : ''}
-          ${p.chamber.strippedTail ? note(`Text after the value, not read as a chamber requirement: ${esc(p.chamber.strippedTail)}`) : ''}</dd>
-        <dt>Nozzle material</dt><dd>${esc(p.nozzleMaterial ?? '')}</dd>
-        <dt>Nozzle diameter</dt><dd>${esc(p.nozzleDiameter.text)}</dd>
-        <dt>Abrasion</dt><dd>${esc(p.abrasion.text)}</dd>
-        <dt>Drying</dt><dd>${longText(p.drying.text)}</dd>
-        <dt>Enclosure</dt><dd>${esc(p.enclosure ?? '')}</dd>
-        <dt>Plate</dt><dd>${esc(p.plate ?? '')}</dd>
-        <dt>Support material</dt><dd>${esc(p.supportPairing ?? '')}</dd>
-        <dt>Failure modes</dt><dd>${longText(p.failureModes ?? '')}</dd>
-      </dl>
+      ${profileRows(p, note)}
       ${p.notes.length ? `<dl class="kv">${p.notes.map((n) => `<dt>${esc(n.topic)}</dt><dd>${longText(n.text)}</dd>`).join('')}</dl>` : ''}
       ${saysMore(p) ? `<details class="grade-more routing"><summary>AMS and H2C nozzle routing, as recorded</summary>
         <dl class="kv">
@@ -1197,12 +1235,12 @@ function tabBody(tab, c) {
     const record = (e, label) => `<div class="evidence-row env-row">
         <div><strong>${esc(e.finding)}</strong></div>
         ${(() => { const bits = envConditionWords(e, label); return bits ? `<div class="cond">${esc(bits)}</div>` : ''; })()}
-        <div class="cond meas-foot">${esc(stated(e.gradeId) ? productName(c.gradeById.get(e.gradeId)) || 'a product' : 'the material in general')} · <button type="button" class="link-btn" data-open-source="${esc(e.sourceId)}" title="Opens this document in Sources">${esc(sourceName(c.sourceById.get(e.sourceId), e.sourceId))}</button>${stated(e.exposure) ? ` ${explainButton('review note', e.exposure, { cls: 'id-mark', head: 'Reviewer\'s note on this statement' })}` : ''}${ids(['Statement', e.id], ['Source', e.sourceId])}</div>
+        <div class="cond meas-foot">${esc(stated(e.gradeId) ? productName(c.gradeById.get(e.gradeId)) || 'a product' : 'the material in general')} · <button type="button" class="link-btn" data-open-source="${esc(e.sourceId)}" title="Opens this document in Sources">${esc(sourceName(c.sourceById.get(e.sourceId), e.sourceId))}</button>${(() => { const n = noteOf(e.exposure, { lede: true }); return `${n.shown}${ids(['Statement', e.id], ['Source', e.sourceId], ...(n.behind ? [n.behind] : []))}`; })()}</div>
       </div>`;
     const section = ([label, list]) => `<h3 class="sec">${esc(label)}</h3>${list.map((e) => record(e, label)).join('')}`;
     return usable.map(section).join('')
       + (other.length ? `<details class="grade-more env-other"><summary>Other maker statements (${other.reduce((n, [, l]) => n + l.length, 0)}): ${esc(other.map(([l]) => l.toLowerCase()).join(', '))}</summary>
-          <p class="fine">Not used by any filter.</p>${other.map(section).join('')}</details>` : '')
+          ${other.map(section).join('')}</details>` : '')
       + polymerSection(poly, c);
   }
 
@@ -1250,7 +1288,7 @@ function tabBody(tab, c) {
         <details class="grade-more"><summary>Product details</summary><dl class="kv">
           <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
           <dt>Product</dt><dd>${esc(g.product ?? '')}${ids(['Product', g.id])}</dd>
-          <dt>Composition</dt><dd>${esc(g.composition ?? '')}</dd>
+          <dt>Composition</dt><dd>${(() => { const t = proseOnly(g.composition); return `${esc(t)}${t !== String(g.composition ?? '') ? ids(['As recorded:', g.composition]) : ''}`; })()}</dd>
           ${g.variant ? `<dt>Variant</dt><dd>${esc(g.variant)}. Its values describe this product, not the polymer in general, so they are left out of the material's range.</dd>` : ''}
           <dt>Availability</dt><dd>${esc(g.availability ?? '')}</dd>
           <dt>Certifications</dt><dd>${esc(g.certifications ?? '')}</dd>
@@ -1280,8 +1318,14 @@ function tabBody(tab, c) {
     const foreignWhy = foreignPriceWords;
     const listing = new Map(priceRows(c).map((r) => [r.p, r]));
     const used = (p) => (listing.get(p).used ? 'yes' : explainButton('no', UNUSED_WORDS[listing.get(p).unused], { cls: 'missing', head: 'Not used for the price' }));
-    return `<div class="note">The material's price is the median of its products' prices, and a product's price is the median of its
-      listings: Canadian where it has any, otherwise foreign ones converted to CAD (¤). ${esc(priceSampleWords(db.meta))}. A struck-through listing is a different product and is not used.</div>
+    // The answer first (2026-10-18): the material's price as its key figure prints it, then how it is made. The tab had
+    // opened on three sentences of method and never said the price.
+    const e = m.headline?.priceCADkg, sp = m.summary?.priceCADkg;
+    const priceLine = e?.known
+      ? `<p class="price-answer"><b>${esc(fmtDisplayUnit(e.value, 'CAD/kg'))}</b>${convertedMark(e.converted)}, ${(sp?.n ?? e.spread?.n ?? 1) > 1
+        ? `the median of ${sp?.n ?? e.spread?.n} products' prices (${esc(spanDisplayUnit(sp?.min ?? e.spread?.min, sp?.max ?? e.spread?.max, 'CAD/kg'))})` : 'one product\'s price'}, from ${fmtNumber(prices.length)} shop ${prices.length === 1 ? 'listing' : 'listings'}.</p>`
+      : `<p class="price-answer">No product's price is known: ${fmtNumber(prices.length)} shop ${prices.length === 1 ? 'listing' : 'listings'}, none used.</p>`;
+    return `${priceLine}<div class="note">A product's price is the median of its listings: Canadian where it has any, otherwise foreign ones converted to CAD (¤). ${esc(priceSampleWords(db.meta))}, not live. A struck-through listing is a different product and is not used.</div>
       ${scrollTable(`<table class="grid price-table"><thead><tr>
       <th class="retailer">Retailer</th><th class="variant">Listing</th><th class="num">kg</th><th class="num">CAD/kg</th><th>Stock</th><th>Used</th></tr></thead>
       <tbody>${prices.map((p) => `<tr data-price="${esc(p.id)}"${p.quarantined ? ` class="quarantined" title="${esc(quarantineWhy(p))}"` : ''}>

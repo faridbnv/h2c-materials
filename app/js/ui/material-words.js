@@ -364,15 +364,16 @@ export function amsSummary(profiles) {
     }
     return by;
   };
-  const quote = (by) => [...by].map(([t, n]) => `"${t}"${n < profiles.length ? ` (${n} of ${profiles.length} profiles)` : ''}`).join('; ');
+  // Where profiles disagree, each wording says how many carry it, in words a reader reads (it had been "(1 of 297 profiles)").
+  const quote = (by) => [...by].map(([t, n]) => `"${t}"${n < profiles.length ? `, on ${n === 1 ? 'one profile' : `${fmtNumber(n)} profiles`}` : ''}`).join('; ');
   const published = wordings('amsPublished');
   const pro = wordings('ams2Pro');
   const ht = wordings('amsHT');
   const parts = [published.size ? `Makers state: ${quote(published)}.` : 'No maker states AMS compatibility.'];
-  if (pro.size && quote(pro) === quote(ht)) parts.push(`Bambu's notes for AMS 2 Pro and AMS HT: ${quote(pro)}.`);
+  if (pro.size && quote(pro) === quote(ht)) parts.push(`Bambu Lab, for AMS 2 Pro and AMS HT: ${quote(pro)}.`);
   else {
-    if (pro.size) parts.push(`Bambu's note for AMS 2 Pro: ${quote(pro)}.`);
-    if (ht.size) parts.push(`Bambu's note for AMS HT: ${quote(ht)}.`);
+    if (pro.size) parts.push(`Bambu Lab, for AMS 2 Pro: ${quote(pro)}.`);
+    if (ht.size) parts.push(`Bambu Lab, for AMS HT: ${quote(ht)}.`);
   }
   return parts.join(' ');
 }

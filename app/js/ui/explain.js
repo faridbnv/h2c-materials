@@ -7,6 +7,7 @@
 import { explainExclusions } from '../engine/constraints.js';
 import { chip, esc } from './format.js';
 import { describeConstraint, POLICY_LABELS } from './labels.js';
+import { lower } from './text.js';
 
 // The panel used to print raw internal keys here: "hdt045 >= 100", "tensileModulusXY >= 3",
 // "scope". The requirement pills on the same screen said "HDT at least 100 °C" because they used a
@@ -103,7 +104,7 @@ export function renderWhy(evaluation, { productName } = {}) {
   // The three H2C limits a product's settings are within are one requirement to a reader: said once in "Also met".
   const GATES = ['nozzle', 'bed', 'chamber'];
   const gates = trivial.filter((r) => r.constraint.kind === 'gate' && GATES.includes(r.constraint.gate));
-  const also = [...trivial.filter((r) => !gates.includes(r)).map((r) => describeConstraint(r.constraint)),
+  const also = [...trivial.filter((r) => !gates.includes(r)).map((r) => lower(describeConstraint(r.constraint))),
     ...(gates.length === GATES.length ? ['nozzle, bed and chamber within H2C limits'] : gates.map((r) => describeConstraint(r.constraint)))];
   // One list, so the result chips share a column and the text beside them one left edge (app.css). A requirement the
   // product's sheets cannot settle (the engine's INDETERMINATE: a chamber recommended above the H2C's, not required)
