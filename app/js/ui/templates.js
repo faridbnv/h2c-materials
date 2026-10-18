@@ -37,7 +37,9 @@ export const TEMPLATES = [
   {
     name: 'Outdoor structural part',
     description: 'A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³.',
-    notChecked: 'UV and weathering. Makers describe them in words and never give a verdict, so no filter can check them. Read the Environment tab of anything you pick.',
+    // What the check takes on trust, said where it is read (the screening review, C10 and C39): an HDT whose test bar the
+    // sheet does not describe is taken as a printed bar's (D84), and the part is judged dry.
+    notChecked: 'UV and weathering. Makers describe them in words and never give a verdict, so no filter can check them. Read the Environment tab of anything you pick. An HDT whose test bar its sheet does not describe is accepted as a printed bar\'s. The part is judged dry: nylons lose stiffness in humid air, and few sheets publish a humid value.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100, mandatory: true, __group: 'Thermal' },
@@ -68,7 +70,7 @@ export const TEMPLATES = [
   {
     name: 'Warm environment',
     description: 'A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C.',
-    notChecked: 'Printing without chamber heat. The H2C heats its chamber up to 65 °C, and the check assumes it does.',
+    notChecked: 'Printing without chamber heat. The H2C heats its chamber up to 65 °C, and the check assumes it does. An HDT whose test bar its sheet does not describe is accepted as a printed bar\'s.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'hdt045', operator: '>=', value: 80, mandatory: true, __group: 'Thermal' },
@@ -87,7 +89,7 @@ export const TEMPLATES = [
   {
     name: 'Flexible component',
     description: 'A gasket, a strap or a phone case. Elongation at break at least 100 %.',
-    notChecked: 'Recovery, softness and sealing. Elongation at break says none of these; check Shore hardness in the Mechanical tab.',
+    notChecked: 'Recovery, softness and sealing. This tests stretch, not softness, so a rigid plastic that stretches far before it breaks can appear; check Shore hardness in the Mechanical tab.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100, mandatory: true, __group: 'Mechanical' },

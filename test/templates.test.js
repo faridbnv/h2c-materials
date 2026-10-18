@@ -6,7 +6,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { runSelection } from '../app/js/engine/constraints.js';
+import { runSelection, explainExclusions } from '../app/js/engine/constraints.js';
+import { productsByMaterial } from '../app/js/engine/products.js';
 import { validateScenario } from '../app/js/engine/scenario.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 import { toCSV } from '../app/js/ui/table.js';
@@ -65,5 +66,30 @@ test('the CSV says why each row failed and what was asked', () => {
   const failing = rows.find((r) => r.evaluation.verdict === 'FAIL');
   const line = csv.split('\n').find((l) => l.startsWith(failing.material.id + ','));
   assert.match(line, /Density at most 1 kg\/m³: Published/);
-  assert.doesNotMatch(csv.split('\n').find((l) => l.startsWith('MaterialID')), /Estimated fields/);
+  const header = csv.split('\n').find((l) => l.startsWith('MaterialID'));
+  assert.doesNotMatch(header, /Estimated fields/);
+  // A property that does not apply hides a material whatever the estimates switch says, so its column is always there (D148).
+  assert.match(header, /Hidden: does not apply/);
+});
+
+// D148 (the screening review, C07 and C20). Outdoor structural part, Include: the page hides the 14 materials HDT does not
+// apply to (13 elastomers and OBC), with estimates on or off, and "Why the rest were excluded" counts those 14, each
+// "Does not apply". It had counted 22 on HDT: 8 more fail another requirement, and the page lists them as failures.
+test('Outdoor structural part hides the 14 materials HDT does not apply to, estimates on or off, and Why excluded counts 14', () => {
+  const t = TEMPLATES.find((x) => x.name === 'Outdoor structural part');
+  const hdt = t.constraints.find((c) => c.property === 'hdt045');
+  const mats = db.materials.filter((m) => !m.familyEntry);
+  for (const useEstimates of [true, false]) {
+    const c = { ...ctx, productsByMaterial: productsByMaterial(db), unknownPolicy: 'exploration', useEstimates };
+    const sel = runSelection(mats, t.constraints, c);
+    const hidden = sel.evaluations.filter((e) => e.screened);
+    assert.equal(hidden.length, 14, `estimates ${useEstimates ? 'on' : 'off'}`);
+    for (const e of hidden) {
+      assert.equal(e.verdict, 'UNKNOWN', 'hidden, never failed');
+      assert.ok(e.unresolved.every((r) => r.notApplicable && r.constraint === hdt && /: Does not apply: /.test(r.reason)), e.materialId);
+    }
+    const why = explainExclusions(mats, t.constraints, c).find((r) => r.constraint === hdt);
+    assert.equal(why.screened, 14);
+    assert.equal(why.screenedNotApplicable, 14);
+  }
 });

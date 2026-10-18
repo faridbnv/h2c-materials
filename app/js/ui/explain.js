@@ -15,15 +15,17 @@ import { lower } from './text.js';
 const nameOf = describeConstraint;
 
 /**
- * How many of a requirement's unchecked materials a screen held out, and by what: an estimate, or the base polymer's
- * published behaviour (D64), which the engine counts apart so the panel can say which.
+ * How many materials the page hides as unlikely on a requirement, and by what (D148): a property that does not apply to
+ * them, an estimate, or the base polymer's published behaviour (D64), which the engine counts apart so the panel can say
+ * which. Counted as the page hides them: a material held out by the whole question, whose own hide names this
+ * requirement (the screening review, C07). Outdoor's HDT line said 22 where the page hides 14; the other 8 fail.
  */
 function screenedClause(r) {
-  const byPolymer = r.screenedByPolymer ?? 0;
-  const byEstimate = r.screened - byPolymer;
-  if (!byPolymer) return `${r.screened} of them excluded by an estimate`;
-  if (!byEstimate) return `${byPolymer} of them excluded by resin reference data`;
-  return `${r.screened} of them excluded: ${byEstimate} by an estimate, ${byPolymer} by resin reference data`;
+  const na = r.screenedNotApplicable ?? 0, byPolymer = r.screenedByPolymer ?? 0;
+  const byEstimate = r.screened - na - byPolymer;
+  const parts = [na ? `${na} because it does not apply to them` : null, byEstimate ? `${byEstimate} by an estimate` : null,
+    byPolymer ? `${byPolymer} by resin reference data` : null].filter(Boolean);
+  return parts.length === 1 ? `${r.screened} hidden ${parts[0].replace(/^\d+ /, '')}` : `${r.screened} hidden: ${parts.join(', ')}`;
 }
 
 export function renderExclusions(host, state, actions) {
@@ -55,7 +57,7 @@ export function renderExclusions(host, state, actions) {
         <div>
           <div class="crit">${esc(nameOf(r.constraint))}</div>
           <div class="why" style="font-size:12px;color:var(--ink-2)">
-            failed ${r.removed} · could not check ${r.held}${r.screened ? ` (${screenedClause(r)})` : ''} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
+            failed ${r.removed} · could not check ${r.held}${r.screened ? ` · ${screenedClause(r)}` : ''} · removing it would bring back ${r.recovered} candidate${r.recovered === 1 ? '' : 's'}</div>
           <div class="bar" style="width:${(r.removed / max) * 100}%"></div>
           <div class="held" style="width:${(r.held / max) * 100}%"></div>
         </div>
@@ -66,7 +68,7 @@ export function renderExclusions(host, state, actions) {
     <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
       Each requirement, ranked by how many candidates it costs. <b>Failed:</b> the published value misses it.
       <b>Could not check:</b> the data is missing; ${explore
-        ? 'these stay listed, flagged, since the materials that could not be checked are included'
+        ? 'these stay listed, flagged, since the materials that could not be checked are included, except those <b>hidden</b> as unlikely, which the SCREENED chip brings back'
         : `these are out only because the materials that could not be checked are set to "${POLICY_LABELS.strict}" in the top bar`}.
       <b>Removing it</b> counts the materials that would come back without that one requirement.</p>
     ${required.map(([r, i]) => {
@@ -208,7 +210,7 @@ export function renderNoResults(host, state, actions) {
   const unconfirmable = scenario.constraints.filter((c) => c.mandatory !== false && unconfirmed(selection, c));
   const explore = scenario.unknownPolicy === 'exploration';
   const next = `<ul class="next-steps">
-      ${counts.unknown ? `<li>${explore ? 'The materials that could not be checked are listed already; the SCREENED chip brings back any an estimate excluded.' : `<button type="button" class="btn btn-sm" id="to-explore">Include them</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
+      ${counts.unknown ? `<li>${explore ? 'The materials that could not be checked are listed already; the SCREENED chip brings back any hidden as unlikely.' : `<button type="button" class="btn btn-sm" id="to-explore">Include them</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
       ${unconfirmable.length ? `<li>No data here can confirm ${esc(unconfirmable.map(describeConstraint).join('; '))}. Read what makers say in a material's Environment or Products tab, and plan a test of your own part.</li>` : ''}
       <li>The ranked list below shows which requirement removes the most, and which ones only failed.</li>
     </ul>`;

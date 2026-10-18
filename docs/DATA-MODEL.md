@@ -494,8 +494,8 @@ and only the first is evidence.
 |---|---|---|---|
 | **Measured** | Its products' comparable values: the median, with their range and count, each traceable to one measurement, grade and source | `4.43` | yes, product by product |
 | **Related** | A real measurement of the same property that is not a comparable value | `46*` | no |
-| **Estimated** | The likely (80%) range of a calibrated model of every observation | `~71.3–92.5†` | **no; in Explore it may screen a material out** |
-| **Not applicable** | A property that does not apply, such as heat deflection of an elastomer | `n/a` | no; in Explore it may screen a material out |
+| **Estimated** | The likely (80%) range of a calibrated model of every observation | `~71.3–92.5†` | **no; under Include, with estimates on, it may screen out a material with no product on record** |
+| **Not applicable** | A property that does not apply, such as heat deflection of an elastomer | `n/a` | no; under Include it hides the material, whether estimates are on or off (D148) |
 
 ### Related evidence
 
@@ -627,14 +627,21 @@ those true values fell: a new true value lies beyond it at most 10% of the time 
 inside the plausible range and moves outwards only where the tail proved too thin. A class needs 22 cases to set an
 end; with fewer, an end screens only where the family model's end agrees. An end the material's own evidence lies beyond
 never screens (`meta.estimateModel.properties.*.screening`, `build/snapshot/screening.csv`).
-In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails, and no
+**Which estimate is read.** A material with products is judged product by product (D83), each product on its own values
+and, where it has none comparable, its own prediction (D81, D137), which hides it only with a back-test certificate
+that none has in this release. So a material's own estimate is never read for a requirement where the material has a
+product on record: it is shown on its row and in its drawer as context (D148). Only a material with no product on
+record (PA66-CF, PA612 and PA612-GF in this release) is judged on its own estimate, as follows.
+Under Include with "Use estimates and resin data" on, an estimate screens a material out when the range it may screen on wholly fails, and no
 printed measurement of the material (or one whose source states no specimen) bounds the headline from below and meets the requirement (`impliedBounds`: yield or
 break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
 published value; D55, D126). The same bounds shape the estimate's own range: a grade's is floored at its own formulation's
 highest (`lower-bounds.js`); a material's, the spread of its products, reaches the highest product floor from above and is
 floored at the lowest only when every active product has one. EST-ORDER fails the build when a shown estimate breaks either. Not
-applicable screens the same way. (An unstated-load heat deflection bracket screened too until phase 4 removed it: a value
-published without its load is now as published, D84.) Strict neither shows nor uses estimates. The earlier models are recorded in D11
+applicable is a definition, not an inference: it never passes, and it hides the material under Include whether estimates
+are on or off, named "Does not apply" (D148; it was coupled to the estimates switch until then). (An unstated-load heat
+deflection bracket screened too until phase 4 removed it: a value published without its load is now as published,
+D84.) Leave out neither shows nor uses estimates. The earlier models are recorded in D11
 and D43, and in D10, D40 and D42 ([DECISIONS-ARCHIVE.md](DECISIONS-ARCHIVE.md)).
 
 **Moisture, variants and bounds.** A value measured after conditioning (its Moisture state says which) converts to
@@ -661,15 +668,16 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 |---|---|
 | Table cell | `~71.3–92.5†`, the likely range; imprecise ones in italic. With estimates on it replaces the related `*` value, which it already contains, converted |
 | Detail drawer | The full record: both ranges and the centre, precision, what it rests on and its share, every measurement behind it with its converted value, and the limits applied |
-| Filter | Always UNKNOWN. In Explore may screen the material out, as above; the SCREENED chip brings it back |
+| Filter | Always UNKNOWN. Under Include, with estimates on, may screen out a material with no product on record, as above; the SCREENED chip brings it back |
 | Ashby lens | The likely range, beside the other axis's span across products or its estimate, never a point: a faint shade in Material ranges and Products (outlined when picked out), a dotted box or capped line in Material typicals. Only under Include with estimates on, drawn once Estimates is pressed, and counted in the chart's reading note either way |
 | Compare | The likely range as a hatched span, the plausible range faint behind it, a tick at the centre; never a filled bar |
 | Parallel | Not drawn. A line commits to a value on every axis it crosses, so the affected materials are named and counted instead |
 | CSV export | Its own column with both ranges, strength and precision, so a spreadsheet can never mistake inference for evidence |
 | Pareto front, candidate counts, index tallies | Never. Inference cannot dominate evidence |
 
-Strict mode sees none of this. Estimates exist only in Explore, and only while the Let estimates rule out materials
-switch is on. `n/a` is a statement, not inference, and shows in both modes.
+Leave out sees none of this. Estimates exist only under Include, and only while the "Use estimates and resin data"
+switch is on. `n/a` is a statement, not inference: it shows in both modes, and under Include it hides the material
+whatever the switch says (D148).
 
 A chamber band is marked the same way, `~80–120†` in the Printing table while estimates are on and as
 a card in the drawer's chamber line, but unlike a property estimate it never screens: it rules nothing out
@@ -779,7 +787,8 @@ claim `Evidence recorded` on another material's family notes, or quote the wrong
 An environment category is a **verdict** category where its findings reduce to resistant, limited or not resistant,
 so it can answer a pass/fail question; an **indicator** category has records but no reducible verdict, so it only
 shows evidence and is never offered as a requirement. A category with polymer-level records (D64) is offered as a
-requirement even where no grade-level record states a verdict: there it can screen a material out and never pass one.
+requirement even where no grade-level record states a verdict: there, under Include with "Use estimates and resin data" on,
+it can screen a material out, and it never passes one.
 Per category, the records, those with a verdict, the materials they cover and the materials the polymer-level records
 cover are in the validation report's "Environment evidence" and "Polymer-level behaviour" sections
 (`build/reports/validation-report.md`), which every build rewrites.

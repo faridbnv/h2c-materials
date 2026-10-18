@@ -280,6 +280,9 @@ export function renderTable(host, state, actions) {
   const index = ranks ? indexById(state.scenario.rankBy) : null;
   const gradeById = ranks ? new Map(state.db.grades.map((g) => [g.id, g])) : null;
 
+  // A material with no product on record is the one whose own estimate is read for a requirement (D148).
+  const productless = (m) => !(state.ctx?.productsByMaterial?.get(m.id)?.length);
+
   const head = COLUMNS.map((c) => {
     // The shortlist column has nothing meaningful to sort by, so it does not pretend to.
     // Its heading is the star itself, its name for a screen reader and a hover: the column holds only the star.
@@ -330,7 +333,7 @@ export function renderTable(host, state, actions) {
         const scr = e?.screened ? screenedChip(e) : null;
         return ghost
           ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
-          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${unknownMark(e)}</td>`
+          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${unknownMark(e)}</td>`
           : `<td class="state"><span class="chip chip-quiet" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
@@ -393,7 +396,7 @@ export function renderTable(host, state, actions) {
       }
       if (c.kind === 'price') {
         const h = m.headline.priceCADkg;
-        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id });
+        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id, productless: productless(m) });
         if (!m.buy) return `<td class="num">${inner}</td>`;
         const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${dayWords(m.buy.accessDate)})`;
         const notStocked = 'No sampled Canadian listing was in stock when sampled. Prices and stock are snapshots, not live.';
@@ -414,7 +417,7 @@ export function renderTable(host, state, actions) {
         const oos = m.buy.anyInStock ? '' : explainButton('out of stock', notStocked, { cls: 'oos', head: 'Out of stock' });
         return `<td class="num">${nested ? inner : ''}${nested ? link('', ' buy-arrow') : link(inner)}${oos}</td>`;
       }
-      const all = withStateMark(renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id }), typicalStateMark(m.headline[c.key], measurementState));
+      const all = withStateMark(renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id, productless: productless(m) }), typicalStateMark(m.headline[c.key], measurementState));
       // A material that passes a requirement on some of its products shows those products' values first, and every
       // product's typical and range under it, labelled (PM-01).
       const pass = tested && e?.verdict === 'PASS' && on(c.key).length ? passingValues(e, c.key) : null;
@@ -459,10 +462,10 @@ export function renderTable(host, state, actions) {
       'Published for this material, but no product reports it on a comparable basis: the orientation is not stated, or it is another endpoint. No filter uses it. Select a starred value for the reason.',
       { cls: 'lg', head: 'Published, not comparable' }),
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
-      `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass; with "Let estimates rule out materials" on, it can exclude one. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,
+      `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass, and it hides one only where the material has no product on record; any other material is judged on its products' own values. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,
       { cls: 'lg', head: 'Estimate, not a measurement' }) : '',
     explainButton('<span class="na">n/a</span> not applicable',
-      'The property does not apply to this material, such as HDT of an elastomer. Not a gap.',
+      'The property does not apply to this material, such as HDT of an elastomer. Not a gap. A requirement on it hides the material when the materials that could not be checked are included, whatever the estimates switch says; the SCREENED chip brings it back.',
       { cls: 'lg', head: 'Not applicable' }),
   ].filter(Boolean);
   // The currencies a converted price on screen came from, and whether an annealed or conditioned median is on screen.
@@ -625,7 +628,7 @@ export function renderTable(host, state, actions) {
  * under which missing-data rule, and for each row why it failed or could not be checked. The first
  * version exported only the unresolved criteria, so every genuine failure had an empty reason.
  */
-export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = null } = {}) {
+export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = null, productsByMaterial = null } = {}) {
   // Ranked by a goal (D102): the table's ranking, the one the chart's guide shows, with its value and the product it rests on.
   const index = ranking && scenario?.rankBy ? indexById(scenario.rankBy) : null;
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State', 'In results',
@@ -634,7 +637,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
-    ...(useEstimates ? ['Estimated fields', 'Screened by estimate', 'Screened by base polymer'] : []), 'Candidate group'];
+    'Hidden: does not apply', ...(useEstimates ? ['Estimated fields', 'Hidden by an estimate', 'Hidden by resin reference data'] : []), 'Candidate group'];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -662,11 +665,13 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     return out;
   }).join(' | ');
   const ids = (m) => KEYS.map((k) => m.headline[k]?.measurementId).filter(Boolean).join(' ');
-  // Only the export's own keys: a drawer-only headline (D139) is computed per product but is no column here.
+  // Only the export's own keys: a drawer-only headline (D139) is computed per product but is no column here. A material's
+  // estimate is read for a requirement only where the material has no product on record; any other's is context (D148).
+  const productless = (m) => !(productsByMaterial ? productsByMaterial.get(m.id) : m.gradeIds)?.length;
   const estimated = (m) => [...Object.entries(m.headline)
     .filter(([k, h]) => KEYS.includes(k) && h && !h.known && (h.estimate || h.notApplicable))
     .map(([k, h]) => (h.notApplicable ? `${k} not applicable`
-      : `${k} ~${h.estimate.lo}-${h.estimate.hi} ${h.estimate.unit} likely, ${h.estimate.plausible.lo}-${h.estimate.plausible.hi} plausible (${h.estimate.strength}; precision ${h.estimate.precision}; ${h.estimate.canScreen ? 'can screen' : 'context only'})`)),
+      : `${k} ~${h.estimate.lo}-${h.estimate.hi} ${h.estimate.unit} likely, ${h.estimate.plausible.lo}-${h.estimate.plausible.hi} plausible (${h.estimate.strength}; precision ${h.estimate.precision}; ${productless(m) && h.estimate.canScreen ? 'can hide this material, which has no product' : 'context only'})`)),
     ...(m.print?.nozzleEstimate ? [`nozzle ~${m.print.nozzleEstimate.lo}-${m.print.nozzleEstimate.hi} C (${m.print.nozzleEstimate.basis}; decides nothing)`] : []),
     ...(m.print?.bedEstimate ? [`bed ~${m.print.bedEstimate.lo}-${m.print.bedEstimate.hi} C (${m.print.bedEstimate.basis}; decides nothing)`] : []),
     ...(m.print?.chamberEstimate ? [`chamber ~${m.print.chamberEstimate.lo}-${m.print.chamberEstimate.hi} C (research band: ${m.print.chamberEstimate.basis}; decides nothing)`] : []),
@@ -679,7 +684,8 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     `# release ${meta.release?.id ?? 'unidentified'} (database snapshot ${meta.snapshot}, application build ${meta.build})`,
   ];
   if (scenario) {
-    header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and polymer data ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
+    header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and resin data ${useEstimates ? 'on (never pass; resin data and the estimate of a material with no product may hide one)' : 'off'}`);
+    if (scenario.unknownPolicy === 'exploration') header.push('# a material a required property does not apply to is hidden, whatever the estimates switch says (D148)');
     header.push(`# products judged ${stateWords(scenario)} (D99)`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
     if (index) header.push(`# ranked by ${index.designCase} (${index.formula}), each material by the median over its passing products, the table's and the chart's one ranking (D102, D107)`);
@@ -703,7 +709,9 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
       m.gates.abrasive === 'requires-hardened' ? 'required' : m.gates.abrasive === 'no-special-concern' ? 'not needed' : 'not recorded',
       { required: 'published', optional: 'optional', 'not-needed': 'not needed' }[m.gates.drying] ?? 'not recorded',
       m.buy?.url ?? '',
-      // A screen by an estimate and one by the base polymer's published behaviour travel in their own columns (D64).
+      // A hide by a property that does not apply, by an estimate and by the base polymer's published behaviour each travel
+      // in their own column (D64, D148).
+      e.screened ? screenedByKind(e).notApplicable.join('; ') : '',
       ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []), e.shortlistGroup ?? '',
     ].map(q).join(',')),
   ];

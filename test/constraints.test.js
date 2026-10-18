@@ -244,15 +244,61 @@ test('the plausible range decides a screen, not the narrower likely range the re
   assert.equal(evaluateMaterial(m, [elongation(70)], explore).screened, true);
 });
 
-test('not applicable holds a material out of Explore and never passes, and is silent without estimates', () => {
+// D148 (the screening review, C04 and C20): a property that does not apply is a definition, not an inference, so it holds
+// a material out of Include whether estimates are on or off, and says so in its own words. It stayed listed with
+// estimates off, its reason "Not published in the sampled sources; ask the maker", for an elastomer's HDT.
+test('not applicable holds a material out of Include with estimates on or off, never passes, and says "Does not apply"', () => {
   const tpu = { id: 'T', excluded: false, gates: {}, headline: { hdt045: { known: false, missing: 'not-published', unit: '°C',
     notApplicable: { reason: 'Heat deflection is a rigid-bar test' } } } };
   const hdt = { kind: 'numeric', property: 'hdt045', operator: '>=', value: 60 };
-  const e = evaluateMaterial(tpu, [hdt], explore);
-  assert.equal(e.verdict, STATUS.UNKNOWN);
-  assert.equal(e.screened, true);
-  assert.match(e.results[0].reason, /^Not applicable/);
-  assert.equal(evaluateMaterial(tpu, [hdt], {}).screened, false);
+  for (const useEstimates of [true, false]) {
+    const e = evaluateMaterial(tpu, [hdt], { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates });
+    assert.equal(e.verdict, STATUS.UNKNOWN, 'never a FAIL');
+    assert.equal(e.screened, true, `hidden with estimates ${useEstimates ? 'on' : 'off'}`);
+    assert.equal(e.eligible, false);
+    assert.equal(e.results[0].notApplicable, true);
+    assert.match(e.results[0].reason, /^Does not apply: Heat deflection is a rigid-bar test/);
+    assert.doesNotMatch(e.results[0].reason, /Not published|ask the maker/);
+  }
+  // Leave out holds it out for missing data, as it holds every unresolved material: never as screened.
+  const strict = evaluateMaterial(tpu, [hdt], {});
+  assert.equal(strict.screened, false);
+  assert.equal(strict.eligible, false);
+  assert.match(strict.results[0].reason, /^Does not apply/);
+});
+
+// D148 (the screening review, C09): Bambu Lab PLA Silk+ publishes HDT only after annealing, at 60 °C, and was offered
+// annealing for a 100 °C bracket. A value in another state that misses the requirement too says so, and offers nothing.
+test('a value published only after annealing that also misses the requirement offers no annealing', () => {
+  const view = (value) => ({ id: 'P', excluded: false, gates: {}, state: { id: 'as-printed', treatment: null, moisture: 'dry' },
+    headline: { hdt045: { known: false, missing: 'not-published', unit: '°C', elsewhere: [{ stateId: 'annealed', treatment: { tempC: 80, hours: 2 }, moisture: 'dry', value }] } } });
+  const hdt = { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 };
+  const misses = evaluateConstraint(view(60), hdt, {});
+  assert.equal(misses.status, STATUS.UNKNOWN);
+  assert.match(misses.reason, /^Published only after annealing at 80 °C for 2 h \(60 °C\), which also misses it, so annealing would not help$/);
+  assert.doesNotMatch(misses.reason, /Allow annealing/);
+  const meets = evaluateConstraint(view(120), hdt, {});
+  assert.match(meets.reason, /\(120 °C\), and this product is judged as printed\. Allow annealing under Part condition to use it$/);
+});
+
+// D148 (the screening review, C07): "Why the rest were excluded" counts a hide only where the page hides the material,
+// on its own hide. Outdoor's HDT line counted 22 where the page hid 14: the first product that did not fail HDT was
+// hidden on it, though the material failed another requirement.
+test('why excluded counts a hide only for a material the whole question hides, and never for a reported requirement', () => {
+  const elastomer = (id, rho) => ({ id, excluded: false, gates: {}, headline: {
+    hdt045: { known: false, missing: 'not-published', unit: '°C', notApplicable: { reason: 'HDT is a rigid-bar test.' } },
+    density: { known: true, value: rho, unit: 'kg/m³', interval: point(rho) } } });
+  const hdt = { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 };
+  const light = { kind: 'numeric', property: 'density', operator: '<=', value: 1500 };
+  const ctx = { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: false };
+  // A is hidden on HDT alone; B fails density, so the page lists it among the failures, not as hidden.
+  const [h] = explainExclusions([elastomer('A', 1200), elastomer('B', 1900)], [hdt, light], ctx).filter((r) => r.constraint === hdt);
+  assert.equal(h.screened, 1);
+  assert.equal(h.screenedNotApplicable, 1);
+  assert.equal(h.screenedByPolymer, 0);
+  // Reported, not required, it hides nothing and is counted as hiding nothing.
+  const [soft] = explainExclusions([elastomer('A', 1200)], [{ ...hdt, mandatory: false }, light], ctx);
+  assert.equal(soft.screened, 0);
 });
 
 // The availability gate. Absence of an offer is not proof a material cannot be bought: the sample

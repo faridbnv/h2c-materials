@@ -231,8 +231,9 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   const { counts } = sel;
   const shown = rows.length, candidateCount = sel.candidates.length;
   // The count names the shown verdicts in a fixed order, never alphabetically, then SCREENED while its chip is on screen
-  // and pressed (main.js renderCount).
-  const screenedChip = tested && explore && e && sel.counts.screened > 0;
+  // and pressed (main.js renderCount). The chip shows under Include whatever the estimates switch says: a property that
+  // does not apply hides a material with it off too (D148).
+  const screenedChip = tested && explore && sel.counts.screened > 0;
   const label = [...['PASS', 'UNKNOWN', 'FAIL'].filter((v) => showStates.has(v)), ...(screened && screenedChip ? ['SCREENED'] : [])].join(' + ');
   // Then what the shown rows are, in parts that add up to their number: the candidates among them (of how many, when not all
   // are shown), and those shown for another reason. No parts when the rows are exactly the candidates.
@@ -250,7 +251,7 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   // Each chip leads with a box, ticked while its results are shown (main.js chipText).
   const box = (on) => (on ? '\u2611' : '\u2610');
   const chips = [['PASS', counts.pass], ['UNKNOWN', counts.unknown], ['FAIL', counts.fail]].map(([v, n]) => [!tested, `${box(showStates.has(v))} ${v} ${n}`]);
-  chips.push([!(tested && explore && e && counts.screened), `${box(screened)} SCREENED ${counts.screened}`]);
+  chips.push([!(tested && explore && counts.screened), `${box(screened)} SCREENED ${counts.screened}`]);
   return { sel, rows, excluded, families, count: count.replace(/\s+/g, ' ').trim(), chips, tested, ctx, materials };
 }
 function plotOracle(o, plot) {
@@ -347,7 +348,7 @@ function compareReading(s, key, r, o) {
     if (exp[0] !== got[0] || (!exp[0] && exp[1] !== got[1])) { violate('I2-chips', `chip ${exp[1].split(' ')[1]} differs`, s, key, { page: got, node: exp }); break; }
   }
   check('I6-bad-token'); if (r.bad.length) violate('I6-bad-token', `bad token ${r.bad.join(',')} in ${lens}`, s, key, { tokens: r.bad, context: r.badContext });
-  if (set === 'X0' || set === 'S0fail') { check('I3-off-estimate'); if (r.estEls || r.dagger || r.envs?.length) violate('I3-off-estimate', `estimate marks with estimates off (${set} ${lens})`, s, key, { estEls: r.estEls, dagger: r.dagger, envs: r.envs?.length }); }
+  if (set === 'X0' || set === 'X0scr' || set === 'S0fail') { check('I3-off-estimate'); if (r.estEls || r.dagger || r.envs?.length) violate('I3-off-estimate', `estimate marks with estimates off (${set} ${lens})`, s, key, { estEls: r.estEls, dagger: r.dagger, envs: r.envs?.length }); }
   if (set.startsWith('S')) { check('I3-strict-estimate'); if (r.estEls || r.dagger || r.envs?.length) violate('I3-strict-estimate', `estimate marks in Strict ${lens}`, s, key, { estEls: r.estEls, dagger: r.dagger, envs: r.envs?.length }); }
 
   if (lens === 'table' && o.tested) {
@@ -390,14 +391,16 @@ function compareReading(s, key, r, o) {
       if (scr !== (o.tested && ev.screened)) violate('I1-screened', 'screened chip mismatch', s, key, { id, page: scr, node: ev.screened });
       if (scr && !set.includes('scr')) violate('I1-screened', 'screened row shown with SCREENED off', s, key, { id });
       if (scr) {
-        // Each screen names what held the row out, an estimate or the base polymer's published behaviour (D64), and the
-        // requirement after it; the title starts with one of the two and no "Screened by" is left without a criterion.
+        // Each screen names what held the row out, a property that does not apply (D148), an estimate or the base
+        // polymer's published behaviour (D64), and the requirement after it; the title starts with one of the three and no
+        // prefix is left without a criterion.
         check('I6-empty-reason');
-        const prefixed = /^Screened by (an estimate|the base polymer's published behaviour): \S/.test(scrTitle);
-        const bare = /Screened by (an estimate|the base polymer's published behaviour):(?!\s\S)/.test(scrTitle);
+        const PREFIX = /(Does not apply|Screened by an estimate|Screened by the base polymer's published behaviour):/;
+        const prefixed = new RegExp(`^${PREFIX.source} \\S`).test(scrTitle);
+        const bare = new RegExp(`${PREFIX.source}(?!\\s\\S)`).test(scrTitle);
         if (!prefixed || bare) violate('I6-empty-reason', 'screened chip title has no criterion after its prefix', s, key, { id, scrTitle });
-        const expKinds = { estimate: ev.unresolved.some((r) => r.screened && !r.polymerScreen), polymer: ev.unresolved.some((r) => r.screened && r.polymerScreen) };
-        if (expKinds.estimate !== /Screened by an estimate:/.test(scrTitle) || expKinds.polymer !== /Screened by the base polymer's published behaviour:/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title names the wrong kind of screen', s, key, { id, scrTitle, expected: expKinds });
+        const expKinds = { notApplicable: ev.unresolved.some((r) => r.screened && r.notApplicable), estimate: ev.unresolved.some((r) => r.screened && !r.notApplicable && !r.polymerScreen), polymer: ev.unresolved.some((r) => r.screened && r.polymerScreen) };
+        if (expKinds.notApplicable !== /Does not apply:/.test(scrTitle) || expKinds.estimate !== /Screened by an estimate:/.test(scrTitle) || expKinds.polymer !== /Screened by the base polymer's published behaviour:/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title names the wrong kind of screen', s, key, { id, scrTitle, expected: expKinds });
         // In the pills' words, never the engine's criterion strings ("hdt045 >= 100").
         check('I6-raw-key');
         const raw = KEYS.find((k) => new RegExp(`(^|[^A-Za-z0-9_])${k}($|[^A-Za-z0-9_])`).test(scrTitle));
@@ -646,8 +649,9 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
     for (const st of plan.order) {
       go(st);
       both(st);
-      if (plan.sample && st === 'X1' && !document.getElementById('s-screened').hidden) {
-        click('#s-screened'); both('X1scr'); click('#s-screened');
+      // SCREENED shows under Include with estimates off too, where a property that does not apply hides (D148).
+      if (plan.sample && (st === 'X1' || st === 'X0') && !document.getElementById('s-screened').hidden) {
+        click('#s-screened'); both(st + 'scr'); click('#s-screened');
       }
       if (plan.sample && st === 'S0' && !document.getElementById('s-fail').disabled && !document.getElementById('s-fail').hidden) {
         click('#s-fail'); both('S0fail'); click('#s-fail');

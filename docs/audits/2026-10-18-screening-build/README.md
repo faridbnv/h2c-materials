@@ -13,7 +13,7 @@
 | Stage | What it changes for a reader | Changes | Status |
 |---|---|---|---|
 | 0 | Nothing: records the owner's answers, the harness that compares answers, and a wider watch on the frozen estimate model | C01 (in part) | Built |
-| 1 | The switch reads "Use estimates and resin data"; a property that does not apply hides the material whatever the switch says; a preset keeps your Include choice; plainer words | C02–C04, C07–C10, C20, C39 | Planned |
+| 1 | The switch reads "Use estimates and resin data"; a property that does not apply hides the material whatever the switch says; a preset keeps your Include choice; plainer words | C02–C04, C07–C10, C20, C39 | Built (awaiting merge): [stage-1.md](stage-1.md) |
 | 2a | Data corrections that decide answers (PLA-HP's moulded 135 °C, PBAT's 90 °C, one HDT typed at two loads), new physics checks, the printer guide mapped to more materials | C11, C12, C15, C17 | Planned |
 | 2b | Resin and film values re-read; fibre content as a number; Shore hardness selectable | C13, C14, C37, C38 | Planned |
 | 3a | A printer window the H2C covers in part passes, flagged; a silent chamber decided by the kind of plastic; a near miss is "on the line" | C21, C33, C34 | Planned |
@@ -45,3 +45,4 @@ node docs/audits/2026-10-18-screening-build/decision-census.mjs --diff before.js
 |---|---|
 | [decision-census.mjs](decision-census.mjs) | The harness that records and compares every scenario's answers |
 | stage-*.md | Each stage's report: what moved, what did not, and why (added as each stage lands) |
+| [stage-1.md](stage-1.md), [stage-1-diff.md](stage-1-diff.md) | Stage 1's report, and the answers it moved, case by case |

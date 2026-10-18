@@ -167,7 +167,7 @@ export function renderCompare(host, state, actions) {
           const left = pct(e.lo);
           const w = Math.max(pct(e.hi) - left, 1.5);
           const wide = e.plausible ? `<span class="est-wide" style="left:${pct(e.plausible.lo)}%;width:${Math.max(pct(e.plausible.hi) - pct(e.plausible.lo), 1.5)}%"></span>` : '';
-          const title = estimateTitle(e, estimateDisplay(e, { ownUnit: true }));
+          const title = estimateTitle(e, estimateDisplay(e, { ownUnit: true }), { productless: !(state.ctx?.productsByMaterial?.get(m.id)?.length) });
           const d = estimateDisplay(e);
           return `<div class="cmp-bar estimated${isAnchor(m) ? ' anchor' : ''}" title="${esc(title)}">
             <span>${who}</span>
@@ -219,7 +219,7 @@ export function renderCompare(host, state, actions) {
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
       <div><b>Requirements:</b> ${hard.length ? namedOnce(hard).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
-      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? '; estimates and resin data may exclude a material, never pass one' : ''}.
+      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? '; estimates and resin data on, which never pass a material and hide one only where resin data reports its polymer attacked or the material has no product on record' : ''}.
         Release ${esc(db.meta.release?.id ?? 'unidentified')}, data of ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. A material's values span its products: check the exact
         product in its Products tab before you buy or print.</div>
     </div>`;

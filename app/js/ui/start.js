@@ -6,7 +6,8 @@
 
 import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
 import { esc, fmtNumber } from './format.js';
-import { describeConstraint, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
+import { describeConstraint, screenedByKind, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
+import { andList } from './text.js';
 
 /**
  * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
@@ -119,12 +120,23 @@ export function renderActive(state, actions) {
 
   // Included, the table lists the materials that could not be checked beside the ones that passed, so
   // the heading counts both. "15 meet these requirements" above 23 rows read as a contradiction; the other 8 were
-  // listed and nothing on screen said what they were. An estimate may hold some of them out, and that is said too.
-  const screened = explore && state.ctx?.useEstimates ? counts.screened : 0;
-  const unknownClause = counts.unknown && explore ? `, and ${counts.unknown} more could not be checked for missing data` : '';
+  // listed and nothing on screen said what they were. Some may be held out as unlikely, and by what is said too: a
+  // property that does not apply, whatever the estimates switch says, or an estimate or resin data, with it on (D148).
+  const screened = explore ? counts.screened : 0;
+  const kinds = { notApplicable: 0, estimate: 0, polymer: 0 };
+  for (const e of screened ? selection.evaluations : []) {
+    if (!e.screened) continue;
+    const by = screenedByKind(e);
+    for (const k of Object.keys(kinds)) if (by[k].length) kinds[k]++;
+  }
+  const hiddenBy = andList([kinds.notApplicable ? `${kinds.notApplicable} because a required property does not apply to ${kinds.notApplicable === 1 ? 'it' : 'them'}` : null,
+    kinds.estimate ? `${kinds.estimate} by an estimate` : null, kinds.polymer ? `${kinds.polymer} by resin reference data` : null].filter(Boolean));
+  // Left out, the UNKNOWN chip can still show them; then the line says so, rather than "left out" above the rows it shows.
+  const unknownShown = !explore && state.showStates?.has('UNKNOWN');
   const unknownSentence = !counts.unknown ? ''
     : explore ? `Included, those ${counts.unknown} are listed flagged${screened
-      ? `, except the ${screened} excluded by an estimate or by resin reference data; the SCREENED chip at the bottom shows them` : ''}. `
+      ? `, except the ${screened} hidden as unlikely (${hiddenBy}); the SCREENED chip at the bottom shows them` : ''}. `
+    : unknownShown ? `${counts.unknown} more could not be checked for missing data. They are not candidates, and are shown because the UNKNOWN chip is on; ${POLICY_LABELS.exploration} at the top lists them as candidates, flagged. `
     : `${counts.unknown} more could not be checked for missing data and are left out; ${POLICY_LABELS.exploration} at the top lists them, flagged. `;
 
   // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
@@ -144,7 +156,8 @@ export function renderActive(state, actions) {
   const shownHard = printable ? hard.filter((c) => !(c.kind === 'gate' && printGates.has(c.gate))) : hard;
   const firstSentence = (t) => (String(t).match(/^[^.:]+[.:]/)?.[0] ?? String(t)).replace(/[.:]$/, '');
   const beside = [scenario.template ? `${scenario.template} template${sameAsTemplate ? '' : ', changed'}` : null,
-    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}` : ' and are left out'}` : null].filter(Boolean).join(' · ');
+    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}`
+      : unknownShown ? ', shown flagged but not candidates (the UNKNOWN chip is on)' : ' and are left out'}` : null].filter(Boolean).join(' · ');
   return `
   <section class="active compact">
     <div class="active-head">

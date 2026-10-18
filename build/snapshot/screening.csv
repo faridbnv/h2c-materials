@@ -1,31 +1,31 @@
-Headline,Class,End,Held,BeyondPlausible,Rank,Quantile,Screens
-density,this-grade,top,7,0,,,no
-density,this-grade,bottom,7,0,,,no
-density,this-material,top,93,0,6,0.975,yes
-density,this-material,bottom,93,2,6,0.025,yes
-density,family,top,120,8,8,0.975026,yes
-density,family,bottom,120,4,8,0.025,yes
-tensileModulusXY,this-grade,top,78,2,5,0.975,yes
-tensileModulusXY,this-grade,bottom,78,1,5,0.025,yes
-tensileModulusXY,this-material,top,69,2,4,0.975,yes
-tensileModulusXY,this-material,bottom,69,1,4,0.025,yes
-tensileModulusXY,family,top,83,1,5,0.975,yes
-tensileModulusXY,family,bottom,83,2,5,0.025,yes
-tensileStrengthXY,this-grade,top,56,1,3,0.975,yes
-tensileStrengthXY,this-grade,bottom,56,1,3,0.025,yes
-tensileStrengthXY,this-material,top,57,0,3,0.975,yes
-tensileStrengthXY,this-material,bottom,57,1,3,0.025,yes
-tensileStrengthXY,family,top,66,0,4,0.975,yes
-tensileStrengthXY,family,bottom,66,2,4,0.025,yes
-elongationXY,this-grade,top,46,0,2,0.975,yes
-elongationXY,this-grade,bottom,46,2,2,0.0200654,yes
-elongationXY,this-material,top,69,2,4,0.975,yes
-elongationXY,this-material,bottom,69,2,4,0.025,yes
-elongationXY,family,top,86,2,5,0.975,yes
-elongationXY,family,bottom,86,2,5,0.025,yes
-hdt045,this-grade,top,60,3,3,0.994557,yes
-hdt045,this-grade,bottom,60,1,3,0.025,yes
-hdt045,this-material,top,66,5,4,0.993795,yes
-hdt045,this-material,bottom,66,1,4,0.025,yes
-hdt045,family,top,80,2,5,0.975,yes
-hdt045,family,bottom,80,0,5,0.025,yes
+Headline,Class,End,Held,BeyondPlausible,Rank,Quantile,Screens,Read for
+density,this-grade,top,7,0,,,no,materials with no product
+density,this-grade,bottom,7,0,,,no,materials with no product
+density,this-material,top,93,0,6,0.975,yes,materials with no product
+density,this-material,bottom,93,2,6,0.025,yes,materials with no product
+density,family,top,120,8,8,0.975026,yes,materials with no product
+density,family,bottom,120,4,8,0.025,yes,materials with no product
+tensileModulusXY,this-grade,top,78,2,5,0.975,yes,materials with no product
+tensileModulusXY,this-grade,bottom,78,1,5,0.025,yes,materials with no product
+tensileModulusXY,this-material,top,69,2,4,0.975,yes,materials with no product
+tensileModulusXY,this-material,bottom,69,1,4,0.025,yes,materials with no product
+tensileModulusXY,family,top,83,1,5,0.975,yes,materials with no product
+tensileModulusXY,family,bottom,83,2,5,0.025,yes,materials with no product
+tensileStrengthXY,this-grade,top,56,1,3,0.975,yes,materials with no product
+tensileStrengthXY,this-grade,bottom,56,1,3,0.025,yes,materials with no product
+tensileStrengthXY,this-material,top,57,0,3,0.975,yes,materials with no product
+tensileStrengthXY,this-material,bottom,57,1,3,0.025,yes,materials with no product
+tensileStrengthXY,family,top,66,0,4,0.975,yes,materials with no product
+tensileStrengthXY,family,bottom,66,2,4,0.025,yes,materials with no product
+elongationXY,this-grade,top,46,0,2,0.975,yes,materials with no product
+elongationXY,this-grade,bottom,46,2,2,0.0200654,yes,materials with no product
+elongationXY,this-material,top,69,2,4,0.975,yes,materials with no product
+elongationXY,this-material,bottom,69,2,4,0.025,yes,materials with no product
+elongationXY,family,top,86,2,5,0.975,yes,materials with no product
+elongationXY,family,bottom,86,2,5,0.025,yes,materials with no product
+hdt045,this-grade,top,60,3,3,0.994557,yes,materials with no product
+hdt045,this-grade,bottom,60,1,3,0.025,yes,materials with no product
+hdt045,this-material,top,66,5,4,0.993795,yes,materials with no product
+hdt045,this-material,bottom,66,1,4,0.025,yes,materials with no product
+hdt045,family,top,80,2,5,0.975,yes,materials with no product
+hdt045,family,bottom,80,0,5,0.025,yes,materials with no product

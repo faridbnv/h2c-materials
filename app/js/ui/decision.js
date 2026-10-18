@@ -208,9 +208,9 @@ export const TEST_PAIR_VIEWS = [
   ['measured-mixed', 'Test pairs, mixed conditions', 'Every pair of one product\'s measurements; each mismatch named and drawn hollow'],
 ];
 /**
- * Whether a context layer is drawn. Unsettled products follow the page's Materials with missing data switch until the reader presses
- * their chip (D109): Include uncertain lists them in the table, so the chart draws them too. The state alone decides,
- * so a link reopens as it was left.
+ * Whether a context layer is drawn. Unsettled products follow the page's Materials that could not be checked switch until
+ * the reader presses their chip (D109): Include lists them in the table, so the chart draws them too. The state alone
+ * decides, so a link reopens as it was left.
  */
 export const layerOn = (state, k) => (k === 'unresolved'
   ? (state.scenario.plot.layers?.unresolved ?? state.scenario.unknownPolicy === 'exploration')
@@ -238,7 +238,7 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
   // A chip is a switch whose state is its look: pressed or not. One that does not apply says why, and stays put.
   const chip = (attrs, on, label, why = '', help = '') => `<button type="button" class="ws-chip" ${attrs} aria-pressed="${!!on && !why}" ${why ? `disabled title="${esc(why)}"` : help ? `title="${esc(help)}"` : ''}>${esc(label)}</button>`;
   const productsOnly = view === 'decision' ? '' : 'Drawn in the Products view';
-  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? '"Let estimates rule out materials"' : '"Include" under Materials that could not be checked, and "Let estimates rule out materials"'}, at the top of the page`;
+  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? '"Use estimates and resin data"' : '"Include" under Materials that could not be checked, and "Use estimates and resin data"'}, at the top of the page`;
   const estWhy = work ? (state.estimates?.off ? needs : '')
     : estimates?.measured ? 'Test pairs are measured values only'
       : !state.ctx?.showEstimates ? needs
@@ -460,10 +460,13 @@ function inspector(state, ws) {
   if (sel.kind === 'estimate') {
     const e = (state.estimates?.ranges ?? []).find((r) => r.key === sel.key);
     if (!e) return '';
+    // A material's estimate is read for a requirement only where the material has no product on record (D148).
+    const productless = !(state.ctx?.productsByMaterial?.get(e.materialId)?.length);
     const side = (s, d) => (s.kind === 'estimate'
       ? `<dd>likely ${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)} <span class="fine">(${Math.round((s.levels?.likely ?? 0.8) * 100)}% interval; ${esc(s.precision ?? 'unrated')} precision, ${esc(ESTIMATE_PRECISION[s.precision] ?? '')}; ${esc(ESTIMATE_STRENGTH[s.strength]?.short ?? 'basis not rated')})</span>
          ${s.plausible ? `<br><span class="fine">plausible: ${esc(fmtRange(s.plausible.lo, s.plausible.hi))} ${esc(d.unit)}</span>` : ''}
-         ${s.screenRange ? `<br><span class="fine">range it may exclude on: ${esc(fmtRange(s.screenRange.lo, s.screenRange.hi))} ${esc(d.unit)}${s.canScreen ? '' : ' (this estimate excludes nothing)'}; not a physical limit</span>` : ''}
+         ${!productless ? '<br><span class="fine">context only: this material is judged on its products\' own values, so this estimate hides nothing</span>'
+           : s.screenRange ? `<br><span class="fine">range it may hide this material on, as it has no product on record: ${esc(fmtRange(s.screenRange.lo, s.screenRange.hi))} ${esc(d.unit)}${s.canScreen ? '' : ' (this estimate hides nothing)'}; not a physical limit</span>` : ''}
          <br><span class="fine">basis: ${esc(s.basis ?? 'not stated')}</span></dd>`
       : `<dd>${s.lo === s.hi ? esc(valueText(s.lo, d, s.interval)) : `${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)}`} <span class="fine">measured: ${s.kind === 'product-span' ? `the span of its ${plural(s.products ?? 0, 'product')}, not one product's uncertainty` : 'its one product\'s value'}</span></dd>`);
     const estKey = e.x.kind === 'estimate' ? p.x : p.y;

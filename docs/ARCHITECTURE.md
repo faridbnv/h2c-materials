@@ -644,7 +644,9 @@ the layer strength, the two notched impact strengths and the glass transition ar
 not estimated (Estimate identity Not applicable, D87) is listed as HEADLINE-UNESTIMATED, not an error. Diagnostics
 (calibration, conversions, spreads, rejected values, conflicting
 evidence, outlying headlines) go to `meta.estimateModel`. `docs/DATA-MODEL.md` explains the model
-under "Estimates"; DECISIONS D43 says why.
+under "Estimates"; DECISIONS D43 says why. The selector reads a material's estimate for a requirement only where the
+material has no product on record: every other material is judged by its products, each on its own prediction (D137,
+D148).
 
 **Floors (D126).** What a product's own measurements prove a headline is at least (`lower-bounds.js`: the ultimate
 strength is at least the yield and break stress, a strain at break at least the strain at yield, HDT at 0.45 MPa at
@@ -902,8 +904,10 @@ again on 2026-10-17. Each first change keeps the page one file on GitHub Pages; 
 The systematic audit uses `build/src/measurement-rules.js` for independent raw-value, unit,
 applicability and headline checks and `scripts/audit-data.mjs` for reproducible source-to-HTML
 verification and record inventories. Both reuse the established pipeline. Retirement is an explicit
-grade Status, never a hardcoded exclusion. Estimates may screen but never pass (D43).
+grade Status, never a hardcoded exclusion. Estimates never pass (D43); a material's own estimate may screen only a
+material with no product on record, a product's only with a back-test certificate none has yet, and a property that
+does not apply hides a material whatever the estimates switch says (D137, D148).
 
 ## D137 product screening path
 
-The observed compiler and D81 displayed estimator are unchanged. `estimate/product-screening.js` builds a separate fit without the calibration/evaluation formulations' target values or conversion pairs, sets bounds on calibration cases, then gates them on independent complete-scenario evaluation. It reuses the Gaussian fit, tolerance machinery and configured risk budget. Product certificates are additive compiled-schema fields; unsupported scopes have no permission. `engine/products.js` projects the exact product prediction; `constraints.js` guards the complete context and aggregates AND requirements / OR routes / OR products. `shortlistGroup` drives grouped table order, appended CSV metadata and the expandable insufficient-evidence list. Counts include collapsed rows; plot and brief decisions retain the same evaluated product/state. No CSV data, scenario wire fields or engineering ranking formulas change. The old-generation fallback remains readable.
+The observed compiler and D81 displayed estimator are unchanged. `estimate/product-screening.js` builds a separate fit without the calibration/evaluation formulations' target values or conversion pairs, sets bounds on calibration cases, then gates them on independent complete-scenario evaluation. It reuses the Gaussian fit, tolerance machinery and configured risk budget. Product certificates are additive compiled-schema fields; unsupported scopes have no permission. `engine/products.js` projects the exact product prediction; `constraints.js` guards the complete context and aggregates AND requirements / OR routes / OR products. `shortlistGroup` drives grouped table order, appended CSV metadata and the expandable insufficient-evidence list. A property that does not apply (D56) is UNKNOWN and hides the material under Include whether "Use estimates and resin data" is on or off (D148); `explainExclusions` counts a hide only where the whole question hides the material and names that requirement, by its kind (does not apply, estimate, resin data). Counts include collapsed rows; plot and brief decisions retain the same evaluated product/state. No CSV data, scenario wire fields or engineering ranking formulas change. The old-generation fallback remains readable.

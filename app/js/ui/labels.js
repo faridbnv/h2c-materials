@@ -7,7 +7,7 @@
 // changes, so links, saved scenarios and exports made before a rename still read.
 
 import { GATE_STATUS } from '../engine/constraints.js';
-import { lower } from './text.js';
+import { lower, andList } from './text.js';
 
 // Filled from the database's registry at start-up (registry.js, useRegistry): one row per headline in
 // data/tables/headline_definitions.csv supplies short, plain, technical, unit, hint and better.
@@ -142,7 +142,7 @@ export const ESTIMATE_STRENGTH = {
 
 /** How a likely range should be read. */
 export const ESTIMATE_PRECISION = {
-  good: 'narrow enough to exclude a material from a requirement it clearly misses',
+  good: 'narrow enough to show which requirements it clearly misses',
   fair: 'a rough guide',
   poor: 'only the order of magnitude',
 };
@@ -152,9 +152,11 @@ const percent = (p) => `${Math.round(p * 100)}%`;
 /**
  * What an estimate rests on, for its popover and its title. `d` is how its numbers read (estimateDisplay in format.js,
  * passed in so this module needs no imports): the likely and plausible ranges on one step, in a unit that may have been
- * made readable, in which case the text also gives the range in the unit of its column.
+ * made readable, in which case the text also gives the range in the unit of its column. A material's estimate is read
+ * only for a material with no product on record (`productless`): any other material is judged product by product, so
+ * its estimate is context and hides nothing, whatever its back-test allows (D148).
  */
-export function estimateTitle(e, d) {
+export function estimateTitle(e, d, { productless = false } = {}) {
   const s = ESTIMATE_STRENGTH[e.strength] ?? { title: 'Estimated' };
   const levels = e.levels ?? { likely: 0.8, plausible: 0.95 };
   const unit = d.unit ? ` ${d.unit}` : '';
@@ -166,7 +168,8 @@ export function estimateTitle(e, d) {
   return `Estimate, not a measurement: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} interval), centre ${d.centre}${unit}.${column}${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its product is also filed under ${e.sharedWith.name}.` : ''}`
     + ` ${e.precision === 'poor' ? 'Poor precision: treat it as an order of magnitude only.' : `Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`}`
-    + ` It never makes a material pass.${e.canScreen ? ` ${POLICY_PHRASE.exploration.charAt(0).toUpperCase()}${POLICY_PHRASE.exploration.slice(1)}, it excludes this material from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+    + ` It never makes a material pass.${!productless ? ' Context only: this material is judged product by product, on each product\'s own values, so this estimate hides nothing.'
+      : `${e.canScreen ? ` ${POLICY_PHRASE.exploration.charAt(0).toUpperCase()}${POLICY_PHRASE.exploration.slice(1)} and estimates on, it hides this material, which has no product on record, from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`}`;
 }
 
 /**
@@ -227,33 +230,60 @@ export function describeConstraint(c) {
   }
 }
 
-/** The screened requirements split by what screened them: an estimate, or the base polymer's published behaviour (D64). */
+/**
+ * The screened requirements split by what screened them (D148): a property that does not apply, which is a definition
+ * (D56); an estimate; or the base polymer's published behaviour (D64). Each requirement is named once: a material's list
+ * repeats a requirement once for every product it hid, and TPC's chip had said one HDT requirement ten times.
+ */
 export const screenedByKind = (evaluation) => {
   const screened = (evaluation?.unresolved ?? []).filter((r) => r.screened);
+  const once = (rs) => [...new Set(rs.map((r) => describeConstraint(r.constraint)))];
   return {
-    estimate: screened.filter((r) => !r.polymerScreen).map((r) => describeConstraint(r.constraint)),
-    polymer: screened.filter((r) => r.polymerScreen).map((r) => describeConstraint(r.constraint)),
+    notApplicable: once(screened.filter((r) => r.notApplicable)),
+    estimate: once(screened.filter((r) => !r.notApplicable && !r.polymerScreen)),
+    polymer: once(screened.filter((r) => r.polymerScreen)),
   };
 };
 
-/** The two prefixes a screened chip's explanation may start with; the fuzz demands the criterion after either. */
-export const SCREEN_PREFIX = { estimate: 'Screened by an estimate', polymer: 'Screened by the base polymer\'s published behaviour' };
+/** The three prefixes a screened chip's explanation may start with; the fuzz demands the criterion after each. */
+export const SCREEN_PREFIX = { notApplicable: 'Does not apply', estimate: 'Screened by an estimate', polymer: 'Screened by the base polymer\'s published behaviour' };
 
 /**
- * The screened chip's explanation, heading and next step, as one sentence per kind of screen: "Screened by an estimate:
- * Heat resistance at least 100 °C. Screened by the base polymer's published behaviour: Resists solvents. Not a failure;
- * not measured." The base polymer's screen opens the Environment tab, where its rows are; an estimate's opens the Overview.
+ * Why a property does not apply, in the first sentence of its reason ("HDT is a rigid-bar test"), from the first result
+ * of a requirement that says so. A product's reason starts with its ID and every one with "Does not apply: ".
+ */
+const notApplicableWhy = (evaluation, name) => {
+  const r = (evaluation?.unresolved ?? []).find((x) => x.screened && x.notApplicable && describeConstraint(x.constraint) === name);
+  const why = String(r?.reason ?? '').replace(/^[^:]*?: (?=Does not apply)/, '').replace(/^Does not apply: /, '');
+  return (why.match(/^.*?[^.]\.(?=\s|$)/)?.[0] ?? why).replace(/\.$/, '');
+};
+
+/**
+ * The screened chip's explanation, heading and next step, as one sentence per kind of screen: "Does not apply: HDT at
+ * 0.45 MPa at least 100 °C (HDT is a rigid-bar test). Screened by the base polymer's published behaviour: Resists
+ * solvents. Not a failure; not measured." A property that does not apply is never called an estimate's screen (D148).
+ * The base polymer's screen opens the Environment tab, where its rows are; an estimate's and a property's that does not
+ * apply open the Overview, where its card says why.
  */
 export function screenedChip(evaluation) {
   const by = screenedByKind(evaluation);
   const parts = [];
+  if (by.notApplicable.length) {
+    parts.push(`${SCREEN_PREFIX.notApplicable}: ${by.notApplicable.map((name) => { const why = notApplicableWhy(evaluation, name); return why ? `${name} (${lower(why)})` : name; }).join('; ')}.`);
+  }
   if (by.estimate.length) parts.push(`${SCREEN_PREFIX.estimate}: ${by.estimate.join('; ')}.`);
   if (by.polymer.length) parts.push(`${SCREEN_PREFIX.polymer}: ${by.polymer.join('; ')}.`);
-  const onlyPolymer = by.polymer.length && !by.estimate.length;
+  const kinds = [by.notApplicable.length ? 'na' : null, by.estimate.length ? 'estimate' : null, by.polymer.length ? 'polymer' : null].filter(Boolean);
+  const onlyPolymer = kinds.length === 1 && kinds[0] === 'polymer';
+  const onlyNotApplicable = kinds.length === 1 && kinds[0] === 'na';
+  const HEAD = { na: 'Does not apply', estimate: 'Screened by an estimate', polymer: 'Screened by the base polymer' };
   return {
-    text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this product' : 'not measured'}.`,
-    head: onlyPolymer ? 'Screened by the base polymer' : by.polymer.length ? 'Screened by an estimate and the base polymer' : SCREEN_PREFIX.estimate,
-    action: onlyPolymer ? 'polymer' : evaluation.products?.some((p) => p.results?.some((r) => r.prediction)) ? 'products' : 'estimate',
+    text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this product' : onlyNotApplicable ? 'the property is not defined for it' : 'not measured'}.`,
+    head: kinds.length === 1 ? HEAD[kinds[0]] : `Screened by ${andList(kinds.map((k) => ({ na: 'a property that does not apply', estimate: 'an estimate', polymer: 'the base polymer' })[k]))}`,
+    action: onlyPolymer ? 'polymer' : by.estimate.length && evaluation.products?.some((p) => p.results?.some((r) => r.prediction)) ? 'products' : 'estimate',
+    // Whether inference hid it (an estimate, resin data), which the chip marks with the estimates' dagger; a property that
+    // does not apply alone is a definition, and carries none.
+    inferred: !onlyNotApplicable,
   };
 }
 

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { evaluateProducts } from '../app/js/engine/constraints.js';
-import { productHeadline } from '../app/js/engine/products.js';
+import { productHeadline, productsByMaterial } from '../app/js/engine/products.js';
 import { sortRows, toCSV, productsCSV } from '../app/js/ui/table.js';
 import { useRegistry } from '../app/js/ui/registry.js';
 import { modelWith } from '../build/src/estimate/model.js';
@@ -144,4 +144,46 @@ test('withholding strength also removes qualifying break/yield values rather tha
     definition: db.registry.headlines.find((h) => h.key === 'tensileStrengthXY') });
   assert.ok(!training.some((o) => o.items.some((i) => i.measurementId === x.id)));
   assert.ok(training.length > 0, 'unrelated training formulations stay available');
+});
+
+// D148 (the screening review, C03): a material with products is judged product by product, so its own estimate is never
+// read for a requirement (productHeadline, estimateVersion 2). The words stopped promising it could exclude one: 117
+// estimates marked "may exclude" were never read. Only a material with no product on record is judged on it.
+test('the estimate of a material with products is described as never hiding it; one with no product keeps its screen', async () => {
+  const { estimateTitle } = await import('../app/js/ui/labels.js');
+  const db = JSON.parse(readFileSync(new URL('../dist/db.json', import.meta.url)));
+  useRegistry(db.registry);
+  const byMaterial = productsByMaterial(db);
+  const screens = (m) => Object.entries(m.headline).find(([, x]) => !x.known && x.estimate?.canScreen);
+  const withProducts = db.materials.find((m) => byMaterial.get(m.id).length && screens(m));
+  const [key, h] = screens(withProducts);
+  const d = { lo: '1', hi: '2', centre: '1.5', unit: h.estimate.unit, plausible: ['0.5', '3'], num: String };
+  const words = estimateTitle(h.estimate, d);
+  assert.match(words, /Context only: this material is judged product by product.*hides nothing/);
+  assert.doesNotMatch(words, /excludes this material|hides this material/);
+  // The export says "context only" for it, never "can screen".
+  const csv = toCSV([{ material: withProducts, evaluation: { verdict: 'UNKNOWN', eligible: true, failed: [], unresolved: [] } }], db.meta,
+    { scenario: { constraints: [], unknownPolicy: 'exploration' }, useEstimates: true, productsByMaterial: byMaterial });
+  assert.match(csv, new RegExp(`${key} ~[^|]*context only\\)`));
+  assert.doesNotMatch(csv, /can screen/);
+  // A material with no product on record (PA66-CF, PA612, PA612-GF) is judged on its own estimate, which may hide it.
+  const productless = db.materials.find((m) => !m.familyEntry && !byMaterial.get(m.id).length && screens(m));
+  assert.match(estimateTitle(screens(productless)[1].estimate, d, { productless: true }), /it hides this material, which has no product on record, from/);
+});
+
+// D148 (the screening review, C04): a property that does not apply is named as such, once per material, never as "Screened
+// by an estimate". TPC's chip had repeated "HDT at 0.45 MPa at least 100 °C" ten times under that heading.
+test('the screened chip names a property that does not apply once per material, apart from estimates', async () => {
+  const { screenedChip, screenedByKind, SCREEN_PREFIX } = await import('../app/js/ui/labels.js');
+  const db = JSON.parse(readFileSync(new URL('../dist/db.json', import.meta.url)));
+  useRegistry(db.registry);
+  const hdt = { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 };
+  const na = (id) => ({ status: 'UNKNOWN', screened: true, notApplicable: true, constraint: hdt, criterion: 'hdt045 >= 100',
+    reason: `${id}: Does not apply: HDT is a rigid-bar test. ISO 75 ends at 0.2 % outer-fibre strain.` });
+  const e = { screened: true, unresolved: ['G1', 'G2', 'G3'].map(na), products: [] };
+  assert.deepEqual(screenedByKind(e), { notApplicable: ['HDT at 0.45 MPa at least 100 °C'], estimate: [], polymer: [] });
+  const chip = screenedChip(e);
+  assert.equal(chip.text, `${SCREEN_PREFIX.notApplicable}: HDT at 0.45 MPa at least 100 °C (HDT is a rigid-bar test). Not a failure; the property is not defined for it.`);
+  assert.equal(chip.head, 'Does not apply');
+  assert.doesNotMatch(chip.text, /estimate/);
 });

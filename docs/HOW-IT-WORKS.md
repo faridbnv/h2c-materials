@@ -353,8 +353,8 @@ evidence.
 | `2.53` over `0.95–4.24 · 55` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
 | `4.43` | **Measured, one product.** The only product that publishes it comparably | Yes |
 | `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (elongation at yield in the stretch column), a moulded resin value, an annealed part. Shown so you know something is known | No |
-| `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. In Explore mode it can rule a material *out* |
-| `n/a` | **Not applicable.** The property does not mean anything for this material (heat deflection of a rubber-like elastomer, structural values of a support material) | No; in Explore it screens the same way |
+| `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. Under Include it can rule *out* only a material with no product on record |
+| `n/a` | **Not applicable.** The property does not mean anything for this material (heat deflection of a rubber-like elastomer, structural values of a support material) | No; under Include it hides the material, estimates on or off |
 | `—` | **Not published** in any registered source. Hover to see which kind of absence | No |
 
 One mark qualifies a measured value: `35≈` means the published mean ± spread contains your threshold, so the mean
@@ -382,10 +382,13 @@ What an estimate may do is deliberately limited:
 
 - **It never passes a material.** With estimates on, a material whose estimated stiffness is 3.1 to 4.5 GPa still
   reads UNKNOWN against "at least 3 GPa".
-- **In Explore mode it may screen a material out**, but only on an end of its range the build has demonstrated. Every
-  build hides each measured value as far as the estimate's kind of evidence would, predicts it, and sets the range's
-  ends where a new true value falls beyond them no more than 10 % of the time with 90 % confidence. An end the
-  material's own data contradict (a product's own published value beyond it) is left open and screens nothing. The drawer says, for each estimate, which ends may screen and why.
+- **Under Include it may screen out only a material with no product on record**, and only on an end of its range the
+  build has demonstrated. A material with products is judged on each product's own values and own estimate, and no
+  product's estimate has the back-test it needs to screen yet, so in this release an estimate hides only PA66-CF, PA612
+  or PA612-GF (D148). Every build hides each measured value as far as the estimate's kind of evidence would, predicts
+  it, and sets the range's ends where a new true value falls beyond them no more than 10 % of the time with 90 %
+  confidence. An end the material's own data contradict (a product's own published value beyond it) is left open and
+  screens nothing. The drawer says, for each estimate, whether it is context only or which ends may screen and why.
 - **A material's own printed measurement can veto a screen.** If its published yield strength already meets your
   minimum, no estimate of its ultimate strength can remove it.
 - **No number shown contradicts what its own products' measurements prove** (D126). When a product
@@ -406,10 +409,11 @@ least 100"). The mode decides what happens to the last two.
 - **Leave out (Strict):** only materials with a PASS on every requirement are candidates. Measured evidence only.
   This is the mode for a shortlist you will act on.
 - **Include (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
-  in the database does not hide a material that might suit. With **Let estimates rule out materials** on, estimates may
-  screen as above, and so may a base polymer's published behaviour where the material has no record of its own in a
-  category and the reference finds the polymer resistant to nothing in it (D64). The SCREENED chip brings screened
-  materials back.
+  in the database does not hide a material that might suit. A material a required property does not apply to (an
+  elastomer's HDT) is hidden all the same, marked "Does not apply" (D148). With **Use estimates and resin data** on,
+  estimates may screen as above, and so may a base polymer's published behaviour where the material has no record of
+  its own in a category and the reference finds the polymer resistant to nothing in it (D64). The SCREENED chip brings
+  screened materials back.
 
 The whole of that logic, for one requirement against one material, is this. The verdict always describes the evidence;
 only the mode decides whether the material stays on your list.
@@ -422,7 +426,7 @@ flowchart TB
     HASV -- "no" --> APPL{"Does the property mean anything<br/>for this material?"}
     COMPLETE -- "yes" --> CMPV{"Compare it with your threshold"}
     APPL -- "yes" --> ESTQ{"Is there an estimate?"}
-    ESTQ -- "yes" --> SCRQ{"Does the range the build lets it<br/>screen on wholly fail the requirement?"}
+    ESTQ -- "yes" --> SCRQ{"Does the range the build lets it<br/>screen on wholly fail the requirement?<br/>(only a material with no product on record:<br/>any other's estimate decides nothing)"}
     SCRQ -- "yes" --> VETO{"Does one of the material's own printed<br/>measurements bound this column<br/>and meet the requirement?"}
 
     subgraph OUTC["The verdict · what the evidence says, whatever mode you are in"]
@@ -431,11 +435,11 @@ flowchart TB
         FAILV["FAIL"]
         INDT["INDETERMINATE<br/>a published range straddles it"]
         ASPB["UNKNOWN<br/>published without its direction or load:<br/>not compared unless you count such values"]
-        NAPP["UNKNOWN · n/a<br/>the property does not apply,<br/>and may screen in Explore"]
+        NAPP["UNKNOWN · n/a<br/>the property does not apply:<br/>hidden under Include, estimates on or off"]
         UNK1["UNKNOWN<br/>not published in any registered source"]
         UNK2["UNKNOWN<br/>the estimate is shown and decides nothing"]
         UNK3["UNKNOWN<br/>its own measurement vetoes the screen"]
-        SCRD["UNKNOWN · SCREENED<br/>removed in Explore; the chip brings it back"]
+        SCRD["UNKNOWN · SCREENED<br/>removed under Include; the chip brings it back"]
     end
 
     CMPV -- "the value meets it" --> PASS

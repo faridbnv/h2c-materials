@@ -370,7 +370,7 @@ function body(group, materials, cs, db, ctx = {}) {
         <p>A product passes only on its own maker's statement, or one in the data sheet it shares with another product.
         "Resistant" passes; "limited resistance", or a limit stated in words, stays unresolved. A pass covers the agents
         its source tested, not every chemical in the class.${anyPolymer ? ` Base-polymer reference data never passes; with
-        "Let estimates rule out materials" on, it excludes a material whose polymer the reference reports attacked or
+        "Use estimates and resin data" on, it hides a material whose polymer the reference reports attacked or
         dissolved.` : ''} Each material's Environment tab gives the agents and conditions.</p>
       </details>`);
     }

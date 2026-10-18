@@ -66,9 +66,10 @@ export function renderAshby(host, state, actions) {
 
   const ws = workspaceFor(state);
   const index = ws.objective.index;
-  // Estimated context follows the page's one rule for estimates: shown under Include uncertain with estimates on, and never
-  // under Confirmed only, which is measured evidence alone everywhere on the page. Within that, the chart's switch only
-  // draws them; the engine's use of them is its own setting and is unchanged (D107).
+  // Estimated context follows the page's one rule for estimates: shown under Include with "Use estimates and resin data"
+  // on, and never under Leave out, which is measured evidence alone everywhere on the page. Within that, the chart's
+  // switch only draws them; the engine's use of them is its own setting and is unchanged (D107). An estimate drawn here
+  // never passes a material, and hides only one with no product on record (D148).
   // Only for the materials on screen (D109): a material the requirements already failed has nothing an estimate could
   // tell the reader, and drawing its range put six more over the beam's fourteen products.
   state.estimates = state.ctx.showEstimates
@@ -304,9 +305,10 @@ function markerKey({ pts, envelopes, level, anchor, reference = null }) {
  * than a measurement.
  *
  * These used to vanish: a quarter of the in-scope set silently absent from the picture the tool
- * exists to draw, while the table two tabs away listed their estimated span. And in Explore an
- * estimate can screen a material out of a requirement, so a reader could see a material screened by
- * an estimate and find no trace of that estimate on the chart.
+ * exists to draw, while the table two tabs away listed their estimated span. And with the materials that could not be
+ * checked included, the estimate of a material with no product on record can screen it out of a requirement, so a
+ * reader could see a material screened by an estimate and find no trace of that estimate on the chart (D148: no other
+ * material's estimate screens it).
  *
  * They are drawn as an envelope rather than a dot. A dot would need a value, and the centre of an
  * estimate is a number nobody measured — the one thing this tool refuses to put on a chart.

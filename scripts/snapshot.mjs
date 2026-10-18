@@ -9,7 +9,9 @@
 //                                   judged by their products as the page judges them (D83): the verdict, how many
 //                                   products pass, fail or could not be judged, and the product the reasons come from
 //   build/snapshot/warnings.csv    every build warning, one row per record
-//   build/snapshot/screening.csv   for every headline, evidence class and end, whether it may screen and where (D59)
+//   build/snapshot/screening.csv   for every headline, evidence class and end, whether a material's estimate may screen
+//                                   and where (D59), and what it is read for: only a material with no product on record,
+//                                   since every other material is judged by its products (D148)
 //   build/snapshot/grades.csv      every grade's own estimate per headline (D81): strength, precision, the ranges
 //   build/snapshot/products.csv    every product's own value per headline, by rule: the measurement, its evidence level,
 //                                   what qualifies it, and whether headlines.csv pins it (re-center phase 1)
@@ -102,7 +104,8 @@ const screening = [];
 for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
   for (const [cls, c] of Object.entries(p.screening)) {
     for (const [side, s] of Object.entries({ top: c.above, bottom: c.below })) {
-      screening.push({ Headline: key, Class: cls, End: side, Held: s.held, BeyondPlausible: s.beyondPlausible, Rank: s.rank ?? '', Quantile: s.quantile ?? '', Screens: s.certified ? 'yes' : 'no' });
+      screening.push({ Headline: key, Class: cls, End: side, Held: s.held, BeyondPlausible: s.beyondPlausible, Rank: s.rank ?? '', Quantile: s.quantile ?? '', Screens: s.certified ? 'yes' : 'no',
+        'Read for': 'materials with no product' });
     }
   }
 }

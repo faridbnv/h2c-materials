@@ -127,21 +127,27 @@ function evaluateNumeric(material, c, ctx = {}) {
 
   if (!h || !h.known) {
     // A property that does not apply (heat deflection of an elastomer, any value of a support
-    // product) is a statement, not a gap. It can never pass; with estimates on it holds the material
-    // out of Explore like an estimate that fails, and the SCREENED chip brings it back (D43).
-    if (ctx.useEstimates && h?.notApplicable) {
+    // product) is a statement, not a gap: a definition, not an inference. It can never pass, and it
+    // holds the material out of Include whether estimates are on or off; the SCREENED chip brings it
+    // back. It is still UNKNOWN, never FAIL, and Leave out holds it out for missing data as before
+    // (D56; D148, which ended its coupling to the estimates switch of D43).
+    if (h?.notApplicable) {
       return {
         status: STATUS.UNKNOWN, notApplicable: true, screened: true, vetoedBy: [],
-        criterion: label, reason: `Not applicable: ${h.notApplicable.reason}`, missing: h?.missing ?? 'not-published',
+        criterion: label, reason: `Does not apply: ${h.notApplicable.reason}`, missing: h?.missing ?? 'not-published',
       };
     }
     // An estimate is inference, so the verdict stays UNKNOWN whatever it says: the verdict describes
     // the evidence (D26). What an estimate may change is eligibility, and only in one direction. It
-    // screens a material out of Explore when its plausible (95%) range and the range the build's back-test
+    // screens a material out of Include when its plausible (95%) range and the range the build's back-test
     // lets it screen on both wholly fail the requirement, and no measurement of the material bounds the
     // headline from below and meets it (D48). Each end of the screening range is set on its own (D59): an end
     // the back-test cannot set, or that the material's own evidence lies beyond, is open and screens nothing. The
     // likely (80%) range is what the reader sees; the wider ones decide.
+    // Which estimate this is depends on the material. A material with products is judged product by product, and each
+    // product carries its own prediction (D137), which no back-test yet lets screen: so in this release no estimate of
+    // a material with products hides it, and its material estimate is never read here (products.js productHeadline).
+    // Only a material with no product (PA66-CF, PA612, PA612-GF) is judged on its own estimate, which may screen it (D148).
     if (ctx.useEstimates && h?.estimate) {
       const est = h.estimate;
       const wide = est.plausible ?? { lo: est.lo, hi: est.hi };
@@ -167,7 +173,7 @@ function evaluateNumeric(material, c, ctx = {}) {
               : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
         : `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
       const disclosure = h.asPublished ? ` Published ${fmtWords(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
-        : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state)}.`
+        : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state, c)}.`
           : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '';
       const permissionReason = est.screening && !permission ? ' This product is outside the complete printer context used for screening validation.' : '';
       return {
@@ -192,7 +198,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
     if (h?.elsewhere?.length) {
-      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: elsewhereReason(h, material.state) };
+      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: elsewhereReason(h, material.state, c) };
     }
     return {
       status: STATUS.UNKNOWN,
@@ -257,18 +263,26 @@ const listWords = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join
 export const schedule = (t) => `at ${t?.tempC != null ? `${fmt(t.tempC)} °C` : 'a temperature its sheet does not state'} for ${t?.hours != null ? `${fmt(t.hours)} h` : 'a time its sheet does not state'}`;
 const stateWords = (s) => (s?.treatment ? `after annealing ${schedule(s.treatment)}` : 'as printed') + (s?.moisture === 'conditioned' ? ', conditioned' : '');
 
-/** Why a value the product publishes in another state does not decide in this one, and what would let it (D99). */
-function elsewhereReason(h, state) {
-  const e = h.elsewhere[0];
-  const where = `${fmtWords(e.value)} ${h.unit}`;
+/**
+ * Why a value the product publishes in another state does not decide in this one, and what would let it (D99). A value
+ * that misses the requirement `c` as well says so, and annealing is offered only where an annealed value meets it: Bambu
+ * Lab PLA Silk+ was offered annealing for a 100 °C bracket on an annealed 60 °C (the screening review, C09; D148).
+ */
+function elsewhereReason(h, state, c) {
+  const misses = (x) => !!c && compareInterval({ lo: x.value, hi: x.value, kind: 'point' }, c.operator, c.value) === STATUS.FAIL;
+  // Judged as printed, the annealed value named is one that meets the requirement, where the sheet publishes one.
+  const e = (!state?.treatment && h.elsewhere.find((x) => x.treatment && !misses(x))) || h.elsewhere[0];
+  const where = `(${fmtWords(e.value)} ${h.unit})${misses(e) ? ', which also misses it' : ''}`;
   if (e.treatment && !state?.treatment) {
-    return `Published only after annealing ${schedule(e.treatment)} (${where}), and this product is judged as printed. Allow annealing under Part condition to use it`;
+    return misses(e)
+      ? `Published only after annealing ${schedule(e.treatment)} ${where}, so annealing would not help`
+      : `Published only after annealing ${schedule(e.treatment)} ${where}, and this product is judged as printed. Allow annealing under Part condition to use it`;
   }
-  if (e.moisture === 'conditioned' && state?.moisture !== 'conditioned') return `Published only after moisture conditioning (${where}), not for the dry state asked about`;
+  if (e.moisture === 'conditioned' && state?.moisture !== 'conditioned') return `Published only after moisture conditioning ${where}, not for the dry state asked about`;
   if (e.moisture !== 'conditioned' && state?.moisture === 'conditioned') {
-    return `Published only dry or with moisture unstated (${where}); the conditioned state is asked about, and no conditioned value is inferred from a dry one`;
+    return `Published only dry or with moisture unstated ${where}; the conditioned state is asked about, and no conditioned value is inferred from a dry one`;
   }
-  return `Published ${stateWords(e)} (${where}), not ${stateWords(state)}; values from two states are never combined`;
+  return `Published ${stateWords(e)} ${where}, not ${stateWords(state)}; values from two states are never combined`;
 }
 
 // ---------------------------------------------------------------- treatment
@@ -627,8 +641,9 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
     usesEstimate: results.some((r) => r.estimated),
     // Likewise when a base polymer's published behaviour stood in for a record of the material (D64).
     usesPolymer: results.some((r) => r.polymer),
-    // Held out of Explore by an estimate, not by a failure. Its verdict is still UNKNOWN, so it is
-    // counted there and never in FAIL; the status bar can bring it back.
+    // Held out of Include by inference or by definition, not by a failure: a property that does not apply, an
+    // estimate, or the base polymer's published behaviour. Its verdict is still UNKNOWN, so it is counted there and
+    // never in FAIL; the status bar can bring it back.
     screened,
     screenedBy: screened ? unresolved.filter((r) => r.screened).map((r) => r.criterion) : [],
     results,
@@ -765,11 +780,27 @@ export function runSelection(materials, constraints, ctx = {}) {
  * than an order-of-evaluation artefact.
  */
 export function explainExclusions(materials, constraints, ctx = {}) {
-  const base = runSelection(materials, constraints, ctx).candidates.length;
+  const all = runSelection(materials, constraints, ctx);
+  const base = all.candidates.length;
   return constraints.map((c, i) => {
     const without = constraints.filter((_, j) => j !== i);
     const recovered = runSelection(materials, without, ctx).candidates.length - base;
-    let removed = 0, held = 0, screened = 0, screenedByPolymer = 0, productsRemoved = 0;
+    let removed = 0, held = 0, productsRemoved = 0;
+    // A hide is counted as the page shows it (the screening review, C07; D148): a material the whole question holds out
+    // as unlikely, whose own hide names this requirement, never one that fails another requirement, and never for a
+    // requirement that is only reported. Each hide is said by what made it: a property that does not apply, the base
+    // polymer's published behaviour (D64), or an estimate.
+    let screened = 0, screenedByPolymer = 0, screenedNotApplicable = 0;
+    if (c.mandatory !== false) {
+      for (const e of all.evaluations) {
+        if (!e.screened) continue;
+        const mine = e.unresolved.filter((r) => r.screened && r.constraint === c);
+        if (!mine.length) continue;
+        screened++;
+        if (mine.some((r) => r.notApplicable)) screenedNotApplicable++;
+        else if (mine.some((r) => r.polymerScreen)) screenedByPolymer++;
+      }
+    }
     for (const m of materials) {
       // Judged by its products, a requirement removes a material when no product meets it and one fails it; a product
       // meets it in the best state the scenario permits (D99).
@@ -784,12 +815,10 @@ export function explainExclusions(materials, constraints, ctx = {}) {
       const r = rs.find((x) => x.status === STATUS.PASS) ?? rs.find((x) => x.status !== STATUS.FAIL) ?? rs[0];
       if (r.status === STATUS.FAIL) removed++;
       else if (r.status === STATUS.UNKNOWN || r.status === STATUS.INDETERMINATE) held++;
-      if (r.screened) screened++;
-      if (r.screened && r.polymerScreen) screenedByPolymer++;
     }
-    // `screened` counts every screen; `screenedByPolymer` the part of it that rests on the base polymer's published
-    // behaviour rather than an estimate, so the panel can say which. `productsRemoved` counts products, where the
-    // selection is by product.
-    return { constraint: c, removed, held, screened, screenedByPolymer, recovered, ...(ctx.productsByMaterial ? { productsRemoved } : {}) };
+    // `screened` counts every hide; `screenedNotApplicable` the part of it that rests on a property that does not apply,
+    // and `screenedByPolymer` the part that rests on the base polymer's published behaviour, so the panel can say which;
+    // the rest is an estimate's. `productsRemoved` counts products, where the selection is by product.
+    return { constraint: c, removed, held, screened, screenedNotApplicable, screenedByPolymer, recovered, ...(ctx.productsByMaterial ? { productsRemoved } : {}) };
   }).sort((a, b) => b.recovered - a.recovered || b.removed - a.removed);
 }

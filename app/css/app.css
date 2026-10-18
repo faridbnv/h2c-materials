@@ -1010,7 +1010,7 @@ details.imp-tally > p { margin: 4px 0 0; }
 }
 /* The pre-D107 option cards, one under another (no longer drawn). */
 /* A phone. The top bar is two rows: the search with Filters, Save / share and the theme as icons, then the
-   missing-data panel, the mode beside Let estimates rule out materials. The name goes (the browser tab carries it), the mark stays. It was three or four rows, which
+   missing-data panel, the mode beside Use estimates and resin data. The name goes (the browser tab carries it), the mark stays. It was three or four rows, which
    with the tabs, the status bar and the shortlist left the results about 350 px of an 844 px screen. */
 @media (max-width: 600px) {
   .topbar { padding: 6px 10px; gap: 6px 8px; min-height: 0; }
@@ -1353,10 +1353,12 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
   font-size: 12px; font-weight: 700; text-align: center; line-height: 22px;
 }
 .info-mark:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
-/* Screened by an estimate: still UNKNOWN, so the colour is UNKNOWN's, with a dashed edge that says
-   inference rather than evidence. */
+/* Held out as unlikely: still UNKNOWN, so the colour is UNKNOWN's, with a dashed edge that says it was not measured to
+   fail. The dagger, the estimates' mark, only where an estimate or resin data hid it: a property that does not apply is
+   a definition, not an inference (D148). */
 .chip-screened { background: transparent; color: var(--unknown); border: 1px dashed var(--unknown); }
 .chip-screened::before { content: "†"; }
+.chip-screened.by-definition::before { content: none; }
 .est-ruled { font-size: 11px; color: var(--unknown); font-weight: 650; white-space: nowrap; padding-left: 2px; }
 
 /* An estimate must never be mistaken for a measurement: brackets, a dashed rule, and its own colour. */

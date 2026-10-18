@@ -1,7 +1,7 @@
 COUNT 94 shown PASS + UNKNOWN
 STATUS ☑ PASS 7 | ☑ UNKNOWN 101 | ☐ FAIL 44 | ☐ SCREENED 14
 Requirements: Within H2C capability; Build material (not a support); Nozzle, bed and chamber within H2C limits; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1,500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
-Template: Outdoor structural part. Materials that could not be checked: Include; estimates and resin data may exclude a material, never pass one. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
+Template: Outdoor structural part. Materials that could not be checked: Include; estimates and resin data on, which never pass a material and hide one only where resin data reports its polymer attacked or the material has no product on record. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
 ASA-CF
 PASS

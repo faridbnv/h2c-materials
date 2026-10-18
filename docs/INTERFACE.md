@@ -271,7 +271,7 @@ resin producer's or handbook reference for the neat polymer, from `polymer_envir
 materials apart under the category, "N more have base-polymer reference data only, which never passes", because that is exactly
 what they do: the record is shown in the drawer, it never passes the requirement, and where the reference finds the
 polymer resistant to nothing in the class (attacked or dissolved by what it reports, with no agent rated resistant) it
-screens the material out under Include with **Let estimates rule out materials** on. A polymer attacked only by
+screens the material out under Include with **Use estimates and resin data** on. A polymer attacked only by
 the concentrated acid beside a resistant dilute one is `limited`, not screened: that is what a grade sheet's "resistant
 to acids" means too (D64). A category with polymer-level records is offered as a filter even where no grade-level
 record states a verdict; it cannot pass there, and its line says "No maker states a verdict".
@@ -293,27 +293,35 @@ switches to ("Switch to Include").
 
 - **Leave out** (Strict) — a criterion that cannot be evaluated holds the material out. Measured
   evidence only; estimates are not consulted at all, and not shown anywhere, the material drawer included. The
-  drawer says estimates for the missing values show when materials that could not be checked are included, with "Let
-  estimates rule out materials" ticked, where they used to appear regardless. The material's result is still UNKNOWN,
+  drawer says estimates for the missing values show when materials that could not be checked are included, with "Use
+  estimates and resin data" ticked, where they used to appear regardless. The material's result is still UNKNOWN,
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
-- **Include** (Explore) — materials with unresolved criteria stay visible and flagged. With
-  **Let estimates rule out materials** on, a material whose estimate clearly cannot meet a requirement is screened out,
-  and so is one whose base polymer a reference finds resistant to nothing in what the requirement asks it to
-  resist, where the material has no record of its own (D64).
+- **Include** (Explore) — materials with unresolved criteria stay visible and flagged, except a material a required
+  property does not apply to (an elastomer's HDT), which is hidden whatever the estimates switch says, marked "Does not
+  apply" (D148). With **Use estimates and resin data** on, a material with no product on record whose estimate clearly
+  cannot meet a requirement is screened out, and so is one whose base polymer a reference finds resistant to nothing in
+  what the requirement asks it to resist, where the material has no record of its own (D64). A material with products
+  is judged on its products, and no product's own estimate screens in this release (D137, D148).
 
-An estimate never passes anything. The reader sees its likely (80%) range; it screens a material out
-only when the range the build lets it screen on wholly fails the requirement. That range is set end by end from a
+A preset (template) sets requirements, not this mode: choosing one keeps Leave out or Include as the reader left it
+(D148; it used to force Leave out).
+
+An estimate never passes anything. The reader sees its likely (80%) range. A material with products is judged on its
+products, so its own estimate is context and hides nothing; the drawer and the export say "context only" (D148). The
+estimate of a material with no product on record screens it out only when the range the build lets it screen on wholly
+fails the requirement. That range is set end by end from a
 back-test of every measured headline (DECISIONS D48, D59): an end may screen only where the back-test has shown a new
 true value lies beyond it at most 10% of the time, it is never inside the plausible (95%) range, and an end the
 material's own evidence lies beyond is open and screens nothing. A printed measurement of the material that bounds
 the headline from below and meets the requirement vetoes a screen; a resin supplier's moulded value is not one of
-those and vetoes nothing. The drawer says, for each estimate, which ends may screen and why. A heat value whose source
+those and vetoes nothing. The drawer says, for each estimate, whether it is context only, or which ends may screen and why. A heat value whose source
 does not state the load is published without its conditions (D84): marked not comparable, it decides nothing unless
 *Include values with no stated orientation or load* (Data quality) is on. (Until m137 it was read as a bracket that
-could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, screens as an
-estimate that wholly fails a requirement does. A screened material's result is still UNKNOWN and it is counted there;
-the Why excluded tab says how many each requirement screened.
+could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, is a definition,
+not an inference: under Include it hides the material whether estimates are on or off, and its reason says "Does not
+apply", never "Not published" (D148). A screened material's result is still UNKNOWN and it is counted there; the Why
+excluded tab says how many each requirement screened.
 
 Some canonical names are families or aliases, not materials: a family groups materials (PA, PA-CF, PA-GF, TPE, TPU, and "TPU, hardness not stated"),
 and an alias names another material's products (CoPA, another name for PA6/66; a Bambu Lab product line such as PLA
@@ -338,13 +346,18 @@ Switching resets which verdicts the table shows, so the change is visible in the
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
-**Let estimates rule out materials** is in the top bar in both modes, and says beneath it how many materials it screened. Under
-Leave out it is disabled, and its **?** says it works only when such materials are included (the line "Only under Include
-uncertain" beneath it went into the popover on 2026-10-18): hiding the switch there meant a reader in the default mode
-never learned estimates exist. What the switch governs, an estimate of a missing number and a base polymer's published
-behaviour, sits behind the **?** beside it, not in a tooltip. It is one switch because both are inference about a material
-that publishes nothing, and both obey the same rule: never a pass, a screen only where the evidence wholly fails. Its
-element ids and the scenario field keep the old name (`use-estimates`, `useEstimates`), so links and saved files still work.
+**Use estimates and resin data** ("Let estimates rule out materials" until D148, a name no estimate of a real product
+lived up to) is in the top bar in both modes, and says beneath it how many materials it screened: by an estimate or by
+resin data, never a property that does not apply, which is not the switch's. Under Leave out it is disabled and shows
+unchecked, its stored value kept for Include, and its **?** says it works only when such materials are included (the
+line "Only under Include uncertain" beneath it went into the popover on 2026-10-18): hiding the switch there meant a
+reader in the default mode never learned estimates exist. What the switch governs sits behind the **?** beside it, not
+in a tooltip: it shows estimates where nothing is published and lists as estimated candidates the materials whose
+estimates' middle values meet the missing limits; with it on, resin data can hide a material whose base polymer it
+reports attacked or dissolved, and a material with no product on record is hidden when its own estimate wholly misses.
+It is one switch because both are inference about a material that publishes nothing, and both obey the same rule: never
+a pass, a screen only where the evidence wholly fails. Its element ids and the scenario field keep the old name
+(`use-estimates`, `useEstimates`), so links and saved files still work.
 
 ## The four states
 
@@ -372,13 +385,17 @@ not exactly the candidates the missing-data rule keeps, it says what they are, i
 "8 shown UNKNOWN · 8 of the 23 candidates". It had said "31 shown PASS + UNKNOWN · 23 candidates", which left the 8 rows
 the SCREENED chip brought back unexplained, and before that "eligible", a word defined nowhere.
 
-A fourth chip, **SCREENED**, appears only when an estimate or a base polymer's published behaviour screened something. It
-is not a verdict: its materials are already counted under UNKNOWN. It brings them back into the table, each marked
-"screened"; the mark names what held it out and the requirements, in the pills' words: "Screened by an estimate: HDT at
-0.45 MPa at least 100 °C", "Screened by the base polymer's published behaviour: Resists solvents" (D64), as the
-export's Screened by estimate and Screened by base polymer columns do, where both had printed the engine's criterion
-("hdt045 >= 100"). An estimate's mark offers to open the estimate; the polymer's offers the Environment tab, where its
-rows are. Why excluded counts the two kinds of screen apart under each requirement.
+A fourth chip, **SCREENED**, appears under Include once something is held out as unlikely: a property that does not
+apply, with the estimates switch on or off, or an estimate or a base polymer's published behaviour, with it on. It is
+not a verdict: its materials are already counted under UNKNOWN, and its title says how many of each kind. It brings
+them back into the table, each marked "screened"; the mark names what held it out and the requirements, each once, in
+the pills' words: "Does not apply: HDT at 0.45 MPa at least 100 °C (HDT is a rigid-bar test)", "Screened by an
+estimate: Tensile modulus (XY) at least 5 GPa", "Screened by the base polymer's published behaviour: Resists solvents"
+(D64, D148), as the export's Hidden: does not apply, Hidden by an estimate and Hidden by resin reference data columns
+do, where they had printed the engine's criterion ("hdt045 >= 100") and filed a property that does not apply under the
+estimate. An estimate's mark and one that does not apply open the Overview, where its card is; the polymer's offers the
+Environment tab, where its rows are. Why excluded counts the three kinds apart under each requirement, and only the
+materials the page hides: a material hidden as a whole, whose own hide names that requirement (D148).
 
 Before any requirement is set nothing has been tested, so rows read **not tested** and the chips
 stand down. A green PASS on a blank screen asserted a test that never ran.
@@ -451,7 +468,7 @@ A tooltip may repeat what is on screen; it may not be the only place a meaning i
 is more than its glyph is a real button that opens one explanation popover: a material's typical value, an estimate, a
 `*` value, `≈`, `n/a`, a "not comparable" mark on a product's value, a dash or a missing-state word, the Also needs
 chips and "none stated", a chamber word or band, a print window, "no price" and "out of stock", the screened, assumed
-and baseline chips, each legend entry, Let estimates rule out materials, the drawer's gate chips, its "recorded 240–270 °C" caveat, a
+and baseline chips, each legend entry, Use estimates and resin data, the drawer's gate chips, its "recorded 240–270 °C" caveat, a
 quarantined price listing and a physically implausible measurement, and in Compare each result, gate and estimate.
 
 - Click, tap, Enter or Space opens it beside the mark, inside the screen at any width; Escape, the close button, the
@@ -702,7 +719,7 @@ temperature or duration, from the method table's row the page reads too (m437).
 ends with a section headed "Reference data for PLA resin (not these products)" (D64): one line saying that no source tested this material or its
 grades, that what follows is the neat resin's published behaviour from a resin producer's or handbook reference, not a
 test of this grade, that it never passes a requirement and, where the reference reports the polymer attacked or
-dissolved, that it screens the material out with Let estimates rule out materials on. Then each category with its derived
+dissolved, that it screens the material out with Use estimates and resin data on. Then each category with its derived
 verdict, marked "resin data", and every agent row under it: the agent, its verdict, the finding, the conditions, the
 notes and the source by name. The tab's count includes these records and its first line says how many of them are the
 polymer's. Nothing here is only in a tooltip (D61). The section shows in both modes: it is published evidence, labelled
@@ -1044,7 +1061,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   axes sit on the chart they set, in a bar across its top: the vertical axis at its left, the horizontal at its right, each
   a menu of property names in one fixed order with its unit and Lin/Log, the swap between. Every option is in view, its
   state on its face; only the test pairs and the exports are a second level, under More. One that does not apply is greyed with
-  its reason ("Drawn in the Products view", "Needs Include and 'Let estimates rule out materials', at the top of the page"), never
+  its reason ("Drawn in the Products view", "Needs Include and 'Use estimates and resin data', at the top of the page"), never
   removed. Unsettled products follow Materials with missing data (drawn under Include, as the table lists them) until
   their chip is pressed; changing the mode hands them back to it.
 - **One planned effect per control, and the reader's place kept** (D109). Each control changes one thing and leaves the
@@ -1208,13 +1225,13 @@ px phone out at 533 px with the right side clipped. Colour never the sole carrie
   the column headings would stop sticking under a wide screen's scrolled results. Squeezed instead, 46 of 207 cells had
   overprinted their neighbours at 820 px and 132 at 390 px.
 - **The top bar** is one row from 1101 px, in four zones: the name, the search, the two missing-data settings in one
-  panel (the mode and Let estimates rule out materials, divided by a rule), and the page's actions. The theme button is a
+  panel (the mode and Use estimates and resin data, divided by a rule), and the page's actions. The theme button is a
   sun or a moon at every width, with "Switch to light theme" or "Switch to dark theme" kept as its name and title (with
   its words it took a second row of its own from 1401 to 1600 px); Save / share is its arrow alone up to 1300 px, with
   its words kept the same way. Its buttons are one height, and up to 1500 px the mode's label sits above its buttons (from 601 to 1100 px, on the
   panel's own row, beside them).
   Below 600 px it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode
-  buttons with Let estimates rule out materials, without the panel's box; the name goes, since the browser tab carries
+  buttons with Use estimates and resin data, without the panel's box; the name goes, since the browser tab carries
   it. It had been four rows on a phone.
 - **The view tabs**, below 1100 px, and **the drawer's eight tabs**, below 1100 px, are each one strip that scrolls
   sideways with the active tab kept in sight, rather than two and three wrapped rows.
@@ -1228,7 +1245,7 @@ px phone out at 533 px with the right side clipped. Colour never the sole carrie
   600 px the layout fills the window (`100dvh`, with `100vh` where that is not understood).
 - **Ashby's** result list goes under the chart below 1100 px, and **Compare's** bars give the name and value columns way
   (`minmax`) before the bar.
-- Every close button on a shortlist pin, the requirement pills and the ? beside Let estimates rule out materials are at least 24 px each
+- Every close button on a shortlist pin, the requirement pills and the ? beside Use estimates and resin data are at least 24 px each
   way. The design guide line's slider is named "Move the line" and speaks its value as the index and how many materials
   are above the line.
 
@@ -1246,9 +1263,10 @@ stylesheet, so a printed comparison says which question it answers.
 
 The CSV export lists the rows in the table's order, with the requirements and policy in its header,
 each row's result, whether it is in the results, every failed and unchecked criterion with its
-reason, value qualifiers and measurement IDs. Estimates get their own columns only when they were in
-use: each estimate with its kind, interval, basis and whether it can screen, and which requirement
-screened the row, if any.
+reason, value qualifiers and measurement IDs, and the requirements a property that does not apply hid the row on
+(Hidden: does not apply). Estimates get their own columns only when they were in use: each estimate with its kind,
+interval, basis and whether it can hide the material (only one with no product on record) or is context only, and which
+requirement an estimate or resin data hid the row on, if any.
 
 ## State in the URL
 

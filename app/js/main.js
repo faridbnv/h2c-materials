@@ -22,7 +22,7 @@ import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc, markTableOverflow, keepInView } from './ui/format.js';
 import { TEMPLATES, PRINTABLE } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive, candidateCount } from './ui/start.js';
-import { setEnvironmentLabels, setH2cBaseline, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel } from './ui/labels.js';
+import { setEnvironmentLabels, setH2cBaseline, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel, screenedByKind } from './ui/labels.js';
 import { initPopover, popoverOpen } from './ui/popover.js';
 import { useRegistry } from './ui/registry.js';
 import { dayWords, documentsRead, provenanceWords } from './ui/dates.js';
@@ -47,8 +47,9 @@ const state = {
   // Which constraint verdicts the table shows. The status-bar chips toggle these, which is what
   // makes them controls rather than decoration, and what makes Strict against Explore visible.
   showStates: new Set(['PASS']),
-  // Whether materials an estimate screened out of Explore are shown anyway. They are UNKNOWN, not
-  // FAIL, so they would otherwise sit among the flagged results; the SCREENED chip brings them back.
+  // Whether materials held out of Include as unlikely (a property that does not apply, an estimate, resin data) are
+  // shown anyway. They are UNKNOWN, not FAIL, so they would otherwise sit among the flagged results; the SCREENED chip
+  // brings them back.
   showScreened: false,
   selectedMaterialId: null, drawerTab: 'Overview',
   // Which panel occupies the drawer: a material, or the save-and-share panel. One slot, so Escape,
@@ -432,11 +433,13 @@ const actions = {
   selectSubset(ids) { actions.setFocus(ids); },
   // A template's result is read in the table, which is the only lens with the requirements
   // header. Applied from Compare or a chart it used to change nothing visible.
+  // A template sets requirements, not the evidence policy (the screening review, C08 and V23): the reader's Leave out or
+  // Include stays as it was, and the result chips go back to that mode's defaults. It used to force Leave out.
   applyTemplate(t) {
     state.scenario.constraints = t.constraints.map((c) => ({ ...c }));
     state.scenario.template = t.name;
-    state.scenario.unknownPolicy = UNKNOWN_POLICY.STRICT;
-    state.showStates = defaultShowStates(UNKNOWN_POLICY.STRICT);
+    state.showStates = defaultShowStates(state.scenario.unknownPolicy);
+    state.showScreened = false;
     if (state.panel === 'scenario') { state.panel = null; renderDrawerHost(); }
     setLens('table');
     render(); pushHash();
@@ -537,9 +540,29 @@ function preservingFocus(host, draw) {
 /** The verdicts in the order every count names them, never alphabetical: "FAIL + PASS" read as a ranking. */
 const VERDICT_ORDER = ['PASS', 'UNKNOWN', 'FAIL'];
 
-/** Whether the SCREENED chip is on screen: only once an estimate has screened something out. */
+/**
+ * Whether the SCREENED chip is on screen: once something is held out of Include as unlikely. A property that does not
+ * apply holds a material out whatever the estimates switch says (D148), so the chip no longer waits for the switch.
+ */
 const screenedChipShown = () => state.scenario.constraints.length > 0
-  && state.scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates && state.selection.counts.screened > 0;
+  && state.scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.selection.counts.screened > 0;
+
+/**
+ * The hidden materials by what hid them (D148): how many a property that does not apply holds out, and how many the
+ * estimates switch does, by an estimate or by resin reference data. A material hidden on both counts in each.
+ */
+function screenedKinds(evaluations) {
+  const out = { notApplicable: 0, bySwitch: 0, estimate: 0, polymer: 0 };
+  for (const e of evaluations) {
+    if (!e.screened) continue;
+    const by = screenedByKind(e);
+    if (by.notApplicable.length) out.notApplicable++;
+    if (by.estimate.length || by.polymer.length) out.bySwitch++;
+    if (by.estimate.length) out.estimate++;
+    if (by.polymer.length) out.polymer++;
+  }
+  return out;
+}
 
 /**
  * What the rows on screen are, in words that add up to their number: the candidates among them (of how many, when not
@@ -605,7 +628,9 @@ function render() {
     el.setAttribute('aria-pressed', String(on));
     const last = on && state.showStates.size === 1;
     el.disabled = n === 0 || last;
-    const what = { PASS: 'that meet every requirement', UNKNOWN: 'that could not be checked for missing data', FAIL: 'that fail a requirement' }[verdict];
+    // UNKNOWN counts the materials held out as unlikely too, never FAIL: its title says how many (C07).
+    const what = { PASS: 'that meet every requirement', FAIL: 'that fail a requirement',
+      UNKNOWN: `that could not be checked for missing data${screenedChipShown() ? ` (${counts.screened} of them hidden as unlikely; SCREENED shows them)` : ''}` }[verdict];
     el.title = n === 0 ? `No material is ${verdict} under the current requirements`
       : last ? `Showing the ${n} ${what}. At least one kind of result stays shown.`
       : on ? `Showing the ${n} ${what}. Click to hide them.`
@@ -617,25 +642,32 @@ function render() {
   // vanish. The visible caption beside it went into the ? (2026-10-18): it had made the panel the loudest thing on the page.
   const estToggle = document.getElementById('est-toggle');
   const estBox = document.getElementById('use-estimates');
-  estBox.checked = state.useEstimates;
+  // Under Leave out the switch does nothing, so it shows unchecked; its stored value is kept for Include (C08, D148).
+  estBox.checked = explore && state.useEstimates;
   estBox.disabled = !explore;
   estToggle.dataset.disabled = String(!explore);
   document.getElementById('est-reason').hidden = explore;
   estToggle.title = explore ? '' : 'Works only when the materials that could not be checked are included';
   // How many it screened, under the switch: beside it, the count pushed the top bar onto a second row at laptop widths.
+  // Only what the switch hides, by an estimate or by resin reference data: a property that does not apply hides a
+  // material whatever the switch says, and is not the switch's to count (D148).
+  const kinds = screenedKinds(state.selection.evaluations);
   const ruled = document.getElementById('est-ruled');
-  ruled.textContent = explore && state.useEstimates && counts.screened ? `${counts.screened} screened` : '';
+  ruled.textContent = explore && state.useEstimates && kinds.bySwitch ? `${kinds.bySwitch} screened` : '';
   ruled.hidden = !ruled.textContent;
   estBox.setAttribute('aria-describedby', explore ? 'est-ruled' : 'est-reason');
-  // Screened materials are UNKNOWN, and they are counted there. This chip shows how many of those an
-  // estimate held out, and brings them back; it never appears unless an estimate screened something.
+  // Screened materials are UNKNOWN, and they are counted there. This chip shows how many of those were held out as
+  // unlikely, and by what, and brings them back; it never appears unless something was held out.
   const scr = document.getElementById('s-screened');
   scr.hidden = !screenedChipShown();
   chipText(scr, state.showScreened, `SCREENED ${counts.screened}`);
   scr.setAttribute('aria-pressed', String(state.showScreened));
+  const why = [kinds.notApplicable ? `${kinds.notApplicable} because a required property does not apply to them (such as an elastomer's HDT)` : null,
+    kinds.estimate ? `${kinds.estimate} by an estimate that clearly misses a requirement` : null,
+    kinds.polymer ? `${kinds.polymer} by resin reference data reporting the base polymer attacked or dissolved` : null].filter(Boolean).join('; ');
   scr.title = state.showScreened
-    ? `Showing the ${counts.screened} UNKNOWN materials excluded by an estimate or by resin reference data. Click to hide them again.`
-    : `${counts.screened} UNKNOWN materials are excluded: an estimate of a missing value clearly misses a requirement, or resin reference data reports the base polymer attacked or dissolved. Click to show them.`;
+    ? `Showing the ${counts.screened} UNKNOWN materials hidden as unlikely: ${why}. Click to hide them again.`
+    : `${counts.screened} UNKNOWN materials are hidden as unlikely: ${why}. None failed a measured value. Click to show them.`;
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));
@@ -972,7 +1004,7 @@ function renderScenario(host) {
         <div class="sc-lines">
           <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} reported, not required` : ''}</div>
           <div>${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}</div>
-          ${scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `<div>Estimates and resin data: ${state.useEstimates ? 'on (may exclude, never pass)' : 'off'}</div>` : ''}
+          ${scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `<div>Estimates and resin data: ${state.useEstimates ? 'on (never pass; resin data, and the estimate of a material with no product on record, may hide one)' : 'off'}</div>` : ''}
           ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}
           ${scenario.assumptions.length ? `<div class="warn">${scenario.assumptions.length} assumption${scenario.assumptions.length === 1 ? '' : 's'} in play</div>` : ''}
         </div>
@@ -1021,7 +1053,7 @@ function renderScenario(host) {
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
     download(`h2c-candidates-${fileStamp(db.meta)}.csv`,
-      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates, ranking: rankOf(state.rows, state) }), 'text/csv'));
+      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates, ranking: rankOf(state.rows, state), productsByMaterial: state.ctx.productsByMaterial }), 'text/csv'));
   host.querySelector('#sc-products').addEventListener('click', () =>
     download(`h2c-products-${fileStamp(db.meta)}.csv`,
       productsCSV(sortRows(state.rows, state), db, { scenario, productsByMaterial: state.ctx.productsByMaterial, ctx: state.ctx }), 'text/csv'));

@@ -246,8 +246,11 @@ preferences: changing one changes what the tool asserts.
 11. **An estimate never passes a material, and screens only on an end the back-test has shown.** Every build
     hides each material's typical product's value as far as an evidence class requires, predicts it honestly, and sets each end of the
     class's screening range where a new true value lies beyond it at most 10 % of the time with 90 % confidence
-    (D48, D59). In Explore it may screen a material out when that range wholly fails, never on an end the material's
-    own evidence lies beyond, and never when its own printed measurement bounds the headline and meets the requirement.
+    (D48, D59). Under Include, with "Use estimates and resin data" on, it may screen a material out when that range
+    wholly fails, never on an end the material's own evidence lies beyond, and never when its own printed measurement
+    bounds the headline and meets the requirement. A material with products is judged on its products, whose own
+    estimates screen nothing in this release, so only a material with no product on record is screened by an estimate
+    (D137, D148). A property that does not apply is no estimate: it hides the material whatever the switch says (D148).
     The core database builds and validates without estimates at all (D58).
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
@@ -293,8 +296,10 @@ sits above PA66, and hidden measured values fall inside the shown 80% range abou
 that drifts; the figure for each property is in the validation report). Every in-scope material that names an Estimate
 identity has, for each estimated property (density, stiffness, strength, stretch, heat deflection), a value, an
 estimate or a reason it does not apply; the other properties show Not published where nothing is. An estimate never
-passes a material, and screens one out only when its screening range wholly fails (at least the 95% range, wider where
-the back-test shows it must be, D59) and the material's own data does not contradict it. See
+passes a material. A material with products is judged on each product's own values, so its material estimate is context
+only; a material with no product on record is screened out by its estimate only when its screening range wholly fails
+(at least the 95% range, wider where the back-test shows it must be, D59) and the material's own data does not
+contradict it (D148). The switch for all of this is "Use estimates and resin data". See
 [the data model](docs/DATA-MODEL.md#estimates) and DECISIONS D43.
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
@@ -321,4 +326,4 @@ does not have. Its warnings name their records: outlying headlines, imprecise es
 materials without measurements. Each record is fixed or accepted with a reason in
 `data/review/accepted-findings.csv`, and `verify` fails on one that is neither (D57).
 
-Product uncertainty (D137): Include (materials that could not be checked) separates supported candidates, estimated candidates to verify and an expandable insufficient-evidence list. Collapsed options stay in counts and exports. Missing product values use their own estimates regardless of sibling coverage; predictions never pass. Independent exclusion permission is currently limited to validated as-printed/dry contexts under the reserved complete-scenario risk budget; no class currently meets that gate. Unsupported scopes remain unresolved. [The fix audit](docs/audits/2026-10-08-product-screening/README.md) records the risk gates and decision differences.
+Product uncertainty (D137): Include (materials that could not be checked) separates supported candidates, estimated candidates to verify and an expandable insufficient-evidence list. Collapsed options stay in counts and exports. Missing product values use their own estimates regardless of sibling coverage; predictions never pass. Independent exclusion permission is currently limited to validated as-printed/dry contexts under the reserved complete-scenario risk budget; no class currently meets that gate. Unsupported scopes remain unresolved. What hides a material under Include today is a property that does not apply to it, with "Use estimates and resin data" on or off, and, with it on, resin data reporting its polymer attacked or the estimate of a material with no product (D148). [The fix audit](docs/audits/2026-10-08-product-screening/README.md) records the risk gates and decision differences.

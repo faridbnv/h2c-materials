@@ -258,6 +258,6 @@ test('the screened chip names the kind of screen with the criterion after its pr
   const chip = screenedChip(e);
   assert.equal(chip.text, `${SCREEN_PREFIX.polymer}: Resists solvents. Not a failure; not tested on this product.`);
   assert.equal(chip.action, 'polymer');
-  assert.deepEqual(screenedByKind(e), { estimate: [], polymer: ['Resists solvents'] });
-  assert.match(chip.text, /^Screened by (an estimate|the base polymer's published behaviour): \S/);
+  assert.deepEqual(screenedByKind(e), { notApplicable: [], estimate: [], polymer: ['Resists solvents'] });
+  assert.match(chip.text, /^(Does not apply|Screened by an estimate|Screened by the base polymer's published behaviour): \S/);
 });

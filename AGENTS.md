@@ -372,7 +372,11 @@ the data (a vocabulary State, a grade Variant, a Data status), or a reviewed fin
 new conversion kind or physical rule needs a DECISIONS entry that says why the data cannot carry it, and a back-test
 row that shows it helps. The build back-tests which evidence may screen a material out, and
 records, end by end, where each class may screen in `meta.estimateModel.properties.*.screening` and
-`build/snapshot/screening.csv` (D59). A change that moves an end shows there and in the snapshot's Screens column; `test/screening.test.js` fails if a material stays a candidate for
+`build/snapshot/screening.csv` (D59). A material's own estimate is read for a requirement only where the material has no
+product on record: every other material is judged by its products, and a product's own estimate hides it only with a
+back-test certificate, which none has in this release (D137, D148). On the page all of this is the switch "Use
+estimates and resin data" (the scenario's `useEstimates`), which works only under Include; a property that does not
+apply hides a material whatever the switch says (D148). A change that moves an end shows there and in the snapshot's Screens column; `test/screening.test.js` fails if a material stays a candidate for
 a requirement its defended range wholly fails.
 
 If `verify` fails, read the first error: it names the file and line, or the material and the rule. Do

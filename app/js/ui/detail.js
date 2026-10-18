@@ -241,13 +241,16 @@ function applySearch(host) {
   }
 }
 
-/** One line per headline of what the model says of this grade (D81), only with estimates on. D137 explains its exclusion permission separately. */
+/**
+ * One line per headline of what the model says of this grade (D81), only with estimates on. It never passes, and hides the
+ * product only where its back-test allows (D137), which in this release none does: it says which.
+ */
 function gradeEstimateLines(g, c) {
   if (!c.showEstimates || !g.estimate) return '';
   // Only where the product publishes no comparable value of its own: an estimate beside its own measurement said less
   // than the measurement and read as a second answer (a 10 % elongation estimated at "10–10 %").
   const lines = productEstimates(g).map(({ h, e }) => `<div class="grade-est"><b>${esc(h.labels.plain)}</b> <span class="est est-${esc(e.precision)}">~${fmtNumber(e.lo)}–${fmtNumber(e.hi)} ${esc(e.unit)}<span class="est-mark">†</span></span>
-      <span class="fine">centre ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span>${e.screening ? `<span class="fine">Never PASS. ${esc(e.canScreen ? 'May screen a complete as-printed, dry scenario with one inferred numerical test; no alternative routes.' : `Cannot screen: ${e.screenLimit}`)}</span>` : ''}</div>`);
+      <span class="fine">centre ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span>${e.screening ? `<span class="fine">Never passes. ${esc(e.canScreen ? 'May hide this product as printed and dry, where its nozzle, bed and chamber are within the H2C\'s.' : `Hides nothing: ${e.screenLimit}.`)}</span>` : ''}</div>`);
   return lines.length ? `<div class="grade-ests"><div class="shared-head">Estimated, where this product publishes no comparable value</div>${lines.join('')}</div>` : '';
 }
 
@@ -333,13 +336,14 @@ function polymerSection(poly, c) {
     <div class="note">No document tests this material${poly.length === 1 ? ' in this category' : ` in these ${poly.length} categories`}, so a resin
       producer's or handbook data for plain ${P} is shown. Fillers, pigments and printing change it, so it never passes a
       requirement. ${screens.length
-        ? `Where it reports ${P} attacked or dissolved (${esc(screens.map((p) => p.categoryLabel.toLowerCase()).join(', '))}), it excludes this
-      material with "Let estimates rule out materials" on; the SCREENED chip brings it back.`
-        : 'None of it can exclude this material.'}</div>`
+        ? `Where it reports ${P} attacked or dissolved (${esc(screens.map((p) => p.categoryLabel.toLowerCase()).join(', '))}), it hides this
+      material under a requirement on that category, with the materials that could not be checked included and "Use estimates and resin data" on;
+      the SCREENED chip brings it back.`
+        : 'None of it can hide this material.'}</div>`
     + poly.map((p) => `
       <h4 class="block-title">${esc(p.categoryLabel)}: ${esc(verdictWords(p.verdict))} <span class="chip chip-neutral chip-small">resin data</span>${ids(['Inferred record', p.id])}</h4>
       ${p.agents.map((a) => `<div class="evidence-row env-row" data-polymer-row="${esc(a.id)}">
-        <div><strong>${esc(a.agent)}</strong> · ${esc(verdictWords(a.verdict))}${a.screens ? ' · can exclude' : ''}</div>
+        <div><strong>${esc(a.agent)}</strong> · ${esc(verdictWords(a.verdict))}${a.screens ? ' · can hide' : ''}</div>
         <div>${esc(a.finding)}</div>
         ${a.conditions ? `<div class="cond">${esc(a.conditions)}</div>` : ''}
         ${a.notes ? `<div class="cond">${esc(a.notes)}</div>` : ''}
@@ -359,9 +363,11 @@ function notApplicableCard(h, label) {
 /**
  * One estimate, as a line that expands to its full record: both ranges, what it rests on, what it may screen, and every
  * measurement behind it, converted. Six lines of prose each, repeated for every missing headline, had pushed "Can the H2C
- * print it?" off the screen; the sentences every estimate shares are said once, under the group (estimateGroup).
+ * print it?" off the screen; the sentences every estimate shares are said once, under the group (estimateGroup). A
+ * material's estimate is read only for a material with no product on record (`productless`); any other is judged product
+ * by product, and its estimate is context that hides nothing (D148).
  */
-function estimateCard(h, label, key) {
+function estimateCard(h, label, key, productless) {
   const e = h && !h.known && h.estimate;
   if (!e) return '';
   const s = ESTIMATE_STRENGTH[e.strength];
@@ -381,9 +387,9 @@ function estimateCard(h, label, key) {
         ${ev.conflict ? '<b>Disagrees with the rest and is down-weighted.</b>' : ''}</li>`).join('')}</ul>`
     : '';
   const bounds = e.bounds?.length ? ` Limited by ${e.bounds.map((b) => esc(b.why)).join('; ')}.` : '';
-  const screen = e.canScreen
-    ? ` It can exclude this material from ${esc(screenRangeText(e, d.num, d.unit))}.`
-    : ' It excludes nothing.';
+  const screen = !productless ? ' Context only: it hides nothing.'
+    : e.canScreen ? ` It can hide this material, which has no product on record, from ${esc(screenRangeText(e, d.num, d.unit))}.`
+    : ' It hides nothing.';
   return `<details class="est-card" data-estimate="${esc(key)}">
     <summary><span class="est-sum"><b>${esc(label)}</b> <span class="est est-${esc(e.precision)}">~${d.lo}–${d.hi} ${esc(d.unit)}<span class="est-mark">†</span></span>
       · ${esc(e.precision)} precision · ${esc(basis)}</span><span class="est-sum-toggle" aria-hidden="true"></span></summary>
@@ -391,15 +397,18 @@ function estimateCard(h, label, key) {
     <div class="est-basis">Plausible range ${d.plausible[0]} – ${d.plausible[1]} ${esc(d.unit)} (${pct(e.levels.plausible)}). Precision: <b>${esc(e.precision)}</b>, ${esc(ESTIMATE_PRECISION[e.precision])}.
       ${esc(s.title)}${e.strength !== 'family' ? `. This material's own data carries about ${pct(e.ownShare)} of it` : ''}. Model family: ${esc(e.family)}.${bounds}
       ${e.sharedWith ? `Its product is also filed under ${esc(e.sharedWith.name)}, so both show this estimate.` : ''}
-      ${screen} ${e.screenLimit ? esc(`${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}`) : ''}</div>
+      ${screen} ${productless && e.screenLimit ? esc(`${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}`) : ''}</div>
     ${evidence}
   </details>`;
 }
 
-/** The estimates of a material's missing headlines, with what they all share said once. Shown only with estimates on. */
-function estimateGroup(m, HEAD, showEstimates) {
+/**
+ * The estimates of a material's missing headlines, with what they all share said once. Shown only with estimates on.
+ * `productless` says the material has no product on record, the one case its estimates are read for a requirement (D148).
+ */
+function estimateGroup(m, HEAD, showEstimates, productless) {
   const na = HEAD.map(([label, k]) => notApplicableCard(m.headline[k], label)).join('');
-  const cards = showEstimates ? HEAD.map(([label, k]) => estimateCard(m.headline[k], label, k)).filter(Boolean) : [];
+  const cards = showEstimates ? HEAD.map(([label, k]) => estimateCard(m.headline[k], label, k, productless)).filter(Boolean) : [];
   if (!cards.length) return na;
   const levels = HEAD.map(([, k]) => m.headline[k]?.estimate?.levels).find(Boolean) ?? { likely: 0.8, plausible: 0.95 };
   const pct = (p) => `${Math.round(p * 100)}%`;
@@ -408,7 +417,8 @@ function estimateGroup(m, HEAD, showEstimates) {
     <div class="est-cards">${cards.join('')}</div>
     <p class="fine est-group-note">Estimates fill gaps from related data and similar materials; tested on known values, a likely
       range held ${pct(levels.likely)} of the time and a plausible range ${pct(levels.plausible)}. An estimate never makes a material
-      pass.${anyScreen ? ` With materials that could not be checked included and "Let estimates rule out materials" on, it can exclude this material from a requirement its whole range misses, unless one of the material's own measurements could meet it.` : ''}</p>`;
+      pass.${!productless ? ' This material is judged product by product, on each product\'s own values, so these estimates are context: none hides it.'
+        : anyScreen ? ` This material has no product on record, so it is judged on its own values: with materials that could not be checked included and "Use estimates and resin data" on, an estimate hides it from a requirement its whole range misses, unless one of the material's own measurements could meet it.` : ''}</p>`;
 }
 
 /** Said under a Key number whose estimate reads in a smaller unit than its table column: "in MPa, where the table's column is in GPa". */
@@ -1077,6 +1087,9 @@ function tabBody(tab, c) {
   if (tab === 'Overview') {
     // Every headline, labelled and explained exactly as the filter rail and the table label it.
     const HEAD = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint, h.labels.technical, h.comparisonNote]);
+    // A material with no product on record, the one whose own estimates are read for a requirement (D148). Its grade list
+    // is the engine's (products.js productsByMaterial): a resin reference grade such as PA612's Zytel 151L is no product.
+    const productless = !(m.gradeIds ?? []).length;
 
     // Confirmed only means measured evidence only, in the drawer as in every lens: the research band is an estimate.
     const est = showEstimates ? m.print?.chamberEstimate : null;
@@ -1102,8 +1115,8 @@ function tabBody(tab, c) {
     // reader who saw one in Include uncertain to wonder where it went.
     const hiddenEstimates = !showEstimates && hasEstimates(m)
       ? `<p class="fine">${policy === 'exploration'
-        ? 'Tick "Let estimates rule out materials" in the top bar to see estimates for the missing values.'
-        : 'Estimates for the missing values show when materials that could not be checked are included (the top bar\'s Include), with "Let estimates rule out materials" ticked.'}</p>`
+        ? 'Tick "Use estimates and resin data" in the top bar to see estimates for the missing values.'
+        : 'Estimates for the missing values show when materials that could not be checked are included (the top bar\'s Include), with "Use estimates and resin data" ticked.'}</p>`
       : '';
 
     // What it is, where the identity line in the head does not say it all: a variant's filler, a support material, an
@@ -1135,7 +1148,7 @@ function tabBody(tab, c) {
             : `<span>${esc(text)}</span>`;
         return { k, name, value: `${value}${convertedMark(e.converted)}`, foot };
       }
-      if (showEstimates && e?.estimate) return { k, name, value: renderValue(e, { showUnit: true, estimates: true, materialId: m.id }), foot: 'estimated, not measured' };
+      if (showEstimates && e?.estimate) return { k, name, value: renderValue(e, { showUnit: true, estimates: true, materialId: m.id, productless }), foot: 'estimated, not measured' };
       if (e?.notApplicable) return { k, name, value: explainButton('not applicable', `Not applicable. ${e.notApplicable.reason}`, { cls: 'na', head: 'Not applicable' }), foot: '', quiet: true };
       const a = s?.asPublished;
       if (a?.n) {
@@ -1161,7 +1174,7 @@ function tabBody(tab, c) {
         ? `${esc(keyFiguresBasis(c))} Select a value to see where it comes from.`
         : esc((m.headlineBasis ?? '').replace(/[.\s]*$/, '')) + '.'}</p>
       ${hiddenEstimates}
-      ${estimateGroup(m, HEAD, showEstimates)}`;
+      ${estimateGroup(m, HEAD, showEstimates, productless)}`;
 
     // On the H2C (2026-10-18): the material page's block (print-brief.js onTheH2cRows), one row per setting, each with a
     // chip from every product's own settings against the H2C's limit. The drawer had stated printability twice, the

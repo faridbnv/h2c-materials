@@ -598,6 +598,8 @@ try {
       const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
       await open(pageUrl);
       await click(`[data-template="${i}"]`);
+      // A template keeps the reader's mode (C08, D148): Leave out is set here, not assumed from the template.
+      await click('#mode-strict');
       await sleep(200);
       results[`10-${slug}-strict`] = await tableView();
       await click('#mode-explore');
@@ -712,6 +714,7 @@ try {
     // PA12-CF's passing product has no recipe the H2C can be judged by.)
     await open(pageUrl);
     await click('[data-template="4"]');
+    await click('#mode-strict');
     await evaluate(`(() => { const s = document.querySelector('[data-rank-by]'); s.value = 'tie-stiffness'; s.dispatchEvent(new Event('change')); return true; })()`);
     await sleep(200);
     results['14-ranked-stiffness'] = await tableView();
@@ -829,6 +832,7 @@ try {
       await send('Emulation.setDeviceMetricsOverride', { width: 1024, height: 768, deviceScaleFactor: 1, mobile: false });
       await open(pageUrl);
       await click('[data-template="3"]');
+      await click('#mode-strict');
       await sleep(200);
       const rowsInView = await evaluate(`[...document.querySelectorAll('#lens tbody tr[data-material]')].filter((r) => r.getBoundingClientRect().bottom <= window.innerHeight).length`);
       if (rowsInView < 3) layoutProblems.push(`1024x768-warm: ${rowsInView} candidate row(s) in view before scrolling; at least 3 should be`);

@@ -294,9 +294,10 @@ export function relatedNote(entry) {
  * direction or a different endpoint. A blank cell hid that and implied nothing was known.
  *
  * `materialId` gives an estimate its next step, the material's Overview, where its card is. The drawer leaves it out:
- * the card is already on the page.
+ * the card is already on the page. `productless` says the material has no product on record, the one case its estimate
+ * is read for a requirement (D148).
  */
-export function renderValue(entry, { showUnit = false, compact = false, estimates = false, results = [], materialId = null } = {}) {
+export function renderValue(entry, { showUnit = false, compact = false, estimates = false, results = [], materialId = null, productless = false } = {}) {
   if (!entry) return explainButton('—', MISSING_FULL['not-published'], { cls: 'missing dash', head: 'Not published', label: 'Not published' });
   if (!entry.known) {
     const label = MISSING_LABEL[entry.missing] ?? 'Not published';
@@ -315,7 +316,7 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
       // it may read in a smaller one, 9–200 MPa rather than 0.009–0.20 GPa. The popover says both.
       const d = estimateDisplay(e, { ownUnit: showUnit });
       const span = `${d.lo}–${d.hi}${showUnit ? ' ' + esc(d.unit) : ''}`;
-      return explainButton(`~${span}<span class="est-mark">†</span>`, estimateTitle(e, estimateDisplay(e, { ownUnit: true })),
+      return explainButton(`~${span}<span class="est-mark">†</span>`, estimateTitle(e, estimateDisplay(e, { ownUnit: true }), { productless }),
         { cls: `est est-${e.precision}`, head: 'Estimate, not a measurement', action: 'estimate', id: materialId });
     }
     // In the table a dash, because "Not published" does not fit a numeric column and was being
