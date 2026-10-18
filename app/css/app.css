@@ -334,7 +334,8 @@ table.grid .name { min-width: 176px; }
 table.grid .state { min-width: 104px; }
 table.grid .num { min-width: 96px; }
 table.grid .needs { min-width: 150px; }
-table.grid .pin-col { min-width: 72px; }
+/* The shortlist's star is a narrow column straight after the name (C39): the star alone, its heading the star too. */
+table.grid .pin-col { min-width: 44px; padding-left: 4px; padding-right: 4px; text-align: center; }
 table.grid .why-col { min-width: 240px; }
 table.grid .variant { min-width: 140px; }
 /* A pack size and a price per kilogram are short numbers; the Price tab's table fits the drawer's 620 px with them. */
@@ -353,7 +354,7 @@ table.grid.price-table .num { min-width: 48px; }
 .table-scroll[data-overflow="true"] table.grid tbody tr[data-selected="true"] td.name { background: var(--accent-soft); }
 /* No ellipsis on cells. It clipped the UNKNOWN chip to a stray dot and "Not published" to
    "Not publis...". Cells that can hold long text wrap instead; numeric cells never need to. */
-table.grid td.name, table.grid td:nth-child(2) { overflow-wrap: anywhere; }
+table.grid td.name, table.grid td:nth-child(2), table.grid td.state { overflow-wrap: anywhere; }
 table.grid thead th {
   position: sticky; top: 0; background: var(--surface); z-index: 1; font-size: var(--t-label);
   font-weight: 650; letter-spacing: .02em; color: var(--ink-2); cursor: pointer; white-space: nowrap;

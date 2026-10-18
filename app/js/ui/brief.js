@@ -12,6 +12,7 @@ import { describeConstraint, gateVerdict, H2C_CHECK } from './labels.js';
 import { headlineDef } from './registry.js';
 import { fmtNumber, dryingWords } from './format.js';
 import { templateByName } from './templates.js';
+import { pageOf, productsPageOf } from './page-rule.js';
 
 const NP = 'not published';
 const scheduleWords = (t) => `${t?.tempC != null ? `${fmtNumber(t.tempC)} °C` : 'a temperature its sheet does not state'} for ${t?.hours != null ? `${fmtNumber(t.hours)} h` : 'a time its sheet does not state'}`;
@@ -63,15 +64,25 @@ function testFor(r, state, measurementById) {
 /**
  * The brief for one chosen product. `evaluation` is the material's evaluation under the scenario, `entry` the product's
  * own answer in it, `decision` the chosen product as the scenario holds it ({ gradeId, stateId, release, chosenOn, note,
- * tests }).
+ * tests }). `pagesBase` is the address of the selector's page where it is served (http or https), from which the
+ * material pages' addresses are written in full; without it (a downloaded copy opened from disk) they are paths relative
+ * to the selector's page, and the brief says so.
  */
-export function decisionBrief({ db, scenario, material, grade, evaluation, entry, decision, objective = null }) {
+export function decisionBrief({ db, scenario, material, grade, evaluation, entry, decision, objective = null, pagesBase = null }) {
   const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
   const sourceById = new Map(db.sources.map((s) => [s.id, s]));
   const release = db.meta.release?.id ?? 'unidentified';
   const L = [];
   L.push(`# Decision brief: ${productLabel(grade)} (${grade.id})`, '');
   L.push(`${material.name}${material.fullName ? `, ${material.fullName}` : ''}. Chosen ${decision.chosenOn ?? 'on an unrecorded date'} on release ${decision.release ?? 'unidentified'}${decision.release && decision.release !== release ? `; this brief was written on release ${release}, whose answer is below` : ''} (data of ${db.meta.snapshot}).`, '');
+  // Where the reasons behind it are read (C38), for the colleague who receives this: the material's page and the product's
+  // card on its Products page, where the material has a page.
+  const ms = db.measurements.filter((x) => x.materialId === material.id);
+  const page = pageOf(material, ms);
+  if (page) {
+    const at = (path) => (pagesBase ? new URL(path, pagesBase).href : path);
+    L.push(`Read the reasons behind it: material page ${at(page)} · this product's card ${at(productsPageOf(material, ms, grade.id))} (material pages of release ${release}${pagesBase ? '' : '; these are paths relative to the selector\'s page, which open only where that release\'s material pages are unzipped beside it'}).`, '');
+  }
   if (decision.note) L.push(`> ${cell(decision.note)}`, '');
 
   L.push('## The question', '');

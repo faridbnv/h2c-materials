@@ -20,6 +20,12 @@ const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 
 const P = (key, over = {}) => ({ key, kind: 'headline', label: prop(key).short, unit: prop(key).unit, title: `${prop(key).technical} — ${prop(key).hint}`, ...over });
 
+/**
+ * The shortlist's star, a narrow column straight after the material's name (C39): at the table's end it sat beyond a
+ * laptop's right edge (x = 1364 in a 1280 px window, with the rail open), while Compare tells the reader to use it.
+ */
+const PIN_COLUMN = { key: 'pin', label: 'Shortlist', kind: 'pin', width: '44px' };
+
 export const COLUMN_SETS = {
   properties: {
     label: 'Properties',
@@ -33,11 +39,11 @@ export const COLUMN_SETS = {
       const width = measured.length <= 5 ? '11%' : `${Math.floor((55 / measured.length) * 10) / 10}%`;
       return [
         { key: 'name', label: 'Material', kind: 'name', width: '20%' },
+        PIN_COLUMN,
         { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
         ...heads.map((h) => (h.kind === 'price'
           ? { key: h.key, label: prop(h.key).short, unit: prop(h.key).unit, kind: 'price', width: '12%' }
           : P(h.key, { width }))),
-        { key: 'pin', label: 'Shortlist', kind: 'pin', width: '72px' },
       ];
     },
   },
@@ -46,13 +52,13 @@ export const COLUMN_SETS = {
     help: 'Print temperatures: each window spans the material\'s products; each product\'s own is in its Products tab',
     columns: [
       { key: 'name', label: 'Material', kind: 'name', width: '22%' },
+      PIN_COLUMN,
       { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
       { key: 'nozzleC', label: 'Nozzle', unit: '°C', kind: 'print', width: '12%' },
       { key: 'bedC', label: 'Bed', unit: '°C', kind: 'print', width: '12%' },
       { key: 'chamberC', label: 'Chamber', unit: '°C', kind: 'print', width: '12%' },
       { key: 'needs', label: 'Also needs', kind: 'needs', width: '19%' },
       { key: 'priceCADkg', label: 'Price', unit: 'CAD/kg', kind: 'price', width: '12%' },
-      { key: 'pin', label: 'Shortlist', kind: 'pin', width: '72px' },
     ],
   },
 };
@@ -275,7 +281,8 @@ export function renderTable(host, state, actions) {
 
   const head = COLUMNS.map((c) => {
     // The shortlist column has nothing meaningful to sort by, so it does not pretend to.
-    if (c.kind === 'pin') return `<th class="pin-col">${esc(c.label)}</th>`;
+    // Its heading is the star itself, its name for a screen reader and a hover: the column holds only the star.
+    if (c.kind === 'pin') return `<th class="pin-col" title="${esc(c.label)}" aria-label="${esc(c.label)}"><span aria-hidden="true">☆</span></th>`;
     const active = sort.key === c.key;
     const arrow = active ? (sort.dir === 'asc' ? ' \u25b2' : ' \u25bc') : '';
     return `<th data-sort="${c.key}" class="${columnClass(c)}" ${c.title ? `title="${esc(c.title)}"` : ''}
@@ -498,8 +505,8 @@ export function renderTable(host, state, actions) {
       <h3>${excluded.length} more match${excluded.length === 1 ? 'es' : ''} "${esc(state.search)}"
         but ${excluded.length === 1 ? 'is' : 'are'} not in the results${excludedReason}</h3>
       ${scrollTable(`<table class="grid">
-        <colgroup><col style="width:26%"><col style="width:14%"><col><col style="width:80px"></colgroup>
-        <thead><tr><th class="name">Material</th><th class="state">Result</th><th class="why-col">What ruled it out</th><th class="pin-col">Shortlist</th></tr></thead>
+        <colgroup><col style="width:26%"><col style="width:44px"><col style="width:14%"><col></colgroup>
+        <thead><tr><th class="name">Material</th><th class="pin-col" title="Shortlist" aria-label="Shortlist"><span aria-hidden="true">☆</span></th><th class="state">Result</th><th class="why-col">What ruled it out</th></tr></thead>
         <tbody>${excluded.map(({ material: m, evaluation: e }) => {
           const { primary, aka } = materialName(m.name);
           const why = e.failed.length
@@ -513,11 +520,11 @@ export function renderTable(host, state, actions) {
               : 'Hidden by the result filters at the bottom of the screen.';
           return `<tr data-material="${esc(m.id)}" tabindex="0">
             <td class="name">${esc(primary)}${aka ? `<span class="row-sub">also called ${esc(aka)}</span>` : ''}</td>
-            <td class="state">${chip(e.verdict)}</td>
-            <td class="why-cell">${why}</td>
             <td class="pin-col"><button type="button" class="btn btn-sm shortlist-btn" data-pin="${esc(m.id)}" aria-label="Shortlist ${esc(m.name)}"
               title="${scenario.shortlist.includes(m.id) ? 'On the shortlist. Press to remove it.' : 'Add to the shortlist'}"
               aria-pressed="${scenario.shortlist.includes(m.id)}">${scenario.shortlist.includes(m.id) ? '★' : '☆'}</button></td>
+            <td class="state">${chip(e.verdict)}</td>
+            <td class="why-cell">${why}</td>
           </tr>`;
         }).join('')}</tbody>
       </table>`)}

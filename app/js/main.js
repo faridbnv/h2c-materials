@@ -941,7 +941,9 @@ function wireChosen(host) {
       index, M: entry ? indexValue(productView(material, grade, state.ctx, stateOf(grade, entry.state?.id ?? null)), index) : null,
       rank: rankOf(state.rows, state)?.get(material.id) ?? null,
     } : null;
-    download(`h2c-decision-${d.gradeId}-${fileStamp(db.meta)}.md`, decisionBrief({ db, scenario, material, grade, evaluation, entry, decision: d, objective }), 'text/markdown');
+    download(`h2c-decision-${d.gradeId}-${fileStamp(db.meta)}.md`, decisionBrief({ db, scenario, material, grade, evaluation, entry, decision: d, objective,
+      // Served over http(s) the pages' addresses are written in full; from a file they stay relative to this page (C38).
+      pagesBase: location.protocol === 'file:' ? null : location.href.split(/[?#]/)[0] }), 'text/markdown');
   }));
 }
 
