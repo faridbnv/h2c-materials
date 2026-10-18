@@ -1472,7 +1472,7 @@ tr.baseline-row .name { color: var(--accent); }
 }
 
 /* What the database does not cover, said before anyone goes hunting for it. */
-.start-limits { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 6px; }
+.start-limits { margin-top: 2px; }
 .start-limits summary {
   cursor: pointer; font-size: var(--t-small); font-weight: 650; color: var(--ink-2);
   display: flex; align-items: center; gap: 6px; list-style: none;

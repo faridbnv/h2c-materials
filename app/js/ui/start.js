@@ -24,8 +24,7 @@ export function renderStart(state, actions) {
          2026-10-18 with the owner's word: it stood between the reader and the templates, and the view tabs and the
          drawer already walk those steps. The H2C clause, once in each of the six cards, is said here once. -->
     <h2>Start from a typical part, or set your own requirements in Filters.</h2>
-    <p>A template only fills in the controls. Every value it sets stays editable, and nothing is decided for you.
-      All six also ask for a build material the H2C can print: nozzle, bed and chamber within its limits.</p>
+    <p>A template fills in the controls, each one editable, and decides nothing. All six ask for a build material the H2C can print.</p>
 
     <div class="start-grid">
       ${TEMPLATES.map((t, i) => `
