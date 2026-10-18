@@ -72,16 +72,17 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
 /* The bar's buttons are one height, whether they hold words or an icon, and quieter than the settings beside them:
    the frame's actions are borderless until pointed at. */
-.topbar .btn { min-height: 34px; border-color: transparent; background: transparent; color: var(--ink-2); border-radius: 8px; }
+.topbar .btn { min-height: 36px; border-color: transparent; background: transparent; color: var(--ink-2); border-radius: var(--r-ctl); }
 .topbar .btn:hover { background: var(--surface-2); color: var(--ink); }
 #btn-filters { align-items: center; border-color: var(--border-strong); color: var(--ink); }
-/* The theme button is a sun or a moon at every width; its words ("Switch to dark theme") stay its name and title. */
-#btn-theme { min-width: 34px; padding: 5px 8px; }
+/* The theme button is a sun or a moon at every width; its words ("Switch to dark theme") stay its name and title. One
+   36 px box, as on the material pages. */
+#btn-theme { min-width: 36px; padding: 5px 8px; }
 #btn-theme .btn-text { display: none; }
 @media (max-width: 1300px) {
   .topbar .search { flex-basis: 200px; }
   /* Save / share keeps its words as its name and title, and shows its arrow. */
-  #btn-scenario { min-width: 34px; padding: 5px 8px; }
+  #btn-scenario { min-width: 36px; padding: 5px 8px; }
   #btn-scenario .btn-text { display: none; }
 }
 /* A small laptop: the search narrows and the setting takes its short label, so the bar stays one row down to 1101 px. */
@@ -130,11 +131,11 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
    it in the accent's ink: the solid accent blocks it replaces, two of them stacked under the top bar, were the loudest
    things on the screen before a result was. */
 .segmented {
-  display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 9px;
+  display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: var(--r-track);
   background: var(--surface-2);
 }
 .segmented button {
-  padding: 5px 13px; border: 0; background: transparent; cursor: pointer; border-radius: 6px;
+  padding: 5px 13px; border: 0; background: transparent; cursor: pointer; border-radius: var(--r-ctl);
   font-size: var(--t-body); color: var(--ink-2);
 }
 .segmented button:hover { color: var(--ink); background: color-mix(in srgb, var(--surface) 55%, transparent); }
@@ -171,7 +172,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 .rail-head .icon-btn:hover { color: var(--ink); }
 /* An action in words that needs no box: the accent's ink, underlined on hover. */
 .text-btn {
-  border: 0; background: none; padding: 4px 6px; border-radius: 6px; cursor: pointer;
+  border: 0; background: none; padding: 4px 6px; border-radius: var(--r-ctl); cursor: pointer;
   font-size: var(--t-small); font-weight: 600; color: var(--accent);
 }
 .text-btn:hover { text-decoration: underline; background: var(--accent-soft); }
@@ -295,7 +296,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 
 .btn {
   padding: 7px 14px; border: 1px solid var(--border-strong); background: var(--surface);
-  border-radius: var(--radius); cursor: pointer; font-size: var(--t-body);
+  border-radius: var(--r-ctl); cursor: pointer; font-size: var(--t-body); font-weight: 500;
 }
 .btn:hover { background: var(--surface-2); }
 .btn-primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
@@ -401,12 +402,24 @@ table.grid td.name { font-weight: 600; }
 }
 .drawer-head { padding: 12px 18px 10px; border-bottom: 1px solid var(--border); }
 .drawer-head h2 { margin: 0 0 2px; font-size: 21px; letter-spacing: -0.015em; }
-/* The full name on the name's line (2026-10-18): the head is two lines, the name and what it is, and the content starts
-   about a hundred pixels higher than when each had a line of its own. */
+/* The full name on a line of its own under the name, at the identity line's size, as the material page sets it (coherence
+   round, C29): set beside the name, a long one ("Polyethylene Terephthalate Glycol-Modified") wrapped into three lines
+   at the name's height and pushed the tabs down. */
 /* The name's column may be narrower than its words: a long full name wraps rather than pushing Shortlist off a phone. */
 .drawer-head .head-main { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.drawer-head h2 .h2-full { font-size: var(--t-body); font-weight: 400; letter-spacing: 0; color: var(--ink-2); margin-left: 6px; }
+.drawer-head .h2-full { color: var(--ink-2); font-size: var(--t-body); line-height: 1.4; }
 .drawer-head .id-line { margin-top: 2px; }
+/* Bambu Lab's status in the head at the selector's smallest size, not 10 px (C29). */
+.drawer-head .h2c-chip { font-size: var(--t-label); font-weight: 600; }
+/* On a phone the name keeps its row beside the buttons, and the lines under it take the drawer's width: in the column
+   left beside the buttons a long full name and the identity line took three lines each. */
+@media (max-width: 600px) {
+  .drawer-head > div { flex-wrap: wrap; row-gap: 2px; }
+  .drawer-head .head-main { display: contents; }
+  .drawer-head h2 { flex: 1 1 0; min-width: 0; align-self: center; }
+  .drawer-head .head-main > :not(h2) { order: 2; flex: 0 0 100%; }
+  .drawer-head .page-link, .drawer-head .shortlist-btn, .drawer-head #drawer-close { order: 1; }
+}
 .drawer-head .sub { color: var(--ink-2); font-size: var(--t-body); }
 /* The close button at the top, the height of the Shortlist button beside it; in Save / share it had stretched to the
    height of the heading and its line. */
@@ -992,11 +1005,13 @@ details.imp-tally > p { margin: 4px 0 0; }
 }
 /* The pre-D107 option cards, one under another (no longer drawn). */
 /* A phone. The top bar is two rows: the search with Filters, Save / share and the theme as icons, then the
-   missing-data panel, the mode beside Let estimates rule out materials. The title goes (the browser tab carries it). It was three or four rows, which
+   missing-data panel, the mode beside Let estimates rule out materials. The name goes (the browser tab carries it), the mark stays. It was three or four rows, which
    with the tabs, the status bar and the shortlist left the results about 350 px of an 844 px screen. */
 @media (max-width: 600px) {
   .topbar { padding: 6px 10px; gap: 6px 8px; min-height: 0; }
-  .topbar h1, .topbar .spacer { display: none; }
+  /* The mark stays, first, as on the material pages; only the name goes (C28). */
+  .topbar .brand-name, .topbar .spacer { display: none; }
+  .topbar h1 { order: -1; }
   .topbar .search { order: 1; flex: 1 1 150px; min-width: 0; }
   #btn-scenario { order: 2; margin-left: 0; }
   #btn-theme { order: 3; }

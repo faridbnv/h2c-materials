@@ -69,11 +69,16 @@
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
   var themeButton = doc.querySelector('[data-theme-toggle]');
+  // The selector's words and icons: what a press switches to.
   function paintTheme() {
     if (!themeButton) return;
-    var words = isDark() ? 'Light theme' : 'Dark theme';
+    var dark = isDark();
+    var words = dark ? 'Switch to light theme' : 'Switch to dark theme';
     themeButton.setAttribute('aria-label', words);
     themeButton.setAttribute('title', words);
+    var sun = themeButton.querySelector('.theme-sun'), moon = themeButton.querySelector('.theme-moon');
+    if (sun) { if (dark) sun.removeAttribute('hidden'); else sun.setAttribute('hidden', ''); }
+    if (moon) { if (dark) moon.setAttribute('hidden', ''); else moon.removeAttribute('hidden'); }
   }
   if (themeButton) {
     themeButton.hidden = false;

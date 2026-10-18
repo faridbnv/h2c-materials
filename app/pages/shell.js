@@ -22,14 +22,18 @@ export const BRAND = 'Filament Atlas';
 /** Applied before the stylesheet paints, so a page opened in the dark theme does not flash light. */
 const THEME = '<script>try{var t=localStorage.getItem("h2c-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>';
 
-/** The mark, as the selector draws it, and as the tab's icon. */
-const MARK = '<svg class="bar-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9 22h14M11 16.5h10M13 11h6"/></svg>';
+/** The mark, as the selector draws it, and as the tab's icon; `cls` sizes it (the bar's 26 px, the closing line's 18). */
+const mark = (cls) => `<svg class="${cls}" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9 22h14M11 16.5h10M13 11h6"/></svg>`;
+const MARK = mark('bar-mark');
 const FAVICON = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'8\' fill=\'%231f5f8b\'/%3E%3Cpath d=\'M9 22h14M11 16.5h10M13 11h6\' stroke=\'white\' stroke-width=\'3\' fill=\'none\' stroke-linecap=\'round\'/%3E%3C/svg%3E';
 
 /** Icons in the selector's 20 px line language. */
 export const ICON = {
   back: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M8 5 3 10l5 5M3.5 10H17"/></svg>',
-  theme: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.6"/><path class="fill" d="M10 3.4a6.6 6.6 0 0 1 0 13.2Z"/></svg>',
+  // The selector's pair (coherence round, C24): the moon in the light theme, the sun in the dark, each showing what a
+  // press switches to; the script shows the right one.
+  theme: '<svg class="icon theme-moon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M15.5 12.5A6.5 6.5 0 0 1 7.5 4.5a6.5 6.5 0 1 0 8 8z"/></svg>'
+    + '<svg class="icon theme-sun" viewBox="0 0 20 20" aria-hidden="true" focusable="false" hidden><circle cx="10" cy="10" r="3.5"/><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6L16 16M4 16l1.4-1.4M14.6 5.4L16 4"/></svg>',
   down: '<svg class="icon icon-s" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6 8l4 4 4-4"/></svg>',
   search: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>',
   copy: '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="7" y="7" width="9.5" height="9.5" rx="1.5"/><path d="M13 7V4.5A1 1 0 0 0 12 3.5H4.5a1 1 0 0 0-1 1V12a1 1 0 0 0 1 1H7"/></svg>',
@@ -130,7 +134,7 @@ ${marks.SPRITE ?? ''}
 <header class="atlas-bar"><div class="bar-in">
 <a class="bar-brand" href="index.html" title="Every material">${brand}</a>
 ${crumbsNav(crumbs, sections, more, hereLabel)}
-<div class="bar-end">${returnLink(returnHref, cold)}<button type="button" class="icon-btn" data-theme-toggle aria-label="Dark theme" title="Light or dark" hidden>${ICON.theme}</button></div>
+<div class="bar-end">${returnLink(returnHref, cold)}<button type="button" class="icon-btn" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme" hidden>${ICON.theme}</button></div>
 </div></header>
 <main id="main" class="page"${attrs({ 'data-page': kind, 'data-material': material, 'data-release': stamps.release, 'data-snapshot': stamps.snapshot, 'data-build': stamps.build })}>
 <p class="print-line" aria-hidden="true" data-print-url="${esc(printPath ?? `materials/${material ? `${material}${kind === 'products' ? '-products' : ''}.html` : kind === 'hub' ? 'index.html' : `${kind}.html`}`)}" data-print-release="${esc(`${BRAND}, release ${stamps.release}`)}"></p>

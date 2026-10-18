@@ -486,15 +486,16 @@ export function renderDrawer(host, state, actions) {
     <div class="drawer-head">
       <div style="display:flex;align-items:start;gap:10px">
         <div class="head-main">
-          <h2>${esc(id.primary)}${id.fullName ? ` <span class="h2-full">${esc(id.fullName)}</span>` : ''}</h2>
+          <h2>${esc(id.primary)}</h2>
           ${id.aka ? `<div class="sub">also called ${esc(id.aka)}</div>` : ''}
+          ${id.fullName ? `<div class="h2-full">${esc(id.fullName)}</div>` : ''}
           <div class="sub id-line">
             ${esc(identityLine(id))}
             ${explainButton(esc(h2cStatusLabel(m.h2cStatus)), H2C_STATUS[m.h2cStatus]?.meaning ?? m.h2cStatus, { cls: `chip ${m.excluded ? 'chip-FAIL' : 'chip-neutral'} chip-small h2c-chip`, head: 'Bambu Lab status' })}
           </div>
         </div>
         ${page ? `<a class="btn btn-sm page-link" href="${esc(page)}"
-          title="This material's page. Its Back to your results returns here as you left it. A downloaded copy of the selector needs its release's material pages zip unzipped beside it."><span class="page-link-words">Full page</span><span class="page-link-short" aria-hidden="true">Page</span></a>
+          title="This material's page. Its Back to your results returns here as you left it. A downloaded copy of the selector needs its release's material pages zip unzipped beside it."><span class="page-link-words">Full page</span><span class="page-link-short" aria-hidden="true">Page</span><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M12 5l5 5-5 5M16.5 10H3"/></svg></a>
         ` : ''}<button type="button" class="btn btn-sm shortlist-btn" id="drawer-pin" aria-pressed="${pinned}"
           title="${pinned ? 'On the shortlist. Press to remove it.' : 'Add to the shortlist'}"><span aria-hidden="true">${pinned ? '★' : '☆'}</span> Shortlist</button>
         <button class="icon-btn" id="drawer-close" aria-label="Close">✕</button>

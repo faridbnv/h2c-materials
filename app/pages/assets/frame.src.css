@@ -13,10 +13,9 @@
   /* Inter before the system serif: Newsreader has no arrows, stars, checks, Greek or sub- and superscripts. */
   --f-serif: "Newsreader", "Inter", Georgia, "Times New Roman", serif;
   --t-h1: 64px; --t-h2: 32px; --t-num: 34px; --t-xl: 21px; --t-l: 19px; --t-m: 16px; --t-s: 14px; --t-xs: 13px;
-  --r-ctl: 7px; --r-plate: 12px;
   --content: 1120px; --measure: 66ch; --gutter: 16px;
   /* The bar's height, and what else sticks under it (the Products page's controls): page.js sets both as measured. */
-  --bar-h: 56px; --ctl-h: 0px;
+  --bar-h: 58px; --ctl-h: 0px;
   --anchor-top: calc(var(--bar-h) + var(--ctl-h) + 16px);
   --shadow-pop: 0 10px 30px rgba(20, 20, 18, .14), 0 0 0 1px rgba(20, 20, 18, .08);
   /* Kept for the figures' marks while they move to their own stylesheet. */
@@ -51,16 +50,17 @@ time { font-variant-numeric: tabular-nums; }
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .icon-s { width: 16px; height: 16px; }
-.icon .fill { fill: currentColor; stroke: none; }
 
 /* ---------------------------------------------------------------- the bar: the selector's frame */
 
-.atlas-bar { position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--border); }
-.bar-in { max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); min-height: 56px; display: flex; align-items: center; gap: 12px; }
+/* On the selector's white and at its top bar's height, 58 px with its rule (coherence round, C26): the strip at the top
+   keeps its tone across the way from the drawer to the page. The centred column stays. */
+.atlas-bar { position: sticky; top: 0; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--border); }
+.bar-in { max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); min-height: 57px; display: flex; align-items: center; gap: 12px; }
 .bar-brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); text-decoration: none; white-space: nowrap; flex: none; }
 .bar-mark { width: 26px; height: 26px; flex: none; }
-.bar-mark rect { fill: var(--accent); }
-.bar-mark path { fill: none; stroke: var(--on-accent); stroke-width: 3; stroke-linecap: round; }
+.bar-mark rect, .col-mark rect { fill: var(--accent); }
+.bar-mark path, .col-mark path { fill: none; stroke: var(--on-accent); stroke-width: 3; stroke-linecap: round; }
 .bar-name { font-size: 16px; font-weight: 700; letter-spacing: -.015em; }
 .crumbs { min-width: 0; }
 .crumbs ol { display: flex; align-items: center; margin: 0; padding: 0; list-style: none; font-size: 15px; color: var(--ink-2); min-width: 0; }
@@ -80,9 +80,9 @@ time { font-variant-numeric: tabular-nums; }
 .here-sec:not(:empty)::before { content: ""; display: inline-block; width: 1px; height: 14px; background: var(--border-strong); margin: 0 8px 0 2px; vertical-align: -2px; }
 .here[open] .icon-s { transform: rotate(180deg); }
 .here-list { position: absolute; top: calc(100% + 8px); left: 0; z-index: 35; min-width: 280px; max-width: min(380px, calc(100vw - 32px)); max-height: calc(100vh - 90px); overflow-y: auto;
-  background: var(--surface); border-radius: 10px; box-shadow: var(--shadow-pop); padding: 6px; }
+  background: var(--surface); border-radius: var(--r-track); box-shadow: var(--shadow-pop); padding: 6px; }
 .here-list ul { margin: 0; padding: 0; list-style: none; }
-.here-list a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 7px 10px; border-radius: 6px; color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.35; }
+.here-list a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 7px 10px; border-radius: var(--r-ctl); color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.35; }
 .here-list a:hover { background: var(--surface-2); }
 .here-list a[aria-current] { color: var(--accent); font-weight: 600; background: var(--accent-soft); }
 .here-list .n { color: var(--ink-2); font-size: var(--t-xs); font-variant-numeric: tabular-nums; }
@@ -112,8 +112,8 @@ time { font-variant-numeric: tabular-nums; }
 .pfull { margin: 8px 0 0; font: italic 400 22px/1.3 var(--f-serif); color: var(--ink-2); }
 .pid { margin: 14px 0 0; color: var(--ink-2); max-width: 64ch; text-wrap: pretty; }
 .callout { margin: 14px 0 0; padding: 10px 14px; border-left: 3px solid var(--ink-2); background: var(--surface); max-width: 64ch; }
-.tabs { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; margin-top: 12px; }
-.tabs a { display: inline-flex; align-items: baseline; justify-content: center; gap: 7px; padding: 7px 16px; border-radius: 7px; color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; white-space: nowrap; }
+.tabs { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-track); margin-top: 12px; }
+.tabs a { display: inline-flex; align-items: baseline; justify-content: center; gap: 7px; padding: 7px 16px; border-radius: var(--r-ctl); color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; white-space: nowrap; }
 .tabs a:hover { color: var(--ink); }
 .tabs a[aria-current] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
 .tabs .n { font-size: var(--t-xs); color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; }

@@ -1,4 +1,4 @@
-/* Filament Atlas shared design tokens: the palette, light and dark, the status colours, the radius and the font stacks.
+/* Filament Atlas shared design tokens: the palette, light and dark, the status colours, the radii and the font stacks.
    Read by the selector (bundled ahead of its own stylesheet into its one style element) and by the material
    pages, so the two are one design. What only the selector uses (its rail and drawer widths, its type scale) is
    in its own stylesheet. The status palette is reserved for the four constraint states and nothing else. */
@@ -27,7 +27,12 @@
      against the accent in both themes. */
   --claim: #b4540a;     --claim-bg: #fbeee3;
 
-  --radius: 7px;
+  /* Three radii for both surfaces (coherence round, C23): a control (a button, a segment, a field), the track a
+     segmented control sits in, and a plate. The selector's lens tabs and the pages' Overview | Products are one. */
+  --r-ctl: 7px;
+  --r-track: 10px;
+  --r-plate: 12px;
+  --radius: var(--r-ctl);
   /* The raised selection inside a segmented control, and the frame's panels. */
   --shadow-sm: 0 1px 2px rgba(20, 20, 18, .10), 0 0 0 1px rgba(20, 20, 18, .06);
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;

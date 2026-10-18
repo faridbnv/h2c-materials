@@ -26,6 +26,7 @@ import { renderStart, wireStart, renderActive, wireActive, candidateCount } from
 import { setEnvironmentLabels, setH2cBaseline, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel } from './ui/labels.js';
 import { initPopover, popoverOpen } from './ui/popover.js';
 import { useRegistry } from './ui/registry.js';
+import { dayWords, documentsRead, provenanceWords } from './ui/dates.js';
 
 /**
  * Which verdicts a policy shows by default. Strict shows what passed; Explore also shows what
@@ -1101,8 +1102,7 @@ function keepScroll() {
 }
 
 (async function start() {
-  try { const t = localStorage.getItem('h2c-theme'); if (t) document.documentElement.dataset.theme = t; } catch { /* ignore */ }
-
+  // The stored theme is applied by the page's head (index.html), before the first paint.
   const { db, reference } = await loadData();
   state.db = db;
   state.reference = reference;
@@ -1121,10 +1121,12 @@ function keepScroll() {
   keepDecisionNotes();
 
   // Provenance matters, but not more than the results: it sits at the end of the status bar, and the full record is in
-  // the Scenario panel, which already carried it.
+  // the Scenario panel, which already carried it. The words are the material pages' closing line's (dates.js
+  // provenanceWords, C03): the release and when its documents were read. The snapshot's name, which had read as a date of
+  // the data older than the documents, and the build's date are in the tooltip.
   const meta = document.getElementById('meta');
-  meta.textContent = `data ${db.meta.snapshot}${db.meta.release ? ` · release ${db.meta.release.id}` : ''}`;
-  meta.title = `Release ${db.meta.release?.id ?? 'unidentified'}, database snapshot ${db.meta.snapshot}, application build ${db.meta.build}, `
+  meta.textContent = provenanceWords(db.meta.release?.id, documentsRead(db.sources));
+  meta.title = `Release ${db.meta.release?.id ?? 'unidentified'}, built ${dayWords(db.meta.build)} from database snapshot ${db.meta.snapshot}; `
     + `${candidateCount(db)} materials, ${db.meta.counts.measurements} measurements. `
     + 'Open Save / share for the full record.';
 
