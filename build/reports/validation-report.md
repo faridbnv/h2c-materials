@@ -20,7 +20,7 @@ Database snapshot 2026-09-21 · build 2026-10-18
 | profiles | 1836 |
 | evidence | 868 |
 | prices | 365 |
-| sources | 2017 |
+| sources | 2033 |
 | coverage | 953 |
 | knowHow | 7601 |
 | polymerEnvironment | 353 |

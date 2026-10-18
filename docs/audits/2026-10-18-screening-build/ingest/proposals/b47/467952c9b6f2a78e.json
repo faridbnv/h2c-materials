@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b47.mjs (screening build 2026-10-18, stage 2c)",
+    "date": "2026-10-18"
+  },
+  "document": {
+    "sha256": "467952c9b6f2a78e3875e573c44caecd5213d9ef87f9255af0a0688a50a3b03e",
+    "url": "https://chemicals.basf.com/dam/jcr:0716d34e-f456-45ca-80d2-0b6beb8ffc2d/TI%20Ultramid%20B27%20E_30644930.pdf",
+    "pages": 2,
+    "provider": "BASF",
+    "manufacturer": "BASF",
+    "docKey": "https://chemicals.basf.com/dam/jcr:0716d34e-f456-45ca-80d2-0b6beb8ffc2d/TI%20Ultramid%20B27%20E_30644930.pdf#witness-for=polymer:PA6"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "materialId": null,
+    "note": "A reference for the polymer PA6 of polymers.csv, not a product of the catalogue: no grade, no value row. m445 sets the polymer's SourceID to it and records the figures below in its Basis."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-ULTRAMID-B27E-PI",
+      "Publisher": "BASF",
+      "Title": "Product Information Ultramid B27 E",
+      "Revision": "March 2024",
+      "Publication date": "2024-03",
+      "Access date": "2026-10-18",
+      "Source class": "Resin supplier data sheet",
+      "Source note": "BASF's own product information for Ultramid B27 E, a low-viscosity polyamide 6 grade for compounding and monofilaments. Kept as the polymer reference of PA6 (polymers.csv): density, melting point and water absorption.",
+      "Citation role": "cited",
+      "URL": "https://chemicals.basf.com/dam/jcr:0716d34e-f456-45ca-80d2-0b6beb8ffc2d/TI%20Ultramid%20B27%20E_30644930.pdf",
+      "Locator": "p. 1: General properties",
+      "Applicable grades": "Polymer reference of PA6 (polymers.csv): Ultramid B27 E resin",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-18 by Claude Sonnet (screening build, polymer sources) from https://chemicals.basf.com/dam/jcr:0716d34e-f456-45ca-80d2-0b6beb8ffc2d/TI%20Ultramid%20B27%20E_30644930.pdf, and fetched again the same day by Claude Opus 5.5, byte for byte the same. Staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-18-screening-build/ingest/staged-manifest-b47.csv).",
+      "SHA256": "467952c9b6f2a78e3875e573c44caecd5213d9ef87f9255af0a0688a50a3b03e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Ultramid B27 E is a polyamide 6 grade of low viscosity that is well suited for com-pounding and the"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+      "date": "2026-10-18"
+    }
+  },
+  "figures": [
+    {
+      "page": 1,
+      "text": "°C 220 Melting point According to ISO 3146"
+    },
+    {
+      "page": 1,
+      "text": "g/cm 1.12 - 1.15 Density According to ISO 1183"
+    },
+    {
+      "page": 1,
+      "text": "% 2.2 Water absorption, 23°C/50% rh"
+    },
+    {
+      "page": 1,
+      "text": "% 8.5 Water absorption, saturation in water 23°C"
+    }
+  ],
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every other row of the document: a polymer reference enters for its density, its water absorption and its transitions, which the polymer's Basis quotes; no product of the catalogue is this grade, so no value row is written."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+    "date": "2026-10-18",
+    "visual": false,
+    "note": "Registered as a cited polymer reference (PA6); 4 figure line(s) checked on the cached text."
+  }
+}

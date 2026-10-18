@@ -58,8 +58,8 @@
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2017,
-      "sha256": "fbecbb17b7399dd7430d62eda6024f30576b947fce10a9455cbc7f2aa1f930af"
+      "rows": 2033,
+      "sha256": "0956ec60ba19c6749fa84c3b762db21448eefda72742d97f6391795f70204798"
     },
     "coverage": {
       "rows": 953,
@@ -111,7 +111,7 @@
     },
     "polymers": {
       "rows": 48,
-      "sha256": "29b1899634c836645c40602bc6c89c765093e6396511ce83a94ff4b287351156"
+      "sha256": "32f64f4d45cc449480f3a0a2638400be6d20d7367e8e9aac2590ae78f8712529"
     },
     "plausibility_windows": {
       "rows": 128,

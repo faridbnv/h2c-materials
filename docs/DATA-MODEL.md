@@ -949,9 +949,12 @@ The figures are not repeated here: [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) gives th
   "Published qualitative result". It is shown in its own words and is never a number.
 - UV and outdoor has no grade-level verdict (a handful of records, none reducible to one); it filters only through
   polymer-level records (D64), which may screen and never pass.
-- `polymers.csv` records where most polymers' melting point, water uptake and neat density come from as "Not recorded"
-  with a basis (handbook values compiled for the physics audit); the rows added since cite a resin producer's sheet
-  (D60): `npm run sql -- "select polymerid, sourceid from polymers where sourceid <> 'Not recorded'"`.
+- `polymers.csv` rows began as handbook values compiled for the physics audit, with no source; the rows added since
+  cite a resin producer's sheet (D60). Since the screening build's stage 2c (m445) 34 of the 48 rows cite a document:
+  22 of them gained one there, each printing a density inside the row's range, and their Basis quotes it and, where it
+  prints them, the water absorption at 23 °C after 24 h and at saturation. The ranges' ends stay the handbook's.
+  14 rows still say "Not recorded" (OPEN-PROBLEMS §38.4):
+  `npm run sql -- "select polymerid, sourceid from polymers where sourceid = 'Not recorded'"`.
 - The measured headlines the honest hold-outs flag as far from their prediction (EST-OUTLIER) are products carrying a
   filler the model has no covariate for; each is accepted with its reason, and OPEN-PROBLEMS §6 says which were
   re-read.

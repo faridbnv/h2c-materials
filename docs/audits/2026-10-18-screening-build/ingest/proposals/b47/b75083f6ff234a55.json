@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b47.mjs (screening build 2026-10-18, stage 2c)",
+    "date": "2026-10-18"
+  },
+  "document": {
+    "sha256": "b75083f6ff234a55c002452a3bac4b39411d66f0b5f72a47ce8d42224e07f00e",
+    "url": "https://www.mcam.com/mam/54404/PE-Proteus%E2%84%A2%20HDPE_en_US.pdf",
+    "pages": 2,
+    "provider": "Mitsubishi Chemical Advanced Materials",
+    "manufacturer": "Mitsubishi Chemical Advanced Materials",
+    "docKey": "https://www.mcam.com/mam/54404/PE-Proteus%E2%84%A2%20HDPE_en_US.pdf#witness-for=polymer:PE"
+  },
+  "identity": {
+    "polymer": "PE",
+    "materialId": null,
+    "note": "A reference for the polymer PE of polymers.csv, not a product of the catalogue: no grade, no value row. m445 sets the polymer's SourceID to it and records the figures below in its Basis."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MCAM-PROTEUS-HDPE-DS",
+      "Publisher": "Mitsubishi Chemical Advanced Materials",
+      "Title": "Proteus HDPE High Density Polyethylene",
+      "Revision": "Date of issue / revision: 23/06/2026",
+      "Publication date": "2026-06-23",
+      "Access date": "2026-10-18",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Mitsubishi Chemical Advanced Materials' own product datasheet for Proteus HDPE stock shapes, a high-density polyethylene. Kept as the polymer reference of PE (polymers.csv): specific gravity and water absorption; its ISO density cell is empty.",
+      "Citation role": "cited",
+      "URL": "https://www.mcam.com/mam/54404/PE-Proteus%E2%84%A2%20HDPE_en_US.pdf",
+      "Locator": "p. 1: Miscellaneous",
+      "Applicable grades": "Polymer reference of PE (polymers.csv): Proteus HDPE stock shapes",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-18 by Claude Opus 5.5 (screening build, b47) from https://www.mcam.com/mam/54404/PE-Proteus%E2%84%A2%20HDPE_en_US.pdf. Staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-18-screening-build/ingest/staged-manifest-b47.csv). The sheet's margin gives its date of issue as 23/06/2026; Mitsubishi Chemical Advanced Materials serves it from its product page, and a later fetch may carry another date and hash differently.",
+      "SHA256": "b75083f6ff234a55c002452a3bac4b39411d66f0b5f72a47ce8d42224e07f00e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "High Density Polyethylene"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+      "date": "2026-10-18"
+    }
+  },
+  "figures": [
+    {
+      "page": 1,
+      "text": "Specific Gravity ASTM D792 0.96"
+    },
+    {
+      "page": 1,
+      "text": "Water absorption after 24h immersion in water of 23 °C (73°F) ISO 62 (16) % <0.01 ASTM D570 (17) % <0.01"
+    },
+    {
+      "page": 1,
+      "text": "Water absorption at saturation in water of 23 °C (73°F) % <0.01 ASTM D570 (17) % <0.01"
+    }
+  ],
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every other row of the document: a polymer reference enters for its density, its water absorption and its transitions, which the polymer's Basis quotes; no product of the catalogue is this grade, so no value row is written."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+    "date": "2026-10-18",
+    "visual": false,
+    "note": "Registered as a cited polymer reference (PE); 3 figure line(s) checked on the cached text."
+  }
+}

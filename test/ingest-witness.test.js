@@ -37,6 +37,12 @@ test('a document a search found for a product the catalogue does not hold is key
   assert.equal(row.doc_key, 'https://maker.example/tpc-esd.pdf#witness-for=material:M114');
 });
 
+test('a producer\'s reference for a polymer is keyed by the polymer it is for', () => {
+  const row = witnessRow({ row: { ...sheet, doc_key: '' }, page: 'https://producer.example/pa6.pdf', found: true, staged: { accessed: '2026-10-18', by: 'x', forSource: 'polymer:PA6/66' } });
+  assert.equal(row.doc_key, 'https://producer.example/pa6.pdf#witness-for=polymer:PA6/66');
+  assert.equal(row.duplicate_of, '');
+});
+
 test('a page the ledger holds from another reading, with other bytes, is a second reading keyed by its day', () => {
   const row = witnessRow({ row: sheet, page: 'https://maker.example/pla', found: true, staged: { accessed: '2026-09-26', by: 'x' }, reread: true });
   assert.equal(row.doc_key, 'https://maker.example/pla#witness-for=abc123&read=2026-09-26');
