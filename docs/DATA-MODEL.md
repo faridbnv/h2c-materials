@@ -872,8 +872,12 @@ Four, and `INDETERMINATE` is not a synonym for `UNKNOWN`.
 
 A source range of 110–130 °C against "at least 100" passes. 70–90 fails. 90–120 is indeterminate.
 A published mean with its spread is not a range (D54): 2.98 ± 0.09 GPa against a 3 GPa floor fails on its mean and is
-marked close to the limit, and 35 ± 4 MPa against 33 MPa passes, also close. A physically implausible value decides
-nothing: the headline it would have backed is estimated.
+marked close to the limit, and 35 ± 4 MPa against 33 MPa passes, also close. A published point or mean that misses the
+limit by less than its headline's test scatter (`headline_definitions.csv` Test scatter: 10 % of the limit for stiffness
+and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density) is on the line (D152): INDETERMINATE, with
+`onTheLine` and a reason that says one test bar or a word with the maker settles it; 4.95 GPa against 5 GPa is on the line,
+4.49 fails. One that meets it by less still passes, with `thinMargin`. A published range and a one-sided bound keep their
+own rule. A physically implausible value decides nothing: the headline it would have backed is estimated.
 
 ## The reference layer
 

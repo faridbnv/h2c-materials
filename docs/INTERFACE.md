@@ -369,10 +369,13 @@ exports. Always icon plus text, never colour alone.
 | PASS | check | Evidence satisfies the criterion |
 | FAIL | cross | Evidence violates it |
 | UNKNOWN | question | No comparable evidence |
-| INDETERMINATE | half circle | A published range straddles the threshold, or the source leaves it unsettled (a window the H2C reaches only at its bottom edge, on the line; a recommended window above the H2C's) |
+| INDETERMINATE | half circle | A published range straddles the threshold, a published value misses it by less than its test scatter (on the line, D152), or the source leaves it unsettled (a window the H2C reaches only at its bottom edge, also on the line; a recommended window above the H2C's) |
 
 A published mean with its spread is not a range: it passes or fails on its mean, and a threshold inside the spread
-marks the value `≈` "close to the limit" (D54).
+marks the value `≈` "close to the limit" (D54). A value just short of the limit, within its headline's test scatter, is
+on the line, and its reason says so ("Published 4.95 GPa, just under 5 GPa: within the test scatter (10 %), so on the
+line; one test bar or a word with the maker settles it"); one just over it passes, and its reason adds "a thin margin"
+(D152).
 
 The status bar chips are **buttons**: they choose which verdicts the table shows, under the label **Show in table**.
 Each leads with a box, ticked (☑) while its results are shown and empty (☐) while they are hidden, so on and off differ

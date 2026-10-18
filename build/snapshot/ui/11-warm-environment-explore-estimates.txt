@@ -1,7 +1,7 @@
-COUNT 109 shown PASS + UNKNOWN
-STATUS ☑ PASS 44 | ☑ UNKNOWN 81 | ☐ FAIL 27 | ☐ SCREENED 16
+COUNT 111 shown PASS + UNKNOWN
+STATUS ☑ PASS 44 | ☑ UNKNOWN 83 | ☐ FAIL 25 | ☐ SCREENED 16
 44 of the 152 materials meet these requirements
-Warm environment template · 81 more could not be checked, listed flagged, except 16 screened out
+Warm environment template · 83 more could not be checked, listed flagged, except 16 screened out
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -87,4 +87,4 @@ ROW PPA-GF · ☆
 ROW PPS-CF · ☆
 ROW PPS-GF · ☆
 ROW PVDF-ESD · ☆
-Insufficient evidence (65) — included in counts and exports
+Insufficient evidence (67) — included in counts and exports

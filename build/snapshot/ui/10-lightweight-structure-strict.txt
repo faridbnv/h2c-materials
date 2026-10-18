@@ -1,7 +1,7 @@
 COUNT 18 shown PASS
-STATUS ☑ PASS 18 | ☐ UNKNOWN 80 | ☐ FAIL 54
+STATUS ☑ PASS 18 | ☐ UNKNOWN 84 | ☐ FAIL 50
 18 of the 152 materials meet these requirements
-Lightweight structure template · 80 more could not be checked and are left out
+Lightweight structure template · 84 more could not be checked and are left out
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits

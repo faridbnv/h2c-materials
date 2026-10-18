@@ -403,3 +403,80 @@ test('strict published bounds are evaluated correctly at the endpoint', () => {
   for(const op of ['<','<=']) assert.equal(compareInterval(upper,op,.8),STATUS.PASS);
   for(const op of ['>','>=']) assert.equal(compareInterval(upper,op,.8),STATUS.FAIL);
 });
+
+// ---------------------------------------------------------------------------------------------------------------------
+// On the line (D152): a value measured the way the requirement asks that misses the limit by less than its headline's
+// test scatter is unresolved, and one that meets it by less passes with a thin margin.
+
+const SCATTER = { db: { registry: { headlines: [
+  { key: 'tensileModulusXY', testScatter: { value: 10, is: 'relative' } },
+  { key: 'hdt045', testScatter: { value: 5, is: 'absolute' } },
+  { key: 'density', testScatter: { value: 2, is: 'relative' } },
+  { key: 'charpyNotched', testScatter: null },
+] } } };
+const valued = (property, value, unit, extra = {}) => ({ id: 'M1', headline: { [property]: { known: true, value, unit, interval: point(value), measurementId: 'V1', ...extra } } });
+const ask = (m, property, operator, value, ctx = SCATTER) => evaluateConstraint(m, { kind: 'numeric', property, operator, value }, ctx);
+
+test('a value just short of the limit is on the line, at the scatter\'s edge and no further (D152)', () => {
+  const at = (v) => ask(valued('tensileModulusXY', v, 'GPa'), 'tensileModulusXY', '>=', 5);
+  assert.deepEqual([at(4.95).status, at(4.95).onTheLine], [STATUS.INDETERMINATE, true]);
+  assert.equal(at(4.95).reason, 'Published 4.95 GPa, just under 5 GPa: within the test scatter (10 %), so on the line; one test bar or a word with the maker settles it');
+  assert.deepEqual([at(4.5).status, at(4.5).onTheLine], [STATUS.INDETERMINATE, true], '5 x 0.9 is the edge, and on the line');
+  assert.deepEqual([at(4.49).status, at(4.49).onTheLine], [STATUS.FAIL, undefined]);
+  // Heat deflection's scatter is 5 °C; density's 2 %, "at most".
+  const hdt = (v) => ask(valued('hdt045', v, '°C'), 'hdt045', '>=', 100);
+  assert.deepEqual([hdt(95).status, hdt(94.9).status], [STATUS.INDETERMINATE, STATUS.FAIL]);
+  assert.match(hdt(97).reason, /just under 100 °C: within the test scatter \(5 °C\), so on the line/);
+  const rho = (v) => ask(valued('density', v, 'kg/m³'), 'density', '<=', 1250);
+  assert.deepEqual([rho(1275).status, rho(1275.1).status], [STATUS.INDETERMINATE, STATUS.FAIL]);
+  assert.match(rho(1260).reason, /^Published 1,260 kg\/m³, just over 1,250 kg\/m³: within the test scatter \(2 %\)/);
+  // A strict "more than" fails at the limit itself, which is on the line.
+  assert.equal(ask(valued('tensileModulusXY', 5, 'GPa'), 'tensileModulusXY', '>', 5).status, STATUS.INDETERMINATE);
+});
+
+test('a value that meets the limit within the scatter passes with a thin margin, and never loses its pass (D152)', () => {
+  const at = (v) => ask(valued('tensileModulusXY', v, 'GPa'), 'tensileModulusXY', '>=', 5);
+  for (const v of [5, 5.2, 5.5]) assert.deepEqual([at(v).status, at(v).thinMargin], [STATUS.PASS, true], `${v}`);
+  assert.match(at(5.2).reason, /\. A thin margin: within the test scatter \(10 %\) of 5 GPa$/);
+  assert.deepEqual([at(5.51).status, at(5.51).thinMargin], [STATUS.PASS, undefined]);
+  const rho = (v) => ask(valued('density', v, 'kg/m³'), 'density', '<=', 1250);
+  assert.deepEqual([rho(1225).thinMargin, rho(1224).thinMargin], [true, undefined]);
+});
+
+test('a range, a bound, an assumption, a material\'s median and a headline with no scatter keep today\'s rule (D152)', () => {
+  const r = { id: 'M1', headline: { tensileModulusXY: { known: true, value: 4.6, unit: 'GPa', interval: range(4.6, 4.9), measurementId: 'V1' } } };
+  assert.deepEqual([ask(r, 'tensileModulusXY', '>=', 5).status, ask(r, 'tensileModulusXY', '>=', 5).onTheLine], [STATUS.FAIL, undefined]);
+  const bound = valued('tensileModulusXY', 4.9, 'GPa', { interval: { lo: null, hi: 4.9, openHigh: true } });
+  assert.equal(ask(bound, 'tensileModulusXY', '>=', 5).status, STATUS.FAIL);
+  assert.equal(ask(valued('tensileModulusXY', 4.95, 'GPa', { assumption: true }), 'tensileModulusXY', '>=', 5).status, STATUS.FAIL);
+  assert.equal(ask(valued('tensileModulusXY', 4.95, 'GPa', { spread: { n: 3 } }), 'tensileModulusXY', '>=', 5).status, STATUS.FAIL);
+  assert.equal(ask(valued('charpyNotched', 4.9, 'kJ/m²'), 'charpyNotched', '>=', 5).status, STATUS.FAIL);
+  assert.equal(ask(valued('tensileModulusXY', 4.95, 'GPa'), 'tensileModulusXY', '>=', 5, {}).status, STATUS.FAIL, 'no registry, no scatter');
+});
+
+test('a mean ± band on the line says so once, with its closeness to the limit (D152 and D54)', () => {
+  const m = valued('tensileModulusXY', 4.8, 'GPa', { uncertainty: 0.3, interval: { lo: 4.5, hi: 5.1, kind: 'uncertainty' } });
+  const e = ask(m, 'tensileModulusXY', '>=', 5);
+  assert.deepEqual([e.status, e.onTheLine, e.closeToLimit], [STATUS.INDETERMINATE, true, true]);
+  assert.equal(e.reason, 'Published 4.8 ± 0.3 GPa, just under 5 GPa: close to the limit, inside its published scatter and the test scatter (10 %), so on the line; one test bar or a word with the maker settles it');
+  const pass = ask(valued('tensileModulusXY', 5.1, 'GPa', { uncertainty: 0.3, interval: { lo: 4.8, hi: 5.4, kind: 'uncertainty' } }), 'tensileModulusXY', '>=', 5);
+  assert.deepEqual([pass.status, pass.thinMargin, pass.closeToLimit], [STATUS.PASS, true, true]);
+  assert.match(pass.reason, /Close to the limit, a thin margin: the threshold is inside the published scatter and the test scatter \(10 %\)/);
+});
+
+test('on the line never creates a pass, and a thin margin never removes one, over a sweep of values and limits (D152)', () => {
+  for (const [property, unit] of [['tensileModulusXY', 'GPa'], ['hdt045', '°C'], ['density', 'kg/m³']]) {
+    for (const operator of ['>=', '>', '<=', '<']) {
+      for (let limit = 1; limit <= 1500; limit *= 3.7) {
+        for (let k = 0; k <= 40; k++) {
+          const v = Number((limit * (0.8 + k * 0.01)).toFixed(4));
+          const without = ask(valued(property, v, unit), property, operator, limit, {}).status;
+          const withScatter = ask(valued(property, v, unit), property, operator, limit).status;
+          if (withScatter === STATUS.PASS) assert.equal(without, STATUS.PASS, `${property} ${v} ${operator} ${limit}: a pass the scatter made`);
+          if (without === STATUS.PASS) assert.equal(withScatter, STATUS.PASS, `${property} ${v} ${operator} ${limit}: a pass the scatter took`);
+          if (without !== withScatter) assert.deepEqual([without, withScatter], [STATUS.FAIL, STATUS.INDETERMINATE]);
+        }
+      }
+    }
+  }
+});

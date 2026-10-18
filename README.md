@@ -230,7 +230,9 @@ preferences: changing one changes what the tool asserts.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
 3. **Four constraint states.** A published range straddling a threshold is INDETERMINATE, not a lucky PASS. A
-   published mean ± spread is judged on its mean and says when the threshold lies within the spread (D54).
+   published mean ± spread is judged on its mean and says when the threshold lies within the spread (D54). A published
+   value that misses the limit by less than its test scatter (10 % for stiffness and strength, 5 °C for HDT, 20 % for
+   elongation, 2 % for density) is on the line, unresolved; one that meets it by less passes with a thin margin (D152).
 4. **Hard constraints decide eligibility; a preference never removes a candidate.** It is reported
    on each material as "tracked only". It does not reorder the list yet, and the interface does not
    claim it does.

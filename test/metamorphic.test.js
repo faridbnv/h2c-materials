@@ -96,6 +96,27 @@ test('forbidding a treatment never creates a pass; permitting one never removes 
   assert.deepEqual([...printed].filter((k) => !cool.has(k)), [], 'and no fewer than none');
 });
 
+// On the line (D152): a value just short of a limit is unresolved rather than failed, and one just over it still passes.
+// Taking the headlines' test scatter away is the rule before D152, so it may turn an unresolved product back into a
+// failure and nothing else: the passing products are the same set.
+test('on the line never creates a pass, and a thin margin never removes one, on the compiled database (D152)', () => {
+  const db = compiled();
+  const ctx = contextOf(db);
+  const bare = { ...db, registry: { ...db.registry, headlines: db.registry.headlines.map((h) => ({ ...h, testScatter: null })) } };
+  const materials = db.materials.filter((m) => !m.familyEntry);
+  const answers = (context) => new Map(TEMPLATES.flatMap((t) => runSelection(materials, t.constraints, context).evaluations
+    .flatMap((e) => (e.products ?? []).map((p) => [`${t.name}|${p.gradeId}`, p.verdict]))));
+  const withLine = answers(ctx), without = answers({ ...ctx, db: bare });
+  let moved = 0;
+  for (const [k, v] of withLine) {
+    const was = without.get(k);
+    if (v === was) continue;
+    moved++;
+    assert.deepEqual([was, v], [STATUS.FAIL, STATUS.UNKNOWN], `${k}: ${was} -> ${v}`);
+  }
+  assert.ok(moved > 0, 'some product is on the line, so the rule is exercised');
+});
+
 test('ranking the answer never changes it', () => {
   const db = compiled();
   const ctx = contextOf(db);

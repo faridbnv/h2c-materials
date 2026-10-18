@@ -1,7 +1,7 @@
-COUNT 98 shown PASS + UNKNOWN
-STATUS ☑ PASS 18 | ☑ UNKNOWN 80 | ☐ FAIL 54
+COUNT 102 shown PASS + UNKNOWN
+STATUS ☑ PASS 18 | ☑ UNKNOWN 84 | ☐ FAIL 50
 18 of the 152 materials meet these requirements
-Lightweight structure template · 80 more could not be checked, listed flagged
+Lightweight structure template · 84 more could not be checked, listed flagged
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -66,13 +66,13 @@ ROW PPA-CF · ☆
 Estimated candidates to verify (19)
 Predicted centres meet the missing numerical requirements. Still UNKNOWN; confirm before choosing.
 TABLE 19 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
-ROW ABS | ☆ | UNKNOWN / 0 of 55 products / Estimated candidate to verify: 12 products fail at least one requirement; 43 remain unresolved | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
-ROW ABS-ESD | ☆ | UNKNOWN / 0 of 11 products / Estimated candidate to verify: 5 products fail at least one requirement; 6 remain unresolved | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock
+ROW ABS | ☆ | UNKNOWN / 0 of 55 products / Estimated candidate to verify: 9 products fail at least one requirement; 46 remain unresolved | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
+ROW ABS-ESD | ☆ | UNKNOWN / 0 of 11 products / Estimated candidate to verify: 3 products fail at least one requirement; 8 remain unresolved | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35.5 / 22–58 · 6 | 4 / 2.21–5 · 5 | 97 / 96–98 · 5 | 223 / 199–247 · 2 / USD↗ / out of stock
 ROW ASA-EC | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 1 products have no complete qualifying evidence | 1,170 | ~2.2–3.8† | ~30–49† | ~1.4–5.3† | ~86–106† | 125EUR
 ROW CPE-CF / Copolyesters | ☆ | UNKNOWN / 0 of 3 products / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | 78 | 81.3↗
 ROW PA12-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 15 products have no complete qualifying evidence | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗
 ROW PA12-GF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 3 products / Estimated candidate to verify: 1 products fail at least one requirement; 2 remain unresolved | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD
-ROW PA6-GF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 11 products / Estimated candidate to verify: 6 products fail at least one requirement; 5 remain unresolved | 1,310 / 1,140–1,370 · 9 | 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | 184 / 161–210 · 10 | 84 / 77–146 · 3 / ↗
+ROW PA6-GF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 11 products / Estimated candidate to verify: 5 products fail at least one requirement; 6 remain unresolved | 1,310 / 1,140–1,370 · 9 | 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | 184 / 161–210 · 10 | 84 / 77–146 · 3 / ↗
 ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Estimated candidate to verify: 5 products have no complete qualifying evidence | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
 ROW PETG-CF · ☆
 ROW PLA Galaxy · ☆
@@ -85,4 +85,4 @@ ROW PLA-ESD · ☆
 ROW PLA-GF · ☆
 ROW PLA-GR · ☆
 ROW PVB · ☆
-Insufficient evidence (61) — included in counts and exports
+Insufficient evidence (65) — included in counts and exports

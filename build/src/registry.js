@@ -122,6 +122,10 @@ export function compileRegistry(wb, issues) {
       // The test standard a value that names one must name (D94): an Izod value to ASTM D256 printed in kJ/m² is that
       // test's energy per metre of notch, converted by its maker, not an ISO 180 bar. A value naming no standard counts.
       standard: orNull(r.Standard),
+      // How far one maker's published figure moves between its own bars and sheets (D152): a value the way the
+      // requirement asks that misses by less is on the line, one that meets it by less passes with a thin margin.
+      // { value, is: 'relative' (a percentage of the limit) | 'absolute' (the headline's unit) }, or null.
+      testScatter: numOrNull(r['Test scatter']) == null ? null : { value: numOrNull(r['Test scatter']), is: r['Test scatter is'] },
       // Whether annealing, or absorbed water, changes the part's value (D99): a value measured in one of those states is
       // the product's in that state only. False: the product's in every state (a density is the resin's).
       changesWithAnnealing: bool(r['Changes with annealing']), changesWithMoisture: bool(r['Changes with moisture']),
@@ -144,6 +148,8 @@ export function compileRegistry(wb, issues) {
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
     if (h.drawerComparison && !comparisonNames.has(h.drawerComparison)) err('REGISTRY-COMPARISON', where, `Drawer comparison "${h.drawerComparison}" names no row of drawer_comparisons.csv`);
+    // A scatter says what it is a scatter of, and nothing else does (D152).
+    if ((h.testScatter == null) !== (orNull(r['Test scatter is']) == null)) err('REGISTRY-HEADLINE', where, 'Test scatter and Test scatter is are set together, or both Not applicable');
     if (h.toughened && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline\'s spread names the products sold as toughened');
     if (h.drawerComparison && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline is drawn product by product in a drawer comparison');
     for (const name of [...h.valueProperties, ...h.relatedProperties, ...(h.lowerBounds?.properties ?? [])]) {
@@ -160,8 +166,8 @@ export function compileRegistry(wb, issues) {
       if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (as-published or excluded)` : 'Unstated direction is set, but the headline has no Direction');
       // The same for a load: a headline defined at one says what a value with none is.
       if ((h.loadMPa != null) !== !!h.unstatedLoad) err('REGISTRY-HEADLINE', where, h.loadMPa != null ? `Load MPa ${h.loadMPa} needs an Unstated load (as-published or excluded)` : 'Unstated load is set, but the headline has no Load MPa');
-    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard || h.changesWithAnnealing || h.changesWithMoisture) {
-      err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties and its test conditions must be Not applicable');
+    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard || h.changesWithAnnealing || h.changesWithMoisture || h.testScatter) {
+      err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties, its test conditions and its test scatter must be Not applicable');
     }
     return h;
   });

@@ -1744,6 +1744,7 @@
         "notch",
         "testTemperatureC",
         "standard",
+        "testScatter",
         "changesWithAnnealing",
         "changesWithMoisture",
         "evidenceGroup",
@@ -1879,6 +1880,13 @@
           "type": [
             "string",
             "null"
+          ]
+        },
+        "testScatter": {
+          "description": "How far one maker's published figure moves between its own bars and sheets (D152): a value measured the way the requirement asks that misses the limit by less is on the line, one that meets it by less passes with a thin margin. relative: a percentage of the limit; absolute: the headline's unit. Null: no on-the-line band.",
+          "oneOf": [
+            { "type": "null" },
+            { "type": "object", "additionalProperties": false, "required": ["value", "is"], "properties": { "value": { "type": "number", "minimum": 0 }, "is": { "enum": ["relative", "absolute"] } } }
           ]
         },
         "changesWithAnnealing": {

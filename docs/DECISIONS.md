@@ -69,7 +69,7 @@ detail. The generator names one that runs longer.
 | D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | Hand-kept lookup tables use record identifiers, not names, so renaming something cannot silently break them. | In force; amended by D60: the estimate model's configuration names no material, grade or polymer any more, so EST-MODEL-REFERENCE is retired |
 | D52 | The transfer is proven cell by cell; every later correction is re-read, guarded and replayable | The move out of Excel was proven cell by cell, and every correction since is a re-runnable script that refuses to run if the data moved. | In force |
 | D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | Estimates read declared states (dry, conditioned, a declared variant) rather than wording, and every change commits a snapshot of what it did. | Amended by D68 (the state is a column on the row, not an entry of the vocabulary), D73 (EST-WIDE asks only whether the model ignored a value the material publishes; a merely wide estimate is EST-THIN, informational) and D83 (the representative grade retired, and a variant is counted apart from its material's spread) |
-| D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit. | In force |
+| D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit. | Amended by D152: a published point or mean that misses the limit by less than its headline's test scatter is on the line, unresolved, no longer a failure at face value; one that meets it by less passes with a thin margin. A published range and a one-sided bound keep this rule |
 | D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | A published number physics rules out is kept and flagged, and decides nothing; only a printed part's value can set a lower bound. | In force; extended by D82, and amended by D83: nothing selects a headline now, and a flagged value is no product's value (a pin on one stops the build) |
 | D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | Estimates follow printing physics: slow-crystallising plastics, water in nylons, filler density, and what an elastomer cannot have. | Amended by D60 (how a polymer solidifies in a print, its water uptake and its neat density are columns of polymers.csv), D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer) |
 | D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | Unusual products are declared in the data, a replaced property name keeps its record, and every build warning is reviewed. | In force; amended by D73 (an estimate wide for want of data is EST-THIN, not reviewed) and D83 (the representative grade retired, and the unstated-load finding with the bracket) |
@@ -165,6 +165,7 @@ detail. The generator names one that runs longer.
 | D147 | The selector and the material pages read as one tool: one computation per fact, one word per thing, one frame | The owner found the selector and the material pages each very good but substantially different, and asked for small changes that make them feel like one tool. Five reviews and a product manager's combination proposed 54 changes; the owner chose 45, and they were built. The drawer and the page now say each fact from one function and in one set of words: dates as "13 Sep 2026", one name for Bambu Lab's guide, a bound with its sign, one count of gaps, the page's evidence word. Both surfaces print one provenance line and share one theme button, three corner radii and one typeface, and every page ends in one footer band. The drawer's products open in one stated order and link to their cards on the Products page, the decision brief names the material page, and Parallel lines draws each line's result and the requirements in the Ashby chart's family colours, where blue now means only "this material". No answer moved. | In force. It amends D145 (the colophon is a footer band after the main element on every page kind, its byline one sentence; the theme button is the selector's) and D146 (more of the shared words live in `app/js/ui`; the drawer's Products tab opens on the product *Your requirements* shows), and rewords the guide label D124 gave D88: "from Bambu Lab's Filament Guide for PLA" is now "from the Bambu Lab Filament Guide (PLA column)" |
 | D148 | A property that does not apply hides a material whatever the estimates switch says; the switch is "Use estimates and resin data" | A property that does not apply to a material (an elastomer's HDT) now hides it under Include whether estimates are on or off, and says "Does not apply", never "Screened by an estimate" or "Not published". The estimates switch is renamed "Use estimates and resin data", and its help says what it does today. No page or export says a material's own estimate can rule out a material that has products, since that estimate is never read. "Why the rest were excluded" counts only the hides the page shows, a preset keeps the reader's Leave out or Include, and annealing is no longer offered where the annealed value misses too. No verdict moved. | In force. It amends D43 (a property that does not apply no longer screens "the same way" as an estimate, under the switch: it hides by definition) and D137's wording (its "all new numerical screening is disabled" covers the estimate of a material with products too, which is never read: only a material with no product is judged on its own estimate), and dates a note on D138's "32 of 673" |
 | D151 | The printer check reads a maker's window by how much of it the H2C covers, and a silent chamber by the kind of plastic | A maker's nozzle, bed or chamber window says any setting in it works. Where the H2C covers at least 5 °C of the window from its bottom, the check now passes, flagged "at the low end of the maker's window"; where it reaches only the bottom edge, the check is "on the line", unresolved; where it reaches none of it, the window is beyond the H2C, as before. This holds for the nozzle, the bed and the chamber alike, and the chamber's "partial" verdict is retired. And where a product's sheet, its twin's and the printer guide say nothing at all about the chamber, a table of kinds of plastic may read the silence from the makers of that kind who do state one: if at least ten state one and at most one in ten asks above the H2C's 65 °C, the chamber is within, labelled with those counts. | In force. It amends D32 (a window the H2C partly reaches is no longer chamber-only, nor always unresolved), D5's precedence (within > within-low-end > edge > exceeds-recommended > exceeds > unknown) and D33 (silence about the chamber is read as within for the kinds of plastic whose makers support it) |
+| D152 | A value just short of the limit is "on the line", not a failure | A maker's published figure moves by about its test's scatter between its own bars and sheets: about 10 % for stiffness and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density. A value measured the way the requirement asks that misses the limit by less than that is now unresolved, "on the line", with a reason that says one test bar or a word with the maker settles it; 3DXTECH's CarbonX CF-PLA at 4.95 GPa against 5 GPa is one. A value that meets the limit by less still passes, tagged "a thin margin". No pass is created and none is removed. | In force. It amends D54 (a published mean decided at face value; the band's "close to the limit" stays, and both say so in one sentence) |
 
 <!-- end index -->
 
@@ -1147,6 +1148,7 @@ declared variant's values are its own product's, counted apart from its material
 ## D54. A published mean ± band is judged on its mean; the band flags a result close to the limit
 
 > **In plain words:** A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit.
+> **Status:** Amended by D152: a published point or mean that misses the limit by less than its headline's test scatter is on the line, unresolved, no longer a failure at face value; one that meets it by less passes with a thin margin. A published range and a one-sided bound keep this rule.
 
 A measured headline with a band ("35 ± 4 MPa") was compared as the hard interval 31 to 39, so it never passed a
 requirement of 33 MPa and decided nothing within its own spread. 128 of 362 headlines carry a band, mostly a specimen
@@ -5028,6 +5030,40 @@ and C34 and verdicts V10 and V11, decision 2); built as stage 3a of the [screeni
 - **What would break if reversed.** A window whose bottom the H2C reaches comfortably would again fail the nozzle and
   the bed, and a chamber one stay unresolved, although the maker says that setting prints; LCP's bed would read as a
   failure the H2C cannot settle, and PPA-CF would leave every outdoor list on a chamber window it covers by 15 °C.
+
+## D152. A value just short of the limit is "on the line", not a failure
+
+> **In plain words:** A maker's published figure moves by about its test's scatter between its own bars and sheets: about 10 % for stiffness and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density. A value measured the way the requirement asks that misses the limit by less than that is now unresolved, "on the line", with a reason that says one test bar or a word with the maker settles it; 3DXTECH's CarbonX CF-PLA at 4.95 GPa against 5 GPa is one. A value that meets the limit by less still passes, tagged "a thin margin". No pass is created and none is removed.
+> **Status:** In force. It amends D54 (a published mean decided at face value; the band's "close to the limit" stays, and both say so in one sentence).
+
+*Decided by the owner on 2026-10-18 from the [screening review](audits/2026-10-18-screening-review/README.md) (its change C33
+and verdict V24, decision 5): the materials scientist's version, a near miss unresolved and a near pass still a pass;
+built as stage 3a of the [screening build](audits/2026-10-18-screening-build/stage-3a.md).*
+
+- **The scatter is data** (`headline_definitions.csv` Test scatter and Test scatter is; `registry.headlines[].testScatter`):
+  tensile and flexural modulus and strength 10 % of the limit, HDT at both loads 5 °C, elongation 20 %, density 2 %; the
+  impact tests, the glass transition and the price have none. A headline added later says its own, or Not applicable.
+- **The rule** (`evaluateNumeric`, `app/js/engine/constraints.js`). For a published point, or a mean ± band judged on its
+  mean (D54), against a limit *L* with scatter *s*: "at least" misses down to *L*·(1 − *s*) are INDETERMINATE with
+  `onTheLine`, and passes up to *L*·(1 + *s*) keep PASS with `thinMargin`; "at most" the reverse; an absolute scatter is
+  *L* ± *s*. Arithmetic only, to twelve significant digits, so every platform gives one answer. A published range, a
+  one-sided bound, a scenario assumption and a material's median keep their rule. Where the band's closeness applies too,
+  the reason says both in one sentence. A printer check on the line (D151's `edge`) carries `onTheLine` as well.
+- **What it is not.** It is not a pass: a product on the line is unresolved, Leave out holds it, Include lists it, and the
+  verdict counts it as could-not-be-checked. The grouping of unresolved products by what would settle them, "one check
+  away" among them, is stage 3c's (C18).
+- **Checked.** The frozen estimate stage reads `headline_definitions.csv`; the two columns move no estimate path
+  (`build:diff`: `registry.headlines[].testScatter` only). A metamorphic test runs the six presets with and without the
+  scatter over the compiled database: the passing products are one set, and every other move is a failure turned
+  unresolved; a sweep of values about each limit holds the same on hand-built cases.
+- **What it did** (the decision census, `stage-3a-diff.md`): product answers moved from fail to unresolved in five presets
+  (per mode: Outdoor 22, Lightweight structure 58, Warm environment 29, High-stiffness 5, Flexible 2; none passed or
+  stopped passing). A product moves only where every requirement it fails is on the line: 53 Outdoor and 83 Lightweight
+  results are on the line, many beside another failure. Materials leave the failures for unresolved under Leave out: PPA
+  (Outdoor); PET, PC-ESD, PPE-PS and PVC (Lightweight); PCTG-GF and nGen-CF (Warm); TPU-GF (Flexible).
+- **What would break if reversed.** A product 1 % under a limit, inside the scatter of its own maker's sheets, would read
+  as failed and hide its material where one test bar would settle it, and a pass with no margin would read like one with
+  room to spare.
 
 ## Bugs worth remembering
 

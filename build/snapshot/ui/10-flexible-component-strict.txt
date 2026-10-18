@@ -1,7 +1,7 @@
 COUNT 12 shown PASS
-STATUS ☑ PASS 12 | ☐ UNKNOWN 100 | ☐ FAIL 40
+STATUS ☑ PASS 12 | ☐ UNKNOWN 101 | ☐ FAIL 39
 12 of the 152 materials meet these requirements
-Flexible component template · 100 more could not be checked and are left out
+Flexible component template · 101 more could not be checked and are left out
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits

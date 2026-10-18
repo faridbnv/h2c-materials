@@ -218,12 +218,21 @@ function evaluateNumeric(material, c, ctx = {}) {
   // 128 of 362 headlines could decide nothing near their own value. A threshold inside the band is flagged close to
   // the limit. A published range ("42-52") and a one-sided bound ("> 16.5") are still judged as the interval they are.
   const band = interval.kind === 'uncertainty';
-  const status = compareInterval(band ? { lo: h.value, hi: h.value, kind: 'point' } : interval, c.operator, c.value);
+  const judged = compareInterval(band ? { lo: h.value, hi: h.value, kind: 'point' } : interval, c.operator, c.value);
   const closeToLimit = band && interval.lo <= c.value && c.value <= interval.hi;
   const bound = boundOf(interval);
+  // On the line (D152, amending D54): a maker's figure moves by about its headline's test scatter between its own bars
+  // and sheets, so a value measured the way the requirement asks that misses the limit by less is unresolved, not a
+  // failure, and one that meets it by less still passes, with a thin margin. Only a published point or mean: a published
+  // range and a one-sided bound keep their own rule, a scenario assumption is the reader's number, and a material's
+  // median is no maker's figure.
+  const margin = !bound && !h.assumption && !h.spread && (band || interval.lo === interval.hi) ? scatterMargin(scatterOf(ctx, c.property), c, h.unit) : null;
+  const onTheLine = !!margin && judged === STATUS.FAIL && margin.within(h.value);
+  const thinMargin = !!margin && judged === STATUS.PASS && margin.within(h.value);
+  const status = onTheLine ? STATUS.INDETERMINATE : judged;
 
   let reason;
-  if (status === STATUS.INDETERMINATE) {
+  if (judged === STATUS.INDETERMINATE) {
     reason = bound
       ? `Published ${bound.words} ${fmtWords(h.value)} ${h.unit}, a bound that leaves the threshold on either side of the value`
       : `Reported range ${fmtWords(interval.lo)} to ${fmtWords(interval.hi)} ${h.unit} straddles the threshold`;
@@ -241,13 +250,24 @@ function evaluateNumeric(material, c, ctx = {}) {
     if (h.anneal) reason += `, after annealing ${schedule(h.anneal)}`;
     // A twin's value is printed on its sibling's sheet too, and recorded there once (D89).
     if (h.from?.label) reason += `, in the ${h.from.label}`;
+    // On the line, said with the limit and the scatter; the band's closeness, where it applies too, in the same sentence.
+    if (onTheLine) {
+      reason += `, just ${margin.atLeast ? 'under' : 'over'} ${fmtWords(c.value)} ${h.unit}: ${closeToLimit ? 'close to the limit, inside its published scatter and' : 'within'} the test scatter (${margin.words}), so on the line; one test bar or a word with the maker settles it`;
+    }
     if (h.caveat) reason += '. Used because Data quality includes such values';
     // What the screening policy admitted unstated (GOALS 2026-09-28, decision 5).
     if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated`;
-    if (closeToLimit) reason += `. Close to the limit: the threshold is inside the published scatter, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
+    if (thinMargin) {
+      reason += closeToLimit
+        ? `. Close to the limit, a thin margin: the threshold is inside the published scatter and the test scatter (${margin.words}), so some parts may fall below it`
+        : `. A thin margin: within the test scatter (${margin.words}) of ${fmtWords(c.value)} ${h.unit}`;
+    } else if (closeToLimit && !onTheLine) {
+      reason += `. Close to the limit: the threshold is inside the published scatter, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
+    }
   }
   return {
     status, reason, criterion: label, closeToLimit,
+    ...(onTheLine ? { onTheLine } : {}), ...(thinMargin ? { thinMargin } : {}),
     observed: h.value, unit: h.unit, interval,
     measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
     direction: h.direction,
@@ -259,6 +279,36 @@ function evaluateNumeric(material, c, ctx = {}) {
 }
 
 const ADMITTED_WORDS = { specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing' };
+
+// A headline's test scatter (D152): how far one maker's published figure moves between its own bars and sheets, from the
+// registry the context carries (headline_definitions.csv Test scatter), or null where it has none or the context no
+// registry. Read once per registry.
+const SCATTER = new WeakMap();
+function scatterOf(ctx, key) {
+  const headlines = ctx?.db?.registry?.headlines;
+  if (!headlines) return null;
+  if (!SCATTER.has(headlines)) SCATTER.set(headlines, new Map(headlines.filter((x) => x.testScatter).map((x) => [x.key, x.testScatter])));
+  return SCATTER.get(headlines).get(key) ?? null;
+}
+// Twelve significant digits, so a limit times a share lands on its decimal (5 x 0.9 is 4.5) on every machine.
+const tidy = (x) => Number(x.toPrecision(12));
+/**
+ * The band of the test scatter about a requirement's limit L: relative, L·(1 − s) to L·(1 + s); absolute, L − s to L + s.
+ * `within(v)` says whether a value lies in it. Read beside the verdict, that is the side that matters: for "at least", a
+ * value that fails is on the line down to L·(1 − s), and one that passes has a thin margin up to L·(1 + s); for "at most"
+ * the reverse. Arithmetic only, with no exp or log, for one answer on every platform.
+ */
+function scatterMargin(scatter, c, unit) {
+  if (!scatter) return null;
+  const L = c.value;
+  const lo = scatter.is === 'relative' ? tidy(L * (1 - scatter.value / 100)) : tidy(L - scatter.value);
+  const hi = scatter.is === 'relative' ? tidy(L * (1 + scatter.value / 100)) : tidy(L + scatter.value);
+  return {
+    atLeast: c.operator === '>=' || c.operator === '>', lo, hi,
+    words: scatter.is === 'relative' ? `${fmt(scatter.value)} %` : `${fmtWords(scatter.value)} ${unit}`,
+    within: (v) => v >= lo && v <= hi,
+  };
+}
 const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 const listWords = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
 /** An annealing schedule in a reader's words, the parts its sheet does not state said so. */
@@ -750,7 +800,7 @@ function productEntry(x) {
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
   if (r.estimate?.screening) out.prediction = {
     centre: r.estimate.centre, plausible: r.estimate.plausible, screenRange: r.estimate.screenRange,
     canScreen: r.estimate.canScreen, scope: r.estimate.screening.context, limitation: r.estimate.screenLimit,
