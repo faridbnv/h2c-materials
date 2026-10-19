@@ -114,7 +114,7 @@ detail. The generator names one that runs longer.
 | D96 | A release is its content: an ID over what decides travels with every page, scenario and export | Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept. | In force |
 | D97 | A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role | A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough. | In force |
 | D98 | A product's verdict rests on its own records: its evidence, its offers, its conflicts | A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it. | In force |
-| D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | Amended by D107 |
+| D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | Amended by D153, D107 |
 | D100 | A material fails only when every product fails; while one is unresolved, it is unresolved | A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it. | In force |
 | D101 | Every template asks whether the H2C can print the product; browsing without it is research mode | Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing. | In force; amended by D151: a window whose bottom the H2C covers by 5 °C or more now passes, at its low end, and only one it reaches at its bottom edge is unresolved, on the line; a chamber no sheet, twin or guide speaks to may be read from its kind of plastic |
 | D102 | One ranking: the table, the chart's guide, its line and the export rank a question the same way | When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking. | Amended by D107 |
@@ -168,6 +168,7 @@ detail. The generator names one that runs longer.
 | D150 | Fibre content is a recorded property, and Shore A and Shore D hardness are selectable | Each fibre-filled product now carries the fibre load its own sheets state, as a number with the page's words: 150 of the 252 such products have one, and the other 102 state none on any sheet read. A figure that only the product's name gives (PA6-GF30) is kept as the name's rating, never as a test result. Shore A and Shore D hardness became properties a reader can filter, chart and export. No answer moved: nothing asks either yet. | In force (screening build, stage 2b, 2026-10-18). It adds a property and two selectable headlines by D46's recipe and gives D60's Data status "Nominal from product designation" its rule in the build: never a headline's value. Number provisional until the stage merges |
 | D151 | The printer check reads a maker's window by how much of it the H2C covers, and a silent chamber by the kind of plastic | A maker's nozzle, bed or chamber window says any setting in it works. Where the H2C covers at least 5 °C of the window from its bottom, the check now passes, flagged "at the low end of the maker's window"; where it reaches only the bottom edge, the check is "on the line", unresolved; where it reaches none of it, the window is beyond the H2C, as before. This holds for the nozzle, the bed and the chamber alike, and the chamber's "partial" verdict is retired. And where a product's sheet, its twin's and the printer guide say nothing at all about the chamber, a table of kinds of plastic may read the silence from the makers of that kind who do state one: if at least ten state one and at most one in ten asks above the H2C's 65 °C, the chamber is within, labelled with those counts. | In force. It amends D32 (a window the H2C partly reaches is no longer chamber-only, nor always unresolved), D5's precedence (within > within-low-end > edge > exceeds-recommended > exceeds > unknown), D33 (silence about the chamber is read as within for the kinds of plastic whose makers support it) and D101's "a partly reachable window is unresolved" |
 | D152 | A value just short of the limit is "on the line", not a failure | A maker's published figure moves by about its test's scatter between its own bars and sheets: about 10 % for stiffness and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density. A value measured the way the requirement asks that misses the limit by less than that is now unresolved, "on the line", with a reason that says one test bar or a word with the maker settles it; 3DXTECH's CarbonX CF-PLA at 4.95 GPa against 5 GPa is one. A value that meets the limit by less still passes, tagged "a thin margin". No pass is created and none is removed. | In force. It amends D54 (a published mean decided at face value; the band's "close to the limit" stays, and both say so in one sentence) |
+| D153 | A heat treatment at or below the glass transition crystallises nothing: the value is the as-printed part's | Bambu Lab prints "All the specimens were annealed and dried at 55 °C for 8 h before testing" (50 °C on two sheets) over every value of its 15 PLA data sheets: 361 values. PLA's glass transition is 55-60 °C, and below it nothing crystallises, so these are the values of the part as printed. Read as annealed, none of them answered an as-printed question, and each of those 15 products waited on an annealing that changes nothing. The rule is now data: a polymer that crystallises when annealed has an annealing threshold, its glass transition, and a value treated at or below it is judged as printed. The sheet's words and the typed state stay as the page says. | In force (screening build, stage 4, 2026-10-18). It refines D99 (a value measured annealed decides only for a product judged annealed: a treatment at or below the threshold is not one) and D56's annealed states. Number provisional until the stage merges |
 
 <!-- end index -->
 
@@ -2971,6 +2972,9 @@ move. Reversing it lets one product's record or stock stand for every product of
 
 > **In plain words:** A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs.
 
+*Amended by D153 (2026-10-18): a value a sheet treated at or below its polymer's annealing threshold (PLA's glass
+transition, 55 °C) is in the as-printed state; nothing crystallised.*
+
 *Amended by D107 (2026-09-29): the Ashby decision workspace draws each product at the values of the state its answer is
 in, where this decision had kept the chart at published values; Material typicals (the catalogue view until D110) still
 draws those. A named state a
@@ -5154,6 +5158,38 @@ built as stage 3a of the [screening build](audits/2026-10-18-screening-build/sta
 - **What would break if reversed.** A product 1 % under a limit, inside the scatter of its own maker's sheets, would read
   as failed and hide its material where one test bar would settle it, and a pass with no margin would read like one with
   room to spare.
+
+## D153. A heat treatment at or below the glass transition crystallises nothing: the value is the as-printed part's
+
+> **In plain words:** Bambu Lab prints "All the specimens were annealed and dried at 55 °C for 8 h before testing" (50 °C on two sheets) over every value of its 15 PLA data sheets: 361 values. PLA's glass transition is 55-60 °C, and below it nothing crystallises, so these are the values of the part as printed. Read as annealed, none of them answered an as-printed question, and each of those 15 products waited on an annealing that changes nothing. The rule is now data: a polymer that crystallises when annealed has an annealing threshold, its glass transition, and a value treated at or below it is judged as printed. The sheet's words and the typed state stay as the page says.
+> **Status:** In force (screening build, stage 4, 2026-10-18). It refines D99 (a value measured annealed decides only for a product judged annealed: a treatment at or below the threshold is not one) and D56's annealed states. Number provisional until the stage merges.
+
+*Ruled by the executor, the Opus agent the owner appointed to settle data (plan of 2026-10-18, "Opus settles flagged data
+values"): record the values as the page says, and judge them as printed only through a state the vocabulary has for it,
+else as a rule in data, never a branch named for a maker. Built by Claude Opus 5.5; the products are listed in
+[SPOT-CHECK.md](audits/2026-10-18-screening-build/SPOT-CHECK.md).*
+
+- **Why not the typed state.** `post-processing-states.csv` has no value that fits: "as-printed" means the source states
+  no heat treatment, and this one states one. Writing as-printed over 361 rows would make the column say something the
+  page does not.
+- **The rule** (`judgeHeatTreatments`, `build/src/normalize/specimen.js`, applied in compile before any headline,
+  product state or spread reads a state). `polymers.csv` gains Annealing threshold °C: for PLA 55 °C, the low end of the
+  glass transition NatureWorks prints for Ingeo 3D850 (55-60 °C, ASTM D3418, p. 1), whose page also says annealing "in
+  the range of 176-266°F (80-130°C) can be used to promote crystallization" (m446). A measurement typed annealed with a
+  stated temperature at or below its polymer's threshold is compiled as-printed, its schedule null, and carries
+  `heatTreatment` (the temperature, hours and threshold). A treatment of unstated temperature stays an annealing.
+- **Only where annealing crystallises.** An amorphous polymer's anneal below its glass transition relieves stress and is
+  the anneal resin sheets test by (INEOS Terluran GP-22 ABS: "annealed 4 h/80 °C"), so ABS, ASA, PC and PETG have no
+  threshold (Not applicable) and Bambu Lab's 65-80 °C schedules for them stay annealed. The other semicrystalline rows
+  are Not recorded: none holds a value treated at or below its glass transition today.
+- **What it did** (the decision census against the stage's start, [stage-4-diff-1.md](audits/2026-10-18-screening-build/stage-4-diff-1.md)):
+  13 material verdicts, 6 listings and 793 product answers moved over 138 cases, all of them the 15 Bambu Lab PLA
+  products and the materials they decide (PLA Metal, Marble, Glow, Wood and Galaxy among them): each now passes or
+  fails on its own values as printed where it was unresolved. The estimate stage is unchanged: its fit read these values
+  already, and `build:diff` shows no estimate path.
+- **What would break if reversed.** Fifteen products would again answer no as-printed question about stiffness,
+  strength, stretch or heat, though their sheets measured exactly that part, and a drying step would read as the
+  treatment that turns PLA from a 55 °C plastic into a 100 °C one.
 
 ## Bugs worth remembering
 

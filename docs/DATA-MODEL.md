@@ -58,7 +58,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `chamber_bands.csv` | Research chamber bands for materials whose sources publish no window, or why none is given |
 | `chamber_need.csv` | What a product's silence about the chamber means for its kind of plastic (D151): one row per kind (Applies to), within or unknown, reported or deciding, who reviewed it and why. The build counts the makers that state a chamber and those asking above 65 °C; a deciding within row reads a truly silent chamber as within, labelled with the counts |
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
-| `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
+| `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, the annealing threshold at or below which a heat treatment leaves a part as printed (D153), water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
 | `print_guide.csv` | What a printer maker's filament guide states for printing a material type, one row per type it heads a column with, in a print profile's columns (D88): no product's profile |
 | `print_guide_materials.csv` | Which material each guide type is, with why and who mapped it: the same material type only (D88) |
@@ -147,7 +147,11 @@ build reads (D68).
   Post-processing state (as-printed, annealed, not-stated) as typed columns beside the source's own words, and each
   Specimen type declares a Form (printed, not-stated, moulded, film, filament, off-recipe) in its vocabulary, because
   those wordings are the database's own. The build reads the state, never the words; where the words plainly say
-  otherwise the build stops (PARSE-MISMATCH), and where they say nothing the column decides.
+  otherwise the build stops (PARSE-MISMATCH), and where they say nothing the column decides. A value annealed at or below
+  its polymer's annealing threshold (`polymers.csv` Annealing threshold °C, the glass transition of a polymer that
+  crystallises when annealed: PLA's 55 °C) is judged as printed, since nothing crystallised: Bambu Lab's "annealed and
+  dried at 55 °C for 8 h" over its PLA sheets. The row keeps its words and its typed state, and the compiled measurement
+  says what was done (`heatTreatment`, D153).
 - **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
   its current replacement, and no measurement or headline may use it (D57).
 - **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings

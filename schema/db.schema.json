@@ -648,6 +648,18 @@
               }
             ]
           },
+          "heatTreatment": {
+            "description": "A heat treatment the row records as an annealing, at or below its polymer's annealing threshold (polymers.csv Annealing threshold °C, D153): nothing crystallised, so the value is judged as printed (postProcessingState as-printed, anneal null). The row's words and typed state are unchanged. Absent on every other measurement.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tempC", "hours", "thresholdC", "recorded"],
+            "properties": {
+              "tempC": { "type": "number" },
+              "hours": { "type": ["number", "null"] },
+              "thresholdC": { "type": "number" },
+              "recorded": { "const": "annealed" }
+            }
+          },
           "testTemperature": {
             "type": "string"
           },
@@ -1318,6 +1330,7 @@
           "morphology",
           "meltingPointC",
           "asPrinted",
+          "annealingThresholdC",
           "waterUptake",
           "neatDensity",
           "sourceId",
@@ -1346,6 +1359,13 @@
           "asPrinted": {
             "type": [
               "string",
+              "null"
+            ]
+          },
+          "annealingThresholdC": {
+            "description": "polymers.csv Annealing threshold °C: a heat treatment at or below it crystallises nothing, and a value measured after one is judged as printed (D153). Null where the column is Not applicable or Not recorded.",
+            "type": [
+              "number",
               "null"
             ]
           },
