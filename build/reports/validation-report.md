@@ -127,7 +127,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV06 | tensileModulusXY | floor | deciding | 0.79 | 172 | 0 | 0 | 0 | 208 | ratio 0.791747011184 to 5.15974842767 | 0 |
 | CV07 | tensileModulusXY | floor | reported | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
 | CV08 | tensileModulusXY | band | reported | 0.46 to 1.91 | 601 | 0 | 0 | 0 | 290 | ratio 0.460233638667 to 1.93 | 1 |
-| CV09 | tensileStrengthXY | floor | reported | 0.86 | 221 | 0 | 0 | 0 | 251 | ratio 0.864583333333 to 9.88943488943 | 0 |
+| CV09 | tensileStrengthXY | floor | deciding | 0.86 | 221 | 0 | 0 | 0 | 251 | ratio 0.864583333333 to 9.88943488943 | 0 |
 | CV10 | elongationXY | floor | reported | 1 | 145 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
 | CV11 | elongationXY | floor | reported | 1 | 46 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
 | CV12 | tensileStrengthXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
