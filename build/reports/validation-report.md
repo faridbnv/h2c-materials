@@ -119,11 +119,11 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 
 | Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|
-| CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 2 | 255 | difference -4 to 119.5 | 2 |
+| CV01 | hdt045 | floor | deciding | 1 | 255 | 0 | 0 | 0 | 220 | difference -4 to 119.5 | 1 |
 | CV02 | tensileModulusXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV03 | hdt045 | ceiling | deciding | 1 | 65 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
 | CV04 | tensileModulusXY | ceiling | deciding | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
-| CV05 | hdt045 | demote-to-ceiling | deciding | 1 | 194 | 138 | 0 | 2 | 1 | difference -5 to -5 | 0 |
+| CV05 | hdt045 | demote-to-ceiling | deciding | 1 | 194 | 138 | 0 | 0 | 1 | difference -5 to -5 | 0 |
 | CV06 | tensileModulusXY | floor | deciding | 0.79 | 172 | 0 | 0 | 0 | 208 | ratio 0.791747011184 to 5.15974842767 | 0 |
 | CV07 | tensileModulusXY | floor | deciding | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
 | CV08 | tensileModulusXY | band | deciding | 0.46 to 1.93 | 601 | 0 | 0 | 0 | 290 | ratio 0.460233638667 to 1.93 | 0 |
@@ -131,7 +131,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV10 | elongationXY | floor | reported | 1 | 145 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
 | CV11 | elongationXY | floor | reported | 1 | 46 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
 | CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
-| CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 81 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
+| CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 90 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
 | CL02 | density | neat-density range | deciding | polymers.csv | 516 |  | 5 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
 
 ## Environment evidence
@@ -553,9 +553,7 @@ interface can say so rather than implying a certainty it does not have.
 - `PROCESS-WINDOW-IMPLAUSIBLE` **profiles P0050** — Bed "30 -500 ºC" states 500 °C, outside the plausible 0–250 °C; it is typed as stated (30–30): check the cell against its page
 - `PARSE-UNREAD` **Print setup row 1284** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
 - `PARSE-UNREAD` **Print setup row 1286** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
-- `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 2 of 255 same-sheet pair(s) break it: G001-77 V013711 59 against V013712 60; G165-04 V014653 58 against V014656 62
-- `LEDGER-DISAGREE` **grades** — 2 product state(s) whose deciding bounds leave no value between them: G001-77 hdt045 at least 60 (CV01 V013712) and at most 59 (CV05 V013711); G158-01 hdt045 at least 50 (CV01 V010561) and at most 48 (CV05 V010876)
-- `LEDGER-CONTRADICTS-VALUE` **grades** — 1 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G067-05 hdt045 87 (V011565) against CV01 V011569
+- `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 1 of 220 same-sheet pair(s) break it: G165-04 V014653 58 against V014656 62
 - `CLASS-LIMIT-CONTRADICTED` **grades** — 5 comparable value(s) beyond their kind's limit by more than the test scatter: G020-08 density 1180 (V002844) against CL02; G035-12 density 1150 (V004709) against CL02; G094-06 density 1070 (V006114) against CL02; G075-11 density 1370 (V010405) against CL02; …
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³

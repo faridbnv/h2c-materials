@@ -123,11 +123,11 @@
     },
     "conversions": {
       "rows": 12,
-      "sha256": "ad8c0b25ff93cb0ea5dd22b711c93c4e74f122ac4472a1116e51e55464f51824"
+      "sha256": "364faff605074af230b6491161c861f0eace31a282e2504000934f8b32a377d4"
     },
     "class_limits": {
       "rows": 2,
-      "sha256": "4c084a463e40e28d63ba65d9f51bc668a7402da0cdc2772f0b0e6a10cc3f13db"
+      "sha256": "9a7134f3ca5ef84a08507d860300b3e53ed9af162566b78f520d73670a894233"
     },
     "chamber_bands": {
       "rows": 39,
