@@ -386,6 +386,13 @@ function productPrint(grade, own, twins, guide, publisher) {
     }
     out[axis] = value;
   }
+  // Advice that asks for no hardened nozzle but is not "brass will do" either (D168): a nozzle harder than brass, or a
+  // caution about wear. It decides nothing, and a user with only brass is told it in the maker's words (the research
+  // intake's review, R01).
+  if (out.hardenedNozzle == null) {
+    const said = from.hardenedNozzle ? null : own.profiles.find((p) => p.abrasion.harderThanBrass || p.abrasion.caution);
+    if (said) out.nozzleAdvice = { kind: said.abrasion.harderThanBrass ? 'harder-than-brass' : 'wear-caution', text: said.abrasion.text, profileId: said.id };
+  }
   out.anneal = own.anneal;
   const twinAnneal = twins.find((t) => t.anneal.length);
   if (!own.anneal.length && twinAnneal) { out.anneal = twinAnneal.anneal; from.anneal = twinOrigin(twinAnneal.grade); }

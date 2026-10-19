@@ -63,7 +63,7 @@ for (const f of rows(join(PACKAGE, 'findings.csv'))) {
     f.target_type === 'measurement' ? touched([`measurements:${id}`])
       : f.target_type === 'profile' ? touched([`profiles:${id}`])
         : f.target_type === 'grade' ? touched([`grades:${id}`, ...gradeRecords(id, source)]) ?? (f.outcome !== 'NOT-FOUND-SEARCHED' ? touched(gradeRecords(id, null).filter((k) => source && now[k.split(':')[0]].find((r) => r[KEYS[k.split(':')[0]]] === k.split(':')[1])?.SourceID === source)) : null)
-          : f.target_type === 'source' ? touched([`sources:${id}`])
+          : f.target_type === 'source' ? touched([`sources:${id}`, ...now.measurements.filter((m) => m.SourceID === id).map((m) => `measurements:${m.MeasurementID}`), ...now.profiles.filter((p) => p.SourceID === id).map((p) => `profiles:${p.ProfileID}`)])
             : f.target_type === 'polymer' ? touched([`polymers:${id}`])
               : f.target_type === 'maker-family' || f.target_type === 'material' ? (/chamber/i.test(`${f.summary} ${f.proposed_change}`) && /polyolefin|FL300PE|Braskem/i.test(`${f.summary} ${f.evidence}`) ? touched(['chamber_need:CN17']) : null)
                 : null;

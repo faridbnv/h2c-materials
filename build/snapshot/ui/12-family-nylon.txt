@@ -35,8 +35,8 @@ PC
 n/a not applicable
 3 more marks
 TABLE 24 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
-ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 6 of 6 products | 1,200 / 1,010–1,400 · 5 | 2.16 | 55.9 | 18 | 145 / 58–178 · 5 | 167EUR
-ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,210 / 1,180–1,240 · 3 | 2.82 / 2.53–3.1 · 2 | 60.4 | 7.35 / 5.5–9.2 · 2 | 152 | —
+ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 6 of 6 products | 1,200 / 1,010–1,400 · 5 | 2.16 | 56.7 / 55.9–57.5 · 2 | 15 / 12–18 · 2 | 145 / 58–178 · 5 | 167EUR
+ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,210 / 1,180–1,240 · 3 | 2.82 / 2.53–3.1 · 2 | 59.9 / 59.4–60.4 · 2 | 7 / 5.5–9.2 · 3 | 152 | —
 ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 7 of 7 products | 1,140 / 1,100–1,210 · 3 | 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR
 ROW PA-ESD / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 1,140 | 6.9* | 68* | 3.8* | 142 | —
 ROW PA12 / Nylon / Polyamide | ☆ | PASS / 8 of 8 products | 1,010 / 1,000–1,020 · 6 | 1.44* | 43* | > 50* | 123 / 100–135 · 4 | 183 / 123–242 · 2 / USD

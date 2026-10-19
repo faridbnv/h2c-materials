@@ -271,9 +271,11 @@ export function directionOf(words, property, specimenValue) {
   if (/parallel|in flow direction|along (the )?flow/.test(w) && !/perpendicular|normal/.test(w)) return { value: 'Along flow' };
   if (/normal|perpendicular|transverse|across (the )?flow/.test(w)) return { value: 'Stated, not a usable direction' };
   if (/\bhorizontal\b/.test(w)) return { value: 'Horizontal (source label)' };
-  // Filamatrix prints its bars "in y-axis orientation": an axis with no word for how the bar lay, which the database cannot
-  // use as a build direction (the research intake, D168).
-  if (/^y[- ]?axis\b/.test(w)) return { value: 'Stated, not a usable direction' };
+  // Filamatrix prints its bars "in y-axis orientation" on an Ultimaker: the X and Y axes lie in the bed, so a bar along
+  // either is a flat bar, XY, where the sheet labels no other bar beside it (a YX bar beside an XY one stays YX, D143); a
+  // bar along Z stands (the research intake's review, R02).
+  if (/^[xy][- ]?axis\b/.test(w)) return { value: 'XY' };
+  if (/^z[- ]?axis\b/.test(w)) return { value: 'Z' };
   return { error: `direction-unmapped:${words}` };
 }
 

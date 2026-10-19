@@ -870,7 +870,10 @@ kept in `archive/research-2026-10-19/`.
   the polyolefins chamber row deciding, and two build fixes (a flagged value no longer stands in for a material; a
   material's print gate names its product). Against main before it: drying statements missing on 145 products (205),
   chamber checks unanswered on 213 (221), fibre loads of their own on 174 of 255 fibre-filled products (141 of 252), 113
-  materials priced (108), Nylon-GF given a material page; 91 material verdicts moved in the 138 census cases, from
+  materials priced (108), Nylon-GF given a material page; 84 material verdicts moved in the 138 census cases, from
   Nylon-GF's new products, HIPS's and PCTG's sourced resin densities, the polyolefins' chamber and stage 2's
-  corrections ([decision diff](audits/2026-10-19-research-intake/after/DECISION-DIFF.md)). What it left is OPEN-PROBLEMS
+  corrections ([decision diff](audits/2026-10-19-research-intake/after/DECISION-DIFF.md)). Citing producers' sheets for
+  PCTG, HIPS, PA6/66 and PVB switched the density class limit CL02 (D154) on for them. The round's review found eight
+  things to fix, all fixed: among them, a maker's "stainless steel or hardened alloys" or wear caution leaves the
+  no-hardened-nozzle screen unresolved in the maker's words, never a pass. What it left is OPEN-PROBLEMS
   §39 and the dated paragraphs it added; the findings' fates are `archive/research-2026-10-19/disposition.csv`.

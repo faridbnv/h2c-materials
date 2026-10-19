@@ -17,11 +17,11 @@ triaged everything and built the round; no person reviewed it. The package stays
 document this repository uses from it was staged by digest into the round's ledger (`ingest:witness --from`).
 
 - **[disposition.csv](disposition.csv)** says, for every finding, what became of it:
-  - *applied* (179), by the stage and migration named: corrections (m452), documents and readings (m453, m454), the
+  - *applied* (191), by the stage and migration named: corrections (m452), documents and readings (m453, m454), the
     polyolefins chamber row, FormFutura's public links (m456), the two code fixes;
   - *already in the data* (163): the page confirms the held record, or the document is a later copy of a registered
     sheet (compared with its records, never registered);
-  - *left* (485), with why: 407 scoped searches that found nothing, questions for the owner or a maker, and readings the
+  - *left* (473), with why: 407 scoped searches that found nothing, questions for the owner or a maker, and readings the
     triage did not apply (a later copy's line the registered sheet does not print, a value judged right).
 - **[handoffs.csv](handoffs.csv)** is the package's 47 handoffs as it wrote them. It is the list to send, and it is not
   data.

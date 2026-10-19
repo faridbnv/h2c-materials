@@ -507,6 +507,15 @@ function evaluateGate(material, c) {
     const from = material.gates.abrasiveFrom ? ` (${material.gates.abrasiveFrom})` : '';
     if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reason: `A source states it needs an abrasion-resistant nozzle${from}` };
     if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: `A source states no special nozzle concern${from}` };
+    // A maker who asks for a nozzle harder than brass, or warns of wear, requires no hardened nozzle (D168) and does not
+    // say brass will do: unresolved for a user with only brass, in the maker's words.
+    const advice = material.gates.abrasiveAdvice;
+    if (advice) {
+      const quoted = `"${String(advice.text).trim().replace(/\s+/g, ' ').slice(0, 140)}"`;
+      return { status: STATUS.UNKNOWN, criterion, reason: advice.kind === 'harder-than-brass'
+        ? `The maker asks for a nozzle harder than brass, not necessarily a hardened one: ${quoted}`
+        : `The maker warns of nozzle wear and asks for no hardened nozzle: ${quoted}` };
+    }
     const filler = material.facets?.reinforcement?.value;
     if (material.facets?.fibre?.value || filler === 'carbon-fibre' || filler === 'glass-fibre') {
       return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, and no source states the nozzle it needs, so it is treated as abrasive until its documents say otherwise' };

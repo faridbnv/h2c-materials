@@ -43,10 +43,10 @@ bare table and no statement of the query.
 The heading above the pills adds up to the rows under it. It counts against the materials in the database that are
 not family entries or aliases, the same denominator the start panel and the rail use (a family name is never a
 candidate, so none counts; the current numbers are in [build/snapshot/counts.md](../build/snapshot/counts.md)). Under
-**Leave out** it reads, for the Indoor prototype template, "87 of the 152 materials meet these requirements" (2026-10-07; 15 of
-98 when this was written) and counts the UNKNOWN materials left out by group ("UNKNOWN 32 left out: 29 one check away,
-3 not enough data", stage 3d). Under **Include** those materials are listed by group, so the line under the heading
-names the groups the same way, the hidden ones among them ("UNKNOWN 104: 2 one check away, 14 not enough data, 85
+**Leave out** it reads, for the Indoor prototype template, "98 of the 152 materials meet these requirements" (2026-10-19; 87 on 2026-10-07, 15 of
+98 when this was written) and counts the UNKNOWN materials left out by group ("UNKNOWN 30 left out: 27 one check away,
+3 not enough data"). Under **Include** those materials are listed by group, so the line under the heading
+names the groups the same way, the hidden ones among them (the Flexible component template's "UNKNOWN 105: 2 one check away, 13 not enough data, 87
 unlikely to meet, 3 hidden"). A count of materials that
 meet the requirements above a longer list of rows had read as a contradiction. Both headings, as the current build words them, are in
 [build/snapshot/ui/10-indoor-prototype-strict.txt](../build/snapshot/ui/10-indoor-prototype-strict.txt) and

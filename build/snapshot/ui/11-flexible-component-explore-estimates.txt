@@ -1,7 +1,7 @@
-COUNT 107 shown PASS + UNKNOWN
-STATUS ☑ PASS 5 | ☑ UNKNOWN 105 | ☐ FAIL 42 | ☐ HIDDEN 3
+COUNT 106 shown PASS + UNKNOWN
+STATUS ☑ PASS 5 | ☑ UNKNOWN 104 | ☐ FAIL 43 | ☐ HIDDEN 3
 5 of the 152 materials meet these requirements
-Flexible component template · UNKNOWN 105: 2 one check away, 13 not enough data, 87 unlikely to meet, 3 hidden
+Flexible component template · UNKNOWN 104: 2 one check away, 13 not enough data, 86 unlikely to meet, 3 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -71,4 +71,4 @@ ROW PLA blend-CF · ☆
 ROW SBC · ☆
 ROW TPE, maker-undisclosed elastomer · ☆
 ROW TPV · ☆
-Unlikely to meet (87): folded, still counted and in the download
+Unlikely to meet (86): folded, still counted and in the download

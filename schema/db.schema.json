@@ -3263,6 +3263,17 @@
             "null"
           ]
         },
+        "nozzleAdvice": {
+          "description": "Where the product's own sheets require no hardened nozzle and do not say brass will do (D168): a nozzle harder than brass asked for, or a caution about wear, in the maker's words. The engine leaves the no-hardened-nozzle check unresolved with them.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "text", "profileId"],
+          "properties": {
+            "kind": { "enum": ["harder-than-brass", "wear-caution"] },
+            "text": { "type": "string" },
+            "profileId": { "type": "string" }
+          }
+        },
         "drying": {
           "description": "What the product's sheets ask for on drying (D127): the strongest need across them (required, then optional, then not-needed) with the schedule of the profile that said it. Null where nothing is stated. profileId is null where the part was read from a guide row.",
           "anyOf": [

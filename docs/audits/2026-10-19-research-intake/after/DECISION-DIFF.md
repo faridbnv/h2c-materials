@@ -1,8 +1,8 @@
-# Decision diff: 7d9e8a3cd71d → fc48b9dbadca
+# Decision diff: 7d9e8a3cd71d → ac7f27f113d4
 
-> **Generated** (2026-10-19): written by `decision-census.mjs --diff` from the answers of main 9b2f4706 (release 7d9e8a3cd71d, before the round) and of the research intake's last data state, both on this branch's code. Each stage's own diff is beside the round's README. Run it again for the current state.
+> **Generated** (2026-10-19): written by `decision-census.mjs --diff` from the answers of main 9b2f4706 (release 7d9e8a3cd71d, before the round) and of the research intake's last data state, both on this branch's code. Each stage's own diff is beside the round's README; the no-hardened-nozzle screen, which no case here covers, is in the README's review (R01). Run it again for the current state.
 
-Across 138 cases: 91 material verdicts moved, 71 listings changed, 96 group changes, 138 rows now shown for another product, 160 product answers moved; the likely tag came or went 26 times (materials and products).
+Across 138 cases: 84 material verdicts moved, 65 listings changed, 89 group changes, 131 rows now shown for another product, 160 product answers moved; the likely tag came or went 26 times (materials and products).
 
 ## Outdoor structural part / leave out
 
@@ -176,37 +176,21 @@ Before: pass 10, unknown 92 (hidden 1), fail 50. After: pass 10, unknown 93 (hid
 
 ## Flexible component / leave out
 
-Before: pass 5, unknown 104 (hidden 0), fail 43. After: pass 5, unknown 105 (hidden 0), fail 42.
+Before: pass 5, unknown 104 (hidden 0), fail 43. After: pass 5, unknown 104 (hidden 0), fail 43.
 
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
+Nothing moved.
 
 ## Flexible component / include
 
-Before: pass 5, unknown 104 (hidden 0), fail 43. After: pass 5, unknown 105 (hidden 0), fail 42.
+Before: pass 5, unknown 104 (hidden 0), fail 43. After: pass 5, unknown 104 (hidden 0), fail 43.
 
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Listed or not (1).** Nylon-GF, maker-undisclosed polyamide: not listed → listed.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
+Nothing moved.
 
 ## Flexible component / include + estimates
 
-Before: pass 5, unknown 104 (hidden 3), fail 43. After: pass 5, unknown 105 (hidden 3), fail 42.
+Before: pass 5, unknown 104 (hidden 3), fail 43. After: pass 5, unknown 104 (hidden 3), fail 43.
 
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Listed or not (1).** Nylon-GF, maker-undisclosed polyamide: not listed → listed.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (2).** PVDF: G096-03 → G096-02; Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
+**Product the row shows (1).** PVDF: G096-03 → G096-02.
 
 **Product answers (1).** G096-03 (PVDF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet.
 
@@ -794,30 +778,6 @@ Before: pass 2, unknown 149 (hidden 4), fail 1. After: pass 2, unknown 150 (hidd
 
 **Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-02.
 
-## elongationXY >= 20 / comparable / dry / anneal not allowed
-
-Before: pass 33, unknown 101 (hidden 4), fail 18. After: pass 33, unknown 102 (hidden 4), fail 17.
-
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Listed or not (1).** Nylon-GF, maker-undisclosed polyamide: not listed → listed.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
-
-## elongationXY >= 20 / comparable / dry / anneal allowed
-
-Before: pass 33, unknown 101 (hidden 4), fail 18. After: pass 33, unknown 102 (hidden 4), fail 17.
-
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Listed or not (1).** Nylon-GF, maker-undisclosed polyamide: not listed → listed.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
-
 ## elongationXY >= 20 / comparable / conditioned / anneal not allowed
 
 Before: pass 0, unknown 151 (hidden 4), fail 1. After: pass 0, unknown 152 (hidden 4), fail 0.
@@ -865,30 +825,6 @@ Before: pass 1, unknown 150 (hidden 4), fail 1. After: pass 1, unknown 151 (hidd
 **Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
 
 **Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-02.
-
-## elongationXY >= 100 / comparable / dry / anneal not allowed
-
-Before: pass 19, unknown 113 (hidden 6), fail 20. After: pass 19, unknown 114 (hidden 6), fail 19.
-
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Listed or not (1).** Nylon-GF, maker-undisclosed polyamide: not listed → listed.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
-
-## elongationXY >= 100 / comparable / dry / anneal allowed
-
-Before: pass 19, unknown 113 (hidden 6), fail 20. After: pass 19, unknown 114 (hidden 6), fail 19.
-
-**Material verdicts (1).** Nylon-GF, maker-undisclosed polyamide: FAIL → UNKNOWN.
-
-**Listed or not (1).** Nylon-GF, maker-undisclosed polyamide: not listed → listed.
-
-**Groups (1).** Nylon-GF, maker-undisclosed polyamide: fail → unlikely-to-meet.
-
-**Product the row shows (1).** Nylon-GF, maker-undisclosed polyamide: G166-01 → G166-03.
 
 ## elongationXY >= 100 / comparable / conditioned / anneal not allowed
 

@@ -5715,6 +5715,10 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
   is the stainless-or-hardened-alloy advice above; Spectrum's "In justified cases" is drying optional; hours written in
   words ("dry six to twelve hours") and a plus before the hours ("+4 hours") are read; kpsi converts as ksi; and a
   Braskem sheet's "Alternate Bed Temperature" row is a row of the sheet, so its own profile (D120).
+- **What a user with only brass is told** (the round's review, R01). A sheet that asks for a nozzle harder than brass, or
+  only warns of wear, requires no hardened nozzle, but it does not say brass will do either: the no-hardened-nozzle screen
+  answers unresolved, quoting the maker (`print.nozzleAdvice`), never pass. The readers' new patterns stop short of
+  "use a hardened nozzle", "open-frame printers will cause warping", "once opened … must be dried" and "65°C + 4h".
 - **What it moved.** 22 profile cells retyped and 3 reviews retired, 472 measurements corrected with them (m452; the
   bracketed and ± spreads, ranges and treatment the research found), and the decision diff in
   [stage-2-diff.md](audits/2026-10-19-research-intake/stage-2-diff.md): a PETG-CF passes the indoor prototype now that its

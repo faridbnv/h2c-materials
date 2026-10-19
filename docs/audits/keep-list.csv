@@ -4,3 +4,5 @@ Path,Reason
 2026-10-16-material-pages-round/blind-read/VERDICTS.csv,the blind read's counted and judged verdicts: OPEN-PROBLEMS §37 links them and the round README counts them
 2026-10-16-material-pages-round/summaries/JUDGED.csv,the summaries' judged claims (312 claims): the round README counts them and links them
 2026-10-18-screening-review/scenarios/,the six presets as saved scenarios: the review README and LOGIC.md trace one product's decision with them (npm run trace -- --scenario)
+2026-10-19-research-intake/later/compare.csv,"stage 8's comparison of every held record with its later copy: OPEN-PROBLEMS §39.1 and the round README count and link it"
+2026-10-19-research-intake/later/read-results.csv,"the reader's verdicts on the 142 values the comparison did not bear out: OPEN-PROBLEMS §39.1 and the round README count and link them"

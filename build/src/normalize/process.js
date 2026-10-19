@@ -363,7 +363,7 @@ export function parseEnclosure(raw) {
   // A cell that lists open-frame printers among those the filament prints on ("Enclosed-frame (recommended), open-frame",
   // "Enclosed frame recommended; open frame compatible") allows printing open: the enclosure is a preference, which the raw
   // column keeps (D168; reviewers had typed these not-needed under D33, and this reader read them as recommended).
-  if (/\bopen[- ]frame\b/i.test(text) && !/\b(?:not|avoid\w*|never)\b[^.;]{0,30}\bopen[- ]frame\b|\bopen[- ]frame\b[^.;]{0,30}\b(?:not|unsuitable)\b/i.test(text)) return { text, state: 'not-needed' };
+  if (/\bopen[- ]frame\b/i.test(text) && !/\b(?:not|avoid\w*|never)\b[^.;]{0,30}\bopen[- ]frame\b|\bopen[- ]frame\b[^.;]{0,40}\b(?:not|unsuitable|cause\w*|warp\w*|crack\w*|fail\w*|problems?|issues?)\b/i.test(text)) return { text, state: 'not-needed' };
   if (/\bideal\s+for\s+use\s+in\s+open\b/i.test(text)) return { text, state: 'not-needed' };
   if (/\b(best|better)\s+with\s+an?\s+enclosed\s+(print\s+area|printer|build\s+(area|volume|space))\b|^print(ing)?\s+in\s+an?\s+(enclosed|closed)\s+printer\b|^at\s+least\s+(a\s+)?closed\s+chamber\b/i.test(text)) return { text, state: 'recommended' };
   // Advice to use one, with no temperature: Siraya Tech's "Use an enclosure to maintain consistent temperature and reduce
@@ -412,7 +412,7 @@ export function parseNozzleDiameters(raw) {
 }
 
 const WEAR_CAUTION_RE = /\bmay\s+require\s+nozzle\s+replacements?\b|\bbe\s+prepared\s+to\s+replace\b|\bbrass\b[^.;]*\blife\b[^.;]*\breduced\b|\baccelerated\s+brass\s+wear\b|\bminimi[sz]e\w*\s+(?:the\s+)?(?:increased\s+)?wear\b|\bcan\s+be\s+minimi[sz]ed\s+by\b/i;
-const ASKS_FOR_NOZZLE_RE = /\brecommend\w*\b|\badvis\w*\b|\brequired?\b(?!\s+nozzle\s+replacements?)|\brequirement\b|\bmust\s+(?:use|be\s+printed)\b|\bneeds?\s+(?:an?\s+)?(?:hardened|wear|steel|ruby)/i;
+const ASKS_FOR_NOZZLE_RE = /\buse\s+(?:an?\s+)?(?:hardened|wear[- ]resistant|steel|ruby)\b|\brecommend\w*\b|\badvis\w*\b|\brequired?\b(?!\s+nozzle\s+replacements?)|\brequirement\b|\bmust\s+(?:use|be\s+printed)\b|\bneeds?\s+(?:an?\s+)?(?:hardened|wear|steel|ruby)/i;
 
 /** Abrasion column: does this material demand a hardened or abrasion-resistant nozzle? */
 export function parseAbrasion(raw) {
@@ -451,7 +451,7 @@ export function parseAbrasion(raw) {
   // Steel" list is (D168, the owner's ruling of 2026-10-19).
   // Eumakers' "stainless brass or resistant copper alloy nozzles" is the same advice (the research intake).
   // MatterHackers' "Stainless Steel , Olsson Ruby , or other hardened nozzle types" names stainless steel among them too.
-  if (/\bstainless(?:\s+steel)?\b[^.;]*\bor\b[^.;]*\b(?:harden\w*|resistant)\s+(?:\w+\s+)?(?:alloys?|nozzle\s+types?)\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
+  if (/\bstainless(?:\s+steel)?\b[^.;]*\bor\b[^.;]*\b(?:harden\w*|resistant)\s+(?:\w+\s+)?(?:alloys?|nozzle\s+types?)\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated', harderThanBrass: true };
   // A caution about wear, with no hardened nozzle asked for, is not a requirement: "may require nozzle replacements", "be
   // prepared to replace your nozzle … or upgrade", "brass nozzle … life may be reduced", "hardened steel nozzles minimise
   // increased wear" (D168). It says nothing either way, so a nozzle line that asks for one still decides (readAbrasion).
@@ -515,8 +515,9 @@ const OPTIONAL_NEED_RE = new RegExp([
   String.raw`\bif\s+excessive\s+moisture\b`,
   // FormFutura's "Once BVOH has been used or opened from its original vacuum-sealed packaging for a while it is advised to
   // dry", and Prusament's "Maximum 60°C for 4-8h depending on moisture" (D168, the owner's ruling of 2026-10-19).
-  String.raw`\bonce\s+[^.;]{0,80}?\b(?:opened|used)\b`,
-  String.raw`\bdepending\s+on\s+(?:the\s+)?(?:moisture|humidity|how\s+(?:wet|moist|damp))`,
+  // ... unless the sentence goes on to say it must be dried (the research intake's review, R06).
+  String.raw`\bonce\s+[^.;]{0,80}?\b(?:opened|used)\b(?![^.;]*\b(?:must|always|required|needs?\s+to)\b)`,
+  String.raw`(?<!\bmust\b[^.;]{0,80})\bdepending\s+on\s+(?:the\s+)?(?:moisture|humidity|how\s+(?:wet|moist|damp))`,
   // Spectrum's drying guide answers its need column "In justified cases" (the research intake, D168).
   String.raw`\bin\s+justified\s+cases\b`,
 ].join('|'), 'i');
@@ -554,7 +555,7 @@ function dryingNeed(s) {
 // "8-12hr" (Fiberlogy, P1914) spells the hour "hr" (the parser sweep of 2026-10-17, D141).
 const DRYING_HOURS_RE = /(\d+(?:\.\d+)?)\s*\+?\s*(?:h|hour|hours|hrs?)\b/i;
 // FormFutura writes the open end before the number: "Drying: +4 hours at max.110°C" (the research intake).
-const OPEN_BEFORE_RE = /\b(?:at\s+least|minimum|minimal|more\s+than|longer\s+than|over)\b[^;,.]*$|[>＞≥]\s*$|(?:^|[\s:])\+\s*$/i;
+const OPEN_BEFORE_RE = /\b(?:at\s+least|minimum|minimal|more\s+than|longer\s+than|over)\b[^;,.]*$|[>＞≥]\s*$|(?:^|:)\s*\+\s*$/i;
 const OPEN_AFTER_RE = /^\s*(?:h|hours?|hrs?)\b\s*(?:\+|or\s+(?:longer|more))/i;
 function hoursAreOpen(source, m) {
   const before = source.slice(0, m.index);

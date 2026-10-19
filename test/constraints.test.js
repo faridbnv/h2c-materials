@@ -365,6 +365,21 @@ test('without a hardened nozzle, a recorded requirement fails and a fibre filler
   assert.match(undisclosed.reason, /check the product/);
 });
 
+// D168 types "stainless steel or other hardened alloys" and a caution about wear as requiring no hardened nozzle; for a
+// user with only brass that is unresolved, in the maker's words, never a pass (the research intake's review, R01:
+// Protopasta's Stainless Steel PLA had passed on "No hardened-nozzle requirement recorded").
+test('without a hardened nozzle, a maker who asks for a nozzle harder than brass or warns of wear leaves it unresolved', () => {
+  const c = { kind: 'gate', gate: 'abrasive', hardenedAvailable: false };
+  const advised = (kind, text) => ({ ...abrasive('unknown', 'unfilled'), gates: { abrasive: 'unknown', abrasiveAdvice: { kind, text, profileId: 'P1' } } });
+  const harder = evaluateConstraint(advised('harder-than-brass', 'We recommend using nozzles from stainless steel or other hardened alloys.'), c);
+  assert.equal(harder.status, STATUS.UNKNOWN);
+  assert.match(harder.reason, /harder than brass.*stainless steel/);
+  const caution = evaluateConstraint(advised('wear-caution', 'may require nozzle replacements'), c);
+  assert.equal(caution.status, STATUS.UNKNOWN);
+  assert.match(caution.reason, /warns of nozzle wear.*nozzle replacements/);
+  assert.equal(evaluateConstraint(advised('wear-caution', 'x'), { ...c, hardenedAvailable: true }).status, STATUS.PASS);
+});
+
 // --- environment ------------------------------------------------------------
 
 const envCtx = (records) => ({

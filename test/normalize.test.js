@@ -646,5 +646,12 @@ test('the research intake: wordings the process readers learn', () => {
   assert.equal(parseDrying('55 °C +/- 5, 4 h').hoursOpen, false);
   assert.equal(parseEnclosure('Enclosure needed: 90°C heated chamber').state, 'recommended');
   assert.equal(parseEnclosure('Enclosure needed: No').state, 'not-needed');
+  // What the readers must not read the D168 way (the research intake's review, R06).
+  assert.equal(parseAbrasion('Use a hardened nozzle to minimise wear').requiresHardened, true);
+  assert.notEqual(parseEnclosure('Open-frame printers will cause warping').state, 'not-needed');
+  assert.equal(parseDrying('Once opened, the filament must be dried before use at 50 °C for 4 h').need, 'required');
+  assert.equal(parseDrying('It must be dried at 60 °C for 4-8 h depending on moisture').need, 'required');
+  assert.equal(parseDrying('65°C + 4h').hoursOpen, false);
+  assert.equal(parseDrying('Drying: +4 hours at max.110°C').hoursOpen, true);
   assert.equal(parseAbrasion('Nozzle: Stainless Steel , Olsson Ruby , or other hardened nozzle types').requiresHardened, null);
 });

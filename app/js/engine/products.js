@@ -220,6 +220,7 @@ export function productGates(material, grade) {
     drying: p?.drying?.need ?? 'unknown',
   };
   if (p?.from?.hardenedNozzle && p.hardenedNozzle != null) gates.abrasiveFrom = p.from.hardenedNozzle.label;
+  if (p?.hardenedNozzle == null && p?.nozzleAdvice) gates.abrasiveAdvice = p.nozzleAdvice;
   if (p?.from?.drying && p.drying) gates.dryingFrom = p.from.drying.label;
   return gates;
 }
