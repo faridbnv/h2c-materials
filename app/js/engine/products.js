@@ -190,7 +190,10 @@ export function productHeadline(material, grade, key, ctx = {}, state = null) {
     entry.estimate = base.estimate;
     entry.impliedBounds = base.impliedBounds ?? [];
   }
-  const related = (prediction?.evidence ?? []).flatMap((o) => o.measurementIds ?? [])
+  // An estimate withheld because the product's own values and its kind's model disagree (D167): said, with those values.
+  const withheld = !entry.estimate && !judged.treatment && judged.moisture === 'dry' ? grade.estimateWithheld?.[key] : null;
+  if (withheld) entry.withheld = withheld;
+  const related = (prediction?.evidence ?? withheld?.ownBand?.bands ?? []).flatMap((o) => o.measurementIds ?? [])
     .map((id) => ctx.measurementById?.get(id)).filter((x) => x?.gradeId === grade.id);
   if (related.length) {
     entry.related = related.slice(0, 3).map((x) => `${x.property} ${x.value} ${x.unit} (${x.specimenType ?? 'specimen not stated'}, ${x.direction ?? 'direction not stated'})`);

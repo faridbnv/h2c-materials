@@ -18,6 +18,14 @@ test('the conversions read from conversions.csv are the configuration they repla
   // How each kind learned before: a declared learns, else the rule the code applied to an unknown direction (D56).
   const expected = Object.fromEntries(Object.entries(fixture.conversions).map(([key, table]) => [key, Object.fromEntries(Object.entries(table)
     .map(([kind, c]) => [kind, { ...c, learns: c.learns ?? (/ unk( |$)/.test(kind) ? 'pairs, down only' : 'pairs') }]))]));
+  // What D167 (m451) changed since: the annealed kinds learn from several makers only, and a glassy matrix's annealed
+  // heat deflection has a kind of its own.
+  for (const [key, kind] of [['hdt045', 'HDT 0.45 annealed'], ['tensileModulusXY', 'tensile XY annealed'], ['tensileStrengthXY', 'ultimate XY annealed'], ['elongationXY', 'break XY annealed']]) {
+    expected[key][kind].learns = 'pairs, several makers';
+  }
+  assert.equal(conversions.hdt045['HDT 0.45 annealed glassy'].offset, -5);
+  assert.equal(conversions.hdt045['HDT 0.45 annealed glassy'].learns, 'pairs, several makers');
+  expected.hdt045['HDT 0.45 annealed glassy'] = conversions.hdt045['HDT 0.45 annealed glassy'];
   assert.deepEqual(conversions, expected);
   assert.deepEqual(wet, fixture.wet);
   const model = modelWith([], { conversions, wet });

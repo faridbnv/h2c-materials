@@ -190,9 +190,11 @@ function evaluateNumeric(material, c, ctx = {}) {
               ? `Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`
               : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
         : `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
-      const disclosure = h.asPublished ? ` Published ${fmtWords(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
+      const disclosure = (h.asPublished ? ` Published ${fmtWords(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
         : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state, c)}.`
-          : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '';
+          : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '')
+        // Its own sheets disagree beyond what their conversions allow (D167): nothing anchors the estimate.
+        + (est.ownBand?.disagree ? ` Its own sheets disagree on this property (${est.ownBand.bands.map((b) => rangeText(b.lo, b.hi, est.unit)).join(' against ')} once converted), so it is not tagged likely.` : '');
       // Said plainly (stage 3d; the trial read "outside the complete printer context used for screening validation").
       const permissionReason = est.screening && !permission ? ' Its estimate was tested only on products whose own sheets put the nozzle, bed and chamber plainly within the H2C, which this one\'s do not.' : '';
       return {
@@ -216,12 +218,14 @@ function evaluateNumeric(material, c, ctx = {}) {
         reason: withNote(`Published ${fmtWords(v.value)} ${h.unit} on a bar its sheet does not describe. For a plastic that prints glassy but can crystallise that is the most a printed part reaches (a moulded bar crystallises, a print does not), so it does not show the printed part meets ${requirementWords(c, h.unit)}; ask the maker how the bar was made, or test a printed coupon`, known),
       };
     }
+    // An estimate withheld because the product's own values and its kind's model disagree (D167): said after what follows.
+    const withheld = ctx.useEstimates && h?.withheld ? `. Its own values put it at ${rangeText(h.withheld.ownBand?.lo, h.withheld.ownBand?.hi, h.unit)} once converted, where its kind's estimate is ${fmtWords(h.withheld.centre)} ${h.unit}, so no estimate is shown` : '';
     // A product value the source published without the direction or the load: shown, and not comparable (D84).
     if (h?.asPublished) {
       const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the specimen orientation';
       return {
         status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished,
-        reason: withNote(`Published ${fmtWords(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values`, known),
+        reason: withNote(`Published ${fmtWords(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values${withheld}`, known),
       };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
@@ -232,7 +236,7 @@ function evaluateNumeric(material, c, ctx = {}) {
       status: STATUS.UNKNOWN,
       reason: withNote(h?.missing === 'not-available-in-market'
         ? 'No price in the sampled shops'
-        : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon', known),
+        : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}${withheld}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon', known),
       criterion: label,
       missing: h?.missing ?? 'not-published',
     };
@@ -840,8 +844,20 @@ function groupOf(verdict, screened, unresolved) {
   if (unresolved.every(isPrinterCheck) || (unresolved.length === 1 && (unresolved[0].onTheLine || unresolved[0].sheetsDisagree))) {
     return { group: GROUP.ONE_CHECK, likely: false, open: unresolved };
   }
-  const likely = unresolved.length > 0 && unresolved.every((r) => r.estimated && meetsLimit(r.estimate?.lo, r.estimate?.hi, r.constraint));
+  const likely = unresolved.length > 0 && unresolved.every((r) => r.estimated && meetsLimit(r.estimate?.lo, r.estimate?.hi, r.constraint) && !ownForbidsLikely(r));
   return { group: GROUP.NOT_ENOUGH, likely, open: unresolved };
+}
+
+/**
+ * Whether a product's own values of the asked property, measured another way, forbid the likely tag (D167): one of them,
+ * converted through its kind's band, wholly misses the limit, or its own sheets disagree beyond those bands and not every
+ * one meets it. An estimate never claims more than the product's own sheet allows.
+ */
+function ownForbidsLikely(r) {
+  const own = r.estimate?.ownBand;
+  if (!own?.bands?.length) return false;
+  const judged = own.bands.map((b) => compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, r.constraint.operator, r.constraint.value));
+  return judged.includes(STATUS.FAIL) || (own.disagree && judged.some((s) => s !== STATUS.PASS));
 }
 
 /**

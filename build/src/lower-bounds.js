@@ -21,8 +21,10 @@ export const PRINTED_FORMS = ['printed'];
  * specimens the headline names (`def.lowerBounds.forms`, or `forms` where a back-test asks for others):
  * [{ measurementId, gradeId, property, direction, lo, unit }]. Any direction bounds: a printed part is strongest in XY,
  * so a Z or unstated-direction strength is at most its XY one. A state the headline is not in bounds nothing either: an
- * annealed value where the grade publishes the as-printed one, or a moisture state the rule excludes (conditioning
- * raises a nylon's strain at break). Nothing a physics lint flagged or the data quarantined bounds anything.
+ * annealed value of a headline that changes with annealing (D167: an annealed HDT at 1.8 MPa held Bambu Lab PET-CF's
+ * as-printed estimate at 182 °C, where the data's own pairs put a printed PET-CF near 87), an annealed value where the
+ * grade publishes the as-printed one, or a moisture state the rule excludes (conditioning raises a nylon's strain at
+ * break). Nothing a physics lint flagged or the data quarantined bounds anything.
  */
 export function lowerBoundsOf(def, own, { forms: asked } = {}) {
   const rel = def.lowerBounds;
@@ -30,7 +32,7 @@ export function lowerBoundsOf(def, own, { forms: asked } = {}) {
   const forms = asked ?? rel.forms ?? BOUNDING_FORMS;
   return own
     .filter((m) => m.numeric && !m.quarantined && !m.implausible && forms.includes(m.specimenForm) && m.operator !== '<' && m.operator !== '<=')
-    .filter((m) => !annealedBesideAsPrinted(m, own))
+    .filter((m) => (def.changesWithAnnealing ? m.postProcessingState !== 'annealed' : !annealedBesideAsPrinted(m, own)))
     .filter((m) => !(rel.excludeMoisture ?? []).includes(m.moistureState))
     .filter((m) => rel.properties.includes(m.property) && (rel.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - rel.loadMPa) < 0.05)))
     .map((m) => ({ measurementId: m.id, gradeId: m.gradeId, property: m.property, direction: m.direction,

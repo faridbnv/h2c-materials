@@ -16,7 +16,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
   // `formulation` predicts one grade rather than the material: its own published bounds take part, not its siblings',
   // and the density limit asks whether that grade is a declared variant (D81). A material call passes none: the
   // material's own bounds take part, and the density limit asks whether all its products are variants.
-  return (m, subject, p, unit, { ownBounds = true, formulation, implied, ceilings = [] } = {}) => {
+  return (m, subject, p, unit, { ownBounds = true, formulation, implied, ceilings = [], anchor = null } = {}) => {
     const h = { unit };
     const bounds = [];
     // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer
@@ -77,8 +77,15 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
         }
       }
     }
-    // A grade's own moulded or undescribed value caps it from above (D160, lower-bounds.js ownCeilingsOf): held under, as
-    // a published bound is.
+    // A grade's own values of the asked property measured another way hold it inside the band they allow, from both
+    // sides (D167, anchor.js), as a published bound is held. D160's one-sided ceiling, the lowest moulded or undescribed
+    // value times 1.16, is kept for the back-test's comparison only (floors.js `ceilings`).
+    if (anchor && !anchor.disagree) {
+      const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
+      const ids = anchor.bands.flatMap((b) => b.measurementIds).join(', ');
+      bounds.push({ side: 'lower', own: inv(anchor.lo), value: anchor.lo, sd: model.bounds.oneSided.sd[scaleName], why: `at least ${sig3(inv(anchor.lo), -1)} ${h.unit}: what its own ${ids} allow` });
+      bounds.push({ side: 'upper', own: inv(anchor.hi), value: anchor.hi, sd: model.bounds.oneSided.sd[scaleName], why: `at most ${sig3(inv(anchor.hi), 1)} ${h.unit}: what its own ${ids} allow` });
+    }
     for (const c of ceilings.filter((x) => !x.unit || x.unit === h.unit)) {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       if (scaleName === 'log' && !(c.hi > 0)) continue;

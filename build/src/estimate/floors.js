@@ -36,7 +36,9 @@ const inside = (v, [lo, hi]) => v >= lo - 1e-9 * Math.abs(lo) && v <= hi + 1e-9 
  * plausible range. Null for a headline with no lower bounds.
  */
 export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv = {}, ledgerRows = [] }) {
-  if ((!def?.lowerBounds && !model.properties[key].ownCeiling) || !loo.length) return null;
+  // D160's ceiling, which D167 replaced by the two-sided anchor (anchor.js), is still measured here for comparison.
+  const ceilingRows = ledgerRows.some((r) => r.target === key && r.kind === 'demote-to-ceiling' && !r.appliesToText);
+  if ((!def?.lowerBounds && !ceilingRows) || !loo.length) return null;
   const log = model.properties[key].scale === 'log';
   // An undescribed bar read as a moulded one: its floor times the learned moulded conversion (headline over moulded).
   const moulded = log ? conv[HEAD[key].replace(' XY', ' moulded')] : null;
@@ -72,7 +74,7 @@ export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv 
       containmentUnstated: unstated,
       formulationUnstated: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS }),
       // D160: the grade rule with the hidden product's own moulded or undescribed values as ceilings, alone and with its floors.
-      ...(model.properties[key].ownCeiling ? {
+      ...(ceilingRows ? {
         formulationCeilings: { implied: [], ceilings: ownCeilingsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), ledgerRows) },
         formulationBoth: { implied: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f)), ceilings: ownCeilingsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), ledgerRows) },
       } : {}),

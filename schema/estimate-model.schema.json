@@ -39,12 +39,13 @@
     "notApplicable": { "type": "object", "additionalProperties": false, "required": ["support"], "properties": { "support": { "type": "string" } } },
     "fitting": {
       "type": "object", "additionalProperties": false, "patternProperties": { "^_|Why$": { "type": ["string", "array"] } },
-      "required": ["documentedPairs", "minPairsForSpread", "keepKindsWithinSpread", "minBetweenProductPairs", "conflictZ", "conflictNoiseFactor", "conflictPasses"],
+      "required": ["documentedPairs", "minPairsForSpread", "keepKindsWithinSpread", "minBetweenProductPairs", "conflictZ", "conflictNoiseFactor", "conflictPasses", "severalMakers"],
       "properties": {
         "documentedPairs": { "type": "number", "minimum": 0 }, "minPairsForSpread": { "type": "integer", "minimum": 2 },
         "keepKindsWithinSpread": { "type": "number", "minimum": 1 }, "minBetweenProductPairs": { "type": "integer", "minimum": 1 },
         "conflictZ": { "type": "number", "exclusiveMinimum": 0 }, "conflictNoiseFactor": { "type": "number", "minimum": 1 }, "conflictPasses": { "type": "integer", "minimum": 0 },
-        "spreadSampleMax": { "type": "integer", "minimum": 50 }
+        "spreadSampleMax": { "type": "integer", "minimum": 50 },
+        "severalMakers": { "description": "A conversion whose Estimate learns is \"pairs, several makers\" keeps its documented offset and spread until at least this many pairs from at least this many makers publish both kinds (D167).", "type": "object", "additionalProperties": false, "required": ["pairs", "makers"], "properties": { "pairs": { "type": "integer", "minimum": 1 }, "makers": { "type": "integer", "minimum": 1 } } }
       }
     },
     "calibration": {
@@ -72,7 +73,7 @@
       "properties": {
         "scale": { "enum": ["log", "linear"] },
         "reliabilityLimits": { "description": "The limits the presets ask of the headline, at which the grade calibration reports the predicted chance of meeting each beside how often the hidden value met it (D165).", "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["operator", "value"], "properties": { "operator": { "enum": [">=", "<="] }, "value": { "type": "number" } } } },
-        "ownCeiling": { "description": "true: a grade's own moulded or undescribed value of the headline caps its estimate, through the demote-to-ceiling rows of conversions.csv (D160).", "type": "boolean" },
+        "ownAnchor": { "description": "true: a grade's own values of the headline's property measured another way hold its estimate inside the band they allow, from both sides, and withhold it where the model's centre lies outside (D167, replacing D160's one-sided ceiling).", "type": "boolean" },
         "ownCeilingTest": { "description": "true: the build back-tests whether an estimate may cross a limit the product's own moulded or undescribed value misses (properties.*.ownValue, D160).", "type": "boolean" },
         "productSpreadByMatrix": { "description": "true: a matrix that crystallises as printed, filled or unfilled, takes its own measured product-to-product spread where it has enough pairs (D162). Absent or false: one spread for every matrix.", "type": "boolean" },
         "scaleUnit": { "type": "number", "exclusiveMinimum": 0 },

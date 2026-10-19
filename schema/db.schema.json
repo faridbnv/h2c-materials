@@ -400,12 +400,16 @@
                 "impliedBounds": {
                   "type": "array"
                 },
-                "ownCeilings": {
-                  "description": "The product's own moulded or undescribed values that cap this estimate, each times its conversions.csv row's Factor high (D160). Absent where none does.",
-                  "type": "array",
-                  "items": { "type": "object", "additionalProperties": false, "required": ["measurementId", "hi", "rule"], "properties": { "measurementId": { "type": "string" }, "hi": { "type": "number" }, "rule": { "type": "string" } } }
-                }
+                "ownBand": { "$ref": "#/$defs/ownBand" }
               }
+            }
+          },
+          "estimateWithheld": {
+            "type": "object",
+            "description": "Per headline, why the product shows no estimate (D167): its own values of the property, measured another way and converted, allow a band its kind's model centre lies outside.",
+            "additionalProperties": {
+              "type": "object", "additionalProperties": false, "required": ["centre", "ownBand", "why"],
+              "properties": { "centre": { "type": "number" }, "ownBand": { "$ref": "#/$defs/ownBand" }, "why": { "type": "string" } }
             }
           },
           "headline": {
@@ -2836,6 +2840,15 @@
           }
         }
       ]
+    },
+    "ownBand": {
+      "description": "What a product's own values of the asked property, measured another way, allow its printed value to be (D167, build/src/estimate/anchor.js): each converted value within its conversion's plausible spread (bands), and their intersection (lo, hi), or disagree where they do not meet.",
+      "type": "object", "additionalProperties": false, "required": ["disagree", "bands"],
+      "properties": {
+        "disagree": { "type": "boolean" }, "lo": { "type": "number" }, "hi": { "type": "number" },
+        "bands": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["kind", "measurementIds", "lo", "hi"],
+          "properties": { "kind": { "type": "string" }, "measurementIds": { "type": "array", "items": { "type": "string" } }, "lo": { "type": "number" }, "hi": { "type": "number" }, "conflict": { "const": true } } } }
+      }
     },
     "productValue": {
       "description": "A product's own value for one headline, chosen by rule (build/src/products.js, re-center phase 1): the measurement, its evidence level (comparable, or as published where the source leaves the direction or the load unstated), and what qualifies it. The source and conditions are the measurement's. A price is the median of the product's own sample listings. It decides nothing until the engine reads products (phase 2).",

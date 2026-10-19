@@ -23,6 +23,7 @@
   "_levelsComment": "The likely range is what the tool shows. The plausible range is what may screen a material out of Explore.",
   "properties": {
     "density": {
+      "ownAnchor": true,
       "reliabilityLimits": [{"operator": "<=", "value": 1500}, {"operator": "<=", "value": 1250}],
       "scale": "log",
       "scaleUnit": 0.08,
@@ -48,7 +49,7 @@
     },
     "tensileModulusXY": {
       "ownCeilingTest": true,
-      "ownCeiling": true,
+      "ownAnchor": true,
       "reliabilityLimits": [{"operator": ">=", "value": 2.5}, {"operator": ">=", "value": 3}, {"operator": ">=", "value": 5}, {"operator": "<=", "value": 0.1}],
       "scale": "log",
       "scaleUnit": 0.3,
@@ -74,6 +75,7 @@
     },
     "tensileStrengthXY": {
       "ownCeilingTest": true,
+      "ownAnchor": true,
       "_ownCeiling": "Not capped: with its floors, a grade's own undescribed strength as a ceiling held the hidden value 71.7 / 88.3 % (likely / plausible), under the 90 % the plausible range must hold; its floors alone 75.0 / 91.7 % (D160).",
       "scale": "log",
       "scaleUnit": 0.3,
@@ -99,6 +101,7 @@
     },
     "elongationXY": {
       "ownCeilingTest": true,
+      "ownAnchor": true,
       "reliabilityLimits": [{"operator": ">=", "value": 100}],
       "scale": "log",
       "scaleUnit": 0.3,
@@ -125,6 +128,7 @@
     "hdt045": {
       "_productSpreadByMatrix": "A crystalline matrix's products scatter in heat deflection with their crystallinity, far more than a glassy one's: 33.6 °C between filled ones (121 pairs) and 18.9 °C between unfilled ones (31) against 3.1 °C between amorphous ones (5246). One pooled spread, set by the many amorphous pairs, served every matrix and pushed the grade scales to the clamp (D162). Stiffness, strength and stretch keep one spread: a crystalline filled matrix's own stiffness spread (0.149 against 0.267) narrowed its products' ranges below their coverage (likely 54 % against 68 % with the pooled spread).",
       "productSpreadByMatrix": true,
+      "ownAnchor": true,
       "reliabilityLimits": [{"operator": ">=", "value": 80}, {"operator": ">=", "value": 90}, {"operator": ">=", "value": 100}],
       "scale": "linear",
       "scaleUnit": 30,
@@ -226,6 +230,8 @@
     "conflictNoiseFactor": 25,
     "conflictPasses": 2,
     "conflictWhy": "An observation whose leave-one-out residual exceeds conflictZ standard deviations has its noise variance multiplied by conflictNoiseFactor (its spread by 5), at most conflictPasses times, and is reported. A material's only evidence for a headline is never down-weighted.",
+    "severalMakers": { "pairs": 5, "makers": 2 },
+    "severalMakersWhy": "A conversion that learns from several makers (conversions.csv Estimate learns \"pairs, several makers\": the annealed kinds) keeps its documented offset and spread until at least 5 pairs from at least 2 makers publish both kinds. Three PPA pairs of one maker (Siraya Tech, +101 to +108 °C) once taught the annealed heat deflection −77 °C for every crystalline matrix, where a hot-printed nylon or PPS is already crystalline and gains far less (D167).",
     "spreadSampleMax": 400,
     "spreadSampleMaxWhy": "The spread search sees at most this many observations: every measured headline, then the rest one material at a time in turn. A search is hundreds of fits and a fit is cubic in what it sees, so this is where the stage's cost is. The posterior, the calibration and the screening back-test still see every observation. At 400 the searched spreads match a search on everything to within 0.02 of a scale unit (DECISIONS D77)."
   },

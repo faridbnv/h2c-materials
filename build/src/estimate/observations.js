@@ -68,6 +68,8 @@ export function snapshot(materials, gradeList, measurements, model) {
 // read as an unknown direction, with that conversion's wider spread.
 const DIRECTION_CLASS = { XY: 'XY', XZ: 'XY', Z: 'Z', ZX: 'Z' };
 const mouldedValue = (x) => specimenForm(x.specimenType ?? 'Not published') === 'moulded';
+// Transitions of the polymer, which an anneal does not move by much: read as published, annealed or not (D167).
+const TRANSITIONS = new Set(['Glass transition temperature', 'Melting temperature', 'Vicat softening temperature']);
 const STRENGTH_ENDPOINT = {
   'Tensile strength (endpoint unspecified)': 'ultimate', 'Tensile break strength': 'break',
   'Tensile yield strength': 'yield', 'Flexural strength': 'flexural',
@@ -133,7 +135,8 @@ export function rawObservations(key, S, model, { changesWithAnnealing = false } 
   for (const m of S.pool) {
     const add = (entry) => {
       const g = `${m.id}|${entry.f}|${entry.kind}`;
-      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, kind: entry.kind, ys: [], half: [], items: [], states: new Set(), pairOnly: true });
+      // The maker, as test house: a conversion that learns only from several makers' pairs counts them (D167).
+      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, maker: S.grades.get(entry.gradeId)?.manufacturer ?? null, kind: entry.kind, ys: [], half: [], items: [], states: new Set(), pairOnly: true });
       const e = groups.get(g);
       e.ys.push(entry.y); e.half.push(entry.half); e.items.push(entry.item); e.states.add(entry.state ?? '');
       // A group is pair-only while every value in it is an annealed value beside its as-printed twin.
@@ -145,14 +148,15 @@ export function rawObservations(key, S, model, { changesWithAnnealing = false } 
       // A polymer that prints amorphous and was annealed is crystallised: another state, which no estimate of an
       // as-printed part may learn from.
       if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.info(m).morphology === 'semicrystalline' && x.postProcessingState === 'annealed') continue;
-      // An annealed value of the headline's own semantics is another state of the part, not the headline (D162): it
-      // converts as a kind of its own, learned from the grades that publish both. Annealed above the glass transition
-      // or at a temperature the sheet does not state; an amorphous polymer held below it is stress-relieved, a few
-      // degrees, and stays the headline's kind, as an amorphous bar's heat deflection does.
-      const annealed = changesWithAnnealing && kind === HEAD[key] && x.postProcessingState === 'annealed'
-        && (key !== 'hdt045' || S.matrix(m) === 'semi-filled' || S.matrix(m) === 'semi-unfilled')
-        && !(x.anneal?.tempC != null && S.tgOf(m) != null && x.anneal.tempC <= S.tgOf(m));
-      if (annealed) kind = `${kind} annealed`;
+      // An annealed value is another state of the part, not the headline (D162, D167): of the headline's own kind or
+      // a related one (an HDT at 1.8 MPa), it converts as a kind of its own, through the annealed offset the grades that
+      // publish both teach (conversions.js). What an anneal is, is the core's one rule: a treatment at or below its
+      // polymer's annealing threshold (polymers.csv) already compiled as printed (D158), so every value still annealed
+      // here was annealed. A glassy matrix's heat deflection rises a few degrees on annealing, a crystalline one's tens,
+      // so heat deflection has an annealed kind per matrix. A transition (glass transition, melting, Vicat) is the
+      // polymer's and is read as published.
+      const annealed = changesWithAnnealing && x.postProcessingState === 'annealed' && !TRANSITIONS.has(x.property);
+      if (annealed) kind = `${kind} ${key === 'hdt045' && S.matrix(m) === 'amorphous' ? 'annealed glassy' : 'annealed'}`;
       // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
       // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C. As a kind of its
       // own it is kept for its conversion's pairs alone (pairOnly), never as an observation beside its twin.

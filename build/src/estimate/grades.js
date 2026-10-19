@@ -16,15 +16,16 @@
 // D137 adds separate independent exclusion certification without changing these displayed ranges.
 
 import { quantile, median, normalCdf } from './numerics.js';
-import { HEAD, identityOf, sig3 } from './model.js';
+import { HEAD, identityOf, sig3, transform } from './model.js';
 import { predict } from './gaussian.js';
-import { lowerBoundsOf, ownCeilingsOf } from '../lower-bounds.js';
+import { lowerBoundsOf } from '../lower-bounds.js';
+import { ownBand, publishBand } from './anchor.js';
 
 /**
  * Hide each grade's own observations of the headline's own kind and predict them: the grade-level scales, their
  * coverage, and the grades whose published value sits far outside what everything else predicts.
  */
-export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible, tmMean = () => 0 }) {
+export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, holdOut, zLikely, zPlausible, tmMean = () => 0 }) {
   const cfg = model.calibration;
   const groups = new Map();
   obs.forEach((o, i) => {
@@ -92,6 +93,60 @@ export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausib
   const foldOf = new Map(order.map((id, i) => [id, i % cfg.folds]));
   calibration.byFold = Object.entries(groupBy((h) => foldOf.get(h.o.m.id))).sort().map(([, hs]) => ({ held: hs.length,
     plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, calPlausible)).length / hs.length) }));
+  // The anchor's back-test (D167, anchor.js): each hidden grade that publishes the asked property another way too. Does
+  // its own band hold its hidden value; where the model's centre lies outside the band (its estimate withheld), which
+  // was right; and do its ranges, held inside the band, still hold the hidden value as often as they claim.
+  // A band is its conversion's spread at the plausible level, widened by a scale per side set as the ranges' are: from
+  // where the hidden values fell against each band of their own product (each band on its own), so each side holds the
+  // hidden value as often as it claims (97.5 % each). Unscaled, the bands held 85 to 90 %, not 95 %; and a printed bar
+  // falls far below its own moulded value more often than it rises above it, so the sides differ (D167).
+  let bandScale = { lo: cfg.defaultScale, hi: cfg.defaultScale };
+  if (def) {
+    const up = [], down = [];
+    for (const h of held) {
+      const own = ownObs.filter((o) => o.m.id === h.o.m.id && o.f === h.o.f && o.kind !== HEAD[key]);
+      for (const b of ownBand({ def, model, key, own, centreOf: (o) => o.y, zPlausible, scale: 1 })?.bands ?? []) {
+        const z = (h.o.y - (b.lo + b.hi) / 2) / ((b.hi - b.lo) / 2);
+        up.push(Math.max(0, z)); down.push(Math.max(0, -z));
+      }
+    }
+    const side = 0.5 + model.levels.plausible / 2;
+    if (up.length >= cfg.minHeld) bandScale = { lo: clamp(quantile(down, side), [1, cfg.plausibleScale[1]]), hi: clamp(quantile(up, side), [1, cfg.plausibleScale[1]]) };
+  }
+  if (def) {
+    const rows = { cases: 0, disagree: 0, inBand: 0, inNominal: 0, withheld: 0, withheldInBand: 0, withheldInModel: 0, anchored: 0,
+      likelyBefore: 0, plausibleBefore: 0, likelyAfter: 0, plausibleAfter: 0 };
+    for (const h of held) {
+      const own = ownObs.filter((o) => o.m.id === h.o.m.id && o.f === h.o.f && o.kind !== HEAD[key]);
+      const band = ownBand({ def, model, key, own, centreOf: (o) => o.y, zPlausible, scale: bandScale });
+      if (!band) continue;
+      rows.cases++;
+      if (band.disagree) { rows.disagree++; continue; }
+      const y = h.o.y, inBand = y >= band.lo && y <= band.hi;
+      if (inBand) rows.inBand++;
+      if (band.bands.every((b) => y >= b.lo && y <= b.hi)) rows.inNominal++;
+      const sdL = Math.sqrt((h.p.sd * calLikely) ** 2 + h.o.noise2), sdP = Math.sqrt((h.p.sd * calPlausible) ** 2 + h.o.noise2);
+      const inRange = (z, sd, held) => {
+        const lo = h.p.mu - z * sd, hi = h.p.mu + z * sd;
+        return held ? y >= Math.max(lo, band.lo) && y <= Math.min(hi, band.hi) : y >= lo && y <= hi;
+      };
+      if (h.p.mu < band.lo || h.p.mu > band.hi) {
+        rows.withheld++;
+        if (inBand) rows.withheldInBand++;
+        if (inRange(zPlausible, sdP, false)) rows.withheldInModel++;
+        continue;
+      }
+      rows.anchored++;
+      rows.likelyBefore += inRange(zLikely, sdL, false); rows.plausibleBefore += inRange(zPlausible, sdP, false);
+      rows.likelyAfter += inRange(zLikely, sdL, true); rows.plausibleAfter += inRange(zPlausible, sdP, true);
+    }
+    const share = (n, d) => (d ? r3(n / d) : null);
+    calibration.anchor = { bandScale: { lo: r3(bandScale.lo), hi: r3(bandScale.hi) }, cases: rows.cases, disagree: rows.disagree,
+      bandCoverage: share(rows.inNominal, rows.cases - rows.disagree), anchorCoverage: share(rows.inBand, rows.cases - rows.disagree),
+      withheld: rows.withheld, withheldInBand: rows.withheldInBand, withheldInModel: rows.withheldInModel, anchored: rows.anchored,
+      likelyBefore: share(rows.likelyBefore, rows.anchored), plausibleBefore: share(rows.plausibleBefore, rows.anchored),
+      likelyAfter: share(rows.likelyAfter, rows.anchored), plausibleAfter: share(rows.plausibleAfter, rows.anchored) };
+  }
   // The worst hidden value per grade, where it sits beyond what the calibrated plausible range allows.
   const outliers = new Map();
   for (const h of held) {
@@ -103,7 +158,7 @@ export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausib
         measurementIds: h.o.items.map((x) => x.measurementId).filter(Boolean), z: Math.round(z * 10) / 10 });
     }
   }
-  return { calLikely, calPlausible, calibration, outliers: [...outliers.values()] };
+  return { calLikely, calPlausible, bandScale, calibration, outliers: [...outliers.values()] };
 }
 
 /**
@@ -125,27 +180,12 @@ export function formulationFloors(def, S) {
 }
 
 /**
- * What each formulation's own moulded or undescribed values cap a headline at (lower-bounds.js ownCeilingsOf, D160),
- * for a headline the model caps so (estimate-model.json ownCeiling): the ceilings a grade's range is held under.
- */
-export function formulationCeilings(def, S, rows, model) {
-  const byF = new Map();
-  if (model.properties[def?.key]?.ownCeiling) {
-    for (const list of S.byMaterial.values()) for (const x of list) {
-      const f = S.fkey(x.gradeId);
-      if (!byF.has(f)) byF.set(f, []);
-      byF.get(f).push(x);
-    }
-  }
-  const ceilings = new Map([...byF].map(([f, own]) => [f, ownCeilingsOf(def, own, rows)]));
-  return (f) => ceilings.get(f) ?? [];
-}
-
-/**
  * The estimate of every active grade of every material in the pool, for one headline: attached to the grade as
  * `estimate[key]`. Grades that share a formulation share one posterior and say so.
  */
-export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf, ceilingsOf = () => [], centres = null }) {
+export function attachGradeEstimates({ key, def, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf, zPlausible, bandScale = 1, anchorOn = true, ownObs = obs, centres = null, withheld = [] }) {
+  // The fit's conflict flags, for the bands it publishes: a flag says a value disagrees with its material, not with itself.
+  const conflicted = new Set(obs.filter((o) => o.conflict).map((o) => `${o.m.id}|${o.f}|${o.kind}`));
   const byFormulation = new Map();
   for (const g of S.grades.values()) {
     if (g.retired || !S.inPool.has(g.materialId)) continue;
@@ -169,10 +209,31 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
     p.mu += tmMean(subject);
     // The model's centre before any bound, for the unstated-direction back-test (directions.js), read rather than predicted twice.
     if (centres) centres.set(`${m.id}|${f}`, inv(p.mu));
+    const own = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.f === f && (o.m.id === m.id || o.m.id === subject.id));
+    // What its own values of the asked property, measured another way, allow (anchor.js, D167): the estimate is held
+    // inside it, from both sides, where the model's centre lies inside; where it lies outside, the product's own sheet
+    // and its kind's model disagree, and no estimate is shown. Where its own sheets disagree, nothing anchors it.
+    const band = ownBand({ def, model, key, zPlausible, scale: bandScale, centreOf: (o) => o.y + tmMean(o.m),
+      own: ownObs.filter((o) => o.f === f && (o.m.id === m.id || o.m.id === subject.id)).map((o) => ({ ...o, conflict: conflicted.has(`${o.m.id}|${o.f}|${o.kind}`) })) });
+    // A floor its own values prove (a yield stress under the ultimate) above a band they allow is its own sheets
+    // disagreeing too: Extrudr DURAPRO PA6 CF yields at 120 MPa on an undescribed bar and 60 MPa on a moulded one.
+    const floorTop = Math.max(-Infinity, ...floorsOf(f).filter((b) => (!b.unit || b.unit === h.unit) && (cfg.scale !== 'log' || b.lo > 0)).map((b) => transform(key, model)(b.lo)));
+    if (band && !band.disagree && band.bands.some((b) => b.hi < floorTop)) band.disagree = true;
+    const anchor = anchorOn && band && !band.disagree ? band : null;
+    if (anchor && (p.mu < anchor.lo || p.mu > anchor.hi)) {
+      const note = { centre: sig3(inv(p.mu)), ownBand: publishBand(band, inv),
+        why: `its own ${band.bands.flatMap((b) => b.measurementIds).join(', ')} put its printed value at ${sig3(inv(anchor.lo), -1)} to ${sig3(inv(anchor.hi), 1)} ${h.unit}, where its kind's model puts it at ${sig3(inv(p.mu))}` };
+      for (const g of grades) {
+        if (g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values?.[key]?.level === 'comparable') continue;
+        g.estimateWithheld ??= {};
+        g.estimateWithheld[key] = note;
+        withheld.push({ key, gradeId: g.id, materialId: m.id, ...note });
+      }
+      continue;
+    }
     // Every grade takes the bounds its own sheets publish, and the floors its own measurements prove: a yield or break
     // stress under its ultimate strength, a heat deflection at 1.8 MPa under the one at 0.45 MPa (bounds.js, D126).
-    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f, implied: floorsOf(f), ceilings: ceilingsOf(f) });
-    const own = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.f === f && (o.m.id === m.id || o.m.id === subject.id));
+    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f, implied: floorsOf(f), anchor });
     const mine = obs.some((o) => o.m.id === m.id);
     const strength = own.length ? 'this-grade' : mine ? 'this-material' : 'family';
     const total = p.weights.reduce((a, v) => a + v, 0);
@@ -184,7 +245,9 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
       centre: sig3(centre), lo: sig3(range[0], -1), hi: sig3(range[1], 1),
       plausible: { lo: sig3(wide[0], -1), hi: sig3(wide[1], 1) },
       impliedBounds: floorsOf(f),
-      ...(ceilingsOf(f).length ? { ownCeilings: ceilingsOf(f).map((c) => ({ measurementId: c.measurementId, hi: sig3(c.hi, 1), rule: c.rule })) } : {}),
+      // What its own values allow (D167), published whether or not it holds the range, so the engine tags no product
+      // likely against its own sheet.
+      ...(band ? { ownBand: publishBand(band, inv) } : {}),
       ownShare: total > 0 ? Math.round(Math.max(0, Math.min(1, ownWeight / total)) * 100) / 100 : 0,
       evidence: own.map(({ o }) => ({ kind: o.kind, measurementIds: o.items.map((x) => x.measurementId).filter(Boolean),
         converted: sig3(inv(o.y + tmMean(o.m))), conflict: !!o.conflict })),

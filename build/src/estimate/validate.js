@@ -295,6 +295,24 @@ export function estimateReportLines(db) {
     L.push('');
     L.push(`Grade plausible coverage by fold of materials: ${gradeRows.map(([key, p]) => `${key} ${(p.gradeCalibration.byFold ?? []).map((f) => f.plausibleCoverage).join(', ')}`).join('; ')}. Median grade plausible width: ${gradeRows.map(([key, p]) => `${key} ${p.gradeCalibration.medianPlausibleWidth}`).join(', ')}.`);
     L.push('');
+    // D167: what a product's own values of the property, measured another way, allow; the back-test on hidden grades
+    // that publish both, and where the anchor holds the estimates.
+    L.push('A product\'s own values as its anchor (D167): hidden grades that publish the property another way too; how often their own bands (as the conversions state them) and anchors (widened by the band scale) hold the hidden value; where the model\'s centre lay outside the anchor (its estimate withheld), how often the band and the model held it; and the anchored ranges\' coverage before and after.');
+    L.push('');
+    L.push('| Headline | Cases | Sheets disagree | Band / anchor coverage | Band scale (low / high side) | Withheld (band right / model right) | Anchored | Likely before → after | Plausible before → after | Used | Shipped: anchored, withheld, disagree |');
+    L.push('|---|---:|---:|---|---:|---|---:|---|---|---|---|');
+    for (const [key, p] of gradeRows) {
+      const a = p.gradeCalibration.anchor;
+      if (!a) continue;
+      const shipped = (mdl.gradeAnchors ?? {})[key] ?? {};
+      L.push(`| ${key} | ${a.cases} | ${a.disagree} | ${a.bandCoverage} / ${a.anchorCoverage} | ${a.bandScale.lo} / ${a.bandScale.hi} | ${a.withheld} (${a.withheldInBand} / ${a.withheldInModel}) | ${a.anchored} | ${a.likelyBefore} → ${a.likelyAfter} | ${a.plausibleBefore} → ${a.plausibleAfter} | ${a.used ? 'yes' : 'no'} | ${shipped.anchored ?? 0}, ${shipped.withheld ?? 0}, ${shipped.disagree ?? 0} |`);
+    }
+    L.push('');
+    const documented = gradeRows.flatMap(([key, p]) => Object.entries(p.conversions ?? {}).filter(([, c]) => c.learned === false).map(([kind, c]) => `${key} ${kind} ${c.offset} (${c.pairs} pairs of ${c.makers} makers)`));
+    if (documented.length) {
+      L.push(`Conversions that learn from several makers only and keep their documented offset (D167): ${documented.join('; ')}.`);
+      L.push('');
+    }
     if (mdl.gradeOutliers?.length) {
       const by = new Map();
       for (const o of mdl.gradeOutliers) by.set(o.material, (by.get(o.material) ?? 0) + 1);

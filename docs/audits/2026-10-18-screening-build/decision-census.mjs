@@ -7,7 +7,9 @@
 // The cases are the six landing-page templates in each mode the page offers (Leave out; Include; Include with
 // estimates), and the 2026-10-08 replay's 120 single-requirement sweeps (five properties, three limits each, comparable
 // or as-published evidence, dry or conditioned, annealing allowed or not). For each case it records every material's
-// verdict, whether it is listed, its group and the product the row shows, and every product's verdict and group.
+// verdict, whether it is listed, its group and the product the row shows, and every product's verdict and group. A group
+// carries ":likely" where the material or product is tagged likely (D155; the stage-4 review's S10: a diff that left the
+// tag out could not show it appear or go).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -40,9 +42,9 @@ async function census(rootDir, dbPath) {
     const materials = {};
     for (const e of evaluations) {
       materials[e.materialId] = {
-        v: e.verdict, l: !!e.eligible, s: !!e.screened, g: e.group ?? e.shortlistGroup ?? null, p: e.gradeId ?? null,
-        // One string per product: "<verdict>:<group>", so a product's move is one comparison.
-        products: Object.fromEntries((e.products ?? []).map((p) => [p.gradeId, `${p.verdict}:${p.group ?? p.shortlistGroup ?? ''}`])),
+        v: e.verdict, l: !!e.eligible, s: !!e.screened, g: `${e.group ?? e.shortlistGroup ?? null}${e.likely ? ':likely' : ''}`, p: e.gradeId ?? null,
+        // One string per product: "<verdict>:<group>[:likely]", so a product's move is one comparison.
+        products: Object.fromEntries((e.products ?? []).map((p) => [p.gradeId, `${p.verdict}:${p.group ?? p.shortlistGroup ?? ''}${p.likely ? ':likely' : ''}`])),
       };
     }
     out.cases[c.name] = { template: c.template ?? null, counts, materials };
@@ -54,26 +56,32 @@ async function census(rootDir, dbPath) {
 function diff(a, b) {
   const lines = [];
   const name = (id) => b.names?.[id] ?? a.names?.[id] ?? id;
-  let total = { verdict: 0, listed: 0, group: 0, shown: 0, products: 0 };
+  let total = { verdict: 0, listed: 0, group: 0, shown: 0, products: 0, likely: 0 };
+  const isLikely = (s) => /:likely$/.test(s ?? '');
   const rows = [];
   for (const [caseName, after] of Object.entries(b.cases)) {
     const before = a.cases[caseName];
     if (!before) { rows.push({ caseName, note: 'new case' }); continue; }
-    const moves = { verdict: [], listed: [], group: [], shown: [], products: [] };
+    const moves = { verdict: [], listed: [], group: [], shown: [], products: [], likely: [] };
     for (const [id, m] of Object.entries(after.materials)) {
       const o = before.materials[id];
       if (!o) { moves.verdict.push(`${name(id)}: new material, ${m.v}`); continue; }
       if (o.v !== m.v) moves.verdict.push(`${name(id)}: ${o.v} → ${m.v}`);
       if (o.l !== m.l) moves.listed.push(`${name(id)}: ${o.l ? 'listed' : 'not listed'} → ${m.l ? 'listed' : 'not listed'}${m.s ? ' (hidden as unlikely)' : ''}`);
       if (o.g !== m.g) moves.group.push(`${name(id)}: ${o.g} → ${m.g}`);
+      if (isLikely(o.g) !== isLikely(m.g)) moves.likely.push(`${name(id)}: ${isLikely(m.g) ? 'tagged likely' : 'no longer likely'}`);
       if (o.p !== m.p) moves.shown.push(`${name(id)}: ${o.p} → ${m.p}`);
-      for (const [g, s] of Object.entries(m.products)) if (o.products[g] !== undefined && o.products[g] !== s) moves.products.push(`${g} (${name(id)}): ${o.products[g]} → ${s}`);
+      for (const [g, s] of Object.entries(m.products)) {
+        if (o.products[g] === undefined || o.products[g] === s) continue;
+        moves.products.push(`${g} (${name(id)}): ${o.products[g]} → ${s}`);
+        if (isLikely(o.products[g]) !== isLikely(s)) moves.likely.push(`${g} (${name(id)}): ${isLikely(s) ? 'tagged likely' : 'no longer likely'}`);
+      }
     }
     for (const k of Object.keys(total)) total[k] += moves[k].length;
     rows.push({ caseName, template: after.template, counts: [before.counts, after.counts], moves });
   }
   lines.push(`# Decision diff: ${a.release} → ${b.release}`, '',
-    `Across ${rows.length} cases: ${total.verdict} material verdicts moved, ${total.listed} listings changed, ${total.group} group changes, ${total.shown} rows now shown for another product, ${total.products} product answers moved.`, '');
+    `Across ${rows.length} cases: ${total.verdict} material verdicts moved, ${total.listed} listings changed, ${total.group} group changes, ${total.shown} rows now shown for another product, ${total.products} product answers moved; the likely tag came or went ${total.likely} times (materials and products).`, '');
   const fmtCounts = (c) => `pass ${c.pass}, unknown ${c.unknown} (hidden ${c.screened}), fail ${c.fail}`;
   for (const r of rows) {
     if (r.note) { lines.push(`## ${r.caseName}`, '', r.note, ''); continue; }
@@ -81,7 +89,7 @@ function diff(a, b) {
     if (!n && !r.template) continue;
     lines.push(`## ${r.caseName}`, '', `Before: ${fmtCounts(r.counts[0])}. After: ${fmtCounts(r.counts[1])}.`, '');
     if (!n) { lines.push('Nothing moved.', ''); continue; }
-    for (const [k, title] of [['verdict', 'Material verdicts'], ['listed', 'Listed or not'], ['group', 'Groups'], ['shown', 'Product the row shows'], ['products', 'Product answers']]) {
+    for (const [k, title] of [['verdict', 'Material verdicts'], ['listed', 'Listed or not'], ['group', 'Groups'], ['shown', 'Product the row shows'], ['products', 'Product answers'], ['likely', 'Likely tag (materials and products)']]) {
       const xs = r.moves[k];
       if (!xs.length) continue;
       lines.push(`**${title} (${xs.length}).** ${xs.slice(0, 40).join('; ')}${xs.length > 40 ? `; and ${xs.length - 40} more` : ''}.`, '');

@@ -10,6 +10,9 @@ function documentedConversion(key, kind, model) {
   const table = model.conversions[key] ?? {};
   if (table[kind]) return table[kind];
   if (kind === 'HDT 0.45') return null;
+  // An annealed related kind has no row of its own: conversions() composes it from its as-printed kind's and the
+  // headline's annealed kind's learned offsets (D167).
+  if (ANNEALED.test(kind)) return null;
   const wetClass = kind.endsWith(' wet') ? 'high' : kind.endsWith(' wet-low') ? 'low' : null;
   const wet = wetClass && model.wet[wetClass]?.[key];
   if (wet) {
@@ -20,6 +23,10 @@ function documentedConversion(key, kind, model) {
   return null;
 }
 
+// An annealed kind (observations.js, D162, D167): the headline's own ('tensile XY annealed', 'HDT 0.45 annealed glassy')
+// or a related one ('HDT 1.8 semi-filled annealed', 'tensile Z annealed').
+const ANNEALED = / (annealed(?: glassy)?)$/;
+
 /**
  * Conversions: the documented offset and spread, refined by formulations that publish both the
  * headline's semantics and the related kind. The median difference and a MAD spread are used, so one
@@ -29,13 +36,17 @@ function documentedConversion(key, kind, model) {
  * headline must not convert the remaining values with an offset its own hidden headlines helped learn.
  */
 export function conversions(key, raw, model, { without = null } = {}) {
-  const byF = new Map();
+  const byF = new Map(), makerOf = new Map();
   // A bound is not an exact value, so it cannot calibrate a conversion.
-  for (const o of raw.filter((r) => !r.bound && !r.mixedStates)) { const g = `${o.m.id}|${o.f}`; if (without?.has(g)) continue; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); }
-  const diffs = new Map();
-  for (const kinds of byF.values()) {
+  for (const o of raw.filter((r) => !r.bound && !r.mixedStates)) { const g = `${o.m.id}|${o.f}`; if (without?.has(g)) continue; if (!byF.has(g)) byF.set(g, new Map()); byF.get(g).set(o.kind, o.yRaw); makerOf.set(g, o.maker ?? g); }
+  const diffs = new Map(), makers = new Map();
+  for (const [g, kinds] of byF) {
     if (!kinds.has(HEAD[key])) continue;
-    for (const [k, y] of kinds) { if (k === HEAD[key]) continue; if (!diffs.has(k)) diffs.set(k, []); diffs.get(k).push(kinds.get(HEAD[key]) - y); }
+    for (const [k, y] of kinds) {
+      if (k === HEAD[key]) continue;
+      if (!diffs.has(k)) { diffs.set(k, []); makers.set(k, new Set()); }
+      diffs.get(k).push(kinds.get(HEAD[key]) - y); makers.get(k).add(makerOf.get(g));
+    }
   }
   const across = acrossProducts(key, byF);
   const out = { [HEAD[key]]: { offset: 0, sd: 0, pairs: 0, why: "The headline's own semantics" } };
@@ -45,6 +56,14 @@ export function conversions(key, raw, model, { without = null } = {}) {
     const doc = documentedConversion(key, k, model);
     if (!doc) continue;
     const ds = diffs.get(k) ?? [], n = ds.length, n0 = model.fitting.documentedPairs, nMin = model.fitting.minPairsForSpread;
+    // A kind that learns from several makers only (conversions.csv Estimate learns, D167) keeps its documented offset and
+    // spread until enough pairs from enough makers publish both: three PPA pairs of one maker taught the annealed heat
+    // deflection −77 °C for every crystalline matrix.
+    const several = model.fitting.severalMakers;
+    if (doc.learns === 'pairs, several makers' && (n < several.pairs || (makers.get(k)?.size ?? 0) < several.makers)) {
+      out[k] = { offset: doc.offset, sd: doc.sd, pairs: n, makers: makers.get(k)?.size ?? 0, learned: false, why: doc.why };
+      continue;
+    }
     const centre = n ? median(ds) : 0;
     const spread = n >= nMin ? 1.4826 * median(ds.map((d) => Math.abs(d - centre))) : 0;
     const df = n >= nMin ? n - 1 : 0;
@@ -64,7 +83,25 @@ export function conversions(key, raw, model, { without = null } = {}) {
       ...(cross ? { across: { materials: nc, contrast: cross.contrast } } : {}),
     };
   }
+  // An annealed value of a related kind converts first to its as-printed kind, then by the headline's annealed offset
+  // for its matrix, both as learned (D167): an annealed HDT at 1.8 MPa on a crystalline bar is no printed bar's value.
+  for (const k of new Set(raw.map((o) => o.kind))) {
+    const a = ANNEALED.exec(k);
+    if (!a || out[k] || k === `${HEAD[key]} ${a[1]}`) continue;
+    const base = k.slice(0, a.index), annealed = out[`${HEAD[key]} ${a[1]}`];
+    const asPrinted = base === HEAD[key] ? out[HEAD[key]] : out[base] ?? asPrintedOf(base);
+    if (!asPrinted || !annealed) continue;
+    out[k] = { offset: asPrinted.offset + annealed.offset, sd: Math.hypot(asPrinted.sd, annealed.sd), pairs: 0, composed: true,
+      why: `${asPrinted.why}; measured after annealing: ${annealed.why}` };
+  }
   return out;
+
+  // A related kind no observation of this headline reads as printed (an annealed bar's only kind): its documented
+  // conversion, as conversions() would hold it with no pairs.
+  function asPrintedOf(base) {
+    const doc = documentedConversion(key, base, model);
+    return doc ? { offset: doc.offset, sd: doc.sd, why: doc.why } : null;
+  }
 }
 
 /**
@@ -102,6 +139,14 @@ function acrossProducts(key, byF) {
  * (a break strength outranks a flexural strength); the headline's own kind is always kept.
  */
 export function convert(key, raw, conv, S, model) {
+  return mostDirect(key, convertAll(key, raw, conv, S, model), model);
+}
+
+/**
+ * Every observation converted, before the most direct kinds are chosen: what a product's own values allow its estimate
+ * reads all of them (anchor.js, D167), since a kind the fit leaves out beside a more direct one is still the product's.
+ */
+export function convertAll(key, raw, conv, S, model) {
   const out = [], tm = meltingPoint(key, S, model);
   for (const o of raw) {
     const c = conv[o.kind];
@@ -109,6 +154,10 @@ export function convert(key, raw, conv, S, model) {
     if (!c || o.pairOnly) continue;
     out.push({ ...o, y: o.yRaw + c.offset - tm.offset(o.m), noise2: c.sd * c.sd + o.half * o.half, conversion: c });
   }
+  return out;
+}
+
+function mostDirect(key, out, model) {
   const best = new Map();
   for (const o of out) { if (o.kind === HEAD[key]) continue; const g = `${o.m.id}|${o.f}`; best.set(g, Math.min(best.get(g) ?? Infinity, o.conversion.sd)); }
   return out.filter((o) => o.kind === HEAD[key] || o.conversion.sd <= model.fitting.keepKindsWithinSpread * best.get(`${o.m.id}|${o.f}`) + 1e-12);

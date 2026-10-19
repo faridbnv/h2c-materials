@@ -35,7 +35,7 @@
 import { normalQuantile } from './numerics.js';
 import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, modelWith, untransform, sig3 } from './model.js';
 import { snapshot, rawObservations } from './observations.js';
-import { conversions, convert, betweenProductSpread, productSpreads } from './conversions.js';
+import { conversions, convert, convertAll, betweenProductSpread, productSpreads } from './conversions.js';
 import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.js';
 import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
@@ -43,7 +43,7 @@ import { backTest, screenDecision } from './screening.js';
 import { floorBackTest, ownValueCrossing } from './floors.js';
 import { attachPrintEstimates } from './print.js';
 import { attachProductScreening } from './product-screening.js';
-import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors, formulationCeilings } from './grades.js';
+import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors } from './grades.js';
 import { directionBackTest, directionTarget } from './directions.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
@@ -57,7 +57,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
   const zLikely = normalQuantile(0.5 + likely / 2), zPlausible = normalQuantile(0.5 + plausible / 2);
-  const diagnostics = { levels: model.levels, properties: {}, rejected: [], bounds: [], conflicts: [], outliers: [], gradeOutliers: [], gradeEstimates: gradeEstimateMeta(model) };
+  const diagnostics = { levels: model.levels, properties: {}, rejected: [], bounds: [], conflicts: [], outliers: [], gradeOutliers: [], withheld: [], gradeEstimates: gradeEstimateMeta(model) };
 
   for (const key of ESTIMATE_KEYS) {
     const inv = untransform(key, model);
@@ -66,10 +66,10 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     diagnostics.bounds.push(...oneSided);
     // What each formulation's own measurements prove the headline is at least, once per headline: a grade's range takes it.
     const floorsOf = formulationFloors(registry.headlines.find((h) => h.key === key), S);
-    // And what its own moulded or undescribed values cap it at, where the model caps the headline so (D160).
-    const ceilingsOf = formulationCeilings(registry.headlines.find((h) => h.key === key), S, ledgerRows, model);
     const conv = conversions(key, raw, model);
     const converted = convert(key, raw, conv, S, model);
+    // Every own value of a product, the kinds the fit leaves out beside more direct ones included: what bounds its estimate (D167).
+    const ownObs = convertAll(key, raw, conv, S, model);
     const tmMean = meltingPoint(key, S, model).offset;
     const between = betweenProductSpread(key, raw, S);
     const fixed = productSpreads(between, key, model);
@@ -91,11 +91,13 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
       spreads: Object.fromEntries(Object.entries(hp).map(([k, v]) => [k, r3(v)])),
       calibration,
       conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs,
-        ...(c.across ? { across: { materials: c.across.materials, contrast: r3(c.across.contrast) } } : {}) }])),
+        ...(c.across ? { across: { materials: c.across.materials, contrast: r3(c.across.contrast) } } : {}),
+        // A kind that learns from several makers only and has too few: its documented offset stands (D167).
+        ...(c.learned === false ? { makers: c.makers, learned: false } : {}), ...(c.composed ? { composed: true } : {}) }])),
     };
 
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
-    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor, conv, ledgerRows });
+    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor, conv, ledgerRows, obs, zPlausible });
     // Does an estimate cross a limit its own moulded or undescribed value misses, and is it right to (D160)?
     const crossing = ownValueCrossing({ key, model, S, obs, holdOut, tmMean, inv });
     if (crossing) diagnostics.properties[key].ownValue = crossing;
@@ -104,7 +106,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
 
     // Every grade's own estimate, with ranges calibrated at grade level (grades.js, D81). It is added beside the
     // material's and moves nothing the material shows.
-    const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible, tmMean });
+    const gradeCal = calibrateGrades({ key, def: registry.headlines.find((h) => h.key === key), model, S, obs, ownObs, holdOut, zLikely, zPlausible, tmMean });
     diagnostics.properties[key].gradeCalibration = gradeCal.calibration;
     const named = new Set(outliers.map((o) => `${o.materialId}|${o.key}`));
     diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.typical?.gradeId === o.gradeId)));
@@ -117,7 +119,20 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     } else {
       const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
       const centres = new Map();
-      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf, ceilingsOf, centres });
+      const withheld = [];
+      // A product's own values hold its estimate (D167) where the headline asks for it and its back-test holds as
+      // EST-CALIBRATION judges a range: at least minHeld anchored hidden grades, the likely range within tolerance and
+      // the plausible range not short. Elsewhere its bands are still published, for the likely tag.
+      const a = gradeCal.calibration.anchor, cal = model.calibration;
+      const anchorOn = !!model.properties[key].ownAnchor && !!a && a.anchored >= cal.minHeld
+        && Math.abs(a.likelyAfter - model.levels.likely) <= cal.likelyTolerance && a.plausibleAfter >= model.levels.plausible - cal.plausibleShortfall;
+      if (a) a.used = anchorOn;
+      attachGradeEstimates({ key, def: registry.headlines.find((h) => h.key === key), model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf, zPlausible, bandScale: gradeCal.bandScale, anchorOn, ownObs, centres, withheld });
+      // The products whose own values and their kind's model disagree, so no estimate is shown (D167).
+      if (withheld.length) diagnostics.withheld.push(...withheld);
+      const shown = [...S.grades.values()].map((g) => g.estimate?.[key]).filter(Boolean);
+      (diagnostics.gradeAnchors ??= {})[key] = { anchored: anchorOn ? shown.filter((e) => e.ownBand && !e.ownBand.disagree).length : 0,
+        withheld: withheld.length, disagree: shown.filter((e) => e.ownBand?.disagree).length };
       // The unstated-direction back-test (D159): an unstated-only product's centre against its measured siblings, and
       // the products that publish both with their headline hidden.
       const directions = directionBackTest({ key, model, S, obs, holdOut, calPlausible: gradeCal.calPlausible, zPlausible });
