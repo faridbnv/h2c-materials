@@ -128,8 +128,8 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV07 | tensileModulusXY | floor | deciding | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
 | CV08 | tensileModulusXY | band | deciding | 0.46 to 1.93 | 601 | 0 | 0 | 0 | 290 | ratio 0.460233638667 to 1.93 | 0 |
 | CV09 | tensileStrengthXY | floor | deciding | 0.86 | 221 | 0 | 0 | 0 | 251 | ratio 0.864583333333 to 9.88943488943 | 0 |
-| CV10 | elongationXY | floor | reported | 1 | 145 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
-| CV11 | elongationXY | floor | reported | 1 | 46 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
+| CV10 | elongationXY | floor | reported | 1 | 38 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
+| CV11 | elongationXY | floor | reported | 1 | 25 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
 | CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 81 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
 | CL02 | density | neat-density range | deciding | polymers.csv | 512 |  | 5 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
@@ -220,7 +220,7 @@ By stratum (D158): the same hidden headlines, by the classes a change to a polym
 | density | 5 | 1 | 2 | 2 | 0 | 0 | 5 |
 | tensileModulusXY | 48 | 12 | 24 | 3 | 4 | 5 | 38 |
 | tensileStrengthXY | 42 | 11 | 20 | 2 | 4 | 5 | 33 |
-| elongationXY | 45 | 11 | 22 | 3 | 4 | 5 | 34 |
+| elongationXY | 45 | 11 | 22 | 3 | 4 | 5 | 35 |
 | hdt045 | 51 | 12 | 10 | 8 | 19 | 2 | 29 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
@@ -243,7 +243,7 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | hdt045 | this-material | 65 | 5 | 98.93% point | 1 | 2.5% point |
 | hdt045 | family | 78 | 2 | 97.5% point | 0 | 2.5% point |
 
-Floors (D126): the shown ranges of the same hidden headlines, floored by what the material's other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "printed" is the rule before D126, "unstated" the rule now, "formulation" what a grade's range takes.
+Floors (D126): the shown ranges of the same hidden headlines, floored by what the material's other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "containment" is a material's rule and "formulation" a grade's, each with the specimens its headline names (D161: elongation, printed bars only); "…Unstated" is the same with an undescribed bar too (D126), "…Converted" with an undescribed bar read as moulded.
 
 | Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -255,14 +255,22 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | tensileStrengthXY | sameSource | 65 | 48 | 53.8% | 69.2% | ×1.36 | 18 |
 | tensileStrengthXY | lowestOfProducts | 65 | 60 | 70.8% | 84.6% | ×1.37 | 9 |
 | tensileStrengthXY | formulation | 65 | 39 | 75.4% | 92.3% | ×1.37 | 5 |
+| tensileStrengthXY | containmentUnstated | 65 | 13 | 83.1% | 95.4% | ×1.61 | 3 |
+| tensileStrengthXY | formulationUnstated | 65 | 39 | 75.4% | 92.3% | ×1.37 | 5 |
+| tensileStrengthXY | containmentConverted | 65 | 13 | 83.1% | 96.9% | ×1.39 | 1 |
+| tensileStrengthXY | formulationConverted | 65 | 39 | 76.9% | 93.8% | ×1.37 | 2 |
 | elongationXY | none | 85 | 0 | 80% | 95.3% | ×3.9 | 3 |
 | elongationXY | printed | 85 | 58 | 56.5% | 68.2% | ×3.07 | 26 |
 | elongationXY | printedXY | 85 | 21 | 72.9% | 87.1% | ×3.85 | 10 |
 | elongationXY | unstated | 85 | 72 | 34.1% | 38.8% | ×2.07 | 51 |
-| elongationXY | containment | 85 | 14 | 77.6% | 88.2% | ×6.75 | 9 |
+| elongationXY | containment | 85 | 7 | 81.2% | 94.1% | ×4.69 | 4 |
 | elongationXY | sameSource | 85 | 58 | 54.1% | 65.9% | ×3.07 | 28 |
 | elongationXY | lowestOfProducts | 85 | 72 | 65.9% | 81.2% | ×3.73 | 15 |
-| elongationXY | formulation | 85 | 46 | 68.2% | 82.4% | ×3.61 | 14 |
+| elongationXY | formulation | 85 | 31 | 77.6% | 91.8% | ×3.69 | 6 |
+| elongationXY | containmentUnstated | 85 | 14 | 77.6% | 88.2% | ×6.75 | 9 |
+| elongationXY | formulationUnstated | 85 | 46 | 68.2% | 82.4% | ×3.61 | 14 |
+| elongationXY | containmentConverted | 85 | 14 | 80% | 91.8% | ×5.27 | 6 |
+| elongationXY | formulationConverted | 85 | 46 | 77.6% | 87.1% | ×3.63 | 10 |
 | hdt045 | none | 78 | 0 | 75.6% | 93.6% | 17.5 °C | 1 |
 | hdt045 | printed | 78 | 38 | 62.8% | 78.2% | 15.7 °C | 14 |
 | hdt045 | printedXY | 78 | 5 | 73.1% | 89.7% | 17.1 °C | 4 |
@@ -271,6 +279,8 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | hdt045 | sameSource | 78 | 44 | 61.5% | 78.2% | 14.9 °C | 15 |
 | hdt045 | lowestOfProducts | 78 | 49 | 75.6% | 92.3% | 16 °C | 3 |
 | hdt045 | formulation | 78 | 25 | 76.9% | 96.2% | 17.5 °C | 1 |
+| hdt045 | containmentUnstated | 78 | 5 | 79.5% | 93.6% | 20.5 °C | 1 |
+| hdt045 | formulationUnstated | 78 | 25 | 76.9% | 96.2% | 17.5 °C | 1 |
 
 Unstated directions (D159): the kinds whose offset is learned across products as well as from the products that publish both. Target: each product with only an unstated-direction value, beside measured siblings, its centre against their median (a ratio) and how many centres sit above every sibling. Guard: each product that publishes both, as different numbers, its headline hidden and predicted.
 

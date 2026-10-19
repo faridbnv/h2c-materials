@@ -446,7 +446,7 @@ Not measured:
   known: false, missing: 'not-published', unit: '%',
   related: { … } | null,      // real measurements of this property that are no product's value: how many, the
                               // closest, and up to ten, each with why (below)
-  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen, that bound it from below (D55, D126)
+  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen where the headline admits them, that bound it from below (D55, D126, D161)
   estimate: { … } | null      // the calibrated estimate (below)
 }
 ```
@@ -486,7 +486,8 @@ one list:
   Scope `headline` or `both`; a bound no row covers, or a row no headline reads, stops the build
   (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.
 - **The estimate stage** floors every estimate by what the product's own measurements prove (`build/src/lower-bounds.js`).
-  A printed bar bounds a headline, and so does a bar whose source states no specimen, in any direction (a printed part is
+  A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation, which
+  takes printed bars only: `headline_definitions.csv` Lower bound specimens, D161), in any direction (a printed part is
   strongest in XY); a moulded, film, filament or off-recipe bar bounds nothing, nor does a value flagged implausible or
   quarantined, an annealed value beside an as-printed one, or a conditioned elongation. A grade's estimate is floored at its
   own formulation's highest floor. A material's range is the spread of its products, so it contains every product's floor:

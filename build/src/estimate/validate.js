@@ -234,7 +234,7 @@ export function estimateReportLines(db) {
   screeningLines();
   const floorRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.floors);
   if (floorRows.length) {
-    L.push('Floors (D126): the shown ranges of the same hidden headlines, floored by what the material\'s other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "printed" is the rule before D126, "unstated" the rule now, "formulation" what a grade\'s range takes.');
+    L.push('Floors (D126): the shown ranges of the same hidden headlines, floored by what the material\'s other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "containment" is a material\'s rule and "formulation" a grade\'s, each with the specimens its headline names (D161: elongation, printed bars only); "…Unstated" is the same with an undescribed bar too (D126), "…Converted" with an undescribed bar read as moulded.');
     L.push('');
     L.push('| Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |');
     L.push('|---|---|---:|---:|---:|---:|---:|---:|');

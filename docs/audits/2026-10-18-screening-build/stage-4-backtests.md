@@ -150,3 +150,42 @@ Glow and SAN under 3 GPa). One listing: PA612, which has no product, stays liste
 now 102 MPa (it was 98.6).
 
 **Verdict.** Kept.
+
+## 4. Elongation floored by printed bars only (D161, the review's C26; amends D126)
+
+**The change.** A product's elongation estimate is floored by what its own printed bars prove (a strain at yield or at
+strength under the strain at break), no longer by a bar whose sheet does not describe it. The rule is a column of
+`headline_definitions.csv` (Lower bound specimens), so every reader of the floors follows it.
+
+**Hidden cases.** The floor back-test's (`floors.js`): each material's typical product hidden, predicted, and its shown
+range formed under each set of floors. Calibration itself is untouched by the floors.
+
+| Floors (elongation, 85 hidden) | Likely | Plausible | Under the plausible range | Median likely width |
+|---|---:|---:|---:|---:|
+| none | 80.0 % | 95.3 % | 3 | ×3.90 |
+| a grade's own, printed or undescribed (D126) | 68.2 % | 82.4 % | 14 | ×3.61 |
+| **a grade's own, printed only (now)** | **77.6 %** | **91.8 %** | **6** | ×3.69 |
+| a grade's own, undescribed read as moulded (×0.59) | 77.6 % | 87.1 % | 10 | ×3.63 |
+| a material's containment, printed or undescribed (D126) | 77.6 % | 88.2 % | 9 | ×6.75 |
+| **a material's containment, printed only (now)** | **81.2 %** | **94.1 %** | **4** | ×4.69 |
+| a material's containment, undescribed read as moulded | 80.0 % | 91.8 % | 6 | ×5.27 |
+
+Strength, for information (65 hidden, rule unchanged): a grade's own 75.4 / 92.3 %, read as moulded 76.9 / 93.8 %; a
+material's containment 83.1 / 95.4 %, read as moulded 83.1 / 96.9 %.
+
+| Floors under products' elongation estimates | Before | After |
+|---|---:|---:|
+| Product estimates with a floor (of 648) | 433 | 87 |
+| Floors | 761 | 193 |
+| of them from an undescribed bar | 568 | 0 |
+| Estimates held at their floor | 428 | 83 |
+
+**Against the pass rule.** Both rows in force are within EST-CALIBRATION's tolerance (likely 80 ± 10 %, plausible at
+least 90 %): 77.6 / 91.8 % and 81.2 / 94.1 %. The converted floor fails the grade row (87.1 %). EST-CALIBRATION is
+unchanged; EST-ORDER is 0; `screening.csv` is unchanged (the screening back-test leaves every own floor out).
+
+**Answers** ([stage-4-diff-4.md](stage-4-diff-4.md)): no verdict or listing moved; 61 product answers went from "not
+enough data" to "unlikely to meet" for an elongation of at least 20 %, and PCTG-GF and PLA-PHB moved group with them. The
+ledger's two elongation floor rows, still reported, now bound 38 and 25 products where they bounded 145 and 46.
+
+**Verdict.** Kept.

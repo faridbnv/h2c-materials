@@ -43,3 +43,14 @@ for strength and 4 % for elongation. No material's verdict changed. 424 product 
 ([stage-4-diff-3.md](stage-4-diff-3.md)), most from "an estimate suggests it meets" to "not enough data" (351 such moves against 29 the other way): PA66's
 products no longer look like 5 GPa parts on their estimates alone. PA612, which has no product, is now listed for a
 100 MPa strength, since its own estimate reaches 102 MPa.
+
+## 4. A printed part's stretch is no longer floored by an undescribed bar
+
+When a sheet does not say how its test bar was made, the tool treated it as a printed bar, so its numbers set the least
+the estimate of that product could be. For stiffness, strength and heat this holds up. For stretch it did not: a bar the
+sheet does not describe stretches like a moulded bar, far more than a printed part. 428 products' stretch estimates were
+held at such a floor. Hidden values fell inside the estimate's wide range only 82 % of the time, where 95 % is claimed.
+Now only a printed bar floors a stretch estimate (decision D161), and the ranges hold 92 %.
+
+No verdict changed. 61 product answers moved from "not enough data" to "unlikely to meet" for parts that must stretch at
+least 20 % ([stage-4-diff-4.md](stage-4-diff-4.md)): their estimates are no longer held up by a bar nobody described.

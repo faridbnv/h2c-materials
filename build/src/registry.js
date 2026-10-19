@@ -128,6 +128,9 @@ export function compileRegistry(wb, issues) {
       lowerBounds: list(r['Lower bound properties']).length ? {
         properties: list(r['Lower bound properties']), loadMPa: numOrNull(r['Lower bound load MPa']),
         excludeMoisture: list(r['Lower bound excludes']), why: orNull(r['Lower bound basis']),
+        // Which specimens bound it (D126, D161): a printed bar, and for every headline but elongation one its sheet does
+        // not describe.
+        forms: r['Lower bound specimens'] === 'printed' ? ['printed'] : ['printed', 'not-stated'],
       } : null,
       direction: orNull(r.Direction),
       // A value whose source states no direction: this headline's as published (D84), or none of its values (D92).

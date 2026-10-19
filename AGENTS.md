@@ -271,7 +271,7 @@ implies, the pairs that break it). Set its factor to what every pair supports, n
 row a pair breaks is a reviewed CONVERSION-PAIRS finding (fix the record, narrow the row, or accept the pair with its
 reason). Switch it to `deciding` in a commit of its own, with its decision diff (the screening build's
 `decision-census.mjs`) and `npm run build:diff` showing no estimate path. A headline's Lower bound other than its own value
-needs its factor-1 floor row too (LEDGER-LB-DRIFT).
+needs its factor-1 floor row too, reading the specimens its Lower bound specimens names (LEDGER-LB-DRIFT).
 
 **Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
 its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.

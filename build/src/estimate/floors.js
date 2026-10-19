@@ -12,12 +12,18 @@
 //   sameSource        the fallback D126 names: an unstated specimen bounds only where its source also prints a bar
 //   lowestOfProducts  the lowest of its products' own floors, not the highest: what is true of every product
 //   formulation       only the hidden product's own other measurements (what a grade's range takes)
+//   containmentUnstated, formulationUnstated   the two rules in force, with a bar whose sheet states no specimen bounding
+//                     too: D126's rule, which D161 replaced for elongation (printed bars only); the same as the rules in
+//                     force for a headline that still takes both
+//   containmentConverted, formulationConverted   the same, with an undescribed bar's floor read as a moulded bar's,
+//                     converted by the learned moulded offset (D161's rejected alternative; log headlines only)
 //
 // A comparable value of the material never floors it (a material that publishes one has no estimate): what remains is
 // what a material with no comparable value has, its yield or break stress, its values of another direction or of no stated
 // direction. Calibration itself is unchanged and EST-CALIBRATION still judges it; this reports what the shown range does.
 
 import { median } from './numerics.js';
+import { HEAD } from './model.js';
 import { assess, LEVEL } from '../products.js';
 import { lowerBoundsOf, BOUNDING_FORMS, PRINTED_FORMS } from '../lower-bounds.js';
 
@@ -29,9 +35,13 @@ const inside = (v, [lo, hi]) => v >= lo - 1e-9 * Math.abs(lo) && v <= hi + 1e-9 
  * coverage, the median likely width (a ratio on a log scale, degrees otherwise) and how many hidden values lay under the
  * plausible range. Null for a headline with no lower bounds.
  */
-export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor }) {
+export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv = {} }) {
   if (!def?.lowerBounds || !loo.length) return null;
   const log = model.properties[key].scale === 'log';
+  // An undescribed bar read as a moulded one: its floor times the learned moulded conversion (headline over moulded).
+  const moulded = log ? conv[HEAD[key].replace(' XY', ' moulded')] : null;
+  const converted = (bounds) => (moulded ? bounds.map((b) => (byIdAll.get(b.measurementId)?.specimenForm === 'not-stated' ? { ...b, lo: b.lo * Math.exp(moulded.offset) } : b)) : null);
+  const byIdAll = new Map([...S.byMaterial.values()].flat().map((x) => [x.id, x]));
   const cases = {};
   for (const l of loo) {
     const m = l.m;
@@ -42,6 +52,7 @@ export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor }) {
     const left = own.filter((x) => assess(x, def, own.filter((y) => y.gradeId === x.gradeId)).level !== LEVEL.COMPARABLE);
     const printed = lowerBoundsOf(def, left, { forms: PRINTED_FORMS });
     const unstated = lowerBoundsOf(def, left, { forms: BOUNDING_FORMS });
+    const inForce = lowerBoundsOf(def, left);
     const printedSources = new Set(left.filter((x) => x.specimenForm === 'printed').map((x) => x.sourceId));
     // Each product's own highest floor; a material's range cannot claim more than its lowest product's.
     const perProduct = new Map();
@@ -54,16 +65,22 @@ export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor }) {
       printed,
       printedXY: printed.filter((b) => b.direction === (def.direction ?? 'XY')),
       unstated,
-      containment: unstated,
+      containment: inForce,
       sameSource: unstated.filter((b) => printedSources.has(byId.get(b.measurementId).sourceId)),
       lowestOfProducts: perProduct.size ? [[...perProduct.values()].reduce((a, b) => (b.lo < a.lo ? b : a))] : [],
-      formulation: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS }),
+      formulation: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f)),
+      containmentUnstated: unstated,
+      formulationUnstated: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS }),
+      ...(moulded ? {
+        containmentConverted: converted(unstated),
+        formulationConverted: converted(lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS })),
+      } : {}),
     };
     const p = { ...l.p, mu: l.p.mu + tmMean(m) };
     const range = (implied, material = false) => rangeFor(m, m, p, l.unit, { ownBounds: false, formulation: material ? undefined : l.f, implied });
     const plain = range([]);
     for (const [name, implied] of Object.entries(floors)) {
-      const r = name === 'none' ? plain : range(implied, name === 'containment');
+      const r = name === 'none' ? plain : range(implied, name.startsWith('containment'));
       (cases[name] ??= []).push({
         moved: Math.abs(r.range[0] - plain.range[0]) > 1e-9 * Math.abs(plain.range[0]) || Math.abs(r.wide[0] - plain.wide[0]) > 1e-9 * Math.abs(plain.wide[0]),
         likely: inside(l.measured, r.range), plausible: inside(l.measured, r.wide), under: l.measured < r.wide[0] - 1e-9 * Math.abs(r.wide[0]),

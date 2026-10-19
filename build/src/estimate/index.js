@@ -92,7 +92,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     };
 
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
-    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor });
+    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor, conv });
     const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
     diagnostics.properties[key].screening = certification;
 

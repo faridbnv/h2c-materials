@@ -599,7 +599,8 @@ Compile also derives, each tagged with its origin so the interface can tell them
 - **Implied bounds** for headlines with no value: the material's own printed measurements that bound the headline from
   below (a yield or break strength under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa
   under 0.45 MPa), at their published value. They veto a screen that would be wrong and limit the estimate (D55).
-  A printed bar bounds it, in any direction, and so does one whose source states no specimen (D126); a moulded, film,
+  A printed bar bounds it, in any direction, and so does one whose source states no specimen (D126), except where the
+  headline takes printed bars only (Lower bound specimens: elongation, D161); a moulded, film,
   filament or off-recipe specimen, an annealed twin beside an as-printed value and a conditioned elongation bound
   nothing. `lower-bounds.js` is the one rule, and `physical_relations.csv` is the list of orderings it projects.
 - **The evidence ledger** (`evidence-ledger.js`, D153, D154), at the end of the product step: for each product state with
@@ -669,6 +670,8 @@ strength is at least the yield and break stress, a strain at break at least the 
 least HDT at 1.8 MPa) floors the estimates built on it. A grade's range is floored at the highest floor its own
 formulation proves. A material's range is the spread of its products, so it must contain every product's floor: its upper
 ends reach the highest product floor, and its lower ends are floored at the lowest only when every active product has one.
+An undescribed bar floors every headline but elongation, which a printed bar alone floors: an undescribed bar's stretch
+reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161).
 Flooring a material at the highest product floor was tried first and broke calibration; `floors.js` back-tests each rule
 on the hidden headlines (`meta.estimateModel.properties.*.floors`, the validation report, and
 `docs/audits/2026-10-04-reader-round/estimate-order/backtest.md`). A semicrystalline polymer's heat deflection is held

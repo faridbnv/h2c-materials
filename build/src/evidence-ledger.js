@@ -99,9 +99,11 @@ export function lowerBoundDrift(conversions, headlines) {
     const lb = h.lowerBounds;
     for (const p of lb?.properties ?? []) {
       if (h.valueProperties.includes(p) && lb.loadMPa == null) continue;
+      // The row reads the specimens the headline's lower bound reads (D161): printed bars only, or printed and undescribed.
+      const specimen = (lb.forms ?? []).includes('not-stated') ? 'as target' : 'printed';
       const ok = conversions.some((r) => r.target === h.key && r.kind === 'floor' && r.factorLow === 1 && r.offset === 0 && r.sourceProperties.includes(p)
-        && (r.sourceLoadMPa ?? null) === (lb.loadMPa ?? null) && r.sourceState === 'same' && r.sourceDirection === 'same');
-      if (!ok) problems.push(`${h.key} takes ${p}${lb.loadMPa != null ? ` at ${lb.loadMPa} MPa` : ''} as a lower bound, but no conversion row makes it a floor with factor 1 (same state, same direction${lb.loadMPa != null ? `, Source load MPa ${lb.loadMPa}` : ''})`);
+        && (r.sourceLoadMPa ?? null) === (lb.loadMPa ?? null) && r.sourceState === 'same' && r.sourceDirection === 'same' && r.sourceSpecimen === specimen);
+      if (!ok) problems.push(`${h.key} takes ${p}${lb.loadMPa != null ? ` at ${lb.loadMPa} MPa` : ''} as a lower bound, but no conversion row makes it a floor with factor 1 (same state, same direction, Source specimen ${specimen}${lb.loadMPa != null ? `, Source load MPa ${lb.loadMPa}` : ''})`);
     }
   }
   return problems;
@@ -163,6 +165,8 @@ const FORMS_MOULDED_OR_UNSTATED = new Set(['moulded', 'not-stated']);
  * of what it is (its load, state, notch, standard) as assess does for a bar whose sheet does not describe it.
  */
 function judge(m, sdef, own, state, row) {
+  // A row that takes printed bars only (an elongation floor, D161) leaves a bar its sheet does not describe out.
+  if (row.sourceSpecimen === 'printed' && m.specimenForm !== 'printed') return { excluded: 'not a bar its sheet says was printed' };
   if (row.sourceSpecimen === 'moulded or not stated') {
     if (!FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm)) return { excluded: 'not a moulded or undescribed bar' };
     const a = m.specimenForm === 'moulded' ? assess({ ...m, specimenType: 'Not published', specimenForm: 'not-stated' }, sdef, own, state) : assess(m, sdef, own, state);

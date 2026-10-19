@@ -777,7 +777,7 @@
           "sourceLoadMPa": { "type": ["number", "null"] },
           "sourceDirection": { "enum": ["same", "Z"] },
           "sourceState": { "enum": ["same", "annealed", "conditioned"] },
-          "sourceSpecimen": { "enum": ["as target", "moulded or not stated"] },
+          "sourceSpecimen": { "enum": ["as target", "printed", "moulded or not stated"] },
           "kind": { "enum": ["floor", "ceiling", "band", "equal", "demote-to-ceiling"] },
           "factorLow": { "type": ["number", "null"] },
           "factorHigh": { "type": ["number", "null"] },
@@ -1892,6 +1892,7 @@
                 "properties",
                 "loadMPa",
                 "excludeMoisture",
+                "forms",
                 "why"
               ],
               "properties": {
@@ -1912,6 +1913,13 @@
                   "type": "array",
                   "items": {
                     "type": "string"
+                  }
+                },
+                "forms": {
+                  "description": "The specimen forms that bound the headline (headline_definitions.csv Lower bound specimens, D126, D161).",
+                  "type": "array",
+                  "items": {
+                    "enum": ["printed", "not-stated"]
                   }
                 },
                 "why": {

@@ -4,6 +4,16 @@ import assert from 'node:assert/strict';
 import { judgeHeatTreatments } from '../build/src/normalize/specimen.js';
 import { printedStateOf } from '../build/src/registry.js';
 import { printsAsItsType } from '../build/src/variants.js';
+import { lowerBoundsOf } from '../build/src/lower-bounds.js';
+
+test('a headline whose lower bound takes printed bars only is floored by none whose sheet does not describe it (D161)', () => {
+  const bar = (id, specimenForm, value) => ({ id, gradeId: 'G1', property: 'Elongation at yield', value, unit: '%', numeric: true, specimenForm, postProcessingState: 'as-printed', moistureState: 'dry' });
+  const own = [bar('a', 'printed', 4), bar('b', 'not-stated', 9), bar('c', 'moulded', 12)];
+  const def = (forms) => ({ lowerBounds: { properties: ['Elongation at yield'], loadMPa: null, excludeMoisture: [], forms } });
+  assert.deepEqual(lowerBoundsOf(def(['printed']), own).map((b) => b.measurementId), ['a']);
+  assert.deepEqual(lowerBoundsOf(def(['printed', 'not-stated']), own).map((b) => b.measurementId), ['a', 'b']);
+  assert.deepEqual(lowerBoundsOf(def(['printed']), own, { forms: ['printed', 'not-stated'] }).map((b) => b.measurementId), ['a', 'b']);
+});
 
 test('a material prints as its polymer solidifies in a print: PLA and PET glassy, PPA glassy unless fibre-filled (D158)', () => {
   const pla = { Morphology: 'semicrystalline', 'As printed': 'prints amorphous' };
