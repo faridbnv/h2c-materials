@@ -24,9 +24,10 @@ export function makeKernel(key, S, model) {
   const columns = (m, formulation, manufacturer) => {
     const id = identityOf(m), info = S.info(m), f = S.reinforcement(m);
     const x = new Map([['1', 1], [`g:${info.group}`, 1], [`p:${id}`, 1]]);
-    // Reinforcement acts through the matrix: a fibre network lifts a semicrystalline bar's heat
-    // deflection towards its melting point but an amorphous bar's only a little past Tg.
-    if (f !== 'unfilled') { if (key !== 'hdt045') x.set(`f:${f}`, 1); x.set(`fx:${f}:${info.morphology}`, 1); }
+    // Reinforcement acts through the matrix as printed: a fibre network lifts a crystalline bar's heat deflection
+    // towards its melting point but a glassy bar's only a little past Tg. A semicrystalline polymer that prints
+    // amorphous (PLA, PET) fills as a glassy one does (D158), so PLA's fills keep the amorphous column they always had.
+    if (f !== 'unfilled') { if (key !== 'hdt045') x.set(`f:${f}`, 1); x.set(`fx:${f}:${S.matrix(m) === 'amorphous' ? 'amorphous' : info.morphology}`, 1); }
     // A declared commercial variant class (materials.csv Variant class: silk, particle-filled) has its own effect.
     if (m.variantClass) x.set(`v:${m.variantClass}`, 1);
     // A variant product explains its own offset (a lightweight additive, an undisclosed filler) rather than moving its family.

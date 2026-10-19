@@ -2,6 +2,27 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { judgeHeatTreatments } from '../build/src/normalize/specimen.js';
+import { printedStateOf } from '../build/src/registry.js';
+import { printsAsItsType } from '../build/src/variants.js';
+
+test('a material prints as its polymer solidifies in a print: PLA and PET glassy, PPA glassy unless fibre-filled (D158)', () => {
+  const pla = { Morphology: 'semicrystalline', 'As printed': 'prints amorphous' };
+  const ppa = { Morphology: 'semicrystalline', 'As printed': 'prints amorphous unless fibre-filled' };
+  assert.equal(printedStateOf(pla, 'Unfilled / unspecified'), 'glassy');
+  assert.equal(printedStateOf(pla, 'Carbon fibre'), 'glassy');
+  assert.equal(printedStateOf(ppa, 'Unfilled / unspecified'), 'glassy');
+  assert.equal(printedStateOf(ppa, 'Glass fibre'), 'crystalline');
+  assert.equal(printedStateOf({ Morphology: 'semicrystalline', 'As printed': 'crystallises while printing' }, 'Unfilled / unspecified'), 'crystalline');
+  assert.equal(printedStateOf({ Morphology: 'amorphous', 'As printed': 'Not applicable' }, 'Carbon fibre'), 'glassy');
+  assert.equal(printedStateOf({ Morphology: 'elastomer' }, 'Unfilled / unspecified'), 'rubbery');
+});
+
+test('a crystallising grade prints as its type; every other variant does not (D129, D158)', () => {
+  assert.equal(printsAsItsType({ variant: null }), true);
+  assert.equal(printsAsItsType({ variant: 'crystallising grade' }), true);
+  assert.equal(printsAsItsType({ variant: 'declared dense filler' }), false);
+  assert.equal(printsAsItsType({ variant: 'luminescent pigment' }), false);
+});
 
 const row = (id, materialId, state, anneal) => ({ id, materialId, postProcessingState: state, anneal });
 const threshold = new Map([['M-PLA', 55], ['M-ABS', null]]);

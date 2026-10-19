@@ -3,7 +3,7 @@
 // they hold the hidden value as often as they claim (DECISIONS D43).
 
 import { median, quantile, exceeds } from './numerics.js';
-import { HEAD, transform, sig3, measuredHeadline } from './model.js';
+import { HEAD, transform, sig3, measuredHeadline, identityOf } from './model.js';
 import { fitModel, posterior, predict, hyperparameters, spreadObservations } from './gaussian.js';
 import { conversions, betweenProductSpread } from './conversions.js';
 
@@ -134,6 +134,22 @@ export function calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible
     plausibleCoverage: loo.length ? r3(loo.filter((l) => within(l, zPlausible, calPlausible)).length / loo.length) : null,
     medianLikelyWidth: r3(median(loo.map(width))),
     medianLikelyWidthWithOwnEvidence: r3(median(loo.filter((l) => l.rest).map(width))),
+    // By the strata a change to a polymer's class or a fill column can move (D158): held cases, coverage and the signed
+    // median error on the model's scale (ln, or °C), each hidden value less its prediction.
+    byStratum: Object.fromEntries(Object.entries(groupBy(loo, (l) => stratumOf(l.m, S))).map(([name, ls]) => [name, {
+      held: ls.length,
+      likelyCoverage: r3(ls.filter((l) => within(l, zLikely, calLikely)).length / ls.length),
+      plausibleCoverage: r3(ls.filter((l) => within(l, zPlausible, calPlausible)).length / ls.length),
+      signedError: r3(median(ls.map((l) => l.y - l.p.mu))),
+    }])),
   };
   return { loo, calLikely, calPlausible, outliers, calibration };
+}
+
+const groupBy = (xs, key) => { const out = {}; for (const x of xs) (out[key(x)] ??= []).push(x); return out; };
+
+/** The stratum a material is calibrated in apart: PLA unfilled or filled, a matrix crystalline as printed and filled, the rest. */
+export function stratumOf(m, S) {
+  if (identityOf(m) === 'PLA') return S.reinforcement(m) === 'unfilled' ? 'PLA unfilled' : 'PLA filled';
+  return S.matrix(m) === 'semi-filled' ? 'semicrystalline filled' : 'other';
 }

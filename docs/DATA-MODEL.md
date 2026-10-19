@@ -572,7 +572,7 @@ build attaches an estimate. Its design is DECISIONS D43, its code
 `build/src/estimate/`, and its structure, conversions and limits are reviewed like code in
 `build/mappings/estimate-model.json`.
 
-The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PET, BVOH, PVA, unfilled PPA)
+The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PLA since D158, PET, BVOH, PVA, unfilled PPA)
 deflects near its glass transition and learns nothing from annealed values; an annealed value is never averaged with
 its as-printed twin; conditioned values convert to dry by the polymer's water uptake; density is bounded by the neat
 polymer's range and the rule of mixtures; an unfilled bar is capped by its own highest Vicat; an elastomer has no heat
@@ -617,8 +617,9 @@ semantics with an offset and a spread:
 Each documented offset is refined by the median of grades that publish both, and each spread by their
 MAD; the documented value counts as three pairs. On each product only the most direct kinds are kept. An annealed
 value of a grade that publishes the as-printed one is left out; repeats under different annealing schedules keep a
-half-width that spans them and calibrate no conversion. A polymer that prints amorphous (`printsAmorphous`: PET,
-BVOH, PVA, unfilled PPA) converts heat values with the amorphous class and learns nothing from annealed ones.
+half-width that spans them and calibrate no conversion. A polymer that prints amorphous (`printsAmorphous`: PLA, PET,
+BVOH, PVA, unfilled PPA) converts heat values with the amorphous class, takes a filler's effect as a glassy matrix does,
+and learns nothing from annealed ones (a value treated at or below its glass transition is as printed, D158).
 
 **How wide, and how it is checked.** The spread between two products of the same material is
 measured directly from materials with several products (median pairwise difference). The rest are

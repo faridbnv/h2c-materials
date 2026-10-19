@@ -641,8 +641,9 @@ the data above documented floors, and fits one Gaussian model. It then hides eac
 predicts it, and scales the likely (80%) and plausible (95%) ranges to the coverage actually achieved.
 Declared grade variants get their own covariate, conditioned values convert to dry through the documented wet
 offset, published bounds enter with a half-width and limit their own material, and physical limits bound every
-range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous deflects near its glass
-transition and learns nothing from annealed values; an annealed value is never averaged with its as-printed twin, and
+range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous (PLA and PET among them,
+D158) deflects near its glass transition, fills as a glassy matrix does and learns nothing from annealed values, a
+treatment at or below its glass transition being no annealing; an annealed value is never averaged with its as-printed twin, and
 repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
 neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
 estimate; an unknown direction never converts upwards past its documented offset; a material's only evidence is never

@@ -155,13 +155,15 @@ export function validateEstimates(db) {
   if (thin.length) issues.push(warn('EST-THIN', 'materials', `${thin.length} estimates are too imprecise to guide a choice, on materials that publish nothing for the headline: ${thin.map((w) => w.text).join('; ')}`, { records: thin.map((w) => w.record) }));
 
   const valueOf = (m, key) => (m.headline[key]?.known ? m.headline[key].value : m.headline[key]?.estimate?.centre ?? null);
-  const morphologyOf = (m) => polymers.get(identityOf(m))?.morphology;
+  // A fibre lifts the heat deflection of a matrix that is crystalline as printed; a glassy one (PLA, PET: semicrystalline
+  // polymers that print amorphous) deflects near its glass transition, filled or not, so physics sets no order there (D158).
+  const crystallineAsPrinted = (m) => { const p = polymers.get(identityOf(m)); return p?.morphology === 'semicrystalline' && p.asPrinted !== 'prints amorphous'; };
   const order = [];
   const inScope = db.materials.filter((m) => !m.excluded && !m.familyEntry);
   for (const r of inScope.filter((m) => /fibre/i.test(m.modifier))) {
     for (const u of inScope.filter((m) => m.basePolymer === r.basePolymer && m.modifier === 'Unfilled / unspecified' && m.id !== r.id)) {
       for (const key of ['tensileModulusXY', 'hdt045']) {
-        if (key === 'hdt045' && morphologyOf(r) !== 'semicrystalline') continue;
+        if (key === 'hdt045' && !crystallineAsPrinted(r)) continue;
         const vr = valueOf(r, key), vu = u.headline[key]?.known ? u.headline[key].value : null;
         if (vr != null && vu != null && vr < vu) order.push({ record: `${r.id} ${key}`, text: `${r.name} ${key} ${vr}${r.headline[key].known ? '' : ' (estimate)'} < ${u.name} ${vu}` });
       }
@@ -213,6 +215,14 @@ export function estimateReportLines(db) {
     const width = ESTIMATE_MODEL.properties[k].scale === 'log' ? `×${c.medianLikelyWidth}` : `${c.medianLikelyWidth} °C`;
     const between = v.betweenProduct.estimated ? `${v.betweenProduct.used} (estimated)` : `${v.betweenProduct.used} (${v.betweenProduct.pairs} pairs)`;
     L.push(`| ${k} | ${v.observations} | ${c.held} | ${Math.round((c.likelyCoverage ?? 0) * 100)}% | ${Math.round((c.plausibleCoverage ?? 0) * 100)}% | ${width} | ${between} |`);
+  }
+  L.push('');
+  L.push('By stratum (D158): the same hidden headlines, by the classes a change to a polymer\'s class or a fill column moves. The signed error is the median of the hidden value less its prediction, on the model\'s scale (ln, or °C).');
+  L.push('');
+  L.push('| Headline | Stratum | Hidden | Likely holds | Plausible holds | Signed error |');
+  L.push('|---|---|---:|---:|---:|---:|');
+  for (const [k, v] of Object.entries(mdl.properties)) {
+    for (const [name, c] of Object.entries(v.calibration.byStratum ?? {})) L.push(`| ${k} | ${name} | ${c.held} | ${Math.round(c.likelyCoverage * 1000) / 10}% | ${Math.round(c.plausibleCoverage * 1000) / 10}% | ${c.signedError} |`);
   }
   L.push('');
   L.push('| Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |');
