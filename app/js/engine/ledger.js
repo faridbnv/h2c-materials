@@ -60,7 +60,7 @@ export function contributionWords(b, unit, words) {
     const at = b.kind === 'neat-density range' ? `lies within ${fmtWords(b.lo)} to ${fmtWords(b.hi)} ${unit}`
       : b.kind === 'floor' ? `is never below ${fmtWords(b.lo)} ${unit}`
         : `is never ${unit === 'GPa' ? 'stiffer than' : 'above'} ${fmtWords(b.hi)} ${unit}`;
-    return `${what} ${at}${b.widened ? ', as far as its kind\'s own products publish' : ''}`;
+    return `${what}${b.polymer ? ` (${b.polymer})` : ''} ${at}${b.widened ? ', as far as its kind\'s own products publish' : ''}`;
   }
   const source = `${what}: ${fmtWords(b.sourceValue)} ${unit} (${b.measurementId}${b.from ? `, in the ${b.from.label}` : ''})`;
   const span = b.lo != null && b.hi != null

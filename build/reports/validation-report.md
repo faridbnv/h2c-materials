@@ -132,7 +132,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV11 | elongationXY | floor | reported | 1 | 46 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
 | CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CL01 | tensileModulusXY | ceiling | reported | 0.5 | 81 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
-| CL02 | density | neat-density range | reported | polymers.csv | 516 |  | 7 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
+| CL02 | density | neat-density range | deciding | polymers.csv | 516 |  | 5 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
 
 ## Environment evidence
 
@@ -556,6 +556,7 @@ interface can say so rather than implying a certainty it does not have.
 - `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 2 of 255 same-sheet pair(s) break it: G001-77 V013711 59 against V013712 60; G165-04 V014653 58 against V014656 62
 - `LEDGER-DISAGREE` **grades** — 2 product state(s) whose deciding bounds leave no value between them: G001-77 hdt045 at least 60 (CV01 V013712) and at most 59 (CV05 V013711); G158-01 hdt045 at least 50 (CV01 V010561) and at most 48 (CV05 V010876)
 - `LEDGER-CONTRADICTS-VALUE` **grades** — 1 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G067-05 hdt045 87 (V011565) against CV01 V011569
+- `CLASS-LIMIT-CONTRADICTED` **grades** — 5 comparable value(s) beyond their kind's limit by more than the test scatter: G020-08 density 1180 (V002844) against CL02; G035-12 density 1150 (V004709) against CL02; G094-06 density 1070 (V006114) against CL02; G075-11 density 1370 (V010405) against CL02; …
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
 - `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1320); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 0.985)

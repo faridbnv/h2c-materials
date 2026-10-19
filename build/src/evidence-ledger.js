@@ -222,6 +222,11 @@ function rowContributions(row, def, state, sources, sdef) {
 /** How far outside an end a value may lie before the two disagree: the headline's test scatter at that end (D152). */
 const scatterAt = (def, x) => (!def.testScatter ? 0 : def.testScatter.is === 'relative' ? Math.abs(x) * def.testScatter.value / 100 : def.testScatter.value);
 const outside = (def, v, lo, hi) => (lo != null && v < tidy(lo - scatterAt(def, lo))) || (hi != null && v > tidy(hi + scatterAt(def, hi)));
+/** Whether a published value lies wholly beyond an interval: a range only where its nearer end does (D54: a mean is a point). */
+function beyond(def, v, lo, hi) {
+  const range = v.interval && v.interval.kind === 'range' && v.interval.lo != null && v.interval.hi != null;
+  return (lo != null && outside(def, range ? v.interval.hi : v.value, lo, null)) || (hi != null && outside(def, range ? v.interval.lo : v.value, null, hi));
+}
 const byRecord = (a, b) => (a.rule < b.rule ? -1 : a.rule > b.rule ? 1 : String(a.measurementId ?? '').localeCompare(String(b.measurementId ?? '')));
 const changes = (def, state) => (state.treatment && def.changesWithAnnealing) || (state.moisture === 'conditioned' && def.changesWithMoisture);
 
@@ -273,6 +278,7 @@ function limitContribution(limit, row, extremes, polymerById) {
     b.widenedBy = [lo !== limitLo ? e?.minGradeId : null, hi !== limitHi ? e?.maxGradeId : null].filter(Boolean);
   }
   if (sourceId) b.sourceId = sourceId;
+  if (limit.kind === 'neat-density range') b.polymer = k;
   return b;
 }
 
@@ -355,13 +361,13 @@ export function attachLedger({ grades, materialRows, measurements, registry, con
         // Each record is read on its own, at the comparable level a deciding value is at.
         const doubtful = [];
         for (const b of conv) {
-          if (b.level !== LEVEL.COMPARABLE || !outside(def, v.value, b.lo, b.hi)) continue;
+          if (b.level !== LEVEL.COMPARABLE || !beyond(def, v, b.lo, b.hi)) continue;
           const rec = { gradeId: g.id, state: state.id, key, value: v.value, measurementId: v.measurementId, by: b };
           stats.get(b.rule).contradicted.push(rec);
           if (b.status === 'deciding') { contradictions.ledger.push(rec); doubtful.push({ rule: b.rule, measurementId: b.measurementId, lo: b.lo, hi: b.hi }); }
         }
         for (const b of by.filter((x) => x.limit !== undefined)) {
-          if (!outside(def, v.value, b.limit.lo, b.limit.hi)) continue;
+          if (!beyond(def, v, b.limit.lo, b.limit.hi)) continue;
           const rec = { gradeId: g.id, state: state.id, key, value: v.value, measurementId: v.measurementId, by: b };
           stats.get(b.rule).contradicted.push(rec);
           if (b.status === 'deciding') { contradictions.class.push(rec); doubtful.push({ rule: b.rule, lo: b.limit.lo, hi: b.limit.hi }); }

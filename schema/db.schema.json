@@ -2999,6 +2999,7 @@
         "limit": { "type": "object", "additionalProperties": false, "required": ["lo", "hi"], "properties": { "lo": { "type": ["number", "null"] }, "hi": { "type": ["number", "null"] } } },
         "widened": { "const": true },
         "widenedBy": { "type": "array", "items": { "type": "string" } },
+        "polymer": { "type": "string", "description": "The polymer whose neat range a neat-density limit reads (polymers.csv)." },
         "sourceId": { "type": "string" }
       }
     },
