@@ -235,7 +235,7 @@ preferences: changing one changes what the tool asserts.
    value that misses the limit by less than its test scatter (10 % for stiffness and strength, 5 °C for HDT, 20 % for
    elongation, 2 % for density) is on the line, unresolved; one that meets it by less passes with a thin margin (D152).
    A band, floor or ceiling drawn from another record, and a value only a ceiling for the printed part, are compared
-   with the limit as they are (D163).
+   with the limit as they are (D166).
 4. **Hard constraints decide eligibility; a preference never removes a candidate.** It is reported
    on each material as "tracked only". It does not reorder the list yet, and the interface does not
    claim it does.

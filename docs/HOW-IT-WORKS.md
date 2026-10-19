@@ -369,7 +369,7 @@ Two phrases in the answers come from a test's scatter, how far one maker's figur
   3DXTECH's CarbonX CF-PLA at 4.95 GPa against 5 GPa. It is unresolved, not failed, and one test bar or a word with the
   maker settles it. Only a point is put on the line: a published value or mean, or a value the evidence ledger reads as
   equal to it. A range, a bound from another record (a flexural band, an annealed ceiling, a 1.8 MPa floor) and a value
-  that is only a ceiling for the printed part are compared with the limit as they are (D163).
+  that is only a ceiling for the printed part are compared with the limit as they are (D166).
 - **A thin margin.** The value meets the limit by less than the scatter. It still passes, and the answer says so.
 
 ## Estimates: what they are and what they may do

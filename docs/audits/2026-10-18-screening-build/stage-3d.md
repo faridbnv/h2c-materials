@@ -7,7 +7,7 @@
 > page words that pointed a reader the wrong way. This stage corrects the four rules and the words. No pass was created.
 > Three material passes went away, each resting on a crystallised PLA or PET bar read as a floor. Soft TPS, TPV and a
 > maker-undisclosed TPE now fail the stiffness presets on the rubber limit. PLA now reads "Unlikely to meet" for an
-> 80 °C part, and leaves "One check away" for a 5 GPa fixture. The rule changes are decision D163 in
+> 80 °C part, and leaves "One check away" for a 5 GPa fixture. The rule changes are decision D166 in
 > [DECISIONS](../../DECISIONS.md).
 
 ## What was wrong, and what changed?
@@ -96,7 +96,7 @@ and the drawer's source link still carry them.
   source states is read from its kind of plastic where the makers agree. The no-substitution rule now says a requirement
   may read another property through a conversion row. "On the line" and "a thin margin" are explained.
 - DATA-MODEL: the same qualifier on cross-property fallback; the related value's row; the ledger's on-the-line rule.
-- DECISIONS: D149 and D150 no longer say their numbers are provisional; D152 to D155 say "Amended by D163".
+- DECISIONS: D149 and D150 no longer say their numbers are provisional; D152 to D155 say "Amended by D166".
 - conversions.csv: CV08's Basis said 1.91 where its factor is 1.93 (text only).
 - GOALS C9: the chamber read from the kind of plastic joins the order of printer evidence.
 - The sweep of the living documents for the review's stale phrases changed README (rule 3, the kinds of number, the

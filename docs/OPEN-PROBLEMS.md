@@ -1387,7 +1387,7 @@ the estimate stage, so it waits for stage 4 and a back-test.
 
 ### 38.6. Values the evidence ledger finds doubtful
 
-*From the screening build, stage 3b, 2026-10-18 (D153, D154); stage 3d (D163) took three items away.*
+*From the screening build, stage 3b, 2026-10-18 (D153, D154); stage 3d (D166) took three items away.*
 
 **A comparable value its other records or its kind contradict still decides, and its answer says "doubtful".** Four
 densities lie outside their unfilled polymer's sourced range by more than 2 %: Spectrum
@@ -1397,7 +1397,7 @@ PET-G HT100 1.18 (PETG 1.22 to 1.30; HT100 may be another copolyester), SUNLU PC
 kind's limit to itself, so no answer is decided against it. What frees them: a re-read, or a word with the maker.
 
 **Gone since stage 3d.** Raise3D Industrial PET CF's 87 °C at 0.45 MPa (V011565) is no longer doubtful: the 112 °C at
-1.8 MPa beside it (V011569) is from a PET bar its sheet does not describe, which CV01 no longer reads as a floor (D163).
+1.8 MPa beside it (V011569) is from a PET bar its sheet does not describe, which CV01 no longer reads as a floor (D166).
 Prusament rPLA Natural Pigments and Fiberlogy PLA MINERAL no longer read "sheets disagree" for the same reason: each
 disagreement set an undescribed PLA bar's HDT at 1.8 MPa against its 0.45 MPa value, a 1 to 2 °C inversion (§37.3). The
 validation report's Evidence ledger section lists any such state the build finds.
@@ -1928,7 +1928,7 @@ ledger (`conversions.csv`), and a sourced physics limit of a kind of plastic set
 (`class_limits.csv`). Stage 3c (D155) sorts what nothing settles by what would settle it: "One check away", "Not enough
 data" (tagged "likely" where every open number's estimated range meets its limit, never on its centre alone) and a
 folded "Unlikely to meet", each row naming the product that decides it; "Insufficient evidence" and "Estimated
-candidates" are gone, and no verdict moved. Stage 3d (D163) corrected what the round's review and a second first-time
+candidates" are gone, and no verdict moved. Stage 3d (D166) corrected what the round's review and a second first-time
 user found: a PLA or PET bar the ledger demotes floors nothing, a band, floor or ceiling is never on the line, a value only
 a ceiling never holds a material open against a measured miss, the rubber limit reaches TPE, TPS and TPV, and the page
 says "hidden" for one idea and why each hidden or failing row is where it is (§38.7).
@@ -2127,7 +2127,7 @@ shortlist; with V17).
 
 ### 38.7. What the round's review and second trial leave (stage 3d)
 
-*From the screening build, stage 3d, 2026-10-18 (D163; the review's R08 and the second first-time-user trial).*
+*From the screening build, stage 3d, 2026-10-18 (D166; the review's R08 and the second first-time-user trial).*
 
 **PAHT-CF's "likely" rests on a density estimate below its polymer.** In the outdoor bracket and the lightweight
 structure, PAHT-CF reads "Not enough data, likely: BASF Forward AM Ultrafuse PAHT CF15, density estimated 1,030 to 1,170

@@ -515,11 +515,11 @@ every contribution (`by`: the row, its kind and status, the record, its value, t
 twin's labelled) and the intersection of the deciding, comparable ones (`lo`, `hi`). The engine reads it after a
 comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record,
 a band, floor or ceiling is compared with the limit as it is (only an equality and a class limit may be on the line
-within the test scatter, D163), an empty intersection is "sheets disagree", and a contribution whose record states no
+within the test scatter, D166), an empty intersection is "sheets disagree", and a contribution whose record states no
 direction or load decides only where the reader admits such values. A PLA or PET HDT from a bar its sheet does not
 describe is marked `ceilingOnly` as printed (CV05; an annealed state's is not): still the product's value and in its
 material's spread, it may fail a minimum, never pass one, and it is never on the line. Read by another row, such a bar
-gives only its upper end: CV01 takes no floor from a PLA or PET HDT at 1.8 MPa on a moulded or undescribed bar (D163). A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and
+gives only its upper end: CV01 takes no floor from a PLA or PET HDT at 1.8 MPa on a moulded or undescribed bar (D166). A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and
 changes no answer. Each row's band is re-measured on same-sheet pairs at every build (CONVERSION-PAIRS), and its factor
 is what every pair supports. A limit reaches only beyond the wider of its sourced value and its kind's own published
 extreme among products that are not variants, plus the scatter; a declared variant and an undisclosed commercial variant
@@ -923,7 +923,7 @@ and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density) i
 own rule, and so does a value only a ceiling for the printed part. A physically implausible value decides nothing: the
 headline it would have backed is estimated. A product with no value measured the way asked is answered on its
 evidence-ledger bounds where a deciding row draws them (D153, D154): a pass or a fail that names the record, on the line
-only for an equality or a class limit within the scatter (D163), and INDETERMINATE with `sheetsDisagree` where two
+only for an equality or a class limit within the scatter (D166), and INDETERMINATE with `sheetsDisagree` where two
 records leave no value between them.
 
 ## The reference layer
