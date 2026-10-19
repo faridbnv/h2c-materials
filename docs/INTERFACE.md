@@ -352,8 +352,8 @@ resin data, never a property that does not apply, which is not the switch's. Und
 unchecked, its stored value kept for Include, and its **?** says it works only when such materials are included (the
 line "Only under Include uncertain" beneath it went into the popover on 2026-10-18): hiding the switch there meant a
 reader in the default mode never learned estimates exist. What the switch governs sits behind the **?** beside it, not
-in a tooltip: it shows estimates where nothing is published and lists as estimated candidates the materials whose
-estimates' middle values meet the missing limits; with it on, resin data can hide a material whose base polymer it
+in a tooltip: it shows estimates where nothing is published, which order the materials under "Not enough data" and tag
+"likely" the ones whose estimated range meets every open limit (D155); with it on, resin data can hide a material whose base polymer it
 reports attacked or dissolved, and a material with no product on record is hidden when its own estimate wholly misses.
 It is one switch because both are inference about a material that publishes nothing, and both obey the same rule: never
 a pass, a screen only where the evidence wholly fails. Its element ids and the scenario field keep the old name
@@ -1440,8 +1440,26 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
 - **The filter rail below 1,100 px is a modal dialog** (F10), as the material drawer is.
 - **The release** (D96) is at the right end of the status bar and under *Save / share*, and in every export and brief.
 
-## Product uncertainty groups (D137)
+## Groups by what would settle each material (D137, D155)
 
-The saved controls and scenario format stay the same. With requirements set and Include selected, the table lists Supported candidates, Estimated candidates to verify and an expandable Insufficient evidence group. Counts, exports, comparison and plot eligibility include collapsed rows. Expansion is local presentation state, not a saved filter; it survives ordinary table redraws. Existing goal or column sorting operates within each group, and material/product CSVs append Candidate group.
+The saved controls and scenario format stay the same. With requirements set and Include selected, the table lists the
+materials in groups by what would settle each (D155): "Meets every requirement", "One check away" (a product waits only on
+a printer check, or on one requirement on the line or that its sheets disagree on), "Not enough data" (the ones tagged
+"likely" first, then by how close the deciding product's estimate is) and a folded "Unlikely to meet (n) — counted and
+exported" (a product measured the way asked misses and none meets it, or every open product's own estimate wholly
+misses). Hidden and failed materials appear, under "Hidden as unlikely" and "Fail", only behind their chips. The groups
+change no verdict, count or eligibility: counts, exports, comparison and plot eligibility include folded rows. The fold
+is local presentation state, not a saved filter; it survives ordinary table redraws. Existing goal or column sorting
+operates within each group (inside "Not enough data", after the likely tag and the estimate's closeness), and the
+material and product CSVs carry Candidate group (meets, one-check-away, not-enough-data, unlikely-to-meet, hidden, fail)
+and Likely.
 
-Estimated candidates remain UNKNOWN and require every unresolved mandatory numeric centre to meet the limit. Missing categorical/printing evidence or a prediction crossing the centre threshold goes to insufficient evidence. Product cards show each estimate's centre/ranges and its separate exclusion permission. A product estimate screened chip opens Products, where the relevant certificate and records are shown; material-only estimates still open Overview. Reasons distinguish missing, non-comparable and other-state values and name the next maker question or coupon test. New screening is limited to independently certified as-printed/dry scopes under the reserved complete-scenario budget; none currently qualifies; it cannot pass or overrule a measurement.
+Each unresolved row names the product that puts it in its group and that product's own numbers ("One check away on 1 of
+17 products: ..."), and the estimate in its cell on a required number is that product's; the drawer's requirement lines
+say "Shown for one product, X" and why it was chosen. A likely tag needs every open number's likely (80 %) range to meet
+its limit and no required number missed by every product measured on it; it never passes. Product cards show each
+estimate's centre/ranges and its separate exclusion permission. A product estimate screened chip opens Products, where
+the relevant certificate and records are shown; material-only estimates still open Overview. Reasons distinguish
+missing, non-comparable and other-state values and name the next maker question or coupon test. New screening is limited
+to independently certified as-printed/dry scopes under the reserved complete-scenario budget; none currently qualifies;
+it cannot pass or overrule a measurement.

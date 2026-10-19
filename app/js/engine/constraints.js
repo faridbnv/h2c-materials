@@ -680,15 +680,16 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
   else verdict = STATUS.UNKNOWN;
 
   const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unresolved.some((r) => r.screened);
-  const estimatedCandidate = unresolved.length > 0 && unresolved.every((r) => r.estimated && !r.screened
-    && Number.isFinite(r.estimate?.centre) && compareInterval({ lo: r.estimate.centre, hi: r.estimate.centre }, r.constraint.operator, r.constraint.value) === STATUS.PASS);
-  const shortlistGroup = verdict === STATUS.PASS ? 'supported' : verdict === STATUS.UNKNOWN && !screened
-    ? estimatedCandidate ? 'estimated' : 'insufficient' : 'excluded';
+  // What would settle it (D155): a presentation of the verdict, never a change to it or to eligibility.
+  const grouping = groupOf(verdict, screened, unresolved);
 
   return {
     materialId: material.id,
     verdict,
-    shortlistGroup,
+    group: grouping.group,
+    likely: grouping.likely,
+    groupReason: grouping.open ? openWords(grouping.open, ctx) : '',
+    shortfall: verdict === STATUS.UNKNOWN ? shortfallOf(unresolved) : 0,
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     // The UI must show when an estimate was involved rather than let the reader assume a measurement.
@@ -711,9 +712,159 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
   };
 }
 
+// ---------------------------------------------------------------- groups (D155)
+
+/**
+ * The groups the list sorts materials into by what would settle each (D155, amending D137's grouping). They present a
+ * verdict and never change it, nor a count, nor whether a material is listed:
+ *  - meets every requirement (PASS);
+ *  - one check away: a product waits only on a printer check (nozzle, bed, chamber), or on one requirement that is on
+ *    the line or that its sheets disagree on, so one question to the maker or one test settles it;
+ *  - not enough data: anything else unresolved, tagged likely where every open number's estimate, in the range the page
+ *    shows (80 %), meets the limit; an estimate orders and tags, and never passes (D43);
+ *  - unlikely to meet: on a required number a product measured the way it asks misses and none meets it or is on the
+ *    line, or every open product's own estimate wholly misses (its plausible, 95 %, range fails);
+ *  - hidden as unlikely (the material is screened: D56, D64, D148) and fail (every product fails, D100).
+ */
+export const GROUP = { MEETS: 'meets', ONE_CHECK: 'one-check-away', NOT_ENOUGH: 'not-enough-data', UNLIKELY: 'unlikely-to-meet', HIDDEN: 'hidden', FAIL: 'fail' };
+export const GROUP_ORDER = [GROUP.MEETS, GROUP.ONE_CHECK, GROUP.NOT_ENOUGH, GROUP.UNLIKELY, GROUP.HIDDEN, GROUP.FAIL];
+const PRINTER_CHECKS = ['nozzle', 'bed', 'chamber'];
+const isPrinterCheck = (r) => r.constraint?.kind === 'gate' && PRINTER_CHECKS.includes(r.constraint.gate);
+const meetsLimit = (lo, hi, c) => Number.isFinite(lo) && Number.isFinite(hi) && compareInterval({ lo, hi, kind: 'range' }, c.operator, c.value) === STATUS.PASS;
+
+/**
+ * One product's (or one product-less material's) group, from its verdict and the requirements it leaves open. The
+ * likely range is the one the page shows. The evidence ledger (D153) needs no intersection here: where its interval
+ * decides, there is no estimate, and where it straddles the limit it cannot move a range's answer about that limit.
+ */
+function groupOf(verdict, screened, unresolved) {
+  if (verdict === STATUS.PASS) return { group: GROUP.MEETS, likely: false };
+  if (verdict === STATUS.FAIL) return { group: GROUP.FAIL, likely: false };
+  if (screened) return { group: GROUP.HIDDEN, likely: false };
+  // Its own estimate wholly misses: unlikely, never hidden, since no product estimate is back-tested to hide (D137, D148).
+  // An estimate its own measurement bounds from below and meets (D48) does not count.
+  const misses = unresolved.filter((r) => r.estimated && r.plausible === STATUS.FAIL && !r.vetoedBy?.length);
+  if (misses.length) return { group: GROUP.UNLIKELY, likely: false, open: misses };
+  if (unresolved.every(isPrinterCheck) || (unresolved.length === 1 && (unresolved[0].onTheLine || unresolved[0].sheetsDisagree))) {
+    return { group: GROUP.ONE_CHECK, likely: false, open: unresolved };
+  }
+  const likely = unresolved.length > 0 && unresolved.every((r) => r.estimated && meetsLimit(r.estimate?.lo, r.estimate?.hi, r.constraint));
+  return { group: GROUP.NOT_ENOUGH, likely, open: unresolved };
+}
+
+/**
+ * How far an unresolved product is from meeting its open numbers, relative to each limit, at its worst: a published value
+ * on the line or a range that straddles by its value, an estimate by its centre. A printer check or a requirement that is
+ * not a number has no distance (0); a number with nothing to go on is furthest (Infinity).
+ */
+function shortfallOf(unresolved) {
+  let worst = 0;
+  for (const r of unresolved) {
+    const c = r.constraint;
+    if (c?.kind !== 'numeric' || !Number.isFinite(c.value)) continue;
+    const v = Number.isFinite(r.observed) ? r.observed : Number.isFinite(r.estimate?.centre) ? r.estimate.centre : null;
+    const gap = v === null ? Infinity : Math.max(0, (c.operator.startsWith('>') ? c.value - v : v - c.value) / (Math.abs(c.value) || 1));
+    worst = Math.max(worst, gap);
+  }
+  return worst;
+}
+
+const GROUP_RANK = { [GROUP.MEETS]: 0, [GROUP.ONE_CHECK]: 1, [GROUP.NOT_ENOUGH]: 2, [GROUP.UNLIKELY]: 4, [GROUP.HIDDEN]: 5, [GROUP.FAIL]: 6 };
+const rankOfGroup = (e) => (GROUP_RANK[e.group] ?? 6) + (e.group === GROUP.NOT_ENOUGH && !e.likely ? 1 : 0);
+const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+/**
+ * The one order of the groups (D155): meets, one check away, not enough data (likely first), unlikely, hidden, fail. Among
+ * unresolved ones, fewer open requirements first, then the smaller shortfall; the caller breaks a tie by its own order.
+ */
+export function compareGroups(a, b) {
+  const byRank = rankOfGroup(a) - rankOfGroup(b);
+  if (byRank || a.verdict !== STATUS.UNKNOWN) return byRank;
+  return cmp(a.unresolved?.length ?? 0, b.unresolved?.length ?? 0) || cmp(a.shortfall ?? 0, b.shortfall ?? 0);
+}
+
+/** A property as a reason names it mid-sentence: its plain label from the registry the database carries. */
+const LABELS = new WeakMap();
+function propertyWords(ctx, key) {
+  const headlines = ctx?.db?.registry?.headlines;
+  if (!headlines) return key;
+  if (!LABELS.has(headlines)) LABELS.set(headlines, new Map(headlines.map((x) => [x.key, x.labels?.plain ?? x.key])));
+  const plain = LABELS.get(headlines).get(key) ?? key;
+  return lowerFirst(plain);
+}
+const OPERATOR_WORDS = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
+const unitOf = (r) => r.unit ?? r.estimate?.unit ?? '';
+/** A requirement in words: "HDT at 0.45 MPa at least 100 °C". */
+function requirementWords(c, ctx, unit = '') {
+  return `${propertyWords(ctx, c.property)} ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)}${unit ? ` ${unit}` : ''}`;
+}
+const lowerFirst = (t) => (/^[A-Z](?![A-Z0-9])/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t);
+const firstSentence = (t) => String(t ?? '').split(/\.\s/)[0].replace(/\.$/, '');
+const sig = (v, digits = 3) => fmtWords(Number(Number(v).toPrecision(digits)));
+
+/** One open requirement of the deciding product in words, its own numbers in them (C05). */
+function openOne(r, ctx) {
+  const c = r.constraint;
+  if (isPrinterCheck(r)) {
+    if (/^No print profile recorded/.test(r.reason ?? '')) return 'no print recipe on record';
+    if (/^No temperature published/.test(r.reason ?? '')) return `its ${c.gate} temperature is not stated`;
+    return `its ${c.gate}${r.onTheLine ? ' is on the line' : ''}: ${lowerFirst(firstSentence(r.reason))}`;
+  }
+  if (c?.kind === 'numeric') {
+    const prop = propertyWords(ctx, c.property);
+    const unit = unitOf(r);
+    if (r.onTheLine && Number.isFinite(r.observed)) return `${prop} ${sig(r.observed, 4)} ${unit}, on the line for ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)} ${unit}`;
+    if (r.sheetsDisagree) return `its sheets disagree on ${prop}`;
+    if (r.estimated && Number.isFinite(r.estimate?.lo) && Number.isFinite(r.estimate?.hi)) {
+      const e = r.estimate;
+      const plausible = r.plausible === STATUS.FAIL && e.plausible ? `, plausibly ${sig(e.plausible.lo)} to ${sig(e.plausible.hi)}, against ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)}` : '';
+      return `${prop} estimated ${sig(e.lo)} to ${sig(e.hi)} ${unit}${plausible}`;
+    }
+    if (Number.isFinite(r.observed)) return `${prop}: ${lowerFirst(firstSentence(r.reason))}`;
+    if (r.missing === 'not-available-in-market') return 'no price in the sampled shops';
+    if (r.asPublished) return `${prop} published without its test ${r.asPublished.caveat === 'load-not-stated' ? 'load' : 'orientation'}`;
+    if (r.elsewhere?.length) return `${prop} published only in another state`;
+    return `${prop} not published`;
+  }
+  return `${lowerFirst(String(r.criterion ?? ''))}: ${lowerFirst(firstSentence(r.reason))}`;
+}
+/** The open requirements in words, at most three named. */
+function openWords(open, ctx) {
+  const words = [...new Set(open.map((r) => openOne(r, ctx)))];
+  return words.length > 3 ? `${words.slice(0, 3).join('; ')}; and ${words.length - 3} more` : words.join('; ');
+}
+
+/**
+ * On a required number, a product measured the way it asks that misses it, while no product meets it, is on the line, or
+ * leaves it to a range that straddles the limit (D155): the material is unlikely to meet it, whatever its open products'
+ * estimates say. A value the evidence ledger reads from another kind of record (D153) is not measured the way asked.
+ */
+function measuredMiss(judged, constraints) {
+  for (const c of constraints) {
+    if (c.kind !== 'numeric' || c.mandatory === false) continue;
+    let misses = 0, blocked = false;
+    for (const x of judged) {
+      const r = x.e.results.find((y) => y.constraint === c);
+      if (!r) continue;
+      if (r.status === STATUS.PASS || r.status === STATUS.INDETERMINATE) { blocked = true; break; }
+      if (r.status === STATUS.FAIL && Number.isFinite(r.observed) && !r.ledger) misses++;
+    }
+    if (!blocked && misses) return { constraint: c, misses, unit: judged.map((x) => x.e.results.find((y) => y.constraint === c)).find((r) => r?.unit)?.unit ?? '' };
+  }
+  return null;
+}
+/** Whether, on some required number, every product measured the way it asks misses it or is only on the line (C19). */
+function everyMeasuredMisses(judged, constraints) {
+  return constraints.some((c) => {
+    if (c.kind !== 'numeric' || c.mandatory === false) return false;
+    const rs = judged.map((x) => x.e.results.find((y) => y.constraint === c)).filter(Boolean);
+    const measured = rs.filter((r) => Number.isFinite(r.observed) && !r.ledger);
+    return measured.length > 0 && measured.every((r) => r.status === STATUS.FAIL || r.onTheLine) && !rs.some((r) => r.status === STATUS.PASS);
+  });
+}
+
 /**
  * A product judged in each state the scenario may make it in (D99), as printed first, and answered by the best: a state
- * that passes, else one that is unresolved (unscreened before screened), else a failure. A product used in an annealed
+ * that passes, else one that is unresolved (unscreened before screened, by group, D155), else a failure. A product used in an annealed
  * state carries the treatment it needs as a requirement of its own, so the verdict and every export name it.
  */
 function judgeProduct(material, grade, constraints, ctx) {
@@ -731,9 +882,8 @@ function judgeProduct(material, grade, constraints, ctx) {
       && ['nozzle', 'bed', 'chamber'].every((a) => grade.print?.[a]?.verdict === 'within' && grade.print.from?.[a]?.origin !== 'family');
     return { state, e: evaluateMaterial(view, cs, { ...ctx, completeProductContext }) };
   });
-  const rank = (t) => t.e.verdict === STATUS.PASS ? 0 : t.e.verdict === STATUS.UNKNOWN
-    ? t.e.screened ? 3 : t.e.shortlistGroup === 'estimated' ? 1 : 2 : 4;
-  const best = tries.reduce((a, b) => (rank(b) < rank(a) ? b : a));
+  // The best state by the one order of the groups (D155): its verdict is the best the scenario permits, as before.
+  const best = tries.reduce((a, b) => (compareGroups(b.e, a.e) < 0 ? b : a));
   return { grade, e: best.e, state: best.state, tries };
 }
 
@@ -751,7 +901,14 @@ const stateRef = (s) => ({ id: s.id, treatment: s.treatment ?? null, moisture: s
  * product is judged as it always was, on its own headline.
  */
 export function evaluateProducts(material, products, constraints, ctx = {}) {
-  if (!products?.length) return { ...evaluateMaterial(material, constraints, ctx), share: null, counts: null, products: [] };
+  if (!products?.length) {
+    // No product on record (PA66-CF, PA612, PA612-GF): judged on its own headline as before, hidden where its own estimate
+    // screens, and otherwise not enough data, never likely (D155).
+    const e = evaluateMaterial(material, constraints, ctx);
+    const open = e.verdict === STATUS.UNKNOWN && e.group !== GROUP.HIDDEN;
+    return { ...e, ...(open ? { group: GROUP.NOT_ENOUGH, likely: false, groupReason: 'Not enough data: no product on record' } : { groupReason: '' }),
+      share: null, counts: null, products: [] };
+  }
   const policy = normalizePolicy(ctx.unknownPolicy);
   const judged = products.map((g) => judgeProduct(material, g, constraints, ctx));
   const pass = judged.filter((x) => x.e.verdict === STATUS.PASS);
@@ -761,11 +918,15 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
   const share = pass.length ? (fail.length ? SHARE.SOME : SHARE.ALL) : fail.length ? SHARE.NONE : null;
   // D137: every unresolved product must be screened; measured failures cannot keep a candidate alive.
   const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unknown.every((x) => x.e.screened);
-  const best = pass[0] ?? unknown.find((x) => !x.e.screened && x.e.shortlistGroup === 'estimated') ?? unknown.find((x) => !x.e.screened) ?? unknown[0] ?? fail[0];
+  // The product that represents the material, by the one order of the groups (D155): the first that passes, else the
+  // unresolved one nearest to being settled, else the first that fails. Its group is the material's, its reasons the row's.
+  const best = judged.reduce((a, b) => (compareGroups(b.e, a.e) < 0 ? b : a));
+  const { measuredMisses, ...grouping } = materialGroup(verdict, screened, best, judged, constraints, ctx);
   return {
     ...best.e,
     materialId: material.id,
     verdict,
+    ...grouping,
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     screened,
@@ -779,16 +940,47 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
     ...(verdict === STATUS.UNKNOWN && fail.length ? { someFail: true } : {}),
     // Each product's own answer, the state it was judged in, and the records it rests on (D98, D99): the product cards,
     // the decision brief and the acceptance portfolio read a product's reasons, not its material's best product's.
-    products: judged.map((x) => productEntry(x)),
+    products: judged.map((x) => productEntry(x, measuredMisses)),
     gradeId: best.grade.id,
     state: stateRef(best.state),
   };
 }
 
-function productEntry(x) {
+/**
+ * The material's group (D155): its verdict's where that decides (meets, hidden, fail), else its best product's, made
+ * "unlikely to meet" where a measured product misses a required number and none meets it; tagged likely only where the
+ * best product's estimates meet every open number and no required number is missed by every product measured on it. The
+ * reason names the deciding product and its own numbers (C05).
+ */
+function materialGroup(verdict, screened, best, judged, constraints, ctx) {
+  const n = judged.length;
+  const products = (k) => `${k} product${k === 1 ? '' : 's'}`;
+  if (verdict === STATUS.PASS) return { group: GROUP.MEETS, likely: false, groupReason: '' };
+  if (verdict === STATUS.FAIL) return { group: GROUP.FAIL, likely: false, groupReason: '' };
+  if (screened) return { group: GROUP.HIDDEN, likely: false, groupReason: '' };
+  const misses = everyMeasuredMisses(judged, constraints);
+  const miss = measuredMiss(judged, constraints);
+  const name = gradeName(ctx, best.grade.id);
+  if (miss) {
+    const other = n - miss.misses;
+    return {
+      group: GROUP.UNLIKELY, likely: false, measuredMisses: true,
+      groupReason: `Unlikely to meet: every measured product misses ${requirementWords(miss.constraint, ctx, miss.unit)}: ${miss.misses} of ${n}${other === 1 ? '; the other one has no value measured that way' : other ? `; the other ${other} have no value measured that way` : ''}`,
+    };
+  }
+  const g = best.e.group;
+  const like = judged.filter((x) => x.e.group === g).length;
+  if (g === GROUP.ONE_CHECK) return { group: g, likely: false, groupReason: `One check away on ${like} of ${products(n)}: ${name}, ${best.e.groupReason}` };
+  if (g === GROUP.UNLIKELY) return { group: g, likely: false, groupReason: `Unlikely to meet: the estimate of every open product misses; the nearest, ${name}: ${best.e.groupReason}` };
+  const likely = !!best.e.likely && !misses;
+  return { group: GROUP.NOT_ENOUGH, likely, measuredMisses: misses, groupReason: `Not enough data${likely ? ', likely' : ''}: ${name}, ${best.e.groupReason}` };
+}
+
+function productEntry(x, measuredMisses = false) {
   const admitted = [...new Set(x.e.results.flatMap((r) => (r.status === STATUS.PASS ? r.admitted ?? [] : [])))];
   return {
-    gradeId: x.grade.id, verdict: x.e.verdict, shortlistGroup: x.e.shortlistGroup, screened: x.e.screened, failedBy: x.e.failedBy,
+    gradeId: x.grade.id, verdict: x.e.verdict, group: x.e.group, likely: !!x.e.likely && !measuredMisses,
+    ...(x.e.groupReason ? { groupReason: x.e.groupReason } : {}), screened: x.e.screened, failedBy: x.e.failedBy,
     state: stateRef(x.state), results: x.e.results.map(productResult),
     ...(admitted.length ? { admitted } : {}),
     // A declared variant (a foamed or densely filled grade, D57) is named, so a pass it alone carries can say so.

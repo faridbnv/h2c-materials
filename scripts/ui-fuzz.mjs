@@ -22,7 +22,8 @@
 //        [--out DIR]      where results.json and violations.jsonl go (default: this directory)
 //        [--shard K/N]    run the K-th of N parts of the scenarios; a child scenario is in its parent's part (I8)
 //
-// Invariants (see NOTES.md): I1 table rows and verdicts, I2 count and chips, I3 Strict ignores the estimates
+// Invariants (see NOTES.md): I1 table rows, verdicts and groups (D155: each row in its engine group's table, with the
+// engine's reason), I2 count and chips, I3 Strict ignores the estimates
 // switch, I4 Ashby points/envelopes/front/legend (Material typicals), I5 display rounding against thresholds, I6
 // exceptions, bad tokens and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory
 // requirement is added, I9 the filter rail, I10 the Ashby decision view (D107): its marks are exactly the passing products in the states their
@@ -381,12 +382,19 @@ function compareReading(s, key, r, o) {
     const noRes = !o.rows.length && !o.excluded.length && !o.families.length;
     check('I1-noresults'); if (noRes !== r.noResults) violate('I1-noresults', 'no-results panel mismatch', s, key, { page: r.noResults, node: noRes });
     const byId = new Map(o.rows.map((x) => [x.material.id, x]));
-    for (const [id, verdict, scr, scrTitle, cells] of r.rows) {
+    // Grouped under Include once something is asked (D155): the groups are the engine's, never recomputed here.
+    const grouped = o.tested && o.ctx.unknownPolicy === UNKNOWN_POLICY.EXPLORATION;
+    for (const [id, verdict, scr, scrTitle, cells, group, groupReason] of r.rows) {
       const x = byId.get(id); if (!x) continue;
       const ev = x.evaluation;
       check('I1-verdict');
       const expV = o.tested ? ev.verdict : 'not tested';
       if (verdict !== expV) violate('I1-verdict', `verdict chip ${verdict} vs ${expV}`, s, key, { id, page: verdict, node: expV });
+      check('I1-group');
+      if ((grouped ? ev.group : null) !== group) violate('I1-group', `row in the ${group} table, the engine says ${grouped ? ev.group : 'ungrouped'}`, s, key, { id, page: group, node: ev.group });
+      check('I1-group-reason');
+      const expReason = o.tested && ev.verdict === 'UNKNOWN' && ev.group !== 'hidden' ? ev.groupReason ?? '' : '';
+      if (groupReason !== expReason) violate('I1-group-reason', 'the row\'s group reason differs from the engine\'s', s, key, { id, page: groupReason, node: expReason });
       check('I1-screened');
       if (scr !== (o.tested && ev.screened)) violate('I1-screened', 'screened chip mismatch', s, key, { id, page: scr, node: ev.screened });
       if (scr && !set.includes('scr')) violate('I1-screened', 'screened row shown with SCREENED off', s, key, { id });
@@ -597,11 +605,11 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
       const grids = [...lens.querySelectorAll('table.grid')].filter((t) => !t.closest('.excluded-group'));
       out.noResults = !grids.length && !lens.querySelector('.excluded-group') && !lens.querySelector('.table-bar');
       out.rows = [];
-      // D137: all retained groups belong to the result set. Expand the new fold
-      // while reading rendered cell text, then restore presentation unchanged.
-      const fold = lens.querySelector('details.insufficient-evidence');
-      const wasOpen = fold?.open;
-      if (fold) fold.open = true;
+      // D137, D155: every group belongs to the result set. Open every fold that holds a group's table ("Unlikely to
+      // meet", and any other) while reading the rendered cell text, then restore the presentation unchanged.
+      const folds = [...lens.querySelectorAll('details')].filter((d) => d.querySelector('table.grid'));
+      const wasOpen = folds.map((d) => d.open);
+      for (const d of folds) d.open = true;
       badSrc += ' ' + lens.innerText;
       out.dagger ||= lens.innerText.includes('†');
       for (const grid of grids) {
@@ -612,10 +620,10 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
           const scr = tds[vi].querySelector('.chip-screened');
           const cells = {};
           for (const k of keys) { const j = cols.indexOf(k); if (j >= 0) cells[k] = { t: tds[j].innerText.trim(), est: !!tds[j].querySelector('.est') }; }
-          out.rows.push([tr.dataset.material, tds[vi].querySelector('.chip')?.textContent.trim(), !!scr, scr?.title ?? '', cells]);
+          out.rows.push([tr.dataset.material, tds[vi].querySelector('.chip')?.textContent.trim(), !!scr, scr?.title ?? '', cells, grid.dataset.group ?? null, tds[vi].querySelector('.group-reason')?.textContent ?? '']);
         }
       }
-      if (fold) fold.open = wasOpen;
+      folds.forEach((d, i) => { d.open = wasOpen[i]; });
       out.excluded = [...lens.querySelectorAll('.excluded-group tbody tr[data-material]')].map((tr) => [tr.dataset.material, tr.querySelector('.chip')?.textContent.trim(), txt(tr.querySelector('.why-cell'))]);
     }
     const m = badSrc.match(BAD);

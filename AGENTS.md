@@ -387,8 +387,10 @@ records, end by end, where each class may screen in `meta.estimateModel.properti
 product on record: every other material is judged by its products, and a product's own estimate hides it only with a
 back-test certificate, which none has in this release (D137, D148). On the page all of this is the switch "Use
 estimates and resin data" (the scenario's `useEstimates`), which works only under Include; a property that does not
-apply hides a material whatever the switch says (D148). A change that moves an end shows there and in the snapshot's Screens column; `test/screening.test.js` fails if a material stays a candidate for
-a requirement its defended range wholly fails.
+apply hides a material whatever the switch says (D148). A change that moves an end shows there and in the snapshot's Screens column; `test/screening.test.js`, on the page's own path (products judged one by one, D155), fails if a
+material is "One check away" or tagged "likely" for a requirement its deciding product's defended range wholly misses, or
+while every product measured on it misses it, and if a material with no product on record stays a candidate for a
+requirement its own defended range wholly fails; a second test fails if the groups move any verdict, count or listing.
 
 If `verify` fails, read the first error: it names the file and line, or the material and the rule. Do
 not weaken a check to make a commit pass; if a check is wrong, say so and fix the check in its own

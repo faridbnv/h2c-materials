@@ -42,7 +42,7 @@ PC
 ~a–b† estimate, italic = rough
 n/a not applicable
 3 more marks
-Supported candidates (96)
+Meets every requirement (96)
 TABLE 96 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS | ☆ | PASS / 51 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
 ROW ABS-AF | ☆ | PASS / 2 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–17† | 88 | 127↗
@@ -140,4 +140,41 @@ ROW TPU-ESD · ☆
 ROW TPU-GF · ☆
 ROW TPU-LW · ☆
 ROW TPV · ☆
-Insufficient evidence (32) — included in counts and exports
+One check away (29)
+A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.
+TABLE 29 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~8.7–14.5† | ~201–254† | ~3.3–7.9† | ~193–194† | —
+ROW nGen / also called Amphora · Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen, its chamber temperature is not stated | ~1,160–1,230† | 1.7 | 54 | 11 | ~64–78† | 77.3↗
+ROW nGen FLEX / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen_FLEX, its chamber temperature is not stated | 1,130 | 0.15 | 19.3 | 320 | ~71–147† | 76.3EUR
+ROW nGen-CF / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen CF10, its chamber temperature is not stated | 1,200 | 2.52 | 44.7 | 3.1 | 78 | 89.3EUR
+ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 5 of 5 products: colorFabb PA-CF low warp, its chamber temperature is not stated | 1,200 / 1,141–1,400 · 4 | 2.16 | 55.9 | 18 | 145 / 58–178 · 4 | 167EUR
+ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Markforged Onyx GF, no print recipe on record | 1,210 | 3.1 | 60.4 | 5.5 | 138* | —
+ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,140 | ~4.9–8.0† | ~68.0–77.0† | ~4.0–8.8† | 142 | —
+ROW PA12-AF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fillamentum Nylon AF80 Aramid, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 990 | ~0.51–0.82† | ~52–74† | ~6.2–13.1† | ~64–156† | —
+ROW PA6-GS · ☆
+ROW PA6/66-CF · ☆
+ROW PA66 · ☆
+ROW PAHT-CE · ☆
+ROW PC-ABS-CF · ☆
+ROW PC-ASA · ☆
+ROW PC-ESD · ☆
+ROW PC-GF · ☆
+ROW PC-PBT · ☆
+ROW PC-PBT-CF · ☆
+ROW PC-PTFE · ☆
+ROW PE · ☆
+ROW PE-GF · ☆
+ROW PET-LW · ☆
+ROW PLA-PHA · ☆
+ROW POM · ☆
+ROW PPS-ESD · ☆
+ROW PVC · ☆
+ROW PVDF · ☆
+ROW SAN · ☆
+ROW TPC-ESD · ☆
+Not enough data (3)
+More than one question is open, or a value is not published the way you asked. Ordered by how close the estimate is; an estimate never passes.
+TABLE 3 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~990–1,070† | ~1.2–3.4† | ~38–82† | ~8–73† | ~80–171† | —
+ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,040–1,250† | ~2.4–8.0† | ~56–126† | ~1–13† | ~129–211† | —
+ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,050–1,160† | ~3.2–11.0† | ~59–133† | ~1–13† | ~120–240† | —

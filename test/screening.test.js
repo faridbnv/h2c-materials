@@ -117,6 +117,125 @@ test('no material stays a candidate for a requirement its defended range fails, 
   assert.ok(vetoes >= 0);
 });
 
+// The guard on the page's own path (C25, D155): materials judged product by product, as the selector and the census
+// judge them (scripts/trace.mjs pageContext). No material is "One check away" or tagged "likely" for a requirement its
+// deciding product's own defended range wholly misses (a measured value widened by its test scatter, D152, or an
+// estimate's screening or plausible range), nor where a product measured the way asked misses it and none meets it, which
+// is "Unlikely to meet". A material with no product on record keeps the material-level contract above: it stays no
+// candidate for a requirement its own defended range wholly fails, except by a verified implied bound.
+test('on the page\'s path, nothing is one check away or likely for a requirement its own defended range wholly misses', async () => {
+  const { pageContext } = await import('../scripts/trace.mjs');
+  const { TEMPLATES } = await import('../app/js/ui/templates.js');
+  const mats = db.materials.filter((m) => !m.familyEntry);
+  const ctx = pageContext(db, { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: true });
+  const scatter = new Map(db.registry.headlines.filter((h) => h.testScatter).map((h) => [h.key, h.testScatter]));
+  // The values a limit is on the line for (D152): L(1 - s) <= v for a relative scatter, so the value stands for limits up to v / (1 - s).
+  const widen = (v, s, sign) => (v == null ? null : s.is === 'relative' ? v / (1 - (sign * s.value) / 100) : v + sign * s.value);
+  const defended = (r, key) => {
+    if (r.notApplicable) return 'na';
+    if (Number.isFinite(r.observed)) {
+      const iv = r.interval ?? { lo: r.observed, hi: r.observed };
+      const s = scatter.get(key);
+      return s ? { lo: widen(iv.lo, s, -1), hi: widen(iv.hi, s, 1) } : iv;
+    }
+    if (r.estimated && r.estimate) return r.estimate.screenRange ?? r.estimate.plausible ?? { lo: r.estimate.lo, hi: r.estimate.hi };
+    return null;
+  };
+  const leaks = [];
+  let checked = 0;
+  const audit = (constraints, label) => {
+    for (const e of runSelection(mats, constraints, ctx).evaluations) {
+      if (e.group !== 'one-check-away' && !e.likely) continue;
+      for (const c of constraints.filter((x) => x.kind === 'numeric' && x.mandatory !== false)) {
+        checked++;
+        const r = e.results.find((x) => x.constraint === c);
+        const o = r ? defended(r, c.property) : null;
+        if (o === 'na' || (o && compareInterval({ lo: o.lo ?? null, hi: o.hi ?? null }, c.operator, c.value) === STATUS.FAIL)) leaks.push(`${label}: ${e.materialId} ${e.group}${e.likely ? ' likely' : ''} on ${e.gradeId}`);
+        const measured = e.products.map((p) => p.results.find((x) => x.constraint === c)).filter((x) => x && Number.isFinite(x.observed));
+        if (measured.some((x) => x.status === STATUS.FAIL) && !e.products.some((p) => p.results.some((x) => x.constraint === c && x.status !== STATUS.FAIL && x.status !== STATUS.UNKNOWN))) {
+          leaks.push(`${label}: ${e.materialId} ${e.group} though every measured product misses ${c.property}`);
+        }
+      }
+    }
+  };
+  for (const t of TEMPLATES) audit(t.constraints, t.name);
+  const productless = mats.filter((m) => !ctx.productsByMaterial.get(m.id)?.length);
+  assert.ok(productless.length >= 1, 'the materials with no product on record are still judged');
+  for (const k of KEYS) {
+    const ends = new Set();
+    for (const g of db.grades) {
+      const h = g.headline?.[k], e = g.estimate?.[k];
+      for (const v of [h?.value, e?.lo, e?.hi, e?.plausible?.lo, e?.plausible?.hi]) if (Number.isFinite(v)) ends.add(v);
+    }
+    const sorted = [...ends].sort((a, b) => a - b);
+    const step = Math.max(1, Math.floor(sorted.length / 12));
+    for (let i = 0; i < sorted.length; i += step) {
+      for (const op of ['>=', '<=']) {
+        const c = { kind: 'numeric', property: k, operator: op, value: sorted[i], mandatory: true };
+        audit([c], `${k} ${op} ${sorted[i]}`);
+        // A material with no product keeps the material-level contract on the page's path too.
+        for (const e of runSelection(productless, [c], ctx).candidates) {
+          const m = productless.find((x) => x.id === e.materialId), h = m.headline[k];
+          const o = h.known ? (h.interval ?? { lo: h.value, hi: h.value }) : h.notApplicable ? 'na' : h.estimate?.canScreen ? h.estimate.screenRange : null;
+          if (!(o === 'na' || (o && compareInterval({ lo: o.lo, hi: o.hi }, op, c.value) === STATUS.FAIL))) continue;
+          if ((h.impliedBounds ?? []).some((b) => e.results[0].vetoedBy?.includes(b.measurementId))) continue;
+          leaks.push(`${k} ${op} ${c.value}: ${m.name} (no product) is a candidate`);
+        }
+      }
+    }
+  }
+  assert.ok(checked > 200, `only ${checked} requirement answers checked`);
+  assert.deepEqual(leaks.slice(0, 10), [], `${leaks.length} leaks`);
+});
+
+// D155: the groups present the verdicts and change none of them. Over the six presets and random scenarios, on the page's
+// path: each material's verdict is the D100 rule over its products' verdicts, its eligibility and hide follow from them as
+// before, its group agrees with them (Include lists exactly the meets, one check away, not enough data and unlikely
+// groups), and judging the products in reverse order moves no verdict, count, eligibility or group.
+test('grouping never changes a verdict, a count or an eligibility', async () => {
+  const { pageContext } = await import('../scripts/trace.mjs');
+  const { TEMPLATES } = await import('../app/js/ui/templates.js');
+  const mats = db.materials.filter((m) => !m.familyEntry);
+  const LISTED = ['meets', 'one-check-away', 'not-enough-data', 'unlikely-to-meet'];
+  let seed = 11; const rnd = () => ((seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648);
+  const scenarios = TEMPLATES.map((t) => t.constraints);
+  for (let i = 0; i < 6; i++) {
+    const k = KEYS[Math.floor(rnd() * KEYS.length)];
+    const vals = db.grades.map((g) => g.headline?.[k]?.value).filter(Number.isFinite);
+    scenarios.push([{ kind: 'numeric', property: k, operator: rnd() < 0.5 ? '>=' : '<=', value: vals[Math.floor(rnd() * vals.length)], mandatory: true },
+      ...(rnd() < 0.5 ? [{ kind: 'gate', gate: 'chamber' }] : [])]);
+  }
+  const problems = [];
+  for (const constraints of scenarios) {
+    for (const [unknownPolicy, useEstimates] of [['strict', false], ['exploration', false], ['exploration', true]]) {
+      const ctx = pageContext(db, { unknownPolicy, useEstimates });
+      const sel = runSelection(mats, constraints, ctx);
+      const reversed = new Map([...ctx.productsByMaterial].map(([id, gs]) => [id, [...gs].reverse()]));
+      const flipped = runSelection(mats, constraints, { ...ctx, productsByMaterial: reversed });
+      assert.deepEqual(flipped.counts, sel.counts);
+      const explore = unknownPolicy === 'exploration';
+      for (const [j, e] of sel.evaluations.entries()) {
+        const f = flipped.evaluations[j];
+        const where = `${e.materialId} (${unknownPolicy}${useEstimates ? '+est' : ''})`;
+        if (f.verdict !== e.verdict || f.eligible !== e.eligible || f.screened !== e.screened || f.group !== e.group || f.likely !== e.likely) problems.push(`${where}: product order moved the answer`);
+        if (e.products.length) {
+          const vs = e.products.map((p) => p.verdict);
+          const expect = vs.includes('PASS') ? 'PASS' : vs.includes('UNKNOWN') ? 'UNKNOWN' : 'FAIL';
+          if (e.verdict !== expect) problems.push(`${where}: verdict ${e.verdict}, its products say ${expect}`);
+          const hidden = explore && e.verdict === 'UNKNOWN' && e.products.filter((p) => p.verdict === 'UNKNOWN').every((p) => p.screened);
+          if (e.screened !== hidden) problems.push(`${where}: hide moved`);
+        }
+        if (e.eligible !== (e.verdict === 'PASS' || (explore && e.verdict === 'UNKNOWN' && !e.screened))) problems.push(`${where}: eligibility moved`);
+        const g = { PASS: 'meets', FAIL: 'fail' }[e.verdict] ?? (e.screened ? 'hidden' : null);
+        if (g ? e.group !== g : !LISTED.slice(1).includes(e.group)) problems.push(`${where}: group ${e.group} for ${e.verdict}${e.screened ? ' screened' : ''}`);
+        if (explore && e.eligible !== LISTED.includes(e.group)) problems.push(`${where}: listed ${e.eligible} but group ${e.group}`);
+        if (e.likely && e.group !== 'not-enough-data') problems.push(`${where}: likely outside "Not enough data"`);
+      }
+    }
+  }
+  assert.deepEqual(problems.slice(0, 10), [], `${problems.length} problems`);
+});
+
 // D59: each end of a screening range is a distribution-free tolerance limit of where hidden true values fell in their
 // predictions. It is never inside the plausible range, it widens where the tail is too thin, and too few cases set nothing.
 test('screening ends are tolerance limits: at the plausible range when calibrated, wider when not, absent when too few', () => {

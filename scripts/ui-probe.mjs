@@ -605,18 +605,23 @@ try {
       await click('#mode-explore');
       await evaluate(`(() => { const c = document.getElementById('use-estimates'); if (!c.checked) { c.checked = true; c.dispatchEvent(new Event('change')); } return true; })()`);
       await sleep(200);
-      // D137: expanding insufficient evidence changes presentation only. All rows
-      // remain in the result set, and the displayed count must stay unchanged.
+      // D137, D155: opening "Unlikely to meet" changes presentation only. It starts closed, every row stays in the result
+      // set, the displayed count does not move, and the groups' tables come in their one order.
       const grouping = await evaluate(`(() => {
-        const d = document.querySelector('details.insufficient-evidence');
-        if (!d) return [];
         const problems = [], count = document.getElementById('count').textContent;
+        const order = ['meets', 'one-check-away', 'not-enough-data', 'unlikely-to-meet', 'hidden', 'fail'];
+        const seen = [...document.querySelectorAll('#lens table.grid[data-group]')].map((t) => t.dataset.group);
+        if (seen.some((g, i) => i && order.indexOf(g) <= order.indexOf(seen[i - 1]))) problems.push('the groups are out of order: ' + seen.join(', '));
+        if (/Supported candidates|Estimated candidate|Insufficient evidence|Excluded \\/ screened/.test(document.getElementById('lens').textContent)) problems.push('an old group name is on screen');
+        const d = document.querySelector('details.unlikely-to-meet');
+        if (!d) return problems;
         const ids = () => [...document.querySelectorAll('#lens tbody tr[data-material]')].map((r) => r.dataset.material).join(',');
         const before = ids();
-        if (d.open) problems.push('insufficient evidence starts expanded');
+        if (d.open) problems.push('unlikely to meet starts open');
+        if (!/^Unlikely to meet \\(\\d+\\) — counted and exported$/.test(d.querySelector('summary').textContent.trim())) problems.push('the fold does not say it is counted and exported');
         d.open = true;
-        if (ids() !== before || document.getElementById('count').textContent !== count) problems.push('expansion changes rows or counts');
-        if (!d.querySelector('tr[data-material]')?.getBoundingClientRect().height) problems.push('expansion does not reveal options');
+        if (ids() !== before || document.getElementById('count').textContent !== count) problems.push('opening it changes rows or counts');
+        if (!d.querySelector('tr[data-material]')?.getBoundingClientRect().height) problems.push('opening it does not reveal its rows');
         d.open = false;
         return problems;
       })()`);
@@ -732,7 +737,7 @@ try {
     await sleep(200);
     await click('#btn-scenario');
     await until(`!!document.querySelector('.chosen')`, 'the chosen product in Save / share');
-    results['16-chosen-product'] = await evaluate(`[...document.querySelectorAll('.chosen')].map((e) => e.innerText).join('\\n').replace(/[ \\t]+/g, ' ').replace(/release [0-9a-f]{12}/g, 'release <id>').replace(/chosen \\d{4}-\\d{2}-\\d{2}/g, 'chosen <date>').trim()`);
+    results['16-chosen-product'] = await evaluate(`[...document.querySelectorAll('.chosen')].map((e) => e.innerText).join('\\n').replace(/[ \\t]+/g, ' ').replace(/release [0-9a-f]{12}/g, 'release <id>').replace(/chosen \\d{4}-\\d{2}-\\d{2}/g, 'chosen <date>').replace(/chosen \\d{1,2} [A-Z][a-z]{2} \\d{4}/g, 'chosen <date>').trim()`);
     // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
     // counts are the only ones in the rail that follow the other requirements.
     const rail = () => evaluate(`(document.querySelector('.family-facet')?.innerText ?? 'NO FAMILY RAIL').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim()`);

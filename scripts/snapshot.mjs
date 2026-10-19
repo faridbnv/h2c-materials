@@ -7,7 +7,8 @@
 //   build/snapshot/gates.csv       every material's process gates
 //   build/snapshot/templates.csv   each application template's candidates in Strict, Explore, and Explore with estimates,
 //                                   judged by their products as the page judges them (D83): the verdict, how many
-//                                   products pass, fail or could not be judged, and the product the reasons come from
+//                                   products pass, fail or could not be judged, the product the reasons come from, and
+//                                   under Explore the group the list sorts it into (D155)
 //   build/snapshot/warnings.csv    every build warning, one row per record
 //   build/snapshot/screening.csv   for every headline, evidence class and end, whether a material's estimate may screen
 //                                   and where (D59), and what it is read for: only a material with no product on record,
@@ -91,7 +92,9 @@ for (const t of TEMPLATES) {
     for (const e of evaluations.filter((x) => x.eligible || x.screened)) {
       templates.push({ Template: t.name, Mode: mode, MaterialID: e.materialId, Material: db.materials.find((m) => m.id === e.materialId).name,
         Verdict: e.verdict, Share: e.share ?? '', Pass: e.counts?.pass ?? '', Fail: e.counts?.fail ?? '', Untested: e.counts?.untested ?? '',
-        Products: e.counts?.products ?? '', Best: e.gradeId ?? '', State: e.state?.id ?? '', Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
+        Products: e.counts?.products ?? '', Best: e.gradeId ?? '', State: e.state?.id ?? '', Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; '),
+        // The group the list sorts it into under Include (D155), "likely" where tagged: presentation, never the verdict.
+        Group: c.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `${e.group}${e.likely ? ' (likely)' : ''}` : '' });
     }
   }
 }

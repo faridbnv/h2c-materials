@@ -3020,6 +3020,7 @@ the published one (638). Reversing it lets a verdict rest again on a set of valu
 ## D100. A material fails only when every product fails; while one is unresolved, it is unresolved
 
 > **In plain words:** A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it.
+> **Status:** In force; its wording amended by D155 (an unknown material's row now says what would settle it and names the product that decides it, in place of "x products fail; y remain unresolved"; the rule is unchanged).
 
 *Decided by the owner on 2026-09-28 (docs/GOALS-LOG.md, "Decided on 2026-09-28, for version 2.1", decision 3; recommended
 and taken). Built in version 2.1, F04 of the review of 2026-09-27. Revises D83's third clause deliberately.*
@@ -4441,7 +4442,7 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
 ## D137. Product predictions and evidence verdicts stay separate; exclusion needs independent scenario validation
 
 > **In plain words:** A missing product value may show an estimate, but it never passes. Only separately validated bounds may exclude it; unresolved options remain visible with the evidence needed next.
-> **Status:** amended by D148 (in its wording: the material estimate of a material with products is never read either, so in this release no estimate hides a material that has products; only a material with no product is judged on its own estimate).
+> **Status:** amended by D148 (in its wording: the material estimate of a material with products is never read either, so in this release no estimate hides a material that has products; only a material with no product is judged on its own estimate); amended by D155 (its grouping: supported, estimated, insufficient and excluded become meets every requirement, one check away, not enough data with a likely tag, unlikely to meet, hidden as unlikely and fail, and an estimate's centre alone no longer promotes anything).
 
 **2026-10-08.** Owner-authorised fix for OPEN-PROBLEMS §35; steps 2, 4 and 5, C4/C6/C8/C12.
 
@@ -5154,6 +5155,53 @@ built as stage 3a of the [screening build](audits/2026-10-18-screening-build/sta
 - **What would break if reversed.** A product 1 % under a limit, inside the scatter of its own maker's sheets, would read
   as failed and hide its material where one test bar would settle it, and a pass with no margin would read like one with
   room to spare.
+
+## D155. The materials nothing settles are sorted by what would settle each: one check away, not enough data, unlikely to meet
+
+> **In plain words:** Under Include, after the materials that meet every requirement, the list sorts the rest by what would settle each. "One check away": a product waits only on a printer setting its sheet does not state, or on one value on the line. "Not enough data": everything else, with the ones whose estimated range meets every open number tagged "likely" and first. "Unlikely to meet", folded and counted: a product measured the way asked misses and none meets it, or every open product's own estimate wholly misses. Each row names the product that decides its group, with that product's own numbers. No verdict, count, listing or exported row moved.
+> **Status:** In force. Placeholder number: stage 3b's D153 and D154 are on another branch; the executor renumbers at merge. It amends D137's grouping and D100's wording.
+
+*Decided by the owner on 2026-10-18 from the [screening review](audits/2026-10-18-screening-review/README.md) (its changes
+C05, C06, C18, C19 and C25, its verdicts V02, V20, V21 and V27 to V29, and its decisions 1 and 6); built as stage 3c of
+the [screening build](audits/2026-10-18-screening-build/stage-3c.md).*
+
+- **One rank** (`app/js/engine/constraints.js`: `GROUP`, `groupOf`, `compareGroups`, `materialGroup`): meets, one check
+  away, not enough data tagged likely, not enough data, unlikely to meet, hidden as unlikely, fail. Among unresolved ones,
+  fewer open requirements first, then the smaller shortfall (how far the value or the estimate's centre is from each
+  limit, relative to it, at its worst), then the products' own order. `judgeProduct` picks a product's state by it and
+  `evaluateProducts` the product that represents a material; the material's group is that product's.
+- **One check away**: every open required result is a printer check (nozzle, bed, chamber), or there is exactly one and
+  it is on the line (D152) or its sheets disagree (stage 3b's `sheetsDisagree`).
+- **Likely** (C19): every open requirement is a number whose estimate's likely (80 %) range, the range the page shows,
+  meets its limit, and no required number is missed by every product measured on it (a value on the line counts as a
+  miss here). The evidence ledger's interval is not intersected with it: where the ledger decides there is no estimate,
+  and an interval that straddles the limit cannot change a range's answer about it. A tag orders; it never passes (D43).
+- **Unlikely to meet**: on a required number, a product measured the way asked misses it and no product meets it or
+  holds it open on a measured value (on the line, a range across the limit, sheets that disagree); or every open
+  product's own estimate wholly misses, its plausible (95 %) range failing, unless its own measurement bounds it from
+  below and meets the limit (D48). Product estimates still hide nothing (D137, D148): this group is listed and counted.
+- **Hidden and fail** follow the verdict and the hide as before. The three materials with no product (PA66-CF, PA612,
+  PA612-GF) are judged on their own headline: hidden where their estimate screens, else "Not enough data: no product on
+  record", never likely.
+- **The row** (C05, C06): "One check away on 1 of 11 products: 3DXTECH TriMax Carbon Fiber ABS Model Material, its
+  chamber: a heated chamber is recommended with no temperature…"; "Not enough data, likely: BASF Forward AM Ultrafuse
+  PAHT CF15, density estimated 1,030 to 1,170 kg/m³"; "Unlikely to meet: every measured product misses HDT at 0.45 MPa at
+  least 100 °C: 45 of 73; the other 28 have no value measured that way". An estimate cell on a required number is the
+  deciding product's (D147, one computation); the drawer says "Shown for one product, X" and why. "Supported
+  candidates", "Estimated candidates to verify", "Insufficient evidence" and "Excluded / screened" are gone: hidden and
+  failed rows sit under "Hidden as unlikely" and "Fail" behind their chips. Both CSVs' Candidate group column carries
+  meets, one-check-away, not-enough-data, unlikely-to-meet, hidden or fail, beside a Likely column. The SCREENED chip
+  keeps its word.
+- **Checked.** A metamorphic test runs the six presets and random scenarios in every mode on the page's path: each
+  verdict is D100's rule over its products, eligibility and the hide follow as before, Include lists exactly the four
+  listed groups, and judging the products in reverse order moves no verdict, count, eligibility or group. The guard test
+  runs the page's path (C25). The decision census: over 138 cases, 0 verdicts and 0 listings moved. `ui:fuzz` reads each
+  row's group and reason from the engine.
+- **What it did**, the six presets with Include and estimates: 89 materials one check away, 130 not enough data with a
+  product (9 likely) and 15 with none, 238 unlikely to meet, where the review simulated about 128, 87 and 249 (its one
+  check away counted the values measured another way that stage 3b's evidence ledger decides, not yet merged).
+- **What would break if reversed.** PETG, whose 45 measured products all miss 100 °C, would sit beside nylons waiting
+  only on a chamber line, and an estimate's middle value, a coin flip, would again promote a material ahead of the rest.
 
 ## Bugs worth remembering
 
