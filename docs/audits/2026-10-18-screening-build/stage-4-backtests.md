@@ -90,11 +90,14 @@ quantile); every end still screens, and only the three materials with no product
 
 **Against the pass rule.** EST-CALIBRATION holds on every headline, material and grade. EST-ORDER is 0. The
 semicrystalline-filled heat error shrinks (2.29 → 1.74 °C). One stratum misses the rule by one case: density, PLA filled,
-plausible 13 → 12 of 15 (80 %, under the rule's 85 %). It is not PLA's class that moves it but the filler column: PET's
-three filled materials moving to the glassy column put density's spreads on another grid point (filler-by-matrix 0.20 →
-0.02, a material's own deviation 0.048 → 0.096), which tightens density's plausible scale from 1.94 to 1.48 while overall
-coverage stays at 95 %. Keying the column on the polymer instead (which moves PLA's fills and leaves PET's) showed the
-same miss, and a build that moved neither showed none; the five new variants change nothing here. A density estimate
+plausible 13 → 12 of 15 (80 %, under the rule's 85 %). What moves it is a jump of density's fitted spreads to another point of
+their grid (filler-by-matrix 0.20 → 0.02, a material's own deviation 0.048 → 0.096), which tightens density's plausible
+scale from 1.94 to 1.48 while overall coverage stays at 95 %. The jump comes whenever the filler column moves, whichever
+fills move: keying the column on the polymer instead (PLA's fills move, PET's stay) showed the same miss, and a build
+that moved neither showed none; the five new variants change nothing here. (The first version of this paragraph blamed
+PET's fills; its own control says otherwise: corrected after the review, D167.) Against a 95 % claim, 12 of 15 has a
+chance of about 0.04, and 9 of 15 against the likely range's 80 % about 0.06: a real if small miss, in a stratum that
+was already weak (13 and 10 of 15 before). It is listed in OPEN-PROBLEMS. A density estimate
 decides no verdict: it moves only the "an estimate suggests it meets" tag of three PLA products in the census (density
 at least 1250 kg/m³). So the change is kept and the stratum reported.
 
@@ -227,7 +230,9 @@ pooled 0.267; used, it left that matrix's 28 hidden products held 53.6 / 85.7 % 
 
 **The annealed conversions** (headline minus annealed, the model's scale; learned from the grades that publish both):
 stiffness −0.078 (8 pairs; documented −0.10 from 13 pairs, median ×1.11), strength −0.071 (6; −0.13), elongation +0.174
-(8; +0.21), heat deflection −77 °C (3 pairs on crystalline filled bars, +101 to +108 °C; documented −52).
+(8; +0.21), heat deflection −77 °C (3 pairs on crystalline filled bars, +101 to +108 °C, all three Siraya Tech's PPAs; documented
+−52). After the review the annealed conversions learn only from 5 pairs of 2 makers, so heat deflection is back at −52 °C
+(D167, below).
 
 **Floors and screening.** The floor table's rules in force: heat deflection 81.9 / 94.4 % (containment) and 79.2 / 93.1 %
 (formulation); elongation 82.5 / 93.8 % and 77.5 / 91.2 %; strength 85.0 / 95.0 % and 75.0 / 91.7 %. Every class of
@@ -312,6 +317,8 @@ maker beyond it is a false fail. A row may decide with none over at least 59 gro
 | 3b | glassy, fibre-filled: HDT at 0.45 MPa at most Tg + 25 °C | 67 | 22 | Flashforge PET-GF 140.5 over 65.5 (G068-01) | no |
 | 4 | fibre-filled: tensile modulus XY at most the matrix's highest unfilled one plus k times the fibre content | 25 | 10 | Flashforge PPA-CF 42.37 over 38.76 (G070-06); Flashforge PPS-CF 53.5 over 38.76 (G073-03) | no |
 
+Row 3a's pass is partly by construction: the test reads comparable values only, and 13 glassy HDT values PR12 flagged
+physically implausible (PR12 is the same Tg + 15 °C rule, D149) are left out of it; it holds on condition of PR12.
 Rows 2 and 3a pass and still do not decide: a deciding limit cites a registered source that prints it (CLASS-LIMIT-SOURCE),
 and none prints 4.3 GPa; the ledger has no limit relative to a product's glass transition. Row 1 waits on nGen FLEX's
 re-filing (OPEN-PROBLEMS §38.1), rows 3b and 4 fail.
@@ -342,4 +349,77 @@ beside how often the hidden value met it. Bins of 20 cases or more, predicted / 
 | hdt045 | 0.520 | 0.0: 695, 0.006 / 0.014; 0.1: 34, 0.15 / 0.09; 0.2: 20, 0.24 / 0.20; 0.5: 20, 0.56 / 0.50; 0.6: 20, 0.66 / 0.85 ✗; 0.7: 33, 0.75 / 0.73; 0.8: 41, 0.86 / 0.81; 0.9: 374, 0.99 / 0.97 |
 
 **Verdict.** The rule to adopt "a chance of at least 50 %" was every such bin within 0.10 and every median within 0.05 of
-one half. Density fails five bins and heat deflection one: not adopted; the 80 % range rule stays (D155).
+one half. Density fails five bins and heat deflection one: not adopted; the 80 % range rule stays (D155). No bin between
+0.4 and 0.6 had 20 cases for stiffness or stretch, so the region a 50 % rule turns on was never tested; strength has no
+reliabilityLimits and was not tested at all.
+
+## After the review (D167)
+
+**The changes** (stage 4b, [stage-4b.md](stage-4b.md)). An annealed value no longer floors an as-printed estimate, and
+every annealed value of a kind a headline reads converts through the annealed offset, never as printed (S01); the
+estimate reads the core's annealing threshold alone, and a glassy matrix's annealed heat deflection converts by −5 °C
+(S05); the annealed conversions learn only from 5 pairs of 2 makers (S11); D160's ceiling is replaced by a two-sided
+anchor from all of a product's own values of the property, which withholds an estimate its kind's model contradicts
+(S02, S03). "Before" is main at dd16db5a (every stage merged, release e85f4b237ccc); "after" is stage 4b's build.
+
+**Case margins of stage 4's passes (S07).** How many more misses each pass could take and still pass:
+
+| Back-test | Stage 4 | Rule | Margin then | After D167 | Margin now |
+|---|---|---|---|---|---|
+| C26, a grade's elongation floors (plausible) | 73 of 80, 91.2 % | at least 90 % | fails with 2 more misses | 73 of 79, 92.4 % | 2 |
+| C29, heat, crystalline filled grades (plausible) | 48 of 52, 92.3 % | at least 90 % | 2 | 49 of 52, 94.2 % | 3 |
+| C29, heat, crystalline unfilled grades (likely) | 20 of 25, 80.0 % | 70 to 90 % | 3 | 18 of 25, 72.0 % | 1 |
+| C28, a product's own stiffness crossing its estimate | 4 crossing cases, share 0.46 | 20 crossing cases | no finding: a default | replaced by the anchor (below) | – |
+| C36, density, PLA filled (plausible) | 12 of 15, 80 % | 85 % | failed by 1 case, accepted | unchanged | – |
+
+**C29, heat deflection per product** (the grade calibration, each product's own value hidden):
+
+| | Held | Likely / plausible | Scales | Median plausible width | Shipped estimates |
+|---|---:|---|---|---:|---:|
+| before | 423 | 79.9 / 94.8 % | 1.33 / 1.60 | 22.0 °C | 466 |
+| after | 413 | 79.7 / 95.2 % | 1.27 / 1.63 | 22.9 °C | 444 (22 withheld) |
+| glassy, before → after | 346 → 336 | 79.2 / 94.8 → 79.8 / 94.9 % | | | |
+| crystalline filled | 52 → 52 | 84.6 / 92.3 → 82.7 / 94.2 % | | | |
+| crystalline unfilled | 25 → 25 | 80.0 / 100 → 72.0 / 100 % | | | |
+
+Ten fewer values are held: a glassy product's annealed heat value is now an annealed kind, no longer the headline.
+Folds of materials 97.2, 93.9, 92.7, 94.3 and 95.2 %; the material ranges hold 80.6 / 95.8 % (72 hidden), median width
+13.4 → 13.1 °C. The annealed heat offset is the documented −52 °C (3 pairs of 1 maker do not teach it); a glassy
+annealed value's, −5 °C (4 pairs of 2 makers, fewer than 5).
+
+**C26, the floors in force** (`floors.js`, the hidden typical product; likely / plausible):
+
+| Headline | A grade's own floors, before → after | A material's containment, before → after |
+|---|---|---|
+| elongationXY | 77.5 / 91.2 % (80) → 75.9 / 92.4 % (79) | 82.5 / 93.8 → 82.3 / 94.9 % |
+| tensileStrengthXY | 75.0 / 91.7 % (60) → 78.0 / 91.5 % (59) | 85.0 / 95.0 → 88.1 / 94.9 % |
+| hdt045 | 79.2 / 93.1 % (72) → 80.6 / 93.1 % | 81.9 / 94.4 → 83.3 / 94.4 % |
+
+**C28, now the anchor** (`gradeCalibration.anchor`, every build): each hidden grade that publishes the property another
+way too; how often its own bands (the conversions' spreads at 95 %) and its anchor (the bands widened per side) hold the
+hidden value; where the model's centre lay outside the anchor, how often the band or the model held the value; and the
+anchored ranges' coverage before and after anchoring.
+
+| Headline | Cases | Band / anchor coverage | Scale, low / high side | Withheld (band right / model right) | Anchored | Likely before → after | Plausible before → after | Used |
+|---|---:|---|---|---|---:|---|---|---|
+| density | 18 | 72.2 / 83.3 % | 1.3 / 1.3 (default) | 0 | 18 | 66.7 → 66.7 % | 100 → 83.3 % | no: under 20 cases |
+| tensileModulusXY | 153 | 85.5 / 96.7 % | 1 / 2.85 | 4 (0 / 3) | 148 | 84.5 → 83.8 % | 97.3 → 96.6 % | yes |
+| tensileStrengthXY | 192 | 87.4 / 97.4 % | 1 / 1.71 | 8 (5 / 4) | 182 | 81.9 → 81.3 % | 95.1 → 94.5 % | yes |
+| elongationXY | 174 | 89.1 / 96.0 % | 1.38 / 1.47 | 2 (0 / 2) | 172 | 76.7 → 76.2 % | 94.8 → 92.4 % | yes |
+| hdt045 | 187 | 87.2 / 97.3 % | 1 / 1.68 | 8 (4 / 5) | 179 | 82.1 → 82.1 % | 96.1 → 96.1 % | yes |
+
+The bands alone are too narrow (85 to 89 % for a 95 % claim), so the anchor is calibrated; its high side needs the
+widening, since a printed product's value lies above its own converted value more often than below it. Where model and
+anchor disagree, neither is reliably right (band 9, model 14 of 22 cases), so such a product shows no estimate. D160's
+ceiling, measured on the same hidden typical products for comparison (`floors`): stiffness 81.1 / 95.9 % (4 ranges
+moved), strength with its floors 74.6 / 88.1 %. Shipped: 354 stiffness, 502 strength, 432 stretch and 216 heat
+estimates are anchored; 3, 6, 1 and 22 withheld; 11, 20, 4 and 1 products' own sheets disagree.
+
+**C36, density** is untouched by D167: PLA filled still 9 / 12 of 15 (likely / plausible); listed in OPEN-PROBLEMS.
+
+**EST-CALIBRATION** holds on every headline, material and grade: material 80.0 / 95.0 (density), 81.1 / 95.9
+(stiffness), 81.4 / 96.6 (strength), 81.0 / 96.2 (stretch), 80.6 / 95.8 % (heat); grade 79.9 / 95.1, 79.7 / 94.9,
+79.1 / 94.4, 79.3 / 95.2, 79.7 / 95.2 %.
+
+**D165's table, again.** Stiffness now fails two bins with 20 cases (0.2: 0.25 predicted, 0.13 met, 38 cases; 0.3: 0.35
+and 0.21, 28), heat deflection two (0.3: 0.35 and 0.52, 23; 0.6: 0.65 and 0.85, 20). The 50 % rule stays not adopted.

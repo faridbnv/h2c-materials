@@ -644,10 +644,12 @@ predicts it, and scales the likely (80%) and plausible (95%) ranges to the cover
 Declared grade variants get their own covariate, conditioned values convert to dry through the documented wet
 offset, published bounds enter with a half-width and limit their own material, and physical limits bound every
 range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous (PLA and PET among them,
-D158) deflects near its glass transition, fills as a glassy matrix does and learns nothing from annealed values, a
-treatment at or below its glass transition being no annealing; any other annealed value of the headline's semantics
-converts as a kind of its own, learned from the grades that publish both, and a product that publishes only such a value
-is estimated as printed (D162); the spread between two products of one material is measured, and for heat deflection
+D158) deflects near its glass transition, fills as a glassy matrix does and learns nothing from annealed heat values;
+what an anneal is, is the core's one rule (a treatment at or below polymers.csv's Annealing threshold °C compiles as
+printed, D158), and every value still annealed after it, of the headline's kind or a related one, converts as an annealed
+kind through its as-printed kind and the headline's annealed offset (a glassy matrix's heat deflection by a few degrees,
+a crystalline one's by tens), learned only from 5 pairs of 2 makers, and floors nothing; a transition (Tg, Tm, Vicat) is
+read as published; a product that publishes only annealed values is estimated as printed (D162, D167); the spread between two products of one material is measured, and for heat deflection
 measured per matrix as printed (D162); an annealed value is never averaged with its as-printed twin, and
 repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
 neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
@@ -675,9 +677,13 @@ least HDT at 1.8 MPa) floors the estimates built on it. A grade's range is floor
 formulation proves. A material's range is the spread of its products, so it must contain every product's floor: its upper
 ends reach the highest product floor, and its lower ends are floored at the lowest only when every active product has one.
 An undescribed bar floors every headline but elongation, which a printed bar alone floors: an undescribed bar's stretch
-reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161). From above, a
-product's own stiffness on a moulded or undescribed bar caps its own estimate at 1.16 times (conversions.csv CV60,
-estimate-model.json ownCeiling, D160); its strength and stretch do not, the back-test having refused both.
+reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161). From both sides,
+a product's own values of the property measured another way (another direction, load, specimen or state) hold its own
+estimate inside the band they allow, each converted within its conversion's spread, widened per side by a scale the grade
+calibration sets (`anchor.js`, estimate-model.json ownAnchor, D167, replacing D160's one-sided ceiling); where its own
+values disagree nothing anchors it, where the model's centre lies outside the band the estimate is withheld
+(`estimateWithheld`), and the selector tags no product likely against its own band. A headline is anchored only where
+the anchor's back-test holds (`gradeCalibration.anchor`).
 Flooring a material at the highest product floor was tried first and broke calibration; `floors.js` back-tests each rule
 on the hidden headlines (`meta.estimateModel.properties.*.floors`, the validation report, and
 `docs/audits/2026-10-04-reader-round/estimate-order/backtest.md`). A semicrystalline polymer's heat deflection is held
