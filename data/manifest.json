@@ -71,7 +71,7 @@
     },
     "method": {
       "rows": 58,
-      "sha256": "5c0ca83fc446122da2002857605fbdfdf63c5a860632587cbec8fd33be535ade"
+      "sha256": "6c0b2caebdc99f11615d8ef3499db683029c821a80bbb04c5742ae8eebd0b6a7"
     },
     "reference": {
       "rows": 114,
@@ -123,7 +123,7 @@
     },
     "conversions": {
       "rows": 12,
-      "sha256": "3ee28a8383d8111b6c2ac258320728470590f0d4e8788d1677366a35ba818c94"
+      "sha256": "c471edfd68536b077d5aa000818c1edf5e9193c35ec56ff19ae365f1ed194d35"
     },
     "class_limits": {
       "rows": 2,
