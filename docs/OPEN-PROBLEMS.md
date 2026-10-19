@@ -1407,6 +1407,22 @@ unresolved. The ledger lists every such state in the validation report's Evidenc
 npm run -s sql -- "select g.gradeid, g.manufacturer, g.product_name from grades g where g.gradeid in ('G067-05','G020-08','G035-12','G094-06','G094-11','G075-11','G001-77','G158-01')"
 ```
 
+### 38.7. Fibre-filled densities their stated fibre content does not allow
+
+*From the screening build, stage 4, 2026-10-18 (D164).*
+
+Of 106 fibre-filled products with a stated fibre weight, a measured density and a sourced neat density, 8 lie outside
+what the rule of mixtures allows (5 % voids below, 2 % scatter): iSANMATE PETG Glass Fiber 1260 kg/m³ at 20 % (expected
+1268 to 1470), Polymaker Fiberon PA612-CF15 1030 at 15 % (1034 to 1172), BASF Ultrafuse PC GF30 1176 at 30 % (1310 to
+1485), Eryone PA6-CF 1090 at 20 % (1119 to 1293), purefil PA6 GF10 1370 at 10 % (1095 to 1272), Polymaker FIBERON PA6 GF25
+1200 at 25 % (1203 to 1390), SIDDAMENT PA12-CF 1230 at 15 % (988 to 1133), Raise3D PA12 CF+ 1030 at 15 % (1034 to 1172).
+Four are within 1 %. What settles each: a reading of its density and fibre lines on the page (a transcription, a load
+by volume, another grade's figure), then a flag under D55 or an acceptance. Nothing decides on the check.
+
+```bash
+node docs/audits/2026-10-18-screening-build/class-limits-lomo.mjs dist/db.json
+```
+
 ### 33.7. Registered copies filed under another product's source
 
 *From the quality round, 2026-10-07 (m394 to m408; D134, D135).*
@@ -1938,6 +1954,17 @@ to be revisited once stage 4 lets an estimate rest on other makers' printed valu
 temperature, an enclosure asked for with none, and a sheet's "-" leave a product one check away until its maker answers
 (§30.3).
 
+### 38.8. Two class limits that passed their test and cannot decide yet
+
+*From the screening build, stage 4, 2026-10-18 (D163).*
+
+Held out one maker at a time, two of the screening review's later limits never failed a product that meets them: an
+unfilled rigid plastic is at most 4.3 GPa stiff (130 groups, 19 makers) and a glassy unfilled bar's HDT at 0.45 MPa is at
+most 15 °C over its glass transition (199 groups, 38 makers). The first needs a registered, cited source that prints the
+limit (CLASS-LIMIT-SOURCE); the second a limit relative to a product's glass transition, which `class_limits.csv` cannot
+express. The other two failed: glassy unfilled elongation at most 100 % on nGen FLEX's 320 % (§38.1: re-filed, the row may
+pass), glassy fibre HDT at most Tg + 25 °C on Flashforge PET-GF; the fibre stiffness cap has 25 groups, under 59.
+
 ### 36.2. PCTG-GF's estimates sit above its own sheets
 
 *From the data review fixes, 2026-10-17 (m422 to m432; D143).*
@@ -1948,8 +1975,9 @@ beside sheets at 8 %. The sheets' values are as published (no orientation), so t
 value is estimated; the estimate stage is frozen (D138), and pulling an estimate toward as-published values is a change
 of the model that needs a decision and a back-test row (D58). Stage 4 of the screening build moved both: elongation to
 6.96 % (2.37 to 20.5), since an undescribed bar's 8 % no longer floors it (D161), and strength to 63.8 MPa (56.3 to 82),
-still above the sheets' 55 MPa, which floor it from below as D126 allows. Letting a product's own undescribed or moulded
-value bound its estimate from above is the screening review's C28 (D160), built after the shared conversion layer.
+still above the sheets' 55 MPa, which floor it from below as D126 allows. A product's own undescribed or moulded value
+now caps its stiffness estimate (D160); for strength the cap failed its back-test (88 % plausible against 90 %), so this
+estimate stays above the sheets until a back-test on more cases allows it.
 
 ```bash
 grep '^M110,' build/snapshot/headlines.csv
@@ -2721,3 +2749,5 @@ node docs/audits/2026-10-07-completeness-round/tooling/reader-parity.mjs > parit
 | §38.4 | Polymers no document speaks for | Values makers do not publish |
 | §38.5 | BVOH's density range against Nichigo's one figure | Sources that conflict, cannot be read or cannot be reached, and identities |
 | §38.6 | Values the evidence ledger finds doubtful, and records that leave no value between them | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §38.7 | Fibre-filled densities their stated fibre content does not allow | Sources that conflict, cannot be read or cannot be reached, and identities |
+| §38.8 | Two class limits that passed their test and cannot decide yet | What the model and the tools cannot do |
