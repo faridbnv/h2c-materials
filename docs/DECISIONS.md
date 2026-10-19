@@ -5225,9 +5225,11 @@ build](audits/2026-10-18-screening-build/stage-3b.md), which gives each row's ba
   as a contribution with rule `CL…`, so the engine has one path, and only where a product has no comparable value.
 - **Doubtful values (C40).** A comparable value beyond the sourced limit by more than the scatter still decides, and its
   answer says it is doubtful (CLASS-LIMIT-CONTRADICTED, reviewed).
-- **The first rows.** CL01, an unfilled elastomer's tensile modulus at most 0.5 GPa: no registered source prints an
-  elastomer's modulus range yet, so it stays reported. CL02, an unfilled product's density within its polymer's neat
-  range: it decides for the polymers whose neat density has a registered source. The later rows (a glassy plastic does
+- **The first rows.** CL01, an unfilled elastomer's tensile modulus at most 0.5 GPa: the Cambridge Materials Data Book
+  (registered by stage 2c) prints every elastomer class it lists at 0.04 GPa or less, polyurethane elastomers at 0.002 to
+  0.003 GPa, and the limit sits well above that, over the hardest Shore D TPUs here (0.39 to 0.40 GPa). CL02, an unfilled
+  product's density within its polymer's neat range: it decides for the polymers whose neat density has a registered
+  source (32 after stage 2c). The later rows (a glassy plastic does
   not stretch 100 % printed, an unfilled rigid plastic stays under about 4.3 GPa, a glassy HDT within Tg + 15 °C, fibre
   content caps stiffness) wait for stage 4's back-tests.
 - **What would break if reversed.** A TPU 95A with no published modulus, or an unfilled PLA with no density, would stay

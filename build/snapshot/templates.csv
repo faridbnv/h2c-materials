@@ -49,7 +49,7 @@ Outdoor structural part,Explore,M034,ASA-GF,UNKNOWN,none,0,2,4,6,G034-01,as-prin
 Outdoor structural part,Explore,M035,PC,UNKNOWN,none,0,11,11,22,G035-01,as-printed,yes,
 Outdoor structural part,Explore,M037,PC-CF,UNKNOWN,none,0,2,8,10,G037-01,as-printed,yes,
 Outdoor structural part,Explore,M038,PC-GF,UNKNOWN,none,0,1,2,3,G038-01,as-printed,yes,
-Outdoor structural part,Explore,M045,PEBA,UNKNOWN,none,0,1,9,10,G045-01,as-printed,screened,hdt045 >= 100
+Outdoor structural part,Explore,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-01,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-01,as-printed,yes,
 Outdoor structural part,Explore,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,
@@ -80,7 +80,6 @@ Outdoor structural part,Explore,M082,PP,UNKNOWN,none,0,6,6,12,G082-02,as-printed
 Outdoor structural part,Explore,M083,PP-CF,PASS,some,1,2,2,5,G083-01,as-printed,yes,
 Outdoor structural part,Explore,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,
 Outdoor structural part,Explore,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,
-Outdoor structural part,Explore,M086,OBC,UNKNOWN,,0,0,2,2,G086-01,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G087-03,as-printed,yes,
 Outdoor structural part,Explore,M088,PCTG,UNKNOWN,none,0,6,2,8,G088-03,as-printed,yes,
 Outdoor structural part,Explore,M089,CPE,UNKNOWN,none,0,3,2,5,G089-02,as-printed,yes,
@@ -118,10 +117,6 @@ Outdoor structural part,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,as-printed
 Outdoor structural part,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,
 Outdoor structural part,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,
 Outdoor structural part,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore,M159,TPU 85A class and softer,UNKNOWN,none,0,2,16,18,G039-06,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore,M160,TPU 90A class,UNKNOWN,none,0,5,7,12,G039-04,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore,M161,TPU 95A class,UNKNOWN,none,0,9,18,27,G039-02,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G040-01,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,4,3,7,G164-02,as-printed,yes,
 Outdoor structural part,Explore,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,2,3,5,G165-01,as-printed,yes,
 Outdoor structural part,Explore,M166,"Nylon-GF, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G166-01,as-printed,yes,
@@ -156,7 +151,7 @@ Outdoor structural part,Explore with estimates,M034,ASA-GF,UNKNOWN,none,0,2,4,6,
 Outdoor structural part,Explore with estimates,M035,PC,UNKNOWN,none,0,11,11,22,G035-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,2,8,10,G037-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,1,2,3,G038-01,as-printed,yes,
-Outdoor structural part,Explore with estimates,M045,PEBA,UNKNOWN,none,0,1,9,10,G045-01,as-printed,screened,hdt045 >= 100
+Outdoor structural part,Explore with estimates,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-01,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-02,as-printed,yes,
 Outdoor structural part,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,
@@ -187,7 +182,6 @@ Outdoor structural part,Explore with estimates,M082,PP,UNKNOWN,none,0,6,6,12,G08
 Outdoor structural part,Explore with estimates,M083,PP-CF,PASS,some,1,2,2,5,G083-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,
-Outdoor structural part,Explore with estimates,M086,OBC,UNKNOWN,,0,0,2,2,G086-01,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G087-03,as-printed,yes,
 Outdoor structural part,Explore with estimates,M088,PCTG,UNKNOWN,none,0,6,2,8,G088-03,as-printed,yes,
 Outdoor structural part,Explore with estimates,M089,CPE,UNKNOWN,none,0,3,2,5,G089-02,as-printed,yes,
@@ -225,10 +219,6 @@ Outdoor structural part,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G15
 Outdoor structural part,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore with estimates,M159,TPU 85A class and softer,UNKNOWN,none,0,2,16,18,G039-06,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore with estimates,M160,TPU 90A class,UNKNOWN,none,0,5,7,12,G039-04,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore with estimates,M161,TPU 95A class,UNKNOWN,none,0,9,18,27,G039-02,as-printed,screened,hdt045 >= 100
-Outdoor structural part,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G040-01,as-printed,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,4,3,7,G164-02,as-printed,yes,
 Outdoor structural part,Explore with estimates,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,2,3,5,G165-01,as-printed,yes,
 Outdoor structural part,Explore with estimates,M166,"Nylon-GF, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G166-01,as-printed,yes,
@@ -753,7 +743,7 @@ Lightweight structure,Explore,M034,ASA-GF,PASS,some,1,1,4,6,G034-03,as-printed,y
 Lightweight structure,Explore,M035,PC,UNKNOWN,none,0,7,15,22,G035-01,as-printed,yes,
 Lightweight structure,Explore,M037,PC-CF,UNKNOWN,none,0,3,7,10,G037-02,as-printed,yes,
 Lightweight structure,Explore,M038,PC-GF,UNKNOWN,none,0,1,2,3,G038-01,as-printed,yes,
-Lightweight structure,Explore,M045,PEBA,UNKNOWN,none,0,1,9,10,G045-01,as-printed,yes,
+Lightweight structure,Explore,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,yes,
 Lightweight structure,Explore,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-01,as-printed,yes,
 Lightweight structure,Explore,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-01,as-printed,yes,
 Lightweight structure,Explore,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,
@@ -780,7 +770,6 @@ Lightweight structure,Explore,M082,PP,UNKNOWN,none,0,1,11,12,G082-02,as-printed,
 Lightweight structure,Explore,M083,PP-CF,PASS,some,1,1,3,5,G083-01,as-printed,yes,
 Lightweight structure,Explore,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,
 Lightweight structure,Explore,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,
-Lightweight structure,Explore,M086,OBC,UNKNOWN,,0,0,2,2,G086-01,as-printed,yes,
 Lightweight structure,Explore,M087,POM / Acetal,UNKNOWN,none,0,2,1,3,G087-03,as-printed,yes,
 Lightweight structure,Explore,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-02,as-printed,yes,
 Lightweight structure,Explore,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,
@@ -816,10 +805,6 @@ Lightweight structure,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,as-printed,y
 Lightweight structure,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,
 Lightweight structure,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,
 Lightweight structure,Explore,M157,TPU-EC,UNKNOWN,none,0,1,1,2,G157-02,as-printed,yes,
-Lightweight structure,Explore,M159,TPU 85A class and softer,UNKNOWN,none,0,2,16,18,G039-06,as-printed,yes,
-Lightweight structure,Explore,M160,TPU 90A class,UNKNOWN,none,0,5,7,12,G039-04,as-printed,yes,
-Lightweight structure,Explore,M161,TPU 95A class,UNKNOWN,none,0,9,18,27,G039-02,as-printed,yes,
-Lightweight structure,Explore,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G040-01,as-printed,yes,
 Lightweight structure,Explore,M164,"Nylon, maker-undisclosed polyamide",PASS,some,1,3,3,7,G164-09,as-printed,yes,
 Lightweight structure,Explore,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,2,3,5,G165-02,as-printed,yes,
 Lightweight structure,Explore,M166,"Nylon-GF, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G166-01,as-printed,yes,
@@ -853,7 +838,7 @@ Lightweight structure,Explore with estimates,M034,ASA-GF,PASS,some,1,1,4,6,G034-
 Lightweight structure,Explore with estimates,M035,PC,UNKNOWN,none,0,7,15,22,G035-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,3,7,10,G037-02,as-printed,yes,
 Lightweight structure,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,1,2,3,G038-01,as-printed,yes,
-Lightweight structure,Explore with estimates,M045,PEBA,UNKNOWN,none,0,1,9,10,G045-01,as-printed,yes,
+Lightweight structure,Explore with estimates,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,yes,
 Lightweight structure,Explore with estimates,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-02,as-printed,yes,
 Lightweight structure,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,
@@ -880,7 +865,6 @@ Lightweight structure,Explore with estimates,M082,PP,UNKNOWN,none,0,1,11,12,G082
 Lightweight structure,Explore with estimates,M083,PP-CF,PASS,some,1,1,3,5,G083-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,
-Lightweight structure,Explore with estimates,M086,OBC,UNKNOWN,,0,0,2,2,G086-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,2,1,3,G087-03,as-printed,yes,
 Lightweight structure,Explore with estimates,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-02,as-printed,yes,
 Lightweight structure,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,
@@ -916,10 +900,6 @@ Lightweight structure,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-
 Lightweight structure,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M157,TPU-EC,UNKNOWN,none,0,1,1,2,G157-02,as-printed,yes,
-Lightweight structure,Explore with estimates,M159,TPU 85A class and softer,UNKNOWN,none,0,2,16,18,G039-06,as-printed,yes,
-Lightweight structure,Explore with estimates,M160,TPU 90A class,UNKNOWN,none,0,5,7,12,G039-04,as-printed,yes,
-Lightweight structure,Explore with estimates,M161,TPU 95A class,UNKNOWN,none,0,9,18,27,G039-02,as-printed,yes,
-Lightweight structure,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G040-01,as-printed,yes,
 Lightweight structure,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",PASS,some,1,3,3,7,G164-09,as-printed,yes,
 Lightweight structure,Explore with estimates,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,2,3,5,G165-02,as-printed,yes,
 Lightweight structure,Explore with estimates,M166,"Nylon-GF, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G166-01,as-printed,yes,
@@ -1314,7 +1294,7 @@ High-stiffness fixture,Explore,M034,ASA-GF,UNKNOWN,none,0,2,4,6,G034-01,as-print
 High-stiffness fixture,Explore,M035,PC,UNKNOWN,none,0,13,9,22,G035-03,as-printed,yes,
 High-stiffness fixture,Explore,M037,PC-CF,UNKNOWN,none,0,3,7,10,G037-01,as-printed,yes,
 High-stiffness fixture,Explore,M038,PC-GF,UNKNOWN,none,0,2,1,3,G038-03,as-printed,yes,
-High-stiffness fixture,Explore,M045,PEBA,UNKNOWN,none,0,1,9,10,G045-01,as-printed,yes,
+High-stiffness fixture,Explore,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,yes,
 High-stiffness fixture,Explore,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-01,as-printed,yes,
 High-stiffness fixture,Explore,M048,PAHT-CF,PASS,all,2,0,3,5,G048-02,as-printed,yes,
 High-stiffness fixture,Explore,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,
@@ -1345,7 +1325,6 @@ High-stiffness fixture,Explore,M082,PP,UNKNOWN,none,0,1,11,12,G082-02,as-printed
 High-stiffness fixture,Explore,M083,PP-CF,PASS,some,1,1,3,5,G083-01,as-printed,yes,
 High-stiffness fixture,Explore,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,
 High-stiffness fixture,Explore,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,
-High-stiffness fixture,Explore,M086,OBC,UNKNOWN,,0,0,2,2,G086-01,as-printed,yes,
 High-stiffness fixture,Explore,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G087-03,as-printed,yes,
 High-stiffness fixture,Explore,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-02,as-printed,yes,
 High-stiffness fixture,Explore,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,
@@ -1385,10 +1364,6 @@ High-stiffness fixture,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,y
 High-stiffness fixture,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,
 High-stiffness fixture,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,as-printed,yes,
 High-stiffness fixture,Explore,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,as-printed,yes,
-High-stiffness fixture,Explore,M159,TPU 85A class and softer,UNKNOWN,none,0,2,16,18,G039-06,as-printed,yes,
-High-stiffness fixture,Explore,M160,TPU 90A class,UNKNOWN,none,0,5,7,12,G039-04,as-printed,yes,
-High-stiffness fixture,Explore,M161,TPU 95A class,UNKNOWN,none,0,9,18,27,G039-02,as-printed,yes,
-High-stiffness fixture,Explore,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G040-01,as-printed,yes,
 High-stiffness fixture,Explore,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,5,2,7,G164-07,as-printed,yes,
 High-stiffness fixture,Explore,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,1,4,5,G165-01,as-printed,yes,
 High-stiffness fixture,Explore,M167,"TPE, maker-undisclosed elastomer",UNKNOWN,,0,0,5,5,G167-01,as-printed,yes,
@@ -1423,7 +1398,7 @@ High-stiffness fixture,Explore with estimates,M034,ASA-GF,UNKNOWN,none,0,2,4,6,G
 High-stiffness fixture,Explore with estimates,M035,PC,UNKNOWN,none,0,13,9,22,G035-03,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,3,7,10,G037-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,2,1,3,G038-03,as-printed,yes,
-High-stiffness fixture,Explore with estimates,M045,PEBA,UNKNOWN,none,0,1,9,10,G045-01,as-printed,yes,
+High-stiffness fixture,Explore with estimates,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M048,PAHT-CF,PASS,all,2,0,3,5,G048-02,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,
@@ -1454,7 +1429,6 @@ High-stiffness fixture,Explore with estimates,M082,PP,UNKNOWN,none,0,1,11,12,G08
 High-stiffness fixture,Explore with estimates,M083,PP-CF,PASS,some,1,1,3,5,G083-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,
-High-stiffness fixture,Explore with estimates,M086,OBC,UNKNOWN,,0,0,2,2,G086-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G087-03,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-02,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,
@@ -1494,10 +1468,6 @@ High-stiffness fixture,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-
 High-stiffness fixture,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,as-printed,yes,
-High-stiffness fixture,Explore with estimates,M159,TPU 85A class and softer,UNKNOWN,none,0,2,16,18,G039-06,as-printed,yes,
-High-stiffness fixture,Explore with estimates,M160,TPU 90A class,UNKNOWN,none,0,5,7,12,G039-04,as-printed,yes,
-High-stiffness fixture,Explore with estimates,M161,TPU 95A class,UNKNOWN,none,0,9,18,27,G039-02,as-printed,yes,
-High-stiffness fixture,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G040-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,5,2,7,G164-07,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,1,4,5,G165-01,as-printed,yes,
 High-stiffness fixture,Explore with estimates,M167,"TPE, maker-undisclosed elastomer",UNKNOWN,,0,0,5,5,G167-01,as-printed,yes,
