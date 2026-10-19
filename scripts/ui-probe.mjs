@@ -732,7 +732,7 @@ try {
     await sleep(200);
     await click('#btn-scenario');
     await until(`!!document.querySelector('.chosen')`, 'the chosen product in Save / share');
-    results['16-chosen-product'] = await evaluate(`[...document.querySelectorAll('.chosen')].map((e) => e.innerText).join('\\n').replace(/[ \\t]+/g, ' ').replace(/release [0-9a-f]{12}/g, 'release <id>').replace(/chosen \\d{4}-\\d{2}-\\d{2}/g, 'chosen <date>').trim()`);
+    results['16-chosen-product'] = await evaluate(`[...document.querySelectorAll('.chosen')].map((e) => e.innerText).join('\\n').replace(/[ \\t]+/g, ' ').replace(/release [0-9a-f]{12}/g, 'release <id>').replace(/chosen \\d{4}-\\d{2}-\\d{2}/g, 'chosen <date>').replace(/chosen \\d{1,2} [A-Z][a-z]{2} \\d{4}/g, 'chosen <date>').trim()`);
     // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
     // counts are the only ones in the rail that follow the other requirements.
     const rail = () => evaluate(`(document.querySelector('.family-facet')?.innerText ?? 'NO FAMILY RAIL').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim()`);

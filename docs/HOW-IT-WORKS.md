@@ -330,7 +330,8 @@ Lab's PA6-CF, all of them at 80 °C for 12 h) or after moisture conditioning. A 
 you choose **Annealing allowed** under *Part condition* in the filters, and then also annealed at the schedule its own
 sheet states (up to your oven's temperature, if you give one); it is judged **dry** unless you set *Moisture in service*
 to **Conditioned**, and then only on conditioned values. Two states are never mixed into one part: a
-value measured annealed does not pass an as-printed product, and the reason says where it was published ("Published only
+value measured annealed does not pass an as-printed product (it may fail one, since annealing only raises heat
+deflection: the evidence ledger reads an annealed HDT as the most a print reaches, D153), and the reason says where it was published ("Published only
 after annealing at 90 °C for 4 h, and this product is judged as printed. Allow annealing under Part condition to use
 it"). A verdict in an annealed state names the
 annealing it needs. The results header says how every product is judged, and how many more materials annealing would

@@ -127,7 +127,7 @@ for FibreX PP+GF30 and CarbonX PEKK-A CF15 (V015450, V015451).
 
 Fifteen Bambu Lab PLA sheets print one line over every value: "All the specimens were annealed and dried at 55 °C for 8 h
 before testing" (50 °C on two of them). PLA's glass transition is 55 to 60 °C, and nothing crystallises at or below it,
-so these are values of the part as printed (decision D153). Nothing in the rows was changed: their words and their typed
+so these are values of the part as printed (decision D158). Nothing in the rows was changed: their words and their typed
 state still say annealed. The build now reads a heat treatment at or below the polymer's glass transition as no
 annealing, and only for a polymer that crystallises when annealed; ABS, ASA, PC and PETG keep Bambu Lab's 65 to 80 °C
 schedules as annealings. To check one, open the sheet and look for the line above the property table.

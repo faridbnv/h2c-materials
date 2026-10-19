@@ -1,5 +1,5 @@
 COUNT 13 shown PASS
-STATUS ☑ PASS 13 | ☐ UNKNOWN 90 | ☐ FAIL 49
+STATUS ☑ PASS 13 | ☐ UNKNOWN 84 | ☐ FAIL 55
 Goal
 None: compare two properties
 Tie, minimum mass, stiffness prescribed
@@ -118,7 +118,7 @@ Whisker: the spread a sheet reports for that value
 Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
 Colour is polymer family
-Drawn: 20 products from 13 materials, each meeting every requirement.
+Drawn: 20 products from 13 materials, each meeting every requirement. Not drawn: 1 passing product with no value on one of these axes (listed beside the chart).
 Reading this chart
 Ranking
 M = E^(1/2) / ρ
@@ -215,3 +215,4 @@ PAHT
 ☆
 best: LEHVOSS LUVOCOM 3F PAHT 9825 NT
 1 product drawn
+1 passing product not drawn on these axes

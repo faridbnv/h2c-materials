@@ -71,7 +71,7 @@
     },
     "method": {
       "rows": 58,
-      "sha256": "ae7eb8b3b589af88c35c31d6b50ea14de1aa1c32d7bd95a03d8fc6369a03d997"
+      "sha256": "6c0b2caebdc99f11615d8ef3499db683029c821a80bbb04c5742ae8eebd0b6a7"
     },
     "reference": {
       "rows": 114,
@@ -111,7 +111,7 @@
     },
     "polymers": {
       "rows": 48,
-      "sha256": "14cba296cd5a7f47953c27e1f534f1f4b43eac5dd6c7bda9cc056fcd2abbf5d8"
+      "sha256": "a0f7b695700a41eba9cc2300e40bd4cd9a5294de2a38b0b8bed276fee2696f56"
     },
     "plausibility_windows": {
       "rows": 128,
@@ -120,6 +120,14 @@
     "physical_relations": {
       "rows": 12,
       "sha256": "ce76d0bdea773d2428c5ccc81605c270cae9d2dcd4b526f0866c9eecf33a6c10"
+    },
+    "conversions": {
+      "rows": 12,
+      "sha256": "ad8c0b25ff93cb0ea5dd22b711c93c4e74f122ac4472a1116e51e55464f51824"
+    },
+    "class_limits": {
+      "rows": 2,
+      "sha256": "4c084a463e40e28d63ba65d9f51bc668a7402da0cdc2772f0b0e6a10cc3f13db"
     },
     "chamber_bands": {
       "rows": 39,

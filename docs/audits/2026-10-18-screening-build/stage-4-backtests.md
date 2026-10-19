@@ -14,7 +14,7 @@ the 80 % and 95 % ranges held the hidden value. **Width** is the median width of
 the top is 1.46 times the bottom) for stiffness, strength and stretch, degrees for heat deflection. **Scales** are the
 factors calibration widened the ranges by (likely / plausible); the clamp stops them at 2 and 3.
 
-## 1. A heat treatment at or below the glass transition is no annealing (D153)
+## 1. A heat treatment at or below the glass transition is no annealing (D158)
 
 **The change.** Bambu Lab's 361 PLA values "annealed and dried at 55 °C" (50 °C on two sheets) are judged as printed: at
 or below PLA's glass transition nothing crystallises. It is a data rule in the core (polymers.csv Annealing threshold

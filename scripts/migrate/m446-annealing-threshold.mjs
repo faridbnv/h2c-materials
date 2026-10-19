@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Migration m446 (2026-10-18): polymers.csv gains Annealing threshold °C, the temperature a heat treatment must exceed to
-// change a printed part of a polymer that crystallises when it is annealed (the screening build's stage 4, D153).
+// change a printed part of a polymer that crystallises when it is annealed (the screening build's stage 4, D158).
 //
 // Bambu Lab's PLA sheets print "All the specimens were annealed and dried at 55 °C for 8 h before testing" (50 °C on
 // some): 361 values of 15 products, every mechanical and heat value of each. The rows keep those words, and their typed
@@ -35,7 +35,7 @@ const NA = 'Not applicable', NR = 'Not recorded';
 const SOURCE = 'R-NATUREWORKS-INGEO-3D850-TDS';
 const QUOTES = ['Glass Transition Temperature, °C 55-60 D3418', 'Post-annealing in the range of 176-266°F', '(80-130°C) can be used to promote crystallization and improve the'];
 const OLD_TAIL = 'The melting point column stays Not applicable while this row classes PLA as amorphous; that class is the estimate model\'s to change, with a back-test (screening build, stage 4).';
-const NEW_TAIL = `${OLD_TAIL} The same page says that annealing "in the range of 176-266°F (80-130°C) can be used to promote crystallization": the annealing threshold is the glass transition's low end, 55 °C, at or below which nothing crystallises (D153).`;
+const NEW_TAIL = `${OLD_TAIL} The same page says that annealing "in the range of 176-266°F (80-130°C) can be used to promote crystallization": the annealing threshold is the glass transition's low end, 55 °C, at or below which nothing crystallises (D158).`;
 
 const t = openTables();
 for (const q of QUOTES) onSheet(t, SOURCE, q, MIGRATION);

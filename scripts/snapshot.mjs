@@ -27,6 +27,10 @@
 //   build/snapshot/states.csv      every product's decision states (D99) where a state's value is not the product's
 //                                   published value the table shows: an annealed or conditioned state's own values, and
 //                                   an as-printed state without the annealed value the table shows
+//   build/snapshot/ledger.csv      every row of the evidence ledger and every physics limit (D153, D154): its status, kind
+//                                   and factors, how many products and states it bounds, its same-sheet pairs (how many,
+//                                   the ratio or difference each implies, and the pairs that break it), the values it
+//                                   would demote or contradict, and the states whose records disagree
 //   build/snapshot/pages.csv       every listed material's page: whether it has one and, where it has none, what it falls
 //                                   short on; its products, values, makers and documents; the sections, figures and
 //                                   dots drawn; the size of the Overview and of its Products page (D142, D145); the
@@ -183,6 +187,22 @@ for (const g of [...db.grades].filter((x) => !x.retired && x.states).sort((a, b)
   }
 }
 
+// The evidence ledger's rows and the physics limits (D153, D154), reported and deciding alike: what each bounds, and its
+// band re-measured on same-sheet pairs (CONVERSION-PAIRS), so a switch to deciding and every pair that breaks a row show
+// in a diff.
+const ledgerRows = [
+  ...(db.conversions ?? []).map((r) => ({ Rule: r.id, Target: r.target, Kind: r.kind, Status: r.status,
+    Low: r.factorLow ?? '', High: r.factorHigh ?? '', 'Applies to': r.appliesToText ?? '', Products: r.counts.products, States: r.counts.states,
+    Demoted: r.counts.demoted, Contradicted: r.counts.contradicted, Disagree: r.counts.disagree,
+    Pairs: r.pairs.n, 'Pair products': r.pairs.products, Implied: r.pairs.implied, 'Implied min': r.pairs.min ?? '', 'Implied max': r.pairs.max ?? '',
+    Breaking: r.pairs.breaking.map((b) => `${b.gradeId} ${b.target}=${b.targetValue} ${b.source}=${b.sourceValue}`).join('; ') })),
+  ...(db.classLimits ?? []).map((l) => ({ Rule: l.id, Target: l.target, Kind: l.kind, Status: l.status,
+    Low: l.kind === 'floor' ? l.value : '', High: l.kind === 'ceiling' ? l.value : '', 'Applies to': l.appliesToText, Products: l.counts.products, States: l.counts.states,
+    Demoted: '', Contradicted: l.counts.contradicted, Disagree: l.counts.disagree, Pairs: '', 'Pair products': '', Implied: 'extremes',
+    'Implied min': l.extremes.length === 1 ? l.extremes[0].min : '', 'Implied max': l.extremes.length === 1 ? l.extremes[0].max : '',
+    Breaking: l.extremes.length > 1 ? l.extremes.map((e) => `${e.polymer} ${e.min}-${e.max}`).join('; ') : '' })),
+];
+
 // Every listed material's page, rendered here from the snapshot's own database with the stamps masked, so a new release or
 // build date moves no row and a change to a page's design or content shows in the diff of the change that made it. No
 // selector link (selectorFile null) and no assets: the pages' bytes are what the rows count, not their stylesheet.
@@ -260,6 +280,7 @@ const files = {
   'environment.csv': csvText(['MaterialID', 'Category', 'Record', 'GradeID', 'Level', 'Verdict', 'Qualified', 'Screens'], environmentRows),
   'print.csv': csvText(Object.keys(printRows[0]), printRows),
   'states.csv': csvText(['GradeID', 'MaterialID', 'Product', 'State', 'Headline', 'Value', 'Measurement', 'Shown', 'From'], stateRows),
+  'ledger.csv': csvText(['Rule', 'Target', 'Kind', 'Status', 'Low', 'High', 'Applies to', 'Products', 'States', 'Demoted', 'Contradicted', 'Disagree', 'Pairs', 'Pair products', 'Implied', 'Implied min', 'Implied max', 'Breaking'], ledgerRows),
   'pages.csv': csvText(Object.keys(pageRows[0]), pageRows),
 };
 

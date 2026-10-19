@@ -12,5 +12,5 @@ every value. PLA softens at its glass transition, 55 to 60 °C, and only crystal
 which makes PLA resin, anneals at 80 to 130 °C). So these 361 values describe the part as printed. The tool used to read
 them as annealed, which meant none of those 15 products could answer an as-printed question: each waited on an annealing
 step that changes nothing. They now answer as printed. The rows themselves are unchanged; the rule is a number in the
-polymer table (decision D153). The answers moved are in [stage-4-diff-1.md](stage-4-diff-1.md), and the products in the
+polymer table (decision D158). The answers moved are in [stage-4-diff-1.md](stage-4-diff-1.md), and the products in the
 [spot-check list](SPOT-CHECK.md).

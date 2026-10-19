@@ -96,7 +96,7 @@ export const isPartSpecimen = (specimenType) => ['printed', 'not-stated'].includ
 /**
  * A heat treatment at or below its polymer's annealing threshold (polymers.csv Annealing threshold °C: the glass
  * transition of a polymer that crystallises when annealed) crystallises nothing, so the value is the as-printed part's
- * (D153). Bambu Lab's PLA sheets print "annealed and dried at 55 °C for 8 h" over every value; PLA's glass transition is
+ * (D158). Bambu Lab's PLA sheets print "annealed and dried at 55 °C for 8 h" over every value; PLA's glass transition is
  * 55-60 °C. The row keeps its words and its typed state; the compiled measurement is judged as printed and says what was
  * done to it (`heatTreatment`). A treatment of unstated temperature, and any treatment of a polymer with no threshold (an
  * amorphous one, whose anneal below its glass transition relieves stress), stays an annealing. Applied in place, once,

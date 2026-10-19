@@ -13,6 +13,20 @@
     "edited_existing": 0,
     "removed": 0
   },
+  "class_limits": {
+    "baseline": 0,
+    "current": 2,
+    "added": 2,
+    "edited_existing": 0,
+    "removed": 0
+  },
+  "conversions": {
+    "baseline": 0,
+    "current": 12,
+    "added": 12,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "coverage": {
     "baseline": 805,
     "current": 953,

@@ -111,6 +111,29 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 | CN19 | Family: Support / Interface | unknown | reported | 2 | 0 | no | 0 |
 | CN20 | Family: Support / Soluble | unknown | reported | 6 | 0 | no | 0 |
 
+## Evidence ledger
+
+Per row of data/tables/conversions.csv and class_limits.csv: the product states it bounds where they hold no deciding
+value, the values it would demote or that contradict it, and its same-sheet pairs (the ratio, or the difference in C,
+each pair implies, and how many break the row). Only a deciding row decides (D153, D154).
+
+| Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |
+|---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|
+| CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 2 | 255 | difference -4 to 119.5 | 2 |
+| CV02 | tensileModulusXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
+| CV03 | hdt045 | ceiling | deciding | 1 | 50 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
+| CV04 | tensileModulusXY | ceiling | deciding | 1.28 | 50 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
+| CV05 | hdt045 | demote-to-ceiling | deciding | 1 | 197 | 138 | 0 | 2 | 1 | difference -5 to -5 | 0 |
+| CV06 | tensileModulusXY | floor | deciding | 0.79 | 172 | 0 | 0 | 0 | 208 | ratio 0.791747011184 to 5.15974842767 | 0 |
+| CV07 | tensileModulusXY | floor | deciding | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
+| CV08 | tensileModulusXY | band | deciding | 0.46 to 1.93 | 601 | 0 | 0 | 0 | 290 | ratio 0.460233638667 to 1.93 | 0 |
+| CV09 | tensileStrengthXY | floor | deciding | 0.86 | 221 | 0 | 0 | 0 | 251 | ratio 0.864583333333 to 9.88943488943 | 0 |
+| CV10 | elongationXY | floor | reported | 1 | 145 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
+| CV11 | elongationXY | floor | reported | 1 | 46 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
+| CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
+| CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 81 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
+| CL02 | density | neat-density range | deciding | polymers.csv | 516 |  | 5 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
+
 ## Environment evidence
 
 A verdict category has findings that reduce to resistant, limited or not resistant, so it
@@ -530,6 +553,10 @@ interface can say so rather than implying a certainty it does not have.
 - `PROCESS-WINDOW-IMPLAUSIBLE` **profiles P0050** — Bed "30 -500 ºC" states 500 °C, outside the plausible 0–250 °C; it is typed as stated (30–30): check the cell against its page
 - `PARSE-UNREAD` **Print setup row 1284** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
 - `PARSE-UNREAD` **Print setup row 1286** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
+- `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 2 of 255 same-sheet pair(s) break it: G001-77 V013711 59 against V013712 60; G165-04 V014653 58 against V014656 62
+- `LEDGER-DISAGREE` **grades** — 2 product state(s) whose deciding bounds leave no value between them: G001-77 hdt045 at least 60 (CV01 V013712) and at most 59 (CV05 V013711); G158-01 hdt045 at least 50 (CV01 V010561) and at most 48 (CV05 V010876)
+- `LEDGER-CONTRADICTS-VALUE` **grades** — 1 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G067-05 hdt045 87 (V011565) against CV01 V011569
+- `CLASS-LIMIT-CONTRADICTED` **grades** — 5 comparable value(s) beyond their kind's limit by more than the test scatter: G020-08 density 1180 (V002844) against CL02; G035-12 density 1150 (V004709) against CL02; G094-06 density 1070 (V006114) against CL02; G075-11 density 1370 (V010405) against CL02; …
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
 - `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1320); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 0.985)
