@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b47.mjs (screening build 2026-10-18, stage 2c)",
+    "date": "2026-10-18"
+  },
+  "document": {
+    "sha256": "f519937d614aa4ca7bb6f9852bd6ef6e8f3629890e59e4cc45d794df765d1049",
+    "url": "https://www.protolabs.com/media/y5hnhojw/bayblend_t65_xf_iso_en.pdf",
+    "pages": 3,
+    "provider": "Covestro Deutschland AG",
+    "manufacturer": "Covestro Deutschland AG",
+    "docKey": "https://www.protolabs.com/media/y5hnhojw/bayblend_t65_xf_iso_en.pdf#witness-for=polymer:PC-ABS"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "materialId": null,
+    "note": "A reference for the polymer PC-ABS of polymers.csv, not a product of the catalogue: no grade, no value row. m445 sets the polymer's SourceID to it and records the figures below in its Basis."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COVESTRO-BAYBLEND-T65XF-ISO",
+      "Publisher": "Covestro Deutschland AG",
+      "Title": "Bayblend T65 XF",
+      "Revision": "Edition 24.02.2017, ISO Datasheet",
+      "Publication date": "2017-02-24",
+      "Access date": "2026-10-18",
+      "Source class": "Resin supplier data sheet",
+      "Source note": "Covestro's own ISO datasheet for Bayblend T65 XF, a non-reinforced (PC+ABS) blend, as protolabs.com serves it. The document names its publisher \"Covestro AG\". Kept as the polymer reference of PC-ABS (polymers.csv): density and water absorption.",
+      "Citation role": "cited",
+      "URL": "https://www.protolabs.com/media/y5hnhojw/bayblend_t65_xf_iso_en.pdf",
+      "Locator": "p. 1: Other properties",
+      "Applicable grades": "Polymer reference of PC-ABS (polymers.csv): Bayblend T65 XF resin",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-18 by Claude Sonnet (screening build, polymer sources) from https://www.protolabs.com/media/y5hnhojw/bayblend_t65_xf_iso_en.pdf, and fetched again the same day by Claude Opus 5.5, byte for byte the same. Staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-18-screening-build/ingest/staged-manifest-b47.csv).",
+      "SHA256": "f519937d614aa4ca7bb6f9852bd6ef6e8f3629890e59e4cc45d794df765d1049"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Standard grades / Non reinforced (PC+ABS)-Blend; Vicat/B 120 temperature = 120 °C; improved flow compared with T65"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+      "date": "2026-10-18"
+    }
+  },
+  "figures": [
+    {
+      "page": 1,
+      "text": "C Water absorption (saturation value) Water at 23 °C % ISO 62 0.7"
+    },
+    {
+      "page": 1,
+      "text": "C Water absorption (equilibrium value) 23 °C; 50 % r. h. % ISO 62 0.2"
+    },
+    {
+      "page": 1,
+      "text": "C Density kg/m³ ISO 1183-1 1130"
+    }
+  ],
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every other row of the document: a polymer reference enters for its density, its water absorption and its transitions, which the polymer's Basis quotes; no product of the catalogue is this grade, so no value row is written."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+    "date": "2026-10-18",
+    "visual": false,
+    "note": "Registered as a cited polymer reference (PC-ABS); 3 figure line(s) checked on the cached text."
+  }
+}

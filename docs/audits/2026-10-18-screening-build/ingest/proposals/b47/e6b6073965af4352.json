@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b47.mjs (screening build 2026-10-18, stage 2c)",
+    "date": "2026-10-18"
+  },
+  "document": {
+    "sha256": "e6b6073965af4352cc3f5c40c0962619317fae248384771df91bb9f7f9984f66",
+    "url": "https://www.protolabs.com/media/qcmegzd2/xenoy-6620.pdf",
+    "pages": 4,
+    "provider": "SABIC Innovative Plastics",
+    "manufacturer": "SABIC Innovative Plastics",
+    "docKey": "https://www.protolabs.com/media/qcmegzd2/xenoy-6620.pdf#witness-for=polymer:PC-PBT"
+  },
+  "identity": {
+    "polymer": "PC-PBT",
+    "materialId": null,
+    "note": "A reference for the polymer PC-PBT of polymers.csv, not a product of the catalogue: no grade, no value row. m445 sets the polymer's SourceID to it and records the figures below in its Basis."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SABIC-XENOY-6620-DS",
+      "Publisher": "SABIC Innovative Plastics",
+      "Title": "XENOY 6620 resin Polycarbonate + PBT",
+      "Revision": "Last Updated: 3/19/2014 (UL Prospector)",
+      "Publication date": "Not published",
+      "Access date": "2026-10-18",
+      "Source class": "Resin supplier data sheet",
+      "Source note": "UL Prospector's technical data sheet of SABIC's figures for XENOY 6620, an unreinforced, impact-modified PBT+PC alloy (\"acquired by UL Prospector from the producer of the material\"), as protolabs.com serves it. Kept as the polymer reference of PC-PBT (polymers.csv): specific gravity and water absorption.",
+      "Citation role": "cited",
+      "URL": "https://www.protolabs.com/media/qcmegzd2/xenoy-6620.pdf",
+      "Locator": "p. 1: Physical",
+      "Applicable grades": "Polymer reference of PC-PBT (polymers.csv): XENOY 6620 resin",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-18 by Claude Sonnet (screening build, polymer sources) from https://www.protolabs.com/media/qcmegzd2/xenoy-6620.pdf, and fetched again the same day by Claude Opus 5.5, byte for byte the same. Staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-18-screening-build/ingest/staged-manifest-b47.csv).",
+      "SHA256": "e6b6073965af4352cc3f5c40c0962619317fae248384771df91bb9f7f9984f66"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PBT+PC, Unreinforced, impact modified thermoplastic alloy. Outstanding impact at low temperature"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+      "date": "2026-10-18"
+    }
+  },
+  "figures": [
+    {
+      "page": 1,
+      "text": "Specific Gravity 1.20 1.20 g/cm³ ASTM D792"
+    },
+    {
+      "page": 1,
+      "text": "Water Absorption (24 hr) 0.080 % 0.080 % ASTM D570"
+    }
+  ],
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every other row of the document: a polymer reference enters for its density, its water absorption and its transitions, which the polymer's Basis quotes; no product of the catalogue is this grade, so no value row is written."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+    "date": "2026-10-18",
+    "visual": false,
+    "note": "Registered as a cited polymer reference (PC-PBT); 2 figure line(s) checked on the cached text."
+  }
+}

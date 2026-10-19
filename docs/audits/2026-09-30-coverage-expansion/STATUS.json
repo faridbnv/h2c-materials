@@ -1,5 +1,5 @@
 {
-  "dataRelease": "fda513b79e6f",
+  "dataRelease": "00d8a907af1b",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -73,7 +73,7 @@
     "profiles": 1836,
     "evidence": 868,
     "prices": 365,
-    "sources": 2017,
+    "sources": 2033,
     "coverage": 953,
     "knowHow": 7601,
     "polymerEnvironment": 353,
@@ -228,6 +228,13 @@
       "edited_existing": 1,
       "removed": 0
     },
+    "polymers": {
+      "baseline": 48,
+      "current": 48,
+      "added": 0,
+      "edited_existing": 22,
+      "removed": 0
+    },
     "prices": {
       "baseline": 357,
       "current": 365,
@@ -279,8 +286,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 2017,
-      "added": 189,
+      "current": 2033,
+      "added": 205,
       "edited_existing": 530,
       "removed": 0
     }

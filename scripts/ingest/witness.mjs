@@ -11,7 +11,8 @@
 //   npm run ingest:witness -- --from <manifest.csv>   many staged copies at once; columns file, url, doc, for,
 //                                          provider, manufacturer, product, sha256, accessed, by ("for" names a
 //                                          SourceID registered before the V2 import, whose sheet has no ledger row, or
-//                                          material:M### for a product of that material the catalogue does not hold)
+//                                          material:M### for a product of that material the catalogue does not hold,
+//                                          polymer:<PolymerID> for a producer's reference for a row of polymers.csv)
 //
 // R075 and R077 said the sheet answers what the name does not, and for two documents in three it does not: the
 // sheet prints the numbers and never the polymer. The owner chose, for those, the maker's own product page — the
@@ -34,6 +35,8 @@ import { get } from './fetch.mjs';
 import { INGEST_ROOT as AUDIT, LEDGER } from './context.mjs';
 
 const PER_HOST = 2, SPACING_MS = 600;
+/** A staged copy that names what it is for rather than a source: a material ("material:M114") or a polymer ("polymer:PA6/66"). */
+const FOR_KEY = /^(material:M\d+|polymer:[A-Za-z0-9][A-Za-z0-9/-]*)$/;
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && !String(process.argv[i + 1] ?? '--').startsWith('--') ? process.argv[i + 1] : null; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -63,8 +66,9 @@ function wanting(ledger, only = null) {
  * copy says who saved it and when, and is dated by that reading, not by the day it was staged.
  */
 export function witnessRow({ row, page, found = false, staged = null, today = new Date().toISOString().slice(0, 10), reread = false }) {
-  // A document a search found for a product the catalogue does not hold yet names the material it is for ("material:M114").
-  const forKey = row.doc_key || (staged?.forSource ? (/^material:M\d+$/.test(staged.forSource) ? staged.forSource : `source:${staged.forSource}`) : '');
+  // A document a search found for a product the catalogue does not hold yet names the material it is for ("material:M114");
+  // a producer's reference for a polymer's own figures (neat density, water absorption) names the polymer ("polymer:PET").
+  const forKey = row.doc_key || (staged?.forSource ? (FOR_KEY.test(staged.forSource) ? staged.forSource : `source:${staged.forSource}`) : '');
   // A page the ledger already holds from another day's reading, with other bytes, is a second reading of it: keyed by
   // the day it was read, so neither reading replaces the other.
   return {
@@ -96,9 +100,11 @@ async function witness({ row, page, found = false, staged = null, reread = false
   storeBytes(got.bytes);
   const text = await documentText(got.bytes, { sha });
   const lines = (text.pages ?? []).reduce((n, p) => n + (p.lines ?? []).length, 0);
-  const of = row.doc_key || (/^material:M\d+$/.test(staged?.forSource ?? '') ? `a product of ${staged.forSource.slice(9)} the catalogue does not hold yet, found by a search (R089)` : `source ${staged?.forSource}, registered before the V2 import (its sheet has no ledger row)`);
+  const polymer = /^polymer:/.test(staged?.forSource ?? '');
+  const of = row.doc_key || (/^material:M\d+$/.test(staged?.forSource ?? '') ? `a product of ${staged.forSource.slice(9)} the catalogue does not hold yet, found by a search (R089)`
+    : polymer ? `the polymer ${staged.forSource.slice(8)} (polymers.csv), found by a search (R089)` : `source ${staged?.forSource}, registered before the V2 import (its sheet has no ledger row)`);
   return { ...base, sha256: sha, format: isPdf ? 'PDF' : 'HTML', access_status: `${isPdf ? 'document' : 'page'} ${staged ? `staged (${staged.name})` : `fetched (${got.type || 'text/html'})`}`, status: 'duplicate-of',
-    status_note: `the maker's ${isPdf ? 'document' : 'page'} for ${of}, ${lines} line(s) of text; a witness for what the sheet does not say` };
+    status_note: `the ${polymer ? 'producer' : 'maker'}'s ${isPdf ? 'document' : 'page'} for ${of}, ${lines} line(s) of text; ${polymer ? 'a reference for the polymer\'s own figures' : 'a witness for what the sheet does not say'}` };
 }
 
 /** The documents a manifest names, each staged against the product it witnesses. */

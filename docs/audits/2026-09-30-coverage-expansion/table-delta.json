@@ -146,6 +146,13 @@
     "edited_existing": 1,
     "removed": 0
   },
+  "polymers": {
+    "baseline": 48,
+    "current": 48,
+    "added": 0,
+    "edited_existing": 22,
+    "removed": 0
+  },
   "prices": {
     "baseline": 357,
     "current": 365,
@@ -197,8 +204,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 2017,
-    "added": 189,
+    "current": 2033,
+    "added": 205,
     "edited_existing": 530,
     "removed": 0
   }

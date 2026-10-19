@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b47.mjs (screening build 2026-10-18, stage 2c)",
+    "date": "2026-10-18"
+  },
+  "document": {
+    "sha256": "23419ba666af13982c9dbda05561d35c12d7dd2ed6824379f3bb9eb667e78273",
+    "url": "https://productcatalog.eastman.com/tds/ProdDatasheet.aspx?product=71040786&pn=eastar-6763-copolyester",
+    "pages": 1,
+    "provider": "Eastman Chemical Company",
+    "manufacturer": "Eastman Chemical Company",
+    "docKey": "https://productcatalog.eastman.com/tds/ProdDatasheet.aspx?product=71040786&pn=eastar-6763-copolyester#witness-for=polymer:PETG"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "materialId": null,
+    "note": "A reference for the polymer PETG of polymers.csv, not a product of the catalogue: no grade, no value row. m445 sets the polymer's SourceID to it and records the figures below in its Basis."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EASTMAN-EASTAR-6763-TDS",
+      "Publisher": "Eastman Chemical Company",
+      "Title": "Technical Data Sheet Eastar copolyester 6763",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-18",
+      "Source class": "Resin supplier data sheet",
+      "Source note": "Eastman's own technical data sheet for Eastar copolyester 6763, a web page of its product catalogue saved as served (\"Eastar 6763 is a clear, amorphous material\"). Eastman publishes no PDF of it: its \"Print or save as PDF\" button prints the page. Kept as the polymer reference of PETG (polymers.csv): density, specific gravity, water absorption and glass transition of injection-moulded bars.",
+      "Citation role": "cited",
+      "URL": "https://productcatalog.eastman.com/tds/ProdDatasheet.aspx?product=71040786&pn=eastar-6763-copolyester",
+      "Locator": "p. 1: Mechanical Properties (Injection Molded), ASTM and ISO Method; Thermal Properties",
+      "Applicable grades": "Polymer reference of PETG (polymers.csv): Eastar copolyester 6763 resin",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-18 by Claude Sonnet (screening build, polymer sources) from this URL and saved as served. Staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-18-screening-build/ingest/staged-manifest-b47.csv). The page carries a view state the server writes per request: a second fetch the same day by Claude Opus 5.5 hashed differently, and differed only in its __VIEWSTATE and __EVENTVALIDATION fields.",
+      "SHA256": "23419ba666af13982c9dbda05561d35c12d7dd2ed6824379f3bb9eb667e78273"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Eastar™ copolyester 6763"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+      "date": "2026-10-18"
+    }
+  },
+  "figures": [
+    {
+      "page": 1,
+      "text": "Specific Gravity  D 792  1.27"
+    },
+    {
+      "page": 1,
+      "text": "Water Absorption, 24 h immersion  D 570  0.13 %"
+    },
+    {
+      "page": 1,
+      "text": "Density  ISO 1183, Method D  1.27 g/cm 3"
+    },
+    {
+      "page": 1,
+      "text": "Water Absorption, 24 h immersion  ISO 62  0.13 %"
+    },
+    {
+      "page": 1,
+      "text": "Glass Transition Temperature (T g )  DSC  80 °C (176 °F)"
+    }
+  ],
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every other row of the document: a polymer reference enters for its density, its water absorption and its transitions, which the polymer's Basis quotes; no product of the catalogue is this grade, so no value row is written."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+    "date": "2026-10-18",
+    "visual": false,
+    "note": "Registered as a cited polymer reference (PETG); 5 figure line(s) checked on the cached text."
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b47.mjs (screening build 2026-10-18, stage 2c)",
+    "date": "2026-10-18"
+  },
+  "document": {
+    "sha256": "2bcf739fd66f886571e9cba66d42eb44c568e074aecceb81bc15cddc91dd7144",
+    "url": "http://www-mdp.eng.cam.ac.uk/web/library/enginfo/cueddatabooks/materials.pdf",
+    "pages": 41,
+    "provider": "Cambridge University Engineering Department",
+    "manufacturer": "Cambridge University Engineering Department",
+    "docKey": "http://www-mdp.eng.cam.ac.uk/web/library/enginfo/cueddatabooks/materials.pdf#witness-for=polymer:TPU"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "materialId": null,
+    "note": "A reference for the polymer TPU of polymers.csv, not a product of the catalogue: no grade, no value row. m445 sets the polymer's SourceID to it and records the figures below in its Basis."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-CUED-MATERIALS-DATA-BOOK-2003",
+      "Publisher": "Cambridge University Engineering Department",
+      "Title": "Materials Data Book",
+      "Revision": "2003 Edition",
+      "Publication date": "2003",
+      "Access date": "2026-10-18",
+      "Source class": "Reference or register",
+      "Source note": "The Cambridge University Engineering Department's Materials Data Book, a teaching reference whose polymer data are Granta Design's: density ranges of generic polymer classes, not grades. Kept as the polymer reference of TPU (polymers.csv), and named in the Basis of PE, PET, PP, PC, POM and ABS beside their producers' sheets.",
+      "Citation role": "cited",
+      "URL": "http://www-mdp.eng.cam.ac.uk/web/library/enginfo/cueddatabooks/materials.pdf",
+      "Locator": "Section II.2, Density (PDF p. 12)",
+      "Applicable grades": "Polymer reference of TPU (polymers.csv); corroborates PE, PET, PP, PC, POM and ABS",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-18 by Claude Sonnet (screening build, polymer sources) from http://www-mdp.eng.cam.ac.uk/web/library/enginfo/cueddatabooks/materials.pdf, and fetched again the same day by Claude Opus 5.5, byte for byte the same. Staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-18-screening-build/ingest/staged-manifest-b47.csv).",
+      "SHA256": "2bcf739fd66f886571e9cba66d42eb44c568e074aecceb81bc15cddc91dd7144"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "2003 Edition"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+      "date": "2026-10-18"
+    }
+  },
+  "figures": [
+    {
+      "page": 12,
+      "text": "Polyurethane Thermoplastics (tpPU)",
+      "numbers": [
+        "1.12",
+        "1.24"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "Polyethylene (PE)",
+      "numbers": [
+        "0.939",
+        "0.96"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "PET",
+      "numbers": [
+        "1.29",
+        "1.4"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "Polypropylene (PP)",
+      "numbers": [
+        "0.89",
+        "0.91"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "Polycarbonate (PC)",
+      "numbers": [
+        "1.14",
+        "1.21"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "Acetal (POM)",
+      "numbers": [
+        "1.39",
+        "1.43"
+      ]
+    },
+    {
+      "page": 12,
+      "text": "ABS",
+      "numbers": [
+        "1.01",
+        "1.21"
+      ]
+    }
+  ],
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every other row of the document: a polymer reference enters for its density, its water absorption and its transitions, which the polymer's Basis quotes; no product of the catalogue is this grade, so no value row is written."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (screening build 2026-10-18, b47), read on the cached text and the page image",
+    "date": "2026-10-18",
+    "visual": true,
+    "note": "Registered as a cited polymer reference (TPU); 7 figure line(s) checked on the cached text (the page's names and numbers; the table itself read on the page image)."
+  }
+}

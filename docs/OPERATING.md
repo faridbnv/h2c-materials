@@ -63,7 +63,7 @@ A document never enters by hand; it travels the import pipeline. The full rules:
    `npm run ingest:fetch -- --provider "<maker>"`. A new one you saved from a browser:
    `npm run ingest:fetch -- --stage <folder> --provider "<maker>" --recursive --create --root-url <the page's URL>`.
    Then `npm run ingest:extract -- --provider "<maker>"`.
-2. Propose a batch under a name no batch has used (the last were b45 and the price batch p05):
+2. Propose a batch under a name no batch has used (the last were b46 and b47 of the screening build, and the price batch p05):
    `npm run ingest:batch -- --holds`, then `npm run ingest:batch -- --batch b<NN> --propose --ready`.
 3. Check every proposed row against its page. `npm run ingest:review -- --batch b<NN> --doc <key>` lists them; accept or
    reject under your name (`--accept m01,m02 --by "<your name>"`, `--reject m03 --note "<why>" --by "<your name>"`), then
