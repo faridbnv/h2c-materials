@@ -644,7 +644,10 @@ Declared grade variants get their own covariate, conditioned values convert to d
 offset, published bounds enter with a half-width and limit their own material, and physical limits bound every
 range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous (PLA and PET among them,
 D158) deflects near its glass transition, fills as a glassy matrix does and learns nothing from annealed values, a
-treatment at or below its glass transition being no annealing; an annealed value is never averaged with its as-printed twin, and
+treatment at or below its glass transition being no annealing; any other annealed value of the headline's semantics
+converts as a kind of its own, learned from the grades that publish both, and a product that publishes only such a value
+is estimated as printed (D162); the spread between two products of one material is measured, and for heat deflection
+measured per matrix as printed (D162); an annealed value is never averaged with its as-printed twin, and
 repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
 neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
 estimate; an unknown direction's offset is learned across products as well as from the products that publish both,

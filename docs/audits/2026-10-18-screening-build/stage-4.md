@@ -54,3 +54,19 @@ Now only a printed bar floors a stretch estimate (decision D161), and the ranges
 
 No verdict changed. 61 product answers moved from "not enough data" to "unlikely to meet" for parts that must stretch at
 least 20 % ([stage-4-diff-4.md](stage-4-diff-4.md)): their estimates are no longer held up by a bar nobody described.
+
+## 5. Every product gets its own heat estimate
+
+Heat deflection is the temperature a loaded bar bends at. Among products of one plastic it varies little where the
+plastic stays glassy in a print (PETG: about 3 °C between products) and a lot where it crystallises (a glass-filled
+nylon or PPS: about 34 °C), because how far a part crystallises depends on how it was printed and treated. The estimate
+model used one spread for all, so its heat estimates for single products could not be checked against known values and
+none was shown. It now uses a spread per kind of matrix (decision D162), and its product ranges hold 80 % and 95 % of
+hidden values in each kind: 466 products now show a heat estimate. Separately, a value measured after annealing used to
+enter the model as if it were the printed part's. It is now converted from the annealed state, and a product that
+publishes only annealed values is estimated as printed (31 to 34 products per mechanical property).
+
+No material's verdict changed. Many product answers moved, nearly all in the heat requirements
+([stage-4-diff-5.md](stage-4-diff-5.md)): a product with no heat value now has its own estimate, and where that estimate
+falls wholly short of the requirement the product moves from "not enough data" to "unlikely to meet" (850 such moves, 71
+the other way). In the Outdoor and Warm presets, PLA-EC, PVC, PLA-GR, CoPE, nGen and PETG-PTFE move the same way.

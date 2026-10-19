@@ -619,7 +619,9 @@ semantics with an offset and a spread:
 Each documented offset is refined by the median of grades that publish both, and each spread by their
 MAD; the documented value counts as three pairs. On each product only the most direct kinds are kept. An annealed
 value of a grade that publishes the as-printed one is left out; repeats under different annealing schedules keep a
-half-width that spans them and calibrate no conversion. A polymer that prints amorphous (`printsAmorphous`: PLA, PET,
+half-width that spans them and calibrate no conversion; an annealed value of the headline's own semantics converts as
+a kind of its own (`tensile XY annealed` and so on, D162) and, beside its as-printed twin, only teaches that conversion.
+A polymer that prints amorphous (`printsAmorphous`: PLA, PET,
 BVOH, PVA, unfilled PPA) converts heat values with the amorphous class, takes a filler's effect as a glassy matrix does,
 and learns nothing from annealed ones (a value treated at or below its glass transition is as printed, D158).
 

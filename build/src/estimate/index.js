@@ -35,7 +35,7 @@
 import { normalQuantile } from './numerics.js';
 import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, modelWith, untransform, sig3 } from './model.js';
 import { snapshot, rawObservations } from './observations.js';
-import { conversions, convert, betweenProductSpread } from './conversions.js';
+import { conversions, convert, betweenProductSpread, productSpreads } from './conversions.js';
 import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.js';
 import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
@@ -61,7 +61,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
 
   for (const key of ESTIMATE_KEYS) {
     const inv = untransform(key, model);
-    const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model);
+    const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model, { changesWithAnnealing: !!registry.headlines.find((h) => h.key === key)?.changesWithAnnealing });
     diagnostics.rejected.push(...rejected);
     diagnostics.bounds.push(...oneSided);
     // What each formulation's own measurements prove the headline is at least, once per headline: a grade's range takes it.
@@ -69,11 +69,10 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     const conv = conversions(key, raw, model);
     const converted = convert(key, raw, conv, S, model);
     const tmMean = meltingPoint(key, S, model).offset;
-    const floors = model.properties[key].floors;
     const between = betweenProductSpread(key, raw, S);
-    const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, floors.w) : null;
+    const fixed = productSpreads(between, key, model);
 
-    const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixedW);
+    const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixed);
 
     const { P, obs, conflicts } = fitWithConflicts(key, converted, S, model, hp);
     diagnostics.conflicts.push(...conflicts);
@@ -84,7 +83,9 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     const r3 = (v) => (v == null ? null : Number(v.toPrecision(3)));
     diagnostics.properties[key] = {
       observations: obs.length, formulations: new Set(obs.map((o) => o.f)).size,
-      betweenProduct: { sd: r3(between.sd), pairs: between.pairs, used: r3(hp.w), estimated: fixedW == null },
+      betweenProduct: { sd: r3(between.sd), pairs: between.pairs, used: r3(hp.w), estimated: fixed.w == null,
+        byMatrix: Object.fromEntries(Object.entries(between.byMatrix).map(([cls, b]) => [cls, { sd: r3(b.sd), pairs: b.pairs,
+          used: r3(cls === 'semi-filled' ? hp.ws ?? hp.w : cls === 'semi-unfilled' ? hp.wu ?? hp.w : hp.w) }])) },
       spreads: Object.fromEntries(Object.entries(hp).map(([k, v]) => [k, r3(v)])),
       calibration,
       conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs,
@@ -110,15 +111,12 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
       diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';
     } else {
       const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
-      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf });
+      const centres = new Map();
+      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf, centres });
       // The unstated-direction back-test (D159): an unstated-only product's centre against its measured siblings, and
       // the products that publish both with their headline hidden.
       const directions = directionBackTest({ key, model, S, obs, holdOut, calPlausible: gradeCal.calPlausible, zPlausible });
-      const centreOf = (g) => {
-        const m = S.inPool.get(g.materialId), f = S.fkey(g.id);
-        const subject = (ownerOfF.get(f) && ownerOfF.get(f) !== m.id ? S.inPool.get(ownerOfF.get(f)) : null) ?? m;
-        return inv(predict(P, hp, subject, f, g.manufacturer ?? null).mu + tmMean(subject));
-      };
+      const centreOf = (g) => centres.get(`${g.materialId}|${S.fkey(g.id)}`);
       if (directions) diagnostics.properties[key].directions = { ...directions, target: directionTarget({ key, model, S, obs, centreOf }) };
       diagnostics.properties[key].productScreening = attachProductScreening({ key, raw, S, model, tmMean, measurements, sources,
         definition: registry.headlines.find((h) => h.key === key) });

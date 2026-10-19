@@ -15,7 +15,7 @@
 // Attached only where a product lacks a comparable value. It never passes a requirement.
 // D137 adds separate independent exclusion certification without changing these displayed ranges.
 
-import { quantile } from './numerics.js';
+import { quantile, median } from './numerics.js';
 import { HEAD, identityOf, sig3 } from './model.js';
 import { predict } from './gaussian.js';
 import { lowerBoundsOf } from '../lower-bounds.js';
@@ -54,7 +54,23 @@ export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausib
     likelyScale: r3(calLikely), plausibleScale: r3(calPlausible),
     likelyCoverage: held.length ? r3(held.filter((h) => within(h, zLikely, calLikely)).length / held.length) : null,
     plausibleCoverage: held.length ? r3(held.filter((h) => within(h, zPlausible, calPlausible)).length / held.length) : null,
+    // The median width of the plausible range a hidden grade would be shown (a ratio on a log scale, °C otherwise).
+    medianPlausibleWidth: held.length ? r3(median(held.map((h) => (model.properties[key].scale === 'log' ? Math.exp(2 * zPlausible * calPlausible * h.p.sd) : 2 * zPlausible * calPlausible * h.p.sd)))) : null,
   };
+  // The same hidden grades by matrix as printed and by fold of materials (D162): the coverage the shared scales give each,
+  // and the scales each class alone would need.
+  const groupBy = (key2) => { const out = {}; for (const h of held) (out[key2(h)] ??= []).push(h); return out; };
+  const zOf = (h) => Math.abs((h.o.y - h.p.mu) / h.sd);
+  calibration.byMatrix = Object.fromEntries(Object.entries(groupBy((h) => S.matrix(h.o.m))).sort().map(([cls, hs]) => [cls, {
+    held: hs.length,
+    likelyCoverage: r3(hs.filter((h) => within(h, zLikely, calLikely)).length / hs.length),
+    plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, calPlausible)).length / hs.length),
+    likelyScale: r3(quantile(hs.map(zOf), model.levels.likely) / zLikely), plausibleScale: r3(quantile(hs.map(zOf), model.levels.plausible) / zPlausible),
+  }]));
+  const order = [...new Set(S.pool.map((m) => m.id))].sort();
+  const foldOf = new Map(order.map((id, i) => [id, i % cfg.folds]));
+  calibration.byFold = Object.entries(groupBy((h) => foldOf.get(h.o.m.id))).sort().map(([, hs]) => ({ held: hs.length,
+    plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, calPlausible)).length / hs.length) }));
   // The worst hidden value per grade, where it sits beyond what the calibrated plausible range allows.
   const outliers = new Map();
   for (const h of held) {
@@ -91,7 +107,7 @@ export function formulationFloors(def, S) {
  * The estimate of every active grade of every material in the pool, for one headline: attached to the grade as
  * `estimate[key]`. Grades that share a formulation share one posterior and say so.
  */
-export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf }) {
+export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf, centres = null }) {
   const byFormulation = new Map();
   for (const g of S.grades.values()) {
     if (g.retired || !S.inPool.has(g.materialId)) continue;
@@ -113,6 +129,8 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
     const manufacturer = g0.manufacturer ?? null;
     const p = predict(P, hp, subject, f, manufacturer);
     p.mu += tmMean(subject);
+    // The model's centre before any bound, for the unstated-direction back-test (directions.js), read rather than predicted twice.
+    if (centres) centres.set(`${m.id}|${f}`, inv(p.mu));
     // Every grade takes the bounds its own sheets publish, and the floors its own measurements prove: a yield or break
     // stress under its ultimate strength, a heat deflection at 1.8 MPa under the one at 0.45 MPa (bounds.js, D126).
     const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f, implied: floorsOf(f) });
@@ -136,8 +154,10 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
           : `the family model only (${identityOf(m)})`,
     };
     for (const g of grades) {
-      // A product with a comparable value of its own shows that value; an estimate would only sit beside it (D83).
-      if (g.headline?.[key]?.level === 'comparable') continue;
+      // A product with a comparable value of its own shows that value; an estimate would only sit beside it (D83). The
+      // value is the as-printed dry one: a product that publishes the headline only after annealing has an as-printed
+      // part nobody measured, and is estimated as printed (D162), as product screening already reads it (D137).
+      if (g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values?.[key]?.level === 'comparable') continue;
       g.estimate ??= {};
       g.estimate[key] = grades.length > 1 ? { ...estimate, sharedWith: grades.filter((x) => x !== g).map((x) => x.id) } : estimate;
       attached++;

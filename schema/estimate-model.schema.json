@@ -81,6 +81,7 @@
       "required": ["scale", "scaleUnit", "precision", "plausibleValues", "floors"],
       "properties": {
         "scale": { "enum": ["log", "linear"] },
+        "productSpreadByMatrix": { "description": "true: a matrix that crystallises as printed, filled or unfilled, takes its own measured product-to-product spread where it has enough pairs (D162). Absent or false: one spread for every matrix.", "type": "boolean" },
         "scaleUnit": { "type": "number", "exclusiveMinimum": 0 },
         "precision": { "type": "object", "additionalProperties": false, "required": ["good", "fair"], "properties": { "good": { "type": "number" }, "fair": { "type": "number" } } },
         "plausibleValues": { "$ref": "#/$defs/interval" },

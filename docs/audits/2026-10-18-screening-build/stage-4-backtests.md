@@ -189,3 +189,62 @@ enough data" to "unlikely to meet" for an elongation of at least 20 %, and PCTG-
 ledger's two elongation floor rows, still reported, now bound 38 and 25 products where they bounded 145 and 46.
 
 **Verdict.** Kept.
+
+## 5. Heat deflection estimated per product; annealed values a kind of their own (D162, the review's C29)
+
+**The change.** Two parts in one commit, since the second moves the first's numbers. (a) The spread between two products
+of one material is measured per matrix as printed, and for heat deflection each crystalline matrix uses its own: filled
+33.6 °C (121 pairs), unfilled 18.9 °C (31 pairs), glassy 3.1 °C (5,246 pairs, which keep the pooled 4 °C floor). (b) A
+value of the headline's own semantics measured after annealing (above the glass transition, or at an unstated
+temperature) converts as a kind of its own, and a product that publishes only such values is estimated as printed.
+
+**Hidden cases.** The grade calibration's (each product's own value hidden in turn, D81) and the material calibration's.
+
+| Headline | Grade held | Grade likely / plausible | Grade scales | Material held | Material likely / plausible | Material width |
+|---|---:|---|---|---:|---|---:|
+| hdt045 | 435 → 423 | 79.1 / 92.6 → 79.9 / 94.8 % | 1.81 / 3 (clamped) → 1.33 / 1.60 | 78 → 72 | 80.8 / 94.9 → 80.6 / 95.8 % | 19.4 → 13.4 °C |
+| tensileModulusXY | 326 → 305 | 79.8 / 94.5 → 80.0 / 95.1 % | 1.11 / 1.29 → 1.09 / 1.33 | 82 → 77 | 80.5 / 95.1 → 80.5 / 96.1 % | ×1.50 → ×1.47 |
+| tensileStrengthXY | 334 → 312 | 79.0 / 94.3 → 79.2 / 93.9 % | 1.23 / 1.22 → 1.26 / 1.23 | 65 → 60 | 80.0 / 95.4 → 80.0 / 95.0 % | ×1.38 → ×1.40 |
+| elongationXY | 364 → 344 | 79.4 / 94.8 → 79.4 / 95.1 % | 1.13 / 1.15 → 1.11 / 1.15 | 85 → 80 | 80.0 / 95.3 → 80.0 / 95.0 % | ×3.90 → ×4.17 |
+
+The held counts fall because an annealed value is no longer hidden as the headline: five or six materials whose typical
+value is annealed, and their products, leave the calibrations.
+
+**Heat deflection's grade ranges, by matrix** (the pass rule's cases):
+
+| Matrix | Hidden values | Likely | Plausible | Scales it alone would need |
+|---|---:|---:|---:|---|
+| glassy | 346 | 79.2 % | 94.8 % | 1.34 / 1.72 |
+| crystalline, filled | 52 | 84.6 % | 92.3 % | 1.05 / 1.64 |
+| crystalline, unfilled | 25 | 80.0 % | 100 % | 1.29 / 1.18 |
+
+Plausible coverage by fold of materials: 97.2, 93.2, 92.9, 94.4 and 93.8 %. Median plausible width of a hidden
+product's range: 22 °C (the shipped estimates: 21.6 °C; 396 good, 49 fair, 21 poor).
+
+**Stiffness keeps one spread.** Measured per matrix, a filled crystalline matrix's stiffness spread is 0.149 against the
+pooled 0.267; used, it left that matrix's 28 hidden products held 53.6 / 85.7 % (likely / plausible), against 67.9 /
+89.3 % with the pooled spread. So `productSpreadByMatrix` is on for heat deflection only.
+
+**The annealed conversions** (headline minus annealed, the model's scale; learned from the grades that publish both):
+stiffness −0.078 (8 pairs; documented −0.10 from 13 pairs, median ×1.11), strength −0.071 (6; −0.13), elongation +0.174
+(8; +0.21), heat deflection −77 °C (3 pairs on crystalline filled bars, +101 to +108 °C; documented −52).
+
+**Floors and screening.** The floor table's rules in force: heat deflection 81.9 / 94.4 % (containment) and 79.2 / 93.1 %
+(formulation); elongation 82.5 / 93.8 % and 77.5 / 91.2 %; strength 85.0 / 95.0 % and 75.0 / 91.7 %. Every class of
+`screening.csv` loses its annealed cases; heat deflection's own-evidence top ends move from the 0.992 and 0.989 quantiles
+to 0.975 (fewer hidden values now lie beyond the plausible top: 3 → 1 and 5 → 2), so the materials with no product
+screen a little further in.
+
+**Against the pass rule.** Grade calibration within tolerance overall and in each matrix with 20 hidden values or more;
+each matrix's scales inside the clamp; every fold at least 85 %; the median plausible width under the 60 °C "fair"
+threshold; EST-ORDER 0, the melting point now capping product ranges. Heat deflection's product ranges ship under D81 as
+written, and EST-CALIBRATION now checks each matrix for a headline that sets its spread per matrix.
+
+**Answers** ([stage-4-diff-5.md](stage-4-diff-5.md)): no material verdict moved. 2,662 product answers moved over the
+138 cases, 1,824 of them in the heat cases: a product with no heat value now carries its own estimate, and 850 moves
+go from "not enough data" to "unlikely to meet" where that estimate wholly misses the limit (71 go the other way). In the
+presets, Outdoor structural part and Warm environment moved about 160 product answers each (with estimates on), and
+PLA-EC, PVC, PLA-GR, CoPE, nGen and PETG-PTFE move from "not enough data" to "unlikely to meet". PA612, which has no
+product, is listed for a 5 GPa stiffness and hidden again for a 100 MPa strength, as its own estimate moved.
+
+**Verdict.** Kept.

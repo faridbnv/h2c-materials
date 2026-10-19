@@ -89,6 +89,15 @@ export function validateEstimates(db) {
     if (g.held < cal.minHeld) continue;
     if (Math.abs(g.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade likely range contains ${Math.round(g.likelyCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.likely * 100)}%`));
     if (g.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade plausible range contains ${Math.round(g.plausibleCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.plausible * 100)}%`));
+    // A headline whose product spread is set per matrix ships grade ranges only where each matrix with enough hidden
+    // grades is calibrated too (D162): the shared scales must serve the crystalline matrices, not only the many glassy ones.
+    if (!ESTIMATE_MODEL.properties[key]?.productSpreadByMatrix) continue;
+    for (const [cls, c] of Object.entries(g.byMatrix ?? {})) {
+      if (c.held < cal.minHeld) continue;
+      if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance || c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) {
+        issues.push(err('EST-CALIBRATION', `estimate model ${key} grades ${cls}`, `The grade ranges of a ${cls} matrix hold ${Math.round(c.likelyCoverage * 100)}% and ${Math.round(c.plausibleCoverage * 100)}% of its ${c.held} hidden grade values, not ${Math.round(LEVELS.likely * 100)}% and ${Math.round(LEVELS.plausible * 100)}%`));
+      }
+    }
   }
   if (model.gradeOutliers?.length) {
     issues.push(warn('EST-GRADE-OUTLIER', 'grades', `${model.gradeOutliers.length} grades publish a value far outside what the model predicts for them from everything else: ${model.gradeOutliers.map((o) => `${o.gradeId} ${o.material} ${o.key} ${o.kind} z ${o.z}${o.measurementIds.length ? ` (${o.measurementIds.join(', ')})` : ''}`).join('; ')}`, { records: model.gradeOutliers.map((o) => `${o.gradeId} ${o.key}`) }));
@@ -268,6 +277,19 @@ export function estimateReportLines(db) {
       const g = p.gradeCalibration;
       L.push(`| ${key} | ${g.held} | ${g.likelyScale} | ${g.plausibleScale} | ${g.likelyCoverage} | ${g.plausibleCoverage} | ${g.shipped ? 'yes' : `no: ${g.why}`} |`);
     }
+    L.push('');
+    L.push('By matrix as printed (D162): the hidden grade values of each matrix, the coverage the shared scales give them, the scales they alone would need, and the spread between two products of one material measured in that matrix (the one used where the headline sets it per matrix).');
+    L.push('');
+    L.push('| Headline | Matrix | Hidden values | Likely coverage | Plausible coverage | Scales it would need | Product spread measured (pairs) | Used |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of gradeRows) {
+      for (const [cls, c] of Object.entries(p.gradeCalibration.byMatrix ?? {})) {
+        const b = p.betweenProduct?.byMatrix?.[cls];
+        L.push(`| ${key} | ${cls} | ${c.held} | ${c.likelyCoverage} | ${c.plausibleCoverage} | ${c.likelyScale} / ${c.plausibleScale} | ${b ? `${b.sd} (${b.pairs})` : '–'} | ${b?.used ?? '–'} |`);
+      }
+    }
+    L.push('');
+    L.push(`Grade plausible coverage by fold of materials: ${gradeRows.map(([key, p]) => `${key} ${(p.gradeCalibration.byFold ?? []).map((f) => f.plausibleCoverage).join(', ')}`).join('; ')}. Median grade plausible width: ${gradeRows.map(([key, p]) => `${key} ${p.gradeCalibration.medianPlausibleWidth}`).join(', ')}.`);
     L.push('');
     if (mdl.gradeOutliers?.length) {
       const by = new Map();

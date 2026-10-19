@@ -3,7 +3,7 @@
 
 import { specimenForm, annealedBesideAsPrinted, conditionedBesideDry } from '../normalize/specimen.js';
 import { median } from './numerics.js';
-import { identityOf, transform } from './model.js';
+import { identityOf, transform, HEAD } from './model.js';
 
 /** Young's modulus in MPa from Shore hardness: Gent (1958) for Shore A, Qi, Joyce and Boyce (2003) for Shore D. */
 export function modulusFromShore(shore) {
@@ -126,26 +126,38 @@ export function kindOf(x, key, matrixClass, waterUptake = 'high') {
  * and kind, averaging repeats. A shared datasheet cited by several materials is kept once, under the
  * first material that cites it (Method, Identity / Aliases).
  */
-export function rawObservations(key, S, model) {
+export function rawObservations(key, S, model, { changesWithAnnealing = false } = {}) {
   const [pl, ph] = model.properties[key].plausibleValues;
   const t = transform(key, model);
   const groups = new Map(), rejected = [], bounds = [];
   for (const m of S.pool) {
     const add = (entry) => {
       const g = `${m.id}|${entry.f}|${entry.kind}`;
-      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, kind: entry.kind, ys: [], half: [], items: [], states: new Set() });
+      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, kind: entry.kind, ys: [], half: [], items: [], states: new Set(), pairOnly: true });
       const e = groups.get(g);
       e.ys.push(entry.y); e.half.push(entry.half); e.items.push(entry.item); e.states.add(entry.state ?? '');
+      // A group is pair-only while every value in it is an annealed value beside its as-printed twin.
+      if (!entry.pairOnly) e.pairOnly = false;
     };
     for (const x of S.byMaterial.get(m.id) ?? []) {
-      const kind = kindOf(x, key, S.matrix(m), S.info(m).waterUptake ?? null);
+      let kind = kindOf(x, key, S.matrix(m), S.info(m).waterUptake ?? null);
       if (!kind) continue;
       // A polymer that prints amorphous and was annealed is crystallised: another state, which no estimate of an
       // as-printed part may learn from.
       if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.info(m).morphology === 'semicrystalline' && x.postProcessingState === 'annealed') continue;
+      // An annealed value of the headline's own semantics is another state of the part, not the headline (D162): it
+      // converts as a kind of its own, learned from the grades that publish both. Annealed above the glass transition
+      // or at a temperature the sheet does not state; an amorphous polymer held below it is stress-relieved, a few
+      // degrees, and stays the headline's kind, as an amorphous bar's heat deflection does.
+      const annealed = changesWithAnnealing && kind === HEAD[key] && x.postProcessingState === 'annealed'
+        && (key !== 'hdt045' || S.matrix(m) === 'semi-filled' || S.matrix(m) === 'semi-unfilled')
+        && !(x.anneal?.tempC != null && S.tgOf(m) != null && x.anneal.tempC <= S.tgOf(m));
+      if (annealed) kind = `${kind} annealed`;
       // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
-      // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C.
-      if (annealedBesideAsPrinted(x, S.byMaterial.get(m.id))) continue;
+      // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C. As a kind of its
+      // own it is kept for its conversion's pairs alone (pairOnly), never as an observation beside its twin.
+      const pairOnly = annealedBesideAsPrinted(x, S.byMaterial.get(m.id));
+      if (pairOnly && !annealed) continue;
       // And the same for water where the conversion kind does not already separate the two: a heat deflection
       // measured on a conditioned bar beside its own dry one is the other state of that bar, not a repeat.
       if (key === 'hdt045' && conditionedBesideDry(x, S.byMaterial.get(m.id))) continue;
@@ -162,7 +174,7 @@ export function rawObservations(key, S, model) {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       // The post-processing state and schedule, not its wording: three spellings of one schedule are one state.
       const state = `${x.postProcessingState}|${x.anneal?.tempC ?? ''}|${x.anneal?.hours ?? ''}`;
-      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
+      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state, pairOnly, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
         item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
     }
     // An elastomer's Shore hardness (measurements.csv Hardness in Shore A or D, published or nominal from its product

@@ -115,6 +115,8 @@
       }
     },
     "hdt045": {
+      "_productSpreadByMatrix": "A crystalline matrix's products scatter in heat deflection with their crystallinity, far more than a glassy one's: 33.6 °C between filled ones (121 pairs) and 18.9 °C between unfilled ones (31) against 3.1 °C between amorphous ones (5246). One pooled spread, set by the many amorphous pairs, served every matrix and pushed the grade scales to the clamp (D162). Stiffness, strength and stretch keep one spread: a crystalline filled matrix's own stiffness spread (0.149 against 0.267) narrowed its products' ranges below their coverage (likely 54 % against 68 % with the pooled spread).",
+      "productSpreadByMatrix": true,
       "scale": "linear",
       "scaleUnit": 30,
       "precision": {
@@ -199,6 +201,11 @@
         "sd": 0.25,
         "why": "A printed XY bar reaches roughly 85% of a moulded bar's stiffness"
       },
+      "tensile XY annealed": {
+        "offset": -0.1,
+        "sd": 0.12,
+        "why": "Annealed after printing: a crystallising matrix stiffens, about 11 % (13 grades that publish both: median x1.11, 1.05 to 1.35; D162)"
+      },
       "flexural moulded": {
         "offset": -0.15,
         "sd": 0.3,
@@ -279,6 +286,11 @@
         "sd": 0.25,
         "why": "A printed XY bar reaches roughly 70 to 85% of a moulded bar's strength"
       },
+      "ultimate XY annealed": {
+        "offset": -0.13,
+        "sd": 0.12,
+        "why": "Annealed after printing: about 14 % stronger (10 grades that publish both: median x1.14, 0.93 to 1.27; D162)"
+      },
       "yield moulded": {
         "offset": -0.25,
         "sd": 0.25,
@@ -306,6 +318,11 @@
         "offset": -1.4,
         "sd": 1.0,
         "why": "A printed bar breaks at a small fraction of a moulded bar's strain: nGen prints 11% against 190% moulded"
+      },
+      "break XY annealed": {
+        "offset": 0.21,
+        "sd": 0.6,
+        "why": "Annealed after printing: a crystallised bar stretches less (13 grades that publish both: median x0.81, 0.33 to 1.50; D162)"
       },
       "yield XY": {
         "offset": 0.9,
@@ -373,6 +390,11 @@
         "offset": -30,
         "sd": 30,
         "why": "A printed semicrystalline bar crystallises less than a moulded one and deflects earlier"
+      },
+      "HDT 0.45 annealed": {
+        "offset": -52,
+        "sd": 30,
+        "why": "Annealed after printing: a crystallising matrix deflects tens of degrees higher (11 grades that publish both: median +52 C, +28 to +108; D162)"
       },
       "HDT unstated moulded semicrystalline": {
         "offset": -30,

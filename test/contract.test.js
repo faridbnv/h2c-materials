@@ -60,8 +60,12 @@ test('a grade estimate agrees with its material\'s, and exists only where its ca
   }
   assert.ok(compared > 100, `only ${compared} product estimates compared`);
   assert.ok(outside <= compared * 0.05, `${outside} of ${compared} product estimates lie outside their material's`);
-  // A product with a comparable value of its own carries no estimate beside it.
-  for (const g of db.grades) for (const [key, v] of Object.entries(g.headline ?? {})) assert.ok(!(v.level === 'comparable' && g.estimate?.[key]), `${g.id} ${key}`);
+  // A product with a comparable value of its own, as printed and dry, carries no estimate beside it; one that publishes
+  // the value only after annealing is estimated as printed (D162).
+  for (const g of db.grades) {
+    const asPrinted = g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values ?? {};
+    for (const [key, v] of Object.entries(asPrinted)) assert.ok(!(v.level === 'comparable' && g.estimate?.[key]), `${g.id} ${key}`);
+  }
   for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
     if (p.gradeCalibration.shipped) continue;
     assert.ok(db.grades.every((g) => !g.estimate?.[key]), `${key}: grade estimates shipped where the calibration said no`);

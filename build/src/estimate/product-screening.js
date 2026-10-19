@@ -5,7 +5,7 @@
 import { createHash } from 'node:crypto';
 import { HEAD, transform, untransform, sig3 } from './model.js';
 import { binomialTail } from './numerics.js';
-import { conversions, convert, betweenProductSpread } from './conversions.js';
+import { conversions, convert, betweenProductSpread, productSpreads } from './conversions.js';
 import { hyperparameters, spreadObservations, predict } from './gaussian.js';
 import { fitWithConflicts } from './calibration.js';
 import { toleranceSide } from './screening.js';
@@ -112,10 +112,9 @@ export function attachProductScreening({ key, raw, S, model, tmMean, measurement
   if (!training.length) return report;
   const conv = conversions(key, training, model, { without: withheldGroups });
   const converted = convert(key, training, conv, S, model);
-  const between = betweenProductSpread(key, training, S);
   const floors = model.properties[key].floors;
-  const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, floors.w) : null;
-  const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixedW,
+  const fixed = productSpreads(betweenProductSpread(key, training, S), key, model);
+  const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixed,
     { start: { ...floors }, sweeps: 1 });
   const { P, obs } = fitWithConflicts(key, converted, S, model, hp);
   const strengthOf = (m, f) => obs.some((o) => o.f === f) ? 'this-grade'

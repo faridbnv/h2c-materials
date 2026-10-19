@@ -102,7 +102,8 @@ export function convert(key, raw, conv, S, model) {
   const out = [], tm = meltingPoint(key, S, model);
   for (const o of raw) {
     const c = conv[o.kind];
-    if (!c) continue;
+    // An annealed value beside its as-printed twin teaches its conversion and is no observation (D162).
+    if (!c || o.pairOnly) continue;
     out.push({ ...o, y: o.yRaw + c.offset - tm.offset(o.m), noise2: c.sd * c.sd + o.half * o.half, conversion: c });
   }
   const best = new Map();
@@ -119,16 +120,34 @@ export function convert(key, raw, conv, S, model) {
 export function betweenProductSpread(key, raw, S) {
   const direct = new Set([HEAD[key], ...(key === 'tensileStrengthXY' ? ['break XY', 'yield XY'] : [])]);
   const diffs = [];
+  const byClass = new Map();
   const byMaterial = new Map();
   for (const o of raw) {
     if (!direct.has(o.kind) || o.bound || S.info(o.m).morphology === 'elastomer') continue;
-    if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, new Map());
-    const fs = byMaterial.get(o.m.id); if (!fs.has(o.f)) fs.set(o.f, []); fs.get(o.f).push(o.yRaw);
+    if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, { cls: S.matrix(o.m), fs: new Map() });
+    const fs = byMaterial.get(o.m.id).fs; if (!fs.has(o.f)) fs.set(o.f, []); fs.get(o.f).push(o.yRaw);
   }
-  for (const fs of byMaterial.values()) {
+  for (const { cls, fs } of byMaterial.values()) {
     const v = [...fs.values()].map((ys) => ys.reduce((a, b) => a + b, 0) / ys.length);
-    for (let i = 0; i < v.length; i++) for (let j = i + 1; j < v.length; j++) diffs.push(Math.abs(v[i] - v[j]));
+    if (!byClass.has(cls)) byClass.set(cls, []);
+    for (let i = 0; i < v.length; i++) for (let j = i + 1; j < v.length; j++) { const d = Math.abs(v[i] - v[j]); diffs.push(d); byClass.get(cls).push(d); }
   }
-  // For a normal spread s, the absolute difference of two draws has median 0.954 s.
-  return { sd: diffs.length ? median(diffs) / 0.954 : null, pairs: diffs.length };
+  // For a normal spread s, the absolute difference of two draws has median 0.954 s. The spread is also measured per
+  // matrix as printed (D162): a crystalline matrix's products scatter in heat deflection with their crystallinity, far
+  // more than a glassy one's, and one pooled spread set by the many glassy pairs served every matrix.
+  const spread = (ds) => ({ sd: ds.length ? median(ds) / 0.954 : null, pairs: ds.length });
+  return { ...spread(diffs), byMatrix: Object.fromEntries([...byClass].sort().map(([cls, ds]) => [cls, spread(ds)])) };
+}
+
+/**
+ * The product spreads a fit holds fixed, from the measured spreads: the pooled one (w) where it has enough pairs, and,
+ * where the headline asks for it (estimate-model.json productSpreadByMatrix: heat deflection), one for a matrix that
+ * crystallises as printed, filled (ws) and unfilled (wu), where its own pairs suffice (D162). Each is floored at the
+ * headline's floor for w. A matrix without its own uses w.
+ */
+export function productSpreads(between, key, model) {
+  const floor = model.properties[key].floors.w, min = model.fitting.minBetweenProductPairs;
+  const fix = (b) => (b && b.pairs >= min ? Math.max(b.sd, floor) : null);
+  const byMatrix = model.properties[key].productSpreadByMatrix === true;
+  return { w: fix(between), ws: byMatrix ? fix(between.byMatrix?.['semi-filled']) : null, wu: byMatrix ? fix(between.byMatrix?.['semi-unfilled']) : null };
 }

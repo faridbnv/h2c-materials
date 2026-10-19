@@ -38,7 +38,12 @@ export function makeKernel(key, S, model) {
   };
   const sdOf = (c, hp) => (c === '1' ? 10 * scale : c[0] === 'g' ? hp.tg : c[0] === 'p' ? hp.tp : c.startsWith('fx:') ? hp.tfx
     : c[0] === 'f' ? hp.tf : c.startsWith('v:grade:') ? model.gradeVariants.spreadInScaleUnits * scale : c[0] === 'v' ? hp.tv : c.startsWith('tm:') ? hp.ttm : c[0] === 's' ? hp.tm : 0);
-  const productSd = (m, hp) => (S.info(m).morphology === 'elastomer' ? hp.we : hp.w);
+  // The spread between two products of one material, by its matrix as printed (D162): an elastomer's, a crystalline
+  // filled or unfilled matrix's where measured, else the pooled one.
+  const productSd = (m, hp) => {
+    const cls = S.matrix(m);
+    return cls === 'elastomer' ? hp.we : cls === 'semi-filled' ? hp.ws ?? hp.w : cls === 'semi-unfilled' ? hp.wu ?? hp.w : hp.w;
+  };
 
   // A column name is interned to an integer and a point keeps its six or so columns in two small typed arrays, in
   // the order `columns` adds them; each set of spreads is turned into an array of standard deviations by column
@@ -226,14 +231,21 @@ export function spreadObservations(key, obs, max = Infinity) {
  * Empirical Bayes: each free spread in turn over a grid, three sweeps, above its documented floor. `start` (a fit's
  * spreads) and `sweeps` let a refit on nearly the same data start from where the full fit ended.
  */
-export function hyperparameters(key, obs, S, model, fixedW, { start = null, sweeps = 3 } = {}) {
+export function hyperparameters(key, obs, S, model, fixed, { start = null, sweeps = 3 } = {}) {
   const scale = model.properties[key].scaleUnit, floors = model.properties[key].floors;
+  // `fixed` holds the measured product spreads (conversions.js productSpreads): the pooled w, and a crystalline matrix's
+  // ws and wu where measured. They are not searched.
+  const fixedW = fixed?.w ?? null;
   const hp = start ? { ...start } : { tg: scale, tp: scale / 2, tf: scale, tfx: scale / 2, tv: scale / 2, tm: scale / 3, ttm: scale / 2, sm: scale / 3, w: fixedW ?? scale / 2, we: scale };
+  if (fixedW != null) hp.w = fixedW;
+  delete hp.ws; delete hp.wu;
+  if (fixed?.ws != null) hp.ws = fixed.ws;
+  if (fixed?.wu != null) hp.wu = fixed.wu;
   for (const [k, v] of Object.entries(floors)) if (k in hp) hp[k] = Math.max(hp[k], v);
   // The melting-point slope's spread is documented, not learned: a handful of unfilled polymers cannot
   // be allowed to reverse a physical relation (PVDF deflects near its melting point, PA66 far below).
   if (floors.ttm != null) hp.ttm = floors.ttm;
-  const free = Object.keys(hp).filter((k) => !(k === 'w' && fixedW != null) && k !== 'ttm');
+  const free = Object.keys(hp).filter((k) => !(k === 'w' && fixedW != null) && k !== 'ttm' && k !== 'ws' && k !== 'wu');
   const grid = [0.01, 0.05, 0.12, 0.25, 0.4, 0.6, 0.85, 1.2, 1.7, 2.5, 4].map((g) => g * scale);
   const score = (h) => fitModel(key, obs, S, model, h)?.logLik ?? -Infinity;
   let best = score(hp);
