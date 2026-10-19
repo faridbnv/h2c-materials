@@ -299,7 +299,8 @@ test('nozzle, drying and abrasion text', () => {
   assert.equal(parseAbrasion('Hardened nozzle: not necessary').requiresHardened, false);
   // And a statement that names the nozzle it wants is still a statement, whatever word it ends on.
   assert.equal(parseAbrasion('Hardened steel, diamond, tungsten carbide, etc').requiresHardened, true);
-  assert.equal(parseAbrasion('Abrasive milled carbon fibre; accelerated brass wear').requiresHardened, true);
+  // A caution about wear asks for nothing (D168): the nozzle line beside it decides (readAbrasion).
+  assert.equal(parseAbrasion('Abrasive milled carbon fibre; accelerated brass wear').requiresHardened, null);
   // Bambu Lab's guide lists the nozzles each filament prints on (D88): any nozzle is no requirement, hardened steel
   // alone is one, and hardened or stainless steel is stated but settles nothing about brass.
   assert.equal(parseAbrasion('All Size/Material').requiresHardened, false);
@@ -406,7 +407,7 @@ test('the wordings the profile root-cause sweep found are read (2026-10-02)', ()
   assert.equal(parseEnclosure('Seal the Box: Yes/No').state, 'not-needed', 'either: the printer decides');
   assert.equal(parseEnclosure('printable without an enclosure').state, 'not-needed');
   assert.equal(parseEnclosure('an enclosed printer is recommended for printing').state, 'recommended');
-  assert.equal(parseEnclosure('Enclosed-frame (rec.), open-frame').state, 'unknown', 'it allows both; a reviewer reads it');
+  assert.equal(parseEnclosure('Enclosed-frame (rec.), open-frame').state, 'not-needed', 'it allows printing open (D168)');
   assert.equal(parseAbrasion('Compatible Nozzle Material Any common material').requiresHardened, false);
   assert.equal(parseAbrasion('with air filtration and use of brass nozzle.').requiresHardened, false);
   assert.equal(parseAbrasion('it is recommended to use steel or ruby nozzles during printing').requiresHardened, true);
@@ -586,4 +587,44 @@ test('a nozzle diameter is read through a comma decimal, a leading dot, a versio
   assert.deepEqual(read('0.2 mm Nozzle NOT Compatible; 0.4 mm'), [[0.4], 0.4, false]);
   assert.deepEqual(read('at least 0.6 mm'), [[], 0.6, true]);
   assert.deepEqual(read('0.4, 0.6, 0.8 mm'), [[0.4, 0.6, 0.8], 0.4, false]);
+});
+
+// D168 (the owner's ruling of 2026-10-19, on the research intake's readings): an enclosure that is not mandatory, or a cell
+// that lists open-frame printers, is not needed; a sheet that accepts stainless steel, or only cautions about wear, does not
+// require a hardened nozzle, and a nozzle line that asks for one still decides; drying advised once a spool has been opened,
+// or depending on moisture, is optional.
+test('D168: an enclosure the maker does not require, a nozzle it does not require, a drying it advises for a condition', async () => {
+  for (const t of ['Not mandatory, but it is recommended', 'Enclosed-frame (recommended), open-frame,', 'Enclosed-frame (rec.), open-frame', 'Enclosed frame recommended; open frame compatible']) {
+    assert.equal(parseEnclosure(t).state, 'not-needed', t);
+  }
+  assert.equal(parseEnclosure('Avoid using an open-frame printer').state, 'unknown');
+  assert.equal(parseEnclosure('No / Recommended').state, 'recommended', 'the slash cell stays as it was');
+  for (const t of ['We recommend using nozzles from stainless steel or other hardened alloys.', 'We recommend the use of a stainless steel nozzle or nozzles mare with hardened copper alloys.',
+    'Stainless Steel filament is more abrasive than standard PLA and may require nozzle replacements and 1st layer adjustments.', 'hardened steel nozzles minimise increased wear',
+    'The increased wear in the printing nozzle must be taken into account and can be minimized by using hardened steel nozzles.']) {
+    assert.equal(parseAbrasion(t).requiresHardened, null, t);
+  }
+  for (const t of ['Needs hardened steel nozzle to minimize wear', 'We therefore recommend using a hardened steel nozzle to print large objects.', 'Abrasive; hardened steel nozzle recommended']) {
+    assert.equal(parseAbrasion(t).requiresHardened, true, t);
+  }
+  const { readAbrasion } = await import('../build/src/recipe.js');
+  assert.equal(readAbrasion({ 'Abrasion / clogging': 'Abrasive milled carbon fibre; accelerated brass wear', 'Nozzle material': 'Hardened steel recommended' }).requiresHardened, true, 'a nozzle line that asks decides over a caution');
+  assert.equal(readAbrasion({ 'Abrasion / clogging': 'hardened steel nozzles minimise increased wear', 'Nozzle material': 'Not published' }).requiresHardened, null);
+  assert.equal(parseDrying('Once BVOH has been used or opened from its original vacuum-sealed packaging for a while it is advised to dry the material before using again.').need, 'optional');
+  assert.equal(parseDrying('Maximum60°C for4-8h depending on moisture').need, 'optional');
+  assert.equal(parseDrying('Dry at 50 °C for 6 h').need, 'required');
+});
+
+test('D168: standards and temperatures the readers learn', async () => {
+  const { readStandards } = await import('../build/src/normalize/standards.js');
+  const { readTestTemperature } = await import('../build/src/normalize/thermal.js');
+  const { parseAnnealSchedule } = await import('../build/src/normalize/specimen.js');
+  assert.deepEqual(readStandards('ISO 52 7, GB/T 1040'), ['ISO 527', 'GB/T 1040']);
+  assert.deepEqual(readStandards('IS O 179'), ['ISO 179']);
+  assert.deepEqual(readStandards('JIS K 7161 (50mm/分)'), ['JIS K 7161']);
+  assert.deepEqual(readStandards('ISO 527-2'), ['ISO 527'], 'a part number is still the family');
+  assert.equal(readTestTemperature('72 °F'), 22.2);
+  assert.equal(readTestTemperature('72F'), 22.2);
+  assert.equal(readTestTemperature('23 °C (73 °F)'), 23, 'a Celsius figure with its Fahrenheit beside it is read as before');
+  assert.deepEqual(parseAnnealSchedule('Post-processing: 100°C Annealing 8 hours', 'annealed'), { tempC: 100, hours: 8 });
 });

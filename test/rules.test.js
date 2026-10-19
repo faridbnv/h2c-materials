@@ -70,8 +70,8 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // estimates, is absent: the stage floors what its own measurements prove, and a build that did not would fail.
   // PROCESS-WINDOW-IMPLAUSIBLE arrived with D141 (m420): a stated endpoint outside the axis's plausible window, read as
   // stated and shown; iSANMATE's TPU bed "30 -500 ºC" (P0050) raises it until its page is read again.
-  // m216 preserves Spectrum's full no-heated-chamber sentence. Its reviewed typed state is authoritative,
-  // while PARSE-UNREAD records that the temperature parser cannot read that prose; no finding is suppressed.
+  // PARSE-UNREAD left with D168 (the research intake, 2026-10-19): its last two cells, "Enclosed-frame (rec.), open-frame",
+  // are read now (an enclosure not needed). A cell no reader knows raises it again.
   // CHAMBER-NEED-READY arrived with D151's table, every row reported, and left when the four rows its makers support
   // (PLA, PETG, the elastomers, ABS) were switched to deciding: a reported row that qualifies raises it again.
   // The evidence ledger's four arrived when its rows decided (D153, D154): CONVERSION-PAIRS for the two same-sheet pairs
@@ -81,7 +81,7 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // Stage 3d of the screening build took three of them away: a PLA or PET bar CV05 demotes floors nothing through CV01, so
   // Prusament rPLA's pair, both LEDGER-DISAGREE states and Raise3D's contradiction, each on an undescribed PLA or PET bar's
   // HDT at 1.8 MPa, no longer occur. CONVERSION-PAIRS stays for Stratasys Nylon-CF10's two bars, accepted.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

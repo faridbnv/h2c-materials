@@ -78,6 +78,13 @@ export function parseAnnealSchedule(text, state) {
     const amount = Number(String(brief[1]).replace(',', '.'));
     return { tempC: Number(String(brief[3]).replace(',', '.')), hours: /^min/i.test(brief[2]) ? Number((amount / 60).toFixed(4)) : amount };
   }
+  // QIDI prints the temperature first and the time after the word: "Post-processing: 100°C Annealing 8 hours",
+  // "100℃ Annealing 8hours" (the research intake of 2026-10-19, D168).
+  const lead = /(\d+(?:[.,]\d+)?)\s*(?:[°º˚]?\s*C|℃)\s+anneal\w*\s+(\d+(?:[.,]\d+)?)\s*(hours?|h|min)\b/i.exec(text ?? '');
+  if (lead) {
+    const amount = Number(String(lead[2]).replace(',', '.'));
+    return { tempC: Number(String(lead[1]).replace(',', '.')), hours: /^min/i.test(lead[3]) ? Number((amount / 60).toFixed(4)) : amount };
+  }
   // Spectrum prints the schedule with a slash ("annealed at 110°C/20 min"), Raise3D a masculine ordinal ("100 ºC"), and
   // 3D-Fuel no degree sign at all ("annealed at 110 C / 20 min", reader round).
   const m = /anneal\w*(?:\s+and\s+dried)?\s+at\s+(\d+(?:\.\d+)?)\s*[°º˚]?\s*C\b(?:(?:\s+for\s+|\s*\/\s*)(\d+(?:\.\d+)?)\s*(hours?|h\s+ours|h|min)\b)?/i.exec(text ?? '');

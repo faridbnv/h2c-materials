@@ -1642,6 +1642,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | IEC 60216 | Thermal endurance of electrical insulating materials. |
 | IEC 60243 | Electric strength of insulating materials; the current number of the test IEC 243 named, and the one QIDI's sheets cite. |
 | IEC 60695 | Fire hazard testing of electrotechnical products, including the glow-wire tests. |
+| JIS K 7110 | Izod impact strength of plastics (a Japanese Industrial Standard). |
+| JIS K 7161 | Tensile properties of plastics (a Japanese Industrial Standard). |
+| JIS K 7171 | Flexural properties of plastics (a Japanese Industrial Standard). |
+| JIS K 7210 | Melt mass-flow and melt volume-flow rate of thermoplastics (a Japanese Industrial Standard). |
 | ISO 1133 | Melt mass-flow and melt volume-flow rate. |
 | ISO 11357 | Differential scanning calorimetry. |
 | ISO 11358 | Thermogravimetry of polymers; the same test under its ISO number. |

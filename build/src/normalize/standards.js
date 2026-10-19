@@ -18,6 +18,12 @@ const BODIES = [
   { body: 'ASTM', re: /\bASTM\s*-?\s*([A-Z])\s*-?\s*(\d+)/gi },
   { body: 'GB/T', re: /\bGB\s*\/?\s*T\s*-?\s*(\d+(?:\.\d+)?)/gi },
   { body: 'IEC', re: /\bIEC\s*-?\s*(\d+)/gi },
+  // The Japanese Industrial Standards for plastics, printed on Flashforge's Japanese sheets: JIS K 7161 tensile, 7171
+  // flexural, 7110 Izod, 7210 melt flow (the research intake of 2026-10-19, D168). Read as JIS's own; no equivalence to an
+  // ISO test is assumed here.
+  { body: 'JIS K', re: /\bJIS\s*K\s*-?\s*(\d{4})\b/gi },
+  // "IS O 179": the body printed with a space inside it (I-PP-TDS, the parser sweep of 2026-10-17).
+  { body: 'ISO', re: /\bIS\s+O\s*(\d+)/gi },
   // The German plastics and rubber standards (DIN 53504 tensile, 53505 Shore hardness, 53479 density …), printed on
   // Extrudr, colorFabb, Fillamentum and Spectrum sheets and left unread until 2026-10-01 (the data audit, RC3/RC4). A
   // "DIN EN ISO 527" is ISO 527, which the ISO pattern reads; only DIN's own five-digit numbers are DIN's.
@@ -30,8 +36,11 @@ const BODIES = [
 // stripping every decimal, because GB/T 531.1 is the designation the sources print, and its parent is not in use.
 const GB_PARENT = new Set(['1040.1', '1040.4', '3682.1']);
 
+// Raise3D's sheets print "ISO 52 7, GB/T 1040": a number set with a space inside it, ending at a list mark or the end of
+// the cell, is one number (the parser sweep of 2026-10-17 found it read as ISO 52; D168).
 const NORMALISE = (s) => String(s ?? '')
-  .replace(/[，、]/g, ',').replace(/[；]/g, ';').replace(/[–—−]/g, '-').replace(/\s+/g, ' ').trim();
+  .replace(/[，、]/g, ',').replace(/[；]/g, ';').replace(/[–—−]/g, '-').replace(/\s+/g, ' ').trim()
+  .replace(/\bISO\s*(\d{2})\s(\d)(?=\s*(?:[,;)]|$))/gi, 'ISO $1$2');
 
 /**
  * Every standard the text names, in the vocabulary's spelling, deduplicated and in the order they appear.

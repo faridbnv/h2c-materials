@@ -845,3 +845,24 @@ manager's synthesis ([the review](audits/2026-10-18-screening-review/README.md))
 Built by Claude Opus as executor with Claude Opus agents for each stage, the reviews and the trials, and Claude Sonnet
 agents for re-reading sheets and fibre content, on branches `screening-build/stage-*`.
 
+
+## Decided on 2026-10-19, the research intake (being built)
+
+The owner had an external research agent work the open problems an agent can close by reading and searching (priorities
+1 to 4 of OPEN-PROBLEMS, outside the repository), and asked for its results to be taken in the repository's way: errors
+fixed, new and updated sources entered, new products completed and entered, everything carried through the database,
+the selector and the material pages, archived and documented, and OPEN-PROBLEMS rewritten for a next research round.
+The package (827 findings, 539 page readings, 275 saved documents) stays outside the repository; its dispositions are
+kept in `archive/research-2026-10-19/`.
+
+- **Chosen (the owner's answers of 2026-10-19).** Adopt the research's three reading rules for print wordings (an
+  enclosure that is "not mandatory" or lists open-frame printers is not needed; a sheet that accepts a stainless nozzle,
+  or only cautions about wear, does not require a hardened one; drying advised once a spool is opened, or depending on
+  moisture, is optional). Switch the polyolefins' chamber row to deciding if Braskem's statement brings it to ten makers.
+  This round completes the new products only (their data sheets, recipes and prices); everything else the research left
+  goes to the next research round. Push to main when verified.
+- **How it is built.** Corrections to registered sheets by guarded migration; new documents through the import pipeline
+  (batch b48), page readings through the reading tools with blind second reads, prices through the price pipeline (p06);
+  then the build, the snapshot, the selector's views and the material pages, a material that newly meets the page rule
+  given its summary. Opus for triage, judging, code, migrations and the documents; Sonnet for fetching, page reading,
+  second reads and sweeps. The record is [the round](audits/2026-10-19-research-intake/README.md).

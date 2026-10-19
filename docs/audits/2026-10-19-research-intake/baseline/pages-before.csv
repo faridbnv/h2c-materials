@@ -1,0 +1,153 @@
+MaterialID,Material,Scope,Products,Values,Page,Short of
+M001,"PLA",H2C-relevant,195,2430,yes,
+M008,"PLA Silk",H2C-relevant,33,310,yes,
+M011,"PLA Metal",H2C-relevant,9,88,yes,
+M012,"PLA Marble",H2C-relevant,6,89,yes,
+M013,"PLA Sparkle",H2C-relevant,4,52,yes,
+M014,"PLA Wood",H2C-relevant,20,216,yes,
+M015,"PLA Galaxy",H2C-relevant,4,65,yes,
+M016,"PLA Glow",H2C-relevant,7,77,yes,
+M017,"PLA Aero",H2C-relevant,12,166,yes,
+M018,"PLA-CF",H2C-relevant,19,254,yes,
+M019,"PLA-GF",H2C-relevant,4,85,yes,
+M020,"PETG",H2C-relevant,73,1056,yes,
+M024,"PETG-CF",H2C-relevant,24,317,yes,
+M025,"PETG-GF",H2C-relevant,5,66,yes,
+M026,"PETG-ESD",H2C-relevant,9,123,yes,
+M027,"ABS",H2C-relevant,55,783,yes,
+M028,"ABS-GF",H2C-relevant,11,162,yes,
+M029,"ABS-CF",H2C-relevant,11,135,yes,
+M030,"ABS-ESD",H2C-relevant,11,100,yes,
+M031,"ASA",H2C-relevant,40,588,yes,
+M032,"ASA Aero",H2C-relevant,4,61,yes,
+M033,"ASA-CF",H2C-relevant,17,190,yes,
+M034,"ASA-GF",H2C-relevant,6,111,yes,
+M035,"PC",H2C-relevant,22,403,yes,
+M036,"PC FR",H2C-relevant,2,53,no,1 product(s)
+M037,"PC-CF",H2C-relevant,10,128,yes,
+M038,"PC-GF",H2C-relevant,3,59,yes,
+M045,"PEBA",H2C-relevant,10,129,yes,
+M046,"TPC / TPEE",H2C-relevant,12,132,yes,
+M048,"PAHT-CF",H2C-relevant,5,191,yes,
+M049,"PA6",H2C-relevant,9,98,yes,
+M050,"PA6-CF",H2C-relevant,14,204,yes,
+M051,"PA6-GF",H2C-relevant,11,213,yes,
+M052,"PA12",H2C-relevant,8,134,yes,
+M053,"PA12-CF",H2C-relevant,15,236,yes,
+M054,"PA12-GF",H2C-relevant,3,37,yes,
+M055,"PA66",H2C-relevant,2,25,no,1 product(s)
+M056,"PA66-CF",H2C-relevant,0,0,no,3 product(s) and 20 value(s)
+M057,"PA6/66",H2C-relevant,7,135,yes,
+M058,"PA612",H2C-relevant,0,14,no,3 product(s) and 6 value(s)
+M059,"PA612-CF",H2C-relevant,3,95,yes,
+M060,"PA612-GF",H2C-relevant,0,0,no,3 product(s) and 20 value(s)
+M064,"PA-ESD",H2C-relevant,1,8,no,2 product(s) and 12 value(s)
+M065,"PA612-ESD",H2C-relevant,1,36,no,2 product(s)
+M066,"PET",H2C-relevant,7,63,yes,
+M067,"PET-CF",H2C-relevant,8,179,yes,
+M068,"PET-GF",H2C-relevant,4,78,yes,
+M069,"PPA",H2C-relevant,2,46,no,1 product(s)
+M070,"PPA-CF",H2C-relevant,8,175,yes,
+M071,"PPA-GF",H2C-relevant,5,96,yes,
+M072,"PPS",H2C-relevant,2,17,no,1 product(s) and 3 value(s)
+M073,"PPS-CF",H2C-relevant,7,127,yes,
+M074,"PPS-GF",H2C-relevant,2,44,no,1 product(s)
+M075,"PVA",H2C-relevant,11,57,yes,
+M076,"BVOH",H2C-relevant,4,55,yes,
+M077,"Support for PLA",H2C-relevant,2,7,no,1 product(s) and 13 value(s)
+M078,"Support for PLA/PETG",H2C-relevant,1,4,no,2 product(s) and 16 value(s)
+M079,"Support for ABS",H2C-relevant,2,8,no,1 product(s) and 12 value(s)
+M080,"Support for PA/PET",H2C-relevant,3,14,no,6 value(s)
+M081,"HIPS",H2C-relevant,11,166,yes,
+M082,"PP",H2C-relevant,12,141,yes,
+M083,"PP-CF",H2C-relevant,5,64,yes,
+M084,"PP-GF",H2C-relevant,2,28,no,1 product(s)
+M085,"PE",H2C-relevant,2,22,no,1 product(s)
+M086,"OBC",H2C-relevant,2,27,no,1 product(s)
+M087,"POM / Acetal",H2C-relevant,3,38,yes,
+M088,"PCTG",H2C-relevant,8,111,yes,
+M089,"CPE",H2C-relevant,5,76,yes,
+M090,"CPE-CF",H2C-relevant,3,29,yes,
+M091,"CoPE",H2C-relevant,1,28,no,2 product(s)
+M092,"nGen / Amphora",H2C-relevant,1,31,no,2 product(s)
+M093,"PVB",H2C-relevant,6,114,yes,
+M094,"PC-ABS",H2C-relevant,13,187,yes,
+M095,"PC-PBT",H2C-relevant,2,71,no,1 product(s)
+M096,"PVDF",H2C-relevant,3,24,yes,
+M097,"PEEK",Excluded,7,74,yes,
+M098,"PEKK",Excluded,6,142,yes,
+M099,"PEI / ULTEM",Excluded,13,208,yes,
+M100,"PSU",Excluded,1,8,no,2 product(s) and 12 value(s)
+M101,"PESU / PES",Excluded,1,8,no,2 product(s) and 12 value(s)
+M102,"PPSU",Excluded,4,47,yes,
+M103,"PP Lightweight",H2C-relevant,1,8,no,2 product(s) and 12 value(s)
+M104,"PA6-CE",H2C-relevant,1,10,no,2 product(s) and 10 value(s)
+M105,"ASA-EC",H2C-relevant,1,17,no,2 product(s) and 3 value(s)
+M106,"ABS-AF",H2C-relevant,3,35,yes,
+M107,"PLA-ESD",H2C-relevant,2,18,no,1 product(s) and 2 value(s)
+M108,"PA6-GS",H2C-relevant,1,11,no,2 product(s) and 9 value(s)
+M109,"PETG-PTFE",H2C-relevant,2,20,no,1 product(s)
+M110,"PCTG-GF",H2C-relevant,3,22,yes,
+M111,"PLA-EC",H2C-relevant,2,8,no,1 product(s) and 12 value(s)
+M112,"PC-PTFE",H2C-relevant,2,16,no,1 product(s) and 4 value(s)
+M113,"ASA-AF",H2C-relevant,3,18,no,2 value(s)
+M114,"TPC-ESD",H2C-relevant,2,19,no,1 product(s) and 1 value(s)
+M115,"PEKK-ESD",Excluded,1,8,no,2 product(s) and 12 value(s)
+M116,"PC-ESD",H2C-relevant,2,17,no,1 product(s) and 3 value(s)
+M117,"PEI-GF",Excluded,1,9,no,2 product(s) and 11 value(s)
+M118,"PEI-CF",Excluded,3,23,yes,
+M119,"PC-ASA",H2C-relevant,1,8,no,2 product(s) and 12 value(s)
+M120,"PVDF-ESD",H2C-relevant,1,8,no,2 product(s) and 12 value(s)
+M121,"TPI",Excluded,2,53,no,1 product(s)
+M122,"PEKK-CF",Excluded,2,15,no,1 product(s) and 5 value(s)
+M123,"PEI-ESD",Excluded,1,15,no,2 product(s) and 5 value(s)
+M124,"PPS-ESD",H2C-relevant,1,8,no,2 product(s) and 12 value(s)
+M125,"PEEK-CF",Excluded,5,53,yes,
+M126,"TPU-ESD",H2C-relevant,2,35,no,1 product(s)
+M127,"PEEK-GF",Excluded,1,9,no,2 product(s) and 11 value(s)
+M128,"PC-ABS-CF",H2C-relevant,1,8,no,2 product(s) and 12 value(s)
+M129,"TPU-CF",H2C-relevant,3,40,yes,
+M130,"PPE-PS",H2C-relevant,2,21,no,1 product(s)
+M131,"PC-PBT-CF",H2C-relevant,1,43,no,2 product(s)
+M132,"PBT-GF",H2C-relevant,2,21,no,1 product(s)
+M133,"PBAT",H2C-relevant,1,9,no,2 product(s) and 11 value(s)
+M135,"PVC",H2C-relevant,2,10,no,1 product(s) and 10 value(s)
+M136,"SAN",H2C-relevant,1,7,no,2 product(s) and 13 value(s)
+M137,"COC",H2C-relevant,2,19,no,1 product(s) and 1 value(s)
+M138,"PE-GF",H2C-relevant,2,18,no,1 product(s) and 2 value(s)
+M139,"LCP",H2C-relevant,1,9,no,2 product(s) and 11 value(s)
+M140,"PBT",H2C-relevant,1,9,no,2 product(s) and 11 value(s)
+M141,"PET-LW",H2C-relevant,2,30,no,1 product(s)
+M142,"nGen-CF",H2C-relevant,1,17,no,2 product(s) and 3 value(s)
+M143,"nGen FLEX",H2C-relevant,1,23,no,2 product(s)
+M144,"PCTG-CF",H2C-relevant,3,35,yes,
+M145,"PLA-PHA",H2C-relevant,1,21,no,2 product(s)
+M146,"PLA-PHB",H2C-relevant,1,11,no,2 product(s) and 9 value(s)
+M147,"PAHT",H2C-relevant,1,42,no,2 product(s)
+M148,"PAHT-CE",H2C-relevant,2,25,no,1 product(s)
+M149,"PCL",H2C-relevant,4,35,yes,
+M150,"TPU-LW",H2C-relevant,4,56,yes,
+M151,"TPU-GF",H2C-relevant,1,15,no,2 product(s) and 5 value(s)
+M152,"PLA-NF",H2C-relevant,2,35,no,1 product(s)
+M153,"PETG-GR",H2C-relevant,2,14,no,1 product(s) and 6 value(s)
+M154,"PA12-AF",H2C-relevant,1,11,no,2 product(s) and 9 value(s)
+M155,"PLA-GR",H2C-relevant,2,14,no,1 product(s) and 6 value(s)
+M156,"PA6/66-CF",H2C-relevant,1,20,no,2 product(s)
+M157,"TPU-EC",H2C-relevant,2,16,no,1 product(s) and 4 value(s)
+M158,"PLA-CE",H2C-relevant,1,19,no,2 product(s) and 1 value(s)
+M159,"TPU 85A class and softer",H2C-relevant,18,153,yes,
+M160,"TPU 90A class",H2C-relevant,12,141,yes,
+M161,"TPU 95A class",H2C-relevant,27,247,yes,
+M162,"TPU harder than 95A",H2C-relevant,15,190,yes,
+M164,"Nylon, maker-undisclosed polyamide",H2C-relevant,7,86,yes,
+M165,"Nylon-CF, maker-undisclosed polyamide",H2C-relevant,5,107,yes,
+M166,"Nylon-GF, maker-undisclosed polyamide",H2C-relevant,1,30,no,2 product(s)
+M167,"TPE, maker-undisclosed elastomer",H2C-relevant,5,28,yes,
+M168,"PLA blend",H2C-relevant,9,97,yes,
+M169,"PLA blend-CF",H2C-relevant,2,42,no,1 product(s)
+M170,"TPS",H2C-relevant,5,49,yes,
+M171,"316L stainless steel sintering filament",Excluded,2,1,no,1 product(s) and 19 value(s)
+M172,"Silicon carbide sintering filament",Excluded,1,1,no,2 product(s) and 19 value(s)
+M173,"Alumina sintering filament",Excluded,1,1,no,2 product(s) and 19 value(s)
+M174,"SBC",H2C-relevant,1,9,no,2 product(s) and 11 value(s)
+M175,"TPV",H2C-relevant,1,8,no,2 product(s) and 12 value(s)

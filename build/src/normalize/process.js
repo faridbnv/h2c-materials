@@ -324,7 +324,9 @@ export function parseEnclosure(raw) {
   // "Enclosure is not recommended for PLA" discourages one: it was read as recommending one (check round 3).
   // eSUN's PLA Clear sheet says it "does not need to close the cavity", and Spectrum's Polish sheets "Komora zamknięta:
   // niewymagane" (closed chamber: not required; check round 3).
-  if (/\bnot\s+(necessary|needed|required|recommended)\b|\bdoes\s+not\s+need\s+to\s+close\b|\bniewymagan[ea]\b|^no\s+(enclosure|needed)\b|\bno\s+enclosure\s+(?:is\s+)?(?:required|needed|necessary)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
+  // Siraya Tech's "Not mandatory, but it is recommended": an enclosure its maker does not require is not needed, and the
+  // recommendation stays in the raw column (D168, the owner's ruling of 2026-10-19; reviewers had typed it so under D33).
+  if (/\bnot\s+(necessary|needed|required|recommended|mandatory)\b|\bdoes\s+not\s+need\s+to\s+close\b|\bniewymagan[ea]\b|^no\s+(enclosure|needed)\b|\bno\s+enclosure\s+(?:is\s+)?(?:required|needed|necessary)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
   // Eryone's "Sealed printing" row says whether the filament prints open: "Supports open/closed printing", "Open
   // printing", "enclosed printing/open printing", "supports open printing, and the sealing effect is better if it is
   // sealed". A filament its maker prints open needs no enclosure; that an enclosure improves it is a preference the
@@ -351,6 +353,10 @@ export function parseEnclosure(raw) {
   if (sealed) return { text, state: /^yes$/i.test(sealed[1]) ? 'recommended' : 'not-needed' };
   // A printer type a table answers with ("Compatible Printer Type | Open-frame").
   if (/^open[- ]frame$/i.test(text)) return { text, state: 'not-needed' };
+  // A cell that lists open-frame printers among those the filament prints on ("Enclosed-frame (recommended), open-frame",
+  // "Enclosed frame recommended; open frame compatible") allows printing open: the enclosure is a preference, which the raw
+  // column keeps (D168; reviewers had typed these not-needed under D33, and this reader read them as recommended).
+  if (/\bopen[- ]frame\b/i.test(text) && !/\b(?:not|avoid\w*|never)\b[^.;]{0,30}\bopen[- ]frame\b|\bopen[- ]frame\b[^.;]{0,30}\b(?:not|unsuitable)\b/i.test(text)) return { text, state: 'not-needed' };
   if (/\bideal\s+for\s+use\s+in\s+open\b/i.test(text)) return { text, state: 'not-needed' };
   if (/\b(best|better)\s+with\s+an?\s+enclosed\s+(print\s+area|printer|build\s+(area|volume|space))\b|^print(ing)?\s+in\s+an?\s+(enclosed|closed)\s+printer\b|^at\s+least\s+(a\s+)?closed\s+chamber\b/i.test(text)) return { text, state: 'recommended' };
   // Advice to use one, with no temperature: Siraya Tech's "Use an enclosure to maintain consistent temperature and reduce
@@ -393,6 +399,9 @@ export function parseNozzleDiameters(raw) {
   };
 }
 
+const WEAR_CAUTION_RE = /\bmay\s+require\s+nozzle\s+replacements?\b|\bbe\s+prepared\s+to\s+replace\b|\bbrass\b[^.;]*\blife\b[^.;]*\breduced\b|\baccelerated\s+brass\s+wear\b|\bminimi[sz]e\w*\s+(?:the\s+)?(?:increased\s+)?wear\b|\bcan\s+be\s+minimi[sz]ed\s+by\b/i;
+const ASKS_FOR_NOZZLE_RE = /\brecommend\w*\b|\badvis\w*\b|\brequired?\b(?!\s+nozzle\s+replacements?)|\brequirement\b|\bmust\s+(?:use|be\s+printed)\b|\bneeds?\s+(?:an?\s+)?(?:hardened|wear|steel|ruby)/i;
+
 /** Abrasion column: does this material demand a hardened or abrasion-resistant nozzle? */
 export function parseAbrasion(raw) {
   const text = raw == null ? '' : String(raw).trim();
@@ -423,6 +432,15 @@ export function parseAbrasion(raw) {
   // A sheet that says brass will do, with hardened steel as an alternative, needs none: MatterHackers' "Minimum 0.4 mm
   // diameter; brass or hardened steel compatible" (reader round, m353).
   if (/\bbrass\s+(?:or|and|\/)\s+(?:hardened\s+)?steel\s+(?:nozzles?\s+)?(?:are\s+|is\s+)?(?:compatible|fine|ok|suitable)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // A sheet that asks for stainless steel or another hardened alloy names a nozzle harder than brass and does not require a
+  // hardened one: Fillamentum's "We recommend using nozzles from stainless steel or other hardened alloys", "a stainless steel
+  // nozzle or nozzles made with hardened copper alloys". Stated, and no reading, as the guide's "Hardened Steel / Stainless
+  // Steel" list is (D168, the owner's ruling of 2026-10-19).
+  if (/\bstainless\s+steel\b[^.;]*\bor\b[^.;]*\bharden\w*\s+(?:\w+\s+)?alloys?\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
+  // A caution about wear, with no hardened nozzle asked for, is not a requirement: "may require nozzle replacements", "be
+  // prepared to replace your nozzle … or upgrade", "brass nozzle … life may be reduced", "hardened steel nozzles minimise
+  // increased wear" (D168). It says nothing either way, so a nozzle line that asks for one still decides (readAbrasion).
+  if (WEAR_CAUTION_RE.test(text) && !ASKS_FOR_NOZZLE_RE.test(text)) return { text, requiresHardened: null, state: 'stated', caution: true };
   // A German sheet answers "Hardened Nozzle nein" (or "ja"), or "Gehärtete Nozzle ja" in its own words; Extrudr follows the
   // answer with its reason, "Gehärtete Nozzle ja; wird die Verwendung einer gehärteten Düse empfohlen".
   // Spectrum's Polish sheets answer "Dysza rubinowa lub hartowana: niewymagane" (ruby or hardened nozzle: not required) or
@@ -480,6 +498,10 @@ const OPTIONAL_NEED_RE = new RegExp([
   String.raw`\bif\s+you\s+find\s+the\s+print(?:ing)?\s+quality\s+(?:decreases|drops|declines)\b`,
   String.raw`\bafter\s+the\s+(?:filament|material)\s+is\s+(?:damp|wet|moist)`,
   String.raw`\bif\s+excessive\s+moisture\b`,
+  // FormFutura's "Once BVOH has been used or opened from its original vacuum-sealed packaging for a while it is advised to
+  // dry", and Prusament's "Maximum 60°C for 4-8h depending on moisture" (D168, the owner's ruling of 2026-10-19).
+  String.raw`\bonce\s+[^.;]{0,80}?\b(?:opened|used)\b`,
+  String.raw`\bdepending\s+on\s+(?:the\s+)?(?:moisture|humidity|how\s+(?:wet|moist|damp))`,
 ].join('|'), 'i');
 // A sentence that says "not necessary" and then asks for drying in some cases: "(not necessary but recommended)",
 // "may require drying before use, although usually it is not necessary".

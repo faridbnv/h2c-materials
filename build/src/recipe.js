@@ -26,7 +26,8 @@ export const TEMP_WINDOW = { nozzle: [50, 550], bed: [0, 250], chamber: [0, 250]
 const NOZZLE_LINES = ['Nozzle material', 'Nozzle diameter'];
 export function readAbrasion(r, column = 'Abrasion / clogging') {
   const own = parseAbrasion(r[column]);
-  if (column !== 'Abrasion / clogging' || own.state !== PROCESS_STATE.UNKNOWN) return own;
+  // A wear caution says nothing either way (D168), so a nozzle line that asks for a hardened nozzle still decides.
+  if (column !== 'Abrasion / clogging' || (own.state !== PROCESS_STATE.UNKNOWN && !own.caution)) return own;
   for (const c of NOZZLE_LINES) { const p = parseAbrasion(r[c]); if (p.requiresHardened != null) return { ...p, column: c }; }
   return own;
 }

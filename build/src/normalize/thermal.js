@@ -68,5 +68,9 @@ export function readTestTemperature(raw) {
   // "23°C", and the spellings sheets print it in: "23 ℃", "23˚C", "@23° C", "+24°C", "23C", "23 °C (73 °F)" (the data audit of
   // 2026-10-01: a test temperature in any of these was left unread, so a −30 °C impact read as a room-temperature one).
   const m = /^\s*@?\s*\+?([-−]?\d+(?:[.,]\d+)?)\s*(?:[°˚º]\s*C|℃|C)\s*(?:[(/]?\s*[-−]?\d+(?:[.,]\d+)?\s*[°˚º]?\s*F\s*\)?)?\s*$/i.exec(String(raw ?? ''));
-  return m ? Number(m[1].replace('−', '-').replace(',', '.')) : null;
+  if (m) return Number(m[1].replace('−', '-').replace(',', '.'));
+  // A temperature printed in Fahrenheit alone, "72 °F" or Siraya Tech's "72F", is converted and rounded to a tenth of a
+  // degree (22.2 °C): read as no temperature, a 72 °F Izod was never checked against the 23 °C its headline asks (D168).
+  const f = /^\s*@?\s*\+?([-−]?\d+(?:[.,]\d+)?)\s*(?:[°˚º]\s*F|℉|F)\s*$/i.exec(String(raw ?? ''));
+  return f ? Math.round(((Number(f[1].replace('−', '-').replace(',', '.')) - 32) * 5 / 9) * 10) / 10 : null;
 }
