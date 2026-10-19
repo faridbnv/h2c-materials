@@ -268,7 +268,9 @@ export const missingLabel = (entry) => MISSING_LABEL[entry?.missing] ?? MISSING_
 
 /**
  * What a headline with no comparable value says of the nearest value on file (entry.related, compiled by the build):
- * the value, its property and orientation, why it is not compared, how many more there are, and that no filter uses it.
+ * the value, its property and orientation, why it is not compared, how many more there are, and that a requirement reads
+ * it only through a conversion row of the evidence ledger (D153), which its answer then names (stage 3d: it had said that
+ * no filter uses it, while PA6-CE passed the warm-environment preset on such a value).
  * The explanation of the related mark wherever renderValue draws one; the material pages say it too.
  */
 export function relatedNote(entry) {
@@ -283,7 +285,7 @@ export function relatedNote(entry) {
     + ` Not compared: ${b.why}.`
     + `${more ? ` ${more} more value${more === 1 ? '' : 's'} on file, ${r.grades === 1 ? 'of the same product' : `of ${r.grades} products in all`}.` : ''}`
     + `${boundOf(b.interval) ? ` ${boundNote(b.interval, b.value, b.unit)}` : ''}`
-    + ' No filter uses it.';
+    + ' A requirement reads it only through a conversion row of the evidence ledger, in that row\'s one safe direction, and its answer then names the row.';
 }
 
 /**

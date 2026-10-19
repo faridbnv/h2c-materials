@@ -255,7 +255,7 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
       <button type="button" class="ws-menu-item" data-export-data ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart data (CSV)</button>
       <button type="button" class="ws-menu-item" data-export-image ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart image (PNG)</button>
       <p class="opt-help">Both carry the release, the question, the goal, the axes and what each range means.</p>
-      <p class="opt-help ws-release" title="The release every answer here was computed on: data, rules and engine (D96)">Release ${esc(state.db.meta.release?.id ?? 'unidentified')}</p>
+      <p class="opt-help ws-release" title="The release every answer here was computed on: data, rules and engine">Release ${esc(state.db.meta.release?.id ?? 'unidentified')}</p>
     </div>
   </details>`;
   return `<div class="ws-controls">

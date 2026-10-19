@@ -182,7 +182,7 @@ test('an estimate whose whole range fails screens the material out of Explore, w
   assert.equal(e.screened, true);
   assert.equal(e.eligible, false);
   assert.deepEqual(e.screenedBy, ['elongationXY >= 100']);
-  assert.match(e.results[0].reason, /Screened out; not measured/);
+  assert.match(e.results[0].reason, /Hidden; not measured/);
   const s = runSelection([estimated(2.2, 32.9)], [elongation(100)], explore);
   assert.deepEqual(s.counts, { pass: 0, fail: 0, unknown: 1, screened: 1, total: 1 });
 });

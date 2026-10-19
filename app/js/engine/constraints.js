@@ -11,7 +11,7 @@
 // settle the question either way.
 
 import { productView, scenarioStates, SHARE } from './products.js';
-import { ledgerInterval, ledgerRow, ledgerReason, disagreeReason, knownNote, requirementWords } from './ledger.js';
+import { ledgerInterval, ledgerRow, ledgerReason, disagreeReason, knownNote, requirementWords, fig } from './ledger.js';
 
 export { SHARE };
 
@@ -183,9 +183,9 @@ function evaluateNumeric(material, c, ctx = {}) {
       const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && permission && !veto.length;
       const reason = plausible === STATUS.FAIL
         ? screened
-          ? `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}), which cannot meet this requirement. Screened out; not measured`
+          ? `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}), which cannot meet this requirement. Hidden; not measured`
           : veto.length
-            ? `Not published. Estimated ${span} would fail, but its own ${veto[0].property} ${veto[0].measurementId} (${fmtWords(veto[0].lo)} ${veto[0].unit}) bounds it from below and meets the requirement, so it is not screened`
+            ? `Not published. Estimated ${span} would fail, but its own ${lowerFirst(veto[0].property)} (${fmtWords(veto[0].lo)} ${veto[0].unit}) bounds it from below and meets the requirement, so it is not hidden`
             : est.canScreen && (c.operator.startsWith('>') ? decides.hi != null : decides.lo != null)
               ? `Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`
               : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
@@ -193,7 +193,8 @@ function evaluateNumeric(material, c, ctx = {}) {
       const disclosure = h.asPublished ? ` Published ${fmtWords(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
         : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state, c)}.`
           : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '';
-      const permissionReason = est.screening && !permission ? ' This product is outside the complete printer context used for screening validation.' : '';
+      // Said plainly (stage 3d; the trial read "outside the complete printer context used for screening validation").
+      const permissionReason = est.screening && !permission ? ' Its estimate was tested only on products whose own sheets put the nozzle, bed and chamber plainly within the H2C, which this one\'s do not.' : '';
       return {
         status: STATUS.UNKNOWN,
         estimated: true,
@@ -212,7 +213,7 @@ function evaluateNumeric(material, c, ctx = {}) {
       return {
         status: STATUS.INDETERMINATE, criterion: label, missing: 'not-comparable',
         ceilingOnly: { measurementId: v.measurementId ?? null, value: v.value },
-        reason: withNote(`Published ${fmtWords(v.value)} ${h.unit}${v.measurementId ? ` (${v.measurementId})` : ''} on a bar its sheet does not describe. For a plastic that prints glassy but can crystallise that is the most a printed part reaches (a moulded bar crystallises, a print does not), so it does not show the printed part meets ${requirementWords(c, h.unit)}; ask the maker how the bar was made, or test a printed coupon`, known),
+        reason: withNote(`Published ${fmtWords(v.value)} ${h.unit} on a bar its sheet does not describe. For a plastic that prints glassy but can crystallise that is the most a printed part reaches (a moulded bar crystallises, a print does not), so it does not show the printed part meets ${requirementWords(c, h.unit)}; ask the maker how the bar was made, or test a printed coupon`, known),
       };
     }
     // A product value the source published without the direction or the load: shown, and not comparable (D84).
@@ -395,8 +396,8 @@ function ledgerResult(h, c, ctx, label, state, own = null) {
 /** What makes a value doubtful, in a reason's words: the record and rule that contradict it, and where they put it. */
 function doubtWords(d, unit, ctx) {
   const row = ledgerRow(ctx.db, d.rule);
-  const what = d.measurementId ? `${row?.words ?? d.rule} (${d.measurementId})` : (row?.words ?? d.rule);
-  const range = d.lo != null && d.hi != null ? (d.lo === d.hi ? `${fmtWords(d.lo)} ${unit}` : `between ${fmtWords(d.lo)} and ${fmtWords(d.hi)} ${unit}`) : d.lo != null ? `at least ${fmtWords(d.lo)} ${unit}` : `at most ${fmtWords(d.hi)} ${unit}`;
+  const what = row?.words ?? d.rule;
+  const range = d.lo != null && d.hi != null ? (d.lo === d.hi ? `${fig(d.lo)} ${unit}` : `between ${fig(d.lo)} and ${fig(d.hi)} ${unit}`) : d.lo != null ? `at least ${fig(d.lo)} ${unit}` : `at most ${fig(d.hi)} ${unit}`;
   return `${what} puts it ${range}`;
 }
 
@@ -694,7 +695,7 @@ function evaluatePolymerLevel(polymer, label, ctx) {
   const screened = !!ctx?.useEstimates;
   return {
     ...common, polymerScreen: true, screened, vetoedBy: [],
-    reason: screened ? `${basis}. Screened out; not tested on this product` : `${basis}. It would screen this material out with inference on`,
+    reason: screened ? `${basis}. Hidden; not tested on this product` : `${basis}. It would hide this material with estimates and resin data on`,
   };
 }
 
@@ -1048,7 +1049,8 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     screened,
     screenedBy: screened ? [...new Set(unknown.flatMap((x) => x.e.screenedBy))] : [],
-    unresolved: screened ? unknown.flatMap((x) => x.e.unresolved.filter((r) => r.screened).map((r) => ({ ...r, reason: `${x.grade.id}: ${r.reason}` }))) : best.e.unresolved,
+    // A hidden material's reasons name each product by its maker and name, never its ID (stage 3d).
+    unresolved: screened ? unknown.flatMap((x) => x.e.unresolved.filter((r) => r.screened).map((r) => ({ ...r, reason: `${gradeName(ctx, x.grade.id)}: ${r.reason}` }))) : best.e.unresolved,
     heldBy: policy === UNKNOWN_POLICY.STRICT && verdict === STATUS.UNKNOWN ? best.e.heldBy : [],
     failedBy: verdict === STATUS.FAIL ? best.e.failedBy : [],
     share,

@@ -45,7 +45,20 @@ export function ledgerRow(db, id) {
 const ROWS = new WeakMap();
 
 const fmt = (n) => (Number.isFinite(n) ? String(Number(n.toFixed(6))) : String(n));
-const fmtWords = (n) => fmt(n).replace(/^(-?)(\d{4,})/, (all, sign, int) => `${sign}${int.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`);
+const group = (s) => s.replace(/^(-?)(\d{4,})/, (all, sign, int) => `${sign}${int.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`);
+/** A requirement's own number, exact, its thousands grouped: it is the reader's, never rounded. */
+const fmtWords = (n) => group(fmt(n));
+/**
+ * A number the ledger read or worked out, as the page prints every other (format.js fmtNumber): about three significant
+ * figures, the thousands grouped. "Between 1.15 and 4.81 GPa", never "between 1.14678 and 4.81149 GPa" (stage 3d, R16).
+ * Arithmetic only, so every platform prints one string.
+ */
+export const fig = (n) => {
+  if (!Number.isFinite(n)) return String(n);
+  const a = Math.abs(n);
+  const s = a >= 100 ? String(Math.round(n)) : a >= 10 ? n.toFixed(1) : a >= 1 ? n.toFixed(2) : String(Number(n.toPrecision(3)));
+  return group(s.includes('.') && !/e/.test(s) ? s.replace(/\.?0+$/, '') : s);
+};
 const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 
 /**
@@ -57,16 +70,18 @@ export function contributionWords(b, unit, words) {
   const what = words ?? b.rule;
   if (b.limit !== undefined) {
     // A class limit (D154): the kind, the limit, and where the kind's own products publish beyond the sourced value, that.
-    const at = b.kind === 'neat-density range' ? `lies within ${fmtWords(b.lo)} to ${fmtWords(b.hi)} ${unit}`
-      : b.kind === 'floor' ? `is never below ${fmtWords(b.lo)} ${unit}`
-        : `is never ${unit === 'GPa' ? 'stiffer than' : 'above'} ${fmtWords(b.hi)} ${unit}`;
+    const at = b.kind === 'neat-density range' ? `lies within ${fig(b.lo)} to ${fig(b.hi)} ${unit}`
+      : b.kind === 'floor' ? `is never below ${fig(b.lo)} ${unit}`
+        : `is never ${unit === 'GPa' ? 'stiffer than' : 'above'} ${fig(b.hi)} ${unit}`;
     return `${what}${b.polymer ? ` (${b.polymer})` : ''} ${at}${b.widened ? ', as far as its kind\'s own products publish' : ''}`;
   }
-  const source = `${what}: ${fmtWords(b.sourceValue)} ${unit} (${b.measurementId}${b.from ? `, in the ${b.from.label}` : ''})`;
+  // The record is the product's own sheet, or its twin's, named in words; its ID is in the trace, the export and the
+  // drawer's source link, never in the sentence (stage 3d).
+  const source = `${what}: ${fig(b.sourceValue)} ${unit}${b.from ? ` (in the ${b.from.label})` : ''}`;
   const span = b.lo != null && b.hi != null
-    ? (b.lo === b.hi ? (b.lo === b.sourceValue ? '' : `, so ${fmtWords(b.lo)} ${unit}`) : `, so between ${fmtWords(b.lo)} and ${fmtWords(b.hi)} ${unit}`)
-    : b.lo != null ? (b.lo === b.sourceValue ? '' : `, so at least ${fmtWords(b.lo)} ${unit}`)
-      : (b.hi === b.sourceValue ? '' : `, so at most ${fmtWords(b.hi)} ${unit}`);
+    ? (b.lo === b.hi ? (b.lo === b.sourceValue ? '' : `, so ${fig(b.lo)} ${unit}`) : `, so between ${fig(b.lo)} and ${fig(b.hi)} ${unit}`)
+    : b.lo != null ? (b.lo === b.sourceValue ? '' : `, so at least ${fig(b.lo)} ${unit}`)
+      : (b.hi === b.sourceValue ? '' : `, so at most ${fig(b.hi)} ${unit}`);
   return `${source}${span}`;
 }
 
@@ -103,12 +118,12 @@ export function ledgerReason(b, { unit, words, verdict, c, margin, asPrinted = t
 
 /** Two records with no value between them, in a reason's words: the sheets disagree. */
 export function disagreeReason(loBy, hiBy, { unit, wordsOf }) {
-  return `Its records disagree: ${contributionWords(loBy, unit, wordsOf(loBy))} puts it at least ${fmtWords(loBy.lo)} ${unit}, and ${contributionWords(hiBy, unit, wordsOf(hiBy))} at most ${fmtWords(hiBy.hi)} ${unit}. One of them is misread or misfiled, so this stays open until a sheet is re-read`;
+  return `Its records disagree: ${contributionWords(loBy, unit, wordsOf(loBy))} puts it at least ${fig(loBy.lo)} ${unit}, and ${contributionWords(hiBy, unit, wordsOf(hiBy))} at most ${fig(hiBy.hi)} ${unit}. One of them is misread or misfiled, so this stays open until a sheet is re-read`;
 }
 
 /** What a deciding interval that leaves the limit on either side still says, appended to the reason that follows. */
 export function knownNote(iv, { unit, c }) {
-  const ids = [...new Set([iv.loBy, iv.hiBy].filter(Boolean).map((b) => b.measurementId ?? b.rule))];
-  const range = iv.lo != null && iv.hi != null ? `between ${fmtWords(iv.lo)} and ${fmtWords(iv.hi)} ${unit}` : iv.lo != null ? `at least ${fmtWords(iv.lo)} ${unit}` : `at most ${fmtWords(iv.hi)} ${unit}`;
-  return ` Its other records put it ${range} (${ids.join(', ')}), which leaves ${fmtWords(c.value)} ${unit} on either side`;
+  const range = iv.lo != null && iv.hi != null ? `between ${fig(iv.lo)} and ${fig(iv.hi)} ${unit}` : iv.lo != null ? `at least ${fig(iv.lo)} ${unit}` : `at most ${fig(iv.hi)} ${unit}`;
+  const what = [iv.loBy, iv.hiBy].filter(Boolean).every((b) => b.limit !== undefined) ? 'Its kind of plastic puts it' : 'Its other records put it';
+  return ` ${what} ${range}, which leaves ${fmtWords(c.value)} ${unit} on either side`;
 }

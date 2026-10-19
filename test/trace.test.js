@@ -99,7 +99,9 @@ test('an answer the evidence ledger gives names the row and the record it read (
   const [r] = t.requirements;
   assert.equal(r.status, 'PASS');
   assert.equal(r.ledger.rule, 'CV01');
-  assert.match(r.reason, /^Meets it on its HDT at 1\.8 MPa, a harsher load: 80 °C \(V011437\)/);
+  // The sentence names the record in words; its ID is the trace's record (stage 3d).
+  assert.match(r.reason, /^Meets it on its HDT at 1\.8 MPa, a harsher load: 80 °C/);
+  assert.doesNotMatch(r.reason, /V\d{6}/);
   assert.deepEqual(r.records.map((x) => [x.kind, x.id, x.role]), [['ledger', 'CV01', 'decides'], ['measurement', 'V011437', 'read by CV01']]);
   assert.deepEqual([r.records[0].rule, r.records[0].status, r.records[0].bound], ['floor on hdt045', 'deciding', 80]);
 });

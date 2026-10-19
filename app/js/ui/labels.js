@@ -171,7 +171,7 @@ export function estimateTitle(e, d, { productless = false, product = null } = {}
   return `Estimate, not a measurement: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} interval), centre ${d.centre}${unit}.${column}${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its product is also filed under ${e.sharedWith.name}.` : ''}`
     + ` ${e.precision === 'poor' ? 'Poor precision: treat it as an order of magnitude only.' : `Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`}`
-    + ` It never makes a material pass.${product ? ` The estimate of ${product}, the product this row is shown for: it orders the row and may tag it likely, and hides nothing (D155).`
+    + ` It never makes a material pass.${product ? ` The estimate of ${product}, the product this row is shown for: it orders the row and may tag it likely, and hides nothing.`
       : !productless ? ' Context only: this material is judged product by product, on each product\'s own values, so this estimate hides nothing.'
       : `${e.canScreen ? ` ${POLICY_PHRASE.exploration.charAt(0).toUpperCase()}${POLICY_PHRASE.exploration.slice(1)} and estimates on, it hides this material, which has no product on record, from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`}`;
 }
@@ -249,16 +249,20 @@ export const screenedByKind = (evaluation) => {
   };
 };
 
-/** The three prefixes a screened chip's explanation may start with; the fuzz demands the criterion after each. */
-export const SCREEN_PREFIX = { notApplicable: 'Does not apply', estimate: 'Screened by an estimate', polymer: 'Screened by the base polymer\'s published behaviour' };
+/**
+ * The three prefixes a hidden chip's explanation may start with; the fuzz demands the criterion after each. "Hidden" is
+ * the page's one word for a material held out of Include by a definition or by inference (stage 3d): it had been
+ * "screened", "screened out", "SCREENED" and "hidden as unlikely" for one idea.
+ */
+export const SCREEN_PREFIX = { notApplicable: 'Does not apply', estimate: 'Hidden by an estimate', polymer: 'Hidden by resin data on the base polymer' };
 
 /**
  * Why a property does not apply, in the first sentence of its reason ("HDT is a rigid-bar test"), from the first result
- * of a requirement that says so. A product's reason starts with its ID and every one with "Does not apply: ".
+ * of a requirement that says so. A product's reason starts with its name and every one with "Does not apply: ".
  */
 const notApplicableWhy = (evaluation, name) => {
   const r = (evaluation?.unresolved ?? []).find((x) => x.screened && x.notApplicable && describeConstraint(x.constraint) === name);
-  const why = String(r?.reason ?? '').replace(/^[^:]*?: (?=Does not apply)/, '').replace(/^Does not apply: /, '');
+  const why = String(r?.reason ?? '').replace(/^.*?: (?=Does not apply)/, '').replace(/^Does not apply: /, '');
   return (why.match(/^.*?[^.]\.(?=\s|$)/)?.[0] ?? why).replace(/\.$/, '');
 };
 
@@ -280,16 +284,77 @@ export function screenedChip(evaluation) {
   const kinds = [by.notApplicable.length ? 'na' : null, by.estimate.length ? 'estimate' : null, by.polymer.length ? 'polymer' : null].filter(Boolean);
   const onlyPolymer = kinds.length === 1 && kinds[0] === 'polymer';
   const onlyNotApplicable = kinds.length === 1 && kinds[0] === 'na';
-  const HEAD = { na: 'Does not apply', estimate: 'Screened by an estimate', polymer: 'Screened by the base polymer' };
+  const HEAD = { na: 'Does not apply', estimate: 'Hidden by an estimate', polymer: 'Hidden by resin data' };
   return {
     text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this product' : onlyNotApplicable ? 'the property is not defined for it' : 'not measured'}.`,
-    head: kinds.length === 1 ? HEAD[kinds[0]] : `Screened by ${andList(kinds.map((k) => ({ na: 'a property that does not apply', estimate: 'an estimate', polymer: 'the base polymer' })[k]))}`,
+    head: kinds.length === 1 ? HEAD[kinds[0]] : `Hidden by ${andList(kinds.map((k) => ({ na: 'a property that does not apply', estimate: 'an estimate', polymer: 'resin data' })[k]))}`,
     action: onlyPolymer ? 'polymer' : by.estimate.length && evaluation.products?.some((p) => p.results?.some((r) => r.prediction)) ? 'products' : 'estimate',
     // Whether inference hid it (an estimate, resin data), which the chip marks with the estimates' dagger; a property that
     // does not apply alone is a definition, and carries none.
     inferred: !onlyNotApplicable,
   };
 }
+
+/**
+ * Why a hidden row is hidden, in one short phrase under its result (stage 3d; the second first-time-user trial found the
+ * hidden rows gave no reason): "does not apply: HDT is a rigid-bar test", "resin data: PLA not resistant to acetone", "no
+ * product on record; its estimate wholly misses". The chip beside it says the rest.
+ */
+export function hiddenWhy(evaluation) {
+  const rs = (evaluation?.unresolved ?? []).filter((r) => r.screened);
+  const na = rs.find((r) => r.notApplicable);
+  if (na) {
+    const why = notApplicableWhy(evaluation, describeConstraint(na.constraint));
+    return why ? `does not apply: ${lower(why)}` : `does not apply: ${lower(describeConstraint(na.constraint))}`;
+  }
+  const polymer = rs.find((r) => r.polymerScreen);
+  if (polymer) {
+    // "Its base polymer PLA is published as not resistant (not resistant to acetone, …)": the first agent named.
+    const agents = /is published as [^(]*\(([^)]*)\)/.exec(polymer.reason ?? '')?.[1]?.split(', ')[0];
+    return `resin data: ${polymer.polymerId ?? 'its base polymer'} ${agents ?? String(polymer.polymerVerdict ?? '').replace(/-/g, ' ')}`;
+  }
+  return rs.length ? (evaluation.products?.length ? 'its estimate wholly misses' : 'no product on record; its estimate wholly misses') : '';
+}
+
+/**
+ * What a failing row failed first, in a short phrase for its result cell (stage 3d; the trial's PBT read only "FAIL 0 of 1
+ * product"): "fails: bed temperature, needs up to 200 °C" for a printer check, "fails: HDT at 0.45 MPa at least 100 °C,
+ * published 90 °C" for a number. The drawer gives every requirement and its record.
+ */
+export function failWhy(evaluation) {
+  const r = (evaluation?.failed ?? [])[0];
+  if (!r) return '';
+  const c = r.constraint ?? {};
+  const fig = (v) => n(Number(Number(v).toPrecision(3)));
+  const u = r.unit ? ` ${r.unit}` : '';
+  if (c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)) {
+    const m = /Requires ((?:up to|at least) [^;]*?°C); the H2C reaches only ([^(;.]*?°C)/.exec(r.reason ?? '');
+    return `fails: ${c.gate} temperature${m ? `, needs ${m[1]} (the H2C reaches ${m[2]})` : ''}`;
+  }
+  if (c.kind === 'gate' && c.gate === 'scope') return 'fails: beyond what the H2C prints';
+  if (c.kind === 'facet' && c.facet === 'supportMaterial') return `fails: ${c.equals === false ? 'a support material, not a build material' : 'a build material'}`;
+  if (c.kind === 'numeric' && Number.isFinite(r.observed)) return `fails: ${lower(describeConstraint(c))}, published ${fig(r.observed)}${u}`;
+  if (c.kind === 'numeric' && Number.isFinite(r.ledger?.bound)) {
+    return `fails: ${lower(describeConstraint(c))}, ${c.operator?.startsWith('>') ? 'at most' : 'at least'} ${fig(r.ledger.bound)}${u} by ${/^CL/.test(r.ledger.rule) ? 'its kind of plastic' : 'another of its records'}`;
+  }
+  return `fails: ${lower(describeConstraint(c))}`;
+}
+
+/** The UNKNOWN materials by group, in the list's order, for the UNKNOWN chip and the line under the heading (stage 3d). */
+export function unknownGroups(evaluations, { explore = false } = {}) {
+  const counts = { 'one-check-away': 0, 'not-enough-data': 0, 'unlikely-to-meet': 0, hidden: 0, 'not-applicable': 0 };
+  for (const e of evaluations ?? []) {
+    if (e.verdict !== 'UNKNOWN') continue;
+    // Left out, nothing is hidden: a material a required property does not apply to is said as that.
+    const na = !explore && e.group === 'not-enough-data' && (e.unresolved ?? []).some((r) => r.notApplicable);
+    const g = na ? 'not-applicable' : e.group === 'hidden' && !explore ? 'not-enough-data' : e.group;
+    if (g in counts) counts[g]++;
+  }
+  return counts;
+}
+const GROUP_WORDS = { 'one-check-away': 'one check away', 'not-enough-data': 'not enough data', 'unlikely-to-meet': 'unlikely to meet', hidden: 'hidden', 'not-applicable': 'a required property does not apply to' };
+/** "2 one check away, 14 not enough data, 85 unlikely to meet, 3 hidden": the groups that hold any. */
+export const unknownGroupWords = (counts) => Object.entries(counts).filter(([, k]) => k > 0).map(([g, k]) => `${k} ${GROUP_WORDS[g]}`).join(', ');
 
 /**
  * Environment categories.

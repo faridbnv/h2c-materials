@@ -22,7 +22,7 @@ import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc, markTableOverflow, keepInView } from './ui/format.js';
 import { TEMPLATES, PRINTABLE } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive, candidateCount } from './ui/start.js';
-import { setEnvironmentLabels, setH2cBaseline, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel, screenedByKind } from './ui/labels.js';
+import { setEnvironmentLabels, setH2cBaseline, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel, screenedByKind, unknownGroups, unknownGroupWords } from './ui/labels.js';
 import { initPopover, popoverOpen } from './ui/popover.js';
 import { useRegistry } from './ui/registry.js';
 import { dayWords, documentsRead, provenanceWords } from './ui/dates.js';
@@ -48,7 +48,7 @@ const state = {
   // makes them controls rather than decoration, and what makes Strict against Explore visible.
   showStates: new Set(['PASS']),
   // Whether materials held out of Include as unlikely (a property that does not apply, an estimate, resin data) are
-  // shown anyway. They are UNKNOWN, not FAIL, so they would otherwise sit among the flagged results; the SCREENED chip
+  // shown anyway. They are UNKNOWN, not FAIL, so they would otherwise sit among the flagged results; the HIDDEN chip
   // brings them back.
   showScreened: false,
   selectedMaterialId: null, drawerTab: 'Overview',
@@ -541,7 +541,7 @@ function preservingFocus(host, draw) {
 const VERDICT_ORDER = ['PASS', 'UNKNOWN', 'FAIL'];
 
 /**
- * Whether the SCREENED chip is on screen: once something is held out of Include as unlikely. A property that does not
+ * Whether the HIDDEN chip is on screen: once something is held out of Include. A property that does not
  * apply holds a material out whatever the estimates switch says (D148), so the chip no longer waits for the switch.
  */
 const screenedChipShown = () => state.scenario.constraints.length > 0
@@ -567,7 +567,7 @@ function screenedKinds(evaluations) {
 /**
  * What the rows on screen are, in words that add up to their number: the candidates among them (of how many, when not
  * all are shown), then those shown for another reason. "31 shown PASS + UNKNOWN · 23 candidates" left the 8 rows the
- * SCREENED chip had brought back unexplained, and "82 shown PASS + FAIL · 15 candidates" never said what the other 67
+ * HIDDEN chip (then SCREENED) had brought back unexplained, and "82 shown PASS + FAIL · 15 candidates" never said what the other 67
  * were. Each row is exactly one of these, so the parts always sum to the count.
  */
 function shownBreakdown(rows, candidates) {
@@ -583,7 +583,7 @@ function shownBreakdown(rows, candidates) {
   return [
     !candidates ? 'no candidates' : mine === candidates ? plural(candidates, 'candidate') : `${mine} of the ${plural(candidates, 'candidate')}`,
     unchecked ? `${unchecked} could not be checked` : null,
-    screened ? `${screened} screened out` : null,
+    screened ? `${screened} hidden` : null,
     failed ? `${failed} failed` : null,
   ].filter(Boolean).join(', ');
 }
@@ -599,9 +599,9 @@ function renderCount() {
   const candidates = state.selection.candidates.length;
   const tested = state.scenario.constraints.length > 0;
   // Nothing has been asked yet, so nothing has passed. Reading "102 shown PASS" on a blank screen
-  // implies a test that never ran. SCREENED is named with the verdicts while its chip is on, as it adds rows too.
+  // implies a test that never ran. HIDDEN is named with the verdicts while its chip is on, as it adds rows too.
   const label = tested ? [...VERDICT_ORDER.filter((v) => state.showStates.has(v)),
-    ...(screenedChipShown() && state.showScreened ? ['SCREENED'] : [])].join(' + ') : '';
+    ...(screenedChipShown() && state.showScreened ? ['HIDDEN'] : [])].join(' + ') : '';
   const held = state.searchExcluded.length;
   const parts = tested ? shownBreakdown(state.rows, candidates) : '';
   c.innerHTML = tested
@@ -628,9 +628,11 @@ function render() {
     el.setAttribute('aria-pressed', String(on));
     const last = on && state.showStates.size === 1;
     el.disabled = n === 0 || last;
-    // UNKNOWN counts the materials held out as unlikely too, never FAIL: its title says how many (C07).
+    // UNKNOWN counts the hidden materials too, never FAIL. Its title names the groups it holds (stage 3d): most of them
+    // were measured and missed, which "could not be checked for missing data" had hidden.
+    const groups = unknownGroupWords(unknownGroups(state.selection.evaluations, { explore: state.scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION }));
     const what = { PASS: 'that meet every requirement', FAIL: 'that fail a requirement',
-      UNKNOWN: `that could not be checked for missing data${screenedChipShown() ? ` (${counts.screened} of them hidden as unlikely; SCREENED shows them)` : ''}` }[verdict];
+      UNKNOWN: `UNKNOWN materials${groups ? ` (${groups}${screenedChipShown() ? '; the HIDDEN chip shows the hidden ones' : ''})` : ''}` }[verdict];
     el.title = n === 0 ? `No material is ${verdict} under the current requirements`
       : last ? `Showing the ${n} ${what}. At least one kind of result stays shown.`
       : on ? `Showing the ${n} ${what}. Click to hide them.`
@@ -653,21 +655,23 @@ function render() {
   // material whatever the switch says, and is not the switch's to count (D148).
   const kinds = screenedKinds(state.selection.evaluations);
   const ruled = document.getElementById('est-ruled');
-  ruled.textContent = explore && state.useEstimates && kinds.bySwitch ? `${kinds.bySwitch} screened` : '';
+  ruled.textContent = explore && state.useEstimates && kinds.bySwitch ? `${kinds.bySwitch} hidden` : '';
   ruled.hidden = !ruled.textContent;
   estBox.setAttribute('aria-describedby', explore ? 'est-ruled' : 'est-reason');
   // Screened materials are UNKNOWN, and they are counted there. This chip shows how many of those were held out as
   // unlikely, and by what, and brings them back; it never appears unless something was held out.
   const scr = document.getElementById('s-screened');
   scr.hidden = !screenedChipShown();
-  chipText(scr, state.showScreened, `SCREENED ${counts.screened}`);
+  chipText(scr, state.showScreened, `HIDDEN ${counts.screened}`);
   scr.setAttribute('aria-pressed', String(state.showScreened));
   const why = [kinds.notApplicable ? `${kinds.notApplicable} because a required property does not apply to them (such as an elastomer's HDT)` : null,
     kinds.estimate ? `${kinds.estimate} by an estimate that clearly misses a requirement` : null,
     kinds.polymer ? `${kinds.polymer} by resin reference data reporting the base polymer attacked or dissolved` : null].filter(Boolean).join('; ');
-  scr.title = state.showScreened
-    ? `Showing the ${counts.screened} UNKNOWN materials hidden as unlikely: ${why}. Click to hide them again.`
-    : `${counts.screened} UNKNOWN materials are hidden as unlikely: ${why}. None failed a measured value. Click to show them.`;
+  // No sentence for nothing hidden: the chip is off screen then, and "0 UNKNOWN materials are hidden: ." read as a fault.
+  scr.title = !counts.screened || !why ? ''
+    : state.showScreened
+      ? `Showing the ${counts.screened} hidden UNKNOWN material${counts.screened === 1 ? '' : 's'}: ${why}. Click to hide ${counts.screened === 1 ? 'it' : 'them'} again.`
+      : `${counts.screened} UNKNOWN material${counts.screened === 1 ? ' is' : 's are'} hidden: ${why}. None failed a measured value. Click to show ${counts.screened === 1 ? 'it' : 'them'}.`;
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));

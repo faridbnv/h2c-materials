@@ -196,7 +196,7 @@ function genScenario(i, prior) {
   s.start = pick(['S1', 'S0', 'X0', 'X1']);
   s.startLens = chance(0.5) ? 'table' : 'ashby';
   s.path = chance(IMPORT_SHARE) ? 'import' : 'url';
-  s.sample = chance(0.25);            // also read SCREENED on, and FAIL shown
+  s.sample = chance(0.25);            // also read HIDDEN on, and FAIL shown
   s.roundtrip = chance(ROUNDTRIP_SHARE);
   return s;
 }
@@ -231,11 +231,11 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   const tested = s.constraints.length > 0;
   const { counts } = sel;
   const shown = rows.length, candidateCount = sel.candidates.length;
-  // The count names the shown verdicts in a fixed order, never alphabetically, then SCREENED while its chip is on screen
+  // The count names the shown verdicts in a fixed order, never alphabetically, then HIDDEN while its chip is on screen
   // and pressed (main.js renderCount). The chip shows under Include whatever the estimates switch says: a property that
   // does not apply hides a material with it off too (D148).
   const screenedChip = tested && explore && sel.counts.screened > 0;
-  const label = [...['PASS', 'UNKNOWN', 'FAIL'].filter((v) => showStates.has(v)), ...(screened && screenedChip ? ['SCREENED'] : [])].join(' + ');
+  const label = [...['PASS', 'UNKNOWN', 'FAIL'].filter((v) => showStates.has(v)), ...(screened && screenedChip ? ['HIDDEN'] : [])].join(' + ');
   // Then what the shown rows are, in parts that add up to their number: the candidates among them (of how many, when not all
   // are shown), and those shown for another reason. No parts when the rows are exactly the candidates.
   const kinds = { candidate: 0, unchecked: 0, screened: 0, failed: 0 };
@@ -244,7 +244,7 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   const parts = kinds.candidate === shown && shown === candidateCount ? '' : [
     !candidateCount ? 'no candidates' : kinds.candidate === candidateCount ? plural(candidateCount, 'candidate') : `${kinds.candidate} of the ${plural(candidateCount, 'candidate')}`,
     kinds.unchecked ? `${kinds.unchecked} could not be checked` : null,
-    kinds.screened ? `${kinds.screened} screened out` : null,
+    kinds.screened ? `${kinds.screened} hidden` : null,
     kinds.failed ? `${kinds.failed} failed` : null,
   ].filter(Boolean).join(', ');
   let count = tested ? `${shown} shown ${label}${parts ? ` · ${parts}` : ''}` : `${shown} material${shown === 1 ? '' : 's'} no requirements set`;
@@ -252,7 +252,7 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   // Each chip leads with a box, ticked while its results are shown (main.js chipText).
   const box = (on) => (on ? '\u2611' : '\u2610');
   const chips = [['PASS', counts.pass], ['UNKNOWN', counts.unknown], ['FAIL', counts.fail]].map(([v, n]) => [!tested, `${box(showStates.has(v))} ${v} ${n}`]);
-  chips.push([!(tested && explore && counts.screened), `${box(screened)} SCREENED ${counts.screened}`]);
+  chips.push([!(tested && explore && counts.screened), `${box(screened)} HIDDEN ${counts.screened}`]);
   return { sel, rows, excluded, families, count: count.replace(/\s+/g, ' ').trim(), chips, tested, ctx, materials };
 }
 function plotOracle(o, plot) {
@@ -333,7 +333,7 @@ const BAD = /\bNaN\b|\bundefined\b|\[object Object\]/;
 function compareReading(s, key, r, o) {
   const [set, lens] = key.split('|');
   check('I2-count'); if (r.count !== o.count) violate('I2-count', 'count text differs', s, key, { page: r.count, node: o.count });
-  // The count's parts must add up to its number, read from the page alone: "31 shown ... · 23 candidates, 8 screened out".
+  // The count's parts must add up to its number, read from the page alone: "31 shown ... · 23 candidates, 8 hidden".
   const cm = /^(\d+) shown [A-Z +]+(?: · (.*?))?(?: matching "|$)/.exec(r.count);
   if (o.tested) {
     check('I2-count-adds-up');
@@ -356,16 +356,16 @@ function compareReading(s, key, r, o) {
     check('I2-header');
     const c = o.sel.counts, explore = SETTINGS[set.slice(0, 2)].u === 'exploration';
     const hm = /(\d+) of the (\d+) materials meet/.exec(r.head ?? '');
-    // The line under the heading (F09) counts the materials that could not be checked: left out, or listed flagged when
-    // they are included, where it also says how many an estimate or the base polymer's published
-    // behaviour (D64) screened out of the list.
-    const umS = /(\d+) more could not be checked and are left out/.exec(r.head ?? '');
-    const umX = /(\d+) more could not be checked, listed flagged(?:, except (\d+) screened out)?/.exec(r.head ?? '');
-    const um = explore ? umX : umS;
-    const screenedShown = umX?.[2] === undefined ? 0 : Number(umX[2]);
+    // The line under the heading (F09, stage 3d) counts the UNKNOWN materials by group: "UNKNOWN 91 left out: 7 one check
+    // away, 38 not enough data, 37 unlikely to meet, 9 a required property does not apply to", or under Include "UNKNOWN 93:
+    // …, 9 hidden". The groups add up to the count, and the hidden ones are the chip's.
+    const um = /UNKNOWN (\d+)( left out| shown, not candidates)?(?:: ([^·]*))?/.exec(r.head ?? '');
+    const groupsSaid = (um?.[3] ?? '').split(', ').filter(Boolean).map((p) => /^(\d+) (.*)$/.exec(p.trim())).filter(Boolean);
+    const groupSum = groupsSaid.reduce((n, g) => n + Number(g[1]), 0);
+    const hiddenSaid = Number(groupsSaid.find((g) => g[2] === 'hidden')?.[1] ?? 0);
     if (!hm || Number(hm[1]) !== c.pass || Number(hm[2]) !== c.total) violate('I2-header', 'results header pass/total differs', s, key, { head: (r.head ?? '').slice(0, 200), node: [c.pass, c.total] });
-    else if ((explore ? umS : umX) || (c.unknown > 0) !== !!um || (um && Number(um[1]) !== c.unknown)
-      || (umX && screenedShown !== c.screened)) violate('I2-header', 'results header unknown sentence differs', s, key, { head: (r.head ?? '').slice(0, 320), node: [c.unknown, c.screened, explore] });
+    else if ((c.unknown > 0) !== !!um || (um && (Number(um[1]) !== c.unknown || groupSum !== c.unknown || explore === !!um[2] || hiddenSaid !== (explore ? c.screened : 0))))
+      violate('I2-header', 'results header unknown sentence differs', s, key, { head: (r.head ?? '').slice(0, 320), node: [c.unknown, c.screened, explore] });
     // The rail shows one control per property, so a second requirement on the same property is invisible there.
     for (const k of Object.keys(r.rail ?? {})) {
       const mine = s.constraints.filter((x) => x.kind === 'numeric' && x.property === k);
@@ -384,7 +384,7 @@ function compareReading(s, key, r, o) {
     const byId = new Map(o.rows.map((x) => [x.material.id, x]));
     // Grouped under Include once something is asked (D155): the groups are the engine's, never recomputed here.
     const grouped = o.tested && o.ctx.unknownPolicy === UNKNOWN_POLICY.EXPLORATION;
-    for (const [id, verdict, scr, scrTitle, cells, group, groupReason] of r.rows) {
+    for (const [id, verdict, scr, scrTitle, cells, group, groupReason, hiddenWhy, failWhy] of r.rows) {
       const x = byId.get(id); if (!x) continue;
       const ev = x.evaluation;
       check('I1-verdict');
@@ -395,20 +395,25 @@ function compareReading(s, key, r, o) {
       check('I1-group-reason');
       const expReason = o.tested && ev.verdict === 'UNKNOWN' && ev.group !== 'hidden' ? ev.groupReason ?? '' : '';
       if (groupReason !== expReason) violate('I1-group-reason', 'the row\'s group reason differs from the engine\'s', s, key, { id, page: groupReason, node: expReason });
+      // A hidden row says why in one short phrase, and a failing row what it failed first (stage 3d).
+      check('I1-hidden-why');
+      if (o.tested && ev.screened && !/^(does not apply: |resin data: |no product on record|its estimate wholly misses)/.test(hiddenWhy)) violate('I1-hidden-why', 'a hidden row gives no reason', s, key, { id, page: hiddenWhy });
+      check('I1-fail-why');
+      if (o.tested && ev.verdict === 'FAIL' && !/^fails: \S/.test(failWhy)) violate('I1-fail-why', 'a failing row does not say what failed', s, key, { id, page: failWhy });
       check('I1-screened');
-      if (scr !== (o.tested && ev.screened)) violate('I1-screened', 'screened chip mismatch', s, key, { id, page: scr, node: ev.screened });
-      if (scr && !set.includes('scr')) violate('I1-screened', 'screened row shown with SCREENED off', s, key, { id });
+      if (scr !== (o.tested && ev.screened)) violate('I1-screened', 'hidden chip mismatch', s, key, { id, page: scr, node: ev.screened });
+      if (scr && !set.includes('scr')) violate('I1-screened', 'hidden row shown with HIDDEN off', s, key, { id });
       if (scr) {
         // Each screen names what held the row out, a property that does not apply (D148), an estimate or the base
         // polymer's published behaviour (D64), and the requirement after it; the title starts with one of the three and no
         // prefix is left without a criterion.
         check('I6-empty-reason');
-        const PREFIX = /(Does not apply|Screened by an estimate|Screened by the base polymer's published behaviour):/;
+        const PREFIX = /(Does not apply|Hidden by an estimate|Hidden by resin data on the base polymer):/;
         const prefixed = new RegExp(`^${PREFIX.source} \\S`).test(scrTitle);
         const bare = new RegExp(`${PREFIX.source}(?!\\s\\S)`).test(scrTitle);
         if (!prefixed || bare) violate('I6-empty-reason', 'screened chip title has no criterion after its prefix', s, key, { id, scrTitle });
         const expKinds = { notApplicable: ev.unresolved.some((r) => r.screened && r.notApplicable), estimate: ev.unresolved.some((r) => r.screened && !r.notApplicable && !r.polymerScreen), polymer: ev.unresolved.some((r) => r.screened && r.polymerScreen) };
-        if (expKinds.notApplicable !== /Does not apply:/.test(scrTitle) || expKinds.estimate !== /Screened by an estimate:/.test(scrTitle) || expKinds.polymer !== /Screened by the base polymer's published behaviour:/.test(scrTitle)) violate('I6-empty-reason', 'screened chip title names the wrong kind of screen', s, key, { id, scrTitle, expected: expKinds });
+        if (expKinds.notApplicable !== /Does not apply:/.test(scrTitle) || expKinds.estimate !== /Hidden by an estimate:/.test(scrTitle) || expKinds.polymer !== /Hidden by resin data on the base polymer:/.test(scrTitle)) violate('I6-empty-reason', 'hidden chip title names the wrong kind of screen', s, key, { id, scrTitle, expected: expKinds });
         // In the pills' words, never the engine's criterion strings ("hdt045 >= 100").
         check('I6-raw-key');
         const raw = KEYS.find((k) => new RegExp(`(^|[^A-Za-z0-9_])${k}($|[^A-Za-z0-9_])`).test(scrTitle));
@@ -620,7 +625,8 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
           const scr = tds[vi].querySelector('.chip-screened');
           const cells = {};
           for (const k of keys) { const j = cols.indexOf(k); if (j >= 0) cells[k] = { t: tds[j].innerText.trim(), est: !!tds[j].querySelector('.est') }; }
-          out.rows.push([tr.dataset.material, tds[vi].querySelector('.chip')?.textContent.trim(), !!scr, scr?.title ?? '', cells, grid.dataset.group ?? null, tds[vi].querySelector('.group-reason')?.textContent ?? '']);
+          out.rows.push([tr.dataset.material, tds[vi].querySelector('.chip')?.textContent.trim(), !!scr, scr?.title ?? '', cells, grid.dataset.group ?? null, tds[vi].querySelector('.group-reason')?.textContent ?? '',
+            tds[vi].querySelector('.hidden-why')?.textContent ?? '', tds[vi].querySelector('.fail-why')?.textContent ?? '']);
         }
       }
       folds.forEach((d, i) => { d.open = wasOpen[i]; });
@@ -657,7 +663,7 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
     for (const st of plan.order) {
       go(st);
       both(st);
-      // SCREENED shows under Include with estimates off too, where a property that does not apply hides (D148).
+      // HIDDEN shows under Include with estimates off too, where a property that does not apply hides (D148).
       if (plan.sample && (st === 'X1' || st === 'X0') && !document.getElementById('s-screened').hidden) {
         click('#s-screened'); both(st + 'scr'); click('#s-screened');
       }

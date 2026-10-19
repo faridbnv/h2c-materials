@@ -218,7 +218,7 @@ test('a polymer-level "not-resistant" screens under Include uncertain with infer
   assert.equal(on.screened, true);
   assert.equal(on.eligible, false);
   assert.deepEqual(on.screenedBy, ['Organic solvent resistance evidence']);
-  assert.match(on.results[0].reason, /not resistant \(not resistant to acetone\) in resin reference data.*Screened out; not tested on this product/);
+  assert.match(on.results[0].reason, /not resistant \(not resistant to acetone\) in resin reference data.*Hidden; not tested on this product/);
   assert.equal(on.results[0].polymerScreen, true);
   assert.deepEqual(runSelection([m], [solvent], ctxWith({ polymer: polymerRecord('not-resistant') })).counts, { pass: 0, fail: 0, unknown: 1, screened: 1, total: 1 });
 
@@ -226,7 +226,7 @@ test('a polymer-level "not-resistant" screens under Include uncertain with infer
   assert.equal(off.verdict, STATUS.UNKNOWN);
   assert.equal(off.screened, false);
   assert.equal(off.eligible, true);
-  assert.match(off.results[0].reason, /would screen this material out with inference on/);
+  assert.match(off.results[0].reason, /would hide this material with estimates and resin data on/);
 
   const strict = evaluateMaterial(m, [solvent], ctxWith({ polymer: polymerRecord('not-resistant'), policy: UNKNOWN_POLICY.STRICT }));
   assert.equal(strict.verdict, STATUS.UNKNOWN);
@@ -259,5 +259,5 @@ test('the screened chip names the kind of screen with the criterion after its pr
   assert.equal(chip.text, `${SCREEN_PREFIX.polymer}: Resists solvents. Not a failure; not tested on this product.`);
   assert.equal(chip.action, 'polymer');
   assert.deepEqual(screenedByKind(e), { notApplicable: [], estimate: [], polymer: ['Resists solvents'] });
-  assert.match(chip.text, /^(Does not apply|Screened by an estimate|Screened by the base polymer's published behaviour): \S/);
+  assert.match(chip.text, /^(Does not apply|Hidden by an estimate|Hidden by resin data on the base polymer): \S/);
 });

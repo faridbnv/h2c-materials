@@ -68,7 +68,7 @@ export function renderExclusions(host, state, actions) {
     <p style="color:var(--ink-2);font-size:13px;margin:0 0 12px">
       Each requirement, ranked by how many candidates it costs. <b>Failed:</b> the published value misses it.
       <b>Could not check:</b> the data is missing; ${explore
-        ? 'these stay listed, flagged, since the materials that could not be checked are included, except those <b>hidden</b> as unlikely, which the SCREENED chip brings back'
+        ? 'these stay listed, flagged, since the materials that could not be checked are included, except those <b>hidden</b>, which the HIDDEN chip brings back'
         : `these are out only because the materials that could not be checked are set to "${POLICY_LABELS.strict}" in the top bar`}.
       <b>Removing it</b> counts the materials that would come back without that one requirement.</p>
     ${required.map(([r, i]) => {
@@ -120,7 +120,7 @@ function chosenBecause(e) {
     case 'one-check-away': return `the one${of} a single question or test would settle`;
     case 'not-enough-data': return e.likely ? `the one${of} whose estimates most clearly meet what is open` : `the one${of} nearest to being settled: the fewest requirements open, then the closest estimate`;
     case 'unlikely-to-meet': return `the nearest${of} to meeting them, though the material is unlikely to`;
-    case 'hidden': return `hidden as unlikely, like the rest${of}`;
+    case 'hidden': return `hidden, like the rest${of}`;
     case 'fail': return n > 1 ? `every one of its ${n} products fails a requirement; this is the first` : 'it fails a requirement';
     default: return 'the one nearest to being settled';
   }
@@ -227,7 +227,7 @@ export function renderNoResults(host, state, actions) {
   const unconfirmable = scenario.constraints.filter((c) => c.mandatory !== false && unconfirmed(selection, c));
   const explore = scenario.unknownPolicy === 'exploration';
   const next = `<ul class="next-steps">
-      ${counts.unknown ? `<li>${explore ? 'The materials that could not be checked are listed already; the SCREENED chip brings back any hidden as unlikely.' : `<button type="button" class="btn btn-sm" id="to-explore">Include them</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
+      ${counts.unknown ? `<li>${explore ? 'The materials that could not be checked are listed already; the HIDDEN chip brings back any that are hidden.' : `<button type="button" class="btn btn-sm" id="to-explore">Include them</button> lists the ${counts.unknown} that could not be checked, flagged, with what is missing for each.`}</li>` : ''}
       ${unconfirmable.length ? `<li>No data here can confirm ${esc(unconfirmable.map(describeConstraint).join('; '))}. Read what makers say in a material's Environment or Products tab, and plan a test of your own part.</li>` : ''}
       <li>The ranked list below shows which requirement removes the most, and which ones only failed.</li>
     </ul>`;

@@ -78,12 +78,13 @@ test('a deciding floor passes a minimum on the record it reads and names it; a r
   assert.deepEqual([b.lo, b.hi, b.by.length, b.by[0].rule, b.by[0].measurementId], [80, null, 1, 'CV01', m.id]);
   const pass = ask(g, r.mini, 'hdt045', '>=', 70);
   assert.equal(pass.status, STATUS.PASS);
-  assert.equal(pass.reason, `Meets it on its HDT at 1.8 MPa, a harsher load: 80 °C (${m.id})`);
+  // The record in words, never its ID (stage 3d): the answer carries the ID for the trace and the export.
+  assert.equal(pass.reason, 'Meets it on its HDT at 1.8 MPa, a harsher load: 80 °C');
   assert.deepEqual([pass.measurementId, pass.ledger.rule, pass.ledger.bound], [m.id, 'CV01', 80]);
   // A floor says nothing against a higher minimum: the next answer, with what the floor still says.
   const open = ask(g, r.mini, 'hdt045', '>=', 100);
   assert.equal(open.status, STATUS.UNKNOWN);
-  assert.match(open.reason, /Its other records put it at least 80 °C \(V\d+\), which leaves 100 °C on either side$/);
+  assert.match(open.reason, /Its other records put it at least 80 °C, which leaves 100 °C on either side$/);
 
   const g2 = productWith('G001-02', 'M001');
   const r2 = ledger([g2], [meas(g2.id, 'HDT', 80, { load: 1.8 })], { rows: [{ ...ROW.hdt18, Status: 'reported' }] });
@@ -102,7 +103,7 @@ test('a comparable value always wins over the ledger, and is doubtful where a de
   const e = ask(g, r.mini, 'hdt045', '>=', 70);
   assert.equal(e.status, STATUS.FAIL, 'the value decides, not the floor');
   assert.ok(e.doubtful);
-  assert.match(e.reason, /Doubtful: its HDT at 1\.8 MPa, a harsher load \(V\d+\) puts it at least 80 °C; re-read before relying on it$/);
+  assert.match(e.reason, /Doubtful: its HDT at 1\.8 MPa, a harsher load puts it at least 80 °C; re-read before relying on it$/);
   // Within the test scatter, no doubt.
   const g2 = productWith('G001-04', 'M001', { hdt045: { value: 77, level: 'comparable', measurementId: 'V900002' } });
   ledger([g2], [meas(g2.id, 'HDT', 80, { load: 1.8 })], { rows: [ROW.hdt18] });
@@ -115,7 +116,7 @@ test('an annealed value is a ceiling for the printed part: it fails a minimum it
   const r = ledger([g], [m], { rows: [ROW.annealedHdt] });
   const fail = ask(g, r.mini, 'hdt045', '>=', 100);
   assert.equal(fail.status, STATUS.FAIL);
-  assert.equal(fail.reason, `Its HDT after annealing: 60 °C (${m.id}), the most it reaches as printed: fails 100 °C`);
+  assert.equal(fail.reason, 'Its HDT after annealing: 60 °C, the most it reaches as printed: fails 100 °C');
   // A ceiling is compared with the limit as it is: 4 °C short fails (stage 3d; it had been on the line).
   const near = ask(g, r.mini, 'hdt045', '>=', 64);
   assert.deepEqual([near.status, near.onTheLine], [STATUS.FAIL, undefined]);
@@ -131,7 +132,7 @@ test('a PLA HDT from an undescribed bar stays its value but only as a ceiling, a
   assert.equal(g.headline.hdt045.ceilingOnly, undefined, 'the published value the table shows is untouched');
   const open = ask(g, r.mini, 'hdt045', '>=', 80);
   assert.deepEqual([open.status, open.ceilingOnly.measurementId], [STATUS.INDETERMINATE, 'V900003']);
-  assert.match(open.reason, /^Published 108 °C \(V900003\) on a bar its sheet does not describe\./);
+  assert.match(open.reason, /^Published 108 °C on a bar its sheet does not describe\./);
   assert.equal(ask(g, r.mini, 'hdt045', '>=', 120).status, STATUS.FAIL, 'a ceiling fails a minimum it misses');
   assert.equal(ask(g, r.mini, 'hdt045', '<=', 120).status, STATUS.PASS, 'and passes a maximum it meets');
   // With its HDT at 1.8 MPa as a floor, the ledger passes what the ceiling could not.
@@ -188,6 +189,8 @@ test('the test scatter belongs to a point: a band, floor or ceiling is compared 
   const r = ledger([g], [meas(g.id, 'Flexural modulus', 2.493, { materialId: 'M002' })], { rows: [{ ...ROW.flex, 'Factor high': '1.93' }] });
   const band = ask(g, r.mini, 'tensileModulusXY', '>=', 5);
   assert.deepEqual([band.status, band.onTheLine, band.thinMargin], [STATUS.FAIL, undefined, undefined]);
+  // Its numbers as the page prints every other (R16): about three significant figures, never "4.81149 GPa".
+  assert.equal(band.reason, 'Its flexural modulus: 2.49 GPa, so between 1.15 and 4.81 GPa: fails 5 GPa');
   const annealed = productWith('G001-16', 'M001');
   const ra = ledger([annealed], [meas(annealed.id, 'HDT', 60, { postProcessingState: 'annealed', anneal: { tempC: 90, hours: 2 } })], { rows: [ROW.annealedHdt] });
   assert.equal(ask(annealed, ra.mini, 'hdt045', '>=', 62).status, STATUS.FAIL, 'a ceiling 2 °C short fails');
@@ -217,7 +220,7 @@ test('two records with no value between them are "sheets disagree": unresolved, 
     const e = ask(g, r.mini, 'hdt045', '>=', v);
     assert.deepEqual([e.status, !!e.sheetsDisagree], [STATUS.INDETERMINATE, true], `${v}`);
   }
-  assert.match(ask(g, r.mini, 'hdt045', '>=', 70).reason, /^Its records disagree: its HDT at 1\.8 MPa, a harsher load: 80 °C \(V\d+\) puts it at least 80 °C, and its HDT after annealing: 60 °C \(V\d+\) at most 60 °C\./);
+  assert.match(ask(g, r.mini, 'hdt045', '>=', 70).reason, /^Its records disagree: its HDT at 1\.8 MPa, a harsher load: 80 °C puts it at least 80 °C, and its HDT after annealing: 60 °C at most 60 °C\./);
 });
 
 test('a band decides only when wholly on one side, and a record without its direction decides only where the reader admits it', () => {
@@ -226,7 +229,8 @@ test('a band decides only when wholly on one side, and a record without its dire
   const r = ledger([g], [flex], { rows: [ROW.flex] });
   const b = g.states[0].bounds.tensileModulusXY;
   assert.deepEqual([b.lo, b.hi], [0.92, 3.82]);
-  assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 5).reason, `Its flexural modulus: 2 GPa (${flex.id}), so between 0.92 and 3.82 GPa: fails 5 GPa`);
+  assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 5).reason, 'Its flexural modulus: 2 GPa, so between 0.92 and 3.82 GPa: fails 5 GPa');
+  assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 5).measurementId, flex.id, 'the answer keeps the record for the trace and the export');
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 4.2).status, STATUS.FAIL, 'a band end near the limit is not on the line (stage 3d)');
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 3).status, STATUS.UNKNOWN);
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 0.9).status, STATUS.PASS);
@@ -364,4 +368,19 @@ test('over the compiled database, allowing annealing never removes a pass, and a
   }
   // The states the engine may judge are untouched by the ledger.
   for (const g of db.grades.slice(0, 50)) assert.deepEqual(scenarioStates(g, {}).map((s) => s.id), scenarioStates(noLedger({ grades: [g] }).grades[0], {}).map((s) => s.id));
+});
+
+// Stage 3d over the compiled database: the review's R01 and R02, and the second trial's plain PLA at 80 °C.
+test('over the compiled database: no undescribed PLA bar passes 70 °C, PLA is unlikely at 80 °C, and no band holds PLA one check from 5 GPa', () => {
+  const byName = new Map(candidates.map((m) => [m.name, m]));
+  const run = (constraints) => runSelection(candidates, constraints, ctxOf({}));
+  const hot = (value) => [{ kind: 'numeric', property: 'hdt045', operator: '>=', value, mandatory: true }];
+  const at70 = run(hot(70)).evaluations.find((e) => e.materialId === byName.get('PLA').id);
+  for (const id of ['G001-16', 'G001-55', 'G001-115']) assert.notEqual(at70.products.find((p) => p.gradeId === id).verdict, STATUS.PASS, `${id} passes 70 °C on an undescribed bar`);
+  const warm = run(TEMPLATES.find((t) => t.name === 'Warm environment').constraints);
+  assert.equal(warm.evaluations.find((e) => e.materialId === byName.get('PLA').id).group, 'unlikely-to-meet');
+  const petGf = warm.evaluations.flatMap((e) => e.products).find((p) => p.gradeId === 'G068-04');
+  assert.notEqual(petGf.results.find((r) => r.constraint.property === 'hdt045').status, STATUS.PASS, 'Raise3D PET GF on 99 °C at 1.8 MPa');
+  const stiff = run(TEMPLATES.find((t) => t.name === 'High-stiffness fixture').constraints);
+  for (const name of ['PLA', 'PLA Silk', 'PC']) assert.notEqual(stiff.evaluations.find((e) => e.materialId === byName.get(name).id).group, 'one-check-away', name);
 });

@@ -9,7 +9,7 @@
 
 import { renderValue, chip, esc, fmtNumber, fmtBoundedKind, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
 import { dayWords } from './dates.js';
-import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
+import { prop, materialName, describeConstraint, screenedByKind, screenedChip, hiddenWhy, failWhy, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 import { INDICES, indexById, rankingFor, indexValue } from '../engine/indices.js';
 import { boundOf, publishedBound, GROUP, GROUP_ORDER } from '../engine/constraints.js';
@@ -147,7 +147,7 @@ function sortWithinGroup(rows, state) {
 
 /**
  * The groups' order for the table and its exports (D137, D155): meets every requirement, one check away, not enough data,
- * unlikely to meet, hidden as unlikely, fail; ranks themselves do not change. Inside "Not enough data" the likely ones
+ * unlikely to meet, hidden, fail; ranks themselves do not change. Inside "Not enough data" the likely ones
  * come first, then the nearest by the shortfall of the product that represents each; every other group keeps the
  * column's order.
  */
@@ -251,12 +251,39 @@ const withStateMark = (value, mark) => {
 
 /**
  * What would settle an unresolved row (D155, C05): its group, and the product that puts it there with that product's own
- * numbers, as the engine words it ("One check away on 1 of 17 products: ..."). A hidden row says nothing here: its chip
- * says what hid it.
+ * numbers, as the engine words it ("One check away on 1 of 17 products: ..."). A hidden row says why in one short phrase
+ * ("does not apply: HDT is a rigid-bar test"), and its chip the rest (stage 3d).
  */
 export function unknownMark(e) {
-  if (e?.verdict !== 'UNKNOWN' || !e.groupReason || e.group === GROUP.HIDDEN) return '';
+  if (e?.verdict !== 'UNKNOWN') return '';
+  if (e.group === GROUP.HIDDEN || e.screened) { const why = hiddenWhy(e); return why ? `<span class="row-sub hidden-why">${esc(why)}</span>` : ''; }
+  if (!e.groupReason) return '';
   return `<span class="row-sub group-reason">${esc(e.groupReason)}</span>`;
+}
+
+/**
+ * A pass of a nylon judged dry says so on its row (stage 3d; the review's R05: PA6-CF met the outdoor bracket on dry
+ * stiffness). Read from the data: the material's polymer takes up much water (polymers.csv Water uptake high), the
+ * scenario judges the part dry, and a required number is one humid air lowers (a stiffness, a strength, a heat value).
+ */
+const HUMID_LOWERS = [[/Modulus/, 'stiffness'], [/Strength/, 'strength'], [/^hdt/, 'heat deflection'], [/^glassTransition$/, 'glass transition']];
+export function humidMark(m, e, { db, scenario }) {
+  if (e?.verdict !== 'PASS' || scenario?.moisture === 'conditioned') return '';
+  const polymer = (db?.polymers ?? []).find((p) => p.id === m.estimateIdentity);
+  if (polymer?.waterUptake !== 'high') return '';
+  const moist = new Set((db.registry?.headlines ?? []).filter((h) => h.changesWithMoisture).map((h) => h.key));
+  const words = [...new Set((scenario?.constraints ?? []).filter((c) => c.kind === 'numeric' && c.mandatory !== false && moist.has(c.property))
+    .map((c) => HUMID_LOWERS.find(([re]) => re.test(c.property))?.[1]).filter(Boolean))];
+  if (!words.length) return '';
+  const said = words.length === 1 ? words[0] : `${words.slice(0, -1).join(', ')} and ${words.at(-1)}`;
+  return `<span class="row-sub humid-dry" title="${esc(`${polymer.id} takes up much water from humid air, which lowers its ${said}: a conditioned nylon's modulus can be half its dry one. Its products pass here on values measured dry or with the moisture unstated. Set Part condition to conditioned to judge it in humid air.`)}">judged dry; humid air lowers its ${esc(said)}</span>`;
+}
+
+/** What a failing row failed first, in a short phrase under its result: the drawer gives every requirement (stage 3d). */
+export function failMark(e) {
+  if (e?.verdict !== 'FAIL') return '';
+  const why = failWhy(e);
+  return why ? `<span class="row-sub fail-why">${esc(why)}</span>` : '';
 }
 
 /**
@@ -341,7 +368,7 @@ export function renderTable(host, state, actions) {
         const scr = e?.screened ? screenedChip(e) : null;
         return ghost
           ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
-          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${unknownMark(e)}</td>`
+          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('hidden', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${humidMark(m, e, state)}${unknownMark(e)}${failMark(e)}</td>`
           : `<td class="state"><span class="chip chip-quiet" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
@@ -472,13 +499,13 @@ export function renderTable(host, state, actions) {
       'A value from one measurement: one product publishes it, or it is a product\'s own value. Select it for its test conditions and source page.',
       { cls: 'lg', head: 'One measurement' }),
     explainButton('<span class="related-mark">*</span> published, not comparable',
-      'Published for this material, but no product reports it on a comparable basis: the orientation is not stated, or it is another endpoint. No filter uses it. Select a starred value for the reason.',
+      'Published for this material, but no product reports it on a comparable basis: the orientation is not stated, or it is another load, state, bar or endpoint. A requirement reads it only through a conversion row of the evidence ledger, in that row\'s one safe direction, and its answer then names the row. Select a starred value for the reason.',
       { cls: 'lg', head: 'Published, not comparable' }),
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
       `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass, and it hides one only where the material has no product on record; any other material is judged on its products' own values. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,
       { cls: 'lg', head: 'Estimate, not a measurement' }) : '',
     explainButton('<span class="na">n/a</span> not applicable',
-      'The property does not apply to this material, such as HDT of an elastomer. Not a gap. A requirement on it hides the material when the materials that could not be checked are included, whatever the estimates switch says; the SCREENED chip brings it back.',
+      'The property does not apply to this material, such as HDT of an elastomer. Not a gap. A requirement on it hides the material when the materials that could not be checked are included, whatever the estimates switch says; the HIDDEN chip brings it back.',
       { cls: 'lg', head: 'Not applicable' }),
   ].filter(Boolean);
   // The currencies a converted price on screen came from, and whether an annealed or conditioned median is on screen.
@@ -530,7 +557,7 @@ export function renderTable(host, state, actions) {
             ? e.failed.map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
             : e.screened
               ? e.unresolved.filter((r) => r.screened).map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
-                + '<br>Not a failure. The SCREENED chip at the bottom shows these.'
+                + '<br>Not a failure. The HIDDEN chip at the bottom shows these.'
             : e.heldBy.length
               ? `Could not be checked against ${esc(e.unresolved.map((r) => describeConstraint(r.constraint)).join(', '))}.`
                 + ` Not a failure: it is left out because ${POLICY_CONTROL.toLowerCase()} are set to "${POLICY_LABELS.strict}".`
@@ -571,14 +598,16 @@ export function renderTable(host, state, actions) {
   const inGroup = (g) => sorted.filter((r) => (r.evaluation.group ?? GROUP.MEETS) === g);
   const [meets, oneCheck, notEnough, unlikely, hidden, failed] = GROUP_ORDER.map(inGroup);
   const likelyCount = notEnough.filter((r) => r.evaluation.likely).length;
+  // With estimates off nothing is ordered or tagged by an estimate, so the note does not say it is (stage 3d).
+  const estimatesOn = !!state.ctx?.showEstimates;
   const wasOpen = host.querySelector('details.unlikely-to-meet')?.open;
   const resultTables = !sorted.length ? `<p class="empty-line">Nothing matching "${esc(state.search)}" meets your requirements.</p>`
     : !grouped ? tableOf(sorted, baselineRow)
       : `${meets.length || baselineRow ? `<h3>Meets every requirement (${meets.length})</h3>${tableOf(meets, baselineRow, GROUP.MEETS)}` : ''}
-        ${oneCheck.length ? `<h3>One check away (${oneCheck.length})</h3><p class="group-note">A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.</p>${tableOf(oneCheck, '', GROUP.ONE_CHECK)}` : ''}
-        ${notEnough.length ? `<h3>Not enough data (${notEnough.length})</h3><p class="group-note">More than one question is open, or a value is not published the way you asked. ${likelyCount ? `The ${likelyCount === 1 ? 'one' : likelyCount} tagged likely ${likelyCount === 1 ? 'comes' : 'come'} first: ${likelyCount === 1 ? 'its' : 'their'} estimated range meets every open number. ` : ''}Ordered by how close the estimate is; an estimate never passes.</p>${tableOf(notEnough, '', GROUP.NOT_ENOUGH)}` : ''}
-        ${unlikely.length ? `<details class="unlikely-to-meet" ${wasOpen ? 'open' : ''}><summary>Unlikely to meet (${unlikely.length}) — counted and exported</summary><p class="group-note">A product measured the way you asked misses and none meets it, or every open product's own estimate misses. Not a failure: the products that publish nothing are untested.</p>${tableOf(unlikely, '', GROUP.UNLIKELY)}</details>` : ''}
-        ${hidden.length ? `<h3>Hidden as unlikely (${hidden.length})</h3>${tableOf(hidden, '', GROUP.HIDDEN)}` : ''}
+        ${oneCheck.length ? `<h3>One check away (${oneCheck.length})</h3><p class="group-note">One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.</p>${tableOf(oneCheck, '', GROUP.ONE_CHECK)}` : ''}
+        ${notEnough.length ? `<h3>Not enough data (${notEnough.length})</h3><p class="group-note">More than one question is open, or a value is not published the way you asked. ${estimatesOn && likelyCount ? `The ${likelyCount === 1 ? 'one' : likelyCount} tagged likely ${likelyCount === 1 ? 'comes' : 'come'} first: ${likelyCount === 1 ? 'its' : 'their'} estimated range meets every open number. ` : ''}${estimatesOn ? 'Then ordered by how close each one\'s estimate or value comes to the limits; an estimate never passes.' : 'Ordered by how close the deciding product\'s values come to the limits.'}</p>${tableOf(notEnough, '', GROUP.NOT_ENOUGH)}` : ''}
+        ${unlikely.length ? `<details class="unlikely-to-meet" ${wasOpen ? 'open' : ''}><summary>Unlikely to meet (${unlikely.length}): folded, still counted and in the download</summary><p class="group-note">A product measured the way you asked misses and none meets it, or every open product's own estimate misses. Not a failure: the products that publish nothing are untested.</p>${tableOf(unlikely, '', GROUP.UNLIKELY)}</details>` : ''}
+        ${hidden.length ? `<h3>Hidden (${hidden.length})</h3><p class="group-note">Held out of the list by a definition or by inference, never by a failure: each row says why. The HIDDEN chip at the bottom shows them.</p>${tableOf(hidden, '', GROUP.HIDDEN)}` : ''}
         ${failed.length ? `<h3>Fail (${failed.length})</h3>${tableOf(failed, '', GROUP.FAIL)}` : ''}`;
 
   host.innerHTML = `
@@ -694,7 +723,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...(m.print?.bedEstimate ? [`bed ~${m.print.bedEstimate.lo}-${m.print.bedEstimate.hi} C (${m.print.bedEstimate.basis}; decides nothing)`] : []),
     ...(m.print?.chamberEstimate ? [`chamber ~${m.print.chamberEstimate.lo}-${m.print.chamberEstimate.hi} C (research band: ${m.print.chamberEstimate.basis}; decides nothing)`] : []),
   ].join(' | ');
-  const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}`).join(' | ');
+  const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}${recordIds(r)}`).join(' | ');
   const range = (r) => (r ? r.max === null ? `at least ${fmtNumber(r.min)}` : r.min === null ? `upper bound ${fmtNumber(r.max)}` : `${r.min}-${r.max}` : '');
 
   const header = [
@@ -785,7 +814,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
       lines.push([m.id, m.name, g.id, g.manufacturer, g.product, g.variant ?? '',
         scenario?.constraints?.length ? judged.get(g.id)?.verdict ?? '' : 'not tested',
         scenario?.constraints?.length && judged.get(g.id)?.state ? judgedAs(judged.get(g.id).state) : '',
-        (judged.get(g.id)?.results ?? []).filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').map((r) => `${r.constraint ? describeConstraint(r.constraint) : r.criterion}: ${r.reason}`).join(' | '),
+        (judged.get(g.id)?.results ?? []).filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').map((r) => `${r.constraint ? describeConstraint(r.constraint) : r.criterion}: ${r.reason}${recordIds(r)}`).join(' | '),
         ...(goal && ctx ? [(() => { const j = judged.get(g.id); const v = j ? indexValue(productView(m, g, ctx, stateOf(g, j.state?.id ?? null)), goal) : null; return v === null ? '' : Number(v.toPrecision(6)); })()] : []),
         ...KEYS.flatMap((k) => { const v = g.headline?.[k]; return [v?.value ?? '', v?.level ?? '', v?.measurementId ?? (v?.priceIds ?? []).join(' ')]; }),
         KEYS.flatMap((k) => boundQualifier(k, g.headline?.[k])).join(' | '),
@@ -801,6 +830,16 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
 }
 
 const scheduleWords = (t) => `${t?.tempC ?? '?'} C for ${t?.hours ?? '?'} h`;
+/**
+ * The records an answer the evidence ledger gave rests on, for an export (stage 3d): the page's sentence names them in
+ * words, and the file keeps their IDs, " [records V002691]". Only where the ledger, a ceiling or a doubt decided.
+ */
+const recordIds = (r) => {
+  if (!r.ledger && !r.sheetsDisagree && !r.ceilingOnly && !r.doubtful) return '';
+  const ids = [...new Set([r.ledger?.measurementId, r.sheetsDisagree?.lo?.measurementId, r.sheetsDisagree?.hi?.measurementId, r.ceilingOnly?.measurementId,
+    ...(r.doubtful ?? []).map((d) => d.measurementId)].filter(Boolean))];
+  return ids.length ? ` [records ${ids.join(' ')}]` : '';
+};
 /** The state a verdict is in (D99), as an export column says it. */
 const judgedAs = (s) => `${s.treatment ? `annealed ${scheduleWords(s.treatment)}` : 'as printed'}${s.moisture === 'conditioned' ? ', conditioned' : ', dry'}`;
 /** What the scenario permits, as the export's header says it. */

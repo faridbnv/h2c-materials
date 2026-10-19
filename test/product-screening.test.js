@@ -249,3 +249,30 @@ test('the screened chip names a property that does not apply once per material, 
   assert.equal(chip.head, 'Does not apply');
   assert.doesNotMatch(chip.text, /estimate/);
 });
+
+// Stage 3d: the page's words for the groups, a hidden row, a failing row and a nylon judged dry.
+test('the page names the UNKNOWN groups, says why a row is hidden or failed, and tags a nylon judged dry', async () => {
+  const { unknownGroups, unknownGroupWords, hiddenWhy, failWhy } = await import('../app/js/ui/labels.js');
+  const { humidMark, unknownMark, failMark } = await import('../app/js/ui/table.js');
+  const db = JSON.parse(readFileSync(new URL('../dist/db.json', import.meta.url)));
+  useRegistry(db.registry);
+  const ev = [['one-check-away'], ['not-enough-data'], ['not-enough-data'], ['unlikely-to-meet'], ['hidden']].map(([group]) => ({ verdict: 'UNKNOWN', group, unresolved: [] }));
+  assert.equal(unknownGroupWords(unknownGroups(ev, { explore: true })), '1 one check away, 2 not enough data, 1 unlikely to meet, 1 hidden');
+  assert.equal(unknownGroupWords(unknownGroups([]), { explore: true }), '', 'no sentence for nothing');
+  const hdt = { kind: 'numeric', property: 'hdt045', operator: '>=', value: 80 };
+  const hidden = { verdict: 'UNKNOWN', group: 'hidden', screened: true, unresolved: [{ status: 'UNKNOWN', screened: true, notApplicable: true, constraint: hdt,
+    reason: 'Maker X: Does not apply: HDT is a rigid-bar test. ISO 75 ends at 0.2 % outer-fibre strain.' }] };
+  assert.equal(hiddenWhy(hidden), 'does not apply: HDT is a rigid-bar test');
+  assert.match(unknownMark(hidden), /class="row-sub hidden-why">does not apply: HDT is a rigid-bar test</);
+  const bed = { verdict: 'FAIL', failed: [{ status: 'FAIL', constraint: { kind: 'gate', gate: 'bed' }, reason: 'Requires up to 200 °C; the H2C reaches only 120 °C' }] };
+  assert.equal(failWhy(bed), 'fails: bed temperature, needs up to 200 °C (the H2C reaches 120 °C)');
+  assert.match(failMark(bed), /fail-why/);
+  const hot = { verdict: 'FAIL', failed: [{ status: 'FAIL', constraint: { ...hdt, value: 100 }, observed: 90, unit: '°C' }] };
+  assert.equal(failWhy(hot), 'fails: HDT at 0.45 MPa at least 100 °C, published 90 °C');
+  // A nylon (polymers.csv Water uptake high) passing a stiffness judged dry says so; PA12 (low) and a conditioned part do not.
+  const scenario = { constraints: [{ kind: 'numeric', property: 'tensileModulusXY', operator: '>=', value: 3, mandatory: true }] };
+  const pass = { verdict: 'PASS' };
+  assert.match(humidMark({ estimateIdentity: 'PA6' }, pass, { db, scenario }), />judged dry; humid air lowers its stiffness</);
+  assert.equal(humidMark({ estimateIdentity: 'PA12' }, pass, { db, scenario }), '');
+  assert.equal(humidMark({ estimateIdentity: 'PA6' }, pass, { db, scenario: { ...scenario, moisture: 'conditioned' } }), '');
+});

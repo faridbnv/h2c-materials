@@ -42,7 +42,7 @@
       <span class="mode-label" id="mode-label"><span class="mode-label-long">Materials that could not be checked</span><span class="mode-label-short">Could not be checked</span></span>
       <div class="segmented" role="group" aria-labelledby="mode-label">
         <button id="mode-strict" aria-pressed="true" title="Leave out the materials whose data cannot settle a requirement: only those confirmed to meet every requirement are listed.">Leave out</button>
-        <button id="mode-explore" aria-pressed="false" title="Also list the materials whose data cannot settle a requirement, flagged, with what is missing for each. A material a required property does not apply to stays hidden; the SCREENED chip brings it back.">Include</button>
+        <button id="mode-explore" aria-pressed="false" title="Also list the materials whose data cannot settle a requirement, flagged, with what is missing for each. A material a required property does not apply to stays hidden; the HIDDEN chip brings it back.">Include</button>
       </div>
     </div>
 
@@ -113,7 +113,7 @@
     <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true"  aria-describedby="statusbar-label">PASS 0</button>
     <button type="button" class="chip chip-UNKNOWN" id="s-unknown" aria-pressed="false" aria-describedby="statusbar-label">UNKNOWN 0</button>
     <button type="button" class="chip chip-FAIL"    id="s-fail"    aria-pressed="false" aria-describedby="statusbar-label">FAIL 0</button>
-    <button type="button" class="chip chip-screened" id="s-screened" aria-pressed="false" aria-describedby="statusbar-label" hidden>SCREENED 0</button>
+    <button type="button" class="chip chip-screened" id="s-screened" aria-pressed="false" aria-describedby="statusbar-label" hidden>HIDDEN 0</button>
     <div class="spacer"></div>
     <!-- Provenance: the data and the release every answer on the page comes from. It sat at the far end of the top bar,
          hidden below 1600 px; here it is always in sight and out of the way. -->

@@ -6,7 +6,7 @@
 
 import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
 import { esc, fmtNumber } from './format.js';
-import { describeConstraint, screenedByKind, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
+import { describeConstraint, screenedByKind, unknownGroups, unknownGroupWords, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
 import { andList } from './text.js';
 
 /**
@@ -133,11 +133,14 @@ export function renderActive(state, actions) {
     kinds.estimate ? `${kinds.estimate} by an estimate` : null, kinds.polymer ? `${kinds.polymer} by resin reference data` : null].filter(Boolean));
   // Left out, the UNKNOWN chip can still show them; then the line says so, rather than "left out" above the rows it shows.
   const unknownShown = !explore && state.showStates?.has('UNKNOWN');
+  // The UNKNOWN materials by group (stage 3d): most were measured and missed, and "could not be checked for missing data"
+  // had said otherwise of all of them.
+  const groups = unknownGroupWords(unknownGroups(selection.evaluations, { explore }));
   const unknownSentence = !counts.unknown ? ''
-    : explore ? `Included, those ${counts.unknown} are listed flagged${screened
-      ? `, except the ${screened} hidden as unlikely (${hiddenBy}); the SCREENED chip at the bottom shows them` : ''}. `
-    : unknownShown ? `${counts.unknown} more could not be checked for missing data. They are not candidates, and are shown because the UNKNOWN chip is on; ${POLICY_LABELS.exploration} at the top lists them as candidates, flagged. `
-    : `${counts.unknown} more could not be checked for missing data and are left out; ${POLICY_LABELS.exploration} at the top lists them, flagged. `;
+    : explore ? `Included, those ${counts.unknown} are listed by group${screened
+      ? `, except the ${screened} hidden (${hiddenBy}); the HIDDEN chip at the bottom shows them` : ''}. `
+    : unknownShown ? `${counts.unknown} more are UNKNOWN${groups ? ` (${groups})` : ''}. They are not candidates, and are shown because the UNKNOWN chip is on; ${POLICY_LABELS.exploration} at the top lists them as candidates, by group. `
+    : `${counts.unknown} more are UNKNOWN${groups ? ` (${groups})` : ''} and are left out; ${POLICY_LABELS.exploration} at the top lists them by group. `;
 
   // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
   // it would add are named in the button's title, so the line stays one line.
@@ -156,8 +159,7 @@ export function renderActive(state, actions) {
   const shownHard = printable ? hard.filter((c) => !(c.kind === 'gate' && printGates.has(c.gate))) : hard;
   const firstSentence = (t) => (String(t).match(/^[^.:]+[.:]/)?.[0] ?? String(t)).replace(/[.:]$/, '');
   const beside = [scenario.template ? `${scenario.template} template${sameAsTemplate ? '' : ', changed'}` : null,
-    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}`
-      : unknownShown ? ', shown flagged but not candidates (the UNKNOWN chip is on)' : ' and are left out'}` : null].filter(Boolean).join(' · ');
+    counts.unknown ? `UNKNOWN ${counts.unknown}${explore ? '' : unknownShown ? ' shown, not candidates' : ' left out'}${groups ? `: ${groups}` : ''}` : null].filter(Boolean).join(' · ');
   return `
   <section class="active compact">
     <div class="active-head">

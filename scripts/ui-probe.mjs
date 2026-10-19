@@ -612,13 +612,17 @@ try {
         const order = ['meets', 'one-check-away', 'not-enough-data', 'unlikely-to-meet', 'hidden', 'fail'];
         const seen = [...document.querySelectorAll('#lens table.grid[data-group]')].map((t) => t.dataset.group);
         if (seen.some((g, i) => i && order.indexOf(g) <= order.indexOf(seen[i - 1]))) problems.push('the groups are out of order: ' + seen.join(', '));
-        if (/Supported candidates|Estimated candidate|Insufficient evidence|Excluded \\/ screened/.test(document.getElementById('lens').textContent)) problems.push('an old group name is on screen');
+        if (/Supported candidates|Estimated candidate|Insufficient evidence|Excluded \\/ screened|Hidden as unlikely|SCREENED|screened out/.test(document.getElementById('lens').textContent + ' ' + document.querySelector('.statusbar').textContent)) problems.push('an old group name is on screen');
+        // One word for one idea (stage 3d): a hidden row says why, a failing row what it failed, and no decision code shows.
+        for (const tr of document.querySelectorAll('#lens table.grid[data-group="hidden"] tr[data-material]')) if (!tr.querySelector('.hidden-why')?.textContent.trim()) problems.push('a hidden row gives no reason: ' + tr.dataset.material);
+        for (const tr of document.querySelectorAll('#lens table.grid[data-group="fail"] tr[data-material]')) if (!/^fails: /.test(tr.querySelector('.fail-why')?.textContent ?? '')) problems.push('a failing row does not say what failed: ' + tr.dataset.material);
+        if (/\\(D\\d{2,3}\\)/.test(document.getElementById('lens').textContent)) problems.push('a decision code is on screen');
         const d = document.querySelector('details.unlikely-to-meet');
         if (!d) return problems;
         const ids = () => [...document.querySelectorAll('#lens tbody tr[data-material]')].map((r) => r.dataset.material).join(',');
         const before = ids();
         if (d.open) problems.push('unlikely to meet starts open');
-        if (!/^Unlikely to meet \\(\\d+\\) — counted and exported$/.test(d.querySelector('summary').textContent.trim())) problems.push('the fold does not say it is counted and exported');
+        if (!/^Unlikely to meet \\(\\d+\\): folded, still counted and in the download$/.test(d.querySelector('summary').textContent.trim())) problems.push('the fold does not say it is still counted and in the download');
         d.open = true;
         if (ids() !== before || document.getElementById('count').textContent !== count) problems.push('opening it changes rows or counts');
         if (!d.querySelector('tr[data-material]')?.getBoundingClientRect().height) problems.push('opening it does not reveal its rows');

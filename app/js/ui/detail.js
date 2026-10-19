@@ -339,7 +339,7 @@ function polymerSection(poly, c) {
       requirement. ${screens.length
         ? `Where it reports ${P} attacked or dissolved (${esc(screens.map((p) => p.categoryLabel.toLowerCase()).join(', '))}), it hides this
       material under a requirement on that category, with the materials that could not be checked included and "Use estimates and resin data" on;
-      the SCREENED chip brings it back.`
+      the HIDDEN chip brings it back.`
         : 'None of it can hide this material.'}</div>`
     + poly.map((p) => `
       <h4 class="block-title">${esc(p.categoryLabel)}: ${esc(verdictWords(p.verdict))} <span class="chip chip-neutral chip-small">resin data</span>${ids(['Inferred record', p.id])}</h4>
