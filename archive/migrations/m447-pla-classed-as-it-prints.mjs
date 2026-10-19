@@ -33,8 +33,8 @@
 // A re-run is a no-op; a run after the data moved stops.
 //
 //   node scripts/migrate/m447-pla-classed-as-it-prints.mjs
-import { openTables } from '../data/table-io.mjs';
-import { onSheet } from '../lib/sweep-shared.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
+import { onSheet } from '../../scripts/lib/sweep-shared.mjs';
 
 const MIGRATION = 'm447';
 const NA = 'Not applicable', NP = 'Not published';

@@ -1933,8 +1933,9 @@ data but not the rules, proposed how pass, fail and "can't tell" should work. Th
 and its changes (C01 to C40, in [its recommendations](audits/2026-10-18-screening-review/RECOMMENDATIONS.md)) are there;
 C01 files what stays open here by subject.
 
-**Being built (2026-10-18).** The owner approved the review's changes except C16, and they are being built stage by
-stage ([the build round](audits/2026-10-18-screening-build/README.md)). Stage 1 (D148) renamed the switch "Use estimates
+**Built (2026-10-18).** The owner approved the review's changes except C16, and all of them are built
+([the build round](audits/2026-10-18-screening-build/README.md); stage 4 and its review's corrections, D157 to D167,
+reopened the estimate model and are recorded there). Stage 1 (D148) renamed the switch "Use estimates
 and resin data", made a property that does not apply hide a material whatever the switch says, and stopped the page
 promising exclusions by material estimates. Stage 3a (D151, D152) passes a printer window the H2C covers at its low end,
 puts one it reaches only at its edge on the line, reads a chamber no sheet speaks to from the makers of its kind of

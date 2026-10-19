@@ -136,10 +136,10 @@ holding this stage's build, within the 90 s budget.
 
 - The proposal the search agent wrote: `.cache/screening-build/rereads/POLYMER-SOURCES.md` (private cache).
 - Import batch b47: [ingest/build-b47.mjs](ingest/build-b47.mjs) checks every quoted line on the cached text and writes
-  [ingest/proposals/b47/](ingest/proposals/b47/) and [ingest/b47-packet.json](ingest/b47-packet.json) (its NotAdmitted
+  [ingest/proposals/b47/](PACKETS.md) and [ingest/b47-packet.json](PACKETS.md) (its NotAdmitted
   list gives each turned-down document's digest). The documents were staged by digest from
   [ingest/staged-manifest-b47.csv](ingest/staged-manifest-b47.csv) into this round's ledger,
-  [ingest/ledger.csv](ingest/ledger.csv), which now records each as applied.
+  [ingest/ledger.csv](PACKETS.md), which now records each as applied.
 - Migration `scripts/migrate/m445-batch-b47-polymer-references.mjs`: the 16 sources, and each record's SourceID and
   basis with the lines it quotes, checked on the cached sheet before anything is written.
 - Code: `scripts/ingest/witness.mjs` stages a document for a polymer (`for` column `polymer:<PolymerID>`); test

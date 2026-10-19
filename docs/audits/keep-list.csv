@@ -3,3 +3,4 @@ Path,Reason
 2026-09-14-transfer-verification/source-completeness-labels.csv,npm run audit:sources writes it beside source-completeness.csv
 2026-10-16-material-pages-round/blind-read/VERDICTS.csv,the blind read's counted and judged verdicts: OPEN-PROBLEMS §37 links them and the round README counts them
 2026-10-16-material-pages-round/summaries/JUDGED.csv,the summaries' judged claims (312 claims): the round README counts them and links them
+2026-10-18-screening-review/scenarios/,the six presets as saved scenarios: the review README and LOGIC.md trace one product's decision with them (npm run trace -- --scenario)

@@ -11,7 +11,7 @@
 // A re-run is a no-op; a run after the data moved stops.
 //
 //   node scripts/migrate/m450-own-value-ceilings.mjs
-import { openTables } from '../data/table-io.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
 
 const MIGRATION = 'm450';
 const NA = 'Not applicable';

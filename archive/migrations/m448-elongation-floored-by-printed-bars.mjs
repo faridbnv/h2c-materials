@@ -19,7 +19,7 @@
 // A re-run is a no-op; a run after the data moved stops.
 //
 //   node scripts/migrate/m448-elongation-floored-by-printed-bars.mjs
-import { openTables } from '../data/table-io.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
 
 const MIGRATION = 'm448';
 const NA = 'Not applicable';

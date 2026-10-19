@@ -20,7 +20,7 @@
 //   node scripts/migrate/m449-estimate-conversions-as-rows.mjs
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
+import { openTables, projectRoot, nextId } from '../../scripts/data/table-io.mjs';
 
 const MIGRATION = 'm449';
 const NA = 'Not applicable';

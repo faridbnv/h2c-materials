@@ -110,7 +110,7 @@ verify:fast` took 39.1 s with the build cache holding this stage's build (the bu
 
 ## Evidence and where to check
 
-- The readings: [fibre/readings/](fibre/readings/) (three readers' files, the reviewer's `readings-opus-review.csv`, the
+- The readings: [fibre/readings/](PACKETS.md) (three readers' files, the reviewer's `readings-opus-review.csv`, the
   products each reader was given). The tool's check of each reading: [fibre/reconcile/](fibre/reconcile/). What it
   proposed and held: [fibre/proposals/](fibre/proposals/). The reviewer's decisions, one per reading with its reason:
   [fibre/review.csv](fibre/review.csv), applied by [fibre/review.mjs](fibre/review.mjs) into

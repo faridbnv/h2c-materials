@@ -805,7 +805,7 @@ Built by Claude Opus as executor, with four tracks side by side (words and frame
 Claude Sonnet), on the branch `coherence-review` ([the build](audits/2026-10-18-coherence-review/BUILD.md)).
 
 
-## Decided on 2026-10-18, the screening rulings (being built)
+## Decided and built on 2026-10-18, the screening rulings
 
 The owner asked how the selector treats the materials it could not check, and a review answered it with three engineer
 reviewers, a first-time user who never read the repository, two outside experts who saw only the data, and a product
@@ -830,4 +830,18 @@ manager's synthesis ([the review](audits/2026-10-18-screening-review/README.md))
   an Opus agent settles each flagged data value against its page and the owner gets the list to spot-check; Opus for
   design, code, migrations and judging, Sonnet for re-reading sheets, transcribing and sweeps. The plan and the stage
   reports are in [the build round](audits/2026-10-18-screening-build/README.md).
+- **Built (D148 to D167).** Stage by stage, each merged once `npm run verify` passed on the latest main
+  ([the build round](audits/2026-10-18-screening-build/README.md)): the switch renamed and "does not apply" hiding
+  whatever it says (D148); four physics checks and the values they settled (D149); fibre content and Shore hardness
+  (D150); the printer check by how much of a window the H2C covers, and a silent chamber by the kind of plastic (D151);
+  on the line (D152); the evidence ledger (D153); physics limits of a kind of plastic (D154); the groups (D155); the
+  Flexible preset's softness (D156); the estimate model reopened and back-tested (D157 to D165); and the corrections two
+  independent reviews and a second blind trial found (D166, D167).
+- **Measured.** Every preset's answers, before and after, in the round's table: the materials nothing settles, one
+  folded list of 39 to 94 per preset before, are now one check away, not enough data or unlikely to meet. The two
+  reviews found four wrong answers in the new code and the trial a misapplied "on the line"; all were fixed before the
+  close. The second blind trial scored the labels 3.0 of 5 (about 2 before). What is left is OPEN-PROBLEMS §35 and §38.
+
+Built by Claude Opus as executor with Claude Opus agents for each stage, the reviews and the trials, and Claude Sonnet
+agents for re-reading sheets and fibre content, on branches `screening-build/stage-*`.
 

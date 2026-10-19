@@ -20,7 +20,7 @@
 // A re-run is a no-op; a run after the data moved stops.
 //
 //   node scripts/migrate/m451-annealed-conversions-from-several-makers.mjs
-import { openTables } from '../data/table-io.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
 
 const MIGRATION = 'm451';
 const NA = 'Not applicable';

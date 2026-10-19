@@ -3,10 +3,13 @@
 > **Historical record** (2026-10-18): the build of the screening review's approved changes, begun on release 9ca94d31fc5d. Each stage's report says what it moved. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../OPEN-PROBLEMS.md).
 
 > **In short.** The owner approved the [screening review](../2026-10-18-screening-review/README.md)'s changes, all but one:
-> PA66-CF, PA612 and PA612-GF stay materials, because the owner found them on sale. This round builds the rest in
-> stages. Each stage is merged into the live tool only once every check passes. Each new evidence rule first lands
-> reporting only, and decides in a commit of its own. Every stage reports which answers it moved, compared with the
-> answers before it, each side computed with its own code. The table below says where each stage stands.
+> PA66-CF, PA612 and PA612-GF stay materials, because the owner found them on sale. All of it is built and live. A value
+> measured another way now decides in its one safe direction, a plastic's physics settles what nobody measured, a near
+> miss is "on the line", a printer window the H2C covers in part passes, and a sheet silent on the chamber is read by the
+> kind of plastic. The materials nothing settles are sorted by what would settle each: one check away, not enough data,
+> unlikely to meet. The estimate model was reopened and back-tested. Two independent reviews and a second blind trial
+> found four wrong answers in the new code, and all four were fixed before the round closed. The table at the end says
+> what each preset answers now, and the last section what is left for the owner.
 
 ## The stages
 
@@ -23,7 +26,7 @@
 | 3d | Corrections from the round's review and a second first-time user: a crystallised PLA or PET bar floors nothing, only a point is on the line, a ceiling never holds a material open, the rubber limit reaches TPE, TPS and TPV, and the page says "hidden" for one idea and why each hidden or failing row is there ([report](stage-3d.md), [answers moved](stage-3d-diff.md), [review](REVIEW.md), [trial](FIRST-TIME-USER-2.md)) | R01–R16, the trial's findings | Built, merged ([report](stage-3d.md))|
 | 4 | The estimate model reopened: Bambu Lab's PLA values as printed, PLA's class, one conversion layer, five corrections, each back-tested; the later class limits and the 50 % "likely" rule tested and not used ([report](stage-4.md), [back-tests](stage-4-backtests.md), [answers moved](stage-4-diff.md)) | C19, C26–C29, C36, C32 (later rows), C40 (fibre) | Built, merged ([report](stage-4.md))|
 | 4b | Corrections from the independent review of stage 4: an annealed value never props up an as-printed estimate, an annealed conversion learns only from several makers, and a product's own values of a property hold its estimate on both sides (or withhold it) and keep it from being tagged likely against its own sheet ([report](stage-4b.md), [answers moved](stage-4b-diff.md), [review](REVIEW-STAGE4.md), [back-tests](stage-4-backtests.md#after-the-review-d167)) | S01–S17 | Built, merged ([report](stage-4b.md))|
-| 5 | A repeat of the first-time user's trial, an independent review, a sweep for stale claims, the round's close | – | Planned |
+| 5 | A second blind first-time user ([trial](FIRST-TIME-USER-2.md)), two independent reviews ([stages 1 to 3c](REVIEW.md), [stage 4](REVIEW-STAGE4.md)), their fixes (3d, 4b), the stale-claims sweep and the round's close | – | Built |
 
 The plan, with the design choices and the order, is the owner-approved plan of 2026-10-18; its rulings are logged in
 [GOALS-LOG](../../GOALS-LOG.md).
@@ -58,7 +61,41 @@ node docs/audits/2026-10-18-screening-build/decision-census.mjs --diff before.js
 | [stage-3b.md](stage-3b.md), [stage-3b-diff.md](stage-3b-diff.md) | Stage 3b's report, row by row, and the answers it moved against main, case by case |
 | [stage-3c.md](stage-3c.md), [stage-3c-diff.md](stage-3c-diff.md) | Stage 3c's report, and the answers it moved against main after stage 3b, case by case |
 | [REVIEW.md](REVIEW.md) | The independent review of stages 0 to 3c (findings R01 to R16, with evidence) |
-| [FIRST-TIME-USER-2.md](FIRST-TIME-USER-2.md), [first-time-user-2/](first-time-user-2/) | The second first-time user's trial of the selector, and its five screenshots |
+| [FIRST-TIME-USER-2.md](FIRST-TIME-USER-2.md), [first-time-user-2/](PACKETS.md) | The second first-time user's trial of the selector, and its five screenshots |
 | [stage-3d.md](stage-3d.md), [stage-3d-diff.md](stage-3d-diff.md) | Stage 3d's report, finding by finding, and the answers it moved against main ef96fe00, case by case |
 | [REVIEW-STAGE4.md](REVIEW-STAGE4.md) | The independent review of stage 4 (findings S01 to S19, with evidence) |
 | [stage-4b.md](stage-4b.md), [stage-4b-diff.md](stage-4b-diff.md) | Stage 4b's report, finding by finding, and the answers it moved against main dd16db5a, the likely tag included |
+
+## What each preset answers now
+
+Each preset in Leave out (materials that pass, and that fail), and with Include and estimates on, the materials nothing
+settles, by group. Before the round, every one of those sat in one folded list, "Insufficient evidence" (39 to 94 per
+preset). From the decision census of release 9ca94d31fc5d against the release this round closed on.
+
+| Preset | Pass | Fail | One check away | Not enough data (likely) | Unlikely to meet | Hidden |
+|---|---|---|---:|---:|---:|---:|
+| Outdoor structural part | 7 → 11 | 44 → 52 | 7 | 23 (3) | 49 | 7 |
+| Indoor prototype | 87 → 96 | 26 → 24 | 29 | 3 (0) | 0 | 0 |
+| Lightweight structure | 15 → 19 | 55 → 60 | 17 | 29 (2) | 25 | 0 |
+| Warm environment | 39 → 42 | 29 → 26 | 26 | 18 (3) | 21 | 16 |
+| High-stiffness fixture | 5 → 10 | 43 → 50 | 7 | 22 (0) | 62 | 1 |
+| Flexible component | 8 → 5 | 42 → 43 | 2 | 12 (1) | 86 | 3 |
+
+Flexible component passes fewer because it now asks for softness (tensile modulus at most 0.1 GPa), as the owner chose:
+PETG, PC and nylon no longer pass for a gasket. The second blind trial scored the page's labels 3.0 of 5, where the first
+scored about 2.
+
+## What is left, and what needs the owner
+
+Everything below is in [OPEN-PROBLEMS](../../OPEN-PROBLEMS.md) (§35 and §38), each with its query.
+
+- **Owner's calls.** PET's fibre-filled grades are classed glassy in the estimate model (D158) while some sheets show a
+  crystallised bar (D167 keeps it and says why); a plasticised PVC is not recorded as an elastomer, so the rubber limit
+  does not reach it; Spectrum's PCTG-CF10 prints another maker's table and may belong under another material (§33.8);
+  PA66-CF, PA612 and PA612-GF to be searched again for a product on sale.
+- **Data still to collect.** 102 fibre-filled products state no fibre content; 220 products still have no answered
+  chamber check (the kinds of plastic with fewer than ten makers stating one stay unknown).
+- **Tested and not used.** Three later physics limits failed their maker-by-maker test, and two passed but need a source
+  or a limit kind the ledger lacks (D163); the 50 % "likely" rule failed its calibration (D165).
+- **The spot-check list** of every value an agent changed or flagged is [SPOT-CHECK.md](SPOT-CHECK.md).
+
