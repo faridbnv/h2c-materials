@@ -75,7 +75,9 @@ test('the CSV says why each row failed and what was asked', () => {
 // D148 (the screening review, C07 and C20). Outdoor structural part, Include: the page hides the 14 materials HDT does not
 // apply to (13 elastomers and OBC), with estimates on or off, and "Why the rest were excluded" counts those 14, each
 // "Does not apply". It had counted 22 on HDT: 8 more fail another requirement, and the page lists them as failures.
-test('Outdoor structural part hides the 14 materials HDT does not apply to, estimates on or off, and Why excluded counts 14', () => {
+// Fourteen until stage 3b of the screening build: OBC and the four TPU classes, which HDT does not apply to either, now fail
+// the preset's 3 GPa stiffness on their kind's physics limit (CL01, D154), and a failure is not a hide.
+test('Outdoor structural part hides the 9 materials HDT does not apply to and nothing fails, estimates on or off, and Why excluded counts 9', () => {
   const t = TEMPLATES.find((x) => x.name === 'Outdoor structural part');
   const hdt = t.constraints.find((c) => c.property === 'hdt045');
   const mats = db.materials.filter((m) => !m.familyEntry);
@@ -83,13 +85,13 @@ test('Outdoor structural part hides the 14 materials HDT does not apply to, esti
     const c = { ...ctx, productsByMaterial: productsByMaterial(db), unknownPolicy: 'exploration', useEstimates };
     const sel = runSelection(mats, t.constraints, c);
     const hidden = sel.evaluations.filter((e) => e.screened);
-    assert.equal(hidden.length, 14, `estimates ${useEstimates ? 'on' : 'off'}`);
+    assert.equal(hidden.length, 9, `estimates ${useEstimates ? 'on' : 'off'}`);
     for (const e of hidden) {
       assert.equal(e.verdict, 'UNKNOWN', 'hidden, never failed');
       assert.ok(e.unresolved.every((r) => r.notApplicable && r.constraint === hdt && /: Does not apply: /.test(r.reason)), e.materialId);
     }
     const why = explainExclusions(mats, t.constraints, c).find((r) => r.constraint === hdt);
-    assert.equal(why.screened, 14);
-    assert.equal(why.screenedNotApplicable, 14);
+    assert.equal(why.screened, 9);
+    assert.equal(why.screenedNotApplicable, 9);
   }
 });

@@ -74,7 +74,11 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // while PARSE-UNREAD records that the temperature parser cannot read that prose; no finding is suppressed.
   // CHAMBER-NEED-READY arrived with D151's table, every row reported, and left when the four rows its makers support
   // (PLA, PETG, the elastomers, ABS) were switched to deciding: a reported row that qualifies raises it again.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  // The evidence ledger's four arrived when its rows decided (D153, D154): CONVERSION-PAIRS for the two same-sheet pairs
+  // that break CV01, LEDGER-DISAGREE for the two products whose records leave no value between them, each accepted with
+  // its reason; LEDGER-CONTRADICTS-VALUE for Raise3D Industrial PET CF's 87 °C beside its other sheet's 112 °C at
+  // 1.8 MPa; CLASS-LIMIT-CONTRADICTED for four densities outside their polymer's sourced range (OPEN-PROBLEMS §38.6).
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'LEDGER-CONTRADICTS-VALUE', 'LEDGER-DISAGREE', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {
