@@ -78,3 +78,26 @@ layers is lower), which lived in its configuration file, while the evidence ledg
 same relations. They are now one table (decision D157): each conversion the model uses is a row of the ledger's table,
 and the build stops if what the model learns from the data leaves the band the ledger row states. This was a move:
 nothing the tool shows changed, and the build proves it.
+
+## 7. A product's own stiffness caps its estimate
+
+Some products publish their stiffness only on a moulded bar or one their sheet does not describe. Such a bar is stiffer
+than a printed part, yet the product's estimate could sit above it: Fillamentum CPE CF112 publishes 2.2 GPa and was
+estimated as likely up to 2.71 GPa. A back-test showed that where an estimate crossed the product's own value, the
+truth sided with the estimate less than half the time. The product's own value now caps its stiffness estimate at 1.16
+times (decision D160): CPE CF112's likely range now ends at 2.44 GPa. The same cap on strength made the ranges miss too
+often, so strength is not capped.
+
+## 8. More physics limits were tested, and none decides yet
+
+Four more limits a kind of plastic cannot pass were tested by holding out one maker at a time (decision D163). Two
+passed: an unfilled rigid plastic is at most 4.3 GPa stiff, and a glassy bar's heat deflection is at most 15 °C over
+its glass transition. Neither decides yet: the first needs a source that states it, the second a kind of limit the
+ledger cannot express. A check of fibre-filled densities against their stated fibre content found 8 of 106 outside
+what the fibre allows (decision D164); they are listed for a reading.
+
+## 9. "Likely" keeps its rule
+
+A statistician suggested tagging a material "likely" when the chance it meets is at least 50 %, instead of when its whole
+80 % range meets. That works only if the model's chances are honest. They are for stiffness and stretch, not for density
+or heat deflection, so the rule stays as it is (decision D165).

@@ -178,6 +178,9 @@ detail. The generator names one that runs longer.
 | D160 | A product's own stiffness on a moulded or undescribed bar caps its stiffness estimate | A product may publish its stiffness only on a moulded bar or one its sheet does not describe, a value that is no printed part's. Its estimate could still sit above that value: Fillamentum CPE CF112 publishes 2.2 GPa and was estimated at 2.17 GPa with a likely range up to 2.71, enough to pass a 2.5 GPa limit its own value misses. A back-test asked whether such estimates are right to cross their own value: for stiffness they were not (where the model's centre lay above the product's own value, the hidden truth sided with the estimate on 46 % of the limits between them, over 4 cases). So a product's own moulded or undescribed stiffness now caps its estimate at 1.16 times that value. For strength the cap was tried and not kept; elongation is not capped. | In force (screening build, stage 4, 2026-10-18; the screening review's change C28). It amends D81 and D126: a product's own measurements bound its range from above as well as from below, for stiffness. Number provisional until the stage merges |
 | D161 | A product's elongation estimate is floored by its printed bars only | D126 let a bar whose sheet does not say how it was made bound an estimate from below, as a printed bar does. For stiffness, strength and heat that holds; for elongation it did not. An undescribed bar's stretch reads like a moulded one's, which stretches far further than a printed part: 568 of the 761 floors under products' elongation estimates came from such bars, and 428 estimates sat at their floor. Hidden and predicted, a product's own floors held its value 68 % (likely) and 82 % (plausible) of the time, against the 80 and 95 % the ranges claim. Floored by printed bars only they hold 78 and 92 %. | In force (screening build, stage 4, 2026-10-18; the screening review's change C26, approved by the owner). It amends D126 (the owner's choice that an undescribed bar bounds as a printed one does, now per headline: elongation takes printed bars only). Number provisional until the stage merges |
 | D162 | Heat deflection's product spread is measured per matrix, so each product gets its own heat estimate; an annealed value is a kind of its own | Products of one material differ in heat deflection far more where the plastic crystallises in the print (a nylon or a PPS: 34 °C between filled products, 19 °C between unfilled ones) than where it stays glassy (3 °C). The estimate model used one spread for all, set by the many glassy pairs, so its heat ranges for single products could not be calibrated and none was shown (D81's stop rule). Each matrix now has its own spread, and the product ranges hold 80 % and 95 % of hidden values in every matrix: 466 products now show a heat estimate. Separately, a value measured after annealing entered the model as if it were the printed part's; it is now a kind of its own, converted, and a product that publishes only annealed values gets an as-printed estimate. | In force (screening build, stage 4, 2026-10-18; the screening review's change C29). It amends D43 (the spreads between products), D56 (annealed values), D81 (its stop rule is unchanged and now met for heat deflection) and D137 (an annealed-only product is predicted as printed). Number provisional until the stage merges |
+| D163 | The later class limits were tested maker by maker; none decides yet | The screening review proposed four more physics limits per kind of plastic: a glassy unfilled plastic stretches at most 100 %, an unfilled rigid one is at most 4.3 GPa stiff, a glassy bar's heat deflection is at most 15 °C over its glass transition (25 °C with fibre), and a fibre-filled one's stiffness grows at most so much per percent of fibre. A limit fails a product outright, so each was tested by holding out one maker at a time: a limit set from every other maker's products must not fail any of that maker's. Two passed (the 4.3 GPa stiffness and the glassy heat limit) and two failed. None decides in this stage: the stiffness limit needs a registered source that prints it, the heat limit a kind of limit relative to the glass transition that the ledger cannot yet express. | In force (screening build, stage 4, 2026-10-18; the screening review's change C32, its later rows). It leaves D154 as it is: CL01 and CL02 decide, nothing new does. Number provisional until the stage merges |
+| D164 | A fibre-filled product's density is checked against its fibre content; the findings wait for a reading | A product that states its fibre content has a density the rule of mixtures predicts from its plastic's density and the fibre's. Of 106 fibre-filled products with a stated fibre weight, a measured density and a sourced neat density, 8 lie outside the range that allows 5 % voids and the test scatter: BASF's PC GF30 at 1176 kg/m³ for 30 % glass among them, where the rule gives at least 1310. Each needs its page read before anything is flagged, so the check is reported here and the eight are listed as open problems. The stiffness half of the check waits for a fibre stiffness limit, which failed its test (D163). | In force (screening build, stage 4, 2026-10-18; the screening review's change C40, its fibre part). Nothing decides. Number provisional until the stage merges |
+| D165 | The "likely" tag keeps its 80 % range rule; the 50 % chance was tested and not adopted | Under "Not enough data", a material is tagged "likely" where every open number's estimated range (the 80 % range) meets its limit (D155). A statistician proposed a looser rule: a chance of at least 50 %. That needs the estimates' chances to be right: of the products whose model gives a 60 % chance, about 60 % should meet. Tested on every product whose value the build hides and predicts, at the presets' limits, the stiffness and stretch chances hold, but density's and heat deflection's do not (a 66 % chance met 89 % and 85 % of the time). The 80 % rule stays. | In force (screening build, stage 4, 2026-10-18; the screening review's change C19 revisited). It leaves D155 as it is. Number provisional until the stage merges |
 
 <!-- end index -->
 
@@ -5507,6 +5510,63 @@ back-test is in [stage-4-backtests.md](audits/2026-10-18-screening-build/stage-4
   products per mechanical headline gain one; EST-GRADE-OUTLIER 34 → 22, EST-CONFLICT 258 → 204. The decision census ([stage-4-diff-5.md](audits/2026-10-18-screening-build/stage-4-diff-5.md)): no verdict; 2,662 product answers, 1,824 in the heat cases, 850 of them from "not enough data" to "unlikely to meet"; PA612 listed for 5 GPa and hidden again for 100 MPa.
 - **What would break if reversed.** A product with no heat value would again show no estimate, its material's range
   standing in for it, and a nylon's annealed 200 °C would again teach the model what its printed part does.
+
+## D163. The later class limits were tested maker by maker; none decides yet
+
+> **In plain words:** The screening review proposed four more physics limits per kind of plastic: a glassy unfilled plastic stretches at most 100 %, an unfilled rigid one is at most 4.3 GPa stiff, a glassy bar's heat deflection is at most 15 °C over its glass transition (25 °C with fibre), and a fibre-filled one's stiffness grows at most so much per percent of fibre. A limit fails a product outright, so each was tested by holding out one maker at a time: a limit set from every other maker's products must not fail any of that maker's. Two passed (the 4.3 GPa stiffness and the glassy heat limit) and two failed. None decides in this stage: the stiffness limit needs a registered source that prints it, the heat limit a kind of limit relative to the glass transition that the ledger cannot yet express.
+> **Status:** In force (screening build, stage 4, 2026-10-18; the screening review's change C32, its later rows). It leaves D154 as it is: CL01 and CL02 decide, nothing new does. Number provisional until the stage merges.
+
+*Approved by the owner on 2026-10-18 with the screening review's changes; tested once by Claude Opus 5.5
+([class-limits-lomo.mjs](audits/2026-10-18-screening-build/class-limits-lomo.mjs)), as the executor asked, without
+tuning. The table is in [stage-4-backtests.md](audits/2026-10-18-screening-build/stage-4-backtests.md), section 8.*
+
+- **The test.** One case per formulation group: the as-printed, dry, comparable value of a product that is no declared
+  variant, of a material that is no undisclosed commercial variant. For each maker, the limit without its cases is the
+  larger of the row's value and every other maker's extreme, widened by the headline's test scatter; a case beyond it is
+  a false fail. A row may decide with no false fail over at least 59 groups from at least 8 makers (a one-sided 95 %
+  bound under 5 %).
+- **Row 1** (glassy, unfilled, not PVA or BVOH: elongation at most 100 %): 140 groups, 17 makers, one false fail,
+  colorFabb nGen FLEX at 320 %, filed as the rigid copolyester though it is an elastomer (OPEN-PROBLEMS §38.1). Fails.
+- **Row 2** (glassy or crystalline, unfilled: modulus at most 4.3 GPa): 130 groups, 19 makers, no false fail. Passes,
+  and waits on a registered source that prints the limit (CLASS-LIMIT-SOURCE).
+- **Row 3a** (glassy, unfilled: HDT at 0.45 MPa at most Tg + 15 °C, Tg the product's own, else its material's): 199
+  groups, 38 makers, no false fail. Passes, and waits on a limit relative to a product's glass transition in the ledger.
+- **Row 3b** (glassy, fibre-filled: Tg + 25 °C): 67 groups, 22 makers; Flashforge PET-GF 140.5 °C over its Tg (as
+  printed, a crystallised bar). Fails. **Row 4** (fibre stiffness per percent): 25 groups, under 59. Fails.
+- **What would break if reversed.** A limit set from one maker's products would fail another maker's product that meets
+  the requirement, with nothing to show it had been tried.
+
+## D164. A fibre-filled product's density is checked against its fibre content; the findings wait for a reading
+
+> **In plain words:** A product that states its fibre content has a density the rule of mixtures predicts from its plastic's density and the fibre's. Of 106 fibre-filled products with a stated fibre weight, a measured density and a sourced neat density, 8 lie outside the range that allows 5 % voids and the test scatter: BASF's PC GF30 at 1176 kg/m³ for 30 % glass among them, where the rule gives at least 1310. Each needs its page read before anything is flagged, so the check is reported here and the eight are listed as open problems. The stiffness half of the check waits for a fibre stiffness limit, which failed its test (D163).
+> **Status:** In force (screening build, stage 4, 2026-10-18; the screening review's change C40, its fibre part). Nothing decides. Number provisional until the stage merges.
+
+*Built and run once by Claude Opus 5.5 ([class-limits-lomo.mjs](audits/2026-10-18-screening-build/class-limits-lomo.mjs)).*
+
+- **The check.** ρ(w) = 1 / ((1 − w)/ρp + w/ρf) at the stated fibre weight w, carbon 1800 and glass 2550 kg/m³, between the
+  neat range's ends of a sourced `polymers.csv` row, less 5 % voids below, ±2 % (density's scatter).
+- **Outside (8 of 106):** iSANMATE PETG Glass Fiber 1260 (expected 1268 to 1470), Polymaker Fiberon PA612-CF15 1030
+  (1034 to 1172), BASF Ultrafuse PC GF30 1176 (1310 to 1485), Eryone PA6-CF 1090 (1119 to 1293), purefil PA6 GF10 1370
+  (1095 to 1272), Polymaker FIBERON PA6 GF25 1200 (1203 to 1390), SIDDAMENT PA12-CF 1230 (988 to 1133), Raise3D PA12 CF+
+  1030 (1034 to 1172). Four are within 1 % of the range; BASF's, Eryone's, purefil's and SIDDAMENT's are not.
+- **What would break if reversed.** Nothing decides on it; without it the eight would go unread.
+
+## D165. The "likely" tag keeps its 80 % range rule; the 50 % chance was tested and not adopted
+
+> **In plain words:** Under "Not enough data", a material is tagged "likely" where every open number's estimated range (the 80 % range) meets its limit (D155). A statistician proposed a looser rule: a chance of at least 50 %. That needs the estimates' chances to be right: of the products whose model gives a 60 % chance, about 60 % should meet. Tested on every product whose value the build hides and predicts, at the presets' limits, the stiffness and stretch chances hold, but density's and heat deflection's do not (a 66 % chance met 89 % and 85 % of the time). The 80 % rule stays.
+> **Status:** In force (screening build, stage 4, 2026-10-18; the screening review's change C19 revisited). It leaves D155 as it is. Number provisional until the stage merges.
+
+*Built and judged by Claude Opus 5.5 as the executor asked: one calibration table, adopted only if it passed outright.*
+
+- **The test** (`gradeCalibration.reliability`, every build). For each hidden product and each limit the presets ask
+  of its headline (`estimate-model.json` reliabilityLimits), the predicted chance of meeting it, binned in tenths, beside
+  how often the hidden value met it; and the median of where each hidden value fell in its predictive distribution.
+- **The rule to adopt** was every bin with 20 cases or more within 0.10 of its prediction and the median within 0.05 of
+  one half, for every headline.
+- **Result.** Medians 0.49, 0.50, 0.50 and 0.52 (density, stiffness, stretch, heat). Stiffness and stretch pass every
+  bin. Density fails five (a 2 % chance met 21 %, a 66 % chance 89 %); heat deflection fails one (66 % met 85 %). Not adopted.
+- **What would break if reversed.** A 50 % chance from a model whose chances run 20 points low would tag materials
+  "likely" that are more often unlikely, and the reverse.
 
 ## Bugs worth remembering
 

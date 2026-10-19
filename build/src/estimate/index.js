@@ -104,7 +104,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
 
     // Every grade's own estimate, with ranges calibrated at grade level (grades.js, D81). It is added beside the
     // material's and moves nothing the material shows.
-    const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible });
+    const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible, tmMean });
     diagnostics.properties[key].gradeCalibration = gradeCal.calibration;
     const named = new Set(outliers.map((o) => `${o.materialId}|${o.key}`));
     diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.typical?.gradeId === o.gradeId)));

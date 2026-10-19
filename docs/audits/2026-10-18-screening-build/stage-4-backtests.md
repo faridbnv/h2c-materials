@@ -295,3 +295,51 @@ is one the estimate meets and the own value misses; the share of such limits the
 **Verdict.** Stiffness is capped (298 products' estimates carry a ceiling, 287 moved, centres by a median of 1 %).
 Strength fails the pass rule with its floors (88.3 % plausible against 90 %), so its row stays reported and its
 estimates are not capped; this was tried once, as the executor asked, and not tuned. Elongation is excluded by design.
+
+## 8. The later class limits, maker by maker (D163, the review's C32), and fibre density (D164, C40)
+
+**The test** ([class-limits-lomo.mjs](class-limits-lomo.mjs), run once on this branch's build, no tuning). One case per
+formulation group: the as-printed, dry, comparable value of a product that is no declared variant, of a material that is
+no undisclosed commercial variant. For each maker, the limit without its cases is the larger of the row's value and every
+other maker's extreme, widened by the test scatter (stiffness 10 %, elongation 20 %, heat deflection 5 °C); a case of that
+maker beyond it is a false fail. A row may decide with none over at least 59 groups from at least 8 makers.
+
+| Row | Class and limit | Groups | Makers | False fails | Decides |
+|---|---|---:|---:|---|---|
+| 1 | glassy, unfilled (not PVA or BVOH): elongation at break XY at most 100 % | 140 | 17 | colorFabb nGen FLEX 320 over 120 (G143-01) | no |
+| 2 | glassy or crystalline, unfilled: tensile modulus XY at most 4.3 GPa | 130 | 19 | none | yes |
+| 3a | glassy, unfilled: HDT at 0.45 MPa at most Tg + 15 °C | 199 | 38 | none | yes |
+| 3b | glassy, fibre-filled: HDT at 0.45 MPa at most Tg + 25 °C | 67 | 22 | Flashforge PET-GF 140.5 over 65.5 (G068-01) | no |
+| 4 | fibre-filled: tensile modulus XY at most the matrix's highest unfilled one plus k times the fibre content | 25 | 10 | Flashforge PPA-CF 42.37 over 38.76 (G070-06); Flashforge PPS-CF 53.5 over 38.76 (G073-03) | no |
+
+Rows 2 and 3a pass and still do not decide: a deciding limit cites a registered source that prints it (CLASS-LIMIT-SOURCE),
+and none prints 4.3 GPa; the ledger has no limit relative to a product's glass transition. Row 1 waits on nGen FLEX's
+re-filing (OPEN-PROBLEMS §38.1), rows 3b and 4 fail.
+
+**Fibre density** (D164): C40, density by the rule of mixtures (neat density from a sourced polymers.csv row, the stated fibre weight, 5 % voids, ±2 % scatter): 106 products checked, 8 outside:
+- iSANMATE PETG Glass Fiber (G025-01) 1260 kg/m³ at 20 % glass fibre, expected 1268 to 1470
+- Polymaker Fiberon PA612-CF15 (G059-01) 1030 kg/m³ at 15 % carbon fibre, expected 1034 to 1172
+- BASF Forward AM Ultrafuse PC GF30 (G038-02) 1176 kg/m³ at 30 % glass fibre, expected 1310 to 1485
+- Eryone PA6-CF (G050-07) 1090 kg/m³ at 20 % carbon fibre, expected 1119 to 1293
+- Fabru / purefil Polyamid 6 glass fiber 10% (PA6 GF10) (G051-08) 1370 kg/m³ at 10 % glass fibre, expected 1095 to 1272
+- Polymaker FIBERON PA6 GF25 (G051-09) 1200 kg/m³ at 25 % glass fibre, expected 1203 to 1390
+- SIDDAMENT PA12-CF (G053-10) 1230 kg/m³ at 15 % carbon fibre, expected 988 to 1133
+- Raise3D Industrial PA12 CF+ (G059-03) 1030 kg/m³ at 15 % carbon fibre, expected 1034 to 1172
+
+**Verdict.** Nothing decides; recorded, and the eight densities listed in OPEN-PROBLEMS for a reading.
+
+## 9. The "likely" tag's rule revisited (D165, the review's C19)
+
+**The test** (`gradeCalibration.reliability`, every build): for each hidden product and each limit the presets ask of
+its headline, the predicted chance of meeting it (from the grade calibration's likely-scaled spread), binned in tenths,
+beside how often the hidden value met it. Bins of 20 cases or more, predicted / observed:
+
+| Headline | Median u | Bins (from: cases, predicted / observed) |
+|---|---:|---|
+| density | 0.489 | 0.0: 76, 0.02 / 0.21 ✗; 0.1: 25, 0.16 / 0.24; 0.2: 25, 0.27 / 0.28; 0.3: 41, 0.35 / 0.42; 0.4: 66, 0.46 / 0.61 ✗; 0.5: 103, 0.55 / 0.74 ✗; 0.6: 87, 0.66 / 0.89 ✗; 0.7: 88, 0.74 / 0.90 ✗; 0.8: 47, 0.84 / 0.83; 0.9: 1104, 0.995 / 0.993 |
+| tensileModulusXY | 0.497 | 0.0: 877, 0.006 / 0.008; 0.1: 42, 0.15 / 0.10; 0.2: 42, 0.24 / 0.17; 0.3: 29, 0.35 / 0.28; 0.7: 31, 0.75 / 0.68; 0.8: 24, 0.85 / 0.83; 0.9: 131, 0.98 / 0.98 |
+| elongationXY | 0.498 | 0.0: 306, 0.004 / 0.010; 0.9: 33, 0.999 / 1.0 |
+| hdt045 | 0.520 | 0.0: 695, 0.006 / 0.014; 0.1: 34, 0.15 / 0.09; 0.2: 20, 0.24 / 0.20; 0.5: 20, 0.56 / 0.50; 0.6: 20, 0.66 / 0.85 ✗; 0.7: 33, 0.75 / 0.73; 0.8: 41, 0.86 / 0.81; 0.9: 374, 0.99 / 0.97 |
+
+**Verdict.** The rule to adopt "a chance of at least 50 %" was every such bin within 0.10 and every median within 0.05 of
+one half. Density fails five bins and heat deflection one: not adopted; the 80 % range rule stays (D155).

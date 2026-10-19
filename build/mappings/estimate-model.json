@@ -23,6 +23,7 @@
   "_levelsComment": "The likely range is what the tool shows. The plausible range is what may screen a material out of Explore.",
   "properties": {
     "density": {
+      "reliabilityLimits": [{"operator": "<=", "value": 1500}, {"operator": "<=", "value": 1250}],
       "scale": "log",
       "scaleUnit": 0.08,
       "precision": {
@@ -48,6 +49,7 @@
     "tensileModulusXY": {
       "ownCeilingTest": true,
       "ownCeiling": true,
+      "reliabilityLimits": [{"operator": ">=", "value": 2.5}, {"operator": ">=", "value": 3}, {"operator": ">=", "value": 5}, {"operator": "<=", "value": 0.1}],
       "scale": "log",
       "scaleUnit": 0.3,
       "precision": {
@@ -97,6 +99,7 @@
     },
     "elongationXY": {
       "ownCeilingTest": true,
+      "reliabilityLimits": [{"operator": ">=", "value": 100}],
       "scale": "log",
       "scaleUnit": 0.3,
       "precision": {
@@ -122,6 +125,7 @@
     "hdt045": {
       "_productSpreadByMatrix": "A crystalline matrix's products scatter in heat deflection with their crystallinity, far more than a glassy one's: 33.6 °C between filled ones (121 pairs) and 18.9 °C between unfilled ones (31) against 3.1 °C between amorphous ones (5246). One pooled spread, set by the many amorphous pairs, served every matrix and pushed the grade scales to the clamp (D162). Stiffness, strength and stretch keep one spread: a crystalline filled matrix's own stiffness spread (0.149 against 0.267) narrowed its products' ranges below their coverage (likely 54 % against 68 % with the pooled spread).",
       "productSpreadByMatrix": true,
+      "reliabilityLimits": [{"operator": ">=", "value": 80}, {"operator": ">=", "value": 90}, {"operator": ">=", "value": 100}],
       "scale": "linear",
       "scaleUnit": 30,
       "precision": {

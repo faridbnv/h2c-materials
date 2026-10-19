@@ -71,6 +71,7 @@
       "required": ["scale", "scaleUnit", "precision", "plausibleValues", "floors"],
       "properties": {
         "scale": { "enum": ["log", "linear"] },
+        "reliabilityLimits": { "description": "The limits the presets ask of the headline, at which the grade calibration reports the predicted chance of meeting each beside how often the hidden value met it (D165).", "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["operator", "value"], "properties": { "operator": { "enum": [">=", "<="] }, "value": { "type": "number" } } } },
         "ownCeiling": { "description": "true: a grade's own moulded or undescribed value of the headline caps its estimate, through the demote-to-ceiling rows of conversions.csv (D160).", "type": "boolean" },
         "ownCeilingTest": { "description": "true: the build back-tests whether an estimate may cross a limit the product's own moulded or undescribed value misses (properties.*.ownValue, D160).", "type": "boolean" },
         "productSpreadByMatrix": { "description": "true: a matrix that crystallises as printed, filled or unfilled, takes its own measured product-to-product spread where it has enough pairs (D162). Absent or false: one spread for every matrix.", "type": "boolean" },

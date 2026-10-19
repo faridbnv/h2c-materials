@@ -15,7 +15,7 @@
 // Attached only where a product lacks a comparable value. It never passes a requirement.
 // D137 adds separate independent exclusion certification without changing these displayed ranges.
 
-import { quantile, median } from './numerics.js';
+import { quantile, median, normalCdf } from './numerics.js';
 import { HEAD, identityOf, sig3 } from './model.js';
 import { predict } from './gaussian.js';
 import { lowerBoundsOf, ownCeilingsOf } from '../lower-bounds.js';
@@ -24,7 +24,7 @@ import { lowerBoundsOf, ownCeilingsOf } from '../lower-bounds.js';
  * Hide each grade's own observations of the headline's own kind and predict them: the grade-level scales, their
  * coverage, and the grades whose published value sits far outside what everything else predicts.
  */
-export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible }) {
+export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible, tmMean = () => 0 }) {
   const cfg = model.calibration;
   const groups = new Map();
   obs.forEach((o, i) => {
@@ -67,6 +67,27 @@ export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausib
     plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, calPlausible)).length / hs.length),
     likelyScale: r3(quantile(hs.map(zOf), model.levels.likely) / zLikely), plausibleScale: r3(quantile(hs.map(zOf), model.levels.plausible) / zPlausible),
   }]));
+  // How well the grade predictions state a chance (D165): where each hidden value fell in its predictive distribution
+  // (the probability integral transform, u), and, for each limit the presets ask of the headline (estimate-model.json
+  // reliabilityLimits), the predicted chance of meeting it in tenths beside how often the hidden value met it.
+  const limits = model.properties[key].reliabilityLimits ?? [];
+  if (held.length && limits.length) {
+    const t = model.properties[key].scale === 'log' ? Math.log : (v) => v;
+    const sdOf = (h) => Math.sqrt((h.p.sd * calLikely) ** 2 + h.o.noise2);
+    const u = held.map((h) => normalCdf((h.o.y - h.p.mu) / sdOf(h)));
+    const bins = Array.from({ length: 10 }, () => ({ n: 0, predicted: 0, met: 0 }));
+    for (const h of held) for (const l of limits) {
+      const z = (t(l.value) - tmMean(h.o.m) - h.p.mu) / sdOf(h);
+      const chance = l.operator === '>=' ? 1 - normalCdf(z) : normalCdf(z);
+      const met = l.operator === '>=' ? h.o.y >= t(l.value) - tmMean(h.o.m) : h.o.y <= t(l.value) - tmMean(h.o.m);
+      const b = bins[Math.min(9, Math.floor(chance * 10))];
+      b.n++; b.predicted += chance; b.met += met ? 1 : 0;
+    }
+    calibration.reliability = {
+      medianU: r3(median(u)),
+      bins: bins.map((b, i) => ({ from: i / 10, n: b.n, predicted: b.n ? r3(b.predicted / b.n) : null, observed: b.n ? r3(b.met / b.n) : null })),
+    };
+  }
   const order = [...new Set(S.pool.map((m) => m.id))].sort();
   const foldOf = new Map(order.map((id, i) => [id, i % cfg.folds]));
   calibration.byFold = Object.entries(groupBy((h) => foldOf.get(h.o.m.id))).sort().map(([, hs]) => ({ held: hs.length,
