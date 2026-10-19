@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { projectRoot } from '../scripts/ingest/context.mjs';
-import { documentFrom, numbersIn, presence, sameNumber } from '../scripts/ingest/read-common.mjs';
+import { documentFrom, nameNumbers, numbersIn, presence, sameNumber } from '../scripts/ingest/read-common.mjs';
 import { parseReadings, reconcile, secondStatus } from '../scripts/ingest/read-reconcile.mjs';
 import { planBatches } from '../scripts/ingest/read-packet.mjs';
 import { HEADER } from '../scripts/ingest/read-common.mjs';
@@ -75,6 +75,31 @@ test('a number and a quote are on the page in the text layer, in the reading-ord
   assert.equal(presence(doc, 1, { numbers: ['38'], quote: '' }).presence, 'visual-only', 'no quote, no proof');
   assert.equal(presence(doc, 9, { numbers: ['38'], quote: 'x' }).presence, 'visual-only');
   assert.ok(presence(doc, 1, { numbers: ['5'], quote: 'Tensile Strength' }).flags.includes('number-not-on-page:5'), 'a 5 is not found inside 55 or 35');
+});
+
+test('a number printed inside a name the quote holds is on the page; a code\'s digits, or a name the quote does not hold, are not (§38.3)', async () => {
+  const named = documentFrom({ 1: { line: [
+    'Technical Data Sheet: AmideX™ PA6-GF30 Glass Fiber Nylon', 'Fiberon PETG-rCF08', 'Ultrafuse PET CF15',
+    'Tensile Strength ASTM D638 52 MPa', 'Flammability UL94 V0', 'Glass fibre reinforced',
+  ] } });
+  const gf = presence(named, 1, { numbers: ['30'], quote: 'AmideX™ PA6-GF30 Glass Fiber Nylon' });
+  assert.deepEqual([gf.presence, gf.flags, gf.inName], ['text', [], ['30']], 'the figure GF30 gives, and the row says it rests on a name');
+  assert.equal(presence(named, 1, { numbers: ['8'], quote: 'Fiberon PETG-rCF08' }).presence, 'text', 'a name may print its figure with a leading zero');
+  // Only the name the reader quoted: every nylon sheet prints the 6 of PA6, which bears out no 6 % read off another line.
+  assert.ok(presence(named, 1, { numbers: ['6'], quote: 'Glass fibre reinforced' }).flags.includes('number-not-on-page:6'));
+  // A name's figure is exact, and a standard's digits are not a name's.
+  assert.ok(presence(named, 1, { numbers: ['15.4'], quote: 'Ultrafuse PET CF15' }).flags.includes('number-not-on-page:15.4'), 'CF15 is no 15.4');
+  assert.ok(presence(named, 1, { numbers: ['638'], quote: 'Tensile Strength ASTM D638' }).flags.includes('number-not-on-page:638'));
+  assert.ok(presence(named, 1, { numbers: ['94'], quote: 'Flammability UL94 V0' }).flags.includes('number-not-on-page:94'));
+  assert.deepEqual(nameNumbers('H2C 10x8x4mm TPU 95A V2.0 ULTEM9085 x4'), [], 'digits a letter follows, a decimal, a lower-case run and a long word are no name');
+  assert.deepEqual(nameNumbers('Fiberon PA12-CF10, PCTG+GF10, [PA12+GF30]'), ['12', '10', '10', '12', '30']);
+  assert.deepEqual(presence(doc, 1, { numbers: ['38'], quote: 'Tensile Strength (X-Y) ISO 527 38 ± 4 MPa' }).inName, [], 'a number printed whole rests on no name');
+  // Through the reconciler: borne out by the page, so a figure a name gives waits for no second reading, and it says what it rests on.
+  const withFibre = { ...tables, properties: [...tables.properties, { Property: 'Fibre content', Units: '%' }] };
+  const reading = value({ field: 'Fibre content', unit: '%', label: 'Fibre content', raw: 'AmideX™ PA6-GF30', number_lo: '30', quote: 'AmideX™ PA6-GF30 Glass Fiber Nylon' });
+  const [r] = (await reconcile({ rows: [reading], tables: withFibre, documentFor: async () => named })).rows;
+  assert.deepEqual([r.Presence, r.SecondRead], ['text', 'not-required']);
+  assert.match(r.Flags, /(^|\s)number-in-name:30(\s|$)/);
 });
 
 test('a value the tables hold with the same number is a confirmation, with the conditions telling XY from Z', async () => {

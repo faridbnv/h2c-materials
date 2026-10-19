@@ -639,9 +639,14 @@ const withoutMethodsAndUnits = (text) => String(text)
 // standing beside ordinary words, which is what a sentence is made of, so a rule that reads a line as prose has
 // to take them out first — as it already takes out the designations and the units.
 const CONDITION_WORDS = /\b(at\s+(yield|break|max(imum)?)|un-?notched|notched|dry|dried|conditioned|flatwise|edgewise|upright|on\s+its\s+edge|as\s+printed|annealed|parallel|perpendicular)\b/gi;
+// The orientation a printed bar was laid in is a condition of the row too, written as two axes ("XY", "ZX"), and two
+// capitals are no word of prose. LEHVOSS prints a printed bar's row as "100% infill - 45/135° - XY ISO 527-2 ISO
+// 3167:2014 Typ A MPa" on a baseline of its own, a point below the label that holds its number ("Tensile strength
+// 82.1 ± 0.9"); "XY Typ" read as two words made the row prose, and five of the sheet's 24 tensile cells went unread.
+const ORIENTATION = /\b(?:XY|YX|XZ|ZX|YZ|ZY)\b/g;
 const isRowPiece = (line) => {
   const text = repair(String(line.text ?? '')).trim();
-  if (!text || PHRASE.test(withoutMethodsAndUnits(text))) return false;
+  if (!text || PHRASE.test(withoutMethodsAndUnits(text).replace(ORIENTATION, ' '))) return false;
   return /\d/.test(text) || BARE_UNIT().test(text) || NO_VALUE_CELL().test(text);
 };
 export function gatherLabelled(lines, registry = null) {

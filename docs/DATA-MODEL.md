@@ -226,7 +226,9 @@ registry           { properties, headlines, comparisons, relations }: what every
 
 `dist/h2c.sqlite` (`npm run sql`, D75) holds the same tables for queries. It also holds the **record tier** (D85),
 which `db.json` never does. `source_facts` has every line the import reader read without it becoming data: the text as
-printed, its page, the reader's reason, the document's source and grades, and the known property it names. It is read
+printed, its page, the reader's reason, the document's source and grades, and the known property it names. A document
+is a source only where `sources.csv` records its digest: a later revision or another copy the import ledger filed under
+a held product's source carries no source, and names it in `filed_under` (in `documents` too). It is read
 from the 2026-09-18 import's proposals, which live in the private store (D138): where they are not in `.cache/proposals`
 the table is empty and `_generation` says `source_facts: unavailable` (`npm run packets -- --restore ingest-2026-09-18`
 brings them back).

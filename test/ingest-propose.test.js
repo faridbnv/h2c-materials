@@ -565,6 +565,29 @@ test('a row whose label, method and value stand on baselines of their own is one
   assert.equal(prose.length, 2, 'a phrase is prose, not a piece of a row');
 });
 
+test('an orientation is no word of prose: a printed bar\'s row set a point below the label that holds its number is one row', () => {
+  // LEHVOSS's printed-specimen sheet (R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT) sets a row's label and number on one
+  // baseline and the rest of it a point below. "XY Typ" and "ZX Typ" read as two words, the rest was prose, and five of
+  // the sheet's 24 tensile cells went unread (OPEN-PROBLEMS §34.7).
+  const [strength] = pageRows([
+    piece(446, [35, 'Tensile strength'], [521, '82.1 ± 0.9']),
+    piece(444, [186, '100% infill - 45/135° - XY'], [330, 'ISO 527-2'], [390, 'ISO 3167:2014 Typ A'], [495, 'MPa']),
+  ], registry);
+  assert.equal(strength.text, 'Tensile strength 100% infill - 45/135° - XY ISO 527-2 ISO 3167:2014 Typ A MPa 82.1 ± 0.9');
+  assert.deepEqual([read(strength.text).match.Property, read(strength.text).rawNumber], ['Tensile strength (endpoint unspecified)', '82.1']);
+  const [modulus] = pageRows([
+    piece(142, [34, 'Modulus of elasticity'], [521, '2.8 ± 0.1']),
+    piece(141, [187, '100% infill - ZX'], [330, 'ISO 527-2'], [390, 'ISO 3167:2014 Typ A'], [495, 'GPa']),
+  ], registry);
+  assert.deepEqual([read(modulus.text).match.Property, read(modulus.text).rawNumber], ['Tensile modulus', '2.8']);
+  // An orientation among the words of a sentence leaves it a sentence: the other words are still a phrase.
+  const prose = pageRows([
+    piece(602, [25, 'Tensile strength']),
+    piece(601, [381, 'parts printed XY are 30 % stronger']),
+  ], registry);
+  assert.equal(prose.length, 2, 'a sentence that names an orientation is still prose');
+});
+
 test('a piece belongs to the row that begins to its left, not to the table beside it', () => {
   // purefil sets a printing table and a property table side by side, one baseline apart. "190-230 °C" is the
   // printing table's value and stands to the left of the property row whose band it shares.

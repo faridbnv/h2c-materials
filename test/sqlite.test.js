@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeSqlite, sqlName, readStamp, currentInputs, askCurrent, queryFile, StaleCompiledError } from '../scripts/data/sqlite.mjs';
-import { PROPOSALS, LEDGER, RETRIEVED, proposalFiles } from '../scripts/data/record-tier.mjs';
+import { PROPOSALS, LEDGER, RETRIEVED, proposalFiles, recordTierOf } from '../scripts/data/record-tier.mjs';
 import { cacheDir } from '../scripts/lib/pdf-text.mjs';
 import { readCsv, writeCsv } from '../build/src/csv.js';
 import { releaseIdentity, RELEASE_INPUTS } from '../build/src/release.js';
@@ -107,8 +107,8 @@ test('each value knows how far it sits from its material\'s other values measure
 });
 
 // The record tier (D85): what the sources publish that the decision tier does not hold. It is derived from the
-// committed proposals and the ledger, so it must hold each line the reader read exactly once, carry the source the
-// ledger registered its document as, and change nothing the page is built from.
+// committed proposals and the ledger, so it must hold each line the reader read exactly once, carry the source whose
+// recorded digest its document is, and change nothing the page is built from.
 const proposalDir = join(root, PROPOSALS);
 const proposals = proposalFiles(proposalDir).map((rel) => ({ rel, ...JSON.parse(readFileSync(join(proposalDir, rel), 'utf8')) }));
 const lineKey = (sha, page, text) => `${sha}\u0000${page}\u0000${text}`;
@@ -145,22 +145,65 @@ test('every line a proposal skipped is a fact, and every fact is a line its prop
   }
 });
 
-test('every fact whose document is registered carries that source, and the source\'s own grades', () => {
+test('a fact carries the source whose recorded digest is its document\'s, and the source\'s own grades; a filed copy carries none', () => {
+  // The ledger also registers a later revision or another edition under the source of a product already held: those
+  // bytes are not the recorded sheet, so their lines are no fact of it (OPEN-PROBLEMS §34.3), and say where they were filed.
   const registered = new Map();
   for (const r of readCsv(join(root, LEDGER)).records.map((x) => x.values)) {
     if (r.sha256 && r.registered_source_id) registered.set(r.sha256, r.registered_source_id);
   }
   const bySha = new Map(readCsv(join(root, 'data/tables/sources.csv')).records.map((x) => [x.values.SHA256, x.values.SourceID]));
-  for (const f of all('SELECT sha256, sourceid FROM source_facts')) {
-    const expected = registered.get(f.sha256) ?? bySha.get(f.sha256) ?? null;
-    if (f.sourceid !== expected) assert.fail(`a fact on ${f.sha256.slice(0, 16)} carries ${f.sourceid}; the ledger says ${expected}`);
+  for (const f of all('SELECT sha256, sourceid, filed_under FROM source_facts')) {
+    const expected = bySha.get(f.sha256) ?? null;
+    if (f.sourceid !== expected) assert.fail(`a fact on ${f.sha256.slice(0, 16)} carries ${f.sourceid}; the source that records its digest is ${expected}`);
+    if (f.filed_under && expected) assert.fail(`a fact on ${f.sha256.slice(0, 16)} names ${f.filed_under} as filed under, though its digest is ${expected}'s`);
+    if (!expected && registered.has(f.sha256) && !f.filed_under) assert.fail(`a fact on ${f.sha256.slice(0, 16)}, which the ledger filed under ${registered.get(f.sha256)}, does not say so`);
   }
+  const [{ mixed }] = all('SELECT COUNT(*) AS mixed FROM documents WHERE sourceid IS NOT NULL AND filed_under IS NOT NULL');
+  assert.equal(mixed, 0, 'a document is a source\'s own bytes or filed under one, never both');
   const [{ unknown }] = all('SELECT COUNT(*) AS unknown FROM source_facts f WHERE f.sourceid IS NOT NULL AND NOT EXISTS (SELECT 1 FROM sources s WHERE s.sourceid = f.sourceid)');
   assert.equal(unknown, 0, 'a fact carries a source sources.csv does not have');
   const wrong = all(`WITH own AS (SELECT sourceid, group_concat(gradeid, ',' ORDER BY gradeid) AS ids FROM grades WHERE status = 'active' GROUP BY sourceid)
     SELECT f.fact_id, f.gradeids, own.ids FROM source_facts f LEFT JOIN own ON own.sourceid = f.sourceid
     WHERE COALESCE(f.gradeids, '') != COALESCE(own.ids, '') LIMIT 5`);
   assert.deepEqual(wrong, [], 'gradeids is not the list of active grades whose source is the fact\'s');
+});
+
+test('a later copy filed under a source is not that source: its lines carry no source and say where it was filed', () => {
+  // On fixtures, so it runs where the proposals are not (CI). colorFabb HT's filed copy is Eastman's Amphora HT5300
+  // sheet: read as colorFabb HT's, its lines sent a lead list to words the recorded sheet does not print (§34.3).
+  const [A, LATER, HELD, OWN] = ['a', 'c', 'd', 'e'].map((x) => x.repeat(64));
+  const proposal = (sha, docKey, o) => ({ rel: `b01/${docKey}.json`, proposal: { document: { sha256: sha, docKey }, generated: { date: '2026-09-20' }, ...o } });
+  const measured = (text) => ({ row: { Property: 'Density', 'Raw value': '1.30 g/cm³' }, evidence: { page: 1, text }, review: { status: 'accepted' } });
+  const { documents, facts } = recordTierOf({
+    ledger: [
+      { doc_key: 'ht', sha256: A, registered_source_id: 'S-HT', primary: 'TRUE', status: 'applied' },
+      { doc_key: 'ht-later', sha256: LATER, registered_source_id: 'S-HT', primary: 'TRUE', status: 'registered' },
+      { doc_key: 'held', sha256: HELD, registered_source_id: '', primary: 'TRUE', status: 'deferred' },
+      // A later copy registered as a source of its own later (the research intake's FormFutura copies) is that source.
+      { doc_key: 'galaxy-later', sha256: OWN, registered_source_id: 'S-GALAXY', primary: 'TRUE', status: 'registered' },
+    ],
+    sources: [{ SourceID: 'S-HT', SHA256: A }, { SourceID: 'S-GALAXY', SHA256: 'f'.repeat(64) }, { SourceID: 'S-GALAXY-2024', SHA256: OWN }],
+    grades: [{ GradeID: 'G1', SourceID: 'S-HT', Status: 'active' }, { GradeID: 'G2', SourceID: 'S-GALAXY-2024', Status: 'active' }],
+    properties: [{ Property: 'Density', 'Replaced by': null }],
+    proposals: [
+      proposal(A, 'ht', { skipped: [{ page: 1, text: 'Mould shrinkage 0.5 %', reason: 'no property' }] }),
+      proposal(LATER, 'ht-later', { skipped: [{ page: 1, text: 'Amphora HT5300 Density 1.30 g/cm³', reason: 'a copy' }], measurements: [measured('Specific gravity 1.30')] }),
+      proposal(HELD, 'held', { measurements: [measured('Density 1.24 g/cm³')] }),
+      proposal(OWN, 'galaxy-later', { skipped: [{ page: 2, text: 'Printing speed 40 mm/s', reason: 'a setting no column takes' }] }),
+    ],
+  });
+  const doc = (sha) => documents.get(sha);
+  assert.deepEqual([doc(A).sourceid, doc(A).filed_under], ['S-HT', null], 'the recorded sheet is its source');
+  assert.deepEqual([doc(LATER).sourceid, doc(LATER).filed_under], [null, 'S-HT'], 'the later copy is filed under the source, not the source');
+  assert.deepEqual([doc(HELD).sourceid, doc(HELD).filed_under], [null, null]);
+  assert.deepEqual([doc(OWN).sourceid, doc(OWN).filed_under], ['S-GALAXY-2024', null], 'a digest a source records is that source, wherever the ledger filed it');
+  const fact = (sha, kind) => facts.filter((f) => f.sha256 === sha && f.kind === kind).map((f) => [f.sourceid, f.filed_under, f.gradeids]);
+  assert.deepEqual(fact(A, 'skipped'), [['S-HT', null, 'G1']]);
+  assert.deepEqual(fact(LATER, 'skipped'), [[null, 'S-HT', null]], 'the copy\'s line is not the source\'s, nor its grade\'s');
+  assert.deepEqual(fact(LATER, 'unapplied'), [[null, 'S-HT', null]], 'a row read off the copy never reached the database');
+  assert.deepEqual(fact(HELD, 'unapplied'), [[null, null, null]]);
+  assert.deepEqual(fact(OWN, 'skipped'), [['S-GALAXY-2024', null, 'G2']]);
 });
 
 test('a fact names only a property the registry keeps, and says how it was found', () => {

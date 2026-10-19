@@ -35,7 +35,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from './context.mjs';
-import { NP, numbersIn, ocrSidecar, readTable, sameNumber, squash } from './read-common.mjs';
+import { NP, numberedNames, numbersIn, ocrSidecar, readTable, sameNumber, squash } from './read-common.mjs';
 import { notchOf, targetUnit } from './propose.mjs';
 import { pageOf, scopeOf, specimenApplies } from '../../build/src/page-context.js';
 import { pageStates, rowStates, tableCovers } from '../../build/src/page-context.js';
@@ -346,18 +346,70 @@ const cleanUnit = (u) => text(u).replace(/[˚º]/g, '°').replace(/\s+/g, ' ').r
 // ---- a maker's claim in a sentence ------------------------------------------------------------------------------
 
 const CLAIM = /\b(?:up\s*to|approx(?:imately|\.)?|withstands?|retains?\s+its\s+properties)|\ballows?\b[^.]*\buse\b/i;
+const APPROX_CLAIM = /\bapprox(?:imately|\.)?/gi;
+
+/**
+ * Whether a property is what a product is made of: its fibre load, and any other "... content" the registry gains for
+ * one (a filler, a recycled share). Moisture content is the state of a sample when it was tested, not its make-up.
+ */
+export const isComposition = (property) => /\bcontent$/i.test(text(property)) && !/^moisture\b/i.test(text(property));
+
 /**
  * The sentence of a reading's quote that makes a claim ("up to approx. 145 °C", "withstands", "retains its properties at temperatures up
  * to") instead of printing a result: a phrase, at least five words, and the value inside the sentence. A row label that carries the bound
  * ("Max. service temperature up to") with its value in another piece is a table row, not a claim. Null when there is none.
+ * A composition stated as approximate is the maker's figure for it, not a claim: the rule was written for a temperature a part
+ * "withstands up to approx.", and it held Fiberlogy's "approximately 15% carbon fibre" until a reviewer kept it by hand (§38.3).
+ * Its word goes in the value's note (approximateWords). "Up to" a share is a bound, and stays a claim.
  */
 export function proseClaim(row) {
   const token = /[\d]+(?:[.,]\d+)?|[.,]\d+/.exec(text(row.Raw))?.[0];
+  const claims = (piece) => CLAIM.test(isComposition(row.Field) ? piece.replace(APPROX_CLAIM, ' ') : piece);
   for (const piece of [...String(row.Quote ?? '').split(' | ').map(text), text(row.Raw)]) {
-    if (!CLAIM.test(piece) || piece.split(/\s+/).filter(Boolean).length < 5) continue;
+    if (!claims(piece) || piece.split(/\s+/).filter(Boolean).length < 5) continue;
     if (token && !numberVariants(token).some((n) => piece.includes(n)) && squash(text(row.Label)).includes(squash(piece))) continue;
     return piece;
   }
+  return null;
+}
+
+/**
+ * The words that make a composition approximate, with the number they qualify, as the page prints them ("approximately
+ * 15%", "circa 3%"), or null. The value is recorded from its number; the word is the maker's and goes in its note, as the
+ * fibre review kept it by hand (stage 2b).
+ */
+export function approximateWords(row) {
+  if (!isComposition(row.Field)) return null;
+  for (const piece of [text(row.Raw), ...String(row.Quote ?? '').split(' | ').map(text)]) {
+    const m = /(?:\b(?:approx(?:imately|\.)?|about|around|circa|ca\.|roughly)|~|≈)\s*\d+(?:[.,]\d+)?\s*(?:(?:wt|vol)\.?\s*)?%?/i.exec(piece);
+    if (m) return m[0].trim();
+  }
+  return null;
+}
+
+// A figure only a product's name gives ("PA6-GF30") is the maker's rating of the product, never a test result (D150):
+// it is recorded as the name prints it, with Data status "Nominal from product designation", as the fibre review recorded
+// nine by hand (stage 2b). Only a composition is read from a name; any other property a name's digits are read as is held.
+export const NOMINAL = 'Nominal from product designation';
+/**
+ * The number a reading rests on that its page prints only inside a name its quote holds (the reconciler's flag), or null.
+ * A composition whose own cell gives its number only inside a name ("nGen-CF10") rests on the name too, though the page
+ * prints the digits elsewhere: cut out of the name, the 10 was a published fibre load of 10 % (an earlier proposal did).
+ */
+export function nameFigure(row) {
+  const lo = num(row.Lo);
+  if (lo == null) return null;
+  const flagged = /(?:^|\s)number-in-name:(\S+)/.exec(text(row.Flags))?.[1];
+  if (flagged != null && num(flagged) === lo) return flagged;
+  const raw = text(row.Raw);
+  return isComposition(row.Field) && !numbersIn(raw).includes(lo) && numberedNames(raw).some((x) => Number(x.number) === lo) ? text(row.Lo) : null;
+}
+/** The name a figure is read from, as the reading prints it: its Raw where that holds the name, else the name itself. */
+export function nameOfFigure(row) {
+  const lo = num(row.Lo);
+  const carries = (t) => numberedNames(t).find((x) => Number(x.number) === lo);
+  if (carries(row.Raw)) return tidy(text(row.Raw));
+  for (const piece of String(row.Quote ?? '').split(' | ')) { const hit = carries(piece); if (hit) return hit.name; }
   return null;
 }
 
@@ -391,12 +443,18 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   if (!['', '=', '<', '>', '≤', '≥', '＜', '＞', '≦', '≧'].includes(row.Operator)) return { error: `operator-unmapped:${row.Operator}` };
   const claim = proseClaim(row);
   if (claim) return { error: 'prose-claim', detail: claim };
+  const named = nameFigure(row);
+  if (named && !isComposition(property)) return { error: `number-only-in-name:${named}` };
   const lo = num(row.Lo), hi = num(row.Hi);
   if (lo == null) return { error: 'no-number' };
   let raw = tidy(text(row.Raw));
   if (!raw) return { error: 'no-raw-text' };
+  // A name's figure is recorded as the name prints it ("PA6-GF30"), which leads with no number.
+  if (named) {
+    raw = nameOfFigure(row);
+    if (!raw) return { error: `name-not-in-reading:${named}` };
   // A value cell that leads with words ("Tg of 147C") is recorded from its number, the part the sheet prints as the value.
-  if (rawNumber(raw) !== lo) {
+  } else if (rawNumber(raw) !== lo) {
     const at = new RegExp(`(?<![\\d.,])${String(row.Lo).replace('.', '[.,]')}(?![\\d])`).exec(raw);
     const trimmed = at ? raw.slice(at.index) : null;
     if (trimmed && rawNumber(trimmed) === lo) raw = trimmed;
@@ -455,6 +513,8 @@ export function valueProposal(row, { registry, grade, standards = null }) {
     if (said != null && h.loadMPa !== said && !(h.loadMPa != null && sameNumber(h.loadMPa, said))) return { error: `load-unparsed:${said} MPa read as ${h.loadMPa ?? 'none'}` };
   }
   out['Specimen / print parameters'] = NP;
+  out.data_status = named ? NOMINAL : '';
+  out.approximate = approximateWords(row);
   out.decision = isHeadline(property, notch.value) ? 'headline' : '';
   out.bound = bound;
   out.facts = { grade, direction: row.Direction, moisture: text(row.Moisture), post: text(row.PostProcessing), temp: conditions.temp[0] ?? '', notch: conditions.notch[0] ?? '', heading: text(row.TableHeading), standard: text(row.Standard) };
@@ -927,6 +987,9 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (!/^Published value/.test(m['Data status'] ?? '') || m['Data status'] === 'Retired duplicate record') continue;
     remember(heldValues, m.GradeID, valueKey(m), m.SourceID, m.MeasurementID);
   }
+  // The ratings names give, apart: they hold a figure only against another rating, never against a value a page prints.
+  const heldNominal = new Map();
+  for (const m of tables.measurements) if (m['Data status'] === NOMINAL) remember(heldNominal, m.GradeID, valueKey(m), m.SourceID, m.MeasurementID);
   const batchValues = new Map();
   const twinOf = (gradeId, sourceId, key) => {
     for (const g of formulation(gradeId)) {
@@ -950,7 +1013,10 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     return carrierCache.get(k);
   };
   const valueCandidates = [];
-  for (const r of considered.filter((x) => x.Kind === 'value' && x.Class === 'new')) {
+  // A name's rating is read after every value a page prints, so a rating never holds back a printed figure of the same
+  // product as its twin; a rating a printed figure already holds is held instead (twinOf).
+  const named = (r) => (nameFigure(r) ? 1 : 0);
+  for (const r of considered.filter((x) => x.Kind === 'value' && x.Class === 'new').sort((a, b) => named(a) - named(b))) {
     const reasons = [];
     const grade = gradeOf(r);
     if (grade.error) reasons.push(grade.error);
@@ -987,6 +1053,10 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (here) { hold(r, 'already-held-here', 'values', `${here.id} holds it from this source`); continue; }
     const twin = twinOf(target, r.SourceID, key);
     if (twin) { hold(r, 'already-held-elsewhere', 'values', twin); continue; }
+    // A name's rating the product already holds as one, from any of its sheets, is not recorded again: colorFabb prints
+    // "nGen-CF10" on three sheets, and the fibre review recorded the figure once.
+    const rated = p.data_status === NOMINAL ? formulation(target).flatMap((g) => heldNominal.get(`${g}\u0002${key}`) ?? [])[0] : null;
+    if (rated) { hold(r, rated.sourceId === r.SourceID ? 'already-held-here' : 'already-held-elsewhere', 'values', `${rated.id} holds the name's rating from ${rated.sourceId}`); continue; }
     remember(batchValues, target, key, r.SourceID, r.RowID);
     valueCandidates.push({ row: r, grade: target, p, like, signView });
   }
@@ -1020,13 +1090,18 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const key = `${c.row.SourceID}\u0001${c.locator}`;
     if (taken.has(key) || existingLocators.get(c.row.SourceID)?.has(c.locator)) { hold(c.row, 'locator-collision', 'values', c.locator); continue; }
     taken.set(key, c.row.RowID);
-    const { facts, bound, ...p } = c.p;
+    const { facts, bound, approximate, ...p } = c.p;
     void facts;
+    // What the value rests on beyond its number: the maker's "approximately", or a name that is the product's rating.
+    const said = [
+      approximate ? `Approximate: the page says "${approximate}".` : '',
+      p.data_status === NOMINAL ? `The page prints the figure only in the product's name (${p['Raw value']}): the maker's rating of the product, not a test result.` : '',
+    ].filter(Boolean).join(' ');
     out.valuesAdd.push({
       gate: 'ready', task: 'reader-round', like: c.like.MeasurementID, SourceID: c.row.SourceID, GradeID: c.grade, MaterialID: grades.get(c.grade).MaterialID,
       ...p, Locator: c.locator, quote: text(c.row.Quote),
-      note: `p. ${c.row.Page}${text(c.row.Label) ? `, "${text(c.row.Label)}"` : ''}${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.`,
-      cause: 'gap-fill', sign_view: c.signView ?? '', presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
+      note: `p. ${c.row.Page}${text(c.row.Label) ? `, "${text(c.row.Label)}"` : ''}${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.${said ? ` ${said}` : ''}`,
+      cause: p.data_status === NOMINAL ? 'nominal-name' : 'gap-fill', sign_view: c.signView ?? '', presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
     });
   }
 
@@ -1160,7 +1235,9 @@ const PROFILE_ADD_HEADER = ['gate', 'SourceID', 'GradeID', 'MaterialID', 'like',
 const SET_HEADER = ['gate', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'parsed_vs_read', 'cause', 'quote_view', 'grade_from', 'reader', 'rows', 'GradeID'];
 const VALUE_ADD_HEADER = ['gate', 'task', 'like', 'SourceID', 'GradeID', 'MaterialID', 'Property', 'Raw value', 'Raw unit', 'Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Conversion factor', 'Normalized value',
   'Normalized uncertainty ±', 'Normalized upper bound', 'Normalized unit', 'Operator', 'Specimen type', 'Direction', 'Notch', 'Moisture condition', 'Moisture state', 'Post-processing', 'Post-processing state',
-  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'cause', 'sign_view', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows'];
+  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'cause', 'sign_view', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows',
+  // Empty for a published value; "Nominal from product designation" for a figure only the product's name gives (applyProposals writes it).
+  'data_status'];
 const VALUE_SET_HEADER = ['gate', 'task', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'cause', 'quote_view', 'sign_view', 'reader', 'rows'];
 const CONTEXT_HEADER = ['gate', 'SourceID', 'Page', 'Applies to', 'Statement', 'Specimen type', 'Moisture state', 'Post-processing state', 'Anneal °C', 'Anneal h', 'Standard', 'Test temperature °C', 'Locator', 'quote',
   'moisture_words', 'post_processing_words', 'inherits', 'cause', 'quote_view', 'reader', 'rows'];

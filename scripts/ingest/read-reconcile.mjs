@@ -8,8 +8,9 @@
 // trust in the reader:
 //
 //   presence     are its numbers printed on that page, and its quote? (text layer, reading-order blocks, OCR sidecar;
-//                otherwise visual-only, which is not a rejection but a row that needs a second pair of eyes)
-//   class        against the rows the tables hold from the source: confirms, mismatch, new, or context / unmapped /
+//                otherwise visual-only, which is not a rejection but a row that needs a second pair of eyes). A number
+//                printed only inside a name the quote holds ("GF30") counts, and the row is flagged number-in-name
+//   class       against the rows the tables hold from the source: confirms, mismatch, new, or context / unmapped /
 //                identity for what is not a value or a setting
 //   second read  every visual-only row, every mismatch and every new decision-field row needs an independent reading
 //                of the same page; it is `agreed` when that reading gives the same numbers
@@ -350,8 +351,10 @@ export async function reconcile({ rows, seconds = [], tables, documentFor, machi
       else result.flags.push(found === false ? 'held-value-not-on-page' : 'held-row-unknown');
     }
 
-    const p = verdictNotOnPage && !numbers.length && !row.quote ? { presence: 'visual-only', flags: [] } : presence(doc, row.page, { numbers, quote: row.quote });
-    const flags = [...result.flags, ...p.flags];
+    const p = verdictNotOnPage && !numbers.length && !row.quote ? { presence: 'visual-only', flags: [], inName: [] } : presence(doc, row.page, { numbers, quote: row.quote });
+    // A number the page prints only inside a name the quote holds ("GF30") is borne out, and the row says so: the
+    // proposals record it as the name's rating, never as a test result (read-proposals.mjs, number-in-name).
+    const flags = [...result.flags, ...p.flags, ...p.inName.map((n) => `number-in-name:${n}`)];
     if (doc && doc.source === 'none' && doc.kind === 'none') flags.push('no-document-text');
     for (const m of result.held) touch(row.source_id, m.MeasurementID, m.ProfileID);
     if (row.held_id) touch(row.source_id, row.held_id);

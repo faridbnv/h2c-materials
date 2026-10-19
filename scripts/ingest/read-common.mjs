@@ -13,7 +13,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv } from '../../build/src/csv.js';
 import { DOCUMENT_CACHE, TEXT_CACHE, projectRoot } from './context.mjs';
-import { cachedText, countInEvidence, pageLines, pdfPages, repairLigatures, spellings, squeezed } from '../lib/pdf-text.mjs';
+import { STANDARD, cachedText, countInEvidence, pageLines, pdfPages, repairLigatures, spellings, squeezed } from '../lib/pdf-text.mjs';
 import { htmlText, plainText } from '../lib/html-text.mjs';
 import { locate } from '../data/source-store.mjs';
 
@@ -48,6 +48,20 @@ export function numbersIn(text) {
   for (const m of String(text ?? '').matchAll(/(?<![\p{L}\d.,])(\d+(?:[.,]\d+)?|[.,]\d+)/gu)) out.push(Number(m[1].replace(',', '.')));
   return out;
 }
+
+// A number printed inside a name: the fibre load of "CF15", "PA6-GF30", "PCTG+GF10" or "PETG-rCF08". Its letters and
+// its digits are one token, so the whole-number test (countInEvidence) never sees the digits, and a figure only a
+// product's name gives waited for a second reading (OPEN-PROBLEMS §38.3). A name token is a short run of letters, one
+// of them a capital, set hard against the digits that end it. A standard is taken out first ("D638", "UL94"); digits a
+// letter follows ("H2C", "10x8x4mm", "95A"), a decimal ("V2.0") and a lower-case run ("x4") are not names, and a
+// word of five letters or more ("ULTEM9085") is longer than a code.
+const NAME_NUMBER = /(?<![\p{L}\p{N}])(?=\p{L}{0,3}\p{Lu})\p{L}{1,4}(\d{1,3})(?![\p{L}\p{N}]|[.,]\d)/gu;
+/** The names in a text that carry a number, as printed: "Fiberon PA12-CF10" gives { name: 'PA12', number: '12' } and CF10's. */
+export function numberedNames(text) {
+  return [...String(text ?? '').replace(STANDARD, ' ').matchAll(NAME_NUMBER)].map((m) => ({ name: m[0], number: m[1] }));
+}
+/** The numbers the names in a text carry, as printed: "Fiberon PA12-CF10" gives "12" and "10". */
+export const nameNumbers = (text) => numberedNames(text).map((n) => n.number);
 
 /** Two printed numbers agree when they are equal at the coarser of their two precisions. */
 export function sameNumber(a, b) {
@@ -172,18 +186,28 @@ export function labelPairedWithNumber(doc, row) {
 }
 
 /**
- * How a reading is borne out by the page's text: { presence: 'text'|'block'|'ocr'|'visual-only', flags: [] }.
+ * How a reading is borne out by the page's text: { presence: 'text'|'block'|'ocr'|'visual-only', flags: [], inName: [] }.
  * Every number must be printed on the page and the quote must be on it; the strongest view that bears each out
  * counts, and the weaker of the two names the row. A row with no quote, or a number nobody can find, is visual-only.
+ * A number the page prints only inside a name ("GF30") is borne out where a piece of the quote holds that name and the
+ * page prints the piece; inName lists those numbers, so what the row rests on is said.
  */
 export function presence(doc, page, { numbers = [], quote = '' }) {
   const p = doc?.pages.get(Number(page));
-  const flags = [];
-  if (!p) return { presence: 'visual-only', flags: [`page-${page}-has-no-text`] };
+  const flags = [], inName = [];
+  if (!p) return { presence: 'visual-only', flags: [`page-${page}-has-no-text`], inName };
   const firstView = (test) => VIEWS.find(([view]) => p[view].length && test(p[view], view === 'line' ? p.squeezed : ''))?.[1] ?? null;
+  // Only the name the reader quoted: a name's digits standing anywhere on the page would bear out any reading of the
+  // same number, and every nylon sheet prints the 6 of "PA6". The number must be the name's exactly ("CF15" is no 15.4).
+  const quotedName = (n) => {
+    const want = Number(String(n).replace(',', '.'));
+    const pieces = String(quote ?? '').split(' | ').filter((piece) => nameNumbers(piece).some((d) => Number(d) === want));
+    return pieces.length ? firstView((lines) => pieces.some((piece) => quoteInLines(lines, piece))) : null;
+  };
   let rank = 0;
   for (const n of numbers) {
-    const where = firstView((lines, flat) => numberInLines(lines, n, flat));
+    let where = firstView((lines, flat) => numberInLines(lines, n, flat));
+    if (!where) { where = quotedName(n); if (where) inName.push(String(n)); }
     if (!where) { flags.push(`number-not-on-page:${n}`); continue; }
     rank = Math.max(rank, RANK[where]);
   }
@@ -191,7 +215,7 @@ export function presence(doc, page, { numbers = [], quote = '' }) {
     const where = firstView((lines) => quoteInLines(lines, quote));
     if (!where) flags.push('quote-not-on-page'); else rank = Math.max(rank, RANK[where]);
   } else flags.push('no-quote');
-  return { presence: flags.length ? 'visual-only' : ['text', 'block', 'ocr', 'repaired'][rank], flags };
+  return { presence: flags.length ? 'visual-only' : ['text', 'block', 'ocr', 'repaired'][rank], flags, inName };
 }
 
 // ---- what the tables hold ----------------------------------------------------------------------------------------

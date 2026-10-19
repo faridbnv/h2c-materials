@@ -25,7 +25,7 @@ import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { nextId } from '../data/table-io.mjs';
 import { projectRoot } from '../ingest/context.mjs';
-import { NUM, quoteViews, tidy } from '../ingest/read-proposals.mjs';
+import { NOMINAL, NUM, quoteViews, tidy } from '../ingest/read-proposals.mjs';
 import { onSheet, rowsOf } from './sweep-shared.mjs';
 import { TYPED, retype, typedOf } from './profile-settings.mjs';
 import { addValue, withNote } from './source-edits.mjs';
@@ -160,7 +160,9 @@ export function applyProposals(t, dir, { migration, read, date = '2026-10-04', s
       const load2 = loadCellFromParsed(parseHdtStandard(e['Standard / load']));
       if (load2 !== e['Test load MPa']) throw new Error(`${migration}: ${e.Locator}: the parser reads the load of "${e['Standard / load']}" as ${load2}, the proposal has ${e['Test load MPa']}`);
     }
-    set['Data status'] = 'Published value';
+    // A figure only the product's name gives is its rating (D150), which the proposal says; nothing else changes the status.
+    if (e.data_status && e.data_status !== NOMINAL) throw new Error(`${migration}: ${e.Locator} on ${e.SourceID}: data_status "${e.data_status}" is not one a proposal may set`);
+    set['Data status'] = e.data_status === NOMINAL ? NOMINAL : 'Published value';
     set['Parse review'] = NA;
     // Text as the tables hold it, after the quote check; the parsers must read the tidy cells as they read the proposed ones.
     for (const k of Object.keys(set)) if (typeof set[k] === 'string') set[k] = tidy(set[k]);

@@ -6,9 +6,11 @@
 // computed from files already committed (or cached) and nothing derivable is stored:
 //
 //   documents      one row per document the import ledger, a proposal or sources.csv names by its digest: the
-//                  ledger key, the source the ledger registered it as (none when it was not; for a copy registered
-//                  under another document's source, that source), who published it, and where the import left it
-//                  (applied, deferred, held, a copy of another).
+//                  ledger key, the source it is (sourceid: the source whose recorded SHA-256 is its digest, none when
+//                  no source records it), the source the ledger filed it under when it is no source's own bytes
+//                  (filed_under: a later revision, another edition or a retailer's copy of a product already held,
+//                  OPEN-PROBLEMS §34.3), who published it, and where the import left it (applied, deferred, held, a
+//                  copy of another).
 //   source_facts   one row per distinct line (document, page, text) the import reader read without it becoming
 //                  data, from the import's proposals (.cache/proposals/**, restored from the private store, where a
 //                  document re-read by several batches appears once per batch). Without them the table is empty, and
@@ -20,8 +22,12 @@
 //                                      on a document the database cites no source for: deferred for its identity,
 //                                      held, a copy. These are the rows the build never used.
 //                  A row a reviewer rejected is left out: a rejection can mean the page does not print what was read.
-//                  Each fact carries the document's source and that source's active grades where it is registered,
-//                  with no ruling: a fact belongs to its document whether or not the document's product is settled.
+//                  Each fact carries the document's source and that source's active grades where the document is
+//                  that source's recorded bytes, with no ruling: a fact belongs to its document whether or not the
+//                  document's product is settled. A fact on bytes the ledger filed under a source that records
+//                  another digest carries no source, and names the one it was filed under in filed_under: its
+//                  words are a later copy's, not the recorded sheet's (colorFabb HT's filed copy is Eastman's
+//                  Amphora HT5300 sheet, and Stratasys' ULTEM 9085 sheet was filed under ULTEM 1010's source).
 //   documents_fts  the cached text of each of those documents, one row per page, in an FTS5 index. Built only when
 //                  .cache/text is present, and never committed: the text is the makers', and dist/ is gitignored.
 //                  Its view column says which reading a row is: 'text', the text layer; 'ocr', the optical reading
@@ -149,10 +155,30 @@ export function propertyNamer(properties) {
  * The documents and the facts, from the committed files alone (no cache): { documents: Map sha -> row, facts: [] }.
  */
 export function readRecordTier(root) {
-  const ledger = rows(join(root, LEDGER));
-  const sources = rows(join(root, 'data/tables/sources.csv'));
-  const grades = rows(join(root, 'data/tables/grades.csv'));
-  const nameProperty = propertyNamer(rows(join(root, 'data/tables/properties.csv')));
+  const dir = join(root, PROPOSALS);
+  const files = proposalFiles(dir);
+  // Read one at a time: the proposals are some 80 MB of JSON, and only the lines they read are kept.
+  function* proposals() {
+    for (const rel of files) yield { rel, proposal: JSON.parse(readFileSync(join(dir, rel), 'utf8')) };
+  }
+  return {
+    ...recordTierOf({
+      ledger: rows(join(root, LEDGER)),
+      sources: rows(join(root, 'data/tables/sources.csv')),
+      grades: rows(join(root, 'data/tables/grades.csv')),
+      properties: rows(join(root, 'data/tables/properties.csv')),
+      proposals: proposals(),
+    }),
+    proposals: files.length,
+  };
+}
+
+/**
+ * The documents and the facts from their inputs, as rows and parsed proposals ({ rel, proposal }, any iterable):
+ * { documents: Map sha -> row, facts: [] }. readRecordTier reads them from a checkout; a test hands its own.
+ */
+export function recordTierOf({ ledger, sources, grades, properties, proposals }) {
+  const nameProperty = propertyNamer(properties);
 
   // A digest can stand on several ledger rows (the same bytes at two addresses). The one registered as a source
   // speaks for it, then the primary one.
@@ -165,13 +191,20 @@ export function readRecordTier(root) {
   for (const g of grades) if (g.Status === 'active') (gradesBySource.get(g.SourceID) ?? gradesBySource.set(g.SourceID, []).get(g.SourceID)).push(g.GradeID);
 
   const documents = new Map();
+  // A document is a source only where the source records its digest, as audit:reader-recall reads it. The ledger also
+  // registers a later revision, another edition or a retailer's copy under the source of a product already held
+  // ("a second sheet for one product is a revision or a copy"), and taken as that source's, on 2026-10-19 4 266 lines
+  // of 145 such documents were read as 126 recorded sheets' (a lead list then sent readers to words the recorded sheet
+  // does not print, §34.3). The source it was filed under is kept, named as such, and decides nothing here.
   const addDocument = (sha, row, fallback = {}) => {
     if (documents.has(sha)) return;
     const source = sourceBySha.get(sha);
+    const filed = present(row?.registered_source_id);
     documents.set(sha, {
       sha256: sha,
       doc_key: present(row?.doc_key),
-      sourceid: present(row?.registered_source_id) ?? present(source?.SourceID),
+      sourceid: present(source?.SourceID),
+      filed_under: !source && filed ? filed : null,
       provider: present(row?.provider) ?? present(fallback.provider) ?? present(source?.Publisher),
       manufacturer: present(row?.manufacturer) ?? present(fallback.manufacturer),
       product: present(row?.product_raw),
@@ -185,22 +218,19 @@ export function readRecordTier(root) {
   for (const sha of sourceBySha.keys()) addDocument(sha, null);
 
   // Every reading of every line, from every batch that read it.
-  const dir = join(root, PROPOSALS);
   const readings = new Map();
   const read = (sha, page, text, reading) => {
     if (!sha || !Number.isInteger(page) || !text) return;
     const key = `${sha}\u0000${page}\u0000${text}`;
     (readings.get(key) ?? readings.set(key, { sha, page, text, list: [] }).get(key)).list.push(reading);
   };
-  const files = proposalFiles(dir);
-  for (const rel of files) {
-    const j = JSON.parse(readFileSync(join(dir, rel), 'utf8'));
+  for (const { rel, proposal: j } of proposals) {
     const sha = j.document?.sha256;
     if (!sha) continue;
     // A page captured twice has a new digest each time; the proposal's own key still finds its ledger row, which
-    // names the document but registers only the digest it was fetched as.
+    // names the document but registers only the digest it was fetched as: the other capture is filed under its source.
     const byKey = ledgerByKey.get(j.document.docKey);
-    addDocument(sha, ledgerBySha.has(sha) ? pick(ledgerBySha.get(sha)) : byKey && { ...byKey, registered_source_id: null }, j.document);
+    addDocument(sha, ledgerBySha.has(sha) ? pick(ledgerBySha.get(sha)) : byKey, j.document);
     const at = { rel, date: j.generated?.date ?? '' };
     for (const s of j.skipped ?? []) read(sha, s.page, s.text, { ...at, row: false, rank: 0, reason: s.reason });
     for (const m of j.measurements ?? []) {
@@ -237,13 +267,13 @@ export function readRecordTier(root) {
     const [property, propertyBy] = reading.property ? [reading.property, 'reader'] : nameProperty(text, reading.reason);
     const gradeIds = doc.sourceid ? (gradesBySource.get(doc.sourceid) ?? []).slice().sort() : [];
     facts.push({
-      kind, sha256: sha, doc_key: doc.doc_key, sourceid: doc.sourceid, gradeids: gradeIds.length ? gradeIds.join(',') : null,
+      kind, sha256: sha, doc_key: doc.doc_key, sourceid: doc.sourceid, filed_under: doc.filed_under, gradeids: gradeIds.length ? gradeIds.join(',') : null,
       page, text, reason: reading.reason, property, property_by: propertyBy,
       batches: new Set(list.map((r) => r.rel)).size, proposal: reading.rel,
     });
   }
   facts.sort((a, b) => (a.sha256 < b.sha256 ? -1 : a.sha256 > b.sha256 ? 1 : a.page - b.page || (a.text < b.text ? -1 : a.text > b.text ? 1 : 0)));
-  return { documents, facts, proposals: files.length };
+  return { documents, facts };
 }
 
 /**
@@ -267,15 +297,15 @@ export function writeRecordTier(db, root) {
 
   const optical = new Map([...texts.keys()].map((sha) => [sha, opticalPages(sha)]));
 
-  db.exec(`CREATE TABLE documents (sha256 TEXT PRIMARY KEY, doc_key TEXT, sourceid TEXT, provider TEXT, manufacturer TEXT,
-    product TEXT, url TEXT, status TEXT, status_note TEXT, duplicate_of TEXT, text_pages INTEGER, optical INTEGER,
-    ocr_pages INTEGER, unread_pages INTEGER)`);
-  const insDoc = db.prepare('INSERT INTO documents VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+  db.exec(`CREATE TABLE documents (sha256 TEXT PRIMARY KEY, doc_key TEXT, sourceid TEXT, filed_under TEXT, provider TEXT,
+    manufacturer TEXT, product TEXT, url TEXT, status TEXT, status_note TEXT, duplicate_of TEXT, text_pages INTEGER,
+    optical INTEGER, ocr_pages INTEGER, unread_pages INTEGER)`);
+  const insDoc = db.prepare('INSERT INTO documents VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
   db.exec('BEGIN');
   for (const d of [...documents.values()].sort((a, b) => (a.sha256 < b.sha256 ? -1 : 1))) {
     const t = texts.get(d.sha256);
     const o = optical.get(d.sha256);
-    insDoc.run(d.sha256, d.doc_key, d.sourceid, d.provider, d.manufacturer, d.product, d.url, d.status, d.status_note,
+    insDoc.run(d.sha256, d.doc_key, d.sourceid, d.filed_under, d.provider, d.manufacturer, d.product, d.url, d.status, d.status_note,
       d.duplicate_of, t ? t.pages.length : null, t ? (t.ocr ? 1 : 0) : null,
       t ? o.optical.length : null, t ? o.flagged.filter((p) => !o.optical.some((x) => x.page === p)).length : null);
   }
@@ -283,15 +313,15 @@ export function writeRecordTier(db, root) {
   db.exec('CREATE INDEX ix_documents_sourceid ON documents (sourceid)');
 
   db.exec(`CREATE TABLE source_facts (fact_id INTEGER PRIMARY KEY, kind TEXT NOT NULL CHECK (kind IN ('skipped', 'unapplied')),
-    sha256 TEXT NOT NULL REFERENCES documents (sha256), doc_key TEXT, sourceid TEXT, gradeids TEXT,
+    sha256 TEXT NOT NULL REFERENCES documents (sha256), doc_key TEXT, sourceid TEXT, filed_under TEXT, gradeids TEXT,
     page INTEGER NOT NULL, text TEXT NOT NULL, reason TEXT NOT NULL, property TEXT, property_by TEXT,
     batches INTEGER NOT NULL, proposal TEXT NOT NULL, UNIQUE (sha256, page, text))`);
-  const insFact = db.prepare('INSERT INTO source_facts VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
+  const insFact = db.prepare('INSERT INTO source_facts VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
   db.exec('BEGIN');
-  facts.forEach((f, i) => insFact.run(i + 1, f.kind, f.sha256, f.doc_key, f.sourceid, f.gradeids, f.page, f.text, f.reason,
+  facts.forEach((f, i) => insFact.run(i + 1, f.kind, f.sha256, f.doc_key, f.sourceid, f.filed_under, f.gradeids, f.page, f.text, f.reason,
     f.property, f.property_by, f.batches, f.proposal));
   db.exec('COMMIT');
-  for (const column of ['sourceid', 'property', 'doc_key']) db.exec(`CREATE INDEX ix_source_facts_${column} ON source_facts (${column})`);
+  for (const column of ['sourceid', 'filed_under', 'property', 'doc_key']) db.exec(`CREATE INDEX ix_source_facts_${column} ON source_facts (${column})`);
 
   let fulltext = null;
   if (cached) {

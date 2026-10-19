@@ -394,6 +394,69 @@ test('a maker\'s claim in a sentence is not a result, wherever it sits; a table 
   assert.ok(out.held[0].reason.startsWith('prose-claim'));
 });
 
+// A fibre load (stage 2b's fibre sweep, §38.3): the readings the stage's reviewer had to decide by hand.
+const withFibre = { ...tables, properties: [...tables.properties, { Property: 'Fibre content', Units: '%' }, { Property: 'Moisture content', Units: '%' }] };
+const fibre = (o) => value({ Field: 'Fibre content', Unit: '%', Label: 'Carbon fibre', ...o });
+
+test('a composition stated as approximate is the maker\'s figure, recorded with its word; "up to" a share stays a claim (§38.3)', () => {
+  const approx = fibre({ Raw: 'approximately 15%', Lo: '15', Quote: 'The filament contains approximately 15% carbon fibre for stiffness' });
+  assert.equal(proseClaim(approx), null, 'a composition stated as approximate is no claim');
+  assert.ok(proseClaim(fibre({ Raw: '30%', Lo: '30', Quote: 'It is reinforced with up to 30% glass fibre' })), 'a bound on a share is not a figure for it');
+  assert.ok(proseClaim(value({ Field: 'HDT', Raw: '145 °C', Lo: '145', Unit: '°C', Quote: 'Heat deflection temperature up to approx. 145 °C' })), 'a service temperature stays a claim');
+  assert.ok(proseClaim(value({ Field: 'Moisture content', Raw: '0.2 %', Lo: '0.2', Unit: '%', Quote: 'The filament holds approx. 0.2 % moisture when shipped' })), 'moisture is a sample\'s state, not its make-up');
+  const out = buildProposals({ rows: [approx, fibre({ SourceID: 'S-2', Grade: 'G001-02', Raw: 'circa 3%', Lo: '3', Quote: 'circa 3%' })], tables: withFibre, ctx: { quoteOnSheet: () => true } });
+  assert.deepEqual(out.valuesAdd.map((v) => [v['Raw value'], v['Raw numeric'], v.data_status]), [['15%', '15', ''], ['3%', '3', '']], 'recorded from its number, as a published value');
+  assert.match(out.valuesAdd[0].note, /Approximate: the page says "approximately 15%"\.$/);
+  assert.match(out.valuesAdd[1].note, /Approximate: the page says "circa 3%"\.$/);
+});
+
+test('a figure only a product\'s name prints is recorded as the name, nominal; any other property read from a name\'s digits is held (§38.3)', () => {
+  const registry = new Map(withFibre.properties.map((p) => [p.Property, p]));
+  const named = (o) => fibre({ Label: 'Fibre content', Raw: 'AmideX PA6-GF30', Lo: '30', Quote: 'Technical Data Sheet: AmideX PA6-GF30 Glass Fiber Nylon', Flags: 'number-in-name:30', ...o });
+  const out = buildProposals({ rows: [named({})], tables: withFibre, ctx: { quoteOnSheet: () => true } });
+  assert.deepEqual(out.valuesAdd.map((v) => [v['Raw value'], v['Raw numeric'], v['Normalized value'], v.data_status, v.cause]),
+    [['AmideX PA6-GF30', '30', '30', 'Nominal from product designation', 'nominal-name']]);
+  assert.match(out.valuesAdd[0].note, /only in the product's name \(AmideX PA6-GF30\): the maker's rating of the product, not a test result\.$/);
+  // A rating the product already holds from another sheet is not recorded again (colorFabb prints "nGen-CF10" on three).
+  const { MeasurementID, SourceID, Locator, ...as } = { ...out.valuesAdd[0], MeasurementID: 'V7', SourceID: 'S-9', Locator: 'p. 1: name' };
+  const rated = { ...withFibre, measurements: [...withFibre.measurements, { ...as, MeasurementID, SourceID, Locator, 'Data status': 'Nominal from product designation' }] };
+  const again = buildProposals({ rows: [named({})], tables: rated, ctx: { quoteOnSheet: () => true } });
+  assert.deepEqual([again.valuesAdd.length, again.held.map((h) => h.reason)], [0, ['already-held-elsewhere']]);
+  // A rating and a printed figure of one product in one batch: the printed one is recorded, whichever was read first.
+  const two = { ...withFibre, sources: [...withFibre.sources, { SourceID: 'S-5', SHA256: 'z', 'Applicable grades': 'G001-01' }] };
+  const both = buildProposals({ rows: [named({ SourceID: 'S-5' }), fibre({ Label: 'Glass fibre', Raw: '30 %', Lo: '30', Quote: 'Glass fibre 30 %' })], tables: two, ctx: { quoteOnSheet: () => true } });
+  assert.deepEqual(both.valuesAdd.map((v) => [v.SourceID, v['Raw value'], v.data_status]), [['S-1', '30 %', '']]);
+  assert.deepEqual(both.held.map((h) => [h.SourceID, h.reason]), [['S-5', 'already-held-elsewhere']]);
+  // A reading whose Raw is the bare number is recorded as the name its quote prints.
+  assert.equal(valueProposal(named({ Raw: '30' }), { registry, grade: 'G001-01' })['Raw value'], 'GF30');
+  assert.equal(valueProposal(named({ Raw: 'Fiberon PETG-rCF08', Lo: '8', Quote: 'Fiberon PETG-rCF08', Flags: 'number-in-name:8' }), { registry, grade: 'G001-01' })['Raw numeric'], '8', 'a leading zero is the name\'s');
+  // A figure printed whole is a published value, whatever the name beside it says; a cell that gives it only inside a name
+  // rests on the name, though the page prints the digits elsewhere (no flag): never a published 10 % cut out of "nGen-CF10".
+  assert.equal(valueProposal(named({ Raw: '30 %', Flags: '' }), { registry, grade: 'G001-01' }).data_status, '');
+  const cut = valueProposal(named({ Raw: 'nGen-CF10', Lo: '10', Quote: 'nGen-CF10', Flags: '' }), { registry, grade: 'G001-01' });
+  assert.deepEqual([cut['Raw value'], cut.data_status], ['nGen-CF10', 'Nominal from product designation']);
+  // A name's digits are no tensile modulus, and a flag for another number is not this reading's.
+  assert.match(valueProposal(value({ Field: 'Tensile modulus', Raw: 'PA6-GF30', Lo: '30', Quote: 'PA6-GF30', Flags: 'number-in-name:30' }), { registry, grade: 'G001-01' }).error, /^number-only-in-name:30$/);
+  assert.equal(valueProposal(named({ Raw: '30 %', Flags: 'number-in-name:6' }), { registry, grade: 'G001-01' }).data_status, '');
+});
+
+test('a nominal figure is applied with its status, and no other status a proposal names is', () => {
+  const real = loadFullTables();
+  const rows = [fibre({ SourceID: 'S-FIXTURE', Grade: 'G116-01', Label: 'Fibre content', Raw: 'PA6-GF30', Lo: '30', Quote: 'AmideX PA6-GF30', Flags: 'number-in-name:30' })];
+  const out = buildProposals({ rows, tables: real });
+  assert.equal(out.valuesAdd.length, 1, `held: ${out.held.map((h) => h.reason).join(', ')}`);
+  const dir = mkdtempSync(join(tmpdir(), 'proposals-'));
+  writeProposals(out, dir, { run: 'fixture', readRows: rows.length });
+  const opts = { migration: 'm000', read: 'Read 2026-10-19 by a fixture', sheet: () => 'line' };
+  const t = openTables();
+  assert.equal(applyProposals(t, dir, opts).valuesAdded, 1);
+  const added = t.rows('measurements').find((m) => m.SourceID === 'S-FIXTURE');
+  assert.deepEqual([added['Raw value'], added['Data status']], ['PA6-GF30', 'Nominal from product designation']);
+  const odd = mkdtempSync(join(tmpdir(), 'proposals-'));
+  writeProposals({ ...out, valuesAdd: out.valuesAdd.map((v) => ({ ...v, data_status: 'Published value (physically implausible)' })) }, odd, { run: 'fixture', readRows: 0 });
+  assert.throws(() => applyProposals(openTables(), odd, opts), /is not one a proposal may set/);
+});
+
 test('text is tidied as the lint reads it: full-width punctuation made ASCII outside Chinese, runs of spaces made one', () => {
   assert.equal(tidy('40-50℃，6-8  H（air oven）'), '40-50℃,6-8 H(air oven)');
   assert.equal(tidy('＜0.5 %'), '<0.5 %');

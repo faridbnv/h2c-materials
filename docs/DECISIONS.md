@@ -184,6 +184,7 @@ detail. The generator names one that runs longer.
 | D166 | What the round's review and second trial corrected | An independent review and a second first-time user found four rules of stages 3b and 3c that gave answers the evidence does not support. A PLA or PET bar the ledger itself calls only a ceiling still floored the printed part through its 1.8 MPa value, so MatterHackers Tough PLA passed 70 °C on an undescribed bar. A flexural band's top end within 10 % of 5 GPa put PLA "one check away" from a stiffness fixture. A value only a ceiling kept plain PLA in "Not enough data" for an 80 °C part. And soft TPS, TPV and a maker-undisclosed TPE sat unresolved in stiffness presets. Each is corrected: a demoted bar bounds only from above, a band, floor or ceiling is compared with the limit as it is, a ceiling never holds a material open, and the rubber limit names its kinds by base polymer. | In force. It amends D152 (only a point is on the line), D153 (a demoted bar is a ceiling whichever row reads it), D154 (CL01 holds for TPE, TPS and TPV) and D155 (what holds a material open against a measured miss, and how its reason counts) |
 | D167 | What the review of the estimate model corrected: no annealed value props up an as-printed estimate, and a product's own values bound its estimate and its likely tag | An independent review of stage 4 found three wrong answers. Products that publish only annealed heat values were estimated as printed from those very values (Bambu Lab PET-CF at 182 °C, where a printed PET-CF is near 85). A product's own stiffness on a moulded bar capped its estimate even where its other sheet said six times more, and the cap could err the unsafe way for an "at most" limit. And a product's own heat value was set aside as a conflict while its estimate was tagged "likely" against it. Now an annealed value is always another state, converted and never a floor; a product's own values of the property, measured another way, hold its estimate on both sides, or withhold it where its kind's model disagrees; and no product is tagged likely against its own sheet. | In force (screening build, stage 4b, 2026-10-18; the stage-4 review's S01 to S17). It amends D157 (a row and a way of learning), D158 (one annealing rule), D160 (its ceiling is replaced), D162 (annealed values) and D165's record, and corrects the words of D161 and D163 |
 | D168 | The readers learn what the research intake found: an enclosure or a hardened nozzle the maker does not require, drying advised for a condition, and standards and temperatures they missed | Three kinds of print advice were typed one way by the readers and another by the people who read the same words by hand. A sheet that says an enclosure is "not mandatory, but recommended", or lists open-frame printers among those it prints on, now reads as no enclosure needed, so the H2C's chamber question is answered. A sheet that asks for "stainless steel or other hardened alloys", or only warns that a filler wears brass, no longer reads as requiring a hardened nozzle; a sheet that recommends or needs one still does. Drying advised "once opened" or "depending on moisture" is optional, as drying "if wet" already was. And the readers now read standards and temperatures they missed: "ISO 52 7", "IS O 179", the Japanese JIS K standards, a test temperature printed only in °F, and QIDI's "100°C Annealing 8 hours". | In force (the research intake, 2026-10-19; the owner's ruling of 2026-10-19 on the research package's P1.3 proposals). It amends D33 (an enclosure the maker does not require clears the chamber, whatever recommendation stands beside it) and extends D141's reader sweep |
+| D169 | The reading tools read what the record tier, a split row and a name hold, as their pages do | Three of the tools that read makers' documents misread something the page plainly shows. The searchable record of every cached page counted a later copy of a sheet as the registered sheet itself, so a sentence from another revision (or, once, another product's sheet) appeared under the wrong source. The import's sheet reader missed a table row whose label and value sit on one line and the rest a point below, when the lower line held an orientation code such as "XY". And the checker that confirms a reading against its page could not find a number printed inside a product name ("CF15"), while a composition stated "approximately" was held back as a marketing claim. Each now reads what the page shows. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §34.3, §34.7, §38.3). The import's sheet reader is frozen since D138; this changes one of its rules, with the back-test below |
 
 <!-- end index -->
 
@@ -5726,6 +5727,35 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
 - **What would break if reversed.** The readers would type "not mandatory" as a recommended enclosure again, which leaves
   the chamber unknown for products their makers print open, and a stainless-steel sentence would again fail a product
   for a user without a hardened nozzle.
+
+## D169. The reading tools read what the record tier, a split row and a name hold, as their pages do
+
+> **In plain words:** Three of the tools that read makers' documents misread something the page plainly shows. The searchable record of every cached page counted a later copy of a sheet as the registered sheet itself, so a sentence from another revision (or, once, another product's sheet) appeared under the wrong source. The import's sheet reader missed a table row whose label and value sit on one line and the rest a point below, when the lower line held an orientation code such as "XY". And the checker that confirms a reading against its page could not find a number printed inside a product name ("CF15"), while a composition stated "approximately" was held back as a marketing claim. Each now reads what the page shows.
+> **Status:** In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §34.3, §34.7, §38.3). The import's sheet reader is frozen since D138; this changes one of its rules, with the back-test below.
+
+*Built by a Claude Opus agent in the clean-up round of 2026-10-19 and reviewed by the executor
+([the round](audits/2026-10-19-clean-up/README.md)).*
+
+- **The record tier** (`scripts/data/record-tier.mjs`). A cached document counts as a source's only where `sources.csv`
+  records its digest, the rule `audit:reader-recall` already follows. A copy the ledger filed under a source that records
+  other bytes keeps no source or grades in `documents`, `source_facts` and `documents_fts`, and names the source it was
+  filed under (`filed_under`). 4,266 facts on 145 documents had carried another document's source; none does. The worst
+  was Stratasys' ULTEM 9085 sheet filed under ULTEM 1010's source (1,086 facts). The ledger is unchanged.
+- **The sheet reader** (`scripts/ingest/propose.mjs`, `isRowPiece`). A two-axis orientation code (XY, ZX …) is not a word
+  when the reader decides whether a lower line is a sentence or the rest of a split row. *Back-test:* every one of the
+  2,912 cached documents read by the old reader and the new: one sheet differs (LEHVOSS's printed-specimen sheet for
+  LUVOCOM 3F PAHT 9825 NT, 19 to 24 of its 24 tensile cells), five values gained, none lost, no setting changed; the
+  parity census moves colorFabb from 323 to 326 of 413 and no other maker; `audit:reader-recall` finds five more items,
+  each a row the tables already hold.
+- **The reconciler and the proposals** (`read-common.mjs`, `read-reconcile.mjs`, `read-proposals.mjs`). A number printed
+  inside a name (a run of one to four letters, one capital at least, then one to three digits ending the token; never a
+  standard, "H2C", "95A" or "V2.0") confirms a reading only where the reading's own quote holds that name, and exactly
+  ("CF15" is not 15.4). A composition (Fibre content) stated "approximately" is recorded from its number with the words
+  in its note; one the page prints only inside a name is the name's rating, Data status "Nominal from product
+  designation" (D150's rule, which the fibre stage's reviewer had applied by hand). Re-running that stage's 177 fibre
+  readings: visual-only readings 20 to 3, second-read tasks 15 to 2, claims held 4 to 0.
+- **What would break if reversed.** The full-text search would again show a later revision's words under the registered
+  sheet; LEHVOSS's five cells would wait for a person; and a fibre load a name gives would again need a second reading.
 
 ## Bugs worth remembering
 
