@@ -44,6 +44,7 @@ import { floorBackTest } from './floors.js';
 import { attachPrintEstimates } from './print.js';
 import { attachProductScreening } from './product-screening.js';
 import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors } from './grades.js';
+import { directionBackTest, directionTarget } from './directions.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
 
@@ -86,7 +87,8 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
       betweenProduct: { sd: r3(between.sd), pairs: between.pairs, used: r3(hp.w), estimated: fixedW == null },
       spreads: Object.fromEntries(Object.entries(hp).map(([k, v]) => [k, r3(v)])),
       calibration,
-      conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs }])),
+      conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs,
+        ...(c.across ? { across: { materials: c.across.materials, contrast: r3(c.across.contrast) } } : {}) }])),
     };
 
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
@@ -109,6 +111,15 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     } else {
       const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
       attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf });
+      // The unstated-direction back-test (D159): an unstated-only product's centre against its measured siblings, and
+      // the products that publish both with their headline hidden.
+      const directions = directionBackTest({ key, model, S, obs, holdOut, calPlausible: gradeCal.calPlausible, zPlausible });
+      const centreOf = (g) => {
+        const m = S.inPool.get(g.materialId), f = S.fkey(g.id);
+        const subject = (ownerOfF.get(f) && ownerOfF.get(f) !== m.id ? S.inPool.get(ownerOfF.get(f)) : null) ?? m;
+        return inv(predict(P, hp, subject, f, g.manufacturer ?? null).mu + tmMean(subject));
+      };
+      if (directions) diagnostics.properties[key].directions = { ...directions, target: directionTarget({ key, model, S, obs, centreOf }) };
       diagnostics.properties[key].productScreening = attachProductScreening({ key, raw, S, model, tmMean, measurements, sources,
         definition: registry.headlines.find((h) => h.key === key) });
     }

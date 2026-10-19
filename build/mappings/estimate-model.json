@@ -180,7 +180,8 @@
       "flexural unk": {
         "offset": 0,
         "sd": 0.4,
-        "why": "Direction not stated"
+        "why": "Direction not stated",
+        "learns": "pairs, across products, down only"
       },
       "tensile Z": {
         "offset": 0.34,
@@ -190,7 +191,8 @@
       "tensile unk": {
         "offset": 0,
         "sd": 0.35,
-        "why": "Direction not stated; may be a moulded bar"
+        "why": "Direction not stated; may be a moulded bar",
+        "learns": "pairs, across products, down only"
       },
       "tensile moulded": {
         "offset": -0.15,
@@ -257,17 +259,20 @@
       "ultimate unk": {
         "offset": 0.1,
         "sd": 0.3,
-        "why": "Direction not stated"
+        "why": "Direction not stated",
+        "learns": "pairs, across products, down only"
       },
       "break unk": {
         "offset": 0.15,
         "sd": 0.3,
-        "why": "Break stress, direction not stated"
+        "why": "Break stress, direction not stated",
+        "learns": "pairs, across products, down only"
       },
       "yield unk": {
         "offset": 0.1,
         "sd": 0.3,
-        "why": "Yield stress, direction not stated"
+        "why": "Yield stress, direction not stated",
+        "learns": "pairs, across products, down only"
       },
       "ultimate moulded": {
         "offset": -0.25,
@@ -294,7 +299,8 @@
       "break unk": {
         "offset": 0,
         "sd": 0.9,
-        "why": "Direction not stated"
+        "why": "Direction not stated",
+        "learns": "pairs, across products, down only"
       },
       "break moulded": {
         "offset": -1.4,
@@ -517,5 +523,5 @@
     "confidence": 0.9,
     "why": "Each end of an evidence class's screening ranges is a distribution-free tolerance limit of where the honestly predicted true values of that class fell: a new true value lies beyond it at most maxWrongRate of the time, with this confidence. It is never inside the plausible range shown, and moves outwards only where the back-test shows the model's tail is too thin. Setting a limit at all takes 22 back-tested cases at 10% and 90%. How often a true value lies beyond an end bounds how often a screen on it is wrong, since a screen is wrong only when the requirement also lies between the end and the true value."
   },
-  "_directionComment": "An unknown direction may not convert a value upwards more than its documented offset: a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04). The build refines an unknown-direction offset downwards from pairs, never above the documented value."
+  "_directionComment": "An unknown direction may not convert a value upwards more than its documented offset (the cap stays though D159's cross-product contrast moves every offset down): a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04). The build refines an unknown-direction offset downwards from pairs, never above the documented value."
 }

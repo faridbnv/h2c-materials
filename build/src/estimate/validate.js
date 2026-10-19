@@ -246,6 +246,18 @@ export function estimateReportLines(db) {
     }
     L.push('');
   }
+  const directionRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.directions);
+  if (directionRows.length) {
+    L.push('Unstated directions (D159): the kinds whose offset is learned across products as well as from the products that publish both. Target: each product with only an unstated-direction value, beside measured siblings, its centre against their median (a ratio) and how many centres sit above every sibling. Guard: each product that publishes both, as different numbers, its headline hidden and predicted.');
+    L.push('');
+    L.push('| Headline | Kinds | Target products | Centre ÷ siblings\' median | Above every sibling | Guard cases | Guard signed error | Guard plausible holds |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of directionRows) {
+      const d = p.directions;
+      L.push(`| ${key} | ${d.kinds.map((k) => `${k} ${p.conversions[k]?.offset ?? ''}${p.conversions[k]?.across ? ` (${p.conversions[k].across.materials} materials)` : ''}`).join('; ')} | ${d.target?.products ?? 0} | ×${d.target?.ratio ?? '–'} | ${d.target?.aboveEverySibling ?? 0} | ${d.guard.cases} | ${d.guard.signedError} | ${Math.round((d.guard.plausibleCoverage ?? 0) * 1000) / 10}% |`);
+    }
+    L.push('');
+  }
   const gradeRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.gradeCalibration);
   if (gradeRows.length) {
     L.push('Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.');

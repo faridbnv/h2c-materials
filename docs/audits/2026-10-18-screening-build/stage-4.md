@@ -27,3 +27,19 @@ No material's verdict changed. 37 product answers moved between "an estimate sug
 because estimates moved ([stage-4-diff-2.md](stage-4-diff-2.md)). The heat-deflection estimates got narrower (the
 median range shown fell from 21.4 to 19.4 °C) and still hold 81 % and 95 % of hidden values. One side effect is reported
 in the back-test: the density estimates of filled PLAs hold their hidden value a little less often than before.
+
+## 3. A value with no stated direction is converted as products show it
+
+Many sheets give a stiffness or a strength without saying which way the bar was printed. The estimate model converts
+such a value to the flat (XY) value by an offset it learns. It learned that offset only from products that publish
+both, and those mostly print the same number twice, so it said the two are equal. Comparing products shows otherwise:
+in 53 materials, the products that publish a flat modulus sit about 21 % below those that publish only an undirected
+one, which read like moulded bars. The offset now uses both (decision D159). A product that publishes only an undirected
+value is now estimated at its material's measured level: its stiffness estimate was 10 % above its measured siblings'
+median and is now 1 % below.
+
+The estimates shown for about 600 products per property moved; nine in ten fell, by a median of 7 % for stiffness, 2 %
+for strength and 4 % for elongation. No material's verdict changed. 424 product answers moved
+([stage-4-diff-3.md](stage-4-diff-3.md)), most from "an estimate suggests it meets" to "not enough data" (351 such moves against 29 the other way): PA66's
+products no longer look like 5 GPa parts on their estimates alone. PA612, which has no product, is now listed for a
+100 MPa strength, since its own estimate reaches 102 MPa.

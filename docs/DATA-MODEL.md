@@ -576,7 +576,8 @@ The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorp
 deflects near its glass transition and learns nothing from annealed values; an annealed value is never averaged with
 its as-printed twin; conditioned values convert to dry by the polymer's water uptake; density is bounded by the neat
 polymer's range and the rule of mixtures; an unfilled bar is capped by its own highest Vicat; an elastomer has no heat
-deflection estimate and no yield-to-ultimate conversion; an unknown direction never converts upwards past its
+deflection estimate and no yield-to-ultimate conversion; an unknown direction's offset pools the pairs with a contrast
+across products (the products publishing XY against those publishing only the unstated kind, D159) and never converts upwards past its
 documented offset; a material's only evidence is never down-weighted as a conflict; and what its own printed data
 prove (implied bounds) limits its range from below (D55). A physically implausible value informs nothing.
 

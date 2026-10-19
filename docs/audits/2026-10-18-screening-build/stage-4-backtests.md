@@ -99,3 +99,54 @@ decides no verdict: it moves only the "an estimate suggests it meets" tag of thr
 at least 1250 kg/m³). So the change is kept and the stratum reported.
 
 **Verdict.** Kept, with the density stratum noted above.
+
+## 3. An unstated direction learned across products (D159, the review's C27)
+
+**The change.** The offset that converts a value with no stated direction to the flat (XY) headline pooled the products
+that publish both with a contrast across products: per material, its products publishing XY against those publishing
+only the unstated kind. Six kinds learn this way; the cap (never above the documented offset) stays.
+
+| Kind | Materials in the contrast | Contrast | Offset before | Offset after |
+|---|---:|---:|---:|---:|
+| tensile unk (stiffness) | 53 | −0.241 | 0 | −0.159 |
+| flexural unk (stiffness) | 48 | −0.052 | −0.244 | −0.150 |
+| ultimate unk (strength) | 43 | −0.159 | −0.043 | −0.117 |
+| break unk (strength) | 39 | −0.230 | +0.150 | −0.124 |
+| yield unk (strength) | 38 | −0.215 | +0.084 | −0.153 |
+| break unk (elongation) | 53 | −0.228 | 0 | −0.149 |
+
+Offsets are on the log scale: −0.159 means the XY value is about 15 % below the unstated one.
+
+**Three measures**, recorded every build as `properties.*.directions`. The "before" column is the same build with the
+contrast switched off.
+
+| Measure | Stiffness | Strength | Elongation |
+|---|---|---|---|
+| (1) Target: an unstated-only product's model centre ÷ its measured siblings' median (products) | ×1.10 → ×0.991 (275) | ×1.13 → ×1.02 (235) | ×1.18 → ×1.03 (291) |
+| (1) Centres above every measured sibling | 53 → 33 | 62 → 33 | 62 → 52 |
+| (2) Guard: products publishing both as different numbers, XY hidden: cases, signed error | 29, +0.050 → +0.083 | 9, −0.041 → +0.085 | 23, +0.038 → +0.023 |
+| (2) Guard: plausible coverage | 96.6 → 89.7 % | 88.9 → 77.8 % | 87.0 → 91.3 % |
+| (3) EST-CALIBRATION, material likely / plausible | 80.5 / 95.1 → same | 80.0 / 95.4 → same | 80.0 / 95.3 → same |
+| (3) EST-CALIBRATION, grade likely / plausible | 79.4 / 94.8 → 79.8 / 94.5 | 79.0 / 94.3 → same | 79.7 / 94.8 → 79.4 / 94.8 |
+| Material scales (likely / plausible), median likely width | 1.10/1.14 → 1.19/1.08, ×1.46 → ×1.50 | 1.11/1.11 → 1.06/1.13, ×1.40 → ×1.38 | 1.05/1.17 → 1.12/1.09, ×3.59 → ×3.90 |
+
+Measure (1) reads the model's centre before the floors a product's own values set, since an unstated break stress floors
+its own ultimate strength whatever the offset. Measure (2) refits the conversions without the hidden product, on both
+sides of every contrast.
+
+**Floors** (D126's table): the rules in force move little; strength containment 86.2 / 93.8 → 83.1 / 95.4 %, the grade
+rule (formulation) 78.5 / 90.8 → 75.4 / 92.3 %; elongation containment 78.8 / 88.2 → 77.6 / 88.2 %, formulation 67.1 /
+82.4 → 68.2 / 82.4 %. **Screening ends:** one end moved, elongation's own-product bottom (0.0205 → 0.0197 quantile). D137's
+single-test diagnostic is unchanged on every class.
+
+**Against the pass rule.** (1) is within ×0.93–1.07 for stiffness and strength and ×1.15 for elongation; (2) keeps
+plausible coverage at or above 80 % where there are 20 cases or more (stiffness 89.7 %, elongation 91.3 %; strength has
+9, reported); (3) holds; D137's diagnostic is no worse. The design measured ×1.074 → ×0.968, ×1.139 → ×1.027 and ×1.255 →
+×1.100 on its own population; the contrasts and offsets above match its table to the third digit.
+
+**Answers** ([stage-4-diff-3.md](stage-4-diff-3.md)): no verdict moved. 424 product answers and 47 groups moved, most
+from "an estimate suggests it meets" to "not enough data" as centres fell (351 such moves against 29 the other way; PA66, PA6-CE and PAHT-CE under 5 GPa, PLA
+Glow and SAN under 3 GPa). One listing: PA612, which has no product, stays listed for 100 MPa, its own plausible top
+now 102 MPa (it was 98.6).
+
+**Verdict.** Kept.

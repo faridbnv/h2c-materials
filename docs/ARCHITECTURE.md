@@ -646,7 +646,8 @@ D158) deflects near its glass transition, fills as a glassy matrix does and lear
 treatment at or below its glass transition being no annealing; an annealed value is never averaged with its as-printed twin, and
 repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
 neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
-estimate; an unknown direction never converts upwards past its documented offset; a material's only evidence is never
+estimate; an unknown direction's offset is learned across products as well as from the products that publish both,
+and never converts upwards past its documented value (D159); a material's only evidence is never
 down-weighted; its implied bounds limit its range from below (D55). Film, filament, off-recipe (D95) and physically
 implausible values enter nothing. Every build then back-tests screening: each measured headline is hidden as far as an
 evidence class requires (this grade, this material, family) and predicted honestly with the production ranges, the

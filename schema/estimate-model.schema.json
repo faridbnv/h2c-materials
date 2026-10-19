@@ -75,7 +75,7 @@
     "interval": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
     "perScale": { "type": "object", "additionalProperties": false, "required": ["log", "linear"], "properties": { "log": { "type": "number", "minimum": 0 }, "linear": { "type": "number", "minimum": 0 } } },
     "offsetSd": { "type": "object", "additionalProperties": false, "required": ["offset", "sd"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 } } },
-    "conversion": { "type": "object", "additionalProperties": false, "required": ["offset", "sd", "why"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 }, "why": { "type": "string" } } },
+    "conversion": { "type": "object", "additionalProperties": false, "required": ["offset", "sd", "why"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 }, "why": { "type": "string" }, "learns": { "description": "How the offset is refined: from the pairs of products that publish both kinds (the default), or, for an unknown direction, from those pairs pooled with a contrast across products, never above the documented value (D159).", "enum": ["pairs, across products, down only"] } } },
     "headlineModel": {
       "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} },
       "required": ["scale", "scaleUnit", "precision", "plausibleValues", "floors"],

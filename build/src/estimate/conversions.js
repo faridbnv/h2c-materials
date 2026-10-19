@@ -36,6 +36,7 @@ export function conversions(key, raw, model, { without = null } = {}) {
     if (!kinds.has(HEAD[key])) continue;
     for (const [k, y] of kinds) { if (k === HEAD[key]) continue; if (!diffs.has(k)) diffs.set(k, []); diffs.get(k).push(kinds.get(HEAD[key]) - y); }
   }
+  const across = acrossProducts(key, byF);
   const out = { [HEAD[key]]: { offset: 0, sd: 0, pairs: 0, why: "The headline's own semantics" } };
   const kinds = new Set([...Object.keys(model.conversions[key] ?? {}), ...raw.map((o) => o.kind)]);
   for (const k of kinds) {
@@ -46,15 +47,51 @@ export function conversions(key, raw, model, { without = null } = {}) {
     const centre = n ? median(ds) : 0;
     const spread = n >= nMin ? 1.4826 * median(ds.map((d) => Math.abs(d - centre))) : 0;
     const df = n >= nMin ? n - 1 : 0;
-    const refined = (n * centre + n0 * doc.offset) / (n + n0);
+    // A kind that learns across products (D159) pools a contrast per material with the within-product pairs: the products
+    // that publish the headline's own kind against those that publish only this one. Its spread is still the pairs':
+    // the contrast carries the spread between products, which the model's product term already holds.
+    const cross = doc.learns === 'pairs, across products, down only' ? across(k) : null;
+    const nc = cross?.materials ?? 0;
+    const refined = (n * centre + nc * (cross?.contrast ?? 0) + n0 * doc.offset) / (n + nc + n0);
     out[k] = {
       // An unknown direction may move below its documented offset, never above it (estimate-model.json _directionComment).
       offset: / unk( |$)/.test(k) ? Math.min(refined, doc.offset) : refined,
       sd: Math.sqrt((df * spread * spread + n0 * doc.sd * doc.sd) / (df + n0)),
       pairs: n, why: doc.why,
+      ...(cross ? { across: { materials: nc, contrast: cross.contrast } } : {}),
     };
   }
   return out;
+}
+
+/**
+ * The cross-product contrast of a related kind (D159): per material, the median of the headline's own kind over its
+ * products that publish it, less the median of the related kind over its products that publish that and not the
+ * headline's kind; then the median over the materials that have both. A product that publishes both kinds usually prints
+ * one number twice (24 tensile pairs at a median of 0), so the pairs alone cannot see what an unstated direction is; the
+ * products that publish it alone can. `byF` is conversions()'s formulations with their kinds, hidden products already
+ * left out, so a hold-out never sees its own value on either side.
+ */
+function acrossProducts(key, byF) {
+  const byMaterial = new Map();
+  for (const [g, kinds] of byF) {
+    const id = g.slice(0, g.indexOf('|'));
+    if (!byMaterial.has(id)) byMaterial.set(id, []);
+    byMaterial.get(id).push(kinds);
+  }
+  const cache = new Map();
+  return (k) => {
+    if (!cache.has(k)) {
+      const contrasts = [];
+      for (const products of byMaterial.values()) {
+        const head = products.filter((kinds) => kinds.has(HEAD[key])).map((kinds) => kinds.get(HEAD[key]));
+        const only = products.filter((kinds) => kinds.has(k) && !kinds.has(HEAD[key])).map((kinds) => kinds.get(k));
+        if (head.length && only.length) contrasts.push(median(head) - median(only));
+      }
+      cache.set(k, { materials: contrasts.length, contrast: contrasts.length ? median(contrasts) : 0 });
+    }
+    return cache.get(k);
+  };
 }
 
 /**
