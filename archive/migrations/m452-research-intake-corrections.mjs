@@ -36,10 +36,10 @@
 // A re-run is a no-op, and a run after the data moved stops.
 //
 //   node scripts/migrate/m452-research-intake-corrections.mjs [--dry-run]
-import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
-import { withNote, settleFindings } from '../lib/source-edits.mjs';
-import { retype } from '../lib/profile-settings.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
+import { onCachedSheet } from '../../scripts/lib/read-proposals-apply.mjs';
+import { withNote, settleFindings } from '../../scripts/lib/source-edits.mjs';
+import { retype } from '../../scripts/lib/profile-settings.mjs';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { readTestTemperature } from '../../build/src/normalize/thermal.js';
 

@@ -12,9 +12,9 @@
 // Each edit names the value it replaces; a re-run is a no-op.
 //
 //   node scripts/migrate/m458-research-intake-review.mjs [--dry-run]
-import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
-import { withNote } from '../lib/source-edits.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
+import { onCachedSheet } from '../../scripts/lib/read-proposals-apply.mjs';
+import { withNote } from '../../scripts/lib/source-edits.mjs';
 
 const MIGRATION = 'm458';
 const t = openTables();

@@ -1,11 +1,12 @@
 # Packets of ingest-2026-09-18
 
-> **Generated** (2026-10-15) by `npm run packets -- --export ingest-2026-09-18`: it describes the data as it was that day; run it again for the current state.
+> **Generated** (2026-10-19) by `npm run packets -- --export ingest-2026-09-18`: it describes the data as it was that day; run it again for the current state.
 
-The 2026-09-18 import's proposals: one file per document and batch, with the page and line of every row the sheet reader
-proposed, the lines it skipped and the review of each row. The batch migrations re-read them and the record tier mines them.
+The import pipeline's proposals: one file per document and batch, with the page and line of every row the sheet
+reader proposed, the lines it skipped and the review of each row. The batch migrations re-read them and the record
+tier mines them.
 
-These 3,188 files (73.4 MB) left the working tree for the private evidence store that also keeps the
+These 3,197 files (73.4 MB) left the working tree for the private evidence store that also keeps the
 source documents (`$H2C_SOURCE_BACKUP/packets/ingest-2026-09-18/`), so that a clone carries the record and not its working
 files (D138). [PACKETS.csv](PACKETS.csv) lists each one with its size, its SHA-256, which proves a copy is the file that
 was used, and the last commit that holds it.
@@ -104,3 +105,4 @@ was used, and the last commit that holds it.
 | `p03` | 6 | 0.04 |
 | `p04` | 27 | 0.07 |
 | `p05` | 8 | 0.02 |
+| `p06` | 9 | 0.02 |

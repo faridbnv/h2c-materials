@@ -13,9 +13,9 @@
 // run after the data moved stops.
 //
 //   node scripts/migrate/m457-research-intake-page-settings.mjs [--dry-run]
-import { openTables, nextId } from '../data/table-io.mjs';
-import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
-import { retype, typedOf } from '../lib/profile-settings.mjs';
+import { openTables, nextId } from '../../scripts/data/table-io.mjs';
+import { onCachedSheet } from '../../scripts/lib/read-proposals-apply.mjs';
+import { retype, typedOf } from '../../scripts/lib/profile-settings.mjs';
 
 const MIGRATION = 'm457';
 const NP = 'Not published';

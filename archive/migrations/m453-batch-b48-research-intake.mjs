@@ -32,7 +32,7 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:f
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { openTables, projectRoot } from '../data/table-io.mjs';
+import { openTables, projectRoot } from '../../scripts/data/table-io.mjs';
 import { checkData } from '../../build/src/schema.js';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { lintData, findingKey } from '../../build/src/lint-rules.js';
@@ -52,9 +52,9 @@ const sid = (id) => documents.find((d) => d.id === id).sourceId;
 // The round's own ledger and proposals: the documents were staged there, and applied is written there.
 process.env.H2C_INGEST_ROOT = at;
 process.env.H2C_PROPOSALS = join(at, 'proposals');
-const { proposalsOf, guard, worldOf, writeBatch, markApplied } = await import('../ingest/apply.mjs');
-const { locate } = await import('../data/source-store.mjs');
-const { onSheet } = await import('../lib/sweep-shared.mjs');
+const { proposalsOf, guard, worldOf, writeBatch, markApplied } = await import('../../scripts/ingest/apply.mjs');
+const { locate } = await import('../../scripts/data/source-store.mjs');
+const { onSheet } = await import('../../scripts/lib/sweep-shared.mjs');
 
 const proposals = proposalsOf('b48');
 if (proposals.length !== p.Documents.length) throw Error(`${migration}: proposal inventory moved`);

@@ -63,7 +63,7 @@ from four causes.
 | Material pages | 76 | 77 (Nylon-GF) |
 | Sources / measurements / profiles | 2,033 / 14,974 / 1,836 | 2,100 / 15,047 / 1,906 |
 
-The counts come from [counts.mjs](counts.mjs) ([before](baseline/counts-before.json), [after](after/counts-after.json)), and the pages
+The counts come from [counts.mjs](counts.mjs) ([before](baseline/counts-before.json), [after](PACKETS.md)), and the pages
 from [pages-list.mjs](pages-list.mjs) ([before](baseline/pages-before.csv), [after](after/pages-after.csv)).
 
 ## What did not enter, and why

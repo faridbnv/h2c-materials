@@ -27,10 +27,10 @@
 //
 //   node scripts/migrate/m454-research-intake-readings.mjs [--dry-run]
 import { join } from 'node:path';
-import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
-import { applyProposals, onCachedSheet } from '../lib/read-proposals-apply.mjs';
-import { typedOf } from '../lib/profile-settings.mjs';
-import { settleFindings } from '../lib/source-edits.mjs';
+import { openTables, projectRoot, nextId } from '../../scripts/data/table-io.mjs';
+import { applyProposals, onCachedSheet } from '../../scripts/lib/read-proposals-apply.mjs';
+import { typedOf } from '../../scripts/lib/profile-settings.mjs';
+import { settleFindings } from '../../scripts/lib/source-edits.mjs';
 
 const MIGRATION = 'm454';
 const DIR = join(projectRoot, 'docs/audits/2026-10-19-research-intake/proposals/r1-reviewed');

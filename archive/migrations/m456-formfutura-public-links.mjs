@@ -12,8 +12,8 @@
 //
 //   node scripts/migrate/m456-formfutura-public-links.mjs [--dry-run]
 import { join } from 'node:path';
-import { openTables, projectRoot } from '../data/table-io.mjs';
-import { rowsOf } from '../lib/sweep-shared.mjs';
+import { openTables, projectRoot } from '../../scripts/data/table-io.mjs';
+import { rowsOf } from '../../scripts/lib/sweep-shared.mjs';
 
 const MIGRATION = 'm456';
 const t = openTables();
