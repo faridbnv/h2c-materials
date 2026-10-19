@@ -119,7 +119,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 
 | Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|
-| CV01 | hdt045 | floor | reported | 1 | 300 | 0 | 1 | 0 | 255 | difference -4 to 119.5 | 2 |
+| CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 0 | 255 | difference -4 to 119.5 | 2 |
 | CV02 | tensileModulusXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV03 | hdt045 | ceiling | reported | 1 | 65 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
 | CV04 | tensileModulusXY | ceiling | reported | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
@@ -553,6 +553,8 @@ interface can say so rather than implying a certainty it does not have.
 - `PROCESS-WINDOW-IMPLAUSIBLE` **profiles P0050** — Bed "30 -500 ºC" states 500 °C, outside the plausible 0–250 °C; it is typed as stated (30–30): check the cell against its page
 - `PARSE-UNREAD` **Print setup row 1284** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
 - `PARSE-UNREAD` **Print setup row 1286** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
+- `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 2 of 255 same-sheet pair(s) break it: G001-77 V013711 59 against V013712 60; G165-04 V014653 58 against V014656 62
+- `LEDGER-CONTRADICTS-VALUE` **grades** — 1 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G067-05 hdt045 87 (V011565) against CV01 V011569
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
 - `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1320); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 0.985)

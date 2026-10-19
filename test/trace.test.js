@@ -91,3 +91,15 @@ test('a scenario that ranks by a goal: the trace gives the material its place as
   } else assert.match(t.rank.reasonIfUnranked, /publishes|does not pass/, 'an unranked material says why');
   assert.equal(traceDecision(db, scenario({ anneal: true }), PRODUCT).rank, null, 'no goal, no rank');
 });
+
+test('an answer the evidence ledger gives names the row and the record it read (D153)', () => {
+  // LEHVOSS LUVOCOM 3F PAHT 9825 NT prints its HDT at 1.8 MPa, 80 °C, and none at 0.45 MPa: CV01's floor meets 80 °C.
+  const warm = JSON.stringify({ version: 1, unknownPolicy: 'strict', constraints: [{ kind: 'numeric', property: 'hdt045', operator: '>=', value: 80 }] });
+  const t = traceDecision(db, warm, 'G147-01', { requirement: 'hdt045' });
+  const [r] = t.requirements;
+  assert.equal(r.status, 'PASS');
+  assert.equal(r.ledger.rule, 'CV01');
+  assert.match(r.reason, /^Meets it on its HDT at 1\.8 MPa, a harsher load: 80 °C \(V011437\)/);
+  assert.deepEqual(r.records.map((x) => [x.kind, x.id, x.role]), [['ledger', 'CV01', 'decides'], ['measurement', 'V011437', 'read by CV01']]);
+  assert.deepEqual([r.records[0].rule, r.records[0].status, r.records[0].bound], ['floor on hdt045', 'deciding', 80]);
+});
