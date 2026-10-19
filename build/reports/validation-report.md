@@ -122,7 +122,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 0 | 255 | difference -4 to 119.5 | 2 |
 | CV02 | tensileModulusXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV03 | hdt045 | ceiling | deciding | 1 | 65 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
-| CV04 | tensileModulusXY | ceiling | reported | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
+| CV04 | tensileModulusXY | ceiling | deciding | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
 | CV05 | hdt045 | demote-to-ceiling | reported | 1 | 202 | 144 | 1 | 0 | 1 | difference -5 to -5 | 0 |
 | CV06 | tensileModulusXY | floor | reported | 0.79 | 172 | 0 | 0 | 0 | 208 | ratio 0.791747011184 to 5.15974842767 | 0 |
 | CV07 | tensileModulusXY | floor | reported | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
