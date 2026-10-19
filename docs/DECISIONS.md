@@ -5446,8 +5446,9 @@ Opus 5.5, as the executor asked. The back-test is in [stage-4-backtests.md](audi
   90 % the plausible range must hold (floors alone 75.0 / 91.7 %): so strength is not capped, and its row stays reported.
 - **What it did.** 298 products' stiffness estimates carry a ceiling; 287 moved, their centres by a median of 1 % and
   their upper ends most. CPE CF112: 2.17 (1.74 to 2.71) → 2.09 (1.71 to 2.44) GPa. EST-CALIBRATION and EST-ORDER are
-  unchanged (the ceiling is held in the range itself). The decision census is with stage 4's final steps
-  ([stage-4-diff-7.md](audits/2026-10-18-screening-build/stage-4-diff-7.md)).
+  unchanged (the ceiling is held in the range itself). The decision census ([stage-4-diff-7.md](audits/2026-10-18-screening-build/stage-4-diff-7.md)):
+  no verdict or listing; 210 product answers from "not enough data" to "unlikely to meet" on stiffness (Lightweight
+  structure 38, Outdoor 17, High-stiffness 11 with estimates on), and ASA-AF, PA6-GS, PBT and PA12-GF move group.
 - **What would break if reversed.** A product would again be estimated to meet a stiffness its own published bar falls
   short of, on the strength of other products.
 

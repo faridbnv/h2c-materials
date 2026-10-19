@@ -1,25 +1,25 @@
 195 products you can buy, from 40 makers. Each shows its result, how to print it, its values and what its maker says. By maker; SUNLU first, its products most often the material's typical value.
 Across its products: median and range, and what their makers say
 Property Median Range Products Kept out of the median
-Density kg/m³ 1,240 1,170⁠–⁠1,330 158 of 176 16 with an added filler or additive (800⁠–⁠4,000)
-Tensile modulus (XY) GPa 2.53 0.95⁠–⁠4.24 55 of 176 39 with no stated orientation (1.44⁠–⁠4.78); 12 with an added filler or additive (0.715⁠–⁠4.73)
-Tensile modulus (Z) GPa 1.98 0.873⁠–⁠2.69 29 of 176 2 with an added filler or additive (0.603⁠–⁠3.2)
-Tensile strength (XY) MPa 45.5 26⁠–⁠70.9 71 of 176 56 with no stated orientation (30⁠–⁠71); 12 with an added filler or additive (13.7⁠–⁠65)
-Tensile strength (Z) MPa 30.6 8.7⁠–⁠43.5 39 of 176 3 with an added filler or additive (14.5⁠–⁠21.7)
-Elongation at break (XY) % 7.23 1.2⁠–⁠65 63 of 176 47 with no stated orientation (2.5⁠–⁠84); 11 with an added filler or additive (2.4⁠–⁠36)
-Elongation at break (Z) % 2.89 0.9⁠–⁠9.6 35 of 176 2 with an added filler or additive (1.8⁠–⁠7.91)
-Flexural modulus (XY) GPa 2.87 2.14⁠–⁠3.98 59 of 176 48 with no stated orientation (1.93⁠–⁠3.8); 14 with an added filler or additive (2.04⁠–⁠8.8)
-Flexural modulus (Z) GPa 2.41 1.77⁠–⁠3.29 17 of 176 —
-Flexural strength (XY) MPa 76 42.6⁠–⁠115 63 of 176 48 with no stated orientation (43⁠–⁠115); 11 with an added filler or additive (29.6⁠–⁠122)
-Flexural strength (Z) MPa 54 21.1⁠–⁠68 17 of 176 —
-Notched Charpy impact kJ/m² 6 2.16⁠–⁠20.3 14 of 169 17 with no stated orientation (1.8⁠–⁠29.8); 7 with an added filler or additive (1.8⁠–⁠7); 7 sold as toughened (5.76⁠–⁠72.3)
-Notched Izod impact kJ/m² 5 4.5⁠–⁠6.5 6 of 175 11 with no stated orientation (2⁠–⁠19.8); 5 with an added filler or additive (5.5⁠–⁠18.1); 1 sold as toughened (10)
-HDT at 0.45 MPa °C 55 50⁠–⁠135 86 of 176 31 with no stated test load (53⁠–⁠108); 7 with an added filler or additive (55⁠–⁠60)
-HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 176 3 with an added filler or additive (45⁠–⁠54)
-Glass transition (Tg) °C 59 54⁠–⁠68 75 of 176 7 with an added filler or additive (55⁠–⁠62)
-Shore A hardness Shore A — — 0 of 176 —
-Shore D hardness Shore D 82 80⁠–⁠86 7 of 176 1 with an added filler or additive (72)
-Price CAD/kg 34 18⁠–⁠80 26 of 176 2 with an added filler or additive (23⁠–⁠65)
+Density kg/m³ 1,240 1,170⁠–⁠1,330 154 of 172 20 with an added filler or additive (800⁠–⁠4,000)
+Tensile modulus (XY) GPa 2.53 0.95⁠–⁠4.24 55 of 172 35 with no stated orientation (1.44⁠–⁠4.78); 16 with an added filler or additive (0.715⁠–⁠4.73)
+Tensile modulus (Z) GPa 1.98 0.873⁠–⁠2.69 29 of 172 2 with an added filler or additive (0.603⁠–⁠3.2)
+Tensile strength (XY) MPa 45.5 26⁠–⁠70.9 71 of 172 52 with no stated orientation (30⁠–⁠71); 16 with an added filler or additive (13.7⁠–⁠65)
+Tensile strength (Z) MPa 30.6 8.7⁠–⁠43.5 39 of 172 3 with an added filler or additive (14.5⁠–⁠21.7)
+Elongation at break (XY) % 7.23 1.2⁠–⁠65 63 of 172 43 with no stated orientation (2.5⁠–⁠58); 15 with an added filler or additive (2.4⁠–⁠84)
+Elongation at break (Z) % 2.89 0.9⁠–⁠9.6 35 of 172 2 with an added filler or additive (1.8⁠–⁠7.91)
+Flexural modulus (XY) GPa 2.87 2.14⁠–⁠3.98 59 of 172 45 with no stated orientation (1.93⁠–⁠3.8); 17 with an added filler or additive (2.04⁠–⁠8.8)
+Flexural modulus (Z) GPa 2.41 1.77⁠–⁠3.29 17 of 172 —
+Flexural strength (XY) MPa 76 42.6⁠–⁠115 63 of 172 48 with no stated orientation (43⁠–⁠115); 11 with an added filler or additive (29.6⁠–⁠122)
+Flexural strength (Z) MPa 54 21.1⁠–⁠68 17 of 172 —
+Notched Charpy impact kJ/m² 6 2.16⁠–⁠20.3 14 of 165 14 with no stated orientation (1.8⁠–⁠29.8); 10 with an added filler or additive (1.8⁠–⁠7); 7 sold as toughened (5.76⁠–⁠72.3)
+Notched Izod impact kJ/m² 5 4.5⁠–⁠6.5 6 of 171 11 with no stated orientation (2⁠–⁠19.8); 5 with an added filler or additive (5.5⁠–⁠18.1); 1 sold as toughened (10)
+HDT at 0.45 MPa °C 55 50⁠–⁠135 84 of 172 29 with no stated test load (53⁠–⁠95); 11 with an added filler or additive (55⁠–⁠110)
+HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 172 3 with an added filler or additive (45⁠–⁠54)
+Glass transition (Tg) °C 59 54⁠–⁠68 75 of 172 7 with an added filler or additive (55⁠–⁠62)
+Shore A hardness Shore A — — 0 of 172 —
+Shore D hardness Shore D 82 80⁠–⁠86 7 of 172 1 with an added filler or additive (72)
+Price CAD/kg 34 18⁠–⁠80 26 of 172 2 with an added filler or additive (23⁠–⁠65)
 Median and range of the products that publish it with a stated orientation or test load. The range is the products' lowest to highest.
 Notched Charpy impact. The median and middle half are of the other 14 products. The 7 products their makers sell as toughened or impact-modified give 5.76 to 72.3 kJ/m² and are set apart, as products with an added filler or additive are. "Sold as toughened" is the maker's statement, not a test result.
 Notched Izod impact. The median and middle half are of the other 6 products. The product its maker sells as toughened or impact-modified gives 10 kJ/m² and is set apart, as products with an added filler or additive are.
@@ -37,7 +37,7 @@ Nozzle wear: 10 of 40 makers (37 products)
 Odour and emissions: 16 of 40 makers (31 products)
 Supports and removal: 8 of 40 makers (39 products)
 Printing advice: 19 of 40 makers (33 products)
-Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (179 products).
+Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (180 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 SUNLU
 14 products

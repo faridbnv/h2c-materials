@@ -20,7 +20,7 @@
 | 3a | A printer window the H2C covers in part passes, flagged; a silent chamber decided by the kind of plastic; a near miss is "on the line" | C21, C33, C34 | Built, merged ([report](stage-3a.md))|
 | 3b | A value measured another way decides in its safe direction (the evidence ledger): an HDT at 1.8 MPa is a floor, an annealed value or a PLA/PET heat value from an undescribed bar a ceiling, a flexural modulus a band, lab humidity dry for low-water plastics; a rubber is never stiff and an unfilled density is its polymer's ([report](stage-3b.md), [answers moved](stage-3b-diff.md)) | C22–C24, C31, C32, C35, C40 (class part) | Built, merged ([report](stage-3b.md))|
 | 3c | The list sorted by what would settle each material: one check away, not enough data, unlikely to meet; the deciding product named; Flexible component asks for softness ([report](stage-3c.md), [answers moved](stage-3c-diff.md)) | C05, C06, C18, C19, C25, C30 | Built, merged ([report](stage-3c.md))|
-| 4 | The estimate model reopened: one conversion layer, PLA's class, four corrections, each back-tested | C26–C29, C36, C32 (later rows), C40 (fibre) | Planned |
+| 4 | The estimate model reopened: Bambu Lab's PLA values as printed, PLA's class, one conversion layer, five corrections, each back-tested; the later class limits and the 50 % "likely" rule tested and not used ([report](stage-4.md), [back-tests](stage-4-backtests.md), [answers moved](stage-4-diff.md)) | C19, C26–C29, C36, C32 (later rows), C40 (fibre) | Built (awaiting merge) |
 | 5 | A repeat of the first-time user's trial, an independent review, a sweep for stale claims, the round's close | – | Planned |
 
 The plan, with the design choices and the order, is the owner-approved plan of 2026-10-18; its rulings are logged in
@@ -51,5 +51,7 @@ node docs/audits/2026-10-18-screening-build/decision-census.mjs --diff before.js
 | [ingest/](ingest/) | Stage 2a's import batch b46 (CarbonFil's 2024 sheet): its row builders, its proposal and the packet m442 pins; stage 2c's batch b47 (16 polymer reference documents): its builder, the staged manifest, the round's ledger, its proposals and the packet m445 pins |
 | [fibre/](fibre/) | Stage 2b's fibre readings, the tool's check of each, its proposals, the reviewer's decisions (review.csv, review.mjs) and the folder m444 applies |
 | [stage-3a.md](stage-3a.md), [stage-3a-diff.md](stage-3a-diff.md) | Stage 3a's report, and the answers it moved against main, case by case |
+| [stage-4.md](stage-4.md), [stage-4-backtests.md](stage-4-backtests.md), [stage-4-diff.md](stage-4-diff.md) | Stage 4's report, the back-test of each change to the estimate model, and the answers it moved against main (stage-4-diff-1.md to -7.md: step by step) |
+| [class-limits-lomo.mjs](class-limits-lomo.mjs) | Stage 4's test of the later class limits, one maker held out at a time, and of fibre-filled densities |
 | [stage-3b.md](stage-3b.md), [stage-3b-diff.md](stage-3b-diff.md) | Stage 3b's report, row by row, and the answers it moved against main, case by case |
 | [stage-3c.md](stage-3c.md), [stage-3c-diff.md](stage-3c-diff.md) | Stage 3c's report, and the answers it moved against main after stage 3b, case by case |

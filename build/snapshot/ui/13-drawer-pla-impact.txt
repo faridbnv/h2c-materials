@@ -1,6 +1,5 @@
 a product
 as published: orientation or load not stated
-measured after annealing
 added filler or additive, kept out of the median
 sold as toughened (maker's statement)
 middle half and median
@@ -19,7 +18,7 @@ kJ/m², log scale
 Select a dot to open its result below; hover to find the same product in the other row.
 Test, kJ/m² Ranked Median Middle half Range
 Notched Charpy impact 14 6 3.97⁠–⁠7.9 2.16⁠–⁠20.3
-Not ranked: 17 with no stated orientation (1.8⁠–⁠29.8), 7 with an added filler or additive (1.8⁠–⁠7), 7 sold as toughened (5.76⁠–⁠72.3).
+Not ranked: 14 with no stated orientation (1.8⁠–⁠29.8), 10 with an added filler or additive (1.8⁠–⁠7), 7 sold as toughened (5.76⁠–⁠72.3).
 Notched Izod impact 6 5 4.63⁠–⁠5.75 4.5⁠–⁠6.5
 Not ranked: 11 with no stated orientation (2⁠–⁠19.8), 5 with an added filler or additive (5.5⁠–⁠18.1), 1 sold as toughened (10).
 "Sold as toughened" is the maker's own statement about its product, quoted on its value's line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.

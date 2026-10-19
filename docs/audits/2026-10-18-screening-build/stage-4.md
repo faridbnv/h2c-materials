@@ -2,8 +2,31 @@
 
 > **Historical record** (2026-10-18): stage 4 of the screening build, written as it was built. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../OPEN-PROBLEMS.md).
 
-> **In short.** Being written. Each change's back-test is in [stage-4-backtests.md](stage-4-backtests.md), and the
-> answers each moved in its own diff file.
+> **In short.** Stage 4 reopened the estimate model, which had been frozen since D138, for the owner's approved changes,
+> each with a decision and a back-test ([stage-4-backtests.md](stage-4-backtests.md)). Bambu Lab's PLA values are now as
+> printed; PLA is classed as it prints; values with no stated direction, elongation floors, heat estimates per product and
+> a product's own stiffness now follow what the data show; the conversions live in one table. The later physics limits
+> and the 50 % "likely" rule were tested and are not used yet. Against main, 14 material verdicts moved, all of them
+> Bambu Lab's PLA products answering as printed; 3,678 product answers moved, most from "not enough data" to "unlikely to
+> meet" where a product's own estimate now falls short ([stage-4-diff.md](stage-4-diff.md)).
+
+| Step | Decision | What it did to the answers |
+|---|---|---|
+| 1. Bambu Lab's PLA "annealed and dried at 55 °C" values are as printed | D158 | 13 verdicts, 793 product answers ([diff](stage-4-diff-1.md)) |
+| 2. PLA classed as it prints | D158 | 37 product answers ([diff](stage-4-diff-2.md)) |
+| 3. Unstated directions learned across products | D159 | 424 product answers, one listing ([diff](stage-4-diff-3.md)) |
+| 4. Elongation floored by printed bars only | D161 | 61 product answers ([diff](stage-4-diff-4.md)) |
+| 5. Heat deflection per product, annealed values a kind of their own | D162 | 2,662 product answers, 17 listings of PA612 ([diff](stage-4-diff-5.md)) |
+| 6. One table for every conversion | D157 | nothing ([diff](stage-4-diff-7.md) covers 6 and on) |
+| 7. A product's own stiffness caps its estimate | D160 | 210 product answers ([diff](stage-4-diff-7.md)) |
+| 8. Later class limits and fibre densities tested | D163, D164 | nothing: none decides |
+| 9. The "likely" rule revisited | D165 | nothing: the rule stays |
+
+The decision numbers D157 to D165 are provisional: main holds D148 to D156, and stage 3d may take D157. The executor
+renumbers at merge.
+
+The estimate model's time at twice today's data (`npm run scale`, compile and validate): 84.2 s against main's 84.3 s,
+on this machine at a similar load (CI runs it at about 140 s of its 150 s budget).
 
 ## 1. Bambu Lab's PLA values are as printed
 
@@ -86,7 +109,8 @@ than a printed part, yet the product's estimate could sit above it: Fillamentum 
 estimated as likely up to 2.71 GPa. A back-test showed that where an estimate crossed the product's own value, the
 truth sided with the estimate less than half the time. The product's own value now caps its stiffness estimate at 1.16
 times (decision D160): CPE CF112's likely range now ends at 2.44 GPa. The same cap on strength made the ranges miss too
-often, so strength is not capped.
+often, so strength is not capped. No verdict changed; 210 product answers moved from "not enough data" to "unlikely to
+meet" a stiffness requirement ([stage-4-diff-7.md](stage-4-diff-7.md)).
 
 ## 8. More physics limits were tested, and none decides yet
 
