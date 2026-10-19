@@ -1,0 +1,828 @@
+FindingID,Task,Target,Outcome,Disposition,Stage,Why
+F-0001,P1.1,measurement V005008,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0002,P1.1,measurement V005140,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0003,P1.1,measurement V005198,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0004,P1.1,measurement V005228,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0005,P1.1,measurement V005347,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0006,P1.1,measurement V005357,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0007,P1.1,measurement V005367,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0008,P1.1,measurement V005368,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0009,P1.1,measurement V005465,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0010,P1.1,measurement V005602,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0011,P1.1,measurement V005617,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0012,P1.1,measurement V005726,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0013,P1.1,measurement V005729,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0014,P1.1,measurement V005859,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0015,P1.1,measurement V005861,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0016,P1.1,measurement V005863,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0017,P1.1,measurement V010180,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record. (The record changed for another reason in stage 2: m452 (corrections the research found; D168).)
+F-0018,P1.4,grade G025-01,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record. (The record changed for another reason in stage 2: m452 (corrections the research found; D168).)
+F-0019,P1.4,grade G059-01,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0020,P1.4,grade G038-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0021,P1.4,grade G050-07,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0022,P1.4,grade G051-08,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0023,P1.4,grade G051-09,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0024,P1.4,grade G053-10,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0025,P1.4,grade G059-03,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record. (The record changed for another reason in stage 2: m452 (corrections the research found; D168).)
+F-0026,P1.4,grade G020-08,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0027,P1.4,grade G035-12,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0028,P1.4,grade G094-06,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0029,P1.4,grade G094-11,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0030,P1.4,grade G075-11,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0031,P1.4,grade G086-01,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0032,P1.4,grade G031-06,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0033,P1.4,grade G094-04,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0034,P1.4,grade G075-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0035,P1.4,grade G039-42,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0036,P1.4,grade G086-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0037,P1.4,grade G049-07,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0038,P1.4,grade G057-06,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0039,P1.4,grade G027-40,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0040,P1.4,grade G081-09,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0041,P1.5,source group-1,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0042,P1.5,source group-2,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0043,P1.5,source group-3,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0044,P1.5,source group-4,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0045,P1.5,source group-5,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0046,P1.5,source group-6,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0047,P1.2,measurement V006277,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0048,P1.2,measurement V014446,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0049,P1.2,measurement V015336,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0050,P1.2,measurement V015337,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0051,P1.2,measurement V007622,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0052,P1.2,measurement V000506,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0053,P1.2,measurement V015015,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0054,P1.2,measurement V006925,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0055,P1.2,measurement V006993,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0056,P1.2,measurement V007002,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0057,P1.2,measurement V007061,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0058,P1.2,measurement V002055,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0059,P1.2,measurement V003031,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0060,P1.2,measurement V012507,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0061,P1.2,measurement V014791,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0062,P1.2,measurement V009987,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0063,P1.2,measurement V009995,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0064,P1.2,measurement V014982,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0065,P1.2,measurement V001161,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0066,P1.2,measurement V012870,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0067,P1.2,measurement V002176,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0068,P1.2,measurement V001921,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0069,P1.2,measurement V001922,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0070,P1.2,measurement V001923,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0071,P1.2,measurement V001924,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0072,P1.2,measurement V015037,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0073,P1.2,measurement V015038,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0074,P1.2,measurement V015039,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0075,P1.2,measurement V015040,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0076,P1.2,measurement V015041,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0077,P1.2,measurement V015042,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0078,P1.2,measurement V015043,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0079,P1.2,measurement V015044,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0080,P1.2,measurement V015045,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0081,P1.2,measurement V015046,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0082,P1.2,measurement V015047,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0083,P1.2,measurement V015048,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0084,P1.2,measurement V015050,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0085,P1.2,measurement V015051,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0086,P1.2,measurement V015052,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0087,P1.2,measurement V015053,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0088,P1.2,measurement V015054,RECORD-WRONG,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0089,P1.2b,source R-ESSENTIUM-TDS-Essentium-PA-CF,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0090,P1.2b,source R-STRATASYS-FDM-NYLON12-MDS,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0091,P1.2b,source R-STRATASYS-fdm-nylon-cf10-material-datasheet,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0092,P1.2b,source R-STRATASYS-mds-fdm-abs-m30-0826a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0093,P1.2b,source R-STRATASYS-mds-fdm-absesd7-0222a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0094,P1.2b,source R-STRATASYS-mds-fdm-antero-800na-0825a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0095,P1.2b,source R-STRATASYS-mds-fdm-asa-0826a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0096,P1.2b,source R-STRATASYS-mds-fdm-hips-0823a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0097,P1.2b,source R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0098,P1.2b,source R-STRATASYS-mds-fdm-pc-0426a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0099,P1.2b,source R-STRATASYS-mds-fdm-pc-abs-0823a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0100,P1.2b,source R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,RECORD-WRONG,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0101,P1.3,profile P0994,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0102,P1.3,profile P1304,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0103,P1.3,profile P0883,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0104,P1.3,profile P0088,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0105,P1.3,profile P1285,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0106,P1.3,profile P0090,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0107,P1.3,profile P1283,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0108,P1.3,profile P0169,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0109,P1.3,profile P1282,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0110,P1.3,profile P1733,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0111,P1.3,profile P1734,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0112,P1.3,profile P1664,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0113,P1.3,profile P1805,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0114,P1.3,profile P1842,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0115,P1.3,profile P1829,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0116,P1.3,profile P0499,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0117,P1.3,profile P0528,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0118,P1.3,profile P1662,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0119,P1.3,profile P0158,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0120,P1.3,profile P0113,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0121,P1.3,profile P0899,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0122,P1.3,profile P0886,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0123,P1.3,profile P0869,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0124,P1.3,profile P1682,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0125,P1.3,profile P1259,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0126,P1.3,profile P1680,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0127,P1.3,profile P1245,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0128,P1.3,profile P1808,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0129,P1.3,profile P1810,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0130,P1.3,profile P0117,NEEDS-OWNER,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0131,P1.8,profile P0560,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0132,P1.9,profile P0050,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0133,P2.3,grade G050-09,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0134,P2.3,profile P1437,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0135,P2.3,profile P1841,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0136,P2.3,profile P0885,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0137,P2.3,grade G118-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0138,P2.3,profile P0125,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0139,P2.3,profile P0068,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0140,P2.3,profile P0276,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0141,P2.3,grade G028-02,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0142,P2.3,profile P0986,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0143,P2.2,grade G001-136,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0144,P2.2,grade G001-137,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0145,P2.2,grade G017-09,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0146,P2.2,grade G017-11,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0147,P2.2,grade G032-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0148,P2.2,grade G039-25,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0149,P2.2,grade G039-26,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0150,P2.2,grade G039-28,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0151,P2.2,grade G039-60,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0152,P2.2,grade G089-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0153,P2.2,grade G089-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0154,P2.2,grade G090-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0155,P2.2,grade G092-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0156,P2.2,grade G001-134,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0157,P2.2,grade G008-21,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0158,P2.2,grade G013-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0159,P2.2,grade G014-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0160,P2.2,grade G016-05,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0161,P2.2,grade G020-09,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0162,P2.2,grade G020-74,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0163,P2.2,grade G034-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0164,P2.2,grade G039-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0165,P2.2,grade G039-07,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0166,P2.2,grade G039-08,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0167,P2.2,grade G066-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0168,P2.2,grade G081-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0169,P2.2,grade G082-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0170,P2.2,grade G090-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0171,P2.2,grade G094-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0172,P2.2,grade G106-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0173,P2.2,grade G109-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0174,P2.2,grade G112-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0175,P2.2,grade G168-05,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0176,P2.2,grade G014-21,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0177,P2.2,grade G081-04,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0178,P2.2,grade G086-02,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0179,P2.2,grade G096-02,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0180,P2.2,grade G135-02,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0181,P2.2,grade G167-02,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0182,P2.2,grade G167-11,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0183,P2.2,profile P1629,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0184,P2.2,profile P1630,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0185,P2.2,profile P1777,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0186,P2.2,grade G102-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0187,P1.6,code build/src/compile.js:350,CODE-CAUSE,applied,stage 7: code fixes,"The build change the finding proposed, with a regression test."
+F-0188,P1.7,code build/src/gates.js:36,CODE-CAUSE,applied,stage 7: code fixes,"The build change the finding proposed, with a regression test."
+F-0189,P2.1,maker-family Polyolefins/Braskem,FOUND-NEW,applied,stage 5b: CN17 switched to deciding,"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0190,P2.1,maker-family Support / Soluble/Raise3D,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0191,P2.1,maker-family Nylon / Polyamide/BASF Forward AM,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0192,P2.1,maker-family Nylon / Polyamide/BigRep,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0193,P2.1,maker-family Nylon / Polyamide/colorFabb,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0194,P2.1,maker-family Nylon / Polyamide/eSUN,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0195,P2.1,maker-family Nylon / Polyamide/Fabru,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0196,P2.1,maker-family Nylon / Polyamide/Fillamentum,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0197,P2.1,maker-family Nylon / Polyamide/iSANMATE,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0198,P2.1,maker-family Nylon / Polyamide/Markforged,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0199,P2.1,maker-family Nylon / Polyamide/MatterHackers,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0200,P2.1,maker-family Nylon / Polyamide/QIDI,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0201,P2.1,maker-family Nylon / Polyamide/Raise3D,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0202,P2.1,maker-family Nylon / Polyamide/Stratasys,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0203,P2.1,maker-family Nylon / Polyamide/Yousu,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0204,P2.1,maker-family Polyolefins/Fabru,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0205,P2.1,maker-family Polyolefins/Fabru / purefil,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0206,P2.1,maker-family Polyolefins/FormFutura,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0207,P2.1,maker-family Polyolefins/iSANMATE,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0208,P2.1,maker-family Polyolefins/Yousu,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0209,P2.1,maker-family Copolyesters/colorFabb,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0210,P2.1,maker-family Copolyesters/Extrudr,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0211,P2.1,maker-family PET Engineering/3D4Makers,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0212,P2.1,maker-family PET Engineering/BASF Forward AM,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0213,P2.1,maker-family PET Engineering/colorFabb,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0214,P2.1,maker-family PET Engineering/Raise3D,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0215,P2.1,maker-family Support / Soluble/BASF Forward AM,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0216,P2.1,maker-family Support / Soluble/BigRep,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0217,P2.1,maker-family Support / Soluble/eSUN,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0218,P2.1,maker-family Support / Soluble/Fabru,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0219,P2.1,maker-family Support / Soluble/Yousu,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0220,P2.1,maker-family ASA/3D4Makers,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0221,P2.1,maker-family ASA/3DJake,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0222,P2.1,maker-family ASA/3DXTECH,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0223,P2.1,maker-family ASA/Anycubic,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0224,P2.1,maker-family ASA/AzureFilm,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0225,P2.1,maker-family ASA/BigRep,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0226,P2.1,maker-family ASA/colorFabb,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0227,P2.1,maker-family ASA/eSUN,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0228,P2.1,maker-family ASA/Fabru,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0229,P2.1,maker-family ASA/Fabru / purefil,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0230,P2.1,maker-family ASA/Filament2Print,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0231,P2.1,maker-family ASA/Fillamentum,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0232,P2.1,maker-family ASA/iSANMATE,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0233,P2.1,maker-family ASA/MatterHackers,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0234,P2.1,maker-family ASA/Nobufil,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0235,P2.1,maker-family ASA/Prusa Research,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0236,P2.1,maker-family ASA/Stratasys,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0237,P4.6,source S-PA12,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0238,P4.6,source S-PES,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0239,P4.6,source XP-3dxmax-hips,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0240,P4.6,source XP-3dxmaxa-r-pc-abs,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0241,P4.6,source XP-3dxstat-esd-abs-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0242,P4.6,source XP-3dxstat-esd-petg-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0243,P4.6,source XP-amidex-nylon-6-67,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0244,P4.6,source XP-carbonx-abs-cf-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0245,P4.6,source XP-carbonx-nylon-12-cf-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0246,P4.6,source XP-carbonx-pc-cf-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0247,P4.6,source XP-carbonx-pp-cf-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0248,P4.6,source XP-ecomax-r-pla,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0249,P4.6,source XP-fibrex-nylon-12-gf30-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0250,P4.6,source XP-fluorx-pvdf-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0251,P4.6,source XP-max-g-pctg-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0252,P4.6,source XP-pekk-a,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0253,P4.6,source XP-thermax-peek-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0254,P4.6,source XP-thermax-pei-1010,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0255,P4.6,source XP-thermax-pps,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0256,P4.6,source XP-thermax-ppsu-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0257,P4.6,source XP-thermax-psu-1,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0258,P4.6,source R-AIRTECH-KIMYA-PORTFOLIO,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0259,P4.6,source R-AIRTECH-KIMYA-ACQUISITION,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0260,P4.6,source R-KIMYA-PEBA-S-TDS,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0261,P4.6,source R-BASF-PCGF30-PRODUCT,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0262,P4.6,source B-PC,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0263,P4.6,source B-TPU-SOFT,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0264,P4.6,source B-abs-filament,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0265,P4.6,source B-abs-gf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0266,P4.6,source B-asa-aero,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0267,P4.6,source B-asa-cf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0268,P4.6,source B-asa-filament,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0269,P4.6,source B-pa6-cf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0270,P4.6,source B-pa6-gf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0271,P4.6,source B-paht-cf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0272,P4.6,source B-pc-fr,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0273,P4.6,source B-pet-cf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0274,P4.6,source B-petg-basic,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0275,P4.6,source B-petg-cf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0276,P4.6,source B-petg-hf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0277,P4.6,source B-petg-translucent,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0278,P4.6,source B-pla-aero,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0279,P4.6,source B-pla-basic-filament,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0280,P4.6,source B-pla-basic-gradient,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0281,P4.6,source B-pla-cf,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0282,P4.6,source B-pla-galaxy,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0283,P4.6,source B-pla-glow,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0284,P4.6,source B-pla-marble,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0285,P4.6,source B-pla-matte,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0286,P4.6,source B-pla-metal,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0287,P4.6,source B-pla-silk-dual-color,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0288,P4.6,source B-pla-silk-upgrade,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0289,P4.6,source B-pla-sparkle,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0290,P4.6,source B-pla-tough-upgrade,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0291,P4.6,source B-pla-translucent,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0292,P4.6,source B-pla-wood,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0293,P4.6,source B-ppa-cf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0294,P4.6,source B-pps-cf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0295,P4.6,source B-pva,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0296,P4.6,source B-support-for-abs,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0297,P4.6,source B-support-for-pa-pet,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0298,P4.6,source B-support-for-pla-petg,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0299,P4.6,source B-tpu-95a-hf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0300,P4.6,source B-tpu-for-ams,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0301,P4.6,source H2C-WIKI,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0302,P4.6,source R-BAMBU-CA-CATALOG-20260913,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0303,P4.6,source R-BAMBU-SUPPORT-PLA-NEW-PRODUCT,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0304,P4.6,source R-H2C-SPECS,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0305,P4.6,source NIOSH-2019,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0306,P4.6,source S-POM,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0307,P4.6,source S-FILLAMENTUM,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0308,P4.6,source D-FLASH-PETGF,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0309,P4.6,source P-CHEM,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0310,P4.6,source R-MITSUBISHI-GPOLYMER-PAGE,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0311,P4.6,source R-POLYMAKER-SILK-PLA-PAGE,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0312,P4.6,source R-POLYMAKER-WIKI-HTPLAGF,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0313,P4.6,source R-POLYMAKER-WIKI-PANCHROMA-COPE,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0314,P4.6,source D-PRUSA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0315,P4.6,source PR-abs,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0316,P4.6,source PR-asa,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0317,P4.6,source PR-cpe,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0318,P4.6,source PR-flexible-materials,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0319,P4.6,source PR-hips,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0320,P4.6,source PR-ngen,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0321,P4.6,source PR-petg,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0322,P4.6,source PR-pla,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0323,P4.6,source PR-polyamide-nylon,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0324,P4.6,source PR-polycarbonate-pc,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0325,P4.6,source PR-polypropylene-pp,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0326,P4.6,source PR-pvb,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0327,P4.6,source PR-water-soluble-bvoh-pva,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0328,P4.6,source P-FATIGUE,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0329,P4.6,source R-MDPI-FATIGUE,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0330,P4.6,source R-STRATASYS-ULTEM9085,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0331,P4.6,source R-TRINITY3DS-HYPERLITE-PP,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0332,P4.6,source S-NGEN2,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0333,P4.6,source R-ESUN-PLA-LITE-PAGE,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0334,P4.5,source S-PET-TDS-ApolloX,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0335,P4.5,source S-PET-TDS-BVOH,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0336,P4.5,source S-PET-TDS-ClearScent-ABS,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0337,P4.5,source S-PET-TDS-Crystal-Flex,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0338,P4.5,source S-PET-TDS-EasyCork,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0339,P4.5,source S-PET-TDS-FlexiFil,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0340,P4.5,source S-PET-tds-hdglass,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0341,P4.5,source S-PET-TDS-Helios-Support,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0342,P4.5,source S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0343,P4.5,source S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0344,P4.5,source R-3D4MAKERS-TDS-LUVOCOM-3F-PEEK-9581-Filament,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0345,P4.5,source S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0346,P4.5,source S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0347,P4.5,source S-PET-TDS-LimoSolve,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0348,P4.5,source S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0349,P4.5,source S-PET-TDS-MDflex,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0350,P4.5,source S-PET-TDS-MagicFil-Thermo-PLA,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0351,P4.5,source S-PET-TDS-MetalFil-Ancient-Bronze,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0352,P4.5,source S-PET-TDS-MetalFil-Brass,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0353,P4.5,source S-PET-TDS-MetalFil-Classic-Copper,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0354,P4.5,source S-PET-TDS-PEI-ULTEM-9085,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0355,P4.5,source S-PET-TDS-PLACTIVE,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0356,P4.5,source S-PET-TDS-PPSU,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0357,P4.5,source S-PET-TDS-Pegasus-PP-GF,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0358,P4.5,source S-PET-TDS-Premium-ABS,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0359,P4.5,source S-PET-formfutura-tds-reformrapollo,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0360,P4.5,source S-PET-TDS-STYX-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0361,P4.5,source S-PET-TDS-Silk-Gloss-PLA,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0362,P4.5,source S-PET-TDS-Volcano-PLA,CONFIRMED-AS-RECORDED,applied,"stages 7 to 9: m456 (FormFutura public links), code fixes, the Nylon-GF summary","A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0363,P4.5,source S-PET-TDS-ePETG,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0364,P4.5,source S-PET-TDS-ePLA,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0365,P4.5,source S-PET-TDS,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0366,P4.5,source S-PET-formfutura-tds-highprecisionpla,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0367,P4.7,source https://3d.nice-cdn.com/upload/file/durapro-pc-pbt-TDS-en.pdf,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0368,P4.7,source https://eryone.com/wp-content/uploads/2025/03/ABS-GF%E7%BA%BF%E6%9D%90-TDS-%E8%89%BE%E7%91%9E%E6%97%BA%EF%BC%88%E8%8B%B1%E6%96%87%E7%89%88%EF%BC%892.pdf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0369,P4.7,source https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/https%3A%2F%2Fs3-eu-central-1.amazonaws.com%2Fplentymarkets-public-92%2Fpvdtyofq45f2%2FpropertyItems%2F2%2FMaterialdatenblatt+ABS+purefil.pdf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0370,P4.7,source https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/https%3A%2F%2Fs3-eu-central-1.amazonaws.com%2Fplentymarkets-public-92%2Fpvdtyofq45f2%2FpropertyItems%2F3%2Fmaterial+data+sheet+ABS+purefil.pdf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0371,P4.7,source https://ninjatek.com/wp-content/uploads/colorFabb_Armadillo_Printing_Filament_SDS.pdf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0372,P4.4,grade G001-20,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0373,P4.4,grade G001-23,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0374,P4.4,grade G001-108,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0375,P4.4,grade G020-46,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0376,P4.4,grade G027-33,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0377,P4.4,grade G030-08,NEEDS-MAKER,left,,A question only the maker can answer (handoffs.csv).
+F-0378,P4.4,grade G001-134,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0379,P4.4,grade G082-13,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0380,P4.4,grade G019-02,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0381,P4.4,grade G001-59,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0382,P4.4,grade G001-129,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0383,P2.1,grade G049-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0384,P2.1,grade G049-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0385,P2.1,grade G049-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0386,P2.1,grade G049-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0387,P2.1,grade G049-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0388,P2.1,grade G049-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0389,P2.1,grade G052-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0390,P2.1,grade G052-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0391,P2.1,grade G052-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0392,P2.1,grade G053-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0393,P2.1,grade G053-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0394,P2.1,grade G053-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0395,P2.1,grade G053-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0396,P2.1,grade G053-16,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0397,P2.1,grade G064-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0398,P2.1,grade G108-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0399,P2.1,grade G154-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0400,P2.1,grade G156-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0401,P2.1,grade G164-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0402,P2.1,grade G164-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0403,P2.1,grade G085-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0404,P2.1,grade G088-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0405,P2.1,grade G031-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0406,P2.1,grade G032-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0407,P2.1,grade G033-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0408,P2.1,grade G034-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0409,P2.1,grade G113-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0410,P2.1,grade G027-57,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0411,P2.1,grade G029-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0412,P2.1,grade G029-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0413,P2.1,grade G029-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0414,P2.1,grade G029-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0415,P2.1,grade G029-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0416,P2.1,grade G029-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0417,P2.1,grade G029-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0418,P2.1,grade G030-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0419,P2.1,grade G030-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0420,P2.1,grade G030-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0421,P2.1,grade G030-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0422,P2.1,grade G045-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0423,P2.1,grade G045-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0424,P2.1,grade G096-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0425,P2.1,grade G069-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0426,P2.1,grade G070-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0427,P2.1,grade G099-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0428,P2.1,grade G100-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0429,P2.1,grade G101-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0430,P2.1,grade G102-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0431,P2.1,grade G118-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0432,P2.1,grade G123-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0433,P2.1,grade G020-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0434,P2.1,grade G020-17,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0435,P2.1,grade G020-41,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0436,P2.1,grade G020-43,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0437,P2.1,grade G020-56,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0438,P2.1,grade G020-62,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0439,P2.1,grade G020-74,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0440,P2.1,grade G024-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0441,P2.1,grade G024-19,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0442,P2.1,grade G024-21,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0443,P2.1,grade G025-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0444,P2.1,grade G026-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0445,P2.1,grade G035-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0446,P2.1,grade G035-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0447,P2.1,grade G037-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0448,P2.1,grade G037-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0449,P2.1,grade G037-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0450,P2.1,grade G037-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0451,P2.1,grade G112-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0452,P2.1,grade G116-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0453,P2.1,grade G094-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0454,P2.1,grade G094-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0455,P2.1,grade G094-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0456,P2.1,grade G094-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0457,P2.1,grade G094-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0458,P2.1,grade G094-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0459,P2.1,grade G095-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0460,P2.1,grade G119-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0461,P2.1,grade G128-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0462,P2.1,grade G131-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0463,P2.1,grade G081-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0464,P2.1,grade G081-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0465,P4.5,source S-PET-TDS-ABSpro,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0466,P4.5,source S-PET-TDS-ABSpro-Flame-Retardant,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0467,P4.5,source S-PET-TDS-CarbonFil,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0468,P4.5,source S-PET-TDS-Centaur-PP,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0469,P4.5,source S-PET-TDS-EasyFil-ABS,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0470,P4.5,source S-PET-TDS-EasyFil-HIPS,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0471,P4.5,source S-PET-TDS-EasyFil-PLA,AMBIGUOUS-ON-PAGE,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0472,P4.5,source S-PET-TDS-EasyWood,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0473,P4.5,source S-PET-TDS-Galaxy-PLA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0474,P4.5,source S-PET-TDS-High-Gloss-PLA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0475,P4.5,source S-PET-TDS-Premium-PLA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0476,P4.5,source S-PET-TDS-ReFill-PETG,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0477,P4.5,source S-PET-TDS-ReFill-PLA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0478,P4.5,source S-PET-TDS-ReForm-rPET,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0479,P4.5,source S-PET-TDS-ReForm-rPLA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0480,P4.5,source S-PET-TDS-StoneFil,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0481,P4.5,source S-PET-formfutura-tds-titanx,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0482,P4.5,source S-PET-TDS-Tough-PLA,FOUND-NEW,already-in-data,,"A later copy of a registered sheet: not registered (D131); its held records were compared with it in stage 8 (later/compare.csv, later/read-results.csv)."
+F-0483,P4.4,grade G068-01,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0484,P2.6,grade G018-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0485,P2.6,grade G018-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0486,P2.6,grade G018-05,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0487,P2.6,grade G018-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0488,P2.6,grade G018-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0489,P2.6,grade G018-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0490,P2.6,grade G018-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0491,P2.6,grade G018-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0492,P2.6,grade G018-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0493,P2.6,grade G018-17,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0494,P2.6,grade G018-18,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0495,P2.6,grade G019-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0496,P2.6,grade G024-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0497,P2.6,grade G024-05,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0498,P2.6,grade G024-06,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0499,P2.6,grade G024-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0500,P2.6,grade G024-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0501,P2.6,grade G024-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0502,P2.6,grade G024-14,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0503,P2.6,grade G024-15,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0504,P2.6,grade G024-16,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0505,P2.6,grade G024-22,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0506,P2.6,grade G024-24,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0507,P2.6,grade G025-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0508,P2.6,grade G028-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0509,P2.6,grade G028-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0510,P2.6,grade G028-07,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0511,P2.6,grade G028-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0512,P2.6,grade G028-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0513,P2.6,grade G029-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0514,P2.6,grade G029-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0515,P2.6,grade G029-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0516,P2.6,grade G029-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0517,P2.6,grade G029-06,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0518,P2.6,grade G029-11,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0519,P2.6,grade G033-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0520,P2.6,grade G033-05,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0521,P2.6,grade G033-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0522,P2.6,grade G033-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0523,P2.6,grade G033-17,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0524,P2.6,grade G034-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0525,P2.6,grade G034-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0526,P2.6,grade G034-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0527,P2.6,grade G037-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0528,P2.6,grade G037-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0529,P2.6,grade G037-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0530,P2.6,grade G037-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0531,P2.6,grade G037-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0532,P2.6,grade G037-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0533,P2.6,grade G037-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0534,P2.6,grade G038-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0535,P2.6,grade G048-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0536,P2.6,grade G048-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0537,P2.6,grade G048-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0538,P2.6,grade G048-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0539,P2.6,grade G050-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0540,P2.6,grade G050-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0541,P2.6,grade G050-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0542,P2.6,grade G050-10,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0543,P2.6,grade G050-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0544,P2.6,grade G051-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0545,P2.6,grade G051-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0546,P2.6,grade G051-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0547,P2.6,grade G051-06,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0548,P2.6,grade G053-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0549,P2.6,grade G053-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0550,P2.6,grade G053-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0551,P2.6,grade G053-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0552,P2.6,grade G053-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0553,P2.6,grade G053-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0554,P2.6,grade G053-15,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0555,P2.6,grade G054-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0556,P2.6,grade G067-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0557,P2.6,grade G070-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0558,P2.6,grade G070-05,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0559,P2.6,grade G071-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0560,P2.6,grade G073-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0561,P2.6,grade G073-05,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0562,P2.6,grade G074-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0563,P2.6,grade G083-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0564,P2.6,grade G083-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0565,P2.6,grade G083-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0566,P2.6,grade G083-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0567,P2.6,grade G083-05,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0568,P2.6,grade G084-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0569,P2.6,grade G106-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0570,P2.6,grade G106-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0571,P2.6,grade G118-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0572,P2.6,grade G118-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0573,P2.6,grade G122-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0574,P2.6,grade G125-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0575,P2.6,grade G125-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0576,P2.6,grade G128-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0577,P2.6,grade G129-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0578,P2.6,grade G131-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0579,P2.6,grade G152-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0580,P2.6,grade G152-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0581,P2.6,grade G165-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0582,P2.6,grade G165-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0583,P2.6,grade G165-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0584,P2.6,grade G165-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0585,P2.6,grade G166-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0586,P2.6,grade G068-01,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0587,P2.4,material M165,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0588,P2.4,material M166,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0589,P2.4,material M166,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0590,P2.4,material M056,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0591,P2.4,material M058,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0592,P2.4,material M060,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0593,P2.4,material M170,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0594,P2.4,material M175,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0595,P3.1,polymer unfilled rigid thermoplastics,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0596,P3.1,polymer MXD6,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0597,P3.2,polymer PCTG,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0598,P3.2,polymer nGen,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0599,P3.2,polymer HIPS,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0600,P3.2,polymer PA6/66,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0601,P3.2,polymer PVB,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0602,P3.2,polymer SBC,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0603,P3.2,polymer CoPA,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0604,P3.2,polymer CPE,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0605,P3.2,polymer CoPE,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0606,P3.2,polymer PAHT,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0607,P3.2,polymer TPE,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0608,P3.2,polymer PA,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0609,P3.2,polymer Support,NEEDS-OWNER,left,,"A question for the owner (handoffs.csv); the owner's answers of 2026-10-19 are D168 and the polyolefins chamber row, applied where a record shows it."
+F-0610,P3.2,polymer OBC,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0611,P3.2,polymer BVOH,NEEDS-CAPTURE,left,,A price the pipeline captures live; p06 took what the pages stated (prices/review-p06.mjs).
+F-0612,P3.3,grade G059-02,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0613,P3.3,grade G059-03,FOUND-ON-HELD-DOC,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0614,P3.4,grade G067-04,FOUND-ON-HELD-DOC,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0615,P3.4,grade G068-05,FOUND-ON-HELD-DOC,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0616,P3.4,grade G068-04,AMBIGUOUS-ON-PAGE,applied,stage 2: m452 (corrections the research found; D168),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0617,P3.4,grade G068-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0618,P4.1,source d230eec3cdbe2bbd,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0619,P4.1,source eb2ae5932a890e1a,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0620,P4.1,source https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/SKULPT/Data%20Sheets%20and%20Declarations/TDS%20-%20SKULPT.pdf,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0621,P4.1,source https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/st-130/mss_fdm_st130_1016a.pdf?v=48e19f,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0622,P4.1,source https://www.stratasys.com/contentassets/6729604c61704654ac5c0392276a2d57/mds_fdm_diran410mf07_0224a-1.pdf?v=4aa22c,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0623,P4.1,source 4a90a1e5e22db834,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0624,P4.1,source 2688570615b2eb82,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0625,P4.1,source af2a1612aba91481,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0626,P4.1,source Onyx ESD,FOUND-NEW,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0627,P4.1,source Tullomer,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0628,P4.2,grade G164-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0629,P4.2,grade G164-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0630,P4.2,grade G165-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0631,P4.2,grade G164-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0632,P4.2,grade G164-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0633,P4.2,grade G164-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0634,P4.2,grade G166-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0635,P4.2,grade G167-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0636,P4.2,grade G167-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0637,P4.2,grade G167-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0638,P4.2,grade G167-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0639,P4.3,grade G164-08,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0640,P4.3,grade G164-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0641,P2.5,grade G033-05,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0642,P2.5,grade G129-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0643,P2.5,grade G031-07,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0644,P2.5,grade G001-32,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0645,P2.5,grade G001-33,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0646,P2.5,grade G001-34,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0647,P2.5,grade G035-11,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0648,P2.5,grade G051-05,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0649,P2.5,grade G053-04,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0650,P2.5,grade G027-21,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0651,P2.5,grade G097-05,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0652,P2.5,grade G027-29,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0653,P2.5,grade G031-23,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0654,P2.5,grade G031-31,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0655,P2.5,grade G027-41,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0656,P2.5,grade G001-153,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0657,P2.5,grade G150-01,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0658,P2.5,grade G008-30,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0659,P2.5,grade G016-06,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0660,P2.5,grade G001-193,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0661,P2.5,grade G008-33,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0662,P2.5,grade G017-14,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0663,P2.5,grade G171-02,FOUND-ON-HELD-DOC,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0664,P2.2,grade G099-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0665,P2.2,grade G117-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0666,P2.2,grade G127-01,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0667,P2.2,grade G037-06,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0668,P2.2,grade G037-10,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0669,P2.2,grade G083-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0670,P2.2,grade G014-17,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0671,P2.2,grade G053-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0672,P2.2,grade G129-02,AMBIGUOUS-ON-PAGE,left,,"Not applied: the triage judged the held record right, kept a later copy's reading only where the registered sheet prints the same line, or held it for the owner (ingest/intake.mjs, readings/r1-dropped.csv, proposals/r1-reviewed/held.csv)."
+F-0673,P2.2,grade G053-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0674,P2.2,grade G053-15,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0675,P2.2,grade G008-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0676,P2.2,grade G075-02,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0677,P2.2,grade G149-03,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0678,P2.2,grade G097-06,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0679,P2.2,grade G015-04,FOUND-NEW,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0680,P2.2,grade G075-08,FOUND-ON-HELD-DOC,applied,stages 3 and 4: m453 (batch b48) and m454 (readings),"A record it names, or its product's record from the document it cites, was changed or added by this stage."
+F-0681,P2.2,grade G019-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0682,P2.2,grade G030-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0683,P2.2,grade G053-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0684,P2.2,grade G053-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0685,P2.2,grade G081-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0686,P2.2,grade G094-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0687,P2.2,grade G094-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0688,P2.2,grade G096-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0689,P2.2,grade G098-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0690,P2.2,grade G098-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0691,P2.2,grade G099-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0692,P2.2,grade G099-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0693,P2.2,grade G099-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0694,P2.2,grade G114-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0695,P2.2,grade G114-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0696,P2.2,grade G115-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0697,P2.2,grade G116-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0698,P2.2,grade G118-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0699,P2.2,grade G121-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0700,P2.2,grade G125-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0701,P2.2,grade G125-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0702,P2.2,grade G138-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0703,P2.2,grade G149-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0704,P2.2,grade G164-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0705,P2.2,grade G164-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0706,P2.2,grade G165-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0707,P2.2,grade G165-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0708,P2.2,grade G165-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0709,P2.2,grade G166-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0710,P2.2,grade G001-102,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0711,P2.2,grade G001-118,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0712,P2.2,grade G001-133,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0713,P2.2,grade G001-135,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0714,P2.2,grade G001-138,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0715,P2.2,grade G001-139,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0716,P2.2,grade G001-177,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0717,P2.2,grade G001-184,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0718,P2.2,grade G001-188,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0719,P2.2,grade G001-193,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0720,P2.2,grade G008-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0721,P2.2,grade G008-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0722,P2.2,grade G008-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0723,P2.2,grade G008-16,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0724,P2.2,grade G008-18,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0725,P2.2,grade G008-24,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0726,P2.2,grade G008-28,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0727,P2.2,grade G008-29,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0728,P2.2,grade G008-30,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0729,P2.2,grade G008-31,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0730,P2.2,grade G008-32,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0731,P2.2,grade G008-33,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0732,P2.2,grade G011-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0733,P2.2,grade G011-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0734,P2.2,grade G011-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0735,P2.2,grade G011-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0736,P2.2,grade G011-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0737,P2.2,grade G011-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0738,P2.2,grade G011-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0739,P2.2,grade G012-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0740,P2.2,grade G013-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0741,P2.2,grade G014-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0742,P2.2,grade G014-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0743,P2.2,grade G014-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0744,P2.2,grade G014-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0745,P2.2,grade G014-14,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0746,P2.2,grade G014-16,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0747,P2.2,grade G016-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0748,P2.2,grade G016-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0749,P2.2,grade G017-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0750,P2.2,grade G017-13,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0751,P2.2,grade G017-14,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0752,P2.2,grade G019-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0753,P2.2,grade G025-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0754,P2.2,grade G026-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0755,P2.2,grade G029-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0756,P2.2,grade G029-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0757,P2.2,grade G030-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0758,P2.2,grade G034-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0759,P2.2,grade G037-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0760,P2.2,grade G039-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0761,P2.2,grade G039-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0762,P2.2,grade G039-32,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0763,P2.2,grade G039-38,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0764,P2.2,grade G039-39,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0765,P2.2,grade G039-54,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0766,P2.2,grade G039-56,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0767,P2.2,grade G045-02,NEEDS-CAPTURE,left,,A price the pipeline captures live; p06 took what the pages stated (prices/review-p06.mjs).
+F-0768,P2.2,grade G045-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0769,P2.2,grade G045-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0770,P2.2,grade G045-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0771,P2.2,grade G046-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0772,P2.2,grade G046-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0773,P2.2,grade G046-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0774,P2.2,grade G046-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0775,P2.2,grade G052-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0776,P2.2,grade G054-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0777,P2.2,grade G066-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0778,P2.2,grade G066-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0779,P2.2,grade G066-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0780,P2.2,grade G066-06,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0781,P2.2,grade G075-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0782,P2.2,grade G075-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0783,P2.2,grade G075-07,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0784,P2.2,grade G075-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0785,P2.2,grade G081-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0786,P2.2,grade G081-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0787,P2.2,grade G081-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0788,P2.2,grade G082-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0789,P2.2,grade G082-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0790,P2.2,grade G082-09,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0791,P2.2,grade G082-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0792,P2.2,grade G082-12,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0793,P2.2,grade G083-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0794,P2.2,grade G085-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0795,P2.2,grade G085-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0796,P2.2,grade G086-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0797,P2.2,grade G087-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0798,P2.2,grade G093-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0799,P2.2,grade G094-10,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0800,P2.2,grade G097-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0801,P2.2,grade G099-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0802,P2.2,grade G099-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0803,P2.2,grade G102-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0804,P2.2,grade G102-03,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0805,P2.2,grade G106-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0806,P2.2,grade G107-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0807,P2.2,grade G111-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0808,P2.2,grade G119-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0809,P2.2,grade G125-04,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0810,P2.2,grade G125-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0811,P2.2,grade G141-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0812,P2.2,grade G141-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0813,P2.2,grade G149-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0814,P2.2,grade G153-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0815,P2.2,grade G153-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0816,P2.2,grade G155-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0817,P2.2,grade G155-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0818,P2.2,grade G157-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0819,P2.2,grade G159-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0820,P2.2,grade G162-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0821,P2.2,grade G164-08,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0822,P2.2,grade G164-11,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0823,P2.2,grade G167-05,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0824,P2.2,grade G167-14,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0825,P2.2,grade G168-02,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0826,P2.2,grade G173-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).
+F-0827,P2.2,grade G174-01,NOT-FOUND-SEARCHED,left,,Searched and not found (the package's scoped negative); the gap stays open (OPEN-PROBLEMS).

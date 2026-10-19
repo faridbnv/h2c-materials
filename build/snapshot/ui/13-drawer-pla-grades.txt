@@ -19,7 +19,7 @@ HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 173 3 with an added filler or additive
 Glass transition (Tg) °C 59 54⁠–⁠68 76 of 173 7 with an added filler or additive (55⁠–⁠62)
 Shore A hardness Shore A — — 0 of 173 —
 Shore D hardness Shore D 82 80⁠–⁠86 7 of 173 1 with an added filler or additive (72)
-Price CAD/kg 34 18⁠–⁠80 26 of 173 2 with an added filler or additive (23⁠–⁠65)
+Price CAD/kg 33 18⁠–⁠80 27 of 173 2 with an added filler or additive (23⁠–⁠65)
 Median and range of the products that publish it with a stated orientation or test load. The range is the products' lowest to highest.
 Notched Charpy impact. The median and middle half are of the other 14 products. The 7 products their makers sell as toughened or impact-modified give 5.76 to 72.3 kJ/m² and are set apart, as products with an added filler or additive are. "Sold as toughened" is the maker's statement, not a test result.
 Notched Izod impact. The median and middle half are of the other 6 products. The product its maker sells as toughened or impact-modified gives 10 kJ/m² and is set apart, as products with an added filler or additive are.

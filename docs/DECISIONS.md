@@ -5709,6 +5709,12 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
   Izod is not the notched Izod headline's ISO 180 value). `readTestTemperature` converts a temperature printed in °F alone
   (72 °F is 22.2 °C, within 23 ± 2 °C). `parseAnnealSchedule` reads the temperature before the word ("100°C Annealing 8
   hours").
+- **And the wordings stage 4's pages printed** (m454, 2026-10-19). "Heated chamber not required" and a bed temperature
+  marked "(Not Necessary)" are not required; a ceiling in words ("Do not print … above 50°C") is an upper end, never a
+  minimum; a cell that opens on "Not abrasive" needs no hardened nozzle, and "stainless brass or resistant copper alloy"
+  is the stainless-or-hardened-alloy advice above; Spectrum's "In justified cases" is drying optional; hours written in
+  words ("dry six to twelve hours") and a plus before the hours ("+4 hours") are read; kpsi converts as ksi; and a
+  Braskem sheet's "Alternate Bed Temperature" row is a row of the sheet, so its own profile (D120).
 - **What it moved.** 22 profile cells retyped and 3 reviews retired, 472 measurements corrected with them (m452; the
   bracketed and ± spreads, ranges and treatment the research found), and the decision diff in
   [stage-2-diff.md](audits/2026-10-19-research-intake/stage-2-diff.md): a PETG-CF passes the indoor prototype now that its

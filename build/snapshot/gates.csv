@@ -100,7 +100,7 @@ M098,PEKK,excluded,within-low-end,within-low-end,within,requires-hardened,requir
 M099,PEI / ULTEM,excluded,within-low-end,within,exceeds,requires-hardened,required
 M100,PSU,excluded,edge,exceeds,unknown,no-special-concern,required
 M101,PESU / PES,excluded,within-low-end,exceeds,unknown,no-special-concern,required
-M102,PPSU,excluded,exceeds,exceeds,exceeds,no-special-concern,required
+M102,PPSU,excluded,exceeds,within,exceeds,no-special-concern,required
 M103,PP Lightweight,within,within,within,within,no-special-concern,not-needed
 M104,PA6-CE,within,within,within,within,requires-hardened,optional
 M105,ASA-EC,within,within,within,within,requires-hardened,optional

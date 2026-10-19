@@ -189,7 +189,7 @@ G001-197,M001,PLA Matte,within,within,within,not-needed,no-special-concern,optio
 G001-198,M001,PLA Lite,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-199,M001,PLA+,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-200,M001,PLA+,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
-G001-201,M001,Panchroma Satin PLA,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
+G001-201,M001,Panchroma Satin PLA,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
 G002-01,M001,PLA Basic,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G003-01,M001,PLA Matte,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G004-01,M001,PLA-Lite,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
@@ -295,7 +295,7 @@ G018-01,M018,PLA-CF,within,within,within,not-needed,requires-hardened,required,e
 G018-02,M018,THE FILAMENT PLA CF,within,within,within,not-needed,requires-hardened,optional,drying: guide PG026
 G018-03,M018,PLA Carbon,within,within,within,not-needed,requires-hardened,optional,drying: guide PG026
 G018-04,M018,CarbonX CF-PLA,within,within,within,not-needed,requires-hardened,required,enclosure: guide PG026
-G018-05,M018,Polymaker Polylite PLA CF,within,within,within,not-needed,requires-hardened,required,enclosure: guide PG026; hardenedNozzle: guide PG026
+G018-05,M018,Polymaker Polylite PLA CF,within,within,within,not-needed,requires-hardened,required,
 G018-07,M018,PLA BASIC CF,within,within,within,not-needed,requires-hardened,optional,
 G018-08,M018,PLA Carbon Fiber,within,within,within,not-needed,requires-hardened,required,enclosure: guide PG026; hardenedNozzle: guide PG026
 G018-09,M018,PLA-CF,within,within,within,not-needed,requires-hardened,required,hardenedNozzle: guide PG026
@@ -933,7 +933,7 @@ G097-02,M097,PEEK,exceeds,within-low-end,exceeds,unknown,unknown,unknown,
 G097-03,M097,PEEK,exceeds,within,within,unknown,unknown,required,
 G097-04,M097,LUVOCOM 3F PEEK 9581,exceeds,within,unknown,unknown,unknown,required,
 G097-05,M097,R-PEEK,exceeds,edge,exceeds,unknown,unknown,required,
-G097-06,M097,PEEK,exceeds,within,exceeds,unknown,unknown,required,
+G097-06,M097,PEEK,exceeds,within,exceeds,recommended,unknown,required,
 G097-07,M097,TECAFIL PEEK EV natural - 1.75 mm,exceeds,exceeds,exceeds,unknown,unknown,required,
 G098-01,M098,Thermax PEKK A,within-low-end,edge,exceeds-recommended,unknown,no-special-concern,required,
 G098-02,M098,Thermax PEKK C,unknown,unknown,unknown,unknown,unknown,unknown,
@@ -957,9 +957,9 @@ G099-13,M099,PEI ULTEM 9085,edge,edge,unknown,unknown,unknown,required,nozzle: t
 G100-01,M100,THERMAX PSU,edge,exceeds,unknown,unknown,no-special-concern,required,
 G101-01,M101,THERMAX PES,within-low-end,exceeds,unknown,unknown,no-special-concern,required,
 G102-01,M102,THERMAX PPSU,exceeds,exceeds,unknown,unknown,no-special-concern,required,
-G102-02,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,required,drying: twin G102-04
-G102-03,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,required,chamber: twin G102-02; drying: twin G102-04
-G102-04,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,required,nozzle: twin G102-03; bed: twin G102-03; chamber: twin G102-02
+G102-02,M102,PPSU,exceeds,exceeds,exceeds,recommended,unknown,required,enclosure: twin G102-04; drying: twin G102-04
+G102-03,M102,PPSU,exceeds,exceeds,exceeds,recommended,unknown,required,chamber: twin G102-04; enclosure: twin G102-04; drying: twin G102-04
+G102-04,M102,PPSU,exceeds,within,exceeds,recommended,unknown,required,
 G103-01,M103,Hyperlite PP,within,within,within,unknown,no-special-concern,not-needed,
 G104-01,M104,PA6 CS20 FR V0,within,within,within,recommended,requires-hardened,optional,
 G105-01,M105,ASA Conductive,within,within,within,recommended,requires-hardened,optional,

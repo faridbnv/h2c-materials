@@ -1,0 +1,143 @@
+task,SourceID,Record,Field,Held,verdict,copy_value,copy_quote,page,confidence,note
+L001,XP-3dxstat-esd-petg-1,P0134,Nozzle °C,230-260C,changed,260-280C,Extruder Temp  260-280C,1,high,"Registered product page (3DXSTAT ESD-PETG); copy also prints Wide processing range of 260-280C; copy page prints 2026 copyright, no revision date"
+L002,P-FATIGUE,V001768,Fatigue life,"1,000,000",same,"1,000,000","4  20% × σ R  6.74  0.34  3.2  332.8  16.64  1,000,000",1,high,PMC article Polymers 18(2) 302; Received 2025 Dec 19; Revised 2026 Jan 19; Accepted 2026 Jan 21. Table 5 ASA specimen 4 (staircase; R=0.05; XY printed)
+L003,P-FATIGUE,V001769,Fatigue life,"1,000,000",same,"1,000,000","5  25% × σ R  8.42  0.42  4  416  20.8  1,000,000",1,high,ASA Table 5 specimen 5
+L004,P-FATIGUE,V001778,Fatigue life,"1,000,000",same,"1,000,000","4  5% × σ R  2.67  0.13  1.27  131.85  6.59  1,000,000",1,high,PC Table 6 specimen 4 (G035-R1)
+L005,P-FATIGUE,V001779,Fatigue life,"1,000,000",same,"1,000,000","5  7% × σ R  3.74  0.19  1.78  184.58  9.23  1,000,000",1,high,PC Table 6 specimen 5
+L006,P-FATIGUE,V001788,Fatigue life,"1,000,000",same,"1,000,000","4  10% × σ R  4.61  0.23  2.19  227.71  11.39  1,000,000",1,high,Nylon 12 Table 7 specimen 4 (G052-R1)
+L007,P-FATIGUE,V001789,Fatigue life,"1,000,000",same,"1,000,000","5  15% × σ R  6.91  0.35  3.28  341.56  17.08  1,000,000",1,high,Nylon 12 Table 7 specimen 5
+L008,P-FATIGUE,V001790,Fatigue life,"1,000,000",same,"1,000,000","6  17% × σ R  7.84  0.39  3.72  387.10  19.36  1,000,000",1,high,Nylon 12 Table 7 specimen 6
+L009,P-FATIGUE,V001799,Fatigue life,"1,000,000",same,"1,000,000","3  15% × σ R  4.97  0.25  2.36  245.7  12.29  1,000,000",1,high,PC-ABS Table 8 specimen 3 (G094-R1)
+L010,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010737,Tensile break strength,21 MPa,changed,14 MPa,Tensile Strength ISO 527 MPa 14,o-1,high,"Fiberlogy R PP copy: Last update: May 26, 2025. Much different sheet (7 properties only; density 1.05, no flexural, no Vicat, no Tm, no UL 746). Copy tensile strength has no break/yield endpoint named; held 21 MPa at break"
+L011,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010738,Tensile modulus,1100 MPa,changed,700 MPa,Tensile Modulus ISO 527 MPa 700,o-1,high,
+L012,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010741,Flexural strength,18 MPa,absent,,(no flexural strength row),o-1,high,
+L013,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010742,Flexural modulus,1200 MPa,absent,,(no flexural modulus row),o-1,high,
+L014,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010743,HDT,80 °C,absent,,(HDT at 0.45 MPa not printed),o-1,high,Copy prints HDT at 1.8 MPa only
+L015,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010744,HDT,65 °C,changed,40 °C,Heat Distortion Temperature @ 1.8 MPa ISO 75 °C 40,o-1,high,Held 65
+L016,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010745,Vicat softening temperature,135 °C,absent,,(no Vicat row),o-1,high,
+L017,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010746,Melting temperature,163 °C,absent,,(no melting temperature row),o-1,high,
+L018,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010747,Continuous service temperature,65 °C,absent,,(no continuous use temperature row),o-1,high,
+L019,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V012201,Izod impact strength,20,absent,,(no Izod row),o-1,high,"Copy prints Charpy Impact Strength (Notched) @ 23°C ISO 179 30 kJ/m2, not Izod"
+L020,S-PET-TDS-ABSpro,V009547,Density,1.02 g/cc,changed,"1,05 g/cm3","Specific gravity 1,05 g/cm3 ASTM D792",o-1,high,"ABSpro copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet; its values are identical to the EasyFil ABS sheet's (kg/cm2 units, 1,05 g/cm3, 21 g/10min)"
+L021,S-PET-TDS-ABSpro,V009548,Water absorption,1.02 %,absent,,Water absorption (no row),o-1,high,
+L022,S-PET-TDS-ABSpro,V009549,Water absorption,0.19 %,absent,,Moisture absorption (no row),o-1,high,
+L023,S-PET-TDS-ABSpro,V009550,Izod impact strength,39 KJ/m²,changed,33 kgcm/cm,Impact strenght 33 kgcm/cm ASTM D256 Izod notched 23°C,o-1,high,About 32 kJ/m2 if converted; held 39 kJ/m2 under ISO 180/A
+L024,S-PET-TDS-ABSpro,V009551,Tensile yield strength,39.9 Mpa,changed,460 kg/cm2,Tensile strenght at yield 460 kg/cm2 ASTM D638,o-1,high,About 45 MPa if converted; held 39.9
+L025,S-PET-TDS-ABSpro,V009552,Tensile modulus,2100 Mpa,absent,,Tensile modulus (blank),o-1,high,
+L026,S-PET-TDS-ABSpro,V009553,Elongation at break,11 %,changed,10 %,Elongation at break 10 % ASTM D638,o-1,high,Held 11 %
+L027,S-PET-TDS-ABSpro,V009554,Flexural strength,72.7 Mpa,same,740 kg/cm2,Flexural strenght 740 kg/cm2 ASTM D790,o-1,medium,"Printed in kg/cm2; 740 kg/cm2 = 72.6 MPa, within rounding of held 72.7 MPa. Standard differs in kind (copy ASTM D790; held cell says Not published)"
+L028,S-PET-TDS-ABSpro,V009555,Flexural modulus,2370 Mpa,changed,25000 kg/cm2,Flexural modulus 25000 kg/cm2 ASTM D790,o-1,high,About 2450 MPa if converted; held 2370
+L029,S-PET-TDS-ABSpro,V013239,Melt volume-flow rate,5.5 cm³/10min,changed,21 g/10min,Melt flow rate 21 g/10min ASTM D1238 220°C/10kg,o-1,high,"Copy prints mass-flow rate at 220C/10kg, not volume-flow 5.5 cm3/10min"
+L030,S-PET-TDS-ABSpro,V013240,Melting temperature,252 ± 10° C,absent,,Melting temperature (blank),o-1,high,
+L031,S-PET-TDS-ABSpro,P0935,Nozzle °C,± 245 - 275° C,changed,230 - 255 °C,Nozzle temperature 230 - 255 °C,o-1,high,Held 245-275
+L032,S-PET-TDS-ABSpro-Flame-Retardant,V009523,Density,1.18 g/cc,changed,"1,17 g/cm3","Specific gravity 1,17 g/cm3 ISO 1183",o-1,high,"ABSpro Flame Retardant copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet"
+L033,S-PET-TDS-ABSpro-Flame-Retardant,V009524,Izod impact strength,"12,5 KJ/m²",changed,35 kJ/m2,Impact strenght 35 kJ/m2 ISO 180-4A Izod notched 23°C,o-1,high,"Held 12,5"
+L034,S-PET-TDS-ABSpro-Flame-Retardant,V009525,Tensile yield strength,"65,1 Mpa",changed,60 MPa,Tensile strenght at yield 60 MPa ISO 527-2/50,o-1,high,"Held 65,1"
+L035,S-PET-TDS-ABSpro-Flame-Retardant,V009526,Tensile modulus,2440 Mpa,changed,2850 MPa,Tensile modulus 2850 MPa ISO 527-2/1,o-1,high,Held 2440
+L036,S-PET-TDS-ABSpro-Flame-Retardant,V009527,Elongation at break,"6,6 %",absent,,Elongation at break (blank),o-1,high,
+L037,S-PET-TDS-ABSpro-Flame-Retardant,P0934,Nozzle °C,± 240 - 260° C,changed,240 - 265 °C,Nozzle temperature 240 - 265 °C,o-1,high,Held 240-260
+L038,S-PET-TDS-CarbonFil,V009831,Density,1.19 g/cc,changed,"1,32 g/cm3","Specific gravity 1,32 g/cm3 ISO 1183",o-1,high,"CarbonFil copy: Date of issue 15-1-2021, Date of update 23-8-2024; describes 15% carbon fiber reinforced PETG. Much different sheet"
+L039,S-PET-TDS-CarbonFil,V009832,Water absorption,0.13 %,absent,,Water absorption (no row),o-1,high,
+L040,S-PET-TDS-CarbonFil,V009833,Charpy strength,5 KJ/m²,changed,5.4 kJ/m2,Impact strenght 5.4 kJ/m2 ISO 179-1eU Charpy notched 23°C,o-1,high,
+L041,S-PET-TDS-CarbonFil,V009834,Tensile break strength,92 Mpa,changed,45 MPa,Tensile strenght at break 45 MPa ISO 527-1,o-1,high,Held 92 MPa
+L042,S-PET-TDS-CarbonFil,V009835,Tensile modulus,9495 Mpa,absent,,Tensile modulus (blank),o-1,high,Copy prints flexural modulus 4250 MPa labelled ISO 527-1
+L043,S-PET-TDS-CarbonFil,V009836,Elongation at break,3.4 %,changed,"4,9 %","Elongation at break 4,9 % ISO 527-1",o-1,high,
+L044,S-PET-TDS-CarbonFil,V013249,Melt volume-flow rate,3.7 cm³/10min,absent,,Melt flow rate (blank),o-1,high,
+L045,S-PET-TDS-CarbonFil,V013250,Vicat softening temperature,79° C,changed,80 °C,Vicat softening temperature 80 °C ISO 306,o-1,high,No 0.455 MPa load stated; held 79 C
+L046,S-PET-TDS-CarbonFil,V015470,Fibre content,20% ultra-light and relatively long stringer carbon fibres,changed,15% carbon fiber reinforced PETG,CarbonFil is a 15% carbon fiber reinforced PETG based 3D printer filament,o-1,high,Held 20% fibre
+L047,S-PET-TDS-CarbonFil,P0966,Nozzle °C,± 230 - 265° C,changed,230 - 275 °C,Nozzle temperature 230 - 275 °C,o-1,high,Held 230-265
+L048,S-PET-TDS-Centaur-PP,V009846,Density,0.9 g/cc,changed,"0,89 g/cm3","Density 0,89 g/cm3",o-1,medium,"Centaur PP copy: Date of issue 16-1-2020, Date of update 23-8-2024. Held 0.9 g/cc (ASTM D1505) may be a rounding of 0,89; copy prints no density method (ISO 1183 is printed beside melt flow row)"
+L049,S-PET-TDS-Centaur-PP,V012240,Melting temperature,205 ± 15° C,changed,170 °C,Melting temperature 170 °C,o-1,high,Held 205 ± 15
+L050,S-PET-TDS-Centaur-PP,P0968,Nozzle °C,± 220 - 240° C,changed,245 - 270 °C,Nozzle temperature 245 - 270 °C,o-1,high,Held 220-240
+L051,S-PET-TDS-EasyFil-ABS,V009556,Density,1.03 g/cc,changed,"1,05 g/cm3","Specific gravity 1,05 g/cm3 ASTM D792",o-1,high,"EasyFil ABS copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet; several values in kg/cm2 or kgcm/cm"
+L052,S-PET-TDS-EasyFil-ABS,V009557,Water absorption,1.03 %,absent,,Water absorption (no row),o-1,high,
+L053,S-PET-TDS-EasyFil-ABS,V009558,Water absorption,0.21 %,absent,,Moisture absorption (no row),o-1,high,
+L054,S-PET-TDS-EasyFil-ABS,V009559,Izod impact strength,36 KJ/m²,changed,33 kgcm/cm,Impact strenght 33 kgcm/cm ASTM D256 Izod notched 23°C,o-1,high,About 32 kJ/m2 if converted; held 36 kJ/m2 under ISO 180/A
+L055,S-PET-TDS-EasyFil-ABS,V009560,Tensile yield strength,38 Mpa,changed,460 kg/cm2,Tensile strenght at yield 460 kg/cm2 ASTM D638,o-1,high,About 45 MPa if converted; held 38 MPa under ISO 527
+L056,S-PET-TDS-EasyFil-ABS,V009561,Tensile modulus,1900 Mpa,absent,,Tensile modulus (blank),o-1,high,
+L057,S-PET-TDS-EasyFil-ABS,V009562,Elongation at break,9 %,changed,10 %,Elongation at break 10 % ASTM D638,o-1,high,Held 9 % under ISO 527
+L058,S-PET-TDS-EasyFil-ABS,V009563,Flexural strength,68.7 Mpa,changed,740 kg/cm2,Flexural strenght 740 kg/cm2 ASTM D790,o-1,high,About 72.6 MPa if converted; held 68.7
+L059,S-PET-TDS-EasyFil-ABS,V009564,Flexural modulus,2250 Mpa,changed,25000 kg/cm2,Flexural modulus 25000 kg/cm2 ASTM D790,o-1,high,About 2450 MPa if converted; held 2250
+L060,S-PET-TDS-EasyFil-ABS,V013254,Melt volume-flow rate,5.5 cm³/10min,changed,21 g/10min,Melt flow rate 21 g/10min ASTM D1238 220°C/10kg,o-1,high,"Copy prints mass-flow rate at 220C/10kg, not volume-flow 5.5 cm3/10min"
+L061,S-PET-TDS-EasyFil-ABS,V013255,Melting temperature,145 ± 10° C,absent,,Melting temperature (blank),o-1,high,
+L062,S-PET-TDS-EasyFil-ABS,V013256,Vicat softening temperature,103° C,changed,93 °C,Vicat softening temperature 93 °C ASTM D1525,o-1,high,Held 103 C ISO 306 VST/A/50
+L063,S-PET-TDS-EasyFil-ABS,P0936,Nozzle °C,± 220 - 270° C,changed,230 - 255 °C,Nozzle temperature 230 - 255 °C,o-1,high,Held 220-270
+L064,S-PET-TDS-EasyFil-HIPS,V009699,Density,1.04 g/cc,changed,"1,05 g/cm3","Density 1,05 g/cm3",o-1,high,"EasyFil HIPS copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet"
+L065,S-PET-TDS-EasyFil-HIPS,V009700,Water absorption,"0,1 %",absent,,Water absorption (no row),o-1,high,No water absorption on copy
+L066,S-PET-TDS-EasyFil-HIPS,V009701,Water absorption,0.1 %,absent,,Moisture absorption (no row),o-1,high,
+L067,S-PET-TDS-EasyFil-HIPS,V009702,Charpy strength,15 KJ/m²,changed,7 kJ/m2,Impact strenght 7 kJ/m2 ISO 179/2 Charpy notched 23°C,o-1,high,
+L068,S-PET-TDS-EasyFil-HIPS,V009703,Tensile yield strength,22 Mpa,changed,16 MPa,Tensile strenght at yield 16 MPa ISO 527-2/5,o-1,high,Break also 16 MPa
+L069,S-PET-TDS-EasyFil-HIPS,V009704,Tensile modulus,1550 Mpa,absent,,Tensile modulus (blank),o-1,high,
+L070,S-PET-TDS-EasyFil-HIPS,V009706,Flexural strength,51.2 Mpa,changed,50 MPa,Flexural strenght 50 MPa ISO 178,o-1,high,
+L071,S-PET-TDS-EasyFil-HIPS,V009707,Flexural modulus,2126 Mpa,changed,2000 MPa,Flexural modulus 2000 MPa ISO 178,o-1,high,
+L072,S-PET-TDS-EasyFil-HIPS,V013257,Melt volume-flow rate,3.4 cm³/10min,changed,12 g/10min,Melt flow rate 12 g/10min ISO 1133 200°C/5kg,o-1,high,"Copy prints mass-flow rate g/10min at 200C/5kg, not volume-flow 3.4 cm3/10min"
+L073,S-PET-TDS-EasyFil-HIPS,V013258,Melting temperature,180 - 260° C,absent,,Melting temperature (blank),o-1,high,
+L074,S-PET-TDS-EasyFil-HIPS,V013259,Vicat softening temperature,89° C,changed,87 °C,Vicat softening temperature 87 °C ISO 306/B50,o-1,high,Held 89 C ASTM D1525 B/2
+L075,S-PET-TDS-EasyFil-HIPS,P0951,Nozzle °C,± 220 - 260° C,changed,230 - 245 °C,Nozzle temperature 230 - 245 °C,o-1,high,Held 220-260
+L076,S-PET-TDS-EasyFil-PLA,V009581,Impact strength,7.5 KJ/m²,changed,16 J/m,Impact strenght 16 J/m ASTM D256 Izod notched 23°C,o-1,high,"EasyFil ePLA copy (title now EasyFil ePLA): Date of issue 1-11-2022, Date of update 23-8-2024. Much different sheet; values identical to the Premium/StoneFil template (1,24 g/cm3, 60/53 MPa, 83 MPa)"
+L077,S-PET-TDS-EasyFil-PLA,V009582,Tensile strength (endpoint unspecified),110 Mpa,changed,60 MPa (yield); 53 MPa (break),Tensile strenght at yield 60 MPa ASTM D882,o-1,high,Held 110 MPa
+L078,S-PET-TDS-EasyFil-PLA,V009583,Tensile modulus,3310 Mpa,changed,"3,5 MPa","Tensile modulus 3,5 MPa ASTM D882",o-1,medium,"Unit printed MPa, value evidently GPa; differs from held 3310 MPa either way"
+L079,S-PET-TDS-EasyFil-PLA,V009584,Elongation at break,160 %,absent,,Elongation at break (blank),o-1,high,Copy prints elongation at yield 6 % only
+L080,S-PET-TDS-EasyFil-PLA,V009585,Flexural strength,55.2 Mpa,changed,83 MPa,Flexural strenght 83 MPa ASTM D790,o-1,high,
+L081,S-PET-TDS-EasyFil-PLA,V009586,Flexural modulus,2392.5 Mpa,changed,"3,8 MPa","Flexural modulus 3,8 MPa ASTM D790",o-1,medium,"Unit printed MPa, value evidently GPa"
+L082,S-PET-TDS-EasyFil-PLA,P0937,Nozzle °C,± 180 - 220° C,changed,200 - 275 °C,Nozzle temperature 200 - 275 °C,o-1,high,Held 180-220
+L083,S-PET-TDS-EasyWood,V009811,Density,1.20 g/cc,changed,"1,15 g/cm3","Density 1,15 g/cm3",o-1,high,"EasyWood copy: Date of issue 16-1-2020, Date of update 23-8-2024; no test method printed for density. Much different sheet"
+L084,S-PET-TDS-EasyWood,V009812,Melt mass-flow rate,4.5 g/10min,changed,"2,5 g/10min","Melt flow rate 2,5 g/10min ISO 1133 190°C/2,16kg",o-1,high,
+L085,S-PET-TDS-EasyWood,V009813,Impact strength,7.1 KJ/m²,changed,"4,4 kJ/m2","Impact strenght 4,4 kJ/m2 ISO 179-1/1eA Charpy notched 23°C",o-1,high,
+L086,S-PET-TDS-EasyWood,V009814,Tensile strength (endpoint unspecified),71 Mpa,changed,47 MPa (yield); 38 MPa (break),Tensile strenght at yield 47 MPa ISO 527,o-1,high,"Copy prints yield 47 and break 38 MPa, ISO 527 (held 71 MPa under ASTM D882)"
+L087,S-PET-TDS-EasyWood,V009815,Tensile modulus,1930 Mpa,absent,,Tensile modulus (blank),o-1,high,
+L088,S-PET-TDS-EasyWood,V009816,Elongation at break,171 %,absent,,Elongation at break (blank),o-1,high,
+L089,S-PET-TDS-EasyWood,V009817,Flexural strength,59.6 Mpa,absent,,Flexural strenght (blank),o-1,high,
+L090,S-PET-TDS-EasyWood,V009818,Flexural modulus,2583.9 Mpa,changed,2900 MPa,Flexural modulus 2900 MPa ISO 527,o-1,medium,Test method printed as ISO 527 (not a flexural standard)
+L091,S-PET-TDS-EasyWood,V013262,Melting temperature,145 ± 10° C,changed,155 °C,Melting temperature 155 °C ISO 3146-C,o-1,high,
+L092,S-PET-TDS-EasyWood,V013263,Vicat softening temperature,46° C,absent,,Vicat softening temperature (blank),o-1,high,
+L093,S-PET-TDS-EasyWood,P0964,Nozzle °C,± 200 - 240° C,changed,190 - 240 °C,Nozzle temperature 190 - 240 °C,o-1,high,Held 200-240
+L094,S-PET-TDS-Galaxy-PLA,V009588,Melt mass-flow rate,9.56 g/10min,changed,6 g/10min,"Melt flow rate 6 g/10min ASTM D1238 210°C/2,16kg",o-1,high,"Galaxy PLA copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet (same values as Premium PLA/ePLA template)"
+L095,S-PET-TDS-Galaxy-PLA,V009589,Charpy strength,3.4 KJ/m²,changed,16 J/m,Impact strenght 16 J/m ASTM D256 Izod notched 23°C,o-1,high,Copy prints Izod notched in J/m not Charpy kJ/m2
+L096,S-PET-TDS-Galaxy-PLA,V009590,Tensile yield strength,70 Mpa,changed,60 MPa (yield); 53 MPa (break),Tensile strenght at yield 60 MPa ASTM D882,o-1,high,Held 70 MPa under ISO 527
+L097,S-PET-TDS-Galaxy-PLA,V009591,Tensile modulus,3120 Mpa,changed,"3,5 MPa","Tensile modulus 3,5 MPa ASTM D882",o-1,medium,"Unit printed MPa, value evidently GPa; differs from held 3120 MPa either way"
+L098,S-PET-TDS-Galaxy-PLA,V013264,Melting temperature,115 ± 35° C,absent,,Melting temperature (blank),o-1,high,Copy prints Tg 60 C and HDT A 55 C only
+L099,S-PET-TDS-Galaxy-PLA,P0938,Nozzle °C,± 200 - 230° C,changed,185 - 215 °C,Nozzle temperature 185 - 215 °C,o-1,high,Held 200-230
+L100,S-PET-TDS-High-Gloss-PLA,V009516,Density,1.24 g/cc,changed,"1,22 g/cm3","Specific gravity 1,22 g/cm3 ASTM D792",o-1,high,"High Gloss PLA copy: Date of issue 30-3-2022, Date of update 23-8-2024. Much different sheet"
+L101,S-PET-TDS-High-Gloss-PLA,V009517,Melt mass-flow rate,"8,2 g/10min",changed,6 g/10min,"Melt flow rate 6 g/10min ASTM D1238 210°C/2,16kg",o-1,high,"Held 8,2 under ISO 1133 at 210C/2.16kg"
+L102,S-PET-TDS-High-Gloss-PLA,V009518,Charpy strength,"2,6 KJ/m²",changed,6 J/m,Impact strenght 6 J/m ASTM D256 Izod notched 23°C,o-1,high,"Copy prints Izod notched in J/m, not Charpy kJ/m2"
+L103,S-PET-TDS-High-Gloss-PLA,V009519,Tensile yield strength,71 Mpa,changed,59 MPa (yield); 45 MPa (break),Tensile strenght at yield 59 MPa ISO 527,o-1,high,Held 71
+L104,S-PET-TDS-High-Gloss-PLA,V009520,Tensile modulus,3200 Mpa,changed,2700 MPa,Tensile modulus 2700 MPa ISO 527,o-1,high,Held 3200
+L105,S-PET-TDS-High-Gloss-PLA,V009521,Elongation at break,"3,6 %",changed,10 %,Elongation at break 10 % ISO 527,o-1,high,"Held 3,6"
+L106,S-PET-TDS-High-Gloss-PLA,V013267,Vicat softening temperature,58° C,absent,,Vicat softening temperature (blank),o-1,high,Copy prints HDT A 50 C (ISO 75) and Tg 57 C (DSC)
+L107,S-PET-TDS-High-Gloss-PLA,P0932,Nozzle °C,± 215 - 245° C,changed,210 - 240 °C,Nozzle temperature 210 - 240 °C,o-1,high,Held 215-245
+L108,S-PET-TDS-Premium-PLA,V009624,Tensile strength (endpoint unspecified),105 Mpa,changed,60 MPa (yield); 53 MPa (break),Tensile strenght at yield 60 MPa ASTM D882,o-1,high,"Premium PLA copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet (same template as StoneFil values: 1,24 g/cm3, 60/53 MPa). Copy prints yield 60, break 53 under ASTM D882"
+L109,S-PET-TDS-Premium-PLA,V009625,Tensile modulus,3145 Mpa,changed,"3,5 GPa","Tensile modulus 3,5 GPa ASTM D882",o-1,high,= 3500 MPa vs held 3145 MPa
+L110,S-PET-TDS-Premium-PLA,V009626,Elongation at break,175 %,absent,,Elongation at break (blank),o-1,high,Copy prints elongation at yield 6 % only
+L111,S-PET-TDS-Premium-PLA,V009627,Flexural strength,54.4 Mpa,changed,83 MPa,Flexural strenght 83 MPa ASTM D790,o-1,high,
+L112,S-PET-TDS-Premium-PLA,V009628,Flexural modulus,2364.3 Mpa,changed,"3,8 MPa","Flexural modulus 3,8 MPa ASTM D790",o-1,medium,"Unit printed MPa, value evidently GPa; differs from held 2364.3 MPa either way"
+L113,S-PET-TDS-Premium-PLA,V013282,Vicat softening temperature,62° C,absent,,Vicat softening temperature (blank),o-1,high,Copy prints HDT A 55 C
+L114,S-PET-TDS-Premium-PLA,P0942,Nozzle °C,± 190- 225° C,changed,185 - 210 °C,Nozzle temperature 185 - 210 °C,o-1,high,Held 190-225
+L115,S-PET-TDS-ReFill-PLA,V009807,Tensile modulus,3.5 Gpa,same,3495 MPa,Tensile modulus 3495 MPa ASTM D882,o-1,high,"ReFill PLA copy: Date of issue 3-11-2022, Date of update 23-8-2024. 3495 MPa = 3.5 GPa rounded"
+L116,S-PET-TDS-ReFill-PLA,V009809,Izod impact strength,16 J/m,absent,,Impact strenght (blank),o-1,high,Impact row empty on copy
+L117,S-PET-TDS-ReForm-rPET,V009652,Density,1.27 g/cc,changed,"1,23 g/cm3","Specific gravity 1,23 g/cm3 ISO D505",o-1,high,"ReForm rPET copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet (test-method column printed as ISO D505, ISO D256 etc.)"
+L118,S-PET-TDS-ReForm-rPET,V009653,Water absorption,0.13 %,changed,"<0,2 %","Moisture absorption: <0,2%",o-1,medium,"Copy gives only an upper bound in the description, no table row, no standard; held 0.13 % (ASTM D570)"
+L119,S-PET-TDS-ReForm-rPET,V009654,Izod impact strength,7.2 KJ/m²,changed,101 J/m,Impact strenght 101 J/m ISO D256 Izod notched 23°C,o-1,high,Held 7.2 kJ/m2
+L120,S-PET-TDS-ReForm-rPET,V009656,Tensile modulus,1940 Mpa,absent,,Tensile modulus (blank),o-1,high,Copy prints yield 52 and break 59 MPa only
+L121,S-PET-TDS-ReForm-rPET,V009658,Flexural strength,70.6 Mpa,changed,68 MPa,Flexural strenght 68 MPa ISO 178,o-1,high,Held 70.6 (ASTM D790)
+L122,S-PET-TDS-ReForm-rPET,V009659,Flexural modulus,2147.6 Mpa,changed,2000 MPa,Flexural modulus 2000 MPa ISO 178,o-1,high,Held 2147.6
+L123,S-PET-TDS-ReForm-rPET,V009660,Hardness,105 Rockwell R,absent,,Rockwell hardness (blank),o-1,high,
+L124,S-PET-TDS-ReForm-rPET,P0947,Nozzle °C,± 195 - 225° C,changed,230 - 255 °C,Nozzle temperature 230 - 255 °C,o-1,high,Held 195-225
+L125,S-PET-TDS-ReForm-rPLA,V015173,Impact strength,7.5 KJ/m²,absent,,Impact strenght (blank),o-1,high,"ReForm rPLA copy: Date of issue 30-6-2022, Date of update 23-8-2024. Impact row empty on copy"
+L126,S-PET-TDS-ReForm-rPLA,P1740,Nozzle °C,± 180 - 220° C,changed,190 - 215 °C,Nozzle temperature 190 - 215 °C,o-1,high,Held 180-220
+L127,S-PET-TDS-StoneFil,V009757,Density,1.7 g/cc,changed,"1,24 g/cm3","Specific gravity 1,24 g/cm3 ASTM D792",o-1,high,"StoneFil copy: Date of issue 16-1-2020, Date of update 23-8-2024. Much different sheet (new FormFutura template; most mechanical/thermal rows blank or different). Copy method ASTM D792 vs held ISO 1183"
+L128,S-PET-TDS-StoneFil,V009758,Melt mass-flow rate,94 g/10min,changed,6 g/10min,"Melt flow rate 6 g/10min ASTM D1238 210°C/2,16kg",o-1,high,Different standard/condition (ASTM D1238 210C/2.16kg)
+L129,S-PET-TDS-StoneFil,V009759,Charpy strength,2.9 KJ/m²,changed,16 J/m,Impact strenght 16 J/m ISO D882 Izod notched 23°C,o-1,high,Copy prints Izod notched in J/m not Charpy kJ/m2
+L130,S-PET-TDS-StoneFil,V009760,Tensile yield strength,38.0 Mpa,changed,60 MPa,Tensile strenght at yield 60 MPa ISO D882,o-1,high,Copy also prints at break 53 MPa
+L131,S-PET-TDS-StoneFil,V009761,Tensile modulus,4760 Mpa,changed,"3,5 MPa","Tensile modulus 3,5 MPa ISO D882",o-1,medium,"Unit printed MPa but value 3,5 evidently GPa; either way differs from 4760 MPa"
+L132,S-PET-TDS-StoneFil,V009762,Elongation at break,33 %,absent,,Elongation at break (blank),o-1,high,Copy prints elongation at yield 6 % only; elongation at break row empty
+L133,S-PET-TDS-StoneFil,V013289,Melting temperature,77 - 153° C,absent,,Melting temperature (blank),o-1,high,Row empty; copy prints Tg 60 C
+L134,S-PET-TDS-StoneFil,V013290,Vicat softening temperature,57° C,absent,,Vicat softening temperature (blank),o-1,high,Row empty; copy prints HDT A 55 C (ASTM E2092)
+L135,S-PET-TDS-StoneFil,P0957,Nozzle °C,± 190 - 240° C,changed,185 - 225 °C,Nozzle temperature 185 - 225 °C,o-1,high,Held 190-240
+L136,S-PET-TDS-Tough-PLA,V009629,Density,1.21 g/cc,changed,"1,2 g/cm3","Specific gravity 1,2 g/cm3 ASTM D792",o-1,high,"Tough PLA copy: Date of issue 7-6-2022, Date of update 23-8-2024. Much different sheet"
+L137,S-PET-TDS-Tough-PLA,V009630,Melt mass-flow rate,8.75 g/10min,changed,"9,43 g/10min","Melt flow rate 9,43 g/10min ASTM D1238 210°C/2,16kg",o-1,high,
+L138,S-PET-TDS-Tough-PLA,V009631,Charpy strength,29.8 KJ/m²,changed,2.09 J/cm2,Impact strenght 2.09 J/cm2 ISO 79 Charpy notched 23°C,o-1,high,2.09 J/cm2 = 20.9 kJ/m2 vs held 29.8 kJ/m2
+L139,S-PET-TDS-Tough-PLA,V009632,Tensile yield strength,46 Mpa,changed,"53,2 MPa (yield); 43,5 MPa (break)","Tensile strenght at yield 53,2 MPa ASTM D638",o-1,high,Test method ASTM D638 (held ISO 527)
+L140,S-PET-TDS-Tough-PLA,V009633,Tensile modulus,2750 Mpa,absent,,Tensile modulus (blank),o-1,high,"Copy prints flexural modulus 432,8 MPa only (ASTM D638)"
+L141,S-PET-TDS-Tough-PLA,V013291,Vicat softening temperature,57° C,absent,,Vicat softening temperature (blank),o-1,high,Copy prints HDT A 55 C
+L142,S-PET-TDS-Tough-PLA,P0943,Nozzle °C,± 215 - 225° C,changed,190 - 230 °C,Nozzle temperature 190 - 230 °C,o-1,high,Held 215-225

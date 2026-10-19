@@ -150,7 +150,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEEK (M097) | — | collected | 0 of 7 | 1 / 1 / 5 | — |
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 3 | 2 / 1 / 3 | — |
-| PPSU (M102) | — | collected | 0 of 4 | 2 / 2 / 3 | — |
+| PPSU (M102) | — | collected | 0 of 4 | 1 / 2 / 3 | — |
 | PVC (M135) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
 | Silicon carbide sintering filament (M172) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | Support for ABS (M079) | — | collected | 0 of 2 | 1 / 0 / 2 | — |

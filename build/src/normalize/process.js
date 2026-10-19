@@ -325,6 +325,8 @@ export function parseEnclosure(raw) {
   // A question the row answers: Extrudr's product pages print "Enclosed chamber required No" (or "Yes").
   const answer = text.match(/\b(?:required|recommended|needed|necessary)\s*[:?]?\s*(yes|no)\s*$/i);
   if (answer) return { text, state: /^no$/i.test(answer[1]) ? 'not-needed' : 'recommended' };
+  // FormFutura's "Enclosure needed: 90°C heated chamber": the answer is what the enclosure must be (the research intake).
+  if (/^enclosure\s+needed\s*:\s*(?!no\b)\S/i.test(text)) return { text, state: 'recommended' };
   // 3DXTECH's product page: "Ideal for printing without a heated bed, no enclosure required".
   // "Enclosure is not recommended for PLA" discourages one: it was read as recommending one (check round 3).
   // eSUN's PLA Clear sheet says it "does not need to close the cavity", and Spectrum's Polish sheets "Komora zamknięta:
@@ -448,7 +450,8 @@ export function parseAbrasion(raw) {
   // nozzle or nozzles made with hardened copper alloys". Stated, and no reading, as the guide's "Hardened Steel / Stainless
   // Steel" list is (D168, the owner's ruling of 2026-10-19).
   // Eumakers' "stainless brass or resistant copper alloy nozzles" is the same advice (the research intake).
-  if (/\bstainless(?:\s+steel)?\b[^.;]*\bor\b[^.;]*\b(?:harden\w*|resistant)\s+(?:\w+\s+)?alloys?\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
+  // MatterHackers' "Stainless Steel , Olsson Ruby , or other hardened nozzle types" names stainless steel among them too.
+  if (/\bstainless(?:\s+steel)?\b[^.;]*\bor\b[^.;]*\b(?:harden\w*|resistant)\s+(?:\w+\s+)?(?:alloys?|nozzle\s+types?)\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
   // A caution about wear, with no hardened nozzle asked for, is not a requirement: "may require nozzle replacements", "be
   // prepared to replace your nozzle … or upgrade", "brass nozzle … life may be reduced", "hardened steel nozzles minimise
   // increased wear" (D168). It says nothing either way, so a nozzle line that asks for one still decides (readAbrasion).

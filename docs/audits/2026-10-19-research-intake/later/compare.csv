@@ -1,0 +1,329 @@
+SourceID,Record,Table,Field,Held,status,copy,doc
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1317,profiles,Drying,65 °C for 6 h (before printing),confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1318,profiles,Drying,65 °C for 6 h (before printing),confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1319,profiles,Drying,50 °C for 4 h (before printing),confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1320,profiles,Drying,125 °C for 6 h (before printing),confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1925,profiles,Drying,"50 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1926,profiles,Drying,"50 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1927,profiles,Drying,"50 °C, 4 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1928,profiles,Drying,"50 °C, 4 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1929,profiles,Drying,"60 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1930,profiles,Drying,"60 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1931,profiles,Drying,"80 °C, 4 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1932,profiles,Drying,"60 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1933,profiles,Drying,"65 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1934,profiles,Drying,"65 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1935,profiles,Drying,"80 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+R-COLORFABB-PRINT-20260928-e02f420a2e56,P1936,profiles,Drying,"65 °C, 6 h",confirmed,3db72a183ffa7a3d1a9cf006ef74618b78eff674d618cc4bd0d5fe9ee265d536,NEW-3db72a183ffa
+S-PA12,P0139,profiles,Nozzle °C,275-300°C,confirmed,1d4f92c1a5fd20bb6a4658b49eee09051bccb9d4623a0392fd5568d3a34173d3,NEW-1d4f92c1a5fd
+S-PA12,P0139,profiles,Bed °C,60-100°C,confirmed,1d4f92c1a5fd20bb6a4658b49eee09051bccb9d4623a0392fd5568d3a34173d3,NEW-1d4f92c1a5fd
+S-PA12,P0139,profiles,Drying,80°C for 4 h,confirmed,1d4f92c1a5fd20bb6a4658b49eee09051bccb9d4623a0392fd5568d3a34173d3,NEW-1d4f92c1a5fd
+S-PES,P0155,profiles,Nozzle °C,340-390C,confirmed,639013bf110c98fac8b02c244df1894baab5955a1e825cd9d7a28b27e234092f,NEW-639013bf110c
+S-PES,P0155,profiles,Bed °C,140-160C,confirmed,639013bf110c98fac8b02c244df1894baab5955a1e825cd9d7a28b27e234092f,NEW-639013bf110c
+S-PES,P0155,profiles,Chamber °C,Recommended,confirmed,639013bf110c98fac8b02c244df1894baab5955a1e825cd9d7a28b27e234092f,NEW-639013bf110c
+S-PES,P0155,profiles,Drying,120C for 4 hours,confirmed,639013bf110c98fac8b02c244df1894baab5955a1e825cd9d7a28b27e234092f,NEW-639013bf110c
+XP-3dxmax-hips,P0146,profiles,Nozzle °C,220-235C,confirmed,b53bcdf47f2a7da0075318d95c7caf805059d7aa8b96e18ab5c6899dc470cdb6,NEW-b53bcdf47f2a
+XP-3dxmax-hips,P0146,profiles,Bed °C,100-110C,confirmed,b53bcdf47f2a7da0075318d95c7caf805059d7aa8b96e18ab5c6899dc470cdb6,NEW-b53bcdf47f2a
+XP-3dxmaxa-r-pc-abs,P0149,profiles,Nozzle °C,280-310C,confirmed,7c06abfa74f71985d22a5570fe71851ee4c1e488a45d16fdd13b376c69f34a45,NEW-7c06abfa74f7
+XP-3dxmaxa-r-pc-abs,P0149,profiles,Bed °C,110-120C,confirmed,7c06abfa74f71985d22a5570fe71851ee4c1e488a45d16fdd13b376c69f34a45,NEW-7c06abfa74f7
+XP-3dxmaxa-r-pc-abs,P0149,profiles,Drying,120C for 4+ hours,confirmed,7c06abfa74f71985d22a5570fe71851ee4c1e488a45d16fdd13b376c69f34a45,NEW-7c06abfa74f7
+XP-3dxstat-esd-abs-1,P0136,profiles,Nozzle °C,220-240°C,confirmed,7273f678adc1384baa27fbb6915bc2ccc64cb2ecf250c1c24dabb348a7d0b1fb,NEW-7273f678adc1
+XP-3dxstat-esd-abs-1,P0136,profiles,Bed °C,100-110°C,confirmed,7273f678adc1384baa27fbb6915bc2ccc64cb2ecf250c1c24dabb348a7d0b1fb,NEW-7273f678adc1
+XP-3dxstat-esd-abs-1,P0136,profiles,Chamber °C,Recommended,confirmed,7273f678adc1384baa27fbb6915bc2ccc64cb2ecf250c1c24dabb348a7d0b1fb,NEW-7273f678adc1
+XP-3dxstat-esd-abs-1,P0136,profiles,Drying,80°C for 4 hours,confirmed,7273f678adc1384baa27fbb6915bc2ccc64cb2ecf250c1c24dabb348a7d0b1fb,NEW-7273f678adc1
+XP-3dxstat-esd-petg-1,P0134,profiles,Nozzle °C,230-260C,unconfirmed,4230ad4debb29c8008afb50b8801277f0392d5a15d9ef4f76aec2363ee74a566,NEW-4230ad4debb2
+XP-3dxstat-esd-petg-1,P0134,profiles,Bed °C,60-90C,confirmed,4230ad4debb29c8008afb50b8801277f0392d5a15d9ef4f76aec2363ee74a566,NEW-4230ad4debb2
+XP-3dxstat-esd-petg-1,P0134,profiles,Drying,65C for 4 hours,confirmed,4230ad4debb29c8008afb50b8801277f0392d5a15d9ef4f76aec2363ee74a566,NEW-4230ad4debb2
+XP-amidex-nylon-6-67,P0138,profiles,Nozzle °C,255-275C,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0138,profiles,Bed °C,60-70C,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0138,profiles,Drying,90C for 4 hours,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0142,profiles,Nozzle °C,255-275C,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0142,profiles,Bed °C,60-70C,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0142,profiles,Drying,90C for 4 hours,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0143,profiles,Nozzle °C,255-275C,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0143,profiles,Bed °C,60-70C,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-amidex-nylon-6-67,P0143,profiles,Drying,90C for 4 hours,confirmed,4548352ce114cfdee955e47f7dfb76c96cd27cde95333fc334c6775a56ae5ece,NEW-4548352ce114
+XP-carbonx-abs-cf-1,P0135,profiles,Nozzle °C,220-240C,confirmed,f6e86b37a22d1ef3cfb153cd2b63fee726e69f643b5cb76d8024b9da98561a20,NEW-f6e86b37a22d
+XP-carbonx-abs-cf-1,P0135,profiles,Bed °C,100-110C,confirmed,f6e86b37a22d1ef3cfb153cd2b63fee726e69f643b5cb76d8024b9da98561a20,NEW-f6e86b37a22d
+XP-carbonx-abs-cf-1,P0135,profiles,Chamber °C,Recommended,confirmed,f6e86b37a22d1ef3cfb153cd2b63fee726e69f643b5cb76d8024b9da98561a20,NEW-f6e86b37a22d
+XP-carbonx-abs-cf-1,P0135,profiles,Drying,80C for 4 hours,confirmed,f6e86b37a22d1ef3cfb153cd2b63fee726e69f643b5cb76d8024b9da98561a20,NEW-f6e86b37a22d
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Nozzle °C,265-285C,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Bed °C,90-110C,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Chamber °C,Recommended,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Drying,90C for 4 hours,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Nozzle °C,265-285C,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Bed °C,90-110C,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Chamber °C,Recommended,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Drying,90C for 4 hours,confirmed,518c8f592bc7fb647033b86b916c6becbfa2a4f00a5390c125bf7b72a0128d2b,NEW-518c8f592bc7
+XP-carbonx-pc-cf-1,P0137,profiles,Nozzle °C,280-310C,confirmed,d56fb071354136a3db56f742de3b03008f7cd0c57e688659c17f87e6fb05f12d,NEW-d56fb0713541
+XP-carbonx-pc-cf-1,P0137,profiles,Bed °C,110-120C,confirmed,d56fb071354136a3db56f742de3b03008f7cd0c57e688659c17f87e6fb05f12d,NEW-d56fb0713541
+XP-carbonx-pc-cf-1,P0137,profiles,Chamber °C,Recommended,confirmed,d56fb071354136a3db56f742de3b03008f7cd0c57e688659c17f87e6fb05f12d,NEW-d56fb0713541
+XP-carbonx-pc-cf-1,P0137,profiles,Drying,120C for 4 hours,confirmed,d56fb071354136a3db56f742de3b03008f7cd0c57e688659c17f87e6fb05f12d,NEW-d56fb0713541
+XP-carbonx-pp-cf-1,P0147,profiles,Nozzle °C,240-270C,confirmed,81becea89a8a160d0cf4bc9f4afe270ac7ebb1a6b861a243ae464f72fae78591,NEW-81becea89a8a
+XP-carbonx-pp-cf-1,P0147,profiles,Bed °C,45-65C,confirmed,81becea89a8a160d0cf4bc9f4afe270ac7ebb1a6b861a243ae464f72fae78591,NEW-81becea89a8a
+XP-carbonx-pp-cf-1,P0147,profiles,Drying,65C for 4 hours,confirmed,81becea89a8a160d0cf4bc9f4afe270ac7ebb1a6b861a243ae464f72fae78591,NEW-81becea89a8a
+XP-ecomax-r-pla,P0133,profiles,Nozzle °C,190-220C,confirmed,f07b055763b851c4af78260a2e3b5578038532d97215a4fe369cf9c4f95a690a,NEW-f07b055763b8
+XP-ecomax-r-pla,P0133,profiles,Bed °C,23-60C,confirmed,f07b055763b851c4af78260a2e3b5578038532d97215a4fe369cf9c4f95a690a,NEW-f07b055763b8
+XP-ecomax-r-pla,P0133,profiles,Drying,45C for 4 hours,confirmed,f07b055763b851c4af78260a2e3b5578038532d97215a4fe369cf9c4f95a690a,NEW-f07b055763b8
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Nozzle °C,265-285C,confirmed,333b916148566a883ff8fd70f77b824c8b61a239eef252d9ea71c011ebb1060c,NEW-333b91614856
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Bed °C,90-110C,confirmed,333b916148566a883ff8fd70f77b824c8b61a239eef252d9ea71c011ebb1060c,NEW-333b91614856
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Chamber °C,Up to 120C,confirmed,333b916148566a883ff8fd70f77b824c8b61a239eef252d9ea71c011ebb1060c,NEW-333b91614856
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Drying,90C for 4 hours,confirmed,333b916148566a883ff8fd70f77b824c8b61a239eef252d9ea71c011ebb1060c,NEW-333b91614856
+XP-fluorx-pvdf-1,P0150,profiles,Nozzle °C,245-265C,confirmed,c54a2e6295f419c14f5a98988497f8f8834a1b20b200be715c8707f9b3ae1885,NEW-c54a2e6295f4
+XP-fluorx-pvdf-1,P0150,profiles,Bed °C,90-110C,confirmed,c54a2e6295f419c14f5a98988497f8f8834a1b20b200be715c8707f9b3ae1885,NEW-c54a2e6295f4
+XP-fluorx-pvdf-1,P0150,profiles,Chamber °C,Recommended,confirmed,c54a2e6295f419c14f5a98988497f8f8834a1b20b200be715c8707f9b3ae1885,NEW-c54a2e6295f4
+XP-max-g-pctg-1,P0148,profiles,Nozzle °C,250-270C,confirmed,6222c3a346a7b40148df283d35123c7b655b99260527c32fe4912bce833747e9,NEW-6222c3a346a7
+XP-max-g-pctg-1,P0148,profiles,Bed °C,70-90C,confirmed,6222c3a346a7b40148df283d35123c7b655b99260527c32fe4912bce833747e9,NEW-6222c3a346a7
+XP-max-g-pctg-1,P0148,profiles,Drying,65C for 4 hours,confirmed,6222c3a346a7b40148df283d35123c7b655b99260527c32fe4912bce833747e9,NEW-6222c3a346a7
+XP-pekk-a,P0152,profiles,Nozzle °C,345-375C,confirmed,db5c1156dcfeb82b7fba84299ca53cda7484cd932970e83764e57f7d32fbe893,NEW-db5c1156dcfe
+XP-pekk-a,P0152,profiles,Bed °C,120-140C,confirmed,db5c1156dcfeb82b7fba84299ca53cda7484cd932970e83764e57f7d32fbe893,NEW-db5c1156dcfe
+XP-pekk-a,P0152,profiles,Chamber °C,Recommended 70-150C if possible,confirmed,db5c1156dcfeb82b7fba84299ca53cda7484cd932970e83764e57f7d32fbe893,NEW-db5c1156dcfe
+XP-pekk-a,P0152,profiles,Drying,120C for 4 hours,confirmed,db5c1156dcfeb82b7fba84299ca53cda7484cd932970e83764e57f7d32fbe893,NEW-db5c1156dcfe
+XP-thermax-peek-1,P0151,profiles,Nozzle °C,400-480C,confirmed,8bdf1c94c21eb27a10b1763e1bf6da5d905813f7d534fe9a2cb0e4b3754b0f74,NEW-8bdf1c94c21e
+XP-thermax-peek-1,P0151,profiles,Bed °C,140-180C,confirmed,8bdf1c94c21eb27a10b1763e1bf6da5d905813f7d534fe9a2cb0e4b3754b0f74,NEW-8bdf1c94c21e
+XP-thermax-peek-1,P0151,profiles,Chamber °C,Recommended 70-140C if possible,confirmed,8bdf1c94c21eb27a10b1763e1bf6da5d905813f7d534fe9a2cb0e4b3754b0f74,NEW-8bdf1c94c21e
+XP-thermax-peek-1,P0151,profiles,Drying,120C for 4 hours,confirmed,8bdf1c94c21eb27a10b1763e1bf6da5d905813f7d534fe9a2cb0e4b3754b0f74,NEW-8bdf1c94c21e
+XP-thermax-pei-1010,P0153,profiles,Nozzle °C,370-390C,confirmed,b157dc3e719ae1484b2446d6bc0f8a577745708a5d77388c2fefc14a6824863c,NEW-b157dc3e719a
+XP-thermax-pei-1010,P0153,profiles,Bed °C,120-160C,confirmed,b157dc3e719ae1484b2446d6bc0f8a577745708a5d77388c2fefc14a6824863c,NEW-b157dc3e719a
+XP-thermax-pei-1010,P0153,profiles,Chamber °C,Recommended,confirmed,b157dc3e719ae1484b2446d6bc0f8a577745708a5d77388c2fefc14a6824863c,NEW-b157dc3e719a
+XP-thermax-pei-1010,P0153,profiles,Drying,150C for 4 hours,confirmed,b157dc3e719ae1484b2446d6bc0f8a577745708a5d77388c2fefc14a6824863c,NEW-b157dc3e719a
+XP-thermax-pps,P0145,profiles,Nozzle °C,315-345°C,confirmed,b338454532def4fc51876f9f1b266e2f7c5e7d3af1f689acd6fc778b4509a35f,NEW-b338454532de
+XP-thermax-pps,P0145,profiles,Bed °C,120-160°C,confirmed,b338454532def4fc51876f9f1b266e2f7c5e7d3af1f689acd6fc778b4509a35f,NEW-b338454532de
+XP-thermax-pps,P0145,profiles,Chamber °C,"Recommended, up to 50-90°C if available on your printer",confirmed,b338454532def4fc51876f9f1b266e2f7c5e7d3af1f689acd6fc778b4509a35f,NEW-b338454532de
+XP-thermax-pps,P0145,profiles,Drying,110°C for 4 hours.,confirmed,b338454532def4fc51876f9f1b266e2f7c5e7d3af1f689acd6fc778b4509a35f,NEW-b338454532de
+XP-thermax-ppsu-1,P0156,profiles,Nozzle °C,360-390C,confirmed,0905aeedf9ab8d8312cdd91d12b0304847bb046d36ebff56db577ded2b7150f5,NEW-0905aeedf9ab
+XP-thermax-ppsu-1,P0156,profiles,Bed °C,140-160C,confirmed,0905aeedf9ab8d8312cdd91d12b0304847bb046d36ebff56db577ded2b7150f5,NEW-0905aeedf9ab
+XP-thermax-ppsu-1,P0156,profiles,Chamber °C,Recommended,confirmed,0905aeedf9ab8d8312cdd91d12b0304847bb046d36ebff56db577ded2b7150f5,NEW-0905aeedf9ab
+XP-thermax-ppsu-1,P0156,profiles,Drying,120C for 4 hours,confirmed,0905aeedf9ab8d8312cdd91d12b0304847bb046d36ebff56db577ded2b7150f5,NEW-0905aeedf9ab
+XP-thermax-psu-1,P0154,profiles,Nozzle °C,350-380C,confirmed,fc26f889102a6423bd4251aec547fb41e9cc69af01533dabec39b4a07b4b4ada,NEW-fc26f889102a
+XP-thermax-psu-1,P0154,profiles,Bed °C,140-160C,confirmed,fc26f889102a6423bd4251aec547fb41e9cc69af01533dabec39b4a07b4b4ada,NEW-fc26f889102a
+XP-thermax-psu-1,P0154,profiles,Chamber °C,Recommended,confirmed,fc26f889102a6423bd4251aec547fb41e9cc69af01533dabec39b4a07b4b4ada,NEW-fc26f889102a
+XP-thermax-psu-1,P0154,profiles,Drying,120C for 4 hours,confirmed,fc26f889102a6423bd4251aec547fb41e9cc69af01533dabec39b4a07b4b4ada,NEW-fc26f889102a
+S-POM,P0109,profiles,Nozzle °C,190-210°C,confirmed,b74671630831da0c37b49b5e6799f3b072ac0ce5c590bbd8565224353335c693,NEW-b74671630831
+S-POM,P0109,profiles,Bed °C,120-150°C,confirmed,b74671630831da0c37b49b5e6799f3b072ac0ce5c590bbd8565224353335c693,NEW-b74671630831
+D-FLASH-PETGF,P0087,profiles,Nozzle °C,260-290°C,confirmed,99670ff5914889d6a2180404102b7a0ed00e32d98e3aa44489bbc77c239bf044,NEW-99670ff59148
+D-FLASH-PETGF,P0087,profiles,Bed °C,70-100°C,confirmed,99670ff5914889d6a2180404102b7a0ed00e32d98e3aa44489bbc77c239bf044,NEW-99670ff59148
+D-FLASH-PETGF,P0087,profiles,Drying,100°C for5h in convection oven,confirmed,99670ff5914889d6a2180404102b7a0ed00e32d98e3aa44489bbc77c239bf044,NEW-99670ff59148
+R-POLYMAKER-SILK-PLA-PAGE,P0162,profiles,Nozzle °C,190-230 °C,confirmed,31c1646805905d65689dcaab3678a81a23636d04f60905c67d91fdec6832cd4f,NEW-31c164680590
+R-POLYMAKER-SILK-PLA-PAGE,P0162,profiles,Bed °C,25-60 °C,confirmed,31c1646805905d65689dcaab3678a81a23636d04f60905c67d91fdec6832cd4f,NEW-31c164680590
+R-POLYMAKER-SILK-PLA-PAGE,P0162,profiles,Drying,55 °C for 6 h,confirmed,31c1646805905d65689dcaab3678a81a23636d04f60905c67d91fdec6832cd4f,NEW-31c164680590
+R-POLYMAKER-WIKI-PANCHROMA-COPE,P0163,profiles,Nozzle °C,190-230 °C,confirmed,d8672b06144624f18a3632c148b215b69b6230e93fb514b24f4216a3dcf72788,NEW-d8672b061446
+R-POLYMAKER-WIKI-PANCHROMA-COPE,P0163,profiles,Bed °C,25-60 °C,confirmed,d8672b06144624f18a3632c148b215b69b6230e93fb514b24f4216a3dcf72788,NEW-d8672b061446
+R-POLYMAKER-WIKI-PANCHROMA-COPE,P0163,profiles,Drying,55 °C for 6 h (only if moisture absorbed),confirmed,d8672b06144624f18a3632c148b215b69b6230e93fb514b24f4216a3dcf72788,NEW-d8672b061446
+P-FATIGUE,V001765,measurements,Fatigue life,308,confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001766,measurements,Fatigue life,1519,confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001767,measurements,Fatigue life,"123,460",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001768,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001769,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001770,measurements,Fatigue life,"29,658",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001771,measurements,Fatigue life,"320,571",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001772,measurements,Fatigue life,"47,978",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001773,measurements,Fatigue life,"192,376",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001774,measurements,Fatigue life,"90,640",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001775,measurements,Fatigue life,3368,confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001776,measurements,Fatigue life,"11,269",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001777,measurements,Fatigue life,"182,224",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001778,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001779,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001780,measurements,Fatigue life,"220,112",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001781,measurements,Fatigue life,"834,070",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001782,measurements,Fatigue life,"520,942",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001783,measurements,Fatigue life,"299,132",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001784,measurements,Fatigue life,"600,516",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001785,measurements,Fatigue life,1121,confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001786,measurements,Fatigue life,"29,657",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001787,measurements,Fatigue life,"429,098",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001788,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001789,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001790,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001791,measurements,Fatigue life,"658,938",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001792,measurements,Fatigue life,"951,076",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001793,measurements,Fatigue life,"647,745",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001794,measurements,Fatigue life,"395,066",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001795,measurements,Fatigue life,"73,546",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001796,measurements,Fatigue life,2551,confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001797,measurements,Fatigue life,455,confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001798,measurements,Fatigue life,"13,927",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001799,measurements,Fatigue life,"1,000,000",unconfirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001800,measurements,Fatigue life,"256,682",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001801,measurements,Fatigue life,"688,867",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001802,measurements,Fatigue life,"964,381",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001803,measurements,Fatigue life,"583,107",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001804,measurements,Fatigue life,"441,289",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001805,measurements,Fatigue life,"83,566",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+P-FATIGUE,V001806,measurements,Fatigue life,"35,769",confirmed,f8019a2592fb7890cf8488c18fd00e76607267c076558e3dba99334641ba8d47,NEW-f8019a2592fb
+R-TRINITY3DS-HYPERLITE-PP,V002233,measurements,Density,0.75g/cc,confirmed,c91d7235b98c8684fb48201f80e9aaacabe168f8454b9c09573108a7ba798a71,NEW-c91d7235b98c
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010737,measurements,Tensile break strength,21 MPa,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010738,measurements,Tensile modulus,1100 MPa,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010739,measurements,Elongation at yield,30 %,confirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010740,measurements,Elongation at break,250 %,confirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010741,measurements,Flexural strength,18 MPa,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010742,measurements,Flexural modulus,1200 MPa,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010743,measurements,HDT,80 °C,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010744,measurements,HDT,65 °C,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010745,measurements,Vicat softening temperature,135 °C,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010746,measurements,Melting temperature,163 °C,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V010747,measurements,Continuous service temperature,65 °C,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,V012201,measurements,Izod impact strength,20,unconfirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+R-FIBERLOGY-FIBERLOGY-R-PP-TDS,P1267,profiles,Nozzle °C,220°C - 250°C,confirmed,f5fc266cf423a18b37639e9b7fbd2d1039aa14ec0fe6b6d01a3704bbc110df2e,NEW-f5fc266cf423
+D-FIBERLOGY-RPP-FILAMENT-PAGE,V012181,measurements,Density,1.05 g/cm³,confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,V012182,measurements,Charpy strength,30 kJ/m² (ISO 179),confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,V012183,measurements,HDT,40°C (ISO 75),confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,V012184,measurements,Tensile strength (endpoint unspecified),14 MPa (ISO 527),confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,V012185,measurements,Tensile modulus,700 MPa (ISO 527),confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,V012186,measurements,Elongation at break,>100% (ISO 527),confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,P1480,profiles,Nozzle °C,220–250°C,confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+D-FIBERLOGY-RPP-FILAMENT-PAGE,P1480,profiles,Drying,50°C / 4 hours,confirmed,3439efffb322456374dd0ecc5ec8007f995af35bd79bb4d5fabcbc26d8b9f30c,NEW-3439efffb322
+S-PET-TDS-ABSpro,V009547,measurements,Density,1.02 g/cc,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009548,measurements,Water absorption,1.02 %,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009549,measurements,Water absorption,0.19 %,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009550,measurements,Izod impact strength,39 KJ/m²,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009551,measurements,Tensile yield strength,39.9 Mpa,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009552,measurements,Tensile modulus,2100 Mpa,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009553,measurements,Elongation at break,11 %,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009554,measurements,Flexural strength,72.7 Mpa,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V009555,measurements,Flexural modulus,2370 Mpa,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V013239,measurements,Melt volume-flow rate,5.5 cm³/10min,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V013240,measurements,Melting temperature,252 ± 10° C,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,V013241,measurements,Vicat softening temperature,108° C,confirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro,P0935,profiles,Nozzle °C,± 245 - 275° C,unconfirmed,9399ca4e3ddcd7991210d0d101d660941117693f8b1fa8159b14b8f09c787f56,NEW-9399ca4e3ddc
+S-PET-TDS-ABSpro-Flame-Retardant,V009523,measurements,Density,1.18 g/cc,unconfirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-ABSpro-Flame-Retardant,V009524,measurements,Izod impact strength,"12,5 KJ/m²",unconfirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-ABSpro-Flame-Retardant,V009525,measurements,Tensile yield strength,"65,1 Mpa",unconfirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-ABSpro-Flame-Retardant,V009526,measurements,Tensile modulus,2440 Mpa,unconfirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-ABSpro-Flame-Retardant,V009527,measurements,Elongation at break,"6,6 %",unconfirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-ABSpro-Flame-Retardant,V013242,measurements,Vicat softening temperature,110° C,confirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-ABSpro-Flame-Retardant,P0934,profiles,Nozzle °C,± 240 - 260° C,unconfirmed,80ded9fd4e9b5f1c1688473aeda875997d6c2aa2fbc79315f6c7eb3d0660bcc4,NEW-80ded9fd4e9b
+S-PET-TDS-CarbonFil,V009831,measurements,Density,1.19 g/cc,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V009832,measurements,Water absorption,0.13 %,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V009833,measurements,Charpy strength,5 KJ/m²,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V009834,measurements,Tensile break strength,92 Mpa,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V009835,measurements,Tensile modulus,9495 Mpa,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V009836,measurements,Elongation at break,3.4 %,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V013249,measurements,Melt volume-flow rate,3.7 cm³/10min,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V013250,measurements,Vicat softening temperature,79° C,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,V015470,measurements,Fibre content,20% ultra-light and relatively long stringer carbon fibres,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-CarbonFil,P0966,profiles,Nozzle °C,± 230 - 265° C,unconfirmed,7b525961687e2d89acfe803787048a946bed15cf0ceddedc36941ea9fd893270,NEW-7b525961687e
+S-PET-TDS-Centaur-PP,V009846,measurements,Density,0.9 g/cc,unconfirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V009847,measurements,Melt mass-flow rate,8 g/10min,confirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V009848,measurements,Tensile yield strength,12 Mpa,confirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V009849,measurements,Elongation at break,600 %,confirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V009850,measurements,Flexural modulus,402 Mpa,confirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V009851,measurements,Hardness,50,confirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V012240,measurements,Melting temperature,205 ± 15° C,unconfirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,V012241,measurements,Vicat softening temperature,103° C,confirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-Centaur-PP,P0968,profiles,Nozzle °C,± 220 - 240° C,unconfirmed,bfe8f5420f8404255b37141cbe5d0662c554e29307c3736deaab6217e6e77dbd,NEW-bfe8f5420f84
+S-PET-TDS-EasyFil-ABS,V009556,measurements,Density,1.03 g/cc,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009557,measurements,Water absorption,1.03 %,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009558,measurements,Water absorption,0.21 %,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009559,measurements,Izod impact strength,36 KJ/m²,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009560,measurements,Tensile yield strength,38 Mpa,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009561,measurements,Tensile modulus,1900 Mpa,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009562,measurements,Elongation at break,9 %,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009563,measurements,Flexural strength,68.7 Mpa,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V009564,measurements,Flexural modulus,2250 Mpa,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V013254,measurements,Melt volume-flow rate,5.5 cm³/10min,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V013255,measurements,Melting temperature,145 ± 10° C,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,V013256,measurements,Vicat softening temperature,103° C,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-ABS,P0936,profiles,Nozzle °C,± 220 - 270° C,unconfirmed,91df5382921d79f796787b817b429e767bb08e73f234e3049af70249c220cea9,NEW-91df5382921d
+S-PET-TDS-EasyFil-HIPS,V009699,measurements,Density,1.04 g/cc,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009700,measurements,Water absorption,"0,1 %",unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009701,measurements,Water absorption,0.1 %,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009702,measurements,Charpy strength,15 KJ/m²,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009703,measurements,Tensile yield strength,22 Mpa,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009704,measurements,Tensile modulus,1550 Mpa,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009705,measurements,Elongation at break,50 %,confirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009706,measurements,Flexural strength,51.2 Mpa,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V009707,measurements,Flexural modulus,2126 Mpa,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V013257,measurements,Melt volume-flow rate,3.4 cm³/10min,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V013258,measurements,Melting temperature,180 - 260° C,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,V013259,measurements,Vicat softening temperature,89° C,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-HIPS,P0951,profiles,Nozzle °C,± 220 - 260° C,unconfirmed,35646a40bec00dff9392405237eaf031b4c53556be942bd1964cf96b324c717f,NEW-35646a40bec0
+S-PET-TDS-EasyFil-PLA,V009579,measurements,Density,1.24 g/cc,confirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009580,measurements,Melt mass-flow rate,6.0 g/10min,confirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009581,measurements,Impact strength,7.5 KJ/m²,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009582,measurements,Tensile strength (endpoint unspecified),110 Mpa,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009583,measurements,Tensile modulus,3310 Mpa,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009584,measurements,Elongation at break,160 %,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009585,measurements,Flexural strength,55.2 Mpa,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V009586,measurements,Flexural modulus,2392.5 Mpa,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V013260,measurements,Melting temperature,210 ± 10° C,confirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,V013261,measurements,Vicat softening temperature,60° C,confirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyFil-PLA,P0937,profiles,Nozzle °C,± 180 - 220° C,unconfirmed,7e88beb0be4166c0165f38a4d1bcc0cc058be0188cd5fb933aacc96ab75fda20,NEW-7e88beb0be41
+S-PET-TDS-EasyWood,V009811,measurements,Density,1.20 g/cc,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009812,measurements,Melt mass-flow rate,4.5 g/10min,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009813,measurements,Impact strength,7.1 KJ/m²,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009814,measurements,Tensile strength (endpoint unspecified),71 Mpa,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009815,measurements,Tensile modulus,1930 Mpa,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009816,measurements,Elongation at break,171 %,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009817,measurements,Flexural strength,59.6 Mpa,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V009818,measurements,Flexural modulus,2583.9 Mpa,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V013262,measurements,Melting temperature,145 ± 10° C,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,V013263,measurements,Vicat softening temperature,46° C,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-EasyWood,P0964,profiles,Nozzle °C,± 200 - 240° C,unconfirmed,0fcc896e6d1fc26f9b286fc1fb55668db30a7908d3bb9d29aa3e7d35190d6261,NEW-0fcc896e6d1f
+S-PET-TDS-Galaxy-PLA,V009587,measurements,Density,1.24 g/cc,confirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,V009588,measurements,Melt mass-flow rate,9.56 g/10min,unconfirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,V009589,measurements,Charpy strength,3.4 KJ/m²,unconfirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,V009590,measurements,Tensile yield strength,70 Mpa,unconfirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,V009591,measurements,Tensile modulus,3120 Mpa,unconfirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,V013264,measurements,Melting temperature,115 ± 35° C,unconfirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,V013265,measurements,Vicat softening temperature,60° C,confirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-Galaxy-PLA,P0938,profiles,Nozzle °C,± 200 - 230° C,unconfirmed,bce4fc930a994e5ff0beeb829e528b573b1acc86fb38621e715084e8326d652e,NEW-bce4fc930a99
+S-PET-TDS-High-Gloss-PLA,V009516,measurements,Density,1.24 g/cc,unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,V009517,measurements,Melt mass-flow rate,"8,2 g/10min",unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,V009518,measurements,Charpy strength,"2,6 KJ/m²",unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,V009519,measurements,Tensile yield strength,71 Mpa,unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,V009520,measurements,Tensile modulus,3200 Mpa,unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,V009521,measurements,Elongation at break,"3,6 %",unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,V013267,measurements,Vicat softening temperature,58° C,unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-High-Gloss-PLA,P0932,profiles,Nozzle °C,± 215 - 245° C,unconfirmed,e45c983dfebbb0895d2341f39e2984fd671f300e3f058def67b846aa146a7ba6,NEW-e45c983dfebb
+S-PET-TDS-Premium-PLA,V009621,measurements,Density,1.24 g/cc,confirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009622,measurements,Melt mass-flow rate,6.0 g/10min,confirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009623,measurements,Impact strength,6.0 KJ/m²,confirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009624,measurements,Tensile strength (endpoint unspecified),105 Mpa,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009625,measurements,Tensile modulus,3145 Mpa,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009626,measurements,Elongation at break,175 %,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009627,measurements,Flexural strength,54.4 Mpa,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V009628,measurements,Flexural modulus,2364.3 Mpa,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V013281,measurements,Melting temperature,210 ± 10° C,confirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,V013282,measurements,Vicat softening temperature,62° C,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-Premium-PLA,P0942,profiles,Nozzle °C,± 190- 225° C,unconfirmed,52b8cbbecd0d088ab1ba1e48b7e26e26441cbda119b144650f9d62c607e088f6,NEW-52b8cbbecd0d
+S-PET-TDS-ReFill-PETG,V009787,measurements,Density,1.29 g/cm3,confirmed,2eadf9251a654f9130f59148cf34143bff6550da021ba264267275f9d8a5ca67,NEW-2eadf9251a65
+S-PET-TDS-ReFill-PETG,V009788,measurements,Tensile break strength,20 MPa,confirmed,2eadf9251a654f9130f59148cf34143bff6550da021ba264267275f9d8a5ca67,NEW-2eadf9251a65
+S-PET-TDS-ReFill-PETG,V009789,measurements,Tensile modulus,2980 MPa,confirmed,2eadf9251a654f9130f59148cf34143bff6550da021ba264267275f9d8a5ca67,NEW-2eadf9251a65
+S-PET-TDS-ReFill-PETG,V009790,measurements,Izod impact strength,"4,7 kJ/m2",confirmed,2eadf9251a654f9130f59148cf34143bff6550da021ba264267275f9d8a5ca67,NEW-2eadf9251a65
+S-PET-TDS-ReFill-PETG,V009791,measurements,HDT,78 °C,confirmed,2eadf9251a654f9130f59148cf34143bff6550da021ba264267275f9d8a5ca67,NEW-2eadf9251a65
+S-PET-TDS-ReFill-PLA,V009805,measurements,Density,1.24 g/cm3,confirmed,a7a7068b241d73890e32555ffdf12f0f751e22cf7100733ac362061368a8c07f,NEW-a7a7068b241d
+S-PET-TDS-ReFill-PLA,V009806,measurements,Tensile break strength,53 MPa,confirmed,a7a7068b241d73890e32555ffdf12f0f751e22cf7100733ac362061368a8c07f,NEW-a7a7068b241d
+S-PET-TDS-ReFill-PLA,V009807,measurements,Tensile modulus,3.5 Gpa,unconfirmed,a7a7068b241d73890e32555ffdf12f0f751e22cf7100733ac362061368a8c07f,NEW-a7a7068b241d
+S-PET-TDS-ReFill-PLA,V009808,measurements,Elongation at break,6 %,confirmed,a7a7068b241d73890e32555ffdf12f0f751e22cf7100733ac362061368a8c07f,NEW-a7a7068b241d
+S-PET-TDS-ReFill-PLA,V009809,measurements,Izod impact strength,16 J/m,unconfirmed,a7a7068b241d73890e32555ffdf12f0f751e22cf7100733ac362061368a8c07f,NEW-a7a7068b241d
+S-PET-TDS-ReFill-PLA,V009810,measurements,HDT,55 °C,confirmed,a7a7068b241d73890e32555ffdf12f0f751e22cf7100733ac362061368a8c07f,NEW-a7a7068b241d
+S-PET-TDS-ReForm-rPET,V009652,measurements,Density,1.27 g/cc,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009653,measurements,Water absorption,0.13 %,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009654,measurements,Izod impact strength,7.2 KJ/m²,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009655,measurements,Tensile yield strength,50 Mpa,confirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009656,measurements,Tensile modulus,1940 Mpa,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009657,measurements,Elongation at break,120 %,confirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009658,measurements,Flexural strength,70.6 Mpa,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009659,measurements,Flexural modulus,2147.6 Mpa,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,V009660,measurements,Hardness,105 Rockwell R,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPET,P0947,profiles,Nozzle °C,± 195 - 225° C,unconfirmed,f15e84f70f16e35b5fb8aa7c8ab32541b82fcb1f35bbc6e1978e0e25c52d7cf7,NEW-f15e84f70f16
+S-PET-TDS-ReForm-rPLA,V015173,measurements,Impact strength,7.5 KJ/m²,unconfirmed,cc675305f8570c533e8d656ed1f5ce3bbc74352da841b31e6fe093263c6c64fd,NEW-cc675305f857
+S-PET-TDS-ReForm-rPLA,P1740,profiles,Nozzle °C,± 180 - 220° C,unconfirmed,cc675305f8570c533e8d656ed1f5ce3bbc74352da841b31e6fe093263c6c64fd,NEW-cc675305f857
+S-PET-TDS-StoneFil,V009757,measurements,Density,1.7 g/cc,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V009758,measurements,Melt mass-flow rate,94 g/10min,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V009759,measurements,Charpy strength,2.9 KJ/m²,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V009760,measurements,Tensile yield strength,38.0 Mpa,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V009761,measurements,Tensile modulus,4760 Mpa,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V009762,measurements,Elongation at break,33 %,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V013289,measurements,Melting temperature,77 - 153° C,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,V013290,measurements,Vicat softening temperature,57° C,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-StoneFil,P0957,profiles,Nozzle °C,± 190 - 240° C,unconfirmed,0a75c631f3ed20816b96d6623ff79c02276580a053e84a16a7b86226e3cd7e37,NEW-0a75c631f3ed
+S-PET-TDS-Tough-PLA,V009629,measurements,Density,1.21 g/cc,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315
+S-PET-TDS-Tough-PLA,V009630,measurements,Melt mass-flow rate,8.75 g/10min,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315
+S-PET-TDS-Tough-PLA,V009631,measurements,Charpy strength,29.8 KJ/m²,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315
+S-PET-TDS-Tough-PLA,V009632,measurements,Tensile yield strength,46 Mpa,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315
+S-PET-TDS-Tough-PLA,V009633,measurements,Tensile modulus,2750 Mpa,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315
+S-PET-TDS-Tough-PLA,V013291,measurements,Vicat softening temperature,57° C,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315
+S-PET-TDS-Tough-PLA,P0943,profiles,Nozzle °C,± 215 - 225° C,unconfirmed,777b980b2315435de00ecadb0e69aab0a569c3231f51656f0459da4bb6752eec,NEW-777b980b2315

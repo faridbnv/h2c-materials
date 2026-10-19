@@ -99,8 +99,8 @@
   },
   "material_summaries": {
     "baseline": 0,
-    "current": 76,
-    "added": 76,
+    "current": 77,
+    "added": 77,
     "edited_existing": 0,
     "removed": 0
   },
@@ -190,8 +190,8 @@
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1985,
-    "added": 669,
+    "current": 1986,
+    "added": 670,
     "edited_existing": 998,
     "removed": 0
   },
@@ -206,7 +206,7 @@
     "baseline": 1828,
     "current": 2100,
     "added": 272,
-    "edited_existing": 532,
+    "edited_existing": 542,
     "removed": 0
   }
 }

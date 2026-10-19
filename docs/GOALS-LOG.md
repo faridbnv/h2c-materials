@@ -846,7 +846,7 @@ Built by Claude Opus as executor with Claude Opus agents for each stage, the rev
 agents for re-reading sheets and fibre content, on branches `screening-build/stage-*`.
 
 
-## Decided on 2026-10-19, the research intake (being built)
+## Decided on 2026-10-19, the research intake (built)
 
 The owner had an external research agent work the open problems an agent can close by reading and searching (priorities
 1 to 4 of OPEN-PROBLEMS, outside the repository), and asked for its results to be taken in the repository's way: errors
@@ -866,3 +866,11 @@ kept in `archive/research-2026-10-19/`.
   then the build, the snapshot, the selector's views and the material pages, a material that newly meets the page rule
   given its summary. Opus for triage, judging, code, migrations and the documents; Sonnet for fetching, page reading,
   second reads and sweeps. The record is [the round](audits/2026-10-19-research-intake/README.md).
+- **Built and measured (2026-10-19).** m452 to m456, batch b48 (57 documents, four products) and price batch p06, D168,
+  the polyolefins chamber row deciding, and two build fixes (a flagged value no longer stands in for a material; a
+  material's print gate names its product). Against main before it: drying statements missing on 145 products (205),
+  chamber checks unanswered on 213 (221), fibre loads of their own on 174 of 255 fibre-filled products (141 of 252), 113
+  materials priced (108), Nylon-GF given a material page; 91 material verdicts moved in the 138 census cases, from
+  Nylon-GF's new products, HIPS's and PCTG's sourced resin densities, the polyolefins' chamber and stage 2's
+  corrections ([decision diff](audits/2026-10-19-research-intake/after/DECISION-DIFF.md)). What it left is OPEN-PROBLEMS
+  §39 and the dated paragraphs it added; the findings' fates are `archive/research-2026-10-19/disposition.csv`.

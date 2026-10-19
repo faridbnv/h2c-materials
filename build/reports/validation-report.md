@@ -17,7 +17,7 @@ Database snapshot 2026-09-21 · build 2026-10-19
 | measurements | 15047 |
 | numericMeasurements | 14847 |
 | quarantined | 43 |
-| profiles | 1905 |
+| profiles | 1906 |
 | evidence | 868 |
 | prices | 374 |
 | sources | 2100 |
@@ -60,7 +60,7 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 | Axis | within | within, at the low end | on the line | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|---:|
 | nozzle | 134 | 3 | 1 | 7 | 0 | 30 |
-| bed | 134 | 1 | 4 | 6 | 0 | 30 |
+| bed | 135 | 1 | 4 | 5 | 0 | 30 |
 | chamber | 97 | 9 | 0 | 8 | 1 | 60 |
 
 A window whose upper end is beyond the H2C is read by how much of it the H2C covers (D151): 5 C or more from its bottom is

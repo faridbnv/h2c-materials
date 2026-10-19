@@ -1,5 +1,5 @@
 {
-  "dataRelease": "9a2f64ab1e45",
+  "dataRelease": "fc48b9dbadca",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -74,7 +74,7 @@
     "measurements": 15047,
     "numericMeasurements": 14847,
     "quarantined": 43,
-    "profiles": 1905,
+    "profiles": 1906,
     "evidence": 868,
     "prices": 374,
     "sources": 2100,
@@ -185,8 +185,8 @@
     },
     "material_summaries": {
       "baseline": 0,
-      "current": 76,
-      "added": 76,
+      "current": 77,
+      "added": 77,
       "edited_existing": 0,
       "removed": 0
     },
@@ -276,8 +276,8 @@
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1985,
-      "added": 669,
+      "current": 1986,
+      "added": 670,
       "edited_existing": 998,
       "removed": 0
     },
@@ -292,7 +292,7 @@
       "baseline": 1828,
       "current": 2100,
       "added": 272,
-      "edited_existing": 532,
+      "edited_existing": 542,
       "removed": 0
     }
   },

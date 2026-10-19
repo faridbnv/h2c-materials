@@ -644,4 +644,7 @@ test('the research intake: wordings the process readers learn', () => {
   assert.equal(parseAbrasion('We recommend using stainless brass or resistant copper alloy nozzles.').requiresHardened, null, 'a harder alloy, not a hardened nozzle');
   assert.equal(parseDrying('+4 hours at max.110°C').hoursOpen, true, 'a plus before the hours opens them');
   assert.equal(parseDrying('55 °C +/- 5, 4 h').hoursOpen, false);
+  assert.equal(parseEnclosure('Enclosure needed: 90°C heated chamber').state, 'recommended');
+  assert.equal(parseEnclosure('Enclosure needed: No').state, 'not-needed');
+  assert.equal(parseAbrasion('Nozzle: Stainless Steel , Olsson Ruby , or other hardened nozzle types').requiresHardened, null);
 });
