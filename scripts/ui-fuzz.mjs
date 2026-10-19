@@ -360,7 +360,8 @@ function compareReading(s, key, r, o) {
     // away, 38 not enough data, 37 unlikely to meet, 9 a required property does not apply to", or under Include "UNKNOWN 93:
     // …, 9 hidden". The groups add up to the count, and the hidden ones are the chip's.
     const um = /UNKNOWN (\d+)( left out| shown, not candidates)?(?:: ([^·]*))?/.exec(r.head ?? '');
-    const groupsSaid = (um?.[3] ?? '').split(', ').filter(Boolean).map((p) => /^(\d+) (.*)$/.exec(p.trim())).filter(Boolean);
+    // The heading's buttons follow the line in the text read, so each part is read up to its group's own words.
+    const groupsSaid = (um?.[3] ?? '').split(', ').map((p) => /^(\d+) (one check away|not enough data|unlikely to meet|hidden|a required property does not apply to)\b/.exec(p.trim())).filter(Boolean);
     const groupSum = groupsSaid.reduce((n, g) => n + Number(g[1]), 0);
     const hiddenSaid = Number(groupsSaid.find((g) => g[2] === 'hidden')?.[1] ?? 0);
     if (!hm || Number(hm[1]) !== c.pass || Number(hm[2]) !== c.total) violate('I2-header', 'results header pass/total differs', s, key, { head: (r.head ?? '').slice(0, 200), node: [c.pass, c.total] });
