@@ -21,7 +21,7 @@ import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate, aggregateDrying } from './gates.js';
 import { lowerBoundsOf } from './lower-bounds.js';
-import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
+import { attachProducts, productName, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compileConversions, compileClassLimits } from './evidence-ledger.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
@@ -183,6 +183,20 @@ export function printSummary(profiles) {
 }
 
 /**
+ * A material's print gate on one axis: the best verdict of its profiles (gates.js), whose reason is one profile's window.
+ * Its other products' own gates may quote other windows (PEEK's nozzle read 3D4Makers PEEK's 360–400 °C while 3DXTECH
+ * ThermaX PEEK's own gate said 400–480 °C; the research review's F-0188), so a reason a profile stated names the product
+ * it was read from, as a product's names a twin's sheet or its guide (D88, D89). A product's own reason is not changed.
+ */
+function materialGate(profiles, axis, gradeById) {
+  const gate = aggregateGate(profiles, axis);
+  const grade = gradeById.get(gate.gradeId);
+  // A profile that states nothing speaks for no product: "No temperature published" is not one product's finding.
+  const stated = gate.verdict !== 'unknown' || gate.categorical;
+  return grade && stated ? { ...gate, reason: `${gate.reason} (from the print settings of ${productName(grade)})` } : gate;
+}
+
+/**
  * What the sources say about the chamber when they say it in words.
  *
  * "Recommended", "not required" and a data sheet's "-" are manufacturer evidence and deserve to be
@@ -341,7 +355,7 @@ const FORM_NOTE = {
  * range (the range of a material is its products' comparable values, D83), never becomes the headline, and never
  * satisfies a constraint.
  */
-function relatedEvidence(mat, def, measurementsByMaterial) {
+export function relatedEvidence(mat, def, measurementsByMaterial) {
   const props = def.relatedProperties;
   if (!props.length) return null;
   const materialId = mat.MaterialID;
@@ -362,6 +376,7 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
       direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
       loadMPa: m.thermal?.loadMPa ?? null,
       printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
+      implausible: !!m.implausible,
       why: (m.implausible ? 'flagged physically implausible; see its notes' : null)
         || (m.specimenForm === 'off-recipe' ? offRecipeWhy(m.specimenType) : FORM_NOTE[m.specimenForm])
         || (annealedBesideAsPrinted(m, measurementsByMaterial.get(materialId)) ? 'annealed; the grade also publishes the as-printed value' : null)
@@ -384,7 +399,10 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
     + (i.direction === (def.direction ?? 'XY') ? 8 : i.direction === 'not-applicable' ? 6 : 0)
     + (i.printed ? 4 : 0)
     + (i.property === props[0] ? 1 : 0);
-  const sorted = [...items].sort((a, b) => score(b) - score(a));
+  // A value flagged physically implausible comes after every other, whatever it scores: PEEK's printed XY Izod of
+  // 138 kJ/m², flagged, stood in for its 6 kJ/m² one (the research review's F-0187). It is kept, and where it is all
+  // there is it is shown with its flag.
+  const sorted = [...items].sort((a, b) => a.implausible - b.implausible || score(b) - score(a));
   const best = sorted[0];
 
   return {
@@ -649,6 +667,7 @@ export function compile(wb, { snapshot, build }) {
 
   // Each row with its polymer's Morphology, which a headline's Applies to may test (heat deflection: not an elastomer).
   const materialRows = materialRowsOf(wb);
+  const gradeById = new Map(grades.map((g) => [g.id, g]));
   const materials = materialRows.map((mat) => {
     const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
     const printingEvidence = linked(mat.MaterialID, 'printing');
@@ -681,9 +700,9 @@ export function compile(wb, { snapshot, build }) {
       buy: buySummary(mat.MaterialID, prices),
       gates: {
         scope: mat.Scope === 'H2C-relevant' ? 'within' : mat.Scope === FAMILY_ENTRY ? 'family' : 'excluded',
-        nozzle: aggregateGate(mProfiles, 'nozzle'),
-        bed: aggregateGate(mProfiles, 'bed'),
-        chamber: aggregateGate(mProfiles, 'chamber'),
+        nozzle: materialGate(mProfiles, 'nozzle', gradeById),
+        bed: materialGate(mProfiles, 'bed', gradeById),
+        chamber: materialGate(mProfiles, 'chamber', gradeById),
         abrasive: mProfiles.some((p) => p.abrasion.requiresHardened) ? 'requires-hardened'
           : mProfiles.some((p) => p.abrasion.requiresHardened === false) ? 'no-special-concern' : 'unknown',
         drying: aggregateDrying(mProfiles),

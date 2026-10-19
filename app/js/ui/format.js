@@ -335,9 +335,11 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
     const shown = fmtBounded(b.value, null, b.interval);
     const title = relatedNote(entry);
+    // The build puts a value flagged physically implausible after every other, so it is shown only where nothing else is
+    // on file, and then it says so first (the research review's F-0187).
     return explainButton(`<span class="rv">${esc(shown)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span>`, title,
-    { cls: 'related', head: 'Published, not comparable', action: 'measurement', id: b.measurementId });
+    { cls: 'related', head: b.implausible ? 'Published, flagged physically implausible' : 'Published, not comparable', action: 'measurement', id: b.measurementId });
   }
   const thresholds = results.map((r) => r.constraint).filter((c) => c && Number.isFinite(c.value));
   if (entry.spread && entry.spread.n > 1) return renderSpread(entry, thresholds, { showUnit, compact, materialId });

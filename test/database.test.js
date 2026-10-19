@@ -12,7 +12,10 @@ import { validate } from '../build/src/validate.js';
 import { validateEstimates } from '../build/src/estimate/validate.js';
 import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
 import { readCsv } from '../build/src/csv.js';
-import { GATE_PRECEDENCE } from '../build/src/gates.js';
+import { GATE_PRECEDENCE, aggregateGate } from '../build/src/gates.js';
+import { relatedEvidence } from '../build/src/compile.js';
+import { measurementHeadlines } from '../build/src/registry.js';
+import { productName } from '../build/src/products.js';
 import { evaluateConstraint, STATUS } from '../app/js/engine/constraints.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -188,6 +191,42 @@ test('quarantined measurements stay out of headlines and related evidence', () =
   }
 });
 
+// PEEK's printed XY Izod of 138 kJ/m², flagged physically implausible, outscored its 6 kJ/m² bar of unstated direction
+// and stood in its cell (the research review's F-0187). A flagged value comes after every other; where it is all there
+// is, it is kept and carries its flag.
+test('a value flagged physically implausible is the nearest related value only where every one is flagged', () => {
+  const izod = measurementHeadlines(db.registry).find((d) => d.key === 'izodNotched');
+  const bar = (id, value, fields) => ({
+    id, materialId: 'MX', gradeId: 'GX-01', sourceId: 'SX', property: 'Izod impact strength', value, unit: 'kJ/m²',
+    interval: { lo: value, hi: value, kind: 'point' }, numeric: true, quarantined: false, notch: 'Notched',
+    standards: ['ISO 180'], standardText: 'ISO 180', testTemperatureC: 23, postProcessingState: 'not-stated', ...fields,
+  });
+  // Notched, printed and XY scores above a bar that states neither its direction nor its specimen.
+  const flagged = bar('V1', 138, { implausible: true, direction: 'XY', specimenType: 'Printed specimen', specimenForm: 'printed' });
+  const unstated = bar('V2', 6, { implausible: false, direction: 'unknown', specimenType: 'Not published (do not assume printed)', specimenForm: 'not-stated' });
+  const related = (ms) => relatedEvidence({ MaterialID: 'MX' }, izod, new Map([['MX', ms]]));
+
+  const mixed = related([flagged, unstated]);
+  assert.deepEqual([mixed.best.measurementId, mixed.best.implausible], ['V2', false]);
+  assert.deepEqual(mixed.items.map((i) => i.measurementId), ['V2', 'V1'], 'the flagged value is kept, after the other');
+  assert.equal(mixed.count, 2);
+
+  const onlyFlagged = related([flagged, { ...flagged, id: 'V3', value: 120, direction: 'Z' }]);
+  assert.deepEqual([onlyFlagged.best.measurementId, onlyFlagged.best.implausible], ['V1', true], 'within the flagged, the score still ranks');
+  assert.match(onlyFlagged.best.why, /physically implausible/);
+
+  // And in the release: no flagged value ranks before an unflagged one, and a flagged best says so.
+  for (const mat of db.materials) {
+    for (const [key, h] of Object.entries(mat.headline)) {
+      const r = h?.related;
+      if (!r) continue;
+      const flags = r.items.map((i) => i.implausible);
+      assert.deepEqual(flags, [...flags].sort((a, b) => a - b), `${mat.name} ${key}: a flagged value ranks before an unflagged one`);
+      if (r.best.implausible) assert.match(r.best.why, /physically implausible/, `${mat.name} ${key}`);
+    }
+  }
+});
+
 test('the excluded materials never read as printable, and trip the envelope gate on any window they publish', () => {
   // Excluded, and beyond the H2C's limits: the industrial high-temperature materials, whose H2C status says so once
   // (m146). The sintering filaments are excluded by scope, not by the envelope (D87): they print at 170 to 250 °C, and
@@ -231,6 +270,47 @@ test('a material is printable where one of its products is: each gate is the bes
     }
   }
   assert.ok(mixed > 0, 'no material has a printable product beside one that is not, so the rule is untested');
+});
+
+// A material's gate is one profile's window, which its other products' own gates need not share: PEEK's nozzle read
+// 3D4Makers PEEK's 360–400 °C while 3DXTECH ThermaX PEEK's own gate said 400–480 °C, and nothing said whose it was (the
+// research review's F-0188). The material's reason names the product it was read from; each product's keeps its own.
+test('a material\'s print gate names the product it was read from, and each product keeps its own window', () => {
+  const gate = aggregateGate([
+    { id: 'P1', gradeId: 'G1', gates: { nozzle: { verdict: 'exceeds', reason: 'Requires up to 480 °C', over: 130 } } },
+    { id: 'P2', gradeId: 'G2', gates: { nozzle: { verdict: 'exceeds', reason: 'Requires up to 400 °C', over: 50 } } },
+  ], 'nozzle');
+  assert.deepEqual([gate.profileId, gate.gradeId, gate.reason], ['P2', 'G2', 'Requires up to 400 °C'], 'the smallest overshoot, and whose it is');
+
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
+  const profileById = new Map(db.profiles.map((p) => [p.id, p]));
+  let named = 0;
+  let split = 0;
+  for (const m of db.materials) {
+    for (const axis of ['nozzle', 'bed', 'chamber']) {
+      const g = m.gates[axis];
+      if (!m.profileIds.length) { assert.equal(g.profileId, undefined, `${m.name} ${axis}`); continue; }
+      const p = profileById.get(g.profileId);
+      assert.ok(p && p.materialId === m.id && p.gradeId === g.gradeId, `${m.name} ${axis}: read from ${g.profileId}, ${g.gradeId}`);
+      assert.equal(g.verdict, p.gates[axis].verdict, `${m.name} ${axis}`);
+      // A profile that states nothing speaks for no product, and is not named.
+      const stated = g.verdict !== 'unknown' || p.gates[axis].categorical;
+      assert.equal(g.reason, stated ? `${p.gates[axis].reason} (from the print settings of ${productName(gradeById.get(p.gradeId))})` : p.gates[axis].reason, `${m.name} ${axis}`);
+      if (stated) named++;
+      // Two products beyond the H2C by different amounts: the material's is the closer, and each product says its own.
+      const beyond = db.grades.filter((x) => x.materialId === m.id && !x.retired && x.print?.[axis]?.verdict === 'exceeds' && !x.print.from?.[axis]);
+      if (g.verdict !== 'exceeds' || new Set(beyond.map((x) => x.print[axis].reason)).size < 2) continue;
+      split++;
+      assert.equal(g.over, Math.min(...beyond.map((x) => profileById.get(x.print[axis].profileId).gates[axis].over)), `${m.name} ${axis}`);
+      for (const x of beyond) {
+        const own = profileById.get(x.print[axis].profileId);
+        assert.equal(own.gradeId, x.id, `${x.id} ${axis}: its window is its own profile's`);
+        assert.equal(x.print[axis].reason, own.gates[axis].reason, `${x.id} ${axis}: its reason is its own window, naming no other product`);
+      }
+    }
+  }
+  assert.ok(named > 0, 'no material gate was read from a profile that states a window');
+  assert.ok(split > 0, 'no material has two products beyond the H2C by different amounts, so the case is untested');
 });
 
 test('every product HDT is a stated 0.45 MPa value, or as published with its load unstated', () => {

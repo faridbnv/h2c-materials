@@ -38,8 +38,13 @@ export function aggregateGate(profiles, axis) {
       : verdict === 'unknown' ? (matches.find((v) => v.categorical) ?? matches[0])
       : matches[0];
     const silent = vs.filter((v) => v.verdict === 'unknown').length;
+    // The profile the reason was read from, and its product: a material's gate is one product's window, which its
+    // other products' own gates need not share (compile.js names it).
+    const from = profiles[vs.indexOf(chosen)];
     return {
       ...chosen,
+      profileId: from.id ?? null,
+      gradeId: from.gradeId ?? null,
       profiles: vs.length,
       ...(vs.length > 1 ? { basis: `${matches.length} of ${vs.length} profiles` } : {}),
       ...(silent && verdict !== 'unknown' ? { unpublishedProfiles: silent } : {}),
