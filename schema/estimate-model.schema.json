@@ -6,19 +6,11 @@
   "type": "object",
   "additionalProperties": false,
   "patternProperties": { "^_": {} },
-  "required": ["levels", "properties", "gradeVariants", "conversions", "wet", "bounds", "notApplicable", "fitting", "calibration", "screening"],
+  "required": ["levels", "properties", "gradeVariants", "bounds", "notApplicable", "fitting", "calibration", "screening"],
   "properties": {
     "levels": { "type": "object", "additionalProperties": false, "required": ["likely", "plausible"], "properties": { "likely": { "$ref": "#/$defs/probability" }, "plausible": { "$ref": "#/$defs/probability" } } },
     "properties": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/headlineModel" } },
     "gradeVariants": { "type": "object", "additionalProperties": false, "required": ["spreadInScaleUnits"], "properties": { "spreadInScaleUnits": { "type": "number", "exclusiveMinimum": 0 } } },
-    "conversions": { "type": "object", "additionalProperties": { "type": "object", "additionalProperties": { "$ref": "#/$defs/conversion" } } },
-    "wet": {
-      "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} }, "required": ["high", "low"],
-      "properties": {
-        "high": { "type": "object", "additionalProperties": { "$ref": "#/$defs/offsetSd" } },
-        "low": { "type": "object", "additionalProperties": { "$ref": "#/$defs/offsetSd" } }
-      }
-    },
     "bounds": {
       "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} },
       "required": ["hdtAboveMelting", "meltingSd", "amorphousAboveTg", "meltingPointSlope", "hdtFloor", "plausibleValuesSd", "oneSided", "ownVicat", "density"],
@@ -74,8 +66,6 @@
     "probability": { "type": "number", "minimum": 0, "maximum": 1 },
     "interval": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
     "perScale": { "type": "object", "additionalProperties": false, "required": ["log", "linear"], "properties": { "log": { "type": "number", "minimum": 0 }, "linear": { "type": "number", "minimum": 0 } } },
-    "offsetSd": { "type": "object", "additionalProperties": false, "required": ["offset", "sd"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 } } },
-    "conversion": { "type": "object", "additionalProperties": false, "required": ["offset", "sd", "why"], "properties": { "offset": { "type": "number" }, "sd": { "type": "number", "minimum": 0 }, "why": { "type": "string" }, "learns": { "description": "How the offset is refined: from the pairs of products that publish both kinds (the default), or, for an unknown direction, from those pairs pooled with a contrast across products, never above the documented value (D159).", "enum": ["pairs, across products, down only"] } } },
     "headlineModel": {
       "type": "object", "additionalProperties": false, "patternProperties": { "^_": {} },
       "required": ["scale", "scaleUnit", "precision", "plausibleValues", "floors"],

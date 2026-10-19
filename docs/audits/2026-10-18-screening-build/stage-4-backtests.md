@@ -248,3 +248,23 @@ PLA-EC, PVC, PLA-GR, CoPE, nGen and PETG-PTFE move from "not enough data" to "un
 product, is listed for a 5 GPa stiffness and hidden again for a 100 MPa strength, as its own estimate moved.
 
 **Verdict.** Kept.
+
+## 6. One conversion layer (D157, the review's 4a)
+
+**The change.** The estimate model's 48 documented conversions and 6 wet offsets left `estimate-model.json` for rows of
+`conversions.csv` (m449): 7 on the ledger row that is the same relation, 47 as rows of Kind `estimate`. It is a move,
+so the test is that nothing moved.
+
+| Check | Result |
+|---|---|
+| `test/conversion-layer.test.js`: the rows read back against the blocks cut from the configuration | deep-equal |
+| `H2C_NO_BUILD_CACHE=1 npm run build:diff -- --expect 0`, `meta.estimateModel` included | 0 differences |
+| `npm run snapshot` | unchanged |
+| The decision census against the commit before | nothing moved |
+
+**CONVERSION-DRIFT**, the new check, on the nine rows with a band: flexural modulus (CV08) learns 0.993 within 0.46 to
+1.93; Z modulus (CV06) 1.17 over 0.79; Z strength (CV09) 1.71 over 0.86; annealed modulus (CV04) 0.925 under 1.28;
+elongation at yield (CV10) 2.48 over 1; heat deflection at 1.8 MPa (CV01, CV42, CV43) +5.1, +27.1 and +37.7 °C over 0;
+annealed heat deflection (CV03) −77 °C under 0. No row drifts.
+
+**Verdict.** Kept.

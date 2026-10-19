@@ -196,6 +196,27 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
   return diagnostics;
 }
 
+/**
+ * The rows whose learned offset leaves the band they state: on a log headline headline ÷ related = exp(offset) must lie
+ * within the row's factors, in °C a heat deflection's difference must keep the row's offset (a floor at or above it, a
+ * ceiling at or below). A kind no observation reads learns nothing and is not checked.
+ */
+function conversionDrift(model, estimateModel) {
+  const out = [];
+  for (const b of model.conversionBands ?? []) {
+    const learned = estimateModel.properties[b.key]?.conversions?.[b.kind];
+    if (!learned) continue;
+    const log = model.properties[b.key].scale === 'log';
+    const value = log ? Math.exp(learned.offset) : learned.offset;
+    const low = b.rowKind === 'ceiling' || b.rowKind === 'demote-to-ceiling' ? null : log ? b.factorLow : b.offset;
+    const high = b.rowKind === 'floor' ? null : log ? b.factorHigh : b.offset;
+    if ((low != null && value < low - 1e-9) || (high != null && value > high + 1e-9)) {
+      out.push({ id: b.id, key: b.key, kind: b.kind, learned: learned.offset, value: Number(value.toPrecision(3)), low, high, pairs: learned.pairs });
+    }
+  }
+  return out;
+}
+
 /** Coverage summary for the validation report and meta. */
 export function summariseEstimates(materials, registry) {
   const pool = materials.filter((m) => !m.excluded && !m.familyEntry);
@@ -215,12 +236,18 @@ export function summariseEstimates(materials, registry) {
 }
 
 /** Apply the estimate stage to a compiled database in place. */
-export function attachEstimates(db) {
+export function attachEstimates(db, { conversions } = {}) {
   for (const g of db.grades) g.estimateVersion = 2;
-  const model = modelWith(db.polymers);
+  // The documented conversions are rows of conversions.csv (D157), handed in by the pipeline: the compiled database keeps
+  // only the ledger's.
+  const model = modelWith(db.polymers, conversions);
   const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, sources: db.sources, registry: db.registry }, model);
   const printEstimates = attachPrintEstimates(db.materials, model);
   db.meta.estimateCoverage = summariseEstimates(db.materials, db.registry);
+  // CONVERSION-DRIFT (D157): an offset the build learned must keep the band its row of conversions.csv states.
+  // Present only where a row drifts, which stops the build: a sound build carries nothing new.
+  const drift = conversionDrift(model, estimateModel);
+  if (drift.length) estimateModel.conversionDrift = drift;
   db.meta.estimateModel = estimateModel;
   db.meta.printEstimates = printEstimates;
   return db;

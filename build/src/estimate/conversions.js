@@ -14,7 +14,8 @@ function documentedConversion(key, kind, model) {
   const wet = wetClass && model.wet[wetClass]?.[key];
   if (wet) {
     const dry = table[kind.replace(/ wet(-low)?$/, '')];
-    if (dry) return { offset: dry.offset + wet.offset, sd: Math.hypot(dry.sd, wet.sd), why: `${dry.why}; measured after moisture conditioning (${wetClass} water uptake)` };
+    // A conditioned value of an unknown direction keeps its dry kind's cap; it learns from its own pairs alone.
+    if (dry) return { offset: dry.offset + wet.offset, sd: Math.hypot(dry.sd, wet.sd), why: `${dry.why}; measured after moisture conditioning (${wetClass} water uptake)`, learns: /down only$/.test(dry.learns ?? '') ? 'pairs, down only' : 'pairs' };
   }
   return null;
 }
@@ -54,8 +55,10 @@ export function conversions(key, raw, model, { without = null } = {}) {
     const nc = cross?.materials ?? 0;
     const refined = (n * centre + nc * (cross?.contrast ?? 0) + n0 * doc.offset) / (n + nc + n0);
     out[k] = {
-      // An unknown direction may move below its documented offset, never above it (estimate-model.json _directionComment).
-      offset: / unk( |$)/.test(k) ? Math.min(refined, doc.offset) : refined,
+      // An unknown direction may move below its documented offset, never above it (conversions.csv Estimate learns, D56):
+      // a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z
+      // results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04).
+      offset: /down only$/.test(doc.learns ?? '') ? Math.min(refined, doc.offset) : refined,
       sd: Math.sqrt((df * spread * spread + n0 * doc.sd * doc.sd) / (df + n0)),
       pairs: n, why: doc.why,
       ...(cross ? { across: { materials: nc, contrast: cross.contrast } } : {}),

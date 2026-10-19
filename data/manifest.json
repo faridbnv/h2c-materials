@@ -71,7 +71,7 @@
     },
     "method": {
       "rows": 58,
-      "sha256": "8b8963d603d23c71bb697c324fa7c172826383c81bfb800001fdc28e986a09d8"
+      "sha256": "31abcb2a16387d2bfc70e7a718cbadf56f0cea6601700634a40da9347a02addc"
     },
     "reference": {
       "rows": 114,
@@ -122,8 +122,8 @@
       "sha256": "5a71ebb290d9478e2250c679f5ec827253a974b86e3a8ad3c30df56de329d06d"
     },
     "conversions": {
-      "rows": 12,
-      "sha256": "d6f53b37b3a162ae06c0742823ae95f5c19f507dd26fa3ccc9497af7031c61f3"
+      "rows": 59,
+      "sha256": "aef53685ff20eb61ba723d607f94ca0710436680595c75bcec4cecf4fe782262"
     },
     "class_limits": {
       "rows": 2,

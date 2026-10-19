@@ -53,9 +53,11 @@ export function measuredHeadline(m, key) {
 
 /**
  * The model with the polymer identities of data/tables/polymers.csv (compiled as db.polymers), in the shape the stage
- * reads: group, morphology, tm, fastCrystallising, printsAmorphous (true or 'unfilled'), waterUptake, density [min, max].
+ * reads: group, morphology, tm, fastCrystallising, printsAmorphous (true or 'unfilled'), waterUptake, density [min, max];
+ * and the documented conversions and wet offsets of data/tables/conversions.csv (evidence-ledger.js estimateConversions,
+ * D157): conversions[headline][kind] = { offset, sd, why, learns }, wet[high | low][headline] = { offset, sd }.
  */
-export function modelWith(polymers, base = ESTIMATE_MODEL) {
+export function modelWith(polymers, { conversions = {}, wet = { high: {}, low: {} }, bands = [] } = {}, base = ESTIMATE_MODEL) {
   const identities = Object.fromEntries(polymers.map((p) => [p.id, {
     group: p.group, morphology: p.morphology,
     ...(p.meltingPointC != null ? { tm: p.meltingPointC } : {}),
@@ -64,7 +66,7 @@ export function modelWith(polymers, base = ESTIMATE_MODEL) {
     ...(p.waterUptake ? { waterUptake: p.waterUptake } : {}),
     ...(p.neatDensity ? { density: [p.neatDensity.min, p.neatDensity.max] } : {}),
   }]));
-  return { ...base, identities };
+  return { ...base, identities, conversions, wet, conversionBands: bands };
 }
 
 export const transform = (key, model) => (model.properties[key].scale === 'log' ? Math.log : (v) => v);

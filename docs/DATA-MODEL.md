@@ -570,8 +570,10 @@ headed "HDT at 0.45 MPa". The Method table keeps those quantities distinct.
 
 Where a headline the registry marks Estimated (density, stiffness, strength, stretch and heat deflection) is missing, the
 build attaches an estimate. Its design is DECISIONS D43, its code
-`build/src/estimate/`, and its structure, conversions and limits are reviewed like code in
-`build/mappings/estimate-model.json`.
+`build/src/estimate/`, and its structure and limits are reviewed like code in
+`build/mappings/estimate-model.json`. Its documented conversions are rows of `conversions.csv` (Estimate kind, offset,
+sd, learns and note), on the evidence ledger's row where it is the same relation and as rows of Kind `estimate`
+otherwise; the build stops where an offset it learns leaves the row's band (CONVERSION-DRIFT, D157).
 
 The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PLA since D158, PET, BVOH, PVA, unfilled PPA)
 deflects near its glass transition and learns nothing from annealed values; an annealed value is never averaged with

@@ -49,6 +49,8 @@ export function compileConversions(rows, { materialRows, registry, issues }) {
   const relations = new Map((registry.relations ?? []).map((r) => [r.id, r]));
   const out = [];
   for (const r of rows ?? []) {
+    // A row of Kind estimate is the estimate model's alone (D157, estimateConversions below): the ledger reads none.
+    if (r.Kind === 'estimate') continue;
     const where = `conversions ${r.ConversionID}`;
     const err = (message) => issues.push({ level: 'error', code: 'CONVERSION-ROW', where, message });
     const row = {
@@ -85,6 +87,30 @@ export function compileConversions(rows, { materialRows, registry, issues }) {
   }
   for (const problem of lowerBoundDrift(out, measurementHeadlines(registry))) issues.push({ level: 'error', code: 'LEDGER-LB-DRIFT', where: 'conversions', message: problem });
   return out;
+}
+
+/**
+ * The estimate model's conversions (D157): every row of conversions.csv with an Estimate kind, a ledger row that is the
+ * same relation or a row of Kind estimate, in the shape the estimate stage reads: conversions[headline][kind] = { offset,
+ * sd, why, learns } and wet[high | low][headline] = { offset, sd }. `rows` lists each with the band it must keep
+ * (CONVERSION-DRIFT): a ledger row's factors and offset, an estimate row's physical relation (the related value is at
+ * most the headline).
+ */
+export function estimateConversions(rows) {
+  const conversions = {}, wet = { high: {}, low: {} }, bands = [];
+  for (const r of rows ?? []) {
+    const kind = orNull(r['Estimate kind']);
+    if (!kind) continue;
+    const key = r['Target headline'], offset = num(r['Estimate offset']), sd = num(r['Estimate sd']);
+    if (kind === 'wet' || kind === 'wet-low') { wet[kind === 'wet' ? 'high' : 'low'][key] = { offset, sd }; continue; }
+    (conversions[key] ??= {})[kind] = { offset, sd, why: r['Estimate note'], ...(orNull(r['Estimate learns']) ? { learns: r['Estimate learns'] } : {}) };
+    const ledger = r.Kind !== 'estimate';
+    if (ledger || orNull(r['Physical relation'])) {
+      bands.push({ id: r.ConversionID, key, kind, rowKind: ledger ? r.Kind : 'floor', relation: orNull(r['Physical relation']),
+        factorLow: ledger ? num(r['Factor low']) : 1, factorHigh: ledger ? num(r['Factor high']) : null, offset: ledger ? num(r['Absolute offset']) ?? 0 : 0 });
+    }
+  }
+  return { conversions, wet, bands };
 }
 
 /**

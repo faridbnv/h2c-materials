@@ -70,3 +70,11 @@ No material's verdict changed. Many product answers moved, nearly all in the hea
 ([stage-4-diff-5.md](stage-4-diff-5.md)): a product with no heat value now has its own estimate, and where that estimate
 falls wholly short of the requirement the product moves from "not enough data" to "unlikely to meet" (850 such moves, 71
 the other way). In the Outdoor and Warm presets, PLA-EC, PVC, PLA-GR, CoPE, nGen and PETG-PTFE move the same way.
+
+## 6. One table for every conversion
+
+The estimate model starts from documented conversions (a flexural modulus is about the tensile one, a value across the
+layers is lower), which lived in its configuration file, while the evidence ledger of stage 3b kept its own rows for the
+same relations. They are now one table (decision D157): each conversion the model uses is a row of the ledger's table,
+and the build stops if what the model learns from the data leaves the band the ledger row states. This was a move:
+nothing the tool shows changed, and the build proves it.

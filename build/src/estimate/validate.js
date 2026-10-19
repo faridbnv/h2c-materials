@@ -99,6 +99,10 @@ export function validateEstimates(db) {
       }
     }
   }
+  // A learned conversion keeps the band its row states (D157).
+  for (const d of model.conversionDrift ?? []) {
+    issues.push(err('CONVERSION-DRIFT', `conversions ${d.id}`, `${d.key} ${d.kind}: the model learned ${d.learned} from ${d.pairs} pair(s), ${d.value}${d.low != null ? `, under ${d.low}` : ''}${d.high != null ? `, over ${d.high}` : ''}: outside the row's band`));
+  }
   if (model.gradeOutliers?.length) {
     issues.push(warn('EST-GRADE-OUTLIER', 'grades', `${model.gradeOutliers.length} grades publish a value far outside what the model predicts for them from everything else: ${model.gradeOutliers.map((o) => `${o.gradeId} ${o.material} ${o.key} ${o.kind} z ${o.z}${o.measurementIds.length ? ` (${o.measurementIds.join(', ')})` : ''}`).join('; ')}`, { records: model.gradeOutliers.map((o) => `${o.gradeId} ${o.key}`) }));
   }
