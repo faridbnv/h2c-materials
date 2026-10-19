@@ -628,3 +628,20 @@ test('D168: standards and temperatures the readers learn', async () => {
   assert.equal(readTestTemperature('23 °C (73 °F)'), 23, 'a Celsius figure with its Fahrenheit beside it is read as before');
   assert.deepEqual(parseAnnealSchedule('Post-processing: 100°C Annealing 8 hours', 'annealed'), { tempC: 100, hours: 8 });
 });
+
+// The research intake's new pages: a chamber not required in words, a bed not necessary beside its temperature, a ceiling
+// in words, a sheet that opens on "Not abrasive", and Spectrum's "In justified cases".
+test('the research intake: wordings the process readers learn', () => {
+  const chamber = parseTemperature('Heated chamber not required', { plausible: [0, 120] });
+  assert.equal(chamber.state, PROCESS_STATE.NOT_REQUIRED);
+  assert.equal(parseTemperature('20° C (Not Necessary)').requirement, REQUIREMENT.NONE);
+  const ceiling = parseTemperature('Do not print PVA+ in an enclosed chamber with a chamber temperature of above 50°C', { plausible: [0, 120] });
+  assert.deepEqual([ceiling.min, ceiling.max, ceiling.openLow], [null, 50, true], 'a ceiling, never a 50 °C minimum');
+  assert.equal(parseAbrasion('Not abrasive to the nozzle of 3D printers').requiresHardened, false);
+  assert.equal(parseDrying('55°C, 4h; In justified cases').need, 'optional');
+  const words = parseDrying('Recommended drying temperature: 75 °C; For Nylon Carbon Fiber, dry six to twelve hours at 75° C (165° F)');
+  assert.deepEqual([words.tempC, words.hours, words.hoursOpen], [75, 12, false], 'hours written in words');
+  assert.equal(parseAbrasion('We recommend using stainless brass or resistant copper alloy nozzles.').requiresHardened, null, 'a harder alloy, not a hardened nozzle');
+  assert.equal(parseDrying('+4 hours at max.110°C').hoursOpen, true, 'a plus before the hours opens them');
+  assert.equal(parseDrying('55 °C +/- 5, 4 h').hoursOpen, false);
+});

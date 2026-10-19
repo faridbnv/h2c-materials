@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "dca8fea28441a9a3da52b5fd4349ecd0a47a2cd830e9705bf58316377edb7514",
+    "url": "https://store.bblcdn.eu/s8/default/f306b70990234d048d200e729fc637fe/Bambu_PLA-CF_MSDS.pdf",
+    "pages": 22,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://store.bblcdn.eu/s8/default/f306b70990234d048d200e729fc637fe/Bambu_PLA-CF_MSDS.pdf#witness-for=source:B-pla-cf-TDS"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "A document of G018-01, products the catalogue holds."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-INTAKE-20261019-dca8fea28441",
+      "Publisher": "Bambu Lab",
+      "Title": "Bambu Lab PLA-CF safety data sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer SDS",
+      "Source note": "The maker's own safety data sheet; read for the fibre load its composition section states.",
+      "Citation role": "cited",
+      "URL": "https://store.bblcdn.eu/s8/default/f306b70990234d048d200e729fc637fe/Bambu_PLA-CF_MSDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G018-01",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "dca8fea28441a9a3da52b5fd4349ecd0a47a2cd830e9705bf58316377edb7514"
+    },
+    "evidence": {
+      "page": 5,
+      "text": "Carbon fiber"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (sds): The maker's own safety data sheet; read for the fibre load its composition section states. Its identifying line is checked on page 5 of the cached text."
+  }
+}

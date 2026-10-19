@@ -6,20 +6,20 @@
       "sha256": "412ed7beb8eace90a529dda29c99a548b6c4c9c4f7bdb9e8585a88acf0bad5f8"
     },
     "grades": {
-      "rows": 1180,
-      "sha256": "22d0893f6998e867b945cd3e272ea342aa0235d5777be8599e42c4a50f635903"
+      "rows": 1184,
+      "sha256": "19716688b9a2bb9159a7991a5c39a12996803cc53996850cc7c105a77d0db335"
     },
     "profiles": {
-      "rows": 1916,
-      "sha256": "0715d3c979b83fef9795c2b0e90d2dce89d9a8d511c5b39fb4a6260bd68cccc3"
+      "rows": 1985,
+      "sha256": "841d5fb5e9ef99f7daac7c663bebaee6104758f8b24d86b97b510523169cfc8c"
     },
     "profile_notes": {
       "rows": 2503,
       "sha256": "8c07c395ec60a273f2c34e820eb486c3f7344ae18a9dc8f6d46906da520819b3"
     },
     "measurements": {
-      "rows": 15576,
-      "sha256": "467e15a042611862fea1f5bbc020c22c09d8c7cd62664d074227f78900c92993"
+      "rows": 15649,
+      "sha256": "0be162e7181f4b0ae329207c0d62ab3045a68846cd56d91f9254c40fe7b8ff46"
     },
     "page_context": {
       "rows": 1012,
@@ -35,7 +35,7 @@
     },
     "evidence": {
       "rows": 8490,
-      "sha256": "2017f2b58b8b06878e5000d4fffc6cc287681888a42eaeef10aca75dabf4c0c6"
+      "sha256": "bd8bc432d2596fdd63a725a8a9b90dae1d017ad0d7c331e3d027aa1c3f97babb"
     },
     "know_how_reads": {
       "rows": 1753,
@@ -58,8 +58,8 @@
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2033,
-      "sha256": "0956ec60ba19c6749fa84c3b762db21448eefda72742d97f6391795f70204798"
+      "rows": 2091,
+      "sha256": "b58f1fb1185740d95a42649e017a08688ddc5c03cd979c204775bc9484b3c1d4"
     },
     "coverage": {
       "rows": 953,
@@ -87,7 +87,7 @@
     },
     "product_claims": {
       "rows": 62,
-      "sha256": "dbf4aacd0a9d5ba9d7aa90429f63ecebb2897e54f468ac8ea927239533668be5"
+      "sha256": "335a0697e185f354e84b86fa04d96fe5a8406028a2ef9ed063301224d7462990"
     },
     "material_links": {
       "rows": 830,
@@ -111,7 +111,7 @@
     },
     "polymers": {
       "rows": 48,
-      "sha256": "a1ccadc11e9d953b36effc25be60f9e98843c4c5c93fe2f313e473fbbbab385c"
+      "sha256": "75ea1fad06f1b2cab5266f564d182348d8ec7ba1b50abf0adebae61d52045ba7"
     },
     "plausibility_windows": {
       "rows": 128,

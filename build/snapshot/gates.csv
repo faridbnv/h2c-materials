@@ -83,18 +83,18 @@ M081,HIPS,within,within,within,within,no-special-concern,required
 M082,PP,within,within,within,within,no-special-concern,required
 M083,PP-CF,within,within,within,within,requires-hardened,required
 M084,PP-GF,within,within,within,within,requires-hardened,not-needed
-M085,PE,within,within,within,unknown,no-special-concern,unknown
-M086,OBC,within,within,within,within,unknown,unknown
+M085,PE,within,within,within,within,no-special-concern,not-needed
+M086,OBC,within,within,within,within,unknown,optional
 M087,POM / Acetal,within,within,within,exceeds,unknown,required
 M088,PCTG,within,within,within,within,no-special-concern,required
 M089,CPE,within,within,within,within,unknown,required
 M090,CPE-CF,within,within,within,within,requires-hardened,required
 M091,CoPE,within,within,within,within,unknown,required
-M092,nGen / Amphora,within,within,within,unknown,no-special-concern,unknown
+M092,nGen / Amphora,within,within,within,unknown,no-special-concern,required
 M093,PVB,within,within,within,within,unknown,required
 M094,PC-ABS,within,within,within,within,no-special-concern,required
 M095,PC-PBT,within,within,within,exceeds,no-special-concern,required
-M096,PVDF,within,within,within,unknown,no-special-concern,not-needed
+M096,PVDF,within,within,within,unknown,no-special-concern,optional
 M097,PEEK,excluded,exceeds,within,within,no-special-concern,required
 M098,PEKK,excluded,within-low-end,within-low-end,within,requires-hardened,required
 M099,PEI / ULTEM,excluded,within-low-end,within,exceeds,requires-hardened,required
@@ -110,12 +110,12 @@ M108,PA6-GS,within,within,within,unknown,requires-hardened,optional
 M109,PETG-PTFE,within,within,within,within,no-special-concern,required
 M110,PCTG-GF,within,within,within,within,requires-hardened,required
 M111,PLA-EC,within,within,within,within,requires-hardened,optional
-M112,PC-PTFE,within,within,within,exceeds,no-special-concern,optional
+M112,PC-PTFE,within,within,within,exceeds,no-special-concern,required
 M113,ASA-AF,within,within,within,within,requires-hardened,required
 M114,TPC-ESD,within,unknown,unknown,unknown,unknown,unknown
 M115,PEKK-ESD,excluded,unknown,unknown,unknown,unknown,unknown
 M116,PC-ESD,within,within,within,unknown,unknown,required
-M117,PEI-GF,excluded,unknown,unknown,unknown,unknown,unknown
+M117,PEI-GF,excluded,unknown,unknown,unknown,unknown,required
 M118,PEI-CF,excluded,exceeds,exceeds,exceeds,requires-hardened,required
 M119,PC-ASA,within,within,within,unknown,unknown,unknown
 M120,PVDF-ESD,within,within,within,within,no-special-concern,not-needed
@@ -125,7 +125,7 @@ M123,PEI-ESD,excluded,exceeds,exceeds,unknown,unknown,required
 M124,PPS-ESD,within,within,edge,within-low-end,no-special-concern,required
 M125,PEEK-CF,excluded,exceeds,within,exceeds,requires-hardened,required
 M126,TPU-ESD,within,within,within,within,no-special-concern,required
-M127,PEEK-GF,excluded,unknown,unknown,unknown,unknown,unknown
+M127,PEEK-GF,excluded,unknown,unknown,unknown,unknown,required
 M128,PC-ABS-CF,within,within,within,unknown,requires-hardened,required
 M129,TPU-CF,within,within,within,within,requires-hardened,required
 M130,PPE-PS,within,within,within,within-low-end,unknown,required
@@ -133,7 +133,7 @@ M131,PC-PBT-CF,within,within,within,unknown,requires-hardened,required
 M132,PBT-GF,within,within,within,within-low-end,requires-hardened,required
 M133,PBAT,within,within,within,within,unknown,required
 M134,CPE-LW,family,unknown,unknown,unknown,unknown,unknown
-M135,PVC,within,within,within,unknown,no-special-concern,not-needed
+M135,PVC,within,within,within,unknown,no-special-concern,optional
 M136,SAN,within,within,within,unknown,unknown,required
 M137,COC,within,within,within,within-low-end,unknown,not-needed
 M138,PE-GF,within,within,within,unknown,unknown,not-needed
@@ -164,7 +164,7 @@ M162,TPU harder than 95A,within,within,within,within,requires-hardened,required
 M163,"TPU, hardness not stated",family,unknown,unknown,unknown,unknown,unknown
 M164,"Nylon, maker-undisclosed polyamide",within,within,within,within,requires-hardened,required
 M165,"Nylon-CF, maker-undisclosed polyamide",within,within,within,unknown,requires-hardened,required
-M166,"Nylon-GF, maker-undisclosed polyamide",within,unknown,unknown,unknown,unknown,unknown
+M166,"Nylon-GF, maker-undisclosed polyamide",within,within,within,unknown,requires-hardened,required
 M167,"TPE, maker-undisclosed elastomer",within,within,within,within,requires-hardened,optional
 M168,PLA blend,within,within,within,within,requires-hardened,required
 M169,PLA blend-CF,within,within,within,within,requires-hardened,required

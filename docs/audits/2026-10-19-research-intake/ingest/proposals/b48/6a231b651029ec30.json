@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "6a231b651029ec30b9c1ed998c4fd8a135dcf718b7cb8a6374ccb518a735a32b",
+    "url": "https://shop.polymaker.com/products/polylite-pla-cf",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://shop.polymaker.com/products/polylite-pla-cf#witness-for=source:S-POLYCN-TDS-Polymaker-Polylite-PLA-CF-V6-0-2026-06-09-EN"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "A document of G018-05, products the catalogue holds."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-INTAKE-20261019-6a231b651029",
+      "Publisher": "Polymaker",
+      "Title": "PolyLite PLA-CF 1.75mm 3D printer filament | Polymaker",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Polymaker's own store page for PolyLite PLA-CF: \"8% chopped carbon fiber by weight\".",
+      "Citation role": "cited",
+      "URL": "https://shop.polymaker.com/products/polylite-pla-cf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G018-05",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "6a231b651029ec30b9c1ed998c4fd8a135dcf718b7cb8a6374ccb518a735a32b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PolyLite™ PLA-CF is a high-performance PLA filament infused with 8% chopped carbon fiber by weight."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (product-page): Polymaker's own store page for PolyLite PLA-CF: \"8% chopped carbon fiber by weight\". Its identifying line is checked on page 1 of the cached text."
+  }
+}

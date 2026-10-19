@@ -74,6 +74,8 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // are read now (an enclosure not needed). A cell no reader knows raises it again.
   // CHAMBER-NEED-READY arrived with D151's table, every row reported, and left when the four rows its makers support
   // (PLA, PETG, the elastomers, ABS) were switched to deciding: a reported row that qualifies raises it again.
+  // It is back with the research intake (2026-10-19): Braskem's FL300PE, "Heated chamber not required", is the tenth maker
+  // whose own sheet speaks for the polyolefins (CN17), none above 65 °C; the row's switch to deciding takes it away again.
   // The evidence ledger's four arrived when its rows decided (D153, D154): CONVERSION-PAIRS for the two same-sheet pairs
   // that break CV01, LEDGER-DISAGREE for the two products whose records leave no value between them, each accepted with
   // its reason; LEDGER-CONTRADICTS-VALUE for Raise3D Industrial PET CF's 87 °C beside its other sheet's 112 °C at
@@ -81,7 +83,7 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // Stage 3d of the screening build took three of them away: a PLA or PET bar CV05 demotes floors nothing through CV01, so
   // Prusament rPLA's pair, both LEDGER-DISAGREE states and Raise3D's contradiction, each on an undescribed PLA or PET bar's
   // HDT at 1.8 MPa, no longer occur. CONVERSION-PAIRS stays for Stratasys Nylon-CF10's two bars, accepted.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CHAMBER-NEED-READY', 'CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

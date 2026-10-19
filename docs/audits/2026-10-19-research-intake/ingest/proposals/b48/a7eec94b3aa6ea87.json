@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "a7eec94b3aa6ea87ea0728bda79eb5da8a918018350f57c3de5f7a198b5bf3fb",
+    "url": "https://extrudr.com/en/fr/products/durapro-pa12-cf/",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": "Extrudr",
+    "docKey": "https://extrudr.com/en/fr/products/durapro-pa12-cf/#witness-for=source:R-EXTRUDR-durapro-pa12-cf-TDS-en"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "A document of G053-04, products the catalogue holds."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-INTAKE-20261019-a7eec94b3aa6",
+      "Publisher": "Extrudr",
+      "Title": "DuraPro PA12 - Nylon Filament with Carbon Fibres for 3D Printing | Extrudr",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Extrudr's product page for DURAPRO PA12 CF, with its drying settings.",
+      "Citation role": "cited",
+      "URL": "https://extrudr.com/en/fr/products/durapro-pa12-cf/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G053-04",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "a7eec94b3aa6ea87ea0728bda79eb5da8a918018350f57c3de5f7a198b5bf3fb"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Yes. DuraPro PA12 CF is a hygroscopic material and should be dried before printing to achieve optimal print quality. We recommend drying for 8–12 hours at 65°C."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (product-page): Extrudr's product page for DURAPRO PA12 CF, with its drying settings. Its identifying line is checked on page 1 of the cached text."
+  }
+}

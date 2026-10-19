@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "fb5cc92eb63d1d0aeb201a9ec19f3a59b8d0bfaa261b182a63947e5ad3dec84e",
+    "url": "https://media.sunlu.com/prod/20260330/c9c28189-81d3-4c72-8dce-e46eb726822f.pdf?filename=SDS",
+    "pages": 7,
+    "provider": "SUNLU",
+    "manufacturer": "SUNLU",
+    "docKey": "https://media.sunlu.com/prod/20260330/c9c28189-81d3-4c72-8dce-e46eb726822f.pdf?filename=SDS#witness-for=source:R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "A document of G024-06, products the catalogue holds."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SUNLU-INTAKE-20261019-fb5cc92eb63d",
+      "Publisher": "SUNLU",
+      "Title": "SUNLU PETG Carbon Fiber safety data sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer SDS",
+      "Source note": "The maker's own safety data sheet; read for the fibre load its composition section states.",
+      "Citation role": "cited",
+      "URL": "https://media.sunlu.com/prod/20260330/c9c28189-81d3-4c72-8dce-e46eb726822f.pdf?filename=SDS",
+      "Locator": "Document / product page",
+      "Applicable grades": "G024-06",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "fb5cc92eb63d1d0aeb201a9ec19f3a59b8d0bfaa261b182a63947e5ad3dec84e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Carbon fiber"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (sds): The maker's own safety data sheet; read for the fibre load its composition section states. Its identifying line is checked on page 1 of the cached text."
+  }
+}

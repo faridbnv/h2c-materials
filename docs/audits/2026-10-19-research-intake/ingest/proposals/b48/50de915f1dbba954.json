@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "50de915f1dbba954d08dfdd684be4b0a1ba600480586cbcede8a41651e9f86e7",
+    "url": "https://www.eumakers.com/pub/media/technical_sheets/EUMAKERS_TDS_PA_NYLON_GLASS_FIBER_Filament_DataSheet.pdf",
+    "pages": 3,
+    "provider": "Eumakers",
+    "manufacturer": "Eumakers",
+    "docKey": "https://www.eumakers.com/pub/media/technical_sheets/EUMAKERS_TDS_PA_NYLON_GLASS_FIBER_Filament_DataSheet.pdf#witness-for=material:M166"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": "M166",
+    "note": "The document of a product the catalogue did not hold: Eumakers PA Nylon Glass Fiber."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EUMAKERS-INTAKE-20261019-50de915f1dbb",
+      "Publisher": "Eumakers",
+      "Title": "PA NYLON GLASS FIBER Filament Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Eumakers' own filament data sheet, served from its own host (and byte for byte the same as the copy SI-Design serves).",
+      "Citation role": "cited",
+      "URL": "https://www.eumakers.com/pub/media/technical_sheets/EUMAKERS_TDS_PA_NYLON_GLASS_FIBER_Filament_DataSheet.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "M166 / ${grade:EUM}",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "50de915f1dbba954d08dfdd684be4b0a1ba600480586cbcede8a41651e9f86e7"
+    },
+    "evidence": {
+      "page": 2,
+      "text": "Material"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [
+    {
+      "key": "EUM",
+      "row": {
+        "MaterialID": "M166",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Eumakers",
+        "Product name": "PA Nylon Glass Fiber",
+        "Shared formulation key": "R-EUMAKERS-INTAKE-20261019-50de915f1dbb",
+        "Composition / filler": "\"Glass Fiber Reinforced Polyammide\" (the maker's filament data sheet); its safety data sheet says \"Polyamide - additives/modifiers\" and names no polyamide or fibre load",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence (research intake 2026-10-19)",
+        "SourceID": "R-EUMAKERS-INTAKE-20261019-50de915f1dbb",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+        "date": "2026-10-19",
+        "note": "A product the catalogue did not hold, named on its maker's own document (\"PA Nylon Glass Fiber\", Eumakers); filed under M166, the home of a polyamide its maker does not name (R167)."
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Material"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (data-sheet): Eumakers' own filament data sheet, served from its own host (and byte for byte the same as the copy SI-Design serves). Its identifying line is checked on page 2 of the cached text."
+  }
+}

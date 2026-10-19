@@ -1,0 +1,72 @@
+SourceID,ID,Kind,Grade,What,Locator
+D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,V011926,measurement,G008-12,Melt mass-flow rate 4.5 (190℃/2.16kg),p. 1: Melt Flow Index(g/10min)
+D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,V011927,measurement,G008-12,Tensile strength (endpoint unspecified) 11.1,p. 1: Tensile Strength (Z) (MPa)
+D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,V011928,measurement,G008-12,Elongation at break 3.05,p. 1: Elongation at Break (Z) (%)
+D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,V011929,measurement,G008-12,Flexural strength 75.34,p. 1: Flexural Strength (XY) (MPa)
+D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,V011930,measurement,G008-12,Flexural modulus 2023.4,p. 1: Flexural Modulus (XY) (MPa)
+D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,V011931,measurement,G008-12,Izod impact strength 4.58,p. 1: IZOD Impact Strength (XY) (kJ/m²)
+R-NANOVIA-PEI-CF-Ultem-1010,V009175,measurement,G118-03,"Density 1,27 g/cm3",p. 1: Density
+R-NANOVIA-PEI-CF-Ultem-1010,V009176,measurement,G118-03,Tensile modulus 4685 MPa,p. 1: Tensile modulus
+R-NANOVIA-PEI-CF-Ultem-1010,V009177,measurement,G118-03,Flexural modulus 4950 MPa,p. 1: Flexural modulus
+R-NANOVIA-PEI-CF-Ultem-1010,V009178,measurement,G118-03,Elongation at break 3.5 %,p. 1: Elongation at break
+R-NANOVIA-PEI-CF-Ultem-1010,V009179,measurement,G118-03,Vicat softening temperature 215 °C,p. 1: VICAT A/50
+R-NANOVIA-PEI-CF-Ultem-1010,V009180,measurement,G118-03,HDT 200 °C,p. 1: HDT 0.45 MPa
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002525,measurement,G028-02,Tensile break strength 46.5,"p. 2: Mechanical Properties, Tensile Stress at Break"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002526,measurement,G028-02,Tensile modulus 2350,"p. 2: Mechanical Properties, Young’s Modulus"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002527,measurement,G028-02,Elongation at break 3,"p. 2: Mechanical Properties, Elongation at Break"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002528,measurement,G028-02,Charpy strength 8.5,"p. 2: Mechanical Properties, Charpy impact strength"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002529,measurement,G028-02,Flexural strength 66.4,"p. 2: Mechanical Properties, Bending Strength"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002530,measurement,G028-02,Flexural modulus 2705,"p. 2: Mechanical Properties, Bending Modulus"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002531,measurement,G028-02,Vicat softening temperature 106,"p. 2: Other Properties, Vicat softening temperature"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002532,measurement,G028-02,Glass transition temperature 101,"p. 2: Other Properties, Glass Transition Temperature"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002533,measurement,G028-02,Hardness 82,"p. 2: Other Properties, Shore Hardness (D)"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002534,measurement,G028-02,HDT 93,"p. 2: Other Properties, HDT, Method A"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002535,measurement,G028-02,HDT 97,"p. 2: Other Properties, HDT, Method B"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002536,measurement,G028-02,Melting temperature 225,"p. 2: Other Properties, Melting Point"
+D-SIRAYA-Fibreheart-ABS-GF-TDS,V002537,measurement,G028-02,Density 1.08,"p. 2: Filament Properties, Filament Density"
+R-QIDI-PA12-CF,V009348,measurement,G059-02,Density 1.09 g/cm³,p. 2: 密度 ISO 1183
+R-QIDI-PA12-CF,V009349,measurement,G059-02,Water absorption 2.46 %,p. 2: Water absorption Method 1
+R-QIDI-PA12-CF,V009350,measurement,G059-02,Melting temperature 167 °C,p. 2: 熔点 ISO 11357 Melting Temperature
+R-QIDI-PA12-CF,V009351,measurement,G059-02,Melt mass-flow rate 5.1 g/10min,"p. 2: Melting Temperature 熔融指数 270°C, 2.16kg Melt index"
+R-QIDI-PA12-CF,V009353,measurement,G059-02,Tensile strength (endpoint unspecified) 83.34 ± 0.30 MPa,p. 2: Tensile strength(X-Y)
+R-QIDI-PA12-CF,V009355,measurement,G059-02,Elongation at break 3.16 ± 0.13 %,p. 2: Elongation at break (X-Y)
+R-QIDI-PA12-CF,V009356,measurement,G059-02,Flexural strength 124.07 ± 2.36 MPa,p. 2: Bending strength (X-Y)
+R-QIDI-PA12-CF,V009358,measurement,G059-02,Tensile strength (endpoint unspecified) 38.61 ± 2.19 MPa,p. 3: 拉伸强度 (Z) Tensile strength (Z)
+R-QIDI-PA12-CF,V009359,measurement,G059-02,Tensile modulus 2892.15 ± 46.60 MPa,p. 3: Tensile strength (Z) 拉伸模量(Z) ISO 527 Young’s modulus (Z)
+R-QIDI-PA12-CF,V009360,measurement,G059-02,Elongation at break 1.63 ± 0.10 %,p. 3: Young’s modulus (Z) 断裂伸长率(Z) Elongation at break (Z)
+R-QIDI-PA12-CF,V013781,measurement,G059-02,Tensile strength (endpoint unspecified) 76.95±1.17 MPa,p. 2: Tensile strength(X-Y) [G059-02]
+R-QIDI-PA12-CF,V013783,measurement,G059-02,Elongation at break 3.62±0.29 %,p. 2: Elongation at break (X-Y) [G059-02]
+R-QIDI-PA12-CF,V013784,measurement,G059-02,Flexural strength 114.12±1.93 MPa,p. 2: Bending strength (X-Y) [G059-02]
+R-QIDI-PA12-CF,V013786,measurement,G059-02,Charpy strength 10.01±0.83 KJ/㎡,p. 2: 缺口冲击强度 （X-Y） (Charpy impact strength (X-Y) on page 3) (Unannealed)
+R-QIDI-PA12-CF,V013787,measurement,G059-02,Charpy strength 7.20±1.35 KJ/㎡,p. 2: 缺口冲击强度 （X-Y） (Charpy impact strength (X-Y) on page 3) (Annealed)
+R-QIDI-PA12-CF,V015516,measurement,G059-02,Fibre content 15% chopped carbon fiber,p. 1: Fibre content
+R-QIDI-PA12-CF,P0922,profile,G059-02,Manufacturer published guidance,p. 3: Recommended printing settings; p. 4: Drying note; p. 3: Build plate temperature; p. 3: Recommended Nozzle Diameter; p. 4: Additional Suggestions 3
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V006993,measurement,G059-03,Tensile strength (endpoint unspecified) 68 ± 1 MPa,"p. 1: Tensile strength (X-Y) ISO 52 7, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V006994,measurement,G059-03,Tensile strength (endpoint unspecified) 34.7 ± 2.1 MPa,"p. 1: Tensile strength (Z) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V006995,measurement,G059-03,Elongation at break 3.5 ± 0.1 %,"p. 1: Elongation at break (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V006996,measurement,G059-03,Elongation at break 1.7 ± 0.2 %,"p. 1: Elongation at break (Z) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V006998,measurement,G059-03,Flexural strength 98 ± 5 MPa,"p. 2: Bending strength (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V006999,measurement,G059-03,Charpy strength 8.6 ± 0.4 kJ/m2,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007000,measurement,G059-03,Tensile modulus 4736 ± 88 MPa,"p. 2: Young’s modulus (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007001,measurement,G059-03,Tensile modulus 2086 ± 92 MPa,"p. 2: Young’s modulus (Z) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007002,measurement,G059-03,Tensile strength (endpoint unspecified) 86 ± 1 MPa,"p. 2: Tensile strength (X-Y) ISO 52 7, GB/T1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007003,measurement,G059-03,Tensile strength (endpoint unspecified) 44.7 ± 2.1 MPa,"p. 2: Tensile strength (Z) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007004,measurement,G059-03,Elongation at break 2.8 ± 0.1 %,"p. 2: Elongation at break (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007005,measurement,G059-03,Elongation at break 1.9 ± 0.2 %,"p. 2: Elongation at break (Z) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007006,measurement,G059-03,Flexural modulus 4331 ± 90 MPa,"p. 2: Bending modulus (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007007,measurement,G059-03,Tensile strength (endpoint unspecified) 81 ± 2 MPa,"p. 2: Tensile strength (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007008,measurement,G059-03,Elongation at break 3.8 ± 0.3 %,"p. 3: Elongation at break (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007009,measurement,G059-03,Elongation at break 2.2 ± 0.4 %,"p. 3: Elongation at break (Z) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007011,measurement,G059-03,Flexural strength 117 ± 2 MPa,"p. 3: Bending strength (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V007012,measurement,G059-03,Charpy strength 7.2 ± 0.3 kJ/m2,"p. 3: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013941,measurement,G059-03,Density 1.03,p. 1: Density (g/cm³ at 23 °C)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013942,measurement,G059-03,HDT 103 (90),p. 1: Heat Deflection Temperature (°C) (103 (90))
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013943,measurement,G059-03,HDT 90,p. 1: Heat Deflection Temperature (°C) (before annealing; 90)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013944,measurement,G059-03,HDT 142 (110),p. 1: Heat Deflection Temperature (°C) (142 (110))
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013945,measurement,G059-03,HDT 110,p. 1: Heat Deflection Temperature (°C) (before annealing; 110)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013946,measurement,G059-03,Melt mass-flow rate 9.91,p. 1: Melt index (g/10 min)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V013949,measurement,G059-03,Tensile strength (endpoint unspecified) 44.9 ± 1.8 MPa,p. 2: Tensile strength (Z)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V014419,measurement,G059-03,Flexural strength 125 ± 3 MPa,p. 2: Bending strength (X-Y)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V014420,measurement,G059-03,Charpy strength 6.9 ± 0.3 kJ/m2,p. 2: Charpy impact strength (X-Y)
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,V015517,measurement,G059-03,Fibre content 15 wt.% short carbon fibers,p. 1: Fibre content
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e,P0642,profile,G059-03,Manufacturer published guidance,p. 3: Recommended printing settings; p. 3: note 1

@@ -649,7 +649,8 @@ export function lintData(tables, schemas) {
   }
   // Two profiles of one product from one sheet (D120). A sheet that prints a row per print speed or nozzle size gives a
   // profile per row, and its Locator names the row; any other pair is one setup read twice.
-  const ROW = /\b(standard|high)[- ]speed\b|\(high speed\)|\bclassic\b|zonal temperature|\bnozzle\s+(diameter\s+)?\d\.\d|\bnozzle \d\.\dmm row\b|\bfoamed column\b|\d+-\s*\d+mm\/s/i;
+  // Braskem's sheets print an "Alternate Bed Temperature / Substrate" row beside the recommended one (the research intake).
+  const ROW = /\b(standard|high)[- ]speed\b|\(high speed\)|\bclassic\b|zonal temperature|\bnozzle\s+(diameter\s+)?\d\.\d|\bnozzle \d\.\dmm row\b|\bfoamed column\b|\d+-\s*\d+mm\/s|\balternate bed\b/i;
   const SHEET_WIDE = ['Chamber °C', 'Enclosure', 'Drying', 'Abrasion / clogging'];
   const stated = (v) => v != null && v !== '' && !/^Not (published|applicable)/.test(v);
   const byProductSheet = new Map();

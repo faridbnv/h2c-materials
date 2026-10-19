@@ -52,7 +52,9 @@ export const REQUIREMENT = {
 
 // Yousu and 3D-Fuel print the bed as "None needed (or 50-70°C if applicable)": not required, with the window if one is used.
 // SUNLU's Chinese sheets say "该材料无需热床即可成功打印" (the material prints without a heated bed; reader round, 2026-10-04).
-const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b|无需(?:热床|加热)/i;
+// iSANMATE's PLA Wood page answers its heated-chamber row "unnecessary" (the research intake, D168).
+// Eumakers prints "20° C (Not Necessary)": a bed it does not require, with the temperature it would use (the research intake).
+const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary|unnecessary)\b|无需(?:热床|加热)|\(\s*not\s+(?:necessary|needed|required)\s*\)/i;
 // "It is recommended to print using a heated chamber." recommends one without a temperature (the profile root-cause
 // sweep of 2026-10-02).
 // Fiberlogy's "enclosed and heated chamber recommended" does the same (reader round, 2026-10-04), and so does "it is
@@ -80,7 +82,8 @@ const OFF_RE = /^off$/i;
 // process" say the same in other words (the profile root-cause sweep of 2026-10-02).
 // Raise3D's PPS-CF sheet prints "non-heated printing camber"; BASF's Ultrafuse ASA asks for "At least closed chamber,
 // passively heated", which is a closed printer with no heater set (reader round, 2026-10-04).
-const NON_HEATED_RE = /\bnon-?heated\s+(?:printing\s+)?ch?ambers?\b|\bpassively\s+heated\b|\b(?:does\s+not|doesn['’]t)\s+require\s+an?\s+heated\s+(?:building\s+|build\s+|print\s+)?chambers?\b|\bno\s+need\s+(?:of|for)\s+(?:an?\s+)?(?:temperature|heated|heating)\s+chambers?\b|\bno\s+(?:heated|heating)\s+chambers?\s+(?:is|are)\s+(?:required|needed|necessary)\b/i;
+// Braskem's FL300PE: "Heated chamber not required" (the research intake, D168).
+const NON_HEATED_RE = /\bnon-?heated\s+(?:printing\s+)?ch?ambers?\b|\bpassively\s+heated\b|\b(?:does\s+not|doesn['’]t)\s+require\s+an?\s+heated\s+(?:building\s+|build\s+|print\s+)?chambers?\b|\bno\s+need\s+(?:of|for)\s+(?:an?\s+)?(?:temperature|heated|heating)\s+chambers?\b|\bno\s+(?:heated|heating)\s+chambers?\s+(?:is|are)\s+(?:required|needed|necessary)\b|\bheated\s+chambers?\s+(?:is\s+)?not\s+(?:required|needed|necessary)\b/i;
 // "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
 // upper end published.
 // Fillamentum prints the plus before the unit: "Hot pad 100+ °C".
@@ -95,7 +98,9 @@ const AT_MOST_RE = /^(?:<|≤|<=|＜)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}(?:\s+[^\d
 // SUNLU answers its "Room Temp." row "Normal temperature", "Normal" or 常温 (normal temperature) on other sheets.
 // 室温 (room temperature) on SUNLU's TPU sheet (reader round, 2026-10-04).
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?|normal\s+temp\w*)\b|常温|室温|^normal$/i;
-const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
+// A ceiling in words is an upper end too: Raise3D's "Do not print PVA+ in an enclosed chamber with a chamber temperature of
+// above 50°C" read as a 50 °C minimum (the research intake).
+const UP_TO_RE = /\b(?:up\s+to|(?:do\s+not|don['’]t|never)\b[^.;]{0,80}?\babove|(?:must\s+)?not\s+exceed\w*)\s+(\d+(?:\.\d+)?)/i;
 
 // Numbers a process cell states that are not temperatures: a nozzle size or layer height ("0.4mm nozzle"), a speed
 // ("50-80 mm/s", "≤30mm/s"), a flow ("4.0 mm³/s"), a share, hours or months, a mass, and a word with a number in it
@@ -362,6 +367,11 @@ export function parseEnclosure(raw) {
   // Advice to use one, with no temperature: Siraya Tech's "Use an enclosure to maintain consistent temperature and reduce
   // potential warping, especially for larger prints."
   if (/^use\s+an?\s+(enclosure|enclosed\s+printer)\b/i.test(text)) return { text, state: 'recommended' };
+  // eSUN's ePLA-Silk Rainbow page: "We recommend keeping the printer enclosure open during printing to lower the chamber
+  // temperature": a filament whose maker asks for the enclosure to be opened needs none (the research intake, D168).
+  if (/\bkeep\w*\s+the\s+(?:printer(?:'s)?\s+)?(?:enclosure|door|lid|cover)\s+open\b/i.test(text)) return { text, state: 'not-needed' };
+  // Siraya Tech's "An enclosure is crucial for maintaining consistent printing temperatures" (the research intake, D168).
+  if (/\ban?\s+enclosure\s+is\s+(?:crucial|essential|necessary|required|needed|important)\b/i.test(text)) return { text, state: 'recommended' };
   // A comparison table may answer the row with a mark instead of a word: one copy of Bambu Lab's filament guide draws a
   // tick or a cross in its "Print with Enclosure" row, where the revision its page links prints "Required" and
   // "Optional" (D88, m209).
@@ -423,7 +433,8 @@ export function parseAbrasion(raw) {
   // alone, "required" said the opposite.
   // A filled filament its maker says is not abrasive: FormFutura's Galaxy PLA, "Even though its high
   // silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer."
-  if (/\b(is|are)\s+not\s+abrasive\b|\bnon-?abrasive\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // FormFutura's later page opens the cell with it: "Not abrasive to the nozzle of 3D printers" (the research intake).
+  if (/\b(is|are)\s+not\s+abrasive\b|^not\s+abrasive\b|\bnon-?abrasive\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   if (/(harden\w*|ruby|abrasi\w*)[^.;]*\bnot\s+(needed|required|necessary)\b|\bno\s+(harden\w*|ruby|abrasi\w*)\b[^.;]*\b(required|needed|necessary)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   // A maker who says the filament has no abrasive filler, or that a standard (brass) nozzle suffices, is saying none is
   // needed; read by the word "abrasive" alone these said the opposite (Polymaker's "No. ABS Pro contains no abrasive
@@ -436,7 +447,8 @@ export function parseAbrasion(raw) {
   // hardened one: Fillamentum's "We recommend using nozzles from stainless steel or other hardened alloys", "a stainless steel
   // nozzle or nozzles made with hardened copper alloys". Stated, and no reading, as the guide's "Hardened Steel / Stainless
   // Steel" list is (D168, the owner's ruling of 2026-10-19).
-  if (/\bstainless\s+steel\b[^.;]*\bor\b[^.;]*\bharden\w*\s+(?:\w+\s+)?alloys?\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
+  // Eumakers' "stainless brass or resistant copper alloy nozzles" is the same advice (the research intake).
+  if (/\bstainless(?:\s+steel)?\b[^.;]*\bor\b[^.;]*\b(?:harden\w*|resistant)\s+(?:\w+\s+)?alloys?\b|\bstainless\s+steel\s+nozzles?\s+or\b/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
   // A caution about wear, with no hardened nozzle asked for, is not a requirement: "may require nozzle replacements", "be
   // prepared to replace your nozzle … or upgrade", "brass nozzle … life may be reduced", "hardened steel nozzles minimise
   // increased wear" (D168). It says nothing either way, so a nozzle line that asks for one still decides (readAbrasion).
@@ -502,6 +514,8 @@ const OPTIONAL_NEED_RE = new RegExp([
   // dry", and Prusament's "Maximum 60°C for 4-8h depending on moisture" (D168, the owner's ruling of 2026-10-19).
   String.raw`\bonce\s+[^.;]{0,80}?\b(?:opened|used)\b`,
   String.raw`\bdepending\s+on\s+(?:the\s+)?(?:moisture|humidity|how\s+(?:wet|moist|damp))`,
+  // Spectrum's drying guide answers its need column "In justified cases" (the research intake, D168).
+  String.raw`\bin\s+justified\s+cases\b`,
 ].join('|'), 'i');
 // A sentence that says "not necessary" and then asks for drying in some cases: "(not necessary but recommended)",
 // "may require drying before use, although usually it is not necessary".
@@ -536,7 +550,8 @@ function dryingNeed(s) {
 // longer". The number is the lower bound. A window ("at least 4 to 16 hours", "4-6 h") is hours stated, not an open end.
 // "8-12hr" (Fiberlogy, P1914) spells the hour "hr" (the parser sweep of 2026-10-17, D141).
 const DRYING_HOURS_RE = /(\d+(?:\.\d+)?)\s*\+?\s*(?:h|hour|hours|hrs?)\b/i;
-const OPEN_BEFORE_RE = /\b(?:at\s+least|minimum|minimal|more\s+than|longer\s+than|over)\b[^;,.]*$|[>＞≥]\s*$/i;
+// FormFutura writes the open end before the number: "Drying: +4 hours at max.110°C" (the research intake).
+const OPEN_BEFORE_RE = /\b(?:at\s+least|minimum|minimal|more\s+than|longer\s+than|over)\b[^;,.]*$|[>＞≥]\s*$|(?:^|[\s:])\+\s*$/i;
 const OPEN_AFTER_RE = /^\s*(?:h|hours?|hrs?)\b\s*(?:\+|or\s+(?:longer|more))/i;
 function hoursAreOpen(source, m) {
   const before = source.slice(0, m.index);
@@ -544,12 +559,18 @@ function hoursAreOpen(source, m) {
   return /\+/.test(m[0]) || OPEN_BEFORE_RE.test(before.slice(-30)) || OPEN_AFTER_RE.test(source.slice(m.index + m[1].length));
 }
 
+// Hours a maker writes in words, Filamatrix's "dry six to twelve hours at 75° C" (the research intake): read as numbers,
+// and only before "hours".
+const HOUR_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four'];
+const HOUR_WORD = `(?:${[...HOUR_WORDS].reverse().join('|')})`;
+const HOUR_WORDS_RE = new RegExp(`\\b(${HOUR_WORD})\\b(?=(?:\\s*(?:to|-|or)\\s*${HOUR_WORD})?\\s*hours?\\b)`, 'gi');
+
 /** Drying: "Blast Drying Oven: 55 C, 8 h", "120C for 4 hours", "6+ hours", "Not necessary", "Optional". */
 export function parseDrying(raw) {
   const text = raw == null ? '' : String(raw).trim();
   // A lone "/" is a cell with nothing in it, as a lone dash is in a chamber row.
   if (!text || /^not published$/i.test(text) || /^[/\-–—\s]*$/.test(text)) return { text, state: PROCESS_STATE.UNKNOWN, need: 'unknown', tempC: null, hours: null, hoursOpen: null, required: false };
-  const s = clean(text);
+  const s = clean(text).replace(HOUR_WORDS_RE, (w) => String(HOUR_WORDS.indexOf(w.toLowerCase())));
   // A window is read at its upper end, however its unit is printed: "70-80℃" gave 80 but "90℃-100℃" gave 90 and
   // "8h-12h" gave 8 (the fourth control draw of the profile root-cause sweep, 2026-10-02).
   // A cell that joins two methods ("Blast drying oven 55 °C, 8 h; X1 heatbed 65-75 °C, 12 h") is read by its first.
@@ -567,11 +588,14 @@ export function parseDrying(raw) {
   // The open end is read from the text around the number that decides; a window never has one.
   const hoursOpen = !hourMatch ? null : windowFirst ? false : hoursAreOpen(singleHours ? first : s, hourMatch);
   const need = dryingNeed(s);
+  // A schedule printed in Fahrenheit alone, MatterHackers' "180°F for 4-6 hours", is converted to the nearest degree Celsius
+  // (82 °C; the research intake, D168).
+  const fahrenheit = !tempMatch && /(\d{2,3})\s*[°˚º]?\s*F\b|(\d{2,3})\s*℉/.exec(s);
   return {
     text,
     state: 'stated',
     need,
-    tempC: tempMatch ? Number(tempMatch[1]) : null,
+    tempC: tempMatch ? Number(tempMatch[1]) : fahrenheit ? Math.round((Number(fahrenheit[1] ?? fahrenheit[2]) - 32) * 5 / 9) : null,
     hours: hourMatch ? Number(hourMatch[1]) : null,
     hoursOpen,
     required: need === 'required',

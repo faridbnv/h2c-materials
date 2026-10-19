@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "3fe4ca7f84201c171d80fe5182270add8d898c883882a3b367f31ee5201f9342",
+    "url": "https://download.basf.com/p1/000000000030509850_SDS_GEN_US/en_US/ULT.C33_30509850_SDS_GEN_US_en_5-1.pdf",
+    "pages": 9,
+    "provider": "BASF",
+    "manufacturer": "BASF",
+    "docKey": "https://download.basf.com/p1/000000000030509850_SDS_GEN_US/en_US/ULT.C33_30509850_SDS_GEN_US_en_5-1.pdf#witness-for=polymer:PA6/66"
+  },
+  "identity": {
+    "polymer": "PA6/66",
+    "materialId": null,
+    "note": "A reference for the polymer PA6/66 of polymers.csv (m453 cites it), not a product of the catalogue."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-INTAKE-20261019-3fe4ca7f8420",
+      "Publisher": "BASF",
+      "Title": "Ultramid C33 safety data sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Resin supplier data sheet",
+      "Source note": "BASF's own safety data sheet for Ultramid C33, a polyamide 6/66 copolymer; read for its density and melting range.",
+      "Citation role": "cited",
+      "URL": "https://download.basf.com/p1/000000000030509850_SDS_GEN_US/en_US/ULT.C33_30509850_SDS_GEN_US_en_5-1.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "Polymer reference of PA6/66 (polymers.csv): Ultramid C33 safety data sheet",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "3fe4ca7f84201c171d80fe5182270add8d898c883882a3b367f31ee5201f9342"
+    },
+    "evidence": {
+      "page": 4,
+      "text": "Density:"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (sds): BASF's own safety data sheet for Ultramid C33, a polyamide 6/66 copolymer; read for its density and melting range. Its identifying line is checked on page 4 of the cached text."
+  }
+}

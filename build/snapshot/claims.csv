@@ -6,7 +6,6 @@ G028-02,M028,,Toughened or impact-modified,Siraya Tech Fibreheart ABS-GF: Q02317
 G001-06,M001,,Toughened or impact-modified,Spectrum PLA Matt: Q00577
 G001-20,M001,,Toughened or impact-modified,Polymaker Polymaker PolySonic PLA Pro 6.0: Q00976
 G027-08,M027,,Toughened or impact-modified,Polymaker Polymaker ABS Pro: Q02147
-G001-23,M001,,Toughened or impact-modified,Polymaker PolyTerra PLA: Q00985
 G001-24,M001,,Toughened or impact-modified,Polymaker PolyMax PLA: Q00990
 G001-29,M001,,Toughened or impact-modified,Polymaker Polymaker HT PLA Pro: Q00995
 G001-30,M001,,Toughened or impact-modified,Polymaker Polymaker PLA Pro: Q00998
@@ -61,7 +60,8 @@ G168-03,M168,,Toughened or impact-modified,Extrudr GREENTEC PRO: Q05783
 G168-04,M168,,Toughened or impact-modified,Extrudr GREENTEC: Q05768
 G169-02,M169,,Toughened or impact-modified,BigRep HI-TEMP CF: Q06786
 G001-200,M001,,Toughened or impact-modified,SUNLU PLA+: Q01033
-M001,PLA,charpyNotched,Toughened or impact-modified,"7 of 14: 5.76-72.3 (G001-20 G001-23 G001-24 G001-29 G001-30 G001-62 G006-01); others 14: 2.16-20.3, median 6"
+G001-201,M001,,Toughened or impact-modified,Polymaker Panchroma Satin PLA: Q00985
+M001,PLA,charpyNotched,Toughened or impact-modified,"7 of 14: 5.76-72.3 (G001-20 G001-201 G001-24 G001-29 G001-30 G001-62 G006-01); others 14: 2.16-20.3, median 6"
 M001,PLA,izodNotched,Toughened or impact-modified,"1 of 6: 10-10 (G001-143); others 6: 4.5-6.5, median 5"
 M018,PLA-CF,charpyNotched,Toughened or impact-modified,"1 of 2: 7.6-7.6 (G018-01); others 2: 5.5-6.65, median 6.075"
 M020,PETG,charpyNotched,Toughened or impact-modified,"2 of 8: 11.6-16.39 (G020-16 G020-45); others 8: 2.6-8.6, median 6"

@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b48.mjs (research intake 2026-10-19)",
+    "date": "2026-10-19"
+  },
+  "document": {
+    "sha256": "c033c19c5de73244054610e9d493596c0c36dbe8517ab88414d8deb6f6d3f8b7",
+    "url": "https://filamatrix.com/cdn/shop/files/Nylon-Carbon-Fiber-TDS-7.23.pdf",
+    "pages": 1,
+    "provider": "Filamatrix",
+    "manufacturer": "Filamatrix",
+    "docKey": "https://filamatrix.com/cdn/shop/files/Nylon-Carbon-Fiber-TDS-7.23.pdf#witness-for=material:M165"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": "M165",
+    "note": "The document of a product the catalogue did not hold: Filamatrix Nylon Carbon Fiber."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMATRIX-INTAKE-20261019-c033c19c5de7",
+      "Publisher": "Filamatrix",
+      "Title": "Nylon Carbon Fiber Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Filamatrix's own data sheet for Nylon Carbon Fiber (July 2023): printed-bar properties and a print recipe.",
+      "Citation role": "cited",
+      "URL": "https://filamatrix.com/cdn/shop/files/Nylon-Carbon-Fiber-TDS-7.23.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "M165 / ${grade:NCF}",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 and hashed; staged by digest into the research intake's ledger (ingest:witness --from, docs/audits/2026-10-19-research-intake/ingest/staged-manifest-b48.csv) on 2026-10-19, admitted in batch b48.",
+      "SHA256": "c033c19c5de73244054610e9d493596c0c36dbe8517ab88414d8deb6f6d3f8b7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Nylon Carbon Fiber"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+      "date": "2026-10-19"
+    }
+  },
+  "grades": [
+    {
+      "key": "NCF",
+      "row": {
+        "MaterialID": "M165",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filamatrix",
+        "Product name": "Nylon Carbon Fiber",
+        "Shared formulation key": "R-FILAMATRIX-INTAKE-20261019-c033c19c5de7",
+        "Composition / filler": "Carbon fibre reinforced nylon; the maker names no polyamide and states no fibre load (\"a proprietary blend of components encapsulated within a polymer matrix\", its safety data sheet)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence (research intake 2026-10-19)",
+        "SourceID": "R-FILAMATRIX-INTAKE-20261019-c033c19c5de7",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+        "date": "2026-10-19",
+        "note": "A product the catalogue did not hold, named on its maker's own document (\"Nylon Carbon Fiber\", Filamatrix); filed under M165, the home of a polyamide its maker does not name (R167)."
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nylon Carbon Fiber"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 4: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2026-10-19, b48), read on the cached text and the page image",
+    "date": "2026-10-19",
+    "note": "Registered for what it prints (data-sheet): Filamatrix's own data sheet for Nylon Carbon Fiber (July 2023): printed-bar properties and a print recipe. Its identifying line is checked on page 1 of the cached text."
+  }
+}

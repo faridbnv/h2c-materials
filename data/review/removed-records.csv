@@ -1246,3 +1246,4 @@ chamber_bands,M021,m303,"nowhere: PETG Basic is a family entry (an alias since m
 chamber_bands,M022,m303,"nowhere: PETG HF is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
 material_links,M134 | printing | P0494,m368,re-pointed: the same row is now M046 | printing | P0494
 impact_test_guesses,V006953,m436,"measurements.csv V006953 Property ""Tensile impact strength"" (m436): the property now says what the guess said, a tensile-impact test, and the build refuses a guess for a result whose test is named"
+product_claims,G001-23 | Toughened or impact-modified,m453-batch-b48-research-intake,re-pointed: the same row is now G001-201 | Toughened or impact-modified
