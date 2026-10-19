@@ -516,7 +516,7 @@ twin's labelled) and the intersection of the deciding, comparable ones (`lo`, `h
 comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record, a
 miss within the test scatter is on the line, an empty intersection is "sheets disagree", and a contribution whose record
 states no direction or load decides only where the reader admits such values. A PLA or PET HDT from a bar its sheet does
-not describe is marked `ceilingOnly` (CV05): still the product's value and in its material's spread, it may fail a
+not describe is marked `ceilingOnly` as printed (CV05; an annealed state's is not): still the product's value and in its material's spread, it may fail a
 minimum, never pass one. A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and
 changes no answer. Each row's band is re-measured on same-sheet pairs at every build (CONVERSION-PAIRS), and its factor
 is what every pair supports. A limit reaches only beyond the wider of its sourced value and its kind's own published

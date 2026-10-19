@@ -5189,7 +5189,8 @@ build](audits/2026-10-18-screening-build/stage-3b.md), which gives each row's ba
   direction or load decides only where the reader admits such values.
 - **Demoted values (C35).** PLA, PLA blends, PLA-PHA and PET print glassy but can crystallise: an HDT from a bar its sheet
   does not describe stays the product's value and in its material's spread (pages, medians and estimate inputs unchanged)
-  but is marked `ceilingOnly`: it may fail a minimum or pass a maximum, never pass a minimum. PLA-PHB is not named: its
+  but, as printed, is marked `ceilingOnly`: it may fail a minimum or pass a maximum, never pass a minimum. An annealed
+  state's value is not demoted: annealing has crystallised that part (Spectrum PLA Matt's 116 °C after 90 °C, 4 h). PLA-PHB is not named: its
   sourced polymers.csv row crystallises while printing, which keeps D84's acceptance, as for the nylons and PP.
 - **Lab humidity counts as dry (C23)** for a polymer whose registered source prints a saturated water uptake of at most
   0.5 % (ISO 62) or, where it prints only a 24-hour figure, at most 0.15 % in 24 h: the executor's ruling of 2026-10-18,

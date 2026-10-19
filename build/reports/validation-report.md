@@ -119,11 +119,11 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 
 | Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|
-| CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 0 | 255 | difference -4 to 119.5 | 2 |
+| CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 2 | 255 | difference -4 to 119.5 | 2 |
 | CV02 | tensileModulusXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV03 | hdt045 | ceiling | deciding | 1 | 65 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
 | CV04 | tensileModulusXY | ceiling | deciding | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
-| CV05 | hdt045 | demote-to-ceiling | reported | 1 | 202 | 144 | 1 | 0 | 1 | difference -5 to -5 | 0 |
+| CV05 | hdt045 | demote-to-ceiling | deciding | 1 | 194 | 138 | 0 | 2 | 1 | difference -5 to -5 | 0 |
 | CV06 | tensileModulusXY | floor | reported | 0.79 | 172 | 0 | 0 | 0 | 208 | ratio 0.791747011184 to 5.15974842767 | 0 |
 | CV07 | tensileModulusXY | floor | reported | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
 | CV08 | tensileModulusXY | band | reported | 0.46 to 1.91 | 601 | 0 | 0 | 0 | 290 | ratio 0.460233638667 to 1.93 | 1 |
@@ -554,6 +554,7 @@ interface can say so rather than implying a certainty it does not have.
 - `PARSE-UNREAD` **Print setup row 1284** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
 - `PARSE-UNREAD` **Print setup row 1286** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
 - `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 2 of 255 same-sheet pair(s) break it: G001-77 V013711 59 against V013712 60; G165-04 V014653 58 against V014656 62
+- `LEDGER-DISAGREE` **grades** — 2 product state(s) whose deciding bounds leave no value between them: G001-77 hdt045 at least 60 (CV01 V013712) and at most 59 (CV05 V013711); G158-01 hdt045 at least 50 (CV01 V010561) and at most 48 (CV05 V010876)
 - `LEDGER-CONTRADICTS-VALUE` **grades** — 1 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G067-05 hdt045 87 (V011565) against CV01 V011569
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³

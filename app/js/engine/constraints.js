@@ -152,7 +152,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     // What the evidence ledger bounds it to (D153, D154): its other records, each in its one safe direction, and its
     // kind's physics limits. A bound that decides names its record; one that leaves the limit on either side is said
     // after whatever answers next, and a reported row is never read here.
-    const led = ledgerResult(h, c, ctx, label, material.state);
+    const led = ledgerResult(h, c, ctx, label, material.state, h?.ceiling?.measurementId);
     if (led.result) return led.result;
     const known = led.note ?? '';
     // An estimate is inference, so the verdict stays UNKNOWN whatever it says: the verdict describes
@@ -350,7 +350,7 @@ const ledgerRef = (b, end) => ({ rule: b.rule, kind: b.kind, ...(b.measurementId
  * admits (D84). A pass names the floor (or, for a maximum, the ceiling) that meets it; a miss within the test scatter is
  * on the line (D152); two records with no value between them are "sheets disagree", unresolved.
  */
-function ledgerResult(h, c, ctx, label, state) {
+function ledgerResult(h, c, ctx, label, state, own = null) {
   const bounds = h?.ledger;
   if (!bounds) return {};
   const iv = ledgerInterval(bounds.by, { evidence: ctx.evidence === 'as-published' ? 'as-published' : 'comparable' });
@@ -365,7 +365,8 @@ function ledgerResult(h, c, ctx, label, state) {
     } };
   }
   const judged = compareInterval({ lo: iv.lo, hi: iv.hi, openLow: iv.openLow, openHigh: iv.openHigh, kind: 'range' }, c.operator, c.value);
-  if (judged === STATUS.INDETERMINATE) return { note: knownNote(iv, { unit, c }) };
+  // A note that only repeats the product's own demoted value says nothing more.
+  if (judged === STATUS.INDETERMINATE) return [iv.loBy, iv.hiBy].filter(Boolean).every((b) => own && b.measurementId === own) ? {} : { note: knownNote(iv, { unit, c }) };
   const atLeast = c.operator.startsWith('>');
   const pass = judged === STATUS.PASS;
   // The end that decides: a minimum is met by the floor and failed by the ceiling; a maximum the reverse.

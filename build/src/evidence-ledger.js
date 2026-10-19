@@ -13,8 +13,9 @@
 //                                    openHigh, by: [contribution], disagree? }, lo and hi the intersection of the deciding
 //                                    rows' comparable contributions (app/js/engine/ledger.js ledgerInterval), `by` every
 //                                    contribution, reported rows' too, which the drawer lists as not yet deciding
-//   …values[key].ceilingOnly         a PLA or PET HDT from a moulded or undescribed bar (CV05): still the product's value
-//                                    and in its material's spread, but it may only fail a minimum or pass a maximum
+//   …values[key].ceilingOnly         a PLA or PET HDT from a moulded or undescribed bar, as printed (CV05): still the
+//                                    product's value and in its material's spread, but it may only fail a minimum or pass a
+//                                    maximum; an annealed state's value is not demoted, its part has crystallised
 //   …values[key].doubtful            a comparable value its own deciding bounds or its kind's limit contradict by more
 //                                    than the test scatter: it still decides, and the answer says it is doubtful (C40)
 //
@@ -201,6 +202,8 @@ function rowContributions(row, def, state, sources, sdef) {
   const out = [];
   if (row.sourceState === 'annealed' && state.treatment) return out;
   if (row.sourceState === 'conditioned' && state.moisture === 'conditioned') return out;
+  // A moulded or undescribed bar is a ceiling for the part as printed, which has not crystallised; an annealed part has.
+  if (row.kind === 'demote-to-ceiling' && state.treatment) return out;
   for (const src of sources) {
     for (const p of row.sourceProperties) {
       for (const m of src.byProperty.get(p) ?? []) {
@@ -323,7 +326,7 @@ export function attachLedger({ grades, materialRows, measurements, registry, con
         // A PLA or PET HDT from a moulded or undescribed bar (C35): its value still, but only a ceiling when the row decides.
         const m = v?.measurementId ? measurementById.get(v.measurementId) : null;
         for (const r of rows.filter((x) => x.target === key && x.kind === 'demote-to-ceiling')) {
-          if (!m || !FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm)) continue;
+          if (!m || !FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm) || state.treatment) continue;
           stats.get(r.id).demoted.add(g.id);
           if (r.status === 'deciding' && !v.ceilingOnly) v = state.values[key] = { ...v, ceilingOnly: true };
         }
@@ -432,7 +435,7 @@ export function measurePairs(row, { defs, sdef, grades, byGrade, rowById }) {
         const st = ownState(t);
         const at = assess(t, def, own.list, st);
         if (at.excluded || at.level !== LEVEL.COMPARABLE) continue;
-        if (row.kind === 'demote-to-ceiling' && t.specimenForm !== 'printed') continue;
+        if (row.kind === 'demote-to-ceiling' && (t.specimenForm !== 'printed' || st.treatment)) continue;
         for (const sp of row.sourceProperties) {
           for (const s of own.byProperty.get(sp) ?? []) {
             if (s === t || s.sourceId !== t.sourceId || !pointLike(s)) continue;

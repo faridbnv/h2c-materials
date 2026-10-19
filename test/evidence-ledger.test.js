@@ -138,6 +138,12 @@ test('a PLA HDT from an undescribed bar stays its value but only as a ceiling, a
   const g2 = productWith('G001-07', 'M001', { hdt045: { value: 108, level: 'comparable', measurementId: 'V900004' } });
   const r2 = ledger([g2], [meas(g2.id, 'HDT', 108, { id: 'V900004', specimenForm: 'not-stated', specimenType: 'Not published (do not assume printed)' }), meas(g2.id, 'HDT', 90, { load: 1.8 })], { rows: [ROW.demote, ROW.hdt18] });
   assert.equal(ask(g2, r2.mini, 'hdt045', '>=', 80).status, STATUS.PASS);
+  // An annealed state's value is not demoted: annealing has crystallised that part.
+  const g4 = productWith('G001-10', 'M001');
+  g4.states.push({ id: 'annealed:90:4', treatment: { tempC: 90, hours: 4 }, moisture: 'dry', values: { hdt045: { value: 116, level: 'comparable', measurementId: 'V900007' } } });
+  ledger([g4], [meas(g4.id, 'HDT', 116, { id: 'V900007', specimenForm: 'not-stated', specimenType: 'Not published (do not assume printed)', postProcessingState: 'annealed', anneal: { tempC: 90, hours: 4 } })], { rows: [ROW.demote] });
+  assert.equal(g4.states[1].values.hdt045.ceilingOnly, undefined);
+  assert.equal(g4.states[1].bounds, undefined);
   // A PA6 (no Applies to match) keeps its value.
   const g3 = productWith('G002-01', 'M002', { hdt045: { value: 108, level: 'comparable', measurementId: 'V900005' } });
   ledger([g3], [meas(g3.id, 'HDT', 108, { id: 'V900005', materialId: 'M002', specimenForm: 'not-stated', specimenType: 'Not published (do not assume printed)' })], { rows: [ROW.demote] });
