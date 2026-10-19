@@ -751,6 +751,73 @@
         }
       }
     },
+    "conversions": {
+      "type": "array",
+      "description": "The evidence ledger's rows (data/tables/conversions.csv, D153), each with what it bounded in this build and its same-sheet pairs: how many, the ratio or difference each implies (min and max), and the pairs that break it.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "target", "sourceProperties", "sourceLoadMPa", "sourceDirection", "sourceState", "sourceSpecimen", "kind", "factorLow", "factorHigh", "offset", "appliesToText", "relation", "status", "words", "sourceId", "basis", "counts", "pairs"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CV\\d{2}$" },
+          "target": { "type": "string" },
+          "sourceProperties": { "type": "array", "items": { "type": "string" } },
+          "sourceLoadMPa": { "type": ["number", "null"] },
+          "sourceDirection": { "enum": ["same", "Z"] },
+          "sourceState": { "enum": ["same", "annealed", "conditioned"] },
+          "sourceSpecimen": { "enum": ["as target", "moulded or not stated"] },
+          "kind": { "enum": ["floor", "ceiling", "band", "equal", "demote-to-ceiling"] },
+          "factorLow": { "type": ["number", "null"] },
+          "factorHigh": { "type": ["number", "null"] },
+          "offset": { "type": "number" },
+          "appliesToText": { "type": ["string", "null"] },
+          "relation": { "type": ["string", "null"] },
+          "status": { "enum": ["reported", "deciding"] },
+          "words": { "type": "string" },
+          "sourceId": { "type": ["string", "null"] },
+          "basis": { "type": "string" },
+          "counts": {
+            "type": "object", "additionalProperties": false, "required": ["products", "states", "contradicted", "disagree", "demoted"],
+            "properties": { "products": { "type": "integer" }, "states": { "type": "integer" }, "contradicted": { "type": "integer" }, "disagree": { "type": "integer" }, "demoted": { "type": "integer" } }
+          },
+          "pairs": {
+            "type": "object", "additionalProperties": false, "required": ["n", "products", "min", "max", "implied", "breaking"],
+            "properties": {
+              "n": { "type": "integer" }, "products": { "type": "integer" }, "min": { "type": ["number", "null"] }, "max": { "type": ["number", "null"] },
+              "implied": { "enum": ["ratio", "difference"] },
+              "breaking": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["gradeId", "target", "targetValue", "source", "sourceValue"],
+                "properties": { "gradeId": { "type": "string" }, "target": { "type": "string" }, "targetValue": { "type": "number" }, "source": { "type": "string" }, "sourceValue": { "type": "number" } } } }
+            }
+          }
+        }
+      }
+    },
+    "classLimits": {
+      "type": "array",
+      "description": "The physics limits per kind of plastic (data/tables/class_limits.csv, D154), each with what it bounded in this build and its kind's own published extremes among its products that are not variants (per polymer for a neat-density range).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "target", "kind", "value", "appliesToText", "status", "words", "sourceId", "basis", "counts", "extremes"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CL\\d{2}$" },
+          "target": { "type": "string" },
+          "kind": { "enum": ["ceiling", "floor", "neat-density range"] },
+          "value": { "type": ["number", "null"] },
+          "appliesToText": { "type": "string" },
+          "status": { "enum": ["reported", "deciding"] },
+          "words": { "type": "string" },
+          "sourceId": { "type": ["string", "null"] },
+          "basis": { "type": "string" },
+          "counts": {
+            "type": "object", "additionalProperties": false, "required": ["products", "states", "contradicted", "disagree"],
+            "properties": { "products": { "type": "integer" }, "states": { "type": "integer" }, "contradicted": { "type": "integer" }, "disagree": { "type": "integer" } }
+          },
+          "extremes": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["polymer", "min", "max", "minGradeId", "maxGradeId"],
+            "properties": { "polymer": { "type": ["string", "null"] }, "min": { "type": "number" }, "max": { "type": "number" }, "minGradeId": { "type": ["string", "null"] }, "maxGradeId": { "type": ["string", "null"] } } } }
+        }
+      }
+    },
     "printGuide": {
       "type": "array",
       "description": "A printer maker's filament guide, one entry per type it heads a column with (data/tables/print_guide.csv, D88): its recipe read as a profile's, and the materials it speaks for with why. Read for a product only where its own profiles and its twin's are silent on a part of its print gate; never a product's profile.",
@@ -2846,6 +2913,17 @@
           "type": "array",
           "items": { "type": "string" }
         },
+        "ceilingOnly": {
+          "description": "A value from a moulded bar or one its sheet does not describe, of a plastic that prints glassy but can crystallise (a deciding demote-to-ceiling row of conversions.csv, CV05, D153): still the product's value and in its material's spread, but it may only fail a minimum or pass a maximum.",
+          "const": true
+        },
+        "doubtful": {
+          "description": "The deciding ledger records that contradict this comparable value by more than the test scatter: another of its records under a deciding conversion row, or its kind's deciding limit (C40, D153, D154). The value still decides; its answer says it is doubtful.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "object", "additionalProperties": false, "required": ["rule", "lo", "hi"],
+            "properties": { "rule": { "type": "string" }, "measurementId": { "type": "string" }, "lo": { "type": ["number", "null"] }, "hi": { "type": ["number", "null"] } } }
+        },
         "endpoints": {
           "description": "Present where the value is the greatest of the stress endpoints one test prints (D126): the yield, break and unspecified strengths of the same source, product, direction, specimen, state and temperature, in the order the rule prefers them. The value is the largest of them, and its measurement is that endpoint's.",
           "type": "array",
@@ -2877,7 +2955,51 @@
           ]
         },
         "moisture": { "enum": ["dry", "conditioned"] },
-        "values": { "type": "object", "additionalProperties": { "$ref": "#/$defs/productValue" } }
+        "values": { "type": "object", "additionalProperties": { "$ref": "#/$defs/productValue" } },
+        "bounds": {
+          "description": "For each headline this state holds no deciding value for (none, one published without its direction or load, or a value that is only a ceiling), what the evidence ledger bounds it to (build/src/evidence-ledger.js, D153, D154): lo and hi, the intersection of the deciding rows' comparable contributions (null where none), and every contribution, reported rows' too. A headline the state does not change is bounded in the first state.",
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/ledgerBounds" }
+        }
+      }
+    },
+    "ledgerBounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lo", "hi", "openLow", "openHigh", "by"],
+      "properties": {
+        "lo": { "type": ["number", "null"] },
+        "hi": { "type": ["number", "null"] },
+        "openLow": { "type": "boolean" },
+        "openHigh": { "type": "boolean" },
+        "disagree": { "const": true, "description": "The deciding comparable contributions leave no value between them: sheets disagree (LEDGER-DISAGREE)." },
+        "by": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/ledgerContribution" } }
+      }
+    },
+    "ledgerContribution": {
+      "description": "One record's bound on a headline: a conversion row's (CV…, from a measurement of the product or its twin) or a class limit's (CL…). status says whether the row decides; level whether the source value states its direction and load (D84).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule", "kind", "status", "lo", "hi", "level"],
+      "properties": {
+        "rule": { "type": "string", "pattern": "^C[VL]\\d{2}$" },
+        "kind": { "enum": ["floor", "ceiling", "band", "equal", "demote-to-ceiling", "neat-density range"] },
+        "status": { "enum": ["reported", "deciding"] },
+        "measurementId": { "type": "string", "pattern": "^V\\d{6}$" },
+        "property": { "type": "string" },
+        "sourceValue": { "type": "number" },
+        "factor": { "type": "number" },
+        "lo": { "type": ["number", "null"] },
+        "hi": { "type": ["number", "null"] },
+        "openLow": { "const": true },
+        "openHigh": { "const": true },
+        "level": { "enum": ["comparable", "as-published"] },
+        "admitted": { "type": "array", "items": { "enum": ["specimen", "moisture", "treatment"] } },
+        "from": { "$ref": "#/$defs/twinOrigin" },
+        "limit": { "type": "object", "additionalProperties": false, "required": ["lo", "hi"], "properties": { "lo": { "type": ["number", "null"] }, "hi": { "type": ["number", "null"] } } },
+        "widened": { "const": true },
+        "widenedBy": { "type": "array", "items": { "type": "string" } },
+        "sourceId": { "type": "string" }
       }
     },
     "twinOrigin": {

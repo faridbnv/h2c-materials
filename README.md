@@ -273,7 +273,8 @@ preferences: changing one changes what the tool asserts.
     material's own data or claim evidence that belongs only to another material. Family citations
     may remain as context in use, durability and safety notes; they are not grade evidence.
 19. **A headline describes a dry, as-printed, printed part.** A moulded bar, a film, a filament strand, a conditioned
-    value or an annealed value beside its as-printed twin never becomes one, and none of them bounds one (D55, D56).
+    value or an annealed value beside its as-printed twin never becomes one; one bounds it only through a deciding row of
+    the evidence ledger, in its one safe direction (an annealed HDT is the most a print reaches; D55, D56, D153).
 20. **A compound does not speak for its polymer.** A product whose density or stiffness no unfilled grade can reach is
     declared a variant, or filed as its own material, and says so (D57).
 

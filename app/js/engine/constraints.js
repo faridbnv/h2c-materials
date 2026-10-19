@@ -11,6 +11,7 @@
 // settle the question either way.
 
 import { productView, scenarioStates, SHARE } from './products.js';
+import { ledgerInterval, ledgerRow, ledgerReason, disagreeReason, knownNote, requirementWords } from './ledger.js';
 
 export { SHARE };
 
@@ -123,9 +124,18 @@ export function compareInterval(interval, operator, threshold) {
 
 // ---------------------------------------------------------------- numeric headline
 
+// The order a numeric requirement is answered in (D153): 1, a property that does not apply; 2, the product's own value
+// measured the way the requirement asks (or as published, where the reader admits that), which always wins; 3, what the
+// evidence ledger bounds it to, from its other records and its kind's physics limits; 4, an estimate, which never
+// decides; 5, a value published the other way, in another state, or nothing.
 function evaluateNumeric(material, c, ctx = {}) {
-  const h = material.headline?.[c.property];
+  const h0 = material.headline?.[c.property];
   const label = `${c.property} ${c.operator} ${fmt(c.value)}`;
+  // A value that is only a ceiling for the printed part (CV05: a PLA or PET HDT from a bar its sheet does not describe)
+  // decides where a ceiling can: it fails a minimum it misses and passes a maximum it meets. Where it would pass a
+  // minimum it shows nothing, and the ledger is read after it.
+  const ceilingOpen = !!h0?.known && !!h0.ceilingOnly && compareInterval({ lo: null, hi: h0.value, kind: 'range' }, c.operator, c.value) === STATUS.INDETERMINATE;
+  const h = ceilingOpen ? { known: false, unit: h0.unit, missing: 'not-comparable', ceiling: h0, ...(h0.ledger ? { ledger: h0.ledger } : {}) } : h0;
 
   if (!h || !h.known) {
     // A property that does not apply (heat deflection of an elastomer, any value of a support
@@ -139,6 +149,12 @@ function evaluateNumeric(material, c, ctx = {}) {
         criterion: label, reason: `Does not apply: ${h.notApplicable.reason}`, missing: h?.missing ?? 'not-published',
       };
     }
+    // What the evidence ledger bounds it to (D153, D154): its other records, each in its one safe direction, and its
+    // kind's physics limits. A bound that decides names its record; one that leaves the limit on either side is said
+    // after whatever answers next, and a reported row is never read here.
+    const led = ledgerResult(h, c, ctx, label, material.state);
+    if (led.result) return led.result;
+    const known = led.note ?? '';
     // An estimate is inference, so the verdict stays UNKNOWN whatever it says: the verdict describes
     // the evidence (D26). What an estimate may change is eligibility, and only in one direction. It
     // screens a material out of Include when its plausible (95%) range and the range the build's back-test
@@ -186,8 +202,17 @@ function evaluateNumeric(material, c, ctx = {}) {
         screened,
         vetoedBy: veto.map((r) => r.measurementId),
         criterion: label,
-        reason: reason.replace(/^Not published\./, 'No qualifying measurement.') + disclosure + permissionReason + ' Confirm the exact product, property and service state with the maker or a printed-coupon test.',
+        reason: withNote(reason.replace(/^Not published\./, 'No qualifying measurement.') + disclosure + permissionReason + ' Confirm the exact product, property and service state with the maker or a printed-coupon test.', known),
         missing: h?.missing ?? 'not-published',
+      };
+    }
+    // A value that is only a ceiling for the printed part, which would meet a minimum (CV05, D153): said, and open.
+    if (h?.ceiling) {
+      const v = h.ceiling;
+      return {
+        status: STATUS.INDETERMINATE, criterion: label, missing: 'not-comparable',
+        ceilingOnly: { measurementId: v.measurementId ?? null, value: v.value },
+        reason: withNote(`Published ${fmtWords(v.value)} ${h.unit}${v.measurementId ? ` (${v.measurementId})` : ''} on a bar its sheet does not describe. For a plastic that prints glassy but can crystallise that is the most a printed part reaches (a moulded bar crystallises, a print does not), so it does not show the printed part meets ${requirementWords(c, h.unit)}; ask the maker how the bar was made, or test a printed coupon`, known),
       };
     }
     // A product value the source published without the direction or the load: shown, and not comparable (D84).
@@ -195,18 +220,18 @@ function evaluateNumeric(material, c, ctx = {}) {
       const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the specimen orientation';
       return {
         status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished,
-        reason: `Published ${fmtWords(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values`,
+        reason: withNote(`Published ${fmtWords(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values`, known),
       };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
     if (h?.elsewhere?.length) {
-      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: elsewhereReason(h, material.state, c) };
+      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: withNote(elsewhereReason(h, material.state, c), known) };
     }
     return {
       status: STATUS.UNKNOWN,
-      reason: h?.missing === 'not-available-in-market'
+      reason: withNote(h?.missing === 'not-available-in-market'
         ? 'No price in the sampled shops'
-        : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon',
+        : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon', known),
       criterion: label,
       missing: h?.missing ?? 'not-published',
     };
@@ -265,9 +290,13 @@ function evaluateNumeric(material, c, ctx = {}) {
       reason += `. Close to the limit: the threshold is inside the published scatter, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
     }
   }
+  // A value its own records, under a deciding conversion row, or its kind's deciding limit contradict by more than the
+  // test scatter (C40, D153, D154): it still decides, and the answer says it is doubtful.
+  if (h.doubtful?.length) reason += `. Doubtful: ${h.doubtful.map((d) => doubtWords(d, h.unit, ctx)).join('; ')}; re-read before relying on it`;
   return {
     status, reason, criterion: label, closeToLimit,
     ...(onTheLine ? { onTheLine } : {}), ...(thinMargin ? { thinMargin } : {}),
+    ...(h.doubtful?.length ? { doubtful: h.doubtful } : {}),
     observed: h.value, unit: h.unit, interval,
     measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
     direction: h.direction,
@@ -309,6 +338,60 @@ function scatterMargin(scatter, c, unit) {
     within: (v) => v >= lo && v <= hi,
   };
 }
+/** A reason with a note after it, in one sentence each. */
+const withNote = (text, note) => (!note ? text : `${text}${/[.]$/.test(text) ? '' : '.'}${note}`);
+
+/** A contribution as the answer cites it: its rule, kind and record, and the bound it set. */
+const ledgerRef = (b, end) => ({ rule: b.rule, kind: b.kind, ...(b.measurementId ? { measurementId: b.measurementId } : {}), bound: end });
+
+/**
+ * A requirement answered by the evidence ledger (D153, D154), or the note a deciding interval that leaves the limit on
+ * either side adds to the answer that follows. Only a deciding row's contributions are read, at the level the reader
+ * admits (D84). A pass names the floor (or, for a maximum, the ceiling) that meets it; a miss within the test scatter is
+ * on the line (D152); two records with no value between them are "sheets disagree", unresolved.
+ */
+function ledgerResult(h, c, ctx, label, state) {
+  const bounds = h?.ledger;
+  if (!bounds) return {};
+  const iv = ledgerInterval(bounds.by, { evidence: ctx.evidence === 'as-published' ? 'as-published' : 'comparable' });
+  if (!iv) return {};
+  const unit = h.unit;
+  const wordsOf = (b) => ledgerRow(ctx.db, b.rule)?.words;
+  if (iv.disagree) {
+    return { result: {
+      status: STATUS.INDETERMINATE, criterion: label, missing: h.missing ?? 'not-published',
+      sheetsDisagree: { lo: ledgerRef(iv.loBy, iv.lo), hi: ledgerRef(iv.hiBy, iv.hi) },
+      reason: disagreeReason(iv.loBy, iv.hiBy, { unit, wordsOf }),
+    } };
+  }
+  const judged = compareInterval({ lo: iv.lo, hi: iv.hi, openLow: iv.openLow, openHigh: iv.openHigh, kind: 'range' }, c.operator, c.value);
+  if (judged === STATUS.INDETERMINATE) return { note: knownNote(iv, { unit, c }) };
+  const atLeast = c.operator.startsWith('>');
+  const pass = judged === STATUS.PASS;
+  // The end that decides: a minimum is met by the floor and failed by the ceiling; a maximum the reverse.
+  const by = pass === atLeast ? iv.loBy : iv.hiBy;
+  const end = pass === atLeast ? iv.lo : iv.hi;
+  const margin = scatterMargin(scatterOf(ctx, c.property), c, unit);
+  const onTheLine = !!margin && !pass && margin.within(end);
+  const thinMargin = !!margin && pass && margin.within(end);
+  return { result: {
+    status: onTheLine ? STATUS.INDETERMINATE : judged, criterion: label,
+    reason: ledgerReason(by, { unit, words: wordsOf(by), verdict: pass ? 'pass' : onTheLine ? 'line' : 'fail', c, margin: pass ? (thinMargin ? margin : null) : margin, asPrinted: !state?.treatment }),
+    ledger: ledgerRef(by, end),
+    ...(by.measurementId ? { measurementId: by.measurementId } : {}),
+    ...(onTheLine ? { onTheLine } : {}), ...(thinMargin ? { thinMargin } : {}),
+    ...(!pass || onTheLine ? { missing: h.missing ?? 'not-published' } : {}),
+  } };
+}
+
+/** What makes a value doubtful, in a reason's words: the record and rule that contradict it, and where they put it. */
+function doubtWords(d, unit, ctx) {
+  const row = ledgerRow(ctx.db, d.rule);
+  const what = d.measurementId ? `${row?.words ?? d.rule} (${d.measurementId})` : (row?.words ?? d.rule);
+  const range = d.lo != null && d.hi != null ? (d.lo === d.hi ? `${fmtWords(d.lo)} ${unit}` : `between ${fmtWords(d.lo)} and ${fmtWords(d.hi)} ${unit}`) : d.lo != null ? `at least ${fmtWords(d.lo)} ${unit}` : `at most ${fmtWords(d.hi)} ${unit}`;
+  return `${what} puts it ${range}`;
+}
+
 const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 const listWords = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
 /** An annealing schedule in a reader's words, the parts its sheet does not state said so. */
@@ -334,7 +417,7 @@ function elsewhereReason(h, state, c) {
   if (e.moisture !== 'conditioned' && state?.moisture === 'conditioned') {
     return `Published only dry or with moisture unstated ${where}; the conditioned state is asked about, and no conditioned value is inferred from a dry one`;
   }
-  return `Published ${stateWords(e)} ${where}, not ${stateWords(state)}; values from two states are never combined`;
+  return `Published ${stateWords(e)} ${where}, not ${stateWords(state)}; a value of another state decides here only as a bound the evidence ledger draws from it`;
 }
 
 // ---------------------------------------------------------------- treatment
@@ -800,7 +883,7 @@ function productEntry(x) {
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
   if (r.estimate?.screening) out.prediction = {
     centre: r.estimate.centre, plausible: r.estimate.plausible, screenRange: r.estimate.screenRange,
     canScreen: r.estimate.canScreen, scope: r.estimate.screening.context, limitation: r.estimate.screenLimit,

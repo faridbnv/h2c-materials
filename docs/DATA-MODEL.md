@@ -56,6 +56,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `family_entries.csv` | Canonical names that are families or aliases, not materials (D44), with why |
 | `family_members.csv` | The materials each family entry stands for, in search order |
 | `chamber_bands.csv` | Research chamber bands for materials whose sources publish no window, or why none is given |
+| `conversions.csv` | The evidence ledger's rows (D153): one per relation that lets a value measured another way (another load, state, bar or property) bound a headline for the same product in its one safe direction: its target, source properties and what differs, its kind (floor, ceiling, band, equal, demote-to-ceiling), factors, the materials it holds for, its words, reported or deciding |
+| `class_limits.csv` | The physics limits per kind of plastic (D154): a ceiling, a floor or a neat-density range read from `polymers.csv`, the kind it holds for, reported or deciding, and the registered source that prints it |
 | `chamber_need.csv` | What a product's silence about the chamber means for its kind of plastic (D151): one row per kind (Applies to), within or unknown, reported or deciding, who reviewed it and why. The build counts the makers that state a chamber and those asking above 65 °C; a deciding within row reads a truly silent chamber as within, labelled with the counts |
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
 | `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
@@ -497,7 +499,29 @@ Two checks guard the result (both in `docs/RULES.md`). EST-ORDER is a build erro
 lies under its floor, a material's range that misses a product's floor, or a heat deflection estimate above the melting
 point. PRODUCT-ORDER is informational: a product's published value lies under another of its own measurements from a
 different source, direction, specimen or state. That is two tests that disagree, so the value stays the product's own until
-a re-read says which sheet is wrong.
+a re-read says which sheet is wrong. Where a deciding row of the evidence ledger reads the other measurement and puts the
+value beyond its bound by more than the test scatter, the value still decides and its answer says it is doubtful
+(LEDGER-CONTRADICTS-VALUE, D153).
+
+### The evidence ledger
+
+A product's value decides a requirement where it is measured the way the requirement asks. Where it is not, its other
+records may still bound the headline, each in its one safe direction, and so may the physics of its kind of plastic
+(D153, D154). Each relation is a row of `conversions.csv` (an HDT at 1.8 MPa is a floor for the HDT at 0.45 MPa; an
+annealed HDT a ceiling for the printed part; a Z modulus a floor for the XY one; a flexural modulus a band on the tensile
+one; a value conditioned at laboratory humidity equal to a dry one for a plastic that takes up almost no water) and each
+limit a row of `class_limits.csv`. Per product state with no deciding value, the build writes `states[i].bounds[key]`:
+every contribution (`by`: the row, its kind and status, the record, its value, the bound it sets, its evidence level, a
+twin's labelled) and the intersection of the deciding, comparable ones (`lo`, `hi`). The engine reads it after a
+comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record, a
+miss within the test scatter is on the line, an empty intersection is "sheets disagree", and a contribution whose record
+states no direction or load decides only where the reader admits such values. A PLA or PET HDT from a bar its sheet does
+not describe is marked `ceilingOnly` (CV05): still the product's value and in its material's spread, it may fail a
+minimum, never pass one. A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and
+changes no answer. Each row's band is re-measured on same-sheet pairs at every build (CONVERSION-PAIRS), and its factor
+is what every pair supports. A limit reaches only beyond the wider of its sourced value and its kind's own published
+extreme among products that are not variants, plus the scatter; a declared variant and an undisclosed commercial variant
+are never of a kind. The estimate stage reads none of this.
 
 ---
 
@@ -892,7 +916,10 @@ limit by less than its headline's test scatter (`headline_definitions.csv` Test 
 and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density) is on the line (D152): INDETERMINATE, with
 `onTheLine` and a reason that says one test bar or a word with the maker settles it; 4.95 GPa against 5 GPa is on the line,
 4.49 fails. One that meets it by less still passes, with `thinMargin`. A published range and a one-sided bound keep their
-own rule. A physically implausible value decides nothing: the headline it would have backed is estimated.
+own rule. A physically implausible value decides nothing: the headline it would have backed is estimated. A product with
+no value measured the way asked is answered on its evidence-ledger bounds where a deciding row draws them (D153, D154): a
+pass or a fail that names the record, on the line within the scatter, and INDETERMINATE with `sheetsDisagree` where two
+records leave no value between them.
 
 ## The reference layer
 

@@ -111,6 +111,29 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 | CN19 | Family: Support / Interface | unknown | reported | 2 | 0 | no | 0 |
 | CN20 | Family: Support / Soluble | unknown | reported | 6 | 0 | no | 0 |
 
+## Evidence ledger
+
+Per row of data/tables/conversions.csv and class_limits.csv: the product states it bounds where they hold no deciding
+value, the values it would demote or that contradict it, and its same-sheet pairs (the ratio, or the difference in C,
+each pair implies, and how many break the row). Only a deciding row decides (D153, D154).
+
+| Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |
+|---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|
+| CV01 | hdt045 | floor | reported | 1 | 300 | 0 | 1 | 0 | 255 | difference -4 to 119.5 | 2 |
+| CV02 | tensileModulusXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
+| CV03 | hdt045 | ceiling | reported | 1 | 65 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
+| CV04 | tensileModulusXY | ceiling | reported | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
+| CV05 | hdt045 | demote-to-ceiling | reported | 1 | 202 | 144 | 1 | 0 | 1 | difference -5 to -5 | 0 |
+| CV06 | tensileModulusXY | floor | reported | 0.79 | 172 | 0 | 0 | 0 | 208 | ratio 0.791747011184 to 5.15974842767 | 0 |
+| CV07 | tensileModulusXY | floor | reported | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
+| CV08 | tensileModulusXY | band | reported | 0.46 to 1.91 | 601 | 0 | 0 | 0 | 290 | ratio 0.460233638667 to 1.93 | 1 |
+| CV09 | tensileStrengthXY | floor | reported | 0.86 | 221 | 0 | 0 | 0 | 251 | ratio 0.864583333333 to 9.88943488943 | 0 |
+| CV10 | elongationXY | floor | reported | 1 | 145 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
+| CV11 | elongationXY | floor | reported | 1 | 46 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
+| CV12 | tensileStrengthXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
+| CL01 | tensileModulusXY | ceiling | reported | 0.5 | 81 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
+| CL02 | density | neat-density range | reported | polymers.csv | 9 |  | 0 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
+
 ## Environment evidence
 
 A verdict category has findings that reduce to resistant, limited or not resistant, so it

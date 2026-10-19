@@ -121,6 +121,14 @@
       "rows": 12,
       "sha256": "ce76d0bdea773d2428c5ccc81605c270cae9d2dcd4b526f0866c9eecf33a6c10"
     },
+    "conversions": {
+      "rows": 12,
+      "sha256": "6efad72a01abbd192fbd1ac55b94f207a345ee1c0ebf84cd7500e354926ab0ed"
+    },
+    "class_limits": {
+      "rows": 2,
+      "sha256": "912e8c8e67fe0d28aa1f5e908f64c9a0a2c43fc634841e61f68f0351afd0ced2"
+    },
     "chamber_bands": {
       "rows": 39,
       "sha256": "85e84f111e5c123ee8f38216db042911ca42a160bedefde734fadd40fbdc41f6"

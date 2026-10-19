@@ -36,6 +36,7 @@ import { priceSample, convertedFrom } from './prices.js';
 import { measurementHeadlines, applies } from './registry.js';
 import { aggregateGate } from './gates.js';
 import { CLAIM } from './product-claims.js';
+import { attachLedger } from './evidence-ledger.js';
 
 export const LEVEL = { COMPARABLE: 'comparable', AS_PUBLISHED: 'as-published' };
 
@@ -346,7 +347,7 @@ export function productName(g) {
 }
 
 /** Where a part of a product's values or recipe was read, when it is not the product's own sheet (D88, D89). */
-const twinOrigin = (t) => ({ origin: 'twin', gradeId: t.id, label: `data sheet shared with ${productName(t)}` });
+export const twinOrigin = (t) => ({ origin: 'twin', gradeId: t.id, label: `data sheet shared with ${productName(t)}` });
 // "from" the guide says it is not the product's own sheet, whoever makes the product (D124 amends D88's wording).
 // eslint-disable-next-line no-unused-vars
 function guideOrigin(guide, grade, publisher) {
@@ -585,7 +586,7 @@ export const stateId = (treatment, moisture) => [treatment ? `annealed:${treatme
  * value the rule chooses among the measurements of that state only; the first state holds every headline. Two
  * properties measured in different states are never joined as one part: a state has only its own values, and a headline
  * the state does not change (a density) is read from the first. Where a state lacks a value it is unknown, never filled
- * from another state; the engine says which state does have one.
+ * from another state; the engine says which state does have one, and the evidence ledger may bound it (D153).
  */
 function productStates(grade, defs, own, pinnedIds) {
   const schedules = [];
@@ -625,7 +626,7 @@ function productStates(grade, defs, own, pinnedIds) {
  * printer maker's guide (`guideByMaterial`, D88). A product's own value or statement always wins, and a price is never
  * read from another product: it is what that product's own listings cost.
  */
-export function attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections, guideByMaterial = new Map(), sources = [], issues = [] }) {
+export function attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections, guideByMaterial = new Map(), sources = [], conversions = [], classLimits = [], polymers = [], issues = [] }) {
   const defs = measurementHeadlines(registry);
   const byGrade = (list) => {
     const out = new Map();
@@ -690,6 +691,10 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     // Who prints the same sheet (D89): the engine reads their records of that sheet for this product too (D98).
     if (siblings.length) g.twins = siblings.map((x) => x.id);
   }
+  // The evidence ledger (D153, D154): what each product's values not measured the way a headline asks, and its kind of
+  // plastic's limits, bound it to, in each state; after the twins' values, which a ceiling may demote, and before the
+  // spreads, which a demoted value stays in (evidence-ledger.js).
+  const ledger = attachLedger({ grades, materialRows, measurements, registry, conversions, classLimits, polymers, issues });
 
   const keys = [...defs.map((d) => d.key), 'priceCADkg'];
   const defByKey = new Map(defs.map((d) => [d.key, d]));
@@ -724,4 +729,5 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     }
     m.summary = summary;
   }
+  return { ledger };
 }
