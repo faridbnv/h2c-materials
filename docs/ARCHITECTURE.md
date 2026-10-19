@@ -126,7 +126,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data (the moisture domain also counts its makers' own statements on moisture sensitivity, which decide nothing, D143), and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, a silent chamber read from its kind of plastic (`chamber-need.js`, D151), validate. `estimates: false` builds the core database alone, and it must validate. |
 | `build-cache.js` | The result of `buildDatabase` stored in `.cache/build/` under a SHA-256 of everything it depends on, so the callers that compile the same tables run the estimate stage once (below, "Scale"). The same store keeps the material pages (stage 8), keyed by `digestFiles` over the renderer's code, the database's SHA-256 and the selector's file name. |
-| `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (conversions, limits, the fit's judgements) and the tables it reads (`polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `solver.js` the kernel solved block by chemical group (D79), `calibration.js`, `bounds.js` ranges and their limits (a material's range contains every product's proven floor; a semicrystalline polymer's melting point is a ceiling on its heat deflection, D126), `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `floors.js` back-tests the floors (`meta.estimateModel.properties.*.floors`), and `order.js` checks that no estimate or product value shown breaks an order its own measurements set (EST-ORDER, PRODUCT-ORDER; D126). `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate never passes; D137 adds independent product exclusion certification in `product-screening.js`. |
+| `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (limits, the fit's judgements) and the tables it reads (`conversions.csv`'s Estimate columns, D157; `polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `solver.js` the kernel solved block by chemical group (D79), `calibration.js`, `bounds.js` ranges and their limits (a material's range contains every product's proven floor; a semicrystalline polymer's melting point is a ceiling on its heat deflection, D126), `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `floors.js` back-tests the floors (`meta.estimateModel.properties.*.floors`), and `order.js` checks that no estimate or product value shown breaks an order its own measurements set (EST-ORDER, PRODUCT-ORDER; D126). `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate never passes; D137 adds independent product exclusion certification in `product-screening.js`. |
 | `physical-relations.js` | The orderings physics fixes between two properties, from `data/tables/physical_relations.csv`: the one list the data lint judges published measurements by (`MEAS-PHYSICS-ORDER`, `MEAS-PHYSICS-HDT-LOADS`) and the registry checks every headline lower bound against (`RELATIONS-HEADLINE-DRIFT`). |
 | `lower-bounds.js` | What a product's or a material's own measurements prove a headline is at least (`headline_definitions.csv` Lower bound properties; D126): the one rule that compile (implied bounds), the estimate stage (a grade's range, the floor back-test) and the order check (EST-ORDER) all read, so what bounds an estimate and what the check asks of it cannot differ. A printed bar bounds it, and so does one whose source states no specimen, in any direction; a moulded, film, filament or off-recipe bar bounds nothing. |
 | `chamber-estimates.js` | The research's chamber bands, from `data/tables/chamber_bands.csv`. Attached only where nothing better exists; they decide nothing. |
@@ -599,7 +599,8 @@ Compile also derives, each tagged with its origin so the interface can tell them
 - **Implied bounds** for headlines with no value: the material's own printed measurements that bound the headline from
   below (a yield or break strength under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa
   under 0.45 MPa), at their published value. They veto a screen that would be wrong and limit the estimate (D55).
-  A printed bar bounds it, in any direction, and so does one whose source states no specimen (D126); a moulded, film,
+  A printed bar bounds it, in any direction, and so does one whose source states no specimen (D126), except where the
+  headline takes printed bars only (Lower bound specimens: elongation, D161); a moulded, film,
   filament or off-recipe specimen, an annealed twin beside an as-printed value and a conditioned elongation bound
   nothing. `lower-bounds.js` is the one rule, and `physical_relations.csv` is the list of orderings it projects.
 - **The evidence ledger** (`evidence-ledger.js`, D153, D154), at the end of the product step: for each product state with
@@ -635,17 +636,23 @@ Compile also derives, each tagged with its origin so the interface can tell them
 
 Runs after every headline is known; it is almost all of the build's time (see Scale, below). For each headline it rejects physically
 impossible values, converts every observation of every in-scope material to the headline's semantics
-(conversions documented in `build/mappings/estimate-model.json`, refined by grades that publish both),
+(conversions documented as rows of `conversions.csv`, the Estimate columns, refined by grades that publish both and
+held inside the band the row states, CONVERSION-DRIFT, D157),
 measures the spread between products of one material directly, estimates the remaining spreads from
 the data above documented floors, and fits one Gaussian model. It then hides each measured headline,
 predicts it, and scales the likely (80%) and plausible (95%) ranges to the coverage actually achieved.
 Declared grade variants get their own covariate, conditioned values convert to dry through the documented wet
 offset, published bounds enter with a half-width and limit their own material, and physical limits bound every
-range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous deflects near its glass
-transition and learns nothing from annealed values; an annealed value is never averaged with its as-printed twin, and
+range softly (D53). The physics of printing shapes it (D56): a polymer that prints amorphous (PLA and PET among them,
+D158) deflects near its glass transition, fills as a glassy matrix does and learns nothing from annealed values, a
+treatment at or below its glass transition being no annealing; any other annealed value of the headline's semantics
+converts as a kind of its own, learned from the grades that publish both, and a product that publishes only such a value
+is estimated as printed (D162); the spread between two products of one material is measured, and for heat deflection
+measured per matrix as printed (D162); an annealed value is never averaged with its as-printed twin, and
 repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
 neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
-estimate; an unknown direction never converts upwards past its documented offset; a material's only evidence is never
+estimate; an unknown direction's offset is learned across products as well as from the products that publish both,
+and never converts upwards past its documented value (D159); a material's only evidence is never
 down-weighted; its implied bounds limit its range from below (D55). Film, filament, off-recipe (D95) and physically
 implausible values enter nothing. Every build then back-tests screening: each measured headline is hidden as far as an
 evidence class requires (this grade, this material, family) and predicted honestly with the production ranges, the
@@ -667,6 +674,10 @@ strength is at least the yield and break stress, a strain at break at least the 
 least HDT at 1.8 MPa) floors the estimates built on it. A grade's range is floored at the highest floor its own
 formulation proves. A material's range is the spread of its products, so it must contain every product's floor: its upper
 ends reach the highest product floor, and its lower ends are floored at the lowest only when every active product has one.
+An undescribed bar floors every headline but elongation, which a printed bar alone floors: an undescribed bar's stretch
+reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161). From above, a
+product's own stiffness on a moulded or undescribed bar caps its own estimate at 1.16 times (conversions.csv CV60,
+estimate-model.json ownCeiling, D160); its strength and stretch do not, the back-test having refused both.
 Flooring a material at the highest product floor was tried first and broke calibration; `floors.js` back-tests each rule
 on the hidden headlines (`meta.estimateModel.properties.*.floors`, the validation report, and
 `docs/audits/2026-10-04-reader-round/estimate-order/backtest.md`). A semicrystalline polymer's heat deflection is held

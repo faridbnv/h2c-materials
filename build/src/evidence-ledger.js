@@ -51,6 +51,8 @@ export function compileConversions(rows, { materialRows, registry, issues }) {
   const relations = new Map((registry.relations ?? []).map((r) => [r.id, r]));
   const out = [];
   for (const r of rows ?? []) {
+    // A row of Kind estimate is the estimate model's alone (D157, estimateConversions below): the ledger reads none.
+    if (r.Kind === 'estimate') continue;
     const where = `conversions ${r.ConversionID}`;
     const err = (message) => issues.push({ level: 'error', code: 'CONVERSION-ROW', where, message });
     const row = {
@@ -90,6 +92,30 @@ export function compileConversions(rows, { materialRows, registry, issues }) {
 }
 
 /**
+ * The estimate model's conversions (D157): every row of conversions.csv with an Estimate kind, a ledger row that is the
+ * same relation or a row of Kind estimate, in the shape the estimate stage reads: conversions[headline][kind] = { offset,
+ * sd, why, learns } and wet[high | low][headline] = { offset, sd }. `rows` lists each with the band it must keep
+ * (CONVERSION-DRIFT): a ledger row's factors and offset, an estimate row's physical relation (the related value is at
+ * most the headline).
+ */
+export function estimateConversions(rows) {
+  const conversions = {}, wet = { high: {}, low: {} }, bands = [];
+  for (const r of rows ?? []) {
+    const kind = orNull(r['Estimate kind']);
+    if (!kind) continue;
+    const key = r['Target headline'], offset = num(r['Estimate offset']), sd = num(r['Estimate sd']);
+    if (kind === 'wet' || kind === 'wet-low') { wet[kind === 'wet' ? 'high' : 'low'][key] = { offset, sd }; continue; }
+    (conversions[key] ??= {})[kind] = { offset, sd, why: r['Estimate note'], ...(orNull(r['Estimate learns']) ? { learns: r['Estimate learns'] } : {}) };
+    const ledger = r.Kind !== 'estimate';
+    if (ledger || orNull(r['Physical relation'])) {
+      bands.push({ id: r.ConversionID, key, kind, rowKind: ledger ? r.Kind : 'floor', relation: orNull(r['Physical relation']),
+        factorLow: ledger ? num(r['Factor low']) : 1, factorHigh: ledger ? num(r['Factor high']) : null, offset: ledger ? num(r['Absolute offset']) ?? 0 : 0 });
+    }
+  }
+  return { conversions, wet, bands };
+}
+
+/**
  * A headline's lower bound (headline_definitions.csv Lower bound properties) other than its own value at its own load is
  * a floor the ledger must hold too, with factor 1, so one relation lives in agreeing places: physical_relations.csv (the
  * lint and RELATIONS-HEADLINE-DRIFT), the headline's lower bound (the frozen estimate stage's floor) and a conversion row
@@ -101,9 +127,11 @@ export function lowerBoundDrift(conversions, headlines) {
     const lb = h.lowerBounds;
     for (const p of lb?.properties ?? []) {
       if (h.valueProperties.includes(p) && lb.loadMPa == null) continue;
+      // The row reads the specimens the headline's lower bound reads (D161): printed bars only, or printed and undescribed.
+      const specimen = (lb.forms ?? []).includes('not-stated') ? 'as target' : 'printed';
       const ok = conversions.some((r) => r.target === h.key && r.kind === 'floor' && r.factorLow === 1 && r.offset === 0 && r.sourceProperties.includes(p)
-        && (r.sourceLoadMPa ?? null) === (lb.loadMPa ?? null) && r.sourceState === 'same' && r.sourceDirection === 'same');
-      if (!ok) problems.push(`${h.key} takes ${p}${lb.loadMPa != null ? ` at ${lb.loadMPa} MPa` : ''} as a lower bound, but no conversion row makes it a floor with factor 1 (same state, same direction${lb.loadMPa != null ? `, Source load MPa ${lb.loadMPa}` : ''})`);
+        && (r.sourceLoadMPa ?? null) === (lb.loadMPa ?? null) && r.sourceState === 'same' && r.sourceDirection === 'same' && r.sourceSpecimen === specimen);
+      if (!ok) problems.push(`${h.key} takes ${p}${lb.loadMPa != null ? ` at ${lb.loadMPa} MPa` : ''} as a lower bound, but no conversion row makes it a floor with factor 1 (same state, same direction, Source specimen ${specimen}${lb.loadMPa != null ? `, Source load MPa ${lb.loadMPa}` : ''})`);
     }
   }
   return problems;
@@ -165,6 +193,8 @@ const FORMS_MOULDED_OR_UNSTATED = new Set(['moulded', 'not-stated']);
  * of what it is (its load, state, notch, standard) as assess does for a bar whose sheet does not describe it.
  */
 function judge(m, sdef, own, state, row) {
+  // A row that takes printed bars only (an elongation floor, D161) leaves a bar its sheet does not describe out.
+  if (row.sourceSpecimen === 'printed' && m.specimenForm !== 'printed') return { excluded: 'not a bar its sheet says was printed' };
   if (row.sourceSpecimen === 'moulded or not stated') {
     if (!FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm)) return { excluded: 'not a moulded or undescribed bar' };
     const a = m.specimenForm === 'moulded' ? assess({ ...m, specimenType: 'Not published', specimenForm: 'not-stated' }, sdef, own, state) : assess(m, sdef, own, state);

@@ -43,9 +43,9 @@ PA6-CF
 PA6-GF
 4.35
 2.85–5.36 · 4
-0.0022
+0.00157
 log scale
-18
+21.7
 all 152 materials
 Tensile strength (XY) MPa
 ASA-CF
@@ -57,8 +57,8 @@ PA6-CF
 PA6-GF
 82.3
 62.8–98.9 · 6
-7
-281
+6.63
+266
 all 152 materials
 Tensile strength (Z) MPa
 ASA-CF
@@ -83,7 +83,7 @@ PA6-CF
 PA6-GF
 4.95
 2.4–12.5 · 6
-0.657
+0.593
 log scale
 1,050
 all 152 materials
@@ -123,7 +123,7 @@ PA6-CF
 PA6-GF
 184
 161–210 · 10
-42.6
+38.6
 300
 all 152 materials
 Glass transition (Tg) °C

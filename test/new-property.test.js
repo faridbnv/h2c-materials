@@ -35,7 +35,7 @@ function withRebound({ misfile = false } = {}) {
   // 2. Define a headline for it.
   t.append('headline_definitions', {
     HeadlineKey: 'reboundResilience', Kind: 'measurement', Unit: '%', 'Value properties': 'Rebound resilience', 'Related properties': 'Rebound resilience',
-    'Lower bound properties': NA, 'Lower bound load MPa': NA, 'Lower bound excludes': NA, 'Lower bound basis': NA,
+    'Lower bound properties': NA, 'Lower bound load MPa': NA, 'Lower bound excludes': NA, 'Lower bound specimens': NA, 'Lower bound basis': NA,
     Direction: NA, 'Unstated direction': NA, 'Load MPa': NA, 'Unstated load': NA, Notch: NA, 'Test temperature °C': NA, Standard: NA, 'Test scatter': NA, 'Test scatter is': NA, 'Changes with annealing': 'FALSE', 'Changes with moisture': 'FALSE', 'Evidence group': 'mechanical', 'Endpoint note': 'FALSE', 'Comparison note': NA, 'Drawer comparison': NA, 'Drawer only': 'FALSE', 'Sold as toughened': NA,
     Short: 'Rebound', Plain: 'Rebound resilience', Technical: 'Rebound resilience (ISO 4662)', Hint: 'how much of a knock a flexible part gives back',
     'Axis label': 'Rebound resilience', 'Export header': 'Rebound resilience', Better: 'max', 'Filter group': 'Mechanical', 'Filter operator': '>=',

@@ -89,6 +89,19 @@ export function validateEstimates(db) {
     if (g.held < cal.minHeld) continue;
     if (Math.abs(g.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade likely range contains ${Math.round(g.likelyCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.likely * 100)}%`));
     if (g.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade plausible range contains ${Math.round(g.plausibleCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.plausible * 100)}%`));
+    // A headline whose product spread is set per matrix ships grade ranges only where each matrix with enough hidden
+    // grades is calibrated too (D162): the shared scales must serve the crystalline matrices, not only the many glassy ones.
+    if (!ESTIMATE_MODEL.properties[key]?.productSpreadByMatrix) continue;
+    for (const [cls, c] of Object.entries(g.byMatrix ?? {})) {
+      if (c.held < cal.minHeld) continue;
+      if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance || c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) {
+        issues.push(err('EST-CALIBRATION', `estimate model ${key} grades ${cls}`, `The grade ranges of a ${cls} matrix hold ${Math.round(c.likelyCoverage * 100)}% and ${Math.round(c.plausibleCoverage * 100)}% of its ${c.held} hidden grade values, not ${Math.round(LEVELS.likely * 100)}% and ${Math.round(LEVELS.plausible * 100)}%`));
+      }
+    }
+  }
+  // A learned conversion keeps the band its row states (D157).
+  for (const d of model.conversionDrift ?? []) {
+    issues.push(err('CONVERSION-DRIFT', `conversions ${d.id}`, `${d.key} ${d.kind}: the model learned ${d.learned} from ${d.pairs} pair(s), ${d.value}${d.low != null ? `, under ${d.low}` : ''}${d.high != null ? `, over ${d.high}` : ''}: outside the row's band`));
   }
   if (model.gradeOutliers?.length) {
     issues.push(warn('EST-GRADE-OUTLIER', 'grades', `${model.gradeOutliers.length} grades publish a value far outside what the model predicts for them from everything else: ${model.gradeOutliers.map((o) => `${o.gradeId} ${o.material} ${o.key} ${o.kind} z ${o.z}${o.measurementIds.length ? ` (${o.measurementIds.join(', ')})` : ''}`).join('; ')}`, { records: model.gradeOutliers.map((o) => `${o.gradeId} ${o.key}`) }));
@@ -155,13 +168,15 @@ export function validateEstimates(db) {
   if (thin.length) issues.push(warn('EST-THIN', 'materials', `${thin.length} estimates are too imprecise to guide a choice, on materials that publish nothing for the headline: ${thin.map((w) => w.text).join('; ')}`, { records: thin.map((w) => w.record) }));
 
   const valueOf = (m, key) => (m.headline[key]?.known ? m.headline[key].value : m.headline[key]?.estimate?.centre ?? null);
-  const morphologyOf = (m) => polymers.get(identityOf(m))?.morphology;
+  // A fibre lifts the heat deflection of a matrix that is crystalline as printed; a glassy one (PLA, PET: semicrystalline
+  // polymers that print amorphous) deflects near its glass transition, filled or not, so physics sets no order there (D158).
+  const crystallineAsPrinted = (m) => { const p = polymers.get(identityOf(m)); return p?.morphology === 'semicrystalline' && p.asPrinted !== 'prints amorphous'; };
   const order = [];
   const inScope = db.materials.filter((m) => !m.excluded && !m.familyEntry);
   for (const r of inScope.filter((m) => /fibre/i.test(m.modifier))) {
     for (const u of inScope.filter((m) => m.basePolymer === r.basePolymer && m.modifier === 'Unfilled / unspecified' && m.id !== r.id)) {
       for (const key of ['tensileModulusXY', 'hdt045']) {
-        if (key === 'hdt045' && morphologyOf(r) !== 'semicrystalline') continue;
+        if (key === 'hdt045' && !crystallineAsPrinted(r)) continue;
         const vr = valueOf(r, key), vu = u.headline[key]?.known ? u.headline[key].value : null;
         if (vr != null && vu != null && vr < vu) order.push({ record: `${r.id} ${key}`, text: `${r.name} ${key} ${vr}${r.headline[key].known ? '' : ' (estimate)'} < ${u.name} ${vu}` });
       }
@@ -215,6 +230,14 @@ export function estimateReportLines(db) {
     L.push(`| ${k} | ${v.observations} | ${c.held} | ${Math.round((c.likelyCoverage ?? 0) * 100)}% | ${Math.round((c.plausibleCoverage ?? 0) * 100)}% | ${width} | ${between} |`);
   }
   L.push('');
+  L.push('By stratum (D158): the same hidden headlines, by the classes a change to a polymer\'s class or a fill column moves. The signed error is the median of the hidden value less its prediction, on the model\'s scale (ln, or °C).');
+  L.push('');
+  L.push('| Headline | Stratum | Hidden | Likely holds | Plausible holds | Signed error |');
+  L.push('|---|---|---:|---:|---:|---:|');
+  for (const [k, v] of Object.entries(mdl.properties)) {
+    for (const [name, c] of Object.entries(v.calibration.byStratum ?? {})) L.push(`| ${k} | ${name} | ${c.held} | ${Math.round(c.likelyCoverage * 1000) / 10}% | ${Math.round(c.plausibleCoverage * 1000) / 10}% | ${c.signedError} |`);
+  }
+  L.push('');
   L.push('| Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |');
   L.push('|---|---:|---:|---:|---:|---:|---:|---:|');
   for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
@@ -224,7 +247,7 @@ export function estimateReportLines(db) {
   screeningLines();
   const floorRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.floors);
   if (floorRows.length) {
-    L.push('Floors (D126): the shown ranges of the same hidden headlines, floored by what the material\'s other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "printed" is the rule before D126, "unstated" the rule now, "formulation" what a grade\'s range takes.');
+    L.push('Floors (D126): the shown ranges of the same hidden headlines, floored by what the material\'s other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "containment" is a material\'s rule and "formulation" a grade\'s, each with the specimens its headline names (D161: elongation, printed bars only); "…Unstated" is the same with an undescribed bar too (D126), "…Converted" with an undescribed bar read as moulded.');
     L.push('');
     L.push('| Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |');
     L.push('|---|---|---:|---:|---:|---:|---:|---:|');
@@ -233,6 +256,18 @@ export function estimateReportLines(db) {
         const width = ESTIMATE_MODEL.properties[key].scale === 'log' ? `×${f.medianLikelyWidth}` : `${f.medianLikelyWidth} °C`;
         L.push(`| ${key} | ${name} | ${f.held} | ${f.moved} | ${Math.round((f.likelyCoverage ?? 0) * 1000) / 10}% | ${Math.round((f.plausibleCoverage ?? 0) * 1000) / 10}% | ${width} | ${f.underPlausible} |`);
       }
+    }
+    L.push('');
+  }
+  const directionRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.directions);
+  if (directionRows.length) {
+    L.push('Unstated directions (D159): the kinds whose offset is learned across products as well as from the products that publish both. Target: each product with only an unstated-direction value, beside measured siblings, its centre against their median (a ratio) and how many centres sit above every sibling. Guard: each product that publishes both, as different numbers, its headline hidden and predicted.');
+    L.push('');
+    L.push('| Headline | Kinds | Target products | Centre ÷ siblings\' median | Above every sibling | Guard cases | Guard signed error | Guard plausible holds |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of directionRows) {
+      const d = p.directions;
+      L.push(`| ${key} | ${d.kinds.map((k) => `${k} ${p.conversions[k]?.offset ?? ''}${p.conversions[k]?.across ? ` (${p.conversions[k].across.materials} materials)` : ''}`).join('; ')} | ${d.target?.products ?? 0} | ×${d.target?.ratio ?? '–'} | ${d.target?.aboveEverySibling ?? 0} | ${d.guard.cases} | ${d.guard.signedError} | ${Math.round((d.guard.plausibleCoverage ?? 0) * 1000) / 10}% |`);
     }
     L.push('');
   }
@@ -246,6 +281,19 @@ export function estimateReportLines(db) {
       const g = p.gradeCalibration;
       L.push(`| ${key} | ${g.held} | ${g.likelyScale} | ${g.plausibleScale} | ${g.likelyCoverage} | ${g.plausibleCoverage} | ${g.shipped ? 'yes' : `no: ${g.why}`} |`);
     }
+    L.push('');
+    L.push('By matrix as printed (D162): the hidden grade values of each matrix, the coverage the shared scales give them, the scales they alone would need, and the spread between two products of one material measured in that matrix (the one used where the headline sets it per matrix).');
+    L.push('');
+    L.push('| Headline | Matrix | Hidden values | Likely coverage | Plausible coverage | Scales it would need | Product spread measured (pairs) | Used |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of gradeRows) {
+      for (const [cls, c] of Object.entries(p.gradeCalibration.byMatrix ?? {})) {
+        const b = p.betweenProduct?.byMatrix?.[cls];
+        L.push(`| ${key} | ${cls} | ${c.held} | ${c.likelyCoverage} | ${c.plausibleCoverage} | ${c.likelyScale} / ${c.plausibleScale} | ${b ? `${b.sd} (${b.pairs})` : '–'} | ${b?.used ?? '–'} |`);
+      }
+    }
+    L.push('');
+    L.push(`Grade plausible coverage by fold of materials: ${gradeRows.map(([key, p]) => `${key} ${(p.gradeCalibration.byFold ?? []).map((f) => f.plausibleCoverage).join(', ')}`).join('; ')}. Median grade plausible width: ${gradeRows.map(([key, p]) => `${key} ${p.gradeCalibration.medianPlausibleWidth}`).join(', ')}.`);
     L.push('');
     if (mdl.gradeOutliers?.length) {
       const by = new Map();

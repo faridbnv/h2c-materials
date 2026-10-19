@@ -8,7 +8,7 @@
 import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
-import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule, offRecipeWhy } from './normalize/specimen.js';
+import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule, offRecipeWhy, judgeHeatTreatments } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
 import { parseNozzleDiameters, H2C_BASELINE, PROCESS_STATE } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
@@ -607,10 +607,17 @@ export function compile(wb, { snapshot, build }) {
   const orNull = (cell) => (cell == null || /^Not (applicable|recorded)$/.test(cell) ? null : cell);
   const polymers = wb.Polymers.rows.map((r) => ({
     id: r.PolymerID, group: r.Group, morphology: r.Morphology, meltingPointC: num(r['Melting point °C']),
-    asPrinted: orNull(r['As printed']), waterUptake: orNull(r['Water uptake']),
+    asPrinted: orNull(r['As printed']), annealingThresholdC: num(r['Annealing threshold °C']), waterUptake: orNull(r['Water uptake']),
     neatDensity: num(r['Neat density min kg/m³']) != null ? { min: num(r['Neat density min kg/m³']), max: num(r['Neat density max kg/m³']) } : null,
     sourceId: orNull(r.SourceID), basis: r.Basis,
   }));
+  // A heat treatment at or below its polymer's annealing threshold crystallises nothing: the value is the as-printed
+  // part's (D158). Before any headline, product state or spread reads a measurement's state.
+  {
+    const threshold = new Map(polymers.map((p) => [p.id, p.annealingThresholdC]));
+    const identity = new Map(wb.Materials.rows.map((r) => [r.MaterialID, r['Estimate identity']]));
+    judgeHeatTreatments(measurements, (materialId) => threshold.get(identity.get(materialId)) ?? null);
+  }
 
   const links = new Map();
   for (const r of wb['Material links'].rows) {

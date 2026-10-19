@@ -24,6 +24,7 @@ import { parseAppliesTo, applies } from './registry.js';
 import { speaksTo } from './products.js';
 import { chamberBandsFromTables } from './chamber-estimates.js';
 import { H2C_BASELINE } from './normalize/process.js';
+import { printsAsItsType } from './variants.js';
 
 export const CHAMBER_NEED = {
   // At least this many distinct makers must state a chamber for a kind of plastic before its silence can mean "within".
@@ -57,13 +58,14 @@ export function compileChamberNeed(rows, { materialRows, issues }) {
 
 /**
  * What the makers of a kind of plastic state about the chamber: the materials the rule names (family entries left out),
- * their products (active, procurement, not a declared variant: a variant is not the kind, as for the guide, D129), and
+ * their products (active, procurement, not a declared variant: a variant is not the kind, as for the guide, D129, unless
+ * it prints as its type, D154), and
  * among those the distinct makers whose own sheet or twin's states a chamber, and those of them that ask above 65 °C.
  * `qualifies` says whether the data support a `within` row.
  */
 export function chamberNeedStats(rule, { materials, materialRowById, gradeById }) {
   const matched = materials.filter((m) => !m.familyEntry && materialRowById.get(m.id) && applies(rule.appliesTo, materialRowById.get(m.id)));
-  const products = matched.flatMap((m) => m.gradeIds.map((id) => gradeById.get(id)).filter((g) => g && !g.retired && !g.variant));
+  const products = matched.flatMap((m) => m.gradeIds.map((id) => gradeById.get(id)).filter((g) => g && !g.retired && printsAsItsType(g)));
   const stating = new Map();
   for (const g of products) {
     const c = g.print?.chamber;
@@ -154,7 +156,7 @@ export function attachChamberNeed(db, wb, { materialRows }) {
     const label = chamberNeedLabel(rule, s);
     for (const id of s.materials) {
       for (const g of db.materials.find((m) => m.id === id).gradeIds.map((x) => gradeById.get(x))) {
-        if (!g || g.retired || g.variant || !silent(g, profileById)) continue;
+        if (!g || g.retired || !printsAsItsType(g) || !silent(g, profileById)) continue;
         g.print.chamber = { ...g.print.chamber, verdict: 'within', reason: label, profileId: null };
         g.print.from = { ...(g.print.from ?? {}), chamber: { origin: 'family', ruleId: rule.id, label } };
         s.filled++;

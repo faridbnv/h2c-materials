@@ -122,3 +122,40 @@ Composition" picture (V015433); SIDDAMENT ABS Carbon Fiber 15 % by weight (V0154
 that replace a name's figure: Spectrum PA6 CF15 and PET CF15 from the 2025 portfolio (V015445, V015444), Eryone ABS-CF's
 product page (V015446), Polymaker's pages for PA6-CF20, PA6-GF25 and PA612-CF15 (V015447 to V015449), 3DXTECH's pages
 for FibreX PP+GF30 and CarbonX PEKK-A CF15 (V015450, V015451).
+
+## Stage 4: values a sheet calls annealed, judged as printed
+
+Fifteen Bambu Lab PLA sheets print one line over every value: "All the specimens were annealed and dried at 55 °C for 8 h
+before testing" (50 °C on two of them). PLA's glass transition is 55 to 60 °C, and nothing crystallises at or below it,
+so these are values of the part as printed (decision D158). Nothing in the rows was changed: their words and their typed
+state still say annealed. The build now reads a heat treatment at or below the polymer's glass transition as no
+annealing, and only for a polymer that crystallises when annealed; ABS, ASA, PC and PETG keep Bambu Lab's 65 to 80 °C
+schedules as annealings. To check one, open the sheet and look for the line above the property table.
+
+| Maker | Products (grade, material) | Values | Schedule |
+|---|---|---:|---|
+| Bambu Lab | PLA Basic (G002-01, PLA), PLA Matte (G003-01, PLA), PLA Basic Gradient (G005-01, PLA), PLA Silk+ (G009-01) and PLA Silk Dual Color (G010-01, PLA Silk), PLA Metal (G011-01), PLA Marble (G012-01), PLA Sparkle (G013-01), PLA Wood (G014-01), PLA Galaxy (G015-01), PLA Glow (G016-01), PLA Aero (G017-01), PLA-CF (G018-01) | 301 | 55 °C for 8 h |
+| Bambu Lab | PLA Tough+ (G006-01, PLA), PLA Translucent (G007-01, PLA) | 60 | 50 °C for 8 h |
+
+The values are V000042 to V000343 (all 302), V002104, V002105, V002110, V007488 to V007505, V007555, V007557 to V007574,
+V007737 and V007739 to V007756 (the sheets B-pla-…-TDS and B-PC-Bambu-PLA-…-Technical-Data-Sheet); in the built database each
+carries `heatTreatment`, and `npm run trace -- V000042` shows one.
+
+## Stage 4: PLA grades that crystallise in the print
+
+PLA is now classed as it prints: a semicrystalline polymer that stays glassy in a print. Five PLA grades are made to
+crystallise in the print, and their sheets show it without any annealing. They are marked as a variant, "crystallising
+grade", so their values stand apart from PLA's spread; they still read their printer guide and chamber answers as PLA
+(decision D158). The page's words for each are in the grade's Composition / filler cell.
+
+| Product | What the page says | Decision |
+|---|---|---|
+| Polymaker HT-PLA-GF (G019-01) | "Vicat softening temp. ... 148.9°C" beside "148.3°C (annealed)", "Glass transition temp. ... 59.76°C", "Crystallization temp. ... 81.56°C" (2025 sheet, p. 1) | Crystallising grade |
+| Spectrum THE FILAMENT HT-PLA (G001-09) and The Filament HT-PLA (G001-196, same sheet) | "Heat Deflection Temperature 108°C", "VICAT 140°C", "Features VICAT - 140°"; no annealing stated (p. 1) | Crystallising grade |
+| purefil PLA+ (G001-56) | "an impact-resistant and heat-optimized PLA", "Heat deflection temperature 90 °C, 0.45 MPa"; bed 70-90 °C; no annealing stated (p. 1) | Crystallising grade |
+| FormFutura Volcano PLA 150C (G001-101) | "achieved without annealing or post-processing", "Crystallization temperature 105 °C", "HDT B 110 °C" (p. 1) | Crystallising grade |
+| MatterHackers Tough PLA (G001-115) | "Heat deflection temp. HDT/A 75-80°C" beside an annealing procedure at 110-120 °C | Not marked: the sheet anneals |
+| AzureFilm LumberLay (G014-17) | "Heat deflect. temp. ISO 75 87* °C"; the page does not say what the asterisk means | Not marked: nothing shows crystallisation in the print |
+
+Grades whose high heat value is measured after annealing (Polymaker HT-PLA and HT-PLA Pro, colorFabb PLA-HP, Spectrum's,
+Fiberlogy's, 3D-Fuel's, FormFutura Volcano PLA) or on a moulded bar (Extrudr PLA HIGH-SPEED) are ordinary PLA, annealed.

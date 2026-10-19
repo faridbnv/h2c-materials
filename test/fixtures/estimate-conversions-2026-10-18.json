@@ -1,0 +1,290 @@
+{
+  "conversions": {
+    "density": {
+      "density": {
+        "offset": 0,
+        "sd": 0.01,
+        "why": "The same property on another specimen or grade"
+      },
+      "density moulded": {
+        "offset": -0.02,
+        "sd": 0.03,
+        "why": "A printed or filament density can sit a few percent below the resin's"
+      }
+    },
+    "tensileModulusXY": {
+      "flexural XY": {
+        "offset": 0,
+        "sd": 0.2,
+        "why": "Flexural and tensile moduli of a printed bar agree to within about 20%"
+      },
+      "flexural Z": {
+        "offset": 0.4,
+        "sd": 0.45,
+        "why": "Across the layers a bar is weaker and softer"
+      },
+      "flexural unk": {
+        "offset": 0,
+        "sd": 0.4,
+        "why": "Direction not stated",
+        "learns": "pairs, across products, down only"
+      },
+      "tensile Z": {
+        "offset": 0.34,
+        "sd": 0.35,
+        "why": "XY is typically about 1.4 times Z"
+      },
+      "tensile unk": {
+        "offset": 0,
+        "sd": 0.35,
+        "why": "Direction not stated; may be a moulded bar",
+        "learns": "pairs, across products, down only"
+      },
+      "tensile moulded": {
+        "offset": -0.15,
+        "sd": 0.25,
+        "why": "A printed XY bar reaches roughly 85% of a moulded bar's stiffness"
+      },
+      "tensile XY annealed": {
+        "offset": -0.1,
+        "sd": 0.12,
+        "why": "Annealed after printing: a crystallising matrix stiffens, about 11 % (13 grades that publish both: median x1.11, 1.05 to 1.35; D162)"
+      },
+      "flexural moulded": {
+        "offset": -0.15,
+        "sd": 0.3,
+        "why": "Moulded flexural modulus, converted as a moulded tensile one"
+      },
+      "hardness A": {
+        "offset": -0.4,
+        "sd": 0.7,
+        "why": "Shore A through Gent (1958). Printed data-sheet moduli scatter on both sides of it: Gent under-predicts above about 90A (PEBA 90A flexural 80 MPa is 3.8 times Gent)."
+      },
+      "hardness D": {
+        "offset": -0.8,
+        "sd": 0.6,
+        "why": "Shore D through Qi, Joyce and Boyce (2003). Elastomers only. Printed data-sheet moduli sit below the Gent and Qi hardness relations, and vary with how each lab defines an elastomer's modulus"
+      }
+    },
+    "tensileStrengthXY": {
+      "break XY": {
+        "offset": 0.05,
+        "sd": 0.1,
+        "why": "Break stress sits at or just below the ultimate strength of a filled or brittle bar"
+      },
+      "yield XY": {
+        "offset": 0.02,
+        "sd": 0.08,
+        "why": "For a thermoplastic that necks, yield is the maximum stress"
+      },
+      "ultimate Z": {
+        "offset": 0.48,
+        "sd": 0.35,
+        "why": "Across the layers strength is typically 60% of XY, with a wide spread"
+      },
+      "break Z": {
+        "offset": 0.5,
+        "sd": 0.4,
+        "why": "Across the layers, at break"
+      },
+      "yield Z": {
+        "offset": 0.45,
+        "sd": 0.4,
+        "why": "Across the layers, at yield"
+      },
+      "flexural XY": {
+        "offset": -0.5,
+        "sd": 0.2,
+        "why": "Flexural strength of a printed bar is typically 1.4 to 1.8 times its tensile strength"
+      },
+      "flexural Z": {
+        "offset": 0,
+        "sd": 0.45,
+        "why": "Flexural, across the layers"
+      },
+      "flexural unk": {
+        "offset": -0.3,
+        "sd": 0.35,
+        "why": "Flexural, direction not stated"
+      },
+      "ultimate unk": {
+        "offset": 0.1,
+        "sd": 0.3,
+        "why": "Direction not stated",
+        "learns": "pairs, across products, down only"
+      },
+      "break unk": {
+        "offset": 0.15,
+        "sd": 0.3,
+        "why": "Break stress, direction not stated",
+        "learns": "pairs, across products, down only"
+      },
+      "yield unk": {
+        "offset": 0.1,
+        "sd": 0.3,
+        "why": "Yield stress, direction not stated",
+        "learns": "pairs, across products, down only"
+      },
+      "ultimate moulded": {
+        "offset": -0.25,
+        "sd": 0.25,
+        "why": "A printed XY bar reaches roughly 70 to 85% of a moulded bar's strength"
+      },
+      "ultimate XY annealed": {
+        "offset": -0.13,
+        "sd": 0.12,
+        "why": "Annealed after printing: about 14 % stronger (10 grades that publish both: median x1.14, 0.93 to 1.27; D162)"
+      },
+      "yield moulded": {
+        "offset": -0.25,
+        "sd": 0.25,
+        "why": "Moulded yield stress, converted as moulded strength"
+      },
+      "break moulded": {
+        "offset": -0.2,
+        "sd": 0.3,
+        "why": "Moulded break stress"
+      }
+    },
+    "elongationXY": {
+      "break Z": {
+        "offset": 0.9,
+        "sd": 0.9,
+        "why": "Across the layers a bar breaks at a fraction of its XY strain"
+      },
+      "break unk": {
+        "offset": 0,
+        "sd": 0.9,
+        "why": "Direction not stated",
+        "learns": "pairs, across products, down only"
+      },
+      "break moulded": {
+        "offset": -1.4,
+        "sd": 1,
+        "why": "A printed bar breaks at a small fraction of a moulded bar's strain: nGen prints 11% against 190% moulded"
+      },
+      "break XY annealed": {
+        "offset": 0.21,
+        "sd": 0.6,
+        "why": "Annealed after printing: a crystallised bar stretches less (13 grades that publish both: median x0.81, 0.33 to 1.50; D162)"
+      },
+      "yield XY": {
+        "offset": 0.9,
+        "sd": 0.9,
+        "why": "Break strain is never below the yield strain, and a ductile bar goes far beyond it"
+      },
+      "yield Z": {
+        "offset": 0.9,
+        "sd": 1,
+        "why": "Yield strain across the layers"
+      },
+      "yield unk": {
+        "offset": 0.9,
+        "sd": 1,
+        "why": "Yield strain or strain at maximum stress, direction not stated"
+      }
+    },
+    "hdt045": {
+      "HDT 1.8 semi-filled": {
+        "offset": 24,
+        "sd": 8,
+        "why": "At 0.45 MPa a fibre-filled semicrystalline bar holds about 24 °C longer than at 1.8 MPa"
+      },
+      "HDT 1.8 semi-unfilled": {
+        "offset": 30,
+        "sd": 20,
+        "why": "Unfilled semicrystalline bars separate widely between the two loads"
+      },
+      "HDT 1.8 amorphous": {
+        "offset": 8,
+        "sd": 8,
+        "why": "Amorphous bars soften over a narrow range near Tg, so the two loads sit close"
+      },
+      "HDT unstated": {
+        "offset": 5,
+        "sd": 15,
+        "why": "A heat deflection value without its load is 0.45 MPa or 1.8 MPa; 0.45 MPa is never the lower"
+      },
+      "Tg amorphous": {
+        "offset": -3,
+        "sd": 15,
+        "why": "An amorphous bar deflects at 0.45 MPa near its glass transition"
+      },
+      "Vicat amorphous": {
+        "offset": -8,
+        "sd": 14,
+        "why": "Vicat softening sits a little above HDT at 0.45 MPa for amorphous polymers"
+      },
+      "Vicat semi-filled": {
+        "offset": -25,
+        "sd": 25,
+        "why": "Fibre-filled semicrystalline: Vicat runs well above HDT"
+      },
+      "Vicat semi-unfilled": {
+        "offset": -45,
+        "sd": 35,
+        "why": "Unfilled semicrystalline: a needle finds the melt long before a bar deflects"
+      },
+      "Tm semi-filled": {
+        "offset": -38,
+        "sd": 18,
+        "why": "A fibre network carries a semicrystalline bar to within about 40 °C of its melting point"
+      },
+      "HDT 0.45 moulded semicrystalline": {
+        "offset": -30,
+        "sd": 30,
+        "why": "A printed semicrystalline bar crystallises less than a moulded one and deflects earlier"
+      },
+      "HDT 0.45 annealed": {
+        "offset": -52,
+        "sd": 30,
+        "why": "Annealed after printing: a crystallising matrix deflects tens of degrees higher (11 grades that publish both: median +52 C, +28 to +108; D162)"
+      },
+      "HDT unstated moulded semicrystalline": {
+        "offset": -30,
+        "sd": 32,
+        "why": "Moulded semicrystalline, load not stated"
+      },
+      "HDT 0.45 moulded amorphous": {
+        "offset": -3,
+        "sd": 8,
+        "why": "Moulded and printed amorphous bars both deflect near Tg"
+      },
+      "HDT unstated moulded amorphous": {
+        "offset": 2,
+        "sd": 15,
+        "why": "Moulded amorphous, load not stated"
+      }
+    }
+  },
+  "wet": {
+    "high": {
+      "tensileModulusXY": {
+        "offset": 0.7,
+        "sd": 0.2
+      },
+      "tensileStrengthXY": {
+        "offset": 0.5,
+        "sd": 0.2
+      },
+      "elongationXY": {
+        "offset": -1.2,
+        "sd": 0.5
+      }
+    },
+    "low": {
+      "tensileModulusXY": {
+        "offset": 0.05,
+        "sd": 0.1
+      },
+      "tensileStrengthXY": {
+        "offset": 0.02,
+        "sd": 0.08
+      },
+      "elongationXY": {
+        "offset": -0.1,
+        "sd": 0.3
+      }
+    }
+  }
+}

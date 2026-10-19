@@ -35,15 +35,16 @@
 import { normalQuantile } from './numerics.js';
 import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, modelWith, untransform, sig3 } from './model.js';
 import { snapshot, rawObservations } from './observations.js';
-import { conversions, convert, betweenProductSpread } from './conversions.js';
+import { conversions, convert, betweenProductSpread, productSpreads } from './conversions.js';
 import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.js';
 import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
 import { backTest, screenDecision } from './screening.js';
-import { floorBackTest } from './floors.js';
+import { floorBackTest, ownValueCrossing } from './floors.js';
 import { attachPrintEstimates } from './print.js';
 import { attachProductScreening } from './product-screening.js';
-import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors } from './grades.js';
+import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors, formulationCeilings } from './grades.js';
+import { directionBackTest, directionTarget } from './directions.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
 
@@ -51,7 +52,7 @@ export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
  * Estimates for every missing headline of every in-scope material, attached in place; returns the model's diagnostics.
  * `model` is the configuration with its polymer identities (model.js modelWith).
  */
-export function buildEstimates(materials, { grades = [], measurements = [], sources = [], registry } = {}, model) {
+export function buildEstimates(materials, { grades = [], measurements = [], sources = [], registry, conversions: ledgerRows = [] } = {}, model) {
   const ESTIMATE_KEYS = estimateKeys(registry, model);
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
@@ -60,19 +61,20 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
 
   for (const key of ESTIMATE_KEYS) {
     const inv = untransform(key, model);
-    const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model);
+    const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model, { changesWithAnnealing: !!registry.headlines.find((h) => h.key === key)?.changesWithAnnealing });
     diagnostics.rejected.push(...rejected);
     diagnostics.bounds.push(...oneSided);
     // What each formulation's own measurements prove the headline is at least, once per headline: a grade's range takes it.
     const floorsOf = formulationFloors(registry.headlines.find((h) => h.key === key), S);
+    // And what its own moulded or undescribed values cap it at, where the model caps the headline so (D160).
+    const ceilingsOf = formulationCeilings(registry.headlines.find((h) => h.key === key), S, ledgerRows, model);
     const conv = conversions(key, raw, model);
     const converted = convert(key, raw, conv, S, model);
     const tmMean = meltingPoint(key, S, model).offset;
-    const floors = model.properties[key].floors;
     const between = betweenProductSpread(key, raw, S);
-    const fixedW = between.pairs >= model.fitting.minBetweenProductPairs ? Math.max(between.sd, floors.w) : null;
+    const fixed = productSpreads(between, key, model);
 
-    const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixedW);
+    const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixed);
 
     const { P, obs, conflicts } = fitWithConflicts(key, converted, S, model, hp);
     diagnostics.conflicts.push(...conflicts);
@@ -83,20 +85,26 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     const r3 = (v) => (v == null ? null : Number(v.toPrecision(3)));
     diagnostics.properties[key] = {
       observations: obs.length, formulations: new Set(obs.map((o) => o.f)).size,
-      betweenProduct: { sd: r3(between.sd), pairs: between.pairs, used: r3(hp.w), estimated: fixedW == null },
+      betweenProduct: { sd: r3(between.sd), pairs: between.pairs, used: r3(hp.w), estimated: fixed.w == null,
+        byMatrix: Object.fromEntries(Object.entries(between.byMatrix).map(([cls, b]) => [cls, { sd: r3(b.sd), pairs: b.pairs,
+          used: r3(cls === 'semi-filled' ? hp.ws ?? hp.w : cls === 'semi-unfilled' ? hp.wu ?? hp.w : hp.w) }])) },
       spreads: Object.fromEntries(Object.entries(hp).map(([k, v]) => [k, r3(v)])),
       calibration,
-      conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs }])),
+      conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs,
+        ...(c.across ? { across: { materials: c.across.materials, contrast: r3(c.across.contrast) } } : {}) }])),
     };
 
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
-    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor });
+    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor, conv, ledgerRows });
+    // Does an estimate cross a limit its own moulded or undescribed value misses, and is it right to (D160)?
+    const crossing = ownValueCrossing({ key, model, S, obs, holdOut, tmMean, inv });
+    if (crossing) diagnostics.properties[key].ownValue = crossing;
     const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
     diagnostics.properties[key].screening = certification;
 
     // Every grade's own estimate, with ranges calibrated at grade level (grades.js, D81). It is added beside the
     // material's and moves nothing the material shows.
-    const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible });
+    const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible, tmMean });
     diagnostics.properties[key].gradeCalibration = gradeCal.calibration;
     const named = new Set(outliers.map((o) => `${o.materialId}|${o.key}`));
     diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.typical?.gradeId === o.gradeId)));
@@ -108,7 +116,13 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
       diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';
     } else {
       const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
-      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf });
+      const centres = new Map();
+      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf, ceilingsOf, centres });
+      // The unstated-direction back-test (D159): an unstated-only product's centre against its measured siblings, and
+      // the products that publish both with their headline hidden.
+      const directions = directionBackTest({ key, model, S, obs, holdOut, calPlausible: gradeCal.calPlausible, zPlausible });
+      const centreOf = (g) => centres.get(`${g.materialId}|${S.fkey(g.id)}`);
+      if (directions) diagnostics.properties[key].directions = { ...directions, target: directionTarget({ key, model, S, obs, centreOf }) };
       diagnostics.properties[key].productScreening = attachProductScreening({ key, raw, S, model, tmMean, measurements, sources,
         definition: registry.headlines.find((h) => h.key === key) });
     }
@@ -187,6 +201,27 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
   return diagnostics;
 }
 
+/**
+ * The rows whose learned offset leaves the band they state: on a log headline headline ÷ related = exp(offset) must lie
+ * within the row's factors, in °C a heat deflection's difference must keep the row's offset (a floor at or above it, a
+ * ceiling at or below). A kind no observation reads learns nothing and is not checked.
+ */
+function conversionDrift(model, estimateModel) {
+  const out = [];
+  for (const b of model.conversionBands ?? []) {
+    const learned = estimateModel.properties[b.key]?.conversions?.[b.kind];
+    if (!learned) continue;
+    const log = model.properties[b.key].scale === 'log';
+    const value = log ? Math.exp(learned.offset) : learned.offset;
+    const low = b.rowKind === 'ceiling' || b.rowKind === 'demote-to-ceiling' ? null : log ? b.factorLow : b.offset;
+    const high = b.rowKind === 'floor' ? null : log ? b.factorHigh : b.offset;
+    if ((low != null && value < low - 1e-9) || (high != null && value > high + 1e-9)) {
+      out.push({ id: b.id, key: b.key, kind: b.kind, learned: learned.offset, value: Number(value.toPrecision(3)), low, high, pairs: learned.pairs });
+    }
+  }
+  return out;
+}
+
 /** Coverage summary for the validation report and meta. */
 export function summariseEstimates(materials, registry) {
   const pool = materials.filter((m) => !m.excluded && !m.familyEntry);
@@ -206,12 +241,18 @@ export function summariseEstimates(materials, registry) {
 }
 
 /** Apply the estimate stage to a compiled database in place. */
-export function attachEstimates(db) {
+export function attachEstimates(db, { conversions } = {}) {
   for (const g of db.grades) g.estimateVersion = 2;
-  const model = modelWith(db.polymers);
-  const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, sources: db.sources, registry: db.registry }, model);
+  // The documented conversions are rows of conversions.csv (D157), handed in by the pipeline: the compiled database keeps
+  // only the ledger's.
+  const model = modelWith(db.polymers, conversions);
+  const estimateModel = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, sources: db.sources, registry: db.registry, conversions: db.conversions }, model);
   const printEstimates = attachPrintEstimates(db.materials, model);
   db.meta.estimateCoverage = summariseEstimates(db.materials, db.registry);
+  // CONVERSION-DRIFT (D157): an offset the build learned must keep the band its row of conversions.csv states.
+  // Present only where a row drifts, which stops the build: a sound build carries nothing new.
+  const drift = conversionDrift(model, estimateModel);
+  if (drift.length) estimateModel.conversionDrift = drift;
   db.meta.estimateModel = estimateModel;
   db.meta.printEstimates = printEstimates;
   return db;

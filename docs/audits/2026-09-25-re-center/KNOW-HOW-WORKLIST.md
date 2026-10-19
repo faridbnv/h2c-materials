@@ -46,7 +46,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 1 / 3 | — |
 | PBT-GF (M132) | Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
-| PLA (M001) | Indoor prototype; Lightweight structure | collected | 3 of 195 | 82 / 104 / 156 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
+| PLA (M001) | Indoor prototype; Lightweight structure | collected | 3 of 195 | 82 / 104 / 157 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
 | PLA Wood (M014) | Indoor prototype; Lightweight structure | collected | 2 of 20 | 9 / 9 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 8 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
@@ -97,8 +97,8 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA Glow (M016) | Indoor prototype | collected | 0 of 7 | 2 / 3 / 6 | — |
 | PLA Marble (M012) | Indoor prototype | collected | 0 of 6 | 1 / 1 / 4 | — |
 | PLA Metal (M011) | Indoor prototype | collected | 0 of 9 | 2 / 7 / 8 | — |
-| PLA Silk (M008) | Indoor prototype | collected | 0 of 33 | 7 / 12 / 27 | — |
-| PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 1 / 2 / 3 | — |
+| PLA Silk (M008) | Indoor prototype | collected | 0 of 33 | 7 / 12 / 28 | — |
+| PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 1 / 2 / 4 | — |
 | PLA blend (M168) | Indoor prototype | collected | 0 of 9 | 5 / 3 / 7 | — |
 | PLA blend-CF (M169) | Indoor prototype | collected | 0 of 2 | 1 / 0 / 1 | — |
 | PLA-EC (M111) | Indoor prototype | collected | 0 of 2 | 1 / 1 / 2 | — |

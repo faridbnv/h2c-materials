@@ -399,6 +399,11 @@
                 },
                 "impliedBounds": {
                   "type": "array"
+                },
+                "ownCeilings": {
+                  "description": "The product's own moulded or undescribed values that cap this estimate, each times its conversions.csv row's Factor high (D160). Absent where none does.",
+                  "type": "array",
+                  "items": { "type": "object", "additionalProperties": false, "required": ["measurementId", "hi", "rule"], "properties": { "measurementId": { "type": "string" }, "hi": { "type": "number" }, "rule": { "type": "string" } } }
                 }
               }
             }
@@ -648,6 +653,18 @@
               }
             ]
           },
+          "heatTreatment": {
+            "description": "A heat treatment the row records as an annealing, at or below its polymer's annealing threshold (polymers.csv Annealing threshold °C, D158): nothing crystallised, so the value is judged as printed (postProcessingState as-printed, anneal null). The row's words and typed state are unchanged. Absent on every other measurement.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tempC", "hours", "thresholdC", "recorded"],
+            "properties": {
+              "tempC": { "type": "number" },
+              "hours": { "type": ["number", "null"] },
+              "thresholdC": { "type": "number" },
+              "recorded": { "const": "annealed" }
+            }
+          },
           "testTemperature": {
             "type": "string"
           },
@@ -765,7 +782,7 @@
           "sourceLoadMPa": { "type": ["number", "null"] },
           "sourceDirection": { "enum": ["same", "Z"] },
           "sourceState": { "enum": ["same", "annealed", "conditioned"] },
-          "sourceSpecimen": { "enum": ["as target", "moulded or not stated"] },
+          "sourceSpecimen": { "enum": ["as target", "printed", "moulded or not stated"] },
           "kind": { "enum": ["floor", "ceiling", "band", "equal", "demote-to-ceiling"] },
           "factorLow": { "type": ["number", "null"] },
           "factorHigh": { "type": ["number", "null"] },
@@ -1385,6 +1402,7 @@
           "morphology",
           "meltingPointC",
           "asPrinted",
+          "annealingThresholdC",
           "waterUptake",
           "neatDensity",
           "sourceId",
@@ -1413,6 +1431,13 @@
           "asPrinted": {
             "type": [
               "string",
+              "null"
+            ]
+          },
+          "annealingThresholdC": {
+            "description": "polymers.csv Annealing threshold °C: a heat treatment at or below it crystallises nothing, and a value measured after one is judged as printed (D158). Null where the column is Not applicable or Not recorded.",
+            "type": [
+              "number",
               "null"
             ]
           },
@@ -1872,6 +1897,7 @@
                 "properties",
                 "loadMPa",
                 "excludeMoisture",
+                "forms",
                 "why"
               ],
               "properties": {
@@ -1892,6 +1918,13 @@
                   "type": "array",
                   "items": {
                     "type": "string"
+                  }
+                },
+                "forms": {
+                  "description": "The specimen forms that bound the headline (headline_definitions.csv Lower bound specimens, D126, D161).",
+                  "type": "array",
+                  "items": {
+                    "enum": ["printed", "not-stated"]
                   }
                 },
                 "why": {

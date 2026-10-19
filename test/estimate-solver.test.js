@@ -15,6 +15,7 @@ import { blockSolver } from '../build/src/estimate/solver.js';
 import { cholesky, inverseFromCholesky, invertSmall } from '../build/src/estimate/numerics.js';
 import { makeKernel, fitModel, posterior, predict, spreadObservations, hyperparameters } from '../build/src/estimate/gaussian.js';
 import { modelWith, estimateKeys } from '../build/src/estimate/model.js';
+import { estimateConversions } from '../build/src/evidence-ledger.js';
 import { snapshot, rawObservations } from '../build/src/estimate/observations.js';
 import { conversions, convert } from '../build/src/estimate/conversions.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
@@ -120,7 +121,7 @@ const wbPath = join(root, 'data');
 test('on this database, every number the estimate stage reads is the dense solve\'s', { skip: !existsSync(wbPath) && 'no data tables' }, () => {
   const wb = loadTables(wbPath);
   const { db } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), estimates: false });
-  const model = modelWith(db.polymers);
+  const model = modelWith(db.polymers, estimateConversions(wb.Conversions?.rows ?? []));
   const S = snapshot(db.materials, db.grades, db.measurements, model);
   const key = estimateKeys(db.registry, model)[0];
   const { raw } = rawObservations(key, S, model);

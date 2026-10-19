@@ -29,14 +29,33 @@ export const APPLICABILITY_FIELDS = {
   'Scope': 'scope',
   'H2C status': 'h2cStatus',
   'Morphology': 'morphology',
+  'Printed state': 'printedState',
 };
 
 export const NOT_MODELLED = 'not modelled';
 
-/** The materials table's rows, each with the Morphology of its polymer, which an applicability rule may test. */
+/**
+ * How a material's part is as printed (D158): rubbery for an elastomer; glassy for an amorphous polymer and for a
+ * semicrystalline one that prints amorphous (PLA, PET: polymers.csv As printed), unless fibre nucleates it in a hot print
+ * (PPA); crystalline otherwise. A physics rule about a glassy bar (its heat deflection near its glass transition) reads
+ * this, not the morphology: PLA is semicrystalline and prints glassy.
+ */
+export function printedStateOf(polymer, modifier) {
+  if (!polymer) return NOT_MODELLED;
+  if (polymer.Morphology === 'elastomer') return 'rubbery';
+  if (polymer.Morphology !== 'semicrystalline') return 'glassy';
+  const fibre = modifier === 'Carbon fibre' || modifier === 'Glass fibre';
+  if (polymer['As printed'] === 'prints amorphous' || (polymer['As printed'] === 'prints amorphous unless fibre-filled' && !fibre)) return 'glassy';
+  return 'crystalline';
+}
+
+/** A materials row with what an applicability rule may test of its polymer: its Morphology and its Printed state. */
+export const withPolymer = (row, polymer) => ({ ...row, Morphology: polymer?.Morphology ?? NOT_MODELLED, 'Printed state': printedStateOf(polymer, row['Modifier / filler']) });
+
+/** The materials table's rows, each with its polymer's Morphology and Printed state, which an applicability rule may test. */
 export function materialRowsOf(wb) {
-  const morphology = new Map((wb.Polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
-  return wb.Materials.rows.map((r) => ({ ...r, Morphology: morphology.get(r['Estimate identity']) ?? NOT_MODELLED }));
+  const polymers = new Map((wb.Polymers?.rows ?? []).map((p) => [p.PolymerID, p]));
+  return wb.Materials.rows.map((r) => withPolymer(r, polymers.get(r['Estimate identity'])));
 }
 
 const list = (cell) => (cell == null || cell === NA ? [] : String(cell).split(';').map((s) => s.trim()).filter(Boolean));
@@ -109,6 +128,9 @@ export function compileRegistry(wb, issues) {
       lowerBounds: list(r['Lower bound properties']).length ? {
         properties: list(r['Lower bound properties']), loadMPa: numOrNull(r['Lower bound load MPa']),
         excludeMoisture: list(r['Lower bound excludes']), why: orNull(r['Lower bound basis']),
+        // Which specimens bound it (D126, D161): a printed bar, and for every headline but elongation one its sheet does
+        // not describe.
+        forms: r['Lower bound specimens'] === 'printed' ? ['printed'] : ['printed', 'not-stated'],
       } : null,
       direction: orNull(r.Direction),
       // A value whose source states no direction: this headline's as published (D84), or none of its values (D92).

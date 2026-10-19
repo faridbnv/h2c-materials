@@ -14,7 +14,8 @@ function documentedConversion(key, kind, model) {
   const wet = wetClass && model.wet[wetClass]?.[key];
   if (wet) {
     const dry = table[kind.replace(/ wet(-low)?$/, '')];
-    if (dry) return { offset: dry.offset + wet.offset, sd: Math.hypot(dry.sd, wet.sd), why: `${dry.why}; measured after moisture conditioning (${wetClass} water uptake)` };
+    // A conditioned value of an unknown direction keeps its dry kind's cap; it learns from its own pairs alone.
+    if (dry) return { offset: dry.offset + wet.offset, sd: Math.hypot(dry.sd, wet.sd), why: `${dry.why}; measured after moisture conditioning (${wetClass} water uptake)`, learns: /down only$/.test(dry.learns ?? '') ? 'pairs, down only' : 'pairs' };
   }
   return null;
 }
@@ -36,6 +37,7 @@ export function conversions(key, raw, model, { without = null } = {}) {
     if (!kinds.has(HEAD[key])) continue;
     for (const [k, y] of kinds) { if (k === HEAD[key]) continue; if (!diffs.has(k)) diffs.set(k, []); diffs.get(k).push(kinds.get(HEAD[key]) - y); }
   }
+  const across = acrossProducts(key, byF);
   const out = { [HEAD[key]]: { offset: 0, sd: 0, pairs: 0, why: "The headline's own semantics" } };
   const kinds = new Set([...Object.keys(model.conversions[key] ?? {}), ...raw.map((o) => o.kind)]);
   for (const k of kinds) {
@@ -46,15 +48,53 @@ export function conversions(key, raw, model, { without = null } = {}) {
     const centre = n ? median(ds) : 0;
     const spread = n >= nMin ? 1.4826 * median(ds.map((d) => Math.abs(d - centre))) : 0;
     const df = n >= nMin ? n - 1 : 0;
-    const refined = (n * centre + n0 * doc.offset) / (n + n0);
+    // A kind that learns across products (D159) pools a contrast per material with the within-product pairs: the products
+    // that publish the headline's own kind against those that publish only this one. Its spread is still the pairs':
+    // the contrast carries the spread between products, which the model's product term already holds.
+    const cross = doc.learns === 'pairs, across products, down only' ? across(k) : null;
+    const nc = cross?.materials ?? 0;
+    const refined = (n * centre + nc * (cross?.contrast ?? 0) + n0 * doc.offset) / (n + nc + n0);
     out[k] = {
-      // An unknown direction may move below its documented offset, never above it (estimate-model.json _directionComment).
-      offset: / unk( |$)/.test(k) ? Math.min(refined, doc.offset) : refined,
+      // An unknown direction may move below its documented offset, never above it (conversions.csv Estimate learns, D56):
+      // a data-sheet value with no stated direction is an XY or a moulded value far more often than a Z one, and 18 Z
+      // results coded unknown once taught these conversions offsets of +0.31 to +0.46 (audit 2026-09-15, B-03, B-04).
+      offset: /down only$/.test(doc.learns ?? '') ? Math.min(refined, doc.offset) : refined,
       sd: Math.sqrt((df * spread * spread + n0 * doc.sd * doc.sd) / (df + n0)),
       pairs: n, why: doc.why,
+      ...(cross ? { across: { materials: nc, contrast: cross.contrast } } : {}),
     };
   }
   return out;
+}
+
+/**
+ * The cross-product contrast of a related kind (D159): per material, the median of the headline's own kind over its
+ * products that publish it, less the median of the related kind over its products that publish that and not the
+ * headline's kind; then the median over the materials that have both. A product that publishes both kinds usually prints
+ * one number twice (24 tensile pairs at a median of 0), so the pairs alone cannot see what an unstated direction is; the
+ * products that publish it alone can. `byF` is conversions()'s formulations with their kinds, hidden products already
+ * left out, so a hold-out never sees its own value on either side.
+ */
+function acrossProducts(key, byF) {
+  const byMaterial = new Map();
+  for (const [g, kinds] of byF) {
+    const id = g.slice(0, g.indexOf('|'));
+    if (!byMaterial.has(id)) byMaterial.set(id, []);
+    byMaterial.get(id).push(kinds);
+  }
+  const cache = new Map();
+  return (k) => {
+    if (!cache.has(k)) {
+      const contrasts = [];
+      for (const products of byMaterial.values()) {
+        const head = products.filter((kinds) => kinds.has(HEAD[key])).map((kinds) => kinds.get(HEAD[key]));
+        const only = products.filter((kinds) => kinds.has(k) && !kinds.has(HEAD[key])).map((kinds) => kinds.get(k));
+        if (head.length && only.length) contrasts.push(median(head) - median(only));
+      }
+      cache.set(k, { materials: contrasts.length, contrast: contrasts.length ? median(contrasts) : 0 });
+    }
+    return cache.get(k);
+  };
 }
 
 /**
@@ -65,7 +105,8 @@ export function convert(key, raw, conv, S, model) {
   const out = [], tm = meltingPoint(key, S, model);
   for (const o of raw) {
     const c = conv[o.kind];
-    if (!c) continue;
+    // An annealed value beside its as-printed twin teaches its conversion and is no observation (D162).
+    if (!c || o.pairOnly) continue;
     out.push({ ...o, y: o.yRaw + c.offset - tm.offset(o.m), noise2: c.sd * c.sd + o.half * o.half, conversion: c });
   }
   const best = new Map();
@@ -82,16 +123,34 @@ export function convert(key, raw, conv, S, model) {
 export function betweenProductSpread(key, raw, S) {
   const direct = new Set([HEAD[key], ...(key === 'tensileStrengthXY' ? ['break XY', 'yield XY'] : [])]);
   const diffs = [];
+  const byClass = new Map();
   const byMaterial = new Map();
   for (const o of raw) {
     if (!direct.has(o.kind) || o.bound || S.info(o.m).morphology === 'elastomer') continue;
-    if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, new Map());
-    const fs = byMaterial.get(o.m.id); if (!fs.has(o.f)) fs.set(o.f, []); fs.get(o.f).push(o.yRaw);
+    if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, { cls: S.matrix(o.m), fs: new Map() });
+    const fs = byMaterial.get(o.m.id).fs; if (!fs.has(o.f)) fs.set(o.f, []); fs.get(o.f).push(o.yRaw);
   }
-  for (const fs of byMaterial.values()) {
+  for (const { cls, fs } of byMaterial.values()) {
     const v = [...fs.values()].map((ys) => ys.reduce((a, b) => a + b, 0) / ys.length);
-    for (let i = 0; i < v.length; i++) for (let j = i + 1; j < v.length; j++) diffs.push(Math.abs(v[i] - v[j]));
+    if (!byClass.has(cls)) byClass.set(cls, []);
+    for (let i = 0; i < v.length; i++) for (let j = i + 1; j < v.length; j++) { const d = Math.abs(v[i] - v[j]); diffs.push(d); byClass.get(cls).push(d); }
   }
-  // For a normal spread s, the absolute difference of two draws has median 0.954 s.
-  return { sd: diffs.length ? median(diffs) / 0.954 : null, pairs: diffs.length };
+  // For a normal spread s, the absolute difference of two draws has median 0.954 s. The spread is also measured per
+  // matrix as printed (D162): a crystalline matrix's products scatter in heat deflection with their crystallinity, far
+  // more than a glassy one's, and one pooled spread set by the many glassy pairs served every matrix.
+  const spread = (ds) => ({ sd: ds.length ? median(ds) / 0.954 : null, pairs: ds.length });
+  return { ...spread(diffs), byMatrix: Object.fromEntries([...byClass].sort().map(([cls, ds]) => [cls, spread(ds)])) };
+}
+
+/**
+ * The product spreads a fit holds fixed, from the measured spreads: the pooled one (w) where it has enough pairs, and,
+ * where the headline asks for it (estimate-model.json productSpreadByMatrix: heat deflection), one for a matrix that
+ * crystallises as printed, filled (ws) and unfilled (wu), where its own pairs suffice (D162). Each is floored at the
+ * headline's floor for w. A matrix without its own uses w.
+ */
+export function productSpreads(between, key, model) {
+  const floor = model.properties[key].floors.w, min = model.fitting.minBetweenProductPairs;
+  const fix = (b) => (b && b.pairs >= min ? Math.max(b.sd, floor) : null);
+  const byMatrix = model.properties[key].productSpreadByMatrix === true;
+  return { w: fix(between), ws: byMatrix ? fix(between.byMatrix?.['semi-filled']) : null, wu: byMatrix ? fix(between.byMatrix?.['semi-unfilled']) : null };
 }

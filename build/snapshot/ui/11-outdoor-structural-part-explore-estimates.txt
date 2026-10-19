@@ -1,7 +1,7 @@
 COUNT 93 shown PASS + UNKNOWN
 STATUS ☑ PASS 11 | ☑ UNKNOWN 89 | ☐ FAIL 52 | ☐ HIDDEN 7
 11 of the 152 materials meet these requirements
-Outdoor structural part template · UNKNOWN 89: 7 one check away, 29 not enough data, 46 unlikely to meet, 7 hidden
+Outdoor structural part template · UNKNOWN 89: 7 one check away, 23 not enough data, 52 unlikely to meet, 7 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -71,36 +71,30 @@ ROW PA612-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away 
 ROW PC-ABS-CF / Polymer Blends | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: 3DXTECH CarbonX Carbon Fiber PC/ABS, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,240 | 5.9 | 62 | 2 | 130 | —
 ROW PC-CF / Polycarbonate | ☆ | UNKNOWN / 0 of 10 products / One check away on 3 of 10 products: 3DXTECH CarbonX CF PC, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,225 / 1,180–1,360 · 10 | 4.65 / 2.6–6.98 · 4 | 70 / 35–73 · 5 | 2.1 / 2–7.5 · 3 | 128 / 114–140 · 6 | 152↗
 ROW PPA / High-Performance Engineering | ☆ | UNKNOWN / 0 of 2 products / One check away on 1 of 2 products: IPCON PPA Pure Resin, tensile modulus (XY) 2.863 GPa, on the line for at least 3 GPa | 1,175 / 1,140–1,210 · 2 | 2.86 | 76 | 3.4 | 92 / 81–103 · 2 | 85↗
-Not enough data (29)
-More than one question is open, or a value is not published the way you asked. The one tagged likely comes first: its estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
-TABLE 29 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
-ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: BASF Forward AM Ultrafuse PAHT CF15, density estimated 1,030 to 1,170 kg/m³ | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
-ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 8.67 to 14.6 GPa | 1,400 | ~8.6–14.6† | ~201–254† | ~3.3–7.9† | ~193–194† | —
-ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; tensile modulus (XY) estimated 4.89 to 7.97 GPa | 1,140 | ~4.8–8.0† | ~68.0–77.0† | ~4.0–8.8† | 142 | —
-ROW PA12-GF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 3 products / Not enough data: Fiberlogy Nylon PA12+GF15, tensile modulus (XY) estimated 2.83 to 4.46 GPa | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD
-ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,040–1,250† | ~2.4–8.0† | ~56–126† | ~1–13† | ~129–211† | —
-ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,050–1,160† | ~3.2–11.0† | ~59–133† | ~1–13† | ~120–240† | —
-ROW PC-PBT-CF / Polymer Blends | ☆ | UNKNOWN / none judged / Not enough data: Extrudr DURAPRO PC-PBT CF, its chamber temperature is not stated; tensile modulus (XY) estimated 3.67 to 5.02 GPa | 1,250 | ~3.6–5.1† | ~90–102† | ~3.6–8.6† | ~113–126† | 115EUR
-ROW SAN / Styrenics | ☆ | UNKNOWN / none judged / Not enough data: Fabru Styrol-Acrylnitril (SAN), its chamber temperature is not stated; tensile modulus (XY) estimated 2.7 to 4.42 GPa | 1,080 | ~2.7–4.5† | ~72–89† | ~5–58† | ~102–113† | —
-ROW PET-GF · ☆
-ROW ASA-GF · ☆
-ROW PA6 · ☆
-ROW PC-PTFE · ☆
-ROW PA6/66 · ☆
-ROW PA612 · ☆
-ROW ASA-AF · ☆
-ROW ASA-EC · ☆
-ROW Nylon-GF, maker-undisclosed polyamide · ☆
-ROW PA6-CE · ☆
-ROW PA6-GS · ☆
+Not enough data (23)
+More than one question is open, or a value is not published the way you asked. The 5 tagged likely come first: their estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
+TABLE 23 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW PA6 / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 9 products / Not enough data, likely: Nanovia PA Rail, HDT at 0.45 MPa estimated 100 to 178 °C | 1,150 / 1,130–1,200 · 7 | ~1.4–3.5† | ~39–80† | ~51–109† | 140 / 60–143 · 3 | 163↗
+ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum PA6 CS20 FR V0, HDT at 0.45 MPa estimated 104 to 172 °C; tensile modulus (XY) estimated 3.71 to 5.79 GPa | 1,490 | ~3.7–5.8† | ~56–81† | ~1.9–9.5† | ~104–172† | 161EUR
+ROW PA612-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: Polymaker Fiberon PA612-ESD, tensile modulus (XY) estimated 3.48 to 4.39 GPa | 1,100 | 4.29 | 84.3 | 3 | 157 | 178↗
+ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: BASF Forward AM Ultrafuse PAHT CF15, density estimated 1,020 to 1,170 kg/m³ | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
+ROW PET-GF / PET Engineering | ☆ | UNKNOWN / 0 of 4 products / Not enough data, likely: QIDI PET-GF, HDT at 0.45 MPa estimated 104 to 117 °C; tensile modulus (XY) estimated 3.42 to 4.29 GPa | 1,385 / 1,380–1,430 · 4 | 4.13 / 4.13–4.14 · 3 | 70.9 / 59.9–76 · 4 | 3.28 / 2.56–5.5 · 4 | 120 / 81.6–200 · 4 | 69.5 / 41–98 · 2 / ↗
+ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 7.55 to 12 GPa | 1,400 | ~7.5–12.0† | ~200–243† | ~1.8–6.2† | ~193–195† | —
+ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; tensile modulus (XY) estimated 4.32 to 6.77 GPa | 1,140 | ~4.3–6.8† | ~68.0–77.0† | ~2.3–7.3† | 142 | —
+ROW PA6-GS / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 GK10, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; HDT at 0.45 MPa estimated 104 to 172 °C; tensile modulus (XY) estimated 2.77 to 4.27 GPa | 1,010 | ~2.7–4.3† | ~88–114† | ~2–15† | ~104–172† | 180↗
 ROW PA6/66-CF · ☆
-ROW PA612-ESD · ☆
+ROW PA612-GF · ☆
 ROW PA66 · ☆
+ROW PA66-CF · ☆
 ROW PAHT · ☆
 ROW PAHT-CE · ☆
-ROW PETG-GR · ☆
-ROW PLA-EC · ☆
-ROW PLA-GR · ☆
-ROW PVC · ☆
+ROW PC-PBT-CF · ☆
+ROW SAN · ☆
+ROW PA12-GF · ☆
+ROW ASA-EC · ☆
+ROW ASA-GF · ☆
+ROW PA6/66 · ☆
+ROW PA612 · ☆
+ROW Nylon-GF, maker-undisclosed polyamide · ☆
 ROW SBC · ☆
-Unlikely to meet (46): folded, still counted and in the download
+Unlikely to meet (52): folded, still counted and in the download

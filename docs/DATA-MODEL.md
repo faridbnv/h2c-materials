@@ -60,7 +60,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `class_limits.csv` | The physics limits per kind of plastic (D154): a ceiling, a floor or a neat-density range read from `polymers.csv`, the kind it holds for, reported or deciding, and the registered source that prints it |
 | `chamber_need.csv` | What a product's silence about the chamber means for its kind of plastic (D151): one row per kind (Applies to), within or unknown, reported or deciding, who reviewed it and why. The build counts the makers that state a chamber and those asking above 65 °C; a deciding within row reads a truly silent chamber as within, labelled with the counts |
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
-| `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
+| `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, the annealing threshold at or below which a heat treatment leaves a part as printed (D158), water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
 | `print_guide.csv` | What a printer maker's filament guide states for printing a material type, one row per type it heads a column with, in a print profile's columns (D88): no product's profile |
 | `print_guide_materials.csv` | Which material each guide type is, with why and who mapped it: the same material type only (D88) |
@@ -149,7 +149,11 @@ build reads (D68).
   Post-processing state (as-printed, annealed, not-stated) as typed columns beside the source's own words, and each
   Specimen type declares a Form (printed, not-stated, moulded, film, filament, off-recipe) in its vocabulary, because
   those wordings are the database's own. The build reads the state, never the words; where the words plainly say
-  otherwise the build stops (PARSE-MISMATCH), and where they say nothing the column decides.
+  otherwise the build stops (PARSE-MISMATCH), and where they say nothing the column decides. A value annealed at or below
+  its polymer's annealing threshold (`polymers.csv` Annealing threshold °C, the glass transition of a polymer that
+  crystallises when annealed: PLA's 55 °C) is judged as printed, since nothing crystallised: Bambu Lab's "annealed and
+  dried at 55 °C for 8 h" over its PLA sheets. The row keeps its words and its typed state, and the compiled measurement
+  says what was done (`heatTreatment`, D158).
 - **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
   its current replacement, and no measurement or headline may use it (D57).
 - **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings
@@ -442,7 +446,7 @@ Not measured:
   known: false, missing: 'not-published', unit: '%',
   related: { … } | null,      // real measurements of this property that are no product's value: how many, the
                               // closest, and up to ten, each with why (below)
-  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen, that bound it from below (D55, D126)
+  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen where the headline admits them, that bound it from below (D55, D126, D161)
   estimate: { … } | null      // the calibrated estimate (below)
 }
 ```
@@ -482,7 +486,8 @@ one list:
   Scope `headline` or `both`; a bound no row covers, or a row no headline reads, stops the build
   (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.
 - **The estimate stage** floors every estimate by what the product's own measurements prove (`build/src/lower-bounds.js`).
-  A printed bar bounds a headline, and so does a bar whose source states no specimen, in any direction (a printed part is
+  A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation, which
+  takes printed bars only: `headline_definitions.csv` Lower bound specimens, D161), in any direction (a printed part is
   strongest in XY); a moulded, film, filament or off-recipe bar bounds nothing, nor does a value flagged implausible or
   quarantined, an annealed value beside an as-printed one, or a conditioned elongation. A grade's estimate is floored at its
   own formulation's highest floor. A material's range is the spread of its products, so it contains every product's floor:
@@ -569,14 +574,17 @@ in the answer, so a flexural modulus decides a tensile-modulus requirement insid
 
 Where a headline the registry marks Estimated (density, stiffness, strength, stretch and heat deflection) is missing, the
 build attaches an estimate. Its design is DECISIONS D43, its code
-`build/src/estimate/`, and its structure, conversions and limits are reviewed like code in
-`build/mappings/estimate-model.json`.
+`build/src/estimate/`, and its structure and limits are reviewed like code in
+`build/mappings/estimate-model.json`. Its documented conversions are rows of `conversions.csv` (Estimate kind, offset,
+sd, learns and note), on the evidence ledger's row where it is the same relation and as rows of Kind `estimate`
+otherwise; the build stops where an offset it learns leaves the row's band (CONVERSION-DRIFT, D157).
 
-The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PET, BVOH, PVA, unfilled PPA)
+The physics it follows since audit 2026-09-15 (D56): a polymer that prints amorphous (PLA since D158, PET, BVOH, PVA, unfilled PPA)
 deflects near its glass transition and learns nothing from annealed values; an annealed value is never averaged with
 its as-printed twin; conditioned values convert to dry by the polymer's water uptake; density is bounded by the neat
 polymer's range and the rule of mixtures; an unfilled bar is capped by its own highest Vicat; an elastomer has no heat
-deflection estimate and no yield-to-ultimate conversion; an unknown direction never converts upwards past its
+deflection estimate and no yield-to-ultimate conversion; an unknown direction's offset pools the pairs with a contrast
+across products (the products publishing XY against those publishing only the unstated kind, D159) and never converts upwards past its
 documented offset; a material's only evidence is never down-weighted as a conflict; and what its own printed data
 prove (implied bounds) limits its range from below (D55). A physically implausible value informs nothing.
 
@@ -617,8 +625,11 @@ semantics with an offset and a spread:
 Each documented offset is refined by the median of grades that publish both, and each spread by their
 MAD; the documented value counts as three pairs. On each product only the most direct kinds are kept. An annealed
 value of a grade that publishes the as-printed one is left out; repeats under different annealing schedules keep a
-half-width that spans them and calibrate no conversion. A polymer that prints amorphous (`printsAmorphous`: PET,
-BVOH, PVA, unfilled PPA) converts heat values with the amorphous class and learns nothing from annealed ones.
+half-width that spans them and calibrate no conversion; an annealed value of the headline's own semantics converts as
+a kind of its own (`tensile XY annealed` and so on, D162) and, beside its as-printed twin, only teaches that conversion.
+A polymer that prints amorphous (`printsAmorphous`: PLA, PET,
+BVOH, PVA, unfilled PPA) converts heat values with the amorphous class, takes a filler's effect as a glassy matrix does,
+and learns nothing from annealed ones (a value treated at or below its glass transition is as printed, D158).
 
 **How wide, and how it is checked.** The spread between two products of the same material is
 measured directly from materials with several products (median pairwise difference). The rest are

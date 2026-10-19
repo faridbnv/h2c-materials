@@ -16,6 +16,7 @@ import { snapshotDate } from './load.js';
 import { compile } from './compile.js';
 import { validate } from './validate.js';
 import { attachEstimates } from './estimate/index.js';
+import { estimateConversions } from './evidence-ledger.js';
 import { validateEstimates } from './estimate/validate.js';
 import { cacheEnabled, cacheKey, claim, readEntry, writeEntry } from './build-cache.js';
 import { attachChamberNeed } from './chamber-need.js';
@@ -50,7 +51,7 @@ export function buildDatabase(wb, { snapshot = snapshotDate(wb.Method.rows), bui
     const timing = {};
     const stage = (name, run) => { const t = performance.now(); const value = run(); timing[name] = Math.round(performance.now() - t); return value; };
     const { db, issues } = stage('compile', () => compile(wb, { snapshot, build }));
-    if (estimates) stage('estimate', () => attachEstimates(db));
+    if (estimates) stage('estimate', () => attachEstimates(db, { conversions: estimateConversions(wb.Conversions?.rows ?? []) }));
     // A silent chamber read from its kind of plastic (D151), after the estimate stage: the frozen stage validates its
     // product screening on the products whose own sheets, twins or guide settle all three printer checks, and stays so.
     stage('chamberNeed', () => issues.push(...attachChamberNeed(db, wb, { materialRows: materialRowsOf(wb) })));

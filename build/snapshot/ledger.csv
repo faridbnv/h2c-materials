@@ -1,15 +1,17 @@
 Rule,Target,Kind,Status,Low,High,Applies to,Products,States,Demoted,Contradicted,Disagree,Pairs,Pair products,Implied,Implied min,Implied max,Breaking
-CV01,hdt045,floor,deciding,1,,,255,336,0,0,0,220,179,difference,-4,119.5,G165-04 V014653=58 V014656=62
+CV01,hdt045,floor,deciding,1,,,255,333,0,0,0,217,179,difference,-4,119.5,G165-04 V014653=58 V014656=62
 CV02,tensileModulusXY,equal,deciding,1,1,Base polymer: PET | PETG | PP | PE | PPS | PVDF | PC | PC-PBT,4,7,0,0,0,0,0,ratio,,,
-CV03,hdt045,ceiling,deciding,,1,,65,79,0,0,0,11,9,difference,-107.5,-19,
-CV04,tensileModulusXY,ceiling,deciding,,1.28,,65,79,0,0,0,13,12,ratio,0.756593169045,1.27292046145,
-CV05,hdt045,demote-to-ceiling,deciding,,1,Base polymer: PLA | PLA blend | PLA-PHA | PET,194,249,138,0,0,1,1,difference,-5,-5,
+CV03,hdt045,ceiling,deciding,,1,,50,61,0,0,0,11,9,difference,-107.5,-19,
+CV04,tensileModulusXY,ceiling,deciding,,1.28,,50,61,0,0,0,13,12,ratio,0.756593169045,1.27292046145,
+CV05,hdt045,demote-to-ceiling,deciding,,1,Base polymer: PLA | PLA blend | PLA-PHA | PET,197,252,138,0,0,1,1,difference,-5,-5,
 CV06,tensileModulusXY,floor,deciding,0.79,,,172,244,0,0,0,208,155,ratio,0.791747011184,5.15974842767,
 CV07,tensileModulusXY,floor,deciding,1,,Family: Nylon / Polyamide,9,14,0,0,0,13,9,ratio,1,3.73342541436,
 CV08,tensileModulusXY,band,deciding,0.46,1.93,Morphology: amorphous | semicrystalline | not modelled; Modifier / filler: Aramid fibre | Carbon fibre | Ceramic | Commercial variant / undisclosed | ESD formulation | Electrically conductive | Glass fibre | Glass spheres | Graphene | Metal powder | Natural fibre | PTFE | Unfilled / unspecified,601,788,0,0,0,290,235,ratio,0.460233638667,1.93,
 CV09,tensileStrengthXY,floor,deciding,0.86,,,221,331,0,0,0,251,192,ratio,0.864583333333,9.88943488943,
-CV10,elongationXY,floor,reported,1,,,145,203,0,0,0,12,12,ratio,1.03846153846,70,
-CV11,elongationXY,floor,reported,1,,,46,63,0,0,0,6,6,ratio,1.03448275862,20.9333333333,
+CV10,elongationXY,floor,reported,1,,,38,42,0,0,0,12,12,ratio,1.03846153846,70,
+CV11,elongationXY,floor,reported,1,,,25,40,0,0,0,6,6,ratio,1.03448275862,20.9333333333,
 CV12,tensileStrengthXY,equal,deciding,1,1,Base polymer: PET | PETG | PP | PE | PPS | PVDF | PC | PC-PBT,4,7,0,0,0,0,0,ratio,,,
+CV60,tensileModulusXY,demote-to-ceiling,reported,,1.16,,373,480,311,0,0,0,0,ratio,,,
+CV61,tensileStrengthXY,demote-to-ceiling,reported,,1.16,,316,359,440,2,0,0,0,ratio,,,
 CL01,tensileModulusXY,ceiling,deciding,,0.5,Base polymer: TPU | TPE | PEBA | TPC | OBC | TPS | TPV; Modifier / filler: Unfilled / unspecified,90,92,,0,0,,,extremes,0.0053,0.4,
-CL02,density,neat-density range,deciding,,,Modifier / filler: Unfilled / unspecified,516,516,,5,0,,,extremes,,,ABS 1020-1120; ASA 1040-1130; BVOH 1138-1140; COC 1020-1020; CoPE 1300-1300; CPE 1180-1270; HIPS 1023-1050; LCP 1400-1400; nGen 1130-1130; OBC 905-905; PA12 1000-1020; PA6 1130-1200; PA6/66 1080-1140; PAHT 1200-1200; PBAT 1250-1250; PBT 1310-1310; PC 1150-1230; PC-ABS 1070-1210; PC-PBT 1200-1200; PCL 1100-1130; PCTG 1230-1230; PE 954-954; PEBA 1000-1020; PET 1300-1360; PETG 1180-1300; PLA 1170-1329; PLA-PHA 1240-1240; PLA-PHB 1200-1200; PP 890-960; PPA 1140-1210; PPE-PS 1080-1100; PPS 1280-1330; PVA 1010-1370; PVB 1080-1100; PVC 1269-1350; PVDF 1710-1800; SAN 1080-1080; TPU 1000-1260
+CL02,density,neat-density range,deciding,,,Modifier / filler: Unfilled / unspecified,512,512,,5,0,,,extremes,,,ABS 1020-1120; ASA 1040-1130; BVOH 1138-1140; COC 1020-1020; CoPE 1300-1300; CPE 1180-1270; HIPS 1023-1050; LCP 1400-1400; nGen 1130-1130; OBC 905-905; PA12 1000-1020; PA6 1130-1200; PA6/66 1080-1140; PAHT 1200-1200; PBAT 1250-1250; PBT 1310-1310; PC 1150-1230; PC-ABS 1070-1210; PC-PBT 1200-1200; PCL 1100-1130; PCTG 1230-1230; PE 954-954; PEBA 1000-1020; PET 1300-1360; PETG 1180-1300; PLA 1170-1329; PLA-PHA 1240-1240; PLA-PHB 1200-1200; PP 890-960; PPA 1140-1210; PPE-PS 1080-1100; PPS 1280-1330; PVA 1010-1370; PVB 1080-1100; PVC 1269-1350; PVDF 1710-1800; SAN 1080-1080; TPU 1000-1260

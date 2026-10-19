@@ -186,7 +186,7 @@ product with no profile of its own (D127). Record a twin's own statement on its 
 
 **Add a printer maker's guide row.** Where a product's own sheet and its twin's are silent on its print gate, the build
 reads its material's row of `print_guide.csv` (D88), and its drying too (D127; Drying need and Drying hours open are
-typed beside the raw cell). A product with a Variant is not the guide's type and reads none (D129). A guide is a source like any other: fetched, its SHA-256 recorded,
+typed beside the raw cell). A product with a Variant is not the guide's type and reads none (D129), unless its Variant's row in `grade-variants.csv` says it prints as its type (a crystallising grade, D158). A guide is a source like any other: fetched, its SHA-256 recorded,
 Citation role `cited`, and a new revision is a new source row. A row is one type the guide heads a column with, in a
 profile's columns: the guide's words in the raw columns (a drawn mark as its glyph, ✓ or ✗), the parsers' reading in the
 typed ones, and a Locator naming the column and rows. Map it in `print_guide_materials.csv` only to the material that is
@@ -214,7 +214,8 @@ build refuses it otherwise (HEADLINE-SELECTION-INVALID), and refuses a second pi
 ID) and Status `active`. It joins its material's grade list with no other edit. If the product is a variant
 its material's Modifier / filler does not describe (a lightweight additive, an undisclosed dense filler), set
 Variant and say why in Composition / filler: its values stay its own, and the estimate model keeps them from
-pulling the family. It also reads no guide row, since it is not the guide's type (D129).
+pulling the family. It also reads no guide row, since it is not the guide's type (D129); a crystallising grade (a PLA its maker
+formulates to crystallise in the print) is the one variant that does, as `grade-variants.csv` Reads its type's guide says (D158).
 
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
@@ -270,7 +271,11 @@ implies, the pairs that break it). Set its factor to what every pair supports, n
 row a pair breaks is a reviewed CONVERSION-PAIRS finding (fix the record, narrow the row, or accept the pair with its
 reason). Switch it to `deciding` in a commit of its own, with its decision diff (the screening build's
 `decision-census.mjs`) and `npm run build:diff` showing no estimate path. A headline's Lower bound other than its own value
-needs its factor-1 floor row too (LEDGER-LB-DRIFT).
+needs its factor-1 floor row too, reading the specimens its Lower bound specimens names (LEDGER-LB-DRIFT). The estimate
+model's documented conversions are rows of the same table (D157): a row's Estimate kind, offset, sd, learns and note,
+on the ledger row that is the same relation or on a row of Kind `estimate`, which the ledger never reads. A new
+estimate kind is a new physical rule for the model (a decision and a back-test, below); the build stops where the
+offset it learns leaves the band its row states (CONVERSION-DRIFT).
 
 **Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
 its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.
@@ -391,7 +396,9 @@ node scripts/audit/leverage.mjs          # which values and print cells a misrea
 ```
 
 Estimates and screening (D43, D48, D58): estimates are a stage of their own (`build/src/estimate/`) applied to a
-complete core database; `node build/src/index.js --no-estimates` builds the core alone, and it must validate. **A case
+complete core database; `node build/src/index.js --no-estimates` builds the core alone, and it must validate. Stage 4
+of the screening build reopened the model, one decision and back-test per change (D157 to D162,
+`docs/audits/2026-10-18-screening-build/stage-4-backtests.md`); `round:close` holds it frozen again at that round's close. **A case
 the model cannot express is not a new branch in code.** Make it a not-applicable reason, a declared state or class in
 the data (a vocabulary State, a grade Variant, a Data status), or a reviewed finding that says more data is needed. A
 new conversion kind or physical rule needs a DECISIONS entry that says why the data cannot carry it, and a back-test

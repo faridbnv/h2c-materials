@@ -18,8 +18,8 @@ rather than repeat a number.
 | Measurements | 14,974 | active rows |
 | … with a usable number | 14,774 |  |
 | Product values | 7,461 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 1,182 | headline cells of in-scope materials |
-| Material values estimated | 139 | where no product publishes (D43) |
+| Material values from products | 1,168 | headline cells of in-scope materials |
+| Material values estimated | 143 | where no product publishes (D43) |
 | Print profiles | 1,836 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 7,601 | the makers' words, shown in the panel only (D85) |

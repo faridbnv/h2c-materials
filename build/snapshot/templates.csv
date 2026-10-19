@@ -124,58 +124,58 @@ Outdoor structural part,Explore,M167,"TPE, maker-undisclosed elastomer",UNKNOWN,
 Outdoor structural part,Explore,M168,PLA blend,UNKNOWN,none,0,5,4,9,G001-66,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore,M169,PLA blend-CF,UNKNOWN,none,0,1,1,2,G169-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore,M174,SBC,UNKNOWN,,0,0,1,1,G174-01,as-printed,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M001,PLA,UNKNOWN,none,0,122,73,195,G001-58,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,19,14,33,G008-03,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,4,2,6,G012-04,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M001,PLA,UNKNOWN,none,0,122,73,195,G001-178,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,19,14,33,G008-13,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,4,2,6,G012-07,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,9,11,20,G014-02,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,9,11,20,G014-07,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M015,PLA Galaxy,UNKNOWN,none,0,3,1,4,G015-04,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,5,2,7,G016-05,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M017,PLA Aero,UNKNOWN,none,0,11,1,12,G017-14,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M018,PLA-CF,UNKNOWN,none,0,10,9,19,G018-04,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M019,PLA-GF,UNKNOWN,none,0,1,3,4,G019-03,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M019,PLA-GF,UNKNOWN,none,0,1,3,4,G019-04,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M020,PETG,UNKNOWN,none,0,52,21,73,G020-53,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M024,PETG-CF,UNKNOWN,none,0,14,10,24,G024-11,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M025,PETG-GF,UNKNOWN,none,0,2,3,5,G025-01,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M025,PETG-GF,UNKNOWN,none,0,2,3,5,G025-05,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M026,PETG-ESD,UNKNOWN,none,0,8,1,9,G026-03,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M027,ABS,UNKNOWN,none,0,22,33,55,G027-28,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M027,ABS,UNKNOWN,none,0,22,33,55,G027-05,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M028,ABS-GF,UNKNOWN,none,0,6,5,11,G028-03,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M029,ABS-CF,UNKNOWN,none,0,5,6,11,G029-11,as-printed,yes,,one-check-away
-Outdoor structural part,Explore with estimates,M030,ABS-ESD,UNKNOWN,none,0,5,6,11,G030-07,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M031,ASA,UNKNOWN,none,0,18,22,40,G031-08,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M030,ABS-ESD,UNKNOWN,none,0,5,6,11,G030-05,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M031,ASA,UNKNOWN,none,0,18,22,40,G031-17,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M032,ASA Aero,UNKNOWN,none,0,3,1,4,G032-02,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M033,ASA-CF,PASS,some,2,2,13,17,G033-11,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M034,ASA-GF,UNKNOWN,none,0,2,4,6,G034-03,as-printed,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M035,PC,UNKNOWN,none,0,12,10,22,G035-25,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M035,PC,UNKNOWN,none,0,12,10,22,G035-17,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,2,8,10,G037-01,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,1,2,3,G038-03,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,screened,hdt045 >= 100,hidden
 Outdoor structural part,Explore with estimates,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G134-01,as-printed,screened,hdt045 >= 100,hidden
 Outdoor structural part,Explore with estimates,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-02,as-printed,yes,,not-enough-data (likely)
-Outdoor structural part,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-06,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-08,as-printed,yes,,not-enough-data (likely)
 Outdoor structural part,Explore with estimates,M050,PA6-CF,PASS,all,5,0,9,14,G050-06,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M051,PA6-GF,PASS,all,1,0,10,11,G051-02,as-printed,yes,,meets
-Outdoor structural part,Explore with estimates,M052,PA12,UNKNOWN,,0,0,8,8,G052-03,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M052,PA12,UNKNOWN,,0,0,8,8,G052-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M053,PA12-CF,UNKNOWN,none,0,2,13,15,G053-01,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M054,PA12-GF,UNKNOWN,none,0,1,2,3,G054-03,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M055,PA66,UNKNOWN,,0,0,2,2,G164-03,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M056,PA66-CF,UNKNOWN,,,,,,,,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M057,PA6/66,UNKNOWN,none,0,1,6,7,G057-05,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M057,PA6/66,UNKNOWN,none,0,1,6,7,G057-03,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M059,PA612-CF,UNKNOWN,,0,0,3,3,G059-02,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,none,0,4,3,7,G066-01,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data (likely)
+Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,none,0,4,3,7,G066-02,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M067,PET-CF,PASS,some,1,2,5,8,G067-04,as-printed,yes,,meets
-Outdoor structural part,Explore with estimates,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-01,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-05,as-printed,yes,,not-enough-data (likely)
 Outdoor structural part,Explore with estimates,M069,PPA,UNKNOWN,none,0,1,1,2,G069-01,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M070,PPA-CF,PASS,some,3,1,4,8,G070-01,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M071,PPA-GF,PASS,some,2,1,2,5,G071-01,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M072,PPS,UNKNOWN,none,0,1,1,2,G072-02,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M073,PPS-CF,PASS,all,3,0,4,7,G073-01,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M074,PPS-GF,PASS,all,1,0,1,2,G074-01,as-printed,yes,,meets
-Outdoor structural part,Explore with estimates,M081,HIPS,UNKNOWN,none,0,6,5,11,G081-04,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M081,HIPS,UNKNOWN,none,0,6,5,11,G081-05,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M082,PP,UNKNOWN,none,0,6,6,12,G082-09,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M083,PP-CF,PASS,some,1,2,2,5,G083-01,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,,meets
@@ -187,20 +187,20 @@ Outdoor structural part,Explore with estimates,M090,CPE-CF,UNKNOWN,none,0,1,2,3,
 Outdoor structural part,Explore with estimates,M093,PVB,UNKNOWN,none,0,4,2,6,G093-06,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M094,PC-ABS,UNKNOWN,none,0,7,6,13,G094-03,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M095,PC-PBT,UNKNOWN,none,0,1,1,2,G095-02,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M104,PA6-CE,UNKNOWN,,0,0,1,1,G104-01,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M104,PA6-CE,UNKNOWN,,0,0,1,1,G104-01,as-printed,yes,,not-enough-data (likely)
 Outdoor structural part,Explore with estimates,M105,ASA-EC,UNKNOWN,,0,0,1,1,G105-01,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M107,PLA-ESD,UNKNOWN,none,0,1,1,2,G107-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M108,PA6-GS,UNKNOWN,,0,0,1,1,G108-01,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-01,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M111,PLA-EC,UNKNOWN,,0,0,2,2,G111-02,as-printed,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M112,PC-PTFE,UNKNOWN,none,0,1,1,2,G112-01,as-printed,yes,,not-enough-data
-Outdoor structural part,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-01,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M111,PLA-EC,UNKNOWN,,0,0,2,2,G111-02,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M112,PC-PTFE,UNKNOWN,none,0,1,1,2,G112-01,as-printed,yes,,unlikely-to-meet
+Outdoor structural part,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M126,TPU-ESD,UNKNOWN,,0,0,2,2,G126-01,as-printed,screened,hdt045 >= 100,hidden
 Outdoor structural part,Explore with estimates,M128,PC-ABS-CF,UNKNOWN,,0,0,1,1,G128-01,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M129,TPU-CF,UNKNOWN,,0,0,3,3,G129-01,as-printed,screened,hdt045 >= 100,hidden
 Outdoor structural part,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,,0,0,1,1,G131-01,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M132,PBT-GF,PASS,all,2,0,0,2,G132-01,as-printed,yes,,meets
-Outdoor structural part,Explore with estimates,M135,PVC,UNKNOWN,,0,0,2,2,G135-01,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M135,PVC,UNKNOWN,,0,0,2,2,G135-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M136,SAN,UNKNOWN,,0,0,1,1,G136-02,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M137,COC,UNKNOWN,,0,0,2,2,G137-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M138,PE-GF,UNKNOWN,none,0,1,1,2,G138-03,as-printed,yes,,unlikely-to-meet
@@ -212,9 +212,9 @@ Outdoor structural part,Explore with estimates,M148,PAHT-CE,UNKNOWN,,0,0,2,2,G14
 Outdoor structural part,Explore with estimates,M149,PCL,UNKNOWN,none,0,2,2,4,G149-03,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M150,TPU-LW,UNKNOWN,,0,0,4,4,G039-69,as-printed,screened,hdt045 >= 100,hidden
 Outdoor structural part,Explore with estimates,M152,PLA-NF,UNKNOWN,none,0,1,1,2,G152-02,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-02,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-02,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,as-printed,yes,,unlikely-to-meet
-Outdoor structural part,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,as-printed,screened,hdt045 >= 100,hidden
 Outdoor structural part,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,4,3,7,G164-02,as-printed,yes,,unlikely-to-meet
@@ -672,10 +672,10 @@ Indoor prototype,Explore with estimates,M169,PLA blend-CF,PASS,all,2,0,0,2,G169-
 Indoor prototype,Explore with estimates,M170,TPS,PASS,all,4,0,1,5,G167-02,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M174,SBC,PASS,all,1,0,0,1,G174-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M175,TPV,PASS,all,1,0,0,1,G167-13,as-printed,yes,,meets
-Lightweight structure,Strict,M001,PLA,PASS,some,16,46,133,195,G001-01,as-printed,yes,,
+Lightweight structure,Strict,M001,PLA,PASS,some,19,46,130,195,G001-01,as-printed,yes,,
 Lightweight structure,Strict,M014,PLA Wood,PASS,some,1,4,15,20,G014-16,as-printed,yes,,
 Lightweight structure,Strict,M017,PLA Aero,PASS,some,1,6,5,12,G017-05,as-printed,yes,,
-Lightweight structure,Strict,M018,PLA-CF,PASS,some,2,8,9,19,G018-13,as-printed,yes,,
+Lightweight structure,Strict,M018,PLA-CF,PASS,some,3,8,8,19,G018-01,as-printed,yes,,
 Lightweight structure,Strict,M020,PETG,PASS,some,1,40,32,73,G021-01,as-printed,yes,,
 Lightweight structure,Strict,M028,ABS-GF,PASS,some,2,2,7,11,G028-03,as-printed,yes,,
 Lightweight structure,Strict,M029,ABS-CF,PASS,some,1,1,9,11,G029-09,as-printed,yes,,
@@ -694,7 +694,7 @@ Lightweight structure,Strict,M164,"Nylon, maker-undisclosed polyamide",PASS,some
 Lightweight structure,"Strict, annealing permitted",M001,PLA,PASS,some,23,46,126,195,G001-01,as-printed,yes,,
 Lightweight structure,"Strict, annealing permitted",M014,PLA Wood,PASS,some,1,4,15,20,G014-16,as-printed,yes,,
 Lightweight structure,"Strict, annealing permitted",M017,PLA Aero,PASS,some,1,6,5,12,G017-05,as-printed,yes,,
-Lightweight structure,"Strict, annealing permitted",M018,PLA-CF,PASS,some,3,8,8,19,G018-01,annealed:55:8,yes,,
+Lightweight structure,"Strict, annealing permitted",M018,PLA-CF,PASS,some,3,8,8,19,G018-01,as-printed,yes,,
 Lightweight structure,"Strict, annealing permitted",M020,PETG,PASS,some,1,40,32,73,G021-01,as-printed,yes,,
 Lightweight structure,"Strict, annealing permitted",M028,ABS-GF,PASS,some,3,2,6,11,G028-01,annealed:80:12,yes,,
 Lightweight structure,"Strict, annealing permitted",M029,ABS-CF,PASS,some,1,1,9,11,G029-09,as-printed,yes,,
@@ -714,16 +714,16 @@ Lightweight structure,"Strict, annealing permitted",M084,PP-GF,PASS,some,1,1,0,2
 Lightweight structure,"Strict, annealing permitted",M147,PAHT,PASS,all,1,0,0,1,G147-01,as-printed,yes,,
 Lightweight structure,"Strict, annealing permitted",M152,PLA-NF,PASS,some,1,1,0,2,G152-02,as-printed,yes,,
 Lightweight structure,"Strict, annealing permitted",M164,"Nylon, maker-undisclosed polyamide",PASS,some,1,3,3,7,G164-09,as-printed,yes,,
-Lightweight structure,Explore,M001,PLA,PASS,some,16,46,133,195,G001-01,as-printed,yes,,meets
-Lightweight structure,Explore,M008,PLA Silk,UNKNOWN,none,0,9,24,33,G008-01,as-printed,yes,,one-check-away
-Lightweight structure,Explore,M011,PLA Metal,UNKNOWN,none,0,7,2,9,G011-01,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-01,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,not-enough-data
+Lightweight structure,Explore,M001,PLA,PASS,some,19,46,130,195,G001-01,as-printed,yes,,meets
+Lightweight structure,Explore,M008,PLA Silk,UNKNOWN,none,0,10,23,33,G008-01,as-printed,yes,,one-check-away
+Lightweight structure,Explore,M011,PLA Metal,UNKNOWN,none,0,8,1,9,G011-05,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-01,as-printed,yes,,one-check-away
+Lightweight structure,Explore,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore,M014,PLA Wood,PASS,some,1,4,15,20,G014-16,as-printed,yes,,meets
 Lightweight structure,Explore,M015,PLA Galaxy,UNKNOWN,none,0,2,2,4,G015-02,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore,M016,PLA Glow,UNKNOWN,none,0,1,6,7,G016-03,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore,M016,PLA Glow,UNKNOWN,none,0,2,5,7,G016-03,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore,M017,PLA Aero,PASS,some,1,6,5,12,G017-05,as-printed,yes,,meets
-Lightweight structure,Explore,M018,PLA-CF,PASS,some,2,8,9,19,G018-13,as-printed,yes,,meets
+Lightweight structure,Explore,M018,PLA-CF,PASS,some,3,8,8,19,G018-01,as-printed,yes,,meets
 Lightweight structure,Explore,M019,PLA-GF,UNKNOWN,none,0,2,2,4,G019-04,as-printed,yes,,not-enough-data
 Lightweight structure,Explore,M020,PETG,PASS,some,1,40,32,73,G021-01,as-printed,yes,,meets
 Lightweight structure,Explore,M024,PETG-CF,UNKNOWN,none,0,17,7,24,G024-01,as-printed,yes,,not-enough-data
@@ -806,20 +806,20 @@ Lightweight structure,Explore,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNO
 Lightweight structure,Explore,M166,"Nylon-GF, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G166-01,as-printed,yes,,one-check-away
 Lightweight structure,Explore,M169,PLA blend-CF,UNKNOWN,none,0,1,1,2,G169-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore,M174,SBC,UNKNOWN,,0,0,1,1,G174-01,as-printed,yes,,not-enough-data
-Lightweight structure,Explore with estimates,M001,PLA,PASS,some,16,46,133,195,G001-01,as-printed,yes,,meets
-Lightweight structure,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,9,24,33,G008-01,as-printed,yes,,one-check-away
-Lightweight structure,Explore with estimates,M011,PLA Metal,UNKNOWN,none,0,7,2,9,G011-05,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-07,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M001,PLA,PASS,some,19,46,130,195,G001-01,as-printed,yes,,meets
+Lightweight structure,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,10,23,33,G008-01,as-printed,yes,,one-check-away
+Lightweight structure,Explore with estimates,M011,PLA Metal,UNKNOWN,none,0,8,1,9,G011-05,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-01,as-printed,yes,,one-check-away
+Lightweight structure,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M014,PLA Wood,PASS,some,1,4,15,20,G014-16,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M015,PLA Galaxy,UNKNOWN,none,0,2,2,4,G015-02,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,1,6,7,G016-05,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,2,5,7,G016-05,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M017,PLA Aero,PASS,some,1,6,5,12,G017-05,as-printed,yes,,meets
-Lightweight structure,Explore with estimates,M018,PLA-CF,PASS,some,2,8,9,19,G018-13,as-printed,yes,,meets
+Lightweight structure,Explore with estimates,M018,PLA-CF,PASS,some,3,8,8,19,G018-01,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M019,PLA-GF,UNKNOWN,none,0,2,2,4,G019-04,as-printed,yes,,not-enough-data (likely)
 Lightweight structure,Explore with estimates,M020,PETG,PASS,some,1,40,32,73,G021-01,as-printed,yes,,meets
-Lightweight structure,Explore with estimates,M024,PETG-CF,UNKNOWN,none,0,17,7,24,G024-22,as-printed,yes,,not-enough-data
-Lightweight structure,Explore with estimates,M026,PETG-ESD,UNKNOWN,none,0,7,2,9,G026-03,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore with estimates,M024,PETG-CF,UNKNOWN,none,0,17,7,24,G024-14,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M026,PETG-ESD,UNKNOWN,none,0,7,2,9,G026-07,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M027,ABS,UNKNOWN,none,0,9,46,55,G027-32,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M028,ABS-GF,PASS,some,2,2,7,11,G028-03,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M029,ABS-CF,PASS,some,1,1,9,11,G029-09,as-printed,yes,,meets
@@ -828,18 +828,18 @@ Lightweight structure,Explore with estimates,M031,ASA,UNKNOWN,none,0,11,29,40,G0
 Lightweight structure,Explore with estimates,M032,ASA Aero,UNKNOWN,none,0,2,2,4,G032-01,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M033,ASA-CF,PASS,some,2,2,13,17,G033-11,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M034,ASA-GF,PASS,some,1,1,4,6,G034-03,as-printed,yes,,meets
-Lightweight structure,Explore with estimates,M035,PC,UNKNOWN,none,0,7,15,22,G035-25,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M035,PC,UNKNOWN,none,0,7,15,22,G035-17,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,3,7,10,G037-06,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,1,2,3,G038-02,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M046,TPC / TPEE,UNKNOWN,none,0,2,10,12,G046-04,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-02,as-printed,yes,,not-enough-data (likely)
-Lightweight structure,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-06,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M048,PAHT-CF,UNKNOWN,,0,0,5,5,G048-01,as-printed,yes,,not-enough-data (likely)
+Lightweight structure,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M050,PA6-CF,PASS,all,5,0,9,14,G050-06,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M051,PA6-GF,UNKNOWN,none,0,5,6,11,G051-06,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M052,PA12,UNKNOWN,,0,0,8,8,G052-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M053,PA12-CF,PASS,all,1,0,14,15,G053-05,as-printed,yes,,meets
-Lightweight structure,Explore with estimates,M054,PA12-GF,UNKNOWN,none,0,1,2,3,G054-03,as-printed,yes,,not-enough-data (likely)
+Lightweight structure,Explore with estimates,M054,PA12-GF,UNKNOWN,none,0,1,2,3,G054-03,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M055,PA66,UNKNOWN,none,0,1,1,2,G164-08,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M056,PA66-CF,UNKNOWN,,,,,,,,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M057,PA6/66,PASS,some,1,1,5,7,G057-03,as-printed,yes,,meets
@@ -847,19 +847,19 @@ Lightweight structure,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,,yes,,not-
 Lightweight structure,Explore with estimates,M059,PA612-CF,UNKNOWN,,0,0,3,3,G059-02,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,,not-enough-data
-Lightweight structure,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data (likely)
 Lightweight structure,Explore with estimates,M067,PET-CF,UNKNOWN,none,0,7,1,8,G067-06,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M070,PPA-CF,PASS,all,3,0,5,8,G070-01,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M071,PPA-GF,UNKNOWN,none,0,3,2,5,G071-02,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M073,PPS-CF,UNKNOWN,none,0,5,2,7,G073-01,as-printed,yes,,one-check-away
-Lightweight structure,Explore with estimates,M081,HIPS,UNKNOWN,none,0,3,8,11,G081-11,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M082,PP,UNKNOWN,none,0,1,11,12,G082-13,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore with estimates,M081,HIPS,UNKNOWN,none,0,3,8,11,G081-05,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore with estimates,M082,PP,UNKNOWN,none,0,1,11,12,G082-05,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M083,PP-CF,PASS,some,1,1,3,5,G083-01,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,2,1,3,G087-03,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-07,as-printed,yes,,unlikely-to-meet
+Lightweight structure,Explore with estimates,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-02,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M090,CPE-CF,UNKNOWN,none,0,1,2,3,G090-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M093,PVB,UNKNOWN,none,0,3,3,6,G093-06,as-printed,yes,,unlikely-to-meet
@@ -874,7 +874,7 @@ Lightweight structure,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-0
 Lightweight structure,Explore with estimates,M116,PC-ESD,UNKNOWN,none,0,1,1,2,G116-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M126,TPU-ESD,UNKNOWN,,0,0,2,2,G126-02,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M128,PC-ABS-CF,UNKNOWN,,0,0,1,1,G128-01,as-printed,yes,,one-check-away
-Lightweight structure,Explore with estimates,M129,TPU-CF,UNKNOWN,,0,0,3,3,G129-01,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M129,TPU-CF,UNKNOWN,,0,0,3,3,G129-01,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M130,PPE-PS,UNKNOWN,none,0,1,1,2,G130-01,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,,0,0,1,1,G131-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M135,PVC,UNKNOWN,none,0,1,1,2,G135-01,as-printed,yes,,not-enough-data
@@ -883,14 +883,14 @@ Lightweight structure,Explore with estimates,M137,COC,UNKNOWN,,0,0,2,2,G137-01,a
 Lightweight structure,Explore with estimates,M138,PE-GF,UNKNOWN,,0,0,2,2,G138-02,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M142,nGen-CF,UNKNOWN,,0,0,1,1,G142-01,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M145,PLA-PHA,UNKNOWN,,0,0,1,1,G145-01,as-printed,yes,,one-check-away
-Lightweight structure,Explore with estimates,M146,PLA-PHB,UNKNOWN,,0,0,1,1,G146-01,as-printed,yes,,not-enough-data
+Lightweight structure,Explore with estimates,M146,PLA-PHB,UNKNOWN,,0,0,1,1,G146-01,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M147,PAHT,PASS,all,1,0,0,1,G147-01,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M148,PAHT-CE,UNKNOWN,none,0,1,1,2,G148-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M149,PCL,UNKNOWN,,0,0,4,4,G149-03,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M150,TPU-LW,UNKNOWN,,0,0,4,4,G150-02,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M152,PLA-NF,PASS,some,1,1,0,2,G152-02,as-printed,yes,,meets
 Lightweight structure,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,as-printed,yes,,unlikely-to-meet
-Lightweight structure,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,,not-enough-data (likely)
+Lightweight structure,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,,not-enough-data
 Lightweight structure,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,,one-check-away
 Lightweight structure,Explore with estimates,M157,TPU-EC,UNKNOWN,none,0,1,1,2,G157-02,as-printed,yes,,unlikely-to-meet
 Lightweight structure,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",PASS,some,1,3,3,7,G164-09,as-printed,yes,,meets
@@ -1110,16 +1110,16 @@ Warm environment,Explore,M169,PLA blend-CF,UNKNOWN,none,0,1,1,2,G169-01,as-print
 Warm environment,Explore,M170,TPS,UNKNOWN,,0,0,5,5,G167-02,as-printed,screened,hdt045 >= 80,hidden
 Warm environment,Explore,M174,SBC,UNKNOWN,,0,0,1,1,G174-01,as-printed,yes,,not-enough-data
 Warm environment,Explore,M175,TPV,UNKNOWN,,0,0,1,1,G167-13,as-printed,screened,hdt045 >= 80,hidden
-Warm environment,Explore with estimates,M001,PLA,UNKNOWN,none,0,109,86,195,G001-01,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,18,15,33,G008-01,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M001,PLA,UNKNOWN,none,0,109,86,195,G001-09,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,18,15,33,G008-13,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M011,PLA Metal,UNKNOWN,none,0,3,6,9,G011-02,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,3,3,6,G012-04,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,3,3,6,G012-07,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,8,12,20,G014-02,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,8,12,20,G014-07,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M015,PLA Galaxy,UNKNOWN,none,0,3,1,4,G015-04,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,4,3,7,G016-02,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M017,PLA Aero,UNKNOWN,none,0,9,3,12,G017-11,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M018,PLA-CF,UNKNOWN,none,0,10,9,19,G018-02,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,4,3,7,G016-05,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M017,PLA Aero,UNKNOWN,none,0,9,3,12,G017-14,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M018,PLA-CF,UNKNOWN,none,0,10,9,19,G018-03,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M019,PLA-GF,UNKNOWN,,0,0,4,4,G019-01,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M020,PETG,PASS,some,1,41,31,73,G020-09,as-printed,yes,,meets
 Warm environment,Explore with estimates,M024,PETG-CF,UNKNOWN,none,0,11,13,24,G024-05,as-printed,yes,,one-check-away
@@ -1134,7 +1134,7 @@ Warm environment,Explore with estimates,M032,ASA Aero,PASS,some,1,1,2,4,G032-01,
 Warm environment,Explore with estimates,M033,ASA-CF,PASS,all,8,0,9,17,G033-04,as-printed,yes,,meets
 Warm environment,Explore with estimates,M034,ASA-GF,PASS,all,3,0,3,6,G034-03,as-printed,yes,,meets
 Warm environment,Explore with estimates,M035,PC,PASS,some,10,1,11,22,G035-03,as-printed,yes,,meets
-Warm environment,Explore with estimates,M036,PC FR,UNKNOWN,none,0,1,1,2,G036-01,as-printed,yes,,not-enough-data
+Warm environment,Explore with estimates,M036,PC FR,UNKNOWN,none,0,1,1,2,G036-01,as-printed,yes,,not-enough-data (likely)
 Warm environment,Explore with estimates,M037,PC-CF,PASS,some,1,1,8,10,G037-05,as-printed,yes,,meets
 Warm environment,Explore with estimates,M038,PC-GF,UNKNOWN,,0,0,3,3,G038-02,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M045,PEBA,UNKNOWN,,0,0,10,10,G045-01,as-printed,screened,hdt045 >= 80,hidden
@@ -1154,7 +1154,7 @@ Warm environment,Explore with estimates,M059,PA612-CF,PASS,all,1,0,2,3,G059-01,a
 Warm environment,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,,yes,,not-enough-data
 Warm environment,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M065,PA612-ESD,PASS,all,1,0,0,1,G065-01,as-printed,yes,,meets
-Warm environment,Explore with estimates,M066,PET,UNKNOWN,none,0,1,6,7,G066-01,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M066,PET,UNKNOWN,none,0,1,6,7,G066-06,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M067,PET-CF,PASS,some,2,1,5,8,G067-04,as-printed,yes,,meets
 Warm environment,Explore with estimates,M068,PET-GF,PASS,all,3,0,1,4,G068-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,,meets
@@ -1173,23 +1173,23 @@ Warm environment,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G
 Warm environment,Explore with estimates,M088,PCTG,UNKNOWN,none,0,2,6,8,G088-01,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M089,CPE,PASS,some,3,1,1,5,G089-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M090,CPE-CF,UNKNOWN,,0,0,3,3,G090-02,as-printed,yes,,one-check-away
-Warm environment,Explore with estimates,M091,CoPE,UNKNOWN,,0,0,1,1,G091-02,as-printed,yes,,not-enough-data
-Warm environment,Explore with estimates,M092,nGen / Amphora,UNKNOWN,,0,0,1,1,G092-02,as-printed,yes,,not-enough-data
+Warm environment,Explore with estimates,M091,CoPE,UNKNOWN,,0,0,1,1,G091-02,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M092,nGen / Amphora,UNKNOWN,,0,0,1,1,G092-02,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M093,PVB,UNKNOWN,none,0,4,2,6,G093-06,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M094,PC-ABS,PASS,some,2,4,7,13,G094-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M095,PC-PBT,UNKNOWN,none,0,1,1,2,G095-02,as-printed,yes,,not-enough-data
 Warm environment,Explore with estimates,M096,PVDF,UNKNOWN,,0,0,3,3,G096-01,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M103,PP Lightweight,PASS,all,1,0,0,1,G103-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M104,PA6-CE,PASS,all,1,0,0,1,G104-01,as-printed,yes,,meets
-Warm environment,Explore with estimates,M105,ASA-EC,UNKNOWN,,0,0,1,1,G105-01,as-printed,yes,,not-enough-data
+Warm environment,Explore with estimates,M105,ASA-EC,UNKNOWN,,0,0,1,1,G105-01,as-printed,yes,,not-enough-data (likely)
 Warm environment,Explore with estimates,M106,ABS-AF,PASS,some,1,1,1,3,G106-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M107,PLA-ESD,UNKNOWN,none,0,1,1,2,G107-01,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M108,PA6-GS,UNKNOWN,,0,0,1,1,G108-01,as-printed,yes,,one-check-away
-Warm environment,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-01,as-printed,yes,,not-enough-data
+Warm environment,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-01,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M110,PCTG-GF,UNKNOWN,,0,0,3,3,G110-01,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M111,PLA-EC,UNKNOWN,,0,0,2,2,G111-01,as-printed,yes,,not-enough-data
 Warm environment,Explore with estimates,M112,PC-PTFE,UNKNOWN,none,0,1,1,2,G112-01,as-printed,yes,,one-check-away
-Warm environment,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-01,as-printed,yes,,not-enough-data
+Warm environment,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-01,as-printed,yes,,not-enough-data (likely)
 Warm environment,Explore with estimates,M114,TPC-ESD,UNKNOWN,,0,0,2,2,G114-01,as-printed,screened,hdt045 >= 80,hidden
 Warm environment,Explore with estimates,M116,PC-ESD,UNKNOWN,,0,0,2,2,G116-01,as-printed,yes,,one-check-away
 Warm environment,Explore with estimates,M119,PC-ASA,UNKNOWN,,0,0,1,1,G119-01,as-printed,yes,,one-check-away
@@ -1218,7 +1218,7 @@ Warm environment,Explore with estimates,M149,PCL,UNKNOWN,none,0,2,2,4,G149-03,as
 Warm environment,Explore with estimates,M150,TPU-LW,UNKNOWN,,0,0,4,4,G039-69,as-printed,screened,hdt045 >= 80,hidden
 Warm environment,Explore with estimates,M151,TPU-GF,UNKNOWN,,0,0,1,1,G151-01,as-printed,screened,hdt045 >= 80,hidden
 Warm environment,Explore with estimates,M152,PLA-NF,UNKNOWN,none,0,1,1,2,G152-02,as-printed,yes,,unlikely-to-meet
-Warm environment,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,as-printed,yes,,not-enough-data
+Warm environment,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-02,as-printed,yes,,not-enough-data
 Warm environment,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,as-printed,yes,,not-enough-data
 Warm environment,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,,not-enough-data
 Warm environment,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,,not-enough-data
@@ -1262,7 +1262,7 @@ High-stiffness fixture,Explore,M001,PLA,UNKNOWN,none,0,63,132,195,G001-03,as-pri
 High-stiffness fixture,Explore,M008,PLA Silk,UNKNOWN,none,0,14,19,33,G008-03,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore,M011,PLA Metal,UNKNOWN,none,0,2,7,9,G011-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-02,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore,M013,PLA Sparkle,UNKNOWN,none,0,1,3,4,G013-02,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore,M013,PLA Sparkle,UNKNOWN,none,0,1,3,4,G013-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore,M014,PLA Wood,UNKNOWN,none,0,5,15,20,G014-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore,M015,PLA Galaxy,UNKNOWN,none,0,2,2,4,G015-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore,M016,PLA Glow,UNKNOWN,none,0,2,5,7,G016-03,as-printed,yes,,unlikely-to-meet
@@ -1361,29 +1361,29 @@ High-stiffness fixture,Explore,M168,PLA blend,UNKNOWN,,0,0,9,9,G001-66,as-printe
 High-stiffness fixture,Explore,M169,PLA blend-CF,UNKNOWN,,0,0,2,2,G169-01,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore,M174,SBC,UNKNOWN,,0,0,1,1,G174-01,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M001,PLA,UNKNOWN,none,0,63,132,195,G001-107,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,14,19,33,G008-10,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,14,19,33,G008-04,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M011,PLA Metal,UNKNOWN,none,0,2,7,9,G011-02,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-07,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,1,3,4,G013-02,as-printed,yes,,not-enough-data
-High-stiffness fixture,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,5,15,20,G014-08,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-06,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,1,3,4,G013-02,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,5,15,20,G014-20,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M015,PLA Galaxy,UNKNOWN,none,0,2,2,4,G015-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,2,5,7,G016-05,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M017,PLA Aero,UNKNOWN,none,0,7,5,12,G017-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M018,PLA-CF,UNKNOWN,none,0,6,13,19,G018-04,as-printed,yes,,one-check-away
 High-stiffness fixture,Explore with estimates,M019,PLA-GF,UNKNOWN,none,0,1,3,4,G019-03,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M020,PETG,UNKNOWN,none,0,28,45,73,G020-70,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M020,PETG,UNKNOWN,none,0,28,45,73,G020-09,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M024,PETG-CF,PASS,some,1,9,14,24,G024-05,as-printed,yes,,meets
 High-stiffness fixture,Explore with estimates,M025,PETG-GF,UNKNOWN,none,0,3,2,5,G025-05,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M026,PETG-ESD,UNKNOWN,none,0,7,2,9,G026-03,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M027,ABS,UNKNOWN,none,0,19,36,55,G027-18,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M028,ABS-GF,UNKNOWN,none,0,5,6,11,G028-11,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M027,ABS,UNKNOWN,none,0,19,36,55,G027-05,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M028,ABS-GF,UNKNOWN,none,0,5,6,11,G028-12,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M029,ABS-CF,UNKNOWN,none,0,2,9,11,G029-01,as-printed,yes,,one-check-away
 High-stiffness fixture,Explore with estimates,M030,ABS-ESD,UNKNOWN,none,0,7,4,11,G030-08,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M031,ASA,UNKNOWN,none,0,16,24,40,G031-40,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M031,ASA,UNKNOWN,none,0,16,24,40,G031-07,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M032,ASA Aero,UNKNOWN,none,0,2,2,4,G032-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M033,ASA-CF,UNKNOWN,none,0,3,14,17,G033-02,as-printed,yes,,one-check-away
-High-stiffness fixture,Explore with estimates,M034,ASA-GF,UNKNOWN,none,0,2,4,6,G034-04,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M035,PC,UNKNOWN,none,0,14,8,22,G035-25,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M034,ASA-GF,UNKNOWN,none,0,2,4,6,G034-02,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M035,PC,UNKNOWN,none,0,14,8,22,G035-03,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,4,6,10,G037-01,as-printed,yes,,one-check-away
 High-stiffness fixture,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,2,1,3,G038-03,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M045,PEBA,UNKNOWN,none,0,9,1,10,G045-09,as-printed,yes,,unlikely-to-meet
@@ -1394,18 +1394,18 @@ High-stiffness fixture,Explore with estimates,M050,PA6-CF,PASS,some,1,3,10,14,G0
 High-stiffness fixture,Explore with estimates,M051,PA6-GF,UNKNOWN,none,0,2,9,11,G051-11,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M052,PA12,UNKNOWN,,0,0,8,8,G052-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M053,PA12-CF,UNKNOWN,none,0,4,11,15,G053-01,as-printed,yes,,one-check-away
-High-stiffness fixture,Explore with estimates,M054,PA12-GF,UNKNOWN,none,0,1,2,3,G054-03,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore with estimates,M054,PA12-GF,UNKNOWN,none,0,1,2,3,G054-03,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M055,PA66,UNKNOWN,,0,0,2,2,G164-03,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M056,PA66-CF,UNKNOWN,,,,,,,,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M057,PA6/66,UNKNOWN,none,0,3,4,7,G057-05,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,,screened,tensileModulusXY >= 5,hidden
+High-stiffness fixture,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M059,PA612-CF,UNKNOWN,,0,0,3,3,G059-01,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,,not-enough-data
-High-stiffness fixture,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M066,PET,UNKNOWN,none,0,3,4,7,G066-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M067,PET-CF,PASS,some,3,1,4,8,G067-05,as-printed,yes,,meets
-High-stiffness fixture,Explore with estimates,M068,PET-GF,UNKNOWN,,0,0,4,4,G068-02,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore with estimates,M068,PET-GF,UNKNOWN,,0,0,4,4,G068-04,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M069,PPA,UNKNOWN,none,0,1,1,2,G069-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M070,PPA-CF,PASS,all,3,0,5,8,G070-01,as-printed,yes,,meets
 High-stiffness fixture,Explore with estimates,M071,PPA-GF,PASS,all,3,0,2,5,G071-01,as-printed,yes,,meets
@@ -1413,13 +1413,13 @@ High-stiffness fixture,Explore with estimates,M072,PPS,UNKNOWN,none,0,1,1,2,G072
 High-stiffness fixture,Explore with estimates,M073,PPS-CF,PASS,all,4,0,3,7,G073-01,as-printed,yes,,meets
 High-stiffness fixture,Explore with estimates,M074,PPS-GF,PASS,all,1,0,1,2,G074-01,as-printed,yes,,meets
 High-stiffness fixture,Explore with estimates,M081,HIPS,UNKNOWN,none,0,3,8,11,G081-11,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M082,PP,UNKNOWN,none,0,1,11,12,G082-13,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M082,PP,UNKNOWN,none,0,1,11,12,G082-05,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M083,PP-CF,PASS,some,1,1,3,5,G083-01,as-printed,yes,,meets
 High-stiffness fixture,Explore with estimates,M084,PP-GF,PASS,some,1,1,0,2,G084-01,as-printed,yes,,meets
 High-stiffness fixture,Explore with estimates,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G087-03,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-07,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-02,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M090,CPE-CF,UNKNOWN,,0,0,3,3,G090-03,as-printed,yes,,one-check-away
 High-stiffness fixture,Explore with estimates,M093,PVB,UNKNOWN,none,0,4,2,6,G093-06,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M094,PC-ABS,UNKNOWN,none,0,7,6,13,G094-03,as-printed,yes,,unlikely-to-meet
@@ -1429,9 +1429,9 @@ High-stiffness fixture,Explore with estimates,M104,PA6-CE,UNKNOWN,,0,0,1,1,G104-
 High-stiffness fixture,Explore with estimates,M105,ASA-EC,UNKNOWN,,0,0,1,1,G105-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M106,ABS-AF,UNKNOWN,none,0,1,2,3,G106-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M107,PLA-ESD,UNKNOWN,none,0,1,1,2,G107-01,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M108,PA6-GS,UNKNOWN,,0,0,1,1,G108-01,as-printed,yes,,not-enough-data
-High-stiffness fixture,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-02,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M110,PCTG-GF,UNKNOWN,,0,0,3,3,G110-03,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore with estimates,M108,PA6-GS,UNKNOWN,,0,0,1,1,G108-01,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-01,as-printed,yes,,unlikely-to-meet
+High-stiffness fixture,Explore with estimates,M110,PCTG-GF,UNKNOWN,,0,0,3,3,G110-01,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M111,PLA-EC,UNKNOWN,,0,0,2,2,G111-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M112,PC-PTFE,UNKNOWN,none,0,1,1,2,G112-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-01,as-printed,yes,,unlikely-to-meet
@@ -1440,7 +1440,7 @@ High-stiffness fixture,Explore with estimates,M128,PC-ABS-CF,UNKNOWN,,0,0,1,1,G1
 High-stiffness fixture,Explore with estimates,M129,TPU-CF,UNKNOWN,,0,0,3,3,G129-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,,0,0,1,1,G131-01,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M135,PVC,UNKNOWN,,0,0,2,2,G135-01,as-printed,yes,,not-enough-data
-High-stiffness fixture,Explore with estimates,M136,SAN,UNKNOWN,,0,0,1,1,G136-02,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore with estimates,M136,SAN,UNKNOWN,,0,0,1,1,G136-02,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M137,COC,UNKNOWN,,0,0,2,2,G137-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M138,PE-GF,UNKNOWN,,0,0,2,2,G138-03,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M139,LCP,UNKNOWN,,0,0,1,1,G139-01,as-printed,yes,,not-enough-data
@@ -1455,7 +1455,7 @@ High-stiffness fixture,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154
 High-stiffness fixture,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,as-printed,yes,,not-enough-data
 High-stiffness fixture,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-02,as-printed,yes,,unlikely-to-meet
-High-stiffness fixture,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,as-printed,yes,,not-enough-data
+High-stiffness fixture,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,5,2,7,G164-07,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,1,4,5,G165-01,as-printed,yes,,unlikely-to-meet
 High-stiffness fixture,Explore with estimates,M167,"TPE, maker-undisclosed elastomer",UNKNOWN,none,0,3,2,5,G167-07,as-printed,yes,,not-enough-data
@@ -1472,16 +1472,16 @@ Flexible component,"Strict, annealing permitted",M133,PBAT,PASS,all,1,0,0,1,G133
 Flexible component,"Strict, annealing permitted",M159,TPU 85A class and softer,PASS,all,2,0,16,18,G043-01,as-printed,yes,,
 Flexible component,"Strict, annealing permitted",M160,TPU 90A class,PASS,all,3,0,9,12,G042-01,as-printed,yes,,
 Flexible component,"Strict, annealing permitted",M161,TPU 95A class,PASS,all,8,0,19,27,G041-01,annealed:70:12,yes,,
-Flexible component,Explore,M001,PLA,UNKNOWN,none,0,70,125,195,G001-03,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M008,PLA Silk,UNKNOWN,none,0,17,16,33,G009-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M011,PLA Metal,UNKNOWN,none,0,1,8,9,G011-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M013,PLA Sparkle,UNKNOWN,none,0,1,3,4,G013-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M014,PLA Wood,UNKNOWN,none,0,5,15,20,G014-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M015,PLA Galaxy,UNKNOWN,none,0,2,2,4,G015-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M016,PLA Glow,UNKNOWN,none,0,1,6,7,G016-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M017,PLA Aero,UNKNOWN,none,0,7,5,12,G017-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore,M018,PLA-CF,UNKNOWN,none,0,8,11,19,G018-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M001,PLA,UNKNOWN,none,0,75,120,195,G001-03,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M008,PLA Silk,UNKNOWN,none,0,19,14,33,G008-03,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M011,PLA Metal,UNKNOWN,none,0,2,7,9,G011-02,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M012,PLA Marble,UNKNOWN,none,0,3,3,6,G012-04,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-02,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M014,PLA Wood,UNKNOWN,none,0,6,14,20,G014-02,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M015,PLA Galaxy,UNKNOWN,none,0,3,1,4,G015-04,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M016,PLA Glow,UNKNOWN,none,0,2,5,7,G016-03,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M017,PLA Aero,UNKNOWN,none,0,8,4,12,G017-02,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore,M018,PLA-CF,UNKNOWN,none,0,9,10,19,G018-02,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore,M019,PLA-GF,UNKNOWN,none,0,1,3,4,G019-03,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore,M020,PETG,UNKNOWN,none,0,27,46,73,G020-03,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore,M024,PETG-CF,UNKNOWN,none,0,9,15,24,G024-01,as-printed,yes,,unlikely-to-meet
@@ -1581,30 +1581,30 @@ Flexible component,Explore,M169,PLA blend-CF,UNKNOWN,,0,0,2,2,G169-01,as-printed
 Flexible component,Explore,M170,TPS,UNKNOWN,,0,0,5,5,G170-02,as-printed,yes,,one-check-away
 Flexible component,Explore,M174,SBC,UNKNOWN,,0,0,1,1,G174-01,as-printed,yes,,not-enough-data
 Flexible component,Explore,M175,TPV,UNKNOWN,,0,0,1,1,G167-13,as-printed,yes,,not-enough-data
-Flexible component,Explore with estimates,M001,PLA,UNKNOWN,none,0,70,125,195,G002-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,17,16,33,G009-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M011,PLA Metal,UNKNOWN,none,0,1,8,9,G011-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,2,4,6,G012-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,1,3,4,G013-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,5,15,20,G014-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M015,PLA Galaxy,UNKNOWN,none,0,2,2,4,G015-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,1,6,7,G016-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M017,PLA Aero,UNKNOWN,none,0,7,5,12,G017-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M018,PLA-CF,UNKNOWN,none,0,8,11,19,G018-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M001,PLA,UNKNOWN,none,0,75,120,195,G001-96,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M008,PLA Silk,UNKNOWN,none,0,19,14,33,G008-30,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M011,PLA Metal,UNKNOWN,none,0,2,7,9,G011-05,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M012,PLA Marble,UNKNOWN,none,0,3,3,6,G012-04,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M013,PLA Sparkle,UNKNOWN,none,0,2,2,4,G013-04,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M014,PLA Wood,UNKNOWN,none,0,6,14,20,G014-13,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M015,PLA Galaxy,UNKNOWN,none,0,3,1,4,G015-04,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M016,PLA Glow,UNKNOWN,none,0,2,5,7,G016-03,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M017,PLA Aero,UNKNOWN,none,0,8,4,12,G017-12,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M018,PLA-CF,UNKNOWN,none,0,9,10,19,G018-12,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M019,PLA-GF,UNKNOWN,none,0,1,3,4,G019-04,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M020,PETG,UNKNOWN,none,0,27,46,73,G022-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M020,PETG,UNKNOWN,none,0,27,46,73,G023-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M024,PETG-CF,UNKNOWN,none,0,9,15,24,G024-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M025,PETG-GF,UNKNOWN,none,0,3,2,5,G025-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M026,PETG-ESD,UNKNOWN,none,0,7,2,9,G026-03,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M027,ABS,UNKNOWN,none,0,20,35,55,G027-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M028,ABS-GF,UNKNOWN,none,0,6,5,11,G028-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M027,ABS,UNKNOWN,none,0,20,35,55,G027-23,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M028,ABS-GF,UNKNOWN,none,0,6,5,11,G028-09,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M029,ABS-CF,UNKNOWN,none,0,5,6,11,G029-08,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M030,ABS-ESD,UNKNOWN,none,0,7,4,11,G030-04,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M031,ASA,UNKNOWN,none,0,17,23,40,G031-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M031,ASA,UNKNOWN,none,0,17,23,40,G031-14,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M032,ASA Aero,UNKNOWN,none,0,2,2,4,G032-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M033,ASA-CF,UNKNOWN,none,0,5,12,17,G033-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M033,ASA-CF,UNKNOWN,none,0,5,12,17,G033-13,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M034,ASA-GF,UNKNOWN,none,0,3,3,6,G034-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M035,PC,UNKNOWN,none,0,14,8,22,G035-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M035,PC,UNKNOWN,none,0,14,8,22,G035-20,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M036,PC FR,UNKNOWN,none,0,1,1,2,G036-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M037,PC-CF,UNKNOWN,none,0,6,4,10,G037-08,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M038,PC-GF,UNKNOWN,none,0,2,1,3,G038-03,as-printed,yes,,unlikely-to-meet
@@ -1612,8 +1612,8 @@ Flexible component,Explore with estimates,M045,PEBA,UNKNOWN,,0,0,10,10,G045-10,a
 Flexible component,Explore with estimates,M046,TPC / TPEE,PASS,all,2,0,10,12,G046-02,as-printed,yes,,meets
 Flexible component,Explore with estimates,M048,PAHT-CF,UNKNOWN,none,0,2,3,5,G048-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M049,PA6,UNKNOWN,none,0,1,8,9,G049-06,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M050,PA6-CF,UNKNOWN,none,0,5,9,14,G050-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M051,PA6-GF,UNKNOWN,none,0,3,8,11,G051-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M050,PA6-CF,UNKNOWN,none,0,5,9,14,G050-05,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M051,PA6-GF,UNKNOWN,none,0,3,8,11,G051-05,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M052,PA12,UNKNOWN,,0,0,8,8,G052-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M053,PA12-CF,UNKNOWN,none,0,5,10,15,G053-02,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M054,PA12-GF,UNKNOWN,none,0,1,2,3,G054-03,as-printed,yes,,unlikely-to-meet
@@ -1624,10 +1624,10 @@ Flexible component,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,,screened,ten
 Flexible component,Explore with estimates,M059,PA612-CF,UNKNOWN,none,0,2,1,3,G059-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,,screened,elongationXY >= 100; tensileModulusXY <= 0.1,hidden
 Flexible component,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data
+Flexible component,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M066,PET,UNKNOWN,none,0,3,4,7,G066-07,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M067,PET-CF,UNKNOWN,none,0,5,3,8,G067-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-02,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-05,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M069,PPA,UNKNOWN,none,0,1,1,2,G069-02,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M070,PPA-CF,UNKNOWN,none,0,4,4,8,G070-02,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M071,PPA-GF,UNKNOWN,none,0,3,2,5,G071-04,as-printed,yes,,unlikely-to-meet
@@ -1641,7 +1641,7 @@ Flexible component,Explore with estimates,M085,PE,UNKNOWN,none,0,1,1,2,G085-01,a
 Flexible component,Explore with estimates,M086,OBC,UNKNOWN,,0,0,2,2,G086-02,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M087,POM / Acetal,UNKNOWN,none,0,1,2,3,G087-03,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M088,PCTG,UNKNOWN,none,0,1,7,8,G088-02,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M089,CPE,UNKNOWN,none,0,2,3,5,G089-05,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M090,CPE-CF,UNKNOWN,none,0,1,2,3,G090-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M093,PVB,UNKNOWN,none,0,4,2,6,G093-06,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M094,PC-ABS,UNKNOWN,none,0,8,5,13,G094-13,as-printed,yes,,unlikely-to-meet
@@ -1652,8 +1652,8 @@ Flexible component,Explore with estimates,M105,ASA-EC,UNKNOWN,,0,0,1,1,G105-01,a
 Flexible component,Explore with estimates,M106,ABS-AF,UNKNOWN,none,0,1,2,3,G106-02,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M107,PLA-ESD,UNKNOWN,none,0,1,1,2,G107-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M108,PA6-GS,UNKNOWN,,0,0,1,1,G108-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-01,as-printed,yes,,unlikely-to-meet
-Flexible component,Explore with estimates,M110,PCTG-GF,UNKNOWN,,0,0,3,3,G110-01,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M109,PETG-PTFE,UNKNOWN,,0,0,2,2,G109-02,as-printed,yes,,unlikely-to-meet
+Flexible component,Explore with estimates,M110,PCTG-GF,UNKNOWN,,0,0,3,3,G110-03,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M111,PLA-EC,UNKNOWN,,0,0,2,2,G111-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M112,PC-PTFE,UNKNOWN,none,0,1,1,2,G112-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M113,ASA-AF,UNKNOWN,,0,0,3,3,G113-01,as-printed,yes,,unlikely-to-meet
@@ -1681,7 +1681,7 @@ Flexible component,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,a
 Flexible component,Explore with estimates,M159,TPU 85A class and softer,PASS,all,2,0,16,18,G043-01,as-printed,yes,,meets
 Flexible component,Explore with estimates,M160,TPU 90A class,PASS,all,3,0,9,12,G042-01,as-printed,yes,,meets
 Flexible component,Explore with estimates,M161,TPU 95A class,PASS,all,7,0,20,27,G039-13,as-printed,yes,,meets
-Flexible component,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G039-23,as-printed,yes,,not-enough-data
+Flexible component,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,15,15,G039-16,as-printed,yes,,not-enough-data (likely)
 Flexible component,Explore with estimates,M164,"Nylon, maker-undisclosed polyamide",UNKNOWN,none,0,5,2,7,G164-07,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M165,"Nylon-CF, maker-undisclosed polyamide",UNKNOWN,none,0,2,3,5,G165-01,as-printed,yes,,unlikely-to-meet
 Flexible component,Explore with estimates,M167,"TPE, maker-undisclosed elastomer",UNKNOWN,,0,0,5,5,G167-01,as-printed,yes,,not-enough-data

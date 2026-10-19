@@ -177,7 +177,7 @@ build/src/                              check -> load -> normalize -> compile ->
                                         then the material pages (stage 8, app/pages/)
 build/src/estimate/                     the estimate stage, an overlay on the compiled database (D58)
 build/src/coverage-rules.js             one definition of what counts as a material's own data
-build/mappings/estimate-model.json      the estimate model's conversions, physical limits and fitting judgements, reviewed like code
+build/mappings/estimate-model.json      the estimate model's physical limits and fitting judgements, reviewed like code (its conversions: data/tables/conversions.csv)
 build/snapshot/                         the committed review snapshot: counts, headlines, products and spreads, each
                                         product's states, print gates, environment, makers' claims, templates, warnings,
                                         screening ends, the material pages, interface views

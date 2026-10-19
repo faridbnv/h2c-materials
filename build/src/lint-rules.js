@@ -7,7 +7,7 @@
 
 import { indexPageContext, contextFor, rowStates, pageStates, specimenApplies, directionApplies } from './page-context.js';
 import { DATA_STATUS } from './normalize/values.js';
-import { parseAppliesTo, applies, NOT_MODELLED } from './registry.js';
+import { parseAppliesTo, applies, NOT_MODELLED, withPolymer, printedStateOf } from './registry.js';
 import { compileRelations, relationFindings, specimenForm } from './physical-relations.js';
 import { specimenForm as declaredForm } from './normalize/specimen.js';
 
@@ -395,7 +395,12 @@ export function lintData(tables, schemas) {
   const windows = tables.plausibility_windows?.rows ?? [];
   if (windows.length) {
     const materials = new Map((tables.materials?.rows ?? []).map((m) => [m.MaterialID, m]));
-    const morphology = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
+    // How a material solidifies comes from its polymer's row. A semicrystalline polymer that prints amorphous (PLA, PET:
+    // its As printed) publishes values of either state, a glassy bar as printed and a crystallised one annealed or
+    // moulded, so a value of it is surprising only where neither class's window expects it (D158).
+    const polymerRows = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p]));
+    const morphology = new Map([...polymerRows].map(([id, p]) => [id, p.Morphology]));
+    const glassyToo = (m) => { const p = polymerRows.get(m?.['Estimate identity']); return p?.Morphology === 'semicrystalline' && printedStateOf(p, m?.['Modifier / filler']) === 'glassy'; };
     const number = (v) => (v == null || /^Not /.test(String(v)) ? null : Number(v));
     // How a material solidifies comes from its polymer's row. A material with no row is judged as a
     // high-temperature one only where its family says it is: the blends and specialities that have no row yet
@@ -425,33 +430,37 @@ export function lintData(tables, schemas) {
       const value = Number(r['Normalized value']);
       if (!Number.isFinite(value)) continue;
       const material = materials.get(r.MaterialID);
-      const want = {
-        'Matrix class': classOf(material), 'Fill class': fillOf(material, grades.get(r.GradeID)),
-        Condition: ['Notched', 'Unnotched'].includes(r.Notch) ? r.Notch : 'any',
-      };
-      const matching = windows.filter((w) => w.Property === r.Property && w['Normalized unit'] === r['Normalized unit']
-        && fits(w, want, 'Matrix class') && fits(w, want, 'Fill class') && fits(w, want, 'Condition'));
-      if (!matching.length) continue;
-      const score = (w) => ['Matrix class', 'Fill class', 'Condition'].reduce((a, f) => a + (w[f] === 'any' ? 0 : 1), 0);
-      const window = matching.sort((a, b) => score(b) - score(a))[0];
       // A film or a filament strand is not a printed bar and is far stronger; D55 already keeps both out of every
       // headline and estimate, so neither is judged against a printed part's window.
       if (/^(Film|Filament)/.test(r['Specimen type'] ?? '')) continue;
-      const named = { any: 'compound', dense: 'densely filled', light: 'foamed or lightened' };
-      const where = `${r.Property} ${value} ${r['Normalized unit']} on a ${want['Matrix class']} ${named[want['Fill class']] ?? want['Fill class']} material`;
-      if (window['Always flag'] === 'TRUE') { add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where}: ${basisHead(window.Basis)}`); continue; }
-      const [hardLow, rawSoftLow, softHigh, hardHigh] = ['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => number(window[f]));
-      // A part printed across its layers is weakest there: a Z value is legitimately a third to a half of the same
-      // property in the build plane, so the window's soft low says nothing about it. The hard low still holds, and
-      // MEAS-PHYSICS-Z-ABOVE-XY owns the opposite error.
-      const acrossLayers = ['Z', 'ZX', 'XZ', 'Vertical XZ (source label)'].includes(r.Direction);
-      const softLow = acrossLayers ? null : rawSoftLow;
-      const beyond = (hardLow != null && value < hardLow) ? `below ${hardLow}, which is impossible`
-        : (hardHigh != null && value > hardHigh) ? `above ${hardHigh}, which is impossible`
-        : (softLow != null && value < softLow) ? `below ${softLow}, which is surprising`
-        : (softHigh != null && value > softHigh) ? `above ${softHigh}, which is surprising`
-        : null;
-      if (beyond) add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where} is ${beyond} (${window.WindowID})`);
+      const classes = glassyToo(material) ? [classOf(material), 'amorphous'] : [classOf(material)];
+      const verdicts = classes.map((matrixClass) => {
+        const want = {
+          'Matrix class': matrixClass, 'Fill class': fillOf(material, grades.get(r.GradeID)),
+          Condition: ['Notched', 'Unnotched'].includes(r.Notch) ? r.Notch : 'any',
+        };
+        const matching = windows.filter((w) => w.Property === r.Property && w['Normalized unit'] === r['Normalized unit']
+          && fits(w, want, 'Matrix class') && fits(w, want, 'Fill class') && fits(w, want, 'Condition'));
+        if (!matching.length) return null;
+        const score = (w) => ['Matrix class', 'Fill class', 'Condition'].reduce((a, f) => a + (w[f] === 'any' ? 0 : 1), 0);
+        const window = matching.sort((a, b) => score(b) - score(a))[0];
+        const named = { any: 'compound', dense: 'densely filled', light: 'foamed or lightened' };
+        const where = `${r.Property} ${value} ${r['Normalized unit']} on a ${want['Matrix class']} ${named[want['Fill class']] ?? want['Fill class']} material`;
+        if (window['Always flag'] === 'TRUE') return `${where}: ${basisHead(window.Basis)}`;
+        const [hardLow, rawSoftLow, softHigh, hardHigh] = ['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => number(window[f]));
+        // A part printed across its layers is weakest there: a Z value is legitimately a third to a half of the same
+        // property in the build plane, so the window's soft low says nothing about it. The hard low still holds, and
+        // MEAS-PHYSICS-Z-ABOVE-XY owns the opposite error.
+        const acrossLayers = ['Z', 'ZX', 'XZ', 'Vertical XZ (source label)'].includes(r.Direction);
+        const softLow = acrossLayers ? null : rawSoftLow;
+        const beyond = (hardLow != null && value < hardLow) ? `below ${hardLow}, which is impossible`
+          : (hardHigh != null && value > hardHigh) ? `above ${hardHigh}, which is impossible`
+          : (softLow != null && value < softLow) ? `below ${softLow}, which is surprising`
+          : (softHigh != null && value > softHigh) ? `above ${softHigh}, which is surprising`
+          : null;
+        return beyond && `${where} is ${beyond} (${window.WindowID})`;
+      });
+      if (verdicts.every(Boolean)) add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', verdicts[0]);
     }
   }
 
@@ -471,8 +480,8 @@ export function lintData(tables, schemas) {
   // printed at a setting its product is not meant for (D95): colorFabb's unfoamed PET column is ordered against its own
   // column, never against the foamed bar beside it.
   const sameSpecimen = (a, b) => specimenForm(a) === specimenForm(b);
-  const polymerMorphology = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
-  const materialRows = (tables.materials?.rows ?? []).map((m) => ({ ...m, Morphology: polymerMorphology.get(m['Estimate identity']) ?? NOT_MODELLED }));
+  const polymerRows = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p]));
+  const materialRows = (tables.materials?.rows ?? []).map((m) => withPolymer(m, polymerRows.get(m['Estimate identity'])));
   const materialById = new Map(materialRows.map((m) => [m.MaterialID, m]));
   // A product's documents and its twins' sheets are one formulation (R053, D89): a relation whose Same test names
   // "formulation" compares them with each other (PR08, D149). A retired grade keeps its key; it is a grade like any other.
