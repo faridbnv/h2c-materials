@@ -352,6 +352,27 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
     L.push('');
   }
 
+  // The evidence ledger and the physics limits per kind of plastic (D153, D154): what each row bounds, and its band
+  // re-measured on same-sheet pairs. A reported row is computed and listed, and decides nothing.
+  if (db.conversions?.length || db.classLimits?.length) {
+    L.push('## Evidence ledger');
+    L.push('');
+    L.push('Per row of data/tables/conversions.csv and class_limits.csv: the product states it bounds where they hold no deciding');
+    L.push('value, the values it would demote or that contradict it, and its same-sheet pairs (the ratio, or the difference in C,');
+    L.push('each pair implies, and how many break the row). Only a deciding row decides (D153, D154).');
+    L.push('');
+    L.push('| Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |');
+    L.push('|---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|');
+    for (const r of db.conversions ?? []) {
+      const p = r.pairs;
+      L.push(`| ${r.id} | ${r.target} | ${r.kind} | ${r.status} | ${[r.factorLow, r.factorHigh].filter((x) => x != null).join(' to ')} | ${r.counts.products} | ${r.counts.demoted} | ${r.counts.contradicted} | ${r.counts.disagree} | ${p.n} | ${p.n ? `${p.implied} ${p.min} to ${p.max}` : ''} | ${p.breaking.length} |`);
+    }
+    for (const l of db.classLimits ?? []) {
+      L.push(`| ${l.id} | ${l.target} | ${l.kind} | ${l.status} | ${l.value ?? 'polymers.csv'} | ${l.counts.products} |  | ${l.counts.contradicted} | ${l.counts.disagree} |  | ${l.extremes.map((e) => `${e.polymer ? `${e.polymer} ` : ''}${e.min} to ${e.max}`).slice(0, 6).join('; ')}${l.extremes.length > 6 ? '; …' : ''} |  |`);
+    }
+    L.push('');
+  }
+
   L.push('## Environment evidence');
   L.push('');
   L.push('A verdict category has findings that reduce to resistant, limited or not resistant, so it');

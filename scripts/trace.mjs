@@ -117,6 +117,12 @@ const chamberNeedRecord = (ix, id, role) => {
   if (!r) return { kind: 'chamber-need', id, role, found: false };
   return { kind: 'chamber-need', id, role, appliesTo: r.appliesTo, verdict: r.verdict, status: r.status, makers: r.makers, above: r.above, reason: r.reason };
 };
+// A conversion row or a class limit of the evidence ledger (conversions.csv, class_limits.csv, D153, D154).
+const ledgerRecord = (ix, ref, role) => {
+  const r = ix.ledger.get(ref.rule);
+  if (!r) return { kind: 'ledger', id: ref.rule, role, found: false };
+  return { kind: 'ledger', id: r.id, role, rule: `${r.kind} on ${r.target}`, status: r.status, words: r.words, bound: ref.bound ?? null, basis: r.basis };
+};
 const evidenceRecord = (ix, id, role) => {
   const e = ix.evidence.get(id);
   if (!e) return { kind: 'evidence', id, role, found: false };
@@ -137,7 +143,18 @@ function requirementRecords(ix, r, { material, grade, state, ctx }) {
   const c = r.constraint;
   const out = [];
   if (c.kind === 'numeric') {
-    if (r.measurementId) out.push(measurementRecord(ix, r.measurementId, 'decides'));
+    // An answer the evidence ledger gave (D153, D154): the row or limit, then the record it read.
+    if (r.ledger) out.push(ledgerRecord(ix, r.ledger, 'decides'));
+    if (r.measurementId) out.push(measurementRecord(ix, r.measurementId, r.ledger ? `read by ${r.ledger.rule}` : 'decides'));
+    for (const [end, b] of Object.entries(r.sheetsDisagree ?? {})) {
+      out.push(ledgerRecord(ix, b, `sheets disagree: the ${end === 'lo' ? 'floor' : 'ceiling'}`));
+      if (b.measurementId) out.push(measurementRecord(ix, b.measurementId, `read by ${b.rule}`));
+    }
+    if (r.ceilingOnly?.measurementId) out.push(measurementRecord(ix, r.ceilingOnly.measurementId, 'published, only a ceiling for the printed part'));
+    for (const d of r.doubtful ?? []) {
+      out.push(ledgerRecord(ix, { rule: d.rule, bound: d.lo ?? d.hi }, 'makes the value doubtful'));
+      if (d.measurementId) out.push(measurementRecord(ix, d.measurementId, `read by ${d.rule}`));
+    }
     // A value the product publishes that may not decide: without its direction or load, or in another state (D84, D99).
     const h = r.measurementId ? null : productHeadline(material, grade, c.property, ctx, state);
     if (h?.asPublished?.measurementId) out.push(measurementRecord(ix, h.asPublished.measurementId, 'published, not comparable'));
@@ -213,6 +230,7 @@ export function traceDecision(db, scenarioText, productId, { requirement = null,
   const state = permitted.find((s) => s.id === entry.state.id);
   const ix = {
     measurements: ctx.measurementById, sources: byId(db.sources), profiles: byId(db.profiles), guides: byId(db.printGuide ?? []), chamberNeed: byId(db.chamberNeed ?? []),
+    ledger: byId([...(db.conversions ?? []), ...(db.classLimits ?? [])]),
     evidence: byId(db.evidence), prices: byId(db.prices), grades: ctx.gradeById,
   };
 
@@ -233,6 +251,10 @@ export function traceDecision(db, scenarioText, productId, { requirement = null,
     closeToLimit: r.closeToLimit ?? false,
     onTheLine: r.onTheLine ?? false,
     thinMargin: r.thinMargin ?? false,
+    ledger: r.ledger ?? null,
+    sheetsDisagree: r.sheetsDisagree ?? null,
+    doubtful: r.doubtful ?? null,
+    ceilingOnly: r.ceilingOnly ?? null,
     estimated: r.estimated ?? false,
     screened: r.screened ?? false,
     admittedUnstated: r.admitted ?? [],
@@ -312,7 +334,7 @@ function decisionText(t) {
         say(3, `specimen "${rec.raw.specimen}" (${rec.typed.specimenForm}); direction "${rec.raw.direction}" (${rec.typed.direction}); moisture "${rec.raw.moisture}" (${rec.typed.moistureState})`);
         say(3, `post-processing "${rec.raw.postProcessing}" (${rec.typed.postProcessingState}${rec.typed.anneal ? `, ${rec.typed.anneal.tempC ?? '?'} °C for ${rec.typed.anneal.hours ?? '?'} h` : ''}); standard "${rec.raw.standard}" (${rec.typed.standards.join(', ') || 'none named'})`);
       } else {
-        say(2, `${rec.kind} ${rec.id} ${rec.role}${rec.raw ? `: "${rec.raw}"` : ''}${rec.enclosure ? `, enclosure "${rec.enclosure}"` : ''}${rec.verdict ? `: ${rec.verdict}` : ''}`);
+        say(2, `${rec.kind} ${rec.id} ${rec.role}${rec.raw ? `: "${rec.raw}"` : ''}${rec.enclosure ? `, enclosure "${rec.enclosure}"` : ''}${rec.verdict ? `: ${rec.verdict}` : ''}${rec.kind === 'ledger' && rec.found !== false ? `: ${rec.rule}, ${rec.status}${rec.bound != null ? `, bound ${rec.bound}` : ''} (${rec.words})` : ''}`);
       }
       if (rec.kind === 'measurement' && r.admittedUnstated.length && rec.role === 'decides') say(3, `admitted unstated: ${r.admittedUnstated.join(', ')}`);
       for (const s of rec.source ? [rec.source] : rec.sources ?? []) {

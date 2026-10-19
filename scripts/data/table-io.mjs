@@ -415,6 +415,8 @@ const ID_FORMATS = {
   print_guide: { prefix: 'PG', width: 3 },
   page_context: { prefix: 'PC', width: 5 },
   chamber_need: { prefix: 'CN', width: 2 },
+  conversions: { prefix: 'CV', width: 2 },
+  class_limits: { prefix: 'CL', width: 2 },
 };
 
 export function nextId(name, ids, { materialId, study = false } = {}) {

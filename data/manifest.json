@@ -71,7 +71,7 @@
     },
     "method": {
       "rows": 58,
-      "sha256": "322b27a92b5237340997e393a85f1c2180695aabfae35fba2e7e6b42004c5a2a"
+      "sha256": "8b8963d603d23c71bb697c324fa7c172826383c81bfb800001fdc28e986a09d8"
     },
     "reference": {
       "rows": 114,
@@ -120,6 +120,14 @@
     "physical_relations": {
       "rows": 12,
       "sha256": "ce76d0bdea773d2428c5ccc81605c270cae9d2dcd4b526f0866c9eecf33a6c10"
+    },
+    "conversions": {
+      "rows": 12,
+      "sha256": "ad8c0b25ff93cb0ea5dd22b711c93c4e74f122ac4472a1116e51e55464f51824"
+    },
+    "class_limits": {
+      "rows": 2,
+      "sha256": "4c084a463e40e28d63ba65d9f51bc668a7402da0cdc2772f0b0e6a10cc3f13db"
     },
     "chamber_bands": {
       "rows": 39,

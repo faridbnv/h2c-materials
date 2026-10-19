@@ -22,6 +22,7 @@ import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estima
 import { aggregateGate, aggregateDrying } from './gates.js';
 import { lowerBoundsOf } from './lower-bounds.js';
 import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
+import { compileConversions, compileClassLimits } from './evidence-ledger.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
 import { attachProductClaims } from './product-claims.js';
@@ -705,7 +706,11 @@ export function compile(wb, { snapshot, build }) {
   // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
   // What a maker sells a product as (D133): read before the spreads, which name the products that make the claim.
   attachProductClaims(wb['Product claims']?.rows ?? [], { grades, evidenceRows, issues });
-  attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, issues });
+  // The evidence ledger's rows (conversions.csv, D153) and the physics limits per kind of plastic (class_limits.csv, D154):
+  // read by attachProducts, after every product's values and its twins', into each product state's bounds.
+  const conversions = compileConversions(wb.Conversions?.rows ?? [], { materialRows, registry, issues });
+  const classLimits = compileClassLimits(wb['Class limits']?.rows ?? [], { materialRows, registry, sources, issues });
+  const { ledger } = attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, conversions, classLimits, polymers, issues });
   const selectable = new Set(registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
   for (const m of materials) m.headlineBasis = headlineBasis(m, selectable);
   // The written summaries at the head of the material pages (D142), their placeholders filled from the spreads just
@@ -755,6 +760,8 @@ export function compile(wb, { snapshot, build }) {
         ),
       },
       materials, grades, measurements, profiles, printGuide: printGuide.guides, evidence, prices, fxRates, sources, coverage, method, polymers,
+      // The evidence ledger's rows and the physics limits, each with what it bounded and its same-sheet pairs (D153, D154).
+      conversions: ledger.conversions, classLimits: ledger.classLimits,
       // What every property and headline means. The app builds its labels, filters, axes, table and
       // export from this, so a registry row reaches the interface with no code change.
       registry,

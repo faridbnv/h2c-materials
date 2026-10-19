@@ -43,7 +43,7 @@ export function statePolicy(ctx = {}) {
  * The states a scenario may judge a product in (D99), as printed first. A product is used as printed unless the scenario
  * permits annealing, and then only at a schedule its oven reaches; it is judged in the service state the scenario asks
  * about, dry by default. A product with no value in the asked-for moisture state is still judged there, and is unknown
- * on what it does not publish: nothing is inferred from another state.
+ * on what it does not publish: no value is filled from another state (the evidence ledger may bound it, D153).
  */
 export function scenarioStates(grade, ctx = {}) {
   const policy = statePolicy(ctx);
@@ -114,6 +114,11 @@ export function productsByMaterial(db) {
  */
 // Without a registry (a hand-built material in a test) every headline is taken to change with the state (valueStateOf).
 const stateValue = (grade, key, state, ctx) => valueStateOf(grade, key, state, ctx).values?.[key];
+/**
+ * What the evidence ledger bounds a headline to in a state (D153, D154): the build's bounds where the state holds no
+ * deciding value, read from the state that holds the headline as its value is (valueStateOf). Null where none.
+ */
+export const stateBounds = (grade, key, state, ctx) => valueStateOf(grade, key, state, ctx).bounds?.[key] ?? null;
 
 function productValueHeadline(base, grade, v, measurementById) {
   const h = {
@@ -134,6 +139,10 @@ function productValueHeadline(base, grade, v, measurementById) {
   if (v.priceIds) Object.assign(h, { priceIds: v.priceIds, observations: v.observations });
   // A twin's value is its sibling's, from the same sheet (D89); the reason says so.
   if (v.from) h.from = v.from;
+  // A value that is only a ceiling for the printed part (CV05), and one its own records or its kind's limit contradict
+  // (C40): the engine reads both (D153, D154).
+  if (v.ceilingOnly) h.ceilingOnly = true;
+  if (v.doubtful) h.doubtful = v.doubtful;
   return h;
 }
 
@@ -152,11 +161,19 @@ export function productHeadline(material, grade, key, ctx = {}, state = null) {
   // A scenario assumption is the reader's own number for a material's missing value; it stands in for a product that
   // publishes nothing that may decide, and never over a value that does.
   if (!decides && base.assumption) return base;
-  if (decides) return productValueHeadline(base, grade, v, ctx.measurementById);
+  // What the evidence ledger bounds it to where the state holds no deciding value (D153): the engine reads it after a
+  // comparable value, which always wins, and before an estimate.
+  const bounds = stateBounds(grade, key, state, ctx);
+  if (decides) {
+    const h = productValueHeadline(base, grade, v, ctx.measurementById);
+    if (bounds) h.ledger = bounds;
+    return h;
+  }
   const entry = {
     known: false, unit: base.unit,
     missing: v ? 'not-comparable' : key === 'priceCADkg' ? 'not-available-in-market' : 'not-published',
   };
+  if (bounds) entry.ledger = bounds;
   if (v) entry.asPublished = { value: v.value, caveat: v.caveat, measurementId: v.measurementId };
   // A value this product publishes in another state: the reason names it, and what would let it decide (D99).
   const judged = state ?? firstState(grade);

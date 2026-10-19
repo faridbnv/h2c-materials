@@ -150,7 +150,7 @@ state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen 
 Anneal °C and Anneal h carry the schedule the wording states (Not published when it states none); the parser checks them.
 Standard / load is the sheet's own words and Standards beside it lists the standards they name, at family level (Not
 published where they name none); the parser checks that too. Never write a standard the sheet does not print. A Fatigue life measurement
-also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
+also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it never becomes a point: it is judged as the interval it is, limits the estimate, and bounds another headline only through a conversion row (D153). The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
 **Read a registered sheet's pages again.** A reading of a page (by a model from the page image, or by a person) is a row
@@ -257,6 +257,20 @@ setting Quarantined `TRUE` and saying why in its Regular price basis. A coverage
 modulus its own hardness and elongation contradict), keep the number: Data status "Published value (physically
 implausible)" and the reason in Notes, through a migration (m24). It then backs no product value, estimate or bound,
 and a pin on it stops the build. The physics lint (MEAS-PHYSICS-*) finds some of these; accept the rest with a reason.
+
+**Add a conversion or a physics limit.** Where a value measured another way (another load, another state, a Z bar, a
+moulded bar, a related property) says something safe about a headline for the same product, that relation is a row of
+`conversions.csv` (D153): its target headline, source properties and what differs, its kind (floor, ceiling, band, equal,
+demote-to-ceiling), its factors, the materials it holds for and its Reason words, which the page reads after "Meets it
+on". A limit a whole kind of plastic cannot pass is a row of `class_limits.csv` (D154), with a registered, cited source
+that prints it (CLASS-LIMIT-SOURCE); a declared variant and an undisclosed commercial variant are never of a kind, and a
+plausibility window is a check, never a limit (D141). A row lands `reported`: run `npm run snapshot` and read its line in
+`build/snapshot/ledger.csv`, which re-measures its band on same-sheet pairs (how many, the ratio or difference each
+implies, the pairs that break it). Set its factor to what every pair supports, not to a published middle 95 %: a deciding
+row a pair breaks is a reviewed CONVERSION-PAIRS finding (fix the record, narrow the row, or accept the pair with its
+reason). Switch it to `deciding` in a commit of its own, with its decision diff (the screening build's
+`decision-census.mjs`) and `npm run build:diff` showing no estimate path. A headline's Lower bound other than its own value
+needs its factor-1 floor row too (LEDGER-LB-DRIFT).
 
 **Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
 its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.

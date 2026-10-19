@@ -1,5 +1,5 @@
 {
-  "dataRelease": "d73819b49185",
+  "dataRelease": "3ce220313bcf",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -92,6 +92,20 @@
       "baseline": 0,
       "current": 20,
       "added": 20,
+      "edited_existing": 0,
+      "removed": 0
+    },
+    "class_limits": {
+      "baseline": 0,
+      "current": 2,
+      "added": 2,
+      "edited_existing": 0,
+      "removed": 0
+    },
+    "conversions": {
+      "baseline": 0,
+      "current": 12,
+      "added": 12,
       "edited_existing": 0,
       "removed": 0
     },

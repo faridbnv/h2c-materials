@@ -24,6 +24,7 @@ import { REGISTRY } from './registry.js';
 import { stripScale, stack, stackPitch, DOT_PITCH, COLUMN_SHOWN } from './scales.js';
 import { pageOf, productsPageOf } from './page-rule.js';
 import { toHash } from '../engine/scenario.js';
+import { contributionWords, ledgerRow } from '../engine/ledger.js';
 import { mostDocumentedFirst, orderRow } from './product-order.js';
 import {
   stated, isProduct, productName, productNameOrId, sourceName, originalOf, groupBy, groupByMaker, leadMaker, materialContext, productDocuments,
@@ -631,9 +632,38 @@ function productValues(g, c) {
     const mark = v.level === 'as-published'
       ? ` ${explainButton('not comparable', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Not comparable.', { cls: 'missing lvl', head: 'Orientation or load not stated' })}` : '';
     const anneal = v.anneal ? ` <span class="fine">annealed${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
-    return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}${fromNote(v.from)}</dd>`;
+    // A value that is only a ceiling for the printed part (CV05), or one its other records contradict (C40, D153).
+    const first = g.states?.[0]?.values?.[h.key];
+    const flag = first?.measurementId === v.measurementId && first?.ceilingOnly ? ' <span class="fine">a ceiling: the most a printed part reaches</span>'
+      : first?.measurementId === v.measurementId && first?.doubtful ? ' <span class="fine">doubtful: its other records disagree</span>' : '';
+    return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}${fromNote(v.from)}${flag}</dd>`;
   });
-  return rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : '<div class="fine">This product publishes none of the key properties with a stated orientation or test load.</div>';
+  const ledger = ledgerLines(g, c);
+  if (!rows.length && !ledger) return '<div class="fine">This product publishes none of the key properties with a stated orientation or test load.</div>';
+  return `${rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : ''}${ledger}`;
+}
+
+/**
+ * What the evidence ledger bounds a product to where it publishes no comparable value (D153, D154): the deciding records'
+ * interval, each record named, and the rows not yet deciding, said so. As printed and dry, as the table shows the product.
+ */
+function ledgerLines(g, c) {
+  const rows = [];
+  for (const h of REGISTRY.allHeadlines) {
+    const b = g.states?.[0]?.bounds?.[h.key];
+    if (!b) continue;
+    const words = (x) => esc(contributionWords(x, h.unit, ledgerRow(c.db, x.rule)?.words));
+    const deciding = b.by.filter((x) => x.status === 'deciding');
+    const pending = b.by.filter((x) => x.status !== 'deciding');
+    const range = b.disagree ? 'its records disagree' : b.lo != null && b.hi != null ? `between ${esc(fmtNumber(b.lo))} and ${esc(fmtNumber(b.hi))} ${esc(h.unit)}`
+      : b.lo != null ? `at least ${esc(fmtNumber(b.lo))} ${esc(h.unit)}` : b.hi != null ? `at most ${esc(fmtNumber(b.hi))} ${esc(h.unit)}` : '';
+    const parts = [
+      ...(deciding.length ? [`${range ? `${range}: ` : ''}${deciding.map(words).join('; ')}`] : []),
+      ...(pending.length ? [`<span class="fine">not yet deciding: ${pending.map(words).join('; ')}</span>`] : []),
+    ];
+    rows.push(`<dt>${esc(h.labels.plain)}</dt><dd>${parts.join('<br>')}</dd>`);
+  }
+  return rows.length ? `<div class="shared-head">Bounds from its other records</div><dl class="kv small product-values ledger-lines">${rows.join('')}</dl>` : '';
 }
 
 /**

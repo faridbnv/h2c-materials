@@ -28,6 +28,8 @@ export const TABLES = [
   { file: 'headline_definitions', sheet: 'Headline definitions' },
   { file: 'drawer_comparisons', sheet: 'Drawer comparisons' },
   { file: 'physical_relations', sheet: 'Physical relations' },
+  { file: 'conversions', sheet: 'Conversions' },
+  { file: 'class_limits', sheet: 'Class limits' },
   { file: 'family_entries', sheet: 'Family entries' },
   { file: 'family_members', sheet: 'Family members' },
   { file: 'chamber_bands', sheet: 'Chamber bands' },
