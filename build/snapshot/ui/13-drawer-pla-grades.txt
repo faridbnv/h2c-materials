@@ -1,30 +1,30 @@
-195 products you can buy, from 40 makers. Each shows its result, how to print it, its values and what its maker says. By maker; SUNLU first, its products most often the material's typical value.
+196 products you can buy, from 40 makers. Each shows its result, how to print it, its values and what its maker says. By maker; Polymaker first, its products most often the material's typical value.
 Across its products: median and range, and what their makers say
 Property Median Range Products Kept out of the median
-Density kg/m³ 1,240 1,170⁠–⁠1,330 154 of 172 20 with an added filler or additive (800⁠–⁠4,000)
-Tensile modulus (XY) GPa 2.53 0.95⁠–⁠4.24 55 of 172 35 with no stated orientation (1.44⁠–⁠4.78); 16 with an added filler or additive (0.715⁠–⁠4.73)
-Tensile modulus (Z) GPa 1.98 0.873⁠–⁠2.69 29 of 172 2 with an added filler or additive (0.603⁠–⁠3.2)
-Tensile strength (XY) MPa 45.5 26⁠–⁠70.9 71 of 172 52 with no stated orientation (30⁠–⁠71); 16 with an added filler or additive (13.7⁠–⁠65)
-Tensile strength (Z) MPa 30.6 8.7⁠–⁠43.5 39 of 172 3 with an added filler or additive (14.5⁠–⁠21.7)
-Elongation at break (XY) % 7.23 1.2⁠–⁠65 63 of 172 43 with no stated orientation (2.5⁠–⁠58); 15 with an added filler or additive (2.4⁠–⁠84)
-Elongation at break (Z) % 2.89 0.9⁠–⁠9.6 35 of 172 2 with an added filler or additive (1.8⁠–⁠7.91)
-Flexural modulus (XY) GPa 2.87 2.14⁠–⁠3.98 59 of 172 45 with no stated orientation (1.93⁠–⁠3.8); 17 with an added filler or additive (2.04⁠–⁠8.8)
-Flexural modulus (Z) GPa 2.41 1.77⁠–⁠3.29 17 of 172 —
-Flexural strength (XY) MPa 76 42.6⁠–⁠115 63 of 172 48 with no stated orientation (43⁠–⁠115); 11 with an added filler or additive (29.6⁠–⁠122)
-Flexural strength (Z) MPa 54 21.1⁠–⁠68 17 of 172 —
-Notched Charpy impact kJ/m² 6 2.16⁠–⁠20.3 14 of 165 14 with no stated orientation (1.8⁠–⁠29.8); 10 with an added filler or additive (1.8⁠–⁠7); 7 sold as toughened (5.76⁠–⁠72.3)
-Notched Izod impact kJ/m² 5 4.5⁠–⁠6.5 6 of 171 11 with no stated orientation (2⁠–⁠19.8); 5 with an added filler or additive (5.5⁠–⁠18.1); 1 sold as toughened (10)
-HDT at 0.45 MPa °C 55 50⁠–⁠135 84 of 172 29 with no stated test load (53⁠–⁠95); 11 with an added filler or additive (55⁠–⁠110)
-HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 172 3 with an added filler or additive (45⁠–⁠54)
-Glass transition (Tg) °C 59 54⁠–⁠68 75 of 172 7 with an added filler or additive (55⁠–⁠62)
-Shore A hardness Shore A — — 0 of 172 —
-Shore D hardness Shore D 82 80⁠–⁠86 7 of 172 1 with an added filler or additive (72)
-Price CAD/kg 34 18⁠–⁠80 26 of 172 2 with an added filler or additive (23⁠–⁠65)
+Density kg/m³ 1,240 1,170⁠–⁠1,330 155 of 173 20 with an added filler or additive (800⁠–⁠4,000)
+Tensile modulus (XY) GPa 2.52 0.95⁠–⁠4.24 56 of 173 35 with no stated orientation (1.44⁠–⁠4.78); 16 with an added filler or additive (0.715⁠–⁠4.73)
+Tensile modulus (Z) GPa 1.98 0.873⁠–⁠2.69 29 of 173 2 with an added filler or additive (0.603⁠–⁠3.2)
+Tensile strength (XY) MPa 45.3 23.2⁠–⁠70.9 72 of 173 52 with no stated orientation (30⁠–⁠71); 16 with an added filler or additive (13.7⁠–⁠65)
+Tensile strength (Z) MPa 30.3 8.7⁠–⁠43.5 40 of 173 3 with an added filler or additive (14.5⁠–⁠21.7)
+Elongation at break (XY) % 7.23 1.2⁠–⁠65 63 of 173 43 with no stated orientation (2.5⁠–⁠58); 15 with an added filler or additive (2.4⁠–⁠84)
+Elongation at break (Z) % 2.89 0.9⁠–⁠9.6 35 of 173 2 with an added filler or additive (1.8⁠–⁠7.91)
+Flexural modulus (XY) GPa 2.87 2.14⁠–⁠3.98 59 of 173 45 with no stated orientation (1.93⁠–⁠3.8); 17 with an added filler or additive (2.04⁠–⁠8.8)
+Flexural modulus (Z) GPa 2.41 1.77⁠–⁠3.29 17 of 173 —
+Flexural strength (XY) MPa 75.9 40.4⁠–⁠115 64 of 173 48 with no stated orientation (43⁠–⁠115); 11 with an added filler or additive (29.6⁠–⁠122)
+Flexural strength (Z) MPa 54 21.1⁠–⁠68 17 of 173 —
+Notched Charpy impact kJ/m² 6 2.16⁠–⁠20.3 14 of 166 14 with no stated orientation (1.8⁠–⁠29.8); 10 with an added filler or additive (1.8⁠–⁠7); 7 sold as toughened (5.76⁠–⁠72.3)
+Notched Izod impact kJ/m² 5 4.5⁠–⁠6.5 6 of 172 11 with no stated orientation (2⁠–⁠19.8); 5 with an added filler or additive (5.5⁠–⁠18.1); 1 sold as toughened (10)
+HDT at 0.45 MPa °C 55 50⁠–⁠135 85 of 173 29 with no stated test load (53⁠–⁠95); 11 with an added filler or additive (55⁠–⁠110)
+HDT at 1.8 MPa °C 55 52⁠–⁠75 41 of 173 3 with an added filler or additive (45⁠–⁠54)
+Glass transition (Tg) °C 59 54⁠–⁠68 76 of 173 7 with an added filler or additive (55⁠–⁠62)
+Shore A hardness Shore A — — 0 of 173 —
+Shore D hardness Shore D 82 80⁠–⁠86 7 of 173 1 with an added filler or additive (72)
+Price CAD/kg 34 18⁠–⁠80 26 of 173 2 with an added filler or additive (23⁠–⁠65)
 Median and range of the products that publish it with a stated orientation or test load. The range is the products' lowest to highest.
 Notched Charpy impact. The median and middle half are of the other 14 products. The 7 products their makers sell as toughened or impact-modified give 5.76 to 72.3 kJ/m² and are set apart, as products with an added filler or additive are. "Sold as toughened" is the maker's statement, not a test result.
 Notched Izod impact. The median and middle half are of the other 6 products. The product its maker sells as toughened or impact-modified gives 10 kJ/m² and is set apart, as products with an added filler or additive are.
 What makers say
-192 of 195 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 24 of them so far.
+193 of 196 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 26 of them so far.
 Good for: 25 of 40 makers (75 products)
 Benefits: 34 of 40 makers (142 products)
 Pitfalls and limitations: 9 of 40 makers (16 products)
@@ -35,46 +35,46 @@ Adhesion between layers: 12 of 40 makers (20 products)
 Moisture sensitivity: 13 of 40 makers (36 products)
 Nozzle wear: 10 of 40 makers (37 products)
 Odour and emissions: 16 of 40 makers (31 products)
-Supports and removal: 8 of 40 makers (39 products)
+Supports and removal: 8 of 40 makers (40 products)
 Printing advice: 19 of 40 makers (33 products)
-Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (180 products).
+Not stated by their documents: chamber or enclosure need (90 products), drying schedule (115 products) and annealing schedule (181 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
-SUNLU
+Polymaker
 14 products
-SUNLU PLA Lite
-variant
-Strength XY 27 MPa · HDT 0.45 55 °C
-SUNLU PLA
-Modulus XY 3.5 GPa · Strength XY 40 MPa · HDT 0.45 55 °C
-SUNLU High Speed PLA
-Modulus XY 3.28 GPa · Strength XY 39 MPa · HDT 0.45 57 °C
-SUNLU PLA-METALLIC PLA
-Strength XY 45 MPa · HDT 0.45 56 °C
-SUNLU PLA Matte Dual-Color
-Strength XY 39 MPa · HDT 0.45 55 °C
-SUNLU PLA Rainbow
-Strength XY 50 MPa · HDT 0.45 57 °C
-SUNLU High Speed PLA+2.0
-Strength XY 40 MPa · HDT 0.45 56.5 °C
-SUNLU PLA Matte
-Modulus XY 4.78 GPa · Strength XY 50.5 MPa · HDT 0.45 53 °C
-SUNLU APLA
-Modulus XY 4.69 GPa · Strength XY 51.3 MPa · HDT 0.45 53 °C
-SUNLU PLA Classic
-variant
-Strength XY 28 MPa · HDT 0.45 55 °C
-SUNLU PLA Meta
-Modulus XY 2 GPa · Strength XY 50 MPa · HDT 0.45 53 °C
-SUNLU PLA+2.0
+Polymaker PolyLite PLA
+Modulus XY 2.64 GPa · Strength XY 46.6 MPa · HDT 0.45 59.8 °C
+Polymaker PolySonic PLA Pro 6.0
 sold as toughened
-Strength XY 46 MPa · HDT 0.45 56 °C
-SUNLU High Speed Matte PLA
-variant
-Strength XY 27 MPa · HDT 0.45 55 °C
-SUNLU PLA+
+Modulus XY 2.36 GPa · Strength XY 41.2 MPa · HDT 0.45 55 °C
+Polymaker HT PLA
+Modulus XY 2.95 GPa · Strength XY 42.9 MPa · HDT 0.45 61.4 °C
+Polymaker PolyLite PLA PRO Army Beige
+Modulus XY 2.68 GPa · Strength XY 35.6 MPa · HDT 0.45 59.3 °C
+Polymaker PolyTerra PLA
+Modulus XY 2 GPa · Strength XY 23.2 MPa · HDT 0.45 58 °C
+Polymaker PolyMax PLA
 sold as toughened
-Modulus XY 3.17 GPa · Strength XY 53.4 MPa · HDT 0.45 53.8 °C
+Modulus XY 2.15 GPa · Strength XY 41.3 MPa · HDT 0.45 55 °C
+Polymaker PolySonic PLA
+Modulus XY 2.88 GPa · Strength XY 46 MPa · HDT 0.45 53 °C
+Polymaker PolyLite PLA Pro
+Modulus XY 2.93 GPa · Strength XY 49.8 MPa · HDT 0.45 59 °C
+Polymaker PolyLite CosPLA Version A
+Modulus XY 2.25 GPa · Strength XY 31.1 MPa · HDT 0.45 58 °C
+Polymaker HT PLA Pro
+sold as toughened
+Modulus XY 2.27 GPa · Strength XY 37.6 MPa · HDT 0.45 56.3 °C
+Polymaker PLA Pro
+sold as toughened
+Modulus XY 2.53 GPa · Strength XY 39.9 MPa · HDT 0.45 58.1 °C
+Polymaker PolyLite CosPLA Version B
+Modulus XY 2.93 GPa · Strength XY 49.8 MPa · HDT 0.45 59 °C
+Polymaker PolyWood
+variant
+Modulus XY 2.64 GPa · Strength XY 23.2 MPa · HDT 0.45 56.2 °C
+Polymaker Panchroma Satin PLA
+sold as toughened
+Modulus XY 2.25 GPa · Strength XY 31.1 MPa · HDT 0.45 58.4 °C
 3DXTECH
 3 products
 iSANMATE
-6 products

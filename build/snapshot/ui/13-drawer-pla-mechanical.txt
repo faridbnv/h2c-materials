@@ -1,10 +1,10 @@
-1,513 published mechanical values, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.
+1,517 published mechanical values, by property, with the tensile, flexural and impact results drawn product by product. Each names its product and the document it comes from.
 Tensile tests, XY and Z
-814 values
+817 values
 Flexural tests, XY and Z
 398 values
 Impact tests
-275 values
+276 values
 Hardness
 18 values
 Interlayer adhesion strength

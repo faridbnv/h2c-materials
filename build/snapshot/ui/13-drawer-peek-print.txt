@@ -34,7 +34,7 @@ Heated chamber, highest
 250
 Drying · °C
 Drying
-5 products, all counted
+6 products, all counted
 °C
 110
 120
@@ -48,8 +48,8 @@ Bed, lowest 7 120 115⁠–⁠130 110⁠–⁠160
 Bed, highest 7 150 120⁠–⁠170 120⁠–⁠250
 Heated chamber, lowest 5 90 90⁠–⁠100 70⁠–⁠160
 Heated chamber, highest 5 140 100⁠–⁠150 90⁠–⁠230
-Drying 5 120 120 110⁠–⁠140
+Drying 6 120 120 110⁠–⁠140
 The window most products give, as the Overview gives it: nozzle 390⁠–⁠440 °C, bed 120 °C, heated chamber 90 °C and drying 110–140 °C, 4–8 h.
 Beyond the H2C's limits (nozzle 350 °C, bed 120 °C, heated chamber 65 °C): nozzle: 3DXTECH ThermaX PEEK (400⁠–⁠480 °C), iSANMATE PEEK (390⁠–⁠430 °C), SUNLU PEEK (390⁠–⁠420 °C), LEHVOSS LUVOCOM 3F PEEK 9581 (390⁠–⁠440 °C), 3D4Makers R-PEEK (400⁠–⁠450 °C), 3D4Makers PEEK (360⁠–⁠400 °C) and Ensinger TECAFIL PEEK EV natural - 1.75 mm (420⁠–⁠440 °C); bed: 3DXTECH ThermaX PEEK (140⁠–⁠180 °C), 3D4Makers R-PEEK (120⁠–⁠160 °C, the H2C reaches only its bottom edge) and Ensinger TECAFIL PEEK EV natural - 1.75 mm (160⁠–⁠250 °C); heated chamber: 3DXTECH ThermaX PEEK (70⁠–⁠140 °C, its recommended setting above), iSANMATE PEEK (90⁠–⁠150 °C), 3D4Makers R-PEEK (90 °C), 3D4Makers PEEK (100 °C) and Ensinger TECAFIL PEEK EV natural - 1.75 mm (160⁠–⁠230 °C).
 Within, at the low end of the maker's window: bed: iSANMATE PEEK (110⁠–⁠150 °C).
-Not drawn: heated chamber, 1 prints at room temperature and 1 says nothing; drying, 2 say nothing.
+Not drawn: heated chamber, 1 prints at room temperature and 1 says nothing; drying, 1 says nothing.

@@ -1,4 +1,4 @@
-Bambu Lab PPS-CF
+3DXTECH CarbonX CF PP
 PASS
 chosen <date> on release <id>
 Download the decision brief

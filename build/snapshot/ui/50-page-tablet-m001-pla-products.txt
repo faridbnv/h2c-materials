@@ -1,7 +1,7 @@
 viewport 820x1100
 document width: fits the screen
 spill: none
-clipped cells: none in 184 tables
+clipped cells: none in 185 tables
 hidden controls: 0
 figure text: all of it readable
 sections (2): products-list, colophon

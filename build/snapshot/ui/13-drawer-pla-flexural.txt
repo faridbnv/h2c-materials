@@ -16,7 +16,7 @@ GPa
 8
 10
 Flexural strength (XY)
-63 ranked of 122 shown
+64 ranked of 123 shown
 14
 Flexural strength (Z)
 17 products, all ranked
@@ -32,7 +32,7 @@ Test Ranked Median Middle half Range
 Flexural modulus (XY) GPa 59 2.87 2.43⁠–⁠3.1 2.14⁠–⁠3.98
 Not ranked: 45 with no stated orientation (1.93⁠–⁠3.8), 17 with an added filler or additive (2.04⁠–⁠8.8).
 Flexural modulus (Z) GPa 17 2.41 2.07⁠–⁠2.74 1.77⁠–⁠3.29
-Flexural strength (XY) MPa 63 76 69.5⁠–⁠84 42.6⁠–⁠115
+Flexural strength (XY) MPa 64 75.9 69⁠–⁠83.5 40.4⁠–⁠115
 Not ranked: 48 with no stated orientation (43⁠–⁠115), 11 with an added filler or additive (29.6⁠–⁠122).
 Flexural strength (Z) MPa 17 54 42⁠–⁠59 21.1⁠–⁠68
 Both XY and Z published: 17 products for flexural modulus and 17 for flexural strength.

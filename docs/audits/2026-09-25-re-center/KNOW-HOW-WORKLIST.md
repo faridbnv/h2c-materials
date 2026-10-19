@@ -65,6 +65,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
 | PBAT (M133) | Flexible component; Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-CF (M037) | Indoor prototype; Warm environment | collected | 0 of 10 | 4 / 1 / 8 | — |
+| PE-GF (M138) | Indoor prototype; Warm environment | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 8 / 6 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 4 / 3 / 8 | — |
@@ -146,7 +147,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PC-ASA (M119) | — | collected | 0 of 1 | 0 / 1 / 1 | — |
 | PC-GF (M038) | — | collected | 0 of 3 | 2 / 0 / 2 | — |
 | PC-PTFE (M112) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
-| PE-GF (M138) | — | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PEEK (M097) | — | collected | 0 of 7 | 1 / 1 / 5 | — |
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 3 | 2 / 1 / 3 | — |

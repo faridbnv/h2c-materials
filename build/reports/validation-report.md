@@ -106,7 +106,7 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 | CN14 | Family: PVB / Specialty Polymers | unknown | reported | 7 | 0 | no | 0 |
 | CN15 | Family: Polycarbonate | unknown | reported | 11 | 3 | no | 0 |
 | CN16 | Family: Polymer Blends | unknown | reported | 7 | 3 | no | 0 |
-| CN17 | Family: Polyolefins | unknown | reported | 10 | 0 | yes | 0 |
+| CN17 | Family: Polyolefins | within | deciding | 10 | 0 | yes | 8 |
 | CN18 | Family: Styrenics | unknown | reported | 4 | 1 | no | 0 |
 | CN19 | Family: Support / Interface | unknown | reported | 2 | 0 | no | 0 |
 | CN20 | Family: Support / Soluble | unknown | reported | 7 | 0 | no | 0 |

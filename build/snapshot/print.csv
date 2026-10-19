@@ -860,21 +860,21 @@ G081-09,M081,Ultrafuse HiPS,within,within,unknown,unknown,unknown,required,
 G081-10,M081,HIPS,within,within,exceeds,unknown,unknown,optional,
 G081-11,M081,HIPS,within,within,within,not-needed,unknown,required,
 G081-12,M081,LimoSolve,within,within,unknown,unknown,unknown,unknown,
-G082-02,M082,PP,within,within,unknown,unknown,unknown,unknown,
+G082-02,M082,PP,within,within,within,unknown,unknown,unknown,chamber: family CN17
 G082-03,M082,PP,within,within,within,recommended,no-special-concern,optional,
 G082-04,M082,PP2.0,within,within,within,unknown,unknown,required,
 G082-05,M082,PP,within,within,within,unknown,unknown,required,
-G082-06,M082,Polypropylene (PP),within,within,unknown,unknown,unknown,not-needed,
-G082-07,M082,PP 2320,within,within,unknown,unknown,unknown,optional,
-G082-08,M082,PP,within,within,unknown,unknown,unknown,unknown,
+G082-06,M082,Polypropylene (PP),within,within,within,unknown,unknown,not-needed,chamber: family CN17
+G082-07,M082,PP 2320,within,within,within,unknown,unknown,optional,chamber: family CN17
+G082-08,M082,PP,within,within,within,unknown,unknown,unknown,chamber: family CN17
 G082-09,M082,P,within,within,within,unknown,unknown,unknown,
 G082-10,M082,PP,within,within,within,not-needed,unknown,required,
-G082-11,M082,Centaur PP,within,within,unknown,unknown,unknown,unknown,
+G082-11,M082,Centaur PP,within,within,within,unknown,unknown,unknown,chamber: family CN17
 G082-12,M082,Pegasus PP,within,within,unknown,unknown,unknown,unknown,
 G082-13,M082,R PP,within,within,within,not-needed,unknown,required,
 G083-01,M083,CarbonX CF PP,within,within,within,unknown,requires-hardened,required,
-G083-02,M083,FL900PP-CF,within,within,unknown,unknown,requires-hardened,unknown,
-G083-03,M083,Prusament PP Carbon Fiber by Prusa Polymers,within,within,unknown,unknown,requires-hardened,required,
+G083-02,M083,FL900PP-CF,within,within,within,unknown,requires-hardened,unknown,chamber: family CN17
+G083-03,M083,Prusament PP Carbon Fiber by Prusa Polymers,within,within,within,unknown,requires-hardened,required,chamber: family CN17
 G083-04,M083,PP CF,within,within,within,unknown,requires-hardened,optional,
 G083-05,M083,LUVOCOM 3F PP CF 9928 BK,within,within,within,not-needed,requires-hardened,required,
 G084-01,M084,FIBREX GF PP,within,within,within,unknown,requires-hardened,not-needed,
@@ -1021,7 +1021,7 @@ G135-02,M135,Vinyl 303,within,within,unknown,unknown,no-special-concern,optional
 G136-02,M136,Styrol-Acrylnitril (SAN),within,within,unknown,unknown,unknown,required,
 G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),within,within,within-low-end,unknown,unknown,not-needed,
 G137-03,M137,Cyclo-Olefin-Copolymer flexibel (COC flex),within,within,within-low-end,unknown,unknown,not-needed,
-G138-02,M138,Polyethylen high density glass fiber 20% (HDPE GF20),within,within,unknown,unknown,unknown,not-needed,
+G138-02,M138,Polyethylen high density glass fiber 20% (HDPE GF20),within,within,within,unknown,unknown,not-needed,chamber: family CN17
 G138-03,M138,HDPE Glass Fiber,unknown,unknown,unknown,unknown,unknown,unknown,
 G139-01,M139,Liquid Crystal Polymer (LCP),within,edge,unknown,unknown,unknown,required,
 G140-01,M140,Polybutylenterephthalat (PBT),within,exceeds,unknown,unknown,unknown,required,

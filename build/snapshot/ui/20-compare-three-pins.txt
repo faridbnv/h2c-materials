@@ -57,8 +57,8 @@ PA6-CF
 PA6-GF
 82.3
 62.8–98.9 · 6
-4.82
-300
+5.29
+291
 all 152 materials
 Tensile strength (Z) MPa
 ASA-CF
@@ -83,7 +83,7 @@ PA6-CF
 PA6-GF
 4.95
 2.4–12.5 · 6
-0.55
+0.549
 log scale
 1,050
 all 152 materials
@@ -197,6 +197,6 @@ all products: within
  required published
 Data on file
 Material Key properties published Estimated Products Measurements
-ASA-CF 11 of 12 — 17 192
-PA6-CF 11 of 12 — 14 204
-PA6-GF 10 of 12 — 11 218
+ASA-CF 11 of 12 — 17 193
+PA6-CF 11 of 12 — 14 206
+PA6-GF 10 of 12 — 11 221

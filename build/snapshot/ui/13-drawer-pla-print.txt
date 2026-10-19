@@ -5,14 +5,14 @@ middle half and median
 the H2C's limit, and beyond it
 Nozzle · °C · the H2C reaches 350 °C, above this scale
 Nozzle, lowest
-165 counted of 194 shown
-76
+166 counted of 195 shown
+77
 32
 22
 Nozzle, highest
-166 counted of 195 shown
+167 counted of 196 shown
 78
-47
+48
 13
 10
 °C
@@ -25,9 +25,9 @@ Nozzle, highest
 275
 Bed · °C · the H2C reaches 120 °C, above this scale
 Bed, lowest
-155 counted of 193 shown
+156 counted of 194 shown
 45
-23
+24
 23
 19
 17
@@ -35,8 +35,8 @@ Bed, lowest
 14
 13
 Bed, highest
-155 counted of 193 shown
-110
+156 counted of 194 shown
+111
 27
 22
 14
@@ -50,11 +50,11 @@ Bed, highest
 100
 Heated chamber · °C · the H2C reaches 65 °C
 Heated chamber, lowest
-22 counted of 23 shown
-16
+23 counted of 24 shown
+17
 Heated chamber, highest
-22 counted of 23 shown
+23 counted of 24 shown
+10
 °C
 0
 20
-40

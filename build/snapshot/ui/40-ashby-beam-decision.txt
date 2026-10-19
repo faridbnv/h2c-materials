@@ -39,7 +39,7 @@ Line
 M =
 ▼
 ▲
-8 products from 6 materials above the line
+9 products from 6 materials above the line
 ↑
 Density
 Tensile modulus (XY)
@@ -118,42 +118,42 @@ Whisker: the spread a sheet reports for that value
 Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
 Colour is polymer family
-Drawn: 20 products from 13 materials, each meeting every requirement. Not drawn: 1 passing product with no value on one of these axes (listed beside the chart).
+Drawn: 21 products from 13 materials, each meeting every requirement. Not drawn: 1 passing product with no value on one of these axes (listed beside the chart).
 Reading this chart
 Ranking
 M = E^(1/2) / ρ
 Each material by the median M of its passing products, in GPa^½/(Mg/m³); n is how many products it rests on.
 1
+PP-CF
+2.52 GPa^½/(Mg/m³) n=2
+⤢
+☆
+best: Braskem FL900PP-CF
+2 products drawn
+2
 PP-GF
-2.32 GPa^½/(Mg/m³) n=1
+2.32 GPa^½/(Mg/m³) n=1 0.92×
 ⤢
 ☆
 best: 3DXTECH FIBREX GF PP
 1 product drawn
-2
-PP-CF
-2.25 GPa^½/(Mg/m³) n=1 0.97×
-⤢
-☆
-best: 3DXTECH CarbonX CF PP
-1 product drawn
 3
 PPA-CF
-2.2 GPa^½/(Mg/m³) n=3 0.95×
+2.2 GPa^½/(Mg/m³) n=3 0.88×
 ⤢
 ☆
 best: Bambu Lab PPA-CF
 3 products drawn
 4
 PLA Aero
-2.1 GPa^½/(Mg/m³) n=1 0.90×
+2.1 GPa^½/(Mg/m³) n=1 0.83×
 ⤢
 ☆
 best: SUNLU PLA-LW
 1 product drawn
 5
 ABS-CF
-1.97 GPa^½/(Mg/m³) n=1 0.85×
+1.97 GPa^½/(Mg/m³) n=1 0.78×
 ⤢
 ☆
 best: Raise3D Hyper Core ABS CF15
@@ -161,56 +161,56 @@ best: Raise3D Hyper Core ABS CF15
 line · M 0.00197
 6
 ASA-CF
-1.87 GPa^½/(Mg/m³) n=2 0.81×
+1.87 GPa^½/(Mg/m³) n=2 0.74×
 ⤢
 ☆
 best: QIDI ASA-CF20 Core
 2 products drawn
 7
 PA6-CF
-1.76 GPa^½/(Mg/m³) n=4 0.76×
+1.76 GPa^½/(Mg/m³) n=4 0.70×
 ⤢
 ☆
 best: Eryone PA6-CF
 4 products drawn
 8
 PLA Wood
-1.74 GPa^½/(Mg/m³) n=1 0.75×
+1.74 GPa^½/(Mg/m³) n=1 0.69×
 ⤢
 ☆
 best: Filament2Print COFFEE
 1 product drawn
 9
 ABS-GF
-1.73 GPa^½/(Mg/m³) n=2 0.75×
+1.73 GPa^½/(Mg/m³) n=2 0.69×
 ⤢
 ☆
 best: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS
 2 products drawn
 10
 PLA
-1.64 GPa^½/(Mg/m³) n=1 0.71×
+1.64 GPa^½/(Mg/m³) n=1 0.65×
 ⤢
 ☆
 best: Nanovia PLA EF 3D850
 1 product drawn
 11
 PLA-CF
-1.6 GPa^½/(Mg/m³) n=1 0.69×
+1.6 GPa^½/(Mg/m³) n=1 0.64×
 ⤢
 ☆
 best: QIDI PLA-CF
 1 product drawn
 12
 Nylon, maker-undisclosed polyamide
-1.51 GPa^½/(Mg/m³) n=1 0.65×
+1.51 GPa^½/(Mg/m³) n=1 0.60×
 ⤢
 ☆
 best: CreatBot Ultra PA
 1 product drawn
 13
 PAHT
-1.47 GPa^½/(Mg/m³) n=1 0.63×
+1.47 GPa^½/(Mg/m³) n=1 0.58×
 ⤢
 ☆
 best: LEHVOSS LUVOCOM 3F PAHT 9825 NT

@@ -15,7 +15,7 @@ A jig or a fixture. Tensile modulus at least 5 GPa; HDT at least 90 °C is repor
 Flexible component
 A gasket, strap or phone case. Elongation at break at least 100 % and tensile modulus at most 0.1 GPa.
 152 materials, 135 within H2C capability
-14,974 measurements, each traceable to its source
+15,047 measurements, each traceable to its source
 147 have a density, 100 a modulus, 108 a price
 No material is ranked on a number nobody measured: a property never published shows as a gap, not a guess.
 What this database cannot answer

@@ -1,7 +1,7 @@
-COUNT 42 shown PASS
-STATUS ☑ PASS 42 | ☐ UNKNOWN 84 | ☐ FAIL 26
-42 of the 152 materials meet these requirements
-Warm environment template · UNKNOWN 84 left out: 26 one check away, 24 not enough data, 18 unlikely to meet, 16 a required property does not apply to
+COUNT 43 shown PASS
+STATUS ☑ PASS 43 | ☐ UNKNOWN 83 | ☐ FAIL 26
+43 of the 152 materials meet these requirements
+Warm environment template · UNKNOWN 83 left out: 26 one check away, 23 not enough data, 18 unlikely to meet, 16 a required property does not apply to
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -40,7 +40,7 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 42 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+TABLE 43 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS | ☆ | PASS / 28 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | passing: 85–106 / all products: 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
 ROW ABS-AF | ☆ | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | passing: 88 / all products: 88 | 127↗
 ROW ABS-CF | ☆ | PASS / 2 of 11 products | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | passing: 90–91 / all products: 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗
@@ -68,6 +68,7 @@ ROW PBT-GF · ☆
 ROW PC · ☆
 ROW PC-ABS · ☆
 ROW PC-CF · ☆
+ROW PE-GF · ☆
 ROW PET-CF · ☆
 ROW PET-GF · ☆
 ROW PETG · ☆

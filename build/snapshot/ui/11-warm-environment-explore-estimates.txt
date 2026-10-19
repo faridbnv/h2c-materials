@@ -1,7 +1,7 @@
 COUNT 110 shown PASS + UNKNOWN
-STATUS ☑ PASS 42 | ☑ UNKNOWN 84 | ☐ FAIL 26 | ☐ HIDDEN 16
-42 of the 152 materials meet these requirements
-Warm environment template · UNKNOWN 84: 26 one check away, 21 not enough data, 21 unlikely to meet, 16 hidden
+STATUS ☑ PASS 43 | ☑ UNKNOWN 83 | ☐ FAIL 26 | ☐ HIDDEN 16
+43 of the 152 materials meet these requirements
+Warm environment template · UNKNOWN 83: 26 one check away, 20 not enough data, 21 unlikely to meet, 16 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -41,8 +41,8 @@ PC
 ~a–b† estimate, italic = rough
 n/a not applicable
 3 more marks
-Meets every requirement (42)
-TABLE 42 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+Meets every requirement (43)
+TABLE 43 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS | ☆ | PASS / 28 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | passing: 85–106 / all products: 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
 ROW ABS-AF | ☆ | PASS / 1 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~1–18† | passing: 88 / all products: 88 | 127↗
 ROW ABS-CF | ☆ | PASS / 2 of 11 products | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | passing: 90–91 / all products: 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗
@@ -70,6 +70,7 @@ ROW PBT-GF · ☆
 ROW PC · ☆
 ROW PC-ABS · ☆
 ROW PC-CF · ☆
+ROW PE-GF · ☆
 ROW PET-CF · ☆
 ROW PET-GF · ☆
 ROW PETG · ☆
@@ -89,13 +90,14 @@ One check away (26)
 One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
 TABLE 26 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW CPE-CF / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 3 products: Spectrum pctg cf10, HDT at 0.45 MPa 78 °C, on the line for at least 80 °C | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | 78 | 81.3↗
-ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~7.2–12.8† | ~201–250† | ~1.8–6.3† | ~193–194† | —
-ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 5 products / One check away on 3 of 5 products: Essentium PA-CF, its chamber temperature is not stated | 1,200 / 1,141–1,400 · 4 | 2.16 | 55.9 | 18 | 145 / 58–178 · 4 | 167EUR
+ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~7.2–12.8† | ~201–249† | ~1.8–6.3† | ~193–194† | —
+ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 6 products / One check away on 4 of 6 products: Essentium PA-CF, its chamber temperature is not stated | 1,200 / 1,010–1,400 · 5 | 2.16 | 55.9 | 18 | 145 / 58–178 · 5 | 167EUR
+ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 2 of 3 products: Eumakers PA Nylon Glass Fiber, its chamber temperature is not stated | 1,210 / 1,180–1,240 · 3 | 2.82 / 2.53–3.1 · 2 | 60.4 | 7.35 / 5.5–9.2 · 2 | 152 | —
 ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 7 products / One check away on 1 of 7 products: CreatBot Ultra PA, HDT at 0.45 MPa 79 °C, on the line for at least 80 °C | 1,140 / 1,100–1,210 · 3 | 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR
 ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,140 | ~4.1–7.1† | ~68–79† | ~2.3–7.3† | 142 | —
-ROW PA12 / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 4 of 8 products: Fabru / purefil Polyamide 12 (PA12), its chamber temperature is not stated | 1,010 / 1,000–1,020 · 6 | ~0.7–2.0† | ~29–62† | ~200–400† | 123 / 100–135 · 4 | 183 / 123–242 · 2 / USD
-ROW PA6-GS / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Spectrum PA6 GK10, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,010 | ~2.6–4.5† | ~88–115† | ~2–15† | ~104–171† | 180↗
-ROW PC-ABS-CF / Polymer Blends | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: 3DXTECH CarbonX Carbon Fiber PC/ABS, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,240 | 5.9 | 62 | 2 | 130 | —
+ROW PA12 / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 4 of 8 products: Fabru / purefil Polyamide 12 (PA12), its chamber temperature is not stated | 1,010 / 1,000–1,020 · 6 | ~0.7–2.0† | ~28–62† | ~200–390† | 123 / 100–135 · 4 | 183 / 123–242 · 2 / USD
+ROW PA6-GS / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Spectrum PA6 GK10, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,010 | ~2.6–4.5† | ~88–118† | ~2–15† | ~104–170† | 180↗
+ROW PC-ABS-CF · ☆
 ROW PC-ASA · ☆
 ROW PC-ESD · ☆
 ROW PC-GF · ☆
@@ -104,7 +106,6 @@ ROW PC-PTFE · ☆
 ROW PCTG · ☆
 ROW PCTG-CF · ☆
 ROW PCTG-GF · ☆
-ROW PE-GF · ☆
 ROW PETG-CF · ☆
 ROW PETG-ESD · ☆
 ROW PETG-GF · ☆
@@ -114,17 +115,17 @@ ROW PPS · ☆
 ROW PPS-ESD · ☆
 ROW PVDF · ☆
 ROW SAN · ☆
-Not enough data (21)
+Not enough data (20)
 More than one question is open, or a value is not published the way you asked. The 3 tagged likely come first: their estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
-TABLE 21 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
-ROW ASA-AF | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum ASA Kevlar, HDT at 0.45 MPa estimated 83.7 to 96.9 °C | 1,070 | ~1.0–3.0† | ~36–59† | ~1–19† | ~83–97† | 115 / 109–120 · 2 / ↗
-ROW ASA-EC | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum ASA Conductive, HDT at 0.45 MPa estimated 91.4 to 104 °C | 1,170 | ~2.0–3.7† | ~29–48† | ~1.3–5.2† | ~91–104† | 125EUR
+TABLE 20 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+ROW ASA-AF | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum ASA Kevlar, HDT at 0.45 MPa estimated 84 to 97.1 °C | 1,070 | ~1.0–3.0† | ~36–60† | ~1–19† | ~84–98† | 115 / 109–120 · 2 / ↗
+ROW ASA-EC | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum ASA Conductive, HDT at 0.45 MPa estimated 91.5 to 104 °C | 1,170 | ~2.0–3.7† | ~28–48† | ~1.3–5.2† | ~91–104† | 125EUR
 ROW PC FR / Polycarbonate | ☆ | UNKNOWN / 0 of 2 products / Not enough data, likely: Bambu Lab PC FR, HDT at 0.45 MPa estimated 104 to 116 °C | 1,190 / 1,180–1,200 · 2 | 2.15 / 1.67–2.63 · 2 | 63.5 / 60–67 · 2 | 2.94 / 2.4–3.49 · 2 | 112 / 110–113 · 2 | 70↗
 ROW nGen FLEX / Copolyesters | ☆ | UNKNOWN / none judged / Not enough data: colorFabb nGen_FLEX, its chamber temperature is not stated; HDT at 0.45 MPa estimated 88.4 to 112 °C | 1,130 | 0.15 | 19.3 | 320 | ~88–112† | 76.3EUR
-ROW PA12-AF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Fillamentum Nylon AF80 Aramid, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; HDT at 0.45 MPa estimated 68.5 to 148 °C | 990 | ~0.43–0.74† | ~51–69† | ~3.4–10.9† | ~68–148† | —
+ROW PA12-AF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Fillamentum Nylon AF80 Aramid, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; HDT at 0.45 MPa estimated 68.5 to 148 °C | 990 | ~0.43–0.74† | ~51–71† | ~3.4–10.9† | ~68–148† | —
 ROW PA6/66-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: eSUN ePA CF, its chamber temperature is not stated; HDT at 0.45 MPa estimated 147 to 168 °C | 1,240 | ~4.5–6.5† | 84 | 7.42 | ~147–168† | 72.4EUR↗ / out of stock
-ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~989–1,070† | ~1.1–3.5† | ~34–81† | ~7–71† | ~83–160† | —
-ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.3–7.8† | ~50–123† | ~1–15† | ~119–209† | —
+ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~989–1,070† | ~1.1–3.5† | ~33–84† | ~7–71† | ~83–159† | —
+ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.3–7.8† | ~46–126† | ~1–15† | ~120–208† | —
 ROW PA66 · ☆
 ROW PA66-CF · ☆
 ROW PAHT-CE · ☆
@@ -136,6 +137,5 @@ ROW PETG-GR · ☆
 ROW PVC · ☆
 ROW PLA-EC · ☆
 ROW PLA-GR · ☆
-ROW Nylon-GF, maker-undisclosed polyamide · ☆
 ROW SBC · ☆
 Unlikely to meet (21): folded, still counted and in the download
