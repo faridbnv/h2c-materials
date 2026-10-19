@@ -25,7 +25,7 @@
 import { median } from './numerics.js';
 import { HEAD } from './model.js';
 import { assess, LEVEL } from '../products.js';
-import { lowerBoundsOf, BOUNDING_FORMS, PRINTED_FORMS } from '../lower-bounds.js';
+import { lowerBoundsOf, ownCeilingsOf, BOUNDING_FORMS, PRINTED_FORMS } from '../lower-bounds.js';
 
 const r3 = (v) => (v == null ? null : Number(v.toPrecision(3)));
 const inside = (v, [lo, hi]) => v >= lo - 1e-9 * Math.abs(lo) && v <= hi + 1e-9 * Math.abs(hi);
@@ -35,8 +35,8 @@ const inside = (v, [lo, hi]) => v >= lo - 1e-9 * Math.abs(lo) && v <= hi + 1e-9 
  * coverage, the median likely width (a ratio on a log scale, degrees otherwise) and how many hidden values lay under the
  * plausible range. Null for a headline with no lower bounds.
  */
-export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv = {} }) {
-  if (!def?.lowerBounds || !loo.length) return null;
+export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv = {}, ledgerRows = [] }) {
+  if ((!def?.lowerBounds && !model.properties[key].ownCeiling) || !loo.length) return null;
   const log = model.properties[key].scale === 'log';
   // An undescribed bar read as a moulded one: its floor times the learned moulded conversion (headline over moulded).
   const moulded = log ? conv[HEAD[key].replace(' XY', ' moulded')] : null;
@@ -71,13 +71,18 @@ export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv 
       formulation: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f)),
       containmentUnstated: unstated,
       formulationUnstated: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS }),
+      // D160: the grade rule with the hidden product's own moulded or undescribed values as ceilings, alone and with its floors.
+      ...(model.properties[key].ownCeiling ? {
+        formulationCeilings: { implied: [], ceilings: ownCeilingsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), ledgerRows) },
+        formulationBoth: { implied: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f)), ceilings: ownCeilingsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), ledgerRows) },
+      } : {}),
       ...(moulded ? {
         containmentConverted: converted(unstated),
         formulationConverted: converted(lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS })),
       } : {}),
     };
     const p = { ...l.p, mu: l.p.mu + tmMean(m) };
-    const range = (implied, material = false) => rangeFor(m, m, p, l.unit, { ownBounds: false, formulation: material ? undefined : l.f, implied });
+    const range = (set, material = false) => rangeFor(m, m, p, l.unit, { ownBounds: false, formulation: material ? undefined : l.f, ...(Array.isArray(set) ? { implied: set } : set) });
     const plain = range([]);
     for (const [name, implied] of Object.entries(floors)) {
       const r = name === 'none' ? plain : range(implied, name.startsWith('containment'));
@@ -94,4 +99,34 @@ export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor, conv 
     plausibleCoverage: r3(rows.filter((c) => c.plausible).length / rows.length),
     medianLikelyWidth: r3(median(rows.map((c) => c.width))), underPlausible: rows.filter((c) => c.under).length,
   }]));
+}
+
+/**
+ * The own-value back-test (D160): each product that publishes the headline and a value of the same property on a moulded
+ * bar or one its sheet does not describe, in the build plane or with no direction stated. Its headline hidden (the
+ * conversions refitted without it), where the model's centre c lies above that own value v, a limit between v and c is
+ * one the estimate meets and the own value misses: the share of such limits the hidden truth t also meets is
+ * (ln t − ln v) ÷ (ln c − ln v), clamped to 0 to 1, averaged over the crossing cases. A share under one half says the own
+ * value was the better guide.
+ */
+export function ownValueCrossing({ key, model, S, obs, holdOut, tmMean, inv }) {
+  if (model.properties[key].scale !== 'log' || !model.properties[key].ownCeilingTest) return null;
+  const kinds = new Set([HEAD[key].replace(' XY', ' unk'), HEAD[key].replace(' XY', ' moulded')]);
+  const byF = new Map();
+  obs.forEach((o, i) => {
+    if (!o.f) return;
+    const g = `${o.m.id}|${o.f}`;
+    if (!byF.has(g)) byF.set(g, { m: o.m, f: o.f, gradeId: o.gradeId, head: [], own: [] });
+    if (o.kind === HEAD[key]) byF.get(g).head.push(i); else if (kinds.has(o.kind)) byF.get(g).own.push(o);
+  });
+  const cases = [];
+  for (const c of byF.values()) {
+    if (!c.head.length || !c.own.length || !obs.some((o, i) => o.m.id === c.m.id && !c.head.includes(i))) continue;
+    const p = holdOut(c.m, c.f, S.grades.get(c.gradeId)?.manufacturer, c.head);
+    const centre = p.mu + tmMean(c.m), truth = median(c.head.map((i) => obs[i].y + tmMean(c.m)));
+    const v = Math.min(...c.own.map((o) => o.yRaw));
+    cases.push({ crossing: centre > v + 1e-9, share: centre > v + 1e-9 ? Math.min(1, Math.max(0, (truth - v) / (centre - v))) : null });
+  }
+  const crossing = cases.filter((x) => x.crossing);
+  return { cases: cases.length, crossing: crossing.length, rightShare: crossing.length ? r3(crossing.reduce((a, x) => a + x.share, 0) / crossing.length) : null };
 }

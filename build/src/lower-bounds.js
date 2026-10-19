@@ -39,3 +39,26 @@ export function lowerBoundsOf(def, own, { forms: asked } = {}) {
       lo: m.value, unit: m.unit }))
     .filter((b) => Number.isFinite(b.lo));
 }
+
+/**
+ * What a product's own values from a moulded bar or one its sheet does not describe cap a headline at (D160): for each
+ * demote-to-ceiling row of conversions.csv (reported or deciding) that targets the headline and names no Applies to, its
+ * source properties' values in the build plane or with no direction stated (a value across the layers is no ceiling of
+ * the flat one), as printed and not conditioned, times the row's Factor high: [{ measurementId, gradeId, property, hi,
+ * unit, rule }]. Elongation has no such row: one product's undescribed stretch runs from a third to seventeen times its
+ * printed one.
+ */
+export function ownCeilingsOf(def, own, rows) {
+  const out = [];
+  for (const r of (rows ?? []).filter((x) => x.target === def.key && x.kind === 'demote-to-ceiling' && !x.appliesToText)) {
+    for (const m of own) {
+      if (!m.numeric || m.quarantined || m.implausible || !r.sourceProperties.includes(m.property)) continue;
+      if (!['moulded', 'not-stated'].includes(m.specimenForm) || /^(Z|ZX|Vertical)/.test(m.direction ?? '')) continue;
+      if (m.postProcessingState === 'annealed' || m.moistureState === 'conditioned' || m.operator === '>' || m.operator === '>=') continue;
+      const hi = (m.interval?.hi ?? m.value) * r.factorHigh;
+      if (Number.isFinite(hi)) out.push({ measurementId: m.id, gradeId: m.gradeId, property: m.property, hi, unit: m.unit, rule: r.id });
+    }
+  }
+  return out;
+}
+

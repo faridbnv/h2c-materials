@@ -131,6 +131,8 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV10 | elongationXY | floor | reported | 1 | 38 | 0 | 0 | 0 | 12 | ratio 1.03846153846 to 70 | 0 |
 | CV11 | elongationXY | floor | reported | 1 | 25 | 0 | 0 | 0 | 6 | ratio 1.03448275862 to 20.9333333333 | 0 |
 | CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
+| CV60 | tensileModulusXY | demote-to-ceiling | reported | 1.16 | 373 | 311 | 0 | 0 | 0 |  | 0 |
+| CV61 | tensileStrengthXY | demote-to-ceiling | reported | 1.16 | 316 | 440 | 2 | 0 | 0 |  | 0 |
 | CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 81 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
 | CL02 | density | neat-density range | deciding | polymers.csv | 512 |  | 5 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
 
@@ -247,6 +249,20 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 
 | Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |
 |---|---|---:|---:|---:|---:|---:|---:|
+| tensileModulusXY | none | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | printed | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | printedXY | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | unstated | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | containment | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | sameSource | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | lowestOfProducts | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | formulation | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | containmentUnstated | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | formulationUnstated | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | formulationCeilings | 77 | 4 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | formulationBoth | 77 | 4 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | containmentConverted | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
+| tensileModulusXY | formulationConverted | 77 | 0 | 80.5% | 96.1% | ×1.47 | 1 |
 | tensileStrengthXY | none | 60 | 0 | 80% | 95% | ×1.4 | 1 |
 | tensileStrengthXY | printed | 60 | 43 | 55% | 70% | ×1.38 | 16 |
 | tensileStrengthXY | printedXY | 60 | 9 | 73.3% | 91.7% | ×1.4 | 3 |

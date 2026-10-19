@@ -268,3 +268,30 @@ elongation at yield (CV10) 2.48 over 1; heat deflection at 1.8 MPa (CV01, CV42, 
 annealed heat deflection (CV03) −77 °C under 0. No row drifts.
 
 **Verdict.** Kept.
+
+## 7. A product's own moulded or undescribed value as a ceiling (D160, the review's C28)
+
+**The test** (`properties.*.ownValue`, every build). Each product that publishes the headline and a value of the same
+property on a moulded bar or one its sheet does not describe (in the build plane or with no direction): its headline
+hidden, the conversions refitted without it. Where the model's centre lies above that own value, a limit between the two
+is one the estimate meets and the own value misses; the share of such limits the hidden truth meets too is averaged.
+
+| Headline | Cases | Centre above the own value | Share the truth sided with the estimate | Rule |
+|---|---:|---:|---:|---|
+| tensileModulusXY | 27 | 4 | 0.46 | capped |
+| tensileStrengthXY | 5 | 1 | 0 | capped by the rule, but see below |
+| elongationXY | 41 | 12 | 0.78 | never capped |
+
+**The ceilings on a grade's range** (`floors.js`, the hidden typical product, 1.16 times its own value):
+
+| Headline | Rule | Likely | Plausible | Median likely width |
+|---|---|---:|---:|---:|
+| tensileModulusXY | none of its own | 80.5 % | 96.1 % | ×1.47 |
+| tensileModulusXY | its ceilings | 80.5 % | 96.1 % | ×1.47 |
+| tensileStrengthXY | its floors (in force) | 75.0 % | 91.7 % | ×1.39 |
+| tensileStrengthXY | its ceilings | 76.7 % | 90.0 % | ×1.40 |
+| tensileStrengthXY | its floors and ceilings | 71.7 % | 88.3 % | ×1.39 |
+
+**Verdict.** Stiffness is capped (298 products' estimates carry a ceiling, 287 moved, centres by a median of 1 %).
+Strength fails the pass rule with its floors (88.3 % plausible against 90 %), so its row stays reported and its
+estimates are not capped; this was tried once, as the executor asked, and not tuned. Elongation is excluded by design.

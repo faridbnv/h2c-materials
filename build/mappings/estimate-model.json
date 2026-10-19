@@ -46,6 +46,8 @@
       }
     },
     "tensileModulusXY": {
+      "ownCeilingTest": true,
+      "ownCeiling": true,
       "scale": "log",
       "scaleUnit": 0.3,
       "precision": {
@@ -69,6 +71,8 @@
       }
     },
     "tensileStrengthXY": {
+      "ownCeilingTest": true,
+      "_ownCeiling": "Not capped: with its floors, a grade's own undescribed strength as a ceiling held the hidden value 71.7 / 88.3 % (likely / plausible), under the 90 % the plausible range must hold; its floors alone 75.0 / 91.7 % (D160).",
       "scale": "log",
       "scaleUnit": 0.3,
       "precision": {
@@ -92,6 +96,7 @@
       }
     },
     "elongationXY": {
+      "ownCeilingTest": true,
       "scale": "log",
       "scaleUnit": 0.3,
       "precision": {

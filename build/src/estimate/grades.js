@@ -18,7 +18,7 @@
 import { quantile, median } from './numerics.js';
 import { HEAD, identityOf, sig3 } from './model.js';
 import { predict } from './gaussian.js';
-import { lowerBoundsOf } from '../lower-bounds.js';
+import { lowerBoundsOf, ownCeilingsOf } from '../lower-bounds.js';
 
 /**
  * Hide each grade's own observations of the headline's own kind and predict them: the grade-level scales, their
@@ -104,10 +104,27 @@ export function formulationFloors(def, S) {
 }
 
 /**
+ * What each formulation's own moulded or undescribed values cap a headline at (lower-bounds.js ownCeilingsOf, D160),
+ * for a headline the model caps so (estimate-model.json ownCeiling): the ceilings a grade's range is held under.
+ */
+export function formulationCeilings(def, S, rows, model) {
+  const byF = new Map();
+  if (model.properties[def?.key]?.ownCeiling) {
+    for (const list of S.byMaterial.values()) for (const x of list) {
+      const f = S.fkey(x.gradeId);
+      if (!byF.has(f)) byF.set(f, []);
+      byF.get(f).push(x);
+    }
+  }
+  const ceilings = new Map([...byF].map(([f, own]) => [f, ownCeilingsOf(def, own, rows)]));
+  return (f) => ceilings.get(f) ?? [];
+}
+
+/**
  * The estimate of every active grade of every material in the pool, for one headline: attached to the grade as
  * `estimate[key]`. Grades that share a formulation share one posterior and say so.
  */
-export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf, centres = null }) {
+export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf, ceilingsOf = () => [], centres = null }) {
   const byFormulation = new Map();
   for (const g of S.grades.values()) {
     if (g.retired || !S.inPool.has(g.materialId)) continue;
@@ -133,7 +150,7 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
     if (centres) centres.set(`${m.id}|${f}`, inv(p.mu));
     // Every grade takes the bounds its own sheets publish, and the floors its own measurements prove: a yield or break
     // stress under its ultimate strength, a heat deflection at 1.8 MPa under the one at 0.45 MPa (bounds.js, D126).
-    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f, implied: floorsOf(f) });
+    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f, implied: floorsOf(f), ceilings: ceilingsOf(f) });
     const own = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.f === f && (o.m.id === m.id || o.m.id === subject.id));
     const mine = obs.some((o) => o.m.id === m.id);
     const strength = own.length ? 'this-grade' : mine ? 'this-material' : 'family';
@@ -146,6 +163,7 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
       centre: sig3(centre), lo: sig3(range[0], -1), hi: sig3(range[1], 1),
       plausible: { lo: sig3(wide[0], -1), hi: sig3(wide[1], 1) },
       impliedBounds: floorsOf(f),
+      ...(ceilingsOf(f).length ? { ownCeilings: ceilingsOf(f).map((c) => ({ measurementId: c.measurementId, hi: sig3(c.hi, 1), rule: c.rule })) } : {}),
       ownShare: total > 0 ? Math.round(Math.max(0, Math.min(1, ownWeight / total)) * 100) / 100 : 0,
       evidence: own.map(({ o }) => ({ kind: o.kind, measurementIds: o.items.map((x) => x.measurementId).filter(Boolean),
         converted: sig3(inv(o.y + tmMean(o.m))), conflict: !!o.conflict })),

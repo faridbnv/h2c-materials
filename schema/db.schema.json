@@ -399,6 +399,11 @@
                 },
                 "impliedBounds": {
                   "type": "array"
+                },
+                "ownCeilings": {
+                  "description": "The product's own moulded or undescribed values that cap this estimate, each times its conversions.csv row's Factor high (D160). Absent where none does.",
+                  "type": "array",
+                  "items": { "type": "object", "additionalProperties": false, "required": ["measurementId", "hi", "rule"], "properties": { "measurementId": { "type": "string" }, "hi": { "type": "number" }, "rule": { "type": "string" } } }
                 }
               }
             }

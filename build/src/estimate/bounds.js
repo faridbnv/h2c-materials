@@ -2,7 +2,7 @@
 // Shared by the estimates and the screening back-test, so the back-test judges the ranges shown.
 
 import { boundedQuantile, boundedCdf } from './numerics.js';
-import { HEAD, transform } from './model.js';
+import { HEAD, transform, sig3 } from './model.js';
 
 /**
  * A range function for one headline: (m, subject, p, unit, { ownBounds, formulation, implied }) => { bounds, centre, range, wide, at }, where p is
@@ -16,7 +16,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
   // `formulation` predicts one grade rather than the material: its own published bounds take part, not its siblings',
   // and the density limit asks whether that grade is a declared variant (D81). A material call passes none: the
   // material's own bounds take part, and the density limit asks whether all its products are variants.
-  return (m, subject, p, unit, { ownBounds = true, formulation, implied } = {}) => {
+  return (m, subject, p, unit, { ownBounds = true, formulation, implied, ceilings = [] } = {}) => {
     const h = { unit };
     const bounds = [];
     // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer
@@ -76,6 +76,13 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
           push(lowest, `at least ${lowest.lo} ${h.unit}: the lowest of its products' floors, ${lowest.property.toLowerCase()} (${lowest.measurementId}); every product proves one`);
         }
       }
+    }
+    // A grade's own moulded or undescribed value caps it from above (D160, lower-bounds.js ownCeilingsOf): held under, as
+    // a published bound is.
+    for (const c of ceilings.filter((x) => !x.unit || x.unit === h.unit)) {
+      const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
+      if (scaleName === 'log' && !(c.hi > 0)) continue;
+      bounds.push({ side: 'upper', own: c.hi, value: toModel(c.hi), sd: model.bounds.oneSided.sd[scaleName], why: `at most ${sig3(c.hi, 1)} ${h.unit}: its own ${c.property.toLowerCase()} on a moulded or undescribed bar (${c.measurementId}, ${c.rule}) bounds the printed part` });
     }
     if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
       // A semicrystalline bar loses its stiffness as it melts, so no HDT range is shown above the melting point

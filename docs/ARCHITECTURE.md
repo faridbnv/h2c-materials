@@ -675,7 +675,9 @@ least HDT at 1.8 MPa) floors the estimates built on it. A grade's range is floor
 formulation proves. A material's range is the spread of its products, so it must contain every product's floor: its upper
 ends reach the highest product floor, and its lower ends are floored at the lowest only when every active product has one.
 An undescribed bar floors every headline but elongation, which a printed bar alone floors: an undescribed bar's stretch
-reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161).
+reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161). From above, a
+product's own stiffness on a moulded or undescribed bar caps its own estimate at 1.16 times (conversions.csv CV60,
+estimate-model.json ownCeiling, D160); its strength and stretch do not, the back-test having refused both.
 Flooring a material at the highest product floor was tried first and broke calibration; `floors.js` back-tests each rule
 on the hidden headlines (`meta.estimateModel.properties.*.floors`, the validation report, and
 `docs/audits/2026-10-04-reader-round/estimate-order/backtest.md`). A semicrystalline polymer's heat deflection is held

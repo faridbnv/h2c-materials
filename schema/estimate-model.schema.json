@@ -71,6 +71,8 @@
       "required": ["scale", "scaleUnit", "precision", "plausibleValues", "floors"],
       "properties": {
         "scale": { "enum": ["log", "linear"] },
+        "ownCeiling": { "description": "true: a grade's own moulded or undescribed value of the headline caps its estimate, through the demote-to-ceiling rows of conversions.csv (D160).", "type": "boolean" },
+        "ownCeilingTest": { "description": "true: the build back-tests whether an estimate may cross a limit the product's own moulded or undescribed value misses (properties.*.ownValue, D160).", "type": "boolean" },
         "productSpreadByMatrix": { "description": "true: a matrix that crystallises as printed, filled or unfilled, takes its own measured product-to-product spread where it has enough pairs (D162). Absent or false: one spread for every matrix.", "type": "boolean" },
         "scaleUnit": { "type": "number", "exclusiveMinimum": 0 },
         "precision": { "type": "object", "additionalProperties": false, "required": ["good", "fair"], "properties": { "good": { "type": "number" }, "fair": { "type": "number" } } },
