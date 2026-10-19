@@ -250,8 +250,9 @@ function evaluateNumeric(material, c, ctx = {}) {
   // and sheets, so a value measured the way the requirement asks that misses the limit by less is unresolved, not a
   // failure, and one that meets it by less still passes, with a thin margin. Only a published point or mean: a published
   // range and a one-sided bound keep their own rule, a scenario assumption is the reader's number, and a material's
-  // median is no maker's figure.
-  const margin = !bound && !h.assumption && !h.spread && (band || interval.lo === interval.hi) ? scatterMargin(scatterOf(ctx, c.property), c, h.unit) : null;
+  // median is no maker's figure. A value that is only a ceiling for the printed part (CV05) is a bound the evidence
+  // ledger draws, compared with the limit as it is (stage 3d).
+  const margin = !bound && !h.assumption && !h.spread && !h.ceilingOnly && (band || interval.lo === interval.hi) ? scatterMargin(scatterOf(ctx, c.property), c, h.unit) : null;
   const onTheLine = !!margin && judged === STATUS.FAIL && margin.within(h.value);
   const thinMargin = !!margin && judged === STATUS.PASS && margin.within(h.value);
   const status = onTheLine ? STATUS.INDETERMINATE : judged;
@@ -372,7 +373,13 @@ function ledgerResult(h, c, ctx, label, state, own = null) {
   // The end that decides: a minimum is met by the floor and failed by the ceiling; a maximum the reverse.
   const by = pass === atLeast ? iv.loBy : iv.hiBy;
   const end = pass === atLeast ? iv.lo : iv.hi;
-  const margin = scatterMargin(scatterOf(ctx, c.property), c, unit);
+  // The test scatter belongs to a point (D152, amended by stage 3d): an equality (CV02's laboratory humidity counts as dry)
+  // is the value itself, so it may be on the line or pass with a thin margin. A band, a floor or a ceiling drawn from
+  // another record is compared with the limit as it is: its ends are already the envelope of every measured same-sheet
+  // pair, and adding the scatter counted that uncertainty twice (Spectrum PLA Tough's flexural band, 1.15 to 4.81 GPa,
+  // read as on the line for 5 GPa). A class limit keeps the scatter D154 adds before it fails anything.
+  const point = by.kind === 'equal' || by.limit !== undefined;
+  const margin = point ? scatterMargin(scatterOf(ctx, c.property), c, unit) : null;
   const onTheLine = !!margin && !pass && margin.within(end);
   const thinMargin = !!margin && pass && margin.within(end);
   return { result: {
@@ -897,8 +904,13 @@ function openOne(r, ctx) {
     const prop = propertyWords(ctx, c.property);
     const unit = unitOf(r, ctx);
     if (r.onTheLine && Number.isFinite(r.observed)) return `${prop} ${sig(r.observed, 4)} ${unit}, on the line for ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)} ${unit}`;
-    // A bound the evidence ledger draws from another record (D153): its end, said as a bound.
-    if (r.onTheLine && Number.isFinite(r.ledger?.bound)) return `${prop} bounded at ${sig(r.ledger.bound, 4)} ${unit} by another record, on the line for ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)} ${unit}`;
+    // What the evidence ledger reads on the line (D153, D152 as stage 3d amended it): an equality is the value another of
+    // its records gives, a class limit the most or least its kind of plastic reaches. A band, floor or ceiling is never on
+    // the line.
+    if (r.onTheLine && Number.isFinite(r.ledger?.bound)) {
+      const what = /^CL/.test(r.ledger.rule) ? `${r.ledger.kind === 'floor' ? 'at least' : 'at most'} ${sig(r.ledger.bound, 3)} ${unit} for its kind of plastic` : `${sig(r.ledger.bound, 3)} ${unit} on another of its records that counts as this one`;
+      return `${prop} ${what}, on the line for ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)} ${unit}`;
+    }
     if (r.sheetsDisagree) return `its sheets disagree on ${prop}`;
     if (r.ceilingOnly) return `${prop} published ${sig(r.ceilingOnly.value, 4)} ${unit} only on a bar its sheet does not describe`;
     if (r.estimated && Number.isFinite(r.estimate?.lo) && Number.isFinite(r.estimate?.hi)) {
@@ -921,21 +933,39 @@ function openWords(open, ctx) {
 }
 
 /**
- * On a required number, a product measured the way it asks that misses it, while no product meets it, is on the line, or
- * leaves it to a range that straddles the limit (D155): the material is unlikely to meet it, whatever its open products'
- * estimates say. A value the evidence ledger reads from another kind of record (D153) is not measured the way asked.
+ * Whether a product's answer on a number holds its material open against the products measured to miss it (D155, amended
+ * by stage 3d): a pass; a value measured the way asked that is on the line, or a published range or bound across the
+ * limit; an equality the evidence ledger reads as that value (CV02), on the line; or records that disagree. A value that
+ * is only a ceiling for the printed part (CV05) can only fail a minimum, and a band, floor or ceiling drawn from another
+ * record is not a measured value, so neither holds the material open: plain PLA is unlikely to meet 80 °C, although two
+ * of its products print an undescribed bar's 90 and 110 °C.
+ */
+const holdsOpen = (r) => r.status === STATUS.PASS || (r.status === STATUS.INDETERMINATE && (!!r.sheetsDisagree
+  || (Number.isFinite(r.observed) && !r.ledger) || (!!r.onTheLine && r.ledger?.kind === 'equal')));
+/** A product measured the way the requirement asks that misses it, on its own value. */
+const measuredFail = (r) => r.status === STATUS.FAIL && Number.isFinite(r.observed) && !r.ledger;
+
+/**
+ * On a required number, a product measured the way it asks that misses it, while no product holds it open (holdsOpen):
+ * the material is unlikely to meet it, whatever its open products' estimates say (D155). A value the evidence ledger
+ * reads from another kind of record (D153) is not measured the way asked. Beside the measured misses it counts the
+ * products that fail on a bound from another of their records or a limit of their kind (R06 of the round's review: PEBA's
+ * eight rubbers that fail the stiffness fixture on CL01 had been counted as having no value), and the products whose only
+ * value is a ceiling for the printed part, apart from the products with no value measured that way.
  */
 function measuredMiss(judged, constraints) {
   for (const c of constraints) {
     if (c.kind !== 'numeric' || c.mandatory === false) continue;
-    let misses = 0, blocked = false;
+    let misses = 0, bounded = 0, limited = 0, ceilings = 0, blocked = false;
     for (const x of judged) {
       const r = x.e.results.find((y) => y.constraint === c);
       if (!r) continue;
-      if (r.status === STATUS.PASS || r.status === STATUS.INDETERMINATE) { blocked = true; break; }
-      if (r.status === STATUS.FAIL && Number.isFinite(r.observed) && !r.ledger) misses++;
+      if (holdsOpen(r)) { blocked = true; break; }
+      if (measuredFail(r)) misses++;
+      else if (r.status === STATUS.FAIL && r.ledger) { if (/^CL/.test(r.ledger.rule)) limited++; else bounded++; }
+      else if (r.ceilingOnly) ceilings++;
     }
-    if (!blocked && misses) return { constraint: c, misses, unit: judged.map((x) => x.e.results.find((y) => y.constraint === c)).find((r) => r?.unit)?.unit ?? '' };
+    if (!blocked && misses) return { constraint: c, misses, bounded, limited, ceilings, unit: judged.map((x) => x.e.results.find((y) => y.constraint === c)).find((r) => r?.unit)?.unit ?? '' };
   }
   return null;
 }
@@ -1049,10 +1079,16 @@ function materialGroup(verdict, screened, best, judged, constraints, ctx) {
   const miss = measuredMiss(judged, constraints);
   const name = gradeName(ctx, best.grade.id);
   if (miss) {
-    const other = n - miss.misses;
+    const other = n - miss.misses - miss.bounded - miss.limited - miss.ceilings;
+    const more = [
+      miss.limited ? `${miss.limited} more fail${miss.limited === 1 ? 's' : ''} on a limit of ${miss.limited === 1 ? 'its' : 'their'} kind of plastic` : null,
+      miss.bounded ? `${miss.bounded} more fail${miss.bounded === 1 ? 's' : ''} on a bound from another of ${miss.bounded === 1 ? 'its' : 'their'} records` : null,
+      miss.ceilings ? `${miss.ceilings} publish${miss.ceilings === 1 ? 'es' : ''} only a moulded or undescribed bar's value, the most a print reaches` : null,
+      other === 1 ? `the other one has no value measured that way` : other ? `the other ${other} have no value measured that way` : null,
+    ].filter(Boolean);
     return {
       group: GROUP.UNLIKELY, likely: false, measuredMisses: true,
-      groupReason: `Unlikely to meet: every measured product misses ${limitWords(miss.constraint, ctx, miss.unit)}: ${miss.misses} of ${n}${other === 1 ? '; the other one has no value measured that way' : other ? `; the other ${other} have no value measured that way` : ''}`,
+      groupReason: `Unlikely to meet: every measured product misses ${limitWords(miss.constraint, ctx, miss.unit)}: ${miss.misses} of ${n}${more.map((t) => `; ${t}`).join('')}`,
     };
   }
   const g = best.e.group;

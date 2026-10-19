@@ -129,6 +129,29 @@ test('a measured miss with no product meeting the number makes the material unli
   assert.equal(f.gradeId, 'G3', 'the deciding product is the one a single check would settle');
 });
 
+// Stage 3d: a value only a ceiling for the printed part (CV05) can only fail a minimum, and a bound from another record or
+// a limit of its kind is not a measured value, so none holds a material open against a measured miss; each is counted
+// apart from the products with no value (R06: PEBA's rubbers that fail on CL01 had read as "no value measured that way").
+test('a ceiling-only value, a bound from another record and a limit of its kind never hold a material open; each is counted', () => {
+  const miss = grade('G1', { hdt045: { value: 60, level: 'comparable', unit: '°C' } });
+  const ceiling = grade('G2', { hdt045: { value: 110, level: 'comparable', unit: '°C', ceilingOnly: true } });
+  const open = grade('G3');
+  const e = run([miss, ceiling, open], [hot]);
+  assert.deepEqual([e.verdict, e.group], ['UNKNOWN', 'unlikely-to-meet']);
+  assert.match(e.groupReason, /misses hdt045 at least 90 °C: 1 of 3; 1 publishes only a moulded or undescribed bar's value, the most a print reaches; the other one has no value measured that way$/);
+  const bound = (rule, kind, hi) => ({ lo: null, hi, by: [{ rule, kind, status: 'deciding', level: 'comparable', lo: null, hi, ...(rule.startsWith('CL') ? { limit: { lo: null, hi } } : { measurementId: 'V1', sourceValue: hi }) }] });
+  const rubber = grade('G4'); rubber.states[0].bounds = { tensileModulusXY: bound('CL01', 'ceiling', 0.5) };
+  const banded = grade('G5'); banded.states[0].bounds = { tensileModulusXY: bound('CV08', 'band', 4.81) };
+  const measured = grade('G6', { tensileModulusXY: v(0.04) });
+  const f = run([measured, rubber, banded, grade('G7')]);
+  assert.equal(f.group, 'unlikely-to-meet', 'a band end 4 % short holds nothing open');
+  assert.match(f.groupReason, /: 1 of 4; 1 more fails on a limit of its kind of plastic; 1 more fails on a bound from another of its records; the other one has no value measured that way$/);
+  // A value measured the way asked, on the line, still holds it open.
+  const near = grade('G8', { tensileModulusXY: v(4.8) });
+  const ctxLine = { ...ctx, db: { registry: { headlines: [{ key: 'tensileModulusXY', testScatter: { value: 10, is: 'relative' } }] } } };
+  assert.notEqual(run([measured, near], [stiff], ctxLine).group, 'unlikely-to-meet');
+});
+
 test('exact independent-evaluation risk gate rejects sparse cases and excess tail errors', () => {
   const cfg = { maxWrongRate: 0.1, confidence: 0.9 };
   const cases = (n, u) => Array.from({ length: n }, () => ({ u, beyond: { above: false, below: false } }));

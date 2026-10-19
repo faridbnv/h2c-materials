@@ -78,7 +78,10 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // that break CV01, LEDGER-DISAGREE for the two products whose records leave no value between them, each accepted with
   // its reason; LEDGER-CONTRADICTS-VALUE for Raise3D Industrial PET CF's 87 °C beside its other sheet's 112 °C at
   // 1.8 MPa; CLASS-LIMIT-CONTRADICTED for four densities outside their polymer's sourced range (OPEN-PROBLEMS §38.6).
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'LEDGER-CONTRADICTS-VALUE', 'LEDGER-DISAGREE', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  // Stage 3d of the screening build took three of them away: a PLA or PET bar CV05 demotes floors nothing through CV01, so
+  // Prusament rPLA's pair, both LEDGER-DISAGREE states and Raise3D's contradiction, each on an undescribed PLA or PET bar's
+  // HDT at 1.8 MPa, no longer occur. CONVERSION-PAIRS stays for Stratasys Nylon-CF10's two bars, accepted.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

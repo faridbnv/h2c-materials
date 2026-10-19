@@ -4,7 +4,7 @@
 // sheets print something else: the HDT at 1.8 MPa and not at 0.45, a stiffness after annealing, conditioned, pulled
 // across the layers, or in bending. Each such relation is a row of data/tables/conversions.csv, which says what the
 // other value bounds and in which one direction that is safe: a floor (an HDT at 1.8 MPa is at most the HDT at 0.45 MPa),
-// a ceiling (an annealed HDT is at least the as-printed one), a band (a tensile modulus lies between 0.70 and 1.59 times
+// a ceiling (an annealed HDT is at least the as-printed one), a band (a tensile modulus lies between 0.46 and 1.93 times
 // the flexural one) or an equality (a PET conditioned at laboratory humidity is as stiff as dry). A row of
 // data/tables/class_limits.csv says what a kind of plastic cannot be: an unfilled rubber is never stiffer than 0.5 GPa.
 //
@@ -16,6 +16,8 @@
 //   …values[key].ceilingOnly         a PLA or PET HDT from a moulded or undescribed bar, as printed (CV05): still the
 //                                    product's value and in its material's spread, but it may only fail a minimum or pass a
 //                                    maximum; an annealed state's value is not demoted, its part has crystallised
+//                                    The same bar read by another row (CV01's HDT at 1.8 MPa) bounds only from above
+//                                    too, so it never floors the printed part (stage 3d, R01)
 //   …values[key].doubtful            a comparable value its own deciding bounds or its kind's limit contradict by more
 //                                    than the test scatter: it still decides, and the answer says it is doubtful (C40)
 //
@@ -178,11 +180,27 @@ function ends(m) {
   return { lo: iv.lo ?? null, hi: iv.hi ?? null, openLow: !!iv.openLow, openHigh: !!iv.openHigh };
 }
 
-/** One row's contribution from one source value: its own interval on the target. */
-function contribution(row, m, a, from) {
+/**
+ * Whether a source value is one the ledger itself demotes (R01 of the screening build's review, stage 3d): a value of a
+ * deciding demote-to-ceiling row's source properties (CV05: a PLA or PET HDT), from a moulded bar or one its sheet does
+ * not describe, read for a part as printed, of a material that row holds for. A crystallised bar may sit above what the
+ * print reaches at any load, so such a value bounds the printed part only from above, whichever row reads it: CV01 takes
+ * no floor from it. A source judged after annealing is not demoted: that part has crystallised.
+ */
+export function demotion(conversions) {
+  const rows = conversions.filter((r) => r.kind === 'demote-to-ceiling' && r.status === 'deciding');
+  return (material, m, st) => !st?.treatment && FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm)
+    && rows.some((r) => r.sourceProperties.includes(m.property) && applies(r.appliesTo, material));
+}
+
+/**
+ * One row's contribution from one source value: its own interval on the target. A demoted source value (`ceilingOnly`)
+ * keeps only its upper end, its one safe direction, and a row that draws only a floor from it contributes nothing.
+ */
+function contribution(row, m, a, from, ceilingOnly = false) {
   const e = ends(m);
   const scale = (x, f) => (x == null || f == null ? null : tidy(x * f + row.offset));
-  const lo = ['floor', 'band', 'equal'].includes(row.kind) ? scale(e.lo, row.factorLow) : null;
+  const lo = !ceilingOnly && ['floor', 'band', 'equal'].includes(row.kind) ? scale(e.lo, row.factorLow) : null;
   const hi = ['ceiling', 'band', 'equal', 'demote-to-ceiling'].includes(row.kind) ? scale(e.hi, row.factorHigh) : null;
   if (lo == null && hi == null) return null;
   const b = { rule: row.id, kind: row.kind, status: row.status, measurementId: m.id, property: m.property, sourceValue: m.value, lo, hi };
@@ -194,11 +212,15 @@ function contribution(row, m, a, from) {
   const admitted = [...new Set([...(a.admitted ?? []), ...(m.specimenForm === 'not-stated' ? ['specimen'] : [])])];
   if (admitted.length) b.admitted = admitted;
   if (from) b.from = from;
+  if (ceilingOnly && row.kind !== 'demote-to-ceiling') b.ceilingOnly = true;
   return b;
 }
 
-/** Every contribution a row makes to a target in a state, from the product's own measurements and its twins'. */
-function rowContributions(row, def, state, sources, sdef) {
+/**
+ * Every contribution a row makes to a target in a state, from the product's own measurements and its twins'. `demoted`
+ * says whether a source value is one the ledger demotes (demotion above), which then bounds only from above.
+ */
+function rowContributions(row, def, state, sources, sdef, demoted = () => false) {
   const out = [];
   if (row.sourceState === 'annealed' && state.treatment) return out;
   if (row.sourceState === 'conditioned' && state.moisture === 'conditioned') return out;
@@ -211,7 +233,7 @@ function rowContributions(row, def, state, sources, sdef) {
         if (!st) continue;
         const a = judge(m, sdef, src.list, st, row);
         if (a.excluded) continue;
-        const b = contribution(row, m, a, src.from);
+        const b = contribution(row, m, a, src.from, row.kind !== 'demote-to-ceiling' && demoted(m, st));
         if (b) out.push(b);
       }
     }
@@ -306,6 +328,7 @@ export function attachLedger({ grades, materialRows, measurements, registry, con
   }
   const empty = { list: [], byProperty: new Map() };
   const sdefs = new Map(conversions.map((r) => [r.id, defs.get(r.target) ? sourceDefinition(r, defs.get(r.target)) : null]));
+  const demotes = demotion(conversions);
   const extremes = new Map(classLimits.map((l) => [l.id, classExtremes(l, { grades, rowById })]));
   const stats = new Map([...conversions, ...classLimits].map((r) => [r.id, { products: new Set(), states: 0, demoted: new Set(), contradicted: [], disagree: [] }]));
   const disagreements = [];
@@ -337,7 +360,8 @@ export function attachLedger({ grades, materialRows, measurements, registry, con
           if (r.status === 'deciding' && !v.ceilingOnly) v = state.values[key] = { ...v, ceilingOnly: true };
         }
         const by = [];
-        for (const r of rows.filter((x) => x.target === key)) by.push(...rowContributions(r, def, state, sources, sdefs.get(r.id)));
+        const demoted = (x, st) => demotes(row, x, st);
+        for (const r of rows.filter((x) => x.target === key)) by.push(...rowContributions(r, def, state, sources, sdefs.get(r.id), demoted));
         for (const l of limits.filter((x) => x.target === key)) { const b = limitContribution(l, row, extremes.get(l.id), polymerById); if (b) by.push(b); }
         if (!by.length) continue;
         by.sort(byRecord);
@@ -377,7 +401,7 @@ export function attachLedger({ grades, materialRows, measurements, registry, con
     });
   }
 
-  const pairs = new Map(conversions.map((r) => [r.id, measurePairs(r, { defs, sdef: sdefs.get(r.id), grades, byGrade, rowById })]));
+  const pairs = new Map(conversions.map((r) => [r.id, measurePairs(r, { defs, sdef: sdefs.get(r.id), grades, byGrade, rowById, demotes })]));
   for (const r of conversions) {
     const p = pairs.get(r.id);
     if (r.status === 'deciding' && p.breaking.length) {
@@ -423,7 +447,7 @@ const pointLike = (m) => !m.interval || m.interval.kind === 'point' || m.interva
  * °C), and the pairs whose target lies outside the row's own interval from that source (an equality, outside the test
  * scatter). A printed bar is the target of a demote-to-ceiling row.
  */
-export function measurePairs(row, { defs, sdef, grades, byGrade, rowById }) {
+export function measurePairs(row, { defs, sdef, grades, byGrade, rowById, demotes = () => false }) {
   const def = defs.get(row.target);
   const out = { n: 0, products: 0, min: null, max: null, implied: def?.unit === '°C' ? 'difference' : 'ratio', breaking: [] };
   if (!def || !sdef) return out;
@@ -452,7 +476,7 @@ export function measurePairs(row, { defs, sdef, grades, byGrade, rowById }) {
             if (!ss) continue;
             const a = judge(s, sdef, own.list, ss, row);
             if (a.excluded) continue;
-            const b = contribution(row, s, a, null);
+            const b = contribution(row, s, a, null, row.kind !== 'demote-to-ceiling' && demotes(material, s, ss));
             if (!b) continue;
             out.n++;
             products.add(g.id);

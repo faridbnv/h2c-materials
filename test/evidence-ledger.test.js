@@ -109,16 +109,16 @@ test('a comparable value always wins over the ledger, and is doubtful where a de
   assert.equal(g2.states[0].values.hdt045.doubtful, undefined);
 });
 
-test('an annealed value is a ceiling for the printed part: it fails a minimum it misses, and a near miss is on the line', () => {
+test('an annealed value is a ceiling for the printed part: it fails a minimum it misses, a near miss too', () => {
   const g = productWith('G001-05', 'M001');
   const m = meas(g.id, 'HDT', 60, { postProcessingState: 'annealed', anneal: { tempC: 90, hours: 2 } });
   const r = ledger([g], [m], { rows: [ROW.annealedHdt] });
   const fail = ask(g, r.mini, 'hdt045', '>=', 100);
   assert.equal(fail.status, STATUS.FAIL);
   assert.equal(fail.reason, `Its HDT after annealing: 60 °C (${m.id}), the most it reaches as printed: fails 100 °C`);
-  const line = ask(g, r.mini, 'hdt045', '>=', 64);
-  assert.deepEqual([line.status, line.onTheLine], [STATUS.INDETERMINATE, true]);
-  assert.match(line.reason, /just under 64 °C, within the test scatter \(5 °C\), so on the line/);
+  // A ceiling is compared with the limit as it is: 4 °C short fails (stage 3d; it had been on the line).
+  const near = ask(g, r.mini, 'hdt045', '>=', 64);
+  assert.deepEqual([near.status, near.onTheLine], [STATUS.FAIL, undefined]);
   // It bounds only the state with no treatment.
   assert.equal(ask(g, r.mini, 'hdt045', '>=', 50).status, STATUS.UNKNOWN, 'a ceiling never passes a minimum');
 });
@@ -150,6 +150,64 @@ test('a PLA HDT from an undescribed bar stays its value but only as a ceiling, a
   assert.equal(g3.states[0].values.hdt045.ceilingOnly, undefined);
 });
 
+// Stage 3d (R01 of the round's review): a bar the ledger demotes is only a ceiling for the printed part, whichever row reads
+// it. MatterHackers Tough PLA's undescribed 75 °C at 1.8 MPa had passed PLA at 70 °C through CV01.
+test('a bar the ledger demotes floors nothing: CV01 takes no undescribed PLA bar where CV05 decides, and a band keeps only its upper end', () => {
+  const undescribed = { specimenForm: 'not-stated', specimenType: 'Not published (do not assume printed)' };
+  const g = productWith('G001-11', 'M001');
+  const r = ledger([g], [meas(g.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [ROW.demote, ROW.hdt18] });
+  assert.equal(g.states[0].bounds, undefined, 'no floor from a bar CV05 demotes');
+  assert.equal(ask(g, r.mini, 'hdt045', '>=', 70).status, STATUS.UNKNOWN);
+  // A printed bar still floors the printed part.
+  const printed = productWith('G001-12', 'M001');
+  const rp = ledger([printed], [meas(printed.id, 'HDT', 75, { load: 1.8 })], { rows: [ROW.demote, ROW.hdt18] });
+  assert.equal(ask(printed, rp.mini, 'hdt045', '>=', 70).status, STATUS.PASS);
+  // A reported CV05 demotes nothing, and a nylon, which crystallises as it prints, keeps the floor.
+  const reported = productWith('G001-13', 'M001');
+  const rr = ledger([reported], [meas(reported.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [{ ...ROW.demote, Status: 'reported' }, ROW.hdt18] });
+  assert.equal(ask(reported, rr.mini, 'hdt045', '>=', 70).status, STATUS.PASS);
+  const nylon = productWith('G002-04', 'M002');
+  ledger([nylon], [meas(nylon.id, 'HDT', 75, { materialId: 'M002', load: 1.8, ...undescribed })], { rows: [ROW.demote, ROW.hdt18] });
+  assert.equal(nylon.states[0].bounds.hdt045.lo, 75);
+  // A row that would draw both ends from a demoted bar keeps its upper end, its one safe direction.
+  const band = conversionRow({ ConversionID: 'CV98', Kind: 'band', 'Factor low': '1', 'Factor high': '1.5', 'Physical relation': 'Not applicable' });
+  const g4 = productWith('G001-14', 'M001');
+  ledger([g4], [meas(g4.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [ROW.demote, band] });
+  const b4 = g4.states[0].bounds.hdt045;
+  assert.deepEqual([b4.lo, b4.hi, b4.by[0].ceilingOnly], [null, 112.5, true]);
+  // Nor is such a bar a same-sheet pair of the floor it no longer draws.
+  const g5 = productWith('G001-15', 'M001');
+  const pr = ledger([g5], [meas(g5.id, 'HDT', 55), meas(g5.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [ROW.demote, ROW.hdt18] });
+  assert.equal(pr.conversions.find((c) => c.id === 'CV01').pairs.n, 0);
+});
+
+// Stage 3d (R02 of the round's review, and the second trial's "PLA on the line at 5 GPa"): the test scatter belongs to a
+// point (D152). Spectrum PLA Tough's flexural band, 1.15 to 4.81 GPa, had been on the line for 5 GPa.
+test('the test scatter belongs to a point: a band, floor or ceiling is compared as it is; an equality and a class limit keep it', () => {
+  const g = productWith('G002-05', 'M002');
+  const r = ledger([g], [meas(g.id, 'Flexural modulus', 2.493, { materialId: 'M002' })], { rows: [{ ...ROW.flex, 'Factor high': '1.93' }] });
+  const band = ask(g, r.mini, 'tensileModulusXY', '>=', 5);
+  assert.deepEqual([band.status, band.onTheLine, band.thinMargin], [STATUS.FAIL, undefined, undefined]);
+  const annealed = productWith('G001-16', 'M001');
+  const ra = ledger([annealed], [meas(annealed.id, 'HDT', 60, { postProcessingState: 'annealed', anneal: { tempC: 90, hours: 2 } })], { rows: [ROW.annealedHdt] });
+  assert.equal(ask(annealed, ra.mini, 'hdt045', '>=', 62).status, STATUS.FAIL, 'a ceiling 2 °C short fails');
+  const floor = productWith('G001-17', 'M001');
+  const rf = ledger([floor], [meas(floor.id, 'HDT', 80, { load: 1.8 })], { rows: [ROW.hdt18] });
+  assert.equal(ask(floor, rf.mini, 'hdt045', '>=', 79).thinMargin, undefined, 'a floor that meets the limit has no thin margin');
+  // An equality is the value itself: on the line within the scatter.
+  const equal = conversionRow({ ConversionID: 'CV97', 'Target headline': 'tensileModulusXY', 'Source properties': 'Tensile modulus', 'Source load MPa': 'Not applicable',
+    'Source state': 'conditioned', Kind: 'equal', 'Factor low': '1', 'Factor high': '1', 'Physical relation': 'Not applicable' });
+  const ge = productWith('G002-06', 'M002');
+  const re = ledger([ge], [meas(ge.id, 'Tensile modulus', 4.8, { materialId: 'M002', moistureState: 'conditioned' })], { rows: [equal] });
+  const line = ask(ge, re.mini, 'tensileModulusXY', '>=', 5);
+  assert.deepEqual([line.status, line.onTheLine], [STATUS.INDETERMINATE, true]);
+  // A class limit keeps the scatter D154 adds before it fails anything.
+  const rubber = productWith('G003-04', 'M003');
+  const rl = ledger([rubber], [], { limits: [LIMIT] });
+  assert.equal(ask(rubber, rl.mini, 'tensileModulusXY', '>=', 0.52).onTheLine, true);
+  assert.equal(ask(rubber, rl.mini, 'tensileModulusXY', '>=', 0.6).status, STATUS.FAIL);
+});
+
 test('two records with no value between them are "sheets disagree": unresolved, a reviewed finding', () => {
   const g = productWith('G001-08', 'M001');
   const r = ledger([g], [meas(g.id, 'HDT', 80, { load: 1.8 }), meas(g.id, 'HDT', 60, { postProcessingState: 'annealed', anneal: { tempC: 90, hours: 2 } })], { rows: [ROW.hdt18, ROW.annealedHdt] });
@@ -169,7 +227,7 @@ test('a band decides only when wholly on one side, and a record without its dire
   const b = g.states[0].bounds.tensileModulusXY;
   assert.deepEqual([b.lo, b.hi], [0.92, 3.82]);
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 5).reason, `Its flexural modulus: 2 GPa (${flex.id}), so between 0.92 and 3.82 GPa: fails 5 GPa`);
-  assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 4.2).onTheLine, true);
+  assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 4.2).status, STATUS.FAIL, 'a band end near the limit is not on the line (stage 3d)');
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 3).status, STATUS.UNKNOWN);
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 0.9).status, STATUS.PASS);
   const g2 = productWith('G002-03', 'M002');
