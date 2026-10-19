@@ -1,5 +1,5 @@
 {
-  "dataRelease": "67f4a4a5d234",
+  "dataRelease": "9a2f64ab1e45",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -76,8 +76,8 @@
     "quarantined": 43,
     "profiles": 1905,
     "evidence": 868,
-    "prices": 365,
-    "sources": 2091,
+    "prices": 374,
+    "sources": 2100,
     "coverage": 953,
     "knowHow": 7601,
     "polymerEnvironment": 353,
@@ -241,8 +241,8 @@
     },
     "prices": {
       "baseline": 357,
-      "current": 365,
-      "added": 8,
+      "current": 374,
+      "added": 17,
       "edited_existing": 7,
       "removed": 0
     },
@@ -290,8 +290,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 2091,
-      "added": 263,
+      "current": 2100,
+      "added": 272,
       "edited_existing": 532,
       "removed": 0
     }

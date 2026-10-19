@@ -50,16 +50,16 @@
       "sha256": "5b6868e6f63a1a3eac8f0531fdde055730a7874ac225a580bef808328dc98b00"
     },
     "prices": {
-      "rows": 365,
-      "sha256": "7c31c6e83b0cc3eccce6b78fa0a4470e3df1570e2c164441b1291543734d2917"
+      "rows": 374,
+      "sha256": "d779a4ec5ba5103a4b7a7be75750917073f88331b32398b1c18b55b05aefc1d3"
     },
     "fx_rates": {
       "rows": 2,
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2091,
-      "sha256": "b58f1fb1185740d95a42649e017a08688ddc5c03cd979c204775bc9484b3c1d4"
+      "rows": 2100,
+      "sha256": "d9104107fb613f82fc0f58e0083ba80c937659c3423e1dada13056efbb30c0a1"
     },
     "coverage": {
       "rows": 953,

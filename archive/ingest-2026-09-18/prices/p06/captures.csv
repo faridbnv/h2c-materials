@@ -1,0 +1,19 @@
+Host,URL,Kind,Format,SHA256,Bytes,Accessed,Note
+shop3d.ca,https://shop3d.ca/collections/engineering-filaments/products/basf-ultrafuse-pc-gf30-700-grams,page,jsonld,54f943b185600a33266786a912314ddaa638b13b82296578b9513b8b5b58f667,508800,2026-10-19,3 offer(s) read
+ca.spectrumfilaments.com,https://ca.spectrumfilaments.com/products/filament-spectrum-pc-ptfe-1-75mm-nat-0-75kg,page,jsonld,4071a3cbaee878f79e35566e8956cf14d3d9e248a199205c5d7313858f8e9933,236086,2026-10-19,0 offer(s) read
+www.matterhackers.com,https://www.matterhackers.com/store/l/3dxtech-3dxmax-wpcasa-175mm/sk/M8MXAGY4,page,jsonld,19fb5723df39fb4caa22c9cdf8bc46d525e64386fa2058098f4434d7873f5f26,53340,2026-10-19,1 offer(s) read
+www.multitech3d.com,https://www.multitech3d.com/es/producto/3dxtech-3dxstat-esd-pps-black-175-mm-1-kg/,page,jsonld,749ea7409db8547c2874183313f51514f86a2320659606350746f9f723f0d692,158827,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/filament/san-filament/purefil-san-filament_309_7549/,page,jsonld,7ef952ecf83557a00c59efeae45f51db0bd721a4cb7ab9ae349aea671cda0bdd,369064,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/filament/coc/purefil-coc-tough-filament_1296_10014/,page,jsonld,cbf912a2323f7cda09e96d545ccd5b1fbf24437a525d29316e96aab4f1cfb5ad,358696,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/filament/coc/purefil-coc-flex-filament_1297_10017/,page,jsonld,d10089539331b6a91b43fc1a24db72290478fa428ce1be95077bcb5d040aa51c,349211,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/purefil-hdpe-gf20-filament_169_1313/,page,jsonld,75e05f798085382401a72d6a790ac8247e4e54cf01734a3b24e5ff53988cbdbb,382802,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/purefil-abs-filament_161_1262/,page,jsonld,bc91efe6639503d9eda0cb97cfded07ac02f209e304082d5b35333b207af546a,486823,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/filament/pbt-filament/purefil-pbt-filament_285_7080/,page,jsonld,7c1eb4173d5da34b8418a611db58a5ac00479280c1c8eac8bb66e4da1819055f,368820,2026-10-19,1 offer(s) read
+www.purefil.at,https://www.purefil.at/en/brands/purefil/purefil-tps-40d-filament_1249_9948/,page,jsonld,30390832b4acc05329d5e8abc7c8c127584c666a57132a17c4c1aaeb7cb52cfe,324069,2026-10-19,1 offer(s) read
+filamatrix.com,https://filamatrix.com/products/pacf-nylon-carbon-fiber-3d-printer-filament,page,jsonld,b608b8797b4fa45a9ce89d5edf7335aee4d1215e7848273717b93b30e1df0c69,355266,2026-10-19,1 offer(s) read
+filamatrix.com,https://filamatrix.com/products/pagl-nylon-glass-filament,page,jsonld,42ee68f2d57ffe7296cd0e36c52407e3729e4e11fc1d4c2e88d7d01803ee4e61,433002,2026-10-19,1 offer(s) read
+www.amazon.ca,https://www.amazon.ca/dp/B0D7ZSYXSW,rendered,amazon,6294b8786aacaa5a9f2b263a43d22bdd6b13e7cf4a48b625a3ed36400f90c0a7,2565055,2026-10-19,1 offer(s) read; drawn by a browser
+ca.spectrumfilaments.com,https://ca.spectrumfilaments.com/meta.json,meta,shopify-meta,857d2789cc5eb9ec128993afbdc9be7e80b25bc4bd052030a6d3e1f3a297270c,655,2026-10-19,base currency USD
+ca.spectrumfilaments.com,https://ca.spectrumfilaments.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,6d5b33c458ec1054cfb8890edafbcdc779df28d225c83a99b68270fd21656dd5,1172598,2026-10-19,250 products
+ca.spectrumfilaments.com,https://ca.spectrumfilaments.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,5d9bda6b24a751a4baff4c78a11668d59135a6fe286d9b7272f0cbf9c217d7f1,1441451,2026-10-19,250 products
+ca.spectrumfilaments.com,https://ca.spectrumfilaments.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,c618672dceb23cd311e8443eb4973f3b87b9157ddacbc00848c5105581122172,982635,2026-10-19,176 products

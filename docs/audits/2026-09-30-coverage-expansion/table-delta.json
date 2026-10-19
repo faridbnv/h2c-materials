@@ -155,8 +155,8 @@
   },
   "prices": {
     "baseline": 357,
-    "current": 365,
-    "added": 8,
+    "current": 374,
+    "added": 17,
     "edited_existing": 7,
     "removed": 0
   },
@@ -204,8 +204,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 2091,
-    "added": 263,
+    "current": 2100,
+    "added": 272,
     "edited_existing": 532,
     "removed": 0
   }

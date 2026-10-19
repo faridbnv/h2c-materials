@@ -17,7 +17,7 @@ M001,PLA,hdt18,value,55,°C,,,,,41,G001-155,V013921
 M001,PLA,glassTransition,value,58.95,°C,,,,,76,G001-201,V003714
 M001,PLA,shoreA,none,,Shore A,,,,,,,
 M001,PLA,shoreD,value,82,Shore D,,,,,7,G001-39,V004603
-M001,PLA,priceCADkg,value,33.655,CAD/kg,,,,,26,G001-165,
+M001,PLA,priceCADkg,value,33.32,CAD/kg,,,,,27,G001-165,
 M002,PLA Basic,density,none,,kg/m³,,,,,,,
 M002,PLA Basic,tensileModulusXY,none,,GPa,,,,,,,
 M002,PLA Basic,tensileModulusZ,none,,GPa,,,,,,,
@@ -2582,7 +2582,7 @@ M136,SAN,hdt18,value,101,°C,,,,,1,G136-02,V011483
 M136,SAN,glassTransition,none,,°C,,,,,,,
 M136,SAN,shoreA,none,,Shore A,,,,,,,
 M136,SAN,shoreD,none,,Shore D,,,,,,,
-M136,SAN,priceCADkg,none,,CAD/kg,,,,,,,
+M136,SAN,priceCADkg,value,60.83,CAD/kg,,,,,1,G136-02,
 M137,COC,density,value,1020,kg/m³,,,,,1,G137-01,V005676
 M137,COC,tensileModulusXY,estimate,1.24,GPa,0.639-2.41,0.434-3.54,open-3.54,this-material,,,
 M137,COC,tensileModulusZ,none,,GPa,,,,,,,
@@ -2601,7 +2601,7 @@ M137,COC,hdt18,none,,°C,,,,,,,
 M137,COC,glassTransition,none,,°C,,,,,,,
 M137,COC,shoreA,none,,Shore A,,,,,,,
 M137,COC,shoreD,none,,Shore D,,,,,,,
-M137,COC,priceCADkg,none,,CAD/kg,,,,,,,
+M137,COC,priceCADkg,value,85.34,CAD/kg,,,,,1,G137-01,
 M138,PE-GF,density,value,1050,kg/m³,,,,,2,G138-03,V009858
 M138,PE-GF,tensileModulusXY,estimate,2.27,GPa,1.27-4.03,0.913-5.63,0.913-5.63,this-material,,,
 M138,PE-GF,tensileModulusZ,none,,GPa,,,,,,,
@@ -2620,7 +2620,7 @@ M138,PE-GF,hdt18,none,,°C,,,,,,,
 M138,PE-GF,glassTransition,none,,°C,,,,,,,
 M138,PE-GF,shoreA,none,,Shore A,,,,,,,
 M138,PE-GF,shoreD,none,,Shore D,,,,,,,
-M138,PE-GF,priceCADkg,none,,CAD/kg,,,,,,,
+M138,PE-GF,priceCADkg,value,62.39,CAD/kg,,,,,1,G138-02,
 M139,LCP,density,value,1400,kg/m³,,,,,1,G139-01,V005732
 M139,LCP,tensileModulusXY,estimate,9.65,GPa,7.29-12.8,6.18-15.1,6.18-15.1,this-grade,,,
 M139,LCP,tensileModulusZ,none,,GPa,,,,,,,
@@ -2658,7 +2658,7 @@ M140,PBT,hdt18,none,,°C,,,,,,,
 M140,PBT,glassTransition,none,,°C,,,,,,,
 M140,PBT,shoreA,none,,Shore A,,,,,,,
 M140,PBT,shoreD,none,,Shore D,,,,,,,
-M140,PBT,priceCADkg,none,,CAD/kg,,,,,,,
+M140,PBT,priceCADkg,value,69.68,CAD/kg,,,,,1,G140-01,
 M141,PET-LW,density,value,520,kg/m³,,,,,2,G141-01,V011491
 M141,PET-LW,tensileModulusXY,value,1.395,GPa,,,,,2,G141-01,V011390
 M141,PET-LW,tensileModulusZ,none,,GPa,,,,,,,
@@ -3323,4 +3323,4 @@ M175,TPV,hdt18,not applicable,,°C,,,,,,,
 M175,TPV,glassTransition,none,,°C,,,,,,,
 M175,TPV,shoreA,value,92,Shore A,,,,,1,G167-13,V014410
 M175,TPV,shoreD,none,,Shore D,,,,,,,
-M175,TPV,priceCADkg,none,,CAD/kg,,,,,,,
+M175,TPV,priceCADkg,value,74.2,CAD/kg,,,,,1,G167-13,
