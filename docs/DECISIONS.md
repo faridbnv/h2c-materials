@@ -171,6 +171,7 @@ detail. The generator names one that runs longer.
 | D153 | A value measured another way decides in its one safe direction: the evidence ledger | Most sheets print something other than what a requirement asks: the HDT at 1.8 MPa and not at 0.45, a stiffness after annealing, conditioned, pulled across the layers or in bending. Each such relation is now a row of data that says what the other value bounds and in which direction that is safe: an HDT at 1.8 MPa is the least the HDT at 0.45 MPa can be, an annealed HDT the most a print reaches, a flexural modulus puts the tensile one within a measured band. A product with no value measured the way asked passes or fails on those bounds, naming the record; a comparable value always wins; an estimate never decides; two records with no value between them are "sheets disagree". | In force. It amends D48 (a measured floor now decides, through a deciding conversion row; the implied bounds still only veto a screen and bound an estimate), D84 (a PLA or PET HDT from a bar its sheet does not describe is only a ceiling), D99 (a value of another state bounds a state through a deciding row, and laboratory humidity counts as dry for a plastic that takes up almost no water) and D55 (a moulded or undescribed bar bounds a printed PLA or PET HDT from above) |
 | D154 | A physics limit of a kind of plastic may settle a requirement nobody measured | Some things a kind of plastic cannot be: an unfilled rubber is never stiffer than about 0.5 GPa, and an unfilled filament's density is its polymer's. A limit with a registered source may now settle a requirement for a product of that kind that publishes no value of its own, and only beyond the wider of the sourced limit and what the kind's own products publish, plus the test scatter. A value that breaks its kind's limit is flagged doubtful for a re-read. | In force. It amends D26 (a requirement nobody measured may be settled by a sourced physics limit of the product's kind) and the reach of D55 (a limit bounds a printed headline though it is no printed part). D141 stands: a plausibility window is a check, never a filter; a limit is a row of its own table |
 | D155 | The materials nothing settles are sorted by what would settle each: one check away, not enough data, unlikely to meet | Under Include, after the materials that meet every requirement, the list sorts the rest by what would settle each. "One check away": a product waits only on a printer setting its sheet does not state, or on one value on the line. "Not enough data": everything else, with the ones whose estimated range meets every open number tagged "likely" and first. "Unlikely to meet", folded and counted: a product measured the way asked misses and none meets it, or every open product's own estimate wholly misses. Each row names the product that decides its group, with that product's own numbers. No verdict, count, listing or exported row moved. | In force. It amends D137's grouping and D100's wording |
+| D156 | The Flexible component preset asks for softness: tensile modulus at most 0.1 GPa beside the stretch | The "Flexible component" preset (a gasket, strap or phone case) asked only that a filament stretch at least 100 % before it breaks, so stiff plastics that stretch far, a nylon blend or polypropylene, passed as gasket materials. It now also asks for a tensile modulus of at most 0.1 GPa. Five materials pass where twelve did, all of them flexible: TPC, PBAT and the TPU classes up to 95A. PEBA, the lightweight TPUs and the TPUs harder than 95A wait for a modulus their makers have not published. | In force |
 
 <!-- end index -->
 
@@ -5278,11 +5279,39 @@ the [screening build](audits/2026-10-18-screening-build/stage-3c.md).*
   listed groups, and judging the products in reverse order moves no verdict, count, eligibility or group. The guard test
   runs the page's path (C25). The decision census: over 138 cases, 0 verdicts and 0 listings moved. `ui:fuzz` reads each
   row's group and reason from the engine.
-- **What it did**, the six presets with Include and estimates: 89 materials one check away, 130 not enough data with a
-  product (9 likely) and 15 with none, 238 unlikely to meet, where the review simulated about 128, 87 and 249 (its one
-  check away counted the values measured another way that stage 3b's evidence ledger decides, not yet merged).
+- **What it did**, the six presets with Include and estimates, on main after stage 3b: 95 materials one check away,
+  125 not enough data with a product (9 likely) and 15 with none, 215 unlikely to meet, where the review simulated about
+  128, 87 and 249. Its one check away counted a product that meets a number only on a value measured another way; stage
+  3b's evidence ledger now decides those outright, a pass or a failure, so they left the unresolved groups.
 - **What would break if reversed.** PETG, whose 45 measured products all miss 100 °C, would sit beside nylons waiting
   only on a chamber line, and an estimate's middle value, a coin flip, would again promote a material ahead of the rest.
+
+## D156. The Flexible component preset asks for softness: tensile modulus at most 0.1 GPa beside the stretch
+
+> **In plain words:** The "Flexible component" preset (a gasket, strap or phone case) asked only that a filament stretch at least 100 % before it breaks, so stiff plastics that stretch far, a nylon blend or polypropylene, passed as gasket materials. It now also asks for a tensile modulus of at most 0.1 GPa. Five materials pass where twelve did, all of them flexible: TPC, PBAT and the TPU classes up to 95A. PEBA, the lightweight TPUs and the TPUs harder than 95A wait for a modulus their makers have not published.
+> **Status:** In force.
+
+*Decided by the owner on 2026-10-18 from the [screening review](audits/2026-10-18-screening-review/README.md) (its change
+C30 and verdict V07, decision 8: 0.1 GPa, not the 0.3 GPa first proposed); built as stage 3c of the
+[screening build](audits/2026-10-18-screening-build/stage-3c.md), in a commit of its own.*
+
+- **The preset** (`app/js/ui/templates.js`): elongation at break (XY) at least 100 % and tensile modulus (XY) at most
+  0.1 GPa, both required. Its description says both; what it does not check reads "Recovery and sealing; Shore hardness
+  (Mechanical tab, or ask Shore A at most 95 as a requirement)". The materials scientist's figure for a gasket is Shore
+  60 to 95A, a stiffness under about 0.05 GPa; 0.1 GPa leaves room for the stiffer elastomers.
+- **Why a modulus and not Shore hardness.** Stage 2b made Shore A and Shore D selectable, but few sheets print them on
+  a comparable basis; a modulus is printed far more often. A reader can add "Shore A at most 95" as a requirement.
+- **What it did** (the decision census against the regrouped list, `stage-3c-diff.md`), in the Flexible preset only:
+  - Leave out: 12 materials pass before, 5 after, and 34 products before, 15 after. TPC, PBAT, and the TPU 85A, 90A
+    and 95A classes stay. PEBA, PA6/66, PP, OBC, PCL, TPU-LW and the TPUs harder than 95A move from pass to unresolved:
+    their passing products publish no modulus. PP-GF, nGen FLEX, PAHT and TPU-GF fail, on a measured modulus.
+  - Include with estimates: 2 one check away (PEBA among them, on Siraya Tech Rebound PEBA 85A's unstated chamber),
+    14 not enough data (TPU-LW likely: Siraya Tech Flex TPU Air estimated 0.005 to 0.07 GPa), 85 unlikely to meet
+    (PETG: 20 of its 73 products measured above 0.1 GPa; PP, OBC and PCL on their own estimates) and 3 hidden, PA612,
+    which has no product, among them on its own estimate.
+  - The other five presets: nothing moved.
+- **What would break if reversed.** A nylon blend at 1.98 GPa would again be offered as a gasket because it stretches
+  far before breaking.
 
 ## Bugs worth remembering
 
