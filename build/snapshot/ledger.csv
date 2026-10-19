@@ -1,6 +1,6 @@
 Rule,Target,Kind,Status,Low,High,Applies to,Products,States,Demoted,Contradicted,Disagree,Pairs,Pair products,Implied,Implied min,Implied max,Breaking
 CV01,hdt045,floor,deciding,1,,,300,389,0,1,2,255,206,difference,-4,119.5,G001-77 V013711=59 V013712=60; G165-04 V014653=58 V014656=62
-CV02,tensileModulusXY,equal,reported,1,1,Base polymer: PET | PETG | PP | PE | PPS | PVDF | PC,4,7,0,0,0,0,0,ratio,,,
+CV02,tensileModulusXY,equal,deciding,1,1,Base polymer: PET | PETG | PP | PE | PPS | PVDF | PC | PC-PBT,4,7,0,0,0,0,0,ratio,,,
 CV03,hdt045,ceiling,deciding,,1,,65,79,0,0,0,11,9,difference,-107.5,-19,
 CV04,tensileModulusXY,ceiling,deciding,,1.28,,65,79,0,0,0,13,12,ratio,0.756593169045,1.27292046145,
 CV05,hdt045,demote-to-ceiling,deciding,,1,Base polymer: PLA | PLA blend | PLA-PHA | PET,194,249,138,0,2,1,1,difference,-5,-5,

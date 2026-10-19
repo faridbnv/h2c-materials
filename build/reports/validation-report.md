@@ -120,7 +120,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | Row | Target | Kind | Status | Factors | Products | Demoted | Contradicted | Disagree | Pairs | Implied | Breaking |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---|---:|
 | CV01 | hdt045 | floor | deciding | 1 | 300 | 0 | 1 | 2 | 255 | difference -4 to 119.5 | 2 |
-| CV02 | tensileModulusXY | equal | reported | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
+| CV02 | tensileModulusXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV03 | hdt045 | ceiling | deciding | 1 | 65 | 0 | 0 | 0 | 11 | difference -107.5 to -19 | 0 |
 | CV04 | tensileModulusXY | ceiling | deciding | 1.28 | 65 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
 | CV05 | hdt045 | demote-to-ceiling | deciding | 1 | 194 | 138 | 0 | 2 | 1 | difference -5 to -5 | 0 |
