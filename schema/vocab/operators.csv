@@ -3,3 +3,5 @@ Value,Meaning
 =,The published value.
 >,The source states more than the value.
 Not applicable,No number was published.
+<=,The source states at most the value (≤): an inclusive upper bound.
+>=,The source states at least the value (≥): an inclusive lower bound.

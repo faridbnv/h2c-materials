@@ -11,18 +11,18 @@ Database snapshot 2026-09-21 · build 2026-10-19
 | materials | 175 |
 | h2cRelevant | 135 |
 | familyEntries | 23 |
-| retiredDuplicates | measurements 602, evidence 21, profiles 80 |
+| retiredDuplicates | measurements 602, evidence 23, profiles 80 |
 | excluded | 17 |
 | grades | 1184 |
-| measurements | 15047 |
-| numericMeasurements | 14847 |
+| measurements | 15051 |
+| numericMeasurements | 14851 |
 | quarantined | 43 |
 | profiles | 1906 |
 | evidence | 868 |
 | prices | 374 |
 | sources | 2100 |
 | coverage | 953 |
-| knowHow | 7601 |
+| knowHow | 7599 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 314 |
 | coverageDerived | 1137 |
@@ -90,7 +90,7 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 
 | Row | Applies to | Verdict | Status | Makers stating | Asking above 65 C | Supports within | Silent chambers filled |
 |---|---|---|---|---:|---:|---|---:|
-| CN01 | Family: ABS | within | deciding | 22 | 2 | yes | 7 |
+| CN01 | Family: ABS | within | deciding | 21 | 2 | yes | 7 |
 | CN02 | Family: ASA | unknown | reported | 18 | 2 | no | 0 |
 | CN03 | Family: Acetals | unknown | reported | 1 | 1 | no | 0 |
 | CN04 | Family: Copolyesters | unknown | reported | 9 | 0 | no | 0 |
@@ -134,7 +134,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV60 | tensileModulusXY | demote-to-ceiling | reported | 1.16 | 373 | 310 | 0 | 0 | 0 |  | 0 |
 | CV61 | tensileStrengthXY | demote-to-ceiling | reported | 1.16 | 317 | 441 | 1 | 0 | 0 |  | 0 |
 | CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 90 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
-| CL02 | density | neat-density range | deciding | polymers.csv | 545 |  | 5 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
+| CL02 | density | neat-density range | deciding | polymers.csv | 549 |  | 7 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
 
 ## Environment evidence
 
@@ -189,7 +189,7 @@ its plausible range wholly fails.
 | density | 912 | 120 | 80% | 95% | ×1.1 | 0.0255 (17029 pairs) |
 | tensileModulusXY | 1280 | 74 | 81% | 96% | ×1.51 | 0.272 (2139 pairs) |
 | tensileStrengthXY | 1367 | 59 | 81% | 97% | ×1.42 | 0.225 (3722 pairs) |
-| elongationXY | 1087 | 79 | 81% | 96% | ×4.53 | 0.708 (2980 pairs) |
+| elongationXY | 1087 | 79 | 81% | 96% | ×4.51 | 0.707 (2980 pairs) |
 | hdt045 | 1218 | 72 | 81% | 96% | 12.9 °C | 4 (5290 pairs) |
 
 By stratum (D158): the same hidden headlines, by the classes a change to a polymer's class or a fill column moves. The signed error is the median of the hidden value less its prediction, on the model's scale (ln, or °C).
@@ -197,25 +197,25 @@ By stratum (D158): the same hidden headlines, by the classes a change to a polym
 | Headline | Stratum | Hidden | Likely holds | Plausible holds | Signed error |
 |---|---|---:|---:|---:|---:|
 | density | PLA unfilled | 1 | 100% | 100% | -0.0225 |
-| density | PLA filled | 15 | 60% | 80% | -0.00706 |
-| density | other | 89 | 82% | 96.6% | -0.00371 |
-| density | semicrystalline filled | 15 | 86.7% | 100% | -0.000587 |
-| tensileModulusXY | PLA unfilled | 1 | 100% | 100% | -0.0988 |
-| tensileModulusXY | PLA filled | 11 | 90.9% | 100% | -0.0711 |
-| tensileModulusXY | other | 51 | 82.4% | 94.1% | 0.0113 |
+| density | PLA filled | 15 | 60% | 80% | -0.00699 |
+| density | other | 89 | 82% | 96.6% | -0.00363 |
+| density | semicrystalline filled | 15 | 86.7% | 100% | -0.000511 |
+| tensileModulusXY | PLA unfilled | 1 | 100% | 100% | -0.0986 |
+| tensileModulusXY | PLA filled | 11 | 90.9% | 100% | -0.0705 |
+| tensileModulusXY | other | 51 | 82.4% | 94.1% | 0.0108 |
 | tensileModulusXY | semicrystalline filled | 11 | 63.6% | 100% | 0.244 |
-| tensileStrengthXY | PLA unfilled | 1 | 100% | 100% | -0.0466 |
+| tensileStrengthXY | PLA unfilled | 1 | 100% | 100% | -0.0536 |
 | tensileStrengthXY | PLA filled | 10 | 80% | 90% | -0.141 |
-| tensileStrengthXY | other | 39 | 76.9% | 97.4% | 0.000336 |
-| tensileStrengthXY | semicrystalline filled | 9 | 100% | 100% | 0.0473 |
-| elongationXY | PLA unfilled | 1 | 100% | 100% | 0.333 |
-| elongationXY | PLA filled | 10 | 100% | 100% | 0.252 |
-| elongationXY | other | 57 | 77.2% | 96.5% | 0.00292 |
-| elongationXY | semicrystalline filled | 11 | 81.8% | 90.9% | -0.106 |
-| hdt045 | PLA unfilled | 1 | 100% | 100% | 0.317 |
-| hdt045 | PLA filled | 12 | 100% | 100% | -0.0324 |
-| hdt045 | other | 50 | 74% | 96% | 2.17 |
-| hdt045 | semicrystalline filled | 9 | 88.9% | 88.9% | -1.9 |
+| tensileStrengthXY | other | 39 | 76.9% | 97.4% | 0.00036 |
+| tensileStrengthXY | semicrystalline filled | 9 | 100% | 100% | 0.051 |
+| elongationXY | PLA unfilled | 1 | 100% | 100% | 0.332 |
+| elongationXY | PLA filled | 10 | 100% | 100% | 0.251 |
+| elongationXY | other | 57 | 77.2% | 96.5% | 0.00613 |
+| elongationXY | semicrystalline filled | 11 | 81.8% | 90.9% | -0.101 |
+| hdt045 | PLA unfilled | 1 | 100% | 100% | 0.285 |
+| hdt045 | PLA filled | 12 | 100% | 100% | -0.0279 |
+| hdt045 | other | 50 | 74% | 96% | 2.2 |
+| hdt045 | semicrystalline filled | 9 | 88.9% | 88.9% | -2.43 |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -231,7 +231,7 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 |---|---|---:|---:|---:|---:|---:|
 | density | this-grade | 7 | 0 | cannot screen | 0 | cannot screen |
 | density | this-material | 93 | 0 | 97.5% point | 4 | 2.5% point |
-| density | family | 120 | 8 | 97.77% point | 3 | 2.5% point |
+| density | family | 120 | 8 | 97.62% point | 3 | 2.5% point |
 | tensileModulusXY | this-grade | 69 | 2 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-material | 61 | 2 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | family | 74 | 0 | 97.5% point | 2 | 2.5% point |
@@ -264,49 +264,49 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | tensileModulusXY | containmentConverted | 74 | 0 | 81.1% | 95.9% | ×1.51 | 1 |
 | tensileModulusXY | formulationConverted | 74 | 0 | 81.1% | 95.9% | ×1.51 | 1 |
 | tensileStrengthXY | none | 59 | 0 | 81.4% | 96.6% | ×1.42 | 1 |
-| tensileStrengthXY | printed | 59 | 42 | 57.6% | 72.9% | ×1.4 | 15 |
+| tensileStrengthXY | printed | 59 | 42 | 57.6% | 72.9% | ×1.41 | 15 |
 | tensileStrengthXY | printedXY | 59 | 8 | 76.3% | 94.9% | ×1.42 | 2 |
 | tensileStrengthXY | unstated | 59 | 54 | 20.3% | 23.7% | ×1.16 | 45 |
 | tensileStrengthXY | containment | 59 | 9 | 88.1% | 94.9% | ×1.76 | 3 |
-| tensileStrengthXY | sameSource | 59 | 42 | 55.9% | 71.2% | ×1.4 | 16 |
+| tensileStrengthXY | sameSource | 59 | 42 | 55.9% | 71.2% | ×1.41 | 16 |
 | tensileStrengthXY | lowestOfProducts | 59 | 54 | 72.9% | 83.1% | ×1.42 | 9 |
-| tensileStrengthXY | formulation | 59 | 34 | 78% | 91.5% | ×1.41 | 5 |
+| tensileStrengthXY | formulation | 59 | 34 | 78% | 91.5% | ×1.42 | 5 |
 | tensileStrengthXY | containmentUnstated | 59 | 9 | 88.1% | 94.9% | ×1.76 | 3 |
-| tensileStrengthXY | formulationUnstated | 59 | 34 | 78% | 91.5% | ×1.41 | 5 |
+| tensileStrengthXY | formulationUnstated | 59 | 34 | 78% | 91.5% | ×1.42 | 5 |
 | tensileStrengthXY | formulationCeilings | 59 | 8 | 78% | 91.5% | ×1.42 | 1 |
-| tensileStrengthXY | formulationBoth | 59 | 35 | 74.6% | 88.1% | ×1.41 | 5 |
+| tensileStrengthXY | formulationBoth | 59 | 35 | 74.6% | 88.1% | ×1.42 | 5 |
 | tensileStrengthXY | containmentConverted | 59 | 9 | 86.4% | 98.3% | ×1.46 | 1 |
-| tensileStrengthXY | formulationConverted | 59 | 34 | 78% | 96.6% | ×1.41 | 2 |
-| elongationXY | none | 79 | 0 | 81% | 96.2% | ×4.53 | 2 |
-| elongationXY | printed | 79 | 50 | 57% | 69.6% | ×3.73 | 23 |
-| elongationXY | printedXY | 79 | 20 | 74.7% | 87.3% | ×4.32 | 9 |
-| elongationXY | unstated | 79 | 66 | 32.9% | 40.5% | ×2.32 | 47 |
+| tensileStrengthXY | formulationConverted | 59 | 34 | 78% | 96.6% | ×1.42 | 2 |
+| elongationXY | none | 79 | 0 | 81% | 96.2% | ×4.51 | 2 |
+| elongationXY | printed | 79 | 50 | 57% | 68.4% | ×3.73 | 24 |
+| elongationXY | printedXY | 79 | 20 | 73.4% | 87.3% | ×4.33 | 9 |
+| elongationXY | unstated | 79 | 66 | 32.9% | 40.5% | ×2.31 | 47 |
 | elongationXY | containment | 79 | 3 | 82.3% | 94.9% | ×5.37 | 3 |
-| elongationXY | sameSource | 79 | 50 | 55.7% | 67.1% | ×3.73 | 25 |
-| elongationXY | lowestOfProducts | 79 | 66 | 67.1% | 81% | ×4.1 | 15 |
-| elongationXY | formulation | 79 | 26 | 75.9% | 92.4% | ×4.18 | 5 |
-| elongationXY | containmentUnstated | 79 | 10 | 78.5% | 88.6% | ×6.73 | 8 |
-| elongationXY | formulationUnstated | 79 | 40 | 67.1% | 82.3% | ×4.06 | 13 |
+| elongationXY | sameSource | 79 | 50 | 55.7% | 65.8% | ×3.73 | 26 |
+| elongationXY | lowestOfProducts | 79 | 66 | 65.8% | 81% | ×4.11 | 15 |
+| elongationXY | formulation | 79 | 26 | 75.9% | 92.4% | ×4.19 | 5 |
+| elongationXY | containmentUnstated | 79 | 10 | 78.5% | 88.6% | ×6.74 | 8 |
+| elongationXY | formulationUnstated | 79 | 40 | 67.1% | 82.3% | ×4.08 | 13 |
 | elongationXY | containmentConverted | 79 | 10 | 81% | 92.4% | ×6.53 | 5 |
-| elongationXY | formulationConverted | 79 | 40 | 75.9% | 87.3% | ×4.11 | 9 |
-| hdt045 | none | 72 | 0 | 80.6% | 93.1% | 12.3 °C | 2 |
+| elongationXY | formulationConverted | 79 | 40 | 75.9% | 87.3% | ×4.12 | 9 |
+| hdt045 | none | 72 | 0 | 80.6% | 93.1% | 12.2 °C | 2 |
 | hdt045 | printed | 72 | 30 | 65.3% | 77.8% | 11.8 °C | 13 |
 | hdt045 | printedXY | 72 | 5 | 77.8% | 88.9% | 12.2 °C | 5 |
-| hdt045 | unstated | 72 | 52 | 56.9% | 68.1% | 9.85 °C | 21 |
-| hdt045 | containment | 72 | 5 | 83.3% | 94.4% | 14.2 °C | 2 |
-| hdt045 | sameSource | 72 | 38 | 65.3% | 76.4% | 10.9 °C | 15 |
-| hdt045 | lowestOfProducts | 72 | 43 | 76.4% | 90.3% | 12.2 °C | 4 |
-| hdt045 | formulation | 72 | 23 | 80.6% | 93.1% | 12.3 °C | 2 |
-| hdt045 | containmentUnstated | 72 | 5 | 83.3% | 94.4% | 14.2 °C | 2 |
-| hdt045 | formulationUnstated | 72 | 23 | 80.6% | 93.1% | 12.3 °C | 2 |
+| hdt045 | unstated | 72 | 52 | 56.9% | 68.1% | 9.86 °C | 21 |
+| hdt045 | containment | 72 | 5 | 83.3% | 94.4% | 14.3 °C | 2 |
+| hdt045 | sameSource | 72 | 37 | 65.3% | 76.4% | 10.9 °C | 15 |
+| hdt045 | lowestOfProducts | 72 | 42 | 76.4% | 90.3% | 12.2 °C | 4 |
+| hdt045 | formulation | 72 | 23 | 80.6% | 93.1% | 12.2 °C | 2 |
+| hdt045 | containmentUnstated | 72 | 5 | 83.3% | 94.4% | 14.3 °C | 2 |
+| hdt045 | formulationUnstated | 72 | 23 | 80.6% | 93.1% | 12.2 °C | 2 |
 
 Unstated directions (D159): the kinds whose offset is learned across products as well as from the products that publish both. Target: each product with only an unstated-direction value, beside measured siblings, its centre against their median (a ratio) and how many centres sit above every sibling. Guard: each product that publishes both, as different numbers, its headline hidden and predicted.
 
 | Headline | Kinds | Target products | Centre ÷ siblings' median | Above every sibling | Guard cases | Guard signed error | Guard plausible holds |
 |---|---|---:|---:|---:|---:|---:|---:|
-| tensileModulusXY | flexural unk -0.15 (48 materials); tensile unk -0.154 (53 materials) | 272 | ×1 | 32 | 26 | 0.0822 | 88.5% |
-| tensileStrengthXY | ultimate unk -0.131 (43 materials); break unk -0.146 (39 materials); yield unk -0.161 (38 materials) | 234 | ×1.01 | 32 | 6 | 0.00765 | 83.3% |
-| elongationXY | break unk -0.149 (53 materials) | 290 | ×1.02 | 50 | 23 | 0.0602 | 91.3% |
+| tensileModulusXY | flexural unk -0.15 (48 materials); tensile unk -0.154 (53 materials) | 272 | ×1 | 32 | 26 | 0.0828 | 88.5% |
+| tensileStrengthXY | ultimate unk -0.131 (43 materials); break unk -0.146 (39 materials); yield unk -0.161 (38 materials) | 234 | ×1.01 | 32 | 6 | 0.00768 | 83.3% |
+| elongationXY | break unk -0.149 (53 materials) | 290 | ×1.02 | 50 | 23 | 0.0617 | 91.3% |
 
 Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.
 
@@ -314,53 +314,53 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 |---|---:|---:|---:|---:|---:|---|
 | density | 832 | 1.42 | 1.99 | 0.798 | 0.951 | yes |
 | tensileModulusXY | 296 | 1.11 | 1.34 | 0.801 | 0.953 | yes |
-| tensileStrengthXY | 303 | 1.32 | 1.3 | 0.785 | 0.941 | yes |
+| tensileStrengthXY | 303 | 1.32 | 1.28 | 0.792 | 0.941 | yes |
 | elongationXY | 334 | 1.1 | 1.14 | 0.793 | 0.952 | yes |
-| hdt045 | 414 | 1.27 | 1.62 | 0.797 | 0.952 | yes |
+| hdt045 | 414 | 1.27 | 1.56 | 0.8 | 0.952 | yes |
 
 By matrix as printed (D162): the hidden grade values of each matrix, the coverage the shared scales give them, the scales they alone would need, and the spread between two products of one material measured in that matrix (the one used where the headline sets it per matrix).
 
 | Headline | Matrix | Hidden values | Likely coverage | Plausible coverage | Scales it would need | Product spread measured (pairs) | Used |
 |---|---|---:|---:|---:|---:|---:|---:|
-| density | amorphous | 619 | 0.796 | 0.95 | 1.43 / 2.03 | 0.0255 (16645) | 0.0255 |
-| density | elastomer | 91 | 0.945 | 0.989 | 0.643 / 0.939 | – | – |
+| density | amorphous | 619 | 0.796 | 0.95 | 1.42 / 2.02 | 0.0255 (16645) | 0.0255 |
+| density | elastomer | 91 | 0.945 | 0.989 | 0.643 / 0.936 | – | – |
 | density | semi-filled | 73 | 0.671 | 0.945 | 1.81 / 2.03 | 0.0506 (248) | 0.0255 |
 | density | semi-unfilled | 49 | 0.735 | 0.898 | 1.81 / 2.54 | 0.0407 (136) | 0.0255 |
 | tensileModulusXY | amorphous | 237 | 0.806 | 0.949 | 1.07 / 1.36 | 0.272 (2114) | 0.272 |
-| tensileModulusXY | elastomer | 19 | 0.947 | 1 | 0.994 / 0.907 | – | – |
+| tensileModulusXY | elastomer | 19 | 0.947 | 1 | 0.995 / 0.907 | – | – |
 | tensileModulusXY | semi-filled | 28 | 0.679 | 0.929 | 1.71 / 1.41 | 0.149 (24) | 0.272 |
 | tensileModulusXY | semi-unfilled | 12 | 0.75 | 1 | 1.11 / 1.15 | 0.224 (1) | 0.272 |
-| tensileStrengthXY | amorphous | 239 | 0.808 | 0.958 | 1.25 / 1.25 | 0.224 (3681) | 0.225 |
+| tensileStrengthXY | amorphous | 239 | 0.816 | 0.958 | 1.21 / 1.25 | 0.224 (3681) | 0.225 |
 | tensileStrengthXY | elastomer | 30 | 0.6 | 0.833 | 1.65 / 1.85 | – | – |
 | tensileStrengthXY | semi-filled | 25 | 0.8 | 0.92 | 1.02 / 1.29 | 0.365 (37) | 0.225 |
-| tensileStrengthXY | semi-unfilled | 9 | 0.778 | 0.889 | 1.44 / 1.12 | 0.226 (4) | 0.225 |
-| elongationXY | amorphous | 261 | 0.801 | 0.954 | 1.06 / 1.1 | 0.71 (2946) | 0.708 |
-| elongationXY | elastomer | 30 | 0.8 | 0.967 | 0.976 / 1.03 | – | – |
-| elongationXY | semi-filled | 32 | 0.844 | 0.969 | 1.02 / 1.08 | 0.631 (30) | 0.708 |
-| elongationXY | semi-unfilled | 11 | 0.455 | 0.818 | 1.45 / 1.24 | 1.15 (4) | 0.708 |
-| hdt045 | amorphous | 337 | 0.801 | 0.95 | 1.25 / 1.63 | 3.14 (5138) | 4 |
-| hdt045 | semi-filled | 52 | 0.808 | 0.942 | 1.27 / 1.63 | 33.6 (121) | 33.6 |
-| hdt045 | semi-unfilled | 25 | 0.72 | 1 | 1.27 / 1.17 | 18.9 (31) | 18.9 |
+| tensileStrengthXY | semi-unfilled | 9 | 0.778 | 0.889 | 1.44 / 1.13 | 0.226 (4) | 0.225 |
+| elongationXY | amorphous | 261 | 0.801 | 0.954 | 1.06 / 1.1 | 0.708 (2946) | 0.707 |
+| elongationXY | elastomer | 30 | 0.8 | 0.967 | 0.971 / 1.03 | – | – |
+| elongationXY | semi-filled | 32 | 0.844 | 0.969 | 1.02 / 1.06 | 0.631 (30) | 0.707 |
+| elongationXY | semi-unfilled | 11 | 0.455 | 0.818 | 1.45 / 1.25 | 1.15 (4) | 0.707 |
+| hdt045 | amorphous | 337 | 0.804 | 0.95 | 1.25 / 1.62 | 3.14 (5138) | 4 |
+| hdt045 | semi-filled | 52 | 0.788 | 0.942 | 1.27 / 1.63 | 33.6 (121) | 33.6 |
+| hdt045 | semi-unfilled | 25 | 0.76 | 1 | 1.29 / 1.17 | 18.9 (31) | 18.9 |
 
-Grade plausible coverage by fold of materials: density 0.917, 0.988, 0.991, 0.921, 0.969; tensileModulusXY 0.958, 0.915, 1, 0.944, 0.959; tensileStrengthXY 0.933, 0.938, 0.974, 0.88, 1; elongationXY 0.964, 0.971, 0.936, 0.929, 0.942; hdt045 0.972, 0.939, 0.927, 0.943, 0.952. Median grade plausible width: density 1.24, tensileModulusXY 1.93, tensileStrengthXY 1.76, elongationXY 9.7, hdt045 22.8.
+Grade plausible coverage by fold of materials: density 0.917, 0.988, 0.991, 0.921, 0.969; tensileModulusXY 0.958, 0.915, 1, 0.944, 0.959; tensileStrengthXY 0.943, 0.938, 0.974, 0.86, 1; elongationXY 0.964, 0.971, 0.936, 0.929, 0.942; hdt045 0.979, 0.929, 0.927, 0.943, 0.952. Median grade plausible width: density 1.24, tensileModulusXY 1.93, tensileStrengthXY 1.74, elongationXY 9.82, hdt045 22.
 
 A product's own values as its anchor (D167): hidden grades that publish the property another way too; how often their own bands (as the conversions state them) and anchors (widened by the band scale) hold the hidden value; where the model's centre lay outside the anchor (its estimate withheld), how often the band and the model held it; and the anchored ranges' coverage before and after.
 
 | Headline | Cases | Sheets disagree | Band / anchor coverage | Band scale (low / high side) | Withheld (band right / model right) | Anchored | Likely before → after | Plausible before → after | Used | Shipped: anchored, withheld, disagree |
 |---|---:|---:|---|---:|---|---:|---|---|---|---|
 | density | 18 | 0 | 0.722 / 0.833 | 1.3 / 1.3 | 0 (0 / 0) | 18 | 0.667 → 0.667 | 1 → 0.833 | no | 0, 0, 0 |
-| tensileModulusXY | 153 | 1 | 0.855 / 0.967 | 1 / 2.85 | 4 (0 / 3) | 148 | 0.845 → 0.838 | 0.973 → 0.966 | yes | 354, 2, 11 |
-| tensileStrengthXY | 193 | 2 | 0.874 / 0.974 | 1 / 1.71 | 8 (5 / 5) | 183 | 0.809 → 0.803 | 0.94 → 0.934 | yes | 504, 4, 20 |
-| elongationXY | 174 | 0 | 0.891 / 0.96 | 1.38 / 1.47 | 2 (0 / 2) | 172 | 0.767 → 0.762 | 0.948 → 0.924 | yes | 432, 1, 4 |
+| tensileModulusXY | 153 | 1 | 0.855 / 0.967 | 1 / 2.85 | 4 (0 / 3) | 148 | 0.845 → 0.838 | 0.973 → 0.966 | yes | 355, 1, 11 |
+| tensileStrengthXY | 193 | 2 | 0.874 / 0.974 | 1 / 1.71 | 8 (5 / 5) | 183 | 0.82 → 0.814 | 0.945 → 0.94 | yes | 504, 4, 20 |
+| elongationXY | 174 | 0 | 0.891 / 0.96 | 1.38 / 1.47 | 2 (0 / 2) | 172 | 0.767 → 0.762 | 0.948 → 0.924 | yes | 431, 1, 5 |
 | hdt045 | 187 | 0 | 0.872 / 0.968 | 1 / 1.79 | 8 (3 / 5) | 179 | 0.821 → 0.821 | 0.961 → 0.961 | yes | 216, 21, 1 |
 
 Conversions that learn from several makers only and keep their documented offset (D167): hdt045 HDT 0.45 annealed -52 (3 pairs of 1 makers); hdt045 HDT 0.45 annealed glassy -5 (4 pairs of 2 makers).
 
-EST-GRADE-OUTLIER, 22 grades: PLA 8, PLA Wood 3, PLA Aero 3, PET-GF 2, PLA Marble 1, PP 1, POM / Acetal 1, ABS 1, PETG 1, ASA-CF 1.
+EST-GRADE-OUTLIER, 23 grades: PLA 8, PLA Wood 3, PLA Aero 3, PET-GF 2, PLA Marble 1, PP 1, POM / Acetal 1, ABS 1, TPU 85A class and softer 1, PETG 1, ASA-CF 1.
 
 Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 206 observations):
 
-By material: PLA 23, TPU 95A class 13, PLA Aero 12, PETG 11, PPA-CF 8, PLA Wood 7, PA6-CF 7, ABS 6, PLA-CF 5, PLA Metal 4, PA12-CF 4, PPA-GF 4, CPE-CF 4, PAHT-CF 4, PPS-CF 4, TPU harder than 95A 4, nGen FLEX 4, CPE 4, PC 4, TPC / TPEE 3, PA6-GF 3, PP-CF 3, ASA Aero 3, ASA-CF 3, COC 3, nGen / Amphora 3, ABS-CF 3, PET-GF 3, PA12-GF 2, PA66 2, PLA-EC 2, PAHT-CE 2, PLA-NF 2, PETG-CF 2, PET-CF 2, PPS-GF 2, PET-LW 2, OBC 2, TPC-ESD 2, PBAT 2, TPU-GF 2, TPU 85A class and softer 2, TPU 90A class 2, ABS-GF 2, ASA 2, PLA Marble 1, PLA Sparkle 1, PVA 1, PP 1, POM / Acetal 1, PC-GF 1, ASA-GF 1, HIPS 1, PVDF 1, BVOH 1, PC FR 1, PC-ABS 1, PC-PBT 1.
+By material: PLA 23, TPU 95A class 13, PLA Aero 12, PETG 11, PPA-CF 8, PLA Wood 7, PA6-CF 7, ABS 6, PC 6, PLA-CF 5, PLA Metal 4, PA12-CF 4, PPA-GF 4, CPE-CF 4, PAHT-CF 4, PPS-CF 4, TPU harder than 95A 4, nGen FLEX 4, CPE 4, TPC / TPEE 3, PA6-GF 3, PP-CF 3, ASA Aero 3, ASA-CF 3, nGen / Amphora 3, ABS-CF 3, PET-GF 3, PA12-GF 2, PA66 2, PLA-EC 2, PAHT-CE 2, PLA-NF 2, PETG-CF 2, PET-CF 2, PPS-GF 2, PET-LW 2, OBC 2, TPC-ESD 2, PBAT 2, TPU-GF 2, TPU 85A class and softer 2, TPU 90A class 2, ASA 2, COC 2, PLA Marble 1, PLA Sparkle 1, PVA 1, PP 1, POM / Acetal 1, PC-GF 1, ASA-GF 1, HIPS 1, PVDF 1, BVOH 1, ABS-GF 1, PC FR 1, PC-ABS 1, PC-PBT 1.
 
 - PLA, density: density 1240, 1000 (V007470, V013434)
 - PLA, density: density 1240 (V008736)
@@ -449,7 +449,6 @@ By material: PLA 23, TPU 95A class 13, PLA Aero 12, PETG 11, PPA-CF 8, PLA Wood 
 - PPS-GF, tensileModulusXY: tensile Z 2.581 (V001382)
 - CPE-CF, tensileModulusXY: tensile XY 5.15 (V010336)
 - CPE-CF, tensileModulusXY: flexural XY 2.7 (V010339)
-- COC, tensileModulusXY: tensile unk 0.05 (V010402)
 - PET-LW, tensileModulusXY: tensile XY 1.5 (V011402)
 - PET-LW, tensileModulusXY: flexural XY 0.5232 (V011408)
 - TPU 95A class, tensileModulusXY: tensile XY 0.0502 (V012569)
@@ -527,7 +526,6 @@ By material: PLA 23, TPU 95A class 13, PLA Aero 12, PETG 11, PPA-CF 8, PLA Wood 
 - ABS, hdt045: HDT unstated 65 (V007083)
 - ABS, hdt045: HDT 0.45 118.1 (V013460)
 - ABS-GF, hdt045: Tg amorphous 135 (V004463)
-- ABS-GF, hdt045: HDT 0.45 82 (V005111)
 - ABS-CF, hdt045: Tg amorphous 105 (V000593)
 - ABS-CF, hdt045: HDT 0.45 76 (V000594)
 - ABS-CF, hdt045: HDT 0.45 78 (V002175)
@@ -535,7 +533,9 @@ By material: PLA 23, TPU 95A class 13, PLA Aero 12, PETG 11, PPA-CF 8, PLA Wood 
 - ASA, hdt045: HDT 1.8 amorphous 68 (V009515)
 - ASA-CF, hdt045: HDT 0.45 86 (V004880)
 - ASA-CF, hdt045: HDT 0.45 130 (V013107)
+- PC, hdt045: HDT 0.45 139, 139 (V002884, V012389)
 - PC, hdt045: HDT 0.45 101, 101 (V004707, V008720)
+- PC, hdt045: HDT 1.8 amorphous 141 (V005612)
 - PC, hdt045: HDT 1.8 amorphous 93 (V013670)
 - PC, hdt045: HDT 1.8 amorphous 121 (V015185)
 - PC, hdt045: HDT 0.45 144 (V015187)
@@ -574,7 +574,7 @@ Measured headlines far outside their prediction (worth a second look at the sour
 - ASA Aero, density: 460 kg/m³, expected about 1040
 - PLA-EC, density: 1240 kg/m³, expected about 1540
 - PAHT-CE, density: 1250 kg/m³, expected about 1440
-- PBAT, tensileModulusXY: 0.006 GPa, expected about 1.03
+- PBAT, tensileModulusXY: 0.006 GPa, expected about 1.01
 
 ## Consistency
 
@@ -600,8 +600,8 @@ interface can say so rather than implying a certainty it does not have.
 
 - `PROCESS-WINDOW-IMPLAUSIBLE` **profiles P0050** — Bed "30 -500 ºC" states 500 °C, outside the plausible 0–250 °C; it is typed as stated (30–30): check the cell against its page
 - `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 1 of 221 same-sheet pair(s) break it: G165-04 V014653 58 against V014656 62
-- `CLASS-LIMIT-CONTRADICTED` **grades** — 5 comparable value(s) beyond their kind's limit by more than the test scatter: G020-08 density 1180 (V002844) against CL02; G035-12 density 1150 (V004709) against CL02; G094-06 density 1070 (V006114) against CL02; G075-11 density 1370 (V010405) against CL02; …
+- `CLASS-LIMIT-CONTRADICTED` **grades** — 7 comparable value(s) beyond their kind's limit by more than the test scatter: G087-03 density 1140 (V002322) against CL02; G020-08 density 1180 (V002844) against CL02; G035-12 density 1150 (V004709) against CL02; G087-04 density 1340 (V005605) against CL02; …
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
-- `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1040); PLA-EC density 1240 (expected about 1540); PAHT-CE density 1250 (expected about 1440); PBAT tensileModulusXY 0.006 (expected about 1.03)
-- `EST-FAMILY-ORDER` **materials** — 6 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.75 (estimate) < ASA 2.1373; PBT-GF hdt045 172.5 < PBT 180; PA12-AF hdt045 107 (estimate) < PA12 122.5; Nylon-CF, maker-undisclosed polyamide tensileModulusXY 2.16 < Nylon, maker-undisclosed polyamide 3; Nylon-GF, maker-undisclosed polyamide tensileModulusXY 2.817 < Nylon, maker-undisclosed polyamide 3
+- `EST-OUTLIER` **materials** — 4 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1040); PLA-EC density 1240 (expected about 1540); PAHT-CE density 1250 (expected about 1440); PBAT tensileModulusXY 0.006 (expected about 1.01)
+- `EST-FAMILY-ORDER` **materials** — 6 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.75 (estimate) < ASA 2.1373; PBT-GF hdt045 172.5 < PBT 180; PA12-AF hdt045 105 (estimate) < PA12 122.5; Nylon-CF, maker-undisclosed polyamide tensileModulusXY 2.16 < Nylon, maker-undisclosed polyamide 3; Nylon-GF, maker-undisclosed polyamide tensileModulusXY 2.817 < Nylon, maker-undisclosed polyamide 3

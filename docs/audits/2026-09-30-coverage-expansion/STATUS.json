@@ -1,5 +1,5 @@
 {
-  "dataRelease": "ac7f27f113d4",
+  "dataRelease": "2c7842aaacd5",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -66,20 +66,20 @@
     "familyEntries": 23,
     "retiredDuplicates": {
       "measurements": 602,
-      "evidence": 21,
+      "evidence": 23,
       "profiles": 80
     },
     "excluded": 17,
     "grades": 1184,
-    "measurements": 15047,
-    "numericMeasurements": 14847,
+    "measurements": 15051,
+    "numericMeasurements": 14851,
     "quarantined": 43,
     "profiles": 1906,
     "evidence": 868,
     "prices": 374,
     "sources": 2100,
     "coverage": 953,
-    "knowHow": 7601,
+    "knowHow": 7599,
     "polymerEnvironment": 353,
     "polymerEvidence": 314,
     "coverageDerived": 1137
@@ -131,7 +131,7 @@
       "baseline": 5306,
       "current": 8490,
       "added": 3184,
-      "edited_existing": 345,
+      "edited_existing": 389,
       "removed": 0
     },
     "family_entries": {
@@ -152,7 +152,7 @@
       "baseline": 1163,
       "current": 1184,
       "added": 21,
-      "edited_existing": 154,
+      "edited_existing": 175,
       "removed": 0
     },
     "headline_definitions": {
@@ -194,14 +194,14 @@
       "baseline": 175,
       "current": 175,
       "added": 0,
-      "edited_existing": 1,
+      "edited_existing": 2,
       "removed": 0
     },
     "measurements": {
       "baseline": 11536,
-      "current": 15649,
-      "added": 4113,
-      "edited_existing": 2989,
+      "current": 15653,
+      "added": 4117,
+      "edited_existing": 2992,
       "removed": 0
     },
     "method": {
@@ -278,7 +278,7 @@
       "baseline": 1316,
       "current": 1986,
       "added": 670,
-      "edited_existing": 998,
+      "edited_existing": 1000,
       "removed": 0
     },
     "properties": {
@@ -292,7 +292,7 @@
       "baseline": 1828,
       "current": 2100,
       "added": 272,
-      "edited_existing": 542,
+      "edited_existing": 548,
       "removed": 0
     }
   },

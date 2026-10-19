@@ -877,3 +877,13 @@ kept in `archive/research-2026-10-19/`.
   things to fix, all fixed: among them, a maker's "stainless steel or hardened alloys" or wear caution leaves the
   no-hardened-nozzle screen unresolved in the maker's words, never a pass. What it left is OPEN-PROBLEMS
   §39 and the dated paragraphs it added; the findings' fates are `archive/research-2026-10-19/disposition.csv`.
+
+## Decided on 2026-10-19, the clean-up round (priorities 5 to 7)
+
+The owner asked for the fixable list's priorities 5 (data clean-up), 6 (interface fixes the reviews left) and 7 (tooling)
+to be done efficiently and pushed to main. Built on one branch in four parallel tracks: the data clean-up by migration
+(m459, m460), the material pages and the selector by two Claude Opus agents, and the import tools by a third, merged and
+checked together with one review. Left on purpose, each still in OPEN-PROBLEMS with its reason: the large re-read
+backlogs (unconfirmed records, test-bar print parameters, outliers, digit suspects, held readings), and what needs a
+design or an owner's ruling (a foamed filament's density, a fibre-basis column, a state for a sentence copied from
+another product's page, the selector's layout calls). The record is [the round](audits/2026-10-19-clean-up/README.md).

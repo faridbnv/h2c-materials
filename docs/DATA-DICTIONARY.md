@@ -1246,6 +1246,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | UltiMaker | Dutch maker; MakerBot merged into it in 2022 and the research workbook lists the two together. | Ultimaker;ultimaker;MakerBot;Makerbot;UltiMaker / MakerBot;Ultimaker B.V. |
 | Xenia | Italian compounder (Xenia Materials); its filament line is XECARB. | xeniamaterials;Xenia Materials;XECARB |
 | Yousu | Guangzhou Yousu 3D Technology. | Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU |
+| Celanese | Resin supplier; makes Zytel and Delrin since it acquired DuPont's Mobility & Materials business. A grade sheet it publishes alone is its. | Celanese Corporation |
 
 <a id="vocab-markets"></a>
 ### markets
@@ -1371,6 +1372,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | = | The published value. |
 | > | The source states more than the value. |
 | Not applicable | No number was published. |
+| <= | The source states at most the value (≤): an inclusive upper bound. |
+| >= | The source states at least the value (≥): an inclusive lower bound. |
 
 <a id="vocab-packaging"></a>
 ### packaging

@@ -130,7 +130,10 @@ test('on the page\'s path, nothing is one check away or likely for a requirement
   const ctx = pageContext(db, { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: true });
   const scatter = new Map(db.registry.headlines.filter((h) => h.testScatter).map((h) => [h.key, h.testScatter]));
   // The values a limit is on the line for (D152): L(1 - s) <= v for a relative scatter, so the value stands for limits up to v / (1 - s).
-  const widen = (v, s, sign) => (v == null ? null : s.is === 'relative' ? v / (1 - (sign * s.value) / 100) : v + sign * s.value);
+  // To twelve significant digits, as the build rounds: 1.89 / 0.9 is 2.0999999999999996 in binary, and a limit of 2.1
+  // that the engine puts on the line (2.1 × 0.9 ≤ 1.89) read as wholly missed (the clean-up round's maker merge moved the
+  // sampled limits onto it).
+  const widen = (v, s, sign) => (v == null ? null : Number((s.is === 'relative' ? v / (1 - (sign * s.value) / 100) : v + sign * s.value).toPrecision(12)));
   const defended = (r, key) => {
     if (r.notApplicable) return 'na';
     if (Number.isFinite(r.observed)) {
