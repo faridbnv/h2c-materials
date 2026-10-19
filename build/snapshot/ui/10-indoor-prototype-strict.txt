@@ -1,7 +1,7 @@
 COUNT 96 shown PASS
 STATUS ☑ PASS 96 | ☐ UNKNOWN 32 | ☐ FAIL 24
 96 of the 152 materials meet these requirements
-Indoor prototype template · 32 more could not be checked and are left out
+Indoor prototype template · UNKNOWN 32 left out: 29 one check away, 3 not enough data
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits

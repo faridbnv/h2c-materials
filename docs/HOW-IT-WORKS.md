@@ -353,14 +353,24 @@ evidence.
 |---|---|---|
 | `2.53` over `0.95–4.24 · 55` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
 | `4.43` | **Measured, one product.** The only product that publishes it comparably | Yes |
-| `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (elongation at yield in the stretch column), a moulded resin value, an annealed part. Shown so you know something is known | No |
-| `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. Under Include it can rule *out* only a material with no product on record |
+| `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (elongation at yield in the stretch column), a moulded resin value, an annealed part. Shown so you know something is known | Only through a conversion row of the evidence ledger (D153), in that row's one safe direction: an HDT at 1.8 MPa is the least the HDT at 0.45 MPa can be. The answer names the row and the record |
+| `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. Under Include it can hide only a material with no product on record |
 | `n/a` | **Not applicable.** The property does not mean anything for this material (heat deflection of a rubber-like elastomer, structural values of a support material) | No; under Include it hides the material, estimates on or off |
 | `—` | **Not published** in any registered source. Hover to see which kind of absence | No |
 
 One mark qualifies a measured value: `35≈` means the published mean ± spread contains your threshold, so the mean
 passes but some parts may not. A heat value whose source names no load is counted apart, like a value with no stated
 direction.
+
+Two phrases in the answers come from a test's scatter, how far one maker's figure moves between its own bars and sheets
+(10 % for stiffness and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density; D152):
+
+- **On the line.** A product's own value, measured the way you asked, misses the limit by less than that scatter:
+  3DXTECH's CarbonX CF-PLA at 4.95 GPa against 5 GPa. It is unresolved, not failed, and one test bar or a word with the
+  maker settles it. Only a point is put on the line: a published value or mean, or a value the evidence ledger reads as
+  equal to it. A range, a bound from another record (a flexural band, an annealed ceiling, a 1.8 MPa floor) and a value
+  that is only a ceiling for the printed part are compared with the limit as they are (D163).
+- **A thin margin.** The value meets the limit by less than the scatter. It still passes, and the answer says so.
 
 ## Estimates: what they are and what they may do
 
@@ -412,9 +422,9 @@ least 100"). The mode decides what happens to the last two.
 - **Include (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
   in the database does not hide a material that might suit. A material a required property does not apply to (an
   elastomer's HDT) is hidden all the same, marked "Does not apply" (D148). With **Use estimates and resin data** on,
-  estimates may screen as above, and so may a base polymer's published behaviour where the material has no record of
-  its own in a category and the reference finds the polymer resistant to nothing in it (D64). The SCREENED chip brings
-  screened materials back.
+  estimates may hide a material as above, and so may a base polymer's published behaviour where the material has no
+  record of its own in a category and the reference finds the polymer resistant to nothing in it (D64). Each hidden row
+  says why, and the HIDDEN chip brings hidden materials back.
 
 The whole of that logic, for one requirement against one material, is this. The verdict always describes the evidence;
 only the mode decides whether the material stays on your list.
@@ -440,7 +450,7 @@ flowchart TB
         UNK1["UNKNOWN<br/>not published in any registered source"]
         UNK2["UNKNOWN<br/>the estimate is shown and decides nothing"]
         UNK3["UNKNOWN<br/>its own measurement vetoes the screen"]
-        SCRD["UNKNOWN · SCREENED<br/>removed under Include; the chip brings it back"]
+        SCRD["UNKNOWN · HIDDEN<br/>removed under Include; the chip brings it back"]
     end
 
     CMPV -- "the value meets it" --> PASS
@@ -455,7 +465,7 @@ flowchart TB
 
     OUTC --> MODE{"Which mode are you in?"}
     MODE -- "Leave out:<br/>only a PASS on every requirement" --> KEEP(["On your short list"])
-    MODE -- "Include:<br/>anything that did not FAIL<br/>and was not screened" --> KEEP
+    MODE -- "Include:<br/>anything that did not FAIL<br/>and was not hidden" --> KEEP
     MODE -- "otherwise" --> DROP(["Not a candidate · the Why excluded tab<br/>names the requirement that removed it"])
 
     classDef good fill:#e8f5ea,stroke:#3f8b58,color:#123020
@@ -488,7 +498,10 @@ least 5 °C, a pass, D151), **On the line** (a window the H2C reaches only at it
 **Above recommended** (a recommended window above the H2C's) or **No data**. Where its own sheet says
 nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
 D89), then the Bambu Lab Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
-too, each labelled as such wherever it is shown; its own sheet always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the
+too, each labelled as such wherever it is shown; its own sheet always wins. A chamber none of them states is read from
+the makers of its kind of plastic where at least ten state one and at most one in ten asks above 65 °C (D151: within for
+PLA, PETG, ABS and the flexible elastomers, labelled with the makers' counts); any other part none of them states is
+unknown, never a pass. A material's printability is its products': the
 drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
 meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a
 requirement and never fails a product. Where a source says a heated chamber is not needed, that counts. For the eleven
@@ -526,8 +539,10 @@ its question again; every release published from `main` keeps its page as the Gi
 ## What is deliberately not there
 
 - No universal material score. Scores would hide which requirement did the work.
-- No cross-property substitution: a glass transition is never shown in a heat-deflection column, and a flexural
-  strength never stands in for a tensile one.
+- No cross-property substitution in a column: a glass transition is never shown in a heat-deflection column, and a
+  flexural strength never stands in for a tensile one. A requirement may read another property only through a conversion
+  row of the evidence ledger, in that row's one safe direction (D153): a flexural modulus puts the tensile one between
+  0.46 and 1.93 times it, and the answer names the row and the record.
 - No conversion between impact units (J/m and kJ/m²) without the specimen geometry the sheets do not give.
 - No live prices. The price is a median of retail listings on the days they were read: Canadian where one exists, and
   otherwise a foreign one converted at one Bank of Canada rate, marked as converted (D113). No shipping or duty.
@@ -550,8 +565,22 @@ the few that no longer hold in any part are in [DECISIONS-ARCHIVE.md](DECISIONS-
 every review of the tool and its data, with what was done about each finding; a round's working files are in a private
 store, and its `PACKETS.md` lists them.
 
-## Missing product values after D137
+## The groups of the materials nothing settles (D155)
 
-Include (materials that could not be checked) now separates supported candidates, estimated candidates to verify, and insufficient evidence. The last group is expandable and remains in counts and exports. An estimated candidate is still UNKNOWN: every missing mandatory numerical property's predicted centre meets the limit, but measurement is needed. Missing print or environment evidence cannot be made good by a numerical prediction.
+With "Include" chosen for the materials that could not be checked, the list comes in up to six groups, always in this
+order: **Meets every requirement**; **One check away** (one question to the maker or one test print settles it: its
+print settings, or a value on the line); **Not enough data** (anything else open, with the ones whose estimated range,
+the 80 % range the page shows, meets every open number tagged "likely" and listed first; never on the estimate's middle
+value); **Unlikely to meet** (folded, still counted and in the download: a product measured the way you asked misses and
+no product meets it or holds it open on a measured value, or every open product's own estimate wholly misses);
+**Hidden** (a required property does not apply, or, with "Use estimates and resin data" on, resin data or the estimate of
+a material with no product on record rules it out; each row says why); and **Fail**. "Leave out" lists only the
+materials that meet every requirement. The groups present a verdict and never change one: every one but Meets and Fail
+is UNKNOWN, and the UNKNOWN chip names how many are in each.
 
-Every product's missing values can read its own estimate even when siblings publish. Estimates never create PASS. Independently validated exclusion is limited to an as-printed/dry comparison with three within printer gates and risk reserved for all five possible numerical predictions; no class currently qualifies. Other scenarios and unsupported properties cannot receive new exclusion permission. Confirmed only keeps its evidence rules. A failing measurement dominates missing data; alternative products and routes are judged individually. A material's displayed spread does not bound unmeasured products. Read the reason and its source conditions, then ask the maker for the exact property/state or test a printed coupon. D137 and OPEN-PROBLEMS §35 record the validation limits.
+Every product's missing values can read its own estimate even when siblings publish. Estimates never create PASS, and no
+product estimate hides a material: the back-test that would let one is limited to an as-printed, dry comparison with the
+three printer checks plainly within, and no class qualifies yet (OPEN-PROBLEMS §35). A failing measurement dominates
+missing data; alternative products and routes are judged individually. A material's displayed spread does not bound
+unmeasured products. Read the reason and its source conditions, then ask the maker for the exact property and state, or
+test a printed coupon.

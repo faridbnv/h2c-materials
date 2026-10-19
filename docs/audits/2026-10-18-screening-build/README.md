@@ -20,6 +20,7 @@
 | 3a | A printer window the H2C covers in part passes, flagged; a silent chamber decided by the kind of plastic; a near miss is "on the line" | C21, C33, C34 | Built, merged ([report](stage-3a.md))|
 | 3b | A value measured another way decides in its safe direction (the evidence ledger): an HDT at 1.8 MPa is a floor, an annealed value or a PLA/PET heat value from an undescribed bar a ceiling, a flexural modulus a band, lab humidity dry for low-water plastics; a rubber is never stiff and an unfilled density is its polymer's ([report](stage-3b.md), [answers moved](stage-3b-diff.md)) | C22–C24, C31, C32, C35, C40 (class part) | Built, merged ([report](stage-3b.md))|
 | 3c | The list sorted by what would settle each material: one check away, not enough data, unlikely to meet; the deciding product named; Flexible component asks for softness ([report](stage-3c.md), [answers moved](stage-3c-diff.md)) | C05, C06, C18, C19, C25, C30 | Built, merged ([report](stage-3c.md))|
+| 3d | Corrections from the round's review and a second first-time user: a crystallised PLA or PET bar floors nothing, only a point is on the line, a ceiling never holds a material open, the rubber limit reaches TPE, TPS and TPV, and the page says "hidden" for one idea and why each hidden or failing row is there ([report](stage-3d.md), [answers moved](stage-3d-diff.md), [review](REVIEW.md), [trial](FIRST-TIME-USER-2.md)) | R01–R16, the trial's findings | Built (awaiting merge) |
 | 4 | The estimate model reopened: one conversion layer, PLA's class, four corrections, each back-tested | C26–C29, C36, C32 (later rows), C40 (fibre) | Planned |
 | 5 | A repeat of the first-time user's trial, an independent review, a sweep for stale claims, the round's close | – | Planned |
 
@@ -53,3 +54,6 @@ node docs/audits/2026-10-18-screening-build/decision-census.mjs --diff before.js
 | [stage-3a.md](stage-3a.md), [stage-3a-diff.md](stage-3a-diff.md) | Stage 3a's report, and the answers it moved against main, case by case |
 | [stage-3b.md](stage-3b.md), [stage-3b-diff.md](stage-3b-diff.md) | Stage 3b's report, row by row, and the answers it moved against main, case by case |
 | [stage-3c.md](stage-3c.md), [stage-3c-diff.md](stage-3c-diff.md) | Stage 3c's report, and the answers it moved against main after stage 3b, case by case |
+| [REVIEW.md](REVIEW.md) | The independent review of stages 0 to 3c (findings R01 to R16, with evidence) |
+| [FIRST-TIME-USER-2.md](FIRST-TIME-USER-2.md), [first-time-user-2/](first-time-user-2/) | The second first-time user's trial of the selector, and its five screenshots |
+| [stage-3d.md](stage-3d.md), [stage-3d-diff.md](stage-3d-diff.md) | Stage 3d's report, finding by finding, and the answers it moved against main ef96fe00, case by case |

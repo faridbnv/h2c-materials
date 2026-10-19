@@ -1,7 +1,7 @@
 COUNT 128 shown PASS + UNKNOWN
 STATUS ☑ PASS 96 | ☑ UNKNOWN 32 | ☐ FAIL 24
 96 of the 152 materials meet these requirements
-Indoor prototype template · 32 more could not be checked, listed flagged
+Indoor prototype template · UNKNOWN 32: 29 one check away, 3 not enough data
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -141,7 +141,7 @@ ROW TPU-GF · ☆
 ROW TPU-LW · ☆
 ROW TPV · ☆
 One check away (29)
-A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.
+One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
 TABLE 29 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~8.7–14.5† | ~201–254† | ~3.3–7.9† | ~193–194† | —
 ROW nGen / also called Amphora · Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen, its chamber temperature is not stated | ~1,160–1,230† | 1.7 | 54 | 11 | ~64–78† | 77.3↗
@@ -173,7 +173,7 @@ ROW PVDF · ☆
 ROW SAN · ☆
 ROW TPC-ESD · ☆
 Not enough data (3)
-More than one question is open, or a value is not published the way you asked. Ordered by how close the estimate is; an estimate never passes.
+More than one question is open, or a value is not published the way you asked. Ordered by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 3 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~990–1,070† | ~1.2–3.4† | ~38–82† | ~8–73† | ~80–171† | —
 ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,040–1,250† | ~2.4–8.0† | ~56–126† | ~1–13† | ~129–211† | —

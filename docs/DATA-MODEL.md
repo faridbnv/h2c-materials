@@ -513,11 +513,13 @@ one; a value conditioned at laboratory humidity equal to a dry one for a plastic
 limit a row of `class_limits.csv`. Per product state with no deciding value, the build writes `states[i].bounds[key]`:
 every contribution (`by`: the row, its kind and status, the record, its value, the bound it sets, its evidence level, a
 twin's labelled) and the intersection of the deciding, comparable ones (`lo`, `hi`). The engine reads it after a
-comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record, a
-miss within the test scatter is on the line, an empty intersection is "sheets disagree", and a contribution whose record
-states no direction or load decides only where the reader admits such values. A PLA or PET HDT from a bar its sheet does
-not describe is marked `ceilingOnly` as printed (CV05; an annealed state's is not): still the product's value and in its material's spread, it may fail a
-minimum, never pass one. A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and
+comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record,
+a band, floor or ceiling is compared with the limit as it is (only an equality and a class limit may be on the line
+within the test scatter, D163), an empty intersection is "sheets disagree", and a contribution whose record states no
+direction or load decides only where the reader admits such values. A PLA or PET HDT from a bar its sheet does not
+describe is marked `ceilingOnly` as printed (CV05; an annealed state's is not): still the product's value and in its
+material's spread, it may fail a minimum, never pass one, and it is never on the line. Read by another row, such a bar
+gives only its upper end: CV01 takes no floor from a PLA or PET HDT at 1.8 MPa on a moulded or undescribed bar (D163). A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and
 changes no answer. Each row's band is re-measured on same-sheet pairs at every build (CONVERSION-PAIRS), and its factor
 is what every pair supports. A limit reaches only beyond the wider of its sourced value and its kind's own published
 extreme among products that are not variants, plus the scatter; a declared variant and an undisclosed commercial variant
@@ -533,8 +535,8 @@ and only the first is evidence.
 | | What it is | Table | May satisfy a requirement? |
 |---|---|---|---|
 | **Measured** | Its products' comparable values: the median, with their range and count, each traceable to one measurement, grade and source | `4.43` | yes, product by product |
-| **Related** | A real measurement of the same property that is not a comparable value | `46*` | no |
-| **Estimated** | The likely (80%) range of a calibrated model of every observation | `~71.3–92.5†` | **no; under Include, with estimates on, it may screen out a material with no product on record** |
+| **Related** | A real measurement of the same property that is not a comparable value | `46*` | only through a conversion row of the evidence ledger, in its one safe direction, the row named (D153) |
+| **Estimated** | The likely (80%) range of a calibrated model of every observation | `~71.3–92.5†` | **no; under Include, with estimates on, it may hide a material with no product on record** |
 | **Not applicable** | A property that does not apply, such as heat deflection of an elastomer | `n/a` | no; under Include it hides the material, whether estimates are on or off (D148) |
 
 ### Related evidence
@@ -557,9 +559,11 @@ is related evidence and says so. It is not a printed or product specimen, whatev
 reason, are a film or a filament-strand test, a bar printed off the product's recipe (D95), an annealed value whose
 grade publishes the as-printed one, and a value flagged physically implausible.
 
-There is deliberately **no cross-property fallback**. An earlier version fell back to Vicat or glass
-transition when a material had no HDT, which surfaced TPE's glass transition of −35 °C in a column
-headed "HDT at 0.45 MPa". The Method table keeps those quantities distinct.
+There is deliberately **no cross-property fallback** for a value shown in a column. An earlier version fell back to
+Vicat or glass transition when a material had no HDT, which surfaced TPE's glass transition of −35 °C in a column
+headed "HDT at 0.45 MPa". The Method table keeps those quantities distinct. A requirement is another matter: it may
+read a related value through a conversion row of the evidence ledger (D153), in that row's one safe direction and named
+in the answer, so a flexural modulus decides a tensile-modulus requirement inside its measured band (CV08).
 
 ### Estimates
 
@@ -708,7 +712,7 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 |---|---|
 | Table cell | `~71.3–92.5†`, the likely range; imprecise ones in italic. With estimates on it replaces the related `*` value, which it already contains, converted |
 | Detail drawer | The full record: both ranges and the centre, precision, what it rests on and its share, every measurement behind it with its converted value, and the limits applied |
-| Filter | Always UNKNOWN. Under Include, with estimates on, may screen out a material with no product on record, as above; the SCREENED chip brings it back |
+| Filter | Always UNKNOWN. Under Include, with estimates on, may hide a material with no product on record, as above; the HIDDEN chip brings it back |
 | Ashby lens | The likely range, beside the other axis's span across products or its estimate, never a point: a faint shade in Material ranges and Products (outlined when picked out), a dotted box or capped line in Material typicals. Only under Include with estimates on, drawn once Estimates is pressed, and counted in the chart's reading note either way |
 | Compare | The likely range as a hatched span, the plausible range faint behind it, a tick at the centre; never a filled bar |
 | Parallel | Not drawn. A line commits to a value on every axis it crosses, so the affected materials are named and counted instead |
@@ -832,7 +836,7 @@ An environment category is a **verdict** category where its findings reduce to r
 so it can answer a pass/fail question; an **indicator** category has records but no reducible verdict, so it only
 shows evidence and is never offered as a requirement. A category with polymer-level records (D64) is offered as a
 requirement even where no grade-level record states a verdict: there, under Include with "Use estimates and resin data" on,
-it can screen a material out, and it never passes one.
+it can hide a material, and it never passes one.
 Per category, the records, those with a verdict, the materials they cover and the materials the polymer-level records
 cover are in the validation report's "Environment evidence" and "Polymer-level behaviour" sections
 (`build/reports/validation-report.md`), which every build rewrites.
@@ -916,9 +920,10 @@ limit by less than its headline's test scatter (`headline_definitions.csv` Test 
 and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density) is on the line (D152): INDETERMINATE, with
 `onTheLine` and a reason that says one test bar or a word with the maker settles it; 4.95 GPa against 5 GPa is on the line,
 4.49 fails. One that meets it by less still passes, with `thinMargin`. A published range and a one-sided bound keep their
-own rule. A physically implausible value decides nothing: the headline it would have backed is estimated. A product with
-no value measured the way asked is answered on its evidence-ledger bounds where a deciding row draws them (D153, D154): a
-pass or a fail that names the record, on the line within the scatter, and INDETERMINATE with `sheetsDisagree` where two
+own rule, and so does a value only a ceiling for the printed part. A physically implausible value decides nothing: the
+headline it would have backed is estimated. A product with no value measured the way asked is answered on its
+evidence-ledger bounds where a deciding row draws them (D153, D154): a pass or a fail that names the record, on the line
+only for an equality or a class limit within the scatter (D163), and INDETERMINATE with `sheetsDisagree` where two
 records leave no value between them.
 
 ## The reference layer

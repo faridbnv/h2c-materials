@@ -44,9 +44,10 @@ The heading above the pills adds up to the rows under it. It counts against the 
 not family entries or aliases, the same denominator the start panel and the rail use (a family name is never a
 candidate, so none counts; the current numbers are in [build/snapshot/counts.md](../build/snapshot/counts.md)). Under
 **Leave out** it reads, for the Indoor prototype template, "87 of the 152 materials meet these requirements" (2026-10-07; 15 of
-98 when this was written) and says how many more could not be checked and are left out ("39 more could not be checked and
-are left out"). Under **Include** those materials are listed, flagged, so the heading counts
-them too, and the sentence under it says how many an estimate screened out of the list. A count of materials that
+98 when this was written) and counts the UNKNOWN materials left out by group ("UNKNOWN 32 left out: 29 one check away,
+3 not enough data", stage 3d). Under **Include** those materials are listed by group, so the line under the heading
+names the groups the same way, the hidden ones among them ("UNKNOWN 104: 2 one check away, 14 not enough data, 85
+unlikely to meet, 3 hidden"). A count of materials that
 meet the requirements above a longer list of rows had read as a contradiction. Both headings, as the current build words them, are in
 [build/snapshot/ui/10-indoor-prototype-strict.txt](../build/snapshot/ui/10-indoor-prototype-strict.txt) and
 `11-indoor-prototype-explore-estimates.txt` beside it (the results table under the heading is recorded there as a summary:
@@ -271,8 +272,8 @@ resin producer's or handbook reference for the neat polymer, from `polymer_envir
 materials apart under the category, "N more have base-polymer reference data only, which never passes", because that is exactly
 what they do: the record is shown in the drawer, it never passes the requirement, and where the reference finds the
 polymer resistant to nothing in the class (attacked or dissolved by what it reports, with no agent rated resistant) it
-screens the material out under Include with **Use estimates and resin data** on. A polymer attacked only by
-the concentrated acid beside a resistant dilute one is `limited`, not screened: that is what a grade sheet's "resistant
+hides the material under Include with **Use estimates and resin data** on. A polymer attacked only by
+the concentrated acid beside a resistant dilute one is `limited`, not hidden: that is what a grade sheet's "resistant
 to acids" means too (D64). A category with polymer-level records is offered as a filter even where no grade-level
 record states a verdict; it cannot pass there, and its line says "No maker states a verdict".
 
@@ -300,9 +301,9 @@ switches to ("Switch to Include").
 - **Include** (Explore) — materials with unresolved criteria stay visible and flagged, except a material a required
   property does not apply to (an elastomer's HDT), which is hidden whatever the estimates switch says, marked "Does not
   apply" (D148). With **Use estimates and resin data** on, a material with no product on record whose estimate clearly
-  cannot meet a requirement is screened out, and so is one whose base polymer a reference finds resistant to nothing in
+  cannot meet a requirement is hidden, and so is one whose base polymer a reference finds resistant to nothing in
   what the requirement asks it to resist, where the material has no record of its own (D64). A material with products
-  is judged on its products, and no product's own estimate screens in this release (D137, D148).
+  is judged on its products, and no product's own estimate hides one in this release (D137, D148).
 
 A preset (template) sets requirements, not this mode: choosing one keeps Leave out or Include as the reader left it
 (D148; it used to force Leave out).
@@ -320,8 +321,8 @@ does not state the load is published without its conditions (D84): marked not co
 *Include values with no stated orientation or load* (Data quality) is on. (Until m137 it was read as a bracket that
 could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, is a definition,
 not an inference: under Include it hides the material whether estimates are on or off, and its reason says "Does not
-apply", never "Not published" (D148). A screened material's result is still UNKNOWN and it is counted there; the Why
-excluded tab says how many each requirement screened.
+apply", never "Not published" (D148). A hidden material's result is still UNKNOWN and it is counted there; the Why
+excluded tab says how many each requirement hid.
 
 Some canonical names are families or aliases, not materials: a family groups materials (PA, PA-CF, PA-GF, TPE, TPU, and "TPU, hardness not stated"),
 and an alias names another material's products (CoPA, another name for PA6/66; a Bambu Lab product line such as PLA
@@ -347,7 +348,7 @@ only in a label. `defaultShowStates` in `main.js` is the single source of that, 
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
 **Use estimates and resin data** ("Let estimates rule out materials" until D148, a name no estimate of a real product
-lived up to) is in the top bar in both modes, and says beneath it how many materials it screened: by an estimate or by
+lived up to) is in the top bar in both modes, and says beneath it how many materials it hid ("1 hidden"): by an estimate or by
 resin data, never a property that does not apply, which is not the switch's. Under Leave out it is disabled and shows
 unchecked, its stored value kept for Include, and its **?** says it works only when such materials are included (the
 line "Only under Include uncertain" beneath it went into the popover on 2026-10-18): hiding the switch there meant a
@@ -356,7 +357,7 @@ in a tooltip: it shows estimates where nothing is published, which order the mat
 "likely" the ones whose estimated range meets every open limit (D155); with it on, resin data can hide a material whose base polymer it
 reports attacked or dissolved, and a material with no product on record is hidden when its own estimate wholly misses.
 It is one switch because both are inference about a material that publishes nothing, and both obey the same rule: never
-a pass, a screen only where the evidence wholly fails. Its element ids and the scenario field keep the old name
+a pass, a hide only where the evidence wholly fails. Its element ids and the scenario field keep the old name
 (`use-estimates`, `useEstimates`), so links and saved files still work.
 
 ## The four states
@@ -381,20 +382,24 @@ The status bar chips are **buttons**: they choose which verdicts the table shows
 Each leads with a box, ticked (☑) while its results are shown and empty (☐) while they are hidden, so on and off differ
 without colour: `PASS 15 · UNKNOWN 16 · FAIL 67` had read as a tally. The last one switched on stays on, and says so.
 
-The count above the results names what is shown in one order, PASS, UNKNOWN, FAIL, then SCREENED while that chip is on
-("31 shown PASS + UNKNOWN + SCREENED"), where it had printed the set alphabetically ("FAIL + PASS"). When the rows are
+The count above the results names what is shown in one order, PASS, UNKNOWN, FAIL, then HIDDEN while that chip is on
+("31 shown PASS + UNKNOWN + HIDDEN"), where it had printed the set alphabetically ("FAIL + PASS"). When the rows are
 not exactly the candidates the missing-data rule keeps, it says what they are, in parts that add up to the number shown:
-"31 shown PASS + UNKNOWN + SCREENED · 23 candidates, 8 screened out", "82 shown PASS + FAIL · 15 candidates, 67 failed",
+"31 shown PASS + UNKNOWN + HIDDEN · 23 candidates, 8 hidden", "82 shown PASS + FAIL · 15 candidates, 67 failed",
 "8 shown UNKNOWN · 8 of the 23 candidates". It had said "31 shown PASS + UNKNOWN · 23 candidates", which left the 8 rows
-the SCREENED chip brought back unexplained, and before that "eligible", a word defined nowhere.
+the chip brought back unexplained, and before that "eligible", a word defined nowhere. The UNKNOWN chip's title names
+its groups ("UNKNOWN materials (2 one check away, 14 not enough data, 85 unlikely to meet, 3 hidden)"): most of them
+were measured and missed, which "could not be checked for missing data" had said otherwise of (stage 3d).
 
-A fourth chip, **SCREENED**, appears under Include once something is held out as unlikely: a property that does not
-apply, with the estimates switch on or off, or an estimate or a base polymer's published behaviour, with it on. It is
-not a verdict: its materials are already counted under UNKNOWN, and its title says how many of each kind. It brings
-them back into the table, each marked "screened"; the mark names what held it out and the requirements, each once, in
-the pills' words: "Does not apply: HDT at 0.45 MPa at least 100 °C (HDT is a rigid-bar test)", "Screened by an
-estimate: Tensile modulus (XY) at least 5 GPa", "Screened by the base polymer's published behaviour: Resists solvents"
-(D64, D148), as the export's Hidden: does not apply, Hidden by an estimate and Hidden by resin reference data columns
+A fourth chip, **HIDDEN** (SCREENED until stage 3d, which made "hidden" the page's one word for the idea), appears
+under Include once something is hidden: a property that does not apply, with the estimates switch on or off, or an
+estimate or a base polymer's published behaviour, with it on. It is not a verdict: its materials are already counted
+under UNKNOWN, and its title says how many of each kind; with none hidden it has no title. It brings them back into the
+table under **Hidden**, each marked "hidden" with one short phrase under its result saying why ("does not apply: HDT is
+a rigid-bar test", "resin data: PLA not resistant to acetone", "no product on record; its estimate wholly misses"); the
+mark names what held it out and the requirements, each once, in the pills' words: "Does not apply: HDT at 0.45 MPa at
+least 100 °C (HDT is a rigid-bar test)", "Hidden by an estimate: Tensile modulus (XY) at least 5 GPa", "Hidden by resin
+data on the base polymer: Resists solvents" (D64, D148), as the export's Hidden: does not apply, Hidden by an estimate and Hidden by resin reference data columns
 do, where they had printed the engine's criterion ("hdt045 >= 100") and filed a property that does not apply under the
 estimate. An estimate's mark and one that does not apply open the Overview, where its card is; the polymer's offers the
 Environment tab, where its rows are. Why excluded counts the three kinds apart under each requirement, and only the
@@ -470,14 +475,14 @@ table under Reading a number says.
 A tooltip may repeat what is on screen; it may not be the only place a meaning is said (D61). Every mark whose meaning
 is more than its glyph is a real button that opens one explanation popover: a material's typical value, an estimate, a
 `*` value, `≈`, `n/a`, a "not comparable" mark on a product's value, a dash or a missing-state word, the Also needs
-chips and "none stated", a chamber word or band, a print window, "no price" and "out of stock", the screened, assumed
+chips and "none stated", a chamber word or band, a print window, "no price" and "out of stock", the hidden, assumed
 and baseline chips, each legend entry, Use estimates and resin data, the drawer's gate chips, its "recorded 240–270 °C" caveat, a
 quarantined price listing and a physically implausible measurement, and in Compare each result, gate and estimate.
 
 - Click, tap, Enter or Space opens it beside the mark, inside the screen at any width; Escape, the close button, the
   mark again or a click elsewhere closes it, and focus returns to the mark. Tabbing past either end closes it and
   carries on from the mark.
-- Where there is a natural next step it ends with one action: an estimate or a screened chip offers **Open the
+- Where there is a natural next step it ends with one action: an estimate or a hidden chip offers **Open the
   estimate** (the material's Overview), a `*` value **Open the measurement**, a material's typical value **Open its
   products**, a print window or need **Open the Printing tab**.
 - Inside a table row a mark does only its own job: the row's drawer does not open behind it.
@@ -967,7 +972,10 @@ engineer would:
 | reference grade | reference specimen, not for sale |
 | sources (in the On file line) | documents |
 | User-supplied reference (a publisher) | Reference |
-| screened (outside the fuzz-pinned chip and header words) | excluded by an estimate, excluded by resin reference data |
+| screened, screened out, SCREENED, hidden as unlikely (one idea under four names until stage 3d) | hidden: the HIDDEN chip, the Hidden group, "8 hidden" in the count and under the switch, "Hidden by an estimate", "Hidden by resin data on the base polymer" |
+| could not be checked for missing data (of the UNKNOWN count) | the UNKNOWN groups by name: one check away, not enough data, unlikely to meet, hidden |
+| counted and exported (the folded group) | folded, still counted and in the download |
+| a record's ID in a reason ("(V002691)") | the record in words ("its flexural modulus"); the ID stays in the trace, the export and the drawer's source link |
 | quarantined | held back |
 | track only, preference only | report only |
 | coverage record, evidence recorded | data on file, known gap |
@@ -1443,11 +1451,15 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
 ## Groups by what would settle each material (D137, D155)
 
 The saved controls and scenario format stay the same. With requirements set and Include selected, the table lists the
-materials in groups by what would settle each (D155): "Meets every requirement", "One check away" (a product waits only on
-a printer check, or on one requirement on the line or that its sheets disagree on), "Not enough data" (the ones tagged
-"likely" first, then by how close the deciding product's estimate is) and a folded "Unlikely to meet (n) — counted and
-exported" (a product measured the way asked misses and none meets it, or every open product's own estimate wholly
-misses). Hidden and failed materials appear, under "Hidden as unlikely" and "Fail", only behind their chips. The groups
+materials in groups by what would settle each (D155): "Meets every requirement", "One check away" (one question to the
+maker or one test print settles it: its print settings, or a value on the line), "Not enough data" (the ones tagged
+"likely" first, then by how close the deciding product's estimate or value is; with estimates off the note says nothing of
+estimates) and a folded "Unlikely to meet (n): folded, still counted and in the download" (a product measured the way
+asked misses and none meets it or holds it open on a measured value, or every open product's own estimate wholly
+misses). Hidden and failed materials appear, under "Hidden" and "Fail", only behind their chips; each hidden row says
+why in one phrase, and each failing row what it failed first ("fails: bed temperature, needs up to 200 °C (the H2C
+reaches 120 °C)", stage 3d). A passing nylon judged dry on a stiffness, strength or heat value reads "judged dry; humid
+air lowers its stiffness" (polymers.csv Water uptake high). The groups
 change no verdict, count or eligibility: counts, exports, comparison and plot eligibility include folded rows. The fold
 is local presentation state, not a saved filter; it survives ordinary table redraws. Existing goal or column sorting
 operates within each group (inside "Not enough data", after the likely tag and the estimate's closeness), and the
@@ -1458,7 +1470,7 @@ Each unresolved row names the product that puts it in its group and that product
 17 products: ..."), and the estimate in its cell on a required number is that product's; the drawer's requirement lines
 say "Shown for one product, X" and why it was chosen. A likely tag needs every open number's likely (80 %) range to meet
 its limit and no required number missed by every product measured on it; it never passes. Product cards show each
-estimate's centre/ranges and its separate exclusion permission. A product estimate screened chip opens Products, where
+estimate's centre/ranges and its separate exclusion permission. A product estimate's hidden chip opens Products, where
 the relevant certificate and records are shown; material-only estimates still open Overview. Reasons distinguish
 missing, non-comparable and other-state values and name the next maker question or coupon test. New screening is limited
 to independently certified as-printed/dry scopes under the reserved complete-scenario budget; none currently qualifies;

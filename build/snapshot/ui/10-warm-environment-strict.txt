@@ -1,7 +1,7 @@
 COUNT 42 shown PASS
 STATUS ☑ PASS 42 | ☐ UNKNOWN 84 | ☐ FAIL 26
 42 of the 152 materials meet these requirements
-Warm environment template · 84 more could not be checked and are left out
+Warm environment template · UNKNOWN 84 left out: 26 one check away, 24 not enough data, 18 unlikely to meet, 16 a required property does not apply to
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits

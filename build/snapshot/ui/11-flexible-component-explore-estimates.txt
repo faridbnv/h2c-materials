@@ -1,7 +1,7 @@
 COUNT 106 shown PASS + UNKNOWN
-STATUS ☑ PASS 5 | ☑ UNKNOWN 104 | ☐ FAIL 43 | ☐ SCREENED 3
+STATUS ☑ PASS 5 | ☑ UNKNOWN 104 | ☐ FAIL 43 | ☐ HIDDEN 3
 5 of the 152 materials meet these requirements
-Flexible component template · 104 more could not be checked, listed flagged, except 3 screened out
+Flexible component template · UNKNOWN 104: 2 one check away, 14 not enough data, 85 unlikely to meet, 3 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -51,12 +51,12 @@ ROW TPU 85A class and softer / Flexible Elastomers | ☆ | PASS / 2 of 18 produc
 ROW TPU 90A class / Flexible Elastomers | ☆ | PASS / 3 of 12 products | 1,210 / 1,120–1,240 · 10 | passing: 0.0053–0.027 / all products: 0.0053 / 0.0053–0.027 · 3 | 23.7 / 12.5–30 · 5 | passing: 574–650 / all products: > 650 / 574–1,000+ · 5 | n/a | 75 / 54–96 · 2 / ↗
 ROW TPU 95A class / Flexible Elastomers | ☆ | PASS / 7 of 27 products | 1,210 / 1,000–1,250 · 25 | passing: 0.006–0.065 / all products: 0.027 / 0.006–0.065 · 9 | 28.1 / 17–41.4 · 14 | passing: 265–900 / all products: 501 / 265–900+ · 11 | n/a | 83 / 54–112 · 2 / ↗
 One check away (2)
-A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.
+One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
 TABLE 2 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW PEBA / Flexible Elastomers | ☆ | UNKNOWN / none judged / One check away on 1 of 10 products: Siraya Tech Rebound PEBA 85A, its chamber temperature is not stated | 1,010 / 1,000–1,020 · 7 | 0.09 | 19.7 / 16.5+–32.6 · 5 | 1,050 / 520+–1,110 · 5 | n/a | 106↗
 ROW TPS / Flexible Elastomers | ☆ | UNKNOWN / none judged / One check away on 1 of 5 products: BASF Forward AM Ultrafuse TPS 90A, its chamber: the source prints "-" for the chamber: no setpoint, which is not the same as "not needed" | 1,150 / 1,044–1,220 · 5 | 0.054 | 7 | 280 | n/a | 55↗
 Not enough data (14)
-More than one question is open, or a value is not published the way you asked. The 2 tagged likely come first: their estimated range meets every open number. Ordered by how close the estimate is; an estimate never passes.
+More than one question is open, or a value is not published the way you asked. The 2 tagged likely come first: their estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 14 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW COC / PVB / Specialty Polymers | ☆ | UNKNOWN / none judged / Not enough data, likely: Fabru Cyclo-Olefin-Copolymer flexibel (COC flex), elongation at break (XY) estimated 522 to 991 %; tensile modulus (XY) estimated 0.0486 to 0.0792 GPa | 1,020 | ~0.048–0.080† | ~44–89† | ~520–1,000† | 160 | —
 ROW TPU-LW / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data, likely: Siraya Tech Flex TPU Air, tensile modulus (XY) estimated 0.00546 to 0.069 GPa | 1,120 / 880–1,200 · 3 | ~0.005–0.069† | 10.3 | 629 | n/a | 70↗
@@ -72,4 +72,4 @@ ROW PLA blend-CF · ☆
 ROW SBC · ☆
 ROW TPE, maker-undisclosed elastomer · ☆
 ROW TPV · ☆
-Unlikely to meet (85) — counted and exported
+Unlikely to meet (85): folded, still counted and in the download

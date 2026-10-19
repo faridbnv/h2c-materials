@@ -1,7 +1,7 @@
-COUNT 95 shown PASS + UNKNOWN
-STATUS ☑ PASS 19 | ☑ UNKNOWN 76 | ☐ FAIL 57
+COUNT 92 shown PASS + UNKNOWN
+STATUS ☑ PASS 19 | ☑ UNKNOWN 73 | ☐ FAIL 60
 19 of the 152 materials meet these requirements
-Lightweight structure template · 76 more could not be checked, listed flagged
+Lightweight structure template · UNKNOWN 73: 16 one check away, 31 not enough data, 26 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -51,8 +51,8 @@ ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all produc
 ROW ASA-GF | ☆ | PASS / 1 of 6 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 91.5 / 86–98 · 4 | 96↗
 ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 1 of 7 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR
 ROW PA12-CF / Nylon / Polyamide | ☆ | PASS / 1 of 15 products | passing: 1,080 / all products: 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗
-ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗
-ROW PA6/66 / Nylon / Polyamide | ☆ | PASS / 1 of 7 products | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 111 / 102–140 · 5 | 40 / 39–90.7 · 3 / ↗
+ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products / judged dry; humid air lowers its stiffness | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗
+ROW PA6/66 / Nylon / Polyamide | ☆ | PASS / 1 of 7 products / judged dry; humid air lowers its stiffness | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 111 / 102–140 · 5 | 40 / 39–90.7 · 3 / ↗
 ROW PAHT · ☆
 ROW PETG · ☆
 ROW PLA · ☆
@@ -65,7 +65,7 @@ ROW PP-GF · ☆
 ROW PPA · ☆
 ROW PPA-CF · ☆
 One check away (16)
-A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.
+One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
 TABLE 16 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW ABS | ☆ | UNKNOWN / 0 of 55 products / One check away on 2 of 55 products: QIDI ABS, tensile modulus (XY) 2.384 GPa, on the line for at least 2.5 GPa | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40 / 24.5–70.7 · 9 / ↗
 ROW ASA | ☆ | UNKNOWN / 0 of 40 products / One check away on 3 of 40 products: Raise3D Premium ASA, tensile modulus (XY) 2.379 GPa, on the line for at least 2.5 GPa | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.6 / 30.2–45 · 13 | 6.6 / 1.9–15 · 12 | 95 / 82–103 · 19 | 39.5 / 30.8–70.7 · 5 / ↗
@@ -83,9 +83,9 @@ ROW PLA-PHA · ☆
 ROW PPA-GF · ☆
 ROW PPE-PS · ☆
 ROW PPS-CF · ☆
-Not enough data (33)
-More than one question is open, or a value is not published the way you asked. The 4 tagged likely come first: their estimated range meets every open number. Ordered by how close the estimate is; an estimate never passes.
-TABLE 33 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+Not enough data (31)
+More than one question is open, or a value is not published the way you asked. The 4 tagged likely come first: their estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
+TABLE 31 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW PA12-GF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 3 products / Not enough data, likely: Fiberlogy Nylon PA12+GF15, tensile modulus (XY) estimated 2.83 to 4.46 GPa | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD
 ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: BASF Forward AM Ultrafuse PAHT CF15, density estimated 1,030 to 1,170 kg/m³ | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
 ROW PLA-GF | ☆ | UNKNOWN / 0 of 4 products / Not enough data, likely: Nobufil PLAx GF, tensile modulus (XY) estimated 2.56 to 4.17 GPa | 1,280 / 1,200–1,340 · 4 | 3.79 | 50.1 | 2.77 | 75.5 | 41↗
@@ -117,6 +117,4 @@ ROW PVC · ☆
 ROW PA612-ESD · ☆
 ROW PLA blend-CF · ☆
 ROW SBC · ☆
-ROW TPE, maker-undisclosed elastomer · ☆
-ROW TPV · ☆
-Unlikely to meet (27) — counted and exported
+Unlikely to meet (26): folded, still counted and in the download

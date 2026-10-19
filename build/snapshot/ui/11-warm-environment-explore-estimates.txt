@@ -1,7 +1,7 @@
 COUNT 110 shown PASS + UNKNOWN
-STATUS ☑ PASS 42 | ☑ UNKNOWN 84 | ☐ FAIL 26 | ☐ SCREENED 16
+STATUS ☑ PASS 42 | ☑ UNKNOWN 84 | ☐ FAIL 26 | ☐ HIDDEN 16
 42 of the 152 materials meet these requirements
-Warm environment template · 84 more could not be checked, listed flagged, except 16 screened out
+Warm environment template · UNKNOWN 84: 26 one check away, 24 not enough data, 18 unlikely to meet, 16 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -86,7 +86,7 @@ ROW PPS-CF · ☆
 ROW PPS-GF · ☆
 ROW PVDF-ESD · ☆
 One check away (26)
-A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.
+One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
 TABLE 26 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW CPE-CF / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 3 products: Spectrum pctg cf10, HDT at 0.45 MPa 78 °C, on the line for at least 80 °C | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | 78 | 81.3↗
 ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~8.7–14.5† | ~201–254† | ~3.3–7.9† | ~193–194† | —
@@ -114,9 +114,9 @@ ROW PPS · ☆
 ROW PPS-ESD · ☆
 ROW PVDF · ☆
 ROW SAN · ☆
-Not enough data (27)
-More than one question is open, or a value is not published the way you asked. Ordered by how close the estimate is; an estimate never passes.
-TABLE 27 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+Not enough data (24)
+More than one question is open, or a value is not published the way you asked. Ordered by how close each one's estimate or value comes to the limits; an estimate never passes.
+TABLE 24 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
 ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~990–1,070† | ~1.2–3.4† | ~38–82† | ~8–73† | ~80–171† | —
 ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,040–1,250† | ~2.4–8.0† | ~56–126† | ~1–13† | ~129–211† | —
 ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,050–1,160† | ~3.2–11.0† | ~59–133† | ~1–13† | ~120–240† | —
@@ -134,14 +134,11 @@ ROW PAHT-CE · ☆
 ROW PBAT · ☆
 ROW PC FR · ☆
 ROW PC-PBT · ☆
-ROW PET · ☆
 ROW PET-LW · ☆
 ROW PETG-GR · ☆
 ROW PETG-PTFE · ☆
-ROW PLA · ☆
-ROW PLA blend · ☆
 ROW PLA-EC · ☆
 ROW PLA-GR · ☆
 ROW PVC · ☆
 ROW SBC · ☆
-Unlikely to meet (15) — counted and exported
+Unlikely to meet (18): folded, still counted and in the download

@@ -272,8 +272,9 @@ export function humidMark(m, e, { db, scenario }) {
   const polymer = (db?.polymers ?? []).find((p) => p.id === m.estimateIdentity);
   if (polymer?.waterUptake !== 'high') return '';
   const moist = new Set((db.registry?.headlines ?? []).filter((h) => h.changesWithMoisture).map((h) => h.key));
-  const words = [...new Set((scenario?.constraints ?? []).filter((c) => c.kind === 'numeric' && c.mandatory !== false && moist.has(c.property))
-    .map((c) => HUMID_LOWERS.find(([re]) => re.test(c.property))?.[1]).filter(Boolean))];
+  const asked = (scenario?.constraints ?? []).filter((c) => c.kind === 'numeric' && c.mandatory !== false && moist.has(c.property)).map((c) => c.property);
+  // Stiffness first, the quantity humid air changes most, then strength and heat.
+  const words = HUMID_LOWERS.filter(([re]) => asked.some((k) => re.test(k))).map(([, w]) => w);
   if (!words.length) return '';
   const said = words.length === 1 ? words[0] : `${words.slice(0, -1).join(', ')} and ${words.at(-1)}`;
   return `<span class="row-sub humid-dry" title="${esc(`${polymer.id} takes up much water from humid air, which lowers its ${said}: a conditioned nylon's modulus can be half its dry one. Its products pass here on values measured dry or with the moisture unstated. Set Part condition to conditioned to judge it in humid air.`)}">judged dry; humid air lowers its ${esc(said)}</span>`;
@@ -605,7 +606,7 @@ export function renderTable(host, state, actions) {
     : !grouped ? tableOf(sorted, baselineRow)
       : `${meets.length || baselineRow ? `<h3>Meets every requirement (${meets.length})</h3>${tableOf(meets, baselineRow, GROUP.MEETS)}` : ''}
         ${oneCheck.length ? `<h3>One check away (${oneCheck.length})</h3><p class="group-note">One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.</p>${tableOf(oneCheck, '', GROUP.ONE_CHECK)}` : ''}
-        ${notEnough.length ? `<h3>Not enough data (${notEnough.length})</h3><p class="group-note">More than one question is open, or a value is not published the way you asked. ${estimatesOn && likelyCount ? `The ${likelyCount === 1 ? 'one' : likelyCount} tagged likely ${likelyCount === 1 ? 'comes' : 'come'} first: ${likelyCount === 1 ? 'its' : 'their'} estimated range meets every open number. ` : ''}${estimatesOn ? 'Then ordered by how close each one\'s estimate or value comes to the limits; an estimate never passes.' : 'Ordered by how close the deciding product\'s values come to the limits.'}</p>${tableOf(notEnough, '', GROUP.NOT_ENOUGH)}` : ''}
+        ${notEnough.length ? `<h3>Not enough data (${notEnough.length})</h3><p class="group-note">More than one question is open, or a value is not published the way you asked. ${estimatesOn && likelyCount ? `The ${likelyCount === 1 ? 'one' : likelyCount} tagged likely ${likelyCount === 1 ? 'comes' : 'come'} first: ${likelyCount === 1 ? 'its' : 'their'} estimated range meets every open number. ` : ''}${estimatesOn ? `${likelyCount ? 'Then' : 'Ordered'} by how close each one\'s estimate or value comes to the limits; an estimate never passes.` : 'Ordered by how close the deciding product\'s values come to the limits.'}</p>${tableOf(notEnough, '', GROUP.NOT_ENOUGH)}` : ''}
         ${unlikely.length ? `<details class="unlikely-to-meet" ${wasOpen ? 'open' : ''}><summary>Unlikely to meet (${unlikely.length}): folded, still counted and in the download</summary><p class="group-note">A product measured the way you asked misses and none meets it, or every open product's own estimate misses. Not a failure: the products that publish nothing are untested.</p>${tableOf(unlikely, '', GROUP.UNLIKELY)}</details>` : ''}
         ${hidden.length ? `<h3>Hidden (${hidden.length})</h3><p class="group-note">Held out of the list by a definition or by inference, never by a failure: each row says why. The HIDDEN chip at the bottom shows them.</p>${tableOf(hidden, '', GROUP.HIDDEN)}` : ''}
         ${failed.length ? `<h3>Fail (${failed.length})</h3>${tableOf(failed, '', GROUP.FAIL)}` : ''}`;
