@@ -110,11 +110,28 @@ export function shownProduct(evaluation) {
 }
 
 /**
+ * Why the engine shows an unresolved or failed material for this product (D155, C05): the product that puts it in its
+ * group, chosen by the one order of the groups and then by fewest open requirements and the smallest shortfall.
+ */
+function chosenBecause(e) {
+  const n = e.counts?.products ?? 0;
+  const of = n > 1 ? ` of its ${n} products` : '';
+  switch (e.group) {
+    case 'one-check-away': return `the one${of} a single question or test would settle`;
+    case 'not-enough-data': return e.likely ? `the one${of} whose estimates most clearly meet what is open` : `the one${of} nearest to being settled: the fewest requirements open, then the closest estimate`;
+    case 'unlikely-to-meet': return `the nearest${of} to meeting them, though the material is unlikely to`;
+    case 'hidden': return `hidden as unlikely, like the rest${of}`;
+    case 'fail': return n > 1 ? `every one of its ${n} products fails a requirement; this is the first` : 'it fails a requirement';
+    default: return 'the one nearest to being settled';
+  }
+}
+
+/**
  * A material against the requirements, one line per requirement: its result, the requirement, and what decided it, with
  * the measurement one press away. The lines are one product's, named once above them; a line that rests on another
  * product names its own. Record IDs stay in the button's title: the line is for reading (D124).
  *
- * The product shown (2026-10-18): the engine's (the first that passes, else the closest), unless it passes while leaving
+ * The product shown (2026-10-18): the engine's (the first that passes, else the one nearest to being settled, D155), unless it passes while leaving
  * a requirement that is reported, not required, unanswered and another passing product answers it. PLA had been shown
  * for a product with no price under a template that reports price, beside 182 passing products, most of them priced.
  * Display only: the material's answer and the engine's product, which the brief and the exports keep, do not change.
@@ -128,7 +145,7 @@ export function renderWhy(evaluation, { productName } = {}) {
   const passing = evaluation.counts?.pass ?? 0;
   const head = !best ? '' : evaluation.verdict === 'PASS'
     ? `<p class="fine why-on">Shown for <b>${esc(name(best))}</b>${passing > 1 ? `, one of the ${passing} that pass` : ', the product that passes'}.</p>`
-    : `<p class="fine why-on">Shown for its closest product, <b>${esc(name(best))}</b>.</p>`;
+    : `<p class="fine why-on">Shown for one product, <b>${esc(name(best))}</b>: ${esc(chosenBecause(evaluation))}.</p>`;
   // The three H2C limits a product's settings are within are one requirement to a reader: said once in "Also met".
   const GATES = ['nozzle', 'bed', 'chamber'];
   const gates = trivial.filter((r) => r.constraint.kind === 'gate' && GATES.includes(r.constraint.gate));

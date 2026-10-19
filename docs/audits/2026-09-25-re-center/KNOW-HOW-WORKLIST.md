@@ -30,7 +30,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA6-CF (M050) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 2 / 2 / 11 | — |
 | PP-CF (M083) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 2 / 4 | — |
 | PPA-CF (M070) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 0 / 2 | — |
-| PA6/66 (M057) | Flexible component; Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-CF (M033) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 17 | 3 / 5 / 13 | — |
 | PET-CF (M067) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 2 / 4 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 1 | — |
@@ -41,18 +40,17 @@ documents were read and give none of one is listed under "Recipe silent".
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA12-CF (M053) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 15 | 5 / 4 / 9 | MatterHackers (matterhackers.com) |
 | PA6-GF (M051) | Indoor prototype; Outdoor structural part; Warm environment | collected | 1 of 11 | 2 / 4 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PA6/66 (M057) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 2 / 6 | — |
 | PAHT (M147) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 1 / 3 | — |
 | PBT-GF (M132) | Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
-| PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 5 / 7 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | PLA (M001) | Indoor prototype; Lightweight structure | collected | 3 of 195 | 82 / 104 / 157 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
 | PLA Wood (M014) | Indoor prototype; Lightweight structure | collected | 2 of 20 | 9 / 9 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 8 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 2 / 3 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PCL (M149) | Flexible component; Indoor prototype | collected | 1 of 4 | 1 / 2 / 3 | iSANMATE (isanmate.com) |
 | PP Lightweight (M103) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PVDF-ESD (M120) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-AF (M106) | Indoor prototype; Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
@@ -62,35 +60,35 @@ documents were read and give none of one is listed under "Recipe silent".
 | CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 5 | 2 / 2 / 3 | — |
 | HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 11 | 5 / 6 / 9 | — |
 | Nylon, maker-undisclosed polyamide (M164) | Indoor prototype; Lightweight structure | collected | 0 of 7 | 1 / 3 / 3 | — |
-| OBC (M086) | Flexible component; Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PA6 (M049) | Indoor prototype; Warm environment | collected | 0 of 9 | 2 / 0 / 9 | — |
 | PA6-CE (M104) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
 | PBAT (M133) | Flexible component; Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-CF (M037) | Indoor prototype; Warm environment | collected | 0 of 10 | 4 / 3 / 8 | — |
-| PEBA (M045) | Flexible component; Indoor prototype | collected | 0 of 10 | 3 / 3 / 5 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 8 / 6 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 6 / 5 / 10 | — |
 | PLA-CF (M018) | Indoor prototype; Lightweight structure | collected | 0 of 19 | 6 / 7 / 15 | — |
 | PLA-NF (M152) | Indoor prototype; Lightweight structure | collected | 0 of 2 | 0 / 0 / 2 | — |
 | PLA-PHB (M146) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PP (M082) | Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 5 / 7 | — |
 | PPE-PS (M130) | Indoor prototype; Warm environment | collected | 0 of 2 | 0 / 0 / 1 | — |
 | TPC / TPEE (M046) | Flexible component; Indoor prototype | collected | 0 of 12 | 5 / 3 / 8 | — |
 | TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 18 | 10 / 10 / 18 | — |
 | TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 12 | 4 / 3 / 12 | — |
 | TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 27 | 13 / 9 / 24 | — |
-| TPU harder than 95A (M162) | Flexible component; Indoor prototype | collected | 0 of 15 | 5 / 2 / 11 | — |
-| TPU-LW (M150) | Flexible component; Indoor prototype | collected | 0 of 4 | 3 / 0 / 3 | — |
 | PA12 (M052) | Indoor prototype | collected | 1 of 8 | 3 / 1 / 4 | Fillamentum (fillamentum.com) |
+| PCL (M149) | Indoor prototype | collected | 1 of 4 | 1 / 2 / 3 | iSANMATE (isanmate.com) |
 | PET (M066) | Indoor prototype | collected | 1 of 7 | 1 / 2 / 3 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | TPE, maker-undisclosed elastomer (M167) | Indoor prototype | collected | 1 of 5 | 1 / 1 / 3 | Flashforge (after-support.flashforge.jp, flashforge.com) |
 | TPU-ESD (M126) | Indoor prototype | collected | 1 of 2 | 0 / 0 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-AF (M113) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | CPE-CF (M090) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
+| OBC (M086) | Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PCTG (M088) | Indoor prototype | collected | 0 of 8 | 2 / 2 / 5 | — |
 | PCTG-CF (M144) | Indoor prototype | collected | 0 of 3 | 0 / 0 / 1 | — |
 | PCTG-GF (M110) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
+| PEBA (M045) | Indoor prototype | collected | 0 of 10 | 3 / 3 / 5 | — |
 | PETG-ESD (M026) | Indoor prototype | collected | 0 of 9 | 2 / 1 / 6 | — |
 | PETG-GF (M025) | Indoor prototype | collected | 0 of 5 | 3 / 1 / 4 | — |
 | PETG-GR (M153) | Indoor prototype | collected | 0 of 2 | 0 / 2 / 2 | — |
@@ -111,8 +109,10 @@ documents were read and give none of one is listed under "Recipe silent".
 | PVB (M093) | Indoor prototype | collected | 0 of 6 | 1 / 1 / 5 | — |
 | SBC (M174) | Indoor prototype | collected | 0 of 1 | 0 / 1 / 1 | — |
 | TPS (M170) | Indoor prototype | collected | 0 of 5 | 3 / 2 / 4 | — |
+| TPU harder than 95A (M162) | Indoor prototype | collected | 0 of 15 | 5 / 2 / 11 | — |
 | TPU-CF (M129) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | TPU-EC (M157) | Indoor prototype | collected | 0 of 2 | 2 / 1 / 2 | — |
+| TPU-LW (M150) | Indoor prototype | collected | 0 of 4 | 3 / 0 / 3 | — |
 
 ## Every other material
 

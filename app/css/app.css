@@ -1514,6 +1514,9 @@ tr.baseline-row .name { color: var(--accent); }
 .excluded-group h3 { font-size: var(--t-body); font-weight: 650; color: var(--ink-2); margin: 0 0 10px; }
 .excluded-group .why-cell { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
 .empty-line { color: var(--ink-3-text); font-size: var(--t-small); margin: 14px 2px; }
+/* The groups under Include (D155): a line under each heading saying what the group means, and the folded last group. */
+.group-note { color: var(--ink-3-text); font-size: var(--t-small); margin: 0 2px 10px; max-width: 72ch; }
+details.unlikely-to-meet > summary { cursor: pointer; font-weight: 650; color: var(--ink-2); margin: 18px 0 10px; }
 
 /* The measurement someone clicked through to, marked once they arrive. */
 .evidence-row.target {

@@ -88,11 +88,14 @@ export const TEMPLATES = [
   },
   {
     name: 'Flexible component',
-    description: 'A gasket, a strap or a phone case. Elongation at break at least 100 %.',
-    notChecked: 'Recovery, softness and sealing. This tests stretch, not softness, so a rigid plastic that stretches far before it breaks can appear; check Shore hardness in the Mechanical tab.',
+    description: 'A gasket, strap or phone case. Elongation at break at least 100 % and tensile modulus at most 0.1 GPa.',
+    notChecked: 'Recovery and sealing; Shore hardness (Mechanical tab, or ask Shore A at most 95 as a requirement).',
+    // Softness asked as well as stretch (D156): a rigid plastic that stretches far before it breaks (a nylon, PP) is not
+    // a gasket. 0.1 GPa is the owner's number; a gasket's Shore 60 to 95A is under about 0.05 GPa.
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'elongationXY', operator: '>=', value: 100, mandatory: true, __group: 'Mechanical' },
+      { kind: 'numeric', property: 'tensileModulusXY', operator: '<=', value: 0.1, mandatory: true, __group: 'Mechanical' },
     ],
   },
 ];

@@ -82,13 +82,51 @@ test('a hypothetical certified exclusion is monotone when extra AND requirements
   assert.equal(run([low], [stiff, hot]).verdict, 'UNKNOWN', 'inferred exclusion never becomes a measured FAIL');
 });
 
-test('estimated candidates are UNKNOWN and centre-based suggestions never create PASS', () => {
-  const g = grade('G1', {}, { tensileModulusXY: prediction(3, 8, 6) });
+test('a likely estimate is UNKNOWN, orders "Not enough data" and never creates a PASS (D155)', () => {
+  // Its likely (80 %) range meets the limit: likely. A range that crosses it, or a second open number with nothing to go
+  // on, is not.
+  const g = grade('G1', {}, { tensileModulusXY: prediction(5.5, 8, 6) });
   const e = run([g]);
   assert.equal(e.verdict, 'UNKNOWN');
-  assert.equal(e.shortlistGroup, 'estimated');
-  assert.equal(run([g], [stiff, hot]).shortlistGroup, 'insufficient');
+  assert.equal(e.group, 'not-enough-data');
+  assert.equal(e.likely, true);
+  assert.match(e.groupReason, /^Not enough data, likely: G1, tensileModulusXY estimated 5\.5 to 8 GPa$/);
+  const crossing = grade('G2', {}, { tensileModulusXY: prediction(3, 8, 6) });
+  assert.equal(run([crossing]).likely, false, 'a centre that meets the limit is not enough: the range shown must');
+  assert.equal(run([g], [stiff, hot]).likely, false);
+  assert.equal(run([g], [stiff, hot]).group, 'not-enough-data');
   assert.equal(run([g], [stiff], { ...ctx, unknownPolicy: 'strict' }).eligible, false);
+  // A product's own estimate that wholly misses (its plausible range fails, though no product estimate may hide): unlikely.
+  const low = grade('G3', {}, { tensileModulusXY: { ...prediction(1, 3, 2), canScreen: false } });
+  const u = run([low]);
+  assert.equal(u.group, 'unlikely-to-meet');
+  assert.equal(u.screened, false);
+  assert.equal(u.eligible, true, 'unlikely to meet is listed and counted, never hidden');
+});
+
+test('one check away: only a printer check open, or one requirement on the line (D155)', () => {
+  const silent = grade('G1', { tensileModulusXY: v(6) });
+  silent.print.chamber = { verdict: 'unknown', reason: 'No temperature published' };
+  const gates = ['nozzle', 'bed', 'chamber'].map((gate) => ({ kind: 'gate', gate }));
+  const e = run([silent], [stiff, ...gates]);
+  assert.equal(e.group, 'one-check-away');
+  assert.equal(e.groupReason, 'One check away on 1 of 1 product: G1, its chamber temperature is not stated');
+  // With a number open as well, it is not one check away.
+  assert.equal(run([silent], [stiff, hot, ...gates]).group, 'not-enough-data');
+});
+
+test('a measured miss with no product meeting the number makes the material unlikely; a product that meets it stops that', () => {
+  const miss = grade('G1', { tensileModulusXY: v(2) });
+  const open = grade('G2', {}, {});
+  const e = run([miss, open]);
+  assert.equal(e.verdict, 'UNKNOWN');
+  assert.equal(e.group, 'unlikely-to-meet');
+  assert.match(e.groupReason, /every measured product misses tensileModulusXY at least 5 GPa: 1 of 2; the other one has no value measured that way/);
+  const meets = grade('G3', { tensileModulusXY: v(6) }, {});
+  meets.print.bed = { verdict: 'unknown', reason: 'No temperature published' };
+  const f = run([miss, open, meets], [stiff, { kind: 'gate', gate: 'bed' }]);
+  assert.equal(f.group, 'one-check-away');
+  assert.equal(f.gradeId, 'G3', 'the deciding product is the one a single check would settle');
 });
 
 test('exact independent-evaluation risk gate rejects sparse cases and excess tail errors', () => {
@@ -120,17 +158,18 @@ test('ASA-GF stays unresolved at 5 GPa and iSANMATE is not excluded by a range c
   assert.equal(across.screened, false);
   useRegistry(db.registry);
   const rows = [{ material: m, evaluation: e }];
-  assert.match(toCSV(rows, db.meta, { scenario: { constraints: [stiff] } }), /Candidate group/);
-  assert.match(toCSV(rows, db.meta), /insufficient/);
+  assert.match(toCSV(rows, db.meta, { scenario: { constraints: [stiff] } }), /Candidate group,Likely/);
+  assert.match(toCSV(rows, db.meta, { scenario: { constraints: [stiff] } }), new RegExp(`,${e.group},`));
   const csv = productsCSV(rows, db, { productsByMaterial: new Map([[m.id, gs]]) });
   for (const g of gs) assert.ok(csv.includes(g.id), `exports retain unresolved product ${g.id}`);
 });
 
-test('uncertain table groups preserve column order within each group', () => {
-  const rows = [['A', 9, 'insufficient'], ['B', 3, 'estimated'], ['C', 1, 'supported'], ['D', 5, 'estimated']]
-    .map(([id, value, shortlistGroup]) => ({ material: { id, name: id, headline: { tensileModulusXY: { known: true, value } } }, evaluation: { shortlistGroup } }));
+test('the table groups keep column order, and "Not enough data" puts the likely first, then the nearest (D155)', () => {
+  const rows = [['A', 9, 'unlikely-to-meet'], ['B', 3, 'one-check-away'], ['C', 1, 'meets'], ['D', 5, 'one-check-away'],
+    ['E', 8, 'not-enough-data', false, 0.3], ['F', 7, 'not-enough-data', true, 0.1], ['G', 6, 'not-enough-data', false, 0.1], ['H', 4, 'not-enough-data', false, Infinity]]
+    .map(([id, value, group, likely = false, shortfall = 0]) => ({ material: { id, name: id, headline: { tensileModulusXY: { known: true, value } } }, evaluation: { group, likely, shortfall } }));
   const sorted = sortRows(rows, { scenario: { unknownPolicy: 'exploration', constraints: [stiff] }, sort: { key: 'tensileModulusXY', dir: 'desc' }, columnSet: 'properties', ctx: {} });
-  assert.deepEqual(sorted.map((r) => r.material.id), ['C', 'D', 'B', 'A']);
+  assert.deepEqual(sorted.map((r) => r.material.id), ['C', 'D', 'B', 'F', 'G', 'E', 'H', 'A']);
 });
 
 

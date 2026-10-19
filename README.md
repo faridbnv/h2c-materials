@@ -14,8 +14,9 @@ do (survive 100 °C, be at least this stiff, be as light as possible), and it an
   about it.
 
 Every number comes from a maker's data sheet or web page and can be traced back to its page. Where nothing is
-published, the tool says so instead of guessing; a marked estimate is shown only where no product publishes a value. It
-helps the team build a shortlist; the team confirms its final pick with its own test print. It is not a source of design
+published, the tool says so instead of guessing; a marked estimate is shown only where no product publishes a value.
+What nothing settles yet is sorted by what would settle it: one check away, not enough data, or unlikely to meet, each
+naming the product that decides it (D155). It helps the team build a shortlist; the team confirms its final pick with its own test print. It is not a source of design
 allowables, and it does not replace the product's own data sheet.
 
 <!-- status:begin -->
@@ -300,7 +301,8 @@ sits above PA66, and hidden measured values fall inside the shown 80% range abou
 that drifts; the figure for each property is in the validation report). Every in-scope material that names an Estimate
 identity has, for each estimated property (density, stiffness, strength, stretch, heat deflection), a value, an
 estimate or a reason it does not apply; the other properties show Not published where nothing is. An estimate never
-passes a material. A material with products is judged on each product's own values, so its material estimate is context
+passes a material: it orders the materials under "Not enough data" and tags "likely" the ones whose estimated range meets
+every open limit (D155). A material with products is judged on each product's own values, so its material estimate is context
 only; a material with no product on record is screened out by its estimate only when its screening range wholly fails
 (at least the 95% range, wider where the back-test shows it must be, D59) and the material's own data does not
 contradict it (D148). The switch for all of this is "Use estimates and resin data". See
@@ -331,4 +333,4 @@ does not have. Its warnings name their records: outlying headlines, imprecise es
 materials without measurements. Each record is fixed or accepted with a reason in
 `data/review/accepted-findings.csv`, and `verify` fails on one that is neither (D57).
 
-Product uncertainty (D137): Include (materials that could not be checked) separates supported candidates, estimated candidates to verify and an expandable insufficient-evidence list. Collapsed options stay in counts and exports. Missing product values use their own estimates regardless of sibling coverage; predictions never pass. Independent exclusion permission is currently limited to validated as-printed/dry contexts under the reserved complete-scenario risk budget; no class currently meets that gate. Unsupported scopes remain unresolved. What hides a material under Include today is a property that does not apply to it, with "Use estimates and resin data" on or off, and, with it on, resin data reporting its polymer attacked or the estimate of a material with no product (D148). [The fix audit](docs/audits/2026-10-08-product-screening/README.md) records the risk gates and decision differences.
+Product uncertainty (D137, D155): under Include (materials that could not be checked) the list is sorted by what would settle each material: "Meets every requirement", "One check away" (a product waits only on a printer check, or on one value on the line), "Not enough data" (the likely ones first) and a folded "Unlikely to meet" (a product measured the way asked misses and none meets it, or every open product's own estimate misses). Each row names the product that decides its group, with its own numbers. Folded rows stay in counts and exports, and no group changes a verdict. Missing product values use their own estimates regardless of sibling coverage; predictions never pass. Independent exclusion permission is currently limited to validated as-printed/dry contexts under the reserved complete-scenario risk budget; no class currently meets that gate. Unsupported scopes remain unresolved. What hides a material under Include today is a property that does not apply to it, with "Use estimates and resin data" on or off, and, with it on, resin data reporting its polymer attacked or the estimate of a material with no product (D148). [The fix audit](docs/audits/2026-10-08-product-screening/README.md) records the risk gates and decision differences.

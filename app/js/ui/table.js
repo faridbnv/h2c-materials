@@ -12,7 +12,7 @@ import { dayWords } from './dates.js';
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 import { INDICES, indexById, rankingFor, indexValue } from '../engine/indices.js';
-import { boundOf, publishedBound } from '../engine/constraints.js';
+import { boundOf, publishedBound, GROUP, GROUP_ORDER } from '../engine/constraints.js';
 import { productView, stateOf, hardenedShare, hardenedWords } from '../engine/products.js';
 import { matchingProducts } from '../engine/search.js';
 
@@ -145,12 +145,20 @@ function sortWithinGroup(rows, state) {
   });
 }
 
-/** D137: use the same grouped order for the table and its exports; ranks themselves do not change. */
+/**
+ * The groups' order for the table and its exports (D137, D155): meets every requirement, one check away, not enough data,
+ * unlikely to meet, hidden as unlikely, fail; ranks themselves do not change. Inside "Not enough data" the likely ones
+ * come first, then the nearest by the shortfall of the product that represents each; every other group keeps the
+ * column's order.
+ */
 export function sortRows(rows, state) {
   const sorted = sortWithinGroup(rows, state);
   if (state.scenario?.unknownPolicy !== 'exploration' || !state.scenario.constraints?.length) return sorted;
-  const order = { supported: 0, estimated: 1, insufficient: 2, excluded: 3 };
-  return sorted.sort((a, b) => (order[a.evaluation.shortlistGroup] ?? 0) - (order[b.evaluation.shortlistGroup] ?? 0));
+  const order = new Map(GROUP_ORDER.map((g, i) => [g, i]));
+  const at = (e) => order.get(e.group) ?? 0;
+  const near = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+  return sorted.sort((a, b) => at(a.evaluation) - at(b.evaluation)
+    || (a.evaluation.group === GROUP.NOT_ENOUGH ? (!!b.evaluation.likely - !!a.evaluation.likely) || near(a.evaluation.shortfall ?? 0, b.evaluation.shortfall ?? 0) : 0));
 }
 
 /** Each row's rank under the scenario's goal, or null when it ranks by nothing: the one ranking every lens reads (D102). */
@@ -242,15 +250,13 @@ const withStateMark = (value, mark) => {
 };
 
 /**
- * What an UNKNOWN rests on (the PM trial, PM-02): every product that could be measured fails, and the rest publish
- * nothing ("likely fails"), or nothing is published at all. D100 keeps both unresolved; a reader is told which.
+ * What would settle an unresolved row (D155, C05): its group, and the product that puts it there with that product's own
+ * numbers, as the engine words it ("One check away on 1 of 17 products: ..."). A hidden row says nothing here: its chip
+ * says what hid it.
  */
 export function unknownMark(e) {
-  const c = e?.counts;
-  if (!c || e.verdict !== 'UNKNOWN') return '';
-  const group = e.shortlistGroup === 'estimated' ? 'Estimated candidate to verify' : 'Insufficient evidence';
-  const reason = c.fail ? `${c.fail} products fail at least one requirement; ${c.untested} remain unresolved` : `${c.untested} products have no complete qualifying evidence`;
-  return `<span class="row-sub" title="${esc(reason)}">${group}: ${esc(reason)}</span>`;
+  if (e?.verdict !== 'UNKNOWN' || !e.groupReason || e.group === GROUP.HIDDEN) return '';
+  return `<span class="row-sub group-reason">${esc(e.groupReason)}</span>`;
 }
 
 /**
@@ -282,6 +288,8 @@ export function renderTable(host, state, actions) {
 
   // A material with no product on record is the one whose own estimate is read for a requirement (D148).
   const productless = (m) => !(state.ctx?.productsByMaterial?.get(m.id)?.length);
+  // A product as a cell's popover names it: its maker and product.
+  const productLabel = (id) => { const g = (state.gradeIndex ??= new Map(state.db.grades.map((x) => [x.id, x]))).get(id); return g ? `${g.manufacturer} ${g.product}` : id; };
 
   const head = COLUMNS.map((c) => {
     // The shortlist column has nothing meaningful to sort by, so it does not pretend to.
@@ -417,7 +425,12 @@ export function renderTable(host, state, actions) {
         const oos = m.buy.anyInStock ? '' : explainButton('out of stock', notStocked, { cls: 'oos', head: 'Out of stock' });
         return `<td class="num">${nested ? inner : ''}${nested ? link('', ' buy-arrow') : link(inner)}${oos}</td>`;
       }
-      const all = withStateMark(renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id, productless: productless(m) }), typicalStateMark(m.headline[c.key], measurementState));
+      // An unresolved row's estimate on a required number is its deciding product's, the one its reason names (D155, C05):
+      // the cell and the reason are one computation. A material with no product reads its own, as before (D148).
+      const own = tested && e?.verdict === 'UNKNOWN' && state.ctx?.showEstimates && !m.headline[c.key]?.known && !m.headline[c.key]?.notApplicable && e.gradeId
+        ? on(c.key).find((r) => r.estimated && r.estimate) : null;
+      const shown = own ? { known: false, missing: m.headline[c.key]?.missing ?? 'not-published', estimate: own.estimate } : m.headline[c.key];
+      const all = withStateMark(renderValue(shown, { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id, productless: productless(m), product: own ? productLabel(e.gradeId) : null }), typicalStateMark(m.headline[c.key], measurementState));
       // A material that passes a requirement on some of its products shows those products' values first, and every
       // product's typical and range under it, labelled (PM-01).
       const pass = tested && e?.verdict === 'PASS' && on(c.key).length ? passingValues(e, c.key) : null;
@@ -547,21 +560,26 @@ export function renderTable(host, state, actions) {
     .map((n) => state.db.materials.find((m) => m.name === n))
     .filter(Boolean);
 
-  const tableOf = (list, reference = '') => scrollTable(`<table class="grid">
+  // Each group's table says which group it is (D155), for a reader's assistive tools and for the interface checks.
+  const tableOf = (list, reference = '', group = null) => scrollTable(`<table class="grid"${group ? ` data-group="${group}"` : ''}>
     <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
     <thead><tr>${head}</tr></thead><tbody>${reference}${bodyOf(list)}</tbody></table>`);
+  // Under Include the list is sorted by what would settle each material (D155): the groups present the verdicts and
+  // change none of them, nor any count or export. "Unlikely to meet" starts folded and is counted; hidden and failed
+  // rows appear only behind their chips.
   const grouped = tested && scenario.unknownPolicy === 'exploration';
-  const supported = sorted.filter((r) => !r.evaluation.shortlistGroup || r.evaluation.shortlistGroup === 'supported');
-  const estimated = sorted.filter((r) => r.evaluation.shortlistGroup === 'estimated');
-  const insufficient = sorted.filter((r) => r.evaluation.shortlistGroup === 'insufficient');
-  const other = sorted.filter((r) => r.evaluation.shortlistGroup === 'excluded');
-  const wasOpen = host.querySelector('details.insufficient-evidence')?.open;
+  const inGroup = (g) => sorted.filter((r) => (r.evaluation.group ?? GROUP.MEETS) === g);
+  const [meets, oneCheck, notEnough, unlikely, hidden, failed] = GROUP_ORDER.map(inGroup);
+  const likelyCount = notEnough.filter((r) => r.evaluation.likely).length;
+  const wasOpen = host.querySelector('details.unlikely-to-meet')?.open;
   const resultTables = !sorted.length ? `<p class="empty-line">Nothing matching "${esc(state.search)}" meets your requirements.</p>`
     : !grouped ? tableOf(sorted, baselineRow)
-      : `${supported.length || baselineRow ? `<h3>Supported candidates (${supported.length})</h3>${tableOf(supported, baselineRow)}` : ''}
-        ${estimated.length ? `<h3>Estimated candidates to verify (${estimated.length})</h3><p>Predicted centres meet the missing numerical requirements. Still UNKNOWN; confirm before choosing.</p>${tableOf(estimated)}` : ''}
-        ${insufficient.length ? `<details class="insufficient-evidence" ${wasOpen ? 'open' : ''}><summary>Insufficient evidence (${insufficient.length}) — included in counts and exports</summary>${tableOf(insufficient)}</details>` : ''}
-        ${other.length ? `<h3>Excluded / screened (${other.length})</h3>${tableOf(other)}` : ''}`;
+      : `${meets.length || baselineRow ? `<h3>Meets every requirement (${meets.length})</h3>${tableOf(meets, baselineRow, GROUP.MEETS)}` : ''}
+        ${oneCheck.length ? `<h3>One check away (${oneCheck.length})</h3><p class="group-note">A product waits on one question to its maker or one test: a printer setting not stated, or a value on the line. Still UNKNOWN until it is settled.</p>${tableOf(oneCheck, '', GROUP.ONE_CHECK)}` : ''}
+        ${notEnough.length ? `<h3>Not enough data (${notEnough.length})</h3><p class="group-note">More than one question is open, or a value is not published the way you asked. ${likelyCount ? `The ${likelyCount === 1 ? 'one' : likelyCount} tagged likely ${likelyCount === 1 ? 'comes' : 'come'} first: ${likelyCount === 1 ? 'its' : 'their'} estimated range meets every open number. ` : ''}Ordered by how close the estimate is; an estimate never passes.</p>${tableOf(notEnough, '', GROUP.NOT_ENOUGH)}` : ''}
+        ${unlikely.length ? `<details class="unlikely-to-meet" ${wasOpen ? 'open' : ''}><summary>Unlikely to meet (${unlikely.length}) — counted and exported</summary><p class="group-note">A product measured the way you asked misses and none meets it, or every open product's own estimate misses. Not a failure: the products that publish nothing are untested.</p>${tableOf(unlikely, '', GROUP.UNLIKELY)}</details>` : ''}
+        ${hidden.length ? `<h3>Hidden as unlikely (${hidden.length})</h3>${tableOf(hidden, '', GROUP.HIDDEN)}` : ''}
+        ${failed.length ? `<h3>Fail (${failed.length})</h3>${tableOf(failed, '', GROUP.FAIL)}` : ''}`;
 
   host.innerHTML = `
     <div class="table-bar">
@@ -637,7 +655,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
-    'Hidden: does not apply', ...(useEstimates ? ['Estimated fields', 'Hidden by an estimate', 'Hidden by resin reference data'] : []), 'Candidate group'];
+    'Hidden: does not apply', ...(useEstimates ? ['Estimated fields', 'Hidden by an estimate', 'Hidden by resin reference data'] : []), 'Candidate group', 'Likely'];
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -712,7 +730,9 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
       // A hide by a property that does not apply, by an estimate and by the base polymer's published behaviour each travel
       // in their own column (D64, D148).
       e.screened ? screenedByKind(e).notApplicable.join('; ') : '',
-      ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []), e.shortlistGroup ?? '',
+      ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []),
+      // The group the list sorts it into (D155), and whether it is tagged likely: presentation, never a verdict.
+      tested ? e.group ?? '' : '', tested && e.likely ? 'yes' : '',
     ].map(q).join(',')),
   ];
   return lines.join('\n');
@@ -749,7 +769,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
   const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements', 'Judged as', 'Not settled by',
     ...(goal && ctx ? [`Goal ${goal.formula} in the state judged`] : []),
     ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Value qualifiers', 'Values read from',
-    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source', 'Candidate group'];
+    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source', 'Candidate group', 'Likely'];
   const header = [
     '# H2C Material Selector: products of the materials on screen',
     `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
@@ -773,7 +793,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
         p?.drying ? `${p.drying.need}; ${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hours ?? ''} h` : '',
-        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId, judged.get(g.id)?.shortlistGroup ?? '',
+        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId, judged.get(g.id)?.group ?? '', judged.get(g.id)?.likely ? 'yes' : '',
       ].map(q).join(','));
     }
   }

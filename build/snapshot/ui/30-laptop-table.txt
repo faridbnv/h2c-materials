@@ -3,7 +3,9 @@ document width 1180
 spill: none
 clipped cells:
   #lens table 1: 0 of 99
-  #lens table 2: 0 of 36
-  #lens table 3: 0 of 702
-  #lens table 4: 0 of 531
+  #lens table 2: 0 of 63
+  #lens table 3: 0 of 297
+  #lens table 4: 0 of 378
+  #lens table 5: 0 of 81
+  #lens table 6: 0 of 450
 hidden controls: 0

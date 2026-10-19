@@ -159,7 +159,7 @@ const percent = (p) => `${Math.round(p * 100)}%`;
  * only for a material with no product on record (`productless`): any other material is judged product by product, so
  * its estimate is context and hides nothing, whatever its back-test allows (D148).
  */
-export function estimateTitle(e, d, { productless = false } = {}) {
+export function estimateTitle(e, d, { productless = false, product = null } = {}) {
   const s = ESTIMATE_STRENGTH[e.strength] ?? { title: 'Estimated' };
   const levels = e.levels ?? { likely: 0.8, plausible: 0.95 };
   const unit = d.unit ? ` ${d.unit}` : '';
@@ -171,7 +171,8 @@ export function estimateTitle(e, d, { productless = false } = {}) {
   return `Estimate, not a measurement: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} interval), centre ${d.centre}${unit}.${column}${wide}`
     + ` ${s.title}.${e.sharedWith ? ` Its product is also filed under ${e.sharedWith.name}.` : ''}`
     + ` ${e.precision === 'poor' ? 'Poor precision: treat it as an order of magnitude only.' : `Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`}`
-    + ` It never makes a material pass.${!productless ? ' Context only: this material is judged product by product, on each product\'s own values, so this estimate hides nothing.'
+    + ` It never makes a material pass.${product ? ` The estimate of ${product}, the product this row is shown for: it orders the row and may tag it likely, and hides nothing (D155).`
+      : !productless ? ' Context only: this material is judged product by product, on each product\'s own values, so this estimate hides nothing.'
       : `${e.canScreen ? ` ${POLICY_PHRASE.exploration.charAt(0).toUpperCase()}${POLICY_PHRASE.exploration.slice(1)} and estimates on, it hides this material, which has no product on record, from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`}`;
 }
 
