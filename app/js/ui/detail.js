@@ -1147,7 +1147,7 @@ function spreadTable(m, c) {
       <td class="num">${s.n} of ${s.products}</td>
       <td>${leftOutWords(h, s).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
-  <p class="fine">Median and range of the products that publish it with a stated orientation or test load. The range is the products' lowest to highest.</p>
+  <p class="fine">Median and range of the products that publish it on a test bar their documents describe as printed, at the test's orientation and load. The range is the products' lowest to highest.</p>
   ${rows.filter(([, s]) => s.claimed).map(([h, s], i) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))}${i ? '' : ` ${TOUGHENED_NOTE_SHORT}`}</p>`).join('')}`;
 }
 

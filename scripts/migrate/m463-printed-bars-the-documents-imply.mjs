@@ -7,7 +7,7 @@
 // Eleven Claude Sonnet readers read every page holding such a value, 2,265 values on 668 pages, for an indication or a
 // counter-indication (docs/audits/2026-10-20-owner-rulings/evidence/reading/, INSTRUCTIONS.md and results-*.csv); the
 // executor's second pass (Claude Opus 5.5) applied D172 as recorded, most specific first: the value's own row, its
-// table, the document (evidence/classify.mjs, which writes evidence/classification.csv). This migration retypes the 149
+// table, the document (evidence/classify.mjs, which writes evidence/classification.csv). This migration retypes the 145
 // values found indicated:
 //
 // - stated: Specimen type "Printed specimen" (Stratasys PC's "Physical Properties - Printed" table, which the import read
@@ -71,7 +71,6 @@ for (const r of rows) {
 const ANNEALED = [
   [['V013951', 'V013952'], 'All specimens were annealed at 100˚C for 8h.', 100, 8],
   [['V011569', 'V011570'], 'All specimens were annealed at 80˚C for 8h.', 80, 8],
-  [['V013958'], 'The specimens of HDT test were annealed at 125 ºC for 16h.', 125, 16],
 ];
 for (const [ids, words, tempC, hours] of ANNEALED) {
   for (const id of ids) {
@@ -82,6 +81,22 @@ for (const [ids, words, tempC, hours] of ANNEALED) {
     t.set('measurements', id, 'Post-processing state', 'annealed', { expect: 'not-stated', migration: MIGRATION });
     t.set('measurements', id, 'Anneal °C', String(tempC), { expect: 'Not applicable', migration: MIGRATION });
     t.set('measurements', id, 'Anneal h', String(hours), { expect: 'Not applicable', migration: MIGRATION });
+    n++;
+  }
+}
+// Raise3D Industrial PPS CF's description says "heat resistance (HDT 260 °C)" (V013958): a claim in prose, not a row of its
+// tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa. The first run typed it printed and annealed with
+// the table's note; the executor's review took it back (it would have floored the table's own 251 °C at 260, CV63), so
+// it is left as the reader round wrote it, set apart.
+{
+  const m = t.get('measurements', 'V013958');
+  if (m['Specimen type'] === IMPLIED) {
+    const before = m.Notes.replace(/ Specimen type Printed \(implied by the document\) since m463 .*$/, '');
+    t.set('measurements', 'V013958', 'Specimen type', 'Not published (do not assume printed)', { expect: IMPLIED, migration: MIGRATION });
+    t.set('measurements', 'V013958', 'Notes', before, { expect: m.Notes, migration: MIGRATION });
+    for (const [col, now, was] of [['Post-processing', 'The specimens of HDT test were annealed at 125 ºC for 16h.', 'Not published'], ['Post-processing state', 'annealed', 'not-stated'], ['Anneal °C', '125', 'Not applicable'], ['Anneal h', '16', 'Not applicable']]) {
+      t.set('measurements', 'V013958', col, was, { expect: now, migration: MIGRATION });
+    }
     n++;
   }
 }

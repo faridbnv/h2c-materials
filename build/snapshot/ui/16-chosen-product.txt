@@ -1,4 +1,4 @@
-3DXTECH CarbonX CF PP
+Spectrum PLA Carbon
 PASS
 chosen <date> on release <id>
 Download the decision brief

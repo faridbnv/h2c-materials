@@ -11,7 +11,7 @@ Nozzle, lowest
 22
 Nozzle, highest
 167 ranked of 196 shown
-78
+77
 48
 13
 10
@@ -36,11 +36,11 @@ Bed, lowest
 13
 Bed, highest
 156 ranked of 194 shown
-111
+112
 27
-22
-14
-13
+21
+15
+12
 °C
 0
 20

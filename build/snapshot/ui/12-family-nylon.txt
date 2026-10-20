@@ -35,14 +35,14 @@ PC
 n/a not applicable
 3 more marks
 TABLE 24 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 6 of 6 products | 1,200 / 1,010–1,400 · 5 | 2.16 | 56.7 / 55.9–57.5 · 2 | 15 / 12–18 · 2 | 145 / 58–178 · 5 | 167EUR
+ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 6 of 6 products | 1,200 / 1,010–1,400 · 5 | 2.4 / 2.16–3 · 3 | 48.5 / 40–57.5 · 4 | 18 / 12–25 · 4 | 145 / 58–147 · 4 | 167EUR
 ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,210 / 1,180–1,240 · 3 | 2.82 / 2.53–3.1 · 2 | 59.9 / 59.4–60.4 · 2 | 7 / 5.5–9.2 · 3 | 152 | —
-ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 7 of 7 products | 1,140 / 1,100–1,210 · 3 | 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR
-ROW PA-ESD / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 1,140 | 6.9* | 68* | 3.8* | 142 | —
-ROW PA12 / Nylon / Polyamide | ☆ | PASS / 8 of 8 products | 1,010 / 1,000–1,020 · 6 | 1.44* | 43* | > 50* | 123 / 100–135 · 4 | 183USD / 123–242 · 2
+ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 7 of 7 products | 1,140 / 1,100–1,210 · 3 | 2.48 / 1.7–3.33 · 4 | 57 / 49–69.2 · 4 | 9.77 / 8.5–150 · 3 | 41 | 107EUR
+ROW PA-ESD / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 1,140 | 6.9* | 68* | 3.8* | 142* | —
+ROW PA12 / Nylon / Polyamide | ☆ | PASS / 8 of 8 products | 1,010 / 1,000–1,020 · 6 | 1.44* | 43* | > 50* | 94.7* | 183USD / 123–242 · 2
 ROW PA12-AF / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 990 | 0.51* | 50.4* | 5.8* | — | —
-ROW PA12-CF / Nylon / Polyamide | ☆ | PASS / 15 of 15 products | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗
-ROW PA12-GF / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD
+ROW PA12-CF / Nylon / Polyamide | ☆ | PASS / 15 of 15 products | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 131 / 90–175 · 5 | 300↗
+ROW PA12-GF / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 150 | 247USD
 ROW PA6 · ☆
 ROW PA6-CE · ☆
 ROW PA6-CF · ☆

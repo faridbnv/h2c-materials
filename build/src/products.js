@@ -152,6 +152,7 @@ const SPECIMEN_WHY = { moulded: 'moulded', film: 'film', filament: 'filament' };
 // What a headline reads where a printed bar's source states no orientation (headline_definitions.csv Unstated
 // direction): a flat bar, as makers print their test bars unless they say otherwise (D91's reading, D172).
 const FLAT_IF_PRINTED = 'flat if printed';
+const STATED_UNUSABLE = 'Stated, not a usable direction';
 
 /**
  * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded, why } with the
@@ -213,7 +214,9 @@ export function assess(m, def, gradeMeasurements, state = null, opts = {}) {
     // (D92). For an XY headline a printed bar that states none is read flat, the way makers print their test bars unless
     // they say otherwise (D91's reading, D172); one its document does not describe is set apart below.
     if (def.unstatedDirection === 'excluded') return { excluded: `the source states no direction, and a ${def.direction} value is one it says is ${def.direction}`, why: 'unstatedDirection' };
-    if (def.unstatedDirection === FLAT_IF_PRINTED) readFlat = true;
+    // An orientation the source states and the database cannot use (a 0° or 90° raster, a label its own numbers
+    // contradict: Direction "Stated, not a usable direction", D91) is no silence, and is never read flat.
+    if (def.unstatedDirection === FLAT_IF_PRINTED && m.directionText !== STATED_UNUSABLE) readFlat = true;
     else caveat = 'unstated-direction';
   }
   // A headline with no direction (heat deflection, density) is a flat bar's: an edge or upright bar's value is another

@@ -522,8 +522,9 @@ every contribution (`by`: the row, its kind and status, the record, its value, t
 twin's labelled) and the intersection of the deciding, comparable ones (`lo`, `hi`). The engine reads it after a
 comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record,
 a band, floor or ceiling is compared with the limit as it is (only an equality and a class limit may be on the line
-within the test scatter, D166), an empty intersection is "sheets disagree", and a contribution whose record states no
-direction or load decides only where the reader admits such values. A PLA or PET HDT from a bar its sheet does not
+within the test scatter, D166), an empty intersection is "sheets disagree", and a contribution from a record set apart
+(a bar no document describes as printed, D172) decides nothing; only the demote-to-ceiling rows read such bars. A heat
+deflection whose sheet states no load floors the 0.45 MPa value through CV63 (D172). A PLA or PET HDT from a bar its sheet does not
 describe is marked `ceilingOnly` as printed (CV05; an annealed state's is not): still the product's value and in its
 material's spread, it may fail a minimum, never pass one, and it is never on the line. Read by another row, such a bar
 gives only its upper end: CV01 takes no floor from a PLA or PET HDT at 1.8 MPa on a moulded or undescribed bar (D166). A reported row is listed in `build/snapshot/ledger.csv` and the drawer as not yet deciding, and

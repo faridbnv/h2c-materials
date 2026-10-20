@@ -1,7 +1,7 @@
 viewport 390x844
 document width: fits the screen
 spill: none
-clipped cells: none in 13 tables
+clipped cells: none in 12 tables
 hidden controls: 0
 figure text: all of it readable
 sections (13): key-figures, summary, on-the-h2c, among, mechanical, thermal, printing, products, uses, price, other, sources, colophon

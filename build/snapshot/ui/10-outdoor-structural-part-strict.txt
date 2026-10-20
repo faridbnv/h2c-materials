@@ -1,7 +1,7 @@
-COUNT 11 shown PASS
-STATUS ☑ PASS 11 | ☐ UNKNOWN 89 | ☐ FAIL 52
-11 of the 152 materials meet these requirements
-Outdoor structural part template · UNKNOWN 89 left out: 7 one check away, 34 not enough data, 43 unlikely to meet, 5 a required property does not apply to
+COUNT 10 shown PASS
+STATUS ☑ PASS 10 | ☐ UNKNOWN 92 | ☐ FAIL 50
+10 of the 152 materials meet these requirements
+Outdoor structural part template · UNKNOWN 92 left out: 7 one check away, 44 not enough data, 37 unlikely to meet, 4 a required property does not apply to
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -47,15 +47,14 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 11 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | passing: 101–103 / all products: 101 / 86–130 · 7 | 65↗ / 40–122 · 5
-ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | passing: 140–203 / all products: 183 / 140–215 · 10 | 130↗ / 110–204 · 4
-ROW PA6-GF / Nylon / Polyamide | ☆ | PASS / 1 of 11 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,350 / all products: 1,310 / 1,140–1,370 · 9 | passing: 4.26 / all products: 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | passing: 186 / all products: 184 / 161–210 · 10 | 84↗ / 77–146 · 3
-ROW PBT-GF / Polymer Blends | ☆ | PASS / 2 of 2 products | passing: 1,320–1,350 / all products: 1,335 / 1,320–1,350 · 2 | passing: 3.7–4 / all products: 3.85 / 3.7–4 · 2 | 67.5 / 65–70 · 2 | 2.5 / 2–3 · 2 | passing: 170–175 / all products: 173 / 170–175 · 2 | —
+TABLE 10 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 39.1 / 34–50.1 · 7 | 6.3 / 1.64–15.5 · 6 | passing: 101–103 / all products: 101 / 88–110 · 5 | 65↗ / 40–122 · 5
+ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 3 of 14 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,120–1,200 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.3 / all products: 4.37 / 3.8–8.64 · 6 | 70 / 53–112 · 8 | 6 / 2.1–16.5 · 7 | passing: 147–203 / all products: 200 / 147–215 · 5 | 130↗ / 110–204 · 4
+ROW PA6-GF / Nylon / Polyamide | ☆ | PASS / 1 of 11 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,350 / all products: 1,310 / 1,140–1,370 · 9 | passing: 4.26 / all products: 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | passing: 186 / all products: 186 / 161–205 · 7 | 84↗ / 77–146 · 3
+ROW PBT-GF / Polymer Blends | ☆ | PASS / 1 of 2 products | passing: 1,320 / all products: 1,335 / 1,320–1,350 · 2 | passing: 3.7 / all products: 3.85 / 3.7–4 · 2 | 67.5 / 65–70 · 2 | 2.5 / 2–3 · 2 | passing: 175 / all products: 175 | —
 ROW PET-CF / PET Engineering | ☆ | PASS / 1 of 8 products | passing: 1,400 / all products: 1,340 / 1,290–1,400 · 7 | passing: 3.6 / all products: 4.73 / 3.6–5.48 · 3 | 70 / 45–75 · 4 | 4.25 / 2.4–6 · 4 | passing: 100 / all products: 124 / 74–205 · 6 | 113↗ / 70–116 · 3
-ROW PP-CF / Polyolefins | ☆ | PASS / 2 of 5 products | passing: 910–1,100 / all products: 1,000 / 910–1,100 · 5 | passing: 6.15–6.38 / all products: 6.15 / 2.1–6.38 · 3 | 41 / 27.3–78 · 3 | 1.4 / 1.3–1.5 · 2 | passing: 124–158 / all products: 141 / 88–158 · 4 | 147↗
-ROW PP-GF / Polyolefins | ☆ | PASS / 1 of 2 products | passing: 1,120 / all products: 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 139 / 138–139 · 2 | 118EUR↗ / out of stock
-ROW PPA-CF / High-Performance Engineering | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,210–1,250 / all products: 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 209 / 84.5–240 · 8 | 255↗
+ROW PP-CF / Polyolefins | ☆ | PASS / 2 of 5 products | passing: 910–1,100 / all products: 1,000 / 910–1,100 · 5 | passing: 6.15–6.38 / all products: 6.15 / 2.1–6.38 · 3 | 41 / 27.3–78 · 3 | 1.4 / 1.3–1.5 · 2 | passing: 124–158 / all products: 141 / 124–158 · 2 | 147↗
+ROW PP-GF / Polyolefins | ☆ | PASS / 1 of 2 products | passing: 1,120 / all products: 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 139 | 118EUR↗ / out of stock
+ROW PPA-CF / High-Performance Engineering | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,210–1,250 / all products: 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 220 / 197–240 · 5 | 255↗
 ROW PPA-GF · ☆
 ROW PPS-CF · ☆
-ROW PPS-GF · ☆

@@ -169,7 +169,7 @@ test('an impact value is a notched bar of the headline\'s own test, in its unit,
       assert.ok(m.testTemperatureC == null || Math.abs(m.testTemperatureC - def.testTemperatureC) <= 2, `${where} was struck at ${m.testTemperatureC} °C`);
       // Comparable where the bar is the headline's direction, or a printed bar read flat; set apart where no document
       // describes the bar as printed (D172).
-      const setApart = m.direction !== def.direction && m.specimenForm === 'not-stated';
+      const setApart = m.direction !== def.direction && (m.specimenForm === 'not-stated' || m.directionText === 'Stated, not a usable direction');
       assert.equal(v.level, setApart ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, where);
       if (!setApart && m.direction !== def.direction) assert.deepEqual(v.admitted?.includes('direction'), true, `${where} says it was read flat`);
     }

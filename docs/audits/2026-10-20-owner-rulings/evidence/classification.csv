@@ -1379,7 +1379,7 @@ measurementId,group,sourceId,page,property,first,verdict,kind,quote,quotePage,by
 "V013952","G0451","D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1","1","HDT","COUNTER:melt-flow","implied","document","All testing specimens were printed under the following conditions:","2","second pass"
 "V013954","G0452","D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1","1","HDT","COUNTER:melt-flow","set-apart","none","","","second pass (melt flow is no counter; nothing indicates)"
 "V013955","G0452","D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1","1","HDT","COUNTER:melt-flow","set-apart","none","","","second pass (melt flow is no counter; nothing indicates)"
-"V013958","G0453","D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1","1","HDT","IMPLIED:other-document","implied","other-document","All testing specimens were printed under the following conditions: | The specimens of HDT test were annealed at 125 ºC for 16h.","2","first read"
+"V013958","G0453","D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1","1","HDT","IMPLIED:other-document","set-apart","none","","","second pass: Raise3D Industrial PPS CF's description says ""heat resistance (HDT 260 °C)"": a rounded claim in prose, not a row of its tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa"
 "V010290","G0454","D-RAISE3D-Raise3D-Premium-PVA-TDS-V2-1-2021-06","2","Tensile modulus","COUNTER:melt-flow","set-apart","none","","","second pass (melt flow is no counter; nothing indicates)"
 "V010291","G0454","D-RAISE3D-Raise3D-Premium-PVA-TDS-V2-1-2021-06","2","Charpy strength","COUNTER:melt-flow","set-apart","none","","","second pass (melt flow is no counter; nothing indicates)"
 "V010385","G0455","R-RECREUS-Conductive-Filaflex","1","Tensile modulus","NONE","set-apart","none","","","first read"

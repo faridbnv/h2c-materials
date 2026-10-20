@@ -133,7 +133,7 @@ export function changedState(x, v) {
 /** Why a product's value is set apart (its level is as-published, D172), by its headline's caveat. */
 export const LEVEL_NOTE = {
   'not-described': 'Nothing on its document says, even implicitly, that this test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print. It is set apart for good: shown, never used in deciding. The maker\'s word on how the bar was made would settle it.',
-  'unstated-direction': 'The source does not state the specimen orientation, so this may be a moulded or differently oriented bar. It is shown and not used in deciding.',
+  'unstated-direction': 'The source gives no orientation the comparison can use (none, or one such as a 0° or 90° raster that is not a build orientation), so this may be a differently oriented bar. It is shown and not used in deciding.',
   'load-not-stated': 'The source does not state the HDT load. At either load the heat deflection at 0.45 MPa is at least this figure, so it bounds that from below only; it is not used at its value.',
 };
 // A headline drawn in the drawer alone (D139) decides nothing.

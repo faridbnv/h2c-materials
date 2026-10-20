@@ -1,5 +1,7 @@
 # Decision diff: 2d3e20fc5dd5 → d9a3541be7c1
 
+> **Historical record** (2026-10-20): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Across 138 cases: 2 material verdicts moved, 0 listings changed, 2 group changes, 0 rows now shown for another product, 12 product answers moved; the likely tag came or went 4 times (materials and products).
 
 ## Outdoor structural part / leave out

@@ -60,6 +60,8 @@ const says = (sid, quote) => {
   if (!texts.has(sid)) { const c = cachedText(shaOf.get(sid)); texts.set(sid, c ? squash(c.pages.map((pg) => pg.lines.map((l) => l.text).join(' ')).join(' ')) : ''); }
   return texts.get(sid).includes(squash(quote));
 };
+// Values the executor's review of the indicated set took back: a figure in prose, not a row of the document's tests.
+const TAKEN_BACK = new Map([['V013958', 'Raise3D Industrial PPS CF\'s description says "heat resistance (HDT 260 °C)": a rounded claim in prose, not a row of its tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa']]);
 const out = [];
 for (const r of rows) {
   const g = groups.get(r.group);
@@ -70,7 +72,8 @@ for (const r of rows) {
     const doc = DOCUMENT.find(([s, , q]) => s.test(g.sourceId) && says(g.sourceId, q));
     const ownLabel = /\(X-Y\)|（X-Y）/.test(m?.locator ?? '') && m?.property === 'HDT';
     let v;
-    if (counter) v = { verdict: 'set-apart', kind: counter[2], quote: counter[4], quotePage: counter[3], by: 'second pass' };
+    if (TAKEN_BACK.has(id)) v = { verdict: 'set-apart', kind: 'none', quote: '', quotePage: '', by: `second pass: ${TAKEN_BACK.get(id)}` };
+    else if (counter) v = { verdict: 'set-apart', kind: counter[2], quote: counter[4], quotePage: counter[3], by: 'second pass' };
     else if (ownLabel) v = { verdict: 'implied', kind: 'own-label', quote: (m.locator.match(/[^:]*\(X-Y\)|[^:]*（X-Y）/) ?? [''])[0].trim(), quotePage: g.page, by: 'second pass' };
     else if (r.verdict === 'STATED') v = { verdict: 'stated', kind: r.kind, quote: r.quote, quotePage: Number(r.notes.match(/\bp(?:age)?\s?(\d+)/i)?.[1] ?? g.page), by: 'first read' };
     else if (r.verdict === 'IMPLIED') v = { verdict: 'implied', kind: r.kind, quote: r.quote, quotePage: Number((r.kind === 'other-document' && r.notes.match(/\bp(?:age)?\s?(\d+)/i)?.[1]) || g.page), by: 'first read' };
