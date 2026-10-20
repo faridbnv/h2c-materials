@@ -130,6 +130,8 @@ export const RULES = {
   'EST-OUTLIER': r('warn', 'estimates', 'Measured headlines far outside what every other observation predicts.', 'Re-read the source and check the grade is the right product. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
   'TOPIC-UNMAPPED': r('error', 'evidence', 'An evidence topic with no category mapping.', 'Add the topic to schema/vocab/environment-topics.csv with its category.'),
   'FAMILY-ENTRIES': r('info', 'materials', 'Canonical names that are family entries, not candidates.', 'Informational (D44).'),
+  'MATERIAL-RETIRED': r('info', 'materials', 'A material retired from the dataset (Scope Retired): its row and its records are kept in the tables and left out of the build, so no row, search result, page, export or count holds it (D174).', 'Informational. To bring it back, set its Scope and its grades\' Status again, in a migration.'),
+  'MATERIAL-RETIRED-ACTIVE': r('error', 'materials', 'A material retired from the dataset (Scope Retired) still has an active grade: a product filed there would vanish from the build unseen (D174).', 'Retire the grade (npm run data:retire -- grade <GradeID>), or file the product under a material in the dataset, or bring the material back by its Scope.'),
   'NO-MEASUREMENTS': r('warn', 'materials', 'Materials with no property measurements at all.', 'Research a grade with published data. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify).', { reviewed: true }),
 
   // ---- audit (scripts/audit-data.mjs) ---------------------------------------------------------------------

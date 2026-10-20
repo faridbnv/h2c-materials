@@ -8,32 +8,33 @@ Database snapshot 2026-09-21 · build 2026-10-19
 
 | Entity | Records |
 |---|---:|
-| materials | 175 |
+| materials | 172 |
 | h2cRelevant | 135 |
 | familyEntries | 23 |
 | retiredDuplicates | measurements 602, evidence 23, profiles 80 |
-| excluded | 17 |
-| grades | 1184 |
-| measurements | 15051 |
-| numericMeasurements | 14851 |
+| excluded | 14 |
+| grades | 1180 |
+| measurements | 15048 |
+| numericMeasurements | 14848 |
 | quarantined | 43 |
-| profiles | 1906 |
+| profiles | 1901 |
 | evidence | 868 |
 | prices | 374 |
 | sources | 2100 |
 | coverage | 953 |
-| knowHow | 7599 |
+| retired | 3 |
+| knowHow | 7495 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 314 |
-| coverageDerived | 1137 |
+| coverageDerived | 1113 |
 
 ## Headline coverage
 
-What a selection criterion can actually decide, out of 175 canonical materials.
+What a selection criterion can actually decide, out of 172 canonical materials.
 
 | Headline | Materials with a value |
 |---|---:|
-| density | 147 |
+| density | 144 |
 | tensileModulusXY | 100 |
 | tensileModulusZ | 52 |
 | tensileStrengthXY | 106 |
@@ -59,9 +60,9 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | within, at the low end | on the line | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|---:|
-| nozzle | 134 | 3 | 1 | 7 | 0 | 30 |
-| bed | 135 | 1 | 4 | 5 | 0 | 30 |
-| chamber | 97 | 9 | 0 | 8 | 1 | 60 |
+| nozzle | 131 | 3 | 1 | 7 | 0 | 30 |
+| bed | 132 | 1 | 4 | 5 | 0 | 30 |
+| chamber | 95 | 9 | 0 | 8 | 1 | 59 |
 
 A window whose upper end is beyond the H2C is read by how much of it the H2C covers (D151): 5 C or more from its bottom is
 within, at the low end; less, only its bottom edge, is on the line; none of it exceeds. Nozzle, bed and chamber alike.
@@ -98,7 +99,6 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 | CN06 | Family: Fluoropolymers | unknown | reported | 1 | 0 | no | 0 |
 | CN07 | Family: High-Performance Engineering | unknown | reported | 9 | 0 | no | 0 |
 | CN08 | Family: Industrial High-Temperature | unknown | reported | 11 | 9 | no | 0 |
-| CN09 | Family: Metal and Ceramic Sintering | unknown | reported | 1 | 0 | no | 0 |
 | CN10 | Family: Nylon / Polyamide | unknown | reported | 17 | 2 | no | 0 |
 | CN11 | Family: PET Engineering | unknown | reported | 7 | 0 | no | 0 |
 | CN12 | Family: PETG | within | deciding | 22 | 0 | yes | 5 |
@@ -578,11 +578,11 @@ Measured headlines far outside their prediction (worth a second look at the sour
 
 ## Consistency
 
-Every one of the 175 materials was checked, and any failure below stops the build:
+Every one of the 172 materials was checked, and any failure below stops the build:
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (7264 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (7261 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

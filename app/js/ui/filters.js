@@ -302,7 +302,7 @@ function body(group, materials, cs, db, ctx = {}) {
       filter would pass everything. Each material's Printing tab shows what is recorded.</div>`);
   }
 
-  // Which materials a property does not apply to, by family: "elastomers, sintering filaments". The registry's reason
+  // Which materials a property does not apply to, by family: "Flexible Elastomers 12". The registry's reason
   // is a paragraph for the drawer; the rail names who is left out.
   const notApplicableTo = (key) => {
     const fams = new Map();

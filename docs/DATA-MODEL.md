@@ -248,7 +248,8 @@ each retrieved source whose text is not in it (D105).
 {
   id, name, abbreviation, fullName,
   family, basePolymer, modifier, role, scope, h2cStatus, excluded,   // excluded is Scope "Excluded", the one place
-                                 // exclusion is recorded; h2cStatus says how it relates to the printer (m146)
+                                 // exclusion is recorded; h2cStatus says how it relates to the printer (m146); a
+                                 // Scope "Retired" material is never compiled (D174)
   estimateIdentity,              // its row of polymers.csv, or null: declared not estimated (D60, D87)
   variantClass,                  // a commercial variant class (silk, particle-filled), or null
   familyEntry,                   // null, or { kind: 'family' | 'alias', why, members: [{ id, name }] }
@@ -810,6 +811,14 @@ left becomes an alias, whose live coverage findings are superseded by Not applic
 
 The build fails if a family entry owns an active grade, if the mapping and the materials table disagree, or
 if a member is not an in-scope material; a test fails if any data sheet is filed under two materials.
+
+A material can also leave the dataset whole (D174, m468): Scope `Retired`. Its row, its products (each grade retired)
+and every record filed under them stay in the tables as the record of what was read, and their sources stay registered;
+the build reads the tables without them (`build/src/retired.js`, before compile), so no row, search result, drawer,
+page, export or count holds them. A record of another material that points at one of theirs is left in, so the check
+that resolves it stops the build, and an active grade on a retired material is an error (MATERIAL-RETIRED-ACTIVE). The
+metal and ceramic sintering filaments (316L, silicon carbide, alumina) are the ones retired, since 2026-10-20: never
+candidates (D87), they had been shown only to say why they were out.
 
 ## Evidence ownership and coverage
 
