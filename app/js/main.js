@@ -176,7 +176,8 @@ function recompute() {
   // `showEstimates` is the display switch, kept separate from `useEstimates` (the engine's) so the two
   // can diverge later without touching every view.
   state.ctx.useEstimates = scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates;
-  // Which values decide (D84): comparable only unless the reader admits values published without direction or load.
+  // Which values decide: comparable only. The switch that admitted the values set apart is gone (D172), and scenario.js
+  // reads every saved scenario as comparable; the engine's audit lens (`as-published`) is the audit scripts' alone.
   state.ctx.evidence = scenario.evidence ?? 'comparable';
   // The states a product may be judged in (D99): as printed unless annealing is available, dry unless asked otherwise.
   state.ctx.anneal = scenario.anneal === true;
@@ -395,7 +396,6 @@ const actions = {
   // The filter rail is the one place a requirement is set (D108): the chart's requirement lines and its question bar open
   // it, at the property named.
   editRequirements(property = null) { openRequirements(property); },
-  setEvidence(level) { state.scenario.evidence = level; actions.changed(); },
   // Choose a product, or unchoose it (D103): the exact product, the state its answer is in, the release and the day.
   toggleDecision(gradeId) {
     const list = state.scenario.decisions ?? (state.scenario.decisions = []);

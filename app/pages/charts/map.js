@@ -5,7 +5,7 @@
 // (rigid or flexible: material-stats.js mapFrame), so a reader learns them once. Every other material a small grey
 // point; the alternatives (peerSet) larger, in ink, named; this material's median a ring-edged accent dot with its
 // products' middle halves as a cross, and its products (both values compared, not modified) as pale accent points.
-// Where it publishes the two only with no stated orientation, a hollow ring marks those values. x in per cent, y in px.
+// Where it publishes the two only set apart (D172), a hollow ring marks those values. x in per cent, y in px.
 
 import { esc, pct, textPx } from '../html.js';
 import { yOf } from './scale.js';

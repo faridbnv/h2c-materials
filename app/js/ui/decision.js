@@ -54,7 +54,7 @@ function missingWords(m, def) {
     const e = m.elsewhere?.[0];
     return `${what} is published only ${e ? stateWords(e) : 'in another state'}; values are never carried across states`;
   }
-  if (m.reason === 'not-comparable') return `${what} is published without its specimen orientation or test load, so it is not compared`;
+  if (m.reason === 'not-comparable') return `${what} is published only set apart (a test bar not described as printed, or no stated test load or orientation), so it is not compared`;
   if (m.reason === 'not-applicable') return `${what} does not apply to it`;
   return `no comparable ${what} published in this state`;
 }

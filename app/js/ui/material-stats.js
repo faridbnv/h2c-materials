@@ -337,8 +337,8 @@ export function peerSet(db, m, ix, { max = 5 } = {}) {
 /**
  * One material's value of one key property, as the pages draw it: `{ kind: 'compared', median, q1, q3, min, max, n }`
  * from materials[].headline[key] (a measured median, never an estimate) and materials[].summary[key] (quartiles from four
- * products); else `{ kind: 'open', min, max, n }` from summary[key].asPublished (values with no stated orientation or load,
- * not compared); else null.
+ * products); else `{ kind: 'open', min, max, n }` from summary[key].asPublished (values set apart, D172, not compared);
+ * else null.
  */
 export function materialCell(m, key) {
   const e = m.headline?.[key], s = m.summary?.[key] ?? {};

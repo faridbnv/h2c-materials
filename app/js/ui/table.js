@@ -225,16 +225,6 @@ export function variantMark(m, e) {
   return `<span class="row-sub via-variant" title="Only declared variants of this material pass; its standard products do not.">via ${variants.length === 1 ? 'a declared variant' : 'declared variants'} (${[...new Set(variants.map((p) => p.variant))].join(', ')})</span>`;
 }
 
-/** A pass that rests only on values published without their test direction or load says so (PM-05, D84). */
-export function caveatMark(e) {
-  if (e?.verdict !== 'PASS') return '';
-  const passing = (e.products ?? []).filter((p) => p.verdict === 'PASS');
-  const loose = (p) => (p.results ?? []).some((r) => r.status === 'PASS' && r.caveat);
-  if (!passing.length || !passing.every(loose)) return '';
-  const what = [...new Set(passing.flatMap((p) => p.results.filter((r) => r.caveat).map((r) => (r.caveat === 'load-not-stated' ? 'load' : 'orientation'))))].join(' or ');
-  return `<span class="row-sub on-caveat" title="Every passing product passes on a value published without its test ${what}; it counts because Data quality includes such values.">on values with no stated ${what}</span>`;
-}
-
 /**
  * A typical value measured after annealing or conditioning, under a header that judges as printed and dry (PM-06): the
  * drawer's square on the median's line, filled for annealed, open for conditioned, with the legend's entry and its title
@@ -392,7 +382,7 @@ export function renderTable(host, state, actions) {
         // Drawn only once a requirement is set (visibleColumns): before that the table has no Result column.
         return ghost
           ? `<td class="state">${BASELINE_CHIP}</td>`
-          : `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('hidden', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${humidMark(m, e, state)}${unknownMark(e)}${failMark(e)}</td>`;
+          : `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('hidden', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${humidMark(m, e, state)}${unknownMark(e)}${failMark(e)}</td>`;
       }
       if (c.kind === 'pin') {
         if (ghost) return `<td class="pin-col"></td>`;
@@ -527,7 +517,7 @@ export function renderTable(host, state, actions) {
       'A value from one measurement: one product publishes it, or it is a product\'s own value. Select it for its test conditions and source page.',
       { cls: 'lg', head: 'One measurement' }),
     explainButton('<span class="related-mark">*</span> published, not comparable',
-      'Published for this material, but no product reports it on a comparable basis: its test bar is not described as printed (for heat deflection, of a plastic that can crystallise), or it is another load, state, bar or endpoint. A requirement reads it only through a conversion row of the evidence ledger, in that row\'s one safe direction, and its answer then names the row. Select a starred value for the reason.',
+      'Published for this material, but no product reports it on a comparable basis: its test bar is not described as printed (a heat deflection counts all the same where the plastic cannot crystallise and its document points to no moulded bar), or it is another load, state, bar or endpoint. A requirement reads it only through a conversion row of the evidence ledger, in that row\'s one safe direction, and its answer then names the row. Select a starred value for the reason.',
       { cls: 'lg', head: 'Published, not comparable' }),
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
       `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass, and it hides one only where the material has no product on record; any other material is judged on its products' own values. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,
@@ -838,7 +828,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
   const header = [
     '# H2C Material Selector: products of the materials on screen',
     `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
-    '# a value is comparable (printed or unstated specimen, stated direction, dry or unstated, at the load) or as-published (direction or load not stated)',
+    '# a value is comparable (a printed bar, said or implied, read flat where it states no orientation, or for heat deflection an undescribed bar of a plastic that cannot crystallise, D177; dry or unstated; at the load) or as-published (set apart: a bar no document describes as printed, or no stated load)',
     ...(scenario?.constraints ?? []).map((c) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`),
     ...(scenario ? [`# products judged ${stateWords(scenario)} (D99)`] : []),
   ];

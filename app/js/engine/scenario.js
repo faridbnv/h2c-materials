@@ -48,7 +48,8 @@ export function newScenario(meta) {
     // The goal the survivors are ranked by: a performance index, computed product by product (D83), or none. Since D107 it
     // is also the chart's goal: its line, its axes and its result list.
     rankBy: null,
-    // Which values decide: comparable only, or also those published without their direction or load (D84).
+    // Which values decide: comparable only. The switch that admitted the values set apart is gone (D172); a saved
+    // scenario's other level is read as comparable, with a warning.
     evidence: 'comparable',
     // The states a product may be judged in (D99): used as printed unless annealing is available (up to an oven
     // temperature, or any), and asked about dry unless the part will live conditioned by the air's moisture.

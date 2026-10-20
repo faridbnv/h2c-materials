@@ -279,7 +279,8 @@ needs its release's material pages zip unzipped beside it for the links to open.
 ## A material is the spread of its products
 
 A material such as PLA is not one number: its nearly two hundred products differ. Each product's own values are chosen from
-its own documents by a fixed rule (a printed bar, or one its document implies was printed; the column's direction, read
+its own documents by a fixed rule (a printed bar, or one its document implies was printed, and for a heat deflection of
+a plastic that cannot crystallise any bar its document does not tie to moulding, D177; the column's direction, read
 flat where a printed bar states none; dry or unstated; as printed; from the product's best document, its data sheet
 before a product page and a newer edition before an older one: D171, D172), and a material's cell shows **the typical
 value of its products (their median), with their range and how many products under it**: `2.58` over `0.95–4.24 · 61`
@@ -347,7 +348,8 @@ printed, even implicitly, is set apart for good (D172): it may be a moulded bar'
 or more, 2026-10-20). It is shown and counted apart, never compared, and no switch admits it. The exception is a heat
 deflection of a plastic that cannot crystallise (ABS, ASA, PC, PETG and the like): a glassy bar deflects near its glass
 transition however it was made, so it counts, unless its table points to a moulded or resin bar; a plastic that can
-crystallise (nylon, PP, and PLA and PET, which print glassy) may read tens of degrees hotter moulded, and stays apart
+crystallise (nylon, PP, and PLA and PET, which print glassy) may read tens of degrees hotter moulded, and stays apart,
+as does one not known to (a support material, CoPE), a foamed print or a variant that does not print as its type
 (D177). A heat deflection whose
 source states no load is counted apart too; a printed bar's unloaded value only bounds the 0.45 MPa value from below
 (through the evidence ledger). The layer strength never counts a value with no stated direction: a bar pulled in an

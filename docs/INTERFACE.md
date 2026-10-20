@@ -1413,8 +1413,8 @@ it draws each passing product in the state its answer is in, since D108 Material
 passing products, and since D112 Material typicals is one dot per material. Compare draws each material's product range
 behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
 print settings and verdict. Under Data quality a line counts the product values set apart (D172): a test bar no
-document describes as printed (a heat deflection of a plastic that cannot crystallise is judged all the same, D177), or a
-heat deflection with no stated load; the drawer's product detail and the material
+document describes as printed (a heat deflection of a plastic that cannot crystallise is judged all the same, unless its
+document points to a moulded or resin bar, D177), or a heat deflection with no stated load; the drawer's product detail and the material
 pages' product cards name each one, and a figure a newer edition or the data sheet replaced (D171), small, as not used
 in deciding.
 

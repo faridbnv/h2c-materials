@@ -13,17 +13,19 @@
 // products pass. A material's headline is what the table, the chart and the export show for it; it decides nothing,
 // and no one chooses it: until phase 4 it was one hand-picked measurement of a "representative grade".
 //
-// Two evidence levels (D84). A value is "comparable" when it is what the headline says it is: a printed or unstated
-// specimen, the headline's direction, dry or unstated, at the headline's load. It is "as published" when the source
-// leaves the direction or the load unstated: Spectrum's and Fiberlogy's "ISO 527" rows name no specimen orientation,
-// and read like moulded bars (30 of 46 such PLA values reach 3 GPa; of 27 PLA products stating XY, none does). It is
-// shown with its own count and decides only when the reader asks. What the headline is not (a Z, film or moulded
+// Two evidence levels (D84, D172). A value is "comparable" when it is what the headline says it is: a printed bar, said
+// or implied by its document and read flat where it states no orientation (an unstated specimen for a property that is
+// not a bar's, and for heat deflection an undescribed bar of a plastic that cannot crystallise, D177), the headline's
+// direction, dry or unstated, at the headline's load. It is "as published", set apart for good, when no document
+// describes its bar as printed, or a heat deflection states no load: Spectrum's and Fiberlogy's "ISO 527" rows describe
+// no bar, and read like moulded bars (30 of 46 such PLA values reached 3 GPa; of 27 PLA products stating XY, none did). It
+// is shown with its own count and never decides (the engine's audit lens alone admits it). What the headline is not (a Z, film or moulded
 // value, a conditioned or implausible one, one annealed where the product publishes it as printed) is no product
 // value at all, and stays evidence in the drawer.
 //
 // A headline may set more of what it is (D92), each a column of headline_definitions.csv: a notch (the notched impact
 // strength takes only a bar stated to be notched), a test temperature (and no bar struck away from 23 ± 2 °C), and
-// whether a value with no stated direction is as published or none of its values (the layer strength, along Z, takes
+// whether a value with no stated direction is read flat where its bar is printed (D172) or none of its values (the layer strength, along Z, takes
 // only a bar the source says it pulled along Z). And a test standard (D94): the notched Izod strength takes no value that
 // names ASTM D256 and not ISO 180.
 //
@@ -702,8 +704,9 @@ const QUARTILES_FROM = 4;
 
 /**
  * A material's spread for one headline, over its procurement products that are not declared variants. `n` counts the
- * comparable values, and the range, quartiles and typical product are theirs; values published without the direction
- * or load are counted apart, and so are the variants, whose values describe the product, not the polymer (D57).
+ * comparable values, and the range, quartiles and typical product are theirs; the values set apart (a bar no document
+ * describes as printed, or no stated load, D172) are counted apart, and so are the variants, whose values describe the
+ * product, not the polymer (D57).
  *
  * A twin counts (D89): it is a product of its own, sold under its own name, and its own sheet prints the table its
  * sibling's does. `twins` says how many of the comparable values are read that way.

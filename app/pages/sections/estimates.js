@@ -1,4 +1,4 @@
-// Estimated values: only where a key figure is missing or published only without a stated orientation or load. Each
+// Estimated values: only where a key figure is missing or published only set apart (D172). Each
 // key property the build's estimate stage gives a range for (materials[].headline[key].estimate) and each estimated
 // print window (materials[].print.*Estimate), in one table: the likely range (80 %), the plausible range (95 %), how
 // precise it is, and how it sits beside what the products publish (materials[].summary[key].asPublished). Fenced off and

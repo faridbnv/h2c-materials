@@ -19,7 +19,7 @@ export const LINT_RULES = {
   'VOCAB-NEAR-DUPLICATE': 'Values that differ only in case, spacing or punctuation in a short-list column that is not raw source text; pick one spelling.',
   'MEAS-DUPLICATE': 'Two active measurements with the same grade, property, value, unit, direction, conditions, source and locator; retire the copy.',
   'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
-  'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
+  'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement whose Direction is Not published, which nobody has checked: since D172 a printed bar with no stated orientation is read flat and backs the XY headline, so an orientation its sheet does state (a Z or edge bar) would be read as XY. Re-read the sheet and record the orientation it states, or Unstated where it states none.',
   'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY. A thermal or physical row recorded with no direction (Not applicable) is left alone: there the locator names how the bar was printed.',
   'MEAS-PHYSICS-HDT-LOADS': 'One formulation and state publish HDT at 0.45 MPa below HDT at 1.8 MPa, on one document or across its documents and its twins\' sheets (D149); a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, hold back a value whose load the documents dispute, or accept with the reason (two revisions that each order the pair, a one-degree inversion within the test\'s repeatability).',
   'MEAS-PHYSICS-HDT-TG': 'A glassy polymer\'s HDT at 0.45 MPa more than the margin of physical_relations.csv above its own sheet\'s glass transition, on a bar not annealed (D149). A glassy bar loses its stiffness at its glass transition, so as printed it cannot hold the load much above it: the value is an annealed, crystallised or moulded bar\'s, or a misprint. Re-read the page: record the state it states (annealed, moulded); where it states none, flag it Published value (physically implausible); where it shows the grade crystallising as it prints (a crystallisation and melting point beside an as-printed value), accept with that reason.',
@@ -256,6 +256,8 @@ export function lintData(tables, schemas) {
     for (const r of rows.slice(1)) add('MEAS-CONDITIONS-INDISTINCT', 'measurements', r.MeasurementID, '', `${r.Property} ${r['Normalized value']} vs ${rows[0].MeasurementID} ${rows[0]['Normalized value']} (${r.SourceID}, ${r.Locator})`);
   }
 
+  // A printed bar with no direction is read flat (D172), so one whose sheet nobody has checked for an orientation (Not
+  // published, not the reviewed Unstated) could be an upright bar read as XY.
   const mechanical = new Set((tables.properties?.rows ?? []).filter((p) => p.Domain === 'mechanical').map((p) => p.Property));
   for (const r of measurements) {
     if (mechanical.has(r.Property) && /^Printed specimen/.test(r['Specimen type'] ?? '') && r.Direction === 'Not published' && /^Published value/.test(r['Data status'])) {

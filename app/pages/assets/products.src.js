@@ -2,8 +2,8 @@
    (tables-asset.js strips its comments). Without it every list reads in full. It adds:
    - on a Products page, a search over product and maker, and one sort: most documented (the page's own order), by name,
      or by a column in its one direction (a property high first; price and the print settings low first). Sorting by a
-     column groups the list, in this order: compared values; values shown and not compared (no stated orientation or
-     load, Izod in Charpy's place, a setting from Bambu Lab's guide); products that publish none. The sorted column alone
+     column groups the list, in this order: compared values; values shown and not compared (set apart: a test bar not
+     described as printed or no stated load, Izod in Charpy's place, a setting from Bambu Lab's guide); products that publish none. The sorted column alone
      draws its values as bars. Sorting never hides a product; the search never reorders; the count says what is shown;
    - on the index, a search over every material's names; a name that is not a material shows where it leads
      ("PLA Matte → PLA") while it matches.

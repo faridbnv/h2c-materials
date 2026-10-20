@@ -31,18 +31,39 @@ export function keyFiguresBasis(c) {
   const apart = variants && toughened ? 'Products with an added filler or additive, and for notched impact those sold as toughened, are shown but kept out of the medians.'
     : variants ? 'Products with an added filler or additive are shown but kept out of the medians.'
       : toughened ? 'For notched impact, products sold as toughened are shown but kept out of the median.' : '';
-  return ['Each figure is the median of the products that publish it comparably, and beside it the middle half of them; a value on a test bar no document describes as printed, or with no stated test load, is set apart, except a heat deflection of a plastic that cannot crystallise, which its glass transition sets whatever the bar.', apart].filter(Boolean).join(' ');
+  return ['Each figure is the median of the products that publish it comparably, and beside it the middle half of them; a value on a test bar no document describes as printed, or with no stated test load, is set apart, except a heat deflection of a plastic that cannot crystallise, which its glass transition sets, unless its document points to a moulded or resin bar.', apart].filter(Boolean).join(' ');
 }
 
-/** Why the values published cannot be ranked, said once: "No sheet states how its tensile bars were printed, so …". */
-function openReason(t) {
+// What sets a key figure's published values apart (D172), from its products' own values as the median reads them (a
+// declared variant's apart, unless the material has nothing else): the caveats, and the words for one or several.
+const SET_APART = { 'not-described': 'on test bars no document describes as printed', 'load-not-stated': 'with no stated test load', 'unstated-direction': 'with no usable orientation stated' };
+function caveatsOf(x, c) {
+  const products = productsOf(c);
+  const plainOnes = products.filter((g) => !g.variant);
+  return new Set((plainOnes.length ? plainOnes : products).map((g) => g.headline?.[x.key]).filter((v) => v?.level === 'as-published').map((v) => v.caveat));
+}
+const setApartPhrase = (xs, c) => [...new Set(xs.flatMap((x) => [...caveatsOf(x, c)]))].map((k) => SET_APART[k]).filter(Boolean).join(', or ') || 'set apart';
+
+/**
+ * Why the values published cannot be ranked, said once, from what sets them apart: "No document describes its tensile
+ * bars as printed, so …", "No sheet states the test load of its HDT at 0.45 MPa, so …".
+ */
+function openReason(t, c) {
   if (!t.openOnly.length) return null;
-  const dir = t.openOnly.filter((x) => x.h.direction), load = t.openOnly.filter((x) => !x.h.direction);
-  const tests = [...new Set(dir.map((x) => (/tensile|elongation/i.test(x.h.labels.plain) ? 'tensile' : /flexural/i.test(x.h.labels.plain) ? 'flexural' : 'test')))];
-  const parts = [];
-  if (dir.length) parts.push(`No sheet states how its ${andList(tests)} bars were printed, so ${names(dir)} ${isAre(dir)} shown as published and not ranked against other materials.`);
-  if (load.length) parts.push(`No sheet states the test load of its ${names(load)}, so ${load.length === 1 ? 'it is' : 'they are'} shown as published and not ranked against other materials.`);
-  return parts.join(' ');
+  const why = (x) => { const cs = caveatsOf(x, c); return cs.size === 1 ? [...cs][0] : 'mixed'; };
+  const test = (x) => {
+    const l = x.h.labels.plain;
+    return /tensile|elongation/i.test(l) ? 'tensile' : /flexural/i.test(l) ? 'flexural' : /impact/i.test(l) ? 'impact' : /HDT|heat/i.test(l) ? 'heat deflection' : 'test';
+  };
+  const bars = (xs) => andList([...new Set(xs.map(test))]);
+  const shown = (xs) => `${xs.length === 1 ? 'it is' : 'they are'} shown as published and not ranked against other materials.`;
+  const groups = new Map();
+  for (const x of t.openOnly) groups.set(why(x), [...(groups.get(why(x)) ?? []), x]);
+  return [...groups].map(([kind, xs]) => ({
+    'not-described': `No document describes its ${bars(xs)} bars as printed, so ${names(xs)} ${isAre(xs)} shown as published and not ranked against other materials.`,
+    'load-not-stated': `No sheet states the test load of its ${names(xs)}, so ${shown(xs)}`,
+    'unstated-direction': `No sheet states a usable orientation for its ${bars(xs)} bars, so ${names(xs)} ${isAre(xs)} shown as published and not ranked against other materials.`,
+  }[kind] ?? `${cap(names(xs))} ${isAre(xs)} published only ${setApartPhrase(xs, c)}, so ${shown(xs)}`)).join(' ');
 }
 
 /** The makers whose documents give the values: "two makers' documents: Spectrum's, which FormFutura AthenaX GF10 shares, and Fiberlogy's". */
@@ -69,11 +90,11 @@ export function evidenceLine(c) {
     const restsOnAll = byN.map((g, i) => (g.length === 1 ? (i ? say`${inText(g[0].h.labels.plain)} on ${plural(g[0].n, 'product')}` : restsOn(g[0]))
       : say`${names(g)} ${i ? 'on' : 'rest on'} ${plural(g[0].n, 'product')} each`));
     const parts = [...restsOnAll, t.missing.length ? plain(`${names(t.missing)} ${isAre(t.missing)} not published`) : null,
-      t.openOnly.length ? plain(`${names(t.openOnly)} ${t.openOnly.length === 1 ? 'is' : 'are'} published only on test bars no document describes as printed, or with no stated test load`) : null].filter(Boolean);
+      t.openOnly.length ? plain(`${names(t.openOnly)} ${t.openOnly.length === 1 ? 'is' : 'are'} published only ${setApartPhrase(t.openOnly, c)}`) : null].filter(Boolean);
     body = joinSay([say`${capSay(andSay(parts))}.`, keyFiguresBasis(c)]);
   } else {
     const word = t.makers.length <= 1 ? 'one sheet\'s word' : t.makers.length === 2 ? 'one or two sheets\' word' : 'a few sheets\' word';
-    body = joinSay([`${cap(nWords(t.products, 'product'))}, with values from ${makersWords(t)}.`, openReason(t), t.ranked.length ? `Read each figure as ${word}.` : null]);
+    body = joinSay([`${cap(nWords(t.products, 'product'))}, with values from ${makersWords(t)}.`, openReason(t, c), t.ranked.length ? `Read each figure as ${word}.` : null]);
   }
   return { ...body, tier: t.tier, head: EVIDENCE_HEADS[t.tier], facts: t, toString() { return `${EVIDENCE_HEADS[t.tier]}: ${body.text}`; } };
 }

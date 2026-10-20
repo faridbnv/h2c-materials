@@ -572,7 +572,7 @@ density, glass transition or hardness, D172; not a bar printed off the product's
 publishes the property as printed, of the headline's notch and at its test temperature where it sets them (D92), to
 its standard where it names one and the value names others (D94), and in the headline's direction and at its load
 ("comparable"; a printed bar that states no orientation is read flat, D172). A bar no document describes as printed is
-set apart for good, but for a heat deflection of a plastic that cannot crystallise whose table points to no moulded or
+set apart for good, except a heat deflection of a plastic that cannot crystallise whose table points to no moulded or
 resin bar, which counts (headline_definitions.csv Undescribed bar counts for, D177), and a heat deflection with no stated
 load is counted apart ("as published", D84, D172). The layer
 strength takes no value whose direction is unstated: its Unstated direction is `excluded`. A figure a better document
@@ -613,8 +613,10 @@ Compile also derives, each tagged with its origin so the interface can tell them
 - **Implied bounds** for headlines with no value: the material's own printed measurements that bound the headline from
   below (a yield or break strength under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa
   under 0.45 MPa), at their published value. They veto a screen that would be wrong and limit the estimate (D55).
-  A printed bar bounds it, in any direction, and so does one whose source states no specimen (D126), except where the
-  headline takes printed bars only (Lower bound specimens: elongation, D161, and the tensile strength and heat deflection at 0.45 MPa, D172, an undescribed heat deflection of a plastic that cannot crystallise read as printed, D177); a moulded, film,
+  A printed bar bounds it, in any direction. The three headlines that have a lower bound, elongation, tensile strength
+  and heat deflection at 0.45 MPa, take printed bars only (Lower bound specimens: D161, D172), so a bar no document
+  describes as printed bounds nothing, except a heat deflection of a plastic that cannot crystallise, read as printed
+  (D177); the column's other value, printed or not stated (D126), no headline uses now. A moulded, film,
   filament or off-recipe specimen, an annealed twin beside an as-printed value and a conditioned elongation bound
   nothing. `lower-bounds.js` is the one rule, and `physical_relations.csv` is the list of orderings it projects.
 - **The evidence ledger** (`evidence-ledger.js`, D153, D154), at the end of the product step: for each product state with
@@ -690,9 +692,10 @@ strength is at least the yield and break stress, a strain at break at least the 
 least HDT at 1.8 MPa) floors the estimates built on it. A grade's range is floored at the highest floor its own
 formulation proves. A material's range is the spread of its products, so it must contain every product's floor: its upper
 ends reach the highest product floor, and its lower ends are floored at the lowest only when every active product has one.
-An undescribed bar floors every headline but elongation, the tensile strength and heat deflection at 0.45 MPa, which a printed bar alone
-floors (D161, D172; for heat deflection, an undescribed bar of a plastic that cannot crystallise too, D177): an undescribed bar's stretch
-reads like a moulded one's and held 428 estimates at a floor their printed part need not reach (D161). From both sides,
+Only three headlines have a floor, elongation, tensile strength and heat deflection at 0.45 MPa, and a printed bar alone
+floors them (D161, D172), so an undescribed bar floors nothing, except a heat deflection of a plastic that cannot
+crystallise, read as printed (D177). An undescribed bar's stretch reads like a moulded one's, and held 428 estimates at
+a floor their printed part need not reach (D161). From both sides,
 a product's own values of the property measured another way (another direction, load, specimen or state) hold its own
 estimate inside the band they allow, each converted within its conversion's spread, widened per side by a scale the grade
 calibration sets (`anchor.js`, estimate-model.json ownAnchor, D167, replacing D160's one-sided ceiling); where its own

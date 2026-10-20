@@ -462,14 +462,14 @@ export function toughenedClaim(g, c) {
   return { claim, statement: k ?? null, where };
 }
 
-/** A dot's marks: 'open' (no stated orientation or load), 'annealed', 'variant' (a special formulation), 'claimed' (sold as
+/** A dot's marks: 'open' (set apart, D172), 'annealed', 'variant' (a special formulation), 'claimed' (sold as
  *  toughened, on a headline that says so); [] for a plain dot. */
 export const dotMarks = (h, e, c) => [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '',
   h.toughened && soldToughened(e.g, e.v, c) ? 'claimed' : ''].filter(Boolean);
 
 /**
  * Why a product's dot is not in its row's median, or null where it is: the build's split of the spread (products.js
- * summarise), a variant first ('variant'), then a value with no stated orientation or load ('as-published'), then one
+ * summarise), a variant first ('variant'), then a value set apart ('as-published', D172), then one
  * sold as toughened where the headline sets those apart ('toughened'; only a comparable one is). `s` is the row's
  * materials[].summary entry. material-words.js outOfMedianWords says it.
  */

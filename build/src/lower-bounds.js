@@ -6,12 +6,12 @@
 
 import { annealedBesideAsPrinted, countsUndescribed } from './normalize/specimen.js';
 
-// Which specimens bound a headline (D126). A printed bar does, and so does one whose sheet states no specimen: D84 lets
-// that value decide a product's headline, so a stricter reading here left an estimate beside the sheet's own number. A
-// bar the source states is moulded, a drawn film, a filament strand or printed off the product's recipe is another
-// specimen (ASTM D882 film strengths once kept PLA a candidate for 140 MPa) and bounds nothing. A headline may take
-// printed bars only (headline_definitions.csv Lower bound specimens): elongation does, since an undescribed bar's stretch
-// reads like a moulded one's (D161). This is the default where the registry says nothing.
+// Which specimens bound a headline (D126). A printed bar does; a bar the source states is moulded, a drawn film, a
+// filament strand or printed off the product's recipe is another specimen (ASTM D882 film strengths once kept PLA a
+// candidate for 140 MPa) and bounds nothing. D126 let a bar whose sheet states no specimen bound too, the default here
+// where the registry says nothing; every headline with a lower bound now takes printed bars only (headline_definitions.csv
+// Lower bound specimens): elongation since D161, tensile strength and heat deflection at 0.45 MPa since D172, an
+// undescribed bar being possibly a moulded one, and a heat deflection D177 counts is read as printed (below).
 export const BOUNDING_FORMS = ['printed', 'not-stated'];
 // The rule before D126, kept only for the back-test that measures what admitting the unstated specimen changed.
 export const PRINTED_FORMS = ['printed'];

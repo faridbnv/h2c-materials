@@ -224,8 +224,9 @@ export function compileRegistry(wb, issues) {
  * What a drawer comparison must be to be drawn as one heading on one tab (D139, D140): its caption written, and its note
  * where it names one, two headlines or more, their properties and the ones it lists in one domain and in no other
  * comparison, a pair where it names one; and a headline drawn in the drawer alone must be drawn there, and must hold no
- * value a decision could read: none estimated, none in the table, no bound and no reference envelope. Its values with no
- * stated orientation are drawn hollow and counted apart, as a selectable headline's are, and never reach a decision.
+ * value a decision could read: none estimated, none in the table, no bound and no reference envelope. Its values set
+ * apart (a bar no document describes as printed, D172) are drawn hollow and counted apart, as a selectable headline's
+ * are, and never reach a decision.
  */
 function checkComparisons(comparisons, headlines, { captions, propertyByName, err }) {
   const owner = new Map();

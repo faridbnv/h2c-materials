@@ -13,6 +13,7 @@ import { esc, pct, textPx, fmtDisplay, NBSP, beyond, headline, shortName, withUn
 import { sheetCode } from '../records/common.js';
 import { figFrame } from './figure.js';
 import { spreadEntries, dotMarks } from '../../js/ui/material-facts.js';
+import { setApartWords } from '../../js/ui/material-words.js';
 import { widestSpread, propertyScale, isFlexible } from '../../js/ui/material-stats.js';
 import { zoomScale } from '../../js/ui/scales.js';
 import { STRIP_MIN, inStrip } from '../figures.js';
@@ -159,8 +160,14 @@ export function stripsFigure(c, env = {}, keys = [], opts = {}) {
   ]), { numeric: false });
   const missing = keys.filter((key) => !rows.some((r) => r.h.key === key) && !spreadEntries(m, c, key).length).map((key) => headline(key)).filter(Boolean).map(inText);
   const few = keys.filter((key) => !rows.some((r) => r.h.key === key) && spreadEntries(m, c, key).length).map((key) => headline(key)).filter(Boolean).map(inText);
-  const openOnly = rows.filter((r) => !r.n).map((r) => inText(r.h));
-  const leaves = [missing.length ? `No ${name} product publishes ${orList(missing)}.` : '', few.length ? `Fewer than ${STRIP_MIN} publish ${orList(few)}, so ${few.length > 1 ? 'they are' : 'it is'} not drawn.` : '', openOnly.length ? `Its ${andList(openOnly)} ${openOnly.length > 1 ? 'are' : 'is'} published with no stated orientation, so no median is drawn.` : '']
+  // A strip with no ranked product: what sets its values apart (D172), grouped so each reason is said once.
+  const openWhy = new Map();
+  for (const r of rows.filter((x) => !x.n)) {
+    const why = orList([...new Set(r.entries.filter((e) => !e.variant && e.v.level === 'as-published').map((e) => setApartWords(e.v.caveat, r.h)))]);
+    openWhy.set(why, [...(openWhy.get(why) ?? []), inText(r.h)]);
+  }
+  const openLeaves = [...openWhy].map(([why, hs]) => `Its ${andList(hs)} ${hs.length > 1 ? 'are' : 'is'} set apart${why ? ` (${why})` : ''}, so no median is drawn.`).join(' ');
+  const leaves = [missing.length ? `No ${name} product publishes ${orList(missing)}.` : '', few.length ? `Fewer than ${STRIP_MIN} publish ${orList(few)}, so ${few.length > 1 ? 'they are' : 'it is'} not drawn.` : '', openLeaves]
     .filter(Boolean).join(' ') || `Every ${name} product that publishes these values is drawn; each value, with its document and conditions, is on the Products page.`;
   const html = figFrame({
     slug: `products-${id}`, kind: `strips-${id}`, title: titleOf(id, m, rows, total), question: QUESTIONS[id] ?? 'How do its products spread?',

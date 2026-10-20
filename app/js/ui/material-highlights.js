@@ -18,7 +18,7 @@ export const productsOf = (c) => c.grades.filter((g) => isProduct(g) && !g.retir
  * How well documented a material is, from its key figures (materials[].summary[key].n and .asPublished), its products
  * and the documents that give it values: `{ tier: 'well' | 'partly' | 'thinly', products, tiles: [{ key, h, n,
  * asPublished }], weak (tiles under five products, fewest first), missing (tiles nothing publishes), openOnly (tiles
- * published only without a stated orientation or load), makers: [{ maker, readers: [product names sharing its sheet] }]
+ * published only set apart: a test bar not described as printed, or no stated load), makers: [{ maker, readers: [product names sharing its sheet] }]
  * (the makers whose documents give a number), documents, publishers, dataSheets }`.
  *
  * Well: every key figure rests on five products or more. Thinly: three products or fewer, or fewer than two key figures

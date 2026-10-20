@@ -414,8 +414,9 @@ function body(group, materials, cs, db, ctx = {}) {
     const setApart = db.grades.reduce((n, gr) => n + Object.entries(gr.headline ?? {}).filter(([k, v]) => selectable.has(k) && v.level === 'as-published').length, 0);
     out.push(`<div class="note">${setApart} product values are shown and never judged: nothing on their documents says, even
       implicitly, that the test bar was printed (many are moulded bars, stiffer and stronger than a print), or a heat
-      deflection gives no test load. A heat deflection of a plastic that cannot crystallise is judged whatever its bar,
-      since its glass transition sets it. Each product's drawer names them.</div>`);
+      deflection gives no test load. A heat deflection of a plastic that cannot crystallise is judged all the same, since
+      its glass transition sets it, unless its document points to a moulded or resin bar. Each product's drawer names
+      them.</div>`);
   }
 
   return out.join('');

@@ -12,9 +12,10 @@
 export const SHARE = { ALL: 'all', SOME: 'some', NONE: 'none' };
 
 /**
- * Which values may decide. `comparable` (the default) is a printed or unstated specimen, the headline's direction,
- * dry or unstated, at its load; `as-published` also admits values whose source leaves the direction or the load
- * unstated, which read like moulded bars and flatter a printed part (D84).
+ * Which values may decide. `comparable` (the selector's, always) is a printed bar, said or implied by its document and
+ * read flat where it states no orientation (an unstated specimen for a property that is not a bar's), the headline's
+ * direction, dry or unstated, at its load (D172, D177); `as-published` is the engine's audit lens (`audit:gaps`), which
+ * also admits the values set apart: a bar no document describes as printed, or no stated load (D84, D172).
  */
 export const EVIDENCE = { COMPARABLE: 'comparable', AS_PUBLISHED: 'as-published' };
 export const normalizeEvidence = (v) => (v === EVIDENCE.AS_PUBLISHED ? EVIDENCE.AS_PUBLISHED : EVIDENCE.COMPARABLE);

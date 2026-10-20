@@ -229,7 +229,7 @@ function evaluateNumeric(material, c, ctx = {}) {
         ? `Published ${v} on a test bar its document does not describe as printed (nothing on it says, even implicitly, that the bar was printed), so it is set apart and never used to pass${withheld}; the maker's word on how the bar was made, or a printed coupon, settles it`
         : h.asPublished.caveat === 'load-not-stated'
           ? `Published ${v} without the test load, so it is not used at its value: at either load it shows only that the heat deflection at 0.45 MPa is at least ${v}${withheld}`
-          : `Published ${v} without the specimen orientation, so it is not used${withheld}`;
+          : `Published ${v} without a usable specimen orientation, so it is not used${withheld}`;
       return { status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished, reason: withNote(why, known) };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
@@ -276,8 +276,9 @@ function evaluateNumeric(material, c, ctx = {}) {
     reason = h.assumption
       ? `Assumed ${fmtWords(h.value)} ${h.unit} (a scenario assumption, not published)`
       : `Published ${bound ? `${bound.words} ` : ''}${fmtWords(h.value)}${band ? ` ± ${fmtWords(h.uncertainty)}` : ''} ${h.unit}`;
-    // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
-    if (h.caveat) reason += `, test ${h.caveat === 'load-not-stated' ? 'load' : 'orientation'} not stated`;
+    // A value set apart (a bar no document describes as printed, a load or a usable orientation not stated: D172) decides
+    // only under the engine's audit lens (`audit:gaps`); the selector never admits it.
+    if (h.caveat) reason += `, ${CAVEAT_WORDS[h.caveat] ?? 'set apart'}`;
     // The orientation and the method it was measured to, in one bracket: a pooled method is not an equal one.
     const paren = [!h.caveat && h.direction && h.direction !== 'not-applicable' ? h.direction : null, ...(h.standards ?? [])].filter(Boolean);
     if (paren.length) reason += ` (${paren.join(', ')})`;
@@ -289,7 +290,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     if (onTheLine) {
       reason += `, just ${margin.atLeast ? 'under' : 'over'} ${fmtWords(c.value)} ${h.unit}: ${closeToLimit ? 'close to the limit, inside its published scatter and' : 'within'} the test scatter (${margin.words}), so on the line; one test bar or a word with the maker settles it`;
     }
-    if (h.caveat) reason += '. Used because Data quality includes such values';
+    if (h.caveat) reason += '. Used only because the audit lens admits values the selector sets apart';
     // What the screening policy admitted unstated (GOALS 2026-09-28, decision 5).
     if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated${h.admitted.includes('direction') ? '; a printed bar is read as a flat one' : ''}${h.admitted.includes('bar') ? '; it counts all the same, since a plastic that cannot crystallise deflects near its glass transition whether its bar was moulded or printed' : ''}`;
     if (thinMargin) {
@@ -311,13 +312,14 @@ function evaluateNumeric(material, c, ctx = {}) {
     measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
     direction: h.direction,
     ...(h.admitted?.length ? { admitted: h.admitted } : {}),
-    // A pass on a value published without its test direction or load, counted because the reader admitted those (D84):
-    // the row says so (the PM trial of 2026-10-01, PM-05).
+    // A pass on a value set apart, which only the audit lens admits (D172): the result says which caveat it carries.
     ...(h.caveat ? { caveat: h.caveat } : {}),
   };
 }
 
 const ADMITTED_WORDS = { direction: 'orientation', specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing', bar: 'how the test bar was made' };
+// Why a value is set apart (D172), in a reason's words.
+const CAVEAT_WORDS = { 'not-described': 'on a test bar not described as printed', 'load-not-stated': 'test load not stated', 'unstated-direction': 'no usable test orientation stated' };
 
 // A headline's test scatter (D152): how far one maker's published figure moves between its own bars and sheets, from the
 // registry the context carries (headline_definitions.csv Test scatter), or null where it has none or the context no
@@ -967,7 +969,7 @@ function openOne(r, ctx) {
     }
     if (Number.isFinite(r.observed)) return `${prop}: ${lowerFirst(firstSentence(r.reason))}`;
     if (r.missing === 'not-available-in-market') return 'no price in the sampled shops';
-    if (r.asPublished) return `${prop} published without its test ${r.asPublished.caveat === 'load-not-stated' ? 'load' : 'orientation'}`;
+    if (r.asPublished) return `${prop} published ${r.asPublished.caveat === 'not-described' ? 'only on a test bar not described as printed' : `without ${r.asPublished.caveat === 'load-not-stated' ? 'its test load' : 'a usable test orientation'}`}`;
     if (r.elsewhere?.length) return `${prop} published only in another state`;
     return `${prop} not published`;
   }

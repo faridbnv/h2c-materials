@@ -1,6 +1,6 @@
 // The first screen's key-figure plate draws, under each key figure, its products' spread small: the lowest to highest as
 // a hairline, the middle half as a bar (from four products), the median as a tick; hollow circles where the products
-// publish it only with no stated orientation or load; a chevron at the edge for a value beyond the scale. It is drawn on
+// publish it only set apart (a test bar not described as printed, or no stated load); a chevron at the edge for a value beyond the scale. It is drawn on
 // the property's own scale, the same on every page and in the same column of "Against its alternatives" (peers.js
 // columnScale), with the scale's ends printed under it. No other material's mark: comparing is the figure's job. x in per
 // cent, so the drawing takes its cell's width.

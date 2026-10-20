@@ -668,7 +668,7 @@ function productValues(g, c) {
   });
   const ledger = ledgerLines(g, c);
   const replaced = replacedLines(g, c);
-  if (!rows.length && !ledger) return `<div class="fine">This product publishes none of the key properties comparably: on a test bar its documents describe as printed, or for heat deflection any bar of a plastic that cannot crystallise.</div>${replaced}`;
+  if (!rows.length && !ledger) return `<div class="fine">This product publishes none of the key properties comparably: on a test bar its documents describe as printed, or for heat deflection a bar of a plastic that cannot crystallise that its documents do not tie to moulding.</div>${replaced}`;
   return `${rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : ''}${ledger}${replaced}`;
 }
 
@@ -895,7 +895,7 @@ function toughenedMark(g, c) {
 
 // The dots of one row, on a scale shared by the rows of its graph (scales.js), with faint grid lines at its ticks.
 const gridLines = (scale) => scale.ticks.map((v) => `<span class="imp-grid" style="left:${scale.pct(v)}%"></span>`).join('');
-/** A dot's shape: hollow where shown and not ranked (no stated orientation or load, or the guide's), square annealed, a diamond an added filler or additive, coloured sold as toughened. */
+/** A dot's shape: hollow where shown and not ranked (set apart, D172, or the guide's), square annealed, a diamond an added filler or additive, coloured sold as toughened. */
 const dotClass = (h, e, c) => dotMarks(h, e, c).join(' ');
 /** Per cent of the track between two columns' counts: closer, the smaller column keeps its height alone. */
 const COUNT_GAP = 5;
@@ -1149,7 +1149,7 @@ function spreadTable(m, c) {
       <td class="num">${s.n} of ${s.products}</td>
       <td>${leftOutWords(h, s).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
-  <p class="fine">Median and range of the products that publish it comparably: on a test bar their documents describe as printed (for heat deflection, any bar of a plastic that cannot crystallise), at the test's orientation and load. The range is the products' lowest to highest.</p>
+  <p class="fine">Median and range of the products that publish it comparably: on a test bar their documents describe as printed (for heat deflection, also a bar of a plastic that cannot crystallise their documents do not tie to moulding), at the test's orientation and load. The range is the products' lowest to highest.</p>
   ${rows.filter(([, s]) => s.claimed).map(([h, s], i) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))}${i ? '' : ` ${TOUGHENED_NOTE_SHORT}`}</p>`).join('')}`;
 }
 
@@ -1302,7 +1302,7 @@ function overviewBody(c) {
     if (e?.notApplicable) return { k, name, value: explainButton('not applicable', `Not applicable. ${e.notApplicable.reason}`, { cls: 'na', head: 'Not applicable' }), foot: '', quiet: true };
     const a = s?.asPublished;
     if (a?.n) {
-      // A value published with no stated orientation or load is no median: it says so, grey, with the hollow mark the
+      // A value set apart (a test bar not described as printed, or no stated load, D172) is no median: it says so, grey, with the hollow mark the
       // graphs and the material page give it (C18).
       return { k, name, value: `<i class="imp-dot open" aria-hidden="true"></i>${explainButton(esc(spanDisplayUnit(a.min, a.max, unit)), asPublishedNote(h, a), { cls: 'kp-pub', head: 'As published' })}`,
         foot: `as published · ${asPublishedWords(h)}`, quiet: true };

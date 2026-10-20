@@ -3,7 +3,7 @@
 // the requirements), so the two surfaces cannot put different products first (coherence round, 2026-10-18, C35).
 //
 // A product is documented by the key values it publishes: the measured headlines that apply to the material, those
-// compared (not published without their orientation or load) counted before those published as printed, then the maker
+// compared (not set apart, D172) counted before those published as printed, then the maker
 // and the name, so the order is the same on every load.
 
 import { REGISTRY } from './registry.js';

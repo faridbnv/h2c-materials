@@ -68,11 +68,11 @@ test('every product failing is a failure; one failing beside one unmeasured is u
   assert.equal(run(silent, [stiff], STRICT).eligible, false);
 });
 
-test('a value published without the direction decides only when the reader admits such values (D84)', () => {
+test('a value published without a usable direction is set apart, and decides only under the audit lens (D84, D172)', () => {
   const m = withGrades([grade('G1', { tensileModulusXY: v(3.4, 'as-published', 'unstated-direction') })]);
   const e = run(m, [stiff], EXPLORE);
   assert.equal(e.verdict, STATUS.UNKNOWN);
-  assert.match(e.unresolved[0].reason, /without the specimen orientation/);
+  assert.match(e.unresolved[0].reason, /without a usable specimen orientation/);
   assert.equal(run(m, [stiff], { ...EXPLORE, evidence: EVIDENCE.AS_PUBLISHED }).verdict, STATUS.PASS);
 });
 

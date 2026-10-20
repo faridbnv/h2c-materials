@@ -5,7 +5,7 @@
 // property) and the physics limits of its kind of plastic each bound the headline from below, from above or both: a
 // contribution, `{ rule, kind, status, measurementId, lo, hi, openLow, openHigh, level, … }`. The headline lies in the
 // intersection of the contributions that may decide: a deciding row's (a reported one is listed, never used), at a level
-// the reader admits (a source value that states no direction or load is as published, D84). An empty intersection is
+// the reader admits (a value set apart, D172, is as published, which only the engine's audit lens admits). An empty intersection is
 // "sheets disagree": unresolved, never a pass or a fail.
 //
 // Pure: no DOM, no globals, no imports from ../ui. Arithmetic to twelve significant digits and no exp or log, so the
@@ -14,7 +14,7 @@
 /** Twelve significant digits, so a binary remainder never reaches the database or a reason. */
 export const tidy = (x) => Number(x.toPrecision(12));
 
-/** Whether a contribution may decide for a reader: a deciding row's, at a level the reader admits (D84). */
+/** Whether a contribution may decide: a deciding row's, comparable, or as published under the audit lens (D172). */
 export const usable = (b, evidence = 'comparable') => b.status === 'deciding' && (b.level === 'comparable' || evidence === 'as-published');
 
 /**
@@ -105,7 +105,7 @@ export function ledgerReason(b, { unit, words, verdict, c, margin, asPrinted = t
   // A ceiling or a floor read at its own value says which end it is; a scaled one already says "so at most".
   const end = plain && (b.kind === 'ceiling' || b.kind === 'demote-to-ceiling') ? `, the most it reaches${asPrinted ? ' as printed' : ''}`
     : plain && b.kind === 'floor' && !atLeast && verdict !== 'pass' ? ', the least it reaches' : '';
-  const level = b.level === 'as-published' ? '. Its record states no orientation or test load; used because Data quality includes such values' : '';
+  const level = b.level === 'as-published' ? '. Its record is set apart (a test bar not described as printed, or no stated orientation or test load); used only because the audit lens admits such values' : '';
   if (verdict === 'pass') {
     const thin = margin ? `. A thin margin: within the test scatter (${margin.words}) of ${fmtWords(c.value)} ${unit}` : '';
     return `${isLimit ? `${sentence}: meets ${req}` : `Meets it on ${contributionWords(b, unit, words)}${end}`}${thin}${level}`;

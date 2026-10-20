@@ -892,7 +892,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 
 /* ---------------------------------------------------------------- drawer: headlines side by side (D133) */
 /* A row of dots per impact test on one scale, a product each: the middle half of the comparable ones shaded, their
-   median a line. Hollow: no stated orientation. Square: measured after annealing. Diamond: a special formulation, as
+   median a line. Hollow: set apart (a test bar not described as printed, or no stated load, D172). Square: measured after annealing. Diamond: a special formulation, as
    the Material ranges view draws one. A product's dot on one row lights its dot on the other. */
 /* imp-*: the drawer's comparison headings (D133, D139), impact first, now tensile, heat and print temperatures too. */
 .imp-compare { margin: 0 0 16px; }
