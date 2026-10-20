@@ -237,6 +237,16 @@
           "diameters": {
             "type": "string"
           },
+          "diameter": {
+            "description": "The filament diameter the product's documents print (grades.csv Diameter, schema/vocab/diameters.csv, D175): what was found, and whether the H2C takes it. Absent where no document prints one. A product found only in 2.85 mm is kept and counted; its detail and card say so.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["found", "fits"],
+            "properties": {
+              "found": { "type": "string" },
+              "fits": { "type": "boolean" }
+            }
+          },
           "retired": {
             "type": "boolean"
           },

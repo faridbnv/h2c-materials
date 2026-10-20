@@ -41,6 +41,7 @@ import { documentPath } from './extract.mjs';
 import { recountGrades } from '../data/records.mjs';
 import { testTemperatureCell } from '../../build/src/typed-values.js';
 import { parseDrying } from '../../build/src/normalize/process.js';
+import { diametersIn, diameterCell, documentLines } from '../lib/diameters.mjs';
 
 const SEP = String.fromCharCode(0);
 // The numbers that must be printed on the page the row cites. Test load MPa is not among them: it is typed from
@@ -308,7 +309,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       if (existing) { gradeIds[grade.key] = existing.GradeID; continue; }
       const id = nextId('grades', t.rows('grades').map((g) => g.GradeID), { materialId: grade.row.MaterialID });
       gradeIds[grade.key] = id;
-      t.append('grades', { GradeID: id, ...grade.row });
+      // A proposal carries no Diameter (propose.mjs is frozen, D138): it is what the document the grade comes from prints,
+      // read as m471 read every grade's documents (D175).
+      const cached = proposal.document?.sha256 ? cachedText(proposal.document.sha256) : null;
+      t.append('grades', { GradeID: id, Diameter: diameterCell(cached ? [diametersIn(documentLines(cached))] : []), ...grade.row });
       touchedMaterials.add(grade.row.MaterialID);
       note(`grade ${id} ${grade.row.Manufacturer} ${grade.row['Product name']}`);
     }

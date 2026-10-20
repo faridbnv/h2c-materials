@@ -165,6 +165,19 @@
       "constraints": {
         "required": true
       }
+    },
+    {
+      "name": "Diameter",
+      "type": "string",
+      "role": "canonical",
+      "vocabulary": "diameters",
+      "missing": [
+        "Not published"
+      ],
+      "constraints": {
+        "required": true
+      },
+      "description": "The filament diameter the product's documents print, as the H2C asks it: 1.75 mm where a document or a listing gives it, 2.85 mm only (or 3 mm only) where they give only a diameter the H2C does not take, Not published where none prints one (schema/vocab/diameters.csv, D175). A product found only in a larger diameter is kept and counted, and its detail and card say so."
     }
   ]
 }

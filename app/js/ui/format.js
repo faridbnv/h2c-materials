@@ -38,6 +38,13 @@ export function dryingWords(d) {
   return schedule || 'required, schedule not stated';
 }
 
+/**
+ * A product found only in a filament diameter the H2C does not take (grades[].diameter, D175, the owner's ruling of
+ * 2026-10-20): the warning its detail in the drawer and its card on the material's page give, or null. It decides nothing:
+ * the product stays counted.
+ */
+export const diameterWarning = (g) => (g?.diameter && g.diameter.fits === false ? `Only ${g.diameter.found.replace(/ only$/, '')} filament was found; the H2C takes 1.75 mm.` : null);
+
 /** A drying temperature or time as its sheet printed it: one number, or the range from its lower end ("80–100"). */
 export const dryingSpan = (low, high) => (low != null && high != null && low < high ? `${fmtNumber(low)}–${fmtNumber(high)}` : fmtNumber(high));
 

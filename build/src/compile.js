@@ -29,6 +29,7 @@ import { attachProductClaims } from './product-claims.js';
 import { indexPageContext, contextFor, inheritPageContext } from './page-context.js';
 import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.js';
 import { attachWritten } from './written.js';
+import { DIAMETER_FITS } from './diameters.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
@@ -538,6 +539,8 @@ export function compile(wb, { snapshot, build }) {
     colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
     rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
     diameters: r['Diameter compatibility'],
+    // The diameter its documents print, and whether the H2C takes it (D175); nothing where none prints one.
+    ...(r.Diameter && r.Diameter !== 'Not published' ? { diameter: { found: r.Diameter, fits: DIAMETER_FITS.get(r.Diameter) === true } } : {}),
     retired: r.Status === 'retired',
   }));
   // A material's procurement grades are its active procurement grades, in file order.

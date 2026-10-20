@@ -1,0 +1,4 @@
+Value,Meaning,Fits the H2C
+1.75 mm,"A document of the product prints it in 1.75 mm (beside a larger diameter or not), or a listing prices it, which is the 1.75 mm filament by rule: the diameter the H2C takes.",TRUE
+2.85 mm only,"The product's documents print it in 2.85 mm and none in 1.75 mm, the diameter the H2C takes. It stays counted, as its values describe the polymer as printed, and its product detail and card say that only a 2.85 mm filament was found (D175).",FALSE
+3 mm only,"The product's documents print it in 3 mm and in no smaller diameter. It stays counted, and its product detail and card say that only a 3 mm filament was found (D175).",FALSE

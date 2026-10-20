@@ -10,7 +10,7 @@
 // stored codes labels.js's, and its scales scales.js's. This module draws them: the markup, the sentences that hold a
 // control, and the drawer's own state (which product cards are open, the search box's text).
 
-import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleSentence, spreadNote, convertedMark, convertedNote, boundSign, medianSign } from './format.js';
+import { renderValue, chip, esc, fmtNumber, dryingWords, diameterWarning, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleSentence, spreadNote, convertedMark, convertedNote, boundSign, medianSign } from './format.js';
 import { dayWords } from './dates.js';
 import { evidenceLine, keyFiguresBasis } from './evidence-line.js';
 import { fmtDisplayUnit, spanDisplayUnit } from './display-numbers.js';
@@ -1455,6 +1455,7 @@ function tabBody(tab, c) {
         ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why"><b>Fails:</b> ${esc(failText(j.failedBy))}</div>` : ''}
         ${c.tested && j?.verdict === 'UNKNOWN' ? unsettled(j, requirementOf) : ''}
         ${c.tested && j ? stateNote(j) : ''}
+        ${diameterWarning(g) ? `<p class="fine-line warn-text" data-diameter="${esc(g.diameter.found)}">${esc(diameterWarning(g))}</p>` : ''}
         ${printCard(g)}
         ${productValues(g, c)}
         ${makerSays(g, c)}
@@ -1465,6 +1466,7 @@ function tabBody(tab, c) {
           <dt>Product</dt><dd>${esc(g.product ?? '')}${ids(['Product', g.id])}</dd>
           <dt>Composition</dt><dd>${(() => { const t = proseOnly(g.composition); return `${esc(t)}${t !== String(g.composition ?? '') ? ids(['As recorded:', g.composition]) : ''}`; })()}</dd>
           ${g.variant ? `<dt>Variant</dt><dd>${esc(g.variant)}. Its values describe this product, not the polymer in general, so they are kept out of the material's median.</dd>` : ''}
+          ${g.diameter ? `<dt>Diameter</dt><dd>${esc(g.diameter.found)}${g.diameter.fits ? '' : ': the H2C takes 1.75 mm'}</dd>` : ''}
           <dt>Certifications</dt><dd>${esc(g.certifications ?? '')}</dd>
           ${SPEC_COLOUR.test((g.colourCaveat ?? '').trim()) ? `<dt>Colour tested</dt><dd>Measured on the <b>${esc(g.colourCaveat.trim())}</b> version. Other colours may differ.</dd>` : ''}
         </dl></details>${stated(g.availability) ? recordNotes(`Availability: ${g.availability}`) : ''}${gradeEstimateLines(g, c)}
