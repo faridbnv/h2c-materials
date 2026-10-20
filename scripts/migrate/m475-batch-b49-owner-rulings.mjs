@@ -12,9 +12,9 @@
 //   (R227, R228), not estimated: its polymer is inferred and a 2 to 4 g/cm³ copper load is beyond any fill model here.
 // - Stratasys Diran 410MF07, "a nylon-based thermoplastic FDM material, mineral-filled 7% by weight", whose polyamide no
 //   Stratasys document names: the maker-undisclosed nylon home for its declared filler, Nylon-CE (M177; R229, R230), as
-//   the carbon- and glass-fibre homes are (R167), not estimated. Its physical and mechanical tables enter (26 values).
+//   the carbon- and glass-fibre homes are (R167), not estimated. Its physical and mechanical tables enter (27 values).
 // - Nanovia ISTROFLEX's safety data sheet ("Modified Polyester alloy and oyster shell powder", Tg -32 °C): the evidence
-//   m476 files it by. Its density of 1.34 g/cm³ disagrees with the product page's 1.55; both are kept.
+//   m476 records on its grade. Its density of 1.34 g/cm³ disagrees with the product page's 1.55; both are kept.
 // - INEOS Styrolution's Styrolux 656C sheet and K-Resin KR03 page, the references for SBC's row of polymers.csv (below).
 // FKuR's Fibrolon V 135002, Nuterials JECTO and Stratasys ST-130 stay out, with their reasons in the V2 ledger (R236 to R238).
 //

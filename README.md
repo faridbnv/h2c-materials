@@ -25,8 +25,8 @@ allowables, and it does not replace the product's own data sheet.
 
 Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by `npm run snapshot`.
 
-- **What it holds.** About 1,100 products, 15,000 measured values and 2,100 source documents. The page lists 149
-  materials: the 135 the H2C can print, which the tool judges, and 14 it shows only to say why they are out
+- **What it holds.** About 1,100 products, 15,100 measured values and 2,100 source documents. The page lists 152
+  materials: the 138 the H2C can print, which the tool judges, and 14 it shows only to say why they are out
   (high-temperature plastics such as PEEK and PEI that need a hotter printer). Its tables also keep 3 materials retired
   from the dataset, as a record the page never shows (D174). 77 materials have a page of their own: those with at least
   3 products and 20 measured values, opened from the selector's drawer and its Material pages link.
@@ -36,7 +36,7 @@ Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md
   corrections, found 15 with a wrong cell, 2 of them in a cell that can change an answer. Every check so far was done by
   an AI; a person's spot-check is still to come.
 - **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for about 200 products), drying
-  (about 150), or, for some products, the nozzle or bed temperature (32 each). Several hundred products publish no
+  (about 150), or, for some products, the nozzle or bed temperature (34 each). Several hundred products publish no
   strength, stiffness or heat-resistance value. Reading the documents already held again will not close these: they need
   documents that print the values, or the makers.
 - **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test

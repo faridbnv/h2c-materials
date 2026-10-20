@@ -1,5 +1,7 @@
 # Decision diff: e69c7e855094 → b574a5b47e55
 
+> **Generated** (2026-10-20) by `decision-census.mjs --diff` from the answers after m476 (release e69c7e855094) and after m477, the rubber limit naming PVC-P (release b574a5b47e55): the decision diff of a deciding row's change, in a commit of its own. Run it again for the current state; [DECISIONS-MEMO.md](DECISIONS-MEMO.md) says what the moves mean.
+
 Across 138 cases: 21 material verdicts moved, 16 listings changed, 21 group changes, 0 rows now shown for another product, 21 product answers moved; the likely tag came or went 0 times (materials and products).
 
 ## Outdoor structural part / leave out

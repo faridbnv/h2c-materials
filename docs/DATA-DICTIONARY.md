@@ -1242,6 +1242,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Markforged | US maker of continuous-fibre and composite FFF systems; its Onyx line is a chopped-carbon nylon. | MARKFORGED;markforged |
 | MatterHackers | US shop; its own ranges are sold as PRO Series and MH Build Series, and the sheets it hosts for other makers are theirs (R074). | MatterHackers / PRO Series;PRO Series;MH Build Series;matterhackers |
 | Mitsubishi Chemical | Resin maker; its 3Diakon PMMA filament reaches the corpus through FormFutura as a partner material. | Mitsubishi Chemical Corporation;Mitsubishi Chemical Group;Mistubishi Chemical |
+| Multi3D | US maker of Electrifi, a copper-filled conductive filament; its sheet says "Manufacturer: Multi3D, Inc.". | Multi3D, Inc.;Multi3D LLC;multi3d |
 | Nanovia | French maker; it publishes each grade as a web page rather than a PDF, and the product is named in the page's breadcrumb. | Nanovia SAS;nanovia |
 | nice essentials | 3DJake's budget house brand; the inventory recorded it as "nice". | nice;nice-essentials;niceessentials |
 | NinjaTek | US maker of the NinjaFlex, Cheetah, Armadillo and Chinchilla elastomer lines; a Fenner Drives brand. | Ninjatek;ninjatek;NinjaTek (Fenner Drives);Fenner Drives |
