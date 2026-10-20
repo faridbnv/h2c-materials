@@ -354,7 +354,7 @@ M019,PLA-GF,flexuralStrengthXY,value,42,MPa,,,,,1,G019-02,V000379
 M019,PLA-GF,flexuralStrengthZ,none,,MPa,,,,,,,
 M019,PLA-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M019,PLA-GF,izodNotched,none,,kJ/m²,,,,,,,
-M019,PLA-GF,hdt045,estimate,47.3,°C,41-59.7,38.6-63.6,38.6-open,this-material,,,
+M019,PLA-GF,hdt045,estimate,46.9,°C,40.7-59.7,37.5-59.7,37.5-open,this-material,,,
 M019,PLA-GF,hdt18,none,,°C,,,,,,,
 M019,PLA-GF,glassTransition,none,,°C,,,,,,,
 M019,PLA-GF,shoreA,none,,Shore A,,,,,,,
@@ -373,8 +373,8 @@ M020,PETG,flexuralStrengthXY,value,70,MPa,,,,,31,G020-18,V004397
 M020,PETG,flexuralStrengthZ,value,55,MPa,,,,,9,G020-72,V013368
 M020,PETG,charpyNotched,value,6,kJ/m²,,,,,10,G020-29,V013622
 M020,PETG,izodNotched,value,4,kJ/m²,,,,,7,G020-18,V004401
-M020,PETG,hdt045,value,70,°C,,,,,20,G020-01,V000389
-M020,PETG,hdt18,value,68,°C,,,,,9,G020-72,V013357
+M020,PETG,hdt045,value,70,°C,,,,,32,G020-01,V000389
+M020,PETG,hdt18,value,65,°C,,,,,14,G020-15,V013486
 M020,PETG,glassTransition,value,80,°C,,,,,31,G020-01,V000388
 M020,PETG,shoreA,none,,Shore A,,,,,,,
 M020,PETG,shoreD,value,76,Shore D,,,,,7,G020-70,V014018
@@ -449,8 +449,8 @@ M024,PETG-CF,flexuralStrengthXY,value,80,MPa,,,,,9,G024-05,V003177
 M024,PETG-CF,flexuralStrengthZ,value,47.9,MPa,,,,,2,G024-02,V002452
 M024,PETG-CF,charpyNotched,value,8,kJ/m²,,,,,5,G024-16,V015303
 M024,PETG-CF,izodNotched,value,5,kJ/m²,,,,,2,G024-08,V005291
-M024,PETG-CF,hdt045,value,71,°C,,,,,7,G024-06,V004766
-M024,PETG-CF,hdt18,value,66.85,°C,,,,,4,G024-02,V002441
+M024,PETG-CF,hdt045,value,72,°C,,,,,11,G024-03,V012378
+M024,PETG-CF,hdt18,value,68,°C,,,,,6,G024-01,V000489
 M024,PETG-CF,glassTransition,value,68.85,°C,,,,,10,G024-01,V000486
 M024,PETG-CF,shoreA,none,,Shore A,,,,,,,
 M024,PETG-CF,shoreD,value,76.4,Shore D,,,,,1,G024-10,V012480
@@ -468,7 +468,7 @@ M025,PETG-GF,flexuralStrengthXY,value,78,MPa,,,,,2,G025-04,V013761
 M025,PETG-GF,flexuralStrengthZ,none,,MPa,,,,,,,
 M025,PETG-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M025,PETG-GF,izodNotched,none,,kJ/m²,,,,,,,
-M025,PETG-GF,hdt045,estimate,77.5,°C,69.9-85,61.7-91.6,open-97.8,this-material,,,
+M025,PETG-GF,hdt045,value,76,°C,,,,,1,G025-04,V008044
 M025,PETG-GF,hdt18,none,,°C,,,,,,,
 M025,PETG-GF,glassTransition,value,75,°C,,,,,3,G025-02,V004960
 M025,PETG-GF,shoreA,none,,Shore A,,,,,,,
@@ -487,7 +487,7 @@ M026,PETG-ESD,flexuralStrengthXY,value,64,MPa,,,,,5,G026-04,V005456
 M026,PETG-ESD,flexuralStrengthZ,value,32.65,MPa,,,,,2,G026-05,V006160
 M026,PETG-ESD,charpyNotched,value,5.7,kJ/m²,,,,,1,G026-05,V006161
 M026,PETG-ESD,izodNotched,value,5,kJ/m²,,,,,1,G026-04,V005457
-M026,PETG-ESD,hdt045,value,71.5,°C,,,,,4,G026-07,V007221
+M026,PETG-ESD,hdt045,value,75,°C,,,,,5,G026-01,V000517
 M026,PETG-ESD,hdt18,value,72,°C,,,,,1,G026-05,V006149
 M026,PETG-ESD,glassTransition,value,80,°C,,,,,6,G026-01,V000516
 M026,PETG-ESD,shoreA,none,,Shore A,,,,,,,
@@ -506,8 +506,8 @@ M027,ABS,flexuralStrengthXY,value,62.5,MPa,,,,,16,G027-01,V000562
 M027,ABS,flexuralStrengthZ,value,41.1,MPa,,,,,5,G027-22,V007092
 M027,ABS,charpyNotched,value,20.03,kJ/m²,,,,,7,G027-32,V008063
 M027,ABS,izodNotched,value,12.5,kJ/m²,,,,,2,G027-12,V004550
-M027,ABS,hdt045,value,95,°C,,,,,16,G027-06,V003196
-M027,ABS,hdt18,value,100,°C,,,,,9,G027-42,V009362
+M027,ABS,hdt045,value,95,°C,,,,,18,G027-06,V003196
+M027,ABS,hdt18,value,85.5,°C,,,,,16,G027-56,V013238
 M027,ABS,glassTransition,value,105,°C,,,,,20,G027-06,V003195
 M027,ABS,shoreA,none,,Shore A,,,,,,,
 M027,ABS,shoreD,value,80,Shore D,,,,,1,G027-12,V004552
@@ -544,7 +544,7 @@ M029,ABS-CF,flexuralStrengthXY,value,76,MPa,,,,,5,G029-01,V000591
 M029,ABS-CF,flexuralStrengthZ,value,29.1,MPa,,,,,1,G029-06,V012819
 M029,ABS-CF,charpyNotched,value,16.05,kJ/m²,,,,,1,G029-05,V007684
 M029,ABS-CF,izodNotched,none,,kJ/m²,,,,,,,
-M029,ABS-CF,hdt045,value,90.5,°C,,,,,4,G029-09,V013822
+M029,ABS-CF,hdt045,value,90,°C,,,,,5,G029-09,V013822
 M029,ABS-CF,hdt18,value,83.5,°C,,,,,2,G029-09,V013823
 M029,ABS-CF,glassTransition,value,105,°C,,,,,6,G029-01,V000593
 M029,ABS-CF,shoreA,none,,Shore A,,,,,,,
@@ -563,7 +563,7 @@ M030,ABS-ESD,flexuralStrengthXY,value,62,MPa,,,,,5,G030-11,V010879
 M030,ABS-ESD,flexuralStrengthZ,value,35.9,MPa,,,,,1,G030-05,V007215
 M030,ABS-ESD,charpyNotched,none,,kJ/m²,,,,,,,
 M030,ABS-ESD,izodNotched,value,6,kJ/m²,,,,,1,G030-03,V005190
-M030,ABS-ESD,hdt045,value,97.5,°C,,,,,4,G030-01,V000603
+M030,ABS-ESD,hdt045,value,97,°C,,,,,5,G030-01,V000603
 M030,ABS-ESD,hdt18,value,88,°C,,,,,1,G030-06,V013420
 M030,ABS-ESD,glassTransition,value,105,°C,,,,,5,G030-01,V000602
 M030,ABS-ESD,shoreA,none,,Shore A,,,,,,,
@@ -582,8 +582,8 @@ M031,ASA,flexuralStrengthXY,value,64,MPa,,,,,13,G031-20,V015271
 M031,ASA,flexuralStrengthZ,value,40,MPa,,,,,1,G031-01,V000629
 M031,ASA,charpyNotched,value,12,kJ/m²,,,,,5,G031-20,V013654
 M031,ASA,izodNotched,value,13,kJ/m²,,,,,2,G031-08,V004671
-M031,ASA,hdt045,value,96.5,°C,,,,,10,G031-05,V003294
-M031,ASA,hdt18,value,92,°C,,,,,5,G031-01,V000617
+M031,ASA,hdt045,value,95.5,°C,,,,,12,G031-05,V003294
+M031,ASA,hdt18,value,86,°C,,,,,14,G031-03,V002808
 M031,ASA,glassTransition,value,103,°C,,,,,11,G031-30,V009056
 M031,ASA,shoreA,none,,Shore A,,,,,,,
 M031,ASA,shoreD,value,78,Shore D,,,,,1,G031-20,V007175
@@ -621,7 +621,7 @@ M033,ASA-CF,flexuralStrengthZ,value,39.75,MPa,,,,,2,G033-01,V000668
 M033,ASA-CF,charpyNotched,value,5.76,kJ/m²,,,,,3,G033-14,V008084
 M033,ASA-CF,izodNotched,value,10.5,kJ/m²,,,,,1,G033-07,V005200
 M033,ASA-CF,hdt045,value,101.1,°C,,,,,5,G033-14,V008078
-M033,ASA-CF,hdt18,value,97.3,°C,,,,,3,G033-11,V006483
+M033,ASA-CF,hdt18,value,95.8,°C,,,,,5,G033-14,V008077
 M033,ASA-CF,glassTransition,value,105.8,°C,,,,,2,G033-02,V002523
 M033,ASA-CF,shoreA,none,,Shore A,,,,,,,
 M033,ASA-CF,shoreD,value,74,Shore D,,,,,1,G033-09,V006025
@@ -639,7 +639,7 @@ M034,ASA-GF,flexuralStrengthXY,value,72.5,MPa,,,,,3,G034-04,V002203
 M034,ASA-GF,flexuralStrengthZ,value,49,MPa,,,,,1,G034-03,V001990
 M034,ASA-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M034,ASA-GF,izodNotched,none,,kJ/m²,,,,,,,
-M034,ASA-GF,hdt045,value,88,°C,,,,,1,G034-04,V001996
+M034,ASA-GF,hdt045,value,93,°C,,,,,2,G034-04,V001996
 M034,ASA-GF,hdt18,none,,°C,,,,,,,
 M034,ASA-GF,glassTransition,value,103.5,°C,,,,,2,G034-05,V013054
 M034,ASA-GF,shoreA,none,,Shore A,,,,,,,
@@ -658,8 +658,8 @@ M035,PC,flexuralStrengthXY,value,94,MPa,,,,,13,G035-18,V007187
 M035,PC,flexuralStrengthZ,value,65.65,MPa,,,,,2,G035-17,V006866
 M035,PC,charpyNotched,value,9.75,kJ/m²,,,,,4,G035-01,V007849
 M035,PC,izodNotched,value,19.5,kJ/m²,,,,,2,G035-13,V005387
-M035,PC,hdt045,value,114,°C,,,,,12,G035-06,V013506
-M035,PC,hdt18,value,107,°C,,,,,7,G035-16,V006850
+M035,PC,hdt045,value,123,°C,,,,,15,G035-13,V005388
+M035,PC,hdt18,value,121,°C,,,,,11,G035-25,V015185
 M035,PC,glassTransition,value,115.5,°C,,,,,10,G035-06,V003435
 M035,PC,shoreA,none,,Shore A,,,,,,,
 M035,PC,shoreD,value,79.5,Shore D,,,,,2,G035-15,V006725
@@ -696,8 +696,8 @@ M037,PC-CF,flexuralStrengthXY,value,89,MPa,,,,,5,G037-06,V015278
 M037,PC-CF,flexuralStrengthZ,none,,MPa,,,,,,,
 M037,PC-CF,charpyNotched,value,12,kJ/m²,,,,,1,G037-10,V013747
 M037,PC-CF,izodNotched,none,,kJ/m²,,,,,,,
-M037,PC-CF,hdt045,value,120,°C,,,,,3,G037-05,V005151
-M037,PC-CF,hdt18,none,,°C,,,,,,,
+M037,PC-CF,hdt045,value,127.5,°C,,,,,4,G037-05,V005151
+M037,PC-CF,hdt18,value,129,°C,,,,,1,G037-02,V002083
 M037,PC-CF,glassTransition,value,127,°C,,,,,3,G037-04,V003367
 M037,PC-CF,shoreA,none,,Shore A,,,,,,,
 M037,PC-CF,shoreD,value,83,Shore D,,,,,2,G037-06,V007057
@@ -924,7 +924,7 @@ M049,PA6,flexuralStrengthXY,value,112,MPa,,,,,1,G049-02,V002344
 M049,PA6,flexuralStrengthZ,none,,MPa,,,,,,,
 M049,PA6,charpyNotched,none,,kJ/m²,,,,,,,
 M049,PA6,izodNotched,none,,kJ/m²,,,,,,,
-M049,PA6,hdt045,estimate,115,°C,84.6-147,59-176,59-194,this-material,,,
+M049,PA6,hdt045,estimate,115,°C,84.4-146,70.3-160,open-193,this-material,,,
 M049,PA6,hdt18,none,,°C,,,,,,,
 M049,PA6,glassTransition,value,65.5,°C,,,,,2,G049-05,V006018
 M049,PA6,shoreA,none,,Shore A,,,,,,,
@@ -981,7 +981,7 @@ M052,PA12,flexuralStrengthXY,none,,MPa,,,,,,,
 M052,PA12,flexuralStrengthZ,none,,MPa,,,,,,,
 M052,PA12,charpyNotched,none,,kJ/m²,,,,,,,
 M052,PA12,izodNotched,none,,kJ/m²,,,,,,,
-M052,PA12,hdt045,estimate,101,°C,72-130,52.5-146,52.5-156,this-material,,,
+M052,PA12,hdt045,estimate,102,°C,72.4-130,60-141,60-159,this-material,,,
 M052,PA12,hdt18,none,,°C,,,,,,,
 M052,PA12,glassTransition,value,45,°C,,,,,1,G052-02,V012133
 M052,PA12,shoreA,none,,Shore A,,,,,,,
@@ -1038,7 +1038,7 @@ M055,PA66,flexuralStrengthXY,none,,MPa,,,,,,,
 M055,PA66,flexuralStrengthZ,none,,MPa,,,,,,,
 M055,PA66,charpyNotched,none,,kJ/m²,,,,,,,
 M055,PA66,izodNotched,none,,kJ/m²,,,,,,,
-M055,PA66,hdt045,estimate,105,°C,71.4-140,51.9-177,51.9-208,this-material,,,
+M055,PA66,hdt045,estimate,105,°C,71.6-140,58.2-156,58.2-200,this-material,,,
 M055,PA66,hdt18,none,,°C,,,,,,,
 M055,PA66,glassTransition,none,,°C,,,,,,,
 M055,PA66,shoreA,none,,Shore A,,,,,,,
@@ -1057,7 +1057,7 @@ M056,PA66-CF,flexuralStrengthXY,none,,MPa,,,,,,,
 M056,PA66-CF,flexuralStrengthZ,none,,MPa,,,,,,,
 M056,PA66-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M056,PA66-CF,izodNotched,none,,kJ/m²,,,,,,,
-M056,PA66-CF,hdt045,estimate,205,°C,147-248,85.8-259,85.8-259,family,,,
+M056,PA66-CF,hdt045,estimate,205,°C,147-248,120-259,120-262,family,,,
 M056,PA66-CF,hdt18,none,,°C,,,,,,,
 M056,PA66-CF,glassTransition,none,,°C,,,,,,,
 M056,PA66-CF,shoreA,none,,Shore A,,,,,,,
@@ -1095,7 +1095,7 @@ M058,PA612,flexuralStrengthXY,none,,MPa,,,,,,,
 M058,PA612,flexuralStrengthZ,none,,MPa,,,,,,,
 M058,PA612,charpyNotched,none,,kJ/m²,,,,,,,
 M058,PA612,izodNotched,none,,kJ/m²,,,,,,,
-M058,PA612,hdt045,estimate,122,°C,86.6-158,58.2-193,58.2-214,this-material,,,
+M058,PA612,hdt045,estimate,122,°C,86.7-158,70.7-175,70.7-214,this-material,,,
 M058,PA612,hdt18,none,,°C,,,,,,,
 M058,PA612,glassTransition,none,,°C,,,,,,,
 M058,PA612,shoreA,none,,Shore A,,,,,,,
@@ -1133,7 +1133,7 @@ M060,PA612-GF,flexuralStrengthXY,none,,MPa,,,,,,,
 M060,PA612-GF,flexuralStrengthZ,none,,MPa,,,,,,,
 M060,PA612-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M060,PA612-GF,izodNotched,none,,kJ/m²,,,,,,,
-M060,PA612-GF,hdt045,estimate,174,°C,122-209,69.6-218,69.6-218,family,,,
+M060,PA612-GF,hdt045,estimate,174,°C,121-209,97-218,97-220,family,,,
 M060,PA612-GF,hdt18,none,,°C,,,,,,,
 M060,PA612-GF,glassTransition,none,,°C,,,,,,,
 M060,PA612-GF,shoreA,none,,Shore A,,,,,,,
@@ -1304,7 +1304,7 @@ M069,PPA,flexuralStrengthXY,value,123,MPa,,,,,1,G069-01,V001296
 M069,PPA,flexuralStrengthZ,value,62,MPa,,,,,1,G069-01,V001297
 M069,PPA,charpyNotched,none,,kJ/m²,,,,,,,
 M069,PPA,izodNotched,none,,kJ/m²,,,,,,,
-M069,PPA,hdt045,estimate,86.8,°C,79.4-94,70.4-98.2,70.4-105,this-material,,,
+M069,PPA,hdt045,estimate,86.8,°C,79.4-94,76-97.5,76-107,this-material,,,
 M069,PPA,hdt18,none,,°C,,,,,,,
 M069,PPA,glassTransition,value,80,°C,,,,,1,G069-02,V002545
 M069,PPA,shoreA,none,,Shore A,,,,,,,
@@ -1437,7 +1437,7 @@ M076,BVOH,flexuralStrengthXY,value,53.8,MPa,,,,,1,G076-02,V002268
 M076,BVOH,flexuralStrengthZ,none,,MPa,,,,,,,
 M076,BVOH,charpyNotched,none,,kJ/m²,,,,,,,
 M076,BVOH,izodNotched,none,,kJ/m²,,,,,,,
-M076,BVOH,hdt045,estimate,68.8,°C,60.8-76.3,52.5-81.8,52.5-open,this-material,,,
+M076,BVOH,hdt045,estimate,68.7,°C,60.7-76.3,57.1-79.9,57.1-88.8,this-material,,,
 M076,BVOH,hdt18,none,,°C,,,,,,,
 M076,BVOH,glassTransition,value,68,°C,,,,,3,G076-01,V001425
 M076,BVOH,shoreA,none,,Shore A,,,,,,,
@@ -1513,7 +1513,7 @@ M080,Support for PA/PET,flexuralStrengthXY,none,,MPa,,,,,,,
 M080,Support for PA/PET,flexuralStrengthZ,none,,MPa,,,,,,,
 M080,Support for PA/PET,charpyNotched,none,,kJ/m²,,,,,,,
 M080,Support for PA/PET,izodNotched,none,,kJ/m²,,,,,,,
-M080,Support for PA/PET,hdt045,estimate,58.5,°C,49.4-68.9,44.1-80.5,44.1-90.8,this-material,,,
+M080,Support for PA/PET,hdt045,estimate,58.6,°C,49.4-69.1,45.5-73.8,45.5-87.7,this-material,,,
 M080,Support for PA/PET,hdt18,none,,°C,,,,,,,
 M080,Support for PA/PET,glassTransition,none,,°C,,,,,,,
 M080,Support for PA/PET,shoreA,none,,Shore A,,,,,,,
@@ -1532,8 +1532,8 @@ M081,HIPS,flexuralStrengthXY,value,50.9,MPa,,,,,2,G081-09,V010057
 M081,HIPS,flexuralStrengthZ,none,,MPa,,,,,,,
 M081,HIPS,charpyNotched,value,8.75,kJ/m²,,,,,2,G081-09,V010060
 M081,HIPS,izodNotched,value,6.9,kJ/m²,,,,,1,G081-09,V010062
-M081,HIPS,hdt045,value,91,°C,,,,,3,G081-09,V010051
-M081,HIPS,hdt18,value,86,°C,,,,,3,G081-09,V010050
+M081,HIPS,hdt045,value,88,°C,,,,,5,G081-02,V001489
+M081,HIPS,hdt18,value,85,°C,,,,,5,G081-04,V006138
 M081,HIPS,glassTransition,value,100,°C,,,,,5,G081-01,V001476
 M081,HIPS,shoreA,none,,Shore A,,,,,,,
 M081,HIPS,shoreD,none,,Shore D,,,,,,,
@@ -1646,7 +1646,7 @@ M087,POM / Acetal,flexuralStrengthXY,value,84,MPa,,,,,1,G087-03,V002325
 M087,POM / Acetal,flexuralStrengthZ,none,,MPa,,,,,,,
 M087,POM / Acetal,charpyNotched,none,,kJ/m²,,,,,,,
 M087,POM / Acetal,izodNotched,none,,kJ/m²,,,,,,,
-M087,POM / Acetal,hdt045,estimate,94.4,°C,65.6-116,49.1-123,49.1-open,this-material,,,
+M087,POM / Acetal,hdt045,estimate,94.9,°C,66.6-116,54.9-123,54.9-open,this-material,,,
 M087,POM / Acetal,hdt18,value,96,°C,,,,,1,G087-03,V002329
 M087,POM / Acetal,glassTransition,value,-50,°C,,,,,1,G087-02,V002020
 M087,POM / Acetal,shoreA,none,,Shore A,,,,,,,
@@ -1665,8 +1665,8 @@ M088,PCTG,flexuralStrengthXY,value,69.34261,MPa,,,,,2,G088-04,V007400
 M088,PCTG,flexuralStrengthZ,none,,MPa,,,,,,,
 M088,PCTG,charpyNotched,none,,kJ/m²,,,,,,,
 M088,PCTG,izodNotched,value,93,kJ/m²,,,,,5,G088-04,V007412
-M088,PCTG,hdt045,value,74,°C,,,,,3,G088-04,V007403
-M088,PCTG,hdt18,value,64,°C,,,,,1,G088-04,V011544
+M088,PCTG,hdt045,value,76,°C,,,,,5,G088-01,V001531
+M088,PCTG,hdt18,value,64,°C,,,,,4,G088-02,V002089
 M088,PCTG,glassTransition,value,84,°C,,,,,7,G088-04,V015068
 M088,PCTG,shoreA,none,,Shore A,,,,,,,
 M088,PCTG,shoreD,value,76,Shore D,,,,,4,G088-04,V007394
@@ -1684,7 +1684,7 @@ M089,CPE,flexuralStrengthXY,none,,MPa,,,,,,,
 M089,CPE,flexuralStrengthZ,none,,MPa,,,,,,,
 M089,CPE,charpyNotched,value,5.7,kJ/m²,,,,,2,G089-03,V010009
 M089,CPE,izodNotched,none,,kJ/m²,,,,,,,
-M089,CPE,hdt045,value,70,°C,,,,,1,G089-03,V010221
+M089,CPE,hdt045,value,75,°C,,,,,2,G089-03,V010221
 M089,CPE,hdt18,value,62,°C,,,,,1,G089-03,V010222
 M089,CPE,glassTransition,value,100,°C,,,,,2,G089-01,V001955
 M089,CPE,shoreA,none,,Shore A,,,,,,,
@@ -1703,8 +1703,8 @@ M090,CPE-CF,flexuralStrengthXY,value,70,MPa,,,,,1,G090-03,V010340
 M090,CPE-CF,flexuralStrengthZ,none,,MPa,,,,,,,
 M090,CPE-CF,charpyNotched,value,2.5,kJ/m²,,,,,1,G090-03,V010341
 M090,CPE-CF,izodNotched,none,,kJ/m²,,,,,,,
-M090,CPE-CF,hdt045,estimate,77.2,°C,68.1-86.3,58.6-95.8,58.6-105,this-material,,,
-M090,CPE-CF,hdt18,none,,°C,,,,,,,
+M090,CPE-CF,hdt045,value,78,°C,,,,,1,G090-02,V002090
+M090,CPE-CF,hdt18,value,68,°C,,,,,1,G090-02,V002091
 M090,CPE-CF,glassTransition,none,,°C,,,,,,,
 M090,CPE-CF,shoreA,none,,Shore A,,,,,,,
 M090,CPE-CF,shoreD,value,77,Shore D,,,,,1,G090-01,V001682
@@ -1722,7 +1722,7 @@ M091,CoPE,flexuralStrengthXY,value,75.5,MPa,,,,,1,G091-02,V015051
 M091,CoPE,flexuralStrengthZ,none,,MPa,,,,,,,
 M091,CoPE,charpyNotched,value,2.9,kJ/m²,,,,,1,G091-02,V001924
 M091,CoPE,izodNotched,none,,kJ/m²,,,,,,,
-M091,CoPE,hdt045,estimate,57.6,°C,51.4-63.7,46-68.1,46-68.1,this-grade,,,
+M091,CoPE,hdt045,estimate,57.6,°C,51.4-63.7,48.7-66.4,48.7-67.6,this-grade,,,
 M091,CoPE,hdt18,none,,°C,,,,,,,
 M091,CoPE,glassTransition,value,58.2,°C,,,,,1,G091-02,V015035
 M091,CoPE,shoreA,none,,Shore A,,,,,,,
@@ -1741,8 +1741,8 @@ M092,nGen / Amphora,flexuralStrengthXY,none,,MPa,,,,,,,
 M092,nGen / Amphora,flexuralStrengthZ,none,,MPa,,,,,,,
 M092,nGen / Amphora,charpyNotched,value,3.3,kJ/m²,,,,,1,G092-02,V005886
 M092,nGen / Amphora,izodNotched,none,,kJ/m²,,,,,,,
-M092,nGen / Amphora,hdt045,estimate,68.8,°C,63.3-74.4,57.6-80.1,57.6-80.1,this-grade,,,
-M092,nGen / Amphora,hdt18,none,,°C,,,,,,,
+M092,nGen / Amphora,hdt045,estimate,69.5,°C,64.9-75.1,63.4-77.5,63.4-78.7,this-grade,,,
+M092,nGen / Amphora,hdt18,value,63,°C,,,,,1,G092-02,V005928
 M092,nGen / Amphora,glassTransition,none,,°C,,,,,,,
 M092,nGen / Amphora,shoreA,none,,Shore A,,,,,,,
 M092,nGen / Amphora,shoreD,none,,Shore D,,,,,,,
@@ -1779,8 +1779,8 @@ M094,PC-ABS,flexuralStrengthXY,value,70.75,MPa,,,,,6,G094-04,V004476
 M094,PC-ABS,flexuralStrengthZ,none,,MPa,,,,,,,
 M094,PC-ABS,charpyNotched,value,40,kJ/m²,,,,,3,G094-08,V007654
 M094,PC-ABS,izodNotched,value,31.75,kJ/m²,,,,,4,G094-07,V007482
-M094,PC-ABS,hdt045,value,114.8,°C,,,,,6,G094-02,V001561
-M094,PC-ABS,hdt18,value,106.95,°C,,,,,2,G094-02,V001560
+M094,PC-ABS,hdt045,value,111.7,°C,,,,,7,G094-02,V001561
+M094,PC-ABS,hdt18,value,106.4,°C,,,,,3,G094-02,V001560
 M094,PC-ABS,glassTransition,value,109,°C,,,,,5,G094-02,V001556
 M094,PC-ABS,shoreA,none,,Shore A,,,,,,,
 M094,PC-ABS,shoreD,value,80,Shore D,,,,,1,G094-04,V004479
@@ -1969,7 +1969,7 @@ M104,PA6-CE,flexuralStrengthXY,none,,MPa,,,,,,,
 M104,PA6-CE,flexuralStrengthZ,none,,MPa,,,,,,,
 M104,PA6-CE,charpyNotched,none,,kJ/m²,,,,,,,
 M104,PA6-CE,izodNotched,none,,kJ/m²,,,,,,,
-M104,PA6-CE,hdt045,estimate,131,°C,96-165,64.8-199,64.8-199,this-grade,,,
+M104,PA6-CE,hdt045,estimate,130,°C,95.9-165,80.1-181,80.1-188,this-grade,,,
 M104,PA6-CE,hdt18,none,,°C,,,,,,,
 M104,PA6-CE,glassTransition,none,,°C,,,,,,,
 M104,PA6-CE,shoreA,none,,Shore A,,,,,,,
@@ -1988,7 +1988,7 @@ M105,ASA-EC,flexuralStrengthXY,none,,MPa,,,,,,,
 M105,ASA-EC,flexuralStrengthZ,none,,MPa,,,,,,,
 M105,ASA-EC,charpyNotched,none,,kJ/m²,,,,,,,
 M105,ASA-EC,izodNotched,none,,kJ/m²,,,,,,,
-M105,ASA-EC,hdt045,estimate,97.1,°C,90.4-104,83-109,83-109,this-grade,,,
+M105,ASA-EC,hdt045,estimate,96.9,°C,90.2-104,87.2-107,87.2-108,this-grade,,,
 M105,ASA-EC,hdt18,none,,°C,,,,,,,
 M105,ASA-EC,glassTransition,none,,°C,,,,,,,
 M105,ASA-EC,shoreA,none,,Shore A,,,,,,,
@@ -2007,8 +2007,8 @@ M106,ABS-AF,flexuralStrengthXY,none,,MPa,,,,,,,
 M106,ABS-AF,flexuralStrengthZ,none,,MPa,,,,,,,
 M106,ABS-AF,charpyNotched,value,17.59,kJ/m²,,,,,1,G106-03,V007805
 M106,ABS-AF,izodNotched,none,,kJ/m²,,,,,,,
-M106,ABS-AF,hdt045,estimate,87,°C,79-94.3,70.4-99.9,70.4-106,this-material,,,
-M106,ABS-AF,hdt18,none,,°C,,,,,,,
+M106,ABS-AF,hdt045,value,88,°C,,,,,2,G106-01,V002761
+M106,ABS-AF,hdt18,value,75,°C,,,,,2,G106-01,V002762
 M106,ABS-AF,glassTransition,value,110,°C,,,,,1,G106-03,V012266
 M106,ABS-AF,shoreA,none,,Shore A,,,,,,,
 M106,ABS-AF,shoreD,none,,Shore D,,,,,,,
@@ -2045,7 +2045,7 @@ M108,PA6-GS,flexuralStrengthXY,none,,MPa,,,,,,,
 M108,PA6-GS,flexuralStrengthZ,none,,MPa,,,,,,,
 M108,PA6-GS,charpyNotched,none,,kJ/m²,,,,,,,
 M108,PA6-GS,izodNotched,none,,kJ/m²,,,,,,,
-M108,PA6-GS,hdt045,estimate,131,°C,96-165,64.8-199,64.8-199,this-grade,,,
+M108,PA6-GS,hdt045,estimate,130,°C,95.9-165,80.1-181,80.1-188,this-grade,,,
 M108,PA6-GS,hdt18,none,,°C,,,,,,,
 M108,PA6-GS,glassTransition,none,,°C,,,,,,,
 M108,PA6-GS,shoreA,none,,Shore A,,,,,,,
@@ -2064,7 +2064,7 @@ M109,PETG-PTFE,flexuralStrengthXY,none,,MPa,,,,,,,
 M109,PETG-PTFE,flexuralStrengthZ,none,,MPa,,,,,,,
 M109,PETG-PTFE,charpyNotched,none,,kJ/m²,,,,,,,
 M109,PETG-PTFE,izodNotched,none,,kJ/m²,,,,,,,
-M109,PETG-PTFE,hdt045,estimate,64,°C,54.3-72.8,46.7-78.1,46.7-84.1,this-material,,,
+M109,PETG-PTFE,hdt045,estimate,63.9,°C,54.2-72.7,50.1-76.7,50.1-86.4,this-material,,,
 M109,PETG-PTFE,hdt18,none,,°C,,,,,,,
 M109,PETG-PTFE,glassTransition,none,,°C,,,,,,,
 M109,PETG-PTFE,shoreA,none,,Shore A,,,,,,,
@@ -2083,8 +2083,8 @@ M110,PCTG-GF,flexuralStrengthXY,none,,MPa,,,,,,,
 M110,PCTG-GF,flexuralStrengthZ,none,,MPa,,,,,,,
 M110,PCTG-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M110,PCTG-GF,izodNotched,none,,kJ/m²,,,,,,,
-M110,PCTG-GF,hdt045,estimate,75.7,°C,67.7-83.7,59.3-91.8,59.3-99.3,this-material,,,
-M110,PCTG-GF,hdt18,none,,°C,,,,,,,
+M110,PCTG-GF,hdt045,value,78,°C,,,,,2,G110-01,V002932
+M110,PCTG-GF,hdt18,value,68,°C,,,,,2,G110-01,V002933
 M110,PCTG-GF,glassTransition,value,88,°C,,,,,1,G110-03,V010977
 M110,PCTG-GF,shoreA,none,,Shore A,,,,,,,
 M110,PCTG-GF,shoreD,none,,Shore D,,,,,,,
@@ -2102,7 +2102,7 @@ M111,PLA-EC,flexuralStrengthXY,none,,MPa,,,,,,,
 M111,PLA-EC,flexuralStrengthZ,none,,MPa,,,,,,,
 M111,PLA-EC,charpyNotched,none,,kJ/m²,,,,,,,
 M111,PLA-EC,izodNotched,none,,kJ/m²,,,,,,,
-M111,PLA-EC,hdt045,estimate,55.7,°C,46-68.5,41.9-84.7,41.9-84.7,family,,,
+M111,PLA-EC,hdt045,estimate,55.7,°C,46-68.3,41.7-74.6,41.7-76.7,family,,,
 M111,PLA-EC,hdt18,none,,°C,,,,,,,
 M111,PLA-EC,glassTransition,none,,°C,,,,,,,
 M111,PLA-EC,shoreA,none,,Shore A,,,,,,,
@@ -2121,8 +2121,8 @@ M112,PC-PTFE,flexuralStrengthXY,none,,MPa,,,,,,,
 M112,PC-PTFE,flexuralStrengthZ,none,,MPa,,,,,,,
 M112,PC-PTFE,charpyNotched,value,12,kJ/m²,,,,,1,G112-02,V007736
 M112,PC-PTFE,izodNotched,none,,kJ/m²,,,,,,,
-M112,PC-PTFE,hdt045,estimate,134,°C,125-144,116-153,116-162,this-material,,,
-M112,PC-PTFE,hdt18,none,,°C,,,,,,,
+M112,PC-PTFE,hdt045,value,140,°C,,,,,1,G112-01,V012396
+M112,PC-PTFE,hdt18,value,130,°C,,,,,1,G112-01,V003068
 M112,PC-PTFE,glassTransition,none,,°C,,,,,,,
 M112,PC-PTFE,shoreA,none,,Shore A,,,,,,,
 M112,PC-PTFE,shoreD,none,,Shore D,,,,,,,
@@ -2140,7 +2140,7 @@ M113,ASA-AF,flexuralStrengthXY,none,,MPa,,,,,,,
 M113,ASA-AF,flexuralStrengthZ,none,,MPa,,,,,,,
 M113,ASA-AF,charpyNotched,none,,kJ/m²,,,,,,,
 M113,ASA-AF,izodNotched,none,,kJ/m²,,,,,,,
-M113,ASA-AF,hdt045,estimate,87.5,°C,77.7-96.3,66.3-102,66.3-108,this-material,,,
+M113,ASA-AF,hdt045,estimate,87.3,°C,77.4-96,72.8-100,72.8-110,this-material,,,
 M113,ASA-AF,hdt18,none,,°C,,,,,,,
 M113,ASA-AF,glassTransition,none,,°C,,,,,,,
 M113,ASA-AF,shoreA,none,,Shore A,,,,,,,
@@ -2463,7 +2463,7 @@ M130,PPE-PS,flexuralStrengthXY,value,85,MPa,,,,,1,G130-01,V004086
 M130,PPE-PS,flexuralStrengthZ,none,,MPa,,,,,,,
 M130,PPE-PS,charpyNotched,none,,kJ/m²,,,,,,,
 M130,PPE-PS,izodNotched,none,,kJ/m²,,,,,,,
-M130,PPE-PS,hdt045,estimate,119,°C,110-129,100-137,100-145,this-material,,,
+M130,PPE-PS,hdt045,estimate,119,°C,109-129,105-133,105-144,this-material,,,
 M130,PPE-PS,hdt18,value,112,°C,,,,,1,G130-01,V004089
 M130,PPE-PS,glassTransition,value,134,°C,,,,,2,G130-01,V004088
 M130,PPE-PS,shoreA,none,,Shore A,,,,,,,
@@ -2482,7 +2482,7 @@ M131,PC-PBT-CF,flexuralStrengthXY,none,,MPa,,,,,,,
 M131,PC-PBT-CF,flexuralStrengthZ,none,,MPa,,,,,,,
 M131,PC-PBT-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M131,PC-PBT-CF,izodNotched,none,,kJ/m²,,,,,,,
-M131,PC-PBT-CF,hdt045,estimate,117,°C,111-122,105-128,105-128,this-grade,,,
+M131,PC-PBT-CF,hdt045,estimate,116,°C,110-123,108-125,108-126,this-grade,,,
 M131,PC-PBT-CF,hdt18,none,,°C,,,,,,,
 M131,PC-PBT-CF,glassTransition,value,145,°C,,,,,1,G131-01,V012117
 M131,PC-PBT-CF,shoreA,none,,Shore A,,,,,,,
@@ -2520,7 +2520,7 @@ M133,PBAT,flexuralStrengthXY,value,7,MPa,,,,,1,G133-01,V005368
 M133,PBAT,flexuralStrengthZ,none,,MPa,,,,,,,
 M133,PBAT,charpyNotched,none,,kJ/m²,,,,,,,
 M133,PBAT,izodNotched,none,,kJ/m²,,,,,,,
-M133,PBAT,hdt045,estimate,75.6,°C,50.8-105,44.4-115,44.4-116,family,,,
+M133,PBAT,hdt045,estimate,76,°C,51.2-105,43.9-114,43.9-116,family,,,
 M133,PBAT,hdt18,none,,°C,,,,,,,
 M133,PBAT,glassTransition,none,,°C,,,,,,,
 M133,PBAT,shoreA,none,,Shore A,,,,,,,
@@ -2558,7 +2558,7 @@ M135,PVC,flexuralStrengthXY,none,,MPa,,,,,,,
 M135,PVC,flexuralStrengthZ,none,,MPa,,,,,,,
 M135,PVC,charpyNotched,none,,kJ/m²,,,,,,,
 M135,PVC,izodNotched,none,,kJ/m²,,,,,,,
-M135,PVC,hdt045,estimate,66.2,°C,57.4-74.2,49.3-79.1,49.3-79.1,this-grade,,,
+M135,PVC,hdt045,estimate,66.2,°C,57.1-74.2,53-77.9,53-79.3,this-grade,,,
 M135,PVC,hdt18,none,,°C,,,,,,,
 M135,PVC,glassTransition,none,,°C,,,,,,,
 M135,PVC,shoreA,none,,Shore A,,,,,,,
@@ -2577,7 +2577,7 @@ M136,SAN,flexuralStrengthXY,none,,MPa,,,,,,,
 M136,SAN,flexuralStrengthZ,none,,MPa,,,,,,,
 M136,SAN,charpyNotched,none,,kJ/m²,,,,,,,
 M136,SAN,izodNotched,none,,kJ/m²,,,,,,,
-M136,SAN,hdt045,estimate,105,°C,99.7-111,93.8-115,93.8-115,this-grade,,,
+M136,SAN,hdt045,estimate,105,°C,99.2-111,96.6-114,96.6-115,this-grade,,,
 M136,SAN,hdt18,none,,°C,,,,,,,
 M136,SAN,glassTransition,none,,°C,,,,,,,
 M136,SAN,shoreA,none,,Shore A,,,,,,,
@@ -2596,7 +2596,7 @@ M137,COC,flexuralStrengthXY,none,,MPa,,,,,,,
 M137,COC,flexuralStrengthZ,none,,MPa,,,,,,,
 M137,COC,charpyNotched,none,,kJ/m²,,,,,,,
 M137,COC,izodNotched,none,,kJ/m²,,,,,,,
-M137,COC,hdt045,estimate,151,°C,142-160,132-164,open-170,this-material,,,
+M137,COC,hdt045,value,160,°C,,,,,1,G137-01,V011484
 M137,COC,hdt18,none,,°C,,,,,,,
 M137,COC,glassTransition,none,,°C,,,,,,,
 M137,COC,shoreA,none,,Shore A,,,,,,,
@@ -2615,7 +2615,7 @@ M138,PE-GF,flexuralStrengthXY,none,,MPa,,,,,,,
 M138,PE-GF,flexuralStrengthZ,none,,MPa,,,,,,,
 M138,PE-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M138,PE-GF,izodNotched,none,,kJ/m²,,,,,,,
-M138,PE-GF,hdt045,estimate,116,°C,69.4-156,50.5-169,50.5-177,this-material,,,
+M138,PE-GF,hdt045,estimate,116,°C,69.1-157,53.7-168,53.7-184,this-material,,,
 M138,PE-GF,hdt18,none,,°C,,,,,,,
 M138,PE-GF,glassTransition,none,,°C,,,,,,,
 M138,PE-GF,shoreA,none,,Shore A,,,,,,,
@@ -2634,7 +2634,7 @@ M139,LCP,flexuralStrengthXY,none,,MPa,,,,,,,
 M139,LCP,flexuralStrengthZ,none,,MPa,,,,,,,
 M139,LCP,charpyNotched,none,,kJ/m²,,,,,,,
 M139,LCP,izodNotched,none,,kJ/m²,,,,,,,
-M139,LCP,hdt045,estimate,127,°C,100-146,68.8-152,68.8-open,this-grade,,,
+M139,LCP,hdt045,estimate,127,°C,99.9-146,87.1-153,87.1-open,this-grade,,,
 M139,LCP,hdt18,none,,°C,,,,,,,
 M139,LCP,glassTransition,none,,°C,,,,,,,
 M139,LCP,shoreA,none,,Shore A,,,,,,,
@@ -2672,7 +2672,7 @@ M141,PET-LW,flexuralStrengthXY,value,20.705,MPa,,,,,2,G141-02,V011410
 M141,PET-LW,flexuralStrengthZ,none,,MPa,,,,,,,
 M141,PET-LW,charpyNotched,value,0.55,kJ/m²,,,,,2,G141-02,V011412
 M141,PET-LW,izodNotched,none,,kJ/m²,,,,,,,
-M141,PET-LW,hdt045,estimate,75.5,°C,58-93.7,48.2-114,48.2-114,family,,,
+M141,PET-LW,hdt045,estimate,76.1,°C,58.6-94.3,51.7-103,51.7-106,family,,,
 M141,PET-LW,hdt18,none,,°C,,,,,,,
 M141,PET-LW,glassTransition,none,,°C,,,,,,,
 M141,PET-LW,shoreA,none,,Shore A,,,,,,,
@@ -2710,7 +2710,7 @@ M143,nGen FLEX,flexuralStrengthXY,value,8.9,MPa,,,,,1,G143-01,V005863
 M143,nGen FLEX,flexuralStrengthZ,none,,MPa,,,,,,,
 M143,nGen FLEX,charpyNotched,value,66.1,kJ/m²,,,,,1,G143-01,V005864
 M143,nGen FLEX,izodNotched,none,,kJ/m²,,,,,,,
-M143,nGen FLEX,hdt045,estimate,84.2,°C,68.3-101,54.2-117,54.2-open,this-grade,,,
+M143,nGen FLEX,hdt045,estimate,84.6,°C,68.7-101,61.4-108,61.4-open,this-grade,,,
 M143,nGen FLEX,hdt18,none,,°C,,,,,,,
 M143,nGen FLEX,glassTransition,none,,°C,,,,,,,
 M143,nGen FLEX,shoreA,none,,Shore A,,,,,,,
@@ -2729,8 +2729,8 @@ M144,PCTG-CF,flexuralStrengthXY,none,,MPa,,,,,,,
 M144,PCTG-CF,flexuralStrengthZ,none,,MPa,,,,,,,
 M144,PCTG-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M144,PCTG-CF,izodNotched,none,,kJ/m²,,,,,,,
-M144,PCTG-CF,hdt045,estimate,77.1,°C,69.3-84.9,61.2-92.8,61.2-99.9,this-material,,,
-M144,PCTG-CF,hdt18,value,72,°C,,,,,1,G144-02,V008864
+M144,PCTG-CF,hdt045,value,78,°C,,,,,1,G144-01,V007712
+M144,PCTG-CF,hdt18,value,70,°C,,,,,2,G144-01,V007713
 M144,PCTG-CF,glassTransition,value,88,°C,,,,,1,G144-03,V010708
 M144,PCTG-CF,shoreA,none,,Shore A,,,,,,,
 M144,PCTG-CF,shoreD,none,,Shore D,,,,,,,
@@ -2748,7 +2748,7 @@ M145,PLA-PHA,flexuralStrengthXY,value,90.4,MPa,,,,,1,G145-01,V009460
 M145,PLA-PHA,flexuralStrengthZ,none,,MPa,,,,,,,
 M145,PLA-PHA,charpyNotched,value,2.6,kJ/m²,,,,,1,G145-01,V009461
 M145,PLA-PHA,izodNotched,none,,kJ/m²,,,,,,,
-M145,PLA-PHA,hdt045,estimate,57.1,°C,48-67.9,43.2-80.5,43.2-80.5,this-grade,,,
+M145,PLA-PHA,hdt045,estimate,57.1,°C,48-67.9,44.1-72.9,44.1-75.2,this-grade,,,
 M145,PLA-PHA,hdt18,none,,°C,,,,,,,
 M145,PLA-PHA,glassTransition,none,,°C,,,,,,,
 M145,PLA-PHA,shoreA,none,,Shore A,,,,,,,
@@ -2786,7 +2786,7 @@ M147,PAHT,flexuralStrengthXY,none,,MPa,,,,,,,
 M147,PAHT,flexuralStrengthZ,none,,MPa,,,,,,,
 M147,PAHT,charpyNotched,none,,kJ/m²,,,,,,,
 M147,PAHT,izodNotched,none,,kJ/m²,,,,,,,
-M147,PAHT,hdt045,estimate,118,°C,91.3-151,83.1-186,83.1-186,this-grade,,,
+M147,PAHT,hdt045,estimate,118,°C,91.5-151,83.5-166,83.5-172,this-grade,,,
 M147,PAHT,hdt18,value,80,°C,,,,,1,G147-01,V011437
 M147,PAHT,glassTransition,none,,°C,,,,,,,
 M147,PAHT,shoreA,none,,Shore A,,,,,,,
@@ -2805,7 +2805,7 @@ M148,PAHT-CE,flexuralStrengthXY,none,,MPa,,,,,,,
 M148,PAHT-CE,flexuralStrengthZ,none,,MPa,,,,,,,
 M148,PAHT-CE,charpyNotched,none,,kJ/m²,,,,,,,
 M148,PAHT-CE,izodNotched,none,,kJ/m²,,,,,,,
-M148,PAHT-CE,hdt045,estimate,123,°C,80.1-168,54.3-205,54.3-205,family,,,
+M148,PAHT-CE,hdt045,estimate,123,°C,80.1-168,62.5-187,62.5-194,family,,,
 M148,PAHT-CE,hdt18,none,,°C,,,,,,,
 M148,PAHT-CE,glassTransition,none,,°C,,,,,,,
 M148,PAHT-CE,shoreA,none,,Shore A,,,,,,,
@@ -2881,7 +2881,7 @@ M152,PLA-NF,flexuralStrengthXY,none,,MPa,,,,,,,
 M152,PLA-NF,flexuralStrengthZ,none,,MPa,,,,,,,
 M152,PLA-NF,charpyNotched,none,,kJ/m²,,,,,,,
 M152,PLA-NF,izodNotched,none,,kJ/m²,,,,,,,
-M152,PLA-NF,hdt045,estimate,54.1,°C,47.4-61.4,42.8-68,42.8-74.3,this-material,,,
+M152,PLA-NF,hdt045,estimate,53.8,°C,47.1-61.1,44-64.6,44-73.8,this-material,,,
 M152,PLA-NF,hdt18,none,,°C,,,,,,,
 M152,PLA-NF,glassTransition,value,57.5,°C,,,,,2,G152-02,V012276
 M152,PLA-NF,shoreA,none,,Shore A,,,,,,,
@@ -2900,7 +2900,7 @@ M153,PETG-GR,flexuralStrengthXY,none,,MPa,,,,,,,
 M153,PETG-GR,flexuralStrengthZ,none,,MPa,,,,,,,
 M153,PETG-GR,charpyNotched,none,,kJ/m²,,,,,,,
 M153,PETG-GR,izodNotched,none,,kJ/m²,,,,,,,
-M153,PETG-GR,hdt045,estimate,68.8,°C,58.7-77.9,49.8-84,49.8-90.2,this-material,,,
+M153,PETG-GR,hdt045,estimate,68.4,°C,58.3-77.7,53.5-81.8,53.5-91.4,this-material,,,
 M153,PETG-GR,hdt18,none,,°C,,,,,,,
 M153,PETG-GR,glassTransition,none,,°C,,,,,,,
 M153,PETG-GR,shoreA,none,,Shore A,,,,,,,
@@ -2919,7 +2919,7 @@ M154,PA12-AF,flexuralStrengthXY,none,,MPa,,,,,,,
 M154,PA12-AF,flexuralStrengthZ,none,,MPa,,,,,,,
 M154,PA12-AF,charpyNotched,none,,kJ/m²,,,,,,,
 M154,PA12-AF,izodNotched,none,,kJ/m²,,,,,,,
-M154,PA12-AF,hdt045,estimate,105,°C,68.4-144,51-170,51-170,family,,,
+M154,PA12-AF,hdt045,estimate,105,°C,68.7-145,55.1-161,55.1-165,family,,,
 M154,PA12-AF,hdt18,none,,°C,,,,,,,
 M154,PA12-AF,glassTransition,none,,°C,,,,,,,
 M154,PA12-AF,shoreA,none,,Shore A,,,,,,,
@@ -2938,7 +2938,7 @@ M155,PLA-GR,flexuralStrengthXY,none,,MPa,,,,,,,
 M155,PLA-GR,flexuralStrengthZ,none,,MPa,,,,,,,
 M155,PLA-GR,charpyNotched,none,,kJ/m²,,,,,,,
 M155,PLA-GR,izodNotched,none,,kJ/m²,,,,,,,
-M155,PLA-GR,hdt045,estimate,55.7,°C,46-68.5,41.9-84.7,41.9-84.7,family,,,
+M155,PLA-GR,hdt045,estimate,55.7,°C,46-68.3,41.7-74.6,41.7-76.7,family,,,
 M155,PLA-GR,hdt18,none,,°C,,,,,,,
 M155,PLA-GR,glassTransition,none,,°C,,,,,,,
 M155,PLA-GR,shoreA,none,,Shore A,,,,,,,
@@ -2957,7 +2957,7 @@ M156,PA6/66-CF,flexuralStrengthXY,value,127.5,MPa,,,,,1,G156-01,V011523
 M156,PA6/66-CF,flexuralStrengthZ,value,54.9,MPa,,,,,1,G156-01,V011524
 M156,PA6/66-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M156,PA6/66-CF,izodNotched,none,,kJ/m²,,,,,,,
-M156,PA6/66-CF,hdt045,estimate,157,°C,145-168,133-180,133-180,this-grade,,,
+M156,PA6/66-CF,hdt045,estimate,157,°C,145-168,140-173,140-175,this-grade,,,
 M156,PA6/66-CF,hdt18,none,,°C,,,,,,,
 M156,PA6/66-CF,glassTransition,none,,°C,,,,,,,
 M156,PA6/66-CF,shoreA,none,,Shore A,,,,,,,
@@ -3242,7 +3242,7 @@ M174,SBC,flexuralStrengthXY,none,,MPa,,,,,,,
 M174,SBC,flexuralStrengthZ,none,,MPa,,,,,,,
 M174,SBC,charpyNotched,none,,kJ/m²,,,,,,,
 M174,SBC,izodNotched,none,,kJ/m²,,,,,,,
-M174,SBC,hdt045,estimate,77.5,°C,68.9-85.4,58.6-90.2,58.6-90.2,this-grade,,,
+M174,SBC,hdt045,estimate,77.6,°C,68.9-85.4,64.8-89,64.8-90.4,this-grade,,,
 M174,SBC,hdt18,none,,°C,,,,,,,
 M174,SBC,glassTransition,none,,°C,,,,,,,
 M174,SBC,shoreA,none,,Shore A,,,,,,,

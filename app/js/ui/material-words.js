@@ -132,12 +132,12 @@ export function changedState(x, v) {
 
 /** Why a product's value is set apart (its level is as-published, D172), by its headline's caveat. */
 export const LEVEL_NOTE = {
-  'not-described': 'Nothing on the document that speaks for this figure says, even implicitly, that its test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print. It is set apart for good: shown, never used to pass a requirement. It can still show that a printed part cannot reach a value, since a print is no better than either kind of bar. The maker\'s word on how the bar was made would settle it.',
+  'not-described': 'Nothing on the document that speaks for this figure says, even implicitly, that its test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print and, for a plastic that can crystallise, deflects hotter. It is set apart for good: shown, never used to pass a requirement. It can still show that a printed part cannot reach a value, since a print is no better than either kind of bar. The maker\'s word on how the bar was made would settle it. (A heat deflection counts whatever its bar for a plastic that cannot crystallise, whose glass transition sets it, unless its document points to a moulded or resin bar.)',
   'unstated-direction': 'The source gives no orientation the comparison can use (none, or one such as a 0° or 90° raster that is not a build orientation), so this may be a differently oriented bar. It is shown and not used in deciding.',
   'load-not-stated': 'The source does not state the HDT load. At either load the heat deflection at 0.45 MPa is at least this figure, so it bounds that from below only; it is not used at its value.',
 };
 // A headline drawn in the drawer alone (D139) decides nothing.
-export const DRAWER_LEVEL_NOTE = 'Nothing on its document says, even implicitly, that this test bar was printed, or it states no load or orientation, so it may be a moulded or differently oriented bar. It is drawn hollow in its comparison and left out of the median; no answer reads it.';
+export const DRAWER_LEVEL_NOTE = 'Nothing on its document says, even implicitly, that this test bar was printed, or it states no load or orientation, so it may be a moulded or differently oriented bar. It is drawn hollow in its comparison and left out of the median; no answer reads it. (A heat deflection of a plastic that cannot crystallise is drawn filled whatever its bar: its glass transition sets it.)';
 
 // ------------------------------------------------------------------ a comparison's rows (D133, D139)
 

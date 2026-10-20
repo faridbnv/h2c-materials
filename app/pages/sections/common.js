@@ -155,14 +155,17 @@ export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes
   const code = (h, v) => { const s = h.direction === 'Z' && v.measurementId ? sheetCode(c.msById?.get(v.measurementId)) : null; return s ? `Z (${s})` : null; };
   // A value set apart (D172) says why in as few words as the column's width holds (the cell does not wrap).
   const apart = (h, v) => (v.caveat === 'not-described' ? 'not described as printed' : v.caveat === 'load-not-stated' ? 'load not stated' : h.direction ? 'orientation not stated' : 'load not stated');
-  const note = (h, v) => [v.level === 'as-published' ? apart(h, v) : null, v.anneal ? 'after annealing' : null, code(h, v)].filter(Boolean).join(', ');
+  // A heat deflection counted on a bar no document describes, its plastic glassy (D177), says so too.
+  const note = (h, v) => [v.level === 'as-published' ? apart(h, v) : v.admitted?.includes('bar') ? 'glassy: counts' : null, v.anneal ? 'after annealing' : null, code(h, v)].filter(Boolean).join(', ');
+  const COUNTED = 'Its document does not describe the test bar; the value counts, since a plastic that cannot crystallise deflects near its glass transition however its bar was made';
   const twinOf = (v) => (v?.from?.origin === 'twin' ? c.gradeById.get(v.from.gradeId) ?? null : null);
   const cell = (g, h, label) => {
     const v = g.headline?.[h.key];
     if (!v) return `<td class="num none" data-label="${esc(label)}">not published</td>`;
     const n = note(h, v), twin = twinOf(v);
     const cls = ['num', v.level === 'as-published' ? 'open' : '', twin ? 'from' : ''].filter(Boolean).join(' ');
-    return `<td class="${cls}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}${twin ? ` title="${esc(`From the data sheet shared with ${productNameOrId(twin)}`)}"` : ''}>`
+    const title = [twin ? `From the data sheet shared with ${productNameOrId(twin)}` : null, v.admitted?.includes('bar') ? COUNTED : null].filter(Boolean).join('. ');
+    return `<td class="${cls}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}${title ? ` title="${esc(title)}"` : ''}>`
       + `<span class="cv"><span class="cv-n">${esc(`${sign(v)}${fmt(v.value, h.unit)}`)}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
   };
   // A published bound keeps its sign here as on the plate and in the drawer ("> 200 °C"), from the value's record.

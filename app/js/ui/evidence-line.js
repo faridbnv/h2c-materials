@@ -31,7 +31,7 @@ export function keyFiguresBasis(c) {
   const apart = variants && toughened ? 'Products with an added filler or additive, and for notched impact those sold as toughened, are shown but kept out of the medians.'
     : variants ? 'Products with an added filler or additive are shown but kept out of the medians.'
       : toughened ? 'For notched impact, products sold as toughened are shown but kept out of the median.' : '';
-  return ['Each figure is the median of the products that publish it comparably, and beside it the middle half of them; a value on a test bar no document describes as printed, or with no stated test load, is set apart.', apart].filter(Boolean).join(' ');
+  return ['Each figure is the median of the products that publish it comparably, and beside it the middle half of them; a value on a test bar no document describes as printed, or with no stated test load, is set apart, except a heat deflection of a plastic that cannot crystallise, which its glass transition sets whatever the bar.', apart].filter(Boolean).join(' ');
 }
 
 /** Why the values published cannot be ranked, said once: "No sheet states how its tensile bars were printed, so …". */

@@ -527,7 +527,7 @@ export function renderTable(host, state, actions) {
       'A value from one measurement: one product publishes it, or it is a product\'s own value. Select it for its test conditions and source page.',
       { cls: 'lg', head: 'One measurement' }),
     explainButton('<span class="related-mark">*</span> published, not comparable',
-      'Published for this material, but no product reports it on a comparable basis: its test bar is not described as printed, or it is another load, state, bar or endpoint. A requirement reads it only through a conversion row of the evidence ledger, in that row\'s one safe direction, and its answer then names the row. Select a starred value for the reason.',
+      'Published for this material, but no product reports it on a comparable basis: its test bar is not described as printed (for heat deflection, of a plastic that can crystallise), or it is another load, state, bar or endpoint. A requirement reads it only through a conversion row of the evidence ledger, in that row\'s one safe direction, and its answer then names the row. Select a starred value for the reason.',
       { cls: 'lg', head: 'Published, not comparable' }),
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
       `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass, and it hides one only where the material has no product on record; any other material is judged on its products' own values. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,

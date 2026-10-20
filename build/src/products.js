@@ -30,7 +30,7 @@
 // A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products are
 // three products (D8's example, which D83 answers by counting them, not by pooling them).
 
-import { isPartSpecimen, annealedBesideAsPrinted, offRecipeWhy } from './normalize/specimen.js';
+import { isPartSpecimen, annealedBesideAsPrinted, offRecipeWhy, pointsToMoulding, countsUndescribed } from './normalize/specimen.js';
 import { median, cents } from './normalize/values.js';
 import { priceSample, convertedFrom } from './prices.js';
 import { measurementHeadlines, applies } from './registry.js';
@@ -57,6 +57,31 @@ const PRINT_DIRECTIONS = new Set(['XY', 'Z', 'XZ', 'ZX', 'YX', 'raster-45', 'hor
 export const undescribedBar = (m) => !!m.setApartBy || (m.specimenForm === 'not-stated' && !PRINT_DIRECTIONS.has(m.direction));
 /** Whether a headline is a bar's property, which depends on how the bar was made: one that names a direction or a load. */
 export const barProperty = (def) => !!def.direction || def.loadMPa != null;
+
+/**
+ * Mark each value from a bar no document describes as printed that a headline counts all the same (D177, amending D172):
+ * m.countsUndescribed lists the headlines whose Undescribed bar counts for (headline_definitions.csv) names its product's
+ * kind of plastic, which for heat deflection is a polymer that cannot crystallise (polymers.csv Can crystallise no): a
+ * glassy bar deflects near its glass transition whether it was moulded or printed. A product that is a declared variant
+ * counts only where its vocabulary row says it prints as its type (D129, D175), and a value whose Specimen type says its
+ * document points to moulded or resin bars never counts (D172's counter-indications win). Run once the measurements have
+ * their page's statements; read by assess, the lower bounds and the evidence ledger (normalize/specimen.js
+ * countsUndescribed), so one rule says where such a bar counts. Returns how many values it marked.
+ */
+export function markUndescribedCounts(measurements, defs, { rowById, gradeById }) {
+  const reading = defs.filter((d) => d.undescribedCountsFor && barProperty(d));
+  let n = 0;
+  for (const m of measurements) {
+    delete m.countsUndescribed;
+    if (!reading.length || m.specimenForm !== 'not-stated' || PRINT_DIRECTIONS.has(m.direction) || pointsToMoulding(m.specimenType)) continue;
+    const row = rowById.get(m.materialId);
+    const grade = gradeById.get(m.gradeId);
+    if (!row || !grade || !printsAsItsType(grade)) continue;
+    const keys = reading.filter((d) => (d.valueProperties.includes(m.property) || (d.lowerBounds?.properties ?? []).includes(m.property)) && applies(d.undescribedCountsFor, row)).map((d) => d.key);
+    if (keys.length) { m.countsUndescribed = keys; n++; }
+  }
+  return n;
+}
 
 // ------------------------------------------------------------------------------- which document speaks (D171)
 
@@ -133,6 +158,9 @@ export function markOutranked(measurements, sources, defs = []) {
   }
   const barProps = new Set(defs.filter(barProperty).flatMap((d) => d.valueProperties));
   const candidate = (m) => m.gradeId && m.numeric && !m.quarantined && !m.implausible;
+  // Set apart in a slot (D172): a bar's property from a bar no document describes, which the slot's headline does not count
+  // (D177; a copy of a set-apart figure never counts).
+  const apartIn = (m, slot) => barProps.has(m.property) && undescribedBar(m) && (!!m.setApartBy || !m.countsUndescribed?.includes(slot.split('\u0000')[0]));
   // The same figure as printed, to within 1 % (a product page that writes 99 where its data sheet prints 100, or 5.0 for 4.95).
   const sameFigure = (a, b) => Math.abs(a - b) <= 0.01 * Math.max(Math.abs(a), Math.abs(b));
   // A run of the build reads the record as it is: a copy marked by an earlier call takes its own form back.
@@ -147,11 +175,14 @@ export function markOutranked(measurements, sources, defs = []) {
   const apart = new Map();
   for (const m of measurements) {
     if (!candidate(m) || !barProps.has(m.property) || !undescribedBar(m)) continue;
-    for (const k of slotsOfM(m)) { if (!apart.has(key(m, k))) apart.set(key(m, k), []); apart.get(key(m, k)).push(m); }
+    for (const k of slotsOfM(m).filter((x) => apartIn(m, x))) { if (!apart.has(key(m, k))) apart.set(key(m, k), []); apart.get(key(m, k)).push(m); }
   }
   for (const m of measurements) {
-    if (!candidate(m) || !barProps.has(m.property) || undescribedBar(m)) continue;
-    const source = slotsOfM(m).flatMap((k) => apart.get(key(m, k)) ?? [])
+    if (!candidate(m) || !barProps.has(m.property)) continue;
+    // A figure that decides (a printed bar's, or an undescribed one its headline counts, D177) may be a copy.
+    const deciding = slotsOfM(m).filter((k) => !apartIn(m, k));
+    if (!deciding.length) continue;
+    const source = deciding.flatMap((k) => apart.get(key(m, k)) ?? [])
       // A point figure, not a bound: a description's "over 6 GPa" is no copy of a table's 6030 MPa.
       .filter((x) => x.property === m.property && x.operator === '=' && m.operator === '=' && ranks.outranks(x.sourceId, m.sourceId) && sameFigure(x.value, m.value))
       .sort((a, b) => ranks.rank(a.sourceId) - ranks.rank(b.sourceId) || (a.id < b.id ? -1 : 1))[0];
@@ -160,8 +191,8 @@ export function markOutranked(measurements, sources, defs = []) {
   // The documents that print a figure each slot reads, and the values each prints of each property there.
   const slots = new Map();
   for (const m of measurements) {
-    if (!candidate(m) || (barProps.has(m.property) && undescribedBar(m))) continue;
-    for (const k of slotsOfM(m)) {
+    if (!candidate(m)) continue;
+    for (const k of slotsOfM(m).filter((x) => !apartIn(m, x))) {
       if (!slots.has(key(m, k))) slots.set(key(m, k), new Map());
       const docs = slots.get(key(m, k));
       if (!docs.has(m.sourceId)) docs.set(m.sourceId, new Map());
@@ -298,8 +329,13 @@ export function assess(m, def, gradeMeasurements, state = null, opts = {}) {
   // that it was printed (D172, the owner's ruling of 2026-10-20): it may be a moulded bar's, which flatters a print, so it
   // is set apart for good. Shown and counted apart, never deciding; what implies a print is data (a printed Specimen
   // type on the row or its page, or a stated orientation), never this branch.
-  if (barProperty(def) && undescribedBar(m) && !opts.undescribedAsPart) return { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' };
+  // A headline may count such a bar all the same for some kinds of plastic (D177): heat deflection, for a polymer that
+  // cannot crystallise, whose bar deflects near its glass transition however it was made. Marked as data
+  // (markUndescribedCounts, headline_definitions.csv Undescribed bar counts for), never decided here.
+  const counted = barProperty(def) && undescribedBar(m) && !opts.undescribedAsPart && countsUndescribed(m, def);
+  if (barProperty(def) && undescribedBar(m) && !opts.undescribedAsPart && !counted) return { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' };
   if (readFlat && !caveat) return { level: LEVEL.COMPARABLE, caveat: null, admitted: ['direction'] };
+  if (counted) return { level: caveat ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, caveat, admitted: ['bar'] };
   return { level: caveat ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, caveat };
 }
 
@@ -346,7 +382,10 @@ function productValue(m, a, def, pinned) {
   const admitted = [];
   // A printed bar that states no orientation, read flat (D172).
   if (a.admitted?.includes('direction')) admitted.push('direction');
-  if ((def.changesWithAnnealing || def.changesWithMoisture) && m.specimenForm === 'not-stated') admitted.push('specimen');
+  // A bar no document describes, counted because its polymer cannot crystallise (D177): said as such, not as a specimen
+  // the screening admitted.
+  if (a.admitted?.includes('bar')) admitted.push('bar');
+  else if ((def.changesWithAnnealing || def.changesWithMoisture) && m.specimenForm === 'not-stated') admitted.push('specimen');
   if (def.changesWithMoisture && m.moistureState === 'not-stated') admitted.push('moisture');
   if (def.changesWithAnnealing && m.postProcessingState === 'not-stated') admitted.push('treatment');
   if (admitted.length) v.admitted = admitted;

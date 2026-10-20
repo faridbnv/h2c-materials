@@ -656,7 +656,9 @@ function productValues(g, c) {
     const mark = v.level === 'as-published'
       ? ` ${explainButton('set apart', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Set apart: shown, never used to pass a requirement.', { cls: 'missing lvl', head: v.caveat === 'load-not-stated' ? 'Test load not stated' : 'Test bar not described as printed' })}`
       // A printed bar whose sheet states no orientation is read as a flat one (D172), and says so.
-      : v.admitted?.includes('direction') ? ' <span class="fine">orientation not stated; a printed bar, read as flat</span>' : '';
+      : v.admitted?.includes('direction') ? ' <span class="fine">orientation not stated; a printed bar, read as flat</span>'
+        // An undescribed bar a heat deflection counts all the same (D177).
+        : v.admitted?.includes('bar') ? ' <span class="fine">test bar not described; counted, as a plastic that cannot crystallise deflects near its glass transition however its bar was made</span>' : '';
     const anneal = v.anneal ? ` <span class="fine">annealed${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
     // A value that is only a ceiling for the printed part (CV05), or one its other records contradict (C40, D153).
     const first = g.states?.[0]?.values?.[h.key];
@@ -666,7 +668,7 @@ function productValues(g, c) {
   });
   const ledger = ledgerLines(g, c);
   const replaced = replacedLines(g, c);
-  if (!rows.length && !ledger) return `<div class="fine">This product publishes none of the key properties on a test bar its documents describe as printed.</div>${replaced}`;
+  if (!rows.length && !ledger) return `<div class="fine">This product publishes none of the key properties comparably: on a test bar its documents describe as printed, or for heat deflection any bar of a plastic that cannot crystallise.</div>${replaced}`;
   return `${rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : ''}${ledger}${replaced}`;
 }
 
@@ -1147,7 +1149,7 @@ function spreadTable(m, c) {
       <td class="num">${s.n} of ${s.products}</td>
       <td>${leftOutWords(h, s).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
-  <p class="fine">Median and range of the products that publish it on a test bar their documents describe as printed, at the test's orientation and load. The range is the products' lowest to highest.</p>
+  <p class="fine">Median and range of the products that publish it comparably: on a test bar their documents describe as printed (for heat deflection, any bar of a plastic that cannot crystallise), at the test's orientation and load. The range is the products' lowest to highest.</p>
   ${rows.filter(([, s]) => s.claimed).map(([h, s], i) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))}${i ? '' : ` ${TOUGHENED_NOTE_SHORT}`}</p>`).join('')}`;
 }
 

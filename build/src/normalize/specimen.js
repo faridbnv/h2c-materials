@@ -32,6 +32,22 @@ const declared = (file, column, allowed) => {
 /** The declared form of a Specimen type value: printed, not-stated, moulded (a raw-material value), film, filament or off-recipe. */
 export const specimenForm = declared('specimen-types.csv', 'Form', SPECIMEN_FORMS);
 
+const pointsToMouldingOf = declared('specimen-types.csv', 'Points to moulding', ['TRUE', 'FALSE']);
+/**
+ * Whether a Specimen type says the value's document points to moulded or resin bars beside it (D172's counter-indications:
+ * a mould shrinkage with a value, typical, resin or reference data). Such a bar is set apart like any undescribed one, and
+ * never counts where a headline lets an undescribed bar count (headline_definitions.csv Undescribed bar counts for, D177).
+ */
+export const pointsToMoulding = (specimenType) => pointsToMouldingOf(specimenType ?? 'Not published') === 'TRUE';
+
+/**
+ * Whether a value from a bar no document describes as printed counts for a headline all the same (D177): the build marks
+ * it (products.js markUndescribedCounts, m.countsUndescribed) where the headline's Undescribed bar counts for names its
+ * product's kind of plastic. A copy of a set-apart figure on a lower-ranked document (m.setApartBy, D171) never counts.
+ * Read wherever a printed bar is asked for: a product's value (assess), a lower bound, an evidence-ledger row.
+ */
+export const countsUndescribed = (m, def) => !m.setApartBy && !!m.countsUndescribed?.includes(def.key);
+
 /** Why an off-recipe bar is not the product's value, in words a reader can check against the row (D95, D130). */
 export const offRecipeWhy = (specimenType, { brief = false } = {}) => (specimenType === 'Printed specimen at partial infill'
   ? 'printed below 100 % infill, a part filled that far rather than the material as a solid part (D130)'

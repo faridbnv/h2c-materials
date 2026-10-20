@@ -15,7 +15,7 @@ A jig or a fixture. Tensile modulus at least 5 GPa; HDT at least 90 °C is repor
 Flexible component
 A gasket, strap or phone case. Elongation at break at least 100 % and tensile modulus at most 0.1 GPa.
 152 materials, 138 within H2C capability
-15,094 measurements, each traceable to its source
+15,096 measurements, each traceable to its source
 What this database cannot answer
 Properties
 Printing
@@ -44,12 +44,12 @@ PC
 n/a not applicable
 3 more marks
 TABLE 152 rows: Material ▲ | ☆ | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW ABS | ☆ | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 16 | 40↗ / 24.5–70.7 · 9
-ROW ABS-AF | ☆ | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | 88* | 127↗
-ROW ABS-CF | ☆ | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 44 / 27.3–48 · 7 | 1.9 / 1.48–3.08 · 4 | 90.5 / 76–102 · 4 | 45↗ / 40–50 · 2
-ROW ABS-ESD | ☆ | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35 / 19.8–58 · 7 | 4.4 / 2.21–6.4 · 6 | 97.5 / 96–98 · 4 | 223USD↗ / 199–247 · 2 / out of stock
+ROW ABS | ☆ | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 18 | 40↗ / 24.5–70.7 · 9
+ROW ABS-AF | ☆ | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | 88 | 127↗
+ROW ABS-CF | ☆ | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 44 / 27.3–48 · 7 | 1.9 / 1.48–3.08 · 4 | 90 / 76–102 · 5 | 45↗ / 40–50 · 2
+ROW ABS-ESD | ☆ | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35 / 19.8–58 · 7 | 4.4 / 2.21–6.4 · 6 | 97 / 96–98 · 5 | 223USD↗ / 199–247 · 2 / out of stock
 ROW ABS-GF | ☆ | 1,100 / 1,016–1,150 · 11 | 2.75 / 1.74–4.21 · 6 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97.5 / 87–100 · 6 | 39↗
-ROW ASA | ☆ | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.5 / 30.2–45 · 14 | 6.7 / 1.9–15 · 13 | 96.5 / 88–103 · 10 | 39.5↗ / 30.8–70.7 · 5
+ROW ASA | ☆ | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.5 / 30.2–45 · 14 | 6.7 / 1.9–15 · 13 | 95.5 / 88–103 · 12 | 39.5↗ / 30.8–70.7 · 5
 ROW ASA Aero | ☆ | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | 70 | 64↗
 ROW ASA-AF | ☆ | 1,070 | 2.2* | 40* | 6* | 89* | 115↗ / 109–120 · 2
 ROW ASA-CF · ☆

@@ -1,5 +1,5 @@
-COUNT 95 shown PASS + UNKNOWN
-STATUS ☑ PASS 10 | ☑ UNKNOWN 92 | ☐ FAIL 50 | ☐ HIDDEN 7
+COUNT 94 shown PASS + UNKNOWN
+STATUS ☑ PASS 10 | ☑ UNKNOWN 91 | ☐ FAIL 51 | ☐ HIDDEN 7
 Requirements: Within H2C capability; Build material (not a support); Nozzle, bed and chamber within H2C limits; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1,500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials that could not be checked: Include; estimates and resin data on, which never pass a material and hide one only where resin data reports its polymer attacked or the material has no product on record. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
@@ -123,7 +123,7 @@ range 147–215 · 6 products
 PA6-GF
 186
 range 161–205 · 7 products
-38.6
+37.5
 300
 all 152 materials
 Glass transition (Tg) °C

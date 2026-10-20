@@ -12,9 +12,11 @@
 //   Family: Flexible Elastomers
 //   Modifier / filler: Carbon fibre | Glass fibre; Role: Structural / functional / appearance
 //   Morphology: amorphous | semicrystalline | not modelled
+//   Can crystallise: no
 //
-// Clauses are separated by ";" and must all hold; values within a clause are alternatives. Morphology is the material's
-// polymer's (polymers.csv, through its Estimate identity), "not modelled" where it names none.
+// Clauses are separated by ";" and must all hold; values within a clause are alternatives. Morphology, Printed state and
+// Can crystallise are the material's polymer's (polymers.csv, through its Estimate identity), "not modelled" where it
+// names none.
 
 import { compileRelations, headlineDrift } from './physical-relations.js';
 
@@ -30,6 +32,7 @@ export const APPLICABILITY_FIELDS = {
   'H2C status': 'h2cStatus',
   'Morphology': 'morphology',
   'Printed state': 'printedState',
+  'Can crystallise': 'canCrystallise',
 };
 
 export const NOT_MODELLED = 'not modelled';
@@ -49,8 +52,12 @@ export function printedStateOf(polymer, modifier) {
   return 'crystalline';
 }
 
-/** A materials row with what an applicability rule may test of its polymer: its Morphology and its Printed state. */
-export const withPolymer = (row, polymer) => ({ ...row, Morphology: polymer?.Morphology ?? NOT_MODELLED, 'Printed state': printedStateOf(polymer, row['Modifier / filler']) });
+/**
+ * A materials row with what an applicability rule may test of its polymer: its Morphology, its Printed state and whether
+ * it can crystallise in a mould or on annealing (polymers.csv Can crystallise, D177; "not modelled" where it names none).
+ */
+export const withPolymer = (row, polymer) => ({ ...row, Morphology: polymer?.Morphology ?? NOT_MODELLED, 'Printed state': printedStateOf(polymer, row['Modifier / filler']),
+  'Can crystallise': polymer ? polymer['Can crystallise'] : NOT_MODELLED });
 
 /** The materials table's rows, each with its polymer's Morphology and Printed state, which an applicability rule may test. */
 export function materialRowsOf(wb) {
@@ -138,6 +145,10 @@ export function compileRegistry(wb, issues) {
       loadMPa: numOrNull(r['Load MPa']),
       // A value whose source states no load: this headline's as published (D84), or none of its values (D139).
       unstatedLoad: orNull(r['Unstated load']),
+      // The kinds of plastic for which a bar no document describes as printed counts as a printed bar's (D177), in the
+      // Applies-to grammar; null: such a bar is set apart for every product (D172).
+      undescribedCountsFor: orNull(r['Undescribed bar counts for']) == null ? null : parseAppliesTo(r['Undescribed bar counts for'], `${where} Undescribed bar counts for`, issues, materialRows),
+      undescribedCountsForText: orNull(r['Undescribed bar counts for']),
       // The conditions an impact value is defined at (D92): the notch it must state, and the test temperature a stated
       // one must be.
       notch: orNull(r.Notch), testTemperatureC: numOrNull(r['Test temperature °C']),
@@ -251,6 +262,10 @@ function checkComparisons(comparisons, headlines, { captions, propertyByName, er
       h.referenceProperty ? 'it has a reference property' : null,
     ].filter(Boolean);
     if (problems.length) err('REGISTRY-COMPARISON', where, `Drawer only, but ${problems.join('; ')}`);
+  }
+  // An undescribed bar is a question for a bar's property only (a headline with a direction or a load, D172, D177).
+  for (const h of headlines.filter((x) => x.undescribedCountsForText && !x.direction && x.loadMPa == null)) {
+    err('REGISTRY-APPLIES-TO', `headline_definitions ${h.key}`, 'Undescribed bar counts for is set, but the headline is no bar\'s property (it names neither a direction nor a load)');
   }
 }
 

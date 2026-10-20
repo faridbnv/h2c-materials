@@ -929,3 +929,23 @@ The record is [the round](audits/2026-10-20-owner-rulings/README.md).
   ([decision diff](audits/2026-10-20-owner-rulings/after/DECISION-DIFF.md)). Left for the owner: the reading's judgement
   calls, the executor's reading of "set apart for good" (never used to pass, still able to show a print cannot reach a
   value), and the elastomers' chamber row's scope.
+
+## Decided on 2026-10-20, an undescribed heat deflection of an amorphous plastic counts (built)
+
+The owner asked a materials scientist to advise on the executor's suggestion and then build it: since D172 a heat
+deflection whose test bar no document describes is set apart for good, which took Warm environment from 43 passes to 31;
+but an amorphous plastic's heat deflection is set by its glass transition whether its bar was moulded or printed, where
+one that can crystallise (nylon, PP, POM, PBT, PPA, PPS, PEEK, and PLA and PET, which print glassy) can read tens of
+degrees higher moulded. Relax only what the physics clearly supports; a counter-indication on the same table always wins,
+and the physics checks stay.
+
+The record is [the round](audits/2026-10-20-amorphous-heat/README.md).
+- **Built and measured (2026-10-20).** D177, m487. The advice ([ADVICE.md](audits/2026-10-20-amorphous-heat/ADVICE.md)):
+  count a heat deflection, at either load, of a plastic that cannot crystallise (a new polymers.csv column; PC-PBT and
+  PLA-PHA excluded for their crystallisable phase), unfoamed, unless its table points to a moulded or resin bar (a new
+  Specimen type on the 1,004 values the readings set apart for one); not the tensile, flexural or impact values. In our
+  data the counted values sit on their materials' printed bars (median +0.3 °C at 0.45 MPa) and below their own glass
+  transition as printed bars do. 131 values of 88 products count; products with a comparable heat deflection at 0.45 MPa
+  312 → 356; Warm environment passes 31 → 34 (PETG, CPE, COC); no pass rests on an undescribed bar of a plastic that can
+  crystallise. Two values physics rules out were flagged and three loads read on their pages. EST-CALIBRATION holds
+  ([back-test](audits/2026-10-20-amorphous-heat/BACKTEST.md); [decision diff](audits/2026-10-20-amorphous-heat/DECISION-DIFF.md)).

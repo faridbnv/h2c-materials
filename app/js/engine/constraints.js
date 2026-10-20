@@ -291,7 +291,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     }
     if (h.caveat) reason += '. Used because Data quality includes such values';
     // What the screening policy admitted unstated (GOALS 2026-09-28, decision 5).
-    if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated${h.admitted.includes('direction') ? '; a printed bar is read as a flat one' : ''}`;
+    if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated${h.admitted.includes('direction') ? '; a printed bar is read as a flat one' : ''}${h.admitted.includes('bar') ? '; it counts all the same, since a plastic that cannot crystallise deflects near its glass transition whether its bar was moulded or printed' : ''}`;
     if (thinMargin) {
       reason += closeToLimit
         ? `. Close to the limit, a thin margin: the threshold is inside the published scatter and the test scatter (${margin.words}), so some parts may fall below it`
@@ -317,7 +317,7 @@ function evaluateNumeric(material, c, ctx = {}) {
   };
 }
 
-const ADMITTED_WORDS = { direction: 'orientation', specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing' };
+const ADMITTED_WORDS = { direction: 'orientation', specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing', bar: 'how the test bar was made' };
 
 // A headline's test scatter (D152): how far one maker's published figure moves between its own bars and sheets, from the
 // registry the context carries (headline_definitions.csv Test scatter), or null where it has none or the context no

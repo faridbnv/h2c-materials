@@ -336,7 +336,9 @@ the headline from below and meets the requirement vetoes a screen; a resin suppl
 those and vetoes nothing. The drawer says, for each estimate, whether it is context only, or which ends may screen and why. A heat value whose source
 does not state the load is published without its conditions (D84): marked set apart, it is never the product's value, and
 bounds the 0.45 MPa value from below only, through the evidence ledger (CV63, D172). A value whose test bar no document
-describes, even implicitly, as printed is set apart for good (D172); the switch that once admitted such values,
+describes, even implicitly, as printed is set apart for good (D172), save a heat deflection of a plastic that cannot
+crystallise, which counts unless its table points to a moulded or resin bar, and says so ("test bar not described;
+counted, as a plastic that cannot crystallise deflects near its glass transition however its bar was made", D177); the switch that once admitted such values,
 *Include values with no stated orientation or load*, is gone, and a link saved with it is asked again without them. (Until
 m137 an unloaded heat value was read as a bracket that could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, is a definition,
 not an inference: under Include it hides the material whether estimates are on or off, and its reason says "Does not
@@ -1210,7 +1212,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   narrows the list. Materials that pass but cannot rank, passing products not drawable on
   these axes, and a cost goal's unpriced products are listed with why.
 - **The inspector** shows one product: its state and schedule, each coordinate with its measurement (a link to it), the
-  state it was read from, the source's own ± as published, what the value leaves unstated (a printed bar's orientation, read flat, D172), the strength endpoint, a
+  state it was read from, the source's own ± as published, what the value leaves unstated (a printed bar's orientation, read flat, D172; how a glassy plastic's heat deflection bar was made, D177), the strength endpoint, a
   variant's class, the goal's M and its material's rank; **Choose this exact product** records it with its state (D103),
   and **Open its material's products** opens the drawer. Pressing a crowded spot lists the marks within a few pixels to
   choose from. An estimate's inspector gives its likely, plausible and screening ranges apart, its basis, the index over
@@ -1411,7 +1413,8 @@ it draws each passing product in the state its answer is in, since D108 Material
 passing products, and since D112 Material typicals is one dot per material. Compare draws each material's product range
 behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
 print settings and verdict. Under Data quality a line counts the product values set apart (D172): a test bar no
-document describes as printed, or a heat deflection with no stated load; the drawer's product detail and the material
+document describes as printed (a heat deflection of a plastic that cannot crystallise is judged all the same, D177), or a
+heat deflection with no stated load; the drawer's product detail and the material
 pages' product cards name each one, and a figure a newer edition or the data sheet replaced (D171), small, as not used
 in deciding.
 

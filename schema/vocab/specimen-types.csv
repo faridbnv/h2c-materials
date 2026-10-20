@@ -1,14 +1,15 @@
-Value,Meaning,Form
-Filament,,filament
-Film specimen (ASTM D882); not a printed or moulded bar,,film
-Not published,,not-stated
-Not published (density specimen form not explicitly established),,not-stated
-Not published (do not assume printed),,not-stated
-Printed (implied by the document),"A bar the document does not say in so many words was printed, whose document implies it all the same: its own row or its table labels a print orientation, a heading names the printed part, print settings are given for the test specimens, or a statement about how the document's test specimens were made speaks for it, and nothing ties it to moulding or to the base resin (the owner's ruling of 2026-10-20, D172). The Notes quote what implies it, with its page. It decides as a printed bar does.",printed
-Printed off the product's recipe,"A bar printed at a print setting its sheet prints beside the one the product is meant to be printed at, and not that one: colorFabb's lightweight PETs foam at 260 °C and are printed unfoamed at 210 °C for a second column (D95). Recorded and shown; never a product value, a bound or an estimate observation.",off-recipe
-Printed part,,printed
-Printed part / TDS material-property section,,printed
-Printed specimen,,printed
-Printed specimen at partial infill,"A bar its sheet says was printed below 100 % infill (3DJake's sheets print 'Infill: 20 %'; the row's print parameters say how much): the strength and stiffness of a part filled that far, not of the material as a solid part. Recorded and shown with that label; never a product value, a bound or an estimate observation (D130).",off-recipe
-Printed specimen; TDS reports N/A,,printed
-Raw material value,,moulded
+Value,Meaning,Form,Points to moulding
+Filament,,filament,FALSE
+Film specimen (ASTM D882); not a printed or moulded bar,,film,FALSE
+Not published,,not-stated,FALSE
+Not published (density specimen form not explicitly established),,not-stated,FALSE
+Not published (do not assume printed),,not-stated,FALSE
+Not published (its document points to moulded or resin bars),"A bar the document does not describe, beside something about the same values or their table that points to moulding or to the base resin: injection or compression moulding, ISO 294 or ASTM D955 mould shrinkage with a value, ISO 3167 bars, typical or resin values, a resin grade's figures, supplier, literature or reference data (D172's counter-indications, as the readings of 2026-10-20 found them). Set apart for good like any bar no document describes as printed, and never counted where an undescribed bar may be (headline_definitions.csv Undescribed bar counts for, D177): the figure may be another compound's or another bar's.",not-stated,TRUE
+Printed (implied by the document),"A bar the document does not say in so many words was printed, whose document implies it all the same: its own row or its table labels a print orientation, a heading names the printed part, print settings are given for the test specimens, or a statement about how the document's test specimens were made speaks for it, and nothing ties it to moulding or to the base resin (the owner's ruling of 2026-10-20, D172). The Notes quote what implies it, with its page. It decides as a printed bar does.",printed,FALSE
+Printed off the product's recipe,"A bar printed at a print setting its sheet prints beside the one the product is meant to be printed at, and not that one: colorFabb's lightweight PETs foam at 260 °C and are printed unfoamed at 210 °C for a second column (D95). Recorded and shown; never a product value, a bound or an estimate observation.",off-recipe,FALSE
+Printed part,,printed,FALSE
+Printed part / TDS material-property section,,printed,FALSE
+Printed specimen,,printed,FALSE
+Printed specimen at partial infill,"A bar its sheet says was printed below 100 % infill (3DJake's sheets print 'Infill: 20 %'; the row's print parameters say how much): the strength and stiffness of a part filled that far, not of the material as a solid part. Recorded and shown with that label; never a product value, a bound or an estimate observation (D130).",off-recipe,FALSE
+Printed specimen; TDS reports N/A,,printed,FALSE
+Raw material value,,moulded,FALSE

@@ -4,7 +4,7 @@
 // grade's range, the back-test) and the order check (EST-ORDER), so what bounds an estimate and what the check asks of
 // it cannot differ.
 
-import { annealedBesideAsPrinted } from './normalize/specimen.js';
+import { annealedBesideAsPrinted, countsUndescribed } from './normalize/specimen.js';
 
 // Which specimens bound a headline (D126). A printed bar does, and so does one whose sheet states no specimen: D84 lets
 // that value decide a product's headline, so a stricter reading here left an estimate beside the sheet's own number. A
@@ -31,7 +31,9 @@ export function lowerBoundsOf(def, own, { forms: asked } = {}) {
   if (!rel) return [];
   const forms = asked ?? rel.forms ?? BOUNDING_FORMS;
   return own
-    .filter((m) => m.numeric && !m.quarantined && !m.implausible && forms.includes(m.specimenForm) && m.operator !== '<' && m.operator !== '<=')
+    // A bar no document describes bounds where it is read as printed (D177: heat deflection of a polymer that cannot
+    // crystallise), as it decides the product's value there.
+    .filter((m) => m.numeric && !m.quarantined && !m.implausible && (forms.includes(m.specimenForm) || (forms.includes('printed') && countsUndescribed(m, def))) && m.operator !== '<' && m.operator !== '<=')
     .filter((m) => (def.changesWithAnnealing ? m.postProcessingState !== 'annealed' : !annealedBesideAsPrinted(m, own)))
     .filter((m) => !(rel.excludeMoisture ?? []).includes(m.moistureState))
     .filter((m) => rel.properties.includes(m.property) && (rel.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - rel.loadMPa) < 0.05)))
