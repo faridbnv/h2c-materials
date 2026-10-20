@@ -5,7 +5,7 @@
 // a log.
 
 import { explainExclusions } from '../engine/constraints.js';
-import { chip, esc } from './format.js';
+import { chip, esc, explainButton } from './format.js';
 import { describeConstraint, POLICY_LABELS, H2C_CHECK } from './labels.js';
 import { lower } from './text.js';
 
@@ -127,9 +127,24 @@ function chosenBecause(e) {
 }
 
 /**
+ * A reason's first sentence, and the whole reason where there is more (D173): `[lead, whole]`, whole null where the lead
+ * is all of it. A sentence ends at a full stop followed by a capital, so "3.5 GPa" and "(ISO 75)." keep their place.
+ */
+export function reasonLead(text) {
+  const t = String(text ?? '');
+  const m = t.match(/^(.+?\.)\s+(?=[A-Z])/);
+  return m ? [m[1], t] : [t, null];
+}
+
+/**
  * A material against the requirements, one line per requirement: its result, the requirement, and what decided it, with
  * the measurement one press away. The lines are one product's, named once above them; a line that rests on another
  * product names its own. Record IDs stay in the button's title: the line is for reading (D124).
+ *
+ * The drawer's first screen (D173, the owner's ruling of 2026-10-20): each line gives the first sentence of its reason,
+ * the value that decided it, and the whole reason one press away under "more" (215 of the 327 kinds of reason the
+ * templates give ran past 140 characters, the longest to 723, and PETG's HDT line alone took five lines). A thin margin,
+ * said in the reason's third sentence, is a tag beside the requirement, where it is read.
  *
  * The product shown (2026-10-18): the engine's (the first that passes, else the one nearest to being settled, D155), unless it passes while leaving
  * a requirement that is reported, not required, unanswered and another passing product answers it. PLA had been shown
@@ -154,21 +169,26 @@ export function renderWhy(evaluation, { productName } = {}) {
   // One list, so the result chips share a column and the text beside them one left edge (app.css). A requirement the
   // product's sheets cannot settle (the engine's INDETERMINATE: a chamber recommended above the H2C's, not required)
   // reads UNKNOWN, as the table counts it, its half-filled mark and its reason kept.
-  return `${head}<div class="explain-list">${rows.map((r) => `
+  return `${head}<div class="explain-list">${rows.map((r) => {
+    const [lead, whole] = reasonLead(r.reason);
+    return `
     <div class="explain-row">
       ${r.constraint.mandatory === false
         // A requirement reported, not required, decides nothing: its mark is neutral, its words say where the value stands.
         ? `<span class="chip chip-neutral">${{ PASS: 'within', FAIL: 'beyond', UNKNOWN: 'no data', INDETERMINATE: 'no data' }[r.status] ?? esc(r.status)}</span>`
         : chip(r.status, r.status === 'INDETERMINATE' ? 'UNKNOWN' : r.status)}
       <div>
-        <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral" style="font-size:10px">reported, not required</span>' : ''}</div>
-        <div class="why">${esc(r.reason)}${r.gradeId && r.gradeId !== best ? ` (${esc(name(r.gradeId))})` : ''}${r.measurementId
+        <div class="crit">${esc(describeConstraint(r.constraint))}${r.constraint.mandatory === false ? ' <span class="chip chip-neutral chip-tag">reported, not required</span>' : ''}${r.thinMargin ? ' <span class="chip chip-neutral chip-tag">thin margin</span>' : ''}</div>
+        <div class="why">${esc(lead)}${r.gradeId && r.gradeId !== best ? ` (${esc(name(r.gradeId))})` : ''}${whole
+          // The rest of the reason, one press away (D173).
+          ? ` ${explainButton('more', whole, { cls: 'link-btn why-more', head: describeConstraint(r.constraint), label: `The whole reason for ${describeConstraint(r.constraint)}` })}` : ''}${r.measurementId
           // The measurement a result rests on, one press away (wireEvidence opens it in Sources).
           ? ` <button type="button" class="link-btn src-link" data-measurement="${esc(r.measurementId)}" title="Opens measurement ${esc(r.measurementId)} in Sources">source</button>` : ''}${r.polymer
           // A result that rests on the base polymer's reference data says so, and where its rows are (D64).
           ? ` From reference data for ${esc(r.polymerId)} resin, in the Environment tab.` : ''}</div>
       </div>
-    </div>`).join('')}</div>${also.length ? `<p class="fine why-also">Also met: ${esc(also.join(' · '))}.</p>` : ''}`;
+    </div>`;
+  }).join('')}</div>${also.length ? `<p class="fine why-also">Also met: ${esc(also.join(' · '))}.</p>` : ''}`;
 }
 
 /**
