@@ -246,9 +246,9 @@ Indoor prototype,Strict,M028,ABS-GF,PASS,all,11,0,0,11,G028-01,as-printed,yes,,
 Indoor prototype,Strict,M029,ABS-CF,PASS,some,3,1,7,11,G029-02,as-printed,yes,,
 Indoor prototype,Strict,M030,ABS-ESD,PASS,some,5,1,5,11,G030-03,as-printed,yes,,
 Indoor prototype,Strict,M031,ASA,PASS,some,36,2,2,40,G031-01,as-printed,yes,,
-Indoor prototype,Strict,M032,ASA Aero,PASS,all,2,0,2,4,G032-01,as-printed,yes,,
+Indoor prototype,Strict,M032,ASA Aero,PASS,all,3,0,1,4,G032-01,as-printed,yes,,
 Indoor prototype,Strict,M033,ASA-CF,PASS,all,16,0,1,17,G033-01,as-printed,yes,,
-Indoor prototype,Strict,M034,ASA-GF,PASS,all,4,0,2,6,G034-01,as-printed,yes,,
+Indoor prototype,Strict,M034,ASA-GF,PASS,all,5,0,1,6,G034-01,as-printed,yes,,
 Indoor prototype,Strict,M035,PC,PASS,some,13,1,7,21,G035-01,as-printed,yes,,
 Indoor prototype,Strict,M036,PC FR,PASS,some,2,1,0,3,G036-01,as-printed,yes,,
 Indoor prototype,Strict,M037,PC-CF,PASS,some,1,1,8,10,G037-05,as-printed,yes,,
@@ -344,9 +344,9 @@ Indoor prototype,"Strict, annealing permitted",M028,ABS-GF,PASS,all,11,0,0,11,G0
 Indoor prototype,"Strict, annealing permitted",M029,ABS-CF,PASS,some,3,1,7,11,G029-02,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M030,ABS-ESD,PASS,some,5,1,5,11,G030-03,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M031,ASA,PASS,some,36,2,2,40,G031-01,as-printed,yes,,
-Indoor prototype,"Strict, annealing permitted",M032,ASA Aero,PASS,all,2,0,2,4,G032-01,as-printed,yes,,
+Indoor prototype,"Strict, annealing permitted",M032,ASA Aero,PASS,all,3,0,1,4,G032-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M033,ASA-CF,PASS,all,16,0,1,17,G033-01,as-printed,yes,,
-Indoor prototype,"Strict, annealing permitted",M034,ASA-GF,PASS,all,4,0,2,6,G034-01,as-printed,yes,,
+Indoor prototype,"Strict, annealing permitted",M034,ASA-GF,PASS,all,5,0,1,6,G034-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M035,PC,PASS,some,13,1,7,21,G035-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M036,PC FR,PASS,some,2,1,0,3,G036-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M037,PC-CF,PASS,some,1,1,8,10,G037-05,as-printed,yes,,
@@ -442,9 +442,9 @@ Indoor prototype,Explore,M028,ABS-GF,PASS,all,11,0,0,11,G028-01,as-printed,yes,,
 Indoor prototype,Explore,M029,ABS-CF,PASS,some,3,1,7,11,G029-02,as-printed,yes,,meets
 Indoor prototype,Explore,M030,ABS-ESD,PASS,some,5,1,5,11,G030-03,as-printed,yes,,meets
 Indoor prototype,Explore,M031,ASA,PASS,some,36,2,2,40,G031-01,as-printed,yes,,meets
-Indoor prototype,Explore,M032,ASA Aero,PASS,all,2,0,2,4,G032-01,as-printed,yes,,meets
+Indoor prototype,Explore,M032,ASA Aero,PASS,all,3,0,1,4,G032-01,as-printed,yes,,meets
 Indoor prototype,Explore,M033,ASA-CF,PASS,all,16,0,1,17,G033-01,as-printed,yes,,meets
-Indoor prototype,Explore,M034,ASA-GF,PASS,all,4,0,2,6,G034-01,as-printed,yes,,meets
+Indoor prototype,Explore,M034,ASA-GF,PASS,all,5,0,1,6,G034-01,as-printed,yes,,meets
 Indoor prototype,Explore,M035,PC,PASS,some,13,1,7,21,G035-01,as-printed,yes,,meets
 Indoor prototype,Explore,M036,PC FR,PASS,some,2,1,0,3,G036-01,as-printed,yes,,meets
 Indoor prototype,Explore,M037,PC-CF,PASS,some,1,1,8,10,G037-05,as-printed,yes,,meets
@@ -573,9 +573,9 @@ Indoor prototype,Explore with estimates,M028,ABS-GF,PASS,all,11,0,0,11,G028-01,a
 Indoor prototype,Explore with estimates,M029,ABS-CF,PASS,some,3,1,7,11,G029-02,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M030,ABS-ESD,PASS,some,5,1,5,11,G030-03,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M031,ASA,PASS,some,36,2,2,40,G031-01,as-printed,yes,,meets
-Indoor prototype,Explore with estimates,M032,ASA Aero,PASS,all,2,0,2,4,G032-01,as-printed,yes,,meets
+Indoor prototype,Explore with estimates,M032,ASA Aero,PASS,all,3,0,1,4,G032-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M033,ASA-CF,PASS,all,16,0,1,17,G033-01,as-printed,yes,,meets
-Indoor prototype,Explore with estimates,M034,ASA-GF,PASS,all,4,0,2,6,G034-01,as-printed,yes,,meets
+Indoor prototype,Explore with estimates,M034,ASA-GF,PASS,all,5,0,1,6,G034-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M035,PC,PASS,some,13,1,7,21,G035-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M036,PC FR,PASS,some,2,1,0,3,G036-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M037,PC-CF,PASS,some,1,1,8,10,G037-05,as-printed,yes,,meets
@@ -1128,7 +1128,7 @@ Warm environment,Explore with estimates,M028,ABS-GF,PASS,all,5,0,6,11,G028-02,as
 Warm environment,Explore with estimates,M029,ABS-CF,PASS,some,2,1,8,11,G029-08,as-printed,yes,,meets
 Warm environment,Explore with estimates,M030,ABS-ESD,PASS,some,2,1,8,11,G030-03,as-printed,yes,,meets
 Warm environment,Explore with estimates,M031,ASA,PASS,some,20,2,18,40,G031-03,as-printed,yes,,meets
-Warm environment,Explore with estimates,M032,ASA Aero,UNKNOWN,none,0,1,3,4,G032-01,as-printed,yes,,unlikely-to-meet
+Warm environment,Explore with estimates,M032,ASA Aero,UNKNOWN,none,0,1,3,4,G032-03,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M033,ASA-CF,PASS,all,8,0,9,17,G033-03,as-printed,yes,,meets
 Warm environment,Explore with estimates,M034,ASA-GF,PASS,all,2,0,4,6,G034-03,as-printed,yes,,meets
 Warm environment,Explore with estimates,M035,PC,PASS,some,9,1,11,21,G035-03,as-printed,yes,,meets

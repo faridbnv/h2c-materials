@@ -556,7 +556,7 @@ G031-42,M031,ReForm - rApollo,within,within,within,recommended,no-special-concer
 G031-43,M031,ASA,within,within,within,recommended,no-special-concern,optional,drying: guide PG020
 G032-01,M032,ASA Aero,within,within,within,recommended,unknown,required,
 G032-02,M032,LW-ASA UltraFoam,within,within,unknown,recommended,no-special-concern,optional,
-G032-03,M032,Light Weight ASA (LW-ASA),within,within,unknown,unknown,unknown,required,
+G032-03,M032,Light Weight ASA (LW-ASA),within,within,within,unknown,unknown,required,chamber: family CN02
 G032-04,M032,ASA-Aero,within,within,within-low-end,unknown,no-special-concern,optional,
 G033-01,M033,ASA-CF,within,within,within,recommended,requires-hardened,required,
 G033-02,M033,CarbonX CF ASA,within,within,unknown,recommended,requires-hardened,required,enclosure: guide PG021
@@ -576,7 +576,7 @@ G033-16,M033,ASA CF,within,within,within,recommended,requires-hardened,optional,
 G033-17,M033,ASA CF,within,within,within,recommended,requires-hardened,required,nozzle: guide PG021; bed: guide PG021; chamber: guide PG021; enclosure: guide PG021; hardenedNozzle: guide PG021
 G033-18,M033,ASA CF,within,within,within,recommended,requires-hardened,optional,drying: guide PG021
 G034-01,M034,asax x gf10,within,within,within,not-needed,requires-hardened,optional,
-G034-02,M034,ASA Glass Fiber,within,within,unknown,unknown,unknown,unknown,
+G034-02,M034,ASA Glass Fiber,within,within,within,unknown,unknown,unknown,chamber: family CN02
 G034-03,M034,IPCON ASA GF,within,within,within,not-needed,requires-hardened,required,
 G034-04,M034,ASAGF10,within,within,within,unknown,requires-hardened,required,
 G034-05,M034,DURAPRO ASA GF,within,within,unknown,recommended,requires-hardened,required,

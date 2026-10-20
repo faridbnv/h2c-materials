@@ -92,7 +92,7 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 | Row | Applies to | Verdict | Status | Makers stating | Asking above 65 C | Supports within | Silent chambers filled |
 |---|---|---|---|---:|---:|---|---:|
 | CN01 | Family: ABS | within | deciding | 21 | 2 | yes | 7 |
-| CN02 | Family: ASA | unknown | reported | 20 | 2 | yes | 0 |
+| CN02 | Family: ASA | within | deciding | 20 | 2 | yes | 2 |
 | CN03 | Family: Acetals | unknown | reported | 1 | 1 | no | 0 |
 | CN04 | Family: Copolyesters | unknown | reported | 9 | 0 | no | 0 |
 | CN05 | Family: Flexible Elastomers | within | deciding | 18 | 0 | yes | 43 |
