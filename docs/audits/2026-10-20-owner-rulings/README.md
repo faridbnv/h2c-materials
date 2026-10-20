@@ -29,5 +29,6 @@ Built by Claude Opus 5.5, with eleven Claude Sonnet readers for the pages and on
   build/reports/ unless `--out` names a file).
 - **Merged with tracks T2 to T5** (the round branch at cd1977a8): m462 to m464 ran again on the merged
   tables (m465 to m467 merged without conflict). m473 had typed Raise3D Industrial PET GF's three description and heat values printed and annealed; m463 keeps
-  that typing (the classification records it as stated) rather than take the description's modulus back as prose, as it
-  does Industrial PET CF's (V007190).
+  that typing (the classification records it as stated) for the two heat values. The description's modulus, "over 4.1 GPa"
+  (V013950), is set apart by m480, the executor's call, as Industrial PET CF's "over 6 GPa" is (V007190): one reading for
+  both, and the table's own annealed modulus (V006923) still speaks for the product.

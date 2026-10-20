@@ -73,7 +73,7 @@ const RESIN_GRADE = new Map(['V002845', 'V002846', 'V002847', 'V002848', 'V00284
   .map((id) => [id, 'Spectrum PET-G HT100 prints Eastman Tritan\'s moulded-resin figures (the owner\'s rulings round, track T5, D176)']));
 // Values the materials-science track (T5) typed printed in m473 on the same sheet's note (D176): its reading stands, as a
 // statement in words. V013950 is the description's "over 4.1 GPa" after annealing, which repeats the table's annealed XY
-// modulus (V006923, 4130 MPa); D172's prose rule took back its PET CF twin V007190, which stays set apart.
+// modulus (V006923, 4130 MPa); D172's prose rule took back its PET CF twin V007190, and m480 sets V013950 apart the same way.
 const BY_M473 = new Set(['V013950', 'V013951', 'V013952']);
 const out = [];
 for (const r of rows) {
