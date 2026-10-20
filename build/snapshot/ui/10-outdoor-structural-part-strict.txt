@@ -1,7 +1,7 @@
 COUNT 11 shown PASS
-STATUS ☑ PASS 11 | ☐ UNKNOWN 89 | ☐ FAIL 49
-11 of the 149 materials meet these requirements
-Outdoor structural part template · UNKNOWN 89 left out: 7 one check away, 34 not enough data, 43 unlikely to meet, 5 a required property does not apply to
+STATUS ☑ PASS 11 | ☐ UNKNOWN 89 | ☐ FAIL 52
+11 of the 152 materials meet these requirements
+Outdoor structural part template · UNKNOWN 89 left out: 7 one check away, 33 not enough data, 44 unlikely to meet, 5 a required property does not apply to
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
