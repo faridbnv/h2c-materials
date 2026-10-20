@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 175,
-      "sha256": "16403bb3eb9228df74a09955665a9e4e93ceaa1ca1c98b48ba703ca56d2d30fe"
+      "rows": 177,
+      "sha256": "f80c8b535046552b9431aa292acdc92c9832a53dedfd6ab4a1d654f0ad17aa6e"
     },
     "grades": {
-      "rows": 1184,
-      "sha256": "c8996a147ed1af34a6d8cad097db4e74290410fbc35a3056601e749333186202"
+      "rows": 1186,
+      "sha256": "6e26c4746a378e7f768ba85f115a14e7e5ded481a6d09fd21ee5214905a2c39a"
     },
     "profiles": {
-      "rows": 1986,
-      "sha256": "e39c58137bfd1b6ed3c3e0a335dad0c6190a855535ca95393bd88d634bd9c233"
+      "rows": 1987,
+      "sha256": "0b1cefef8577f71e812bb009ae9fa6ca6838c9b555df7d19490e8cf281fb9fbc"
     },
     "profile_notes": {
-      "rows": 2503,
-      "sha256": "8c07c395ec60a273f2c34e820eb486c3f7344ae18a9dc8f6d46906da520819b3"
+      "rows": 2504,
+      "sha256": "1a64fb3cca46e6b37e332fbb850489c52e7f475a14379e16cac80cb0c4f01888"
     },
     "measurements": {
-      "rows": 15654,
-      "sha256": "1ec7097796a1cf0abbc4dc36b4a78a317c2fada3b2fc0c7a24354f2f7e6f4ac7"
+      "rows": 15688,
+      "sha256": "21057828b4c03294d283ae1cfe514923c4d3e61420ab8fa1e53ae806f1b74701"
     },
     "page_context": {
       "rows": 1012,
@@ -58,8 +58,8 @@
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2100,
-      "sha256": "44c80f89c9ac4619beaa299faa3f244dd686084544d42a2368a8ca0fcadd10ee"
+      "rows": 2106,
+      "sha256": "6db96057695552fc54e09f8530c3b4464b68fd87fc6e05e47f9c1d7edcaf1fb6"
     },
     "coverage": {
       "rows": 954,
@@ -110,8 +110,8 @@
       "sha256": "ea2ebe74a8ce78fd0b3ea98d8c7b727616f314aeb9ef217cb10be5eb5303437e"
     },
     "polymers": {
-      "rows": 48,
-      "sha256": "75ea1fad06f1b2cab5266f564d182348d8ec7ba1b50abf0adebae61d52045ba7"
+      "rows": 49,
+      "sha256": "4273c718bcdd65c10172a63b01ac6bff826c62e9de2ab46521289f0fe4869378"
     },
     "plausibility_windows": {
       "rows": 128,

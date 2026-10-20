@@ -174,3 +174,5 @@ M172,Silicon carbide sintering filament,excluded,within,within,within,requires-h
 M173,Alumina sintering filament,excluded,within,within,unknown,unknown,unknown
 M174,SBC,within,within,within,within,unknown,unknown
 M175,TPV,within,within,within,within-low-end,unknown,required
+M176,PCL-EC,within,within,within,unknown,requires-hardened,unknown
+M177,"Nylon-CE, maker-undisclosed polyamide",within,unknown,unknown,unknown,unknown,unknown

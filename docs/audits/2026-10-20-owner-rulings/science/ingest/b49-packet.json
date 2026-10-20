@@ -1,0 +1,227 @@
+{
+  "PacketID": "b49-owner-rulings",
+  "Batch": "b49",
+  "Documents": [
+    {
+      "File": "2688570615b2eb82.json",
+      "ProposalSHA256": "5e9d65b660f8abfc6e65247d9f7a1a713aaf61333dcf5f94b0624f3fd8e69297",
+      "OriginalSHA256": "2688570615b2eb8271bd31e4cd226408741ffcc89ba5ddc8df4ba705cc34d021",
+      "Source": {
+        "SourceID": "R-MULTI3D-ELECTRIFI-TDS",
+        "Publisher": "Multi3D",
+        "Title": "Electrifi Conductive Filament – Technical Data Sheet",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Hosted by Filament2Print; the sheet is Multi3D's (\"Manufacturer: Multi3D, Inc.\", p. 1).",
+        "Citation role": "cited",
+        "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3925",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:electrifi}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger doc 2688570615b2eb82, deferred for its identity), hash-checked. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+        "SHA256": "2688570615b2eb8271bd31e4cd226408741ffcc89ba5ddc8df4ba705cc34d021"
+      },
+      "Grades": [
+        {
+          "Key": "electrifi",
+          "MaterialID": "M176",
+          "Manufacturer": "Multi3D",
+          "Product name": "Electrifi"
+        }
+      ],
+      "Polymer": null,
+      "Values": 3,
+      "Profiles": 1
+    },
+    {
+      "File": "6904261403724ebe.json",
+      "ProposalSHA256": "4eda86f71b2bcdeb998fbf3072215f4c8c8a886681f546c56acaa8e189d79646",
+      "OriginalSHA256": "6904261403724ebe7f6f7fb4888ea0d8c8ffba6a8f7bbdeaa16f397d834053c2",
+      "Source": {
+        "SourceID": "R-MULTI3D-ELECTRIFI-SDS",
+        "Publisher": "Multi3D",
+        "Title": "Electrifi Conductive 3D Printer Filament – Safety Data Sheet",
+        "Revision": "Not published",
+        "Publication date": "2016-09-27",
+        "Access date": "2026-10-19",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://www.multi3dllc.com/wp-content/uploads/2016/09/Electrifi_MSDS.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:electrifi}",
+        "Access state": "retrieved",
+        "Access note": "Saved and hashed by the research agent of 2026-10-19 (the V2 import's witness of 2026-09-26 is the same bytes) and fetched again, byte for byte, by a Claude Sonnet reader on 2026-10-19. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+        "SHA256": "6904261403724ebe7f6f7fb4888ea0d8c8ffba6a8f7bbdeaa16f397d834053c2"
+      },
+      "Grades": [
+        {
+          "Key": "electrifi",
+          "MaterialID": "M176",
+          "Manufacturer": "Multi3D",
+          "Product name": "Electrifi"
+        }
+      ],
+      "Polymer": null,
+      "Values": 2,
+      "Profiles": 0
+    },
+    {
+      "File": "34f028a12c8cfa94.json",
+      "ProposalSHA256": "2d387418606ea87f55a60dfa246d49848633a6a4798c10dac954e36cf01c5cdd",
+      "OriginalSHA256": "34f028a12c8cfa940d8b95df18918b63ed079346363212618c68cb86d66b3b7c",
+      "Source": {
+        "SourceID": "R-STRATASYS-mds-fdm-diran410mf07-0224a",
+        "Publisher": "Stratasys",
+        "Title": "Diran 410MF07 Data Sheet",
+        "Revision": "MDS_FDM_Diran410MF07_0224a",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://www.stratasys.com/contentassets/6729604c61704654ac5c0392276a2d57/mds_fdm_diran410mf07_0224a-1.pdf?v=4aa22c",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:diran}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (deferred for its identity: \"for the owner: the Nylon home with a declared filler, or a filled home\"), hash-checked. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+        "SHA256": "34f028a12c8cfa940d8b95df18918b63ed079346363212618c68cb86d66b3b7c"
+      },
+      "Grades": [
+        {
+          "Key": "diran",
+          "MaterialID": "M177",
+          "Manufacturer": "Stratasys",
+          "Product name": "Diran 410MF07"
+        }
+      ],
+      "Polymer": null,
+      "Values": 27,
+      "Profiles": 0
+    },
+    {
+      "File": "a62b2abe82193708.json",
+      "ProposalSHA256": "2309928ec2ec7338ccb3534f7b8fc9787402f2aa264b636941a2ac2c79a18128",
+      "OriginalSHA256": "a62b2abe821937080ee1333751a4ce91e802920fa17fd8719f93ee9cb614eb67",
+      "Source": {
+        "SourceID": "R-NANOVIA-ISTROFLEX-SDS",
+        "Publisher": "Nanovia",
+        "Title": "Nanovia ISTROFLEX – Material Safety Data Sheet",
+        "Revision": "Updated: February 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-19",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/ref/istroflex/nanovia-istroflex-msds.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G167-12",
+        "Access state": "retrieved",
+        "Access note": "Fetched from the maker's site and hashed by a Claude Sonnet reader on 2026-10-19. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+        "SHA256": "a62b2abe821937080ee1333751a4ce91e802920fa17fd8719f93ee9cb614eb67"
+      },
+      "Grades": [],
+      "Polymer": null,
+      "Values": 2,
+      "Profiles": 0
+    },
+    {
+      "File": "a0e20a397574c190.json",
+      "ProposalSHA256": "01a0cc65d509b72c267176b7d436fbc60fbd8b71d319f7ec7603ccd98d06588f",
+      "OriginalSHA256": "a0e20a397574c19027ee0e8582d54daf92b111a9cd9bc91b95539d7414de3bda",
+      "Source": {
+        "SourceID": "R-INEOS-STYROLUX-656C-TDS",
+        "Publisher": "INEOS Styrolution",
+        "Title": "Styrolux 656C Styrene Butadiene Copolymer (SBC)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-19",
+        "Source class": "Resin supplier data sheet",
+        "Source note": "INEOS Styrolution's own data sheet, as the distributor plastore.it serves it.",
+        "Citation role": "cited",
+        "URL": "https://plastore.it/cgi2018/file818/264_sbc%20styrolux%20656c.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "Polymer reference of SBC (polymers.csv): Styrolux 656C",
+        "Access state": "retrieved",
+        "Access note": "Saved and hashed by the research agent of 2026-10-19. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+        "SHA256": "a0e20a397574c19027ee0e8582d54daf92b111a9cd9bc91b95539d7414de3bda"
+      },
+      "Grades": [],
+      "Polymer": "SBC",
+      "Values": 0,
+      "Profiles": 0
+    },
+    {
+      "File": "e7f210454338ec4b.json",
+      "ProposalSHA256": "634389fa697ee0bb4d9dcc807242ce1895682fbcf2cfe5a6031963da1e7b6e0f",
+      "OriginalSHA256": "e7f210454338ec4b2c3266e66a32739c41fa7958acd8637e2fa4d40bb173f6e3",
+      "Source": {
+        "SourceID": "R-INEOS-KRESIN-KR03-PAGE",
+        "Publisher": "INEOS Styrolution",
+        "Title": "K-Resin KR03 (INEOS Styrolution product page)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-19",
+        "Source class": "Resin supplier data sheet",
+        "Source note": "INEOS Styrolution's own product page, as the Wayback Machine captured it on 2021-11-04; the live page no longer serves it.",
+        "Citation role": "corroboration",
+        "URL": "https://web.archive.org/web/20211104060444/https://www.ineos-styrolution.com/Product/K-Resin_K-Resin-KR03_SKU400900481370.html",
+        "Locator": "Document / product page",
+        "Applicable grades": "Polymer reference of SBC (polymers.csv): K-Resin KR03",
+        "Access state": "retrieved",
+        "Access note": "Saved and hashed by a Claude Sonnet reader on 2026-10-19 from the Wayback Machine's capture of the maker's page. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+        "SHA256": "e7f210454338ec4b2c3266e66a32739c41fa7958acd8637e2fa4d40bb173f6e3"
+      },
+      "Grades": [],
+      "Polymer": "SBC",
+      "Values": 0,
+      "Profiles": 0
+    }
+  ],
+  "Totals": {
+    "Documents": 6,
+    "NewGrades": 2,
+    "Values": 34,
+    "Profiles": 1
+  },
+  "NewMaterials": [
+    {
+      "MaterialID": "M176",
+      "Original name": "PCL-EC",
+      "Ruling": "R228"
+    },
+    {
+      "MaterialID": "M177",
+      "Original name": "Nylon-CE, maker-undisclosed polyamide",
+      "Ruling": "R229"
+    }
+  ],
+  "NewVocabulary": [
+    {
+      "Vocabulary": "manufacturers",
+      "Value": "Multi3D",
+      "Meaning": "US maker of Electrifi, a copper-filled conductive filament; its sheet says \"Manufacturer: Multi3D, Inc.\".",
+      "Aliases": "Multi3D, Inc.;Multi3D LLC;multi3d"
+    }
+  ],
+  "Review": {
+    "prepared_by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+    "scope": "the owner's rulings of 2026-10-20 (the materials-science track): the held sheets whose homes it decided, the safety data sheet that names ISTROFLEX's polymer class, and the references for the SBC row of polymers.csv"
+  },
+  "NotAdmitted": [
+    {
+      "Document": "FKuR Fibrolon V 135002 (trial grade), ledger doc af2a1612aba91481",
+      "Why": "a compounder's sheet for a PLA/wood compound \"suitable for the production of 3D printing filaments\", measured on injection-moulded ISO 3167 bars; colorFabb's woodFill sheets print its figures, but the catalogue holds no colorFabb woodFill, and a resin sheet is registered only to a product it records (R194, R236)"
+    },
+    {
+      "Document": "Nuterials JECTO, ledger doc 4a90a1e5e22db834",
+      "Why": "sold as pellets; Nuterials' walnut filament (FILA) is \"currently under development and undergoing testing\" (R237)"
+    },
+    {
+      "Document": "Stratasys ST-130, ledger doc of its URL",
+      "Why": "a sacrificial tooling material no Stratasys document names a polymer or family for, sold in canisters for Fortus 450mc and 900mc (R238)"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b49.mjs (the owner's rulings 2026-10-20)",
+    "date": "2026-10-20"
+  },
+  "document": {
+    "sha256": "a62b2abe821937080ee1333751a4ce91e802920fa17fd8719f93ee9cb614eb67",
+    "url": "https://nanovia.tech/media/ref/istroflex/nanovia-istroflex-msds.pdf",
+    "pages": 3,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/media/ref/istroflex/nanovia-istroflex-msds.pdf#witness-for=source:R-NANOVIA-ISTROFLEX"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "Nanovia's safety data sheet for ISTROFLEX: \"Modified Polyester alloy and oyster shell powder\" (p. 1) and a glass transition of -32 °C (p. 2), the evidence the owner's rulings file it by (R232)."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-ISTROFLEX-SDS",
+      "Publisher": "Nanovia",
+      "Title": "Nanovia ISTROFLEX – Material Safety Data Sheet",
+      "Revision": "Updated: February 2023",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer SDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/media/ref/istroflex/nanovia-istroflex-msds.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G167-12",
+      "Access state": "retrieved",
+      "Access note": "Fetched from the maker's site and hashed by a Claude Sonnet reader on 2026-10-19. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+      "SHA256": "a62b2abe821937080ee1333751a4ce91e802920fa17fd8719f93ee9cb614eb67"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MSDS / FDS ISTROFLEX"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+      "date": "2026-10-20"
+    }
+  },
+  "grades": [],
+  "measurements": [
+    {
+      "id": "m01",
+      "row": {
+        "MaterialID": "M167",
+        "GradeID": "G167-12",
+        "Property": "Glass transition temperature",
+        "Raw value": "-32 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-32",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ISTROFLEX-SDS",
+        "Locator": "p. 2: Section 9.1: Tg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tg -32 °C: Ø 2,90 mm : 8,85 g/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+        "date": "2026-10-20",
+        "note": "Read against the page: the value and its row as the safety data sheet prints them."
+      }
+    },
+    {
+      "id": "m02",
+      "row": {
+        "MaterialID": "M167",
+        "GradeID": "G167-12",
+        "Property": "Density",
+        "Raw value": "1,34 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.34",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1340",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-ISTROFLEX-SDS",
+        "Locator": "p. 2: Section 9.1: Density",
+        "Notes": "The product page prints 1.55 g/cm3 (V011321); the two Nanovia documents disagree.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density 1,34 g/cm3."
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+        "date": "2026-10-20",
+        "note": "Read against the page: the value and its row as the safety data sheet prints them."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "What the document prints and no row here holds stays in the record tier (its cached text, dist/h2c.sqlite source_facts)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+    "date": "2026-10-20",
+    "note": "Nanovia's safety data sheet for ISTROFLEX: \"Modified Polyester alloy and oyster shell powder\" (p. 1) and a glass transition of -32 °C (p. 2), the evidence the owner's rulings file it by (R232)."
+  }
+}
