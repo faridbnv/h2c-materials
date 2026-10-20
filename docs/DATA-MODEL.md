@@ -166,7 +166,9 @@ build reads (D68).
   those wordings are the database's own. A bar whose document implies, without saying, that it was printed (its row or
   table names a print orientation, a heading names the printed part, print settings are given for the specimens, a
   statement says how the specimens were made) is Specimen type "Printed (implied by the document)", Form printed, with
-  the implying words and their page in Notes (D172). The build reads the state, never the words; where the words plainly say
+  the implying words and their page in Notes (D172). A bar beside something on its table that points to moulding or to
+  the base resin (D172's counter-indications) is Specimen type "Not published (its document points to moulded or resin
+  bars)", Form not-stated, whose vocabulary row says Points to moulding (D177). The build reads the state, never the words; where the words plainly say
   otherwise the build stops (PARSE-MISMATCH), and where they say nothing the column decides. A value annealed at or below
   its polymer's annealing threshold (`polymers.csv` Annealing threshold °C, the glass transition of a polymer that
   crystallises when annealed: PLA's 55 °C) is judged as printed, since nothing crystallised: Bambu Lab's "annealed and
@@ -344,13 +346,14 @@ engine judges each product on its own values and recipe, and a material by how m
 a material's headline is derived from them, and no product stands for a material.
 
 - **`grades[].headline[key]`**: the product's own value for each headline, chosen by rule from its own measurements.
-  The rule accepts a printed specimen (said or implied by its document, D172), or an unstated one for a property that
-  is not a bar's (density, glass transition, hardness), in
+  The rule accepts a printed specimen (said or implied by its document, D172), an unstated one for a property that
+  is not a bar's (density, glass transition, hardness), or an undescribed bar a headline counts all the same (a heat
+  deflection of a plastic that cannot crystallise, headline_definitions.csv Undescribed bar counts for, D177), in
   the headline's direction, not conditioned, not implausible, not annealed where the product publishes it as printed,
   at the headline's load, and where the headline sets them its notch and its test temperature (23 ± 2 °C, or none
   stated; D92). A value is `comparable`, or `as-published` with a `caveat`: `not-described` for a bar's property (a
   headline with a direction or a load) on a bar no document describes and whose row states no print orientation, set
-  apart for good (D172); `load-not-stated` for a heat deflection whose source names no load; `unstated-direction` for
+  apart for good (D172) unless its headline counts it (D177: comparable, `admitted` `bar`); `load-not-stated` for a heat deflection whose source names no load; `unstated-direction` for
   an orientation stated and unusable (a 0° raster). A printed bar that states no orientation is comparable, read flat,
   where the headline's Unstated direction is `flat if printed` (every XY headline), and says so (`admitted`); a
   headline whose Unstated direction is `excluded` (the Z rows) takes no value without a stated direction at all. A
@@ -387,7 +390,7 @@ a material's headline is derived from them, and no product stands for a material
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
   variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
   values) and `typical` product (nearest the median) these are. Values set apart (`asPublished`: a bar no
-  document describes as printed, or a heat deflection with no stated load, D172) and variants (`variants`) are counted
+  document describes as printed that its headline does not count, D172, D177, or a heat deflection with no stated load) and variants (`variants`) are counted
   apart. It is the spread of different products, never
   uncertainty about one: PEBA's tensile strengths are several products' values, not one PEBA's. A twin counts as the
   product it is, and `twins` says how many of the `n` values are a twin's; a twin reading a declared variant's sheet
@@ -416,7 +419,7 @@ of the eleven measured ones (the price compares listings, not measurements):
 
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
-| Density, heat deflection (0.45 MPa) | density: a printed or unstated specimen; heat deflection: a printed bar (said or implied, D172) at 0.45 MPa | heat deflection with no load stated, or on a bar no document describes as printed (set apart for good, D172) | a moulded, film or filament specimen; heat deflection at another load |
+| Density, heat deflection (0.45 MPa) | density: a printed or unstated specimen; heat deflection: a printed bar (said or implied, D172) at 0.45 MPa, or a bar no document describes of a plastic that cannot crystallise, unfoamed, its table pointing to no moulded or resin bar (D177) | heat deflection with no load stated, or on a bar no document describes as printed of a plastic that can crystallise (or whose table points to moulding: set apart for good, D172) | a moulded, film or filament specimen; heat deflection at another load |
 | Tensile modulus, tensile strength, elongation at break (XY) | direction XY (Prusa's Horizontal bar since D143), or a printed bar that states none, read flat (D172) | a bar no document describes as printed (set apart for good, D172); an orientation stated and unusable | Z, XZ, ZX, YX (a flat bar along Y, kept as its label, D143) or a source's own label |
 | **Tensile strength (Z)** (`tensileStrengthZ`) | direction Z, the source's own word | none | no direction stated (almost always a flat or moulded bar); XY; XZ or ZX, whose use by sheets is not settled |
 | **Notched Charpy impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY or a printed bar read flat, at 23 ± 2 °C or no temperature stated | a bar no document describes as printed (set apart, D172) | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
@@ -481,7 +484,7 @@ Not measured:
   known: false, missing: 'not-published', unit: '%',
   related: { … } | null,      // real measurements of this property that are no product's value: how many, the
                               // closest, and up to ten, each with why (below)
-  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen where the headline's Lower bound specimens admit them, that bound it from below (D55, D126, D161, D172)
+  impliedBounds: [ … ],       // its own printed values (a heat deflection D177 counts among them), or those of a source that states no specimen where the headline's Lower bound specimens admit them, that bound it from below (D55, D126, D161, D172)
   estimate: { … } | null      // the calibrated estimate (below)
 }
 ```
@@ -491,7 +494,8 @@ An unbounded end is `null`, never `Infinity`. A value with a published uncertain
 interval says whether a threshold lies within its spread (D54).
 
 A product value is always a printed specimen, said or implied by its document (an unstated one only for a property
-that is not a bar's: density, glass transition, hardness; D172), dry or unstated, and as printed where the product
+that is not a bar's: density, glass transition, hardness; D172; and a heat deflection of a plastic that cannot crystallise on
+any bar its table does not tie to moulding, D177), dry or unstated, and as printed where the product
 publishes both states; a moulded, film, filament, off-recipe, conditioned, annealed-beside-as-printed or physically implausible
 measurement is never one, and a pin on it stops the build (D55, D56, D95).
 
@@ -523,7 +527,8 @@ one list:
   (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.
 - **The estimate stage** floors every estimate by what the product's own measurements prove (`build/src/lower-bounds.js`).
   A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation, the tensile strength and heat
-  deflection at 0.45 MPa, which take printed bars only: `headline_definitions.csv` Lower bound specimens, D161, D172), in any direction (a printed part is
+  deflection at 0.45 MPa, which take printed bars only: `headline_definitions.csv` Lower bound specimens, D161, D172; for heat
+  deflection, an undescribed bar of a plastic that cannot crystallise is read as printed, D177), in any direction (a printed part is
   strongest in XY); a moulded, film, filament or off-recipe bar bounds nothing, nor does a value flagged implausible or
   quarantined, an annealed value beside an as-printed one, or a conditioned elongation. A grade's estimate is floored at its
   own formulation's highest floor. A material's range is the spread of its products, so it contains every product's floor:
@@ -557,7 +562,8 @@ twin's labelled) and the intersection of the deciding, comparable ones (`lo`, `h
 comparable value, which always wins, and before an estimate: a bound that clears the limit passes and names its record,
 a band, floor or ceiling is compared with the limit as it is (only an equality and a class limit may be on the line
 within the test scatter, D166), an empty intersection is "sheets disagree", and a contribution from a record set apart
-(a bar no document describes as printed, D172) decides nothing; only the demote-to-ceiling rows read such bars. A heat
+(a bar no document describes as printed, D172) decides nothing; only the demote-to-ceiling rows read such bars, and a row
+that reads printed bars reads one a headline counts (a heat deflection of a plastic that cannot crystallise, D177). A heat
 deflection whose sheet states no load floors the 0.45 MPa value through CV63 (D172). A PLA or PET HDT from a bar its sheet does not
 describe is marked `ceilingOnly` as printed (CV05; an annealed state's is not): still the product's value and in its
 material's spread, it may fail a minimum, never pass one, and it is never on the line. Read by another row, such a bar
@@ -695,7 +701,8 @@ material (both then show one estimate), `canScreen`, and where it may screen, `s
 
 **Unstated heat loads.** A heat deflection whose source names no load is its product's value only as published
 (caveat `load-not-stated`, D84): counted apart, shown, and never the product's deciding value; a printed bar's
-unloaded value bounds the 0.45 MPa value from below through the evidence ledger's CV63 (D172). Until
+unloaded value bounds the 0.45 MPa value from below through the evidence ledger's CV63 (D172), and so does an undescribed
+one of a plastic that cannot crystallise (D177). Until
 phase 4 a material headline in that state carried a bracket from its matrix's load gap (`hdt045.loadBracket`); no
 material headline is in that state since a material's value is its products' comparable ones, and the bracket is gone.
 Heat deflection does not apply to an elastomer at all (headline_definitions.csv Applies to, Morphology; D56).
@@ -1022,7 +1029,8 @@ Several are warnings in `build/reports/validation-report.md`, and each is surfac
 The figures are not repeated here: [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) gives the query that re-derives each one.
 
 - A heat deflection published without its load is counted apart and never decides at its value (D84, D172), and a
-  tensile, flexural, impact or heat value on a bar no document describes as printed is set apart for good (D172).
+  tensile, flexural, impact or heat value on a bar no document describes as printed is set apart for good (D172), but a
+  heat deflection of a plastic that cannot crystallise, which counts unless its table points to a moulded or resin bar (D177).
   OPEN-PROBLEMS §15 lists the set-apart values that would decide if admitted.
 - Impact values in J/m cannot share an axis with the kJ/m² rows without specimen geometry the sources never
   published, so no impact headline takes one (IMPACT-UNITS). Izod results are one property, "Izod impact strength",

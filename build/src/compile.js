@@ -22,7 +22,7 @@ import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate, aggregateDrying } from './gates.js';
 import { lowerBoundsOf } from './lower-bounds.js';
-import { attachProducts, productName, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
+import { attachProducts, productName, TEST_TEMPERATURE_TOLERANCE_C, markUndescribedCounts } from './products.js';
 import { compileConversions, compileClassLimits } from './evidence-ledger.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
@@ -700,6 +700,9 @@ export function compile(tables, { snapshot, build }) {
   // Each row with its polymer's Morphology, which a headline's Applies to may test (heat deflection: not an elastomer).
   const materialRows = materialRowsOf(wb);
   const gradeById = new Map(grades.map((g) => [g.id, g]));
+  // Which values from a bar no document describes as printed a headline counts all the same (D177): before any headline,
+  // bound, ledger row or estimate reads a measurement.
+  markUndescribedCounts(measurements, measurementHeadlines(registry), { rowById: new Map(materialRows.map((r) => [r.MaterialID, r])), gradeById });
   const materials = materialRows.map((mat) => {
     const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
     const printingEvidence = linked(mat.MaterialID, 'printing');

@@ -148,7 +148,11 @@ document does not describe decides only where something on the document indicate
 printed (its row or its table names a print orientation, a heading names the printed part, print settings are given for
 the specimens, or a statement says how the document's specimens were made); then Specimen type is "Printed (implied by
 the document)" and Notes quote the words that imply it, with their page. Otherwise leave it Not published: the build sets
-it apart for good (D172). Post-processing
+it apart for good (D172), except a heat deflection of a plastic that cannot crystallise (polymers.csv Can crystallise no),
+which counts, since its glassy bar deflects near its glass transition however it was made (D177). Where the value's own
+table points to moulding or to the base resin (a mould shrinkage with a value, "typical" or reference values, resin or
+supplier data), its Specimen type is "Not published (its document points to moulded or resin bars)": it then stays apart
+whatever the plastic. Post-processing
 is copied as printed ("As printed", the sheet's annealing sentence) and Post-processing state beside it says what it
 means (as-printed, annealed, not-stated); Moisture condition and Moisture state work the same way. The build reads the
 state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen wording is data, not a schema change.
@@ -325,7 +329,9 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 a value that misses by less is on the line, D152), or Not applicable. Say whether annealing or absorbed water changes the value ("Changes with annealing", "Changes with moisture", D99):
 a value measured in such a state then decides only for a product judged in that state. What a value must be is
 a column of the row, never a branch in `products.js`: its direction and what a value with none is (Unstated direction),
-its load, its notch and its test temperature (D92), and the test standard a value that names one must name (D94). Say in Comparison note what it leaves out; the drawer shows it. To draw it product by product beside others in the
+its load, its notch and its test temperature (D92), the test standard a value that names one must name (D94), and the kinds
+of plastic for which a bar no document describes counts all the same (Undescribed bar counts for, in the Applies-to grammar;
+Not applicable sets every such bar apart, D172, D177). Say in Comparison note what it leaves out; the drawer shows it. To draw it product by product beside others in the
 drawer, name a row of `drawer_comparisons.csv` in Drawer comparison. A new comparison is a row there (heading, the title
 of its closed line, its pair label or Not applicable, the properties it lists without drawing, a second closed line's
 method.csv Topic or Not applicable) and a method.csv row of Section Comparison and the same Topic, its caption, with two

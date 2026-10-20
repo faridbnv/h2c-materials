@@ -51,6 +51,6 @@ ROW PP-GF / Polyolefins / #4 · best: 3DXTECH FIBREX GF PP | ☆ | PASS / 1 of 2
 ROW PPA-CF / High-Performance Engineering / #5 · best: Bambu Lab PPA-CF | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness | 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 220 / 197–240 · 5 | 255↗
 ROW PPA-GF / High-Performance Engineering / #6 · best: Flashforge PPA-GF | ☆ | PASS / 3 of 5 products / judged dry; humid air lowers its stiffness | 1,280 / 1,160–1,310 · 5 | passing: 5.7–7 / all products: 6.56 / 5.7–7 · 3 | 100 / 89–106 · 3 | 2.7 / 2.1–3.5 · 3 | passing: 84–220 / all products: 196 / 84–220 · 3 | 106↗
 ROW PPS-GF / High-Performance Engineering / #7 · best: IPCON PPS-GF | ☆ | PASS / 1 of 2 products | 1,360 | passing: 5.76 / all products: 5.16 / 4.55–5.76 · 2 | 68 / 64.1–72 · 2 | 1.8 / 1.6–2 · 2 | 236 | 164↗
-ROW PETG-CF / #8 · best: 3DXTECH CarbonX Carbon Fiber PETG | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.7 / 1.77–5.23 · 11 | 49.4 / 32–60 · 12 | 5.7 / 1.9–14 · 11 | passing: 77 / all products: 71 / 68.6–77 · 7 | 41↗ / 35–56 · 3
+ROW PETG-CF / #8 · best: 3DXTECH CarbonX Carbon Fiber PETG | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.7 / 1.77–5.23 · 11 | 49.4 / 32–60 · 12 | 5.7 / 1.9–14 · 11 | passing: 77 / all products: 72 / 68.6–77 · 11 | 41↗ / 35–56 · 3
 ROW PA6-CF · ☆
 ROW PAHT-CF · ☆

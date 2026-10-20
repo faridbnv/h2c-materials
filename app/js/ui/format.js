@@ -457,7 +457,7 @@ export function spreadNote(entry, products = null) {
   const setApart = (s.asPublished?.n ?? 0) + (s.variants?.n ?? 0) + (s.claimed?.setApart ? s.claimed.n : 0);
   const silent = products != null ? products - s.n - setApart : null;
   const of = products != null && silent >= 0 ? ` of its ${products}` : '';
-  return `Median of ${s.n}${of} products${s.asPublished ? ', those whose test bar is described as printed' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+  return `Median of ${s.n}${of} products${s.asPublished ? ', those that publish it comparably' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // The table gives the range, the drawer's key properties and the material pages the middle half.
     + `${s.q1 != null ? ' The table gives the range; the drawer and the material page give the middle half.' : ''}`

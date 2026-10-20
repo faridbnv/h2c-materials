@@ -100,7 +100,7 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
     L.push(`No answer: ${grade.id} is not among ${material.name}'s products judged under this question.`, '');
   } else {
     L.push(`**${entry.verdict}**, judged ${stateWords(entry.state)}.${entry.state?.treatment ? ` It needs annealing at ${scheduleWords(entry.state.treatment)}, as its sheet states.` : ''}`);
-    if (entry.admitted?.length) L.push('', `Not stated by the values it passed on, and accepted for screening: ${entry.admitted.map((a) => ({ specimen: 'the specimen type', moisture: 'the moisture state', treatment: 'the post-processing' }[a])).join(', ')}.`);
+    if (entry.admitted?.length) L.push('', `Not stated by the values it passed on, and accepted for screening: ${entry.admitted.map((a) => ({ specimen: 'the specimen type', moisture: 'the moisture state', treatment: 'the post-processing', bar: 'how the test bar was made (a heat deflection of a plastic that cannot crystallise, which its glass transition sets either way)' }[a])).join(', ')}.`);
     L.push('', '| Requirement | Result | Why | Records |', '|---|---|---|---|');
     for (const r of entry.results ?? []) {
       const ids = [r.measurementId, ...(r.evidenceIds ?? []), ...(r.priceIds ?? [])].filter(Boolean);

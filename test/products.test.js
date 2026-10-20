@@ -148,6 +148,37 @@ test('a value is set apart where its bar is not described as printed, or a heat 
   assert.equal(assess(m({ outranked: { by: 'S-NEWER', why: 'older-edition' } }), modulus, []).why, 'outranked');
 });
 
+test('an undescribed heat deflection counts for a plastic that cannot crystallise, and nothing else does (D177)', () => {
+  const hdt = defs.get('hdt045');
+  const modulus = defs.get('tensileModulusXY');
+  const bar = { id: 'V999998', gradeId: 'G999-01', numeric: true, dataStatus: 'Published value', implausible: false, specimenType: 'Not published (do not assume printed)',
+    specimenForm: 'not-stated', moistureState: 'not-stated', postProcessingState: 'not-stated', direction: 'not-applicable' };
+  const heat = { ...bar, property: 'HDT', unit: '°C', value: 95, thermal: { loadStated: true, loadMPa: 0.45 } };
+  // The headline counts it only where the build marked it (markUndescribedCounts): the data decide, not assess.
+  assert.deepEqual(assess({ ...heat, countsUndescribed: ['hdt045', 'hdt18'] }, hdt, []), { level: LEVEL.COMPARABLE, caveat: null, admitted: ['bar'] });
+  assert.deepEqual(assess(heat, hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' }, 'unmarked, it stays set apart (D172)');
+  assert.deepEqual(assess({ ...heat, countsUndescribed: ['hdt045'], thermal: { loadStated: false, loadMPa: null } }, hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'load-not-stated', admitted: ['bar'] }, 'with no load it is a printed bar\'s unloaded value');
+  assert.deepEqual(assess({ ...heat, countsUndescribed: ['hdt045'], setApartBy: { by: 'S-X', measurementId: 'V1', form: 'not-stated' } }, hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' }, 'a copy of a set-apart figure never counts');
+  assert.deepEqual(assess({ ...bar, property: 'Tensile modulus', unit: 'GPa', value: 2, direction: 'unknown', countsUndescribed: ['hdt045'] }, modulus, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' }, 'a stiffness never counts on it');
+  // What the build marks: every counted value is a heat deflection of a product whose polymer cannot crystallise, with an
+  // allowed filler, no variant or one that prints as its type, and no document pointing to moulding.
+  const material = new Map(db.materials.map((x) => [x.id, x]));
+  const grade = new Map(db.grades.map((g) => [g.id, g]));
+  const canCrystallise = new Map(loadTables(join(root, 'data')).Polymers.rows.map((r) => [r.PolymerID, r['Can crystallise']]));
+  const marked = db.measurements.filter((x) => x.countsUndescribed);
+  assert.ok(marked.length >= 100, `${marked.length} values counted`);
+  for (const x of marked) {
+    assert.equal(x.property, 'HDT', x.id);
+    assert.equal(canCrystallise.get(material.get(x.materialId).estimateIdentity), 'no', x.id);
+    assert.notEqual(material.get(x.materialId).modifier, 'Foaming', x.id);
+    assert.ok(printsAsItsType(grade.get(x.gradeId)), x.id);
+    assert.notEqual(x.specimenType, 'Not published (its document points to moulded or resin bars)', x.id);
+  }
+  // PLA, PET and the nylons stay set apart however glassy a print of them is; a value whose document points to moulding too.
+  for (const x of db.measurements.filter((y) => y.property === 'HDT' && y.specimenForm === 'not-stated' && ['PLA', 'PET', 'PA6', 'PP'].includes(material.get(y.materialId)?.estimateIdentity))) assert.ok(!x.countsUndescribed, x.id);
+  assert.ok(db.measurements.some((y) => y.specimenType === 'Not published (its document points to moulded or resin bars)' && y.property === 'HDT' && canCrystallise.get(material.get(y.materialId)?.estimateIdentity) === 'no' && !y.countsUndescribed));
+});
+
 test('a better document replaces a figure only where it prints one the same headline reads, in the same state (D171)', () => {
   const sources = [
     { id: 'S-OLD', sourceClass: 'Manufacturer TDS', supersededBy: 'S-NEW' },

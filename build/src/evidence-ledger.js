@@ -35,6 +35,7 @@
 import { assess, LEVEL, twinOrigin } from './products.js';
 import { parseAppliesTo, applies, measurementHeadlines } from './registry.js';
 import { ledgerInterval, tidy } from '../../app/js/engine/ledger.js';
+import { countsUndescribed } from './normalize/specimen.js';
 
 const NA = 'Not applicable';
 const num = (cell) => (cell == null || cell === NA || cell === '' ? null : Number(cell));
@@ -199,7 +200,9 @@ function judge(m, sdef, own, state, row) {
   // A row that reads values with no stated load takes those alone (CV63).
   if (row.sourceLoadUnstated && m.thermal?.loadStated) return { excluded: 'its sheet states the test load' };
   // A row that takes printed bars only (an elongation floor, D161) leaves a bar its sheet does not describe out.
-  if (row.sourceSpecimen === 'printed' && m.specimenForm !== 'printed') return { excluded: 'not a bar its sheet says was printed' };
+  // A bar no document describes is read as printed where its headline counts it (D177: heat deflection of a polymer that
+  // cannot crystallise), so the floor reads what decides the product's own value.
+  if (row.sourceSpecimen === 'printed' && m.specimenForm !== 'printed' && !countsUndescribed(m, sdef)) return { excluded: 'not a bar its sheet says was printed' };
   if (row.sourceSpecimen === 'moulded or not stated') {
     if (!FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm)) return { excluded: 'not a moulded or undescribed bar' };
     // The row is about bars no document describes as printed, so D172's setting apart does not apply to what it reads.

@@ -766,6 +766,11 @@
             "required": ["by", "why"],
             "properties": { "by": { "type": "string" }, "why": { "enum": ["older-edition", "lower-class"] } }
           },
+          "countsUndescribed": {
+            "type": "array",
+            "description": "The headlines that count this value although no document describes its test bar as printed (D177): those whose Undescribed bar counts for (headline_definitions.csv) names its product's kind of plastic, heat deflection for a polymer that cannot crystallise. Absent where no headline counts it.",
+            "items": { "type": "string" }
+          },
           "setApartBy": {
             "type": "object",
             "description": "Set where a better document of the same product prints the same figure on a bar it does not describe as printed (D171, D172): that document and its measurement. The figure is set apart as that one is, and its form is read as not-stated; form is the record\u0027s own.",
@@ -1887,6 +1892,8 @@
         "unstatedDirection",
         "loadMPa",
         "unstatedLoad",
+        "undescribedCountsFor",
+        "undescribedCountsForText",
         "notch",
         "testTemperatureC",
         "standard",
@@ -2015,6 +2022,11 @@
             null
           ]
         },
+        "undescribedCountsFor": {
+          "description": "The kinds of plastic for which a value from a test bar no document describes as printed counts as a printed bar's (headline_definitions.csv Undescribed bar counts for, D177), as a parsed Applies-to rule; null: such a bar is set apart for every product (D172).",
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/rule" }]
+        },
+        "undescribedCountsForText": { "type": ["string", "null"] },
         "notch": {
           "description": "The notch a backing impact measurement must state (D92), or null.",
           "type": [
@@ -2975,9 +2987,9 @@
           }
         },
         "admitted": {
-          "description": "The conditions that could change this value and its source left unstated, which the screening policy admits (D99): the specimen form, the moisture state, the treatment.",
+          "description": "The conditions that could change this value and its source left unstated, which the screening policy admits (D99): the specimen form, the moisture state, the treatment; a printed bar's orientation, read flat (D172); and bar, a test bar no document describes, counted because the plastic cannot crystallise (D177).",
           "type": "array",
-          "items": { "enum": ["direction", "specimen", "moisture", "treatment"] }
+          "items": { "enum": ["direction", "specimen", "moisture", "treatment", "bar"] }
         },
         "converted": {
           "description": "A price converted from another currency (D113): the product has no Canadian listing, so its price is its foreign listings' at the Bank of Canada rate in force. It lists the product in no Canadian shop.",
@@ -3088,7 +3100,7 @@
         "openLow": { "const": true },
         "openHigh": { "const": true },
         "level": { "enum": ["comparable", "as-published"] },
-        "admitted": { "type": "array", "items": { "enum": ["direction", "specimen", "moisture", "treatment"] } },
+        "admitted": { "type": "array", "items": { "enum": ["direction", "specimen", "moisture", "treatment", "bar"] } },
         "from": { "$ref": "#/$defs/twinOrigin" },
         "limit": { "type": "object", "additionalProperties": false, "required": ["lo", "hi"], "properties": { "lo": { "type": ["number", "null"] }, "hi": { "type": ["number", "null"] } } },
         "widened": { "const": true },

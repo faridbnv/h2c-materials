@@ -193,6 +193,7 @@ G027-47,M027,ABS,annealed:80:12,tensileModulusXY,2.2,V000554,2.2,twin G027-01
 G027-47,M027,ABS,annealed:80:12,tensileStrengthXY,33,V000556,33,twin G027-01
 G027-47,M027,ABS,annealed:80:12,tensileStrengthZ,28,V000557,28,twin G027-01
 G027-53,M027,ABS,as-printed,hdt18,85,V010578,100,
+G027-54,M027,ABS PLUS,as-printed,hdt18,85,V010627,100,
 G028-01,M028,ABS-GF,as-printed,charpyNotched,,,4.2,
 G028-01,M028,ABS-GF,as-printed,elongationXY,,,1.2,
 G028-01,M028,ABS-GF,as-printed,elongationZ,,,0.8,
@@ -770,6 +771,8 @@ G076-02,M076,Ultrafuse BVOH,conditioned,tensileModulusXY,2.339,V011885,2.339,
 G076-02,M076,Ultrafuse BVOH,conditioned,tensileStrengthXY,33.7,V011882,33.7,
 G098-06,M098,Antero 800NA,annealed:200:3,hdt045,177,V014611,158,
 G098-06,M098,Antero 800NA,annealed:200:3,tensileStrengthZ,36.7,V014627,59.4,
+G106-01,M106,ABS Kevlar,as-printed,hdt045,88,V006475,88,
+G106-01,M106,ABS Kevlar,as-printed,hdt18,75,V006476,75,
 G106-01,M106,ABS Kevlar,annealed:x:x,hdt045,88,V002761,88,
 G106-02,M106,ABSKevlar,as-printed,hdt045,,,88,
 G106-02,M106,ABSKevlar,as-printed,hdt18,,,75,

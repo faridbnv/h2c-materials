@@ -322,8 +322,10 @@ test('every product HDT is a stated 0.45 MPa value of a printed bar, or set apar
     if (!v) continue;
     const m = byId.get(v.measurementId);
     const t = m.thermal;
-    // A bar its document does not describe as printed vouches for no printed part's heat resistance (D172).
-    if (m.specimenForm === 'not-stated' && !['XY', 'Z', 'XZ', 'ZX', 'YX'].includes(m.direction)) { assert.deepEqual([v.level, v.caveat], ['as-published', 'not-described'], g.id); continue; }
+    // A bar its document does not describe as printed vouches for no printed part's heat resistance (D172), unless the
+    // plastic cannot crystallise and nothing points to a moulded or resin bar: its glass transition sets it either way
+    // (D177), and it is judged as a printed bar's below.
+    if (m.specimenForm === 'not-stated' && !['XY', 'Z', 'XZ', 'ZX', 'YX'].includes(m.direction) && !m.countsUndescribed?.includes('hdt045')) { assert.deepEqual([v.level, v.caveat], ['as-published', 'not-described'], g.id); continue; }
     // ASTM D648's 66 psi is 0.455 MPa: the same test as ISO 75's 0.45 MPa, read as such by the estimate stage and the
     // product rule alike (PE's Braskem sheet states 0.455).
     if (t?.loadStated) assert.ok(v.level === 'comparable' && Math.abs(t.loadMPa - 0.45) <= 0.01, `${g.id} cites a ${t.loadMPa} MPa load`);

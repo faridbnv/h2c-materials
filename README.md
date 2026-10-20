@@ -247,8 +247,10 @@ preferences: changing one changes what the tool asserts.
 8. **A load that was never stated is never assumed, and a bar no document describes as printed never decides.** A
    tensile, flexural, impact or heat deflection value on a bar its document does not describe may be a moulded bar's:
    it decides only where something on the document indicates, even implicitly, that the bar was printed, and is
-   otherwise set apart for good, shown and counted apart (D172). A heat deflection with no stated load is counted apart
-   too, and bounds the 0.45 MPa value from below only (D84, D172).
+   otherwise set apart for good, shown and counted apart (D172). The one exception is a heat deflection of a plastic that
+   cannot crystallise (ABS, ASA, PC, PETG and the like): its bar is glassy however it was made and deflects near its
+   glass transition, so it counts, unless its document points to a moulded or resin bar (D177). A heat deflection with no
+   stated load is counted apart too, and bounds the 0.45 MPa value from below only (D84, D172).
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.

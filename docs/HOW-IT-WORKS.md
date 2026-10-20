@@ -344,7 +344,11 @@ A printed bar whose sheet states no orientation is read as a flat one, the way m
 they say otherwise, and the answer says so. A tensile, flexural, impact or heat value on a bar no document describes as
 printed, even implicitly, is set apart for good (D172): it may be a moulded bar's, and such values often read like one
 (of PLA's products, variants apart, 9 of the 61 compared reach 3 GPa in stiffness; 21 of the 30 set apart claim 3 GPa
-or more, 2026-10-20). It is shown and counted apart, never compared, and no switch admits it. A heat deflection whose
+or more, 2026-10-20). It is shown and counted apart, never compared, and no switch admits it. The exception is a heat
+deflection of a plastic that cannot crystallise (ABS, ASA, PC, PETG and the like): a glassy bar deflects near its glass
+transition however it was made, so it counts, unless its table points to a moulded or resin bar; a plastic that can
+crystallise (nylon, PP, and PLA and PET, which print glassy) may read tens of degrees hotter moulded, and stays apart
+(D177). A heat deflection whose
 source states no load is counted apart too; a printed bar's unloaded value only bounds the 0.45 MPa value from below
 (through the evidence ledger). The layer strength never counts a value with no stated direction: a bar pulled in an
 unstated direction is not a bar pulled across the layers (D92).
@@ -450,7 +454,7 @@ flowchart TB
         PASS["PASS"]
         FAILV["FAIL"]
         INDT["INDETERMINATE<br/>a published range straddles it"]
-        ASPB["UNKNOWN<br/>set apart: a bar no document describes as printed,<br/>or no stated load: shown, never compared"]
+        ASPB["UNKNOWN<br/>set apart: a bar no document describes as printed<br/>(a glassy plastic's heat deflection excepted),<br/>or no stated load: shown, never compared"]
         NAPP["UNKNOWN · n/a<br/>the property does not apply:<br/>hidden under Include, estimates on or off"]
         UNK1["UNKNOWN<br/>not published in any registered source"]
         UNK2["UNKNOWN<br/>the estimate is shown and decides nothing"]

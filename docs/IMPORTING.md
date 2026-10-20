@@ -121,6 +121,12 @@ The rules that differ from editing a table by hand:
   or the 527 of "ISO 527", is not), and a number the line prints once has one role, so "annealed (4h @ 90°C)" cannot be
   both an anneal and a test temperature. A layout the reader cannot bind enters when a person read the row on the page
   image and says so (`review.visual`). `npm run audit:witness` asks the same of the rows already recorded.
+- **How a test bar was made is recorded, never guessed.** A bar the document does not describe enters as "Not published
+  (do not assume printed)", and is set apart for good (D172), except a heat deflection of a plastic that cannot
+  crystallise, which counts (D177). The import does not look for what points to moulding, so the reviewer of a batch
+  types a bar whose table prints a mould shrinkage with a value, calls its values typical resin or reference data, or
+  names injection moulding as "Not published (its document points to moulded or resin bars)", which stays apart whatever
+  the plastic; one its document implies was printed is "Printed (implied by the document)", with the words in Notes.
 - **A page's statement, a test block and a print setting are read, not lost.** A heading or footnote that speaks for
   a whole table ("Mechanical properties (dry state)", "all specimens were annealed") enters as a `page_context.csv` row
   the page's measurements inherit (D116), never as one guess per row. Where a page holds two tables, the row names the one

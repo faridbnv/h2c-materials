@@ -426,6 +426,7 @@ export const DIRECTION_WORDS = {
 export const SPECIMEN_WORDS = { 'Raw material value': 'moulded bar (resin supplier\'s value)', 'Printed part': 'printed part', 'Printed specimen': 'printed specimen', 'Printed (implied by the document)': 'printed specimen (implied by the document)' };
 // The build orientations a printed bar is described by (build/src/products.js PRINT_DIRECTIONS): a row that states one is a
 // printed bar's, whatever its specimen cell leaves unsaid (D172), and decides as one.
+const MOULDING_POINTED = 'Not published (its document points to moulded or resin bars)';
 const PRINT_ORIENTATIONS = new Set(['XY', 'Z', 'XZ', 'ZX', 'YX', 'raster-45', 'horizontal-source-label', 'vertical-xz-source-label']);
 /**
  * What a measurement's bar is, as the value decides: its specimen type in words; a row whose specimen cell says nothing but
@@ -434,7 +435,9 @@ const PRINT_ORIENTATIONS = new Set(['XY', 'Z', 'XZ', 'ZX', 'YX', 'raster-45', 'h
  */
 export const specimenSaid = (x) => {
   const said = !x.specimenType || x.specimenType.startsWith('Not published')
-    ? (PRINT_ORIENTATIONS.has(x.direction) ? 'printed bar (its stated orientation says so)' : 'specimen not stated')
+    ? (PRINT_ORIENTATIONS.has(x.direction) ? 'printed bar (its stated orientation says so)'
+      // D172's counter-indications, recorded as a Specimen type of their own (D177).
+      : x.specimenType === MOULDING_POINTED ? 'specimen not stated; its document points to a moulded or resin bar' : 'specimen not stated')
     : SPECIMEN_WORDS[x.specimenType] ?? x.specimenType;
   return x.setApartBy ? `${said}; set apart, as the same figure on a better document of the product is` : said;
 };
