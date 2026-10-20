@@ -3286,7 +3286,9 @@
               "required": ["need", "tempC", "hours", "hoursOpen", "profileId"],
               "properties": {
                 "need": { "enum": ["required", "optional", "not-needed"] },
+                "tempMinC": { "type": "number", "description": "The lower end of a temperature range the sheet printed, whose upper end is tempC; absent where it printed one temperature (D175). Shown, never judged." },
                 "tempC": { "type": ["number", "null"] },
+                "hoursMin": { "type": "number", "description": "The lower end of a time window the sheet printed, whose upper end is hours; absent where it printed one time or an open one (D175). Shown, never judged." },
                 "hours": { "type": ["number", "null"], "description": "The lower bound where hoursOpen is true." },
                 "hoursOpen": { "type": ["boolean", "null"] },
                 "profileId": { "type": ["string", "null"] }

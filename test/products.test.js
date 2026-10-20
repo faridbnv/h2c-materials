@@ -443,7 +443,8 @@ test("a part read from a printer maker's guide is its material's guide row, only
       // D127: the guide's drying fills a silent product's, labelled as the guide's, and says what the guide says: "Optional"
       // is optional, never required.
       if (axis === 'drying') {
-        assert.deepEqual(g.print.drying, { need: guide.drying.need, tempC: guide.drying.tempC, hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
+        const { tempMinC, hoursMin } = guide.drying;
+        assert.deepEqual(g.print.drying, { need: guide.drying.need, ...(tempMinC != null ? { tempMinC } : {}), tempC: guide.drying.tempC, ...(hoursMin != null ? { hoursMin } : {}), hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
         assert.notEqual(guide.drying.need, 'unknown', `${g.id}: the guide row states no drying`);
         if (/Optional/.test(guide.drying.text)) assert.equal(g.print.drying.need, 'optional', `${g.id}: the guide says drying is optional`);
       }

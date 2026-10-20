@@ -293,7 +293,10 @@ function axisOf(profiles, axis) {
   for (const need of DRYING_ORDER) {
     const said = profiles.filter((p) => p.drying.need === need);
     const dried = said.find((p) => p.drying.tempC != null) ?? said[0];
-    if (dried) return { need, tempC: dried.drying.tempC, hours: dried.drying.hours, hoursOpen: dried.drying.hoursOpen, profileId: dried.id };
+    if (!dried) continue;
+    // A schedule printed as a range keeps its lower ends beside the upper ones every rule reads (D175): shown, never judged.
+    const { tempMinC, tempC, hoursMin, hours, hoursOpen } = dried.drying;
+    return { need, ...(tempMinC != null ? { tempMinC } : {}), tempC, ...(hoursMin != null ? { hoursMin } : {}), hours, hoursOpen, profileId: dried.id };
   }
   return null;
 }

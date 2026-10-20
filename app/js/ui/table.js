@@ -843,7 +843,8 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
         readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
-        p?.drying ? `${p.drying.need}; ${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hours ?? ''} h` : '',
+        // A schedule printed as a range keeps its lower ends: "required; 80-100 C 6-12 h" (D175).
+        p?.drying ? `${p.drying.need}; ${p.drying.tempMinC != null ? `${p.drying.tempMinC}-` : ''}${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hoursMin != null ? `${p.drying.hoursMin}-` : ''}${p.drying.hours ?? ''} h` : '',
         (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId, judged.get(g.id)?.group ?? '', judged.get(g.id)?.likely ? 'yes' : '',
       ].map(q).join(','));
     }

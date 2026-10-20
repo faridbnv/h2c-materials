@@ -108,13 +108,14 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
       const marks = e.variant ? ['variant'] : e.origin === 'guide' ? ['open'] : [];
       const note = e.origin === 'guide' ? 'the Bambu Lab Filament Guide' : e.origin === 'twin' ? 'a data sheet it shares' : null;
       o.push(productMark(marks, X(e.value), mid + 5 - Math.min(lv, 3) * 6, { 'data-grade': e.g.id, 'data-key': 'drying', 'data-v': e.value,
-        'data-kind': e.variant ? 'variant' : e.origin === 'guide' ? 'as-published' : 'compared', 'data-t': `dry at ${e.value}${NBSP}°C${e.hours != null ? ` for ${fmtDisplay(e.hours, 'h')}${NBSP}h` : ''}`, 'data-note': note }));
+        // The mark sits at the end every rule reads; its words give the range a sheet printed (D175).
+        'data-kind': e.variant ? 'variant' : e.origin === 'guide' ? 'as-published' : 'compared', 'data-t': `dry at ${spanUnit(e.low, e.value, '°C')}${e.hours != null ? ` for ${e.hoursOpen ? '≥ ' : ''}${spanUnit(e.hoursLow, e.hours, 'h')}` : ''}`, 'data-note': note }));
       dots++;
     }
     // A schedule no maker gave is never printed: where the products agree, their temperature and time; where they
-    // disagree, the span of each ("100–140 °C, 6–8 h").
+    // disagree, or a sheet prints a range, the span of each ("100–140 °C, 6–8 h"), from a printed range's lower end (D175).
     const counted = dry.entries.filter((e) => e.counted);
-    const temps = [...new Set(counted.map((e) => e.value))], hoursList = [...new Set(counted.map((e) => e.hours).filter((v) => v != null))];
+    const temps = [...new Set(counted.flatMap((e) => [e.low, e.value]))], hoursList = [...new Set(counted.flatMap((e) => [e.hoursLow, e.hours]).filter((v) => v != null))];
     const tWords = temps.length ? (temps.length === 1 ? withUnit(temps[0], '°C') : spanUnit(Math.min(...temps), Math.max(...temps), '°C')) : '';
     const hWords = hoursList.length ? (hoursList.length === 1 ? `${fmtDisplay(hoursList[0], 'h')}${NBSP}h` : spanUnit(Math.min(...hoursList), Math.max(...hoursList), 'h')) : '';
     const sub = counted.length ? `${tWords}${hWords ? (temps.length === 1 && hoursList.length === 1 ? ` for ${hWords}` : `, ${hWords}`) : ''}, ${products(counted.length)}` : 'from the Bambu Lab Filament Guide only';
