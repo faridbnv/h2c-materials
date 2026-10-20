@@ -133,7 +133,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV60 | tensileModulusXY | demote-to-ceiling | reported | 1.16 | 367 | 304 | 0 | 0 | 0 |  | 0 |
 | CV61 | tensileStrengthXY | demote-to-ceiling | reported | 1.16 | 311 | 436 | 9 | 0 | 13 | ratio 0.65 to 1.04166666667 | 0 |
-| CV63 | hdt045 | floor | reported | 1 | 73 | 0 | 1 | 0 | 1 | difference -9 to -9 | 1 |
+| CV63 | hdt045 | floor | deciding | 1 | 73 | 0 | 1 | 0 | 1 | difference -9 to -9 | 1 |
 | CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 90 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
 | CL02 | density | neat-density range | deciding | polymers.csv | 549 |  | 8 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
 
@@ -601,7 +601,8 @@ interface can say so rather than implying a certainty it does not have.
 - `PROCESS-WINDOW-IMPLAUSIBLE` **profiles P0050** — Bed "30 -500 ºC" states 500 °C, outside the plausible 0–250 °C; it is typed as stated (30–30): check the cell against its page
 - `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 1 of 131 same-sheet pair(s) break it: G165-04 V014653 58 against V014656 62
 - `CONVERSION-PAIRS` **conversions CV09** — CV09 (floor on tensileStrengthXY): 1 of 253 same-sheet pair(s) break it: G121-02 V014450 68 against V014463 96
-- `LEDGER-CONTRADICTS-VALUE` **grades** — 5 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G008-06 tensileModulusXY 1.2154 (V004808) against CV08 V004814; G001-44 tensileModulusXY 1.1323 (V004950) against CV08 V004956; G001-46 tensileModulusXY 1.3455 (V005061) against CV08 V005067; G018-09 tensileModulusXY 1.7327 (V005075) against CV08 V005081; …
+- `CONVERSION-PAIRS` **conversions CV63** — CV63 (floor on hdt045): 1 of 1 same-sheet pair(s) break it: G073-07 V013978 251 against V013958 260
+- `LEDGER-CONTRADICTS-VALUE` **grades** — 6 comparable value(s) outside their own deciding bounds by more than the test scatter, so doubtful: G008-06 tensileModulusXY 1.2154 (V004808) against CV08 V004814; G001-44 tensileModulusXY 1.1323 (V004950) against CV08 V004956; G001-46 tensileModulusXY 1.3455 (V005061) against CV08 V005067; G018-09 tensileModulusXY 1.7327 (V005075) against CV08 V005081; …
 - `CLASS-LIMIT-CONTRADICTED` **grades** — 8 comparable value(s) beyond their kind's limit by more than the test scatter: G087-03 density 1140 (V002322) against CL02; G020-08 density 1180 (V002844) against CL02; G035-12 density 1150 (V004709) against CL02; G087-04 density 1340 (V005605) against CL02; …
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
