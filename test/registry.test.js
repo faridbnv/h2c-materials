@@ -34,8 +34,9 @@ test('the registry reproduces the headline constants it replaced', () => {
   assert.deepEqual(Object.fromEntries(old.map((h) => [h.key, h.relatedProperties])), legacy.RELATED);
   assert.deepEqual(Object.fromEntries(old.map((h) => [h.key, { unit: h.unit, properties: h.valueProperties }])), legacy.HEADLINE_TYPES);
   assert.deepEqual(old.filter((h) => h.direction === 'XY').map((h) => h.key), legacy.XY_KEYS);
-  // What an unstated direction is to each of them stays what it was: as published (D84).
-  assert.deepEqual(old.filter((h) => h.direction).map((h) => h.unstatedDirection), old.filter((h) => h.direction).map(() => 'as-published'));
+  // What an unstated direction is to each of them: a printed bar read flat, and a bar no document describes as printed set
+  // apart (D172; it was as published, counted apart, D84, until the owner's ruling of 2026-10-20).
+  assert.deepEqual(old.filter((h) => h.direction).map((h) => h.unstatedDirection), old.filter((h) => h.direction).map(() => 'flat if printed'));
   assert.deepEqual(estimateKeys(registry), legacy.ESTIMATE_KEYS);
   assert.deepEqual(Object.fromEntries(registry.headlines.filter((h) => h.referenceProperty).map((h) => [h.referenceProperty, h.key])), legacy.AXIS_EQUIVALENCE);
 });
@@ -239,7 +240,7 @@ test('a Drawer-only headline must hold no value a decision could read', () => {
 });
 
 test('a Drawer-only headline may draw a value with no stated orientation, hollow and counted apart (D140)', () => {
-  const { issues } = registryIssues((wb) => { headlineRow(wb, 'tensileModulusZ')['Unstated direction'] = 'as-published'; });
+  const { issues } = registryIssues((wb) => { headlineRow(wb, 'tensileModulusZ')['Unstated direction'] = 'flat if printed'; });
   assert.deepEqual(messages(issues, 'REGISTRY-COMPARISON'), []);
 });
 

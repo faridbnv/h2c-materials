@@ -92,7 +92,7 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
   if (scenario.template) L.push(`From the ${scenario.template} template.`, '');
   for (const c of hard) L.push(`- Required: ${describeConstraint(c)}`);
   for (const c of soft) L.push(`- Tracked: ${describeConstraint(c)}`);
-  L.push(`- Products judged ${scenario.anneal ? `as printed, or annealed at their sheet's schedule${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}; values ${scenario.evidence === 'as-published' ? 'comparable or published without their direction or load' : 'comparable only'}.`);
+  L.push(`- Products judged ${scenario.anneal ? `as printed, or annealed at their sheet's schedule${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}; values whose test bar its document says or implies was printed, at the test's orientation and load.`);
   L.push('');
 
   L.push('## The answer', '');

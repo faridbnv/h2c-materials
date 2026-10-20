@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 import { measurementHeadlines } from '../build/src/registry.js';
-import { assess, LEVEL, ruleValue, speaksTo, GUIDE_AXES } from '../build/src/products.js';
+import { assess, LEVEL, ruleValue, documentRanks, markOutranked, speaksTo, GUIDE_AXES } from '../build/src/products.js';
 import { printsAsItsType } from '../build/src/variants.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -122,19 +122,60 @@ test('Shore A and Shore D are each their own scale, and a rating the product\'s 
   assert.ok(db.grades.some((g) => g.headline?.shoreA?.measurementId) && db.grades.some((g) => g.headline?.shoreD?.measurementId), 'some products publish each scale');
 });
 
-test('a value is as published exactly when the source leaves the direction or the load unstated', () => {
+test('a value is set apart where its bar is not described as printed, or a heat deflection states no load; a printed bar with no stated orientation is read flat (D172)', () => {
   const hdt = defs.get('hdt045');
   const modulus = defs.get('tensileModulusXY');
   const m = (over) => ({ id: 'V999999', gradeId: 'G999-01', numeric: true, dataStatus: 'Published value', property: 'Tensile modulus', unit: 'GPa', value: 3,
     implausible: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated', postProcessingState: 'not-stated', direction: 'XY', ...over });
   assert.deepEqual(assess(m({}), modulus, []), { level: LEVEL.COMPARABLE, caveat: null });
-  assert.deepEqual(assess(m({ direction: 'unknown' }), modulus, []), { level: LEVEL.AS_PUBLISHED, caveat: 'unstated-direction' });
+  // A printed bar, stated or implied by its document (m463), whose sheet states no orientation is read flat (D172).
+  assert.deepEqual(assess(m({ direction: 'unknown' }), modulus, []), { level: LEVEL.COMPARABLE, caveat: null, admitted: ['direction'] });
+  assert.deepEqual(assess(m({ direction: 'unknown', specimenType: 'Printed (implied by the document)' }), modulus, []), { level: LEVEL.COMPARABLE, caveat: null, admitted: ['direction'] });
+  // A bar nothing on its document describes as printed is set apart for good, whatever its load or direction leaves open;
+  // a stated print orientation on its row is itself the indication (XY, an edge or upright bar, a raster).
+  const undescribed = { specimenType: 'Not published', specimenForm: 'not-stated' };
+  assert.deepEqual(assess(m({ direction: 'unknown', ...undescribed }), modulus, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' });
+  assert.deepEqual(assess(m({ direction: 'XY', ...undescribed }), modulus, []), { level: LEVEL.COMPARABLE, caveat: null });
+  assert.deepEqual(assess(m({ direction: 'unknown', ...undescribed }), modulus, [], null, { undescribedAsPart: true }), { level: LEVEL.COMPARABLE, caveat: null, admitted: ['direction'] }, 'a row about undescribed bars reads them');
   assert.ok(assess(m({ direction: 'Z' }), modulus, []).excluded);
   assert.ok(assess(m({ direction: 'horizontal-source-label' }), modulus, []).excluded, 'a source\'s own label is not XY');
   const heat = (thermal) => m({ property: 'HDT', unit: '°C', value: 80, direction: 'not-applicable', thermal });
   assert.equal(assess(heat({ loadStated: true, loadMPa: 0.455 }), hdt, []).level, LEVEL.COMPARABLE, 'ASTM D648\'s 0.455 MPa is the 0.45 MPa test');
   assert.deepEqual(assess(heat({ loadStated: false, loadMPa: null }), hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'load-not-stated' });
   assert.ok(assess(heat({ loadStated: true, loadMPa: 1.8 }), hdt, []).excluded);
+  assert.deepEqual(assess({ ...heat({ loadStated: true, loadMPa: 0.45 }), ...undescribed }, hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' }, 'an undescribed bar vouches for no printed part\'s heat resistance');
+  // A figure a newer edition or the data sheet replaces is never the product\'s (D171).
+  assert.equal(assess(m({ outranked: { by: 'S-NEWER', why: 'older-edition' } }), modulus, []).why, 'outranked');
+});
+
+test('a better document replaces a figure only where it prints one the same headline reads, in the same state (D171)', () => {
+  const sources = [
+    { id: 'S-OLD', sourceClass: 'Manufacturer TDS', supersededBy: 'S-NEW' },
+    { id: 'S-NEW', sourceClass: 'Manufacturer TDS', supersededBy: null },
+    { id: 'S-PAGE', sourceClass: 'Manufacturer product page or guide', supersededBy: null },
+  ];
+  const bar = (id, sourceId, over = {}) => ({ id, gradeId: 'G999-01', sourceId, numeric: true, dataStatus: 'Published value', property: 'Tensile strength (endpoint unspecified)',
+    unit: 'MPa', value: 40, implausible: false, quarantined: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated',
+    postProcessingState: 'not-stated', direction: 'XY', standards: [], ...over });
+  const ms = [
+    bar('V1', 'S-OLD', { direction: 'Z' }), // the older edition's Z bar: the newer prints only a ZX bar, which no Z headline reads
+    bar('V2', 'S-NEW', { direction: 'ZX' }),
+    bar('V3', 'S-OLD'), // the older edition's flat bar: the newer prints a flat yield, which the same headline reads
+    bar('V4', 'S-NEW', { property: 'Tensile yield strength' }),
+    bar('V5', 'S-PAGE', { direction: 'unknown' }), // a product page's printed bar read flat: the data sheets speak first
+    bar('V6', 'S-PAGE', { postProcessingState: 'annealed' }), // another state, which no data sheet prints
+    bar('V7', 'S-NEW', { property: 'HDT', unit: '°C', direction: 'not-applicable', specimenType: 'Not published', specimenForm: 'not-stated', thermal: { loadStated: true, loadMPa: 0.45 } }),
+    bar('V8', 'S-PAGE', { property: 'HDT', unit: '°C', direction: 'not-applicable', thermal: { loadStated: true, loadMPa: 0.45 } }),
+  ];
+  markOutranked(ms, sources, measurementHeadlines(db.registry));
+  const by = Object.fromEntries(ms.map((x) => [x.id, x.outranked ?? null]));
+  assert.equal(by.V1, null, 'a Z value stands where the better document prints no Z bar');
+  assert.deepEqual(by.V3, { by: 'S-NEW', why: 'older-edition' });
+  assert.deepEqual(by.V5, { by: 'S-NEW', why: 'lower-class' });
+  assert.equal(by.V6, null, 'an annealed value is another state');
+  assert.equal(by.V8, null, 'a document whose only heat figure is set apart (D172) replaces nothing');
+  assert.equal(by.V2, null);
+  assert.equal(by.V4, null);
 });
 
 // D92: three selectable properties. Each rule below is over every product of every headline that sets the condition,
@@ -157,7 +198,11 @@ test('an impact value is a notched bar of the headline\'s own test, in its unit,
       assert.equal(m.unit, def.unit, `${where}: J/m does not become kJ/m² without the bar's thickness`);
       assert.equal(m.notch, def.notch, `${where} is ${m.notch}`);
       assert.ok(m.testTemperatureC == null || Math.abs(m.testTemperatureC - def.testTemperatureC) <= 2, `${where} was struck at ${m.testTemperatureC} °C`);
-      assert.equal(v.level, m.direction === def.direction ? LEVEL.COMPARABLE : LEVEL.AS_PUBLISHED, where);
+      // Comparable where the bar is the headline's direction, or a printed bar read flat; set apart where no document
+      // describes the bar as printed (D172).
+      const setApart = m.direction !== def.direction && (m.specimenForm === 'not-stated' || m.directionText === 'Stated, not a usable direction');
+      assert.equal(v.level, setApart ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, where);
+      if (!setApart && m.direction !== def.direction) assert.deepEqual(v.admitted?.includes('direction'), true, `${where} says it was read flat`);
     }
   }
 });
@@ -214,7 +259,8 @@ test('the notch, the test temperature and an excluded unstated direction are con
     implausible: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated', postProcessingState: 'not-stated', direction: 'XY', notch: impact.notch, ...over });
   assert.deepEqual(assess(bar({}), impact, []), { level: LEVEL.COMPARABLE, caveat: null });
   assert.equal(assess(bar({ testTemperatureC: 25 }), impact, []).level, LEVEL.COMPARABLE, '25 °C is inside the laboratory\'s 23 ± 2 °C');
-  assert.deepEqual(assess(bar({ direction: 'not-applicable' }), impact, []), { level: LEVEL.AS_PUBLISHED, caveat: 'unstated-direction' });
+  assert.deepEqual(assess(bar({ direction: 'not-applicable' }), impact, []), { level: LEVEL.COMPARABLE, caveat: null, admitted: ['direction'] }, 'a printed bar with no stated orientation is read flat (D172)');
+  assert.deepEqual(assess(bar({ direction: 'not-applicable', specimenType: 'Not published', specimenForm: 'not-stated' }), impact, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' });
   assert.match(assess(bar({ testTemperatureC: -30 }), impact, []).excluded, /-30 °C/);
   assert.match(assess(bar({ notch: 'Unnotched' }), impact, []).excluded, /unnotched/);
   assert.match(assess(bar({ notch: 'Not published' }), impact, []).excluded, /does not state whether the bar was notched/);
@@ -562,15 +608,19 @@ test("a material's spread counts each twin as the product it is, and says how ma
 
 // D127: drying is what a sheet asks for. A product's need is the strongest its own profiles say; a material's is the strongest of
 // its profiles'; "not necessary" is a statement, not a schedule; and a guide row's "Optional" is never read as required.
-test("a product's drying need is the strongest its own profiles state, and a material's the strongest of its profiles'", () => {
+test("a product's drying need is the strongest its best-ranked own documents state, and a material's the strongest of its profiles'", () => {
   const rank = ['required', 'optional', 'not-needed', 'unknown'];
   const strongest = (profiles) => rank.find((n) => profiles.some((p) => p.drying.need === n)) ?? 'unknown';
+  // Of a product's own documents that state a drying need, a data sheet speaks before a product page and a newer edition
+  // before an older one (D171).
+  const ranks = documentRanks(db.sources);
+  const best = (profiles) => { const said = profiles.filter((p) => p.drying.need !== 'unknown'); return said.filter((p) => !said.some((q) => ranks.outranks(q.sourceId, p.sourceId))); };
   let products = 0;
   for (const g of db.grades.filter(isProduct)) {
     const own = db.profiles.filter((p) => p.gradeId === g.id && !p.retired);
     if (!own.some((p) => p.drying.need !== 'unknown')) continue;
     products++;
-    assert.equal(g.print.drying.need, strongest(own), g.id);
+    assert.equal(g.print.drying.need, strongest(best(own)), g.id);
   }
   assert.ok(products > 300, `only ${products} products state their drying`);
   for (const m of db.materials) assert.equal(m.gates.drying, strongest(db.profiles.filter((p) => p.materialId === m.id && !p.retired)), m.id);

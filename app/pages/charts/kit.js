@@ -95,7 +95,7 @@ export function kindsOf(marks) {
 export function noteOf(marks) {
   return [
     marks.includes('variant') ? 'added filler or additive' : '',
-    marks.includes('open') ? 'as published: orientation or load not stated' : '',
+    marks.includes('open') ? 'set apart: test bar not described as printed, or no stated load' : '',
     marks.includes('annealed') ? 'measured after annealing' : '',
     marks.includes('claimed') ? 'sold as toughened (maker\'s statement)' : '',
   ].filter(Boolean).join('; ');
@@ -195,10 +195,10 @@ export const KEY = {
   selfCell: (name) => [keySvg('<rect class="dv-self-band" x="0" y="3" width="16" height="8" rx="2"/><rect class="dv-self" x="6.5" y="0" width="3" height="14" rx="1.5"/>'), `${esc(name)}: its products' median and middle half`],
   peerCell: () => [keySvg('<rect class="dv-peer-band" x="0" y="3" width="16" height="8" rx="2"/><rect class="dv-peer" x="6.5" y="0" width="3" height="14" rx="1.5"/>'), 'an alternative'],
   range: () => [keySvg('<line class="dv-peer-range" x1="0" x2="16" y1="7" y2="7"/>'), 'lowest to highest'],
-  open: () => [keySvg('<circle class="dv-open" cx="8" cy="7" r="4"/>'), 'as published: orientation or load not stated'],
+  open: () => [keySvg('<circle class="dv-open" cx="8" cy="7" r="4"/>'), 'set apart: test bar not described as printed, or no stated load'],
   rug: () => [keySvg('<path class="dv-rug" d="M2 1V13M5 1V13M7 1V13M12 1V13"/><line class="dv-rug--self" x1="9.5" x2="9.5" y1="0" y2="14"/>'), 'each material\'s median (top row)'],
   product: () => [keySvg('<use href="#dv-dot" class="dv-p" x="8" y="7"/>'), 'a product'],
-  productOpen: () => [keySvg('<use href="#dv-dot" class="dv-p mk--open" x="8" y="7"/>'), 'as published: orientation or load not stated'],
+  productOpen: () => [keySvg('<use href="#dv-dot" class="dv-p mk--open" x="8" y="7"/>'), 'set apart: test bar not described as printed, or no stated load'],
   clip: () => [keySvg('<use href="#dv-chev-r" class="dv-clip dv-p" x="8" y="7"/>'), 'beyond the scale'],
   annealed: () => [keySvg('<use href="#dv-sq" class="dv-p mk--annealed" x="8" y="7"/>'), 'measured after annealing'],
   variant: () => [keySvg('<use href="#dv-dia" class="dv-p mk--variant" x="8" y="7"/>'), 'added filler or additive, kept out of the median'],

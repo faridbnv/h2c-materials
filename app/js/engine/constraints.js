@@ -221,13 +221,16 @@ function evaluateNumeric(material, c, ctx = {}) {
     }
     // An estimate withheld because the product's own values and its kind's model disagree (D167): said after what follows.
     const withheld = ctx.useEstimates && h?.withheld ? `. Its own values put it at ${rangeText(h.withheld.ownBand?.lo, h.withheld.ownBand?.hi, h.unit)} once converted, where its kind's estimate is ${fmtWords(h.withheld.centre)} ${h.unit}, so no estimate is shown` : '';
-    // A product value the source published without the direction or the load: shown, and not comparable (D84).
+    // A product value set apart (D172): from a test bar no document describes as printed, or a heat deflection whose sheet
+    // states no load, which bounds the 0.45 MPa value only from below, through the evidence ledger (CV63). Shown, never deciding.
     if (h?.asPublished) {
-      const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the specimen orientation';
-      return {
-        status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished,
-        reason: withNote(`Published ${fmtWords(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values${withheld}`, known),
-      };
+      const v = `${fmtWords(h.asPublished.value)} ${h.unit}`;
+      const why = h.asPublished.caveat === 'not-described'
+        ? `Published ${v} on a test bar its document does not describe as printed (nothing on it says, even implicitly, that the bar was printed), so it is set apart and not used${withheld}; the maker's word on how the bar was made, or a printed coupon, settles it`
+        : h.asPublished.caveat === 'load-not-stated'
+          ? `Published ${v} without the test load, so it is not used at its value: at either load it shows only that the heat deflection at 0.45 MPa is at least ${v}${withheld}`
+          : `Published ${v} without the specimen orientation, so it is not used${withheld}`;
+      return { status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished, reason: withNote(why, known) };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
     if (h?.elsewhere?.length) {
@@ -288,7 +291,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     }
     if (h.caveat) reason += '. Used because Data quality includes such values';
     // What the screening policy admitted unstated (GOALS 2026-09-28, decision 5).
-    if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated`;
+    if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated${h.admitted.includes('direction') ? '; a printed bar is read as a flat one' : ''}`;
     if (thinMargin) {
       reason += closeToLimit
         ? `. Close to the limit, a thin margin: the threshold is inside the published scatter and the test scatter (${margin.words}), so some parts may fall below it`
@@ -314,7 +317,7 @@ function evaluateNumeric(material, c, ctx = {}) {
   };
 }
 
-const ADMITTED_WORDS = { specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing' };
+const ADMITTED_WORDS = { direction: 'orientation', specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing' };
 
 // A headline's test scatter (D152): how far one maker's published figure moves between its own bars and sheets, from the
 // registry the context carries (headline_definitions.csv Test scatter), or null where it has none or the context no
@@ -422,6 +425,8 @@ function elsewhereReason(h, state, c) {
   // Judged as printed, the annealed value named is one that meets the requirement, where the sheet publishes one.
   const e = (!state?.treatment && h.elsewhere.find((x) => x.treatment && !misses(x))) || h.elsewhere[0];
   const where = `(${fmtWords(e.value)} ${h.unit})${misses(e) ? ', which also misses it' : ''}`;
+  // A value set apart (D172): from a test bar no document describes as printed, which no state's answer reads.
+  if (e.setApart) return `Published ${stateWords(e)} ${where}, but on a test bar its document does not describe as printed, so it is set apart and not used`;
   if (e.treatment && !state?.treatment) {
     return misses(e)
       ? `Published only after annealing ${schedule(e.treatment)} ${where}, so annealing would not help`

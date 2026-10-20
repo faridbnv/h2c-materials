@@ -99,7 +99,7 @@ function strip(c, k, key) {
   // engineer's words ("64 products, 29 in the median"; "29 ranked of 64 shown" read as bookkeeping, OPEN-PROBLEMS §37.19).
   const sub = `${scaleWords} · ${products(entries.length)}, ${n === entries.length ? 'all in the median' : n ? `${n} in the median` : 'none in the median'}`;
   const clipped = placed.some((p) => p.side);
-  const html = `<div class="st-row" data-key="${esc(key)}" data-unit="${esc(h.unit)}" data-open="as published: orientation or load not stated">`
+  const html = `<div class="st-row" data-key="${esc(key)}" data-unit="${esc(h.unit)}" data-open="set apart: test bar not described as printed, or no stated load">`
     + `<div class="st-label">${esc(h.labels.plain)}<small>${esc(sub)}</small></div>`
     + `<svg class="st-svg" width="100%" height="${H}" role="img" aria-label="${esc(`${h.labels.plain}: ${products(entries.length)} drawn${n ? `; median of the ${n} it counts ${withUnit(s.median, h.unit)}${s.q1 != null ? `, middle half ${spanUnit(s.q1, s.q3, h.unit)}` : ''}` : ''}${compared.length ? `; lowest ${productName(compared[0].e.g)}, highest ${productName(compared.at(-1).e.g)}` : ''}.`)}">${o.join('')}</svg></div>`;
   return { html, h, s, n, entries, placed, compared, open, clipped, variants: placed.filter((p) => p.e.variant).length, marks: new Set(placed.flatMap((p) => p.marks)) };

@@ -210,6 +210,13 @@ export function attachGradeEstimates({ key, def, model, S, obs, P, hp, tmMean, i
     // The model's centre before any bound, for the unstated-direction back-test (directions.js), read rather than predicted twice.
     if (centres) centres.set(`${m.id}|${f}`, inv(p.mu));
     const own = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.f === f && (o.m.id === m.id || o.m.id === subject.id));
+    // A value of the headline's own kind that the owner's ruling of 2026-10-20 sets apart (D172: a bar no document describes
+    // as printed) would be the estimate's own answer at its own value with almost no width (Bambu Lab PETG HF's 69 to 69 °C
+    // was the same trap, D167): such a product shows its value, set apart, and is not estimated, as it was not while that
+    // value decided.
+    // A product with no comparable value of its own that still holds an observation of the headline's own kind holds it on a
+    // bar set apart, replaced by a better document (D171) or only a ceiling (D166), which the estimate would only echo.
+    const echoes = () => own.some(({ o }) => o.kind === HEAD[key]);
     // What its own values of the asked property, measured another way, allow (anchor.js, D167): the estimate is held
     // inside it, from both sides, where the model's centre lies inside; where it lies outside, the product's own sheet
     // and its kind's model disagree, and no estimate is shown. Where its own sheets disagree, nothing anchors it.
@@ -224,7 +231,7 @@ export function attachGradeEstimates({ key, def, model, S, obs, P, hp, tmMean, i
       const note = { centre: sig3(inv(p.mu)), ownBand: publishBand(band, inv),
         why: `its own ${band.bands.flatMap((b) => b.measurementIds).join(', ')} put its printed value at ${sig3(inv(anchor.lo), -1)} to ${sig3(inv(anchor.hi), 1)} ${h.unit}, where its kind's model puts it at ${sig3(inv(p.mu))}` };
       for (const g of grades) {
-        if (g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values?.[key]?.level === 'comparable') continue;
+        if (g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values?.[key]?.level === 'comparable' || echoes(g)) continue;
         g.estimateWithheld ??= {};
         g.estimateWithheld[key] = note;
         withheld.push({ key, gradeId: g.id, materialId: m.id, ...note });
@@ -259,7 +266,7 @@ export function attachGradeEstimates({ key, def, model, S, obs, P, hp, tmMean, i
       // A product with a comparable value of its own shows that value; an estimate would only sit beside it (D83). The
       // value is the as-printed dry one: a product that publishes the headline only after annealing has an as-printed
       // part nobody measured, and is estimated as printed (D162), as product screening already reads it (D137).
-      if (g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values?.[key]?.level === 'comparable') continue;
+      if (g.states?.find((s) => !s.treatment && s.moisture === 'dry')?.values?.[key]?.level === 'comparable' || echoes(g)) continue;
       g.estimate ??= {};
       g.estimate[key] = grades.length > 1 ? { ...estimate, sharedWith: grades.filter((x) => x !== g).map((x) => x.id) } : estimate;
       attached++;

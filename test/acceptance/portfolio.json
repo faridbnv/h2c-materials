@@ -19,8 +19,8 @@
       "expect": [
         { "product": "G033-11", "verdict": "PASS", "records": ["V006484", "V006485", "V006477", "P0569"],
           "because": "Polymaker FIBERON ASA CF08's own sheet: HDT 103 °C at 0.45 MPa, XY modulus 3.61 GPa, 1090 kg/m³; nozzle 260-280 °C, bed 90-100 °C, chamber room temperature. None of its values is stated as annealed." },
-        { "product": "G033-11", "state": "as-printed", "admits": ["specimen", "moisture", "treatment"],
-          "because": "The same values state neither the specimen form, the moisture state nor the post-processing: the screening policy admits them, and the verdict must say so." },
+        { "product": "G033-11", "state": "as-printed", "admits": ["moisture", "treatment"],
+          "because": "The same values state neither the moisture state nor the post-processing: the screening policy admits them, and the verdict must say so. (Until the owner's ruling of 2026-10-20 the specimen form was admitted unstated too; the sheet's How to make specimens block says its test bars were printed, D172, m463.)" },
         { "product": "G054-01", "verdict": "FAIL", "failedBy": "Chamber", "records": ["P0141"],
           "because": "3DXTECH FIBREX PA12 GF30 meets the three limits (V001014, V001009, V001007), but its print guide asks for a chamber up to 120 °C; the H2C reaches 65 °C." },
         { "product": "G070-01", "verdict": "PASS", "records": ["P0089"],
@@ -41,10 +41,10 @@
       "expect": [
         { "template": "Warm environment", "includesGates": ["nozzle", "bed", "chamber"],
           "because": "The bed is part of printing it; the template checked the nozzle and the chamber only." },
-        { "product": "G035-03", "verdict": "PASS", "notUnresolvedBy": "bed", "records": ["P0203"],
-          "because": "Spectrum PC 275's sheet asks for a 90-130 °C bed; the H2C's reaches 120 °C, 30 °C into that window, so the bed passes at the low end of the maker's window. (Until the screening build's stage 3a this failed on the bed, read by its upper end. The owner's decision 2 of 2026-10-18, D151.)" },
-        { "product": "G035-21", "verdict": "PASS", "notUnresolvedBy": "bed", "records": ["P0203"],
-          "because": "FormFutura Kratos PC prints PC 275's sheet (the same Shared formulation key, D89), so its bed is PC 275's, and passes at the low end as PC 275's does (D151)." }
+        { "product": "G035-03", "verdict": "UNKNOWN", "notUnresolvedBy": "bed", "records": ["P0203"],
+          "because": "Spectrum PC 275's sheet asks for a 90-130 °C bed; the H2C's reaches 120 °C, 30 °C into that window, so the bed passes at the low end of the maker's window. (Until the screening build's stage 3a this failed on the bed, read by its upper end. The owner's decision 2 of 2026-10-18, D151.) It is unresolved on its heat deflection since the owner's ruling of 2026-10-20 (D172): Spectrum's 139 °C is on a bar its sheet does not describe as printed, so it is set apart. Until then it passed." },
+        { "product": "G035-21", "verdict": "UNKNOWN", "notUnresolvedBy": "bed", "records": ["P0203"],
+          "because": "FormFutura Kratos PC prints PC 275's sheet (the same Shared formulation key, D89), so its bed is PC 275's, and passes at the low end as PC 275's does (D151). Unresolved on its heat deflection, as PC 275 is, since the owner's ruling of 2026-10-20 (D172)." }
       ]
     },
     {
@@ -72,8 +72,8 @@
       "expect": [
         { "product": "G001-06", "verdict": "UNKNOWN", "reasonMatches": "90 °C.*4 h", "records": ["V002780"],
           "because": "Spectrum PLA Matt's 116 °C is of a bar annealed for 4 h at 90 °C; the sheet gives no as-printed heat deflection." },
-        { "product": "G001-06", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 90, "hours": 4 }, "records": ["V002780"],
-          "because": "With annealing available, the annealed state's 116 °C decides, and the verdict names the 90 °C, 4 h treatment." },
+        { "product": "G001-06", "policy": { "anneal": true }, "verdict": "UNKNOWN", "reasonMatches": "90 °C.*4 h.*set apart",
+          "because": "The annealed state's 116 °C is of a bar Spectrum's sheet does not describe as printed, so since the owner's ruling of 2026-10-20 (D172) it is set apart and decides in no state, and the reason says so. Until then, with annealing available, it decided and passed." },
         { "measurement": "V002780", "testTemperatureC": null,
           "because": "The sheet prints 90 °C as the annealing temperature ('annealed (4h @ 90°C)'), not as a test temperature (re-read 2026-09-27)." },
         { "measurement": "V002781", "testTemperatureC": null,

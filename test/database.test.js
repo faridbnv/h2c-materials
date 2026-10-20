@@ -315,12 +315,15 @@ test('a material\'s print gate names the product it was read from, and each prod
   assert.ok(split > 0, 'no material has two products beyond the H2C by different amounts, so the case is untested');
 });
 
-test('every product HDT is a stated 0.45 MPa value, or as published with its load unstated', () => {
+test('every product HDT is a stated 0.45 MPa value of a printed bar, or set apart: its bar not described as printed, or its load unstated', () => {
   const byId = new Map(db.measurements.map((m) => [m.id, m]));
   for (const g of db.grades) {
     const v = g.headline?.hdt045;
     if (!v) continue;
-    const t = byId.get(v.measurementId).thermal;
+    const m = byId.get(v.measurementId);
+    const t = m.thermal;
+    // A bar its document does not describe as printed vouches for no printed part's heat resistance (D172).
+    if (m.specimenForm === 'not-stated' && !['XY', 'Z', 'XZ', 'ZX', 'YX'].includes(m.direction)) { assert.deepEqual([v.level, v.caveat], ['as-published', 'not-described'], g.id); continue; }
     // ASTM D648's 66 psi is 0.455 MPa: the same test as ISO 75's 0.45 MPa, read as such by the estimate stage and the
     // product rule alike (PE's Braskem sheet states 0.455).
     if (t?.loadStated) assert.ok(v.level === 'comparable' && Math.abs(t.loadMPa - 0.45) <= 0.01, `${g.id} cites a ${t.loadMPa} MPa load`);
@@ -498,8 +501,13 @@ test('estimates follow the physics of printing: under the melting point and the 
     // that margin of its Vicat (PET: 65.7 against 65.9 °C) has a heat deflection at 0.45 MPa between the two, and one whose
     // 1.8 MPa value lies above its Vicat (the LCP: 193 against 145 °C) deflects no lower than that: its floor (D126) wins.
     const floor = Math.max(0, ...(m.headline.hdt045.impliedBounds ?? []).map((b) => b.lo));
-    const top = Math.max(...vicat), lift = ESTIMATE_MODEL.bounds.ownVicat.lift;
-    const cap = Math.max(top + (floor >= top - lift ? lift : 0), floor);
+    const top = Math.max(...vicat), { lift, sd } = ESTIMATE_MODEL.bounds.ownVicat;
+    // The bound is soft (estimate-model.json ownVicat: Vicat + lift, with its sd), so the centre may sit up to one sd above
+    // the cap this rule reads, never far beyond it (BVOH's 158 °C against its own Vicat of 90 °C). Since the owner's ruling of
+    // 2026-10-20 (D172) a material whose products publish their heat deflection only on bars no document describes as
+    // printed is estimated where it was not, with no floor from those bars: PET's 71.7 °C sits 0.8 °C above its Vicat plus
+    // the lift, within that sd.
+    const cap = Math.max(top + (floor >= top - lift ? lift : 0), floor) + sd;
     if (vicat.length) { held.vicat++; assert.ok(e.centre <= cap, `${m.name} is estimated to deflect at ${e.centre} °C, above its own Vicat ${top} °C`); }
   }
   // Fibre in a polymer: estimated no lighter, stiffer, and stretching less than the same polymer unfilled.

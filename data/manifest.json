@@ -19,7 +19,7 @@
     },
     "measurements": {
       "rows": 15698,
-      "sha256": "cdf7a384326e593bffdebfcb5eb48b012862d554946258ef8e8f93c3427bcb44"
+      "sha256": "219bc4f2d06f57f36cbb2c065132434cd27ee630bb348b46729f069c4de3c7d1"
     },
     "page_context": {
       "rows": 1012,
@@ -59,7 +59,7 @@
     },
     "sources": {
       "rows": 2107,
-      "sha256": "bdaafeeb56e3884ae74fcd0febac3bfb6360bfde604eb0eed4f06c769dc0a83e"
+      "sha256": "7dfe4ba36ddfd9797acc107d623961fa64c687a705fb25bb8495ce8c7caa9666"
     },
     "coverage": {
       "rows": 955,
@@ -67,7 +67,7 @@
     },
     "material_summaries": {
       "rows": 77,
-      "sha256": "1927feaa9f798b2bc6ecf81be85c03c6bb8f1330f0edb13112b2f1f2c8410dac"
+      "sha256": "5c59933a206dfb0f260ca6d59ee5f10ae7c033f8bfd8914d91f7c4858f9c48b6"
     },
     "method": {
       "rows": 59,
@@ -103,7 +103,7 @@
     },
     "headline_definitions": {
       "rows": 19,
-      "sha256": "b537d731f21fd7b416e6d0a0ac906c9fe693bfc5b8ec56a411ba0d4d46a19c76"
+      "sha256": "c4b7f3c15e5912dde3a78ffa20a64e4ffaa1c65906924b0372861851dd5b4675"
     },
     "drawer_comparisons": {
       "rows": 4,
@@ -122,8 +122,8 @@
       "sha256": "5a71ebb290d9478e2250c679f5ec827253a974b86e3a8ad3c30df56de329d06d"
     },
     "conversions": {
-      "rows": 62,
-      "sha256": "a2a7fa96c99787b3e1cfb3d9525782b82e96517cdacf0e086411f349cba5da8f"
+      "rows": 63,
+      "sha256": "bcc893437bc46cbc950098224e8769232c50207963f28a5906ff47fbbebf62c7"
     },
     "class_limits": {
       "rows": 3,

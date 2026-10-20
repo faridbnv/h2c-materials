@@ -1,10 +1,10 @@
 a product
-as published: orientation or load not stated
+set apart: test bar not described as printed, or no stated load
 measured after annealing
 added filler or additive, kept out of the median
 middle half and median
 Tensile modulus (XY)
-56 ranked of 107 shown
+61 ranked of 107 shown
 10
 Tensile modulus (Z)
 29 ranked of 31 shown
@@ -16,7 +16,7 @@ GPa
 4
 5
 Tensile strength (XY)
-72 ranked of 140 shown
+81 ranked of 140 shown
 Tensile strength (Z)
 40 ranked of 43 shown
 MPa
@@ -26,7 +26,7 @@ MPa
 60
 80
 Elongation at break (XY)
-63 ranked of 121 shown
+72 ranked of 121 shown
 Elongation at break (Z)
 35 ranked of 37 shown
 %, log scale
@@ -40,16 +40,16 @@ Elongation at break (Z)
 100
 Select a dot to open its result below; hover to find the same product in the other rows.
 Test Ranked Median Middle half Range
-Tensile modulus (XY) GPa 56 2.52 1.95⁠–⁠2.87 0.95⁠–⁠4.24
-Not ranked: 35 with no stated orientation (1.44⁠–⁠4.78), 16 with an added filler or additive (0.715⁠–⁠4.73).
+Tensile modulus (XY) GPa 61 2.58 2⁠–⁠2.87 0.95⁠–⁠4.24
+Not ranked: 30 set apart, test bar not described as printed (1.44⁠–⁠4.78), 16 with an added filler or additive (0.715⁠–⁠4.73).
 Tensile modulus (Z) GPa 29 1.98 1.67⁠–⁠2.48 0.873⁠–⁠2.69
 Not ranked: 2 with an added filler or additive (0.603⁠–⁠3.2).
-Tensile strength (XY) MPa 72 45.3 40⁠–⁠53 23.2⁠–⁠70.9
-Not ranked: 52 with no stated orientation (30⁠–⁠71), 16 with an added filler or additive (13.7⁠–⁠65).
+Tensile strength (XY) MPa 81 45 39⁠–⁠53 23.2⁠–⁠70.9
+Not ranked: 43 set apart, test bar not described as printed (36.8⁠–⁠71), 16 with an added filler or additive (13.7⁠–⁠65).
 Tensile strength (Z) MPa 40 30.3 22.1⁠–⁠34 8.7⁠–⁠43.5
 Not ranked: 3 with an added filler or additive (14.5⁠–⁠21.7).
-Elongation at break (XY) % 63 7.23 4.12⁠–⁠12 1.2⁠–⁠65
-Not ranked: 43 with no stated orientation (2.5⁠–⁠58), 15 with an added filler or additive (2.4⁠–⁠84).
+Elongation at break (XY) % 72 6.76 3.97⁠–⁠13 1.2⁠–⁠65
+Not ranked: 34 set apart, test bar not described as printed (2.5⁠–⁠58), 15 with an added filler or additive (2.4⁠–⁠84).
 Elongation at break (Z) % 35 2.89 2.28⁠–⁠4.85 0.9⁠–⁠9.6
 Not ranked: 2 with an added filler or additive (1.8⁠–⁠7.91).
 Both XY and Z published: 31 products for tensile modulus, 43 for tensile strength and 37 for elongation at break.

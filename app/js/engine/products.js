@@ -175,10 +175,15 @@ export function productHeadline(material, grade, key, ctx = {}, state = null) {
   };
   if (bounds) entry.ledger = bounds;
   if (v) entry.asPublished = { value: v.value, caveat: v.caveat, measurementId: v.measurementId };
+  // A PLA or PET heat deflection from a bar no document describes as printed is set apart (D172) and still the most a
+  // printed part reaches (CV05, D166): it is read as the ceiling it is, as it was before it was set apart.
+  if (v?.ceilingOnly) entry.ceiling = productValueHeadline(base, grade, v, ctx.measurementById);
   // A value this product publishes in another state: the reason names it, and what would let it decide (D99).
   const judged = state ?? firstState(grade);
+  // A value set apart (D172) decides in no state: it is named as such, so the reason never offers it.
   const elsewhere = (grade.states ?? []).filter((s) => s.id !== judged.id && s.values?.[key] && stateValue(grade, key, s, ctx) === s.values[key])
-    .map((s) => ({ stateId: s.id, treatment: s.treatment, moisture: s.moisture, value: s.values[key].value, measurementId: s.values[key].measurementId ?? null }));
+    .map((s) => ({ stateId: s.id, treatment: s.treatment, moisture: s.moisture, value: s.values[key].value, measurementId: s.values[key].measurementId ?? null,
+      ...(s.values[key].level !== 'comparable' && evidence !== EVIDENCE.AS_PUBLISHED ? { setApart: true } : {}) }));
   if (!v && elsewhere.length) entry.elsewhere = elsewhere;
   const prediction = grade.estimate?.[key];
   // D137 product predictions are available independently of sibling coverage. Older

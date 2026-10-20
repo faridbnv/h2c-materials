@@ -1,5 +1,5 @@
-COUNT 93 shown PASS + UNKNOWN
-STATUS ☑ PASS 11 | ☑ UNKNOWN 89 | ☐ FAIL 52 | ☐ HIDDEN 7
+COUNT 95 shown PASS + UNKNOWN
+STATUS ☑ PASS 10 | ☑ UNKNOWN 92 | ☐ FAIL 50 | ☐ HIDDEN 7
 Requirements: Within H2C capability; Build material (not a support); Nozzle, bed and chamber within H2C limits; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1,500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials that could not be checked: Include; estimates and resin data on, which never pass a material and hide one only where resin data reports its polymer attacked or the material has no product on record. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
@@ -49,11 +49,11 @@ log scale
 all 152 materials
 Tensile strength (XY) MPa
 ASA-CF
-41.3
-range 34–50.1 · 6 products
+39.1
+range 34–50.1 · 7 products
 PA6-CF
-77
-range 53–112 · 7 products
+70
+range 53–112 · 8 products
 PA6-GF
 82.3
 range 62.8–98.9 · 6 products
@@ -75,11 +75,11 @@ range 27–61.4 · 3 products
 widened to a value shown
 Elongation at break (XY) %
 ASA-CF
-3
-range 1.64–15.5 · 5 products
+6.3
+range 1.64–15.5 · 6 products
 PA6-CF
-7.35
-range 2.1–16.5 · 6 products
+6
+range 2.1–16.5 · 7 products
 PA6-GF
 4.95
 range 2.4–12.5 · 6 products
@@ -92,8 +92,8 @@ ASA-CF
 5.76
 range 5.5–6.2 · 3 products
 PA6-CF
-12.2
-range 11–13.4 · 2 products
+13.4
+range 11–21.3 · 3 products
 PA6-GF
 8.6
 range 7.2–10 · 2 products
@@ -116,14 +116,14 @@ HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
 ASA-CF
 101
-range 86–130 · 7 products
+range 88–110 · 5 products
 PA6-CF
-183
-range 140–215 · 10 products
+200
+range 147–215 · 5 products
 PA6-GF
-184
-range 161–210 · 10 products
-38.5
+186
+range 161–205 · 7 products
+38.6
 300
 all 152 materials
 Glass transition (Tg) °C
@@ -176,14 +176,14 @@ all products: within
 all products: within
  2 of 2 within
 all products: within
- required published
+ required published / optional
 PA6-CF
-5 passing products
- 5 of 5 within
+3 passing products
+ 3 of 3 within
 all products: within
- 5 of 5 within
+ 3 of 3 within
 all products: within
- 5 of 5 within
+ 3 of 3 within
 all products: within
  required published / optional
 PA6-GF

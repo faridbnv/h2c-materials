@@ -331,9 +331,11 @@ true value lies beyond it at most 10% of the time, it is never inside the plausi
 material's own evidence lies beyond is open and screens nothing. A printed measurement of the material that bounds
 the headline from below and meets the requirement vetoes a screen; a resin supplier's moulded value is not one of
 those and vetoes nothing. The drawer says, for each estimate, whether it is context only, or which ends may screen and why. A heat value whose source
-does not state the load is published without its conditions (D84): marked not comparable, it decides nothing unless
-*Include values with no stated orientation or load* (Data quality) is on. (Until m137 it was read as a bracket that
-could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, is a definition,
+does not state the load is published without its conditions (D84): marked set apart, it is never the product's value, and
+bounds the 0.45 MPa value from below only, through the evidence ledger (CV63, D172). A value whose test bar no document
+describes, even implicitly, as printed is set apart for good (D172); the switch that once admitted such values,
+*Include values with no stated orientation or load*, is gone, and a link saved with it is asked again without them. (Until
+m137 an unloaded heat value was read as a bracket that could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, is a definition,
 not an inference: under Include it hides the material whether estimates are on or off, and its reason says "Does not
 apply", never "Not published" (D148). A hidden material's result is still UNKNOWN and it is counted there; the Why
 excluded tab says how many each requirement hid.
@@ -1397,8 +1399,10 @@ material as a bubble (the middle half of its products, whiskers to the extremes)
 it draws each passing product in the state its answer is in, since D108 Material ranges draws the boxes, over the
 passing products, and since D112 Material typicals is one dot per material. Compare draws each material's product range
 behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
-print settings and verdict. **Include values with no stated orientation or load**, under Data quality,
-lets such values decide (D84); it travels in the link.
+print settings and verdict. Under Data quality a line counts the product values set apart (D172): a test bar no
+document describes as printed, or a heat deflection with no stated load; the drawer's product detail and the material
+pages' product cards name each one, and a figure a newer edition or the data sheet replaced (D171), small, as not used
+in deciding.
 
 Measured on 2026-09-25 in headless Chrome on the owner's laptop: the page renders its first result in about 0.36 s
 from a cached file, with a 104 MB heap, well inside the 1.5 s at which measurements would move to a second payload.

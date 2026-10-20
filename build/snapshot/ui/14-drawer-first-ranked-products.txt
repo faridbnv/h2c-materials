@@ -1,61 +1,80 @@
-5 products you can buy, from 5 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; 3DXTECH first, its products most often the material's typical value.
+19 products you can buy, from 17 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; Polymaker first, its products most often the material's typical value.
 Meet all your requirements
-2 products
-3DXTECH CarbonX CF PP
+1 product
+Spectrum PLA Carbon
 PASS
-Modulus XY 6.15 GPa · HDT 0.45 124 °C
+Modulus XY 12.5 GPa
 Choose this product
 Print settings
 Nozzle
-240–270 °C within
+190–220 °C within
 Bed
-45–65 °C within
+0–45 °C within
 Heated chamber
 not required within
 Enclosure
-not published
+not needed
 Hardened nozzle
 required
 Drying
-65 °C for 4 h
+optional: 55 °C for 8 h
+Drying: from the Bambu Lab Filament Guide (PLA-CF column), where this product's own sheet is silent.
 Values
 Density
-1,100 kg/m³
+1,300 kg/m³
 Tensile modulus (XY)
-6.15 GPa
+12.5 GPa orientation not stated; a printed bar, read as flat
 Tensile strength (XY)
-78 MPa
+65 MPa orientation not stated; a printed bar, read as flat
 Elongation at break (XY)
-1.5 %
-Flexural modulus (XY)
-6.1 GPa
-Flexural strength (XY)
-68 MPa
-HDT at 0.45 MPa
-124 °C
-Price
-147 CAD/kg (1 listing)
+0.5 % orientation not stated; a printed bar, read as flat
+Notched Charpy impact
+8 kJ/m² set apart
 What the maker says
+Benefits
+“improved abrasion resistance” — data sheet, p. 1 ID
+“Spectrum Carbon PLA is a modified, PLA-based filament blended with carbon fibers which contributes to a considerably higher rigidity, hardness and tensile resistance, while retaining low shrinkage and very good adhesion to build platforms typical for the pure PLA.” — data sheet, p. 1 ID
+“much higher compression resistance” — data sheet, p. 1 ID
+“10% Carbon fiber reinforced, improved hardness & rigidity” — product page, p. 20 ID
+Surface finish
+“high aesthetic, matte surface quality” — data sheet, p. 1 ID
+“The 10% addition of carbon fibre enables to obtain matte surfaces of printed items, which greatly improves the aesthetic properties of printed items.” — data sheet, p. 1 ID
 Moisture sensitivity
-“Low moisture absorption, typically does not require drying prior to use” — product page, p. 1 ID
-Not stated by its maker: 12 topics
-Sources 3DXTECH, Technical Data Sheet: CarbonX™ PP+CF 3D Printing Filament; 3DXTECH, CarbonX CF PP safety data sheet; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, CARBONX™ PP+CF; 3DXTECH, CARBONX™ PP+CF
+“Dry box not necessary” — data sheet, p. 1 ID
+Nozzle wear
+“Ruby or hardened nozzle recommended” — data sheet, p. 1 ID
+Not stated by its maker: 10 topics
+Sources Spectrum, TECHNICAL DATA SHEET PLA Carbon; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; Spectrum, 3D Printing Filament Manufacturer PRODUCT PORTFOLIO; Spectrum, Spectrum Filaments Product Portfolio 2025 — Prografen pp28–29
 Its card on the Products page
 Product details
-Record notes
-Braskem FL900PP-CF
-PASS
-Modulus XY 6.38 GPa · HDT 0.45 158 °C
-Choose this product
 Across its products: median and range, and what their makers say
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
+Polymaker
+1 product
+Bambu Lab
+1 product
+Spectrum
+2 products
 3DXTECH
 1 product
-Braskem
+Extrudr
 1 product
-Prusa Research
+SUNLU
 1 product
-Nanovia
+Eryone
 1 product
-LEHVOSS
+Flashforge
 1 product
+eSUN
+1 product
+SIDDAMENT
+1 product
+QIDI
+1 product
+Protopasta
+2 products
+Nobufil
+1 product
+CreatBot
+1 product
+iSANMATE

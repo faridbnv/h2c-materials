@@ -446,7 +446,7 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId, produc
 export function spreadNote(entry, products = null) {
   const s = entry.spread;
   const apart = [
-    s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
+    s.asPublished ? `${s.asPublished.n} set apart, their test bar not described as printed or their load not stated (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
     s.variants ? `${s.variants.n} with an added filler or additive, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
     // Products their makers sell as toughened, where the headline sets them apart (D133).
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened or impact-modified by ${s.claimed.n === 1 ? 'its maker' : 'their makers'} (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`})` : null,
@@ -457,7 +457,7 @@ export function spreadNote(entry, products = null) {
   const setApart = (s.asPublished?.n ?? 0) + (s.variants?.n ?? 0) + (s.claimed?.setApart ? s.claimed.n : 0);
   const silent = products != null ? products - s.n - setApart : null;
   const of = products != null && silent >= 0 ? ` of its ${products}` : '';
-  return `Median of ${s.n}${of} products${s.asPublished ? ', those that state the test\'s orientation or load' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+  return `Median of ${s.n}${of} products${s.asPublished ? ', those whose test bar is described as printed' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // The table gives the range, the drawer's key properties and the material pages the middle half.
     + `${s.q1 != null ? ' The table gives the range; the drawer and the material page give the middle half.' : ''}`

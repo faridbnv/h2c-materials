@@ -187,7 +187,7 @@ function recordsByProduct(c) {
 function keyLine(kinds, methodHref) {
   // Each entry is a mark, never a sample number, then content's words for it, short enough for two lines on a laptop.
   const k = [
-    kinds.has('o') || kinds.has('iz') ? ['<span class="km km--o" aria-hidden="true">○</span>', 'orientation or load not stated'] : null,
+    kinds.has('o') || kinds.has('iz') ? ['<span class="km km--o" aria-hidden="true">○</span>', 'set apart: test bar not described as printed, or no stated load'] : null,
     kinds.has('a') ? ['<span class="km km--a" aria-hidden="true"></span>', 'measured after annealing'] : null,
     kinds.has('guide') ? ['<span class="km km--g" aria-hidden="true">Aa</span>', 'from the Bambu Lab Filament Guide'] : null,
     kinds.has('iz') ? ['<span class="km km--iz" aria-hidden="true">Izod</span>', 'Izod where no Charpy is published'] : null,

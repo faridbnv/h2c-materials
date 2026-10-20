@@ -185,7 +185,7 @@ export function compileRegistry(wb, issues) {
         if (p && !p.units.includes(h.unit)) err('REGISTRY-HEADLINE', where, `Value property ${name} is never measured in ${h.unit} (its units: ${p.units.join(', ')})`);
       }
       // A headline with a direction says what a value without one is; a headline without a direction has nothing to say.
-      if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (as-published or excluded)` : 'Unstated direction is set, but the headline has no Direction');
+      if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (flat if printed or excluded)` : 'Unstated direction is set, but the headline has no Direction');
       // The same for a load: a headline defined at one says what a value with none is.
       if ((h.loadMPa != null) !== !!h.unstatedLoad) err('REGISTRY-HEADLINE', where, h.loadMPa != null ? `Load MPa ${h.loadMPa} needs an Unstated load (as-published or excluded)` : 'Unstated load is set, but the headline has no Load MPa');
     } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard || h.changesWithAnnealing || h.changesWithMoisture || h.testScatter) {

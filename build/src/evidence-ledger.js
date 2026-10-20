@@ -57,7 +57,8 @@ export function compileConversions(rows, { materialRows, registry, issues }) {
     const err = (message) => issues.push({ level: 'error', code: 'CONVERSION-ROW', where, message });
     const row = {
       id: r.ConversionID, target: r['Target headline'], sourceProperties: list(r['Source properties']),
-      sourceLoadMPa: num(r['Source load MPa']), sourceDirection: r['Source direction'], sourceState: r['Source state'],
+      sourceLoadMPa: r['Source load MPa'] === 'Not published' ? null : num(r['Source load MPa']), sourceLoadUnstated: r['Source load MPa'] === 'Not published',
+      sourceDirection: r['Source direction'], sourceState: r['Source state'],
       sourceSpecimen: r['Source specimen'], kind: r.Kind, factorLow: num(r['Factor low']), factorHigh: num(r['Factor high']),
       offset: num(r['Absolute offset']) ?? 0, appliesTo: parseAppliesTo(r['Applies to'], where, issues, materialRows),
       appliesToText: orNull(r['Applies to']), relation: orNull(r['Physical relation']), status: r.Status, words: r['Reason words'],
@@ -172,6 +173,8 @@ export function compileClassLimits(rows, { materialRows, registry, sources, issu
 function sourceDefinition(row, def) {
   const d = { ...def, valueProperties: row.sourceProperties, lowerBounds: null };
   if (row.sourceLoadMPa != null) Object.assign(d, { loadMPa: row.sourceLoadMPa, unstatedLoad: 'excluded' });
+  // A value whose sheet states no load is at most the heat deflection at the lighter load, whichever load it was (CV63, D172).
+  if (row.sourceLoadUnstated) Object.assign(d, { unstatedLoad: 'admitted' });
   if (row.sourceDirection === 'Z') Object.assign(d, { direction: 'Z', unstatedDirection: 'excluded' });
   return d;
 }
@@ -193,11 +196,14 @@ const FORMS_MOULDED_OR_UNSTATED = new Set(['moulded', 'not-stated']);
  * of what it is (its load, state, notch, standard) as assess does for a bar whose sheet does not describe it.
  */
 function judge(m, sdef, own, state, row) {
+  // A row that reads values with no stated load takes those alone (CV63).
+  if (row.sourceLoadUnstated && m.thermal?.loadStated) return { excluded: 'its sheet states the test load' };
   // A row that takes printed bars only (an elongation floor, D161) leaves a bar its sheet does not describe out.
   if (row.sourceSpecimen === 'printed' && m.specimenForm !== 'printed') return { excluded: 'not a bar its sheet says was printed' };
   if (row.sourceSpecimen === 'moulded or not stated') {
     if (!FORMS_MOULDED_OR_UNSTATED.has(m.specimenForm)) return { excluded: 'not a moulded or undescribed bar' };
-    const a = m.specimenForm === 'moulded' ? assess({ ...m, specimenType: 'Not published', specimenForm: 'not-stated' }, sdef, own, state) : assess(m, sdef, own, state);
+    // The row is about bars no document describes as printed, so D172's setting apart does not apply to what it reads.
+    const a = m.specimenForm === 'moulded' ? assess({ ...m, specimenType: 'Not published', specimenForm: 'not-stated' }, sdef, own, state, { undescribedAsPart: true }) : assess(m, sdef, own, state, { undescribedAsPart: true });
     return a.excluded ? a : { ...a, admitted: ['specimen'] };
   }
   return assess(m, sdef, own, state);

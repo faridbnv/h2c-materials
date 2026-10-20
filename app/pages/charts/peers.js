@@ -62,7 +62,7 @@ function cellSvg(r, c, h, sc, y, self) {
   const k = self ? 'self' : 'peer';
   const hooks = (v, t) => ` data-mat="${esc(r.id)}" data-key="${esc(h.key)}" data-v="${v}" data-name="${esc(shortName(r))}" data-t="${esc(t)}"`;
   if (c.kind === 'open') {
-    const t = `${spanUnit(c.min, c.max, h.unit)} from ${products(c.n)}, as published: orientation or load not stated`;
+    const t = `${spanUnit(c.min, c.max, h.unit)} from ${products(c.n)}, set apart: test bar not described as printed, or no stated load`;
     return `<g class="pe-cell cx dv-${k}-open"${hooks(c.max, t)} data-kind="as-published">${cellMarks(c, sc, y, k, { label: self ? fmtDisplay(c.max, h.unit) : null })}</g>`;
   }
   // A median that is a published bound keeps its sign, as the key properties print it (PEI-CF's HDT "> 200", C14).

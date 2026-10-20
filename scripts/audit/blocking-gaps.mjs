@@ -8,7 +8,9 @@
 //   unknown     a material none of whose products could be judged, and the requirement that stops each: a value its
 //               products publish without the direction or load (a re-read of the test conditions may settle it), a
 //               value none publishes (a targeted sheet), or a print setting none records;
-//   admitted    the materials whose answer changes when values published without the direction or load are admitted:
+//   admitted    the materials whose answer changes when the values set apart are admitted (an audit lens the page no
+//               longer has: since the owner's ruling of 2026-10-20, D172, a value whose test bar no document describes as
+//               printed, or a heat deflection with no stated load, is set apart for good):
 //               the re-reads that would settle the most;
 //   close       products that pass or fail a limit by 10 % or less on one value, where a misread number or condition
 //               would turn the answer.
@@ -18,7 +20,7 @@
 //   node scripts/audit/blocking-gaps.mjs   writes docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md
 
 import { writeFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../../build/src/load.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
@@ -28,7 +30,10 @@ import { TEMPLATES } from '../../app/js/ui/templates.js';
 import { generatedMark } from '../lib/generated-mark.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const out = join(root, 'docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md');
+// Written to build/reports/ unless --out names a file: docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md is that round's
+// record, kept as it was written (2026-10-20, the owner's rulings round).
+const outArg = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : null;
+const out = outArg ? resolve(outArg) : join(root, 'build/reports/blocking-gaps.md');
 const CLOSE = 0.1;
 
 const wb = loadTables(join(root, 'data'));
@@ -120,7 +125,7 @@ const L = [
   '',
   '## By template',
   '',
-  '| Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |',
+  '| Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when the values set apart are admitted |',
   '|---|---:|---:|---:|---:|---|---:|',
   ...sections.map((s) => `| ${s.t.name} | ${mats.length} | ${s.counts.pass} | ${s.counts.fail} | ${s.counts.unknown} | ${s.reasons.map(([w, n]) => `${w} ${n}`).join('; ') || '—'} | ${s.admitted} |`),
   '',
@@ -143,8 +148,8 @@ const L = [
   '',
   '## Answers a re-read of the test conditions could settle',
   '',
-  'Materials whose answer changes when values published without the direction or load are admitted. Each is settled',
-  'by finding what the sheet, or the maker, says about how the bar was tested.',
+  'Materials whose answer changes when the values set apart (D172: a test bar no document describes as printed, or a heat',
+  'deflection with no stated load) are admitted. Each is settled by finding what the sheet, or the maker, says about how the bar was made.',
   '',
   '| Template | Material | Comparable only | Admitting them |',
   '|---|---|---|---|',

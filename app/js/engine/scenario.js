@@ -206,7 +206,10 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
     warnings.push(`This selection was saved with ${stages.length === 1 ? 'a step' : `${stages.length} steps`} that kept only the products above the goal's line. The chart no longer filters by its line, so nothing is set aside: the requirements alone decide what is shown${own ? ', and the line is placed where that step cut' : ''}.`);
   }
   delete out.stages;
-  out.evidence = normalizeEvidence(raw.evidence);
+  // Values whose test bar no document describes as printed are set apart for good (the owner's ruling of 2026-10-20,
+  // D172): a selection saved when the page could admit them is asked again without them, and told so.
+  out.evidence = 'comparable';
+  if (normalizeEvidence(raw.evidence) !== 'comparable') warnings.push('This selection was saved with values published without their test orientation or load admitted. Since 2026-10-20 a value whose test bar its document does not describe as printed is set apart for good, and a printed bar with no stated orientation is read as a flat one, so its requirements are asked again on the values that decide.');
   out.anneal = raw.anneal === true;
   out.annealMaxC = out.anneal && typeof raw.annealMaxC === 'number' && Number.isFinite(raw.annealMaxC) && raw.annealMaxC > 0 ? raw.annealMaxC : null;
   out.moisture = raw.moisture === 'conditioned' ? 'conditioned' : 'dry';
@@ -308,7 +311,6 @@ export function toHash(scenario) {
     i: scenario.release ?? undefined,
     // Only when set, so a link without them reads as it always did.
     r: scenario.rankBy ?? undefined,
-    v: scenario.evidence === 'as-published' ? 'as-published' : undefined,
     // Annealing permitted (true, or the oven's highest temperature) and a conditioned service state (D99).
     n: scenario.anneal ? (scenario.annealMaxC ?? true) : undefined,
     w: scenario.moisture === 'conditioned' ? 'conditioned' : undefined,

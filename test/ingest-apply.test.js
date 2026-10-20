@@ -21,7 +21,7 @@ await documentText(bytes, { sha, refresh: true });
 const reviewed = { status: 'accepted', by: 'the test', date: '2026-09-18' };
 const source = {
   SourceID: 'R-FIXTURE-PETG-TDS', Publisher: 'Fixture Filament', Title: 'Fixture Filament Technical Data Sheet',
-  Revision: 'Not published', 'Publication date': 'Not published', 'Access date': '2026-09-18',
+  Revision: 'Not published', 'Publication date': 'Not published', 'Superseded by': 'Not applicable', 'Access date': '2026-09-18',
   'Source class': 'Manufacturer TDS', 'Source note': 'Not applicable', 'Citation role': 'cited',
   URL: 'https://example.invalid/fixture-petg.pdf', Locator: 'p. 1: properties', 'Applicable grades': '${grade:main}',
   'Access state': 'retrieved', 'Access note': 'Not applicable', SHA256: sha,
