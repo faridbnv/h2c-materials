@@ -320,7 +320,7 @@ G020-04,M020,PET-G Premium,within,within,within,not-needed,no-special-concern,re
 G020-05,M020,PET-G FR V0,within,within,within,not-needed,no-special-concern,required,drying: twin G020-67
 G020-06,M020,THE FILAMENT PETG Lite,within,within,within,not-needed,no-special-concern,required,drying: guide PG017
 G020-07,M020,PET-G Premium High Speed,within,within,within,not-needed,no-special-concern,optional,
-G020-08,M020,PET-G HT100,within,within,unknown,recommended,no-special-concern,required,drying: guide PG017
+G020-08,M089,PET-G HT100,within,within,unknown,recommended,no-special-concern,unknown,
 G020-09,M020,PET-G MATT,within,within,within,not-needed,no-special-concern,optional,
 G020-10,M020,THE FILAMENT PETG,within,within,within,not-needed,no-special-concern,required,drying: guide PG017
 G020-11,M020,rPETG,within,within,within,not-needed,no-special-concern,required,drying: guide PG017

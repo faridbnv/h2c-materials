@@ -13,7 +13,7 @@ rather than repeat a number.
 | … with a comparable value for at least one property | 1,067 | D84 |
 | … with a print profile of their own | 1,073 |  |
 | … reading values from a twin's sheet | 81 | the same table, recorded once (D89) |
-| … reading part of the print gate from a printer maker's guide | 470 | where their own sheet is silent (D88); 33 guide rows |
+| … reading part of the print gate from a printer maker's guide | 469 | where their own sheet is silent (D88); 33 guide rows |
 | … with a maker's know-how statement | 1,061 | lane 3 |
 | Measurements | 15,052 | active rows |
 | … with a usable number | 14,852 |  |
