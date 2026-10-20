@@ -1,8 +1,9 @@
 a product
 set apart: test bar not described as printed, or no stated load
 sold as toughened (maker's statement)
+median
 Notched Charpy impact
-1 ranked of 7 shown
+2 ranked of 7 shown
 Notched Izod impact
 1 ranked of 2 shown
 kJ/m²
@@ -13,8 +14,8 @@ kJ/m²
 20
 Select a dot to open its result below; hover to find the same product in the other row.
 Test, kJ/m² Ranked Median Middle half Range
-Notched Charpy impact 1 6.5 — 6.5
-Not ranked: 6 set apart, test bar not described as printed (7⁠–⁠17).
+Notched Charpy impact 2 8.75 — 6.5⁠–⁠11
+Not ranked: 5 set apart, test bar not described as printed (7⁠–⁠17).
 Notched Izod impact 1 6.9 — 6.9
 Not ranked: 1 set apart, test bar not described as printed (10).
 Both tests: 2 products (BASF Forward AM Ultrafuse HiPS and Fiberlogy HIPS).

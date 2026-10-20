@@ -4,11 +4,11 @@ measured after annealing
 added filler or additive, kept out of the median
 middle half and median
 HDT at 0.45 MPa
-47 ranked of 125 shown
+50 ranked of 125 shown
 37
 11
 HDT at 1.8 MPa
-20 ranked of 44 shown
+22 ranked of 44 shown
 11
 Glass transition (Tg)
 76 ranked of 83 shown
@@ -22,9 +22,9 @@ Glass transition (Tg)
 140
 Select a dot to open its result below; hover to find the same product in the other rows.
 Test, °C Ranked Median Middle half Range
-HDT at 0.45 MPa 47 56 53⁠–⁠58 50⁠–⁠135
-Not ranked: 67 set apart, test bar not described as printed, or no stated test load (53⁠–⁠116), 11 with an added filler or additive (55⁠–⁠110).
-HDT at 1.8 MPa 20 55 54⁠–⁠57 52⁠–⁠59
-Not ranked: 21 set apart, test bar not described as printed, or no stated test load (52⁠–⁠75), 3 with an added filler or additive (45⁠–⁠54).
+HDT at 0.45 MPa 50 56 53⁠–⁠58 50⁠–⁠135
+Not ranked: 64 set apart, test bar not described as printed, or no stated test load (53⁠–⁠116), 11 with an added filler or additive (55⁠–⁠110).
+HDT at 1.8 MPa 22 55 54⁠–⁠57 52⁠–⁠59
+Not ranked: 19 set apart, test bar not described as printed, or no stated test load (52⁠–⁠75), 3 with an added filler or additive (45⁠–⁠54).
 Glass transition (Tg) 76 59 55⁠–⁠61 54⁠–⁠68
 Not ranked: 7 with an added filler or additive (55⁠–⁠62).

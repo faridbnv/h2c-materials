@@ -4,7 +4,7 @@
 
 import { esc } from '../html.js';
 import { stated } from '../../js/ui/material-facts.js';
-import { DIRECTION_WORDS, SPECIMEN_WORDS } from '../../js/ui/labels.js';
+import { DIRECTION_WORDS, specimenSaid } from '../../js/ui/labels.js';
 import { changedState, testGuessHead } from '../../js/ui/material-words.js';
 
 /**
@@ -63,7 +63,7 @@ export function sheetCode(x) {
 export const directionLabel = (x) => { const o = orientationWords(x); const code = sheetCode(x); return code ? `${o} (${code})` : o; };
 
 /** What the bar was: the specimen in words ("printed specimen", "specimen not stated"). */
-export const specimenWords = (x) => (!stated(x.specimenType) ? 'specimen not stated' : SPECIMEN_WORDS[x.specimenType] ?? x.specimenType);
+export const specimenWords = (x) => specimenSaid(x);
 
 /** The standards the build reads for a value (measurements[].standards, typed from the sheet's words), or null. */
 export const standardWords = (x) => { const s = (x.standards ?? []).filter(stated); return s.length ? s.join(', ') : null; };

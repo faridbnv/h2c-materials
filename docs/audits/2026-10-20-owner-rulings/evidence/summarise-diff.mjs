@@ -45,7 +45,7 @@ const templateTable = (templates) => [
 
 const own = compare(a, b);
 const L = ['# What the owner\'s rulings track T1 moved', '', generatedMark('node docs/audits/2026-10-20-owner-rulings/evidence/summarise-diff.mjs <baseline> <t2-t5> <after>', '2026-10-20'), '',
-  `T1's own share: from release ${a.release} (the round branch with tracks T2 to T5 merged) to ${b.release} (the same with T1 merged on it), over the decision census's 138 cases. A material only one side has (a new material, or one that left the dataset) is not counted here. Every case in full: [DECISION-DIFF-T1-on-merged.md](DECISION-DIFF-T1-on-merged.md).`, ''];
+  `T1's own share: from release ${a.release} (the round branch with tracks T2 to T5 merged) to ${b.release} (the same with T1 merged on it), over the decision census's 138 cases. A material only one side has (a new material, or one that left the dataset) is not counted here. The round branch's review fixes for tracks T2 to T5 (m478, m479: PVC-P's enclosure and its own rubber limit) came after that census, so PVC-P's Indoor prototype move is theirs. Every case in full: [DECISION-DIFF-T1-on-merged.md](DECISION-DIFF-T1-on-merged.md).`, ''];
 L.push('## The six templates', '', ...templateTable(own.templates));
 L.push('', '## The single-requirement sweeps (120 cases)', '', '| Property | Cases | Material verdicts moved | to PASS | to FAIL | to UNKNOWN | Product answers moved |', '|---|---:|---:|---:|---:|---:|---:|');
 for (const [k, s] of [...own.sweeps].sort()) L.push(`| ${k} | ${s.cases} | ${s.verdicts} | ${s.toPass} | ${s.toFail} | ${s.toUnknown} | ${s.products} |`);

@@ -4,11 +4,13 @@
 //
 // A value of a bar's property (tensile, flexural, impact, heat deflection) whose row and page leave its bar undescribed
 // is set apart for good unless something on its document indicates, even implicitly, that the bar was printed (D172).
-// Eleven Claude Sonnet readers read every page holding such a value, 2,265 values on 668 pages, for an indication or a
-// counter-indication (docs/audits/2026-10-20-owner-rulings/evidence/reading/, INSTRUCTIONS.md and results-*.csv); the
-// executor's second pass (Claude Opus 5.5) applied D172 as recorded, most specific first: the value's own row, its
-// table, the document (evidence/classify.mjs, which writes evidence/classification.csv). This migration retypes the 143
-// values found indicated:
+// Eleven Claude Sonnet readers read 2,265 such values on 655 pages for an indication or a counter-indication
+// (docs/audits/2026-10-20-owner-rulings/evidence/reading/, INSTRUCTIONS.md and results-*.csv); the executor's second pass
+// (Claude Opus 5.5) applied D172 as recorded, most specific first: the value's own row, its table, the document
+// (evidence/classify.mjs, which writes evidence/classification.csv). This migration retypes the values the first reading
+// found indicated, 140 (V013951 and V013952 were typed by m473, and V013950, which m473 typed too, is set apart by m480;
+// m486 set back two Spectrum rows typed from a neighbour's label); the values the second reading found (the review of
+// T1, F1) are m483's:
 //
 // - stated: Specimen type "Printed specimen" (Stratasys PC's "Physical Properties - Printed" table, which the import read
 //   without its heading);
@@ -43,7 +45,7 @@ const KIND_WORDS = {
 };
 const t = openTables();
 const rows = rowsOf(join(projectRoot, 'docs/audits/2026-10-20-owner-rulings/evidence/classification.csv'))
-  .filter((r) => r.verdict === 'implied' || r.verdict === 'stated');
+  .filter((r) => (r.verdict === 'implied' || r.verdict === 'stated') && !/^second/.test(r.first));
 let n = 0;
 const checked = new Set();
 for (const r of rows) {

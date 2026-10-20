@@ -1,7 +1,7 @@
 COUNT 5 shown PASS
 STATUS ☑ PASS 5 | ☐ UNKNOWN 106 | ☐ FAIL 41
 5 of the 152 materials meet these requirements
-Flexible component template · UNKNOWN 106 left out: 2 one check away, 41 not enough data, 63 unlikely to meet
+Flexible component template · UNKNOWN 106 left out: 2 one check away, 40 not enough data, 64 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -44,7 +44,7 @@ n/a not applicable
 2 more marks
 TABLE 5 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW PBAT / PVB / Specialty Polymers | ☆ | PASS / 1 of 1 product | 1,250 | passing: 0.006 / all products: 0.006 | 27 | passing: 400 / all products: 400 | 90* | —
-ROW TPC / also called TPEE · Flexible Elastomers | ☆ | PASS / 2 of 12 products | 1,150 / 1,070–1,220 · 10 | passing: 0.029–0.067 / all products: 0.048 / 0.029–0.067 · 2 | 12.7 / 7.6–17.7 · 2 | passing: 390–500 / all products: 445 / 390–500+ · 2 | n/a | 88EUR↗ / 74.1–102 · 2 / out of stock
-ROW TPU 85A class and softer / Flexible Elastomers | ☆ | PASS / 3 of 18 products | 1,180 / 1,070–1,210 · 15 | passing: 0.0068–0.025 / all products: 0.0127 / 0.0068–0.025 · 4 | 22 / 6.2–30 · 7 | passing: 560–700 / all products: 660 / 560–729 · 5 | n/a | 58↗ / 50–158 · 3
+ROW TPC / also called TPEE · Flexible Elastomers | ☆ | PASS / 2 of 12 products | 1,150 / 1,070–1,220 · 10 | passing: 0.029–0.067 / all products: 0.048 / 0.029–0.067 · 2 | 12.7 / 7.6–17.7 · 2 | passing: 390–500 / all products: > 400 / 390–500+ · 4 | n/a | 88EUR↗ / 74.1–102 · 2 / out of stock
+ROW TPU 85A class and softer / Flexible Elastomers | ☆ | PASS / 3 of 18 products | 1,180 / 1,070–1,210 · 15 | passing: 0.0068–0.025 / all products: 0.0127 / 0.0068–0.025 · 4 | 22 / 6.2–30 · 7 | passing: 560–700 / all products: 680 / 560–900 · 6 | n/a | 58↗ / 50–158 · 3
 ROW TPU 90A class / Flexible Elastomers | ☆ | PASS / 3 of 12 products | 1,210 / 1,170–1,240 · 10 | passing: 0.0053–0.027 / all products: 0.0053 / 0.0053–0.027 · 3 | 23.7 / 12.5–30 · 5 | passing: 574–650 / all products: > 650 / 574–1,000+ · 5 | n/a | 75↗ / 54–96 · 2
-ROW TPU 95A class / Flexible Elastomers | ☆ | PASS / 9 of 27 products | 1,210 / 1,000–1,250 · 25 | passing: 0.006–0.065 / all products: 0.027 / 0.006–0.065 · 11 | 29 / 17–41.4 · 15 | passing: 265–900 / all products: 501 / 265–900+ · 13 | n/a | 83↗ / 54–112 · 2
+ROW TPU 95A class / Flexible Elastomers | ☆ | PASS / 9 of 27 products | 1,210 / 1,000–1,250 · 25 | passing: 0.006–0.065 / all products: 0.027 / 0.006–0.065 · 11 | 29 / 17–41.4 · 17 | passing: 265–900 / all products: 501 / 265–900+ · 13 | n/a | 83↗ / 54–112 · 2

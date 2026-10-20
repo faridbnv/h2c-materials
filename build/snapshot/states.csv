@@ -192,6 +192,7 @@ G027-47,M027,ABS,annealed:80:12,hdt045,87,V000552,87,twin G027-01
 G027-47,M027,ABS,annealed:80:12,tensileModulusXY,2.2,V000554,2.2,twin G027-01
 G027-47,M027,ABS,annealed:80:12,tensileStrengthXY,33,V000556,33,twin G027-01
 G027-47,M027,ABS,annealed:80:12,tensileStrengthZ,28,V000557,28,twin G027-01
+G027-53,M027,ABS,as-printed,hdt18,85,V010578,100,
 G028-01,M028,ABS-GF,as-printed,charpyNotched,,,4.2,
 G028-01,M028,ABS-GF,as-printed,elongationXY,,,1.2,
 G028-01,M028,ABS-GF,as-printed,elongationZ,,,0.8,

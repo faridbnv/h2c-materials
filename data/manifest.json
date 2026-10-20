@@ -18,8 +18,8 @@
       "sha256": "1a64fb3cca46e6b37e332fbb850489c52e7f475a14379e16cac80cb0c4f01888"
     },
     "measurements": {
-      "rows": 15698,
-      "sha256": "51e1300e5ad42002e3cb55495117adef32db7609e4c1ace5596cae1e6d16e471"
+      "rows": 15699,
+      "sha256": "0d0185de3f522169a6ff6ba56e1de136ba7650e21fcb5b120e8db7d6116d1090"
     },
     "page_context": {
       "rows": 1012,
@@ -59,7 +59,7 @@
     },
     "sources": {
       "rows": 2107,
-      "sha256": "7dfe4ba36ddfd9797acc107d623961fa64c687a705fb25bb8495ce8c7caa9666"
+      "sha256": "1b8573967fcd1a7d88d51903a2bccf8f2846799cea0d05dbc061e35c3e7ac96c"
     },
     "coverage": {
       "rows": 955,
@@ -103,7 +103,7 @@
     },
     "headline_definitions": {
       "rows": 19,
-      "sha256": "c4b7f3c15e5912dde3a78ffa20a64e4ffaa1c65906924b0372861851dd5b4675"
+      "sha256": "a50d7a995079bb9a81cc609bb61c5c6925c9d9acb27e11bb729d1e8e03ce7418"
     },
     "drawer_comparisons": {
       "rows": 4,

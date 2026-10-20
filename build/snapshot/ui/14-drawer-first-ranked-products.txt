@@ -1,15 +1,15 @@
-19 products you can buy, from 17 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; Polymaker first, its products most often the material's typical value.
+8 products you can buy, from 7 makers. Each shows its result, how to print it, its values and what its maker says. Those that meet your requirements come first: the one shown under Your requirements, then the most documented; all products follow by maker; BASF Forward AM first, its products most often the material's typical value.
 Meet all your requirements
-1 product
-Spectrum PLA Carbon
+4 products
+Raise3D Industrial PET CF
 PASS
-Modulus XY 12.5 GPa
+HDT 0.45 87 °C
 Choose this product
 Print settings
 Nozzle
-190–220 °C within
+260–300 °C within
 Bed
-0–45 °C within
+60–100 °C within
 Heated chamber
 not required within
 Enclosure
@@ -17,64 +17,64 @@ not needed
 Hardened nozzle
 required
 Drying
-optional: 55 °C for 8 h
-Drying: from the Bambu Lab Filament Guide (PLA-CF column), where this product's own sheet is silent.
+70–80 °C for 8–12 h
+Annealing
+80 °C for 8 h; 100 °C for 8 h (some of its values were measured after it)
+Nozzle, bed, chamber and enclosure: from the Bambu Lab Filament Guide (PET-CF column), where this product's own sheet is silent.
 Values
 Density
 1,300 kg/m³
+HDT at 0.45 MPa
+87 °C
+HDT at 1.8 MPa
+77 °C
+Price
+113 CAD/kg (2 listings)
+Bounds from its other records
 Tensile modulus (XY)
-12.5 GPa orientation not stated; a printed bar, read as flat
+between 5.73 and 5.73 GPa: its modulus after conditioning in humid air, which counts as dry for a plastic that takes up almost no water: 5.73 GPa; its modulus after annealing: 6.03 GPa, so at most 7.72 GPa
 Tensile strength (XY)
-65 MPa orientation not stated; a printed bar, read as flat
-Elongation at break (XY)
-0.5 % orientation not stated; a printed bar, read as flat
-Notched Charpy impact
-8 kJ/m² set apart
+between 73 and 73 MPa: its strength after conditioning in humid air, which counts as dry for a plastic that takes up almost no water: 73 MPa
 What the maker says
+Good for
+“strong and cost-effective end-use applications, such as jigs & fixtures and functional parts.” — data sheet, p. 1 ID
 Benefits
-“improved abrasion resistance” — data sheet, p. 1 ID
-“Spectrum Carbon PLA is a modified, PLA-based filament blended with carbon fibers which contributes to a considerably higher rigidity, hardness and tensile resistance, while retaining low shrinkage and very good adhesion to build platforms typical for the pure PLA.” — data sheet, p. 1 ID
-“much higher compression resistance” — data sheet, p. 1 ID
-“10% Carbon fiber reinforced, improved hardness & rigidity” — product page, p. 20 ID
-Surface finish
-“high aesthetic, matte surface quality” — data sheet, p. 1 ID
-“The 10% addition of carbon fibre enables to obtain matte surfaces of printed items, which greatly improves the aesthetic properties of printed items.” — data sheet, p. 1 ID
+“Well-dispersed 15wt% carbon fibers enhance the rigidity, strength, heat and chemical resistance of PET matrix.” — data sheet, p. 1 ID
+“Well-dispersed 15 wt% carbon fibers enhance the rigidity, strength, heat and chemical resistance of PET matrix.” — data sheet, p. 1 ID
+Warping and shrinkage
+“After annealing, a maximum of 0.1 % dimensional shrinkage could be observed along the Z-axis, depending on infill and layer height, and no significant dimensional shrinkage along the XY-axes” — data sheet, p. 2 ID
+“After annealing, max. 0.1 % dimensional shrinkage could be observed in Z-axis depending on infill” — data sheet, p. 2 ID
 Moisture sensitivity
-“Dry box not necessary” — data sheet, p. 1 ID
+“Dry PET CF at 70-80°C for 8-12 hours before printing, as low moisture content is crucial for final printed part quality.” — data sheet, p. 2 ID
+“After drying, we recommend storing PET CF filaments inside Raise3D Filament Dry Box during the printing process.” — data sheet, p. 2 ID
+“Dry PET CF at 70-80°C for 8-12 hours before printing, moisture content is crucial for final printed part quality.” — data sheet, p. 2 ID
+“After drying, we recommend to store PET CF filaments into Raise3D Filaments Dry Box during the printing.” — data sheet, p. 2 ID
 Nozzle wear
-“Ruby or hardened nozzle recommended” — data sheet, p. 1 ID
-Not stated by its maker: 10 topics
-Sources Spectrum, TECHNICAL DATA SHEET PLA Carbon; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; Spectrum, 3D Printing Filament Manufacturer PRODUCT PORTFOLIO; Spectrum, Spectrum Filaments Product Portfolio 2025 — Prografen pp28–29
+“Using an abrasion-resistant nozzle, such as hardened steel or a ruby nozzle, is highly recommended.” — data sheet, p. 2 ID
+“Using abrasion resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended.” — data sheet, p. 2 ID
+Odour and emissions
+“Odor / Almost odorless” — data sheet, p. 1 ID
+Supports and removal
+“If PET CF is also used as the support material, please remove the support structure after annealing.” — data sheet, p. 2 ID
+“If PET CF is used as the support material for itself, please remove the support structure after annealing.” — data sheet, p. 3 ID
+Printing advice
+“For a small size model (side length <50 mm), annealing at 80°C for 8 hours is recommended; For a medium-size model (50mm<side length <150 mm), annealing at 80°C for 12 hours is recommended; For a large size model, 100°C for at least 12 hours is recommended.” — data sheet, p. 2 ID
+Not stated by its maker: 5 topics
+Its environment statements (1)
+Sources Raise3D, Raise3D Industrial PET CF Technical Data Sheet; Raise3D, Raise3D Industrial PET CF Technical Data Sheet; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki
 Its card on the Products page
 Product details
+BASF Forward AM Ultrafuse PET CF15
+PASS
+HDT 0.45 74 °C
+Choose this product
+Spectrum PET CF15
+PASS
+Modulus XY 9 GPa
+Choose this product
+Raise3D Hyper Speed PET CF
+PASS
+HDT 0.45 150 °C
+Choose this product
 Across its products: median and range, and what their makers say
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
-Polymaker
-1 product
-Bambu Lab
-1 product
-Spectrum
-2 products
-3DXTECH
-1 product
-Extrudr
-1 product
-SUNLU
-1 product
-Eryone
-1 product
-Flashforge
-1 product
-eSUN
-1 product
-SIDDAMENT
-1 product
-QIDI
-1 product
-Protopasta
-2 products
-Nobufil
-1 product
-CreatBot
-1 product
-iSANMATE

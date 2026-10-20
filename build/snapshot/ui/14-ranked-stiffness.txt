@@ -1,7 +1,7 @@
-COUNT 11 shown PASS
-STATUS ☑ PASS 11 | ☐ UNKNOWN 94 | ☐ FAIL 47
-11 of the 152 materials meet these requirements
-High-stiffness fixture template · UNKNOWN 94 left out: 6 one check away, 43 not enough data, 45 unlikely to meet
+COUNT 10 shown PASS
+STATUS ☑ PASS 10 | ☐ UNKNOWN 95 | ☐ FAIL 47
+10 of the 152 materials meet these requirements
+High-stiffness fixture template · UNKNOWN 95 left out: 7 one check away, 42 not enough data, 46 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -43,15 +43,14 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 11 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW PLA-CF / #1 · best: Spectrum PLA Carbon | ☆ | PASS / 1 of 19 products | 1,250 / 1,190–1,420 · 19 | passing: 12.5 / all products: 3.04 / 1.1–12.5 · 8 | 42.3 / 31.2–65 · 10 | 6.65 / 0.5–13.2 · 10 | 55.2 / 54–60 · 5 | 40.5↗ / 40–41 · 2
+TABLE 10 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+ROW PET-CF / PET Engineering / #1 · best: Spectrum PET CF15 | ☆ | PASS / 4 of 8 products | 1,340 / 1,290–1,400 · 7 | passing: 9 / all products: 5.11 / 3.6–9 · 4 | 70 / 45–75 · 4 | 4.25 / 2.4–6 · 4 | passing: 74–87 / all products: 124 / 74–205 · 6 | 113↗ / 70–116 · 3
 ROW PP-CF / Polyolefins / #2 · best: Braskem FL900PP-CF | ☆ | PASS / 2 of 5 products | 1,000 / 910–1,100 · 5 | passing: 6.15–6.38 / all products: 6.15 / 2.1–6.38 · 3 | 41 / 27.3–78 · 3 | 1.4 / 1.3–1.5 · 2 | passing: 124–158 / all products: 141 / 124–158 · 2 | 147↗
 ROW PPS-CF / High-Performance Engineering / #3 · best: Bambu Lab PPS-CF | ☆ | PASS / 4 of 7 products | 1,295 / 1,260–1,510 · 6 | passing: 7.46–8.23 / all products: 8 / 5.45–8.23 · 5 | 87 / 59.4–95 · 5 | 2.2 / 1.2–4 · 5 | passing: 245–264 / all products: 251 / 245–264 · 5 | 210↗ / 198–221 · 2
 ROW PP-GF / Polyolefins / #4 · best: 3DXTECH FIBREX GF PP | ☆ | PASS / 1 of 2 products | 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 139 | 118EUR↗ / out of stock
 ROW PPA-CF / High-Performance Engineering / #5 · best: Bambu Lab PPA-CF | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness | 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 220 / 197–240 · 5 | 255↗
-ROW PPA-GF / High-Performance Engineering / #6 · best: Flashforge PPA-GF | ☆ | PASS / 3 of 5 products / judged dry; humid air lowers its stiffness | 1,280 / 1,160–1,310 · 5 | passing: 5.7–7 / all products: 6.56 / 5.7–7 · 3 | 100 / 89–106 · 3 | 2.7 / 2.1–3.5 · 3 | passing: 220 / all products: 208 / 196–220 · 2 | 106↗
+ROW PPA-GF / High-Performance Engineering / #6 · best: Flashforge PPA-GF | ☆ | PASS / 3 of 5 products / judged dry; humid air lowers its stiffness | 1,280 / 1,160–1,310 · 5 | passing: 5.7–7 / all products: 6.56 / 5.7–7 · 3 | 100 / 89–106 · 3 | 2.7 / 2.1–3.5 · 3 | passing: 84–220 / all products: 196 / 84–220 · 3 | 106↗
 ROW PPS-GF / High-Performance Engineering / #7 · best: IPCON PPS-GF | ☆ | PASS / 1 of 2 products | 1,360 | passing: 5.76 / all products: 5.16 / 4.55–5.76 · 2 | 68 / 64.1–72 · 2 | 1.8 / 1.6–2 · 2 | 236 | 164↗
-ROW PETG-CF / #8 · best: 3DXTECH CarbonX Carbon Fiber PETG | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.55 / 1.77–5.23 · 10 | 49.4 / 32–60 · 12 | 5.7 / 1.9–14 · 11 | passing: 77 / all products: 70.5 / 68.6–77 · 6 | 41↗ / 35–56 · 3
+ROW PETG-CF / #8 · best: 3DXTECH CarbonX Carbon Fiber PETG | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.7 / 1.77–5.23 · 11 | 49.4 / 32–60 · 12 | 5.7 / 1.9–14 · 11 | passing: 77 / all products: 71 / 68.6–77 · 7 | 41↗ / 35–56 · 3
 ROW PA6-CF · ☆
 ROW PAHT-CF · ☆
-ROW PET-CF · ☆
