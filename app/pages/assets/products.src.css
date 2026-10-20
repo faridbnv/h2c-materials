@@ -103,6 +103,8 @@
 .pc-name { margin: 0; font-weight: 600; font-size: 17px; }
 .pc-name small { margin-left: 10px; font-weight: 400; color: var(--ink-2); font-size: var(--t-s); }
 .pc-note { margin: 4px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: 90ch; }
+/* A product found only in a diameter the H2C does not take (D175): said first, and a little stronger. */
+.pc-note--warn { color: var(--ink); font-weight: 600; }
 .pc-cols { display: block; }
 .pc-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 36px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
 /* The maker's statements run the card's full width under Print settings and Price, in two columns, with no void. */

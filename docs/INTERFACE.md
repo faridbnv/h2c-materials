@@ -606,14 +606,16 @@ by maker; 3DXTECH first, its products most often the material's typical value", 
 chosen by an unstated rule, and PETG had three "first" products). A product is one line until opened: its name, its
 result and its key values, those a requirement asks about or else the first three it publishes of the Products page's
 columns (tensile modulus and strength XY, HDT at 0.45 MPa, price; a bound with its sign), with **Choose** beside the
-line rather than inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, its
+line rather than inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, a
+product found only in a diameter the H2C does not take saying so in one small line ("Only 2.85 mm filament was found;
+the H2C takes 1.75 mm.", D175, the owner's ruling of 2026-10-20: it stays counted), its
 print settings (nozzle, bed, heated chamber; each part read elsewhere said once under the card, "Enclosure, hardened
 nozzle and drying: from the Bambu Lab Filament Guide (PLA column), where this product's own sheet is silent", where it
 had followed every cell), its values, what its maker says (each quote with its document and page, the source words
 opening where it is stated, and a **caveat** mark where a reviewer recorded what the claim does not say; a maintainer's
 note on the reading sits behind the ID mark, by the pages' rule), the topics its maker leaves unstated in one closed
 line, its Sources, **Its card on the Products page** where the material has a page (carrying the selection as *Full
-page* does), and its product details (its maker, a variant "kept out of the material's median"; its availability under
+page* does), and its product details (its maker, a variant "kept out of the material's median", its Diameter; its availability under
 *Record notes*). A card stays as the reader left it when the drawer is redrawn.
 
 **Comparisons, one heading each (D133, D139, D140).** Four closed headings draw a material's products against the
@@ -837,7 +839,9 @@ column's range. A row is a native disclosure; its card holds every record of tha
 saying so, "treatment not stated"; a second edition's identical values said once), the sheet's own row label, the
 standards the build reads (the sheet's own string a press away), a Z bar its sheet labels otherwise with the sheet's code
 ("Z (ZX)", as every place on the pages labels such a bar), whether each is in the Overview's median and why not, print
-settings with where each comes from, price, the maker's statements folded, and documents. A card of more than 20 values
+settings with where each comes from (a drying schedule a sheet prints as a range shown as that range, "80–100 °C for
+6–12 h", D175), price, the maker's statements folded, and documents. A product found only in a diameter the H2C does not
+take says so under its name, first among its notes ("Only 2.85 mm filament was found; the H2C takes 1.75 mm.", D175). A card of more than 20 values
 shows of each longer document the values the list's columns show, the rest behind *Show all N values from this
 document* (an address to one opens its group; print shows all): PEKK's 94-value card had run to 5,300 px. An open card
 stacks above the list's sticky head, which had covered its first lines. Reference and study specimens come last. `#G…`
@@ -1409,7 +1413,9 @@ read from a twin.
 
 **The printer maker's guide** (D88). Where a product's own sheet and its twin's are both silent on a part of its print
 gate (nozzle, bed, chamber, enclosure, hardened nozzle) or on its drying, it reads its material's row of the Bambu Lab
-Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in
+Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129), unless its Variant
+prints as its type: a crystallising grade (D158) or a cosmetic dense filler, a filler sold only for its look, which reads
+the row in full, the hardened-nozzle answer with the rest (D175). The setting in
 **Print settings** then carries "from the Bambu Lab Filament Guide (PLA column)", whoever makes the product (D124, worded
 so by D147); the gate's reason
 ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
@@ -1441,7 +1447,8 @@ failure), where it is near the values, no further above the highest than the lar
 far above them, the axis says so, so PLA's windows are not squeezed against 350 °C. Under the graphs: a table of each
 row's count of products ranked, median, middle half and range, with what is drawn and not ranked (the comparisons'
 words since 2026-10-19, C49: the print graphs had said "169 counted of 194 shown" and "not counted"); **the window most products give, as the
-Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 3–12 h": one statistic
+Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 2–12 h", a sheet's printed range
+counted from its lower end since D175: one statistic
 for one setting since 2026-10-18, where it had given the medians of the lowest and highest settings, which differed); the products **outside the H2C's limits**, by
 their print gate's own verdict (a window beyond the limit, one recommended above it, and one the H2C reaches only at
 its bottom edge), or a sentence that none is; the products within only at the low end of their makers' windows on a line

@@ -13,7 +13,7 @@ export const TYPED = {
   'Bed °C': ['Bed state', 'Bed min °C', 'Bed max °C', 'Bed requirement'],
   'Chamber °C': ['Chamber state', 'Chamber min °C', 'Chamber max °C', 'Chamber requirement'],
   Enclosure: ['Enclosure state'],
-  Drying: ['Drying state', 'Drying need', 'Drying °C', 'Drying hours', 'Drying hours open'],
+  Drying: ['Drying state', 'Drying need', 'Drying min °C', 'Drying °C', 'Drying min hours', 'Drying hours', 'Drying hours open'],
   'Abrasion / clogging': ['Hardened nozzle'],
   'Nozzle material': ['Hardened nozzle'],
   'Nozzle diameter': ['Hardened nozzle'],

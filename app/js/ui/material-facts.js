@@ -680,7 +680,8 @@ export function printFacts(m, c) {
   const dots = drawnAxes.flatMap((a) => a.rows.flatMap((r) => r.entries.map((e) => ({ a, e }))));
   const has = (k) => dots.some(({ e }) => k(e));
   // A setting one product's sheet, or only the guide, gives: said with its window as the sheet gives it.
-  const windowOf = (a, g) => (a.axis === 'drying' ? { tempC: g.print.drying.tempC } : { min: g.print[a.axis].min, max: g.print[a.axis].max });
+  // A drying schedule printed as a range keeps its lower end (D175).
+  const windowOf = (a, g) => (a.axis === 'drying' ? { tempC: g.print.drying.tempC, tempMinC: g.print.drying.tempMinC ?? null } : { min: g.print[a.axis].min, max: g.print[a.axis].max });
   return {
     axes, guideName, drawn, dots,
     products: new Set(dots.map(({ e }) => e.g.id)).size,

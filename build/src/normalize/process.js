@@ -569,19 +569,26 @@ const HOUR_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven
 const HOUR_WORD = `(?:${[...HOUR_WORDS].reverse().join('|')})`;
 const HOUR_WORDS_RE = new RegExp(`\\b(${HOUR_WORD})\\b(?=(?:\\s*(?:to|-|or)\\s*${HOUR_WORD})?\\s*hours?\\b)`, 'gi');
 
+/** The numbers a drying cell states, its hours written in words read as numbers ("six to twelve hours": 6, 12). */
+export const dryingNumbers = (raw) => (String(raw ?? '').replace(HOUR_WORDS_RE, (w) => String(HOUR_WORDS.indexOf(w.toLowerCase()))).match(/\d+(?:[.,]\d+)?/g) ?? [])
+  .map((x) => Number(x.replace(',', '.')));
+
 /** Drying: "Blast Drying Oven: 55 C, 8 h", "120C for 4 hours", "6+ hours", "Not necessary", "Optional". */
 export function parseDrying(raw) {
   const text = raw == null ? '' : String(raw).trim();
   // A lone "/" is a cell with nothing in it, as a lone dash is in a chamber row.
-  if (!text || /^not published$/i.test(text) || /^[/\-–—\s]*$/.test(text)) return { text, state: PROCESS_STATE.UNKNOWN, need: 'unknown', tempC: null, hours: null, hoursOpen: null, required: false };
+  if (!text || /^not published$/i.test(text) || /^[/\-–—\s]*$/.test(text)) return { text, state: PROCESS_STATE.UNKNOWN, need: 'unknown', tempMinC: null, tempC: null, hoursMin: null, hours: null, hoursOpen: null, required: false };
   const s = clean(text).replace(HOUR_WORDS_RE, (w) => String(HOUR_WORDS.indexOf(w.toLowerCase())));
   // A window is read at its upper end, however its unit is printed: "70-80℃" gave 80 but "90℃-100℃" gave 90 and
-  // "8h-12h" gave 8 (the fourth control draw of the profile root-cause sweep, 2026-10-02).
+  // "8h-12h" gave 8 (the fourth control draw of the profile root-cause sweep, 2026-10-02). Its lower end is kept beside it
+  // (tempMinC, hoursMin), so a schedule printed as a range is shown as the range (D175, the owner's ruling of 2026-10-20):
+  // Raise3D's "80-100°C for 6-12 hours" is 100 °C for 12 h to every rule, and 80-100 °C for 6-12 h to a reader.
   // A cell that joins two methods ("Blast drying oven 55 °C, 8 h; X1 heatbed 65-75 °C, 12 h") is read by its first.
   const first = /\d/.test(s.split(/;\s*/)[0]) ? s.split(/;\s*/)[0] : s;
   // Eryone prints the unit on the lower end only: "75℃-85, 6h" is 75 to 85 °C (P0445).
   const tempRange = first.match(/(\d{2,3})\s*C?\s*[-–~]\s*(\d{2,3})\s*\(?\s*C/i) ?? first.match(/(\d{2,3})\s*C\s*[-–~]\s*(\d{2,3})\b(?![.,]?\d|\s*(?:h|hours?|hrs?|min)\b)/i);
-  const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs?)?\s*[-–~]\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs?)\b/i);
+  // BASF and Raise3D write a window in words, "4 to 16 hours" (D175): read as "4-16 hours" was, its upper end the same.
+  const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs?)?\s*(?:[-–~]|\bto\b)\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs?)\b/i);
   // The first schedule the cell states decides: Bambu Lab's guide prints "Blast Drying Oven: 55 °C, 8 h X1 Series
   // Heatbed: 65 - 75 °C, 12 h", and a window further on is the other method's.
   // Polymaker brackets the unit, "65 (˚C)" (P0030): the number before a bracketed C is the temperature (D141).
@@ -595,12 +602,18 @@ export function parseDrying(raw) {
   // A schedule printed in Fahrenheit alone, MatterHackers' "180°F for 4-6 hours", is converted to the nearest degree Celsius
   // (82 °C; the research intake, D168).
   const fahrenheit = !tempMatch && /(\d{2,3})\s*[°˚º]?\s*F\b|(\d{2,3})\s*℉/.exec(s);
+  const tempC = tempMatch ? Number(tempMatch[1]) : fahrenheit ? Math.round((Number(fahrenheit[1] ?? fahrenheit[2]) - 32) * 5 / 9) : null;
+  const hours = hourMatch ? Number(hourMatch[1]) : null;
+  // The lower end of the window that decided, where the cell prints one below its upper end.
+  const low = (window, top) => (window && Number(window[1]) < top ? Number(window[1]) : null);
   return {
     text,
     state: 'stated',
     need,
-    tempC: tempMatch ? Number(tempMatch[1]) : fahrenheit ? Math.round((Number(fahrenheit[1] ?? fahrenheit[2]) - 32) * 5 / 9) : null,
-    hours: hourMatch ? Number(hourMatch[1]) : null,
+    tempMinC: tempMatch && tempMatch[0] == null ? low(tempRange, tempC) : null,
+    tempC,
+    hoursMin: windowFirst ? low(hourRange, hours) : null,
+    hours,
     hoursOpen,
     required: need === 'required',
   };

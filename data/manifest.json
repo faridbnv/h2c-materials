@@ -7,11 +7,11 @@
     },
     "grades": {
       "rows": 1184,
-      "sha256": "579f84b4742d0cf34ecfe5eb04ac5b7dac2bc418e06138a877b7d45a33f28aad"
+      "sha256": "b8da85d374472397b8cf94e54e1eed8f50a7078061bbc4d724a96ce59bf2b3e8"
     },
     "profiles": {
       "rows": 1986,
-      "sha256": "20e473aff61a2e9199fc84e0c63a42a913eee8c69426689e5e6e64c80470936d"
+      "sha256": "cda80ef5bf906625cd672662c2b266dc7b794f60560d4a808b848318d10518af"
     },
     "profile_notes": {
       "rows": 2503,
@@ -47,7 +47,7 @@
     },
     "print_guide": {
       "rows": 33,
-      "sha256": "5b6868e6f63a1a3eac8f0531fdde055730a7874ac225a580bef808328dc98b00"
+      "sha256": "98e8cb05bf161624accf03b5406aafa083f74363ae6db2382adf0d4e7b9ebebd"
     },
     "prices": {
       "rows": 374,
@@ -70,8 +70,8 @@
       "sha256": "1927feaa9f798b2bc6ecf81be85c03c6bb8f1330f0edb13112b2f1f2c8410dac"
     },
     "method": {
-      "rows": 58,
-      "sha256": "31abcb2a16387d2bfc70e7a718cbadf56f0cea6601700634a40da9347a02addc"
+      "rows": 59,
+      "sha256": "158b327b376df9ec37e03d0b466c4824ed4f4bc3f705f52d53141e38a14d15e0"
     },
     "reference": {
       "rows": 114,
@@ -95,7 +95,7 @@
     },
     "print_guide_materials": {
       "rows": 17,
-      "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
+      "sha256": "f3dd77a857577ce96d18aa50f7bdbc4dcb88a3d19842da7834b0bed806894254"
     },
     "properties": {
       "rows": 52,

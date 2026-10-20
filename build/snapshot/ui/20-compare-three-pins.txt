@@ -83,7 +83,7 @@ range 2.1–16.5 · 6 products
 PA6-GF
 4.95
 range 2.4–12.5 · 6 products
-0.553
+0.552
 log scale
 1,050
 all 149 materials

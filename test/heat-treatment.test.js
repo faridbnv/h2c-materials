@@ -27,9 +27,11 @@ test('a material prints as its polymer solidifies in a print: PLA and PET glassy
   assert.equal(printedStateOf({ Morphology: 'elastomer' }, 'Unfilled / unspecified'), 'rubbery');
 });
 
-test('a crystallising grade prints as its type; every other variant does not (D129, D158)', () => {
+test('a crystallising grade and a filler for looks print as their type; every other variant does not (D129, D158, D175)', () => {
   assert.equal(printsAsItsType({ variant: null }), true);
   assert.equal(printsAsItsType({ variant: 'crystallising grade' }), true);
+  assert.equal(printsAsItsType({ variant: 'cosmetic dense filler' }), true);
+  assert.equal(printsAsItsType({ variant: 'undisclosed dense filler' }), false);
   assert.equal(printsAsItsType({ variant: 'declared dense filler' }), false);
   assert.equal(printsAsItsType({ variant: 'luminescent pigment' }), false);
 });

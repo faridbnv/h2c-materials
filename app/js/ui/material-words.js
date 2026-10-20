@@ -6,7 +6,7 @@
 // only its plain parts are. Every word for a stored code is labels.js's; every number is format.js's. Nothing here
 // decides anything, and nothing reads the page.
 
-import { fmtNumber } from './format.js';
+import { fmtNumber, dryingSpan } from './format.js';
 import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, PRINT_NOT_DRAWN_ONE, OUTSIDE_WORDS, h2cLimit, namedFiller, envVerdictWords } from './labels.js';
 import { hardenedWords } from '../engine/products.js';
 import { plural, lower, cap, andList, inSentence, stated } from './text.js';
@@ -373,7 +373,7 @@ export function printLines(f) {
 
 /** A setting one product's sheet, or only the guide, gives (printFacts().single): said with its window. Empty where none. */
 export function printSingles(f) {
-  const windowOf = (w) => ('tempC' in w ? fmtNumber(w.tempC) : windowText(w.min, w.max));
+  const windowOf = (w) => ('tempC' in w ? dryingSpan(w.tempMinC, w.tempC) : windowText(w.min, w.max));
   return f.single.map((a) => (a.own ? `${a.label}: only ${a.own.name}'s sheet gives one (${windowOf(a.own.window)} °C).`
     : `${a.label}: only ${f.guideName} gives one (${windowOf(a.guide.window)} °C), read by ${plural(a.guide.readers, 'product')}.`)).join(' ');
 }

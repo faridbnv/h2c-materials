@@ -237,6 +237,16 @@
           "diameters": {
             "type": "string"
           },
+          "diameter": {
+            "description": "The filament diameter the product's documents print (grades.csv Diameter, schema/vocab/diameters.csv, D175): what was found, and whether the H2C takes it. Absent where no document prints one. A product found only in 2.85 mm is kept and counted; its detail and card say so.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["found", "fits"],
+            "properties": {
+              "found": { "type": "string" },
+              "fits": { "type": "boolean" }
+            }
+          },
           "retired": {
             "type": "boolean"
           },
@@ -3286,7 +3296,9 @@
               "required": ["need", "tempC", "hours", "hoursOpen", "profileId"],
               "properties": {
                 "need": { "enum": ["required", "optional", "not-needed"] },
+                "tempMinC": { "type": "number", "description": "The lower end of a temperature range the sheet printed, whose upper end is tempC; absent where it printed one temperature (D175). Shown, never judged." },
                 "tempC": { "type": ["number", "null"] },
+                "hoursMin": { "type": "number", "description": "The lower end of a time window the sheet printed, whose upper end is hours; absent where it printed one time or an open one (D175). Shown, never judged." },
                 "hours": { "type": ["number", "null"], "description": "The lower bound where hoursOpen is true." },
                 "hoursOpen": { "type": ["boolean", "null"] },
                 "profileId": { "type": ["string", "null"] }
