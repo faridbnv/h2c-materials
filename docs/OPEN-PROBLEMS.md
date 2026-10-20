@@ -2285,6 +2285,14 @@ check; an empty cell, or the build materials first, is the owner's call.
 quieted in place, it is still the loudest thing in the bar before a requirement exists, its estimates switch greyed but
 drawn on. Moving it beside the results heading's "39 more could not be checked" is a move of a control, the owner's word.
 **The drawer's first screen** holds about 40 numbers under a template (the page's form, the owner's choice at the gate).
+Since the owner's rulings (2026-10-20, D173; [the round](audits/2026-10-20-owner-rulings/README.md)) it answers five
+questions in a few large figures, the rest one press away: PLA's first screen shows 21 numbers under Indoor prototype
+where it showed 38, and 20 with no requirement where it showed 48 ([before and after](audits/2026-10-20-owner-rulings/drawer/README.md)).
+What it leaves: under a template of four requirements or more, On the H2C falls below a laptop's first screen (the
+requirement lines come first, and they say whether the nozzle, bed and chamber are met); a requirement's whole reason,
+now one press away, still prints the engine's related values in its raw words ("(Not published (do not assume
+printed), not-applicable)"); and the drawer's comparison tables never see the requirements they are not to round across
+(`detail.js` thresholdsOf reads `c.scenario`, which `materialContext` does not set).
 **"Ranked" beside *Rank by*.** Since 2026-10-19 every graph says "ranked" for a count and "kept out of the median" for a
 mark (C49; the print graphs had said "counted"), the pages' words; "ranked" still meets the table's *Rank by*, a ranking
 by a performance index; the pages' alternatives table writes ", log scale" as every figure does.

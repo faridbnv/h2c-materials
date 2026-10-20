@@ -186,6 +186,7 @@ detail. The generator names one that runs longer.
 | D168 | The readers learn what the research intake found: an enclosure or a hardened nozzle the maker does not require, drying advised for a condition, and standards and temperatures they missed | Three kinds of print advice were typed one way by the readers and another by the people who read the same words by hand. A sheet that says an enclosure is "not mandatory, but recommended", or lists open-frame printers among those it prints on, now reads as no enclosure needed, so the H2C's chamber question is answered. A sheet that asks for "stainless steel or other hardened alloys", or only warns that a filler wears brass, no longer reads as requiring a hardened nozzle; a sheet that recommends or needs one still does. Drying advised "once opened" or "depending on moisture" is optional, as drying "if wet" already was. And the readers now read standards and temperatures they missed: "ISO 52 7", "IS O 179", the Japanese JIS K standards, a test temperature printed only in °F, and QIDI's "100°C Annealing 8 hours". | In force (the research intake, 2026-10-19; the owner's ruling of 2026-10-19 on the research package's P1.3 proposals). It amends D33 (an enclosure the maker does not require clears the chamber, whatever recommendation stands beside it) and extends D141's reader sweep |
 | D169 | The reading tools read what the record tier, a split row and a name hold, as their pages do | Three of the tools that read makers' documents misread something the page plainly shows. The searchable record of every cached page counted a later copy of a sheet as the registered sheet itself, so a sentence from another revision (or, once, another product's sheet) appeared under the wrong source. The import's sheet reader missed a table row whose label and value sit on one line and the rest a point below, when the lower line held an orientation code such as "XY". And the checker that confirms a reading against its page could not find a number printed inside a product name ("CF15"), while a composition stated "approximately" was held back as a marketing claim. Each now reads what the page shows. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §34.3, §34.7, §38.3). The import's sheet reader is frozen since D138; this changes one of its rules, with the back-test below |
 | D170 | The interface says what it shows: a melting point only where a polymer melts, a range named as one, a filler by its name | The clean-up round's interface fixes changed three rules of what the pages and the selector show. A melting temperature is drawn and said only for a polymer that has one (a crystalline plastic): PETG's "190 °C" was the middle of eight sheets' processing temperatures, and an amorphous plastic's "melting" values are listed among its other properties instead. A table cell shows a material's range of products, as before, and its column head now says so ("median · range"), where the drawer and the pages give the middle half. And a material whose filler the materials table names (aramid fibre, PTFE, ceramic …) is filtered and drawn by that filler, no longer as an undisclosed variant. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §37.8, §37.18, §37.20). The filler is worked out in the engine (`app/js/engine/filler.js`, a requirement on the new facet `filler`); the build's own reinforcement facet, which the frozen estimate model reads, is unchanged, and a link saved on the old facet keeps its answer |
+| D173 | The drawer's first screen answers five questions in a few large figures, the rest one press away | The owner ruled that the first screen of a material's drawer needed redesign, to be friendly and | In force (the owner's rulings round, 2026-10-20; OPEN-PROBLEMS §37.20). Display only: every number is one |
 
 <!-- end index -->
 
@@ -5770,6 +5771,38 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
 - **What would break if reversed.** PETG's page would again draw a melting point it does not have; a reader would again
   compare a table's full range with the drawer's middle half unwarned; and 18 materials with a named filler would again be
   filtered and drawn as undisclosed.
+
+## D173. The drawer's first screen answers five questions in a few large figures, the rest one press away
+
+> **In plain words:** The owner ruled that the first screen of a material's drawer needed redesign, to be friendly and
+> easy to read. It had held about 40 numbers under a template (38 for PLA under Indoor prototype, 48 with no requirement,
+> counted on screen at 1280×800): the answer's counts, every requirement's whole reason, six key figures each with its
+> middle half and count, seven more on an "Also" line, and each print setting's product counts. It now answers, in order:
+> does it meet my requirements (one sentence, the count that meets them in bold), on which product and why (each
+> requirement's first sentence, the rest under "more"), what its numbers are (six tiles, the median large; a property a
+> requirement asks about joins them, tagged "required" or "reported"), how to print it on the H2C (one row per setting,
+> a window and a chip), and how well documented it is. Every number removed is one press away: the spread table under
+> "Spread across products", a chip's or a value's popover, a reason's "more". The same drawers now show 21 and 20
+> numbers.
+> **Status:** In force (the owner's rulings round, 2026-10-20; OPEN-PROBLEMS §37.20). Display only: every number is one
+> the drawer printed before, from the engine, the build or `material-facts.js`; no verdict, count or listing moved.
+
+*Built by a Claude Opus agent in the owner's rulings round of 2026-10-20 and read once by a Claude Sonnet agent as a
+first-time engineer ([the round's drawer record](audits/2026-10-20-owner-rulings/drawer/README.md)).*
+
+- **What it changes.** The Overview's first screen (`detail.js` `overviewBody`, `explain.js` `reasonLead`, the drawer's
+  styles in `app.css`); the deeper sections, the other tabs, the product cards and the graphs are as they were. The
+  first-time reader's review changed four things before the round closed: a setting some products are within and others
+  not says how many on its chip ("1 of 7 within"), since a green "Within", the best product's verdict, had stood beside
+  PEEK's 90 °C chamber against the H2C's 65 °C; a requirement's tile said "asked", now "required" or "reported"; a
+  material beyond the H2C's capability no longer stacks its red callout on a failed answer that says it; and a median of
+  two or three products, or one product's value, says so on its tile.
+- **What it keeps.** The order (the answer, the requirements, the key figures, the print settings, the documents) and
+  every rule of what each shows (D146, D147, D151): the product the lines are shown for, the six key figures, the windows
+  most products give, the chip as the best product's verdict, the evidence word. The material page's own Overview is
+  unchanged.
+- **What would break if reversed.** A reader would again meet about 40 numbers before the material's name had sunk in,
+  a requirement's reason of up to 723 characters in full, and the printing block below the first screen on every laptop.
 
 ## Bugs worth remembering
 
