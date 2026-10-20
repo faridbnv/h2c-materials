@@ -522,7 +522,7 @@ one list:
   Scope `headline` or `both`; a bound no row covers, or a row no headline reads, stops the build
   (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.
 - **The estimate stage** floors every estimate by what the product's own measurements prove (`build/src/lower-bounds.js`).
-  A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation and heat
+  A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation, the tensile strength and heat
   deflection at 0.45 MPa, which take printed bars only: `headline_definitions.csv` Lower bound specimens, D161, D172), in any direction (a printed part is
   strongest in XY); a moulded, film, filament or off-recipe bar bounds nothing, nor does a value flagged implausible or
   quarantined, an annealed value beside an as-printed one, or a conditioned elongation. A grade's estimate is floored at its

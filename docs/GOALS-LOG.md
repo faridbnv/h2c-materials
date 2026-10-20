@@ -892,7 +892,7 @@ another product's page, the selector's layout calls). The record is [the round](
   moved in the 138 census cases; 58 product answers moved between the unknown groups as the estimates refit to Fabru's
   one maker name ([decision diff](audits/2026-10-19-clean-up/DECISION-DIFF.md)).
 
-## Decided on 2026-10-20, the owner's rulings on the open decisions (being built)
+## Decided on 2026-10-20, the owner's rulings on the open decisions (built)
 
 The owner answered the decisions OPEN-PROBLEMS held for them, ranked by what could give a wrong answer first:
 
@@ -919,3 +919,13 @@ The owner answered the decisions OPEN-PROBLEMS held for them, ranked by what cou
 The numbers are the owner's own, which the decisions cite: item 6 answers the owner's items 6 and 9 to 11 together.
 
 The record is [the round](audits/2026-10-20-owner-rulings/README.md).
+- **Built and measured (2026-10-20).** D171 to D176, m462 to m486 and batches b49 and b49-2, in five tracks (Claude Opus
+  agents, Claude Sonnet for reading and checking), two independent reviews whose findings were fixed, and a pass that
+  re-derived every living document against the data. Items 12, 13 and 15 to 19 of the list the owner was given were not
+  ruled on and stay open. Against main before it: Warm environment passes 43 → 31 (twelve materials had passed only on a
+  heat deflection whose bar no document describes as printed); products with a comparable heat deflection at 0.45 MPa
+  523 → 312; 374 values kept as printed bars their documents imply and 2,788 set apart for good, the judgement calls
+  listed for the owner; the sintering filaments out of the dataset; PCL-EC, Nylon-CE and PVC-P in
+  ([decision diff](audits/2026-10-20-owner-rulings/after/DECISION-DIFF.md)). Left for the owner: the reading's judgement
+  calls, the executor's reading of "set apart for good" (never used to pass, still able to show a print cannot reach a
+  value), and the elastomers' chamber row's scope.
