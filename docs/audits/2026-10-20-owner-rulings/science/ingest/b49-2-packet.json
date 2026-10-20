@@ -1,0 +1,43 @@
+{
+  "PacketID": "b49-2-owner-rulings",
+  "Batch": "b49-2",
+  "Documents": [
+    {
+      "File": "2596444c620652a7.json",
+      "ProposalSHA256": "ec818719c024f426359f9fcc36979e47a7c4122f87efa383b8a51c1f6086eacb",
+      "OriginalSHA256": "2596444c620652a7994955402c3a550b5d394ef83f27e013e1e158e247b82bf1",
+      "Source": {
+        "SourceID": "R-FAINPLAST-PVC-FLEXIBLE-EXTRUSION",
+        "Publisher": "Fainplast",
+        "Title": "PVC Flexible for Extrusion",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-20",
+        "Source class": "Resin supplier data sheet",
+        "Source note": "A PVC compounder's range table (Fainplast SRL, Ascoli Piceno), its flexible compounds for hoses, gaskets and profiles.",
+        "Citation role": "cited",
+        "URL": "https://www.fainplast.com/wp-content/uploads/datasheet/PVC_flex.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "Class reference of PVC-P (class_limits.csv CL03): flexible PVC compounds",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-20 from the maker's site (HTTP 200) and hashed by Claude Opus 5.5, the same bytes a Claude Sonnet reader saved on 2026-10-19; staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49-2.csv), admitted in batch b49-2.",
+        "SHA256": "2596444c620652a7994955402c3a550b5d394ef83f27e013e1e158e247b82bf1"
+      },
+      "Grades": [],
+      "Polymer": null,
+      "Values": 0,
+      "Profiles": 0
+    }
+  ],
+  "Totals": {
+    "Documents": 1,
+    "NewGrades": 0,
+    "Values": 0,
+    "Profiles": 0
+  },
+  "NewVocabulary": [],
+  "Review": {
+    "prepared_by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49-2), read on the cached text",
+    "scope": "the reference for PVC-P's rubber limit (the round's review, F4)"
+  }
+}

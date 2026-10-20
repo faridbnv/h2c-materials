@@ -1017,7 +1017,7 @@ G132-01,M132,PBT-GF,within,within,within-low-end,unknown,unknown,required,
 G132-02,M132,PBT GF,within,within,within-low-end,recommended,requires-hardened,required,
 G133-01,M133,Flexible,within,within,within,unknown,unknown,required,
 G134-01,M046,FiberFlex Aero,within,within,within,not-needed,unknown,required,
-G135-01,M178,Polyvinylchlorid weich 94A (PVC-P),within,within,within,unknown,unknown,not-needed,chamber: family CN05
+G135-01,M178,Polyvinylchlorid weich 94A (PVC-P),within,within,unknown,recommended,unknown,not-needed,
 G135-02,M135,Vinyl 303,within,within,unknown,unknown,no-special-concern,optional,
 G136-02,M136,Styrol-Acrylnitril (SAN),within,within,unknown,unknown,unknown,required,
 G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),within,within,within-low-end,unknown,unknown,not-needed,

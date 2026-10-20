@@ -20,7 +20,7 @@ Database snapshot 2026-09-21 · build 2026-10-19
 | profiles | 1902 |
 | evidence | 868 |
 | prices | 374 |
-| sources | 2106 |
+| sources | 2107 |
 | coverage | 955 |
 | retired | 3 |
 | knowHow | 7495 |
@@ -95,7 +95,7 @@ product of the kind, those asking above 65 C, and the silent chambers a deciding
 | CN02 | Family: ASA | unknown | reported | 18 | 2 | no | 0 |
 | CN03 | Family: Acetals | unknown | reported | 1 | 1 | no | 0 |
 | CN04 | Family: Copolyesters | unknown | reported | 9 | 0 | no | 0 |
-| CN05 | Family: Flexible Elastomers | within | deciding | 18 | 0 | yes | 44 |
+| CN05 | Family: Flexible Elastomers | within | deciding | 18 | 0 | yes | 43 |
 | CN06 | Family: Fluoropolymers | unknown | reported | 1 | 0 | no | 0 |
 | CN07 | Family: High-Performance Engineering | unknown | reported | 9 | 0 | no | 0 |
 | CN08 | Family: Industrial High-Temperature | unknown | reported | 11 | 9 | no | 0 |
@@ -135,6 +135,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV61 | tensileStrengthXY | demote-to-ceiling | reported | 1.16 | 317 | 441 | 1 | 0 | 0 |  | 0 |
 | CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 91 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
 | CL02 | density | neat-density range | deciding | polymers.csv | 549 |  | 6 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
+| CL03 | tensileModulusXY | ceiling | reported | 0.5 | 1 |  | 0 | 0 |  |  |  |
 
 ## Environment evidence
 
@@ -595,6 +596,7 @@ These are not defects. They record what the compiled database cannot support, so
 interface can say so rather than implying a certainty it does not have.
 
 - `PROCESS-WINDOW-IMPLAUSIBLE` **profiles P0050** — Bed "30 -500 ºC" states 500 °C, outside the plausible 0–250 °C; it is typed as stated (30–30): check the cell against its page
+- `PARSE-UNREAD` **Print setup row 1470** — Enclosure text not parsed: "Wir empfehlen die Verarbeitung von PVC-P ausschliesslich auf geschlossenen 3D-Druckern mit integriertem Aktivkohlefilter."
 - `CONVERSION-PAIRS` **conversions CV01** — CV01 (floor on hdt045): 1 of 226 same-sheet pair(s) break it: G165-04 V014653 58 against V014656 62
 - `CLASS-LIMIT-CONTRADICTED` **grades** — 6 comparable value(s) beyond their kind's limit by more than the test scatter: G087-03 density 1140 (V002322) against CL02; G035-12 density 1150 (V004709) against CL02; G087-04 density 1340 (V005605) against CL02; G094-06 density 1070 (V006114) against CL02; …
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF

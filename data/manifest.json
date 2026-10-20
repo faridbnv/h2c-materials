@@ -11,7 +11,7 @@
     },
     "profiles": {
       "rows": 1987,
-      "sha256": "3151958ee5fc38774906163780cfac01777d7d70cf8a7542c3e515b9cdab8135"
+      "sha256": "0b3b9bc6d5759036a43639b4b06d011368e01574259ab72911b79f0a3d97a9dc"
     },
     "profile_notes": {
       "rows": 2504,
@@ -58,8 +58,8 @@
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2106,
-      "sha256": "8fb1c19f556abee0998fb266f8fa6a1e5d767f48a1d73b653ac419bb5bfe20db"
+      "rows": 2107,
+      "sha256": "bdaafeeb56e3884ae74fcd0febac3bfb6360bfde604eb0eed4f06c769dc0a83e"
     },
     "coverage": {
       "rows": 955,
@@ -126,8 +126,8 @@
       "sha256": "a2a7fa96c99787b3e1cfb3d9525782b82e96517cdacf0e086411f349cba5da8f"
     },
     "class_limits": {
-      "rows": 2,
-      "sha256": "9303544509a0f423b1d9f6bdc41412ec6be478649d81447a95448f44b8196e06"
+      "rows": 3,
+      "sha256": "21112a8e797b22c1dbfee54306ac189a88cfbb783d9972f6c16720a53b148fbb"
     },
     "chamber_bands": {
       "rows": 39,

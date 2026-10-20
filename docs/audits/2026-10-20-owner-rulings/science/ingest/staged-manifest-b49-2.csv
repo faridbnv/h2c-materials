@@ -1,0 +1,2 @@
+file,url,doc,for,provider,manufacturer,product,sha256,accessed,by
+/private/tmp/claude-501/-Users-farid-Documents-h2c-materials-branch/a06098d0-70e2-4838-91c5-3f22cdc986a5/scratchpad/t5/dl-fainplast/PVC_flex.pdf,https://www.fainplast.com/wp-content/uploads/datasheet/PVC_flex.pdf,,material:M178,Fainplast,Fainplast,PVC Flexible for Extrusion,2596444c620652a7994955402c3a550b5d394ef83f27e013e1e158e247b82bf1,2026-10-20,"Claude Opus 5.5 (the owner's rulings, T5), fetched from the maker's site (HTTP 200) and hashed; the same bytes a Claude Sonnet reader saved on 2026-10-19"

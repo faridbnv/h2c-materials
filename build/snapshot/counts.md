@@ -25,4 +25,4 @@ rather than repeat a number.
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 7,495 | the makers' words, shown in the panel only (D85) |
 | Price observations | 374 | sampled 2026-10-19 |
-| Sources | 2,106 |  |
+| Sources | 2,107 |  |

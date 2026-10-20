@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b49-2.mjs (the owner's rulings 2026-10-20)",
+    "date": "2026-10-20"
+  },
+  "document": {
+    "sha256": "2596444c620652a7994955402c3a550b5d394ef83f27e013e1e158e247b82bf1",
+    "url": "https://www.fainplast.com/wp-content/uploads/datasheet/PVC_flex.pdf",
+    "pages": 3,
+    "provider": "Fainplast",
+    "manufacturer": "Fainplast",
+    "docKey": "https://www.fainplast.com/wp-content/uploads/datasheet/PVC_flex.pdf#witness-for=material:M178"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "Fainplast's table of flexible PVC (PVC-P) compounds for extrusion, Shore A 45 to 94 with elongations at break of 200 to 460 % (ISO 868, ISO 527), the harder grades named \"Semi rigid\" from 96A: the reference for the rubber limit of PVC-P (class_limits.csv CL03, m478). No value is recorded from it; it is no product of the catalogue."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FAINPLAST-PVC-FLEXIBLE-EXTRUSION",
+      "Publisher": "Fainplast",
+      "Title": "PVC Flexible for Extrusion",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-20",
+      "Source class": "Resin supplier data sheet",
+      "Source note": "A PVC compounder's range table (Fainplast SRL, Ascoli Piceno), its flexible compounds for hoses, gaskets and profiles.",
+      "Citation role": "cited",
+      "URL": "https://www.fainplast.com/wp-content/uploads/datasheet/PVC_flex.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "Class reference of PVC-P (class_limits.csv CL03): flexible PVC compounds",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-20 from the maker's site (HTTP 200) and hashed by Claude Opus 5.5, the same bytes a Claude Sonnet reader saved on 2026-10-19; staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49-2.csv), admitted in batch b49-2.",
+      "SHA256": "2596444c620652a7994955402c3a550b5d394ef83f27e013e1e158e247b82bf1"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Compounds for the extrusion of hoses, gaskets, spiral hoses and many other"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49-2), read on the cached text",
+      "date": "2026-10-20"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Its compounds are no products of the catalogue; their figures stay in the record tier."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49-2), read on the cached text",
+    "date": "2026-10-20",
+    "note": "Fainplast's table of flexible PVC (PVC-P) compounds for extrusion, Shore A 45 to 94 with elongations at break of 200 to 460 % (ISO 868, ISO 527), the harder grades named \"Semi rigid\" from 96A: the reference for the rubber limit of PVC-P (class_limits.csv CL03, m478). No value is recorded from it; it is no product of the catalogue."
+  }
+}

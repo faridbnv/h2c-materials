@@ -322,7 +322,6 @@ Indoor prototype,Strict,M169,PLA blend-CF,PASS,all,2,0,0,2,G169-01,as-printed,ye
 Indoor prototype,Strict,M170,TPS,PASS,all,4,0,1,5,G167-02,as-printed,yes,,
 Indoor prototype,Strict,M174,SBC,PASS,all,1,0,0,1,G174-01,as-printed,yes,,
 Indoor prototype,Strict,M175,TPV,PASS,all,1,0,0,1,G167-13,as-printed,yes,,
-Indoor prototype,Strict,M178,PVC-P,PASS,all,1,0,0,1,G135-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M001,PLA,PASS,all,187,0,9,196,G001-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M008,PLA Silk,PASS,all,33,0,0,33,G009-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M011,PLA Metal,PASS,all,9,0,0,9,G011-01,as-printed,yes,,
@@ -421,7 +420,6 @@ Indoor prototype,"Strict, annealing permitted",M169,PLA blend-CF,PASS,all,2,0,0,
 Indoor prototype,"Strict, annealing permitted",M170,TPS,PASS,all,4,0,1,5,G167-02,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M174,SBC,PASS,all,1,0,0,1,G174-01,as-printed,yes,,
 Indoor prototype,"Strict, annealing permitted",M175,TPV,PASS,all,1,0,0,1,G167-13,as-printed,yes,,
-Indoor prototype,"Strict, annealing permitted",M178,PVC-P,PASS,all,1,0,0,1,G135-01,as-printed,yes,,
 Indoor prototype,Explore,M001,PLA,PASS,all,187,0,9,196,G001-01,as-printed,yes,,meets
 Indoor prototype,Explore,M008,PLA Silk,PASS,all,33,0,0,33,G009-01,as-printed,yes,,meets
 Indoor prototype,Explore,M011,PLA Metal,PASS,all,9,0,0,9,G011-01,as-printed,yes,,meets
@@ -552,7 +550,7 @@ Indoor prototype,Explore,M174,SBC,PASS,all,1,0,0,1,G174-01,as-printed,yes,,meets
 Indoor prototype,Explore,M175,TPV,PASS,all,1,0,0,1,G167-13,as-printed,yes,,meets
 Indoor prototype,Explore,M176,PCL-EC,UNKNOWN,,0,0,1,1,G176-01,as-printed,yes,,one-check-away
 Indoor prototype,Explore,M177,"Nylon-CE, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G177-01,as-printed,yes,,one-check-away
-Indoor prototype,Explore,M178,PVC-P,PASS,all,1,0,0,1,G135-01,as-printed,yes,,meets
+Indoor prototype,Explore,M178,PVC-P,UNKNOWN,,0,0,1,1,G135-01,as-printed,yes,,one-check-away
 Indoor prototype,Explore with estimates,M001,PLA,PASS,all,187,0,9,196,G001-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M008,PLA Silk,PASS,all,33,0,0,33,G009-01,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M011,PLA Metal,PASS,all,9,0,0,9,G011-01,as-printed,yes,,meets
@@ -683,7 +681,7 @@ Indoor prototype,Explore with estimates,M174,SBC,PASS,all,1,0,0,1,G174-01,as-pri
 Indoor prototype,Explore with estimates,M175,TPV,PASS,all,1,0,0,1,G167-13,as-printed,yes,,meets
 Indoor prototype,Explore with estimates,M176,PCL-EC,UNKNOWN,,0,0,1,1,G176-01,as-printed,yes,,one-check-away
 Indoor prototype,Explore with estimates,M177,"Nylon-CE, maker-undisclosed polyamide",UNKNOWN,,0,0,1,1,G177-01,as-printed,yes,,one-check-away
-Indoor prototype,Explore with estimates,M178,PVC-P,PASS,all,1,0,0,1,G135-01,as-printed,yes,,meets
+Indoor prototype,Explore with estimates,M178,PVC-P,UNKNOWN,,0,0,1,1,G135-01,as-printed,yes,,one-check-away
 Lightweight structure,Strict,M001,PLA,PASS,some,19,47,130,196,G001-01,as-printed,yes,,
 Lightweight structure,Strict,M014,PLA Wood,PASS,some,1,4,15,20,G014-16,as-printed,yes,,
 Lightweight structure,Strict,M017,PLA Aero,PASS,some,1,6,5,12,G017-05,as-printed,yes,,
