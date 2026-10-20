@@ -5799,8 +5799,8 @@ track T3 of [the round](audits/2026-10-20-owner-rulings/README.md).*
   is retired (a new chamber_need Status), and "Metal powder", a modifier only 316L had, leaves CV08's Applies to. Since
   D87 they had been rows only to say why they were out, and the table opened on 316L because its name sorts first.
   `build:diff`: only their records, the counts, CN09 and CV08's text. The decision census moved no answer of any other
-  material in 138 cases; the three no longer pass the 24 density sweeps, on 2,660 to 7,190 kg/m³ a green part has
-  ([decision diff](audits/2026-10-20-owner-rulings/selector/DECISION-DIFF.md)). The page lists 149 materials (152), and
+  material in 138 cases; the 24 density sweeps no longer list the three as passing on the 2,660 to 7,190 kg/m³ of a
+  green part ([decision diff](audits/2026-10-20-owner-rulings/selector/DECISION-DIFF.md)). The page lists 149 materials (152), and
   Compare's density track, which 316L had stretched to 7,190 kg/m³ with every plastic at its left end, runs 520 to 1,840.
 - **Each plot's own marks first** ([SHAPES.md](audits/2026-10-20-owner-rulings/selector/SHAPES.md), every plot and its
   marks). On the Ashby chart's Material ranges, a product sold as toughened was a plain ring and a variant a ring with a
@@ -5812,8 +5812,8 @@ track T3 of [the round](audits/2026-10-20-owner-rulings/README.md).*
   and the diamond stay apart that small. Each graph's key, above it, names its marks; the clash can show in the graphs
   of five glass-fibre materials (an annealed square) and one (PLA-GF's variant diamond).
 - **What would break if reversed.** The cold table would again read "not tested" on every row; the sintering filaments
-  would again be rows, counts and search results for parts the H2C does not make, the table opening on 316L, and their
-  24 density passes would come back; and a toughened product on an impact axis would again be told from a variant by a
+  would again be rows, counts and search results whose finished part is a sintered metal or ceramic, not a print, the
+  table opening on 316L, and their 24 density passes would come back; and a toughened product on an impact axis would again be told from a variant by a
   dot.
 
 ## Bugs worth remembering
