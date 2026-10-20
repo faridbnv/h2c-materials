@@ -289,7 +289,7 @@ export function relatedNote(entry) {
   const dir = b.direction && b.direction !== 'not-applicable' && b.direction !== 'unknown' ? b.direction : null;
   const more = r.count - 1;
   const shown = fmtBounded(b.value, null, b.interval);
-  return `No product publishes a comparable value (a stated orientation, test load and endpoint). Nearest value on file: ${shown} ${b.unit}`
+  return `No product publishes a comparable value (a printed bar, at the column's orientation, test load and endpoint). Nearest value on file: ${shown} ${b.unit}`
     // A property with no direction (a glass transition, a density) is never said to lack one.
     + ` (${b.property}${dir ? `, ${dir}` : b.direction === 'not-applicable' ? '' : ', orientation not stated'}).`
     + ` Not compared: ${b.why}.`

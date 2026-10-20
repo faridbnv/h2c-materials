@@ -1,7 +1,7 @@
 // A material's filler as a reader files it.
 //
 // The build's reinforcement facet (compile.js deriveFacets) has six classes, and files every material whose Modifier /
-// filler is not one of its five named ones with the undisclosed variants: 18 materials whose filler the materials table
+// filler is not one of its five named ones with the undisclosed variants: 17 materials whose filler the materials table
 // names (aramid fibre, ceramic, PTFE, graphene, metal powder …) were filtered and drawn as "filler not disclosed", while
 // the drawer and the material pages named their filler (OPEN-PROBLEMS §37.8). The facet stays as it is, since the
 // estimate model reads it as a class of its own (build/src/estimate, frozen, D58); the filter, the charts' shapes and

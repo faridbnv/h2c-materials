@@ -91,8 +91,8 @@ export function renderFilters(host, state, actions) {
   const focusKey = focused && FOCUS_KEYS.find((k) => focused.dataset?.[k] !== undefined);
   const focusValue = focusKey ? focused.dataset[focusKey] : null;
 
-  // What each group's badge counts: its requirements, and for Part condition and Data quality the settings that change
-  // which values are judged, which are not requirements but change answers all the same.
+  // What each group's badge counts: its requirements, and for Part condition the settings that change which values are
+  // judged (annealing, a humid part), which are not requirements but change answers all the same.
   const activeIn = (group) => cs.filter((c) => railGroupOf(c) === group).length
     + (group === 'Part condition' ? (scenario.anneal ? 1 : 0) + (scenario.moisture === 'conditioned' ? 1 : 0) : 0);
   const parts = [];

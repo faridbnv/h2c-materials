@@ -143,7 +143,12 @@ and locator, the direction, specimen, moisture and standard as published. A shee
 from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as injection moulded is Specimen type
 "Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form), and so does a bar
 a sheet prints at a setting the product is not meant for, beside the one it is (the unfoamed column of a foaming
-filament: "Printed off the product's recipe", D95). Post-processing
+filament: "Printed off the product's recipe", D95). A tensile, flexural, impact or heat deflection value on a bar its
+document does not describe decides only where something on the document indicates, even implicitly, that the bar was
+printed (its row or its table names a print orientation, a heading names the printed part, print settings are given for
+the specimens, or a statement says how the document's specimens were made); then Specimen type is "Printed (implied by
+the document)" and Notes quote the words that imply it, with their page. Otherwise leave it Not published: the build sets
+it apart for good (D172). Post-processing
 is copied as printed ("As printed", the sheet's annealing sentence) and Post-processing state beside it says what it
 means (as-printed, annealed, not-stated); Moisture condition and Moisture state work the same way. The build reads the
 state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen wording is data, not a schema change.
@@ -186,7 +191,7 @@ product with no profile of its own (D127). Record a twin's own statement on its 
 
 **Add a printer maker's guide row.** Where a product's own sheet and its twin's are silent on its print gate, the build
 reads its material's row of `print_guide.csv` (D88), and its drying too (D127; Drying need and Drying hours open are
-typed beside the raw cell, and a printed range's lower ends, D175). A product with a Variant is not the guide's type and reads none (D129), unless its Variant's row in `grade-variants.csv` says it prints as its type (a crystallising grade, D158; a cosmetic dense filler, a filler sold only for its look, D175). A guide is a source like any other: fetched, its SHA-256 recorded,
+typed beside the raw cell, and a printed range's lower ends, D175). A product with a Variant is not the guide's type and reads none (D129), unless its Variant's row in `schema/vocab/grade-variants.csv` says it prints as its type (a crystallising grade, D158; a cosmetic dense filler, a filler sold only for its look, D175). A guide is a source like any other: fetched, its SHA-256 recorded,
 Citation role `cited`, and a new revision is a new source row. A row is one type the guide heads a column with, in a
 profile's columns: the guide's words in the raw columns (a drawn mark as its glyph, ✓ or ✗), the parsers' reading in the
 typed ones, and a Locator naming the column and rows. Map it in `print_guide_materials.csv` only to the material that is
@@ -216,9 +221,10 @@ its material's Modifier / filler does not describe (a lightweight additive, an u
 Variant and say why in Composition / filler: its values stay its own, and the estimate model keeps them from
 pulling the family. It also reads no guide row, since it is not the guide's type (D129); a crystallising grade (a PLA its maker
 formulates to crystallise in the print, D158) and a cosmetic dense filler (a matte or glitter filler its documents sell for
-its look and for no function, D175) are the variants that do, as `grade-variants.csv` Reads its type's guide says. Its
-Diameter is what its documents print (1.75 mm, 2.85 mm only, Not published; D175): a product found only in 2.85 mm is
-kept, and its detail and card say the H2C takes 1.75 mm.
+its look and for no function, D175) are the variants that do, as `schema/vocab/grade-variants.csv` Reads its type's
+guide says. Its Diameter is what its documents print, typed against `schema/vocab/diameters.csv` (1.75 mm, 2.85 mm only,
+3 mm only, or Not published; D175): a product found only in a larger diameter is kept, and its detail and card say the
+H2C takes 1.75 mm.
 
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
@@ -231,7 +237,11 @@ variant class (silk, particle-filled) goes in Variant class. The build names the
 
 **Add a source.** A row in `sources.csv`. Grade IDs mentioned in "Applicable grades" must exist. Citation
 role is `cited` unless the source is kept to corroborate, as a register, as provenance, or was not retrieved;
-nothing may cite a source that was not retrieved.
+nothing may cite a source that was not retrieved. A newer edition of a document the database holds is a new row, and the
+older row's Superseded by names it, only where both print a date or a version that orders them (SOURCE-EDITION stops a
+chain that names another publisher or comes back to itself): of a product's documents the data sheet speaks before a
+product page, and the newer edition before the older, property by property and for each part of the print recipe
+(D171).
 
 **Add a price.** A listing enters only through `npm run ingest:prices` from the page the shop served, fetched and
 hashed (IMPORTING, "Capturing a price"): the exact product, 1.75 mm, its net mass printed, its regular price with any
@@ -242,6 +252,13 @@ that has no Canadian one and lists it nowhere in Canada. Never type a price into
 **Retire a grade.** `npm run data:retire -- grade <GradeID>` sets Status `retired`, the one place a retirement is
 recorded, and lists every record still on it, with what must happen to each. Availability keeps what was recorded
 about buying the product.
+
+**Retire a material from the dataset.** In a migration, retire each of its products as `data:retire` does
+(`retireGrade` from `scripts/data/records.mjs`) and set its Scope `Retired` (m468 is the example, D174). Its records
+stay in the tables and their sources registered; the build compiles none of them, so no row, search result, page, export
+or count holds it (MATERIAL-RETIRED names each, and an active grade left on it is MATERIAL-RETIRED-ACTIVE). A row that
+speaks for it alone (a chamber_need row, a conversion's Applies to) is retired or narrowed in the same migration. Bringing
+it back is its Scope and its grades' Status.
 
 **Move a product to another material.** In a migration, `moveGrade(t, gradeId, materialId)` from
 `scripts/data/records.mjs`: the grade, every record filed under it and the printing citations of its own profiles and
@@ -315,7 +332,7 @@ method.csv Topic or Not applicable) and a method.csv row of Section Comparison a
 headlines or more whose properties are of one domain and in no other comparison (D140). A headline wanted
 only there is Drawer only TRUE, which keeps it out of the rail, the table, the charts, the export and every answer: it
 must be a measurement headline naming a comparison, Estimated and Table column FALSE, with no lower bound or reference
-property (REGISTRY-COMPARISON, D139); a value with no stated orientation is drawn hollow and counted apart (D140).
+property (REGISTRY-COMPARISON, D139); a value set apart (a bar no document describes as printed, D172) is drawn hollow and counted apart (D140).
 
 **Write or revise a material's summary.** A material with a page has one row of `material_summaries.csv` (D142): the
 lede of its Overview, what an engineer would tell a colleague in twenty seconds. Three or four sentences, 40 to 75 words,

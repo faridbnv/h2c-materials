@@ -21,8 +21,8 @@ const isAre = (xs) => (xs.length === 1 ? 'is' : 'are');
 const names = (ts) => andList(ts.map((t) => inText(t.h.labels.plain)));
 
 /**
- * What a key property's figure is, said once on a surface: the median of the products that publish it with a stated
- * orientation or test load, beside it their middle half, and which products are kept out of the median. Plain text.
+ * What a key property's figure is, said once on a surface: the median of the products that publish it comparably (a value
+ * set apart, D172, is not), beside it their middle half, and which products are kept out of the median. Plain text.
  */
 export function keyFiguresBasis(c) {
   const m = c.m;
@@ -31,7 +31,7 @@ export function keyFiguresBasis(c) {
   const apart = variants && toughened ? 'Products with an added filler or additive, and for notched impact those sold as toughened, are shown but kept out of the medians.'
     : variants ? 'Products with an added filler or additive are shown but kept out of the medians.'
       : toughened ? 'For notched impact, products sold as toughened are shown but kept out of the median.' : '';
-  return ['Each figure is the median of the products that publish it with a stated orientation or test load, and beside it the middle half of them.', apart].filter(Boolean).join(' ');
+  return ['Each figure is the median of the products that publish it comparably, and beside it the middle half of them; a value on a test bar no document describes as printed, or with no stated test load, is set apart.', apart].filter(Boolean).join(' ');
 }
 
 /** Why the values published cannot be ranked, said once: "No sheet states how its tensile bars were printed, so …". */
@@ -69,7 +69,7 @@ export function evidenceLine(c) {
     const restsOnAll = byN.map((g, i) => (g.length === 1 ? (i ? say`${inText(g[0].h.labels.plain)} on ${plural(g[0].n, 'product')}` : restsOn(g[0]))
       : say`${names(g)} ${i ? 'on' : 'rest on'} ${plural(g[0].n, 'product')} each`));
     const parts = [...restsOnAll, t.missing.length ? plain(`${names(t.missing)} ${isAre(t.missing)} not published`) : null,
-      t.openOnly.length ? plain(`${names(t.openOnly)} ${t.openOnly.length === 1 ? 'is' : 'are'} published only without a stated orientation or test load`) : null].filter(Boolean);
+      t.openOnly.length ? plain(`${names(t.openOnly)} ${t.openOnly.length === 1 ? 'is' : 'are'} published only on test bars no document describes as printed, or with no stated test load`) : null].filter(Boolean);
     body = joinSay([say`${capSay(andSay(parts))}.`, keyFiguresBasis(c)]);
   } else {
     const word = t.makers.length <= 1 ? 'one sheet\'s word' : t.makers.length === 2 ? 'one or two sheets\' word' : 'a few sheets\' word';

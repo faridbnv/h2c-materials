@@ -279,14 +279,16 @@ needs its release's material pages zip unzipped beside it for the links to open.
 ## A material is the spread of its products
 
 A material such as PLA is not one number: its nearly two hundred products differ. Each product's own values are chosen from
-its own data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as
-printed), and a material's cell shows **the typical value of its products (their median), with their range and how
-many products under it**: `2.53` over `0.95–4.24 · 55` for PLA's stiffness (2026-10-17). The range is different products, not the
+its own documents by a fixed rule (a printed bar, or one its document implies was printed; the column's direction, read
+flat where a printed bar states none; dry or unstated; as printed; from the product's best document, its data sheet
+before a product page and a newer edition before an older one: D171, D172), and a material's cell shows **the typical
+value of its products (their median), with their range and how many products under it**: `2.58` over `0.95–4.24 · 61`
+for PLA's stiffness (2026-10-20). The range is different products, not the
 uncertainty of one.
 
 A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
 product on its own settings. A material passes when at least one of its products meets everything, and the result says
-how many: `PASS · 1 of 4` means one of the four products that could be judged meets every requirement. It stays
+how many: `PASS` over `51 of 55 products` means 51 of the material's 55 products meet every requirement. It stays
 unknown while any product could not be judged and none passes, and fails only when every product fails (D100): one
 measured failure does not rule out products nobody has measured. Products that publish too little to judge are counted
 but never held against the material. Open the material's **Products** tab: the products that pass come first, each with
@@ -306,8 +308,8 @@ products have a value of either test, nothing is drawn and a sentence says why. 
 kJ/m², and the high end is products sold as toughened. Where a maker's own words
 present a product as toughened or impact-modified, it is marked **sold as toughened**, with the quote, and the impact
 medians set those products apart, as they set special formulations apart: PLA's notched Charpy is the median of the 14
-products compared, 6 kJ/m² (middle half 3.97 to 7.9, range 2.16 to 20.3, 2026-10-07), and the 7 sold as toughened
-(5.76 to 72.3) are listed beside it. A product's
+products compared, 6 kJ/m² (middle half 3.97 to 7.9, range 2.16 to 20.3, 2026-10-20), and the 10 sold as toughened
+(2.3 to 72.3) are listed beside it. A product's
 name is never the reason, and the mark is a claim, not a test: colorFabb's PET HIGH SPEED PRO, sold with "increased toughness", publishes 1.2.
 
 **Tensile, heat and print settings are drawn the same way** (D139). Mechanical's **Tensile tests, XY and Z** draws
@@ -338,11 +340,14 @@ annealing it needs. The results header says how every product is judged, and how
 pass. Every value also says which conditions its sheet left unstated and the screening policy admits (specimen form,
 moisture state, treatment) and the method it names: "comparable" is a screening policy, not a laboratory equivalence.
 
-Values whose source does not state the test direction or load are counted apart: they often read like moulded bars
-(of PLA's products, variants apart, 6 of the 55 that state an XY stiffness reach 3 GPa; 24 of the 39 that state no
-direction claim 3 GPa or more, 2026-10-17). They are shown and not compared, unless you tick **Include values with no
-stated orientation or load** in the Data quality filters. The layer strength never counts a value with no stated direction, ticked
-or not: a bar pulled in an unstated direction is not a bar pulled across the layers (D92).
+A printed bar whose sheet states no orientation is read as a flat one, the way makers print their test bars unless
+they say otherwise, and the answer says so. A tensile, flexural, impact or heat value on a bar no document describes as
+printed, even implicitly, is set apart for good (D172): it may be a moulded bar's, and such values often read like one
+(of PLA's products, variants apart, 9 of the 61 compared reach 3 GPa in stiffness; 21 of the 30 set apart claim 3 GPa
+or more, 2026-10-20). It is shown and counted apart, never compared, and no switch admits it. A heat deflection whose
+source states no load is counted apart too; a printed bar's unloaded value only bounds the 0.45 MPa value from below
+(through the evidence ledger). The layer strength never counts a value with no stated direction: a bar pulled in an
+unstated direction is not a bar pulled across the layers (D92).
 
 ## The kinds of number
 
@@ -359,8 +364,8 @@ evidence.
 | `—` | **Not published** in any registered source. Hover to see which kind of absence | No |
 
 One mark qualifies a measured value: `35≈` means the published mean ± spread contains your threshold, so the mean
-passes but some parts may not. A heat value whose source names no load is counted apart, like a value with no stated
-direction.
+passes but some parts may not. A heat value whose source names no load is counted apart, like a value on a bar no
+document describes as printed.
 
 Two phrases in the answers come from a test's scatter, how far one maker's figure moves between its own bars and sheets
 (10 % for stiffness and strength, 5 °C for heat deflection, 20 % for elongation, 2 % for density; D152):
@@ -385,7 +390,7 @@ every measured value in turn and predicting it: the 80 % range has to contain th
 the build fails if it does not.
 
 Physics the model follows: a fibre raises a semicrystalline polymer's heat deflection towards its melting point but an
-amorphous one's only a little past its glass transition; PET and PVA print amorphous and are treated as such; a
+amorphous one's only a little past its glass transition; PLA, PET, PVA and BVOH print amorphous, and PPA does unless fibre-filled, and are treated as such; a
 conditioned nylon converts to dry by its water uptake; a filled compound cannot be lighter than its polymer except by
 porosity; an elastomer has no heat deflection temperature at all.
 
@@ -433,7 +438,7 @@ only the mode decides whether the material stays on your list.
 %%{init: {"flowchart": {"wrappingWidth": 300, "nodeSpacing": 40, "rankSpacing": 60, "curve": "basis"}}}%%
 flowchart TB
     REQ(["One requirement: stiffness at least 3 GPa"]) --> HASV{"Is there a measured value for<br/>this material in this column?"}
-    HASV -- "yes" --> COMPLETE{"Did the source state everything<br/>the column needs?"}
+    HASV -- "yes" --> COMPLETE{"Is the bar printed, said or implied by its document,<br/>at the load the column needs?"}
     HASV -- "no" --> APPL{"Does the property mean anything<br/>for this material?"}
     COMPLETE -- "yes" --> CMPV{"Compare it with your threshold"}
     APPL -- "yes" --> ESTQ{"Is there an estimate?"}
@@ -445,7 +450,7 @@ flowchart TB
         PASS["PASS"]
         FAILV["FAIL"]
         INDT["INDETERMINATE<br/>a published range straddles it"]
-        ASPB["UNKNOWN<br/>published without its direction or load:<br/>not compared unless you count such values"]
+        ASPB["UNKNOWN<br/>set apart: a bar no document describes as printed,<br/>or no stated load: shown, never compared"]
         NAPP["UNKNOWN · n/a<br/>the property does not apply:<br/>hidden under Include, estimates on or off"]
         UNK1["UNKNOWN<br/>not published in any registered source"]
         UNK2["UNKNOWN<br/>the estimate is shown and decides nothing"]
@@ -497,10 +502,11 @@ profile, and each product reports **Within**, **Within, at the low end** (a wind
 least 5 °C, a pass, D151), **On the line** (a window the H2C reaches only at its bottom edge, unresolved), **Beyond**,
 **Above recommended** (a recommended window above the H2C's) or **No data**. Where its own sheet says
 nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
-D89), then the Bambu Lab Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
+D89), then the Bambu Lab Filament Guide (D88) for its type only (a variant reads none, D129, unless it prints as its type:
+a crystallising PLA or a filler sold only for its look, D158, D175) and, since D127, for drying
 too, each labelled as such wherever it is shown; its own sheet always wins. A chamber none of them states is read from
 the makers of its kind of plastic where at least ten state one and at most one in ten asks above 65 °C (D151: within for
-PLA, PETG, ABS and the flexible elastomers, labelled with the makers' counts); any other part none of them states is
+PLA, PETG, ABS, the flexible elastomers and the polyolefins, labelled with the makers' counts); any other part none of them states is
 unknown, never a pass. A material's printability is its products': the
 drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
 meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a

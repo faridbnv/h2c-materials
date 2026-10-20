@@ -13,8 +13,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 | Table | What it holds |
 |---|---|
-| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, and the prose that is true of this material alone |
-| `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
+| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, and the prose that is true of this material alone. Scope `Retired` takes a material out of the dataset with its records kept in the tables (D174, below) |
+| `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status, and the filament Diameter its documents print, typed against `schema/vocab/diameters.csv`, which says whether the H2C takes it (D175) |
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion. One setup a sheet prints, or one row of it (a print speed, a nozzle size); a copy is retired ("Retired duplicate record", D120) and never reaches the database |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
@@ -23,7 +23,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `know_how_reads.csv` | Which sources were read for makers' know-how, how (a document held, or the maker's site searched), when and by whom: the one fact about know-how the build cannot derive |
 | `prices.csv` | price observations: Canadian listings in CAD, and foreign ones in their own currency (D113) |
 | `fx_rates.csv` | the Bank of Canada rate a foreign listing is compared at, one per currency and date (D113) |
-| `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
+| `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71), and, where the database holds a newer edition of the same document, Superseded by (D171) |
 | `coverage.csv` | Gaps, conflicts, judgements and unresolved items; a replaced finding is Superseded, not deleted. The build adds a row of its own for each domain a material's records prove and no stored row speaks for (D74) |
 | `material_summaries.csv` | The written summary at the head of a material's page, one row per material with a page: words for a reader, every number in them a placeholder the build fills from the material's compiled values, with who wrote it, when, and whether the owner has reviewed it (draft, reviewed by the owner, revise). Editorial: it decides nothing (D142). The build refuses a row on a family entry; `pages:add-summaries` and `pages:check` (P12) refuse one on a material below the page rule |
 | `method.csv` | The rules the database was built under |
@@ -58,7 +58,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `chamber_bands.csv` | Research chamber bands for materials whose sources publish no window, or why none is given |
 | `conversions.csv` | The evidence ledger's rows (D153): one per relation that lets a value measured another way (another load, state, bar or property) bound a headline for the same product in its one safe direction: its target, source properties and what differs, its kind (floor, ceiling, band, equal, demote-to-ceiling), factors, the materials it holds for, its words, reported or deciding |
 | `class_limits.csv` | The physics limits per kind of plastic (D154): a ceiling, a floor or a neat-density range read from `polymers.csv`, the kind it holds for, reported or deciding, and the registered source that prints it |
-| `chamber_need.csv` | What a product's silence about the chamber means for its kind of plastic (D151): one row per kind (Applies to), within or unknown, reported or deciding, who reviewed it and why. The build counts the makers that state a chamber and those asking above 65 °C; a deciding within row reads a truly silent chamber as within, labelled with the counts |
+| `chamber_need.csv` | What a product's silence about the chamber means for its kind of plastic (D151): one row per kind (Applies to), within or unknown, reported, deciding or retired (a row for a kind of plastic the dataset no longer holds, D174), who reviewed it and why. The build counts the makers that state a chamber and those asking above 65 °C; a deciding within row reads a truly silent chamber as within, labelled with the counts |
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
 | `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, the annealing threshold at or below which a heat treatment leaves a part as printed (D158), water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
@@ -121,9 +121,23 @@ build reads (D68).
 
 ### Classes that record intent
 
-- **Grade Variant** (`grade-variants.csv`): the product is a variant its material's Modifier / filler does not
-  describe (a lightweight additive; an undisclosed dense filler). Composition / filler says why. Its values stay
-  its own; the estimate model keeps them from pulling the family (D53).
+- **Grade Variant** (`schema/vocab/grade-variants.csv`): the product is a variant its material's Modifier / filler does
+  not describe (a lightweight additive; an undisclosed dense filler). Composition / filler says why. Its values stay
+  its own; the estimate model keeps them from pulling the family (D53). A variant is not the type a printer maker's guide
+  describes and reads no guide row (D129), except where the vocabulary's Reads its type's guide says it prints as its
+  type: a crystallising grade (D158) and a cosmetic dense filler, a filler its documents sell for its look alone (D175),
+  which read their material's guide row in full (`build/src/variants.js`).
+- **Source editions and document rank** (`sources.csv` Superseded by, D171): of two documents of one product, a data
+  sheet speaks before a product page or guide, and a newer edition of a sheet before an older one, property by property
+  in each state and for each part of the print recipe. Superseded by names the newer edition, set only where both print a
+  date or a version that orders them (SOURCE-EDITION stops a chain that names another publisher or loops). A figure a
+  better document replaces stays, marked `outranked`, and is no product value, ledger source or estimate input; the
+  drawer and the product card show it small where it differs a lot.
+- **A material retired from the dataset** (`materials.csv` Scope `Retired`, D174): its row, its products (each grade
+  retired) and every record filed under them stay in the tables, and the build compiles none of them
+  (`build/src/retired.js`), so no row, page, export or count holds them. An active grade left on one stops the build
+  (MATERIAL-RETIRED-ACTIVE); bringing it back is its Scope and its grades' Status. The sintering filaments are the ones
+  retired (m468).
 - **Source Citation role** (`citation-roles.csv`): cited, corroboration, register, provenance or not-retrieved
   (D50). Nothing may cite a source that was not retrieved.
 - **Coverage Superseded**: a finding a later row for the same material and domain replaces; its text starts
@@ -149,7 +163,10 @@ build reads (D68).
 - **Declared states** (D53, D56, D68): a measurement carries its Moisture state (dry, conditioned, not-stated) and
   Post-processing state (as-printed, annealed, not-stated) as typed columns beside the source's own words, and each
   Specimen type declares a Form (printed, not-stated, moulded, film, filament, off-recipe) in its vocabulary, because
-  those wordings are the database's own. The build reads the state, never the words; where the words plainly say
+  those wordings are the database's own. A bar whose document implies, without saying, that it was printed (its row or
+  table names a print orientation, a heading names the printed part, print settings are given for the specimens, a
+  statement says how the specimens were made) is Specimen type "Printed (implied by the document)", Form printed, with
+  the implying words and their page in Notes (D172). The build reads the state, never the words; where the words plainly say
   otherwise the build stops (PARSE-MISMATCH), and where they say nothing the column decides. A value annealed at or below
   its polymer's annealing threshold (`polymers.csv` Annealing threshold °C, the glass transition of a polymer that
   crystallises when annealed: PLA's 55 °C) is judged as printed, since nothing crystallised: Bambu Lab's "annealed and
@@ -198,23 +215,26 @@ code cites it by section, and it is compiled into `db.json` so the application c
 shape; nothing is flattened into one wide table.
 
 ```
-meta               snapshot, build, price sampling date, counts, H2C baseline, headline and estimate coverage,
+meta               snapshot, build, price sampling date, counts (the materials retired from the dataset among them,
+                   D174), H2C baseline, headline and estimate coverage,
                    environment category names and what each can decide, which chamber bands were used and which
                    the evidence superseded, the estimate model's diagnostics and screening ends, the estimated print
                    windows, know-how counts
 materials          the selection-level object (below)
 grades             materials 1 -- N grades; each with its own headline values, print recipe, grade estimate and
-                   know-how state (below)
+                   know-how state (below), its filament diameter (`diameter: { found, fits }`, D175) and the
+                   figures and print settings a better document of it replaced (`replaced`, `print.replaced`, D171)
 knowHow            makers' know-how: each statement in the maker's words, by product and topic, shown in the
                    panel and read by nothing that screens; grades[].knowHow and materials[].knowHow carry the state
 measurements       materials 1 -- N, grades 1 -- N, sources N -- 1 (retired duplicates excluded;
-                   quarantined and physically implausible values flagged)
+                   quarantined and physically implausible values flagged; a figure a better document of its
+                   product replaces marked `outranked`, D171)
 printGuide         a printer maker's guide rows, each read as a recipe, with the materials it speaks for (D88)
 profiles           print setup, with parsed temperatures, enclosure wording and gate verdicts
 evidence           use and durability, classified (retired duplicates and makers' know-how excluded)
 prices             every sampled observation; a quarantined one is kept as an audit trail and backs nothing
 fxRates            the Bank of Canada rates a foreign listing is compared at (fx_rates.csv, D113)
-sources
+sources            each with `supersededBy` where the database holds a newer edition of it (D171)
 coverage           terminal: reports gaps, never feeds selection; the stored rows and the ones the build derives (D74)
 method             the rules, verbatim
 polymers           the polymer identities the estimate model knows (polymers.csv, D60)
@@ -324,12 +344,18 @@ engine judges each product on its own values and recipe, and a material by how m
 a material's headline is derived from them, and no product stands for a material.
 
 - **`grades[].headline[key]`**: the product's own value for each headline, chosen by rule from its own measurements.
-  The rule accepts a printed or unstated specimen,
+  The rule accepts a printed specimen (said or implied by its document, D172), or an unstated one for a property that
+  is not a bar's (density, glass transition, hardness), in
   the headline's direction, not conditioned, not implausible, not annealed where the product publishes it as printed,
   at the headline's load, and where the headline sets them its notch and its test temperature (23 ± 2 °C, or none
-  stated; D92). A value is `comparable`, or `as-published` with a `caveat` where the source leaves the
-  direction (`unstated-direction`) or the load (`load-not-stated`) unstated; a headline whose Unstated direction is
-  `excluded` (the layer strength) takes no value without a stated direction at all. Several candidates are ordered: comparable,
+  stated; D92). A value is `comparable`, or `as-published` with a `caveat`: `not-described` for a bar's property (a
+  headline with a direction or a load) on a bar no document describes and whose row states no print orientation, set
+  apart for good (D172); `load-not-stated` for a heat deflection whose source names no load; `unstated-direction` for
+  an orientation stated and unusable (a 0° raster). A printed bar that states no orientation is comparable, read flat,
+  where the headline's Unstated direction is `flat if printed` (every XY headline), and says so (`admitted`); a
+  headline whose Unstated direction is `excluded` (the Z rows) takes no value without a stated direction at all. A
+  figure a better document of the product replaces (`measurements[].outranked`, D171) is no candidate. Several
+  candidates are ordered: comparable,
   printed, as printed, dry, the product's own data sheet, the headline's first value property, a point, then the
   lowest ID. A row of `headlines.csv` on the product pins it (`pinned`), with its Reason; on 2026-09-25 the rule alone
   reproduced all 477 hand picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`), which m137 retired. A value measured on an
@@ -345,7 +371,7 @@ a material's headline is derived from them, and no product stands for a material
   nozzle, drying, and the annealing its sheets state. Where its own profiles say nothing on a part, its twin's own
   (D89) are read; where those say nothing either on a part of the print gate (nozzle, bed, chamber, enclosure, hardened
   nozzle) or on drying (D127), its material's printer maker's guide row (`print_guide.csv`, D88); a product with a
-  Variant reads none (D129). `print.from[part]` and the gate's reason
+  Variant reads none (D129) unless it prints as its type (D158, D175). `print.from[part]` and the gate's reason
   say which, with the label a reader is shown. What a product's own sheet says, even words the parser cannot read,
   always stands. A guide row that asks for an enclosure and gives no chamber temperature leaves the chamber unknown,
   unless it declares Chamber state `enclosed`: Bambu Lab's rows for the eleven types its guide asks an enclosure for,
@@ -353,11 +379,16 @@ a material's headline is derived from them, and no product stands for a material
   Since D93 a maker's own profile may declare it too, for one of those types, where its sheet asks for an enclosure and
   prints no chamber temperature
   and no other profile of the product states its chamber (PROCESS-ENCLOSED says where it may stand).
+  For each part the best-ranked of the product's own documents that gives a reading decides (a data sheet before a
+  product page, a newer edition before an older, D171), and `print.replaced` names a document it outranked that says
+  otherwise. A sheet that asks for a nozzle harder than brass, or only warns of wear, requires no hardened nozzle and is
+  quoted in `print.nozzleAdvice`, so the no-hardened-nozzle screen answers unresolved in the maker's words (D168).
   Null for a product with nothing on any part. `db.printGuide` holds the guide's rows, each with its materials.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
   variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
-  values) and `typical` product (nearest the median) these are. Values published without the direction or load
-  (`asPublished`) and variants (`variants`) are counted apart. It is the spread of different products, never
+  values) and `typical` product (nearest the median) these are. Values set apart (`asPublished`: a bar no
+  document describes as printed, or a heat deflection with no stated load, D172) and variants (`variants`) are counted
+  apart. It is the spread of different products, never
   uncertainty about one: PEBA's tensile strengths are several products' values, not one PEBA's. A twin counts as the
   product it is, and `twins` says how many of the `n` values are a twin's; a twin reading a declared variant's sheet
   is set apart with it, and where a twin ties its sibling the typical product is the sibling.
@@ -385,11 +416,11 @@ of the eleven measured ones (the price compares listings, not measurements):
 
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
-| Density, heat deflection (0.45 MPa) | a printed or unstated specimen; heat deflection at 0.45 MPa | heat deflection with no load stated | a moulded, film or filament specimen; heat deflection at another load |
-| Tensile modulus, tensile strength, elongation at break (XY) | direction XY (Prusa's Horizontal bar since D143) | no direction stated | Z, XZ, ZX, YX (a flat bar along Y, kept as its label, D143) or a source's own label |
+| Density, heat deflection (0.45 MPa) | density: a printed or unstated specimen; heat deflection: a printed bar (said or implied, D172) at 0.45 MPa | heat deflection with no load stated, or on a bar no document describes as printed (set apart for good, D172) | a moulded, film or filament specimen; heat deflection at another load |
+| Tensile modulus, tensile strength, elongation at break (XY) | direction XY (Prusa's Horizontal bar since D143), or a printed bar that states none, read flat (D172) | a bar no document describes as printed (set apart for good, D172); an orientation stated and unusable | Z, XZ, ZX, YX (a flat bar along Y, kept as its label, D143) or a source's own label |
 | **Tensile strength (Z)** (`tensileStrengthZ`) | direction Z, the source's own word | none | no direction stated (almost always a flat or moulded bar); XY; XZ or ZX, whose use by sheets is not settled |
-| **Notched Charpy impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
-| **Notched Izod impact** (`izodNotched`, D94) | Izod, notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | no direction stated | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
+| **Notched Charpy impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY or a printed bar read flat, at 23 ± 2 °C or no temperature stated | a bar no document describes as printed (set apart, D172) | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
+| **Notched Izod impact** (`izodNotched`, D94) | Izod, notched, kJ/m², XY or a printed bar read flat, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | a bar no document describes as printed (set apart, D172) | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
 | **Glass transition (Tg)** (`glassTransition`) | the product's own value, any method (almost all DSC) | none: it has no direction or load | a resin supplier's value (Specimen type Raw material value) |
 | **Shore A hardness**, **Shore D hardness** (`shoreA`, `shoreD`, D150) | Hardness in its own scale, on a printed or unstated specimen | none: it has no direction or load | the other Shore scale, Rockwell, a scale the sheet does not name; a moulded plaque; a rating the product's name gives (Data status Nominal from product designation, TPU 95A) |
 
@@ -404,7 +435,7 @@ drawer_comparisons.csv (Impact tests; Tensile tests, XY and Z; Flexural tests, X
 transition), whose method.csv rule of the same Topic is the caption. Its tab draws the rows of one unit on one scale, a
 product each, never converted (D133, D139). A row that is Drawer only (tensile modulus Z and elongation at break Z, the four
 flexural rows, HDT at 1.8 MPa; tensile strength Z stays selectable) is computed per product and as a spread like any other, but is no filter, axis, table or export
-column, scenario key or decision state; its values with no stated orientation are drawn hollow and counted apart, as a
+column, scenario key or decision state; its values set apart (a bar no document describes as printed, D172) are drawn hollow and counted apart, as a
 selectable headline's are (D140), and HDT at 1.8 MPa excludes a value with no stated load, so such a value stays on the
 0.45 MPa row, drawn once (D139).
 A row's Sold as toughened says what its spread does with the products product_claims.csv marks: "set apart" on the two
@@ -450,7 +481,7 @@ Not measured:
   known: false, missing: 'not-published', unit: '%',
   related: { … } | null,      // real measurements of this property that are no product's value: how many, the
                               // closest, and up to ten, each with why (below)
-  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen where the headline admits them, that bound it from below (D55, D126, D161)
+  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen where the headline's Lower bound specimens admit them, that bound it from below (D55, D126, D161, D172)
   estimate: { … } | null      // the calibrated estimate (below)
 }
 ```
@@ -459,8 +490,9 @@ Not measured:
 An unbounded end is `null`, never `Infinity`. A value with a published uncertainty is judged on the value, and the
 interval says whether a threshold lies within its spread (D54).
 
-A product value is always a printed or unstated specimen, dry or unstated, and as printed where the product publishes
-both states; a moulded, film, filament, off-recipe, conditioned, annealed-beside-as-printed or physically implausible
+A product value is always a printed specimen, said or implied by its document (an unstated one only for a property
+that is not a bar's: density, glass transition, hardness; D172), dry or unstated, and as printed where the product
+publishes both states; a moulded, film, filament, off-recipe, conditioned, annealed-beside-as-printed or physically implausible
 measurement is never one, and a pin on it stops the build (D55, D56, D95).
 
 ### Physical order
@@ -490,8 +522,8 @@ one list:
   Scope `headline` or `both`; a bound no row covers, or a row no headline reads, stops the build
   (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.
 - **The estimate stage** floors every estimate by what the product's own measurements prove (`build/src/lower-bounds.js`).
-  A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation, which
-  takes printed bars only: `headline_definitions.csv` Lower bound specimens, D161), in any direction (a printed part is
+  A printed bar bounds a headline, and so does a bar whose source states no specimen (except for elongation and heat
+  deflection at 0.45 MPa, which take printed bars only: `headline_definitions.csv` Lower bound specimens, D161, D172), in any direction (a printed part is
   strongest in XY); a moulded, film, filament or off-recipe bar bounds nothing, nor does a value flagged implausible or
   quarantined, an annealed value beside an as-printed one, or a conditioned elongation. A grade's estimate is floored at its
   own formulation's highest floor. A material's range is the spread of its products, so it contains every product's floor:
@@ -662,7 +694,8 @@ and the reason for the conversion, the soft limits applied, `sharedWith` where i
 material (both then show one estimate), `canScreen`, and where it may screen, `screenRange` (the range that decides, either end of which may be open: `null` screens nothing on that side), `screenBasis` (why each end screens) and `screenLimit` (why an end cannot).
 
 **Unstated heat loads.** A heat deflection whose source names no load is its product's value only as published
-(caveat `load-not-stated`, D84): counted apart, shown, and deciding only when the reader includes such values. Until
+(caveat `load-not-stated`, D84): counted apart, shown, and never the product's deciding value; a printed bar's
+unloaded value bounds the 0.45 MPa value from below through the evidence ledger's CV63 (D172). Until
 phase 4 a material headline in that state carried a bracket from its matrix's load gap (`hdt045.loadBracket`); no
 material headline is in that state since a material's value is its products' comparable ones, and the bracket is gone.
 Heat deflection does not apply to an elastomer at all (headline_definitions.csv Applies to, Morphology; D56).
@@ -695,7 +728,8 @@ that none has in this release. So a material's own estimate is never read for a 
 product on record: it is shown on its row and in its drawer as context (D148). Only a material with no product on
 record (PA66-CF, PA612 and PA612-GF in this release) is judged on its own estimate, as follows.
 Under Include with "Use estimates and resin data" on, an estimate screens a material out when the range it may screen on wholly fails, and no
-printed measurement of the material (or one whose source states no specimen) bounds the headline from below and meets the requirement (`impliedBounds`: yield or
+printed measurement of the material (or, where the headline's Lower bound specimens admit it, one whose source states no
+specimen) bounds the headline from below and meets the requirement (`impliedBounds`: yield or
 break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
 published value; D55, D126). The same bounds shape the estimate's own range: a grade's is floored at its own formulation's
 highest (`lower-bounds.js`); a material's, the spread of its products, reaches the highest product floor from above and is
@@ -875,7 +909,8 @@ changed), with its source and page (Locator `p. N`) and the exact product it was
 know-how"; Topic is one of twelve know-how topics in `schema/vocab/environment-topics.csv` (Good for, Benefits, Pitfalls
 and limitations, Warping and shrinkage, Precision and tolerance, Surface finish, Adhesion between layers, Moisture
 sensitivity, Nozzle wear, Odour and emissions, Supports and removal, Printing advice), all mapped to the category
-`know-how`, which is not filterable. A statement from the maker's own product page is labelled by its source's class
+`know-how`, which is not filterable (two of Fiberlogy's statements, on M030 and M052, carry the Post-processing topic,
+whose category is post-processing). A statement from the maker's own product page is labelled by its source's class
 ("Manufacturer product page or guide") as the maker's marketing text, apart from a data sheet's.
 
 The row's `Exposure / conditions` becomes `knowHow[].exposure`. Its recorded scope, missing conditions and
@@ -986,9 +1021,9 @@ they can buy wants. In Explore the unsampled ones stay visible and flagged.
 Several are warnings in `build/reports/validation-report.md`, and each is surfaced in the interface where it applies.
 The figures are not repeated here: [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) gives the query that re-derives each one.
 
-- A value published without its direction or its load (a heat deflection naming the standard but not the load) is its
-  product's value only as published (D84): counted apart, shown, and deciding only where the reader includes such
-  values. OPEN-PROBLEMS §15 lists those that decide and that no cached sheet settles.
+- A heat deflection published without its load is counted apart and never decides at its value (D84, D172), and a
+  tensile, flexural, impact or heat value on a bar no document describes as printed is set apart for good (D172).
+  OPEN-PROBLEMS §15 lists the set-apart values that would decide if admitted.
 - Impact values in J/m cannot share an axis with the kJ/m² rows without specimen geometry the sources never
   published, so no impact headline takes one (IMPACT-UNITS). Izod results are one property, "Izod impact strength",
   since m22.
@@ -1008,10 +1043,11 @@ The figures are not repeated here: [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) gives th
 - UV and outdoor has no grade-level verdict (a handful of records, none reducible to one); it filters only through
   polymer-level records (D64), which may screen and never pass.
 - `polymers.csv` rows began as handbook values compiled for the physics audit, with no source; the rows added since
-  cite a resin producer's sheet (D60). Since the screening build's stage 2c (m445) 34 of the 48 rows cite a document:
-  22 of them gained one there, each printing a density inside the row's range, and their Basis quotes it and, where it
-  prints them, the water absorption at 23 °C after 24 h and at saturation. The ranges' ends stay the handbook's.
-  14 rows still say "Not recorded" (OPEN-PROBLEMS §38.4):
+  cite a resin producer's sheet (D60). Since the screening build's stage 2c (m445) the rows cite a document where one
+  was found: 22 gained one there, each printing a density inside the row's range, and their Basis quotes it and, where it
+  prints them, the water absorption at 23 °C after 24 h and at saturation. The ranges' ends stay the handbook's. On
+  2026-10-20, 39 of the 49 rows cite a document (SBC's, added by D176, cites INEOS's sheets) and 10 still say "Not
+  recorded" (OPEN-PROBLEMS §38.4):
   `npm run sql -- "select polymerid, sourceid from polymers where sourceid = 'Not recorded'"`.
 - The measured headlines the honest hold-outs flag as far from their prediction (EST-OUTLIER) are products carrying a
   filler the model has no covariate for; each is accepted with its reason, and OPEN-PROBLEMS §6 says which were
@@ -1036,7 +1072,7 @@ G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only 
 values and unit conversions, including each uncertainty and upper bound. Decimal commas are retained, thousands-separated cycle counts remain
 integers, and qualitative outcomes use their own status. Product values are checked for property, unit, value,
 direction and ownership (MEAS-HEADLINE-TYPE, HEADLINE-CITATION, HEADLINE-DIRECTION). An unstated HDT load decides
-nothing unless the reader includes values published that way (D84).
+nothing at its value (D84); it bounds the 0.45 MPa value from below only, through CV63 (D172).
 
 ## Product uncertainty and independent exclusion (D137)
 

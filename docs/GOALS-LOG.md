@@ -866,7 +866,7 @@ kept in `archive/research-2026-10-19/`.
   then the build, the snapshot, the selector's views and the material pages, a material that newly meets the page rule
   given its summary. Opus for triage, judging, code, migrations and the documents; Sonnet for fetching, page reading,
   second reads and sweeps. The record is [the round](audits/2026-10-19-research-intake/README.md).
-- **Built and measured (2026-10-19).** m452 to m456, batch b48 (57 documents, four products) and price batch p06, D168,
+- **Built and measured (2026-10-19).** m452 to m458 (m457 and m458 the page settings and the review's fixes), batch b48 (57 documents, four products) and price batch p06, D168,
   the polyolefins chamber row deciding, and two build fixes (a flagged value no longer stands in for a material; a
   material's print gate names its product). Against main before it: drying statements missing on 145 products (205),
   chamber checks unanswered on 213 (221), fibre loads of their own on 174 of 255 fibre-filled products (141 of 252), 113
@@ -908,11 +908,14 @@ The owner answered the decisions OPEN-PROBLEMS held for them, ranked by what cou
 5. **The selector's first screen.** No "not tested" in the cold table, and the metal and ceramic sintering filaments out
    of the selector, from the dataset if need be. The drawer's first screen redesigned by an agent of its own, to be
    friendly and easy to read. Shapes unified where it helps, but each plot's own readability comes first.
-6. **Fibre-filled PET as printed**, and 9 to 11, **the held sheets' homes, the plasticised PVC and the heat-resistant
-   PETG**: a materials-scientist agent researches and decides.
+6. **Fibre-filled PET as printed**, with the owner's items 9 to 11 taken together with it: **the held sheets' homes**
+   (9), **the plasticised PVC** (10) **and the heat-resistant PETG** (11). A materials-scientist agent researches and
+   decides all four.
 7. **A variant whose filler is only for looks** reads its type's printer guide in full: if it reads one thing there, it
    can read the rest.
 8. **A product found only in 2.85 mm** stays, with a small warning that the H2C takes 1.75 mm.
 14. **A drying schedule printed as a range** is shown as the range where possible.
+
+The numbers are the owner's own, which the decisions cite: item 6 answers the owner's items 6 and 9 to 11 together.
 
 The record is [the round](audits/2026-10-20-owner-rulings/README.md).

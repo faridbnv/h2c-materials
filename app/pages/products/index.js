@@ -5,8 +5,8 @@
 //
 // Two controls (assets/products.src.js), whose states cannot contradict: a search over product and maker, and one sort
 // (most documented, by name, or by a column in its one meaningful direction), which never hides a product. Sorting by
-// a value splits the list into labelled groups: compared values, values shown and not compared (no stated orientation
-// or load, Izod in Charpy's place, a setting from Bambu Lab's guide), and products that publish none. Without the
+// a value splits the list into labelled groups: compared values, values shown and not compared (set apart: a test bar
+// no document describes as printed, or no stated load, D172; Izod in Charpy's place, a setting from Bambu Lab's guide), and products that publish none. Without the
 // script the list reads in full, most documented first, and every card opens.
 //
 // Each value is the product's own as the build chose it (grades[].headline through material-facts.js productRows); a
@@ -17,7 +17,7 @@ import { esc, count, productsHref, jsonIsland } from '../html.js';
 import { fmtNumber, fmtBounded, dryingSpan } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { materialContext, productRows, indexDb, stated, productNameOrId, identity, isProduct, priceRows } from '../../js/ui/material-facts.js';
-import { andList, plural, lower } from '../../js/ui/material-words.js';
+import { andList, plural, lower, asPublishedWords } from '../../js/ui/material-words.js';
 import { mostDocumentedFirst } from '../../js/ui/product-order.js';
 import { documentShell, pageHead, tabsNav, BRAND, ICON } from '../shell.js';
 import { disp } from '../sections/masthead.js';
@@ -80,7 +80,8 @@ function columnsOf(c, rows, kinds) {
     if (!rows.some((r) => r.values[key])) { silent.push(lower(h.labels.plain)); return null; }
     return {
       key, label: label ?? h.labels.short, short: h.labels.short, title: h.labels.plain, unit: h.unit, dir: 'desc',
-      words: [`As published: ${h.direction ? 'orientation' : 'test load'} not stated`, '', `${h.labels.plain} not published`],
+      // A value set apart (D172): its test bar no document describes as printed, or a heat deflection with no stated load.
+      words: [`Set apart: ${asPublishedWords(h)}`, '', `${h.labels.plain} not published`],
       read: (r) => {
         const v = r.values[key];
         if (!v) return null;
@@ -97,7 +98,7 @@ function columnsOf(c, rows, kinds) {
     return {
       key: 'impact', label: h.labels.short, short: h.labels.short, title: h.labels.plain, unit: h.unit, dir: 'desc',
       // Izod in Charpy's place is a third group of its own, after the Charpy values shown as published.
-      words: ['As published: orientation not stated', `${o ? `${o.labels.plain}, not ranked with ${h.labels.short.split(' ')[0]}` : ''}`, 'Notched impact not published'],
+      words: [`Set apart: ${asPublishedWords(h)}`, `${o ? `${o.labels.plain}, not ranked with ${h.labels.short.split(' ')[0]}` : ''}`, 'Notched impact not published'],
       read: (r) => {
         const v = r.values[main] ?? r.values[other];
         if (!v) return null;
