@@ -1,6 +1,6 @@
 COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 104 | ☐ FAIL 43
-5 of the 152 materials meet these requirements
+STATUS ☑ PASS 5 | ☐ UNKNOWN 104 | ☐ FAIL 40
+5 of the 149 materials meet these requirements
 Flexible component template · UNKNOWN 104 left out: 2 one check away, 42 not enough data, 60 unlikely to meet
 Why the rest were excluded
 Clear requirements

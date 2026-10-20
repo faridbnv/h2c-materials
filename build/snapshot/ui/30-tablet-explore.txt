@@ -7,5 +7,5 @@ clipped cells:
   #lens table 3: 0 of 225
   #lens table 4: 0 of 450
   #lens table 5: 0 of 63
-  #lens table 6: 0 of 468
+  #lens table 6: 0 of 441
 hidden controls: 0

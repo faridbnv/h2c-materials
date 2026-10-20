@@ -1,6 +1,6 @@
 COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 147
-5 of the 152 materials meet these requirements
+STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 144
+5 of the 149 materials meet these requirements
 Why the rest were excluded
 Clear requirements
 Family: Nylon / Polyamide
@@ -88,8 +88,6 @@ PET Engineering
 4
 Support / Interface
 4
-Metal and Ceramic Sintering
-3
 Styrenics
 3
 Fluoropolymers

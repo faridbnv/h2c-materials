@@ -1103,8 +1103,4 @@ G169-01,M169,GREENTEC PRO CF,within,within,within,not-needed,requires-hardened,o
 G169-02,M169,HI-TEMP CF,within,within,within,unknown,unknown,required,chamber: family CN13
 G170-01,M170,Thermoplastic styrene block copolymer elastomer (TPS),within,within,within-low-end,unknown,unknown,required,
 G170-02,M170,Ultrafuse TPS 90A,within,within,unknown,unknown,unknown,not-needed,
-G171-01,M171,Mt 316L,within,within,within,unknown,requires-hardened,optional,
-G171-02,M171,Ultrafuse 316L,within,within,unknown,recommended,unknown,not-needed,
-G172-01,M172,SiC,within,within,within,unknown,requires-hardened,optional,
-G173-01,M173,Kerfil Aluminiumoxid (Al2O3),within,within,unknown,unknown,unknown,unknown,
 G174-01,M174,Crystal Flex,within,within,within,not-needed,unknown,unknown,

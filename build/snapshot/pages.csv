@@ -21,7 +21,7 @@ M030,ABS-ESD,materials/M030.html,,11,100,10,17,key-figures summary on-the-h2c am
 M031,ASA,materials/M031.html,,40,588,33,64,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,431,849,252.3,522.0,draft,ASA-CF; ASA-GF; ABS; PC-ABS; PC
 M032,ASA Aero,materials/M032.html,,4,61,4,9,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,187,115,128.3,78.8,draft,PLA Aero
 M033,ASA-CF,materials/M033.html,,17,191,15,31,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,294,367,206.4,232.0,draft,ASA; ASA-GF; ABS-CF; ABS-GF; PA12-CF
-M034,ASA-GF,materials/M034.html,,6,111,6,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,218,178,161.2,112.2,draft,ASA; ASA-CF; PETG-CF; ABS-CF; PA12-CF
+M034,ASA-GF,materials/M034.html,,6,111,6,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,218,178,161.1,112.2,draft,ASA; ASA-CF; PETG-CF; ABS-CF; PA12-CF
 M035,PC,materials/M035.html,,22,405,16,42,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,347,605,218.3,349.2,draft,PC-CF; PC-GF; ABS; ASA; PVDF
 M036,PC FR,,2 products,2,53,2,7,,,,,,,none,
 M037,PC-CF,materials/M037.html,,10,130,8,22,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,237,207,154.3,132.2,draft,PC; PC-ABS; PA12-CF; PET-CF; PA6-CF
@@ -146,8 +146,5 @@ M167,"TPE, maker-undisclosed elastomer",materials/M167.html,,5,28,2,6,key-figure
 M168,PLA blend,materials/M168.html,,9,97,5,19,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,120,200,114.3,124.1,draft,PLA; PETG; ABS; PCTG; PET
 M169,PLA blend-CF,,2 products,2,42,2,6,,,,,,,none,
 M170,TPS,materials/M170.html,,5,49,4,10,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,39,120,99.8,78.3,draft,"TPU 85A class and softer; TPU 95A class; TPC / TPEE; TPE, maker-undisclosed elastomer; TPU harder than 95A"
-M171,316L stainless steel sintering filament,,2 products and 1 measured value,2,1,2,4,,,,,,,none,
-M172,Silicon carbide sintering filament,,1 product and 1 measured value,1,1,1,2,,,,,,,none,
-M173,Alumina sintering filament,,1 product and 1 measured value,1,1,1,2,,,,,,,none,
 M174,SBC,,1 product and 9 measured values,1,9,1,3,,,,,,,none,
 M175,TPV,,1 product and 8 measured values,1,8,1,2,,,,,,,none,

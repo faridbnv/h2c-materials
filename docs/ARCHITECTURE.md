@@ -103,6 +103,7 @@ page opened from disk, from an unzipped release, reads and works as it does on t
 | `csv.js` | The canonical CSV format: parse, and write in the one form every table is kept in. |
 | `schema.js` | Check every table against `schema/tables/`: columns, types, missing states, patterns, vocabularies, uniqueness, references (including IDs inside lists and prose), canonical format and `data/manifest.json`. |
 | `load.js` / `source.js` | Read the tables into raw row objects, and (`source.js`) each file's SHA-256 for the audit record. No interpretation. |
+| `retired.js` | The dataset every stage reads: the tables without a material retired from it (Scope Retired) and the records filed under it, which stay in the tables (D174). An active grade on a retired material is an error. |
 | `registry.js` | The property registry: what each property and headline means, which materials it applies to (Applies to may test the material's columns and its polymer's Morphology), and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57), and the comparisons the drawer draws (`drawer_comparisons.csv`, checked by REGISTRY-COMPARISON; D139). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
 | `normalize/direction.js` | Thirteen spellings of build direction onto eleven canonical values (a source's own label, a ±45° raster and a YX bar get their own values; three spellings are unknown), and which may be compared with which. |
@@ -557,6 +558,9 @@ Assembles the relational runtime database, and does the one thing that matters m
 
 > **A number is read from its measurement, never typed a second time, and nobody selects it.**
 
+It reads the tables through `retired.js` first: a material retired from the dataset (Scope Retired, D174) and every
+record filed under it are not compiled, and the chamber stage and validate read the same tables.
+
 Each product's value for a headline is chosen by rule from its own measurements (`products.js`): an active numeric
 measurement of an allowed property, in the headline's unit, from a printed or unstated specimen (not a bar printed off
 the product's recipe, D95), not conditioned, not flagged physically implausible, not annealed where the product
@@ -921,7 +925,7 @@ again on 2026-10-17. Each first change keeps the page one file on GitHub Pages; 
 | The estimate stage | 14 s, and 85 s at twice the data on the owner's machine; 140 s at twice the data on CI's runner (2026-10-15) | not much past twice the data on CI, whose weekly trend job enforces the 150 s budget; CI builds it cold on every push | CI keeps the stage's result keyed by its inputs, as the local build cache does; the result is the same |
 | `verify:fast` | about a minute | at its 90 s budget | the import fixtures' build and the 23 tests that read `dist/db.json` |
 | The tables | 15,400 measurement rows and 1,180 grade rows (the active ones are counted in `build/snapshot/counts.md`) | tens of thousands of rows; the schema gate takes a second | nothing: CSV under a schema scales further than a person can review it |
-| The results table | 152 materials | about 400 | rows drawn as they scroll into view |
+| The results table | 149 materials | about 400 | rows drawn as they scroll into view |
 | Adding a data sheet | a batch at a time | bounded by reading, not code | the page-read path (IMPORTING.md), with the text reader as its check |
 
 ## Further reading
