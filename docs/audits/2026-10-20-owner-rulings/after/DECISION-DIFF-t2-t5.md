@@ -1,5 +1,7 @@
 # Decision diff: 7d8f8980c40d → b574a5b47e55
 
+> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of 7d8f8980c40d against b574a5b47e55; run it again for another pair.
+
 Across 138 cases: 847 material verdicts moved, 10 listings changed, 90 group changes, 210 rows now shown for another product, 202 product answers moved; the likely tag came or went 97 times (materials and products).
 
 ## Outdoor structural part / leave out

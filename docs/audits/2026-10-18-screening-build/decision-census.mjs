@@ -85,6 +85,7 @@ function diff(a, b) {
     rows.push({ caseName, template: after.template, counts: [before.counts, after.counts], moves });
   }
   lines.push(`# Decision diff: ${a.release} → ${b.release}`, '',
+    `> **Generated** (${new Date().toISOString().slice(0, 10)}) by \`decision-census.mjs --diff\`: the answers of ${a.release} against ${b.release}; run it again for another pair.`, '',
     `Across ${rows.length} cases: ${total.verdict} material verdicts moved, ${total.listed} listings changed, ${total.group} group changes, ${total.shown} rows now shown for another product, ${total.products} product answers moved; the likely tag came or went ${total.likely} times (materials and products).`, '');
   const fmtCounts = (c) => `pass ${c.pass}, unknown ${c.unknown} (hidden ${c.screened}), fail ${c.fail}`;
   for (const r of rows) {
