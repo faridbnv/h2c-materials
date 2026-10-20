@@ -1207,8 +1207,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | eSUN |  | ESUN;Shenzhen Esun Industrial;eSun |
 | Eumakers |  |  |
 | Extrudr | Austrian maker; the DuraPro, GreenTEC, Flex and XPETG lines are its brands, not separate makers. | EXTRUDR;extrudr;FD3D GmbH;Extrudr FD3D |
-| Fabru | Fabru AG, whose filament brand is purefil. | Fabru / purefil;purefil;Purefil |
-| Fabru / purefil | Swiss maker; sells as purefil and as Fabru. | purefil;Purefil;Fabru;fabru;purefil GmbH |
+| Fabru | Fabru AG, Swiss maker, whose filament brand is purefil; it sells as purefil and as Fabru. | Fabru / purefil;purefil;Purefil;fabru;purefil GmbH |
 | Fiberlogy | Polish maker (Fiberlab S.A., Brzezie); sells under the Fiberlogy name. | Fiberlab;Fiberlab S.A.;FIBERLOGY;fiberlogy;Fioerlogy |
 | Filamatrix |  |  |
 | Filament2Print | Spanish shop (DATIVIC S.L.); its own range is sold as F2P, and the sheets it hosts for other makers are theirs (R074). | F2P;filament2print;DATIVIC;DATIVIC S.L. |

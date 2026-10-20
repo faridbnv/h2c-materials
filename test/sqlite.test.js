@@ -145,7 +145,7 @@ test('every line a proposal skipped is a fact, and every fact is a line its prop
   }
 });
 
-test('a fact carries the source whose recorded digest is its document\'s, and the source\'s own grades; a filed copy carries none', () => {
+test('a fact carries the source whose recorded digest is its document\'s, and the source\'s own grades; a filed copy carries none', async () => {
   // The ledger also registers a later revision or another edition under the source of a product already held: those
   // bytes are not the recorded sheet, so their lines are no fact of it (OPEN-PROBLEMS §34.3), and say where they were filed.
   const registered = new Map();
@@ -153,8 +153,14 @@ test('a fact carries the source whose recorded digest is its document\'s, and th
     if (r.sha256 && r.registered_source_id) registered.set(r.sha256, r.registered_source_id);
   }
   const bySha = new Map(readCsv(join(root, 'data/tables/sources.csv')).records.map((x) => [x.values.SHA256, x.values.SourceID]));
+  // A copy whose text layer prints the recorded sheet's lines is the sheet in other bytes, and keeps its source (F3).
+  const { cachedText } = await import('../scripts/lib/pdf-text.mjs');
+  const text = (sha) => cachedText(sha)?.pages.map((pg) => pg.lines.map((l) => l.text).join('\n')).join('\f') ?? null;
+  const recordedOf = new Map(readCsv(join(root, 'data/tables/sources.csv')).records.map((x) => [x.values.SourceID, x.values.SHA256]));
   for (const f of all('SELECT sha256, sourceid, filed_under FROM source_facts')) {
-    const expected = bySha.get(f.sha256) ?? null;
+    let expected = bySha.get(f.sha256) ?? null;
+    const filed = registered.get(f.sha256);
+    if (!expected && filed && f.sourceid === filed && text(f.sha256) && text(f.sha256) === text(recordedOf.get(filed))) expected = filed;
     if (f.sourceid !== expected) assert.fail(`a fact on ${f.sha256.slice(0, 16)} carries ${f.sourceid}; the source that records its digest is ${expected}`);
     if (f.filed_under && expected) assert.fail(`a fact on ${f.sha256.slice(0, 16)} names ${f.filed_under} as filed under, though its digest is ${expected}'s`);
     if (!expected && registered.has(f.sha256) && !f.filed_under) assert.fail(`a fact on ${f.sha256.slice(0, 16)}, which the ledger filed under ${registered.get(f.sha256)}, does not say so`);

@@ -92,7 +92,8 @@ test('a number printed inside a name the quote holds is on the page; a code\'s d
   assert.ok(presence(named, 1, { numbers: ['638'], quote: 'Tensile Strength ASTM D638' }).flags.includes('number-not-on-page:638'));
   assert.ok(presence(named, 1, { numbers: ['94'], quote: 'Flammability UL94 V0' }).flags.includes('number-not-on-page:94'));
   assert.deepEqual(nameNumbers('H2C 10x8x4mm TPU 95A V2.0 ULTEM9085 x4'), [], 'digits a letter follows, a decimal, a lower-case run and a long word are no name');
-  assert.deepEqual(nameNumbers('Fiberon PA12-CF10, PCTG+GF10, [PA12+GF30]'), ['12', '10', '10', '12', '30']);
+  assert.deepEqual(nameNumbers('Fiberon PA12-CF10, PCTG+GF10, [PA12+GF30]'), ['10', '10', '30'], 'a filler code carries its load; PA12 is the polymer');
+  assert.deepEqual(nameNumbers('PA612 T16 F900 HG100 PETG-rCF08'), ['08'], 'a polymer, a nozzle or a printer is no filler code');
   assert.deepEqual(presence(doc, 1, { numbers: ['38'], quote: 'Tensile Strength (X-Y) ISO 527 38 ± 4 MPa' }).inName, [], 'a number printed whole rests on no name');
   // Through the reconciler: borne out by the page, so a figure a name gives waits for no second reading, and it says what it rests on.
   const withFibre = { ...tables, properties: [...tables.properties, { Property: 'Fibre content', Units: '%' }] };

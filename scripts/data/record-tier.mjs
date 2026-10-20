@@ -151,6 +151,14 @@ export function propertyNamer(properties) {
   };
 }
 
+/** Two cached documents whose text layers print the same lines, page by page: other bytes, the same sheet. */
+function sameText(a, b) {
+  if (!a || !b) return false;
+  const lines = (sha) => cachedText(sha)?.pages.map((pg) => pg.lines.map((l) => l.text).join('\n')).join('\f') ?? null;
+  const x = lines(a);
+  return x != null && x.length > 0 && x === lines(b);
+}
+
 /**
  * The documents and the facts, from the committed files alone (no cache): { documents: Map sha -> row, facts: [] }.
  */
@@ -168,6 +176,7 @@ export function readRecordTier(root) {
       grades: rows(join(root, 'data/tables/grades.csv')),
       properties: rows(join(root, 'data/tables/properties.csv')),
       proposals: proposals(),
+      sameText,
     }),
     proposals: files.length,
   };
@@ -177,7 +186,7 @@ export function readRecordTier(root) {
  * The documents and the facts from their inputs, as rows and parsed proposals ({ rel, proposal }, any iterable):
  * { documents: Map sha -> row, facts: [] }. readRecordTier reads them from a checkout; a test hands its own.
  */
-export function recordTierOf({ ledger, sources, grades, properties, proposals }) {
+export function recordTierOf({ ledger, sources, grades, properties, proposals, sameText = () => false }) {
   const nameProperty = propertyNamer(properties);
 
   // A digest can stand on several ledger rows (the same bytes at two addresses). The one registered as a source
@@ -198,8 +207,12 @@ export function recordTierOf({ ledger, sources, grades, properties, proposals })
   // does not print, §34.3). The source it was filed under is kept, named as such, and decides nothing here.
   const addDocument = (sha, row, fallback = {}) => {
     if (documents.has(sha)) return;
-    const source = sourceBySha.get(sha);
     const filed = present(row?.registered_source_id);
+    // A copy whose text layer prints the recorded sheet's lines is that sheet in other bytes (a re-saved PDF, a
+    // retailer's copy): its facts are the source's (the clean-up round's review, F3: 22 of 160 filed copies, R-FIBERON-
+    // PETCF17-TDS's among them).
+    const recorded = filed ? sources.find((s) => s.SourceID === filed) : null;
+    const source = sourceBySha.get(sha) ?? (recorded && sameText(sha, recorded.SHA256) ? recorded : null);
     documents.set(sha, {
       sha256: sha,
       doc_key: present(row?.doc_key),

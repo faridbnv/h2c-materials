@@ -1,4 +1,4 @@
-# Decision diff: ac7f27f113d4 → f8f62309ca3b
+# Decision diff: ac7f27f113d4 → 7d8f8980c40d
 
 > **Generated** (2026-10-19): written by `decision-census.mjs --diff` from the answers of main 53f266ec (the research intake's close, release ac7f27f113d4) and of the clean-up round, both on this branch's code. Run it again for the current state.
 

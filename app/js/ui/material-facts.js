@@ -336,7 +336,8 @@ export function measurementFacts(x, c, { shared = new Map(), compact = false } =
     notes: shared.get('notes') && String(x.notes ?? '').trim() === shared.get('notes') ? null : x.notes,
     // A qualitative result ("No break") is what the source said, so it is shown in its own words.
     value: x.numeric ? { kind: 'number' } : x.qualitative && x.raw?.value ? { kind: 'words', text: x.raw.value } : { kind: 'status', status: x.dataStatus },
-    operator: x.operator === '>' || x.operator === '<' ? x.operator : null,
+    // An inclusive bound prints as the sheet does (PC-Max's "≤ 0.1%", m459); it was dropped when only < and > were kept.
+    operator: { '>': '>', '<': '<', '>=': '≥', '<=': '≤' }[x.operator] ?? null,
     source: c.sourceById.get(x.sourceId),
     product: productName(c.gradeById.get(x.gradeId)) || null,
   };

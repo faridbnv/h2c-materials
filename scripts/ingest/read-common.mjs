@@ -56,11 +56,15 @@ export function numbersIn(text) {
 // letter follows ("H2C", "10x8x4mm", "95A"), a decimal ("V2.0") and a lower-case run ("x4") are not names, and a
 // word of five letters or more ("ULTEM9085") is longer than a code.
 const NAME_NUMBER = /(?<![\p{L}\p{N}])(?=\p{L}{0,3}\p{Lu})\p{L}{1,4}(\d{1,3})(?![\p{L}\p{N}]|[.,]\d)/gu;
-/** The names in a text that carry a number, as printed: "Fiberon PA12-CF10" gives { name: 'PA12', number: '12' } and CF10's. */
+/** The filler codes in a text that carry a number, as printed: "Fiberon PA12-CF10" gives { name: 'CF10', number: '10' }. */
+// Only a filler's code carries its load: "PA12", "PA612", "T16", "F900" and "HG100" are a polymer's or a printer's name,
+// and a fibre reading of 12 % quoting "PA12-CF" must not be borne out by the 12 of PA12 (the clean-up round's review, F4).
+const FILLER_CODE = /^(?:r?CF|r?GF|AF|KF|GK|GB|GS|MF|NF|BF|CS)$/;
 export function numberedNames(text) {
-  return [...String(text ?? '').replace(STANDARD, ' ').matchAll(NAME_NUMBER)].map((m) => ({ name: m[0], number: m[1] }));
+  return [...String(text ?? '').replace(STANDARD, ' ').matchAll(NAME_NUMBER)].map((m) => ({ name: m[0], number: m[1] }))
+    .filter((n) => FILLER_CODE.test(n.name.slice(0, n.name.length - n.number.length)));
 }
-/** The numbers the names in a text carry, as printed: "Fiberon PA12-CF10" gives "12" and "10". */
+/** The numbers the filler codes in a text carry, as printed: "Fiberon PA12-CF10" gives "10". */
 export const nameNumbers = (text) => numberedNames(text).map((n) => n.number);
 
 /** Two printed numbers agree when they are equal at the coarser of their two precisions. */

@@ -34,7 +34,7 @@ a back-test):
 
 | Item | What changed | Measured |
 |---|---|---|
-| Later copies read as their source (§34.3) | The record tier keeps a cached document under a source only where `sources.csv` records its digest; a copy filed under another source's name says so (`filed_under`) | 4,266 facts on 145 documents no longer carry another document's source |
+| Later copies read as their source (§34.3) | The record tier keeps a cached document under a source only where `sources.csv` records its digest; a copy filed under another source's name says so (`filed_under`) | 141 copies (5,279 lines) no longer carry the sheet's source; 22 copies that print the sheet's text in other bytes stay its |
 | LEHVOSS's split rows (§34.7) | An orientation code ("XY") is not a word when the reader joins a split row | 24 of 24 cells (19 before); every cached document re-read: only that sheet differs, +5 values, none lost |
 | A number inside a name, "approximately" (§38.3) | The reconciler confirms a figure a name prints where the reading quotes the name; the proposals record an approximate composition from its number, a name's figure as nominal | The fibre stage's readings: visual-only 20 → 3, second reads 15 → 2, held as claims 4 → 0 |
 
@@ -48,11 +48,20 @@ Built by two Claude Opus agents, one on the material pages and one on the select
 | Where | What changed for a reader |
 |---|---|
 | Material pages (§37.17 to §37.19, §38.3) | PETG's layers figure names the products its Z median counts without a share; a twin's mark says whose sheet it reads; a melting point only for a polymer that melts (PETG's "190 °C" was a median of processing temperatures); one Z label, "Z (ZX)"; long product cards fold (PEKK's 5,300 → about 890 px); the Conditions cell shows the standards the build reads; an open card stacks above the sticky head; a condition a group shares said once; "64 products, 29 in the median"; Shore A and Shore D drawn; no overlap from 390 to 1,440 px |
-| Selector (§37.20, §37.21, §37.8, §19, §38.10) | The two H2C pills say what each checks; one wording for counts and log scales (C49); the table's column heads say "median · range" and the drawer's median explanation adds up; a long tag no longer breaks a product's head; three table rows on the cold page at 1280 × 800; Parallel lines with "↑ better", real ticks, the line's products' spread and far outliers parked (C45 to C47); named fillers filtered and drawn by name (36 undisclosed → 18); the first candidate in a phone's first screen; a withheld estimate says why where it would have been |
+| Selector (§37.20, §37.21, §37.8, §19, §38.10) | The two H2C pills say what each checks; one wording for counts and log scales (C49); the table's column heads say "median · range" and the drawer's median explanation adds up; a long tag no longer breaks a product's head; three table rows on the cold page at 1280 × 800; Parallel lines with "↑ better", real ticks, the line's products' spread and far outliers parked (C45 to C47); named fillers filtered and drawn by name (36 undisclosed → 17); the first candidate in a phone's first screen; a withheld estimate says why where it would have been |
 
 Left: C48 (Compare in the pages' glyph) and C30 (one search-field style); a shared sheet's value drawn once (it would
 leave a median counting a product the figure does not show) and QIDI PETG RAPIDO's Z bar (D143), both the owner's; the
 selector layout calls §37.20 names as the owner's.
+
+## Review
+
+One independent review (Claude Opus) found the round's moves right and these to fix, all fixed before the push (m461
+and the code): the two POM densities CL02 now reads, accepted with their reasons (F1); the drawer printing PC-Max's
+inclusive bound without its sign (F2); the record tier detaching 22 copies that print their sheet's text (F3); the
+name rule reading "PA12" or "F900" as a filler's load (F4); one answer moved to Benefits that is a limitation (F5); four
+"Drybox" cells (F6); a second Fabru row in the manufacturers vocabulary (F7); two document wordings (F8); a missing layer
+height and the Flashforge locators' page (F9).
 
 ## What moved
 

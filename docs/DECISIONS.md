@@ -5738,10 +5738,11 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
 ([the round](audits/2026-10-19-clean-up/README.md)).*
 
 - **The record tier** (`scripts/data/record-tier.mjs`). A cached document counts as a source's only where `sources.csv`
-  records its digest, the rule `audit:reader-recall` already follows. A copy the ledger filed under a source that records
-  other bytes keeps no source or grades in `documents`, `source_facts` and `documents_fts`, and names the source it was
-  filed under (`filed_under`). 4,266 facts on 145 documents had carried another document's source; none does. The worst
-  was Stratasys' ULTEM 9085 sheet filed under ULTEM 1010's source (1,086 facts). The ledger is unchanged.
+  records its digest, the rule `audit:reader-recall` already follows, or where its text layer prints the recorded sheet's
+  lines in other bytes (a re-saved PDF, a retailer's copy: 22 copies, kept as the sheet's after the round's review). A
+  copy the ledger filed under a source whose text it does not print keeps no source or grades in `documents`,
+  `source_facts` and `documents_fts`, and names the source it was filed under (`filed_under`): 141 copies, 5,279 lines.
+  The worst was Stratasys' ULTEM 9085 sheet filed under ULTEM 1010's source (1,086 facts). The ledger is unchanged.
 - **The sheet reader** (`scripts/ingest/propose.mjs`, `isRowPiece`). A two-axis orientation code (XY, ZX …) is not a word
   when the reader decides whether a lower line is a sentence or the rest of a split row. *Back-test:* every one of the
   2,912 cached documents read by the old reader and the new: one sheet differs (LEHVOSS's printed-specimen sheet for
@@ -5749,9 +5750,9 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
   parity census moves colorFabb from 323 to 326 of 413 and no other maker; `audit:reader-recall` finds five more items,
   each a row the tables already hold.
 - **The reconciler and the proposals** (`read-common.mjs`, `read-reconcile.mjs`, `read-proposals.mjs`). A number printed
-  inside a name (a run of one to four letters, one capital at least, then one to three digits ending the token; never a
-  standard, "H2C", "95A" or "V2.0") confirms a reading only where the reading's own quote holds that name, and exactly
-  ("CF15" is not 15.4). A composition (Fibre content) stated "approximately" is recorded from its number with the words
+  inside a filler's code ("CF15", "GF30", "rCF08"; never a polymer's, a nozzle's or a printer's name such as "PA12",
+  "T16" or "F900", and never a standard) confirms a reading only where the reading's own quote holds that code, and
+  exactly ("CF15" is not 15.4). A composition (Fibre content) stated "approximately" is recorded from its number with the words
   in its note; one the page prints only inside a name is the name's rating, Data status "Nominal from product
   designation" (D150's rule, which the fibre stage's reviewer had applied by hand). Re-running that stage's 177 fibre
   readings: visual-only readings 20 to 3, second-read tasks 15 to 2, claims held 4 to 0.

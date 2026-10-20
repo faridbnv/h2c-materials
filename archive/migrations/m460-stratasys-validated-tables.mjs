@@ -11,9 +11,9 @@
 // deviations"). Every quote is checked on the cached page; a re-run is a no-op.
 //
 //   node scripts/migrate/m460-stratasys-validated-tables.mjs [--dry-run]
-import { openTables } from '../data/table-io.mjs';
-import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
-import { addValue } from '../lib/source-edits.mjs';
+import { openTables } from '../../scripts/data/table-io.mjs';
+import { onCachedSheet } from '../../scripts/lib/read-proposals-apply.mjs';
+import { addValue } from '../../scripts/lib/source-edits.mjs';
 
 const MIGRATION = 'm460';
 const t = openTables();

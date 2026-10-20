@@ -25,11 +25,11 @@
 // Each edit names the value it replaces and every quoted line is checked on its cached page; a re-run is a no-op.
 //
 //   node scripts/migrate/m459-clean-up-names-statements-settings.mjs [--dry-run]
-import { openTables, projectRoot } from '../data/table-io.mjs';
-import { onCachedSheet } from '../lib/read-proposals-apply.mjs';
-import { retype } from '../lib/profile-settings.mjs';
-import { withNote, settleFindings } from '../lib/source-edits.mjs';
-import { recountGrades } from '../data/records.mjs';
+import { openTables, projectRoot } from '../../scripts/data/table-io.mjs';
+import { onCachedSheet } from '../../scripts/lib/read-proposals-apply.mjs';
+import { retype } from '../../scripts/lib/profile-settings.mjs';
+import { withNote, settleFindings } from '../../scripts/lib/source-edits.mjs';
+import { recountGrades } from '../../scripts/data/records.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 

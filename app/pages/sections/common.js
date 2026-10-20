@@ -164,7 +164,7 @@ export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes
       + `<span class="cv"><span class="cv-n">${esc(`${sign(v)}${fmt(v.value, h.unit)}`)}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
   };
   // A published bound keeps its sign here as on the plate and in the drawer ("> 200 °C"), from the value's record.
-  const sign = (v) => { const op = c.msById?.get(v.measurementId)?.operator; return op && /^[<>≤≥]=?$/.test(op) ? `${op} ` : ''; };
+  const sign = (v) => { const op = c.msById?.get(v.measurementId)?.operator; return op && /^[<>≤≥]=?$/.test(op) ? `${{ '>=': '≥', '<=': '≤' }[op] ?? op} ` : ''; };
   const shared = live.some((h) => all.some((g) => twinOf(g.headline?.[h.key])));
   const foot = shared ? `<p class="sec-note">${esc(SHARED_NOTE)}</p>` : '';
   if (all.length <= ACROSS_MAX) {
