@@ -169,9 +169,6 @@ M167,"TPE, maker-undisclosed elastomer",within,within,within,within,requires-har
 M168,PLA blend,within,within,within,within,requires-hardened,required
 M169,PLA blend-CF,within,within,within,within,requires-hardened,required
 M170,TPS,within,within,within,within-low-end,unknown,required
-M171,316L stainless steel sintering filament,excluded,within,within,within,requires-hardened,optional
-M172,Silicon carbide sintering filament,excluded,within,within,within,requires-hardened,optional
-M173,Alumina sintering filament,excluded,within,within,unknown,unknown,unknown
 M174,SBC,within,within,within,within,unknown,unknown
 M175,TPV,within,within,within,within-low-end,unknown,required
 M176,PCL-EC,within,within,within,unknown,requires-hardened,unknown

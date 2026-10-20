@@ -40,6 +40,8 @@ import { sha256, numberOnPage, cachedText, valueInEvidence, countInEvidence } fr
 import { documentPath } from './extract.mjs';
 import { recountGrades } from '../data/records.mjs';
 import { testTemperatureCell } from '../../build/src/typed-values.js';
+import { parseDrying } from '../../build/src/normalize/process.js';
+import { diametersIn, diameterCell, documentLines } from '../lib/diameters.mjs';
 
 const SEP = String.fromCharCode(0);
 // The numbers that must be printed on the page the row cites. Test load MPa is not among them: it is typed from
@@ -307,7 +309,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       if (existing) { gradeIds[grade.key] = existing.GradeID; continue; }
       const id = nextId('grades', t.rows('grades').map((g) => g.GradeID), { materialId: grade.row.MaterialID });
       gradeIds[grade.key] = id;
-      t.append('grades', { GradeID: id, ...grade.row });
+      // A proposal carries no Diameter (propose.mjs is frozen, D138): it is what the document the grade comes from prints,
+      // read as m471 read every grade's documents (D175).
+      const cached = proposal.document?.sha256 ? cachedText(proposal.document.sha256) : null;
+      t.append('grades', { GradeID: id, Diameter: diameterCell(cached ? [diametersIn(documentLines(cached))] : []), ...grade.row });
       touchedMaterials.add(grade.row.MaterialID);
       note(`grade ${id} ${grade.row.Manufacturer} ${grade.row['Product name']}`);
     }
@@ -348,7 +353,11 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       if (t.rows('profiles').some((x) => x.SourceID === p.row.SourceID && x.Locator === p.row.Locator)) continue;
       const id = nextId('profiles', t.rows('profiles').map((x) => x.ProfileID));
       const gradeId = gradeOf(p.gradeKey, p.row.GradeID);
-      t.append('profiles', { ProfileID: id, ...p.row, GradeID: gradeId, MaterialID: materialOf(gradeId, p.row.MaterialID) });
+      // A proposal carries no drying range's lower ends (propose.mjs is frozen, D138): they are the parser's reading of the
+      // row's own Drying cell, as its other drying columns are (D175).
+      const dry = parseDrying(p.row.Drying);
+      const lowerEnds = { 'Drying min °C': dry.tempMinC == null ? 'Not applicable' : String(dry.tempMinC), 'Drying min hours': dry.hoursMin == null ? 'Not applicable' : String(dry.hoursMin) };
+      t.append('profiles', { ProfileID: id, ...lowerEnds, ...p.row, GradeID: gradeId, MaterialID: materialOf(gradeId, p.row.MaterialID) });
       for (const n of p.notes ?? []) if (!t.rows('profile_notes').some((x) => x.ProfileID === id && x.Topic === n.Topic)) t.append('profile_notes', { ProfileID: id, ...n });
       note(`profile ${id}`);
     }

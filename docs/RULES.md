@@ -35,7 +35,7 @@ what it means and how to fix it.
 | `PARSE-REVIEW-SCOPE` | error | A Parse review does not name the typed columns it explains, or names a column its row does not have (D115). | Open the review with "Fields: <columns>." naming only the typed columns it explains, or "Fields: none." |
 | `PARSE-REVIEW-STALE` | error | A print profile's or a measurement's Parse review names a typed column that now agrees with the parser: the review explains a difference that is gone, and would silence the next one (D115). | Take the column out of the review's Fields, or write "Fields: none." with what the review still records. |
 | `PROCESS-WINDOW-IMPLAUSIBLE` | warn | A nozzle, bed or chamber cell states a temperature outside the plausible window of its axis; it is read as stated, never dropped (D141). | Check the cell against its page: correct the cell's words if they were transcribed wrong, or hold a reviewed window in the typed columns with a Parse review naming them. |
-| `PARSE-TEXT-BOUNDS` | error | A typed temperature endpoint is not a number its own raw cell states; a Parse review cannot excuse it (D115). | Type the endpoint the cell states, or Not published. |
+| `PARSE-TEXT-BOUNDS` | error | A typed temperature endpoint is not a number its own raw cell states, or a drying range's lower end is not below its upper end; a Parse review cannot excuse it (D115, D175). | Type the endpoint the cell states, or Not published (Not applicable for a drying range's lower end where the cell prints no range). |
 | `OPEN-BOUND-WINDOW` | error | An open-bound process temperature ("> 80 °C", "up to 60 °C") is typed as a single point. | Leave the unstated end Not published. |
 | `HEADLINE-KEY-UNKNOWN` | error | headlines.csv pins a value for a key that is not a measurement headline. | Use a key from headline_definitions.csv. |
 | `HEADLINE-SELECTION-MULTIPLE` | error | One product has two pinned values for one headline in headlines.csv. | Keep one pin: a product has one value per headline. |
@@ -177,6 +177,8 @@ what it means and how to fix it.
 | Code | Level | Means | Fix |
 |---|---|---|---|
 | `FAMILY-ENTRIES` | info | Canonical names that are family entries, not candidates. | Informational (D44). |
+| `MATERIAL-RETIRED` | info | A material retired from the dataset (Scope Retired): its row and its records are kept in the tables and left out of the build, so no row, search result, page, export or count holds it (D174). | Informational. To bring it back, set its Scope and its grades' Status again, in a migration. |
+| `MATERIAL-RETIRED-ACTIVE` | error | A material retired from the dataset (Scope Retired) still has an active grade: a product filed there would vanish from the build unseen (D174). | Retire the grade (npm run data:retire -- grade <GradeID>), or file the product under a material in the dataset, or bring the material back by its Scope. |
 | `NO-MEASUREMENTS` | warn | Materials with no property measurements at all. | Research a grade with published data. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
 
 ## Audit

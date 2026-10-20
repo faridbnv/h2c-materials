@@ -54,7 +54,8 @@ export function renderCompare(host, state, actions) {
   const gradeById = new Map(db.grades.map((g) => [g.id, g]));
   const passingProducts = (m) => (tested ? (evalOf(m)?.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => gradeById.get(p.gradeId)).filter(Boolean) : []);
   const resultChip = (m) => {
-    if (!tested) return '<span class="chip chip-neutral" title="No requirement is set">not tested</span>';
+    // Before any requirement there is no result to show (D174): the name stands alone.
+    if (!tested) return '';
     const e = evalOf(m);
     if (!e) return '';
     // Why it failed or could not be checked, one press away rather than in a title.
@@ -223,7 +224,7 @@ export function renderCompare(host, state, actions) {
   };
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
-      <div><b>Requirements:</b> ${hard.length ? namedOnce(hard).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
+      <div><b>Requirements:</b> ${hard.length ? namedOnce(hard).join('; ') : 'none set yet, so no result is shown'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
       <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? '; estimates and resin data on, which never pass a material and hide one only where resin data reports its polymer attacked or the material has no product on record' : ''}.
         Release ${esc(db.meta.release?.id ?? 'unidentified')}, data of ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. A material's values span its products: check the exact
         product in its Products tab before you buy or print.</div>
@@ -244,7 +245,7 @@ export function renderCompare(host, state, actions) {
   host.innerHTML = `
     ${context}
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
-      <span class="fine">${pinned.length} shortlisted, each with its result against the requirements above:</span>
+      <span class="fine">${pinned.length} shortlisted${tested ? ', each with its result against the requirements above' : ''}:</span>
       ${pinned.map((m) => `<span class="pin">${esc(m.name)} ${resultChip(m)}${rankTag(m)}</span>`).join('')}
       ${anchor ? `<span class="pin anchor">${esc(anchor.name)} · baseline</span>` : ''}
       <label class="baseline-pick" title="Adds a familiar material as a reference bar.">

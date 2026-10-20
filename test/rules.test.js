@@ -83,7 +83,9 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // Stage 3d of the screening build took three of them away: a PLA or PET bar CV05 demotes floors nothing through CV01, so
   // Prusament rPLA's pair, both LEDGER-DISAGREE states and Raise3D's contradiction, each on an undescribed PLA or PET bar's
   // HDT at 1.8 MPa, no longer occur. CONVERSION-PAIRS stays for Stratasys Nylon-CF10's two bars, accepted.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'MATERIAL-RETIRED', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  // MATERIAL-RETIRED arrived with the owner's rulings (D174, m468): the three sintering filaments left the dataset, each
+  // named at info with the records the build leaves out.
 });
 
 test('provoked errors carry the code a reader looks up', () => {

@@ -226,7 +226,8 @@ npm run ingest:read-proposals -- --run docs/audits/<round>/reconcile/r1 --out do
   name's rating, Data status Nominal from product designation (D150), and any other property is held. A composition
   stated as approximate is proposed from its number, with the word in its note (2026-10-19, OPEN-PROBLEMS §38.3).
 - **Readings an importer should expect from gap round 2.** `matchProduct` reads a name written together as one name (m360),
-  and the batch writer's product key keeps a "+" as part of a name (m364). `parseDrying` types Drying need and Drying hours open (D127). `readAbrasion`
+  and the batch writer's product key keeps a "+" as part of a name (m364). `parseDrying` types Drying need and Drying hours open (D127), and a printed range's lower ends, Drying min °C and Drying
+  min hours, which the batch writer fills from the row's own Drying cell (D175). `readAbrasion`
   answers the hardened-nozzle question from the nozzle lines when the abrasion line is silent (D129). A dry box is a
   Storage humidity note, never the Drying cell (D120, D129).
 - **A migration applies them.** `applyProposals` (`scripts/lib/read-proposals-apply.mjs`) checks every quote on the

@@ -32,7 +32,7 @@ G001-32,M001,PLA TOUGH,within,within,within,not-needed,no-special-concern,option
 G001-33,M001,PLA NX2 MATT,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-34,M001,PLA BASIC,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-35,M001,PLA HIGH-SPEED,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
-G001-36,M001,PLA Lite,within,within,within,unknown,unknown,required,
+G001-36,M001,PLA Lite,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-37,M001,PLA,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-38,M001,High Speed PLA,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-39,M001,PLA-METALLIC PLA,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
@@ -94,7 +94,7 @@ G001-98,M001,PLA EF 3D850,within,within,within,not-needed,no-special-concern,opt
 G001-99,M001,PLA VX,within,within,within,not-needed,no-special-concern,optional,enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-100,M001,Bulk PLA,within,within,within,not-needed,no-special-concern,not-needed,hardenedNozzle: guide PG016
 G001-101,M001,Volcano PLA 150C,within,within,within,not-needed,no-special-concern,not-needed,hardenedNozzle: guide PG016
-G001-102,M001,Matt PLA,within,unknown,unknown,unknown,unknown,unknown,
+G001-102,M001,Matt PLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-103,M001,PLA,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016
 G001-104,M001,eMarble,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-105,M001,ePLA ST,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
@@ -102,14 +102,14 @@ G001-106,M001,PLA Matte,within,within,within,not-needed,no-special-concern,optio
 G001-107,M001,PLA Matte,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-108,M001,Buddy3D PLA,within,within,within,not-needed,no-special-concern,not-needed,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-109,M001,APLA,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
-G001-111,M001,PLA Classic,within,within,within,unknown,unknown,required,
+G001-111,M001,PLA Classic,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-112,M001,PLA Meta,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-113,M001,Translucent / Sparkly (HTPLA),within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-114,M001,PLA,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-115,M001,Tough PLA,within,within,within,not-needed,no-special-concern,required,chamber: twin G001-16; enclosure: twin G001-16; hardenedNozzle: guide PG016; drying: twin G001-55; anneal: twin G001-16
 G001-116,M001,PLA,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-117,M001,Hyper-PLA RFID,within,within,within,not-needed,no-special-concern,optional,enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
-G001-118,M001,PLA Matte (HS),within,within,unknown,unknown,unknown,unknown,
+G001-118,M001,PLA Matte (HS),within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-119,M001,ecoPLA Sparkling,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-120,M001,magicPLA,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-121,M001,PLA Basic,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
@@ -130,11 +130,11 @@ G001-136,M001,BronzeFill,within,within,unknown,unknown,unknown,required,
 G001-137,M001,steelFill,within,within,unknown,unknown,requires-hardened,required,
 G001-138,M001,Magnetic Iron PLA,within,within,unknown,unknown,unknown,unknown,
 G001-139,M001,"Brass Fill, Bronze Fill, Copper Fill HTPLA",within,within,unknown,unknown,unknown,unknown,
-G001-140,M001,PLA-Lite,within,within,within,not-needed,unknown,required,
+G001-140,M001,PLA-Lite,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
 G001-141,M001,PLA Nature,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-143,M001,PLA+2.0,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-144,M001,Prusament PLA by Prusa Polymers,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
-G001-145,M001,High Speed Matte PLA,within,within,within,unknown,unknown,required,
+G001-145,M001,High Speed Matte PLA,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-146,M001,PLA Clear,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
 G001-147,M001,PLA Thermoactive,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-148,M001,PolyLite CosPLA Version B,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
@@ -176,12 +176,12 @@ G001-184,M001,PLA Purifier,within,within,unknown,unknown,unknown,unknown,
 G001-185,M001,R PLA,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
 G001-186,M001,HS PLA CLEAR,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
 G001-187,M001,MATTE PLA,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
-G001-188,M001,PLA,within,within,within,not-needed,unknown,unknown,
+G001-188,M001,PLA,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
 G001-189,M001,rPLA,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-190,M001,MagicFil Thermo PLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-191,M001,Standard PLA,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
 G001-192,M001,PLA Basic,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
-G001-193,M001,eTwinkling,within,within,unknown,unknown,unknown,unknown,
+G001-193,M001,eTwinkling,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-194,M001,ReForm - rPLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-195,M001,Modified PLA,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-196,M001,HT-PLA,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
@@ -348,7 +348,7 @@ G020-34,M020,PETG,within,within,within-low-end,not-needed,no-special-concern,req
 G020-35,M020,PETG+,within,within,within,not-needed,no-special-concern,required,chamber: guide PG017; enclosure: guide PG017; hardenedNozzle: guide PG017
 G020-36,M020,Pro PETG,within,within,within,not-needed,no-special-concern,required,nozzle: guide PG017; bed: guide PG017; chamber: guide PG017; enclosure: guide PG017; hardenedNozzle: guide PG017; drying: guide PG017
 G020-37,M020,PETG Basic,within,within,within,not-needed,no-special-concern,required,chamber: guide PG017; enclosure: guide PG017; hardenedNozzle: guide PG017
-G020-38,M020,PETG-Matte,within,within,unknown,unknown,unknown,required,
+G020-38,M020,PETG-Matte,within,within,within,not-needed,no-special-concern,required,chamber: guide PG017; enclosure: guide PG017; hardenedNozzle: guide PG017
 G020-39,M020,PETG,within,within,within,not-needed,no-special-concern,optional,enclosure: guide PG017; hardenedNozzle: guide PG017
 G020-40,M020,Bulk PETG,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG017
 G020-41,M020,HDglass,within,within,unknown,recommended,no-special-concern,required,bed: twin G020-62; chamber: twin G020-62; enclosure: twin G020-62; hardenedNozzle: guide PG017; drying: guide PG017
@@ -1103,10 +1103,6 @@ G169-01,M169,GREENTEC PRO CF,within,within,within,not-needed,requires-hardened,o
 G169-02,M169,HI-TEMP CF,within,within,within,unknown,unknown,required,chamber: family CN13
 G170-01,M170,Thermoplastic styrene block copolymer elastomer (TPS),within,within,within-low-end,unknown,unknown,required,
 G170-02,M170,Ultrafuse TPS 90A,within,within,unknown,unknown,unknown,not-needed,
-G171-01,M171,Mt 316L,within,within,within,unknown,requires-hardened,optional,
-G171-02,M171,Ultrafuse 316L,within,within,unknown,recommended,unknown,not-needed,
-G172-01,M172,SiC,within,within,within,unknown,requires-hardened,optional,
-G173-01,M173,Kerfil Aluminiumoxid (Al2O3),within,within,unknown,unknown,unknown,unknown,
 G174-01,M174,Crystal Flex,within,within,within,not-needed,unknown,unknown,
 G176-01,M176,Electrifi,within,within,unknown,unknown,requires-hardened,unknown,
 G177-01,M177,Diran 410MF07,unknown,unknown,unknown,unknown,unknown,unknown,

@@ -631,8 +631,11 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       drawnFamilies.add(colourGroup(family));
       const color = colors.color(family);
       const own = list.filter((q) => !q.variant && !apart.has(q.key)), variants = list.filter((q) => q.variant), toughened = list.filter((q) => apart.has(q.key));
+      // A product kept out of its material's range is ringed with a dot, whether a variant or sold as toughened (D174):
+      // the two had been a ring and a ring with a dot, told apart by the dot alone, and a hollow mark is "could not be
+      // settled" in the Products view. The hover says which.
       if (toughened.length) traces.push({ type: 'scatter', mode: 'markers', x: toughened.map((q) => q.x.value), y: toughened.map((q) => q.y.value),
-        marker: { size: 9, symbol: toughened.map((q) => `${shape(q)}-open`), color, opacity: toughened.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (sold as toughened)`, legendgroup: colourGroup(family), showlegend: false,
+        marker: { size: 10, symbol: toughened.map((q) => `${shape(q)}-open-dot`), color, opacity: toughened.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (sold as toughened)`, legendgroup: colourGroup(family), showlegend: false,
         text: toughened.map(() => NO_LABEL), customdata: toughened.map((q) => cd(q, `${stateWords(q.state)}; sold as toughened by its maker: kept out of ${q.name}'s range on this axis`)), hovertemplate: hover('%{customdata[7]}') });
       if (own.length) traces.push({ type: 'scatter', mode: 'markers', x: own.map((q) => q.x.value), y: own.map((q) => q.y.value),
         marker: { size: 6, symbol: own.map(shape), color: hexToRgba(color, 0.6), opacity: own.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 0 } }, name: family, legendgroup: colourGroup(family), showlegend: false,
@@ -861,8 +864,10 @@ export function workspaceKey(state, ws, { view }) {
   if (classes.includes('undisclosed')) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL.undisclosed])}${esc(FILLER_LABEL.undisclosed)}`);
   if (view === 'overview') {
     items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest; + at the medians`);
-    if (ws.materialSummaries.some((s) => s.apart?.length)) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Open: a product its maker sells as toughened, outside its material's range on an impact axis`);
-    if (ws.materialSummaries.some((s) => s.variants.length)) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/><circle cx="8" cy="8" r="1.4"/>')}Ringed with a dot: a variant (a wood or metal filler, a foaming additive), outside its material's range`);
+    // One mark for a product kept out of its material's range, and the reasons it is kept out (D174).
+    const apartWhy = [ws.materialSummaries.some((s) => s.variants.length) ? 'an added filler or additive (a variant: wood, metal, a foaming additive)' : null,
+      ws.materialSummaries.some((s) => s.apart?.length) ? 'sold as toughened by its maker, on an impact axis' : null].filter(Boolean);
+    if (apartWhy.length) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/><circle cx="8" cy="8" r="1.4"/>')}Ringed with a dot: kept out of its material's range, ${apartWhy.join(', or ')}`);
   } else {
     items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Filled: ${state.scenario.constraints.length ? 'meets every requirement' : 'a product'}`);
     if (layerOn(state, 'unresolved')) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Hollow: could not be settled`);
@@ -895,7 +900,7 @@ export function readingNote(state, ws, { view }) {
   const lines = [];
   if (c.confirmed.evidence < c.confirmed.pairs) lines.push(`Twins that print one sheet share its values, so ${plural(c.confirmed.pairs, 'product')} rest on ${c.confirmed.evidence} distinct pairs of values.`);
   if (c.materialsWithoutProducts) lines.push(`${materials(c.materialsWithoutProducts)} ha${c.materialsWithoutProducts === 1 ? 's' : 've'} no product, so nothing to draw.`);
-  if (view === 'overview') lines.push('<b>A material\'s box</b> holds the middle half of its products on each axis, and its whiskers reach the lowest and highest, as the table summarises a material; with fewer than four products the box is their full range. Each axis is summarised on its own, so a corner of the box is not a product. A product the data marks as a variant (a wood or metal filler, a foaming or lightweight additive) is drawn as its shape ringed with a dot and kept out of the range, since its values describe the product, not the polymer.');
+  if (view === 'overview') lines.push('<b>A material\'s box</b> holds the middle half of its products on each axis, and its whiskers reach the lowest and highest, as the table summarises a material; with fewer than four products the box is their full range. Each axis is summarised on its own, so a corner of the box is not a product. A product the data marks as a variant (a wood or metal filler, a foaming or lightweight additive) is drawn as its shape ringed with a dot and kept out of the range, since its values describe the product, not the polymer; so, on an impact axis, is a product its maker sells as toughened.');
   const ctxLine = [layerOn(state, 'unresolved') && view === 'decision' ? `${plural(c.unresolved.pairs, 'product')} that could not be settled (hollow)` : null,
     p.layers?.failed && view === 'decision' ? `${plural(c.failed.pairs, 'product')} that fail (small and faint)` : null].filter(Boolean);
   if (ctxLine.length) lines.push(`Also drawn: ${ctxLine.join(', ')}${c.contextMaterials ? `, some from ${materials(c.contextMaterials)} not in the results` : ''}. They are never ranked, counted on the line or put on the front.`);

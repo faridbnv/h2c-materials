@@ -3,15 +3,15 @@
   "tables": {
     "materials": {
       "rows": 177,
-      "sha256": "f80c8b535046552b9431aa292acdc92c9832a53dedfd6ab4a1d654f0ad17aa6e"
+      "sha256": "eecf37310a7a617b4617776b98c9c69f516ffa2e5b963cdf899a6a6cd645ed7a"
     },
     "grades": {
       "rows": 1186,
-      "sha256": "6e26c4746a378e7f768ba85f115a14e7e5ded481a6d09fd21ee5214905a2c39a"
+      "sha256": "e91b223cd49031e7dbb1d1f146aaefc717c05e1bdd3ddb207f1d635ef668987c"
     },
     "profiles": {
       "rows": 1987,
-      "sha256": "0b1cefef8577f71e812bb009ae9fa6ca6838c9b555df7d19490e8cf281fb9fbc"
+      "sha256": "06856f1fcabdbbb69636f213616124bc09aeb3226a734c290dc471f622b0d997"
     },
     "profile_notes": {
       "rows": 2504,
@@ -47,7 +47,7 @@
     },
     "print_guide": {
       "rows": 33,
-      "sha256": "5b6868e6f63a1a3eac8f0531fdde055730a7874ac225a580bef808328dc98b00"
+      "sha256": "98e8cb05bf161624accf03b5406aafa083f74363ae6db2382adf0d4e7b9ebebd"
     },
     "prices": {
       "rows": 374,
@@ -70,8 +70,8 @@
       "sha256": "1927feaa9f798b2bc6ecf81be85c03c6bb8f1330f0edb13112b2f1f2c8410dac"
     },
     "method": {
-      "rows": 58,
-      "sha256": "31abcb2a16387d2bfc70e7a718cbadf56f0cea6601700634a40da9347a02addc"
+      "rows": 59,
+      "sha256": "158b327b376df9ec37e03d0b466c4824ed4f4bc3f705f52d53141e38a14d15e0"
     },
     "reference": {
       "rows": 114,
@@ -95,7 +95,7 @@
     },
     "print_guide_materials": {
       "rows": 17,
-      "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
+      "sha256": "f3dd77a857577ce96d18aa50f7bdbc4dcb88a3d19842da7834b0bed806894254"
     },
     "properties": {
       "rows": 52,
@@ -123,7 +123,7 @@
     },
     "conversions": {
       "rows": 62,
-      "sha256": "7478fdc6e810c00fe529c1977365ee526e66cc399363e5c5219c6cd337d22c61"
+      "sha256": "a2a7fa96c99787b3e1cfb3d9525782b82e96517cdacf0e086411f349cba5da8f"
     },
     "class_limits": {
       "rows": 2,
@@ -135,7 +135,7 @@
     },
     "chamber_need": {
       "rows": 20,
-      "sha256": "8e3d451539f7a11609d68226f40d4ddb89a7d43196f7e3c89c1500ae45c0b03f"
+      "sha256": "cff8035c4779752ef9c91acfc8363090e30d4cde3a84385748ace267de700e73"
     },
     "family_entries": {
       "rows": 23,

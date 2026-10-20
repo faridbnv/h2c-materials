@@ -390,11 +390,14 @@ function compareReading(s, key, r, o) {
     const byId = new Map(o.rows.map((x) => [x.material.id, x]));
     // Grouped under Include once something is asked (D155): the groups are the engine's, never recomputed here.
     const grouped = o.tested && o.ctx.unknownPolicy === UNKNOWN_POLICY.EXPLORATION;
+    // The Result column is there once a requirement is set, and only then (D174): before, no row reads "not tested".
+    check('I1-result-column');
+    if (!r.noResults && r.rows.length && !!r.resultColumn !== !!o.tested) violate('I1-result-column', o.tested ? 'a requirement is set and the table has no Result column' : 'no requirement is set and the table shows a Result column', s, key, { page: r.resultColumn, node: o.tested });
     for (const [id, verdict, scr, scrTitle, cells, group, groupReason, hiddenWhy, failWhy] of r.rows) {
       const x = byId.get(id); if (!x) continue;
       const ev = x.evaluation;
       check('I1-verdict');
-      const expV = o.tested ? ev.verdict : 'not tested';
+      const expV = o.tested ? ev.verdict : null;
       if (verdict !== expV) violate('I1-verdict', `verdict chip ${verdict} vs ${expV}`, s, key, { id, page: verdict, node: expV });
       check('I1-group');
       if ((grouped ? ev.group : null) !== group) violate('I1-group', `row in the ${group} table, the engine says ${grouped ? ev.group : 'ungrouped'}`, s, key, { id, page: group, node: ev.group });
@@ -625,14 +628,17 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
       out.dagger ||= lens.innerText.includes('†');
       for (const grid of grids) {
         const cols = [...grid.querySelectorAll('thead th')].map((th) => th.dataset.sort ?? 'pin');
+        // Before any requirement the table has no Result column (D174): a row then has no verdict cell, and says nothing.
         const vi = cols.indexOf('verdict');
+        out.resultColumn = (out.resultColumn ?? true) && vi >= 0;
         for (const tr of grid.querySelectorAll('tbody tr[data-material]:not(.baseline-row)')) {
           const tds = tr.children;
-          const scr = tds[vi].querySelector('.chip-screened');
+          const vc = vi >= 0 ? tds[vi] : null;
+          const scr = vc?.querySelector('.chip-screened');
           const cells = {};
           for (const k of keys) { const j = cols.indexOf(k); if (j >= 0) cells[k] = { t: tds[j].innerText.trim(), est: !!tds[j].querySelector('.est') }; }
-          out.rows.push([tr.dataset.material, tds[vi].querySelector('.chip')?.textContent.trim(), !!scr, scr?.title ?? '', cells, grid.dataset.group ?? null, tds[vi].querySelector('.group-reason')?.textContent ?? '',
-            tds[vi].querySelector('.hidden-why')?.textContent ?? '', tds[vi].querySelector('.fail-why')?.textContent ?? '']);
+          out.rows.push([tr.dataset.material, vc ? vc.querySelector('.chip')?.textContent.trim() : null, !!scr, scr?.title ?? '', cells, grid.dataset.group ?? null, vc?.querySelector('.group-reason')?.textContent ?? '',
+            vc?.querySelector('.hidden-why')?.textContent ?? '', vc?.querySelector('.fail-why')?.textContent ?? '']);
         }
       }
       folds.forEach((d, i) => { d.open = wasOpen[i]; });

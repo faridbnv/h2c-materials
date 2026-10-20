@@ -655,3 +655,19 @@ test('the research intake: wordings the process readers learn', () => {
   assert.equal(parseDrying('Drying: +4 hours at max.110°C').hoursOpen, true);
   assert.equal(parseAbrasion('Nozzle: Stainless Steel , Olsson Ruby , or other hardened nozzle types').requiresHardened, null);
 });
+
+// D175 (the owner's ruling of 2026-10-20): a drying schedule printed as a range keeps its lower ends beside the upper ones
+// every rule reads, and only the window that decides gives them.
+test('a drying range keeps its lower ends, and the upper ends every rule reads stay as they were', () => {
+  const ends = (s) => { const d = parseDrying(s); return [d.tempMinC, d.tempC, d.hoursMin, d.hours, d.hoursOpen]; };
+  assert.deepEqual(ends('Please dry the filament at 80-100°C for 6-12 hours'), [80, 100, 6, 12, false], 'Raise3D PPA GF');
+  assert.deepEqual(ends('100 - 140 °C, 6 - 8 h'), [100, 140, 6, 8, false]);
+  assert.deepEqual(ends('80-100°C for 4 to 6 hours'), [80, 100, 4, 6, false], 'a window written with "to"');
+  assert.deepEqual(ends('80 °C in a hot air dryer or vacuum oven for at least 4 to 16 hours'), [null, 80, 4, 16, false]);
+  assert.deepEqual(ends('Dry at 50-60°C for 6+ hours before printing., 6 h'), [50, 60, null, 6, true], 'an open time has no lower end but itself');
+  assert.deepEqual(ends('75℃-85, 6h'), [75, 85, null, 6, false], 'a unit on the lower end only');
+  assert.deepEqual(ends('120C for 4 hours'), [null, 120, null, 4, false], 'a point is no range');
+  // The guide's first method decides: its second method's window ("90 - 100 °C, 12 h") is not this schedule's.
+  assert.deepEqual(ends('Dry Out Before Use: Required. Drying Condition: Blast Drying Oven: 80 °C, 8 - 12 h X1 Series Heatbed: 90 - 100 °C, 12 h'), [null, 80, 8, 12, false]);
+  assert.deepEqual(ends('Not published'), [null, null, null, null, null]);
+});

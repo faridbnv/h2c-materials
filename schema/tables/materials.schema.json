@@ -79,7 +79,7 @@
       "name": "Scope",
       "type": "string",
       "role": "canonical",
-      "description": "Whether the row is a candidate, a family entry, or excluded. The one place exclusion is recorded: an excluded material is shown and never recommended.",
+      "description": "Whether the row is a candidate, a family entry, excluded, or retired from the dataset. The one place exclusion is recorded: an excluded material is shown and never recommended; a retired one, with every record filed under it, is kept in the tables and left out of the build (D174).",
       "vocabulary": "scopes",
       "constraints": {
         "required": true

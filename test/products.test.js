@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 import { measurementHeadlines } from '../build/src/registry.js';
-import { assess, LEVEL, ruleValue } from '../build/src/products.js';
+import { assess, LEVEL, ruleValue, speaksTo, GUIDE_AXES } from '../build/src/products.js';
+import { printsAsItsType } from '../build/src/variants.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = loadTables(join(root, 'data'));
@@ -442,7 +443,8 @@ test("a part read from a printer maker's guide is its material's guide row, only
       // D127: the guide's drying fills a silent product's, labelled as the guide's, and says what the guide says: "Optional"
       // is optional, never required.
       if (axis === 'drying') {
-        assert.deepEqual(g.print.drying, { need: guide.drying.need, tempC: guide.drying.tempC, hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
+        const { tempMinC, hoursMin } = guide.drying;
+        assert.deepEqual(g.print.drying, { need: guide.drying.need, ...(tempMinC != null ? { tempMinC } : {}), tempC: guide.drying.tempC, ...(hoursMin != null ? { hoursMin } : {}), hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
         assert.notEqual(guide.drying.need, 'unknown', `${g.id}: the guide row states no drying`);
         if (/Optional/.test(guide.drying.text)) assert.equal(g.print.drying.need, 'optional', `${g.id}: the guide says drying is optional`);
       }
@@ -453,6 +455,28 @@ test("a part read from a printer maker's guide is its material's guide row, only
     if (!guide) assert.ok(Object.values(g.print?.from ?? {}).every((f) => f.origin !== 'guide'), `${g.id}: its material has no guide row`);
   }
   assert.ok(read > 500, `only ${read} parts read from the guide`);
+});
+
+// D129, D158, D175: a variant reads its type's guide only where its vocabulary row says it prints as its type (a
+// crystallising grade, a filler only for looks), and then in full, the hardened-nozzle answer with the rest.
+test("a variant reads its type's guide only where it prints as its type, and then every part its sheets leave silent", () => {
+  const guideOf = new Map(db.printGuide.flatMap((guide) => guide.materials.map((m) => [m.materialId, guide])));
+  const profilesOf = (id) => db.profiles.filter((p) => p.gradeId === id && !p.retired);
+  let cosmetic = 0;
+  for (const g of db.grades.filter((x) => isProduct(x) && x.variant)) {
+    const read = Object.entries(g.print?.from ?? {}).filter(([, f]) => f.origin === 'guide').map(([axis]) => axis);
+    if (!printsAsItsType(g)) { assert.deepEqual(read, [], `${g.id} (${g.variant}) reads its type's guide`); continue; }
+    const guide = guideOf.get(g.materialId);
+    if (g.variant !== 'cosmetic dense filler' || !guide) continue;
+    cosmetic++;
+    const sheets = [g, ...db.grades.filter((t) => isProduct(t) && t !== g && sameKey(t, g))].map((x) => profilesOf(x.id));
+    for (const axis of GUIDE_AXES) {
+      const silent = !speaksTo(profilesOf(g.id), axis) && (axis === 'hardenedNozzle' && profilesOf(g.id).length ? true : sheets.every((ps) => !speaksTo(ps, axis)));
+      const answers = axis === 'hardenedNozzle' ? guide.abrasion.requiresHardened != null : speaksTo([guide], axis);
+      if (silent && answers) assert.ok(read.includes(axis), `${g.id} ${axis}: silent, and its type's guide answers it`);
+    }
+  }
+  assert.ok(cosmetic >= 10, `only ${cosmetic} products with a filler for looks`);
 });
 
 // D90: where a printer maker's guide asks for an enclosure on its own enclosed printers, its row declares the chamber

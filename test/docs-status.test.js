@@ -54,6 +54,10 @@ test('the block states the material split so that it adds up', () => {
   assert.ok(block.split('\n').every((l) => l.length <= 120 || l.startsWith('<!--')), 'every line fits 120 columns');
   assert.match(block, /^## Where things stand \(2026-09-21\)$/m);
   assert.throws(() => renderStatus({ ...counts, materials: { ...counts.materials, judged: 134 } }, acc, 'x'), /do not add up/);
+  // Materials retired from the dataset are said apart, as rows the page never shows (D174), and only where there are any.
+  assert.doesNotMatch(block, /retired/);
+  const retired = renderStatus({ ...counts, materials: { ...counts.materials, total: 175, listed: 149, excluded: 14, retired: 3 } }, acc, '2026-10-20');
+  assert.match(retired.replace(/\s+/g, ' '), /and 14 it shows only to say why they are out \(high-temperature plastics such as PEEK and PEI that need a hotter printer\)\. Its tables also keep 3 materials retired from the dataset, as a record the page never shows \(D174\)\./);
 });
 
 test('the accuracy sentence follows the latest draw, and drops the earlier clause when there is none', () => {
@@ -83,7 +87,10 @@ test('the counts of a small database', () => {
     measurements: [{}, {}, {}], sources: [{}],
   };
   const c = statusCounts(db);
-  assert.deepEqual(c.materials, { total: 3, familyEntries: 1, listed: 2, excluded: 1, judged: 1 });
+  assert.deepEqual(c.materials, { total: 3, familyEntries: 1, listed: 2, excluded: 1, judged: 1, retired: 0 });
+  // A material retired from the dataset is a row of materials.csv the build compiles nothing of (D174): counted in the
+  // rows and nowhere else.
+  assert.deepEqual(statusCounts({ ...db, meta: { counts: { retired: 2 } } }).materials, { total: 5, familyEntries: 1, listed: 2, excluded: 1, judged: 1, retired: 2 });
   assert.equal(c.products, 2);
   assert.deepEqual(c.unknown, { chamber: 2, drying: 2, nozzle: 2, bed: 2 });
   assert.deepEqual(c.priceDates, []);

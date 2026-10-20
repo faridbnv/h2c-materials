@@ -120,7 +120,9 @@ test('every profile note reaches the reader: the table and the compiled profiles
   // The notes were columns of profiles.csv until m44, where most were empty on most rows and three were empty on
   // every row. They are rows now, and a note that never reaches a profile is a note nobody reads.
   // A retired duplicate's notes stay beside it in the table, as its cells do, and the profile that stays holds the same (D120).
-  const retiredProfiles = new Set(readFileSync(join(root, 'data/tables/profiles.csv'), 'utf8').split('\n').filter((l) => /,Retired duplicate record,/.test(l)).map((l) => l.split(',')[0]));
+  // A material retired from the dataset takes its profiles' notes with it (D174): they stay in the table, uncompiled.
+  const retiredMaterials = new Set(readFileSync(join(root, 'data/tables/materials.csv'), 'utf8').split('\n').filter((l) => /,Retired,/.test(l)).map((l) => l.split(',')[0]));
+  const retiredProfiles = new Set(readFileSync(join(root, 'data/tables/profiles.csv'), 'utf8').split('\n').filter((l) => /,Retired duplicate record,/.test(l) || retiredMaterials.has(l.split(',')[1])).map((l) => l.split(',')[0]));
   const stored = readFileSync(join(root, 'data/tables/profile_notes.csv'), 'utf8').trim().split('\n').slice(1).filter((l) => !retiredProfiles.has(l.split(',')[0])).length;
   const compiled = db.profiles.flatMap((p) => p.notes);
   assert.equal(compiled.length, stored, 'profile_notes.csv rows and compiled profile notes disagree');
@@ -229,8 +231,8 @@ test('a value flagged physically implausible is the nearest related value only w
 
 test('the excluded materials never read as printable, and trip the envelope gate on any window they publish', () => {
   // Excluded, and beyond the H2C's limits: the industrial high-temperature materials, whose H2C status says so once
-  // (m146). The sintering filaments are excluded by scope, not by the envelope (D87): they print at 170 to 250 °C, and
-  // their part is the sintered metal's. A material whose sheets publish no printing guidance, only the temperature its
+  // (m146). The sintering filaments, excluded by scope rather than the envelope (D87), left the dataset (D174). A
+  // material whose sheets publish no printing guidance, only the temperature its
   // test bars were printed at, has no window of its own (D63, m170): its gate is unknown, and its exclusion is its H2C
   // status.
   // Since D151 a nozzle window the H2C covers the low end of passes the nozzle gate (PEKK's 340–380 °C), or is on the line

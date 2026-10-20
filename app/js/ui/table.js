@@ -66,6 +66,12 @@ export const COLUMN_SETS = {
 };
 
 /**
+ * The columns a set shows: all of them once a requirement is set, and every one but Result before (D174). With nothing
+ * asked there is no result to show, and a column of "not tested" read as "nobody ran the test".
+ */
+export const visibleColumns = (columnSet, tested) => (COLUMN_SETS[columnSet] ?? COLUMN_SETS.properties).columns.filter((c) => tested || c.kind !== 'state');
+
+/**
  * The sort after switching column sets: kept when the new set shows the sorted column (name, result, price, or a
  * property both sets carry), else by name. It used to reset to name for anything but name, result or price.
  */
@@ -132,7 +138,9 @@ function sortWithinGroup(rows, state) {
       || a.material.name.localeCompare(b.material.name));
   }
   const { sort } = state;
-  const COLUMNS = COLUMN_SETS[state.columnSet]?.columns ?? COLUMN_SETS.properties.columns;
+  // A sort on the Result column before any requirement, where it is not shown (D174), is by name, as any sort on a
+  // column the table does not show.
+  const COLUMNS = visibleColumns(state.columnSet, (state.scenario?.constraints?.length ?? 0) > 0);
   const col = COLUMNS.find((c) => c.key === sort.key) ?? COLUMNS[0];
   const showEstimates = !!state.ctx?.showEstimates;
   return [...rows].sort((a, b) => {
@@ -305,10 +313,13 @@ export function passingValues(e, key) {
 export function renderTable(host, state, actions) {
   const { rows, sort, scenario } = state;
   const setKey = COLUMN_SETS[state.columnSet] ? state.columnSet : 'properties';
-  const COLUMNS = COLUMN_SETS[setKey].columns;
   // Nothing has been asked, so nothing has passed. A green PASS on every row of a blank screen
   // asserted a test that never ran, including on the materials outside the printer's scope.
   const tested = scenario.constraints.length > 0;
+  // So before any requirement the table has no Result column (D174): a result is the answer to a question, and none has
+  // been asked. Every row had read "not tested", which an engineer reads as "nobody ran the test" (OPEN-PROBLEMS §37.20).
+  // The column arrives with the first requirement, beside the name, where it always stood.
+  const COLUMNS = visibleColumns(setKey, tested);
 
   const sorted = sortRows(rows, state);
   const ranks = rankOf(rows, state);
@@ -338,6 +349,7 @@ export function renderTable(host, state, actions) {
       ${esc(c.label)}${c.unit ? ` <span class="u">${esc(c.unit)}</span>` : ''}${arrow}${spread ? '<span class="th-sub">median · range</span>' : ''}</th>`;
   }).join('');
 
+  const BASELINE_CHIP = explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' });
   const cells = (m, e, { ghost = false } = {}) => {
     // This row's results on one property: the thresholds its number must not be rounded across, and whether it is close.
     const on = (key) => (e?.results ?? []).filter((r) => r.constraint?.kind === 'numeric' && r.constraint.property === key);
@@ -368,17 +380,19 @@ export function renderTable(host, state, actions) {
         const verdictOf = new Map((e?.products ?? []).map((p) => [p.gradeId, p.verdict]));
         const found = matched.length
           ? `<span class="row-sub matched">matches ${matched.slice(0, 3).map((g) => `${esc(`${g.manufacturer} ${g.product}`)}${tested && verdictOf.has(g.id) ? ` ${chip(verdictOf.get(g.id))}` : ''}`).join(', ')}${matched.length > 3 ? `, and ${matched.length - 3} more` : ''}${tested && e?.verdict === 'PASS' && !matched.some((g) => verdictOf.get(g.id) === 'PASS') ? '; the material passes on another product' : ''}</span>` : '';
-        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}${unranked}${found}</td>`;
+        // The baseline says what it is in its Result cell; before a requirement, with no such column, beside its name.
+        const ref = ghost && !tested ? ` ${BASELINE_CHIP}` : '';
+        return `<td class="name">${esc(primary)}${ref}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}${unranked}${found}</td>`;
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') {
         // The screened chip names the requirement and what held the row out, an estimate or the base polymer's published
         // behaviour (D64), and opens it: the estimate on the Overview, the polymer's rows on the Environment tab.
         const scr = e?.screened ? screenedChip(e) : null;
+        // Drawn only once a requirement is set (visibleColumns): before that the table has no Result column.
         return ghost
-          ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
-          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('hidden', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${humidMark(m, e, state)}${unknownMark(e)}${failMark(e)}</td>`
-          : `<td class="state"><span class="chip chip-quiet" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
+          ? `<td class="state">${BASELINE_CHIP}</td>`
+          : `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('hidden', scr.text, { cls: `chip chip-screened${scr.inferred ? '' : ' by-definition'}`, head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${humidMark(m, e, state)}${unknownMark(e)}${failMark(e)}</td>`;
       }
       if (c.kind === 'pin') {
         if (ghost) return `<td class="pin-col"></td>`;
@@ -758,7 +772,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     header.push(`# products judged ${stateWords(scenario)} (D99)`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
     if (index) header.push(`# ranked by ${index.designCase} (${index.formula}), each material by the median over its passing products, the table's and the chart's one ranking (D102, D107)`);
-    if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
+    if (!scenario.constraints.length) header.push('# no requirements set, so the result columns are empty');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
     for (const a of scenario.assumptions ?? []) header.push(`# assumption: ${a.materialId} ${a.property} = ${a.value} ${a.unit ?? ''}`.trim());
   }
@@ -768,7 +782,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...header,
     cols.join(','),
     ...rows.map(({ material: m, evaluation: e }) => [
-      m.id, m.name, m.family, m.h2cStatus, tested ? e.verdict : 'NOT TESTED', e.eligible ? 'yes' : 'no',
+      m.id, m.name, m.family, m.h2cStatus, tested ? e.verdict : '', e.eligible ? 'yes' : 'no',
       why(e.failed), why(e.unresolved),
       tested ? e.gradeId ?? '' : '', tested && e.state ? judgedAs(e.state) : '',
       ...(index ? (() => { const r = ranking.get(m.id); return r ? [r.place, Number(r.value.toPrecision(6)), r.best?.gradeId ?? '', r.products] : ['', '', '', '']; })() : []),
@@ -834,7 +848,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
     for (const g of productsByMaterial?.get(m.id) ?? []) {
       const p = g.print;
       lines.push([m.id, m.name, g.id, g.manufacturer, g.product, g.variant ?? '',
-        scenario?.constraints?.length ? judged.get(g.id)?.verdict ?? '' : 'not tested',
+        scenario?.constraints?.length ? judged.get(g.id)?.verdict ?? '' : '',
         scenario?.constraints?.length && judged.get(g.id)?.state ? judgedAs(judged.get(g.id).state) : '',
         (judged.get(g.id)?.results ?? []).filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').map((r) => `${r.constraint ? describeConstraint(r.constraint) : r.criterion}: ${r.reason}${recordIds(r)}`).join(' | '),
         ...(goal && ctx ? [(() => { const j = judged.get(g.id); const v = j ? indexValue(productView(m, g, ctx, stateOf(g, j.state?.id ?? null)), goal) : null; return v === null ? '' : Number(v.toPrecision(6)); })()] : []),
@@ -843,7 +857,8 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
         readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
-        p?.drying ? `${p.drying.need}; ${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hours ?? ''} h` : '',
+        // A schedule printed as a range keeps its lower ends: "required; 80-100 C 6-12 h" (D175).
+        p?.drying ? `${p.drying.need}; ${p.drying.tempMinC != null ? `${p.drying.tempMinC}-` : ''}${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hoursMin != null ? `${p.drying.hoursMin}-` : ''}${p.drying.hours ?? ''} h` : '',
         (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId, judged.get(g.id)?.group ?? '', judged.get(g.id)?.likely ? 'yes' : '',
       ].map(q).join(','));
     }

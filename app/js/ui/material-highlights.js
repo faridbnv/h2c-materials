@@ -180,14 +180,16 @@ export function settingWindow(products, axis) {
 /**
  * The drying schedules of the products whose own or shared sheet gives one (material-stats.js dryingStats, its counted
  * entries): `{ tempMin, tempMax, hoursMin, hoursMax }`, one schedule where they agree and the span where they differ, never
- * a median schedule no maker gave; null where none gives a temperature.
+ * a median schedule no maker gave; null where none gives a temperature. A schedule a sheet prints as a range spans from
+ * its lower end (Raise3D's "80-100°C for 6-12 hours" from 80 °C and 6 h, D175).
  */
 export function dryingSchedule(products) {
   const d = dryingStats(products);
   const counted = d.entries.filter((e) => e.counted);
   if (!counted.length) return null;
-  const temps = counted.map((e) => e.value), hours = counted.map((e) => e.hours).filter((h) => h != null);
-  return { tempMin: Math.min(...temps), tempMax: Math.max(...temps), hoursMin: hours.length ? Math.min(...hours) : null, hoursMax: hours.length ? Math.max(...hours) : null };
+  const temps = counted.map((e) => e.value), lows = counted.map((e) => e.low);
+  const hours = counted.map((e) => e.hours).filter((h) => h != null), hourLows = counted.map((e) => e.hoursLow).filter((h) => h != null);
+  return { tempMin: Math.min(...lows), tempMax: Math.max(...temps), hoursMin: hours.length ? Math.min(...hourLows) : null, hoursMax: hours.length ? Math.max(...hours) : null };
 }
 
 /** The XY and Z headlines of each property a summary may give the across-the-layers share of. */

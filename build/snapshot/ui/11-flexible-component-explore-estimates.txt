@@ -1,6 +1,6 @@
 COUNT 106 shown PASS + UNKNOWN
-STATUS ☑ PASS 5 | ☑ UNKNOWN 104 | ☐ FAIL 43 | ☐ HIDDEN 3
-5 of the 152 materials meet these requirements
+STATUS ☑ PASS 5 | ☑ UNKNOWN 104 | ☐ FAIL 40 | ☐ HIDDEN 3
+5 of the 149 materials meet these requirements
 Flexible component template · UNKNOWN 104: 2 one check away, 13 not enough data, 86 unlikely to meet, 3 hidden
 Why the rest were excluded
 Clear requirements
@@ -58,14 +58,14 @@ ROW TPS / Flexible Elastomers | ☆ | UNKNOWN / none judged / One check away on 
 Not enough data (13)
 More than one question is open, or a value is not published the way you asked. The 2 tagged likely come first: their estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 13 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW COC / PVB / Specialty Polymers | ☆ | UNKNOWN / none judged / Not enough data, likely: Fabru Cyclo-Olefin-Copolymer flexibel (COC flex), elongation at break (XY) estimated 231 to 760 %; tensile modulus (XY) estimated 0.0419 to 0.0668 GPa | 1,020 | ~0.041–0.067† | ~43–85† | ~230–760† | 160 | 85.3EUR
-ROW TPU-LW / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data, likely: Siraya Tech Flex TPU Air, tensile modulus (XY) estimated 0.00556 to 0.054 GPa | 1,120 / 880–1,200 · 3 | ~0.005–0.054† | 10.3 | 629 | n/a | 70↗
-ROW TPC-ESD / Flexible Elastomers | ☆ | UNKNOWN / 0 of 2 products / Not enough data: Kimya TPC-ESD, no print recipe on record; elongation at break (XY) estimated 158 to 548 % | 1,240 / 1,200–1,280 · 2 | 0.723 / 0.046–1.4 · 2 | 41.5 / 13.1–70 · 2 | > 300 | n/a | —
+ROW COC / PVB / Specialty Polymers | ☆ | UNKNOWN / none judged / Not enough data, likely: Fabru Cyclo-Olefin-Copolymer flexibel (COC flex), elongation at break (XY) estimated 231 to 759 %; tensile modulus (XY) estimated 0.0419 to 0.0668 GPa | 1,020 | ~0.041–0.067† | ~43–85† | ~230–760† | 160 | 85.3EUR
+ROW TPU-LW / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data, likely: Siraya Tech Flex TPU Air, tensile modulus (XY) estimated 0.00556 to 0.0539 GPa | 1,120 / 880–1,200 · 3 | ~0.005–0.054† | 10.3 | 629 | n/a | 70↗
+ROW TPC-ESD / Flexible Elastomers | ☆ | UNKNOWN / 0 of 2 products / Not enough data: Kimya TPC-ESD, no print recipe on record; elongation at break (XY) estimated 158 to 547 % | 1,240 / 1,200–1,280 · 2 | 0.723 / 0.046–1.4 · 2 | 41.5 / 13.1–70 · 2 | > 300 | n/a | —
 ROW TPU harder than 95A / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: Flashforge TPU 64D, tensile modulus (XY) estimated 0.0552 to 0.153 GPa | 1,180 / 1,090–1,260 · 15 | ~0.055–0.153† | 30 / 22.4–39 · 3 | 540 / 140–650+ · 3 | n/a | 47.5↗
-ROW TPU-EC / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: Recreus CONDUCTIVE FILAFLEX, elongation at break (XY) estimated 85.5 to 320 %; tensile modulus (XY) estimated 0.0689 to 0.11 GPa | 1,255 / 1,180–1,330 · 2 | ~0.068–0.110† | ~9–56† | ~80–320† | n/a | 202EUR
-ROW TPU-ESD / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: 3DXTECH 3DXSTAT ESD-TPU (90A), elongation at break (XY) estimated 310 to 544 %; tensile modulus (XY) estimated 0.0139 to 0.136 GPa | 1,190 / 1,180–1,200 · 2 | ~0.01–0.14† | 12 | ~310–550† | n/a | 174EUR
-ROW TPU-CF / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: Extrudr FLEX HARD CF, elongation at break (XY) estimated 51.6 to 108 %; tensile modulus (XY) estimated 0.0244 to 0.0419 GPa | 1,230 | ~0.024–0.042† | ~15–86† | ~51–108† | n/a | 189USD↗ / 150–227 · 2 / out of stock
-ROW PVC / PVB / Specialty Polymers | ☆ | UNKNOWN / none judged / Not enough data: Fabru Polyvinylchlorid weich 94A (PVC-P), its chamber temperature is not stated; elongation at break (XY) estimated 118 to 349 %; tensile modulus (XY) estimated 0.198 to 7.69 GPa | 1,310 / 1,269–1,350 · 2 | ~0.1–7.7† | ~26–50† | ~110–350† | ~56–77† | 80.9EUR
+ROW TPU-EC / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: Recreus CONDUCTIVE FILAFLEX, elongation at break (XY) estimated 85.8 to 321 %; tensile modulus (XY) estimated 0.0689 to 0.11 GPa | 1,255 / 1,180–1,330 · 2 | ~0.068–0.110† | ~9–56† | ~80–330† | n/a | 202EUR
+ROW TPU-ESD / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: 3DXTECH 3DXSTAT ESD-TPU (90A), elongation at break (XY) estimated 310 to 545 %; tensile modulus (XY) estimated 0.0139 to 0.136 GPa | 1,190 / 1,180–1,200 · 2 | ~0.01–0.14† | 12 | ~310–550† | n/a | 174EUR
+ROW TPU-CF / Flexible Elastomers | ☆ | UNKNOWN / none judged / Not enough data: Extrudr FLEX HARD CF, elongation at break (XY) estimated 51.8 to 107 %; tensile modulus (XY) estimated 0.0244 to 0.0419 GPa | 1,230 | ~0.024–0.042† | ~15–86† | ~51–107† | n/a | 189USD↗ / 150–227 · 2 / out of stock
+ROW PVC / PVB / Specialty Polymers | ☆ | UNKNOWN / none judged / Not enough data: Fabru Polyvinylchlorid weich 94A (PVC-P), its chamber temperature is not stated; elongation at break (XY) estimated 118 to 349 %; tensile modulus (XY) estimated 0.198 to 7.68 GPa | 1,310 / 1,269–1,350 · 2 | ~0.1–7.7† | ~26–50† | ~110–350† | ~56–77† | 80.9EUR
 ROW PLA blend · ☆
 ROW PLA blend-CF · ☆
 ROW SBC · ☆
