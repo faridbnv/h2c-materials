@@ -133,7 +133,7 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV12 | tensileStrengthXY | equal | deciding | 1 to 1 | 4 | 0 | 0 | 0 | 0 |  | 0 |
 | CV60 | tensileModulusXY | demote-to-ceiling | reported | 1.16 | 373 | 310 | 0 | 0 | 0 |  | 0 |
 | CV61 | tensileStrengthXY | demote-to-ceiling | reported | 1.16 | 317 | 441 | 1 | 0 | 0 |  | 0 |
-| CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 90 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
+| CL01 | tensileModulusXY | ceiling | deciding | 0.5 | 91 |  | 0 | 0 |  | 0.0053 to 0.4 |  |
 | CL02 | density | neat-density range | deciding | polymers.csv | 549 |  | 6 | 0 |  | ABS 1020 to 1120; ASA 1040 to 1130; BVOH 1138 to 1140; COC 1020 to 1020; CoPE 1300 to 1300; CPE 1180 to 1270; … |  |
 
 ## Environment evidence
