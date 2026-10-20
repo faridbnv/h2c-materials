@@ -68,7 +68,7 @@ Outdoor structural part,Explore,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,
 Outdoor structural part,Explore,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore,M066,PET,UNKNOWN,none,0,4,3,7,G066-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore,M067,PET-CF,PASS,some,1,2,5,8,G067-04,as-printed,yes,,meets
-Outdoor structural part,Explore,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-01,as-printed,yes,,not-enough-data
+Outdoor structural part,Explore,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore,M069,PPA,UNKNOWN,none,0,1,1,2,G069-01,as-printed,yes,,one-check-away
 Outdoor structural part,Explore,M070,PPA-CF,PASS,some,3,1,4,8,G070-01,as-printed,yes,,meets
 Outdoor structural part,Explore,M071,PPA-GF,PASS,some,2,1,2,5,G071-01,as-printed,yes,,meets
@@ -168,7 +168,7 @@ Outdoor structural part,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064
 Outdoor structural part,Explore with estimates,M065,PA612-ESD,UNKNOWN,,0,0,1,1,G065-01,as-printed,yes,,not-enough-data
 Outdoor structural part,Explore with estimates,M066,PET,UNKNOWN,none,0,4,3,7,G066-02,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M067,PET-CF,PASS,some,1,2,5,8,G067-04,as-printed,yes,,meets
-Outdoor structural part,Explore with estimates,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-05,as-printed,yes,,not-enough-data (likely)
+Outdoor structural part,Explore with estimates,M068,PET-GF,UNKNOWN,none,0,1,3,4,G068-01,as-printed,yes,,unlikely-to-meet
 Outdoor structural part,Explore with estimates,M069,PPA,UNKNOWN,none,0,1,1,2,G069-01,as-printed,yes,,one-check-away
 Outdoor structural part,Explore with estimates,M070,PPA-CF,PASS,some,3,1,4,8,G070-01,as-printed,yes,,meets
 Outdoor structural part,Explore with estimates,M071,PPA-GF,PASS,some,2,1,2,5,G071-01,as-printed,yes,,meets
@@ -923,7 +923,7 @@ Warm environment,Strict,M057,PA6/66,PASS,all,2,0,5,7,G057-02,as-printed,yes,,
 Warm environment,Strict,M059,PA612-CF,PASS,all,1,0,2,3,G059-01,as-printed,yes,,
 Warm environment,Strict,M065,PA612-ESD,PASS,all,1,0,0,1,G065-01,as-printed,yes,,
 Warm environment,Strict,M067,PET-CF,PASS,some,2,1,5,8,G067-04,as-printed,yes,,
-Warm environment,Strict,M068,PET-GF,PASS,all,2,0,2,4,G068-01,as-printed,yes,,
+Warm environment,Strict,M068,PET-GF,PASS,all,1,0,3,4,G068-02,as-printed,yes,,
 Warm environment,Strict,M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,,
 Warm environment,Strict,M070,PPA-CF,PASS,all,6,0,2,8,G070-01,as-printed,yes,,
 Warm environment,Strict,M071,PPA-GF,PASS,all,3,0,2,5,G071-01,as-printed,yes,,
@@ -968,7 +968,7 @@ Warm environment,"Strict, annealing permitted",M057,PA6/66,PASS,all,3,0,4,7,G057
 Warm environment,"Strict, annealing permitted",M059,PA612-CF,PASS,all,1,0,2,3,G059-01,as-printed,yes,,
 Warm environment,"Strict, annealing permitted",M065,PA612-ESD,PASS,all,1,0,0,1,G065-01,as-printed,yes,,
 Warm environment,"Strict, annealing permitted",M067,PET-CF,PASS,some,5,1,2,8,G067-01,annealed:80:12,yes,,
-Warm environment,"Strict, annealing permitted",M068,PET-GF,PASS,all,3,0,1,4,G068-01,as-printed,yes,,
+Warm environment,"Strict, annealing permitted",M068,PET-GF,PASS,all,2,0,2,4,G068-02,as-printed,yes,,
 Warm environment,"Strict, annealing permitted",M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,,
 Warm environment,"Strict, annealing permitted",M070,PPA-CF,PASS,all,7,0,1,8,G070-01,as-printed,yes,,
 Warm environment,"Strict, annealing permitted",M071,PPA-GF,PASS,all,3,0,2,5,G071-01,as-printed,yes,,
@@ -1036,7 +1036,7 @@ Warm environment,Explore,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,,on
 Warm environment,Explore,M065,PA612-ESD,PASS,all,1,0,0,1,G065-01,as-printed,yes,,meets
 Warm environment,Explore,M066,PET,UNKNOWN,none,0,1,6,7,G066-01,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore,M067,PET-CF,PASS,some,2,1,5,8,G067-04,as-printed,yes,,meets
-Warm environment,Explore,M068,PET-GF,PASS,all,2,0,2,4,G068-01,as-printed,yes,,meets
+Warm environment,Explore,M068,PET-GF,PASS,all,1,0,3,4,G068-02,as-printed,yes,,meets
 Warm environment,Explore,M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,,meets
 Warm environment,Explore,M070,PPA-CF,PASS,all,6,0,2,8,G070-01,as-printed,yes,,meets
 Warm environment,Explore,M071,PPA-GF,PASS,all,3,0,2,5,G071-01,as-printed,yes,,meets
@@ -1162,7 +1162,7 @@ Warm environment,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-
 Warm environment,Explore with estimates,M065,PA612-ESD,PASS,all,1,0,0,1,G065-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M066,PET,UNKNOWN,none,0,1,6,7,G066-06,as-printed,yes,,unlikely-to-meet
 Warm environment,Explore with estimates,M067,PET-CF,PASS,some,2,1,5,8,G067-04,as-printed,yes,,meets
-Warm environment,Explore with estimates,M068,PET-GF,PASS,all,2,0,2,4,G068-01,as-printed,yes,,meets
+Warm environment,Explore with estimates,M068,PET-GF,PASS,all,1,0,3,4,G068-02,as-printed,yes,,meets
 Warm environment,Explore with estimates,M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M070,PPA-CF,PASS,all,6,0,2,8,G070-01,as-printed,yes,,meets
 Warm environment,Explore with estimates,M071,PPA-GF,PASS,all,3,0,2,5,G071-01,as-printed,yes,,meets
