@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b50.mjs (research intake 2, 2026-10-20)",
+    "date": "2026-10-20"
+  },
+  "document": {
+    "sha256": "92a1f96a864b0504565f70dcf1c2590be54d75890b34c48a9a99f8f286f7d2c3",
+    "url": "https://cdn.shopify.com/s/files/1/0958/0111/4939/files/THE_K8_OBC_TDS.pdf?v=1778553432",
+    "pages": 3,
+    "provider": "Kexcelled",
+    "manufacturer": "Kexcelled",
+    "docKey": "https://cdn.shopify.com/s/files/1/0958/0111/4939/files/THE_K8_OBC_TDS.pdf?v=1778553432#witness-for=material:M086"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": "M086",
+    "note": "The document of a product the catalogue did not hold: Kexcelled THE K8 OBC."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-KEXCELLED-INTAKE-20261020-92a1f96a864b",
+      "Publisher": "Kexcelled",
+      "Title": "THE K8 OBC Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Kexcelled's own data sheet for THE K8 OBC, an olefin block copolymer filament: print guideline, material properties and printed-bar mechanical properties in three build directions.",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0958/0111/4939/files/THE_K8_OBC_TDS.pdf?v=1778553432",
+      "Locator": "Document / product page",
+      "Applicable grades": "M086 / ${grade:OBC}",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 (round 2) and hashed; staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-20-research-intake-2/ingest/staged-manifest-b50.csv) on 2026-10-20, admitted in batch b50.",
+      "SHA256": "92a1f96a864b0504565f70dcf1c2590be54d75890b34c48a9a99f8f286f7d2c3",
+      "Superseded by": "Not applicable"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Chemical name"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2, 2026-10-20, b50), read on the cached text and the page image",
+      "date": "2026-10-20"
+    }
+  },
+  "grades": [
+    {
+      "key": "OBC",
+      "row": {
+        "MaterialID": "M086",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Kexcelled",
+        "Product name": "THE K8 OBC",
+        "Shared formulation key": "R-KEXCELLED-INTAKE-20261020-92a1f96a864b",
+        "Composition / filler": "\"Olefin Block Copolymers\" (Chemical name, p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence (research intake 2, 2026-10-20)",
+        "SourceID": "R-KEXCELLED-INTAKE-20261020-92a1f96a864b",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance",
+        "Diameter": "1.75 mm"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (research intake 2, 2026-10-20, b50), read on the cached text and the page image",
+        "date": "2026-10-20",
+        "note": "A product the catalogue did not hold, named on its maker's own document (\"THE K8 OBC\", Kexcelled); filed under M086."
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Chemical name"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 3: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2, 2026-10-20, b50), read on the cached text and the page image",
+    "date": "2026-10-20",
+    "note": "Registered for what it prints (data-sheet): Kexcelled's own data sheet for THE K8 OBC, an olefin block copolymer filament: print guideline, material properties and printed-bar mechanical properties in three build directions. Its identifying line is checked on page 1 of the cached text."
+  }
+}

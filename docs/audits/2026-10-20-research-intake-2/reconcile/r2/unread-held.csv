@@ -1,0 +1,93 @@
+SourceID,ID,Kind,Grade,What,Locator
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004277,measurement,G035-11,Melt volume-flow rate 11 cm³/10 min,"p. 1: Melt volume-flow rate (MVR) 260 °C / 5,0 kg ISO 1133 cm³/10 min"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004278,measurement,G035-11,Tensile modulus 2650 MPa,"p. 1: Tensile modulus ISO 527-1,-2 MPa"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004279,measurement,G035-11,Tensile yield strength 69 MPa,"p. 1: Yield stress ISO 527-1,-2 MPa"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004280,measurement,G035-11,Elongation at yield 5 %,"p. 1: Yield strain ISO 527-1,-2 %"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004281,measurement,G035-11,Elongation at break 50 %,"p. 1: Strain at break ISO 527-1,-2 %"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004282,measurement,G035-11,Tensile break strength 53 MPa,"p. 1: Stress at break ISO 527-1,-2 MPa"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004283,measurement,G035-11,Izod impact strength 40 kJ/m²,p. 1: Izod notched impact strength (23 °C) ISO 180/A kJ/m²
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004284,measurement,G035-11,Izod impact strength 10 kJ/m²,p. 1: Izod notched impact strength (-30 °C) ISO 180/A kJ/m²
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004285,measurement,G035-11,HDT 98 °C,"p. 1: Temperature of deflection under load 1.8 Mpa ISO 75-1,-2 °C"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004286,measurement,G035-11,Vicat softening temperature 115 °C,p. 1: VICAT softening temperature B ISO 306 °C
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004287,measurement,G035-11,Thermal conductivity 0.2 W/(m·K),"p. 1: Thermal conductivity, normal ISO 8302 W/(m·K)"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004288,measurement,G035-11,Water absorption 0.5 %,p. 2: Water absorption (saturation value) ISO 62 %
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004289,measurement,G035-11,Water absorption 0.2 %,p. 2: Water absorption (equilibrium value) ISO 62 %
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004290,measurement,G035-11,Density 1190 kg/m³,p. 2: Density ISO 1183-1 kg/m³
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V012888,measurement,G035-11,Mould shrinkage 0.5–0.7 %,"p. 1: Molding shrinkage, parallel"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V012889,measurement,G035-11,Mould shrinkage 0.5–0.7 %,"p. 1: Molding shrinkage, normal"
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V012890,measurement,G035-11,Dielectric strength 35 kV/mm,p. 2: Electrical strength
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010398,measurement,G137-03,Mould shrinkage 0.5-0.7 %,p. 1: Shrinkage
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010399,measurement,G137-03,Melt mass-flow rate 12 g/10min,p. 1: MFR (ISO 1183)
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010400,measurement,G137-03,Tensile yield strength 40 MPa,p. 1: Yield stress (ISO 527-2/1A)
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010401,measurement,G137-03,Elongation at yield 150 %,p. 1: Yield strain (ISO 527-2/1A)
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010402,measurement,G137-03,Tensile modulus 50 MPa,p. 1: Tensile modulus (ISO 527-2/1A)
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010403,measurement,G137-03,Vicat softening temperature 64 °C,p. 1: Vicat SoXening temperature B50
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V010404,measurement,G137-03,Density 0.94 g/cm3,p. 1: Density (ISO 1183)
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V011485,measurement,G137-03,HDT 60 °C,p. 1: Heat deflection temperature 0.45 MPa
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V011489,measurement,G137-03,Elongation at break 500 %,p. 1: Elongation at break (ISO 527-2/1A)
+R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,V012158,measurement,G137-03,Hardness 89A,p. 1: Shore hardness (General text)
+R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1,V009037,measurement,G111-02,Density 1.24 g/cc,p. 1: Density approx.
+R-NANOVIA-PC-PTFE,V007732,measurement,G112-02,Density 1.26 g/cm3,p. 1: Density
+R-NANOVIA-PC-PTFE,V007733,measurement,G112-02,Tensile modulus 1775 MPa,p. 1: Young’s modulus
+R-NANOVIA-PC-PTFE,V007734,measurement,G112-02,Tensile strain at strength 4.4 %,p. 1: Elongation ultimate strength
+R-NANOVIA-PC-PTFE,V007735,measurement,G112-02,Charpy strength 50 kJ/m2,p. 1: Charpy
+R-NANOVIA-PC-PTFE,V007736,measurement,G112-02,Charpy strength 12 kJ/m2,p. 1: Charpy (notched)
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006381,measurement,G083-02,Density 0.91 g/cm3,p. 1: Density D 792 g/cm3
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006382,measurement,G083-02,Elongation at break 1.3 %,p. 1: Tensile Elongation at Break D 638 %
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006383,measurement,G083-02,Tensile modulus 6380 MPa,p. 1: Youngs Modulus D 638 MPa
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006384,measurement,G083-02,Flexural modulus 4512 MPa,p. 1: Flexural Modulus – Chord Modulus D 790 MPa
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006385,measurement,G083-02,Charpy strength 11.6 kJ/m2,p. 1: Charpy Impact Strength at 23℃ ISO 179 kJ/m2
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006386,measurement,G083-02,HDT 158 ℃,p. 1: Deflection Temperature (at 0.455 MPa) D 648 ℃
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V006387,measurement,G083-02,Vicat softening temperature 150 ℃,p. 1: Vicat Softening Temperature (at 10 N) D 1525 ℃
+R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,V012705,measurement,G083-02,Tensile strength (endpoint unspecified) 41 MPa,p. 1: Ultimate Tensile Strength*
+S-PPA-TDS,V001285,measurement,G069-01,Density 1.14 g/cm³,p. 1: Density
+S-PPA-TDS,V001286,measurement,G069-01,Water absorption 1.32 %,p. 1: Saturated Water Absorption Rate
+S-PPA-TDS,V001287,measurement,G069-01,Melting temperature 246 °C,p. 1: Melting Temperature
+S-PPA-TDS,V001288,measurement,G069-01,Vicat softening temperature 133 °C,p. 1: Vicar Softening Temperature
+S-PPA-TDS,V001289,measurement,G069-01,HDT 131 °C,p. 1: Heat Deflection Temperature
+S-PPA-TDS,V001290,measurement,G069-01,Tensile strength (endpoint unspecified) 76 MPa,p. 1: Tensile Strength XY
+S-PPA-TDS,V001291,measurement,G069-01,Tensile strength (endpoint unspecified) 40 MPa,p. 1: Tensile Strength Z
+S-PPA-TDS,V001292,measurement,G069-01,Tensile modulus 2863 MPa,p. 1: Young's Modulus XY
+S-PPA-TDS,V001293,measurement,G069-01,Tensile modulus 2677 MPa,p. 1: Young's Modulus Z
+S-PPA-TDS,V001294,measurement,G069-01,Elongation at break 3.4 %,p. 1: Breaking Elongation Rate XY
+S-PPA-TDS,V001295,measurement,G069-01,Elongation at break 1.6 %,p. 1: Breaking Elongation Rate Z
+S-PPA-TDS,V001296,measurement,G069-01,Flexural strength 123 MPa,p. 1: Flexural Strength XY
+S-PPA-TDS,V001297,measurement,G069-01,Flexural strength 62 MPa,p. 1: Flexural Strength Z
+S-PPA-TDS,V001298,measurement,G069-01,Flexural modulus 2672 MPa,p. 1: Flexural Modulus XY
+S-PPA-TDS,V001299,measurement,G069-01,Flexural modulus 2576 MPa,p. 1: Flexural Modulus Z
+S-PPA-TDS,V001300,measurement,G069-01,Charpy strength 32.8 kJ/m²,p. 1: Impact Strength XY
+S-PPA-TDS,V001301,measurement,G069-01,Charpy strength 5.4 kJ/m²,p. 1: Impact Strength Z
+S-PPA-TDS,V002201,measurement,G069-01,Melt mass-flow rate 15.6 g/10 min,p. 1: Melt Index
+S-PPA-TDS,V002223,measurement,G069-01,Vicat softening temperature 106 °C,p. 1: Vicar Softening Temperature (as printed)
+S-PPA-TDS,P0088,profile,G069-01,Manufacturer published guidance,Recommended printing settings; p. 2: Compatible Printer Type
+R-EXTRUDR-durapro-asa-cf-TDS-en,V004094,measurement,G033-05,Izod impact strength 100 kj/m²,p. 1: Notched impact strength ASTM D256 kj/m²
+R-EXTRUDR-durapro-asa-cf-TDS-en,V004095,measurement,G033-05,Izod impact strength 20 kj/m²,p. 1: Unnotched impact strength ASTM D256 kj/m²
+R-EXTRUDR-durapro-asa-cf-TDS-en,V004100,measurement,G033-05,Hardness 105,p. 1: Hardness Rockwell ASTM D785 R-Skala
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003917,measurement,G001-30,Density 1.237 g/cm3,"p. 1: Density ISO1183, GB/T 1033"
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003918,measurement,G001-30,Melt mass-flow rate 13.4 g/10min,"p. 1: Melt index 210°C, 2.16 kg"
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003919,measurement,G001-30,Water absorption 0.449 %,p. 1: Equilibrium water absorption (%)=
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003920,measurement,G001-30,Glass transition temperature 58.3 °C,"p. 1: Glass transition temp. DSC, 10°C/min"
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003921,measurement,G001-30,Vicat softening temperature 63.5 °C,"p. 1: Vicat softening temp. ISO 306, GB/T 1633"
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003922,measurement,G001-30,Tensile modulus 2531.08 ± 25.16 MPa,p. 1: Young’s modulus (X-Y)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003923,measurement,G001-30,Tensile modulus 2265.58 ± 48.68 MPa,p. 1: Young’s modulus (Z)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003924,measurement,G001-30,Tensile strength (endpoint unspecified) 39.93 ± 0.44 MPa,p. 1: Tensile strength (X-Y)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003925,measurement,G001-30,Tensile strength (endpoint unspecified) 25.39 ± 0.45 MPa,p. 1: Tensile strength (Z)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003926,measurement,G001-30,Elongation at break 16.57 ± 6.18 %,p. 1: Elongation at break (X-Y)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003927,measurement,G001-30,Elongation at break 3.05 ± 0.19 %,p. 1: Elongation at break (Z)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003928,measurement,G001-30,Flexural modulus 2438.41 ± 78.20 MPa,p. 1: Bending modulus (X-Y)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003929,measurement,G001-30,Flexural modulus 2368.62 ± 61.58 MPa,p. 1: Bending modulus (Z)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003930,measurement,G001-30,Flexural strength 62.12 ± 0.78 MPa,p. 1: Bending strength (X-Y)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003931,measurement,G001-30,Flexural strength 49.96 ± 1.06 MPa,p. 1: Bending strength (Z)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V003932,measurement,G001-30,Charpy strength 20.76 ± 2.18 kJ/m2,"p. 1: Notched charpy impact strength (X-Y) ISO 179, GB/T 1043"
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V013488,measurement,G001-30,Melting temperature 158.9°C,p. 1: Melting temp.
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V013489,measurement,G001-30,Crystallization temperature 113.3°C,p. 1: Crystalization temp.
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V013490,measurement,G001-30,Decomposition temperature 357.2°C,p. 1: Decomposition temp.
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V013491,measurement,G001-30,HDT 55.6°C,p. 1: Heat deflection temp. 1.8MPa
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V013492,measurement,G001-30,HDT 58.1°C,p. 1: Heat deflection temp. 0.45MPa
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V013493,measurement,G001-30,Charpy strength 21.7 ± 2.22 kJ/m²,p. 1: Un-notched charpy impact strength (Z)
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,V014418,measurement,G001-30,Charpy strength 51.7 ± 4.58 kJ/m²,p. 1: Un-notched charpy impact strength (X-Y)
+D-FLASH-PET-GF-TDS-EN,V005261,measurement,G068-01,Continuous service temperature 120 ℃,p. 2: Continuous Service Temperature IEC 60216 ℃
+D-FLASH-PET-GF-TDS-EN,P0466,profile,G068-01,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle Temperature; p. 2: Ambient Temperature for Printing; p. 2: Build Surface Material; p. 2: Nozzle & Gear Material; p. 1: Description; p. 2: Nozzle Diameter (recommended printing settings)
+R-COLORFABB-TDS-E-ColorFabb-nGen,V014735,measurement,G092-02,HDT 71,p. 1: Thermal Properties: Heat Deflection Temp. @0.455 MPA
+R-COLORFABB-TDS-E-ColorFabb-nGen,V014736,measurement,G092-02,HDT 63,p. 1: Thermal Properties: Heat Deflection Temp. @1.82 MPA
+R-COLORFABB-TDS-E-ColorFabb-nGen,P0515,profile,G092-02,Manufacturer published guidance,p. 2: Recommended printing settings

@@ -34,7 +34,7 @@ M032,ASA Aero,within,within,within,within,no-special-concern,required
 M033,ASA-CF,within,within,within,within,requires-hardened,required
 M034,ASA-GF,within,within,within,within,requires-hardened,required
 M035,PC,within,within,within,within,no-special-concern,required
-M036,PC FR,within,within,within,within,unknown,required
+M036,PC FR,within,within,within,within,no-special-concern,required
 M037,PC-CF,within,within,within,within,requires-hardened,required
 M038,PC-GF,within,within,within,unknown,requires-hardened,required
 M039,TPU,family,unknown,unknown,unknown,unknown,unknown
@@ -82,7 +82,7 @@ M080,Support for PA/PET,within,within,within,within,requires-hardened,required
 M081,HIPS,within,within,within,within,no-special-concern,required
 M082,PP,within,within,within,within,no-special-concern,required
 M083,PP-CF,within,within,within,within,requires-hardened,required
-M084,PP-GF,within,within,within,within,requires-hardened,not-needed
+M084,PP-GF,within,within,within,within,requires-hardened,required
 M085,PE,within,within,within,within,no-special-concern,not-needed
 M086,OBC,within,within,within,within,unknown,optional
 M087,POM / Acetal,within,within,within,exceeds,unknown,required

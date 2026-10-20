@@ -14,7 +14,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1057 | 45 | 1 | 5 | 1108 |
+| Products | 1057 | 45 | 1 | 11 | 1114 |
 | Materials | 141 | 6 | 0 | 5 | 152 |
 
 7495 statements; 1537 sources read for know-how; 216 makers' sites searched.
@@ -26,18 +26,18 @@ documents were read and give none of one is listed under "Recipe silent".
 
 | Material | Candidate in | Know-how | Products silent | Recipe silent (chamber / drying / annealing) | Makers to search |
 |---|---|---|---:|---|---|
-| PP-GF (M084) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 2 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
+| PP-GF (M084) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 3 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PA6-CF (M050) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 2 / 2 / 11 | — |
-| PP-CF (M083) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 1 / 4 | — |
+| PP-CF (M083) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 4 | — |
 | PPA-CF (M070) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 0 / 2 | — |
 | ASA-CF (M033) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 17 | 3 / 5 / 13 | — |
 | PET-CF (M067) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 2 / 4 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 1 | — |
-| PPS-CF (M073) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 7 | 2 / 1 / 4 | — |
+| PPS-CF (M073) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 7 | 1 / 1 / 4 | — |
 | PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 2 of 72 | 24 / 22 / 50 | 3DXTECH (3dxtech.com, sourcegraphics.com); Recreus (recreus.com) |
 | ABS-CF (M029) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 1 / 1 / 5 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
-| PA12-CF (M053) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 15 | 5 / 2 / 9 | MatterHackers (matterhackers.com) |
+| PA12-CF (M053) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 15 | 4 / 1 / 9 | MatterHackers (matterhackers.com) |
 | PA6-GF (M051) | Indoor prototype; Outdoor structural part; Warm environment | collected | 1 of 11 | 2 / 4 / 8 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PA6/66 (M057) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 1 / 6 | — |
@@ -48,15 +48,15 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA (M001) | Indoor prototype; Lightweight structure | collected | 3 of 196 | 80 / 102 / 156 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, sourcegraphics.com); MatterHackers (matterhackers.com) |
 | PLA Wood (M014) | Indoor prototype; Lightweight structure | collected | 2 of 20 | 9 / 6 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
-| PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 8 / 14 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
+| PC (M035) | Indoor prototype; Warm environment | collected | 1 of 21 | 6 / 7 / 13 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 2 / 2 / 10 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PP Lightweight (M103) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PVDF-ESD (M120) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
-| ASA (M031) | Indoor prototype; Warm environment | collected | 0 of 40 | 14 / 16 / 32 | — |
+| ASA (M031) | Indoor prototype; Warm environment | collected | 0 of 40 | 12 / 16 / 32 | — |
 | COC (M137) | Indoor prototype; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
 | CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 6 | 0 / 1 / 2 | — |
 | HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 11 | 5 / 4 / 9 | — |
-| Nylon, maker-undisclosed polyamide (M164) | Indoor prototype; Lightweight structure | collected | 0 of 7 | 1 / 3 / 3 | — |
+| Nylon, maker-undisclosed polyamide (M164) | Indoor prototype; Lightweight structure | collected | 0 of 8 | 1 / 3 / 3 | — |
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
 | PBAT (M133) | Flexible component; Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-CF (M037) | Indoor prototype; Warm environment | collected | 0 of 10 | 4 / 1 / 8 | — |
@@ -64,10 +64,10 @@ documents were read and give none of one is listed under "Recipe silent".
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 8 / 6 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 4 / 3 / 8 | — |
 | PLA-CF (M018) | Indoor prototype; Lightweight structure | collected | 0 of 19 | 6 / 7 / 15 | — |
-| PLA-NF (M152) | Indoor prototype; Lightweight structure | collected | 0 of 2 | 0 / 0 / 2 | — |
+| PLA-NF (M152) | Indoor prototype; Lightweight structure | collected | 0 of 3 | 0 / 0 / 2 | — |
 | PLA-PHB (M146) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PPE-PS (M130) | Indoor prototype; Warm environment | collected | 0 of 2 | 0 / 0 / 1 | — |
-| PPS-GF (M074) | High-stiffness fixture; Indoor prototype | collected | 0 of 2 | 0 / 0 / 1 | — |
+| PPS-GF (M074) | High-stiffness fixture; Indoor prototype | collected | 0 of 3 | 0 / 0 / 1 | — |
 | TPC / TPEE (M046) | Flexible component; Indoor prototype | collected | 0 of 12 | 5 / 3 / 8 | — |
 | TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 18 | 8 / 7 / 16 | — |
 | TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 12 | 3 / 1 / 11 | — |
@@ -81,9 +81,10 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA Aero (M032) | Indoor prototype | collected | 0 of 4 | 0 / 0 / 2 | — |
 | ASA-AF (M113) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | CPE-CF (M090) | Indoor prototype | collected | 0 of 3 | 0 / 0 / 2 | — |
-| OBC (M086) | Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
+| OBC (M086) | Indoor prototype | collected | 0 of 3 | 1 / 1 / 1 | — |
 | PA6 (M049) | Indoor prototype | collected | 0 of 9 | 2 / 0 / 9 | — |
 | PA6-CE (M104) | Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PC FR (M036) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 1 | — |
 | PCTG (M088) | Indoor prototype | collected | 0 of 8 | 2 / 2 / 5 | — |
 | PCTG-CF (M144) | Indoor prototype | collected | 0 of 3 | 0 / 0 / 1 | — |
 | PCTG-GF (M110) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
@@ -136,9 +137,10 @@ documents were read and give none of one is listed under "Recipe silent".
 | TPI (M121) | — | collected | 1 of 2 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | BVOH (M076) | — | collected | 0 of 4 | 1 / 0 / 3 | — |
 | LCP (M139) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
-| Nylon-CF, maker-undisclosed polyamide (M165) | — | collected | 0 of 6 | 4 / 3 / 4 | — |
+| Nylon-CF, maker-undisclosed polyamide (M165) | — | collected | 0 of 6 | 3 / 3 / 3 | — |
 | Nylon-GF, maker-undisclosed polyamide (M166) | — | collected | 0 of 3 | 1 / 1 / 1 | — |
 | PA12-AF (M154) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PA6/66-CF (M156) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
 | PA66 (M055) | — | collected | 0 of 2 | 1 / 1 / 2 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 0 / 2 | — |
 | PC-ABS-CF (M128) | — | collected | 0 of 1 | 0 / 0 / 1 | — |

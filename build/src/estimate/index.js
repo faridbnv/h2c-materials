@@ -117,7 +117,8 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     if (clamped) {
       diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';
     } else {
-      const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
+      // A grade is shown with its matrix's own scales where D178 gives it one (grades.js scalesOf).
+      const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: (subject) => gradeCal.scalesOf(subject).likely, calPlausible: (subject) => gradeCal.scalesOf(subject).plausible });
       const centres = new Map();
       const withheld = [];
       // A product's own values hold its estimate (D167) where the headline asks for it and its back-test holds as

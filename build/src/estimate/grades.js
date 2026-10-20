@@ -50,22 +50,39 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   const calPlausible = enough ? clamp(quantile(zs, model.levels.plausible) / zPlausible, cfg.plausibleScale) : cfg.defaultScale;
   const within = (h, z, cal) => Math.abs(h.o.y - h.p.mu) <= z * Math.sqrt((h.p.sd * cal) ** 2 + h.o.noise2);
   const r3 = (v) => (v == null ? null : Number(v.toPrecision(3)));
+  const groupBy = (key2) => { const out = {}; for (const h of held) (out[key2(h)] ??= []).push(h); return out; };
+  const zOf = (h) => Math.abs((h.o.y - h.p.mu) / h.sd);
+  // Each matrix's own scales (D178). Where the headline's product spread is set per matrix (D162), a matrix with enough
+  // hidden grades takes the scales its own hidden values need wherever they are wider than the shared ones, never
+  // narrower: the shared scales, set by the many glassy products, held the crystalline unfilled ones' heat deflection
+  // less often than they claim once well-predicted products elsewhere narrowed them. Every other matrix keeps the shared
+  // scales, and a headline without a spread per matrix keeps them everywhere.
+  const matrixScales = new Map();
+  if (enough && model.properties[key].productSpreadByMatrix === true) {
+    for (const [cls, hs] of Object.entries(groupBy((h) => S.matrix(h.o.m)))) {
+      if (hs.length < cfg.minHeld) continue;
+      const own = { likely: clamp(quantile(hs.map(zOf), model.levels.likely) / zLikely, cfg.likelyScale), plausible: clamp(quantile(hs.map(zOf), model.levels.plausible) / zPlausible, cfg.plausibleScale) };
+      if (own.likely > calLikely || own.plausible > calPlausible) matrixScales.set(cls, { likely: Math.max(calLikely, own.likely), plausible: Math.max(calPlausible, own.plausible) });
+    }
+  }
+  /** The scales a grade of material `m` is shown with: its matrix's own where D178 gives it one, the shared ones otherwise. */
+  const scalesOf = (m) => matrixScales.get(S.matrix(m)) ?? { likely: calLikely, plausible: calPlausible };
+  const L = (h) => scalesOf(h.o.m).likely, P = (h) => scalesOf(h.o.m).plausible;
   const calibration = {
     held: held.length, grades: new Set(held.map((h) => h.o.gradeId)).size,
     likelyScale: r3(calLikely), plausibleScale: r3(calPlausible),
-    likelyCoverage: held.length ? r3(held.filter((h) => within(h, zLikely, calLikely)).length / held.length) : null,
-    plausibleCoverage: held.length ? r3(held.filter((h) => within(h, zPlausible, calPlausible)).length / held.length) : null,
+    ...(matrixScales.size ? { matrixScales: Object.fromEntries([...matrixScales].sort().map(([cls, v]) => [cls, { likely: r3(v.likely), plausible: r3(v.plausible) }])) } : {}),
+    likelyCoverage: held.length ? r3(held.filter((h) => within(h, zLikely, L(h))).length / held.length) : null,
+    plausibleCoverage: held.length ? r3(held.filter((h) => within(h, zPlausible, P(h))).length / held.length) : null,
     // The median width of the plausible range a hidden grade would be shown (a ratio on a log scale, °C otherwise).
-    medianPlausibleWidth: held.length ? r3(median(held.map((h) => (model.properties[key].scale === 'log' ? Math.exp(2 * zPlausible * calPlausible * h.p.sd) : 2 * zPlausible * calPlausible * h.p.sd)))) : null,
+    medianPlausibleWidth: held.length ? r3(median(held.map((h) => (model.properties[key].scale === 'log' ? Math.exp(2 * zPlausible * P(h) * h.p.sd) : 2 * zPlausible * P(h) * h.p.sd)))) : null,
   };
-  // The same hidden grades by matrix as printed and by fold of materials (D162): the coverage the shared scales give each,
-  // and the scales each class alone would need.
-  const groupBy = (key2) => { const out = {}; for (const h of held) (out[key2(h)] ??= []).push(h); return out; };
-  const zOf = (h) => Math.abs((h.o.y - h.p.mu) / h.sd);
+  // The same hidden grades by matrix as printed and by fold of materials (D162): the coverage the scales they are shown
+  // with give each (D178), and the scales each class alone would need.
   calibration.byMatrix = Object.fromEntries(Object.entries(groupBy((h) => S.matrix(h.o.m))).sort().map(([cls, hs]) => [cls, {
     held: hs.length,
-    likelyCoverage: r3(hs.filter((h) => within(h, zLikely, calLikely)).length / hs.length),
-    plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, calPlausible)).length / hs.length),
+    likelyCoverage: r3(hs.filter((h) => within(h, zLikely, L(h))).length / hs.length),
+    plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, P(h))).length / hs.length),
     likelyScale: r3(quantile(hs.map(zOf), model.levels.likely) / zLikely), plausibleScale: r3(quantile(hs.map(zOf), model.levels.plausible) / zPlausible),
   }]));
   // How well the grade predictions state a chance (D165): where each hidden value fell in its predictive distribution
@@ -74,7 +91,7 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   const limits = model.properties[key].reliabilityLimits ?? [];
   if (held.length && limits.length) {
     const t = model.properties[key].scale === 'log' ? Math.log : (v) => v;
-    const sdOf = (h) => Math.sqrt((h.p.sd * calLikely) ** 2 + h.o.noise2);
+    const sdOf = (h) => Math.sqrt((h.p.sd * L(h)) ** 2 + h.o.noise2);
     const u = held.map((h) => normalCdf((h.o.y - h.p.mu) / sdOf(h)));
     const bins = Array.from({ length: 10 }, () => ({ n: 0, predicted: 0, met: 0 }));
     for (const h of held) for (const l of limits) {
@@ -92,7 +109,7 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   const order = [...new Set(S.pool.map((m) => m.id))].sort();
   const foldOf = new Map(order.map((id, i) => [id, i % cfg.folds]));
   calibration.byFold = Object.entries(groupBy((h) => foldOf.get(h.o.m.id))).sort().map(([, hs]) => ({ held: hs.length,
-    plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, calPlausible)).length / hs.length) }));
+    plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, P(h))).length / hs.length) }));
   // The anchor's back-test (D167, anchor.js): each hidden grade that publishes the asked property another way too. Does
   // its own band hold its hidden value; where the model's centre lies outside the band (its estimate withheld), which
   // was right; and do its ranges, held inside the band, still hold the hidden value as often as they claim.
@@ -125,7 +142,7 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
       const y = h.o.y, inBand = y >= band.lo && y <= band.hi;
       if (inBand) rows.inBand++;
       if (band.bands.every((b) => y >= b.lo && y <= b.hi)) rows.inNominal++;
-      const sdL = Math.sqrt((h.p.sd * calLikely) ** 2 + h.o.noise2), sdP = Math.sqrt((h.p.sd * calPlausible) ** 2 + h.o.noise2);
+      const sdL = Math.sqrt((h.p.sd * L(h)) ** 2 + h.o.noise2), sdP = Math.sqrt((h.p.sd * P(h)) ** 2 + h.o.noise2);
       const inRange = (z, sd, held) => {
         const lo = h.p.mu - z * sd, hi = h.p.mu + z * sd;
         return held ? y >= Math.max(lo, band.lo) && y <= Math.min(hi, band.hi) : y >= lo && y <= hi;
@@ -150,7 +167,7 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   // The worst hidden value per grade, where it sits beyond what the calibrated plausible range allows.
   const outliers = new Map();
   for (const h of held) {
-    const z = (h.o.y - h.p.mu) / Math.sqrt((h.p.sd * calPlausible) ** 2 + h.o.noise2);
+    const z = (h.o.y - h.p.mu) / Math.sqrt((h.p.sd * P(h)) ** 2 + h.o.noise2);
     if (Math.abs(z) <= cfg.outlierZ) continue;
     const prior = outliers.get(h.o.gradeId);
     if (!prior || Math.abs(z) > Math.abs(prior.z)) {
@@ -158,7 +175,7 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
         measurementIds: h.o.items.map((x) => x.measurementId).filter(Boolean), z: Math.round(z * 10) / 10 });
     }
   }
-  return { calLikely, calPlausible, bandScale, calibration, outliers: [...outliers.values()] };
+  return { calLikely, calPlausible, scalesOf, bandScale, calibration, outliers: [...outliers.values()] };
 }
 
 /**

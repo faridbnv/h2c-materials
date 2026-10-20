@@ -1,0 +1,16 @@
+{
+  "release": "5348868153f5",
+  "products": 1108,
+  "noNozzle": 34,
+  "noBed": 34,
+  "chamberUnanswered": 210,
+  "noDrying": 144,
+  "fibreFilledProducts": 255,
+  "fibreFilledWithOwnLoad": 174,
+  "pricedProducts": 228,
+  "pricedMaterials": 113,
+  "materialPages": 77,
+  "sources": 2107,
+  "measurements": 15096,
+  "profiles": 1902
+}

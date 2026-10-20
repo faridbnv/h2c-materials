@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b50.mjs (research intake 2, 2026-10-20)",
+    "date": "2026-10-20"
+  },
+  "document": {
+    "sha256": "f8fff41ba5af757030fdf4d5f1cff4d85afc60e1c203299e88ce519f3d66f4af",
+    "url": "https://blog.prusa3d.com/asa-prusament-is-here-learn-everything-about-the-successor-to-abs_30636/",
+    "pages": 1,
+    "provider": "Prusa Research",
+    "manufacturer": "Prusa Research",
+    "docKey": "https://blog.prusa3d.com/asa-prusament-is-here-learn-everything-about-the-successor-to-abs_30636/#witness-for=source:S-PVB-bc8551ef-tds-prusament-asa-2024-en"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": null,
+    "note": "A document of G031-20, products the catalogue holds."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-PRUSA-INTAKE-20261020-f8fff41ba5af",
+      "Publisher": "Prusa Research",
+      "Title": "ASA Prusament is here: learn everything about the successor to ABS (Prusa blog)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Prusa Research's own launch article for Prusament ASA, which recommends printing it inside an enclosure.",
+      "Citation role": "cited",
+      "URL": "https://blog.prusa3d.com/asa-prusament-is-here-learn-everything-about-the-successor-to-abs_30636/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G031-20",
+      "Access state": "retrieved",
+      "Access note": "Saved 2026-10-19 by the research agent of 2026-10-19 (round 2) and hashed; staged by digest into the round's ledger (ingest:witness --from, docs/audits/2026-10-20-research-intake-2/ingest/staged-manifest-b50.csv) on 2026-10-20, admitted in batch b50.",
+      "SHA256": "f8fff41ba5af757030fdf4d5f1cff4d85afc60e1c203299e88ce519f3d66f4af",
+      "Superseded by": "Not applicable"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The recommended print temperatures for ASA: Nozzle – 260 °C, heatbed (first layer) – 105 °C, heatbed (all other layers) – 110 °C."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (research intake 2, 2026-10-20, b50), read on the cached text and the page image",
+      "date": "2026-10-20"
+    }
+  },
+  "grades": [],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Every value and setting the document prints enters through the reading tools (the intake's stage 3: ingest:read-reconcile, a blind second reading of what decides, ingest:read-proposals, applyProposals), each checked on this document's cached text."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (research intake 2, 2026-10-20, b50), read on the cached text and the page image",
+    "date": "2026-10-20",
+    "note": "Registered for what it prints (guide): Prusa Research's own launch article for Prusament ASA, which recommends printing it inside an enclosure. Its identifying line is checked on page 1 of the cached text."
+  }
+}

@@ -1,0 +1,365 @@
+RowID,Class,Kind,SourceID,Page,Grade,Product,Field,Label,Raw,Lo,Hi,Unit,Operator,Direction,Specimen,Moisture,PostProcessing,Standard,TestConditions,TableHeading,Quote,Presence,SecondRead,HeldIDs,HeldValues,Reader,Confidence,Flags,Note
+r2-resolved.csv#4,new,setting,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,2,G035-11,DURAPRO PC FR V0,plate,Adhesive,recommended,,,,,,,,,,,PRINT SETTINGS,Adhesive | recommended,text,not-required,,,Codex GPT-6 research agent,high,,Read from source page image and text. Specimen form/orientation not inferred.
+r2-resolved.csv#5,new,setting,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,2,G035-11,DURAPRO PC FR V0,other,Speed,max. 280 mm/s,280,,mm/s,,,,,,,,PRINT SETTINGS,Speed | max. 280 mm/s,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from source page image and text. Specimen form/orientation not inferred.
+r2-resolved.csv#6,new,setting,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,2,G035-11,DURAPRO PC FR V0,other,Cooling,10-40 %,10,40,%,,,,,,,,PRINT SETTINGS,Cooling | 10-40 %,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from source page image and text. Specimen form/orientation not inferred.
+r2-resolved.csv#9,new,setting,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,2,G035-11,DURAPRO PC FR V0,other,Max. volumetric flow rate,18 mm³/s,18,,mm³/s,,,,,,,,PRINT SETTINGS,Max. volumetric flow rate | 18 mm³/s,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from source page image and text. Specimen form/orientation not inferred.
+r2-resolved.csv#14,new,setting,R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN,1,G137-03,Cyclo-Olefin-Copolymer flexibel (COC flex),nozzle,Printing temperature,240-280°C,240,,°C,,,,,,,,,Printing temperature | 240-280°C,visual-only,disagrees,,,Codex GPT-6 research agent,high,quote-not-on-page,"Cached digest ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a; full p1 visually read. Source has no specimen/direction/moisture/treatment. Existing HDT is physically implausible and must remain flagged. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/cocflex-1.png. The visible source words are correct. The embedded font text layer substitutes digits/symbols for letters and ligatures in Elongation/deflection/Softening/conductivity/Printing, and changes the minus glyph; no bad text-layer substitution adopted."
+r2-resolved.csv#28,new,setting,R-3DJAKE-3DJAKE-TDS-Conductive-PLA-1-0-1,1,G111-02,Proto-pasta Conductive PLA,other,Print Speed [mm/s],25-45,,,,,,,,,,,Print Settings (Based on Ultimaker s5 .15mm Profile),Print Speed [mm/s] | 25-45,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Cached digest924fa364463f4c670c7f6fbb224bf3ef9498f6ab37072045a8a2085767cfa412; full page visually read. No tensile/HDT figures on page; physical density and melt state not assigned to printed bars.
+r2-resolved.csv#38,new,setting,R-NANOVIA-PC-PTFE,1,G112-02,Nanovia PC-PTFE,hardened_nozzle,Nozzle (minimal),All,,,,,,,,,,,,Nozzle (minimal) | All,text,agreed,,,Codex GPT-6 research agent,high,,"Held HTML sha b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150. Current official page visually corroborated same table on2026-10-19; local file browser was blocked, no workaround attempted. Raster0° is not mapped to buildXY. No moisture or post-processing inferred."
+r2-resolved.csv#39,new,setting,R-NANOVIA-PC-PTFE,1,G112-02,Nanovia PC-PTFE,other,Printing Speed,20 – 70 mm/s,,,,,,,,,,,,Printing Speed | 20 – 70 mm/s,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,"Held HTML sha b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150. Current official page visually corroborated same table on2026-10-19; local file browser was blocked, no workaround attempted. Raster0° is not mapped to buildXY. No moisture or post-processing inferred."
+r2-resolved.csv#41,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,drying,water resistance,no drying needed,,,,,,,,,,,,water resistance (no drying needed),visual-only,agreed,,,Research agent (GPT-6),high,quote-not-on-page,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation."
+r2-resolved.csv#48,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,print_speed,Printing Speed (First Layer),35 - 65 (60% speed),35,65,mm/s,,,,,,,layer=First Layer,Recommended Print Settings,Printing Speed (First Layer) | 35 - 65 (60% speed),text,not-required,,,Research agent (GPT-6),high,no-table-column,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation. Recommended and alternate bed/substrate rows stay separate. Printed ≥ is an inclusive bound; no substituted endpoint or midpoint."
+r2-resolved.csv#49,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,fan,Fan Speed,50 - 100,50,100,%,,,,,,,,Recommended Print Settings,Fan Speed | 50 - 100,text,not-required,,,Research agent (GPT-6),high,no-table-column,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation. Recommended and alternate bed/substrate rows stay separate. Printed ≥ is an inclusive bound; no substituted endpoint or midpoint."
+r2-resolved.csv#50,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,other,Extrusion Multiplier,0.90 – 1.10,0.90,1.10,,,,,,,,,Recommended Print Settings,Extrusion Multiplier | 0.90 – 1.10,text,not-required,,,Research agent (GPT-6),high,no-table-column,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation. Recommended and alternate bed/substrate rows stay separate. Printed ≥ is an inclusive bound; no substituted endpoint or midpoint."
+r2-resolved.csv#51,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,other,Overlap Percentage,20 – 40,20,40,%,,,,,,,,Recommended Print Settings,Overlap Percentage | 20 – 40,text,not-required,,,Research agent (GPT-6),high,no-table-column,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation. Recommended and alternate bed/substrate rows stay separate. Printed ≥ is an inclusive bound; no substituted endpoint or midpoint."
+r2-resolved.csv#52,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,other,Brim,0 - 5,0,5,Layers,,,,,,,,Recommended Print Settings,Brim | 0 - 5,text,not-required,,,Research agent (GPT-6),high,no-table-column,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation. Recommended and alternate bed/substrate rows stay separate. Printed ≥ is an inclusive bound; no substituted endpoint or midpoint."
+r2-resolved.csv#53,new,setting,R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF,1,G083-02,FL900PP-CF,other,Support/Raft Air Gap,0.2 or single layer thickness,0.2,,mm,,,,,,,,Recommended Print Settings,Support/Raft Air Gap | 0.2 or single layer thickness,text,not-required,,,Research agent (GPT-6),high,no-table-column,"Held original PDF SHA256 rechecked; page image and text reviewed. This is filament/product guidance, not test-bar preparation. Recommended and alternate bed/substrate rows stay separate. Printed ≥ is an inclusive bound; no substituted endpoint or midpoint."
+r2-resolved.csv#69,new,setting,D-SIRAYA-Fibreheart-PPA-GF-TDS,5,G071-02,Fibreheart PPA-GF,other,Annealing (Optional Heat Treatment),Heat the part in a convection oven at 90°C for 4 hours.,90,,°C,,,,,,,,,"Use needle-nose pliers and flush cutters for precise removal.
+Annealing can significantly increase the heat resistance (HDT), stiffness, and
+strength of your PPA-GF parts.
+1.Preparation: Clean the part and remove all support material.
+2.Placement: Place the part on a flat, oven-safe surface (like a metal or glass
+Annealing
+sheet) to prevent distortion. For complex parts, consider placing them in a
+(Optional Heat Treatment)
+bed of sand to support all features.
+3.Heating: Heat the part in a convection oven at 90°C for 4 hours.",text,not-required,,,Research agent (GPT-6),high,no-table-column,Hash-verified original PDF and page image reviewed. Part guide only; duration4h. Oven off and slow cooling to room temperature inside oven; flat oven-safe surface or sand support. Does not explicitly identify table3 test-bar treatment. Quote preserves original extracted page wording and line order; page image checked for column attribution.
+r2-resolved.csv#75,new,setting,D-SIRAYA-Fibreheart-PPA-CF-TDS,3,G070-02,Fibreheart PPA-CF,other,Heating Block,At least 12mm thick for optimal temperature stability,12,,mm,,,,,,,,,"Size request: 0.4mm and above
+Heating Block At least 12mm thick for optimal temperature stability
+Print Bed Surface Coating Use a PEI sheet or apply a PVP glue coating on the print bed surface
+for better adhesion and to reduce warping
+*Note*:
+Only dry if filament shows signs of moisture.",text,not-required,,,Research agent (GPT-6),high,no-table-column,Hash-verified original PDF and page image reviewed. Dry only if filament shows signs of moisture; not required for first unpacking unless vacuum packing becomes damp. Drying is distinct from annealing. Quote preserves original extracted page wording and line order; page image checked for column attribution.
+r2-resolved.csv#81,new,setting,D-SIRAYA-Fibreheart-PPA-CF-TDS,3,G070-02,Fibreheart PPA-CF,plate,Print Bed Surface Coating,Use a PEI sheet or apply a PVP glue coating on the print bed surface for better adhesion and to reduce warping,,,,,,,,,,,,"Heating Block At least 12mm thick for optimal temperature stability
+Print Bed Surface Coating Use a PEI sheet or apply a PVP glue coating on the print bed surface
+for better adhesion and to reduce warping
+*Note*:
+Only dry if filament shows signs of moisture.
+Drying is not required for the first unpacking unless the vacuum packing becomes",text,not-required,,,Research agent (GPT-6),high,,Hash-verified original PDF and page image reviewed. Dry only if filament shows signs of moisture; not required for first unpacking unless vacuum packing becomes damp. Drying is distinct from annealing. Quote preserves original extracted page wording and line order; page image checked for column attribution.
+r2-resolved.csv#87,new,setting,S-PPA-TDS,2,G069-01,PPA Pure Resin,other,Printing Temperature and Humidity,"≤ 100 °C,≤ 20%RH (Sealed with desiccant)",,,,,,,,,,,,"≤ 100 ℃, ≤ 20% RH
+Printing Temperature and Humidity
+(Sealed with desiccant)
+≤ 35 ℃，≤ 20% RH
+Storage Temperature and Humidity
+(Sealed with desiccant)",text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Whole recipe read. Printing Temperature and Humidity describes sealed desiccant handling, not a nozzle/chamber temperature. Open-frame is permitted; enclosure recommendation preserved. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#93,new,setting,S-PPA-TDS,2,G069-01,PPA Pure Resin,nozzle_diameter,Compatible Nozzle Size,Any common size,,,,,,,,,,,,"Compatible Nozzle Material Any common material
+Compatible Nozzle Size Any common size
+Compatible Plate Type Smooth / Textured PEI Plate or other plate
+Apply liquid glue or PVP solid glue stick if the first layer
+Plate Surface Preparation
+bonding is not firm enough",text,not-required,,,Research agent (GPT-6),high,,"Hash-verified original PDF and page image reviewed. Whole recipe read. Printing Temperature and Humidity describes sealed desiccant handling, not a nozzle/chamber temperature. Open-frame is permitted; enclosure recommendation preserved. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#99,new,setting,S-PPA-TDS,2,G069-01,PPA Pure Resin,plate,Compatible Plate Type,Smooth / Textured PEI Plate or other plate,,,,,,,,,,,,"Compatible Nozzle Size Any common size
+Compatible Plate Type Smooth / Textured PEI Plate or other plate
+Apply liquid glue or PVP solid glue stick if the first layer
+Plate Surface Preparation
+bonding is not firm enough
+Nozzle Temperature 280 - 310 °C",text,not-required,,,Research agent (GPT-6),high,,"Hash-verified original PDF and page image reviewed. Whole recipe read. Printing Temperature and Humidity describes sealed desiccant handling, not a nozzle/chamber temperature. Open-frame is permitted; enclosure recommendation preserved. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#105,new,setting,S-PPA-TDS,2,G069-01,PPA Pure Resin,fan,Fan Speed,0 - 40%,0,40,%,,,,,,,,,"Bed Temperature 100 - 120 °C
+Fan Speed 0 - 40%
+Max Print Speed 180 mm/s
+IPCON Polymer Material (Suzhou) Co., LTD
+Address: Room 632, Building E, Dongchuang Science Park, No. 216,
+Jinfeng Road, Mudu Town,Wuzhong District, Suzhou City,China",text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Whole recipe read. Printing Temperature and Humidity describes sealed desiccant handling, not a nozzle/chamber temperature. Open-frame is permitted; enclosure recommendation preserved. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#111,new,setting,S-PPA-TDS,2,G069-01,PPA Pure Resin,print_speed,Max Print Speed,180 mm/s,,180,mm/s,,,,,,,,,"Fan Speed 0 - 40%
+Max Print Speed 180 mm/s
+IPCON Polymer Material (Suzhou) Co., LTD
+Address: Room 632, Building E, Dongchuang Science Park, No. 216,
+Jinfeng Road, Mudu Town,Wuzhong District, Suzhou City,China
+Web Site: www.ipconpolymer.com",text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Whole recipe read. Printing Temperature and Humidity describes sealed desiccant handling, not a nozzle/chamber temperature. Open-frame is permitted; enclosure recommendation preserved. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#112,new,setting,R-FIBERON-PETGF15-TDS,1,G068-02,Fiberon PET-GF15,fan,Cooling fan,OFF,,,,,,,,,,,,RECOMMENDED PRINTING CONDITIONS | Cooling fan | OFF,text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Full recommended recipe retained separately from How to make specimens (300°C nozzle,80°C bed,100% infill,2shells,3top/bottom layers,fanOFF); specimen parameters are not product recipe values. Annealing guide warns to retain supports for bridges/overhangs and maintain uniform oven temperature. Quote preserves original extracted page wording and line order; page image checked for column attribution. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/chamber_recipes/G068-02-held-p1.png; Prior quote concatenated the recommended recipe and separate specimen-preparation section. The recommended recipe visibly says Cooling fan OFF; removed unrelated specimen parameters."
+r2-resolved.csv#118,new,setting,R-FIBERON-PETGF15-TDS,1,G068-02,Fiberon PET-GF15,print_speed,Printing speed,Up to 250mm/s,,250,mm/s,,,,,,,,,"R E C O M M E N D E D P R I N T I N G C O N D I T I O N S
+Nozzle temperature 280-310°C Printing speed Up to 250mm/s
+Drying temp. and time 100°C/10H
+Build plate temperature 70-80°C
+Chamber temperature Room temp. Annealing temp. and time 120°C/16H
+Cooling fan OFF",text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Full recommended recipe retained separately from How to make specimens (300°C nozzle,80°C bed,100% infill,2shells,3top/bottom layers,fanOFF); specimen parameters are not product recipe values. Annealing guide warns to retain supports for bridges/overhangs and maintain uniform oven temperature. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#124,new,setting,R-FIBERON-PETGF15-TDS,1,G068-02,Fiberon PET-GF15,other,Annealing temp. and time,120°C/16H,120,,°C,,,,,,,,,"Build plate temperature 70-80°C
+Chamber temperature Room temp. Annealing temp. and time 120°C/16H
+Cooling fan OFF
+N O T E
+Abrasion of the brass nozzle happens frequently when printing Fiberon™ PET-GF15. Normally, the life of a brass
+nozzle would be approximately 9h. A wear-resistance nozzle, such as hardened steel and ruby nozzle,",text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Full recommended recipe retained separately from How to make specimens (300°C nozzle,80°C bed,100% infill,2shells,3top/bottom layers,fanOFF); specimen parameters are not product recipe values. Annealing guide warns to retain supports for bridges/overhangs and maintain uniform oven temperature. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#291,new,setting,R-FIBERON-PETGF15-TDS,1,G068-02,Fiberon PET-GF15,other,NOTE,stored and used under dry conditions (relative humidity below 20%),,20,%,,,,,,,,,"T E C H N I C A L
+D A T A S H E E T
+V1.0
+T M
+F I B E R O N PET-GF15
+FIBERON™ PET-GF15 is the bridge of the gap between every-
+day usability and industrial performance, offering a strong,
+heat-resistant, and user-friendly filament for both professional
+and hobbyist applications.
+W W W . F I B E R O N 3 D . C O M
+P H Y S I C A L P R O P E R T I E S M O I S T U R E
+A B S O R P T I O N C U R V E
+PET-GF15
+P R O P E R T Y T E S T I N G M E T H O D T Y P I C A L V A L U E
+70% RH, 23°C
+0.30
+3
+Density ISO1183, GB/T1033 1.43 g/cm at 23°C
+0.25
+Melt index 270°C, 2.16kg 36.9 g/10min 0.20
+0.15
+Flame retardancy UL 94, 1.5mm HB
+0.10
+12
+Surface Resistivity (Ω) ANSI ESD S11.11 OL, >10 Ω
+0.05
+Equilibrium water absorption (%) = 0.32
+0.00
+0 5 10 15 20 25
+H D T C U R V E T H E R M A L P R O P E R T I E S
+0.45 Mpa T E S T I N G M E T H O D T Y P I C A L V A L U E
+PET-GF15
+P R O P E R T Y
+1.8 Mpa
+0.40
+(as printed) (as printed)
+DSC, 10°C/min 59.5°C
+Glass transition temp.
+0.35
+(annealed) (annealed)
+0.30
+Melting temperature DSC, 10°C/min 231.6°C
+0.25
+DSC, 10°C/min 201.4°C
+Crystallization temp.
+0.20
+0.15
+GA, 20°C/minT 422.8°C
+Decomposition temp.
+0.10
+ISO 306, GB/T 1633 232.6°C
+Vicat softening temp.
+0.05
+0
+ISO 75 1.8MPa 87.3°C (annealed)
+Heat deflection temp.
+-0.05
+10 30 50 70 90 110 130 150
+ISO 75 0.45MPa 133.7°C (annealed)
+Temperature/°C
+Heat deflection temp.
+ISO 75 1.8MPa 71.8 (as printed)
+Heat deflection temp.
+Heat deflection temp. ISO 75 0.45MPa 81.6 (as printed)
+M E C H A N I C A L P R O P E R T I E S
+P R O P E R T Y T E S T I N G M E T H O D T Y P I C A L V A L U E
+Young’s modulus (X-Y) 4144.2 ± 133.3 MPa
+ISO 527, GB/T 1040
+Young’s modulus (Z) 3428.9 ± 257.2 MPa
+Tensile strength (X-Y) 59.9 ± 0.8 MPa
+ISO 527, GB/T 1040
+Tensile strength (Z) 48.2 ± 0.3 MPa
+Elongation at break (X-Y) 4.0 ± 0.5%
+ISO 527, GB/T 1040
+Elongation at break (Z) 2.6 ± 0.1%
+Bending modulus (X-Y) 3705.4 ± 84.5 MPa
+ISO 178, GB/T 9341
+Bending modulus (Z) 2998.4 ± 92.3 MPa
+Bending strength (X-Y) 104.2 ± 2.4 MPa
+ISO 306, GB/T 1633
+Bending strength (Z) 80.3 ± 2.5 MPa
+2
+Charpy impact strength (X-Y) notched
+8.7 ± 0.6 kJ/m
+2
+Charpy impact strength (X-Y)un-notched ISO 179, GB/T 1043 27.2 ± 2.0 kJ/m
+2
+13.9 ± 1.6 kJ/m
+Charpy impact strength (Z) un-notched
+*All specimens were annealed at 120°C for 16h.
+S H R I N K A G E T E S T I N G
+D
+M O D E L A F T E R A F T E R
+S I Z E P R I N T I N G A N N E A L I N G
+X-Y 40mm 39.85mm 39.67mm
+Z
+Z 40mm 39.82mm 39.50mm
+Diameter 10mm 9.90mm 9.88mm
+*Model infill 30%
+X-Y
+R E C O M M E N D E D P R I N T I N G C O N D I T I O N S
+Nozzle temperature 280-310°C Printing speed Up to 250mm/s
+Drying temp. and time 100°C/10H
+Build plate temperature 70-80°C
+Chamber temperature Room temp. Annealing temp. and time 120°C/16H
+Cooling fan OFF
+N O T E
+Abrasion of the brass nozzle happens frequently when printing Fiberon™ PET-GF15. Normally, the life of a brass
+nozzle would be approximately 9h. A wear-resistance nozzle, such as hardened steel and ruby nozzle,
+is highly recommended to be used with Fiberon™ PET-GF15.
+Fiberon™ PET-GF15 is sensitive to moisture and should always be stored and used under dry conditions (relative
+humidity below 20%).
+In the case of large differences in layer time/cooling, or in the case of any parameter that significantly affects
+the degree of crystallinity at the time of printing, there may be a ‘slight discolouration’ of the surface of the print,
+which is a natural phenomenon of the crystalline material itself (i.e. crystallisation affects the transmittance of
+the material) and is not a quality issue.
+It is recommended to use Fiberon™ PET-GF15 directly without annealing in cases where temperature resistance
+of PET-GF15 above 80°C is not required. If annealing is required, please refer to the following tips:
+1. During annealing, do not touch the sample with your hands or apply any additional load to the sample.
+2. During annealing, ensure that the temperature in the oven is uniform and there are no obvious obstructions
+that cause uneven temperature of the sample.
+3. For prints with a bridge length of more than 3cm, or a thick layer on the upper part of the bridge; prints with
+large overhangs or small overhangs; all need to add supports and anneal in the oven together with the supports.
+4. For thin-walled areas with a wall thickness of less than 4mm, you can try to add reinforcing ribs or increase
+the wall thickness to avoid possible annealing deformation.
+5. In principle, the sample placement method needs to be consistent with that during printing, and it is best to
+enter the oven directly together with the base plate.
+6. The color of the printing parts will become slightly lighter after annealing due to the change in crystallinity,
+which is a normal phenomenon.
+H O W T O M A K E S P E C I M E N S
+Infill 100%
+Printing temperature 300°C
+Shell 2
+Bed temperature 80°C
+Cooling fan OFF
+Top & bottom layer 3
+FLEXURAL TESTING SPECIMEN IMPACT TESTING SPECIMEN
+TENSILE TESTING SPECIMEN
+ASTM D638 (ISO 527, GB/T 1040) ASTM D638 (ISO 179, GB/T 1043)
+ASTM D638 (ISO 527, GB/T 1040)
+80.00
+80.00
+60.00 150.00
+45.00°
+114.00
+10.00
+80.00
+20.00 10.00
+4*R25
+10.00
+4.00
+4.00
+4.00
+Z axis
+Z axis
+Z
+axis
+Impact direction
+D I S C L A I M E R
+The typical values presented in this data sheet are intended for reference and comparison purposes only. They should not be used for design specifications or quality
+control purposes. Actual values may vary significantly with printing conditions. End- use performance of printed parts depends not only on materials, but also on part
+design, environmental conditions, printing conditions, etc.
+Product specifications are subject to change without notice. Each user is responsible for determining the safety, lawfulness, technical suitability, and disposal/
+recycling practices of Polymaker materials for the intended application. Polymaker makes no warranty of any kind, unless announced separately, to the fitness for any
+use or application. Polymaker shall not be made liable for any damage, injury or loss induced from the use of Polymaker materials in any application.
+M A T E R I A L S C O M PA R I S O N
+Heat resistance - Stiffness",text,not-required,,,Research agent (GPT-6),high,no-table-column,"Hash-verified original PDF and page image reviewed. Full recommended recipe retained separately from How to make specimens (300°C nozzle,80°C bed,100% infill,2shells,3top/bottom layers,fanOFF); specimen parameters are not product recipe values. Annealing guide warns to retain supports for bridges/overhangs and maintain uniform oven temperature. Quote preserves original extracted page wording and line order; page image checked for column attribution."
+r2-resolved.csv#297,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,plate,Recommended build surface treatment,Coating with PVP glue,,,,,,,,,,,Recommended printing conditions,"Recommended Nozzle Diameter
+建议底板材质 涂抹 PVP 固体胶
+Recommended build surface treatment Coating with PVP glue
+底板温度
+40-70℃
+Build plate temperature",text,not-required,,,Research agent (GPT-6),high,,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#303,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,other,Raft separation distance,0.08-0.12mm,0.08,0.12,mm,,,,,,,,Recommended printing conditions,"Raft 间距
+0.08-0.12mm
+Raft separation distance
+冷却风扇 关闭
+Cooling fan speed OFF
+打印速度",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#309,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,fan,Cooling fan speed,OFF,,,,,,,,,,,Recommended printing conditions,"Raft separation distance
+冷却风扇 关闭
+Cooling fan speed OFF
+打印速度
+30-120 mm/s
+Print speed",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#315,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,print_speed,Print speed,30-120 mm/s,30,120,mm/s,,,,,,,,Recommended printing conditions,"试样打印参数：喷嘴大小 0.4mm，喷嘴温度 300℃，底板加热 60℃，打印速度 45mm/s，填充率 100%，填充角度±45°
+后处理条件：100℃退火 8 小时
+Specimens printed under the following conditions: Nozzle size 0.4mm，Nozzle temp 300℃, Bed temp 60℃, Print speed 45mm/s, Infill 100%, Infill angle ±45°
+Post-processing : 100℃ Annealing 8hours
+建议打印参数
+Recommended printing conditions",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#321,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,other,Retraction distance,1-3 mm,1,3,mm,,,,,,,,Recommended printing conditions,"回抽距离
+1-3 mm
+Retraction distance
+回抽速度
+1800-3600 mm/min
+Retraction speed",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#327,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,other,Retraction speed,1800-3600 mm/min,1800,3600,mm/min,,,,,,,,Recommended printing conditions,"回抽速度
+1800-3600 mm/min
+Retraction speed
+建议支撑材料
+QIDI S-Multi Quick-Remove Support
+Recommended support material",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#333,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,other,Recommended support material,QIDI S-Multi Quick-Remove Support,,,,,,,,,,,Recommended printing conditions,"建议支撑材料
+QIDI S-Multi Quick-Remove Support
+Recommended support material
+其他建议：
+Additional Suggestions：
+1. 尼龙材料非常容易吸收环境内的水分，吸湿后打印会出现拉丝，挤出有气泡，打印表面粗糙等现象，降",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#337,new,setting,R-QIDI-PA12-CF,3,G059-02,QIDI PA612-CF,other,Additional Suggestions,dry box (humidity below 15%),,15,%,,,,,,,,Recommended printing conditions,"moisture will result ozzing, extruding with bubbles and rough surface appearance, thus reducing print
+quality. It is recommended that put the filament into a dry box (humidity below 15%) immediately after
+opening the QIDI PA612-CF vacuum foil bag for printing. Please put the unused filament back into the
+original aluminum foil bag for sealed storage.",text,not-required,,,Research agent (GPT-6),high,no-table-column,Whole opened recipe block read from fingerprint-verified original PDF page image. Specimen parameters300℃ nozzle/60℃ bed/45mm/s are kept as test conditions; storage humidity is not a drying schedule.
+r2-resolved.csv#345,new,setting,R-MATTERHACKERS-INTAKE-20261019-bc21a85e0853,1,G053-15,PRO Series Carbon Fiber Nylon,print_speed,Print speed,25mm/s - 35mm/s,25,35,mm/s,,,,,,,,,Print speed: 25mm/s - 35mm/s,text,not-required,,,Research agent (GPT-6),high,no-table-column,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#346,new,setting,R-MATTERHACKERS-INTAKE-20261019-bc21a85e0853,1,G053-15,PRO Series Carbon Fiber Nylon,hardened_nozzle,Nozzle,"Stainless Steel, Olsson Ruby, or other hardened nozzle types",,,,,,,,,,,,"Nozzle: Stainless Steel, Olsson Ruby, or other hardened nozzle types",text,agreed-reader,,,Research agent (GPT-6),high,,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#347,new,setting,R-MATTERHACKERS-INTAKE-20261019-bc21a85e0853,1,G053-15,PRO Series Carbon Fiber Nylon,plate,Bed temperature,PVA glue stick,,,,,,,,,,,,Bed temperature: 60-65°C with PVA glue stick,text,not-required,,,Research agent (GPT-6),high,,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#351,new,setting,R-EXTRUDR-durapro-asa-cf-TDS-en,1,G033-05,DURAPRO ASA CF,plate,Adhesive,recommended,,,,,,,,,,,PRINT SETTINGS,Adhesive | recommended,text,not-required,,,Research agent (GPT-6),high,,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#352,new,setting,R-EXTRUDR-durapro-asa-cf-TDS-en,1,G033-05,DURAPRO ASA CF,print_speed,Speed,20-200mm/s,20,200,mm/s,,,,,,,,PRINT SETTINGS,Speed | 20-200mm/s,text,not-required,,,Research agent (GPT-6),high,no-table-column,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#353,new,setting,R-EXTRUDR-durapro-asa-cf-TDS-en,1,G033-05,DURAPRO ASA CF,fan,Cooling,0-30%,0,30,%,,,,,,,,PRINT SETTINGS,Cooling | 0-30%,text,not-required,,,Research agent (GPT-6),high,no-table-column,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#356,new,setting,R-EXTRUDR-durapro-asa-cf-TDS-en,1,G033-05,DURAPRO ASA CF,other,Max. Volumetric Speed,12 mm³/s,12,,mm³/s,,,,,,,,PRINT SETTINGS,Max. Volumetric Speed | 12 mm³/s,text,not-required,,,Research agent (GPT-6),high,no-table-column,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#360,new,setting,S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,1,G001-30,Polymaker™ PLA Pro,print_speed,Printing Speed,Up to 300mm/s,300,,mm/s,,,,,,,,RECOMMENDED PRINTING CONDITIONS,Printing Speed | Up to 300mm/s,text,not-required,,,Research agent (GPT-6),high,no-table-column,Saved bytes independently hashed; page image and text checked. Current PLA Pro recipe; not automatically assigned to historical PolySonic.
+r2-resolved.csv#361,new,setting,S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,1,G001-30,Polymaker™ PLA Pro,fan,Cooling fan,ON,,,,,,,,,,,RECOMMENDED PRINTING CONDITIONS,Cooling fan | ON,text,not-required,,,Research agent (GPT-6),high,no-table-column,Saved bytes independently hashed; page image and text checked. Current PLA Pro recipe; not automatically assigned to historical PolySonic.
+r2-resolved.csv#364,new,setting,S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,1,G001-30,Polymaker™ PLA Pro,other,Retraction distance,1-3 (mm),1,3,mm,,,,,,,,RECOMMENDED PRINTING CONDITIONS,Retraction distance | 1-3 (mm),text,not-required,,,Research agent (GPT-6),high,no-table-column,Saved bytes independently hashed; page image and text checked. Current PLA Pro recipe; not automatically assigned to historical PolySonic.
+r2-resolved.csv#365,new,setting,S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,1,G001-30,Polymaker™ PLA Pro,other,Retraction Speed,20-40 (mm/s),20,40,mm/s,,,,,,,,RECOMMENDED PRINTING CONDITIONS,Retraction Speed | 20-40 (mm/s),text,not-required,,,Research agent (GPT-6),high,no-table-column,Saved bytes independently hashed; page image and text checked. Current PLA Pro recipe; not automatically assigned to historical PolySonic.
+r2-resolved.csv#410,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,nozzle,Nozzle temperature,210~250℃,210,250,℃,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Nozzle temperature | 210~250℃,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#411,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,bed,Bed temperature,90~110℃,90,110,℃,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Bed temperature | 90~110℃,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#412,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,plate,Bed modification,Tape or glue,,,,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Bed modification | Tape or glue,text,not-required,,,Codex GPT-6 research agent,high,no-profile,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#413,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,other,Active cooling fan,50~100%,50,100,%,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Active cooling fan | 50~100%,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#414,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,other,Layer height,0.2mm,0.2,,mm,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Layer height | 0.2mm,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#415,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,other,Shell thickness,≥0.8mm,0.8,,mm,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Shell thickness | ≥0.8mm,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#416,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,other,Print speed,≤200mm/s,200,,mm/s,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Print speed | ≤200mm/s,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#417,new,setting,R-KEXCELLED-INTAKE-20261020-92a1f96a864b,1,G086-03,THE K8™ OBC,nozzle_diameter,Settings are based on a 0.4mm nozzle.,0.4mm,0.4,,mm,,,,,,,,GUIDELINE FOR PRINT SETTINGS,Settings are based on a 0.4mm nozzle.,text,not-required,,,Codex GPT-6 research agent,high,no-profile,Read from PDF image and text; no moisture or annealing condition is stated.
+r2-resolved.csv#465,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,drying,Drying Settings (Blast Drying Oven),100 °C，8-10 h,100,,°C,,,,,,,hours=8-10,Recommended Printing Settings,Drying Settings (Blast Drying Oven) | 100 °C，8-10 h,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#466,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,nozzle,Nozzle Temperature,300-350 °C,300,350,°C,,,,,,,,Recommended Printing Settings,Nozzle Temperature | 300-350 °C,text,disagrees,,,Codex GPT-6 research agent,high,no-profile,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#467,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,bed,Bed Temperature,80-100 °C,80,100,°C,,,,,,,,Recommended Printing Settings,Bed Temperature | 80-100 °C,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#468,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,other,Printing Speed,20-150 mm/s,20,150,mm/s,,,,,,,,Recommended Printing Settings,Printing Speed | 20-150 mm/s,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#469,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,hardened_nozzle,Cautions for Use,Use hardened steel nozzles or harder,,,,,,,,,,,Recommended Printing Settings,Cautions for Use | Use hardened steel nozzles or harder,text,agreed,,,Codex GPT-6 research agent,high,no-profile,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#470,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,nozzle_diameter,Cautions for Use,0.2 mm Nozzle Not Compatible,0.2,,mm,,,,,,,,Cautions for Use,Cautions for Use | 0.2 mm Nozzle Not Compatible,text,not-required,,,Codex GPT-6 research agent,high,no-profile,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#471,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,other,Post-Processing,130°C for 10 hours,130,,°C,,,,,,,hours=10,,Recommended annealing conditions: 130°C for 10 hours.,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#472,new,setting,R-QIDI-INTAKE-20261020-4bdb6fe222df,1,G074-03,PPS-GF20,plate,Build Plate,"QIDI PEI Plate, QIDI Smooth Plate, QIDI Cool Plate, HF Plate, PC Plate",,,,,,,,,,,,"Build Plate | QIDI PEI Plate, QIDI Smooth Plate, QIDI Cool Plate, HF Plate, PC Plate",text,not-required,,,Codex GPT-6 research agent,high,no-profile,Visually read current maker page in browser and checked saved HTML bytes. Conditions not supplied remain empty.
+r2-resolved.csv#474,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,3,G084-03,Ultrafuse® PP GF30,nozzle,Nozzle Temperature,240 – 260°C,240,260,°C,,,,,,,,Recommended 3D-Print processing parameters,Nozzle Temperature | 240 – 260°C,visual-only,agreed,,,Codex GPT-6 research agent,high,no-profile quote-not-on-page,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-3.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#475,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,3,G084-03,Ultrafuse® PP GF30,plate,Bed Material,PP GF adhesive or PP tape,,,,,,,,,,,Recommended 3D-Print processing parameters,Bed Material | PP GF adhesive or PP tape,ocr,not-required,,,Codex GPT-6 research agent,high,no-profile,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-3.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#476,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,3,G084-03,Ultrafuse® PP GF30,bed,Bed Temperature,20 - 40°C,20,40,°C,,,,,,,,Recommended 3D-Print processing parameters,Bed Temperature | 20 - 40°C,ocr,agreed,,,Codex GPT-6 research agent,high,no-profile,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-3.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#477,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,3,G084-03,Ultrafuse® PP GF30,nozzle_diameter,Nozzle Diameter,≥ 0.6 mm,0.6,,mm,,,,,,,,Recommended 3D-Print processing parameters,Nozzle Diameter | ≥ 0.6 mm,visual-only,agreed,,,Codex GPT-6 research agent,high,no-profile quote-not-on-page,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-3.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#478,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,3,G084-03,Ultrafuse® PP GF30,other,Print Speed,30 - 80 mm/s,30,80,mm/s,,,,,,,,Recommended 3D-Print processing parameters,Print Speed | 30 - 80 mm/s,ocr,not-required,,,Codex GPT-6 research agent,high,no-table-column,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-3.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#479,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,3,G084-03,Ultrafuse® PP GF30,other,Max Volumetric Speed,16 mm³/s,16,,mm³/s,,,,,,,,Recommended 3D-Print processing parameters,Max Volumetric Speed | 16 mm³/s,visual-only,agreed,,,Codex GPT-6 research agent,high,no-table-column quote-not-on-page,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-3.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#481,new,setting,R-FORWARDAM-INTAKE-20261020-bd7cbd47d8e7,4,G084-03,Ultrafuse® PP GF30,drying,Drying recommendations to ensure printability and best mechanical properties,60 °C in a hot air dryer or vacuum oven for 4 to 16 hours,60,,°C,,,,,,,hours=4-16,,Drying recommendations to ensure printability and best mechanical properties | 60 °C in a hot air dryer or vacuum oven for 4 to 16 hours,visual-only,agreed,,,Codex GPT-6 research agent,high,no-profile quote-not-on-page,"Visual-only table: PDF pages3–5 rendered and read. Text layer has no cells. Independent second visual read needed. Distinguish test-bar settings from recommended recipe. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/bd7cbd47d8e7__basf-ppgf30-tds-4.png. The relevant table cells are image-only; the PDF text layer is empty or carries unrelated page text. Quote pieces are table cells/column headings, with vertical bars as separators."
+r2-resolved.csv#541,new,setting,R-AZUREFILM-INTAKE-20261020-8168f14e3afb,1,G031-31,ASA,nozzle,Printing temp.,240-260,240,260,°C,,,,,,,,Printing recommendations,Printing temp. | 240-260 | °C,text,agreed,,,Codex GPT-6 research agent,high,no-profile,"PDF p1 image and text visually checked. No moisture/treatment stated; HDT load unspecified. ZX0.0 yield value is actually printed, not filled for unknown. Source standards and units retained including specific gravityISO1133 and meltingISO294."
+r2-resolved.csv#542,new,setting,R-AZUREFILM-INTAKE-20261020-8168f14e3afb,1,G031-31,ASA,bed,Bed temp.,90-120,90,120,°C,,,,,,,,Printing recommendations,Bed temp. | 90-120 | °C,text,agreed,,,Codex GPT-6 research agent,high,no-profile,"PDF p1 image and text visually checked. No moisture/treatment stated; HDT load unspecified. ZX0.0 yield value is actually printed, not filled for unknown. Source standards and units retained including specific gravityISO1133 and meltingISO294."
+r2-resolved.csv#543,new,setting,R-AZUREFILM-INTAKE-20261020-8168f14e3afb,1,G031-31,ASA,other,Printing speed,50-100,50,100,mm/s,,,,,,,,Printing recommendations,Printing speed | 50-100 | mm/s,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,"PDF p1 image and text visually checked. No moisture/treatment stated; HDT load unspecified. ZX0.0 yield value is actually printed, not filled for unknown. Source standards and units retained including specific gravityISO1133 and meltingISO294."
+r2-resolved.csv#544,new,setting,R-AZUREFILM-INTAKE-20261020-8168f14e3afb,1,G031-31,ASA,other,Cooling,30,30,,%,,,,,,,,Printing recommendations,Cooling | 30 | %,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,"PDF p1 image and text visually checked. No moisture/treatment stated; HDT load unspecified. ZX0.0 yield value is actually printed, not filled for unknown. Source standards and units retained including specific gravityISO1133 and meltingISO294."
+r2-resolved.csv#545,new,setting,R-AZUREFILM-INTAKE-20261020-8168f14e3afb,1,G031-31,ASA,plate,Bed surface,"PEI, BUILDTAK",,,,,,,,,,,Printing recommendations,"Bed surface | PEI, BUILDTAK |",visual-only,agreed,,,Codex GPT-6 research agent,high,no-profile quote-not-on-page,"PDF p1 image and text visually checked. No moisture/treatment stated; HDT load unspecified. ZX0.0 yield value is actually printed, not filled for unknown. Source standards and units retained including specific gravityISO1133 and meltingISO294."
+r2-resolved.csv#558,new,setting,R-SAKATA-INTAKE-20261020-ff205bacb571,1,G164-12,SAKATA 3D PA-NT,nozzle,Nozzle temp.,220 - 235,220,235,°C,,,,,,,,PRINT SETTINGS,Nozzle temp. | ºC | 220 - 235,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,"English PDF p1 visually read. Spanish p3 labels Haze as Dureza; English Haze retained. No specimen, direction, moisture or treatment inferred."
+r2-resolved.csv#559,new,setting,R-SAKATA-INTAKE-20261020-ff205bacb571,1,G164-12,SAKATA 3D PA-NT,bed,Bed temp.,50 - 60,50,60,°C,,,,,,,,PRINT SETTINGS,Bed temp. | ºC | 50 - 60,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,"English PDF p1 visually read. Spanish p3 labels Haze as Dureza; English Haze retained. No specimen, direction, moisture or treatment inferred."
+r2-resolved.csv#560,new,setting,R-SAKATA-INTAKE-20261020-ff205bacb571,1,G164-12,SAKATA 3D PA-NT,other,Fan speed,0,,,,,,,,,,,PRINT SETTINGS,Fan speed | % | 0,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,"English PDF p1 visually read. Spanish p3 labels Haze as Dureza; English Haze retained. No specimen, direction, moisture or treatment inferred."
+r2-resolved.csv#561,new,setting,R-SAKATA-INTAKE-20261020-ff205bacb571,1,G164-12,SAKATA 3D PA-NT,drying,Dry specifications,4 hours at 60ºC (drybox),60,,°C,,,,,,,hours=4,PRINT SETTINGS,Dry specifications | 4 hours at 60ºC (drybox),text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,"English PDF p1 visually read. Spanish p3 labels Haze as Dureza; English Haze retained. No specimen, direction, moisture or treatment inferred."
+r2-resolved.csv#562,new,setting,R-SAKATA-INTAKE-20261020-ff205bacb571,1,G164-12,SAKATA 3D PA-NT,plate,Bed modification,--,,,,,,,,,,,PRINT SETTINGS,Bed modification | --,text,not-required,,,Codex GPT-6 research agent,high,no-profile,"English PDF p1 visually read. Spanish p3 labels Haze as Dureza; English Haze retained. No specimen, direction, moisture or treatment inferred."
+r2-resolved.csv#576,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,nozzle,Nozzle temp.,235 - 260,235,260,°C,,,,,,,,PRINT SETTINGS,Nozzle temp. | ºC | 235 - 260,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values.
+r2-resolved.csv#577,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,bed,Bed temp.,> 65,65,,°C,>,,,,,,,PRINT SETTINGS,Bed temp. | ºC | > 65,text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values.
+r2-resolved.csv#578,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,other,Fan speed,0,,,,,,,,,,,PRINT SETTINGS,Fan speed | % | 0,text,not-required,,,Codex GPT-6 research agent,high,no-table-column,English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values.
+r2-resolved.csv#579,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,drying,Dry specification / Before printing,> 8 hours at 70 ºC (drybox),70,,°C,,,,,,,hours=>8,PRINT SETTINGS,Dry specification | Before printing | > 8 hours at 70 ºC (drybox),text,agreed-reader,,,Codex GPT-6 research agent,high,no-profile,"English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/pages_values/d6c57de6f438__sakata-pacf15-1.png. The quotation retains the row label, separate Unit/condition cell, and Value cell in page order; extracted text/layout can separate these cells."
+r2-resolved.csv#580,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,enclosure,Type of printer,Enclosed,,,,,,,,,,,PRINT SETTINGS,Type of printer | Enclosed,text,agreed,,,Codex GPT-6 research agent,high,no-profile,English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values.
+r2-resolved.csv#581,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,hardened_nozzle,Type of nozzle,Hardened steel,,,,,,,,,,,PRINT SETTINGS,Type of nozzle | Hardened steel,text,agreed,,,Codex GPT-6 research agent,high,no-profile,English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values.
+r2-resolved.csv#582,new,setting,R-SAKATA-INTAKE-20261020-d6c57de6f438,1,G165-07,SAKATA 3D PA-CF15,plate,Type of bed,Glass or PEI,,,,,,,,,,,PRINT SETTINGS,Type of bed | Glass or PEI,text,not-required,,,Codex GPT-6 research agent,high,no-profile,English PDF p1 visually read against text. Exact nylon species is not named. No direction or treatment inferred. Conditioned mechanical column contains no values.
+r2-resolved.csv#583,new,setting,R-LEHVOSS-INTAKE-20261020-9828d6e2bfd9,1,G073-05,LUVOCOM 3F PPS CF 9938 BK,chamber,Bauraum,Unser Material braucht keinen temperierten Bauraum für den Druckvorgang.,,,,,,,,,,,,Unser Material braucht keinen temperierten Bauraum für den Druckvorgang.,text,agreed,,,Research agent (GPT-6),high,held-id-unknown:P0669 no-profile,German: the material needs no temperature-controlled build chamber for printing. Exact product named immediately below. PDF image and text checked.
+r2-resolved.csv#584,new,setting,R-AZUREFILM-INTAKE-20261020-b9835e9fa9ec,1,G031-31,ASA filament Blue,enclosure,ASA filaments,This material can be printed without an enclosed printer but we strongly recommend using an enclosure or enclosed 3D printer.,,,,,,,,,,,,This material can be printed without an enclosed printer but we strongly recommend using an enclosure or enclosed 3D printer.,text,agreed-reader,,,Research agent (GPT-6),high,no-profile,Saved HTML contains the full words. Rendered product page visually checked. Both optionality and strong recommendation retained.
+r2-resolved.csv#585,new,setting,R-PRUSA-INTAKE-20261020-f8fff41ba5af,1,G031-20,Prusament ASA,enclosure,Printing inside an enclosure,One of the best options is to place the printer inside an enclosure.,,,,,,,,,,,Printing inside an enclosure,One of the best options is to place the printer inside an enclosure.,text,agreed,,,Research agent (GPT-6),high,no-profile,"Product-specific launch article, saved HTML and rendered statement visually checked. Passive box and cold-air control are described; no active heater temperature inferred."
+r2-resolved.csv#586,new,setting,R-RAISE3D-INTAKE-20261020-35dfb5b81aeb,11,G053-09,Raise3D PA12 Carbon Fiber Filament,chamber,Cost Efficiency,without the heating chamber,,,,,,,,,,,Cost Efficiency,"with specifically-developed fiber-reinforced filament such as PA12 CF, Raise3D’s RMF 500 can maintain warp-free printing quality without the heating chamber",text,agreed,,,Research agent (GPT-6),high,no-profile,"PDF image and text checked. Statement explicitly concerns PA12 CF on RMF 500. Transfer to other printers is a maintainer applicability review, not inferred here."
+r2-resolved.csv#602,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,nozzle,Nozzle Temperature:,260-300 ˚C,260,300,˚C,,,,,,,,Printing settings,Nozzle Temperature: | 260-300 ˚C,text,agreed-reader,,,Research agent (GPT-6),high,no-profile,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#603,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,bed,Bed Temperature:,25-50 ˚C (Do NOT exceed 50˚C),25,50,˚C,,,,,,,,Printing settings,Bed Temperature: | 25-50 ˚C (Do NOT exceed 50˚C),text,agreed-reader,,,Research agent (GPT-6),high,no-profile,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#604,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,chamber,Chamber Temperature:,25-50 ˚C (Do NOT exceed 50˚C),25,50,˚C,,,,,,,,Printing settings,Chamber Temperature: | 25-50 ˚C (Do NOT exceed 50˚C),text,agreed-reader,,,Research agent (GPT-6),high,no-profile,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#605,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,print_speed,Printing Speed:,30-60 mm/s,30,60,mm/s,,,,,,,,Printing settings,Printing Speed: | 30-60 mm/s,text,not-required,,,Research agent (GPT-6),high,no-table-column,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#606,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,fan,Cooling Fan:,Turn OFF,,,,,,,,,,,Printing settings,Cooling Fan: | Turn OFF,text,not-required,,,Research agent (GPT-6),high,no-table-column,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#607,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,nozzle_diameter,Note: Settings are based on 0.4 mm nozzle,0.4 mm,0.4,,mm,,,,,,,,Printing settings,Note: Settings are based on 0.4 mm nozzle | 0.4 mm,text,not-required,,,Research agent (GPT-6),high,no-profile,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#608,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,4,G053-02,PolyMide™ PA12-CF,plate,Bed surface,a thin coat of PVP glue or Magigoo PA,,,,,,,,,,,Bed surface,Bed surface | a thin coat of PVP glue or Magigoo PA,text,not-required,,,Research agent (GPT-6),high,no-profile,PDF image and text checked. Product guide distinct from held TDS; full recipe retained without assuming revision precedence.
+r2-resolved.csv#609,new,setting,R-POLYMAKER-INTAKE-20261020-bf1a52b7bfb4,7,G053-02,PolyMide™ PA12-CF,drying,Dry box system,80˚C for 12 hours,80,,˚C,,,,,,,hours=12; condition=If the filament has absorbed moisture; equipment=convection oven,Dry box system,If the filament has absorbed moisture it can be dried at 80˚C for 12 hours in a convection oven.,text,agreed-reader,,,Research agent (GPT-6),high,held-id-unknown:P0069 no-profile,PDF image and text checked. Conditional drying separate from storage in PolyBox. The printed caution says excessive drying can affect processability.
+r2-resolved.csv#615,new,setting,R-ERYONE-INTAKE-20261020-75b28336ecbb,1,G018-09,Carbon Fiber PLA,nozzle,Extruder temperature,190-220ºC,190,220,ºC,,,,,,,,,Extruder temperature: 190-220ºC,text,agreed-reader,,,Research agent (GPT-6),high,no-profile,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#616,new,setting,R-ERYONE-INTAKE-20261020-75b28336ecbb,1,G018-09,Carbon Fiber PLA,bed,Platform temperature,60-70ºC,60,70,ºC,,,,,,,,,Platform temperature: 60-70ºC,text,agreed-reader,,,Research agent (GPT-6),high,no-profile,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#617,new,setting,R-ERYONE-INTAKE-20261020-75b28336ecbb,1,G018-09,Carbon Fiber PLA,print_speed,Print speed,30-70mm/s,30,70,mm/s,,,,,,,,,Print speed: 30-70mm/s,text,not-required,,,Research agent (GPT-6),high,no-table-column,Source bytes rehashed; page image and text checked.
+r2-resolved.csv#625,new,setting,R-FIBERLOGY-INTAKE-20261020-f5fc266cf423,1,G082-13,Fiberlogy R PP,nozzle,Print Temperature,220°C - 250°C,220,250,°C,,,,,,,,,Print Temperature | 220°C - 250°C,ocr,agreed,,,Research agent (GPT-6),high,no-profile,"Saved bytes independently hashed; page image and text checked. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/identity_fibres/fiberlogy-rpp-current-tds-1.png; The PDF contains only a stray degree-symbol text layer; the table, numeric values and recipe are a page image. Every quoted word and value is legible in the saved render. The 1.8 MPa HDT load is retained exactly as imaged."
+r2-resolved.csv#626,new,setting,R-FIBERLOGY-INTAKE-20261020-f5fc266cf423,1,G082-13,Fiberlogy R PP,bed,Bed Temperature,Not required when using a packing tape,,,,,,,,,,,,Bed Temperature | Not required when using a packing tape,ocr,agreed,,,Research agent (GPT-6),high,no-profile,"Saved bytes independently hashed; page image and text checked. Visual quote verified: /Users/farid/Documents/H2C-v2.1-Review-2026-09-27/filament-atlas-research-round-2/output/tmp/identity_fibres/fiberlogy-rpp-current-tds-1.png; The PDF contains only a stray degree-symbol text layer; the table, numeric values and recipe are a page image. Every quoted word and value is legible in the saved render. The 1.8 MPa HDT load is retained exactly as imaged."
+r2-resolved.csv#627,new,setting,R-FILAMENTIVE-INTAKE-20261020-c8a447a4df81,1,G152-03,Hemp PLA,nozzle,Printing temperature,200 ± 15°C,200,,°C,,,,,,,,,Printing temperature: 200 ± 15°C,text,agreed-reader,,,"Claude Opus 5.5 (research intake 2), read on the saved page",high,no-profile,
+r2-resolved.csv#628,new,setting,R-FILAMENTIVE-INTAKE-20261020-c8a447a4df81,1,G152-03,Hemp PLA,bed,Bed temperature,≤45°C,45,,°C,<,,,,,,,,Bed temperature : ≤45°C,text,agreed-reader,,,"Claude Opus 5.5 (research intake 2), read on the saved page",high,no-profile,
+r2-resolved.csv#629,new,setting,R-FILAMENTIVE-INTAKE-20261020-c8a447a4df81,1,G152-03,Hemp PLA,hardened_nozzle,Hardened nozzle,There’s no need for a hardened nozzle,,,,,,,,,,,,There’s no need for a hardened nozzle,text,agreed,,,"Claude Opus 5.5 (research intake 2), read on the saved page",high,no-profile,

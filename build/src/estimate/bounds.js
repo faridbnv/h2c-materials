@@ -16,7 +16,11 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
   // `formulation` predicts one grade rather than the material: its own published bounds take part, not its siblings',
   // and the density limit asks whether that grade is a declared variant (D81). A material call passes none: the
   // material's own bounds take part, and the density limit asks whether all its products are variants.
+  // A scale is a number, or a function of the material predicted (a grade's matrix scales, D178).
+  const scaled = (c) => (typeof c === 'function' ? c : () => c);
+  const likelyOf = scaled(calLikely), plausibleOf = scaled(calPlausible);
   return (m, subject, p, unit, { ownBounds = true, formulation, implied, ceilings = [], anchor = null } = {}) => {
+    const calLikely = likelyOf(subject), calPlausible = plausibleOf(subject);
     const h = { unit };
     const bounds = [];
     // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer

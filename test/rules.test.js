@@ -86,7 +86,10 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // LEDGER-CONTRADICTS-VALUE came back with the owner's rulings of 2026-10-20 (D172): Eryone's printed flexural bars state no
   // orientation and are read flat now, so the flexural band (CV08) reaches the same sheets' tensile moduli, five of which
   // (1.2 GPa for a PLA beside a 3 GPa flexural modulus) lie under it: each such answer says it is doubtful.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'LEDGER-CONTRADICTS-VALUE', 'MATERIAL-RETIRED', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  // CHAMBER-NEED-READY came back with research intake 2 (2026-10-20): LEHVOSS's "needs no temperature-controlled build
+  // chamber" and QIDI PPS-GF20 (read from its twin) make High-Performance Engineering (CN07) eleven makers, none above
+  // 65 °C, but PPA's researched 80–120 °C bands keep that row reported (its Reason), so it stays.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CHAMBER-NEED-READY', 'CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'LEDGER-CONTRADICTS-VALUE', 'MATERIAL-RETIRED', 'NO-MEASUREMENTS', 'PARSE-UNREAD', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
   // MATERIAL-RETIRED arrived with the owner's rulings (D174, m468): the three sintering filaments left the dataset, each
   // named at info with the records the build leaves out.
   // PARSE-UNREAD came back with the owner's rulings' review (D176, m478): purefil PVC-P's sheet asks in German for an

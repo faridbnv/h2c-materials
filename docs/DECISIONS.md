@@ -193,6 +193,7 @@ detail. The generator names one that runs longer.
 | D175 | Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range | A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row), and with it D158's "TRUE for it alone" (the crystallising grade was the first exception) and D151 (a cosmetic dense filler reads its kind's chamber need), and D127 (what the typed drying columns hold) |
 | D176 | A materials scientist's rulings: PET's fills print glassy, the held sheets' homes, a plasticised PVC is a rubber, a heat-resistant "PETG" is a copolyester | The owner asked a materials scientist to research four open questions and decide. Fibre-filled PET prints glassy, as the model already said: every maker that states how its bar was treated shows about 75 to 100 °C as printed and 120 to 205 °C only after annealing, and the two "crystallised as printed" bars in the data were an annealed bar recorded without its note and two bars whose sheets state no treatment, which now back nothing. The held sheets each have a home or a reason to stay out: Electrifi is a conductive polycaprolactone, Diran 410MF07 a mineral-filled nylon of undisclosed polyamide, Onyx ESD an ESD nylon, ISTROFLEX stays an undisclosed rubber, SBC is a stiff clear styrenic and is now estimated, and FKuR's compound, Nuterials' pellets and Stratasys' sacrificial tooling stay out. purefil's Shore 94A PVC is a rubber, a material of its own that fails a stiffness requirement on a rubber limit of its own. And Spectrum's PET-G HT100 is a Tritan-type copolyester, filed under CPE. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG item 6 and items 9 to 11; OPEN-PROBLEMS §38.10, §14, §31.13, §38.9, §33.9). It keeps D158 (PET prints amorphous, fibre-filled too) after testing its alternative, amends D154 (a plasticised PVC is a rubber, under a limit of its own, CL03) and D87 (a maker-undisclosed home for a mineral-filled nylon), and adds a polymers.csv row (SBC), back-tested as D58 and D138 ask. The round's review corrected it in m478 and m479 (PVC-P's enclosure advice recorded, its limit cited from a flexible-PVC reference, K-Resin KR03 cited). Its CL03 is a third deciding class limit beside the two D163 left deciding |
 | D177 | An undescribed heat deflection counts for a plastic that cannot crystallise, and for nothing else | D172 set apart every test value whose bar no document describes as printed, since a moulded bar flatters a print. For heat deflection that holds only where the plastic can crystallise: a hot mould or an oven crystallises a nylon, a PP, a PBT, or a PLA or PET, and their moulded bar reads tens of degrees above a print. A plastic that cannot crystallise (ABS, ASA, PC, PETG, PCTG and the like) is glassy either way, and a glassy bar deflects near its glass transition however it was made. So such a plastic's heat deflection counts again, at both loads, unless its document points to a moulded or resin bar; tensile, flexural and impact values stay set apart, since a print's voids and layers move them whatever the plastic. | In force (the owner's ruling of 2026-10-20 on the executor's suggestion, advised and built by a materials-science track; OPEN-PROBLEMS §15). It amends D172 (an undescribed bar's heat deflection decides for a plastic that cannot crystallise, and the heat deflection's lower bound and the evidence ledger's rows that read printed bars read it as one) and adds a column to each of two frozen tables (polymers.csv, headline_definitions.csv), back-tested as D58 and D138 ask |
+| D178 | Heat deflection's product ranges take their matrix's own width where the shared one is too narrow for it | A product's heat-deflection estimate is a range whose width is calibrated on hidden test values. One width served every product, set mostly by the many glassy plastics. When the second research package's well-predicted products narrowed it, the unfilled crystalline plastics (nylons, PP, PPS) fell inside their 80 % range only two times in three. Each kind of plastic with enough hidden values now keeps its own width wherever that is wider: the unfilled crystalline plastics' likely range widens by about 14 % and the filled ones' plausible range by about 9 %. Glassy plastics are unchanged, and no answer moves. | In force (the owner's ruling of 2026-10-20, research intake 2). It amends D162 (a spread per matrix now also sets the grade ranges' calibration per matrix, never narrower than the shared one) and D81 (the grade scales) |
 
 <!-- end index -->
 
@@ -6145,6 +6146,37 @@ researched and built by Claude Opus 5.5 ([advice](audits/2026-10-20-amorphous-he
   again sit apart though a print of it deflects at the same temperature, and PETG, CPE and COC would wait unknown for a
   warm part on a figure physics supports; undone the other way, a nylon's or a PLA's moulded bar would again pass a heat
   limit no print of it reaches.
+
+## D178. Heat deflection's product ranges take their matrix's own width where the shared one is too narrow for it
+
+> **In plain words:** A product's heat-deflection estimate is a range whose width is calibrated on hidden test values. One width served every product, set mostly by the many glassy plastics. When the second research package's well-predicted products narrowed it, the unfilled crystalline plastics (nylons, PP, PPS) fell inside their 80 % range only two times in three. Each kind of plastic with enough hidden values now keeps its own width wherever that is wider: the unfilled crystalline plastics' likely range widens by about 14 % and the filled ones' plausible range by about 9 %. Glassy plastics are unchanged, and no answer moves.
+> **Status:** In force (the owner's ruling of 2026-10-20, research intake 2). It amends D162 (a spread per matrix now also sets the grade ranges' calibration per matrix, never narrower than the shared one) and D81 (the grade scales).
+
+*Ruled by the owner on 2026-10-20, when the round's new data stopped the build at EST-CALIBRATION; built by Claude Opus
+5.5 ([back-test](audits/2026-10-20-research-intake-2/BACKTEST-D178.md)).*
+
+- **The rule** (`build/src/estimate/grades.js`, `bounds.js`). Where a headline's product spread is set per matrix (D162; heat
+  deflection only), each matrix as printed with at least `minHeld` hidden grades takes, for each level, the larger of the
+  shared scale and the scale its own hidden values need. A grade's range is drawn with its matrix's scales
+  (`gradeCalibration.matrixScales` in the database's meta), and EST-CALIBRATION judges each matrix with the scales its
+  grades are shown with. The material ranges, the screening certification (D137) and the direction back-test (D159)
+  keep the shared scales.
+- **Why.** The check D162 added ("hdt045 grades semi-unfilled") is right: a range that claims 80 % should hold about
+  80 % for each kind of plastic it is drawn for. The shared scale is a quantile over 416 hidden values, 336 of them
+  glassy, so well-predicted products anywhere narrow it for all. On main the unfilled crystalline stratum held 70.4 %, at the
+  edge. The round's correct new values (Forward AM PP GF30, Raise3D PA12 CF as printed, Essentium PA-CF re-filed) took it
+  to 63 to 67 %, though none of its 27 hidden values changed. The data cannot carry a stratum's width; the model must.
+- **Back-tested.** On main's tables alone:
+  - semi-unfilled 70.4 → 81.5 % likely;
+  - semi-filled 92.2 → 96.1 % plausible;
+  - glassy unchanged;
+  - overall 80.2 / 95.2 → 80.9 / 95.7 %;
+  - median plausible width 21.3 °C;
+  - the decision census moves nothing in 138 cases.
+
+  On the round's tables every matrix holds: 80.4 / 95.2, 83.0 / 96.2 and 81.5 / 100 %.
+- **What would break if reversed.** The round's build stops at EST-CALIBRATION. Loosened instead, the unfilled
+  crystalline plastics' heat ranges would claim 80 % and hold two thirds of their hidden values.
 
 ## Bugs worth remembering
 

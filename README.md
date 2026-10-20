@@ -25,10 +25,10 @@ allowables, and it does not replace the product's own data sheet.
 
 Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by `npm run snapshot`.
 
-- **What it holds.** About 1,100 products, 15,100 measured values and 2,100 source documents. The page lists 152
+- **What it holds.** About 1,100 products, 15,200 measured values and 2,100 source documents. The page lists 152
   materials: the 138 the H2C can print, which the tool judges, and 14 it shows only to say why they are out
   (high-temperature plastics such as PEEK and PEI that need a hotter printer). Its tables also keep 3 materials retired
-  from the dataset, as a record the page never shows (D174). 77 materials have a page of their own: those with at least
+  from the dataset, as a record the page never shows (D174). 82 materials have a page of their own: those with at least
   3 products and 20 measured values, opened from the selector's drawer and its Material pages link.
 - **How accurate it is.** Records are checked by random samples read against their source pages. The latest, of 20
   records, found 1 with a wrong cell; earlier samples found 0 to 6, and each cause was fixed everywhere it occurred. A

@@ -1,0 +1,42 @@
+gate,table,id,column,expect,value,source,quote,note,parsed_vs_read,cause,quote_view,grade_from,reader,rows,GradeID
+ready,profiles,P0389,Plate,Not published,recommended,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,Adhesive | recommended,"p. 2, ""Adhesive"": the page prints ""recommended"" (reader Codex GPT-6 research agent, text).",agrees,gap-fill,line,reader,Codex GPT-6 research agent,r2-resolved.csv#4,G035-11
+ready,profiles,P1147,Plate,Not published,Use a PEI sheet or apply a PVP glue coating on the print bed surface for better adhesion and to reduce warping,D-SIRAYA-Fibreheart-PPA-CF-TDS,"Heating Block At least 12mm thick for optimal temperature stability
+Print Bed Surface Coating Use a PEI sheet or apply a PVP glue coating on the print bed surface
+for better adhesion and to reduce warping
+*Note*:
+Only dry if filament shows signs of moisture.
+Drying is not required for the first unpacking unless the vacuum packing becomes","p. 3, ""Print Bed Surface Coating"": the page prints ""Use a PEI sheet or apply a PVP glue coating on the print bed surface for better adhesion and to reduce warping"" (reader Research agent (GPT-6), text).",agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#81,G070-02
+ready,profiles,P0088,Plate,Not published,Smooth / Textured PEI Plate or other plate,S-PPA-TDS,"Compatible Nozzle Size Any common size
+Compatible Plate Type Smooth / Textured PEI Plate or other plate
+Apply liquid glue or PVP solid glue stick if the first layer
+Plate Surface Preparation
+bonding is not firm enough
+Nozzle Temperature 280 - 310 °C","p. 2, ""Compatible Plate Type"": the page prints ""Smooth / Textured PEI Plate or other plate"" (reader Research agent (GPT-6), text).",agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#99,G069-01
+ready,profiles,P0922,Plate,Not published,Coating with PVP glue,R-QIDI-PA12-CF,"Recommended Nozzle Diameter
+建议底板材质 涂抹 PVP 固体胶
+Recommended build surface treatment Coating with PVP glue
+底板温度
+40-70℃
+Build plate temperature","p. 3, ""Recommended build surface treatment"": the page prints ""Coating with PVP glue"" (reader Research agent (GPT-6), text).",agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#297,G059-02
+ready,profiles,P1982,Plate,Not published,PVA glue stick,R-MATTERHACKERS-INTAKE-20261019-bc21a85e0853,Bed temperature: 60-65°C with PVA glue stick,"p. 1, ""Bed temperature"": the page prints ""PVA glue stick"" (reader Research agent (GPT-6), text).",agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#347,G053-15
+ready,profiles,P0371,Plate,Not published,recommended,R-EXTRUDR-durapro-asa-cf-TDS-en,Adhesive | recommended,"p. 1, ""Adhesive"": the page prints ""recommended"" (reader Research agent (GPT-6), text).",agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#351,G033-05
+ready,profiles,P0389,Locator,p. 2: Recommended printing settings; p. 2: Hardened Nozzle; p. 2: Recommended settings,p. 2: Recommended printing settings; p. 2: Hardened Nozzle; p. 2: Recommended settings; p. 2: Adhesive,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,Adhesive | recommended,Locator names the rows now read.,agrees,gap-fill,line,reader,Codex GPT-6 research agent,r2-resolved.csv#4,G035-11
+ready,profiles,P1147,Locator,"p. 3: Drying; p. 4: Build Plate Temperature, Nozzle Temperature; p. 4: Recommended Nozzle Diameter; p. 3: Nozzle note","p. 3: Drying; p. 4: Build Plate Temperature, Nozzle Temperature; p. 4: Recommended Nozzle Diameter; p. 3: Nozzle note; p. 3: Print Bed Surface Coating",D-SIRAYA-Fibreheart-PPA-CF-TDS,"Heating Block At least 12mm thick for optimal temperature stability
+Print Bed Surface Coating Use a PEI sheet or apply a PVP glue coating on the print bed surface
+for better adhesion and to reduce warping
+*Note*:
+Only dry if filament shows signs of moisture.
+Drying is not required for the first unpacking unless the vacuum packing becomes",Locator names the rows now read.,agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#81,G070-02
+ready,profiles,P0088,Locator,Recommended printing settings; p. 2: Compatible Printer Type,Recommended printing settings; p. 2: Compatible Printer Type; p. 2: Compatible Plate Type,S-PPA-TDS,"Compatible Nozzle Size Any common size
+Compatible Plate Type Smooth / Textured PEI Plate or other plate
+Apply liquid glue or PVP solid glue stick if the first layer
+Plate Surface Preparation
+bonding is not firm enough
+Nozzle Temperature 280 - 310 °C",Locator names the rows now read.,agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#99,G069-01
+ready,profiles,P0922,Locator,p. 3: Recommended printing settings; p. 4: Drying note; p. 3: Build plate temperature; p. 3: Recommended Nozzle Diameter; p. 4: Additional Suggestions 3,p. 3: Recommended printing settings; p. 4: Drying note; p. 3: Build plate temperature; p. 3: Recommended Nozzle Diameter; p. 4: Additional Suggestions 3; p. 3: Recommended build surface treatment,R-QIDI-PA12-CF,"Recommended Nozzle Diameter
+建议底板材质 涂抹 PVP 固体胶
+Recommended build surface treatment Coating with PVP glue
+底板温度
+40-70℃
+Build plate temperature",Locator names the rows now read.,agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#297,G059-02
+ready,profiles,P0371,Locator,p. 1: Recommended printing settings,p. 1: Recommended printing settings; p. 1: Adhesive,R-EXTRUDR-durapro-asa-cf-TDS-en,Adhesive | recommended,Locator names the rows now read.,agrees,gap-fill,line,reader,Research agent (GPT-6),r2-resolved.csv#351,G033-05
