@@ -106,7 +106,8 @@ and nothing is silently empty.
 
 What the build decides on is a typed column beside the raw text it came from (D49). A profile carries, per axis,
 the source's words ("Classic: 190 - 210 °C") and the state, minimum, maximum and requirement read from them; drying
-(Drying need: required, optional, not-needed or unknown; Drying hours open for a lower bound such as "6+ h", D127),
+(Drying need: required, optional, not-needed or unknown; Drying hours open for a lower bound such as "6+ h", D127; Drying
+min °C and Drying min hours for a printed range's lower ends, shown and never judged, D175),
 enclosure and the hardened-nozzle requirement likewise; a measurement carries its Standard / load text and Test load
 MPa, and its Test temperature text and Test temperature °C (m175: the number the wording states, Not published where it
 states none or only in words). The parsers check every typed value against its raw text on every build, and Parse

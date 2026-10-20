@@ -186,6 +186,7 @@ detail. The generator names one that runs longer.
 | D168 | The readers learn what the research intake found: an enclosure or a hardened nozzle the maker does not require, drying advised for a condition, and standards and temperatures they missed | Three kinds of print advice were typed one way by the readers and another by the people who read the same words by hand. A sheet that says an enclosure is "not mandatory, but recommended", or lists open-frame printers among those it prints on, now reads as no enclosure needed, so the H2C's chamber question is answered. A sheet that asks for "stainless steel or other hardened alloys", or only warns that a filler wears brass, no longer reads as requiring a hardened nozzle; a sheet that recommends or needs one still does. Drying advised "once opened" or "depending on moisture" is optional, as drying "if wet" already was. And the readers now read standards and temperatures they missed: "ISO 52 7", "IS O 179", the Japanese JIS K standards, a test temperature printed only in °F, and QIDI's "100°C Annealing 8 hours". | In force (the research intake, 2026-10-19; the owner's ruling of 2026-10-19 on the research package's P1.3 proposals). It amends D33 (an enclosure the maker does not require clears the chamber, whatever recommendation stands beside it) and extends D141's reader sweep |
 | D169 | The reading tools read what the record tier, a split row and a name hold, as their pages do | Three of the tools that read makers' documents misread something the page plainly shows. The searchable record of every cached page counted a later copy of a sheet as the registered sheet itself, so a sentence from another revision (or, once, another product's sheet) appeared under the wrong source. The import's sheet reader missed a table row whose label and value sit on one line and the rest a point below, when the lower line held an orientation code such as "XY". And the checker that confirms a reading against its page could not find a number printed inside a product name ("CF15"), while a composition stated "approximately" was held back as a marketing claim. Each now reads what the page shows. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §34.3, §34.7, §38.3). The import's sheet reader is frozen since D138; this changes one of its rules, with the back-test below |
 | D170 | The interface says what it shows: a melting point only where a polymer melts, a range named as one, a filler by its name | The clean-up round's interface fixes changed three rules of what the pages and the selector show. A melting temperature is drawn and said only for a polymer that has one (a crystalline plastic): PETG's "190 °C" was the middle of eight sheets' processing temperatures, and an amorphous plastic's "melting" values are listed among its other properties instead. A table cell shows a material's range of products, as before, and its column head now says so ("median · range"), where the drawer and the pages give the middle half. And a material whose filler the materials table names (aramid fibre, PTFE, ceramic …) is filtered and drawn by that filler, no longer as an undisclosed variant. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §37.8, §37.18, §37.20). The filler is worked out in the engine (`app/js/engine/filler.js`, a requirement on the new facet `filler`); the build's own reinforcement facet, which the frozen estimate model reads, is unchanged, and a link saved on the old facet keeps its answer |
+| D175 | Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range | A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row; D158 made the first exception) and D127 (what the typed drying columns hold) |
 
 <!-- end index -->
 
@@ -5770,6 +5771,52 @@ ruled by the owner on 2026-10-19 ("adopt all three"); built by Claude Opus 5.5 i
 - **What would break if reversed.** PETG's page would again draw a melting point it does not have; a reader would again
   compare a table's full range with the drawer's middle half unwarned; and 18 materials with a named filler would again be
   filtered and drawn as undisclosed.
+
+## D175. Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range
+
+> **In plain words:** A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before.
+> **Status:** In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row; D158 made the first exception) and D127 (what the typed drying columns hold).
+
+*Ruled by the owner on 2026-10-20; built by Claude Opus 5.5, which read every product's documents named below on the
+cached sheets ([the round](audits/2026-10-20-owner-rulings/README.md), its `small-rules/` folder).*
+
+- **A filler for looks reads its type's guide** (m470). `grade-variants.csv` gains "cosmetic dense filler", Reads its type's
+  guide TRUE: a filler, named or not, that the product's documents sell for its look (a matte finish, a glitter) and for
+  no function, nothing on them saying it changes how the product prints. It reads its material's guide row in full, the
+  hardened-nozzle answer with the rest ("if it reads one thing there, it can read the rest"), and its kind of plastic's
+  chamber need; its own statements still come first, and its values stay apart from the spread. Of the 28 products filed
+  "undisclosed dense filler", eleven are re-filed (Spectrum PET-G MATT, eSUN PETG-Matte, Extrudr XPETG MATT, FormFutura
+  Matt PLA, AzureFilm PLA Matte (HS), SUNLU High Speed Matte PLA, PLA Lite and PLA Classic, Eryone PLA-Lite, eSUN
+  eTwinkling, Recreus PLA). Seventeen stay, each with its reason in `COSMETIC-FILLERS.md`: AzureFilm ABS Prime and ASA Prime
+  are a "zero warp" formulation sold for strength, which may print otherwise than the guide's ABS and ASA; the metal fills
+  are metal powders their makers say wear brass (D129's own case); the rest carry a load sold for a function or no look at
+  all. The name ends "dense filler", so the plausibility windows and the filled-density lint judge it as they did.
+- **A product found only in 2.85 mm** (m471). `grades.csv` gains Diameter, typed against `diameters.csv` (1.75 mm, 2.85 mm
+  only, 3 mm only, Not published; Fits the H2C beside each), filled for every grade by one reader of the cached documents
+  its records cite (`scripts/lib/diameters.mjs`), a listing counting as the 1.75 mm filament: 681 read 1.75 mm, 491 Not
+  published and 12 2.85 mm only, BigRep's twelve, each read on its pages. The product stays counted, as its values describe
+  its polymer as printed; the drawer's product detail and its card on the material's page say "Only 2.85 mm filament was
+  found; the H2C takes 1.75 mm." A typed column the build reads, not a parse of the prose in the page: the warning is a
+  fact about the product, checked by the vocabulary, and the import fills it from a new grade's document.
+- **A drying range is shown as the range** (m472). `profiles.csv` and `print_guide.csv` gain Drying min °C and Drying min
+  hours, the lower end of the window that decides, typed from the parser and checked against it (PARSE-MISMATCH), against
+  the cell's own numbers and against the upper end (PARSE-TEXT-BOUNDS). Every rule still reads the upper end, so no drying
+  answer moves (the drying gate asks only whether a sheet speaks of drying). A product's drying, its card, the products
+  table, the chart's words and a material's typical span read the printed range: Raise3D Industrial PPA GF "80-100 °C for
+  6-12 h", PPA-GF's makers "80-140 °C, 4-12 h" (100-140 °C, 6-12 h before). 227 products and 45 materials read
+  differently (`drying-ranges.csv`). The parser reads "4 to 16 hours" as a window (nine profiles; no upper end moved).
+- **What it did** ([decision diff](audits/2026-10-20-owner-rulings/small-rules/DECISION-DIFF.md)). No material verdict,
+  listing or group moved over the 138 cases. Four products now pass the indoor-prototype template where they were one
+  check away (FormFutura Matt PLA, AzureFilm PLA Matte (HS), eSUN eTwinkling and PETG-Matte: the chamber and the hardened
+  nozzle their guide answers). The estimate model gives each Variant its own term, so the re-filed products left the metal
+  fills' term: 607 product estimates moved (median 0.2 %; the most, 13.5 %, a re-filed product's own elongation), 16
+  product answers in the sweeps moved between "not enough data", "unlikely" and "likely", and 22 rows show another product.
+  The estimate stage's code is unchanged, and so is the import's text reader: the import fills the new columns in
+  `apply.mjs`.
+- **What would break if reversed.** A matte or glitter filament would again show its hardened nozzle, enclosure, chamber
+  and drying unknown where its type's guide answers them, and four would wait one check away for an indoor part; BigRep's
+  2.85 mm filaments would be counted with no word that the H2C cannot feed them; and a sheet that begins its drying at
+  80 °C would read as asking 100 °C.
 
 ## Bugs worth remembering
 

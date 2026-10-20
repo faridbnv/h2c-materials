@@ -1,5 +1,7 @@
 # A filler only for looks: the products read
 
+> **Historical record** (2026-10-20): the products filed "undisclosed dense filler", read for the owner's ruling on a filler for looks (track T4 of the owner's rulings round, D175). It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../OPEN-PROBLEMS.md).
+
 > **In short.** The owner ruled on 2026-10-20 that a variant whose filler is only for looks reads its type's printer
 > guide in full (GOALS-LOG item 7; OPEN-PROBLEMS §32.4). The 28 active products filed "undisclosed dense filler" were
 > read on their cached documents by Claude Opus 5.5. Eleven sell the product for a look a filler gives, a matte finish

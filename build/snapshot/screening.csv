@@ -3,7 +3,7 @@ density,this-grade,top,7,0,,,no,materials with no product
 density,this-grade,bottom,7,0,,,no,materials with no product
 density,this-material,top,93,0,6,0.975,yes,materials with no product
 density,this-material,bottom,93,4,6,0.025,yes,materials with no product
-density,family,top,120,8,8,0.976228,yes,materials with no product
+density,family,top,120,8,8,0.978132,yes,materials with no product
 density,family,bottom,120,3,8,0.025,yes,materials with no product
 tensileModulusXY,this-grade,top,69,2,4,0.975,yes,materials with no product
 tensileModulusXY,this-grade,bottom,69,0,4,0.025,yes,materials with no product

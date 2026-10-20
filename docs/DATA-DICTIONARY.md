@@ -233,6 +233,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source identifying the grade. |
 | Source locator | raw | string | yes |  |  | Where in the source. |
 | Diameter compatibility | prose | string | yes |  |  | Filament diameter notes. |
+| Diameter | canonical | string | yes | Not published | [diameters](#vocab-diameters) | The filament diameter the product's documents print, as the H2C asks it: 1.75 mm where a document or a listing gives it, 2.85 mm only (or 3 mm only) where they give only a diameter the H2C does not take, Not published where none prints one (schema/vocab/diameters.csv, D175). A product found only in a larger diameter is kept and counted, and its detail and card say so. |
 
 ### headline_definitions
 
@@ -571,8 +572,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Drying | raw | string | yes |  |  | The guide's drying statement as printed, each row it comes from named. Fills the drying of a product whose own sheets and twin are silent on it, labelled as the guide's (D127). |
 | Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
 | Drying need | canonical | string | yes |  | [drying-needs](#vocab-drying-needs) | required, optional, not-needed or unknown: the guide's "Dry Out Before Use" answer (D127). |
-| Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature as the parser reads it. |
-| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time as the parser reads it. |
+| Drying min °C | canonical | number | yes | Not applicable |  | The lower end of the drying temperature where the guide prints a range for its first method, whose upper end is Drying °C; Not applicable where it prints one temperature (D175). |
+| Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature as the parser reads it: the upper end of a printed range, whose lower end is Drying min °C. |
+| Drying min hours | canonical | number | yes | Not applicable |  | The lower end of the drying time where the guide prints a window for its first method ("8 - 12 h": 8), whose upper end is Drying hours; Not applicable where it prints one time (D175). |
+| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time as the parser reads it: the upper end of a printed window, whose lower end is Drying min hours. |
 | Drying hours open | canonical | boolean | yes | Not applicable |  | TRUE where the stated time has no upper end, FALSE for a point or window, Not applicable where none is stated (D127). |
 | Nozzle size / material | raw | string | yes |  |  | The nozzle sizes and materials the guide lists, as printed; parsed by the build for whether a hardened nozzle is needed. |
 | Hardened nozzle | canonical | boolean | yes | Not published |  | Whether the guide says a hardened nozzle is needed: TRUE where it lists hardened steel alone, FALSE for any nozzle, Not published where it settles neither. |
@@ -643,8 +646,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Drying | raw | string | yes |  |  | Drying as published; parsed by the build. |
 | Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
 | Drying need | canonical | string | yes |  | [drying-needs](#vocab-drying-needs) | Whether the sheet asks for drying: required (a schedule or a plain statement), optional (advised for a condition: "if wet", "Optional"), not-needed ("not necessary") or unknown. Drying state says only that the sheet speaks of drying (D127). |
-| Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature. |
-| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time; the lower bound where Drying hours open is TRUE. |
+| Drying min °C | canonical | number | yes | Not applicable |  | The lower end of the drying temperature where the sheet prints a range ("80-100°C": 80), whose upper end is Drying °C; Not applicable where it prints one temperature or none. Shown with Drying °C as the range the sheet printed; no rule reads it (D175). |
+| Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature: the upper end where the sheet prints a range, whose lower end is Drying min °C (D175). |
+| Drying min hours | canonical | number | yes | Not applicable |  | The lower end of the drying time where the sheet prints a window ("6-12 hours": 6), whose upper end is Drying hours; Not applicable where it prints one time, a time with no upper end (Drying hours open) or none. Shown with Drying hours as the window the sheet printed; no rule reads it (D175). |
+| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time: the upper end of a printed window, whose lower end is Drying min hours (D175); the lower bound where Drying hours open is TRUE. |
 | Drying hours open | canonical | boolean | yes | Not applicable |  | TRUE where the stated drying time has no upper end ("6+ hours", "> 5 h", "at least 8 hours", "minimum 1 hour"): Drying hours is then the lower bound. FALSE where hours are stated as a point or a window; Not applicable where none are stated (D127). |
 | Nozzle material | raw | string | yes |  |  | Nozzle material as published; parsed by the build. |
 | Nozzle diameter | raw | string | yes |  |  | Nozzle diameter as published; parsed by the build. |
@@ -830,6 +835,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Published value (transcription corrected) | A usable number corrected against the source; the normalized value is authoritative. |
 | Retired duplicate record | An identical twin exists under another material; kept as an audit trail and left out of the database. |
 | Unresolved unit / layout | Quarantined: the unit or layout could not be resolved. |
+
+<a id="vocab-diameters"></a>
+### diameters
+
+`schema/vocab/diameters.csv`, used by grades.Diameter.
+
+| Value | Meaning | Fits the H2C |
+|---|---|---|
+| 1.75 mm | A document of the product prints it in 1.75 mm (beside a larger diameter or not), or a listing prices it, which is the 1.75 mm filament by rule: the diameter the H2C takes. | TRUE |
+| 2.85 mm only | The product's documents print it in 2.85 mm and none in 1.75 mm, the diameter the H2C takes. It stays counted, as its values describe the polymer as printed, and its product detail and card say that only a 2.85 mm filament was found (D175). | FALSE |
+| 3 mm only | The product's documents print it in 3 mm and in no smaller diameter. It stays counted, and its product detail and card say that only a 3 mm filament was found (D175). | FALSE |
 
 <a id="vocab-directions"></a>
 ### directions
@@ -1137,6 +1153,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | declared softer grade | The maker declares a flexible or elastomeric grade of the named polymer (an elastomer-modified or low-comonomer grade, R098). Its density, modulus and softening point sit below the rigid polymer’s, it foams nothing, and the estimate model keeps its values from pulling the family. | FALSE |
 | luminescent pigment | A glow-in-the-dark pigment (strontium aluminate) the maker names in the product. Makers of glow filaments say it wears brass nozzles, so the product is not its polymer's printer-guide type and reads no guide row (D129); its values stay its own, and the estimate model keeps them from pulling the family (D131). | FALSE |
 | crystallising grade | A PLA grade its maker formulates to crystallise in the print, where plain PLA stays glassy: its sheet shows it without annealing (a Vicat or heat deflection far above the glass transition as printed, a crystallisation peak, or heat resistance stated "without annealing"). It prints as its type, so it reads its printer maker's guide row and its kind of plastic's chamber need (TRUE beside); its values stay its own, apart from the material's spread, and the estimate model keeps them from pulling the family (D154). | TRUE |
+| cosmetic dense filler | A filler, named or not, that the product's documents sell for its look, a matte finish or a glitter, and for no function. Its density sits above the neat polymer's, as a dense filler's does, but nothing on the product's documents says the filler changes how it prints. It prints as its type, so it reads its printer maker's guide row in full (nozzle, bed, chamber, enclosure, the hardened-nozzle answer and drying) and its kind of plastic's chamber need (TRUE beside); the product's own statements still come first (D175). Not a metal powder, which its makers say wears a brass nozzle (colorFabb of its steelFill, Protopasta of its stainless steel and iron fills; D129), nor a glow pigment, nor a load sold for a function (flame retardance, X-ray shielding, zero warp). Its values stay its own, apart from the material's spread, and the estimate model keeps them from pulling the family. | TRUE |
 
 <a id="vocab-h2c-status"></a>
 ### h2c-status
