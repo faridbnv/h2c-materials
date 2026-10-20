@@ -891,3 +891,28 @@ another product's page, the selector's layout calls). The record is [the round](
   review's nine findings fixed; pushed as 0745c3d9, live release 7d8f8980c40d. No material verdict, listing or pass/fail
   moved in the 138 census cases; 58 product answers moved between the unknown groups as the estimates refit to Fabru's
   one maker name ([decision diff](audits/2026-10-19-clean-up/DECISION-DIFF.md)).
+
+## Decided on 2026-10-20, the owner's rulings on the open decisions (being built)
+
+The owner answered the decisions OPEN-PROBLEMS held for them, ranked by what could give a wrong answer first:
+
+1. **Two documents of one product that disagree.** A data sheet beats a product page, and a newer edition of a sheet
+   beats an older one. Where the older document differs a lot, the drawer or the material page says so in small print,
+   as not used in deciding.
+2. **A test bar the sheet does not describe, as a floor for a printed part's heat resistance.** Yes where anything on
+   the document indicates, even implicitly, that the value is the filament's; otherwise no. One ruling, applied the same
+   way everywhere, and a small note keeps what was set aside in view.
+3. **Values published without saying how their bars were made.** Kept, and deciding, where anything indicates, even
+   implicitly, that they are the filament's; otherwise set apart for good, with the same small note.
+4. **The material summaries** stay drafts for now, and an open problem.
+5. **The selector's first screen.** No "not tested" in the cold table, and the metal and ceramic sintering filaments out
+   of the selector, from the dataset if need be. The drawer's first screen redesigned by an agent of its own, to be
+   friendly and easy to read. Shapes unified where it helps, but each plot's own readability comes first.
+6. **Fibre-filled PET as printed**, and 9 to 11, **the held sheets' homes, the plasticised PVC and the heat-resistant
+   PETG**: a materials-scientist agent researches and decides.
+7. **A variant whose filler is only for looks** reads its type's printer guide in full: if it reads one thing there, it
+   can read the rest.
+8. **A product found only in 2.85 mm** stays, with a small warning that the H2C takes 1.75 mm.
+14. **A drying schedule printed as a range** is shown as the range where possible.
+
+The record is [the round](audits/2026-10-20-owner-rulings/README.md).
