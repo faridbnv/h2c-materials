@@ -320,7 +320,7 @@ G020-04,M020,PET-G Premium,within,within,within,not-needed,no-special-concern,re
 G020-05,M020,PET-G FR V0,within,within,within,not-needed,no-special-concern,required,drying: twin G020-67
 G020-06,M020,THE FILAMENT PETG Lite,within,within,within,not-needed,no-special-concern,required,drying: guide PG017
 G020-07,M020,PET-G Premium High Speed,within,within,within,not-needed,no-special-concern,optional,
-G020-08,M020,PET-G HT100,within,within,unknown,recommended,no-special-concern,required,drying: guide PG017
+G020-08,M089,PET-G HT100,within,within,unknown,recommended,no-special-concern,unknown,
 G020-09,M020,PET-G MATT,within,within,within,not-needed,no-special-concern,optional,
 G020-10,M020,THE FILAMENT PETG,within,within,within,not-needed,no-special-concern,required,drying: guide PG017
 G020-11,M020,rPETG,within,within,within,not-needed,no-special-concern,required,drying: guide PG017
@@ -779,6 +779,7 @@ G059-01,M059,Fiberon PA612-CF15,within,within,within,recommended,requires-harden
 G059-02,M059,PA612-CF,within,within,unknown,unknown,requires-hardened,required,
 G059-03,M059,Industrial PA12 CF+,within,within,unknown,unknown,requires-hardened,required,
 G064-01,M064,3DXSTAT ESD PA12,within,within,unknown,unknown,requires-hardened,required,
+G064-03,M064,Onyx ESD,unknown,unknown,unknown,unknown,unknown,unknown,
 G065-01,M065,Fiberon PA612-ESD,within,within,within,recommended,requires-hardened,required,
 G066-01,M066,High Precision PET,within,within,within,recommended,unknown,required,
 G066-02,M066,ecoPET 9021,within,within,within,not-needed,no-special-concern,required,
@@ -1016,7 +1017,7 @@ G132-01,M132,PBT-GF,within,within,within-low-end,unknown,unknown,required,
 G132-02,M132,PBT GF,within,within,within-low-end,recommended,requires-hardened,required,
 G133-01,M133,Flexible,within,within,within,unknown,unknown,required,
 G134-01,M046,FiberFlex Aero,within,within,within,not-needed,unknown,required,
-G135-01,M135,Polyvinylchlorid weich 94A (PVC-P),within,within,unknown,unknown,unknown,not-needed,
+G135-01,M178,Polyvinylchlorid weich 94A (PVC-P),within,within,within,unknown,unknown,not-needed,chamber: family CN05
 G135-02,M135,Vinyl 303,within,within,unknown,unknown,no-special-concern,optional,
 G136-02,M136,Styrol-Acrylnitril (SAN),within,within,unknown,unknown,unknown,required,
 G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),within,within,within-low-end,unknown,unknown,not-needed,
@@ -1104,3 +1105,5 @@ G169-02,M169,HI-TEMP CF,within,within,within,unknown,unknown,required,chamber: f
 G170-01,M170,Thermoplastic styrene block copolymer elastomer (TPS),within,within,within-low-end,unknown,unknown,required,
 G170-02,M170,Ultrafuse TPS 90A,within,within,unknown,unknown,unknown,not-needed,
 G174-01,M174,Crystal Flex,within,within,within,not-needed,unknown,unknown,
+G176-01,M176,Electrifi,within,within,unknown,unknown,requires-hardened,unknown,
+G177-01,M177,Diran 410MF07,unknown,unknown,unknown,unknown,unknown,unknown,

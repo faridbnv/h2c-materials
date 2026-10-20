@@ -1,6 +1,6 @@
-COUNT 24 shown PASS
-STATUS ☑ PASS 24 | ☐ UNKNOWN 0 | ☐ FAIL 125
-24 of the 149 materials meet this requirement
+COUNT 25 shown PASS
+STATUS ☑ PASS 25 | ☐ UNKNOWN 0 | ☐ FAIL 127
+25 of the 152 materials meet this requirement
 Why the rest were excluded
 Clear requirements
 Family: Nylon / Polyamide
@@ -34,15 +34,16 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 24 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+TABLE 25 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+ROW Nylon-CE, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 1,160 | 1.69* | 44.8* | 12* | 90 | —
 ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 6 of 6 products | 1,200 / 1,010–1,400 · 5 | 2.16 | 56.7 / 55.9–57.5 · 2 | 15 / 12–18 · 2 | 145 / 58–178 · 5 | 167EUR
 ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,210 / 1,180–1,240 · 3 | 2.82 / 2.53–3.1 · 2 | 59.9 / 59.4–60.4 · 2 | 7 / 5.5–9.2 · 3 | 152 | —
 ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 7 of 7 products | 1,140 / 1,100–1,210 · 3 | 3 / 1.95–3.33 · 3 | 63 / 49–69.2 · 3 | 9.13 / 8.5–9.77 · 2 | 79 / 41–91 · 3 | 107EUR
-ROW PA-ESD / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 1,140 | 6.9* | 68* | 3.8* | 142 | —
+ROW PA-ESD / Nylon / Polyamide | ☆ | PASS / 2 of 2 products | 1,170 / 1,140–1,200 · 2 | 4.2* | 52* | 25* | 140 / 138–142 · 2 | —
 ROW PA12 / Nylon / Polyamide | ☆ | PASS / 8 of 8 products | 1,010 / 1,000–1,020 · 6 | 1.44* | 43* | > 50* | 123 / 100–135 · 4 | 183USD / 123–242 · 2
 ROW PA12-AF / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 990 | 0.51* | 50.4* | 5.8* | — | —
 ROW PA12-CF / Nylon / Polyamide | ☆ | PASS / 15 of 15 products | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗
-ROW PA12-GF / Nylon / Polyamide | ☆ | PASS / 3 of 3 products | 1,130 / 1,000–1,230 · 3 | 7.8 | 82 | 4.5 | 163 / 150–175 · 2 | 247USD
+ROW PA12-GF · ☆
 ROW PA6 · ☆
 ROW PA6-CE · ☆
 ROW PA6-CF · ☆
@@ -62,11 +63,11 @@ ROW PAHT-CF · ☆
 RAIL
 Each count is how many of that family your other requirements leave. Tick a family to list its polymers.
 Nylon / Polyamide
-24
+25
+PA
+5
 PA6
 5
-PA
-4
 PA12
 4
 PA612
@@ -80,7 +81,7 @@ PA66
 PLA
 18
 Flexible Elastomers
-15
+16
 Industrial High-Temperature
 14
 Polymer Blends
@@ -97,9 +98,9 @@ PETG
 6
 Polycarbonate
 6
-ABS
-5
 PVB / Specialty Polymers
+6
+ABS
 5
 PET Engineering
 4

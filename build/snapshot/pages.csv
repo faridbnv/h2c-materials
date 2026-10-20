@@ -8,10 +8,10 @@ M014,PLA Wood,materials/M014.html,,20,216,18,34,key-figures summary on-the-h2c a
 M015,PLA Galaxy,materials/M015.html,,4,65,4,8,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,209,109,149.9,74.2,draft,PLA-CF; PLA-GF; PETG; PLA blend; ABS
 M016,PLA Glow,materials/M016.html,,7,77,6,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,211,126,154.1,89.7,draft,PLA-CF; PLA-GF; PETG; PLA blend; ABS
 M017,PLA Aero,materials/M017.html,,12,166,11,19,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,248,280,166.8,176.3,draft,ASA Aero
-M018,PLA-CF,materials/M018.html,,19,257,17,34,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,304,391,205.6,250.5,draft,PLA; PLA-GF; PETG-CF; ASA-CF; PCTG-CF
+M018,PLA-CF,materials/M018.html,,19,257,17,34,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,304,391,205.7,250.5,draft,PLA; PLA-GF; PETG-CF; ASA-CF; PCTG-CF
 M019,PLA-GF,materials/M019.html,,4,85,4,8,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,2,34,117,77.8,76.8,draft,PLA; PLA-CF; PETG-CF; ASA-CF; PA12-CF
-M020,PETG,materials/M020.html,,73,1056,35,128,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,7,677,1785,333.0,1014.6,draft,PETG-CF; PETG-GF; PLA; PP; ABS
-M024,PETG-CF,materials/M024.html,,24,320,21,44,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,342,477,223.0,301.9,draft,PETG; PETG-GF; PLA-CF; ABS-CF; ASA-CF
+M020,PETG,materials/M020.html,,72,1045,35,127,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,7,672,1760,331.4,999.7,draft,PETG-CF; PETG-GF; PLA; PP; ABS
+M024,PETG-CF,materials/M024.html,,24,320,21,44,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,342,477,223.1,301.9,draft,PETG; PETG-GF; PLA-CF; ABS-CF; ASA-CF
 M025,PETG-GF,materials/M025.html,,5,66,5,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,212,108,153.8,77.1,draft,PETG; PETG-CF; ABS-CF; ABS-GF; ASA-CF
 M026,PETG-ESD,materials/M026.html,,9,123,9,21,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,259,206,180.8,126.4,draft,PETG-CF; PETG-GF; PLA; ABS; PC
 M027,ABS,materials/M027.html,,55,783,31,90,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,518,1148,289.6,707.5,draft,ABS-CF; ABS-GF; ASA; PC-ABS; PC
@@ -21,38 +21,38 @@ M030,ABS-ESD,materials/M030.html,,11,100,10,17,key-figures summary on-the-h2c am
 M031,ASA,materials/M031.html,,40,588,33,64,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,431,849,252.6,522.3,draft,ASA-CF; ASA-GF; ABS; PC-ABS; PC
 M032,ASA Aero,materials/M032.html,,4,61,4,9,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,187,115,128.4,78.8,draft,PLA Aero
 M033,ASA-CF,materials/M033.html,,17,191,15,31,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,294,367,206.5,232.0,draft,ASA; ASA-GF; ABS-CF; ABS-GF; PA12-CF
-M034,ASA-GF,materials/M034.html,,6,111,6,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,218,178,161.1,112.2,draft,ASA; ASA-CF; PETG-CF; ABS-CF; PA12-CF
+M034,ASA-GF,materials/M034.html,,6,111,6,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,218,178,161.2,112.2,draft,ASA; ASA-CF; PETG-CF; ABS-CF; PA12-CF
 M035,PC,materials/M035.html,,22,405,16,42,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,347,605,218.4,349.2,draft,PC-CF; PC-GF; ABS; ASA; PVDF
 M036,PC FR,,2 products,2,53,2,7,,,,,,,none,
 M037,PC-CF,materials/M037.html,,10,130,8,22,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,237,207,154.3,132.2,draft,PC; PC-ABS; PA12-CF; PET-CF; PA6-CF
 M038,PC-GF,materials/M038.html,,3,59,3,6,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,3,43,87,107.9,57.4,draft,PC; PC-ABS; PA12-CF; PET-CF; PA6-CF
 M045,PEBA,materials/M045.html,,10,129,7,18,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,66,238,115.4,138.3,draft,TPU 95A class; TPU 85A class and softer; TPU harder than 95A; TPC / TPEE; TPU 90A class
 M046,TPC / TPEE,materials/M046.html,,12,132,7,32,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,54,325,104.8,181.6,draft,"TPU 95A class; TPU 85A class and softer; TPU 90A class; TPE, maker-undisclosed elastomer; TPU harder than 95A"
-M048,PAHT-CF,materials/M048.html,,5,194,4,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,219,254,163.1,134.7,draft,PA12-CF; PA6-CF; PPA-CF; PA12-GF; PA6-GF
+M048,PAHT-CF,materials/M048.html,,5,194,4,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,219,254,163.2,134.7,draft,PA12-CF; PA6-CF; PPA-CF; PA12-GF; PA6-GF
 M049,PA6,materials/M049.html,,9,98,6,18,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,2,40,205,97.1,128.7,draft,PA6-CF; PA6-GF; PC; PA12; PVDF
 M050,PA6-CF,materials/M050.html,,14,206,13,28,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,289,336,202.1,218.0,draft,PA6; PA6-GF; PA12-CF; PPA-CF; PPS-CF
 M051,PA6-GF,materials/M051.html,,11,216,10,22,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,271,340,192.5,217.2,draft,PA6; PA6-CF; PA12-CF; PPA-CF; PPS-CF
 M052,PA12,materials/M052.html,,8,134,7,23,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,4,122,196,123.8,127.0,draft,PA12-CF; PA12-GF; PC; PC-ABS; PVDF
 M053,PA12-CF,materials/M053.html,,15,238,14,36,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,287,398,200.1,245.1,draft,PA12; PA12-GF; PC-CF; PET-CF; PA6-CF
-M054,PA12-GF,materials/M054.html,,3,38,3,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,36,59,81.9,48.1,draft,PA12; PA12-CF; PA6-CF; PA6-GF; PPA-CF
+M054,PA12-GF,materials/M054.html,,3,38,3,12,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,36,59,82.0,48.1,draft,PA12; PA12-CF; PA6-CF; PA6-GF; PPA-CF
 M055,PA66,,2 products,2,25,2,7,,,,,,,none,
 M056,PA66-CF,,0 products and 0 measured values,0,0,0,0,,,,,,,none,
 M057,PA6/66,materials/M057.html,,7,135,6,15,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,223,220,162.8,131.3,draft,ABS; ASA; PA6; PC-ABS; PC
 M058,PA612,,0 products and 14 measured values,0,14,0,2,,,,,,,none,
 M059,PA612-CF,materials/M059.html,,3,98,3,7,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,3,42,166,104.2,105.7,draft,PA12-CF; PC-CF; PA6-CF; PC-GF; PP-CF
 M060,PA612-GF,,0 products and 0 measured values,0,0,0,0,,,,,,,none,
-M064,PA-ESD,,1 product and 8 measured values,1,8,1,3,,,,,,,none,
+M064,PA-ESD,,2 products and 18 measured values,2,18,2,4,,,,,,,none,
 M065,PA612-ESD,,1 product,1,36,1,3,,,,,,,none,
-M066,PET,materials/M066.html,,7,63,4,16,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,3,205,150,133.9,101.0,draft,PET-CF; PET-GF; PETG; ABS; PC
-M067,PET-CF,materials/M067.html,,8,180,7,15,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,240,270,175.3,169.9,draft,PET; PET-GF; ASA-CF; PC-CF; PA12-CF
-M068,PET-GF,materials/M068.html,,4,78,4,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,231,158,168.5,102.0,draft,PET; PET-CF; ASA-CF; ABS-GF; PA12-CF
+M066,PET,materials/M066.html,,7,63,4,16,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,3,205,150,133.8,101.0,draft,PET-CF; PET-GF; PETG; ABS; PC
+M067,PET-CF,materials/M067.html,,8,181,7,15,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,240,271,175.2,170.6,draft,PET; PET-GF; ASA-CF; PC-CF; PA12-CF
+M068,PET-GF,materials/M068.html,,4,78,4,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,227,158,164.3,99.8,draft,PET; PET-CF; ASA-CF; ABS-GF; PA12-CF
 M069,PPA,,2 products,2,46,2,6,,,,,,,none,
 M070,PPA-CF,materials/M070.html,,8,176,6,18,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,252,293,179.2,178.1,draft,PPA-GF; PA6-CF; PA6-GF; PPS-CF; PAHT-CF
 M071,PPA-GF,materials/M071.html,,5,96,4,10,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,221,192,163.0,117.1,draft,PPA-CF; PA6-CF; PA6-GF; PPS-CF; PAHT-CF
 M072,PPS,,2 products and 17 measured values,2,17,2,7,,,,,,,none,
 M073,PPS-CF,materials/M073.html,,7,128,7,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,244,193,176.1,131.4,draft,PPA-CF; PPA-GF; PA6-GF; PA6-CF; PAHT-CF
 M074,PPS-GF,,2 products,2,44,2,3,,,,,,,none,
-M075,PVA,materials/M075.html,,11,57,9,19,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,3,204,179,132.9,122.9,draft,PLA; PETG; ABS; PCL; PVB
+M075,PVA,materials/M075.html,,11,57,9,19,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,3,204,179,133.0,122.9,draft,PLA; PETG; ABS; PCL; PVB
 M076,BVOH,materials/M076.html,,4,55,4,9,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,4,132,90,124.5,54.9,draft,PLA; PETG; ABS; PA6/66; PET
 M077,Support for PLA,,2 products and 7 measured values,2,7,2,4,,,,,,,none,
 M078,Support for PLA/PETG,,1 product and 4 measured values,1,4,1,2,,,,,,,none,
@@ -64,10 +64,10 @@ M083,PP-CF,materials/M083.html,,5,66,5,15,key-figures summary on-the-h2c among m
 M084,PP-GF,,2 products,2,28,2,5,,,,,,,none,
 M085,PE,,2 products,2,22,2,6,,,,,,,none,
 M086,OBC,,2 products,2,27,2,5,,,,,,,none,
-M087,POM / Acetal,materials/M087.html,,3,38,3,7,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,34,67,79.0,52.6,draft,ABS; ASA; PA6; CPE; PA6/66
+M087,POM / Acetal,materials/M087.html,,3,38,3,7,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,34,67,79.1,52.6,draft,ABS; ASA; PA6; CPE; PA6/66
 M088,PCTG,materials/M088.html,,8,111,8,16,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,228,173,140.6,109.1,draft,PCTG-CF; PCTG-GF; PETG; ABS; PC
-M089,CPE,materials/M089.html,,5,76,3,15,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,212,119,131.8,80.5,draft,CPE-CF; PETG; ABS; PC; HIPS
-M090,CPE-CF,materials/M090.html,,3,29,3,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,35,66,78.6,52.1,draft,CPE; PETG-CF; ABS-CF; ASA-CF; PCTG-GF
+M089,CPE,materials/M089.html,,6,87,4,18,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,214,144,133.5,95.1,draft,CPE-CF; ABS; ASA; PC; HIPS
+M090,CPE-CF,materials/M090.html,,3,29,3,11,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,35,66,78.8,52.1,draft,CPE; PETG-CF; ABS-CF; ASA-CF; PCTG-GF
 M091,CoPE,,1 product,1,28,1,5,,,,,,,none,
 M092,nGen / Amphora,,1 product,1,31,1,9,,,,,,,none,
 M093,PVB,materials/M093.html,,6,114,5,13,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,234,154,168.5,100.3,draft,PLA; PETG; ABS; PLA blend; PCL
@@ -87,7 +87,7 @@ M106,ABS-AF,materials/M106.html,,3,35,3,9,key-figures summary on-the-h2c among m
 M107,PLA-ESD,,2 products and 18 measured values,2,18,2,5,,,,,,,none,
 M108,PA6-GS,,1 product and 11 measured values,1,11,1,5,,,,,,,none,
 M109,PETG-PTFE,,2 products,2,20,2,6,,,,,,,none,
-M110,PCTG-GF,materials/M110.html,,3,22,3,8,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,2,32,57,79.7,47.0,draft,PCTG; PCTG-CF; PETG-CF; ABS-CF; ASA-CF
+M110,PCTG-GF,materials/M110.html,,3,22,3,8,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,2,32,57,79.8,47.0,draft,PCTG; PCTG-CF; PETG-CF; ABS-CF; ASA-CF
 M111,PLA-EC,,2 products and 8 measured values,2,8,2,3,,,,,,,none,
 M112,PC-PTFE,,2 products and 16 measured values,2,16,2,7,,,,,,,none,
 M113,ASA-AF,,18 measured values,3,18,3,7,,,,,,,none,
@@ -95,7 +95,7 @@ M114,TPC-ESD,,2 products and 19 measured values,2,19,2,3,,,,,,,none,
 M115,PEKK-ESD,,1 product and 8 measured values,1,8,1,2,,,,,,,none,
 M116,PC-ESD,,2 products and 17 measured values,2,17,1,4,,,,,,,none,
 M117,PEI-GF,,1 product and 9 measured values,1,9,1,3,,,,,,,none,
-M118,PEI-CF,materials/M118.html,,3,23,2,5,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,34,43,71.9,36.6,draft,PA6-CF; PA6-GF; PPS-CF; PPA-GF; PPA-CF
+M118,PEI-CF,materials/M118.html,,3,23,2,5,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,34,43,72.0,36.6,draft,PA6-CF; PA6-GF; PPS-CF; PPA-GF; PPA-CF
 M119,PC-ASA,,1 product and 8 measured values,1,8,1,3,,,,,,,none,
 M120,PVDF-ESD,,1 product and 8 measured values,1,8,1,3,,,,,,,none,
 M121,TPI,,2 products,2,53,2,3,,,,,,,none,
@@ -111,7 +111,7 @@ M130,PPE-PS,,2 products,2,21,2,7,,,,,,,none,
 M131,PC-PBT-CF,,1 product,1,43,1,6,,,,,,,none,
 M132,PBT-GF,,2 products,2,21,2,5,,,,,,,none,
 M133,PBAT,,1 product and 9 measured values,1,9,1,3,,,,,,,none,
-M135,PVC,,2 products and 10 measured values,2,10,2,5,,,,,,,none,
+M135,PVC,,1 product and 6 measured values,1,6,1,3,,,,,,,none,
 M136,SAN,,1 product and 7 measured values,1,7,1,4,,,,,,,none,
 M137,COC,,2 products and 19 measured values,2,19,1,4,,,,,,,none,
 M138,PE-GF,,2 products and 18 measured values,2,18,2,5,,,,,,,none,
@@ -136,15 +136,18 @@ M156,PA6/66-CF,,1 product,1,20,1,3,,,,,,,none,
 M157,TPU-EC,,2 products and 16 measured values,2,16,2,5,,,,,,,none,
 M158,PLA-CE,,1 product and 19 measured values,1,19,1,5,,,,,,,none,
 M159,TPU 85A class and softer,materials/M159.html,,18,153,12,27,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,7,99,321,137.7,201.7,draft,"TPU-CF; TPU 95A class; TPC / TPEE; TPE, maker-undisclosed elastomer; TPS"
-M160,TPU 90A class,materials/M160.html,,12,141,10,31,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,80,337,130.6,199.7,draft,"TPU-CF; TPU 95A class; TPE, maker-undisclosed elastomer; TPC / TPEE; TPS"
+M160,TPU 90A class,materials/M160.html,,12,141,10,31,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,80,337,130.7,199.7,draft,"TPU-CF; TPU 95A class; TPE, maker-undisclosed elastomer; TPC / TPEE; TPS"
 M161,TPU 95A class,materials/M161.html,,27,247,22,41,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,6,155,459,159.1,292.3,draft,"TPU-CF; TPU 85A class and softer; TPC / TPEE; TPE, maker-undisclosed elastomer; TPS"
 M162,TPU harder than 95A,materials/M162.html,,15,190,13,37,key-figures summary on-the-h2c among mechanical thermal printing products uses price other estimates sources colophon,5,57,452,127.9,244.4,draft,"TPU-CF; TPU 95A class; TPC / TPEE; TPE, maker-undisclosed elastomer; TPS"
 M164,"Nylon, maker-undisclosed polyamide",materials/M164.html,,7,86,6,13,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,207,137,149.6,98.7,draft,"Nylon-CF, maker-undisclosed polyamide; Nylon-GF, maker-undisclosed polyamide; PETG; ABS; PC"
 M165,"Nylon-CF, maker-undisclosed polyamide",materials/M165.html,,6,114,5,10,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,5,209,148,149.8,96.8,draft,"Nylon, maker-undisclosed polyamide; Nylon-GF, maker-undisclosed polyamide; PA12-CF; PC-CF; PA6-CF"
-M166,"Nylon-GF, maker-undisclosed polyamide",materials/M166.html,,3,55,3,9,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,32,71,73.3,54.1,draft,"Nylon, maker-undisclosed polyamide; Nylon-CF, maker-undisclosed polyamide; PA12-CF; PC-CF; PA6-CF"
-M167,"TPE, maker-undisclosed elastomer",materials/M167.html,,5,28,2,6,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,28,62,65.0,49.7,draft,TPU 95A class; TPU 85A class and softer; TPU 90A class; TPC / TPEE; TPU harder than 95A
+M166,"Nylon-GF, maker-undisclosed polyamide",materials/M166.html,,3,55,3,9,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,32,71,73.4,54.1,draft,"Nylon, maker-undisclosed polyamide; Nylon-CF, maker-undisclosed polyamide; PA12-CF; PC-CF; PA6-CF"
+M167,"TPE, maker-undisclosed elastomer",materials/M167.html,,5,30,2,7,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,2,28,64,65.4,50.8,draft,TPU 95A class; TPU 85A class and softer; TPU 90A class; TPC / TPEE; TPU harder than 95A
 M168,PLA blend,materials/M168.html,,9,97,5,19,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,120,200,114.3,124.4,draft,PLA; PETG; ABS; PCTG; PET
 M169,PLA blend-CF,,2 products,2,42,2,6,,,,,,,none,
 M170,TPS,materials/M170.html,,5,49,4,10,key-figures summary on-the-h2c among mechanical thermal printing products uses price other sources colophon,4,39,120,99.8,78.3,draft,"TPU 85A class and softer; TPU 95A class; TPC / TPEE; TPE, maker-undisclosed elastomer; TPU harder than 95A"
 M174,SBC,,1 product and 9 measured values,1,9,1,3,,,,,,,none,
 M175,TPV,,1 product and 8 measured values,1,8,1,2,,,,,,,none,
+M176,PCL-EC,,1 product and 5 measured values,1,5,1,3,,,,,,,none,
+M177,"Nylon-CE, maker-undisclosed polyamide",,1 product,1,27,1,1,,,,,,,none,
+M178,PVC-P,,1 product and 4 measured values,1,4,1,3,,,,,,,none,

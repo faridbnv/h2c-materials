@@ -14,8 +14,8 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1057 | 44 | 1 | 3 | 1105 |
-| Materials | 140 | 6 | 0 | 3 | 149 |
+| Products | 1057 | 45 | 1 | 5 | 1108 |
+| Materials | 141 | 6 | 0 | 5 | 152 |
 
 7495 statements; 1537 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
@@ -35,7 +35,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 1 | — |
 | PPS-CF (M073) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 7 | 2 / 1 / 4 | — |
 | PPS-GF (M074) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 2 | 0 / 0 / 1 | — |
-| PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 2 of 73 | 24 / 23 / 51 | 3DXTECH (3dxtech.com, sourcegraphics.com); Recreus (recreus.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 2 of 72 | 24 / 22 / 50 | 3DXTECH (3dxtech.com, sourcegraphics.com); Recreus (recreus.com) |
 | ABS-CF (M029) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 1 / 1 / 5 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PA12-CF (M053) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 15 | 5 / 2 / 9 | MatterHackers (matterhackers.com) |
@@ -57,7 +57,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA (M031) | Indoor prototype; Warm environment | collected | 0 of 40 | 14 / 16 / 32 | — |
 | ASA Aero (M032) | Indoor prototype; Warm environment | collected | 0 of 4 | 0 / 0 / 2 | — |
 | COC (M137) | Indoor prototype; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
-| CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 5 | 0 / 0 / 1 | — |
+| CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 6 | 0 / 1 / 2 | — |
 | HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 11 | 5 / 4 / 9 | — |
 | Nylon, maker-undisclosed polyamide (M164) | Indoor prototype; Lightweight structure | collected | 0 of 7 | 1 / 3 / 3 | — |
 | PA6 (M049) | Indoor prototype; Warm environment | collected | 0 of 9 | 2 / 0 / 9 | — |
@@ -122,6 +122,7 @@ documents were read and give none of one is listed under "Recipe silent".
 |---|---|---|---:|---|---|
 | PEI / ULTEM (M099) | — | collected | 3 of 13 | 6 / 6 / 9 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PEEK-CF (M125) | — | collected | 2 of 5 | 3 / 4 / 5 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
+| PA-ESD (M064) | — | collected | 1 of 2 | 2 / 1 / 2 | Markforged (web-objects.markforged.com) |
 | PC-ESD (M116) | — | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PEEK-GF (M127) | — | sheet-silent | 1 of 1 | 1 / 0 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PEI-CF (M118) | — | collected | 1 of 3 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
@@ -137,7 +138,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | LCP (M139) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | Nylon-CF, maker-undisclosed polyamide (M165) | — | collected | 0 of 6 | 4 / 3 / 4 | — |
 | Nylon-GF, maker-undisclosed polyamide (M166) | — | collected | 0 of 3 | 1 / 1 / 1 | — |
-| PA-ESD (M064) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | PA12-AF (M154) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PA66 (M055) | — | collected | 0 of 2 | 1 / 1 / 2 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 0 / 2 | — |
@@ -149,7 +149,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 3 | 2 / 1 / 3 | — |
 | PPSU (M102) | — | collected | 0 of 4 | 1 / 2 / 3 | — |
-| PVC (M135) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
+| PVC (M135) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | Support for ABS (M079) | — | collected | 0 of 2 | 1 / 0 / 2 | — |
 | Support for PA/PET (M080) | — | collected | 0 of 3 | 1 / 0 / 3 | — |
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
@@ -167,6 +167,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | Elegoo | no address held | 1 | G001-129 PLA |
 | Fillamentum | fillamentum.com | 1 | G164-01 Nylon FX256 |
 | Flashforge | after-support.flashforge.jp, flashforge.com | 1 | G167-14 FABRIAL-R |
+| Markforged | web-objects.markforged.com | 1 | G064-03 Onyx ESD |
 | Recreus | recreus.com | 1 | G020-70 PET-G |
 | Spectrum | spectrumfilaments.com, shop.spectrumfilaments.com | 1 | G001-31 PLA |
 | colorFabb | downloads.colorfabb.com, colorfabb.com | 1 | G066-04 PET ULTRA HIGH SPEED |

@@ -1,7 +1,7 @@
 COUNT 10 shown PASS
-STATUS ☑ PASS 10 | ☐ UNKNOWN 93 | ☐ FAIL 46
-10 of the 149 materials meet these requirements
-High-stiffness fixture template · UNKNOWN 93 left out: 7 one check away, 42 not enough data, 44 unlikely to meet
+STATUS ☑ PASS 10 | ☐ UNKNOWN 95 | ☐ FAIL 47
+10 of the 152 materials meet these requirements
+High-stiffness fixture template · UNKNOWN 95 left out: 7 one check away, 44 not enough data, 44 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits

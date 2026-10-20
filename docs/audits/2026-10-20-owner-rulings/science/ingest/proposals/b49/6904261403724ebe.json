@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b49.mjs (the owner's rulings 2026-10-20)",
+    "date": "2026-10-20"
+  },
+  "document": {
+    "sha256": "6904261403724ebe7f6f7fb4888ea0d8c8ffba6a8f7bbdeaa16f397d834053c2",
+    "url": "https://www.multi3dllc.com/wp-content/uploads/2016/09/Electrifi_MSDS.pdf",
+    "pages": 5,
+    "provider": "Multi3D",
+    "manufacturer": "Multi3D",
+    "docKey": "https://www.multi3dllc.com/wp-content/uploads/2016/09/Electrifi_MSDS.pdf#witness-for=material:M176"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": "M176",
+    "note": "Multi3D's safety data sheet for Electrifi: \"CHEMICAL FAMILY: Polymer-metal composite\" and \"biodegradable polyester\" (p. 1), the identity the owner's rulings file it by (R227)."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MULTI3D-ELECTRIFI-SDS",
+      "Publisher": "Multi3D",
+      "Title": "Electrifi Conductive 3D Printer Filament – Safety Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "2016-09-27",
+      "Access date": "2026-10-19",
+      "Source class": "Manufacturer SDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.multi3dllc.com/wp-content/uploads/2016/09/Electrifi_MSDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:electrifi}",
+      "Access state": "retrieved",
+      "Access note": "Saved and hashed by the research agent of 2026-10-19 (the V2 import's witness of 2026-09-26 is the same bytes) and fetched again, byte for byte, by a Claude Sonnet reader on 2026-10-19. Staged by digest into the owner's rulings' ledger (ingest:witness --from, docs/audits/2026-10-20-owner-rulings/science/ingest/staged-manifest-b49.csv) on 2026-10-20, admitted in batch b49.",
+      "SHA256": "6904261403724ebe7f6f7fb4888ea0d8c8ffba6a8f7bbdeaa16f397d834053c2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "biodegradable polyester trade secret >1% Not classified as hazardous."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+      "date": "2026-10-20"
+    }
+  },
+  "grades": [
+    {
+      "key": "electrifi",
+      "row": {
+        "MaterialID": "M176",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Multi3D",
+        "Product name": "Electrifi",
+        "Shared formulation key": "R-MULTI3D-ELECTRIFI-TDS",
+        "Composition / filler": "\"Highly conductive copper-filled thermoplastic filament\" with \"a percolated copper network embedded in a thermoplastic matrix\" (R-MULTI3D-ELECTRIFI-TDS, p. 1); its safety data sheet lists \"biodegradable polyester\" and \"Conductive Filler\" and gives a melting point of \"Approximately 60 °C\" (R-MULTI3D-ELECTRIFI-SDS, pp. 1, 3). Inferred filing (the owner's rulings, 2026-10-20, R227, D176): the one biodegradable polyester that melts near 60 °C is polycaprolactone, and its 140-160 °C nozzle and soft, low-modulus filament are a PCL's; the maker names no polymer.",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence (the owner's rulings, 2026-10-20, b49)",
+        "SourceID": "R-MULTI3D-ELECTRIFI-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+        "date": "2026-10-20",
+        "note": "A held sheet the owner's rulings admit (2026-10-20, D176), filed under M176."
+      },
+      "evidence": {
+        "page": 1,
+        "text": "biodegradable polyester trade secret >1% Not classified as hazardous."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "Approximately 60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MULTI3D-ELECTRIFI-SDS",
+        "Locator": "p. 3: Section 9: Melting point/freezing point",
+        "Notes": "The safety data sheet prints it as approximate.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Melting point/freezing point: Approximately 60 °C"
+      },
+      "gradeKey": "electrifi",
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+        "date": "2026-10-20",
+        "note": "Read against the page: the value and its row as the safety data sheet prints them, approximate as it says."
+      }
+    },
+    {
+      "id": "m02",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "Approximatley 2.5 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "2.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "2500",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MULTI3D-ELECTRIFI-SDS",
+        "Locator": "p. 3: Section 9: Specific gravity (relative density)",
+        "Notes": "The safety data sheet prints it as approximate (\"Approximatley\", as printed).",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Specific gravity (relative density): Approximatley 2.5 g/cm"
+      },
+      "gradeKey": "electrifi",
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+        "date": "2026-10-20",
+        "note": "Read against the page: the value and its row as the safety data sheet prints them, approximate as it says."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "What the document prints and no row here holds stays in the record tier (its cached text, dist/h2c.sqlite source_facts)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Opus 5.5 (the owner's rulings 2026-10-20, b49), read on the cached text and the page image",
+    "date": "2026-10-20",
+    "note": "Multi3D's safety data sheet for Electrifi: \"CHEMICAL FAMILY: Polymer-metal composite\" and \"biodegradable polyester\" (p. 1), the identity the owner's rulings file it by (R227)."
+  }
+}

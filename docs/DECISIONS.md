@@ -189,6 +189,7 @@ detail. The generator names one that runs longer.
 | D173 | The drawer's first screen answers five questions in a few large figures, the rest one press away | The owner ruled that the first screen of a material's drawer needed redesign, to be friendly and | In force (the owner's rulings round, 2026-10-20; OPEN-PROBLEMS §37.20). Display only: every number is one |
 | D174 | The selector's first screen: no Result column before a requirement, the sintering filaments out of the dataset, a plot's own marks first | Three of the owner's rulings of 2026-10-20 on the selector. Before any requirement is set, the results table has no Result column: every row had read "not tested", which an engineer reads as "nobody ran the test". The metal and ceramic sintering filaments (316L, silicon carbide, alumina) are out of the dataset: their records stay in the tables, and the build compiles none of them, so the table no longer opens on the 316L one. And the plots keep the marks that read best on each: on the Ashby chart's Material ranges one mark now means "kept out of its material's range", while the square and the diamond keep meaning glass and carbon fibre on the Ashby chart and annealed and an added filler in the drawer and on the pages. | In force (the owner's rulings round, 2026-10-20, m468; OPEN-PROBLEMS §37.20). It amends D87 (the sintering filaments, recorded and never candidates, leave the dataset) and D110 (a product sold as toughened is ringed with a dot in Material ranges) |
 | D175 | Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range | A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row; D158 made the first exception) and D127 (what the typed drying columns hold) |
+| D176 | A materials scientist's rulings: PET's fills print glassy, the held sheets' homes, a plasticised PVC is a rubber, a heat-resistant "PETG" is a copolyester | The owner asked a materials scientist to research four open questions and decide. Fibre-filled PET prints glassy, as the model already said: every maker that states how its bar was treated shows about 75 to 100 °C as printed and 120 to 205 °C only after annealing, and the two "crystallised as printed" bars in the data were an annealed bar recorded without its note and two bars whose sheets state no treatment, which now back nothing. The held sheets each have a home or a reason to stay out: Electrifi is a conductive polycaprolactone, Diran 410MF07 a mineral-filled nylon of undisclosed polyamide, Onyx ESD an ESD nylon, ISTROFLEX stays an undisclosed rubber, SBC is a stiff clear styrenic and is now estimated, and FKuR's compound, Nuterials' pellets and Stratasys' sacrificial tooling stay out. purefil's Shore 94A PVC is a rubber, a material of its own that fails a stiffness requirement on its kind's limit. And Spectrum's PET-G HT100 is a Tritan-type copolyester, filed under CPE. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG item 6 and items 9 to 11; OPEN-PROBLEMS §38.10, §14, §31.13, §38.9, §33.9). It keeps D158 (PET prints amorphous, fibre-filled too) after testing its alternative, extends D154's rubber limit (CL01) to a new kind, and adds a polymers.csv row (SBC), back-tested as D58 and D138 ask |
 
 <!-- end index -->
 
@@ -5895,6 +5896,67 @@ cached sheets ([the round](audits/2026-10-20-owner-rulings/README.md), its `smal
   and drying unknown where its type's guide answers them, and four would wait one check away for an indoor part; BigRep's
   2.85 mm filaments would be counted with no word that the H2C cannot feed them; and a sheet that begins its drying at
   80 °C would read as asking 100 °C.
+
+## D176. A materials scientist's rulings: PET's fills print glassy, the held sheets' homes, a plasticised PVC is a rubber, a heat-resistant "PETG" is a copolyester
+
+> **In plain words:** The owner asked a materials scientist to research four open questions and decide. Fibre-filled PET prints glassy, as the model already said: every maker that states how its bar was treated shows about 75 to 100 °C as printed and 120 to 205 °C only after annealing, and the two "crystallised as printed" bars in the data were an annealed bar recorded without its note and two bars whose sheets state no treatment, which now back nothing. The held sheets each have a home or a reason to stay out: Electrifi is a conductive polycaprolactone, Diran 410MF07 a mineral-filled nylon of undisclosed polyamide, Onyx ESD an ESD nylon, ISTROFLEX stays an undisclosed rubber, SBC is a stiff clear styrenic and is now estimated, and FKuR's compound, Nuterials' pellets and Stratasys' sacrificial tooling stay out. purefil's Shore 94A PVC is a rubber, a material of its own that fails a stiffness requirement on its kind's limit. And Spectrum's PET-G HT100 is a Tritan-type copolyester, filed under CPE.
+> **Status:** In force (the owner's rulings round, 2026-10-20; GOALS-LOG item 6 and items 9 to 11; OPEN-PROBLEMS §38.10, §14, §31.13, §38.9, §33.9). It keeps D158 (PET prints amorphous, fibre-filled too) after testing its alternative, extends D154's rubber limit (CL01) to a new kind, and adds a polymers.csv row (SBC), back-tested as D58 and D138 ask.
+
+*Ruled by the owner on 2026-10-20 ("consult with a material scientist agent, research those cases if necessary, and make a
+decision"); researched with Claude Sonnet readers, decided and built by Claude Opus 5.5 as the round's materials-science
+track ([memo](audits/2026-10-20-owner-rulings/science/DECISIONS-MEMO.md), [back-tests](audits/2026-10-20-owner-rulings/science/BACKTEST.md),
+[decision diff](audits/2026-10-20-owner-rulings/science/DECISION-DIFF.md)).*
+
+- **PET's fills print glassy; the model is kept** (m473). PET crystallises slowly (a half-time near a minute at its
+  fastest, about 170 °C), and a printed road quenches through that window in seconds onto a bed and into a chamber below
+  its 75 to 80 °C glass transition (the H2C's chamber reaches 65 °C); fibres nucleate crystals but cannot give them the
+  time. The makers' own sheets agree: Polymaker PET-GF15 81.6 °C as printed and 133.7 °C after 16 h at 120 °C, Raise3D
+  Industrial PET CF 87 °C before annealing and 175 °C after (V4.0), Flashforge PET-CF 100 °C "not annealed", BASF PET CF15
+  74 °C; LEHVOSS says its 3F PET CF needs annealing "to ... ensure the full crystallinity". Of the four crystallised-looking
+  values OPEN-PROBLEMS named, Raise3D Industrial PET GF's 99 and 120 °C are its sheet's annealed bars ("All specimens were
+  annealed at 100˚C for 8h", p. 2; the heat rows had missed it), QIDI's were already recorded annealed, and Flashforge
+  PET-CF's 100 °C is a glassy fibre-filled bar's. Flashforge PET-GF's 200 °C, and SIDDAMENT PET CF's 190 °C (never
+  transcribed until now), are printed bars whose sheets state no treatment and advise oven-treating the part at 120 to
+  130 °C: crystallised bars, flagged physically implausible as the as-printed value (D55, D149's precedent for PLA). PET
+  as "prints amorphous unless fibre-filled" was built and measured: it held EST-CALIBRATION only with PET-fill ranges about
+  106 °C wide, centred 40 to 90 °C above every stated as-printed bar (Bambu Lab PET-CF 177 °C, D167's error). Rejected.
+- **The held sheets' homes** (m475, batch b49; m476). Multi3D Electrifi's safety data sheet names a "biodegradable
+  polyester" melting at "Approximately 60 °C": polycaprolactone is the one that melts there, so it is a material of its
+  own, PCL-EC (M176), an inferred filing (R227, R228), not estimated. Stratasys Diran 410MF07, "nylon-based ...
+  mineral-filled 7% by weight", whose polyamide no document names, opens the maker-undisclosed nylon home for a mineral
+  load, Nylon-CE (M177; R229, R230), with its two tables (27 values). Markforged Onyx ESD, "a static dissipative safe
+  variant of Onyx", the micro carbon fibre nylon, enters PA-ESD (M064) from the registered Composites sheet (R239).
+  Nanovia ISTROFLEX, a "Modified Polyester alloy" with a glass transition of -32 °C and a Vicat of 91 °C, is PBAT's kind
+  by its figures, but stays in TPE, maker-undisclosed elastomer (R232): filed under PBAT, a rigid specialty polymer here,
+  a 60 MPa, Shore 93A rubber would have been given a rigid bar's heat estimate. SBC is a stiff, clear, styrene-rich
+  styrenic, not an elastomer (Crystal Flex prints K-Resin KR03's Shore D 63 and 1.8 GPa): polymers.csv gains its row
+  (styrenic, amorphous, 1010 to 1020 kg/m³ from INEOS Styrolution's Styrolux 656C and K-Resin KR03), so it is estimated
+  (R231). FKuR's Fibrolon V 135002 (a compound for making filament, measured on moulded bars, for a colorFabb woodFill the
+  catalogue does not hold), Nuterials JECTO (pellets; its filament is in development) and Stratasys ST-130 (sacrificial
+  tooling, no polymer or family named) stay out (R236 to R238).
+- **A plasticised PVC is a rubber** (m476, m477). purefil's "Polyvinylchlorid weich 94A", "flexible und gummiähnliche",
+  Shore 94A, 366 % elongation, is PVC-P (ISO 1043), a material of its own under Flexible Elastomers (M178; R233, R234),
+  not estimated: the plasticiser puts PVC's glass transition below room temperature and its crystallites hold the chains
+  as a thermoplastic elastomer's hard blocks do, so at 94A it is about 0.04 GPa stiff, where rigid PVC is 2 to 4 GPa. The
+  rubber limit CL01 (at most 0.5 GPa) names it, in a commit of its own (m477): its product fails the 2, 3 and 5 GPa
+  questions and the three stiffness presets on its kind's limit, where it waited on "not enough data" with an estimate of
+  0.2 to 8.7 GPa.
+- **A heat-resistant "PETG" is another copolyester** (m474). Spectrum PET-G HT100 is "a co-polyester based filament" of
+  1.18 g/cm³ with an HDT B of 94 °C; a PETG is 1.22 to 1.30 g/cm³ and a glassy bar deflects near its 80 °C glass
+  transition. Its sheet prints Eastman's Tritan figures (1.18, 43 MPa, 210 %, 1575 MPa, Rockwell R 111), a copolyester
+  with a glass transition near 110 °C. It moves to CPE (R235), which holds colorFabb HT (Amphora HT5300) and Fiberlogy CPE
+  HT, the same kind; no Variant class, since it is not a PETG something changed.
+- **What it did** ([decision diff](audits/2026-10-20-owner-rulings/science/DECISION-DIFF.md)). Before the round's other
+  tracks were merged (m473 to m475, against the baseline): eight verdicts of existing materials moved, PET-GF from pass to
+  "unlikely to meet" for 90 and 120 °C as printed and PETG from pass to "unlikely" for 90 °C (each had passed on one bar
+  physics rules out for it); the rest are the two new materials and SBC's estimates (it now reads "unlikely" or "likely"
+  where it read "not enough data"). After the merge (m476, m477): PVC-P fails the stiffness questions; rigid PVC loses the
+  elongation passes it had on PVC-P's 366 % and fails the lightweight structure; PA-ESD passes 5 and 20 % elongation as
+  published on Onyx ESD's 25 %. EST-CALIBRATION holds on every headline with the SBC row (its product's estimates hold its
+  own values); the estimate model's settings and code did not change.
+- **What would break if reversed.** PET-GF would again pass 120 °C as printed on a bar no printed part reaches, and PETG
+  pass 90 °C on a copolyester that is not one; a 94A rubber would again sit beside rigid PVC with an estimate of up to
+  8.7 GPa; SBC would be unestimated; Electrifi and Diran would wait unread, and Onyx ESD would be missing from the ESD nylons.
 
 ## Bugs worth remembering
 
