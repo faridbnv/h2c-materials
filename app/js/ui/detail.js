@@ -652,8 +652,11 @@ function productValues(g, c) {
     const value = v.measurementId
       ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="${esc(note ? `${note} Opens the measurement in Sources` : 'Opens the measurement in Sources')}">${shown}<span class="evidence-dot" aria-hidden="true"></span></button>`
       : `${shown}${v.observations ? ` <span class="fine">(${plural(v.observations, 'listing')})</span>` : ''}`;
+    // A value set apart (D172): from a test bar no document describes as printed, or a heat deflection with no stated load.
     const mark = v.level === 'as-published'
-      ? ` ${explainButton('not comparable', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Not comparable.', { cls: 'missing lvl', head: 'Orientation or load not stated' })}` : '';
+      ? ` ${explainButton('set apart', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Set apart: shown, never used in deciding.', { cls: 'missing lvl', head: v.caveat === 'load-not-stated' ? 'Test load not stated' : 'Test bar not described as printed' })}`
+      // A printed bar whose sheet states no orientation is read as a flat one (D172), and says so.
+      : v.admitted?.includes('direction') ? ' <span class="fine">orientation not stated; a printed bar, read as flat</span>' : '';
     const anneal = v.anneal ? ` <span class="fine">annealed${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
     // A value that is only a ceiling for the printed part (CV05), or one its other records contradict (C40, D153).
     const first = g.states?.[0]?.values?.[h.key];
@@ -662,8 +665,31 @@ function productValues(g, c) {
     return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}${fromNote(v.from)}${flag}</dd>`;
   });
   const ledger = ledgerLines(g, c);
-  if (!rows.length && !ledger) return '<div class="fine">This product publishes none of the key properties with a stated orientation or test load.</div>';
-  return `${rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : ''}${ledger}`;
+  const replaced = replacedLines(g, c);
+  if (!rows.length && !ledger) return `<div class="fine">This product publishes none of the key properties on a test bar its documents describe as printed.</div>${replaced}`;
+  return `${rows.length ? `<div class="shared-head">Values</div><dl class="kv small product-values">${rows.join('')}</dl>` : ''}${ledger}${replaced}`;
+}
+
+/** A document by name, with the edition it prints where its title does not say it (D171). */
+const editionName = (c, sid) => {
+  const s = c.sourceById.get(sid);
+  const n = sourceName(s, sid);
+  return esc(stated(s?.revision) && !n.includes(s.revision) ? `${n}, ${s.revision}` : n);
+};
+/**
+ * What a newer edition of a product's sheet, or its data sheet, replaced (D171, grades[].replaced): each figure that differs
+ * a lot from the product's value, small, as not used in deciding, with the document that replaced it.
+ */
+function replacedLines(g, c) {
+  const list = g.replaced ?? [];
+  if (!list.length) return '';
+  const items = list.map((r) => {
+    const h = REGISTRY.allHeadlines.find((x) => x.key === r.key);
+    const what = `${esc(h?.labels.plain ?? r.key)} ${esc(fmtNumber(r.value))} ${esc(h?.unit ?? '')}`;
+    return r.why === 'older-edition' ? `${what} in an older edition of its sheet (${editionName(c, r.sourceId)}); the newer one (${editionName(c, r.by)}) is used`
+      : `${what} on ${editionName(c, r.sourceId)}; the data sheet (${editionName(c, r.by)}) is used`;
+  });
+  return `<p class="fine replaced-note">Differs a lot in another document of this product, not used in deciding: ${items.join('; ')}.</p>`;
 }
 
 /**
@@ -699,7 +725,7 @@ const fromNote = (from) => (from ? ` <span class="fine from-note from-${esc(from
  * How to print a product, from its own profiles (grades[].print): never its material's union. A part its own profiles
  * are silent on may come from a data sheet it shares or from the Bambu Lab Filament Guide, and says so (D88, D89).
  */
-function printCard(g) {
+function printCard(g, c = null) {
   const p = g.print;
   const from = p?.from ?? {};
   const some = !!p?.profileIds.length || Object.keys(from).some((a) => a !== 'anneal');
@@ -719,7 +745,22 @@ function printCard(g) {
     <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}</dd>
     <dt>Drying</dt><dd>${esc(dryingWords(p.drying))}</dd>` : ''}
     ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))} (some of its values were measured after it)</dd>` : ''}
-  </dl>${[...read].map(([label, parts]) => `<p class="fine from-note">${esc(cap(andList(parts)))}: ${esc(label)}, where this product's own sheet is silent.</p>`).join('')}</div>`;
+  </dl>${[...read].map(([label, parts]) => `<p class="fine from-note">${esc(cap(andList(parts)))}: ${esc(label)}, where this product's own sheet is silent.</p>`).join('')}${c ? replacedPrintLines(p, c, NAMES) : ''}</div>`;
+}
+
+/**
+ * The print settings a product's data sheet or newer edition replaced where they differ (D171, print.replaced): small,
+ * as not used in deciding, with the document that replaced them.
+ */
+function replacedPrintLines(p, c, NAMES) {
+  const byId = c.profileById ?? (c.profileById = new Map((c.db?.profiles ?? []).map((x) => [x.id, x])));
+  const items = Object.entries(p?.replaced ?? {}).flatMap(([axis, list]) => list.map((r) => {
+    const prof = byId.get(r.profileId);
+    const t = prof?.[axis];
+    const said = t?.state === 'range' ? `${fmtNumber(t.min)}${t.max != null && t.max !== t.min ? `–${fmtNumber(t.max)}` : ''} °C` : axis === 'drying' ? dryingWords(prof?.drying) : 'another setting';
+    return `${NAMES[axis] ?? axis} ${esc(said)} ${r.why === 'older-edition' ? `in an older edition of its sheet (${editionName(c, r.sourceId)})` : `on ${editionName(c, r.sourceId)}`}; ${r.why === 'older-edition' ? 'the newer one' : 'the data sheet'} (${editionName(c, r.by)}) is used`;
+  }));
+  return items.length ? `<p class="fine replaced-note">Differs in another document of this product, not used in deciding: ${items.join('; ')}.</p>` : '';
 }
 
 // What a maker writes about printing and using a product beyond its numbers (db.knowHow, build/src/know-how.js): its
@@ -1455,7 +1496,7 @@ function tabBody(tab, c) {
         ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why"><b>Fails:</b> ${esc(failText(j.failedBy))}</div>` : ''}
         ${c.tested && j?.verdict === 'UNKNOWN' ? unsettled(j, requirementOf) : ''}
         ${c.tested && j ? stateNote(j) : ''}
-        ${printCard(g)}
+        ${printCard(g, c)}
         ${productValues(g, c)}
         ${makerSays(g, c)}
         ${docs.length ? `<div class="grade-docs"><span class="shared-head">Sources</span> ${docs.map((sid) => `<button type="button" class="link-btn" data-open-source="${esc(sid)}" title="Opens this document in Sources">${esc(sourceName(c.sourceById.get(sid), sid))}</button>`).join('; ')}</div>` : ''}

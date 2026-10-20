@@ -25,10 +25,12 @@ test('a one-product material\'s estimate is floored by its break, yield or unspe
   const esd = material('M064').headline.tensileStrengthXY;
   assert.ok(esd.impliedBounds.some((b) => b.lo === 68));
   assert.ok(esd.estimate.lo >= 68 && esd.estimate.plausible.lo >= 68 && esd.estimate.centre >= 68);
-  // The LCP publishes a yield stress of 200 MPa and a heat deflection of 193 °C at 1.8 MPa: its 0.45 MPa value is no lower.
+  // The LCP publishes a yield stress of 200 MPa: its estimate is no lower. Its heat deflection of 193 °C at 1.8 MPa is on a
+  // bar its sheet ties to moulding (ISO 294-4 shrinkage in the same table), so since the owner's ruling of 2026-10-20 it
+  // floors no printed part's heat resistance (D172, hdt045's Lower bound specimens printed, m466).
   const lcp = material('M139');
   assert.ok(lcp.headline.tensileStrengthXY.estimate.plausible.lo >= 200);
-  assert.ok(lcp.headline.hdt045.estimate.plausible.lo >= 193 && lcp.headline.hdt045.estimate.lo >= 193);
+  assert.ok(!(lcp.headline.hdt045.impliedBounds ?? []).some((b) => b.measurementId === 'V005730'), 'no floor from a moulded-looking bar');
 });
 
 test('a moulded bar bounds nothing: M131 publishes a moulded yield of 70.2 MPa and its estimate is not floored by it', () => {

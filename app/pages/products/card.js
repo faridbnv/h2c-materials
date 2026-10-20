@@ -15,7 +15,7 @@ import { dayWords } from '../../js/ui/dates.js';
 import { fmtNumber, dryingWords } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne, envVerdictWords } from '../../js/ui/labels.js';
 import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct, isNamedOnly } from '../../js/ui/material-facts.js';
-import { settingWords, annealWords, outOfMedianWords, foreignPriceWords, envConditionWords, andList, plural } from '../../js/ui/material-words.js';
+import { settingWords, annealWords, outOfMedianWords, foreignPriceWords, envConditionWords, andList, plural, setApartWords } from '../../js/ui/material-words.js';
 import { directionLabel, specimenWords, standardHtml, conditionChipList, chipKind, unstatedChip } from '../records/common.js';
 import { readerText } from '../sections/common.js';
 
@@ -96,6 +96,7 @@ const NOT_COUNTED = {
   notch: 'notch not stated', cold: 'tested below room temperature', hot: 'tested above room temperature', standard: 'to another standard',
   direction: 'measured on a bar in another orientation', unstatedDirection: 'no orientation stated', load: 'at another test load',
   unstatedLoad: 'no test load stated', second: 'another value of this product is in it', retired: 'a product no longer listed',
+  outranked: 'replaced by a newer edition of the sheet or by the data sheet, so not used in deciding',
   reference: 'a reference specimen, not a product for sale',
   // A value drawn but kept out of the median, by the comparison's reason.
   variant: 'added filler or additive', toughened: 'sold as toughened, set apart',
@@ -117,7 +118,7 @@ function useWords(x, ix) {
   const lines = ix.lines.get(x.id) ?? [];
   const o = lines.find((l) => l.reason);
   if (!lines.length || !o) return 'in the median';
-  if (o.reason === 'as-published') return `not in the median: ${o.h?.direction ? 'no orientation stated' : 'no test load stated'}`;
+  if (o.reason === 'as-published') return `not in the median: set apart, ${setApartWords(o.e?.v?.caveat, o.h)}`;
   return `not in the median: ${NOT_COUNTED[o.reason] ?? pageWords(outOfMedianWords(o.reason, o.h) ?? o.reason)}`;
 }
 
@@ -285,7 +286,15 @@ function settingsList(c, g) {
     row('Hardened nozzle', p.hardenedNozzle === true ? 'needed' : p.hardenedNozzle === false ? 'not needed' : 'not stated', from.hardenedNozzle),
   ];
   if (p.anneal?.length) rows.push(row('Annealing', annealWords(p.anneal).join('; '), from.anneal));
-  return `<dl class="pc-set">${rows.join('')}</dl>`;
+  return `<dl class="pc-set">${rows.join('')}</dl>${replacedSettings(c, p)}`;
+}
+
+// A part of the recipe another document of the product says otherwise, replaced by its data sheet or its newer edition
+// (D171, print.replaced): one small line, as not used in deciding.
+const AXIS_WORDS = { nozzle: 'nozzle', bed: 'bed', chamber: 'heated chamber', enclosure: 'enclosure', hardenedNozzle: 'hardened nozzle', drying: 'drying' };
+function replacedSettings(c, p) {
+  const parts = Object.entries(p.replaced ?? {}).map(([axis, list]) => `${AXIS_WORDS[axis] ?? axis} in ${list.map((r) => sourceName(c.sourceById.get(r.sourceId), r.sourceId)).join(', ')}`);
+  return parts.length ? `<p class="pc-note"><small>${esc(`Differs in another document of this product, not used in deciding (a data sheet speaks before a product page, a newer edition before an older one): ${parts.join('; ')}.`)}</small></p>` : '';
 }
 
 /** The product's print profiles, in their documents' own words. */

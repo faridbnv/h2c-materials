@@ -131,12 +131,15 @@ test('a material ranks by the median index of its passing products, computed pro
   assert.equal(r.best.gradeId, 'G1');
 });
 
-test('a link carries the goal and the evidence level only when set, and an old link reads as it did', async () => {
+test('a link carries the goal only when set, never an evidence level, and an old link that admitted set-apart values is asked again without them (D172)', async () => {
   const { toHash, fromHash, newScenario } = await import('../app/js/engine/scenario.js');
   const s = { ...newScenario({ snapshot: 'x' }), rankBy: 'tie-stiffness', evidence: 'as-published' };
   const back = fromHash(toHash(s), { snapshot: 'x' }).scenario;
   assert.equal(back.rankBy, 'tie-stiffness');
-  assert.equal(back.evidence, 'as-published');
+  assert.equal(back.evidence, 'comparable', 'a value no document describes as printed is set apart for good');
+  const old = fromHash(encodeURIComponent(JSON.stringify({ c: [], v: 'as-published' })), { snapshot: 'x' });
+  assert.equal(old.scenario.evidence, 'comparable');
+  assert.ok(old.warnings.some((w) => /set apart for good/.test(w)), 'the reopened link says why its answers may differ');
   const plain = newScenario({ snapshot: 'x' });
   assert.ok(!/"r"|"v"/.test(decodeURIComponent(toHash(plain))), 'defaults add nothing to a link');
   const bad = fromHash(encodeURIComponent(JSON.stringify({ c: [], r: 'no-such-index', v: 'anything' })), { snapshot: 'x' }).scenario;

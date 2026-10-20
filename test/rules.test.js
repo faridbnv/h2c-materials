@@ -83,7 +83,10 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // Stage 3d of the screening build took three of them away: a PLA or PET bar CV05 demotes floors nothing through CV01, so
   // Prusament rPLA's pair, both LEDGER-DISAGREE states and Raise3D's contradiction, each on an undescribed PLA or PET bar's
   // HDT at 1.8 MPa, no longer occur. CONVERSION-PAIRS stays for Stratasys Nylon-CF10's two bars, accepted.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
+  // LEDGER-CONTRADICTS-VALUE came back with the owner's rulings of 2026-10-20 (D172): Eryone's printed flexural bars state no
+  // orientation and are read flat now, so the flexural band (CV08) reaches the same sheets' tensile moduli, five of which
+  // (1.2 GPa for a PLA beside a 3 GPa flexural modulus) lie under it: each such answer says it is doubtful.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['CLASS-LIMIT-CONTRADICTED', 'CONVERSION-PAIRS', 'EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'LEDGER-CONTRADICTS-VALUE', 'NO-MEASUREMENTS', 'PROCESS-WINDOW-IMPLAUSIBLE', 'PRODUCT-ORDER']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

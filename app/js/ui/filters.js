@@ -94,8 +94,7 @@ export function renderFilters(host, state, actions) {
   // What each group's badge counts: its requirements, and for Part condition and Data quality the settings that change
   // which values are judged, which are not requirements but change answers all the same.
   const activeIn = (group) => cs.filter((c) => railGroupOf(c) === group).length
-    + (group === 'Part condition' ? (scenario.anneal ? 1 : 0) + (scenario.moisture === 'conditioned' ? 1 : 0) : 0)
-    + (group === 'Evidence' && state.ctx?.evidence === 'as-published' ? 1 : 0);
+    + (group === 'Part condition' ? (scenario.anneal ? 1 : 0) + (scenario.moisture === 'conditioned' ? 1 : 0) : 0);
   const parts = [];
   for (const group of GROUPS) {
     const n = activeIn(group);
@@ -408,17 +407,14 @@ function body(group, materials, cs, db, ctx = {}) {
       <div class="avail">Excludes a product whose sources disagree or whose value is held back: ${conflicts} on file, each
         affecting only the product it names.</div>
     </div>`);
-    // Which values decide (D84). Values whose source leaves the test direction or load unstated read like moulded bars
-    // and flatter a printed part, so they are counted apart unless the reader admits them.
-    // The selectable headlines' values only: one drawn in the drawer alone (D139) is never admitted to an answer.
+    // Which values decide (D84, D172): a value whose test bar no document describes as printed is set apart for good (the
+    // owner's ruling of 2026-10-20), so there is no switch to admit it; the line says how many there are. The selectable
+    // headlines' values only: one drawn in the drawer alone (D139) decides nothing either way.
     const selectable = new Set(db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key));
-    const asPublished = db.grades.reduce((n, gr) => n + Object.entries(gr.headline ?? {}).filter(([k, v]) => selectable.has(k) && v.level === 'as-published').length, 0);
-    const admits = ctx?.evidence === 'as-published';
-    out.push(`<div class="control" data-active="${admits}">
-      <label><input type="checkbox" data-evidence-level ${admits ? 'checked' : ''}> Include values with no stated orientation or load</label>
-      <div class="avail">${asPublished} product values do not state the specimen orientation or the test load. Many are
-        moulded bars, stiffer and stronger than a print, so by default they are shown but not judged.</div>
-    </div>`);
+    const setApart = db.grades.reduce((n, gr) => n + Object.entries(gr.headline ?? {}).filter(([k, v]) => selectable.has(k) && v.level === 'as-published').length, 0);
+    out.push(`<div class="note">${setApart} product values are shown and never judged: nothing on their documents says, even
+      implicitly, that the test bar was printed (many are moulded bars, stiffer and stronger than a print), or a heat
+      deflection gives no test load. Each product's drawer names them.</div>`);
   }
 
   return out.join('');
@@ -575,7 +571,6 @@ function wire(host, state, actions) {
     actions.changed();
   }));
 
-  host.querySelector('[data-evidence-level]')?.addEventListener('change', (e) => actions.setEvidence(e.target.checked ? 'as-published' : 'comparable'));
   const evBoxes = [...host.querySelectorAll('[data-evidence]')];
   evBoxes.forEach((el) => el.addEventListener('change', () => {
     drop((c) => c.kind === 'evidence');

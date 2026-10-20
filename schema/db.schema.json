@@ -256,6 +256,23 @@
             "minItems": 1,
             "items": { "$ref": "#/$defs/productState" }
           },
+          "replaced": {
+            "description": "The figures a better document of this product replaced (D171): a newer edition of its sheet, or its data sheet over a product page; each one that differs a lot from the product\u0027s value, or stands where the better document gives none, shown small as not used in deciding.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["key", "measurementId", "value", "sourceId", "by", "why"],
+              "properties": {
+                "key": { "type": "string" },
+                "measurementId": { "type": "string", "pattern": "^V\\d{6}$" },
+                "value": { "type": "number" },
+                "sourceId": { "type": "string" },
+                "by": { "type": "string" },
+                "why": { "enum": ["older-edition", "lower-class"] }
+              }
+            }
+          },
           "twins": {
             "description": "The products that print the same sheet as this one (D89): active products of the same material under the same Shared formulation key. The engine reads their records of that sheet for this product where its own are silent (D98).",
             "type": "array",
@@ -732,6 +749,13 @@
               "basis": { "type": "string", "minLength": 1 }
             }
           },
+          "outranked": {
+            "type": "object",
+            "description": "Set where a better document of the same product prints the same property in the same state (D171): the document that replaces this figure, and why. Such a figure is shown and never the product\u0027s value.",
+            "additionalProperties": false,
+            "required": ["by", "why"],
+            "properties": { "by": { "type": "string" }, "why": { "enum": ["older-edition", "lower-class"] } }
+          },
           "pageContext": {
             "type": "object",
             "description": "What the row inherited from its page (page_context.csv, D116): for each field it states nothing of its own, the PageContextID that gave it. Absent where the row inherited nothing.",
@@ -784,6 +808,7 @@
           "target": { "type": "string" },
           "sourceProperties": { "type": "array", "items": { "type": "string" } },
           "sourceLoadMPa": { "type": ["number", "null"] },
+          "sourceLoadUnstated": { "type": "boolean", "description": "The row reads source values whose sheet states no load (Source load MPa Not published, CV63, D172)." },
           "sourceDirection": { "enum": ["same", "Z"] },
           "sourceState": { "enum": ["same", "annealed", "conditioned"] },
           "sourceSpecimen": { "enum": ["as target", "printed", "moulded or not stated"] },
@@ -1317,6 +1342,10 @@
           },
           "sha256": {
             "type": "string"
+          },
+          "supersededBy": {
+            "description": "The newer edition of this document the database holds (sources.csv Superseded by, D171), or null.",
+            "type": ["string", "null"]
           },
           "citationRole": {
             "type": "string"
@@ -1948,9 +1977,9 @@
           ]
         },
         "unstatedDirection": {
-          "description": "Whether a value whose source states no direction is this headline's as published (D84) or no value of it (D92); null where the headline has no direction.",
+          "description": "What a value whose source states no direction is to this headline: a printed bar read flat, and one no document describes as printed set apart (flat if printed, D172), or no value of it (excluded, D92); null where the headline has no direction.",
           "enum": [
-            "as-published",
+            "flat if printed",
             "excluded",
             null
           ]
@@ -2873,7 +2902,9 @@
           "pattern": "^V\\d{6}$"
         },
         "caveat": {
+          "description": "Why a value is set apart (its level as-published, D84, D172): its test bar is one no document describes as printed (not-described), it states no orientation (unstated-direction), or a heat deflection states no load (load-not-stated).",
           "enum": [
+            "not-described",
             "unstated-direction",
             "load-not-stated"
           ]
@@ -2929,7 +2960,7 @@
         "admitted": {
           "description": "The conditions that could change this value and its source left unstated, which the screening policy admits (D99): the specimen form, the moisture state, the treatment.",
           "type": "array",
-          "items": { "enum": ["specimen", "moisture", "treatment"] }
+          "items": { "enum": ["direction", "specimen", "moisture", "treatment"] }
         },
         "converted": {
           "description": "A price converted from another currency (D113): the product has no Canadian listing, so its price is its foreign listings' at the Bank of Canada rate in force. It lists the product in no Canadian shop.",
@@ -3040,7 +3071,7 @@
         "openLow": { "const": true },
         "openHigh": { "const": true },
         "level": { "enum": ["comparable", "as-published"] },
-        "admitted": { "type": "array", "items": { "enum": ["specimen", "moisture", "treatment"] } },
+        "admitted": { "type": "array", "items": { "enum": ["direction", "specimen", "moisture", "treatment"] } },
         "from": { "$ref": "#/$defs/twinOrigin" },
         "limit": { "type": "object", "additionalProperties": false, "required": ["lo", "hi"], "properties": { "lo": { "type": ["number", "null"] }, "hi": { "type": ["number", "null"] } } },
         "widened": { "const": true },
@@ -3262,6 +3293,24 @@
             "boolean",
             "null"
           ]
+        },
+        "replaced": {
+          "description": "The parts of the recipe a better document of the product decides (D171): for each, the profiles of a product page or an older edition that say otherwise, shown small as not used in deciding.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["profileId", "sourceId", "by", "why"],
+              "properties": {
+                "profileId": { "type": "string" },
+                "sourceId": { "type": "string" },
+                "by": { "type": ["string", "null"] },
+                "why": { "enum": ["older-edition", "lower-class"] }
+              }
+            }
+          }
         },
         "nozzleAdvice": {
           "description": "Where the product's own sheets require no hardened nozzle and do not say brass will do (D168): a nozzle harder than brass asked for, or a caution about wear, in the maker's words. The engine leaves the no-hardened-nozzle check unresolved with them.",

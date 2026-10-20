@@ -517,6 +517,27 @@ function resolveFamilyEntries(FAMILY_ENTRIES, materials, grades, issues) {
   }
 }
 
+/**
+ * A newer edition is another document of the same publisher, and no chain of editions comes back to where it started
+ * (SOURCE-EDITION, D171): a document that supersedes itself, directly or through others, would rank above itself.
+ */
+function checkEditions(sources, issues) {
+  const byId = new Map(sources.map((s) => [s.id, s]));
+  for (const s of sources) {
+    if (!s.supersededBy) continue;
+    const n = byId.get(s.supersededBy);
+    const where = `sources ${s.id}`;
+    if (!n || n.id === s.id) { issues.push({ level: 'error', code: 'SOURCE-EDITION', where, message: `Superseded by ${s.supersededBy} is not another source` }); continue; }
+    if (n.publisher !== s.publisher) issues.push({ level: 'error', code: 'SOURCE-EDITION', where, message: `Superseded by ${n.id}, a document of ${n.publisher}, not of ${s.publisher}: an edition is the same publisher's` });
+    const seen = new Set([s.id]);
+    for (let x = n; x; x = byId.get(x.supersededBy)) {
+      if (seen.has(x.id)) { issues.push({ level: 'error', code: 'SOURCE-EDITION', where, message: `Its editions come back to ${x.id}: a chain of newer editions has no end` }); break; }
+      seen.add(x.id);
+      if (!x.supersededBy) break;
+    }
+  }
+}
+
 // ---------------------------------------------------------------------------- main
 
 export function compile(wb, { snapshot, build }) {
@@ -529,7 +550,10 @@ export function compile(wb, { snapshot, build }) {
     publicationDate: r['Publication date'], accessDate: r['Access date'], sourceClass: r['Source class'], sourceNote: r['Source note'], citationRole: r['Citation role'],
     url: r.URL, locator: r.Locator, applicableGrades: r['Applicable grades'],
     accessState: r['Access state'], accessNote: r['Access note'], sha256: r.SHA256,
+    // The newer edition of this document the database holds, which speaks for a product before it (D171).
+    supersededBy: r['Superseded by'] && !/^Not /.test(r['Superseded by']) ? r['Superseded by'] : null,
   }));
+  checkEditions(sources, issues);
 
   const grades = wb.Grades.rows.map((r) => ({
     id: r.GradeID, materialId: r.MaterialID, manufacturer: r.Manufacturer, product: r['Product name'],

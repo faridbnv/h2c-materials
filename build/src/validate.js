@@ -190,16 +190,18 @@ export function validate(db, wb) {
   }
 
   // -- XY and Z never merge ---------------------------------------------------
-  // Method sheet, Comparison / Directions. A product value that decides as an XY value is an XY measurement, and
-  // "unknown direction is not XY": it may only be as published (D84). A Z value is a Z measurement, and a headline that
-  // excludes an unstated direction (the layer strength, D92) has no value published without one.
+  // Method sheet, Comparison / Directions. A product value that decides as an XY value is an XY measurement, or a printed
+  // bar that states no orientation, read flat where its headline says so (D172: `admitted` names the direction); a bar of
+  // another stated orientation never is. A Z value is a Z measurement, and a headline that excludes an unstated direction
+  // (the layer strength, D92) has no value published without one.
   for (const g of db.grades) {
     for (const def of measurementHeadlines(db.registry).filter((h) => h.direction)) {
       const v = g.headline?.[def.key];
-      if (v?.level === 'comparable' && v.direction !== def.direction) {
+      const readFlat = def.unstatedDirection === 'flat if printed' && v?.admitted?.includes('direction') && ['unknown', 'not-applicable'].includes(v.direction);
+      if (v?.level === 'comparable' && v.direction !== def.direction && !readFlat) {
         issues.push(err('HEADLINE-DIRECTION', `grades ${g.id}`, `${def.key} decides as comparable but its measurement's direction is ${v.direction}`));
       }
-      if (v && def.unstatedDirection === 'excluded' && v.level !== 'comparable') {
+      if (v && def.unstatedDirection === 'excluded' && v.caveat === 'unstated-direction') {
         issues.push(err('HEADLINE-DIRECTION', `grades ${g.id}`, `${def.key} excludes a value without a stated direction, but carries one (${v.measurementId})`));
       }
     }
@@ -209,7 +211,7 @@ export function validate(db, wb) {
   for (const g of db.grades) {
     for (const def of measurementHeadlines(db.registry).filter((h) => h.unstatedLoad === 'excluded')) {
       const v = g.headline?.[def.key];
-      if (v && v.level !== 'comparable') issues.push(err('HEADLINE-LOAD', `grades ${g.id}`, `${def.key} excludes a value without a stated load, but carries one (${v.measurementId})`));
+      if (v && v.caveat === 'load-not-stated') issues.push(err('HEADLINE-LOAD', `grades ${g.id}`, `${def.key} excludes a value without a stated load, but carries one (${v.measurementId})`));
     }
   }
 

@@ -130,13 +130,14 @@ export function changedState(x, v) {
     x?.moistureState === 'conditioned' ? `after moisture conditioning${onPage(x, 'moistureState')}` : null].filter(Boolean);
 }
 
-/** Why a product's value is not comparable (its level is as-published), by its headline's caveat. */
+/** Why a product's value is set apart (its level is as-published, D172), by its headline's caveat. */
 export const LEVEL_NOTE = {
-  'unstated-direction': 'The source does not state the specimen orientation, so this may be a moulded or differently oriented bar. It is used only if Data quality includes values with no stated orientation or load.',
-  'load-not-stated': 'The source does not state the HDT load, so this value is used only if Data quality includes values with no stated orientation or load.',
+  'not-described': 'Nothing on its document says, even implicitly, that this test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print. It is set apart for good: shown, never used in deciding. The maker\'s word on how the bar was made would settle it.',
+  'unstated-direction': 'The source does not state the specimen orientation, so this may be a moulded or differently oriented bar. It is shown and not used in deciding.',
+  'load-not-stated': 'The source does not state the HDT load. At either load the heat deflection at 0.45 MPa is at least this figure, so it bounds that from below only; it is not used at its value.',
 };
-// A headline drawn in the drawer alone (D139) decides nothing, whatever Data quality admits.
-export const DRAWER_LEVEL_NOTE = 'The source does not state the specimen orientation, so this may be a moulded or differently oriented bar. It is drawn hollow in its comparison and left out of the median; no answer reads it.';
+// A headline drawn in the drawer alone (D139) decides nothing.
+export const DRAWER_LEVEL_NOTE = 'Nothing on its document says, even implicitly, that this test bar was printed, or it states no load or orientation, so it may be a moulded or differently oriented bar. It is drawn hollow in its comparison and left out of the median; no answer reads it.';
 
 // ------------------------------------------------------------------ a comparison's rows (D133, D139)
 
@@ -167,7 +168,9 @@ export const graphRange = (x, unit, thresholds = []) => graphSpan(x.min, x.max, 
 
 /** What a hollow dot's sheet leaves unstated: the orientation, or the test load, its row's test is defined at (D84); or,
  *  on a row that says so, where else its value was read (a print setting from the printer maker's guide). */
-export const asPublishedWords = (h) => h.openWords ?? (h.direction ? 'no stated orientation' : 'no stated test load');
+export const asPublishedWords = (h) => h.openWords ?? (h.direction ? 'test bar not described as printed' : 'test bar not described as printed, or no stated test load');
+/** Why one product value is set apart (its level as-published), by its caveat (D172): a bar no document describes as printed, or a heat deflection with no stated load. */
+export const setApartWords = (caveat, h) => (caveat === 'not-described' ? 'test bar not described as printed' : caveat === 'load-not-stated' ? 'no stated test load' : h?.direction ? 'no stated orientation' : 'no stated test load');
 /** What a row compares its products on, said of the products that state it: the bar's orientation (XY), or the test load. */
 export function statedWhat(hs) {
   const dirs = [...new Set(hs.map((h) => h.direction))];
@@ -180,7 +183,7 @@ export function statedWhat(hs) {
  */
 export const GRAPH_KEY = {
   filled: 'a product',
-  open: 'as published: orientation or load not stated',
+  open: 'set apart: test bar not described as printed, or no stated load',
   annealed: 'measured after annealing',
   variant: 'added filler or additive, kept out of the median',
   claimed: 'sold as toughened (maker\'s statement)',
@@ -210,7 +213,7 @@ export const joinedSpan = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNum
  * The products drawn on a row but not ranked (materials[].summary), by why, each with its range as the table prints it:
  * "39 with no stated orientation (1.44–4.78)", "12 with an added filler or additive (0.715–4.73)".
  */
-export const apartWords = (h, s, thresholds = []) => [s?.asPublished ? `${s.asPublished.n} with ${asPublishedWords(h)} (${graphRange(s.asPublished, h.unit, thresholds)})` : null,
+export const apartWords = (h, s, thresholds = []) => [s?.asPublished ? `${s.asPublished.n} set apart, ${asPublishedWords(h)} (${graphRange(s.asPublished, h.unit, thresholds)})` : null,
   s?.variants ? `${s.variants.n} with an added filler or additive (${graphRange(s.variants, h.unit, thresholds)})` : null,
   s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${graphRange(s.claimed, h.unit, thresholds)})` : null].filter(Boolean);
 
@@ -220,12 +223,10 @@ export function noMedianWhy(hs, m) {
   const opened = sum((x) => x?.asPublished?.n), variants = sum((x) => x?.variants?.n), claimedN = sum((x) => (x?.claimed?.setApart ? x.claimed.n : 0));
   const drawnN = opened + variants + claimedN;
   const lacking = hs.filter((h) => m.summary?.[h.key]?.asPublished?.n);
-  const lack = lacking.every((h) => h.direction) ? 'orientation' : lacking.every((h) => h.loadMPa != null) ? 'test load' : 'orientation or test load';
-  const reasons = [opened ? `${opened} ${opened === 1 ? 'states' : 'state'} no ${lack}` : null,
+  const reasons = [opened ? `${opened} ${opened === 1 ? 'is' : 'are'} set apart (${asPublishedWords(lacking[0] ?? {})})` : null,
     variants ? `${variants} ${variants === 1 ? 'has' : 'have'} an added filler or additive` : null,
     claimedN ? `${claimedN} ${claimedN === 1 ? 'is' : 'are'} sold as toughened` : null].filter(Boolean);
-  return reasons.length === 1 && opened ? `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn states ${statedWhat(lacking)}, and only those that do are compared`
-    : `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn is compared: ${andList(reasons)}`;
+  return `none of the ${drawnN === 1 ? 'value' : `${drawnN} values`} drawn is compared: ${andList(reasons)}`;
 }
 
 /**
@@ -256,7 +257,7 @@ export const TOUGHENED_NOTE_SHORT = '"Sold as toughened" is the maker\'s stateme
 /** A product's spread line in the Products tab's table (materials[].summary): what is kept out of the median, by why, at the display precision. */
 export function leftOutWords(h, s) {
   const span = (x) => graphRange(x, h.unit);
-  return [s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${s.variants.n} with an added filler or additive (${span(s.variants)})` : '',
+  return [s.asPublished ? `${s.asPublished.n} set apart, ${asPublishedWords(h)} (${span(s.asPublished)})` : '', s.variants ? `${s.variants.n} with an added filler or additive (${span(s.variants)})` : '',
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : ''].filter(Boolean);
 }
 

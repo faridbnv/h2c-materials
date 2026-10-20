@@ -17,7 +17,7 @@ export function miniSpread(c, key) {
   if (!own || !sc) return '';
   const y = 9;
   const label = own.kind === 'open'
-    ? `${h.labels.plain}: ${spanUnit(own.min, own.max, h.unit)} as published (orientation or load not stated), ${products(own.n)}`
+    ? `${h.labels.plain}: ${spanUnit(own.min, own.max, h.unit)} set apart (test bar not described as printed, or no stated load), ${products(own.n)}`
     : `${h.labels.plain}: median ${withUnit(own.median, h.unit)}${own.q1 != null ? `, middle half ${spanUnit(own.q1, own.q3, h.unit)}` : ''}, lowest to highest ${spanUnit(own.min, own.max, h.unit)}, ${products(own.n)}`;
   const o = [`<line class="dv-axis" x1="0" x2="100%" y1="${y}" y2="${y}"/>`, cellMarks(own, sc, y, 'self', { tick: 14, band: 8 })];
   o.push(`<text x="0" y="27">${esc(tickText(sc.from))}</text><text x="100%" y="27" text-anchor="end">${esc(`${tickText(sc.hi)}${sc.log ? `${NBSP}(log)` : ''}`)}</text>`);

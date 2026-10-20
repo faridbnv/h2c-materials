@@ -503,7 +503,7 @@ export function shareOf(a, b, byKey, c) {
 // load), and lacks 'notConditioned' and 'notAnnealed', which assess returns only when asked about a state (D99), which a
 // comparison never is. test/drawer-comparisons.test.js holds every record of every comparison against assess.
 export const NOT_DRAWN_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'nominal', 'moulded', 'resin', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
-  'conditioned', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad'];
+  'conditioned', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad', 'outranked'];
 const UNSTATED_DIRECTIONS = new Set(['unknown', 'not-applicable']);
 /** Why headline `h` refuses record `x` (a NOT_DRAWN_ORDER key, "unit:<unit>" for another unit), or null where it takes it. */
 export function refusedBy(x, h, c) {
@@ -530,6 +530,8 @@ export function refusedBy(x, h, c) {
     if (x.thermal?.loadStated) { if (Math.abs(x.thermal.loadMPa - h.loadMPa) > 0.01) return 'load'; }
     else if (h.unstatedLoad === 'excluded') return 'unstatedLoad';
   }
+  // A figure a newer edition of the product's sheet, or its data sheet, replaces (D171; build/src/products.js markOutranked).
+  if (x.outranked) return 'outranked';
   return null;
 }
 const furthest = (a, b) => (NOT_DRAWN_ORDER.indexOf(b.split(':')[0]) > NOT_DRAWN_ORDER.indexOf(a.split(':')[0]) ? b : a);

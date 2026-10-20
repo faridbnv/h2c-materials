@@ -56,6 +56,22 @@
       }
     },
     {
+      "name": "Superseded by",
+      "type": "string",
+      "role": "canonical",
+      "description": "The SourceID of a newer edition of this same document that the database holds (the same publisher's sheet for the same product, a later date or version printed on it, as a reader established from both). Where both are a product's documents, the newer one speaks for the product and this one's figures for a property the newer prints are shown small, as not used in deciding (D171). Not applicable where no newer edition is held, or where none is established.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Access date",
       "type": "date",
       "role": "raw",

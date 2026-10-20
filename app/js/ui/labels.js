@@ -457,6 +457,7 @@ export const WHY_WORDS = {
   cold: (n) => `${n} tested below room temperature`, hot: (n) => `${n} tested above room temperature`, standard: (n) => `${n} to another standard`,
   direction: (n) => (n === 1 ? '1 on a bar in another orientation' : `${n} on bars in another orientation`),
   unstatedDirection: (n) => `${n} with no stated orientation`, load: (n) => `${n} at another test load`, unstatedLoad: (n) => `${n} with no stated test load`,
+  outranked: (n) => `${n} replaced by a newer edition or the data sheet`,
   second: (n) => `${n} more of ${n === 1 ? 'a product' : 'products'} already drawn`, retired: (n) => `${n} of products no longer listed`,
   reference: (n) => `${n} on reference specimens, not for sale`,
 };

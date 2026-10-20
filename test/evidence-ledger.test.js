@@ -163,19 +163,28 @@ test('a bar the ledger demotes floors nothing: CV01 takes no undescribed PLA bar
   const printed = productWith('G001-12', 'M001');
   const rp = ledger([printed], [meas(printed.id, 'HDT', 75, { load: 1.8 })], { rows: [ROW.demote, ROW.hdt18] });
   assert.equal(ask(printed, rp.mini, 'hdt045', '>=', 70).status, STATUS.PASS);
-  // A reported CV05 demotes nothing, and a nylon, which crystallises as it prints, keeps the floor.
+  // Since the owner's ruling of 2026-10-20 (D172) a bar no document describes as printed floors nothing whatever CV05 says,
+  // a nylon's too; one its document implies was printed (m463) floors a nylon's printed part, which crystallises as it prints.
   const reported = productWith('G001-13', 'M001');
   const rr = ledger([reported], [meas(reported.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [{ ...ROW.demote, Status: 'reported' }, ROW.hdt18] });
-  assert.equal(ask(reported, rr.mini, 'hdt045', '>=', 70).status, STATUS.PASS);
+  assert.equal(ask(reported, rr.mini, 'hdt045', '>=', 70).status, STATUS.UNKNOWN);
   const nylon = productWith('G002-04', 'M002');
   ledger([nylon], [meas(nylon.id, 'HDT', 75, { materialId: 'M002', load: 1.8, ...undescribed })], { rows: [ROW.demote, ROW.hdt18] });
-  assert.equal(nylon.states[0].bounds.hdt045.lo, 75);
-  // A row that would draw both ends from a demoted bar keeps its upper end, its one safe direction.
+  assert.equal(nylon.states[0].bounds?.hdt045?.lo ?? null, null, 'an undescribed bar floors no printed part (D172)');
+  const implied = productWith('G002-06', 'M002');
+  ledger([implied], [meas(implied.id, 'HDT', 75, { materialId: 'M002', load: 1.8, specimenForm: 'printed', specimenType: 'Printed (implied by the document)' })], { rows: [ROW.demote, ROW.hdt18] });
+  assert.equal(implied.states[0].bounds.hdt045.lo, 75);
+  // A row that would draw both ends from a demoted bar marks it a ceiling; since D172 an undescribed bar is set apart, so
+  // only the demote-to-ceiling row itself reads its ceiling, and another row draws nothing from it.
   const band = conversionRow({ ConversionID: 'CV98', Kind: 'band', 'Factor low': '1', 'Factor high': '1.5', 'Physical relation': 'Not applicable' });
   const g4 = productWith('G001-14', 'M001');
   ledger([g4], [meas(g4.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [ROW.demote, band] });
   const b4 = g4.states[0].bounds.hdt045;
-  assert.deepEqual([b4.lo, b4.hi, b4.by[0].ceilingOnly], [null, 112.5, true]);
+  assert.deepEqual([b4.lo, b4.hi, b4.by[0].ceilingOnly, b4.by[0].level], [null, null, true, 'as-published']);
+  // An implied printed bar is no demoted bar: the band draws both its ends.
+  const g6 = productWith('G001-18', 'M001');
+  ledger([g6], [meas(g6.id, 'HDT', 75, { load: 1.8, specimenForm: 'printed', specimenType: 'Printed (implied by the document)' })], { rows: [ROW.demote, band] });
+  assert.deepEqual([g6.states[0].bounds.hdt045.lo, g6.states[0].bounds.hdt045.hi], [75, 112.5]);
   // Nor is such a bar a same-sheet pair of the floor it no longer draws.
   const g5 = productWith('G001-15', 'M001');
   const pr = ledger([g5], [meas(g5.id, 'HDT', 55), meas(g5.id, 'HDT', 75, { load: 1.8, ...undescribed })], { rows: [ROW.demote, ROW.hdt18] });
@@ -223,7 +232,7 @@ test('two records with no value between them are "sheets disagree": unresolved, 
   assert.match(ask(g, r.mini, 'hdt045', '>=', 70).reason, /^Its records disagree: its HDT at 1\.8 MPa, a harsher load: 80 °C puts it at least 80 °C, and its HDT after annealing: 60 °C at most 60 °C\./);
 });
 
-test('a band decides only when wholly on one side, and a record without its direction decides only where the reader admits it', () => {
+test('a band decides only when wholly on one side; a printed record without its direction is read flat, and an undescribed one decides only where an audit admits it (D172)', () => {
   const g = productWith('G002-02', 'M002');
   const flex = meas(g.id, 'Flexural modulus', 2, { materialId: 'M002' });
   const r = ledger([g], [flex], { rows: [ROW.flex] });
@@ -235,8 +244,11 @@ test('a band decides only when wholly on one side, and a record without its dire
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 3).status, STATUS.UNKNOWN);
   assert.equal(ask(g, r.mini, 'tensileModulusXY', '>=', 0.9).status, STATUS.PASS);
   const g2 = productWith('G002-03', 'M002');
-  const r2 = ledger([g2], [meas(g2.id, 'Flexural modulus', 2, { materialId: 'M002', direction: 'unknown' })], { rows: [ROW.flex] });
+  const r2 = ledger([g2], [meas(g2.id, 'Flexural modulus', 2, { materialId: 'M002', direction: 'unknown', specimenForm: 'not-stated', specimenType: 'Not published' })], { rows: [ROW.flex] });
   assert.equal(g2.states[0].bounds.tensileModulusXY.by[0].level, 'as-published');
+  const g3 = productWith('G002-07', 'M002');
+  ledger([g3], [meas(g3.id, 'Flexural modulus', 2, { materialId: 'M002', direction: 'unknown' })], { rows: [ROW.flex] });
+  assert.equal(g3.states[0].bounds.tensileModulusXY.by[0].level, 'comparable', 'a printed bar with no stated orientation is read flat');
   assert.equal(ask(g2, r2.mini, 'tensileModulusXY', '>=', 5).status, STATUS.UNKNOWN);
   assert.equal(ask(g2, r2.mini, 'tensileModulusXY', '>=', 5, { evidence: 'as-published' }).status, STATUS.FAIL);
 });
