@@ -5,7 +5,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { decisionBrief } from '../app/js/ui/brief.js';
 import { pageOf } from '../app/js/ui/page-rule.js';
-import { COLUMN_SETS } from '../app/js/ui/table.js';
+import { COLUMN_SETS, visibleColumns } from '../app/js/ui/table.js';
 import { db, material, situation } from './fixtures/drawer-situation.js';
 
 function brief(gradeId, extra = {}) {
@@ -49,5 +49,15 @@ test('C39: the shortlist star is a narrow column straight after the material\'s 
     assert.equal(keys[1], 'pin', `${name}: the star follows the name`);
     assert.equal(keys.filter((k) => k === 'pin').length, 1);
     assert.equal(set.columns[1].width, '44px');
+  }
+});
+
+test('D174: before any requirement the table has no Result column; the first requirement brings it back beside the name', () => {
+  for (const name of Object.keys(COLUMN_SETS)) {
+    const cold = visibleColumns(name, false).map((c) => c.key);
+    const asked = visibleColumns(name, true).map((c) => c.key);
+    assert.ok(!cold.includes('verdict'), `${name}: no Result column before a requirement`);
+    assert.deepEqual(asked.slice(0, 3), ['name', 'pin', 'verdict'], `${name}: Result follows the star once something is asked`);
+    assert.deepEqual(cold, asked.filter((k) => k !== 'verdict'), `${name}: nothing else changes`);
   }
 });

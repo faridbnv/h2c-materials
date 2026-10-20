@@ -1,6 +1,6 @@
 COUNT 19 shown PASS
-STATUS ☑ PASS 19 | ☐ UNKNOWN 73 | ☐ FAIL 60
-19 of the 152 materials meet these requirements
+STATUS ☑ PASS 19 | ☐ UNKNOWN 73 | ☐ FAIL 57
+19 of the 149 materials meet these requirements
 Lightweight structure template · UNKNOWN 73 left out: 17 one check away, 37 not enough data, 19 unlikely to meet
 Why the rest were excluded
 Clear requirements

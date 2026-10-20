@@ -1,6 +1,6 @@
 COUNT 102 shown PASS + UNKNOWN
-STATUS ☑ PASS 10 | ☑ UNKNOWN 93 | ☐ FAIL 49 | ☐ HIDDEN 1
-10 of the 152 materials meet these requirements
+STATUS ☑ PASS 10 | ☑ UNKNOWN 93 | ☐ FAIL 46 | ☐ HIDDEN 1
+10 of the 149 materials meet these requirements
 High-stiffness fixture template · UNKNOWN 93: 7 one check away, 21 not enough data, 64 unlikely to meet, 1 hidden
 Why the rest were excluded
 Clear requirements

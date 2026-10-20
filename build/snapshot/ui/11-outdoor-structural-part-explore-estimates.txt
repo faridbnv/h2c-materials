@@ -1,6 +1,6 @@
 COUNT 93 shown PASS + UNKNOWN
-STATUS ☑ PASS 11 | ☑ UNKNOWN 89 | ☐ FAIL 52 | ☐ HIDDEN 7
-11 of the 152 materials meet these requirements
+STATUS ☑ PASS 11 | ☑ UNKNOWN 89 | ☐ FAIL 49 | ☐ HIDDEN 7
+11 of the 149 materials meet these requirements
 Outdoor structural part template · UNKNOWN 89: 7 one check away, 25 not enough data, 50 unlikely to meet, 7 hidden
 Why the rest were excluded
 Clear requirements

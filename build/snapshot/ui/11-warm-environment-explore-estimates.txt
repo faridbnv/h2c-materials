@@ -1,6 +1,6 @@
 COUNT 110 shown PASS + UNKNOWN
-STATUS ☑ PASS 43 | ☑ UNKNOWN 83 | ☐ FAIL 26 | ☐ HIDDEN 16
-43 of the 152 materials meet these requirements
+STATUS ☑ PASS 43 | ☑ UNKNOWN 83 | ☐ FAIL 23 | ☐ HIDDEN 16
+43 of the 149 materials meet these requirements
 Warm environment template · UNKNOWN 83: 26 one check away, 20 not enough data, 21 unlikely to meet, 16 hidden
 Why the rest were excluded
 Clear requirements

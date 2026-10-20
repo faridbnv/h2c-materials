@@ -71,7 +71,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | RuleID | key | string | yes |  | `^CN\d{2}$` | CN01, CN02, …; never reused. |
 | Applies to | canonical | string | yes |  |  | The kind of plastic, in the registry's Applies-to grammar ("Family: PLA"; clauses separated by ";" must all hold, values within a clause are alternatives). Two rows may not name one material (CHAMBER-NEED-OVERLAP). |
 | Verdict | canonical | string | yes |  | within, unknown | What silence means for the kind: within, the H2C's heated chamber is enough; unknown, it stays unknown. |
-| Status | canonical | string | yes |  | reported, deciding | reported: counted and shown, decides nothing; deciding: a within row reads a truly silent chamber as within, labelled with the counts. Each row is switched to deciding in a commit of its own, with its decision diff. |
+| Status | canonical | string | yes |  | reported, deciding, retired | reported: counted and shown, decides nothing; deciding: a within row reads a truly silent chamber as within, labelled with the counts. Each row is switched to deciding in a commit of its own, with its decision diff. retired: kept as the record of a kind of plastic the dataset no longer holds (its materials retired from it, D174); compiled into nothing. |
 | Reviewed by | editorial | string | yes |  |  | Who reviewed the row, and when: a person, or an agent named as one. |
 | Reason | prose | string | yes |  |  | Why the row says what it says: the counts it was reviewed at, which makers ask above 65 °C and why, and why a family was split, if it was. |
 
@@ -353,7 +353,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Best uses | prose | string | yes |  |  | Documented best uses. |
 | Limitations | prose | string | yes | Not published |  | What is true of this material alone. The general caveat that holds for every material here is a Method rule (Scope / Transferable allowables), shown on each; Not published where the material adds nothing to it. |
 | Full name | canonical | string | yes |  |  | Expanded polymer name. |
-| Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. The one place exclusion is recorded: an excluded material is shown and never recommended. |
+| Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, excluded, or retired from the dataset. The one place exclusion is recorded: an excluded material is shown and never recommended; a retired one, with every record filed under it, is kept in the tables and left out of the build (D174). |
 | Abbreviation | canonical | string | yes |  |  | Short display name. |
 | Base polymer | canonical | string | yes |  |  | The base polymer, as the source names it. |
 | Estimate identity | canonical | string | yes | Not applicable | → polymers.PolymerID | The polymers.csv row the estimate model treats this material as: its base polymer, or for a blend its own name. Not applicable for a material the model does not estimate. |
@@ -1538,9 +1538,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| Excluded | Not a candidate: outside the H2C's practical envelope, or a filament whose printed part is not the product (a sintering feedstock). Shown, never recommended; its Limitations say why. |
+| Excluded | Not a candidate: outside the H2C's practical envelope (an industrial high-temperature plastic). Shown, never recommended; its Limitations say why. |
 | Family entry | A family or alias name that owns no product and carries no value; search answers with its members (D44). |
 | H2C-relevant | A candidate for selection. |
+| Retired | Out of the dataset (D174): the row and every record filed under it stay in the tables as the record of what was read, their sources registered, and the build compiles none of them, so no row, search result, page, export or count holds it. Every grade of it is retired (MATERIAL-RETIRED-ACTIVE). The metal and ceramic sintering filaments, whose printed part is not the product, since 2026-10-20. |
 
 <a id="vocab-source-classes"></a>
 ### source-classes

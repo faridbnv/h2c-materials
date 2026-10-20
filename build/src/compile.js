@@ -5,6 +5,7 @@
 // (products.js, D83); nobody selects either. Where no product publishes a comparable value the headline is missing,
 // with the related evidence and implied bounds a reader, and the estimate stage, can use.
 
+import { inDataset } from './retired.js';
 import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
@@ -519,8 +520,12 @@ function resolveFamilyEntries(FAMILY_ENTRIES, materials, grades, issues) {
 
 // ---------------------------------------------------------------------------- main
 
-export function compile(wb, { snapshot, build }) {
-  const issues = [];
+export function compile(tables, { snapshot, build }) {
+  // A material retired from the dataset, and every record filed under it, is not compiled (D174): every caller of compile
+  // reads one dataset, and the build's later stages read the same (pipeline.js).
+  const scoped = inDataset(tables);
+  const wb = scoped.wb;
+  const issues = [...scoped.issues];
   const registry = compileRegistry(wb, issues);
   const familyEntries = familyEntriesFromTables(wb);
 
@@ -778,6 +783,8 @@ export function compile(wb, { snapshot, build }) {
           quarantined: measurements.filter((m) => m.quarantined).length,
           profiles: profiles.length, evidence: evidence.length, prices: prices.length,
           sources: sources.length, coverage: coverage.length,
+          // Rows of materials.csv retired from the dataset: compiled into nothing, counted here alone (D174).
+          retired: scoped.retired.length,
         },
         environmentCategories,
         chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },

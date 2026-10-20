@@ -1,6 +1,6 @@
 COUNT 98 shown PASS
-STATUS ☑ PASS 98 | ☐ UNKNOWN 30 | ☐ FAIL 24
-98 of the 152 materials meet these requirements
+STATUS ☑ PASS 98 | ☐ UNKNOWN 30 | ☐ FAIL 21
+98 of the 149 materials meet these requirements
 Indoor prototype template · UNKNOWN 30 left out: 27 one check away, 3 not enough data
 Why the rest were excluded
 Clear requirements

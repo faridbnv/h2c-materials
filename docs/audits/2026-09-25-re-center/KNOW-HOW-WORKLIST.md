@@ -14,10 +14,10 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1061 | 44 | 1 | 3 | 1109 |
-| Materials | 143 | 6 | 0 | 3 | 152 |
+| Products | 1057 | 44 | 1 | 3 | 1105 |
+| Materials | 140 | 6 | 0 | 3 | 149 |
 
-7599 statements; 1537 sources read for know-how; 216 makers' sites searched.
+7495 statements; 1537 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -133,8 +133,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PVDF (M096) | — | collected | 1 of 3 | 2 / 1 / 2 | Filament2Print (filament2print.com) |
 | TPC-ESD (M114) | — | collected | 1 of 2 | 2 / 2 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | TPI (M121) | — | collected | 1 of 2 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
-| 316L stainless steel sintering filament (M171) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
-| Alumina sintering filament (M173) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | BVOH (M076) | — | collected | 0 of 4 | 1 / 0 / 3 | — |
 | LCP (M139) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | Nylon-CF, maker-undisclosed polyamide (M165) | — | collected | 0 of 6 | 4 / 3 / 4 | — |
@@ -152,7 +150,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | POM / Acetal (M087) | — | collected | 0 of 3 | 2 / 1 / 3 | — |
 | PPSU (M102) | — | collected | 0 of 4 | 1 / 2 / 3 | — |
 | PVC (M135) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
-| Silicon carbide sintering filament (M172) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | Support for ABS (M079) | — | collected | 0 of 2 | 1 / 0 / 2 | — |
 | Support for PA/PET (M080) | — | collected | 0 of 3 | 1 / 0 / 3 | — |
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |

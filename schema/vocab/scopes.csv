@@ -1,4 +1,5 @@
 Value,Meaning
-Excluded,"Not a candidate: outside the H2C's practical envelope, or a filament whose printed part is not the product (a sintering feedstock). Shown, never recommended; its Limitations say why."
+Excluded,"Not a candidate: outside the H2C's practical envelope (an industrial high-temperature plastic). Shown, never recommended; its Limitations say why."
 Family entry,A family or alias name that owns no product and carries no value; search answers with its members (D44).
 H2C-relevant,A candidate for selection.
+Retired,"Out of the dataset (D174): the row and every record filed under it stay in the tables as the record of what was read, their sources registered, and the build compiles none of them, so no row, search result, page, export or count holds it. Every grade of it is retired (MATERIAL-RETIRED-ACTIVE). The metal and ceramic sintering filaments, whose printed part is not the product, since 2026-10-20."

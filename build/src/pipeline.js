@@ -1,6 +1,7 @@
 // The build's stages in one place, so the build, the snapshot, the audit, the trace and the tests all run the same
 // thing: compile the tables into a database, apply the estimate stage, and validate both.
 //
+//   dataset    the tables without a material retired from the dataset and its records (D174)          retired.js
 //   compile    data tables -> the runtime database, every headline a measurement or a missing state    compile.js
 //   estimate   inference for missing headlines, added as an overlay                                  estimate/
 //   chamber    a truly silent chamber read from its kind of plastic's makers (D151)                  chamber-need.js
@@ -14,6 +15,7 @@
 
 import { snapshotDate } from './load.js';
 import { compile } from './compile.js';
+import { inDataset } from './retired.js';
 import { validate } from './validate.js';
 import { attachEstimates } from './estimate/index.js';
 import { estimateConversions } from './evidence-ledger.js';
@@ -50,12 +52,16 @@ export function buildDatabase(wb, { snapshot = snapshotDate(wb.Method.rows), bui
     // observations, and the import ahead multiplies them, so this is the number to watch (DECISIONS D77).
     const timing = {};
     const stage = (name, run) => { const t = performance.now(); const value = run(); timing[name] = Math.round(performance.now() - t); return value; };
+    // Every stage reads one dataset: the tables without a material retired from it and its records (D174). Compile reads
+    // the tables through the same function and reports what it left out; the cache key above is the tables' own, so a
+    // material's Scope is part of it.
     const { db, issues } = stage('compile', () => compile(wb, { snapshot, build }));
-    if (estimates) stage('estimate', () => attachEstimates(db, { conversions: estimateConversions(wb.Conversions?.rows ?? []) }));
+    const tables = inDataset(wb).wb;
+    if (estimates) stage('estimate', () => attachEstimates(db, { conversions: estimateConversions(tables.Conversions?.rows ?? []) }));
     // A silent chamber read from its kind of plastic (D151), after the estimate stage: the frozen stage validates its
     // product screening on the products whose own sheets, twins or guide settle all three printer checks, and stays so.
-    stage('chamberNeed', () => issues.push(...attachChamberNeed(db, wb, { materialRows: materialRowsOf(wb) })));
-    stage('validate', () => issues.push(...validate(db, wb)));
+    stage('chamberNeed', () => issues.push(...attachChamberNeed(db, tables, { materialRows: materialRowsOf(tables) })));
+    stage('validate', () => issues.push(...validate(db, tables)));
     if (estimates) stage('validateEstimates', () => issues.push(...validateEstimates(db)));
     // Stored only if the build left its input as it found it: a hit skips the stages, so it must skip nothing a caller sees.
     if (key && !handedOutOriginal && cacheKey(wb, options) === key) {
