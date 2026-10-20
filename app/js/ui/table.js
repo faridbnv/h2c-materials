@@ -15,6 +15,7 @@ import { INDICES, indexById, rankingFor, indexValue } from '../engine/indices.js
 import { boundOf, publishedBound, GROUP, GROUP_ORDER } from '../engine/constraints.js';
 import { productView, stateOf, hardenedShare, hardenedWords } from '../engine/products.js';
 import { matchingProducts } from '../engine/search.js';
+import { isProduct } from './material-facts.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -316,6 +317,9 @@ export function renderTable(host, state, actions) {
 
   // A material with no product on record is the one whose own estimate is read for a requirement (D148).
   const productless = (m) => !(state.ctx?.productsByMaterial?.get(m.id)?.length);
+  // How many products a material has, as the drawer's head counts them (reference specimens are not for sale): a median's
+  // explanation counts its parts against it (§37.20).
+  const productCount = (m) => (state.ctx?.productsByMaterial?.get(m.id) ?? []).filter(isProduct).length;
   // A product as a cell's popover names it: its maker and product.
   const productLabel = (id) => { const g = (state.gradeIndex ??= new Map(state.db.grades.map((x) => [x.id, x]))).get(id); return g ? `${g.manufacturer} ${g.product}` : id; };
 
@@ -325,9 +329,13 @@ export function renderTable(host, state, actions) {
     if (c.kind === 'pin') return `<th class="pin-col" title="${esc(c.label)}" aria-label="${esc(c.label)}"><span aria-hidden="true">☆</span></th>`;
     const active = sort.key === c.key;
     const arrow = active ? (sort.dir === 'asc' ? ' \u25b2' : ' \u25bc') : '';
-    return `<th data-sort="${c.key}" class="${columnClass(c)}" ${c.title ? `title="${esc(c.title)}"` : ''}
+    // A column of products' values says once, under its name, what its cells give: the median over the range of the
+    // products. The drawer and the material pages give the middle half under the same median, and the table's bare
+    // "0.95–4.24 · 55" read as that (OPEN-PROBLEMS §37.20); the word in every cell widened the table past a 1440 px screen.
+    const spread = c.kind === 'headline' || c.kind === 'price';
+    return `<th data-sort="${c.key}" class="${columnClass(c)}${spread ? ' has-sub' : ''}" ${c.title ? `title="${esc(c.title)}"` : ''}
       ${active ? 'aria-sort="' + sort.dir + 'ending"' : ''} tabindex="0">
-      ${esc(c.label)}${c.unit ? ` <span class="u">${esc(c.unit)}</span>` : ''}${arrow}</th>`;
+      ${esc(c.label)}${c.unit ? ` <span class="u">${esc(c.unit)}</span>` : ''}${arrow}${spread ? '<span class="th-sub">median · range</span>' : ''}</th>`;
   }).join('');
 
   const cells = (m, e, { ghost = false } = {}) => {
@@ -432,7 +440,7 @@ export function renderTable(host, state, actions) {
       }
       if (c.kind === 'price') {
         const h = m.headline.priceCADkg;
-        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id, productless: productless(m) });
+        const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id, productless: productless(m), products: productCount(m) });
         if (!m.buy) return `<td class="num">${inner}</td>`;
         const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${dayWords(m.buy.accessDate)})`;
         const notStocked = 'No sampled Canadian listing was in stock when sampled. Prices and stock are snapshots, not live.';
@@ -448,17 +456,22 @@ export function renderTable(host, state, actions) {
           return `<td class="num"><span class="unpriced">${explainButton('no price', why, { cls: 'no-price', head: 'Listed, no price' })}${link('', ' buy-arrow')}</span></td>`;
         }
         // A link cannot hold a button, so a price carrying a mark of its own keeps it outside the link. Stock is a small
-        // second line, and only here, under a price it qualifies.
+        // second line, and only here, under a price it qualifies. The arrow sits on the median's line, before the range: after
+        // the range it took a third line of its own in the narrow price column, and the row's height with it (the cold page's
+        // three rows, §37.20).
         const nested = inner.includes('<button');
         const oos = m.buy.anyInStock ? '' : explainButton('out of stock', notStocked, { cls: 'oos', head: 'Out of stock' });
-        return `<td class="num">${nested ? inner : ''}${nested ? link('', ' buy-arrow') : link(inner)}${oos}</td>`;
+        if (!nested) return `<td class="num">${link(inner)}${oos}</td>`;
+        const at = inner.indexOf('<span class="spread"');
+        const arrow = link('', ' buy-arrow');
+        return `<td class="num">${at < 0 ? inner + arrow : inner.slice(0, at) + arrow + inner.slice(at)}${oos}</td>`;
       }
       // An unresolved row's estimate on a required number is its deciding product's, the one its reason names (D155, C05):
       // the cell and the reason are one computation. A material with no product reads its own, as before (D148).
       const own = tested && e?.verdict === 'UNKNOWN' && state.ctx?.showEstimates && !m.headline[c.key]?.known && !m.headline[c.key]?.notApplicable && e.gradeId
         ? on(c.key).find((r) => r.estimated && r.estimate) : null;
       const shown = own ? { known: false, missing: m.headline[c.key]?.missing ?? 'not-published', estimate: own.estimate } : m.headline[c.key];
-      const all = withStateMark(renderValue(shown, { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id, productless: productless(m), product: own ? productLabel(e.gradeId) : null }), typicalStateMark(m.headline[c.key], measurementState));
+      const all = withStateMark(renderValue(shown, { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id, productless: productless(m), product: own ? productLabel(e.gradeId) : null, products: productCount(m) }), typicalStateMark(m.headline[c.key], measurementState));
       // A material that passes a requirement on some of its products shows those products' values first, and every
       // product's typical and range under it, labelled (PM-01).
       const pass = tested && e?.verdict === 'PASS' && on(c.key).length ? passingValues(e, c.key) : null;
@@ -494,7 +507,7 @@ export function renderTable(host, state, actions) {
       'No source on file publishes it. A gap, not a zero or a low value. Select a dash for which kind of gap it is.',
       { cls: 'lg', head: 'Not published' }),
     explainButton('<b>2.3</b> <span class="spread">1.0\u20133.0 · 27</span> median and range',
-      'A material is the spread of its products: the median, then the range and how many products report the value on a comparable basis (printed or unstated specimen, stated orientation, dry or unstated). Different products, not one product\'s scatter.',
+      'A material is the spread of its products: the median, then the range from the lowest product to the highest and how many products report the value on a comparable basis (printed or unstated specimen, stated orientation, dry or unstated). Different products, not one product\'s scatter. The drawer and the material page give the middle half of the products instead of the range.',
       { cls: 'lg', head: 'Median and range' }),
     explainButton('<b>1.2</b><span class="evidence-dot" aria-hidden="true"></span> one measurement',
       'A value from one measurement: one product publishes it, or it is a product\'s own value. Select it for its test conditions and source page.',
@@ -532,7 +545,15 @@ export function renderTable(host, state, actions) {
     anyState.conditioned ? explainButton('<span class="state-mark state-conditioned" aria-hidden="true"></span> conditioned median', STATE_MARK_NOTE.conditioned.replace(/^Conditioned median: t/, 'T'),
       { cls: 'lg', head: 'Conditioned median' }) : '',
   ].filter(Boolean);
-  const legend = common.join('') + (rare.length ? `<details class="legend-more"><summary><span class="chevron" aria-hidden="true"></span>${rare.length === 1 ? 'One more mark' : `${rare.length} more marks`}</summary><div class="legend-more-body">${rare.join('')}</div></details>` : '');
+  // On a phone the legend's line is three lines, so it shows the first two marks, the dash and the median over its range,
+  // and folds the rest with the rare ones (OPEN-PROBLEMS §19: the first candidate in the first screen). The folded marks are
+  // drawn twice, on the line for a wider screen and in the fold for a phone, and only one of the two is ever displayed.
+  const moreWords = (n) => (n === 1 ? 'One more mark' : `${n} more marks`);
+  const wide = common.slice(2), folded = [...wide, ...rare];
+  const legend = common.slice(0, 2).join('') + `<span class="lg-wide">${wide.join('')}</span>`
+    + `<details class="legend-more${rare.length ? '' : ' lg-narrow-only'}"><summary><span class="chevron" aria-hidden="true"></span>`
+    + `${rare.length ? `<span class="lg-wide">${moreWords(rare.length)}</span>` : ''}<span class="lg-narrow">${moreWords(folded.length)}</span></summary>`
+    + `<div class="legend-more-body"><span class="lg-narrow">${wide.join('')}</span>${rare.join('')}</div></details>`;
 
   // Hits the filters removed. A search that finds nothing because the requirements already
   // excluded the match reads as "this material is not in the database", which is false.
@@ -589,7 +610,7 @@ export function renderTable(host, state, actions) {
     .filter(Boolean);
 
   // Each group's table says which group it is (D155), for a reader's assistive tools and for the interface checks.
-  const tableOf = (list, reference = '', group = null) => scrollTable(`<table class="grid"${group ? ` data-group="${group}"` : ''}>
+  const tableOf = (list, reference = '', group = null) => scrollTable(`<table class="grid results"${group ? ` data-group="${group}"` : ''}>
     <colgroup>${COLUMNS.map((c) => `<col style="width:${c.width}">`).join('')}</colgroup>
     <thead><tr>${head}</tr></thead><tbody>${reference}${bodyOf(list)}</tbody></table>`);
   // Under Include the list is sorted by what would settle each material (D155): the groups present the verdicts and

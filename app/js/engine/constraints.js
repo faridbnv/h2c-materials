@@ -12,6 +12,7 @@
 
 import { productView, scenarioStates, SHARE } from './products.js';
 import { ledgerInterval, ledgerRow, ledgerReason, disagreeReason, knownNote, requirementWords, fig } from './ledger.js';
+import { fillerOf, isNamedFiller } from './filler.js';
 
 export { SHARE };
 
@@ -520,11 +521,14 @@ function evaluateGate(material, c) {
     if (material.facets?.fibre?.value || filler === 'carbon-fibre' || filler === 'glass-fibre') {
       return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, and no source states the nozzle it needs, so it is treated as abrasive until its documents say otherwise' };
     }
+    // A filler the materials table names (ceramic, PTFE, metal powder …) is not undisclosed, so it is named (§37.8).
     return {
       status: STATUS.PASS, criterion,
       reason: filler === 'unfilled'
         ? 'No hardened-nozzle requirement recorded'
-        : 'No hardened-nozzle requirement recorded. The filler is not disclosed, so check the product: glow, metal, wood and marble fills can wear brass',
+        : isNamedFiller(fillerOf(material))
+          ? `No hardened-nozzle requirement recorded for its ${String(material.modifier).trim().toLowerCase().replace(/\bptfe\b/, 'PTFE')} filler, so check the product: glow, metal, wood and marble fills can wear brass`
+          : 'No hardened-nozzle requirement recorded. The filler is not disclosed, so check the product: glow, metal, wood and marble fills can wear brass',
     };
   }
 
@@ -577,6 +581,18 @@ function evaluateGate(material, c) {
 // ---------------------------------------------------------------- facets and evidence
 
 function evaluateFacet(material, c) {
+  // The filler as a reader files it (filler.js): the reinforcement facet's class, or the filler the materials table
+  // names where that facet says undisclosed (§37.8). A requirement on "reinforcement" keeps the facet's own classes.
+  if (c.facet === 'filler') {
+    const value = fillerOf(material);
+    if (value == null) return { status: STATUS.UNKNOWN, criterion: `filler in ${(c.in ?? []).join(', ')}`, reason: 'Facet not recorded' };
+    const ok = (c.in ?? []).includes(value);
+    return {
+      status: ok ? STATUS.PASS : STATUS.FAIL,
+      criterion: `filler in ${(c.in ?? []).join(', ')}`,
+      reason: `Recorded as ${value}${isNamedFiller(value) ? ', the filler its Modifier / filler names' : ''}`,
+    };
+  }
   const f = material.facets?.[c.facet];
   if (c.facet === 'supportMaterial' && f) {
     const ok = f.value === c.equals;

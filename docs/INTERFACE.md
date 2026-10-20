@@ -105,7 +105,13 @@ the requirements name, the required ones first, then the reported, filled to fou
 and HDT, at most five: *Indoor prototype*, which asks about price, had opened with no price axis. A set of 15 lines or
 fewer is named at each line's right end; once anything drawn is shortlisted, those lines are at full weight and the rest
 lighter. The line read is the selection every lens shares: one picked in the Ashby chart is raised here on arrival, and
-one picked here is picked there.
+one picked here is picked there. Since 2026-10-19 (C45 to C47) each axis says its better end under its unit ("↑ better",
+"↓ better"; the axes are not flipped) and carries three to five round ticks, the decades on a log axis; over eight lines,
+the values without the two lowest and the two highest set the axis, as the material pages set a property's scale, and a
+value more than that core's span beyond it is parked at the axis end under a chevron, its value in the readout (one
+elastomer had made the modulus axis logarithmic and packed the rigid materials into its top third). The line read carries
+the pages' glyph on each axis, its products' range a hairline and their middle half a bar, and the readout gives each
+value's range and product count and, with requirements set, how many of its products pass ("passes on 2 of 17 products").
 
 **Data coverage** grids eight domains per candidate. Every cell but Application says what the records show, since D114
 derives a gap as it derives evidence: a blank cell is "not assessed", which only Application, a reviewer's column, can
@@ -172,7 +178,11 @@ requirement is counted in the group it is shown in (`railGroupOf`), whatever key
 collapse mark is a chevron drawn in CSS, 16 px wide: the 10 px grey "▸" it replaced read as a dot.
 
 **Material family** comes first because a reader usually starts from a family ("a nylon") before a
-number. It opens closed since 2026-10-18 (it opens itself when a family or a polymer is ticked), and the rail opens on
+number. Its **Filler** list gives the reinforcement facet's five classes, then each filler the materials table names
+(aramid fibre, ceramic, PTFE and the rest, a box each, read through `engine/filler.js`), then the variants whose filler
+is not disclosed; a requirement on it is the facet `filler`. The 18 named ones had been filed with the undisclosed variants
+(OPEN-PROBLEMS §37.8); the facet itself is unchanged, since the estimate model reads it. A link saved on the old facet,
+`reinforcement`, is read as written, its "undisclosed" ticking the named fillers too, and is rewritten once a box is pressed. It opens closed since 2026-10-18 (it opens itself when a family or a polymer is ticked), and the rail opens on
 Mechanical, Thermal and Printing on the H2C, what a part needs: the 25 family boxes had filled the rail's first screen
 and put density 850 px down. Its badge names what it holds when only *Build materials only* is set. It is two levels: the families, each with a count, and under a chosen family its base polymers. A polymer
 chosen in one family narrows that family only; a second chosen family with no polymer chosen keeps all of its own. The
@@ -247,7 +257,10 @@ materials publish a window the H2C reaches only at its bottom edge, which stay u
 **Within H2C temperature limits** is one box over the three temperature gates, each indented under it with its data
 line; it is ticked when all three are asked, indeterminate when one or two are. The scope list is a box of its own,
 **Exclude materials beyond H2C capability**, which names the families it removes (industrial high-temperature plastics
-and sintering filaments): it reads that list and no temperature, so it is not called printable.
+and sintering filaments): it reads that list and no temperature, so it is not called printable. The two sit side by side
+as requirement pills under every template, so since 2026-10-19 each says what it reads, in its rail line and in its
+pill's title: "Within H2C capability" a list, the materials Bambu Lab's list and their makers' limitations put beyond the
+H2C as a whole; the nozzle, bed and chamber check each product's own windows against the H2C's limits.
 
 **Part condition** is a group of two two-way switches: *Post-processing* (As printed | Annealing allowed, with the
 oven's limit) and *Moisture in service* (Dry | Conditioned). Each says what it does to the answers: annealing allowed
@@ -412,7 +425,7 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 
 | Looks like | Is |
 |---|---|
-| `2.58` over `0.433–4.24 · 52` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. Select it for the details and **Open its products** |
+| `2.58` over `0.433–4.24 · 52` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. The column's head says so under its name, "median · range" (2026-10-19): the drawer and the material pages give the middle half under the same median, and a bare range had read as that. Select it for the details, counted against the material's products as the drawer's head counts them (those in the median, those kept out of it by why, and those that publish none), and **Open its products** |
 | `4.43` | A measured value of the material's one product that publishes it comparably |
 | `PASS` over `1 of 4` | One of the four products that could be judged meets every requirement together. Select it for the untested count |
 | `46*` | A real measurement that no product publishes comparably. Select it for why, and **Open the measurement** |
@@ -540,7 +553,10 @@ sentences (D124), and a note's record names are taken out of what a reader opens
 today's full record: both ranges, what it rests on, what limits it, what it may screen, and every measurement behind it,
 converted. What every estimate shares, that the ranges are calibrated, that an estimate never passes and when one may
 screen, is said once under the group. Six lines of prose per estimate, with those two sentences in each, had pushed "Can
-the H2C print it?" off the screen. Under Leave out there are no estimates in the drawer at all, as before.
+the H2C print it?" off the screen. Under Leave out there are no estimates in the drawer at all, as before. A product's card, with estimates on,
+lists the estimates of what it publishes no comparable value of, and where the build withholds one because the product's
+own values, converted, and the model for its kind disagree (D167), it says "no estimate" in that place, with the two
+figures and the product's values one press away (2026-10-19; it had been said only in a requirement's reason).
 
 **Typical applications and general guidance.** For 50 materials the materials table's Best uses cell holds pointers
 rather than prose, "Family context in Q00282, Q00283, Q00284, Q00285": evidence records filed under the family's own
@@ -1095,9 +1111,10 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 - **Products** draws each product that meets every requirement, in the state its answer is in (annealed at its
   schedule where annealing is permitted, conditioned where that is asked), coloured by family and shaped by filler as
   every view shapes it (D110: circle unfilled, diamond carbon fibre, square glass fibre, triangle ESD, star foaming,
-  hexagon a variant the reinforcement facet does not name: its filler undisclosed, or one the materials table names that
-  the facet files with them, aramid fibre, ceramic, PTFE and the like, which the drawer's lede and the material pages
-  name; the rail's label stays "Other variant, filler not disclosed"). A value the
+  a downward triangle a filler the materials table names that the reinforcement facet files with the undisclosed
+  variants, aramid fibre, ceramic, PTFE and the like, its key naming those drawn, and a hexagon a variant whose filler is
+  not disclosed; since 2026-10-19 the rail and the shapes file those materials by the filler they name, as the drawer's
+  lede and the material pages do, read through `engine/filler.js`, where they had said "Undisclosed variant"). A value the
   registry declares unchanged by the state, a density, is read from the product's first state, and the inspector says
   so. A pass is the filled shape; unresolved products (the shape hollow) and failed ones (small and faint) are drawn by
   their chips under Also, never ranked,
@@ -1236,7 +1253,12 @@ they open, close on Escape and return focus to what opened them. Below 1100 CSS 
 filter rail is a drawer opened from **Filters**; opening it focuses its close button, not **Clear requirements**, which
 is the first button in its header and which Enter used to press. At phone width the page stays as wide as the screen:
 the status chips and the shortlist tray wrap onto a second line rather than widening the layout, which once laid a 390
-px phone out at 533 px with the right side clipped. Colour never the sole carrier of meaning.
+px phone out at 533 px with the right side clipped. Since 2026-10-19 the first candidate is on a 390 × 844 phone's first
+screen under every template (its row had started near 955 px): the requirement pills are one strip that scrolls sideways,
+as the view tabs are; the answer's three buttons share a row, two in a short form ("Why excluded", "Clear") with their
+full words as their names; Rank by and Compare against sit side by side, each label over its choice; the legend shows the
+dash and the median over its range and folds the other marks; and the top bar's missing-data label sits over its two
+buttons, so the estimates switch beside them keeps its words to two lines. Colour never the sole carrier of meaning.
 
 **Narrow screens** (DECISIONS D62). What does not fit scrolls sideways inside its own box, and the page never does:
 
@@ -1392,7 +1414,7 @@ against its own scale. Opened, it draws each product's print settings as its pri
 gate reads them (grades[].print: its own sheet, a sheet it shares, or the guide's row): for the nozzle, the bed and the
 heated chamber, a row of each product's lowest setting above a row of its highest on one °C scale, and for drying one
 row of temperatures. A dot is filled where the product's own sheet, or one it shares (D89), gives the setting, hollow
-where it is read from the Bambu Lab Filament Guide (shown, not counted, as the key says), a diamond for an added filler or
+where it is read from the Bambu Lab Filament Guide (shown and kept out of the median, as the key says), a diamond for an added filler or
 additive; the middle half and the median
 are of the products whose own or shared sheet gives the setting, special formulations left out, worked out on the page
 as the build summarises a headline (the guide's value is drawn and never counted, since one row speaks for every product
@@ -1400,7 +1422,8 @@ that reads it). The H2C's limit (350 °C nozzle, 120 °C bed, 65 °C chamber) is
 washed, as the material pages draw it (it had been a red dashed line, a failure's colour on something that is not a
 failure), where it is near the values, no further above the highest than the larger of a quarter of their span and 10 °C;
 far above them, the axis says so, so PLA's windows are not squeezed against 350 °C. Under the graphs: a table of each
-row's count, median, middle half and range, with what is drawn and not counted; **the window most products give, as the
+row's count of products ranked, median, middle half and range, with what is drawn and not ranked (the comparisons'
+words since 2026-10-19, C49: the print graphs had said "169 counted of 194 shown" and "not counted"); **the window most products give, as the
 Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 3–12 h": one statistic
 for one setting since 2026-10-18, where it had given the medians of the lowest and highest settings, which differed); the products **outside the H2C's limits**, by
 their print gate's own verdict (a window beyond the limit, one recommended above it, and one the H2C reaches only at

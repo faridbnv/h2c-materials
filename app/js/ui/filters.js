@@ -11,7 +11,8 @@
 import { availability } from '../engine/coverage.js';
 import { runSelection } from '../engine/constraints.js';
 import { esc, priceSampleWords, explainButton } from './format.js';
-import { prop, envLabel, envRequirement, GATE, H2C_STATUS, FILLER, H2C_CHECK } from './labels.js';
+import { prop, envLabel, envRequirement, GATE, H2C_STATUS, H2C_CHECK, fillerName } from './labels.js';
+import { fillerOf, isNamedFiller, FILLER_CLASSES, UNDISCLOSED } from '../engine/filler.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 import { PRINTABLE, printCheck } from './templates.js';
 
@@ -46,7 +47,6 @@ const GROUP_ICON = {
 };
 
 const H2C_STATUSES = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical'];
-const REINFORCEMENT = ['carbon-fibre', 'glass-fibre', 'unfilled', 'esd', 'foaming', 'undisclosed'];
 
 // The comparison in words; the symbols are in the pills' and the drawer's names of a limit.
 const OP_WORD = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
@@ -196,15 +196,21 @@ function body(group, materials, cs, db, ctx = {}) {
     </div>`);
 
     // The filler and the build-material check describe the material too, so they sit with its family. They were under
-    // "Manufacturing", which also held drying, a printing question.
-    const sel = find(cs, (c) => c.facet === 'reinforcement')?.in ?? [];
+    // "Manufacturing", which also held drying, a printing question. A filler the materials table names (aramid fibre,
+    // ceramic, PTFE …) is a box of its own, after the facet's five: it had been counted with the undisclosed variants
+    // (OPEN-PROBLEMS §37.8). A requirement saved on the facet before (reinforcement) shows as what it reads, its
+    // "undisclosed" ticking the named fillers too, and is rewritten as a filler requirement once a box is pressed.
+    const filler = find(cs, (c) => c.facet === 'filler');
+    const legacy = find(cs, (c) => c.facet === 'reinforcement');
     const counts = {};
-    for (const m of materials) { const r = m.facets.reinforcement.value; counts[r] = (counts[r] ?? 0) + 1; }
-    out.push(`<div class="control" data-active="${sel.length > 0}">
+    for (const m of materials) { const f = fillerOf(m); if (f) counts[f] = (counts[f] ?? 0) + 1; }
+    const named = Object.keys(counts).filter(isNamedFiller).sort((a, b) => counts[b] - counts[a] || fillerName(a).localeCompare(fillerName(b)));
+    const sel = new Set([...(filler?.in ?? []), ...(legacy?.in ?? []), ...(legacy?.in?.includes(UNDISCLOSED) ? named : [])]);
+    out.push(`<div class="control" data-active="${sel.size > 0}">
       <label>Filler</label>
-      <div class="checks">${REINFORCEMENT.map((k) => `
-        <label><input type="checkbox" data-facet="${k}" ${sel.includes(k) ? 'checked' : ''}>
-        ${esc(FILLER[k])}<span class="n">${counts[k] ?? 0}</span></label>`).join('')}</div>
+      <div class="checks">${[...FILLER_CLASSES, ...named, UNDISCLOSED].map((k) => `
+        <label><input type="checkbox" data-facet="${esc(k)}" ${sel.has(k) ? 'checked' : ''}>
+        ${esc(fillerName(k))}<span class="n">${counts[k] ?? 0}</span></label>`).join('')}</div>
     </div>`);
     const build = find(cs, (c) => c.facet === 'supportMaterial');
     const supports = materials.filter((m) => m.facets.supportMaterial?.value).length;
@@ -237,8 +243,8 @@ function body(group, materials, cs, db, ctx = {}) {
     };
     out.push(`<div class="control print-check" data-active="${check !== 'none'}">
       <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> ${H2C_CHECK}</label>
-      <div class="avail">Checks each product's published nozzle, bed and chamber temperatures. Where its data sheet is
-        silent, a data sheet shared with another product, then the Bambu Lab Filament Guide, stands in; the drawer says which.</div>
+      <div class="avail">Reads each product's own nozzle, bed and chamber windows. Where its data sheet is silent, a data
+        sheet shared with another product, then the Bambu Lab Filament Guide, stands in; the drawer says which.</div>
       <div class="checks sub-checks">${['nozzle', 'bed', 'chamber'].map((gate) => `
         <div><label><input type="checkbox" data-gate="${gate}" ${asked[gate] ? 'checked' : ''}> ${esc(GATE[gate].plain)}</label>
         <div class="avail">${gateLine(gate)}</div></div>`).join('')}</div>
@@ -261,7 +267,9 @@ function body(group, materials, cs, db, ctx = {}) {
       <div class="avail">${dryingBy('required')} of ${db.profiles.length} print profiles require drying, ${dryingBy('optional')} advise it for a condition and ${dryingBy('not-needed')} say it is not needed.</div>
     </div>`);
 
-    // The scope: materials the database holds for completeness that the H2C cannot finish, named by their families.
+    // The scope: materials the database holds for completeness that the H2C cannot finish, named by their families. Its
+    // line says it reads a list, where the check above reads each product's windows: the two sat side by side as pills
+    // with nothing saying how they differ (§37.20).
     const scopeOn = !!find(cs, (c) => c.gate === 'scope');
     const excluded = materials.filter((m) => m.excluded);
     const byFamily = new Map();
@@ -272,7 +280,8 @@ function body(group, materials, cs, db, ctx = {}) {
     });
     out.push(`<div class="control" data-active="${scopeOn}">
       <label><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}> Exclude materials beyond H2C capability</label>
-      <div class="avail">${excluded.length} materials: ${esc(familyWords.join(' and '))}.</div>
+      <div class="avail">Reads a list, not temperatures: the ${excluded.length} materials Bambu Lab's list and their makers'
+        limitations put beyond the H2C as a whole, ${esc(familyWords.join(' and '))}.</div>
     </div>`);
 
     const sel = find(cs, (c) => c.gate === 'h2cStatus')?.in ?? [];
@@ -491,8 +500,8 @@ function wire(host, state, actions) {
   const facetBoxes = [...host.querySelectorAll('[data-facet]')];
   facetBoxes.forEach((el) => el.addEventListener('change', () => {
     const chosen = facetBoxes.filter((b) => b.checked).map((b) => b.dataset.facet);
-    drop((c) => c.facet === 'reinforcement');
-    if (chosen.length) scenario.constraints.push({ kind: 'facet', facet: 'reinforcement', in: chosen, __group: 'Manufacturing' });
+    drop((c) => c.facet === 'reinforcement' || c.facet === 'filler');
+    if (chosen.length) scenario.constraints.push({ kind: 'facet', facet: 'filler', in: chosen, __group: 'Manufacturing' });
     actions.changed();
   }));
 

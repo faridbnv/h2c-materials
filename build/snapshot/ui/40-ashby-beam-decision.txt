@@ -103,8 +103,8 @@ Nylon / Polyamide
 PLA
 High-Performance Engineering
 Other families
-Density (kg/m³) · log
-Tensile modulus (XY) (GPa) · log
+Density (kg/m³, log scale)
+Tensile modulus (XY) (GPa, log scale)
 Density at most 1,250 kg/m³
 Tensile modulus (XY) at least 3 GPa
 better: above the line ↖

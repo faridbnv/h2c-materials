@@ -9,6 +9,7 @@ import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, p
 import { productGates, hardenedShare, hardenedWords } from '../engine/products.js';
 import { indexById, rankingFor } from '../engine/indices.js';
 import { lower } from './text.js';
+import { isProduct } from './material-facts.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 /** A track is drawn on a log scale when its candidates' largest value is more than this many times their smallest. */
@@ -25,6 +26,10 @@ export function renderCompare(host, state, actions) {
     ? db.materials.find((m) => m.id === state.baseline) : null;
   const picked = anchor ? [...pinned, anchor] : pinned;
   const isAnchor = (m) => anchor && m.id === anchor.id;
+  // How many products a material has, as the drawer's head counts them: a median's explanation counts against it (§37.20).
+  const gradesOf = new Map();
+  for (const g of db.grades) if (!g.retired && isProduct(g)) gradesOf.set(g.materialId, (gradesOf.get(g.materialId) ?? 0) + 1);
+  const productCount = (m) => gradesOf.get(m.id) ?? 0;
 
   // One candidate against a familiar baseline is a comparison, and the most natural first one:
   // "how does this compare with PLA?" It used to demand a second pin before drawing anything.
@@ -156,7 +161,7 @@ export function renderCompare(host, state, actions) {
             return `<div class="cmp-bar cmp-related${isAnchor(m) ? ' anchor' : ''}">
               <span>${who}</span>
               <span class="track">${lines}<span class="related-tick" style="left:${pct(b.value)}%"></span></span>
-              <span class="val">${renderValue(h)}</span></div>`;
+              <span class="val">${renderValue(h, { products: productCount(m) })}</span></div>`;
           }
           if (!e) {
             return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}"><span>${who}</span>
@@ -187,7 +192,7 @@ export function renderCompare(host, state, actions) {
         return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}">
           <span>${who}</span>
           <span class="track">${log ? `<span class="value-tick" style="left:${pct(h.value)}%"></span>` : `<span class="fill" style="width:${pct(h.value)}%"></span>`}${bounds}${lines}</span>
-          <span class="val">${renderValue(h)}</span></div>`;
+          <span class="val">${renderValue(h, { products: productCount(m) })}</span></div>`;
       }).join('')}
       <div class="cmp-bar cmp-axis">
         <span></span>

@@ -247,12 +247,30 @@ function applySearch(host) {
  * product only where its back-test allows (D137), which in this release none does: it says which.
  */
 function gradeEstimateLines(g, c) {
-  if (!c.showEstimates || !g.estimate) return '';
+  if (!c.showEstimates || (!g.estimate && !g.estimateWithheld)) return '';
   // Only where the product publishes no comparable value of its own: an estimate beside its own measurement said less
   // than the measurement and read as a second answer (a 10 % elongation estimated at "10–10 %").
   const lines = productEstimates(g).map(({ h, e }) => `<div class="grade-est"><b>${esc(h.labels.plain)}</b> <span class="est est-${esc(e.precision)}">~${fmtNumber(e.lo)}–${fmtNumber(e.hi)} ${esc(e.unit)}<span class="est-mark">†</span></span>
       <span class="fine">centre ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span>${e.screening ? `<span class="fine">Never passes. ${esc(e.canScreen ? 'May hide this product as printed and dry, where its nozzle, bed and chamber are within the H2C\'s.' : `Hides nothing: ${e.screenLimit}.`)}</span>` : ''}</div>`);
-  return lines.length ? `<div class="grade-ests"><div class="shared-head">Estimated, where this product publishes no comparable value</div>${lines.join('')}</div>` : '';
+  const withheld = withheldEstimateLines(g, c);
+  return lines.length || withheld.length ? `<div class="grade-ests"><div class="shared-head">Estimated, where this product publishes no comparable value</div>${[...lines, ...withheld].join('')}</div>` : '';
+}
+
+/**
+ * An estimate the build withholds because the product's own values, converted, and the model for its kind disagree
+ * (D167), said where the estimate would have been, with the values one press away. It had been said only in a
+ * requirement's reason, and the card showed nothing, as for a product the model never reached (OPEN-PROBLEMS §38.10).
+ */
+function withheldEstimateLines(g, c) {
+  return REGISTRY.headlines.filter((h) => g.estimateWithheld?.[h.key] && g.headline?.[h.key]?.level !== 'comparable').map((h) => {
+    const w = g.estimateWithheld[h.key];
+    const own = [...new Set((w.ownBand?.bands ?? []).flatMap((b) => b.measurementIds ?? []))].map((id) => c.msById.get(id)).filter(Boolean);
+    const names = [...new Set(own.map((x) => lower(x.property)))];
+    const band = w.ownBand && w.ownBand.lo != null && w.ownBand.hi != null ? `${fmtNumber(w.ownBand.lo)}–${fmtNumber(w.ownBand.hi)} ${h.unit}` : null;
+    const values = own.map((x) => `<button type="button" class="link-btn" data-measurement="${esc(x.id)}" title="Opens the measurement in Sources">${esc(`${fmtNumber(x.value)} ${x.unit}`)}</button>`).join(', ');
+    return `<div class="grade-est grade-est-withheld"><b>${esc(h.labels.plain)}</b> <span class="est-none">no estimate</span>
+      <span class="fine">${esc(`${names.length ? `Its own ${andList(names)}, measured another way,` : 'Its own values, measured another way,'} put it at ${band ?? 'a range'} once converted, where the model for its kind puts it at ${fmtNumber(w.centre)} ${h.unit}. The two disagree, so no estimate is shown, and its own values stand.`)}${values ? ` Its values: ${values}.` : ''}</span></div>`;
+  });
 }
 
 /**
@@ -565,6 +583,11 @@ export function renderDrawer(host, state, actions) {
     b.setAttribute('aria-expanded', String(!body.hidden));
     gradeOpen.set(b.dataset.gradeToggle, !body.hidden);
   }));
+  // A press anywhere on a product's line opens it, as when the whole line was the toggle; a mark on it keeps its own job.
+  host.querySelectorAll('[data-grade-title]').forEach((t) => t.addEventListener('click', (ev) => {
+    if (ev.target.closest('button, a')) return;
+    t.querySelector('[data-grade-toggle]')?.click();
+  }));
   wireEvidence(host, actions);
   // A product's dot on one row of a comparison lights its dots on the others, so the tests are read for the same product.
   // A dot, or a value a sentence names where nothing is drawn, opens its record in the list below it, in its heading,
@@ -841,18 +864,18 @@ const thresholdsOf = (c, key) => (c.scenario?.constraints ?? []).filter((r) => r
  * opens its record (`data-row`), or the target its value carries; `limit` is drawn across the track (the H2C's limit on a
  * print setting, and the range beyond it). The rows a stack needs are drawn closer past the track's height (stackPitch),
  * so a column's height counts its products, and a column of one value taller than its dots can show apart says how many
- * it holds. `word` names the products in the median: ranked (a comparison) or counted (a print setting).
+ * it holds. The products in the median are "ranked" on every graph, a comparison's or a print setting's (C49).
  */
-function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '', word = 'ranked' } = {}) {
+function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '' } = {}) {
   const rows = stack(entries, scale.pct);
   const pitch = stackPitch(rows);
   const band = s?.q1 != null ? `<span class="imp-band" style="left:${scale.pct(s.q1)}%;width:${Math.max(scale.pct(s.q3) - scale.pct(s.q1), 0.5)}%"></span>` : '';
-  const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of the ${s.n} ${word}: ${graphNumber(s.median, h.unit, thresholdsOf(c, h.key))} ${h.unit}`)}"></span>` : '';
+  const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of the ${s.n} ranked: ${graphNumber(s.median, h.unit, thresholdsOf(c, h.key))} ${h.unit}`)}"></span>` : '';
   const dots = entries.map((e) => {
     const x = c.msById.get(e.v.measurementId);
     const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
     const kind = [e.v.level === 'as-published' ? asPublishedWords(h) : null, ...changedState(x, e.v),
-      e.variant ? `added filler or additive, not ${word}` : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
+      e.variant ? 'added filler or additive, kept out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
     const cls = dotClass(h, e, c);
     return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" ${e.v.target ?? `data-row="${esc(e.v.measurementId)}"`} data-grade="${esc(e.g.id)}"
@@ -867,7 +890,7 @@ function dotRow(h, entries, s, scale, c, gradeLabel, { limit = '', word = 'ranke
     .filter((col) => { if (placed.some((x) => Math.abs(x - col.x) < COUNT_GAP)) return false; placed.push(col.x); return true; }).map((col) => [col.v, col]);
   const counts = tall.map(([v, col]) => `<span class="imp-count" aria-hidden="true" style="left:${col.x}%;bottom:${Number((4 + (col.top + 1) * pitch).toFixed(1))}px" title="${esc(`${plural(col.n, 'product')} at ${fmtNumber(v)} ${h.unit}`)}">${col.n}</span>`).join('');
   const height = 8 + rows * pitch + (tall.length ? 14 : 0);
-  return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${esc(rowCountWords(s?.n ?? 0, entries.length, word))}</span></span>
+  return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${esc(rowCountWords(s?.n ?? 0, entries.length))}</span></span>
     <span class="imp-track" style="height:${Number(height.toFixed(1))}px">${gridLines(scale)}${limit}${band}${median}${dots}${counts}</span></div>`;
 }
 
@@ -1023,7 +1046,7 @@ function printTemperatures(m, c) {
   const strips = f.drawn.map((d) => {
     const scale = stripScale(d.onScale ? [...d.values, d.limit] : d.values, '°C');
     const line = d.onScale ? `<span class="imp-beyond" style="left:${scale.pct(d.limit)}%"></span><span class="imp-limit" style="left:${scale.pct(d.limit)}%" title="${esc(`The H2C reaches ${d.limit} °C`)}"></span>` : '';
-    const rows = d.rows.map((r) => dotRow(def(r), r.entries.map(asDot), r.summary, scale, c, gradeLabel, { limit: line, word: 'counted' })).join('');
+    const rows = d.rows.map((r) => dotRow(def(r), r.entries.map(asDot), r.summary, scale, c, gradeLabel, { limit: line })).join('');
     return `<div class="imp-strips">
         <p class="imp-ghead"><b>${esc(d.label)}</b> · ${esc(printSettingHead(d.limit, d.onScale))}</p>
         ${rows}
@@ -1037,14 +1060,14 @@ function printTemperatures(m, c) {
     k.band ? `<span><i class="imp-band-key"></i> ${esc(GRAPH_KEY.band)}</span>` : k.median ? `<span><i class="imp-median-key"></i> ${esc(GRAPH_KEY.median)}</span>` : '',
     k.limit ? `<span><i class="imp-limit-key"></i> ${esc(GRAPH_KEY.limit)}</span>` : '',
   ].join('');
-  // The table: a line per row, and under each the values drawn and not counted.
-  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products counted: their own data sheet, or one they share, gives the setting">Counted</th><th class="num">Median</th>
+  // The table: a line per row, and under each the values drawn and not ranked, in the comparisons' words (C49).
+  const table = scrollTable(`<table class="grid imp-summary"><thead><tr><th>Setting, <span class="u">°C</span></th><th class="num" title="Products ranked: their own data sheet, or one they share, gives the setting">Ranked</th><th class="num">Median</th>
       <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${f.rows.map((r) => {
     const s = r.summary;
     const apart = printApartWords(s);
     return `<tr><th scope="row">${esc(r.label)}</th><td class="num">${s.n}</td><td class="num">${s.n ? esc(graphNumber(s.median, '°C')) : '—'}</td>
       <td class="num">${s.q1 != null ? esc(graphSpan(s.q1, s.q3, '°C')) : '—'}</td><td class="num">${s.n ? esc(graphRange(s, '°C')) : '—'}</td></tr>
-      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Not counted: ${esc(apart.join(', '))}.</td></tr>` : ''}`;
+      ${apart.length ? `<tr class="imp-apart"><td colspan="5">Not ranked: ${esc(apart.join(', '))}.</td></tr>` : ''}`;
   }).join('')}</tbody></table>`);
   // What n counts, the window most products share, and the products outside the H2C's limits; then what is not drawn,
   // by setting and why, so the counts above square with the products below.
@@ -1172,7 +1195,7 @@ function tabBody(tab, c) {
           : n >= 2 ? `${spanDisplayUnit(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max, unit)} · ${plural(n, 'product')}` : 'one product';
         const text = `${boundSign(e)}${fmtDisplayUnit(e.value, unit)}`;
         const value = e.spread?.n > 1
-          ? explainButton(`<span class="sv">${esc(text)}</span>`, spreadNote(e), { cls: 'spread-value', head: `Median of ${e.spread.n} products`, action: 'products', id: m.id })
+          ? explainButton(`<span class="sv">${esc(text)}</span>`, spreadNote(e, c.grades.filter(isProduct).length), { cls: 'spread-value', head: `Median of ${e.spread.n} products`, action: 'products', id: m.id })
           : e.measurementId
             ? `<button type="button" class="evidence-value" data-measurement="${esc(e.measurementId)}" title="Opens the measurement in Sources"><span>${esc(text)}</span><span class="evidence-dot" aria-hidden="true"></span></button>`
             : `<span>${esc(text)}</span>`;
@@ -1412,6 +1435,9 @@ function tabBody(tab, c) {
       .map((h) => `${h.labels.short} ${fmtBounded(g.headline[h.key].value, h.unit, g.headline[h.key].interval)}`).join(' · ');
     // The documents a product's values, settings and statements come from, each one press from its block in Sources.
     const docsOf = (g) => productDocuments(c, g);
+    // A product's line: the toggle holds the name alone, and the chips and key values sit beside it. The "sold as
+    // toughened" mark is a button of its own, and a button inside the toggle closed the toggle where it began, which threw
+    // the key values out beside Choose and broke the head (OPEN-PROBLEMS §37.20). A press on the line still opens the card.
     const block = (g, open) => {
       const j = judged.get(g.id);
       const isOpen = gradeOpen.has(g.id) ? gradeOpen.get(g.id) : open;
@@ -1419,9 +1445,9 @@ function tabBody(tab, c) {
       const docs = docsOf(g);
       return `<div class="grade-block" data-search-item="${esc([productName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
       <div class="grade-head">
-        <button type="button" class="grade-toggle" data-grade-toggle="${esc(g.id)}" aria-expanded="${isOpen}">
-          <span class="chevron" aria-hidden="true"></span><span class="grade-name">${esc(productName(g) || 'Product not named')}</span>${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}${toughenedMark(g, c)}${isProduct(g) ? '' : ' <span class="chip chip-neutral chip-small">reference</span>'}
-          ${keys(g) ? `<span class="grade-keys">${esc(keys(g))}</span>` : ''}</button>
+        <div class="grade-title" data-grade-title="${esc(g.id)}">
+          <button type="button" class="grade-toggle" data-grade-toggle="${esc(g.id)}" aria-expanded="${isOpen}"><span class="chevron" aria-hidden="true"></span><span class="grade-name">${esc(productName(g) || 'Product not named')}</span></button>${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}${toughenedMark(g, c)}${isProduct(g) ? '' : ' <span class="chip chip-neutral chip-small">reference</span>'}
+          ${keys(g) ? `<span class="grade-keys">${esc(keys(g))}</span>` : ''}</div>
         ${c.tested ? `<button type="button" class="btn btn-sm choose-btn" data-choose="${esc(g.id)}" aria-pressed="${c.chosen.has(g.id)}"
           title="${c.chosen.has(g.id) ? 'Chosen: its decision brief is under Save / share. Press to remove it.' : 'Choose this product: its decision brief, print settings and test plan go under Save / share, saved with the scenario'}">${c.chosen.has(g.id) ? '✓ Chosen' : 'Choose this product'}</button>` : ''}
       </div>

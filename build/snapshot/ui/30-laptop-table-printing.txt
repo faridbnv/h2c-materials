@@ -4,8 +4,8 @@ spill: none
 clipped cells:
   #lens table 1: 0 of 88
   #lens table 2: 0 of 56
-  #lens table 3: 0 of 208
-  #lens table 4: 0 of 392
+  #lens table 3: 0 of 200
+  #lens table 4: 0 of 400
   #lens table 5: 0 of 56
   #lens table 6: 0 of 416
 hidden controls: 0

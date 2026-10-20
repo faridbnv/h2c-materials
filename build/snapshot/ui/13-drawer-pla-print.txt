@@ -1,16 +1,16 @@
 a product's data sheet
-from the Bambu Lab Filament Guide, not counted
-added filler or additive, not counted
+from the Bambu Lab Filament Guide, kept out of the median
+added filler or additive, kept out of the median
 middle half and median
 the H2C's limit, and beyond it
 Nozzle · °C · the H2C reaches 350 °C, above this scale
 Nozzle, lowest
-166 counted of 195 shown
+166 ranked of 195 shown
 77
 32
 22
 Nozzle, highest
-167 counted of 196 shown
+167 ranked of 196 shown
 78
 48
 13
@@ -25,7 +25,7 @@ Nozzle, highest
 275
 Bed · °C · the H2C reaches 120 °C, above this scale
 Bed, lowest
-156 counted of 194 shown
+156 ranked of 194 shown
 45
 24
 23
@@ -35,7 +35,7 @@ Bed, lowest
 14
 13
 Bed, highest
-156 counted of 194 shown
+156 ranked of 194 shown
 111
 27
 22
@@ -50,10 +50,10 @@ Bed, highest
 100
 Heated chamber · °C · the H2C reaches 65 °C
 Heated chamber, lowest
-23 counted of 24 shown
+23 ranked of 24 shown
 17
 Heated chamber, highest
-23 counted of 24 shown
+23 ranked of 24 shown
 10
 °C
 0

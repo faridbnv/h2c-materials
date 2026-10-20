@@ -3,9 +3,9 @@ middle half and median
 the H2C's limit, and beyond it
 Nozzle · °C · the H2C reaches 350 °C
 Nozzle, lowest
-7 products, all counted
+7 products, all ranked
 Nozzle, highest
-7 products, all counted
+7 products, all ranked
 °C
 350
 400
@@ -13,9 +13,9 @@ Nozzle, highest
 500
 Bed · °C · the H2C reaches 120 °C
 Bed, lowest
-7 products, all counted
+7 products, all ranked
 Bed, highest
-7 products, all counted
+7 products, all ranked
 °C
 100
 150
@@ -23,9 +23,9 @@ Bed, highest
 250
 Heated chamber · °C · the H2C reaches 65 °C
 Heated chamber, lowest
-5 products, all counted
+5 products, all ranked
 Heated chamber, highest
-5 products, all counted
+5 products, all ranked
 °C
 50
 100
@@ -34,14 +34,14 @@ Heated chamber, highest
 250
 Drying · °C
 Drying
-6 products, all counted
+6 products, all ranked
 °C
 110
 120
 130
 140
 Select a dot to open its print profile below; hover to find the same product's other dots.
-Setting, °C Counted Median Middle half Range
+Setting, °C Ranked Median Middle half Range
 Nozzle, lowest 7 390 390⁠–⁠400 360⁠–⁠420
 Nozzle, highest 7 440 425⁠–⁠445 400⁠–⁠480
 Bed, lowest 7 120 115⁠–⁠130 110⁠–⁠160

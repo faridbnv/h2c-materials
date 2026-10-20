@@ -13,6 +13,7 @@
 import { AXIS_DEFS } from './axes.js';
 import { familyColors, esc, fmtNumber, fmtBounded, publishedBound, chip } from './format.js';
 import { prop } from './labels.js';
+import { zoomScale } from './scales.js';
 
 /** An axis is logarithmic when its drawn values' largest is more than this many times their smallest (Compare's rule). */
 const LOG_AXIS_RATIO = 100;
@@ -152,26 +153,43 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
   // Each axis scaled to its own range across the drawn set, which is what makes the shape readable. An axis whose drawn
   // values are all positive and span more than a hundredfold is logarithmic, by Compare's rule: one elastomer at 400 %
   // elongation had pressed every other line onto the floor of a linear axis (REVIEW-0 F9, 2026-10-18).
+  // Far outliers are parked at the axis end (C47), after the material pages' rule (material-stats.js propertyScale): over
+  // eight lines, the core is the values without the two lowest and the two highest, and it decides whether the axis is
+  // logarithmic; the axis then reaches every value within one core's span beyond the core (in decades on a log axis), and
+  // a value further out ends its line at the axis end, under a chevron, its value in the readout. One elastomer at 0.006
+  // GPa had made the modulus axis logarithmic and packed 53 rigid materials into its top third. The ticks are round
+  // numbers (C45): three to five on a linear axis, the decades on a logarithmic one.
   const scales = axes.map((a) => {
-    const vs = usable.map((r) => r.material.headline[a.key].value);
-    let lo = Math.min(...vs), hi = Math.max(...vs);
-    const log = lo > 0 && hi / lo > LOG_AXIS_RATIO;
+    const vs = usable.map((r) => r.material.headline[a.key].value).sort((x, y) => x - y);
+    const core = vs.length > 8 ? vs.slice(2, -2) : vs;
+    const log = core[0] > 0 && core[core.length - 1] / core[0] > LOG_AXIS_RATIO;
+    const t = log ? Math.log10 : (x) => x;
+    const span = t(core[core.length - 1]) - t(core[0]) || (log ? 1 : Math.abs(core[0]) * 0.5 || 1);
+    const near = vs.filter((v) => (!log || v > 0) && t(v) >= t(core[0]) - span && t(v) <= t(core[core.length - 1]) + span);
+    let lo = near[0], hi = near[near.length - 1];
     if (lo === hi) { const d = Math.abs(lo) * 0.1 || 1; lo -= d; hi += d; }
-    return { lo, hi, log };
+    const z = zoomScale([lo, hi], a.unit, log);
+    let ticks = z.ticks;
+    if (log) { const decades = ticks.filter((v) => Number.isInteger(Math.log10(v))); if (decades.length >= 2) ticks = decades; }
+    while (ticks.length > 5) ticks = ticks.filter((_, k) => k % 2 === 0);
+    return { lo: z.from, hi: z.hi, log, ticks, below: vs.filter((v) => v < z.from || (log && !(v > 0))).length, above: vs.filter((v) => v > z.hi).length };
   });
 
   const xAt = (i) => pad.left + i * step;
   // End axes anchor inward so their labels and ticks cannot run off the drawing.
   const anchor = (i) => (i === 0 ? 'start' : i === axes.length - 1 ? 'end' : 'middle');
+  // A value beyond the scale sits at its end (parked); `beyondScale` says which way.
+  const beyondScale = (i, v) => { const { lo, hi, log } = scales[i]; return v > hi ? 1 : v < lo || (log && !(v > 0)) ? -1 : 0; };
   const yAt = (i, v) => {
     const { lo, hi, log } = scales[i];
     const t = log ? Math.log10 : (x) => x;
-    return pad.top + innerH - ((t(v) - t(lo)) / (t(hi) - t(lo))) * innerH;
+    const at = v > hi ? hi : v < lo || (log && !(v > 0)) ? lo : v;
+    return pad.top + innerH - ((t(at) - t(lo)) / (t(hi) - t(lo))) * innerH;
   };
 
   const last = axes.length - 1;
   const lines = usable.map(({ material: m, evaluation: e }) => ({
-    id: m.id, name: m.name, family: m.family, material: m,
+    id: m.id, name: m.name, family: m.family, material: m, evaluation: e,
     pts: axes.map((a, i) => `${xAt(i)},${yAt(i, m.headline[a.key].value)}`).join(' '),
     yEnd: yAt(last, m.headline[axes[last].key].value),
     // Nothing is tested until a requirement is set, so no line is a result before then.
@@ -179,8 +197,31 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
   }));
 
   const crowded = lines.length > 40;
-  // A line's values in words: its readout, and its name for a screen reader.
-  const valuesOf = (l) => axes.map((a) => `${prop(a.key).short} ${fmtBounded(l.material.headline[a.key].value, a.unit, publishedBound(l.material.headline[a.key]))}`);
+  // A line's values in words: its readout, and its name for a screen reader. Each says the spread of the material's
+  // products behind it, as the table and the material pages say a median, and one parked at the axis end says so (C46, C47).
+  const valuesOf = (l) => axes.map((a, i) => {
+    const h = l.material.headline[a.key];
+    const sp = h.spread?.n > 1 ? h.spread : null;
+    const past = beyondScale(i, h.value);
+    return `${prop(a.key).short} ${fmtBounded(h.value, a.unit, publishedBound(h))}${sp ? ` (${fmtNumber(sp.min)}–${fmtNumber(sp.max)}, ${sp.n} products)` : ''}${past ? `, ${past > 0 ? 'above' : 'below'} the scale` : ''}`;
+  });
+  // How many of a material's products pass, where a requirement is set: the line is the material, its result its products'.
+  const passWords = (l) => {
+    const c = l.evaluation?.counts;
+    if (!tested || !c?.products) return '';
+    return c.pass ? `passes on ${c.pass} of ${c.products} product${c.products === 1 ? '' : 's'}` : `passes on none of its ${c.products} product${c.products === 1 ? '' : 's'}`;
+  };
+  // The page's glyph on each axis the read line crosses: the range of the material's products as a hairline, their middle
+  // half as a bar, in the line's colour (C46). A line was a median alone, and one below a requirement had nothing to say
+  // that some of its products pass.
+  const glyphsOf = (l) => axes.map((a, i) => {
+    const sp = l.material.headline[a.key].spread;
+    if (!(sp?.n > 1) || sp.min === sp.max) return '';
+    const x = xAt(i);
+    const range = `<line class="pc-g-range" x1="${x}" x2="${x}" y1="${yAt(i, sp.min)}" y2="${yAt(i, sp.max)}"/>`;
+    const half = sp.q1 != null && sp.q3 != null ? `<line class="pc-g-half" x1="${x}" x2="${x}" y1="${yAt(i, sp.q1)}" y2="${yAt(i, sp.q3)}"/>` : '';
+    return range + half;
+  }).join('');
 
   // The result of each line, as the Ashby chart draws it: one that could not be checked is dashed, one that failed is
   // faded (C40). They are here only when the table's chips ask for them.
@@ -238,7 +279,11 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
       anyHard && anyTracked ? 'A requirement, dashed where it is only reported' : anyTracked ? 'A requirement that is reported, not required' : 'A requirement'}${
       marks.some((m) => m.past) ? ', with a chevron where it lies past the end of the axis' : ''}</span>`] : []),
     ...(anyShort ? ['<span class="pc-key">★ Full weight: on the shortlist</span>'] : []),
+    ...(scales.some((x) => x.below || x.above) ? [`<span class="pc-key">${swatch('<path class="pc-park-chev" d="M7 7 11 3 15 7"/>')}Beyond the scale: the line ends at the axis end; its value is in the readout</span>`] : []),
   ];
+  // The better end of each axis, from the registry's Pareto direction: the axes are not flipped, an engineer reads the
+  // numbers (C45, V16).
+  const betterWords = (a) => (a.better === 'min' ? '↓ better' : a.better === 'max' ? '↑ better' : '');
 
   // Each line is a group of two polylines: the one drawn, and a wide transparent one over it that takes the pointer, so a
   // finger can hit a line under two pixels wide. The group is the focusable control.
@@ -254,9 +299,13 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
         <g class="pc-axis-g" aria-hidden="true">
           <line x1="${xAt(i)}" y1="${pad.top}" x2="${xAt(i)}" y2="${pad.top + innerH}" class="pc-line-axis"/>
           <text x="${xAt(i)}" y="${pad.top - 38}" class="pc-lbl" text-anchor="${anchor(i)}">${esc(prop(a.key).short)}</text>
-          <text x="${xAt(i)}" y="${pad.top - 25}" class="pc-lbl-unit" text-anchor="${anchor(i)}">${esc(a.unit)}${scales[i].log ? ' · log' : ''}</text>
+          <text x="${xAt(i)}" y="${pad.top - 25}" class="pc-lbl-unit" text-anchor="${anchor(i)}">${esc(a.unit)}${scales[i].log ? ', log scale' : ''}${betterWords(a) ? ` · ${betterWords(a)}` : ''}</text>
+          ${scales[i].ticks.map((v) => { const y = yAt(i, v); return `<line class="pc-tick-mark" x1="${xAt(i) - 4}" x2="${xAt(i)}" y1="${y}" y2="${y}"/>${v === scales[i].lo || v === scales[i].hi ? ''
+            : `<text class="pc-tick pc-tick-in" x="${xAt(i) - 6}" y="${y}" dy=".35em" text-anchor="end">${fmtNumber(v)}</text>`}`; }).join('')}
           <text x="${xAt(i)}" y="${pad.top - 8}" class="pc-tick" text-anchor="${anchor(i)}">${fmtNumber(scales[i].hi)}</text>
           <text x="${xAt(i)}" y="${pad.top + innerH + 17}" class="pc-tick" text-anchor="${anchor(i)}">${fmtNumber(scales[i].lo)}</text>
+          ${scales[i].above ? `<path class="pc-park-chev" d="M${xAt(i) - 4} ${pad.top - 1} L${xAt(i)} ${pad.top - 5} L${xAt(i) + 4} ${pad.top - 1}"><title>${scales[i].above} beyond the scale, above</title></path>` : ''}
+          ${scales[i].below ? `<path class="pc-park-chev" d="M${xAt(i) - 4} ${pad.top + innerH + 1} L${xAt(i)} ${pad.top + innerH + 5} L${xAt(i) + 4} ${pad.top + innerH + 1}"><title>${scales[i].below} beyond the scale, below</title></path>` : ''}
         </g>`).join('')}
       <g class="pc-lines">
         ${lines.map((l, i) => {
@@ -272,12 +321,13 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
       </g>
       <g class="pc-reqs">${marks.map(markSvg).join('')}</g>
       <polyline class="pc-poly pc-raised" points="" aria-hidden="true"/>
+      <g class="pc-glyphs" aria-hidden="true"></g>
     </svg></div>
     <div class="pc-legend">${keys.join('')}</div>
     <div class="legend-note">
       ${lines.length} of ${state.rows.length} candidates have all ${axes.length} properties and are drawn.
       ${state.rows.length - lines.length ? `${state.rows.length - lines.length} do not, and are left out rather than drawn at zero.` : ''}
-      Each axis is scaled to its own range across the drawn set${scales.some((x) => x.log) ? '; one whose values span more than a hundredfold is logarithmic, marked log' : ''}. Point at a line to read it and click it to open the material;
+      Each axis is scaled to its own range across the drawn set${scales.some((x) => x.log) ? '; one whose values span more than a hundredfold is on a log scale' : ''}${scales.some((x) => x.below || x.above) ? ', and above eight lines a value far beyond the rest is parked at the axis end' : ''}. Point at a line to read it, with the range and middle half of its products drawn on each axis, and click it to open the material;
       on a touch screen, tap a line to read it, then Open material. From the keyboard, Tab reaches each line and Enter opens it.
       ${estimateOnly.length ? `<br><b>${estimateOnly.length} of those</b> have an estimated range on at
         least one of these axes rather than a gap: ${esc(estimateOnly.slice(0, 8).map((r) => r.material.name).join(', '))}${estimateOnly.length > 8 ? ` and ${estimateOnly.length - 8} more` : ''}.
@@ -294,7 +344,8 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
   const show = (g) => {
     const l = g && byId.get(g.dataset.id);
     if (!l) { readout.textContent = IDLE; openBtn.hidden = true; return; }
-    readout.innerHTML = `<b>${esc(l.name)}</b> <span class="pc-readout-family">${esc(l.family)}</span>${l.verdict === 'PASS' ? '' : ` ${chip(l.verdict)}`} ${valuesOf(l).map((v) => `<span class="pc-readout-value">${esc(v)}</span>`).join(' ')}`;
+    const passes = passWords(l);
+    readout.innerHTML = `<b>${esc(l.name)}</b> <span class="pc-readout-family">${esc(l.family)}</span>${l.verdict === 'PASS' ? '' : ` ${chip(l.verdict)}`}${passes ? ` <span class="pc-readout-pass">${esc(passes)}</span>` : ''} ${valuesOf(l).map((v) => `<span class="pc-readout-value">${esc(v)}</span>`).join(' ')}`;
     openBtn.hidden = false;
     openBtn.dataset.id = l.id;
     openBtn.setAttribute('aria-label', `Open ${l.name}`);
@@ -303,11 +354,15 @@ function draw(host, usable, chosen, state, actions, estimateOnly = []) {
   // own element to the top would have changed the Tab order and taken focus off it. It keeps the line's dashes, so a line
   // that could not be checked still reads so while it is read.
   const raised = host.querySelector('.pc-raised');
+  const glyphs = host.querySelector('.pc-glyphs');
   const raise = (g) => {
     const line = g?.querySelector('.pc-poly');
     raised.setAttribute('points', line ? line.getAttribute('points') : '');
     raised.style.stroke = line ? line.style.stroke : '';
     raised.classList.toggle('v-unknown', !!g?.classList.contains('v-unknown'));
+    const l = g && byId.get(g.dataset.id);
+    glyphs.innerHTML = l ? glyphsOf(l) : '';
+    glyphs.style.stroke = line ? line.style.stroke : '';
   };
   // The line read and kept is the selection every lens shares (state.selected, the Ashby chart's picked-out material): a
   // line selected here is selected there, and one selected there is raised here on arrival. It is set without a redraw,

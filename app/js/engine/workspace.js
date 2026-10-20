@@ -19,6 +19,7 @@ import { productView, stateOf, valueStateOf, firstState } from './products.js';
 import { indexValue, rankingFor, indexAxes, indexOrientation, COST_AXIS } from './indices.js';
 import { paretoFront } from './pareto.js';
 import { publishedBound } from './constraints.js';
+import { fillerOf } from './filler.js';
 
 export { COST_AXIS };
 
@@ -195,7 +196,7 @@ export function estimateContext(rows, ctx, { xKey, yKey, xLog, yLog, index, orie
     const hx = material.headline?.[xKey], hy = material.headline?.[yKey];
     const xEst = !!(hx && !hx.known && hx.estimate), yEst = !!(hy && !hy.known && hy.estimate);
     if (!xEst && !yEst) continue;
-    const base = { materialId: material.id, name: material.name, family: material.family, filler: material.facets?.reinforcement?.value ?? null, verdict: evaluation?.verdict ?? null };
+    const base = { materialId: material.id, name: material.name, family: material.family, filler: fillerOf(material), verdict: evaluation?.verdict ?? null };
     if (xKey === COST_AXIS || yKey === COST_AXIS) { unavailable.push({ ...base, reason: 'cost-axis' }); continue; }
     const x = contextSpan(material, xKey, registry), y = contextSpan(material, yKey, registry);
     if (!x || !y) { unavailable.push({ ...base, reason: 'other-axis-missing' }); continue; }
@@ -237,7 +238,7 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
     const offLog = known && ((xLog && !(xv.value > 0)) || (yLog && !(yv.value > 0)));
     return {
       key: j.key, materialId: j.material.id, gradeId: j.grade.id, stateId: j.state.id,
-      name: j.material.name, family: j.material.family, filler: j.material.facets?.reinforcement?.value ?? null,
+      name: j.material.name, family: j.material.family, filler: fillerOf(j.material),
       product: `${j.grade.manufacturer} ${j.grade.product}`, manufacturer: j.grade.manufacturer, productName: j.grade.product,
       // A declared variant (a lightweight additive, a dense filler) describes the product, not its polymer (D57): it is
       // drawn, and kept out of its material's range as the build keeps it out of the material's spread.

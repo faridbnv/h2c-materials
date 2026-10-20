@@ -43,14 +43,14 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 10 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+TABLE 10 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW PP-CF / Polyolefins / #1 · best: Braskem FL900PP-CF | ☆ | PASS / 2 of 5 products | 1,000 / 910–1,100 · 5 | passing: 6.15–6.38 / all products: 6.15 / 2.1–6.38 · 3 | 41 / 27.3–78 · 3 | 1.4 / 1.3–1.5 · 2 | passing: 124–158 / all products: 141 / 88–158 · 4 | 147↗
-ROW PPS-CF / High-Performance Engineering / #2 · best: Bambu Lab PPS-CF | ☆ | PASS / 4 of 7 products | 1,295 / 1,260–1,510 · 6 | passing: 7.46–8.23 / all products: 8 / 5.45–8.23 · 5 | 87 / 59.4–95 · 5 | 2.2 / 1.2–4 · 5 | passing: 245–264 / all products: 251 / 245–264 · 5 | 210 / 198–221 · 2 / ↗
+ROW PPS-CF / High-Performance Engineering / #2 · best: Bambu Lab PPS-CF | ☆ | PASS / 4 of 7 products | 1,295 / 1,260–1,510 · 6 | passing: 7.46–8.23 / all products: 8 / 5.45–8.23 · 5 | 87 / 59.4–95 · 5 | 2.2 / 1.2–4 · 5 | passing: 245–264 / all products: 251 / 245–264 · 5 | 210↗ / 198–221 · 2
 ROW PP-GF / Polyolefins / #3 · best: 3DXTECH FIBREX GF PP | ☆ | PASS / 1 of 2 products | 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 139 / 138–139 · 2 | 118EUR↗ / out of stock
 ROW PPA-CF / High-Performance Engineering / #4 · best: Bambu Lab PPA-CF | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness | 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 209 / 84.5–240 · 8 | 255↗
 ROW PPA-GF / High-Performance Engineering / #5 · best: Flashforge PPA-GF | ☆ | PASS / 3 of 5 products / judged dry; humid air lowers its stiffness | 1,280 / 1,160–1,310 · 5 | passing: 5.7–7 / all products: 6.56 / 5.7–7 · 3 | 100 / 89–106 · 3 | 2.7 / 2.1–3.5 · 3 | passing: 84–227 / all products: 196 / 84–227 · 5 | 106↗
 ROW PPS-GF / High-Performance Engineering / #6 · best: IPCON PPS-GF | ☆ | PASS / 1 of 2 products | 1,360 | passing: 5.76 / all products: 5.16 / 4.55–5.76 · 2 | 68 / 64.1–72 · 2 | 1.8 / 1.6–2 · 2 | passing: 241 / all products: 239 / 236–241 · 2 | 164↗
-ROW PETG-CF / #7 · best: 3DXTECH CarbonX Carbon Fiber PETG | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.4 / 1.77–5.23 · 9 | 49.4 / 32–60 · 10 | 6 / 1.9–14 · 9 | passing: 77 / all products: 72 / 68–77 · 14 | 41 / 35–56 · 3 / ↗
-ROW PA6-CF / Nylon / Polyamide / not ranked: no passing product publishes what E / rho needs | ☆ | PASS / 1 of 14 products / judged dry; humid air lowers its stiffness | 1,175 / 1,090–1,250 · 14 | 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | passing: 203 / all products: 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗
+ROW PETG-CF / #7 · best: 3DXTECH CarbonX Carbon Fiber PETG | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.4 / 1.77–5.23 · 9 | 49.4 / 32–60 · 10 | 6 / 1.9–14 · 9 | passing: 77 / all products: 72 / 68–77 · 14 | 41↗ / 35–56 · 3
+ROW PA6-CF / Nylon / Polyamide / not ranked: no passing product publishes what E / rho needs | ☆ | PASS / 1 of 14 products / judged dry; humid air lowers its stiffness | 1,175 / 1,090–1,250 · 14 | 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | passing: 203 / all products: 183 / 140–215 · 10 | 130↗ / 110–204 · 4
 ROW PAHT-CF · ☆
 ROW PET-CF · ☆

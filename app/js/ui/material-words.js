@@ -186,10 +186,12 @@ export const GRAPH_KEY = {
   claimed: 'sold as toughened (maker\'s statement)',
   band: 'middle half and median',
   median: 'median',
-  // Print temperatures: a value read from the guide is drawn hollow, and never counted.
+  // Print temperatures: a value read from the guide is drawn hollow, and kept out of the median. One phrase for what a
+  // median leaves out across the graphs (C49): a mark is "kept out of the median", a count says how many are "ranked";
+  // the print graphs had said "not counted" and "169 counted of 194 shown" for the same idea.
   own: 'a product\'s data sheet',
-  guide: 'from the Bambu Lab Filament Guide, not counted',
-  printVariant: 'added filler or additive, not counted',
+  guide: 'from the Bambu Lab Filament Guide, kept out of the median',
+  printVariant: 'added filler or additive, kept out of the median',
   limit: 'the H2C\'s limit, and beyond it',
 };
 
@@ -336,7 +338,7 @@ export const windowText = (lo, hi) => (lo != null && hi == null ? `at least ${fm
 /** Over a print setting's graph, after its name: its unit, and the H2C's limit, drawn on the scale or above it. */
 export const printSettingHead = (limit, onScale) => `°C${limit == null ? '' : ` · the H2C reaches ${fmtNumber(limit)} °C${onScale ? '' : ', above this scale'}`}`;
 
-/** A print row's values drawn and not counted (print-spread.js rowSummary), each with its range: from the guide, an added filler or additive. */
+/** A print row's values drawn and not ranked (print-spread.js rowSummary), each with its range: from the guide, an added filler or additive. */
 export const printApartWords = (s) => [s.guide ? `${s.guide.n} from the guide (${graphRange(s.guide, '°C')})` : null,
   s.variants ? `${s.variants.n} with an added filler or additive (${graphRange(s.variants, '°C')})` : null].filter(Boolean);
 

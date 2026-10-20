@@ -6,7 +6,7 @@
 
 import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
 import { esc, fmtNumber } from './format.js';
-import { describeConstraint, screenedByKind, unknownGroups, unknownGroupWords, POLICY_LABELS, GATE, H2C_CHECK } from './labels.js';
+import { describeConstraint, screenedByKind, unknownGroups, unknownGroupWords, POLICY_LABELS, GATE, H2C_CHECK, H2C_SCOPE_MEANING, h2cCheckMeaning } from './labels.js';
 import { andList } from './text.js';
 
 /**
@@ -35,27 +35,32 @@ export function renderStart(state, actions) {
         </button>`).join('')}
     </div>
 
-    <div class="start-facts">
-      <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> within H2C capability</span>
-      <span><b>${fmtNumber(db.meta.counts.measurements)}</b> measurements, each traceable to its source</span>
-      <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
-        <b>${db.meta.headlineCoverage.priceCADkg}</b> a price</span>
+    <!-- The database in two facts and what it cannot answer, on one line: the coverage counts and the line on gaps had
+         taken two more under the cards, and the table's third row lay below the fold at 1280 x 800 (OPEN-PROBLEMS §37.20).
+         They open with what the database cannot answer, which is what they are about. -->
+    <div class="start-foot">
+      <div class="start-facts">
+        <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> within H2C capability</span>
+        <span><b>${fmtNumber(db.meta.counts.measurements)}</b> measurements, each traceable to its source</span>
+      </div>
+      ${limits(db)}
     </div>
-    <p class="start-note">No material is ranked on a number nobody measured: a property never published shows as a gap, not a guess.</p>
-
-    ${limits(db)}
   </section>`;
 }
 
 /**
  * What the database cannot answer. It used to live only on the start panel, so it vanished the
  * moment a requirement was set, which is exactly when someone substitutes a nearby metric for the
- * one they wanted.
+ * one they wanted. On the start panel it opens with how sparse the values are and that a gap is shown as one.
  */
 function limits(db) {
+  const cov = db.meta.headlineCoverage;
   return `
     <details class="start-limits">
       <summary><span class="chevron" aria-hidden="true"></span>What this database cannot answer</summary>
+      <p class="start-note"><b>${cov.density}</b> of the ${candidateCount(db)} materials have a density, <b>${cov.tensileModulusXY}</b> a
+        tensile modulus and <b>${cov.priceCADkg}</b> a price. No material is ranked on a number nobody measured: a property
+        never published shows as a gap, not a guess.</p>
       ${limitsBody(db)}
     </details>`;
 }
@@ -73,9 +78,9 @@ function limitsBody(db) {
       <ul>
         <li><b>Warping and first-layer behaviour.</b> ${warping} statements in the whole database: no basis to
           rank materials by warping.</li>
-        <li><b>AMS compatibility.</b> Published for ${ams} of ${profiles} print profiles. The rest say to verify the
+        <li><b>AMS compatibility.</b> Published for ${fmtNumber(ams)} of ${fmtNumber(profiles)} print profiles. The rest say to verify the
           exact grade, so the tool quotes that rather than answering yes or no.</li>
-        <li><b>Whether an enclosure is needed.</b> Stated for ${enclosure} of ${profiles} profiles. Chamber
+        <li><b>Whether an enclosure is needed.</b> Stated for ${fmtNumber(enclosure)} of ${fmtNumber(profiles)} profiles. Chamber
           temperature is published far more often and is the closest usable proxy.</li>
         <li><b>UV and outdoor life, food contact, creep, fatigue.</b> Described in words, never as a pass or fail.
           Read them in a material's Environment tab.</li>
@@ -115,8 +120,10 @@ export function renderActive(state, actions) {
   const sameAsTemplate = template
     && JSON.stringify(template.constraints) === JSON.stringify(cs);
 
+  // The two H2C requirements say in their titles what each reads, as the rail says under each: they sit side by side and
+  // had read as one idea twice (§37.20).
   const pill = (c, i) => `<button class="pill${c.mandatory === false ? ' soft' : ''}" data-drop="${i}"
-      title="Remove this requirement">${esc(describe(c))}<span class="x" aria-hidden="true">\u00d7</span></button>`;
+      title="${esc(c.kind === 'gate' && c.gate === 'scope' ? `${H2C_SCOPE_MEANING} Press to remove this requirement.` : 'Remove this requirement')}">${esc(describe(c))}<span class="x" aria-hidden="true">\u00d7</span></button>`;
 
   // Included, the table lists the materials that could not be checked beside the ones that passed, so
   // the heading counts both. "15 meet these requirements" above 23 rows read as a contradiction; the other 8 were
@@ -167,14 +174,16 @@ export function renderActive(state, actions) {
         <h2>${counts.pass} of the ${counts.total} materials meet ${hard.length === 1 ? 'this requirement' : 'these requirements'}</h2>
         ${beside ? `<p>${esc(beside)}</p>` : ''}
       </div>
+      <!-- On a phone the two longer buttons show a short form, so the three share one row and the first candidate comes
+           into the first screen (OPEN-PROBLEMS §19); the full words stay their names. -->
       <div class="active-actions">
         <button class="btn btn-sm btn-primary read-candidates" data-act="read">Read the candidates</button>
-        <button class="btn btn-sm" data-act="explain">Why the rest were excluded</button>
-        <button class="btn btn-sm" data-act="reset" title="Removes every requirement. Part condition, search, shortlist and view stay as they are.">Clear requirements</button>
+        <button class="btn btn-sm" data-act="explain" aria-label="Why the rest were excluded"><span class="lbl-long">Why the rest were excluded</span><span class="lbl-short" aria-hidden="true">Why excluded</span></button>
+        <button class="btn btn-sm" data-act="reset" aria-label="Clear requirements" title="Removes every requirement. Part condition, search, shortlist and view stay as they are."><span class="lbl-long">Clear requirements</span><span class="lbl-short" aria-hidden="true">Clear</span></button>
       </div>
     </div>
     <div class="pills" title="Press a requirement to remove it">
-      ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">${H2C_CHECK}<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
+      ${printable ? `<button class="pill" data-drop-printable title="${esc(`${h2cCheckMeaning()} Press to remove the nozzle, bed and chamber checks.`)}">${H2C_CHECK}<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
       ${shownHard.map((c) => pill(c, cs.indexOf(c))).join('')}
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">Reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>

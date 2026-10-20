@@ -63,6 +63,7 @@ const { matchesQuery } = await import(pathToFileURL(join(root, 'app/js/engine/se
 const { productsByMaterial, productView, stateOf } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
 const { applyAssumptions, toHash, validateScenario } = await import(pathToFileURL(join(root, 'app/js/engine/scenario.js')).href);
 const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
+const { fillerOf } = await import(pathToFileURL(join(root, 'app/js/engine/filler.js')).href);
 
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 // As the page does: a material is judged by its products (D83); the build gives its headline as their spread.
@@ -121,6 +122,9 @@ const threshold = (k) => {
 };
 const H2C = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical', 'Exceeds H2C limits'];
 const REINF = ['carbon-fibre', 'glass-fibre', 'unfilled', 'esd', 'foaming', 'undisclosed'];
+// The rail's filler classes (engine/filler.js): the facet's, and the fillers the materials table names (§37.8). A link
+// may still carry the facet's own classes (REINF), which the engine reads as before.
+const FILLERS = [...new Set(candidates.map(fillerOf).filter(Boolean))];
 const CATS = Object.keys(db.meta.environmentCategories);
 const FAMILIES = [...new Set(candidates.map((m) => m.facets.family.value))];
 const POLYMERS = [...new Set(candidates.map((m) => m.facets.polymer.value))];
@@ -146,7 +150,8 @@ function genConstraint() {
       { kind, gate: 'abrasive', hardenedAvailable: chance(0.3) }, { kind, gate: 'buyable', inStock: chance(0.5) }, { kind, gate: 'dryingKnown' },
       { kind, gate: 'h2cStatus', in: (() => { const s = subset(H2C); return s.length ? s : [pick(H2C)]; })() }]);
   }
-  if (kind === 'facet') return pick([{ kind, facet: 'supportMaterial', equals: false }, { kind, facet: 'supportMaterial', equals: chance(0.2) ? true : false }, { kind, facet: 'reinforcement', in: (() => { const s = subset(REINF); return s.length ? s : [pick(REINF)]; })() }, { kind, facet: 'flexible', equals: chance(0.5) },
+  if (kind === 'facet') return pick([{ kind, facet: 'supportMaterial', equals: false }, { kind, facet: 'supportMaterial', equals: chance(0.2) ? true : false }, { kind, facet: 'reinforcement', in: (() => { const s = subset(REINF); return s.length ? s : [pick(REINF)]; })() },
+    { kind, facet: 'filler', in: (() => { const s = subset(FILLERS).slice(0, 4); return s.length ? s : [pick(FILLERS)]; })() }, { kind, facet: 'flexible', equals: chance(0.5) },
     { kind, facet: 'family', in: [pick(FAMILIES)] }, { kind, facet: 'polymer', in: [pick(POLYMERS)] }]);
   if (kind === 'environment') return { kind, category: pick(CATS) };
   const spec = {}; if (chance(0.6)) spec.exactGrade = true; if (chance(0.6)) spec.noConflicts = true;

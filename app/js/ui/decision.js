@@ -9,7 +9,8 @@
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '../engine/indices.js';
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
-import { familyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
+import { familyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL, NAMED_FILLER_SYMBOL, NAMED_FILLER_KEY, fillerSymbol, fillerLabel } from './format.js';
+import { isNamedFiller } from '../engine/filler.js';
 import { AXIS_DEFS } from './axes.js';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH, H2C_CHECK } from './labels.js';
 import { printCheck, printGatesMissing } from './templates.js';
@@ -41,7 +42,8 @@ export function axisDef(key) {
   const a = AXIS_DEFS.find((x) => x.key === key) ?? AXIS_DEFS[0];
   return { ...a, plain: prop(a.key).plain };
 }
-const axisTitle = (d) => `${d.plain} (${d.unit})`;
+// A log axis says so as every graph says it, "<unit>, log scale" (C49).
+const axisTitle = (d, log = false) => `${d.plain} (${d.unit}${log ? ', log scale' : ''})`;
 const valueText = (v, d, interval = null) => (v === null || v === undefined ? '—' : fmtBounded(v, d.unit, interval));
 
 /** Why a product state has no coordinate on an axis, in words. */
@@ -560,7 +562,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const cd = (q, note) => [q.materialId, `${q.name}: ${q.product}`, q.verdict, q.x.measurementId ?? '', q.y.measurementId ?? '', q.stateId, q.gradeId, [note, ...bounded(q)].join('; '), q.key];
   // Shape is the filler on every view of the lens (D110): a carbon-fibre product is a diamond wherever it is drawn. How
   // the shape is drawn is its status: filled passes, hollow could not be settled, small and faint fails.
-  const shape = (q) => FILLER_SYMBOL[q.filler] ?? 'circle';
+  const shape = (q) => fillerSymbol(q.filler);
   // A material picked in the list stays bright and the rest fade (D109): a way to find it without losing the picture.
   const picked = state.selected ?? null;
   const faded = (materialId) => !!picked && materialId !== picked;
@@ -768,8 +770,8 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
     margin,
     paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
     font: { color: ink, family: 'system-ui, sans-serif', size: 12 },
-    xaxis: { title: { text: `${axisTitle(xD)}${p.xLog ? ' · log' : ''}` }, type: p.xLog ? 'log' : 'linear', automargin: true, gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
-    yaxis: { title: { text: `${axisTitle(yD)}${p.yLog ? ' · log' : ''}` }, type: p.yLog ? 'log' : 'linear', automargin: true, gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
+    xaxis: { title: { text: axisTitle(xD, p.xLog) }, type: p.xLog ? 'log' : 'linear', automargin: true, gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
+    yaxis: { title: { text: axisTitle(yD, p.yLog) }, type: p.yLog ? 'log' : 'linear', automargin: true, gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
     shapes, annotations, showlegend: legendNames.length > 0, legend,
     dragmode: 'zoom', hovermode: 'closest',
   };
@@ -840,6 +842,7 @@ const SHAPE_GLYPH = {
   'triangle-up': '<path d="M8 3 13.5 13h-11z"/>',
   'star': '<path d="M8 2.2l1.7 3.9 4.2.4-3.2 2.8.9 4.1L8 11.3l-3.6 2.1.9-4.1-3.2-2.8 4.2-.4z"/>',
   'hexagon': '<path d="M8 2.5l4.8 2.75v5.5L8 13.5l-4.8-2.75v-5.5z"/>',
+  'triangle-down': '<path d="M8 13 2.5 3h11z"/>',
 };
 
 /** What the marks mean, once, under the chart: only what is drawn. */
@@ -850,7 +853,12 @@ export function workspaceKey(state, ws, { view }) {
   // The fillers drawn, by their shapes: the same shapes on every view (D110).
   const drawn = view === 'overview' ? ws.pairs.filter((q) => q.plottable && ws.materialSummaries.some((s) => s.paired.includes(q.key)))
     : [...ws.decision, ...(layerOn(state, 'unresolved') ? ws.unresolved : []), ...(p.layers?.failed ? ws.failed : [])];
-  for (const f of Object.keys(FILLER_SYMBOL).filter((k) => drawn.some((q) => (q.filler ?? 'unfilled') === k))) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}`);
+  const classes = Object.keys(FILLER_SYMBOL).filter((k) => drawn.some((q) => (q.filler ?? 'unfilled') === k));
+  for (const f of classes.filter((k) => k !== 'undisclosed')) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}`);
+  // The fillers the materials table names share one shape, and the key names those drawn (§37.8).
+  const named = [...new Set(drawn.map((q) => q.filler).filter(isNamedFiller))].map(fillerLabel).sort();
+  if (named.length) items.push(`${g(SHAPE_GLYPH[NAMED_FILLER_SYMBOL])}${esc(`${NAMED_FILLER_KEY}: ${named.join(', ')}`)}`);
+  if (classes.includes('undisclosed')) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL.undisclosed])}${esc(FILLER_LABEL.undisclosed)}`);
   if (view === 'overview') {
     items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest; + at the medians`);
     if (ws.materialSummaries.some((s) => s.apart?.length)) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Open: a product its maker sells as toughened, outside its material's range on an impact axis`);

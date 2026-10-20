@@ -1,7 +1,7 @@
 COUNT 93 shown PASS + UNKNOWN
 STATUS ☑ PASS 11 | ☑ UNKNOWN 89 | ☐ FAIL 52 | ☐ HIDDEN 7
 11 of the 152 materials meet these requirements
-Outdoor structural part template · UNKNOWN 89: 7 one check away, 26 not enough data, 49 unlikely to meet, 7 hidden
+Outdoor structural part template · UNKNOWN 89: 7 one check away, 25 not enough data, 50 unlikely to meet, 7 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -49,12 +49,12 @@ PC
 n/a not applicable
 3 more marks
 Meets every requirement (11)
-TABLE 11 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
-ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | passing: 101–103 / all products: 101 / 86–130 · 7 | 65 / 40–122 · 5 / ↗
-ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | passing: 140–203 / all products: 183 / 140–215 · 10 | 130 / 110–204 · 4 / ↗
-ROW PA6-GF / Nylon / Polyamide | ☆ | PASS / 1 of 11 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,350 / all products: 1,310 / 1,140–1,370 · 9 | passing: 4.26 / all products: 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | passing: 186 / all products: 184 / 161–210 · 10 | 84 / 77–146 · 3 / ↗
+TABLE 11 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 41.3 / 34–50.1 · 6 | 3 / 1.64–15.5 · 5 | passing: 101–103 / all products: 101 / 86–130 · 7 | 65↗ / 40–122 · 5
+ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 77 / 53–112 · 7 | 7.35 / 2.1–16.5 · 6 | passing: 140–203 / all products: 183 / 140–215 · 10 | 130↗ / 110–204 · 4
+ROW PA6-GF / Nylon / Polyamide | ☆ | PASS / 1 of 11 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,350 / all products: 1,310 / 1,140–1,370 · 9 | passing: 4.26 / all products: 4.35 / 2.85–5.36 · 4 | 82.3 / 62.8–98.9 · 6 | 4.95 / 2.4–12.5 · 6 | passing: 186 / all products: 184 / 161–210 · 10 | 84↗ / 77–146 · 3
 ROW PBT-GF / Polymer Blends | ☆ | PASS / 2 of 2 products | passing: 1,320–1,350 / all products: 1,335 / 1,320–1,350 · 2 | passing: 3.7–4 / all products: 3.85 / 3.7–4 · 2 | 67.5 / 65–70 · 2 | 2.5 / 2–3 · 2 | passing: 170–175 / all products: 173 / 170–175 · 2 | —
-ROW PET-CF / PET Engineering | ☆ | PASS / 1 of 8 products | passing: 1,400 / all products: 1,340 / 1,290–1,400 · 7 | passing: 3.6 / all products: 4.73 / 3.6–5.48 · 3 | 70 / 45–75 · 4 | 4.25 / 2.4–6 · 4 | passing: 100 / all products: 124 / 74–205 · 6 | 113 / 70–116 · 3 / ↗
+ROW PET-CF / PET Engineering | ☆ | PASS / 1 of 8 products | passing: 1,400 / all products: 1,340 / 1,290–1,400 · 7 | passing: 3.6 / all products: 4.73 / 3.6–5.48 · 3 | 70 / 45–75 · 4 | 4.25 / 2.4–6 · 4 | passing: 100 / all products: 124 / 74–205 · 6 | 113↗ / 70–116 · 3
 ROW PP-CF / Polyolefins | ☆ | PASS / 2 of 5 products | passing: 910–1,100 / all products: 1,000 / 910–1,100 · 5 | passing: 6.15–6.38 / all products: 6.15 / 2.1–6.38 · 3 | 41 / 27.3–78 · 3 | 1.4 / 1.3–1.5 · 2 | passing: 124–158 / all products: 141 / 88–158 · 4 | 147↗
 ROW PP-GF / Polyolefins | ☆ | PASS / 1 of 2 products | passing: 1,120 / all products: 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 139 / 138–139 · 2 | 118EUR↗ / out of stock
 ROW PPA-CF / High-Performance Engineering | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness and heat deflection | passing: 1,210–1,250 / all products: 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 209 / 84.5–240 · 8 | 255↗
@@ -63,24 +63,24 @@ ROW PPS-CF · ☆
 ROW PPS-GF · ☆
 One check away (7)
 One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
-TABLE 7 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
-ROW ABS-CF | ☆ | UNKNOWN / 0 of 11 products / One check away on 1 of 11 products: 3DXTECH TriMax Carbon Fiber ABS Model Material, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45 / 40–50 · 2 / ↗
+TABLE 7 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+ROW ABS-CF | ☆ | UNKNOWN / 0 of 11 products / One check away on 1 of 11 products: 3DXTECH TriMax Carbon Fiber ABS Model Material, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45↗ / 40–50 · 2
 ROW ABS-GF | ☆ | UNKNOWN / 0 of 11 products / One check away on 1 of 11 products: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS, HDT at 0.45 MPa 98 °C, on the line for at least 100 °C | 1,100 / 1,016–1,150 · 11 | 3.16 / 1.74–4.21 · 5 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97 / 82–100 · 9 | 39↗
 ROW PA12-CF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 15 products / One check away on 1 of 15 products: 3DXTECH CarbonX CF PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 150 / 48–185 · 11 | 300↗
-ROW PA612-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 2 of 3 products: QIDI PA612-CF, its chamber temperature is not stated | 1,030 / 1,030–1,090 · 3 | 5.01 / 4.88–5.14 · 2 | 84.4 / 77–91.9 · 2 | 3.11 / 2.6–3.62 · 2 | 136 / 110–175 · 3 | 170 / 98–242 · 2 / ↗
+ROW PA612-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 2 of 3 products: QIDI PA612-CF, its chamber temperature is not stated | 1,030 / 1,030–1,090 · 3 | 5.01 / 4.88–5.14 · 2 | 84.4 / 77–91.9 · 2 | 3.11 / 2.6–3.62 · 2 | 136 / 110–175 · 3 | 170↗ / 98–242 · 2
 ROW PC-ABS-CF / Polymer Blends | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: 3DXTECH CarbonX Carbon Fiber PC/ABS, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,240 | 5.9 | 62 | 2 | 130 | —
 ROW PC-CF / Polycarbonate | ☆ | UNKNOWN / 0 of 10 products / One check away on 3 of 10 products: 3DXTECH CarbonX CF PC, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,225 / 1,180–1,360 · 10 | 4.65 / 2.6–6.98 · 4 | 70 / 35–73 · 5 | 2.1 / 2–7.5 · 3 | 128 / 114–140 · 6 | 152↗
 ROW PPA / High-Performance Engineering | ☆ | UNKNOWN / 0 of 2 products / One check away on 1 of 2 products: IPCON PPA Pure Resin, tensile modulus (XY) 2.863 GPa, on the line for at least 3 GPa | 1,175 / 1,140–1,210 · 2 | 2.86 | 76 | 3.4 | 92 / 81–103 · 2 | 85↗
-Not enough data (26)
+Not enough data (25)
 More than one question is open, or a value is not published the way you asked. The 4 tagged likely come first: their estimated range meets every open number. Then by how close each one's estimate or value comes to the limits; an estimate never passes.
-TABLE 26 rows: Material ▲ | ☆ | Result | Density kg/m³ | Modulus XY GPa | Strength XY MPa | Elongation XY % | HDT 0.45 °C | Price CAD/kg
+TABLE 25 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW PA6 / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 9 products / Not enough data, likely: Nanovia PA Rail, HDT at 0.45 MPa estimated 100 to 177 °C | 1,150 / 1,130–1,200 · 7 | ~1.3–3.7† | ~37–82† | ~52–113† | 140 / 60–143 · 3 | 163↗
-ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum PA6 CS20 FR V0, HDT at 0.45 MPa estimated 104 to 171 °C; tensile modulus (XY) estimated 3.91 to 5.76 GPa | 1,490 | ~3.9–5.8† | ~56–83† | ~1.9–9.8† | ~104–171† | 161EUR
-ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: BASF Forward AM Ultrafuse PAHT CF15, density estimated 1,020 to 1,170 kg/m³ | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
-ROW PET-GF / PET Engineering | ☆ | UNKNOWN / 0 of 4 products / Not enough data, likely: QIDI PET-GF, HDT at 0.45 MPa estimated 105 to 116 °C; tensile modulus (XY) estimated 3.46 to 4.3 GPa | 1,385 / 1,380–1,430 · 4 | 4.13 / 4.13–4.14 · 3 | 70.9 / 59.9–76 · 4 | 3.28 / 2.56–5.5 · 4 | 120 / 81.6–200 · 4 | 69.5 / 41–98 · 2 / ↗
-ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru / purefil Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 7.91 to 12.5 GPa | 1,400 | ~7.9–12.5† | ~201–249† | ~1.8–6.3† | ~193–194† | —
+ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: Spectrum PA6 CS20 FR V0, HDT at 0.45 MPa estimated 104 to 170 °C; tensile modulus (XY) estimated 3.91 to 5.75 GPa | 1,490 | ~3.9–5.8† | ~56–83† | ~1.9–9.8† | ~104–170† | 161EUR
+ROW PAHT-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data, likely: BASF Forward AM Ultrafuse PAHT CF15, density estimated 1,030 to 1,170 kg/m³ | 1,240 / 1,060–1,250 · 3 | 8.39 / 3.86–8.62 · 3 | 103 / 92–123 · 3 | 1.98 / 1.8–8.4 · 3 | 170 / 145–194 · 2 | 124↗
+ROW PET-GF / PET Engineering | ☆ | UNKNOWN / 0 of 4 products / Not enough data, likely: QIDI PET-GF, HDT at 0.45 MPa estimated 105 to 117 °C; tensile modulus (XY) estimated 3.46 to 4.3 GPa | 1,385 / 1,380–1,430 · 4 | 4.13 / 4.13–4.14 · 3 | 70.9 / 59.9–76 · 4 | 3.28 / 2.56–5.5 · 4 | 120 / 81.6–200 · 4 | 69.5↗ / 41–98 · 2
+ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 7.91 to 12.5 GPa | 1,400 | ~7.9–12.5† | ~200–249† | ~1.8–6.3† | ~193–194† | —
 ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; tensile modulus (XY) estimated 4.54 to 6.85 GPa | 1,140 | ~4.5–6.9† | ~68–79† | ~2.3–7.3† | 142 | —
-ROW PA6-GS / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 GK10, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; HDT at 0.45 MPa estimated 104 to 171 °C; tensile modulus (XY) estimated 2.85 to 4.34 GPa | 1,010 | ~2.8–4.4† | ~88–118† | ~2–15† | ~104–171† | 180↗
+ROW PA6-GS / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 GK10, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; HDT at 0.45 MPa estimated 104 to 170 °C; tensile modulus (XY) estimated 2.85 to 4.34 GPa | 1,010 | ~2.8–4.4† | ~88–117† | ~2–15† | ~104–170† | 180↗
 ROW PA6/66-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: eSUN ePA CF, its chamber temperature is not stated; HDT at 0.45 MPa estimated 147 to 168 °C; tensile modulus (XY) estimated 4.6 to 6.29 GPa | 1,240 | ~4.6–6.3† | 84 | 7.42 | ~147–168† | 72.4EUR↗ / out of stock
 ROW PA612-ESD · ☆
 ROW PA612-GF · ☆
@@ -97,7 +97,6 @@ ROW PA6/66 · ☆
 ROW PA612 · ☆
 ROW ASA-AF · ☆
 ROW PA12 · ☆
-ROW COC · ☆
 ROW Nylon-GF, maker-undisclosed polyamide · ☆
 ROW SBC · ☆
-Unlikely to meet (49): folded, still counted and in the download
+Unlikely to meet (50): folded, still counted and in the download

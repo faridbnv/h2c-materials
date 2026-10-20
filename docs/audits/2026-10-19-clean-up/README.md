@@ -27,9 +27,38 @@ know-how); Stratasys PC-ABS's UV table (§33.2, no state for weathering); the tw
 product's source (§33.7, an import step); what needs a design or the owner (a foamed filament's density, §37.10; a
 fibre-basis column, §38.3; a state for a sentence copied from another product's page, §37.7).
 
-## Interface and tooling (priorities 6 and 7)
+## Tooling (priority 7)
 
-Filled in when the three tracks are merged.
+Built by a Claude Opus agent and recorded as D169 (the import's sheet reader is frozen since D138, so its change carries
+a back-test):
+
+| Item | What changed | Measured |
+|---|---|---|
+| Later copies read as their source (§34.3) | The record tier keeps a cached document under a source only where `sources.csv` records its digest; a copy filed under another source's name says so (`filed_under`) | 4,266 facts on 145 documents no longer carry another document's source |
+| LEHVOSS's split rows (§34.7) | An orientation code ("XY") is not a word when the reader joins a split row | 24 of 24 cells (19 before); every cached document re-read: only that sheet differs, +5 values, none lost |
+| A number inside a name, "approximately" (§38.3) | The reconciler confirms a figure a name prints where the reading quotes the name; the proposals record an approximate composition from its number, a name's figure as nominal | The fibre stage's readings: visual-only 20 → 3, second reads 15 → 2, held as claims 4 → 0 |
+
+Not done: splitting the reader into per-layout adapters (§34.7), several days of work that changes what each maker's
+sheets are read with.
+
+## Interface (priority 6)
+
+Built by two Claude Opus agents, one on the material pages and one on the selector; the rules they changed are D170.
+
+| Where | What changed for a reader |
+|---|---|
+| Material pages (§37.17 to §37.19, §38.3) | PETG's layers figure names the products its Z median counts without a share; a twin's mark says whose sheet it reads; a melting point only for a polymer that melts (PETG's "190 °C" was a median of processing temperatures); one Z label, "Z (ZX)"; long product cards fold (PEKK's 5,300 → about 890 px); the Conditions cell shows the standards the build reads; an open card stacks above the sticky head; a condition a group shares said once; "64 products, 29 in the median"; Shore A and Shore D drawn; no overlap from 390 to 1,440 px |
+| Selector (§37.20, §37.21, §37.8, §19, §38.10) | The two H2C pills say what each checks; one wording for counts and log scales (C49); the table's column heads say "median · range" and the drawer's median explanation adds up; a long tag no longer breaks a product's head; three table rows on the cold page at 1280 × 800; Parallel lines with "↑ better", real ticks, the line's products' spread and far outliers parked (C45 to C47); named fillers filtered and drawn by name (36 undisclosed → 18); the first candidate in a phone's first screen; a withheld estimate says why where it would have been |
+
+Left: C48 (Compare in the pages' glyph) and C30 (one search-field style); a shared sheet's value drawn once (it would
+leave a median counting a product the figure does not show) and QIDI PETG RAPIDO's Z bar (D143), both the owner's; the
+selector layout calls §37.20 names as the owner's.
+
+## What moved
+
+[The decision diff](DECISION-DIFF.md) against main: no material verdict, listing or pass/fail moved in the 138 census
+cases. 58 product answers moved between the unknown groups (not enough data, unlikely to meet, likely), all from the
+estimates refitting after Fabru's two spellings became one maker (COC, SAN and PVC are Fabru products) and POM's filler.
 
 ## Checks
 

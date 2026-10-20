@@ -1,7 +1,7 @@
 // Shared rendering. Every displayed value carries its origin in its typography, so a published
 // number never looks like one a regular expression recovered out of free text.
 
-import { estimateTitle } from './labels.js';
+import { estimateTitle, fillerName } from './labels.js';
 import { boundOf, publishedBound } from '../engine/constraints.js';
 import { dayWords, daysWords } from './dates.js';
 
@@ -299,7 +299,7 @@ export function relatedNote(entry) {
  * the card is already on the page. `productless` says the material has no product on record, the one case its estimate
  * is read for a requirement (D148).
  */
-export function renderValue(entry, { showUnit = false, compact = false, estimates = false, results = [], materialId = null, productless = false, product = null } = {}) {
+export function renderValue(entry, { showUnit = false, compact = false, estimates = false, results = [], materialId = null, productless = false, product = null, products = null } = {}) {
   if (!entry) return explainButton('—', MISSING_FULL['not-published'], { cls: 'missing dash', head: 'Not published', label: 'Not published' });
   if (!entry.known) {
     const label = MISSING_LABEL[entry.missing] ?? 'Not published';
@@ -342,7 +342,7 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     { cls: 'related', head: b.implausible ? 'Published, flagged physically implausible' : 'Published, not comparable', action: 'measurement', id: b.measurementId });
   }
   const thresholds = results.map((r) => r.constraint).filter((c) => c && Number.isFinite(c.value));
-  if (entry.spread && entry.spread.n > 1) return renderSpread(entry, thresholds, { showUnit, compact, materialId });
+  if (entry.spread && entry.spread.n > 1) return renderSpread(entry, thresholds, { showUnit, compact, materialId, products });
   const plain = fmtAgainst(entry.value, thresholds, showUnit ? entry.unit : null);
   const bound = boundOf(publishedBound(entry));
   const text = bound ? `${esc(bound.sign)} ${plain}` : plain;
@@ -400,22 +400,31 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
  * range and how many products it rests on. The range is products that differ, not uncertainty about one; the popover
  * says so, names the product nearest the median, and counts the values set apart (published without the direction or
  * load, and declared variants such as a metal-filled PLA).
+ *
+ * The table keeps the range (D83), since a screen asks what any product reaches, where the drawer's key properties and
+ * the material pages give the middle half under the same median ("middle half 1.93–2.87"); a bare "0.95–4.24 · 55" read
+ * as the same spread (OPEN-PROBLEMS §37.20). A table column says it once, under its heading ("median · range"), since
+ * the word in every cell widened the Properties table past a 1440 px screen; outside a table (Compare) the line says
+ * "range" and its count takes its noun, "13 products" (C49). `products` is how many products the material has, the
+ * drawer head's count, which the explanation counts against.
  */
-function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
+function renderSpread(entry, thresholds, { showUnit, compact, materialId, products = null }) {
   const s = entry.spread;
   const unit = showUnit ? entry.unit : null;
   const medianBound = boundOf(publishedBound(entry));
   const median = `${medianBound ? `${esc(medianBound.sign)} ` : ''}${fmtAgainst(entry.value, thresholds, unit)}`;
   const lo = fmtBoundedKind(fmtAgainst(s.min, thresholds, null), s.bounds?.min), hi = fmtBoundedKind(fmtAgainst(s.max, thresholds, null), s.bounds?.max) + (unit ? ` ${unit}` : '');
-  const title = spreadNote(entry);
+  const title = spreadNote(entry, products);
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
   // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2"); in the table the
   // value says it, and a line under it would only repeat it (the 1024 x 768 layout guard, reader round). The count is in
   // the value's explanation.
   const same = s.min === s.max && !s.bounds;
   if (compact && same) return `${main}${convertedMark(entry.converted)}`;
-  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${same ? hi : `${lo}–${hi}`}<span class="spread-n"> · ${s.n}</span></span>`;
-  return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
+  const count = compact ? ` · ${s.n}` : ` · ${s.n} products`;
+  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${same ? hi : `${compact ? '' : 'range '}${lo}–${hi}`}<span class="spread-n">${count}</span></span>`;
+  // A converted price's mark sits on the median's line, before the range, so a narrow price column keeps two lines.
+  return compact ? `${main}${convertedMark(entry.converted)}${range}` : `${main} ${range}${convertedMark(entry.converted)}`;
 }
 
 /**
@@ -424,7 +433,7 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
  * apart and why, and the products sold as toughened. The explanation of the median wherever renderValue draws a spread;
  * the material pages say it too.
  */
-export function spreadNote(entry) {
+export function spreadNote(entry, products = null) {
   const s = entry.spread;
   const apart = [
     s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
@@ -432,14 +441,23 @@ export function spreadNote(entry) {
     // Products their makers sell as toughened, where the headline sets them apart (D133).
     s.claimed?.setApart ? `${s.claimed.n} sold as toughened or impact-modified by ${s.claimed.n === 1 ? 'its maker' : 'their makers'} (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`})` : null,
   ].filter(Boolean);
-  return `Median of ${s.n} products${s.asPublished ? ' that state the test\'s orientation or load' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+  // Counted against all the material's products, the drawer head's count, so the parts add up to it: those in the median,
+  // those set apart by why, and those that publish none. "121 of its 176 products do not report it" had counted the
+  // products that are not variants, beside a head that said 195 (OPEN-PROBLEMS §37.20).
+  const setApart = (s.asPublished?.n ?? 0) + (s.variants?.n ?? 0) + (s.claimed?.setApart ? s.claimed.n : 0);
+  const silent = products != null ? products - s.n - setApart : null;
+  const of = products != null && silent >= 0 ? ` of its ${products}` : '';
+  return `Median of ${s.n}${of} products${s.asPublished ? ', those that state the test\'s orientation or load' : ''}. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
+    // The table gives the range, the drawer's key properties and the material pages the middle half.
+    + `${s.q1 != null ? ' The table gives the range; the drawer and the material page give the middle half.' : ''}`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
     + `${s.twins ? ` ${s.twins === 1 ? 'One of them shares' : `${s.twins} of them share`} a data sheet with another product and ${s.twins === 1 ? 'counts as a product' : 'count as products'} of ${s.twins === 1 ? 'its' : 'their'} own.` : ''}`
     // A bound is counted as its number; the marks say where that number is one, so no end reads as a measurement.
     + `${s.bounds ? ` ${s.bounds.n} ${s.bounds.n === 1 ? 'is' : 'are'} published as a bound ("more than 650") and counted as that number, marked "+" or with a sign.` : ''}`
-    + `${s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
-    + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`
+    + `${apart.length ? ` Kept out of the median: ${apart.join('; ')}.` : ''}`
+    + `${of ? (silent ? ` ${silent === 1 ? 'One publishes' : `The other ${silent} publish`} no value on file.` : '')
+      : s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
     // Products their makers sell as toughened stay in the median; the popover says how many, and what the others give (D133).
     + `${s.claimed && !s.claimed.setApart ? ` Included: ${s.claimed.n} ${s.claimed.n === 1 ? 'product its maker sells' : 'products their makers sell'} as toughened or impact-modified (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`}).${
       s.claimed.others ? ` Without them the median is ${fmtNumber(s.claimed.others.median)} (${s.claimed.others.min === s.claimed.others.max ? fmtNumber(s.claimed.others.min) : `${fmtNumber(s.claimed.others.min)} to ${fmtNumber(s.claimed.others.max)}`}, ${s.claimed.others.n} product${s.claimed.others.n === 1 ? '' : 's'}).` : ''}` : ''}`;
@@ -546,6 +564,15 @@ export const FILLER_LABEL = {
   'carbon-fibre': 'Carbon fibre', 'glass-fibre': 'Glass fibre', 'unfilled': 'Unfilled',
   'esd': 'ESD', 'foaming': 'Foaming', 'undisclosed': 'Undisclosed variant',
 };
+/**
+ * A filler the materials table names (aramid fibre, ceramic, PTFE …; engine/filler.js) takes one shape of its own, and
+ * its name where a point is named: the charts had drawn those 18 materials as "Undisclosed variant" (OPEN-PROBLEMS §37.8).
+ * Eight more shapes, one per filler of one to five materials, would be eight more to learn.
+ */
+export const NAMED_FILLER_SYMBOL = 'triangle-down';
+export const NAMED_FILLER_KEY = 'Other filler, as named';
+export const fillerSymbol = (f) => FILLER_SYMBOL[f] ?? (f ? NAMED_FILLER_SYMBOL : 'circle');
+export const fillerLabel = (f) => FILLER_LABEL[f] ?? fillerName(f);
 
 /**
  * Colour by family. There are 19 families, past what a categorical palette can separate, so the

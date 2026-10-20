@@ -63,7 +63,7 @@ test('the impact spreads set the toughened products apart, and name them, unless
   }
   // The popover lists them with what it leaves out, and never says it includes them.
   const html = renderValue(pla.headline.charpyNotched, { showUnit: true, materialId: 'M001' });
-  assert.match(html, new RegExp(`Left out: [^"]*${k.n} sold as toughened or impact-modified by their makers`));
+  assert.match(html, new RegExp(`Kept out of the median: [^"]*${k.n} sold as toughened or impact-modified by their makers`));
   assert.doesNotMatch(html, /Included:/);
   assert.doesNotMatch(html, /including different commercial formulations/);
 });

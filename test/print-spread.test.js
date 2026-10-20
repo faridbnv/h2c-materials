@@ -376,7 +376,8 @@ test('the table is the spread: each row\'s n, median, middle half and range are 
       assert.equal(row.apart !== null, guide.length + variants.length > 0, `${x.m.id} ${r.label}: a line for the values drawn and not counted`);
       if (row.apart) {
         seen.apart++;
-        assert.ok(row.apart.startsWith('Not counted: '), `${x.m.id} ${r.label}: ${row.apart}`);
+        // In the comparisons' words since 2026-10-19 (C49): what a median leaves out is "not ranked".
+        assert.ok(row.apart.startsWith('Not ranked: '), `${x.m.id} ${r.label}: ${row.apart}`);
         // Each value drawn and not counted is counted here, with its range.
         if (guide.length) assert.ok(row.apart.includes(`${guide.length} from the guide (${spanDisplay(Math.min(...guide.map((e) => e.value)), Math.max(...guide.map((e) => e.value)), '°C')})`), `${x.m.id} ${r.label}: ${row.apart}`);
         if (variants.length) assert.ok(row.apart.includes(`${variants.length} with an added filler or additive (${spanDisplay(Math.min(...variants.map((e) => e.value)), Math.max(...variants.map((e) => e.value)), '°C')})`), `${x.m.id} ${r.label}: ${row.apart}`);

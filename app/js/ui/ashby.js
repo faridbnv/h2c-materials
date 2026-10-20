@@ -24,7 +24,8 @@ import { rankingFor } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { WORKSPACE_VIEWS } from '../engine/scenario.js';
 import { COST_AXIS, goalAxes } from '../engine/workspace.js';
-import { familyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange, boundLine, publishedBound, wireEvidence } from './format.js';
+import { familyColors, FILLER_SYMBOL, FILLER_LABEL, NAMED_FILLER_SYMBOL, NAMED_FILLER_KEY, fillerSymbol, fillerLabel, esc, fmtNumber, fmtRange, boundLine, publishedBound, wireEvidence } from './format.js';
+import { fillerOf, isNamedFiller } from '../engine/filler.js';
 import { download } from './table.js';
 import { AXIS_DEFS, measurementMatches, pairCompatibility } from './axes.js';
 import { prop } from './labels.js';
@@ -263,6 +264,7 @@ const GLYPH = {
   'star': '<path d="M8 2.2l1.7 3.9 4.2.4-3.2 2.8.9 4.1L8 11.3l-3.6 2.1.9-4.1-3.2-2.8 4.2-.4z"/>',
   'circle-open': '<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>',
   'hexagon': '<path d="M8 2.5l4.8 2.75v5.5L8 13.5l-4.8-2.75v-5.5z"/>',
+  'triangle-down': '<path d="M8 13 2.5 3h11z"/>',
 };
 const glyph = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16" aria-hidden="true"${extra}>${inner}</svg>`;
 
@@ -274,6 +276,9 @@ const glyph = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16"
 function markerKey({ pts, envelopes, level, anchor, reference = null }) {
   const fillers = Object.keys(FILLER_SYMBOL).filter((f) => pts.some((q) => q.filler === f));
   const items = fillers.map((f) => `<span class="key-item">${glyph(GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}</span>`);
+  // The fillers the materials table names share one shape, and the key names those drawn (§37.8).
+  const named = [...new Set(pts.map((q) => q.filler).filter(isNamedFiller))].map(fillerLabel).sort();
+  if (named.length) items.splice(fillers.filter((f) => f !== 'undisclosed').length, 0, `<span class="key-item">${glyph(GLYPH[NAMED_FILLER_SYMBOL])}${esc(`${NAMED_FILLER_KEY}: ${named.join(', ')}`)}</span>`);
   if (pts.some((q) => q.evaluation.verdict !== 'PASS' && !q.assumed && !q.relaxed.length)) {
     items.push(`<span class="key-item">${glyph(GLYPH.circle, ' style="opacity:.55"')}Pale: did not pass every requirement</span>`);
   }
@@ -361,7 +366,7 @@ export function typicalNote(material, evaluation, keys, tested, names = {}) {
 function headlinePoints(rows, xDef, yDef, tested = true) {
   const pts = rows
     .map(({ material: m, evaluation: e }) => ({
-      id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
+      id: m.id, name: m.name, family: m.family, filler: fillerOf(m),
       material: m, evaluation: e, label: m.name,
       x: m.headline[xDef.key]?.known ? m.headline[xDef.key].value : null,
       y: m.headline[yDef.key]?.known ? m.headline[yDef.key].value : null,
@@ -408,7 +413,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
         const relaxed = [...new Set([...xm.relaxed, ...ym.relaxed, ...fit.conflicts])];
         relaxed.forEach((n) => mixed.add(n));
         pts.push({
-          id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
+          id: m.id, name: m.name, family: m.family, filler: fillerOf(m),
           material: m, evaluation: e,
           label: `${m.name} · ${ym.measurement.direction !== 'not-applicable' ? ym.measurement.direction : ym.measurement.gradeId}`,
           x: xm.measurement.value, y: ym.measurement.value,
@@ -571,7 +576,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
       textposition: list.map(() => 'top center'),
       textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' },
       cliponaxis: false,
-      name: `${family} · ${FILLER_LABEL[filler] ?? filler}`,
+      name: `${family} · ${fillerLabel(filler)}`,
       legendgroup: colourGroup(family), showlegend: false,
       x: list.map((q) => q.x), y: list.map((q) => q.y),
       customdata: list.map((q) => [q.id, q.label, q.evaluation.verdict,
@@ -586,7 +591,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
       error_y: errorBars(list, 'yh'),
       marker: {
         size: 11,
-        symbol: list.map((q) => FILLER_SYMBOL[q.filler] ?? 'circle'),
+        symbol: list.map((q) => fillerSymbol(q.filler)),
         color: colors.color(family),
         // Evidence status in the outline: a held candidate reads hollow.
         // A material picked in the list stays bright, the rest fade (D109, here too since D111).
@@ -695,9 +700,10 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
     font: { color: ink, family: 'system-ui, sans-serif', size: 12 },
     // automargin: the axis claims the space its ticks and title need, so a legend placed under the chart is laid out
     // below that space rather than across the title.
-    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit})${p.xLog ? ' · log' : ''}` }, type: p.xLog ? 'log' : 'linear', automargin: true,
+    // A log axis says so as every graph says it, "<unit>, log scale" (C49).
+    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit}${p.xLog ? ', log scale' : ''})` }, type: p.xLog ? 'log' : 'linear', automargin: true,
              gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
-    yaxis: { title: { text: `${prop(yDef.key).plain} (${yDef.unit})${p.yLog ? ' · log' : ''}` }, type: p.yLog ? 'log' : 'linear', automargin: true,
+    yaxis: { title: { text: `${prop(yDef.key).plain} (${yDef.unit}${p.yLog ? ', log scale' : ''})` }, type: p.yLog ? 'log' : 'linear', automargin: true,
              gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
     shapes, annotations,
     showlegend: legendNames.length > 0,

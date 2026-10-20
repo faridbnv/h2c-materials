@@ -1,4 +1,4 @@
-196 products you can buy, from 40 makers. Each shows its result, how to print it, its values and what its maker says. By maker; Polymaker first, its products most often the material's typical value.
+196 products you can buy, from 39 makers. Each shows its result, how to print it, its values and what its maker says. By maker; Polymaker first, its products most often the material's typical value.
 Across its products: median and range, and what their makers say
 Property Median Range Products Kept out of the median
 Density kg/m³ 1,240 1,170⁠–⁠1,330 155 of 173 20 with an added filler or additive (800⁠–⁠4,000)
@@ -25,18 +25,18 @@ Notched Charpy impact. The median and middle half are of the other 14 products. 
 Notched Izod impact. The median and middle half are of the other 6 products. The product its maker sells as toughened or impact-modified gives 10 kJ/m² and is set apart, as products with an added filler or additive are.
 What makers say
 193 of 196 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 26 of them so far.
-Good for: 25 of 40 makers (75 products)
-Benefits: 34 of 40 makers (142 products)
-Pitfalls and limitations: 9 of 40 makers (16 products)
-Warping and shrinkage: 22 of 40 makers (43 products)
-Precision and tolerance: 10 of 40 makers (20 products)
-Surface finish: 27 of 40 makers (85 products)
-Adhesion between layers: 12 of 40 makers (20 products)
-Moisture sensitivity: 13 of 40 makers (36 products)
-Nozzle wear: 10 of 40 makers (37 products)
-Odour and emissions: 16 of 40 makers (31 products)
-Supports and removal: 8 of 40 makers (40 products)
-Printing advice: 19 of 40 makers (33 products)
+Good for: 25 of 39 makers (75 products)
+Benefits: 33 of 39 makers (142 products)
+Pitfalls and limitations: 9 of 39 makers (16 products)
+Warping and shrinkage: 22 of 39 makers (43 products)
+Precision and tolerance: 10 of 39 makers (20 products)
+Surface finish: 27 of 39 makers (85 products)
+Adhesion between layers: 12 of 39 makers (20 products)
+Moisture sensitivity: 13 of 39 makers (36 products)
+Nozzle wear: 10 of 39 makers (37 products)
+Odour and emissions: 16 of 39 makers (31 products)
+Supports and removal: 8 of 39 makers (40 products)
+Printing advice: 19 of 39 makers (33 products)
 Not stated by their documents: chamber or enclosure need (90 products), drying schedule (115 products) and annealing schedule (181 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 Polymaker

@@ -258,7 +258,7 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 .lens-bar button[disabled] { opacity: .45; cursor: not-allowed; }
 /* min-width 0: a grid item is otherwise at least as wide as its widest content, and where the view does not scroll itself
    (a phone) a wide table would widen the page instead of scrolling in its own box. */
-.lens-view { overflow: auto; min-height: 0; min-width: 0; padding: 16px; }
+.lens-view { overflow: auto; min-height: 0; min-width: 0; padding: 12px 16px 16px; }
 
 /* ---------------------------------------------------------------- status bar */
 /* The chips wrap onto a second line rather than widen the page (see .app). */
@@ -336,6 +336,8 @@ summary:hover > .chevron::before { border-color: var(--accent); }
 table.grid { border-collapse: collapse; width: 100%; table-layout: auto; font-size: var(--t-table); }
 /* 7 px, not 10: about one more row of candidates in a laptop's first view (REVIEW-0 F10). */
 table.grid th, table.grid td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); }
+/* The results' rows a little closer, so a laptop's first view holds three of them under the start panel (§37.20). */
+table.grid.results tbody td { padding-top: 5px; padding-bottom: 5px; }
 table.grid .name { min-width: 176px; }
 table.grid .state { min-width: 104px; }
 table.grid .num { min-width: 96px; }
@@ -368,6 +370,9 @@ table.grid thead th {
 }
 table.grid thead th.num { text-align: right; }
 table.grid thead th .u { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-3-text); }
+/* What a column of products' values gives, under its name (§37.20): the head keeps its height, its padding taking the line. */
+table.grid thead th.has-sub { padding-top: 4px; padding-bottom: 4px; }
+table.grid thead th .th-sub { display: block; font-size: 10.5px; line-height: 1.25; font-weight: 400; letter-spacing: 0; color: var(--ink-3-text); }
 table.grid tbody tr:hover { background: var(--surface-2); }
 table.grid tbody tr[data-selected="true"] { background: var(--accent-soft); }
 table.grid td.num { text-align: right; font-variant-numeric: tabular-nums; font-size: var(--t-table); white-space: nowrap; }
@@ -481,6 +486,8 @@ table.grid td.name { font-weight: 600; }
 .grade-ests { margin: 10px 0 4px; }
 .grade-est { font-size: var(--t-small); margin: 3px 0; }
 .grade-est .fine { color: var(--ink-3-text); font-size: var(--t-label); }
+/* An estimate withheld (D167): "no estimate" in the words of a gap, and why beside it (§38.10). */
+.grade-est .est-none { color: var(--ink-2); }
 .meas-foot .link-btn { text-align: left; }
 .meas-foot .link-btn { color: var(--accent); }
 /* Conditions every measurement from one source shares, said once above them. */
@@ -849,6 +856,9 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .cmp-bar .fill { display: block; background: var(--accent); height: 100%; border-radius: 3px; min-width: 2px; }
 .cmp-bar .bounds { position: absolute; top: 5px; height: 6px; border-left: 2px solid var(--ink-3); border-right: 2px solid var(--ink-3); }
 .cmp-bar .val { text-align: right; font-family: var(--mono); font-size: 12px; }
+/* The count takes its noun in Compare ("13 products", C49), so the range and its count may wrap apart on a phone. */
+.cmp-bar .val .spread { white-space: normal; }
+.cmp-bar .val .spread-n { white-space: nowrap; }
 .cmp-bar .related-tick { position: absolute; top: 2px; width: 3px; height: 12px; margin-left: -1px; background: var(--ink-3); border-radius: 1px; }
 /* The value on a log track: a tick, not a bar from the left end. */
 .cmp-bar .value-tick { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--accent); border-radius: 1px; z-index: 1; }
@@ -1023,14 +1033,18 @@ details.imp-tally > p { margin: 4px 0 0; }
   /* The panel's box goes on a phone, where its height is the results': the rule between the two settings stays. */
   .data-settings { order: 4; flex: 1 1 100%; gap: 10px; padding: 0; min-height: 0; background: none; border: 0; border-radius: 0; }
   .data-settings .est-group { padding-left: 8px; }
+  /* The label over its two buttons, so the estimates switch beside them has the width to keep its words on two lines
+     with its ? beside it: on one line with the label, the switch's words took three lines and its ? a fourth, and the row
+     was 90 px tall where it is now about 50 (OPEN-PROBLEMS §19). */
+  .topbar .mode-group { flex-direction: column; align-items: flex-start; gap: 2px; flex: 0 0 auto; }
   .topbar .mode-label { font-size: 10.5px; }
   .topbar .mode-group .segmented button { padding: 5px 7px; font-size: 12.5px; white-space: nowrap; }
-  /* The inference switch with its ? and its note under it, so the pair fits beside the mode buttons on one row. Its
-     label, "Use estimates and polymer data", wraps inside its own box on a phone rather than push the switch to a
+  /* The inference switch with its ? beside it and its note under them, so the group fits beside the mode buttons on one
+     row. Its label, "Use estimates and resin data", wraps inside its own box on a phone rather than push the switch to a
      third row (D62): the group takes what is left of the row, and the mode group beside it is two lines tall anyway. */
   .topbar .est-group {
-    display: grid; grid-template-columns: 24px auto; grid-template-areas: "toggle toggle" "info note";
-    align-items: center; gap: 2px 6px; flex: 1 1 120px; min-width: 0;
+    display: grid; grid-template-columns: minmax(0, auto) 24px; grid-template-areas: "toggle info" "note note";
+    align-items: center; justify-content: start; gap: 2px 6px; flex: 1 1 120px; min-width: 0;
   }
   .topbar .est-line { display: contents; }
   .topbar .est-toggle { grid-area: toggle; gap: 6px; padding: 2px 0; white-space: normal; line-height: 1.2; justify-self: start; font-size: 12.5px; }
@@ -1044,7 +1058,7 @@ details.imp-tally > p { margin: 4px 0 0; }
   html, body { height: auto; }
   body { overflow: visible; }
   .app { height: auto; min-height: 100vh; min-height: 100dvh; }
-  .lens-view { overflow: visible; padding: 14px 12px; }
+  .lens-view { overflow: visible; padding: 10px 12px 14px; }
 }
 /* The narrowest phones: the mode buttons may take two lines each rather than push Use estimates to a row of its own. */
 @media (max-width: 374px) {
@@ -1173,23 +1187,29 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 
 /* ---------------------------------------------------------------- start panel */
 /* The cold page, tighter (2026-10-18): the cards, the facts and the promise closer together, so the table's bar and
-   its first rows come into a laptop's first view (TRACKER M2a). Every template and every sentence stays. */
-.start { max-width: 1000px; margin: 0 0 12px; }
-.start h2 { font-size: 19px; margin: 0 0 3px; letter-spacing: -0.015em; font-weight: 650; }
-.start > p { color: var(--ink-2); margin: 0 0 12px; max-width: none; }
-.start-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; margin-bottom: 8px; }
+   its first rows come into a laptop's first view (TRACKER M2a). Every template and every sentence stays. Tighter again
+   on 2026-10-19, towards the table's first three rows at 1280 x 800 (§37.20): the facts and "What this database cannot
+   answer" share one line, the coverage counts and the line on gaps open that disclosure, and the cards sit closer. */
+.start { max-width: 1000px; margin: 0 0 8px; }
+.start h2 { font-size: 19px; line-height: 1.3; margin: 0 0 3px; letter-spacing: -0.015em; font-weight: 650; }
+.start > p { color: var(--ink-2); margin: 0 0 8px; max-width: none; }
+.start-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 6px; margin-bottom: 6px; }
 /* Text from the top: in a row of cards of different lengths it had floated to each card's middle. */
 .start-card {
-  display: grid; align-content: start; gap: 2px; text-align: left; padding: 8px 14px 9px; cursor: pointer;
+  display: grid; align-content: start; gap: 1px; text-align: left; padding: 6px 14px 7px; cursor: pointer;
   border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface);
   font: inherit; color: inherit;
 }
 .start-card:hover { border-color: var(--accent); background: var(--accent-soft); }
 .start-card-name { font-weight: 650; font-size: var(--t-body); }
-.start-card-desc { font-size: var(--t-small); color: var(--ink-2); line-height: 1.4; }
-.start-facts { display: flex; gap: 4px 22px; flex-wrap: wrap; font-size: var(--t-small); color: var(--ink-2); padding-top: 7px; border-top: 1px solid var(--border); }
+.start-card-desc { font-size: var(--t-small); color: var(--ink-2); line-height: 1.36; }
+/* The facts at the left, the disclosure at the right; opened, the disclosure takes the full width under them. */
+.start-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 22px; padding-top: 5px; border-top: 1px solid var(--border); }
+.start-foot > .start-limits[open] { flex-basis: 100%; }
+.start-facts { display: flex; gap: 4px 22px; flex-wrap: wrap; font-size: var(--t-small); color: var(--ink-2); }
 .start-facts b { color: var(--ink); font-variant-numeric: tabular-nums; }
-.start-note { font-size: var(--t-small); color: var(--ink-3-text); margin: 4px 0 0; max-width: none; }
+.start-note { font-size: var(--t-small); color: var(--ink-2); margin: 8px 0 0; max-width: none; }
+.start-note b { color: var(--ink); font-variant-numeric: tabular-nums; }
 
 /* ---------------------------------------------------------------- parallel coordinates (svg) */
 .pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
@@ -1199,6 +1219,16 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 .pc-lbl { fill: var(--ink); font-size: 12.5px; font-weight: 650; }
 .pc-lbl-unit { fill: var(--ink-3-text); font-size: 11px; }
 .pc-tick { fill: var(--ink-3-text); font-size: 11px; font-variant-numeric: tabular-nums; }
+/* Round ticks inside an axis (C45), haloed so a line under a number does not cross it out. */
+.pc-tick-mark { stroke: var(--border-strong); stroke-width: 1; }
+.pc-tick-in { font-size: 10px; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+/* A value beyond the scale ends its line at the axis end, under this chevron (C47). */
+.pc-park-chev { fill: none; stroke: var(--ink-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* The read line's products on each axis, in its colour (C46): the range a hairline, the middle half a bar. */
+.pc-glyphs { pointer-events: none; }
+.pc-g-range { stroke-width: 1.5; stroke-linecap: round; }
+.pc-g-half { stroke-width: 7; stroke-linecap: butt; opacity: .45; }
+.pc-readout-pass { font-weight: 600; }
 /* A line's weight is three things multiplied: how many lines there are, its result, and whether anything is shortlisted
    (C40, C44). A line that failed is faded, as the Ashby chart fades a mark that did not pass; one that could not be
    checked is dashed. Once anything drawn is shortlisted, those lines are at full weight and the rest lighter. */
@@ -1280,6 +1310,27 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-tex
 /* One press from the header to the first candidate, where the header is a screen tall (F09). */
 .read-candidates { display: none; }
 @media (max-width: 600px) { .read-candidates { display: inline-flex; } }
+/* A button's short form, shown on a phone only: the full words stay its name (aria-label). */
+.lbl-short { display: none; }
+/* A phone: the first candidate in the first screen (OPEN-PROBLEMS §19). Its row had started near 910 px of 844, under a
+   header a screen tall; the answer's three buttons share one row, Rank by and Compare against sit side by side, each
+   label over its choice, and the top bar's second row is one control tall (below). Nothing is taken off the page. */
+@media (max-width: 600px) {
+  .active-actions .lbl-long { display: none; }
+  .active-actions .lbl-short { display: inline; }
+  .active-actions { gap: 6px; }
+  .table-bar .colset-pick { flex-basis: 100%; }
+  /* The requirements as one strip of pills that scrolls sideways, as the view tabs do below 1100 px: wrapped, a template's
+     six took six rows of a 390 px screen. Each stays a press away, and the part of the next one at the edge says there
+     are more. The reported ones follow on the same strip, under their label. */
+  .active .pills { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; padding-bottom: 3px; }
+  .active .pills > *, .active .pill-group > * { flex: 0 0 auto; }
+  .active .pill-group { flex-wrap: nowrap; flex-basis: auto; }
+  .lens-bar { padding: 6px 12px; gap: 6px; }
+  .candidate-count { padding-block: 2px; }
+  .table-bar .rank-pick, .table-bar .baseline-pick { flex: 1 1 0; min-width: 0; flex-direction: column; align-items: stretch; gap: 2px; }
+  .table-bar .rank-pick select, .table-bar .baseline-pick select { width: 100%; max-width: none; }
+}
 .spread-context > summary { cursor: pointer; font-weight: 600; font-size: var(--t-small); color: var(--ink-2); padding: 4px 0; }
 .active-head { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
 .active-head > div:first-child { flex: 1; min-width: 260px; }
@@ -1396,7 +1447,7 @@ details.est-card[open] > summary { margin-bottom: 6px; }
 .est-card .est-basis { font-size: var(--t-small); color: var(--ink-2); line-height: 1.5; }
 
 /* ---------------------------------------------------------------- table bar and new cells */
-.table-bar { display: flex; align-items: center; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.table-bar { display: flex; align-items: center; gap: 5px 16px; flex-wrap: wrap; margin-bottom: 6px; }
 /* The column chooser says what each set is for, on screen. */
 .colset-pick { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 /* The column set's one-line help is read aloud with its buttons and is their title; shown, it pushed Compare against onto
@@ -1409,6 +1460,14 @@ details.est-card[open] > summary { margin-bottom: 6px; }
 .legend-more > summary { cursor: pointer; color: var(--ink-2); list-style: none; display: inline-flex; align-items: center; gap: 2px; }
 .legend-more > summary::-webkit-details-marker { display: none; }
 .legend-more[open] { flex-basis: 100%; }
+/* The legend's marks for a wider screen and for a phone (table.js): a phone folds all but the first two. */
+.lg-wide { display: contents; }
+.lg-narrow, .legend-more.lg-narrow-only { display: none; }
+@media (max-width: 600px) {
+  .lg-wide { display: none; }
+  .lg-narrow { display: contents; }
+  .legend-more.lg-narrow-only { display: block; }
+}
 .legend-more-body { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; }
 .legend-row .lg { display: inline-block; color: var(--ink-2); }
 .legend-row .lg .load-mark { vertical-align: baseline; font-size: var(--t-label); }
@@ -1529,7 +1588,7 @@ details.unlikely-to-meet > summary { cursor: pointer; font-weight: 650; color: v
 }
 
 /* What the database does not cover, said before anyone goes hunting for it. */
-.start-limits { margin-top: 2px; }
+.start-limits { margin: 0; }
 .start-limits summary {
   cursor: pointer; font-size: var(--t-small); font-weight: 650; color: var(--ink-2);
   display: flex; align-items: center; gap: 6px; list-style: none;
@@ -1649,14 +1708,18 @@ h3.sec .env-verdict { font-weight: 450; color: var(--ink-2); }
 /* A product: one line until opened; Choose beside it, never inside the toggle. */
 .grade-block { border-bottom: 1px solid var(--border); padding: 4px 0; }
 .grade-head { display: flex; align-items: flex-start; gap: 8px; }
+/* The line wraps its chips as whole words; the toggle in it holds the chevron and the name (a mark that is a button
+   cannot sit inside another button, §37.20). */
+.grade-title { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 7px 0; cursor: pointer; }
+.grade-title > .chip { white-space: nowrap; }
 .grade-toggle {
-  flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; text-align: left;
-  background: none; border: 0; padding: 7px 0; cursor: pointer; font: inherit; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px; min-width: 0; text-align: left;
+  background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: var(--ink);
 }
 .grade-toggle .grade-name { font-weight: 650; font-size: var(--t-body); }
-.grade-toggle .grade-keys { flex-basis: 100%; padding-left: 22px; font-size: var(--t-small); color: var(--ink-3-text); }
+.grade-title .grade-keys { flex-basis: 100%; padding-left: 22px; font-size: var(--t-small); color: var(--ink-3-text); }
 .grade-toggle[aria-expanded="true"] > .chevron::before { transform: rotate(45deg); margin: 0 0 3px; }
-.grade-toggle:hover > .chevron::before { border-color: var(--accent); }
+.grade-title:hover .grade-toggle > .chevron::before { border-color: var(--accent); }
 .grade-head .choose-btn { margin-top: 5px; flex: 0 0 auto; }
 .grade-body { padding: 0 0 8px 22px; }
 .grade-docs { font-size: var(--t-small); margin: 6px 0; }

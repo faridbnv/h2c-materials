@@ -7,6 +7,7 @@
 // changes, so links, saved scenarios and exports made before a rename still read.
 
 import { GATE_STATUS } from '../engine/constraints.js';
+import { fillerOf, isNamedFiller } from '../engine/filler.js';
 import { lower, andList } from './text.js';
 
 // Filled from the database's registry at start-up (registry.js, useRegistry): one row per headline in
@@ -37,6 +38,13 @@ export const POLICY_LABELS = { strict: 'Leave out', exploration: 'Include' };
  * rows, so one requirement had two names (REVIEW-0 F11, 2026-10-18).
  */
 export const H2C_CHECK = 'Nozzle, bed and chamber within H2C limits';
+/**
+ * What each of the two H2C requirements reads, said where they stand side by side (the requirement pills) and under
+ * each in the rail. "Within H2C capability" and the nozzle, bed and chamber check had sat together with nothing saying
+ * how they differ (OPEN-PROBLEMS §37.20): the first reads a list of materials, the second each product's own windows.
+ */
+export const H2C_SCOPE_MEANING = 'Reads a list, not temperatures: it leaves out the materials Bambu Lab\'s list and their makers\' limitations put beyond the H2C as a whole, the industrial high-temperature plastics and the sintering filaments.';
+export const h2cCheckMeaning = () => `Reads each product's own nozzle, bed and chamber windows against the H2C's ${BASELINE.nozzleC}, ${BASELINE.bedC} and ${BASELINE.chamberC} °C; where its data sheet is silent, a data sheet it shares, then the Bambu Lab Filament Guide.`;
 /** The choice in a sentence, where the buttons' two words alone would not read ("With Include, …"). */
 export const POLICY_PHRASE = {
   strict: 'with the materials that could not be checked left out',
@@ -97,11 +105,21 @@ const NAMED_FILLER = {
   PTFE: ['PTFE', 'PTFE'], 'Natural fibre': ['Natural fibre', 'natural fibre'], Graphene: ['Graphene', 'graphene'], 'Metal powder': ['Metal powder', 'metal powder'],
 };
 export function namedFiller(m) {
-  const mod = String(m?.modifier ?? '');
-  if (m?.facets?.reinforcement?.value !== 'undisclosed' || !mod || /undisclosed|^Not /i.test(mod)) return null;
+  if (!isNamedFiller(fillerOf(m))) return null;
+  const mod = String(m.modifier).trim();
   const [name, words] = NAMED_FILLER[mod] ?? [mod, mod];
   return { name, words };
 }
+
+/**
+ * A filler class (engine/filler.js fillerOf) by name: one of the facet's (FILLER), or a filler the materials table names,
+ * by its name ("Aramid fibre", "PTFE"). The rail lists them, the requirement pill and the charts' keys say them (§37.8).
+ */
+const NAMED_FILLER_BY_KEY = Object.fromEntries(Object.entries(NAMED_FILLER).map(([mod, [name]]) => [mod.toLowerCase().replace(/[^a-z0-9]+/g, '-'), name]));
+export const fillerName = (f) => FILLER[f] ?? NAMED_FILLER_BY_KEY[f] ?? cap1(String(f ?? '').replace(/-/g, ' '));
+/** In a sentence: lower case, except a name that is an acronym ("PTFE", "Anti-static (ESD)" reads "anti-static (ESD)"). */
+export const fillerWords = (f) => { const n = fillerName(f); return /^[A-Z][a-z]/.test(n) ? n.charAt(0).toLowerCase() + n.slice(1) : n; };
+const cap1 = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : t);
 
 /**
  * A process gate's verdict in words: a heading, a chip and the decision brief's phrase. Three screens and the brief
@@ -220,7 +238,9 @@ export function describeConstraint(c) {
       if (c.facet === 'supportMaterial') return c.equals === false ? 'Build material (not a support)' : 'Support or interface material';
       if (c.facet === 'family') return `Family: ${(c.in ?? []).join(' or ')}`;
       if (c.facet === 'polymer') return `Polymer: ${[...new Set((c.in ?? []).map((x) => x.split(' › ').pop()))].join(' or ')}`;
-      return `Filler: ${(c.in ?? []).map((x) => (FILLER[x] ?? x.replace(/-/g, ' ')).toLowerCase()).join(' or ')}`;
+      // A requirement saved on the reinforcement facet, before the filler one: its "undisclosed" includes the fillers
+      // the materials table names, and says so.
+      return `Filler: ${(c.in ?? []).map((x) => (c.facet === 'reinforcement' && x === 'undisclosed' ? 'other variant, its filler named or not' : fillerWords(x))).join(' or ')}`;
     case 'environment':
       return envRequirement(c.category);
     case 'treatment': return 'Annealed as its data sheet states';

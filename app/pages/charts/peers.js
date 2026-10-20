@@ -160,7 +160,7 @@ export function peersFigure(c, env = {}, opts = {}) {
     });
     o.push(`<line class="dv-axis" x1="0" x2="100%" y1="${H - 19.5}" y2="${H - 19.5}"/>`);
     o.push(`<g class="dv-ticks">${tickLabels(sc, H - 6, { wide: 110, narrow: 110 })}</g>`);
-    return `<div class="pe-col" data-key="${esc(col.key)}"><div class="pe-h"><b>${esc(col.title)}</b><span>${esc(`${col.sub}${sc.log ? ' · log scale' : ''}`)}</span></div>`
+    return `<div class="pe-col" data-key="${esc(col.key)}"><div class="pe-h"><b>${esc(col.title)}</b><span>${esc(`${col.sub}${sc.log ? ', log scale' : ''}`)}</span></div>`
       + `<svg class="pe-svg" width="100%" height="${H}" aria-hidden="true" focusable="false">${o.join('')}</svg></div>`;
   });
   const names = `<div class="pe-names"><div class="pe-h"></div><div class="pe-rugname">All materials</div>`
