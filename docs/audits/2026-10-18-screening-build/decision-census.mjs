@@ -77,6 +77,10 @@ function diff(a, b) {
         if (isLikely(o.products[g]) !== isLikely(s)) moves.likely.push(`${g} (${name(id)}): ${isLikely(s) ? 'tagged likely' : 'no longer likely'}`);
       }
     }
+    // A material the after release no longer holds (retired from the dataset, D174) left with its verdict.
+    for (const [id, o] of Object.entries(before.materials)) {
+      if (!after.materials[id]) moves.verdict.push(`${name(id)}: left the dataset, was ${o.v}`);
+    }
     for (const k of Object.keys(total)) total[k] += moves[k].length;
     rows.push({ caseName, template: after.template, counts: [before.counts, after.counts], moves });
   }
