@@ -155,7 +155,7 @@ test('a better document replaces a figure only where it prints one the same head
     { id: 'S-PAGE', sourceClass: 'Manufacturer product page or guide', supersededBy: null },
   ];
   const bar = (id, sourceId, over = {}) => ({ id, gradeId: 'G999-01', sourceId, numeric: true, dataStatus: 'Published value', property: 'Tensile strength (endpoint unspecified)',
-    unit: 'MPa', value: 40, implausible: false, quarantined: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated',
+    unit: 'MPa', value: 40, operator: '=', implausible: false, quarantined: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated',
     postProcessingState: 'not-stated', direction: 'XY', standards: [], ...over });
   const ms = [
     bar('V1', 'S-OLD', { direction: 'Z' }), // the older edition's Z bar: the newer prints only a ZX bar, which no Z headline reads
@@ -176,6 +176,25 @@ test('a better document replaces a figure only where it prints one the same head
   assert.equal(by.V8, null, 'a document whose only heat figure is set apart (D172) replaces nothing');
   assert.equal(by.V2, null);
   assert.equal(by.V4, null);
+  // A document that prints one property at several settings (a foaming filament's density at 240 and at 270 °C) prints a
+  // figure per setting: another document's figure is another setting's, not one it replaces (the review of T1, F8).
+  const density = (id, sourceId, value) => bar(id, sourceId, { property: 'Density', unit: 'kg/m³', value, direction: 'not-applicable' });
+  const foam = [density('V10', 'S-NEW', 880), density('V11', 'S-NEW', 590), density('V12', 'S-PAGE', 540)];
+  markOutranked(foam, sources, measurementHeadlines(db.registry));
+  assert.equal(foam[2].outranked ?? null, null, 'a foamed figure is another setting\'s');
+  // A figure a better document prints on a bar it does not describe sets apart the same figure on a lower-ranked one: a
+  // product page that repeats a data sheet's typical value is no printed bar (Prusament PLA High Speed's 57 °C, F3).
+  const heat = (id, sourceId, over) => bar(id, sourceId, { property: 'HDT', unit: '°C', value: 57, direction: 'not-applicable', thermal: { loadStated: true, loadMPa: 0.45 }, ...over });
+  const copy = [heat('V20', 'S-NEW', { specimenType: 'Not published (do not assume printed)', specimenForm: 'not-stated' }), heat('V21', 'S-PAGE', { specimenType: 'Printed (implied by the document)' }), heat('V22', 'S-PAGE', { value: 61 })];
+  markOutranked(copy, sources, measurementHeadlines(db.registry));
+  assert.deepEqual(copy[1].setApartBy, { by: 'S-NEW', measurementId: 'V20', form: 'printed' });
+  assert.equal(copy[1].specimenForm, 'not-stated');
+  assert.equal(assess(copy[1], defs.get('hdt045'), []).caveat, 'not-described');
+  assert.equal(copy[2].setApartBy, undefined, 'another figure is no copy, and a set-apart figure replaces nothing');
+  assert.equal(copy[2].outranked ?? null, null);
+  // A second run reads the record as it is.
+  markOutranked(copy, sources, measurementHeadlines(db.registry));
+  assert.equal(copy[1].setApartBy.form, 'printed');
 });
 
 // D92: three selectable properties. Each rule below is over every product of every headline that sets the condition,

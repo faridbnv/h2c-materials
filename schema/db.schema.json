@@ -766,6 +766,13 @@
             "required": ["by", "why"],
             "properties": { "by": { "type": "string" }, "why": { "enum": ["older-edition", "lower-class"] } }
           },
+          "setApartBy": {
+            "type": "object",
+            "description": "Set where a better document of the same product prints the same figure on a bar it does not describe as printed (D171, D172): that document and its measurement. The figure is set apart as that one is, and its form is read as not-stated; form is the record\u0027s own.",
+            "additionalProperties": false,
+            "required": ["by", "measurementId", "form"],
+            "properties": { "by": { "type": "string" }, "measurementId": { "type": "string" }, "form": { "type": "string" } }
+          },
           "pageContext": {
             "type": "object",
             "description": "What the row inherited from its page (page_context.csv, D116): for each field it states nothing of its own, the PageContextID that gave it. Absent where the row inherited nothing.",

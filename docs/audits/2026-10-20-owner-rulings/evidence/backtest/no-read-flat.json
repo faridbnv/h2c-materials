@@ -1,0 +1,148 @@
+{
+ "variant": "no-read-flat",
+ "root": ".",
+ "headlines": {
+  "density": {
+   "held": 121,
+   "likely": 0.802,
+   "plausible": 0.95,
+   "width": 1.1,
+   "scales": [
+    1.13,
+    1.48
+   ],
+   "gradeHeld": 832,
+   "gradeLikely": 0.794,
+   "gradePlausible": 0.951,
+   "containment": null,
+   "containmentUnstated": null,
+   "materialsKnown": 147,
+   "materialsEstimated": 5,
+   "productsComparable": 1007,
+   "gradeEstimates": 95,
+   "gradeEstimatesNarrow": 0
+  },
+  "tensileModulusXY": {
+   "held": 74,
+   "likely": 0.811,
+   "plausible": 0.959,
+   "width": 1.51,
+   "scales": [
+    1.26,
+    1.31
+   ],
+   "gradeHeld": 296,
+   "gradeLikely": 0.797,
+   "gradePlausible": 0.953,
+   "containment": {
+    "held": 74,
+    "moved": 0,
+    "likely": 0.811,
+    "plausible": 0.959,
+    "under": 1
+   },
+   "containmentUnstated": {
+    "likely": 0.811,
+    "plausible": 0.959
+   },
+   "materialsKnown": 100,
+   "materialsEstimated": 40,
+   "productsComparable": 360,
+   "gradeEstimates": 714,
+   "gradeEstimatesNarrow": 0
+  },
+  "tensileStrengthXY": {
+   "held": 59,
+   "likely": 0.814,
+   "plausible": 0.966,
+   "width": 1.42,
+   "scales": [
+    1.21,
+    1.37
+   ],
+   "gradeHeld": 303,
+   "gradeLikely": 0.792,
+   "gradePlausible": 0.941,
+   "containment": {
+    "held": 59,
+    "moved": 10,
+    "likely": 0.864,
+    "plausible": 0.932,
+    "under": 4
+   },
+   "containmentUnstated": {
+    "likely": 0.864,
+    "plausible": 0.932
+   },
+   "materialsKnown": 106,
+   "materialsEstimated": 34,
+   "productsComparable": 458,
+   "gradeEstimates": 625,
+   "gradeEstimatesNarrow": 0
+  },
+  "elongationXY": {
+   "held": 79,
+   "likely": 0.81,
+   "plausible": 0.962,
+   "width": 4.51,
+   "scales": [
+    1.09,
+    1.17
+   ],
+   "gradeHeld": 334,
+   "gradeLikely": 0.793,
+   "gradePlausible": 0.949,
+   "containment": {
+    "held": 79,
+    "moved": 3,
+    "likely": 0.823,
+    "plausible": 0.949,
+    "under": 3
+   },
+   "containmentUnstated": {
+    "likely": 0.785,
+    "plausible": 0.886
+   },
+   "materialsKnown": 103,
+   "materialsEstimated": 37,
+   "productsComparable": 410,
+   "gradeEstimates": 664,
+   "gradeEstimatesNarrow": 0
+  },
+  "hdt045": {
+   "held": 58,
+   "likely": 0.81,
+   "plausible": 0.966,
+   "width": 12.4,
+   "scales": [
+    1.22,
+    1.7
+   ],
+   "gradeHeld": 413,
+   "gradeLikely": 0.801,
+   "gradePlausible": 0.952,
+   "containment": {
+    "held": 58,
+    "moved": 2,
+    "likely": 0.793,
+    "plausible": 0.931,
+    "under": 1
+   },
+   "containmentUnstated": {
+    "likely": 0.81,
+    "plausible": 0.931
+   },
+   "materialsKnown": 81,
+   "materialsEstimated": 47,
+   "productsComparable": 313,
+   "gradeEstimates": 445,
+   "gradeEstimatesNarrow": 0
+  }
+ },
+ "issues": {
+  "EST-CALIBRATION": 0,
+  "EST-ORDER": 0,
+  "EST-THIN": 0,
+  "CONVERSION-DRIFT": 0
+ }
+}

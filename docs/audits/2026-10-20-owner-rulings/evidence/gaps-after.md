@@ -11,12 +11,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when the values set apart are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 138 | 10 | 36 | 92 | published, not comparable 63; print setting not recorded 24; not published 15 | 17 |
-| Indoor prototype | 138 | 99 | 7 | 32 | print setting not recorded 39 | 0 |
-| Lightweight structure | 138 | 19 | 46 | 73 | print setting not recorded 27; published, not comparable 22; not published 8 | 15 |
-| Warm environment | 138 | 30 | 9 | 99 | print setting not recorded 38; published, not comparable 33; not published 10; straddles the limit 1 | 15 |
-| High-stiffness fixture | 138 | 11 | 33 | 94 | published, not comparable 32; print setting not recorded 29; not published 7; straddles the limit 1 | 28 |
-| Flexible component | 138 | 5 | 27 | 106 | published, not comparable 65; print setting not recorded 25; not published 13 | 46 |
+| Outdoor structural part | 138 | 10 | 36 | 92 | published, not comparable 58; print setting not recorded 24; not published 15 | 17 |
+| Indoor prototype | 138 | 98 | 7 | 33 | print setting not recorded 40 | 0 |
+| Lightweight structure | 138 | 19 | 47 | 72 | print setting not recorded 27; published, not comparable 20; not published 8 | 14 |
+| Warm environment | 138 | 31 | 9 | 98 | print setting not recorded 39; published, not comparable 28; not published 10; straddles the limit 1 | 14 |
+| High-stiffness fixture | 138 | 10 | 33 | 95 | print setting not recorded 29; published, not comparable 29; not published 7; straddles the limit 1 | 29 |
+| Flexible component | 138 | 5 | 27 | 106 | published, not comparable 61; print setting not recorded 26; not published 13; straddles the limit 1 | 46 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -57,19 +57,16 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 | PC-ABS-CF (M128) | 1 | chamber window | print setting not recorded | chamber within the H2C | 5 |
 | PVC (M135) | 1 | chamber window | print setting not recorded | chamber within the H2C | 5 |
 | PA12 (M052) | 8 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
-| PCL (M149) | 4 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | TPU-LW (M150) | 4 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | ASA-AF (M113) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PVDF (M096) | 3 | chamber window | print setting not recorded | chamber within the H2C | 4 |
 | TPU-CF (M129) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | COC (M137) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
-| PA66 (M055) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PAHT-CE (M148) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PE-GF (M138) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PLA blend-CF (M169) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PLA-EC (M111) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PLA-GR (M155) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
-| TPU-EC (M157) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | TPU-ESD (M126) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | ASA-EC (M105) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | Nylon-CE, maker-undisclosed polyamide (M177) | 1 | nozzle window | print setting not recorded | nozzle within the H2C | 4 |
@@ -92,8 +89,11 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 | PC-ESD (M116) | 2 | chamber window | print setting not recorded | chamber within the H2C | 3 |
 | PC-PTFE (M112) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | PETG-GR (M153) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
+| PETG-PTFE (M109) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
+| TPC-ESD (M114) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 3 |
+| TPC-ESD (M114) | 2 | bed window | print setting not recorded | bed within the H2C | 3 |
 
-And 113 more, each holding up one template.
+And 108 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -132,7 +132,6 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 | Lightweight structure | PLA-PHB | UNKNOWN | FAIL |
 | Lightweight structure | PA12-AF | UNKNOWN | FAIL |
 | Lightweight structure | PLA-GR | UNKNOWN | PASS |
-| Lightweight structure | TPU-EC | UNKNOWN | FAIL |
 | Lightweight structure | PLA blend-CF | UNKNOWN | PASS |
 | Warm environment | PLA Sparkle | UNKNOWN | FAIL |
 | Warm environment | PETG | UNKNOWN | PASS |
@@ -147,8 +146,8 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 | Warm environment | PLA-ESD | UNKNOWN | FAIL |
 | Warm environment | COC | UNKNOWN | PASS |
 | Warm environment | PE-GF | UNKNOWN | PASS |
-| Warm environment | PLA-PHB | UNKNOWN | PASS |
 | Warm environment | Nylon, maker-undisclosed polyamide | UNKNOWN | PASS |
+| High-stiffness fixture | PLA-CF | UNKNOWN | PASS |
 | High-stiffness fixture | PETG-ESD | UNKNOWN | FAIL |
 | High-stiffness fixture | ABS-CF | UNKNOWN | PASS |
 | High-stiffness fixture | ASA-CF | UNKNOWN | PASS |
@@ -227,7 +226,7 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 889 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 902 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
@@ -285,6 +284,7 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | TPU 95A class | Prusa Research Prusament TPU 95A by Prusa Polymers | density <= 1250 | 1250 | 0 % pass | V013602 |
 | Lightweight structure | Nylon, maker-undisclosed polyamide | colorFabb PA Blue Metal Detectable | density <= 1250 | 1250 | 0 % pass | V011124 |
 | Lightweight structure | TPE, maker-undisclosed elastomer | Nanovia Flex VX | density <= 1250 | 1250 | 0 % pass | V011283 |
+| Lightweight structure | PLA | Prusa Research Prusament PLA High Speed by Prusa Polymers | tensileModulusXY >= 2.5 | 2.5 | 0 % pass | V013532 |
 | Lightweight structure | PLA | colorFabb Copper filled PLA | tensileModulusXY >= 2.5 | 2.5 | 0 % pass | V010127 |
 | Warm environment | HIPS | 3DXTECH 3DXMAX HIPS | hdt045 >= 80 | 80 | 0 % pass | V001477 |
 | Flexible component | PA6/66 | 3DXTECH AMIDEX PA6 Copolymer v1 0 | elongationXY >= 100 | 100 | 0 % pass | V001047 |
@@ -310,5 +310,4 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PLA | Spectrum rPLA | density <= 1250 | 1240 | -0.8 % pass | V002905 |
 | Lightweight structure | PLA | Spectrum THE FILAMENT PLA HS | density <= 1250 | 1240 | -0.8 % pass | V002943 |
 | Lightweight structure | PLA | Spectrum THE FILAMENT PLA Lite | density <= 1250 | 1240 | -0.8 % pass | V002950 |
-| Lightweight structure | PLA | Spectrum THE FILAMENT PLA | density <= 1250 | 1240 | -0.8 % pass | V002968 |
 

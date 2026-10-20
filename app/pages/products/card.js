@@ -118,7 +118,7 @@ function useWords(x, ix) {
   const lines = ix.lines.get(x.id) ?? [];
   const o = lines.find((l) => l.reason);
   if (!lines.length || !o) return 'in the median';
-  if (o.reason === 'as-published') return `not in the median: set apart, ${setApartWords(o.e?.v?.caveat, o.h)}`;
+  if (o.reason === 'as-published') return `not in the median: set apart (never used to pass), ${setApartWords(o.e?.v?.caveat, o.h)}`;
   return `not in the median: ${NOT_COUNTED[o.reason] ?? pageWords(outOfMedianWords(o.reason, o.h) ?? o.reason)}`;
 }
 

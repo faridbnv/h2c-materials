@@ -1,8 +1,8 @@
 // The physical order of the numbers shown (D126): an ultimate strength is at least the yield and break stress its own
 // measurements print, a strain at break at least the strain at yield, HDT at 0.45 MPa at least HDT at 1.8 MPa, and no
 // estimate of a semicrystalline polymer's heat deflection lies above its melting point. The estimates are floored by the
-// bounds of a printed bar or one whose source states no specimen, in any direction; a moulded bar, a film and a filament
-// strand stay out. A product's value is the greatest of the stress endpoints one test prints.
+// bounds of a printed bar, in any direction (D161; m466 and m485, since the owner's ruling of 2026-10-20, D172); a bar no
+// document describes as printed, a moulded bar, a film and a filament strand stay out. A product's value is the greatest of the stress endpoints one test prints.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -20,23 +20,27 @@ test('no estimate lies under what its own measurements prove, and none above its
   assert.deepEqual(broken.map((v) => v.message), []);
 });
 
-test('an estimate is floored by its own break, yield or unspecified strength, whatever the direction (G064-01, M139)', () => {
-  // 3DXTECH's 3DXSTAT ESD PA12 publishes a break stress of 68 MPa on a bar whose source states no specimen; its estimate ran
-  // 44.9 to 66.5 when it was PA-ESD's one product. Since the owner's rulings (m476) Onyx ESD is PA-ESD's second product, so
-  // the floor is checked on the product's own estimate, and the material's range holds both products' floors.
+test('an estimate is floored by its own printed break, yield or unspecified strength, and by no undescribed bar (G088-02, G064-01, M139)', () => {
+  // A product's printed bars floor its estimate: the PCTG's sheet prints a break stress of 52.96 MPa on a printed bar.
+  const pctg = grade('G088-02').estimate.tensileStrengthXY;
+  assert.ok(pctg.impliedBounds.some((b) => b.measurementId === 'V007397' && b.lo > 52.9));
+  assert.ok(pctg.lo >= 52.9 && pctg.plausible.lo >= 52.9 && pctg.centre >= 52.9);
+  // A bar no document describes as printed floors nothing since the owner's ruling of 2026-10-20 (D172; tensileStrengthXY's
+  // Lower bound specimens printed, m485, back-tested in docs/audits/2026-10-20-owner-rulings/evidence/BACKTEST.md): 3DXTECH's
+  // 3DXSTAT ESD PA12 publishes a break stress of 68 MPa on such a bar, shown set apart, and its estimate is the model's.
   const own = grade('G064-01').estimate.tensileStrengthXY;
-  assert.ok(own.impliedBounds.some((b) => b.lo === 68));
-  assert.ok(own.lo >= 68 && own.plausible.lo >= 68 && own.centre >= 68);
+  assert.deepEqual(own.impliedBounds, []);
+  assert.equal(grade('G064-01').headline.tensileStrengthXY.caveat, 'not-described');
   // Onyx ESD prints its yield of 52 MPa on a printed bar with no stated orientation, which since the owner's ruling of
   // 2026-10-20 is read flat (D172): PA-ESD's strength is measured on it, no longer estimated.
   const esd = material('M064').headline.tensileStrengthXY;
   assert.equal(esd.known, true);
   assert.deepEqual(grade('G064-03').headline.tensileStrengthXY.admitted, ['direction', 'moisture', 'treatment']);
-  // The LCP publishes a yield stress of 200 MPa: its estimate is no lower. Its heat deflection of 193 °C at 1.8 MPa is on a
-  // bar its sheet ties to moulding (ISO 294-4 shrinkage in the same table), so since the owner's ruling of 2026-10-20 it
-  // floors no printed part's heat resistance (D172, hdt045's Lower bound specimens printed, m466).
+  // The LCP's yield stress of 200 MPa and heat deflection of 193 °C at 1.8 MPa are on bars its sheet ties to moulding
+  // (ISO 294-4 shrinkage in the same table): since the owner's ruling of 2026-10-20 they floor no printed part's strength
+  // or heat resistance (D172; m466, m485).
   const lcp = material('M139');
-  assert.ok(lcp.headline.tensileStrengthXY.estimate.plausible.lo >= 200);
+  assert.deepEqual(lcp.headline.tensileStrengthXY.impliedBounds ?? [], []);
   assert.ok(!(lcp.headline.hdt045.impliedBounds ?? []).some((b) => b.measurementId === 'V005730'), 'no floor from a moulded-looking bar');
 });
 
@@ -52,10 +56,11 @@ test('a moulded bar bounds nothing: M131 publishes a moulded yield of 70.2 MPa a
   assert.deepEqual(lowerBoundsOf(def('tensileStrengthXY'), db.measurements.filter((x) => x.materialId === 'M131' && moulded.has(x.id))), []);
 });
 
-test('a grade\'s estimate is floored by its own formulation\'s measurements, not its siblings\' (G001-10)', () => {
-  // The PLA publishes a break stress of 53.5 MPa and a yield of 50.2; its estimate ran 35 to 48.8.
-  const e = grade('G001-10').estimate.tensileStrengthXY;
-  assert.ok(e.lo >= 53.5 && e.plausible.lo >= 53.5 && e.centre >= 53.5);
+test('a grade\'s estimate is floored by its own formulation\'s measurements, not its siblings\' (G027-35)', () => {
+  // The ABS prints a tensile strength of 38 MPa on a printed bar, in no direction the comparison reads: its estimate is no lower.
+  const e = grade('G027-35').estimate.tensileStrengthXY;
+  assert.ok(e.impliedBounds.some((b) => b.measurementId === 'V011605'));
+  assert.ok(e.lo >= 38 && e.plausible.lo >= 38 && e.centre >= 38);
   // A sibling's break stress does not floor another grade's: the PLA material is bounded by the highest of its products,
   // its grades by their own.
   const floors = db.grades.filter((g) => g.materialId === 'M001' && g.estimate?.tensileStrengthXY).map((g) => g.estimate.tensileStrengthXY.plausible.lo);
@@ -86,10 +91,11 @@ test('another source\'s endpoint is another test and is not compared; a pin keep
   assert.equal(ruleValue(g, d, capped).value, 43);
 });
 
-test('a material\'s range contains every product\'s floor and starts at the lowest only where every product has one (PA6, PE-GF)', () => {
-  // PA6's products prove tensile floors from 27 to 80 MPa. The range reaches 80 from above; the lowest floor, 27, is a
-  // floor only because every active product of the material has one.
-  for (const [id, key] of [['M049', 'tensileStrengthXY'], ['M138', 'tensileStrengthXY']]) {
+test('a material\'s range contains every product\'s floor and starts at the lowest only where every product has one (PLA-GF)', () => {
+  // PLA-GF's products prove elongation floors from 0.85 to 12 %. The range reaches 12 from above; it does not start at the
+  // lowest floor, since not every active product of the material has one. (PA6's and PE-GF's tensile floors, the cases
+  // this test read before, were undescribed bars, which floor nothing since the owner's ruling of 2026-10-20, D172, m485.)
+  for (const [id, key] of [['M019', 'elongationXY']]) {
     const h = material(id).headline[key];
     const floors = h.impliedBounds.map((b) => b.lo);
     assert.ok(h.estimate.plausible.hi >= Math.max(...floors) && h.estimate.hi >= Math.max(...floors), id);

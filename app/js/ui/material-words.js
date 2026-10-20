@@ -7,7 +7,7 @@
 // decides anything, and nothing reads the page.
 
 import { fmtNumber, dryingSpan } from './format.js';
-import { DIRECTION_WORDS, SPECIMEN_WORDS, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, PRINT_NOT_DRAWN_ONE, OUTSIDE_WORDS, h2cLimit, namedFiller, envVerdictWords } from './labels.js';
+import { DIRECTION_WORDS, specimenSaid, FILLED_WORDS, H2C_STATUS, TOPIC_WORDS, RECIPE_WORDS, PRINT_NOT_DRAWN, PRINT_NOT_DRAWN_ONE, OUTSIDE_WORDS, h2cLimit, namedFiller, envVerdictWords } from './labels.js';
 import { hardenedWords } from '../engine/products.js';
 import { plural, lower, cap, andList, inSentence, stated } from './text.js';
 import { dryingAdvice } from './material-stats.js';
@@ -94,7 +94,7 @@ export const familyScope = (name, materialName) => (name === materialName ? 'for
 /** A measurement's test conditions on one line: orientation, specimen, standard, moisture, notch. Empty where none. */
 export const conditionLine = (x) => [
   x.direction && x.direction !== 'not-applicable' ? DIRECTION_WORDS[x.direction] ?? x.direction : null,
-  x.specimenType?.startsWith('Not published') ? 'specimen not stated' : SPECIMEN_WORDS[x.specimenType] ?? x.specimenType,
+  specimenSaid(x),
   x.standardText && x.standardText !== 'Not applicable' ? x.standardText : null,
   x.moisture && x.moisture !== 'Not published' ? x.moisture : null,
   x.notch === 'Notched' || x.notch === 'Unnotched' ? x.notch.toLowerCase() : null,
@@ -132,7 +132,7 @@ export function changedState(x, v) {
 
 /** Why a product's value is set apart (its level is as-published, D172), by its headline's caveat. */
 export const LEVEL_NOTE = {
-  'not-described': 'Nothing on its document says, even implicitly, that this test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print. It is set apart for good: shown, never used in deciding. The maker\'s word on how the bar was made would settle it.',
+  'not-described': 'Nothing on the document that speaks for this figure says, even implicitly, that its test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print. It is set apart for good: shown, never used to pass a requirement. It can still show that a printed part cannot reach a value, since a print is no better than either kind of bar. The maker\'s word on how the bar was made would settle it.',
   'unstated-direction': 'The source gives no orientation the comparison can use (none, or one such as a 0° or 90° raster that is not a build orientation), so this may be a differently oriented bar. It is shown and not used in deciding.',
   'load-not-stated': 'The source does not state the HDT load. At either load the heat deflection at 0.45 MPa is at least this figure, so it bounds that from below only; it is not used at its value.',
 };

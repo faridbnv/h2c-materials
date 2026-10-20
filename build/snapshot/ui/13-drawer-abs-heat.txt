@@ -6,7 +6,7 @@ middle half and median
 HDT at 0.45 MPa
 16 ranked of 28 shown
 HDT at 1.8 MPa
-8 ranked of 26 shown
+9 ranked of 26 shown
 Glass transition (Tg)
 20 products, all ranked
 °C
@@ -19,6 +19,6 @@ Select a dot to open its result below; hover to find the same product in the oth
 Test, °C Ranked Median Middle half Range
 HDT at 0.45 MPa 16 95 88⁠–⁠101 79⁠–⁠118
 Not ranked: 10 set apart, test bar not described as printed, or no stated test load (65⁠–⁠96), 2 with an added filler or additive (91⁠–⁠97).
-HDT at 1.8 MPa 8 99 86⁠–⁠101 84⁠–⁠113
-Not ranked: 17 set apart, test bar not described as printed, or no stated test load (70⁠–⁠100), 1 with an added filler or additive (85).
+HDT at 1.8 MPa 9 100 86⁠–⁠101 84⁠–⁠113
+Not ranked: 16 set apart, test bar not described as printed, or no stated test load (70⁠–⁠100), 1 with an added filler or additive (85).
 Glass transition (Tg) 20 105 105⁠–⁠108 81⁠–⁠126

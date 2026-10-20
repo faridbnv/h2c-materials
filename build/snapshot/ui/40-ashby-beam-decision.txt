@@ -1,5 +1,5 @@
 COUNT 13 shown PASS
-STATUS ☑ PASS 13 | ☐ UNKNOWN 81 | ☐ FAIL 58
+STATUS ☑ PASS 13 | ☐ UNKNOWN 80 | ☐ FAIL 59
 Goal
 None: compare two properties
 Tie, minimum mass, stiffness prescribed
@@ -118,7 +118,7 @@ Whisker: the spread a sheet reports for that value
 Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
 Colour is polymer family
-Drawn: 22 products from 13 materials, each meeting every requirement. Not drawn: 1 passing product with no value on one of these axes (listed beside the chart).
+Drawn: 23 products from 13 materials, each meeting every requirement. Not drawn: 1 passing product with no value on one of these axes (listed beside the chart).
 Reading this chart
 Ranking
 M = E^(1/2) / ρ
@@ -189,11 +189,11 @@ best: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS
 2 products drawn
 10
 PLA
-1.65 GPa^½/(Mg/m³) n=2 0.66×
+1.64 GPa^½/(Mg/m³) n=3 0.65×
 ⤢
 ☆
 best: Fiberlogy FiberWORKS PLA
-2 products drawn
+3 products drawn
 11
 PLA-CF
 1.6 GPa^½/(Mg/m³) n=1 0.64×

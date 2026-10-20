@@ -226,7 +226,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     if (h?.asPublished) {
       const v = `${fmtWords(h.asPublished.value)} ${h.unit}`;
       const why = h.asPublished.caveat === 'not-described'
-        ? `Published ${v} on a test bar its document does not describe as printed (nothing on it says, even implicitly, that the bar was printed), so it is set apart and not used${withheld}; the maker's word on how the bar was made, or a printed coupon, settles it`
+        ? `Published ${v} on a test bar its document does not describe as printed (nothing on it says, even implicitly, that the bar was printed), so it is set apart and never used to pass${withheld}; the maker's word on how the bar was made, or a printed coupon, settles it`
         : h.asPublished.caveat === 'load-not-stated'
           ? `Published ${v} without the test load, so it is not used at its value: at either load it shows only that the heat deflection at 0.45 MPa is at least ${v}${withheld}`
           : `Published ${v} without the specimen orientation, so it is not used${withheld}`;
@@ -426,7 +426,7 @@ function elsewhereReason(h, state, c) {
   const e = (!state?.treatment && h.elsewhere.find((x) => x.treatment && !misses(x))) || h.elsewhere[0];
   const where = `(${fmtWords(e.value)} ${h.unit})${misses(e) ? ', which also misses it' : ''}`;
   // A value set apart (D172): from a test bar no document describes as printed, which no state's answer reads.
-  if (e.setApart) return `Published ${stateWords(e)} ${where}, but on a test bar its document does not describe as printed, so it is set apart and not used`;
+  if (e.setApart) return `Published ${stateWords(e)} ${where}, but on a test bar its document does not describe as printed, so it is set apart and never used to pass`;
   if (e.treatment && !state?.treatment) {
     return misses(e)
       ? `Published only after annealing ${schedule(e.treatment)} ${where}, so annealing would not help`

@@ -423,7 +423,21 @@ export const DIRECTION_WORDS = {
   'vertical-xz-source-label': '"vertical XZ" (the sheet\'s word)', 'along-flow': 'along the melt flow', 'raster-45': '±45° raster',
 };
 /** A measurement's specimen type (measurements[].specimenType), where the stored value is not the words. */
-export const SPECIMEN_WORDS = { 'Raw material value': 'moulded bar (resin supplier\'s value)', 'Printed part': 'printed part', 'Printed specimen': 'printed specimen' };
+export const SPECIMEN_WORDS = { 'Raw material value': 'moulded bar (resin supplier\'s value)', 'Printed part': 'printed part', 'Printed specimen': 'printed specimen', 'Printed (implied by the document)': 'printed specimen (implied by the document)' };
+// The build orientations a printed bar is described by (build/src/products.js PRINT_DIRECTIONS): a row that states one is a
+// printed bar's, whatever its specimen cell leaves unsaid (D172), and decides as one.
+const PRINT_ORIENTATIONS = new Set(['XY', 'Z', 'XZ', 'ZX', 'YX', 'raster-45', 'horizontal-source-label', 'vertical-xz-source-label']);
+/**
+ * What a measurement's bar is, as the value decides: its specimen type in words; a row whose specimen cell says nothing but
+ * whose orientation is a print's is a printed bar; a figure a better document of the product prints on an undescribed bar
+ * is set apart with it (D171, D172).
+ */
+export const specimenSaid = (x) => {
+  const said = !x.specimenType || x.specimenType.startsWith('Not published')
+    ? (PRINT_ORIENTATIONS.has(x.direction) ? 'printed bar (its stated orientation says so)' : 'specimen not stated')
+    : SPECIMEN_WORDS[x.specimenType] ?? x.specimenType;
+  return x.setApartBy ? `${said}; set apart, as the same figure on a better document of the product is` : said;
+};
 /** A property whose stored name does not say what a data sheet would (properties.csv). */
 export const PROPERTY_WORDS = { 'Tensile strength (endpoint unspecified)': 'Tensile strength (yield or break not stated)', 'Charpy strength': 'Charpy impact strength', 'Impact strength': 'Impact strength, test unclear' };
 /** A property by its name on the page. */

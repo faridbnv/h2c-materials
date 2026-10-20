@@ -1,7 +1,7 @@
 COUNT 19 shown PASS
-STATUS ☑ PASS 19 | ☐ UNKNOWN 73 | ☐ FAIL 60
+STATUS ☑ PASS 19 | ☐ UNKNOWN 72 | ☐ FAIL 61
 19 of the 152 materials meet these requirements
-Lightweight structure template · UNKNOWN 73 left out: 19 one check away, 36 not enough data, 18 unlikely to meet
+Lightweight structure template · UNKNOWN 72 left out: 20 one check away, 35 not enough data, 17 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -43,13 +43,13 @@ PC
 n/a not applicable
 3 more marks
 TABLE 19 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW ABS-CF | ☆ | PASS / 1 of 11 products | passing: 1,090 / all products: 1,080 / 1,050–1,110 · 11 | passing: 4.61 / all products: 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 90 / 76–102 · 3 | 45↗ / 40–50 · 2
-ROW ABS-GF | ☆ | PASS / 2 of 11 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 2.75 / 1.74–4.21 · 6 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 98 / 87–100 · 5 | 39↗
+ROW ABS-CF | ☆ | PASS / 1 of 11 products | passing: 1,090 / all products: 1,080 / 1,050–1,110 · 11 | passing: 4.61 / all products: 4.35 / 2.7–5.21 · 4 | 44 / 27.3–48 · 7 | 1.9 / 1.48–3.08 · 4 | 90.5 / 76–102 · 4 | 45↗ / 40–50 · 2
+ROW ABS-GF | ☆ | PASS / 2 of 11 products | passing: 1,150 / all products: 1,100 / 1,016–1,150 · 11 | passing: 3.75–4.21 / all products: 2.75 / 1.74–4.21 · 6 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97.5 / 87–100 · 6 | 39↗
 ROW ASA-CF | ☆ | PASS / 2 of 17 products | passing: 1,060–1,090 / all products: 1,095 / 1,020–1,170 · 16 | passing: 3.61–4.5 / all products: 3.91 / 0.85–5.36 · 6 | 39.1 / 34–50.1 · 7 | 6.3 / 1.64–15.5 · 6 | 101 / 88–110 · 5 | 65↗ / 40–122 · 5
 ROW ASA-GF | ☆ | PASS / 1 of 6 products | passing: 1,110 / all products: 1,130 / 1,100–1,170 · 6 | passing: 2.76 / all products: 2.31 / 1.86–2.76 · 2 | 39 / 34.2–40.8 · 3 | 5.55 / 5.3–5.8 · 2 | 88 | 96↗
-ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 1 of 7 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 2.48 / 1.7–3.33 · 4 | 57 / 49–69.2 · 4 | 9.77 / 8.5–150 · 3 | 41 | 107EUR
-ROW PA12-CF / Nylon / Polyamide | ☆ | PASS / 1 of 15 products | passing: 1,080 / all products: 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 131 / 90–175 · 5 | 300↗
-ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products / judged dry; humid air lowers its stiffness | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 70 / 53–112 · 8 | 6 / 2.1–16.5 · 7 | 200 / 147–215 · 5 | 130↗ / 110–204 · 4
+ROW Nylon, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | PASS / 1 of 7 products | passing: 1,210 / all products: 1,140 / 1,100–1,210 · 3 | passing: 3.33 / all products: 2.48 / 1.7–3.33 · 4 | 57 / 49–69.2 · 4 | 9.77 / 8.5–150 · 3 | 60 / 41–79 · 2 | 107EUR
+ROW PA12-CF / Nylon / Polyamide | ☆ | PASS / 1 of 15 products | passing: 1,080 / all products: 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 5 | 72 / 50–125 · 8 | 3.9 / 2.1–14.8 · 8 | 141 / 90–175 · 6 | 300↗
+ROW PA6-CF / Nylon / Polyamide | ☆ | PASS / 5 of 14 products / judged dry; humid air lowers its stiffness | passing: 1,090–1,210 / all products: 1,175 / 1,090–1,250 · 14 | passing: 3.8–4.67 / all products: 4.37 / 3.8–8.64 · 6 | 70 / 53–112 · 8 | 6 / 2.1–16.5 · 7 | 193 / 147–215 · 6 | 130↗ / 110–204 · 4
 ROW PA6/66 / Nylon / Polyamide | ☆ | PASS / 1 of 7 products / judged dry; humid air lowers its stiffness | passing: 1,120 / all products: 1,120 / 1,080–1,140 · 7 | passing: 2.7 / all products: 2.34 / 1.98–2.7 · 2 | 61 / 55–78 · 3 | 15 / 12.7–100 · 3 | 119 / 111–140 · 3 | 40↗ / 39–90.7 · 3
 ROW PAHT · ☆
 ROW PETG · ☆

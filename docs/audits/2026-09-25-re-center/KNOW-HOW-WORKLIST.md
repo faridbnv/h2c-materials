@@ -43,7 +43,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PAHT (M147) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 1 / 3 | — |
 | PBT-GF (M132) | Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
-| PLA-CF (M018) | High-stiffness fixture; Indoor prototype; Lightweight structure | collected | 0 of 19 | 6 / 7 / 15 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, sourcegraphics.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | PLA (M001) | Indoor prototype; Lightweight structure | collected | 3 of 196 | 80 / 102 / 156 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, sourcegraphics.com); MatterHackers (matterhackers.com) |
@@ -62,7 +61,9 @@ documents were read and give none of one is listed under "Recipe silent".
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 8 / 6 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 4 / 3 / 8 | — |
+| PLA-CF (M018) | Indoor prototype; Lightweight structure | collected | 0 of 19 | 6 / 7 / 15 | — |
 | PLA-NF (M152) | Indoor prototype; Lightweight structure | collected | 0 of 2 | 0 / 0 / 2 | — |
+| PLA-PHB (M146) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PPE-PS (M130) | Indoor prototype; Warm environment | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PPS-GF (M074) | High-stiffness fixture; Indoor prototype | collected | 0 of 2 | 0 / 0 / 1 | — |
 | TPC / TPEE (M046) | Flexible component; Indoor prototype | collected | 0 of 12 | 5 / 3 / 8 | — |
@@ -105,7 +106,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA-ESD (M107) | Indoor prototype | collected | 0 of 2 | 0 / 1 / 1 | — |
 | PLA-GF (M019) | Indoor prototype | collected | 0 of 4 | 3 / 2 / 3 | — |
 | PLA-GR (M155) | Indoor prototype | collected | 0 of 2 | 0 / 2 / 2 | — |
-| PLA-PHB (M146) | Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PP (M082) | Indoor prototype | collected | 0 of 12 | 5 / 4 / 7 | — |
 | PPS (M072) | Indoor prototype | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PVB (M093) | Indoor prototype | collected | 0 of 6 | 1 / 1 / 5 | — |

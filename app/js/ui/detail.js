@@ -654,7 +654,7 @@ function productValues(g, c) {
       : `${shown}${v.observations ? ` <span class="fine">(${plural(v.observations, 'listing')})</span>` : ''}`;
     // A value set apart (D172): from a test bar no document describes as printed, or a heat deflection with no stated load.
     const mark = v.level === 'as-published'
-      ? ` ${explainButton('set apart', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Set apart: shown, never used in deciding.', { cls: 'missing lvl', head: v.caveat === 'load-not-stated' ? 'Test load not stated' : 'Test bar not described as printed' })}`
+      ? ` ${explainButton('set apart', (h.drawerOnly ? DRAWER_LEVEL_NOTE : LEVEL_NOTE[v.caveat]) ?? 'Set apart: shown, never used to pass a requirement.', { cls: 'missing lvl', head: v.caveat === 'load-not-stated' ? 'Test load not stated' : 'Test bar not described as printed' })}`
       // A printed bar whose sheet states no orientation is read as a flat one (D172), and says so.
       : v.admitted?.includes('direction') ? ' <span class="fine">orientation not stated; a printed bar, read as flat</span>' : '';
     const anneal = v.anneal ? ` <span class="fine">annealed${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';

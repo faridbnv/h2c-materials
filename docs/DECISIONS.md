@@ -187,7 +187,7 @@ detail. The generator names one that runs longer.
 | D169 | The reading tools read what the record tier, a split row and a name hold, as their pages do | Three of the tools that read makers' documents misread something the page plainly shows. The searchable record of every cached page counted a later copy of a sheet as the registered sheet itself, so a sentence from another revision (or, once, another product's sheet) appeared under the wrong source. The import's sheet reader missed a table row whose label and value sit on one line and the rest a point below, when the lower line held an orientation code such as "XY". And the checker that confirms a reading against its page could not find a number printed inside a product name ("CF15"), while a composition stated "approximately" was held back as a marketing claim. Each now reads what the page shows. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §34.3, §34.7, §38.3). The import's sheet reader is frozen since D138; this changes one of its rules, with the back-test below |
 | D170 | The interface says what it shows: a melting point only where a polymer melts, a range named as one, a filler by its name | The clean-up round's interface fixes changed three rules of what the pages and the selector show. A melting temperature is drawn and said only for a polymer that has one (a crystalline plastic): PETG's "190 °C" was the middle of eight sheets' processing temperatures, and an amorphous plastic's "melting" values are listed among its other properties instead. A table cell shows a material's range of products, as before, and its column head now says so ("median · range"), where the drawer and the pages give the middle half. And a material whose filler the materials table names (aramid fibre, PTFE, ceramic …) is filtered and drawn by that filler, no longer as an undisclosed variant. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §37.8, §37.18, §37.20). The filler is worked out in the engine (`app/js/engine/filler.js`, a requirement on the new facet `filler`); the build's own reinforcement facet, which the frozen estimate model reads, is unchanged, and a link saved on the old facet keeps its answer |
 | D171 | Of two documents of one product, the data sheet speaks, and of two editions the newer one | Where two documents of one product print the same property, a data sheet speaks for the product before a product page, and a newer edition of a sheet before an older one. The other document's figure is kept and shown, small, as not used in deciding: in the drawer's product detail where it differs a lot from the product's value, and on the material page's product card beside every such figure. The same holds for each part of the print recipe. | In force (the owner's ruling of 2026-10-20, GOALS-LOG item 1; OPEN-PROBLEMS §37.3). It amends D83's rule for a product's value: "its own data sheet first" now ranks the product's documents, and a figure a better document replaces is no candidate at all |
-| D172 | A value is the filament's where anything on its document indicates it, and is set apart for good where nothing does | A tensile, flexural, impact or heat deflection value on a test bar its document does not describe at all may be a moulded bar's, which flatters a print. Since the owner's ruling it decides only where something on its document indicates, even implicitly, that the bar was printed: its own row or its table names a print orientation, a heading names the printed part, print settings are given for the test specimens, or a statement about how the document's test specimens were made speaks for it. Otherwise it is set apart for good: shown, counted apart, never deciding, with a small note. A printed bar whose sheet states no orientation is read as a flat one, and a heat deflection with no stated load bounds the 0.45 MPa value from below only. | In force (the owner's rulings of 2026-10-20, GOALS-LOG items 2 and 3; OPEN-PROBLEMS §15, §39.4). It amends D84 (a value published without its direction or load is no longer admitted by a switch: printed, it decides read flat; undescribed, it is set apart for good), D126 and D161 (hdt045's lower bound reads printed bars only, as elongation's does), D153 (the ledger reads an undescribed bar only through its demote-to-ceiling rows; CV63 floors HDT at 0.45 MPa by an unloaded value) and D166 (whose demotion of a PLA or PET bar stays for the bars still undescribed) |
+| D172 | A value is the filament's where anything on its document indicates it, and is set apart for good where nothing does | A tensile, flexural, impact or heat deflection value on a test bar its document does not describe at all may be a moulded bar's, which flatters a print. Since the owner's ruling it decides only where something on its documents indicates, even implicitly, that it is the printed filament's: its own row or its table names a print orientation, a heading names the printed part, print settings are given for the test specimens, a statement about how the document's test specimens were made reaches it, or a sentence ties its property to the printed part. Otherwise it is set apart for good: shown, counted apart, never used to pass a requirement, with a small note. A printed bar whose sheet states no orientation is read as a flat one, and a heat deflection with no stated load bounds the 0.45 MPa value from below only. | In force (the owner's rulings of 2026-10-20, GOALS-LOG items 2 and 3; OPEN-PROBLEMS §15, §39.4; reworked after the independent review of T1). It amends D84 (a value published without its direction or load is no longer admitted by a switch: printed, it decides read flat; undescribed, it is set apart for good), D126 and D161 (the heat deflection's and the tensile strength's lower bounds read printed bars only, as elongation's does), D153 (the ledger reads an undescribed bar only through its demote-to-ceiling rows; CV63 floors HDT at 0.45 MPa by an unloaded value) and D166 (whose demotion of a PLA or PET bar stays for the bars still undescribed). The reading of "set apart for good" as "never used to pass, still able to show a part cannot reach a value" is the executor's, for the owner to confirm |
 | D173 | The drawer's first screen answers five questions in a few large figures, the rest one press away | The owner ruled that the first screen of a material's drawer needed redesign, to be friendly and | In force (the owner's rulings round, 2026-10-20; OPEN-PROBLEMS §37.20). Display only: every number is one |
 | D174 | The selector's first screen: no Result column before a requirement, the sintering filaments out of the dataset, a plot's own marks first | Three of the owner's rulings of 2026-10-20 on the selector. Before any requirement is set, the results table has no Result column: every row had read "not tested", which an engineer reads as "nobody ran the test". The metal and ceramic sintering filaments (316L, silicon carbide, alumina) are out of the dataset: their records stay in the tables, and the build compiles none of them, so the table no longer opens on the 316L one. And the plots keep the marks that read best on each: on the Ashby chart's Material ranges one mark now means "kept out of its material's range", while the square and the diamond keep meaning glass and carbon fibre on the Ashby chart and annealed and an added filler in the drawer and on the pages. | In force (the owner's rulings round, 2026-10-20, m468; OPEN-PROBLEMS §37.20). It amends D87 (the sintering filaments, recorded and never candidates, leave the dataset) and D110 (a product sold as toughened is ringed with a dot in Material ranges) |
 | D175 | Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range | A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row; D158 made the first exception) and D127 (what the typed drying columns hold) |
@@ -5799,9 +5799,14 @@ with a Claude Sonnet reader for the editions.*
   and is no product value, no ledger source and no estimate input that decides. A figure only the lower document prints
   for its headline still stands (CarbonFil's modulus, D149; QIDI's guide's Z strengths, where the data sheets print only
   edge and upright bars no Z headline reads; Polymaker PolyFlex TPU95-HF's Shore A, where the newer edition's 95 is an
-  upright bar's). A document whose only figure is set apart (D172) replaces nothing. 339 figures of 112 products are
-  replaced (184 by a newer edition, 155 by a data sheet); 38 products show a figure that differs a lot (beyond the
-  headline's test scatter, else 10 %).
+  upright bar's). A document whose only figure is set apart (D172) replaces nothing, but it speaks for the same figure
+  (to within 1 %) on a lower-ranked document, which is set apart with it: a product page that repeats a data sheet's
+  typical value is no printed bar (Prusament PLA High Speed's 57 °C, m484; Fiberlogy CPE HT's 99 °C beside its data
+  sheet's 100; 11 figures). A document that prints one property at several settings (a foaming filament's density or
+  hardness at 240 and 270 °C, at 70 and 90 % flow) replaces nothing in that slot: another document's figure is another
+  setting's, not a disagreement (Siraya Flex TPU Air, Rebound PEBA Air, FILAFLEX 95 Foamy; the review of T1, F3 and F8).
+  325 figures of 115 products are replaced (174 by a newer edition, 151 by a data sheet); 35 products show a figure that
+  differs a lot (beyond the headline's test scatter, else 10 %).
 - **The print recipe.** For each part (nozzle, bed, chamber, enclosure, hardened nozzle, drying) the best-ranked of the
   product's own documents that give a reading decide; one that says nothing usable on the part replaces nothing. 138
   products show a part another document says otherwise; 15 part verdicts moved, most of them drying "required" on a
@@ -5812,59 +5817,86 @@ with a Claude Sonnet reader for the editions.*
 
 ## D172. A value is the filament's where anything on its document indicates it, and is set apart for good where nothing does
 
-> **In plain words:** A tensile, flexural, impact or heat deflection value on a test bar its document does not describe at all may be a moulded bar's, which flatters a print. Since the owner's ruling it decides only where something on its document indicates, even implicitly, that the bar was printed: its own row or its table names a print orientation, a heading names the printed part, print settings are given for the test specimens, or a statement about how the document's test specimens were made speaks for it. Otherwise it is set apart for good: shown, counted apart, never deciding, with a small note. A printed bar whose sheet states no orientation is read as a flat one, and a heat deflection with no stated load bounds the 0.45 MPa value from below only.
-> **Status:** In force (the owner's rulings of 2026-10-20, GOALS-LOG items 2 and 3; OPEN-PROBLEMS §15, §39.4). It amends D84 (a value published without its direction or load is no longer admitted by a switch: printed, it decides read flat; undescribed, it is set apart for good), D126 and D161 (hdt045's lower bound reads printed bars only, as elongation's does), D153 (the ledger reads an undescribed bar only through its demote-to-ceiling rows; CV63 floors HDT at 0.45 MPa by an unloaded value) and D166 (whose demotion of a PLA or PET bar stays for the bars still undescribed).
+> **In plain words:** A tensile, flexural, impact or heat deflection value on a test bar its document does not describe at all may be a moulded bar's, which flatters a print. Since the owner's ruling it decides only where something on its documents indicates, even implicitly, that it is the printed filament's: its own row or its table names a print orientation, a heading names the printed part, print settings are given for the test specimens, a statement about how the document's test specimens were made reaches it, or a sentence ties its property to the printed part. Otherwise it is set apart for good: shown, counted apart, never used to pass a requirement, with a small note. A printed bar whose sheet states no orientation is read as a flat one, and a heat deflection with no stated load bounds the 0.45 MPa value from below only.
+> **Status:** In force (the owner's rulings of 2026-10-20, GOALS-LOG items 2 and 3; OPEN-PROBLEMS §15, §39.4; reworked after the independent review of T1). It amends D84 (a value published without its direction or load is no longer admitted by a switch: printed, it decides read flat; undescribed, it is set apart for good), D126 and D161 (the heat deflection's and the tensile strength's lower bounds read printed bars only, as elongation's does), D153 (the ledger reads an undescribed bar only through its demote-to-ceiling rows; CV63 floors HDT at 0.45 MPa by an unloaded value) and D166 (whose demotion of a PLA or PET bar stays for the bars still undescribed). The reading of "set apart for good" as "never used to pass, still able to show a part cannot reach a value" is the executor's, for the owner to confirm.
 
 *Ruled by the owner on 2026-10-20 ("if there is even an implicit indication that it is correct for a filament, yes, otherwise
-no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the round](audits/2026-10-20-owner-rulings/README.md).*
+no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the round](audits/2026-10-20-owner-rulings/README.md),
+and read again after the review of T1 ([its judgement calls](audits/2026-10-20-owner-rulings/evidence/DOUBTFUL.md)).*
 
 - **What counts, most specific first** (as page context is read, D128). The value's own row (SUNLU's "(X-Y) Heat
-  Distortion"), then its table (other rows labelled XY or Z, a heading such as "(3D printed)", print settings for the
-  specimens), then the document: a statement about how its test specimens were made that it does not scope to some of
-  its tests ("All testing specimens were printed under the following conditions:", Polymaker's "How to make specimens",
-  Bambu Lab's "Specimen Printing Conditions"). A statement the document scopes to other tests does not reach a value it
-  leaves out (IPCON's "The shrinkage rate and mechanical properties were tested on specimens printed", Eryone's note under
-  "Mechanical Properties of Printed Samples"), nor does one beside a table the document sets apart in its own words
-  (Prusa's "Typical material properties", AzureFilm's "Typical properties" with ISO 294). Does not count on its own: being
-  a filament data sheet, a test standard, a recommended print setting, marketing about printed parts; and a figure in the
-  document's prose (a description's "HDT 260 °C" or "over 6 GPa") is no row of its tests and is not reached.
-- **What wins against it.** In the same table or for the value: injection or compression moulding, ISO 294 or ASTM D955
-  mould shrinkage with a value, typical resin values, supplier or literature data (Stratasys's "Literature value unless
-  otherwise noted"), standard reference materials. **Melt flow is not one**: it is measured on the melt, and makers that say
-  their bars were printed (Bambu Lab, Raise3D) print it for the filament too. A blank shrinkage row says nothing.
+  Distortion"), then its table (other rows labelled XY or Z, a "Layer Adhesion" row, a heading such as "(3D printed)",
+  print settings for the specimens), then the document: a statement about how its test specimens were made or tested
+  that it does not scope to some of its tests ("All testing specimens were printed under the following conditions:",
+  Polymaker's "How to make specimens" on every Polymaker sheet that prints it, "Valores obtenidos en especímenes
+  impresos", NinjaTek's "specimen details … slicing and/or printing configurations"), and a sentence that names the
+  value's property on the printed part (Fillamentum NonOilen's "great temperature resistance after 3D printing, there is no
+  need for annealing!" for its heat deflection; "printed parts are strong" for a strength, not a modulus). With doubt and
+  any indication present, the value is kept. A statement the document scopes to other tests does not reach a value it
+  leaves out (IPCON's "The shrinkage rate and mechanical properties were tested on specimens printed"), nor does one beside
+  a table the document sets apart in its own words (Prusa's "Typical material properties", AzureFilm's "Typical properties"
+  with ISO 294, Eryone's "Physical Properties of Materials" beside its "Mechanical Properties of Printed Samples"). Does not
+  count: being a filament data sheet, a test standard, a recommended print setting, a sentence that names no property of
+  the value ("excellent interlayer adhesion" alone), a disclaimer that values "may vary according to printing conditions"
+  (it names no test or specimen, and Spectrum prints it beside rows it labels "injection moulding"), another row's label
+  on a sheet that labels each row by its own specimen (Spectrum), and a figure in the document's prose (a description's
+  "HDT 260 °C" or "over 6 GPa"), which is no row of its tests.
+- **What wins against it.** A counter-indication about the same values or the same table: injection or compression
+  moulding, ISO 294 or ASTM D955 mould shrinkage with a value, typical resin values, a resin grade's figures (Spectrum PET-G
+  HT100's are Eastman Tritan's, D176), supplier, literature or reference data (Stratasys's "Literature value unless
+  otherwise noted", Fiberlogy's "standard reference materials and/or supplier test data"). It wins over another row's
+  label or the document's statement, and never over the value's own row: a row that names its own print orientation
+  speaks for itself whatever its table holds (SUNLU PP2.0's "(X-Y)" heat deflection beside "Moulding Shrinkage ISO 294 …
+  1.36"). **Melt flow is not one**: it is measured on the melt, and makers that say their bars were printed print it for
+  the filament too; nor is a blank shrinkage row, nor a counter-indication in another table of the page.
 - **As data.** A new Specimen type, "Printed (implied by the document)" (form printed), with the words that imply it and
-  their page in the row's Notes (m463, every quote checked on its cached sheet). Eleven Claude Sonnet readers read the
-  2,265 undescribed values on 655 pages (`evidence/reading/`), the executor's second pass applied the rules above
-  (`evidence/classify.mjs`): 144 values of 77 products are printed bars their documents say or imply (4 stated, three
-  of them Raise3D Industrial PET GF's, which the materials-science track typed in m473, D176), 2,121 stay undescribed;
-  the 947 values of products on sale on pages with a moulding or resin word were not all read (one page in eight was) and
-  stay set apart. Spectrum PET-G HT100's nine values are Eastman Tritan's moulded-resin figures (found by the same track):
-  set apart as a resin grade's. Raise3D's sheets say in the same note that their bars were annealed, which their heat
-  values now carry.
+  their page in the row's Notes, every quote checked on its cached sheet. Two readings by Claude Sonnet readers
+  (`evidence/reading/`): the first (eleven readers, 2,265 values on 655 pages; m463) told them to choose "nothing" when in
+  doubt and stopped at melt flow; the second (twenty readers, after the review of T1, F1 and F7) read again every value the
+  first left set apart and every page it never read, 2,832 values on 739 pages (175 the first had not read), under the
+  owner's "even" (m483). The executor's second pass (`evidence/classify.mjs`) applied the rules above: 374 values of 165
+  products are printed bars their documents say or imply (141 from the first reading, 233 from the second; 22 stated in
+  words), and 2,788 stay set apart. Every judgement call either side made is listed with its decision in
+  [DOUBTFUL.md](audits/2026-10-20-owner-rulings/evidence/DOUBTFUL.md), for the owner: the largest are the "may vary"
+  disclaimer (332 values set apart), sentences that name no property of the value (242 set apart) or name it (106 kept),
+  and counter-indications beside an indication (211 set apart). Raise3D's sheets say in the same note that their bars
+  were annealed, which their heat values carry; m486 set two Spectrum rows m463 had typed from a neighbour's label back.
 - **The rule** (`assess`, `build/src/products.js`; headline_definitions.csv Unstated direction `flat if printed`, m465).
   A bar's property (a headline with a direction or a load) from a bar no document describes and with no print orientation
   on its row is `as-published` with caveat `not-described`: counted apart in the spread, drawn hollow, never the deciding
-  value, never a ledger source except through a demote-to-ceiling row (so CV05 still makes a PLA or PET one a ceiling). A
-  printed bar with no stated orientation is comparable, its answer saying the orientation was read flat; one whose
-  orientation is stated and unusable (a 0° raster) is not. HDT's lower bound reads printed bars only (m466; the floor
-  back-test holds 80.4 / 92.9 % either way), and CV63 (m466, deciding since m467) floors the 0.45 MPa value by a printed
-  bar's unloaded value. The selector's switch that admitted values with no orientation or load is gone; the engine keeps
-  the lens for audits only (`npm run audit:gaps`, `decision-census.mjs`). A product estimate that would only echo its own
-  set-apart value of the headline's own kind is not made, as it was not while that value decided (`grades.js`).
-- **What it did** (`evidence/DECISION-SUMMARY.md` and `DECISION-DIFF-T1-on-merged.md`, over 138 cases, measured on the
-  round's other tracks merged; `DECISION-DIFF.md` against the round's baseline). Products' comparable heat deflections
-  at 0.45 MPa 523 → 285 and at 1.8 MPa 301 → 118, and materials with one 99 → 79 and 79 → 48; in-plane values gained where
-  printed bars are read flat (materials with a modulus 100 → 103, a strength 106 → 108, an elongation 103 → 105, a
-  flexural modulus 90 → 95, a notched Izod 35 → 36); in the single-requirement sweeps 32 material answers moved to PASS on
-  them (PA-ESD, PLA-CF, Nylon-CF, TPU harder than 95A, TPE, PLA Wood, Nylon) and 104 heat answers to UNKNOWN. Warm environment: 13 materials PASS → UNKNOWN (PETG, ASA Aero, PA6, PA12-GF,
-  PPA, PPS-GF, PP, CPE, PA6-CE, ABS-AF, COC, PE-GF, PLA-PHB), each passing only on an undescribed bar. Outdoor: PPS-GF
-  PASS → UNKNOWN, ABS-AF and PCTG-GF FAIL → UNKNOWN. High-stiffness: PLA-CF UNKNOWN → PASS on a printed bar read flat.
-  No answer moved to FAIL, and none passes on a bar no document describes as printed. `audit:gaps`: 108 answers would
-  change if the set-apart values were admitted before, 121 now. Eleven material summaries lost their heat deflection
-  placeholder; Eryone PA12-CF's 185 °C above its melting point is flagged (m462).
+  value and never used to pass. It can still show that a printed part cannot reach a value: CV05, a demote-to-ceiling
+  row, reads a PLA or PET one as the most a print of it can do, since a print is no better than either kind of bar (the
+  executor's reading of "set apart for good" after the review of T1, F4, for the owner to confirm; the drawer and the
+  cards say so). A printed bar with no stated orientation is comparable, its answer saying the orientation was read flat;
+  one whose orientation is stated and unusable (a 0° raster) is not. The heat deflection's lower bound (m466) and the
+  tensile strength's (m485) read printed bars only, as elongation's does (D161), and CV63 (deciding since m467) floors the
+  0.45 MPa value by a printed bar's unloaded value. The selector's switch that admitted values with no orientation or load
+  is gone; the engine keeps the lens for audits only (`npm run audit:gaps`, `decision-census.mjs`). A product estimate
+  that would only echo its own set-apart value of the headline's own kind is not made (`grades.js`). Each of these is
+  back-tested by the stage-4 method in [BACKTEST.md](audits/2026-10-20-owner-rulings/evidence/BACKTEST.md): read flat,
+  the ranges hold 80.8 / 95.9 % (stiffness), 80.7 / 96.5 % (strength) and 80.0 / 96.0 % (elongation); the echo rule
+  withholds 195 heat deflection estimates, 155 of them under 2 °C wide; printed floors hold 79.3 / 93.1 % (heat
+  deflection) and 78.9 / 94.7 % (tensile strength, against 86.0 / 93.0 % with undescribed bars).
+- **What it did** ([DECISION-SUMMARY.md](audits/2026-10-20-owner-rulings/evidence/DECISION-SUMMARY.md), over 138 cases,
+  measured on the round's other tracks merged; [DECISION-DIFF.md](audits/2026-10-20-owner-rulings/evidence/DECISION-DIFF.md)
+  against the round's baseline). Products' comparable heat deflections at 0.45 MPa 523 → 312 and at 1.8 MPa 301 → 137,
+  and materials with one 99 → 82 and 79 → 51; values gained where printed bars are read flat or found indicated
+  (materials with a modulus 100 → 104, a strength 106 → 115, an elongation 103 → 106, a flexural modulus 90 → 98, a
+  notched Charpy 53 → 58, a notched Izod 35 → 38). In the single-requirement sweeps 72 material answers moved to PASS on
+  them, 96 heat answers to UNKNOWN, and 2 to FAIL (PA6-CE under 100 MPa). Warm environment: 12 materials PASS → UNKNOWN
+  (PETG, ASA Aero, PA6, PA12-GF, PPA, PPS-GF, PP, CPE, PA6-CE, ABS-AF, COC, PE-GF), each passing only on an undescribed bar
+  or a copy of one; PLA-PHB keeps its pass on Fillamentum NonOilen's sentence. Outdoor: PPS-GF PASS → UNKNOWN, ABS-AF and
+  PCTG-GF FAIL → UNKNOWN. Lightweight structure: TPU-EC UNKNOWN → FAIL, the one material verdict that moved to FAIL, on
+  NinjaTek Eel's own stiffness, now a printed bar's. High-stiffness: no material moves (PLA-CF's pass rested on Spectrum
+  PLA Carbon's 12.5 GPa, flagged physically implausible by m481). 51 products' template answers moved to FAIL, most of
+  them High-stiffness and Flexible component answers on a value now read as printed that falls short (PLA moduli under
+  5 GPa, elongations under 100 %); none passes on a bar no document describes as printed. `audit:gaps`: 108 answers would
+  change if the set-apart values were admitted before, 120 now. Eryone PA12-CF's 185 °C above its melting point is
+  flagged (m462).
 - **What would break if reversed.** A moulded bar's 139 °C heat deflection would again pass Spectrum PC 275 for a warm
   part, a PETG would again pass Warm environment on a resin figure, and a reader could again admit, with one switch, every
-  value a document does not say was printed.
+  value a document does not say was printed; undone the other way, the values a maker's own table or words tie to the
+  print would again sit apart for want of a sentence in the exact words.
 
 ## D173. The drawer's first screen answers five questions in a few large figures, the rest one press away
 

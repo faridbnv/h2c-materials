@@ -1,4 +1,4 @@
-Spectrum PLA Carbon
+Raise3D Industrial PET CF
 PASS
 chosen <date> on release <id>
 Download the decision brief

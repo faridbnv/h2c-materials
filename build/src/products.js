@@ -54,7 +54,7 @@ const PRINT_DIRECTIONS = new Set(['XY', 'Z', 'XZ', 'ZX', 'YX', 'raster-45', 'hor
  * or implies was printed has a printed form (Specimen type "Printed specimen", or "Printed (implied by the document)"
  * where a page_context row or the row quotes what implies it), and a stated orientation is a print's word.
  */
-export const undescribedBar = (m) => m.specimenForm === 'not-stated' && !PRINT_DIRECTIONS.has(m.direction);
+export const undescribedBar = (m) => !!m.setApartBy || (m.specimenForm === 'not-stated' && !PRINT_DIRECTIONS.has(m.direction));
 /** Whether a headline is a bar's property, which depends on how the bar was made: one that names a direction or a load. */
 export const barProperty = (def) => !!def.direction || def.loadMPa != null;
 
@@ -108,6 +108,16 @@ const slotsOf = (m, defsByProp, groupOf) => {
  * product's (a newer edition is the maker's current word for the property; a data sheet the maker's considered one). A
  * figure only the lower-ranked document prints for its headline still stands (CarbonFil's modulus, D149); one that
  * several headlines read is replaced only where each of them has a better document's figure.
+ *
+ * Two kinds of figure replace nothing. A set-apart figure (a bar's property from a bar its document does not describe,
+ * D172) never hides one that decides. And a document that prints one property at several settings in one slot (a foaming
+ * filament's density or hardness at 240 and at 270 °C, at 70 and 90 % flow) prints a figure per setting, so another
+ * document's figure is another setting's, not a disagreement (the review of T1, F8).
+ *
+ * A set-apart figure still speaks for the same figure elsewhere: where a better document prints a bar's property the same
+ * headline reads, at the same value, and does not describe its bar, a lower-ranked document's copy of it is set apart too
+ * (m.setApartBy; its form read as the better document's, not-stated): a product page that repeats a data sheet's typical
+ * figure is no evidence of a printed bar (Prusament PLA High Speed's 57 °C, the review of T1, F3).
  * Sets m.outranked = { by: SourceID, why: 'older-edition' | 'lower-class' }; assess refuses such a value ('outranked').
  */
 export function markOutranked(measurements, sources, defs = []) {
@@ -121,31 +131,52 @@ export function markOutranked(measurements, sources, defs = []) {
       defsByProp.get(p).push(d);
     }
   }
-  const byGrade = new Map();
-  const slotsById = new Map();
-  // A bar's property (a tensile, flexural, impact or heat value) its document does not describe as printed is set apart
-  // (D172): a document that prints only such a figure replaces nothing, so a set-apart figure never hides one that decides.
   const barProps = new Set(defs.filter(barProperty).flatMap((d) => d.valueProperties));
+  const candidate = (m) => m.gradeId && m.numeric && !m.quarantined && !m.implausible;
+  // The same figure as printed, to within 1 % (a product page that writes 99 where its data sheet prints 100, or 5.0 for 4.95).
+  const sameFigure = (a, b) => Math.abs(a - b) <= 0.01 * Math.max(Math.abs(a), Math.abs(b));
+  // A run of the build reads the record as it is: a copy marked by an earlier call takes its own form back.
   for (const m of measurements) {
     delete m.outranked;
-    if (!m.gradeId || !m.numeric || m.quarantined || m.implausible) continue;
-    if (barProps.has(m.property) && undescribedBar(m)) continue;
-    if (!byGrade.has(m.gradeId)) byGrade.set(m.gradeId, new Map());
-    const slots = byGrade.get(m.gradeId);
-    const keys = slotsOf(m, defsByProp, groupOf);
-    slotsById.set(m.id, keys);
-    for (const k of keys) {
-      if (!slots.has(k)) slots.set(k, new Set());
-      slots.get(k).add(m.sourceId);
+    if (m.setApartBy) { m.specimenForm = m.setApartBy.form; delete m.setApartBy; }
+  }
+  const slotsById = new Map();
+  const slotsOfM = (m) => { if (!slotsById.has(m.id)) slotsById.set(m.id, slotsOf(m, defsByProp, groupOf)); return slotsById.get(m.id); };
+  const key = (m, k) => `${m.gradeId}\u0000${k}`;
+  // The set-apart figures of each product and slot, and the copies a lower-ranked document prints of them.
+  const apart = new Map();
+  for (const m of measurements) {
+    if (!candidate(m) || !barProps.has(m.property) || !undescribedBar(m)) continue;
+    for (const k of slotsOfM(m)) { if (!apart.has(key(m, k))) apart.set(key(m, k), []); apart.get(key(m, k)).push(m); }
+  }
+  for (const m of measurements) {
+    if (!candidate(m) || !barProps.has(m.property) || undescribedBar(m)) continue;
+    const source = slotsOfM(m).flatMap((k) => apart.get(key(m, k)) ?? [])
+      // A point figure, not a bound: a description's "over 6 GPa" is no copy of a table's 6030 MPa.
+      .filter((x) => x.property === m.property && x.operator === '=' && m.operator === '=' && ranks.outranks(x.sourceId, m.sourceId) && sameFigure(x.value, m.value))
+      .sort((a, b) => ranks.rank(a.sourceId) - ranks.rank(b.sourceId) || (a.id < b.id ? -1 : 1))[0];
+    if (source) { m.setApartBy = { by: source.sourceId, measurementId: source.id, form: m.specimenForm }; m.specimenForm = 'not-stated'; }
+  }
+  // The documents that print a figure each slot reads, and the values each prints of each property there.
+  const slots = new Map();
+  for (const m of measurements) {
+    if (!candidate(m) || (barProps.has(m.property) && undescribedBar(m))) continue;
+    for (const k of slotsOfM(m)) {
+      if (!slots.has(key(m, k))) slots.set(key(m, k), new Map());
+      const docs = slots.get(key(m, k));
+      if (!docs.has(m.sourceId)) docs.set(m.sourceId, new Map());
+      const props = docs.get(m.sourceId);
+      if (!props.has(m.property)) props.set(m.property, new Set());
+      props.get(m.property).add(m.value);
     }
   }
+  // A document that prints one property of a slot at several values prints it at several settings: it replaces nothing there.
+  const speakers = (slot) => [...(slots.get(slot) ?? [])].filter(([, props]) => [...props.values()].every((vals) => vals.size === 1)).map(([d]) => d);
   let n = 0;
   const best = (docs, m) => [...(docs ?? [])].filter((d) => ranks.outranks(d, m.sourceId)).sort((a, b) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
   for (const m of measurements) {
-    if (!m.gradeId || !m.numeric || m.quarantined || m.implausible) continue;
-    // A set-apart figure (D172) replaces nothing, but a better document may replace it: its slots are its own.
-    const keys = slotsById.get(m.id) ?? slotsOf(m, defsByProp, groupOf);
-    const bys = keys.map((k) => best(byGrade.get(m.gradeId)?.get(k), m));
+    if (!candidate(m)) continue;
+    const bys = slotsOfM(m).map((k) => best(speakers(key(m, k)), m));
     if (!bys.length || bys.some((b) => !b)) continue;
     const by = bys.sort((a, b) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
     m.outranked = { by, why: ranks.why(by, m.sourceId) };
