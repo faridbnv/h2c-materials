@@ -13,7 +13,7 @@
 import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleSentence, spreadNote, convertedMark, convertedNote, boundSign, medianSign } from './format.js';
 import { dayWords } from './dates.js';
 import { evidenceLine, keyFiguresBasis } from './evidence-line.js';
-import { fmtDisplayUnit, spanDisplayUnit } from './display-numbers.js';
+import { fmtDisplay, fmtDisplayUnit, spanDisplayUnit } from './display-numbers.js';
 import { onTheH2cRows } from './print-brief.js';
 import { KEY_FIGURES } from './material-highlights.js';
 import { GRAPH_KEY, rowCountWords, graphNumber, graphSpan, graphRange, pairLabelOf, tallyWords } from './material-words.js';
@@ -1132,187 +1132,283 @@ function profileRows(p, note) {
     ? `<p class="fine profile-silent">Not published: ${esc(andList(silent))}.</p>` : ''}`;
 }
 
+// ------------------------------------------------------------------ the Overview: the drawer's first screen (D173)
+
+/**
+ * The Overview, the first thing an engineer sees on opening a material (D173, the owner's ruling of 2026-10-20: "the
+ * drawer's first screen needs redesign … friendly, easy to read"). It had held about 40 numbers under a template: the
+ * answer's three counts, each requirement's whole reason, six key figures with their middle halves and counts, seven
+ * more on an Also line, and each print setting's counts. It now answers five questions in order, each in a few large
+ * figures with its detail one press away:
+ *
+ * - **Does it meet my requirements, and on which product?** The answer in one sentence that leads with the count that
+ *   meets them, then Your requirements, one product's lines, each the first sentence of its reason, the rest under "more".
+ * - **What are its numbers?** Key properties as tiles, the median large; a requirement's property is a tile too, marked
+ *   "required" (or "reported"). The middle halves, the counts and the other headlines are one press away, under
+ *   "Spread across products".
+ * - **How do I print it on the H2C?** One row per setting: nozzle, bed and heated chamber, a window and a chip each, the
+ *   counts behind the chip, which says how many are within only where some products are not; drying and nozzle type.
+ * - **How well documented is it?** The page's word and what is on file, with the way to Sources.
+ * - Then what it is for, its limitations, the family's guidance, the estimates, and the method's caveat.
+ *
+ * Every number is the one the drawer printed before, in the page's display precision: nothing is computed here that
+ * the engine, the build or material-facts.js did not already give.
+ */
+function overviewBody(c) {
+  const { m, grades, evaluation, summary, db, showEstimates, policy } = c;
+  // Every headline, labelled and explained exactly as the filter rail and the table label it.
+  const HEAD = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint, h.labels.technical, h.comparisonNote]);
+  // A material with no product on record, the one whose own estimates are read for a requirement (D148). Its grade list
+  // is the engine's (products.js productsByMaterial): a resin reference grade such as PA612's Zytel 151L is no product.
+  const productless = !(m.gradeIds ?? []).length;
+
+  // Confirmed only means measured evidence only, in the drawer as in every lens: the research band is an estimate.
+  const est = showEstimates ? m.print?.chamberEstimate : null;
+  const chamberEstimate = est
+    ? `<div class="est-card"><h4>Chamber: estimated, not published</h4>
+          <div class="est-span">${fmtRange(est.lo, est.hi, ' – ')} ${esc(est.unit)}</div>
+          <div class="est-basis">No source publishes a chamber temperature. Research of 13 Sep 2026 places it in this band,
+            based on ${esc(est.basis)}. It is not a print setting and changes no result.${est.caution ? ` ${esc(est.caution)}` : ''}</div>
+        </div>` : '';
+
+  // Every product's own settings against the H2C's limits (material-facts.js printCounts): the chips, the counts and
+  // the beyond-capability line below are worked out from them alone, so none can disagree with another.
+  const pc = printCounts(grades);
+  const over = pc ? pc.axes.filter((a) => a.over) : [];
+  // Beyond the H2C's capability, said once and short (D173): which settings its products ask more heat of. How many
+  // products, against which limit, is On the H2C's, a tile per setting, so the callout no longer repeats six counts.
+  const AXIS_WORD = { nozzle: 'nozzle', bed: 'bed', chamber: 'chamber' };
+  // Where the requirements ask it, the answer and its line say it (Within H2C capability: FAIL), so the callout is not
+  // stacked on them in red a second time; elsewhere it is the Overview's first line.
+  const scopeSaid = c.tested && evaluation.results.some((r) => r.constraint?.kind === 'gate' && r.constraint.gate === 'scope' && r.status !== 'PASS');
+  const printable = m.excluded && !scopeSaid
+    ? `<div class="callout bad"><b>Beyond H2C capability.</b> ${over.length ? `${over.some((a) => a.over === pc.products) ? (pc.products === 1 ? 'Its product asks' : 'Its products ask') : 'Some of its products ask'} for more heat than the H2C gives at the ${esc(andList(over.map((a) => AXIS_WORD[a.axis])))}. ` : ''}Kept for reference, never a candidate.</div>`
+    : '';
+
+  // With estimates hidden the drawer shows none, as the table does. It says where they are rather than leaving a
+  // reader who saw one in Include uncertain to wonder where it went.
+  const hiddenEstimates = !showEstimates && hasEstimates(m)
+    ? `<p class="fine">${policy === 'exploration'
+      ? 'Tick "Use estimates and resin data" in the top bar to see estimates for the missing values.'
+      : 'Estimates for the missing values show when materials that could not be checked are included (the top bar\'s Include), with "Use estimates and resin data" ticked.'}</p>`
+    : '';
+
+  // What it is, where the identity line in the head does not say it all: a variant's filler, a support material, an
+  // elastomer. Bambu Lab's standing is the head's chip (its popover the sentence), no longer said twice.
+  const ledeText = ledeWords(m);
+  const lede = ledeText ? `<p class="lede">${esc(ledeText)}</p>` : '';
+
+  // ---- the answer: how many of its products meet the requirements, and one product's lines (D146, D173)
+  let answer = '';
+  if (c.tested) {
+    const n = evaluation?.counts;
+    const total = n ? n.pass + n.fail + n.untested : 0;
+    // The count that meets them leads, in bold; how many fail one and publish too little to judge is the line under it.
+    const head = !n ? esc(evaluation.verdict === 'PASS' ? 'It meets all your requirements.' : 'It does not meet all your requirements.')
+      : total === 1 ? (n.pass ? '<b>Its one product</b> meets all your requirements.' : '<b>Its one product</b> does not meet all your requirements.')
+        : n.pass ? `<b>${n.pass === total ? (total === 2 ? 'Both its products' : `All ${total} of its products`) : `${n.pass} of its ${total} products`}</b> ${n.pass === 1 ? 'meets' : 'meet'} all your requirements.`
+          // Where some publish too little to judge, none is shown to meet them yet, which "none meets" overstated.
+          : `<b>None of its ${total} products</b> ${n.untested ? 'is shown to meet' : 'meets'} all your requirements.`;
+    const rest = !n ? [] : total === 1
+      ? [n.fail ? 'it fails at least one' : '', n.untested ? 'it publishes too little to judge' : ''].filter(Boolean)
+      : [n.fail ? `${n.fail} ${n.fail === 1 ? 'fails' : 'fail'} at least one` : '', n.untested ? `${n.untested} ${n.untested === 1 ? 'publishes' : 'publish'} too little to judge` : ''].filter(Boolean);
+    const show = n?.pass ? '<button type="button" class="link-btn" data-tab-link="Grades">Show the products</button>' : '';
+    answer = `<div class="answer answer-${esc(evaluation.verdict)}">${chip(evaluation.verdict)}
+        <div class="answer-text"><p class="answer-head">${head}</p>${rest.length || show ? `<p class="answer-sub">${rest.length ? `${esc(cap(andList(rest)))}.` : ''}${show ? ` ${show}` : ''}</p>` : ''}</div></div>
+      <h3 class="sec">Your requirements</h3>${renderWhy(evaluation, { productName: (id) => productName(c.gradeById.get(id)) })}`;
+  }
+
+  // ---- Key properties: the material page's six key figures as tiles (D173), and a requirement's property beside them
+  const headOf = (k) => REGISTRY.allHeadlines.find((x) => x.key === k);
+  // The properties a requirement asks about, as the engine read the requirements (its results' own constraints): each
+  // "required", or "reported" where every requirement on it is reported, not required.
+  const asked = new Map();
+  for (const r of c.tested ? evaluation.results : []) {
+    if (r.constraint?.kind !== 'numeric') continue;
+    const k = r.constraint.property;
+    if (asked.get(k) !== 'required') asked.set(k, r.constraint.mandatory === false ? 'reported' : 'required');
+  }
+  const nameOf = (h) => explainButton(esc(h.labels.plain), [h.labels.hint, h.comparisonNote].filter(Boolean).join(' '), { cls: 'prop-name', head: h.labels.technical || h.labels.plain });
+  const asPublishedNote = (h, a) => `As published by ${plural(a.n, 'product')}, ${asPublishedWords(h)}: not compared, so no median. Each value is in ${h.domain === 'thermal' ? 'Thermal' : 'Mechanical'}, with its document.`;
+  /**
+   * One headline in the spread table under the tiles: the median, its middle half (lowest to highest under four
+   * products) and how many products, at the page's display precision (`display-numbers.js`); where no product publishes
+   * one with a stated orientation or load, the values as published, as the page says them, never another record with a
+   * star (2026-10-18).
+   */
+  const figure = (k) => {
+    const h = headOf(k);
+    if (!h) return null;
+    const e = m.headline?.[k], s = m.summary?.[k];
+    const unit = h.unit ?? e?.unit ?? '';
+    const name = nameOf(h);
+    if (e?.known) {
+      const n = s?.n ?? e.spread?.n ?? 1;
+      const lo = s?.q1 ?? e.spread?.q1, hi = s?.q3 ?? e.spread?.q3;
+      const foot = n >= 4 && lo != null && hi != null ? `middle half ${spanDisplayUnit(lo, hi, unit)} · ${plural(n, 'product')}`
+        : n >= 2 ? `${spanDisplayUnit(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max, unit)} · ${plural(n, 'product')}` : 'one product';
+      const text = `${boundSign(e)}${fmtDisplayUnit(e.value, unit)}`;
+      const value = e.spread?.n > 1
+        ? explainButton(`<span class="sv">${esc(text)}</span>`, spreadNote(e, c.grades.filter(isProduct).length), { cls: 'spread-value', head: `Median of ${e.spread.n} products`, action: 'products', id: m.id })
+        : e.measurementId
+          ? `<button type="button" class="evidence-value" data-measurement="${esc(e.measurementId)}" title="Opens the measurement in Sources"><span>${esc(text)}</span><span class="evidence-dot" aria-hidden="true"></span></button>`
+          : `<span>${esc(text)}</span>`;
+      return { k, name, value: `${value}${convertedMark(e.converted)}`, foot };
+    }
+    if (showEstimates && e?.estimate) return { k, name, value: renderValue(e, { showUnit: true, estimates: true, materialId: m.id, productless }), foot: 'estimated, not measured' };
+    if (e?.notApplicable) return { k, name, value: explainButton('not applicable', `Not applicable. ${e.notApplicable.reason}`, { cls: 'na', head: 'Not applicable' }), foot: '', quiet: true };
+    const a = s?.asPublished;
+    if (a?.n) {
+      // A value published with no stated orientation or load is no median: it says so, grey, with the hollow mark the
+      // graphs and the material page give it (C18).
+      return { k, name, value: `<i class="imp-dot open" aria-hidden="true"></i>${explainButton(esc(spanDisplayUnit(a.min, a.max, unit)), asPublishedNote(h, a), { cls: 'kp-pub', head: 'As published' })}`,
+        foot: `as published · ${asPublishedWords(h)}`, quiet: true };
+    }
+    return { k, name, value: '<span class="kp-missing">Not published</span>', foot: '', quiet: true };
+  };
+  /**
+   * One key figure as a tile: its name, the median large with its unit small, and a foot only where the figure is not
+   * a median of four or more products (as published, estimated, one to three products). The middle half and the count
+   * are the value's popover and the spread table's, one press away.
+   */
+  const tile = (k) => {
+    const h = headOf(k);
+    if (!h) return null;
+    const e = m.headline?.[k], s = m.summary?.[k];
+    const unit = h.unit ?? e?.unit ?? '';
+    const t = { k, name: nameOf(h), asked: asked.get(k) ?? null };
+    if (e?.known) {
+      const n = s?.n ?? e.spread?.n ?? 1;
+      const inner = `<span class="kf-n">${esc(`${boundSign(e)}${fmtDisplay(e.value, unit)}`)}</span>${unit ? `<span class="kf-u">${esc(unit)}</span>` : ''}`;
+      const value = e.spread?.n > 1
+        ? explainButton(inner, spreadNote(e, c.grades.filter(isProduct).length), { cls: 'spread-value', head: `Median of ${e.spread.n} products`, action: 'products', id: m.id, label: `${h.labels.plain}: ${boundSign(e)}${fmtDisplayUnit(e.value, unit)}, the median of ${e.spread.n} products` })
+        : e.measurementId
+          ? `<button type="button" class="evidence-value" data-measurement="${esc(e.measurementId)}" title="Opens the measurement in Sources">${inner}<span class="evidence-dot" aria-hidden="true"></span></button>`
+          : `<span>${inner}</span>`;
+      return { ...t, value: `${value}${convertedMark(e.converted)}`, foot: n >= 4 ? '' : n >= 2 ? `median of only ${n} products` : 'one product\'s value' };
+    }
+    if (showEstimates && e?.estimate) return { ...t, value: renderValue(e, { showUnit: true, estimates: true, materialId: m.id, productless }), foot: 'estimated, not measured' };
+    if (e?.notApplicable) return { ...t, value: explainButton('does not apply', `Not applicable. ${e.notApplicable.reason}`, { cls: 'na', head: 'Not applicable' }), quiet: true };
+    const a = s?.asPublished;
+    if (a?.n) {
+      return { ...t, value: `<i class="imp-dot open" aria-hidden="true"></i>${explainButton(esc(spanDisplayUnit(a.min, a.max, unit)), asPublishedNote(h, a), { cls: 'kp-pub', head: 'As published' })}`,
+        foot: `as published, ${asPublishedWords(h)}`, quiet: true };
+    }
+    return { ...t, value: '<span class="kp-missing">not published</span>', quiet: true };
+  };
+  const tileKeys = [...KEY_FIGURES, ...HEAD.map(([, k]) => k).filter((k) => asked.has(k) && !KEY_FIGURES.includes(k))];
+  const tiles = tileKeys.map(tile).filter(Boolean);
+  const spreadRows = [...KEY_FIGURES, ...HEAD.map(([, k]) => k).filter((k) => !KEY_FIGURES.includes(k))].map(figure).filter(Boolean);
+  const more = spreadRows.filter((f) => !tileKeys.includes(f.k)).length;
+  const anySpread = HEAD.some(([, k]) => m.headline[k]?.spread);
+  const numbers = `
+    <div class="sec-row"><h3 class="sec">Key properties</h3><span class="sec-note">${anySpread ? 'median of its products' : 'as published'}</span></div>
+    <div class="kf-grid">${tiles.map((t) => `<div class="kf${t.asked ? ' kf-asked' : ''}${t.quiet ? ' kf-quiet' : ''}" data-key="${esc(t.k)}">
+        <div class="kf-name">${t.name}</div>
+        <div class="kf-v">${t.value}${t.asked ? ` <span class="kf-tag" title="${t.asked === 'required' ? 'One of your requirements' : 'In your requirements, reported, not required'}. This is the median of its products; Your requirements gives the value of the product shown.">${t.asked}</span>` : ''}</div>${t.foot ? `<div class="kf-f">${esc(t.foot)}</div>` : ''}</div>`).join('')}</div>
+    <details class="kf-more"><summary><span class="chevron" aria-hidden="true"></span>Spread across products${more ? `, and ${plural(more, 'more property', 'more properties')}` : ''}</summary>
+      <dl class="key-props key-figs">
+        ${spreadRows.map((f) => `<dt>${f.name}</dt><dd class="${f.quiet ? 'kp-empty' : ''}"><span class="kp-v">${f.value}</span>${f.foot ? ` <span class="kp-f">${esc(f.foot)}</span>` : ''}</dd>`).join('')}
+      </dl>
+      <p class="fine">${anySpread
+        // What a figure is, in the material page's sentence (evidence-line.js keyFiguresBasis, C07).
+        ? `${esc(keyFiguresBasis(c))} Select a value to see where it comes from.`
+        : esc((m.headlineBasis ?? '').replace(/[.\s]*$/, '')) + '.'}</p>
+    </details>`;
+
+  // ---- On the H2C (2026-10-18, D173): one row per setting, from the material page's block (print-brief.js
+  // onTheH2cRows): nozzle, bed and heated chamber, a window and a chip each, then drying and nozzle type. The chip is
+  // the verdict of the product the material's own gate names, the best of its products' (D151); its popover counts the
+  // products (setting, below).
+  let print = '';
+  if (pc) {
+    const rowsH2C = Object.fromEntries(onTheH2cRows(c).map((r) => [r.key, r]));
+    const axisOf = (k) => pc.axes.find((a) => a.axis === k);
+    const verdictOf = (a) => (!a || a.within + a.over === 0 ? 'unknown' : a.best);
+    // Products within at the low end of their makers' windows are said among those within (D151).
+    const where = (n) => `the low end of ${n === 1 ? 'its maker\'s window' : 'their makers\' windows'}`;
+    const limitLine = (a) => {
+      const lim = `the H2C's ${fmtNumber(a.limit)} °C`;
+      const low = !a.lowEnd ? '' : a.lowEnd === a.within ? `, ${a.within === 1 ? 'at' : 'all at'} ${where(a.within)}` : ` (${a.lowEnd} at ${where(a.lowEnd)})`;
+      if (a.within === pc.products) return `${pc.products === 1 ? `Its product is within ${lim}` : pc.products === 2 ? `Both products are within ${lim}` : `All ${pc.products} products are within ${lim}`}${low}.`;
+      const bits = [a.within ? `${a.within} within ${lim}${low}` : `none within ${lim}`, a.over ? `${a.over} beyond or only partly within` : null,
+        a.unknown ? `${a.unknown} ${a.unknown === 1 ? 'gives' : 'give'} no ${a.axis} temperature` : null].filter(Boolean);
+      return `${cap(andList(bits))}.`;
+    };
+    const estimates = [];
+    /**
+     * One setting as a row: its name, the window most products give, and the chip, the best product's verdict. The
+     * window's note and every product's count against the limit are the chip's popover. Where some products are within
+     * the H2C's limit and some not, the chip says how many are within ("1 of 7 within"), which is why a green chip can
+     * stand beside a window most products give above the limit (PEEK's chamber, 90 °C); where none is, the row says so
+     * under the window, with the limit.
+     */
+    const setting = (key, axis, extra = '') => {
+      const r = rowsH2C[key], a = axisOf(axis);
+      if (!r) return '';
+      const v = verdictOf(a);
+      const { state, word } = gateVerdict(v);
+      // A count that the limit's line says again ("All 3 products · All 3 products are within …") is said once (C04).
+      const all = pc.products === 1 ? ['one product', 'its one product'] : pc.products === 2 ? ['both products'] : [`all ${pc.products} products`];
+      const every = a && a.within === pc.products && all.includes(String(r.note ?? '').trim().toLowerCase());
+      const why = [r.note && !every ? `${r.value}: ${r.note}.` : '', a ? limitLine(a) : ''].filter(Boolean).join(' ');
+      // Where some products are within and others not, the chip says how many are within, so a green chip never stands
+      // unexplained beside a window most products give above the limit (the first-time reader's review, D173).
+      const shown = a?.over && a.within ? `${a.within} of ${pc.products} within` : word;
+      const mark = why ? explainButton(esc(shown), why, { cls: `chip chip-${state}`, head: `${r.label} on the H2C`, label: `${r.label}: ${shown}. ${why}` }) : `<span class="chip chip-${state}">${esc(shown)}</span>`;
+      if (v === 'unknown' && extra) estimates.push(extra);
+      const foot = a?.over && !a.within ? `None within the H2C's ${fmtNumber(a.limit)} °C` : '';
+      return `<div class="h2c-row" data-print="${key}"><b>${esc(r.label)}</b> <span class="h2c-v">${esc(r.value)}</span>
+        <span class="h2c-chip">${mark}</span>${foot ? `<span class="h2c-foot">${esc(foot)}</span>` : ''}</div>`;
+    };
+    const nozzleType = rowsH2C.hardened;
+    const drying = rowsH2C.drying;
+    const from = [pc.origins.guide ? `the Bambu Lab Filament Guide (${pc.origins.guide} ${pc.origins.guide === 1 ? 'setting' : 'settings'})` : null,
+      pc.origins.twin ? `a data sheet shared with another product (${pc.origins.twin} ${pc.origins.twin === 1 ? 'setting' : 'settings'})` : null,
+      // A chamber all three leave silent, read from what the makers of its kind of plastic state (D151).
+      pc.origins.family ? `what the makers of its kind of plastic state (${pc.origins.family} ${pc.origins.family === 1 ? 'chamber' : 'chambers'})` : null].filter(Boolean);
+    const fromShort = [pc.origins.guide ? 'the Bambu Lab Filament Guide' : null, pc.origins.twin ? 'a data sheet it shares' : null, pc.origins.family ? 'what the makers of its kind of plastic state' : null].filter(Boolean);
+    const rows = `${setting('nozzle', 'nozzle', windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}${setting('bed', 'bed', windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}${setting('chamber', 'chamber', chamberEstimate)}`;
+    // Drying and nozzle type are values, not checks: no chip. Drying's note says whether to dry at all ("most advise it
+    // only for wet filament"); nozzle type's tallies the sheets, one press away.
+    print = `
+    <div class="sec-row"><h3 class="sec">On the H2C</h3>${c.counts.Printing ? '<button type="button" class="link-btn" data-tab-link="Printing">Printing in full</button>' : ''}</div>
+    <div class="h2c-list">${rows}
+      ${drying ? `<div class="h2c-row plain" data-print="drying"><b>Drying</b> <span class="h2c-v">${esc(drying.value)}</span>${drying.note ? `<span class="h2c-foot">${esc(cap(drying.note))}</span>` : ''}</div>` : ''}
+      ${nozzleType ? `<div class="h2c-row plain" data-print="hardened"><b>Nozzle type</b> <span class="h2c-v">${nozzleType.note ? explainButton(esc(nozzleType.value), `${cap(nozzleType.note)}.`, { cls: 'h2c-said', head: 'Nozzle type' }) : esc(nozzleType.value)}</span></div>` : ''}
+    </div>
+    ${estimates.length ? `<div class="h2c-est">${estimates.join('')}</div>` : ''}
+    <p class="fine h2c-from">Settings are each product's own${fromShort.length ? `, or where its sheet is silent, read from ${explainButton(esc(andList(fromShort).replace(/ and ([^,]*)$/, ' or $1')), `Where a product's own data sheet is silent, its settings are read from ${from.join(' or ')}. Products gives each one's.`, { cls: 'from-words', head: 'Where the settings were read' })}` : ''}.</p>`;
+  }
+
+  // ---- how well documented, and what is on file (C20, C21): the material page's word (evidence-line.js, its reasons
+  // one press away), then the counts, the known gaps counted as Sources lists them.
+  const docs = c.counts.Evidence;
+  const ev = evidenceLine(c);
+  const gapsShown = drawerGaps(c);
+  const counted = { gaps: gapsShown.filter((r) => r.status !== 'Conflict').length, conflicts: gapsShown.filter((r) => r.status === 'Conflict').length };
+  const dataLine = `<p class="data-line" data-tier="${esc(ev.tier)}">${explainButton(`<b>${esc(ev.head)}</b>`, ev.text, { cls: 'evidence-tier', head: ev.head })} · ${esc(onFileWords(summary, docs, counted))}
+    <button type="button" class="link-btn" data-tab-link="${gapsShown.length ? 'Coverage' : 'Evidence'}">See the sources</button></p>`;
+  // The entry's identity notes are the maintainers' (source IDs, migrations, file names): under Record notes, the
+  // drawer's place for them, one press away (C08).
+  const about = m.identity?.notes && m.identity.notes !== 'Not applicable'
+    ? `<details class="grade-more record-notes"><summary>Record notes</summary><p class="fine">${esc(proseOnly(m.identity.notes))}${proseOnly(m.identity.notes) !== m.identity.notes ? ids(['As recorded:', m.identity.notes]) : ''}</p></details>` : '';
+  const standing = db.method.find((r) => r.topic === 'Transferable allowables')?.rule;
+  const footer = standing ? `<p class="fine overview-foot">${esc(standing)}</p>` : '';
+
+  // The first screen, then the rest: what it is for, its limitations and the family's guidance, the estimates of what
+  // it does not publish (and the properties that do not apply), the maintainers' notes and the method's caveat.
+  const glance = `${printable}${lede}${answer}${numbers}${print}${dataLine}`;
+  const rest = `${usesSection(m, c)}${hiddenEstimates}${estimateGroup(m, HEAD, showEstimates, productless)}${about}${footer}`;
+  return `<div class="glance">${glance}</div>${rest}`;
+}
+
 function tabBody(tab, c) {
   const { m, ev, poly, cov, profiles, grades, prices, evaluation, summary, db, showEstimates, policy } = c;
   // An empty tab offers the known gaps only where Sources lists one (C21).
   const empty = (t) => nothingRecorded(emptyReasons(c, t), { toGaps: drawerGaps(c).length > 0 });
 
-  if (tab === 'Overview') {
-    // Every headline, labelled and explained exactly as the filter rail and the table label it.
-    const HEAD = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint, h.labels.technical, h.comparisonNote]);
-    // A material with no product on record, the one whose own estimates are read for a requirement (D148). Its grade list
-    // is the engine's (products.js productsByMaterial): a resin reference grade such as PA612's Zytel 151L is no product.
-    const productless = !(m.gradeIds ?? []).length;
-
-    // Confirmed only means measured evidence only, in the drawer as in every lens: the research band is an estimate.
-    const est = showEstimates ? m.print?.chamberEstimate : null;
-    const chamberEstimate = est
-      ? `<div class="est-card"><h4>Chamber: estimated, not published</h4>
-            <div class="est-span">${fmtRange(est.lo, est.hi, ' – ')} ${esc(est.unit)}</div>
-            <div class="est-basis">No source publishes a chamber temperature. Research of 13 Sep 2026 places it in this band,
-              based on ${esc(est.basis)}. It is not a print setting and changes no result.${est.caution ? ` ${esc(est.caution)}` : ''}</div>
-          </div>` : '';
-
-    // Every product's own settings against the H2C's limits (material-facts.js printCounts): the chips, the counts and
-    // the beyond-capability line below are worked out from them alone, so none can disagree with another.
-    const pc = printCounts(grades);
-    const over = pc ? pc.axes.filter((a) => a.over) : [];
-    const HOTTER = { nozzle: 'a hotter nozzle', bed: 'a hotter bed', chamber: 'a hotter chamber' };
-    // Beyond the H2C's capability, said once, with the limits its products break (2026-10-18): the head's chip names the
-    // standing, and the lede and the capability row no longer say it again.
-    const printable = m.excluded
-      ? `<div class="callout bad"><b>Beyond H2C capability.</b> ${over.length ? `${esc(cap(andList(over.map((a) => `${a.over === pc.products ? (pc.products === 1 ? 'its product asks' : `all ${pc.products} products ask`) : `${a.over} of ${plural(pc.products, 'product')} ${a.over === 1 ? 'asks' : 'ask'}`} for ${HOTTER[a.axis]} than the H2C's ${fmtNumber(a.limit)} °C`))))}. ` : ''}Kept for reference, never a candidate.</div>`
-      : '';
-
-    // With estimates hidden the drawer shows none, as the table does. It says where they are rather than leaving a
-    // reader who saw one in Include uncertain to wonder where it went.
-    const hiddenEstimates = !showEstimates && hasEstimates(m)
-      ? `<p class="fine">${policy === 'exploration'
-        ? 'Tick "Use estimates and resin data" in the top bar to see estimates for the missing values.'
-        : 'Estimates for the missing values show when materials that could not be checked are included (the top bar\'s Include), with "Use estimates and resin data" ticked.'}</p>`
-      : '';
-
-    // What it is, where the identity line in the head does not say it all: a variant's filler, a support material, an
-    // elastomer. Bambu Lab's standing is the head's chip (its popover the sentence), no longer said twice.
-    const ledeText = ledeWords(m);
-    const lede = ledeText ? `<p class="lede">${esc(ledeText)}</p>` : '';
-
-    // Key properties as the material's page gives them (2026-10-18): its six key figures in its order, each the median of
-    // the products that publish it with a stated orientation or test load, their middle half (lowest to highest under
-    // four) and how many they are, at the page's display precision; where no such median exists, the values as
-    // published, as the page says them, never another record marked with a star. The other headlines follow on one line.
-    const headOf = (k) => REGISTRY.allHeadlines.find((x) => x.key === k);
-    const figure = (k) => {
-      const h = headOf(k);
-      if (!h) return null;
-      const e = m.headline?.[k], s = m.summary?.[k];
-      const unit = h.unit ?? e?.unit ?? '';
-      const name = explainButton(esc(h.labels.plain), [h.labels.hint, h.comparisonNote].filter(Boolean).join(' '), { cls: 'prop-name', head: h.labels.technical || h.labels.plain });
-      if (e?.known) {
-        const n = s?.n ?? e.spread?.n ?? 1;
-        const lo = s?.q1 ?? e.spread?.q1, hi = s?.q3 ?? e.spread?.q3;
-        const foot = n >= 4 && lo != null && hi != null ? `middle half ${spanDisplayUnit(lo, hi, unit)} · ${plural(n, 'product')}`
-          : n >= 2 ? `${spanDisplayUnit(s?.min ?? e.spread?.min, s?.max ?? e.spread?.max, unit)} · ${plural(n, 'product')}` : 'one product';
-        const text = `${boundSign(e)}${fmtDisplayUnit(e.value, unit)}`;
-        const value = e.spread?.n > 1
-          ? explainButton(`<span class="sv">${esc(text)}</span>`, spreadNote(e, c.grades.filter(isProduct).length), { cls: 'spread-value', head: `Median of ${e.spread.n} products`, action: 'products', id: m.id })
-          : e.measurementId
-            ? `<button type="button" class="evidence-value" data-measurement="${esc(e.measurementId)}" title="Opens the measurement in Sources"><span>${esc(text)}</span><span class="evidence-dot" aria-hidden="true"></span></button>`
-            : `<span>${esc(text)}</span>`;
-        return { k, name, value: `${value}${convertedMark(e.converted)}`, foot };
-      }
-      if (showEstimates && e?.estimate) return { k, name, value: renderValue(e, { showUnit: true, estimates: true, materialId: m.id, productless }), foot: 'estimated, not measured' };
-      if (e?.notApplicable) return { k, name, value: explainButton('not applicable', `Not applicable. ${e.notApplicable.reason}`, { cls: 'na', head: 'Not applicable' }), foot: '', quiet: true };
-      const a = s?.asPublished;
-      if (a?.n) {
-        return { k, name, value: explainButton(esc(spanDisplayUnit(a.min, a.max, unit)), `As published by ${plural(a.n, 'product')}, ${asPublishedWords(h)}: not compared, so no median. Each value is in ${headOf(k)?.domain === 'thermal' ? 'Thermal' : 'Mechanical'}, with its document.`,
-          { cls: 'kp-pub', head: 'As published' }), foot: `as published · ${asPublishedWords(h)}`, published: true };
-      }
-      return { k, name, value: '<span class="kp-missing">Not published</span>', foot: '', quiet: true };
-    };
-    const keyFigs = KEY_FIGURES.map(figure).filter(Boolean);
-    const others = HEAD.map(([, k]) => k).filter((k) => !KEY_FIGURES.includes(k)).map(figure).filter(Boolean);
-    const anySpread = HEAD.some(([, k]) => m.headline[k]?.spread);
-    const numbers = `
-      <h3 class="sec">Key properties</h3>
-      <dl class="key-props key-figs">
-        ${keyFigs.map((f) => `<dt>${f.name}</dt><dd class="${f.quiet ? 'kp-empty' : ''}"><span class="kp-v">${f.value}</span>${f.foot ? ` <span class="kp-f">${esc(f.foot)}</span>` : ''}</dd>`).join('')}
-      </dl>
-      ${others.length ? `<p class="kp-also">Also: ${others.map((f) => `${f.name} ${f.published
-        // A value published with no stated orientation or load is no median: it says so, grey, with the hollow mark the
-        // graphs and the material page give it (C18).
-        ? `<span class="kp-also-pub"><i class="imp-dot open" aria-hidden="true"></i>${f.value} as published</span>` : f.value}`).join('<span class="kp-sep"> · </span>')}.</p>` : ''}
-      <p class="fine">${anySpread
-        // What a figure is, in the material page's sentence (evidence-line.js keyFiguresBasis, C07).
-        ? `${esc(keyFiguresBasis(c))} Select a value to see where it comes from.`
-        : esc((m.headlineBasis ?? '').replace(/[.\s]*$/, '')) + '.'}</p>
-      ${hiddenEstimates}
-      ${estimateGroup(m, HEAD, showEstimates, productless)}`;
-
-    // On the H2C (2026-10-18): the material page's block (print-brief.js onTheH2cRows), one row per setting, each with a
-    // chip from every product's own settings against the H2C's limit. The drawer had stated printability twice, the
-    // products' counts and then the material's recorded window beside its best product's gate reason, and the two
-    // disagreed (PEEK's bed "Within, 110–250 °C" under a failed bed requirement; PLA's nozzle 260, 210 and 195–230 °C).
-    let print = '';
-    if (pc) {
-      const rowsH2C = Object.fromEntries(onTheH2cRows(c).map((r) => [r.key, r]));
-      const axisOf = (k) => pc.axes.find((a) => a.axis === k);
-      // The chip is the verdict of the product the material's own gate names, the best of its products' (D151).
-      const verdictOf = (a) => (!a || a.within + a.over === 0 ? 'unknown' : a.best);
-      // Products within at the low end of their makers' windows are said among those within (D151).
-      const where = (n) => `the low end of ${n === 1 ? 'its maker\'s window' : 'their makers\' windows'}`;
-      const limitLine = (a) => {
-        const lim = `the H2C's ${fmtNumber(a.limit)} °C`;
-        const low = !a.lowEnd ? '' : a.lowEnd === a.within ? `, ${a.within === 1 ? 'at' : 'all at'} ${where(a.within)}` : ` (${a.lowEnd} at ${where(a.lowEnd)})`;
-        if (a.within === pc.products) return `${pc.products === 1 ? `Its product is within ${lim}` : pc.products === 2 ? `Both products are within ${lim}` : `All ${pc.products} products are within ${lim}`}${low}.`;
-        const bits = [a.within ? `${a.within} within ${lim}${low}` : `none within ${lim}`, a.over ? `${a.over} beyond or only partly within` : null,
-          a.unknown ? `${a.unknown} ${a.unknown === 1 ? 'gives' : 'give'} no ${a.axis} temperature` : null].filter(Boolean);
-        return `${cap(andList(bits))}.`;
-      };
-      const setting = (key, axis, extra = '') => {
-        const r = rowsH2C[key], a = axisOf(axis);
-        if (!r) return '';
-        const { state, word } = gateVerdict(verdictOf(a));
-        // A count that the limit's line says again ("All 3 products · All 3 products are within …") is said once (C04).
-        const all = pc.products === 1 ? ['one product', 'its one product'] : pc.products === 2 ? ['both products'] : [`all ${pc.products} products`];
-        const every = a && a.within === pc.products && all.includes(String(r.note ?? '').trim().toLowerCase());
-        const why = [r.note && !every ? cap(r.note) : '', a ? limitLine(a) : ''].filter(Boolean).join(' · ');
-        return `<div class="fact" data-print="${key}"><span class="chip chip-${state}">${esc(word)}</span>
-          <div><b>${esc(r.label)}</b> <span class="h2c-v">${esc(r.value)}</span>${why ? `<br><span class="fact-why">${esc(why)}</span>` : ''}${verdictOf(a) === 'unknown' ? extra : ''}</div></div>`;
-      };
-      const plainRow = (key) => {
-        const r = rowsH2C[key];
-        if (!r) return '';
-        return `<div class="fact plain" data-print="${key}"><div><b>${esc(r.label)}</b> <span class="h2c-v">${esc(r.value)}</span>${r.note ? `<br><span class="fact-why">${esc(cap(r.note))}</span>` : ''}</div></div>`;
-      };
-      const from = [pc.origins.guide ? `the Bambu Lab Filament Guide (${pc.origins.guide} ${pc.origins.guide === 1 ? 'setting' : 'settings'})` : null,
-        pc.origins.twin ? `a data sheet shared with another product (${pc.origins.twin} ${pc.origins.twin === 1 ? 'setting' : 'settings'})` : null,
-        // A chamber all three leave silent, read from what the makers of its kind of plastic state (D151).
-        pc.origins.family ? `what the makers of its kind of plastic state (${pc.origins.family} ${pc.origins.family === 1 ? 'chamber' : 'chambers'})` : null].filter(Boolean);
-      print = `
-      <div class="sec-row"><h3 class="sec">On the H2C</h3>${c.counts.Printing ? '<button type="button" class="link-btn" data-tab-link="Printing">Printing in full</button>' : ''}</div>
-      <div class="facts-list">
-        ${setting('nozzle', 'nozzle', windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}
-        ${setting('bed', 'bed', windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
-        ${setting('chamber', 'chamber', chamberEstimate)}
-        ${plainRow('drying')}
-        ${plainRow('hardened')}
-      </div>
-      <p class="fine">Each product's settings are its own data sheet's${from.length ? `, or where it is silent ${from.join(' or ')}` : ''}. Products gives each one.</p>`;
-    }
-
-    // One line on how well documented the material is and how much is on file, with the way to the documents and the
-    // gaps (C20, C21): the material page's word (evidence-line.js, its reasons one press away), then the counts, the known
-    // gaps counted as Sources lists them.
-    const docs = c.counts.Evidence;
-    const ev = evidenceLine(c);
-    const gapsShown = drawerGaps(c);
-    const counted = { gaps: gapsShown.filter((r) => r.status !== 'Conflict').length, conflicts: gapsShown.filter((r) => r.status === 'Conflict').length };
-    const dataLine = `<p class="data-line" data-tier="${esc(ev.tier)}">${explainButton(`<b>${esc(ev.head)}</b>`, ev.text, { cls: 'evidence-tier', head: ev.head })} · ${esc(onFileWords(summary, docs, counted))}
-      <button type="button" class="link-btn" data-tab-link="${gapsShown.length ? 'Coverage' : 'Evidence'}">See the sources</button></p>`;
-    // The entry's identity notes are the maintainers' (source IDs, migrations, file names): under Record notes, the
-    // drawer's place for them, one press away (C08).
-    const about = m.identity?.notes && m.identity.notes !== 'Not applicable'
-      ? `<details class="grade-more record-notes"><summary>Record notes</summary><p class="fine">${esc(proseOnly(m.identity.notes))}${proseOnly(m.identity.notes) !== m.identity.notes ? ids(['As recorded:', m.identity.notes]) : ''}</p></details>` : '';
-    const standing = db.method.find((r) => r.topic === 'Transferable allowables')?.rule;
-    const footer = standing ? `<p class="fine overview-foot">${esc(standing)}</p>` : '';
-
-    // With requirements set, the first question is whether a product meets them; then what the material is like and
-    // whether the H2C can print it, in the order its page gives them.
-    let answer = '';
-    if (c.tested) {
-      const n = evaluation?.counts;
-      const parts = n ? [n.pass ? `${n.pass} ${n.pass === 1 ? 'meets' : 'meet'} all your requirements` : 'none meets all your requirements',
-        n.fail ? `${n.fail} ${n.fail === 1 ? 'fails' : 'fail'} at least one` : '', n.untested ? `${n.untested} ${n.untested === 1 ? 'publishes' : 'publish'} too little to judge` : ''].filter(Boolean) : [];
-      const total = n ? n.pass + n.fail + n.untested : 0;
-      answer = `<div class="answer answer-${esc(evaluation.verdict)}">${chip(evaluation.verdict)}
-          <p>${n ? `Of its ${plural(total, 'product')}, ${esc(andList(parts))}.` : esc(evaluation.verdict === 'PASS' ? 'It meets all your requirements.' : 'It does not meet all your requirements.')}
-          ${n?.pass ? '<button type="button" class="btn btn-sm" data-tab-link="Grades">Show the products</button>' : ''}</p></div>
-        <h3 class="sec">Your requirements</h3>${renderWhy(evaluation, { productName: (id) => productName(c.gradeById.get(id)) })}`;
-    }
-    const rest = `${usesSection(m, c)}${dataLine}${about}${footer}`;
-    return `${printable}${lede}${answer}${numbers}${print}${rest}`;
-  }
+  if (tab === 'Overview') return overviewBody(c);
 
   if (tab === 'Mechanical' || tab === 'Thermal') {
     // The property first, then every value of it with its product and source, largest first. Grouped by source, PLA's
