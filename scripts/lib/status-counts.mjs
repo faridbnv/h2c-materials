@@ -13,9 +13,11 @@ export const activeProducts = (db) => db.grades.filter((g) => !g.retired && !/-R
 
 /**
  * What the plain-language summary needs.
- *  - materials: every row of materials.csv is `total`; a family entry or alias owns no product and the page does not list
- *    it, so `listed` is what is left; of those, `excluded` ones are shown only to say why they are out (a high-temperature
- *    plastic, a sintering filament) and `judged` ones are the candidates the templates judge.
+ *  - materials: every row of materials.csv is `total`, the materials the build compiles and those it leaves out as
+ *    retired; of the compiled, a family entry or alias owns no product and the page does not list it, so `listed` is what
+ *    is left; of those, `excluded` ones are shown only to say why they are out (a
+ *    high-temperature plastic) and `judged` ones are the candidates the templates judge. `retired` ones left the dataset
+ *    and are rows of materials.csv only (D174): the build compiles none of them, so no other count holds them.
  *  - unknown: the products whose print gate on that axis is unknown, counted as the engine judges it (productGates),
  *    the same reading build/snapshot/print.csv records.
  *  - priceDates: the days the price listings in use were read on.
@@ -37,11 +39,12 @@ export function statusCounts(db) {
   }
   return {
     materials: {
-      total: db.materials.length,
+      total: db.materials.length + (db.meta?.counts?.retired ?? 0),
       familyEntries: db.materials.length - listed.length,
       listed: listed.length,
       excluded: listed.filter((m) => m.excluded).length,
       judged: listed.filter((m) => !m.excluded).length,
+      retired: db.meta?.counts?.retired ?? 0,
     },
     products: products.length,
     measurements: db.measurements.length,

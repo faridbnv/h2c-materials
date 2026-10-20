@@ -14,10 +14,10 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1061 | 44 | 1 | 3 | 1109 |
-| Materials | 143 | 6 | 0 | 3 | 152 |
+| Products | 1057 | 45 | 1 | 5 | 1108 |
+| Materials | 141 | 6 | 0 | 5 | 152 |
 
-7599 statements; 1537 sources read for know-how; 216 makers' sites searched.
+7495 statements; 1537 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -47,7 +47,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, sourcegraphics.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | PLA (M001) | Indoor prototype; Lightweight structure | collected | 3 of 196 | 80 / 102 / 156 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, sourcegraphics.com); MatterHackers (matterhackers.com) |
-| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 73 | 24 / 23 / 51 | 3DXTECH (3dxtech.com, sourcegraphics.com); Recreus (recreus.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 72 | 24 / 22 / 50 | 3DXTECH (3dxtech.com, sourcegraphics.com); Recreus (recreus.com) |
 | PLA Wood (M014) | Indoor prototype; Lightweight structure | collected | 2 of 20 | 9 / 6 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 8 / 14 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 2 / 2 / 10 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
@@ -78,7 +78,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA Aero (M032) | Indoor prototype | collected | 0 of 4 | 0 / 0 / 2 | — |
 | ASA-AF (M113) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | COC (M137) | Indoor prototype | collected | 0 of 2 | 0 / 0 / 2 | — |
-| CPE (M089) | Indoor prototype | collected | 0 of 5 | 0 / 0 / 1 | — |
+| CPE (M089) | Indoor prototype | collected | 0 of 6 | 0 / 1 / 2 | — |
 | CPE-CF (M090) | Indoor prototype | collected | 0 of 3 | 0 / 0 / 2 | — |
 | OBC (M086) | Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PA6 (M049) | Indoor prototype | collected | 0 of 9 | 2 / 0 / 9 | — |
@@ -122,6 +122,7 @@ documents were read and give none of one is listed under "Recipe silent".
 |---|---|---|---:|---|---|
 | PEI / ULTEM (M099) | — | collected | 3 of 13 | 6 / 6 / 9 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PEEK-CF (M125) | — | collected | 2 of 5 | 3 / 4 / 5 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
+| PA-ESD (M064) | — | collected | 1 of 2 | 2 / 1 / 2 | Markforged (web-objects.markforged.com) |
 | PC-ESD (M116) | — | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PEEK-GF (M127) | — | sheet-silent | 1 of 1 | 1 / 0 / 1 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | PEI-CF (M118) | — | collected | 1 of 3 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
@@ -133,13 +134,10 @@ documents were read and give none of one is listed under "Recipe silent".
 | PVDF (M096) | — | collected | 1 of 3 | 2 / 1 / 2 | Filament2Print (filament2print.com) |
 | TPC-ESD (M114) | — | collected | 1 of 2 | 2 / 2 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
 | TPI (M121) | — | collected | 1 of 2 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, sourcegraphics.com) |
-| 316L stainless steel sintering filament (M171) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
-| Alumina sintering filament (M173) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | BVOH (M076) | — | collected | 0 of 4 | 1 / 0 / 3 | — |
 | LCP (M139) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | Nylon-CF, maker-undisclosed polyamide (M165) | — | collected | 0 of 6 | 4 / 3 / 4 | — |
 | Nylon-GF, maker-undisclosed polyamide (M166) | — | collected | 0 of 3 | 1 / 1 / 1 | — |
-| PA-ESD (M064) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | PA12-AF (M154) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PA66 (M055) | — | collected | 0 of 2 | 1 / 1 / 2 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 0 / 2 | — |
@@ -151,8 +149,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 3 | 2 / 1 / 3 | — |
 | PPSU (M102) | — | collected | 0 of 4 | 1 / 2 / 3 | — |
-| PVC (M135) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
-| Silicon carbide sintering filament (M172) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PVC (M135) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | Support for ABS (M079) | — | collected | 0 of 2 | 1 / 0 / 2 | — |
 | Support for PA/PET (M080) | — | collected | 0 of 3 | 1 / 0 / 3 | — |
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
@@ -170,6 +167,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | Elegoo | no address held | 1 | G001-129 PLA |
 | Fillamentum | fillamentum.com | 1 | G164-01 Nylon FX256 |
 | Flashforge | after-support.flashforge.jp, flashforge.com | 1 | G167-14 FABRIAL-R |
+| Markforged | web-objects.markforged.com | 1 | G064-03 Onyx ESD |
 | Recreus | recreus.com | 1 | G020-70 PET-G |
 | Spectrum | spectrumfilaments.com, shop.spectrumfilaments.com | 1 | G001-31 PLA |
 | colorFabb | downloads.colorfabb.com, colorfabb.com | 1 | G066-04 PET ULTRA HIGH SPEED |

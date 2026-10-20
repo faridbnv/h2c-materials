@@ -25,18 +25,28 @@ export function fmtNumber(v, unit) {
 
 /**
  * What a sheet says about drying (D127), as a reader says it: "70 °C for 6 h", "55 °C for ≥ 1 h" (a time with no upper
- * end is a lower bound), "optional: 60 °C for 4 h" (advised for a condition), "not needed". A statement without a
- * schedule says so rather than inventing one.
+ * end is a lower bound), "80–100 °C for 6–12 h" (a schedule printed as a range is shown as one, D175), "optional: 60 °C
+ * for 4 h" (advised for a condition), "not needed". A statement without a schedule says so rather than inventing one.
  */
 export function dryingWords(d) {
   if (!d || d.need === 'unknown') return 'not published';
   if (d.need === 'not-needed') return 'not needed';
-  const temp = d.tempC != null ? `${fmtNumber(d.tempC)} °C` : null;
-  const hours = d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${fmtNumber(d.hours)} h` : null;
+  const temp = d.tempC != null ? `${dryingSpan(d.tempMinC, d.tempC)} °C` : null;
+  const hours = d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${dryingSpan(d.hoursMin, d.hours)} h` : null;
   const schedule = temp && hours ? `${temp} for ${hours}` : temp ?? hours ?? '';
   if (d.need === 'optional') return schedule ? `optional: ${schedule}` : 'optional';
   return schedule || 'required, schedule not stated';
 }
+
+/**
+ * A product found only in a filament diameter the H2C does not take (grades[].diameter, D175, the owner's ruling of
+ * 2026-10-20): the warning its detail in the drawer and its card on the material's page give, or null. It decides nothing:
+ * the product stays counted.
+ */
+export const diameterWarning = (g) => (g?.diameter && g.diameter.fits === false ? `Only ${g.diameter.found.replace(/ only$/, '')} filament was found; the H2C takes 1.75 mm.` : null);
+
+/** A drying temperature or time as its sheet printed it: one number, or the range from its lower end ("80–100"). */
+export const dryingSpan = (low, high) => (low != null && high != null && low < high ? `${fmtNumber(low)}–${fmtNumber(high)}` : fmtNumber(high));
 
 /**
  * A number a source published as a bound ("> 300 %"), read as one wherever a value is shown: the sign in front, as the

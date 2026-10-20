@@ -2,9 +2,9 @@
 Across its products: median and range, and what their makers say
 Property Median Range Products Kept out of the median
 Density kg/m³ 1,240 1,090⁠–⁠1,330 155 of 173 20 with an added filler or additive (800⁠–⁠4,000)
-Tensile modulus (XY) GPa 2.58 0.95⁠–⁠4.24 59 of 173 30 set apart, test bar not described as printed (1.44⁠–⁠4.78); 16 with an added filler or additive (0.715⁠–⁠4.73)
+Tensile modulus (XY) GPa 2.58 0.95⁠–⁠4.24 61 of 173 30 set apart, test bar not described as printed (1.44⁠–⁠4.78); 16 with an added filler or additive (0.715⁠–⁠4.73)
 Tensile modulus (Z) GPa 1.98 0.873⁠–⁠2.69 29 of 173 2 with an added filler or additive (0.603⁠–⁠3.2)
-Tensile strength (XY) MPa 45 23.2⁠–⁠70.9 80 of 173 43 set apart, test bar not described as printed (36.8⁠–⁠71); 16 with an added filler or additive (13.7⁠–⁠65)
+Tensile strength (XY) MPa 45 23.2⁠–⁠70.9 81 of 173 43 set apart, test bar not described as printed (36.8⁠–⁠71); 16 with an added filler or additive (13.7⁠–⁠65)
 Tensile strength (Z) MPa 30.3 8.7⁠–⁠43.5 40 of 173 3 with an added filler or additive (14.5⁠–⁠21.7)
 Elongation at break (XY) % 6.76 1.2⁠–⁠65 72 of 173 34 set apart, test bar not described as printed (2.5⁠–⁠58); 15 with an added filler or additive (2.4⁠–⁠84)
 Elongation at break (Z) % 2.89 0.9⁠–⁠9.6 35 of 173 2 with an added filler or additive (1.8⁠–⁠7.91)
@@ -15,7 +15,7 @@ Flexural strength (Z) MPa 54 21.1⁠–⁠68 17 of 173 —
 Notched Charpy impact kJ/m² 6 2.16⁠–⁠20.3 14 of 163 11 set apart, test bar not described as printed (1.8⁠–⁠29.8); 10 with an added filler or additive (1.8⁠–⁠7); 10 sold as toughened (2.3⁠–⁠72.3)
 Notched Izod impact kJ/m² 4.75 3.5⁠–⁠6.5 8 of 172 9 set apart, test bar not described as printed (2⁠–⁠19.8); 5 with an added filler or additive (5.5⁠–⁠18.1); 1 sold as toughened (10)
 HDT at 0.45 MPa °C 56 50⁠–⁠135 47 of 173 67 set apart, test bar not described as printed, or no stated test load (53⁠–⁠116); 11 with an added filler or additive (55⁠–⁠110)
-HDT at 1.8 MPa °C 55 52⁠–⁠59 19 of 173 21 set apart, test bar not described as printed, or no stated test load (52⁠–⁠75); 3 with an added filler or additive (45⁠–⁠54)
+HDT at 1.8 MPa °C 55 52⁠–⁠59 20 of 173 21 set apart, test bar not described as printed, or no stated test load (52⁠–⁠75); 3 with an added filler or additive (45⁠–⁠54)
 Glass transition (Tg) °C 59 54⁠–⁠68 76 of 173 7 with an added filler or additive (55⁠–⁠62)
 Shore A hardness Shore A — — 0 of 173 —
 Shore D hardness Shore D 82 80⁠–⁠87 7 of 173 1 with an added filler or additive (72)

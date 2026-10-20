@@ -3420,7 +3420,7 @@ export function propose(row, text, world) {
       row: {
         // A title keeps the publisher's words and not its typesetting: CreatBot's full-width colon is a colon (TEXT-FULLWIDTH).
         SourceID: sourceId, Publisher: row.manufacturer || row.provider, Title: asciiPunctuation(title || row.product_raw),
-        Revision: NP, 'Publication date': NP, 'Access date': row.updated || new Date().toISOString().slice(0, 10),
+        Revision: NP, 'Publication date': NP, 'Superseded by': NA, 'Access date': row.updated || new Date().toISOString().slice(0, 10),
         // A copy is not a source, but where a retailer's is the only copy it is the one that was read. The
         // publisher stays the maker, whose sheet it is, and the note says where the bytes came from, because
         // that is what a reader needs to go back to them. What it does not say is why the maker's own library

@@ -1,31 +1,31 @@
 # What the owner's rulings track T1 moved
 
-> **Generated** (2026-10-20) by `node docs/audits/2026-10-20-owner-rulings/evidence/summarise-diff.mjs <before> <after>`: it describes the data as it was that day; run it again for the current state.
+> **Generated** (2026-10-20) by `node docs/audits/2026-10-20-owner-rulings/evidence/summarise-diff.mjs <baseline> <t2-t5> <after>`: it describes the data as it was that day; run it again for the current state.
 
-From release 7d8f8980c40d (the round's baseline) to 29b47607eff8, over the decision census's 138 cases.
+T1's own share: from release b574a5b47e55 (the round branch with tracks T2 to T5 merged) to 8d4eca5403c9 (the same with T1 merged on it), over the decision census's 138 cases. A material only one side has (a new material, or one that left the dataset) is not counted here. Every case in full: [DECISION-DIFF-T1-on-merged.md](DECISION-DIFF-T1-on-merged.md).
 
 ## The six templates
 
 | Case | PASS | UNKNOWN | FAIL | Material verdicts moved | Product answers moved |
 |---|---:|---:|---:|---:|---:|
-| Outdoor structural part / leave out | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 87 |
-| Outdoor structural part / include | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 87 |
-| Outdoor structural part / include + estimates | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 109 |
-| Indoor prototype / leave out | 98 → 98 | 30 → 30 | 24 → 24 | 0 | 0 |
-| Indoor prototype / include | 98 → 98 | 30 → 30 | 24 → 24 | 0 | 0 |
-| Indoor prototype / include + estimates | 98 → 98 | 30 → 30 | 24 → 24 | 0 | 0 |
-| Lightweight structure / leave out | 19 → 19 | 73 → 73 | 60 → 60 | 0 | 10 |
-| Lightweight structure / include | 19 → 19 | 73 → 73 | 60 → 60 | 0 | 10 |
-| Lightweight structure / include + estimates | 19 → 19 | 73 → 73 | 60 → 60 | 0 | 21 |
-| Warm environment / leave out | 43 → 30 | 83 → 96 | 26 → 26 | 13 | 188 |
-| Warm environment / include | 43 → 30 | 83 → 96 | 26 → 26 | 13 | 188 |
-| Warm environment / include + estimates | 43 → 30 | 83 → 96 | 26 → 26 | 13 | 190 |
-| High-stiffness fixture / leave out | 10 → 11 | 93 → 92 | 49 → 49 | 1 | 18 |
-| High-stiffness fixture / include | 10 → 11 | 93 → 92 | 49 → 49 | 1 | 18 |
-| High-stiffness fixture / include + estimates | 10 → 11 | 93 → 92 | 49 → 49 | 1 | 28 |
-| Flexible component / leave out | 5 → 5 | 104 → 104 | 43 → 43 | 0 | 32 |
-| Flexible component / include | 5 → 5 | 104 → 104 | 43 → 43 | 0 | 32 |
-| Flexible component / include + estimates | 5 → 5 | 104 → 104 | 43 → 43 | 0 | 34 |
+| Outdoor structural part / leave out | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 88 |
+| Outdoor structural part / include | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 88 |
+| Outdoor structural part / include + estimates | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 107 |
+| Indoor prototype / leave out | 99 → 99 | 32 → 32 | 21 → 21 | 0 | 0 |
+| Indoor prototype / include | 99 → 99 | 32 → 32 | 21 → 21 | 0 | 0 |
+| Indoor prototype / include + estimates | 99 → 99 | 32 → 32 | 21 → 21 | 0 | 0 |
+| Lightweight structure / leave out | 19 → 19 | 73 → 73 | 60 → 60 | 0 | 9 |
+| Lightweight structure / include | 19 → 19 | 73 → 73 | 60 → 60 | 0 | 9 |
+| Lightweight structure / include + estimates | 19 → 19 | 73 → 73 | 60 → 60 | 0 | 20 |
+| Warm environment / leave out | 43 → 30 | 86 → 99 | 23 → 23 | 13 | 188 |
+| Warm environment / include | 43 → 30 | 86 → 99 | 23 → 23 | 13 | 188 |
+| Warm environment / include + estimates | 43 → 30 | 86 → 99 | 23 → 23 | 13 | 192 |
+| High-stiffness fixture / leave out | 10 → 11 | 95 → 94 | 47 → 47 | 1 | 17 |
+| High-stiffness fixture / include | 10 → 11 | 95 → 94 | 47 → 47 | 1 | 17 |
+| High-stiffness fixture / include + estimates | 10 → 11 | 95 → 94 | 47 → 47 | 1 | 27 |
+| Flexible component / leave out | 5 → 5 | 106 → 106 | 41 → 41 | 0 | 33 |
+| Flexible component / include | 5 → 5 | 106 → 106 | 41 → 41 | 0 | 33 |
+| Flexible component / include + estimates | 5 → 5 | 106 → 106 | 41 → 41 | 0 | 35 |
 
 ## The single-requirement sweeps (120 cases)
 
@@ -34,13 +34,13 @@ From release 7d8f8980c40d (the round's baseline) to 29b47607eff8, over the decis
 | density (audit lens admitting set-apart values) | 12 | 0 | 0 | 0 | 0 | 12 |
 | density | 12 | 0 | 0 | 0 | 0 | 12 |
 | elongationXY (audit lens admitting set-apart values) | 12 | 0 | 0 | 0 | 0 | 52 |
-| elongationXY | 12 | 14 | 14 | 0 | 0 | 265 |
-| hdt045 (audit lens admitting set-apart values) | 12 | 30 | 0 | 0 | 30 | 216 |
-| hdt045 | 12 | 112 | 0 | 0 | 112 | 1222 |
-| tensileModulusXY (audit lens admitting set-apart values) | 12 | 0 | 0 | 0 | 0 | 64 |
-| tensileModulusXY | 12 | 4 | 4 | 0 | 0 | 167 |
-| tensileStrengthXY (audit lens admitting set-apart values) | 12 | 0 | 0 | 0 | 0 | 48 |
-| tensileStrengthXY | 12 | 2 | 2 | 0 | 0 | 238 |
+| elongationXY | 12 | 18 | 18 | 0 | 0 | 271 |
+| hdt045 (audit lens admitting set-apart values) | 12 | 30 | 0 | 0 | 30 | 213 |
+| hdt045 | 12 | 104 | 0 | 0 | 104 | 1216 |
+| tensileModulusXY (audit lens admitting set-apart values) | 12 | 0 | 0 | 0 | 0 | 55 |
+| tensileModulusXY | 12 | 8 | 8 | 0 | 0 | 164 |
+| tensileStrengthXY (audit lens admitting set-apart values) | 12 | 0 | 0 | 0 | 0 | 42 |
+| tensileStrengthXY | 12 | 6 | 6 | 0 | 0 | 235 |
 
 ## Every material verdict that moved in a template case
 
@@ -53,3 +53,28 @@ From release 7d8f8980c40d (the round's baseline) to 29b47607eff8, over the decis
 - **High-stiffness fixture / leave out**: PLA-CF UNKNOWN → PASS
 - **High-stiffness fixture / include**: PLA-CF UNKNOWN → PASS
 - **High-stiffness fixture / include + estimates**: PLA-CF UNKNOWN → PASS
+
+## The whole round so far, against its baseline
+
+From release 7d8f8980c40d (the round's baseline) to 8d4eca5403c9: every track merged. The full list is [DECISION-DIFF.md](DECISION-DIFF.md); T2 to T5's own is [their diff](../after/DECISION-DIFF-t2-t5.md).
+
+| Case | PASS | UNKNOWN | FAIL | Material verdicts moved | Product answers moved |
+|---|---:|---:|---:|---:|---:|
+| Outdoor structural part / leave out | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 86 |
+| Outdoor structural part / include | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 86 |
+| Outdoor structural part / include + estimates | 11 → 10 | 89 → 92 | 52 → 50 | 3 | 112 |
+| Indoor prototype / leave out | 98 → 99 | 30 → 32 | 24 → 21 | 0 | 4 |
+| Indoor prototype / include | 98 → 99 | 30 → 32 | 24 → 21 | 0 | 4 |
+| Indoor prototype / include + estimates | 98 → 99 | 30 → 32 | 24 → 21 | 0 | 4 |
+| Lightweight structure / leave out | 19 → 19 | 73 → 73 | 60 → 60 | 1 | 8 |
+| Lightweight structure / include | 19 → 19 | 73 → 73 | 60 → 60 | 1 | 8 |
+| Lightweight structure / include + estimates | 19 → 19 | 73 → 73 | 60 → 60 | 1 | 20 |
+| Warm environment / leave out | 43 → 30 | 83 → 99 | 26 → 23 | 13 | 188 |
+| Warm environment / include | 43 → 30 | 83 → 99 | 26 → 23 | 13 | 188 |
+| Warm environment / include + estimates | 43 → 30 | 83 → 99 | 26 → 23 | 13 | 193 |
+| High-stiffness fixture / leave out | 10 → 11 | 93 → 94 | 49 → 47 | 1 | 16 |
+| High-stiffness fixture / include | 10 → 11 | 93 → 94 | 49 → 47 | 1 | 16 |
+| High-stiffness fixture / include + estimates | 10 → 11 | 93 → 94 | 49 → 47 | 1 | 27 |
+| Flexible component / leave out | 5 → 5 | 104 → 106 | 43 → 41 | 0 | 32 |
+| Flexible component / include | 5 → 5 | 104 → 106 | 43 → 41 | 0 | 32 |
+| Flexible component / include + estimates | 5 → 5 | 104 → 106 | 43 → 41 | 0 | 36 |

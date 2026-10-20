@@ -274,10 +274,22 @@
       }
     },
     {
+      "name": "Drying min °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "The lower end of the drying temperature where the sheet prints a range (\"80-100°C\": 80), whose upper end is Drying °C; Not applicable where it prints one temperature or none. Shown with Drying °C as the range the sheet printed; no rule reads it (D175).",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Drying °C",
       "type": "number",
       "role": "canonical",
-      "description": "Drying temperature.",
+      "description": "Drying temperature: the upper end where the sheet prints a range, whose lower end is Drying min °C (D175).",
       "missing": [
         "Not applicable",
         "Not published"
@@ -287,10 +299,22 @@
       }
     },
     {
+      "name": "Drying min hours",
+      "type": "number",
+      "role": "canonical",
+      "description": "The lower end of the drying time where the sheet prints a window (\"6-12 hours\": 6), whose upper end is Drying hours; Not applicable where it prints one time, a time with no upper end (Drying hours open) or none. Shown with Drying hours as the window the sheet printed; no rule reads it (D175).",
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Drying hours",
       "type": "number",
       "role": "canonical",
-      "description": "Drying time; the lower bound where Drying hours open is TRUE.",
+      "description": "Drying time: the upper end of a printed window, whose lower end is Drying min hours (D175); the lower bound where Drying hours open is TRUE.",
       "missing": [
         "Not applicable",
         "Not published"

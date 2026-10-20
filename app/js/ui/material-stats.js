@@ -206,7 +206,9 @@ export function dryingAdvice(products) {
 /**
  * The drying temperatures and times the products' own sheets give (grades[].print.drying, a sheet a product shares
  * included, the guide and special formulations left out as rowSummary leaves them out): `{ temps (rowSummary of the
- * temperatures), hours (summarise of the times stated), products, entries: [{ g, value, origin, variant, counted }] }`.
+ * temperatures), hours (summarise of the times stated), products, entries: [{ g, value, low, hours, hoursLow, hoursOpen,
+ * origin, variant, counted }] }`. `value` and `hours` are the ends every rule reads (a printed range's upper end), `low` and
+ * `hoursLow` the lower ends of a range the sheet printed, else the same (D175).
  */
 export function dryingStats(products) {
   const variantOnly = products.length > 0 && products.every((g) => g.variant);
@@ -216,7 +218,7 @@ export function dryingStats(products) {
     if (d?.tempC == null || d.need === 'not-needed') continue;
     const origin = g.print?.from?.drying?.origin ?? 'own';
     const variant = !variantOnly && !!g.variant;
-    entries.push({ g, value: d.tempC, hours: d.hours ?? null, origin, variant, counted: origin !== 'guide' && !variant });
+    entries.push({ g, value: d.tempC, low: d.tempMinC ?? d.tempC, hours: d.hours ?? null, hoursLow: d.hoursMin ?? d.hours ?? null, hoursOpen: !!d.hoursOpen, origin, variant, counted: origin !== 'guide' && !variant });
   }
   const counted = entries.filter((e) => e.counted);
   return { temps: rowSummary(entries), hours: summarise(counted.map((e) => e.hours).filter((x) => x != null)), products: products.length, entries };

@@ -11,12 +11,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when the values set apart are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 135 | 10 | 33 | 92 | published, not comparable 63; print setting not recorded 24; not published 17 | 18 |
-| Indoor prototype | 135 | 98 | 7 | 30 | print setting not recorded 35 | 0 |
-| Lightweight structure | 135 | 19 | 43 | 73 | print setting not recorded 25; published, not comparable 22; not published 9 | 15 |
-| Warm environment | 135 | 30 | 9 | 96 | print setting not recorded 34; published, not comparable 33; not published 10; straddles the limit 1 | 15 |
-| High-stiffness fixture | 135 | 11 | 32 | 92 | published, not comparable 32; print setting not recorded 25; not published 6; straddles the limit 1 | 28 |
-| Flexible component | 135 | 5 | 26 | 104 | published, not comparable 65; print setting not recorded 24; not published 11 | 45 |
+| Outdoor structural part | 138 | 10 | 36 | 92 | published, not comparable 63; print setting not recorded 24; not published 15 | 17 |
+| Indoor prototype | 138 | 99 | 7 | 32 | print setting not recorded 39 | 0 |
+| Lightweight structure | 138 | 19 | 46 | 73 | print setting not recorded 27; published, not comparable 22; not published 8 | 15 |
+| Warm environment | 138 | 30 | 9 | 99 | print setting not recorded 38; published, not comparable 33; not published 10; straddles the limit 1 | 15 |
+| High-stiffness fixture | 138 | 11 | 33 | 94 | published, not comparable 32; print setting not recorded 29; not published 7; straddles the limit 1 | 28 |
+| Flexible component | 138 | 5 | 27 | 106 | published, not comparable 65; print setting not recorded 25; not published 13 | 46 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -34,10 +34,9 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 |---|---:|---|---|---|---:|
 | Nylon-CF, maker-undisclosed polyamide (M165) | 6 | chamber window | print setting not recorded | chamber within the H2C | 6 |
 | PC-GF (M038) | 3 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA-ESD (M064) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
 | PA66 (M055) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
 | PAHT-CE (M148) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
-| PVC (M135) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
-| PA-ESD (M064) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
 | PA12-AF (M154) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
 | PA6-GS (M108) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
 | PC-PBT-CF (M131) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
@@ -56,6 +55,7 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 | LCP (M139) | 1 | chamber window | print setting not recorded | chamber within the H2C | 5 |
 | PA6/66-CF (M156) | 1 | chamber window | print setting not recorded | chamber within the H2C | 5 |
 | PC-ABS-CF (M128) | 1 | chamber window | print setting not recorded | chamber within the H2C | 5 |
+| PVC (M135) | 1 | chamber window | print setting not recorded | chamber within the H2C | 5 |
 | PA12 (M052) | 8 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PCL (M149) | 4 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | TPU-LW (M150) | 4 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
@@ -69,18 +69,20 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 | PLA blend-CF (M169) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PLA-EC (M111) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PLA-GR (M155) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
-| PVC (M135) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | TPU-EC (M157) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | TPU-ESD (M126) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | ASA-EC (M105) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
-| PA-ESD (M064) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
+| Nylon-CE, maker-undisclosed polyamide (M177) | 1 | nozzle window | print setting not recorded | nozzle within the H2C | 4 |
+| Nylon-CE, maker-undisclosed polyamide (M177) | 1 | bed window | print setting not recorded | bed within the H2C | 4 |
+| Nylon-CE, maker-undisclosed polyamide (M177) | 1 | chamber window | print setting not recorded | chamber within the H2C | 4 |
 | PA12-AF (M154) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PA6-GS (M108) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PA612-ESD (M065) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PC-PBT-CF (M131) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
+| PCL-EC (M176) | 1 | chamber window | print setting not recorded | chamber within the H2C | 4 |
 | PLA-PHB (M146) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | SAN (M136) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
-| SBC (M174) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
+| SBC (M174) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PA612 (M058) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PA612-GF (M060) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
 | PA66-CF (M056) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5, <= 0.1 | 4 |
@@ -90,10 +92,8 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 | PC-ESD (M116) | 2 | chamber window | print setting not recorded | chamber within the H2C | 3 |
 | PC-PTFE (M112) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | PETG-GR (M153) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
-| PETG-PTFE (M109) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
-| TPC-ESD (M114) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 3 |
 
-And 106 more, each holding up one template.
+And 113 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -110,7 +110,6 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 | Outdoor structural part | ASA Aero | UNKNOWN | FAIL |
 | Outdoor structural part | PA12-GF | UNKNOWN | PASS |
 | Outdoor structural part | PPS-GF | UNKNOWN | PASS |
-| Outdoor structural part | CPE | UNKNOWN | FAIL |
 | Outdoor structural part | ABS-AF | UNKNOWN | FAIL |
 | Outdoor structural part | PLA-ESD | UNKNOWN | FAIL |
 | Outdoor structural part | PCTG-GF | UNKNOWN | FAIL |
@@ -205,6 +204,7 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 | Flexible component | PCTG-GF | UNKNOWN | FAIL |
 | Flexible component | PC-PTFE | UNKNOWN | FAIL |
 | Flexible component | PC-PBT-CF | UNKNOWN | FAIL |
+| Flexible component | PVC | UNKNOWN | FAIL |
 | Flexible component | SAN | UNKNOWN | FAIL |
 | Flexible component | COC | UNKNOWN | PASS |
 | Flexible component | PE-GF | UNKNOWN | FAIL |
@@ -227,7 +227,7 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 886 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 889 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|

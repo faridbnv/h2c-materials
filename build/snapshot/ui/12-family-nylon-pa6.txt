@@ -45,11 +45,11 @@ ROW PA6-GS / Nylon / Polyamide | ☆ | PASS / 1 of 1 product | 1,010 | 4.2* | 87
 RAIL
 Each count is how many of that family your other requirements leave. Tick a family to list its polymers.
 Nylon / Polyamide
-24
+25
+PA
+5
 PA6
 5
-PA
-4
 PA12
 4
 PA612
@@ -63,7 +63,7 @@ PA66
 PLA
 18
 Flexible Elastomers
-15
+16
 Industrial High-Temperature
 14
 Polymer Blends
@@ -80,16 +80,14 @@ PETG
 6
 Polycarbonate
 6
-ABS
-5
 PVB / Specialty Polymers
+6
+ABS
 5
 PET Engineering
 4
 Support / Interface
 4
-Metal and Ceramic Sintering
-3
 Styrenics
 3
 Fluoropolymers

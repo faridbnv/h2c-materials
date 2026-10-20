@@ -26,19 +26,19 @@ allowables, and it does not replace the product's own data sheet.
 Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by `npm run snapshot`.
 
 - **What it holds.** About 1,100 products, 15,100 measured values and 2,100 source documents. The page lists 152
-  materials: the 135 the H2C can print, which the tool judges, and 17 it shows only to say why they are out
-  (high-temperature plastics such as PEEK and PEI that need a hotter printer, and metal or ceramic sintering filaments).
-  77 materials have a page of their own: those with at least 3 products and 20 measured values, opened from the
-  selector's drawer and its Material pages link.
+  materials: the 138 the H2C can print, which the tool judges, and 14 it shows only to say why they are out
+  (high-temperature plastics such as PEEK and PEI that need a hotter printer). Its tables also keep 3 materials retired
+  from the dataset, as a record the page never shows (D174). 77 materials have a page of their own: those with at least
+  3 products and 20 measured values, opened from the selector's drawer and its Material pages link.
 - **How accurate it is.** Records are checked by random samples read against their source pages. The latest, of 20
   records, found 1 with a wrong cell; earlier samples found 0 to 6, and each cause was fixed everywhere it occurred. A
   sealed sample of 100 of the records the answers rest on, drawn before a round read anything and read after its
   corrections, found 15 with a wrong cell, 2 of them in a cell that can change an answer. Every check so far was done by
   an AI; a person's spot-check is still to come.
 - **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for about 200 products), drying
-  (about 150), or, for some products, the nozzle or bed temperature (32 for the nozzle and 33 for the bed). Several
-  hundred products publish no strength, stiffness or heat-resistance value. Reading the documents already held again
-  will not close these: they need documents that print the values, or the makers.
+  (about 150), or, for some products, the nozzle or bed temperature (34 each). Several hundred products publish no
+  strength, stiffness or heat-resistance value. Reading the documents already held again will not close these: they need
+  documents that print the values, or the makers.
 - **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test
   prints.
 - **What is limited on purpose.** New documents enter through the import pipeline (open again since 5 October 2026, when
@@ -320,9 +320,10 @@ about what they did.*
 350 °C nozzle, 120 °C bed, 65 °C active chamber, from the Method table. The build parses each
 profile's published requirement and compares it against this envelope. The materials marked out of scope (Scope
 `Excluded`; how many is in [build/snapshot/counts.md](build/snapshot/counts.md)) are the industrial high-temperature
-polymers and the metal and ceramic sintering filaments. Every one of those polymers that publishes a nozzle
-temperature trips that gate on it; the others publish no print setting. The sintering filaments are never candidates,
-whatever they print at, since the part is the sintered metal's or ceramic's (D87).
+polymers. Every one of those polymers that publishes a nozzle temperature trips that gate on it; the others publish no
+print setting. The metal and ceramic sintering filaments, never candidates whatever they print at since the part is the
+sintered metal's or ceramic's (D87), left the dataset on 2026-10-20 (Scope `Retired`, D174): their records stay in the
+tables, and the selector, the pages and the exports hold none of them.
 A window that starts inside the envelope and ends above it is read by how much of it the H2C covers (D151): Bambu
 PPS-CF's 60–90 °C chamber is within, at its low end; LCP's 120–150 °C bed, which the H2C reaches only at its edge, is on
 the line.

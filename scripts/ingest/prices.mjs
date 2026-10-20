@@ -249,7 +249,7 @@ export function sourceRow(capture, seller, gradeIds, { title }) {
   const page = /[?&]page=(\d+)/.exec(capture.URL)?.[1];
   return {
     SourceID: `${canadian ? 'CA' : 'OFFER'}-${seller.Code}-${day}-${capture.SHA256.slice(0, 12)}`,
-    Publisher: seller.Retailer, Title: title, Revision: 'Not published', 'Publication date': 'Not published', 'Access date': capture.Accessed,
+    Publisher: seller.Retailer, Title: title, Revision: 'Not published', 'Publication date': 'Not published', 'Superseded by': NA, 'Access date': capture.Accessed,
     'Source class': 'Retailer catalogue', 'Source note': `${SOURCE_NOTE[capture.Format]} ${seller.Market}. Price pass (GOALS, 2026-09-30).`,
     'Citation role': 'cited', URL: capture.URL,
     Locator: capture.Format === 'shopify-catalogue' ? `Catalogue page ${page ?? '1'}; each listing by its product and variant ID` : 'Document / product page',
@@ -294,7 +294,7 @@ export function propose(batch) {
       document: { sha256: sha, url: d.capture.URL, format: d.capture.Format, host: d.capture.Host, accessed: d.capture.Accessed },
       ...(d.meta ? { currencyDocument: { sha256: d.meta.sha, url: d.meta.url, currency: d.meta.currency, source: { row: {
         SourceID: `${isCanadianMarket(d.seller.Market) ? 'CA' : 'OFFER'}-${d.seller.Code}-${d.meta.accessed.replace(/-/g, '')}-${d.meta.sha.slice(0, 12)}`,
-        Publisher: d.seller.Retailer, Title: `${d.seller.Retailer} shop profile`, Revision: 'Not published', 'Publication date': 'Not published', 'Access date': d.meta.accessed,
+        Publisher: d.seller.Retailer, Title: `${d.seller.Retailer} shop profile`, Revision: 'Not published', 'Publication date': 'Not published', 'Superseded by': NA, 'Access date': d.meta.accessed,
         'Source class': 'Retailer catalogue', 'Source note': `The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: ${d.meta.currency}. Price pass (GOALS, 2026-09-30).`,
         'Citation role': 'register', URL: d.meta.url, Locator: 'Document / shop profile', 'Applicable grades': 'Shop scope: the currency of its catalogue',
         'Access state': 'retrieved', 'Access note': NA, SHA256: d.meta.sha } } } } : {}),

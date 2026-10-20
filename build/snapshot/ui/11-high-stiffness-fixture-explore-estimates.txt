@@ -1,7 +1,7 @@
-COUNT 102 shown PASS + UNKNOWN
-STATUS ☑ PASS 11 | ☑ UNKNOWN 92 | ☐ FAIL 49 | ☐ HIDDEN 1
+COUNT 104 shown PASS + UNKNOWN
+STATUS ☑ PASS 11 | ☑ UNKNOWN 94 | ☐ FAIL 47 | ☐ HIDDEN 1
 11 of the 152 materials meet these requirements
-High-stiffness fixture template · UNKNOWN 92: 6 one check away, 21 not enough data, 64 unlikely to meet, 1 hidden
+High-stiffness fixture template · UNKNOWN 94: 6 one check away, 21 not enough data, 66 unlikely to meet, 1 hidden
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -62,22 +62,21 @@ One question to the maker or one test print settles it: its print settings, or a
 TABLE 6 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW ABS-CF | ☆ | UNKNOWN / 0 of 11 products / One check away on 2 of 11 products: 3DXTECH CarbonX CF ABS, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 90 / 76–102 · 3 | 45↗ / 40–50 · 2
 ROW ASA-CF | ☆ | UNKNOWN / 0 of 17 products / One check away on 2 of 17 products: 3DXTECH CarbonX CF ASA, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,095 / 1,020–1,170 · 16 | 3.91 / 0.85–5.36 · 6 | 39.1 / 34–50.1 · 7 | 6.3 / 1.64–15.5 · 6 | 101 / 88–110 · 5 | 65↗ / 40–122 · 5
-ROW CPE-CF / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 3 products: colorFabb XT-CF20, its chamber temperature is not stated | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | ~63–82† | 81.3↗
+ROW CPE-CF / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 3 products: colorFabb XT-CF20, its chamber temperature is not stated | 1,220 / 1,160–1,280 · 2 | 5.15 | 56 | 2 | ~65–84† | 81.3↗
 ROW PA12-CF / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 15 products / One check away on 1 of 15 products: 3DXTECH CarbonX CF PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,070 / 1,010–1,230 · 13 | 3.32 / 3.3–8 · 4 | 72 / 50–86 · 7 | 3.6 / 2.1–14.8 · 7 | 131 / 90–175 · 5 | 300↗
 ROW PC-ABS-CF / Polymer Blends | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: 3DXTECH CarbonX Carbon Fiber PC/ABS, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,240 | 5.9 | 62 | 2 | 130 | —
 ROW PC-CF / Polycarbonate | ☆ | UNKNOWN / 0 of 10 products / One check away on 2 of 10 products: 3DXTECH CarbonX CF PC, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,225 / 1,180–1,360 · 10 | 4.65 / 2.6–6.98 · 4 | 70 / 35–73 · 5 | 2.1 / 2–7.5 · 3 | 120 / 119–135 · 3 | 152↗
 Not enough data (21)
 More than one question is open, or a value is not published the way you asked. Ordered by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 21 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 7.91 to 12.5 GPa | 1,400 | ~7.9–12.5† | ~201–256† | ~1.8–6.3† | ~107–147† | —
-ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough; tensile modulus (XY) estimated 4.54 to 6.85 GPa | 1,140 | ~4.5–6.9† | ~68–80† | ~2.3–7.3† | ~141–143† | —
+ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 7.9 to 12.5 GPa | 1,400 | ~7.9–12.5† | ~200–249† | ~1.8–6.2† | ~108–146† | —
 ROW PA6/66-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: eSUN ePA CF, its chamber temperature is not stated; tensile modulus (XY) estimated 4.6 to 6.29 GPa | 1,240 | ~4.6–6.3† | 84 | 7.42 | ~147–168† | 72.4EUR↗ / out of stock
-ROW PA66 / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum ThermaTech PA, its chamber temperature is not stated; tensile modulus (XY) estimated 4.04 to 6.37 GPa | ~1,000–1,050† | ~4.0–6.4† | ~40–100† | ~5–49† | ~74–148† | 246USD
-ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,280† | ~3.2–11.5† | ~49–145† | ~1–14† | ~161–249† | —
+ROW PA66 / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum ThermaTech PA, its chamber temperature is not stated; tensile modulus (XY) estimated 4.06 to 6.39 GPa | ~1,000–1,060† | ~4.0–6.4† | ~40–100† | ~5–54† | ~73–142† | 246USD
+ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,280† | ~3.2–11.5† | ~48–141† | ~1–13† | ~163–248† | —
 ROW PA612-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Polymaker Fiberon PA612-CF15, tensile modulus (XY) estimated 4.29 to 5.4 GPa | 1,030 / 1,030–1,090 · 3 | 5.01 / 4.88–5.14 · 2 | 84.4 / 77–91.9 · 2 | 3.11 / 2.6–3.62 · 2 | 155 / 136–175 · 2 | 170↗ / 98–242 · 2
-ROW PAHT-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: LEHVOSS LUVOCOM 3F PAHT KK 50056 BK, its chamber temperature is not stated; tensile modulus (XY) estimated 3.96 to 5.58 GPa | 1,370 / 1,250–1,490 · 2 | ~3.9–5.6† | ~35–99† | ~2–26† | ~78–173† | 149EUR
-ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 CS20 FR V0, tensile modulus (XY) estimated 3.91 to 5.75 GPa | 1,490 | ~3.9–5.8† | ~56–85† | ~1.9–9.8† | ~94–169† | 161EUR
-ROW PA612-GF · ☆
+ROW PAHT-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: LEHVOSS LUVOCOM 3F PAHT KK 50056 BK, its chamber temperature is not stated; tensile modulus (XY) estimated 3.96 to 5.58 GPa | 1,370 / 1,250–1,490 · 2 | ~3.9–5.6† | ~35–97† | ~2–23† | ~81–166† | 149EUR
+ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 CS20 FR V0, tensile modulus (XY) estimated 3.91 to 5.76 GPa | 1,490 | ~3.9–5.8† | ~56–84† | ~1.7–9.0† | ~97–164† | 161EUR
+ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.3–7.8† | ~43–127† | ~1–14† | ~137–210† | —
 ROW PC-PBT-CF · ☆
 ROW PLA · ☆
 ROW PA6-GS · ☆
@@ -87,7 +86,8 @@ ROW PCTG-GF · ☆
 ROW PE-GF · ☆
 ROW PLA-EC · ☆
 ROW PVC · ☆
+ROW Nylon-CE, maker-undisclosed polyamide · ☆
+ROW PCL-EC · ☆
 ROW PLA blend · ☆
 ROW PLA blend-CF · ☆
-ROW SBC · ☆
-Unlikely to meet (64): folded, still counted and in the download
+Unlikely to meet (66): folded, still counted and in the download

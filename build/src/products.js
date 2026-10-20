@@ -86,25 +86,43 @@ export function documentRanks(sources) {
   };
 }
 
-// A property one document prints in one state: an annealed or a conditioned value is another state's (D99), and a film or
-// a strand is not a part, so neither is replaced by a value of another kind. The properties one headline reads together
-// (a tensile strength at yield, at break or unspecified) are one property here: a sheet that prints any of them speaks
-// for the product's tensile strength.
-const slotOf = (m, groupOf) => [groupOf.get(m.property) ?? m.property, m.postProcessingState === 'annealed' ? 'annealed' : '', m.moistureState === 'conditioned' ? 'conditioned' : '',
-  isPartSpecimen(m.specimenType) ? 'part' : m.specimenForm].join('\u0000');
+// A figure one document prints in one state: an annealed or a conditioned value is another state's (D99), and a film or a
+// strand is not a part, so neither is replaced by a value of another kind. The slot is the headline the figure can be the
+// value of (the properties one headline reads together, a tensile strength at yield, at break or unspecified, count as
+// one; a direction, a load, a notch or a hardness scale is another headline's): a sheet that prints a Z bar's strength,
+// or only an edge bar's, does not replace another document's Z value it cannot stand in for. A figure no headline reads
+// (a moulded bar, a property with no headline) has its property for a slot.
+const stateOf = (m) => [m.postProcessingState === 'annealed' ? 'annealed' : '', m.moistureState === 'conditioned' ? 'conditioned' : '',
+  isPartSpecimen(m.specimenType) ? 'part' : m.specimenForm];
+const slotsOf = (m, defsByProp, groupOf) => {
+  // What assess reads before any state or document: property, unit, specimen, notch, test temperature, standard,
+  // direction and load. The state is the slot's own part, so it is left out of the question.
+  const bare = { ...m, moistureState: 'not-stated', postProcessingState: 'not-stated' };
+  const keys = (defsByProp.get(m.property) ?? []).filter((d) => !assess(bare, d, [], null, { keepOutranked: true, undescribedAsPart: true }).excluded).map((d) => d.key);
+  return (keys.length ? keys : [`property:${groupOf.get(m.property) ?? m.property}`]).map((k) => [k, ...stateOf(m)].join('\u0000'));
+};
 
 /**
  * Mark each measurement a better document of its own product replaces (D171): where another of the product's documents
- * that outranks this one prints the same property in the same state, this one's figure for it is not the product's, in
- * any direction or load (a newer edition is the maker's current word for the property; a data sheet the maker's
- * considered one). A property only the lower-ranked document prints still stands (CarbonFil's modulus, D149).
+ * that outranks this one prints a figure the same headline reads, in the same state, this one's figure is not the
+ * product's (a newer edition is the maker's current word for the property; a data sheet the maker's considered one). A
+ * figure only the lower-ranked document prints for its headline still stands (CarbonFil's modulus, D149); one that
+ * several headlines read is replaced only where each of them has a better document's figure.
  * Sets m.outranked = { by: SourceID, why: 'older-edition' | 'lower-class' }; assess refuses such a value ('outranked').
  */
 export function markOutranked(measurements, sources, defs = []) {
   const ranks = documentRanks(sources);
   const groupOf = new Map();
-  for (const d of defs) for (const p of d.valueProperties) if (!groupOf.has(p)) groupOf.set(p, d.valueProperties[0]);
+  const defsByProp = new Map();
+  for (const d of defs) {
+    for (const p of d.valueProperties) {
+      if (!groupOf.has(p)) groupOf.set(p, d.valueProperties[0]);
+      if (!defsByProp.has(p)) defsByProp.set(p, []);
+      defsByProp.get(p).push(d);
+    }
+  }
   const byGrade = new Map();
+  const slotsById = new Map();
   // A bar's property (a tensile, flexural, impact or heat value) its document does not describe as printed is set apart
   // (D172): a document that prints only such a figure replaces nothing, so a set-apart figure never hides one that decides.
   const barProps = new Set(defs.filter(barProperty).flatMap((d) => d.valueProperties));
@@ -114,16 +132,24 @@ export function markOutranked(measurements, sources, defs = []) {
     if (barProps.has(m.property) && undescribedBar(m)) continue;
     if (!byGrade.has(m.gradeId)) byGrade.set(m.gradeId, new Map());
     const slots = byGrade.get(m.gradeId);
-    const k = slotOf(m, groupOf);
-    if (!slots.has(k)) slots.set(k, new Set());
-    slots.get(k).add(m.sourceId);
+    const keys = slotsOf(m, defsByProp, groupOf);
+    slotsById.set(m.id, keys);
+    for (const k of keys) {
+      if (!slots.has(k)) slots.set(k, new Set());
+      slots.get(k).add(m.sourceId);
+    }
   }
   let n = 0;
+  const best = (docs, m) => [...(docs ?? [])].filter((d) => ranks.outranks(d, m.sourceId)).sort((a, b) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
   for (const m of measurements) {
-    const docs = m.gradeId && m.numeric ? byGrade.get(m.gradeId)?.get(slotOf(m, groupOf)) : null;
-    if (!docs || docs.size < 2) continue;
-    const by = [...docs].filter((d) => ranks.outranks(d, m.sourceId)).sort((a, b) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
-    if (by) { m.outranked = { by, why: ranks.why(by, m.sourceId) }; n++; }
+    if (!m.gradeId || !m.numeric || m.quarantined || m.implausible) continue;
+    // A set-apart figure (D172) replaces nothing, but a better document may replace it: its slots are its own.
+    const keys = slotsById.get(m.id) ?? slotsOf(m, defsByProp, groupOf);
+    const bys = keys.map((k) => best(byGrade.get(m.gradeId)?.get(k), m));
+    if (!bys.length || bys.some((b) => !b)) continue;
+    const by = bys.sort((a, b) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
+    m.outranked = { by, why: ranks.why(by, m.sourceId) };
+    n++;
   }
   return n;
 }
@@ -429,7 +455,10 @@ function axisOf(profiles, axis) {
   for (const need of DRYING_ORDER) {
     const said = profiles.filter((p) => p.drying.need === need);
     const dried = said.find((p) => p.drying.tempC != null) ?? said[0];
-    if (dried) return { need, tempC: dried.drying.tempC, hours: dried.drying.hours, hoursOpen: dried.drying.hoursOpen, profileId: dried.id };
+    if (!dried) continue;
+    // A schedule printed as a range keeps its lower ends beside the upper ones every rule reads (D175): shown, never judged.
+    const { tempMinC, tempC, hoursMin, hours, hoursOpen } = dried.drying;
+    return { need, ...(tempMinC != null ? { tempMinC } : {}), tempC, ...(hoursMin != null ? { hoursMin } : {}), hours, hoursOpen, profileId: dried.id };
   }
   return null;
 }
@@ -870,7 +899,7 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     }
     // A guide row is mapped to the material its type is (D88); a variant of that material (a dense or lightweight
     // filler its type does not have) is not that type, and reads nothing from it (D129), unless its vocabulary says it
-    // prints as its type (a grade formulated to crystallise in the print, D154).
+    // prints as its type (a grade formulated to crystallise in the print, D154; a filler only for looks, D175).
     const guide = printsAsItsType(g) ? guideByMaterial.get(g.materialId) ?? null : null;
     g.print = productPrint(g, recipeOf(g), siblings.map(recipeOf), guide, guide && sourceById.get(guide.sourceId)?.publisher, ranks);
     // Who prints the same sheet (D89): the engine reads their records of that sheet for this product too (D98).

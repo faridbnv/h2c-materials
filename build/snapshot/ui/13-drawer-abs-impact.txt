@@ -5,7 +5,7 @@ added filler or additive, kept out of the median
 sold as toughened (maker's statement)
 middle half and median
 Notched Charpy impact
-4 ranked of 16 shown
+5 ranked of 17 shown
 Notched Izod impact
 2 ranked of 18 shown
 kJ/m², log scale
@@ -17,7 +17,7 @@ kJ/m², log scale
 100
 Select a dot to open its result below; hover to find the same product in the other row.
 Test, kJ/m² Ranked Median Middle half Range
-Notched Charpy impact 4 20.8 19.5⁠–⁠21.5 18⁠–⁠21.5
+Notched Charpy impact 5 20 18⁠–⁠21.5 10.5⁠–⁠21.5
 Not ranked: 11 set apart, test bar not described as printed (18⁠–⁠58), 1 sold as toughened (14.5).
 Notched Izod impact 2 12.5 — 10⁠–⁠15
 Not ranked: 15 set apart, test bar not described as printed (4⁠–⁠39), 1 with an added filler or additive (13.7).

@@ -17,11 +17,17 @@ Built by Claude Opus 5.5, with eleven Claude Sonnet readers for the pages and on
   flexural, impact and heat deflection value whose bar its document does not describe: the readers' instructions and
   results are in [evidence/reading/](evidence/reading/INSTRUCTIONS.md), the second pass and the rules it applied in
   [evidence/classify.mjs](evidence/classify.mjs), the outcome per value in `evidence/classification.csv`. m463 types the
-  143 indicated values printed; the rest are set apart for good.
+  indicated values printed (144 with the three m473 typed); the rest are set apart for good, Spectrum PET-G HT100's
+  Tritan resin figures among them.
 - **Migrations.** m462 (a heat deflection above its melting point, flagged), m463 (bars the documents say or imply were
   printed), m464 (newer editions), m465 (a printed bar with no stated orientation read flat), m466 (heat deflection floored
   by printed bars only; CV63 reported), m467 (CV63 deciding, its own [decision diff](evidence/DECISION-DIFF-CV63.md)).
-- **What moved.** [evidence/DECISION-SUMMARY.md](evidence/DECISION-SUMMARY.md) and the full
-  [decision diff](evidence/DECISION-DIFF.md) against the round's baseline; `npm run audit:gaps` before and after:
+- **What moved.** [evidence/DECISION-SUMMARY.md](evidence/DECISION-SUMMARY.md): T1's own share, measured on tracks T2 to T5
+  merged ([in full](evidence/DECISION-DIFF-T1-on-merged.md)), and the [decision diff](evidence/DECISION-DIFF.md) of the
+  whole round against its baseline; `npm run audit:gaps` before and after:
   [evidence/gaps-before.md](evidence/gaps-before.md), [evidence/gaps-after.md](evidence/gaps-after.md) (it now writes to
   build/reports/ unless `--out` names a file).
+- **Merged with tracks T2 to T5** (the round branch at cd1977a8): m462 to m464 ran again on the merged
+  tables (m465 to m467 merged without conflict). m473 had typed Raise3D Industrial PET GF's three description and heat values printed and annealed; m463 keeps
+  that typing (the classification records it as stated) rather than take the description's modulus back as prose, as it
+  does Industrial PET CF's (V007190).

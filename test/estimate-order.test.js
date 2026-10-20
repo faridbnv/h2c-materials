@@ -20,11 +20,18 @@ test('no estimate lies under what its own measurements prove, and none above its
   assert.deepEqual(broken.map((v) => v.message), []);
 });
 
-test('a one-product material\'s estimate is floored by its break, yield or unspecified strength, whatever the direction (M064, M139)', () => {
-  // PA-ESD publishes a break stress of 68 MPa on a bar whose source states no specimen; its estimate ran 44.9 to 66.5.
+test('an estimate is floored by its own break, yield or unspecified strength, whatever the direction (G064-01, M139)', () => {
+  // 3DXTECH's 3DXSTAT ESD PA12 publishes a break stress of 68 MPa on a bar whose source states no specimen; its estimate ran
+  // 44.9 to 66.5 when it was PA-ESD's one product. Since the owner's rulings (m476) Onyx ESD is PA-ESD's second product, so
+  // the floor is checked on the product's own estimate, and the material's range holds both products' floors.
+  const own = grade('G064-01').estimate.tensileStrengthXY;
+  assert.ok(own.impliedBounds.some((b) => b.lo === 68));
+  assert.ok(own.lo >= 68 && own.plausible.lo >= 68 && own.centre >= 68);
+  // Onyx ESD prints its yield of 52 MPa on a printed bar with no stated orientation, which since the owner's ruling of
+  // 2026-10-20 is read flat (D172): PA-ESD's strength is measured on it, no longer estimated.
   const esd = material('M064').headline.tensileStrengthXY;
-  assert.ok(esd.impliedBounds.some((b) => b.lo === 68));
-  assert.ok(esd.estimate.lo >= 68 && esd.estimate.plausible.lo >= 68 && esd.estimate.centre >= 68);
+  assert.equal(esd.known, true);
+  assert.deepEqual(grade('G064-03').headline.tensileStrengthXY.admitted, ['direction', 'moisture', 'treatment']);
   // The LCP publishes a yield stress of 200 MPa: its estimate is no lower. Its heat deflection of 193 °C at 1.8 MPa is on a
   // bar its sheet ties to moulding (ISO 294-4 shrinkage in the same table), so since the owner's ruling of 2026-10-20 it
   // floors no printed part's heat resistance (D172, hdt045's Lower bound specimens printed, m466).

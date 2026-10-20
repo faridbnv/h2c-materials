@@ -43,7 +43,7 @@ export const H2C_CHECK = 'Nozzle, bed and chamber within H2C limits';
  * each in the rail. "Within H2C capability" and the nozzle, bed and chamber check had sat together with nothing saying
  * how they differ (OPEN-PROBLEMS §37.20): the first reads a list of materials, the second each product's own windows.
  */
-export const H2C_SCOPE_MEANING = 'Reads a list, not temperatures: it leaves out the materials Bambu Lab\'s list and their makers\' limitations put beyond the H2C as a whole, the industrial high-temperature plastics and the sintering filaments.';
+export const H2C_SCOPE_MEANING = 'Reads a list, not temperatures: it leaves out the materials Bambu Lab\'s list and their makers\' limitations put beyond the H2C as a whole, the industrial high-temperature plastics.';
 export const h2cCheckMeaning = () => `Reads each product's own nozzle, bed and chamber windows against the H2C's ${BASELINE.nozzleC}, ${BASELINE.bedC} and ${BASELINE.chamberC} °C; where its data sheet is silent, a data sheet it shares, then the Bambu Lab Filament Guide.`;
 /** The choice in a sentence, where the buttons' two words alone would not read ("With Include, …"). */
 export const POLICY_PHRASE = {

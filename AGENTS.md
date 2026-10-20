@@ -186,7 +186,7 @@ product with no profile of its own (D127). Record a twin's own statement on its 
 
 **Add a printer maker's guide row.** Where a product's own sheet and its twin's are silent on its print gate, the build
 reads its material's row of `print_guide.csv` (D88), and its drying too (D127; Drying need and Drying hours open are
-typed beside the raw cell). A product with a Variant is not the guide's type and reads none (D129), unless its Variant's row in `grade-variants.csv` says it prints as its type (a crystallising grade, D158). A guide is a source like any other: fetched, its SHA-256 recorded,
+typed beside the raw cell, and a printed range's lower ends, D175). A product with a Variant is not the guide's type and reads none (D129), unless its Variant's row in `grade-variants.csv` says it prints as its type (a crystallising grade, D158; a cosmetic dense filler, a filler sold only for its look, D175). A guide is a source like any other: fetched, its SHA-256 recorded,
 Citation role `cited`, and a new revision is a new source row. A row is one type the guide heads a column with, in a
 profile's columns: the guide's words in the raw columns (a drawn mark as its glyph, ✓ or ✗), the parsers' reading in the
 typed ones, and a Locator naming the column and rows. Map it in `print_guide_materials.csv` only to the material that is
@@ -215,7 +215,10 @@ ID) and Status `active`. It joins its material's grade list with no other edit. 
 its material's Modifier / filler does not describe (a lightweight additive, an undisclosed dense filler), set
 Variant and say why in Composition / filler: its values stay its own, and the estimate model keeps them from
 pulling the family. It also reads no guide row, since it is not the guide's type (D129); a crystallising grade (a PLA its maker
-formulates to crystallise in the print) is the one variant that does, as `grade-variants.csv` Reads its type's guide says (D158).
+formulates to crystallise in the print, D158) and a cosmetic dense filler (a matte or glitter filler its documents sell for
+its look and for no function, D175) are the variants that do, as `grade-variants.csv` Reads its type's guide says. Its
+Diameter is what its documents print (1.75 mm, 2.85 mm only, Not published; D175): a product found only in 2.85 mm is
+kept, and its detail and card say the H2C takes 1.75 mm.
 
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
@@ -348,7 +351,7 @@ and lifted the pause on 2026-10-05 (GOALS-LOG, check round 3, item 5): a new doc
 through the import pipeline, with no exception to ask for. Nothing was imported when it was lifted. Under the pause the
 owner had opened bounded batches one by one (b34 to b44, the price pass p01 to p04, the coverage campaign's c01 to c14,
 and the re-fetch of the lost documents in check round 3); each is complete, and GOALS-LOG keeps their dates and scope.
-Since the lift the quality round of 2026-10-07 ran b45 and the price batch p05, the screening build of 2026-10-18 ran b46 (FormFutura CarbonFil's 2024 sheet) and b47, and the research intake of 2026-10-19 ran b48 (57 documents of an external research package) and the price batch p06.
+Since the lift the quality round of 2026-10-07 ran b45 and the price batch p05, the screening build of 2026-10-18 ran b46 (FormFutura CarbonFil's 2024 sheet) and b47, the research intake of 2026-10-19 ran b48 (57 documents of an external research package) and the price batch p06, and the owner's rulings of 2026-10-20 ran b49 (the documents for the held sheets the round gave a home).
 The coverage campaign's [status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) still record what that
 campaign covered. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import

@@ -2502,3 +2502,4 @@ P1914,Warping / shrinkage,"Note 2 : at least 60-90c minimal active/passive chamb
 P1916,Speed,Print speed 25 - 70 mm/s
 P1916,Cooling,Fan speed 0 - 50 %
 P1916,Storage humidity,Print with Dry box No
+P1987,Speed,"Slow to moderate (e.g., 10–30 mm/s)"

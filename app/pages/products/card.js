@@ -12,7 +12,7 @@
 import { esc, count } from '../html.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { dayWords } from '../../js/ui/dates.js';
-import { fmtNumber, dryingWords } from '../../js/ui/format.js';
+import { fmtNumber, dryingWords, diameterWarning } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne, envVerdictWords } from '../../js/ui/labels.js';
 import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct, isNamedOnly } from '../../js/ui/material-facts.js';
 import { settingWords, annealWords, outOfMedianWords, foreignPriceWords, envConditionWords, andList, plural, setApartWords } from '../../js/ui/material-words.js';
@@ -382,7 +382,7 @@ export function productCard(c, g, own, twins, ix) {
       + `${own.environment.length ? `<details class="pc-says"><summary>${esc(`Chemicals and environment (${fmtNumber(own.environment.length)})`)}</summary>${environmentList(c, own.environment)}</details>` : ''}`, true) : '',
   ].filter(Boolean).join('');
   return `<div class="pcard">
-<div class="pc-head"><p class="pc-name">${esc(productNameOrId(g))}${stated(g.manufacturer) ? `<small>${esc(g.manufacturer)}</small>` : ''}</p>${notes.map((t) => `<p class="pc-note">${esc(t)}</p>`).join('')}</div>
+<div class="pc-head"><p class="pc-name">${esc(productNameOrId(g))}${stated(g.manufacturer) ? `<small>${esc(g.manufacturer)}</small>` : ''}</p>${diameterWarning(g) ? `<p class="pc-note pc-note--warn" data-diameter="${esc(g.diameter.found)}">${esc(diameterWarning(g))}</p>` : ''}${notes.map((t) => `<p class="pc-note">${esc(t)}</p>`).join('')}</div>
 <div class="pc-cols">
 <div class="pc-main"><h3>Published values</h3>${valuesTable(c, g, own.ms, ix)}</div>
 <div class="pc-side">${side}</div>

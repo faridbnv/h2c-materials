@@ -102,7 +102,7 @@ detail. The generator names one that runs longer.
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state); amended by D153 (a PLA or PET HDT from a bar its sheet does not describe stays the product's value but is only a ceiling for the printed part). D159 measured this decision's premise for the estimate model: across 53 materials, the products that publish only an undirected modulus sit about 27 % above those that publish an XY one. Amended by D172 (2026-10-20): a value published without its direction or load is no longer admitted by a switch; a printed bar with no stated orientation decides read flat, and a bar no document describes as printed is set apart for good |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | Amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's; extended by D123 (two grades of one product become one, the records keeping their IDs, as a moved product's do) |
-| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend |
+| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend; amended by D174 (m468): the sintering filaments left the dataset (Scope Retired), their records kept in the tables |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types); its label reworded by D124 ("from Bambu Lab's Filament Guide for …") |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "data sheet shared with …" (worded "same sheet as …" until D124), and counts as a product in its material's range. | In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins); its label reworded by D124 |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209) |
@@ -125,7 +125,7 @@ detail. The generator names one that runs longer.
 | D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83), then D109 to D112 (the controls, views and marks as they now are) |
 | D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) and D110 (a variant drawn as its shape ringed with a dot, not a diamond) |
 | D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108; amended by D110 (the view order and names, test pairs and exports under More, details in place of the list, the pills on the chart's top-left corner) |
-| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) |
+| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) and D174 (in Material ranges a product sold as toughened is ringed with a dot, as a variant is) |
 | D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material) |
 | D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
 | D113 | A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada | A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one. | In force; it amends D19 (a foreign listing prices a product but is never an offer here) and D83 (a converted price is one of a material's products' prices) |
@@ -188,6 +188,10 @@ detail. The generator names one that runs longer.
 | D170 | The interface says what it shows: a melting point only where a polymer melts, a range named as one, a filler by its name | The clean-up round's interface fixes changed three rules of what the pages and the selector show. A melting temperature is drawn and said only for a polymer that has one (a crystalline plastic): PETG's "190 °C" was the middle of eight sheets' processing temperatures, and an amorphous plastic's "melting" values are listed among its other properties instead. A table cell shows a material's range of products, as before, and its column head now says so ("median · range"), where the drawer and the pages give the middle half. And a material whose filler the materials table names (aramid fibre, PTFE, ceramic …) is filtered and drawn by that filler, no longer as an undisclosed variant. | In force (the clean-up round, 2026-10-19; OPEN-PROBLEMS §37.8, §37.18, §37.20). The filler is worked out in the engine (`app/js/engine/filler.js`, a requirement on the new facet `filler`); the build's own reinforcement facet, which the frozen estimate model reads, is unchanged, and a link saved on the old facet keeps its answer |
 | D171 | Of two documents of one product, the data sheet speaks, and of two editions the newer one | Where two documents of one product print the same property, a data sheet speaks for the product before a product page, and a newer edition of a sheet before an older one. The other document's figure is kept and shown, small, as not used in deciding: in the drawer's product detail where it differs a lot from the product's value, and on the material page's product card beside every such figure. The same holds for each part of the print recipe. | In force (the owner's ruling of 2026-10-20, GOALS-LOG item 1; OPEN-PROBLEMS §37.3). It amends D83's rule for a product's value: "its own data sheet first" now ranks the product's documents, and a figure a better document replaces is no candidate at all |
 | D172 | A value is the filament's where anything on its document indicates it, and is set apart for good where nothing does | A tensile, flexural, impact or heat deflection value on a test bar its document does not describe at all may be a moulded bar's, which flatters a print. Since the owner's ruling it decides only where something on its document indicates, even implicitly, that the bar was printed: its own row or its table names a print orientation, a heading names the printed part, print settings are given for the test specimens, or a statement about how the document's test specimens were made speaks for it. Otherwise it is set apart for good: shown, counted apart, never deciding, with a small note. A printed bar whose sheet states no orientation is read as a flat one, and a heat deflection with no stated load bounds the 0.45 MPa value from below only. | In force (the owner's rulings of 2026-10-20, GOALS-LOG items 2 and 3; OPEN-PROBLEMS §15, §39.4). It amends D84 (a value published without its direction or load is no longer admitted by a switch: printed, it decides read flat; undescribed, it is set apart for good), D126 and D161 (hdt045's lower bound reads printed bars only, as elongation's does), D153 (the ledger reads an undescribed bar only through its demote-to-ceiling rows; CV63 floors HDT at 0.45 MPa by an unloaded value) and D166 (whose demotion of a PLA or PET bar stays for the bars still undescribed) |
+| D173 | The drawer's first screen answers five questions in a few large figures, the rest one press away | The owner ruled that the first screen of a material's drawer needed redesign, to be friendly and | In force (the owner's rulings round, 2026-10-20; OPEN-PROBLEMS §37.20). Display only: every number is one |
+| D174 | The selector's first screen: no Result column before a requirement, the sintering filaments out of the dataset, a plot's own marks first | Three of the owner's rulings of 2026-10-20 on the selector. Before any requirement is set, the results table has no Result column: every row had read "not tested", which an engineer reads as "nobody ran the test". The metal and ceramic sintering filaments (316L, silicon carbide, alumina) are out of the dataset: their records stay in the tables, and the build compiles none of them, so the table no longer opens on the 316L one. And the plots keep the marks that read best on each: on the Ashby chart's Material ranges one mark now means "kept out of its material's range", while the square and the diamond keep meaning glass and carbon fibre on the Ashby chart and annealed and an added filler in the drawer and on the pages. | In force (the owner's rulings round, 2026-10-20, m468; OPEN-PROBLEMS §37.20). It amends D87 (the sintering filaments, recorded and never candidates, leave the dataset) and D110 (a product sold as toughened is ringed with a dot in Material ranges) |
+| D175 | Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range | A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row; D158 made the first exception) and D127 (what the typed drying columns hold) |
+| D176 | A materials scientist's rulings: PET's fills print glassy, the held sheets' homes, a plasticised PVC is a rubber, a heat-resistant "PETG" is a copolyester | The owner asked a materials scientist to research four open questions and decide. Fibre-filled PET prints glassy, as the model already said: every maker that states how its bar was treated shows about 75 to 100 °C as printed and 120 to 205 °C only after annealing, and the two "crystallised as printed" bars in the data were an annealed bar recorded without its note and two bars whose sheets state no treatment, which now back nothing. The held sheets each have a home or a reason to stay out: Electrifi is a conductive polycaprolactone, Diran 410MF07 a mineral-filled nylon of undisclosed polyamide, Onyx ESD an ESD nylon, ISTROFLEX stays an undisclosed rubber, SBC is a stiff clear styrenic and is now estimated, and FKuR's compound, Nuterials' pellets and Stratasys' sacrificial tooling stay out. purefil's Shore 94A PVC is a rubber, a material of its own that fails a stiffness requirement on its kind's limit. And Spectrum's PET-G HT100 is a Tritan-type copolyester, filed under CPE. | In force (the owner's rulings round, 2026-10-20; GOALS-LOG item 6 and items 9 to 11; OPEN-PROBLEMS §38.10, §14, §31.13, §38.9, §33.9). It keeps D158 (PET prints amorphous, fibre-filled too) after testing its alternative, extends D154's rubber limit (CL01) to a new kind, and adds a polymers.csv row (SBC), back-tested as D58 and D138 ask |
 
 <!-- end index -->
 
@@ -2454,7 +2458,7 @@ brings back one maker's catalogue as the taxonomy, and a TPU that is every hardn
 ## D87. A family's "polymer not stated" home, and sintering filaments are recorded, never candidates
 
 > **In plain words:** Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates.
-> **Status:** amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend.
+> **Status:** amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend; amended by D174 (m468): the sintering filaments left the dataset (Scope Retired), their records kept in the tables.
 
 *Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS-LOG.md, decisions 2 and 3). Built in m142 and m143.*
 
@@ -3498,7 +3502,7 @@ reader's place.
 ## D110. The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list
 
 > **In plain words:** The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up.
-> **Status:** In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views).
+> **Status:** In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) and D174 (in Material ranges a product sold as toughened is ringed with a dot, as a variant is).
 
 *Directed by the owner on 2026-09-29, after using D109: keep only the typical values as the published view, under a name
 that says what it is; the test pairs rarely, as a hidden option; the order typical, ranges, products, left to right; and
@@ -5789,12 +5793,15 @@ with a Claude Sonnet reader for the editions.*
   sheets under V5.5 and V6.0). Where nothing printed orders two sheets (49 pairs, most of them Polymaker sheets whose
   version is only in the file name), nothing changes: the product's own sheet comes first, as before. SOURCE-EDITION
   stops a chain that names another publisher or comes back to itself.
-- **Per property, in each state** (`markOutranked`, `build/src/products.js`). Where a better document of the product
-  prints a property (the properties one headline reads together count as one) in the same state, the other document's
-  figures for it are marked `outranked` and are no product value, no ledger source and no estimate input that decides; a
-  property only the lower document prints still stands (CarbonFil's modulus, D149). A document whose only figure is set
-  apart (D172) replaces nothing. 327 figures of 109 products are replaced (176 by a newer edition, 151 by a data sheet);
-  37 products show a figure that differs a lot (beyond the headline's test scatter, else 10 %).
+- **Per headline, in each state** (`markOutranked`, `build/src/products.js`). Where a better document of the product
+  prints a figure the same headline reads (the properties one headline reads together count as one; a direction, a load,
+  a notch or a hardness scale is another headline) in the same state, the other document's figure is marked `outranked`
+  and is no product value, no ledger source and no estimate input that decides. A figure only the lower document prints
+  for its headline still stands (CarbonFil's modulus, D149; QIDI's guide's Z strengths, where the data sheets print only
+  edge and upright bars no Z headline reads; Polymaker PolyFlex TPU95-HF's Shore A, where the newer edition's 95 is an
+  upright bar's). A document whose only figure is set apart (D172) replaces nothing. 339 figures of 112 products are
+  replaced (184 by a newer edition, 155 by a data sheet); 38 products show a figure that differs a lot (beyond the
+  headline's test scatter, else 10 %).
 - **The print recipe.** For each part (nozzle, bed, chamber, enclosure, hardened nozzle, drying) the best-ranked of the
   product's own documents that give a reading decide; one that says nothing usable on the part replaces nothing. 138
   products show a part another document says otherwise; 15 part verdicts moved, most of them drying "required" on a
@@ -5827,10 +5834,13 @@ no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the r
   their bars were printed (Bambu Lab, Raise3D) print it for the filament too. A blank shrinkage row says nothing.
 - **As data.** A new Specimen type, "Printed (implied by the document)" (form printed), with the words that imply it and
   their page in the row's Notes (m463, every quote checked on its cached sheet). Eleven Claude Sonnet readers read the
-  2,265 undescribed values on 668 pages (`evidence/reading/`), the executor's second pass applied the rules above
-  (`evidence/classify.mjs`): 143 values of 77 products are printed bars their documents say or imply (1 stated), 2,122
-  stay undescribed; the 967 values on pages with a moulding or resin word were not all read (one page in eight was) and
-  stay set apart. Raise3D's sheets say in the same note that their bars were annealed, which their heat values now carry.
+  2,265 undescribed values on 655 pages (`evidence/reading/`), the executor's second pass applied the rules above
+  (`evidence/classify.mjs`): 144 values of 77 products are printed bars their documents say or imply (4 stated, three
+  of them Raise3D Industrial PET GF's, which the materials-science track typed in m473, D176), 2,121 stay undescribed;
+  the 947 values of products on sale on pages with a moulding or resin word were not all read (one page in eight was) and
+  stay set apart. Spectrum PET-G HT100's nine values are Eastman Tritan's moulded-resin figures (found by the same track):
+  set apart as a resin grade's. Raise3D's sheets say in the same note that their bars were annealed, which their heat
+  values now carry.
 - **The rule** (`assess`, `build/src/products.js`; headline_definitions.csv Unstated direction `flat if printed`, m465).
   A bar's property (a headline with a direction or a load) from a bar no document describes and with no print orientation
   on its row is `as-published` with caveat `not-described`: counted apart in the spread, drawn hollow, never the deciding
@@ -5841,10 +5851,12 @@ no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the r
   bar's unloaded value. The selector's switch that admitted values with no orientation or load is gone; the engine keeps
   the lens for audits only (`npm run audit:gaps`, `decision-census.mjs`). A product estimate that would only echo its own
   set-apart value of the headline's own kind is not made, as it was not while that value decided (`grades.js`).
-- **What it did** (`evidence/DECISION-DIFF.md`, `DECISION-SUMMARY.md`, over 138 cases against the baseline). Products'
-  comparable heat deflections 472 → 247, and materials with one 98 → 77; in-plane values gained where printed bars are
-  read flat (materials with a modulus 100 → 102, an elongation 103 → 104, a notched Izod 35 → 36); in the single-requirement
-  sweeps 20 material answers moved to PASS on them and 112 heat answers to UNKNOWN. Warm environment: 13 materials PASS → UNKNOWN (PETG, ASA Aero, PA6, PA12-GF,
+- **What it did** (`evidence/DECISION-SUMMARY.md` and `DECISION-DIFF-T1-on-merged.md`, over 138 cases, measured on the
+  round's other tracks merged; `DECISION-DIFF.md` against the round's baseline). Products' comparable heat deflections
+  at 0.45 MPa 523 → 285 and at 1.8 MPa 301 → 118, and materials with one 99 → 79 and 79 → 48; in-plane values gained where
+  printed bars are read flat (materials with a modulus 100 → 103, a strength 106 → 108, an elongation 103 → 105, a
+  flexural modulus 90 → 95, a notched Izod 35 → 36); in the single-requirement sweeps 32 material answers moved to PASS on
+  them (PA-ESD, PLA-CF, Nylon-CF, TPU harder than 95A, TPE, PLA Wood, Nylon) and 104 heat answers to UNKNOWN. Warm environment: 13 materials PASS → UNKNOWN (PETG, ASA Aero, PA6, PA12-GF,
   PPA, PPS-GF, PP, CPE, PA6-CE, ABS-AF, COC, PE-GF, PLA-PHB), each passing only on an undescribed bar. Outdoor: PPS-GF
   PASS → UNKNOWN, ABS-AF and PCTG-GF FAIL → UNKNOWN. High-stiffness: PLA-CF UNKNOWN → PASS on a printed bar read flat.
   No answer moved to FAIL, and none passes on a bar no document describes as printed. `audit:gaps`: 108 answers would
@@ -5853,6 +5865,189 @@ no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the r
 - **What would break if reversed.** A moulded bar's 139 °C heat deflection would again pass Spectrum PC 275 for a warm
   part, a PETG would again pass Warm environment on a resin figure, and a reader could again admit, with one switch, every
   value a document does not say was printed.
+
+## D173. The drawer's first screen answers five questions in a few large figures, the rest one press away
+
+> **In plain words:** The owner ruled that the first screen of a material's drawer needed redesign, to be friendly and
+> easy to read. It had held about 40 numbers under a template (38 for PLA under Indoor prototype, 48 with no requirement,
+> counted on screen at 1280×800): the answer's counts, every requirement's whole reason, six key figures each with its
+> middle half and count, seven more on an "Also" line, and each print setting's product counts. It now answers, in order:
+> does it meet my requirements (one sentence, the count that meets them in bold), on which product and why (each
+> requirement's first sentence, the rest under "more"), what its numbers are (six tiles, the median large; a property a
+> requirement asks about joins them, tagged "required" or "reported"), how to print it on the H2C (one row per setting,
+> a window and a chip), and how well documented it is. Every number removed is one press away: the spread table under
+> "Spread across products", a chip's or a value's popover, a reason's "more". The same drawers now show 21 and 20
+> numbers.
+> **Status:** In force (the owner's rulings round, 2026-10-20; OPEN-PROBLEMS §37.20). Display only: every number is one
+> the drawer printed before, from the engine, the build or `material-facts.js`; no verdict, count or listing moved.
+
+*Built by a Claude Opus agent in the owner's rulings round of 2026-10-20 and read once by a Claude Sonnet agent as a
+first-time engineer ([the round's drawer record](audits/2026-10-20-owner-rulings/drawer/README.md)).*
+
+- **What it changes.** The Overview's first screen (`detail.js` `overviewBody`, `explain.js` `reasonLead`, the drawer's
+  styles in `app.css`); the deeper sections, the other tabs, the product cards and the graphs are as they were. The
+  first-time reader's review changed four things before the round closed: a setting some products are within and others
+  not says how many on its chip ("1 of 7 within"), since a green "Within", the best product's verdict, had stood beside
+  PEEK's 90 °C chamber against the H2C's 65 °C; a requirement's tile said "asked", now "required" or "reported"; a
+  material beyond the H2C's capability no longer stacks its red callout on a failed answer that says it; and a median of
+  two or three products, or one product's value, says so on its tile.
+- **What it keeps.** The order (the answer, the requirements, the key figures, the print settings, the documents) and
+  every rule of what each shows (D146, D147, D151): the product the lines are shown for, the six key figures, the windows
+  most products give, the chip as the best product's verdict, the evidence word. The material page's own Overview is
+  unchanged.
+- **What would break if reversed.** A reader would again meet about 40 numbers before the material's name had sunk in,
+  a requirement's reason of up to 723 characters in full, and the printing block below the first screen on every laptop.
+
+## D174. The selector's first screen: no Result column before a requirement, the sintering filaments out of the dataset, a plot's own marks first
+
+> **In plain words:** Three of the owner's rulings of 2026-10-20 on the selector. Before any requirement is set, the results table has no Result column: every row had read "not tested", which an engineer reads as "nobody ran the test". The metal and ceramic sintering filaments (316L, silicon carbide, alumina) are out of the dataset: their records stay in the tables, and the build compiles none of them, so the table no longer opens on the 316L one. And the plots keep the marks that read best on each: on the Ashby chart's Material ranges one mark now means "kept out of its material's range", while the square and the diamond keep meaning glass and carbon fibre on the Ashby chart and annealed and an added filler in the drawer and on the pages.
+> **Status:** In force (the owner's rulings round, 2026-10-20, m468; OPEN-PROBLEMS §37.20). It amends D87 (the sintering filaments, recorded and never candidates, leave the dataset) and D110 (a product sold as toughened is ringed with a dot in Material ranges).
+
+*Ruled by the owner on 2026-10-20 (GOALS-LOG, "Decided on 2026-10-20", item 5); built by Claude Opus 5.5 (an agent),
+track T3 of [the round](audits/2026-10-20-owner-rulings/README.md).*
+
+- **No Result column before a requirement** (`app/js/ui/table.js`, `visibleColumns`). A result answers a question, and
+  with none asked there is none; an empty column would read as a gap. The column arrives with the first requirement,
+  beside the name, where it stood. The chips already stood down, and the status bar already says to set a requirement.
+  A sort on Result with nothing asked is by name; the baseline row says "baseline" beside its name; the export leaves
+  its result cells empty and says why in its header; Compare names the shortlist without a chip. `ui:fuzz` checks the
+  column is there exactly when something is asked (I1-result-column).
+- **A material can leave the dataset whole: Scope Retired** (`build/src/retired.js`). Its row, its products (each grade
+  retired, as `data:retire` does) and every record filed under them stay in the tables as the record of what was read,
+  and their sources stay registered with their hashes; compile, the chamber stage and validate read the tables without
+  them, so no row, search result, drawer, page, export or count holds them. A record of another material that points at
+  one of theirs is left in, so its own check stops the build; an active grade on a retired material is an error
+  (MATERIAL-RETIRED-ACTIVE); each retired material is named at info (MATERIAL-RETIRED). Nothing is deleted: bringing one
+  back is its Scope and its grades' Status. The excluded scope, shown and never recommended, is unchanged and now holds
+  only the 14 industrial high-temperature plastics.
+- **The sintering filaments are the ones retired** (m468): M171, M172 and M173, four products, 104 statements, 5
+  profiles, 3 measured densities and 5 sources. Two rows spoke for them alone: CN09, their family's chamber-need row,
+  is retired (a new chamber_need Status), and "Metal powder", a modifier only 316L had, leaves CV08's Applies to. Since
+  D87 they had been rows only to say why they were out, and the table opened on 316L because its name sorts first.
+  `build:diff`: only their records, the counts, CN09 and CV08's text. The decision census moved no answer of any other
+  material in 138 cases; the 24 density sweeps no longer list the three as passing on the 2,660 to 7,190 kg/m³ of a
+  green part ([decision diff](audits/2026-10-20-owner-rulings/selector/DECISION-DIFF.md)). The page lists 149 materials (152), and
+  Compare's density track, which 316L had stretched to 7,190 kg/m³ with every plastic at its left end, runs 520 to 1,840.
+- **Each plot's own marks first** ([SHAPES.md](audits/2026-10-20-owner-rulings/selector/SHAPES.md), every plot and its
+  marks). On the Ashby chart's Material ranges, a product sold as toughened was a plain ring and a variant a ring with a
+  dot, two marks told apart by a two-pixel dot, and a plain ring is "could not be settled" in the Products view of the
+  same chart: both are now ringed with a dot, "kept out of its material's range", the key naming both reasons in the
+  drawer's words and the hover which. The square and the diamond keep two meanings. The Ashby chart needs seven filler
+  shapes and gives its two most legible after the circle to the two commonest fillers (D110); the drawer, the table and
+  the pages need three marks at 7 px for one material's products, which share a filler, and only the circle, the square
+  and the diamond stay apart that small. Each graph's key, above it, names its marks; the clash can show in the graphs
+  of five glass-fibre materials (an annealed square) and one (PLA-GF's variant diamond).
+- **What would break if reversed.** The cold table would again read "not tested" on every row; the sintering filaments
+  would again be rows, counts and search results whose finished part is a sintered metal or ceramic, not a print, the
+  table opening on 316L, and their 24 density passes would come back; and a toughened product on an impact axis would again be told from a variant by a
+  dot.
+
+## D175. Three small rulings: a filler for looks prints as its type, a 2.85 mm product is kept with a warning, a printed drying range is shown as the range
+
+> **In plain words:** A matte or glitter filament whose filler is only for looks now reads its printer maker's guide in full, as its plain type does: a filler that changes nothing about printing should not hide the guide's answers. A product found only in 2.85 mm stays among its material's products, and its detail and card now say that the H2C takes 1.75 mm. And a drying schedule a sheet prints as a range ("80-100°C for 6-12 hours") is shown as that range, where only its upper end was shown before.
+> **Status:** In force (the owner's rulings round, 2026-10-20; GOALS-LOG items 7, 8 and 14; OPEN-PROBLEMS §32.4, §37.5, §37.16). It amends D129 (which variants read a guide row; D158 made the first exception) and D127 (what the typed drying columns hold).
+
+*Ruled by the owner on 2026-10-20; built by Claude Opus 5.5, which read every product's documents named below on the
+cached sheets ([the round](audits/2026-10-20-owner-rulings/README.md), its `small-rules/` folder).*
+
+- **A filler for looks reads its type's guide** (m470). `grade-variants.csv` gains "cosmetic dense filler", Reads its type's
+  guide TRUE: a filler, named or not, that the product's documents sell for its look (a matte finish, a glitter) and for
+  no function, nothing on them saying it changes how the product prints. It reads its material's guide row in full, the
+  hardened-nozzle answer with the rest ("if it reads one thing there, it can read the rest"), and its kind of plastic's
+  chamber need; its own statements still come first, and its values stay apart from the spread. Of the 28 products filed
+  "undisclosed dense filler", eleven are re-filed (Spectrum PET-G MATT, eSUN PETG-Matte, Extrudr XPETG MATT, FormFutura
+  Matt PLA, AzureFilm PLA Matte (HS), SUNLU High Speed Matte PLA, PLA Lite and PLA Classic, Eryone PLA-Lite, eSUN
+  eTwinkling, Recreus PLA). Seventeen stay, each with its reason in `COSMETIC-FILLERS.md`: AzureFilm ABS Prime and ASA Prime
+  are a "zero warp" formulation sold for strength, which may print otherwise than the guide's ABS and ASA; the metal fills
+  are metal powders their makers say wear brass (D129's own case); the rest carry a load sold for a function or no look at
+  all. The name ends "dense filler", so the plausibility windows and the filled-density lint judge it as they did.
+- **A product found only in 2.85 mm** (m471). `grades.csv` gains Diameter, typed against `diameters.csv` (1.75 mm, 2.85 mm
+  only, 3 mm only, Not published; Fits the H2C beside each), filled for every grade by one reader of the cached documents
+  its records cite (`scripts/lib/diameters.mjs`), a listing counting as the 1.75 mm filament: 681 read 1.75 mm, 491 Not
+  published and 12 2.85 mm only, BigRep's twelve, each read on its pages. The product stays counted, as its values describe
+  its polymer as printed; the drawer's product detail and its card on the material's page say "Only 2.85 mm filament was
+  found; the H2C takes 1.75 mm." A typed column the build reads, not a parse of the prose in the page: the warning is a
+  fact about the product, checked by the vocabulary, and the import fills it from a new grade's document.
+- **A drying range is shown as the range** (m472). `profiles.csv` and `print_guide.csv` gain Drying min °C and Drying min
+  hours, the lower end of the window that decides, typed from the parser and checked against it (PARSE-MISMATCH), against
+  the cell's own numbers and against the upper end (PARSE-TEXT-BOUNDS). Every rule still reads the upper end, so no drying
+  answer moves (the drying gate asks only whether a sheet speaks of drying). A product's drying, its card, the products
+  table, the chart's words and a material's typical span read the printed range: Raise3D Industrial PPA GF "80-100 °C for
+  6-12 h", PPA-GF's makers "80-140 °C, 4-12 h" (100-140 °C, 6-12 h before). 227 products and 45 materials read
+  differently (`drying-ranges.csv`). The parser reads "4 to 16 hours" as a window (nine profiles; no upper end moved).
+- **What it did** ([decision diff](audits/2026-10-20-owner-rulings/small-rules/DECISION-DIFF.md)). No material verdict,
+  listing or group moved over the 138 cases. Four products now pass the indoor-prototype template where they were one
+  check away (FormFutura Matt PLA, AzureFilm PLA Matte (HS), eSUN eTwinkling and PETG-Matte: the chamber and the hardened
+  nozzle their guide answers). The estimate model gives each Variant its own term, so the re-filed products left the metal
+  fills' term: 607 product estimates moved (median 0.2 %; the most, 13.5 %, a re-filed product's own elongation), 16
+  product answers in the sweeps moved between "not enough data", "unlikely" and "likely", and 22 rows show another product.
+  The estimate stage's code is unchanged, and so is the import's text reader: the import fills the new columns in
+  `apply.mjs`.
+- **What would break if reversed.** A matte or glitter filament would again show its hardened nozzle, enclosure, chamber
+  and drying unknown where its type's guide answers them, and four would wait one check away for an indoor part; BigRep's
+  2.85 mm filaments would be counted with no word that the H2C cannot feed them; and a sheet that begins its drying at
+  80 °C would read as asking 100 °C.
+
+## D176. A materials scientist's rulings: PET's fills print glassy, the held sheets' homes, a plasticised PVC is a rubber, a heat-resistant "PETG" is a copolyester
+
+> **In plain words:** The owner asked a materials scientist to research four open questions and decide. Fibre-filled PET prints glassy, as the model already said: every maker that states how its bar was treated shows about 75 to 100 °C as printed and 120 to 205 °C only after annealing, and the two "crystallised as printed" bars in the data were an annealed bar recorded without its note and two bars whose sheets state no treatment, which now back nothing. The held sheets each have a home or a reason to stay out: Electrifi is a conductive polycaprolactone, Diran 410MF07 a mineral-filled nylon of undisclosed polyamide, Onyx ESD an ESD nylon, ISTROFLEX stays an undisclosed rubber, SBC is a stiff clear styrenic and is now estimated, and FKuR's compound, Nuterials' pellets and Stratasys' sacrificial tooling stay out. purefil's Shore 94A PVC is a rubber, a material of its own that fails a stiffness requirement on its kind's limit. And Spectrum's PET-G HT100 is a Tritan-type copolyester, filed under CPE.
+> **Status:** In force (the owner's rulings round, 2026-10-20; GOALS-LOG item 6 and items 9 to 11; OPEN-PROBLEMS §38.10, §14, §31.13, §38.9, §33.9). It keeps D158 (PET prints amorphous, fibre-filled too) after testing its alternative, extends D154's rubber limit (CL01) to a new kind, and adds a polymers.csv row (SBC), back-tested as D58 and D138 ask.
+
+*Ruled by the owner on 2026-10-20 ("consult with a material scientist agent, research those cases if necessary, and make a
+decision"); researched with Claude Sonnet readers, decided and built by Claude Opus 5.5 as the round's materials-science
+track ([memo](audits/2026-10-20-owner-rulings/science/DECISIONS-MEMO.md), [back-tests](audits/2026-10-20-owner-rulings/science/BACKTEST.md),
+[decision diff](audits/2026-10-20-owner-rulings/science/DECISION-DIFF.md)).*
+
+- **PET's fills print glassy; the model is kept** (m473). PET crystallises slowly (a half-time near a minute at its
+  fastest, about 170 °C), and a printed road quenches through that window in seconds onto a bed and into a chamber below
+  its 75 to 80 °C glass transition (the H2C's chamber reaches 65 °C); fibres nucleate crystals but cannot give them the
+  time. The makers' own sheets agree: Polymaker PET-GF15 81.6 °C as printed and 133.7 °C after 16 h at 120 °C, Raise3D
+  Industrial PET CF 87 °C before annealing and 175 °C after (V4.0), Flashforge PET-CF 100 °C "not annealed", BASF PET CF15
+  74 °C; LEHVOSS says its 3F PET CF needs annealing "to ... ensure the full crystallinity". Of the four crystallised-looking
+  values OPEN-PROBLEMS named, Raise3D Industrial PET GF's 99 and 120 °C are its sheet's annealed bars ("All specimens were
+  annealed at 100˚C for 8h", p. 2; the heat rows had missed it), QIDI's were already recorded annealed, and Flashforge
+  PET-CF's 100 °C is a glassy fibre-filled bar's. Flashforge PET-GF's 200 °C, and SIDDAMENT PET CF's 190 °C (never
+  transcribed until now), are printed bars whose sheets state no treatment and advise oven-treating the part at 120 to
+  130 °C: crystallised bars, flagged physically implausible as the as-printed value (D55, D149's precedent for PLA). PET
+  as "prints amorphous unless fibre-filled" was built and measured: it held EST-CALIBRATION only with PET-fill ranges about
+  106 °C wide, centred 40 to 90 °C above every stated as-printed bar (Bambu Lab PET-CF 177 °C, D167's error). Rejected.
+- **The held sheets' homes** (m475, batch b49; m476). Multi3D Electrifi's safety data sheet names a "biodegradable
+  polyester" melting at "Approximately 60 °C": polycaprolactone is the one that melts there, so it is a material of its
+  own, PCL-EC (M176), an inferred filing (R227, R228), not estimated. Stratasys Diran 410MF07, "nylon-based ...
+  mineral-filled 7% by weight", whose polyamide no document names, opens the maker-undisclosed nylon home for a mineral
+  load, Nylon-CE (M177; R229, R230), with its two tables (27 values). Markforged Onyx ESD, "a static dissipative safe
+  variant of Onyx", the micro carbon fibre nylon, enters PA-ESD (M064) from the registered Composites sheet (R239).
+  Nanovia ISTROFLEX, a "Modified Polyester alloy" with a glass transition of -32 °C and a Vicat of 91 °C, is PBAT's kind
+  by its figures, but stays in TPE, maker-undisclosed elastomer (R232): filed under PBAT, a rigid specialty polymer here,
+  a 60 MPa, Shore 93A rubber would have been given a rigid bar's heat estimate. SBC is a stiff, clear, styrene-rich
+  styrenic, not an elastomer (Crystal Flex prints K-Resin KR03's Shore D 63 and 1.8 GPa): polymers.csv gains its row
+  (styrenic, amorphous, 1010 to 1020 kg/m³ from INEOS Styrolution's Styrolux 656C and K-Resin KR03), so it is estimated
+  (R231). FKuR's Fibrolon V 135002 (a compound for making filament, measured on moulded bars, for a colorFabb woodFill the
+  catalogue does not hold), Nuterials JECTO (pellets; its filament is in development) and Stratasys ST-130 (sacrificial
+  tooling, no polymer or family named) stay out (R236 to R238).
+- **A plasticised PVC is a rubber** (m476, m477). purefil's "Polyvinylchlorid weich 94A", "flexible und gummiähnliche",
+  Shore 94A, 366 % elongation, is PVC-P (ISO 1043), a material of its own under Flexible Elastomers (M178; R233, R234),
+  not estimated: the plasticiser puts PVC's glass transition below room temperature and its crystallites hold the chains
+  as a thermoplastic elastomer's hard blocks do, so at 94A it is about 0.04 GPa stiff, where rigid PVC is 2 to 4 GPa. The
+  rubber limit CL01 (at most 0.5 GPa) names it, in a commit of its own (m477): its product fails the 2, 3 and 5 GPa
+  questions and the three stiffness presets on its kind's limit, where it waited on "not enough data" with an estimate of
+  0.2 to 8.7 GPa.
+- **A heat-resistant "PETG" is another copolyester** (m474). Spectrum PET-G HT100 is "a co-polyester based filament" of
+  1.18 g/cm³ with an HDT B of 94 °C; a PETG is 1.22 to 1.30 g/cm³ and a glassy bar deflects near its 80 °C glass
+  transition. Its sheet prints Eastman's Tritan figures (1.18, 43 MPa, 210 %, 1575 MPa, Rockwell R 111), a copolyester
+  with a glass transition near 110 °C. It moves to CPE (R235), which holds colorFabb HT (Amphora HT5300) and Fiberlogy CPE
+  HT, the same kind; no Variant class, since it is not a PETG something changed.
+- **What it did** ([decision diff](audits/2026-10-20-owner-rulings/science/DECISION-DIFF.md)). Before the round's other
+  tracks were merged (m473 to m475, against the baseline): eight verdicts of existing materials moved, PET-GF from pass to
+  "unlikely to meet" for 90 and 120 °C as printed and PETG from pass to "unlikely" for 90 °C (each had passed on one bar
+  physics rules out for it); the rest are the two new materials and SBC's estimates (it now reads "unlikely" or "likely"
+  where it read "not enough data"). After the merge (m476, m477): PVC-P fails the stiffness questions; rigid PVC loses the
+  elongation passes it had on PVC-P's 366 % and fails the lightweight structure; PA-ESD passes 5 and 20 % elongation as
+  published on Onyx ESD's 25 %. EST-CALIBRATION holds on every headline with the SBC row (its product's estimates hold its
+  own values); the estimate model's settings and code did not change.
+- **What would break if reversed.** PET-GF would again pass 120 °C as printed on a bar no printed part reaches, and PETG
+  pass 90 °C on a copolyester that is not one; a 94A rubber would again sit beside rigid PVC with an estimate of up to
+  8.7 GPa; SBC would be unestimated; Electrifi and Diran would wait unread, and Onyx ESD would be missing from the ESD nylons.
 
 ## Bugs worth remembering
 

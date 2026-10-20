@@ -476,9 +476,9 @@ function evaluateGate(material, c) {
       status: excluded ? STATUS.FAIL : STATUS.PASS,
       criterion: 'H2C-relevant scope',
       // Scope is the one place exclusion is recorded (m146); the material's Limitations say why it is out (an envelope
-      // the H2C cannot reach, or a sintering feedstock whose part is not the printed polymer).
+      // the H2C cannot reach). The sintering feedstocks, whose part is not the printed polymer, left the dataset (D174).
       reason: excluded
-        ? 'Beyond H2C capability: more heat than the H2C gives, or a sintering feedstock'
+        ? 'Beyond H2C capability: more heat than the H2C gives'
         : 'Within H2C capability',
     };
   }

@@ -1673,7 +1673,6 @@ details.unlikely-to-meet > summary { cursor: pointer; font-weight: 650; color: v
 /* The answer, first: how many of its products meet the requirements. */
 .answer { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); margin: 10px 0 4px; }
 .answer p { margin: 0; line-height: 1.5; }
-.answer p .btn { margin-left: 8px; }
 .why-on { margin: 0 0 4px; }
 .why-also { margin: 6px 0 0; }
 .src-link { margin-left: 4px; font-size: var(--t-small); }
@@ -1682,15 +1681,11 @@ details.unlikely-to-meet > summary { cursor: pointer; font-weight: 650; color: v
 .key-props dt { margin: 0; }
 .key-props dd { margin: 0; }
 .key-props dd.kp-empty { color: var(--ink-3-text); }
-/* The page's key figures (2026-10-18): the median large, the middle half and the count small beside it, as the page's plate
-   prints them; the other headlines on one line under them. */
+/* The spread table under the key figures' tiles (D173): every headline, its median, middle half and count, one press
+   away under "Spread across products". */
 .key-figs .kp-v { font-weight: 600; }
 .key-figs .kp-f { font-size: var(--t-small); color: var(--ink-2); margin-left: 6px; }
-.kp-also { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 6px; line-height: 1.7; }
-.kp-also .kp-sep { color: var(--ink-3-text); }
-/* A value published with no stated orientation or load, in the Also line: grey, with the graphs' hollow mark (C18). */
-.kp-also-pub { color: var(--ink-3-text); white-space: nowrap; }
-.kp-also-pub .imp-dot { position: static; display: inline-block; margin: 0 4px 0 0; cursor: default; vertical-align: 0; }
+.key-figs .imp-dot, .kf .imp-dot { position: static; display: inline-block; margin: 0 5px 0 0; cursor: default; vertical-align: 1px; }
 .kp-missing { color: var(--ink-3-text); }
 /* How well documented the material is, the page's word, its reasons one press away (C20). */
 .data-line .evidence-tier { color: var(--ink); text-decoration: underline dotted 1px; text-underline-offset: 3px; }
@@ -1705,6 +1700,77 @@ h3.sec .env-verdict { font-weight: 450; color: var(--ink-2); }
 .data-line { font-size: var(--t-small); color: var(--ink-2); margin: 18px 0 6px; padding-top: 12px; border-top: 1px solid var(--border); }
 .data-line .link-btn { margin-left: 6px; }
 .overview-foot { margin-top: 10px; }
+/* ---------------------------------------------------------------- the drawer's first screen (D173) */
+/* The owner's ruling of 2026-10-20: the first screen friendly and easy to read. Five answers, each a few large figures
+   with its detail one press away: the answer, Your requirements, Key properties as tiles, On the H2C as tiles, and how
+   well documented it is. */
+.glance .answer { align-items: center; padding: 12px 14px; margin: 0 0 4px; border-radius: var(--r-plate); }
+.answer.answer-PASS { background: color-mix(in srgb, var(--pass-bg) 55%, var(--surface)); border-color: color-mix(in srgb, var(--pass) 30%, var(--border)); }
+.answer.answer-FAIL { background: color-mix(in srgb, var(--fail-bg) 55%, var(--surface)); border-color: color-mix(in srgb, var(--fail) 30%, var(--border)); }
+.answer.answer-UNKNOWN { background: color-mix(in srgb, var(--unknown-bg) 55%, var(--surface)); border-color: color-mix(in srgb, var(--unknown) 30%, var(--border)); }
+.answer-text { flex: 1; min-width: 0; }
+.answer .answer-head { font-size: 15.5px; line-height: 1.4; color: var(--ink); }
+.answer .answer-head b { font-weight: 700; }
+.answer .answer-sub { font-size: var(--t-small); color: var(--ink-2); margin-top: 2px; }
+.answer .answer-sub .link-btn { margin-left: 4px; }
+.glance .answer > .chip { align-self: flex-start; margin-top: 1px; }
+.glance > h3.sec, .glance > .sec-row { margin-top: 20px; }
+.glance > :first-child, .glance > .callout + .lede, .glance > .lede:first-child { margin-top: 0; }
+.sec-note { font-size: var(--t-small); color: var(--ink-3-text); }
+/* A requirement's tags, "reported, not required" and "thin margin", one size and set beside it. */
+.chip.chip-tag { font-size: 10.5px; font-weight: 600; padding: 1px 7px; vertical-align: 1px; }
+.chip.chip-tag::before { content: none; }
+.mark.why-more { font-size: var(--t-small); margin-left: 2px; }
+/* Key properties: a tile each, its name, the median large and its unit small; a foot only where the figure is not a
+   median of four or more. A requirement's property is marked "asked". */
+.kf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 8px; margin: 0 0 8px; }
+.kf {
+  --imp-light: color-mix(in srgb, var(--ink-3) 62%, var(--surface));
+  border: 1px solid var(--border); border-radius: 10px; padding: 8px 11px 9px; background: var(--surface); min-width: 0;
+}
+.kf-name { font-size: var(--t-label); line-height: 1.35; color: var(--ink-2); }
+.kf-name .mark.prop-name { color: var(--ink-2); text-decoration-color: var(--border-strong); }
+.kf-v { margin-top: 3px; line-height: 1.2; overflow-wrap: anywhere; }
+.kf-v .kf-n { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; color: var(--ink); }
+.kf-v .kf-u { font-size: var(--t-small); font-weight: 500; color: var(--ink-2); margin-left: 4px; }
+.kf-v .spread-value:hover, .kf-v .evidence-value:hover > span:first-child { text-decoration: underline dotted 1px; text-underline-offset: 4px; }
+.kf-v .evidence-value { text-align: left; }
+.kf-v .evidence-dot { margin-left: 5px; vertical-align: 3px; }
+.kf-quiet .kf-v { font-size: var(--t-body); font-weight: 500; color: var(--ink-3-text); padding-top: 4px; }
+.kf-quiet .kf-v .mark { color: var(--ink-2); }
+.kf-f { font-size: var(--t-label); color: var(--ink-3-text); margin-top: 3px; line-height: 1.35; }
+.kf-asked { box-shadow: inset 3px 0 0 color-mix(in srgb, var(--accent) 70%, var(--surface)); }
+.kf-tag {
+  display: inline-block; margin-left: 6px; vertical-align: 3px; font-size: 10.5px; font-weight: 650; color: var(--accent);
+  background: var(--accent-soft); border-radius: 8px; padding: 0 6px; line-height: 17px; letter-spacing: 0;
+}
+details.kf-more { margin: 0 0 4px; font-size: var(--t-small); }
+details.kf-more > summary { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; color: var(--accent); list-style: none; padding: 2px 0; }
+details.kf-more > summary::-webkit-details-marker { display: none; }
+details.kf-more > summary:hover { text-decoration: underline; }
+details.kf-more[open] > summary { margin-bottom: 8px; }
+details.kf-more .chevron::before { border-color: var(--accent); }
+details.kf-more .key-props { font-size: var(--t-small); }
+/* On the H2C: one row per setting in the order a print is set up, its name, the window most products give, and for
+   nozzle, bed and chamber the chip, the chips in one column; a count under the window only where some product is not
+   within the H2C's limit, and drying's note under its schedule. */
+.h2c-list { border: 1px solid var(--border); border-radius: 10px; padding: 2px 12px; }
+.h2c-row {
+  display: grid; grid-template-columns: minmax(96px, 30%) minmax(0, 1fr) auto; column-gap: 12px; align-items: baseline;
+  padding: 8px 0; border-top: 1px solid var(--border);
+}
+.h2c-row:first-child { border-top: 0; }
+.h2c-row > b { font-size: var(--t-small); font-weight: 500; color: var(--ink-2); }
+.h2c-row > .h2c-v { margin: 0; font-size: 15.5px; font-weight: 650; line-height: 1.35; color: var(--ink); }
+.h2c-row > .h2c-chip { justify-self: end; }
+.h2c-row > .h2c-chip .chip { font-size: var(--t-label); }
+.h2c-row > .h2c-chip button.chip:hover { text-decoration: underline dotted 1px; text-underline-offset: 3px; filter: none; }
+.h2c-row > .h2c-foot { grid-column: 2 / -1; font-size: var(--t-label); color: var(--ink-2); line-height: 1.4; margin-top: 1px; }
+.mark.h2c-said { text-decoration: underline dotted 1px; text-underline-offset: 4px; text-decoration-color: var(--border-strong); }
+.h2c-est { margin-top: 8px; }
+.h2c-from { margin-top: 8px; }
+.mark.from-words { text-decoration: underline dotted 1px; text-underline-offset: 3px; }
+.glance .data-line { margin-top: 20px; }
 /* A product: one line until opened; Choose beside it, never inside the toggle. */
 .grade-block { border-bottom: 1px solid var(--border); padding: 4px 0; }
 .grade-head { display: flex; align-items: flex-start; gap: 8px; }

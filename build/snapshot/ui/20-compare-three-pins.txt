@@ -30,7 +30,7 @@ PA6-GF
 1,310
 range 1,140–1,370 · 9 products
 520
-7,190
+2,000
 all 152 materials
 Tensile modulus (XY) GPa
 Tensile modulus (XY) at least 3 GPa
@@ -45,7 +45,7 @@ PA6-GF
 range 2.85–5.36 · 4 products
 0.00153
 log scale
-21.1
+20
 all 152 materials
 Tensile strength (XY) MPa
 ASA-CF
@@ -57,8 +57,8 @@ range 53–112 · 8 products
 PA6-GF
 82.3
 range 62.8–98.9 · 6 products
-5.21
-293
+5.45
+282
 all 152 materials
 Tensile strength (Z) MPa
 ASA-CF
@@ -83,7 +83,7 @@ range 2.1–16.5 · 7 products
 PA6-GF
 4.95
 range 2.4–12.5 · 6 products
-0.553
+0.554
 log scale
 1,050
 all 152 materials
@@ -123,7 +123,7 @@ range 147–215 · 5 products
 PA6-GF
 186
 range 161–205 · 7 products
-38.4
+38.6
 300
 all 152 materials
 Glass transition (Tg) °C

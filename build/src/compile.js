@@ -5,6 +5,7 @@
 // (products.js, D83); nobody selects either. Where no product publishes a comparable value the headline is missing,
 // with the related evidence and implied bounds a reader, and the estimate stage, can use.
 
+import { inDataset } from './retired.js';
 import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
@@ -29,6 +30,7 @@ import { attachProductClaims } from './product-claims.js';
 import { indexPageContext, contextFor, inheritPageContext } from './page-context.js';
 import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.js';
 import { attachWritten } from './written.js';
+import { DIAMETER_FITS } from './diameters.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
@@ -540,8 +542,12 @@ function checkEditions(sources, issues) {
 
 // ---------------------------------------------------------------------------- main
 
-export function compile(wb, { snapshot, build }) {
-  const issues = [];
+export function compile(tables, { snapshot, build }) {
+  // A material retired from the dataset, and every record filed under it, is not compiled (D174): every caller of compile
+  // reads one dataset, and the build's later stages read the same (pipeline.js).
+  const scoped = inDataset(tables);
+  const wb = scoped.wb;
+  const issues = [...scoped.issues];
   const registry = compileRegistry(wb, issues);
   const familyEntries = familyEntriesFromTables(wb);
 
@@ -562,6 +568,8 @@ export function compile(wb, { snapshot, build }) {
     colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
     rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
     diameters: r['Diameter compatibility'],
+    // The diameter its documents print, and whether the H2C takes it (D175); nothing where none prints one.
+    ...(r.Diameter && r.Diameter !== 'Not published' ? { diameter: { found: r.Diameter, fits: DIAMETER_FITS.get(r.Diameter) === true } } : {}),
     retired: r.Status === 'retired',
   }));
   // A material's procurement grades are its active procurement grades, in file order.
@@ -802,6 +810,8 @@ export function compile(wb, { snapshot, build }) {
           quarantined: measurements.filter((m) => m.quarantined).length,
           profiles: profiles.length, evidence: evidence.length, prices: prices.length,
           sources: sources.length, coverage: coverage.length,
+          // Rows of materials.csv retired from the dataset: compiled into nothing, counted here alone (D174).
+          retired: scoped.retired.length,
         },
         environmentCategories,
         chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },

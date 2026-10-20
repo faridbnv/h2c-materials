@@ -1,7 +1,7 @@
 COUNT 19 shown PASS
 STATUS ☑ PASS 19 | ☐ UNKNOWN 73 | ☐ FAIL 60
 19 of the 152 materials meet these requirements
-Lightweight structure template · UNKNOWN 73 left out: 18 one check away, 37 not enough data, 18 unlikely to meet
+Lightweight structure template · UNKNOWN 73 left out: 19 one check away, 36 not enough data, 18 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits

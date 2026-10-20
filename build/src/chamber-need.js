@@ -43,9 +43,12 @@ const maker = (g) => String(g.manufacturer ?? '').trim().toLowerCase();
 /** A kind of plastic as a sentence names it: the values its rule's first clause names ("PLA", "Nylon / Polyamide"). */
 const kindName = (rule) => (rule.appliesTo?.[0]?.values ?? []).join(' or ') || rule.id;
 
-/** The rows of chamber_need.csv, their Applies to parsed against the materials (an unknown field or value is an error). */
+/**
+ * The rows of chamber_need.csv, their Applies to parsed against the materials (an unknown field or value is an error).
+ * A retired row speaks for a kind of plastic the dataset no longer holds (D174) and is compiled into nothing.
+ */
 export function compileChamberNeed(rows, { materialRows, issues }) {
-  return rows.map((r) => ({
+  return rows.filter((r) => r.Status !== 'retired').map((r) => ({
     id: r.RuleID,
     appliesTo: parseAppliesTo(r['Applies to'], `chamber_need ${r.RuleID}`, issues, materialRows),
     appliesToText: r['Applies to'],

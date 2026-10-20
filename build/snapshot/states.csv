@@ -19,7 +19,6 @@ G001-16,M001,PLA Pro,as-printed,tensileStrengthXY,40,V008745,40,twin G001-115
 G001-16,M001,PLA Pro,annealed:110:0.3333,hdt045,75,V003114,75,
 G001-16,M001,PLA Pro,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.865,
 G001-16,M001,PLA Pro,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,
-G001-16,M001,PLA Pro,annealed:x:x,hdt045,85,V012363,75,
 G001-16,M001,PLA Pro,annealed:110:0.25,hdt045,75,V005539,75,twin G001-55
 G001-16,M001,PLA Pro,annealed:110:0.25,tensileModulusXY,2.87,V005535,2.865,twin G001-55
 G001-16,M001,PLA Pro,annealed:110:0.25,tensileStrengthXY,40,V005534,40,twin G001-55
@@ -44,7 +43,6 @@ G001-55,M001,IMPACT PLA,annealed:110:0.25,tensileStrengthXY,40,V005534,40,
 G001-55,M001,IMPACT PLA,annealed:110:0.3333,hdt045,75,V003114,75,twin G001-16
 G001-55,M001,IMPACT PLA,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.87,twin G001-16
 G001-55,M001,IMPACT PLA,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,twin G001-16
-G001-55,M001,IMPACT PLA,annealed:x:x,hdt045,85,V012363,75,twin G001-16
 G001-58,M001,PLA-HP,as-printed,hdt045,,,135,
 G001-58,M001,PLA-HP,annealed:x:x,hdt045,135,V005853,135,
 G001-93,M001,Pro PLA,as-printed,flexuralModulusXY,,,2.414,
@@ -60,7 +58,6 @@ G001-115,M001,Tough PLA,as-printed,hdt045,,,75,
 G001-115,M001,Tough PLA,annealed:110:0.3333,hdt045,75,V003114,75,twin G001-16
 G001-115,M001,Tough PLA,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.865,twin G001-16
 G001-115,M001,Tough PLA,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,twin G001-16
-G001-115,M001,Tough PLA,annealed:x:x,hdt045,85,V012363,75,twin G001-16
 G001-115,M001,Tough PLA,annealed:110:0.25,hdt045,75,V005539,75,twin G001-55
 G001-115,M001,Tough PLA,annealed:110:0.25,tensileModulusXY,2.87,V005535,2.865,twin G001-55
 G001-115,M001,Tough PLA,annealed:110:0.25,tensileStrengthXY,40,V005534,40,twin G001-55

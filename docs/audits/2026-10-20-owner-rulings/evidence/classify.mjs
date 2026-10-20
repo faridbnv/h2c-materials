@@ -65,7 +65,16 @@ const says = (sid, quote) => {
 // Values the executor's review of the indicated set took back: a figure in prose, not a row of the document's tests.
 const TAKEN_BACK = new Map([
   ['V007190', 'Raise3D Industrial PET CF\'s description says "tensile modulus and strength of over 6 GPa" after annealing: a claim in prose, not a row of its tests (the error-class sweep read it so, m282)'],
-  ['V013950', 'Raise3D Industrial PET GF\'s description says "tensile modulus and srength of over 4.1 GPa" after annealing: a claim in prose, not a row of its tests'],['V013958', 'Raise3D Industrial PPS CF\'s description says "heat resistance (HDT 260 °C)": a rounded claim in prose, not a row of its tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa']]);
+['V013958', 'Raise3D Industrial PPS CF\'s description says "heat resistance (HDT 260 °C)": a rounded claim in prose, not a row of its tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa']]);
+// Values whose figures are another grade's, found outside their document: Spectrum's PET-G HT100 sheet (and its portfolio's
+// HDT) prints Eastman Tritan's moulded-resin figures, as the owner's rulings round found (track T5, D176; the Tritan brochure
+// was read, not registered). A resin grade's figures are a counter-indication whatever the sheet leaves unsaid.
+const RESIN_GRADE = new Map(['V002845', 'V002846', 'V002847', 'V002848', 'V002849', 'V002850', 'V002852', 'V002853', 'V012391']
+  .map((id) => [id, 'Spectrum PET-G HT100 prints Eastman Tritan\'s moulded-resin figures (the owner\'s rulings round, track T5, D176)']));
+// Values the materials-science track (T5) typed printed in m473 on the same sheet's note (D176): its reading stands, as a
+// statement in words. V013950 is the description's "over 4.1 GPa" after annealing, which repeats the table's annealed XY
+// modulus (V006923, 4130 MPa); D172's prose rule took back its PET CF twin V007190, which stays set apart.
+const BY_M473 = new Set(['V013950', 'V013951', 'V013952']);
 const out = [];
 for (const r of rows) {
   const g = groups.get(r.group);
@@ -76,7 +85,9 @@ for (const r of rows) {
     const doc = DOCUMENT.find(([s, , q]) => s.test(g.sourceId) && says(g.sourceId, q));
     const ownLabel = /\(X-Y\)|（X-Y）/.test(m?.locator ?? '') && m?.property === 'HDT';
     let v;
-    if (TAKEN_BACK.has(id)) v = { verdict: 'set-apart', kind: 'none', quote: '', quotePage: '', by: `second pass: ${TAKEN_BACK.get(id)}` };
+    if (RESIN_GRADE.has(id)) v = { verdict: 'set-apart', kind: 'resin-grade', quote: '', quotePage: '', by: `second pass: ${RESIN_GRADE.get(id)}` };
+    else if (BY_M473.has(id)) v = { verdict: 'stated', kind: 'words', quote: 'All testing specimens were printed under the following conditions', quotePage: 2, by: 'm473 (the materials-science track, D176)' };
+    else if (TAKEN_BACK.has(id)) v = { verdict: 'set-apart', kind: 'none', quote: '', quotePage: '', by: `second pass: ${TAKEN_BACK.get(id)}` };
     else if (counter) v = { verdict: 'set-apart', kind: counter[2], quote: counter[4], quotePage: counter[3], by: 'second pass' };
     else if (ownLabel) v = { verdict: 'implied', kind: 'own-label', quote: (m.locator.match(/[^:]*\(X-Y\)|[^:]*（X-Y）/) ?? [''])[0].trim(), quotePage: g.page, by: 'second pass' };
     else if (r.verdict === 'STATED') v = { verdict: 'stated', kind: r.kind, quote: r.quote, quotePage: Number(r.notes.match(/\bp(?:age)?\s?(\d+)/i)?.[1] ?? g.page), by: 'first read' };

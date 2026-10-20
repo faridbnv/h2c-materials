@@ -14,7 +14,7 @@
 // Nothing here decides anything.
 
 import { esc, count, productsHref, jsonIsland } from '../html.js';
-import { fmtNumber, fmtBounded } from '../../js/ui/format.js';
+import { fmtNumber, fmtBounded, dryingSpan } from '../../js/ui/format.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { materialContext, productRows, indexDb, stated, productNameOrId, identity, isProduct, priceRows } from '../../js/ui/material-facts.js';
 import { andList, plural, lower } from '../../js/ui/material-words.js';
@@ -138,7 +138,8 @@ function columnsOf(c, rows, kinds) {
           const cls = [guide || d.need === 'optional' ? 'g' : ''].filter(Boolean);
           if (d.need === 'not-needed') return { text: 'none', v: 0, g: guide ? 'o' : 'c', cls };
           if (!Number.isFinite(d.tempC)) return { text: d.need === 'optional' ? 'if wet' : 'dry first', v: null, g: guide ? 'o' : 'c', cls };
-          return { text: fmtNumber(d.tempC), small: d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${fmtNumber(d.hours)} h` : '', v: d.tempC, g: guide ? 'o' : 'c', cls };
+          // A schedule printed as a range is shown as one; the column still sorts by the end every rule reads (D175).
+          return { text: dryingSpan(d.tempMinC, d.tempC), small: d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${dryingSpan(d.hoursMin, d.hours)} h` : '', v: d.tempC, g: guide ? 'o' : 'c', cls };
         }
         const s = settingCell(p[axis]);
         const hard = axis === 'nozzle' && p.hardenedNozzle === true;

@@ -25,9 +25,9 @@ Nozzle, highest
 275
 Bed · °C · the H2C reaches 120 °C, above this scale
 Bed, lowest
-156 ranked of 194 shown
+156 ranked of 195 shown
 45
-24
+25
 23
 19
 17
@@ -35,9 +35,9 @@ Bed, lowest
 14
 13
 Bed, highest
-156 ranked of 194 shown
+156 ranked of 195 shown
 112
-27
+28
 21
 15
 12

@@ -256,8 +256,9 @@ materials publish a window the H2C reaches only at its bottom edge, which stay u
 
 **Within H2C temperature limits** is one box over the three temperature gates, each indented under it with its data
 line; it is ticked when all three are asked, indeterminate when one or two are. The scope list is a box of its own,
-**Exclude materials beyond H2C capability**, which names the families it removes (industrial high-temperature plastics
-and sintering filaments): it reads that list and no temperature, so it is not called printable. The two sit side by side
+**Exclude materials beyond H2C capability**, which names the families it removes (the industrial high-temperature
+plastics; the sintering filaments it also named left the dataset on 2026-10-20, D174): it reads that list and no
+temperature, so it is not called printable. The two sit side by side
 as requirement pills under every template, so since 2026-10-19 each says what it reads, in its rail line and in its
 pill's title: "Within H2C capability" a list, the materials Bambu Lab's list and their makers' limitations put beyond the
 H2C as a whole; the nozzle, bed and chamber check each product's own windows against the H2C's limits.
@@ -347,6 +348,12 @@ line saying what it is ("names a group of materials, not one material. Its membe
 members link to their drawers. Its own name opens its entry: what it is, why it has no tabs (its measurements,
 profiles, grades and prices are recorded under each member), and its members, each opening its drawer.
 
+A material retired from the dataset (Scope `Retired`, D174) is not on the page at all: no row, search result, drawer,
+material page, count or export holds it, and its records wait in the tables. The metal and ceramic sintering filaments
+(316L, silicon carbide, alumina) are the ones retired, on the owner's ruling of 2026-10-20: never candidates, since the
+printed part is a green part sintered elsewhere (D87), they had been rows only to say why they were out, and the table
+opened on the 316L one. Searching "316L" now finds nothing, as for any material the tool does not hold.
+
 With estimates on, the table cell shows the estimate rather than the related `*` value, because the
 estimate already contains that measurement converted to the headline. Sorting then counts it: a column sorts an
 estimated row by its estimate's centre, and a measured row before an estimated one at the same value, where estimated rows
@@ -420,8 +427,12 @@ estimate. An estimate's mark and one that does not apply open the Overview, wher
 Environment tab, where its rows are. Why excluded counts the three kinds apart under each requirement, and only the
 materials the page hides: a material hidden as a whole, whose own hide names that requirement (D148).
 
-Before any requirement is set nothing has been tested, so rows read **not tested** and the chips
-stand down. A green PASS on a blank screen asserted a test that never ran.
+Before any requirement is set nothing has been asked, so there is no result to show: the chips stand down, and the
+table has no Result column at all (D174). The column arrives with the first requirement, beside the name, where it
+always stood. A green PASS on a blank screen asserted a test that never ran; the words that replaced it, **not tested**
+on every row, read to an engineer as "nobody ran the test", and an empty column would have read as a gap, so the column
+waits for a question. A sort on Result with no requirement is by name; the export leaves its result columns empty and
+says why in its header, and Compare names the shortlisted materials without a chip.
 
 ## Reading a number
 
@@ -520,38 +531,65 @@ results* returns to the selector as it was (D145); its title says that a downloa
 release's material pages zip unzipped beside it. The selector's status bar has a quiet *Material pages* link to the index, which
 carries the selection the same way (the owner's word of 2026-10-17).
 
-**Overview** (D146, 2026-10-18: in the material page's order and form). With requirements set it opens on **the
-answer**: how many of its products meet all the requirements, how many fail one and how many publish too little to
-judge, with *Show the products*. Then **Your requirements**, one product's result on each, named once above the lines
-("Shown for Bambu Lab PLA Basic, one of the 183 that pass"): the engine's product, unless it leaves a requirement that
-is reported, not required, unanswered and another passing product answers it (PLA had been shown for a product with no
-price under a template that reports price); a line that rests on another product names it; the engine's INDETERMINATE
-(a chamber recommended above the H2C's, not required) reads UNKNOWN, its half-filled mark and reason kept, as the table
-counts it; the passing material-level checks fold into one "Also met" line, the three H2C limits said once; each
-value's **source** button opens the measurement. Then **Key properties**: the material page's six key figures in its
-order (tensile modulus and strength XY, strength Z, notched Charpy, HDT at 0.45 MPa, price), each the median, its
-middle half (lowest to highest under four products) and how many products, at the page's display precision
-(`display-numbers.js`), and where no product publishes one with a stated orientation or load, the values as published,
-as the page says them, never another record with a star; under them the page's own sentence on what a figure is
-(`keyFiguresBasis`); the other headlines on one *Also* line, where a value published with no stated orientation or load
-says "as published", grey, with the graphs' hollow mark, rather than standing as a median (D147). Then **On the H2C**,
-the page's block (`print-brief.js` onTheH2cRows): nozzle, bed and heated chamber, each the window most products give
-with a chip from every product's own settings against the H2C's limit (the best product's verdict: Within, Within at the
-low end, On the line, Above recommended, Beyond, No data) and the counts in a line, those at the low end of their
-makers' windows said among those within, then drying and nozzle type as values, and one line on where borrowed settings were read; *Printing in
-full* opens Printing. It replaced a count list and gate rows that printed the material's recorded window beside its best
-product's gate reason, which disagreed (PEEK's bed *Within, 110–250 °C* under a failed bed requirement). Then **Typical
-applications** (ending "after Prusa Research", or whoever's statement it is, as the page says it), **Limitations**,
-**General guidance** for the family, a one-line **On file**: the page's evidence word, well, partly or thinly
-documented, its reasons one press away, then the counts (measurements and documents, held-back values, the known gaps
-as Sources lists them and conflicts, where there are any; D147), with the way to Sources, and, once at the foot,
-the method sentence that data-sheet values are not design allowables. A material beyond the H2C's capability opens on
-one line that names the limits its products break. Without requirements the order is the lede (only where the identity
-line does not say what the material is), Key properties, On the H2C, then the rest. Record IDs are never in these
-sentences (D124), and a note's record names are taken out of what a reader opens (the full text behind the ID mark).
+**Overview** (D146, 2026-10-18: in the material page's order and form; its first screen redrawn on 2026-10-20, D173,
+the owner's ruling that it be friendly and easy to read). The first screen, what an engineer sees before scrolling or
+opening anything, had held about 40 numbers under a template (38 for PLA under Indoor prototype, 48 with no
+requirement, measured on screen at 1280×800); it now answers five questions, each in a few large figures with its
+detail one press away (21 and 20; [the round's drawer record](audits/2026-10-20-owner-rulings/drawer/README.md)):
 
-**Estimates** follow the Key properties under **Estimated, not measured**, one line each, in the data's own terms: "Strength
-~46–58 MPa† · good precision · from 3 of its own measurements", or "from the family model only". Opening a line gives
+- **Does it meet my requirements?** With requirements set the Overview opens on **the answer**, one sentence that leads
+  with the count that meets them, in bold ("**184 of its 196 products** meet all your requirements"; "**None of its 73
+  products** is shown to meet all your requirements" where some publish too little to judge), how many fail one and how
+  many publish too little to judge on the line under it, and *Show the products*.
+- **On which product, and why?** **Your requirements**, one product's result on each, named once above the lines
+  ("Shown for Bambu Lab PLA Basic, one of the 184 that pass"): the engine's product, unless it leaves a requirement that
+  is reported, not required, unanswered and another passing product answers it (PLA had been shown for a product with no
+  price under a template that reports price); a line that rests on another product names it; the engine's INDETERMINATE
+  (a chamber recommended above the H2C's, not required) reads UNKNOWN, its half-filled mark kept, as the table counts it;
+  the passing material-level checks fold into one "Also met" line, the three H2C limits said once. Each line gives the
+  first sentence of its reason, the value that decided it ("Published 3.5 GPa (XY, ASTM D638, ISO 527, GB/T 1040)."),
+  with **more** opening the whole reason and **source** the measurement; a thin margin is a tag beside the requirement.
+  Of the 327 kinds of reason the templates give, 215 ran past 140 characters and the longest to 723, so PETG's HDT line
+  alone had taken five lines.
+- **What are its numbers?** **Key properties**, as tiles: the material page's six key figures in its order (tensile
+  modulus and strength XY, strength Z, notched Charpy, HDT at 0.45 MPa, price), each the median large with its unit
+  small, at the page's display precision (`display-numbers.js`); a property a requirement asks about joins them after the
+  six (density under Outdoor structural part, elongation under Flexible component), and every tile a requirement asks
+  about is tagged *required* or *reported*, a median beside the product's value the lines above give. A tile's foot says
+  only what makes it other than a median of four or more products: "median of only 2 products", "one product's value",
+  "as published, no stated orientation" (the graphs' hollow mark, never another record with a star), "estimated, not
+  measured"; "does not apply" and "not published" stand in the value's place. The median's popover gives the spread
+  (`spreadNote`), and **Spread across products, and 6 more properties** opens the table the first screen had shown: every
+  headline's median, middle half (lowest to highest under four products) and count, a value published with no stated
+  orientation or load as published, grey, with the hollow mark (D147), and the page's sentence on what a figure is
+  (`keyFiguresBasis`).
+- **How do I print it on the H2C?** **On the H2C**, the page's block (`print-brief.js` onTheH2cRows), one row per
+  setting in the order a print is set up: nozzle, bed and heated chamber, each the window most products give and a chip
+  from every product's own settings against the H2C's limit, in one column (the best product's verdict: Within, Within
+  at the low end, On the line, Above recommended, Beyond, No data). Where some products are within the limit and others
+  not, the chip says how many are ("4 of 7 within"), so a green chip never stands unexplained beside a window most
+  products give above it (PEEK's chamber, 90 °C); where none is, the row says so under the window, with the limit. The
+  window's note and every product's count against the limit are the chip's popover. Then drying, with whether to dry
+  ("most advise it only for wet filament"), and nozzle type as values, the sheets' tally behind the nozzle type; one fine
+  line says where settings a product's sheet leaves silent were read, the counts behind it; *Printing in full* opens
+  Printing. It replaced a count list and gate rows that printed the material's recorded window beside its best
+  product's gate reason, which disagreed (PEEK's bed *Within, 110–250 °C* under a failed bed requirement).
+- **How well documented is it?** A one-line **On file**: the page's evidence word, well, partly or thinly documented,
+  its reasons one press away, then the counts (measurements and documents, held-back values, the known gaps as Sources
+  lists them and conflicts, where there are any; D147), with the way to Sources.
+
+A material beyond the H2C's capability opens on one line that names the settings its products ask more heat of, except
+where the requirements ask it and their answer and line already say it (it had stacked a second red box on a failed
+answer). Without requirements the first screen is the lede (only where the identity line does not say what the
+material is), Key properties, On the H2C and On file. Below it, in both cases: **Typical applications** (ending "after
+Prusa Research", or whoever's statement it is, as the page says it), **Limitations**, **General guidance** for the
+family, the estimates and the properties that do not apply, the record notes, and once at the foot the method sentence
+that data-sheet values are not design allowables. Record IDs are never in these sentences (D124), and a note's record
+names are taken out of what a reader opens (the full text behind the ID mark).
+
+**Estimates** follow the family's guidance under **Estimated, not measured**, one line each, in the data's own terms:
+"Strength ~46–58 MPa† · good precision · from 3 of its own measurements", or "from the family model only"; a key
+figure's tile gives its estimate in the value's place. Opening a line gives
 today's full record: both ranges, what it rests on, what limits it, what it may screen, and every measurement behind it,
 converted. What every estimate shares, that the ranges are calibrated, that an estimate never passes and when one may
 screen, is said once under the group. Six lines of prose per estimate, with those two sentences in each, had pushed "Can
@@ -597,14 +635,16 @@ by maker; 3DXTECH first, its products most often the material's typical value", 
 chosen by an unstated rule, and PETG had three "first" products). A product is one line until opened: its name, its
 result and its key values, those a requirement asks about or else the first three it publishes of the Products page's
 columns (tensile modulus and strength XY, HDT at 0.45 MPa, price; a bound with its sign), with **Choose** beside the
-line rather than inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, its
+line rather than inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, a
+product found only in a diameter the H2C does not take saying so in one small line ("Only 2.85 mm filament was found;
+the H2C takes 1.75 mm.", D175, the owner's ruling of 2026-10-20: it stays counted), its
 print settings (nozzle, bed, heated chamber; each part read elsewhere said once under the card, "Enclosure, hardened
 nozzle and drying: from the Bambu Lab Filament Guide (PLA column), where this product's own sheet is silent", where it
 had followed every cell), its values, what its maker says (each quote with its document and page, the source words
 opening where it is stated, and a **caveat** mark where a reviewer recorded what the claim does not say; a maintainer's
 note on the reading sits behind the ID mark, by the pages' rule), the topics its maker leaves unstated in one closed
 line, its Sources, **Its card on the Products page** where the material has a page (carrying the selection as *Full
-page* does), and its product details (its maker, a variant "kept out of the material's median"; its availability under
+page* does), and its product details (its maker, a variant "kept out of the material's median", its Diameter; its availability under
 *Record notes*). A card stays as the reader left it when the drawer is redrawn.
 
 **Comparisons, one heading each (D133, D139, D140).** Four closed headings draw a material's products against the
@@ -828,7 +868,9 @@ column's range. A row is a native disclosure; its card holds every record of tha
 saying so, "treatment not stated"; a second edition's identical values said once), the sheet's own row label, the
 standards the build reads (the sheet's own string a press away), a Z bar its sheet labels otherwise with the sheet's code
 ("Z (ZX)", as every place on the pages labels such a bar), whether each is in the Overview's median and why not, print
-settings with where each comes from, price, the maker's statements folded, and documents. A card of more than 20 values
+settings with where each comes from (a drying schedule a sheet prints as a range shown as that range, "80–100 °C for
+6–12 h", D175), price, the maker's statements folded, and documents. A product found only in a diameter the H2C does not
+take says so under its name, first among its notes ("Only 2.85 mm filament was found; the H2C takes 1.75 mm.", D175). A card of more than 20 values
 shows of each longer document the values the list's columns show, the rest behind *Show all N values from this
 document* (an address to one opens its group; print shows all): PEKK's 94-value card had run to 5,300 px. An open card
 stacks above the list's sticky head, which had covered its first lines. Reference and study specimens come last. `#G…`
@@ -1126,7 +1168,13 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   of its products on each axis (all of them under four), whiskers through the medians to the lowest and highest, a thin
   plus where they cross carrying its name, and its products as small shapes. A product the data marks as a variant (a wood or
   metal filler, a foaming or lightweight additive; its Variant column) is drawn as its shape ringed with a dot and kept out of the range, as
-  the build keeps it out of the material's spread, since its values describe the product, not the polymer. PLA's box in
+  the build keeps it out of the material's spread, since its values describe the product, not the polymer. On an impact
+  axis a product its maker sells as toughened is kept out too, with the same mark since 2026-10-20 (D174): it had been a
+  plain ring, told from a variant by the dot alone, and a plain ring is "could not be settled" in Products; the key names
+  both reasons and the hover says which. The other plots keep their own marks: the square and the diamond are glass and
+  carbon fibre here, and annealed and an added filler or additive in the drawer, the table and the pages, each the most
+  legible choice for its plot (the plot-by-plot table is in the round's
+  [SHAPES.md](audits/2026-10-20-owner-rulings/selector/SHAPES.md)). PLA's box in
   the scope-only chart was 1230–1250 kg/m³ by 1.5–2.8 GPa with whiskers to 1170–1310 and 0.43–4.2 when D108 drew it
   (about 1222–1240 by 1.9–2.9 GPa on 2026-10-07), where the envelope of every product had run 800–1400 kg/m³ (PolyWood
   and PLA-Lite, both variants). Pressing a box opens the material in the
@@ -1396,7 +1444,9 @@ read from a twin.
 
 **The printer maker's guide** (D88). Where a product's own sheet and its twin's are both silent on a part of its print
 gate (nozzle, bed, chamber, enclosure, hardened nozzle) or on its drying, it reads its material's row of the Bambu Lab
-Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in
+Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129), unless its Variant
+prints as its type: a crystallising grade (D158) or a cosmetic dense filler, a filler sold only for its look, which reads
+the row in full, the hardened-nozzle answer with the rest (D175). The setting in
 **Print settings** then carries "from the Bambu Lab Filament Guide (PLA column)", whoever makes the product (D124, worded
 so by D147); the gate's reason
 ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
@@ -1428,7 +1478,8 @@ failure), where it is near the values, no further above the highest than the lar
 far above them, the axis says so, so PLA's windows are not squeezed against 350 °C. Under the graphs: a table of each
 row's count of products ranked, median, middle half and range, with what is drawn and not ranked (the comparisons'
 words since 2026-10-19, C49: the print graphs had said "169 counted of 194 shown" and "not counted"); **the window most products give, as the
-Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 3–12 h": one statistic
+Overview gives it** ("nozzle 195–230 °C, bed 50–60 °C, heated chamber none needed, drying 40–65 °C, 2–12 h", a sheet's printed range
+counted from its lower end since D175: one statistic
 for one setting since 2026-10-18, where it had given the medians of the lowest and highest settings, which differed); the products **outside the H2C's limits**, by
 their print gate's own verdict (a window beyond the limit, one recommended above it, and one the H2C reaches only at
 its bottom edge), or a sentence that none is; the products within only at the low end of their makers' windows on a line

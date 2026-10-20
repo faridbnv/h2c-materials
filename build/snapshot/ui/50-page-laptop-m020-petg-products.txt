@@ -1,7 +1,7 @@
 viewport 1180x760
 document width: fits the screen
 spill: none
-clipped cells: none in 71 tables
+clipped cells: none in 70 tables
 hidden controls: 0
 figure text: all of it readable
 sections (2): products-list, colophon
@@ -9,4 +9,4 @@ figures: 0, with an svg 0, with a caption 0
 bar: sticky, 1 section listed, the way back on screen
 fonts: Inter loaded, Newsreader loaded
 anchors: 4 checked
-products: 73 products, 13 sorts, 5 searches, 76 checks
+products: 72 products, 13 sorts, 5 searches, 76 checks

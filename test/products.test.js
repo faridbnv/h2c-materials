@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 import { measurementHeadlines } from '../build/src/registry.js';
-import { assess, LEVEL, ruleValue, documentRanks } from '../build/src/products.js';
+import { assess, LEVEL, ruleValue, documentRanks, markOutranked, speaksTo, GUIDE_AXES } from '../build/src/products.js';
+import { printsAsItsType } from '../build/src/variants.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = loadTables(join(root, 'data'));
@@ -145,6 +146,36 @@ test('a value is set apart where its bar is not described as printed, or a heat 
   assert.deepEqual(assess({ ...heat({ loadStated: true, loadMPa: 0.45 }), ...undescribed }, hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' }, 'an undescribed bar vouches for no printed part\'s heat resistance');
   // A figure a newer edition or the data sheet replaces is never the product\'s (D171).
   assert.equal(assess(m({ outranked: { by: 'S-NEWER', why: 'older-edition' } }), modulus, []).why, 'outranked');
+});
+
+test('a better document replaces a figure only where it prints one the same headline reads, in the same state (D171)', () => {
+  const sources = [
+    { id: 'S-OLD', sourceClass: 'Manufacturer TDS', supersededBy: 'S-NEW' },
+    { id: 'S-NEW', sourceClass: 'Manufacturer TDS', supersededBy: null },
+    { id: 'S-PAGE', sourceClass: 'Manufacturer product page or guide', supersededBy: null },
+  ];
+  const bar = (id, sourceId, over = {}) => ({ id, gradeId: 'G999-01', sourceId, numeric: true, dataStatus: 'Published value', property: 'Tensile strength (endpoint unspecified)',
+    unit: 'MPa', value: 40, implausible: false, quarantined: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated',
+    postProcessingState: 'not-stated', direction: 'XY', standards: [], ...over });
+  const ms = [
+    bar('V1', 'S-OLD', { direction: 'Z' }), // the older edition's Z bar: the newer prints only a ZX bar, which no Z headline reads
+    bar('V2', 'S-NEW', { direction: 'ZX' }),
+    bar('V3', 'S-OLD'), // the older edition's flat bar: the newer prints a flat yield, which the same headline reads
+    bar('V4', 'S-NEW', { property: 'Tensile yield strength' }),
+    bar('V5', 'S-PAGE', { direction: 'unknown' }), // a product page's printed bar read flat: the data sheets speak first
+    bar('V6', 'S-PAGE', { postProcessingState: 'annealed' }), // another state, which no data sheet prints
+    bar('V7', 'S-NEW', { property: 'HDT', unit: '°C', direction: 'not-applicable', specimenType: 'Not published', specimenForm: 'not-stated', thermal: { loadStated: true, loadMPa: 0.45 } }),
+    bar('V8', 'S-PAGE', { property: 'HDT', unit: '°C', direction: 'not-applicable', thermal: { loadStated: true, loadMPa: 0.45 } }),
+  ];
+  markOutranked(ms, sources, measurementHeadlines(db.registry));
+  const by = Object.fromEntries(ms.map((x) => [x.id, x.outranked ?? null]));
+  assert.equal(by.V1, null, 'a Z value stands where the better document prints no Z bar');
+  assert.deepEqual(by.V3, { by: 'S-NEW', why: 'older-edition' });
+  assert.deepEqual(by.V5, { by: 'S-NEW', why: 'lower-class' });
+  assert.equal(by.V6, null, 'an annealed value is another state');
+  assert.equal(by.V8, null, 'a document whose only heat figure is set apart (D172) replaces nothing');
+  assert.equal(by.V2, null);
+  assert.equal(by.V4, null);
 });
 
 // D92: three selectable properties. Each rule below is over every product of every headline that sets the condition,
@@ -458,7 +489,8 @@ test("a part read from a printer maker's guide is its material's guide row, only
       // D127: the guide's drying fills a silent product's, labelled as the guide's, and says what the guide says: "Optional"
       // is optional, never required.
       if (axis === 'drying') {
-        assert.deepEqual(g.print.drying, { need: guide.drying.need, tempC: guide.drying.tempC, hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
+        const { tempMinC, hoursMin } = guide.drying;
+        assert.deepEqual(g.print.drying, { need: guide.drying.need, ...(tempMinC != null ? { tempMinC } : {}), tempC: guide.drying.tempC, ...(hoursMin != null ? { hoursMin } : {}), hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
         assert.notEqual(guide.drying.need, 'unknown', `${g.id}: the guide row states no drying`);
         if (/Optional/.test(guide.drying.text)) assert.equal(g.print.drying.need, 'optional', `${g.id}: the guide says drying is optional`);
       }
@@ -469,6 +501,28 @@ test("a part read from a printer maker's guide is its material's guide row, only
     if (!guide) assert.ok(Object.values(g.print?.from ?? {}).every((f) => f.origin !== 'guide'), `${g.id}: its material has no guide row`);
   }
   assert.ok(read > 500, `only ${read} parts read from the guide`);
+});
+
+// D129, D158, D175: a variant reads its type's guide only where its vocabulary row says it prints as its type (a
+// crystallising grade, a filler only for looks), and then in full, the hardened-nozzle answer with the rest.
+test("a variant reads its type's guide only where it prints as its type, and then every part its sheets leave silent", () => {
+  const guideOf = new Map(db.printGuide.flatMap((guide) => guide.materials.map((m) => [m.materialId, guide])));
+  const profilesOf = (id) => db.profiles.filter((p) => p.gradeId === id && !p.retired);
+  let cosmetic = 0;
+  for (const g of db.grades.filter((x) => isProduct(x) && x.variant)) {
+    const read = Object.entries(g.print?.from ?? {}).filter(([, f]) => f.origin === 'guide').map(([axis]) => axis);
+    if (!printsAsItsType(g)) { assert.deepEqual(read, [], `${g.id} (${g.variant}) reads its type's guide`); continue; }
+    const guide = guideOf.get(g.materialId);
+    if (g.variant !== 'cosmetic dense filler' || !guide) continue;
+    cosmetic++;
+    const sheets = [g, ...db.grades.filter((t) => isProduct(t) && t !== g && sameKey(t, g))].map((x) => profilesOf(x.id));
+    for (const axis of GUIDE_AXES) {
+      const silent = !speaksTo(profilesOf(g.id), axis) && (axis === 'hardenedNozzle' && profilesOf(g.id).length ? true : sheets.every((ps) => !speaksTo(ps, axis)));
+      const answers = axis === 'hardenedNozzle' ? guide.abrasion.requiresHardened != null : speaksTo([guide], axis);
+      if (silent && answers) assert.ok(read.includes(axis), `${g.id} ${axis}: silent, and its type's guide answers it`);
+    }
+  }
+  assert.ok(cosmetic >= 10, `only ${cosmetic} products with a filler for looks`);
 });
 
 // D90: where a printer maker's guide asks for an enclosure on its own enclosed printers, its row declares the chamber

@@ -249,3 +249,20 @@ test('an at-least window followed by words stays open', async () => {
   }
   assert.deepEqual(['min', 'max'].map((k) => parseTemperature('90 - 110°C', { plausible: [0, 250] })[k]), [90, 110]);
 });
+
+// D175: a drying range's lower ends are typed beside the upper ones, checked against the parser, against the cell's own
+// numbers and against the end they go with, whatever a review says.
+test('a drying range\'s lower ends are typed and checked as its upper ends are', () => {
+  const issuesOf = (edit, code) => { const wb = structuredClone(base); edit(wb); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === code).map((i) => i.message); };
+  const ppa = base['Print setup'].rows.find((r) => r.Drying === 'Please dry the filament at 80-100°C for 6-12 hours' && r['Parse review'] === 'Not applicable');
+  assert.ok(ppa, 'Raise3D PPA GF\'s drying range is the example');
+  assert.deepEqual([ppa['Drying min °C'], ppa['Drying °C'], ppa['Drying min hours'], ppa['Drying hours']], ['80', '100', '6', '12']);
+  const { db } = run(() => {});
+  assert.deepEqual((({ tempMinC, tempC, hoursMin, hours }) => [tempMinC, tempC, hoursMin, hours])(db.profiles.find((p) => p.id === ppa.ProfileID).drying), [80, 100, 6, 12]);
+  assert.deepEqual(run((wb) => { profile(wb, ppa.ProfileID)['Drying min °C'] = 'Not applicable'; }).mismatches,
+    [`profiles ${ppa.ProfileID}: Drying min °C is empty but the parser reads the raw text as 80; correct the typed value, or explain it in Parse review`]);
+  const bounds = issuesOf((wb) => { Object.assign(profile(wb, ppa.ProfileID), { 'Drying min °C': '70', 'Parse review': 'Fields: Drying min °C. Reviewed.' }); }, 'PARSE-TEXT-BOUNDS');
+  assert.deepEqual(bounds, ['Drying min °C is 70, a number "Please dry the filament at 80-100°C for 6-12 hours" does not state']);
+  const above = issuesOf((wb) => { Object.assign(profile(wb, ppa.ProfileID), { 'Drying min hours': '12', 'Parse review': 'Fields: Drying min hours. Reviewed.' }); }, 'PARSE-TEXT-BOUNDS');
+  assert.deepEqual(above, ['Drying min hours is 12, which is the lower end of no range: its upper end is 12']);
+});
