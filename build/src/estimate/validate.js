@@ -92,10 +92,13 @@ export function validateEstimates(db) {
     // A headline whose product spread is set per matrix ships grade ranges only where each matrix with enough hidden
     // grades is calibrated too (D162): the shared scales must serve the crystalline matrices, not only the many glassy ones.
     if (!ESTIMATE_MODEL.properties[key]?.productSpreadByMatrix) continue;
-    for (const [cls, c] of Object.entries(g.byMatrix ?? {})) {
+    for (const [cls, c0] of Object.entries(g.byMatrix ?? {})) {
+      // A matrix with its own scales (D178) is judged out of fold, since in-sample they hold its values by construction.
+      const own = g.matrixScales?.[cls]?.outOfFold;
+      const c = own ? { held: own.held, likelyCoverage: own.likelyCoverage, plausibleCoverage: own.plausibleCoverage } : c0;
       if (c.held < cal.minHeld) continue;
       if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance || c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) {
-        issues.push(err('EST-CALIBRATION', `estimate model ${key} grades ${cls}`, `The grade ranges of a ${cls} matrix hold ${Math.round(c.likelyCoverage * 100)}% and ${Math.round(c.plausibleCoverage * 100)}% of its ${c.held} hidden grade values, not ${Math.round(LEVELS.likely * 100)}% and ${Math.round(LEVELS.plausible * 100)}%`));
+        issues.push(err('EST-CALIBRATION', `estimate model ${key} grades ${cls}`, `The grade ranges of a ${cls} matrix hold ${Math.round(c.likelyCoverage * 100)}% and ${Math.round(c.plausibleCoverage * 100)}% of its ${c.held} hidden grade values${own ? ' (out of fold, with its own scales, D178)' : ''}, not ${Math.round(LEVELS.likely * 100)}% and ${Math.round(LEVELS.plausible * 100)}%`));
       }
     }
   }

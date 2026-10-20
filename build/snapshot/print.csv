@@ -881,7 +881,7 @@ G083-04,M083,PP CF,within,within,within,unknown,requires-hardened,optional,
 G083-05,M083,LUVOCOM 3F PP CF 9928 BK,within,within,within,not-needed,requires-hardened,required,
 G084-01,M084,FIBREX GF PP,within,within,within,unknown,requires-hardened,not-needed,
 G084-02,M084,Prusament PP Glass Fiber by Prusa Polymers,within,within,within,not-needed,requires-hardened,not-needed,
-G084-03,M084,Ultrafuse PP GF30,within,within,within,unknown,unknown,required,chamber: family CN17
+G084-03,M084,Ultrafuse PP GF30,within,within,unknown,unknown,unknown,required,
 G085-01,M085,hdpe,within,within,unknown,recommended,no-special-concern,unknown,
 G085-02,M085,FL300PE,within,within,within,unknown,unknown,not-needed,
 G086-01,M086,EVOLV3D OBC,within,within,within,not-needed,unknown,optional,chamber: twin G086-02; enclosure: twin G086-02; drying: twin G086-02

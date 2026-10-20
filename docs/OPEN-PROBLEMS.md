@@ -549,7 +549,7 @@ masses; Nanovia's 1.75 mm price is only in variation data; Fillamentum prints VA
 print no mass; the Amazon.ca PBAT is not sold by its maker; Extrudr Flax's page gives two masses. The intake's price agent
 logged every search (outside the repository, with the research package).
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Price batch p07 took QIDI PPS-GF20 from QIDI's own Canadian store (CAD) and purefil PC GF10
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Price batch p07 took QIDI PPS-GF20 from QIDI's own Canadian store (CAD) and purefil PC GF10
 from purefil's shop (EUR before VAT). Not taken, with the reasons in `docs/audits/2026-10-20-research-intake-2/prices/review-p07.mjs`:
 Filamatrix Nylon Glass Fiber (the offer's title still prints two masses); Kexcelled THE K8 OBC (no price on its maker's shop,
 no retailer); Filamentive Hemp PLA and Forward AM Ultrafuse PP GF30 (UK shops in GBP, which `fx_rates.csv` has no rate
@@ -751,7 +751,7 @@ row. Styrolux 656C feeds the SBC row since m475 (below); polymers.csv still has 
 (R-INEOS-STYROLUX-656C-TDS, 1020 kg/m³) and K-Resin KR03's page (1.01 g/cm³), registered in b49, give it 1010 to 1020 kg/m³,
 styrenic and amorphous, back-tested before it was kept.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Eastman's Amphora AM3300 data sheet (in the research package) prints a density for colorFabb
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Eastman's Amphora AM3300 data sheet (in the research package) prints a density for colorFabb
 nGen's producer resin; it does not fill nGen's melting point or water uptake, and polymers.csv stays frozen (D58, D138),
 so it is a lead for the row's next back-test, not an entry.
 
@@ -765,7 +765,7 @@ products, so one more product each gives them a page: PC FR, PA66, PPA, PPS-GF, 
 TPU-ESD, PPE-PS, PBT-GF, PET-LW, PAHT-CE, PLA-NF and PLA blend-CF. Fourteen more have two products and need values too
 (`docs/audits/2026-10-19-research-intake/after/pages-after.csv` lists them).
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Five gained a page: PC FR (Extrudr DURAPRO PC FR V0, re-filed), OBC (Kexcelled THE K8 OBC), PLA-NF
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Five gained a page: PC FR (Extrudr DURAPRO PC FR V0, re-filed), OBC (Kexcelled THE K8 OBC), PLA-NF
 (Filamentive Hemp PLA), PP-GF (Forward AM Ultrafuse PP GF30) and PPS-GF (QIDI PPS-GF20, which reprints Fiberon PPS-GF20's
 annealed table and is recorded as its twin, R053: a product of its own, with Fiberon's figures). Still one product
 short (`docs/audits/2026-10-20-research-intake-2/after/pages-after.csv`): PA66, PPA, PE, PC-PBT, PETG-PTFE, TPU-ESD,
@@ -783,7 +783,7 @@ P2.10 (the annealed and conditioned "one fact away" queue). Its other negatives 
 finding in `archive/research-2026-10-19/disposition.csv`: 146 products' print recipes, 128 products' chamber, 67
 fibre loads, 19 FormFutura and 17 other sources with no public copy, and 11 undisclosed polymers.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** The second package left T3's optional sweep (680 products' missing tensile, elongation and heat
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** The second package left T3's optional sweep (680 products' missing tensile, elongation and heat
 deflection) unstarted. Its scoped negatives are one per finding in `archive/research-2026-10-20/disposition.csv`
 (827 left: 156 chamber makers, 137 recipes, 130 annealing pairs, 74 headline products, 68 fibre loads and the rest).
 
@@ -1450,7 +1450,7 @@ current sheets (PolySonic PLA Pro 6.0 of 2026-06-08, PLA Pro v6.0 of 2026-01-30)
 different values, so the two grades stay; the page was saved and hashed with the research package and is not
 registered.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Both of Polymaker's current PLA-Pro pages (its US store and its global site) link the PLA-Pro
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Both of Polymaker's current PLA-Pro pages (its US store and its global site) link the PLA-Pro
 v6.0 sheet already registered, not the PolySonic sheet of June 2026, and the US page calls the product "an evolution" with
 a "Made in US" formula (the research's F-0679, its saved pages in the package). That is evidence for the owner's call on
 the two grades, not a ruling; nothing was changed.
@@ -1562,7 +1562,7 @@ enclosure, which is not how a support printed beside PLA is used, and its SKU (D
 than its title; it is not entered. Bambu Lab's PETG Basic page prints PLA Basic's X-Y impact as 20.6 kJ/m² where PLA
 Basic's own sheet prints 26.6; the sheet's value stands.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Bambu Lab's 2025 safety data sheet for Support for PLA/PETG (G078-01) lists thermoplastic
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Bambu Lab's 2025 safety data sheet for Support for PLA/PETG (G078-01) lists thermoplastic
 polyurethane (74.9-90 % by weight) and a PETG copolymer (9.9-25 %), where its held data sheet says polylactic acid
 (F-0043, the SDS saved in the research package). The product keeps its support home and its words; which composition is
 current is Bambu Lab's to say.
@@ -1597,7 +1597,7 @@ registered product page R-MITSUBISHI-GPOLYMER-PAGE has no bytes in the local sto
 the Nichigo G-Polymer data sheet itself, fetched through the import pipeline; if it prints 1.29, widening the range moves
 the estimate stage, so it waits for stage 4 and a back-test.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Nichigo's Japanese safety data sheet for BVE8049P (in the research package) gives a density with
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Nichigo's Japanese safety data sheet for BVE8049P (in the research package) gives a density with
 no test method, and its melting interval is the reference PVA's, not the named grade's (F-0686); nothing entered.
 
 ### 38.6. Values the evidence ledger finds doubtful
@@ -1703,7 +1703,7 @@ the question is the maker's.
 **Sources without bytes.** 96 registered sources have no hash-verified original here and the private backup holds
 none of them (§19); 10 flagged pages give no optical text.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** The research package fetched copies for 149 of these and the sign-in sources: none hashes to a
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** The research package fetched copies for 149 of these and the sign-in sources: none hashes to a
 recorded digest, so no original was recovered. 92 are other bytes of the same page with no edition established, 15 are
 FormFutura's 2024 template (§39.1), 27 are public copies of sign-in sheets (17 FormFutura, 10 BigRep) whose bytes differ,
 so no link is repointed (§37.12), and 5 are byte for byte other registered sources. None was registered (D131); the
@@ -1785,6 +1785,15 @@ FormFutura AthenaX CF10; Bambu Lab and Kingroon ABS. Three of those pairs were a
 Bambu Lab and Kingroon ABS, whose table is recorded once and read by the sibling, as twins are. The three others hold two
 tables each: QIDI PET-GF and Raise3D Industrial PET GF, the PA12 CF trio, and Fiberlogy PCTG+CF10 and FormFutura AthenaX
 CF10. Each needs its sheets read side by side before a key joins them.
+
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Two more facts bear on the PA12 CF trio:
+- Raise3D's white paper prints its PA12 CF's table as annealed, the same table Polymaker's PolyMide sheets print (m491,
+  m495).
+- QIDI PPS-GF20 joins Fiberon PPS-GF20's key: it reprints Fiberon's annealed table.
+
+As a twin it counts in PPS-GF's spread as a product of its own (D89), so Fiberon's figures are two of three in the
+medians (tensile strength XY 68.05 → 64.1 MPa). Whether a reprint should count once in a material's median is the
+owner's call on D89.
 
 ### 37.5. A product sold only in 2.85 mm
 
@@ -1901,7 +1910,7 @@ bytes. Stage 8 looked for every held value on its later copy (`docs/audits/2026-
   either way).
 The copies are kept in the private store (`.cache/later-copies/`), never registered (D131).
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Fiberlogy's current R PP sheet is registered (b50). Its figures are the ones its product page
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** Fiberlogy's current R PP sheet is registered (b50). Its figures are the ones its product page
 already gives (14 MPa, 700 MPa, over 100 %, 30 kJ/m²), held from the page, and its heat deflection of 40 °C is labelled
 1.8 MPa where the page labels it 0.45 MPa: both are recorded, each with its own load (F-0680). The retailer-hosted sheet
 held since the V2 import prints no date, so neither sheet supersedes the other (D171), and the older sheet's figures (21
@@ -1929,17 +1938,19 @@ product that no rank orders, D171) and the mislabelled row, each Eumakers' to se
 
 ### 40.1. Documents of one product that disagree on its annealing, its load or its table
 
-*From research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).*
+*From research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).*
 
 - **PA12-CF's annealing schedules.**
   - Polymaker's PolyMide PA12-CF information sheet prints its annealed figures after "80 °C for 6 hours". Its data
     sheet prints the same figures (3304 MPa, 71.6 MPa, 109.9 MPa, 12.5 kJ/m²) after "80 °C for 24 h".
   - Raise3D's white paper prints the same figures for its PA12 CF as "100℃ Annealed". Its data sheet prints them after
     "80˚C for 24h".
-  - The data sheets' rows stand (D171). Raise3D's unlabelled heat deflections (131 and 105 °C) were retired beside the
-    white paper's labelled ones (m491).
-  - PolyMide's data sheet still prints its 131 °C at 0.45 MPa with no condition. Its information sheet shows that its
-    105 °C at 1.8 MPa is annealed, and prints no 0.45 MPa figure. Whether 131 °C is annealed is Polymaker's to say.
+  - The data sheets' mechanical rows stand (D171). Their heat deflections, printed with no condition, are the annealed
+    ones:
+    - Raise3D's unlabelled copies are retired beside the white paper's labelled ones (m491);
+    - Polymaker's 105 °C beside the information sheet's "80 °C Annealed" row (m495);
+    - Polymaker's 131 °C at 0.45 MPa is typed annealed, schedule not stated (m495, R01).
+  - Which schedule is right, 80 °C for 6 or 24 hours, or 100 °C, is the makers' to say.
 - **Fiberlogy R PP's heat load.** The heat load is 1.8 MPa on the current sheet and 0.45 MPa on the page (§39.1).
 - **Reprinted tables.**
   - Sakata 3D's PA-NT sheet prints FormFutura STYX PA6's and Spectrum PA6 Low Warp's figures. Its PA-CF15 sheet prints
@@ -2746,7 +2757,7 @@ minimum to type); Filamatrix's "All nylon benefits from proper drying", which na
 
 ### 40.2. The importer costs more to run than its rules need
 
-*From research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)), a read-only review the owner asked for; nothing in the importer was changed.*
+*From research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)), a read-only review the owner asked for; nothing in the importer was changed.*
 
 **The judgement: the importer's rules are right and its tooling has grown accidental.**
 
@@ -2799,13 +2810,29 @@ Options 1 and 2 remove most of a round's glue. Their risk is medium and low: the
 
 ### 40.3. Heat deflection's calibration is marginal by matrix
 
-*From research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).*
+*From research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).*
 
-The round's new data stopped the build at EST-CALIBRATION for unfilled crystalline products. The owner ruled for D178:
-each matrix keeps its own range width where the shared one is too narrow.
-- Every matrix holds its claim now (back-test in the round's folder).
-- The unfilled crystalline stratum is small (27 hidden values), and its scale moves with a few products.
-- If a later round trips it again, read `gradeCalibration.byMatrix` in the database's meta before touching data.
+The round's new data stopped the build at EST-CALIBRATION for unfilled crystalline products, and the owner ruled for
+D178: each matrix keeps its own range width where the shared one is too narrow.
+- **How it is checked now.** A matrix's own scale comes from its own hidden values, so in-sample it holds them by
+  construction. Its EST-CALIBRATION check is therefore out of fold: each fold of materials is judged by a scale set from
+  the other folds. The calibration clamp (D81) reads every scale.
+- **The figures today.** Unfilled crystalline holds 77.8 % of 80 % out of fold, and filled crystalline 83 / 94 %.
+- **The weak point.** The unfilled crystalline stratum is small (27 hidden values), and its scale moves with a few
+  products.
+- **If a later round trips it again,** read `gradeCalibration.matrixScales` in the database's meta before touching
+  data.
+
+### 40.5. A moulded or filament density bounds a printed part's, and no row says so
+
+*From research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)), its review's R08.*
+
+A printed part is no denser than the solid it is printed from, so a moulded bar's or a filament's density caps a printed
+part's. No row of `conversions.csv` states that ceiling (CV14 is an estimate row, which the ledger never reads). So a
+product whose only density is moulded (Extrudr DURAPRO PC FR V0) or measured on filament (Forward AM Ultrafuse PP GF30)
+leaves its material unknown on a density limit it provably fails: PC FR and PP-GF moved fail → unknown at 1250 and 1500
+kg/m³. A ceiling row (Kind ceiling, factor 1, reading those specimens) would settle it. It is a new deciding relation,
+so it lands reported, with the ledger's pairs and its own decision diff.
 
 ## What needs a person, the owner or a test
 
@@ -2964,7 +2991,7 @@ npm run data:lint && npm run audit:context && npm run audit:coverage-status -- -
 are in `MAKER-QUESTIONS.md`. The owner decided on 2026-10-05 not to send them; they are the record of what only a
 maker could settle.
 
-**Since research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** The second package's 25 questions (23 for makers, 2 for the owner) are
+**Since research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).** The second package's 25 questions (23 for makers, 2 for the owner) are
 `archive/research-2026-10-20/handoffs.csv`, unsent under the owner's decision of 2026-10-05; among them Filamentive's
 "3.8 MPa" flexural modulus (flagged implausible, m489) and the PA12-CF annealing schedules (§40.1).
 
@@ -3015,10 +3042,11 @@ reference grades back nothing.
 
 ### 40.4. The High-Performance Engineering chamber row meets the counts and stays reported
 
-*From research intake 2, 2026-10-20 (m488 to m494; D178; [record](audits/2026-10-20-research-intake-2/README.md)).*
+*From research intake 2, 2026-10-20 (m488 to m495; D178; [record](audits/2026-10-20-research-intake-2/README.md)).*
 
 Eleven makers now state a chamber for High-Performance Engineering, none above 65 °C (LEHVOSS and QIDI are new), so
-CHAMBER-NEED-READY is raised for CN07. PPA, PPA-CF and PPA-GF have researched bands at 80-120 °C, which a within row
+CHAMBER-NEED-READY is raised for CN07. QIDI's statement is Polymaker's, read through its twin Fiberon PPS-GF20 (D89):
+D151 counts it by its letter, but it is not an independent maker's. PPA, PPA-CF and PPA-GF have researched bands at 80-120 °C, which a within row
 would contradict (CHAMBER-NEED-BAND-CONFLICT). Splitting PPA out, or keeping the row reported, is the owner's call. Nylon
 (CN10) is 18 makers with 2 above 65 °C, two makers short; reading 3DXTECH's "Up to 120C" as an upper bound would settle
 it, and that reading is the owner's to make.

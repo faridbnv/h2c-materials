@@ -23,9 +23,9 @@ elongationXY,this-material,top,60,2,3,0.975,yes,materials with no product
 elongationXY,this-material,bottom,60,1,3,0.025,yes,materials with no product
 elongationXY,family,top,74,2,4,0.975,yes,materials with no product
 elongationXY,family,bottom,74,1,4,0.025,yes,materials with no product
-hdt045,this-grade,top,49,2,2,0.98351,yes,materials with no product
-hdt045,this-grade,bottom,49,1,2,0.025,yes,materials with no product
-hdt045,this-material,top,56,3,3,0.99974,yes,materials with no product
-hdt045,this-material,bottom,56,2,3,0.025,yes,materials with no product
-hdt045,family,top,66,6,4,0.983163,yes,materials with no product
-hdt045,family,bottom,66,1,4,0.025,yes,materials with no product
+hdt045,this-grade,top,48,2,2,0.986952,yes,materials with no product
+hdt045,this-grade,bottom,48,1,2,0.025,yes,materials with no product
+hdt045,this-material,top,55,4,3,0.999877,yes,materials with no product
+hdt045,this-material,bottom,55,2,3,0.025,yes,materials with no product
+hdt045,family,top,65,7,4,0.985419,yes,materials with no product
+hdt045,family,bottom,65,2,4,0.025,yes,materials with no product

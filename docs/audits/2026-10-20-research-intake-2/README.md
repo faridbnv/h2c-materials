@@ -46,7 +46,7 @@ Everything else was decided as an engineer in charge would, under the owner's st
 | 5 | ASA's chamber row decides: 20 makers, 2 above 65 °C ([diff](stage-5-diff.md)) | m493 |
 | 6 | Two prices: QIDI PPS-GF20 from QIDI's Canadian store (CAD), purefil PC GF10 from purefil's shop ([review](prices/review-p07.mjs)) | m494 |
 | 7 | Draft summaries for the five new pages ([summaries.csv](summaries.csv)) | `material_summaries.csv` |
-| 8 | The record, OPEN-PROBLEMS §40, the review, the close | — |
+| 8 | The record, OPEN-PROBLEMS §40, the review's fixes (R01 to R10), the close | m495 |
 
 Stage 3, the readings:
 - 150 values and 14 profiles. Every deciding or image-only reading was read blind a second time by three Claude Sonnet
@@ -103,7 +103,7 @@ The whole round against main ([decision diff](after/DECISION-DIFF.md), 138 cases
 
 | Material | Move | Cases | Why |
 |---|---|---:|---|
-| PC FR | fail → unknown | 37 | Extrudr DURAPRO PC FR V0 joins it with no value comparable for those questions (its sheet's bars are undescribed), so its products no longer all fail: the three stiffness templates, density, tensile modulus and heat deflection at 120 °C |
+| PC FR | fail → unknown | 37 | Extrudr DURAPRO PC FR V0 joins it with no value comparable for those questions (its sheet's bars are injection-moulded, raw material values), so its products no longer all fail: the three stiffness templates, density, tensile modulus and heat deflection at 120 °C |
 | PP-GF | fail → unknown | 16 | Forward AM's density is the filament's (1036 kg/m³), not a printed part's, so the material is no longer known to fail a density limit |
 | PP-GF | unknown → pass | 8 | Forward AM's printed XY bars, conditioned: 2.6 GPa and 41.7 MPa pass tensile modulus ≥ 2 GPa and strength ≥ 20 MPa where conditioned or as-published values are allowed |
 | PA6/66-CF | fail → unknown | 12 | Essentium PA-CF joins it (density ≥ 1500, elongation ≥ 20 %) |
@@ -130,7 +130,7 @@ tables ([d178-alone-diff.md](d178-alone-diff.md), nothing moved).
 |---|---:|---:|
 | Products | 1,108 | 1,114 |
 | Material pages | 77 | 82 (PC FR, OBC, PLA-NF, PPS-GF, PP-GF) |
-| Chamber check unanswered | 210 | 209 |
+| Chamber check unanswered | 210 | 210 (ASA's row fills 2; Forward AM's "-", once filled, is not since the review) |
 | No nozzle / no bed / no drying | 34 / 34 / 144 | 34 / 34 / 144 |
 | Fibre-filled products with their own load | 174 of 255 | 179 of 259 |
 | Priced products / materials | 228 / 113 | 230 / 114 |
@@ -192,4 +192,25 @@ This round paid the costs it describes:
 
 ## Review
 
-*Written when the review is done.*
+One independent review (Claude Opus, an agent) checked:
+- the decision diff's surprising moves against the records;
+- about 120 of the new rows against their pages, images included;
+- every new profile, the hand-typed cells, the moves and retirements;
+- D178's code;
+- the summaries;
+- the record's figures.
+
+It found ten things. All were fixed in the round (m495, the code, the summaries and these documents) or filed:
+
+| ID | What was wrong | Fix |
+|---|---|---|
+| R01 | PolyMide PA12-CF's data sheet heat deflections (105 and 131 °C) read as not stated, though its information sheet prints the 105 °C as "80 °C Annealed" and Raise3D's white paper prints the same table as annealed. PolyMide was PA12-CF's as-printed heat deflection in Warm environment | m495: the information sheet's annealed row recorded and the data sheet's copy retired; the 131 °C typed annealed, its schedule stated two ways, with its Parse review. Keying the PA12 CF trio as twins waits on §37.4 |
+| R02 | Forward AM's recommended chamber prints "-", and the polyolefins' row filled it | m495: "-" typed, no set point, never filled |
+| R03 | Heat deflections and reference figures whose own table points to resin or reference values were typed "do not assume printed". AzureFilm's 86 °C (a "Typical properties" table beside ISO 294) passed Warm environment for its ASA | m495: AzureFilm's, Filamentive's four and Fiberlogy's 40 °C typed "its document points to moulded or resin bars"; the context acceptance says so |
+| R04 | Forward AM's flexural rows missed footnote 5 (conditioned 23 °C, 50 % RH, 72 h) | m495: conditioned |
+| R05 | D178's per-matrix scale is set from the matrix's own hidden values, so the in-sample check could no longer fail for it, and D81's stop rule read only the shared scales | A matrix with its own scales is judged out of fold (each fold of materials by scales set from the others), and the clamp reads every scale; D178 and the back-test say so |
+| R06 | PPS-GF's summary gave an annealed bar's figure as its heat deflection | Summary revised. The twin rule counts Fiberon's annealed table twice in PPS-GF's medians: a D89 consequence, noted for the owner in §37.4 |
+| R07 | Two summary sentences went beyond their pages: PLA-NF's colour and surface (two makers, not one), and PC FR's "flammability rating" | Summaries revised |
+| R08 | This record said Extrudr's PC FR bars are undescribed; they are injection-moulded. A moulded or filament density caps a printed part's, but no row says so, so PC FR and PP-GF lose a provable density fail | Corrected; the gap is OPEN-PROBLEMS §40.5 |
+| R09 | Sakata's "Moisture absorption" (ISO 62) was filed as moisture content | m495: Water absorption |
+| R10 | CN07's eleventh maker, QIDI, is Polymaker's statement read through the twin; Prusa's article prints a nozzle and bed the round did not record (its data sheet's profile holds them) | §40.4 says so; the article was read for its enclosure only |

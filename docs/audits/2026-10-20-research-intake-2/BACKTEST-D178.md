@@ -31,13 +31,30 @@ Main's figures come from the committed `build/reports/validation-report.md` at `
 | Median plausible width | 21.3 °C | 21.3 °C | n/a | 21 °C |
 | Decision census, 138 cases | baseline | **0** answers moved | n/a | see the round's diff |
 
+## After the review (R05): judged out of fold
+
+The independent review found a flaw in the check:
+- A matrix's own scale is set from its own hidden values, so in sample it holds them by construction.
+- The per-matrix check could therefore no longer fail for such a matrix.
+- D81's stop rule read only the shared scales.
+
+Now a matrix with its own scales is judged out of fold: each fold of materials by scales set from the other four. The
+clamp reads every scale. The round's final tables include the review's fixes (m495).
+
+| Out of fold, likely / plausible | Main's tables with D178 | The round's final tables |
+|---|---|---|
+| Crystalline unfilled (27) | 74.1 / 100 % (passes; the floor is 70 %) | 81.5 / 100 % |
+| Crystalline filled (51 / 52) | 80.4 / 92.2 % | 82.7 / 92.3 % |
+| Shared scales | 1.24 / 1.54 | 1.22 / 1.55 |
+| Matrix scales (unfilled; filled) | 1.32 / 1.54; 1.24 / 1.64 | 1.38 / 1.55; 1.24 / 1.72 |
+
 ## What the table shows
 
 - **Only two ranges widen.**
   - Crystalline unfilled products (the nylons, PP, PPS, PBT and others printed without a filler) widen their likely heat range by about 14 %.
   - Crystalline filled products widen their plausible range by about 9 %.
   - The 336 glassy products keep the shared scales.
-- **Every matrix with 20 hidden values or more now holds its claim.** On main the filled crystalline products' plausible range held 92.2 %, under its 95 % claim but within the check's allowance, and it now holds 96 %.
+- **Every matrix with 20 hidden values or more holds its claim, judged out of fold where it has scales of its own.** On main the filled crystalline products' plausible range held 92.2 %, under its 95 % claim but within the check's allowance, and it still does out of fold.
 - **No answer moves on main's tables.** A grade range is a product's estimate, which never passes a requirement (D81), and no likely tag moved in the 138 cases.
 
 ## What would break if reversed

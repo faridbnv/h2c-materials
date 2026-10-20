@@ -57,12 +57,28 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   // narrower: the shared scales, set by the many glassy products, held the crystalline unfilled ones' heat deflection
   // less often than they claim once well-predicted products elsewhere narrowed them. Every other matrix keeps the shared
   // scales, and a headline without a spread per matrix keeps them everywhere.
+  const order = [...new Set(S.pool.map((m) => m.id))].sort();
+  const foldOf = new Map(order.map((id, i) => [id, i % cfg.folds]));
+  const ownScales = (hs) => ({ likely: Math.max(calLikely, clamp(quantile(hs.map(zOf), model.levels.likely) / zLikely, cfg.likelyScale)),
+    plausible: Math.max(calPlausible, clamp(quantile(hs.map(zOf), model.levels.plausible) / zPlausible, cfg.plausibleScale)) });
   const matrixScales = new Map();
   if (enough && model.properties[key].productSpreadByMatrix === true) {
     for (const [cls, hs] of Object.entries(groupBy((h) => S.matrix(h.o.m)))) {
       if (hs.length < cfg.minHeld) continue;
-      const own = { likely: clamp(quantile(hs.map(zOf), model.levels.likely) / zLikely, cfg.likelyScale), plausible: clamp(quantile(hs.map(zOf), model.levels.plausible) / zPlausible, cfg.plausibleScale) };
-      if (own.likely > calLikely || own.plausible > calPlausible) matrixScales.set(cls, { likely: Math.max(calLikely, own.likely), plausible: Math.max(calPlausible, own.plausible) });
+      const own = ownScales(hs);
+      if (own.likely <= calLikely && own.plausible <= calPlausible) continue;
+      // A matrix's own scale is set from its own hidden values, so in-sample it holds them as often as it claims by
+      // construction. Its check is out of fold instead: each fold of materials is judged by a scale set from the other
+      // folds (estimate-model.json calibration.folds), as the hold-outs are.
+      const fold = { held: 0, likely: 0, plausible: 0 };
+      for (let k = 0; k < cfg.folds; k++) {
+        const test = hs.filter((h) => foldOf.get(h.o.m.id) === k);
+        const train = hs.filter((h) => foldOf.get(h.o.m.id) !== k);
+        if (!test.length || !train.length) continue;
+        const sc = ownScales(train);
+        for (const h of test) { fold.held++; fold.likely += within(h, zLikely, sc.likely); fold.plausible += within(h, zPlausible, sc.plausible); }
+      }
+      matrixScales.set(cls, { ...own, outOfFold: fold.held ? { held: fold.held, likely: fold.likely / fold.held, plausible: fold.plausible / fold.held } : null });
     }
   }
   /** The scales a grade of material `m` is shown with: its matrix's own where D178 gives it one, the shared ones otherwise. */
@@ -71,7 +87,8 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   const calibration = {
     held: held.length, grades: new Set(held.map((h) => h.o.gradeId)).size,
     likelyScale: r3(calLikely), plausibleScale: r3(calPlausible),
-    ...(matrixScales.size ? { matrixScales: Object.fromEntries([...matrixScales].sort().map(([cls, v]) => [cls, { likely: r3(v.likely), plausible: r3(v.plausible) }])) } : {}),
+    ...(matrixScales.size ? { matrixScales: Object.fromEntries([...matrixScales].sort().map(([cls, v]) => [cls, { likely: r3(v.likely), plausible: r3(v.plausible),
+      ...(v.outOfFold ? { outOfFold: { held: v.outOfFold.held, likelyCoverage: r3(v.outOfFold.likely), plausibleCoverage: r3(v.outOfFold.plausible) } } : {}) }])) } : {}),
     likelyCoverage: held.length ? r3(held.filter((h) => within(h, zLikely, L(h))).length / held.length) : null,
     plausibleCoverage: held.length ? r3(held.filter((h) => within(h, zPlausible, P(h))).length / held.length) : null,
     // The median width of the plausible range a hidden grade would be shown (a ratio on a log scale, °C otherwise).
@@ -106,8 +123,6 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
       bins: bins.map((b, i) => ({ from: i / 10, n: b.n, predicted: b.n ? r3(b.predicted / b.n) : null, observed: b.n ? r3(b.met / b.n) : null })),
     };
   }
-  const order = [...new Set(S.pool.map((m) => m.id))].sort();
-  const foldOf = new Map(order.map((id, i) => [id, i % cfg.folds]));
   calibration.byFold = Object.entries(groupBy((h) => foldOf.get(h.o.m.id))).sort().map(([, hs]) => ({ held: hs.length,
     plausibleCoverage: r3(hs.filter((h) => within(h, zPlausible, P(h))).length / hs.length) }));
   // The anchor's back-test (D167, anchor.js): each hidden grade that publishes the asked property another way too. Does

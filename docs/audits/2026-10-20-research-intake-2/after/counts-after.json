@@ -1,9 +1,9 @@
 {
-  "release": "3d165a0eb2d5",
+  "release": "7c6da496722d",
   "products": 1114,
   "noNozzle": 34,
   "noBed": 34,
-  "chamberUnanswered": 209,
+  "chamberUnanswered": 210,
   "noDrying": 144,
   "fibreFilledProducts": 259,
   "fibreFilledWithOwnLoad": 179,

@@ -1,8 +1,8 @@
-# Decision diff: 5348868153f5 → 3d165a0eb2d5
+# Decision diff: 5348868153f5 → 7c6da496722d
 
-> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of 5348868153f5 against 3d165a0eb2d5; run it again for another pair.
+> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of 5348868153f5 against 7c6da496722d; run it again for another pair.
 
-Across 138 cases: 90 material verdicts moved, 86 listings changed, 152 group changes, 160 rows now shown for another product, 239 product answers moved; the likely tag came or went 64 times (materials and products).
+Across 138 cases: 90 material verdicts moved, 86 listings changed, 156 group changes, 169 rows now shown for another product, 267 product answers moved; the likely tag came or went 75 times (materials and products).
 
 ## Outdoor structural part / leave out
 
@@ -108,23 +108,27 @@ Before: pass 19, unknown 72 (hidden 0), fail 61. After: pass 19, unknown 73 (hid
 
 Before: pass 34, unknown 95 (hidden 0), fail 23. After: pass 34, unknown 95 (hidden 0), fail 23.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data → PASS:meets; G053-09 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:one-check-away.
+**Product the row shows (1).** PA12-CF: G053-02 → G053-05.
+
+**Product answers (2).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:one-check-away.
 
 ## Warm environment / include
 
 Before: pass 34, unknown 95 (hidden 17), fail 23. After: pass 34, unknown 95 (hidden 17), fail 23.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data → PASS:meets; G053-09 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:one-check-away.
+**Product the row shows (1).** PA12-CF: G053-02 → G053-05.
+
+**Product answers (2).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:one-check-away.
 
 ## Warm environment / include + estimates
 
 Before: pass 34, unknown 95 (hidden 17), fail 23. After: pass 34, unknown 95 (hidden 17), fail 23.
 
-**Product the row shows (1).** ASA Aero: G032-01 → G032-03.
+**Product the row shows (2).** ASA Aero: G032-01 → G032-03; PA12-CF: G053-02 → G053-05.
 
-**Product answers (4).** G020-27 (PETG): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets; G034-02 (ASA-GF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:one-check-away.
+**Product answers (2).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:one-check-away.
 
-**Likely tag (materials and products) (2).** G031-31 (ASA): no longer likely; G034-02 (ASA-GF): tagged likely.
+**Likely tag (materials and products) (1).** G053-02 (PA12-CF): tagged likely.
 
 ## High-stiffness fixture / leave out
 
@@ -572,7 +576,7 @@ Before: pass 24, unknown 99 (hidden 5), fail 29. After: pass 24, unknown 100 (hi
 
 **Product the row shows (2).** PC FR: G036-01 → G035-11; PLA-NF: G152-01 → G152-03.
 
-**Product answers (4).** G024-09 (PETG-CF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-09 (PA12-CF): FAIL:fail → UNKNOWN:not-enough-data; G111-02 (PLA-EC): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet.
+**Product answers (5).** G024-09 (PETG-CF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): FAIL:fail → UNKNOWN:not-enough-data; G053-09 (PA12-CF): FAIL:fail → UNKNOWN:not-enough-data; G111-02 (PLA-EC): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet.
 
 ## tensileModulusXY >= 5 / comparable / conditioned / anneal not allowed
 
@@ -616,7 +620,7 @@ Before: pass 32, unknown 68 (hidden 5), fail 52. After: pass 32, unknown 70 (hid
 
 **Product the row shows (3).** PLA Aero: G017-07 → G017-14; PC FR: G036-01 → G035-11; PLA-NF: G152-01 → G152-03.
 
-**Product answers (3).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-09 (PA12-CF): FAIL:fail → UNKNOWN:not-enough-data; G111-02 (PLA-EC): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet.
+**Product answers (4).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): FAIL:fail → UNKNOWN:not-enough-data; G053-09 (PA12-CF): FAIL:fail → UNKNOWN:not-enough-data; G111-02 (PLA-EC): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet.
 
 ## tensileModulusXY >= 5 / as-published / conditioned / anneal not allowed
 
@@ -792,7 +796,7 @@ Before: pass 13, unknown 116 (hidden 4), fail 23. After: pass 13, unknown 116 (h
 
 **Product the row shows (2).** PEBA: G045-04 → G045-03; PLA-NF: G152-01 → G152-03.
 
-**Product answers (5).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-04 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G086-01 (OBC): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+**Product answers (5).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-04 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G086-01 (OBC): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 
 ## tensileStrengthXY >= 100 / comparable / conditioned / anneal not allowed
 
@@ -832,7 +836,7 @@ Before: pass 17, unknown 72 (hidden 4), fail 63. After: pass 17, unknown 73 (hid
 
 **Product the row shows (1).** PLA-NF: G152-01 → G152-03.
 
-**Product answers (5).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-04 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G112-02 (PC-PTFE): UNKNOWN:unlikely-to-meet → FAIL:fail.
+**Product answers (5).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-04 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G112-02 (PC-PTFE): UNKNOWN:unlikely-to-meet → FAIL:fail.
 
 ## tensileStrengthXY >= 100 / as-published / conditioned / anneal not allowed
 
@@ -946,7 +950,7 @@ Before: pass 40, unknown 94 (hidden 4), fail 18. After: pass 41, unknown 94 (hid
 
 **Product the row shows (5).** PLA-CF: G018-16 → G018-14; PC FR: G036-01 → G035-11; PA6: G049-06 → G049-05; PA12-CF: G053-14 → G053-09; PA6/66-CF: G156-01 → G165-05.
 
-**Product answers (9).** G018-14 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G018-15 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G033-01 (ASA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G049-05 (PA6): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → PASS:meets; G053-14 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G081-03 (HIPS): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G129-07 (TPU-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely.
+**Product answers (10).** G018-14 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G018-15 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G033-01 (ASA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G049-05 (PA6): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → PASS:meets; G053-14 (PA12-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G081-03 (HIPS): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G129-07 (TPU-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely.
 
 **Likely tag (materials and products) (4).** G049-05 (PA6): tagged likely; G053-14 (PA12-CF): tagged likely; G081-03 (HIPS): tagged likely; G129-07 (TPU-CF): tagged likely.
 
@@ -988,7 +992,7 @@ Before: pass 63, unknown 59 (hidden 4), fail 30. After: pass 63, unknown 60 (hid
 
 **Product the row shows (3).** PC FR: G036-01 → G035-11; PA12-CF: G053-14 → G053-09; PA6/66-CF: G156-01 → G165-05.
 
-**Product answers (5).** G018-14 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G018-15 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G033-01 (ASA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → PASS:meets.
+**Product answers (6).** G018-14 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G018-15 (PLA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:unlikely-to-meet; G033-01 (ASA-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → PASS:meets.
 
 ## elongationXY >= 20 / as-published / conditioned / anneal not allowed
 
@@ -1016,7 +1020,7 @@ Before: pass 23, unknown 109 (hidden 6), fail 20. After: pass 23, unknown 109 (h
 
 **Product the row shows (2).** PC FR: G036-01 → G035-11; PP-GF: G084-02 → G084-03.
 
-**Product answers (4).** G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-14 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-06 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-10 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+**Product answers (5).** G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-14 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-06 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-10 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 
 ## elongationXY >= 100 / comparable / conditioned / anneal not allowed
 
@@ -1044,7 +1048,7 @@ Before: pass 34, unknown 79 (hidden 6), fail 39. After: pass 34, unknown 79 (hid
 
 **Product the row shows (3).** PC FR: G036-01 → G035-11; PP-GF: G084-02 → G084-03; PLA-NF: G152-02 → G152-03.
 
-**Product answers (3).** G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-06 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-10 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+**Product answers (4).** G053-02 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-06 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data; G075-10 (PVA): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 
 ## elongationXY >= 100 / as-published / conditioned / anneal not allowed
 
@@ -1062,69 +1066,81 @@ Before: pass 1, unknown 151 (hidden 6), fail 0. After: pass 1, unknown 151 (hidd
 
 Before: pass 86, unknown 64 (hidden 20), fail 2. After: pass 86, unknown 64 (hidden 20), fail 2.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets.
+**Product answers (2).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets.
 
-**Likely tag (materials and products) (1).** G031-31 (ASA): no longer likely.
+**Likely tag (materials and products) (1).** G053-02 (PA12-CF): tagged likely.
 
 ## hdt045 >= 60 / comparable / dry / anneal allowed
 
 Before: pass 86, unknown 64 (hidden 20), fail 2. After: pass 86, unknown 64 (hidden 20), fail 2.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets.
+**Product answers (2).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets.
 
-**Likely tag (materials and products) (1).** G031-31 (ASA): no longer likely.
+**Likely tag (materials and products) (1).** G053-02 (PA12-CF): tagged likely.
 
 ## hdt045 >= 60 / as-published / dry / anneal not allowed
 
 Before: pass 94, unknown 56 (hidden 20), fail 2. After: pass 94, unknown 56 (hidden 20), fail 2.
 
-**Product answers (1).** G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets.
+**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely.
 
-**Likely tag (materials and products) (1).** G031-31 (ASA): no longer likely.
+**Likely tag (materials and products) (2).** G031-31 (ASA): no longer likely; G053-02 (PA12-CF): tagged likely.
 
 ## hdt045 >= 60 / as-published / dry / anneal allowed
 
 Before: pass 94, unknown 56 (hidden 20), fail 2. After: pass 94, unknown 56 (hidden 20), fail 2.
 
-**Product answers (1).** G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets.
+**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data:likely → PASS:meets; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely.
 
-**Likely tag (materials and products) (1).** G031-31 (ASA): no longer likely.
+**Likely tag (materials and products) (2).** G031-31 (ASA): no longer likely; G053-02 (PA12-CF): tagged likely.
 
 ## hdt045 >= 90 / comparable / dry / anneal not allowed
 
 Before: pass 60, unknown 89 (hidden 20), fail 3. After: pass 60, unknown 89 (hidden 20), fail 3.
 
-**Product answers (5).** G028-01 (ABS-GF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-03 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-18 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets.
+**Groups (1).** SBC: unlikely-to-meet → not-enough-data.
 
-**Likely tag (materials and products) (4).** G028-01 (ABS-GF): tagged likely; G033-03 (ASA-CF): tagged likely; G033-05 (ASA-CF): tagged likely; G033-18 (ASA-CF): tagged likely.
+**Product the row shows (2).** PA6: G049-04 → G049-05; PET-GF: G068-05 → G068-04.
+
+**Product answers (8).** G033-03 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-18 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G049-04 (PA6): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets; G072-02 (PPS): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G174-01 (SBC): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+
+**Likely tag (materials and products) (6).** G033-03 (ASA-CF): tagged likely; G033-05 (ASA-CF): tagged likely; G033-18 (ASA-CF): tagged likely; G049-04 (PA6): no longer likely; G053-02 (PA12-CF): tagged likely; G072-02 (PPS): no longer likely.
 
 ## hdt045 >= 90 / comparable / dry / anneal allowed
 
 Before: pass 61, unknown 88 (hidden 20), fail 3. After: pass 61, unknown 88 (hidden 20), fail 3.
 
-**Product answers (4).** G033-03 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-18 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets.
+**Groups (1).** SBC: unlikely-to-meet → not-enough-data.
 
-**Likely tag (materials and products) (3).** G033-03 (ASA-CF): tagged likely; G033-05 (ASA-CF): tagged likely; G033-18 (ASA-CF): tagged likely.
+**Product the row shows (1).** PA6: G049-04 → G049-05.
+
+**Product answers (8).** G033-03 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G033-18 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G049-04 (PA6): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G053-09 (PA12-CF): UNKNOWN:not-enough-data → PASS:meets; G072-02 (PPS): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G174-01 (SBC): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+
+**Likely tag (materials and products) (6).** G033-03 (ASA-CF): tagged likely; G033-05 (ASA-CF): tagged likely; G033-18 (ASA-CF): tagged likely; G049-04 (PA6): no longer likely; G053-02 (PA12-CF): tagged likely; G072-02 (PPS): no longer likely.
 
 ## hdt045 >= 90 / as-published / dry / anneal not allowed
 
 Before: pass 68, unknown 78 (hidden 20), fail 6. After: pass 68, unknown 78 (hidden 20), fail 6.
 
-**Product the row shows (1).** PCL: G149-03 → G149-01.
+**Groups (1).** SBC: unlikely-to-meet → not-enough-data.
 
-**Product answers (3).** G028-01 (ABS-GF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:one-check-away; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely.
+**Product the row shows (2).** PET-GF: G068-05 → G068-04; PCL: G149-03 → G149-01.
 
-**Likely tag (materials and products) (2).** G028-01 (ABS-GF): tagged likely; G033-05 (ASA-CF): tagged likely.
+**Product answers (6).** G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:one-check-away; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G049-04 (PA6): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G072-02 (PPS): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G174-01 (SBC): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+
+**Likely tag (materials and products) (4).** G033-05 (ASA-CF): tagged likely; G049-04 (PA6): no longer likely; G053-02 (PA12-CF): tagged likely; G072-02 (PPS): no longer likely.
 
 ## hdt045 >= 90 / as-published / dry / anneal allowed
 
 Before: pass 70, unknown 76 (hidden 20), fail 6. After: pass 70, unknown 76 (hidden 20), fail 6.
 
+**Groups (1).** SBC: unlikely-to-meet → not-enough-data.
+
 **Product the row shows (1).** PCL: G149-03 → G149-01.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:one-check-away; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely.
+**Product answers (6).** G031-31 (ASA): UNKNOWN:not-enough-data → UNKNOWN:one-check-away; G033-05 (ASA-CF): UNKNOWN:not-enough-data → UNKNOWN:not-enough-data:likely; G049-04 (PA6): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data:likely; G072-02 (PPS): UNKNOWN:not-enough-data:likely → UNKNOWN:not-enough-data; G174-01 (SBC): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 
-**Likely tag (materials and products) (1).** G033-05 (ASA-CF): tagged likely.
+**Likely tag (materials and products) (4).** G033-05 (ASA-CF): tagged likely; G049-04 (PA6): no longer likely; G053-02 (PA12-CF): tagged likely; G072-02 (PPS): no longer likely.
 
 ## hdt045 >= 120 / comparable / dry / anneal not allowed
 
@@ -1136,9 +1152,9 @@ Before: pass 42, unknown 101 (hidden 20), fail 9. After: pass 42, unknown 102 (h
 
 **Groups (1).** PC FR: fail → unlikely-to-meet.
 
-**Product the row shows (2).** PC FR: G036-01 → G035-11; PA12: G052-01 → G052-02.
+**Product the row shows (3).** PC FR: G036-01 → G035-11; PA12: G052-01 → G052-02; PET-GF: G068-05 → G068-04.
 
-**Product answers (1).** G053-09 (PA12-CF): UNKNOWN:not-enough-data → FAIL:fail.
+**Product answers (3).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G053-09 (PA12-CF): UNKNOWN:not-enough-data → FAIL:fail; G082-11 (PP): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 
 ## hdt045 >= 120 / comparable / dry / anneal allowed
 
@@ -1152,6 +1168,8 @@ Before: pass 44, unknown 99 (hidden 20), fail 9. After: pass 44, unknown 100 (hi
 
 **Product the row shows (2).** PC FR: G036-01 → G035-11; PA12: G052-01 → G052-02.
 
+**Product answers (2).** G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G082-11 (PP): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
+
 ## hdt045 >= 120 / as-published / dry / anneal not allowed
 
 Before: pass 46, unknown 93 (hidden 20), fail 13. After: pass 46, unknown 94 (hidden 20), fail 12.
@@ -1162,9 +1180,9 @@ Before: pass 46, unknown 93 (hidden 20), fail 13. After: pass 46, unknown 94 (hi
 
 **Groups (1).** PC FR: fail → unlikely-to-meet.
 
-**Product the row shows (2).** PC FR: G036-01 → G035-11; PCL: G149-03 → G149-01.
+**Product the row shows (3).** PC FR: G036-01 → G035-11; PET-GF: G068-05 → G068-04; PCL: G149-03 → G149-01.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-09 (PA12-CF): PASS:meets → FAIL:fail.
+**Product answers (4).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G053-09 (PA12-CF): PASS:meets → FAIL:fail; G082-11 (PP): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 
 ## hdt045 >= 120 / as-published / dry / anneal allowed
 
@@ -1178,5 +1196,5 @@ Before: pass 48, unknown 92 (hidden 20), fail 12. After: pass 48, unknown 93 (hi
 
 **Product the row shows (2).** PC FR: G036-01 → G035-11; PCL: G149-03 → G149-01.
 
-**Product answers (2).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-09 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data.
+**Product answers (4).** G031-31 (ASA): UNKNOWN:unlikely-to-meet → FAIL:fail; G053-02 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G053-09 (PA12-CF): PASS:meets → UNKNOWN:not-enough-data; G082-11 (PP): UNKNOWN:unlikely-to-meet → UNKNOWN:not-enough-data.
 

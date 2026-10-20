@@ -112,7 +112,9 @@ export function buildEstimates(materials, { grades = [], measurements = [], sour
     diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.typical?.gradeId === o.gradeId)));
     // A headline whose grade scales reach the clamp is one the model cannot calibrate at grade level, and it ships
     // no grade estimate rather than a range that claims coverage it does not have (D81's stop rule).
-    const clamped = gradeCal.calLikely >= model.calibration.likelyScale[1] || gradeCal.calPlausible >= model.calibration.plausibleScale[1];
+    // D81's stop rule reads every scale a grade range is drawn with: the shared ones and each matrix's own (D178).
+    const scales = [{ likely: gradeCal.calLikely, plausible: gradeCal.calPlausible }, ...Object.values(gradeCal.calibration.matrixScales ?? {})];
+    const clamped = scales.some((sc) => sc.likely >= model.calibration.likelyScale[1] || sc.plausible >= model.calibration.plausibleScale[1]);
     diagnostics.properties[key].gradeCalibration.shipped = !clamped;
     if (clamped) {
       diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';

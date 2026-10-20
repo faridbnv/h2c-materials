@@ -11,15 +11,15 @@
     },
     "profiles": {
       "rows": 2001,
-      "sha256": "3ee6ba12fa84eb13587f02c6cbc5a831dfe78caa700d398352ba60be93384e66"
+      "sha256": "ba5ef75f25307539b4701af0b2e3ee65d6d7af2360b87aaea54e8614a3b020d2"
     },
     "profile_notes": {
       "rows": 2504,
       "sha256": "1a64fb3cca46e6b37e332fbb850489c52e7f475a14379e16cac80cb0c4f01888"
     },
     "measurements": {
-      "rows": 15851,
-      "sha256": "681995e4f7fb77e9fc9d235f6cfb258ae1dca191d0924588ca8c3de2ff483aef"
+      "rows": 15852,
+      "sha256": "671ee48827a0d719b7e68922604329d4530e3ac7d81145197262b20aac5d2656"
     },
     "page_context": {
       "rows": 1012,
@@ -67,7 +67,7 @@
     },
     "material_summaries": {
       "rows": 82,
-      "sha256": "94feb6366f4f53fe272e5b13330d62e5b5b946f71079859cf1027d4cad6fe24d"
+      "sha256": "22667e46c08f260765955e95dd09a16fdc88dd0b54da2f3d3a11fb646e0a50bc"
     },
     "method": {
       "rows": 59,

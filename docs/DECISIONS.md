@@ -6155,26 +6155,32 @@ researched and built by Claude Opus 5.5 ([advice](audits/2026-10-20-amorphous-he
 *Ruled by the owner on 2026-10-20, when the round's new data stopped the build at EST-CALIBRATION; built by Claude Opus
 5.5 ([back-test](audits/2026-10-20-research-intake-2/BACKTEST-D178.md)).*
 
-- **The rule** (`build/src/estimate/grades.js`, `bounds.js`). Where a headline's product spread is set per matrix (D162; heat
-  deflection only), each matrix as printed with at least `minHeld` hidden grades takes, for each level, the larger of the
-  shared scale and the scale its own hidden values need. A grade's range is drawn with its matrix's scales
-  (`gradeCalibration.matrixScales` in the database's meta), and EST-CALIBRATION judges each matrix with the scales its
-  grades are shown with. The material ranges, the screening certification (D137) and the direction back-test (D159)
-  keep the shared scales.
+- **The rule** (`build/src/estimate/grades.js`, `bounds.js`, `index.js`, `validate.js`). It applies where a headline's
+  product spread is set per matrix (D162), which is heat deflection only:
+  - **Each matrix's own scales.** A matrix as printed with at least `minHeld` hidden grades takes, for each level, the
+    larger of the shared scale and the scale its own hidden values need.
+  - **Ranges drawn with them.** A grade's range is drawn with its matrix's scales (`gradeCalibration.matrixScales` in the
+    database's meta).
+  - **Judged out of fold.** A matrix's own scales hold its hidden values by construction, so EST-CALIBRATION judges such
+    a matrix out of fold: each fold of materials (estimate-model.json `folds`) is judged by scales set from the other
+    folds (the round's review, R05).
+  - **The stop rule.** D81's stop rule reads every scale a range is drawn with.
+  - **What keeps the shared scales.** The material ranges, the screening certification (D137) and the direction
+    back-test (D159).
 - **Why.** The check D162 added ("hdt045 grades semi-unfilled") is right: a range that claims 80 % should hold about
-  80 % for each kind of plastic it is drawn for. The shared scale is a quantile over 416 hidden values, 336 of them
-  glassy, so well-predicted products anywhere narrow it for all. On main the unfilled crystalline stratum held 70.4 %, at the
-  edge. The round's correct new values (Forward AM PP GF30, Raise3D PA12 CF as printed, Essentium PA-CF re-filed) took it
-  to 63 to 67 %, though none of its 27 hidden values changed. The data cannot carry a stratum's width; the model must.
-- **Back-tested.** On main's tables alone:
-  - semi-unfilled 70.4 → 81.5 % likely;
-  - semi-filled 92.2 → 96.1 % plausible;
-  - glassy unchanged;
-  - overall 80.2 / 95.2 → 80.9 / 95.7 %;
-  - median plausible width 21.3 °C;
-  - the decision census moves nothing in 138 cases.
-
-  On the round's tables every matrix holds: 80.4 / 95.2, 83.0 / 96.2 and 81.5 / 100 %.
+  80 % for each kind of plastic it is drawn for.
+  - The shared scale is a quantile over 416 hidden values, 336 of them glassy, so well-predicted products anywhere narrow
+    it for all.
+  - On main, the unfilled crystalline stratum held 70.4 %, at the edge.
+  - The round's correct new values (Forward AM PP GF30, Raise3D PA12 CF as printed, Essentium PA-CF re-filed) took it to
+    63 to 67 %, though none of its 27 hidden values changed.
+  - The data cannot carry a stratum's width; the model must.
+- **Back-tested.**
+  - On main's tables alone: unfilled crystalline 70.4 % → 74.1 % likely out of fold (81.5 % in sample); filled
+    crystalline plausible 92.2 % → 92.2 % out of fold (96.1 % in sample); glassy unchanged. The decision census moves
+    nothing in 138 cases.
+  - On the round's final tables, out of fold: unfilled crystalline 81.5 / 100 %, filled 82.7 / 92.3 %. Glassy holds
+    81.0 / 95.5 % with the shared scales. The median plausible width is 21.5 °C.
 - **What would break if reversed.** The round's build stops at EST-CALIBRATION. Loosened instead, the unfilled
   crystalline plastics' heat ranges would claim 80 % and hold two thirds of their hidden values.
 
