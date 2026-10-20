@@ -7,7 +7,7 @@
     },
     "grades": {
       "rows": 1184,
-      "sha256": "4207d5745c6809c055bedc516b93f2a28fd48190babcb547b8189fb24395aaf2"
+      "sha256": "b190e6dcb404460fbca98f8844f18284b51ddb1a520c470f7e5980bf48b0ec08"
     },
     "profiles": {
       "rows": 1986,
@@ -95,7 +95,7 @@
     },
     "print_guide_materials": {
       "rows": 17,
-      "sha256": "607ab176b162c3cc6c0190dbb14f1d989f56e1c9fb93ede6aeeaa7e983408403"
+      "sha256": "f3dd77a857577ce96d18aa50f7bdbc4dcb88a3d19842da7834b0bed806894254"
     },
     "properties": {
       "rows": 52,

@@ -8,6 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { attachChamberNeed, chamberNeedStats, compileChamberNeed, CHAMBER_NEED } from '../build/src/chamber-need.js';
 import { speaksTo } from '../build/src/products.js';
+import { printsAsItsType } from '../build/src/variants.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -130,7 +131,8 @@ test('every chamber read from its kind is a deciding within row\'s, on a product
     const r = rules.get(from.ruleId);
     assert.ok(r && r.status === 'deciding' && r.verdict === 'within' && r.qualifies, `${g.id}: ${from.ruleId} decides nothing`);
     assert.ok(r.materials.includes(g.materialId), `${g.id}: ${from.ruleId} does not name ${g.materialId}`);
-    assert.ok(!g.variant, `${g.id}: a variant is not its kind (D129)`);
+    // A variant is not its kind (D129), unless it prints as its type: a crystallising grade (D158), a filler for looks (D175).
+    assert.ok(printsAsItsType(g), `${g.id}: a variant is not its kind (D129)`);
     assert.equal(g.print.chamber.verdict, 'within', g.id);
     assert.equal(g.print.chamber.state, 'unknown', `${g.id}: a filled chamber states no temperature`);
     assert.ok(!speaksTo(g.print.profileIds.map((id) => profileById.get(id)), 'chamber'), `${g.id}: its own sheet speaks to the chamber`);
