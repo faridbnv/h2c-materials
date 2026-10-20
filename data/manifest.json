@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 177,
-      "sha256": "eecf37310a7a617b4617776b98c9c69f516ffa2e5b963cdf899a6a6cd645ed7a"
+      "rows": 178,
+      "sha256": "fd36a97546fab05d763b73edb6465075b6bc48470628b137934a644efb9602f3"
     },
     "grades": {
-      "rows": 1186,
-      "sha256": "e91b223cd49031e7dbb1d1f146aaefc717c05e1bdd3ddb207f1d635ef668987c"
+      "rows": 1187,
+      "sha256": "1765093b9f0b94d5c93516c03a8315b5ce26619da411dc6cc0783db2f05ea8b1"
     },
     "profiles": {
       "rows": 1987,
-      "sha256": "06856f1fcabdbbb69636f213616124bc09aeb3226a734c290dc471f622b0d997"
+      "sha256": "3151958ee5fc38774906163780cfac01777d7d70cf8a7542c3e515b9cdab8135"
     },
     "profile_notes": {
       "rows": 2504,
       "sha256": "1a64fb3cca46e6b37e332fbb850489c52e7f475a14379e16cac80cb0c4f01888"
     },
     "measurements": {
-      "rows": 15688,
-      "sha256": "21057828b4c03294d283ae1cfe514923c4d3e61420ab8fa1e53ae806f1b74701"
+      "rows": 15698,
+      "sha256": "cdf7a384326e593bffdebfcb5eb48b012862d554946258ef8e8f93c3427bcb44"
     },
     "page_context": {
       "rows": 1012,
@@ -35,7 +35,7 @@
     },
     "evidence": {
       "rows": 8490,
-      "sha256": "372a3f97d7e659f2c8d22cb5d332b5ee9b86592c122fae0ca1729f93c6cccbab"
+      "sha256": "52868ced05498b34de3673ab827eb9bf2592847aa64f62b4b0071ccbf01ffacd"
     },
     "know_how_reads": {
       "rows": 1753,
@@ -59,11 +59,11 @@
     },
     "sources": {
       "rows": 2106,
-      "sha256": "6db96057695552fc54e09f8530c3b4464b68fd87fc6e05e47f9c1d7edcaf1fb6"
+      "sha256": "8fb1c19f556abee0998fb266f8fa6a1e5d767f48a1d73b653ac419bb5bfe20db"
     },
     "coverage": {
-      "rows": 954,
-      "sha256": "f756551d5d56506f5d42d0ab9dde554dfb20f3f49448f25299d9692c07e427ff"
+      "rows": 955,
+      "sha256": "d298c1a7992658542ba86d0f6670bc6015a3de067a47fc8f61d27a84cfa4fcfa"
     },
     "material_summaries": {
       "rows": 77,
