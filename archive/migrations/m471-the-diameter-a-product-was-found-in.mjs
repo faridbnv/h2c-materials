@@ -19,8 +19,8 @@
 //
 //   node scripts/migrate/m471-the-diameter-a-product-was-found-in.mjs
 import { openTables } from '../../scripts/data/table-io.mjs';
-import { onSheet } from '../lib/sweep-shared.mjs';
-import { gradeDocuments, diameterCell } from '../lib/diameters.mjs';
+import { onSheet } from '../../scripts/lib/sweep-shared.mjs';
+import { gradeDocuments, diameterCell } from '../../scripts/lib/diameters.mjs';
 
 const MIGRATION = 'm471';
 const COLUMN = 'Diameter';

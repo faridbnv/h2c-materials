@@ -17,8 +17,8 @@
 //
 //   node scripts/migrate/m472-a-drying-range-keeps-its-lower-end.mjs
 import { openTables } from '../../scripts/data/table-io.mjs';
-import { onSheet } from '../lib/sweep-shared.mjs';
-import { typedOf } from '../lib/profile-settings.mjs';
+import { onSheet } from '../../scripts/lib/sweep-shared.mjs';
+import { typedOf } from '../../scripts/lib/profile-settings.mjs';
 import { parseDrying } from '../../build/src/normalize/process.js';
 
 const MIGRATION = 'm472';

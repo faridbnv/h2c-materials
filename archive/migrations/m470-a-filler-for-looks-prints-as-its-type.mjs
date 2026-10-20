@@ -22,7 +22,7 @@
 //
 //   node scripts/migrate/m470-a-filler-for-looks-prints-as-its-type.mjs
 import { openTables } from '../../scripts/data/table-io.mjs';
-import { onSheet } from '../lib/sweep-shared.mjs';
+import { onSheet } from '../../scripts/lib/sweep-shared.mjs';
 
 const MIGRATION = 'm470';
 const FROM = 'undisclosed dense filler';

@@ -29,7 +29,7 @@ their FAIL line says it: it had stacked a second red box on a failed answer.
 
 The numbers and words visible in the drawer's body as it opens (a span "190–230" is two numbers; text inside a closed
 disclosure is not counted), and the body's full height, from `shots.mjs`'s run on each build
-([before](before/measures.txt), [after](after/measures.txt)). 1280×800 unless named; templates as on the start panel.
+([before](../PACKETS.md), [after](../PACKETS.md)). 1280×800 unless named; templates as on the start panel.
 
 | View | Numbers before | after | Words before | after | Height before (px) | after |
 |---|--:|--:|--:|--:|--:|--:|

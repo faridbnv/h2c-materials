@@ -45,7 +45,7 @@ second reading the independent review of T1 asked for (`review/REVIEW-T1.md`, fi
 - **Two documents of one product (ruling 1, D171).** A data sheet speaks before a product page, and a newer edition of a
   sheet before an older one, property by property and for each part of the print recipe; the replaced figure is shown
   small as not used in deciding. The editions a reader ordered from what each document prints are
-  [evidence/editions.csv](evidence/editions.csv); m464 writes them as sources.csv's new column Superseded by. After the review,
+  [evidence/editions.csv](PACKETS.md); m464 writes them as sources.csv's new column Superseded by. After the review,
   a figure a better document sets apart (D172) sets apart the same figure on a lower one (F3), and a document that prints a
   property at several print settings replaces nothing (F8).
 - **What indicates a value is the filament's (rulings 2 and 3, D172).** One classification, applied to every tensile,

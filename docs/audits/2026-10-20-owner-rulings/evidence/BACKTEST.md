@@ -13,7 +13,7 @@
 > printed bars only, is made consistent (m485) after its own row below.
 
 How it was run: [backtest.mjs](backtest.mjs), one variant per build of the tables as they stood after the second reading
-(m483) and m484, each the tables with one change undone or made, its numbers in [backtest/](backtest/). **Held** is how
+(m483) and m484, each the tables with one change undone or made, its numbers in [backtest/](../PACKETS.md). **Held** is how
 many hidden values were predicted, **likely** and **plausible** how often the 80 % and 95 % ranges held them, **width**
 the median width of the likely range (a ratio for stiffness, strength and stretch, degrees for heat deflection),
 **scales** the factors calibration widened the ranges by. **Grade** is the product-level calibration (D81), each product
