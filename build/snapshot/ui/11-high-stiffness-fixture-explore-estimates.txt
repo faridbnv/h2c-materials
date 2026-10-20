@@ -70,13 +70,13 @@ Not enough data (20)
 More than one question is open, or a value is not published the way you asked. Ordered by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 20 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / Not enough data: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated; tensile modulus (XY) estimated 7.86 to 12.6 GPa | 1,400 | ~7.8–12.6† | ~113–201† | ~1.8–6.2† | ~99–146† | —
-ROW PA66 / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 2 products / Not enough data: Spectrum ThermaTech PA, its chamber temperature is not stated; tensile modulus (XY) estimated 4.04 to 6.37 GPa | ~1,000–1,050† | ~4.0–6.4† | 96 | ~5–52† | ~72–145† | 246USD
-ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,270† | ~2.7–11.9† | ~47–134† | ~1–14† | ~140–250† | —
+ROW PA66 / Nylon / Polyamide | ☆ | UNKNOWN / 0 of 2 products / Not enough data: Spectrum ThermaTech PA, its chamber temperature is not stated; tensile modulus (XY) estimated 4.04 to 6.37 GPa | ~1,000–1,050† | ~4.0–6.4† | 96 | ~5–52† | ~70–145† | 246USD
+ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,270† | ~2.7–11.9† | ~47–134† | ~1–14† | ~152–249† | —
 ROW PA612-CF / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Polymaker Fiberon PA612-CF15, tensile modulus (XY) estimated 4.28 to 5.37 GPa | 1,030 / 1,030–1,090 · 3 | 5.01 / 4.88–5.14 · 2 | 84.4 / 77–91.9 · 2 | 3.11 / 2.6–3.62 · 2 | 136 / 110–175 · 3 | 170↗ / 98–242 · 2
-ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 CS20 FR V0, tensile modulus (XY) estimated 3.92 to 5.94 GPa | 1,490 | ~3.9–6.0† | 55 | ~2.0–9.9† | ~94–166† | 161EUR
-ROW PAHT-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: LEHVOSS LUVOCOM 3F PAHT KK 50056 BK, its chamber temperature is not stated; tensile modulus (XY) estimated 3.97 to 5.6 GPa | 1,370 / 1,250–1,490 · 2 | ~3.9–5.6† | ~35–96† | ~2–28† | ~79–170† | 149EUR
-ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.0–8.6† | ~44–125† | ~1–15† | ~123–209† | —
-ROW PC-PBT-CF / Polymer Blends | ☆ | UNKNOWN / none judged / Not enough data: Extrudr DURAPRO PC-PBT CF, its chamber temperature is not stated; tensile modulus (XY) estimated 3.83 to 4.82 GPa | 1,250 | ~3.83–4.82† | ~61–87† | ~3.0–7.8† | ~112–122† | 115EUR
+ROW PA6-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: Spectrum PA6 CS20 FR V0, tensile modulus (XY) estimated 3.92 to 5.94 GPa | 1,490 | ~3.9–6.0† | 55 | ~2.0–9.9† | ~91–168† | 161EUR
+ROW PAHT-CE / Nylon / Polyamide | ☆ | UNKNOWN / none judged / Not enough data: LEHVOSS LUVOCOM 3F PAHT KK 50056 BK, its chamber temperature is not stated; tensile modulus (XY) estimated 3.97 to 5.6 GPa | 1,370 / 1,250–1,490 · 2 | ~3.9–5.6† | ~35–96† | ~2–28† | ~77–172† | 149EUR
+ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.0–8.6† | ~44–125† | ~1–15† | ~128–210† | —
+ROW PC-PBT-CF / Polymer Blends | ☆ | UNKNOWN / none judged / Not enough data: Extrudr DURAPRO PC-PBT CF, its chamber temperature is not stated; tensile modulus (XY) estimated 3.83 to 4.82 GPa | 1,250 | ~3.83–4.82† | ~61–87† | ~3.0–7.8† | ~112–123† | 115EUR
 ROW PLA · ☆
 ROW PA6-GS · ☆
 ROW PA12-GF · ☆

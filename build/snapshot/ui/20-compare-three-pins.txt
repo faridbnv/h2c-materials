@@ -123,7 +123,7 @@ range 147–215 · 6 products
 PA6-GF
 186
 range 161–205 · 7 products
-37.7
+37.5
 300
 all 152 materials
 Glass transition (Tg) °C

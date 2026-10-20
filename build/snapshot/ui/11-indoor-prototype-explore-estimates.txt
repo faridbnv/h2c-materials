@@ -178,6 +178,6 @@ ROW TPC-ESD · ☆
 Not enough data (3)
 More than one question is open, or a value is not published the way you asked. Ordered by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 3 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~990–1,070† | ~1.0–3.7† | ~33–86† | ~7–74† | ~86–159† | —
-ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.0–8.6† | ~44–125† | ~1–15† | ~123–209† | —
-ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,270† | ~2.7–11.9† | ~47–134† | ~1–14† | ~140–250† | —
+ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~990–1,070† | ~1.0–3.7† | ~33–86† | ~7–74† | ~83–156† | —
+ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.0–8.6† | ~44–125† | ~1–15† | ~128–210† | —
+ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,270† | ~2.7–11.9† | ~47–134† | ~1–14† | ~152–249† | —
