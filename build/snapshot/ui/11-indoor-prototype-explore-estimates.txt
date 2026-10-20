@@ -45,13 +45,13 @@ n/a not applicable
 Meets every requirement (98)
 TABLE 98 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW ABS | ☆ | PASS / 51 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 18 | 40↗ / 24.5–70.7 · 9
-ROW ABS-AF | ☆ | PASS / 2 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–18† | 88 | 127↗
+ROW ABS-AF | ☆ | PASS / 2 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~1–19† | 88 | 127↗
 ROW ABS-CF | ☆ | PASS / 3 of 11 products | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 44 / 27.3–48 · 7 | 1.9 / 1.48–3.08 · 4 | 90 / 76–102 · 5 | 45↗ / 40–50 · 2
 ROW ABS-ESD | ☆ | PASS / 5 of 11 products | 1,070 / 970–1,100 · 10 | 2.13 / 1.3–2.35 · 5 | 35 / 19.8–58 · 7 | 4.4 / 2.21–6.4 · 6 | 97 / 96–98 · 5 | 223USD↗ / 199–247 · 2 / out of stock
 ROW ABS-GF | ☆ | PASS / 11 of 11 products | 1,100 / 1,016–1,150 · 11 | 2.75 / 1.74–4.21 · 6 | 46.5 / 35.5–68 · 7 | 2.1 / 1.2–10 · 7 | 97.5 / 87–100 · 6 | 39↗
-ROW ASA | ☆ | PASS / 36 of 40 products | 1,070 / 1,040–1,130 · 33 | 2.14 / 0.943–2.45 · 12 | 38.5 / 30.2–45 · 14 | 6.7 / 1.9–15 · 13 | 95.5 / 88–103 · 12 | 39.5↗ / 30.8–70.7 · 5
-ROW ASA Aero | ☆ | PASS / 2 of 4 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | 70 | 64↗
-ROW ASA-AF | ☆ | PASS / 2 of 3 products | 1,070 | ~1.0–3.1† | ~20–53† | ~2–19† | ~77–96† | 115↗ / 109–120 · 2
+ROW ASA | ☆ | PASS / 36 of 40 products | 1,070 / 1,040–1,130 · 34 | 2.1 / 0.943–2.45 · 13 | 38.6 / 30.2–45 · 15 | 6.7 / 1.9–15 · 13 | 95.5 / 88–103 · 12 | 39.5↗ / 30.8–70.7 · 5
+ROW ASA Aero | ☆ | PASS / 3 of 4 products | 745 / 400–1,080 · 4 | 0.709 / 0.594–0.824 · 2 | 9.88 / 8.25–11.5 · 2 | 7.71 / 3.9–11.5 · 2 | 70 | 64↗
+ROW ASA-AF | ☆ | PASS / 2 of 3 products | 1,070 | ~0.9–3.2† | ~20–52† | ~2–20† | ~77–96† | 115↗ / 109–120 · 2
 ROW ASA-CF · ☆
 ROW ASA-EC · ☆
 ROW ASA-GF · ☆
@@ -145,12 +145,12 @@ ROW TPV · ☆
 One check away (30)
 One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
 TABLE 30 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~7.2–12.8† | ~106–190† | ~1.8–6.1† | ~99–146† | —
+ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~7.1–13.1† | ~113–201† | ~1.8–6.2† | ~99–146† | —
 ROW nGen / also called Amphora · Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen, its chamber temperature is not stated | ~1,170–1,230† | 1.7 | 54 | 11 | ~64–76† | 77.3↗
 ROW nGen FLEX / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen_FLEX, its chamber temperature is not stated | 1,130 | 0.15 | 19.3 | 320 | ~68–101† | 76.3EUR
 ROW nGen-CF / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen CF10, its chamber temperature is not stated | 1,200 | 2.52 | 44.7 | 3.1 | 78 | 89.3EUR
 ROW Nylon-CE, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Stratasys Diran 410MF07, no print recipe on record | 1,160 | 1.69* | 44.8* | 12* | 90 | —
-ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 6 of 6 products: colorFabb PA-CF low warp, its chamber temperature is not stated | 1,200 / 1,010–1,400 · 5 | 2.4 / 2.16–3 · 3 | 48.5 / 40–57.5 · 4 | 18 / 12–25 · 4 | 145 / 58–147 · 4 | 167EUR
+ROW Nylon-CF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 6 of 6 products: colorFabb PA-CF low warp, its chamber temperature is not stated | 1,190 / 1,010–1,400 · 6 | 2.7 / 2.4–3 · 2 | 41 / 40–57.5 · 3 | 18 / 12–25 · 3 | 145 / 58–147 · 4 | 167EUR
 ROW Nylon-GF, maker-undisclosed polyamide / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 3 of 3 products: Eumakers PA Nylon Glass Fiber, its chamber temperature is not stated | 1,210 / 1,180–1,240 · 3 | 2.82 / 2.53–3.1 · 2 | 59.9 / 59.4–60.4 · 2 | 7 / 5.5–9.2 · 3 | 152 | —
 ROW PA-ESD / Nylon / Polyamide | ☆ | UNKNOWN / none judged / One check away on 2 of 2 products: 3DXTECH 3DXSTAT ESD PA12, its chamber: a heated chamber is recommended with no temperature, so 65 °C is not shown to be enough | 1,170 / 1,140–1,200 · 2 | 4.2 | 52 | 25 | 138 | —
 ROW PA12-AF · ☆
@@ -178,6 +178,6 @@ ROW TPC-ESD · ☆
 Not enough data (3)
 More than one question is open, or a value is not published the way you asked. Ordered by how close each one's estimate or value comes to the limits; an estimate never passes.
 TABLE 3 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
-ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~989–1,070† | ~1.1–3.5† | ~32–87† | ~8–77† | ~86–158† | —
-ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.3–7.8† | ~43–127† | ~1–14† | ~121–209† | —
-ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,280† | ~3.2–11.5† | ~48–141† | ~1–13† | ~140–250† | —
+ROW PA612 / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~990–1,070† | ~1.0–3.7† | ~33–86† | ~7–74† | ~86–159† | —
+ROW PA612-GF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,030–1,300† | ~2.0–8.6† | ~44–125† | ~1–15† | ~123–209† | —
+ROW PA66-CF / Nylon / Polyamide | ☆ | UNKNOWN / Not enough data: no product on record | ~1,070–1,270† | ~2.7–11.9† | ~47–134† | ~1–14† | ~140–250† | —

@@ -1,7 +1,7 @@
 COUNT 10 shown PASS
-STATUS ☑ PASS 10 | ☐ UNKNOWN 95 | ☐ FAIL 47
+STATUS ☑ PASS 10 | ☐ UNKNOWN 96 | ☐ FAIL 46
 10 of the 152 materials meet these requirements
-High-stiffness fixture template · UNKNOWN 95 left out: 7 one check away, 42 not enough data, 46 unlikely to meet
+High-stiffness fixture template · UNKNOWN 96 left out: 7 one check away, 41 not enough data, 48 unlikely to meet
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -49,7 +49,7 @@ ROW PAHT-CF / Nylon / Polyamide | ☆ | PASS / 2 of 5 products | 1,240 / 1,060�
 ROW PET-CF / PET Engineering | ☆ | PASS / 4 of 8 products | 1,340 / 1,290–1,400 · 7 | passing: 9 / all products: 5.11 / 3.6–9 · 4 | 70 / 45–75 · 4 | 4.25 / 2.4–6 · 4 | passing: 74–87 / all products: 124 / 74–205 · 6 | 113↗ / 70–116 · 3
 ROW PETG-CF | ☆ | PASS / 1 of 24 products | 1,290 / 1,220–1,350 · 23 | passing: 5.23 / all products: 3.7 / 1.77–5.23 · 11 | 49.4 / 32–60 · 12 | 5.7 / 1.9–14 · 11 | passing: 77 / all products: 72 / 68.6–77 · 11 | 41↗ / 35–56 · 3
 ROW PP-CF / Polyolefins | ☆ | PASS / 2 of 5 products | 1,000 / 910–1,100 · 5 | passing: 6.15–6.38 / all products: 6.15 / 2.1–6.38 · 3 | 41 / 27.3–78 · 3 | 1.4 / 1.3–1.5 · 2 | passing: 124–158 / all products: 141 / 124–158 · 2 | 147↗
-ROW PP-GF / Polyolefins | ☆ | PASS / 1 of 2 products | 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 139 | 118EUR↗ / out of stock
+ROW PP-GF / Polyolefins | ☆ | PASS / 1 of 3 products | 1,120 | passing: 6.75 / all products: 4.42 / 2.1–6.75 · 2 | 52.6 / 40.3–65 · 2 | 1.7 | passing: 139 / all products: 144 / 139–148 · 2 | 118EUR↗ / out of stock
 ROW PPA-CF / High-Performance Engineering | ☆ | PASS / 3 of 8 products / judged dry; humid air lowers its stiffness | 1,220 / 1,150–1,250 · 8 | passing: 7.1–11.8 / all products: 7.65 / 7.1–11.8 · 4 | 108 / 87–168 · 4 | 3.35 / 1.9–3.5 · 4 | passing: 220–227 / all products: 220 / 197–240 · 5 | 255↗
 ROW PPA-GF / High-Performance Engineering | ☆ | PASS / 3 of 5 products / judged dry; humid air lowers its stiffness | 1,280 / 1,160–1,310 · 5 | passing: 5.7–7 / all products: 6.56 / 5.7–7 · 3 | 100 / 89–106 · 3 | 2.7 / 2.1–3.5 · 3 | passing: 84–220 / all products: 196 / 84–220 · 3 | 106↗
 ROW PPS-CF · ☆
