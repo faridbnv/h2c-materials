@@ -45,7 +45,7 @@ Everything else was decided as an engineer in charge would, under the owner's st
 | D178 | Heat deflection's product ranges take their matrix's own width where the shared one is too narrow ([back-test](BACKTEST-D178.md)) | `build/src/estimate/` |
 | 5 | ASA's chamber row decides: 20 makers, 2 above 65 °C ([diff](stage-5-diff.md)) | m493 |
 | 6 | Two prices: QIDI PPS-GF20 from QIDI's Canadian store (CAD), purefil PC GF10 from purefil's shop ([review](prices/review-p07.mjs)) | m494 |
-| 7 | Draft summaries for the five new pages ([summaries.csv](summaries.csv)) | `material_summaries.csv` |
+| 7 | Draft summaries for the five new pages ([summaries.csv](PACKETS.md)) | `material_summaries.csv` |
 | 8 | The record, OPEN-PROBLEMS §40, the review's fixes (R01 to R10), the close | m495 |
 
 Stage 3, the readings:
@@ -136,7 +136,7 @@ tables ([d178-alone-diff.md](d178-alone-diff.md), nothing moved).
 | Priced products / materials | 228 / 113 | 230 / 114 |
 | Sources / measurements / profiles | 2,107 / 15,096 / 1,902 | 2,127 / 15,235 / 1,916 |
 
-From [counts.mjs](counts.mjs) ([before](baseline/counts-before.json), [after](after/counts-after.json)) and
+From [counts.mjs](counts.mjs) ([before](baseline/counts-before.json), [after](PACKETS.md)) and
 [pages-list.mjs](pages-list.mjs) ([before](baseline/pages-before.csv), [after](after/pages-after.csv)).
 
 Correction to a figure given to the owner: the question about ASA's chamber said about 30 products would read within.

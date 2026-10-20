@@ -1,2 +1,0 @@
-gate,SourceID,Page,Applies to,Statement,Specimen type,Moisture state,Post-processing state,Anneal °C,Anneal h,Standard,Test temperature °C,Locator,quote,moisture_words,post_processing_words,inherits,cause,quote_view,reader,rows
-ready,R-FIBERON-PETGF15-TDS,1,all,*All specimens were annealed at 120°C for 16h.,Not published,not-stated,annealed,120,16,Not published,Not published,p. 1: Specimen treatment footnote,*All specimens were annealed at 120°C for 16h.,,annealed at 120°C for 16h,V015375(treatment=annealed),page-context,line,Research agent (GPT-6),r2-resolved.csv#340
