@@ -12,7 +12,7 @@
 |---|---|
 | The advice: physics, literature, our data, the rule | [ADVICE.md](ADVICE.md), re-derived by [empirical.mjs](empirical.mjs) |
 | The back-test of the frozen tables' change | [BACKTEST.md](BACKTEST.md), by [backtest.mjs](backtest.mjs) |
-| Every answer that moved, over the 138 census cases | [DECISION-DIFF.md](DECISION-DIFF.md), from [census-before.json](census-before.json) (main, release 5a7ec4ca599d) and [census-after.json](census-after.json) |
+| Every answer that moved, over the 138 census cases | [DECISION-DIFF.md](DECISION-DIFF.md), from [census-before.json](PACKETS.md) (main, release 5a7ec4ca599d) and [census-after.json](PACKETS.md) |
 | The decision | D177 in [DECISIONS](../../DECISIONS.md), amending D172 |
 | The migration | m487 (polymers.csv Can crystallise, headline_definitions.csv Undescribed bar counts for, the counter-indications' Specimen type, three loads and two physics flags, two outliers accepted) |
 
