@@ -1645,7 +1645,9 @@ build's reinforcement facet still files them with the undisclosed variants, beca
 as a class of its own. Filing them apart there is a change to the estimate stage, with its decision and back-test.
 
 **POM's filler is "Unfilled / unspecified" since the clean-up round (2026-10-19, m459; [clean-up round](audits/2026-10-19-clean-up/README.md)):** its products are plain
-acetal.
+acetal. The density limit for an unfilled plastic (CL02) now reads them: Yousu POM's 1.14 g/cm³ and purefil POM's 1.34
+sit below acetal's 1.38 to 1.44, kept as printed and tagged doubtful (accepted with their reasons, §38.6); the makers'
+word settles which figure is wrong.
 
 ### 37.12. Originals behind a sign-in
 
