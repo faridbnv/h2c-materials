@@ -256,8 +256,9 @@ materials publish a window the H2C reaches only at its bottom edge, which stay u
 
 **Within H2C temperature limits** is one box over the three temperature gates, each indented under it with its data
 line; it is ticked when all three are asked, indeterminate when one or two are. The scope list is a box of its own,
-**Exclude materials beyond H2C capability**, which names the families it removes (industrial high-temperature plastics
-and sintering filaments): it reads that list and no temperature, so it is not called printable. The two sit side by side
+**Exclude materials beyond H2C capability**, which names the families it removes (the industrial high-temperature
+plastics; the sintering filaments it also named left the dataset on 2026-10-20, D174): it reads that list and no
+temperature, so it is not called printable. The two sit side by side
 as requirement pills under every template, so since 2026-10-19 each says what it reads, in its rail line and in its
 pill's title: "Within H2C capability" a list, the materials Bambu Lab's list and their makers' limitations put beyond the
 H2C as a whole; the nozzle, bed and chamber check each product's own windows against the H2C's limits.
@@ -345,6 +346,12 @@ line saying what it is ("names a group of materials, not one material. Its membe
 members link to their drawers. Its own name opens its entry: what it is, why it has no tabs (its measurements,
 profiles, grades and prices are recorded under each member), and its members, each opening its drawer.
 
+A material retired from the dataset (Scope `Retired`, D174) is not on the page at all: no row, search result, drawer,
+material page, count or export holds it, and its records wait in the tables. The metal and ceramic sintering filaments
+(316L, silicon carbide, alumina) are the ones retired, on the owner's ruling of 2026-10-20: never candidates, since the
+printed part is a green part sintered elsewhere (D87), they had been rows only to say why they were out, and the table
+opened on the 316L one. Searching "316L" now finds nothing, as for any material the tool does not hold.
+
 With estimates on, the table cell shows the estimate rather than the related `*` value, because the
 estimate already contains that measurement converted to the headline. Sorting then counts it: a column sorts an
 estimated row by its estimate's centre, and a measured row before an estimated one at the same value, where estimated rows
@@ -418,8 +425,12 @@ estimate. An estimate's mark and one that does not apply open the Overview, wher
 Environment tab, where its rows are. Why excluded counts the three kinds apart under each requirement, and only the
 materials the page hides: a material hidden as a whole, whose own hide names that requirement (D148).
 
-Before any requirement is set nothing has been tested, so rows read **not tested** and the chips
-stand down. A green PASS on a blank screen asserted a test that never ran.
+Before any requirement is set nothing has been asked, so there is no result to show: the chips stand down, and the
+table has no Result column at all (D174). The column arrives with the first requirement, beside the name, where it
+always stood. A green PASS on a blank screen asserted a test that never ran; the words that replaced it, **not tested**
+on every row, read to an engineer as "nobody ran the test", and an empty column would have read as a gap, so the column
+waits for a question. A sort on Result with no requirement is by name; the export leaves its result columns empty and
+says why in its header, and Compare names the shortlisted materials without a chip.
 
 ## Reading a number
 
@@ -1124,7 +1135,13 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   of its products on each axis (all of them under four), whiskers through the medians to the lowest and highest, a thin
   plus where they cross carrying its name, and its products as small shapes. A product the data marks as a variant (a wood or
   metal filler, a foaming or lightweight additive; its Variant column) is drawn as its shape ringed with a dot and kept out of the range, as
-  the build keeps it out of the material's spread, since its values describe the product, not the polymer. PLA's box in
+  the build keeps it out of the material's spread, since its values describe the product, not the polymer. On an impact
+  axis a product its maker sells as toughened is kept out too, with the same mark since 2026-10-20 (D174): it had been a
+  plain ring, told from a variant by the dot alone, and a plain ring is "could not be settled" in Products; the key names
+  both reasons and the hover says which. The other plots keep their own marks: the square and the diamond are glass and
+  carbon fibre here, and annealed and an added filler or additive in the drawer, the table and the pages, each the most
+  legible choice for its plot (the plot-by-plot table is in the round's
+  [SHAPES.md](audits/2026-10-20-owner-rulings/selector/SHAPES.md)). PLA's box in
   the scope-only chart was 1230–1250 kg/m³ by 1.5–2.8 GPa with whiskers to 1170–1310 and 0.43–4.2 when D108 drew it
   (about 1222–1240 by 1.9–2.9 GPa on 2026-10-07), where the envelope of every product had run 800–1400 kg/m³ (PolyWood
   and PLA-Lite, both variants). Pressing a box opens the material in the
