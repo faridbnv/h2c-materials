@@ -15,23 +15,23 @@
   },
   "class_limits": {
     "baseline": 0,
-    "current": 2,
-    "added": 2,
+    "current": 3,
+    "added": 3,
     "edited_existing": 0,
     "removed": 0
   },
   "conversions": {
     "baseline": 0,
-    "current": 62,
-    "added": 62,
+    "current": 63,
+    "added": 63,
     "edited_existing": 0,
     "removed": 0
   },
   "coverage": {
     "baseline": 805,
-    "current": 953,
-    "added": 148,
-    "edited_existing": 84,
+    "current": 955,
+    "added": 150,
+    "edited_existing": 86,
     "removed": 0
   },
   "drawer_comparisons": {
@@ -45,7 +45,7 @@
     "baseline": 5306,
     "current": 8490,
     "added": 3184,
-    "edited_existing": 389,
+    "edited_existing": 397,
     "removed": 0
   },
   "family_entries": {
@@ -64,9 +64,9 @@
   },
   "grades": {
     "baseline": 1163,
-    "current": 1184,
-    "added": 21,
-    "edited_existing": 175,
+    "current": 1187,
+    "added": 24,
+    "edited_existing": 200,
     "removed": 0
   },
   "headline_definitions": {
@@ -106,22 +106,22 @@
   },
   "materials": {
     "baseline": 175,
-    "current": 175,
-    "added": 0,
-    "edited_existing": 2,
+    "current": 178,
+    "added": 3,
+    "edited_existing": 7,
     "removed": 0
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15653,
-    "added": 4117,
-    "edited_existing": 2992,
+    "current": 15698,
+    "added": 4162,
+    "edited_existing": 3079,
     "removed": 0
   },
   "method": {
     "baseline": 51,
-    "current": 58,
-    "added": 7,
+    "current": 59,
+    "added": 8,
     "edited_existing": 4,
     "removed": 0
   },
@@ -148,8 +148,8 @@
   },
   "polymers": {
     "baseline": 48,
-    "current": 48,
-    "added": 0,
+    "current": 49,
+    "added": 1,
     "edited_existing": 26,
     "removed": 0
   },
@@ -157,7 +157,7 @@
     "baseline": 357,
     "current": 374,
     "added": 17,
-    "edited_existing": 7,
+    "edited_existing": 8,
     "removed": 0
   },
   "print_guide": {
@@ -171,7 +171,7 @@
     "baseline": 17,
     "current": 17,
     "added": 0,
-    "edited_existing": 1,
+    "edited_existing": 2,
     "removed": 0
   },
   "product_claims": {
@@ -183,15 +183,15 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2503,
-    "added": 442,
+    "current": 2504,
+    "added": 443,
     "edited_existing": 0,
     "removed": 0
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1986,
-    "added": 670,
+    "current": 1987,
+    "added": 671,
     "edited_existing": 1000,
     "removed": 0
   },
@@ -204,9 +204,9 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 2100,
-    "added": 272,
-    "edited_existing": 548,
+    "current": 2107,
+    "added": 279,
+    "edited_existing": 597,
     "removed": 0
   }
 }

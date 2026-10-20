@@ -1,5 +1,5 @@
 {
-  "dataRelease": "7d8f8980c40d",
+  "dataRelease": "5f73e1b37933",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -32,13 +32,21 @@
     "G166-02",
     "G165-06",
     "G166-03",
-    "G001-201"
+    "G001-201",
+    "G176-01",
+    "G177-01",
+    "G064-03"
+  ],
+  "materialsCreatedAfterFreeze": [
+    "M176",
+    "M177",
+    "M178"
   ],
   "applicationCells": {
     "Evidence recorded": 43,
     "Reviewed with limitations": 79,
     "Gap": 13,
-    "Unassessed": 0
+    "Unassessed": 3
   },
   "environmentalRecordPresence": {
     "scope": "Seven exposure categories; exact grade records only, not polymer context or approvals",
@@ -54,32 +62,33 @@
     }
   },
   "allCataloguePrintGates": {
-    "products": 1109,
-    "nozzleKnown": 1077,
-    "chamberKnown": 896,
-    "chamberUnknown": 213,
-    "dryingRequired": 662
+    "products": 1108,
+    "nozzleKnown": 1074,
+    "chamberKnown": 898,
+    "chamberUnknown": 210,
+    "dryingRequired": 649
   },
   "databaseCounts": {
     "materials": 175,
-    "h2cRelevant": 135,
+    "h2cRelevant": 138,
     "familyEntries": 23,
     "retiredDuplicates": {
       "measurements": 602,
       "evidence": 23,
       "profiles": 80
     },
-    "excluded": 17,
-    "grades": 1184,
-    "measurements": 15051,
-    "numericMeasurements": 14851,
+    "excluded": 14,
+    "grades": 1183,
+    "measurements": 15093,
+    "numericMeasurements": 14893,
     "quarantined": 43,
-    "profiles": 1906,
+    "profiles": 1902,
     "evidence": 868,
     "prices": 374,
-    "sources": 2100,
-    "coverage": 953,
-    "knowHow": 7599,
+    "sources": 2107,
+    "coverage": 955,
+    "retired": 3,
+    "knowHow": 7495,
     "polymerEnvironment": 353,
     "polymerEvidence": 314,
     "coverageDerived": 1137
@@ -101,23 +110,23 @@
     },
     "class_limits": {
       "baseline": 0,
-      "current": 2,
-      "added": 2,
+      "current": 3,
+      "added": 3,
       "edited_existing": 0,
       "removed": 0
     },
     "conversions": {
       "baseline": 0,
-      "current": 62,
-      "added": 62,
+      "current": 63,
+      "added": 63,
       "edited_existing": 0,
       "removed": 0
     },
     "coverage": {
       "baseline": 805,
-      "current": 953,
-      "added": 148,
-      "edited_existing": 84,
+      "current": 955,
+      "added": 150,
+      "edited_existing": 86,
       "removed": 0
     },
     "drawer_comparisons": {
@@ -131,7 +140,7 @@
       "baseline": 5306,
       "current": 8490,
       "added": 3184,
-      "edited_existing": 389,
+      "edited_existing": 397,
       "removed": 0
     },
     "family_entries": {
@@ -150,9 +159,9 @@
     },
     "grades": {
       "baseline": 1163,
-      "current": 1184,
-      "added": 21,
-      "edited_existing": 175,
+      "current": 1187,
+      "added": 24,
+      "edited_existing": 200,
       "removed": 0
     },
     "headline_definitions": {
@@ -192,22 +201,22 @@
     },
     "materials": {
       "baseline": 175,
-      "current": 175,
-      "added": 0,
-      "edited_existing": 2,
+      "current": 178,
+      "added": 3,
+      "edited_existing": 7,
       "removed": 0
     },
     "measurements": {
       "baseline": 11536,
-      "current": 15653,
-      "added": 4117,
-      "edited_existing": 2992,
+      "current": 15698,
+      "added": 4162,
+      "edited_existing": 3079,
       "removed": 0
     },
     "method": {
       "baseline": 51,
-      "current": 58,
-      "added": 7,
+      "current": 59,
+      "added": 8,
       "edited_existing": 4,
       "removed": 0
     },
@@ -234,8 +243,8 @@
     },
     "polymers": {
       "baseline": 48,
-      "current": 48,
-      "added": 0,
+      "current": 49,
+      "added": 1,
       "edited_existing": 26,
       "removed": 0
     },
@@ -243,7 +252,7 @@
       "baseline": 357,
       "current": 374,
       "added": 17,
-      "edited_existing": 7,
+      "edited_existing": 8,
       "removed": 0
     },
     "print_guide": {
@@ -257,7 +266,7 @@
       "baseline": 17,
       "current": 17,
       "added": 0,
-      "edited_existing": 1,
+      "edited_existing": 2,
       "removed": 0
     },
     "product_claims": {
@@ -269,15 +278,15 @@
     },
     "profile_notes": {
       "baseline": 2061,
-      "current": 2503,
-      "added": 442,
+      "current": 2504,
+      "added": 443,
       "edited_existing": 0,
       "removed": 0
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1986,
-      "added": 670,
+      "current": 1987,
+      "added": 671,
       "edited_existing": 1000,
       "removed": 0
     },
@@ -290,9 +299,9 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 2100,
-      "added": 272,
-      "edited_existing": 548,
+      "current": 2107,
+      "added": 279,
+      "edited_existing": 597,
       "removed": 0
     }
   },
