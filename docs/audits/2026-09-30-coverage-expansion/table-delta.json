@@ -113,9 +113,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15699,
-    "added": 4163,
-    "edited_existing": 3208,
+    "current": 15701,
+    "added": 4165,
+    "edited_existing": 3872,
     "removed": 0
   },
   "method": {
