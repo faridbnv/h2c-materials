@@ -4394,6 +4394,7 @@ G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),tensileModulusXY,3.5,as-pu
 G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),tensileStrengthXY,60,as-published,not-described,V005695,,,,
 G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),elongationXY,6,as-published,not-described,V005697,,,,
 G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),hdt18,137,as-published,not-described,V005699,,,,
+G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),priceCADkg,53.05,comparable,,CA0376,,,,
 G039-02,M161,TPU,density,1220,comparable,,V002176,,,,
 G039-02,M161,TPU,tensileModulusXY,0.026,as-published,not-described,V000755,,,,
 G039-02,M161,TPU,tensileStrengthXY,39,comparable,,V000757,,,,
@@ -5806,6 +5807,7 @@ G074-03,M074,PPS-GF20,charpyNotched,7.3,comparable,,V001403,130 °C 10 h,,,twin 
 G074-03,M074,PPS-GF20,hdt045,236.3,comparable,,V002071,130 °C ? h,,,twin G074-02
 G074-03,M074,PPS-GF20,hdt18,125.8,comparable,,V001392,130 °C ? h,,,twin G074-02
 G074-03,M074,PPS-GF20,glassTransition,95,comparable,,V002067,,,,twin G074-02
+G074-03,M074,PPS-GF20,priceCADkg,110.65,comparable,,CA0375,,,,
 G075-01,M075,PVA,density,1270,comparable,,V001406,,,,
 G075-01,M075,PVA,priceCADkg,101.98,comparable,,CA0063,,,,
 G075-02,M075,PVA,density,1010,comparable,,V004628,,,,

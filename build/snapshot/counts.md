@@ -18,11 +18,11 @@ rather than repeat a number.
 | … with a maker's know-how statement | 1,057 | lane 3 |
 | Measurements | 15,235 | active rows |
 | … with a usable number | 15,035 |  |
-| Product values | 7,554 | one per product and headline, chosen by rule (D83) |
+| Product values | 7,556 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 1,195 | headline cells of in-scope materials |
 | Material values estimated | 140 | where no product publishes (D43) |
 | Print profiles | 1,916 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 7,495 | the makers' words, shown in the panel only (D85) |
-| Price observations | 374 | sampled 2026-10-19 |
-| Sources | 2,125 |  |
+| Price observations | 376 | sampled 2026-10-20 |
+| Sources | 2,127 |  |

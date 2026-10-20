@@ -50,24 +50,24 @@
       "sha256": "98e8cb05bf161624accf03b5406aafa083f74363ae6db2382adf0d4e7b9ebebd"
     },
     "prices": {
-      "rows": 374,
-      "sha256": "1adaa9f40cb92bc062bd9ff550e5760720bd8db59041bb0103cf86e71e37d341"
+      "rows": 376,
+      "sha256": "4613bee4d8eab4c904413491d4b2ef4129e2e24fdeaa608c041a87970f12947d"
     },
     "fx_rates": {
       "rows": 2,
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2125,
-      "sha256": "da179f780dff33ef6fb9e9c92894de86279016cc1fb1c9d79dcf069f8e7e587a"
+      "rows": 2127,
+      "sha256": "5bc0055687025b84eabdd362ad1415c31b3f111fa97d72df3cceefd5f542d6ac"
     },
     "coverage": {
       "rows": 958,
       "sha256": "d83675564e597a157fd6185e63b1e06d575f9bae35fac9b7d5d61be17f11144d"
     },
     "material_summaries": {
-      "rows": 77,
-      "sha256": "5c59933a206dfb0f260ca6d59ee5f10ae7c033f8bfd8914d91f7c4858f9c48b6"
+      "rows": 82,
+      "sha256": "94feb6366f4f53fe272e5b13330d62e5b5b946f71079859cf1027d4cad6fe24d"
     },
     "method": {
       "rows": 59,

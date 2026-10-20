@@ -720,7 +720,7 @@ M038,PC-GF,hdt18,value,124,°C,,,,,1,G038-02,V001830
 M038,PC-GF,glassTransition,value,142,°C,,,,,1,G038-02,V001832
 M038,PC-GF,shoreA,none,,Shore A,,,,,,,
 M038,PC-GF,shoreD,none,,Shore D,,,,,,,
-M038,PC-GF,priceCADkg,none,,CAD/kg,,,,,,,
+M038,PC-GF,priceCADkg,value,53.05,CAD/kg,,,,,1,G038-03,
 M039,TPU,density,none,,kg/m³,,,,,,,
 M039,TPU,tensileModulusXY,none,,GPa,,,,,,,
 M039,TPU,tensileModulusZ,none,,GPa,,,,,,,
@@ -1404,7 +1404,7 @@ M074,PPS-GF,hdt18,value,125.8,°C,,,,,2,G074-02,V001392
 M074,PPS-GF,glassTransition,value,95,°C,,,,,2,G074-02,V002067
 M074,PPS-GF,shoreA,none,,Shore A,,,,,,,
 M074,PPS-GF,shoreD,value,83,Shore D,,,,,1,G074-01,V002199
-M074,PPS-GF,priceCADkg,value,163.98,CAD/kg,,,,,1,G074-02,
+M074,PPS-GF,priceCADkg,value,137.315,CAD/kg,,,,,2,G074-03,
 M075,PVA,density,value,1250,kg/m³,,,,,11,G075-05,V010003
 M075,PVA,tensileModulusXY,value,1.8,GPa,,,,,1,G075-07,V010196
 M075,PVA,tensileModulusZ,none,,GPa,,,,,,,

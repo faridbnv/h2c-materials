@@ -949,3 +949,24 @@ The record is [the round](audits/2026-10-20-amorphous-heat/README.md).
   312 → 356; Warm environment passes 31 → 34 (PETG, CPE, COC); no pass rests on an undescribed bar of a plastic that can
   crystallise. Two values physics rules out were flagged and three loads read on their pages. EST-CALIBRATION holds
   ([back-test](audits/2026-10-20-amorphous-heat/BACKTEST.md); [decision diff](audits/2026-10-20-amorphous-heat/DECISION-DIFF.md)).
+
+## Decided on 2026-10-20, the second research intake (built)
+
+The owner had the external research agent work a second brief (ten tasks, from round 1's leftovers) and asked for the
+package to be implemented carefully against the repository as it now is, and efficiently, with Claude Sonnet agents
+where they fit. The owner also asked for a judgement of the importer's complexity, with no change to it. The package
+stays outside the repository; its dispositions are in `archive/research-2026-10-20/`.
+
+- **Chosen (the owner's answers of 2026-10-20).**
+  - Switch ASA's chamber row to deciding if the recount confirms 20 makers, 2 above 65 °C.
+  - When the new data stopped the build at the estimate model's calibration check, give each matrix its own range width
+    where the shared one is too narrow (D178).
+  - Push to main when verified.
+- **Built (2026-10-20).** The record is [the round](audits/2026-10-20-research-intake-2/README.md).
+  - Batch b50: six products, and five materials gain a page (PC FR, OBC, PLA-NF, PPS-GF, PP-GF).
+  - Readings, filings and review: m488 to m492.
+  - D178 and its back-test.
+  - CN02 decides (m493).
+  - Price batch p07 (m494).
+  - Draft summaries for the new pages.
+  - The importer judged in OPEN-PROBLEMS §40.2.

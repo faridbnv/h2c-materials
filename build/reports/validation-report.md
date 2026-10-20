@@ -19,8 +19,8 @@ Database snapshot 2026-09-21 · build 2026-10-20
 | quarantined | 43 |
 | profiles | 1916 |
 | evidence | 868 |
-| prices | 374 |
-| sources | 2125 |
+| prices | 376 |
+| sources | 2127 |
 | coverage | 958 |
 | retired | 3 |
 | knowHow | 7495 |
@@ -52,7 +52,7 @@ What a selection criterion can actually decide, out of 175 canonical materials.
 | glassTransition | 95 |
 | shoreA | 15 |
 | shoreD | 46 |
-| priceCADkg | 113 |
+| priceCADkg | 114 |
 
 ## H2C envelope gate
 

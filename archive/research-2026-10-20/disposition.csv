@@ -1,0 +1,873 @@
+FindingID,Task,Target,Outcome,Disposition,Stage,Why
+F-0001,T1,material M036,RECORD-WRONG,applied,"stage 4, m490",Extrudr DURAPRO PC FR V0 (G035-11) filed under PC FR with moveGrade; PC FR gains a page.
+F-0002,T1,material M084,NEEDS-CAPTURE,left,,INNOVATEFIL PP GF's current shop page is not captured and its sheet prints dashes; held (OPEN-PROBLEMS §39.2).
+F-0003,T1,material M086,FOUND-NEW,applied,"stages 2 and 3, m488, m489",Kexcelled THE K8 OBC (G086-03) admitted with its data sheet; OBC gains a page.
+F-0004,T1,material M152,FOUND-NEW,applied,"stages 2 and 3, m488, m489","Filamentive Hemp PLA (G152-03) admitted with its sheet and store page; PLA-NF gains a page. Its ""3.8 MPa"" flexural modulus is flagged implausible (m489)."
+F-0005,T1,material M074,FOUND-NEW,applied,"stages 2 and 3, m488, m489, m491","QIDI PPS-GF20 (G074-03) admitted with its page and recipe; its figures reprint Fiberon PPS-GF20's annealed table, recorded once as its twin (m491); PPS-GF gains a page."
+F-0006,T1,material M084,FOUND-NEW,applied,"stages 2 and 3, m488, m489",Forward AM Ultrafuse PP GF30 (G084-03) admitted with its extended sheet; the tensile conditioning footnote kept on the tensile rows alone; PP-GF gains a page.
+F-0007,T1,material M072,FOUND-NEW,left,,INTAMSYS PPS's exact variant is not on sale; no grade.
+F-0008,T1,material M113,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0009,T1,material M080,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0010,T1,material M055,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0011,T1,material M148,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0012,T1,material M132,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0013,T1,material M095,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0014,T1,material M085,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0015,T1,material M141,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0016,T1,material M109,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0017,T1,material M169,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0018,T1,material M069,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0019,T1,material M130,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0020,T1,material M126,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0021,T1,material M137,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0022,T1,material M114,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0023,T1,material M138,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0024,T1,material M107,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0025,T1,material M116,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0026,T1,material M112,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0027,T1,material M157,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0028,T1,material M153,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0029,T1,material M155,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0030,T1,material M135,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0031,T1,material M111,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0032,T1,material M079,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0033,T1,material M077,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0034,T3,grade G148-01,NEEDS-MAKER,left,,"LEHVOSS 9936 BK/L is unreinforced where the held 9936 BK is ceramic-filled: identity unresolved, not entered."
+F-0035,T3,grade G031-31,FOUND-NEW,applied,"stages 2 and 3, m488, m489","AzureFilm's own ASA sheet (05.24) registered beside the held 3DJake-hosted one; its 100 % infill XY, XZ and ZX values entered; the ZX yield ""0.0"" left out."
+F-0036,T3,grade G027-41,NEEDS-MAKER,left,,AzureFilm ABS+ is not established as the held ABS product; not entered.
+F-0037,T1,material M137,FOUND-ON-HELD-DOC,applied,"stage 3, m489","COC flex's thermal conductivity and nozzle window entered; its ""below –90 °C"" glass transition left held (the raw text reads no number)."
+F-0038,T1,material M111,FOUND-ON-HELD-DOC,applied,"stage 3, m489","Conductive PLA's three volume resistivities entered; its melting onset (""approx. 155 deg C"") left held as a prose claim."
+F-0039,T3,grade G112-02,FOUND-ON-HELD-DOC,applied,"stage 3, m489","Nanovia PC-PTFE's 38 MPa tensile strength entered, its raster at 0° typed as no usable direction."
+F-0040,T7,material M164,FOUND-NEW,applied,"stages 2 and 3, m488, m489","Sakata 3D PA-NT (G164-12) admitted; HTA3D is a Spanish shop, so no Canadian price."
+F-0041,T7,material M165,FOUND-NEW,applied,"stages 2 and 3, m488, m489","Sakata 3D PA-CF15 (G165-07) admitted, its dry-as-moulded values as raw material values."
+F-0042,T7,material M166,FOUND-NEW,left,,Sakata PA-GF20-FR: stock to confirm before a product enters.
+F-0043,T7,material M078,FOUND-NEW,left,,Bambu Lab's support SDS lists TPU and a PETG copolymer where the held sheet says PLA: a conflict filed (OPEN-PROBLEMS §33.4); the product keeps its home.
+F-0044,T7,material M074,FOUND-NEW,applied,"stages 2 and 3, m488, m489, m491","The QIDI page reused for F-0005, no duplicate source."
+F-0045,T7,material M156,FOUND-NEW,left,,IIIDMAX PA6/66-CF15 is an archived page: current stock not established.
+F-0046,T3,grade G113-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0047,T3,grade G113-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0048,T3,grade G113-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0049,T3,grade G105-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0050,T3,grade G076-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0051,T3,grade G076-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0052,T3,grade G076-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0053,T3,grade G076-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0054,T3,grade G091-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0055,T3,grade G139-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0056,T3,grade G092-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0057,T3,grade G143-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0058,T3,grade G086-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0059,T3,grade G086-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0060,T3,grade G154-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0061,T3,grade G104-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0062,T3,grade G108-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0063,T3,grade G156-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0064,T3,grade G164-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0065,T3,grade G164-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0066,T3,grade G147-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0067,T3,grade G148-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0068,T3,grade G133-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0069,T3,grade G131-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0070,T3,grade G144-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0071,T3,grade G144-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0072,T3,grade G144-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0073,T3,grade G141-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0074,T3,grade G141-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0075,T3,grade G109-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0076,T3,grade G109-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0077,T3,grade G111-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0078,T3,grade G111-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0079,T3,grade G155-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0080,T3,grade G155-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0081,T3,grade G145-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0082,T3,grade G135-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0083,T3,grade G135-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0084,T3,grade G136-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0085,T3,grade G174-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0086,T3,grade G079-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0087,T3,grade G079-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0088,T3,grade G080-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0089,T3,grade G080-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0090,T3,grade G080-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0091,T3,grade G077-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0092,T3,grade G077-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0093,T3,grade G078-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0094,T3,grade G126-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0095,T3,grade G126-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0096,T3,grade G039-69,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0097,T3,grade G150-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0098,T3,grade G150-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0099,T3,grade G150-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0100,T3,grade G033-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0101,T3,grade G129-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0102,T3,grade G031-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0103,T3,grade G001-32,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0104,T3,grade G001-33,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0105,T3,grade G001-34,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0106,T3,grade G035-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0107,T3,grade G051-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0108,T3,grade G053-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0109,T3,grade G027-21,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0110,T3,grade G097-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0111,T3,grade G027-29,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0112,T3,grade G031-23,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0113,T3,grade G001-153,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0114,T3,grade G008-30,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0115,T3,grade G016-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0116,T3,grade G001-193,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0117,T3,grade G008-33,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0118,T3,grade G017-14,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0119,T3,grade G171-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0120,T7,material M056,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0121,T7,material M058,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0122,T7,material M060,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0123,T7,material M167,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0124,T7,material M170,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0125,T7,material M175,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0126,T7,material M065,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0127,T7,material M077,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0128,T7,material M079,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0129,T7,material M111,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0130,T7,material M114,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0131,T7,material M119,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0132,T7,material M120,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0133,T7,material M124,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0134,T7,material M128,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0135,T7,material M133,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0136,T7,material M139,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0137,T7,material M146,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0138,T7,material M174,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0139,T2,maker-family High-Performance Engineering/LEHVOSS,FOUND-NEW,applied,"stage 3, m489","LEHVOSS's ""no temperature-controlled chamber"" typed by hand; CN07 counts 11 makers and stays reported (m493)."
+F-0140,T2,maker-family ASA/AzureFilm,FOUND-NEW,applied,"stages 3 and 5, m489, m493","AzureFilm's ""can be printed without an enclosed printer"": no enclosure needed (D168); the 19th ASA maker."
+F-0141,T2,maker-family ASA/Prusa Research,FOUND-NEW,applied,"stages 3 and 5, m489, m493",Prusa's enclosure recommendation: an enclosure asked for (D93); the 20th ASA maker; CN02 decides.
+F-0142,T2,maker-family ASA/Fillamentum,AMBIGUOUS-ON-PAGE,left,,Fillamentum's ASA wording is ambiguous on the chamber: not counted.
+F-0143,T2,maker-family Copolyesters/Extrudr,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0144,T2,maker-family Nylon / Polyamide/Raise3D,FOUND-NEW,applied,"stage 3, m489","Raise3D PA12 CF ""without the heating chamber"" on its RMF 500: no heated chamber needed; nylon counts 18 makers, 2 above (CN10 reported)."
+F-0145,T6,grade G053-09,FOUND-NEW,applied,"stage 3, m489, m491",Raise3D PA12 CF's as-printed 90 °C at 0.45 MPa and its annealed figures entered; the data sheet's unlabelled copies retired beside them.
+F-0146,T4,grade G053-02,FOUND-NEW,applied,"stage 3, m489","PolyMide PA12-CF's conditional drying entered as optional, 80 °C for 12 h."
+F-0147,T6,grade G053-02,FOUND-NEW,applied,"stage 3, m489","PolyMide PA12-CF's as-printed figures entered; its annealed ones are held from its data sheet, whose schedule differs (OPEN-PROBLEMS)."
+F-0148,T2,maker-family Copolyesters/colorFabb,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0149,T2,maker-family High-Performance Engineering/Essentium,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0150,T2,maker-family High-Performance Engineering/Fabru / purefil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0151,T2,maker-family ASA/3D4Makers,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0152,T2,maker-family Nylon / Polyamide/colorFabb,AMBIGUOUS-ON-PAGE,left,,colorFabb PA-CF's chamber wording is ambiguous: not counted.
+F-0153,T2,maker-family Nylon / Polyamide/eSUN,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0154,T2,maker-family Nylon / Polyamide/QIDI,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0155,T2,maker-family Nylon / Polyamide/Fillamentum,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0156,T2,maker-family PET Engineering/3D4Makers,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0157,T2,maker-family PET Engineering/BASF Forward AM,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0158,T2,maker-family PET Engineering/Raise3D,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0159,T2,maker-family PVB / Specialty Polymers/Fillamentum,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0160,T2,maker-family Support / Soluble/eSUN,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0161,T2,maker-family Nylon / Polyamide/Filamatrix,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0162,T2,maker-family PVB / Specialty Polymers/3D4Makers,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0163,T2,maker-family PVB / Specialty Polymers/Yousu,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0164,T2,maker-family Support / Soluble/BigRep,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0165,T2,maker-family Support / Soluble/BASF Forward AM,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0166,T4,grade G098-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0167,T4,grade G114-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0168,T4,grade G114-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0169,T4,grade G030-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0170,T4,grade G001-193,CONFIRMED-AS-RECORDED,already-in-data,,eTwinkling's drying stays unknown: the manual's dash is no instruction.
+F-0171,T2,maker-family ASA/3DJake,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0172,T2,maker-family ASA/3DXTECH,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0173,T2,maker-family ASA/Anycubic,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0174,T2,maker-family ASA/BigRep,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0175,T2,maker-family ASA/colorFabb,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0176,T2,maker-family ASA/eSUN,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0177,T2,maker-family ASA/Fabru,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0178,T2,maker-family ASA/Fabru / purefil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0179,T2,maker-family ASA/Filament2Print,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0180,T2,maker-family ASA/iSANMATE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0181,T2,maker-family ASA/MatterHackers,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0182,T2,maker-family ASA/Nobufil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0183,T2,maker-family ASA/Stratasys,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0184,T2,maker-family Nylon / Polyamide/BASF Forward AM,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0185,T2,maker-family Nylon / Polyamide/BigRep,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0186,T2,maker-family Nylon / Polyamide/Eumakers,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0187,T2,maker-family Nylon / Polyamide/Fabru,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0188,T2,maker-family Nylon / Polyamide/iSANMATE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0189,T2,maker-family Nylon / Polyamide/Markforged,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0190,T2,maker-family Nylon / Polyamide/MatterHackers,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0191,T2,maker-family Nylon / Polyamide/Stratasys,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0192,T2,maker-family Nylon / Polyamide/Yousu,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0193,T2,maker-family PET Engineering/colorFabb,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0194,T2,maker-family PVB / Specialty Polymers/iSANMATE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0195,T2,maker-family Support / Soluble/Fabru,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0196,T2,maker-family Support / Soluble/Yousu,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0197,T2,maker-family Styrenics/BASF Forward AM,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0198,T2,maker-family Styrenics/eSUN,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0199,T2,maker-family Styrenics/Fabru,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0200,T2,maker-family Styrenics/Fabru / purefil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0201,T2,maker-family Styrenics/Fillamentum,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0202,T2,maker-family Styrenics/Spectrum,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0203,T2,maker-family Styrenics/Stratasys,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0204,T2,maker-family Support / Interface/QIDI,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0205,T2,maker-family Support / Interface/Raise3D,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0206,T2,maker-family Fluoropolymers/Filament2Print,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0207,T2,maker-family Fluoropolymers/Fillamentum,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0208,T2,maker-family Acetals/Fabru / purefil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0209,T2,maker-family Acetals/Yousu,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0210,T2,maker-family Metal and Ceramic Sintering/BASF Forward AM,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0211,T2,maker-family Metal and Ceramic Sintering/Fabru,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0212,T2,maker-family Polycarbonate/3DXTECH,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0213,T2,maker-family Polycarbonate/BASF Forward AM,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0214,T2,maker-family Polycarbonate/Fabru / purefil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0215,T2,maker-family Polycarbonate/iSANMATE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0216,T2,maker-family Polycarbonate/Nobufil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0217,T2,maker-family Polycarbonate/Prusa Research,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0218,T2,maker-family Polycarbonate/Stratasys,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0219,T2,maker-family Polycarbonate/Yousu,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0220,T2,maker-family Polymer Blends/colorFabb,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0221,T2,maker-family Polymer Blends/Extrudr,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0222,T2,maker-family Polymer Blends/Fabru / purefil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0223,T2,maker-family Polymer Blends/Fiberlogy,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0224,T2,maker-family Polymer Blends/FormFutura,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0225,T2,maker-family Polymer Blends/SIDDAMENT,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0226,T2,maker-family Polymer Blends/Spectrum,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0227,T2,maker-family Polymer Blends/Stratasys,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0228,T2,maker-family Industrial High-Temperature/Stratasys,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0229,T2,grade G088-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0230,T2,grade G069-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0231,T2,grade G070-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0232,T2,grade G031-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0233,T2,grade G032-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0234,T2,grade G033-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0235,T2,grade G034-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0236,T2,grade G113-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0237,T2,grade G049-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0238,T2,grade G049-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0239,T2,grade G049-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0240,T2,grade G049-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0241,T2,grade G049-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0242,T2,grade G049-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0243,T2,grade G052-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0244,T2,grade G052-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0245,T2,grade G052-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0246,T2,grade G053-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0247,T2,grade G053-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0248,T2,grade G053-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0249,T2,grade G053-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0250,T2,grade G053-16,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0251,T2,grade G064-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0252,T2,grade G108-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0253,T2,grade G154-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0254,T2,grade G156-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0255,T2,grade G164-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0256,T2,grade G164-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0257,T2,grade G081-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0258,T2,grade G081-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0259,T2,grade G096-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0260,T2,grade G035-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0261,T2,grade G035-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0262,T2,grade G037-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0263,T2,grade G037-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0264,T2,grade G037-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0265,T2,grade G037-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0266,T2,grade G112-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0267,T2,grade G116-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0268,T2,grade G094-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0269,T2,grade G094-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0270,T2,grade G094-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0271,T2,grade G094-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0272,T2,grade G094-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0273,T2,grade G094-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0274,T2,grade G095-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0275,T2,grade G119-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0276,T2,grade G128-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0277,T2,grade G131-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0278,T2,grade G099-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0279,T2,grade G100-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0280,T2,grade G101-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0281,T2,grade G102-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0282,T2,grade G118-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0283,T2,grade G123-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0284,T2,grade G027-57,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0285,T2,grade G029-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0286,T2,grade G029-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0287,T2,grade G029-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0288,T2,grade G029-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0289,T2,grade G029-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0290,T2,grade G029-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0291,T2,grade G029-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0292,T2,grade G030-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0293,T2,grade G030-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0294,T2,grade G030-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0295,T2,grade G030-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0296,T2,grade G020-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0297,T2,grade G020-17,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0298,T2,grade G020-41,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0299,T2,grade G020-43,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0300,T2,grade G020-56,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0301,T2,grade G020-62,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0302,T2,grade G020-74,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0303,T2,grade G024-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0304,T2,grade G024-21,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0305,T2,grade G025-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0306,T2,grade G026-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0307,T2,grade G045-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0308,T2,grade G045-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0309,T2,grade G085-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0310,T2,grade G072-01,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0311,T4,grade G083-02,FOUND-ON-HELD-DOC,applied,"stage 3, m489","Braskem FL900PP-CF's ""no drying needed"" typed on both its profiles."
+F-0312,T4,grade G019-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0313,T4,grade G053-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0314,T4,grade G053-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0315,T4,grade G081-07,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0316,T4,grade G094-09,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0317,T4,grade G094-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0318,T4,grade G096-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0319,T4,grade G098-06,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0320,T4,grade G099-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0321,T4,grade G099-08,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0322,T4,grade G099-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0323,T4,grade G099-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0324,T4,grade G115-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0325,T4,grade G116-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0326,T4,grade G117-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0327,T4,grade G118-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0328,T4,grade G121-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0329,T4,grade G125-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0330,T4,grade G125-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0331,T4,grade G127-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0332,T4,grade G138-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0333,T4,grade G149-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0334,T4,grade G164-05,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0335,T4,grade G164-10,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0336,T4,grade G165-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0337,T4,grade G165-03,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0338,T4,grade G165-04,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0339,T4,grade G166-01,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0340,T4,grade G001-102,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0341,T4,grade G001-118,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0342,T4,grade G001-133,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0343,T4,grade G001-135,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0344,T4,grade G001-138,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0345,T4,grade G001-139,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0346,T4,grade G001-177,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0347,T4,grade G001-184,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0348,T4,grade G001-188,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0349,T4,grade G008-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0350,T4,grade G008-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0351,T4,grade G008-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0352,T4,grade G008-16,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0353,T4,grade G008-18,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0354,T4,grade G008-28,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0355,T4,grade G008-29,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0356,T4,grade G008-30,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0357,T4,grade G008-31,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0358,T4,grade G008-32,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0359,T4,grade G008-33,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0360,T4,grade G011-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0361,T4,grade G011-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0362,T4,grade G011-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0363,T4,grade G011-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0364,T4,grade G011-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0365,T4,grade G011-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0366,T4,grade G011-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0367,T4,grade G012-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0368,T4,grade G013-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0369,T4,grade G014-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0370,T4,grade G014-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0371,T4,grade G014-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0372,T4,grade G014-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0373,T4,grade G014-14,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0374,T4,grade G014-16,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0375,T4,grade G016-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0376,T4,grade G016-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0377,T4,grade G017-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0378,T4,grade G017-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0379,T4,grade G017-14,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0380,T4,grade G019-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0381,T4,grade G025-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0382,T4,grade G026-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0383,T4,grade G027-39,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0384,T4,grade G029-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0385,T4,grade G029-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0386,T4,grade G030-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0387,T4,grade G031-29,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0388,T4,grade G034-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0389,T4,grade G037-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0390,T4,grade G039-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0391,T4,grade G039-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0392,T4,grade G039-32,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0393,T4,grade G039-38,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0394,T4,grade G039-39,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0395,T4,grade G039-54,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0396,T4,grade G039-56,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0397,T4,grade G045-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0398,T4,grade G045-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0399,T4,grade G045-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0400,T4,grade G045-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0401,T4,grade G046-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0402,T4,grade G046-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0403,T4,grade G046-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0404,T4,grade G046-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0405,T4,grade G052-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0406,T4,grade G054-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0407,T4,grade G066-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0408,T4,grade G066-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0409,T4,grade G066-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0410,T4,grade G066-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0411,T4,grade G075-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0412,T4,grade G075-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0413,T4,grade G075-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0414,T4,grade G075-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0415,T4,grade G081-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0416,T4,grade G081-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0417,T4,grade G081-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0418,T4,grade G082-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0419,T4,grade G082-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0420,T4,grade G082-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0421,T4,grade G082-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0422,T4,grade G082-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0423,T4,grade G085-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0424,T4,grade G087-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0425,T4,grade G093-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0426,T4,grade G094-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0427,T4,grade G097-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0428,T4,grade G099-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0429,T4,grade G099-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0430,T4,grade G106-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0431,T4,grade G107-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0432,T4,grade G111-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0433,T4,grade G119-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0434,T4,grade G125-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0435,T4,grade G125-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0436,T4,grade G129-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0437,T4,grade G141-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0438,T4,grade G141-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0439,T4,grade G149-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0440,T4,grade G153-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0441,T4,grade G153-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0442,T4,grade G155-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0443,T4,grade G155-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0444,T4,grade G157-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0445,T4,grade G159-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0446,T4,grade G162-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0447,T4,grade G164-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0448,T4,grade G164-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0449,T4,grade G166-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0450,T4,grade G167-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0451,T4,grade G167-14,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0452,T4,grade G168-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0453,T4,grade G173-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0454,T4,grade G174-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0455,T6,grade G070-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0456,T6,grade G067-05,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0457,T6,grade G059-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0458,T6,grade G068-02,AMBIGUOUS-ON-PAGE,left,,The page's words do not settle it; not entered.
+F-0459,T6,grade G070-03,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0460,T6,grade G071-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0461,T6,grade G069-01,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0462,T6,grade G053-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0463,T6,grade G048-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0464,T6,grade G050-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0465,T6,grade G052-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0466,T6,grade G053-16,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0467,T6,grade G054-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0468,T6,grade G059-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0469,T6,grade G069-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0470,T6,grade G070-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0471,T6,grade G074-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0472,T6,grade G050-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0473,T6,grade G051-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0474,T6,grade G051-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0475,T6,grade G052-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0476,T6,grade G073-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0477,T6,grade G082-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0478,T6,grade G082-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0479,T6,grade G048-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0480,T6,grade G049-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0481,T6,grade G049-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0482,T6,grade G049-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0483,T6,grade G050-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0484,T6,grade G050-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0485,T6,grade G050-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0486,T6,grade G050-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0487,T6,grade G050-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0488,T6,grade G051-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0489,T6,grade G051-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0490,T6,grade G051-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0491,T6,grade G051-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0492,T6,grade G051-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0493,T6,grade G052-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0494,T6,grade G053-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0495,T6,grade G053-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0496,T6,grade G053-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0497,T6,grade G053-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0498,T6,grade G057-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0499,T6,grade G057-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0500,T6,grade G057-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0501,T6,grade G059-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0502,T6,grade G065-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0503,T6,grade G066-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0504,T6,grade G067-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0505,T6,grade G067-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0506,T6,grade G067-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0507,T6,grade G067-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0508,T6,grade G068-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0509,T6,grade G068-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0510,T6,grade G070-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0511,T6,grade G070-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0512,T6,grade G070-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0513,T6,grade G070-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0514,T6,grade G071-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0515,T6,grade G071-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0516,T6,grade G072-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0517,T6,grade G073-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0518,T6,grade G073-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0519,T6,grade G082-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0520,T6,grade G082-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0521,T6,grade G083-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0522,T6,grade G084-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0523,T6,grade G104-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0524,T6,grade G108-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0525,T6,grade G140-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0526,T6,grade G147-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0527,T6,grade G149-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0528,T6,grade G156-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0529,T6,grade G164-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0530,T6,grade G048-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0531,T6,grade G048-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0532,T6,grade G049-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0533,T6,grade G049-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0534,T6,grade G049-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0535,T6,grade G049-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0536,T6,grade G049-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0537,T6,grade G050-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0538,T6,grade G050-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0539,T6,grade G050-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0540,T6,grade G051-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0541,T6,grade G051-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0542,T6,grade G051-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0543,T6,grade G052-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0544,T6,grade G052-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0545,T6,grade G053-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0546,T6,grade G053-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0547,T6,grade G053-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0548,T6,grade G053-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0549,T6,grade G053-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0550,T6,grade G053-15,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0551,T6,grade G054-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0552,T6,grade G054-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0553,T6,grade G057-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0554,T6,grade G057-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0555,T6,grade G064-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0556,T6,grade G066-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0557,T6,grade G066-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0558,T6,grade G067-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0559,T6,grade G068-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0560,T6,grade G071-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0561,T6,grade G071-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0562,T6,grade G072-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0563,T6,grade G073-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0564,T6,grade G074-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0565,T6,grade G075-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0566,T6,grade G075-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0567,T6,grade G082-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0568,T6,grade G082-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0569,T6,grade G082-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0570,T6,grade G083-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0571,T6,grade G083-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0572,T6,grade G083-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0573,T6,grade G084-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0574,T6,grade G085-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0575,T6,grade G087-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0576,T6,grade G087-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0577,T6,grade G096-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0578,T6,grade G096-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0579,T6,grade G103-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0580,T6,grade G120-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0581,T6,grade G124-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0582,T6,grade G132-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0583,T6,grade G132-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0584,T6,grade G138-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0585,T6,grade G139-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0586,T6,grade G146-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0587,T6,grade G148-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0588,T6,grade G148-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0589,T6,grade G149-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0590,T6,grade G164-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0591,T6,grade G164-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0592,T6,grade G070-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0593,T6,grade G070-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0594,T6,grade G070-03,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0595,T6,grade G070-03,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0596,T6,grade G071-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0597,T6,grade G071-02,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0598,T6,grade G067-05,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0599,T6,grade G067-05,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0600,T6,grade G068-02,AMBIGUOUS-ON-PAGE,left,,The page's words do not settle it; not entered.
+F-0601,T6,grade G068-02,AMBIGUOUS-ON-PAGE,left,,The page's words do not settle it; not entered.
+F-0602,T6,grade G059-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0603,T6,grade G059-02,CONFIRMED-AS-RECORDED,already-in-data,,The page confirms the held record.
+F-0604,T6,grade G069-01,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0605,T5,grade G018-09,FOUND-NEW,applied,"stage 3, m489",Eryone PLA-CF's 15 % carbon fibre entered from its own page.
+F-0606,T5,grade G053-15,FOUND-ON-HELD-DOC,applied,"stage 3, m489",MatterHackers PRO Series PA CF's 20 % entered from its page.
+F-0607,T5,grade G033-05,FOUND-ON-HELD-DOC,already-in-data,,Extrudr ASA-CF's 12 % by volume is already in its grade's words; a volume fraction is not a load by weight.
+F-0608,T5,grade G018-11,FOUND-NEW,applied,"stage 3, m489",eSUN ePLA-CF's 15-20 % entered from its archived SDS.
+F-0609,T9,grade G165-05,FOUND-NEW,applied,"stage 4, m490","Essentium PA-CF (G165-05) filed under PA6/66-CF on its SDS's ""Polyamide (PA 6/66)""."
+F-0610,T5,grade G018-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0611,T5,grade G018-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0612,T5,grade G018-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0613,T5,grade G018-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0614,T5,grade G018-17,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0615,T5,grade G018-18,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0616,T5,grade G019-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0617,T5,grade G024-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0618,T5,grade G024-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0619,T5,grade G024-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0620,T5,grade G024-14,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0621,T5,grade G024-15,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0622,T5,grade G024-16,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0623,T5,grade G024-22,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0624,T5,grade G024-24,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0625,T5,grade G025-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0626,T5,grade G028-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0627,T5,grade G028-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0628,T5,grade G029-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0629,T5,grade G029-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0630,T5,grade G029-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0631,T5,grade G033-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0632,T5,grade G033-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0633,T5,grade G033-17,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0634,T5,grade G034-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0635,T5,grade G034-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0636,T5,grade G034-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0637,T5,grade G037-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0638,T5,grade G037-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0639,T5,grade G037-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0640,T5,grade G037-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0641,T5,grade G037-10,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0642,T5,grade G038-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0643,T5,grade G048-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0644,T5,grade G050-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0645,T5,grade G050-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0646,T5,grade G050-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0647,T5,grade G051-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0648,T5,grade G053-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0649,T5,grade G053-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0650,T5,grade G053-11,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0651,T5,grade G053-13,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0652,T5,grade G070-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0653,T5,grade G071-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0654,T5,grade G073-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0655,T5,grade G074-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0656,T5,grade G083-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0657,T5,grade G083-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0658,T5,grade G083-04,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0659,T5,grade G084-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0660,T5,grade G106-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0661,T5,grade G106-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0662,T5,grade G118-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0663,T5,grade G118-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0664,T5,grade G122-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0665,T5,grade G128-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0666,T5,grade G129-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0667,T5,grade G131-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0668,T5,grade G152-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0669,T5,grade G152-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0670,T5,grade G165-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0671,T5,grade G165-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0672,T5,grade G165-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0673,T5,grade G165-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0674,T5,grade G165-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0675,T5,grade G166-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0676,T5,grade G166-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0677,T5,grade G166-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0678,T9,grade G001-23,FOUND-NEW,applied,"stage 4, m490","PolyTerra PLA's later name, Panchroma Matte PLA, recorded in its grade's words."
+F-0679,T9,grade G001-20,FOUND-NEW,left,,Whether Polymaker PLA Pro and PolySonic PLA Pro 6.0 are one product stays the owner's call (OPEN-PROBLEMS §31.12); the current pages' links are recorded there.
+F-0680,T9,grade G082-13,FOUND-NEW,applied,"stages 2 and 3, m488, m489",Fiberlogy R PP's 2025 sheet registered; its 40 °C heat deflection at 1.8 MPa entered beside the page's 0.45 MPa label (OPEN-PROBLEMS §39.1); its other figures are held from the product page already.
+F-0681,T9,grade G068-01,AMBIGUOUS-ON-PAGE,already-in-data,,"Flashforge PET-GF's 30 % and the sheet's 15 % are both held, the conflict filed (OPEN-PROBLEMS)."
+F-0682,T9,source d230eec3cdbe2bbd,AMBIGUOUS-ON-PAGE,left,,"An XT-CF20 identity lead; the sheet is registered (G090-03), no change."
+F-0683,T9,source 2688570615b2eb82,NEEDS-OWNER,superseded,,Electrifi's home was decided by D176 (M176).
+F-0684,T9,source https://www.stratasys.com/contentassets/6729604c61704654ac5c0392276a2d57/mds_fdm_diran410mf07_0224a-1.pdf?v=4aa22c,FOUND-NEW,superseded,,Diran 410MF07's home was decided by D176 (M177).
+F-0685,T9,polymer nGen,FOUND-NEW,left,,"nGen AM3300's producer density: polymers.csv is frozen (D58, D138); filed (OPEN-PROBLEMS §38.4)."
+F-0686,T9,polymer BVOH,FOUND-NEW,left,,"The BVOH producer SDS gives no density method, and its reference PVA interval is not the named grade's; polymers.csv is frozen; filed (OPEN-PROBLEMS §38.5)."
+F-0687,T9,polymer CoPA,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0688,T9,grade G164-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0689,T9,grade G164-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0690,T9,grade G164-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0691,T9,grade G164-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0692,T9,grade G165-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0693,T9,grade G164-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0694,T9,grade G164-05,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0695,T9,grade G164-09,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0696,T9,grade G166-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0697,T9,grade G165-06,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0698,T9,grade G166-03,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0699,T9,grade G166-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0700,T9,grade G167-01,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0701,T9,grade G167-08,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0702,T9,grade G167-07,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0703,T9,grade G167-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0704,T9,grade G001-129,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0705,T9,grade G001-108,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0706,T9,grade G020-46,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0707,T9,grade G027-33,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0708,T9,grade G030-08,NEEDS-MAKER,left,,A question only the maker can answer; the owner sends no maker emails (2026-10-05): the handoff is kept beside this file.
+F-0709,T9,grade G001-134,NEEDS-CAPTURE,left,,GreenyHT's page served a password wall: needs capture.
+F-0710,T9,grade G019-02,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0711,T9,grade G001-59,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0712,T9,source eb2ae5932a890e1a,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0713,T9,source 4a90a1e5e22db834,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0714,T9,source https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/SKULPT/Data%20Sheets%20and%20Declarations/TDS%20-%20SKULPT.pdf,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0715,T9,source https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/st-130/mss_fdm_st130_1016a.pdf?v=48e19f,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0716,T9,polymer CPE,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0717,T9,polymer CoPE,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0718,T9,polymer PA,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0719,T9,polymer PAHT,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0720,T9,polymer TPE,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0721,T9,polymer OBC,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0722,T9,polymer Support,NEEDS-OWNER,left,,"A question for the owner, filed in OPEN-PROBLEMS."
+F-0723,T10,source S-PA12,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0724,T10,source S-PES,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0725,T10,source XP-3dxmax-hips,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0726,T10,source XP-3dxmaxa-r-pc-abs,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0727,T10,source XP-3dxstat-esd-abs-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0728,T10,source XP-3dxstat-esd-petg-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0729,T10,source XP-amidex-nylon-6-67,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0730,T10,source XP-carbonx-abs-cf-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0731,T10,source XP-carbonx-nylon-12-cf-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0732,T10,source XP-carbonx-pc-cf-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0733,T10,source XP-ecomax-r-pla,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0734,T10,source XP-fibrex-nylon-12-gf30-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0735,T10,source XP-carbonx-pp-cf-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0736,T10,source XP-fluorx-pvdf-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0737,T10,source XP-max-g-pctg-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0738,T10,source XP-pekk-a,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0739,T10,source XP-thermax-peek-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0740,T10,source XP-thermax-pei-1010,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0741,T10,source XP-thermax-pps,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0742,T10,source XP-thermax-ppsu-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0743,T10,source R-AIRTECH-KIMYA-PORTFOLIO,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0744,T10,source R-AIRTECH-KIMYA-ACQUISITION,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0745,T10,source XP-thermax-psu-1,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0746,T10,source R-KIMYA-PEBA-S-TDS,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0747,T10,source B-PC,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0748,T10,source R-BASF-PCGF30-PRODUCT,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0749,T10,source B-TPU-SOFT,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0750,T10,source B-abs-filament,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0751,T10,source B-abs-gf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0752,T10,source B-asa-aero,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0753,T10,source B-asa-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0754,T10,source B-asa-filament,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0755,T10,source B-pa6-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0756,T10,source B-pa6-gf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0757,T10,source B-paht-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0758,T10,source B-pc-fr,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0759,T10,source B-pet-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0760,T10,source B-petg-basic,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0761,T10,source B-petg-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0762,T10,source B-petg-hf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0763,T10,source B-petg-translucent,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0764,T10,source B-pla-aero,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0765,T10,source B-pla-basic-filament,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0766,T10,source B-pla-basic-gradient,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0767,T10,source B-pla-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0768,T10,source B-pla-galaxy,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0769,T10,source B-pla-glow,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0770,T10,source B-pla-marble,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0771,T10,source B-pla-matte,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0772,T10,source B-pla-metal,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0773,T10,source B-pla-silk-dual-color,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0774,T10,source B-pla-silk-upgrade,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0775,T10,source B-pla-sparkle,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0776,T10,source B-pla-tough-upgrade,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0777,T10,source B-pla-translucent,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0778,T10,source B-pla-wood,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0779,T10,source B-ppa-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0780,T10,source B-pps-cf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0781,T10,source B-pva,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0782,T10,source B-support-for-abs,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0783,T10,source B-support-for-pa-pet,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0784,T10,source H2C-WIKI,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0785,T10,source B-support-for-pla-petg,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0786,T10,source R-BAMBU-SUPPORT-PLA-NEW-PRODUCT,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0787,T10,source R-H2C-SPECS,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0788,T10,source NIOSH-2019,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0789,T10,source B-tpu-95a-hf,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0790,T10,source B-tpu-for-ams,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0791,T10,source R-BAMBU-CA-CATALOG-20260913,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0792,T10,source P-CHEM,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0793,T10,source D-FLASH-PETGF,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0794,T10,source R-MITSUBISHI-GPOLYMER-PAGE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0795,T10,source S-POM,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0796,T10,source R-POLYMAKER-SILK-PLA-PAGE,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0797,T10,source R-POLYMAKER-WIKI-HTPLAGF,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0798,T10,source D-PRUSA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0799,T10,source R-POLYMAKER-WIKI-PANCHROMA-COPE,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0800,T10,source S-FILLAMENTUM,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0801,T10,source PR-abs,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0802,T10,source PR-asa,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0803,T10,source PR-cpe,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0804,T10,source PR-flexible-materials,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0805,T10,source PR-hips,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0806,T10,source PR-ngen,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0807,T10,source PR-petg,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0808,T10,source PR-pla,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0809,T10,source PR-polyamide-nylon,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0810,T10,source PR-polycarbonate-pc,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0811,T10,source P-FATIGUE,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0812,T10,source R-MDPI-FATIGUE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0813,T10,source PR-polypropylene-pp,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0814,T10,source R-TRINITY3DS-HYPERLITE-PP,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0815,T10,source PR-pvb,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0816,T10,source R-ESUN-PLA-LITE-PAGE,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0817,T10,source R-STRATASYS-ULTEM9085,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0818,T10,source S-NGEN2,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0819,T10,source PR-water-soluble-bvoh-pva,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0820,T10,profile P0134,FOUND-NEW,already-in-data,,ESD-PETG's 260-280 °C is held already (P1847).
+F-0821,T10,source S-PET-TDS-High-Gloss-PLA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0822,T10,source S-PET-TDS-ABSpro,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0823,T10,source S-PET-TDS-ABSpro-Flame-Retardant,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0824,T10,source S-PET-TDS-CarbonFil,FOUND-NEW,already-in-data,,The copy is byte for byte a source the database already registers.
+F-0825,T10,source S-PET-TDS-Centaur-PP,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0826,T10,source S-PET-TDS-EasyFil-ABS,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0827,T10,source S-PET-TDS-EasyFil-HIPS,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0828,T10,source S-PET-TDS-EasyFil-PLA,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0829,T10,source S-PET-TDS-EasyWood,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0830,T10,source S-PET-TDS-Galaxy-PLA,FOUND-NEW,already-in-data,,The copy is byte for byte a source the database already registers.
+F-0831,T10,source S-PET-TDS-Premium-PLA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0832,T10,source S-PET-TDS-ReFill-PETG,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0833,T10,source S-PET-TDS-ReFill-PLA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0834,T10,source S-PET-TDS-ReForm-rPET,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0835,T10,source S-PET-TDS-ReForm-rPLA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0836,T10,source S-PET-TDS-StoneFil,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0837,T10,source S-PET-TDS-Tough-PLA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0838,T10,source R-BIGREP-EamZRWAunoxKoIYZCacNr0YBllxjtWjQ2wi-t2bk8dMrZQ,FOUND-NEW,already-in-data,,The copy is byte for byte a source the database already registers.
+F-0839,T10,source R-BIGREP-EU3iphIQD9hGhUQXiWWOXbYBhjDcb7BNHD3k8dPwoQCsQg,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0840,T10,source R-BIGREP-EZBYxVrNV7NGt4xXE3UWWuwBPYBbMpjmGobs-fcxZTeadg,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0841,T10,source R-BIGREP-EWGmERRaxthJq-JOsmzhLY0BOTiqFYed5n0DaVMe-iZ1cQ,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0842,T10,source R-BIGREP-EVMGxLYZZHtFnUXJyVdjMDkBNtXAN2Bj7nRmZ37F91wPdQ,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0843,T10,source R-BIGREP-EWhVOcddlrlPg7E8EnfbuAEBF9-1smBh1nDh-WKBmBCTmA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0844,T10,source R-BIGREP-Ec5wx9MmYX1KseTcD5XV1IABzL0ure69YNjObGyOPwDL-w,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0845,T10,source D-BIGREP-PRO-HT-MSDS,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0846,T10,source R-BIGREP-EbCK6vuDEMZAre3SgyY8Y2IBbx5LFjMs5Zw5lH43SKl3iw,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0847,T10,source R-BIGREP-Edf9dbsNa39BiC-Vl1Fh9MwB917sFqJdBc2ekgXXAjmr3g,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0848,T10,source R-BIGREP-EajSvqXsqMZDmdON2v3rhnQBDgGH-1IuRzfjv5WgPXKsQA,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0849,T10,source R-BIGREP-ETc3xC8Tf1xLsCQNb96LTKcBFORK1-vyseiwkW-aUdjaJw,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0850,T10,source S-PET-TDS-MDflex,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0851,T10,source S-PET-TDS-Atlas-Support,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0852,T10,source S-PET-TDS-Crystal-Flex,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0853,T10,source S-PET-TDS-EasyCork,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0854,T10,source S-PET-TDS-ePETG,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0855,T10,source S-PET-TDS-ePLA,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0856,T10,source S-PET-TDS-FlexiFil,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0857,T10,source S-PET-TDS-Helios-Support,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0858,T10,source S-PET-formfutura-tds-highprecisionpla,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0859,T10,source S-PET-TDS-LimoSolve,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0860,T10,source S-PET-TDS-MagicFil-Thermo-PLA,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0861,T10,source S-PET-TDS-Pegasus-PP-GF,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0862,T10,source S-PET-TDS-STYX-12,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0863,T10,source S-PET-TDS-Silk-Gloss-PLA,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0864,T10,source S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0865,T10,source S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0866,T10,source S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0867,T10,source S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0868,T10,source https://3d.nice-cdn.com/upload/file/durapro-pc-pbt-TDS-en.pdf,FOUND-NEW,already-in-data,,The copy is byte for byte a source the database already registers.
+F-0869,T10,source https://eryone.com/wp-content/uploads/2025/03/ABS-GF%E7%BA%BF%E6%9D%90-TDS-%E8%89%BE%E7%91%9E%E6%97%BA%EF%BC%88%E8%8B%B1%E6%96%87%E7%89%88%EF%BC%892.pdf,NOT-FOUND-SEARCHED,left,,A scoped search that found nothing (searches.csv in the package).
+F-0870,T10,source https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/https%3A%2F%2Fs3-eu-central-1.amazonaws.com%2Fplentymarkets-public-92%2Fpvdtyofq45f2%2FpropertyItems%2F2%2FMaterialdatenblatt+ABS+purefil.pdf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."
+F-0871,T10,source https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/https%3A%2F%2Fs3-eu-central-1.amazonaws.com%2Fplentymarkets-public-92%2Fpvdtyofq45f2%2FpropertyItems%2F3%2Fmaterial+data+sheet+ABS+purefil.pdf,FOUND-NEW,already-in-data,,The copy is byte for byte a source the database already registers.
+F-0872,T10,source https://ninjatek.com/wp-content/uploads/colorFabb_Armadillo_Printing_Filament_SDS.pdf,FOUND-NEW,left,,"A copy whose bytes differ from the held original, with no edition established: kept by the package, not registered (D131, D171); no link repointed (OPEN-PROBLEMS §34.6, §37.12)."

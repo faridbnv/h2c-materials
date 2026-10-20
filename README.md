@@ -42,7 +42,7 @@ Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md
 - **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test
   prints.
 - **What is limited on purpose.** New documents enter through the import pipeline (open again since 5 October 2026, when
-  the owner lifted the pause of September); prices were sampled on four days, from 10 September 2026 to 19 October 2026,
+  the owner lifted the pause of September); prices were sampled on five days, from 10 September 2026 to 20 October 2026,
   and not refreshed since; team features (shared searches, an approved list, the team's own test results) come later.
 <!-- status:end -->
 
