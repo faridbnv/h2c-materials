@@ -1,7 +1,7 @@
 COUNT 131 shown PASS + UNKNOWN
-STATUS ☑ PASS 99 | ☑ UNKNOWN 32 | ☐ FAIL 21
-99 of the 152 materials meet these requirements
-Indoor prototype template · UNKNOWN 32: 29 one check away, 3 not enough data
+STATUS ☑ PASS 98 | ☑ UNKNOWN 33 | ☐ FAIL 21
+98 of the 152 materials meet these requirements
+Indoor prototype template · UNKNOWN 33: 30 one check away, 3 not enough data
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -42,8 +42,8 @@ PC
 ~a–b† estimate, italic = rough
 n/a not applicable
 3 more marks
-Meets every requirement (99)
-TABLE 99 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+Meets every requirement (98)
+TABLE 98 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW ABS | ☆ | PASS / 51 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40↗ / 24.5–70.7 · 9
 ROW ABS-AF | ☆ | PASS / 2 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | ~2–19† | 88 | 127↗
 ROW ABS-CF | ☆ | PASS / 3 of 11 products | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45↗ / 40–50 · 2
@@ -127,7 +127,6 @@ ROW PPS · ☆
 ROW PPS-CF · ☆
 ROW PPS-GF · ☆
 ROW PVB · ☆
-ROW PVC-P · ☆
 ROW PVDF-ESD · ☆
 ROW SBC · ☆
 ROW TPC · ☆
@@ -143,9 +142,9 @@ ROW TPU-ESD · ☆
 ROW TPU-GF · ☆
 ROW TPU-LW · ☆
 ROW TPV · ☆
-One check away (29)
+One check away (30)
 One question to the maker or one test print settles it: its print settings, or a value on the line. Still UNKNOWN until it is settled.
-TABLE 29 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+TABLE 30 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW LCP / High-Performance Engineering | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: Fabru Liquid Crystal Polymer (LCP), its bed is on the line: the H2C reaches only the bottom of the maker's window (120 °C of 120–150 °C); its chamber temperature is not stated | 1,400 | ~7.2–12.8† | ~200–243† | ~1.8–6.2† | ~193–195† | —
 ROW nGen / also called Amphora · Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen, its chamber temperature is not stated | ~1,170–1,230† | 1.7 | 54 | 11 | ~64.9–74.2† | 77.3↗
 ROW nGen FLEX / Copolyesters | ☆ | UNKNOWN / none judged / One check away on 1 of 1 product: colorFabb nGen_FLEX, its chamber temperature is not stated | 1,130 | 0.15 | 19.3 | 320 | ~68–101† | 76.3EUR
@@ -172,6 +171,7 @@ ROW PLA-PHA · ☆
 ROW POM · ☆
 ROW PPS-ESD · ☆
 ROW PVC · ☆
+ROW PVC-P · ☆
 ROW PVDF · ☆
 ROW SAN · ☆
 ROW TPC-ESD · ☆

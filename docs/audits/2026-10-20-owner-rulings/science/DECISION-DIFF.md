@@ -4,7 +4,9 @@
 > round's other tracks (T2 to T4) were merged into this track between its migrations: part 1 is the baseline
 > ([census-before.json](../baseline/census-before.json), release 7d8f8980c40d) against m473 to m475 alone (release
 > ef15ddef056d); part 2 is the merged branch (T2 to T4 with m473 to m475, release b87627f153d5)
-> against m476 and m477 (release b574a5b47e55). Run it again for the current state;
+> against m476 and m477 (release b574a5b47e55). The round's review fixes are diffs of their own:
+> [m478](diff-m478-review-fixes.md) (PVC-P's enclosure advice: three verdicts) and [m479](diff-m479-pvc-p-limit.md)
+> (PVC-P's rubber limit a row of its own: nothing moved). Run it again for the current state;
 > [DECISIONS-MEMO.md](DECISIONS-MEMO.md) says what the moves mean.
 
 **What moved, in words.** Of existing materials' verdicts, only these: PET-GF from pass to "unlikely to meet" for 90 and
@@ -14,7 +16,8 @@ m474); rigid PVC from pass to fail for 20 and 100 % elongation as published (fou
 now a material of its own) and from unknown to fail for the lightweight structure (three cases, on Fillamentum Vinyl
 303's own values); PA-ESD from fail to pass for 5 and 20 % elongation as published (four cases, on Onyx ESD's 25 %,
 m476). Every other verdict that moved is a new material's: PCL-EC and Nylon-CE (276, m475), PVC-P (138, m476; 21 of
-them fail the stiffness questions through the rubber limit, m477). SBC's group moves from "not enough data" to "unlikely"
+them fail the stiffness questions through the rubber limit, m477; after the review, m478, it is one check away for the
+indoor prototype in each of its three policies, on its maker's enclosure advice). SBC's group moves from "not enough data" to "unlikely"
 or "likely" where its new estimate decides (m475). The other group, product and likely-tag moves are the estimate model
 refitting its shared spreads after the data changed (a few products near a limit, as each round's refit moves them).
 

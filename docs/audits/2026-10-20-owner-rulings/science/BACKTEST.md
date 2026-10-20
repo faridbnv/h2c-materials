@@ -8,6 +8,8 @@
 > the build hid. **SBC's row in polymers.csv** was kept: calibration holds on every headline and its product's estimates
 > hold its own values. **PET as "prints amorphous unless fibre-filled"** was rejected: calibration held, but only by
 > giving a PET fill a range about 106 °C wide, centred 40 to 90 °C above every as-printed bar its makers state.
+> After the round's review, two more were measured: SBC's row again on the merged data (it moves no crystalline-filled
+> stiffness coverage; §1), and the other track's "cosmetic dense filler" variant (m470, D175; calibration holds; §3).
 > The numbers are the build's own (`meta.estimateModel`), read by [calibration.mjs](calibration.mjs).
 
 How to read the tables. **Held** is how many hidden values were predicted; **likely** and **plausible** are how often the
@@ -31,6 +33,29 @@ build (release ef15ddef056d).
 One hidden case joins (SBC's density, held). The product calibration moves by refitting the spreads it shares with the
 other groups, within a point; by matrix, the crystalline-filled stiffness plausible coverage moved 92.9 → 89.3 % (28
 products, a stratum the check does not hold to 90 %) and heat deflection's 92.3 → 90.4 % (52, still above 90 %).
+
+**Again on the merged data (the round's review, F6b).** The review asked whether SBC's row causes the crystalline-filled
+stiffness stratum's 89.3 %. Built again with and without the row on the round's merged data after m479 ("with" release
+18f3fc84c331; "without" the same data with M174's identity Not applicable, release 1f0d98ee6951, thrown away):
+
+| Headline | Materials held, without → with | Likely / plausible | Products held | Products' likely / plausible, without → with |
+|---|---:|---|---:|---|
+| density | 120 → 121 | 80.0 / 95.0 → 80.2 / 95.0 % | 832 | 79.6 / 95.0 → 79.4 / 95.1 % |
+| tensileModulusXY | 74 | 81.1 / 95.9 %, both | 296 | 79.7 / 95.3 → 80.1 / 95.3 % |
+| tensileStrengthXY | 59 | 81.4 / 96.6 %, both | 303 | 79.2 / 94.1 %, both |
+| elongationXY | 79 | 81.0 / 96.2 %, both | 334 | 79.6 / 94.9 → 79.3 / 94.9 % |
+| hdt045 | 72 | 80.6 / 95.8 %, both | 414 | 80.2 / 95.2 → 80.0 / 95.2 % |
+
+The crystalline-filled products' stiffness reads 67.9 / 92.9 % (28 products) with the row and without it, and heat
+deflection's crystalline-filled 80.8 / 92.3 % (52) and unfilled 74.1 / 100 % (27) both ways. So the row does not cause
+the 89.3 %: that figure is m475's build before the merge, where one product of 28 (3.6 points) crossed its range's edge as
+the spreads every group shares were refit. The stratum sits on that edge whatever moves the refit: stage 4 measured it
+at 67.9 / 89.3 % with the pooled spread before SBC existed ([stage-4-backtests.md](../../2026-10-18-screening-build/stage-4-backtests.md),
+"Stiffness keeps one spread"). Nor is it held to 90 %: EST-CALIBRATION holds each matrix to 80 / 90 % only for a headline
+whose product spread is set per matrix (D162, `build/src/estimate/validate.js`), which is heat deflection alone; stiffness
+keeps one spread because its own per-matrix spread held that matrix worse (53.6 / 85.7 %). Its likely 67.9 %, under the
+70 % tolerance, is the same with and without the row. Nothing to do for SBC; the stratum is the estimate stage's, as stage
+4 left it.
 
 **Crystal Flex's estimates against what it and its resins print.**
 
@@ -75,3 +100,36 @@ their own makers' as-printed bars miss.
 
 **Verdict.** Rejected: it fails physics and the makers' own as-printed figures while passing a check that cannot see
 them. PET's row is unchanged; the four crystallised-looking bars were read again and recorded for what they are (m473).
+
+## 3. A filler for looks gets a term of its own (m470, D175; the round's review, F6a)
+
+**The change.** The round's small-rules track (D175, m470) re-filed eleven matte and glitter products (Spectrum PET-G MATT,
+eSUN PETG-Matte, Extrudr XPETG MATT, FormFutura Matt PLA, AzureFilm PLA Matte (HS), SUNLU High Speed Matte PLA, PLA Lite
+and PLA Classic, Eryone PLA-Lite, eSUN eTwinkling, Recreus PLA) from "undisclosed dense filler" to a new Variant,
+"cosmetic dense filler". The estimate model gives each Variant a term of its own, so these eleven left the metal fills'
+term, and the review counted 607 product estimates moved, with no calibration record. "Before" is the round's merged data
+with the eleven mapped back to "undisclosed dense filler" (release ed19b35658f8, thrown away); "after" is the merged data
+as committed after m479 (release 18f3fc84c331).
+
+| Headline | Materials held | Likely / plausible, before → after | Products held | Products' likely / plausible, before → after |
+|---|---:|---|---:|---|
+| density | 121 | 80.2 / 95.0 %, both (scales 1.10/1.46 → 1.13/1.48) | 832 | 79.8 / 95.1 → 79.4 / 95.1 % |
+| tensileModulusXY | 74 | 81.1 / 95.9 %, both | 296 | 80.1 / 94.9 → 80.1 / 95.3 % |
+| tensileStrengthXY | 59 | 81.4 / 96.6 %, both (scales 1.24/1.46 → 1.21/1.37) | 303 | 79.2 / 94.4 → 79.2 / 94.1 % |
+| elongationXY | 79 | 81.0 / 96.2 %, both (width ×5.10 → ×4.51) | 334 | 79.3 / 95.2 → 79.3 / 94.9 % |
+| hdt045 | 72 | 80.6 / 95.8 %, both | 414 | 80.2 / 95.2 → 80.0 / 95.2 % |
+
+**By matrix (products).** Heat deflection, the one headline held per matrix: crystalline-filled 80.8 / 92.3 % both ways,
+unfilled 70.4 → 74.1 % / 100 %, glassy 80.9 → 80.3 % / 95.2 %; it holds. The strata the check does not hold move through
+the shared refit, not through the eleven (all PLA and PETG, which print glassy): density's crystalline-unfilled products
+72.5 / 90.2 → 66.7 / 88.2 % (51), strength's 100 → 88.9 % plausible (9, under the 20 the check counts), stretch's 90.9 →
+81.8 % (11), and the elastomers' stretch 76.7 → 80.0 % likely (30). The materials' strata are unchanged but for signed
+errors in the third decimal; filled PLA's density stays 60 / 80 % (OPEN-PROBLEMS §38.10, as stage 4 left it).
+
+**Verdict.** Calibration holds: EST-CALIBRATION passes before and after on every headline, material, product and heat
+matrix, and no headline's coverage moves by more than half a point. The 607 moved estimates are the refit of a grid the
+whole model shares (median 0.2 % each, D175), the kind of move every Variant change makes. One stratum the check does not
+hold drops below 90 %, the crystalline-unfilled products' density (88.2 %, 51 products, its likely 66.7 % under the 70 %
+tolerance): it is noted in OPEN-PROBLEMS §38.10 beside filled PLA's density. What the refit moved in answers is D175's
+decision diff: 16 product answers between "not enough data", "unlikely" and "likely", no material verdict.
+

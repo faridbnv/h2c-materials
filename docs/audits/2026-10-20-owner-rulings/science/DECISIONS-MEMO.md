@@ -15,7 +15,7 @@
 |---|---|---|---|
 | 1 | Does a carbon- or glass-filled PET crystallise as it prints, so that it holds 100 °C or more without annealing? | **No. PET's fills print glassy, as the tool already assumed.** The model is kept. One annealed bar is now recorded as annealed; two bars that state no treatment and read 190 to 200 °C are set aside as not the printed part's. | PET-GF no longer "passes" 90 or 120 °C as printed. Three products stay "unlikely to meet 100 °C", which is right as printed. |
 | 2 | Where do the held sheets belong? | **Electrifi:** a new material, PCL-EC (a conductive polycaprolactone, inferred). **Diran 410MF07:** a new home for mineral-filled nylons whose polyamide is not named. **Onyx ESD:** PA-ESD. **ISTROFLEX:** stays an undisclosed rubber. **SBC:** a stiff clear styrenic, now estimated. **FKuR Fibrolon, Nuterials JECTO, ST-130:** stay out, each with its reason. | Three products enter with 42 values; SBC is estimated; nothing else moves. |
-| 3 | Is purefil's Shore 94A PVC a rubber? | **Yes. A material of its own, PVC-P, under Flexible Elastomers, and the rubber limit now names it.** | It fails the stiffness questions on its kind's limit instead of sitting in "not enough data" with an estimate of 0.2 to 8.7 GPa. Rigid PVC keeps only the rigid product. |
+| 3 | Is purefil's Shore 94A PVC a rubber? | **Yes. A material of its own, PVC-P, under Flexible Elastomers, with a rubber limit of its own that cites a flexible-PVC reference.** | It fails the stiffness questions on its kind's limit instead of sitting in "not enough data" with an estimate of 0.2 to 8.7 GPa, and its maker's enclosure advice keeps it one check away for an indoor part. Rigid PVC keeps only the rigid product. |
 | 4 | Does Spectrum PET-G HT100 need a Variant class? | **No: it is not a PETG. It is a Tritan-type copolyester, filed under CPE** beside colorFabb HT and Fiberlogy CPE HT. | PETG no longer passes 90 °C on it. |
 
 Nothing in the estimate model's code or settings changed. One frozen table changed (polymers.csv gains SBC), with its
@@ -92,8 +92,13 @@ A plasticiser lowers PVC's glass transition below room temperature, and PVC's sm
 way a thermoplastic elastomer's hard blocks do: at Shore 94A it is a rubber of about 0.04 GPa, where rigid PVC (Fillamentum
 Vinyl 303, Shore 78D) is a 2 to 4 GPa glass. Engineers and ISO 1043 name them apart (PVC-P and PVC-U). So it is a material
 of its own, PVC-P, under Flexible Elastomers, not estimated (its plasticiser content sets its figures, and no reference
-gives them). The rubber limit (at most 0.5 GPa, from the Cambridge Materials Data Book's elastomers) now names it, in a
-commit of its own (m477): it fails the 2, 3 and 5 GPa questions and the three stiffness presets on that limit. A Variant
+gives them). The rubber limit (at most 0.5 GPa) holds for it: m477 named it in the elastomers' row (CL01, from the
+Cambridge Materials Data Book), and after the round's review, since that book prints no PVC, it has a row of its own (CL03,
+m478 and m479) citing Fainplast's table of flexible PVC compounds (Shore A 45 to 94, the harder grades "Semi rigid" from
+96A), registered as batch b49-2. It fails the 2, 3 and 5 GPa questions and the three stiffness presets on that limit. Its
+sheet asks for an enclosed printer with an activated-carbon filter (PVC gives off hydrogen chloride when it overheats):
+recorded on its profile (m478), it keeps PVC-P one check away for the indoor prototype, which it had passed on the rubber
+family's chamber-need row, an asked-for enclosure being a statement the chamber need never fills (D151). A Variant
 class was not used: a Variant stays inside rigid PVC's estimates, and no physics limit can reach a Variant. Its modulus is
 not published, and no maker emails were sent, as you decided.
 
@@ -117,16 +122,17 @@ material's (PCL-EC, Nylon-CE, PVC-P), and SBC now reads "unlikely" or "likely" w
 lists are in [DECISION-DIFF.md](DECISION-DIFF.md).
 
 Left open, each in OPEN-PROBLEMS: a crystallised bar whose sheet states no treatment is judged by a flag, one product at a
-time (§38.10); PVC-P passes no softness question, for want of a published modulus, and its enclosure advice is not typed on
-its profile (§38.9); FKuR's sheet waits for colorFabb woodFill (§14); colorFabb's 2015 carbon sheet, igus A350 and SKULPT
+time (§38.10); PVC-P passes no softness question, for want of a published modulus, and the rubber family's chamber-need row
+should name its kinds by base polymer, a change of its own (§38.9); FKuR's sheet waits for colorFabb woodFill (§14); colorFabb's 2015 carbon sheet, igus A350 and SKULPT
 stay deferred, as before (§14).
 
 ## Sources
 
 Registered in b49 (the import pipeline, staged by digest): R-MULTI3D-ELECTRIFI-TDS (SHA-256 2688570615b2…),
 R-MULTI3D-ELECTRIFI-SDS (6904261403724…), R-STRATASYS-mds-fdm-diran410mf07-0224a (34f028a12c8c…), R-NANOVIA-ISTROFLEX-SDS
-(a62b2abe8219…), R-INEOS-STYROLUX-656C-TDS (a0e20a397574…), R-INEOS-KRESIN-KR03-PAGE (e7f210454338…, a corroborating
-Wayback copy). Read and cited from the registered store: the PET sheets in the table above, S-PCGF-PET-CF-TDS,
+(a62b2abe8219…), R-INEOS-STYROLUX-656C-TDS (a0e20a397574…), R-INEOS-KRESIN-KR03-PAGE (e7f210454338…, a Wayback copy,
+cited by SBC's density row since m478). Registered in b49-2: R-FAINPLAST-PVC-FLEXIBLE-EXTRUSION (2596444c6206…), cited by
+PVC-P's rubber limit. Read and cited from the registered store: the PET sheets in the table above, S-PCGF-PET-CF-TDS,
 D-FLASH-PET-GF-TDS-EN, R-MARKFORGED-CompositesMaterialDatasheet, R-FABRU-PUREFIL-7782-Materialdatenblatt-PVC-P-purefil,
 S-SPECTRUM-en-tds-spectrum-petg-ht100, R-SPECTRUM-PORTFOLIO-2024, R-COLORFABB-TDS-E-ColorFabb-HT,
 R-FIBERLOGY-FIBERLOGY-CPE-HT-TDS-0, R-NANOVIA-ISTROFLEX, R-BASF-ECOFLEX-C1200-PI. Fetched and hashed for this memo, not
@@ -134,4 +140,4 @@ registered (no value rests on them): LEHVOSS's LUVOCOM 3F PET CF 9780 BK filamen
 V4.0, Polymaker Fiberon PET-GF15 V1.0, UltiMaker's PET CF annealing article, Flashforge's PET-GF and PET-CF product pages
 (which print 205 °C beside the sheets' 200 and 100 °C), Eastman Tritan TX1001 and the 2015 Tritan brochure, Spectrum's
 PET-G HT100 safety data sheet, colorFabb's woodFill sheets and FKuR's colorFabb case study, INEOS Styrolux 684D and 3G55,
-Styroflex 2G66, purefil's PVC-P page, Fainplast's flexible PVC compounds, and Multi3D's Electrifi FAQ and product page.
+Styroflex 2G66, purefil's PVC-P page and Multi3D's Electrifi FAQ and product page.

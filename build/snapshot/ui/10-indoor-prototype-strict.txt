@@ -1,7 +1,7 @@
-COUNT 99 shown PASS
-STATUS ☑ PASS 99 | ☐ UNKNOWN 32 | ☐ FAIL 21
-99 of the 152 materials meet these requirements
-Indoor prototype template · UNKNOWN 32 left out: 29 one check away, 3 not enough data
+COUNT 98 shown PASS
+STATUS ☑ PASS 98 | ☐ UNKNOWN 33 | ☐ FAIL 21
+98 of the 152 materials meet these requirements
+Indoor prototype template · UNKNOWN 33 left out: 30 one check away, 3 not enough data
 Why the rest were excluded
 Clear requirements
 Nozzle, bed and chamber within H2C limits
@@ -41,7 +41,7 @@ PC
 * published, not comparable
 n/a not applicable
 3 more marks
-TABLE 99 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
+TABLE 98 rows: Material ▲ | ☆ | Result | Density kg/m³ / median · range | Modulus XY GPa / median · range | Strength XY MPa / median · range | Elongation XY % / median · range | HDT 0.45 °C / median · range | Price CAD/kg / median · range
 ROW ABS | ☆ | PASS / 51 of 55 products | 1,050 / 1,020–1,120 · 46 | 2.2 / 1.77–2.38 · 13 | 34.5 / 15.7–45 · 18 | 10 / 2.7–40 · 17 | 95 / 78.9–118 · 23 | 40↗ / 24.5–70.7 · 9
 ROW ABS-AF | ☆ | PASS / 2 of 3 products | 1,050 / 1,040–1,050 · 3 | 1.89 | 22 | 6* | 88 | 127↗
 ROW ABS-CF | ☆ | PASS / 3 of 11 products | 1,080 / 1,050–1,110 · 11 | 4.35 / 2.7–5.21 · 4 | 43.7 / 27.3–48 · 6 | 1.9 / 1.48–3.08 · 4 | 91 / 76–102 · 7 | 45↗ / 40–50 · 2
@@ -125,7 +125,6 @@ ROW PPS · ☆
 ROW PPS-CF · ☆
 ROW PPS-GF · ☆
 ROW PVB · ☆
-ROW PVC-P · ☆
 ROW PVDF-ESD · ☆
 ROW SBC · ☆
 ROW TPC · ☆
