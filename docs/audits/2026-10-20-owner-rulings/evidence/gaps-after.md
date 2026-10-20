@@ -11,12 +11,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when the values set apart are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 135 | 10 | 33 | 92 | published, not comparable 62; print setting not recorded 24; not published 17 | 18 |
+| Outdoor structural part | 135 | 10 | 33 | 92 | published, not comparable 63; print setting not recorded 24; not published 17 | 18 |
 | Indoor prototype | 135 | 98 | 7 | 30 | print setting not recorded 35 | 0 |
-| Lightweight structure | 135 | 19 | 43 | 73 | print setting not recorded 25; published, not comparable 23; not published 9 | 15 |
+| Lightweight structure | 135 | 19 | 43 | 73 | print setting not recorded 25; published, not comparable 22; not published 9 | 15 |
 | Warm environment | 135 | 30 | 9 | 96 | print setting not recorded 34; published, not comparable 33; not published 10; straddles the limit 1 | 15 |
-| High-stiffness fixture | 135 | 11 | 32 | 92 | published, not comparable 31; print setting not recorded 25; not published 6; straddles the limit 1 | 28 |
-| Flexible component | 135 | 5 | 26 | 104 | published, not comparable 63; print setting not recorded 24; not published 11 | 45 |
+| High-stiffness fixture | 135 | 11 | 32 | 92 | published, not comparable 32; print setting not recorded 25; not published 6; straddles the limit 1 | 28 |
+| Flexible component | 135 | 5 | 26 | 104 | published, not comparable 65; print setting not recorded 24; not published 11 | 45 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -88,12 +88,12 @@ apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 | PCTG-CF (M144) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | PCTG-GF (M110) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | PC-ESD (M116) | 2 | chamber window | print setting not recorded | chamber within the H2C | 3 |
+| PC-PTFE (M112) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | PETG-GR (M153) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | PETG-PTFE (M109) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5, <= 0.1 | 3 |
 | TPC-ESD (M114) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 3 |
-| TPC-ESD (M114) | 2 | bed window | print setting not recorded | bed within the H2C | 3 |
 
-And 105 more, each holding up one template.
+And 106 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -227,7 +227,7 @@ deflection with no stated load) are admitted. Each is settled by finding what th
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 891 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 886 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
@@ -291,7 +291,6 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PVA | Yousu PVA | density <= 1250 | 1251 | +0.1 % fail | V007381 |
 | Lightweight structure | PC | Polymaker Polymaker PolyLite PC Transparent | tensileModulusXY >= 2.5 | 2.497 | -0.1 % fail | V002388 |
 | Lightweight structure | PLA Wood | Yousu WOOD | density <= 1250 | 1254 | +0.3 % fail | V006967 |
-| Lightweight structure | PC-ABS | Nanovia PC-ABS V0 | tensileModulusXY >= 2.5 | 2.51 | +0.4 % pass | V007653 |
 | Outdoor structural part | ABS | Polymaker Polymaker ABS | hdt045 >= 100 | 99.6 | -0.4 % fail | V002355 |
 | Lightweight structure | PLA | 3DJake magicPLA | density <= 1250 | 1243 | -0.6 % pass | V008826 |
 | Lightweight structure | CoPE | Polymaker Panchroma CoPE | tensileModulusXY >= 2.5 | 2.515 | +0.6 % pass | V001921 |
@@ -311,4 +310,5 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PLA | Spectrum rPLA | density <= 1250 | 1240 | -0.8 % pass | V002905 |
 | Lightweight structure | PLA | Spectrum THE FILAMENT PLA HS | density <= 1250 | 1240 | -0.8 % pass | V002943 |
 | Lightweight structure | PLA | Spectrum THE FILAMENT PLA Lite | density <= 1250 | 1240 | -0.8 % pass | V002950 |
+| Lightweight structure | PLA | Spectrum THE FILAMENT PLA | density <= 1250 | 1240 | -0.8 % pass | V002968 |
 

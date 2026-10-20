@@ -124,9 +124,9 @@ each pair implies, and how many break the row). Only a deciding row decides (D15
 | CV03 | hdt045 | ceiling | deciding | 1 | 52 | 0 | 0 | 0 | 7 | difference -88 to -2.5 | 0 |
 | CV04 | tensileModulusXY | ceiling | deciding | 1.28 | 50 | 0 | 0 | 0 | 13 | ratio 0.756593169045 to 1.27292046145 | 0 |
 | CV05 | hdt045 | demote-to-ceiling | deciding | 1 | 173 | 117 | 0 | 0 | 1 | difference -5 to -5 | 0 |
-| CV06 | tensileModulusXY | floor | deciding | 0.79 | 172 | 0 | 0 | 0 | 205 | ratio 0.791747011184 to 5.15974842767 | 0 |
+| CV06 | tensileModulusXY | floor | deciding | 0.79 | 172 | 0 | 0 | 0 | 206 | ratio 0.791747011184 to 5.15974842767 | 0 |
 | CV07 | tensileModulusXY | floor | deciding | 1 | 9 | 0 | 0 | 0 | 13 | ratio 1 to 3.73342541436 | 0 |
-| CV08 | tensileModulusXY | band | deciding | 0.46 to 1.93 | 604 | 0 | 5 | 0 | 303 | ratio 0.460233638667 to 1.93 | 0 |
+| CV08 | tensileModulusXY | band | deciding | 0.46 to 1.93 | 604 | 0 | 5 | 0 | 304 | ratio 0.460233638667 to 1.93 | 0 |
 | CV09 | tensileStrengthXY | floor | deciding | 0.86 | 219 | 0 | 0 | 0 | 249 | ratio 0.864583333333 to 9.88943488943 | 0 |
 | CV10 | elongationXY | floor | reported | 1 | 38 | 0 | 0 | 0 | 18 | ratio 1.03846153846 to 70 | 0 |
 | CV11 | elongationXY | floor | reported | 1 | 25 | 0 | 0 | 0 | 5 | ratio 1.03448275862 to 20.9333333333 | 0 |

@@ -19,6 +19,8 @@
 //     reach a value it leaves out; nor does a document that sets the value's table apart in its own words (Prusa's
 //     "Typical material properties" beside "Mechanical properties of 3D printed testing specimens"; AzureFilm's "Typical
 //     properties" with ISO 294 beside its "(3D printed)" table).
+//   - A figure in a document's prose (a description's "HDT 260 °C", "over 6 GPa after annealing") is no row of its tests:
+//     a statement about how the test specimens were made does not reach it (TAKEN_BACK below).
 //   - Stratasys's thermal tables carry footnote 2, "Literature value unless otherwise noted": a counter-indication.
 //   - Extrudr's product pages, whose text the first read had cut at 7000 characters, print "Mould shrinkage ISO 294-4" in
 //     the same table: a counter-indication. 3D4Makers' pages, cut the same way, print nothing either way.
@@ -61,7 +63,9 @@ const says = (sid, quote) => {
   return texts.get(sid).includes(squash(quote));
 };
 // Values the executor's review of the indicated set took back: a figure in prose, not a row of the document's tests.
-const TAKEN_BACK = new Map([['V013958', 'Raise3D Industrial PPS CF\'s description says "heat resistance (HDT 260 °C)": a rounded claim in prose, not a row of its tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa']]);
+const TAKEN_BACK = new Map([
+  ['V007190', 'Raise3D Industrial PET CF\'s description says "tensile modulus and strength of over 6 GPa" after annealing: a claim in prose, not a row of its tests (the error-class sweep read it so, m282)'],
+  ['V013950', 'Raise3D Industrial PET GF\'s description says "tensile modulus and srength of over 4.1 GPa" after annealing: a claim in prose, not a row of its tests'],['V013958', 'Raise3D Industrial PPS CF\'s description says "heat resistance (HDT 260 °C)": a rounded claim in prose, not a row of its tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa']]);
 const out = [];
 for (const r of rows) {
   const g = groups.get(r.group);

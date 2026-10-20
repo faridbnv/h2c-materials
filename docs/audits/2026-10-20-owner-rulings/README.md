@@ -17,7 +17,7 @@ Built by Claude Opus 5.5, with eleven Claude Sonnet readers for the pages and on
   flexural, impact and heat deflection value whose bar its document does not describe: the readers' instructions and
   results are in [evidence/reading/](evidence/reading/INSTRUCTIONS.md), the second pass and the rules it applied in
   [evidence/classify.mjs](evidence/classify.mjs), the outcome per value in `evidence/classification.csv`. m463 types the
-  145 indicated values printed; the rest are set apart for good.
+  143 indicated values printed; the rest are set apart for good.
 - **Migrations.** m462 (a heat deflection above its melting point, flagged), m463 (bars the documents say or imply were
   printed), m464 (newer editions), m465 (a printed bar with no stated orientation read flat), m466 (heat deflection floored
   by printed bars only; CV63 reported), m467 (CV63 deciding, its own [decision diff](evidence/DECISION-DIFF-CV63.md)).

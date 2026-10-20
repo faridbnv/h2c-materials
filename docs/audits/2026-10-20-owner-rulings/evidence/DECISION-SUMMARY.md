@@ -2,7 +2,7 @@
 
 > **Generated** (2026-10-20) by `node docs/audits/2026-10-20-owner-rulings/evidence/summarise-diff.mjs <before> <after>`: it describes the data as it was that day; run it again for the current state.
 
-From release 7d8f8980c40d (the round's baseline) to c16c216aa1aa, over the decision census's 138 cases.
+From release 7d8f8980c40d (the round's baseline) to 29b47607eff8, over the decision census's 138 cases.
 
 ## The six templates
 

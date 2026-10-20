@@ -7,7 +7,7 @@
 // Eleven Claude Sonnet readers read every page holding such a value, 2,265 values on 668 pages, for an indication or a
 // counter-indication (docs/audits/2026-10-20-owner-rulings/evidence/reading/, INSTRUCTIONS.md and results-*.csv); the
 // executor's second pass (Claude Opus 5.5) applied D172 as recorded, most specific first: the value's own row, its
-// table, the document (evidence/classify.mjs, which writes evidence/classification.csv). This migration retypes the 145
+// table, the document (evidence/classify.mjs, which writes evidence/classification.csv). This migration retypes the 143
 // values found indicated:
 //
 // - stated: Specimen type "Printed specimen" (Stratasys PC's "Physical Properties - Printed" table, which the import read
@@ -88,6 +88,15 @@ for (const [ids, words, tempC, hours] of ANNEALED) {
 // tests, whose HDT table prints 251 °C at 0.45 MPa and 132 °C at 1.8 MPa. The first run typed it printed and annealed with
 // the table's note; the executor's review took it back (it would have floored the table's own 251 °C at 260, CV63), so
 // it is left as the reader round wrote it, set apart.
+// Raise3D's descriptions of PET CF and PET GF say their tensile modulus is "over 6 GPa" and "over 4.1 GPa" after annealing
+// (V007190, V013950): prose too, which the error-class sweep had read as no row of the tables (m282). Taken back the same way.
+for (const id of ['V007190', 'V013950']) {
+  const m = t.get('measurements', id);
+  if (m['Specimen type'] !== IMPLIED) continue;
+  t.set('measurements', id, 'Specimen type', 'Not published (do not assume printed)', { expect: IMPLIED, migration: MIGRATION });
+  t.set('measurements', id, 'Notes', m.Notes.replace(/ Specimen type Printed \(implied by the document\) since m463 .*$/, ''), { expect: m.Notes, migration: MIGRATION });
+  n++;
+}
 {
   const m = t.get('measurements', 'V013958');
   if (m['Specimen type'] === IMPLIED) {

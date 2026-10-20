@@ -5819,7 +5819,8 @@ no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the r
   leaves out (IPCON's "The shrinkage rate and mechanical properties were tested on specimens printed", Eryone's note under
   "Mechanical Properties of Printed Samples"), nor does one beside a table the document sets apart in its own words
   (Prusa's "Typical material properties", AzureFilm's "Typical properties" with ISO 294). Does not count on its own: being
-  a filament data sheet, a test standard, a recommended print setting, marketing about printed parts.
+  a filament data sheet, a test standard, a recommended print setting, marketing about printed parts; and a figure in the
+  document's prose (a description's "HDT 260 °C" or "over 6 GPa") is no row of its tests and is not reached.
 - **What wins against it.** In the same table or for the value: injection or compression moulding, ISO 294 or ASTM D955
   mould shrinkage with a value, typical resin values, supplier or literature data (Stratasys's "Literature value unless
   otherwise noted"), standard reference materials. **Melt flow is not one**: it is measured on the melt, and makers that say
@@ -5827,7 +5828,7 @@ no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the r
 - **As data.** A new Specimen type, "Printed (implied by the document)" (form printed), with the words that imply it and
   their page in the row's Notes (m463, every quote checked on its cached sheet). Eleven Claude Sonnet readers read the
   2,265 undescribed values on 668 pages (`evidence/reading/`), the executor's second pass applied the rules above
-  (`evidence/classify.mjs`): 145 values of 76 products are printed bars their documents say or imply (1 stated), 2,120
+  (`evidence/classify.mjs`): 143 values of 77 products are printed bars their documents say or imply (1 stated), 2,122
   stay undescribed; the 967 values on pages with a moulding or resin word were not all read (one page in eight was) and
   stay set apart. Raise3D's sheets say in the same note that their bars were annealed, which their heat values now carry.
 - **The rule** (`assess`, `build/src/products.js`; headline_definitions.csv Unstated direction `flat if printed`, m465).
@@ -5841,8 +5842,9 @@ no; make the ruling consistent"); built by Claude Opus 5.5 as track T1 of [the r
   the lens for audits only (`npm run audit:gaps`, `decision-census.mjs`). A product estimate that would only echo its own
   set-apart value of the headline's own kind is not made, as it was not while that value decided (`grades.js`).
 - **What it did** (`evidence/DECISION-DIFF.md`, `DECISION-SUMMARY.md`, over 138 cases against the baseline). Products'
-  comparable heat deflections 472 → 247, and materials with one 98 → 77; XY tensile values gained (printed bars read
-  flat), materials with a modulus 100 → 103. Warm environment: 13 materials PASS → UNKNOWN (PETG, ASA Aero, PA6, PA12-GF,
+  comparable heat deflections 472 → 247, and materials with one 98 → 77; in-plane values gained where printed bars are
+  read flat (materials with a modulus 100 → 102, an elongation 103 → 104, a notched Izod 35 → 36); in the single-requirement
+  sweeps 20 material answers moved to PASS on them and 112 heat answers to UNKNOWN. Warm environment: 13 materials PASS → UNKNOWN (PETG, ASA Aero, PA6, PA12-GF,
   PPA, PPS-GF, PP, CPE, PA6-CE, ABS-AF, COC, PE-GF, PLA-PHB), each passing only on an undescribed bar. Outdoor: PPS-GF
   PASS → UNKNOWN, ABS-AF and PCTG-GF FAIL → UNKNOWN. High-stiffness: PLA-CF UNKNOWN → PASS on a printed bar read flat.
   No answer moved to FAIL, and none passes on a bar no document describes as printed. `audit:gaps`: 108 answers would
