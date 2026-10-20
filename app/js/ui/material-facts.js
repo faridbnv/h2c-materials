@@ -164,6 +164,8 @@ export function materialContext(db, materialId, { ctx = null, evaluation = null,
     highlight, highlightSource,
     showEstimates: showEstimates ?? !!ctx?.showEstimates,
     policy: scenario?.unknownPolicy ?? null,
+    // The scenario's requirements, so a graph's numbers never round across one (detail.js thresholdsOf).
+    scenario,
     sourceById: ctx?.sourceById ?? ix.sourceById,
     evidenceById: ctx?.evidenceById ?? ix.evidenceById,
     materialById: ix.materialById,

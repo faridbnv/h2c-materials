@@ -13,7 +13,9 @@ import { db, situation, drawer } from './fixtures/drawer-situation.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const fits = new Map(readCsv(join(root, 'schema/vocab/diameters.csv')).records.map((r) => [r.values.Value, r.values['Fits the H2C'] === 'TRUE']));
-const rows = readCsv(join(root, 'data/tables/grades.csv')).records.map((r) => r.values);
+const retiredMaterials = new Set(readCsv(join(root, 'data/tables/materials.csv')).records.map((r) => r.values).filter((m) => m.Scope === 'Retired').map((m) => m.MaterialID));
+// A material retired from the dataset takes its products with it (D174): the build holds none of them.
+const rows = readCsv(join(root, 'data/tables/grades.csv')).records.map((r) => r.values).filter((r) => !retiredMaterials.has(r.MaterialID));
 
 test('every grade carries its Diameter, and the database says whether the H2C takes it', () => {
   const byId = new Map(db.grades.map((g) => [g.id, g]));

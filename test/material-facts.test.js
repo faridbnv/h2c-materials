@@ -34,7 +34,7 @@ const TABS = ['Overview', 'Grades', 'Mechanical', 'Thermal', 'Printing', 'Enviro
 // The keys of `c`, as FACTS-API.md section 2 lists them. A key added or dropped is a change to the contract both the
 // drawer and the pages read, so it is made here, in the same commit, on purpose.
 const CONTEXT_KEYS = ['m', 'ms', 'ev', 'poly', 'cov', 'profiles', 'grades', 'prices', 'evaluation', 'summary', 'db', 'guide', 'tested',
-  'highlight', 'highlightSource', 'showEstimates', 'policy', 'sourceById', 'evidenceById', 'materialById', 'gradeById', 'chosen',
+  'highlight', 'highlightSource', 'showEstimates', 'policy', 'scenario', 'sourceById', 'evidenceById', 'materialById', 'gradeById', 'chosen',
   'msById', 'knowHowById', 'documents', 'counts'];
 const ids = (rows) => rows.map((r) => r.id);
 
