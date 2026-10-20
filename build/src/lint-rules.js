@@ -544,6 +544,11 @@ export function lintData(tables, schemas) {
   for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'fx_rates', 'polymer_environment', 'polymers', 'print_guide']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
   for (const r of tables.profiles?.rows ?? []) for (const s of String(r['H2C SourceID'] ?? '').split(';')) cited.add(s.trim());
   for (const r of tables.material_links?.rows ?? []) cited.add(r.RecordID);
+  // A physics limit and a conversion cite the reference that prints them (CLASS-LIMIT-SOURCE asks that it be cited), and a
+  // polymers.csv row cites every registered source its Basis names for a figure it holds (the owner's rulings, D176): a
+  // second reference behind a density range is a citation, not a corroboration.
+  for (const t of ['class_limits', 'conversions']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
+  for (const r of tables.polymers?.rows ?? []) for (const id of String(r.Basis ?? '').match(/\b[A-Z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)+\b/g) ?? []) cited.add(id);
   for (const r of tables.sources?.rows ?? []) {
     const role = r['Citation role'] ?? 'cited';
     if (role === 'cited' && !cited.has(r.SourceID)) add('SOURCE-UNCITED', 'sources', r.SourceID, '', `${r['Source class']}; ${r['Access state']}`);
