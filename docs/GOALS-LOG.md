@@ -878,7 +878,7 @@ kept in `archive/research-2026-10-19/`.
   no-hardened-nozzle screen unresolved in the maker's words, never a pass. What it left is OPEN-PROBLEMS
   §39 and the dated paragraphs it added; the findings' fates are `archive/research-2026-10-19/disposition.csv`.
 
-## Decided on 2026-10-19, the clean-up round (priorities 5 to 7)
+## Decided on 2026-10-19, the clean-up round (priorities 5 to 7, built)
 
 The owner asked for the fixable list's priorities 5 (data clean-up), 6 (interface fixes the reviews left) and 7 (tooling)
 to be done efficiently and pushed to main. Built on one branch in four parallel tracks: the data clean-up by migration
@@ -887,3 +887,7 @@ checked together with one review. Left on purpose, each still in OPEN-PROBLEMS w
 backlogs (unconfirmed records, test-bar print parameters, outliers, digit suspects, held readings), and what needs a
 design or an owner's ruling (a foamed filament's density, a fibre-basis column, a state for a sentence copied from
 another product's page, the selector's layout calls). The record is [the round](audits/2026-10-19-clean-up/README.md).
+- **Built and measured (2026-10-19).** m459 to m461, D169 (the reading tools) and D170 (the interface's rules); one
+  review's nine findings fixed; pushed as 0745c3d9, live release 7d8f8980c40d. No material verdict, listing or pass/fail
+  moved in the 138 census cases; 58 product answers moved between the unknown groups as the estimates refit to Fabru's
+  one maker name ([decision diff](audits/2026-10-19-clean-up/DECISION-DIFF.md)).

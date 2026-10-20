@@ -2266,7 +2266,8 @@ document group, or two in three, share is said once in its heading (Polymaker HT
 that lacks it saying so. PEI-CF's temperatures figure dropping the sign of its "> 200 °C" HDT is closed too: a bounded
 median keeps its sign in every table and figure, and `pages:check` holds the pages to it (C14, D147).
 **The summaries are drafts.** All 76 were rewritten to D145's rules, drafted by Claude Sonnet and judged against their
-pages by Claude Opus (55 of 76 changed after drafting); none is reviewed by the owner yet.
+pages by Claude Opus (55 of 76 changed after drafting); the 77th, Nylon-GF's (M166), was drafted and judged the same
+way by the research intake (2026-10-19). None is reviewed by the owner yet.
 
 **Since the clean-up round (2026-10-19, m459; [clean-up round](audits/2026-10-19-clean-up/README.md)).** The two PubMed Central titles lost " - PMC Lock". Bambu Lab's
 "H2C Filamant Printing Guide" is the page's own title (its HTML `<title>` reads so on 2026-10-19), so it stays as
@@ -2288,8 +2289,9 @@ drawn on. Moving it beside the results heading's "39 more could not be checked" 
 mark (C49; the print graphs had said "counted"), the pages' words; "ranked" still meets the table's *Rank by*, a ranking
 by a performance index; the pages' alternatives table writes ", log scale" as every figure does.
 **Words the data holds.** properties.csv's notes say "Not a strength: no headline reads it"; full names spell
-"Carbon-Fiber-Reinforced" beside "carbon-fibre filled"; a source title reads "H2C Filamant Printing Guide". (The drawer's
-"Typical applications" now names whose statement it is, as the page does: C10, D147.)
+"Carbon-Fiber-Reinforced" beside "carbon-fibre filled". (Bambu Lab's "H2C Filamant Printing Guide" is its page's own
+title, kept as printed: §37.19. The drawer's "Typical applications" now names whose statement it is, as the page does:
+C10, D147.)
 **The build's gate reason.** A material's gate reason (materials[].gates[axis].reason) can give another number than the
 requirement rows (PEEK's nozzle 400 °C against 480 °C); the drawer no longer prints it, the build still writes it.
 Closed on 2026-10-19 (the research intake's stage 7, F-0188): the material's gate carries the profile and product it was
@@ -2341,7 +2343,7 @@ its values only after annealing. A material passes only on a product that meets 
 PAHT-CF stays UNKNOWN until one product's sheets give all three. The trial read this as a good candidate held back on a
 technicality; it is the rule that keeps two products' values from being combined into one that no one sells.
 
-**A plasticised PVC is not recorded as a rubber.** Fabru / purefil "Polyvinylchlorid weich 94A" (PVC-P) is a product of
+**A plasticised PVC is not recorded as a rubber.** Fabru's "Polyvinylchlorid weich 94A" (PVC-P) is a product of
 PVC (M135, family PVB / Specialty Polymers, polymer PVC, amorphous), so the rubber limit (CL01) does not reach it, and it
 sits in "Not enough data" for the stiffness presets with an estimate of 0.215 to 8.69 GPa. Stage 3d extended CL01 to the
 Flexible Elastomers kinds polymers.csv does not model (the maker-undisclosed TPE, TPS, TPV) and left this one: no record

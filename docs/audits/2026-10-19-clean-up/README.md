@@ -71,4 +71,6 @@ estimates refitting after Fabru's two spellings became one maker (COC, SAN and P
 
 ## Checks
 
-`verify:fast` and `npm run verify` before the push; one independent review.
+`npm run verify`: all 22 steps passed before the push (verify:fast's steps 81.3 s); CI Verify and Pages passed on main
+(0745c3d9), and the live release is 7d8f8980c40d. `round:close`: nothing open; the import reader's change is D169's,
+with its back-test. The source store was re-exported after the round (no new document entered it).
