@@ -2,7 +2,7 @@
 
 > **Generated** (2026-10-20) by `node docs/audits/2026-10-20-owner-rulings/evidence/summarise-diff.mjs <baseline> <t2-t5> <after>`: it describes the data as it was that day; run it again for the current state.
 
-T1's own share: from release b574a5b47e55 (the round branch with tracks T2 to T5 merged) to 926134f13a94 (the same with T1 merged on it), over the decision census's 138 cases. A material only one side has (a new material, or one that left the dataset) is not counted here. The round branch's review fixes for tracks T2 to T5 (m478, m479: PVC-P's enclosure and its own rubber limit) came after that census, so PVC-P's Indoor prototype move is theirs. Every case in full: [DECISION-DIFF-T1-on-merged.md](DECISION-DIFF-T1-on-merged.md).
+T1's own share: from release b574a5b47e55 (the round branch with tracks T2 to T5 merged) to 5a7ec4ca599d (the same with T1 merged on it), over the decision census's 138 cases. A material only one side has (a new material, or one that left the dataset) is not counted here. The round branch's review fixes for tracks T2 to T5 (m478, m479: PVC-P's enclosure and its own rubber limit) came after that census, so PVC-P's Indoor prototype move is theirs. Every case in full: [DECISION-DIFF-T1-on-merged.md](DECISION-DIFF-T1-on-merged.md).
 
 ## The six templates
 
@@ -59,7 +59,7 @@ T1's own share: from release b574a5b47e55 (the round branch with tracks T2 to T5
 
 ## The whole round so far, against its baseline
 
-From release 7d8f8980c40d (the round's baseline) to 926134f13a94: every track merged. The full list is [DECISION-DIFF.md](DECISION-DIFF.md); T2 to T5's own is [their diff](../after/DECISION-DIFF-t2-t5.md).
+From release 7d8f8980c40d (the round's baseline) to 5a7ec4ca599d: every track merged. The full list is [DECISION-DIFF.md](DECISION-DIFF.md); T2 to T5's own is [their diff](../after/DECISION-DIFF-t2-t5.md).
 
 | Case | PASS | UNKNOWN | FAIL | Material verdicts moved | Product answers moved |
 |---|---:|---:|---:|---:|---:|

@@ -1,6 +1,6 @@
-# Decision diff: 7d8f8980c40d → 926134f13a94
+# Decision diff: 7d8f8980c40d → 5a7ec4ca599d
 
-> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of 7d8f8980c40d against 926134f13a94; run it again for another pair.
+> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of 7d8f8980c40d against 5a7ec4ca599d; run it again for another pair.
 
 Across 138 cases: 1097 material verdicts moved, 36 listings changed, 565 group changes, 727 rows now shown for another product, 4221 product answers moved; the likely tag came or went 1214 times (materials and products).
 

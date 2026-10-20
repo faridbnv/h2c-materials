@@ -237,14 +237,18 @@ preferences: changing one changes what the tool asserts.
    A band, floor or ceiling drawn from another record, and a value only a ceiling for the printed part, are compared
    with the limit as they are (D166).
 4. **Hard constraints decide eligibility; a preference never removes a candidate.** It is reported
-   on each material as "tracked only". It does not reorder the list yet, and the interface does not
+   on each material as "report only". It does not reorder the list yet, and the interface does not
    claim it does.
-5. **XY and Z never merge**, and an unstated direction is not XY.
+5. **XY and Z never merge.** A value that states no direction is never a Z value; a printed bar whose document states
+   no orientation is read as a flat one, and its answer says so (D172).
 6. **Impact in J/m is never converted to kJ/m²** without specimen geometry.
 7. **Quarantined measurements stay out of every numeric summary**, and a value physics rules out is kept, flagged
    "physically implausible", and backs no headline, estimate or bound (D55).
-8. **A load or direction that was never stated is never assumed.** A value whose source names no load or direction
-   is counted apart, as published, and decides only when the reader asks (D84).
+8. **A load that was never stated is never assumed, and a bar no document describes as printed never decides.** A
+   tensile, flexural, impact or heat deflection value on a bar its document does not describe may be a moulded bar's:
+   it decides only where something on the document indicates, even implicitly, that the bar was printed, and is
+   otherwise set apart for good, shown and counted apart (D172). A heat deflection with no stated load is counted apart
+   too, and bounds the 0.45 MPa value from below only (D84, D172).
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
@@ -320,9 +324,11 @@ about what they did.*
 350 °C nozzle, 120 °C bed, 65 °C active chamber, from the Method table. The build parses each
 profile's published requirement and compares it against this envelope. The materials marked out of scope (Scope
 `Excluded`; how many is in [build/snapshot/counts.md](build/snapshot/counts.md)) are the industrial high-temperature
-polymers. Every one of those polymers that publishes a nozzle temperature trips that gate on it; the others publish no
-print setting. The metal and ceramic sintering filaments, never candidates whatever they print at since the part is the
-sintered metal's or ceramic's (D87), left the dataset on 2026-10-20 (Scope `Retired`, D174): their records stay in the
+polymers. Most of those that publish a nozzle temperature ask more than the H2C's 350 °C on one product or more
+(PEEK, PPSU, PEI, TPI, and PEEK-CF, PEKK-CF, PEI-CF and PEI-ESD); PEKK, PSU and PESU publish windows the H2C reaches
+only at their low end or at its edge (D151), and the others publish no print setting. Scope, not one window, keeps them
+out: their typical processing needs more than the H2C gives. The metal and ceramic sintering filaments, never
+candidates whatever they print at since the part is the sintered metal's or ceramic's (D87), left the dataset on 2026-10-20 (Scope `Retired`, D174): their records stay in the
 tables, and the selector, the pages and the exports hold none of them.
 A window that starts inside the envelope and ends above it is read by how much of it the H2C covers (D151): Bambu
 PPS-CF's 60–90 °C chamber is within, at its low end; LCP's 120–150 °C bed, which the H2C reaches only at its edge, is on

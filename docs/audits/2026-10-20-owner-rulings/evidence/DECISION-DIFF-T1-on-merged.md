@@ -1,6 +1,6 @@
-# Decision diff: b574a5b47e55 → 926134f13a94
+# Decision diff: b574a5b47e55 → 5a7ec4ca599d
 
-> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of b574a5b47e55 against 926134f13a94; run it again for another pair.
+> **Generated** (2026-10-20) by `decision-census.mjs --diff`: the answers of b574a5b47e55 against 5a7ec4ca599d; run it again for another pair.
 
 Across 138 cases: 253 material verdicts moved, 27 listings changed, 486 group changes, 531 rows now shown for another product, 4086 product answers moved; the likely tag came or went 1145 times (materials and products).
 

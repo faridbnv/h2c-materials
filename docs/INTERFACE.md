@@ -26,14 +26,15 @@ where to start, the view tabs and the drawer walk the four steps, and the line w
 reader and the first row.
 
 The panel offers six application templates. Each card names the part first ("A bracket that lives outside"), then
-the limits it sets in data-sheet terms; the H2C's nozzle, bed and chamber limits, which all six ask, are said once, in
-the line above the cards (they had ended every card). A template **populates controls and then gets out of the
+the limits it sets in data-sheet terms; the H2C's print check, which all six ask, is said once, in the line above the
+cards ("All six ask for a build material the H2C prints"; the nozzle, bed and chamber limits had ended every card), and
+shows as one requirement, *Nozzle, bed and chamber within H2C limits*, once a template is chosen. A template **populates controls and then gets out of the
 way**: every value it sets stays editable, and the header afterwards says which template was used and
 whether it has since been changed.
 
 A template is a starting screen, not a recommendation. Its description names what it tests, and the
-results header repeats, beside the count, what it **does not check**: UV for the outdoor part,
-spring-back for the flexible one, printing without active chamber heat for the warm one. Every
+results header repeats, beside the count, what it **does not check**: UV and weathering for the outdoor part,
+recovery, sealing and Shore hardness for the flexible one, printing without chamber heat for the warm one. Every
 template is for a part you build, so every one screens out support and interface materials.
 
 Once a requirement is set, the panel gives way to a statement of what is being asked, as pills that
@@ -43,10 +44,10 @@ bare table and no statement of the query.
 The heading above the pills adds up to the rows under it. It counts against the materials in the database that are
 not family entries or aliases, the same denominator the start panel and the rail use (a family name is never a
 candidate, so none counts; the current numbers are in [build/snapshot/counts.md](../build/snapshot/counts.md)). Under
-**Leave out** it reads, for the Indoor prototype template, "98 of the 152 materials meet these requirements" (2026-10-19; 87 on 2026-10-07, 15 of
-98 when this was written) and counts the UNKNOWN materials left out by group ("UNKNOWN 30 left out: 27 one check away,
+**Leave out** it reads, for the Indoor prototype template, "98 of the 152 materials meet these requirements" (2026-10-20; 87 on 2026-10-07, 15 of
+98 when this was written) and counts the UNKNOWN materials left out by group ("UNKNOWN 33 left out: 30 one check away,
 3 not enough data"). Under **Include** those materials are listed by group, so the line under the heading
-names the groups the same way, the hidden ones among them (the Flexible component template's "UNKNOWN 105: 2 one check away, 13 not enough data, 87
+names the groups the same way, the hidden ones among them (the Flexible component template's "UNKNOWN 106: 2 one check away, 11 not enough data, 90
 unlikely to meet, 3 hidden"). A count of materials that
 meet the requirements above a longer list of rows had read as a contradiction. Both headings, as the current build words them, are in
 [build/snapshot/ui/10-indoor-prototype-strict.txt](../build/snapshot/ui/10-indoor-prototype-strict.txt) and
@@ -87,13 +88,13 @@ beyond, since widening that far would crush every bar to a sliver. The published
 
 A property whose candidates span more than a hundredfold is drawn on a **log track**, labelled "log scale" under its
 end values, where each tenfold step takes the same length; the intro above the tracks names which properties are. Stiffness
-runs from 0.0046 to 12.5 GPa and stretch from 0.8 to 1,740 %: on a linear track nearly every material was a sliver at the
+runs from 0.0015 to 20 GPa and stretch from 0.55 to 1,050 % over all 152 materials, estimates included (2026-10-20): on a linear track nearly every material was a sliver at the
 left end, and only the elastomers that set the range read as bars. A log track needs every value on it to be positive
 (the candidates' range, the shortlisted values, their published ranges and estimates, and the requirements), and falls
 back to linear otherwise. The requirement lines, range marks, `*` ticks and estimate spans are placed on the same log
 scale, and "widened" and "past the end" are judged in tens there too. On a log track a material is a tick at its value
 over its products' range (since 2026-10-18): a bar's length from the low end means nothing there, and PLA and PLA Silk
-had looked alike. **Parallel lines** takes a log axis by the same rule, labelled "log" under its unit, so one 400 %
+had looked alike. **Parallel lines** takes a log axis by the same rule, labelled "log scale" beside its unit, so one 400 %
 elongation no longer presses every other line to the floor.
 
 **Parallel lines** carries the selector's answer and its question (D147). With UNKNOWN or FAIL shown in the table, a line
@@ -163,7 +164,7 @@ Every window, word and band in these columns opens its explanation: a range says
 offers the Printing tab, a word quotes what the source said, a band says what it rests on and offers the estimate.
 
 A word never becomes a number, and a band never sits beside a published window. In the drawer the
-same answers appear under "H2C printability": a window whose bottom the H2C covers reads **Within, at the low end**
+same answers appear under "On the H2C" in the Overview, and in the Printing tab: a window whose bottom the H2C covers reads **Within, at the low end**
 and one it reaches only at its edge **On the line**, each saying the maker's window and what the H2C reaches (D151), a
 statement in words is quoted, and a band gets its own card with the basis and caution the research wrote.
 
@@ -205,22 +206,24 @@ e.g. 100 for a part in a hot car.
 
 (The counts are the build of 27 September 2026, the words today's; a property that applies to some filaments only counts those.) Until
 m137 (D84) the heat control added a line counting the values whose source named no load; those are now values
-published without their conditions, counted apart like a value with no stated direction.
+published without their conditions, counted apart as a value on a bar no document describes as printed is (D172).
 
 This single pattern does most of the work. It says what a criterion can and cannot decide before
 anyone relies on it, and it turns the build's audit findings into everyday guidance.
 
 The numeric controls are the registry's measured headlines, in its order (D46): under **Mechanical** density,
 tensile modulus (XY), tensile strength (XY), **tensile strength (Z)** (across the layers), elongation at break (XY),
-**notched Charpy impact** (ISO 179, kJ/m²) and **notched Izod impact** (ISO 180, kJ/m²), never mixed or converted;
-under **Thermal** HDT at 0.45 MPa and **glass transition (Tg)**; under **Cost** the price. The four in bold came with D92 and D94 and are
+**notched Charpy impact** (ISO 179, kJ/m²) and **notched Izod impact** (ISO 180, kJ/m²), never mixed or converted,
+**Shore A hardness** and **Shore D hardness**; under **Thermal** HDT at 0.45 MPa and **glass transition (Tg)**; under
+**Cost** the price. The six in bold came with D92, D94 and D150 and are
 filters, chart axes, drawer key properties, Compare rows and export columns, but not default table columns: the
 Properties table fits a 1440 px screen with the filters open with the columns it has, and one more made it scroll.
 What each compares, and what it leaves out, is in DATA-MODEL, "What each selectable property compares"; the drawer
 says it beside the values left out (below).
 
 A group's badge says what it counts ("2 set"): a bare number beside "Mechanical" read as a count of results. Part
-condition and Data quality count the settings that change which values are judged as well. Bambu Lab's standing is
+condition counts the settings that change which values are judged (annealing, a humid part) as well; Data quality's
+switch for values with no stated orientation or load, which it also counted, is gone (D172). Bambu Lab's standing is
 **Bambu Lab status**, its stored values shown under the names an engineer would use (Bambu Lab filament, Type on
 Bambu's H2C list, Unlisted, usable with conditions, Unlisted, within H2C temperatures) with their meanings one press
 away, and the temperature checks read **Nozzle ≤ 350 °C**, **Bed ≤ 120 °C**, **Chamber ≤ 65 °C**, the limits read from
@@ -254,7 +257,7 @@ The chamber check counts its two kinds of answer apart: how many materials publi
 temperature and how many more say no heated chamber is needed. Each of the three checks adds, as a caveat, how many
 materials publish a window the H2C reaches only at its bottom edge, which stay unresolved, on the line (D151).
 
-**Within H2C temperature limits** is one box over the three temperature gates, each indented under it with its data
+**Nozzle, bed and chamber within H2C limits** is one box over the three temperature gates, each indented under it with its data
 line; it is ticked when all three are asked, indeterminate when one or two are. The scope list is a box of its own,
 **Exclude materials beyond H2C capability**, which names the families it removes (the industrial high-temperature
 plastics; the sintering filaments it also named left the dataset on 2026-10-20, D174): it reads that list and no
@@ -440,11 +443,11 @@ says why in its header, and Compare names the shortlisted materials without a ch
 |---|---|
 | `2.58` over `0.433–4.24 · 52` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. The column's head says so under its name, "median · range" (2026-10-19): the drawer and the material pages give the middle half under the same median, and a bare range had read as that. Select it for the details, counted against the material's products as the drawer's head counts them (those in the median, those kept out of it by why, and those that publish none), and **Open its products** |
 | `4.43` | A measured value of the material's one product that publishes it comparably |
-| `PASS` over `1 of 4` | One of the four products that could be judged meets every requirement together. Select it for the untested count |
+| `PASS` over `51 of 55 products` | 51 of the material's 55 products meet every requirement together. Select it for how many fail one and how many publish too little to judge |
 | `46*` | A real measurement that no product publishes comparably. Select it for why, and **Open the measurement** |
 | `~1.9–5.3†` | An estimate: the likely (80%) range of a calibrated model of every observation. Never passes; select it for its evidence and which ends may screen, and **Open the estimate** |
 | `35≈` | A published mean ± spread whose spread contains the requirement's threshold. Judged on the mean (D54); select the mark for the spread |
-| `166¤` | A price converted from a foreign listing: the product has no Canadian listing in the sample, so its price is its own currency before VAT at the Bank of Canada rate (D113); select the mark for the listing and the rate |
+| `223USD` | A price converted from a foreign listing, the currency it came from beside it: the product has no Canadian listing in the sample, so its price is its own currency before VAT at the Bank of Canada rate (D113); select the mark for the listing and the rate. The material pages mark it ¤ |
 | `50.99` | A number beside a requirement on its column keeps the digits that put it on its own side of the threshold, where rounding would cross it |
 | `—` | Not published. Select it for which kind of absence |
 
@@ -480,8 +483,10 @@ the column's unit too. The screening range in that text keeps a single number's 
 where a screen starts. A measured value is printed as before.
 
 One line above the table names these marks, always the same entries in the same order: `—` not published, `2.3` over
-`1.0–3.0 · 27` median and range, `*` published, not comparable, `~a–b†` estimate (italic = rough), `≈` close to the
-limit, `n/a` not applicable. The `?` entry for a heat value whose load was not stated went with m137 (D84), since such
+`1.0–3.0 · 27` median and range, `1.2` one measurement (one product publishes it, or it is a product's own value), `*`
+published, not comparable, `~a–b†` estimate (italic = rough) where estimates show, `n/a` not applicable; the rare marks,
+`≈` close to the limit, a converted price and an annealed or conditioned median, fold under "N more marks" (on a phone,
+every mark after the first two does). The `?` entry for a heat value whose load was not stated went with m137 (D84), since such
 a value is now counted apart like any other published without its conditions. The estimate entry shows whenever
 estimates do, in both column sets, since the Printing columns show estimated windows too. Each entry opens its
 definition. It replaced a paragraph whose entries came and went with the rows and told the reader to hover.
@@ -557,11 +562,11 @@ detail one press away (21 and 20; [the round's drawer record](audits/2026-10-20-
   six (density under Outdoor structural part, elongation under Flexible component), and every tile a requirement asks
   about is tagged *required* or *reported*, a median beside the product's value the lines above give. A tile's foot says
   only what makes it other than a median of four or more products: "median of only 2 products", "one product's value",
-  "as published, no stated orientation" (the graphs' hollow mark, never another record with a star), "estimated, not
+  "as published · test bar not described as printed" (the graphs' hollow mark, never another record with a star), "estimated, not
   measured"; "does not apply" and "not published" stand in the value's place. The median's popover gives the spread
   (`spreadNote`), and **Spread across products, and 6 more properties** opens the table the first screen had shown: every
-  headline's median, middle half (lowest to highest under four products) and count, a value published with no stated
-  orientation or load as published, grey, with the hollow mark (D147), and the page's sentence on what a figure is
+  headline's median, middle half (lowest to highest under four products) and count, a value set apart (test bar not
+  described as printed, or no stated load) as published, grey, with the hollow mark (D147, D172), and the page's sentence on what a figure is
   (`keyFiguresBasis`).
 - **How do I print it on the H2C?** **On the H2C**, the page's block (`print-brief.js` onTheH2cRows), one row per
   setting in the order a print is set up: nozzle, bed and heated chamber, each the window most products give and a chip
@@ -574,7 +579,7 @@ detail one press away (21 and 20; [the round's drawer record](audits/2026-10-20-
   line says where settings a product's sheet leaves silent were read, the counts behind it; *Printing in full* opens
   Printing. It replaced a count list and gate rows that printed the material's recorded window beside its best
   product's gate reason, which disagreed (PEEK's bed *Within, 110–250 °C* under a failed bed requirement).
-- **How well documented is it?** A one-line **On file**: the page's evidence word, well, partly or thinly documented,
+- **How well documented is it?** A one-line evidence statement (the On file line; it carries no label of its own): the page's evidence word, well, partly or thinly documented,
   its reasons one press away, then the counts (measurements and documents, held-back values, the known gaps as Sources
   lists them and conflicts, where there are any; D147), with the way to Sources.
 
@@ -644,8 +649,11 @@ had followed every cell), its values, what its maker says (each quote with its d
 opening where it is stated, and a **caveat** mark where a reviewer recorded what the claim does not say; a maintainer's
 note on the reading sits behind the ID mark, by the pages' rule), the topics its maker leaves unstated in one closed
 line, its Sources, **Its card on the Products page** where the material has a page (carrying the selection as *Full
-page* does), and its product details (its maker, a variant "kept out of the material's median", its Diameter; its availability under
-*Record notes*). A card stays as the reader left it when the drawer is redrawn.
+page* does), and its product details (its maker, a variant "kept out of the material's median", its Diameter; its
+availability under *Record notes*). A value set apart carries a small **set apart** mark that opens why (its test bar
+not described as printed, or no stated load, D172), and a figure another document of the product printed, which its data
+sheet or a newer edition replaced, is shown small where it differs a lot: "Differs a lot in another document of this
+product, not used in deciding" (D171; the print settings' "Differs in another document" likewise). A card stays as the reader left it when the drawer is redrawn.
 
 **Comparisons, one heading each (D133, D139, D140).** Four closed headings draw a material's products against the
 headlines a reader compares them on, each in the place of the first property it reads, instead of a block per
@@ -663,14 +671,14 @@ below):
 
 Opened, a heading shows (the material pages' grammar since 2026-10-18, D146):
 
-- the key above the first graph, in the pages' words, naming only the marks drawn: "a product", "as published:
-  orientation or load not stated", "measured after annealing", "added filler or additive, kept out of the median",
+- the key above the first graph, in the pages' words, naming only the marks drawn: "a product", "set apart: test
+  bar not described as printed, or no stated load", "measured after annealing", "added filler or additive, kept out of the median",
   "sold as toughened (maker's statement)", "middle half and median". A hollow mark means one thing, shown but not
   ranked, and the key says why;
 - a graph per unit, its rows one above the other on one scale with labelled ticks (logarithmic, at 1, 2 and 5 of each
   decade, once the largest value is more than ten times the smallest; a temperature always linear, from the round step
-  below its lowest value): a dot per product at its published value (filled: the orientation or load the row asks for
-  is stated; hollow, drawn light: no stated orientation or test load; square: measured after annealing; diamond, light:
+  below its lowest value): a dot per product at its published value (filled: ranked, its orientation or load stated, or
+  a printed bar read as flat; hollow, drawn light: set apart, its test bar not described as printed, or no stated load; square: measured after annealing; diamond, light:
   an added filler or additive; coloured: sold as toughened, impact only), the middle half of the compared products
   shaded and outlined (it had all but vanished in dark) and their median a line. Each row's label carries one count,
   "55 ranked of 106 shown" (a material page's strip says it "106 products, 55 in the median", since 2026-10-19). Dots of
@@ -679,8 +687,9 @@ Opened, a heading shows (the material pages' grammar since 2026-10-18, D146):
   drawn as tall as 12);
 - a small table, a line per row: how many products are ranked, their median, middle half and range at the pages'
   precision (never rounded across a requirement on the property; each row with its unit where the heading has several),
-  and on a line under it the products drawn but not ranked, by why ("Not ranked: 39 with no stated orientation
-  (1.44–4.78), 12 with an added filler or additive (…)");
+  and on a line under it the products drawn but not ranked, by why ("Not ranked: 30 set apart, test bar not
+  described as printed (1.44–4.78), 16 with an added filler or additive (0.715–4.73)", PLA's tensile modulus on
+  2026-10-20);
   then a line for a row of a unit with only one product's value, naming it; then the products that publish both of a
   pair (Impact: "Both tests", by name; Tensile: "Both XY and Z published", counted per property) and, for tensile, what
   is kept across the layers, Z as a share of XY (the median of the products with both from one document and in one
@@ -706,14 +715,14 @@ What is drawn decides itself, from the products' values, with no list of materia
 - **No graph with fewer than two values on a scale.** A spread needs two points. Where no scale has two, the heading
   opens on one line that says why and counts the results below, so it never seems to contradict them: "No graph: no
   product has a value to draw. The 2 results below: 2 on moulded bars." (ASA-AF), or "No graph: only one product has a
-  value to draw, iSANMATE ASA Glass Fiber's notched Izod impact of 9 kJ/m², with no stated orientation. The other 14
+  value to draw, iSANMATE ASA Glass Fiber's notched Izod impact of 9 kJ/m², with test bar not described as printed. The other 14
   results below: 6 on moulded bars, 5 with no stated notch, 2 unnotched and 1 struck cold." (ASA-GF; the value opens
   its record). The closed line on how the tests differ and the lists follow; nothing else.
 - **A row only for a test with a value.** A test no product has a value of gets no empty row; a line under the table
   says so, and that its results are listed below where the material has any.
 - **A key only for the marks drawn**, and the middle half and median only where a row has them.
 - **No median table without a median.** Where none of the values drawn is compared, one sentence says so and why
-  ("No median: none of the 5 values drawn states the bar's orientation (XY), and only those that do are compared."),
+  ("No median: none of the 5 values drawn is compared: 5 are set apart (test bar not described as printed)."),
   instead of a table of dashes.
 
 Why each result is or is not drawn is read from its typed fields in the order the build reads them (products.js
@@ -731,7 +740,7 @@ drawing and a second closed line's topic; a property they read or it lists is fo
 only for these headings, **Drawer only** (D139, D140): tensile modulus Z, elongation at break Z, the four flexural rows
 and HDT at 1.8 MPa. Each product's value and the material's spread are computed as for every headline and shown in the
 heading, on product cards and in the Products tab's spread table, but none is a filter, a chart axis, a table or export
-column, or a scenario key. A value with no stated orientation stands hollow on an XY row, out of the median; HDT at 1.8
+column, or a scenario key. A value set apart (its test bar not described as printed) stands hollow on an XY row, out of the median; HDT at 1.8
 MPa takes only a value whose sheet states its load, so a value whose sheet states none is drawn once, hollow on the
 0.45 MPa row.
 
@@ -860,8 +869,8 @@ each fact once: the first screen gives the number, a section interprets it, a fi
 **The Products page** (`materials/<id>-products.html`): the head with *Products* selected, one line that follows the
 sort (it opens most documented first, `product-order.js`, the order the drawer's passing products take), a search and
 *Sort by* (a column heading sorts too; a second press reverses), the key of only the marks used, then the list. Sorting
-by a value splits the list into labelled groups in a fixed order: compared, then shown as published (no stated
-orientation or load, or a setting from the Bambu Lab Filament Guide), then a notched Izod value where no Charpy is
+by a value splits the list into labelled groups in a fixed order: compared, then set apart (test bar not
+described as printed, or no stated load; or a setting from the Bambu Lab Filament Guide), then a notched Izod value where no Charpy is
 published, then not published ("—"); in the sorted column a thin rule under each compared value shows its place in the
 column's range. A row is a native disclosure; its card holds every record of that product, values grouped by document
 (a condition every value of a group, or two in three, share said once in the group's heading, and a value that lacks it
@@ -882,7 +891,7 @@ exactly once across its two pages, except the project's own selection notes and 
 question it answers, a key of only the marks drawn, the plot, one line on how to read it, and *The figure as a table*
 closed beneath (its numbers, what this material leaves out, the link to the method page). One scale per property on
 every page; a value beyond an axis is a chevron at the edge, its value in the tooltip. A product is a dot: filled is in
-the median, hollow and lighter is shown as published, a square was measured after annealing, a grey diamond has an
+the median, hollow and lighter is set apart (test bar not described as printed, or no stated load), a square was measured after annealing, a grey diamond has an
 added filler or additive, orange marks a product sold as toughened (the maker's statement, never a verdict). The data
 colour marks this material, grey every other. Hovering or focusing a product lights it in every figure; a click opens
 its card on the Products page.
@@ -910,7 +919,7 @@ sentence ("The summary above was drafted by an AI agent (Claude Opus) on 17 Oct 
 and one closing line, the mark, **Filament Atlas** and the selector's status-bar words with the build's day ("Filament
 Atlas · release 9ca94d31fc5d · documents read 10 Sep–7 Oct 2026 · built 17 Oct 2026"). The citation names the documents
 read for this material ("PETG. Filament Atlas, material pages, release 9ca94d31fc5d, documents read 10 Sep–5 Oct
-2026.").
+2026."; both examples are the build of 17 Oct 2026).
 
 **Type and colour.** Inter for text and figures, as in the selector since D147, Newsreader for the names, section
 titles and the summary, both embedded; 16 px body; the selector's tokens, light and dark, its radii and its theme button
@@ -980,7 +989,7 @@ since D147 the material pages' frame follows them too:
   back reopened it. Inter is the selector's face too, the pages' embedded subset, so a number is drawn in the same glyphs
   on both. The pages' bar sits on the selector's white at 58 px.
 - **Provenance at the foot.** The release and when its documents were read ("release 9ca94d31fc5d · documents read
-  10 Sep–7 Oct 2026", `provenanceWords` in `dates.js`) sit at the right end of the status bar, always visible, where the
+  10 Sep–7 Oct 2026" in the build of 17 Oct 2026, `provenanceWords` in `dates.js`) sit at the right end of the status bar, always visible, where the
   top bar hid them below 1600 px; on a phone the line wraps rather than lose its last date. The build's day and the
   database snapshot's name are in its tooltip: "data 2026-09-21", the snapshot's name, had read as a date of the data
   older than its documents (D147). Every material page's closing line prints the same words. The status chips are
@@ -1081,12 +1090,12 @@ headline, then whatever has a price. A listing with no usable price reads "no pr
 one line; the words open who lists it, when it was seen and whether it was in stock. A dash with a link arrow had read as
 nothing to buy, and "listed, no price" over "out of stock" took three lines of a desktop column and doubled the row. Under
 a price, "out of stock" is a small second line. A material with no price observation says "No price", not "No CA
-price". A price read from a foreign listing carries a ¤ mark that says from which currency, at which Bank of Canada rate
+price". A price read from a foreign listing carries its currency's code (a ¤ on the material pages) that says from which currency, at which Bank of Canada rate
 date, before VAT, and that no Canadian shop in the sample lists the product (D113). The Price tab opens on the price and the listings it is made from, counting only those used ("165 CAD/kg,
 one product's price, from 1 listing in USD, converted", the rate one press away on "converted"), then the material page's
-sentence on the sample ("Regular prices, never sale prices, from 9 Canadian shops and 7 foreign shops, sampled 10 Sep–7
+sentence on the sample ("Regular prices, never sale prices, from 9 Canadian shops and 10 foreign shops, sampled 10 Sep–19
 Oct 2026, not live; shipping and tax are not included", D147). It lists every observation, the unused ones too, with its
-shop, variant, pack size, price per kilogram, stock and whether it is in the sample, a foreign one with its ¤ and the
+shop, variant, pack size, price per kilogram, stock and whether it is in the sample, a foreign one with its currency and the
 arithmetic from its own currency (a listing's own date is in the explanation its "offer" or "no price" opens). A listing with a displayed price but no regular price the sample could
 rely on (44 of the 104 sampled in September 2026) shows the displayed price per kilogram marked "offer", which opens
 who lists it, at what shelf price, and why it is not a regular price; it backs no headline. A listing with no price at
@@ -1111,10 +1120,10 @@ layout, size, frame and ticks, and D112 made Material typicals one dot per mater
 
 ```
 GOAL  [Beam, minimum mass, stiffness prescribed ▾]  Maximise M = E^(1/2)/ρ   Cross-section area free, proportions fixed
-ASKED As printed, dry · H2C scope and print gates · Tensile modulus (XY) at least 3 GPa · Density at most 1250 kg/m³  Change in Filters
+ASKED As printed, dry · Within H2C capability · Nozzle, bed and chamber within H2C limits · Tensile modulus (XY) at least 3 GPa · Density at most 1,250 kg/m³  Change in Filters
 ┌──────────────────────────────────────────────────────────────┐ ┌ list (scrolls on its own)       ┐
 │ DRAW  [Material typicals | Material ranges | Products]  More ▾ │ │ [Find a material]               │
-│ ALSO  (Unsettled) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar ▾] │ Ranking M = E^(1/2)/ρ │
+│ ALSO  (Unknown) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar ▾] │ Ranking M = E^(1/2)/ρ │
 │ LINE  M = [0.001734] ━━●━━ ▼ ▲   8 products from 5 materials above the line          │ 1 PPA-CF 0.00231 ⤢ ☆  │
 └──────────────────────────────────────────────────────────────┘ │ ── line · M 0.00173 ──           │
 ┌ ↑ [Stiffness ▾] GPa Lin|Log        ⇄        → [Density ▾] kg/m³ Lin|Log ┐ │ 6 PLA …             │
@@ -1139,13 +1148,14 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 - **The controls** (D109, D110) read top to bottom as the chart is built. *Draw* chooses what is drawn, coarse to fine:
   *Material typicals* (one dot per material at its products' median datasheet value, as printed and dry), *Material
   ranges*, *Products*. **More**, at its end, holds the rarely needed raw measurements (test pairs in matched or mixed
-  conditions) and the exports. *Also* is a row of chips, each a switch whose state is its look: Unsettled products, Failing
-  products, Estimates, the Pareto front, and for scale Metals & wood and a familiar filament. *Line* is the goal's line. The
+  conditions) and the exports. *Also* is a row of chips, each a switch whose state is its look: Unknown products (whose data cannot settle the
+  requirements), Failing products, Estimates, the Pareto front, and for scale Metals & wood and a familiar filament. *Line* is the goal's line. The
   axes sit on the chart they set, in a bar across its top: the vertical axis at its left, the horizontal at its right, each
   a menu of property names in one fixed order with its unit and Lin/Log, the swap between. Every option is in view, its
   state on its face; only the test pairs and the exports are a second level, under More. One that does not apply is greyed with
-  its reason ("Drawn in the Products view", "Needs Include and 'Use estimates and resin data', at the top of the page"), never
-  removed. Unsettled products follow Materials with missing data (drawn under Include, as the table lists them) until
+  its reason ("Drawn in the Products view", 'Needs "Include" under Materials that could not be checked, and "Use estimates
+  and resin data", at the top of the page', the second alone under Include), never removed. Unknown products follow
+  Materials that could not be checked (drawn under Include, as the table lists them) until
   their chip is pressed; changing the mode hands them back to it.
 - **One planned effect per control, and the reader's place kept** (D109). Each control changes one thing and leaves the
   rest; a change of axes starts the picture whole. The lens is redrawn on every change and puts back the list's search,
@@ -1200,7 +1210,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   narrows the list. Materials that pass but cannot rank, passing products not drawable on
   these axes, and a cost goal's unpriced products are listed with why.
 - **The inspector** shows one product: its state and schedule, each coordinate with its measurement (a link to it), the
-  state it was read from, the source's own ± as published, what the policy admitted unstated, the strength endpoint, a
+  state it was read from, the source's own ± as published, what the value leaves unstated (a printed bar's orientation, read flat, D172), the strength endpoint, a
   variant's class, the goal's M and its material's rank; **Choose this exact product** records it with its state (D103),
   and **Open its material's products** opens the drawer. Pressing a crowded spot lists the marks within a few pixels to
   choose from. An estimate's inspector gives its likely, plausible and screening ranges apart, its basis, the index over
@@ -1319,14 +1329,14 @@ buttons, so the estimates switch beside them keeps its words to two lines. Colou
   box scrolls only when its table is wider than it is, because a box that can scroll sideways also scrolls vertically, and
   the column headings would stop sticking under a wide screen's scrolled results. Squeezed instead, 46 of 207 cells had
   overprinted their neighbours at 820 px and 132 at 390 px.
-- **The top bar** is one row from 1101 px, in four zones: the name, the search, the two missing-data settings in one
-  panel (the mode and Use estimates and resin data, divided by a rule), and the page's actions. The theme button is a
+- **The top bar** is one row from 1101 px, in four zones: the name, the search, the two missing-data settings side by
+  side with no box (the mode and Use estimates and resin data, divided by a rule), and the page's actions. The theme button is a
   sun or a moon at every width, with "Switch to light theme" or "Switch to dark theme" kept as its name and title (with
   its words it took a second row of its own from 1401 to 1600 px); Save / share is its arrow alone up to 1300 px, with
-  its words kept the same way. Its buttons are one height, and up to 1500 px the mode's label sits above its buttons (from 601 to 1100 px, on the
-  panel's own row, beside them).
+  its words kept the same way. Its buttons are one height, and the mode's label sits beside its buttons (its short form, "Could not be checked",
+  from 1101 to 1250 px; from 601 to 1100 px the settings take a row of their own).
   Below 600 px it is two rows: Filters, the search, Save / share and the theme as icons (each named), then the mode
-  buttons with Use estimates and resin data, without the panel's box; the name goes, since the browser tab carries
+  buttons, their label over them, with Use estimates and resin data; the name goes, since the browser tab carries
   it. It had been four rows on a phone.
 - **The view tabs**, below 1100 px, and **the drawer's eight tabs**, below 1100 px, are each one strip that scrolls
   sideways with the active tab kept in sight, rather than two and three wrapped rows.
@@ -1383,17 +1393,18 @@ page uses at startup.
 ## A material answered by its products (re-center phase 3)
 
 The page judges a material by its products (D83): each product on every requirement at once, printing included, and
-the material passes when one product passes. The table's Result says how many (`1 of 4`), each number cell the
+the material passes when one product passes. The table's Result says how many (`51 of 55 products`), each number cell the
 products' typical value with their range under it, and **Rank by** orders the results by a goal: a performance index
 worked out for each passing product, the material placed by the median of its products, its best product named under
-its name. A column sort clears the ranking. The drawer's **Products** tab (the Grades tab before) opens with the
-material's spread per property and, with requirements set, the products that meet all of them; a product that fails
+its name. A column sort clears the ranking. The drawer's **Products** tab (the Grades tab before) opens with its search and, with requirements set, the products
+that meet all of them, then one closed fold, *Across its products: median and range, and what their makers say* (open
+where none passes), then every product by maker; a product that fails
 says which requirements, in the pills' words. Each product shows its own values, marked where not comparable, **Print
 settings** from its own profiles, and **What the maker says**: since phase 6 (D85), its maker's own statements about
 printing and using it, quoted and grouped by topic (warping, precision, nozzle wear and the rest), each with the
 document and page it is on and a product page marked as marketing text, then a line naming the maker and what its
 documents leave out (a topic, a chamber, drying or annealing need) and whether its website has been searched; its
-other evidence records follow, folded. Above the products, **What makers say** counts, topic by topic, how many makers
+other evidence records follow, folded. In that fold, **What makers say** counts, topic by topic, how many makers
 say something, and for how many of the products the makers' websites were searched. The Overview counts, axis by axis, how many products the H2C can print. The Ashby chart drew each
 material as a bubble (the middle half of its products, whiskers to the extremes) behind its typical point; since D107
 it draws each passing product in the state its answer is in, since D108 Material ranges draws the boxes, over the
@@ -1511,7 +1522,8 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
 - **Part condition** (pinned under the scope toggle until D124 made it a rail group): annealing allowed (with the
   oven's highest temperature, optional) and whether the part lives *dry* or *conditioned* (D99). The results header
   says, in one line, how every product is judged, and offers *Allow annealing: N more pass* when that would add any.
-- **Within H2C temperature limits** (called Printable on the H2C until D124) is one toggle and one pill: the three
+- **Nozzle, bed and chamber within H2C limits** (Within H2C temperature limits until 2026-10-17, Printable on the H2C
+  until D124) is one toggle and one pill: the three
   print gates together, asked by every template (D101). Off, the header says *H2C printability not checked*; with one
   or two asked, *partly checked*, naming what is not.
 - **The header is the answer first** (F09): the count and what could not be checked in two lines, the requirements as

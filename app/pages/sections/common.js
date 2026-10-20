@@ -142,9 +142,9 @@ export const SHARED_NOTE = 'In grey, a value a product reads from a data sheet i
  * What each product publishes of `keys` (grades[].headline: each product's own value, as the strips would draw it), as a
  * table on the page's grid (sheetFrame): every product of the page across, in the page's order, where there are
  * ACROSS_MAX or fewer, properties down; else the products that publish one down, the properties across. A value read
- * from a data sheet the product shares (D89) is in grey, the sheet's product in its title; one not ranked (no stated
- * orientation or load) says so under it, and one measured after annealing too. `fmt(value, unit)` prints a value. Each
- * cell carries its measurement's ID (`data-mid`), not as a record.
+ * from a data sheet the product shares (D89) is in grey, the sheet's product in its title; one set apart (a test bar no
+ * document describes as printed, or no stated load, D172) says so under it, and one measured after annealing too.
+ * `fmt(value, unit)` prints a value. Each cell carries its measurement's ID (`data-mid`), not as a record.
  */
 export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes it' } = {}) {
   const hs = keys.map((k) => REGISTRY.allHeadlines.find((h) => h.key === k)).filter(Boolean);
@@ -153,7 +153,9 @@ export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes
   if (!all.length || !live.length) return '';
   // A Z bar the sheet labels otherwise says the sheet's code, as everywhere a Z bar is labelled ("Z (ZX)").
   const code = (h, v) => { const s = h.direction === 'Z' && v.measurementId ? sheetCode(c.msById?.get(v.measurementId)) : null; return s ? `Z (${s})` : null; };
-  const note = (h, v) => [v.level === 'as-published' ? (h.direction ? 'orientation not stated' : 'load not stated') : null, v.anneal ? 'after annealing' : null, code(h, v)].filter(Boolean).join(', ');
+  // A value set apart (D172) says why in as few words as the column's width holds (the cell does not wrap).
+  const apart = (h, v) => (v.caveat === 'not-described' ? 'not described as printed' : v.caveat === 'load-not-stated' ? 'load not stated' : h.direction ? 'orientation not stated' : 'load not stated');
+  const note = (h, v) => [v.level === 'as-published' ? apart(h, v) : null, v.anneal ? 'after annealing' : null, code(h, v)].filter(Boolean).join(', ');
   const twinOf = (v) => (v?.from?.origin === 'twin' ? c.gradeById.get(v.from.gradeId) ?? null : null);
   const cell = (g, h, label) => {
     const v = g.headline?.[h.key];

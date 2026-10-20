@@ -37,10 +37,10 @@ export const TEMPLATES = [
   {
     name: 'Outdoor structural part',
     description: 'A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³.',
-    // What the check takes on trust, said where it is read (the screening review, C10 and C39): an HDT whose test bar the
-    // sheet does not describe is taken as a printed bar's (D84), except for PLA and PET (D153, CV05), and the part is judged
-    // dry.
-    notChecked: 'UV and weathering. Makers describe them in words and never give a verdict, so no filter can check them. Read the Environment tab of anything you pick. An HDT whose test bar no document describes as printed is set apart: it never passes, and for PLA and PET it can still show a fail. The part is judged dry: nylons lose stiffness in humid air, and few sheets publish a humid value.',
+    // What the check cannot read, said where it is read (the screening review, C10 and C39): an HDT whose test bar no
+    // document describes as printed is set apart for good and never passes (D172), though for PLA and PET it can still
+    // fail one as a ceiling (D153, CV05), and the part is judged dry.
+    notChecked: 'UV and weathering. Makers describe them in words and never give a verdict, so no filter can check them. Read the Environment tab of anything you pick. An HDT whose test bar no document describes as printed may be a moulded bar\'s: it is shown and never passes, and for PLA and PET it can still show a fail. The part is judged dry: nylons lose stiffness in humid air, and few sheets publish a humid value.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100, mandatory: true, __group: 'Thermal' },
@@ -71,7 +71,7 @@ export const TEMPLATES = [
   {
     name: 'Warm environment',
     description: 'A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C.',
-    notChecked: 'Printing without chamber heat. The H2C heats its chamber up to 65 °C, and the check assumes it does. An HDT whose test bar no document describes as printed is set apart: it never passes, and for PLA and PET it can still show a fail.',
+    notChecked: 'Printing without chamber heat. The H2C heats its chamber up to 65 °C, and the check assumes it does. An HDT whose test bar no document describes as printed may be a moulded bar\'s: it is shown and never passes, and for PLA and PET it can still show a fail.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'hdt045', operator: '>=', value: 80, mandatory: true, __group: 'Thermal' },
