@@ -39,12 +39,23 @@ export const STRIP_MIN = 4;
  */
 export const inStrip = (m, key) => (m.summary?.[key]?.n ?? 0) >= STRIP_MIN;
 
-/** The product strips each section draws (charts/strips.js stripsFigure), by the figure's id. */
+/**
+ * The product strips each section draws (charts/strips.js stripsFigure), by the figure's id. Hardness is the mechanical
+ * section's second figure: Shore A and Shore D (D150), each on its own scale, never compared with each other; a page
+ * had listed them under Other properties only (OPEN-PROBLEMS §38.3).
+ */
 export const STRIP_SETS = {
   mechanical: ['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY', 'charpyNotched', 'izodNotched'],
+  hardness: ['shoreA', 'shoreD'],
   thermal: ['hdt045', 'hdt18', 'glassTransition'],
   'density-price': ['density', 'priceCADkg'],
 };
+
+/**
+ * The headlines a section of the Overview draws beyond the drawer's comparisons (records/measurements.js drawnIndex reads
+ * them for a card's "On the Overview"; sections/other.js leaves their values out of Other properties).
+ */
+export const PAGE_ONLY = STRIP_SETS.hardness;
 
 /** The pairs of "Across the layers" (charts/layers.js): flat (XY) and across the layers (Z), by registry key. */
 export const LAYER_PAIRS = [

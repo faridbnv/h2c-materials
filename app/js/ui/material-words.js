@@ -495,12 +495,14 @@ export const verdictWords = (v) => String(v ?? '').replace(/-/g, ' ');
 /**
  * What the statements on one exposure say, counted in one unit, statements, so the counts add up to the row's total:
  * the verdict all of them give; the verdict two thirds or more give, with its count; else "mixed", with how many
- * disagree. A statement in words with no verdict is counted as "without a verdict". The material page's Chemicals table
- * and the drawer's Environment headings print it (moved from app/pages/findings.js, 2026-10-18, C22). It counts makers'
- * statements; it is not the selector's answer to an environment requirement, which is a product's.
+ * disagree. A statement in words that rates nothing (resistant, limited, not resistant) is counted as described "with no
+ * rating"; "described without a verdict" had read as the project's bookkeeping (OPEN-PROBLEMS §37.19). The material
+ * page's Chemicals table and the drawer's Environment headings print it (moved from app/pages/findings.js, 2026-10-18,
+ * C22). It counts makers' statements; it is not the selector's answer to an environment requirement, which is a
+ * product's.
  */
 export function statementVerdictWords(records) {
-  // A "no data" statement says nothing, so it is not counted; a statement in words alone counts but gives no verdict.
+  // A "no data" statement says nothing, so it is not counted; a statement in words alone counts but rates nothing.
   const said = records.filter((e) => e.verdict !== 'no-data');
   const n = said.length;
   if (!n) return records.length ? 'No data published' : '';
@@ -508,11 +510,11 @@ export function statementVerdictWords(records) {
   for (const e of said) if (e.verdict !== 'narrative') counts.set(e.verdict, (counts.get(e.verdict) ?? 0) + 1);
   const list = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   const of = (k) => (k === n ? (n === 1 ? 'in its one statement' : n === 2 ? 'in both statements' : `in all ${fmtNumber(n)} statements`) : `in ${fmtNumber(k)} of ${fmtNumber(n)} statements`);
-  if (!list.length) return `Described without a verdict, ${of(n)}`;
+  if (!list.length) return `Described in words, with no rating, ${of(n)}`;
   const [top, k] = list[0];
   const word = cap(envVerdictWords(top));
   // One verdict, the others in words only: it is that verdict, however few say it.
-  if (list.length === 1) return `${word}, ${of(k)}${k / n < 2 / 3 ? (n - k === 1 ? '; the other gives no verdict' : '; the others give no verdict') : ''}`;
+  if (list.length === 1) return `${word}, ${of(k)}${k / n < 2 / 3 ? (n - k === 1 ? '; the other gives no rating' : '; the others give no rating') : ''}`;
   if (k / n >= 2 / 3) return `${word}, ${of(k)}`;
   const disagree = list.reduce((s, [, x]) => s + x, 0);
   return `Mixed, ${fmtNumber(disagree)} statements disagree`;

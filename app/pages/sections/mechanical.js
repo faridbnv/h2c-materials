@@ -2,19 +2,21 @@
 // Two sentences (findings.js mechanicalWords); each product's value property by property (figures.js stripsFigure) where
 // four products or more are compared, else what each sheet publishes, as a table; what a part keeps across the layers
 // (figures.js layersFigure); and the flat and across-the-layers table, its twin, from the compiled medians
-// (materials[].summary) and each product's share (material-stats.js layerPairs, as material-facts.js shareOf).
+// (materials[].summary) and each product's share (material-stats.js layerPairs, as material-facts.js shareOf). Last,
+// hardness on the Shore A and Shore D scales, by the same strip-or-table rule.
 
 import { esc } from '../html.js';
 import { REGISTRY } from '../../js/ui/registry.js';
 import { comparisonsOf, measuredIn } from '../../js/ui/material-facts.js';
 import { propertyName } from '../../js/ui/labels.js';
-import { layerPairs, summarise } from '../../js/ui/material-stats.js';
+import { layerPairs, summarise, unpairedZ } from '../../js/ui/material-stats.js';
 import { mechanicalWords, num, fmtD, glue } from '../findings.js';
 import { inStrip } from '../figures.js';
 import { opening, drawFigure, figureConfig, subhead, tableBox, publishedKeys, headlineTable, absentLine } from './common.js';
 
-/** The strips this section draws (figures.js STRIP_SETS.mechanical). */
+/** The strips this section draws (figures.js STRIP_SETS.mechanical), and its hardness (STRIP_SETS.hardness). */
 const KEYS = ['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY', 'charpyNotched', 'izodNotched'];
+const HARDNESS = ['shoreA', 'shoreD'];
 /** The flat and across-the-layers rows: a property's XY and Z headlines. */
 const LAYER_ROWS = [
   ['Tensile strength', 'tensileStrengthXY', 'tensileStrengthZ'], ['Tensile modulus', 'tensileModulusXY', 'tensileModulusZ'],
@@ -35,21 +37,26 @@ function medianCell(m, key, label = '') {
   return `<td class="num typ" data-label="${esc(label)}"><b>${v(s.median, 'median')}</b>${mid}</td><td class="num n" data-label="Products">${num(s.n, { key, stat: 'n', shown: String(s.n) }).html}</td>`;
 }
 
-/** The share of its flat value each product keeps across the layers, for one property: { median, n } or null. */
+/**
+ * The share of its flat value each product keeps across the layers, for one property: { median, n, gaps } or null, `gaps`
+ * how many products the Z median counts that give no share (material-stats.js unpairedZ).
+ */
 function shareOf(c, comps, xyKey, zKey) {
   const f = comps.find((x) => x.hs.some((h) => h.key === xyKey) && x.hs.some((h) => h.key === zKey));
   if (!f) return null;
   const xy = f.hs.find((h) => h.key === xyKey), z = f.hs.find((h) => h.key === zKey);
   const pairs = layerPairs(xy, z, f.byKey, c);
-  return pairs.length ? { ...summarise(pairs.map((p) => p.ratio)), n: pairs.length } : null;
+  return pairs.length ? { ...summarise(pairs.map((p) => p.ratio)), n: pairs.length, gaps: unpairedZ(xy, z, f.byKey, c).length } : null;
 }
 
 /** The flat and across-the-layers table: each property's XY and Z medians with their middle halves, and the share kept. */
 function layerTable(c) {
   const m = c.m;
   const comps = comparisonsOf(m, c, 'Mechanical');
+  let fewer = false;
   const rows = LAYER_ROWS.filter(([, xy, z]) => m.summary?.[xy]?.n || m.summary?.[z]?.n).map(([label, xy, z]) => {
     const share = shareOf(c, comps, xy, z);
+    if (share?.gaps) fewer = true;
     return `<tr><th scope="row" class="prop">${esc(label)} <span class="u">${esc(headline(xy)?.unit ?? '')}</span></th>${medianCell(m, xy, 'Flat (XY)')}${medianCell(m, z, 'Across the layers (Z)')}`
       + `<td class="num share" data-label="Z as a share of XY">${share ? `<b>${esc(`${Math.round(share.median * 100)} %`)}</b><span class="mh">${esc(`${share.n} ${share.n === 1 ? 'product' : 'products'}`)}</span>` : '—'}</td></tr>`;
   });
@@ -57,7 +64,7 @@ function layerTable(c) {
   return `<div class="layer-table">${subhead('Flat and across the layers')}${tableBox(`<table class="grid layers"><thead>`
     + '<tr><th scope="col" rowspan="2">Property</th><th scope="colgroup" colspan="2">Printed flat (XY)</th><th scope="colgroup" colspan="2">Across the layers (Z)</th><th scope="col" rowspan="2" class="num">Z as a share of XY</th></tr>'
     + '<tr><th scope="col" class="num">Median</th><th scope="col" class="num">Products</th><th scope="col" class="num">Median</th><th scope="col" class="num">Products</th></tr>'
-    + `</thead><tbody>${rows.join('')}</tbody></table>`)}<p class="sec-note">${esc('The middle half of the products under each median. The share is each product\'s Z value as a part of its XY value, from one sheet and one state, and the median of those shares.')} <a href="method.html#layers">How XY and Z differ</a>.</p></div>`;
+    + `</thead><tbody>${rows.join('')}</tbody></table>`)}<p class="sec-note">${esc(`The middle half of the products under each median. The share is each product's Z value as a part of its XY value, from one sheet and one state, and the median of those shares.${fewer ? ' Where it counts fewer products than the Z median, the others publish no flat value of the same test from the same sheet; the figure\'s table names them.' : ''}`)} <a href="method.html#layers">How XY and Z differ</a>.</p></div>`;
 }
 
 /** The rows of the thin table: each mechanical property its sheets publish, impact tests by notch. */
@@ -95,11 +102,18 @@ export default {
     const unnotched = impactMissing && c.ms.some((x) => /impact/i.test(x.property) && x.numeric && /unnotched/i.test(x.notch ?? ''));
     const absent = [...['tensileStrengthXY', 'tensileModulusXY', 'tensileStrengthZ', 'elongationXY'].filter((k) => keys.includes(k) && !published.includes(k)).map((k) => ABSENT_WORDS[k]),
       impactMissing ? `notched impact${unnotched ? ' (its sheets give unnotched values only)' : ''}` : null].filter(Boolean);
+    // Hardness, Shore A and Shore D, by the same rule: a strip where four products are ranked, else what each sheet
+    // publishes, in the section's table where it has one (OPEN-PROBLEMS §38.3: a page had listed it under Other
+    // properties only).
+    const hardKeys = figureConfig('STRIP_SETS', {}).hardness ?? HARDNESS;
+    const hard = publishedKeys(c, hardKeys).filter((k) => !m.headline?.[k]?.notApplicable);
+    const hardStripped = hard.filter((k) => inStrip(m, k));
+    const hardTabled = hard.filter((k) => !hardStripped.includes(k));
     const parts = [opening(mechanicalWords(c).filter((x) => !/unnotched/.test(String(x))))];
     let figures = 0, dots = 0;
     const add = (f) => { if (!f.empty && f.html) { parts.push(f.html); figures += f.stats?.figures ?? 1; dots += f.stats?.dots ?? 0; } };
     if (stripped.length) add(drawFigure('stripsFigure', c, env, stripped, { id: 'mechanical' }));
-    if (tabled.length) parts.push(headlineTable(c, tabled, { fmt: (v, u) => fmtD(v, u) }));
+    if (tabled.length) parts.push(headlineTable(c, [...tabled, ...hardTabled], { fmt: (v, u) => fmtD(v, u) }));
     // Across the layers: drawn, and tabled, only where some product publishes a value across the layers.
     const hasZ = publishedKeys(c, ['tensileStrengthZ', 'tensileModulusZ', 'elongationZ', 'flexuralStrengthZ', 'flexuralModulusZ']).length > 0;
     if (hasZ) {
@@ -107,6 +121,8 @@ export default {
       const lt = layerTable(c);
       if (lt) parts.push(`<details class="more"><summary>${esc('Flat and across the layers, property by property')}</summary>${lt}</details>`);
     }
+    if (hardStripped.length) add(drawFigure('stripsFigure', c, env, hardStripped, { id: 'hardness' }));
+    if (hardTabled.length && !tabled.length) parts.push(headlineTable(c, hardTabled, { fmt: (v, u) => fmtD(v, u) }));
     parts.push(absentLine(c, absent));
     return { empty: false, html: glue(parts.filter(Boolean).join('\n')), stats: { figures, dots } };
   },

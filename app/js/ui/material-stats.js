@@ -75,6 +75,29 @@ export function layerPairs(a, b, byKey, c) {
   return out;
 }
 
+/**
+ * The products a Z median counts that give no share across the layers (layerPairs): a comparable value across the layers
+ * (headline `b`) with no flat value (`a`) of the same test, sheet and state beside it. `[{ g, why }]`, `why` one of
+ * 'none' (no flat value compared), 'test' (another endpoint flat than across: a yield beside a break, `xy` and `z` the
+ * two properties), 'sheet' (the two from two documents) or 'state' (measured in two states). Why the layers figure's
+ * share can count fewer products than the across-the-layers median (PETG: 14 shares, 16 Z values; OPEN-PROBLEMS §37.18).
+ * Display only.
+ */
+export function unpairedZ(a, b, byKey, c) {
+  const paired = new Set(layerPairs(a, b, byKey, c).map((p) => p.g.id));
+  const out = [];
+  for (const eb of byKey.get(b.key) ?? []) {
+    if (paired.has(eb.g.id) || eb.variant || eb.v.level !== 'comparable') continue;
+    const ea = (byKey.get(a.key) ?? []).find((x) => x.g.id === eb.g.id);
+    const xa = ea && c.msById.get(ea.v.measurementId), xb = c.msById.get(eb.v.measurementId);
+    const schedule = (v) => (v.anneal ? `${v.anneal.tempC}:${v.anneal.hours}` : null);
+    const why = !ea || ea.variant || ea.v.level !== 'comparable' || !xa || !xb ? 'none'
+      : xa.property !== xb.property ? 'test' : xa.sourceId !== xb.sourceId ? 'sheet' : schedule(ea.v) !== schedule(eb.v) ? 'state' : 'none';
+    out.push({ g: eb.g, why, xy: xa?.property ?? null, z: xb?.property ?? null });
+  }
+  return out;
+}
+
 // ------------------------------------------------------------------ print windows
 
 /**
@@ -202,6 +225,28 @@ export function dryingStats(products) {
 // ------------------------------------------------------------------ the temperatures a part meets
 
 /**
+ * A published value's two ends where its sheet prints a range ("180–200 °C": the build keeps its low end as the value,
+ * measurements[].interval its span), else its one value. A page that says or draws a value as published shows the span
+ * the sheet printed, never its low end alone. Display only.
+ */
+export const publishedEnds = (x) => (x?.interval?.kind === 'range' && Number.isFinite(x.interval.lo) && Number.isFinite(x.interval.hi) ? [x.interval.lo, x.interval.hi] : [x.value]);
+
+/**
+ * Whether a material's pages say a property published under each sheet's own test (heatLadder's `extra`) among its
+ * temperatures. Melting is said only for a polymer that has a melting point: polymers.csv holds the copolyesters
+ * (PETG, PCTG), the styrenics (ABS, ASA, HIPS), PC and the others it classes amorphous with no melting point, from their
+ * resin producers' data, so what their sheets print as a melting temperature (PETG's 128 to 250 °C, a moulding
+ * standard's processing range among them) is no crystalline melt, and its median (PETG's "typically 190 °C",
+ * OPEN-PROBLEMS §37.18) is no property of the material. Such values stay listed as published under Other properties
+ * and in each product's card. A material whose polymer the table does not class keeps them.
+ */
+export function saysOnTheLadder(m, db, property) {
+  if (property !== 'Melting temperature') return true;
+  const p = (db?.polymers ?? []).find((x) => x.id === m.estimateIdentity);
+  return !(p?.morphology === 'amorphous');
+}
+
+/**
  * A material's temperatures on one axis, lowest first: each key property in °C that some product publishes comparably
  * (glass transition, HDT at both loads: materials[].summary[key], the build's own summary), then each property in
  * `extra` (Vicat, melting) from the values its products publish, one per product (the median of a product's own), every
@@ -216,13 +261,13 @@ export function heatLadder(m, c, extra = []) {
     if (s?.n) rows.push({ id: h.key, label: h.labels.plain, h, compared: true, summary: s });
   }
   const variantOnly = c.grades.length > 0 && c.grades.filter(isProduct).every((g) => g.variant);
-  for (const property of extra) {
+  for (const property of extra.filter((p) => saysOnTheLadder(m, c.db, p))) {
     const byGrade = new Map();
     for (const x of c.ms) {
       if (x.property !== property || !x.numeric || x.unit !== '°C' || x.quarantined || x.implausible || !Number.isFinite(x.value)) continue;
       const g = c.gradeById.get(x.gradeId);
       if (!g || g.retired || !isProduct(g)) continue;
-      (byGrade.get(g.id) ?? byGrade.set(g.id, { g, values: [] }).get(g.id)).values.push(x.value);
+      (byGrade.get(g.id) ?? byGrade.set(g.id, { g, values: [] }).get(g.id)).values.push(...publishedEnds(x));
     }
     if (!byGrade.size) continue;
     const entries = [...byGrade.values()].map(({ g, values }) => ({ value: summarise(values).median, origin: 'own', variant: !variantOnly && !!g.variant }));

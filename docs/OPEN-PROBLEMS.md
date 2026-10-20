@@ -2189,9 +2189,10 @@ typical schedule should be drawn from the lower ends is a ruling, not made here.
 
 *From the material pages round, 2026-10-17 (m433 to m436; D142): what its blind read of 40 pages and its data findings left ([verdicts](audits/2026-10-16-material-pages-round/blind-read/VERDICTS.csv)).*
 
-**Checks.** A scan of all 76 pages found, after the fixes, no figure text cut or overlapping at 390 px and two overlaps of
-2 to 3 px at 1,180 px; the interface probe holds its pages to none (since D145 ten of them: the Overview and the Products page of four
-materials, the index and the method page). The estimate stage refits to every data change
+**Checks.** The interface probe holds its pages to no figure text cut or set over another (since D145 ten of them: the
+Overview and the Products page of four materials, the index and the method page). The two overlaps of 2 to 3 px at
+1,180 px a scan of all 76 pages had left are closed (2026-10-19): they were the maps' names, whose boxes are now the
+typeface's own height, and a scan of all 77 Overviews at 390, 820, 1,000, 1,180 and 1,440 px finds none. The estimate stage refits to every data change
 (m433 to m436 moved many materials' estimated modulus and HDT a little); it is frozen as code, not as output (D138).
 verify:fast from an empty build cache took 78.8 s at the round's close, within its 90 s budget (56.1 s warm), so the
 117.7 s of step 2 is not open.
@@ -2203,8 +2204,10 @@ verify:fast from an empty build cache took 78.8 s at the round's close, within i
 **Since the pages were reimagined (D145, 2026-10-17)** changes 2 and 3 are done (the byline in the colophon, no
 provenance line in the reading path, no rank tracks, maps on fixed frames, no one-dot figure), 4 in part (Izod and values
 not compared in groups of their own on the Products page) and 5 (a thin page compact, its estimate left as it is). Change
-1 (one rule for Z) and the inconsistencies below still stand, except PLA's records facet and the "Show all 4" button,
-which went with the records page and the Products table's toggles; the others were not rechecked on the new pages.
+1 is done where it is the pages' (2026-10-19): every place a page labels a Z-family bar shows the sheet's own code beside
+the reading, "Z (ZX)", "Z (X-Z)"; how a bar is read stays the data's (D143), so a ZX bar whose sheet neither says nor draws
+it upright stays ZX, and QIDI PETG RAPIDO's Z still comes from the filament guide rather than its data sheet's ZX bar.
+Of its inconsistencies, two stand (below).
 
 **Its five changes, ranked.** (1) One rule for Z everywhere: read a ZX or ZY bar as Z by its long axis and show the
 sheet's code beside it ("Z (ZX)"), where D143 keeps a ZX bar whose sheet neither says nor draws it upright as ZX
@@ -2218,13 +2221,19 @@ table cell by cell: a yield beside a break marked, a published range printed as 
 brands' identical sheets said. (5) PCTG-GF's page compacted, and its tensile estimate made consistent: it lists the two
 55 MPa yields among its inputs while saying it does not include them, and calls "good precision" an interval that
 excludes all three published values (§36.2).
-**Its inconsistencies.** PETG's figure says 14 products publish both tensile strengths, its table shows 16 (QIDI
-ToughPETG-HF's XY is a yield, its Z a break; RAPIDO's two come from two documents); Polymaker PolyLite PETG's older
-"not resistant" to weak acids (Q00079) stands beside its data sheet's "Good" (Q05540) and both count; impact marks 30
-where the note says 29 drawn (a shared sheet's value, V013622, drawn twice) and PLA's 68 against 64; the hero's Z/XY
-from medians (64 %) beside the text's median of shares (68 %), unexplained; a 190 °C melting temperature drawn for PETG; PLA's records facet counting a
-"Not published" thermal conductivity row; PCTG-GF's density range "—" for three products; a "Show all 4" button over
-four rows already shown.
+**Its inconsistencies.** Two stand, rechecked on the new pages on 2026-10-19. Polymaker PolyLite PETG's older "not
+resistant" to weak acids (Q00079) stands beside its data sheet's "Good" (Q05540) and both count. And a data sheet two
+products share is one value drawn as two marks: Prusament PETG Recycled reads Prusament PETG's sheet (V013622, D89), and
+the strip draws a mark per product as the median counts them (16 shown, 16 marks), the second mark saying "data sheet
+shared with" its sibling; drawing the value once would leave the median counting a product the strip does not show, the
+owner's call, not made. The rest are closed: the layers figure's table names the products the Z median counts and its
+share cannot (PETG's 14 of 16: RAPIDO's two values from two documents, ToughPETG-HF's yield flat and break across), and
+the property-by-property table says why the counts differ; the hero's Z/XY from medians went with D145, the table's note
+saying the share is the median of each product's; melting is no longer said or drawn for a polymer `polymers.csv`
+classes amorphous (PETG's 190 °C was the median of 128 to 250 °C, two ranges read at their low end and a moulding
+standard's processing range among them; the values are listed under Other properties), and a range a sheet prints is
+drawn as that range; PCTG-GF's page says its three products give 1,310 kg/m³; PLA's records facet and the "Show all 4"
+button went with the records page.
 
 
 ### 37.19. What the reimagined pages leave
@@ -2243,17 +2252,16 @@ Filamant Printing Guide".
 **A glass-filled grade sold as toughened.** Fiberlogy PCTG+GF10 carries the "sold as toughened" mark because its sheet
 says "increased strength, stiffness, and impact resistance"; to an engineer a GF10 grade is not a toughened grade. Whether
 "impact resistance" alone makes a toughened claim is a ruling on `product_claims.csv`, not made here.
-**What the final review left** (72/100, [review](audits/2026-10-17-pages-reimagined/review/REVIEW-3.md)). A product card
-with 37 values or more still runs to about 2,700 px, its Conditions cell prints a sheet's standard string raw
-("1183 ISO1183 GB/T1033") and the Products table's sticky head sits over an open card; the strips' "29 ranked of 64
-shown" and the chemicals' "described without a verdict" read as bookkeeping to a reader (the second review had asked
-for the first); *Back to your results* opens the drawer of the last material read, which a reader may not expect; a
-thin page (PEI-CF) still runs about six screens, its printing figure and settings table most of it.
-**Found while taking the last screenshots.** In a product card, a document group whose values share a condition the group
-heading does not state repeats it as a chip on every row (Polymaker HT PLA's second document repeats "annealed at a
-temperature its sheet does not state for a time its sheet does not state" on each value). The second finding here,
-PEI-CF's temperatures figure dropping the sign of its "> 200 °C" HDT, is closed: a bounded median keeps its sign in every
-table and figure, and `pages:check` holds the pages to it (C14, D147).
+**What the final review left** (72/100, [review](audits/2026-10-17-pages-reimagined/review/REVIEW-3.md)). *Back to your
+results* opens the drawer of the last material read, which a reader may not expect; a thin page (PEI-CF) still runs
+about six screens, its printing figure and settings table most of it. Closed on 2026-10-19: a long card folds each long
+document to the values the list shows (PEKK's 94-value card from 5,300 to about 900 px, the tallest now about 2,100);
+the Conditions cell gives the standards the build reads, the sheet's string a press away; an open card stacks above the
+list's sticky head; the strips say "64 products, 29 in the median" and the chemicals "described in words, with no
+rating", the selector's drawer printing the second too (it keeps "29 ranked of 64 shown"); a condition every value of a
+document group, or two in three, share is said once in its heading (Polymaker HT PLA's annealing among them), a value
+that lacks it saying so. PEI-CF's temperatures figure dropping the sign of its "> 200 °C" HDT is closed too: a bounded
+median keeps its sign in every table and figure, and `pages:check` holds the pages to it (C14, D147).
 **The summaries are drafts.** All 76 were rewritten to D145's rules, drafted by Claude Sonnet and judged against their
 pages by Claude Opus (55 of 76 changed after drafting); none is reviewed by the owner yet.
 
@@ -2413,8 +2421,9 @@ stated as approximate is proposed from its number, the word in its note. Run aga
 (177 readings), the reconciler leaves 3 visual-only (was 20; the 3 quote words their page does not print) and 2
 second-read tasks (was 15), and the proposals hold none as a claim (was 4). The proposals still take a load by volume as one by weight: the
 DuraPro reading above is proposed, and was held by the reviewer.
-**Shore hardness on the pages and in the drawer.** A material page lists hardness under Other properties only, as
-before: no section draws Shore A or D. The drawer's headline list shows Shore A for a rigid material as "0 of N", as it
+**Shore hardness in the drawer.** Since 2026-10-19 a material page draws Shore A and Shore D in its Mechanical
+properties, a strip each from four products ranked, else a table of what each sheet publishes; hardness on another scale
+stays under Other properties. The drawer draws neither: its headline list shows Shore A for a rigid material as "0 of N", as it
 does any headline its products do not publish. The four TPU and PEBA ratings their names give (TPU 95A) are no Shore
 value, as their Data status always said, so those products state no Shore A hardness to a filter.
 

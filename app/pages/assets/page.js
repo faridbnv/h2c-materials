@@ -9,7 +9,8 @@
    - the theme button (the selector's choice, localStorage 'h2c-theme'), its icon and words the selector's;
    - the anchor offset: the measured height of the bar (and of the Products page's sticky controls);
    - the section in view, named in the bar, and its list closing on a choice, Escape or a click outside;
-   - a card opened at its anchor (#G… a product, #V… a value in it);
+   - a long card's document groups folded to their first rows, each a press from all of them;
+   - a card opened at its anchor (#G… a product, #V… a value in it, its folded group opened);
    - lighting: hover or focus anything carrying a product (data-grade) or a material (data-mat), and everything else
      carrying it lights while the rest fades; a figure's mark names itself in a tooltip; a click on a product's mark goes
      to its card on the Products page;
@@ -148,6 +149,20 @@
   }
   window.addEventListener('resize', measure);
 
+  /* ------------------------------------------------------------ a long card's groups, folded */
+  // A Products page card with many values shows each long document group's first rows (products/card.js FOLD), the
+  // rest a press away; without this script every row reads.
+  function fold(tb, on) {
+    if (on) tb.setAttribute('data-folded', ''); else tb.removeAttribute('data-folded');
+    var b = tb.querySelector('.pc-all');
+    if (b) { b.textContent = b.getAttribute(on ? 'data-more' : 'data-less'); b.setAttribute('aria-expanded', on ? 'false' : 'true'); }
+  }
+  $$('.pc-t tbody[data-fold]').forEach(function (tb) { fold(tb, true); var b = tb.querySelector('.pc-all'); if (b) b.hidden = false; });
+  doc.addEventListener('click', function (ev) {
+    var b = ev.target.closest && ev.target.closest('.pc-all');
+    if (b) fold(b.closest('tbody'), !b.closest('tbody').hasAttribute('data-folded'));
+  });
+
   /* ------------------------------------------------------------ a card opened at its anchor */
   function reveal(scroll) {
     var id = decodeURIComponent(location.hash.slice(1));
@@ -155,6 +170,9 @@
     var t = doc.getElementById(id);
     if (!t) return;
     for (var d = t.closest('details'); d; d = d.parentElement && d.parentElement.closest('details')) d.open = true;
+    // A value in a folded group opens the group.
+    var folded = t.closest('tr.pc-x') && t.closest('tbody[data-folded]');
+    if (folded) fold(folded, false);
     if (t.matches('tr')) { $$('tr.hit').forEach(function (x) { x.classList.remove('hit'); }); t.classList.add('hit'); }
     if (scroll) t.scrollIntoView();
   }

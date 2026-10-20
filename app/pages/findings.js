@@ -17,7 +17,7 @@ import { fmtNumber, readableUnit, priceSampleSentence, medianSign } from '../js/
 import { REGISTRY } from '../js/ui/registry.js';
 import { propertyName } from '../js/ui/labels.js';
 import { identity, productNameOrId, printFacts, printCounts, priceRows, stated, groupByMaker } from '../js/ui/material-facts.js';
-import { compareMedians, printsAmorphous, heatLadder } from '../js/ui/material-stats.js';
+import { compareMedians, printsAmorphous, heatLadder, publishedEnds } from '../js/ui/material-stats.js';
 import { plural, lower, cap, andList, scheduleWords, inText, statementVerdictWords } from '../js/ui/material-words.js';
 import { standOut, standOutProducts, standing, productsOf, KEY_FIGURES } from '../js/ui/material-highlights.js';
 import { glue, countWords, onTheH2cRows, nozzleSay, dryingSpanWords } from '../js/ui/print-brief.js';
@@ -335,7 +335,8 @@ export function thermalWords(c, { table = false } = {}) {
   if (!table) {
     const rows = heatLadder(m, c, ['Vicat softening temperature', 'Melting temperature']).filter((r) => !r.compared);
     // One product with values from two documents is said as both, never as their median ("77–89 °C").
-    const raw = (prop) => c.ms.filter((x) => x.property === prop && x.numeric && x.unit === '°C' && !x.quarantined && !x.implausible).map((x) => x.value);
+    // A range its sheet prints is said as that range ("180–200 °C"), never its low end alone.
+    const raw = (prop) => c.ms.filter((x) => x.property === prop && x.numeric && x.unit === '°C' && !x.quarantined && !x.implausible).flatMap(publishedEnds);
     const value = (r) => { if (r.summary.n > 1) return `typically ${fmtD(r.summary.median, '°C')}`; const vs = raw(r.id); const lo = Math.min(...vs), hi = Math.max(...vs); return `${lo === hi ? fmtD(lo, '°C') : `${fmtD(lo)}–${fmtD(hi, '°C')}`}, from one product`; };
     const said = rows.map((r, i) => `${r.id === 'Vicat softening temperature' ? 'Vicat softening' : 'melting'} ${i ? '' : 'is '}${value(r)}`);
     if (said.length) out.push(plain(`As published, ${andList(said)}.`));

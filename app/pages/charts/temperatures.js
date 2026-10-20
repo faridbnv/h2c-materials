@@ -8,7 +8,7 @@
 
 import { esc, pct, textPx, fmtDisplay, NBSP, tickLabels, productName, shortName, withUnit, spanUnit, products, andList, orList, figContext, productMark, fitLabels, KEY, keyOf, twinTable } from './kit.js';
 import { figFrame } from './figure.js';
-import { printWindows, dryingStats, heatLadder, productsOf, typicalWindow } from '../../js/ui/material-stats.js';
+import { printWindows, dryingStats, heatLadder, productsOf, typicalWindow, publishedEnds } from '../../js/ui/material-stats.js';
 import { printFacts, isProduct } from '../../js/ui/material-facts.js';
 import { medianSign } from '../../js/ui/format.js';
 import { stripScale, limitOnScale } from '../../js/ui/scales.js';
@@ -34,7 +34,8 @@ export function temperaturesFigure(c, env = {}, opts = {}) {
   for (const [a] of AXES) for (const w of pw[a].windows) vals.push(w.min, w.max);
   for (const [a] of AXES) for (const e of pw[a].ends) { if (e.min != null) vals.push(e.min); if (e.max != null) vals.push(e.max); }
   for (const e of dry.entries) vals.push(e.value);
-  for (const r of ladder) vals.push(r.summary.min, r.summary.max);
+  // A rung as published spans each product's values, the ends of a range its sheet prints included.
+  for (const r of ladder) vals.push(r.summary.min, r.summary.max, ...(r.compared ? [] : publishedValues(c, r.id).flatMap((v) => [v.min, v.max])));
   if (!vals.length) return { html: '', empty: true, stats: { figures: 0, dots: 0 } };
   // The axis holds every limit it draws: a limit at or below the highest value drawn (PEI-CF's 65 °C chamber, its
   // windows at 100 °C and up), and one just above a setting's windows; one far above them is said in words.
@@ -213,7 +214,8 @@ function publishedValues(c, property) {
     if (x.property !== property || !x.numeric || x.unit !== '°C' || x.quarantined || x.implausible || !Number.isFinite(x.value)) continue;
     const g = c.gradeById.get(x.gradeId);
     if (!g || g.retired || !isProduct(g) || g.variant) continue;
-    (byGrade.get(g.id) ?? byGrade.set(g.id, { g, values: [] }).get(g.id)).values.push(x.value);
+    // A range its sheet prints ("180–200 °C") is drawn as that range, never at its low end alone.
+    (byGrade.get(g.id) ?? byGrade.set(g.id, { g, values: [] }).get(g.id)).values.push(...publishedEnds(x));
   }
   return [...byGrade.values()].map(({ g, values }) => ({ g, name: productName(g), min: Math.min(...values), max: Math.max(...values) }))
     .sort((a, b) => a.min - b.min || a.max - b.max);

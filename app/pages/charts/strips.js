@@ -9,7 +9,8 @@
 // orientation or load) hollow and light; products with an added filler or additive (a variant) light diamonds; annealed a
 // square; sold as toughened in the claim colour. x in per cent, y in px.
 
-import { esc, pct, textPx, fmtDisplay, NBSP, beyond, headline, shortName, withUnit, spanUnit, products, andList, orList, inText, figContext, productMark, productData, productName, fitLabels, tickLabels, tickText, KEY, keyOf, twinTable } from './kit.js';
+import { esc, pct, textPx, fmtDisplay, NBSP, beyond, headline, shortName, withUnit, spanUnit, products, andList, orList, inText, figContext, productMark, productData, productName, fitLabels, tickLabels, tickText, KEY, keyOf, twinTable, noteOf } from './kit.js';
+import { sheetCode } from '../records/common.js';
 import { figFrame } from './figure.js';
 import { spreadEntries, dotMarks } from '../../js/ui/material-facts.js';
 import { widestSpread, propertyScale, isFlexible } from '../../js/ui/material-stats.js';
@@ -29,6 +30,7 @@ const ZOOM = 0.25;
 
 const QUESTIONS = {
   mechanical: 'How strong, stiff and tough are its products, and which stand out?',
+  hardness: 'How hard are its products, on the Shore scale their sheets use?',
   thermal: 'Where do its products soften under load?',
   'density-price': 'How dense is it, and what does it cost?',
 };
@@ -71,7 +73,13 @@ function strip(c, k, key) {
   if (s.q1 != null && s.q3 != null) o.push(`<rect class="dv-pband" x="${pct(X(s.q1))}" y="${top - 2}" width="${pct(Math.max(X(s.q3) - X(s.q1), 0.4))}" height="${base + 8 - top}" rx="2"/>`);
   if ((s.n ?? 0) > 1 && !beyond(sc, s.median)) o.push(`<line class="dv-pmed" x1="${pct(X(s.median))}" x2="${pct(X(s.median))}" y1="${top - 4}" y2="${base + 6}"/>`);
   o.push(`<line class="dv-axis" x1="0" x2="100%" y1="${base + 6.5}" y2="${base + 6.5}"/>`);
-  for (const p of placed) o.push(productMark(p.marks, p.at, base - p.lv * PITCH, productData(p.e, h, p.marks), p.side));
+  // A mark's note says, beside its state, a value a product reads from the data sheet it shares (D89: two products, one
+  // sheet, drawn at one value, which the median counts for each), and a Z bar its sheet labels otherwise ("Z (ZX)").
+  const noteFor = (p) => {
+    const code = h.direction === 'Z' ? sheetCode(c.msById.get(p.e.v.measurementId)) : null;
+    return [noteOf(p.marks), p.e.v.from?.origin === 'twin' ? p.e.v.from.label : '', code ? `Z (${code})` : ''].filter(Boolean).join('; ') || null;
+  };
+  for (const p of placed) o.push(productMark(p.marks, p.at, base - p.lv * PITCH, productData(p.e, h, p.marks, { 'data-note': noteFor(p) }), p.side));
   // The names, over their own marks: from the mark rightwards in the left half, ending at it in the right half, joined to
   // it by a leader. The lowest first, then the highest where it clears it; on a phone's narrow track the same order.
   const items = named.map((p) => { const t = productName(p.e.g); return { p, t, at: p.at, w: textPx(t, 11.5) + 4, anchor: p.at < 50 ? 'start' : 'end' }; });
@@ -87,12 +95,13 @@ function strip(c, k, key) {
   const n = s.n ?? 0;
   const open = placed.filter((p) => p.marks.includes('open')).length;
   const scaleWords = zoomed ? `scale ${tickText(sc.from)}–${tickText(sc.hi)}${NBSP}${h.unit}${sc.log ? ', log' : ''}` : `${h.unit}${sc.log ? ', log scale' : ''}`;
-  // What the reader sees: how many marks, and how many of them are ranked (in the band and the median).
-  const sub = `${scaleWords} · ${n === entries.length ? `${products(n)}, all ranked` : n ? `${n} ranked of ${entries.length} shown` : `${entries.length} shown, none ranked`}`;
+  // What the reader sees: how many products are drawn, and how many of them the band and the median count, in an
+  // engineer's words ("64 products, 29 in the median"; "29 ranked of 64 shown" read as bookkeeping, OPEN-PROBLEMS §37.19).
+  const sub = `${scaleWords} · ${products(entries.length)}, ${n === entries.length ? 'all in the median' : n ? `${n} in the median` : 'none in the median'}`;
   const clipped = placed.some((p) => p.side);
   const html = `<div class="st-row" data-key="${esc(key)}" data-unit="${esc(h.unit)}" data-open="as published: orientation or load not stated">`
     + `<div class="st-label">${esc(h.labels.plain)}<small>${esc(sub)}</small></div>`
-    + `<svg class="st-svg" width="100%" height="${H}" role="img" aria-label="${esc(`${h.labels.plain}: ${products(entries.length)} drawn${n ? `; median of the ${n} ranked ${withUnit(s.median, h.unit)}${s.q1 != null ? `, middle half ${spanUnit(s.q1, s.q3, h.unit)}` : ''}` : ''}${compared.length ? `; lowest ${productName(compared[0].e.g)}, highest ${productName(compared.at(-1).e.g)}` : ''}.`)}">${o.join('')}</svg></div>`;
+    + `<svg class="st-svg" width="100%" height="${H}" role="img" aria-label="${esc(`${h.labels.plain}: ${products(entries.length)} drawn${n ? `; median of the ${n} it counts ${withUnit(s.median, h.unit)}${s.q1 != null ? `, middle half ${spanUnit(s.q1, s.q3, h.unit)}` : ''}` : ''}${compared.length ? `; lowest ${productName(compared[0].e.g)}, highest ${productName(compared.at(-1).e.g)}` : ''}.`)}">${o.join('')}</svg></div>`;
   return { html, h, s, n, entries, placed, compared, open, clipped, variants: placed.filter((p) => p.e.variant).length, marks: new Set(placed.flatMap((p) => p.marks)) };
 }
 
@@ -110,6 +119,12 @@ function titleOf(id, m, rows, total) {
     const t = spread(row('hdt045'), '°C', (v) => `Most ${name} products deflect at ${v} under 0.45 MPa`, (n, v) => `The ${n} ${name} products deflect at ${v} under 0.45 MPa`, (v) => `One ${name} product deflects at ${v} under 0.45 MPa`);
     if (t) return t;
     return `Where ${name}'s products soften under load`;
+  }
+  if (id === 'hardness') {
+    // Each scale said apart, in its own unit: Shore A and Shore D press different indenters and are never compared. A
+    // strip is drawn from four ranked products (inStrip), so "most" is the middle half, or the range where it has none.
+    const said = rows.filter((r) => r.n).map((r) => (r.s.q1 != null ? spanUnit(r.s.q1, r.s.q3, r.h.unit) : spanUnit(r.s.min, r.s.max, r.h.unit)));
+    return said.length ? `Most ${name} products measure ${said.join(' or ')}` : `${name}'s hardness, product by product`;
   }
   if (id === 'density-price') {
     const t = spread(row('priceCADkg'), 'CAD/kg', (v) => `Most ${name} costs ${v}`, (n, v) => `The ${n} priced ${name} products cost ${v}`, (v) => `The one priced ${name} product costs ${v}`);
@@ -136,7 +151,7 @@ export function stripsFigure(c, env = {}, keys = [], opts = {}) {
   const key = keyOf([KEY.product(), ...(marks.has('open') ? [KEY.productOpen()] : []), ...(marks.has('annealed') ? [KEY.annealed()] : []),
     ...(marks.has('variant') ? [KEY.variant()] : []), ...(marks.has('claimed') ? [KEY.claimed()] : []), ...(rows.some((r) => r.n > 1) ? [KEY.band()] : []),
     ...(rows.some((r) => r.clipped) ? [KEY.clip()] : [])]);
-  const table = twinTable(['Property', 'Ranked', 'Median', 'Middle half', 'Lowest ranked', 'Highest ranked', 'As published', 'Added filler or additive'], rows.map((r) => [
+  const table = twinTable(['Property', 'In the median', 'Median', 'Middle half', 'Lowest in the median', 'Highest in the median', 'As published', 'Added filler or additive'], rows.map((r) => [
     `${r.h.labels.plain} (${r.h.unit})`, String(r.n), r.n ? fmtDisplay(r.s.median, r.h.unit) : '—', r.s.q1 != null ? spanDisplay(r.s.q1, r.s.q3, r.h.unit) : '—',
     r.compared.length ? `${productName(r.compared[0].e.g)}, ${fmtDisplay(r.compared[0].e.v.value, r.h.unit)}` : '—',
     r.compared.length > 1 ? `${productName(r.compared.at(-1).e.g)}, ${fmtDisplay(r.compared.at(-1).e.v.value, r.h.unit)}` : '—',
@@ -150,7 +165,7 @@ export function stripsFigure(c, env = {}, keys = [], opts = {}) {
   const html = figFrame({
     slug: `products-${id}`, kind: `strips-${id}`, title: titleOf(id, m, rows, total), question: QUESTIONS[id] ?? 'How do its products spread?',
     key, plot: rows.map((r) => r.html).join(''), label: null,
-    read: first ? 'One mark per product on each property\'s scale (zoomed where its products sit close together, as its label says); the band is the middle half of the products ranked and the line their median.' : '',
+    read: first ? 'One mark per product on each property\'s scale (zoomed where its products sit close together, as its label says); the band is the middle half of the products the median counts, and the line the median.' : '',
     howto: first ? 'Hover or select a product to find it in every figure; its name opens its card on the Products page.' : '',
     table, leaves, method: 'products',
   });

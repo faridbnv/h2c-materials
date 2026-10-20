@@ -9,15 +9,24 @@
 import { esc, pct, textPx, fmtDisplay, NBSP, tickText, tickLabels, headline, shortName, withUnit, products, andList, orList, figContext, productMark, kindsOf, noteOf, productName, fitLabels, KEY, keyOf, twinTable } from './kit.js';
 import { figFrame } from './figure.js';
 import { spreadEntries } from '../../js/ui/material-facts.js';
-import { layerPairs, layerShareOf, summarise } from '../../js/ui/material-stats.js';
+import { layerPairs, layerShareOf, summarise, unpairedZ } from '../../js/ui/material-stats.js';
+import { propertyName } from '../../js/ui/labels.js';
 import { stripScale } from '../../js/ui/scales.js';
 import { yOf } from './scale.js';
 import { LAYER_PAIRS } from '../figures.js';
+import { sheetCode } from '../records/common.js';
 
 const SIDE = 220;           // the plot's height, px
 // The narrowest plot each layout gives: three side by side from 1,000 px (about 255 px each), one under another below.
 const WIDE = 250, NARROW = 300;
 const sharePct = (r) => `${Math.round(r * 100)}${NBSP}%`;
+
+/** Why a product in the Z median gives no share (material-stats.js unpairedZ), in words. */
+const GAP_WHY = { none: 'no flat value compared', sheet: 'its flat and across values from two documents', state: 'its two values measured in two states' };
+const gapWords = (x) => (x.why === 'test' ? `${propertyName(x.xy).toLowerCase()} flat, ${propertyName(x.z).toLowerCase()} across` : GAP_WHY[x.why]);
+
+/** Its across-the-layers bar's label where the sheet prints another code than Z ("Z (ZX)", records/common.js sheetCode). */
+const zLabel = (c, e) => { const code = sheetCode(c.msById.get(e.v.measurementId)); return code ? `Z (${code})` : ''; };
 
 function panel(c, k, pair, plotted) {
   const m = c.m;
@@ -25,6 +34,7 @@ function panel(c, k, pair, plotted) {
   if (!ha || !hb) return null;
   const byKey = new Map([pair.xy, pair.z].map((key) => [key, spreadEntries(m, c, key)]));
   const pairs = layerPairs(ha, hb, byKey, c);
+  const gaps = unpairedZ(ha, hb, byKey, c);
   const own = pairs.length ? { share: summarise(pairs.map((p) => p.ratio)).median, n: pairs.length } : null;
   const others = k.peers.map((p) => ({ p, s: layerShareOf(k.db, p, ha, hb) })).filter((x) => x.s);
   const unit = ha.unit;
@@ -52,8 +62,9 @@ function panel(c, k, pair, plotted) {
     if (own) o.push(ray(own.share, 'dv-ray--own', ''));
     for (const p of pairs) {
       const marks = p.marks.filter((x) => x === 'annealed');
+      const z = zLabel(c, p.z);
       const data = { 'data-grade': p.g.id, 'data-key': hb.key, 'data-v': p.z.v.value, 'data-xkey': ha.key, 'data-xv': p.xy.v.value,
-        'data-kind': kindsOf(marks).join(' '), 'data-t': `${withUnit(p.xy.v.value, unit)} flat (XY), ${withUnit(p.z.v.value, unit)} across the layers (Z): ${sharePct(p.ratio)}`, 'data-note': noteOf(marks) || null };
+        'data-kind': kindsOf(marks).join(' '), 'data-t': `${withUnit(p.xy.v.value, unit)} flat (XY), ${withUnit(p.z.v.value, unit)} across the layers, ${z || 'Z'}: ${sharePct(p.ratio)}`, 'data-note': noteOf(marks) || null };
       o.push(productMark(marks, X(p.xy.v.value), Y(p.z.v.value), data));
     }
   }
@@ -72,7 +83,7 @@ function panel(c, k, pair, plotted) {
     + `<p class="ly-list">${list.length ? `Share kept: ${list.map((x) => (x.self ? `<b>${esc(x.name)} ${sharePct(x.share)}</b>` : `${esc(x.name)} ${sharePct(x.share)}`)).join(' · ')}` : esc('No alternative publishes both either.')}</p></div></div>`;
   plotted.push(...pairs);
   // (A panel with no pair of its own shows its alternatives' strip under a line saying so.)
-  return { html, pair, pairs, own, others, unit, ha, hb };
+  return { html, pair, pairs, gaps, own, others, unit, ha, hb };
 }
 
 export function layersFigure(c, env = {}, opts = {}) {
@@ -91,11 +102,14 @@ export function layersFigure(c, env = {}, opts = {}) {
     : `No ${name} product publishes values across the layers; its alternatives keep these shares`;
   const annealed = plotted.some((p) => p.marks.includes('annealed'));
   const key = keyOf(any ? [KEY.product(), ...(annealed ? [KEY.annealed()] : []), KEY.rays(), KEY.ownRay(name), KEY.peerCell()] : [KEY.peerCell()]);
-  const rows = panels.flatMap((p) => p.pairs.map((x) => [productName(x.g), p.pair.title, `${fmtDisplay(x.xy.v.value, p.unit)} ${p.unit}`, `${fmtDisplay(x.z.v.value, p.unit)} ${p.unit}`, sharePct(x.ratio)]));
+  const rows = panels.flatMap((p) => p.pairs.map((x) => { const z = zLabel(c, x.z); return [productName(x.g), p.pair.title, `${fmtDisplay(x.xy.v.value, p.unit)} ${p.unit}`, `${fmtDisplay(x.z.v.value, p.unit)} ${p.unit}${z ? `, ${z}` : ''}`, sharePct(x.ratio)]; }));
   const peerRows = panels.flatMap((p) => p.others.map(({ p: mat, s }) => [`${shortName(mat)} (alternative)`, p.pair.title, '', '', `${sharePct(s.share)} · ${s.n}`]));
   const table = twinTable(['Product', 'Property', 'Flat (XY)', 'Across (Z)', 'Z as a share of XY'], [...rows, ...peerRows], { numeric: false });
   const none = panels.filter((p) => !p.pairs.length).map((p) => p.pair.title.toLowerCase());
-  const leaves = none.length ? `No ${name} product publishes ${orList(none)} both flat and across the layers from one sheet.` : '';
+  // The products the Z median counts and the share cannot, named with why, so the share's count and the median's agree
+  // in the reader's sum (PETG's 14 shares of 16 Z strengths, OPEN-PROBLEMS §37.18).
+  const gaps = panels.filter((p) => p.pairs.length && p.gaps.length).map((p) => `${p.pair.title}: ${p.gaps.length === 1 ? 'one more product is' : `${p.gaps.length} more products are`} in the median across the layers but ${p.gaps.length === 1 ? 'gives' : 'give'} no share, with no flat value of the same test from the same sheet: ${andList(p.gaps.map((x) => `${productName(x.g)} (${gapWords(x)})`))}.`);
+  const leaves = [none.length ? `No ${name} product publishes ${orList(none)} both flat and across the layers from one sheet.` : '', ...gaps].filter(Boolean).join(' ');
   const html = figFrame({
     slug: opts.id ?? 'layers', kind: 'layers', title,
     question: 'What does a printed part lose across the layers (Z) against flat (XY), and is that usual?',

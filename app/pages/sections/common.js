@@ -10,6 +10,7 @@ import { sourceKind } from '../../js/ui/labels.js';
 import * as FIGURES from '../figures.js';
 import { isSay, plain, productHref, glue } from '../findings.js';
 import { toHash, newScenario } from '../../js/engine/scenario.js';
+import { sheetCode } from '../records/common.js';
 
 export { tableBox };
 
@@ -150,7 +151,9 @@ export function headlineTable(c, keys, { fmt, caption = 'As each sheet publishes
   const all = pageProducts(c);
   const live = hs.filter((h) => all.some((g) => g.headline?.[h.key]));
   if (!all.length || !live.length) return '';
-  const note = (h, v) => [v.level === 'as-published' ? (h.direction ? 'orientation not stated' : 'load not stated') : null, v.anneal ? 'after annealing' : null].filter(Boolean).join(', ');
+  // A Z bar the sheet labels otherwise says the sheet's code, as everywhere a Z bar is labelled ("Z (ZX)").
+  const code = (h, v) => { const s = h.direction === 'Z' && v.measurementId ? sheetCode(c.msById?.get(v.measurementId)) : null; return s ? `Z (${s})` : null; };
+  const note = (h, v) => [v.level === 'as-published' ? (h.direction ? 'orientation not stated' : 'load not stated') : null, v.anneal ? 'after annealing' : null, code(h, v)].filter(Boolean).join(', ');
   const twinOf = (v) => (v?.from?.origin === 'twin' ? c.gradeById.get(v.from.gradeId) ?? null : null);
   const cell = (g, h, label) => {
     const v = g.headline?.[h.key];

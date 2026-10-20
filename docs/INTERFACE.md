@@ -614,8 +614,9 @@ Opened, a heading shows (the material pages' grammar since 2026-10-18, D146):
   below its lowest value): a dot per product at its published value (filled: the orientation or load the row asks for
   is stated; hollow, drawn light: no stated orientation or test load; square: measured after annealing; diamond, light:
   an added filler or additive; coloured: sold as toughened, impact only), the middle half of the compared products
-  shaded and outlined (it had all but vanished in dark) and their median a line. Each row's label carries one count, the
-  page's "55 ranked of 106 shown". Dots of one value stack without a cap, the pitch tightening past the track's height,
+  shaded and outlined (it had all but vanished in dark) and their median a line. Each row's label carries one count,
+  "55 ranked of 106 shown" (a material page's strip says it "106 products, 55 in the median", since 2026-10-19). Dots of
+  one value stack without a cap, the pitch tightening past the track's height,
   and a tall column carries its count, so a column's height counts products (PLA's 76 products at a 190 °C nozzle had
   drawn as tall as 12);
 - a small table, a line per row: how many products are ranked, their median, middle half and range at the pages'
@@ -777,9 +778,14 @@ so first. A group name has none.
   *Among all materials*, two maps on frames the same on every page (strength against modulus, HDT against price), a
   panel only where the material has a median on both axes, and none on a thinly documented page.
 - **Mechanical properties**, **Thermal properties**: two sentences each, the products' strips (a dot per product where
-  at least four products are ranked, `inStrip`; fewer are a table of what each sheet publishes, all such tables on one
-  grid), what the layers keep (Z against XY, its property-by-property table folded beneath), the products well above
-  the rest, named.
+  at least four products are ranked, `inStrip`, each labelled with how many products it draws and how many the median
+  counts, "64 products, 29 in the median"; fewer are a table of what each sheet publishes, all such tables on one grid),
+  what the layers keep (Z against XY, its property-by-property table folded beneath, the products the Z median counts
+  that give no share named with why), the products well above the rest, named. Mechanical ends with hardness, Shore A
+  and Shore D each on its own scale, by the same strip-or-table rule (since 2026-10-19; it had been listed under Other
+  properties only). Thermal says Vicat as published, and melting only for a polymer `polymers.csv` gives a melting
+  point: an amorphous polymer's sheets' "melting temperatures" (PETG's 128 to 250 °C) are listed under Other
+  properties instead (`saysOnTheLadder`). A range a sheet prints ("180–200 °C") is said and drawn as that range.
 - **Printing on the H2C**: every print and service temperature on one axis against the H2C's limits; the settings table
   (most products and the Bambu Lab Filament Guide, or a column per product under six); hardened nozzle, after printing,
   what makers say about printing it.
@@ -800,10 +806,15 @@ by a value splits the list into labelled groups in a fixed order: compared, then
 orientation or load, or a setting from the Bambu Lab Filament Guide), then a notched Izod value where no Charpy is
 published, then not published ("—"); in the sorted column a thin rule under each compared value shows its place in the
 column's range. A row is a native disclosure; its card holds every record of that product, values grouped by document
-(the conditions they share said once in the group's heading, a second edition's identical values said once), the sheet's
-own row label, whether each is in the Overview's median and why not, print settings with where each comes from, price,
-the maker's statements folded, and documents. Reference and study specimens come last. `#G…` opens a product's card,
-`#V…` a value. Under six products the cards open; on a phone each row is two lines. Every record of a material appears
+(a condition every value of a group, or two in three, share said once in the group's heading, and a value that lacks it
+saying so, "treatment not stated"; a second edition's identical values said once), the sheet's own row label, the
+standards the build reads (the sheet's own string a press away), a Z bar its sheet labels otherwise with the sheet's code
+("Z (ZX)", as every place on the pages labels such a bar), whether each is in the Overview's median and why not, print
+settings with where each comes from, price, the maker's statements folded, and documents. A card of more than 20 values
+shows of each longer document the values the list's columns show, the rest behind *Show all N values from this
+document* (an address to one opens its group; print shows all): PEKK's 94-value card had run to 5,300 px. An open card
+stacks above the list's sticky head, which had covered its first lines. Reference and study specimens come last. `#G…`
+opens a product's card, `#V…` a value. Under six products the cards open; on a phone each row is two lines. Every record of a material appears
 exactly once across its two pages, except the project's own selection notes and the maintainers' coverage notes
 (`offThePages`).
 

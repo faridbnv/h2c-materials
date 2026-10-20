@@ -30,12 +30,16 @@ function placeNames(items, w, blocked, want = null, force = null) {
   // always placed, at the first place inside the plot where nothing is free (this material's own name).
   const boxes = blocked(w);
   return items.map((it, i) => {
-    const tw = textPx(it.text, it.self ? 12.5 : 11.5) * 1.08 + 4;
+    const size = it.self ? 12.5 : 11.5;
+    const tw = textPx(it.text, size) * 1.08 + 4;
+    // A name's box is its face's own height at its size (Inter's ascent and descent, 0.97 and 0.24 of the size) and a
+    // pixel clear of the next: a fixed 14 px box let this material's larger name touch the one under it by up to 1 px
+    // at 1,180 px (PLA Aero over ASA Aero, ABS over PC, PA12-CF over PA12-GF; OPEN-PROBLEMS §37.17).
     const boxAt = (j) => {
       const [dx, dy, a] = PLACES[j];
       const x = (it.at / 100) * w + dx;
       const x0 = a === 'start' ? x : a === 'end' ? x - tw : x - tw / 2;
-      return [x0, it.y + dy - 11, x0 + tw, it.y + dy + 3];
+      return [x0, it.y + dy - size * 0.97 - 0.5, x0 + tw, it.y + dy + size * 0.24 + 0.5];
     };
     const inside = (b) => b[0] >= 0 && b[2] <= w && b[1] >= 0 && b[3] <= MAP_H;
     const free = (b) => !boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);

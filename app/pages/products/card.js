@@ -10,15 +10,32 @@
 // labels.js, format.js) or content's card labels (docs/audits/2026-10-17-pages-reimagined/content/PROPOSAL.md).
 
 import { esc, count } from '../html.js';
+import { REGISTRY } from '../../js/ui/registry.js';
 import { dayWords } from '../../js/ui/dates.js';
 import { fmtNumber, dryingWords } from '../../js/ui/format.js';
 import { STATUS_WORDS, propertyName, whyOne, envVerdictWords } from '../../js/ui/labels.js';
 import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct, isNamedOnly } from '../../js/ui/material-facts.js';
 import { settingWords, annealWords, outOfMedianWords, foreignPriceWords, envConditionWords, andList, plural } from '../../js/ui/material-words.js';
-import { orientationWords, specimenWords, standardWords, conditionChipList } from '../records/common.js';
+import { directionLabel, specimenWords, standardHtml, conditionChipList, chipKind, unstatedChip } from '../records/common.js';
 import { readerText } from '../sections/common.js';
 
 const DOMAINS = [['Mechanical', 'mechanical'], ['Thermal', 'thermal'], ['Physical', 'physical']];
+
+/**
+ * A long card reads short (the final review of the reimagined pages, OPEN-PROBLEMS §37.19: a card of 37 values or more
+ * ran to about 2,700 px, PEKK's 94 to 5,300). Where a card holds more than `card` values, each document's group of more
+ * than `group` keeps in view the values the list's columns show (LIST_KEYS), up to `show` rows (a property cut there
+ * finished where two rows or fewer of it remain), or where it gives none of them its first `show`; the rest are behind
+ * "Show all N values from this document", where at least `left` remain. Every value stays in the page: an address to one
+ * (#V…) opens its group (assets/page.js), the browser's find reaches it once the group is open, and a printed page shows
+ * every row.
+ */
+const FOLD = { card: 20, group: 8, show: 8, left: 3 };
+/**
+ * The values a folded group keeps in view: those the Products list's columns show (index.js GROUPS), the row the reader
+ * opened the card from, so its card opens on the records behind them.
+ */
+const LIST_KEYS = ['tensileStrengthXY', 'tensileStrengthZ', 'tensileModulusXY', 'charpyNotched', 'izodNotched', 'hdt045', 'hdt18'];
 
 /** The value exactly as its document publishes it: the sheet's own text and unit (measurements[].raw), or why none. */
 export function publishedText(x) {
@@ -104,9 +121,9 @@ function useWords(x, ix) {
   return `not in the median: ${NOT_COUNTED[o.reason] ?? pageWords(outOfMedianWords(o.reason, o.h) ?? o.reason)}`;
 }
 
-/** A measurement's orientation or load beside its property's name ("XY", "at 0.45 MPa"). */
+/** A measurement's orientation or load beside its property's name ("XY", "Z (ZX)", "at 0.45 MPa"). */
 function aspect(x) {
-  const o = orientationWords(x);
+  const o = directionLabel(x);
   const load = x.thermal?.loadStated && Number.isFinite(x.thermal.loadMPa) ? `at ${fmtNumber(x.thermal.loadMPa)} MPa` : '';
   return [o && o !== 'not stated' ? o : o ? 'orientation not stated' : '', load].filter(Boolean).join(', ');
 }
@@ -146,29 +163,45 @@ function valuesTable(c, g, ms, ix) {
   for (const x of [...ms].sort(byProperty)) if (!folded.has(x.id)) (docs.get(x.sourceId) ?? docs.set(x.sourceId, []).get(x.sourceId)).push(x);
   const groups = [...docs].sort((a, b) => b[1].length - a[1].length);
   const docName = (sid) => { const n = sourceName(c.sourceById.get(sid), sid); return readerText(n) ? n : 'another document'; };
+  // A long card folds (FOLD): the values its groups hold, a row each, and the properties it keeps in view.
+  const rowsInCard = groups.reduce((n, [, all]) => n + all.filter((x) => !isNamedOnly(x)).length, 0);
+  const listProps = new Set(REGISTRY.allHeadlines.filter((h) => LIST_KEYS.includes(h.key)).flatMap((h) => h.valueProperties));
   const body = groups.map(([sid, all]) => {
     const named = all.filter((x) => isNamedOnly(x));
     const xs = all.filter((x) => !isNamedOnly(x));
-    // The conditions most of the group's values share (three in four or more), said once in its head: "Unless a row
-    // says otherwise". A row that has them all shows only its other conditions; a row that lacks one of them shows its
-    // own conditions in full. Chips are compared by what they say (their label), the first's own words kept in the head.
+    // The conditions the group's values share, said once in its head ("Unless a row says otherwise"): one every value
+    // states, in a group of two or more, and one two in three or more state, in a group of three or more (Polymaker HT
+    // PLA's second sheet had repeated "annealed at a temperature its sheet does not state" on 12 of its 17 rows, under
+    // the three in four the head once asked for, OPEN-PROBLEMS §37.19). A row that has them shows only its other
+    // conditions; a row that lacks one shows its own of that kind ("as printed" under "annealed"), or, stating none of
+    // that kind, says so ("treatment not stated"), so the head never speaks for a value its sheet says nothing about,
+    // and a condition two in three share costs fewer words in the head than on its rows. Chips are compared by what they
+    // say (their label), the first's own words kept in the head.
     const label = (ch) => ch.replace(/<span>[\s\S]*<\/span>/, '').replace(/<[^>]+>/g, '').trim();
     const chips = new Map(xs.map((x) => [x.id, conditionChipList(x)]));
-    const most = (n) => xs.length > 2 && n * 4 >= xs.length * 3;
+    const most = (n) => (xs.length > 1 && n === xs.length) || (xs.length > 2 && n * 3 >= xs.length * 2);
     const chipCount = new Map();
     for (const x of xs) for (const l of new Set(chips.get(x.id).map(label))) chipCount.set(l, (chipCount.get(l) ?? 0) + 1);
     const sharedLabels = [...chipCount].filter(([, n]) => most(n)).map(([l]) => l);
     const shared = sharedLabels.map((l) => chips.get(xs.find((x) => chips.get(x.id).some((ch) => label(ch) === l)).id).find((ch) => label(ch) === l));
+    const sharedKinds = new Map(sharedLabels.map((l, i) => [l, chipKind(shared[i])]));
     const specCount = new Map();
     for (const x of xs) specCount.set(specimenWords(x), (specCount.get(specimenWords(x)) ?? 0) + 1);
     const sharedSpecimen = [...specCount].find(([, n]) => most(n))?.[0] ?? null;
     const sharedSpec = sharedSpecimen ?? '';
-    const standard = (x) => standardWords(x) ?? 'no standard stated';
-    // The head's conditions and its specimen are each taken as read where a row has them: a row printed on another
-    // specimen names it, a row that lacks one of the head's conditions shows its own in full.
-    const hasChips = (x) => sharedLabels.every((l) => chips.get(x.id).some((ch) => label(ch) === l));
+    // The head's specimen is taken as read where a row has it: a row printed on another specimen names it. The
+    // standards are the ones the build reads, the sheet's own string a tap away (records/common.js standardHtml).
     const sameSpecimen = (x) => !sharedSpecimen || specimenWords(x) === sharedSpecimen;
-    const spec = (x) => (sameSpecimen(x) ? standard(x) : `${specimenWords(x)}, ${standard(x)}`);
+    const spec = (x) => `${sameSpecimen(x) ? '' : `${esc(specimenWords(x))}, `}${standardHtml(x)}`;
+    // A row's own conditions beside the head's: those the head does not state, then, for each kind of condition the
+    // head states and the row does not, the words that say its sheet leaves it unstated.
+    const ownChips = (x) => {
+      const mine = chips.get(x.id);
+      const have = new Set(mine.map(label));
+      const kinds = new Set(mine.map(chipKind));
+      const lacks = sharedLabels.filter((l) => !have.has(l) && !kinds.has(sharedKinds.get(l))).map((l) => unstatedChip(sharedKinds.get(l))).filter(Boolean);
+      return { show: mine.filter((ch) => !sharedLabels.includes(label(ch))), lacks: [...new Set(lacks)] };
+    };
     // A condition the row's own locator already says in the sheet's words ("Impact Strength (X-Y) — notched") is not
     // said twice.
     const inWords = (where, ch) => {
@@ -182,25 +215,46 @@ function valuesTable(c, g, ms, ix) {
     };
     // The other documents that publish these values too, named once for the group.
     const alsoDocs = [...new Set(xs.flatMap((x) => (also.get(x.id) ?? []).map((y) => y.sourceId)))];
+    // Where the card folds, this group shows the values the Products list's columns read, up to FOLD.show rows, or
+    // where it gives none of them its first rows, and folds the rest only where enough are left to be worth a press.
+    const shown = new Set(xs.map((x) => x.id));
+    if (rowsInCard > FOLD.card && xs.length > FOLD.group) {
+      const keyRows = xs.filter((x) => listProps.has(x.property));
+      const pick = keyRows.length ? keyRows : xs;
+      // A property cut at FOLD.show is finished where two rows or fewer remain of it (an XY value keeps its Z beside it);
+      // a longer one (PAHT-CF's ten Izod values) is not, or the cut would not shorten the card.
+      let n = Math.min(FOLD.show, pick.length);
+      let end = n;
+      while (end < pick.length && pick[end].property === pick[end - 1].property) end++;
+      if (end - n <= 2) n = end;
+      const keep = new Set(pick.slice(0, n).map((x) => x.id));
+      if (xs.length - keep.size >= FOLD.left) { shown.clear(); keep.forEach((id) => shown.add(id)); }
+    }
+    const cut = shown.size;
     let last = null;
     const rows = xs.map((x) => {
       const sameProp = x.property === last;
       last = x.property;
       const tags = [x.quarantined ? 'held back' : null, x.implausible ? 'physically implausible' : null, x.corrected ? 'transcription corrected' : null].filter(Boolean);
       const where = readerLocator(x.locator);
-      const own = (hasChips(x) ? chips.get(x.id).filter((ch) => !sharedLabels.includes(label(ch))) : chips.get(x.id)).filter((ch) => !inWords(where, ch));
+      const { show, lacks } = ownChips(x);
+      const own = [...show.filter((ch) => !inWords(where, ch)), ...lacks];
       const folds = (also.get(x.id) ?? []).map((y) => `<span class="vh" id="${esc(y.id)}" data-rec="${esc(y.id)}">${esc(`also in ${docName(y.sourceId)}`)}</span>`).join('');
-      return `<tr id="${esc(x.id)}" data-rec="${esc(x.id)}"${sameProp ? ' class="same"' : ''}>`
+      const cls = [sameProp ? 'same' : '', shown.has(x.id) ? '' : 'pc-x'].filter(Boolean).join(' ');
+      return `<tr id="${esc(x.id)}" data-rec="${esc(x.id)}"${cls ? ` class="${cls}"` : ''}>`
         + `<th scope="row">${sameProp ? `<span class="vh">${esc(propertyName(x.property))}</span>` : esc(propertyName(x.property))}${aspect(x) ? ` <small class="pc-asp">${esc(aspect(x))}</small>` : ''}</th>`
         + `<td class="pc-v">${esc(publishedText(x))}${tags.map((t) => `<span class="tg">${esc(t)}</span>`).join('')}${where ? `<small>${esc(where)}</small>` : ''}${folds}</td>`
-        + `<td class="pc-c">${spec(x) ? `<span>${esc(spec(x))}</span>` : ''}${own.join('')}</td>`
+        + `<td class="pc-c"><span>${spec(x)}</span>${own.join('')}</td>`
         + `<td class="pc-u">${esc(useWords(x, ix))}</td></tr>`;
     }).join('');
+    // The rest a press away (assets/page.js folds them where it runs; without it every row reads, and print shows all).
+    const more = cut < xs.length
+      ? `<tr class="pc-fold"><td colspan="4"><button type="button" class="pc-all" hidden data-more="${esc(`Show all ${xs.length} values from this document`)}" data-less="${esc(`Show ${cut} of the ${xs.length}`)}">${esc(`Show all ${xs.length} values from this document`)}</button></td></tr>` : '';
     const head = `<tr class="pc-doc"><th scope="rowgroup" colspan="4">${documentRef(c, sid)}<small class="pc-doc-n">${esc(plural(xs.length, 'value'))}</small>`
       + `${alsoDocs.length ? `<span class="pc-doc-also">${esc(`The same values also in ${andList(alsoDocs.map(docName))}.`)}</span>` : ''}`
-      + `${sharedSpec || shared.length ? `<span class="pc-doc-cond"><span>${esc(`Unless a row says otherwise: ${sharedSpec || 'as below'}`)}</span>${shared.join('')}</span>` : ''}</th></tr>`;
+      + `${sharedSpec || shared.length ? `<span class="pc-doc-cond"><span>${esc(`Unless a row says otherwise:${sharedSpec ? ` ${sharedSpec}` : ''}`)}</span>${shared.join('')}</span>` : ''}</th></tr>`;
     const quiet = named.length ? `<tr class="pc-named"><td colspan="4">Also named without a value: ${named.map((x) => `<span id="${esc(x.id)}" data-rec="${esc(x.id)}">${esc(propertyName(x.property).toLowerCase())}</span>`).join(', ')}.</td></tr>` : '';
-    return `<tbody data-doc="${esc(sid)}">${head}${rows}${quiet}</tbody>`;
+    return `<tbody data-doc="${esc(sid)}"${more ? ' data-fold' : ''}>${head}${rows}${more}${quiet}</tbody>`;
   }).join('');
   return `<table class="pc-t"><thead><tr><th scope="col">Property</th><th scope="col">As published</th><th scope="col">Conditions</th><th scope="col">On the Overview</th></tr></thead>${body}</table>`;
 }
