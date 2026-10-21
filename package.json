@@ -83,7 +83,9 @@
     "round:close": "node scripts/round-close.mjs",
     "packets": "node scripts/data/packets.mjs",
     "docs:links": "node scripts/docs-links.mjs",
-    "docs:open-problems": "node scripts/docs-open-problems.mjs"
+    "docs:open-problems": "node scripts/docs-open-problems.mjs",
+    "rulings:check": "node remake/tools/rulings-check.mjs",
+    "test:claude": "node --test tests/claude/hooks.test.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",
