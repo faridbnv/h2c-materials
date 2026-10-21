@@ -323,7 +323,9 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
     }
     promote(dir, journal, options.hooks?.failAfterRenames);
 
-    if (!markedAsOurs) writeDurably(join(dir, EXPORT_MARKER), 'A directory written by change:export (packages/data/src/export.ts). A later export may remove files it wrote here that it no longer writes; it removes nothing else.\n');
+    // Only an export that writes beyond what v1 wrote (the changed tables, the manifest, the change set) marks its directory: a data-only export leaves it as it was.
+    const beyondTables = planned.some((p) => !(p.rel.startsWith('data/tables/') || p.rel === 'data/manifest.json' || p.rel.startsWith('data/review/change-sets/')));
+    if (beyondTables && !markedAsOurs) writeDurably(join(dir, EXPORT_MARKER), 'A directory written by change:export (packages/data/src/export.ts). A later export may remove files it wrote here that it no longer writes; it removes nothing else.\n');
     markExported(ws, records, id);
     return { changeSet, changeSetPath: join(dir, changeSetRel), exportDir: dir, tables: changed, files: planned.map((p) => join(dir, p.rel)), backup: backup.path, recovered, retired };
   });
