@@ -22,7 +22,7 @@ export const PORTABLE = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'in
 export type PortableModule = (typeof PORTABLE)[number];
 
 /** The switch: the modules the typed wrapper runs from their port. A module joins this list in the commit that ports it. */
-export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', 'coverage'];
+export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', 'coverage', 'ledger'];
 
 /** The environment variable that overrides the switch: `none` (the old engine as it is), `all`, or a comma-separated list. */
 export const PORT_ENV = 'ATLAS_ENGINE_PORT';

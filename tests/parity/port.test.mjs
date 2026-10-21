@@ -174,3 +174,94 @@ test('coverage: the matrix, completeness, evidence summary and availability of t
   assert.deepEqual(coverage.availability(stated, 'k'), was.availability(stated, 'k'));
   assert.equal(coverage.availability(stated, 'k').caveats, 1);
 });
+
+// --- ledger -----------------------------------------------------------------------------------------------------------------
+
+/** Every ledger contribution list the compiled database holds, one per product, state and headline. */
+const contributionLists = () => db.grades.flatMap((g) => (g.states ?? []).flatMap((s) => Object.values(s.bounds ?? {}).map((b) => b.by)));
+
+test('ledger: numbers, intervals and every sentence are the old module\'s, on the real contributions and on seeded ties', async () => {
+  const ledger = await ported('ledger');
+  const was = old('ledger');
+  const next = seeded(1801);
+
+  for (const x of [0, -0, 1, -1.5, 0.1 + 0.2, 1 / 3, 2 / 3, 1e-7, 123456.789012345, 1e21, Number.MAX_VALUE, Number.MIN_VALUE]) assert.equal(Object.is(ledger.tidy(x), was.tidy(x)), true, String(x));
+  const figs = [0, -0, 0.5, 0.0049, 9.995, 10.04, 99.95, 99.994, 100, 100.5, 999.5, 1000, 1234.5, 12345.678, -1234567.8, 1e-9, 1.15, 4.81149, 1e21, Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+  for (let i = 0; i < 4000; i++) figs.push((next() - 0.5) * 10 ** Math.floor(next() * 9 - 3));
+  for (const n of figs) assert.equal(Object.is(ledger.fig(n), was.fig(n)), true, String(n));
+
+  const lists = contributionLists();
+  assert.ok(lists.length > 1000, `the real ledger lists: ${lists.length}`);
+  const units = ['GPa', 'MPa', '°C', 'kg/m³'];
+  let intervals = 0, sentences = 0;
+  for (const by of lists) {
+    for (const evidence of [undefined, 'comparable', 'as-published']) {
+      const options = evidence === undefined ? undefined : { evidence };
+      const got = ledger.ledgerInterval(by, options);
+      const want = was.ledgerInterval(by, options);
+      assert.deepEqual(got, want);
+      if (want) { assert.equal(got.loBy, want.loBy); assert.equal(got.hiBy, want.hiBy); }
+      intervals++;
+    }
+    for (const b of by) {
+      for (const evidence of [undefined, 'as-published']) assert.equal(ledger.usable(b, evidence), was.usable(b, evidence));
+      for (const unit of units) {
+        for (const words of [undefined, null, 'its HDT at 1.8 MPa, a harsher load']) {
+          assert.equal(ledger.contributionWords(b, unit, words), was.contributionWords(b, unit, words));
+          assert.equal(ledger.contributionSentence(b, unit, words), was.contributionSentence(b, unit, words));
+          for (const verdict of ['pass', 'fail', 'line']) for (const operator of ['>=', '<=', '>', '<']) for (const asPrinted of [undefined, true, false]) {
+            const c = { operator, value: 1234.5678 };
+            const margin = verdict === 'fail' && next() < 0.5 ? undefined : { words: '±5 %' };
+            const spec = { unit, words, verdict, c, margin, ...(asPrinted === undefined ? {} : { asPrinted }) };
+            assert.equal(ledger.ledgerReason(b, spec), was.ledgerReason(b, spec));
+            sentences++;
+          }
+        }
+      }
+    }
+    const iv = was.ledgerInterval(by);
+    if (iv) {
+      for (const unit of units) assert.equal(ledger.knownNote(iv, { unit, c: { value: 12345.6789 } }), was.knownNote(iv, { unit, c: { value: 12345.6789 } }));
+      if (iv.loBy && iv.hiBy) for (const unit of units) {
+        const wordsOf = (b) => `${b.rule} words`;
+        assert.equal(ledger.disagreeReason(iv.loBy, iv.hiBy, { unit, wordsOf }), was.disagreeReason(iv.loBy, iv.hiBy, { unit, wordsOf }));
+      }
+    }
+  }
+  assert.ok(intervals > 3000 && sentences > 10_000, `a real comparison: ${intervals} intervals, ${sentences} reasons`);
+
+  // Ties: the first contribution in the list sets an end, an open end beats a closed one at the same value.
+  for (let round = 0; round < 3000; round++) {
+    const by = Array.from({ length: Math.floor(next() * 6) }, (_, i) => ({
+      id: i, status: next() < 0.8 ? 'deciding' : 'reported', level: next() < 0.8 ? 'comparable' : 'as-published',
+      lo: next() < 0.25 ? null : Math.floor(next() * 4), hi: next() < 0.25 ? null : Math.floor(next() * 4) + 2, openLow: next() < 0.5, openHigh: next() < 0.5,
+    }));
+    for (const evidence of ['comparable', 'as-published']) {
+      const got = ledger.ledgerInterval(by, { evidence });
+      const want = was.ledgerInterval(by, { evidence });
+      assert.deepEqual(got, want);
+      if (want) { assert.equal(got.loBy, want.loBy); assert.equal(got.hiBy, want.hiBy); }
+    }
+  }
+  assert.equal(ledger.ledgerInterval(undefined), was.ledgerInterval(undefined));
+  assert.equal(ledger.ledgerInterval(null), was.ledgerInterval(null));
+  assert.equal(ledger.ledgerInterval([]), was.ledgerInterval([]));
+});
+
+test('ledger: a conversion or class limit by its identifier, from one table per database, as before', async () => {
+  const ledger = await ported('ledger');
+  const was = old('ledger');
+  const ids = [...(db.conversions ?? []), ...(db.classLimits ?? [])].map((r) => r.id);
+  assert.ok(ids.length > 5);
+  for (const id of ['nope', '', 'constructor']) assert.equal(ledger.ledgerRow(db, id), was.ledgerRow(db, id));
+  for (const id of ids) assert.deepEqual(ledger.ledgerRow(db, id), was.ledgerRow(db, id));
+  assert.equal(ledger.ledgerRow(null, 'x'), null);
+  assert.equal(ledger.ledgerRow(undefined, 'x'), null);
+  assert.equal(ledger.ledgerRow({}, 'x'), null);
+  const first = ledger.ledgerRow(db, ids[0]);
+  assert.equal(ledger.ledgerRow(db, ids[0]), first, 'one table per database: the same row object comes back');
+  assert.equal(ledger.requirementWords({ operator: '>=', value: 1500.25 }, 'kg/m³'), was.requirementWords({ operator: '>=', value: 1500.25 }, 'kg/m³'));
+  for (const operator of ['>', '<', '<=', '>=', '==', undefined]) for (const value of [0, 1500, 12345.678901, -3]) {
+    assert.equal(ledger.requirementWords({ operator, value }, 'MPa'), was.requirementWords({ operator, value }, 'MPa'), `${operator} ${value}`);
+  }
+});
