@@ -4,3 +4,7 @@ export { buildDatabase } from './pipeline.ts';
 export type { BuildOptions, BuildResult } from './pipeline.ts';
 export { TABLES, loadReference, loadSheet, loadSheets, loadWorkbook, snapshotDate, workbookFrom } from './load.ts';
 export type { Dyn, Issue, Sheet, SheetRow, Workbook } from './types.ts';
+export { runEstimateStage, estimatesArtifact, extractOverlay, applyOverlay } from './estimate-stage.ts';
+export type { EstimateOverlay, EstimateStageResult } from './estimate-stage.ts';
+export { withholdFailedCalibration } from './estimate-withholding.ts';
+export { runtimeFingerprint } from './runtime-fingerprint.ts';
