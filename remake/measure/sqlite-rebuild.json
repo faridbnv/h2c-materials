@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "status": "measured",
+  "measuredAt": "2026-10-21T09:45:24.829Z",
+  "machine": {
+    "os": "darwin 27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "cores": 10,
+    "memoryGb": 24
+  },
+  "node": "v26.9.0",
+  "sqlite": "3.53.4",
+  "driverClass": "DatabaseSync",
+  "commit": "a478d50891bb993356c039f43ef79ef36e8440a1",
+  "tables": 36,
+  "rows": 39473,
+  "rebuild": {
+    "runsMs": [
+      1284,
+      1304,
+      1442
+    ],
+    "medianMs": 1304,
+    "budgetMs": 5000,
+    "withinBudget": true
+  },
+  "roundtrip": {
+    "runsMs": [
+      1359,
+      1610,
+      1503
+    ],
+    "medianMs": 1503,
+    "budgetMs": 10000,
+    "withinBudget": true
+  },
+  "peakRssMb": 487
+}
