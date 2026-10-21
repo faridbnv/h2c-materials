@@ -109,31 +109,49 @@ only, and none names a person. It is a claim, not a proof; the report says so, a
 be checked.
 
 **Change-set coverage** (`remake/measure/change-set-coverage.json`, `npm run change:coverage`): what share of the changes
-the migrations made the commands can make. Main is frozen, so the window is the 14 days before its last commit (107
-commits, 2026-10-06 to 2026-10-20). Each commit's table, vocabulary and schema diff is split into changes and each is
-classified as one a command makes, one that waits for WP-28, or residue. The migration scripts are not run. Then every
-commit whose changes are all row edits and appends is replayed through the real pipeline in legacy mode (judgement guards
-off, structural guards on) onto a rebuild of its parent, and each changed table is compared byte for byte with the child.
+the migrations made the commands can make. Main is frozen for data (its last data commit is 2026-10-20 12:08; a later
+commit changed only a workflow), so the window is the 14 days before that commit: 107 commits. Each commit's table,
+vocabulary and schema diff is split into changes and each is classified as one a command makes, one that waits for WP-28,
+or residue. The migration scripts are not run. Then every commit whose changes are all row edits and appends is replayed
+through the real pipeline in legacy mode (judgement guards off, structural guards on) onto a rebuild of its parent, and
+each changed table is compared byte for byte with the child.
 
 | Result | Number |
 |---|---|
-| Changes in the window | 10,187 |
-| Expressed by a command | 10,032 (98.5%) |
+| Changes in the window | 10,252 |
+| Expressed by a command | 10,032 (97.9%) |
 | Wait for WP-28 (new sources, which enter by the ingest journey) | 124 (1.2%) |
-| Residue: no command makes them | 31 (0.3%) |
-| Commits that change the tables | 103 |
-| of them, fully expressed | 77 (74.8%) |
-| of them, with a change that waits for WP-28 | 8 |
-| of them, with residue | 18 (17.5%) |
-| Byte replay through the service | 29 commits identical, 0 differ, 33 skipped (the parent predates a table the repository's schema now has) |
+| Residue: no command makes them | 96 (0.9%) |
+| of which in the tables and their schema | 31 |
+| of which files beside the tables | 65 |
+| Expressed share, leaving out the files beside the tables | 98.5% |
+| Commits in the window | 107 |
+| of them, fully expressed | 46 (43.0%) |
+| of them, with a change that waits for WP-28 | 4 |
+| of them, with residue | 57 (53.3%) |
+| of them, with residue in the tables or their schema | 18 (16.8%) |
+| Byte replay through the service | 21 commits identical, 0 differ, 23 skipped of 44 eligible |
 
-The residue, by reason: 12 rows inserted between rows in 5 commits (`headline_definitions` is ordered on purpose), 7 tables
-created in 6 commits, 6 vocabulary words changed or removed in 6 commits, 4 new vocabulary files in 4 commits, and 2 rows
-removed in 2 commits.
+The residue, by reason:
 
-How to read it (for Q2-10): by changes, almost everything fits (98.5%), and what does not is a short list of things the
-service refuses on purpose or does not yet do. By commits, 17.5% carry at least one such change, which is above the 1 in
-10 of ADR-03's revisit trigger if every such commit is counted as a change that needs a hand-written generator. The
-class of a commit (04 §11) is guessed from the diff, not from the script, so the per-class figures are a heuristic.
-Byte identity tests the service's order and canonical bytes; it cannot show expressiveness, since a diff-derived set of
-commands can express any cell edit. The residue is the result.
+| Reason | Changes | Commits |
+|---|---:|---:|
+| Files beside the tables: `data/review/accepted-findings.csv` (the `lint --accept` side door, 28 commits), `schema/db.schema.json` (25), `data/review/context-witness-accepted.csv` (6), `schema/estimate-model.schema.json` (6) | 65 | 54 |
+| Rows inserted between rows (`headline_definitions` is ordered on purpose) | 12 | 5 |
+| Tables created | 7 | 6 |
+| Vocabulary words changed or removed | 6 | 6 |
+| New vocabulary files | 4 | 4 |
+| Rows removed | 2 | 2 |
+
+The skipped replays are commits whose parent has no `chamber_need` (21) or `class_limits` (2) table yet, so it cannot be
+rebuilt under its own schema; they are counted as skipped, not as passed. The schema changes (a column added, dropped or
+moved, a schema document, a vocabulary word) are classified from the diff, not replayed commit by commit; their commands are
+tested by the round trip above.
+
+How to read it (for Q2-10): by changes, almost everything fits (97.9%, or 98.5% leaving out the files beside the tables),
+and what does not is a short list. The files beside the tables matter for the question you are asked: the largest group is
+the `lint --accept` side door, which no command in WP-17 replaces. By commits, 16.8% carry residue in the tables or their
+schema and 53.3% if the files beside the tables count, both above the 1 in 10 of ADR-03's revisit trigger if every such
+commit is counted as a change that needs a hand-written generator. The class of a commit (04 §11) is guessed from the diff,
+not from the script, so the per-class figures are a heuristic. Byte identity tests the service's order and canonical bytes;
+it cannot show expressiveness, since a diff-derived set of commands can express any cell edit. The residue is the result.

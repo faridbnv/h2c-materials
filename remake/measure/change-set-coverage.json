@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "status": "measured",
-  "measuredAt": "2026-10-21T16:50:07.619Z",
+  "measuredAt": "2026-10-21T16:53:27.308Z",
   "method": [
     "Read only: Git history of the ref and the working tree; no migration is run and no file is written but this one.",
     "Window: the commits that changed data/tables, data/manifest.json or schema/ in the 14 days before the last such commit of the ref (main is frozen at the cutover candidate; a later commit that changes only a workflow does not move the window), or the range given.",
@@ -25,7 +25,9 @@
     "later": 124,
     "residue": 96,
     "expressedShare": 0.979,
-    "expressedOrLaterShare": 0.991
+    "expressedOrLaterShare": 0.991,
+    "outsideFiles": 65,
+    "expressedShareOfTables": 0.985
   },
   "commits": {
     "total": 107,
@@ -34,10 +36,13 @@
     "withLater": 4,
     "withResidue": 57,
     "residueShare": 0.533,
+    "withResidueInTables": 18,
+    "residueShareInTables": 0.168,
     "adrRevisitTrigger": {
       "threshold": 0.1,
       "fired": true,
-      "rule": "ADR-03: more than 1 change in 10 needing a hand-written generator is the revisit trigger; here, a commit with any residue stands for a change the commands cannot make"
+      "firedInTables": true,
+      "rule": "ADR-03: more than 1 change in 10 needing a hand-written generator is the revisit trigger; here, a commit with any residue stands for a change the commands cannot make. `fired` counts a file beside the tables as residue, `firedInTables` does not"
     }
   },
   "byKind": {
