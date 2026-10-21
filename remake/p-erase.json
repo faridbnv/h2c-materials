@@ -6,10 +6,6 @@
     { "old": "app/js/engine/filler.js", "new": "packages/engine/src/port/filler.ts" },
     { "old": "app/js/engine/search.js", "new": "packages/engine/src/port/search.ts" },
     { "old": "app/js/engine/coverage.js", "new": "packages/engine/src/port/coverage.ts" },
-    { "old": "app/js/engine/ledger.js", "new": "packages/engine/src/port/ledger.ts" },
-    { "old": "app/js/engine/products.js", "new": "packages/engine/src/port/products.ts" },
-    { "old": "app/js/engine/indices.js", "new": "packages/engine/src/port/indices.ts" },
-    { "old": "app/js/engine/scenario.js", "new": "packages/engine/src/port/scenario.ts" },
     { "old": "app/js/engine/workspace.js", "new": "packages/engine/src/port/workspace.ts" }
   ]
 }

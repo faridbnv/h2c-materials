@@ -644,6 +644,7 @@ export const TREATMENT: TreatmentConstraint = { kind: 'treatment', mandatory: tr
 
 // ---------------------------------------------------------------- process gates
 
+const DRYING_WORDS: Readonly<Record<string, string | undefined>> = { required: 'Drying schedule published', optional: 'Drying optional', 'not-needed': 'Drying not needed' };
 const GATE_LABEL: Readonly<Record<string, string | undefined>> = { nozzle: 'Nozzle temperature', bed: 'Bed temperature', chamber: 'Chamber temperature' };
 
 /** A product's H2C status (D118): Bambu Lab's own spool is an official Bambu product; another maker's spool of a family
@@ -758,7 +759,7 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateRes
     // word that none is needed (D127). Only silence leaves it unknown.
     const criterion = 'Drying instructions published';
     const from = material.gates.dryingFrom ? ` (${material.gates.dryingFrom})` : '';
-    const said = ({ required: 'Drying schedule published', optional: 'Drying optional', 'not-needed': 'Drying not needed' } as Readonly<Record<string, string | undefined>>)[material.gates.drying!];
+    const said = DRYING_WORDS[material.gates.drying!];
     return said
       ? { status: STATUS.PASS, criterion, reasonCode: 'drying.stated', reason: `${said}${from}` }
       : { status: STATUS.UNKNOWN, criterion, reasonCode: 'drying.no-statement', reason: 'No drying statement in the sampled sources' };

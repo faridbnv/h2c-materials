@@ -307,7 +307,7 @@ export function valueStateOf(grade: ProductGrade, key: string, state?: ProductSt
 /** Each material's products: its active procurement grades, in the material's order. */
 export function productsByMaterial(db: { readonly grades: readonly ProductGrade[]; readonly materials: readonly { readonly id: string; readonly gradeIds?: readonly string[] }[] }): Map<string, ProductGrade[]> {
   const byId = new Map(db.grades.map((g): [string, ProductGrade] => [g.id, g]));
-  return new Map(db.materials.map((m): [string, ProductGrade[]] => [m.id, (m.gradeIds ?? []).map((id) => byId.get(id)).filter((g) => g && !g.retired) as ProductGrade[]]));
+  return new Map(db.materials.map((m): [string, ProductGrade[]] => [m.id, (m.gradeIds ?? []).map((id) => byId.get(id)).filter((g): g is ProductGrade => !!g && !g.retired)]));
 }
 
 /**
