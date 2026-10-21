@@ -10,11 +10,10 @@ import { fileURLToPath } from 'node:url';
 
 export const WATCHED = ['packages/', 'apps/', 'db/', 'tests/', 'parity/', 'remake/', '.github/'];
 export const STEPS = [
-  '1. code-simplifier:code-simplifier agent on the changed files, then /simplify',
-  '2. /code-review high, scoped to git diff <base>...HEAD',
-  '3. pr-review-toolkit: silent-failure-hunter (error paths), type-design-analyzer (types, contracts), pr-test-analyzer (tests)',
-  '4. npm run wp:check -- WP-NN (before WP-02: the package exit command), plus parity where the package needs it',
-  '5. write .claude/state/reviewed-<HEAD-sha>',
+  '1. one code-simplifier:code-simplifier pass on the changed files',
+  '2. at most one targeted check where the risk is real: silent-failure-hunter (skip/pass/fallback logic), /security-review (secrets, workflows, editor service, ingest, fetch) or type-design-analyzer (contracts naming science words)',
+  '3. npm run wp:check -- WP-NN (before WP-02: the package exit command), plus parity where the package needs it',
+  '4. write .claude/state/reviewed-<HEAD-sha>',
 ];
 
 const git = (args) => { try { return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return null; } };

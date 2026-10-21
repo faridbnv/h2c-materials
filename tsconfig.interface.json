@@ -1,0 +1,8 @@
+{
+  "$comment": "Interface level: framework components and pages (apps/). Strong, but exactOptionalPropertyTypes may be relaxed if the framework's own types fight it (Vue 3, Q2-06 C). No apps/ code exists yet; vue-tsc will use this file.",
+  "extends": "./tsconfig.strong.json",
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["apps/**/*.ts", "apps/**/*.vue"]
+}
