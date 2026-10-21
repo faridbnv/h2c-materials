@@ -1,0 +1,104 @@
+/* Design: a test report, not a dashboard. Cool paper, slate ink, and three verdict colours that never carry meaning alone
+   (each verdict has its own shape and its words). The memorable element is the proportion bar: the whole database, split by
+   verdict, under a sentence that gives the answer. Everything else stays quiet. No tooltips, no motion. */
+:root {
+  --ground: #eef2f4;
+  --surface: #ffffff;
+  --ink: #14212b;
+  --ink-soft: #4a5b68;
+  --rule: #d3dce2;
+  --link: #1a4e9c;
+  --pass: #0a7360;
+  --pass-wash: #d9efe8;
+  --fail: #a93526;
+  --fail-wash: #f6dfda;
+  --unknown: #77570a;
+  --unknown-wash: #f4e8c4;
+  --font: "Avenir Next", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0e161c;
+    --surface: #16212a;
+    --ink: #e5edf1;
+    --ink-soft: #9fb0bc;
+    --rule: #2b3b47;
+    --link: #8db8f2;
+    --pass: #4fc4a8;
+    --pass-wash: #123a32;
+    --fail: #f08a7a;
+    --fail-wash: #43201b;
+    --unknown: #e3be5c;
+    --unknown-wash: #3c3010;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 1rem/1.55 var(--font); font-variant-numeric: tabular-nums; }
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible, summary:focus-visible, .scroll:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.skip { position: absolute; left: 1rem; top: -4rem; background: var(--surface); padding: 0.5rem 0.75rem; z-index: 2; }
+.skip:focus { top: 0.5rem; }
+
+.strip { display: flex; flex-wrap: wrap; gap: 0.25rem 2rem; align-items: baseline; justify-content: space-between; max-width: 72rem; margin: 0 auto; padding: 1rem 1rem 0; }
+.site { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+.release { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin: 0; color: var(--ink-soft); font-size: 0.875rem; }
+.release div { display: flex; gap: 0.4rem; }
+.release dt::after { content: ":"; }
+.release dd { margin: 0; color: var(--ink); font-weight: 600; }
+
+main { max-width: 72rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+h1 { margin: 0 0 0.5rem; max-width: 24ch; font-size: clamp(1.9rem, 5.2vw, 3.2rem); line-height: 1.08; letter-spacing: -0.025em; font-weight: 750; }
+h2 { margin: 2.5rem 0 0.75rem; font-size: 1.25rem; letter-spacing: -0.01em; }
+p { max-width: 68ch; }
+.lead { font-size: 1.125rem; }
+.back { margin: 0 0 1.25rem; }
+.aside { display: block; color: var(--ink-soft); font-size: 0.875rem; }
+
+/* The bar: the answer drawn once. Three segments, widths from the counts, gaps in the ground colour. */
+.bar { display: flex; gap: 3px; height: 1.25rem; margin: 1.5rem 0 0.75rem; }
+.seg { display: block; min-width: 3px; border-radius: 2px; }
+.seg-PASS { background: var(--pass); }
+.seg-UNKNOWN { background: var(--unknown-wash); box-shadow: inset 0 0 0 2px var(--unknown); }
+.seg-FAIL { background: var(--fail); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+
+/* A verdict mark: its own shape, its own colour, and always its words. */
+.mark { display: inline-flex; gap: 0.4rem; align-items: baseline; }
+.mark svg { flex: none; align-self: center; fill: none; stroke: currentcolor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mark-PASS { color: var(--pass); }
+.mark-FAIL { color: var(--fail); }
+.mark-UNKNOWN { color: var(--unknown); }
+.mark > span { color: var(--ink); }
+
+.asks { padding-left: 1.25rem; margin: 0 0 1rem; }
+.asks .aside { display: inline; margin-left: 0.6rem; }
+
+/* Tables keep a column per property and scroll sideways on a narrow screen; they are never squeezed (interface rule 2). */
+.scroll { overflow-x: auto; background: var(--surface); border-radius: 6px; box-shadow: 0 0 0 1px var(--rule); }
+table { width: 100%; min-width: 46rem; border-collapse: collapse; }
+th, td { padding: 0.6rem 0.9rem; text-align: left; vertical-align: top; }
+thead th { font-size: 0.875rem; color: var(--ink-soft); font-weight: 600; border-bottom: 1px solid var(--rule); }
+tbody tr + tr > * { border-top: 1px solid var(--rule); }
+tbody th[scope="row"] { font-weight: 600; }
+tr.group th { padding-top: 1.1rem; background: var(--ground); font-size: 0.9375rem; border-top: 0; }
+tbody:not(:first-of-type) tr.group th { border-top: 1px solid var(--rule); }
+td.num, td.verdict { white-space: nowrap; }
+
+details { margin: 0 0 0.75rem; }
+summary { cursor: pointer; padding: 0.5rem 0; font-weight: 600; }
+
+.notice { padding: 1rem 0; }
+.notice-stop { max-width: 40rem; padding: 1.25rem 1.5rem; background: var(--surface); border-radius: 6px; box-shadow: inset 4px 0 0 var(--unknown), 0 0 0 1px var(--rule); }
+.notice-stop h1 { font-size: 1.5rem; max-width: none; }
+.why { color: var(--ink-soft); font-size: 0.875rem; overflow-wrap: anywhere; }
+button { font: inherit; font-weight: 600; padding: 0.55rem 1.1rem; border: 0; border-radius: 4px; background: var(--link); color: var(--surface); cursor: pointer; }
+
+.prose p { color: var(--ink); }
+
+@media (max-width: 30rem) {
+  .legend { flex-direction: column; }
+}

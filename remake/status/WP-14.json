@@ -1,13 +1,19 @@
 {
   "id": "WP-14",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-14-v3-view",
   "pr": null,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    { "cmd": "npm run release:id", "result": "pass", "code": 0 },
+    { "cmd": "node --test tests/remake/release-id.test.mjs tests/remake/public-view.test.mjs", "result": "pass", "code": 0 },
+    { "cmd": "node --test tests/parity/public-view.test.mjs", "result": "pass", "code": 0 },
+    { "cmd": "manual: the /v3/ view is on the preview (it needs one build-job step in next-preview.yml, which the owner reviews)", "result": "not-run", "note": "no workflow edit was allowed; node remake/tools/preview-assemble.mjs build-v3 is ready and tested" }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "note": "release identity v2 (remake/tools/release-id.mjs, npm run release:id), apps/public (Vue 3, Vite 8, relative base) with release-scoped data from the clean rebuild through packages/engine and the stale-shell guard, and preview-assemble build-v3 for /v3/. NOT published on the preview yet: next-preview.yml needs one build-job step."
 }

@@ -6,12 +6,19 @@
 //        adds 404.html, puts the banner and <meta name="robots" content="noindex"> into EVERY html file, writes preview.json
 //   node remake/tools/preview-assemble.mjs stage  --site _site --repo DIR
 //        moves the preview repo's current site into previous/<release> (one previous release is kept), copies _site over it
+//   node remake/tools/preview-assemble.mjs build-v3 --site _site
+//        builds the public view (apps/public, WP-14) and copies it to _site/v3/; `inject` then marks its pages like the others.
+//        Needs the repository's npm install (Vite, Vue) and the old build's, so it runs where the site is built (the build
+//        job), not in the deploy job, which holds the key and installs nothing.
 //
 // Anything unexpected throws: a page without <head> or <body>, a missing manifest, an unsafe release name. The deploy job
 // then fails; nothing is half-published.
-import { readFileSync, writeFileSync, readdirSync, lstatSync, existsSync, mkdirSync, renameSync, rmSync, cpSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { readFileSync, writeFileSync, readdirSync, lstatSync, existsSync, mkdirSync, mkdtempSync, renameSync, rmSync, cpSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
-import { isMain } from './wp-lib.mjs';
+import { RELEASE_ID_PATTERN } from './release-id.mjs';
+import { isMain, repoRoot } from './wp-lib.mjs';
 
 export const LIVE_URL = 'https://pdynamics.ca/h2c-materials/';
 export const BANNER_TEXT = 'Preview of the Filament Atlas remake — not the live tool. Live:';
@@ -37,13 +44,15 @@ export function injectBanner(html, name = 'html') {
 }
 
 // Pages serves 404.html (status 404) for a missing path. Today's site has none, so the preview adds one of its own.
+// It is served from any depth, so "./" can point into a sub-folder (/v3/): the script takes the site root from the first segment.
 export const NOT_FOUND_HTML = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Not found: Filament Atlas preview</title></head>
 <body style="font:16px/1.5 system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem">
 <h1>Page not found</h1>
 <p>This address does not exist on the preview of the Filament Atlas remake.</p>
-<p><a href="./">Open the preview</a> or the <a href="${LIVE_URL}">live tool</a>.</p>
+<p><a id="home" href="./">Open the preview</a> or the <a href="${LIVE_URL}">live tool</a>.</p>
+<script>(function(){var s=location.pathname.split('/')[1];if(s)document.getElementById('home').href='/'+s+'/'})();</script>
 </body></html>
 `;
 
@@ -55,6 +64,46 @@ export function* walk(dir) {
     if (name === '.git' || name === '.github') throw new Error(`${relative(dir, p) || name}: a ${name} folder inside the site; refusing to publish it`);
     if (st.isSymbolicLink()) throw new Error(`${relative(dir, p) || name}: symbolic link in the site; refusing to publish it`);
     if (st.isDirectory()) yield* walk(p); else yield p;
+  }
+}
+
+// The public view of WP-14 (apps/public) lives at _site/v3/, beside the old site; it never ships to the live site.
+export const V3_DIR = 'v3';
+
+/** Run apps/public's build into `out`. Needs the repository's npm install; says so when it is missing. */
+function runPublicBuild({ root, out }) {
+  for (const need of ['node_modules/vite', 'node_modules/vue', 'build/node_modules']) {
+    if (!existsSync(join(root, need))) throw new Error(`${need} is not installed: the /v3/ view builds where the site is built, after npm ci in the root and in build/`);
+  }
+  const run = spawnSync(process.execPath, [join(root, 'apps/public/tools/build.ts'), '--out', out], { cwd: root, stdio: ['ignore', 'inherit', 'inherit'] });
+  if (run.status !== 0) throw new Error(`the /v3/ build failed (exit ${run.status})`);
+}
+
+/** The release a built view names, once it is whole: its page, its manifest and its results file are all there. `who` starts the error. */
+function viewRelease(dir, who) {
+  const manifest = join(dir, 'release.json');
+  if (!existsSync(manifest) || !existsSync(join(dir, 'index.html'))) throw new Error(`${who} has no index.html and release.json`);
+  const { release } = JSON.parse(readFileSync(manifest, 'utf8'));
+  if (!RELEASE_ID_PATTERN.test(release)) throw new Error(`${who} names no valid release: "${release}"`);
+  if (!existsSync(join(dir, 'data', release, 'result.json'))) throw new Error(`${who} has no data/${release}/result.json`);
+  return release;
+}
+
+/**
+ * Builds the public view and puts it in <site>/v3/. The release it names is read back from the build's own release.json, and
+ * its results file must be there: a view without its data is never published. `build` is replaceable for tests.
+ */
+export function buildV3(site, { root = repoRoot(), build = runPublicBuild } = {}) {
+  const target = join(site, V3_DIR);
+  if (existsSync(target)) throw new Error(`${target} exists already; refusing to overwrite it`);
+  const out = mkdtempSync(join(tmpdir(), 'h2c-v3-'));
+  try {
+    build({ root, out });
+    const release = viewRelease(out, 'the /v3/ build');
+    cpSync(out, target, { recursive: true });
+    return { release, files: [...walk(target)].length };
+  } finally {
+    rmSync(out, { recursive: true, force: true });
   }
 }
 
@@ -81,6 +130,8 @@ export function inject(site, { remake, main, runId = null, now = new Date() }) {
     remakeCommit: remake, mainCommit: main, builtAt: now.toISOString(), release: manifest.release, snapshot: manifest.snapshot ?? null,
     sampleMaterial: `materials/${materials[0]}`, htmlFiles: pages.length, runId, note: 'Preview of the Filament Atlas remake. Not the live tool.',
   };
+  // The public view, when this build made one: its release is its own (release identity v2), and its pages are already marked above.
+  if (existsSync(join(site, V3_DIR))) info.v3Release = viewRelease(join(site, V3_DIR), `${V3_DIR}/`);
   writeFileSync(join(site, 'preview.json'), JSON.stringify(info, null, 2) + '\n');
   return info;
 }
@@ -123,9 +174,12 @@ if (isMain(import.meta.url)) {
     if (argv[0] === 'inject') {
       const info = inject(arg(argv, '--site'), { remake: arg(argv, '--remake'), main: arg(argv, '--main'), runId: arg(argv, '--run-id', false) ?? null });
       console.log(`injected banner and noindex into ${info.htmlFiles} html files; release ${info.release}; sample ${info.sampleMaterial}`);
+    } else if (argv[0] === 'build-v3') {
+      const r = buildV3(arg(argv, '--site'));
+      console.log(`built the public view into ${V3_DIR}/: release ${r.release}, ${r.files} files`);
     } else if (argv[0] === 'stage') {
       const r = stage(arg(argv, '--site'), arg(argv, '--repo'));
       console.log(`staged release ${r.release}; previous kept: ${JSON.stringify(r.previousKept)}`);
-    } else throw new Error('usage: inject --site DIR --remake SHA --main SHA [--run-id ID] | stage --site DIR --repo DIR');
+    } else throw new Error('usage: inject --site DIR --remake SHA --main SHA [--run-id ID] | stage --site DIR --repo DIR | build-v3 --site DIR');
   } catch (e) { console.error(`preview-assemble failed: ${e.message}`); process.exitCode = 1; }
 }
