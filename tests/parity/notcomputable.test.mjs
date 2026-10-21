@@ -10,13 +10,13 @@ import { compareCase, exitCode, runParity } from '../../packages/parity/src/comp
 import { canon, composite, notComputable, show } from '../../packages/parity/src/canon.ts';
 import { createNewPlaceholder } from '../../packages/parity/src/new-adapter.ts';
 import { atom, createOld, readDb } from '../../packages/parity/src/old-adapter.ts';
-import { cli, root, small, corpus } from './helpers.mjs';
+import { CLI_ONLY, cli, root, sharedOld, small, corpus } from './helpers.mjs';
 
 const computed = (records, caseId = 'c') => ({ caseId, outcome: 'computed', records });
 const fake = (name, fn) => ({ name, evaluate: fn });
 
 test('the new-side placeholder is not computable: status not-computable, exit 2, never zero', async () => {
-  const r = await runParity({ corpusName: 'v0', cases: small, before: await createOld(readDb()), after: createNewPlaceholder() });
+  const r = await runParity({ corpusName: 'v0', cases: small, before: await sharedOld(), after: createNewPlaceholder() });
   assert.equal(r.status, 'not-computable');
   assert.equal(r.casesCompared, 0);
   assert.equal(r.casesNotComputable, small.length);
@@ -25,7 +25,7 @@ test('the new-side placeholder is not computable: status not-computable, exit 2,
 });
 
 test('CLI --placeholder exits 2: a new side that answers nothing is not computable', () => {
-  const r = spawnSync(process.execPath, [cli, '--placeholder', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--placeholder', '--only', CLI_ONLY, '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 2, r.stderr);
   assert.match(r.stdout, /NOT COMPUTABLE/);
   assert.match(r.stdout, /RESULT: not-computable/);
@@ -153,7 +153,7 @@ test('a partial run says so: the whole corpus is the denominator, and the CLI ex
   assert.equal(r.status, 'zero');
   assert.equal(r.partial, true);
   assert.equal(r.casesInCorpus, small.length + 2);
-  const cliRun = spawnSync(process.execPath, [cli, '--noop', '--only', 'template/'], { cwd: root, encoding: 'utf8' });
+  const cliRun = spawnSync(process.execPath, [cli, '--noop', '--only', CLI_ONLY], { cwd: root, encoding: 'utf8' });
   assert.equal(cliRun.status, 4);
   assert.match(cliRun.stdout, /PARTIAL RUN/);
   assert.match(cliRun.stdout, /compared of 1306 in the corpus/);

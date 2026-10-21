@@ -7,10 +7,10 @@ import { spawnSync } from 'node:child_process';
 import { cpSync, mkdtempSync, rmSync, writeFileSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { cli, root } from './helpers.mjs';
+import { CLI_ONLY, CLI_SMALL, cli, root } from './helpers.mjs';
 
 const run = (...args) => spawnSync(process.execPath, [cli, ...args], { cwd: root, encoding: 'utf8' });
-const SMALL = ['--only', 'template/', '--allow-partial'];
+const SMALL = CLI_SMALL;
 
 test('an unknown flag is a usage error (64), never ignored', () => {
   for (const args of [['--bogus'], ['--noop', '--bogus'], ['--noop', '--allow-partials'], ['--only=template/'], ['-noop'], ['--NOOP']]) {
@@ -43,7 +43,7 @@ test('--list-faults and every known flag are accepted', () => {
   const r = run('--list-faults');
   assert.equal(r.status, 0);
   assert.match(r.stdout, /tie-order/);
-  const ok = run('--noop', '--only', 'template/', '--allow-partial', '--corpus', join(root, 'parity', 'corpus', 'v0.json'));
+  const ok = run('--noop', '--only', CLI_ONLY, '--allow-partial', '--corpus', join(root, 'parity', 'corpus', 'v0.json'));
   assert.equal(ok.status, 0, ok.stderr);
 });
 
@@ -63,7 +63,7 @@ test('a caught fault exits 5 (not 1, not 70); a zero run exits 0; a new side tha
 });
 
 test('a run over a selection without --allow-partial exits 4', () => {
-  assert.equal(run('--noop', '--only', 'template/').status, 4);
+  assert.equal(run('--noop', '--only', CLI_ONLY).status, 4);
 });
 
 test('a crash exits 70, never 1 (which means differs) and never 0', () => {
@@ -150,7 +150,7 @@ test('the new surfaces and flags are documented in the CLI header and in the con
 });
 
 test('the last line says what the exit code says: a partial run is RESULT: partial, not zero; the last line is the only RESULT line', () => {
-  const partial = run('--noop', '--only', 'template/');
+  const partial = run('--noop', '--only', CLI_ONLY);
   assert.equal(partial.status, 4);
   assert.match(partial.stdout.trim().split('\n').at(-1), /^RESULT: partial$/);
   const ok = run('--noop', ...SMALL);
