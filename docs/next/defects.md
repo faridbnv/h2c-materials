@@ -57,9 +57,10 @@ entries below are what the port exposed; none is fixed here, and none moves an a
   files. A change to a rule in `packages/build/src` therefore leaves the ID as it was.
 - **Real data.** Not reached while the old files are in the tree and unchanged. After cutover (when `build/` is deleted) the
   ID would stop covering the rules at all.
-- **Kept.** `release.ts` is the old file, label only (P-erase 0). Pack 02 section 11 says the new ID hashes
-  `packages/build`, `packages/domain` and `packages/data` by content in a fixed order, the Node and ICU versions included.
-  That is a deliberate change of what a release ID means: its own step, with the owner's review.
+- **Kept.** `release.ts` is the old file, label only (P-erase 0). Release identity v2 (`remake/tools/release-id.mjs`, WP-14,
+  on `remake/v3` since this branch was cut) hashes by content and records the runtime, and lists `build/src`,
+  `build/mappings` and `packages/domain/src` as the rules, but not `packages/build/src` either. Adding it is one line and a
+  change of what a release ID means: its own step, with WP-14's tests, and it is due before `build/src` leaves the tree.
 
 ### WP20-D2. A record's line number is the line it ends on, not the line it starts on
 
