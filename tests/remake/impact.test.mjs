@@ -3,10 +3,12 @@
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { ImpactRefusal, impactRecordsOf, loadImpactCases, needsEstimates, openImpactSession } from '@atlas/engine/impact';
 import { REPO_ROOT } from '../../packages/engine/src/old-engine.ts';
+import { answerSide } from '../../packages/engine/src/impact/side.ts';
 import { applyRecords, stageSnapshot } from '../../packages/engine/src/impact/stage.ts';
 import { compareCase } from '../../packages/parity/src/compare.ts';
 import { createOldAdapter } from '../../packages/parity/src/old-adapter.ts';
@@ -24,7 +26,7 @@ const EXPECTED = ['067', '068', '071', '072', '075', '076', '079', '080'].flatMa
 
 const session = await openImpactSession();
 after(() => session.close());
-const t0 = performance.now();
+const refused = (records, pattern) => assert.rejects(session.preview(records), (e) => e instanceof ImpactRefusal && pattern.test(e.message), String(pattern));
 const treeBefore = tablesDigest();
 const report = await session.preview(correction);
 
@@ -48,12 +50,12 @@ test('the same moves come out of a route that does not use the preview (two buil
     const wb = loadTables(join(snapshot.dir, 'data'));
     return JSON.parse(JSON.stringify(buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'oracle', estimates: false, cache: false }).db));
   };
-  const [before, after] = await Promise.all([createOldAdapter({ name: 'before', db: rawDb(staged) }), createOldAdapter({ name: 'after', db: rawDb(changed) })]);
+  const [oldBefore, oldAfter] = await Promise.all([createOldAdapter({ name: 'before', db: rawDb(staged) }), createOldAdapter({ name: 'after', db: rawDb(changed) })]);
   const read = new Set(['verdict', 'group', 'likely', 'gradeId', 'counts.pass', 'counts.fail', 'counts.untested', 'state.id']);
   const oracle = new Set();
   for (const c of loadImpactCases().filter((x) => !needsEstimates(x))) {
     const asCase = { id: c.id, group: c.group, name: c.name, scenario: c.question };
-    const cmp = compareCase(await before.evaluate(asCase), await after.evaluate(asCase));
+    const cmp = compareCase(await oldBefore.evaluate(asCase), await oldAfter.evaluate(asCase));
     assert.equal(cmp.notComputable.length, 0);
     for (const d of cmp.differences) {
       if (d.tier === 'decision' && read.has(d.field) && !(d.record.startsWith('material:') && d.field === 'state.id')) oracle.add(`${d.case} ${d.record}`);
@@ -98,13 +100,35 @@ test('the second preview keeps the base answers: it computes only the changed si
 
 test('a stale record, an unknown column or table, a vanished row and a composite key are refused, naming the cause', async () => {
   const [record] = correction;
-  const refused = async (records, pattern) => assert.rejects(session.preview(records), (e) => e instanceof ImpactRefusal && pattern.test(e.message), String(pattern));
   await refused([{ ...record, before: { ...record.before, 'Raw value': '55' } }], /stale, Raw value is "56" now, the record expected "55"/);
   await refused([{ ...record, after: { 'No such column': '1' } }], /has no column "No such column"/);
   await refused([{ ...record, recordId: 'V999999' }], /stale, the row is gone/);
   await refused([{ ...record, table: 'chamber_need', recordId: 'X' }], /chamber_need is keyed by|stale|has no column/);
+  // A correction names a row that is there; only an added measurement may name one that is not.
+  await refused([{ ...record, kind: 'correctValue', recordId: 'V999999', before: {} }], /a correctValue record needs the row it changes/);
+  await refused([{ ...record, kind: 'addMeasurement' }], /the record adds a row, and the row is already there/);
+  // A refused change set leaves no copy of the tables behind.
+  const scratch = mkdtempSync(join(tmpdir(), 'impact-test-'));
+  const saved = process.env.TMPDIR;
+  process.env.TMPDIR = scratch;
+  try {
+    await refused([{ ...record, before: { ...record.before, 'Raw value': '55' } }], /stale/);
+    assert.deepEqual(readdirSync(scratch), []);
+  } finally {
+    process.env.TMPDIR = saved;
+    rmSync(scratch, { recursive: true, force: true });
+  }
   assert.throws(() => impactRecordsOf([{ ...record, table: 'no_such_table' }]), /table/);
   assert.throws(() => impactRecordsOf({ records: [] }), /no records/);
+});
+
+test('a closed session refuses further work, and a question that needs estimates is not answered without them', async () => {
+  const closing = await openImpactSession();
+  closing.close();
+  await assert.rejects(closing.preview(correction), /session is closed/);
+  assert.throws(() => closing.warm(), /session is closed/);
+  const estimateCase = loadImpactCases().find(needsEstimates);
+  await assert.rejects(answerSide({ snapshot: { dir: 'none', digest: '', files: new Map() }, cases: [estimateCase], estimates: false }), /needs the estimate stage/);
 });
 
 test('a record that names no existing row appends one; data that does not build is refused with the build\'s own errors', async () => {
@@ -112,7 +136,6 @@ test('a record that names no existing row appends one; data that does not build 
   const added = applyRecords(staged, [{ table: 'sources', recordId: 'ZZ-FIXTURE', before: {}, after: { Title: 'a fixture source' } }]);
   assert.notEqual(added.digest, staged.digest);
   assert.match(readFileSync(join(added.dir, 'data', 'tables', 'sources.csv'), 'utf8'), /\nZZ-FIXTURE,[^\n]*a fixture source/);
-  const refused = (records, pattern) => assert.rejects(session.preview(records), (e) => e instanceof ImpactRefusal && pattern.test(e.message), String(pattern));
   await refused([{ table: 'measurements', recordId: 'V000002', before: { 'Raw value': '56' }, after: { 'Normalized unit': 'no-such-unit' } }], /the data does not build: \[MEAS-UNIT-UNKNOWN\]/);
   await refused([{ table: 'measurements', recordId: 'V000002', before: { MaterialID: 'M001' }, after: { MaterialID: 'M999' } }], /the data does not build: \[REF-UNKNOWN\]/);
   await refused([{ table: 'sources', recordId: 'ZZ-FIXTURE', before: {}, after: { Title: 'a fixture source' } }], /does not satisfy the typed contract/);
@@ -130,5 +153,4 @@ test('the time of a cold preview and a warm one is recorded in remake/measure/im
     assert.ok(record.core[kind].medianMs <= 10_000, `${kind} median ${record.core[kind].medianMs} ms`);
     assert.equal(record.core[kind].withinBudget, true);
   }
-  assert.ok(performance.now() - t0 > 0);
 });

@@ -4,8 +4,9 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { EVIDENCE_LEVELS, UNKNOWN_POLICIES } from '@atlas/domain';
-import { BoundaryError, moistureOf, oneOf } from '../guards.ts';
+import { BoundaryError, isRecord, moistureOf, oneOf } from '../guards.ts';
 import { REPO_ROOT } from '../old-engine.ts';
+import { isScenarioConstraint } from '../scenario.ts';
 import type { Question } from '../scenario.ts';
 
 export interface ImpactCase {
@@ -17,11 +18,8 @@ export interface ImpactCase {
 
 export const CORPUS_FILE = join(REPO_ROOT, 'parity', 'corpus', 'v0.json');
 
-const isRecord = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
-const isObject = (x: unknown): x is object => typeof x === 'object' && x !== null;
-
 function questionOf(value: unknown, id: string): Question {
-  if (!isRecord(value) || !Array.isArray(value.constraints) || !value.constraints.every(isObject)) throw new BoundaryError(`${id}: no requirements list`);
+  if (!isRecord(value) || !Array.isArray(value.constraints) || !value.constraints.every(isScenarioConstraint)) throw new BoundaryError(`${id}: no requirements list`);
   const { useEstimates, anneal, annealMaxC } = value;
   if (typeof useEstimates !== 'boolean' || typeof anneal !== 'boolean') throw new BoundaryError(`${id}: useEstimates and anneal must be true or false`);
   if (annealMaxC !== null && typeof annealMaxC !== 'number') throw new BoundaryError(`${id}: annealMaxC must be a number or null`);

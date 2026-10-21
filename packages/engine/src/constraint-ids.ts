@@ -18,7 +18,7 @@ export interface ConstraintEntry {
 }
 
 export interface ConstraintIndex {
-  /** The scenario's requirements, in order. */
+  /** The scenario's requirements, in order. A result may also name `TREATMENT_ID`, the engine's own annealing requirement. */
   readonly ids: readonly ConstraintId[];
   /** The ID and body of the requirement a raw result names. Throws for one the engine was not given. */
   lookup(raw: RawConstraint): ConstraintEntry;
@@ -31,7 +31,7 @@ export function indexConstraints(constraints: readonly ScenarioConstraint[], tre
   const byObject = new Map<object, ConstraintEntry>([[treatment, { id: TREATMENT_ID, body: treatment }]]);
   const taken = new Set<ConstraintId>([TREATMENT_ID]);
   const ids = constraints.map((body, position) => {
-    const id = body.id ?? constraintIdOf(`c${position}`);
+    const id = constraintIdOf(body.id ?? `c${position}`);
     if (taken.has(id)) throw new BoundaryError(`two requirements share the ID ${id}`);
     if (byObject.has(body)) throw new BoundaryError(`requirement ${position} is the same object as an earlier one: the engine could not tell them apart`);
     taken.add(id);

@@ -4,9 +4,8 @@
 // preview stages the snapshot with the records applied, compiles it with the old build's core compile, asks the same
 // questions of both sides with the same engine as the site (the wrapper), and returns the records whose decision differs.
 // Both sides are compiled from the one staged copy, so the working tree changing under a preview cannot make them disagree.
-import { rmSync } from 'node:fs';
 import { Worker } from 'node:worker_threads';
-import type { ChangeRecord, DecisionDiffSummary, MaterialId, ReleaseId } from '@atlas/domain';
+import type { DecisionDiffSummary, MaterialId, ReleaseId } from '@atlas/domain';
 import { materialIdOf } from '../guards.ts';
 import { REPO_ROOT } from '../old-engine.ts';
 import { loadImpactCases, needsEstimates } from './cases.ts';
@@ -14,9 +13,10 @@ import type { ImpactCase } from './cases.ts';
 import { previewRelease } from './compile.ts';
 import { diffDecisions, movesAnAnswer } from './diff.ts';
 import type { Move } from './diff.ts';
-import { answerSide } from './side.ts';
+import { answerSide, elapsedMs } from './side.ts';
 import type { SideAnswers, SideJob } from './side.ts';
-import { applyRecords, stageSnapshot } from './stage.ts';
+import { applyRecords, removeSnapshot, stageSnapshot } from './stage.ts';
+import type { ImpactRecord } from './stage.ts';
 
 export interface ImpactOptions {
   /** A checkout holding `data/tables`: the snapshot to compare against. */
@@ -26,7 +26,7 @@ export interface ImpactOptions {
   readonly estimates?: boolean;
 }
 
-export type ImpactRecords = readonly Pick<ChangeRecord, 'table' | 'recordId' | 'before' | 'after'>[];
+export type ImpactRecords = readonly ImpactRecord[];
 
 export interface ImpactReport {
   readonly mode: 'core' | 'full';
@@ -61,7 +61,6 @@ const inWorker = (job: SideJob): Promise<SideAnswers> => new Promise((resolve, r
 });
 
 const templateOf = (c: ImpactCase): string => (c.group === 'template' ? (c.id.split('/')[1] ?? c.id) : 'census');
-const ms = (since: number) => Math.round(performance.now() - since);
 
 export async function openImpactSession(options: ImpactOptions = {}): Promise<ImpactSession> {
   const estimates = options.estimates === true;
@@ -70,6 +69,7 @@ export async function openImpactSession(options: ImpactOptions = {}): Promise<Im
   const pending = estimates ? [] : cases.filter(needsEstimates).map((c) => c.id);
   const staged = stageSnapshot(options.root ?? REPO_ROOT);
   let base: Promise<SideAnswers> | undefined;
+  let closed = false;
 
   // A failed base is forgotten, so a retry asks again instead of failing for ever.
   const baseSide = () => (base ??= inWorker({ snapshot: staged, cases: answered, estimates }).catch((error: unknown) => {
@@ -78,19 +78,22 @@ export async function openImpactSession(options: ImpactOptions = {}): Promise<Im
   }));
 
   async function preview(records: ImpactRecords): Promise<ImpactReport> {
+    if (closed) throw new Error('the impact session is closed');
     const t0 = performance.now();
     const first = base === undefined;
     const waiting = baseSide();
+    // A refusal below returns before the base is awaited; its failure, if any, must not become an unhandled rejection.
+    waiting.catch(() => undefined);
 
     let t = performance.now();
     const changed = applyRecords(staged, records);
-    const stage = ms(t);
+    const stage = elapsedMs(t);
     let after, before;
     try {
       after = await answerSide({ snapshot: changed, cases: answered, estimates });
       before = await waiting;
     } finally {
-      rmSync(changed.dir, { recursive: true, force: true });
+      removeSnapshot(changed);
     }
 
     t = performance.now();
@@ -102,7 +105,7 @@ export async function openImpactSession(options: ImpactOptions = {}): Promise<Im
       const key = templateOfCase.get(move.case) ?? move.case;
       byTemplate[key] = (byTemplate[key] ?? 0) + 1;
     }
-    const diff = ms(t);
+    const diff = elapsedMs(t);
     return {
       mode: estimates ? 'full' : 'core',
       summary: { moved: answerMoves.length, estimatesPending: pending.length > 0, byTemplate },
@@ -112,15 +115,27 @@ export async function openImpactSession(options: ImpactOptions = {}): Promise<Im
       cases: { asked: cases.length, answered: answered.length, estimatesPending: pending },
       materials: [...new Set(answerMoves.map((m) => m.materialId))].sort().map(materialIdOf),
       moves,
-      timingsMs: { stage, compileBase: first ? before.compileMs : 0, compileChanged: after.compileMs, runBase: first ? before.runMs : 0, runChanged: after.runMs, diff, total: ms(t0) },
+      timingsMs: { stage, compileBase: first ? before.compileMs : 0, compileChanged: after.compileMs, runBase: first ? before.runMs : 0, runChanged: after.runMs, diff, total: elapsedMs(t0) },
     };
   }
 
-  const rmStaged = () => rmSync(staged.dir, { recursive: true, force: true });
-  return { baseDigest: staged.digest, warm: () => { baseSide().catch(() => undefined); }, preview, close: rmStaged };
+  const warm = () => {
+    if (closed) throw new Error('the impact session is closed');
+    baseSide().catch(() => undefined);
+  };
+  const close = () => {
+    closed = true;
+    removeSnapshot(staged);
+  };
+  return { baseDigest: staged.digest, warm, preview, close };
 }
 
 /** One preview from a cold start: stage, compile both sides, ask every question of both. */
 export async function previewImpact(records: ImpactRecords, options: ImpactOptions = {}): Promise<ImpactReport> {
-  return (await openImpactSession(options)).preview(records);
+  const session = await openImpactSession(options);
+  try {
+    return await session.preview(records);
+  } finally {
+    session.close();
+  }
 }

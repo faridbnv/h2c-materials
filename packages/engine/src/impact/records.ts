@@ -2,11 +2,9 @@
 // what the preview uses is checked here (the table, the record, the cells before and after); the staging refuses the rest.
 import { TABLE_NAMES } from '@atlas/data';
 import type { CanonicalCells } from '@atlas/domain';
-import { oneOf } from '../guards.ts';
+import { isRecord, oneOf } from '../guards.ts';
 import { ImpactRefusal } from './stage.ts';
 import type { ImpactRecords } from './preview.ts';
-
-const isRecord = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
 
 function cellsOf(value: unknown, where: string): CanonicalCells {
   if (!isRecord(value)) throw new ImpactRefusal(`${where}: expected the changed cells`);
@@ -25,6 +23,9 @@ export function impactRecordsOf(value: unknown): ImpactRecords {
   return records.map((r, i) => {
     const where = `record ${i + 1}`;
     if (!isRecord(r) || typeof r.recordId !== 'string') throw new ImpactRefusal(`${where}: needs a table and a recordId`);
-    return { table: oneOf(TABLE_NAMES, r.table, `${where} table`), recordId: r.recordId, before: cellsOf(r.before, `${where} before`), after: cellsOf(r.after, `${where} after`) };
+    return {
+      table: oneOf(TABLE_NAMES, r.table, `${where} table`), recordId: r.recordId, before: cellsOf(r.before, `${where} before`), after: cellsOf(r.after, `${where} after`),
+      ...(typeof r.kind === 'string' ? { kind: r.kind } : {}),
+    };
   });
 }

@@ -37,7 +37,7 @@ export interface Move {
   readonly changes: readonly FieldChange[];
 }
 
-const ALL: readonly Exclude<DecisionField, 'record'>[] = [...DECISION_FIELDS, 'listing'];
+const COMPARED_FIELDS: readonly Exclude<DecisionField, 'record'>[] = [...DECISION_FIELDS, 'listing'];
 
 /** The records whose facts differ, with what changed. A record present on one side only is one change, `record`. */
 export function diffDecisions(caseId: string, before: ReadonlyMap<string, Facts>, after: ReadonlyMap<string, Facts>): Move[] {
@@ -50,7 +50,7 @@ export function diffDecisions(caseId: string, before: ReadonlyMap<string, Facts>
       moves.push({ case: caseId, record, materialId, changes: [{ field: 'record', before: a ? 'present' : 'absent', after: b ? 'present' : 'absent' }] });
       continue;
     }
-    const changes = ALL.flatMap((field): FieldChange[] => (a[field] === b[field] || (a[field] === undefined && b[field] === undefined) ? [] : [{ field, before: a[field] ?? 'none', after: b[field] ?? 'none' }]));
+    const changes = COMPARED_FIELDS.flatMap((field): FieldChange[] => (a[field] === b[field] ? [] : [{ field, before: a[field] ?? 'none', after: b[field] ?? 'none' }]));
     if (changes.length) moves.push({ case: caseId, record, materialId, changes });
   }
   return moves;

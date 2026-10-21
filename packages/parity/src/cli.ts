@@ -94,8 +94,9 @@ async function main(argv: readonly string[]): Promise<number> {
     after = await createOldAdapter({ name: 'old (second copy)', db: readDb(dbPath), engineDir: copyEngine([]) });
   } else if (fault) {
     after = await createOldAdapter({ name: `old + fault ${fault.name}`, db: readDb(dbPath), engineDir: copyEngine(fault.patches) });
-  } else if (mode === 'placeholder') after = createNewPlaceholder();
-  else {
+  } else if (mode === 'placeholder') {
+    after = createNewPlaceholder();
+  } else {
     // The wrapper over its own copy of the engine files and its own typed parse of the db: nothing shared with the old side.
     const typed = checkDb(readDb(dbPath));
     if (!typed.ok) throw new Error(`the db does not satisfy the typed contract of @atlas/data: ${typed.problems.slice(0, 5).join('; ')}`);

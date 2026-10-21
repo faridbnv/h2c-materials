@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "status": "measured",
-  "measuredAt": "2026-10-21T11:13:44.617Z",
+  "measuredAt": "2026-10-21T11:30:00.708Z",
   "machine": {
     "os": "darwin 27.0.0",
     "arch": "arm64",
@@ -9,8 +9,12 @@
     "cores": 10,
     "memoryGb": 24
   },
+  "loadAverage1m": {
+    "before": 4.1,
+    "after": 4.8
+  },
   "node": "v26.9.0",
-  "commit": "44a7e13143db066186cb6a1b2aedc24f2553647c",
+  "commit": "e1ed0a6b5b1aa002e5e7af7e69b1d816a0c841ba",
   "tree": "dirty",
   "changeSet": "tests/remake/fixtures/impact/fixture-tensile-correction.json",
   "questions": {
@@ -23,21 +27,21 @@
   "core": {
     "cold": {
       "runsMs": [
-        7864,
-        15370,
-        10104
+        5044,
+        4940,
+        5149
       ],
-      "medianMs": 10104,
+      "medianMs": 5044,
       "budgetMs": 10000,
-      "withinBudget": false
+      "withinBudget": true
     },
     "warm": {
       "runsMs": [
-        7498,
-        7502,
-        7016
+        4211,
+        4035,
+        4018
       ],
-      "medianMs": 7498,
+      "medianMs": 4035,
       "budgetMs": 10000,
       "withinBudget": true
     }
@@ -45,19 +49,19 @@
   "withEstimates": {
     "cold": {
       "runsMs": [
-        49806
+        32188
       ],
-      "medianMs": 49806,
+      "medianMs": 32188,
       "budgetMs": 40000,
-      "withinBudget": false
+      "withinBudget": true
     },
     "warm": {
       "runsMs": [
-        62319
+        28006
       ],
-      "medianMs": 62319,
+      "medianMs": 28006,
       "budgetMs": 40000,
-      "withinBudget": false
+      "withinBudget": true
     },
     "moved": 54
   }

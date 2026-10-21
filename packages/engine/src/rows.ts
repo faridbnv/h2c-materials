@@ -3,23 +3,20 @@
 // One row for each material, then one for each of its products, in the evaluation's own order. The counts of a row are of
 // its parts: a material's products by verdict (the evaluation's own `counts`; none on record counts nothing), a product's
 // requirements by status (open means UNKNOWN or INDETERMINATE). A product row carries its material's listing place.
-import type { Evaluation, GradeId, ProductView, ReasonEntry, RequirementResult, RowResult } from '@atlas/domain';
-import { reasonEntriesOf } from './reasons.ts';
+import type { Evaluation, GradeId, ProductView, RequirementResult, RowResult } from '@atlas/domain';
+import { isOpen, reasonEntriesOf } from './reasons.ts';
 
 const requirementCounts = (results: readonly RequirementResult[]) => ({
   pass: results.filter((r) => r.status === 'PASS').length,
   fail: results.filter((r) => r.status === 'FAIL').length,
-  untested: results.filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').length,
+  untested: results.filter((r) => isOpen(r.status)).length,
 });
-
-/** The reasons of a row: one entry for each requirement, in the requirements' order, the engine's text untouched. */
-const reasonsOf = (results: readonly RequirementResult[]): readonly ReasonEntry[] => results.map(reasonEntriesOf);
 
 function productRow(evaluation: Evaluation, product: ProductView, listingRank: number): RowResult {
   return {
     materialId: evaluation.materialId, productId: product.gradeId, stateId: product.state.id,
     verdict: product.verdict, counts: requirementCounts(product.results), group: product.group, likely: product.likely,
-    listingRank, reasons: reasonsOf(product.results), requirements: product.results,
+    listingRank, reasons: product.results.map(reasonEntriesOf), requirements: product.results,
   };
 }
 
@@ -27,7 +24,7 @@ function materialRow(evaluation: Evaluation, listingRank: number, best: GradeId 
   const { pass, fail, untested } = evaluation.counts ?? { pass: 0, fail: 0, untested: 0 };
   return {
     materialId: evaluation.materialId, verdict: evaluation.verdict, counts: { pass, fail, untested }, group: evaluation.group, likely: evaluation.likely,
-    ...(best === undefined ? {} : { best }), listingRank, reasons: reasonsOf(evaluation.results), requirements: evaluation.results,
+    ...(best === undefined ? {} : { best }), listingRank, reasons: evaluation.results.map(reasonEntriesOf), requirements: evaluation.results,
   };
 }
 

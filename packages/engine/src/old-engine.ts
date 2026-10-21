@@ -96,12 +96,27 @@ export interface RawRanking {
 
 export interface RawIndex { readonly id: string }
 
-/** The context object the engine reads (the page's buildContext and recompute); its fields are the engine's. */
-export type RawContext = object;
+/** The context the engine reads (main.js buildContext and recompute). A misspelt field would change the engine's behaviour without an error, so every one the wrapper sets is declared. */
+export interface RawContext {
+  readonly db: object;
+  readonly measurementsByMaterial: ReadonlyMap<string, readonly object[]>;
+  readonly evidenceByMaterial: ReadonlyMap<string, readonly object[]>;
+  readonly polymerEvidenceByMaterial: ReadonlyMap<string, readonly object[]>;
+  readonly coverageByMaterial: ReadonlyMap<string, readonly object[]>;
+  readonly productsByMaterial: ReadonlyMap<string, readonly object[]>;
+  readonly measurementById: ReadonlyMap<string, object>;
+  readonly gradeById: ReadonlyMap<string, object>;
+  readonly unknownPolicy: string;
+  readonly useEstimates: boolean;
+  readonly showEstimates: boolean;
+  readonly evidence: string;
+  readonly anneal: boolean;
+  readonly annealMaxC: number | null;
+  readonly moisture: 'dry' | 'conditioned';
+}
 
 export interface OldEngine {
   readonly constraints: {
-    readonly GROUP_ORDER: readonly string[];
     readonly TREATMENT: RawConstraint;
     normalizePolicy(value: unknown): string;
     runSelection(materials: readonly RawMaterial[], constraints: readonly ScenarioConstraint[], ctx: RawContext): RawSelection;

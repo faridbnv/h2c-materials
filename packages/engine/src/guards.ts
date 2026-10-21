@@ -18,28 +18,24 @@ export function oneOf<const T extends readonly string[]>(list: T, value: unknown
   return found;
 }
 
-export const materialIdOf = (value: string): MaterialId => {
-  if (!isMaterialId(value)) throw new BoundaryError(`material ID: ${JSON.stringify(value)} does not match the schema pattern`);
+/** `value` itself when `isValid` accepts it, else an error naming `what` and the value. */
+function checked<T extends string>(value: string, isValid: (value: string) => value is T, what: string, problem: string): T {
+  if (!isValid(value)) throw new BoundaryError(`${what}: ${JSON.stringify(value)} ${problem}`);
   return value;
-};
-export const gradeIdOf = (value: string): GradeId => {
-  if (!isGradeId(value)) throw new BoundaryError(`grade ID: ${JSON.stringify(value)} does not match the schema pattern`);
-  return value;
-};
-export const measurementIdOf = (value: string): MeasurementId => {
-  if (!isMeasurementId(value)) throw new BoundaryError(`measurement ID: ${JSON.stringify(value)} does not match the schema pattern`);
-  return value;
-};
+}
+
+const SCHEMA_PATTERN = 'does not match the schema pattern';
+
+export const materialIdOf = (value: string): MaterialId => checked(value, isMaterialId, 'material ID', SCHEMA_PATTERN);
+export const gradeIdOf = (value: string): GradeId => checked(value, isGradeId, 'grade ID', SCHEMA_PATTERN);
+export const measurementIdOf = (value: string): MeasurementId => checked(value, isMeasurementId, 'measurement ID', SCHEMA_PATTERN);
 
 /** A state identifier is valid when it parses and writing the parts back gives the same text (so "annealed:120:016" is refused). */
 const isStateId = (value: string): value is StateId => {
   const parts = parseStateId(value);
   return parts !== null && stateId(parts.treatment, parts.moisture) === value;
 };
-export const stateIdOf = (value: string): StateId => {
-  if (!isStateId(value)) throw new BoundaryError(`state ID: ${JSON.stringify(value)} is not one stateId could write`);
-  return value;
-};
+export const stateIdOf = (value: string): StateId => checked(value, isStateId, 'state ID', 'is not one stateId could write');
 
 export const moistureOf = (value: string): ServiceMoisture => {
   const found = MOISTURE_STATES.find((word): word is ServiceMoisture => word === value && word !== 'not-stated');
@@ -52,15 +48,13 @@ export const moistureOf = (value: string): ServiceMoisture => {
  * own annealing requirement is `treatment`. How a stable ID is derived is decided with WP-19 (owner question TS-3).
  */
 const CONSTRAINT_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]*$/;
-const isConstraintId = (value: string): value is ConstraintId => CONSTRAINT_ID.test(value);
-export const constraintIdOf = (value: string): ConstraintId => {
-  if (!isConstraintId(value)) throw new BoundaryError(`constraint ID: ${JSON.stringify(value)} is not a usable ID`);
-  return value;
-};
+// A scenario read from JSON may hold anything in `id`, whatever its type says, so the type is checked too.
+const isConstraintId = (value: string): value is ConstraintId => typeof value === 'string' && CONSTRAINT_ID.test(value);
+export const constraintIdOf = (value: string): ConstraintId => checked(value, isConstraintId, 'constraint ID', 'is not a usable ID');
 
 /** A release is the first 12 hex characters of a content digest (02 section 6.4). */
 const isReleaseId = (value: string): value is ReleaseId => /^[0-9a-f]{12}$/.test(value);
-export const releaseIdOf = (value: string): ReleaseId => {
-  if (!isReleaseId(value)) throw new BoundaryError(`release ID: ${JSON.stringify(value)} is not 12 lowercase hex characters`);
-  return value;
-};
+export const releaseIdOf = (value: string): ReleaseId => checked(value, isReleaseId, 'release ID', 'is not 12 lowercase hex characters');
+
+/** A plain object (not null, not an array): the shape JSON gives a record. */
+export const isRecord = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);

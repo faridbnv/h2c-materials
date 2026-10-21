@@ -27,12 +27,12 @@ export type IndexRanking = {
 /** What the engine says to one scenario on one release. Plain data: it survives a structured clone (a worker, a store) whole. */
 export type EngineOutput = {
   readonly release: ReleaseId;
-  /** The scenario's requirements, in order. A result names its requirement by one of these. */
+  /** The scenario's requirements, in order. A result names its requirement by one of these, or by `TREATMENT_ID` for the engine's own annealing requirement. */
   readonly constraintIds: readonly ConstraintId[];
   readonly evaluations: readonly Evaluation[];
   readonly counts: SelectionCounts;
   readonly candidates: readonly MaterialId[];
-  /** In the table's listing order: each material, followed by its products. */
+  /** In the engine's order: each material, followed by its products. `listingRank` gives the table's order. */
   readonly rows: readonly RowResult[];
   readonly rankings: readonly IndexRanking[];
 };
@@ -74,13 +74,22 @@ function releaseOf(db: Db, asked: string | undefined): ReleaseId {
   return releaseIdOf(id);
 }
 
+function compareNumbers(a: number, b: number): number {
+  if (a < b) return -1;
+  return a > b ? 1 : 0;
+}
+
 /** The table's order (ui/table.js sortRows): by group; inside "not enough data" likely first, then the nearest. Stable, so ties keep the engine's order. */
 function listingRanks(evaluations: readonly Evaluation[], explore: boolean, hasRequirements: boolean): Map<MaterialId, number> {
   const order = [...evaluations];
   if (explore && hasRequirements) {
-    const at = (e: Evaluation) => Math.max(GROUP_ORDER.indexOf(e.group), 0);
-    const near = (a: number, b: number) => (a < b ? -1 : a > b ? 1 : 0);
-    order.sort((a, b) => at(a) - at(b) || (a.group === 'not-enough-data' ? Number(b.likely) - Number(a.likely) || near(a.shortfall ?? 0, b.shortfall ?? 0) : 0));
+    const groupPlace = (e: Evaluation): number => Math.max(GROUP_ORDER.indexOf(e.group), 0);
+    order.sort((a, b) => {
+      const byGroup = groupPlace(a) - groupPlace(b);
+      if (byGroup !== 0) return byGroup;
+      if (a.group !== 'not-enough-data') return 0;
+      return Number(b.likely) - Number(a.likely) || compareNumbers(a.shortfall ?? 0, b.shortfall ?? 0);
+    });
   }
   return new Map(order.map((e, place) => [e.materialId, place + 1]));
 }
@@ -115,26 +124,26 @@ export function createContext(db: Db, scenario: ScenarioV2, options: EngineOptio
 
   function run({ rankings: withRankings = true }: RunOptions = {}): EngineOutput {
     const selection = engine.constraints.runSelection(materials, scenario.constraints, ctx);
-    const index = indexConstraints(scenario.constraints, engine.constraints.TREATMENT);
-    const evaluations = selection.evaluations.map((e) => toEvaluation(e, index));
+    const constraintIndex = indexConstraints(scenario.constraints, engine.constraints.TREATMENT);
+    const evaluations = selection.evaluations.map((e) => toEvaluation(e, constraintIndex));
     const materialOf = new Map(materials.map((m) => [m.id, m]));
     const rows = selection.evaluations.map((evaluation): { material: RawMaterial; evaluation: RawEvaluation } => {
       const material = materialOf.get(evaluation.materialId);
       if (!material) throw new BoundaryError(`the engine evaluated ${evaluation.materialId}, which was not among the candidates`);
       return { material, evaluation };
     });
-    const rankings = (withRankings ? engine.indices.INDICES : []).flatMap((idx): IndexRanking[] => {
-      const ranking = engine.indices.rankingFor(rows, ctx, idx);
+    const rankings = (withRankings ? engine.indices.INDICES : []).flatMap((performanceIndex): IndexRanking[] => {
+      const ranking = engine.indices.rankingFor(rows, ctx, performanceIndex);
       if (!ranking) return [];
       return [{
-        index: idx.id,
+        index: performanceIndex.id,
         places: [...ranking.byMaterial].map(([id, { place }]) => ({ materialId: materialIdOf(id), place })),
         unranked: ranking.unranked.map((u) => materialIdOf(u.materialId)),
       }];
     });
     const ranks = listingRanks(evaluations, policy === 'exploration', scenario.constraints.length > 0);
     return {
-      release, constraintIds: index.ids, evaluations, counts: selection.counts,
+      release, constraintIds: constraintIndex.ids, evaluations, counts: selection.counts,
       candidates: selection.candidates.map((e) => materialIdOf(e.materialId)),
       rows: rowsOf(evaluations, ranks), rankings,
     };

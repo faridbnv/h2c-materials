@@ -6,11 +6,11 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   STATUSES, GROUP_ORDER as GROUPS, UNKNOWN_POLICIES, EVIDENCE_LEVELS, SCENARIO_KINDS, CONSTRAINT_KINDS, OPERATORS, LENSES,
-  COLUMN_SETS, PLOT_VIEWS, ENGINE_MISSING,
+  COLUMN_SETS, PLOT_VIEWS, ENGINE_MISSING, PRODUCT_SHARES,
 } from '../../packages/domain/src/core/vocab.ts';
 import { ID_PATTERNS } from '../../packages/domain/src/core/ids.ts';
 import { STATUS, GROUP_ORDER, UNKNOWN_POLICY } from '../../app/js/engine/constraints.js';
-import { EVIDENCE } from '../../app/js/engine/products.js';
+import { EVIDENCE, SHARE } from '../../app/js/engine/products.js';
 import { WORKSPACE_VIEWS } from '../../app/js/engine/scenario.js';
 import { MISSING } from '../../build/src/normalize/values.js';
 import { realDb, privateCopy, source, root } from './real.mjs';
@@ -24,6 +24,7 @@ test('the engine\'s exported word lists, in order', () => {
   assert.deepEqual([...UNKNOWN_POLICIES], Object.values(UNKNOWN_POLICY));
   assert.deepEqual([...EVIDENCE_LEVELS], Object.values(EVIDENCE));
   assert.deepEqual([...PLOT_VIEWS], WORKSPACE_VIEWS);
+  assert.deepEqual([...PRODUCT_SHARES], Object.values(SHARE));
 });
 
 test('the scenario validator\'s private lists (scenario.js KINDS, OPERATORS, LENSES, COLUMN_SETS), in order', () => {

@@ -167,22 +167,28 @@ test('assumptions are the scenario\'s: applied to copies of the materials, exact
   const scenario = { ...base, assumptions: [{ materialId: '*', property: 'tensileStrengthXY', value: 500 }], constraints: [{ kind: 'numeric', property: 'tensileStrengthXY', operator: '>=', value: 400, mandatory: true }] };
   const plain = createContext(db, { ...scenario, assumptions: [] }).run();
   const assumed = createContext(db, scenario).run();
+
+  // The same selection by hand, with a context built here, not by the wrapper.
+  const groupByMaterial = (rows) => {
+    const groups = new Map();
+    for (const row of rows) {
+      if (!groups.has(row.materialId)) groups.set(row.materialId, []);
+      groups.get(row.materialId).push(row);
+    }
+    return groups;
+  };
+  const ctx = {
+    db, measurementsByMaterial: groupByMaterial(db.measurements), evidenceByMaterial: groupByMaterial(db.evidence), polymerEvidenceByMaterial: groupByMaterial(db.polymerEvidence ?? []),
+    coverageByMaterial: groupByMaterial(db.coverage), productsByMaterial: defaultEngine.products.productsByMaterial(db), unknownPolicy: 'strict', useEstimates: false, showEstimates: false,
+    evidence: 'comparable', anneal: false, annealMaxC: null, moisture: 'dry',
+  };
   const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
-  const E = defaultEngine;
-  const candidates = db.materials.filter((m) => !m.familyEntry).map((m) => E.scenario.applyAssumptions(m, scenario.assumptions, units).material);
-  const direct = E.constraints.runSelection(candidates, scenario.constraints, { ...assumedContext() });
+  const candidates = db.materials.filter((m) => !m.familyEntry).map((m) => defaultEngine.scenario.applyAssumptions(m, scenario.assumptions, units).material);
+  const direct = defaultEngine.constraints.runSelection(candidates, scenario.constraints, ctx);
+
   assert.deepEqual(assumed.evaluations.map((e) => e.verdict), direct.evaluations.map((e) => e.verdict));
   assert.notDeepEqual(assumed.evaluations.map((e) => e.verdict), plain.evaluations.map((e) => e.verdict), 'the assumption must have moved something');
   assert.equal(JSON.stringify(db.materials.find((m) => !m.familyEntry).headline.tensileStrengthXY).includes('"assumption":true'), false, 'the database itself is untouched');
-
-  function assumedContext() {
-    const group = (rows) => { const m = new Map(); for (const r of rows) (m.get(r.materialId) ?? m.set(r.materialId, []).get(r.materialId)).push(r); return m; };
-    return {
-      db, measurementsByMaterial: group(db.measurements), evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []),
-      coverageByMaterial: group(db.coverage), productsByMaterial: E.products.productsByMaterial(db), unknownPolicy: 'strict', useEstimates: false, showEstimates: false,
-      evidence: 'comparable', anneal: false, annealMaxC: null, moisture: 'dry',
-    };
-  }
 });
 
 test('a release is required, and every part of the input must name it', () => {
@@ -210,6 +216,23 @@ test('what the engine says is checked on the way out: a bad ID, an unknown word 
   assert.throws(() => run(tamper((e) => ({ ...e, results: e.results.map((r) => ({ ...r, status: 'MAYBE' })) }))), /requirement status/);
   assert.throws(() => run(tamper((e) => ({ ...e, results: e.results.map((r) => ({ ...r, constraint: { ...r.constraint } })) }))), /did not hold/);
   assert.throws(() => run(tamper((e) => (e.products?.length ? { ...e, products: e.products.map((p) => ({ ...p, state: { ...p.state, id: 'annealed:120:016' } })) } : e))), /state ID/);
+  // A state's parts must be what its identifier says.
+  assert.throws(() => run(tamper((e) => (e.products?.length ? { ...e, products: e.products.map((p) => ({ ...p, state: { ...p.state, moisture: 'conditioned' } })) } : e))), /not what the identifier says/);
+  assert.throws(() => run(tamper((e) => (e.products?.length ? { ...e, products: e.products.map((p) => ({ ...p, state: { ...p.state, treatment: { tempC: 120, hours: 16 } } })) } : e))), /not what the identifier says/);
+  assert.throws(() => run(tamper((e) => ({ ...e, share: 'most' }))), /share/);
+});
+
+test('a result the engine lists twice is one object here too, and a requirement ID the scenario supplies is checked', () => {
+  const { output } = ask(EXPLORE);
+  const material = output.evaluations.find((e) => e.counts === null && e.unresolved.length > 0);
+  assert.ok(material, 'a material judged on its own headline with open requirements');
+  for (const r of [...material.unresolved, ...material.failed]) assert.ok(material.results.includes(r), 'the same object as in results');
+  const scenario = scenarioFrom(structuredClone(byId(STRICT).scenario), db.meta);
+  const withId = (id) => ({ ...scenario, constraints: [{ ...scenario.constraints[0], id }, ...scenario.constraints.slice(1)] });
+  assert.throws(() => createContext(db, withId(5)).run(), /constraint ID/);
+  assert.throws(() => createContext(db, withId('has space')).run(), /constraint ID/);
+  assert.throws(() => createContext(db, withId('treatment')).run(), /share the ID treatment/);
+  assert.equal(createContext(db, withId('mine')).run().constraintIds[0], 'mine');
 });
 
 test('two requirements that are one object, or share an ID, are refused: the engine could not tell them apart', () => {

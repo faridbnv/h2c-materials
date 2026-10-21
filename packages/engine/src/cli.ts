@@ -36,11 +36,15 @@ const median = (xs: readonly number[]): number => {
   const mid = Math.floor(sorted.length / 2);
   return sorted.length % 2 ? (sorted[mid] ?? 0) : ((sorted[mid - 1] ?? 0) + (sorted[mid] ?? 0)) / 2;
 };
-const timing = (runs: readonly number[], budgetMs: number) => ({ runsMs: runs, medianMs: Math.round(median(runs)), budgetMs, withinBudget: median(runs) <= budgetMs });
+const timing = (runs: readonly number[], budgetMs: number) => {
+  const middle = median(runs);
+  return { runsMs: runs, medianMs: Math.round(middle), budgetMs, withinBudget: middle <= budgetMs };
+};
+const oneMinuteLoad = (): number => Math.round((loadavg()[0] ?? 0) * 10) / 10;
 const git = (...args: string[]) => execFileSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
 
 async function measure(records: ImpactRecords, changeSet: string, out: string, full: boolean): Promise<number> {
-  const loadBefore = loadavg()[0] ?? 0;
+  const loadBefore = oneMinuteLoad();
   const cold: number[] = [];
   let last: ImpactReport | undefined;
   for (let run = 0; run < 3; run++) {
@@ -71,7 +75,7 @@ async function measure(records: ImpactRecords, changeSet: string, out: string, f
     measuredAt: new Date().toISOString(),
     machine: { os: `${platform()} ${release()}`, arch: arch(), cpu: cpu?.model ?? 'unknown', cores: cpus().length, memoryGb: Math.round(totalmem() / 2 ** 30) },
     // One-minute load average before and after: a timing taken while other work runs says so.
-    loadAverage1m: { before: Math.round(loadBefore * 10) / 10, after: Math.round((loadavg()[0] ?? 0) * 10) / 10 },
+    loadAverage1m: { before: loadBefore, after: oneMinuteLoad() },
     node: process.version,
     commit: git('rev-parse', 'HEAD'),
     tree: git('status', '--porcelain').length ? 'dirty' : 'clean',

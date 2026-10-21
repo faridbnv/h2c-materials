@@ -9,28 +9,41 @@ import type { ReasonCode, ReasonEntry, RequirementResult, Status } from '@atlas/
 
 type Branch = Pick<RequirementResult, 'status' | 'constraint' | 'treatment'>;
 
+/** A result that says nothing yet either way: UNKNOWN or INDETERMINATE. */
+export const isOpen = (status: Status): boolean => status === 'UNKNOWN' || status === 'INDETERMINATE';
+
 /** The code for a print-independent gate whose sentence the status settles. */
 function gateCode(gate: string | undefined, hardenedAvailable: unknown, status: Status): ReasonCode | undefined {
-  const open = status === 'UNKNOWN' || status === 'INDETERMINATE';
-  if (gate === 'scope') return status === 'PASS' ? 'scope.within-h2c' : status === 'FAIL' ? 'scope.beyond-h2c' : undefined;
+  if (gate === 'scope') {
+    if (status === 'PASS') return 'scope.within-h2c';
+    return status === 'FAIL' ? 'scope.beyond-h2c' : undefined;
+  }
   if (gate === 'abrasive') return hardenedAvailable ? 'nozzle.hardened-available' : undefined;
-  if (gate === 'buyable') return status === 'PASS' ? 'price.listed' : status === 'FAIL' ? 'price.out-of-stock' : open ? 'price.not-listed' : undefined;
-  if (gate === 'dryingKnown') return status === 'PASS' ? 'drying.stated' : open ? 'drying.no-statement' : undefined;
+  if (gate === 'buyable') {
+    if (status === 'PASS') return 'price.listed';
+    if (status === 'FAIL') return 'price.out-of-stock';
+    return isOpen(status) ? 'price.not-listed' : undefined;
+  }
+  if (gate === 'dryingKnown') {
+    if (status === 'PASS') return 'drying.stated';
+    return isOpen(status) ? 'drying.no-statement' : undefined;
+  }
   return undefined;
 }
 
 /** The code for this result, or undefined when its structure does not settle one. */
 export function reasonCodeOf({ status, constraint, treatment }: Branch): ReasonCode | undefined {
-  const open = status === 'UNKNOWN' || status === 'INDETERMINATE';
   switch (constraint.kind) {
     case 'treatment':
       if (treatment === undefined) return 'treatment.as-printed';
-      return status === 'PASS' ? 'treatment.annealing-allowed' : open ? 'treatment.schedule-incomplete' : undefined;
+      if (status === 'PASS') return 'treatment.annealing-allowed';
+      return isOpen(status) ? 'treatment.schedule-incomplete' : undefined;
     case 'gate':
       return gateCode(constraint.gate, constraint.hardenedAvailable, status);
     case 'facet':
-      if (open) return 'facet.not-recorded';
-      return constraint.facet === 'filler' ? 'facet.filler-recorded' : constraint.facet === 'supportMaterial' ? 'facet.role' : 'facet.recorded';
+      if (isOpen(status)) return 'facet.not-recorded';
+      if (constraint.facet === 'filler') return 'facet.filler-recorded';
+      return constraint.facet === 'supportMaterial' ? 'facet.role' : 'facet.recorded';
     case 'evidence':
       return constraint.exactGrade || constraint.noConflicts ? 'evidence.checks' : 'evidence.no-criterion';
     case 'numeric':

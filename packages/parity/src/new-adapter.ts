@@ -21,12 +21,34 @@ export interface NewAdapterOptions {
   transport?: (output: EngineOutput) => EngineOutput;
 }
 
-const WORDING_FIELDS = new Set(['reason', 'criterion']);
 /** What the wrapper adds beside the old answer; not compared here. */
 const ADDED = new Set(['constraintId', 'reasonCode']);
 
-const requirementKind = (c: RequirementResult['constraint']): unknown =>
-  (c.kind === 'numeric' ? c.property : c.kind === 'gate' ? c.gate : c.kind === 'facet' ? c.facet : c.kind === 'environment' ? c.category : c.kind);
+/** The fields of an evaluation and of a product that are read by name; every other field is carried as `extra.<name>`. */
+const HANDLED_EVALUATION_FIELDS = new Set(['materialId', 'verdict', 'group', 'likely', 'groupReason', 'shortfall', 'eligible', 'needsVerification',
+  'usesEstimate', 'usesPolymer', 'screened', 'screenedBy', 'results', 'unresolved', 'heldBy', 'failedBy', 'share', 'counts',
+  'someFail', 'products', 'gradeId', 'state', 'failed']);
+const HANDLED_PRODUCT_FIELDS = new Set(['gradeId', 'verdict', 'group', 'likely', 'groupReason', 'screened', 'failedBy', 'state', 'results', 'variant', 'admitted', 'states']);
+
+function requirementKind(c: RequirementResult['constraint']): unknown {
+  switch (c.kind) {
+    case 'numeric': return c.property;
+    case 'gate': return c.gate;
+    case 'facet': return c.facet;
+    case 'environment': return c.category;
+    case 'evidence':
+    case 'treatment':
+      return c.kind;
+  }
+}
+
+function requireConstraintId(r: RequirementResult): ConstraintId {
+  if (r.constraintId === undefined) throw new Error(`a result of "${r.criterion}" carries no constraintId`);
+  return r.constraintId;
+}
+
+/** The result as the old engine wrote it: without the fields the wrapper adds. */
+const withoutAdded = (r: RequirementResult): Record<string, unknown> => Object.fromEntries(Object.entries(r).filter(([k]) => !ADDED.has(k)));
 
 export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter> {
   const { db } = opts;
@@ -38,24 +60,20 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
     const scenario = scenarioFrom(structuredClone(c.scenario), db.meta, engine);
     const out = transport(createContext(db, scenario, { engine }).run());
     const position = new Map(out.constraintIds.map((id, i) => [id, i]));
-    const idOf = (r: RequirementResult) => {
-      if (r.constraintId === undefined) throw new Error(`a result of "${r.criterion}" carries no constraintId`);
-      return r.constraintId;
-    };
 
     // A requirement inside a composite value is written by its place in the scenario, as old-adapter's identity map does.
-    const stand = new Map<ConstraintId, object>(out.constraintIds.map((id) => [id, {}]));
-    const identity = new Map<object, string>([...stand].map(([id, placeholder]) => [placeholder, `c${position.get(id)}`]));
-    const legacy = (r: RequirementResult): Record<string, unknown> => {
-      const rest = Object.fromEntries(Object.entries(r).filter(([k]) => !ADDED.has(k)));
-      return { ...rest, constraint: stand.get(idOf(r)) ?? r.constraint };
-    };
+    const standIn = new Map<ConstraintId, object>(out.constraintIds.map((id) => [id, {}]));
+    const identity = new Map<object, string>([...standIn].map(([id, placeholder]) => [placeholder, `c${position.get(id)}`]));
+    const legacy = (r: RequirementResult): Record<string, unknown> => ({ ...withoutAdded(r), constraint: standIn.get(requireConstraintId(r)) ?? r.constraint });
 
     const reqKey = (r: RequirementResult, used: Set<string>): string => {
-      const id = idOf(r);
+      const id = requireConstraintId(r);
       const i = position.get(id);
       const k = requirementKind(r.constraint);
-      const base = i !== undefined ? `c${i}:${k}` : id === 'treatment' ? 'treatment' : `ext:${k}:${r.criterion}`;
+      let base: string;
+      if (i !== undefined) base = `c${i}:${k}`;
+      else if (id === 'treatment') base = 'treatment';
+      else base = `ext:${k}:${r.criterion}`;
       let key = base;
       for (let n = 2; used.has(key); n++) key = `${i !== undefined ? base : key.replace(/#\d+$/, '')}#${n}`;
       used.add(key);
@@ -67,8 +85,9 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
       const wording: Record<string, Value> = {};
       for (const [k, v] of Object.entries(r)) {
         if (k === 'constraint' || ADDED.has(k)) continue;
-        if (k === 'reason') wording[k] = reason;
-        else (WORDING_FIELDS.has(k) ? wording : evidence)[k] = atom(v);
+        if (k === 'reason') wording.reason = reason;
+        else if (k === 'criterion') wording.criterion = atom(v);
+        else evidence[k] = atom(v);
       }
       evidence.constraintBody = composite(r.constraint);
       return { evidence, wording };
@@ -91,7 +110,7 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
     }
 
     const records: Record<string, RecordFacts> = {};
-    const put = (key: string, facts: RecordFacts) => {
+    const put = (key: string, facts: RecordFacts): void => {
       if (Object.hasOwn(records, key)) throw new Error(`two records share the key ${key}`);
       records[key] = facts;
     };
@@ -100,11 +119,11 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
       if (!row) throw new Error(`the wrapper gave no row for ${key}`);
       return row;
     };
-    const listOf = <T,>(xs: readonly T[] | undefined, f: (x: T) => unknown) => composite((xs ?? []).map(f));
+    const listOf = <T>(xs: readonly T[] | undefined, f: (x: T) => unknown) => composite((xs ?? []).map(f));
     const stateFields = (st: object | undefined): Record<string, Value> =>
       Object.fromEntries(Object.entries(st ?? {}).filter(([k]) => k !== 'id').map(([k, v]) => [`state.${k}`, atom(v)]));
     // A requirement's records, from the row that holds them: its requirements, and the reason entry beside each.
-    const requirements = (row: RowResult, prefix: string, put: (key: string, f: RecordFacts) => void) => {
+    const putRequirements = (row: RowResult, prefix: string): void => {
       const used = new Set<string>();
       row.requirements.forEach((r, i) => {
         const entry = row.reasons[i];
@@ -120,11 +139,6 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
         'counts.total': out.counts.total, candidates: composite(out.candidates),
       },
     };
-
-    const HANDLED = new Set(['materialId', 'verdict', 'group', 'likely', 'groupReason', 'shortfall', 'eligible', 'needsVerification',
-      'usesEstimate', 'usesPolymer', 'screened', 'screenedBy', 'results', 'unresolved', 'heldBy', 'failedBy', 'share', 'counts',
-      'someFail', 'products', 'gradeId', 'state', 'failed']);
-    const PRODUCT_HANDLED = new Set(['gradeId', 'verdict', 'group', 'likely', 'groupReason', 'screened', 'failedBy', 'state', 'results', 'variant', 'admitted', 'states']);
 
     for (const e of out.evaluations) {
       const id = e.materialId;
@@ -142,7 +156,7 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
         usesPolymer: e.usesPolymer, failed: e.failed === undefined ? undefined : composite(e.failed.map(legacy), identity), ...stateFields(e.state),
         productOrder: listOf(e.products, (p) => p.gradeId),
       };
-      for (const [k, v] of Object.entries(e)) if (!HANDLED.has(k)) presentation[`extra.${k}`] = atom(v);
+      for (const [k, v] of Object.entries(e)) if (!HANDLED_EVALUATION_FIELDS.has(k)) presentation[`extra.${k}`] = atom(v);
       const unresolved = e.unresolved ?? [];
       put(`material:${id}`, {
         decision, presentation,
@@ -158,18 +172,18 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
           'unresolved.reasons': listOf(unresolved, (r) => r.reason), 'heldBy.reasons': listOf(e.heldBy, (r) => r),
         },
       });
-      requirements(row, `mreq:${id}`, put);
+      putRequirements(row, `mreq:${id}`);
 
       for (const p of e.products ?? []) {
         const prow = rowFor(`${id}/${p.gradeId}`);
         const pres: Record<string, Value> = { variant: p.variant, ...stateFields(p.state), admitted: atom(p.admitted), states: atom(p.states) };
-        for (const [k, v] of Object.entries(p)) if (!PRODUCT_HANDLED.has(k)) pres[`extra.${k}`] = atom(v);
+        for (const [k, v] of Object.entries(p)) if (!HANDLED_PRODUCT_FIELDS.has(k)) pres[`extra.${k}`] = atom(v);
         put(`product:${id}/${p.gradeId}`, {
           decision: { verdict: prow.verdict, group: prow.group, likely: prow.likely, screened: p.screened, 'state.id': prow.stateId },
           presentation: pres,
           wording: { groupReason: p.groupReason, failedBy: atom(p.failedBy) },
         });
-        requirements(prow, `req:${id}/${p.gradeId}`, put);
+        putRequirements(prow, `req:${id}/${p.gradeId}`);
       }
     }
     return { caseId: c.id, outcome: 'computed', records };
