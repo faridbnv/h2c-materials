@@ -8,7 +8,7 @@
 //   drafts:import    replays that file into a workspace; what no longer applies is kept as a conflict, never dropped
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import type { ChangeSet, QuoteCheck, WriteCommand } from '@atlas/domain/contracts';
 import { snapshotDigestOf, tableDigests } from './digest.ts';
 import { resolveRef } from './diff.ts';
@@ -18,10 +18,12 @@ import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { parseChangeSet, parseCommand, readJson } from './parse.ts';
 import { DEFAULT_DATA_DIR, REPO_ROOT, buildInMemory } from './rebuild.ts';
+import { BASE_MODEL, readOverlay } from './schema-model.ts';
+import type { SchemaHolder } from './schema-model.ts';
 import { firstDifference } from './roundtrip.ts';
 import { DEFAULT_RULINGS, loadRulings, protectedDirHolding, snapshotDigestOfReport } from './workspace.ts';
 import type { ReplayOutcome, Workspace } from './workspace.ts';
-import { applyCommand, commandOfRecord, initWorkspaceTables, readJournal } from './write.ts';
+import { applyCommand, commandOfRecord, initWorkspaceTables, readJournal, tablesTouched } from './write.ts';
 
 // ---------------------------------------------------------------- replay equality
 
@@ -78,6 +80,20 @@ function compareTables(tablesDir: string, touched: ReadonlySet<TableName>, texts
   return tables;
 }
 
+/** The schema files an export holds (under `<export>/schema/`) against the ones the replay ended with: equal text, none more, none fewer. */
+function compareSchemaFiles(exportRoot: string, overlay: Readonly<Record<string, string>>): TableCheck[] {
+  const exported = readOverlay(exportRoot);
+  const checks: TableCheck[] = [];
+  for (const path of Object.keys({ ...overlay, ...exported }).sort()) {
+    const want = overlay[path];
+    const got = exported[path];
+    if (want === undefined) checks.push({ table: path, status: 'unexpected', detail: 'the export holds a schema file the change set does not change' });
+    else if (got === undefined) checks.push({ table: path, status: 'missing', detail: `${join(exportRoot, path)} does not exist or is the repository's own` });
+    else checks.push(want === got ? { table: path, status: 'identical', detail: '' } : { table: path, status: 'differs', detail: firstDifference(got, want) });
+  }
+  return checks;
+}
+
 /** Apply `changeSet` to a fresh rebuild of the snapshot in `options.dataDir` and compare. Throws DataInputError if the snapshot itself does not rebuild. */
 export function replayChangeSet(changeSet: ChangeSet, options: ReplayOptions = {}): ReplayResult {
   const dataDir = options.dataDir ?? DEFAULT_DATA_DIR;
@@ -95,10 +111,11 @@ export function replayChangeSet(changeSet: ChangeSet, options: ReplayOptions = {
     initWorkspaceTables(db, actualBase);
     const rulings = loadRulings(options.rulingsPath ?? DEFAULT_RULINGS);
     const store = options.store === undefined ? defaultTextStore(REPO_ROOT) : options.store;
+    const schema: SchemaHolder = { model: BASE_MODEL };
     for (const record of [...changeSet.records].sort((a, b) => a.seq - b.seq)) {
       let command: WriteCommand;
       try { command = commandOfRecord(record); } catch (error) { problems.push(`record ${record.seq} (${record.opId}): ${error instanceof Error ? error.message : String(error)}`); continue; }
-      const result = applyCommand({ db, store, rulings, mergedOps: new Map(), now: () => new Date(record.at) }, command);
+      const result = applyCommand({ db, store, rulings, mergedOps: new Map(), now: () => new Date(record.at), schema }, command);
       if (result.status !== 'applied') {
         problems.push(`record ${record.seq} (${record.opId}) did not replay: ${result.status === 'refused' ? `refused ${result.code}: ${result.detail}` : 'its opId repeats an earlier record of the change set'}`);
       }
@@ -116,13 +133,24 @@ export function replayChangeSet(changeSet: ChangeSet, options: ReplayOptions = {
       }
     }
 
-    const touched = new Set<TableName>(changeSet.records.map((r) => r.table));
-    const { digests, texts } = tableDigests(db, touched);
+    const touched = new Set<TableName>(changeSet.records.flatMap(tablesTouched));
+    const { digests, texts } = tableDigests(db, touched, schema.model);
     const actualResult = snapshotDigestOf(digests);
     if (actualResult !== changeSet.result.snapshotDigest) {
       problems.push(`replaying gives snapshot ${actualResult.slice(0, 12)}, not the result ${changeSet.result.snapshotDigest.slice(0, 12)} the change set claims`);
     }
-    const tables = options.tablesDir === undefined ? [] : compareTables(options.tablesDir, touched, texts);
+    // The snapshot digest covers the tables, not the schema: a change set that edits the schema says so, and the schema it ends with is checked too.
+    const claimed = changeSet.schema;
+    const schemaMoved = schema.model !== BASE_MODEL;
+    if (claimed === undefined && schemaMoved) problems.push('the records edit the schema, but the change set does not name the schema digests (schema.base, schema.result)');
+    else if (claimed !== undefined) {
+      if (claimed.base !== BASE_MODEL.digest) problems.push(`the change set edits schema ${claimed.base.slice(0, 12)}, but the repository's schema is ${BASE_MODEL.digest.slice(0, 12)}`);
+      if (claimed.result !== schema.model.digest) problems.push(`replaying leaves schema ${schema.model.digest.slice(0, 12)}, not the result ${claimed.result.slice(0, 12)} the change set claims`);
+    }
+    const exportRoot = options.tablesDir === undefined ? undefined : dirname(dirname(options.tablesDir));
+    const tables = options.tablesDir === undefined || exportRoot === undefined
+      ? []
+      : [...compareTables(options.tablesDir, touched, texts), ...(schemaMoved || existsSync(join(exportRoot, 'schema')) ? compareSchemaFiles(exportRoot, schema.model.overlay) : [])];
     for (const t of tables) if (t.status !== 'identical') problems.push(`${t.table}: ${t.status}${t.detail ? ` (${t.detail})` : ''}`);
     return {
       ok: problems.length === 0, id: changeSet.id, records: changeSet.records.length, baseDigest,

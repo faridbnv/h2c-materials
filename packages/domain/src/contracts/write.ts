@@ -1,5 +1,5 @@
 // The write command, its result, and who acts (02 sections 9.1 and 3.1; owner rulings OQ-16 A, OQ-17 A). Types only.
-// The write service that runs them is WP-10.
+// The write service that runs them is WP-10 (correctValue) and WP-17 (every other kind except the proposal commands, WP-28).
 
 import type { TableName } from '@atlas/data';
 import type { ChangeRecordId, OpId, SourceId, Sha256 } from './ids.ts';
@@ -40,7 +40,7 @@ export type Expectation =
   | { readonly rowHash?: Sha256; readonly cells?: CanonicalCells; readonly schemaDigest: Sha256 };
 
 export type WriteKind =
-  | 'correctValue' | 'addMeasurement' | 'retireRecord' | 'moveGrade' | 'reviseProfile'
+  | 'correctValue' | 'addMeasurement' | 'addRecord' | 'retireRecord' | 'moveGrade' | 'reviseProfile'
   | 'reclassifyProduct' | 'acceptProposal' | 'rejectProposal' | 'holdProposal'
   | 'addVocab' | 'addColumn' | 'schemaEdit';
 
@@ -57,6 +57,11 @@ type CommandCommon<K extends WriteKind> = {
   /** Required on rule rows (class limits, conversions, chamber rows, plausibility windows), which travel alone (rule 4). */
   readonly rulings?: readonly RulingRef[];
   readonly actor: Actor;
+  /**
+   * Who reviewed the change, each with their kind (OQ-17 A). Required when a cell that names a reviewer ("Reviewed by", "Read by",
+   * "Written by") is written; a human among them makes the change Tier 1.
+   */
+  readonly reviewedBy?: readonly Actor[];
   readonly base: CommandBase;
 };
 
@@ -67,18 +72,66 @@ export type CorrectValueCommand = CommandCommon<'correctValue'> & {
   /** Why raw, numeric and normalized cells legitimately change apart (rule 2 and 04 section 5.1: together, or the command says why). */
   readonly apart?: string;
 };
-/** A new measurement row, appended at the end of its table, with its evidence. */
-export type AddMeasurementCommand = CommandCommon<'addMeasurement'> & { readonly row: CanonicalCells; readonly evidence: EvidenceRef };
+/** A twin the new measurement is on purpose: the append is allowed although its natural key matches an existing row (04 section 5). */
+export type DuplicateOf = { readonly id: string; readonly reason: string };
 /**
- * Every other kind, one member per kind so a handler can narrow to its own. Evidence is required whenever a
- * decision-reading column changes (checked by the service, WP-10).
+ * A new measurement row, appended at the end of its table, with its evidence. `expect` is the schema it was written against
+ * (`schemaDigest`); a natural-key match is refused unless `duplicateOf` names the twin and says why.
  */
-export type OtherWriteKind = Exclude<WriteKind, 'correctValue' | 'addMeasurement'>;
-export type OtherWriteCommand = {
-  [K in OtherWriteKind]: CommandCommon<K> & { readonly set?: CanonicalCells; readonly evidence?: EvidenceRef };
-}[OtherWriteKind];
+export type AddMeasurementCommand = CommandCommon<'addMeasurement'> & { readonly row: CanonicalCells; readonly evidence: EvidenceRef; readonly duplicateOf?: DuplicateOf };
+/** A new row of any other table (OP-3: `addMeasurement` generalised), appended at the end. Evidence is required when a decision-reading column is written. */
+export type AddRecordCommand = CommandCommon<'addRecord'> & { readonly row: CanonicalCells; readonly evidence?: EvidenceRef };
+/**
+ * Mark a record retired or superseded; it never deletes. `as` picks the word the table's convention has for it (grades and
+ * measurements retire, coverage and sources are superseded); `successor` is the record that replaces it, required when superseded.
+ */
+export type RetireRecordCommand = CommandCommon<'retireRecord'> & { readonly retire: { readonly as: 'retired' | 'superseded'; readonly successor?: string } };
+/** Move a grade, with every record filed under it, to another material; every ID stays (D86). `expectMaterial` stops a concurrent move. */
+export type MoveGradeCommand = CommandCommon<'moveGrade'> & { readonly moveTo: string; readonly expectMaterial: string };
+/** Change a print profile's cells together (the raw cell and the typed cells the build reads from it). */
+export type ReviseProfileCommand = CommandCommon<'reviseProfile'> & { readonly set: CanonicalCells; readonly evidence?: EvidenceRef; readonly apart?: string };
+/** Change a product's classification cells (Role, Variant, Shared formulation key). */
+export type ReclassifyProductCommand = CommandCommon<'reclassifyProduct'> & { readonly set: CanonicalCells; readonly evidence?: EvidenceRef; readonly apart?: string };
+/** The proposal commands wait for WP-28; they are parsed and refused as `unsupported-kind` until then. */
+export type ProposalCommand = {
+  [K in 'acceptProposal' | 'rejectProposal' | 'holdProposal']: CommandCommon<K> & { readonly set?: CanonicalCells; readonly evidence?: EvidenceRef };
+}['acceptProposal' | 'rejectProposal' | 'holdProposal'];
 
-export type WriteCommand = CorrectValueCommand | AddMeasurementCommand | OtherWriteCommand;
+/** One operation of a JSON Patch (RFC 6902) on a table's schema file. */
+export type PatchOp =
+  | { readonly op: 'add' | 'replace' | 'test'; readonly path: string; readonly value: unknown }
+  | { readonly op: 'remove'; readonly path: string }
+  | { readonly op: 'move' | 'copy'; readonly from: string; readonly path: string };
+
+/**
+ * A word added to a vocabulary (schema/vocab/<stem>.csv); `target.table` is a table whose column takes its words from it. It goes at the end of the
+ * file, or after the word `after` names when the vocabulary is kept in an order (the makers are listed alphabetically).
+ */
+export type AddVocabCommand = CommandCommon<'addVocab'> & {
+  readonly vocab: { readonly stem: string; readonly value: string; readonly extra?: CanonicalCells; readonly after?: string };
+};
+/**
+ * A column added to a table: its schema field, where it goes, and what the existing rows hold in it. `fill` is a missing-state word the
+ * field declares (D3, D47), or null when the field is optional and has no such word; nothing else is invented. `expect.schemaDigest` is required.
+ */
+export type AddColumnCommand = CommandCommon<'addColumn'> & {
+  readonly column: { readonly name: string; readonly field: Readonly<Record<string, unknown>>; readonly after?: string; readonly fill: string | null };
+};
+/**
+ * Any other change to a table's schema file, by JSON patch, with the data that follows from it in the same change set.
+ * `fill` gives each column the patch adds its value for the existing rows; `renames` carries a column's data across a new name;
+ * a column the patch removes needs a ruling. `expect.schemaDigest` is required (always Tier 1).
+ */
+export type SchemaEditCommand = CommandCommon<'schemaEdit'> & {
+  readonly schema: { readonly patch: readonly PatchOp[]; readonly fill?: CanonicalCells; readonly renames?: Readonly<Record<string, string>> };
+};
+
+export type WriteCommand =
+  | CorrectValueCommand | AddMeasurementCommand | AddRecordCommand | RetireRecordCommand | MoveGradeCommand | ReviseProfileCommand
+  | ReclassifyProductCommand | ProposalCommand | AddVocabCommand | AddColumnCommand | SchemaEditCommand;
+
+/** The kinds other than the two that always carry evidence. */
+export type OtherWriteKind = Exclude<WriteKind, 'correctValue' | 'addMeasurement'>;
 
 /**
  * Why a command was refused (WP-10 fixes the list; packages/data/src/write.ts raises each one and
@@ -88,7 +141,7 @@ export type RefusalCode =
   // The pipeline (04 section 7)
   | 'opid-invalid'           // the opId is not a ULID
   | 'opid-conflict'          // the opId was applied before, with different content
-  | 'unsupported-kind'       // a command kind the write service does not run yet (WP-17 adds them)
+  | 'unsupported-kind'       // a command kind the write service does not run yet (the proposal commands, WP-28)
   | 'writer-locked'          // one writer at a time: another process holds the workspace lock
   | 'stale-base'             // the command was written against another approved snapshot than the workspace's
   | 'stale'                  // rule 1: the expectation no longer holds
@@ -105,6 +158,14 @@ export type RefusalCode =
   | 'missing-as-number'      // a normalized number rests on a raw value that is a missing-state word
   | 'unit-mismatch'          // the normalized unit is not a unit of the property
   | 'ownership-mismatch'     // the grade does not belong to the material (D36)
+  // The commands of WP-17
+  | 'not-for-command'        // the table or column is not one this command changes (retire a table with no retirement convention, revise a non-profile)
+  | 'duplicate-key'          // a new record's key, or a new measurement's natural key, is already there (and no `duplicateOf` says it is a twin on purpose)
+  | 'duplicate-of-invalid'   // `duplicateOf` names no record, a record that is not a twin, or gives no reason
+  | 'successor-invalid'      // the successor of a retired record is missing, is the record itself, or is retired too
+  | 'role-id-mismatch'       // a grade's Role disagrees with its ID (a non-procurement grade carries -R#)
+  | 'reviewer-missing'       // a cell that names a reviewer is written without the reviewer's kind (OQ-17 A)
+  | 'schema-patch-invalid'   // a schema command: the patch does not apply, the schema it gives is not valid, or it names a table or file the service does not edit
   // Evidence (rule 2)
   | 'evidence-missing'       // a decision-reading column changes without complete evidence
   | 'source-not-retrieved'   // the source is not retrieved and cited

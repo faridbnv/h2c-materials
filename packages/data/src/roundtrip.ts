@@ -8,6 +8,8 @@ import { open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { buildDatabase, DEFAULT_DATA_DIR, readInputs } from './rebuild.ts';
 import type { BuildReport } from './rebuild.ts';
+import { BASE_MODEL } from './schema-model.ts';
+import type { SchemaModel } from './schema-model.ts';
 import { countRows, exportTable, isTableName } from './storage.ts';
 
 export type TableStatus = 'identical' | 'differs' | 'problem' | 'missing-table' | 'not-checked';
@@ -34,6 +36,8 @@ export interface RoundtripResult {
 
 export interface RoundtripOptions {
   readonly dataDir?: string;
+  /** The schema the data is held under. Default the repository's; a schema edit's export is round-tripped under the schema it brings. */
+  readonly model?: SchemaModel;
   /** Test hook: runs on the rebuilt database before it is exported, to prove a fault in storage is caught. */
   readonly afterLoad?: (db: Db) => void;
 }
@@ -54,7 +58,8 @@ export function firstDifference(file: string, exported: string): string {
 export function roundtrip(options: RoundtripOptions = {}): RoundtripResult {
   const t0 = performance.now();
   const dataDir = options.dataDir ?? DEFAULT_DATA_DIR;
-  const inputs = readInputs(dataDir);
+  const model = options.model ?? BASE_MODEL;
+  const inputs = readInputs(dataDir, model);
   const tRead = performance.now();
   const results: TableResult[] = [];
   const problems: string[] = [...inputs.general];
@@ -71,24 +76,24 @@ export function roundtrip(options: RoundtripOptions = {}): RoundtripResult {
 
   const db = open(':memory:');
   try {
-    const build = buildDatabase(db, inputs);
+    const build = buildDatabase(db, inputs, model);
     options.afterLoad?.(db);
     const tLoad = performance.now();
     const present = new Set(db.prepare("SELECT name FROM sqlite_schema WHERE type = 'table'").all().map((row) => String(row.name)));
     for (const name of present) {
       if (!name.startsWith('sqlite_') && name !== '_meta' && !isTableName(name)) problems.push(`the database has a table ${name} that is not in the schema`);
     }
-    for (const table of TABLE_NAMES) results.push(compareTable(db, table, present, inputs.tables.get(table)?.bytes));
+    for (const table of TABLE_NAMES) results.push(compareTable(db, table, present, inputs.tables.get(table)?.bytes, model));
     return finish(results, problems, build, { read: tRead - t0, load: tLoad - tRead, export: performance.now() - tLoad, total: performance.now() - t0 });
   } finally {
     db.close();
   }
 }
 
-function compareTable(db: Db, table: TableName, present: ReadonlySet<string>, bytes: Buffer | undefined): TableResult {
+function compareTable(db: Db, table: TableName, present: ReadonlySet<string>, bytes: Buffer | undefined, model: SchemaModel): TableResult {
   if (!bytes) return { table, status: 'problem', rows: 0, bytes: 0, detail: 'the CSV bytes were not read' };
   if (!present.has(table)) return { table, status: 'missing-table', rows: 0, bytes: bytes.length, detail: 'the rebuilt database has no such table' };
-  const exported = exportTable(db, table);
+  const exported = exportTable(db, table, model);
   const rows = countRows(db, table);
   if (Buffer.from(exported, 'utf8').equals(bytes)) return { table, status: 'identical', rows, bytes: bytes.length, detail: '' };
   return { table, status: 'differs', rows, bytes: bytes.length, detail: firstDifference(bytes.toString('utf8'), exported) };

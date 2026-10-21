@@ -502,13 +502,13 @@
       "size": "L (5)",
       "exitEvidence": "One test per command and refusal; coverage report; reviewer-kind report; `schemaEdit` round-trips",
       "exit": {
-        "commands": [],
+        "commands": [
+          "node --test tests/remake/write-commands.test.mjs tests/remake/write-schema.test.mjs tests/remake/sweeps.test.mjs tests/remake/reports.test.mjs",
+          "npm run report:reviewers -- --check"
+        ],
         "attest": [],
         "manual": [
-          "one test per command and refusal",
-          "coverage report",
-          "reviewer-kind report",
-          "schemaEdit round-trips"
+          "the owner reads the coverage share before answering Q2-10"
         ]
       },
       "dropped": false

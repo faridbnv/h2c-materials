@@ -33,7 +33,12 @@ const EXIT = {
   'WP-14': { commands: ['npm run release:id'], manual: ['ID stable across two checkout paths and changed by one data cell', '/v3/ counts equal the engine\'s'] },
   'WP-15': { commands: ['npm run checks:register -- --verify'], attest: ['untested-list-received'], manual: ['a scratch PR deleting a test fails', 'map covers every row of 00-CURRENT-STATE section 11'] },
   'WP-16': { commands: [], attest: ['owner-correction'], manual: ['clean rebuild diff = 0', 're-estimate written', 'Q2-08 answered or defaulted'] },
-  'WP-17': { commands: [], manual: ['one test per command and refusal', 'coverage report', 'reviewer-kind report', 'schemaEdit round-trips'] },
+  // One test per command and refusal code, the schemaEdit round trip, the generators, and the two reports (the reviewer-kind report is regenerated and compared; the
+  // coverage report is a measurement over main's history and its figures are checked to add up). The owner reads the coverage share before answering Q2-10.
+  'WP-17': {
+    commands: ['node --test tests/remake/write-commands.test.mjs tests/remake/write-schema.test.mjs tests/remake/sweeps.test.mjs tests/remake/reports.test.mjs', 'npm run report:reviewers -- --check'],
+    manual: ['the owner reads the coverage share before answering Q2-10'],
+  },
   'WP-18': { commands: ['npm run parity -- --milestone'], manual: ['per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised'] },
   'WP-19': { commands: [], manual: ['rule cards mapped to tests', 'P-engine = 0 plus metamorphic, census, 5,000 replays', 'one verdict table in new code'] },
   'WP-20': { commands: ['npm run parity:host'], manual: ['P-build = 0', 'reproducible on one machine', 'cold build <= 26.4 s'] },

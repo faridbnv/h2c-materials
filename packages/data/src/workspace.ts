@@ -27,9 +27,11 @@ import type { TableName } from './generated/columns.ts';
 import { parseChangeSet, parseCommand, readJson } from './parse.ts';
 import { DEFAULT_DATA_DIR, REPO_ROOT, STORAGE_DDL, rebuildWorkspace, schemaDigest } from './rebuild.ts';
 import type { BuildReport } from './rebuild.ts';
+import { BASE_MODEL, baseSchemaHolder, modelWith } from './schema-model.ts';
+import type { SchemaFiles, SchemaHolder, SchemaModel } from './schema-model.ts';
 import { countRows, quoteIdent } from './storage.ts';
-import { applyCommand, baseStampOf, initWorkspaceTables, readJournal, readMeta } from './write.ts';
-import type { ApplyOptions, BaseStamp, JournalEntry, MergedOps, WriteContext } from './write.ts';
+import { applyBatch, applyCommand, baseStampOf, initWorkspaceTables, readJournal, readMeta } from './write.ts';
+import type { ApplyOptions, BaseStamp, BatchResult, JournalEntry, MergedOps, WriteContext } from './write.ts';
 
 const WORKSPACE_DIR = join(REPO_ROOT, '.workspace');
 export const DEFAULT_RULINGS = join(REPO_ROOT, 'docs/next/rulings.csv');
@@ -219,14 +221,28 @@ export function behindReason(db: Db, dataDir: string): string | null {
   requireFilesMatchManifest(dataDir);
   const reasons: string[] = [];
   if (readMeta(db, 'manifest_sha256') !== sha256Of(readFileSync(manifestPath))) reasons.push('data/manifest.json moved (a merge, a pull or a hand edit)');
-  if (readMeta(db, 'schema_sha256') !== schemaDigest()) reasons.push('the schema moved');
-  if (readMeta(db, 'storage_ddl_sha256') !== sha256Of(readFileSync(STORAGE_DDL, 'utf8'))) reasons.push('the generated storage DDL moved');
+  // The repository's schema is compared with the one the workspace was BUILT from: a pending schema edit changes the workspace's own schema, not Git's.
+  if ((readMeta(db, 'base_schema_sha256') ?? readMeta(db, 'schema_sha256')) !== schemaDigest()) reasons.push('the schema moved');
+  if ((readMeta(db, 'base_storage_ddl_sha256') ?? readMeta(db, 'storage_ddl_sha256')) !== sha256Of(readFileSync(STORAGE_DDL, 'utf8'))) reasons.push('the generated storage DDL moved');
   return reasons.length ? reasons.join('; ') : null;
 }
 
 /** The snapshot digest of a build: from the per-table row counts and digests it verified against the manifest. */
 export function snapshotDigestOfReport(report: BuildReport): Sha256 {
   return snapshotDigestOf(new Map<TableName, TableDigest>(report.tables.map((t) => [t.table, { rows: t.rows, sha256: toSha256(t.sha256) }] as const)));
+}
+
+/** The schema a workspace file holds: the repository's, with the files a pending schema edit changed (`_meta.schema_overlay`). */
+export function modelOfDb(db: Db): SchemaModel {
+  const text = readMeta(db, 'schema_overlay');
+  if (text === undefined) return BASE_MODEL;
+  const parsed: unknown = JSON.parse(text);
+  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed) || !Object.values(parsed).every((v) => typeof v === 'string')) {
+    throw new Error('_meta.schema_overlay is not an object of schema file text; the workspace is damaged, restore a backup or rebuild it');
+  }
+  const overlay: Record<string, string> = {};
+  for (const [path, file] of Object.entries(parsed)) if (typeof file === 'string') overlay[path] = file;
+  return modelWith(overlay satisfies SchemaFiles);
 }
 
 const hasTable = (db: Db, name: string): boolean => db.prepare("SELECT 1 AS found FROM sqlite_schema WHERE type = 'table' AND name = ?").get(name) !== undefined;
@@ -321,6 +337,8 @@ export class Workspace implements Disposable {
   readonly #store: PageTextStore | null;
   readonly now: () => Date;
   readonly #mergedOps: MergedOps;
+  /** The schema this workspace holds; a schema command replaces the model once it has committed. */
+  readonly #schema: SchemaHolder;
   /** Which file this session opened: a restore or rebuild by another process replaces it, and this session must not go on writing to the old one. */
   readonly #fileId: string;
   /** Set when `open` ran the open check. */
@@ -334,6 +352,7 @@ export class Workspace implements Disposable {
     this.#store = options.store === undefined ? defaultTextStore(REPO_ROOT) : options.store;
     this.now = options.now ?? systemClock;
     this.#mergedOps = loadMergedOps(paths.mergedChangeSetsDir);
+    this.#schema = { model: modelOfDb(db) };
   }
 
   /** Open the sandbox workspace: create it from the snapshot, or run the open check on the one there. */
@@ -410,7 +429,7 @@ export class Workspace implements Disposable {
           }
         }
         for (const conflict of conflicts) commands.push(conflict.command);
-        outcome = replayCommands(contextOf(db, options, mergedOps), commands);
+        outcome = replayCommands(contextOf(db, options, mergedOps, baseSchemaHolder()), commands);
       } finally { db.close(); }
       verifyWorkspaceFile(staged);
       for (const file of sidecars(paths.dbPath)) rmSync(file, { force: true });
@@ -430,7 +449,10 @@ export class Workspace implements Disposable {
     try { return await Workspace.#rebuildKeeping(paths, options, 'rebuild requested'); } finally { lock.release(); }
   }
 
-  #context(): WriteContext { return contextOf(this.db, { store: this.#store, rulingsPath: this.rulingsPath, now: this.now }, this.#mergedOps); }
+  #context(): WriteContext { return contextOf(this.db, { store: this.#store, rulingsPath: this.rulingsPath, now: this.now }, this.#mergedOps, this.#schema); }
+
+  /** The schema this workspace holds now: the repository's, or with the edits that are pending. */
+  get schema(): SchemaModel { return this.#schema.model; }
 
   /** The base stamp: which approved snapshot this workspace is a copy of. */
   stamp(): BaseStamp { return baseStampOf(this.db); }
@@ -447,6 +469,24 @@ export class Workspace implements Disposable {
     try {
       this.#requireSameFile();
       return applyCommand(this.#context(), command, options);
+    } finally { lock.release(); }
+  }
+
+  /** Many commands, all or none, under the writer lock (a generator's output). The first refusal rolls back the whole batch. */
+  applyBatch(commands: readonly WriteCommand[], options: ApplyOptions = {}): BatchResult {
+    let lock: WriterLock;
+    try {
+      lock = takeLock(this.paths.lockPath);
+    } catch (error) {
+      if (error instanceof WriterLockedError) {
+        const first = commands[0];
+        return { status: 'refused', index: 0, opId: first?.opId ?? '', result: { status: 'refused', code: 'writer-locked', detail: error.message } };
+      }
+      throw error;
+    }
+    try {
+      this.#requireSameFile();
+      return applyBatch(this.#context(), commands, options);
     } finally { lock.release(); }
   }
 
@@ -528,9 +568,10 @@ export class Workspace implements Disposable {
 
 // ---------------------------------------------------------------- shared pieces
 
-function contextOf(db: Db, options: Pick<WorkspaceOptions, 'store' | 'rulingsPath' | 'now'>, mergedOps: MergedOps): WriteContext {
+function contextOf(db: Db, options: Pick<WorkspaceOptions, 'store' | 'rulingsPath' | 'now'>, mergedOps: MergedOps, schema: SchemaHolder): WriteContext {
   return {
     db,
+    schema,
     store: options.store === undefined ? defaultTextStore(REPO_ROOT) : options.store,
     rulings: loadRulings(options.rulingsPath ?? DEFAULT_RULINGS),
     mergedOps,

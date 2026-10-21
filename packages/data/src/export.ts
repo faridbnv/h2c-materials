@@ -17,22 +17,25 @@ import { randomBytes } from 'node:crypto';
 import { closeSync, constants, copyFileSync, cpSync, existsSync, fsyncSync, linkSync, mkdirSync, mkdtempSync, openSync, readFileSync, readdirSync, renameSync, rmSync, rmdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
-import type { ChangeRecord, ChangeSet, Sha256 } from '@atlas/domain/contracts';
-import { isChangeSetId, sha256Of, snapshotDigestOf, tableDigests } from './digest.ts';
+import type { ChangeRecord, ChangeSet, GeneratorRef, Sha256 } from '@atlas/domain/contracts';
+import { isChangeSetId, sha256Of, snapshotDigestOf, tableDigests, toSha256 } from './digest.ts';
 import type { TableDigest } from './digest.ts';
 import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { readJson } from './parse.ts';
+import { csvText, parseCsv } from './csv.ts';
 import { buildInMemory } from './rebuild.ts';
 import { replayChangeSet } from './replay.ts';
+import { BASE_MODEL, modelWith } from './schema-model.ts';
+import type { SchemaFiles, SchemaModel } from './schema-model.ts';
 import { exportTable } from './storage.ts';
-import { RULE_TABLES } from './write.ts';
+import { RULE_TABLES, tablesTouched } from './write.ts';
 import { behindReason, protectedDirHolding, readManifest, snapshotDigestOfReport } from './workspace.ts';
 import type { SnapshotManifest, Workspace } from './workspace.ts';
 
 export type ExportRefusalCode =
   | 'nothing-to-export' | 'conflicts-pending' | 'stale-base' | 'rule-row-not-alone' | 'bad-title' | 'bad-topic' | 'unsafe-target' | 'workspace-drifted'
-  | 'target-changed' | 'verification-failed' | 'change-set-immutable';
+  | 'target-changed' | 'verification-failed' | 'change-set-immutable' | 'generator-count';
 
 /** An export that did not complete. Nothing was promoted (or the interrupted promote is finished by the next call). */
 export class ExportRefusedError extends Error {
@@ -59,6 +62,8 @@ export interface ExportOptions {
   readonly topic: string;
   /** Default: the workspace's `export/`. */
   readonly exportDir?: string;
+  /** Present when the pending changes are the output of a generator: the change set names it, and its `expectCount` must be the number of records. */
+  readonly generator?: GeneratorRef;
   readonly hooks?: ExportHooks;
 }
 
@@ -225,25 +230,31 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
     const entries = ws.journal(['draft', 'exported']);
     if (entries.length === 0) throw new ExportRefusedError('nothing-to-export', 'there are no pending changes: a no-change export writes nothing');
     const records: ChangeRecord[] = entries.map((e, k) => ({ ...e.record, seq: k + 1 }));
-    const touched = new Set(records.map((r) => r.table));
+    if (options.generator !== undefined && options.generator.expectCount !== records.length) {
+      throw new ExportRefusedError('generator-count', `the generator ${options.generator.path} expected ${options.generator.expectCount} change(s), but ${records.length} are pending; a sweep that moved is run again on purpose and its new list reviewed, never exported as it stands`);
+    }
+    const touched = new Set(records.flatMap(tablesTouched));
     requireRuleRowAlone(records, touched);
     const backup = await ws.backup('before-export');
 
     // 2. Read once: the whole workspace, and prove that no table changed without a change record.
     const stamp = ws.stamp();
     const manifest = readManifest(ws.paths.dataDir);
-    const { digests, texts } = tableDigests(ws.db, touched);
+    const model = ws.schema;
+    const { digests, texts } = tableDigests(ws.db, touched, model);
     requireNoDrift(digests, manifest, touched);
     const resultDigest = snapshotDigestOf(digests);
     const changed = TABLE_NAMES.filter((t) => touched.has(t));
 
     const date = ws.now().toISOString().slice(0, 10);
-    const hash = sha256Of(JSON.stringify({ title: options.title, base: stamp.snapshotDigest, result: resultDigest, ops: records.map((r) => r.opId) })).slice(0, 4);
+    const hash = sha256Of(JSON.stringify({ title: options.title, base: stamp.snapshotDigest, result: resultDigest, ops: records.map((r) => r.opId), ...(model.digest === BASE_MODEL.digest ? {} : { schema: model.digest }) })).slice(0, 4);
     const id = `${date}-${options.topic}-${hash}`;
     if (!isChangeSetId(id)) throw new ExportRefusedError('bad-topic', `${id} is not a change set ID`);
     const changeSet: ChangeSet = {
       id, title: options.title, records, base: { snapshotDigest: stamp.snapshotDigest }, result: { snapshotDigest: resultDigest },
       impact: { answersMoved: { moved: null, estimatesPending: true }, reportPath: null },
+      ...(options.generator === undefined ? {} : { generator: options.generator }),
+      ...(model.digest === BASE_MODEL.digest ? {} : { schema: { base: toSha256(BASE_MODEL.digest), result: toSha256(model.digest) } }),
     };
 
     // The records must explain the result: the change set, applied through the same guards to a fresh rebuild of the base, gives
@@ -261,10 +272,13 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
       ...changed.map((t) => ({ rel: `data/tables/${t}.csv`, text: texts.get(t) ?? '' })),
       { rel: changeSetRel, text: changeSetText },
       { rel: 'data/manifest.json', text: `${JSON.stringify(newManifest, null, 2)}\n` },
+      // A schema edit travels with the data it reshaped: the schema files, and the files the generator makes from them.
+      ...Object.entries(model.overlay).map(([rel, text]) => ({ rel, text })),
+      ...(model === BASE_MODEL ? [] : Object.entries(model.generated()).map(([rel, text]) => ({ rel, text }))),
+      ...ledgerFile(ws.paths.dataDir, records, id),
     ];
-    // An earlier export's CSV of a table this one does not change would contradict the manifest above: it is retired.
-    const tablesDir = join(dir, 'data', 'tables');
-    const retired = existsSync(tablesDir) ? readdirSync(tablesDir).filter((f) => f.endsWith('.csv')).map((f) => `data/tables/${f}`).filter((rel) => !planned.some((p) => p.rel === rel)) : [];
+    // An earlier export's file that this one does not write would contradict the manifest above: it is retired.
+    const retired = OWNED_DIRS.flatMap((owned) => filesUnder(dir, owned).filter((rel) => !planned.some((p) => p.rel === rel)));
     const lockedFiles = [...planned.map((p) => p.rel), ...retired];
     const seen = new Map(lockedFiles.map((rel) => [rel, digestOf(join(dir, rel))]));
     const existingSet = join(dir, changeSetRel);
@@ -282,7 +296,7 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
       }
 
       // 4. Re-import: the staged snapshot into a fresh database, checked, and equal to the result claimed.
-      verifyStaged(ws.paths.dataDir, planned, texts, resultDigest);
+      verifyStaged(ws.paths.dataDir, planned, texts, resultDigest, model);
       options.hooks?.beforeCommit?.();
       if (options.hooks?.failBeforeCommit === true) throw new Error('export interrupted before its journal was written (test hook)');
       const before = moved();
@@ -308,9 +322,29 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
   });
 }
 
-function buildStaged(scratch: string): ReturnType<typeof buildInMemory> {
+const OWNED_DIRS = ['data/tables', 'data/review', 'schema/tables', 'schema/vocab', 'db/generated', 'packages/data/src/generated'] as const;
+const LEDGER = 'data/review/removed-records.csv';
+
+/** The files directly under `dir/rel`, as paths relative to `dir` (the change sets are in a folder of their own below data/review: immutable, never retired). */
+function filesUnder(dir: string, rel: string): string[] {
+  const full = join(dir, rel);
+  if (!existsSync(full)) return [];
+  return readdirSync(full, { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => `${rel}/${entry.name}`);
+}
+
+/** The D72 ledger with the rows the records owe: each names the change set that re-pointed it (the old file's `Migration` column). */
+function ledgerFile(dataDir: string, records: readonly ChangeRecord[], changeSetId: string): PlannedFile[] {
+  const owed = records.flatMap((r) => r.ledger ?? []);
+  if (owed.length === 0) return [];
+  const path = join(dataDir, 'review', 'removed-records.csv');
+  const existing = existsSync(path) ? parseCsv(readFileSync(path, 'utf8'), path).records.map((r) => [...r.cells]) : [];
+  const rows = [...existing, ...owed.map((row) => [row.Table, row.Record, changeSetId, row.Where])];
+  return [{ rel: LEDGER, text: csvText(['Table', 'Record', 'Migration', 'Where'], rows) }];
+}
+
+function buildStaged(scratch: string, model: SchemaModel): ReturnType<typeof buildInMemory> {
   try {
-    return buildInMemory(scratch);
+    return buildInMemory(scratch, model);
   } catch (error) {
     throw new ExportRefusedError('verification-failed', `the staged snapshot does not rebuild: ${error instanceof Error ? error.message : String(error)}`);
   }
@@ -321,19 +355,32 @@ function buildStaged(scratch: string): ReturnType<typeof buildInMemory> {
  * loaded into a fresh database with every reconstruction check; each changed table must export to exactly the staged bytes and
  * the whole must equal the digest the change set claims. Any difference stops the export before anything is promoted.
  */
-function verifyStaged(dataDir: string, planned: readonly PlannedFile[], texts: ReadonlyMap<TableName, string>, resultDigest: Sha256): void {
+function verifyStaged(dataDir: string, planned: readonly PlannedFile[], texts: ReadonlyMap<TableName, string>, resultDigest: Sha256, expected: SchemaModel): void {
   const scratch = mkdtempSync(join(tmpdir(), 'atlas-export-verify-'));
   try {
     cpSync(join(dataDir, 'tables'), join(scratch, 'tables'), { recursive: true });
     cpSync(join(dataDir, 'manifest.json'), join(scratch, 'manifest.json'));
     for (const p of planned) if (p.rel.startsWith('data/tables/') || p.rel === 'data/manifest.json') writeFileSync(join(scratch, p.rel.slice('data/'.length)), p.text);
-    const built = buildStaged(scratch);
+    // The schema the staged data is loaded under is the staged schema FILES, not the workspace's model: the files are what is verified.
+    const stagedSchema: Record<string, string> = {};
+    for (const p of planned) if (p.rel.startsWith('schema/')) stagedSchema[p.rel] = p.text;
+    const model = modelFromStaged(stagedSchema);
+    if (model.digest !== expected.digest) throw new ExportRefusedError('verification-failed', `the staged schema files give schema ${model.digest.slice(0, 12)}, not the workspace's ${expected.digest.slice(0, 12)}`);
+    const built = buildStaged(scratch, model);
     try {
       for (const [table, text] of texts) {
-        if (exportTable(built.db, table) !== text) throw new ExportRefusedError('verification-failed', `${table}: the staged CSV does not round-trip through a fresh database to the same bytes`);
+        if (exportTable(built.db, table, model) !== text) throw new ExportRefusedError('verification-failed', `${table}: the staged CSV does not round-trip through a fresh database to the same bytes`);
       }
       const got = snapshotDigestOfReport(built.report);
       if (got !== resultDigest) throw new ExportRefusedError('verification-failed', `the staged snapshot's digest ${got.slice(0, 12)} is not the result ${resultDigest.slice(0, 12)} the change set claims`);
     } finally { built.db.close(); }
   } finally { rmSync(scratch, { recursive: true, force: true }); }
+}
+
+function modelFromStaged(files: SchemaFiles): SchemaModel {
+  try {
+    return modelWith(files);
+  } catch (error) {
+    throw new ExportRefusedError('verification-failed', `the staged schema files are not a valid schema: ${error instanceof Error ? error.message : String(error)}`);
+  }
 }
