@@ -4,6 +4,8 @@
 //   npm run checks:register -- --verify       fail on any of the problems listed below (exit 1); exit 0 when there are none
 //   npm run checks:register -- --inventory    print the checks the tree holds today, in checks/old-inventory.txt's format
 //   npm run checks:register -- --skeleton     print empty register rows for checks the register does not cover yet
+//   npm run checks:register -- --floor        record the test and assertion counts of every registered test file in checks/test-floor.txt
+//                                              (adds files, raises counts, never lowers one; lowering is a hand edit that shows in review)
 //   --root DIR                                 read another checkout (the tests use a scratch copy)
 //   --require-frozen                           with --verify: also fail when the frozen copies on git cannot be read (see 9 and 10)
 //
@@ -25,15 +27,21 @@
 //      registered, claims a parity tier that is not built, or has an item with neither a test nor an UNTESTED mark;
 //   7. the map and the register disagree about which check pins which item (`protects`);
 //   8. the owner's list (docs/next/untested-rules.md) and the map disagree about which items are not fully tested;
-//   9. the inventory on this branch lacks a token, or lowers a test count or raises a skip count, that the copy on
+//   9. a registered test file, old or new, holds fewer tests or fewer assertion calls than checks/test-floor.txt records for it.
+//      Rule 4 freezes the old files' test and skip counts; the floor adds the assertion count for them and, for the new and
+//      ported files rule 4 does not know, both counts. It catches a test or an assertion deleted to make a change pass. It does
+//      NOT catch an assertion whose expected value is edited, or one replaced by a weaker one of the same kind: for a ported
+//      test that is the assertion-line comparison with the old file (untested-rules question 6, planned in WP-18). A registered
+//      test file that has no floor yet is a problem too: add it with --floor, in the change that registers it.
+//  10. the inventory on this branch lacks a token, or lowers a test count or raises a skip count, that the copy on
 //      origin/remake/v3 (git show) freezes: regenerating the inventory cannot make an old check vanish;
-//  10. an old npm check script of origin/main's package.json (git show) is gone from package.json here without a register
+//  11. an old npm check script of origin/main's package.json (git show) is gone from package.json here without a register
 //      row that records its deletion, or has no register row at all.
-// 9 and 10 read git. Where the refs cannot be read (a checkout without them; a CI job that fetched only its own commit tries
+// 10 and 11 read git. Where the refs cannot be read (a checkout without them; a CI job that fetched only its own commit tries
 // one shallow fetch when CI=true) they are reported as a note, not a problem, unless --require-frozen is given.
 // Nothing here retires a check: a "retire" row takes effect when WP-38 deletes the check and records the date.
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv } from './rulings-check.mjs';
 import { csvLine, isMain, loadIndex, repoRoot } from './wp-lib.mjs';
@@ -45,6 +53,7 @@ export const UNTESTED_PATH = 'docs/next/untested-rules.md';
 /** Where the frozen inventory and the old package.json are read from, by `git show`. */
 export const FROZEN_REF = 'origin/remake/v3';
 export const MAIN_REF = 'origin/main';
+export const FLOOR_PATH = 'checks/test-floor.txt';
 
 export const COLUMNS = ['id', 'old', 'protected_failure', 'status', 'successor', 'proof', 'owner', 'kind', 'old_refs', 'successor_refs', 'protects', 'deleted'];
 export const STATUSES = ['keep', 're-point', 'successor', 'obsolete-at-cutover'];
@@ -87,6 +96,14 @@ export const skipCount = (src) => (src.match(/[{,]\s*(?:skip|todo)\s*:|\.(?:skip
 // For a test file the freeze never saw: a skip that always applies. `{ skip: !process.env.X }` is a condition, not a skip.
 export const standingSkipCount = (src) => (src.match(/\.(?:skip|todo)\(|[{,]\s*(?:skip|todo)\s*:\s*(?:true\b|['"`])/g) ?? []).length;
 const testStats = (src) => ({ tests: testCount(src), skips: skipCount(src) });
+
+// Assertion calls: assert(...), assert.ok/equal/deepEqual/throws/rejects/match/...(...), t.assert.x(...), expect(...). Counted on
+// source lines that are not comments, so a commented-out assertion is not one.
+export const assertCount = (src) => src.split('\n').filter((l) => !/^\s*(?:\/\/|\*|\/\*)/.test(l))
+  .reduce((n, l) => n + (l.match(/(?<![\w$.])(?:t\.)?(?:assert|expect)(?:\.\w+)*\s*\(/g) ?? []).length, 0);
+export const floorStats = (src) => ({ tests: testCount(src), asserts: assertCount(src) });
+// The test files the floor covers: a test or check file of the old suite, or a test file under tests/ or a package's test folder.
+const FLOOR_TOKEN = /^file:(?:test\/[^/]+\.(?:test|check)\.js|tests?\/.+\.test\.(?:m?js|ts)|packages\/[^/]+\/test\/.+\.test\.(?:m?js|ts))$/;
 
 function parseWorkflow(text) {
   const jobs = new Map();
@@ -260,6 +277,74 @@ function checkCoverage(root, rows, now, exists, live, baseline, add) {
   }
 }
 
+export function formatFloor(floor) {
+  return [
+    '# The test floor: for each registered test file, the fewest tests and assertion calls it may hold (checks:register).',
+    '# Code-owned: lowering a number is a deliberate edit, reviewed like checks/old-inventory.txt. Raise with: npm run checks:register -- --floor',
+    ...[...floor].sort(([a], [b]) => (a < b ? -1 : 1)).map(([token, f]) => `${token} tests=${f.tests} asserts=${f.asserts}`),
+  ].join('\n') + '\n';
+}
+
+export function parseFloor(text) {
+  const floor = new Map();
+  for (const line of text.split(/\r?\n/)) {
+    if (!line.trim() || line.startsWith('#')) continue;
+    const m = line.match(/^(file:\S+) tests=(\d+) asserts=(\d+)$/);
+    if (!m) throw new Error(`${FLOOR_PATH}: cannot read the line "${line}"`);
+    floor.set(m[1], { tests: Number(m[2]), asserts: Number(m[3]) });
+  }
+  return floor;
+}
+
+/** The test files the register names (old or new check, row not marked deleted) that exist now, with their current counts. */
+export function registeredTestStats(root, rows) {
+  const out = new Map();
+  for (const row of rows) {
+    if (row.deleted) continue;
+    for (const t of [...row.oldRefs, ...row.successorRefs]) {
+      if (FLOOR_TOKEN.test(t) && present(root, filePath(t))) out.set(t, floorStats(read(root, filePath(t))));
+    }
+  }
+  return out;
+}
+
+function checkFloor(root, rows, add) {
+  const now = registeredTestStats(root, rows);
+  const unfloored = [];
+  if (!present(root, FLOOR_PATH)) { add(`${FLOOR_PATH} does not exist (npm run checks:register -- --floor writes it)`); return { files: now.size, unfloored: [...now.keys()] }; }
+  let floor;
+  try { floor = parseFloor(read(root, FLOOR_PATH)); } catch (e) { add(e.message); return { files: now.size, unfloored: [] }; }
+  for (const [token, was] of floor) {
+    if (!now.has(token)) {
+      // A floored file that is gone is rule 1's business when the register still names it, and a recorded deletion when it does not.
+      const named = rows.some((r) => !r.deleted && [...r.oldRefs, ...r.successorRefs].includes(token));
+      if (named) add(`${FLOOR_PATH}: ${token} is floored but cannot be read`);
+      continue;
+    }
+    const is = now.get(token);
+    if (is.tests < was.tests) add(`${token} lost tests: the floor is ${was.tests}, it holds ${is.tests}`);
+    if (is.asserts < was.asserts) add(`${token} lost assertions: the floor is ${was.asserts} assertion calls, it holds ${is.asserts}`);
+  }
+  for (const token of now.keys()) if (!floor.has(token)) unfloored.push(token);
+  // A registered test file with no floor is a hole in the ratchet, and a green run that said so in passing would be easy to miss.
+  for (const token of unfloored) add(`${token} is a registered test file with no floor in ${FLOOR_PATH} (npm run checks:register -- --floor records it)`);
+  return { files: now.size, unfloored };
+}
+
+/** The floor as it should be written now: every registered test file, each at the larger of its current and recorded counts. */
+export function floorFor(root) {
+  const problems = [];
+  const rows = loadRows(root, (m) => problems.push(m));
+  if (problems.length) throw new Error(`the register does not load: ${problems[0]}`);
+  const floor = present(root, FLOOR_PATH) ? parseFloor(read(root, FLOOR_PATH)) : new Map();
+  const next = new Map(floor);
+  for (const [token, is] of registeredTestStats(root, rows)) {
+    const was = floor.get(token);
+    next.set(token, { tests: Math.max(is.tests, was?.tests ?? 0), asserts: Math.max(is.asserts, was?.asserts ?? 0) });
+  }
+  return next;
+}
+
 function parseMap(root, add) {
   if (!present(root, MAP_PATH)) { add(`${MAP_PATH} does not exist`); return []; }
   const items = [];
@@ -331,8 +416,9 @@ export function verifyRegister(root = repoRoot(), { frozen = frozenFromGit(root)
   const items = parseMap(root, add);
   checkMap(items, rows, exists, add);
   checkUntestedList(root, items, add);
+  const floor = checkFloor(root, rows, add);
   const counts = Object.fromEntries(MAP_STATUSES.map((s) => [s, items.filter((i) => i.status === s).length]));
-  return { problems, notes, rows: rows.length, tokens: live.size, items: items.length, counts };
+  return { problems, notes, rows: rows.length, tokens: live.size, items: items.length, counts, floor };
 }
 
 const SKELETON_ID = { file: 'T', step: 'S', npm: 'A', ci: 'J' };
@@ -355,17 +441,22 @@ if (isMain(import.meta.url)) {
   const root = at >= 0 ? args[at + 1] : repoRoot();
   const requireFrozen = args.includes('--require-frozen');
   const mode = args.filter((a) => a !== '--root' && a !== root && a !== '--require-frozen');
-  if (mode.length !== 1 || !['--verify', '--inventory', '--skeleton'].includes(mode[0])) {
-    console.error('usage: checks-register.mjs --verify [--require-frozen] | --inventory | --skeleton [--root DIR]');
+  if (mode.length !== 1 || !['--verify', '--inventory', '--skeleton', '--floor'].includes(mode[0])) {
+    console.error('usage: checks-register.mjs --verify [--require-frozen] | --inventory | --skeleton | --floor [--root DIR]');
     process.exit(2);
   }
   if (mode[0] === '--inventory') process.stdout.write(formatBaseline(liveInventory(root)));
   else if (mode[0] === '--skeleton') for (const l of skeleton(root)) console.log(l);
-  else {
-    const { problems, notes, rows, tokens, items, counts } = verifyRegister(root, { requireFrozen });
+  else if (mode[0] === '--floor') {
+    const next = floorFor(root);
+    writeFileSync(join(root, FLOOR_PATH), formatFloor(next));
+    console.log(`checks:register: ${FLOOR_PATH} written: ${next.size} test files.`);
+  } else {
+    const { problems, notes, rows, tokens, items, counts, floor } = verifyRegister(root, { requireFrozen });
     for (const n of notes) console.error(`checks:register: note: ${n}`);
     for (const p of problems) console.error(`checks:register: ${p}`);
     if (problems.length) { console.error(`checks:register: ${problems.length} problem(s)`); process.exit(1); }
     console.log(`checks:register: OK. ${rows} register rows cover ${tokens} old checks; ${items} must-not-change items: ${counts.TESTED} TESTED, ${counts.PARTIAL} PARTIAL, ${counts.UNTESTED} UNTESTED.`);
+    console.log(`checks:register: test floor holds for ${floor.files} registered test files (tests and assertion calls).`);
   }
 }

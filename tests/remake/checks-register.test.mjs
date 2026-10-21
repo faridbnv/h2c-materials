@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseCsv } from '../../remake/tools/rulings-check.mjs';
 import { csvLine } from '../../remake/tools/wp-lib.mjs';
-import { BASELINE_PATH, FROZEN_REF, MAIN_REF, MAP_IDS, MAP_PATH, REGISTER_PATH, UNTESTED_PATH, formatBaseline, frozenFromGit, liveInventory, oldScriptTokens, parseBaseline, skeleton, skipCount, standingSkipCount, testCount, verifyRegister } from '../../remake/tools/checks-register.mjs';
+import { BASELINE_PATH, FLOOR_PATH, FROZEN_REF, MAIN_REF, MAP_IDS, MAP_PATH, REGISTER_PATH, UNTESTED_PATH, assertCount, floorFor, formatBaseline, formatFloor, frozenFromGit, liveInventory, oldScriptTokens, parseBaseline, parseFloor, skeleton, skipCount, standingSkipCount, testCount, verifyRegister } from '../../remake/tools/checks-register.mjs';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const tool = join(repo, 'remake/tools/checks-register.mjs');
@@ -203,9 +203,10 @@ test('the map: a missing item, a test that does not exist, and an item with neit
     (dir) => edit(dir, MAP_PATH, (src) => src.replace(/^(\| S06-01 \|[^|]*\|[^|]*\|)[^|]*\|[^|]*\|/m, '$1  |  |')),
     /S06-01: marked TESTED but names no test or parity tier \(mark it UNTESTED, explicitly\)/,
   );
+  // S06-11 names a test and is PARTIAL; calling it UNTESTED while it names one is a contradiction the check refuses.
   expectProblem(
     ['docs/next'],
-    (dir) => edit(dir, MAP_PATH, (src) => src.replace(/^(\| S06-11 \|[^|]*\|[^|]*\|)[^|]*\|/m, '$1 `test/database.test.js` |')),
+    (dir) => edit(dir, MAP_PATH, (src) => src.replace(/^(\| S06-11 \|.*\| )PARTIAL( \|)/m, '$1UNTESTED$2')),
     /S06-11: marked UNTESTED but names/,
   );
 });
@@ -240,7 +241,7 @@ test('the owner\'s list must hold every PARTIAL and UNTESTED item, and only thos
   expectProblem(
     ['docs/next'],
     (dir) => edit(dir, UNTESTED_PATH, (src) => src.replace('### Question 3. S06-11', '### Question 3. S06-99')),
-    /S06-11 is UNTESTED in the map but not on the owner's list/,
+    /S06-11 is PARTIAL in the map but not on the owner's list/,
   );
   expectProblem(
     ['docs/next'],
@@ -355,4 +356,93 @@ test('where git cannot say, --verify notes it and passes, and --require-frozen f
     const real = run('--verify', '--require-frozen');
     assert.equal(real.status, 0, real.stderr);
   }
+});
+
+// ---- the test floor: a registered test file cannot lose a test or an assertion ----------------------------------------------
+const FLOOR_COPY = ['tests', 'checks'];
+const firstAssertLine = /^[ \t]*assert(?:\.\w+)*\([^\n]*\);[ \t]*$/m;
+
+test('assertion calls are counted as calls, and comments, strings of prose and other words are not', () => {
+  assert.equal(assertCount("assert.equal(a, b);\n  assert(ok);\nt.assert.ok(x);\nexpect(y).toBe(1);\nawait assert.rejects(f, /x/);\n"), 5);
+  assert.equal(assertCount("// assert.equal(a, b);\n * assert.ok(x)\n/* assert(x) */\nconst reassert = 1; myassert(2); x.assert(3);\n"), 0);
+  assert.equal(assertCount('assert.deepEqual(\n  a,\n  b);'), 1);
+});
+
+test('the floor file parses, formats, and refuses a line it cannot read', () => {
+  const floor = parseFloor(readFileSync(join(repo, FLOOR_PATH), 'utf8'));
+  assert.ok(floor.size > 100 && floor.get('file:tests/remake/gate-order.test.mjs').asserts > 10);
+  assert.equal(formatFloor(floor), readFileSync(join(repo, FLOOR_PATH), 'utf8'), 'the file on disk is exactly what --floor writes');
+  assert.throws(() => parseFloor('file:tests/a.test.mjs tests=1'), /cannot read the line/);
+});
+
+test('a registered new test that loses an assertion, or a test, fails and names the floor', () => {
+  withScratch(FLOOR_COPY, (dir) => {
+    edit(dir, 'tests/domain/tidy.test.mjs', (src) => src.replace(firstAssertLine, ''));
+    assert.ok(has(problems(dir), /tests\/domain\/tidy\.test\.mjs lost assertions: the floor is \d+ assertion calls, it holds \d+/), problems(dir).join('\n'));
+  });
+  withScratch(FLOOR_COPY, (dir) => {
+    edit(dir, 'tests/domain/tidy.test.mjs', (src) => src.replace(/^test\(/m, 'xtest('));
+    assert.ok(has(problems(dir), /tests\/domain\/tidy\.test\.mjs lost tests: the floor is \d+, it holds \d+/));
+  });
+});
+
+test('an old test that loses an assertion fails too, although its test count is frozen already', () => {
+  withScratch(['test', 'checks'], (dir) => {
+    edit(dir, 'test/search.test.js', (src) => src.replace(firstAssertLine, ''));
+    const list = problems(dir);
+    assert.ok(has(list, /file:test\/search\.test\.js lost assertions/), list.join('\n'));
+    assert.ok(!has(list, /lost tests/), 'the test count is intact');
+  });
+});
+
+test('a new assertion, a new test and a rewritten assertion do not trip the floor (it is a minimum, not a freeze)', () => {
+  withScratch(FLOOR_COPY, (dir) => {
+    edit(dir, 'tests/domain/tidy.test.mjs', (src) => `${src}\ntest('one more', () => { assert.ok(true); });\n`);
+    edit(dir, 'tests/domain/tidy.test.mjs', (src) => src.replace(firstAssertLine, (m) => m.replace(/\(.*\)/, '(1 === 1)')));
+    assert.deepEqual(problems(dir), []);
+  });
+});
+
+test('the floor file cannot be dropped, emptied of a file, or left without a file the register names', () => {
+  withScratch(FLOOR_COPY, (dir) => {
+    unlinkSync(join(dir, FLOOR_PATH));
+    assert.ok(has(problems(dir), /checks\/test-floor\.txt does not exist/));
+  });
+  withScratch(FLOOR_COPY, (dir) => {
+    edit(dir, FLOOR_PATH, (src) => src.split('\n').filter((l) => !l.startsWith('file:tests/domain/tidy.test.mjs ')).join('\n'));
+    assert.ok(has(problems(dir), /file:tests\/domain\/tidy\.test\.mjs is a registered test file with no floor in checks\/test-floor\.txt/));
+  });
+  withScratch(FLOOR_COPY, (dir) => {
+    edit(dir, FLOOR_PATH, (src) => `${src}file:tests/domain/tidy.test.mjs tests=x\n`);
+    assert.ok(has(problems(dir), /cannot read the line/));
+  });
+});
+
+test('--floor raises and adds, never lowers; lowering is a hand edit of the file, and then the check passes', () => {
+  withScratch(FLOOR_COPY, (dir) => {
+    const before = parseFloor(readFileSync(join(dir, FLOOR_PATH), 'utf8')).get('file:tests/domain/tidy.test.mjs');
+    edit(dir, 'tests/domain/tidy.test.mjs', (src) => src.replace(firstAssertLine, ''));
+    assert.deepEqual(floorFor(dir).get('file:tests/domain/tidy.test.mjs'), before, 'a lost assertion does not lower the floor');
+    assert.ok(has(problems(dir), /lost assertions/));
+    edit(dir, FLOOR_PATH, (src) => src.replace(`file:tests/domain/tidy.test.mjs tests=${before.tests} asserts=${before.asserts}`, `file:tests/domain/tidy.test.mjs tests=${before.tests} asserts=${before.asserts - 1}`));
+    assert.deepEqual(problems(dir), [], 'the deliberate edit is the only way down, and it shows in the diff');
+    edit(dir, 'tests/domain/tidy.test.mjs', (src) => `${src}\ntest('more', () => { assert.ok(1); assert.ok(2); });\n`);
+    const raised = floorFor(dir).get('file:tests/domain/tidy.test.mjs');
+    assert.equal(raised.tests, before.tests + 1);
+    assert.equal(raised.asserts, before.asserts + 1);
+  });
+});
+
+test('the CLI writes the floor with --floor, and verification then holds', () => {
+  withScratch(FLOOR_COPY, (dir) => {
+    unlinkSync(join(dir, FLOOR_PATH));
+    const run = (...args) => spawnSync(process.execPath, [tool, ...args, '--root', dir], { encoding: 'utf8' });
+    assert.equal(run('--verify').status, 1);
+    const written = run('--floor');
+    assert.equal(written.status, 0, written.stderr);
+    assert.match(written.stdout, /checks\/test-floor\.txt written: \d+ test files/);
+    const ok = run('--verify');
+    assert.equal(ok.status, 0, ok.stderr);
+    assert.match(ok.stdout, /test floor holds for \d+ registered test files/);
+  });
 });

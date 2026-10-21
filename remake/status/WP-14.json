@@ -1,6 +1,6 @@
 {
   "id": "WP-14",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-14-v3-view",
   "pr": 21,
@@ -31,8 +31,9 @@
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "note": "release identity v2 (remake/tools/release-id.mjs, npm run release:id), apps/public (Vue 3, Vite 8, relative base) with release-scoped data from the clean rebuild through packages/engine and the stale-shell guard, and preview-assemble build-v3 for /v3/. NOT published on the preview yet: next-preview.yml needs one build-job step.",
+  "note": "release identity v2 (remake/tools/release-id.mjs, npm run release:id), apps/public (Vue 3, Vite 8, relative base) with release-scoped data from the clean rebuild through packages/engine and the stale-shell guard, and preview-assemble build-v3 for /v3/. NOT published on the preview yet: next-preview.yml needs one build-job step.; delivered by merged PR #21 (2026-10-21)",
   "prs": [
     21
-  ]
+  ],
+  "doneAt": "2026-10-21"
 }
