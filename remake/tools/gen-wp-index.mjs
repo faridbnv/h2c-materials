@@ -26,7 +26,9 @@ const EXIT = {
   'WP-08': { commands: [], manual: ['contract suite passes on Node 26.9 and the pinned CI Node', 'only driver.ts imports node:sqlite'] },
   'WP-09': { commands: ['npm run db:roundtrip'], manual: ['reconstruction <= 5 s recorded', '"4.30" and missing-word tests pass'] },
   'WP-10': { commands: ['npm run change:replay'], manual: ['one test per guard and refusal', 'interrupted export leaves the tree unchanged', 'stale command refused'] },
-  'WP-11': { commands: ['npm run parity -- --new adapter'], manual: ['fixture correction lists the expected moves', 'impact <= 10 s recorded'] },
+  // The pack writes `parity -- --new adapter`; the CLI's flag is `--new` (the wrapped engine is the new side, WP-11). The fixture
+  // correction and the recorded impact time are checked by tests/remake/impact.test.mjs.
+  'WP-11': { commands: ['npm run parity -- --new', 'node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs'], manual: [] },
   'WP-13': { commands: ['npm run test:e2e'], manual: ['token, Host, Origin and bind-address tests pass', 'ready <= 3 s'] },
   'WP-14': { commands: ['npm run release:id'], manual: ['ID stable across two checkout paths and changed by one data cell', '/v3/ counts equal the engine\'s'] },
   'WP-15': { commands: ['npm run checks:register -- --verify'], attest: ['untested-list-received'], manual: ['a scratch PR deleting a test fails', 'map covers every row of 00-CURRENT-STATE section 11'] },

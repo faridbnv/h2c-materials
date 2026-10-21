@@ -4,15 +4,27 @@
   "slice": null,
   "branch": "wp-11-engine-wrapper",
   "pr": 18,
-  "exitCheck": "not-run",
-  "lastRun": null,
-  "lastPass": null,
-  "evidence": [],
+  "exitCheck": "pass",
+  "lastRun": "2026-10-21T11:40:07.277Z",
+  "lastPass": "2026-10-21T11:40:07.277Z",
+  "evidence": [
+    {
+      "cmd": "npm run parity -- --new",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs",
+      "result": "pass",
+      "code": 0
+    }
+  ],
   "waitingSince": null,
   "approvedAt": null,
   "doneAt": "2026-10-21",
   "note": "typed engine wrapper (packages/engine), wrapped parity new side (1,306 cases, zero differences), impact preview (cold 5.0 s, warm 4.0 s; with estimates 32 s cold, 28 s warm)",
   "prs": [
     18
-  ]
+  ],
+  "updated": "2026-10-21T11:42:57.094Z"
 }
