@@ -10,6 +10,7 @@
 //   packages/data/src/generated/columns.ts   table names, column lists, SQL names, per-column facts
 //   packages/data/src/generated/rows.ts      vocabulary unions and one decoded row type per table
 //   db/generated/schema.sql                  SQLite STRICT DDL (PRIMARY KEY, UNIQUE, FOREIGN KEY, CHECK)
+//   db/generated/storage.sql                 the same tables for lossless storage (WP-09): exact text, typed generated columns, _ord
 //   packages/data/src/generated/db-shape.ts  runtime shapes of dist/db.json, from schema/db.schema.json (read only)
 //
 // Conventions (research/understand/datamodel.md sections 2 and 6):
@@ -36,6 +37,7 @@ export const OUTPUTS = {
   columns: 'packages/data/src/generated/columns.ts',
   rows: 'packages/data/src/generated/rows.ts',
   sql: 'db/generated/schema.sql',
+  storage: 'db/generated/storage.sql',
   dbShape: 'packages/data/src/generated/db-shape.ts',
 };
 
@@ -268,7 +270,7 @@ function buildModel(root) {
     const columns = t.fields.map((f) => describeField(t.name, f, vocab));
     const sqlNames = new Set();
     for (const col of columns) {
-      for (const n of col.paired ? [col.sql, `${col.sql}_state`] : [col.sql]) {
+      for (const n of [col.sql, ...(col.paired ? [`${col.sql}_state`] : []), ...(isNumeric(col) ? [`${col.sql}_text`] : [])]) {
         if (sqlNames.has(n)) throw new Error(`${t.name}: SQL name "${n}" is made by two columns`);
         sqlNames.add(n);
       }
@@ -449,21 +451,38 @@ function renderColumnSql(t, c, weaker) {
   return lines;
 }
 
+/** Table-level constraints: a composite primary key, the unique keys, and the value/state pair checks. `keyColumn` maps a key field name to its stored column. */
+function renderTableConstraints(t, keyColumn) {
+  const constraints = [];
+  if (t.pk.length > 1) constraints.push(`PRIMARY KEY (${t.pk.map(keyColumn).join(', ')})`);
+  for (const key of t.uniqueKeys) constraints.push(`UNIQUE (${key.map(keyColumn).join(', ')})`);
+  const optionalPair = t.columns.find((x) => x.paired && !x.required);
+  if (optionalPair) throw new Error(`${t.name}.${optionalPair.name}: an optional column with missing words has no pairing rule yet; make it required or extend the generator`);
+  for (const c of t.columns.filter((x) => x.paired && x.required)) {
+    constraints.push(`CHECK ((${sqlId(c.sql)} IS NULL) = (${sqlId(`${c.sql}_state`)} IS NOT NULL))`);
+  }
+  return constraints;
+}
+
+/** The CREATE TABLE statement for `t`, preceded by its title as a comment. */
+function renderCreateTable(t, definitions) {
+  return [`-- ${oneLine(t.title)}`, `CREATE TABLE ${sqlId(t.name)} (`, definitions.map((l) => `  ${l}`).join(',\n'), ') STRICT;'];
+}
+
+/** Header lines that list the patterns GLOB could only approximate (none when every CHECK is exact). */
+function renderWeakerNote(weaker) {
+  const weak = [...new Set(weaker)];
+  if (!weak.length) return [];
+  return ['-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):', ...weak.map((p) => `--   ${p}`)];
+}
+
 function renderSql({ model }) {
   const weaker = [];
   const body = [];
   for (const t of model) {
-    const lines = t.columns.flatMap((c) => renderColumnSql(t, c, weaker));
-    const tableLevel = [];
-    if (t.pk.length > 1) tableLevel.push(`PRIMARY KEY (${t.pk.map((k) => sqlId(sqlName(k))).join(', ')})`);
-    for (const key of t.uniqueKeys) tableLevel.push(`UNIQUE (${key.map((k) => sqlId(sqlName(k))).join(', ')})`);
-    const optionalPair = t.columns.find((x) => x.paired && !x.required);
-    if (optionalPair) throw new Error(`${t.name}.${optionalPair.name}: an optional column with missing words has no pairing rule yet; make it required or extend the generator`);
-    for (const c of t.columns.filter((x) => x.paired && x.required)) {
-      tableLevel.push(`CHECK ((${sqlId(c.sql)} IS NULL) = (${sqlId(`${c.sql}_state`)} IS NOT NULL))`);
-    }
-    body.push(`-- ${oneLine(t.title)}`, `CREATE TABLE ${sqlId(t.name)} (`);
-    body.push([...lines, ...tableLevel].map((l) => `  ${l}`).join(',\n'), ') STRICT;', '');
+    const columns = t.columns.flatMap((c) => renderColumnSql(t, c, weaker));
+    const keyColumn = (name) => sqlId(sqlName(name));
+    body.push(...renderCreateTable(t, [...columns, ...renderTableConstraints(t, keyColumn)]), '');
   }
   const head = [
     `-- ${BANNER}`,
@@ -471,9 +490,74 @@ function renderSql({ model }) {
     '-- is a value plus <column>_state. A NULL value with no state is a blank optional cell.',
     '-- Not here yet (WP-09): _ord row-order columns, child tables for list columns, the grade-owns-record composite key.',
   ];
-  const weak = [...new Set(weaker)];
-  if (weak.length) head.push('-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):', ...weak.map((p) => `--   ${p}`));
-  return [...head, '', ...body].join('\n');
+  return [...head, ...renderWeakerNote(weaker), '', ...body].join('\n');
+}
+
+// ---------------------------------------------------------------- storage.sql
+
+// Lossless storage (04 section 4.2). A number, integer or boolean column keeps its exact canonical text in <column>_text (so
+// "4.30" stays "4.30" and a missing-state word stays a word), with the typed value and the word as generated columns beside it.
+// Every other column is stored as in schema.sql: its text is the column, or <column>_state when a word stands in. Every table
+// also has _ord, the 1-based position of the row in its CSV file.
+const NUMERIC_TYPES = new Set(['number', 'integer', 'boolean']);
+function isNumeric(col) { return NUMERIC_TYPES.has(col.type); }
+/** The column that holds a cell's exact text: <column>_text for the typed kinds, the column itself otherwise. */
+const textColumn = (col) => (isNumeric(col) ? `${col.sql}_text` : col.sql);
+
+/** SQL that is true when the text column `text` holds a well-formed value of the column's kind (never a missing word). */
+function wellFormed(col, text) {
+  if (col.type === 'boolean') return `${text} IN ('TRUE', 'FALSE')`;
+  const kinds = col.type === 'integer' ? "'integer'" : "'integer', 'real'";
+  // CASE keeps json_type from seeing text that json_valid refused; the GLOB refuses the whitespace JSON would allow.
+  return `(CASE WHEN json_valid(${text}) THEN json_type(${text}) END) IN (${kinds}) AND ${text} NOT GLOB '*[^0-9eE.+-]*'`;
+}
+
+function renderStorageColumn(t, c, weaker) {
+  if (!isNumeric(c)) return renderColumnSql(t, c, weaker);
+  if (c.reference || c.allowed || c.pattern) throw new Error(`${t.name}.${c.name}: a ${c.type} column with a reference, vocabulary or pattern has no storage form yet`);
+  if (isSoleKey(t.pk, c.name)) throw new Error(`${t.name}.${c.name}: a ${c.type} column as the primary key has no storage form yet`);
+  const text = sqlId(textColumn(c));
+  const typed = sqlId(c.sql);
+  const words = c.missing.map(sqlStr).join(', ');
+  const exact = [`${text} TEXT`];
+  if (c.required) exact.push('NOT NULL');
+  if (c.unique) exact.push('UNIQUE');
+  exact.push(`CHECK (${c.missing.length ? `${text} IN (${words}) OR ` : ''}${wellFormed(c, text)})`);
+  const sqlType = c.type === 'number' ? 'REAL' : 'INTEGER';
+  const cast = c.type === 'boolean' ? `(${text} = 'TRUE')` : `CAST(${text} AS ${sqlType})`;
+  const generated = [`${typed} ${sqlType} GENERATED ALWAYS AS (CASE WHEN ${wellFormed(c, text)} THEN ${cast} END) VIRTUAL`];
+  if (c.minimum !== null) generated.push(`CHECK (${typed} >= ${c.minimum})`);
+  if (c.maximum !== null) generated.push(`CHECK (${typed} <= ${c.maximum})`);
+  const lines = [exact.join(' '), generated.join(' ')];
+  if (c.paired) lines.push(`${sqlId(`${c.sql}_state`)} TEXT GENERATED ALWAYS AS (CASE WHEN ${text} IN (${words}) THEN ${text} END) VIRTUAL`);
+  return lines;
+}
+
+function renderStorageSql({ model }) {
+  const weaker = [];
+  const body = [];
+  for (const t of model) {
+    const keyColumn = (name) => sqlId(textColumn(t.columns.find((x) => x.name === name)));
+    const columns = ['"_ord" INTEGER NOT NULL UNIQUE CHECK ("_ord" >= 1)', ...t.columns.flatMap((c) => renderStorageColumn(t, c, weaker))];
+    body.push(...renderCreateTable(t, [...columns, ...renderTableConstraints(t, keyColumn)]));
+    // An index on each referencing column: the parent-side foreign key check and every join from a parent to its children use it.
+    for (const c of t.columns.filter((x) => x.reference)) body.push(`CREATE INDEX ${sqlId(`ix_${t.name}_${c.sql}`)} ON ${sqlId(t.name)} (${sqlId(c.sql)});`);
+    body.push('');
+  }
+  const head = [
+    `-- ${BANNER}`,
+    '-- Lossless storage (WP-09; pack 04 section 4.2): the DDL `npm run db:rebuild` loads. schema.sql beside it stays the typed contract of WP-06.',
+    '-- Every cell is kept as its exact canonical CSV text, so "4.30" stays "4.30" and a missing-state word stays a word.',
+    '--   _ord        the 1-based position of the row in its CSV file. Every read that feeds a decision orders by it.',
+    '--   <c>_text    a number, integer or boolean column: the exact text of the cell (or its missing-state word). Stored.',
+    '--   <c>         that column typed (REAL, or INTEGER for integers and booleans: TRUE is 1). NULL when a word stands in. Generated.',
+    '--   <c>_state   the missing-state word of the cell, NULL otherwise. Generated on a typed column, stored on a text column.',
+    '--   A text column that declares words is <c> (NULL when a word stands in) plus <c>_state; its text is <c>_state, else <c>.',
+    '-- Aggregate over <c>: it skips the words. An aggregate over <c>_text would read a word as 0. Never coerce a word to a number.',
+    '--   An index sits on each referencing column, so the foreign key check and joins from a parent to its children stay fast.',
+    '-- Not here yet: child tables for list columns (they stay ;-joined text), the grade-owns-record composite key.',
+  ];
+  return [...head, ...renderWeakerNote(weaker), '', ...body].join('\n');
 }
 
 // ---------------------------------------------------------------- db-shape.ts
@@ -576,6 +660,7 @@ export function generate(root = REPO) {
     [OUTPUTS.columns]: renderColumns(built),
     [OUTPUTS.rows]: renderRows(built),
     [OUTPUTS.sql]: renderSql(built),
+    [OUTPUTS.storage]: renderStorageSql(built),
     [OUTPUTS.dbShape]: renderDbShape(root),
   };
 }

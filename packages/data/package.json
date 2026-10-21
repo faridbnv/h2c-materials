@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Filament Atlas data layer: generated row types and column lists from schema/, the typed contract of the build's dist/db.json (WP-06).",
+  "description": "Filament Atlas data layer: generated row types and column lists from schema/, the typed contract of the build's dist/db.json (WP-06), the node:sqlite driver wrapper (WP-08), and clean reconstruction, lossless storage and the round trip (WP-09).",
   "exports": {
     ".": "./src/index.ts",
     "./columns": "./src/generated/columns.ts",
     "./rows": "./src/generated/rows.ts",
-    "./db-contract": "./src/db-contract.ts"
+    "./db-contract": "./src/db-contract.ts",
+    "./driver": "./src/driver.ts",
+    "./csv": "./src/csv.ts",
+    "./storage": "./src/storage.ts",
+    "./rebuild": "./src/rebuild.ts",
+    "./roundtrip": "./src/roundtrip.ts",
+    "./diff": "./src/diff.ts"
   }
 }

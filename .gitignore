@@ -57,3 +57,6 @@ CLAUDE.local.md
 .claude/settings.local.json
 .claude/worktrees/
 .claude/state/
+
+# The SQLite workspace (WP-09): rebuilt from the committed CSV by `npm run db:rebuild`; never a second master, never committed.
+.workspace/
