@@ -167,7 +167,8 @@ export class Db implements Disposable {
    * Run `fn` in one transaction: BEGIN, then COMMIT when `fn` returns, ROLLBACK when it throws (the original error is
    * rethrown). Refused inside another transaction. `fn` must be synchronous: a returned promise is a bug (the commit would
    * come before the work), so it rolls back and throws. A COMMIT that fails (a deferred foreign key) rolls back too. If the
-   * rollback itself fails the error says so, with both causes, because the state is then unknown.
+   * rollback itself fails the error says so, with both causes, because the state is then unknown. A body that goes on after
+   * SQLite ended the transaction under it is an error too.
    */
   transaction<T>(fn: (db: this) => T, options: TransactionOptions = {}): T {
     if (this.#raw.isTransaction) throw new NestedTransactionError();
@@ -176,6 +177,9 @@ export class Db implements Disposable {
     try {
       result = fn(this);
       if (isThenable(result)) throw new TypeError('transaction(fn): fn returned a promise; a transaction body must be synchronous');
+      // SQLite ends a transaction itself on some errors (ON CONFLICT ROLLBACK, disk full). A body that caught such an error
+      // and went on would have its later statements autocommitted outside the transaction; that is a failure, not a success.
+      if (!this.#raw.isTransaction) throw new Error('the transaction was ended by SQLite inside fn (a ROLLBACK conflict or an I/O error that fn caught); its later writes were not part of it');
       this.#raw.exec('COMMIT');
     } catch (error) {
       this.#rollbackAfter(error);

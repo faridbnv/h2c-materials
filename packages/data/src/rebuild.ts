@@ -8,13 +8,13 @@
 // the file already in place is left untouched (the new one is built beside it and renamed into place only when complete).
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { closeSync, existsSync, fsyncSync, mkdirSync, openSync, readFileSync, readdirSync, renameSync, rmSync } from 'node:fs';
+import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { performance } from 'node:perf_hooks';
 import { TABLE_NAMES, TABLES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
-import { open } from './driver.ts';
+import { constraintKind, open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { CsvError, parseCsv } from './csv.ts';
 import type { CsvRecord } from './csv.ts';
@@ -26,6 +26,8 @@ export const WORKSPACE_DB = join(REPO_ROOT, '.workspace/atlas.sqlite');
 const STORAGE_DDL = join(REPO_ROOT, 'db/generated/storage.sql');
 const VIEWS_DIR = join(REPO_ROOT, 'db/views');
 const MAX_PROBLEMS = 20;
+/** Throws on a byte sequence that is not UTF-8, instead of replacing it: a replaced byte would hide a damaged file from the compare. */
+const UTF8 = new TextDecoder('utf-8', { fatal: true });
 
 export const sha256 = (bytes: Uint8Array | string): string => createHash('sha256').update(bytes).digest('hex');
 
@@ -100,10 +102,11 @@ export function readInputs(dataDir: string): Inputs {
     const bytes = readFileSync(path);
     let parsed;
     try {
-      parsed = parseCsv(bytes.toString('utf8'), `data/tables/${table}.csv`);
+      parsed = parseCsv(UTF8.decode(bytes), `data/tables/${table}.csv`);
     } catch (error) {
-      if (!(error instanceof CsvError)) throw error;
-      fail(table, error.message);
+      if (error instanceof CsvError) fail(table, error.message);
+      else if (error instanceof TypeError) fail(table, 'the file is not valid UTF-8');
+      else throw error;
       continue;
     }
     if (!headerMatches(table, parsed.header)) {
@@ -147,11 +150,15 @@ function schemaDigest(): string {
   return hash.digest('hex');
 }
 
-function gitCommit(): string {
+/** The commit the working tree is on and whether the files a rebuild reads are exactly that commit's; the reason if git cannot say. */
+function gitState(): { commit: string; tree: string } {
+  const git = (...args: string[]): string => execFileSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
   try {
-    return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
-  } catch {
-    return 'unknown';
+    const commit = git('rev-parse', 'HEAD');
+    return { commit, tree: git('status', '--porcelain', '--', 'data', 'schema', 'db', 'packages') === '' ? 'clean' : 'dirty' };
+  } catch (error) {
+    const why = error instanceof Error ? error.message.split('\n')[0] : String(error);
+    return { commit: 'unknown', tree: `unknown (git failed: ${why})` };
   }
 }
 
@@ -176,7 +183,10 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
         try {
           insert.run(...storage.encode(k + 1, record.cells));
         } catch (error) {
-          if (problems.length < MAX_PROBLEMS) problems.push(`data/tables/${table}.csv:${record.line} (${record.cells[0] ?? 'empty first cell'}): ${(error instanceof Error ? error.message : String(error)).slice(0, 200)}`);
+          // A constraint failure is a problem with the data, collected so one run lists them all. Anything else (disk full,
+          // out of memory, a bug) is not the data's fault and stops the run as a crash.
+          if (constraintKind(error) === null) throw error;
+          problems.push(`data/tables/${table}.csv:${record.line} (${record.cells[0] ?? 'empty first cell'}): ${(error instanceof Error ? error.message : String(error)).slice(0, 200)}`);
         }
       });
     }
@@ -199,8 +209,10 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
 
   const rows = [...inputs.tables.values()].reduce((sum, t) => sum + t.records.length, 0);
   const info = db.info();
+  const git = gitState();
   const stamp: Record<string, string> = {
-    commit: gitCommit(),
+    commit: git.commit,
+    tree: git.tree,
     manifest_sha256: inputs.manifestSha256 ?? 'unknown',
     schema_sha256: schemaDigest(),
     storage_ddl_sha256: sha256(storageDdl),
@@ -231,8 +243,8 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
 /** Rows whose reference has no parent, named by file line, column and value. */
 function foreignKeyProblems(db: Db, inputs: Inputs): string[] {
   const out: string[] = [];
-  for (const violation of db.prepare('PRAGMA foreign_key_check').all()) {
-    if (out.length >= MAX_PROBLEMS) break;
+  const violations = db.prepare('PRAGMA foreign_key_check').all();
+  for (const violation of violations.slice(0, MAX_PROBLEMS)) {
     const table = String(violation.table);
     const parent = String(violation.parent);
     const rowid = violation.rowid;
@@ -244,6 +256,7 @@ function foreignKeyProblems(db: Db, inputs: Inputs): string[] {
     const header = known ? TABLES[known].columns.find((c) => c.sqlName === column)?.name : undefined;
     out.push(`data/tables/${table}.csv:${line ?? '?'}: ${header ?? column} "${String(value)}" has no row in ${parent}`);
   }
+  if (violations.length > MAX_PROBLEMS) out.push(`${violations.length - MAX_PROBLEMS} more foreign key violation(s) not described`);
   return out;
 }
 
@@ -271,7 +284,7 @@ function verifyStored(db: Db, inputs: Inputs, checks: string[]): string[] {
 
   const integrity = db.prepare('PRAGMA integrity_check').all().map((row) => String(Object.values(row)[0]));
   if (integrity.length === 1 && integrity[0] === 'ok') checks.push('integrity_check: ok');
-  else problems.push(...integrity.slice(0, MAX_PROBLEMS).map((line) => `integrity_check: ${line}`));
+  else problems.push(...integrity.map((line) => `integrity_check: ${line}`));
   const dangling = db.prepare('PRAGMA foreign_key_check').all().length;
   if (dangling === 0) checks.push('foreign_key_check: 0 violations');
   else problems.push(`foreign_key_check: ${dangling} violation(s)`);
@@ -295,9 +308,27 @@ export function buildInMemory(dataDir: string = DEFAULT_DATA_DIR): { db: Db; rep
   }
 }
 
+function flushToDisk(path: string): void {
+  const fd = openSync(path, 'r+');
+  try { fsyncSync(fd); } finally { closeSync(fd); }
+}
+
+/** Remove `<db>.partial-<pid>` files left by a rebuild that was killed; one whose process is still alive is another rebuild and stays. */
+function removeAbandonedPartials(dbPath: string): void {
+  const prefix = `${basename(dbPath)}.partial-`;
+  for (const name of readdirSync(dirname(dbPath))) {
+    if (!name.startsWith(prefix)) continue;
+    const pid = Number.parseInt(name.slice(prefix.length), 10);
+    let alive = false;
+    try { process.kill(pid, 0); alive = true; } catch (error) { alive = error instanceof Error && 'code' in error && error.code === 'EPERM'; } // EPERM: it exists, and is someone else's
+    if (!alive) rmSync(join(dirname(dbPath), name), { force: true });
+  }
+}
+
 /**
  * Rebuild the workspace file from scratch: build beside it, verify, then rename into place. A failure leaves the file that
- * was there untouched and removes the partial one.
+ * was there untouched and removes the partial one. The file it replaces is thrown away with its journal and WAL: a workspace
+ * that holds drafts is backed up by the write service (WP-10) before it is rebuilt.
  */
 export function rebuildWorkspace(options: { readonly dataDir?: string; readonly dbPath?: string } = {}): BuildReport & { readonly dbPath: string } {
   const dataDir = options.dataDir ?? DEFAULT_DATA_DIR;
@@ -306,6 +337,7 @@ export function rebuildWorkspace(options: { readonly dataDir?: string; readonly 
   const inputs = readInputs(dataDir);
   const read = performance.now() - t0;
   mkdirSync(dirname(dbPath), { recursive: true });
+  removeAbandonedPartials(dbPath);
   const partial = `${dbPath}.partial-${process.pid}`;
   const sidecars = (path: string): string[] => [path, `${path}-journal`, `${path}-wal`, `${path}-shm`];
   for (const file of sidecars(partial)) rmSync(file, { force: true });
@@ -316,7 +348,8 @@ export function rebuildWorkspace(options: { readonly dataDir?: string; readonly 
     db.exec('PRAGMA synchronous = OFF');
     const report = buildDatabase(db, inputs);
     db.close();
-    for (const file of sidecars(dbPath)) rmSync(file, { force: true });
+    flushToDisk(partial); // the load ran with synchronous = OFF; a crash after the rename must not leave a torn file in place
+    for (const file of sidecars(dbPath)) rmSync(file, { force: true }); // a stale -wal beside a new file could be replayed onto it
     renameSync(partial, dbPath);
     return { ...report, dbPath, ms: { ...report.ms, read, total: report.ms.total + read } };
   } catch (error) {

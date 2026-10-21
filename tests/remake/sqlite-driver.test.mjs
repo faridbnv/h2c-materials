@@ -155,6 +155,19 @@ test('a COMMIT that fails (a deferred foreign key) rolls back instead of leaving
   assert.equal(count(db, 'c'), 1); // satisfied before the commit, so it stands
 });
 
+test('a body that goes on after SQLite ended the transaction under it is an error, not a commit of the later writes', () => {
+  const db = open();
+  db.exec('CREATE TABLE u (id INTEGER PRIMARY KEY, v TEXT UNIQUE ON CONFLICT ROLLBACK) STRICT');
+  db.prepare("INSERT INTO u (v) VALUES ('dup')").run();
+  assert.throws(() => db.transaction((tx) => {
+    tx.prepare("INSERT INTO u (v) VALUES ('a')").run();
+    try { tx.prepare("INSERT INTO u (v) VALUES ('dup')").run(); } catch { /* the body swallows the conflict that already rolled the transaction back */ }
+    tx.prepare("INSERT INTO u (v) VALUES ('b')").run(); // autocommitted outside any transaction
+  }), /ended by SQLite inside fn/);
+  assert.equal(db.inTransaction, false);
+  // The later write cannot be undone, but it is reported rather than hidden: the error says it was not part of the transaction.
+});
+
 // ---------------------------------------------------------------- exact text
 
 test('text is stored and read back exactly: "4.30" stays "4.30", whitespace, newlines, unicode, empty and word-like text', () => {

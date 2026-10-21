@@ -4,8 +4,11 @@
 //   diff      --against <git ref> [--limit <n>] [--db <file>]   the workspace database against the committed CSV at a ref
 //   query     "<select ...>" [--json] [--db <file>]            read-only SQL on .workspace/atlas.sqlite
 //   measure   [--out <file>]                         time rebuild and round trip three times each; write the medians
-// Exit: 0 ok; 1 the check failed (a table differs, the data breaks a constraint, a diff was asked to fail); 64 bad usage;
-// 70 the tool itself crashed (an uncaught error: a bug or a missing prerequisite, never a verdict). Only the flags above exist.
+// diff also takes --fail-on-diff (exit 1 when there is any difference).
+// Exit: 0 ok; 1 the check failed (a table differs, the data breaks a constraint, a timing is over budget, --fail-on-diff found a
+// difference); 64 bad usage; 70 the tool itself crashed (an uncaught error: a bug or a missing prerequisite, never a verdict).
+// Only the flags above exist: a stray argument, an unknown or repeated flag, or a flag npm swallowed is a usage error, so a
+// check can never run on the default data when it was asked to run on other data.
 import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { cpus, arch, platform, release, totalmem, tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -36,9 +39,16 @@ interface Command {
   readonly valued: readonly string[];
   /** Flags that stand alone. */
   readonly switches: readonly string[];
+  /** Whether bare arguments (the SQL of db:query) are allowed. */
+  readonly positional?: boolean;
 }
 
 function parseArgs(name: string, command: Command, argv: readonly string[]): Parsed {
+  // `npm run db:roundtrip --data x` (no `--`) is read by npm as its own option and never reaches this program; npm leaves it in
+  // the environment, which is the only trace. Running on the default data then would be a pass on the wrong input.
+  for (const flag of [...command.valued, ...command.switches]) {
+    if (process.env[`npm_config_${flag}`] !== undefined) throw new UsageError(`npm took --${flag} for itself; write npm run db:${name} -- --${flag} <value>`);
+  }
   const values = new Map<string, string>();
   const switches = new Set<string>();
   const rest: string[] = [];
@@ -54,6 +64,7 @@ function parseArgs(name: string, command: Command, argv: readonly string[]): Par
     values.set(flag, value);
     i++;
   }
+  if (rest.length && !command.positional) throw new UsageError(`unexpected argument ${JSON.stringify(rest[0])} for ${name} (flags only; a value follows the flag that takes one)`);
   return { values, switches, rest };
 }
 
@@ -79,7 +90,7 @@ function runRebuild(parsed: Parsed): number {
   console.log(`db:rebuild  ${dbPath}`);
   for (const line of report.checks) console.log(`  ok  ${line}`);
   console.log(`  ${report.tables.length} tables, ${report.rows} rows, ${report.views.length} views (${report.views.map((v) => `${v.view} ${v.rows}`).join(', ')})`);
-  console.log(`  base stamp: commit ${report.stamp.commit?.slice(0, 12)}, manifest ${report.stamp.manifest_sha256?.slice(0, 12)}, SQLite ${report.stamp.sqlite_version}, Node ${report.stamp.node_version} (${report.stamp.driver_class})`);
+  console.log(`  base stamp: commit ${report.stamp.commit?.slice(0, 12)} (tree ${report.stamp.tree}), manifest ${report.stamp.manifest_sha256?.slice(0, 12)}, SQLite ${report.stamp.sqlite_version}, Node ${report.stamp.node_version} (${report.stamp.driver_class})`);
   console.log(`  read ${secs(report.ms.read)}, load ${secs(report.ms.load)}, verify ${secs(report.ms.verify)}, total ${secs(report.ms.total)} (budget ${secs(REBUILD_BUDGET_MS)})`);
   return 0;
 }
@@ -120,7 +131,7 @@ function runDiff(parsed: Parsed): number {
       for (const c of t.changes.slice(0, limit)) console.log(`      ~ ${c.key}: ${c.column}: ${JSON.stringify(c.before)} -> ${JSON.stringify(c.after)}`);
     }
     console.log(`DIFF: ${result.differences} difference(s) in ${result.tables.length} tables`);
-    return 0;
+    return parsed.switches.has('fail-on-diff') && result.differences > 0 ? 1 : 0;
   } finally {
     db.close();
   }
@@ -169,7 +180,10 @@ function runMeasure(parsed: Parsed): number {
       rebuilds.push(built.ms.total);
       last = built;
       const trip = roundtrip();
-      if (!trip.ok) throw new Error(`measure: the round trip failed (${trip.identical}/${trip.expected}); fix that before recording a timing`);
+      if (!trip.ok) {
+        console.error(`db:measure: the round trip failed (${trip.identical}/${trip.expected}); fix that before recording a timing. Nothing was written.`);
+        return 1;
+      }
       roundtrips.push(trip.ms.total);
     }
     if (last === null) throw new Error('measure: no run happened');
@@ -183,6 +197,7 @@ function runMeasure(parsed: Parsed): number {
       sqlite: last.stamp.sqlite_version,
       driverClass: last.stamp.driver_class,
       commit: last.stamp.commit,
+      tree: last.stamp.tree,
       tables: last.tables.length,
       rows: last.rows,
       rebuild: timing(rebuilds, REBUILD_BUDGET_MS),
@@ -202,8 +217,8 @@ function runMeasure(parsed: Parsed): number {
 const COMMANDS: Record<string, Command> = {
   rebuild: { run: runRebuild, valued: ['data', 'out'], switches: [] },
   roundtrip: { run: runRoundtrip, valued: ['data'], switches: [] },
-  diff: { run: runDiff, valued: ['against', 'limit', 'db'], switches: [] },
-  query: { run: runQuery, valued: ['db'], switches: ['json'] },
+  diff: { run: runDiff, valued: ['against', 'limit', 'db'], switches: ['fail-on-diff'] },
+  query: { run: runQuery, valued: ['db'], switches: ['json'], positional: true },
   measure: { run: runMeasure, valued: ['out'], switches: [] },
 };
 

@@ -66,7 +66,8 @@ test('every missing-state word survives as itself: the state holds the word and 
       }
     }
   }
-  assert.ok(declared.size >= 4, 'the schema declares most of the six words somewhere');
+  // The words no column declares are exactly these two (the second is only a Data status value); a change here is a schema change to look at.
+  assert.deepEqual(MISSING_STATES.filter((w) => !declared.has(w)).sort(), ['Not available in sampled Canadian market', 'Unresolved unit / layout']);
   for (const word of MISSING_STATES) {
     for (const [kind, where] of Object.entries(declared.get(word) ?? {})) {
       const [table, column] = where;

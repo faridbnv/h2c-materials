@@ -42,8 +42,9 @@ export function resolveRef(ref: string, repo: string = REPO_ROOT): string {
   if (ref.startsWith('-')) throw new Error(`"${ref}" is not a git ref`);
   try {
     return git(['rev-parse', '--verify', '--end-of-options', `${ref}^{commit}`], repo).trim();
-  } catch {
-    throw new Error(`"${ref}" is not a commit in this repository (git rev-parse --verify failed)`);
+  } catch (error) {
+    const why = error instanceof Error && 'stderr' in error ? String(error.stderr).trim().split('\n')[0] : String(error);
+    throw new Error(`"${ref}" is not a commit in this repository (git said: ${why})`);
   }
 }
 

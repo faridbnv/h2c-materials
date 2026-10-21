@@ -13,7 +13,7 @@ import { open } from '../../packages/data/src/driver.ts';
 import { diffAgainstRef } from '../../packages/data/src/diff.ts';
 import { DataInputError, buildInMemory, rebuildWorkspace } from '../../packages/data/src/rebuild.ts';
 import { roundtrip } from '../../packages/data/src/roundtrip.ts';
-import { columnIndex, copyData, editRecords, editText, realData, root } from './data-helpers.mjs';
+import { columnIndex, copyData, editRecords, editText, realData, realRecords, root } from './data-helpers.mjs';
 
 const cli = (...args) => spawnSync(process.execPath, [join(root, 'packages/data/src/cli.ts'), ...args], { encoding: 'utf8' });
 const REBUILD_BUDGET_MS = 5000;
@@ -108,6 +108,29 @@ test('a hand edit that is not canonical fails the round trip for exactly that ta
     });
   }
 });
+
+test('a pin in headlines (empty in the committed data) also round-trips, so that table is proven by more than its header', () => withCopy((dir) => {
+  const measurement = realRecords('measurements')[0];
+  const key = realRecords('headline_definitions')[0][0];
+  editRecords(dir, 'headlines', (rows) => { rows.push([measurement[columnIndex('measurements', 'MaterialID')], key, measurement[0], 'a pin for the test']); });
+  const result = roundtrip({ dataDir: dir });
+  assert.equal(result.ok, true);
+  assert.equal(result.tables.find((t) => t.table === 'headlines').rows, 1);
+}));
+
+test('a file that is not valid UTF-8 fails with a plain reason, not a replacement character that hides the damage', () => withCopy((dir) => {
+  const path = join(dir, 'tables', 'fx_rates.csv');
+  const bytes = readFileSync(path);
+  writeFileSync(path, Buffer.concat([bytes.subarray(0, 40), Buffer.from([0xff, 0xfe]), bytes.subarray(40)]));
+  const result = roundtrip({ dataDir: dir });
+  assert.equal(result.ok, false);
+  assert.match(result.tables.find((t) => t.table === 'fx_rates').detail, /not valid UTF-8/);
+}));
+
+test('a rebuild reports every constraint failure it found, with the true count, not only the first twenty', () => withCopy((dir) => {
+  editRecords(dir, 'grades', (rows) => { for (const row of rows.slice(0, 30)) row[columnIndex('grades', 'Status')] = 'mislaid'; });
+  assert.throws(() => buildInMemory(dir), (e) => e instanceof DataInputError && e.problems.length === 30 && /30 problem\(s\)/.test(e.message) && /and 10 more/.test(e.message));
+}));
 
 test('a canonical edit round-trips: Git is the authority and the edit becomes the new base', () => withCopy((dir) => {
   editRecords(dir, 'materials', (rows) => { rows[0][columnIndex('materials', 'Best uses')] = 'An edited sentence, with a comma and "quotes".'; });
@@ -212,9 +235,19 @@ test('npm run db:roundtrip: exit 0 and "36/36" on the real data; exit 1, the tab
 });
 
 test('the commands refuse bad usage with exit 64 and never ignore a flag', () => {
-  for (const args of [[], ['nonsense'], ['roundtrip', '--bogus'], ['diff'], ['rebuild', '--out'], ['roundtrip', '--data', 'a', '--data', 'b']]) {
+  for (const args of [[], ['nonsense'], ['roundtrip', '--bogus'], ['diff'], ['rebuild', '--out'], ['roundtrip', '--data', 'a', '--data', 'b'], ['roundtrip', '/some/other/dir'], ['rebuild', 'extra']]) {
     assert.equal(cli(...args).status, 64, JSON.stringify(args));
   }
+});
+
+test('a flag that npm swallowed (npm run db:roundtrip --data x, without --) is refused rather than run on the default data', () => {
+  const swallowed = spawnSync(process.execPath, [join(root, 'packages/data/src/cli.ts'), 'roundtrip'], { encoding: 'utf8', env: { ...process.env, npm_config_data: '/tmp/x' } });
+  assert.equal(swallowed.status, 64);
+  assert.match(swallowed.stderr, /npm took --data for itself; write npm run db:roundtrip -- --data/);
+  // And through npm itself, the way a person would type it.
+  const viaNpm = spawnSync('npm', ['run', '-s', 'db:roundtrip', '--data', '/tmp/x'], { cwd: root, encoding: 'utf8' });
+  assert.equal(viaNpm.status, 64);
+  assert.doesNotMatch(viaNpm.stdout, /RESULT: pass/);
 });
 
 // ---------------------------------------------------------------- db:diff
@@ -270,9 +303,24 @@ test('the db:diff command reads a database file against a ref, and says so (exit
     const diff = cli('diff', '--against', 'HEAD', '--db', db);
     assert.equal(diff.status, 0, diff.stderr);
     assert.match(diff.stdout, /DIFF: \d+ difference\(s\) in 36 tables/); // 0 on a clean checkout; the tests above pin the content
-    assert.equal(cli('diff', '--against', 'no-such-ref', '--db', db).status, 70); // a ref that does not resolve is a failure, not "0 differences"
+    const unknown = cli('diff', '--against', 'no-such-ref', '--db', db);
+    assert.equal(unknown.status, 70); // a ref that does not resolve is a failure, not "0 differences"
+    assert.match(unknown.stderr, /is not a commit in this repository \(git said: /);
     const q = cli('query', 'SELECT count(*) AS n FROM grades', '--db', db);
     assert.equal(q.status, 0);
     assert.match(q.stdout, /^n\n1193\n/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
+
+test('db:diff --fail-on-diff exits 1 when the database holds anything the ref does not', () => withCopy((dir) => {
+  const scratch = mkdtempSync(join(tmpdir(), 'atlas-failondiff-'));
+  try {
+    editRecords(dir, 'materials', (rows) => { rows[0][columnIndex('materials', 'Best uses')] = 'an edit that no commit has'; });
+    const db = join(scratch, 'atlas.sqlite');
+    assert.equal(cli('rebuild', '--data', dir, '--out', db).status, 0);
+    const diff = cli('diff', '--against', 'HEAD', '--db', db, '--fail-on-diff');
+    assert.equal(diff.status, 1);
+    assert.match(diff.stdout, /materials: changed, 1 record\(s\) changed/);
+    assert.equal(cli('diff', '--against', 'HEAD', '--db', db).status, 0); // without the flag a difference is a report, not a failure
+  } finally { rmSync(scratch, { recursive: true, force: true }); }
+}));
