@@ -140,3 +140,37 @@ test('search: every material against every word, prefix and pair of words it can
   for (const q of [undefined, null, 5, ['pla']]) assert.equal(search.matchesQuery({ name: 'PLA' }, q), was.matchesQuery({ name: 'PLA' }, q));
   assert.ok(compared > 100_000, `a real comparison: ${compared} (material, query) pairs`);
 });
+
+// --- coverage ---------------------------------------------------------------------------------------------------------------
+
+test('coverage: the matrix, completeness, evidence summary and availability of the real catalogue are the old module\'s', async () => {
+  const coverage = await ported('coverage');
+  const was = old('coverage');
+  assert.deepEqual(coverage.COVERAGE_STATUS_RANK, was.COVERAGE_STATUS_RANK);
+  assert.deepEqual(coverage.COVERAGE_DOMAINS, was.COVERAGE_DOMAINS);
+  assert.deepEqual(coverage.coverageMatrix(db.materials, db.coverage), was.coverageMatrix(db.materials, db.coverage));
+  assert.deepEqual(coverage.coverageMatrix(db.materials.slice(5, 9), db.coverage, ['Thermal', 'Nowhere']), was.coverageMatrix(db.materials.slice(5, 9), db.coverage, ['Thermal', 'Nowhere']));
+  // Equal statuses and statuses the rank does not know: the first of the worst wins.
+  const m = [{ id: 'M1', name: 'one' }, { id: 'M2', name: 'two' }];
+  const records = [
+    { materialId: 'M1', domain: 'Thermal', status: 'Resolved', id: 'a' }, { materialId: 'M1', domain: 'Thermal', status: 'Resolved', id: 'b' },
+    { materialId: 'M2', domain: 'Thermal', status: 'Odd', id: 'c' }, { materialId: 'M2', domain: 'Thermal', status: 'Strange', id: 'd' },
+    { materialId: 'M2', domain: 'Thermal', status: 'Gap', id: 'e' }, { materialId: 'M2', domain: 'Mechanical', status: 'Gap', id: 'f' },
+  ];
+  assert.deepEqual(coverage.coverageMatrix(m, records), was.coverageMatrix(m, records));
+  assert.equal(coverage.coverageMatrix(m, records)[0].cells.find((c) => c.domain === 'Thermal').records[0], records[0]);
+
+  const keys = db.registry.headlines.map((h) => h.key);
+  const everyone = db.materials.filter((m) => !m.familyEntry);
+  for (const material of db.materials) {
+    assert.deepEqual(coverage.headlineCompleteness(material, keys), was.headlineCompleteness(material, keys), material.id);
+    assert.deepEqual(coverage.evidenceSummary(material, db), was.evidenceSummary(material, db), material.id);
+  }
+  for (const key of [...keys, 'noSuchKey']) {
+    for (const set of [db.materials, everyone, everyone.slice(10, 40), []]) assert.deepEqual(coverage.availability(set, key), was.availability(set, key), key);
+  }
+  // A headline measured at an unstated load: the dead read still counts (OPEN-PROBLEMS: loadStated is in no headline shape).
+  const stated = [{ headline: { k: { known: true, loadStated: false } } }, { headline: { k: { known: true, loadStated: true } } }, { headline: { k: { known: true, notApplicable: { rule: 'r' } } } }, {}];
+  assert.deepEqual(coverage.availability(stated, 'k'), was.availability(stated, 'k'));
+  assert.equal(coverage.availability(stated, 'k').caveats, 1);
+});
