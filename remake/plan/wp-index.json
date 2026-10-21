@@ -535,7 +535,9 @@
       "exitEvidence": "Per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised",
       "exit": {
         "commands": [
-          "npm run parity -- --milestone"
+          "npm run parity:erase",
+          "npm run parity -- --new --surface engine,ties,links",
+          "node --test tests/parity/port.test.mjs"
         ],
         "attest": [],
         "manual": [

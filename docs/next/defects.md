@@ -96,6 +96,49 @@ entries below are what the port exposed; none is fixed here, and none moves an a
   window comes from can change with a row inserted above it; a verdict does not (gap-5, inferred).
 - **Kept.** The new build reads every table `ORDER BY _ord` (the row's place in its file) and so keeps the old ties exactly.
   Choosing by a stated rule instead of by position is a change of the rule: its own step, with the owner's review.
+## WP-18: the engine port, leaves and middle (2026-10-21)
+
+Eight engine modules now have a TypeScript port beside the old file (`packages/engine/src/port/`): `pareto`, `filler`,
+`search`, `coverage`, `ledger`, `products`, `indices`, `scenario`. Each is the old module with type labels only (P-erase
+proves it), so the typing exposed the places where the old code is looser than its labels can say. The port keeps every one
+as it is (ruling Q2-19); none is fixed here.
+
+### WP18-D1. A version 1 file with an unknown chart detail opens with no chart view
+
+- **Where.** `app/js/engine/scenario.js:259-260` (`migrateV1`). The view of a version 1 chart is looked up in a literal by the
+  file's `plot.detail` (or the view its `pointLevel` and `comparability` imply): `{ material, products, measured, measured-mixed }[level ?? 'material']`.
+- **Evidence.** `validateScenario({ version: 1, lens: 'ashby', plot: { detail: 'bogus' } })` answers `plot.view: undefined`, and the
+  warning it speaks then says "test pairs (under More)", because its choice between two names is `legacyView === 'catalogue'`.
+  `plot.detail: 'catalogue'` (the new view's own name) does the same. A version 2 file does not: it falls back to `'decision'`
+  (`scenario.js:198`). The port needs a cast at this lookup (`scenario.ts`, two casts counted by the ratchet).
+- **Real data.** Not reached. The 53 harvested links and files use `detail: 'products'` or no detail; a file with another word
+  has to be edited by hand.
+- **Kept.** The port returns `undefined` exactly as the old module does (`tests/parity/port.test.mjs` fuzzes it against the
+  old module). The fix is one line (fall back to `'decision'` as the version 2 branch does), but it changes what a link opens as,
+  so it waits for its own tested change.
+
+### WP18-D2. Two kinds of headline carry a `related` field, and the engine reads both as a list of words
+
+- **Where.** `app/js/engine/products.js:204-206` writes `entry.related` as a list of up to three sentences on a product view's
+  headline. The database's own headline (`build/src/compile.js:271`, `relatedEvidence`, `:405-416`) holds `related` as an object
+  `{ count, best, grades, unit, items }`. `app/js/engine/constraints.js:196` and `:243` read `h.related?.length` and
+  `h.related.join('; ')` on either.
+- **Evidence.** On the object `.length` is `undefined`, so the sentence "Published related values: ..." is never said for a
+  material judged on its own headline; for a product view it is. `h.related.join` is only guarded by that same `.length`.
+  `products.ts` types the product view's headline as an open bag (`HeadlineBag`) because of this; the separate product-view
+  headline type that tells the two apart is the port step that follows this label step (WP-18 step 3), and `constraints` is WP-19.
+- **Real data.** Not measured here. A material is judged on its own headline only when it has no product on record.
+- **Kept.** Both reads and the writer are as they were.
+
+### WP18-D3. `coverage.js` reads `loadStated`, which no headline holds
+
+- **Where.** `app/js/engine/coverage.js:79` (`availability`): `m.headline[key].loadStated === false` counts the headlines "measured at
+  an unstated load". The same field is read in `app/js/ui/format.js:368,395`, `table.js:737`, `compare.js:139` and `material-facts.js:532`.
+- **Evidence.** No headline shape in `schema/db.schema.json` or in what `build/src/compile.js` writes has the field, so
+  `caveats` is always `0`. `coverage.ts` declares the field (`HeadlineBearer`) so the read type-checks, and says so.
+- **Real data.** Reached, with no effect: the count is `0` for every headline today.
+- **Kept.** The read stays. Deleting it (engine.md section 6 suggests it) would also change the filter rail's label code that
+  uses the count, so it is a separate change.
 
 ### Noted, not a defect
 
@@ -104,3 +147,11 @@ entries below are what the port exposed; none is fixed here, and none moves an a
   column order of a validation report. It decides nothing.
 - `build/src/products.js:612` carries `// eslint-disable-next-line no-unused-vars` above a line that no longer needs it. The
   port keeps the comment (P-erase compares comments), so `npm run lint` shows one warning for `packages/build`.
+- `app/js/engine/indices.js:38-40` (`priceCaveat`) hands `String.prototype.replace` a number (`.length`) where it wants a string.
+  JavaScript coerces it, so the sentence is right; the port marks the two call sites with a cast (`as never`) rather than
+  change the call. (WP-18)
+- `app/js/engine/products.js:109` (`productsByMaterial`) filters out the products a lookup did not find with
+  `.filter((g) => g && !g.retired)`; the type system cannot see that this removes the `undefined`, so the port states it with one cast. (WP-18)
+- `app/js/engine/ledger.js:92` (`requirementWords`) looks an operator up in a literal that has three of the four operators the
+  scenario allows (`>=` has no entry and reads as no prefix). The index is an open string, so the port casts
+  the literal. (WP-18)

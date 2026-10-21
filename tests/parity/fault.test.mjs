@@ -2,14 +2,39 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
+import { availableParallelism } from 'node:os';
+import { Worker } from 'node:worker_threads';
 import { runParity } from '../../packages/parity/src/compare.ts';
 import { FAULTS, faultByName } from '../../packages/parity/src/faults.ts';
 import { copyEngine } from '../../packages/parity/src/engine-copy.ts';
-import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
-import { cli, root, subset, engineFiles, sha } from './helpers.mjs';
+import { createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
+import { CLI_ONLY, cli, root, sharedOld, subset, engineFiles, sha } from './helpers.mjs';
 
 const before = Object.fromEntries(engineFiles.map((f) => [f, sha(f)]));
 const reports = new Map();
+
+// The nine replays (each over `subset`, about 240 cases) are the slow part of this file and are independent of each other, so
+// they run in worker threads (fault-worker.mjs), all started by the first test that asks. Three workers of three faults each: every
+// worker evaluates the old side once (the 240 answers it shares between its faults), so more workers only repeat that, and a fourth
+// would finish no sooner than three while the nine do not divide by four. What each replay does is unchanged; only the thread.
+let replays;
+function replay(name) {
+  if (!replays) {
+    replays = new Map();
+    const names = FAULTS.map((f) => f.name);
+    const groups = Array.from({ length: Math.min(availableParallelism(), 3, names.length) }, () => []);
+    names.forEach((n, i) => groups[i % groups.length].push(n));
+    for (const faults of groups) {
+      const pending = new Map(faults.map((n) => [n, Promise.withResolvers()]));
+      for (const [n, d] of pending) { replays.set(n, d.promise); d.promise.catch(() => undefined); }
+      const worker = new Worker(new URL('./fault-worker.mjs', import.meta.url), { workerData: { faults } });
+      worker.on('message', (m) => (m.error === undefined ? pending.get(m.name).resolve(m.report) : pending.get(m.name).reject(new Error(`fault ${m.name}: ${m.error}`))));
+      worker.on('error', (e) => { for (const d of pending.values()) d.reject(e); });
+      worker.on('exit', (code) => { for (const [n, d] of pending) d.reject(new Error(`the worker for fault ${n} ended (exit ${code}) without a report`)); });
+    }
+  }
+  return replays.get(name);
+}
 
 test('nine faults are planted, among them a flipped gate precedence, a swapped tie and a missing-state word turned into 0', () => {
   assert.equal(FAULTS.length, 9);
@@ -21,10 +46,7 @@ test('nine faults are planted, among them a flipped gate precedence, a swapped t
 
 for (const fault of FAULTS) {
   test(`fault ${fault.name} is caught and the moved records are named`, async () => {
-    const r = await runParity({
-      corpusName: 'v0', cases: subset, before: await createOld(readDb()),
-      after: await createOldAdapter({ name: `fault ${fault.name}`, db: readDb(), engineDir: copyEngine(fault.patches) }),
-    });
+    const r = await replay(fault.name);
     reports.set(fault.name, r);
     assert.equal(r.status, 'differs');
     assert.ok(r.differences.length > 0);
@@ -49,7 +71,8 @@ test('the three faults added in WP-05 (b) move what they say they move', () => {
 
 test('a wording-only fault moves wording and nothing else', async () => {
   const f = faultByName('reason-wording');
-  const r = await runParity({ corpusName: 'v0', cases: subset, before: await createOld(readDb()), after: await createOldAdapter({ name: 'w', db: readDb(), engineDir: copyEngine(f.patches) }) });
+  // The report of this very fault over the same cases was made by its own test above; it is made here only when run alone.
+  const r = reports.get(f.name) ?? await runParity({ corpusName: 'v0', cases: subset, before: await sharedOld(), after: await createOldAdapter({ name: 'w', db: readDb(), engineDir: copyEngine(f.patches) }) });
   assert.deepEqual([r.differencesByTier.decision, r.differencesByTier.presentation, r.differencesByTier.evidence], [0, 0, 0]);
   assert.ok(r.differencesByTier.wording > 0);
 });
@@ -59,7 +82,7 @@ test('a fault patch that no longer matches the engine fails loudly instead of be
 });
 
 test('CLI: --fault exits 5 (caught: not 1, which is "differs", and not 70, a crash) and names the fault and the moved records', () => {
-  const r = spawnSync(process.execPath, [cli, '--fault', 'tie-order', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--fault', 'tie-order', '--only', CLI_ONLY, '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 5, r.stderr);
   assert.match(r.stdout, /fault tie-order: caught/);
   assert.match(r.stdout, /moved records \(\d+\)/);
@@ -67,7 +90,7 @@ test('CLI: --fault exits 5 (caught: not 1, which is "differs", and not 70, a cra
 });
 
 test('CLI: an unknown fault is refused as a usage error (64)', () => {
-  const r = spawnSync(process.execPath, [cli, '--fault', 'nope', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--fault', 'nope', '--only', CLI_ONLY, '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 64);
   assert.match(r.stderr, /unknown fault/);
 });

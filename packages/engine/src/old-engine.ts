@@ -5,11 +5,13 @@
 // products.js, indices.js and scenario.js return today; the wrapper (boundary.ts) checks every value that becomes a
 // branded ID or a word-list member before it leaves, and keeps every other field as the engine wrote it.
 import { join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import type { ScenarioConstraint, ScenarioV2 } from '@atlas/domain';
+import { ENGINE_DIR } from './paths.ts';
+import { activePorts, stageEngine } from './port/stage.ts';
+import type { PortableModule } from './port/stage.ts';
 
-export const REPO_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
-export const ENGINE_DIR = join(REPO_ROOT, 'app', 'js', 'engine');
+export { ENGINE_DIR, REPO_ROOT } from './paths.ts';
 
 /** A requirement as the engine holds it: a scenario's own object, or the engine's TREATMENT singleton. */
 export interface RawConstraint {
@@ -131,6 +133,9 @@ export interface OldEngine {
   readonly scenario: {
     applyAssumptions(material: RawMaterial, assumptions: readonly unknown[], units: Readonly<Record<string, string>>): { readonly material: RawMaterial };
     newScenario(meta?: unknown): ScenarioV2;
+    /** The link and file decoders: a refusal is a thrown Error with words a person reads; `fromHash` answers null for no hash at all. */
+    fromHash(hash: string, meta: unknown, options: object): { scenario: Record<string, unknown>; warnings: string[] } | null;
+    deserialize(text: string, meta: unknown, options: object): { scenario: Record<string, unknown>; warnings: string[] };
   };
 }
 
@@ -142,5 +147,13 @@ export async function loadOldEngine(dir: string = ENGINE_DIR): Promise<OldEngine
   return { constraints, products, indices, scenario };
 }
 
-/** The in-tree engine, loaded once. */
-export const defaultEngine: OldEngine = await loadOldEngine();
+/**
+ * The engine with the ported modules switched in (WP-18): a staged directory (port/stage.ts) holds the old files and the
+ * ports, and a fresh set of module instances is imported from it. With no module ported it is the old engine, unedited.
+ */
+export function loadPortedEngine(ports: readonly PortableModule[] = activePorts()): Promise<OldEngine> {
+  return loadOldEngine(stageEngine(ports));
+}
+
+/** The engine the wrapper runs, loaded once: the old files, and the modules the port switch names from their TypeScript port. */
+export const defaultEngine: OldEngine = await loadPortedEngine();

@@ -10,12 +10,12 @@ import { faultByName } from '../../packages/parity/src/faults.ts';
 import { copyEngine } from '../../packages/parity/src/engine-copy.ts';
 import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
 import { buildTransition, digestOf, loadTransitions, sealOf, validateTransition } from '../../packages/parity/src/transitions.ts';
-import { cli, root, small } from './helpers.mjs';
+import { CLI_ONLY, cli, root, sharedOld, small } from './helpers.mjs';
 
 const known = new Set(small.map((c) => c.id));
 const fault = faultByName('untested-as-zero');
 const observe = async (transitions) => runParity({
-  corpusName: 'v0', cases: small, knownCaseIds: known, before: await createOld(readDb()),
+  corpusName: 'v0', cases: small, knownCaseIds: known, before: await sharedOld(),
   after: await createOldAdapter({ name: 'fault', db: readDb(), engineDir: copyEngine(fault.patches) }), transitions,
 });
 const file = (differences, over = {}) => buildTransition({ id: 't', kind: 'science', description: 'test', ruling: 'OQ-test', corpus: 'v0', differences, ...over });
@@ -62,7 +62,7 @@ test('an empty transition list is no waiver', async () => {
 });
 
 test('listing differences when the run is clean fails: they are missing', async () => {
-  const r = await runParity({ corpusName: 'v0', cases: small, knownCaseIds: known, before: await createOld(readDb()), after: await createOldAdapter({ name: 'same', db: readDb(), engineDir: copyEngine([]) }), transitions: [file(observed)] });
+  const r = await runParity({ corpusName: 'v0', cases: small, knownCaseIds: known, before: await sharedOld(), after: await createOldAdapter({ name: 'same', db: readDb(), engineDir: copyEngine([]) }), transitions: [file(observed)] });
   assert.equal(r.status, 'differs');
   assert.equal(r.transitions.missing.length, observed.length);
 });
@@ -79,7 +79,7 @@ test('a transition for another corpus is refused', async () => {
 });
 
 test('a partial run shows how many listed differences it could not check', async () => {
-  const r = await runParity({ corpusName: 'v0', cases: small.slice(0, 1), knownCaseIds: known, before: await createOld(readDb()), after: await createOld(readDb()), transitions: [file(observed)] });
+  const r = await runParity({ corpusName: 'v0', cases: small.slice(0, 1), knownCaseIds: known, before: await sharedOld(), after: await createOld(readDb()), transitions: [file(observed)] });
   assert.ok(r.transitions.skippedOutOfScope > 0);
 });
 
@@ -109,7 +109,7 @@ test('CLI: a transition file for a fault run passes with exit 0, and fails with 
   const dir = mkdtempSync(join(tmpdir(), 'h2c-trans-'));
   try {
     const out = join(dir, '2026-10-21-fault.json');
-    const base = [cli, '--fault', 'untested-as-zero', '--only', 'template/', '--allow-partial'];
+    const base = [cli, '--fault', 'untested-as-zero', '--only', CLI_ONLY, '--allow-partial'];
     const emit = spawnSync(process.execPath, [...base, '--emit-transition', out, '--id', 'fault', '--kind', 'science', '--ruling', 'OQ-test', '--description', 'x'], { cwd: root, encoding: 'utf8' });
     assert.equal(emit.status, 5, 'a caught fault, not "differs"');
     const ok = spawnSync(process.execPath, [...base, '--transitions', dir], { cwd: root, encoding: 'utf8' });

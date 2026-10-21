@@ -6,7 +6,7 @@ import { runParity } from '../../packages/parity/src/compare.ts';
 import { copyEngine } from '../../packages/parity/src/engine-copy.ts';
 import { coreSufficiencyHook, registerCoreSufficiency, runCoreSufficiency } from '../../packages/parity/src/core-sufficiency.ts';
 import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
-import { cli, root, small } from './helpers.mjs';
+import { CLI_SMALL, cli, root, small } from './helpers.mjs';
 
 test('no hook registered: not computable, with the reason, never zero', async () => {
   assert.equal(coreSufficiencyHook(), null);
@@ -18,11 +18,11 @@ test('no hook registered: not computable, with the reason, never zero', async ()
 });
 
 test('CLI: --surface core is not computable (exit 2) and names WP-25; it is never part of a default run', () => {
-  const r = spawnSync(process.execPath, [cli, '--surface', 'core', '--noop', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--surface', 'core', '--noop', ...CLI_SMALL], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 2, r.stderr);
   assert.match(r.stdout, /WP-25/);
   assert.match(r.stdout, /RESULT: not-computable/);
-  const noop = spawnSync(process.execPath, [cli, '--noop', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+  const noop = spawnSync(process.execPath, [cli, '--noop', ...CLI_SMALL], { cwd: root, encoding: 'utf8' });
   assert.equal(noop.status, 0);
   assert.doesNotMatch(noop.stdout, /core sufficiency/);
 });

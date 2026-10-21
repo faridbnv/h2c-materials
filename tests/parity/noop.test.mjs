@@ -5,7 +5,7 @@ import { spawnSync } from 'node:child_process';
 import { runParity, exitCode } from '../../packages/parity/src/compare.ts';
 import { createOld, createOldCopy } from '../../packages/parity/src/old-adapter.ts';
 import { readDb } from '../../packages/parity/src/old-adapter.ts';
-import { cli, root, subset, corpus } from './helpers.mjs';
+import { CLI_SMALL, cli, root, subset, corpus } from './helpers.mjs';
 
 test('noop on a subset: zero differences at every tier, every case compared', async () => {
   const r = await runParity({ corpusName: 'v0', cases: subset, before: await createOld(readDb()), after: await createOldCopy([], 'old-copy', readDb()) });
@@ -28,7 +28,7 @@ test('the second copy really is a separate module instance and a separate db', a
 });
 
 test('CLI: npm run parity -- --noop prints counts per tier and exits 0', () => {
-  const r = spawnSync(process.execPath, [cli, '--noop', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--noop', ...CLI_SMALL], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.stdout, /differences by tier: decision 0, presentation 0, evidence 0, wording 0 {2}\(total 0\)/);
   assert.match(r.stdout, /RESULT: zero/);

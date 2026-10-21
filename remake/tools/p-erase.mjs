@@ -34,10 +34,22 @@ export function erase(tsText) {
   return rewriteSpecifiers(stripTypeScriptTypes(tsText, { mode: 'strip' }));
 }
 
-/** One canonical text for a JavaScript file: parsed, then printed, so layout never decides equality. */
+/** A transformer that replaces every parenthesized expression by the expression inside it. */
+const withoutParentheses = (context) => (root) => {
+  const visit = (node) => (ts.isParenthesizedExpression(node) ? visit(node.expression) : ts.visitEachChild(node, visit, context));
+  return ts.visitNode(root, visit);
+};
+
+/**
+ * One canonical text for a JavaScript file: parsed, then printed, so layout never decides equality. Redundant parentheses
+ * are dropped first (the printer puts back the ones precedence needs), because erasing a cast leaves them behind:
+ * `({ a: 1 } as Words)[key]` erases to `({ a: 1 })[key]`, the old file says `{ a: 1 }[key]`, and once the parentheses are gone
+ * the two are one tree. Two files with one tree are one program, so this cannot make a change look equal.
+ */
 export function canonical(js, fileName = 'file.js') {
   const source = ts.createSourceFile(fileName, js, ts.ScriptTarget.Latest, false, ts.ScriptKind.JS);
-  return ts.createPrinter({ newLine: ts.NewLineKind.LineFeed }).printFile(source);
+  const { transformed } = ts.transform(source, [withoutParentheses]);
+  return ts.createPrinter({ newLine: ts.NewLineKind.LineFeed }).printFile(transformed[0]);
 }
 
 /** The old text with a pair's declared rewrites applied; a rewrite that finds nothing is an error, never a silent no-op. */
