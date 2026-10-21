@@ -87,8 +87,17 @@ test('P-erase: layout does not matter, a renamed variable does; import specifier
   assert.match(erase('export function f(x: number): number { return x!; }'), /return x/);
 });
 
+test('P-erase: the parentheses a cast leaves behind are not a change, but grouping that decides is', () => {
+  assert.equal(compareErased('const w = { a: 1 }[k] ?? "";', 'const w = ({ a: 1 } as Record<string, number>)[k] ?? "";').equal, true);
+  assert.equal(compareErased('const v = (a + b) * c;', 'const v: number = (a + b) * c;').equal, true);
+  assert.equal(compareErased('const v = (a + b) * c;', 'const v: number = a + b * c;').equal, false, 'dropping a needed pair of parentheses is a change');
+  assert.equal(compareErased('const v = a + b * c;', 'const v: number = (a + b) * c;').equal, false, 'adding one is a change');
+  assert.equal(compareErased('const f = () => ({ a: 1 });', 'const f = (): object => ({ a: 1 });').equal, true);
+  assert.equal(compareErased('const f = () => ({ a: 1 });', 'const f = (): number => 1;').equal, false);
+});
+
 test('npm run parity:erase passes on the committed pairs', () => {
   const run = spawnSync(process.execPath, [join(root, 'remake/tools/p-erase.mjs')], { cwd: root, encoding: 'utf8' });
   assert.equal(run.status, 0, run.stderr);
-  assert.match(run.stdout, /1 pair\(s\) label-only/);
+  assert.match(run.stdout, /[1-9]\d* pair\(s\) label-only/);
 });

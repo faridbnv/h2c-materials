@@ -34,7 +34,10 @@ const EXIT = {
   'WP-15': { commands: ['npm run checks:register -- --verify'], attest: ['untested-list-received'], manual: ['a scratch PR deleting a test fails', 'map covers every row of 00-CURRENT-STATE section 11'] },
   'WP-16': { commands: [], attest: ['owner-correction'], manual: ['clean rebuild diff = 0', 're-estimate written', 'Q2-08 answered or defaulted'] },
   'WP-17': { commands: [], manual: ['one test per command and refusal', 'coverage report', 'reviewer-kind report', 'schemaEdit round-trips'] },
-  'WP-18': { commands: ['npm run parity -- --milestone'], manual: ['per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised'] },
+  // The pack writes `parity -- --milestone`, which runs all five surfaces; build and pages wait for WP-20 and WP-24, so a run of
+  // all five exits 2. Each PR runs P-erase, the engine, ties and links surfaces (the milestone size is `--milestone` on the same
+  // flags), and the ported modules' own tests.
+  'WP-18': { commands: ['npm run parity:erase', 'npm run parity -- --new --surface engine,ties,links', 'node --test tests/parity/port.test.mjs'], manual: ['per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised'] },
   'WP-19': { commands: [], manual: ['rule cards mapped to tests', 'P-engine = 0 plus metamorphic, census, 5,000 replays', 'one verdict table in new code'] },
   'WP-20': { commands: ['npm run parity:host'], manual: ['P-build = 0', 'reproducible on one machine', 'cold build <= 26.4 s'] },
   'WP-21': { commands: [], manual: ['explore with estimates parity = 0', 'stale-key test forces recompute', 'estimates.json byte-identical after the TypeScript step'] },
