@@ -624,3 +624,13 @@ test('the old workflows are byte-identical to the base branch', () => {
     assert.ok(r.status === 0 || r.status === 129 || r.status === 128, `${f} differs from origin/wp-02-scaffold`);
   }
 });
+
+test('the remake workflows run on a pinned runner image, never ubuntu-latest; main\'s own workflows are not touched', () => {
+  const dir = join(root, '.github/workflows');
+  for (const name of readdirSync(dir).filter((f) => /^next-.*\.yml$/.test(f))) {
+    const labels = [...readFileSync(join(dir, name), 'utf8').matchAll(/^\s*runs-on:\s*(\S+)\s*$/gm)].map((m) => m[1]);
+    assert.ok(labels.length > 0, `${name} has jobs`);
+    assert.deepEqual([...new Set(labels)], ['ubuntu-24.04'], `${name}: every job runs on ubuntu-24.04`);
+  }
+  for (const name of ['verify.yml', 'pages.yml']) assert.match(readFileSync(join(dir, name), 'utf8'), /runs-on:\s*ubuntu-latest/, `${name} stays as main has it`);
+});
