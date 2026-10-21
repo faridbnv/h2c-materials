@@ -1,0 +1,30 @@
+{
+  "id": "WP-02",
+  "status": "in-review",
+  "slice": "all",
+  "branch": "wp-02-scaffold",
+  "pr": null,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-21T07:10:51.952Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run -s wp:deps",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/remake/*.test.mjs tests/claude/hooks.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: a setup-script worktree passes npm run doctor",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-21T07:10:57.179Z"
+}
