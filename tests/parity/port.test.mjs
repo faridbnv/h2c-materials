@@ -379,3 +379,69 @@ test('a fault planted in a ported module is caught by the new side of the parity
     }
   }
 });
+
+// --- indices ----------------------------------------------------------------------------------------------------------------
+
+test('indices: the table, axes, values, lines and rankings are the old module\'s, on the real catalogue', async () => {
+  const indices = await ported('indices');
+  const was = old('indices');
+  for (const name of ['INDICES', 'INDEX_UNITS', 'COST_AXIS', 'STRENGTH_CAVEAT', 'ANISOTROPY_CAVEAT', 'PRICE_CAVEAT']) assert.deepEqual(indices[name], was[name], name);
+  const materials = db.materials.filter((m) => !m.familyEntry);
+  assert.equal(indices.priceCaveat(materials), was.priceCaveat(materials));
+  assert.equal(indices.priceCaveat([]), was.priceCaveat([]));
+
+  const keys = [...db.registry.headlines.map((h) => h.key), was.COST_AXIS, 'nope'];
+  for (const [i, index] of was.INDICES.entries()) {
+    assert.deepEqual(indices.INDICES[i], index);
+    assert.deepEqual(indices.indexAxes(indices.INDICES[i]), was.indexAxes(index));
+    assert.deepEqual(indices.indexDisplay(indices.INDICES[i], 0.0123), was.indexDisplay(index, 0.0123));
+    assert.deepEqual(indices.indexDisplay(index, null), was.indexDisplay(index, null));
+    assert.equal(indices.indexById(index.id), indices.INDICES[i]);
+    for (const x of keys) for (const y of keys) assert.equal(indices.indexOrientation(index, x, y), was.indexOrientation(index, x, y));
+    for (const orientation of [undefined, 'direct', 'swapped']) for (const M of [0.001, 0.5, 7, 123.456]) {
+      assert.deepEqual(indices.selectionLine(index, M, [100, 2000], orientation), was.selectionLine(index, M, [100, 2000], orientation));
+    }
+    const values = materials.map((m) => indices.indexValue(m, index));
+    assert.deepEqual(values, materials.map((m) => was.indexValue(m, index)));
+    assert.ok(values.some((v) => v !== null && v > 0), `${index.id} ranks some material`);
+    for (const M of [0.0001, 0.001, 0.003, 0.01, 1]) assert.equal(indices.countAbove(materials, index, M), was.countAbove(materials, index, M));
+    const ranked = indices.rankByIndex(materials, index);
+    const rankedWas = was.rankByIndex(materials, index);
+    assert.equal(ranked.length, rankedWas.length);
+    ranked.forEach((r, k) => { assert.equal(r.material, rankedWas[k].material); assert.equal(r.value, rankedWas[k].value); });
+  }
+  assert.deepEqual(indices.indexDisplay(undefined, 3), was.indexDisplay(undefined, 3));
+  assert.equal(indices.indexById('nope'), null);
+  assert.equal(indices.indexOrientation(null, 'a', 'b'), null);
+});
+
+test('indices: the ranking of selected rows by every index, with the products they pass in, is the old module\'s', async () => {
+  const indices = await ported('indices');
+  const was = old('indices');
+  const oldEngine = { constraints: old('constraints'), products: old('products'), scenario: old('scenario') };
+  const group = (rows) => rows.reduce((m, r) => m.set(r.materialId, [...(m.get(r.materialId) ?? []), r]), new Map());
+  const cases = [...corpus.cases.filter((c) => c.group === 'template').slice(0, 8), ...corpus.cases.filter((c) => c.group === 'census').slice(0, 6)];
+  const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
+  let ranked = 0;
+  for (const c of cases) {
+    const q = c.scenario;
+    const ctx = {
+      db, measurementsByMaterial: group(db.measurements), evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []),
+      coverageByMaterial: group(db.coverage), productsByMaterial: oldEngine.products.productsByMaterial(db), unknownPolicy: oldEngine.constraints.normalizePolicy(q.unknownPolicy),
+      useEstimates: false, showEstimates: false, evidence: q.evidence, anneal: q.anneal === true, annealMaxC: q.annealMaxC ?? null, moisture: q.moisture === 'conditioned' ? 'conditioned' : 'dry',
+    };
+    const candidates = db.materials.filter((m) => !m.familyEntry).map((m) => oldEngine.scenario.applyAssumptions(m, [], units).material);
+    const selection = oldEngine.constraints.runSelection(candidates, q.constraints, ctx);
+    const rows = selection.evaluations.map((evaluation) => ({ material: candidates.find((m) => m.id === evaluation.materialId), evaluation }));
+    for (const index of was.INDICES) {
+      const got = indices.rankingFor(rows, ctx, index);
+      const want = was.rankingFor(rows, ctx, index);
+      assert.deepEqual(got, want, `${c.id} ${index.id}`);
+      assert.deepEqual([...got.byMaterial], [...want.byMaterial]);
+      ranked += got.order.length;
+    }
+    assert.equal(indices.rankingFor(rows, ctx, null), null);
+    assert.equal(indices.rankingFor(rows, {}, was.INDICES[0]), null);
+  }
+  assert.ok(ranked > 200, `a real comparison: ${ranked} ranked places`);
+});
