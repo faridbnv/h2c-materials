@@ -442,3 +442,13 @@ requirement its own defended range wholly fails; a second test fails if the grou
 If `verify` fails, read the first error: it names the file and line, or the material and the rule. Do
 not weaken a check to make a commit pass; if a check is wrong, say so and fix the check in its own
 commit with a reason.
+
+## The remake on `remake/v3` (added 2026-10-20)
+
+A remake of Filament Atlas is under way on the branch `remake/v3`. The owner's direction is in
+[docs/next/GOALS-NEXT.md](docs/next/GOALS-NEXT.md), its first decision record in `docs/next/decisions/`, and the
+rulings in `docs/next/rulings.csv`. While it runs, `main` is frozen: no data, code or rule changes land there, and the
+live site stays as it is until the owner approves a cutover. On `remake/v3`, the old paths (`data/`, `schema/`, `app/`,
+`build/`, `scripts/`, `test/`, `archive/`) are the frozen comparison baseline and are not edited; new work goes in
+`packages/`, `apps/`, `db/`, `tests/`, `parity/`, `remake/` and `docs/next/`, and arrives only by pull request into
+`remake/v3`. The rules above for changing data still describe `main`. Rules specific to Claude Code are in `CLAUDE.md`.

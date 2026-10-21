@@ -1,0 +1,60 @@
+{
+  "model": "claude-opus-5-5",
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": { "effortLevel": "high" },
+    "claude-sonnet-5-5": { "effortLevel": "high" },
+    "claude-haiku-5-5": { "effortLevel": "medium" }
+  },
+  "env": { "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5-5" },
+  "enabledPlugins": {
+    "code-modernization@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "data@knowledge-work-plugins": true,
+    "modern-web-guidance@knowledge-work-plugins": true,
+    "pdf-viewer@synced": false,
+    "cowork-plugin-management@synced": false
+  },
+  "permissions": {
+    "deny": [
+      "Bash(git push origin main*)",
+      "Bash(git push origin HEAD:main*)",
+      "Bash(git push origin remake/v3*)",
+      "Bash(git push origin HEAD:remake/v3*)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean *)",
+      "Bash(npm run wp:attest*)",
+      "Edit(data/**)",
+      "Write(data/**)",
+      "Edit(schema/**)",
+      "Write(schema/**)",
+      "Edit(app/**)",
+      "Write(app/**)",
+      "Edit(build/**)",
+      "Write(build/**)",
+      "Edit(scripts/**)",
+      "Write(scripts/**)",
+      "Edit(test/**)",
+      "Write(test/**)",
+      "Edit(archive/**)",
+      "Write(archive/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-git.mjs\"" }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/review-reminder.mjs\"" }] }
+    ]
+  }
+}
