@@ -1,6 +1,7 @@
 // Shared by the WP-10 tests (not a test itself): a sandbox workspace cloned from one template built once per test file, a
 // correction of a real measurement (V000001, the PLA density of 1.24 g/cc) that passes every guard, and a fake private store.
 // Nothing here writes under the repository's data/.
+import assert from 'node:assert/strict';
 import { cpSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -72,4 +73,55 @@ export function command(ws, overrides = {}) {
     base: { snapshotDigest: stamp.snapshotDigest, commit: stamp.commit },
     ...overrides,
   };
+}
+
+// ---------------------------------------------------------------- WP-17 helpers (the other commands)
+import { snapshotDigestOf, tableDigests } from '../../packages/data/src/digest.ts';
+import { textExpression } from '../../packages/data/src/storage.ts';
+
+export const ACTOR = { kind: 'agent', name: 'h2c-implementer', model: 'claude-sonnet-5-5' };
+
+/** A private store with several documents: { <sha256>: [page 1 text, page 2 text, ...] }. */
+export function storeOf(documents) {
+  return {
+    document: (sha) => {
+      const pages = documents[sha];
+      return pages === undefined ? null : { pageCount: pages.length, squeezedPage: (n) => (n >= 1 && n <= pages.length ? squeeze(pages[n - 1]) : null) };
+    },
+  };
+}
+
+/** The common part of a command for the workspace as it stands: a new opId, the base it is written against, the actor and a reason. */
+export function cmd(ws, kind, fields) {
+  const stamp = ws.stamp();
+  return { opId: newOpId(), kind, reason: 'A test of the write service.', actor: ACTOR, base: { snapshotDigest: stamp.snapshotDigest, commit: stamp.commit }, ...fields };
+}
+
+export const schemaExpect = (ws) => ({ schemaDigest: ws.stamp().schemaSha256 });
+
+/** The snapshot digest of every table of the workspace as it is now: equal before and after proves a refusal changed nothing. */
+export const fingerprint = (ws) => snapshotDigestOf(tableDigests(ws.db).digests);
+
+/** A record's cells by column name, found by one column's text. */
+export function recordBy(ws, table, column, value) {
+  const hit = ws.db.prepare(`SELECT _ord FROM "${table}" WHERE ${textExpression(table, column)} = ?`).get(value);
+  if (hit === undefined) return null;
+  const cells = readRow(ws.db, table, hit._ord);
+  return { ord: hit._ord, cells, get: (name) => cells[TABLE_COLUMNS[table].indexOf(name)], all: Object.fromEntries(TABLE_COLUMNS[table].map((name, k) => [name, cells[k]])) };
+}
+
+/** Run `build(ws)` as a command, expect a refusal with `code`, and prove nothing in the workspace changed. */
+export async function refusedWith(code, build, options = {}) {
+  const sb = await scratch(options);
+  try {
+    const before = fingerprint(sb.ws);
+    const journal = journalSize(sb.ws);
+    const result = sb.ws.apply(build(sb.ws));
+    assert.equal(result.status, 'refused', JSON.stringify(result));
+    assert.equal(result.code, code, result.detail);
+    assert.ok(result.detail.length > 20, 'a refusal says why in words');
+    assert.equal(fingerprint(sb.ws), before, 'a refused command changes no cell');
+    assert.equal(journalSize(sb.ws), journal, 'a refused command writes no change record');
+    return result;
+  } finally { sb.cleanup(); }
 }

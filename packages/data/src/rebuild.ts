@@ -10,20 +10,20 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { closeSync, existsSync, fsyncSync, mkdirSync, openSync, readFileSync, readdirSync, renameSync, rmSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { performance } from 'node:perf_hooks';
-import { TABLE_NAMES, TABLES } from './generated/columns.ts';
+import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { constraintKind, open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { CsvError, parseCsv } from './csv.ts';
 import type { CsvRecord } from './csv.ts';
+import { BASE_MODEL, REPO_ROOT, STORAGE_DDL } from './schema-model.ts';
+import type { SchemaModel } from './schema-model.ts';
 import { countRows, headerMatches, isTableName, quoteIdent, storageOf } from './storage.ts';
 
-export const REPO_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
+export { REPO_ROOT, STORAGE_DDL };
 export const DEFAULT_DATA_DIR = join(REPO_ROOT, 'data');
 export const WORKSPACE_DB = join(REPO_ROOT, '.workspace/atlas.sqlite');
-export const STORAGE_DDL = join(REPO_ROOT, 'db/generated/storage.sql');
 const VIEWS_DIR = join(REPO_ROOT, 'db/views');
 const MAX_PROBLEMS = 20;
 /** Throws on a byte sequence that is not UTF-8, instead of replacing it: a replaced byte would hide a damaged file from the compare. */
@@ -67,7 +67,7 @@ const isManifest = (value: unknown): value is Manifest =>
   typeof value === 'object' && value !== null && 'tables' in value && typeof value.tables === 'object' && value.tables !== null;
 
 /** Read data/tables/*.csv and data/manifest.json under `dataDir` and check them against the schema's table list. */
-export function readInputs(dataDir: string): Inputs {
+export function readInputs(dataDir: string, model: SchemaModel = BASE_MODEL): Inputs {
   const problems: string[] = [];
   const general: string[] = [];
   const byTable = new Map<string, string>();
@@ -109,8 +109,8 @@ export function readInputs(dataDir: string): Inputs {
       else throw error;
       continue;
     }
-    if (!headerMatches(table, parsed.header)) {
-      fail(table, `the header is [${parsed.header.join(' | ')}] but the schema's columns are [${storageOf(table).header.join(' | ')}]`);
+    if (!headerMatches(table, parsed.header, model)) {
+      fail(table, `the header is [${parsed.header.join(' | ')}] but the schema's columns are [${storageOf(table, model).header.join(' | ')}]`);
       continue;
     }
     const digest = sha256(bytes);
@@ -162,12 +162,29 @@ function gitState(): { commit: string; tree: string } {
   }
 }
 
+export interface BuildOptions {
+  /** Create db/views too (default). A measurement over old snapshots, whose columns the current views may not know, turns them off. */
+  readonly views?: boolean;
+}
+
+/** Create the views of db/views and prove each can be queried; returns them with their row counts. */
+export function createViews(db: Db): { readonly viewSql: readonly string[]; readonly views: { readonly view: string; readonly rows: number }[] } {
+  const viewSql = readViewSql();
+  for (const sql of viewSql) db.exec(sql);
+  const views = db.prepare("SELECT name FROM sqlite_schema WHERE type = 'view' ORDER BY name").all().map((row) => {
+    const name = String(row.name);
+    return { view: name, rows: countRows(db, name) };
+  });
+  if (views.length !== viewSql.length) throw new DataInputError([`db/views has ${viewSql.length} files but the database has ${views.length} views`]);
+  return { viewSql, views };
+}
+
 /** Load the inputs into an empty database and verify everything. Throws DataInputError on any problem. */
-export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
+export function buildDatabase(db: Db, inputs: Inputs, model: SchemaModel = BASE_MODEL, options: BuildOptions = {}): BuildReport {
   if (inputs.problems.length) throw new DataInputError(inputs.problems);
   const t0 = performance.now();
   const checks: string[] = [];
-  const storageDdl = readFileSync(STORAGE_DDL, 'utf8');
+  const storageDdl = model.storageDdl;
   db.exec(storageDdl);
   db.exec(META_DDL);
 
@@ -177,7 +194,7 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
     for (const table of TABLE_NAMES) {
       const input = inputs.tables.get(table);
       if (!input) throw new Error(`internal: ${table} passed the input checks but has no data`);
-      const storage = storageOf(table);
+      const storage = storageOf(table, model);
       const insert = tx.prepare(storage.insertSql);
       input.records.forEach((record, k) => {
         try {
@@ -190,7 +207,7 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
         }
       });
     }
-    if (!problems.length) problems.push(...foreignKeyProblems(tx, inputs));
+    if (!problems.length) problems.push(...foreignKeyProblems(tx, inputs, model));
     if (problems.length) throw new DataInputError(problems);
   });
   checks.push(`loaded ${TABLE_NAMES.length} tables under STRICT types, CHECK constraints and foreign keys (${inputs.tables.size} of ${TABLE_NAMES.length} inputs)`);
@@ -198,14 +215,8 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
 
   const verifyProblems = verifyStored(db, inputs, checks);
   if (verifyProblems.length) throw new DataInputError(verifyProblems);
-  const viewSql = readViewSql();
-  for (const sql of viewSql) db.exec(sql);
-  const views = db.prepare("SELECT name FROM sqlite_schema WHERE type = 'view' ORDER BY name").all().map((row) => {
-    const name = String(row.name);
-    return { view: name, rows: countRows(db, name) };
-  });
-  if (views.length !== viewSql.length) throw new DataInputError([`db/views has ${viewSql.length} files but the database has ${views.length} views`]);
-  checks.push(`${views.length} views created and queried`);
+  const { viewSql, views } = options.views === false ? { viewSql: [], views: [] } : createViews(db);
+  checks.push(options.views === false ? 'views not created (an old snapshot)' : `${views.length} views created and queried`);
 
   const rows = [...inputs.tables.values()].reduce((sum, t) => sum + t.records.length, 0);
   const info = db.info();
@@ -214,8 +225,13 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
     commit: git.commit,
     tree: git.tree,
     manifest_sha256: inputs.manifestSha256 ?? 'unknown',
-    schema_sha256: schemaDigest(),
+    schema_sha256: model.digest,
     storage_ddl_sha256: sha256(storageDdl),
+    // What the repository's own schema is, beside the schema this database holds: they differ only after a schemaEdit (WP-17). The open check
+    // compares the repository's, so a workspace whose schema a pending edit changed is not mistaken for one that is behind Git.
+    base_schema_sha256: BASE_MODEL.digest,
+    base_storage_ddl_sha256: sha256(BASE_MODEL.storageDdl),
+    ...(Object.keys(model.overlay).length ? { schema_overlay: JSON.stringify(model.overlay) } : {}),
     views_sha256: sha256(viewSql.join('\0')),
     sqlite_version: info.sqlite,
     node_version: info.node,
@@ -241,7 +257,7 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
 }
 
 /** Rows whose reference has no parent, named by file line, column and value. */
-function foreignKeyProblems(db: Db, inputs: Inputs): string[] {
+function foreignKeyProblems(db: Db, inputs: Inputs, model: SchemaModel): string[] {
   const out: string[] = [];
   const violations = db.prepare('PRAGMA foreign_key_check').all();
   for (const violation of violations.slice(0, MAX_PROBLEMS)) {
@@ -253,7 +269,7 @@ function foreignKeyProblems(db: Db, inputs: Inputs): string[] {
     const value = typeof rowid === 'number' ? db.prepare(`SELECT ${quoteIdent(column)} AS v FROM ${quoteIdent(table)} WHERE rowid = ?`).get(rowid)?.v : undefined;
     const known = isTableName(table) ? table : undefined;
     const line = known && typeof rowid === 'number' ? inputs.tables.get(known)?.records[rowid - 1]?.line : undefined;
-    const header = known ? TABLES[known].columns.find((c) => c.sqlName === column)?.name : undefined;
+    const header = known ? model.tables[known].columns.find((c) => c.sqlName === column)?.name : undefined;
     out.push(`data/tables/${table}.csv:${line ?? '?'}: ${header ?? column} "${String(value)}" has no row in ${parent}`);
   }
   if (violations.length > MAX_PROBLEMS) out.push(`${violations.length - MAX_PROBLEMS} more foreign key violation(s) not described`);
@@ -294,13 +310,13 @@ function verifyStored(db: Db, inputs: Inputs, checks: string[]): string[] {
 // ---------------------------------------------------------------- entry points
 
 /** A complete database in memory, for the round trip and for tests. */
-export function buildInMemory(dataDir: string = DEFAULT_DATA_DIR): { db: Db; report: BuildReport; inputs: Inputs } {
+export function buildInMemory(dataDir: string = DEFAULT_DATA_DIR, model: SchemaModel = BASE_MODEL, options: BuildOptions = {}): { db: Db; report: BuildReport; inputs: Inputs } {
   const t0 = performance.now();
-  const inputs = readInputs(dataDir);
+  const inputs = readInputs(dataDir, model);
   const read = performance.now() - t0;
   const db = open(':memory:');
   try {
-    const report = buildDatabase(db, inputs);
+    const report = buildDatabase(db, inputs, model, options);
     return { db, inputs, report: { ...report, ms: { ...report.ms, read, total: report.ms.total + read } } };
   } catch (error) {
     db.close();
@@ -330,11 +346,12 @@ function removeAbandonedPartials(dbPath: string): void {
  * was there untouched and removes the partial one. The file it replaces is thrown away with its journal and WAL: a workspace
  * that holds drafts is backed up by the write service (WP-10) before it is rebuilt.
  */
-export function rebuildWorkspace(options: { readonly dataDir?: string; readonly dbPath?: string } = {}): BuildReport & { readonly dbPath: string } {
+export function rebuildWorkspace(options: { readonly dataDir?: string; readonly dbPath?: string; readonly model?: SchemaModel } = {}): BuildReport & { readonly dbPath: string } {
   const dataDir = options.dataDir ?? DEFAULT_DATA_DIR;
+  const model = options.model ?? BASE_MODEL;
   const dbPath = options.dbPath ?? WORKSPACE_DB;
   const t0 = performance.now();
-  const inputs = readInputs(dataDir);
+  const inputs = readInputs(dataDir, model);
   const read = performance.now() - t0;
   mkdirSync(dirname(dbPath), { recursive: true });
   removeAbandonedPartials(dbPath);
@@ -346,7 +363,7 @@ export function rebuildWorkspace(options: { readonly dataDir?: string; readonly 
     // The file is disposable until it is renamed into place, so the bulk load skips the journal and the syncs.
     db.exec('PRAGMA journal_mode = OFF');
     db.exec('PRAGMA synchronous = OFF');
-    const report = buildDatabase(db, inputs);
+    const report = buildDatabase(db, inputs, model);
     db.close();
     flushToDisk(partial); // the load ran with synchronous = OFF; a crash after the rename must not leave a torn file in place
     for (const file of sidecars(dbPath)) rmSync(file, { force: true }); // a stale -wal beside a new file could be replayed onto it

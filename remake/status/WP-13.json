@@ -1,6 +1,6 @@
 {
   "id": "WP-13",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-13-editor",
   "pr": 20,
@@ -37,10 +37,11 @@
       "note": "Tier 1; the owner's sitting is WP-16"
     }
   ],
-  "waitingSince": "2026-10-21",
+  "waitingSince": null,
   "approvedAt": null,
-  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); impact preview runs the real WP-11 engine in its own thread",
+  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); impact preview runs the real WP-11 engine in its own thread; delivered by merged PR #20 (2026-10-21); open at merge: the owner's sitting with the editor was WP-16 (done)",
   "prs": [
     20
-  ]
+  ],
+  "doneAt": "2026-10-21"
 }

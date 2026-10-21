@@ -1,0 +1,840 @@
+// Compile: turn the data tables into the normalized runtime database.
+//
+// The one rule that shapes this file: a number is read from its measurement, never typed a second time. Each product's
+// value for a headline is chosen by rule from its own measurements, and a material's headline is its products' spread
+// (products.js, D83); nobody selects either. Where no product publishes a comparable value the headline is missing,
+// with the related evidence and implied bounds a reader, and the estimate stage, can use.
+
+import { inDataset } from './retired.ts';
+import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS } from './normalize/values.ts';
+import { normalizeDirection } from './normalize/direction.ts';
+import { parseHdtStandard } from './normalize/thermal.ts';
+import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule, offRecipeWhy, judgeHeatTreatments } from './normalize/specimen.ts';
+import { moistureState } from './normalize/moisture.ts';
+import { parseNozzleDiameters, H2C_BASELINE, PROCESS_STATE } from './normalize/process.ts';
+import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.ts';
+import { ENVIRONMENT_CATEGORIES, SPARSE_PROPERTIES, derivedCoverage } from './coverage-rules.ts';
+import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.ts';
+import { ORIGIN } from './normalize/provenance.ts';
+import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped, applyTestTemperatureTyped, checkMeasurementReviewStale } from './typed-values.ts';
+import { readRecipe, checkMakerEnclosed } from './recipe.ts';
+import { compilePrintGuide } from './print-guide.ts';
+import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.ts';
+import { aggregateGate, aggregateDrying } from './gates.ts';
+import { lowerBoundsOf } from './lower-bounds.ts';
+import { attachProducts, productName, TEST_TEMPERATURE_TOLERANCE_C, markUndescribedCounts } from './products.ts';
+import { compileConversions, compileClassLimits } from './evidence-ledger.ts';
+import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.ts';
+import { attachKnowHow } from './know-how.ts';
+import { attachProductClaims } from './product-claims.ts';
+import { indexPageContext, contextFor, inheritPageContext } from './page-context.ts';
+import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.ts';
+import { attachWritten } from './written.ts';
+import { DIAMETER_FITS } from './diameters.ts';
+import type { Dyn } from './types.ts';
+
+const num = (cell: Dyn) => { const p = parseValue(cell); return p.known ? p.value : null; };
+
+export { TEMP_WINDOW } from './recipe.ts';
+
+// ---------------------------------------------------------------------------- measurements
+
+function compileMeasurements(rows: Dyn, fatigueRows: Dyn, issues: Dyn, pageContextRows: Dyn = []) {
+  const fatigueById = new Map<Dyn, Dyn>(fatigueRows.map((f: Dyn) => [f.MeasurementID, f]));
+  // What each source page states once for its values (D116): inherited where a row states nothing.
+  const pageContext = indexPageContext(pageContextRows);
+  return rows.map((r: Dyn) => {
+    const status = DATA_STATUS[r['Data status']] ?? null;
+    if (!status) issues.push({ level: 'error', code: 'DATA-STATUS-UNKNOWN', where: `Properties row ${r.__row}`, message: `Unknown Data status "${r['Data status']}"` });
+
+    const value = num(r['Normalized value']);
+    const uncertainty = num(r['Normalized uncertainty ±']);
+    const upperBound = num(r['Normalized upper bound']);
+    const operator = parseOperator(r.Operator);
+    const direction = normalizeDirection(r.Direction);
+    const quarantined = !!status?.quarantined;
+    const numeric = !!status?.numeric && value !== null && !quarantined;
+
+    applyStateTyped(r, issues);
+    const m: Dyn = {
+      id: r.MeasurementID,
+      materialId: r.MaterialID,
+      gradeId: r.GradeID,
+      property: r.Property,
+      value: numeric ? value : null,
+      unit: r['Normalized unit'],
+      interval: numeric ? toInterval({ value, uncertainty, upperBound, operator }) : null,
+      uncertainty: numeric && uncertainty !== null ? uncertainty : null,
+      operator,
+      dataStatus: r['Data status'],
+      corrected: !!status?.corrected,
+      implausible: !!status?.implausible,
+      qualitative: !!status?.qualitative,
+      quarantined,
+      numeric,
+      specimenType: r['Specimen type'],
+      specimenForm: specimenForm(r['Specimen type']),
+      direction: direction.canonical,
+      directionText: direction.text,
+      moisture: r['Moisture condition'],
+      moistureState: moistureState(r['Moisture state']),
+      postProcessing: r['Post-processing'],
+      postProcessingState: postProcessingState(r['Post-processing state']),
+      // The annealing schedule, from the typed columns; null when the value was not annealed.
+      anneal: applyAnnealTyped(r, parseAnnealSchedule(r['Post-processing'], r['Post-processing state']), issues),
+      testTemperature: r['Test temperature'],
+      standardText: r['Standard / load'],
+      standards: applyStandardsTyped(r, issues),
+      notch: r.Notch,
+      printParameters: r['Specimen / print parameters'],
+      sourceId: r.SourceID,
+      locator: r.Locator,
+      notes: r.Notes,
+      raw: { value: r['Raw value'], unit: r['Raw unit'] },
+    };
+    // The test temperature in °C, from the typed column, where the source states one as a number (m175, D92); a
+    // measurement without it states none, which a headline defined at a temperature counts as its own.
+    const testTemperatureC = applyTestTemperatureTyped(r, issues);
+    if (testTemperatureC != null) m.testTemperatureC = testTemperatureC;
+
+    if (r.Property === 'HDT') {
+      const h = applyLoadTyped(r, parseHdtStandard(r['Standard / load']), issues);
+      m.thermal = { standard: h.standard, loadMPa: h.loadMPa, loadStated: h.loadStated, label: h.label, origin: ORIGIN.PARSED };
+    }
+    // A value the product's name states (TPU 95A, PA6-GF30) is evidence of its grade, never a headline's value (D150).
+    // Set only where it holds, so every other record keeps its shape.
+    if (status?.nominal) m.nominal = true;
+    checkMeasurementReviewStale(r, issues);
+    if (r.Property === 'Fatigue life') {
+      // The loading lives in data/tables/fatigue_tests.csv, one row per fatigue measurement (m31).
+      const f = fatigueById.get(r.MeasurementID);
+      if (!f) issues.push({ level: 'error', code: 'FATIGUE-LOADING', where: `measurements ${r.MeasurementID}`, message: 'A Fatigue life measurement has no row in fatigue_tests.csv' });
+      m.fatigue = {
+        stressMax: num(f?.['Stress max MPa']), stressMin: num(f?.['Stress min MPa']),
+        amplitude: num(f?.['Stress amplitude MPa']), frequencyHz: num(f?.['Frequency Hz']),
+        loadRatioR: num(f?.['Load ratio R']), runOut: f?.['Run-out'] ?? 'Not applicable',
+      };
+    }
+    inheritPageContext(m, r, contextFor(pageContext, r));
+    return m;
+  });
+}
+
+// ---------------------------------------------------------------------------- profiles
+
+function compileProfiles(rows: Dyn, noteRows: Dyn, issues: Dyn) {
+  // A profile's qualitative notes are its rows of profile_notes.csv, in table order (m44).
+  const notesById = new Map<Dyn, Dyn>();
+  for (const n of noteRows) {
+    if (!notesById.has(n.ProfileID)) notesById.set(n.ProfileID, []);
+    notesById.get(n.ProfileID).push({ topic: n.Topic, text: n.Text });
+  }
+  return rows.map((r: Dyn) => {
+    // The stored typed values decide; the parsers' reading of the raw text checks them (recipe.js, typed-values.js).
+    // A sheet that says only that no enclosure is needed clears the chamber question too; one that recommends an
+    // enclosure leaves it unknown (recipe.js), unless its row declares it "enclosed" for a type its printer maker's
+    // guide asks an enclosure for (D93).
+    const recipe = readRecipe(r, issues, { where: `profiles ${r.ProfileID}`, unreadWhere: `Print setup row ${r.__row}` });
+    return {
+      id: r.ProfileID,
+      materialId: r.MaterialID,
+      gradeId: r.GradeID,
+      profile: r.Profile,
+      nozzle: recipe.nozzle, bed: recipe.bed, chamber: recipe.chamber,
+      gates: recipe.gates,
+      enclosure: r.Enclosure,
+      enclosureState: recipe.enclosureState,
+      plate: r.Plate,
+      nozzleMaterial: r['Nozzle material'],
+      nozzleDiameter: parseNozzleDiameters(r['Nozzle diameter']),
+      abrasion: recipe.abrasion,
+      drying: recipe.drying,
+      // Routing and AMS fields are carried verbatim. 133 of 160 say "Verify exact grade", so they
+      // are evidence chips in the detail view, never filters. See the plan, section 5.4.
+      routing: { left: r['H2C left'], right: r['H2C right'], ams2Pro: r['AMS 2 Pro'], amsHT: r['AMS HT'], amsPublished: r['AMS published'] },
+      supportPairing: r['Support pairing'],
+      failureModes: r['Failure modes'],
+      notes: notesById.get(r.ProfileID) ?? [],
+      sourceId: r.SourceID,
+      h2cSourceId: r['H2C SourceID'],
+      locator: r.Locator,
+    };
+  });
+}
+
+/**
+ * What a printer owner needs before anything else: what to set the machine to, and where to buy it.
+ *
+ * Both already existed in the compiled data and neither reached the interface. The temperatures sat
+ * inside individual print profiles, one tab deep in the material drawer. The purchase links sat on
+ * 104 price observations and were never rendered anywhere at all, so a user who decided on a
+ * material had no route to buying it.
+ */
+export function printSummary(profiles: Dyn) {
+  const pick = (axis: Dyn) => {
+    // An open window is published evidence too: "> 80 °C" is a lower bound with no upper one, "up to 60 °C" the reverse
+    // (data audit 2026-10-01, RC2). The summary keeps the missing end missing rather than inventing it.
+    const ranges = profiles.map((p: Dyn) => p[axis]).filter((t: Dyn) => t.state === 'range' && (t.max !== null || t.min !== null));
+    if (!ranges.length) return null;
+    // The widest published window across this material's grades, so the table never implies a
+    // tighter requirement than the sources support.
+    const min = ranges.some((r: Dyn) => r.min === null) ? null : Math.min(...ranges.map((r: Dyn) => r.min));
+    const max = ranges.some((r: Dyn) => r.max === null) ? null : Math.max(...ranges.map((r: Dyn) => r.max));
+    return { min, max, profiles: ranges.length };
+  };
+  return { nozzleC: pick('nozzle'), bedC: pick('bed'), chamberC: pick('chamber'), chamberGuidance: chamberGuidance(profiles) };
+}
+
+/**
+ * A material's print gate on one axis: the best verdict of its profiles (gates.js), whose reason is one profile's window.
+ * Its other products' own gates may quote other windows (PEEK's nozzle read 3D4Makers PEEK's 360–400 °C while 3DXTECH
+ * ThermaX PEEK's own gate said 400–480 °C; the research review's F-0188), so a reason a profile stated names the product
+ * it was read from, as a product's names a twin's sheet or its guide (D88, D89). A product's own reason is not changed.
+ */
+function materialGate(profiles: Dyn, axis: Dyn, gradeById: Dyn) {
+  const gate = aggregateGate(profiles, axis);
+  const grade = gradeById.get(gate.gradeId);
+  // A profile that states nothing speaks for no product: "No temperature published" is not one product's finding.
+  const stated = gate.verdict !== 'unknown' || gate.categorical;
+  return grade && stated ? { ...gate, reason: `${gate.reason} (from the print settings of ${productName(grade)})` } : gate;
+}
+
+/**
+ * What the sources say about the chamber when they say it in words.
+ *
+ * "Recommended", "not required" and a data sheet's "-" are manufacturer evidence and deserve to be
+ * seen, but none is a temperature, and none may become one. This keeps the strongest statement
+ * across a material's profiles: a source saying no heated chamber is needed outranks one
+ * recommending a chamber without a number, which outranks one listing no setpoint.
+ */
+const GUIDANCE_ORDER = ['not-required', 'recommended', 'no-setpoint'];
+function chamberGuidance(profiles: Dyn) {
+  const found = profiles.map((p: Dyn) => p.chamber).map((c: Dyn) => {
+    if (c.state === PROCESS_STATE.NOT_REQUIRED || c.state === PROCESS_STATE.AMBIENT) {
+      return { state: 'not-required', label: c.state === PROCESS_STATE.AMBIENT ? 'Room temperature' : 'Not required', fromEnclosure: !!c.fromEnclosure };
+    }
+    if (c.state === PROCESS_STATE.RECOMMENDED) return { state: 'recommended', label: 'Recommended' };
+    if (c.state === PROCESS_STATE.NO_SETPOINT) return { state: 'no-setpoint', label: 'No setpoint' };
+    return null;
+  }).filter(Boolean);
+  if (!found.length) return null;
+  for (const state of GUIDANCE_ORDER) {
+    const hits = found.filter((f: Dyn) => f.state === state);
+    if (hits.length) return { ...hits.find((h: Dyn) => !h.fromEnclosure) ?? hits[0], profiles: hits.length };
+  }
+  return null;
+}
+
+/**
+ * Where to buy from a set of sampled offers: the best listing, how many there are and whether any was in stock. A
+ * material's is its products' offers together, shown as context; a product's is its own, and only a product's decides
+ * whether it can be bought (D98): another product's stock is not its own.
+ */
+function offerSummary(offers: Dyn) {
+  // A quarantined observation is a different product. It can be neither the buy link nor the
+  // evidence that a material is in stock. A foreign listing prices a product and lists it nowhere in Canada (D113).
+  const mine = offers.filter((p: Dyn) => p.url && !p.quarantined && !p.foreign);
+  if (!mine.length) return null;
+  // Prefer something you can actually buy today at a price the headline was built from.
+  const rank = (p: Dyn) => (p.stock === 'In stock' ? 4 : 0) + (p.headlineSample ? 2 : 0) + (p.regularPerKg !== null ? 1 : 0);
+  const best = [...mine].sort((a, b) => rank(b) - rank(a) || (a.regularPerKg ?? 1e9) - (b.regularPerKg ?? 1e9))[0];
+  return {
+    url: best.url, retailer: best.retailer, variant: best.variant, packaging: best.packaging,
+    netMassKg: best.netMassKg, perKg: best.regularPerKg, stock: best.stock, accessDate: best.accessDate,
+    offers: mine.length,
+    anyInStock: mine.some((p: Dyn) => p.stock === 'In stock'),
+    priceIds: mine.map((p: Dyn) => p.id),
+  };
+}
+const buySummary = (materialId: Dyn, prices: Dyn) => offerSummary(prices.filter((p: Dyn) => p.materialId === materialId));
+
+// ---------------------------------------------------------------------------- headlines
+
+const NOT_PUBLISHED = parseValue('Not published');
+const NOT_APPLICABLE = parseValue('Not applicable');
+
+/**
+ * A material's measurement headlines before its products are summarised: not applicable where the headline's Applies
+ * to excludes the material, else missing, with its related evidence and implied bounds. attachProducts (products.js)
+ * replaces each one its products publish comparably with their spread.
+ */
+function compileHeadlines(mat: Dyn, registry: Dyn, measurementsByMaterial: Dyn) {
+  const headline: Dyn = {};
+  for (const def of measurementHeadlines(registry)) {
+    const { key, unit } = def;
+    // A headline limited to some materials does not apply to the rest: not a gap, a statement.
+    if (!applies(def.appliesTo, mat)) {
+      headline[key] = { known: false, missing: NOT_APPLICABLE.missing, text: NOT_APPLICABLE.text, unit, notApplicable: { reason: def.notApplicableReason, rule: def.appliesToText } };
+      continue;
+    }
+    headline[key] = {
+      known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
+      related: relatedEvidence(mat, def, measurementsByMaterial),
+      impliedBounds: impliedBounds(mat, def, measurementsByMaterial),
+    };
+  }
+  return headline;
+}
+
+// There is deliberately NO cross-property fallback.
+//
+// An earlier version fell back to Vicat and glass transition when a material had no HDT. For TPE
+// that surfaced its glass transition of -35 C in a column headed "HDT at 0.45 MPa", which is a
+// different physical quantity and would mislead anyone screening for heat resistance. The Method
+// sheet is explicit: keep HDT load, Tg, Vicat, melting and continuous-service ratings distinct,
+// and flexural strength is not tensile strength. Those other properties are in the material's own
+// Thermal and Mechanical tabs, correctly labelled.
+
+const DIRECTION_NOTE: Record<string, Dyn> = {
+  XY: null,
+  Z: 'Z direction, the weak axis for a printed part',
+  XZ: 'XZ orientation',
+  ZX: 'ZX orientation',
+  'horizontal-source-label': 'source says "horizontal" without defining the build orientation',
+  'vertical-xz-source-label': 'source says "vertical XZ" without defining the build orientation',
+  'along-flow': 'measured along flow',
+  'raster-45': 'printed with a ±45° raster beside the sheet\'s own XY bar, so not its XY value (D91)',
+  YX: 'labelled YX, a flat bar whose length runs along Y beside the sheet\'s own XY bar, so not its XY value (D143)',
+  'not-applicable': null,
+  unknown: 'direction not stated by the source, so it cannot be read as XY',
+};
+// Against a Z headline, the layer strength (D92): an XY value is the plastic's in-plane strength, and a value with no
+// stated direction is almost always a flat or a moulded bar.
+const Z_DIRECTION_NOTE: Record<string, Dyn> = {
+  ...DIRECTION_NOTE,
+  XY: 'XY direction, in the print plane: how strong the plastic is, not how well its layers hold together',
+  Z: null,
+  // ISO/ASTM 52921 names a bar by the axis along its length first; a sheet that shows or says its bar stood upright is
+  // recorded Z (m191), so what is left under these labels is a bar whose stance the source does not settle.
+  XZ: 'labelled XZ, a bar on its edge by ISO/ASTM 52921, and the source does not show it pulled across its layers',
+  ZX: 'labelled ZX, an upright bar by ISO/ASTM 52921, but the source does not show or say how the bar stood',
+  'not-applicable': 'direction not stated by the source, so it cannot be read as Z',
+  unknown: 'direction not stated by the source, so it cannot be read as Z',
+};
+/**
+ * Why a measurement's direction keeps it from a headline, or null. A headline without a direction (density, heat
+ * deflection, glass transition) has no direction to miss, so a value's direction is no reason there.
+ */
+const directionNote = (m: Dyn, def: Dyn) => (!def.direction || m.direction === def.direction ? null
+  : (def.direction === 'Z' ? Z_DIRECTION_NOTE : DIRECTION_NOTE)[m.direction]
+    // A row recorded Not applicable (most impact rows, whose sheets state no orientation) is, to a headline with a
+    // direction, a direction not stated: products.js reads it so (UNSTATED_DIRECTIONS), and so does the reason.
+    ?? (m.direction === 'not-applicable' ? DIRECTION_NOTE.unknown : null));
+
+/**
+ * Why an impact value is not the headline's (D92): another test, a notch the source does not state, a cold bar. Null
+ * where none of these applies, or the headline sets none of them. A value in another unit, or of the other notch, is
+ * never shown in its place.
+ */
+function conditionNote(m: Dyn, def: Dyn, props: Dyn) {
+  if (def.notch && !def.valueProperties.includes(m.property)) return `${m.property}, not ${props[0]}: the source names another test on another bar, or none`;
+  if (def.notch && m.notch !== def.notch) return 'the source does not state whether the bar was notched';
+  if (def.standard && m.standards?.length && !m.standards.includes(def.standard)) return `measured to ${m.standards.join(', ')}, not ${def.standard}: another test's bar, or its value converted by the maker`;
+  if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) return `struck at ${m.testTemperatureC} °C, not at room temperature`;
+  return null;
+}
+
+/**
+ * Measurements of the material that bound a missing headline from below (headline_definitions.csv Lower bound). The
+ * engine lets one veto an estimate's screen when it meets the requirement: the headline is at least that value.
+ * lower-bounds.js says which specimens and states bound.
+ */
+function impliedBounds(mat: Dyn, def: Dyn, measurementsByMaterial: Dyn) {
+  return lowerBoundsOf(def, measurementsByMaterial.get(mat.MaterialID) ?? []);
+}
+
+const FORM_NOTE: Dyn = {
+  moulded: 'a moulded bar (the resin supplier\'s value), not a printed specimen',
+  film: 'film specimen, not a printed part',
+  filament: 'filament strand, not a printed part',
+};
+
+/**
+ * Related evidence for a headline that has no value: none of the material's products publishes a comparable one.
+ *
+ * Many materials have a measurement on record that is not a comparable value, because the source stated no direction,
+ * measured a different endpoint, or tested a moulded bar. A blank cell hid that and implied nothing was known. It
+ * reports the closest measurement and how many there are, with why each is not comparable; it is never pooled into a
+ * range (the range of a material is its products' comparable values, D83), never becomes the headline, and never
+ * satisfies a constraint.
+ */
+export function relatedEvidence(mat: Dyn, def: Dyn, measurementsByMaterial: Dyn) {
+  const props = def.relatedProperties;
+  if (!props.length) return null;
+  const materialId = mat.MaterialID;
+
+  const items = (measurementsByMaterial.get(materialId) ?? [])
+    .filter((m: Dyn) => m.numeric && !m.quarantined && props.includes(m.property))
+    // What is shown in a headline's place is in its unit, and of its notch where it names one: an Izod value in J/m, or
+    // an unnotched bar that absorbs several times a notched one's energy, is another quantity, not a nearest one (D92).
+    // A headline that excludes an unstated direction (the layer strength) is shown only values in its own direction: an
+    // XY or unstated strength is no guide to it, being the higher of the two, where a Z value in an XY column is a
+    // lower bound. The drawer lists them all, with its note on why they are not compared.
+    .filter((m: Dyn) => m.unit === def.unit
+      && (!def.notch || !['Notched', 'Unnotched'].includes(m.notch) || m.notch === def.notch)
+      && (def.unstatedDirection !== 'excluded' || m.direction === def.direction))
+    .map((m: Dyn) => ({
+      measurementId: m.id, gradeId: m.gradeId, sourceId: m.sourceId, interval: m.interval,
+      property: m.property, value: m.value, unit: m.unit,
+      direction: m.direction, specimenType: m.specimenType, standard: m.standardText,
+      loadMPa: m.thermal?.loadMPa ?? null,
+      printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
+      implausible: !!m.implausible,
+      why: (m.implausible ? 'flagged physically implausible; see its notes' : null)
+        || (m.specimenForm === 'off-recipe' ? offRecipeWhy(m.specimenType) : FORM_NOTE[m.specimenForm])
+        || (annealedBesideAsPrinted(m, measurementsByMaterial.get(materialId)) ? 'annealed; the grade also publishes the as-printed value' : null)
+        || directionNote(m, def)
+        || (def.loadMPa != null && m.thermal && m.thermal.loadMPa !== def.loadMPa
+            ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa` : 'load not stated by the source')
+            : null)
+        || conditionNote(m, def, props)
+        || (def.endpointNote && m.property !== props[0]
+            ? `${m.property.replace('Tensile ', '')} endpoint, not the one this property is read at` : null)
+        || 'on record, but not a comparable printed value of this product',
+    }));
+  if (!items.length) return null;
+
+  // Closest to what the headline would have been: for an impact headline a bar stated to be notched above all, then its
+  // direction (XY where it has none), printed, and the headline's own property.
+  const notchOf = new Map<Dyn, Dyn>((measurementsByMaterial.get(materialId) ?? []).map((m: Dyn) => [m.id, m.notch]));
+  const score = (i: Dyn) =>
+    (def.notch && notchOf.get(i.measurementId) === def.notch ? 16 : 0)
+    + (i.direction === (def.direction ?? 'XY') ? 8 : i.direction === 'not-applicable' ? 6 : 0)
+    + (i.printed ? 4 : 0)
+    + (i.property === props[0] ? 1 : 0);
+  // A value flagged physically implausible comes after every other, whatever it scores: PEEK's printed XY Izod of
+  // 138 kJ/m², flagged, stood in for its 6 kJ/m² one (the research review's F-0187). It is kept, and where it is all
+  // there is it is shown with its flag.
+  const sorted = [...items].sort((a, b) => a.implausible - b.implausible || score(b) - score(a));
+  const best = sorted[0];
+
+  return {
+    count: items.length,
+    best,
+    grades: new Set<Dyn>(items.map((i: Dyn) => i.gradeId)).size,
+    unit: best.unit,
+    items: sorted.slice(0, 10),
+  };
+}
+
+const NOT_IN_MARKET = parseValue('Not available in sampled Canadian market');
+
+/**
+ * Method, Pricing / Calculations: the headline is the median regular CAD/kg of the material's
+ * headline-sample observations, to the cent: its Canadian ones, or its converted foreign ones where it has no Canadian
+ * one (D113). It is calculated here, never typed, so it cannot disagree with its observations; a material with no
+ * sample has no price in the sampled market.
+ */
+function compilePriceHeadline(mat: Dyn, pricesByMaterial: Dyn) {
+  const sample = priceSample(pricesByMaterial.get(mat.MaterialID) || []);
+  if (!sample.length) return { known: false, missing: NOT_IN_MARKET.missing, text: NOT_IN_MARKET.text, unit: 'CAD/kg' };
+  const converted = convertedFrom(sample);
+  return {
+    known: true, value: cents(median(sample.map((p: Dyn) => p.regularPerKg))), unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: true,
+    priceIds: sample.map((p: Dyn) => p.id), observations: sample.length,
+    // Counted here, never typed: a stored sentence could disagree with the observations it describes (D47, m45).
+    basis: `${sample.length} in-stock regular-price observation(s), before tax/shipping`,
+    ...(converted ? { converted } : {}),
+  };
+}
+
+/**
+ * What a material's headline values represent, said once per material (D47, m45; Method, Scope / Headline basis). A
+ * family entry has none of its own; a material none of whose products publishes a comparable value has insufficient
+ * comparable data; every other material shows its products' spread (D83).
+ */
+function headlineBasis(m: Dyn, selectable: Dyn) {
+  if (m.familyEntry) return 'Family entry: no values of its own; see its member materials';
+  // A headline drawn in the drawer alone (D139) is not one the material's numbers are shown on.
+  const measured = Object.entries<Dyn>(m.summary ?? {}).some(([key, s]) => key !== 'priceCADkg' && selectable.has(key) && s.n > 0);
+  if (!measured) return 'Insufficient comparable data: none of its products publishes a comparable value';
+  return 'Each number is the typical value of its products that publish it comparably, with their range; the Products tab has each one';
+}
+
+// ---------------------------------------------------------------------------- facets
+
+/** Facets the Materials sheet does not carry directly. Every one is tagged derived. */
+function deriveFacets(mat: Dyn) {
+  const name = mat['Original name'] ?? '';
+  const modifier = mat['Modifier / filler'] ?? '';
+  const reinforcement =
+    modifier === 'Carbon fibre' ? 'carbon-fibre' :
+    modifier === 'Glass fibre' ? 'glass-fibre' :
+    modifier === 'Unfilled / unspecified' ? 'unfilled' :
+    modifier === 'ESD formulation' ? 'esd' :
+    modifier === 'Foaming' ? 'foaming' : 'undisclosed';
+  return {
+    reinforcement: { value: reinforcement, origin: ORIGIN.SOURCE },
+    esd: { value: modifier === 'ESD formulation' || /\bESD\b/.test(name), origin: ORIGIN.DERIVED, from: 'Modifier / filler and name' },
+    // Carbon, glass, aramid or plant fibre: what the rule on abrasive fillers applies to (method.csv, D121).
+    fibre: { value: /fibre/i.test(modifier), origin: ORIGIN.DERIVED, from: 'Modifier / filler' },
+    flexible: { value: mat.Family === 'Flexible Elastomers', origin: ORIGIN.DERIVED, from: 'Family' },
+    supportMaterial: { value: mat.Role === 'Support/interface', origin: ORIGIN.SOURCE },
+    flameRetardant: { value: /\bFR\b/.test(name), origin: ORIGIN.DERIVED, from: 'name only; no flame-retardancy field exists' },
+    // The two levels a reader narrows by first: the family the materials table files it under, then its base polymer.
+    // The polymer is named within its family ("Polymer Blends › PC"), because one polymer can head two families and a
+    // polymer chosen in one must not admit the other's.
+    family: { value: mat.Family || 'Not published', origin: ORIGIN.SOURCE },
+    polymer: { value: `${mat.Family || 'Not published'} › ${mat['Base polymer'] || 'Not published'}`, origin: ORIGIN.SOURCE },
+  };
+}
+
+// ---------------------------------------------------------------------------- family entries
+
+const FAMILY_ENTRY = 'Family entry';
+
+/** Family entries by name, from family_entries.csv and family_members.csv (members in table order). */
+function familyEntriesFromTables(wb: Dyn) {
+  const nameOf: Map<Dyn, Dyn> = new Map<Dyn, Dyn>(wb.Materials.rows.map((m: Dyn) => [m.MaterialID, m['Original name']]));
+  const out: Dyn = {};
+  for (const r of wb['Family entries'].rows) out[nameOf.get(r.MaterialID)] = { kind: r.Kind, why: r.Why, members: [] };
+  for (const r of wb['Family members'].rows) out[nameOf.get(r.FamilyMaterialID)]?.members.push(nameOf.get(r.MemberMaterialID));
+  return out;
+}
+
+function familyEntryFor(FAMILY_ENTRIES: Dyn, name: Dyn) {
+  const f = FAMILY_ENTRIES[name];
+  return { kind: f?.kind ?? null, why: f?.why ?? null, members: (f?.members ?? []).map((n: Dyn) => ({ name: n, id: null })) };
+}
+
+/**
+ * Resolve each family entry's member names to materials, and refuse any disagreement: a family entry
+ * the mapping does not describe, a mapping entry the materials table does not mark, a member that is not an
+ * in-scope material, or a family entry that still owns an active grade (the duplication this replaced).
+ */
+function resolveFamilyEntries(FAMILY_ENTRIES: Dyn, materials: Dyn, grades: Dyn, issues: Dyn) {
+  const byName = new Map<Dyn, Dyn>(materials.map((m: Dyn) => [m.name, m]));
+  const where = 'family_entries.csv';
+  for (const m of materials.filter((x: Dyn) => x.familyEntry)) {
+    if (!FAMILY_ENTRIES[m.name]) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} is a family entry in materials.csv but has no row in family_entries.csv` });
+    for (const member of m.familyEntry.members) {
+      const target = byName.get(member.name);
+      if (!target || target.excluded || target.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${m.name} lists "${member.name}", which is not an in-scope material` });
+      else member.id = target.id;
+    }
+    const owned = grades.filter((g: Dyn) => g.materialId === m.id && !g.retired);
+    if (owned.length) issues.push({ level: 'error', code: 'FAMILY-ENTRY-OWNS', where: `materials ${m.id}`, message: `Family entry ${m.name} owns active grade${owned.length === 1 ? '' : 's'} ${owned.map((g: Dyn) => g.id).join(', ')}; a product belongs to the material it is` });
+  }
+  for (const name of Object.keys(FAMILY_ENTRIES)) {
+    if (!byName.get(name)?.familyEntry) issues.push({ level: 'error', code: 'FAMILY-ENTRY-MAPPING', where, message: `${name} has a row in family_entries.csv but materials.csv does not mark it a family entry` });
+  }
+}
+
+/**
+ * A newer edition is another document of the same publisher, and no chain of editions comes back to where it started
+ * (SOURCE-EDITION, D171): a document that supersedes itself, directly or through others, would rank above itself.
+ */
+function checkEditions(sources: Dyn, issues: Dyn) {
+  const byId = new Map<Dyn, Dyn>(sources.map((s: Dyn) => [s.id, s]));
+  for (const s of sources) {
+    if (!s.supersededBy) continue;
+    const n = byId.get(s.supersededBy);
+    const where = `sources ${s.id}`;
+    if (!n || n.id === s.id) { issues.push({ level: 'error', code: 'SOURCE-EDITION', where, message: `Superseded by ${s.supersededBy} is not another source` }); continue; }
+    if (n.publisher !== s.publisher) issues.push({ level: 'error', code: 'SOURCE-EDITION', where, message: `Superseded by ${n.id}, a document of ${n.publisher}, not of ${s.publisher}: an edition is the same publisher's` });
+    const seen = new Set<Dyn>([s.id]);
+    for (let x = n; x; x = byId.get(x.supersededBy)) {
+      if (seen.has(x.id)) { issues.push({ level: 'error', code: 'SOURCE-EDITION', where, message: `Its editions come back to ${x.id}: a chain of newer editions has no end` }); break; }
+      seen.add(x.id);
+      if (!x.supersededBy) break;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------- main
+
+export function compile(tables: Dyn, { snapshot, build }: Dyn) {
+  // A material retired from the dataset, and every record filed under it, is not compiled (D174): every caller of compile
+  // reads one dataset, and the build's later stages read the same (pipeline.js).
+  const scoped = inDataset(tables);
+  const wb = scoped.wb;
+  const issues = [...scoped.issues];
+  const registry = compileRegistry(wb, issues);
+  const familyEntries = familyEntriesFromTables(wb);
+
+  const sources = wb.Sources.rows.map((r: Dyn) => ({
+    id: r.SourceID, publisher: r.Publisher, title: r.Title, revision: r.Revision,
+    publicationDate: r['Publication date'], accessDate: r['Access date'], sourceClass: r['Source class'], sourceNote: r['Source note'], citationRole: r['Citation role'],
+    url: r.URL, locator: r.Locator, applicableGrades: r['Applicable grades'],
+    accessState: r['Access state'], accessNote: r['Access note'], sha256: r.SHA256,
+    // The newer edition of this document the database holds, which speaks for a product before it (D171).
+    supersededBy: r['Superseded by'] && !/^Not /.test(r['Superseded by']) ? r['Superseded by'] : null,
+  }));
+  checkEditions(sources, issues);
+
+  const grades = wb.Grades.rows.map((r: Dyn) => ({
+    id: r.GradeID, materialId: r.MaterialID, manufacturer: r.Manufacturer, product: r['Product name'],
+    formulationKey: r['Shared formulation key'], composition: r['Composition / filler'],
+    variant: r.Variant && r.Variant !== 'Not applicable' ? r.Variant : null,
+    colourCaveat: r['Colour caveat'], availability: r.Availability, certifications: r['Certification claims'],
+    rationale: r['Selected-grade rationale'], sourceId: r.SourceID, locator: r['Source locator'],
+    diameters: r['Diameter compatibility'],
+    // The diameter its documents print, and whether the H2C takes it (D175); nothing where none prints one.
+    ...(r.Diameter && r.Diameter !== 'Not published' ? { diameter: { found: r.Diameter, fits: DIAMETER_FITS.get(r.Diameter) === true } } : {}),
+    retired: r.Status === 'retired',
+  }));
+  // A material's procurement grades are its active procurement grades, in file order.
+  const procurementGrades = new Map<Dyn, Dyn>();
+  for (const r of wb.Grades.rows) {
+    if (r.Role !== 'procurement' || r.Status !== 'active') continue;
+    if (!procurementGrades.has(r.MaterialID)) procurementGrades.set(r.MaterialID, []);
+    procurementGrades.get(r.MaterialID).push(r.GradeID);
+  }
+  for (const r of wb.Grades.rows) {
+    // Code that only sees compiled grades recognises study and reference grades by their -R# suffix,
+    // so the suffix and the role must agree.
+    if ((r.Role !== 'procurement') !== /-R\d+$/.test(r.GradeID)) {
+      issues.push({ level: 'error', code: 'GRADE-ROLE-ID', where: `grades ${r.GradeID}`, message: `Role ${r.Role} disagrees with the ID: study and reference grades, and only they, end in -R#` });
+    }
+  }
+
+  // A retired duplicate stays in the tables as an audit trail and never reaches the database: its
+  // identical twin under the grade that keeps the product is the record (Method, Identity / Family entries).
+  const isRetiredDuplicate = (status: Dyn) => !!DATA_STATUS[status]?.retiredDuplicate;
+  const retiredDuplicates = {
+    measurements: wb.Properties.rows.filter((r: Dyn) => isRetiredDuplicate(r['Data status'])).length,
+    evidence: wb['Use & durability'].rows.filter((r: Dyn) => isRetiredDuplicate(r['Evidence type'])).length,
+    profiles: wb['Print setup'].rows.filter((r: Dyn) => isRetiredDuplicate(r.Profile)).length,
+  };
+  const measurements = compileMeasurements(wb.Properties.rows.filter((r: Dyn) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues, wb['Page context']?.rows ?? []);
+  // Which test an impact result whose own words do not settle it probably was (D133): a reviewer's reading, written
+  // beside the value. Only a result filed as an impact of unclear test may carry one; it is never compared.
+  const measurementById = new Map<Dyn, Dyn>(measurements.map((m: Dyn) => [m.id, m]));
+  for (const r of wb['Impact test guesses']?.rows ?? []) {
+    const m = measurementById.get(r.MeasurementID);
+    if (!m || m.property !== 'Impact strength') {
+      issues.push({ level: 'error', code: 'IMPACT-GUESS-PROPERTY', where: `impact_test_guesses ${r.MeasurementID}`, message: m ? `A guess of the test is for an impact result whose test is unclear; ${r.MeasurementID} is ${m.property}` : `${r.MeasurementID} is retired or does not exist` });
+      continue;
+    }
+    m.testGuess = { test: r['Likely test'], basis: r.Basis };
+  }
+
+  const profiles = compileProfiles(wb['Print setup'].rows.filter((r: Dyn) => !isRetiredDuplicate(r.Profile)), wb['Print setup notes'].rows, issues);
+  const retiredGrades = new Set<Dyn>(grades.filter((g: Dyn) => g.retired).map((g: Dyn) => g.id));
+  for (const p of profiles) p.retired = retiredGrades.has(p.gradeId);
+  const profilesByMaterial = new Map<Dyn, Dyn>();
+  for (const p of profiles) {
+    if (p.retired) continue;
+    if (!profilesByMaterial.has(p.materialId)) profilesByMaterial.set(p.materialId, []);
+    profilesByMaterial.get(p.materialId).push(p);
+  }
+
+  // Listings in any currency, each with the regular price per kg the comparison reads (D113, build/src/prices.js).
+  const { prices, fxRates } = compilePrices(wb.Prices.rows, wb['FX rates']?.rows ?? [], issues);
+  // Each product's own offers, which alone say whether that product can be bought (D98).
+  for (const g of grades) g.buy = g.retired ? null : offerSummary(prices.filter((p: Dyn) => p.gradeId === g.id));
+  const pricesByMaterial = new Map<Dyn, Dyn>();
+  for (const p of prices) {
+    if (!pricesByMaterial.has(p.materialId)) pricesByMaterial.set(p.materialId, []);
+    pricesByMaterial.get(p.materialId).push(p);
+  }
+
+  const evidenceRows = wb['Use & durability'].rows.filter((r: Dyn) => !isRetiredDuplicate(r['Evidence type']));
+  const evidence = evidenceRows.map((r: Dyn) => {
+    const topic = classifyTopic(r.Topic);
+    const finding = classifyFinding(r.Finding);
+    return {
+      id: r.EvidenceID, materialId: r.MaterialID, gradeId: r.GradeID, domain: r.Domain,
+      topic: r.Topic, category: topic.category, categoryLabel: topic.label,
+      filterable: topic.filterable, strength: topic.strength ?? null, agent: topic.agent ?? null,
+      verdict: finding.verdict, finding: r.Finding, qualified: !!finding.qualified, vague: !!finding.vague,
+      exposure: r['Exposure / conditions'], rating: num(r['Rating 1–5']), rubricId: r.RubricID,
+      evidenceType: r['Evidence type'], sourceId: r.SourceID, locator: r.Locator,
+    };
+  });
+
+  const coverage = wb.Coverage.rows.map((r: Dyn) => ({
+    id: r.CoverageID, materialId: r.MaterialID, domain: r.Domain, status: r.Status, manufacturerCount: num(r['Manufacturer count']), finding: r.Finding,
+    // The product the finding is about, or null where it is the material's (D98, m213).
+    gradeId: r.GradeID && r.GradeID !== 'Not applicable' ? r.GradeID : null,
+    // A stored row is somebody's judgement. The build adds rows of its own for the pairs no judgement speaks for
+    // and the records prove (m48), and they say so, so a reader is never shown an ID that is not in the tables.
+    derived: false,
+  }));
+
+  const method = wb.Method.rows.map((r: Dyn) => ({ section: r.Section, topic: r.Topic, rule: r['Definition / rule'] }));
+
+  // The polymer identities the estimate stage knows (data/tables/polymers.csv): physical facts, with where they come from.
+  const orNull = (cell: Dyn) => (cell == null || /^Not (applicable|recorded)$/.test(cell) ? null : cell);
+  const polymers = wb.Polymers.rows.map((r: Dyn) => ({
+    id: r.PolymerID, group: r.Group, morphology: r.Morphology, meltingPointC: num(r['Melting point °C']),
+    asPrinted: orNull(r['As printed']), annealingThresholdC: num(r['Annealing threshold °C']), waterUptake: orNull(r['Water uptake']),
+    neatDensity: num(r['Neat density min kg/m³']) != null ? { min: num(r['Neat density min kg/m³']), max: num(r['Neat density max kg/m³']) } : null,
+    sourceId: orNull(r.SourceID), basis: r.Basis,
+  }));
+  // A heat treatment at or below its polymer's annealing threshold crystallises nothing: the value is the as-printed
+  // part's (D158). Before any headline, product state or spread reads a measurement's state.
+  {
+    const threshold = new Map<Dyn, Dyn>(polymers.map((p: Dyn) => [p.id, p.annealingThresholdC]));
+    const identity = new Map<Dyn, Dyn>(wb.Materials.rows.map((r: Dyn) => [r.MaterialID, r['Estimate identity']]));
+    judgeHeatTreatments(measurements, (materialId: Dyn) => threshold.get(identity.get(materialId)) ?? null);
+  }
+
+  const links = new Map<Dyn, Dyn>();
+  for (const r of wb['Material links'].rows) {
+    const key = `${r.MaterialID}\u0000${r.Link}`;
+    if (!links.has(key)) links.set(key, []);
+    links.get(key).push(r.RecordID);
+  }
+  const linked = (materialId: Dyn, link: Dyn) => links.get(`${materialId}\u0000${link}`) ?? [];
+  const profilesById = new Map<Dyn, Dyn>(profiles.map((p: Dyn) => [p.id, p]));
+  // A material's environmental evidence is exactly its own exposure, solubility and moisture records.
+  const environmentalByMaterial = new Map<Dyn, Dyn>();
+  for (const e of evidence) {
+    if (!ENVIRONMENT_CATEGORIES.has(e.category)) continue;
+    if (!environmentalByMaterial.has(e.materialId)) environmentalByMaterial.set(e.materialId, []);
+    environmentalByMaterial.get(e.materialId).push(e.id);
+  }
+
+  const headlineSelections = new Map<Dyn, Dyn>();
+  for (const r of wb.Headlines.rows) {
+    if (!headlineSelections.has(r.MaterialID)) headlineSelections.set(r.MaterialID, []);
+    headlineSelections.get(r.MaterialID).push(r);
+  }
+
+  const measurementsByMaterial = new Map<Dyn, Dyn>();
+  for (const m of measurements) {
+    if (!measurementsByMaterial.has(m.materialId)) measurementsByMaterial.set(m.materialId, []);
+    measurementsByMaterial.get(m.materialId).push(m);
+  }
+
+  // Each row with its polymer's Morphology, which a headline's Applies to may test (heat deflection: not an elastomer).
+  const materialRows = materialRowsOf(wb);
+  const gradeById = new Map<Dyn, Dyn>(grades.map((g: Dyn) => [g.id, g]));
+  // Which values from a bar no document describes as printed a headline counts all the same (D177): before any headline,
+  // bound, ledger row or estimate reads a measurement.
+  markUndescribedCounts(measurements, measurementHeadlines(registry), { rowById: new Map<Dyn, Dyn>(materialRows.map((r: Dyn) => [r.MaterialID, r])), gradeById });
+  const materials = materialRows.map((mat: Dyn) => {
+    const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
+    const printingEvidence = linked(mat.MaterialID, 'printing');
+    // The guidance quotes the first print profile the material cites.
+    const guideProfile = printingEvidence.map((id: Dyn) => profilesById.get(id)).find(Boolean);
+    const guide = (axis: Dyn) => guideProfile?.[axis].text ?? 'Not published';
+    return {
+      id: mat.MaterialID,
+      name: mat['Original name'],
+      abbreviation: mat.Abbreviation,
+      fullName: mat['Full name'],
+      family: mat.Family,
+      basePolymer: mat['Base polymer'],
+      estimateIdentity: mat['Estimate identity'] && mat['Estimate identity'] !== 'Not applicable' ? mat['Estimate identity'] : null,
+      modifier: mat['Modifier / filler'],
+      variantClass: mat['Variant class'] && mat['Variant class'] !== 'Not applicable' ? mat['Variant class'] : null,
+      role: mat.Role,
+      scope: mat.Scope,
+      h2cStatus: mat['H2C status'],
+      excluded: mat.Scope === 'Excluded',
+      // A family or an alias, not a material: it owns no product, carries no value and is never a
+      // candidate. Its members come from data/tables/family_members.csv.
+      familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(familyEntries, mat['Original name']) : null,
+      gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
+      headline: { ...compileHeadlines(mat, registry, measurementsByMaterial), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
+      headlineBasis: null,
+      facets: deriveFacets(mat),
+      guidance: { nozzle: guide('nozzle'), bed: guide('bed'), chamber: guide('chamber') },
+      print: printSummary(mProfiles),
+      buy: buySummary(mat.MaterialID, prices),
+      gates: {
+        scope: mat.Scope === 'H2C-relevant' ? 'within' : mat.Scope === FAMILY_ENTRY ? 'family' : 'excluded',
+        nozzle: materialGate(mProfiles, 'nozzle', gradeById),
+        bed: materialGate(mProfiles, 'bed', gradeById),
+        chamber: materialGate(mProfiles, 'chamber', gradeById),
+        abrasive: mProfiles.some((p: Dyn) => p.abrasion.requiresHardened) ? 'requires-hardened'
+          : mProfiles.some((p: Dyn) => p.abrasion.requiresHardened === false) ? 'no-special-concern' : 'unknown',
+        drying: aggregateDrying(mProfiles),
+      },
+      profileIds: mProfiles.map((p: Dyn) => p.id),
+      printingEvidence,
+      bestUses: mat['Best uses'],
+      limitations: mat.Limitations,
+      identity: { notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
+      evidenceIds: {
+        use: linked(mat.MaterialID, 'use'), environmental: environmentalByMaterial.get(mat.MaterialID) ?? [],
+        durability: linked(mat.MaterialID, 'durability'), safety: linked(mat.MaterialID, 'safety'),
+      },
+    };
+  });
+
+  resolveFamilyEntries(familyEntries, materials, grades, issues);
+
+  // A printer maker's filament guide, and the material each of its types is (D88): read for a product only where its
+  // own profiles and its twin's say nothing on a part of its print gate.
+  const printGuide = compilePrintGuide(wb['Print guide']?.rows ?? [], wb['Print guide materials']?.rows ?? [], { sources, materials: wb.Materials.rows, issues });
+  // A maker's own "enclosure needed", with no temperature, is the H2C's chamber only for a type that guide asks an
+  // enclosure for, and only where nothing else its product's sheets say about the chamber decides (D93).
+  checkMakerEnclosed(profiles, printGuide.byMaterial, issues);
+
+  // Every product's own values and print recipe, every material's spread across its products, and the headline that
+  // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
+  // What a maker sells a product as (D133): read before the spreads, which name the products that make the claim.
+  attachProductClaims(wb['Product claims']?.rows ?? [], { grades, evidenceRows, issues });
+  // The evidence ledger's rows (conversions.csv, D153) and the physics limits per kind of plastic (class_limits.csv, D154):
+  // read by attachProducts, after every product's values and its twins', into each product state's bounds.
+  const conversions = compileConversions(wb.Conversions?.rows ?? [], { materialRows, registry, issues });
+  const classLimits = compileClassLimits(wb['Class limits']?.rows ?? [], { materialRows, registry, sources, issues });
+  const { ledger } = attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, conversions, classLimits, polymers, issues });
+  const selectable = new Set<Dyn>(registry.headlines.filter((h: Dyn) => !h.drawerOnly).map((h: Dyn) => h.key));
+  for (const m of materials) m.headlineBasis = headlineBasis(m, selectable);
+  // The written summaries at the head of the material pages (D142), their placeholders filled from the spreads just
+  // compiled: a number in one is the data's, never typed (written.js).
+  attachWritten(materials, wb['Material summaries']?.rows ?? [], { grades, measurements, profiles, registry, issues });
+
+  // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
+  // are not compiled here: the estimate stage (build/src/estimate/) adds them to the finished database.
+  const chamberEstimates = attachChamberEstimates(materials, chamberBandsFromTables(wb));
+  issues.push(...chamberEstimates.issues);
+
+  const environmentCategories = countUsableByCategory(evidenceRows);
+
+  // The base polymers' published environmental behaviour (data/tables/polymer_environment.csv), attached below as
+  // inferred records where a material has no record of its own (D64). Core evidence, not an estimate: it is published,
+  // but about the resin, so it is marked inferred, never passes, and leaves no trace when the table is empty.
+  const polymerEnvironment = compilePolymerEnvironment(wb['Polymer environment']?.rows ?? [], { polymers, sources, issues });
+
+  const db: Dyn = {
+      meta: {
+        snapshot, build,
+        // Prices are sampled on their own date, which need not be the database snapshot: the
+        // 2026-09-13 manufacturer audit moved the snapshot and re-sampled no prices.
+        pricesSampled: prices.map((p: Dyn) => p.accessDate).filter(Boolean).sort().at(-1) ?? null,
+        // The sample as a reader is told it (D113): its dates, how many Canadian retailers, and the rates in force.
+        priceSample: priceSampleMeta(prices, fxRates),
+        h2cBaseline: H2C_BASELINE,
+        // The properties almost no filament data sheet publishes (coverage-rules.js): the coverage lens lists, for each,
+        // the candidates that do publish it, from the same rule the Sparse properties records are derived by.
+        sparseProperties: SPARSE_PROPERTIES,
+        counts: {
+          materials: materials.length,
+          h2cRelevant: materials.filter((m: Dyn) => !m.excluded && !m.familyEntry).length,
+          familyEntries: materials.filter((m: Dyn) => m.familyEntry).length,
+          retiredDuplicates,
+          excluded: materials.filter((m: Dyn) => m.excluded).length,
+          grades: grades.length, measurements: measurements.length,
+          numericMeasurements: measurements.filter((m: Dyn) => m.numeric).length,
+          quarantined: measurements.filter((m: Dyn) => m.quarantined).length,
+          profiles: profiles.length, evidence: evidence.length, prices: prices.length,
+          sources: sources.length, coverage: coverage.length,
+          // Rows of materials.csv retired from the dataset: compiled into nothing, counted here alone (D174).
+          retired: scoped.retired.length,
+        },
+        environmentCategories,
+        chamberEstimates: { applied: chamberEstimates.applied.length, superseded: chamberEstimates.superseded },
+        headlineCoverage: Object.fromEntries(
+          registry.headlines.map((h: Dyn) => [h.key, materials.filter((m: Dyn) => m.headline[h.key]?.known).length]),
+        ),
+      },
+      materials, grades, measurements, profiles, printGuide: printGuide.guides, evidence, prices, fxRates, sources, coverage, method, polymers,
+      // The evidence ledger's rows and the physics limits, each with what it bounded and its same-sheet pairs (D153, D154).
+      conversions: ledger.conversions, classLimits: ledger.classLimits,
+      // What every property and headline means. The app builds its labels, filters, axes, table and
+      // export from this, so a registry row reaches the interface with no code change.
+      registry,
+  };
+  attachKnowHow(db, wb, issues); // makers' know-how leaves db.evidence for db.knowHow: nothing that screens sees it
+  attachPolymerEnvironment(db, polymerEnvironment);
+  // Derived after the materials are whole: the proof reads a material's compiled headline, profiles and citations.
+  const derived = derivedCoverage(db);
+  db.coverage.push(...derived);
+  db.meta.counts.coverageDerived = derived.length;
+  return { db, issues };
+}

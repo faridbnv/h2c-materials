@@ -1,0 +1,13 @@
+import type { Dyn } from '../types.ts';
+// Every value the app displays carries where it came from, so the UI can render a published
+// number differently from one a regular expression recovered out of free text.
+export const ORIGIN = {
+  SOURCE: 'source',   // taken verbatim from a data table
+  PARSED: 'parsed',   // recovered from free text by a parser in this directory
+  DERIVED: 'derived', // computed from other fields
+};
+
+export const tag = (origin: Dyn, value: Dyn, extra: Dyn = {}) => (value == null ? null : { origin, ...extra, value });
+export const fromSource = (value: Dyn, extra: Dyn) => tag(ORIGIN.SOURCE, value, extra);
+export const fromParse = (value: Dyn, extra: Dyn) => tag(ORIGIN.PARSED, value, extra);
+export const derived = (value: Dyn, extra: Dyn) => tag(ORIGIN.DERIVED, value, extra);

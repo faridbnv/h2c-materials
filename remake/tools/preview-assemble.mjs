@@ -11,13 +11,15 @@
 //        Needs the repository's npm install (Vite, Vue) and the old build's, so it runs where the site is built (the build
 //        job), not in the deploy job, which holds the key and installs nothing.
 //
-// Anything unexpected throws: a page without <head> or <body>, a missing manifest, an unsafe release name. The deploy job
-// then fails; nothing is half-published.
+// Anything unexpected throws: a page without <head> or <body>, a missing manifest, an unsafe release name, and private
+// material in what is about to be published (private-scan.mjs, run at the end of `inject` over the site and at the end of
+// `stage` over the preview repository's tree). The deploy job then fails; nothing is half-published.
 import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, readdirSync, lstatSync, existsSync, mkdirSync, mkdtempSync, renameSync, rmSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
 import { RELEASE_ID_PATTERN } from './release-id.mjs';
+import { assertClean, scanTree } from './private-scan.mjs';
 import { isMain, repoRoot } from './wp-lib.mjs';
 
 export const LIVE_URL = 'https://pdynamics.ca/h2c-materials/';
@@ -133,6 +135,8 @@ export function inject(site, { remake, main, runId = null, now = new Date() }) {
   // The public view, when this build made one: its release is its own (release identity v2), and its pages are already marked above.
   if (existsSync(join(site, V3_DIR))) info.v3Release = viewRelease(join(site, V3_DIR), `${V3_DIR}/`);
   writeFileSync(join(site, 'preview.json'), JSON.stringify(info, null, 2) + '\n');
+  // Fail closed: nothing private, and nothing the scan cannot vouch for, goes on to be published (pack 02 section 10).
+  assertClean(scanTree(site), 'the preview site');
   return info;
 }
 
@@ -159,6 +163,8 @@ export function stage(site, repo) {
   for (const name of readdirSync(repo)) if (!keep.has(name)) rmSync(join(repo, name), { recursive: true, force: true });
   cpSync(site, repo, { recursive: true });
   writeFileSync(join(repo, '.nojekyll'), '');
+  // What the push will carry, previous/ included. The repository's own .git folder and README.md are not the site's.
+  assertClean(scanTree(repo, { skip: (rel) => rel === '.git', allowPaths: ['README.md'] }), 'the staged preview repository');
   return { release: newRelease, previousKept: moved ?? (existsSync(join(repo, 'previous')) ? readdirSync(join(repo, 'previous')) : []) };
 }
 

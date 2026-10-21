@@ -37,12 +37,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  next-verify:
-    name: next-verify
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+  # ---- The checks, as parallel jobs --------------------------------------------------------------------------------------
+  # One job used to run everything in a row (26 minutes). The same checks now run side by side and `next-verify`, the required
+  # check, is the last job: it needs all of them and fails unless every one of them succeeded (a skipped job is a failure).
+  #
+  #   build-old      the old tool's build, once; its dist/ is passed on as an artifact to the jobs that read dist/db.json
+  #   static         rulings check, type check, type ratchet, lint (no dist/ needed)
+  #   new-tests      tests/claude and tests/remake (the round trip, the guard tests, the editor)
+  #   parity-tests   tests/parity, in three shards, and tests/domain
+  #   parity-noop    the binding proof: the old engine against a second copy of itself over the whole corpus
+  #
+  # Every job sets Node up the same way and restores node_modules from a cache keyed on the Node pin and both lock files; on a
+  # cache miss it runs npm ci (which itself reads the npm download cache).
+
+  build-old:
+    name: build-old
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -53,68 +64,83 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            build/package-lock.json
-
-      - name: Install dependencies (root and the old build, which the new-code tests drive)
-        run: |
-          npm ci
-          npm ci --prefix build
+          cache-dependency-path: build/package-lock.json
 
       - name: Node version in use
         run: |
           echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
           test "v$(cat .nvmrc)" = "$(node --version)"
 
-      - name: New-code tests (tests/claude, tests/remake)
-        run: |
-          set -euo pipefail
-          shopt -s nullglob
-          files=(tests/claude/*.test.mjs tests/remake/*.test.mjs)
-          # node --test exits 0 when a pattern matches nothing, so the file lists are checked here.
-          [ "${#files[@]}" -ge 3 ] || { echo "FAIL: only ${#files[@]} test files found under tests/claude and tests/remake"; exit 1; }
-          [ -n "$(printf '%s\n' "${files[@]}" | grep '^tests/remake/ci\.test\.mjs$')" ] || { echo "FAIL: tests/remake/ci.test.mjs is missing"; exit 1; }
-          node --test "${files[@]}"
+      # The build reads only its own dependencies (build/package.json), so only those are installed here.
+      - name: Restore the old build's node_modules
+        id: build-modules
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: build/node_modules
+          key: build-modules-${{ runner.os }}-${{ hashFiles('.nvmrc', 'build/package-lock.json') }}
+
+      - name: Install the old build's dependencies
+        if: steps.build-modules.outputs.cache-hit != 'true'
+        run: npm ci --prefix build
 
       # The old tool's build: the parity harness and the domain tests read dist/db.json.
-      - name: Build the old tool (dist/db.json)
+      - name: Build the old tool
         run: npm run build
 
-      - name: Parity tests
+      # One file, so the upload is one object and not thousands of pages. Level 1 gzip: the pages compress well, and fast matters.
+      - name: Pack dist/
         run: |
           set -euo pipefail
-          if ! compgen -G 'tests/parity/*.test.mjs' >/dev/null; then
-            echo "FAIL: tests/parity/*.test.mjs is missing; the parity tests must run, never be skipped"
-            echo "parity tests: FAILED (tests/parity missing)" >> "$GITHUB_STEP_SUMMARY"
-            exit 1
-          fi
-          node --test 'tests/parity/*.test.mjs'
+          test -s dist/db.json
+          tar --use-compress-program='gzip -1' -cf old-build.tgz dist
+          ls -l old-build.tgz
 
-      - name: Domain tests (contracts and shared core)
-        run: |
-          set -euo pipefail
-          if ! compgen -G 'tests/domain/*.test.mjs' >/dev/null; then
-            echo "FAIL: tests/domain/*.test.mjs is missing; the domain tests must run, never be skipped"
-            echo "domain tests: FAILED (tests/domain missing)" >> "$GITHUB_STEP_SUMMARY"
-            exit 1
-          fi
-          node --test 'tests/domain/*.test.mjs'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: old-build
+          path: old-build.tgz
+          retention-days: 1
+          compression-level: 0
+          if-no-files-found: error
 
-      # The binding parity proof on this branch: the old engine against a second, independent copy of itself over the whole
-      # corpus (1,306 questions) must show exactly 0 differences. Any difference, any not-computable case, any crash fails.
-      - name: Parity, old against old (npm run parity -- --noop)
+  static:
+    name: static
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
+
+      - name: Node version in use
         run: |
-          set -uo pipefail
-          start=$(date +%s)
-          rc=0
-          npm run parity -- --noop | tee parity-noop.out || rc=$?
-          secs=$(( $(date +%s) - start ))
-          result=$(grep '^RESULT:' parity-noop.out || echo 'RESULT: none printed')
-          echo "parity --noop: exit $rc, $result, $secs s" >> "$GITHUB_STEP_SUMMARY"
-          if [ "$rc" -ne 0 ] || [ "$result" != "RESULT: zero" ]; then
-            echo "FAIL: parity --noop must exit 0 with RESULT: zero (exit $rc, $result)"; exit 1
-          fi
+          echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
+          test "v$(cat .nvmrc)" = "$(node --version)"
+
+      - name: Restore node_modules
+        id: modules
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            packages/*/node_modules
+            build/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('.nvmrc', 'package-lock.json', 'build/package-lock.json') }}
+
+      - name: Install dependencies (root and the old build)
+        if: steps.modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm ci --prefix build
 
       - name: Rulings check
         run: npm run rulings:check
@@ -134,6 +160,248 @@ jobs:
           npm run types:ratchet
           npm run lint
 
+  new-tests:
+    name: new-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
+
+      - name: Node version in use
+        run: |
+          echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
+          test "v$(cat .nvmrc)" = "$(node --version)"
+
+      - name: Restore node_modules
+        id: modules
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            packages/*/node_modules
+            build/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('.nvmrc', 'package-lock.json', 'build/package-lock.json') }}
+
+      - name: Install dependencies (root and the old build, which the new-code tests drive)
+        if: steps.modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm ci --prefix build
+
+      # These tests do not need the old build's output (the one that does, db-contract, builds it itself when it is missing),
+      # so this job does not wait for build-old.
+      - name: New-code tests (tests/claude, tests/remake)
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          files=(tests/claude/*.test.mjs tests/remake/*.test.mjs)
+          # node --test exits 0 when a pattern matches nothing, so the file lists are checked here.
+          [ "${#files[@]}" -ge 3 ] || { echo "FAIL: only ${#files[@]} test files found under tests/claude and tests/remake"; exit 1; }
+          [ -n "$(printf '%s\n' "${files[@]}" | grep '^tests/remake/ci\.test\.mjs$')" ] || { echo "FAIL: tests/remake/ci.test.mjs is missing"; exit 1; }
+          node --test "${files[@]}"
+
+  parity-tests:
+    name: parity-tests (${{ matrix.shard }})
+    needs: build-old
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # fault.test.mjs replays the nine faults on three worker threads and is the longest file by far.
+          - shard: fault
+            files: tests/parity/fault.test.mjs
+          # Three heavy files that each run for minutes on their own: the impact preview (two compiles of the old build), P-build and
+          # P-pages (two real builds in temporary copies of the project) and the wrapped engine against old.
+          - shard: heavy
+            files: tests/parity/impact.test.mjs tests/parity/build.test.mjs tests/parity/new-adapter.test.mjs
+          # Every other file in tests/parity, found by listing the directory, so a new test file runs without anyone adding it
+          # here; the domain tests run in this shard as well.
+          - shard: rest
+            files: ''
+    env:
+      SHARD: ${{ matrix.shard }}
+      FILES: ${{ matrix.files }}
+      # Every file a shard names, so the `rest` shard can leave exactly those out.
+      NAMED: tests/parity/fault.test.mjs tests/parity/impact.test.mjs tests/parity/build.test.mjs tests/parity/new-adapter.test.mjs
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
+
+      - name: Node version in use
+        run: |
+          echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
+          test "v$(cat .nvmrc)" = "$(node --version)"
+
+      - name: Restore node_modules
+        id: modules
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            packages/*/node_modules
+            build/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('.nvmrc', 'package-lock.json', 'build/package-lock.json') }}
+
+      - name: Install dependencies (root and the old build, which the parity tests drive)
+        if: steps.modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm ci --prefix build
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: old-build
+
+      - name: Unpack the old tool's build (dist/)
+        run: |
+          set -euo pipefail
+          tar -xzf old-build.tgz
+          test -s dist/db.json
+
+      - name: Parity tests
+        run: |
+          set -euo pipefail
+          if ! compgen -G 'tests/parity/*.test.mjs' >/dev/null; then
+            echo "FAIL: tests/parity/*.test.mjs is missing; the parity tests must run, never be skipped"
+            echo "parity tests: FAILED (tests/parity missing)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          # A shard that names a file that is gone (renamed, deleted) fails here; it never quietly runs less.
+          for f in $NAMED; do
+            test -f "$f" || { echo "FAIL: $f is named by a shard of this job but does not exist"; exit 1; }
+          done
+          files="$FILES"
+          if [ -z "$files" ]; then
+            for f in tests/parity/*.test.mjs; do
+              case " $NAMED " in *" $f "*) ;; *) files="$files $f" ;; esac
+            done
+          fi
+          [ -n "${files// /}" ] || { echo "FAIL: shard $SHARD has no test files to run"; exit 1; }
+          echo "parity tests, shard $SHARD:$files" | tee -a "$GITHUB_STEP_SUMMARY"
+          node --test --test-concurrency=4 $files
+
+      - name: Domain tests (contracts and shared core)
+        if: matrix.shard == 'rest'
+        run: |
+          set -euo pipefail
+          if ! compgen -G 'tests/domain/*.test.mjs' >/dev/null; then
+            echo "FAIL: tests/domain/*.test.mjs is missing; the domain tests must run, never be skipped"
+            echo "domain tests: FAILED (tests/domain missing)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          node --test 'tests/domain/*.test.mjs'
+
+  # The binding parity proof on this branch: the old engine against a second, independent copy of itself over the whole
+  # corpus (1,306 questions) must show exactly 0 differences. Any difference, any not-computable case, any crash fails.
+  parity-noop:
+    name: parity-noop
+    needs: build-old
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
+
+      - name: Node version in use
+        run: |
+          echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
+          test "v$(cat .nvmrc)" = "$(node --version)"
+
+      - name: Restore node_modules
+        id: modules
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            packages/*/node_modules
+            build/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('.nvmrc', 'package-lock.json', 'build/package-lock.json') }}
+
+      - name: Install dependencies (root and the old build, which the parity run drives)
+        if: steps.modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm ci --prefix build
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: old-build
+
+      - name: Unpack the old tool's build (dist/)
+        run: |
+          set -euo pipefail
+          tar -xzf old-build.tgz
+          test -s dist/db.json
+
+      - name: Parity, old against old (npm run parity -- --noop)
+        run: |
+          set -uo pipefail
+          start=$(date +%s)
+          rc=0
+          npm run parity -- --noop | tee parity-noop.out || rc=$?
+          secs=$(( $(date +%s) - start ))
+          result=$(grep '^RESULT:' parity-noop.out || echo 'RESULT: none printed')
+          echo "parity --noop: exit $rc, $result, $secs s" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$rc" -ne 0 ] || [ "$result" != "RESULT: zero" ]; then
+            echo "FAIL: parity --noop must exit 0 with RESULT: zero (exit $rc, $result)"; exit 1
+          fi
+
+  # The required check. It runs when the others have finished, whatever they did, and is green only if every one of them
+  # succeeded: a failed, cancelled or skipped job is a red next-verify, so nothing can be dropped by skipping it.
+  next-verify:
+    name: next-verify
+    needs: [build-old, static, new-tests, parity-tests, parity-noop]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      NEEDS: ${{ toJSON(needs) }}
+      LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+    steps:
+      - name: Every part of next-verify must have succeeded
+        run: |
+          set -euo pipefail
+          echo "$NEEDS" | jq -r 'to_entries[] | "\(.key): \(.value.result)"' | tee -a "$GITHUB_STEP_SUMMARY"
+          expected="build-old new-tests parity-noop parity-tests static"
+          seen=$(echo "$NEEDS" | jq -r 'keys | join(" ")')
+          if [ "$seen" != "$expected" ]; then echo "FAIL: next-verify saw the jobs '$seen', expected '$expected'"; exit 1; fi
+          bad=$(echo "$NEEDS" | jq -r 'to_entries[] | select(.value.result != "success") | "\(.key)=\(.value.result)"' | paste -sd' ' -)
+          if [ -n "$bad" ]; then echo "FAIL: not green: $bad"; echo "next-verify: FAILED ($bad)" >> "$GITHUB_STEP_SUMMARY"; exit 1; fi
+          echo "next-verify: all five parts succeeded" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Say which optional checks ran
         if: github.event_name == 'pull_request'
         run: |
@@ -145,7 +413,7 @@ jobs:
   old-paths:
     name: old-paths
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: read
@@ -182,7 +450,7 @@ jobs:
   review-section:
     name: review-section
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: read
@@ -220,7 +488,7 @@ jobs:
   tier-gate:
     name: tier-gate
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: read
@@ -269,7 +537,7 @@ jobs:
     name: legacy-fast
     # The old gate's fast loop, only when asked for with the `full-checks` label (main is frozen; verify.yml is not copied).
     if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'full-checks')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -294,7 +562,7 @@ jobs:
   full-trend:
     name: full-checks (scale and reproducible)
     if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'full-checks')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -317,7 +585,7 @@ jobs:
   full-fuzz:
     name: full-checks (ui:fuzz:full ${{ matrix.part }} of 4)
     if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'full-checks')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       fail-fast: false

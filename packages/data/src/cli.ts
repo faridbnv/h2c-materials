@@ -1,5 +1,6 @@
-// npm run db:rebuild | db:roundtrip | db:diff | db:query | db:measure | db:backup | db:restore | change:apply | change:export |
-//         change:replay | change:status | drafts:export | drafts:import   (node packages/data/src/cli.ts <command> [flags])
+// npm run db:rebuild | db:roundtrip | db:diff | db:query | db:measure | db:backup | db:restore | change:apply | change:generate |
+//         change:export | change:replay | change:status | change:coverage | report:reviewers | drafts:export | drafts:import
+//         (node packages/data/src/cli.ts <command> [flags])
 //   rebuild   [--data <dir>] [--out <file>]          a fresh .workspace/atlas.sqlite from data/tables and the generated DDL; a workspace
 //                                                    that holds drafts is backed up, rebuilt and its drafts replayed, never thrown away
 //   roundtrip [--data <dir>]                         CSV -> SQLite -> CSV; every table must come back byte-identical
@@ -7,8 +8,13 @@
 //   query     "<select ...>" [--json] [--db <file>]            read-only SQL on .workspace/atlas.sqlite
 //   measure   [--out <file>]                         time rebuild and round trip three times each; write the medians
 //   apply <file>        [--data <dir>] [--workspace <dir>]   apply the command(s) of a JSON file through the write service; stops at the first refusal
-//   export              --title <text> --topic <words-with-hyphens> [--data <dir>] [--workspace <dir>] [--out <dir>]
-//                                                    the drafts as a change set (JSON) and canonical CSV in the sandbox export directory
+//   generate <module>   [--apply] [--data <dir>] [--workspace <dir>]   run a generator (a module whose default export is a sweep): its commands and
+//                                                    their count; refused when the count is not the sweep's expectCount; with --apply, applied as one batch
+//   export              --title <text> --topic <words-with-hyphens> [--generator <module>] [--data <dir>] [--workspace <dir>] [--out <dir>]
+//                                                    the drafts as a change set (JSON) and canonical CSV in the sandbox export directory; a schema edit
+//                                                    brings its schema files; --generator names the sweep that made them, whose expectCount must equal the records
+//   coverage            [--ref <ref>] [--days <n>] [--range <a..b>] [--no-replay] [--out <file>]   the change-set coverage measurement over main's history (read only)
+//   reviewers           [--out <file>] [--check] [--data <dir>]   the reviewer-kind report from the existing free-text cells (read only)
 //   replay [<file>...]  [--data <dir>] [--tables <dir>] [--changesets <dir>] [--immutable-against <ref>]
 //                                                    replay equality: each change set applied to a fresh rebuild of its base must give its result
 //   status              [--data <dir>] [--workspace <dir>]   the base stamp, drafts, conflicts, backups and the export directory
@@ -23,16 +29,21 @@
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { cpus, arch, platform, release, totalmem, tmpdir } from 'node:os';
 import { basename, dirname, join, resolve, sep } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import type { WriteCommand } from '@atlas/domain/contracts';
 import { ExportRefusedError, exportChangeSet, exportPending } from './export.ts';
 import { parseCommand, readJson } from './parse.ts';
 import { changeSetFiles, checkImmutable, exportDrafts, importDrafts, replayFile } from './replay.ts';
 import type { ReplayResult } from './replay.ts';
-import { Workspace, WriterLockedError, holdsDrafts, listBackups, protectedDirHolding, takeLock } from './workspace.ts';
+import { Workspace, WriterLockedError, holdsDrafts, listBackups, modelOfDb, protectedDirHolding, takeLock } from './workspace.ts';
 import type { WorkspaceOptions, WriterLock } from './workspace.ts';
 import { open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { diffAgainstRef } from './diff.ts';
+import { measureCoverage, writeCoverageReport } from './coverage.ts';
+import { renderReviewerKindReport, reviewerKindReport } from './reviewer-kinds.ts';
+import { SweepCountError, SweepOutputError, applySweep, generatorRefOf, runSweep } from './sweep.ts';
+import type { Sweep } from './sweep.ts';
 import { DataInputError, DEFAULT_DATA_DIR, REPO_ROOT, WORKSPACE_DB, rebuildWorkspace } from './rebuild.ts';
 import { roundtrip } from './roundtrip.ts';
 import type { RoundtripResult } from './roundtrip.ts';
@@ -156,7 +167,7 @@ function runDiff(parsed: Parsed): number {
   const dbPath = parsed.values.get('db') ?? WORKSPACE_DB;
   const db = openWorkspace(dbPath);
   try {
-    const result = diffAgainstRef(db, against);
+    const result = diffAgainstRef(db, against, REPO_ROOT, modelOfDb(db));
     console.log(`db:diff  ${dbPath} against ${against} (${result.sha.slice(0, 12)})`);
     for (const t of result.tables) {
       if (t.status === 'unchanged') continue;
@@ -302,6 +313,14 @@ function quoteLine(ws: Workspace, opId: string): string {
   return check.status === 'verified' ? '    quote check: verified on its hash-checked page\n' : `    quote check: NOT RUN (${check.reason ?? 'store absent'}); the quote is not verified\n`;
 }
 
+/** What still rests on a record a command retired (a grade's measurements, profiles, prices, evidence): the person decides each; the command moved none. */
+function dependentsLines(ws: Workspace, opId: string): string {
+  const dependents = ws.journal().find((e) => e.record.opId === opId)?.record.args?.dependents;
+  if (!Array.isArray(dependents) || dependents.length === 0) return '';
+  const lines = dependents.flatMap((d) => (typeof d === 'object' && d !== null && !Array.isArray(d) ? [`      ${String(d.table).padEnd(12)} ${String(d.record).padEnd(14)} ${String(d.action)}`] : []));
+  return `    ${dependents.length} record(s) still rest on it (this command moved none):\n${lines.join('\n')}\n`;
+}
+
 const oneFile = (parsed: Parsed, what: string): string => {
   const [file, ...extra] = parsed.rest;
   if (file === undefined || extra.length) throw new UsageError(`${what} needs exactly one file`);
@@ -339,9 +358,11 @@ async function runApply(parsed: Parsed): Promise<number> {
       }
       console.log(`  ${result.status.toUpperCase().padEnd(9)} ${command.opId}  ${result.changeRecordIds.join(', ')}`);
       process.stdout.write(quoteLine(ws, command.opId));
+      process.stdout.write(dependentsLines(ws, command.opId));
       applied++;
     }
-    const unchecked = commands.filter((c) => ws.journal().find((e) => e.record.opId === c.opId)?.record.quoteCheck?.status !== 'verified').length;
+    const journal = ws.journal();
+    const unchecked = commands.filter((c) => { const record = journal.find((e) => e.record.opId === c.opId)?.record; return record?.evidence !== undefined && record.quoteCheck?.status !== 'verified'; }).length;
     console.log(`change:apply: ${applied} of ${commands.length} command(s) done (draft, not approved)${unchecked ? `; ${unchecked} without a verified quote check (not run)` : ''}. RESULT: pass`);
     return 0;
   });
@@ -352,17 +373,101 @@ function runExport(parsed: Parsed): Promise<number> {
   const topic = parsed.values.get('topic');
   if (title === undefined || topic === undefined) throw new UsageError('change:export needs --title <text> and --topic <words-with-hyphens>');
   const out = parsed.values.get('out');
+  const generatorFile = parsed.values.get('generator');
   return withWorkspace(parsed, async (ws) => {
-    const result = await exportChangeSet(ws, { title, topic, ...(out === undefined ? {} : { exportDir: out }) });
+    const sweep = generatorFile === undefined ? undefined : await loadSweep(generatorFile);
+    const result = await exportChangeSet(ws, { title, topic, ...(out === undefined ? {} : { exportDir: out }), ...(sweep === undefined ? {} : { generator: generatorRefOf(sweep) }) });
     console.log(`change:export  ${result.changeSet.id}${result.recovered ? '  (finished an interrupted export first)' : ''}`);
     console.log(`  ${result.changeSet.records.length} record(s) in ${result.tables.join(', ')}; base ${result.changeSet.base.snapshotDigest.slice(0, 12)} -> result ${result.changeSet.result.snapshotDigest.slice(0, 12)}`);
     for (const file of result.files) console.log(`  wrote ${file}`);
+    for (const file of result.retired) console.log(`  removed ${file} (an earlier export's file that this one does not write)`);
     console.log(`  backup ${result.backup}`);
-    const unchecked = result.changeSet.records.filter((r) => r.quoteCheck?.status !== 'verified').length;
-    if (unchecked) console.log(`  quote check NOT RUN for ${unchecked} of ${result.changeSet.records.length} record(s): their quotes are not verified (see the change set)`);
+    const quoted = result.changeSet.records.filter((r) => r.evidence !== undefined);
+    const unchecked = quoted.filter((r) => r.quoteCheck?.status !== 'verified').length;
+    if (unchecked) console.log(`  quote check NOT RUN for ${unchecked} of ${quoted.length} record(s) with a quote: their quotes are not verified (see the change set)`);
     console.log('  impact: not computed (the impact preview is WP-11); sandbox only, nothing was written to data/. RESULT: pass');
     return 0;
   });
+}
+
+const isSweep = (value: unknown): value is Sweep =>
+  typeof value === 'object' && value !== null && 'emit' in value && typeof value.emit === 'function' && 'path' in value && typeof value.path === 'string'
+  && 'version' in value && typeof value.version === 'string' && 'args' in value && Array.isArray(value.args) && 'expectCount' in value && typeof value.expectCount === 'number';
+
+/** A generator module: its default export (or `sweep`) is a Sweep. The code is the author's own, run like any script. */
+async function loadSweep(file: string): Promise<Sweep> {
+  const loaded: unknown = await import(pathToFileURL(resolve(file)).href);
+  const candidates = typeof loaded === 'object' && loaded !== null ? [Reflect.get(loaded, 'default'), Reflect.get(loaded, 'sweep')] : [];
+  const sweep = candidates.find(isSweep);
+  if (sweep === undefined) throw new UsageError(`${file} does not export a sweep (a default export { path, version, args, expectCount, emit(view) })`);
+  return sweep;
+}
+
+function runGenerate(parsed: Parsed): Promise<number> {
+  const file = oneFile(parsed, 'change:generate');
+  const apply = parsed.switches.has('apply');
+  return withWorkspace(parsed, async (ws) => {
+    const sweep = await loadSweep(file);
+    try {
+      if (!apply) {
+        const { commands, ref } = runSweep(ws, sweep);
+        console.log(`change:generate  ${ref.path} ${ref.version}: ${commands.length} command(s), as expected (expectCount ${ref.expectCount}); nothing applied (add --apply)`);
+        for (const command of commands.slice(0, 5)) console.log(`  ${command.kind} ${command.target.table} ${command.target.id ?? ''}`);
+        if (commands.length > 5) console.log(`  ... and ${commands.length - 5} more`);
+        return 0;
+      }
+      const done = applySweep(ws, sweep);
+      if (done.status === 'refused') {
+        console.log(`  REFUSED  command ${done.batch.index + 1} (${done.batch.opId})  ${done.batch.result.code}: ${done.batch.result.detail}`);
+        console.log('change:generate: the whole batch was refused; nothing was applied. RESULT: FAIL');
+        return 1;
+      }
+      console.log(`change:generate: ${done.applied} applied, ${done.duplicates} already there, from ${done.ref.path} (expectCount ${done.ref.expectCount}). Export with: npm run change:export -- --generator ${file} --title ... --topic ... RESULT: pass`);
+      return 0;
+    } catch (error) {
+      if (error instanceof SweepCountError || error instanceof SweepOutputError) { console.error(`FAIL: ${error.message}`); return 1; }
+      throw error;
+    }
+  });
+}
+
+function runCoverage(parsed: Parsed): number {
+  const out = parsed.values.get('out') ?? join(REPO_ROOT, 'remake/measure/change-set-coverage.json');
+  const days = parsed.values.get('days');
+  const ref = parsed.values.get('ref');
+  const range = parsed.values.get('range');
+  if (days !== undefined && (!/^\d+$/.test(days) || Number(days) < 1)) throw new UsageError('--days needs a whole number of days');
+  const report = measureCoverage({
+    ...(ref === undefined ? {} : { ref }), ...(days === undefined ? {} : { days: Number(days) }), ...(range === undefined ? {} : { range }), replay: !parsed.switches.has('no-replay'),
+  });
+  mkdirSync(dirname(resolve(out)), { recursive: true });
+  writeCoverageReport(report, out);
+  const { units, commits, byteReplay } = report;
+  console.log(`change:coverage  ${report.window.ref} (last data commit ${report.window.anchor.slice(0, 10)}, ${report.window.anchorDate}): ${report.window.commits} commit(s) ${report.window.range ?? `in the ${report.window.days} days before`}`);
+  console.log(`  ${units.total} change(s): ${units.expressed} expressed (${(100 * units.expressedShare).toFixed(1)}%), ${units.later} wait for WP-28, ${units.residue} residue`);
+  console.log(`  ${commits.withSnapshotChange} commit(s) change the tables or a file beside them: ${commits.allExpressed} fully expressed, ${commits.withLater} with a change that waits, ${commits.withResidue} with residue (${(100 * commits.residueShare).toFixed(1)}%; ${commits.withResidueInTables} without counting files beside the tables, ${(100 * commits.residueShareInTables).toFixed(1)}%; ADR-03 trigger at ${100 * commits.adrRevisitTrigger.threshold}%: ${commits.adrRevisitTrigger.fired ? 'FIRED' : 'not fired'}, ${commits.adrRevisitTrigger.firedInTables ? 'fired' : 'not fired'} without those files)`);
+  console.log(byteReplay.requested
+    ? `  byte replay through the service: ${byteReplay.identical} identical, ${byteReplay.differs} differ, ${byteReplay.skipped} skipped (parent cannot be rebuilt under its own schema) of ${byteReplay.eligible} eligible commits`
+    : '  byte replay through the service: not requested (--no-replay)');
+  if (byteReplay.requested && byteReplay.skipped > 0) console.log(`  WARNING: ${byteReplay.skipped} eligible commit(s) were not replayed; the replay covers ${byteReplay.attempted}`);
+  console.log(`  wrote ${out}`);
+  return byteReplay.differs > 0 ? 1 : 0;
+}
+
+function runReviewers(parsed: Parsed): number {
+  const out = resolve(parsed.values.get('out') ?? join(REPO_ROOT, 'docs/next/reviewer-kind-report.md'));
+  const dataDir = parsed.values.get('data') ?? DEFAULT_DATA_DIR;
+  const text = renderReviewerKindReport(reviewerKindReport(dataDir));
+  if (parsed.switches.has('check')) {
+    const current = existsSync(out) ? readFileSync(out, 'utf8') : null;
+    if (current === text) { console.log(`report:reviewers: ${out} is current`); return 0; }
+    console.error(`report:reviewers: ${out} is ${current === null ? 'missing' : 'stale'}; run npm run report:reviewers and commit it`);
+    return 1;
+  }
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, text);
+  console.log(`report:reviewers: wrote ${out}`);
+  return 0;
 }
 
 /** How a replayed digest stands against the one the change set names. */
@@ -491,7 +596,10 @@ const COMMANDS: Record<string, Command> = {
   query: { run: runQuery, valued: ['db'], switches: ['json'], positional: true },
   measure: { run: runMeasure, valued: ['out'], switches: [] },
   apply: { run: runApply, script: 'change:apply', valued: ['data', 'workspace'], switches: [], positional: true },
-  export: { run: runExport, script: 'change:export', valued: ['data', 'workspace', 'title', 'topic', 'out'], switches: [] },
+  generate: { run: runGenerate, script: 'change:generate', valued: ['data', 'workspace'], switches: ['apply'], positional: true },
+  export: { run: runExport, script: 'change:export', valued: ['data', 'workspace', 'title', 'topic', 'out', 'generator'], switches: [] },
+  coverage: { run: runCoverage, script: 'change:coverage', valued: ['ref', 'days', 'range', 'out'], switches: ['no-replay'] },
+  reviewers: { run: runReviewers, script: 'report:reviewers', valued: ['out', 'data'], switches: ['check'] },
   replay: { run: runReplay, script: 'change:replay', valued: ['data', 'tables', 'changesets', 'immutable-against'], switches: [], positional: true },
   status: { run: runStatus, script: 'change:status', valued: ['data', 'workspace'], switches: [] },
   backup: { run: runBackup, script: 'db:backup', valued: ['data', 'workspace'], switches: [] },

@@ -1,13 +1,58 @@
 {
   "id": "WP-20",
-  "status": "todo",
+  "status": "done",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-20-build-port",
+  "pr": 29,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run parity -- --surface build",
+      "result": "pass",
+      "code": 0,
+      "note": "P-build = 0: dist/db.json (old build) against the new build (packages/build, SQLite reconstruction), 1,288,896 values, 0 differences; db.json and reference.json are byte for byte the old build's"
+    },
+    {
+      "cmd": "npm run parity:erase",
+      "result": "pass",
+      "code": 0,
+      "note": "P-erase 0 for the 40 label-only modules (11 declared path rewrites, nothing else)"
+    },
+    {
+      "cmd": "node --test tests/parity/build-new.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "P-build zero; two runs byte-identical (db.json, reference.json, report); tie order kept through _ord (records of profiles, measurements, grades reversed: new equals old, report and release too, and the answer moved)"
+    },
+    {
+      "cmd": "node --test tests/remake/build-load.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "loader equals the old loader row for row and key for key; rows come back in _ord order; the schema gate keeps its codes; a failed reconstruction fails loudly and leaves no db.json"
+    },
+    {
+      "cmd": "npm run build:measure",
+      "result": "fail",
+      "note": "cold build against the 26.4 s budget NOT shown: side by side under the same load the new core takes 1.07 to 1.09 times the old core (the same, unchanged estimate stage runs 5 to 12 percent slower in the new process; cause not found); projected like-for-like cold build about 27.5 s on a quiet machine, about 1 s over. The machine was busy throughout, so remake/measure/build.json says budgetDecidable false"
+    },
+    {
+      "cmd": "npm run parity:host",
+      "result": "not-run",
+      "note": "compares this machine's build with the CI build of the same commit; it needs the CI db.json (--ci), which no CI job publishes yet"
+    },
+    {
+      "cmd": "/code-modernization:modernize-verify (stage C second opinion)",
+      "result": "not-run",
+      "note": "not run, on the owner's token-efficiency instruction for this package; parity is the binding proof"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "note": "stage C: the build's load, normalize, compile and validate modules in TypeScript reading the clean SQLite reconstruction; the estimate stage is the old one through an adapter (WP-21); in-place mutation between stages is not removed (its own later step); delivered by merged PR #29 (2026-10-21); open at merge: the cold-build budget was not decidable on a busy machine (projected about 1 s over 26.4 s), parity:host needs a CI db.json, modernize-verify was not run",
+  "prs": [
+    29
+  ],
+  "doneAt": "2026-10-21"
 }

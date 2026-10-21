@@ -1,6 +1,6 @@
 # Your untested list: rules the tests do not fully hold
 
-> **In short.** The remake must not change what the tool says about any material. Of the 38 non-negotiable rules in [the must-not-change map](must-not-change.md), 26 have a test that asserts them, **11 have a test for only part of the rule, and 1 (S06-11) has no test at all**. Those 12 are listed here in nine questions, because some rules are the same rule seen from two lists. For each one, the page says in plain words what is checked, what is not, and what I recommend. Nothing here changes any answer the tool gives. A rule on this list is not broken: it is held by reading and review instead of by a test, and a rewrite is exactly when a rule held by review is easiest to lose.
+> **In short.** The remake must not change what the tool says about any material. Of the 38 non-negotiable rules in [the must-not-change map](must-not-change.md), 26 had a test that asserts them, **11 had a test for only part of the rule, and 1 (S06-11) had no test at all** when this list was written. Those 12 are listed here in nine questions, because some rules are the same rule seen from two lists. **Since then (PR S1, no answer changed): questions 1 and 2 are closed by a test (S11-07, S06-06 and S11-10 are now fully tested), and questions 3, 4, 6 and 7 have a test for the part they could, with a line under each saying what is still open. Your boxes are untouched: a test that was added is not your answer. Tick A to agree, or say otherwise.** The map now counts 29 fully tested, 9 partly tested, none without a test. For each one, the page says in plain words what is checked, what is not, and what I recommend. Nothing here changes any answer the tool gives. A rule on this list is not broken: it is held by reading and review instead of by a test, and a rewrite is exactly when a rule held by review is easiest to lose.
 
 **How to answer**
 1. Put an `x` in exactly one box under each question, like `- [x]`.
@@ -20,7 +20,9 @@ If you do not answer, the default under each question is applied, and it is logg
 
 ## Group A: before the engine port starts
 
-### Question 1. S11-07 and S06-06 — The order of the six print-gate verdicts (partly tested)
+#### Question 1. S11-07 and S06-06 — The order of the six print-gate verdicts (test added; awaiting your confirmation)
+
+**Status since this list was written:** `tests/remake/gate-order.test.mjs` states the six-step order as a literal list, written from the rule below, and compares every copy with it (old build, new build, the engine's key order, the page's word list, the shared table); it also checks that, over all 63 sets of verdicts, aggregation picks the best-ranked one. S11-07 and S06-06 are TESTED in the map. This heading is no longer a `###` heading because the check that keeps this page and the map in step lists only the open items.
 
 **The rule.** A print gate's verdict is one of six, ranked: within, within at the low end, edge, exceeds a recommendation, exceeds, unknown. When a material has several profiles, the best-ranked one speaks.
 
@@ -41,7 +43,9 @@ If you do not answer, the default under each question is applied, and it is logg
 **Your answer / notes:**
 > 
 
-### Question 2. S11-10 — The engine never imports the interface (partly tested)
+#### Question 2. S11-10 — The engine never imports the interface (test added; awaiting your confirmation)
+
+**Status since this list was written:** `tests/remake/engine-imports.test.mjs` reads every import: the old engine imports only its own siblings, no package imports from `apps/`, and `packages/engine`, `packages/domain` and `packages/data` import nothing from the old interface. One import of the old interface from a package is named and held: `packages/build/src/written.ts` reads `app/js/ui/material-highlights.js` (the build, not the engine). S11-10 is TESTED in the map.
 
 **The rule.** The decision code must not depend on the page code. One name for each thing, one ranking, one workspace model, one facts layer; the pages decide nothing.
 
@@ -74,6 +78,8 @@ If you do not answer, the default under each question is applied, and it is logg
 
 **Recommendation: A.** Before the engine port, write a characterization test on the old engine: a scenario with the reference layer on and a baseline chosen; the candidate list, count and shortlist must equal the same scenario with both off. It would then run on the old and the new engine.
 
+**Status since this list was written:** `tests/remake/candidates.test.mjs` does this through the typed wrapper over the old engine (three question templates; candidates, counts, rows and rankings equal with the layer on and a baseline chosen as with both off, and with a reference set handed in), and on the built data: no reference material is in the compiled database, and a saved scenario cannot name one as baseline or shortlist entry. S06-11 moves from UNTESTED to PARTIAL: how the page draws and counts its baseline row is still checked only by the rendered-scenario check.
+
 **Default if unanswered:** A. **Revisit:** when WP-18 starts.
 
 - [ ] A. Write the characterization test before the port (recommended)
@@ -98,6 +104,8 @@ If you do not answer, the default under each question is applied, and it is logg
 **Why it matters.** This is a legal and trust line. It is also the rule most likely to break during a rewrite, because the new site is built from new files in a new way.
 
 **Recommendation: A.** Bring the allow-list test forward: it must pass before any preview carries real data. It searches the built site for private markers and for any file not on a list.
+
+**Status since this list was written:** `remake/tools/private-scan.mjs` exists and `preview-assemble` runs it at the end of `inject` and `stage`, so a preview deploy fails closed (folder or zip; `tests/remake/private-scan.test.mjs`). It fails on `.cache` paths, OCR and text-cache keys, packet names, `H2C_` names, `/Users/` paths, database files, PDFs, saved web pages and any file type off the allow-list. Still open: makers' prose pasted into an allowed file type is recognised only by those markers, because comparing with the private text cache needs your machine. The current preview (commit 804f0a81) scans clean. S11-13 and S06-21 stay PARTIAL.
 
 **Default if unanswered:** A. **Revisit:** at the first preview that carries data.
 
@@ -145,6 +153,8 @@ If you do not answer, the default under each question is applied, and it is logg
 
 **Recommendation: A.** In WP-18, add a check that compares each ported test's assertion lines with the old file's, and fails on any difference other than import paths and labels.
 
+**Status since this list was written:** `checks/test-floor.txt` now records, for every registered test file (old and new), the fewest tests and assertion calls it may hold, and `npm run checks:register -- --verify` fails when either drops or when a registered file has no floor. That catches a test or an assertion deleted to make a change pass. It does not catch an edited expected value or a weaker assertion of the same kind: the assertion-line comparison with the old file, as recommended here, is still to be built in WP-18. S11-12 stays PARTIAL.
+
 **Default if unanswered:** A. **Revisit:** when WP-18 ports the first test.
 
 - [ ] A. Add the assertion-line comparison in WP-18 (recommended)
@@ -165,6 +175,8 @@ If you do not answer, the default under each question is applied, and it is logg
 **Why it matters.** It keeps a science change visible on its own, so you can see exactly which answers moved.
 
 **Recommendation: A.** The plan's write service already makes a rule-row change travel alone in its change set (WP-17). Add the test for "a rule-row change set holds nothing else" there. No separate work.
+
+**Status since this list was written:** WP-17's tests of that refusal (`rule-row-not-alone` in `tests/remake/write-guards.test.mjs`, `write-export.test.mjs` and `write-commands.test.mjs`) are now registered and named in the map, so the "alone" half is held. The other half, that a new rule row lands as `reported` and switches to `deciding` in a later change set with its decision diff, cannot be a test today: nothing in the write service refuses a rule row added as `deciding`, and no check reads history (and `main` is frozen, so no commit can break it meanwhile). Refusing `deciding` on an added rule row would be a change to the write service; it is yours to rule on. S11-08 stays PARTIAL.
 
 **Default if unanswered:** A. **Revisit:** at WP-17.
 

@@ -107,9 +107,10 @@ function editTable(table: TableName, text: string, edits: readonly ImpactRecord[
     const hits = rows.filter((row) => row[keyAt] === edit.recordId);
     if (hits.length > 1) throw new ImpactRefusal(`${table} has ${hits.length} rows with ${keyColumn} ${edit.recordId}`);
     const row = hits[0];
-    if (row !== undefined && edit.kind === 'addMeasurement') throw new ImpactRefusal(`${table} ${edit.recordId}: the record adds a row, and the row is already there`);
+    const appends = edit.kind === 'addMeasurement' || edit.kind === 'addRecord';
+    if (row !== undefined && appends) throw new ImpactRefusal(`${table} ${edit.recordId}: the record adds a row, and the row is already there`);
     if (row === undefined) {
-      if (edit.kind !== undefined && edit.kind !== 'addMeasurement') throw new ImpactRefusal(`${table} ${edit.recordId}: stale, the row is gone (a ${edit.kind} record needs the row it changes)`);
+      if (edit.kind !== undefined && !appends) throw new ImpactRefusal(`${table} ${edit.recordId}: stale, the row is gone (a ${edit.kind} record needs the row it changes)`);
       if (Object.values(edit.before).some((v) => v !== null)) throw new ImpactRefusal(`${table} ${edit.recordId}: stale, the row is gone (the record expected cells there)`);
       const added = header.map((name) => (name === keyColumn ? edit.recordId : (edit.after[name] ?? null)));
       for (const name of Object.keys(edit.after)) column(name);
