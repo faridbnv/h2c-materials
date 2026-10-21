@@ -7,6 +7,7 @@
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import type { ScenarioConstraint, ScenarioV2 } from '@atlas/domain';
+import type { Constraint, Result } from './port/constraints.ts';
 import { ENGINE_DIR } from './paths.ts';
 import { activePorts, stageEngine } from './port/stage.ts';
 import type { PortableModule } from './port/stage.ts';
@@ -14,21 +15,10 @@ import type { PortableModule } from './port/stage.ts';
 export { ENGINE_DIR, REPO_ROOT } from './paths.ts';
 
 /** A requirement as the engine holds it: a scenario's own object, or the engine's TREATMENT singleton. */
-export interface RawConstraint {
-  readonly kind: string;
-  readonly mandatory?: boolean;
-  readonly [field: string]: unknown;
-}
+export type RawConstraint = Constraint;
 
-/** One requirement's answer (constraints.js evaluateConstraint, productResult). */
-export interface RawResult {
-  readonly criterion: string;
-  readonly status: string;
-  readonly reason: string;
-  readonly constraint: RawConstraint;
-  readonly measurementId?: string | null;
-  readonly [field: string]: unknown;
-}
+/** One requirement's answer (constraints.js evaluateConstraint, productResult): the engine's own types, port/constraints.ts. */
+export type RawResult = Result;
 
 export interface RawState {
   readonly id: string;

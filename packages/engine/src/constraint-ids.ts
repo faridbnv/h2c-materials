@@ -24,7 +24,7 @@ export interface ConstraintIndex {
   lookup(raw: RawConstraint): ConstraintEntry;
 }
 
-const isTreatment = (c: RawConstraint): c is RawConstraint & TreatmentConstraint => c.kind === 'treatment';
+const isTreatment = (c: RawConstraint): c is TreatmentConstraint => c.kind === 'treatment';
 
 export function indexConstraints(constraints: readonly ScenarioConstraint[], treatment: RawConstraint): ConstraintIndex {
   if (!isTreatment(treatment)) throw new BoundaryError(`the engine's TREATMENT requirement has kind ${JSON.stringify(treatment.kind)}`);

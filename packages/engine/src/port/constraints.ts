@@ -16,133 +16,25 @@ import { fillerOf, isNamedFiller } from './filler.ts';
 
 export { SHARE };
 
-import type { ComparisonOperator, EngineMissing, GateVerdict, Group, Status, Verdict } from '@atlas/domain';
+import type {
+  ComparisonOperator, Doubt, EnvironmentConstraint, EnvironmentResult, EvidenceConstraint, EvidenceResult, FacetConstraint, FacetResult, GateConstraint,
+  GateResult, GateVerdict, Group, LedgerRef, NumericConstraint, NumericResult as NumericResultOut, PrintGateName, Status, TreatmentConstraint, TreatmentResult, Verdict,
+} from '@atlas/domain';
 import type { Contribution } from './ledger.ts';
-import type { Admitted, Caveat, Doubt, Elsewhere, Gates, HeadlineBag, ImpliedBound, Interval, Moisture, Prediction, ProductContext, ProductGrade, ProductMaterial, ProductState, RegistryHeadline, Treatment } from './products.ts';
+import type { Gates, HeadlineBag, ImpliedBound, Interval, Moisture, ProductContext, ProductGrade, ProductMaterial, ProductState, RegistryHeadline, Treatment } from './products.ts';
 
-export type PrintGateName = 'nozzle' | 'bed' | 'chamber';
-export type GateName = PrintGateName | 'scope' | 'h2cStatus' | 'abrasive' | 'buyable' | 'dryingKnown';
-export interface NumericConstraint {
-  /** A limit on a headline: "HDT at 0.45 MPa at least 100 °C". */
-  readonly kind: 'numeric';
-  readonly gate?: undefined;
-  readonly property: string;
-  readonly operator: ComparisonOperator;
-  readonly value: number;
-  readonly mandatory?: boolean;
-}
-export interface GateConstraint {
-  /** A print gate, scope, status, abrasion, offers or a drying statement. */
-  readonly kind: 'gate';
-  readonly property?: undefined;
-  readonly operator?: undefined;
-  readonly value?: undefined;
-  readonly gate: GateName;
-  readonly in?: readonly unknown[];
-  readonly hardenedAvailable?: boolean;
-  readonly inStock?: boolean;
-  readonly mandatory?: boolean;
-}
-export interface FacetConstraint {
-  /** A recorded class of the material: reinforcement, filler, support, family ... */
-  readonly kind: 'facet';
-  readonly property?: undefined;
-  readonly operator?: undefined;
-  readonly value?: undefined;
-  readonly gate?: undefined;
-  readonly facet: string;
-  readonly in?: readonly unknown[];
-  readonly equals?: unknown;
-  readonly mandatory?: boolean;
-}
-export interface EnvironmentConstraint {
-  /** Resistance to a class of agent (acid, alkali, solvent ...). */
-  readonly kind: 'environment';
-  readonly property?: undefined;
-  readonly operator?: undefined;
-  readonly value?: undefined;
-  readonly gate?: undefined;
-  readonly category: string;
-  readonly require?: readonly string[];
-  readonly mandatory?: boolean;
-}
-export interface EvidenceConstraint {
-  /** The strength of the evidence itself: an exact-grade measurement, no unresolved conflict. */
-  readonly kind: 'evidence';
-  readonly property?: undefined;
-  readonly operator?: undefined;
-  readonly value?: undefined;
-  readonly gate?: undefined;
-  readonly exactGrade?: boolean;
-  readonly noConflicts?: boolean;
-  readonly mandatory?: boolean;
-}
-export interface TreatmentRequirement {
-  /** The annealing a state needs: the engine's own requirement, which no scenario holds. */
-  readonly kind: 'treatment';
-  readonly property?: undefined;
-  readonly operator?: undefined;
-  readonly value?: undefined;
-  readonly gate?: undefined;
-  readonly mandatory: boolean;
-  readonly __group: string;
-}
-export type Constraint = NumericConstraint | GateConstraint | FacetConstraint | EnvironmentConstraint | EvidenceConstraint | TreatmentRequirement;
-
-export interface LedgerRef {
-  /** A contribution as an answer cites it: its rule, kind and record, and the bound it set. */
-  readonly rule: string;
-  readonly kind: Contribution['kind'];
-  readonly measurementId?: string;
-  readonly bound: number | null;
-}
-export interface Answer {
-  /** What a requirement answers for one material or product: today's one bag, the fields of every kind of check optional. */
-  status: Status;
-  criterion: string;
-  reason: string;
-  notApplicable?: boolean;
-  screened?: boolean | undefined;
-  vetoedBy?: string[];
-  missing?: EngineMissing | undefined;
-  estimated?: boolean;
-  estimate?: Prediction;
-  plausible?: Status;
-  ceilingOnly?: { measurementId: string | null; value: number };
-  asPublished?: { readonly value: number; readonly caveat?: Caveat | undefined; readonly measurementId?: string | null | undefined };
-  elsewhere?: readonly Elsewhere[];
-  sheetsDisagree?: { lo: LedgerRef; hi: LedgerRef };
-  ledger?: LedgerRef;
-  closeToLimit?: boolean;
-  onTheLine?: boolean;
-  thinMargin?: boolean;
-  doubtful?: readonly Doubt[];
-  observed?: number | undefined;
-  unit?: string | undefined;
-  interval?: Interval;
-  measurementId?: string | null | undefined;
-  gradeId?: string | undefined;
-  sourceId?: string | null | undefined;
-  direction?: string | undefined;
-  admitted?: readonly Admitted[];
-  caveat?: Caveat;
-  priceIds?: readonly string[];
-  derived?: boolean;
-  evidenceIds?: string[];
-  contextIds?: string[];
-  indicatorOnly?: boolean;
-  polymer?: boolean;
-  polymerId?: string;
-  polymerVerdict?: string;
-  polymerEvidenceIds?: string[];
-  polymerScreen?: boolean;
-  treatment?: Treatment;
-  [field: string]: unknown;
-}
-export interface Result extends Answer {
-  /** An answer with the requirement it answers. */
-  constraint: Constraint;
-}
+export type { EnvironmentConstraint, EvidenceConstraint, FacetConstraint, GateConstraint, NumericConstraint, PrintGateName, TreatmentConstraint };
+export type NumericResult = Omit<NumericResultOut, 'measurementId'> & {
+  /** The engine's own numeric answer: the domain's, with the record it cites a plain identifier until the boundary checks it. */
+  readonly measurementId?: string | null | undefined;
+};
+export type { EnvironmentResult, EvidenceResult, FacetResult, GateResult, TreatmentResult };
+/** One requirement's answer, one type per kind of check, told apart by the kind of its `constraint` (isNumericResult and its kin). */
+export type Result = NumericResult | GateResult | FacetResult | EnvironmentResult | EvidenceResult | TreatmentResult;
+/** A requirement the engine answers: the scenario's five kinds and its own treatment. */
+export type Constraint = NumericConstraint | GateConstraint | FacetConstraint | EnvironmentConstraint | EvidenceConstraint | TreatmentConstraint;
+/** What an evaluation of one kind of check returns before its requirement is attached to it. */
+export type Answer<R extends Result> = Omit<R, 'constraint' | 'reasonCode' | 'constraintId'>;
 
 export interface Facet {
   /** A recorded class of a material (compile.js deriveFacets). */
@@ -207,8 +99,9 @@ export interface Ctx extends ProductContext {
   readonly gradeById?: ReadonlyMap<string, ProductGrade>;
 }
 
+/** A policy word the engine recognises. */
 export type UnknownPolicyWord =
-  /** A policy word the engine recognises. */ 'strict' | 'exploration';
+  'strict' | 'exploration';
 
 export interface Grouping {
   /** Where a verdict is listed (D155), and the open requirements that decide it. */
@@ -249,7 +142,9 @@ export interface Judged {
   state: ProductState;
   tries: { state: ProductState; e: MaterialEvaluation }[];
 }
-export type Scatter = NonNullable<RegistryHeadline['testScatter']>;
+export type Scatter =
+  /** A headline's test scatter (headline_definitions.csv): a percentage of the limit, or an absolute amount. */
+  NonNullable<RegistryHeadline['testScatter']>;
 export interface ScatterMargin {
   readonly atLeast: boolean;
   readonly lo: number;
@@ -282,6 +177,12 @@ export interface MeasuredMiss {
   ceilings: number;
   unit: string;
 }
+
+const isNumericResult = (r: Result): r is NumericResult => r.constraint.kind === 'numeric';
+const isEnvironmentResult = (r: Result): r is EnvironmentResult => r.constraint.kind === 'environment';
+const isGateResult = (r: Result): r is GateResult => r.constraint.kind === 'gate';
+const isFacetResult = (r: Result): r is FacetResult => r.constraint.kind === 'facet';
+const isTreatmentResult = (r: Result): r is TreatmentResult => r.constraint.kind === 'treatment';
 
 export const STATUS = {
   PASS: 'PASS',
@@ -396,7 +297,7 @@ export function compareInterval(interval: IntervalLike | null | undefined, opera
 // measured the way the requirement asks (or as published, where the reader admits that), which always wins; 3, what the
 // evidence ledger bounds it to, from its other records and its kind's physics limits; 4, an estimate, which never
 // decides; 5, a value published the other way, in another state, or nothing.
-function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx = {}): Answer {
+function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx = {}): Answer<NumericResult> {
   const h0 = material.headline?.[c.property];
   const label = `${c.property} ${c.operator} ${fmt(c.value)}`;
   // A value that is only a ceiling for the printed part (CV05: a PLA or PET HDT from a bar its sheet does not describe)
@@ -629,7 +530,7 @@ const ledgerRef = (b: Contribution, end: number | null): LedgerRef => ({ rule: b
  * admits (D84). A pass names the floor (or, for a maximum, the ceiling) that meets it; a miss within the test scatter is
  * on the line (D152); two records with no value between them are "sheets disagree", unresolved.
  */
-function ledgerResult(h: HeadlineBag | undefined, c: NumericConstraint, ctx: Ctx, label: string, state: ProductState | undefined, own: string | null | undefined = null): { result?: Answer; note?: string } {
+function ledgerResult(h: HeadlineBag | undefined, c: NumericConstraint, ctx: Ctx, label: string, state: ProductState | undefined, own: string | null | undefined = null): { result?: Answer<NumericResult>; note?: string } {
   const bounds = h?.ledger;
   if (!bounds) return {};
   const iv = ledgerInterval(bounds.by, { evidence: ctx.evidence === 'as-published' ? 'as-published' : 'comparable' });
@@ -715,7 +616,7 @@ function elsewhereReason(h: HeadlineBag, state: ProductState | undefined, c?: Nu
  * annealing, which the scenario permits: the verdict says so. An annealing its sheet does not state in full cannot be
  * carried out as tested, so it settles nothing.
  */
-function evaluateTreatment(material: MaterialView): Answer {
+function evaluateTreatment(material: MaterialView): Answer<TreatmentResult> {
   const t = material.state?.treatment;
   if (!t) return { status: STATUS.PASS, criterion: 'Treatment', reason: 'Used as printed' };
   if (t.tempC == null || t.hours == null) {
@@ -723,7 +624,7 @@ function evaluateTreatment(material: MaterialView): Answer {
   }
   return { status: STATUS.PASS, criterion: 'Annealing', treatment: t, reason: `Needs annealing ${schedule(t)}, as its sheet states; annealing is allowed under Part condition` };
 }
-export const TREATMENT: TreatmentRequirement = { kind: 'treatment', mandatory: true, __group: 'Manufacturing' };
+export const TREATMENT: TreatmentConstraint = { kind: 'treatment', mandatory: true, __group: 'Manufacturing' };
 
 // ---------------------------------------------------------------- process gates
 
@@ -738,7 +639,7 @@ export function h2cStatusOf(material: MaterialView): string | undefined {
   return material.h2cStatus === 'Official Bambu product' ? 'Officially listed family' : material.h2cStatus;
 }
 
-function evaluateGate(material: MaterialView, c: GateConstraint): Answer {
+function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateResult> {
   if (c.gate === 'scope') {
     const excluded = material.excluded;
     return {
@@ -854,7 +755,7 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer {
 
 // ---------------------------------------------------------------- facets and evidence
 
-function evaluateFacet(material: MaterialView, c: FacetConstraint): Answer {
+function evaluateFacet(material: MaterialView, c: FacetConstraint): Answer<FacetResult> {
   // The filler as a reader files it (filler.js): the reinforcement facet's class, or the filler the materials table
   // names where that facet says undisclosed (§37.8). A requirement on "reinforcement" keeps the facet's own classes.
   if (c.facet === 'filler') {
@@ -896,7 +797,7 @@ function evaluateFacet(material: MaterialView, c: FacetConstraint): Answer {
 /** Verdicts that answer "does it resist" with an unqualified yes. Water solubility says "insoluble". */
 export const POSITIVE_VERDICTS: readonly string[] = ['resistant', 'insoluble'];
 
-function evaluateEnvironment(material: MaterialView, c: EnvironmentConstraint, ctx: Ctx): Answer {
+function evaluateEnvironment(material: MaterialView, c: EnvironmentConstraint, ctx: Ctx): Answer<EnvironmentResult> {
   const meta = ctx?.db?.meta?.environmentCategories?.[c.category];
   // The display name is compiled from the mapping file and travels in the snapshot, so the engine
   // can name a category without importing anything from the UI.
@@ -990,7 +891,7 @@ const verdictWords = (v: unknown): string => String(v).replace(/-/g, ' ');
  * A polymer the reference reports attacked or dissolved screens the material out under inference (`polymerScreen`
  * says so, the way `estimated` marks an estimate), and the SCREENED chip brings it back.
  */
-function evaluatePolymerLevel(polymer: PolymerRecord, label: string, ctx: Ctx | undefined): Answer {
+function evaluatePolymerLevel(polymer: PolymerRecord, label: string, ctx: Ctx | undefined): Answer<EnvironmentResult> {
   const agents = polymer.agents.map((a) => `${verdictWords(a.verdict)} to ${a.agent}`).join(', ');
   const basis = `No statement for this material. Its base polymer ${polymer.polymerId} is published as ${verdictWords(polymer.verdict)} (${agents}) in resin reference data, which is not a test of this product, so never enough to pass`;
   const common = { status: STATUS.UNKNOWN, criterion: label, polymer: true, polymerId: polymer.polymerId, polymerVerdict: polymer.verdict, polymerEvidenceIds: [polymer.id] };
@@ -1008,7 +909,7 @@ function evaluatePolymerLevel(polymer: PolymerRecord, label: string, ctx: Ctx | 
  * Data-quality criteria. These screen on the strength of the evidence rather than on a property,
  * which the brief treats as a first-class selection domain.
  */
-function evaluateEvidence(material: MaterialView, c: EvidenceConstraint, ctx: Ctx): Answer {
+function evaluateEvidence(material: MaterialView, c: EvidenceConstraint, ctx: Ctx): Answer<EvidenceResult> {
   const checks = [];
   // A product's own measurement, or its twin's, which is the same sheet (D89, D98); a sibling's is not this product's.
   const product = material.product;
@@ -1088,9 +989,9 @@ export function evaluateMaterial(material: MaterialView, constraints: readonly C
     eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
     needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
     // The UI must show when an estimate was involved rather than let the reader assume a measurement.
-    usesEstimate: results.some((r) => r.estimated),
+    usesEstimate: results.some((r) => isNumericResult(r) && r.estimated),
     // Likewise when a base polymer's published behaviour stood in for a record of the material (D64).
-    usesPolymer: results.some((r) => r.polymer),
+    usesPolymer: results.some((r) => isEnvironmentResult(r) && r.polymer),
     // Held out of Include by inference or by definition, not by a failure: a property that does not apply, an
     // estimate, or the base polymer's published behaviour. Its verdict is still UNKNOWN, so it is counted there and
     // never in FAIL; the status bar can bring it back.
@@ -1124,8 +1025,8 @@ export function evaluateMaterial(material: MaterialView, constraints: readonly C
 export const GROUP = { MEETS: 'meets', ONE_CHECK: 'one-check-away', NOT_ENOUGH: 'not-enough-data', UNLIKELY: 'unlikely-to-meet', HIDDEN: 'hidden', FAIL: 'fail' } as const;
 export const GROUP_ORDER = [GROUP.MEETS, GROUP.ONE_CHECK, GROUP.NOT_ENOUGH, GROUP.UNLIKELY, GROUP.HIDDEN, GROUP.FAIL] as const;
 const PRINTER_CHECKS: readonly string[] = ['nozzle', 'bed', 'chamber'];
-const isPrinterCheck = (r: Answer & { constraint?: Constraint }): boolean => r.constraint?.kind === 'gate' && PRINTER_CHECKS.includes(r.constraint.gate);
-const meetsLimit = (lo: number | null | undefined, hi: number | null | undefined, c: Constraint): boolean => Number.isFinite(lo) && Number.isFinite(hi) && compareInterval({ lo, hi, kind: 'range' }, c.operator!, c.value!) === STATUS.PASS;
+const isPrinterCheck = (r: Result): r is GateResult & { readonly constraint: GateConstraint & { readonly gate: PrintGateName } } => r.constraint?.kind === 'gate' && PRINTER_CHECKS.includes(r.constraint.gate);
+const meetsLimit = (lo: number | null | undefined, hi: number | null | undefined, c: NumericConstraint): boolean => Number.isFinite(lo) && Number.isFinite(hi) && compareInterval({ lo, hi, kind: 'range' }, c.operator, c.value) === STATUS.PASS;
 
 /**
  * One product's (or one product-less material's) group, from its verdict and the requirements it leaves open. The
@@ -1138,12 +1039,12 @@ function groupOf(verdict: Verdict, screened: boolean, unresolved: Result[]): Gro
   if (screened) return { group: GROUP.HIDDEN, likely: false };
   // Its own estimate wholly misses: unlikely, never hidden, since no product estimate is back-tested to hide (D137, D148).
   // An estimate its own measurement bounds from below and meets (D48) does not count.
-  const misses = unresolved.filter((r) => r.estimated && r.plausible === STATUS.FAIL && !r.vetoedBy?.length);
+  const misses = unresolved.filter((r) => isNumericResult(r) && r.estimated && r.plausible === STATUS.FAIL && !r.vetoedBy?.length);
   if (misses.length) return { group: GROUP.UNLIKELY, likely: false, open: misses };
-  if (unresolved.every(isPrinterCheck) || (unresolved.length === 1 && (unresolved[0]!.onTheLine || unresolved[0]!.sheetsDisagree))) {
+  if (unresolved.every(isPrinterCheck) || (unresolved.length === 1 && (unresolved[0]!.onTheLine || (isNumericResult(unresolved[0]!) && unresolved[0].sheetsDisagree)))) {
     return { group: GROUP.ONE_CHECK, likely: false, open: unresolved };
   }
-  const likely = unresolved.length > 0 && unresolved.every((r) => r.estimated && meetsLimit(r.estimate?.lo, r.estimate?.hi, r.constraint) && !ownForbidsLikely(r));
+  const likely = unresolved.length > 0 && unresolved.every((r) => isNumericResult(r) && r.estimated && meetsLimit(r.estimate?.lo, r.estimate?.hi, r.constraint) && !ownForbidsLikely(r));
   return { group: GROUP.NOT_ENOUGH, likely, open: unresolved };
 }
 
@@ -1152,10 +1053,10 @@ function groupOf(verdict: Verdict, screened: boolean, unresolved: Result[]): Gro
  * converted through its kind's band, wholly misses the limit, or its own sheets disagree beyond those bands and not every
  * one meets it. An estimate never claims more than the product's own sheet allows.
  */
-function ownForbidsLikely(r: Result): boolean {
+function ownForbidsLikely(r: NumericResult): boolean {
   const own = r.estimate?.ownBand;
   if (!own?.bands?.length) return false;
-  const judged = own.bands.map((b) => compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, r.constraint.operator!, r.constraint.value!));
+  const judged = own.bands.map((b) => compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, r.constraint.operator, r.constraint.value));
   return judged.includes(STATUS.FAIL) || (own.disagree && judged.some((s) => s !== STATUS.PASS));
 }
 
@@ -1167,8 +1068,8 @@ function ownForbidsLikely(r: Result): boolean {
 function shortfallOf(unresolved: readonly Result[]): number {
   let worst = 0;
   for (const r of unresolved) {
+    if (!isNumericResult(r) || !Number.isFinite(r.constraint.value)) continue;
     const c = r.constraint;
-    if (c?.kind !== 'numeric' || !Number.isFinite(c.value)) continue;
     const v = Number.isFinite(r.observed) ? r.observed : Number.isFinite(r.ledger?.bound) ? r.ledger.bound : Number.isFinite(r.estimate?.centre) ? r.estimate.centre : null;
     const gap = v === null ? Infinity : Math.max(0, (c.operator.startsWith('>') ? c.value - v : v - c.value) / (Math.abs(c.value) || 1));
     worst = Math.max(worst, gap);
@@ -1199,7 +1100,7 @@ function propertyWords(ctx: Ctx | undefined, key: string): string {
   return lowerFirst(plain);
 }
 const OPERATOR_WORDS: Readonly<Record<ComparisonOperator, string>> = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
-const unitOf = (r: Result, ctx: Ctx | undefined): string => r.unit ?? r.estimate?.unit ?? ctx?.db?.registry?.headlines?.find((x) => x.key === r.constraint?.property)?.unit ?? '';
+const unitOf = (r: NumericResult, ctx: Ctx | undefined): string => r.unit ?? r.estimate?.unit ?? ctx?.db?.registry?.headlines?.find((x) => x.key === r.constraint?.property)?.unit ?? '';
 /** A requirement in words: "HDT at 0.45 MPa at least 100 °C". */
 function limitWords(c: NumericConstraint, ctx: Ctx | undefined, unit = ''): string {
   return `${propertyWords(ctx, c.property)} ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)}${unit ? ` ${unit}` : ''}`;
@@ -1210,13 +1111,14 @@ const sig = (v: unknown, digits = 3): string => fmtWords(Number(Number(v).toPrec
 
 /** One open requirement of the deciding product in words, its own numbers in them (C05). */
 function openOne(r: Result, ctx: Ctx | undefined): string {
-  const c = r.constraint;
   if (isPrinterCheck(r)) {
+    const c = r.constraint;
     if (/^No print profile recorded/.test(r.reason ?? '')) return 'no print recipe on record';
     if (/^No temperature published/.test(r.reason ?? '')) return `its ${c.gate} temperature is not stated`;
     return `its ${c.gate}${r.onTheLine ? ' is on the line' : ''}: ${lowerFirst(firstSentence(r.reason))}`;
   }
-  if (c?.kind === 'numeric') {
+  if (isNumericResult(r)) {
+    const c = r.constraint;
     const prop = propertyWords(ctx, c.property);
     const unit = unitOf(r, ctx);
     if (r.onTheLine && Number.isFinite(r.observed)) return `${prop} ${sig(r.observed, 4)} ${unit}, on the line for ${OPERATOR_WORDS[c.operator] ?? c.operator} ${fmtWords(c.value)} ${unit}`;
@@ -1256,10 +1158,10 @@ function openWords(open: readonly Result[], ctx: Ctx | undefined): string {
  * record is not a measured value, so neither holds the material open: plain PLA is unlikely to meet 80 °C, although two
  * of its products print an undescribed bar's 90 and 110 °C.
  */
-const holdsOpen = (r: Result): boolean => r.status === STATUS.PASS || (r.status === STATUS.INDETERMINATE && (!!r.sheetsDisagree
+const holdsOpen = (r: NumericResult): boolean => r.status === STATUS.PASS || (r.status === STATUS.INDETERMINATE && (!!r.sheetsDisagree
   || (Number.isFinite(r.observed) && !r.ledger) || (!!r.onTheLine && r.ledger?.kind === 'equal')));
 /** A product measured the way the requirement asks that misses it, on its own value. */
-const measuredFail = (r: Result): boolean => r.status === STATUS.FAIL && Number.isFinite(r.observed) && !r.ledger;
+const measuredFail = (r: NumericResult): boolean => r.status === STATUS.FAIL && Number.isFinite(r.observed) && !r.ledger;
 
 /**
  * On a required number, a product measured the way it asks that misses it, while no product holds it open (holdsOpen):
@@ -1274,14 +1176,14 @@ function measuredMiss(judged: readonly Judged[], constraints: readonly Constrain
     if (c.kind !== 'numeric' || c.mandatory === false) continue;
     let misses = 0, bounded = 0, limited = 0, ceilings = 0, blocked = false;
     for (const x of judged) {
-      const r = x.e.results.find((y) => y.constraint === c);
+      const r = x.e.results.find((y): y is NumericResult => y.constraint === c);
       if (!r) continue;
       if (holdsOpen(r)) { blocked = true; break; }
       if (measuredFail(r)) misses++;
       else if (r.status === STATUS.FAIL && r.ledger) { if (/^CL/.test(r.ledger.rule)) limited++; else bounded++; }
       else if (r.ceilingOnly) ceilings++;
     }
-    if (!blocked && misses) return { constraint: c, misses, bounded, limited, ceilings, unit: judged.map((x) => x.e.results.find((y) => y.constraint === c)).find((r) => r?.unit)?.unit ?? '' };
+    if (!blocked && misses) return { constraint: c, misses, bounded, limited, ceilings, unit: judged.map((x) => x.e.results.find((y): y is NumericResult => y.constraint === c)).find((r) => r?.unit)?.unit ?? '' };
   }
   return null;
 }
@@ -1289,7 +1191,7 @@ function measuredMiss(judged: readonly Judged[], constraints: readonly Constrain
 function everyMeasuredMisses(judged: readonly Judged[], constraints: readonly Constraint[]): boolean {
   return constraints.some((c) => {
     if (c.kind !== 'numeric' || c.mandatory === false) return false;
-    const rs = judged.map((x) => x.e.results.find((y) => y.constraint === c)).filter(Boolean);
+    const rs = judged.map((x) => x.e.results.find((y): y is NumericResult => y.constraint === c)).filter(Boolean);
     const measured = rs.filter((r) => Number.isFinite(r.observed) && !r.ledger);
     return measured.length > 0 && measured.every((r) => r.status === STATUS.FAIL || r.onTheLine) && !rs.some((r) => r.status === STATUS.PASS);
   });
@@ -1417,7 +1319,7 @@ function materialGroup(verdict: Verdict, screened: boolean, best: Judged, judged
 }
 
 function productEntry(x: Judged, measuredMisses = false) {
-  const admitted = [...new Set(x.e.results.flatMap((r) => (r.status === STATUS.PASS ? r.admitted ?? [] : [])))];
+  const admitted = [...new Set(x.e.results.flatMap((r) => (isNumericResult(r) && r.status === STATUS.PASS ? r.admitted ?? [] : [])))];
   return {
     gradeId: x.grade.id, verdict: x.e.verdict, group: x.e.group, likely: !!x.e.likely && !measuredMisses,
     ...(x.e.groupReason ? { groupReason: x.e.groupReason } : {}), screened: x.e.screened, failedBy: x.e.failedBy,
@@ -1430,14 +1332,42 @@ function productEntry(x: Judged, measuredMisses = false) {
 }
 
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
+const NUMERIC_KEPT = ['measurementId', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'admitted', 'elsewhere', 'missing', 'asPublished', 'caveat'] as const;
+const GATE_KEPT = ['priceIds', 'onTheLine'] as const;
+const ENVIRONMENT_KEPT = ['evidenceIds', 'contextIds', 'screened', 'polymer'] as const;
+type Mutable<T> = { -readonly [K in keyof T]: T[K] };
+/** Copy the named fields of an answer that it has set. */
+function carry<R extends object, K extends keyof R>(out: Partial<R>, from: R, keys: readonly K[]): void {
+  for (const k of keys) if (from[k] !== undefined) out[k] = from[k];
+}
 const productResult = (r: Result): Result => {
-  const out: Result = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
-  if (r.estimate?.screening) out.prediction = {
-    centre: r.estimate.centre, plausible: r.estimate.plausible, screenRange: r.estimate.screenRange,
-    canScreen: r.estimate.canScreen, scope: r.estimate.screening.context, limitation: r.estimate.screenLimit,
-  };
-  return out;
+  if (isNumericResult(r)) {
+    const out: Mutable<NumericResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+    carry(out, r, NUMERIC_KEPT);
+    if (r.estimate?.screening) out.prediction = {
+      centre: r.estimate.centre, plausible: r.estimate.plausible, screenRange: r.estimate.screenRange,
+      canScreen: r.estimate.canScreen, scope: r.estimate.screening.context, limitation: r.estimate.screenLimit,
+    };
+    return out;
+  }
+  if (isGateResult(r)) {
+    const out: Mutable<GateResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+    carry(out, r, GATE_KEPT);
+    return out;
+  }
+  if (isEnvironmentResult(r)) {
+    const out: Mutable<EnvironmentResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+    carry(out, r, ENVIRONMENT_KEPT);
+    return out;
+  }
+  if (isTreatmentResult(r)) {
+    const out: Mutable<TreatmentResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+    carry(out, r, ['treatment']);
+    return out;
+  }
+  // A facet and an evidence answer keep none of the fields a product's result lists.
+  if (isFacetResult(r)) return { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+  return { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
 };
 
 /** Evaluate one material: by its products when the context carries them (D83), else on its own headline. */
@@ -1486,8 +1416,8 @@ export function explainExclusions(materials: readonly MaterialView[], constraint
         const mine = e.unresolved.filter((r) => r.screened && r.constraint === c);
         if (!mine.length) continue;
         screened++;
-        if (mine.some((r) => r.notApplicable)) screenedNotApplicable++;
-        else if (mine.some((r) => r.polymerScreen)) screenedByPolymer++;
+        if (mine.some((r) => isNumericResult(r) && r.notApplicable)) screenedNotApplicable++;
+        else if (mine.some((r) => isEnvironmentResult(r) && r.polymerScreen)) screenedByPolymer++;
       }
     }
     for (const m of materials) {

@@ -8,30 +8,11 @@
 //
 // Pure: no DOM, no globals, no imports from ../ui.
 
-import type { EngineMissing, EvidenceLevel, GateVerdict, ServiceMoisture } from '@atlas/domain';
+import type { Admitted, Band, Caveat, Doubt, Elsewhere, EngineMissing, EvidenceLevel, GateVerdict, Interval, OwnBand, Prediction, ServiceMoisture, Treatment } from '@atlas/domain';
+export type { Admitted, Band, Caveat, Doubt, Elsewhere, Interval, OwnBand, Prediction, Treatment };
 import type { Contribution, LedgerDb } from './ledger.ts';
 
-export interface Treatment {
-  readonly tempC: number | null;
-  readonly hours: number | null;
-}
 export type Moisture = ServiceMoisture;
-export type Admitted =
-  /** What a value's reader admitted unstated (GOALS 2026-09-28, decision 5). */ 'direction' | 'specimen' | 'moisture' | 'treatment' | 'bar';
-export type Caveat =
-  /** Why a value is set apart (D172). */ 'not-described' | 'unstated-direction' | 'load-not-stated';
-export type Interval =
-  /** The range a value stands for: a point, a mean with a band, a range, or a one-sided bound. */
-  | { readonly lo: number; readonly hi: number; readonly kind: 'point' | 'uncertainty' | 'range'; readonly openLow?: boolean; readonly openHigh?: boolean }
-  | { readonly lo: number; readonly hi: null; readonly openLow: boolean; readonly kind?: undefined; readonly openHigh?: undefined }
-  | { readonly lo: null; readonly hi: number; readonly openHigh: boolean; readonly kind?: undefined; readonly openLow?: undefined };
-export interface Doubt {
-  /** A record that contradicts a value, with where it puts it (C40, D153). */
-  readonly rule: string;
-  readonly lo: number | null;
-  readonly hi: number | null;
-  readonly measurementId?: string;
-}
 export interface TwinOrigin {
   /** A sibling's sheet a value was read from (D89). */
   readonly origin: 'twin';
@@ -94,34 +75,6 @@ export interface NozzleAdvice {
   readonly kind: 'harder-than-brass' | 'wear-caution';
   readonly text: string;
 }
-export interface Band {
-  /** An end of a range, open where null. */
-  readonly lo: number | null;
-  readonly hi: number | null;
-}
-export interface OwnBand {
-  /** What the estimate stage says of one headline (D43, D48, D59, D137, D167). */
-  readonly disagree: boolean;
-  readonly bands: readonly { readonly lo: number | null; readonly hi: number | null; readonly measurementIds?: readonly string[] }[];
-  readonly lo?: number;
-  readonly hi?: number;
-}
-export interface Prediction {
-  /** The estimate stage's value for one headline of one product. */
-  readonly lo: number;
-  readonly hi: number;
-  readonly unit: string;
-  readonly centre?: number;
-  readonly plausible?: { readonly lo: number; readonly hi: number };
-  readonly screenRange?: Band | null;
-  readonly canScreen?: boolean;
-  readonly screenLimit?: string;
-  readonly screening?: { readonly context?: unknown };
-  readonly impliedBounds?: readonly unknown[];
-  readonly ownBand?: OwnBand;
-  readonly evidence?: readonly { readonly measurementIds?: readonly string[] }[];
-  readonly [field: string]: unknown;
-}
 export interface ImpliedBound {
   /** A measurement of the material that bounds a headline from below (headline_definitions.csv Lower bound). */
   readonly lo: number;
@@ -158,15 +111,6 @@ export interface MeasurementRecord {
   readonly unit?: string;
   readonly specimenType?: string;
   readonly direction?: string;
-}
-export interface Elsewhere {
-  /** A value the product publishes in a state this scenario does not judge it in (D99). */
-  readonly stateId: string;
-  readonly treatment: Treatment | null;
-  readonly moisture?: Moisture | undefined;
-  readonly value: number;
-  readonly measurementId: string | null;
-  readonly setApart?: boolean;
 }
 export interface HeadlineCommon {
   /** What a known and a missing headline share: the database's, or a product view's, which carries more (ledger, elsewhere, related ...). */

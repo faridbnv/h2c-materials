@@ -7,7 +7,7 @@
 // that writes each sentence, and the rest follow. The text is never touched: `reason` stays word for word.
 import type { ReasonCode, ReasonEntry, RequirementResult, Status } from '@atlas/domain';
 
-type Branch = Pick<RequirementResult, 'status' | 'constraint' | 'treatment'>;
+type Branch = { readonly status: Status; readonly constraint: RequirementResult['constraint']; readonly treatment?: unknown };
 
 /** A result that says nothing yet either way: UNKNOWN or INDETERMINATE. */
 export const isOpen = (status: Status): boolean => status === 'UNKNOWN' || status === 'INDETERMINATE';

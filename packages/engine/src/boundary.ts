@@ -1,7 +1,7 @@
 // The boundary: the old engine's answers, checked and typed. Nothing the engine said is dropped or reworded; what is added
 // sits beside it (`constraintId`, `reasonCode`), and the words that became IDs or word-list members were checked on the way.
 import { GROUP_ORDER, PRODUCT_SHARES, STATUSES, parseStateId } from '@atlas/domain';
-import type { Evaluation, Group, MeasurementId, ProductView, RequirementResult, StateRef, Status, Verdict } from '@atlas/domain';
+import type { ConstraintId, Evaluation, Group, MeasurementId, ProductView, RequirementResult, StateRef, Status, Verdict } from '@atlas/domain';
 import type { ConstraintIndex } from './constraint-ids.ts';
 import { BoundaryError, gradeIdOf, materialIdOf, measurementIdOf, moistureOf, oneOf, stateIdOf } from './guards.ts';
 import type { RawEvaluation, RawProduct, RawResult, RawState } from './old-engine.ts';
@@ -29,6 +29,19 @@ function checkedMeasurement(measurementId: string | null | undefined): { measure
   return { measurementId: measurementId === null ? null : measurementIdOf(measurementId) };
 }
 
+/** The result a numeric answer carries a record ID in: the only kind that names a measurement. */
+const isNumericRaw = (r: RawResult): r is Extract<RawResult, { readonly constraint: { readonly kind: 'numeric' } }> => r.constraint.kind === 'numeric';
+
+/** One result, its words and IDs checked, with the ID of the requirement it answers beside it. */
+function checkedResult(raw: RawResult, id: ConstraintId): RequirementResult {
+  const status = statusOf(raw.status);
+  if (isNumericRaw(raw)) {
+    const { measurementId, ...rest } = raw;
+    return { ...rest, status, constraintId: id, ...checkedMeasurement(measurementId) };
+  }
+  return { ...raw, status, constraintId: id };
+}
+
 /**
  * One evaluation's results, converted once each: a result the engine lists in `results` and again in `failed` or
  * `unresolved` is one object there, and stays one object here.
@@ -38,9 +51,7 @@ function resultConverter(index: ConstraintIndex): (raw: RawResult) => Requiremen
   return (raw) => {
     const known = done.get(raw);
     if (known) return known;
-    const { id, body } = index.lookup(raw.constraint);
-    const { measurementId, ...rest } = raw;
-    const checked = { ...rest, status: statusOf(raw.status), constraint: body, constraintId: id, ...checkedMeasurement(measurementId) };
+    const checked = checkedResult(raw, index.lookup(raw.constraint).id);
     const reasonCode = reasonCodeOf(checked);
     const result = reasonCode === undefined ? checked : { ...checked, reasonCode };
     done.set(raw, result);

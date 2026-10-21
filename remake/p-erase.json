@@ -10,7 +10,6 @@
     { "old": "app/js/engine/products.js", "new": "packages/engine/src/port/products.ts" },
     { "old": "app/js/engine/indices.js", "new": "packages/engine/src/port/indices.ts" },
     { "old": "app/js/engine/scenario.js", "new": "packages/engine/src/port/scenario.ts" },
-    { "old": "app/js/engine/constraints.js", "new": "packages/engine/src/port/constraints.ts" },
     { "old": "app/js/engine/workspace.js", "new": "packages/engine/src/port/workspace.ts" }
   ]
 }
