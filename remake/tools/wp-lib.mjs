@@ -81,13 +81,15 @@ export function dispatchable(index, statuses) {
 export const waitingOnOwner = (statuses) =>
   Object.values(statuses).filter((s) => !s.approvedAt && (s.status === 'waiting-owner' || (s.waitingSince && !['dropped', 'done'].includes(s.status))));
 
-// The packages a pull request delivers: every status file that names the PR number (pr, or prs when several PRs built it), plus the one the branch name points
-// to (wp-S0-..., wp-07-...). One PR may deliver several packages (#6 delivered WP-01 and WP-S0), and an approval of the
-// PR approves them all.
+// The packages a pull request delivers, sorted by id: every status file that names the PR number (pr, or prs when several
+// PRs built it), plus the one the branch name points to (wp-S0-..., wp-07-...). One PR may deliver several packages (#6
+// delivered WP-01 and WP-S0), and an approval of the PR approves them all.
 export function deliveredBy(statuses, { pr, branch }) {
-  const byBranch = /^wp-(S0|\d\d)/i.exec(branch ?? '');
-  const ids = new Set(Object.values(statuses).filter((s) => pr != null && [s.pr, ...(s.prs ?? [])].some((n) => Number(n) === Number(pr))).map((s) => s.id));
-  if (byBranch && statuses[`WP-${byBranch[1].toUpperCase()}`]) ids.add(`WP-${byBranch[1].toUpperCase()}`);
+  const namesPr = (s) => [s.pr, ...(s.prs ?? [])].some((n) => Number(n) === Number(pr));
+  const ids = new Set(pr == null ? [] : Object.values(statuses).filter(namesPr).map((s) => s.id));
+  const branchKey = /^wp-(S0|\d\d)/i.exec(branch ?? '')?.[1];
+  const branchId = branchKey && `WP-${branchKey.toUpperCase()}`;
+  if (branchId && statuses[branchId]) ids.add(branchId);
   return [...ids].sort();
 }
 

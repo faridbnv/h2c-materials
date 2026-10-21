@@ -46,19 +46,18 @@ test('--list-faults and every known flag are accepted', () => {
   assert.equal(ok.status, 0, ok.stderr);
 });
 
-test('a fault that is caught exits 5; a differs run exits 1; a zero run exits 0; they are three different codes', () => {
+test('a caught fault exits 5 (not 1, not 70); a zero run exits 0; the placeholder new side exits 2', () => {
   const caught = run('--fault', 'tie-order', ...SMALL);
   assert.equal(caught.status, 5, caught.stderr);
   assert.match(caught.stdout, /fault tie-order: caught/);
-  // the same differences, but as the new-side comparison would see them (no self-test): a plain "differs" is 1 or, with the
-  // placeholder new side, 2. A caught fault is neither.
+  // 5 is its own code: a caught fault is neither "differs" (1) nor a crash (70).
   assert.notEqual(caught.status, 1);
   assert.notEqual(caught.status, 70);
   assert.equal(run('--noop', ...SMALL).status, 0);
   assert.equal(run(...SMALL).status, 2, 'old against the placeholder new side is not computable');
 });
 
-test('a run over a selection without --allow-partial exits 4, and a partial fault run is still caught (5)', () => {
+test('a run over a selection without --allow-partial exits 4', () => {
   assert.equal(run('--noop', '--only', 'template/').status, 4);
 });
 

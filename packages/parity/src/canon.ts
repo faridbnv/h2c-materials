@@ -1,6 +1,6 @@
 // Canonical encoding of values, so two engines' composite values compare as strings without losing what Object.is sees.
 import { Composite } from './types.ts';
-import type { NotComputable, Value } from './types.ts';
+import type { Atom, NotComputable, Value } from './types.ts';
 
 /** A field that exists on one side only. */
 export const ABSENT: unique symbol = Symbol('absent');
@@ -52,12 +52,17 @@ export function canon(value: unknown, identity?: Identity): string {
   return enc(value);
 }
 
+/** A string, a number, a boolean, null or undefined: compared as it is, never encoded. */
+export function isAtom(value: unknown): value is Atom {
+  return value === null || value === undefined || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean';
+}
+
 /**
- * A list, an object or another non-atom as a Composite value. A string, a number, a boolean, null and undefined are atoms and
- * stay atoms: wrapping one would let a composite and an atom show alike.
+ * A list, an object or another non-atom as a Composite value. An atom stays an atom: wrapping one would let a composite
+ * and an atom show alike.
  */
 export function composite(value: unknown, identity?: Identity): Composite {
-  if (value === null || value === undefined || ['string', 'number', 'boolean'].includes(typeof value)) throw new Error('composite() takes a list or an object; an atom stays an atom');
+  if (isAtom(value)) throw new Error('composite() takes a list or an object; an atom stays an atom');
   return new Composite(canon(value, identity));
 }
 

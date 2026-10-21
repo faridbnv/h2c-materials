@@ -29,7 +29,8 @@ function sideOf(beforeFlagged: boolean, afterFlagged: boolean): 'before' | 'afte
 function sameValue(a: Value, b: Value): 'same' | 'different' | 'not-computable' {
   if (isNotComputable(a) || isNotComputable(b)) return 'not-computable';
   // A composite equals only a composite with the same encoding; a string that spells it is a different value.
-  if (a instanceof Composite || b instanceof Composite) return a instanceof Composite && b instanceof Composite && a.text === b.text ? 'same' : 'different';
+  if (a instanceof Composite && b instanceof Composite) return a.text === b.text ? 'same' : 'different';
+  if (a instanceof Composite || b instanceof Composite) return 'different';
   return Object.is(a, b) ? 'same' : 'different';
 }
 

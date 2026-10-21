@@ -16,11 +16,12 @@ import { join } from 'node:path';
 import { exitCode, runParity } from './compare.ts';
 import { loadCorpus } from './corpus.ts';
 import { REPO_ROOT, copyEngine } from './engine-copy.ts';
-import { FAULTS, faultByName } from './faults.ts';
+import { FAULTS } from './faults.ts';
 import { createNewPlaceholder } from './new-adapter.ts';
 import { createOld, createOldAdapter, readDb } from './old-adapter.ts';
 import { formatReport } from './report.ts';
 import { buildTransition, loadTransitions } from './transitions.ts';
+import type { ParityReport } from './types.ts';
 
 /** Flags that stand alone, and flags that take one value. Anything else is a usage error. */
 const SWITCHES = ['noop', 'new', 'list-faults', 'allow-partial'];
@@ -35,9 +36,10 @@ function parseArgs(argv: readonly string[]): Map<string, string | true> {
     const token = argv[i]!;
     if (!token.startsWith('-')) throw new UsageError(`unexpected argument "${token}" (flags only; a value follows the flag that takes one)`);
     const name = token.startsWith('--') ? token.slice(2) : '';
-    if (!SWITCHES.includes(name) && !VALUED.includes(name)) throw new UsageError(`unknown flag ${token}`);
+    const isSwitch = SWITCHES.includes(name);
+    if (!isSwitch && !VALUED.includes(name)) throw new UsageError(`unknown flag ${token}`);
     if (given.has(name)) throw new UsageError(`${token} given twice`);
-    if (SWITCHES.includes(name)) { given.set(name, true); continue; }
+    if (isSwitch) { given.set(name, true); continue; }
     const value = argv[i + 1];
     if (value === undefined) throw new UsageError(`${token} needs a value`);
     if (value.startsWith('-')) throw new UsageError(`${token} needs a value, but the next argument is the flag ${value}`);
@@ -45,6 +47,14 @@ function parseArgs(argv: readonly string[]): Map<string, string | true> {
     i++;
   }
   return given;
+}
+
+/** Why a transition file cannot be written from this report, or '' when it can. */
+function transitionRefusal(report: ParityReport, allowPartial: boolean): string {
+  if (report.status !== 'differs') return `a run whose status is ${report.status}`;
+  if (report.notComputable.length) return 'a run with not-computable places';
+  if (report.partial && !allowPartial) return 'a partial run (add --allow-partial)';
+  return '';
 }
 
 async function main(argv: readonly string[]): Promise<number> {
@@ -61,7 +71,8 @@ async function main(argv: readonly string[]): Promise<number> {
   if (modes.length > 1) throw new UsageError('choose one of --noop, --fault <name>, --new');
   const mode = modes[0] ?? 'new';
   if (mode === 'noop' && flag('transitions')) throw new UsageError('--noop must be exactly zero; transitions are not accepted with it');
-  if (mode === 'fault' && !FAULTS.some((f) => f.name === val('fault'))) throw new UsageError(`unknown fault "${val('fault')}"; known: ${FAULTS.map((x) => x.name).join(', ')}`);
+  const fault = mode === 'fault' ? FAULTS.find((f) => f.name === val('fault')) : undefined;
+  if (mode === 'fault' && !fault) throw new UsageError(`unknown fault "${val('fault')}"; known: ${FAULTS.map((f) => f.name).join(', ')}`);
   if (flag('emit-transition') && mode === 'noop') throw new UsageError('refusing to write a transition from a noop run');
 
   const corpus = loadCorpus(val('corpus'));
@@ -75,12 +86,10 @@ async function main(argv: readonly string[]): Promise<number> {
   console.log(`db: release ${dbBefore.meta?.release?.id ?? '?'}, snapshot ${dbBefore.meta?.snapshot ?? '?'}; corpus ${corpus.corpus} built from release ${corpus.generatedFrom.release ?? '?'}`);
   const before = await createOld(dbBefore);
   let after;
-  let fault;
   if (mode === 'noop') {
     // A second old: its own parse of the db, and a fresh copy of the engine files, so no module instance or object is shared.
     after = await createOldAdapter({ name: 'old (second copy)', db: readDb(dbPath), engineDir: copyEngine([]) });
-  } else if (mode === 'fault') {
-    fault = faultByName(val('fault') ?? '');
+  } else if (fault) {
     after = await createOldAdapter({ name: `old + fault ${fault.name}`, db: readDb(dbPath), engineDir: copyEngine(fault.patches) });
   } else after = createNewPlaceholder();
 
@@ -100,7 +109,7 @@ async function main(argv: readonly string[]): Promise<number> {
   if (json) writeFileSync(json, `${JSON.stringify(report, null, 1)}\n`);
   const emit = val('emit-transition');
   if (emit) {
-    const why = report.status !== 'differs' ? `a run whose status is ${report.status}` : report.notComputable.length ? 'a run with not-computable places' : report.partial && !allowPartial ? 'a partial run (add --allow-partial)' : '';
+    const why = transitionRefusal(report, allowPartial);
     if (why) { console.error(`parity: refusing to write a transition from ${why}`); return 64; }
     const t = buildTransition({
       id: val('id') ?? 'unnamed', kind: (val('kind') ?? 'science') as never, description: val('description') ?? '', ruling: val('ruling') ?? '',
@@ -112,18 +121,18 @@ async function main(argv: readonly string[]): Promise<number> {
 
   let code = exitCode(report.status);
   if (mode === 'noop' && report.status !== 'zero') { console.error('NOOP FAILED: old against a copy of itself must be exactly zero differences'); code = code || 1; }
-  if (mode === 'fault') {
+  if (fault) {
     if (report.differences.length === 0) {
-      console.error(`FAULT NOT CAUGHT: ${fault!.name} produced no difference; the harness is blind to it`);
+      console.error(`FAULT NOT CAUGHT: ${fault.name} produced no difference; the harness is blind to it`);
       code = 3;
     } else {
       const tiers = new Set(report.differences.map((d) => d.tier));
-      const missed = fault!.expect.filter((t) => !tiers.has(t));
+      const missed = fault.expect.filter((t) => !tiers.has(t));
       // Caught: its own code, 5, so a caught fault is not read as "differs" (1) or as a crash (70). With --transitions the
       // transition decides (0 or 1); a not-computable run keeps 2.
       if (missed.length) code = 3;
       else if (!transitions && code === 1) code = 5;
-      console.log(`fault ${fault!.name}: caught, ${report.movedRecords.length} record(s) moved, tiers hit: ${[...tiers].join(', ')}${missed.length ? ` (expected also: ${missed.join(', ')})` : ''}`);
+      console.log(`fault ${fault.name}: caught, ${report.movedRecords.length} record(s) moved, tiers hit: ${[...tiers].join(', ')}${missed.length ? ` (expected also: ${missed.join(', ')})` : ''}`);
     }
   }
   if (report.partial && !allowPartial && code === 0) {
@@ -134,10 +143,10 @@ async function main(argv: readonly string[]): Promise<number> {
 }
 
 // A crash is not a verdict: whatever escapes main exits 70 with the error on stderr, never 1 (differs) and never 0.
-const crash = (err: unknown): never => {
+function crash(err: unknown): never {
   console.error(`parity: internal error, exit 70 (a bug or a missing build, not a verdict): ${err instanceof Error ? (err.stack ?? err.message) : String(err)}`);
   process.exit(70);
-};
+}
 process.on('uncaughtException', crash);
 process.on('unhandledRejection', crash);
 

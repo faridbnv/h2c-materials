@@ -8,10 +8,11 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadIndex, loadStatus, saveStatus, readJson, repoRoot, attestedKeys, isMain } from './wp-lib.mjs';
 
-// Upper-case SKIPPED (the old tool's own word), "not run:", node:test's "# SKIP" and a non-zero "skipped N" summary.
-// A "skipped 0" summary line is not a skip. A node:test summary of "tests 0" (a glob that matched nothing exits 0) and of
-// "todo N" with N above zero (a test marked todo is not a pass) are not passes either; the summary line is "ℹ tests 0" or
-// "# tests 0" and stands alone on its line, so a test whose name contains the words does not trigger it.
+// Output that says nothing ran, or not everything passed, although the exit code is 0: upper-case SKIPPED (the old tool's
+// own word), "not run:", "NOT RUN", node:test's "# SKIP" and a non-zero "skipped N" summary. A "skipped 0" summary line is
+// not a skip. A node:test summary of "tests 0" (a glob that matched nothing exits 0) or "todo N" with N above zero (a test
+// marked todo is not a pass) is not a pass either. That summary line ("ℹ tests 0" or "# tests 0") stands alone on its
+// line, so a test whose name contains the words does not trigger it.
 const SKIP_WORDS = /\bSKIPPED\b|\bnot run:|\bNOT RUN\b|# SKIP\b|\bskipped [1-9]|^[ \t]*(?:ℹ |# )?(?:tests 0|todo [1-9]\d*)[ \t]*$/m;
 
 // Why a command cannot run here, or null when it can be tried.

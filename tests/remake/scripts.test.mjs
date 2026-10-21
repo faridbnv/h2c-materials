@@ -42,7 +42,7 @@ test('the exit commands of every package that is done (and so must run now) name
     for (const cmd of p.exit.commands) for (const name of named(cmd)) { checked++; if (!(name in scripts)) missing.push(`${p.id}: ${cmd}`); }
   }
   assert.deepEqual(missing, []);
-  assert.ok(checked >= 3, 'WP-02 and WP-05 name npm scripts in their exit commands');
+  assert.ok(checked >= 3, 'the done packages name npm scripts in their exit commands, so the scan really looked');
 });
 
 test('the work-package scripts that were dropped in a merge are back and point at tools that exist', () => {
@@ -53,7 +53,8 @@ test('the work-package scripts that were dropped in a merge are back and point a
   };
   for (const [name, command] of Object.entries(want)) {
     assert.equal(scripts[name], command, name);
-    assert.ok(existsSync(join(root, command.split(' ')[1])), `${command.split(' ')[1]} exists`);
+    const [, tool] = command.split(' ');
+    assert.ok(existsSync(join(root, tool)), `${tool} exists`);
   }
 });
 

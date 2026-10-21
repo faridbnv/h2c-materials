@@ -3,11 +3,11 @@
 // scripts/trace.mjs pageContext, the decision census and the snapshot do. A test pins it to trace.mjs pageContext.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { canon, composite, notComputable } from './canon.ts';
+import { canon, composite, isAtom, notComputable } from './canon.ts';
 import type { EngineModules } from './engine-copy.ts';
 import { ENGINE_DIR, REPO_ROOT, copyEngine, loadEngine } from './engine-copy.ts';
 import type { Patch } from './engine-copy.ts';
-import type { Adapter, Atom, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
+import type { Adapter, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 type Rows = Record<string, any>[];
 type Db = Record<string, any> & { meta: any; materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
@@ -32,8 +32,9 @@ function exactKeys(o: object, known: string[], what: string): void {
 const WORDING_FIELDS = new Set(['reason', 'criterion']);
 
 /** A composite becomes a Composite (never a bare string, so a string that spells it differs); an atom stays an atom so numbers meet Object.is. */
-export const atom = (v: unknown, identity?: Map<object, string>): Value =>
-  (v === null || v === undefined || typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean' ? (v as Atom) : composite(v, identity));
+export function atom(v: unknown, identity?: Map<object, string>): Value {
+  return isAtom(v) ? v : composite(v, identity);
+}
 
 export interface OldAdapterOptions {
   /** Name shown in reports. */
