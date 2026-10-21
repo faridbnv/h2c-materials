@@ -1,9 +1,9 @@
 {
   "id": "WP-18",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-18-engine-port",
+  "pr": 25,
   "exitCheck": "not-run",
   "lastRun": "2026-10-21T16:11:19.799Z",
   "lastPass": null,
@@ -27,9 +27,43 @@
       "cmd": "manual: per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised",
       "result": "not-run",
       "note": "no command checks this yet"
+    },
+    {
+      "cmd": "npm run parity -- --new --surface engine,ties,links (committed switch, all eight modules, after merging remake/v3)",
+      "result": "pass",
+      "code": 0,
+      "note": "engine 1,306 cases zero; ties 110 cases and 16,390 materials zero; links 135 opened and 18 questions replayed, zero"
+    },
+    {
+      "cmd": "npm run parity -- --new --milestone --surface engine,ties,links (before the merge)",
+      "result": "pass",
+      "code": 0,
+      "note": "engine 5,306 cases and 23,268,611 records, ties 468 cases and 69,732 materials, links 135 and 18: all zero"
+    },
+    {
+      "cmd": "per module, cumulative: ATLAS_ENGINE_PORT=pareto | +filler | +search | +coverage | +ledger | +products | +indices; npm run parity -- --new --surface engine,ties",
+      "result": "pass",
+      "code": 0,
+      "note": "P-erase 0 and P-engine 0 at every step; scenario is the eighth step (the final run above)"
+    },
+    {
+      "cmd": "npm run types:check; npm run lint; npm run types:ratchet",
+      "result": "pass",
+      "code": 0,
+      "note": "no recorded count raised; casts 25 to 31 in four new files (ledger 1, products 1, indices 2, scenario 2), any and ts-expect-error unchanged"
+    },
+    {
+      "cmd": "npm run test:claude; test:domain; test:remake; test:parity",
+      "result": "pass",
+      "code": 0,
+      "note": "18, 25, 295 (the rebuild-budget test failed once under load and passes alone), 190 of 192 (2 PARITY_FULL)"
     }
   ],
-  "waitingSince": null,
+  "waitingSince": "2026-10-21",
   "approvedAt": null,
-  "updated": "2026-10-21T16:20:29.188Z"
+  "updated": "2026-10-21T16:20:29.188Z",
+  "prs": [
+    25
+  ],
+  "note": "engine leaves and middle ported label-only (pareto, filler, search, coverage, ledger, products, indices, scenario) and switched into the typed wrapper; P-erase 0 and P-engine 0 per module; constraints and workspace are WP-19; the port-refactor step for products and scenario is a separate PR; three defects logged (WP18-D1 to D3)"
 }
