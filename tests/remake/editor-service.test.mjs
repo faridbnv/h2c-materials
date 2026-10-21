@@ -6,10 +6,10 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { sha256Of } from '../../packages/data/src/digest.ts';
-import { impactFrom, readReport } from '../../apps/editor/server/impact.ts';
+import { engineImpact, impactFrom, readReport } from '../../apps/editor/server/impact.ts';
 import { columnIndex, copyData, editRecords, realData, realRecords } from './data-helpers.mjs';
 import { dropTemplate } from './write-helpers.mjs';
-import { QUOTE, SOURCE, densityCorrection, startFixture } from './editor-helpers.mjs';
+import { QUOTE, SOURCE, densityCorrection, startFixture, tensileCorrection } from './editor-helpers.mjs';
 
 after(dropTemplate);
 
@@ -209,8 +209,8 @@ test('discarding a conflict backs up first, and a conflict that is gone is not f
 
 // ---------------------------------------------------------------- impact
 
-test('with no engine on this branch the impact preview says it is not available yet; with nothing pending it says so; it never says "nothing moves"', async () => {
-  const fx = await startFixture();
+test('when the engine cannot be imported the preview says it is not available yet; with nothing pending it says so; it never says "nothing moves"', async () => {
+  const fx = await startFixture({ impact: engineImpact(realData, '@atlas/no-such-engine/impact') });
   try {
     const state = (await fx.call('/api/state')).json;
     assert.equal(state.impact.available, false);
@@ -225,12 +225,35 @@ test('with no engine on this branch the impact preview says it is not available 
   } finally { await fx.cleanup(); }
 });
 
+test('with the real engine (WP-11) behind it, WP-11\'s fixture correction lists its 16 moved answers, and says the estimate-stage questions were not asked', async () => {
+  const fx = await startFixture();
+  try {
+    const state = (await fx.call('/api/state')).json;
+    assert.equal(state.impact.available, true, state.impact.note);
+    const applied = (await fx.call('/api/corrections', { method: 'POST', body: await tensileCorrection(fx) })).json;
+    assert.equal(applied.status, 'applied', JSON.stringify(applied));
+    assert.equal(applied.quoteCheck.status, 'verified');
+    const report = (await fx.call('/api/impact', { method: 'POST', body: {} })).json;
+    assert.equal(report.status, 'ready', JSON.stringify(report).slice(0, 300));
+    assert.equal(report.moved, 16, 'the 16 answers WP-11 pins for this correction');
+    assert.deepEqual(report.byTemplate, { census: 16 });
+    assert.deepEqual(report.materials, ['M001']);
+    assert.equal(report.estimatesPending, true, 'questions that need the estimate stage were not asked');
+    assert.ok(report.questions.estimatesPending > 0 && report.questions.answered + report.questions.estimatesPending === report.questions.asked, JSON.stringify(report.questions));
+    const product = report.moves.find((m) => m.record === 'product:M001/G001-01' && m.case === 'census/067/estimates-off');
+    assert.deepEqual(product.changes, [{ field: 'verdict', before: 'PASS', after: 'FAIL' }, { field: 'group', before: 'meets', after: 'fail' }]);
+    assert.equal(report.moves.filter((m) => m.changes.some((c) => c.field !== 'listing')).length, 16);
+    // The same drafts, asked again, give the same answer; and a correction that moves nothing is not reported as a move.
+    assert.equal((await fx.call('/api/impact', { method: 'POST', body: {} })).json.moved, 16);
+  } finally { await fx.cleanup(); }
+}, { timeout: 180_000 });
+
 test('with a preview behind it, the pending records are handed over and its report is shown', async () => {
   let seen = null;
   const impact = impactFrom((records) => {
     seen = records;
     return Promise.resolve(readReport({
-      mode: 'core', summary: { moved: 2, estimatesPending: true, byTemplate: { t1: 2 } }, listingShifts: 1, materials: ['M001'],
+      mode: 'core', summary: { moved: 2, estimatesPending: true, byTemplate: { t1: 2 } }, cases: { asked: 10, answered: 6, estimatesPending: ['a', 'b', 'c', 'd'] }, listingShifts: 1, materials: ['M001'],
       moves: [{ case: 'template/t1', record: 'material:M001', materialId: 'M001', changes: [{ field: 'verdict', before: 'pass', after: 'fail' }] }],
     }, 1.5));
   });

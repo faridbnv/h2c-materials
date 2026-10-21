@@ -1,0 +1,33 @@
+{
+  "$comment": "FIXTURE, not a real correction. A change set in the WP-07 ChangeSet shape (packages/domain/src/contracts/change.ts) that lowers the first published tensile break strength of M001's G001-01 from 56 to 12 MPa, so the impact preview has a known move to find. before and after list the cells the record changed; the raw, numeric and normalized cells change together (02 section 9.1, rule 2). The evidence is invented.",
+  "id": "2026-10-21-fixture-m001-tensile-strength-0000",
+  "title": "Fixture: lower M001 G001-01 tensile break strength from 56 to 12 MPa",
+  "records": [
+    {
+      "id": "CR-FIXTURE-0001",
+      "opId": "01FIXTUREOPID000000000001",
+      "seq": 1,
+      "kind": "correctValue",
+      "table": "measurements",
+      "recordId": "V000002",
+      "before": { "Raw value": "56", "Raw numeric": "56", "Normalized value": "56" },
+      "after": { "Raw value": "12", "Raw numeric": "12", "Normalized value": "12" },
+      "evidence": {
+        "sourceId": "FIXTURE-SOURCE",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "page": 1,
+        "locator": "fixture",
+        "quote": "Tensile break strength 12 MPa (invented for the impact-preview fixture)"
+      },
+      "reason": "FIXTURE: exercises the impact preview; not a correction of the data.",
+      "rulings": [],
+      "actor": { "kind": "human", "name": "fixture" },
+      "reviewedBy": [],
+      "base": { "snapshotDigest": "0000000000000000000000000000000000000000000000000000000000000000", "commit": "0000000" },
+      "at": "2026-10-21T00:00:00.000Z"
+    }
+  ],
+  "base": { "snapshotDigest": "0000000000000000000000000000000000000000000000000000000000000000" },
+  "result": { "snapshotDigest": "0000000000000000000000000000000000000000000000000000000000000000" },
+  "impact": { "answersMoved": { "moved": 16, "estimatesPending": true, "byTemplate": { "census": 16 } }, "reportPath": "fixture" }
+}

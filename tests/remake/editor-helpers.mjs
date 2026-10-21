@@ -11,7 +11,9 @@ import { HASH, QUOTE, SOURCE, scratch } from './write-helpers.mjs';
 export { QUOTE, SOURCE };
 
 const PIXEL = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64');
-const PAGE_LINES = [['Technical data sheet', 'Printed specimens', QUOTE, 'Melt flow 6 g/10 min'], ['Storage and handling.']];
+/** The line that prints the tensile value WP-11's impact fixture lowers from 56 to 12 MPa. */
+export const TENSILE_QUOTE = 'Tensile Strength, Break ISO 527 MPa 12';
+const PAGE_LINES = [['Technical data sheet', 'Printed specimens', QUOTE, 'Melt flow 6 g/10 min', TENSILE_QUOTE], ['Storage and handling.']];
 
 /** A private store with the fixture's document: `text/<sha>.json` and `pages/<sha>/o-1.png`. */
 export function makeStore() {
@@ -72,6 +74,20 @@ export async function densityCorrection(fixture, overrides = {}) {
     set: { 'Raw value': '1.25', 'Raw numeric': '1.25', 'Normalized value': '1250' },
     reason: 'Edition 2025-06 supersedes 2024-03.',
     evidence: { page: 1, locator: 'Table 1', quote: QUOTE },
+    base: detail.base,
+    ...overrides,
+  };
+}
+
+/** WP-11's fixture correction as the interface sends it: V000002, the tensile break strength of ECOMAX PLA, 56 to 12 MPa. */
+export async function tensileCorrection(fixture, overrides = {}) {
+  const detail = (await fixture.call('/api/measurements/V000002')).json;
+  return {
+    measurementId: 'V000002',
+    expect: { 'Raw value': '56', 'Raw numeric': '56', 'Normalized value': '56' },
+    set: { 'Raw value': '12', 'Raw numeric': '12', 'Normalized value': '12' },
+    reason: 'The data sheet prints 12 MPa for the break strength.',
+    evidence: { page: 1, locator: 'p. 1: Tensile Strength, Break', quote: TENSILE_QUOTE },
     base: detail.base,
     ...overrides,
   };

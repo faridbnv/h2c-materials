@@ -1,6 +1,8 @@
-// npm run parity -- [--noop | --fault <name> | --new | --mutate] [--milestone] [--surface <list>] [--tables-dir <dir>]
+// npm run parity -- [--noop | --fault <name> | --new | --placeholder | --mutate] [--milestone] [--surface <list>] [--tables-dir <dir>]
 //                   [--transitions <dir>] [--corpus <file>] [--db <file>] [--only <prefix>] [--json <file>]
-//   (no mode)       old against the new side (a placeholder until WP-11: reports "not computable", exit 2)
+//   (no mode)       old against the new side: on the engine surface, the old engine behind the typed wrapper (@atlas/engine, WP-11)
+//   --new           the same, said out loud. Build and pages stay "not computable" until WP-20 and WP-24 wire them
+//   --placeholder   old against a new side that answers nothing: must report "not computable", exit 2 (a self-test)
 //   --noop          old against a second, independently loaded copy of old; must be exactly 0 differences
 //   --fault <name>  old against a temporary copy of the engine with one fault injected; must report differences (exit 5)
 //   --mutate        all nine faults, one after the other, into temporary copies (npm run parity:mutate); 0 when 9 of 9 are caught

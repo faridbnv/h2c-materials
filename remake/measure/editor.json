@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "status": "measured",
-  "measuredAt": "2026-10-21T12:47:47.593Z",
+  "measuredAt": "2026-10-21T13:11:53.475Z",
   "machine": {
     "os": "darwin 27.0.0",
     "arch": "arm64",
@@ -14,19 +14,19 @@
   "sourceStore": "present",
   "cold": {
     "note": "first start: the workspace is built from the CSV first",
-    "wallMs": 1572,
-    "readyMs": 1505
+    "wallMs": 1553,
+    "readyMs": 1482
   },
   "warm": {
     "note": "the workspace is current with the data",
     "runsMs": [
-      168,
+      170,
+      170,
+      171,
       169,
-      172,
-      175,
-      165
+      168
     ],
-    "medianMs": 169,
+    "medianMs": 170,
     "budgetMs": 3000,
     "withinBudget": true
   }

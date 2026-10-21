@@ -11,7 +11,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { columnIndex, copyData, editRecords, realData, realRecords } from '../remake/data-helpers.mjs';
-import { QUOTE, SOURCE, makeStore } from '../remake/editor-helpers.mjs';
+import { QUOTE, SOURCE, TENSILE_QUOTE, makeStore } from '../remake/editor-helpers.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const manifestDigest = () => createHash('sha256').update(readFileSync(join(realData, 'manifest.json'))).digest('hex');
@@ -97,10 +97,12 @@ test('the correction journey: find, read the source beside the record, correct, 
   await expect(page.getByRole('row', { name: /Density/ })).toContainText('draft, not approved');
   await expect(page.getByRole('row', { name: /Density/ })).toContainText('1.25 g/cc');
 
-  // The engine is not on this branch: the panel says so and gives no count; it never says that nothing moves.
+  // The real engine (WP-11) answers: moving the density across 1.24 g/cc flips a recorded verdict in 16 census questions. The questions
+  // that need the estimate stage are not asked, and the panel says so instead of calling the answer complete.
   const impact = page.getByRole('region', { name: 'Which answers would move' });
-  await expect(impact).toContainText('Impact preview: not available yet (WP-11).');
-  await expect(impact).not.toContainText('move no answer');
+  await expect(impact).toContainText('These corrections change 16 answers.', { timeout: 90_000 });
+  await expect(impact).toContainText('144 more questions need the estimate stage and have not been asked, so this is not the whole picture.');
+  await expect(impact).not.toContainText('not available');
   await expect(page.getByRole('banner')).toContainText('1 draft, not approved');
 
   // The stale edit: the other window still holds the old value. Its refusal shows three columns and keeps what was typed.
@@ -162,17 +164,26 @@ test('a source that is not on this computer is said so, and the correction is sw
   await expect(page.locator('.page-text')).toHaveCount(0);
 });
 
-test('the answers that would move are listed when a preview is behind the editor', async ({ page }) => {
-  const service = await launch({ script: 'tests/e2e/serve-fixture.mjs', args: ['--workspace', workspace, '--source-store', store.dir] });
-  running.push(service);
+test('the answers that would move are listed by the real engine: WP-11\'s fixture correction (tensile break strength 56 to 12 MPa) moves 16', async ({ page }) => {
+  const service = await start();
   await page.goto(service.url);
-  await openDensity(page);
-  await correctDensity(page);
+  await find(page, 'ecomax pla', '3DXTECH');
+  await page.getByRole('button', { name: 'Open Tensile break strength (V000002) beside its source' }).click();
+  await page.getByLabel('New printed value').fill('12');
+  await expect(page.getByLabel('Normalized value')).toHaveValue('12');
+  await page.getByRole('list', { name: 'Source page' }).getByRole('button', { name: TENSILE_QUOTE }).click();
+  await page.getByLabel('Reason').fill('The data sheet prints 12 MPa for the break strength.');
+  await page.getByRole('button', { name: 'Check and save as draft' }).click();
+  await expect(page.getByRole('status').filter({ hasText: 'Saved as a draft, not approved.' })).toBeVisible();
   const impact = page.getByRole('region', { name: 'Which answers would move' });
-  await expect(impact).toContainText('These corrections change 2 answers.');
-  await expect(impact).toContainText('Questions that need the estimate stage have not been asked yet');
-  await expect(impact.getByRole('row', { name: /everyday-pla/ })).toContainText('pass');
-  await expect(impact.getByRole('row', { name: /everyday-pla/ })).toContainText('fail');
+  await expect(impact).toContainText('These corrections change 16 answers.', { timeout: 90_000 });
+  await expect(impact).toContainText('more questions need the estimate stage and have not been asked, so this is not the whole picture.');
+  await expect(impact).toContainText('census: 16');
+  const row = impact.getByRole('row', { name: /census\/067\/estimates-off.*product:M001\/G001-01/ });
+  await expect(row).toContainText('verdict');
+  await expect(row.locator('.was').first()).toHaveText('PASS');
+  await expect(row.locator('.now').first()).toHaveText('FAIL');
+  await expect(impact.getByRole('row')).toHaveCount(1 + 16);
   await expect(page.getByRole('banner')).toContainText('Impact preview: available');
 });
 

@@ -29,8 +29,9 @@ export type SourceId = Brand<string, 'SourceId'>;
 
 /**
  * A requirement of a scenario, stable across runs, so a result is matched to its requirement by this ID and not by
- * object identity (15-TYPESCRIPT-PLAN section 2, addition 6). Placeholder: the old engine has no such ID, and how it is
- * derived is decided when constraint IDs land (WP-19, owner question TS-3). No code builds one yet.
+ * object identity (15-TYPESCRIPT-PLAN section 2, addition 6). Placeholder: the old engine has no such ID. The typed
+ * engine wrapper (WP-11) mints a provisional one, the requirement's own `id` or `c<position>`, and `treatment` for the
+ * engine's own annealing requirement; how a stable one is derived is decided with WP-19 (owner question TS-3).
  */
 export type ConstraintId = Brand<string, 'ConstraintId'>;
 

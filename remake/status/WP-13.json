@@ -27,9 +27,9 @@
       "note": "remake/measure/editor.json: warm start about 0.17 s, cold (workspace built) about 1.6 s, budget 3 s"
     },
     {
-      "cmd": "manual: impact preview against WP-11's engine",
-      "result": "not-run",
-      "note": "packages/engine is not on remake/v3 (PR 18 open); the editor says 'not available yet (WP-11)' and loads @atlas/engine/impact when it exists"
+      "cmd": "tests/remake/editor-service.test.mjs + e2e: impact preview through the real @atlas/engine/impact",
+      "result": "pass",
+      "note": "WP-11's fixture correction (V000002, tensile break strength 56 to 12 MPa) lists 16 moved answers in the editor, with 144 estimate-stage questions shown as not yet asked"
     },
     {
       "cmd": "manual: owner tries the editor (WP-16)",
@@ -39,7 +39,7 @@
   ],
   "waitingSince": "2026-10-21",
   "approvedAt": null,
-  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); WP-10 (PR 19) merged into this branch because it is not yet on remake/v3",
+  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); impact preview runs the real WP-11 engine in its own thread",
   "prs": [
     20
   ]

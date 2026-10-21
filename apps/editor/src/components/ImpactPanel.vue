@@ -37,8 +37,11 @@ const moves = computed(() => {
 const sentence = computed(() => {
   const r = ready.value;
   if (r === null) return '';
-  if (r.moved === 0) return 'These corrections move no answer among the questions that were asked.';
-  return `These corrections change ${r.moved} answer${r.moved === 1 ? '' : 's'}.`;
+  if (r.moved > 0) return `These corrections change ${r.moved} answer${r.moved === 1 ? '' : 's'}.`;
+  // No move among the questions asked is never "nothing moves" while some questions have not been asked.
+  return r.estimatesPending
+    ? `No answer moved among the ${r.questions.answered} questions asked. ${r.questions.estimatesPending} more need the estimate stage and have not been asked, so this does not show that nothing moves.`
+    : `These corrections move no answer among the ${r.questions.answered} questions asked.`;
 });
 </script>
 
@@ -57,9 +60,9 @@ const sentence = computed(() => {
       <p v-else-if="result.status === 'nothing-pending'" class="muted">{{ result.reason }}</p>
       <p v-else-if="result.status === 'failed'" class="banner error" role="alert">{{ result.reason }}</p>
       <template v-else-if="ready">
-        <p class="banner" :class="ready.moved > 0 ? 'warn' : 'ok'"><strong>{{ sentence }}</strong>
+        <p class="banner" :class="ready.moved > 0 || ready.estimatesPending ? 'warn' : 'ok'"><strong>{{ sentence }}</strong>
           <span v-if="ready.listingShifts"> {{ ready.listingShifts }} record{{ ready.listingShifts === 1 ? '' : 's' }} only changed their place in a list.</span>
-          <span v-if="ready.estimatesPending"> Questions that need the estimate stage have not been asked yet, so this is not the whole picture.</span>
+          <span v-if="ready.estimatesPending && ready.moved > 0"> {{ ready.questions.estimatesPending }} more questions need the estimate stage and have not been asked, so this is not the whole picture.</span>
         </p>
         <p v-if="Object.keys(ready.byTemplate).length" class="hint">
           By template: <span v-for="(n, name) in ready.byTemplate" :key="name" class="badge plain">{{ name }}: {{ n }}</span>

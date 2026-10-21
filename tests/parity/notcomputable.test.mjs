@@ -24,8 +24,8 @@ test('the new-side placeholder is not computable: status not-computable, exit 2,
   assert.equal(exitCode(r.status), 2);
 });
 
-test('CLI default mode exits 2 with the placeholder', () => {
-  const r = spawnSync(process.execPath, [cli, '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
+test('CLI --placeholder exits 2: a new side that answers nothing is not computable', () => {
+  const r = spawnSync(process.execPath, [cli, '--placeholder', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 2, r.stderr);
   assert.match(r.stdout, /NOT COMPUTABLE/);
   assert.match(r.stdout, /RESULT: not-computable/);

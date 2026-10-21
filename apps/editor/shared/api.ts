@@ -180,6 +180,8 @@ export type ImpactResponse =
       readonly mode: string;
       readonly moved: number;
       readonly estimatesPending: boolean;
+      /** How many questions were put to the engine, how many it answered, and how many wait for the estimate stage. */
+      readonly questions: { readonly asked: number; readonly answered: number; readonly estimatesPending: number };
       readonly byTemplate: Readonly<Record<string, number>>;
       readonly listingShifts: number;
       readonly materials: readonly string[];

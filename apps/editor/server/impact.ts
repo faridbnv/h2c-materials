@@ -2,6 +2,7 @@
 // its `@atlas/engine/impact` interface when that package is on this branch. When it is not, the editor says so, plainly:
 // "not available yet" is never shown as "nothing moves".
 import { basename, dirname } from 'node:path';
+import { Worker } from 'node:worker_threads';
 import type { ChangeRecord } from '@atlas/domain/contracts';
 import type { ImpactMove, ImpactResponse } from '../shared/api.ts';
 
@@ -39,68 +40,75 @@ export function readReport(report: unknown, seconds: number): ImpactResponse {
   const byTemplate = isRecord(report.summary.byTemplate)
     ? Object.fromEntries(Object.entries(report.summary.byTemplate).flatMap(([name, n]) => (typeof n === 'number' ? [[name, n]] : [])))
     : {};
+  const cases = isRecord(report.cases) ? report.cases : {};
+  const count = (value: unknown): number => (typeof value === 'number' ? value : Array.isArray(value) ? value.length : 0);
   return {
     status: 'ready', mode: typeof report.mode === 'string' ? report.mode : 'core', moved: report.summary.moved,
-    estimatesPending: report.summary.estimatesPending === true, byTemplate,
+    estimatesPending: report.summary.estimatesPending === true,
+    questions: { asked: count(cases.asked), answered: count(cases.answered), estimatesPending: count(cases.estimatesPending) }, byTemplate,
     listingShifts: typeof report.listingShifts === 'number' ? report.listingShifts : 0,
     materials: asStrings(report.materials), moves: movesOf(report.moves), seconds,
   };
 }
-
-interface ImpactSessionLike {
-  warm(): void;
-  preview(records: readonly PendingRecord[]): Promise<unknown>;
-  close(): void;
-}
-
-interface ImpactModule {
-  openImpactSession(options: { readonly root: string }): Promise<unknown>;
-}
-
-const isSession = (value: unknown): value is ImpactSessionLike =>
-  isRecord(value) && typeof value.warm === 'function' && typeof value.preview === 'function' && typeof value.close === 'function';
-
-const isImpactModule = (value: unknown): value is ImpactModule => isRecord(value) && typeof value.openImpactSession === 'function';
 
 function impactUnavailable(reason: string): ImpactProvider {
   return { unavailable: reason, preview: () => Promise.resolve({ status: 'unavailable', reason }), close: () => undefined };
 }
 
 /** Whether `@atlas/engine/impact` is on this branch, found without loading it (loading the engine would slow the editor's start). */
-function engineIsHere(): boolean {
-  try { import.meta.resolve(IMPACT_MODULE); return true; } catch { return false; }
+function engineIsHere(specifier: string): boolean {
+  try { import.meta.resolve(specifier); return true; } catch { return false; }
 }
 
+interface Waiting { readonly resolve: (report: unknown) => void; readonly reject: (error: Error) => void }
+
 /**
- * WP-11's preview over the checkout that holds `dataDir`. Whether the module exists is known at start; it is loaded when the first
- * preview is asked for. The module is looked up by a name TypeScript cannot resolve, so this file compiles whether or not
- * packages/engine exists; when it does not, the provider says "not available yet (WP-11)".
+ * WP-11's preview over the checkout that holds `dataDir`, in a thread of its own (impact-worker.ts). Whether the module exists is
+ * known at start; it is loaded when the first preview is asked for. The module is looked up by a name TypeScript cannot resolve, so
+ * this file compiles whether or not packages/engine exists; when it does not, the provider says "not available yet (WP-11)".
  */
-export function engineImpact(dataDir: string): ImpactProvider {
-  if (!engineIsHere()) return impactUnavailable(UNAVAILABLE_NOTE);
+export function engineImpact(dataDir: string, specifier: string = IMPACT_MODULE): ImpactProvider {
+  if (!engineIsHere(specifier)) return impactUnavailable(UNAVAILABLE_NOTE);
   if (basename(dataDir) !== 'data') return impactUnavailable('Impact preview: not available for this data folder (it must be the data/ folder of a checkout).');
   const root = dirname(dataDir);
-  let session: Promise<ImpactSessionLike> | undefined;
-  const open = (): Promise<ImpactSessionLike> => (session ??= import(IMPACT_MODULE).then(async (loaded: unknown) => {
-    if (!isImpactModule(loaded)) throw new Error(`${IMPACT_MODULE} has no openImpactSession`);
-    const s = await loaded.openImpactSession({ root });
-    if (!isSession(s)) throw new Error('the impact module returned no session');
-    s.warm();
-    return s;
-  }));
+  const waiting = new Map<number, Waiting>();
+  let worker: Worker | undefined;
+  let next = 0;
+
+  const end = (error: Error): void => {
+    worker = undefined;
+    for (const w of waiting.values()) w.reject(error);
+    waiting.clear();
+  };
+  const start = (): Worker => {
+    const made = new Worker(new URL('./impact-worker.ts', import.meta.url), { workerData: { root, specifier } });
+    made.on('message', (message: unknown) => {
+      if (!isRecord(message) || typeof message.id !== 'number') return;
+      const w = waiting.get(message.id);
+      waiting.delete(message.id);
+      if (typeof message.error === 'string') w?.reject(new Error(message.error)); else w?.resolve(message.report);
+    });
+    made.on('error', end);
+    made.on('exit', () => end(new Error('the impact thread stopped')));
+    made.unref();
+    return made;
+  };
   return {
     unavailable: null,
     async preview(records) {
       const started = performance.now();
+      const id = next++;
       try {
-        const report = await (await open()).preview(records);
+        const report = await new Promise<unknown>((resolve, reject) => {
+          waiting.set(id, { resolve, reject });
+          (worker ??= start()).postMessage({ id, records });
+        });
         return readReport(report, Math.round(performance.now() - started) / 1000);
       } catch (error) {
-        session = undefined;
         return { status: 'failed', reason: `The impact preview failed: ${error instanceof Error ? error.message : String(error)}` };
       }
     },
-    close() { void session?.then((s) => s.close(), () => undefined); },
+    close() { void worker?.terminate(); worker = undefined; },
   };
 }
 
