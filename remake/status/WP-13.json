@@ -1,13 +1,46 @@
 {
   "id": "WP-13",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-13-editor",
+  "pr": 20,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
-  "evidence": [],
-  "waitingSince": null,
-  "approvedAt": null
+  "evidence": [
+    {
+      "cmd": "npm run test:e2e -- editor",
+      "result": "pass",
+      "code": 0,
+      "note": "5 journey tests on fixtures, Chromium via the installed Chrome channel"
+    },
+    {
+      "cmd": "node --test tests/remake/editor-security.test.mjs tests/remake/editor-service.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "token, Host, Origin, no CORS, 127.0.0.1 bind, CSP, path and ID checks; correction, stale, conflict, drafts, backup, export"
+    },
+    {
+      "cmd": "npm run editor:measure",
+      "result": "pass",
+      "code": 0,
+      "note": "remake/measure/editor.json: warm start about 0.17 s, cold (workspace built) about 1.6 s, budget 3 s"
+    },
+    {
+      "cmd": "tests/remake/editor-service.test.mjs + e2e: impact preview through the real @atlas/engine/impact",
+      "result": "pass",
+      "note": "WP-11's fixture correction (V000002, tensile break strength 56 to 12 MPa) lists 16 moved answers in the editor, with 144 estimate-stage questions shown as not yet asked"
+    },
+    {
+      "cmd": "manual: owner tries the editor (WP-16)",
+      "result": "not-run",
+      "note": "Tier 1; the owner's sitting is WP-16"
+    }
+  ],
+  "waitingSince": "2026-10-21",
+  "approvedAt": null,
+  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); impact preview runs the real WP-11 engine in its own thread",
+  "prs": [
+    20
+  ]
 }

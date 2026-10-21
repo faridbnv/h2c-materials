@@ -7,6 +7,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["packages/*/src/**/*.ts", "packages/*/test/**/*.ts", "remake/**/*.ts", "tests/remake/**/*.ts"],
+  "include": ["packages/*/src/**/*.ts", "packages/*/test/**/*.ts", "apps/editor/server/**/*.ts", "apps/editor/shared/**/*.ts", "remake/**/*.ts", "tests/remake/**/*.ts"],
   "exclude": ["tests/remake/fixtures"]
 }
