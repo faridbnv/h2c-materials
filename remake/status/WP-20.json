@@ -34,8 +34,8 @@
     },
     {
       "cmd": "npm run build:measure",
-      "result": "see remake/measure/build.json",
-      "note": "cold build time against the 26.4 s budget; the machine was heavily loaded by other jobs during this work, so the file says what was and was not measurable"
+      "result": "fail",
+      "note": "cold build against the 26.4 s budget NOT shown: side by side under the same load the new core takes 1.07 to 1.09 times the old core (the same, unchanged estimate stage runs 5 to 12 percent slower in the new process; cause not found); projected like-for-like cold build about 27.5 s on a quiet machine, about 1 s over. The machine was busy throughout, so remake/measure/build.json says budgetDecidable false"
     },
     {
       "cmd": "npm run parity:host",

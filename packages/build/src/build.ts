@@ -92,6 +92,12 @@ function releaseOf(projectRoot: string, dataDir: string): Dyn {
   }
 }
 
+/** The schema gate over the loaded tables. Its own function, so the schemas, vocabularies and per-record wrappers it builds are garbage the moment it returns, not live heap for the estimate stage. */
+function schemaGate(projectRoot: string, sheets: Map<TableName, Sheet>, notCanonical: ReadonlySet<string>): Issue[] {
+  const { tables: schemas, vocab } = loadSchemas(join(projectRoot, 'schema'));
+  return checkTables(gateTablesOf(sheets), schemas, vocab, { isCanonical: (name) => !notCanonical.has(name) });
+}
+
 function failed(errors: Issue[], timing: Record<string, number>): RunResult {
   return { ok: false, errors, warnings: [], db: null, reference: null, timing, files: null };
 }
@@ -143,9 +149,7 @@ export function runBuild(options: RunOptions): RunResult {
 
   // The schema gate, on the rows as the compiler will read them. SCHEMA-FORMAT compares each table's export from the
   // reconstruction with the file's own bytes.
-  const { tables: schemas, vocab } = loadSchemas(join(projectRoot, 'schema'));
-  const gateTables = gateTablesOf(sheets);
-  const issues: Issue[] = timed('check', () => checkTables(gateTables, schemas, vocab, { isCanonical: (name) => !notCanonical.has(name) }));
+  const issues: Issue[] = timed('check', () => schemaGate(projectRoot, sheets, notCanonical));
   if (issues.some((i) => i.level === 'error')) return failed(issues.filter((i) => i.level === 'error'), timing);
 
   const snapshot = snapshotDate(wb.Method?.rows ?? []);

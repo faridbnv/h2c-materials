@@ -5,8 +5,9 @@
 //
 // "Cold" means no build cache: the new build has none, and the old one runs with H2C_NO_BUILD_CACHE=1 in a temporary copy of the
 // project (so the project's dist/ and build/reports are untouched). Each run is a whole process, wall clock, from spawn to exit.
-// The runs alternate new, old core, old full, so a machine that gets busier hurts all three alike, and every run is written down
-// with the load average, so a noisy measurement says so.
+// Each run is two PAIRS, started together so that a busy machine hurts both halves of a pair alike: the new core beside the old core,
+// and the old full build beside the old core. The ratio inside a pair and the difference inside a pair mean something on a busy
+// machine; the absolute seconds do not, and the file says so (`budgetDecidable`). Every run is written down with the load average.
 //
 //   new core    packages/build/src/cli.ts: reconstruct, load, check, compile, estimate (the old stage), validate, db.json
 //   old core    build/src/index.js --validate-only: the same stages on CSV, no db.json written
@@ -79,20 +80,33 @@ for (const f of ['package.json', 'package-lock.json']) cpSync(join(PROJECT_ROOT,
 const out = join(copy, 'new-out');
 mkdirSync(out, { recursive: true });
 const cold = { H2C_NO_BUILD_CACHE: '1' };
-const runs: { newCore: number; oldCore: number; oldFull: number; cpuNewCore: number; cpuOldCore: number; cpuOldFull: number; load: number }[] = [];
+interface Run {
+  /** Pair A: the new core and the old core, side by side. */
+  newCore: number; oldCoreA: number; cpuNewCore: number; cpuOldCoreA: number;
+  /** Pair B: the old full build and the old core, side by side. */
+  oldFull: number; oldCoreB: number; cpuOldFull: number; cpuOldCoreB: number;
+  load: number;
+}
+const runs: Run[] = [];
+const newCoreArgs = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out];
 try {
   for (let i = 0; i < RUNS; i++) {
     const load = loadavg()[0] ?? 0;
     rmSync(join(out, 'db.json'), { force: true });
-    const newCore = await timeProcess(process.execPath, ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out], PROJECT_ROOT);
+    const [newCore, oldCoreA] = await Promise.all([
+      timeProcess(process.execPath, newCoreArgs, PROJECT_ROOT),
+      timeProcess(process.execPath, ['build/src/index.js', '--validate-only'], copy, cold),
+    ]);
     if (!existsSync(join(out, 'db.json'))) throw new Error('the new build exited 0 but wrote no db.json: its time is not a build time');
-    const oldCore = await timeProcess(process.execPath, ['build/src/index.js', '--validate-only'], copy, cold);
-    const oldFull = await timeProcess(process.execPath, ['build/src/index.js'], copy, cold);
+    const [oldFull, oldCoreB] = await Promise.all([
+      timeProcess(process.execPath, ['build/src/index.js'], copy, cold),
+      timeProcess(process.execPath, ['build/src/index.js', '--validate-only'], copy, cold),
+    ]);
     runs.push({
-      newCore: round(newCore.wall), oldCore: round(oldCore.wall), oldFull: round(oldFull.wall),
-      cpuNewCore: round(newCore.cpu), cpuOldCore: round(oldCore.cpu), cpuOldFull: round(oldFull.cpu), load: round(load),
+      newCore: round(newCore.wall), oldCoreA: round(oldCoreA.wall), cpuNewCore: round(newCore.cpu), cpuOldCoreA: round(oldCoreA.cpu),
+      oldFull: round(oldFull.wall), oldCoreB: round(oldCoreB.wall), cpuOldFull: round(oldFull.cpu), cpuOldCoreB: round(oldCoreB.cpu), load: round(load),
     });
-    console.log(`run ${i + 1}/${RUNS}: wall new core ${newCore.wall.toFixed(1)} s, old core ${oldCore.wall.toFixed(1)} s, old full ${oldFull.wall.toFixed(1)} s; cpu ${newCore.cpu.toFixed(1)} / ${oldCore.cpu.toFixed(1)} / ${oldFull.cpu.toFixed(1)} s (load ${load.toFixed(1)})`);
+    console.log(`run ${i + 1}/${RUNS} (load ${load.toFixed(1)}): pair A new core ${newCore.wall.toFixed(1)} s / old core ${oldCoreA.wall.toFixed(1)} s; pair B old full ${oldFull.wall.toFixed(1)} s / old core ${oldCoreB.wall.toFixed(1)} s`);
   }
 } finally {
   rmSync(copy, { recursive: true, force: true });
@@ -100,34 +114,34 @@ try {
 
 const loadMax = Math.max(...runs.map((r) => r.load));
 const quiet = loadMax <= cpus().length / 2;
-const medians = { newCore: median(runs.map((r) => r.newCore)), oldCore: median(runs.map((r) => r.oldCore)), oldFull: median(runs.map((r) => r.oldFull)) };
-if (medians.oldFull < medians.oldCore) {
-  throw new Error(`the old full build (${medians.oldFull} s) was faster than its own core (${medians.oldCore} s): the machine was too busy for these times to mean anything (load up to ${loadMax}); nothing written`);
-}
-const cpu = { newCore: median(runs.map((r) => r.cpuNewCore)), oldCore: median(runs.map((r) => r.cpuOldCore)), oldFull: median(runs.map((r) => r.cpuOldFull)) };
-const likeForLike = medians.newCore + (medians.oldFull - medians.oldCore);
+const wallRatio = median(runs.map((r) => r.newCore / r.oldCoreA));
+const cpuRatio = median(runs.map((r) => r.cpuNewCore / r.cpuOldCoreA));
+const fullExtra = median(runs.map((r) => r.oldFull - r.oldCoreB));
+const bestOldCore = Math.min(...runs.flatMap((r) => [r.oldCoreA, r.oldCoreB]));
+const bestNewCore = Math.min(...runs.map((r) => r.newCore));
+// What the old full build adds to its core (the bundle and the pages), the new core's time, and the budget: the like-for-like cold
+// build. On a busy machine this is only as good as the load was low; it is decided against the budget only on a quiet one.
+const likeForLike = bestNewCore + fullExtra;
 const result = {
   schema: 1,
-  // 'measured-under-load' says the machine was busy (load above half its cores) while this ran: every time is inflated, and the
-  // comparison with the budget is only as good as the two builds were alike in that.
+  // 'measured-under-load' says the machine was busy (load above half its cores) while this ran: every absolute time is inflated.
   status: quiet ? 'measured' : 'measured-under-load',
   loadMax: round(loadMax),
   measuredAt: new Date().toISOString(),
   machine: { os: `${platform()} ${release()}`, arch: arch(), cpu: cpus()[0]?.model ?? 'unknown', cores: cpus().length, memoryGb: Math.round(totalmem() / 2 ** 30) },
   node: process.version,
-  what: 'whole-process wall time of a cold build (no build cache): the new build core, the old build core and the old full build, alternating, in seconds',
+  what: 'whole-process time of cold builds (no build cache), in seconds, in two pairs per run started together: the new build core beside the old build core, and the old full build beside the old build core',
   runs,
-  medianSeconds: { newCore: round(medians.newCore), oldCore: round(medians.oldCore), oldFull: round(medians.oldFull) },
-  newCoreVsOldCoreSeconds: round(medians.newCore - medians.oldCore),
-  cpuMedianSeconds: { newCore: round(cpu.newCore), oldCore: round(cpu.oldCore), oldFull: round(cpu.oldFull) },
-  cpuNewCoreVsOldCoreSeconds: round(cpu.newCore - cpu.oldCore),
+  newCoreOverOldCore: { wall: round(wallRatio), cpu: round(cpuRatio), note: 'median of the ratios inside pair A: how much longer the new core takes than the old core under the same load' },
+  oldFullMinusOldCoreSeconds: round(fullExtra),
+  bestSeconds: { newCore: round(bestNewCore), oldCore: round(bestOldCore) },
   likeForLikeFullSeconds: round(likeForLike),
-  likeForLike: 'new core + (old full - old core): the new build plus what the old bundle and pages stages add, which the new build does not run yet',
+  likeForLike: 'best new core + (old full - old core, inside pair B): the new build plus what the old bundle and pages stages add, which the new build does not run yet',
   budgetSeconds: BUDGET_S,
-  withinBudget: likeForLike <= BUDGET_S,
-  newCoreWithinBudget: medians.newCore <= BUDGET_S,
+  budgetDecidable: quiet,
+  withinBudget: quiet ? likeForLike <= BUDGET_S : null,
 };
-console.log(`median: new core ${result.medianSeconds.newCore} s, old core ${result.medianSeconds.oldCore} s, old full ${result.medianSeconds.oldFull} s; like-for-like full ${result.likeForLikeFullSeconds} s against ${BUDGET_S} s`);
+console.log(`new core / old core, same load: wall x${result.newCoreOverOldCore.wall}, cpu x${result.newCoreOverOldCore.cpu}; old full adds ${result.oldFullMinusOldCoreSeconds} s; like-for-like ${result.likeForLikeFullSeconds} s against ${BUDGET_S} s (${quiet ? 'quiet machine' : 'machine busy: the budget is not decidable'})`);
 if (!args.includes('--no-write')) {
   const path = join(PROJECT_ROOT, 'remake', 'measure', 'build.json');
   writeFileSync(path, `${JSON.stringify(result, null, 2)}\n`);
