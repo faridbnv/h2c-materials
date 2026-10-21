@@ -1,5 +1,5 @@
 # Branch CI for the remake (WP-03; pack 07 section 8.1, pack 08 section 4.4). Runs on every pull request into remake/v3 and
-# every push to it. main's verify.yml and pages.yml are not touched and cannot be started by this branch.
+# every push to it. main's verify.yml and pages.yml are not touched here (verify.yml still runs on pull requests by its own trigger; pages.yml cannot be started by this branch).
 #
 # Required checks to add to remake/v3's branch protection (the owner does this): next-verify, old-paths, tier-gate.
 # (review-section is also worth requiring.) Job names below ARE the check names.
