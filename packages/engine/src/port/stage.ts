@@ -17,12 +17,12 @@ import { ENGINE_DIR } from '../paths.ts';
 export const ENGINE_MODULES = ['constraints', 'coverage', 'filler', 'indices', 'ledger', 'pareto', 'products', 'scenario', 'search', 'workspace'] as const;
 export type EngineModuleName = (typeof ENGINE_MODULES)[number];
 
-/** The modules WP-18 ports. `constraints` and `workspace` are WP-19. */
-export const PORTABLE = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'indices', 'products', 'scenario'] as const;
+/** The modules with a TypeScript port: eight from WP-18, `constraints` and `workspace` from WP-19. */
+export const PORTABLE = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'indices', 'products', 'scenario', 'constraints', 'workspace'] as const;
 export type PortableModule = (typeof PORTABLE)[number];
 
 /** The switch: the modules the typed wrapper runs from their port. A module joins this list in the commit that ports it. */
-export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'products', 'indices', 'scenario'];
+export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'products', 'indices', 'scenario', 'constraints', 'workspace'];
 
 /** The environment variable that overrides the switch: `none` (the old engine as it is), `all`, or a comma-separated list. */
 export const PORT_ENV = 'ATLAS_ENGINE_PORT';
@@ -39,7 +39,7 @@ export function activePorts(env: Readonly<Record<string, string | undefined>> = 
   if (asked === 'all') return PORTABLE;
   const ports: PortableModule[] = [];
   for (const name of asked.split(',').map((s) => s.trim())) {
-    if (!isPortable(name)) throw new Error(`${PORT_ENV}: "${name}" is not a module WP-18 ports (known: ${PORTABLE.join(', ')}; or none, all)`);
+    if (!isPortable(name)) throw new Error(`${PORT_ENV}: "${name}" is not a module with a TypeScript port (known: ${PORTABLE.join(', ')}; or none, all)`);
     if (!ports.includes(name)) ports.push(name);
   }
   return ports;

@@ -23,6 +23,7 @@ export interface Contribution {
   readonly hi: number | null;
   readonly openLow?: true;
   readonly openHigh?: true;
+  readonly measurementId?: string;
   readonly sourceValue?: number;
   readonly factor?: number | null;
   readonly limit?: unknown;
@@ -47,6 +48,7 @@ export interface Requirement {
 }
 export interface LedgerRow {
   readonly id: string;
+  readonly words?: string;
   readonly [field: string]: unknown;
 }
 export interface LedgerDb {
@@ -141,13 +143,12 @@ export const requirementWords = (c: Requirement, unit: string): string => `${({ 
  */
 export type ReasonOptions = {
   readonly unit: string;
-  readonly words?: string | null;
+  readonly words?: string | null | undefined;
   readonly c: Requirement;
   readonly asPrinted?: boolean;
-} & (
-  | { readonly verdict: 'pass' | 'fail'; readonly margin?: { readonly words: string } | null }
-  | { readonly verdict: 'line'; readonly margin: { readonly words: string } }
-);
+  readonly verdict: 'pass' | 'fail' | 'line';
+  readonly margin?: { readonly words: string } | null;
+};
 export function ledgerReason(b: Contribution, { unit, words, verdict, c, margin, asPrinted = true }: ReasonOptions): string {
   const req = requirementWords(c, unit);
   const atLeast = c.operator.startsWith('>');

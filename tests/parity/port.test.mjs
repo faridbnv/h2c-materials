@@ -54,7 +54,7 @@ test('the port switch: the committed list, the environment override, and a refus
   assert.deepEqual(activePorts({ [PORT_ENV]: 'none' }), []);
   assert.deepEqual(activePorts({ [PORT_ENV]: 'all' }), PORTABLE);
   assert.deepEqual(activePorts({ [PORT_ENV]: 'ledger, pareto,ledger' }), ['ledger', 'pareto']);
-  assert.throws(() => activePorts({ [PORT_ENV]: 'constraints' }), /not a module WP-18 ports/);
+  assert.throws(() => activePorts({ [PORT_ENV]: 'nonsuch' }), /not a module with a TypeScript port/);
 });
 
 test('a staged engine: a ported module is the port\'s own text, an old one is the old file, each re-exported under the other extension', () => {
@@ -539,6 +539,109 @@ test('scenario: the historic-link corpus opens and replays with zero differences
   assert.equal(again.replay.status, 'zero');
 });
 
+// --- constraints and workspace (WP-19) ------------------------------------------------------------------------------------
+
+/** The context the page builds (main.js buildContext), as createContext does: one per scenario setting. */
+function contextFor(productsByMaterial, { policy = 'strict', estimates = false, evidence = 'comparable', anneal = false, annealMaxC = null, moisture = 'dry' } = {}) {
+  const groupBy = (rows) => { const m = new Map(); for (const r of rows) { if (!m.has(r.materialId)) m.set(r.materialId, []); m.get(r.materialId).push(r); } return m; };
+  return {
+    db, measurementsByMaterial: groupBy(db.measurements), evidenceByMaterial: groupBy(db.evidence), polymerEvidenceByMaterial: groupBy(db.polymerEvidence ?? []),
+    coverageByMaterial: groupBy(db.coverage), productsByMaterial, measurementById: new Map(db.measurements.map((m) => [m.id, m])), gradeById: new Map(db.grades.map((g) => [g.id, g])),
+    unknownPolicy: policy, useEstimates: estimates, showEstimates: estimates, evidence, anneal, annealMaxC, moisture,
+  };
+}
+const SETTINGS = [{}, { policy: 'exploration' }, { policy: 'exploration', estimates: true }, { policy: 'exploration', anneal: true, annealMaxC: 150, moisture: 'conditioned' }, { policy: 'strict', evidence: 'as-published' }];
+
+test('constraints: the small functions and tables are the old module\'s, on a grid of intervals, operators and limits', async () => {
+  const [constraints, was] = await portAndOld('constraints');
+  for (const name of ['STATUS', 'GATE_STATUS', 'UNKNOWN_POLICY', 'GROUP', 'GROUP_ORDER', 'POSITIVE_VERDICTS', 'TREATMENT']) assert.deepEqual(constraints[name], was[name], name);
+  assert.deepEqual(Object.keys(constraints.GATE_STATUS), Object.keys(was.GATE_STATUS), 'the key order of the gate table is read by the page');
+  for (const v of ['strict', 'exploration', 'Exploration', '', undefined, null, 5, {}]) assert.equal(constraints.normalizePolicy(v), was.normalizePolicy(v));
+  const ends = [null, -2, 0, 1, 2.5, 3, 1000, 123456.789];
+  for (const lo of ends) for (const hi of ends) for (const openLow of [undefined, false, true]) for (const openHigh of [undefined, false, true]) {
+    const interval = { lo, hi, openLow, openHigh, kind: 'range' };
+    assert.deepEqual(constraints.boundOf(interval), was.boundOf(interval));
+    assert.deepEqual(constraints.rangeText(lo, hi, 'MPa'), was.rangeText(lo, hi, 'MPa'));
+    for (const operator of ['>=', '>', '<=', '<']) for (const threshold of [-1, 0, 1, 2.5, 3, 1000]) {
+      assert.equal(constraints.compareInterval(interval, operator, threshold), was.compareInterval(interval, operator, threshold), JSON.stringify([interval, operator, threshold]));
+    }
+  }
+  assert.equal(constraints.compareInterval(null, '>=', 1), was.compareInterval(null, '>=', 1));
+  assert.throws(() => constraints.compareInterval({ lo: 1, hi: 1 }, '==', 1), /Unsupported operator "=="/);
+  for (const t of [null, undefined, {}, { tempC: 120, hours: 16 }, { tempC: null, hours: 4 }, { tempC: 80.5, hours: null }]) assert.equal(constraints.schedule(t), was.schedule(t));
+  const headlines = db.materials.flatMap((m) => Object.values(m.headline ?? {}));
+  for (const h of [...headlines, null, undefined, { spread: { n: 2 }, value: 1, typical: { value: 1, interval: { lo: 1, hi: null, openLow: true } } }]) assert.deepEqual(constraints.publishedBound(h), was.publishedBound(h));
+  const gradeOf = new Map(db.grades.map((g) => [g.id, g]));
+  for (const m of db.materials) for (const gid of (m.gradeIds ?? []).slice(0, 2)) {
+    const view = { ...m, product: gradeOf.get(gid) };
+    assert.equal(constraints.h2cStatusOf(view), was.h2cStatusOf(view), `${m.id} ${gid}`);
+  }
+  assert.equal(constraints.h2cStatusOf({ h2cStatus: 'x' }), was.h2cStatusOf({ h2cStatus: 'x' }));
+  const groups = was.GROUP_ORDER.flatMap((group) => [true, false].flatMap((likely) => [0, 2].flatMap((n) => [0, 0.5, 3].map((shortfall) => ({ group, likely, verdict: group === 'meets' ? 'PASS' : group === 'fail' ? 'FAIL' : 'UNKNOWN', unresolved: Array(n).fill({}), shortfall })))));
+  for (const a of groups) for (const b of groups) assert.equal(constraints.compareGroups(a, b), was.compareGroups(a, b));
+});
+
+test('constraints: explainExclusions and runSelection, which the corpus asks little or nothing of, are the old module\'s on every template and setting', async () => {
+  const [constraints, was] = await portAndOld('constraints');
+  const productsByMaterial = old('products').productsByMaterial(db);
+  const materials = nonFamilyMaterials;
+  let compared = 0;
+  for (const t of TEMPLATES) for (const setting of SETTINGS) {
+    const ctx = contextFor(productsByMaterial, setting);
+    const a = constraints.explainExclusions(materials, t.constraints, ctx);
+    const b = was.explainExclusions(materials, t.constraints, ctx);
+    assert.ok(isDeepStrictEqual(a, b), `${t.name} ${JSON.stringify(setting)}: explainExclusions`);
+    // Without a products map the material-level path is taken (evaluateMaterial on the material's own headline).
+    const bare = { ...ctx, productsByMaterial: undefined };
+    assert.ok(isDeepStrictEqual(constraints.runSelection(materials, t.constraints, bare), was.runSelection(materials, t.constraints, bare)), `${t.name} material-level`);
+    compared++;
+  }
+  assert.ok(compared >= 5 * TEMPLATES.length);
+  // A kind the engine does not know throws as before.
+  assert.throws(() => constraints.evaluateConstraint(materials[0], { kind: 'wish' }, {}), /Unsupported constraint kind "wish"/);
+  assert.throws(() => was.evaluateConstraint(materials[0], { kind: 'wish' }, {}), /Unsupported constraint kind "wish"/);
+});
+
+// --- workspace --------------------------------------------------------------------------------------------------------------
+
+test('workspace: the workspace of every index, template and setting, its axes, marks, ranges and estimate context are the old module\'s', async () => {
+  const [workspace, was] = await portAndOld('workspace');
+  assert.deepEqual(workspace.DERIVED_AXES, was.DERIVED_AXES);
+  assert.equal(workspace.QUARTILES_FROM, was.QUARTILES_FROM);
+  const indices = old('indices');
+  const productsByMaterial = old('products').productsByMaterial(db);
+  const run = old('constraints').runSelection;
+  const registry = db.registry;
+  for (const key of [...headlineKeys, was.COST_AXIS, 'noSuchKey']) assert.deepEqual(workspace.axisInfo(key, registry), was.axisInfo(key, registry), key);
+  for (const index of [null, ...indices.INDICES]) assert.deepEqual(workspace.goalAxes(index ?? indices.INDICES[0]), was.goalAxes(index ?? indices.INDICES[0]));
+  let marks = 0;
+  for (const t of TEMPLATES.slice(0, 6)) for (const setting of SETTINGS.slice(0, 3)) {
+    const ctx = contextFor(productsByMaterial, setting);
+    const rows = run(nonFamilyMaterials, t.constraints, ctx).evaluations.map((evaluation) => ({ material: nonFamilyMaterials.find((m) => m.id === evaluation.materialId), evaluation }));
+    const pair = ['density', 'tensileModulusXY'];
+    for (const index of [null, indices.INDICES[0], indices.INDICES[3]]) for (const [xKey, yKey, xLog, yLog] of [[pair[0], pair[1], true, true], [pair[1], pair[0], false, false], ['hdt045', was.COST_AXIS, false, true]]) {
+      const options = { rows, ctx, xKey, yKey, xLog, yLog, index, lineM: index ? 5 : null };
+      for (const population of ['confirmed', 'judged']) {
+        const a = workspace.buildWorkspace({ ...options, population });
+        const b = was.buildWorkspace({ ...options, population });
+        assert.ok(isDeepStrictEqual(a, b), `${t.name} ${JSON.stringify(setting)} ${xKey} ${yKey} ${index?.id} ${population}`);
+        marks += a.pairs.length;
+      }
+      const orientation = indices.indexOrientation(index, xKey, yKey);
+      assert.ok(isDeepStrictEqual(workspace.estimateContext(rows, ctx, { xKey, yKey, xLog, yLog, index, orientation }), was.estimateContext(rows, ctx, { xKey, yKey, xLog, yLog, index, orientation })));
+    }
+    for (const j of workspace.judgedProducts(rows, ctx).products.slice(0, 40)) {
+      for (const key of [...headlineKeys.slice(0, 12), was.COST_AXIS]) assert.ok(isDeepStrictEqual(workspace.axisValue(j, key, ctx), was.axisValue(j, key, ctx)), `${j.key} ${key}`);
+    }
+  }
+  assert.ok(marks > 1000, `a real comparison: ${marks} marks`);
+  for (const index of indices.INDICES) for (const o of ['direct', 'swapped', null, 'sideways']) {
+    for (const [x, y] of [[{ lo: 1, hi: 2 }, { lo: 3, hi: 4 }], [{ lo: 0, hi: 2 }, { lo: 3, hi: 4 }], [null, { lo: 1, hi: 2 }], [{ lo: 1, hi: null }, { lo: 3, hi: 4 }], [{ lo: 2, hi: 2 }, { lo: 3, hi: 3 }]]) {
+      assert.deepEqual(workspace.indexSensitivity(index, o, x, y), was.indexSensitivity(index, o, x, y));
+    }
+  }
+});
+
 // --- the harness sees a fault in a port ------------------------------------------------------------------------------------
 
 test('a fault planted in a ported module is caught by the new side of the parity harness, so the port is what runs', async () => {
@@ -550,6 +653,10 @@ test('a fault planted in a ported module is caught by the new side of the parity
     ['ledger', 'const s = a >= 100 ? String(Math.round(n))', 'const s = a >= 1000 ? String(Math.round(n))'],
     // The ledger's rule for which contribution may decide: the wrong half of them.
     ['ledger', "b.status === 'deciding' && (b.level", "b.status !== 'deciding' && (b.level"],
+    // A requirement the value meets exactly: the edge stops passing.
+    ['constraints', 'if (lo !== null && lo >= threshold) return STATUS.PASS;', 'if (lo !== null && lo > threshold) return STATUS.PASS;'],
+    // The first of the tied best states wins; here the last does.
+    ['constraints', 'const best = tries.reduce((a, b) => (compareGroups(b.e, a.e) < 0 ? b : a));', 'const best = tries.reduce((a, b) => (compareGroups(b.e, a.e) <= 0 ? b : a));'],
   ];
   const againstOld = async (newSide) => runParity({ corpusName: 'v0', cases, before: await createOld(), after: await createNewAdapter({ db: typedDb(), ...newSide }) });
   for (const [name, find, replace] of faults) {
