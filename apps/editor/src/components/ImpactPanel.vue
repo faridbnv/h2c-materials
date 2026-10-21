@@ -8,6 +8,8 @@ import type { ImpactResponse } from '../../shared/api.ts';
 
 const props = defineProps<{ trigger: number }>();
 
+const MAX_MOVES_SHOWN = 60;
+
 const phase = ref<'idle' | 'running' | 'done'>('idle');
 const result = ref<ImpactResponse | null>(null);
 const showAll = ref(false);
@@ -28,7 +30,10 @@ async function run(): Promise<void> {
 watch(() => props.trigger, (value) => { if (value > 0) void run(); }, { immediate: true });
 
 const ready = computed(() => (result.value?.status === 'ready' ? result.value : null));
-const moves = computed(() => (showAll.value ? ready.value?.moves ?? [] : (ready.value?.moves ?? []).slice(0, 60)));
+const moves = computed(() => {
+  const all = ready.value?.moves ?? [];
+  return showAll.value ? all : all.slice(0, MAX_MOVES_SHOWN);
+});
 const sentence = computed(() => {
   const r = ready.value;
   if (r === null) return '';

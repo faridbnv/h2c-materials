@@ -21,8 +21,8 @@ export function recordOf(db: Db, table: TableName, key: string): StoredRecord | 
   const [keyColumn] = TABLES[table].primaryKey;
   if (keyColumn === undefined || TABLES[table].primaryKey.length !== 1) throw new Error(`${table} has no single-column key`);
   const found = db.prepare(`SELECT _ord FROM "${table}" WHERE ${textExpression(table, keyColumn)} = ?`).get(key);
-  const ord = found === undefined ? undefined : Number(found._ord);
-  if (ord === undefined) return null;
+  if (found === undefined) return null;
+  const ord = Number(found._ord);
   const values = readRow(db, table, ord);
   return values === null ? null : { ord, cells: toCells(table, values) };
 }
@@ -53,17 +53,20 @@ export interface ProductIndex {
   search(query: string, limit?: number): ProductHit[];
 }
 
+function productHit(grade: Cells, material: Cells): ProductHit {
+  return {
+    gradeId: text(grade, 'GradeID'), materialId: text(grade, 'MaterialID'), manufacturer: text(grade, 'Manufacturer'), productName: text(grade, 'Product name'),
+    materialName: text(material, 'Full name') || text(material, 'Original name'), status: text(grade, 'Status'),
+  };
+}
+
 /** An index of products (grades) with their maker, name and material. Word starts match, as the selector's search does. */
 export function buildProductIndex(db: Db): ProductIndex {
   const materials = new Map(allRecords(db, 'materials').map((m) => [text(m, 'MaterialID'), m]));
   const products: IndexedProduct[] = allRecords(db, 'grades').map((g) => {
     const material = materials.get(text(g, 'MaterialID')) ?? {};
-    const materialName = text(material, 'Full name') || text(material, 'Original name');
-    const hit: ProductHit = {
-      gradeId: text(g, 'GradeID'), materialId: text(g, 'MaterialID'), manufacturer: text(g, 'Manufacturer'), productName: text(g, 'Product name'),
-      materialName, status: text(g, 'Status'),
-    };
-    const words = wordsOf(hit.gradeId, hit.manufacturer, hit.productName, materialName, text(material, 'Abbreviation'), text(material, 'Family'));
+    const hit = productHit(g, material);
+    const words = wordsOf(hit.gradeId, hit.manufacturer, hit.productName, hit.materialName, text(material, 'Abbreviation'), text(material, 'Family'));
     return { hit, words, rank: hit.status === 'active' ? 0 : 1 };
   });
   return {
@@ -87,11 +90,13 @@ const DETAIL_LABELS: readonly (readonly [string, string])[] = [
 
 const known = (value: string | null): value is string => value !== null && value !== '' && value !== 'Not published' && value !== 'Not applicable';
 
+const CONDITION_COLUMNS: readonly (readonly [string, string])[] = [
+  ['direction', 'Direction'], ['test temp.', 'Test temperature'], ['standard', 'Standard / load'], ['moisture', 'Moisture condition'], ['after', 'Post-processing'],
+];
+
 function measurementRow(cells: Cells, drafts: ReadonlySet<string>): MeasurementRow {
-  const conditions = [
-    ['direction', 'Direction'], ['test temp.', 'Test temperature'], ['standard', 'Standard / load'], ['moisture', 'Moisture condition'], ['after', 'Post-processing'],
-  ].flatMap(([label, column]) => {
-    const value = nullable(cells, column ?? '');
+  const conditions = CONDITION_COLUMNS.flatMap(([label, column]) => {
+    const value = nullable(cells, column);
     return known(value) ? [`${label} ${value}`] : [];
   });
   return {
@@ -108,18 +113,15 @@ export function productDetail(db: Db, gradeId: string, drafts: ReadonlySet<strin
   const grade = recordOf(db, 'grades', gradeId);
   if (grade === null) return null;
   const material = recordOf(db, 'materials', text(grade.cells, 'MaterialID'));
-  const product: ProductHit = {
-    gradeId, materialId: text(grade.cells, 'MaterialID'), manufacturer: text(grade.cells, 'Manufacturer'), productName: text(grade.cells, 'Product name'),
-    materialName: material === null ? '' : text(material.cells, 'Full name') || text(material.cells, 'Original name'), status: text(grade.cells, 'Status'),
-  };
+  const product = productHit(grade.cells, material?.cells ?? {});
   const ords = db.prepare(`SELECT _ord FROM "measurements" WHERE ${textExpression('measurements', 'GradeID')} = ? ORDER BY _ord`).all(gradeId);
   const measurements = ords.flatMap((row) => {
     const values = readRow(db, 'measurements', Number(row._ord));
     return values === null ? [] : [measurementRow(toCells('measurements', values), drafts)];
   });
   const details = DETAIL_LABELS.flatMap(([column, label]) => {
-    const value = nullable(grade.cells, column ?? '');
-    return known(value) ? [{ label: label ?? '', value }] : [];
+    const value = nullable(grade.cells, column);
+    return known(value) ? [{ label, value }] : [];
   });
   return { product, details, measurements };
 }
@@ -130,10 +132,9 @@ export function sourceRowOf(db: Db, sourceId: string | null): SourceRow | null {
   if (sourceId === null) return null;
   const source = recordOf(db, 'sources', sourceId);
   if (source === null) return null;
-  const sha = nullable(source.cells, 'SHA256');
   return {
     sourceId, title: nullable(source.cells, 'Title'), publisher: nullable(source.cells, 'Publisher'), revision: nullable(source.cells, 'Revision'),
-    accessState: nullable(source.cells, 'Access state'), sha256: sha,
+    accessState: nullable(source.cells, 'Access state'), sha256: nullable(source.cells, 'SHA256'),
   };
 }
 

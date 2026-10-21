@@ -16,6 +16,7 @@ import type { Guard } from './security.ts';
 
 export const DIST_DIR = fileURLToPath(new URL('../dist', import.meta.url));
 const MAX_BODY = 64 * 1024;
+const MAX_IMAGE = 20 * 1024 * 1024;
 const ID = /^[A-Za-z0-9][A-Za-z0-9._-]{0,80}$/;
 const HEX64 = /^[0-9a-f]{64}$/;
 /** The only cells the correction form changes: the printed value, its number and the normalized value, together. */
@@ -48,18 +49,16 @@ export interface Service {
 
 // ---------------------------------------------------------------- answers
 
-function send(res: ServerResponse, status: number, body: unknown): void {
-  const text = JSON.stringify(body);
-  res.writeHead(status, { ...SECURITY_HEADERS, 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': Buffer.byteLength(text) });
+function reply(res: ServerResponse, status: number, type: string, text: string): void {
+  res.writeHead(status, { ...SECURITY_HEADERS, 'Content-Type': type, 'Content-Length': Buffer.byteLength(text) });
   res.end(text);
 }
 
-const fail = (res: ServerResponse, status: number, error: string, message: string): void => send(res, status, { error, message } satisfies ApiError);
+const send = (res: ServerResponse, status: number, body: unknown): void => reply(res, status, 'application/json; charset=utf-8', JSON.stringify(body));
 
-function sendPlain(res: ServerResponse, status: number, message: string): void {
-  res.writeHead(status, { ...SECURITY_HEADERS, 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': Buffer.byteLength(message) });
-  res.end(message);
-}
+const sendPlain = (res: ServerResponse, status: number, message: string): void => reply(res, status, 'text/plain; charset=utf-8', message);
+
+const fail = (res: ServerResponse, status: number, error: string, message: string): void => send(res, status, { error, message } satisfies ApiError);
 
 class BadRequest extends Error {}
 
@@ -69,7 +68,7 @@ async function readJson(req: IncomingMessage): Promise<unknown> {
   const chunks: Buffer[] = [];
   let size = 0;
   for await (const chunk of req) {
-    const piece = typeof chunk === 'string' ? Buffer.from(chunk) : Buffer.from(chunk);
+    const piece = Buffer.from(chunk);
     size += piece.length;
     if (size > MAX_BODY) throw new BadRequest('The request is too large.');
     chunks.push(piece);
@@ -101,8 +100,7 @@ function correctionFrom(body: unknown): CorrectionRequest {
   const set = cellsFrom(body.set, 'The new values');
   const names = Object.keys(set);
   if (names.length === 0 || names.some((n) => !CORRECTABLE.some((c) => c === n))) throw new BadRequest(`A correction changes ${CORRECTABLE.join(', ')} and nothing else.`);
-  const { page } = body.evidence;
-  if (typeof page !== 'number' || !Number.isInteger(page) || page < 1 || page > 10_000) throw new BadRequest('The page must be a whole number from 1.');
+  const page = wholePage(body.evidence.page);
   const snapshotDigest = str(body.base.snapshotDigest, 'The base', 64);
   if (!HEX64.test(snapshotDigest)) throw new BadRequest('The base is not a digest.');
   return {
@@ -118,17 +116,19 @@ function exportFrom(body: unknown): ExportRequest {
   return { title: str(body.title, 'The title', 120).trim() };
 }
 
-const actionFrom = (body: unknown): ConflictAction => {
+function actionFrom(body: unknown): ConflictAction {
   const action = isRecord(body) ? body.action : undefined;
   if (action === 'apply-mine' || action === 'discard') return action;
   throw new BadRequest('Choose apply-mine or discard.');
-};
+}
 
-const pageFrom = (text: string | undefined): number => {
-  const page = Number(text);
-  if (!Number.isInteger(page) || page < 1 || page > 10_000) throw new BadRequest('The page must be a whole number from 1.');
+function wholePage(page: unknown): number {
+  if (typeof page !== 'number' || !Number.isInteger(page) || page < 1 || page > 10_000) throw new BadRequest('The page must be a whole number from 1.');
   return page;
-};
+}
+
+/** A page number named in a path, which is text. */
+const pageFrom = (text: string | undefined): number => wholePage(Number(text));
 
 // ---------------------------------------------------------------- routes
 
@@ -136,10 +136,10 @@ type Handler = (editor: Editor, req: IncomingMessage, res: ServerResponse, param
 
 interface Route { readonly method: 'GET' | 'POST'; readonly pattern: RegExp; readonly handler: Handler }
 
-const idParam = (value: string | undefined): string => {
+function idParam(value: string | undefined): string {
   if (value === undefined || !ID.test(value)) throw new BadRequest('That is not an ID.');
   return value;
-};
+}
 
 const ROUTES: readonly Route[] = [
   { method: 'GET', pattern: /^\/api\/state$/, handler: async (e, _q, res) => send(res, 200, await e.state()) },
@@ -169,8 +169,9 @@ const ROUTES: readonly Route[] = [
     method: 'GET', pattern: /^\/api\/sources\/([^/]+)\/pages\/(\d+)\/image$/,
     handler: async (e, _q, res, [id, page]) => {
       const path = await e.sourceImage(idParam(id), pageFrom(page));
-      if (path === null || statSync(path).size > 20 * 1024 * 1024) { fail(res, 404, 'not-found', 'There is no image of that page on this computer.'); return; }
-      res.writeHead(200, { ...SECURITY_HEADERS, 'Content-Type': 'image/png', 'Content-Length': statSync(path).size });
+      const size = path === null ? 0 : statSync(path).size;
+      if (path === null || size > MAX_IMAGE) { fail(res, 404, 'not-found', 'There is no image of that page on this computer.'); return; }
+      res.writeHead(200, { ...SECURITY_HEADERS, 'Content-Type': 'image/png', 'Content-Length': size });
       createReadStream(path).pipe(res);
     },
   },
@@ -194,6 +195,15 @@ const ROUTES: readonly Route[] = [
   { method: 'POST', pattern: /^\/api\/export$/, handler: async (e, req, res) => send(res, 200, await e.prepareReview(exportFrom(await readJson(req)).title)) },
 ];
 
+function matchRoute(method: string, pathname: string): { readonly handler: Handler; readonly params: readonly string[] } | null {
+  for (const candidate of ROUTES) {
+    if (candidate.method !== method) continue;
+    const match = candidate.pattern.exec(pathname);
+    if (match !== null) return { handler: candidate.handler, params: match.slice(1) };
+  }
+  return null;
+}
+
 // ---------------------------------------------------------------- the interface files
 
 interface StaticFile { readonly path: string; readonly type: string }
@@ -204,7 +214,10 @@ function listStatic(distDir: string): ReadonlyMap<string, StaticFile> {
     for (const entry of readdirSync(dir, { withFileTypes: true })) {
       const path = join(dir, entry.name);
       if (entry.isDirectory()) walk(path, `${prefix}${entry.name}/`);
-      else if (TYPES[extname(entry.name)] !== undefined) files.set(`/${prefix}${entry.name}`, { path, type: TYPES[extname(entry.name)] ?? 'application/octet-stream' });
+      else {
+        const type = TYPES[extname(entry.name)];
+        if (type !== undefined) files.set(`/${prefix}${entry.name}`, { path, type });
+      }
     }
   };
   if (existsSync(distDir)) walk(distDir, '');
@@ -227,10 +240,10 @@ async function route(editor: Editor, guard: Guard, files: ReadonlyMap<string, St
   if (url.pathname.startsWith('/api/')) {
     const verdict = guard.checkApi(method, req.headers);
     if (!verdict.ok) { fail(res, verdict.status, verdict.status === 401 ? 'session-ended' : 'refused', verdict.reason); return; }
-    const found = ROUTES.map((r) => ({ r, m: r.pattern.exec(url.pathname) })).find(({ r, m }) => m !== null && r.method === method);
-    if (found === undefined || found.m === null) { fail(res, 404, 'not-found', 'There is no such request.'); return; }
+    const found = matchRoute(method, url.pathname);
+    if (found === null) { fail(res, 404, 'not-found', 'There is no such request.'); return; }
     try {
-      await found.r.handler(editor, req, res, found.m.slice(1), url);
+      await found.handler(editor, req, res, found.params, url);
     } catch (error) {
       if (res.headersSent) { res.destroy(); return; }
       if (error instanceof BadRequest) { fail(res, 400, 'bad-request', error.message); return; }

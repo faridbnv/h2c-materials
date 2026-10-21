@@ -9,6 +9,8 @@ import { describeFailure } from '../store.ts';
 import ThreeValues from './ThreeValues.vue';
 import type { CorrectionResponse, MeasurementDetail } from '../../shared/api.ts';
 
+type Refusal = Extract<CorrectionResponse, { status: 'refused' }>;
+
 const props = defineProps<{ detail: MeasurementDetail; page: number; quote: string }>();
 const emit = defineEmits<{ 'update:page': [page: number]; 'update:quote': [quote: string]; saved: []; reload: [] }>();
 
@@ -20,7 +22,7 @@ const reason = ref('');
 const numericTouched = ref(false);
 const normalizedTouched = ref(false);
 const busy = ref(false);
-const failure = ref<Extract<CorrectionResponse, { status: 'refused' }> | null>(null);
+const failure = ref<Refusal | null>(null);
 const message = ref<string | null>(null);
 const alertBox = ref<HTMLElement | null>(null);
 
@@ -38,10 +40,14 @@ const wanted = computed(() => ({ 'Raw value': rawValue.value.trim(), 'Raw numeri
 function remember(): void {
   try { sessionStorage.setItem(formKey.value, JSON.stringify({ rawValue: rawValue.value, rawNumeric: rawNumeric.value, normalized: normalized.value, locator: locator.value, reason: reason.value, quote: props.quote, page: props.page })); } catch { /* no storage: fine */ }
 }
-function recall(): void {
+function clearValues(): void {
   rawValue.value = ''; rawNumeric.value = ''; normalized.value = ''; reason.value = '';
+  numericTouched.value = false; normalizedTouched.value = false;
+}
+function recall(): void {
+  clearValues();
   locator.value = cells.value.Locator ?? '';
-  numericTouched.value = false; normalizedTouched.value = false; failure.value = null; message.value = null;
+  failure.value = null; message.value = null;
   try {
     const saved: unknown = JSON.parse(sessionStorage.getItem(formKey.value) ?? 'null');
     if (typeof saved === 'object' && saved !== null) {
@@ -77,13 +83,17 @@ const missing = computed(() => {
   return gaps;
 });
 
+async function showFailure(refusal: Refusal): Promise<void> {
+  failure.value = refusal;
+  await nextTick();
+  alertBox.value?.focus();
+}
+
 async function save(): Promise<void> {
   failure.value = null;
   message.value = null;
   if (missing.value.length > 0) {
-    failure.value = { status: 'refused', code: 'bad-request', detail: `Fill in ${missing.value.join(', ')} first.` };
-    await nextTick();
-    alertBox.value?.focus();
+    await showFailure({ status: 'refused', code: 'bad-request', detail: `Fill in ${missing.value.join(', ')} first.` });
     return;
   }
   busy.value = true;
@@ -96,22 +106,17 @@ async function save(): Promise<void> {
       base: props.detail.base,
     });
     if (result.status === 'refused') {
-      failure.value = result;
-      await nextTick();
-      alertBox.value?.focus();
+      await showFailure(result);
       return;
     }
     const checked = result.quoteCheck?.status === 'verified' ? `The quote was found on page ${props.page} of the stored document.` : `The quote was not checked against the page${result.quoteCheck?.reason ? ` (${result.quoteCheck.reason})` : ''}.`;
     try { sessionStorage.removeItem(formKey.value); } catch { /* no storage: fine */ }
-    rawValue.value = ''; rawNumeric.value = ''; normalized.value = ''; reason.value = '';
-    numericTouched.value = false; normalizedTouched.value = false;
+    clearValues();
     emit('update:quote', '');
     message.value = `Saved as a draft, not approved. ${checked}`;
     emit('saved');
   } catch (error) {
-    failure.value = { status: 'refused', code: 'bad-request', detail: describeFailure(error) };
-    await nextTick();
-    alertBox.value?.focus();
+    await showFailure({ status: 'refused', code: 'bad-request', detail: describeFailure(error) });
   } finally { busy.value = false; }
 }
 

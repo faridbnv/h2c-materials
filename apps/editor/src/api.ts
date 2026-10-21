@@ -48,9 +48,10 @@ const isApiError = (value: unknown): value is ApiError => typeof value === 'obje
 
 export async function api<T>(path: string, body?: unknown): Promise<T> {
   if (token === null) throw new SessionEnded();
+  const headers = { 'x-editor-token': token };
   const init: RequestInit = body === undefined
-    ? { headers: { 'x-editor-token': token } }
-    : { method: 'POST', headers: { 'x-editor-token': token, 'content-type': 'application/json' }, body: JSON.stringify(body) };
+    ? { headers }
+    : { method: 'POST', headers: { ...headers, 'content-type': 'application/json' }, body: JSON.stringify(body) };
   let response: Response;
   try { response = await fetch(path, init); } catch { throw new Failure('The editor service is not answering. Is `npm run editor` still running?'); }
   if (response.status === 401) { token = null; throw new SessionEnded(); }

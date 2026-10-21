@@ -60,12 +60,16 @@ async function reloadPicked(): Promise<void> {
   if (picked.value !== null) await openMeasurement(picked.value.id);
 }
 
+async function reloadProduct(): Promise<void> {
+  if (product.value !== null) await loadProduct(product.value.product.gradeId);
+}
+
 async function saved(): Promise<void> {
-  await Promise.all([picked.value ? openMeasurement(picked.value.id) : Promise.resolve(), product.value ? loadProduct(product.value.product.gradeId) : Promise.resolve(), refreshWorkspace()]);
+  await Promise.all([reloadPicked(), reloadProduct(), refreshWorkspace()]);
   impactTrigger.value += 1;
 }
 
-const grouped = computed(() => product.value?.measurements ?? []);
+const measurements = computed(() => product.value?.measurements ?? []);
 const bits = (hit: ProductHit): string => [hit.manufacturer, hit.materialName, hit.status === 'active' ? '' : hit.status].filter(Boolean).join(' · ');
 </script>
 
@@ -96,11 +100,11 @@ const bits = (hit: ProductHit): string => [hit.manufacturer, hit.materialName, h
           <p class="muted">{{ product.product.manufacturer }} · {{ product.product.materialName }}</p>
           <p v-if="product.details.length" class="hint">{{ product.details.map((d) => `${d.label}: ${d.value}`).join(' · ') }}</p>
         </div>
-        <table v-if="grouped.length">
-          <caption>Recorded values ({{ grouped.length }})</caption>
+        <table v-if="measurements.length">
+          <caption>Recorded values ({{ measurements.length }})</caption>
           <thead><tr><th scope="col">Property</th><th scope="col">Printed</th><th scope="col">Normalized</th><th scope="col">Measured under</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
           <tbody>
-            <tr v-for="m in grouped" :key="m.id" :class="{ picked: picked?.id === m.id }">
+            <tr v-for="m in measurements" :key="m.id" :class="{ picked: picked?.id === m.id }">
               <td>{{ m.property }} <span v-if="m.draft" class="badge">draft, not approved</span></td>
               <td class="num">{{ withUnit(m.rawValue, m.rawUnit) }}</td>
               <td class="num">{{ withUnit(m.normalizedValue, m.normalizedUnit) }}</td>

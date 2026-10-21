@@ -5,6 +5,7 @@ import DraftsView from './components/DraftsView.vue';
 import FindView from './components/FindView.vue';
 import { ended, problem, refreshWorkspace, workspace } from './store.ts';
 import { when } from './explain.ts';
+import type { WorkspaceState } from '../shared/api.ts';
 
 type View = 'find' | 'drafts' | 'conflicts';
 const view = ref<View>('find');
@@ -14,6 +15,11 @@ const tabs = computed(() => [
   { id: 'conflicts' as const, label: 'Conflicts', count: workspace.value?.conflicts ?? 0 },
 ]);
 onMounted(refreshWorkspace);
+
+function impactWords(impact: WorkspaceState['impact']): string {
+  if (impact.available) return 'available';
+  return impact.note.includes('WP-11') ? 'not available yet (WP-11)' : 'not available';
+}
 </script>
 
 <template>
@@ -34,7 +40,7 @@ onMounted(refreshWorkspace);
           <span class="fact"><span class="num">{{ workspace.drafts }}</span> draft{{ workspace.drafts === 1 ? '' : 's' }}, not approved</span>
           <span class="fact">Last backup {{ when(workspace.lastBackupAt) }}</span>
           <span class="fact">Source store: {{ workspace.source.available ? 'on this computer' : 'not on this computer' }}</span>
-          <span class="fact">Impact preview: {{ workspace.impact.available ? 'available' : workspace.impact.note.includes('WP-11') ? 'not available yet (WP-11)' : 'not available' }}</span>
+          <span class="fact">Impact preview: {{ impactWords(workspace.impact) }}</span>
         </template>
         <p v-else-if="problem" class="banner error" role="alert">{{ problem }}</p>
         <p v-else class="muted" role="status">Opening the workspace...</p>

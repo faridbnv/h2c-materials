@@ -3,14 +3,13 @@
 // Content-Security-Policy; nothing a request names is ever joined to a folder.
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { connect } from 'node:net';
-import { networkInterfaces } from 'node:os';
+import { networkInterfaces, tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { dropTemplate } from './write-helpers.mjs';
 import { raw, startFixture } from './editor-helpers.mjs';
 import { createGuard } from '../../apps/editor/server/security.ts';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
 import { startService } from '../../apps/editor/server/service.ts';
 
 let fixture;

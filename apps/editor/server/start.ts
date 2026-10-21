@@ -50,7 +50,7 @@ const state = await service.editor.state();
 // Since the process began: Node's start, loading the code, the interface build when it is stale, opening the workspace.
 const readyMs = Math.round(performance.now());
 
-console.error(`Filament Atlas editor, sandbox workspace (changes stay on this computer).`);
+console.error('Filament Atlas editor, sandbox workspace (changes stay on this computer).');
 console.error(`  data from commit ${state.commit.slice(0, 12)}; ${state.drafts} draft(s), ${state.conflicts} conflict(s)`);
 console.error(`  source store: ${service.editor.library.root ?? 'not on this computer'}`);
 console.error(`  impact preview: ${state.impact.available ? 'available' : state.impact.note}`);

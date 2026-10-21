@@ -2,7 +2,7 @@
 // The source page beside the record (05 section 11.2: "source beside record, always"). The stored text of the page, the quote under a
 // marker, and the page image when the private store holds one. If the document is not on this computer it says so and shows nothing
 // in its place. Words of the document are shown as text and never as markup.
-import { computed, onBeforeUnmount, ref, watch } from 'vue';
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue';
 import { Failure, api, imageUrl } from '../api.ts';
 import { describeFailure } from '../store.ts';
 import type { SourceInfo, SourcePage } from '../../shared/api.ts';
@@ -21,7 +21,8 @@ let ticket = 0;
 const available = computed(() => props.source?.availability === 'available');
 const hasImage = computed(() => available.value && (props.source?.imagePages.includes(props.page) ?? false));
 const squeeze = (value: string): string => value.replace(/\s+/g, '');
-const wanted = computed(() => props.quote.replace(/\s+/g, ' ').trim());
+const tidy = (value: string): string => value.replace(/\s+/g, ' ').trim();
+const wanted = computed(() => tidy(props.quote));
 
 async function load(): Promise<void> {
   const mine = ++ticket;
@@ -88,7 +89,7 @@ const lines = computed((): { line: string; parts: Marked | null }[] => {
 
 function pickSelection(): void {
   const selection = window.getSelection();
-  const chosen = selection?.toString().replace(/\s+/g, ' ').trim() ?? '';
+  const chosen = tidy(selection?.toString() ?? '');
   if (chosen !== '' && pane.value !== null && selection?.anchorNode && pane.value.contains(selection.anchorNode)) emit('pick', chosen);
 }
 
@@ -97,7 +98,7 @@ function move(step: number, event: KeyboardEvent): void {
   if (count === 0) return;
   active.value = Math.min(count - 1, Math.max(0, active.value + step));
   event.preventDefault();
-  void Promise.resolve().then(() => pane.value?.querySelectorAll<HTMLElement>('.page-text button')[active.value]?.focus());
+  void nextTick(() => pane.value?.querySelectorAll<HTMLElement>('.page-text button')[active.value]?.focus());
 }
 </script>
 
@@ -134,7 +135,7 @@ function move(step: number, event: KeyboardEvent): void {
           <ul class="page-text" aria-labelledby="source-h">
             <li v-for="(item, k) in lines" :key="k">
               <button type="button" :tabindex="k === active ? 0 : -1" :aria-current="item.parts ? 'true' : undefined"
-                @click="active = k; emit('pick', item.line.replace(/\s+/g, ' ').trim())" @keydown.down="move(1, $event)" @keydown.up="move(-1, $event)">
+                @click="active = k; emit('pick', tidy(item.line))" @keydown.down="move(1, $event)" @keydown.up="move(-1, $event)">
                 <template v-if="item.parts">{{ item.parts.before }}<mark>{{ item.parts.mark }}</mark>{{ item.parts.after }}</template>
                 <template v-else>{{ item.line }}</template>
               </button>

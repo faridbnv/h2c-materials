@@ -8,10 +8,10 @@ import { join } from 'node:path';
 import { startService } from '../../apps/editor/server/service.ts';
 import { HASH, QUOTE, SOURCE, scratch } from './write-helpers.mjs';
 
-export { HASH, QUOTE, SOURCE };
+export { QUOTE, SOURCE };
 
 const PIXEL = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64');
-export const PAGE_LINES = [['Technical data sheet', 'Printed specimens', QUOTE, 'Melt flow 6 g/10 min'], ['Storage and handling.']];
+const PAGE_LINES = [['Technical data sheet', 'Printed specimens', QUOTE, 'Melt flow 6 g/10 min'], ['Storage and handling.']];
 
 /** A private store with the fixture's document: `text/<sha>.json` and `pages/<sha>/o-1.png`. */
 export function makeStore() {
@@ -34,7 +34,7 @@ export function raw(port, { method = 'GET', path = '/', headers = {}, body } = {
         const text = Buffer.concat(chunks).toString('utf8');
         let json = null;
         try { json = JSON.parse(text); } catch { /* not JSON */ }
-        resolve({ status: res.statusCode, headers: res.headers, text, json, bytes: Buffer.concat(chunks) });
+        resolve({ status: res.statusCode, headers: res.headers, text, json });
       });
     });
     req.on('error', reject);
@@ -53,12 +53,11 @@ export async function startFixture({ dataDir, impact, store = true, backupEveryM
     ...(dataDir === undefined ? {} : { dataDir }), ...(files === null ? {} : { sourceStore: files.dir }), ...(impact === undefined ? {} : { impact }),
   };
   const fixture = { sb, files, options, service: await startService(options) };
-  const call = (path, { method = 'GET', body, headers = {} } = {}) => {
+  fixture.call = (path, { method = 'GET', body, headers = {} } = {}) => {
     const { port, token } = fixture.service;
     const base = { host: `127.0.0.1:${port}`, 'x-editor-token': token, ...(method === 'POST' ? { origin: `http://127.0.0.1:${port}`, 'content-type': 'application/json' } : {}) };
     return raw(port, { method, path, headers: { ...base, ...headers }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) });
   };
-  fixture.call = call;
   fixture.restart = async () => { await fixture.service.close(); fixture.service = await startService(options); };
   fixture.cleanup = async () => { await fixture.service.close(); files?.cleanup(); rmSync(sb.dir, { recursive: true, force: true }); };
   return fixture;

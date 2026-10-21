@@ -39,8 +39,6 @@ function launch({ script = 'apps/editor/server/start.ts', args }) {
   });
 }
 
-const editor = (workspace, store, extra = []) => launch({ args: ['--no-build', '--ready-line', '--workspace', workspace, '--source-store', store, ...extra] });
-
 const find = async (page, text, maker) => {
   await page.getByLabel('Maker, product or material').fill(text);
   await page.getByRole('list', { name: 'Products found' }).getByRole('button', { name: new RegExp(maker) }).first().click();
@@ -69,7 +67,11 @@ test.afterEach(async () => {
   store.cleanup();
   rmSync(workspace, { recursive: true, force: true });
 });
-const start = async (...args) => { const e = await editor(workspace, store.dir, ...args); running.push(e); return e; };
+const start = async (extra = []) => {
+  const service = await launch({ args: ['--no-build', '--ready-line', '--workspace', workspace, '--source-store', store.dir, ...extra] });
+  running.push(service);
+  return service;
+};
 
 test('the correction journey: find, read the source beside the record, correct, see the effect, restart, prepare a review', async ({ page, context }) => {
   const dataBefore = manifestDigest();

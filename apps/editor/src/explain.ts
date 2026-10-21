@@ -57,9 +57,13 @@ export function when(iso: string | null): string {
 
 const VALUE_ORDER = ['Raw value', 'Raw numeric', 'Normalized value'];
 
+const rankOf = (name: string): number => {
+  const position = VALUE_ORDER.indexOf(name);
+  return position < 0 ? VALUE_ORDER.length : position;
+};
+
 /** Column names in the order a person reads a value: the printed value, its number, the normalized value, then the rest. */
-export const ordered = (names: readonly string[]): string[] =>
-  [...names].sort((a, b) => (VALUE_ORDER.indexOf(a) + 1 || 99) - (VALUE_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));
+export const ordered = (names: readonly string[]): string[] => [...names].sort((a, b) => rankOf(a) - rankOf(b) || a.localeCompare(b));
 
 /** A value as printed, with its unit unless the printed text already carries it. */
 export const withUnit = (value: string | null | undefined, unit: string | null | undefined): string =>

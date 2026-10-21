@@ -5,8 +5,8 @@ import { basename, dirname } from 'node:path';
 import type { ChangeRecord } from '@atlas/domain/contracts';
 import type { ImpactMove, ImpactResponse } from '../shared/api.ts';
 
-export const IMPACT_MODULE = '@atlas/engine/impact';
-export const UNAVAILABLE_NOTE = 'Impact preview: not available yet (WP-11). The engine that tells which answers move has not been added to this branch.';
+const IMPACT_MODULE = '@atlas/engine/impact';
+const UNAVAILABLE_NOTE = 'Impact preview: not available yet (WP-11). The engine that tells which answers move has not been added to this branch.';
 
 /** The part of a pending record the preview reads. */
 export type PendingRecord = Pick<ChangeRecord, 'table' | 'recordId' | 'before' | 'after'>;
@@ -62,7 +62,7 @@ const isSession = (value: unknown): value is ImpactSessionLike =>
 
 const isImpactModule = (value: unknown): value is ImpactModule => isRecord(value) && typeof value.openImpactSession === 'function';
 
-export function impactUnavailable(reason: string): ImpactProvider {
+function impactUnavailable(reason: string): ImpactProvider {
   return { unavailable: reason, preview: () => Promise.resolve({ status: 'unavailable', reason }), close: () => undefined };
 }
 

@@ -1,13 +1,43 @@
 {
   "id": "WP-13",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-13-editor",
   "pr": null,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run test:e2e -- editor",
+      "result": "pass",
+      "code": 0,
+      "note": "5 journey tests on fixtures, Chromium via the installed Chrome channel"
+    },
+    {
+      "cmd": "node --test tests/remake/editor-security.test.mjs tests/remake/editor-service.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "token, Host, Origin, no CORS, 127.0.0.1 bind, CSP, path and ID checks; correction, stale, conflict, drafts, backup, export"
+    },
+    {
+      "cmd": "npm run editor:measure",
+      "result": "pass",
+      "code": 0,
+      "note": "remake/measure/editor.json: warm start about 0.17 s, cold (workspace built) about 1.6 s, budget 3 s"
+    },
+    {
+      "cmd": "manual: impact preview against WP-11's engine",
+      "result": "not-run",
+      "note": "packages/engine is not on remake/v3 (PR 18 open); the editor says 'not available yet (WP-11)' and loads @atlas/engine/impact when it exists"
+    },
+    {
+      "cmd": "manual: owner tries the editor (WP-16)",
+      "result": "not-run",
+      "note": "Tier 1; the owner's sitting is WP-16"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); WP-10 (PR 19) merged into this branch because it is not yet on remake/v3"
 }

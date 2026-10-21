@@ -20,7 +20,7 @@ import { engineImpact } from './impact.ts';
 import type { ImpactProvider } from './impact.ts';
 import { buildProductIndex, pageOfLocator, plainFactor, productDetail, recordOf, sourceRowOf } from './records.ts';
 import type { ProductIndex } from './records.ts';
-import { digestOf, openSourceLibrary } from './source.ts';
+import { SOURCE_NOTES, digestOf, openSourceLibrary } from './source.ts';
 import type { SourceLibrary } from './source.ts';
 
 export interface EditorOptions {
@@ -40,6 +40,11 @@ export interface EditorOptions {
 /** A request the editor turned down for its own reason, or the write service's refusal code. */
 export type Refusal = Extract<CorrectionResponse, { status: 'refused' }>;
 const refuse = (code: EditorRefusalCode, detail: string): Refusal => ({ status: 'refused', code, detail });
+
+/** How a conflict was settled, or why it was not. */
+export type Resolution = { readonly status: 'applied' | 'discarded' } | Refusal;
+
+const messageOf = (error: unknown): string => (error instanceof Error ? error.message : String(error));
 
 const BACKUP_NAME = /^atlas-(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})(\d{3})Z-([a-z-]+?)(?:-\d+)?\.sqlite$/;
 
@@ -94,9 +99,9 @@ export class Editor {
     const impact = options.impact ?? engineImpact(dataDir);
     const editor = new Editor(ws, wsOptions, library, impact, dataDir);
     const every = options.backupEveryMs ?? 600_000;
-    await editor.#run(() => ws.backupIfDue());
+    await editor.backupIfDue();
     if (every > 0) {
-      editor.#timer = setInterval(() => { editor.backupIfDue().catch((error: unknown) => console.error(`backup failed: ${error instanceof Error ? error.message : String(error)}`)); }, every);
+      editor.#timer = setInterval(() => { editor.backupIfDue().catch((error: unknown) => console.error(`backup failed: ${messageOf(error)}`)); }, every);
       editor.#timer.unref();
     }
     return editor;
@@ -155,7 +160,7 @@ export class Editor {
   #sourceInfo(sourceId: string | null): SourceInfo | null {
     const row = sourceRowOf(this.#ws.db, sourceId);
     if (row !== null) return this.library.describe(row);
-    return sourceId === null ? null : { sourceId, title: null, publisher: null, revision: null, accessState: null, sha256: null, availability: 'unknown-source', note: 'This record names a source that is not in the sources table.', pageCount: null, imagePages: [] };
+    return sourceId === null ? null : { sourceId, title: null, publisher: null, revision: null, accessState: null, sha256: null, availability: 'unknown-source', note: SOURCE_NOTES['unknown-source'], pageCount: null, imagePages: [] };
   }
 
   measurement(id: string): Promise<MeasurementDetail | null> {
@@ -171,20 +176,26 @@ export class Editor {
     });
   }
 
+  /** A source and its digest, when the store holds the document. */
+  #storedSource(sourceId: string): { readonly info: SourceInfo; readonly sha256: string } | null {
+    const info = this.#sourceInfo(sourceId);
+    return info === null || info.availability !== 'available' || info.sha256 === null ? null : { info, sha256: info.sha256 };
+  }
+
   /** The stored text of one page of a source, or null when the store does not hold it. */
   sourcePage(sourceId: string, page: number): Promise<SourcePage | null> {
     return this.#run(() => {
-      const info = this.#sourceInfo(sourceId);
-      if (info === null || info.availability !== 'available' || info.sha256 === null) return null;
-      const lines = this.library.pages(info.sha256)?.get(page);
-      return lines === undefined || info.pageCount === null ? null : { sourceId, page, pageCount: info.pageCount, lines };
+      const stored = this.#storedSource(sourceId);
+      if (stored === null) return null;
+      const lines = this.library.pages(stored.sha256)?.get(page);
+      return lines === undefined || stored.info.pageCount === null ? null : { sourceId, page, pageCount: stored.info.pageCount, lines };
     });
   }
 
   sourceImage(sourceId: string, page: number): Promise<string | null> {
     return this.#run(() => {
-      const info = this.#sourceInfo(sourceId);
-      return info === null || info.availability !== 'available' || info.sha256 === null ? null : this.library.imagePath(info.sha256, page);
+      const stored = this.#storedSource(sourceId);
+      return stored === null ? null : this.library.imagePath(stored.sha256, page);
     });
   }
 
@@ -267,8 +278,8 @@ export class Editor {
    * Settle one conflict. "Apply my change" writes the draft again as a new command against what the record holds now (every
    * guard runs again); "discard" backs up first. The draft is dropped from the conflicts only when one of those has succeeded.
    */
-  resolveConflict(opId: string, action: ConflictAction): Promise<{ readonly status: 'applied' | 'discarded' } | Refusal> {
-    return this.#run(async (): Promise<{ readonly status: 'applied' | 'discarded' } | Refusal> => {
+  resolveConflict(opId: string, action: ConflictAction): Promise<Resolution> {
+    return this.#run(async (): Promise<Resolution> => {
       const ws = this.#ws;
       const conflict = ws.conflicts().find((c) => c.opId === opId);
       if (conflict === undefined) return refuse('not-found', 'This conflict is no longer there.');
@@ -315,7 +326,7 @@ export class Editor {
     return this.#run(() => this.#ws.backupIfDue());
   }
 
-  async backupNow(): Promise<BackupEntry> {
+  backupNow(): Promise<BackupEntry> {
     return this.#run(async () => backupEntry((await this.#ws.backup('manual')).path));
   }
 
@@ -329,7 +340,7 @@ export class Editor {
         const restored = await Workspace.restore(this.#wsOptions, chosen);
         return { status: 'restored' as const, drafts: restored.drafts };
       } catch (error) {
-        return refuse(error instanceof WriterLockedError ? 'busy' : 'bad-request', error instanceof Error ? error.message : String(error));
+        return refuse(error instanceof WriterLockedError ? 'busy' : 'bad-request', messageOf(error));
       } finally {
         this.#ws = await Workspace.open(this.#wsOptions);
         this.#index = null;

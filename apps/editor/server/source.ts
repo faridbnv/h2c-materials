@@ -43,7 +43,7 @@ export interface SourceLocation {
 }
 
 /** The first of the candidate folders that holds a `text/` folder. */
-export function findStore({ explicit, env = process.env, repoRoot }: SourceLocation): string | null {
+function findStore({ explicit, env = process.env, repoRoot }: SourceLocation): string | null {
   const candidates = [explicit, env.H2C_SOURCE_BACKUP, env.H2C_DOCUMENT_CACHE, join(repoRoot, '.cache')];
   return candidates.find((c): c is string => typeof c === 'string' && c !== '' && existsSync(join(c, 'text'))) ?? null;
 }
@@ -64,7 +64,7 @@ function parsePages(value: unknown, sha256: string): Pages | null {
   return pages;
 }
 
-const NOTES: Readonly<Record<Exclude<SourceAvailability, 'available'>, string>> = {
+export const SOURCE_NOTES: Readonly<Record<Exclude<SourceAvailability, 'available'>, string>> = {
   'no-store': 'Source not available on this computer. The private source store is not here (set H2C_SOURCE_BACKUP to its folder), so you can read the record but cannot check a quote against the page.',
   'not-in-store': 'Source not available on this computer. The private store does not hold this document, so a quote cannot be checked against its page.',
   'not-retrieved': 'This source was never retrieved, so there is no page to show.',
@@ -73,6 +73,11 @@ const NOTES: Readonly<Record<Exclude<SourceAvailability, 'available'>, string>> 
 };
 
 const MAX_CACHED_DOCUMENTS = 6;
+
+/** The stored text of a document, or null when there is no such file or it is damaged. */
+function readPages(path: string, sha256: string): Pages | null {
+  try { return parsePages(JSON.parse(readFileSync(path, 'utf8')), sha256); } catch { return null; }
+}
 
 export function openSourceLibrary(location: SourceLocation): SourceLibrary {
   const root = findStore(location);
@@ -83,11 +88,7 @@ export function openSourceLibrary(location: SourceLocation): SourceLibrary {
     pages(sha256) {
       if (root === null || !isSha256(sha256)) return null;
       if (cache.has(sha256)) return cache.get(sha256) ?? null;
-      const path = join(root, 'text', `${sha256}.json`);
-      let pages: Pages | null = null;
-      if (existsSync(path)) {
-        try { pages = parsePages(JSON.parse(readFileSync(path, 'utf8')), sha256); } catch { pages = null; }
-      }
+      const pages = readPages(join(root, 'text', `${sha256}.json`), sha256);
       if (cache.size >= MAX_CACHED_DOCUMENTS) cache.delete(cache.keys().next().value ?? '');
       cache.set(sha256, pages);
       return pages;
@@ -101,7 +102,7 @@ export function openSourceLibrary(location: SourceLocation): SourceLibrary {
       const base = { sourceId: row.sourceId, title: row.title, publisher: row.publisher, revision: row.revision, accessState: row.accessState, sha256: row.sha256 };
       const sha = row.sha256;
       const unavailable = (availability: Exclude<SourceAvailability, 'available'>): SourceInfo =>
-        ({ ...base, availability, note: NOTES[availability], pageCount: null, imagePages: [] });
+        ({ ...base, availability, note: SOURCE_NOTES[availability], pageCount: null, imagePages: [] });
       if (row.accessState === 'not-retrieved') return unavailable('not-retrieved');
       if (sha === null || !isSha256(sha)) return unavailable('no-digest');
       if (root === null) return unavailable('no-store');

@@ -52,6 +52,7 @@ try {
   const warm: Started[] = [];
   for (let run = 0; run < WARM_RUNS; run++) warm.push(await startOnce(workspace));
   const wall = warm.map((r) => r.wallMs);
+  const medianMs = median(wall);
   const cpu = cpus()[0];
   const record = {
     schema: 1,
@@ -62,7 +63,7 @@ try {
     what: 'time from spawning `node apps/editor/server/start.ts` to its ready line (workspace open, service listening), the interface already built',
     sourceStore: values['source-store'] !== undefined || process.env.H2C_SOURCE_BACKUP !== undefined ? 'present' : 'absent',
     cold: { note: 'first start: the workspace is built from the CSV first', wallMs: cold.wallMs, readyMs: cold.readyMs },
-    warm: { note: 'the workspace is current with the data', runsMs: wall, medianMs: median(wall), budgetMs: WARM_BUDGET_MS, withinBudget: median(wall) <= WARM_BUDGET_MS && Math.max(...wall) <= WARM_BUDGET_MS },
+    warm: { note: 'the workspace is current with the data', runsMs: wall, medianMs, budgetMs: WARM_BUDGET_MS, withinBudget: medianMs <= WARM_BUDGET_MS && Math.max(...wall) <= WARM_BUDGET_MS },
   };
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, `${JSON.stringify(record, null, 2)}\n`);
