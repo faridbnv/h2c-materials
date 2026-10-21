@@ -369,3 +369,11 @@ Each hazard lists the lines and the rows that cover it. "Covers" is as honest as
 - CR-136 (786): `assert.throws(() => evaluateConstraint(m, {kind: "other"}), /Unsupported constraint kind/)`.
 - CR-177 (1010, 1025): run `runSelection` with a products map and a deep copy (`structuredClone`) of the requirement list passed to the second call only; assert the group text of PS:118 is the same or, if the old code skips, record that it differs.
 - CR-220 (1219): in CT:293 call `explainExclusions` with the `hdt` requirement cloned after `runSelection` ran; record whether `screened` stays 1.
+
+## Covered by WP-19
+
+After this work the UNTESTED rules above are covered as follows: CR-09, CR-11, CR-18, CR-34, CR-39, CR-85, CR-106, CR-107 and CR-136 by
+`tests/parity/constraints-rules.test.mjs` (each asked of the old module and of the port, which must agree); CR-177 and CR-220 (the match by
+object identity, now by ID) by `tests/parity/constraint-ids.test.mjs` (a structured clone of the requirements, one requirement twice, shared
+IDs refused). The hazard "prose parsed as data" (948-949) is replaced by reason codes (`tests/parity/gate-reasons.test.mjs`,
+`tests/parity/engine-wrapper.test.mjs`). The old unit tests run unedited against the port (`tests/parity/old-tests-on-port.test.mjs`).

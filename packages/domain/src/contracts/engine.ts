@@ -7,7 +7,7 @@
 import type { Db } from '@atlas/data';
 import type { ConstraintId, GradeId, MaterialId, MeasurementId, ReleaseId, StateId } from './ids.ts';
 import type { ReasonCode } from './reason-codes.ts';
-import type { EnvironmentConstraint, EvidenceConstraint, FacetConstraint, GateConstraint, NumericConstraint, PrintGateName, ScenarioConstraint, ScenarioV2 } from './scenario.ts';
+import type { EnvironmentConstraint, EvidenceConstraint, FacetConstraint, GateConstraint, NumericConstraint, ScenarioConstraint, ScenarioV2 } from './scenario.ts';
 import type { PRODUCT_SHARES } from '../core/vocab.ts';
 import type { EngineMissing, Group, ServiceMoisture, Status, Verdict } from './vocab.ts';
 
@@ -122,7 +122,7 @@ export type LedgerRef = {
 /**
  * What every answer carries. `screened` and `onTheLine` are shared because two kinds set them: a numeric limit and a
  * base polymer's behaviour can hide a material (D56, D64), a numeric limit and a print gate can be on the line (D151, D152).
- * `reasonCode` and `constraintId` are the engine's own, and arrive with WP-19's later steps.
+ * `reasonCode` and `constraintId` are the engine's own.
  */
 type ResultBase = {
   readonly criterion: string;

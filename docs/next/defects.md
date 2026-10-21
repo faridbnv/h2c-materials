@@ -114,7 +114,7 @@ the typing and the rule-reading exposed. None is fixed here.
   `build/src/normalize/process.js:232-307`, `build/src/products.js:584` and `build/src/chamber-need.js:100`, and the engine's own
   at `constraints.js:582`. A gate carries a verdict and a `state`, and neither tells "no temperature published" from "no
   requirement published" or from the sentence a missing profile earns (all are `unknown`, state `unknown`).
-- **Evidence.** 53 distinct sentence shapes in the compiled database fall into 19 families
+- **Evidence.** 35 distinct sentence shapes (numbers and quoted words set aside) in the compiled database fall into 17 families
   (`tests/parity/gate-reasons.test.mjs` reads every gate of the build and requires a code for each).
 - **Real data.** Reached: the sentence is read for every printer check that is open (about 200 products' chamber, bed or nozzle).
 - **Kept.** The regular expressions are gone from the engine's decisions: `gate-reasons.ts` (`packages/engine/src/port/`) is the one
@@ -137,14 +137,15 @@ the typing and the rule-reading exposed. None is fixed here.
 ### WP19-D3. Eleven rules of `constraints.js` are covered by no test
 
 `docs/next/constraints-rules.md` maps all 222 rules to their covering tests and lists the 11 that none reaches. The new
-characterization tests (`tests/parity/constraints-rules.test.mjs`) cover those a hand-built input can reach (the filler facet, the two
-errors, the closed upper bound, a headline with no interval). One cannot be reached by the engine today: `evaluateTreatment`'s
-"Used as printed" answer (`constraints.js:452-453`) is only asked for a state that has a treatment, so its first line is dead code.
+characterization tests (`tests/parity/constraints-rules.test.mjs`, `constraint-ids.test.mjs`) cover the rest (the filler facet, the two
+errors, the closed upper bound, a headline with no interval, the withheld estimate, requirements cloned or repeated). One is reached
+only by a direct call: `evaluateTreatment`'s "Used as printed" answer (`constraints.js:452-453`), since the engine adds the treatment
+requirement only for a state that has a treatment.
 
 ### Noted, not a defect
 
 - The typed port reads `Number.isFinite(x)` as a type guard (`packages/engine/src/port/lib-guards.d.ts`), which the standard allows
   (it is true only for a number) and the library does not say. Its false branch is not the complement (NaN and Infinity are numbers);
   the engine never reads a value in that branch.
-- The label step needed non-null assertions (`x!`) where `noUncheckedIndexedAccess` cannot see that `list[0]` exists after a test of
-  `list.length`, and where `Number.isFinite` guards a property chain; the later steps removed those they restructured.
+- The port still holds some non-null assertions (`x!`) where `noUncheckedIndexedAccess` cannot see that `list[0]` exists after a test of
+  `list.length` (`constraints.ts`, `workspace.ts`). They are not counted by the ratchet; the casts are (27, from 31).

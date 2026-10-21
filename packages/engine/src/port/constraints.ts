@@ -807,14 +807,14 @@ function evaluateFacet(material: MaterialView, c: FacetConstraint): Answer<Facet
   };
 }
 
+/** Verdicts that answer "does it resist" with an unqualified yes. Water solubility says "insoluble". */
+export const POSITIVE_VERDICTS: readonly string[] = ['resistant', 'insoluble'];
+
 /**
  * Environment criteria only work where the category actually carries reducible verdicts.
  * For an indicator category the honest answer is UNKNOWN with a pointer to the narrative,
  * never a manufactured PASS.
  */
-/** Verdicts that answer "does it resist" with an unqualified yes. Water solubility says "insoluble". */
-export const POSITIVE_VERDICTS: readonly string[] = ['resistant', 'insoluble'];
-
 function evaluateEnvironment(material: MaterialView, c: EnvironmentConstraint, ctx: Ctx): Answer<EnvironmentResult> {
   const meta = ctx?.db?.meta?.environmentCategories?.[c.category];
   // The display name is compiled from the mapping file and travels in the snapshot, so the engine
