@@ -1,6 +1,6 @@
 {
   "id": "WP-20",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-20-build-port",
   "pr": 29,
@@ -48,10 +48,11 @@
       "note": "not run, on the owner's token-efficiency instruction for this package; parity is the binding proof"
     }
   ],
-  "waitingSince": "2026-10-21",
+  "waitingSince": null,
   "approvedAt": null,
-  "note": "stage C: the build's load, normalize, compile and validate modules in TypeScript reading the clean SQLite reconstruction; the estimate stage is the old one through an adapter (WP-21); in-place mutation between stages is not removed (its own later step)",
+  "note": "stage C: the build's load, normalize, compile and validate modules in TypeScript reading the clean SQLite reconstruction; the estimate stage is the old one through an adapter (WP-21); in-place mutation between stages is not removed (its own later step); delivered by merged PR #29 (2026-10-21); open at merge: the cold-build budget was not decidable on a busy machine (projected about 1 s over 26.4 s), parity:host needs a CI db.json, modernize-verify was not run",
   "prs": [
     29
-  ]
+  ],
+  "doneAt": "2026-10-21"
 }
