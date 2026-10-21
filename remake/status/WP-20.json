@@ -3,7 +3,7 @@
   "status": "in-review",
   "slice": null,
   "branch": "wp-20-build-port",
-  "pr": null,
+  "pr": 29,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
@@ -51,5 +51,7 @@
   "waitingSince": "2026-10-21",
   "approvedAt": null,
   "note": "stage C: the build's load, normalize, compile and validate modules in TypeScript reading the clean SQLite reconstruction; the estimate stage is the old one through an adapter (WP-21); in-place mutation between stages is not removed (its own later step)",
-  "prs": []
+  "prs": [
+    29
+  ]
 }
