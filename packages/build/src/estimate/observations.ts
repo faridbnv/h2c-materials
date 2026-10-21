@@ -1,0 +1,210 @@
+// Observations: which measurement says what about a headline (its conversion kind), and the snapshot of materials,
+// grades and usable measurements the model is fitted to.
+
+import { specimenForm, annealedBesideAsPrinted, conditionedBesideDry } from '../normalize/specimen.ts';
+import { median } from './numerics.ts';
+import { identityOf, transform, HEAD } from './model.ts';
+import type { Dyn } from '../types.ts';
+
+/** Young's modulus in MPa from Shore hardness: Gent (1958) for Shore A, Qi, Joyce and Boyce (2003) for Shore D. */
+export function modulusFromShore(shore: Dyn) {
+  const m: Dyn = /^(\d+(?:\.\d+)?)\s*([AD])$/i.exec(String(shore ?? '').trim());
+  if (!m) return null;
+  const s = Number(m[1]);
+  if (m[2].toUpperCase() === 'A') return s > 20 && s < 99 ? (0.0981 * (56 + 7.62336 * s)) / (0.137505 * (254 - 2.54 * s)) : null;
+  const u = (100 - s) / 20;
+  return s > 10 && s < 95 ? (781.88 - 156.376 * u) / (u * u) : null;
+}
+
+// ------------------------------------------------------------------------------------ the snapshot
+
+export function snapshot(materials: Dyn, gradeList: Dyn, measurements: Dyn, model: Dyn) {
+  const grades: Dyn = new Map(gradeList.map((g: Dyn) => [g.id, g]));
+  const pool = materials.filter((m: Dyn) => !m.excluded && !m.familyEntry && model.identities[identityOf(m)]);
+  const inPool = new Map(pool.map((m: Dyn) => [m.id, m]));
+  const fkey = (gid: Dyn) => grades.get(gid)?.formulationKey || gid;
+  // A product declared a variant of its material (grades.csv Variant) carries that variant in every grade of its formulation.
+  const variants = new Map();
+  for (const g of gradeList) if (g.variant) variants.set(fkey(g.id), g.variant);
+  const variantOf = (f: Dyn) => (f ? variants.get(f) ?? null : null);
+  const info = (m: Dyn) => model.identities[identityOf(m)];
+  const reinforcement = (m: Dyn) => m.facets.reinforcement.value;
+  const fibre = (m: Dyn) => reinforcement(m) === 'carbon-fibre' || reinforcement(m) === 'glass-fibre';
+  // A semicrystalline polymer that prints amorphous deflects as an amorphous bar does (identities printsAmorphous).
+  const amorphousAsPrinted = (m: Dyn) => info(m).printsAmorphous === true || (info(m).printsAmorphous === 'unfilled' && !fibre(m));
+  const matrix = (m: Dyn) => (info(m).morphology === 'semicrystalline' && !amorphousAsPrinted(m) ? (fibre(m) ? 'semi-filled' : 'semi-unfilled')
+    : info(m).morphology === 'elastomer' ? 'elastomer' : 'amorphous');
+  const usable = measurements.filter((x: Dyn) => inPool.has(x.materialId) && x.numeric && !x.quarantined && !x.implausible && !grades.get(x.gradeId)?.retired
+    // A film or a filament strand is not a part; a moulded bar is, through its documented conversion. A bar printed at a
+    // setting the product is not meant for is not the product's part (D95): an unfoamed bar of a foaming filament.
+    && !['film', 'filament', 'off-recipe'].includes(specimenForm(x.specimenType ?? 'Not published')));
+  const byMaterial = new Map();
+  for (const x of usable) { if (!byMaterial.has(x.materialId)) byMaterial.set(x.materialId, []); byMaterial.get(x.materialId).push(x); }
+
+  // Melting point and glass transition of a material: its own printed or product values, else its
+  // identity's. Supplier resin values describe another specimen and are not used here.
+  const own = (m: Dyn, property: Dyn, lo: Dyn, hi: Dyn) => median((byMaterial.get(m.id) ?? [])
+    .filter((x: Dyn) => x.property === property && x.value > lo && x.value < hi && !mouldedValue(x)).map((x: Dyn) => x.value));
+  const tmOf = (m: Dyn) => own(m, 'Melting temperature', 60, 420) ?? info(m).tm ?? null;
+  // The highest Vicat its own grades publish, as printed or unstated (an annealed Vicat describes another state).
+  const max = (xs: Dyn) => (xs.length ? Math.max(...xs) : null);
+  const vicatOf = (m: Dyn) => max((byMaterial.get(m.id) ?? []).filter((x: Dyn) => x.property === 'Vicat softening temperature' && x.value > 30 && x.value < 420
+    && !mouldedValue(x) && x.postProcessingState !== 'annealed').map((x: Dyn) => x.value));
+  const tgOf = (m: Dyn) => own(m, 'Glass transition temperature', -150, 420)
+    ?? median(pool.filter((p: Dyn) => identityOf(p) === identityOf(m)).flatMap((p: Dyn) => (byMaterial.get(p.id) ?? [])
+      .filter((x: Dyn) => x.property === 'Glass transition temperature' && x.value > -150 && x.value < 420 && !mouldedValue(x)).map((x: Dyn) => x.value)));
+  // A bound on what this material's part can do comes from this material's own sheets, never from a sibling of
+  // the same identity: colorFabb's nGen FLEX publishes a glass transition of -40 °C, and read as the identity's
+  // it capped the rigid nGen's heat deflection at 30 °C. The fallback above stays for the fit, where an
+  // identity's glass transition is one observation among many.
+  const ownTgOf = (m: Dyn) => own(m, 'Glass transition temperature', -150, 420);
+
+  return { grades, pool, inPool, fkey, variantOf, info, reinforcement, fibre, matrix, byMaterial, tmOf, tgOf, ownTgOf, vicatOf };
+}
+
+// --------------------------------------------------------------------------------- evidence kinds
+
+// XZ (on edge) is loaded in the build plane, as XY is. A source's own label ("Horizontal", "Vertical XZ", "along
+// flow") is not a confirmed build orientation and never merges into XY or Z (Method, Comparison / Directions): it is
+// read as an unknown direction, with that conversion's wider spread.
+const DIRECTION_CLASS: Dyn = { XY: 'XY', XZ: 'XY', Z: 'Z', ZX: 'Z' };
+const mouldedValue = (x: Dyn) => specimenForm(x.specimenType ?? 'Not published') === 'moulded';
+// Transitions of the polymer, which an anneal does not move by much: read as published, annealed or not (D167).
+const TRANSITIONS = new Set(['Glass transition temperature', 'Melting temperature', 'Vicat softening temperature']);
+const STRENGTH_ENDPOINT: Dyn = {
+  'Tensile strength (endpoint unspecified)': 'ultimate', 'Tensile break strength': 'break',
+  'Tensile yield strength': 'yield', 'Flexural strength': 'flexural',
+};
+
+/** The conversion kind of a measurement for a headline, or null when it says nothing about it. */
+export function kindOf(x: Dyn, key: Dyn, matrixClass: Dyn, waterUptake: Dyn = 'high') {
+  const moulded = mouldedValue(x) ? ' moulded' : '';
+  const dir = moulded ? '' : ` ${DIRECTION_CLASS[x.direction] ?? 'unk'}`;
+  // The vocabulary declares each moisture wording's state (normalize/moisture.js); a conditioned value converts to dry.
+  // How far it converts depends on the polymer's water uptake (identities waterUptake); a polymer that takes up
+  // almost none is read as dry.
+  const conditioned = x.moistureState === 'conditioned';
+  const wet = conditioned && waterUptake === 'high' ? ' wet' : conditioned && waterUptake === 'low' ? ' wet-low' : '';
+  const kind = (base: Dyn) => `${base}${dir}${wet}${moulded}`;
+  switch (key) {
+    case 'density': return x.property === 'Density' ? `density${moulded}` : null;
+    case 'tensileModulusXY':
+      if (x.property === 'Tensile modulus') return kind('tensile');
+      if (x.property === 'Flexural modulus') return kind('flexural');
+      return null;
+    // An elastomer strain-hardens after it yields (TPU yield 8.6 MPa, break 39 MPa): its yield says little about its
+    // ultimate strength, and its strain at yield little about its strain at break.
+    case 'tensileStrengthXY': return STRENGTH_ENDPOINT[x.property] && !(matrixClass === 'elastomer' && x.property === 'Tensile yield strength') ? kind(STRENGTH_ENDPOINT[x.property]) : null;
+    case 'elongationXY':
+      if (x.property === 'Elongation at break') return kind('break');
+      // A break strain is never below the strain at yield or at maximum stress.
+      if ((x.property === 'Elongation at yield' || x.property === 'Tensile strain at strength') && matrixClass !== 'elastomer') return kind('yield');
+      return null;
+    case 'hdt045': {
+      // ISO 75 stops at 0.2 % outer-fibre strain, so a bar deflects where its modulus falls to about 225 MPa (0.45 MPa)
+      // or 900 MPa (1.8 MPa). An elastomer is below that at room temperature: a published HDT describes no bar, and it
+      // informs no estimate (TPU's 74 °C from a 26 MPa sheet was estimated and allowed to screen).
+      if (matrixClass === 'elastomer') return null;
+      if (x.property === 'HDT') {
+        const load = x.thermal?.loadMPa;
+        // A moulded bar of an amorphous polymer deflects near Tg as a printed one does; a semicrystalline
+        // one crystallises further in the mould, so the conversion depends on the matrix.
+        const mould = moulded && `${moulded} ${matrixClass === 'amorphous' ? 'amorphous' : 'semicrystalline'}`;
+        if (!x.thermal?.loadStated) return `HDT unstated${mould || ''}`;
+        if (load >= 0.44 && load <= 0.46) return `HDT 0.45${mould || ''}`;
+        return moulded ? null : `HDT 1.8 ${matrixClass}`;
+      }
+      if (moulded) return null;
+      if (x.property === 'Glass transition temperature' && matrixClass === 'amorphous') return 'Tg amorphous';
+      if (x.property === 'Vicat softening temperature' && matrixClass !== 'elastomer') return `Vicat ${matrixClass}`;
+      if (x.property === 'Melting temperature' && matrixClass === 'semi-filled') return 'Tm semi-filled';
+      return null;
+    }
+    default: return null;
+  }
+}
+
+/**
+ * Observations of every kind for one headline, before conversion: one entry per material, formulation
+ * and kind, averaging repeats. A shared datasheet cited by several materials is kept once, under the
+ * first material that cites it (Method, Identity / Aliases).
+ */
+export function rawObservations(key: Dyn, S: Dyn, model: Dyn, { changesWithAnnealing = false }: Dyn = {}) {
+  const [pl, ph] = model.properties[key].plausibleValues;
+  const t = transform(key, model);
+  const groups = new Map(), rejected = [], bounds = [];
+  for (const m of S.pool) {
+    const add = (entry: Dyn) => {
+      const g = `${m.id}|${entry.f}|${entry.kind}`;
+      // The maker, as test house: a conversion that learns only from several makers' pairs counts them (D167).
+      if (!groups.has(g)) groups.set(g, { m, f: entry.f, gradeId: entry.gradeId, maker: S.grades.get(entry.gradeId)?.manufacturer ?? null, kind: entry.kind, ys: [], half: [], items: [], states: new Set(), pairOnly: true });
+      const e = groups.get(g);
+      e.ys.push(entry.y); e.half.push(entry.half); e.items.push(entry.item); e.states.add(entry.state ?? '');
+      // A group is pair-only while every value in it is an annealed value beside its as-printed twin.
+      if (!entry.pairOnly) e.pairOnly = false;
+    };
+    for (const x of S.byMaterial.get(m.id) ?? []) {
+      let kind = kindOf(x, key, S.matrix(m), S.info(m).waterUptake ?? null);
+      if (!kind) continue;
+      // A polymer that prints amorphous and was annealed is crystallised: another state, which no estimate of an
+      // as-printed part may learn from.
+      if (key === 'hdt045' && S.matrix(m) === 'amorphous' && S.info(m).morphology === 'semicrystalline' && x.postProcessingState === 'annealed') continue;
+      // An annealed value is another state of the part, not the headline (D162, D167): of the headline's own kind or
+      // a related one (an HDT at 1.8 MPa), it converts as a kind of its own, through the annealed offset the grades that
+      // publish both teach (conversions.js). What an anneal is, is the core's one rule: a treatment at or below its
+      // polymer's annealing threshold (polymers.csv) already compiled as printed (D158), so every value still annealed
+      // here was annealed. A glassy matrix's heat deflection rises a few degrees on annealing, a crystalline one's tens,
+      // so heat deflection has an annealed kind per matrix. A transition (glass transition, melting, Vicat) is the
+      // polymer's and is read as published.
+      const annealed = changesWithAnnealing && x.postProcessingState === 'annealed' && !TRANSITIONS.has(x.property);
+      if (annealed) kind = `${kind} ${key === 'hdt045' && S.matrix(m) === 'amorphous' ? 'annealed glassy' : 'annealed'}`;
+      // Headlines are as printed. An annealed value of a grade that publishes the as-printed one is another state
+      // of the part, not a repeat: averaged, PET-GF's 81.6 and 133.7 °C became one precise 107.65 °C. As a kind of its
+      // own it is kept for its conversion's pairs alone (pairOnly), never as an observation beside its twin.
+      const pairOnly = annealedBesideAsPrinted(x, S.byMaterial.get(m.id));
+      if (pairOnly && !annealed) continue;
+      // And the same for water where the conversion kind does not already separate the two: a heat deflection
+      // measured on a conditioned bar beside its own dry one is the other state of that bar, not a repeat.
+      if (key === 'hdt045' && conditionedBesideDry(x, S.byMaterial.get(m.id))) continue;
+      if (x.value < pl || x.value > ph) { rejected.push({ key, materialId: m.id, material: m.name, measurementId: x.id, property: x.property, value: x.value, unit: x.unit }); continue; }
+      // A one-sided bound ("> 16.5 MPa", "< 0.8 %") says the value lies beyond it. Read as an exact point it became
+      // the most precise observation of all (PEBA's strength estimate 16.4-16.6 MPa); left out, elastomers lost
+      // the only evidence that they stretch hundreds of percent. It is kept at the bound with a documented
+      // half-width (estimate-model.json bounds.oneSided), and it limits its own material's estimate.
+      const side = x.interval && x.interval.hi == null ? 'lower' : x.interval && x.interval.lo == null ? 'upper' : null;
+      if (model.properties[key].scale === 'log' && !(x.value > 0)) continue;
+      if (side) bounds.push({ key, materialId: m.id, measurementId: x.id, gradeId: x.gradeId, kind, side, value: x.value });
+      const lo = x.interval?.lo ?? x.value, hi = x.interval?.hi ?? x.value;
+      if (model.properties[key].scale === 'log' && !side && !(lo > 0)) continue;
+      const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
+      // The post-processing state and schedule, not its wording: three spellings of one schedule are one state.
+      const state = `${x.postProcessingState}|${x.anneal?.tempC ?? ''}|${x.anneal?.hours ?? ''}`;
+      add({ f: S.fkey(x.gradeId), gradeId: x.gradeId, kind, state, pairOnly, y: t(x.value), half: side ? model.bounds.oneSided.half[scaleName] : (t(hi) - t(lo)) / 2,
+        item: { measurementId: x.id, gradeId: x.gradeId, property: x.property, direction: x.direction, value: x.value, unit: x.unit, ...(side ? { bound: side } : {}) } });
+    }
+    // An elastomer's Shore hardness (measurements.csv Hardness in Shore A or D, published or nominal from its product
+    // designation) informs its stiffness.
+    if (key === 'tensileModulusXY' && S.info(m).morphology === 'elastomer') {
+      for (const gid of m.gradeIds ?? []) {
+        const hx = (S.byMaterial.get(m.id) ?? []).find((x: Dyn) => x.gradeId === gid && x.property === 'Hardness' && (x.unit === 'Shore A' || x.unit === 'Shore D'));
+        const shore = hx && `${hx.value}${hx.unit.slice(-1)}`;
+        const e = shore && modulusFromShore(shore);
+        if (!e || S.grades.get(gid)?.retired) continue;
+        add({ f: S.fkey(gid), gradeId: gid, kind: `hardness ${hx.unit.slice(-1)}`, y: Math.log(e / 1000), half: 0,
+          item: { measurementId: hx.id, gradeId: gid, property: `Shore hardness ${shore}`, value: Number((e / 1000).toPrecision(3)), unit: 'GPa', from: `${hx.locator} (${hx.dataStatus})` } });
+      }
+    }
+  }
+  // A formulation cited by several materials is owned by the first that cites it.
+  const ownerOfF = new Map(), out = [];
+  for (const e of groups.values()) {
+    if (!ownerOfF.has(e.f)) ownerOfF.set(e.f, e.m.id);
+    if (ownerOfF.get(e.f) !== e.m.id) continue;
+    // Repeats under different post-processing (PPS-GF's HDT after annealing at 130 and at 230 °C: 125.8 and 219.6 °C)
+    // are not a precise mean: the observation's half-width spans them, and it calibrates no conversion.
+    const mixed = e.states.size > 1;
+    const spread = mixed ? (Math.max(...e.ys) - Math.min(...e.ys)) / 2 : 0;
+    out.push({ ...e, states: undefined, mixedStates: mixed, yRaw: e.ys.reduce((a: Dyn, b: Dyn) => a + b, 0) / e.ys.length, half: Math.max(...e.half, spread), bound: e.items.some((i: Dyn) => i.bound) });
+  }
+  return { raw: out, rejected, bounds, ownerOfF };
+}

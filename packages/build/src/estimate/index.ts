@@ -1,0 +1,278 @@
+// The estimate stage: inference for headlines no source publishes, applied to a compiled database as an overlay.
+//
+// The core build (compile.js) produces a complete, valid database in which a material's headline is its products'
+// spread, and missing (`known: false`, with related evidence and implied bounds) where none of its products publishes a
+// comparable value (D83). This stage adds, and only adds:
+//
+//   headline.estimate        where no product publishes: a calibrated range with its evidence, precision and the range
+//                            it may screen on; it stands in for each of the material's products (engine/products.js)
+//   headline.notApplicable   where the model knows the property does not apply (an elastomer's heat deflection)
+//   grades[].estimate        a product's own estimate, shown beside a product without a value of its own; decides nothing
+//   print.nozzleEstimate, print.bedEstimate   windows inferred from peers where none is published; they decide nothing
+//   meta.estimateCoverage, meta.estimateModel, meta.printEstimates   diagnostics and calibration
+//
+// The model is one Gaussian model per headline (build/mappings/estimate-model.json, DECISIONS D43):
+//
+//   value of a product = identity (pulled towards its chemical group) + reinforcement
+//                        + reinforcement in a semicrystalline matrix + declared variant + test house
+//                        [+ melting point, for the heat deflection of fast-crystallising polymers]
+//                        + this material's deviation + this product's deviation
+//
+// on the natural-log scale for density, stiffness, strength and elongation and in °C for heat deflection. Every
+// observation of a material enters it converted to the headline's semantics (conversions.js). Each material's typical
+// product's value is then hidden and predicted to calibrate the ranges (calibration.js), and each evidence class is
+// back-tested to decide whether it may screen (screening.js). An estimate never passes a material; what it may do is decided in
+// app/js/engine/constraints.js.
+//
+// A case the model cannot express is a not-applicable reason or a reviewed finding that says more data is needed,
+// never a new special case in code (DECISIONS D58).
+//
+// Files: model.js (configuration, shared names), numerics.js, observations.js (conversion kinds, the snapshot),
+// conversions.js, gaussian.js (kernel, fit, prediction), calibration.js, bounds.js (the ranges and their limits),
+// screening.js (back-test, the range that decides), print.js (nozzle and bed windows), validate.js (checks and
+// report section).
+
+import { normalQuantile } from './numerics.ts';
+import { ESTIMATE_MODEL, HEAD, estimateKeys, identityOf, modelWith, untransform, sig3 } from './model.ts';
+import { snapshot, rawObservations } from './observations.ts';
+import { conversions, convert, convertAll, betweenProductSpread, productSpreads } from './conversions.ts';
+import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.ts';
+import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.ts';
+import { makeRangeFor } from './bounds.ts';
+import { backTest, screenDecision } from './screening.ts';
+import { floorBackTest, ownValueCrossing } from './floors.ts';
+import { attachPrintEstimates } from './print.ts';
+import { attachProductScreening } from './product-screening.ts';
+import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors } from './grades.ts';
+import { directionBackTest, directionTarget } from './directions.ts';
+import type { Dyn } from '../types.ts';
+
+export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.ts';
+
+/**
+ * Estimates for every missing headline of every in-scope material, attached in place; returns the model's diagnostics.
+ * `model` is the configuration with its polymer identities (model.js modelWith).
+ */
+export function buildEstimates(materials: Dyn, { grades = [], measurements = [], sources = [], registry, conversions: ledgerRows = [] }: Dyn = {}, model: Dyn) {
+  const ESTIMATE_KEYS = estimateKeys(registry, model);
+  const S: Dyn = snapshot(materials, grades, measurements, model);
+  const { likely, plausible } = model.levels;
+  const zLikely = normalQuantile(0.5 + likely / 2), zPlausible = normalQuantile(0.5 + plausible / 2);
+  const diagnostics: Dyn = { levels: model.levels, properties: {}, rejected: [], bounds: [], conflicts: [], outliers: [], gradeOutliers: [], withheld: [], gradeEstimates: gradeEstimateMeta(model) };
+
+  for (const key of ESTIMATE_KEYS) {
+    const inv = untransform(key, model);
+    const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model, { changesWithAnnealing: !!registry.headlines.find((h: Dyn) => h.key === key)?.changesWithAnnealing });
+    diagnostics.rejected.push(...rejected);
+    diagnostics.bounds.push(...oneSided);
+    // What each formulation's own measurements prove the headline is at least, once per headline: a grade's range takes it.
+    const floorsOf = formulationFloors(registry.headlines.find((h: Dyn) => h.key === key), S);
+    const conv = conversions(key, raw, model);
+    const converted = convert(key, raw, conv, S, model);
+    // Every own value of a product, the kinds the fit leaves out beside more direct ones included: what bounds its estimate (D167).
+    const ownObs = convertAll(key, raw, conv, S, model);
+    const tmMean = meltingPoint(key, S, model).offset;
+    const between = betweenProductSpread(key, raw, S);
+    const fixed = productSpreads(between, key, model);
+
+    const hp = hyperparameters(key, spreadObservations(key, converted, model.fitting.spreadSampleMax), S, model, fixed);
+
+    const { P, obs, conflicts } = fitWithConflicts(key, converted, S, model, hp);
+    diagnostics.conflicts.push(...conflicts);
+    const holdOut = makeHoldOut({ key, raw, model, conv, obs, S, hp });
+
+    const { loo, calLikely, calPlausible, outliers, calibration } = calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible, holdOut });
+    diagnostics.outliers.push(...outliers);
+    const r3 = (v: Dyn) => (v == null ? null : Number(v.toPrecision(3)));
+    diagnostics.properties[key] = {
+      observations: obs.length, formulations: new Set(obs.map((o: Dyn) => o.f)).size,
+      betweenProduct: { sd: r3(between.sd), pairs: between.pairs, used: r3(hp.w), estimated: fixed.w == null,
+        byMatrix: Object.fromEntries(Object.entries(between.byMatrix).map(([cls, b]: Dyn) => [cls, { sd: r3(b.sd), pairs: b.pairs,
+          used: r3(cls === 'semi-filled' ? hp.ws ?? hp.w : cls === 'semi-unfilled' ? hp.wu ?? hp.w : hp.w) }])) },
+      spreads: Object.fromEntries(Object.entries(hp).map(([k, v]: Dyn) => [k, r3(v)])),
+      calibration,
+      conversions: Object.fromEntries(Object.entries(conv).filter(([k]: Dyn) => k !== HEAD[key]).map(([k, c]: Dyn) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs,
+        ...(c.across ? { across: { materials: c.across.materials, contrast: r3(c.across.contrast) } } : {}),
+        // A kind that learns from several makers only and has too few: its documented offset stands (D167).
+        ...(c.learned === false ? { makers: c.makers, learned: false } : {}), ...(c.composed ? { composed: true } : {}) }])),
+    };
+
+    const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
+    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h: Dyn) => h.key === key), model, S, tmMean, loo, rangeFor, conv, ledgerRows, obs, zPlausible });
+    // Does an estimate cross a limit its own moulded or undescribed value misses, and is it right to (D160)?
+    const crossing = ownValueCrossing({ key, model, S, obs, holdOut, tmMean, inv });
+    if (crossing) diagnostics.properties[key].ownValue = crossing;
+    const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
+    diagnostics.properties[key].screening = certification;
+
+    // Every grade's own estimate, with ranges calibrated at grade level (grades.js, D81). It is added beside the
+    // material's and moves nothing the material shows.
+    const gradeCal: Dyn = calibrateGrades({ key, def: registry.headlines.find((h: Dyn) => h.key === key), model, S, obs, ownObs, holdOut, zLikely, zPlausible, tmMean });
+    diagnostics.properties[key].gradeCalibration = gradeCal.calibration;
+    const named = new Set(outliers.map((o: Dyn) => `${o.materialId}|${o.key}`));
+    diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o: Dyn) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.typical?.gradeId === o.gradeId)));
+    // A headline whose grade scales reach the clamp is one the model cannot calibrate at grade level, and it ships
+    // no grade estimate rather than a range that claims coverage it does not have (D81's stop rule).
+    // D81's stop rule reads every scale a grade range is drawn with: the shared ones and each matrix's own (D178).
+    const scales = [{ likely: gradeCal.calLikely, plausible: gradeCal.calPlausible }, ...Object.values(gradeCal.calibration.matrixScales ?? {})];
+    const clamped = scales.some((sc: Dyn) => sc.likely >= model.calibration.likelyScale[1] || sc.plausible >= model.calibration.plausibleScale[1]);
+    diagnostics.properties[key].gradeCalibration.shipped = !clamped;
+    if (clamped) {
+      diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';
+    } else {
+      // A grade is shown with its matrix's own scales where D178 gives it one (grades.js scalesOf).
+      const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: (subject: Dyn) => gradeCal.scalesOf(subject).likely, calPlausible: (subject: Dyn) => gradeCal.scalesOf(subject).plausible });
+      const centres = new Map();
+      const withheld: Dyn = [];
+      // A product's own values hold its estimate (D167) where the headline asks for it and its back-test holds as
+      // EST-CALIBRATION judges a range: at least minHeld anchored hidden grades, the likely range within tolerance and
+      // the plausible range not short. Elsewhere its bands are still published, for the likely tag.
+      const a = gradeCal.calibration.anchor, cal = model.calibration;
+      const anchorOn = !!model.properties[key].ownAnchor && !!a && a.anchored >= cal.minHeld
+        && Math.abs(a.likelyAfter - model.levels.likely) <= cal.likelyTolerance && a.plausibleAfter >= model.levels.plausible - cal.plausibleShortfall;
+      if (a) a.used = anchorOn;
+      attachGradeEstimates({ key, def: registry.headlines.find((h: Dyn) => h.key === key), model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf, zPlausible, bandScale: gradeCal.bandScale, anchorOn, ownObs, centres, withheld });
+      // The products whose own values and their kind's model disagree, so no estimate is shown (D167).
+      if (withheld.length) diagnostics.withheld.push(...withheld);
+      const shown = [...S.grades.values()].map((g: Dyn) => g.estimate?.[key]).filter(Boolean);
+      (diagnostics.gradeAnchors ??= {})[key] = { anchored: anchorOn ? shown.filter((e: Dyn) => e.ownBand && !e.ownBand.disagree).length : 0,
+        withheld: withheld.length, disagree: shown.filter((e: Dyn) => e.ownBand?.disagree).length };
+      // The unstated-direction back-test (D159): an unstated-only product's centre against its measured siblings, and
+      // the products that publish both with their headline hidden.
+      const directions = directionBackTest({ key, model, S, obs, holdOut, calPlausible: gradeCal.calPlausible, zPlausible });
+      const centreOf = (g: Dyn) => centres.get(`${g.materialId}|${S.fkey(g.id)}`);
+      if (directions) diagnostics.properties[key].directions = { ...directions, target: directionTarget({ key, model, S, obs, centreOf }) };
+      diagnostics.properties[key].productScreening = attachProductScreening({ key, raw, S, model, tmMean, measurements, sources,
+        definition: registry.headlines.find((h: Dyn) => h.key === key) });
+    }
+
+    for (const m of S.pool) {
+      const h = m.headline[key];
+      if (!h || h.known || h.notApplicable) continue;
+      // The estimate stands in for each of the material's products, none of which publishes a comparable value. With one
+      // product it is that product's, predicted at its row and its maker; with several it is the material's, at none.
+      const only = m.gradeIds?.length === 1 && S.grades.has(m.gradeIds[0]) ? m.gradeIds[0] : null;
+      const f = only ? S.fkey(only) : null;
+      // With several it is any one of them, not yet measured: a formulation of its own carries the spread between
+      // products (gaussian.js), which the material's mean alone would leave out and so read narrower than any product.
+      const row = f ?? `unmeasured:${m.id}`;
+      // Its own measurements, and those of its product filed under another material.
+      const mine = obs.map((o: Dyn, i: Dyn) => ({ o, i })).filter(({ o }: Dyn) => o.m.id === m.id || (f && o.f === f));
+      // An elastomer's heat deflection is not applicable by its definition (headline_definitions.csv Applies to), so it
+      // never reaches here; a support product with nothing of its own is not characterised as a structural material.
+      if (!mine.length && m.facets.supportMaterial?.value === true) {
+        h.notApplicable = { reason: model.notApplicable.support };
+        continue;
+      }
+      const manufacturer = only ? S.grades.get(only).manufacturer ?? null : null;
+      // One product has one value: a product filed under two materials is predicted as its owner's (observations.js),
+      // so PA-CF and PA12-CF cannot disagree about CarbonX CF PA12.
+      const owner: Dyn = f && ownerOfF.get(f) && ownerOfF.get(f) !== m.id ? S.inPool.get(ownerOfF.get(f)) : null;
+      const subject = owner ?? m;
+      const p = predict(P, hp, subject, row, manufacturer);
+      p.mu += tmMean(subject);
+
+      const { bounds, centre, range, wide, at }: Dyn = rangeFor(m, subject, p, h.unit);
+
+      const onThisGrade = mine.some(({ o }: Dyn) => o.f === f && f);
+      const strength = onThisGrade ? 'this-grade' : mine.length ? 'this-material' : 'family';
+      const totalWeight = p.weights.reduce((a: Dyn, v: Dyn) => a + v, 0);
+      const ownWeight = mine.reduce((a: Dyn, { i }: Dyn) => a + p.weights[i], 0);
+      const ownShare = totalWeight > 0 ? Math.max(0, Math.min(1, ownWeight / totalWeight)) : 0;
+      const spread = model.properties[key].scale === 'log' ? range[1] / range[0] : range[1] - range[0];
+      const precision = spread <= model.properties[key].precision.good ? 'good' : spread <= model.properties[key].precision.fair ? 'fair' : 'poor';
+      // Converted to the headline's own scale: the melting-point term the model subtracts is added back (it was left
+      // out, so PA12's own 94.7 °C read as converted to 108 °C).
+      const convertedValue = (o: Dyn) => inv(o.y + tmMean(o.m));
+      let familyRange: Dyn = null;
+      const familyAt = (q: Dyn) => {
+        if (!familyRange) {
+          const pf = predict(P, hp, subject, row, manufacturer, mine.map(({ i }: Dyn) => i));
+          pf.mu += tmMean(subject);
+          familyRange = rangeFor(m, subject, pf, h.unit, { ownBounds: false });
+        }
+        return familyRange.at(q);
+      };
+      const own = mine.map(({ o }: Dyn) => ({ value: convertedValue(o), bound: o.items.find((x: Dyn) => x.bound)?.bound, measurementId: o.items.map((x: Dyn) => x.measurementId).find(Boolean) }));
+      const screen = screenDecision({ strength, certification, at, familyAt, own, unit: h.unit });
+
+      const evidence = mine.map(({ o }: Dyn) => ({
+        kind: o.kind, gradeId: o.gradeId, sameGrade: !!f && o.f === f,
+        items: o.items, converted: sig3(convertedValue(o)), conversion: o.conversion.why, conflict: !!o.conflict,
+      }));
+      const family = [identityOf(m), m.facets.reinforcement.value !== 'unfilled' ? m.facets.reinforcement.value : null, S.variantOf(f),
+        manufacturer ? `tested by ${manufacturer}` : null].filter(Boolean).join(', ');
+      h.estimate = {
+        kind: 'model', strength, precision, unit: h.unit,
+        sharedWith: owner ? { materialId: owner.id, name: owner.name } : null,
+        centre: sig3(centre), lo: sig3(range[0], -1), hi: sig3(range[1], 1),
+        plausible: { lo: sig3(wide[0], -1), hi: sig3(wide[1], 1) },
+        levels: model.levels, ownShare: Math.round(ownShare * 100) / 100,
+        evidence, family, bounds,
+        basis: strength === 'this-grade' ? "its product's related measurements, with the family model"
+          : strength === 'this-material' ? "its products' related measurements, with the family model"
+          : `the family model only: ${family}`,
+        method: `Gaussian model of every observation in the snapshot, each converted to this headline; ${Math.round(likely * 100)}% and ${Math.round(plausible * 100)}% ranges calibrated by predicting ${loo.length} hidden measured headlines`,
+        ...screen,
+      };
+    }
+  }
+  return diagnostics;
+}
+
+/**
+ * The rows whose learned offset leaves the band they state: on a log headline headline ÷ related = exp(offset) must lie
+ * within the row's factors, in °C a heat deflection's difference must keep the row's offset (a floor at or above it, a
+ * ceiling at or below). A kind no observation reads learns nothing and is not checked.
+ */
+function conversionDrift(model: Dyn, estimateModel: Dyn) {
+  const out = [];
+  for (const b of model.conversionBands ?? []) {
+    const learned = estimateModel.properties[b.key]?.conversions?.[b.kind];
+    if (!learned) continue;
+    const log = model.properties[b.key].scale === 'log';
+    const value = log ? Math.exp(learned.offset) : learned.offset;
+    const low = b.rowKind === 'ceiling' || b.rowKind === 'demote-to-ceiling' ? null : log ? b.factorLow : b.offset;
+    const high = b.rowKind === 'floor' ? null : log ? b.factorHigh : b.offset;
+    if ((low != null && value < low - 1e-9) || (high != null && value > high + 1e-9)) {
+      out.push({ id: b.id, key: b.key, kind: b.kind, learned: learned.offset, value: Number(value.toPrecision(3)), low, high, pairs: learned.pairs });
+    }
+  }
+  return out;
+}
+
+/** Coverage summary for the validation report and meta. */
+export function summariseEstimates(materials: Dyn, registry: Dyn) {
+  const pool = materials.filter((m: Dyn) => !m.excluded && !m.familyEntry);
+  const out: Dyn = {};
+  for (const key of estimateKeys(registry)) {
+    const missing = pool.filter((m: Dyn) => !m.headline[key]?.known);
+    const row: Dyn = { missing: missing.length, 'this-grade': 0, 'this-material': 0, family: 0, notApplicable: 0, none: 0, canScreen: 0 };
+    for (const m of missing) {
+      const h = m.headline[key];
+      if (h.notApplicable) row.notApplicable++;
+      else if (h.estimate) { row[h.estimate.strength]++; if (h.estimate.canScreen) row.canScreen++; }
+      else row.none++;
+    }
+    out[key] = row;
+  }
+  return out;
+}
+
+/** Apply the estimate stage to a compiled database in place. */
+export function attachEstimates(db: Dyn, { conversions }: Dyn = {}) {
+  for (const g of db.grades) g.estimateVersion = 2;
+  // The documented conversions are rows of conversions.csv (D157), handed in by the pipeline: the compiled database keeps
+  // only the ledger's.
+  const model = modelWith(db.polymers, conversions);
+  const estimateModel: Dyn = buildEstimates(db.materials, { grades: db.grades, measurements: db.measurements, sources: db.sources, registry: db.registry, conversions: db.conversions }, model);
+  const printEstimates = attachPrintEstimates(db.materials, model);
+  db.meta.estimateCoverage = summariseEstimates(db.materials, db.registry);
+  // CONVERSION-DRIFT (D157): an offset the build learned must keep the band its row of conversions.csv states.
+  // Present only where a row drifts, which stops the build: a sound build carries nothing new.
+  const drift = conversionDrift(model, estimateModel);
+  if (drift.length) estimateModel.conversionDrift = drift;
+  db.meta.estimateModel = estimateModel;
+  db.meta.printEstimates = printEstimates;
+  return db;
+}

@@ -19,13 +19,19 @@ import { exportTable } from '@atlas/data/storage';
 import { contractIssues } from './contract.ts';
 import { loadReference, loadSheets, snapshotDate, workbookFrom } from './load.ts';
 import { buildDatabase, stopwatch } from './pipeline.ts';
-import type { Stopwatch } from './pipeline.ts';
+import type { EstimateOutcome, Stopwatch } from './pipeline.ts';
 import { polymerEnvironmentReportLines } from './polymer-environment.ts';
 import { compileReference } from './reference.ts';
 import { RELEASE_INPUTS, releaseIdentity } from './release.ts';
 import { checkTables, gateTablesOf, loadSchemas } from './schema-gate.ts';
 import type { Dyn, Issue, Sheet } from './types.ts';
-import { estimateReportLines } from './estimate-adapter.ts';
+import { DEFAULT_CACHE_DIR } from './estimate-cache.ts';
+import { estimatesArtifact } from './estimate-stage.ts';
+import type { CacheState } from './estimate-stage.ts';
+import { rulingFor, withheldReportLines } from './estimate-withholding.ts';
+import { estimateReportLines } from './estimate/validate.ts';
+import { releaseManifest } from './manifest.ts';
+import type { EstimatesStatus } from './manifest.ts';
 import { formatReport } from './validate.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -41,6 +47,10 @@ export interface RunOptions {
   outDir: string | null;
   /** The core database alone, without the estimate stage. */
   estimates?: boolean;
+  /** Where the estimate stage keeps its cache; null runs it without one. Defaults to .cache/estimates in the project (H2C_NO_BUILD_CACHE=1 turns it off). */
+  estimateCache?: string | null;
+  /** A self-test of the withholding (OQ-05 A): make these estimated headlines fail their calibration check after the stage. Never reaches the cache. */
+  seedCalibrationFailure?: readonly string[];
   /** Stop after the report (npm run validate). */
   validateOnly?: boolean;
   /** The build date to stamp (an ISO date); defaults to SOURCE_DATE_EPOCH, else the commit date. */
@@ -60,7 +70,29 @@ export interface RunResult {
   reference: Dyn | null;
   /** Wall time in ms: the reconstruction, then the load and each stage of the pipeline. */
   timing: Record<string, number>;
-  files: { dbJson: string; referenceJson: string } | null;
+  files: { dbJson: string; referenceJson: string; estimatesJson: string | null; manifest: string; ruling: string | null } | null;
+  /** What the estimate stage did: where its result came from, under which key, and what was withheld. Null where it did not run. */
+  estimate: EstimateOutcome | null;
+}
+
+/** The files a build writes into its output directory. */
+const OUTPUT_FILES = ['db.json', 'reference.json', 'estimates.json', 'validation-report.md', 'manifest.json', 'estimate-ruling.md'];
+
+/** How the estimate stage used its cache, for the log. */
+function describeCache(cache: CacheState): string {
+  switch (cache.state) {
+    case 'hit':
+      return 'hit';
+    case 'off':
+      return `off (${cache.why})`;
+    case 'miss':
+      return `miss${cache.stored ? ', stored' : ', NOT stored'}${cache.note ? ` (${cache.note})` : ''}`;
+  }
+}
+
+function estimatesStatusOf(withEstimates: boolean, withheld: boolean): EstimatesStatus {
+  if (!withEstimates) return 'off';
+  return withheld ? 'withheld' : 'available';
 }
 
 /** The build date is the source's date, not the clock's, so the same commit builds the same bytes on any day. */
@@ -99,7 +131,7 @@ function schemaGate(projectRoot: string, sheets: Map<TableName, Sheet>, notCanon
 }
 
 function failed(errors: Issue[], timing: Record<string, number>): RunResult {
-  return { ok: false, errors, warnings: [], db: null, reference: null, timing, files: null };
+  return { ok: false, errors, warnings: [], db: null, reference: null, timing, files: null, estimate: null };
 }
 
 interface TablesRead {
@@ -132,7 +164,7 @@ export function runBuild(options: RunOptions): RunResult {
   const timing: Record<string, number> = {};
   const timed = stopwatch(timing);
   // A failed build must not leave the last good build's files in the output directory to be mistaken for its own.
-  if (options.outDir !== null) for (const file of ['db.json', 'reference.json', 'validation-report.md']) rmSync(join(options.outDir, file), { force: true });
+  if (options.outDir !== null) for (const file of OUTPUT_FILES) rmSync(join(options.outDir, file), { force: true });
 
   // The clean reconstruction: any table that is not the schema's, the manifest's, or satisfies a constraint stops here, and
   // every problem found is listed (never a partial database). Everything the later stages need is read out of it in this
@@ -153,7 +185,11 @@ export function runBuild(options: RunOptions): RunResult {
   if (issues.some((i) => i.level === 'error')) return failed(issues.filter((i) => i.level === 'error'), timing);
 
   const snapshot = snapshotDate(wb.Method?.rows ?? []);
-  const built = buildDatabase(wb, { snapshot, build, estimates: withEstimates });
+  const built = buildDatabase(wb, {
+    snapshot, build, estimates: withEstimates,
+    estimateCache: options.estimateCache === undefined ? DEFAULT_CACHE_DIR : options.estimateCache,
+    ...(options.seedCalibrationFailure ? { seedCalibrationFailure: options.seedCalibrationFailure } : {}),
+  });
   Object.assign(timing, built.timing);
   const { db } = built;
   issues.push(...built.issues);
@@ -164,9 +200,13 @@ export function runBuild(options: RunOptions): RunResult {
   const reference = compileReference(referenceRows, issues, 'data/tables/reference.csv', db.registry);
   issues.push(...contractIssues({ db, reference }));
 
+  const withheld = built.estimate?.withheld ?? null;
   const report = formatReport(db, reference, issues, {
     snapshot, build,
-    sections: { polymerEnvironment: polymerEnvironmentReportLines(db), estimates: withEstimates ? estimateReportLines(db) : [] },
+    sections: {
+      polymerEnvironment: polymerEnvironmentReportLines(db),
+      estimates: withEstimates ? [...estimateReportLines(db), ...(withheld ? withheldReportLines(withheld) : [])] : [],
+    },
   });
   const errors = issues.filter((i) => i.level === 'error');
   const warnings = issues.filter((i) => i.level === 'warn');
@@ -174,6 +214,11 @@ export function runBuild(options: RunOptions): RunResult {
   log(`materials ${db.meta.counts.materials}  measurements ${db.meta.counts.measurements}  profiles ${db.meta.counts.profiles}  reference ${reference.meta.count}`);
   log(`errors ${errors.length}   warnings ${warnings.length}`);
   log(`stages  ${Object.entries(timing).map(([name, ms]) => `${name} ${ms} ms`).join('   ')}`);
+  if (built.estimate) {
+    const { stage } = built.estimate;
+    log(`estimates  ${stage.source === 'cache' ? 'read from the cache' : 'computed'}  key ${stage.key?.slice(0, 12) ?? 'none'}  cache ${describeCache(stage.cache)}`);
+    if (withheld) log(`estimates WITHHELD  ${Object.keys(withheld.cells).length} places: ${withheld.groups.map((g) => g.label).join('; ')}`);
+  }
   for (const e of errors.slice(0, 20)) log(`  ERROR  [${e.code}] ${e.where}: ${e.message}`);
   for (const w of warnings.slice(0, 10)) log(`  warn   [${w.code}] ${w.where}: ${w.message}`);
 
@@ -186,8 +231,26 @@ export function runBuild(options: RunOptions): RunResult {
       const referenceJson = join(options.outDir, 'reference.json');
       writeFileSync(dbJson, JSON.stringify(db));
       writeFileSync(referenceJson, JSON.stringify(reference));
-      files = { dbJson, referenceJson };
+      const written = ['db.json', 'reference.json', 'validation-report.md'];
+      let estimatesJson: string | null = null;
+      let ruling: string | null = null;
+      if (built.estimate) {
+        estimatesJson = join(options.outDir, 'estimates.json');
+        writeFileSync(estimatesJson, JSON.stringify(estimatesArtifact(built.estimate.stage.overlay, db)));
+        written.push('estimates.json');
+        if (withheld) {
+          ruling = join(options.outDir, 'estimate-ruling.md');
+          writeFileSync(ruling, rulingFor(withheld, release.id));
+          written.push('estimate-ruling.md');
+        }
+      }
+      const manifest = join(options.outDir, 'manifest.json');
+      writeFileSync(manifest, `${JSON.stringify(releaseManifest({
+        projectRoot, release, snapshot, build, dir: options.outDir, fileNames: written,
+        estimates: { status: estimatesStatusOf(withEstimates, withheld !== null), stageKey: built.estimate?.stage.key ?? null, withheld: withheld ? withheld.groups.map((g) => g.key) : [] },
+      }), null, 2)}\n`);
+      files = { dbJson, referenceJson, estimatesJson, manifest, ruling };
     }
   }
-  return { ok: errors.length === 0, errors, warnings, db, reference, timing, files };
+  return { ok: errors.length === 0, errors, warnings, db, reference, timing, files, estimate: built.estimate };
 }

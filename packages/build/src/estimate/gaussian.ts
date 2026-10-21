@@ -1,0 +1,263 @@
+// The Gaussian model: its kernel (identity pulled towards its chemical group, reinforcement by matrix, declared
+// variants, test house, melting point, the material's and the product's own deviations), the fit, the posterior,
+// prediction with observations hidden, and the empirical-Bayes spreads.
+
+import { invertSmall } from './numerics.ts';
+import { blockSolver } from './solver.ts';
+import { identityOf, HEAD } from './model.ts';
+import type { Dyn } from '../types.ts';
+
+/**
+ * Heat deflection of a polymer that crystallises while printing rises with its melting point: a fibre
+ * network carries the bar to within a fixed margin of it (slope 1), an unfilled bar part of the way.
+ * The documented slope is the model's mean, so thin data can adjust it but not reverse it.
+ */
+export function meltingPoint(key: Dyn, S: Dyn, model: Dyn) {
+  const slope = model.bounds.meltingPointSlope;
+  const covariate = (m: Dyn) => (key === 'hdt045' && S.info(m).fastCrystallising && S.tmOf(m) != null ? (S.tmOf(m) - slope.reference) / 50 : null);
+  const offset = (m: Dyn) => { const c = covariate(m); return c == null ? 0 : c * 50 * (S.fibre(m) ? slope.fibre : slope.unfilled); };
+  return { covariate, offset };
+}
+
+export function makeKernel(key: Dyn, S: Dyn, model: Dyn) {
+  const scale = model.properties[key].scaleUnit;
+  const tmCovariate = meltingPoint(key, S, model).covariate;
+  const columns = (m: Dyn, formulation: Dyn, manufacturer: Dyn) => {
+    const id = identityOf(m), info = S.info(m), f = S.reinforcement(m);
+    const x = new Map<string, Dyn>([['1', 1], [`g:${info.group}`, 1], [`p:${id}`, 1]]);
+    // Reinforcement acts through the matrix as printed: a fibre network lifts a crystalline bar's heat deflection
+    // towards its melting point but a glassy bar's only a little past Tg. A semicrystalline polymer that prints
+    // amorphous (PLA, PET) fills as a glassy one does (D158), so PLA's fills keep the amorphous column they always had.
+    if (f !== 'unfilled') { if (key !== 'hdt045') x.set(`f:${f}`, 1); x.set(`fx:${f}:${S.matrix(m) === 'amorphous' ? 'amorphous' : info.morphology}`, 1); }
+    // A declared commercial variant class (materials.csv Variant class: silk, particle-filled) has its own effect.
+    if (m.variantClass) x.set(`v:${m.variantClass}`, 1);
+    // A variant product explains its own offset (a lightweight additive, an undisclosed filler) rather than moving its family.
+    if (S.variantOf(formulation)) x.set(`v:grade:${S.variantOf(formulation)}`, 1);
+    if (manufacturer) x.set(`s:${manufacturer}`, 1);
+    if (tmCovariate(m) != null) x.set(S.fibre(m) ? 'tm:fibre' : 'tm:unfilled', tmCovariate(m));
+    return x;
+  };
+  const sdOf = (c: Dyn, hp: Dyn) => (c === '1' ? 10 * scale : c[0] === 'g' ? hp.tg : c[0] === 'p' ? hp.tp : c.startsWith('fx:') ? hp.tfx
+    : c[0] === 'f' ? hp.tf : c.startsWith('v:grade:') ? model.gradeVariants.spreadInScaleUnits * scale : c[0] === 'v' ? hp.tv : c.startsWith('tm:') ? hp.ttm : c[0] === 's' ? hp.tm : 0);
+  // The spread between two products of one material, by its matrix as printed (D162): an elastomer's, a crystalline
+  // filled or unfilled matrix's where measured, else the pooled one.
+  const productSd = (m: Dyn, hp: Dyn) => {
+    const cls = S.matrix(m);
+    return cls === 'elastomer' ? hp.we : cls === 'semi-filled' ? hp.ws ?? hp.w : cls === 'semi-unfilled' ? hp.wu ?? hp.w : hp.w;
+  };
+
+  // A column name is interned to an integer and a point keeps its six or so columns in two small typed arrays, in
+  // the order `columns` adds them; each set of spreads is turned into an array of standard deviations by column
+  // once, when it is first seen. cov is called n^2/2 times per fit and the grid search makes hundreds of fits per
+  // headline, so what it costs to look a string up in a Map, and to decide from its prefix which spread it takes,
+  // is most of the kernel's time. The arithmetic below is the same terms in the same order as the Map version it
+  // replaces, so every fit is bit-identical and `npm run build:diff` shows no difference.
+  const ids = new Map();
+  const idOf = (c: Dyn) => { let i = ids.get(c); if (i === undefined) { i = ids.size; ids.set(c, i); } return i; };
+  let sds = new Float64Array(64), sdsFor: Dyn = null, sdsCount = -1;
+  const spreadsOf = (hp: Dyn) => {
+    if (sdsFor === hp && sdsCount === ids.size) return sds;
+    if (sds.length < ids.size) sds = new Float64Array(Math.max(ids.size, sds.length * 2));
+    for (const [c, i] of ids) sds[i] = sdOf(c, hp);
+    sdsFor = hp; sdsCount = ids.size;
+    return sds;
+  };
+  const point = (m: Dyn, f: Dyn, manufacturer: Dyn) => {
+    const x = columns(m, f, manufacturer);
+    const idx = new Int32Array(x.size), val = new Float64Array(x.size);
+    let i = 0;
+    for (const [c, v] of x) { idx[i] = idOf(c); val[i] = v; i++; }
+    return { m, f, idx, val };
+  };
+  const cov = (a: Dyn, b: Dyn, hp: Dyn) => {
+    const sd = spreadsOf(hp);
+    const ai = a.idx, av = a.val, bi = b.idx, bv = b.val, bn = bi.length;
+    let s = 0;
+    for (let p = 0; p < ai.length; p++) {
+      const c = ai[p];
+      for (let q = 0; q < bn; q++) if (bi[q] === c) { const t: Dyn = sd[c]; s += av[p] * bv[q] * t * t; break; }
+    }
+    if (a.m.id === b.m.id) s += hp.sm * hp.sm;
+    if (a.f && a.f === b.f) s += productSd(a.m, hp) ** 2;
+    return s;
+  };
+
+  // The same covariance written as a matrix of columns, which is what the block solver takes: every column's
+  // value already multiplied by its own spread, so an entry of K is the dot product of two rows plus the noise.
+  // The material's deviation and the product's are columns here too — an indicator apiece — because they are
+  // what makes the matrix block-diagonal rather than diagonal, and the solver has to see them to use them.
+  //
+  // The block a point belongs to is its material's chemical group: a material has one identity and an identity
+  // one group, so every column but the few the model shares across chemistry stays inside one block.
+  const structure = (pts: Dyn, hp: Dyn, noise: Dyn): [Dyn, Dyn, Dyn] => {
+    const sd: Dyn = spreadsOf(hp);
+    // The material's and the product's own columns are numbered after the kernel's, in one space: a material
+    // identifier and a formulation key cannot collide because each carries which it is.
+    const extra = new Map();
+    const at = (key: Dyn) => { let i = extra.get(key); if (i === undefined) { i = ids.size + extra.size; extra.set(key, i); } return i; };
+    const rows = pts.map((pt: Dyn) => {
+      const width = pt.idx.length + (pt.f ? 2 : 1);
+      const idx = new Int32Array(width), val = new Float64Array(width);
+      let k = 0;
+      for (let t = 0; t < pt.idx.length; t++) { const c = pt.idx[t]; idx[k] = c; val[k] = pt.val[t] * sd[c]; k++; }
+      idx[k] = at(`m:${pt.m.id}`); val[k] = hp.sm; k++;
+      if (pt.f) { idx[k] = at(`f:${pt.f}`); val[k] = productSd(pt.m, hp); }
+      return { idx, val };
+    });
+    return [rows, pts.map((pt: Dyn) => S.info(pt.m).group), noise];
+  };
+  return { point, cov, structure };
+}
+
+export function fitModel(key: Dyn, obs: Dyn, S: Dyn, model: Dyn, hp: Dyn) {
+  const { point, cov, structure } = makeKernel(key, S, model);
+  const n = obs.length;
+  const pts = obs.map((o: Dyn) => point(o.m, o.f, S.grades.get(o.gradeId)?.manufacturer));
+  const mean = obs.reduce((a: Dyn, o: Dyn) => a + o.y, 0) / n;
+  const r: Dyn = Float64Array.from(obs, (o: Dyn) => o.y - mean);
+  const solver = blockSolver(...structure(pts, hp, obs.map((o: Dyn) => o.noise2 + 1e-9)));
+  if (!solver) return null;
+  // K^-1 r is the posterior weight vector and half of the likelihood at once, so it is computed here and the
+  // posterior keeps it rather than forming the inverse to multiply by.
+  const alpha = solver.apply(r);
+  let quadratic = 0;
+  for (let i = 0; i < n; i++) quadratic += r[i] * alpha[i];
+  return { logLik: -0.5 * quadratic - 0.5 * solver.logDet, n, pts, mean, r, alpha, solver, cov, point };
+}
+
+/**
+ * The fit with what a prediction needs beside it. The diagonal of K^-1 is what a conflict is judged against and
+ * costs the blocks' inverses, so it is computed the first time something asks and not before: the hyperparameter
+ * search makes hundreds of fits per headline and reads none of it.
+ */
+export function posterior(fit: Dyn) {
+  if (!fit) return fit;
+  const P = { ...fit };
+  let d = null;
+  Object.defineProperty(P, 'diagKi', { get: () => (d ??= fit.solver.diag()) });
+  return P;
+}
+
+/** Latent headline of a product (material m, formulation f, test house), optionally hiding observations S. */
+export function predict(P: Dyn, hp: Dyn, m: Dyn, f: Dyn, manufacturer: Dyn, hide: Dyn = []) {
+  const { n, pts, alpha, r, mean, cov, point, solver } = P;
+  const t = point(m, f, manufacturer);
+  const k: Dyn = new Float64Array(n);
+  for (let i = 0; i < n; i++) k[i] = cov(t, pts[i], hp);
+  if (!hide.length) {
+    const v = solver.apply(k);
+    let mu = mean, q = 0;
+    const w = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      if (!k[i]) continue;
+      mu += k[i] * alpha[i];
+      w[i] = v[i]; q += k[i] * v[i];
+    }
+    return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q)), weights: w };
+  }
+
+  // Hiding observations H downdates the inverse: A = Ki - Ki[:,H] B^-1 Ki[H,:] with B = Ki[H,H], zero on H's
+  // rows and columns. Only A r and A k are needed, and each is two solves against K rather than a row of an
+  // inverse that is never formed: forming it for every calibration hold-out made calibration cubic in the
+  // number of observations (13 s of a 13.6 s compile at twice the data of 2026-09-19).
+  const h = hide.length;
+  const Binv = invertSmall(solver.sub(hide));
+  for (const i of hide) k[i] = 0;
+  const visible = Float64Array.from(r);
+  for (const i of hide) visible[i] = 0;
+  const a = solver.apply(visible), b = solver.apply(k);
+  const cr: Dyn = new Float64Array(h), ck: Dyn = new Float64Array(h);
+  for (let x = 0; x < h; x++) for (let y = 0; y < h; y++) { cr[x] += Binv[x][y] * a[hide[y]]; ck[x] += Binv[x][y] * b[hide[y]]; }
+  const spreadR = new Float64Array(n), spreadK = new Float64Array(n);
+  for (let x = 0; x < h; x++) { spreadR[hide[x]] = cr[x]; spreadK[hide[x]] = ck[x]; }
+  const downR = solver.apply(spreadR), downK = solver.apply(spreadK);
+
+  let mu = mean, q2 = 0;
+  const w = new Float64Array(n);
+  for (let i = 0; i < n; i++) {
+    if (!k[i]) continue;
+    const ak = b[i] - downK[i];
+    mu += k[i] * (a[i] - downR[i]);
+    w[i] = ak; q2 += k[i] * ak;
+  }
+  return { mu, sd: Math.sqrt(Math.max(1e-12, cov(t, t, hp) - q2)), weights: w };
+}
+
+/**
+ * The observations the spreads are estimated on: the headline and the single most direct kind per formulation, which
+ * identifies them as well as the full set does at a fraction of the cost.
+ *
+ * Above `max` it is a sample, because the spread search is where the fit's cost lives: each search is hundreds of
+ * fits, and a fit is cubic in the observations it sees. The sample keeps every measured headline, which is what the
+ * spreads are judged against, and takes the rest one material at a time in turn, so a polymer with two products is
+ * heard before a polymer with two hundred is heard twice. Sampling in proportion instead would drop the small
+ * material altogether, and the spread between materials is exactly what such a material says most about. The order
+ * is by identifier, not random, because the build is deterministic. The posterior, the calibration and the
+ * screening back-test still see every observation: this samples what the spreads are *searched* on, not what the
+ * model is fitted to (DECISIONS D77).
+ */
+export function spreadObservations(key: Dyn, obs: Dyn, max: Dyn = Infinity) {
+  const hasHead = new Set(obs.filter((o: Dyn) => o.kind === HEAD[key]).map((o: Dyn) => `${o.m.id}|${o.f}`));
+  const thinned = obs.filter((o: Dyn) => o.kind === HEAD[key] || !hasHead.has(`${o.m.id}|${o.f}`));
+  if (thinned.length <= max) return thinned;
+  const head = thinned.filter((o: Dyn) => o.kind === HEAD[key]);
+  const room = max - head.length;
+  if (room <= 0) return head;
+  const byMaterial = new Map();
+  for (const o of thinned.filter((o: Dyn) => o.kind !== HEAD[key])) {
+    if (!byMaterial.has(o.m.id)) byMaterial.set(o.m.id, []);
+    byMaterial.get(o.m.id).push(o);
+  }
+  let queues = [...byMaterial.entries()].sort((a: Dyn, b: Dyn) => a[0].localeCompare(b[0]))
+    .map(([, rows]: Dyn) => rows.sort((a: Dyn, b: Dyn) => `${a.f}|${a.kind}`.localeCompare(`${b.f}|${b.kind}`)));
+  // More materials than room: take them at an even stride across the sorted identifiers rather than the first
+  // handful, because identifiers run in the order materials were added and so cluster by chemistry.
+  if (queues.length > room) {
+    const step = (queues.length - 1) / (room - 1 || 1);
+    queues = Array.from({ length: room }, (_: Dyn, i: Dyn) => queues[Math.round(i * step)]);
+  }
+  const sample = [];
+  for (let round = 0; sample.length < room; round++) {
+    let took = 0;
+    for (const queue of queues) {
+      if (sample.length >= room) break;
+      if (round < queue.length) { sample.push(queue[round]); took++; }
+    }
+    if (!took) break;
+  }
+  return [...head, ...sample];
+}
+
+/**
+ * Empirical Bayes: each free spread in turn over a grid, three sweeps, above its documented floor. `start` (a fit's
+ * spreads) and `sweeps` let a refit on nearly the same data start from where the full fit ended.
+ */
+export function hyperparameters(key: Dyn, obs: Dyn, S: Dyn, model: Dyn, fixed: Dyn, { start = null, sweeps = 3 }: Dyn = {}) {
+  const scale = model.properties[key].scaleUnit, floors = model.properties[key].floors;
+  // `fixed` holds the measured product spreads (conversions.js productSpreads): the pooled w, and a crystalline matrix's
+  // ws and wu where measured. They are not searched.
+  const fixedW = fixed?.w ?? null;
+  const hp = start ? { ...start } : { tg: scale, tp: scale / 2, tf: scale, tfx: scale / 2, tv: scale / 2, tm: scale / 3, ttm: scale / 2, sm: scale / 3, w: fixedW ?? scale / 2, we: scale };
+  if (fixedW != null) hp.w = fixedW;
+  delete hp.ws; delete hp.wu;
+  if (fixed?.ws != null) hp.ws = fixed.ws;
+  if (fixed?.wu != null) hp.wu = fixed.wu;
+  for (const [k, v] of Object.entries<Dyn>(floors)) if (k in hp) hp[k] = Math.max(hp[k], v);
+  // The melting-point slope's spread is documented, not learned: a handful of unfilled polymers cannot
+  // be allowed to reverse a physical relation (PVDF deflects near its melting point, PA66 far below).
+  if (floors.ttm != null) hp.ttm = floors.ttm;
+  const free = Object.keys(hp).filter((k: Dyn) => !(k === 'w' && fixedW != null) && k !== 'ttm' && k !== 'ws' && k !== 'wu');
+  const grid = [0.01, 0.05, 0.12, 0.25, 0.4, 0.6, 0.85, 1.2, 1.7, 2.5, 4].map((g: Dyn) => g * scale);
+  const score = (h: Dyn) => fitModel(key, obs, S, model, h)?.logLik ?? -Infinity;
+  let best = score(hp);
+  for (let sweep = 0; sweep < sweeps; sweep++) {
+    for (const k of free) {
+      for (const v of grid) {
+        if (v < (floors[k] ?? 0)) continue;
+        const trial = { ...hp, [k]: v }, s = score(trial);
+        if (s > best) { best = s; hp[k] = v; }
+      }
+    }
+  }
+  return hp;
+}

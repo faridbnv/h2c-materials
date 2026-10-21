@@ -1,22 +1,25 @@
 // npm run build:measure -- [--runs N] [--no-write]
 //
 // The cold-build time of the new build against the old one, on this machine, written to remake/measure/build.json (WP-20 exit
-// evidence: a cold build no slower than the old tool's 26.4 s).
+// evidence: a cold build no slower than the old tool's 26.4 s), and the warm-build time of the new build (WP-21: the estimate stage
+// read from its cache).
 //
-// "Cold" means no build cache: the new build has none, and the old one runs with H2C_NO_BUILD_CACHE=1 in a temporary copy of the
-// project (so the project's dist/ and build/reports are untouched). Each run is a whole process, wall clock, from spawn to exit.
+// "Cold" means no build cache: the new build runs with --no-estimate-cache, and the old one with H2C_NO_BUILD_CACHE=1 in a temporary
+// copy of the project (so the project's dist/ and build/reports are untouched). "Warm" means the same build again with the estimate
+// stage's cache holding its key (a temporary folder, filled by one build first). Each run is a whole process, wall clock, from spawn
+// to exit.
 // Each run is two PAIRS, started together so that a busy machine hurts both halves of a pair alike: the new core beside the old core,
 // and the old full build beside the old core. The ratio inside a pair and the difference inside a pair mean something on a busy
 // machine; the absolute seconds do not, and the file says so (`budgetDecidable`). Every run is written down with the load average.
 //
-//   new core    packages/build/src/cli.ts: reconstruct, load, check, compile, estimate (the old stage), validate, db.json
+//   new core    packages/build/src/cli.ts: reconstruct, load, check, compile, estimate, validate, db.json, estimates.json, manifest
 //   old core    build/src/index.js --validate-only: the same stages on CSV, no db.json written
 //   old full    build/src/index.js: the old core + db.json + the bundle + the material pages
 //
 // The new build does not run the bundle or the pages (the old ones, until their packages replace them), so the comparison with the
 // 26.4 s budget is made on the like-for-like figure: the new core plus what the old full build adds to the old core.
 import { spawn } from 'node:child_process';
-import { cpSync, existsSync, mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { arch, cpus, loadavg, platform, release, tmpdir, totalmem } from 'node:os';
 import { join } from 'node:path';
 import { PROJECT_ROOT } from './build.ts';
@@ -88,7 +91,9 @@ interface Run {
   load: number;
 }
 const runs: Run[] = [];
-const newCoreArgs = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out];
+const warmRuns: { wall: number; cpu: number; load: number }[] = [];
+let fillSeconds = NaN;
+const newCoreArgs = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out, '--no-estimate-cache'];
 try {
   for (let i = 0; i < RUNS; i++) {
     const load = loadavg()[0] ?? 0;
@@ -108,6 +113,18 @@ try {
     });
     console.log(`run ${i + 1}/${RUNS} (load ${load.toFixed(1)}): pair A new core ${newCore.wall.toFixed(1)} s / old core ${oldCoreA.wall.toFixed(1)} s; pair B old full ${oldFull.wall.toFixed(1)} s / old core ${oldCoreB.wall.toFixed(1)} s`);
   }
+  // Warm: one build fills a cache in a temporary folder, then the same build runs RUNS more times reading its estimates from it.
+  const cacheDir = join(copy, 'estimate-cache');
+  const warmArgs = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out, '--estimate-cache', cacheDir];
+  const fill = await timeProcess(process.execPath, warmArgs, PROJECT_ROOT);
+  console.log(`cache filled in ${fill.wall.toFixed(1)} s (a cold build that also stores its estimates)`);
+  for (let i = 0; i < RUNS; i++) {
+    const load = loadavg()[0] ?? 0;
+    const warm = await timeProcess(process.execPath, warmArgs, PROJECT_ROOT);
+    warmRuns.push({ wall: round(warm.wall), cpu: round(warm.cpu), load: round(load) });
+    console.log(`warm ${i + 1}/${RUNS} (load ${load.toFixed(1)}): ${warm.wall.toFixed(1)} s`);
+  }
+  fillSeconds = round(fill.wall);
 } finally {
   rmSync(copy, { recursive: true, force: true });
 }
@@ -137,6 +154,13 @@ const result = {
   bestSeconds: { newCore: round(bestNewCore), oldCore: round(bestOldCore) },
   likeForLikeFullSeconds: round(likeForLike),
   likeForLike: 'best new core + (old full - old core, inside pair B): the new build plus what the old bundle and pages stages add, which the new build does not run yet',
+  warm: {
+    what: 'the new core again with the estimate stage read from its cache (the build is otherwise the same: reconstruct, load, check, compile, key, validate, db.json, estimates.json, manifest)',
+    runs: warmRuns,
+    seconds: round(median(warmRuns.map((r) => r.wall))),
+    bestSeconds: round(Math.min(...warmRuns.map((r) => r.wall))),
+    coldAndStoringSeconds: fillSeconds,
+  },
   budgetSeconds: BUDGET_S,
   budgetDecidable: quiet,
   withinBudget: quiet ? likeForLike <= BUDGET_S : null,
@@ -144,6 +168,12 @@ const result = {
 console.log(`new core / old core, same load: wall x${result.newCoreOverOldCore.wall}, cpu x${result.newCoreOverOldCore.cpu}; old full adds ${result.oldFullMinusOldCoreSeconds} s; like-for-like ${result.likeForLikeFullSeconds} s against ${BUDGET_S} s (${quiet ? 'quiet machine' : 'machine busy: the budget is not decidable'})`);
 if (!args.includes('--no-write')) {
   const path = join(PROJECT_ROOT, 'remake', 'measure', 'build.json');
-  writeFileSync(path, `${JSON.stringify(result, null, 2)}\n`);
+  // What this script does not measure (the verdict, where the time goes, findings from a profile) is written by hand beside it and kept.
+  const kept: Record<string, unknown> = {};
+  if (existsSync(path)) {
+    const before: unknown = JSON.parse(readFileSync(path, 'utf8'));
+    if (typeof before === 'object' && before !== null) for (const [k, v] of Object.entries(before)) if (!(k in result)) kept[k] = v;
+  }
+  writeFileSync(path, `${JSON.stringify({ ...result, ...kept }, null, 2)}\n`);
   console.log(`written ${path}`);
 }

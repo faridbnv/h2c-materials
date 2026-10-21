@@ -1,13 +1,51 @@
 {
   "id": "WP-21",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-21-estimates",
   "pr": null,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
-  "evidence": [],
-  "waitingSince": null,
-  "approvedAt": null
+  "evidence": [
+    {
+      "cmd": "npm run parity",
+      "result": "pass",
+      "code": 2,
+      "note": "engine 0 of 1306 cases (Explore with estimates included), ties 0, links 0, build 0 (db.json, 1,288,896 values, new build with the estimate stage as TypeScript, cold); pages not computable until WP-24, as in WP-20"
+    },
+    {
+      "cmd": "npm run parity:erase",
+      "result": "pass",
+      "code": 0,
+      "note": "P-erase 0 for 67 pairs: the 18 estimate modules are label-only (model.ts declares its two moved paths)"
+    },
+    {
+      "cmd": "node --test tests/parity/estimate-stage.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "db.json and reference.json byte for byte the old build's; estimates.json equals the old JavaScript stage's output; cold and warm builds write identical files; a seeded calibration failure withholds and labels one headline and never reaches the cache"
+    },
+    {
+      "cmd": "node --test tests/remake/estimate-stage.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "stale key forces recompute for each input, the code, ICU, CLDR, collation, Node, V8, platform, architecture; damaged and foreign entries are misses; the code digest covers every module Node loads for the stage"
+    },
+    {
+      "cmd": "npm run test:remake / test:domain / test:parity / test:claude / types:check / lint / types:ratchet",
+      "result": "pass",
+      "code": 0,
+      "note": "395, 25, 203 tests; no increase in escapes"
+    },
+    {
+      "cmd": "npm run build:measure",
+      "result": "fail",
+      "note": "cold budget still not decidable (machine busy, load 33 to 7): new core 51.7 s against old core 46.4 s; warm 4.6 to 5.1 s"
+    }
+  ],
+  "waitingSince": "2026-10-21",
+  "approvedAt": null,
+  "note": "the estimate stage as 18 label-only TypeScript modules (P-erase 0), run as a cached stage keyed on the compiled core, the code, Node, V8, ICU and the options; estimates.json and manifest.json (Node and ICU recorded); withholding on a calibration failure (OQ-05 A); DT-1 measured and not applied",
+  "prs": []
 }

@@ -87,6 +87,11 @@ export interface NewBuildOptions {
   buildDate?: string;
   /** Extra arguments for the build's own CLI (--no-estimates). */
   args?: readonly string[];
+  /**
+   * The folder the estimate stage may keep its cache in. Without it the build runs the stage cold (--no-estimate-cache), so that P-build
+   * compares what the stage COMPUTES with the old build's database, never what an earlier run left behind.
+   */
+  estimateCache?: string;
 }
 
 /**
@@ -105,7 +110,8 @@ export async function buildNew(opts: NewBuildOptions): Promise<BuiltRelease> {
   }
   const out = join(dir, 'out');
   const date = opts.buildDate ?? new Date().toISOString().slice(0, 10);
-  const args = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out, '--data-dir', dataDir, ...(opts.args ?? [])];
+  const cache = opts.estimateCache === undefined ? ['--no-estimate-cache'] : ['--estimate-cache', opts.estimateCache];
+  const args = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out, '--data-dir', dataDir, ...cache, ...(opts.args ?? [])];
   const run = await runBuild(REPO_ROOT, args, { SOURCE_DATE_EPOCH: String(Date.parse(`${date}T00:00:00Z`) / 1000) });
   if (run.status !== 0) {
     const tail = run.output.split('\n').filter((l) => /ERROR|failed|Error/.test(l)).slice(0, 12).join('\n');
