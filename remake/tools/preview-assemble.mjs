@@ -17,16 +17,20 @@ export const LIVE_URL = 'https://pdynamics.ca/h2c-materials/';
 export const BANNER_TEXT = 'Preview of the Filament Atlas remake — not the live tool. Live:';
 export const BANNER_MARK = 'data-preview-banner';
 export const NOINDEX = '<meta name="robots" content="noindex">';
+// The preview shares the origin pdynamics.ca with the live tool, so it would share localStorage and sessionStorage.
+// This runs before any page script and prefixes every key, so the preview never reads or overwrites the live tool's state.
+export const STORAGE_PREFIX = 'h2c-preview:';
+export const STORAGE_SHIM = `<script data-preview-storage>(function(){var P=${JSON.stringify('h2c-preview:')},S=Storage.prototype,g=S.getItem,s=S.setItem,r=S.removeItem;S.getItem=function(n){return g.call(this,P+n)};S.setItem=function(n,v){return s.call(this,P+n,v)};S.removeItem=function(n){return r.call(this,P+n)};S.clear=function(){var a=[];for(var i=0;i<this.length;i++){var k=S.key.call(this,i);if(k&&k.indexOf(P)===0)a.push(k)}for(var j=0;j<a.length;j++)r.call(this,a[j])}})();</script>`;
 const BANNER_STYLE = 'margin:0;padding:.55rem 1rem;background:#fff3bf;color:#3b2f00;border-bottom:2px solid #c98a00;'
   + 'font:600 14px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;text-align:center';
 export const BANNER_HTML = `<div ${BANNER_MARK} role="note" style="${BANNER_STYLE}">${BANNER_TEXT} <a href="${LIVE_URL}" style="color:#3b2f00">${LIVE_URL}</a></div>`;
 
 export function injectBanner(html, name = 'html') {
-  if (html.includes(BANNER_HTML) && html.includes(NOINDEX)) return html;
+  if (html.includes(BANNER_HTML) && html.includes(NOINDEX) && html.includes(STORAGE_SHIM)) return html;
   if (html.includes(BANNER_MARK)) throw new Error(`${name}: contains "${BANNER_MARK}" but not the complete banner and noindex; refusing to guess`);
   const head = /<head(\s[^>]*)?>/i.exec(html);
   if (!head) throw new Error(`${name}: no <head> tag; refusing to publish a page that cannot carry noindex`);
-  const withMeta = html.slice(0, head.index + head[0].length) + NOINDEX + html.slice(head.index + head[0].length);
+  const withMeta = html.slice(0, head.index + head[0].length) + NOINDEX + STORAGE_SHIM + html.slice(head.index + head[0].length);
   const body = /<body(\s[^>]*)?>/i.exec(withMeta);
   if (!body) throw new Error(`${name}: no <body> tag; refusing to publish a page that cannot carry the banner`);
   return withMeta.slice(0, body.index + body[0].length) + BANNER_HTML + withMeta.slice(body.index + body[0].length);
@@ -69,7 +73,7 @@ export function inject(site, { remake, main, runId = null, now = new Date() }) {
   // Re-read what was written: every page must carry the whole banner and noindex, whatever injectBanner believed.
   for (const p of pages) {
     const t = readFileSync(p, 'utf8');
-    if (!t.includes(BANNER_HTML) || !t.includes(NOINDEX)) throw new Error(`${relative(site, p)}: banner or noindex missing after injection`);
+    if (!t.includes(BANNER_HTML) || !t.includes(NOINDEX) || !t.includes(STORAGE_SHIM)) throw new Error(`${relative(site, p)}: banner, noindex or storage shim missing after injection`);
   }
   const materials = existsSync(join(site, 'materials')) ? readdirSync(join(site, 'materials')).filter((f) => /^M\d+\.html$/.test(f)).sort() : [];
   if (materials.length === 0) throw new Error('no materials/M<id>.html page in the site: the smoke test needs one');

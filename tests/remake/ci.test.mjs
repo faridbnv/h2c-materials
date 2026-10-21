@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import {
   globToRegExp, oldPathViolations, needsReviewSection, hasReviewSection, classifyTier, tierGate, findAttest, parseChangedFiles, attestText,
 } from '../../remake/tools/ci-gates.mjs';
-import { injectBanner, inject, stage, BANNER_MARK, NOINDEX } from '../../remake/tools/preview-assemble.mjs';
+import { injectBanner, inject, stage, BANNER_MARK, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX } from '../../remake/tools/preview-assemble.mjs';
 import { runSmoke, fetchRetry } from '../../remake/tools/preview-smoke.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -183,6 +183,22 @@ test('CLI: tier reads scope files from a directory and comments from a file', ()
 });
 
 // ---- preview post-processing ----------------------------------------------------------------------------------------
+test('the storage shim namespaces every key, so the preview cannot touch the live tool\'s storage', () => {
+  const store = new Map();
+  class Storage { get length() { return store.size; } key(i) { return [...store.keys()][i] ?? null; } getItem(k) { return store.has(k) ? store.get(k) : null; } setItem(k, v) { store.set(k, String(v)); } removeItem(k) { store.delete(k); } clear() { store.clear(); } }
+  store.set('h2c-scenario', 'live');
+  const code = STORAGE_SHIM.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '');
+  new Function('Storage', code)(Storage);
+  const ls = new Storage();
+  ls.setItem('h2c-scenario', 'preview');
+  assert.equal(ls.getItem('h2c-scenario'), 'preview');
+  assert.equal(store.get('h2c-scenario'), 'live', 'the live key is untouched');
+  assert.equal(store.get(STORAGE_PREFIX + 'h2c-scenario'), 'preview');
+  ls.clear();
+  assert.equal(store.get('h2c-scenario'), 'live', 'clear() removes only preview keys');
+  assert.ok(injectBanner('<html><head></head><body></body></html>').includes(`<head>${NOINDEX}${STORAGE_SHIM}`));
+});
+
 test('injectBanner puts noindex after <head> and the banner after <body>, once, and refuses pages it cannot mark', () => {
   const html = '<!doctype html><html><head><title>x</title></head><body class="a"><p>hi</p></body></html>';
   const out = injectBanner(html);
