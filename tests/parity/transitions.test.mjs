@@ -9,7 +9,7 @@ import { runParity, exitCode } from '../../packages/parity/src/compare.ts';
 import { faultByName } from '../../packages/parity/src/faults.ts';
 import { copyEngine } from '../../packages/parity/src/engine-copy.ts';
 import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
-import { buildTransition, digestOf, loadTransitions, validateTransition } from '../../packages/parity/src/transitions.ts';
+import { buildTransition, digestOf, loadTransitions, sealOf, validateTransition } from '../../packages/parity/src/transitions.ts';
 import { cli, root, small } from './helpers.mjs';
 
 const known = new Set(small.map((c) => c.id));
@@ -74,6 +74,15 @@ test('two files may split the list but not list one difference twice', async () 
   await assert.rejects(observe([file(observed, { id: 'a' }), file(observed.slice(0, 1), { id: 'b' })]), /already lists/);
 });
 
+test('a transition for another corpus is refused', async () => {
+  await assert.rejects(observe([file(observed, { corpus: 'v1' })]), /for corpus v1/);
+});
+
+test('a partial run shows how many listed differences it could not check', async () => {
+  const r = await runParity({ corpusName: 'v0', cases: small.slice(0, 1), knownCaseIds: known, before: await createOld(readDb()), after: await createOld(readDb()), transitions: [file(observed)] });
+  assert.ok(r.transitions.skippedOutOfScope > 0);
+});
+
 test('a transition naming a case that is not in the corpus is an error', async () => {
   await assert.rejects(observe([file([{ ...observed[0], case: 'template/none/strict' }])]), /not in the corpus/);
 });
@@ -83,6 +92,8 @@ test('a tampered file is refused: digest, ruling, kind, tier rule', () => {
   assert.doesNotThrow(() => validateTransition(good, 'g'));
   assert.throws(() => validateTransition({ ...good, differences: good.differences.slice(1) }, 'x'), /digest/);
   assert.throws(() => validateTransition({ ...good, ruling: '  ' }, 'x'), /ruling/);
+  assert.throws(() => validateTransition({ ...good, ruling: 'a different ruling' }, 'x'), /seal/);
+  assert.throws(() => validateTransition({ ...good, id: 'renamed' }, 'x'), /seal/);
   assert.throws(() => validateTransition({ ...good, kind: 'oops' }, 'x'), /kind/);
   const decisionAsDisplay = buildTransition({ ...good, kind: 'display' });
   assert.throws(() => validateTransition(decisionAsDisplay, 'x'), /needs kind "science"/);
@@ -98,7 +109,7 @@ test('CLI: a transition file for a fault run passes with exit 0, and fails with 
   const dir = mkdtempSync(join(tmpdir(), 'h2c-trans-'));
   try {
     const out = join(dir, '2026-10-21-fault.json');
-    const base = [cli, '--fault', 'untested-as-zero', '--only', 'template/'];
+    const base = [cli, '--fault', 'untested-as-zero', '--only', 'template/', '--allow-partial'];
     const emit = spawnSync(process.execPath, [...base, '--emit-transition', out, '--id', 'fault', '--kind', 'science', '--ruling', 'OQ-test', '--description', 'x'], { cwd: root, encoding: 'utf8' });
     assert.equal(emit.status, 1);
     const ok = spawnSync(process.execPath, [...base, '--transitions', dir], { cwd: root, encoding: 'utf8' });
@@ -108,6 +119,7 @@ test('CLI: a transition file for a fault run passes with exit 0, and fails with 
     const t = JSON.parse(JSON.stringify(loadTransitions(dir)[0]));
     t.differences = t.differences.slice(1);
     t.digest = digestOf(t.differences);
+    t.seal = sealOf(t);
     delete t.__file;
     writeFileSync(out, JSON.stringify(t));
     const bad = spawnSync(process.execPath, [...base, '--transitions', dir], { cwd: root, encoding: 'utf8' });

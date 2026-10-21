@@ -36,7 +36,7 @@ test('a fault patch that no longer matches the engine fails loudly instead of be
 });
 
 test('CLI: --fault exits 1 and names the fault and the moved records', () => {
-  const r = spawnSync(process.execPath, [cli, '--fault', 'tie-order', '--only', 'template/'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--fault', 'tie-order', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 1, r.stderr);
   assert.match(r.stdout, /fault tie-order: caught/);
   assert.match(r.stdout, /moved records \(\d+\)/);
@@ -44,7 +44,7 @@ test('CLI: --fault exits 1 and names the fault and the moved records', () => {
 });
 
 test('CLI: an unknown fault is refused', () => {
-  const r = spawnSync(process.execPath, [cli, '--fault', 'nope', '--only', 'template/'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--fault', 'nope', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.notEqual(r.status, 0);
   assert.match(r.stderr, /unknown fault/);
 });

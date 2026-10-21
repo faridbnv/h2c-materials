@@ -2,9 +2,10 @@
 import { ABSENT, isNotComputable, show } from './canon.ts';
 import { matchTransitions } from './transitions.ts';
 import { TIERS } from './types.ts';
+import { compareStrings, getOrCreate } from './util.ts';
 import type {
   Adapter, CorpusCase, Difference, NormalizedCase, NotComputableItem, ParityReport, RecordFacts, Status, Tier,
-  TransitionFile, Value,
+  TransitionFile, TransitionMatch, Value,
 } from './types.ts';
 
 type Computed = Extract<NormalizedCase, { outcome: 'computed' }>;
@@ -17,6 +18,12 @@ export interface CaseComparison {
   notComputable: NotComputableItem[];
   records: number;
   blocks: number;
+}
+
+/** Which side(s) a problem is on, given a flag per side. At least one flag must be set. */
+function sideOf(beforeFlagged: boolean, afterFlagged: boolean): 'before' | 'after' | 'both' {
+  if (beforeFlagged && afterFlagged) return 'both';
+  return beforeFlagged ? 'before' : 'after';
 }
 
 function sameValue(a: Value, b: Value): 'same' | 'different' | 'not-computable' {
@@ -40,9 +47,9 @@ function compareBlock(
     const verdict = sameValue(av, bv);
     if (verdict === 'same') continue;
     if (verdict === 'not-computable') {
-      const sides = isNotComputable(av) && isNotComputable(bv) ? 'both' : isNotComputable(av) ? 'before' : 'after';
-      const why = [av, bv].filter(isNotComputable).map((x) => x.reason).join(' / ');
-      out.notComputable.push({ case: caseId, record, tier, field, side: sides, reason: why });
+      const side = sideOf(isNotComputable(av), isNotComputable(bv));
+      const reason = [av, bv].filter(isNotComputable).map((x) => x.reason).join(' / ');
+      out.notComputable.push({ case: caseId, record, tier, field, side, reason });
     } else out.differences.push({ case: caseId, record, tier, field, before: show(av), after: show(bv) });
   }
 }
@@ -65,9 +72,17 @@ export function compareCase(before: NormalizedCase, after: NormalizedCase): Case
   const { records: rb } = after as Computed;
   if (Object.keys(ra).length === 0 || Object.keys(rb).length === 0) {
     // An adapter that says "computed" and returns nothing must not read as "no differences".
-    out.notComputable.push({ case: caseId, record: null, tier: null, field: null, side: Object.keys(ra).length === 0 && Object.keys(rb).length === 0 ? 'both' : Object.keys(ra).length === 0 ? 'before' : 'after', reason: 'adapter returned a computed case with no records' });
+    const side = sideOf(Object.keys(ra).length === 0, Object.keys(rb).length === 0);
+    out.notComputable.push({ case: caseId, record: null, tier: null, field: null, side, reason: 'adapter returned a computed case with no records' });
     return out;
   }
+  for (const [side, recs] of [['before', ra], ['after', rb]] as const) {
+    if (!Object.keys(recs).some((k) => k.startsWith('material:'))) {
+      // Both sides must say something about materials, or "zero" would rest on the case summary alone (e.g. a wrong db).
+      out.notComputable.push({ case: caseId, record: null, tier: null, field: null, side, reason: 'adapter returned no material records' });
+    }
+  }
+  if (out.notComputable.length) return out;
   for (const record of [...new Set([...Object.keys(ra), ...Object.keys(rb)])].sort()) {
     const fa: RecordFacts | undefined = Object.hasOwn(ra, record) ? ra[record] : undefined;
     const fb: RecordFacts | undefined = Object.hasOwn(rb, record) ? rb[record] : undefined;
@@ -76,6 +91,8 @@ export function compareCase(before: NormalizedCase, after: NormalizedCase): Case
       continue;
     }
     out.records++;
+    for (const k of [...Object.keys(fa), ...Object.keys(fb)]) if (!(TIERS as readonly string[]).includes(k)) throw new Error(`record ${record} has an unknown tier "${k}"`);
+    if (!Object.keys(fa).length && !Object.keys(fb).length) throw new Error(`record ${record} has no tiers`);
     for (const tier of TIERS) {
       if (!fa[tier] && !fb[tier]) continue;
       out.blocks++;
@@ -97,7 +114,23 @@ export interface RunOptions {
 }
 
 const emptyByTier = (): Record<Tier, number> => ({ decision: 0, presentation: 0, evidence: 0, wording: 0 });
-const sortKey = (d: Difference) => [d.case, d.record, d.tier, d.field].join('\u0000');
+const sortKey = (d: Difference): string => [d.case, d.record, d.tier, d.field].join('\u0000');
+
+function statusOf(differences: Difference[], notComputable: NotComputableItem[], transitions: TransitionMatch | null): Status {
+  const failed = transitions ? transitions.unexpected.length > 0 || transitions.missing.length > 0 : differences.length > 0;
+  if (failed) return 'differs';
+  if (notComputable.length > 0) return 'not-computable';
+  return differences.length > 0 ? 'matches-transition' : 'zero';
+}
+
+/** An adapter that throws is "not computable" for that case, never a crash that reads like a failed comparison. */
+async function safely(adapter: Adapter, c: CorpusCase): Promise<NormalizedCase> {
+  try {
+    return await adapter.evaluate(c);
+  } catch (err) {
+    return { caseId: c.id, outcome: 'not-computable', reason: `${adapter.name} threw: ${err instanceof Error ? err.message : String(err)}` };
+  }
+}
 
 export async function runParity(opts: RunOptions): Promise<ParityReport> {
   const { cases, before, after } = opts;
@@ -109,10 +142,10 @@ export async function runParity(opts: RunOptions): Promise<ParityReport> {
   const t0 = performance.now();
   for (const [i, c] of cases.entries()) {
     let s = performance.now();
-    const nb = await before.evaluate(c);
+    const nb = await safely(before, c);
     tBefore += performance.now() - s;
     s = performance.now();
-    const na = await after.evaluate(c);
+    const na = await safely(after, c);
     tAfter += performance.now() - s;
     s = performance.now();
     if (nb.caseId !== c.id || na.caseId !== c.id) throw new Error(`adapter answered another case than ${c.id}: ${nb.caseId} / ${na.caseId}`);
@@ -126,30 +159,37 @@ export async function runParity(opts: RunOptions): Promise<ParityReport> {
     blocks += cmp.blocks;
     opts.onProgress?.(i + 1, cases.length);
   }
-  differences.sort((a, b) => (sortKey(a) < sortKey(b) ? -1 : sortKey(a) > sortKey(b) ? 1 : 0));
+  differences.sort((a, b) => compareStrings(sortKey(a), sortKey(b)));
   const byTier = emptyByTier();
   for (const d of differences) byTier[d.tier]++;
   const moved = new Map<string, Set<string>>();
-  for (const d of differences) (moved.get(d.record) ?? moved.set(d.record, new Set()).get(d.record)!).add(d.case);
+  for (const d of differences) getOrCreate(moved, d.record, () => new Set<string>()).add(d.case);
   const movedRecords = [...moved].map(([r, cs]) => `${r} (${cs.size} case${cs.size === 1 ? '' : 's'})`).sort();
 
   const scope = new Set(cases.map((c) => c.id));
-  const transitions = opts.transitions ? matchTransitions(differences, opts.transitions, scope, opts.knownCaseIds ?? scope) : null;
-  let status: Status;
-  if (transitions ? transitions.unexpected.length || transitions.missing.length : differences.length) status = 'differs';
-  else if (notComputable.length) status = 'not-computable';
-  else if (differences.length) status = 'matches-transition';
-  else status = 'zero';
+  const known = opts.knownCaseIds ?? scope;
+  const transitions = opts.transitions ? matchTransitions(differences, opts.transitions, scope, known, opts.corpusName) : null;
+  const status = statusOf(differences, notComputable, transitions);
   if (status === 'zero' && (casesCompared !== cases.length || blocks === 0)) {
     throw new Error(`internal: zero differences reported with ${casesCompared}/${cases.length} cases compared and ${blocks} blocks`);
   }
   return {
     corpus: opts.corpusName, before: before.name, after: after.name,
-    casesInCorpus: cases.length, casesCompared, casesNotComputable: notComputableCases.size,
+    casesInCorpus: known.size, casesSelected: cases.length, partial: cases.length < known.size, casesCompared, casesNotComputable: notComputableCases.size,
     recordsCompared: records, blocksCompared: blocks,
     differences, differencesByTier: byTier, movedRecords, notComputable, transitions, status,
     timingsMs: { before: Math.round(tBefore), after: Math.round(tAfter), compare: Math.round(tCompare), total: Math.round(performance.now() - t0) },
   };
 }
 
-export const exitCode = (status: Status): number => (status === 'zero' || status === 'matches-transition' ? 0 : status === 'differs' ? 1 : 2);
+export function exitCode(status: Status): number {
+  switch (status) {
+    case 'zero':
+    case 'matches-transition':
+      return 0;
+    case 'differs':
+      return 1;
+    default:
+      return 2;
+  }
+}

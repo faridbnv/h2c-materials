@@ -23,6 +23,12 @@ const groupBy = (rows: Rows, key = 'materialId'): Map<string, Rows> => {
 const byId = (rows: Rows): Map<string, Record<string, any>> => new Map(rows.map((r) => [r.id, r]));
 
 /** Where a field lands. Everything that is not named here is compared as evidence (requirements) or presentation (rows). */
+/** The result shapes the adapter knows. A key it does not know throws, so nothing a new engine version returns is dropped unseen. */
+function exactKeys(o: object, known: string[], what: string): void {
+  const extra = Object.keys(o).filter((k) => !known.includes(k));
+  if (extra.length) throw new Error(`${what} has unexpected key(s) ${extra.join(', ')}: teach the adapter to compare them`);
+}
+
 const WORDING_FIELDS = new Set(['reason', 'criterion']);
 
 /** A composite becomes a canonical string; an atom stays an atom so numbers meet Object.is. */
@@ -70,7 +76,9 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     const constraints = scenario.constraints as Record<string, any>[];
     const identity = new Map<object, string>(constraints.map((x, i) => [x, `c${i}`]));
     const ctx = contextFor(scenario);
-    const { evaluations, counts, candidates } = runSelection(mats, constraints, ctx);
+    const selection = runSelection(mats, constraints, ctx);
+    exactKeys(selection, ['evaluations', 'counts', 'candidates'], 'runSelection result');
+    const { evaluations, counts, candidates } = selection;
     const matOf = new Map<string, Record<string, any>>(mats.map((m) => [m.id, m]));
 
     // The key of a requirement: its position in the scenario and what it asks, so two requirements on one property differ.
@@ -85,6 +93,10 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     };
 
     const records: Record<string, RecordFacts> = {};
+    const put = (key: string, facts: RecordFacts) => {
+      if (Object.hasOwn(records, key)) throw new Error(`two records share the key ${key}`);
+      records[key] = facts;
+    };
     const reqFacts = (r: Record<string, any>): RecordFacts => {
       const evidence: Record<string, Value> = {};
       const wording: Record<string, Value> = {};
@@ -92,6 +104,8 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
         if (k === 'constraint') continue;
         (WORDING_FIELDS.has(k) ? wording : evidence)[k] = atom(v, identity);
       }
+      // What the requirement asked, by content (the key carries only its position): an engine that altered it must show.
+      evidence.constraintBody = r.constraint === undefined ? undefined : canon(r.constraint);
       return { evidence, wording };
     };
 
@@ -112,6 +126,7 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     for (const index of INDICES) {
       const ranking = rankingFor(rows, ctx, index);
       if (!ranking) continue;
+      exactKeys(ranking, ['index', 'order', 'byMaterial', 'unranked'], 'rankingFor result');
       for (const [id, r] of ranking.byMaterial as Map<string, { place: number }>) (places.get(id) ?? places.set(id, {}).get(id)!)[`rank.${index.id}`] = r.place;
       for (const u of ranking.unranked as { materialId: string }[]) (places.get(u.materialId) ?? places.set(u.materialId, {}).get(u.materialId)!)[`rank.${index.id}`] = 'unranked';
     }
@@ -126,6 +141,9 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     const HANDLED = new Set(['materialId', 'verdict', 'group', 'likely', 'groupReason', 'shortfall', 'eligible', 'needsVerification',
       'usesEstimate', 'usesPolymer', 'screened', 'screenedBy', 'results', 'unresolved', 'heldBy', 'failedBy', 'share', 'counts',
       'someFail', 'products', 'gradeId', 'state', 'failed']);
+    const withoutWords = (r: Record<string, any>) => { const { reason: _r, criterion: _c, ...rest } = r; return { ...rest, constraint: r.constraint === undefined ? undefined : canon(r.constraint) }; };
+    const stateFields = (st: Record<string, any> | undefined): Record<string, Value> =>
+      Object.fromEntries(Object.entries(st ?? {}).filter(([k]) => k !== 'id').map(([k, v]) => [`state.${k}`, atom(v)]));
     const listOf = (xs: any[] | undefined, f: (x: any) => unknown) => canon((xs ?? []).map(f));
 
     for (const e of evaluations) {
@@ -139,39 +157,40 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
       };
       const presentation: Record<string, Value> = {
         shortfall: e.shortfall, someFail: e.someFail, needsVerification: e.needsVerification, usesEstimate: e.usesEstimate,
-        usesPolymer: e.usesPolymer, failed: atom(e.failed, identity), 'state.treatment': atom(e.state?.treatment), 'state.moisture': e.state?.moisture,
+        usesPolymer: e.usesPolymer, failed: atom(e.failed, identity), ...stateFields(e.state),
         productOrder: listOf(e.products, (p) => p.gradeId),
       };
       for (const [k, v] of Object.entries(e)) if (!HANDLED.has(k)) presentation[`extra.${k}`] = atom(v, identity);
       const used = new Set<string>();
       const unresolvedKeys = (e.unresolved ?? []).map((r: any) => reqKey(r, new Set()));
-      records[`material:${id}`] = {
+      put(`material:${id}`, {
         decision, presentation,
         evidence: {
           'unresolved.keys': canon(unresolvedKeys),
           'heldBy.keys': listOf(e.heldBy, (r) => reqKey(r, new Set())),
+          unresolved: listOf(e.unresolved, withoutWords), heldBy: listOf(e.heldBy, (r) => (typeof r === 'object' && r ? withoutWords(r) : r)),
           'failedBy.count': (e.failedBy ?? []).length,
         },
         wording: {
           groupReason: e.groupReason, screenedBy: atom(e.screenedBy), failedBy: atom(e.failedBy),
           'unresolved.reasons': listOf(e.unresolved, (r) => r.reason), 'heldBy.reasons': listOf(e.heldBy, (r) => r.reason ?? r),
         },
-      };
-      for (const r of e.results ?? []) records[`mreq:${id}/${reqKey(r, used)}`] = reqFacts(r);
+      });
+      for (const r of e.results ?? []) put(`mreq:${id}/${reqKey(r, used)}`, reqFacts(r));
 
       for (const p of e.products ?? []) {
         const pid = `${id}/${p.gradeId}`;
-        const pres: Record<string, Value> = { variant: p.variant, 'state.treatment': atom(p.state?.treatment), 'state.moisture': p.state?.moisture, admitted: atom(p.admitted), states: atom(p.states) };
+        const pres: Record<string, Value> = { variant: p.variant, ...stateFields(p.state), admitted: atom(p.admitted), states: atom(p.states) };
         for (const [k, v] of Object.entries(p)) {
           if (!['gradeId', 'verdict', 'group', 'likely', 'groupReason', 'screened', 'failedBy', 'state', 'results', 'variant', 'admitted', 'states'].includes(k)) pres[`extra.${k}`] = atom(v, identity);
         }
-        records[`product:${pid}`] = {
+        put(`product:${pid}`, {
           decision: { verdict: p.verdict, group: p.group, likely: p.likely, screened: p.screened, 'state.id': p.state?.id },
           presentation: pres,
           wording: { groupReason: p.groupReason, failedBy: atom(p.failedBy) },
-        };
+        });
         const pused = new Set<string>();
-        for (const r of p.results ?? []) records[`req:${pid}/${reqKey(r, pused)}`] = reqFacts(r);
+        for (const r of p.results ?? []) put(`req:${pid}/${reqKey(r, pused)}`, reqFacts(r));
       }
     }
     return { caseId: c.id, outcome: 'computed', records };

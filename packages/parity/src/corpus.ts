@@ -2,9 +2,11 @@
 // already uses: the six landing-page templates in the snapshot's modes (scripts/snapshot.mjs), the 138-case decision census
 // (docs/audits/2026-10-18-screening-build/decision-census.mjs), and a seeded replay of 1,000 random multi-requirement
 // scenarios (the LCG generator of test/screening.test.js, seed 7, plus the state options ui-fuzz draws).
+import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { canon } from './canon.ts';
 import { REPO_ROOT } from './engine-copy.ts';
 import type { Corpus, CorpusCase, CorpusScenario } from './types.ts';
 
@@ -101,13 +103,15 @@ export function randomCases(db: { materials: any[]; meta: any }, count = RANDOM_
   return out;
 }
 
+export const digestOfCases = (cases: readonly CorpusCase[]): string => `sha256:${createHash('sha256').update(canon(cases)).digest('hex')}`;
+
 export async function buildCorpus(db: { materials: any[]; meta: any }): Promise<Corpus> {
   const { TEMPLATES } = await import(pathToFileURL(join(REPO_ROOT, 'app', 'js', 'ui', 'templates.js')).href);
   const cases = [...templateCases(TEMPLATES), ...censusCases(TEMPLATES), ...randomCases(db)];
   const counts = Object.fromEntries(['template', 'census', 'random'].map((g) => [g, cases.filter((c) => c.group === g).length]));
   return {
     corpus: 'v0', version: 1, generatedFrom: { release: db.meta.release?.id ?? null, snapshot: db.meta.snapshot ?? null },
-    seed: RANDOM_SEED, counts: { ...counts, total: cases.length }, cases,
+    seed: RANDOM_SEED, digest: digestOfCases(cases), counts: { ...counts, total: cases.length }, cases,
   };
 }
 
@@ -120,11 +124,16 @@ export function loadCorpus(path: string = CORPUS_PATH): Corpus {
     seen.add(k.id);
     const s = k.scenario;
     if (!Array.isArray(s?.constraints) || !['strict', 'exploration'].includes(s.unknownPolicy) || typeof s.useEstimates !== 'boolean'
-      || typeof s.anneal !== 'boolean' || !['comparable', 'as-published'].includes(s.evidence) || !['dry', 'conditioned'].includes(s.moisture)) {
+      || typeof s.anneal !== 'boolean' || !(s.annealMaxC === null || typeof s.annealMaxC === 'number') || !['comparable', 'as-published'].includes(s.evidence) || !['dry', 'conditioned'].includes(s.moisture)) {
       throw new Error(`corpus ${c.corpus}: case ${k.id} has an incomplete scenario`);
     }
   }
   if (c.cases.length === 0) throw new Error(`corpus ${c.corpus} is empty`);
+  if (digestOfCases(c.cases) !== c.digest) throw new Error(`corpus ${c.corpus}: the case list does not match its digest (truncated or edited by hand? rebuild with npm run parity:corpus)`);
+  for (const [g, n] of Object.entries(c.counts)) {
+    const actual = g === 'total' ? c.cases.length : c.cases.filter((k) => k.group === g).length;
+    if (actual !== n) throw new Error(`corpus ${c.corpus}: counts say ${n} ${g} cases, the file holds ${actual}`);
+  }
   return c;
 }
 

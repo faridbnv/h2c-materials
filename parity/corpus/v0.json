@@ -6,6 +6,7 @@
   "snapshot": "2026-09-21"
  },
  "seed": 7,
+ "digest": "sha256:1726bae2f94eb757602d22dd69bda00b7865f5ef0f6710f0f95a599ab6102661",
  "counts": {
   "template": 30,
   "census": 276,

@@ -46,6 +46,8 @@ export interface Corpus {
   version: number;
   generatedFrom: { release: string | null; snapshot: string | null };
   seed: number;
+  /** sha256 of the canonical case list; loadCorpus refuses a corpus that does not match it. */
+  digest: string;
   counts: Record<string, number>;
   cases: CorpusCase[];
 }
@@ -103,11 +105,15 @@ export interface TransitionFile {
   differences: Difference[];
   /** sha256 over the sorted difference list; see transitions.ts. */
   digest: string;
+  /** sha256 over id, kind, ruling, corpus and digest, so those cannot be edited without notice either. */
+  seal: string;
 }
 
 export interface TransitionMatch {
   files: string[];
   expected: number;
+  /** Listed differences for cases outside this run's selection (a partial run). Shown, never silent. */
+  skippedOutOfScope: number;
   /** Observed but not listed. Any of these fails the run. */
   unexpected: Difference[];
   /** Listed but not observed. Any of these fails the run. */
@@ -118,7 +124,11 @@ export interface ParityReport {
   corpus: string;
   before: string;
   after: string;
+  /** The whole corpus, not the selection. */
   casesInCorpus: number;
+  casesSelected: number;
+  /** True when the selection is smaller than the corpus: the result says nothing about the cases left out. */
+  partial: boolean;
   casesCompared: number;
   casesNotComputable: number;
   recordsCompared: number;

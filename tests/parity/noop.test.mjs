@@ -28,7 +28,7 @@ test('the second copy really is a separate module instance and a separate db', a
 });
 
 test('CLI: npm run parity -- --noop prints counts per tier and exits 0', () => {
-  const r = spawnSync(process.execPath, [cli, '--noop', '--only', 'template/'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [cli, '--noop', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.stdout, /differences by tier: decision 0, presentation 0, evidence 0, wording 0 {2}\(total 0\)/);
   assert.match(r.stdout, /RESULT: zero/);

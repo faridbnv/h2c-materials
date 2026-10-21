@@ -6,19 +6,24 @@ import { join } from 'node:path';
 import { canon } from './canon.ts';
 import { TIERS } from './types.ts';
 import type { Difference, TransitionFile, TransitionMatch } from './types.ts';
+import { compareStrings } from './util.ts';
 
 const KINDS = ['science', 'determinism', 'display', 'wording'] as const;
 const tuple = (d: Difference) => canon([d.case, d.record, d.tier, d.field, d.before, d.after]);
 
 export const sortDifferences = (ds: readonly Difference[]): Difference[] =>
-  [...ds].sort((a, b) => (tuple(a) < tuple(b) ? -1 : tuple(a) > tuple(b) ? 1 : 0));
+  [...ds].sort((a, b) => compareStrings(tuple(a), tuple(b)));
 
 /** sha256 over the sorted tuple list: editing a listed difference without re-deriving the digest is caught on load. */
 export const digestOf = (ds: readonly Difference[]): string =>
   `sha256:${createHash('sha256').update(sortDifferences(ds).map(tuple).join('\n')).digest('hex')}`;
 
-export function buildTransition(t: Omit<TransitionFile, 'digest'>): TransitionFile {
-  return { ...t, differences: sortDifferences(t.differences), digest: digestOf(t.differences) };
+export const sealOf = (t: Pick<TransitionFile, 'id' | 'kind' | 'ruling' | 'corpus' | 'digest'>): string =>
+  `sha256:${createHash('sha256').update(canon([t.id, t.kind, t.ruling, t.corpus, t.digest])).digest('hex')}`;
+
+export function buildTransition(t: Omit<TransitionFile, 'digest' | 'seal'>): TransitionFile {
+  const digest = digestOf(t.differences);
+  return { ...t, differences: sortDifferences(t.differences), digest, seal: sealOf({ ...t, digest }) };
 }
 
 /** Throws a readable error for anything a transition file must not be. */
@@ -43,6 +48,7 @@ export function validateTransition(t: unknown, where: string): TransitionFile {
     }
   }
   if (f.digest !== digestOf(f.differences!)) bad('digest does not match the listed differences (was the list edited by hand?)');
+  if (f.seal !== sealOf(f as TransitionFile)) bad('seal does not match id, kind, ruling, corpus and digest (was the file edited by hand?)');
   return f as TransitionFile;
 }
 
@@ -66,7 +72,11 @@ export function loadTransitions(dir: string): TransitionFile[] {
  */
 export function matchTransitions(
   observed: readonly Difference[], files: readonly TransitionFile[], scope: ReadonlySet<string>, known: ReadonlySet<string>,
+  corpusName?: string,
 ): TransitionMatch {
+  for (const f of files) {
+    if (corpusName !== undefined && f.corpus !== corpusName) throw new Error(`transition ${f.id} is for corpus ${f.corpus}, not ${corpusName}`);
+  }
   const listed = new Map<string, Difference>();
   for (const f of files) {
     for (const d of f.differences) {
@@ -82,6 +92,7 @@ export function matchTransitions(
   return {
     files: files.map((f) => f.id),
     expected: inScope.length,
+    skippedOutOfScope: listed.size - inScope.length,
     unexpected: sortDifferences(observed.filter((d) => !expectedKeys.has(tuple(d)))),
     missing: sortDifferences(inScope.filter(([k]) => !seen.has(k)).map(([, d]) => d)),
   };

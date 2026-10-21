@@ -2,7 +2,7 @@
 
 > **In short.** Parity is the check that proves the rebuilt tool gives the same answers as the old one. The old engine and the new engine are fed the same questions on the same current data, and every answer, reason and cited record is compared. If anything differs, the check fails unless that exact difference is written down in advance and you approved it. Nothing here proves the old answers are *right*; it proves the rebuild did not *change* them. This is your ruling OQ-03 made into a check: "the physics of data and material science decision should remain the same but the structure can change."
 
-**Status: waiting for your approval** (answer at the end). Built in WP-05 (a). Run it with `npm run parity -- --noop`.
+**Status: waiting for your approval** (answer at the end). Built in WP-05 (a). Run it with `npm run parity -- --noop`. Measured 2026-10-21 on the owner's Mac, Node 26.9: the full 1,306-question run takes about 90 to 100 seconds.
 
 ## What is compared
 
@@ -43,6 +43,8 @@ If one side cannot answer a question (the new engine is not wired yet, an engine
 ## Transitions: how a deliberate change is allowed
 
 A deliberate change (for example the reprint ruling OQ-09 d) is recorded in `parity/transitions/<date>-<topic>.json`: its kind (science, determinism, display or wording), the ruling that allows it, and the **exact list** of differences (question, record, level, field, before, after) with a fingerprint of the list. The run passes only when what it observes equals that list: one extra difference fails, one missing difference fails, a hand-edited list fails. A transition is never a blanket waiver. A change that moves a decision or evidence needs kind "science" or "determinism" and a cited ruling, and your approval as a Tier 1 change.
+
+A run over only part of the corpus (for quick local checks) says "PARTIAL RUN" and exits with a failure code unless it is asked for explicitly, so a small run is never mistaken for the whole.
 
 ## Can the check fail?
 

@@ -40,6 +40,8 @@ export function canon(value: unknown, identity?: Identity): string {
       if (o instanceof Map) return `Map[${[...o].map(([k, x]) => `${enc(k)}=>${enc(x)}`).join(',')}]`;
       if (o instanceof Set) return `Set[${[...o].map(enc).join(',')}]`;
       if (isNotComputable(o)) throw new Error('a not-computable marker inside a composite value');
+      const proto = Object.getPrototypeOf(o);
+      if (proto !== Object.prototype && proto !== null) throw new Error(`cannot encode a ${proto?.constructor?.name ?? 'non-plain'} object`);
       const keys = Object.keys(o).sort();
       return `{${keys.map((k) => `${JSON.stringify(k)}:${enc((o as Record<string, unknown>)[k])}`).join(',')}}`;
     } finally {

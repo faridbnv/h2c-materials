@@ -8,6 +8,7 @@ export function formatReport(r: ParityReport): string {
   const L: string[] = [];
   L.push(`parity ${r.corpus}: ${r.before}  vs  ${r.after}`);
   L.push(`cases: ${r.casesCompared} compared of ${r.casesInCorpus} in the corpus, ${r.casesNotComputable} not computable`);
+  if (r.partial) L.push(`PARTIAL RUN: ${r.casesSelected} of ${r.casesInCorpus} cases selected; this says nothing about the ${r.casesInCorpus - r.casesSelected} left out`);
   L.push(`records compared: ${r.recordsCompared}; blocks (record x tier): ${r.blocksCompared}`);
   L.push('differences by tier: ' + TIERS.map((t) => `${t} ${r.differencesByTier[t]}`).join(', ') + `  (total ${r.differences.length})`);
   if (r.notComputable.length) {
@@ -24,7 +25,7 @@ export function formatReport(r: ParityReport): string {
   }
   if (r.transitions) {
     const t = r.transitions;
-    L.push(`transitions [${t.files.join(', ') || 'none'}]: ${t.expected} listed, ${t.unexpected.length} unexpected, ${t.missing.length} missing`);
+    L.push(`transitions [${t.files.join(', ') || 'none'}]: ${t.expected} listed${t.skippedOutOfScope ? ` (${t.skippedOutOfScope} more outside the selected cases, not checked)` : ''}, ${t.unexpected.length} unexpected, ${t.missing.length} missing`);
     for (const d of t.unexpected.slice(0, 5)) L.push(`  UNEXPECTED ${d.case} ${d.record} ${d.tier}.${d.field}: ${clip(d.before)} -> ${clip(d.after)}`);
     for (const d of t.missing.slice(0, 5)) L.push(`  MISSING    ${d.case} ${d.record} ${d.tier}.${d.field}: ${clip(d.before)} -> ${clip(d.after)}`);
   }
