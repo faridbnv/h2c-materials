@@ -1,13 +1,18 @@
 {
   "id": "WP-10",
-  "status": "todo",
+  "status": "done",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-10-write-service",
+  "pr": 19,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
   "evidence": [],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    19
+  ],
+  "note": "write service v1 (correctValue, every guard), drafts, backup/restore, open check, sandbox export with stage/journal/promote, change:replay and immutability delivered by PR #19; sandbox only (Q2-08 B), nothing written under data/"
 }

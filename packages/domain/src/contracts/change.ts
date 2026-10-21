@@ -5,6 +5,21 @@ import type { ChangeRecordId, ChangeSetId, OpId, Sha256 } from './ids.ts';
 import type { Actor, CanonicalCells, CommandBase, EvidenceRef, OtherWriteKind, RulingRef } from './write.ts';
 import type { ChangeStatus } from './vocab.ts';
 
+/**
+ * What the quote check found when the command was applied (04 section 5.1, "without the store"). `verified` means the
+ * quote was found on the hash-checked page of the private store; `not-run` means it could not be looked for (no store, or
+ * no text for that document), which is never a pass. CI shows "verified locally (ops digest X; not re-checkable in CI)",
+ * "stale" when the digest no longer matches the record, or "not run: store absent".
+ */
+export type QuoteCheck = {
+  readonly status: 'verified' | 'not-run';
+  /** SHA-256 of the canonical JSON of what was checked: table, record, new cells and evidence. */
+  readonly opsDigest: Sha256;
+  readonly commit: string;
+  /** Why it did not run. */
+  readonly reason?: string;
+};
+
 type ChangeRecordCommon = {
   readonly id: ChangeRecordId;
   readonly opId: OpId;
@@ -22,6 +37,10 @@ type ChangeRecordCommon = {
   readonly base: CommandBase;
   /** ISO 8601 time it was applied. */
   readonly at: string;
+  /** Present when the command gave a reason why raw, numeric and normalized cells changed apart. */
+  readonly cellsApart?: string;
+  /** Present on a record that has evidence. */
+  readonly quoteCheck?: QuoteCheck;
 };
 
 /**
@@ -37,7 +56,8 @@ export type ChangeLogEntry = ChangeRecord & { readonly status: ChangeStatus };
 
 /** How many answers a change moved (WP-11's impact preview fills it). Loose until then. */
 export type DecisionDiffSummary = {
-  readonly moved: number;
+  /** `null` until the impact preview has run (WP-11): an export before that does not claim that nothing moved. */
+  readonly moved: number | null;
   /** "estimates pending" while the estimate stage has not rerun (02 section 11). */
   readonly estimatesPending: boolean;
   readonly byTemplate?: Readonly<Record<string, number>>;
@@ -56,6 +76,6 @@ export type ChangeSet = {
   readonly records: readonly ChangeRecord[];
   readonly base: { readonly snapshotDigest: Sha256 };
   readonly result: { readonly snapshotDigest: Sha256 };
-  readonly impact: { readonly answersMoved: DecisionDiffSummary; readonly reportPath: string };
+  readonly impact: { readonly answersMoved: DecisionDiffSummary; readonly reportPath: string | null };
   readonly generator?: GeneratorRef;
 };
