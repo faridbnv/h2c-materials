@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { mutationCases } from '../../packages/parity/src/corpora.ts';
 import { loadCorpus } from '../../packages/parity/src/corpus.ts';
 import { readDb } from '../../packages/parity/src/old-adapter.ts';
 
@@ -12,11 +13,7 @@ export const corpus = loadCorpus();
 export const db = readDb();
 
 /** All template cases, the first 60 census cases, the first 150 random ones: fast, and every fault is visible in it. */
-export const subset = [
-  ...corpus.cases.filter((c) => c.group === 'template'),
-  ...corpus.cases.filter((c) => c.group === 'census').slice(0, 60),
-  ...corpus.cases.filter((c) => c.group === 'random').slice(0, 150),
-];
+export const subset = mutationCases(corpus);
 export const small = subset.filter((c) => c.group === 'template').slice(0, 8);
 
 export const sha = (rel) => createHash('sha256').update(readFileSync(join(root, rel))).digest('hex');
