@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "status": "not-run",
+  "notRunReason": "No preview deploy has happened yet. Filled by hand from the `preview-deploy-measurement` artifact of the first green next-preview run (WP-03 exit). Same keys as the artifact.",
+  "baseUrl": null,
+  "remakeCommit": null,
+  "release": null,
+  "pushedAt": null,
+  "visibleAt": null,
+  "deployToVisibleSeconds": null,
+  "budgetSeconds": 900,
+  "withinBudget": null,
+  "pollAttempts": null,
+  "servedCommit": null,
+  "edge": {
+    "previewJsonUnbusted": { "status": null, "age": null, "cacheControl": null, "lastModified": null, "via": null, "namesExpectedCommit": null },
+    "indexUnbusted": { "status": null, "age": null, "cacheControl": null, "lastModified": null, "via": null }
+  },
+  "checks": [],
+  "measuredAt": null
+}
