@@ -20,6 +20,8 @@ export interface CaseComparison {
   blocks: number;
 }
 
+export const emptyComparison = (): CaseComparison => ({ differences: [], notComputable: [], records: 0, blocks: 0 });
+
 /** Which side(s) a problem is on, given a flag per side. At least one flag must be set. */
 function sideOf(beforeFlagged: boolean, afterFlagged: boolean): 'before' | 'after' | 'both' {
   if (beforeFlagged && afterFlagged) return 'both';
@@ -59,7 +61,7 @@ function compareBlock(
 
 /** Compare one case answered by both sides. Never returns "equal" for a case either side could not compute. */
 export function compareCase(before: NormalizedCase, after: NormalizedCase): CaseComparison {
-  const out: CaseComparison = { differences: [], notComputable: [], records: 0, blocks: 0 };
+  const out = emptyComparison();
   if (before.caseId !== after.caseId) throw new Error(`adapters answered different cases: ${before.caseId} vs ${after.caseId}`);
   const caseId = before.caseId;
   const uncomputed = (n: NormalizedCase, side: 'before' | 'after') =>
@@ -86,6 +88,12 @@ export function compareCase(before: NormalizedCase, after: NormalizedCase): Case
     }
   }
   if (out.notComputable.length) return out;
+  compareRecordSets(caseId, ra, rb, out);
+  return out;
+}
+
+/** Compare two sets of records record by record and tier by tier, adding what it finds to `out`. */
+export function compareRecordSets(caseId: string, ra: Record<string, RecordFacts>, rb: Record<string, RecordFacts>, out: CaseComparison): void {
   for (const record of [...new Set([...Object.keys(ra), ...Object.keys(rb)])].sort()) {
     const fa: RecordFacts | undefined = Object.hasOwn(ra, record) ? ra[record] : undefined;
     const fb: RecordFacts | undefined = Object.hasOwn(rb, record) ? rb[record] : undefined;
@@ -102,7 +110,6 @@ export function compareCase(before: NormalizedCase, after: NormalizedCase): Case
       compareBlock(caseId, record, tier, fa[tier], fb[tier], out);
     }
   }
-  return out;
 }
 
 export interface RunOptions {
