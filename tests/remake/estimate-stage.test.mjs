@@ -127,8 +127,8 @@ test('a stale key forces a recompute: the conversions, the code, the runtime and
     'how a probe set of strings sorts': { runtime: { ...RUNTIME, collationProbe: '0000000000000000' } },
     'the Node version': { runtime: { ...RUNTIME, node: 'v99.0.0' } },
     'the V8 version (Math.log and Math.exp are its own)': { runtime: { ...RUNTIME, v8: '99.0' } },
-    'the platform': { runtime: { ...RUNTIME, platform: 'linux' } },
-    'the architecture': { runtime: { ...RUNTIME, arch: 'x64' } },
+    'the platform': { runtime: { ...RUNTIME, platform: 'test-platform' } },
+    'the architecture': { runtime: { ...RUNTIME, arch: 'test-arch' } },
   };
   const seen = new Set([base.key]);
   for (const [what, extra] of Object.entries(changed)) {
