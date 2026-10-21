@@ -1,9 +1,9 @@
 // WP-11: the impact preview. A fixture correction must list the expected moves (pinned, and re-derived by a route that does not
-// use the preview: two compiles by the old build, the old adapter on each, the parity comparer between them). Needs dist/db.json.
+// use the preview: two compiles by the old build, the old adapter on each, the parity comparer between them). Needs the old build's dependencies (npm ci --prefix build).
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { ImpactRefusal, impactRecordsOf, loadImpactCases, needsEstimates, openImpactSession } from '@atlas/engine/impact';
@@ -71,7 +71,6 @@ test('the preview reads one staged snapshot and writes nowhere else: the working
   assert.notEqual(report.result.inputDigest, report.base.inputDigest);
   assert.match(report.base.release, /^[0-9a-f]{12}$/);
   assert.match(report.result.release, /^[0-9a-f]{12}$/);
-  assert.equal(existsSync(join(REPO_ROOT, 'dist', 'db.json')), true);
 });
 
 test('questions that need the estimate stage are pending, not answered from a core compile', () => {

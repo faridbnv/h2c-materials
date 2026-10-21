@@ -332,7 +332,7 @@
       "exit": {
         "commands": [
           "npm run parity -- --new --surface engine,ties",
-          "node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs"
+          "node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs"
         ],
         "attest": [],
         "manual": []

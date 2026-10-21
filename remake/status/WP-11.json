@@ -5,8 +5,8 @@
   "branch": "wp-11-engine-wrapper",
   "pr": 18,
   "exitCheck": "pass",
-  "lastRun": "2026-10-21T12:04:28.481Z",
-  "lastPass": "2026-10-21T12:04:28.481Z",
+  "lastRun": "2026-10-21T12:20:20.522Z",
+  "lastPass": "2026-10-21T12:20:20.522Z",
   "evidence": [
     {
       "cmd": "npm run parity -- --new --surface engine,ties",
@@ -14,7 +14,7 @@
       "code": 0
     },
     {
-      "cmd": "node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs",
+      "cmd": "node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs",
       "result": "pass",
       "code": 0
     }
@@ -26,5 +26,5 @@
   "prs": [
     18
   ],
-  "updated": "2026-10-21T12:07:10.376Z"
+  "updated": "2026-10-21T12:22:57.933Z"
 }

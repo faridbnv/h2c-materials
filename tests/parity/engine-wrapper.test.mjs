@@ -1,6 +1,6 @@
 // WP-11: the typed engine wrapper (packages/engine). Parity (tests/parity/new-adapter.test.mjs) holds its answers equal to the
 // old engine's; these tests hold the contract it adds: branded IDs, requirements by ID, reason codes beside unchanged text,
-// RowResult rows, one createContext, and loud refusals. Needs dist/db.json (npm run build).
+// RowResult rows, one createContext, and loud refusals. Needs dist/db.json (npm run build), so it lives in tests/parity, which CI runs after the build.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';

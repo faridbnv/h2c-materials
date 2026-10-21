@@ -2,7 +2,7 @@
 // normalizes the engine itself. The wrapper's answer is read as a consumer reads it: requirements matched by `constraintId`
 // (never `===` on an object), decisions from the RowResult rows, everything else from the typed evaluations. The fields the
 // wrapper adds (`constraintId`, `reasonCode`) are not in the old answer and are left out of the comparison, so a zero
-// means the wrapper loses nothing and changes nothing. Their own tests cover them (tests/remake/engine-wrapper.test.mjs).
+// means the wrapper loses nothing and changes nothing. Their own tests cover them (tests/parity/engine-wrapper.test.mjs).
 import { createContext, loadOldEngine, scenarioFrom } from '@atlas/engine';
 import type { EngineOutput, OldEngine } from '@atlas/engine';
 import type { ConstraintId, RequirementResult, RowResult } from '@atlas/domain';

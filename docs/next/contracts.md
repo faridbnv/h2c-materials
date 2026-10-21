@@ -88,7 +88,7 @@ the contracts above. It is a bridge, retired as the engine is ported into `packa
   only change is its place is counted apart. Questions that need the estimate stage are **pending** (`estimatesPending`);
   `--estimates` runs the stage and answers them. Time: `remake/measure/impact.json` (`npm run impact:measure`).
 
-Run `npm run parity` (the old engine against the wrapped one, zero differences) and `node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs`.
+Run `npm run parity` (the old engine against the wrapped one, zero differences) and `node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs`.
 
 ## The shared core
 
