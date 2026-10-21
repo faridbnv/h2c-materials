@@ -1,6 +1,235 @@
 {
   "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool.",
   "pairs": [
-    { "old": "tests/remake/fixtures/p-erase/gate.old.js", "new": "tests/remake/fixtures/p-erase/gate.new.ts" }
+    {
+      "old": "tests/remake/fixtures/p-erase/gate.old.js",
+      "new": "tests/remake/fixtures/p-erase/gate.new.ts"
+    },
+    {
+      "old": "build/src/chamber-estimates.js",
+      "new": "packages/build/src/chamber-estimates.ts"
+    },
+    {
+      "old": "build/src/chamber-need.js",
+      "new": "packages/build/src/chamber-need.ts"
+    },
+    {
+      "old": "build/src/coverage-rules.js",
+      "new": "packages/build/src/coverage-rules.ts"
+    },
+    {
+      "old": "build/src/compile.js",
+      "new": "packages/build/src/compile.ts"
+    },
+    {
+      "old": "build/src/contract.js",
+      "new": "packages/build/src/contract.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema'",
+          "to": "'../../../schema'"
+        }
+      ]
+    },
+    {
+      "old": "build/src/diameters.js",
+      "new": "packages/build/src/diameters.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema/vocab/",
+          "to": "'../../../schema/vocab/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/evidence-ledger.js",
+      "new": "packages/build/src/evidence-ledger.ts",
+      "rewrites": [
+        {
+          "from": "'../../app/js/",
+          "to": "'../../../app/js/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/gates.js",
+      "new": "packages/build/src/gates.ts"
+    },
+    {
+      "old": "build/src/know-how.js",
+      "new": "packages/build/src/know-how.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema/vocab/",
+          "to": "'../../../schema/vocab/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/lint-rules.js",
+      "new": "packages/build/src/lint-rules.ts"
+    },
+    {
+      "old": "build/src/lower-bounds.js",
+      "new": "packages/build/src/lower-bounds.ts"
+    },
+    {
+      "old": "build/src/measurement-rules.js",
+      "new": "packages/build/src/measurement-rules.ts"
+    },
+    {
+      "old": "build/src/page-context.js",
+      "new": "packages/build/src/page-context.ts"
+    },
+    {
+      "old": "build/src/physical-relations.js",
+      "new": "packages/build/src/physical-relations.ts"
+    },
+    {
+      "old": "build/src/polymer-environment.js",
+      "new": "packages/build/src/polymer-environment.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema/vocab/polymer-verdicts.csv'",
+          "to": "'../../../schema/vocab/polymer-verdicts.csv'"
+        }
+      ]
+    },
+    {
+      "old": "build/src/prices.js",
+      "new": "packages/build/src/prices.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema/vocab/",
+          "to": "'../../../schema/vocab/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/print-guide.js",
+      "new": "packages/build/src/print-guide.ts"
+    },
+    {
+      "old": "build/src/product-claims.js",
+      "new": "packages/build/src/product-claims.ts"
+    },
+    {
+      "old": "build/src/products.js",
+      "new": "packages/build/src/products.ts"
+    },
+    {
+      "old": "build/src/property-references.js",
+      "new": "packages/build/src/property-references.ts"
+    },
+    {
+      "old": "build/src/recipe.js",
+      "new": "packages/build/src/recipe.ts"
+    },
+    {
+      "old": "build/src/reference-properties.js",
+      "new": "packages/build/src/reference-properties.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema/vocab/",
+          "to": "'../../../schema/vocab/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/reference.js",
+      "new": "packages/build/src/reference.ts"
+    },
+    {
+      "old": "build/src/registry.js",
+      "new": "packages/build/src/registry.ts"
+    },
+    {
+      "old": "build/src/release.js",
+      "new": "packages/build/src/release.ts"
+    },
+    {
+      "old": "build/src/retired.js",
+      "new": "packages/build/src/retired.ts"
+    },
+    {
+      "old": "build/src/rules.js",
+      "new": "packages/build/src/rules.ts"
+    },
+    {
+      "old": "build/src/typed-values.js",
+      "new": "packages/build/src/typed-values.ts"
+    },
+    {
+      "old": "build/src/validate.js",
+      "new": "packages/build/src/validate.ts"
+    },
+    {
+      "old": "build/src/variants.js",
+      "new": "packages/build/src/variants.ts",
+      "rewrites": [
+        {
+          "from": "'../../schema/vocab/",
+          "to": "'../../../schema/vocab/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/written.js",
+      "new": "packages/build/src/written.ts",
+      "rewrites": [
+        {
+          "from": "'../../app/js/",
+          "to": "'../../../app/js/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/normalize/chemical.js",
+      "new": "packages/build/src/normalize/chemical.ts",
+      "rewrites": [
+        {
+          "from": "'../../../schema/vocab'",
+          "to": "'../../../../schema/vocab'"
+        }
+      ]
+    },
+    {
+      "old": "build/src/normalize/direction.js",
+      "new": "packages/build/src/normalize/direction.ts"
+    },
+    {
+      "old": "build/src/normalize/moisture.js",
+      "new": "packages/build/src/normalize/moisture.ts"
+    },
+    {
+      "old": "build/src/normalize/process.js",
+      "new": "packages/build/src/normalize/process.ts"
+    },
+    {
+      "old": "build/src/normalize/provenance.js",
+      "new": "packages/build/src/normalize/provenance.ts"
+    },
+    {
+      "old": "build/src/normalize/specimen.js",
+      "new": "packages/build/src/normalize/specimen.ts",
+      "rewrites": [
+        {
+          "from": "'../../../schema/vocab'",
+          "to": "'../../../../schema/vocab'"
+        }
+      ]
+    },
+    {
+      "old": "build/src/normalize/standards.js",
+      "new": "packages/build/src/normalize/standards.ts"
+    },
+    {
+      "old": "build/src/normalize/thermal.js",
+      "new": "packages/build/src/normalize/thermal.ts"
+    },
+    {
+      "old": "build/src/normalize/values.js",
+      "new": "packages/build/src/normalize/values.ts"
+    }
   ]
 }

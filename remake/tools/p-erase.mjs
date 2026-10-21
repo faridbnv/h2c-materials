@@ -10,6 +10,11 @@
 // stay). "Equal" means: both sides parsed as JavaScript and printed by one printer, so whitespace, line breaks and a
 // trailing comma never matter but every token, name, literal and comment does. A file that fails is not a label-only
 // change and goes to the refactor lane. What this does not prove: that the old file was right, or that the types are.
+//
+// A pair may also carry `rewrites: [{ from, to }]`: literal text that has to change because the file MOVED, not because it
+// was relabelled (a path written relative to the old location, an import of a file outside the moved tree). Each rewrite is
+// applied to the OLD text before the comparison, and must occur in it (a rewrite that matches nothing is stale and fails),
+// so the list is the complete, reviewed set of non-label edits in that file.
 import { readFileSync, existsSync, realpathSync } from 'node:fs';
 import { stripTypeScriptTypes } from 'node:module';
 import { resolve, dirname } from 'node:path';
@@ -35,9 +40,19 @@ export function canonical(js, fileName = 'file.js') {
   return ts.createPrinter({ newLine: ts.NewLineKind.LineFeed }).printFile(source);
 }
 
+/** The old text with a pair's declared rewrites applied; a rewrite that finds nothing is an error, never a silent no-op. */
+export function applyRewrites(oldJs, rewrites = []) {
+  let text = oldJs;
+  for (const { from, to } of rewrites) {
+    if (!text.includes(from)) throw new Error(`rewrite not found in the old file (stale?): ${from}`);
+    text = text.replaceAll(from, to);
+  }
+  return text;
+}
+
 /** { equal, firstDifference } for an old .js text and a new .ts text. */
-export function compareErased(oldJs, newTs) {
-  const left = canonical(oldJs).split('\n');
+export function compareErased(oldJs, newTs, rewrites = []) {
+  const left = canonical(applyRewrites(oldJs, rewrites)).split('\n');
   const right = canonical(erase(newTs)).split('\n');
   const length = Math.max(left.length, right.length);
   for (let i = 0; i < length; i++) {
@@ -48,10 +63,10 @@ export function compareErased(oldJs, newTs) {
 
 function checkPairs(pairs, root) {
   let failed = 0;
-  for (const { old, new: newPath } of pairs) {
+  for (const { old, new: newPath, rewrites } of pairs) {
     for (const f of [old, newPath]) if (!existsSync(resolve(root, f))) throw new Error(`parity:erase: ${f} does not exist`);
-    const result = compareErased(readFileSync(resolve(root, old), 'utf8'), readFileSync(resolve(root, newPath), 'utf8'));
-    if (result.equal) console.log(`P-erase ok     ${newPath} == ${old}`);
+    const result = compareErased(readFileSync(resolve(root, old), 'utf8'), readFileSync(resolve(root, newPath), 'utf8'), rewrites);
+    if (result.equal) console.log(`P-erase ok     ${newPath} == ${old}${rewrites?.length ? ` (with ${rewrites.length} declared rewrite${rewrites.length === 1 ? '' : 's'})` : ''}`);
     else {
       failed++;
       const d = result.firstDifference;
