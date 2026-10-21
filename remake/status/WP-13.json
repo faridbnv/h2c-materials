@@ -3,7 +3,7 @@
   "status": "in-review",
   "slice": null,
   "branch": "wp-13-editor",
-  "pr": null,
+  "pr": 20,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
@@ -37,7 +37,10 @@
       "note": "Tier 1; the owner's sitting is WP-16"
     }
   ],
-  "waitingSince": null,
+  "waitingSince": "2026-10-21",
   "approvedAt": null,
-  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); WP-10 (PR 19) merged into this branch because it is not yet on remake/v3"
+  "note": "local editor v1 (correction journey), sandbox only (Q2-08 B); WP-10 (PR 19) merged into this branch because it is not yet on remake/v3",
+  "prs": [
+    20
+  ]
 }
