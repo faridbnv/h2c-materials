@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  globToRegExp, oldPathViolations, needsReviewSection, hasReviewSection, classifyTier, tierGate, findAttest, parseChangedFiles, attestText,
+  globToRegExp, oldPathViolations, needsReviewSection, hasReviewSection, classifyTier, tierGate, findAttest, parseChangedFiles, attestText, OWNER_GLOBS,
 } from '../../remake/tools/ci-gates.mjs';
 import { injectBanner, inject, stage, BANNER_MARK, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX } from '../../remake/tools/preview-assemble.mjs';
 import { runSmoke, fetchRetry } from '../../remake/tools/preview-smoke.mjs';
@@ -438,7 +438,65 @@ test('next-verify has the named checks, the label-gated jobs, and never touches 
   for (const id of ['legacy-fast', 'full-trend', 'full-fuzz']) assert.match(jobBlock(text, id), /contains\(github\.event\.pull_request\.labels\.\*\.name, 'full-checks'\)/);
   assert.match(text, /npm run verify:fast/);
   assert.match(text, /branches: \[remake\/v3\]/);
-  assert.match(text, /types:check: NOT RUN/);
+  // Missing parity tests, domain tests or type-check scripts FAIL the job; they never print NOT RUN and pass.
+  for (const name of ['Parity tests', 'Domain tests', 'Type check']) {
+    const step = text.split(/^      - name: /m).find((x) => x.startsWith(name));
+    assert.ok(step, name);
+    assert.match(step, /exit 1/, `${name} fails when what it runs is missing`);
+    assert.doesNotMatch(step, /NOT RUN/, `${name} never reports NOT RUN`);
+  }
+  assert.match(text, /npm run build\n[\s\S]*npm run parity -- --noop/, 'the parity noop runs after the build');
+  assert.match(text, /parity --noop: exit[^\n]*GITHUB_STEP_SUMMARY/, 'its time is recorded in the step summary');
+  assert.match(text, /RESULT: zero/);
+  assert.match(text, /npm run types:check\n\s+npm run types:ratchet\n\s+npm run lint/);
+});
+
+test('next-gate.yml: base-only trusted gates that a pull request cannot edit for itself', () => {
+  const text = wf('next-gate.yml');
+  const raw = readFileSync(join(root, '.github/workflows/next-gate.yml'), 'utf8');
+  assert.match(text, /on:\n  pull_request_target:\n    branches: \[remake\/v3\]\n    types: \[opened, synchronize, reopened, edited, labeled\]/);
+  assert.doesNotMatch(text, /^  pull_request:/m, 'only pull_request_target');
+  assert.match(text, /^permissions:\n  contents: read\n  pull-requests: read\n  issues: read$/m);
+  assert.doesNotMatch(text, /write|id-token|secrets\.|environment:/);
+  // never the PR head: no ref on any checkout, no head expression except the SHA string compared in the gate-tier env
+  assert.doesNotMatch(text, /^\s+ref:/m, 'the checkout takes the default (base) ref');
+  assert.doesNotMatch(text, /head\.(ref|repo)|github\.head_ref|refs\/pull|pull\/\$|gh pr checkout/);
+  assert.equal((text.match(/actions\/checkout@/g) || []).length, 2, 'one base checkout per job');
+  // only the base copy of the gate script runs, and nothing from the PR is installed or built
+  assert.equal((text.match(/node remake\/tools\/ci-gates\.mjs (old-paths|tier) /g) || []).length, 2);
+  assert.doesNotMatch(text, /npm (ci|install|run)|npx|_base/);
+  // job names the PR's own workflows do not produce
+  assert.match(text, /^    name: gate-old-paths$/m);
+  assert.match(text, /^    name: gate-tier$/m);
+  const own = wf('next-verify.yml') + wf('next-preview.yml');
+  assert.doesNotMatch(own, /gate-old-paths|gate-tier/);
+  // every action pinned; every job has a timeout
+  for (const m of text.matchAll(/^\s*(?:- )?uses:\s*(\S+)/gm)) assert.match(m[1], /^[\w.-]+\/[\w.-]+@[0-9a-f]{40}$/, m[1]);
+  assert.equal((text.match(/^    runs-on:/gm) || []).length, (text.match(/^    timeout-minutes:/gm) || []).length);
+  // the same action pins as next-verify, so one place to update
+  const pins = (t) => new Set([...t.matchAll(/uses:\s*(\S+@[0-9a-f]{40})/g)].map((m) => m[1]));
+  for (const u of pins(text)) assert.ok(pins(wf('next-verify.yml')).has(u), `${u} is also pinned in next-verify.yml`);
+  // untrusted text is never expanded into a shell: only the PR number, the repository, the owner login and the head SHA, via env
+  for (const m of text.matchAll(/\$\{\{\s*([^}]+?)\s*\}\}/g)) {
+    assert.match(m[1], /^(github\.token|github\.repository|github\.repository_owner|github\.event\.pull_request\.(number|head\.sha))$|^github\.event\.pull_request\.number$/, m[0]);
+  }
+  for (const m of text.matchAll(/^\s*run: \|?\n?([\s\S]*?)(?=^\s*(?:- |\w[\w-]*:))/gm)) assert.doesNotMatch(m[1], /\$\{\{/, 'no expression inside a run block');
+  assert.match(raw, /NEVER checks out the PR head/);
+});
+
+test('the gates, the workflows and the parity corpus need the owner (OWNER_GLOBS), like answer-moving paths', () => {
+  for (const p of ['.github/workflows/next-verify.yml', '.github/workflows/next-gate.yml', '.github/workflows/anything-new.yml', 'remake/tools/ci-gates.mjs', 'parity/corpus/corpus-v0.json', 'parity/corpus/sub/dir/x.json']) {
+    assert.ok(OWNER_GLOBS.some((g) => globToRegExp(g).test(p)), p);
+    const needs = tierGate({ paths: [p], scopes: [], comments: [], ...ctx });
+    assert.equal(needs.pass, false, `${p} without the owner's attest`);
+    assert.match(needs.lines.join('\n'), /no owner comment/);
+    const ok = tierGate({ paths: [p], scopes: [], comments: [comment('faridbnv', `wp:attest approve 12 ${SHA}`)], ...ctx });
+    assert.equal(ok.pass, true, `${p} with the owner's attest`);
+    assert.equal(tierGate({ paths: [p], scopes: [], comments: [comment('faridbnv', `wp:attest approve 12 ${OLD_SHA}`)], ...ctx }).pass, false, `${p}: a stale attest`);
+  }
+  // other gate code and other workflow-adjacent files stay ordinary Tier 1 (green checks are enough), and the old globs still hold
+  for (const p of ['remake/tools/preview-assemble.mjs', 'tests/remake/ci.test.mjs', 'packages/parity/src/canon.ts', 'parity/corpus-notes.md', 'github/workflows/x.yml']) assert.equal(tierGate({ paths: [p], scopes: [], comments: [], ...ctx }).pass, true, p);
+  for (const p of ['parity/transitions/x.json', 'parity/expectations/x.json', 'docs/next/rulings.csv', 'data/tables/x.csv', 'schema/x.json']) assert.equal(tierGate({ paths: [p], scopes: [], comments: [], ...ctx }).pass, false, p);
 });
 
 test('.nvmrc is an exact version and engines still allows it', () => {

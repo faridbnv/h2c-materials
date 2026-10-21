@@ -2,7 +2,8 @@
 -- SQLite STRICT tables. Load with PRAGMA foreign_keys = ON. Raw text is kept as TEXT; a column that declares missing words
 -- is a value plus <column>_state. A NULL value with no state is a blank optional cell.
 -- Not here yet (WP-09): _ord row-order columns, child tables for list columns, the grade-owns-record composite key.
--- GLOB cannot say these patterns exactly, so their CHECK is weaker (the build still checks the full pattern):
+-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):
+--   date columns (YYYY-MM-DD): GLOB checks the digit shape, not that the month and day exist
 --   ^G\d{3}-(\d{2,3}|R\d+)$
 --   ^[a-z][A-Za-z0-9]*$
 --   ^PR\d{2,}$
@@ -197,7 +198,7 @@ CREATE TABLE "fatigue_tests" (
 -- FX rates
 CREATE TABLE "fx_rates" (
   "currency" TEXT NOT NULL CHECK ("currency" IN ('CAD', 'EUR', 'USD')),
-  "rate_date" TEXT NOT NULL,
+  "rate_date" TEXT NOT NULL CHECK ("rate_date" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   "cad_per_unit" REAL NOT NULL CHECK ("cad_per_unit" >= 0),
   "sourceid" TEXT NOT NULL REFERENCES "sources" ("sourceid"),
   "locator" TEXT NOT NULL,
@@ -341,7 +342,7 @@ CREATE TABLE "impact_test_guesses" (
 CREATE TABLE "know_how_reads" (
   "sourceid" TEXT NOT NULL REFERENCES "sources" ("sourceid"),
   "scope" TEXT NOT NULL CHECK ("scope" IN ('document', 'maker site')),
-  "read_on" TEXT NOT NULL,
+  "read_on" TEXT NOT NULL CHECK ("read_on" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   "read_by" TEXT NOT NULL,
   UNIQUE ("sourceid", "scope")
 ) STRICT;
@@ -359,7 +360,7 @@ CREATE TABLE "material_summaries" (
   "materialid" TEXT NOT NULL PRIMARY KEY REFERENCES "materials" ("materialid"),
   "summary" TEXT NOT NULL,
   "written_by" TEXT NOT NULL,
-  "written_on" TEXT NOT NULL,
+  "written_on" TEXT NOT NULL CHECK ("written_on" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   "review_status" TEXT NOT NULL CHECK ("review_status" IN ('draft', 'reviewed by the owner', 'revise')),
   "notes" TEXT,
   "notes_state" TEXT CHECK ("notes_state" IN ('Not applicable')),
@@ -618,7 +619,7 @@ CREATE TABLE "prices" (
   "quarantined" INTEGER NOT NULL CHECK ("quarantined" IN (0, 1)),
   "url" TEXT NOT NULL CHECK (("url" GLOB 'http://*' OR "url" GLOB 'https://*')),
   "sourceid" TEXT NOT NULL REFERENCES "sources" ("sourceid"),
-  "access_date" TEXT NOT NULL,
+  "access_date" TEXT NOT NULL CHECK ("access_date" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   "notes" TEXT NOT NULL,
   CHECK (("list_price" IS NULL) = ("list_price_state" IS NOT NULL)),
   CHECK (("sale_price" IS NULL) = ("sale_price_state" IS NOT NULL)),
@@ -821,7 +822,7 @@ CREATE TABLE "sources" (
   "publication_date" TEXT NOT NULL CHECK (("publication_date" GLOB '[0-9][0-9][0-9][0-9]' OR "publication_date" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR "publication_date" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]' OR "publication_date" GLOB 'Not published')),
   "superseded_by" TEXT REFERENCES "sources" ("sourceid"),
   "superseded_by_state" TEXT CHECK ("superseded_by_state" IN ('Not applicable')),
-  "access_date" TEXT NOT NULL,
+  "access_date" TEXT NOT NULL CHECK ("access_date" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   "source_class" TEXT NOT NULL CHECK ("source_class" IN ('Manufacturer TDS', 'Manufacturer product page or guide', 'Manufacturer SDS', 'Resin supplier data sheet', 'Retailer catalogue', 'Printer documentation', 'Peer-reviewed study', 'Safety guidance', 'Reference or register')),
   "source_note" TEXT,
   "source_note_state" TEXT CHECK ("source_note_state" IN ('Not applicable')),

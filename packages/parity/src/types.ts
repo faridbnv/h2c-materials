@@ -6,18 +6,27 @@ export const TIERS = ['decision', 'presentation', 'evidence', 'wording'] as cons
 export type Tier = (typeof TIERS)[number];
 
 /**
- * A value an adapter reports for one field of one record. Composite values (lists, objects) are encoded to a canonical
- * string by canon() before they get here, so a field is always one atom. Numbers are compared with Object.is.
+ * A value an adapter reports for one field of one record: an atom, or a Composite. Numbers are compared with Object.is.
  * `undefined` (present but undefined) and an absent field are different things on purpose.
  */
 export type Atom = string | number | boolean | null | undefined;
+
+/**
+ * A list or an object, already encoded to a canonical string by canon(). It is a type of its own, never a bare string, so
+ * a string that spells the encoding (the text `["a",1,null]`) can never equal the composite it spells (the list a, 1, null).
+ * Make one with composite() in canon.ts.
+ */
+export class Composite {
+  readonly text: string;
+  constructor(text: string) { this.text = text; }
+}
 
 /** A field the adapter could not produce. It is never equal to anything, including another NotComputable, and never zero. */
 export interface NotComputable {
   readonly notComputable: true;
   readonly reason: string;
 }
-export type Value = Atom | NotComputable;
+export type Value = Atom | Composite | NotComputable;
 
 /** One record's fields, by tier. A record is one material, product, requirement result, or the case summary. */
 export type RecordFacts = Partial<Record<Tier, Record<string, Value>>>;

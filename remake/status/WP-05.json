@@ -1,13 +1,18 @@
 {
   "id": "WP-05",
-  "status": "todo",
+  "status": "done",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-05-parity",
+  "pr": 9,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
   "evidence": [],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    9
+  ],
+  "note": "WP-05(a) delivered by merged PR #9; (b) is M1"
 }

@@ -1,13 +1,20 @@
 {
   "id": "WP-03",
-  "status": "todo",
+  "status": "done",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-03-ci-preview",
+  "pr": 10,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
   "evidence": [],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    10,
+    12,
+    13
+  ],
+  "note": "delivered by merged PR #10; follow-up fixes in merged PRs #12 (preview storage) and #13 (CI install of the old build, domain tests)"
 }

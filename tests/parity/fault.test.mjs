@@ -35,17 +35,17 @@ test('a fault patch that no longer matches the engine fails loudly instead of be
   assert.throws(() => copyEngine([{ file: 'constraints.js', find: 'this text is not in the engine', replace: 'x' }]), /found 0 occurrence/);
 });
 
-test('CLI: --fault exits 1 and names the fault and the moved records', () => {
+test('CLI: --fault exits 5 (caught: not 1, which is "differs", and not 70, a crash) and names the fault and the moved records', () => {
   const r = spawnSync(process.execPath, [cli, '--fault', 'tie-order', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
-  assert.equal(r.status, 1, r.stderr);
+  assert.equal(r.status, 5, r.stderr);
   assert.match(r.stdout, /fault tie-order: caught/);
   assert.match(r.stdout, /moved records \(\d+\)/);
   assert.match(r.stdout, /RESULT: differs/);
 });
 
-test('CLI: an unknown fault is refused', () => {
+test('CLI: an unknown fault is refused as a usage error (64)', () => {
   const r = spawnSync(process.execPath, [cli, '--fault', 'nope', '--only', 'template/', '--allow-partial'], { cwd: root, encoding: 'utf8' });
-  assert.notEqual(r.status, 0);
+  assert.equal(r.status, 64);
   assert.match(r.stderr, /unknown fault/);
 });
 

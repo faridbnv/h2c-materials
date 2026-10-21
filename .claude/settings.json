@@ -46,7 +46,9 @@
       "Edit(test/**)",
       "Write(test/**)",
       "Edit(archive/**)",
-      "Write(archive/**)"
+      "Write(archive/**)",
+      "Edit(remake/attest.csv)",
+      "Write(remake/attest.csv)"
     ]
   },
   "hooks": {

@@ -40,6 +40,23 @@ If one side cannot answer a question (the new engine is not wired yet, an engine
 | **differs** | any other difference, including one extra or one missing | fails |
 | **not computable** | some question could not be answered | fails |
 
+### Exit codes of `npm run parity`
+
+Every outcome has its own code, so a script (CI, a hook, a person) never has to read the text to know what happened. The CLI accepts only the flags in its header; an unknown flag, a stray argument, a repeated flag, or a flag used as the value of another flag is a usage error (64) and nothing runs.
+
+| Code | Meaning |
+|---|---|
+| 0 | zero differences, or exactly the differences a transition file lists |
+| 1 | differs (and only that: a crash never exits 1) |
+| 2 | not computable: some question could not be answered, or the new side is not wired yet |
+| 3 | a fault was injected and NOT caught: the harness is blind to it (the self-test failed) |
+| 4 | a partial run (`--only`) that shows zero without `--allow-partial` |
+| 5 | a fault was injected and caught: the self-test passed. This is the expected exit of `--fault <name>`; it is not "differs" and not a crash. With `--transitions`, the transition decides (0 or 1) |
+| 64 | bad usage: unknown flag, stray argument, repeated flag, missing value, a flag used as a value, unknown fault, `--noop` with transitions, a transition from a run that cannot yield one |
+| 70 | the tool crashed (an uncaught error: a bug, a missing `dist/db.json`, an unreadable corpus). It is not a verdict; the error is on stderr |
+
+CI runs `npm run parity -- --noop` after `npm run build` and fails on anything but 0.
+
 ## Transitions: how a deliberate change is allowed
 
 A deliberate change (for example the reprint ruling OQ-09 d) is recorded in `parity/transitions/<date>-<topic>.json`: its kind (science, determinism, display or wording), the ruling that allows it, and the **exact list** of differences (question, record, level, field, before, after) with a fingerprint of the list. The run passes only when what it observes equals that list: one extra difference fails, one missing difference fails, a hand-edited list fails. A transition is never a blanket waiver. A change that moves a decision or evidence needs kind "science" or "determinism" and a cited ruling, and your approval as a Tier 1 change.
@@ -48,7 +65,7 @@ A run over only part of the corpus (for quick local checks) says "PARTIAL RUN" a
 
 ## Can the check fail?
 
-Yes, and it is tested. `npm run parity -- --fault <name>` plants one fault in a temporary copy of the engine (never in the real files) and the report must name the moved records. Six faults exist now (a flipped gate verdict, a tie order swap, a limit edge, untested counted as zero, a dropped cited ID, a reworded reason); WP-05 (b) completes the set of nine.
+Yes, and it is tested. `npm run parity -- --fault <name>` plants one fault in a temporary copy of the engine (never in the real files) and the report must name the moved records. Six faults exist now (a flipped gate verdict, a tie order swap, a limit edge, untested counted as zero, a dropped cited ID, a reworded reason); WP-05 (b) completes the set of nine. A caught fault exits 5; one the harness misses exits 3.
 
 ## What parity cannot catch
 

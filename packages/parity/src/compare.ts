@@ -1,7 +1,7 @@
 // The comparer: two adapters, one corpus, per-record differences at four tiers, streamed case by case.
 import { ABSENT, isNotComputable, show } from './canon.ts';
 import { matchTransitions } from './transitions.ts';
-import { TIERS } from './types.ts';
+import { Composite, TIERS } from './types.ts';
 import { compareStrings, getOrCreate } from './util.ts';
 import type {
   Adapter, CorpusCase, Difference, NormalizedCase, NotComputableItem, ParityReport, RecordFacts, Status, Tier,
@@ -28,6 +28,9 @@ function sideOf(beforeFlagged: boolean, afterFlagged: boolean): 'before' | 'afte
 
 function sameValue(a: Value, b: Value): 'same' | 'different' | 'not-computable' {
   if (isNotComputable(a) || isNotComputable(b)) return 'not-computable';
+  // A composite equals only a composite with the same encoding; a string that spells it is a different value.
+  if (a instanceof Composite && b instanceof Composite) return a.text === b.text ? 'same' : 'different';
+  if (a instanceof Composite || b instanceof Composite) return 'different';
   return Object.is(a, b) ? 'same' : 'different';
 }
 
@@ -189,7 +192,7 @@ export function exitCode(status: Status): number {
       return 0;
     case 'differs':
       return 1;
-    default:
+    case 'not-computable':
       return 2;
   }
 }

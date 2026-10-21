@@ -1,0 +1,102 @@
+# Trusted gates for pull requests into remake/v3 (review finding: a PR could neutralise its own required checks).
+#
+# next-verify.yml runs on `pull_request`, so it runs the PR's OWN copy of the workflow: a PR that edits next-verify.yml
+# (or deletes a job, or turns a step into `exit 0`) controls what its own checks do. This workflow runs on
+# `pull_request_target`, which GitHub always takes from the BASE branch (remake/v3), so a PR cannot edit it for itself.
+#
+# Rules that keep it safe (tests/remake/ci.test.mjs asserts each one):
+#  - It NEVER checks out the PR head. The only checkout is the default one for pull_request_target: the tip of the base
+#    branch. No step runs, installs or builds anything from the PR. The PR is read only through the GitHub API (its
+#    changed-file list and its comments) and written to plain text files.
+#  - permissions: contents read, pull-requests read, issues read. No secret is referenced. No write token.
+#  - Nothing from the pull request (title, body, branch name, label, comment text) is placed inside a shell command; the
+#    PR number and head SHA travel through `env:` and are read as variables (a number and 40 hex characters).
+#  - The gate script that decides is the BASE copy of remake/tools/ci-gates.mjs, and the scope files are the base copy of
+#    remake/scopes/. Changing either is itself an owner-attest change (OWNER_GLOBS in ci-gates.mjs).
+#  - Actions are pinned by full commit SHA.
+#
+# The job names are `gate-old-paths` and `gate-tier`: names the PR's own workflows do not produce, so the PR cannot
+# satisfy the required check by emitting a green job of the same name. These are the checks to require on remake/v3
+# (the owner sets branch protection). next-verify keeps its own old-paths and tier-gate jobs; they are advisory copies.
+#
+# Until this file exists on remake/v3 no gate-* check is produced, so the PR that adds it is judged by next-verify only.
+
+name: Next gate
+
+on:
+  pull_request_target:
+    branches: [remake/v3]
+    types: [opened, synchronize, reopened, edited, labeled]
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+concurrency:
+  group: next-gate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  gate-old-paths:
+    name: gate-old-paths
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      # The default ref for pull_request_target is the base branch tip. The PR head is never fetched.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - name: Fail if the PR changes a path main owns
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/$REPO/pulls/$PR_NUMBER/files" --jq '.[] | .filename, (.previous_filename // empty)' > changed.txt
+          n=$(wc -l < changed.txt)
+          if [ "$n" -ge 3000 ]; then echo "FAIL: the PR lists $n files, at the API's 3000 cap; cannot judge it"; exit 1; fi
+          rc=0; node remake/tools/ci-gates.mjs old-paths --files changed.txt > gate.out || rc=$?
+          cat gate.out; cat gate.out >> "$GITHUB_STEP_SUMMARY"
+          test -s gate.out
+          exit $rc
+
+  gate-tier:
+    name: gate-tier
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      OWNER: ${{ github.repository_owner }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      EVENT_HEAD: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      # Tier 0 only inside an owner-approved scope with no science or governance path; a PR that moves an answer, edits a
+      # workflow, the gate script or the parity corpus needs the owner's `wp:attest approve <PR> <headSHA>` comment for the
+      # CURRENT head. The comments are read now, not from the event, so "Re-run jobs" after the owner attests turns it green.
+      - name: Classify the PR and check the owner's attest
+        run: |
+          set -euo pipefail
+          current=$(gh api "repos/$REPO/pulls/$PR_NUMBER" --jq .head.sha)
+          if [ "$current" != "$EVENT_HEAD" ]; then
+            echo "FAIL: this run is for ${EVENT_HEAD:0:8} but the PR head is now ${current:0:8}; the newer run decides"; exit 1
+          fi
+          gh api --paginate "repos/$REPO/pulls/$PR_NUMBER/files" --jq '.[] | .filename, (.previous_filename // empty)' > changed.txt
+          n=$(wc -l < changed.txt)
+          if [ "$n" -ge 3000 ]; then echo "FAIL: the PR lists $n files, at the API's 3000 cap; cannot judge it"; exit 1; fi
+          gh api --paginate "repos/$REPO/issues/$PR_NUMBER/comments" | jq -s 'add // []' > comments.json
+          rc=0; node remake/tools/ci-gates.mjs tier --files changed.txt --scopes-dir remake/scopes --pr "$PR_NUMBER" --head "$current" --owner "$OWNER" --comments comments.json > gate.out || rc=$?
+          cat gate.out; cat gate.out >> "$GITHUB_STEP_SUMMARY"
+          test -s gate.out
+          exit $rc

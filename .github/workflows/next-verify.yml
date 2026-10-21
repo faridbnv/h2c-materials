@@ -1,18 +1,23 @@
 # Branch CI for the remake (WP-03; pack 07 section 8.1, pack 08 section 4.4). Runs on every pull request into remake/v3 and
 # every push to it. main's verify.yml and pages.yml are not touched here (verify.yml still runs on pull requests by its own trigger; pages.yml cannot be started by this branch).
 #
-# Required checks to add to remake/v3's branch protection (the owner does this): next-verify, old-paths, tier-gate.
-# (review-section is also worth requiring.) Job names below ARE the check names.
+# Required checks to add to remake/v3's branch protection (the owner does this): next-verify, gate-old-paths, gate-tier.
+# (review-section is also worth requiring.) Job names below ARE the check names, except gate-old-paths and gate-tier,
+# which come from next-gate.yml.
 #
 # Security notes
-#  - Only `pull_request` (never `pull_request_target`): a fork's code gets a read-only token and no secrets.
+#  - This workflow runs on `pull_request`, so a pull request runs ITS OWN copy of it: a PR that edits this file can
+#    neutralise the checks it contains, including its old-paths and tier-gate jobs below. Those two are therefore advisory
+#    copies. The binding gates are gate-old-paths and gate-tier in next-gate.yml, which run on `pull_request_target`
+#    (always the base branch's workflow, never the PR's), never check out the PR head, and run the BASE copy of
+#    remake/tools/ci-gates.mjs. A PR that edits any workflow, ci-gates.mjs or parity/corpus needs the owner's attest
+#    (OWNER_GLOBS in ci-gates.mjs).
 #  - No secret is referenced anywhere in this file. The deploy key lives in the `preview` environment and is used only by
 #    next-preview.yml, on a push to remake/v3.
 #  - Nothing from the pull request (title, body, branch name, labels) is placed inside a shell command: it travels through
 #    `env:` and is read as a variable.
-#  - tier-gate and old-paths read the gate script and the scope files from the current tip of remake/v3 (not the PR), so a PR cannot approve its own
-#    scope or edit the gate it is judged by. (A PR that edits this workflow is a governance change: it is Tier 1, so the
-#    owner reads it before attesting.)
+#  - Here, old-paths and tier-gate read the gate script and the scope files from the current tip of remake/v3 (_base), not
+#    the PR, so a PR cannot approve its own scope or edit the gate it is judged by.
 #  - Actions are pinned by full commit SHA.
 
 name: Next verify
@@ -72,36 +77,62 @@ jobs:
           [ -n "$(printf '%s\n' "${files[@]}" | grep '^tests/remake/ci\.test\.mjs$')" ] || { echo "FAIL: tests/remake/ci.test.mjs is missing"; exit 1; }
           node --test "${files[@]}"
 
+      # The old tool's build: the parity harness and the domain tests read dist/db.json.
+      - name: Build the old tool (dist/db.json)
+        run: npm run build
+
       - name: Parity tests
         run: |
-          if compgen -G 'tests/parity/*.test.mjs' >/dev/null; then
-            node --test 'tests/parity/*.test.mjs'
-          else
-            echo "parity tests: NOT RUN (tests/parity does not exist yet; the parity harness arrives with WP-05)"
-            echo "parity tests: NOT RUN (no tests/parity yet)" >> "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+          if ! compgen -G 'tests/parity/*.test.mjs' >/dev/null; then
+            echo "FAIL: tests/parity/*.test.mjs is missing; the parity tests must run, never be skipped"
+            echo "parity tests: FAILED (tests/parity missing)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi
+          node --test 'tests/parity/*.test.mjs'
 
       - name: Domain tests (contracts and shared core)
         run: |
-          if compgen -G 'tests/domain/*.test.mjs' >/dev/null; then
-            node --test 'tests/domain/*.test.mjs'
-          else
-            echo "domain tests: NOT RUN (tests/domain does not exist yet; it arrives with WP-07)"
-            echo "domain tests: NOT RUN (no tests/domain yet)" >> "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+          if ! compgen -G 'tests/domain/*.test.mjs' >/dev/null; then
+            echo "FAIL: tests/domain/*.test.mjs is missing; the domain tests must run, never be skipped"
+            echo "domain tests: FAILED (tests/domain missing)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          node --test 'tests/domain/*.test.mjs'
+
+      # The binding parity proof on this branch: the old engine against a second, independent copy of itself over the whole
+      # corpus (1,306 questions) must show exactly 0 differences. Any difference, any not-computable case, any crash fails.
+      - name: Parity, old against old (npm run parity -- --noop)
+        run: |
+          set -uo pipefail
+          start=$(date +%s)
+          rc=0
+          npm run parity -- --noop | tee parity-noop.out || rc=$?
+          secs=$(( $(date +%s) - start ))
+          result=$(grep '^RESULT:' parity-noop.out || echo 'RESULT: none printed')
+          echo "parity --noop: exit $rc, $result, $secs s" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$rc" -ne 0 ] || [ "$result" != "RESULT: zero" ]; then
+            echo "FAIL: parity --noop must exit 0 with RESULT: zero (exit $rc, $result)"; exit 1
           fi
 
       - name: Rulings check
         run: npm run rulings:check
 
-      - name: Type check
+      - name: Type check, type ratchet and lint
         run: |
-          has=$(node -p "Boolean(require('./package.json').scripts['types:check'])")
-          if [ "$has" = "true" ]; then
-            npm run types:check
-          else
-            echo "types:check: NOT RUN (no types:check script yet; the TypeScript toolchain arrives with WP-06)"
-            echo "types:check: NOT RUN (no script yet, WP-06)" >> "$GITHUB_STEP_SUMMARY"
-          fi
+          set -euo pipefail
+          for script in types:check types:ratchet lint; do
+            has=$(node -p "Boolean(require('./package.json').scripts['$script'])")
+            if [ "$has" != "true" ]; then
+              echo "FAIL: package.json has no $script script; it must exist, never be skipped"
+              echo "$script: FAILED (no script)" >> "$GITHUB_STEP_SUMMARY"
+              exit 1
+            fi
+          done
+          npm run types:check
+          npm run types:ratchet
+          npm run lint
 
       - name: Say which optional checks ran
         if: github.event_name == 'pull_request'

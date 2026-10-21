@@ -113,6 +113,21 @@ test('constraints refuse what the schema forbids', () => {
   assert.throws(() => insert("INSERT INTO fx_rates VALUES ('CAD', '2026-01-03', 'abc', 'S', 'p', 'n')"), /cannot store TEXT value in REAL/); // STRICT type
 });
 
+test('every date column carries a YYYY-MM-DD GLOB CHECK, and the header says GLOB cannot check the calendar', () => {
+  const dateColumns = schemas.flatMap((t) => t.fields.filter((f) => f.type === 'date').map((f) => `${t.name}.${sqlName(f.name)}`));
+  assert.ok(dateColumns.length >= 5, 'the schemas have date columns');
+  for (const col of dateColumns) {
+    const [table, column] = col.split('.');
+    const block = ddl.split(`CREATE TABLE "${table}" (`)[1].split(') STRICT;')[0];
+    assert.match(block, new RegExp(`"${column}" TEXT NOT NULL CHECK \\("${column}" GLOB '\\[0-9\\]\\[0-9\\]\\[0-9\\]\\[0-9\\]-\\[0-9\\]\\[0-9\\]-\\[0-9\\]\\[0-9\\]'\\)`), col);
+  }
+  assert.match(ddl.split('\n\n')[0], /date columns \(YYYY-MM-DD\): GLOB checks the digit shape, not that the month and day exist/);
+  const db = loaded({ foreignKeys: false });
+  const insert = (date) => db.exec(`INSERT INTO fx_rates VALUES ('CAD', '${date}', 1.5, 'S', 'p', 'n')`);
+  insert('2026-01-02');
+  for (const bad of ['2026-1-2', '26-01-02', 'Not published', '2026-01-02T00:00', '', 'yesterday']) assert.throws(() => insert(bad), /CHECK/, bad);
+});
+
 /** One CSV record as the DDL stores it: [sqlColumns, values], with a missing word moved to its _state column. */
 function decode(t, record) {
   const columns = [];

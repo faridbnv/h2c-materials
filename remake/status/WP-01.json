@@ -1,6 +1,6 @@
 {
   "id": "WP-01",
-  "status": "waiting-owner",
+  "status": "done",
   "slice": null,
   "branch": "wp-S0-claude-setup",
   "pr": 6,
@@ -9,5 +9,10 @@
   "lastPass": null,
   "evidence": [],
   "waitingSince": "2026-10-21T07:00:45Z",
-  "approvedAt": null
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    6
+  ],
+  "note": "delivered by merged PR #6 (2026-10-21)"
 }

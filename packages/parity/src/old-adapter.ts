@@ -3,11 +3,11 @@
 // scripts/trace.mjs pageContext, the decision census and the snapshot do. A test pins it to trace.mjs pageContext.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { canon, notComputable } from './canon.ts';
+import { canon, composite, isAtom, notComputable } from './canon.ts';
 import type { EngineModules } from './engine-copy.ts';
 import { ENGINE_DIR, REPO_ROOT, copyEngine, loadEngine } from './engine-copy.ts';
 import type { Patch } from './engine-copy.ts';
-import type { Adapter, Atom, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
+import type { Adapter, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 type Rows = Record<string, any>[];
 type Db = Record<string, any> & { meta: any; materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
@@ -31,9 +31,10 @@ function exactKeys(o: object, known: string[], what: string): void {
 
 const WORDING_FIELDS = new Set(['reason', 'criterion']);
 
-/** A composite becomes a canonical string; an atom stays an atom so numbers meet Object.is. */
-const atom = (v: unknown, identity?: Map<object, string>): Value =>
-  (v === null || v === undefined || typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean' ? (v as Atom) : canon(v, identity));
+/** A composite becomes a Composite (never a bare string, so a string that spells it differs); an atom stays an atom so numbers meet Object.is. */
+export function atom(v: unknown, identity?: Map<object, string>): Value {
+  return isAtom(v) ? v : composite(v, identity);
+}
 
 export interface OldAdapterOptions {
   /** Name shown in reports. */
@@ -105,7 +106,7 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
         (WORDING_FIELDS.has(k) ? wording : evidence)[k] = atom(v, identity);
       }
       // What the requirement asked, by content (the key carries only its position): an engine that altered it must show.
-      evidence.constraintBody = r.constraint === undefined ? undefined : canon(r.constraint);
+      evidence.constraintBody = r.constraint === undefined ? undefined : composite(r.constraint);
       return { evidence, wording };
     };
 
@@ -134,7 +135,7 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     records.case = {
       decision: {
         'counts.pass': counts.pass, 'counts.fail': counts.fail, 'counts.unknown': counts.unknown, 'counts.screened': counts.screened,
-        'counts.total': counts.total, candidates: canon(candidates.map((e: any) => e.materialId)),
+        'counts.total': counts.total, candidates: composite(candidates.map((e: any) => e.materialId)),
       },
     };
 
@@ -144,7 +145,7 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     const withoutWords = (r: Record<string, any>) => { const { reason: _r, criterion: _c, ...rest } = r; return { ...rest, constraint: r.constraint === undefined ? undefined : canon(r.constraint) }; };
     const stateFields = (st: Record<string, any> | undefined): Record<string, Value> =>
       Object.fromEntries(Object.entries(st ?? {}).filter(([k]) => k !== 'id').map(([k, v]) => [`state.${k}`, atom(v)]));
-    const listOf = (xs: any[] | undefined, f: (x: any) => unknown) => canon((xs ?? []).map(f));
+    const listOf = (xs: any[] | undefined, f: (x: any) => unknown) => composite((xs ?? []).map(f));
 
     for (const e of evaluations) {
       const id = e.materialId as string;
@@ -166,7 +167,7 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
       put(`material:${id}`, {
         decision, presentation,
         evidence: {
-          'unresolved.keys': canon(unresolvedKeys),
+          'unresolved.keys': composite(unresolvedKeys),
           'heldBy.keys': listOf(e.heldBy, (r) => reqKey(r, new Set())),
           unresolved: listOf(e.unresolved, withoutWords), heldBy: listOf(e.heldBy, (r) => (typeof r === 'object' && r ? withoutWords(r) : r)),
           'failedBy.count': (e.failedBy ?? []).length,

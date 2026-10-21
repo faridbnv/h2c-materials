@@ -1,4 +1,5 @@
 // Canonical encoding of values, so two engines' composite values compare as strings without losing what Object.is sees.
+import { Composite } from './types.ts';
 import type { Atom, NotComputable, Value } from './types.ts';
 
 /** A field that exists on one side only. */
@@ -28,7 +29,7 @@ export function canon(value: unknown, identity?: Identity): string {
       case 'string': return JSON.stringify(v);
       case 'bigint': return `${v}n`;
       case 'object': break;
-      default: throw new Error(`cannot encode a ${typeof v}`);
+      case 'undefined': case 'function': case 'symbol': throw new Error(`cannot encode a ${typeof v}`);
     }
     const o = v as object;
     const tag = identity?.get(o);
@@ -51,9 +52,27 @@ export function canon(value: unknown, identity?: Identity): string {
   return enc(value);
 }
 
-/** How a value is shown in a difference and in a transition file: type-faithful, so 1 and "1" never look alike. */
+/** A string, a number, a boolean, null or undefined: compared as it is, never encoded. */
+export function isAtom(value: unknown): value is Atom {
+  return value === null || value === undefined || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean';
+}
+
+/**
+ * A list, an object or another non-atom as a Composite value. An atom stays an atom: wrapping one would let a composite
+ * and an atom show alike.
+ */
+export function composite(value: unknown, identity?: Identity): Composite {
+  if (isAtom(value)) throw new Error('composite() takes a list or an object; an atom stays an atom');
+  return new Composite(canon(value, identity));
+}
+
+/**
+ * How a value is shown in a difference and in a transition file: type-faithful, so 1 and "1" never look alike, and the string
+ * "[1]" (shown quoted) never looks like the list [1] (shown bare).
+ */
 export function show(v: Value | typeof ABSENT): string {
   if (v === ABSENT) return '<absent>';
   if (isNotComputable(v)) return `<not-computable: ${v.reason}>`;
-  return canon(v as Atom);
+  if (v instanceof Composite) return v.text;
+  return canon(v);
 }
