@@ -110,7 +110,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --no-error-on-unmatched-pattern \"packages/**/*.ts\" \"apps/**/*.ts\" \"remake/**/*.ts\" \"tests/remake/**/*.ts\"",
     "types:gen": "node remake/tools/types-gen.mjs",
-    "types:check": "node remake/tools/types-gen.mjs --check && tsc --noEmit -p tsconfig.strong.json && npm run typecheck --workspace @atlas/editor",
+    "types:check": "node remake/tools/types-gen.mjs --check && tsc --noEmit -p tsconfig.strong.json && npm run typecheck --workspace @atlas/editor && vue-tsc --noEmit -p apps/public/tsconfig.json",
     "types:ratchet": "node remake/tools/types-ratchet.mjs",
     "parity:erase": "node remake/tools/p-erase.mjs",
     "test:remake": "node --test tests/remake/*.test.mjs",
@@ -125,6 +125,8 @@
     "wp:digest": "node remake/tools/wp-digest.mjs",
     "wp:worktree": "node remake/tools/worktree-setup.mjs",
     "baseline": "node remake/tools/baseline.mjs",
+    "release:id": "node remake/tools/release-id.mjs",
+    "build:next": "node apps/public/tools/build.ts",
     "editor": "node apps/editor/server/start.ts --open",
     "editor:measure": "node apps/editor/server/measure.ts",
     "test:e2e": "playwright test -c tests/e2e/playwright.config.mjs"
