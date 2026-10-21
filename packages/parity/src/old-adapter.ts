@@ -10,7 +10,7 @@ import type { Patch } from './engine-copy.ts';
 import type { Adapter, Atom, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 type Rows = Record<string, any>[];
-type Db = Record<string, any> & { materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
+type Db = Record<string, any> & { meta: any; materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
 
 export const defaultDbPath = (): string => join(REPO_ROOT, 'dist', 'db.json');
 export const readDb = (path: string = defaultDbPath()): Db => JSON.parse(readFileSync(path, 'utf8')) as Db;

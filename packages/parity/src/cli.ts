@@ -57,8 +57,8 @@ const transitionDir = val('transitions') ?? (mode === 'new' ? join(REPO_ROOT, 'p
 const transitions = transitionDir ? loadTransitions(transitionDir) : undefined;
 
 const report = await runParity({
-  corpusName: corpus.corpus, cases, knownCaseIds: new Set(corpus.cases.map((c) => c.id)), before, after, transitions,
-  onProgress: process.stdout.isTTY ? (d, n) => { if (d % 100 === 0 || d === n) process.stdout.write(`\r  ${d}/${n} cases`); } : undefined,
+  corpusName: corpus.corpus, cases, knownCaseIds: new Set(corpus.cases.map((c) => c.id)), before, after, ...(transitions ? { transitions } : {}),
+  ...(process.stdout.isTTY ? { onProgress: (d: number, n: number) => { if (d % 100 === 0 || d === n) process.stdout.write(`\r  ${d}/${n} cases`); } } : {}),
 });
 if (process.stdout.isTTY) process.stdout.write('\r');
 console.log(formatReport(report));

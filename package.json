@@ -88,14 +88,36 @@
     "test:claude": "node --test tests/claude/hooks.test.mjs",
     "parity": "node packages/parity/src/cli.ts",
     "parity:corpus": "node packages/parity/src/build-corpus.ts",
-    "test:parity": "node --test 'tests/parity/*.test.mjs'"
+    "test:parity": "node --test 'tests/parity/*.test.mjs'",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint --no-error-on-unmatched-pattern \"packages/**/*.ts\" \"apps/**/*.ts\" \"remake/**/*.ts\" \"tests/remake/**/*.ts\"",
+    "types:gen": "node remake/tools/types-gen.mjs",
+    "types:check": "node remake/tools/types-gen.mjs --check && tsc --noEmit -p tsconfig.strong.json",
+    "types:ratchet": "node remake/tools/types-ratchet.mjs",
+    "parity:erase": "node remake/tools/p-erase.mjs",
+    "test:remake": "node --test tests/remake/*.test.mjs",
+    "wp:status": "node remake/tools/wp-status.mjs",
+    "wp:deps": "node remake/tools/wp-status.mjs --deps",
+    "wp:check": "node remake/tools/wp-check.mjs",
+    "wp:attest": "node remake/tools/wp-attest.mjs",
+    "wp:note": "node remake/tools/wp-note.mjs",
+    "wp:digest": "node remake/tools/wp-digest.mjs",
+    "wp:worktree": "node remake/tools/worktree-setup.mjs",
+    "baseline": "node remake/tools/baseline.mjs"
   },
   "devDependencies": {
+    "@types/node": "26.6.5",
+    "eslint": "10.13.0",
     "pdfjs-dist": "4.10.38",
     "subset-font": "2.9.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0",
     "xlsx": "^0.18.5"
   },
   "engines": {
     "node": ">=24"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

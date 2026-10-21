@@ -67,7 +67,7 @@ export function randomCases(db: { materials: any[]; meta: any }, count = RANDOM_
   const mats = db.materials.filter((m) => !m.familyEntry);
   let s = seed;
   const rnd = () => ((s = (s * 1103515245 + 12345) % 2147483648) / 2147483648);
-  const pick = <T,>(a: T[]): T => a[Math.floor(rnd() * a.length)];
+  const pick = <T,>(a: T[]): T => { const v = a[Math.floor(rnd() * a.length)]; if (v === undefined) throw new Error('corpus: pick from an empty list'); return v; };
   const ranges: Record<string, [number, number]> = { density: [800, 1800], tensileModulusXY: [0.01, 12], tensileStrengthXY: [5, 170], elongationXY: [1, 700], hdt045: [40, 270], priceCADkg: [20, 300] };
   const cats = Object.keys(db.meta.environmentCategories);
   const statuses = [...new Set(mats.map((m) => m.h2cStatus))];
@@ -78,8 +78,10 @@ export function randomCases(db: { materials: any[]; meta: any }, count = RANDOM_
   const gen = (): object => {
     const kind = pick(['numeric', 'numeric', 'numeric', 'gate', 'facet', 'environment', 'evidence']);
     if (kind === 'numeric') {
-      const p = pick(Object.keys(ranges)); const [a, b] = ranges[p];
-      const value = rnd() < 0.5 && edges[p].length ? pick(edges[p]) : a + rnd() * (b - a);
+      const p = pick(Object.keys(ranges)); const range = ranges[p]; const edge = edges[p];
+      if (!range || !edge) throw new Error(`corpus: no range for ${p}`);
+      const [a, b] = range;
+      const value = rnd() < 0.5 && edge.length ? pick(edge) : a + rnd() * (b - a);
       return { kind, property: p, operator: pick(['>=', '<=', '>', '<']), value, mandatory: rnd() > 0.1 };
     }
     if (kind === 'gate') return pick([{ kind, gate: 'scope' }, { kind, gate: 'nozzle' }, { kind, gate: 'bed' }, { kind, gate: 'chamber' }, { kind, gate: 'abrasive', hardenedAvailable: rnd() > 0.5 }, { kind, gate: 'buyable', inStock: rnd() > 0.5 }, { kind, gate: 'dryingKnown' }, { kind, gate: 'h2cStatus', in: statuses.filter(() => rnd() > 0.4) }].filter((g: any) => !g.in || g.in.length));

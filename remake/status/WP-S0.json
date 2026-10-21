@@ -1,0 +1,13 @@
+{
+  "id": "WP-S0",
+  "status": "waiting-owner",
+  "slice": null,
+  "branch": "wp-S0-claude-setup",
+  "pr": 6,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": "2026-10-21T07:00:45Z",
+  "approvedAt": null
+}
