@@ -105,3 +105,38 @@ test('filler: the class of every material of the catalogue, and of awkward modif
   assert.deepEqual(filler.FILLER_CLASSES, was.FILLER_CLASSES);
   assert.equal(filler.UNDISCLOSED, was.UNDISCLOSED);
 });
+
+// --- search -----------------------------------------------------------------------------------------------------------------
+
+test('search: every material against every word, prefix and pair of words it can be found by, with and without its products', async () => {
+  const search = await ported('search');
+  const was = old('search');
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
+  const productsOf = (m) => (m.gradeIds ?? []).map((id) => gradeById.get(id)).filter(Boolean);
+  const queries = new Set(['', '  ', 'pla', 'PLA', 'tpu 95', '95', 'pa6 cf', 'cf', 'support', 'polymaker', 'Prusament', 'polylite', 'x y z', 'no-such-word', '-', 'pla+']);
+  for (const m of db.materials) {
+    const found = was.searchableWords(m, productsOf(m));
+    for (const w of found.slice(0, 40)) {
+      queries.add(w);
+      queries.add(w.slice(0, Math.max(1, w.length - 2)));
+    }
+    queries.add(`${found[0] ?? ''} ${found.at(-1) ?? ''}`);
+  }
+  let compared = 0;
+  for (const m of db.materials) {
+    const products = productsOf(m);
+    for (const q of queries) {
+      assert.equal(search.matchesQuery(m, q, products), was.matchesQuery(m, q, products), `${m.id} ${q}`);
+      assert.equal(search.matchesQuery(m, q), was.matchesQuery(m, q), `${m.id} ${q} (no products)`);
+      const got = search.matchingProducts(m, q, products);
+      const want = was.matchingProducts(m, q, products);
+      assert.equal(got.length, want.length, `${m.id} ${q}`);
+      got.forEach((g, i) => assert.equal(g, want[i]));
+      compared++;
+    }
+    assert.deepEqual(search.searchableWords(m, products), was.searchableWords(m, products));
+  }
+  for (const v of [undefined, null, 0, 12.5, 'Ünï-cødé', 'a/b-c_d', {}, ['a', 'b'], true]) assert.deepEqual(search.words(v), was.words(v));
+  for (const q of [undefined, null, 5, ['pla']]) assert.equal(search.matchesQuery({ name: 'PLA' }, q), was.matchesQuery({ name: 'PLA' }, q));
+  assert.ok(compared > 100_000, `a real comparison: ${compared} (material, query) pairs`);
+});

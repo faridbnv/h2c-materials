@@ -3,6 +3,7 @@
   "pairs": [
     { "old": "tests/remake/fixtures/p-erase/gate.old.js", "new": "tests/remake/fixtures/p-erase/gate.new.ts" },
     { "old": "app/js/engine/pareto.js", "new": "packages/engine/src/port/pareto.ts" },
-    { "old": "app/js/engine/filler.js", "new": "packages/engine/src/port/filler.ts" }
+    { "old": "app/js/engine/filler.js", "new": "packages/engine/src/port/filler.ts" },
+    { "old": "app/js/engine/search.js", "new": "packages/engine/src/port/search.ts" }
   ]
 }
