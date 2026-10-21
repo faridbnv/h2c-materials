@@ -1,6 +1,7 @@
 {
   "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool.",
   "pairs": [
-    { "old": "tests/remake/fixtures/p-erase/gate.old.js", "new": "tests/remake/fixtures/p-erase/gate.new.ts" }
+    { "old": "tests/remake/fixtures/p-erase/gate.old.js", "new": "tests/remake/fixtures/p-erase/gate.new.ts" },
+    { "old": "app/js/engine/pareto.js", "new": "packages/engine/src/port/pareto.ts" }
   ]
 }

@@ -3,8 +3,8 @@
 // (never `===` on an object), decisions from the RowResult rows, everything else from the typed evaluations. The fields the
 // wrapper adds (`constraintId`, `reasonCode`) are not in the old answer and are left out of the comparison, so a zero
 // means the wrapper loses nothing and changes nothing. Their own tests cover them (tests/parity/engine-wrapper.test.mjs).
-import { createContext, loadOldEngine, scenarioFrom } from '@atlas/engine';
-import type { EngineOutput, OldEngine } from '@atlas/engine';
+import { createContext, loadOldEngine, loadPortedEngine, scenarioFrom } from '@atlas/engine';
+import type { EngineOutput, PortableModule } from '@atlas/engine';
 import type { ConstraintId, RequirementResult, RowResult } from '@atlas/domain';
 import type { Db } from '@atlas/data';
 import { canon, composite } from './canon.ts';
@@ -15,8 +15,10 @@ export interface NewAdapterOptions {
   name?: string;
   /** The typed db (checkDb). The adapter does not copy it, so give each adapter its own parse. */
   db: Db;
-  /** Directory of the engine files to wrap; a byte copy gives fresh module instances. Defaults to the in-tree engine. */
+  /** Directory of the engine files to wrap, as they are (a byte copy, with a fault patched in: the harness' own tests). Without it the wrapper runs the engine with the port switch applied, in fresh module instances. */
   engineDir?: string;
+  /** The modules to run from their TypeScript port; the switch's choice (WP-18) when absent. Ignored with `engineDir`. */
+  ports?: readonly PortableModule[];
   /** What the wrapper's answer goes through before it is read. A structured clone proves nothing depends on object identity. */
   transport?: (output: EngineOutput) => EngineOutput;
 }
@@ -52,7 +54,7 @@ const withoutAdded = (r: RequirementResult): Record<string, unknown> => Object.f
 
 export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter> {
   const { db } = opts;
-  const engine = await loadOldEngine(opts.engineDir);
+  const engine = opts.engineDir === undefined ? await loadPortedEngine(opts.ports) : await loadOldEngine(opts.engineDir);
   const name = opts.name ?? 'new (wrapper)';
   const transport = opts.transport ?? ((o: EngineOutput) => o);
 
