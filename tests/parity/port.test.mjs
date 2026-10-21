@@ -8,12 +8,15 @@ import { isDeepStrictEqual } from 'node:util';
 import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { checkDb } from '@atlas/data';
 import { PORTABLE, PORT_DIR, PORT_ENV, WIRED, activePorts, importStaged, stageEngine } from '@atlas/engine';
 import { runParity } from '../../packages/parity/src/compare.ts';
 import { createNewAdapter } from '../../packages/parity/src/new-adapter.ts';
-import { createOld } from '../../packages/parity/src/old-adapter.ts';
-import { corpus, db } from './helpers.mjs';
+import { historicLinks } from '../../packages/parity/src/historic-links.ts';
+import { linkUnits, runLinks } from '../../packages/parity/src/links.ts';
+import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
+import { corpus, db, root } from './helpers.mjs';
 
 const oldModules = await importStaged(stageEngine([]));
 const old = (name) => oldModules.get(name);
@@ -444,4 +447,142 @@ test('indices: the ranking of selected rows by every index, with the products th
     assert.equal(indices.rankingFor(rows, {}, was.INDICES[0]), null);
   }
   assert.ok(ranked > 200, `a real comparison: ${ranked} ranked places`);
+});
+
+// --- scenario ---------------------------------------------------------------------------------------------------------------
+
+/** What a decoder did with an input: its answer without the clock it read, or the words it refused with. */
+const outcome = (f) => {
+  try {
+    const r = f();
+    if (r === null) return { opened: null };
+    const { created, ...scenario } = r.scenario;
+    assert.equal(typeof created, 'string');
+    return { opened: { scenario, warnings: r.warnings } };
+  } catch (err) {
+    assert.ok(err instanceof Error);
+    return { refused: `${err.constructor.name}: ${err.message}` };
+  }
+};
+
+test('scenario: the constants, the defaults, serialize and the hash are the old module\'s', async () => {
+  const scenario = await ported('scenario');
+  const was = old('scenario');
+  for (const name of ['SCENARIO_VERSION', 'WORKSPACE_VIEWS', 'DECISIONS_MAX', 'SHORTLIST_MAX']) assert.deepEqual(scenario[name], was[name], name);
+  for (const meta of [undefined, null, {}, db.meta, { release: { id: 'abc' }, snapshot: '2026-01-01', build: 'b' }]) {
+    const { created, ...a } = scenario.newScenario(meta);
+    const { created: c2, ...b } = was.newScenario(meta);
+    assert.deepEqual(a, b);
+    assert.match(created, /^\d{4}-\d\d-\d\dT/);
+    assert.match(c2, /^\d{4}-\d\d-\d\dT/);
+  }
+  const questions = corpus.cases.filter((c) => c.group === 'template' || c.group === 'census').slice(0, 40).map((c) => c.scenario);
+  for (const q of questions) {
+    const s = { ...was.newScenario(db.meta), constraints: q.constraints, unknownPolicy: q.unknownPolicy, evidence: q.evidence, moisture: q.moisture, anneal: q.anneal, annealMaxC: q.annealMaxC, created: 'fixed' };
+    assert.equal(scenario.serialize(s), was.serialize(s));
+    assert.equal(scenario.toHash(s), was.toHash(s));
+    assert.deepEqual(outcome(() => scenario.fromHash(was.toHash(s), db.meta)), outcome(() => was.fromHash(was.toHash(s), db.meta)));
+    assert.deepEqual(outcome(() => scenario.deserialize(was.serialize(s), db.meta)), outcome(() => was.deserialize(was.serialize(s), db.meta)));
+  }
+});
+
+test('scenario: the historic links and the saved files of seeded edits are read, warned about and refused as the old module does', async () => {
+  const scenario = await ported('scenario');
+  const was = old('scenario');
+  const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
+  const options = {
+    materialIds: new Set(db.materials.map((m) => m.id)), headlineKeys: new Set(db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key)),
+    gradeIds: new Set(db.grades.map((g) => g.id)),
+  };
+  for (const l of historicLinks(TEMPLATES)) {
+    const text = l.text ?? readFileSync(join(root, l.read.path), 'utf8');
+    for (const o of [undefined, options]) {
+      const read = l.kind === 'hash' ? (m) => m.fromHash(text, db.meta, o) : (m) => m.deserialize(text, db.meta, o);
+      assert.deepEqual(outcome(() => read(scenario)), outcome(() => read(was)), l.id);
+    }
+  }
+  assert.equal(scenario.fromHash('', db.meta), null);
+  assert.equal(scenario.fromHash(undefined, db.meta), null);
+
+  const next = seeded(1802);
+  const pick = (xs) => xs[Math.floor(next() * xs.length)];
+  const weird = [null, 0, 1, 2, 3, -1, 1.5, 1e9, '', 'x', 'table', 'ashby', 'exploration', 'strict', 'conditioned', 'as-published', true, false, [], [1], ['M001', 'nope', 7, 'M001'], {}, { a: 1 }, 'M001', 'G001-01'];
+  const base = { ...was.newScenario(db.meta), created: 'fixed' };
+  const keys = [...Object.keys(base), 'stages', 'unknownField'];
+  const plotKeys = [...Object.keys(base.plot), 'detail', 'pointLevel', 'comparability', 'index', 'indexSlider', 'parallelAxes'];
+  const constraint = () => pick([
+    { kind: 'numeric', property: pick(['tensileModulusXY', 'density', 'noSuchHeadline', 3]), operator: pick(['>=', '<=', '>', '<', '==']), value: pick([0, 1, 100, Number.NaN, 'x', null]), mandatory: pick([true, false, undefined]) },
+    { kind: 'gate', gate: pick(['nozzle', 'bed', 'warp', 5]) }, { kind: 'facet', facet: pick(['filler', 'esd', 'wibble']), in: pick([['a'], [], 'a']) },
+    { kind: 'environment', category: pick(['Alcohols', 'nothing', 7]), require: ['resistant', 'limited'] }, { kind: 'evidence' }, { kind: 'wibble' }, null, 5, 'x', [], { kind: pick([1, null]) },
+  ]);
+  let refused = 0, opened = 0, warned = 0;
+  for (let round = 0; round < 6000; round++) {
+    const input = structuredClone(base);
+    for (let k = 0, n = 1 + Math.floor(next() * 4); k < n; k++) {
+      const r = next();
+      if (r < 0.45) input[pick(keys)] = pick(weird);
+      else if (r < 0.6) delete input[pick(keys)];
+      else if (r < 0.75) input.plot = { ...input.plot, [pick(plotKeys)]: pick([...weird, { failed: true, front: 1, unresolved: false }, ['a', 'b']]) };
+      else if (r < 0.85) input.constraints = Array.from({ length: Math.floor(next() * 5) }, constraint);
+      else if (r < 0.9) input.assumptions = Array.from({ length: Math.floor(next() * 3) }, () => pick([{ materialId: pick(['*', 'M001', 5]), property: pick(['density', 3]), value: pick([1, 'x', null]), unit: 'u' }, null, 'x']));
+      else if (r < 0.95) input.decisions = Array.from({ length: Math.floor(next() * 14) }, (_, i) => pick([{ gradeId: pick(['G001-01', 'nope', 5]), stateId: pick(['as-printed', '', null, 4]), tests: pick([[{ date: 'd', result: ' ok ', extra: 1 }], 'x', [5, null], undefined]), note: pick(['n', '  ', null]) }, null, { gradeId: `G${i}` }]));
+      else input.stages = pick([[{ index: 'tie-stiffness', cutoff: 0.5 }, { index: 'x', cutoff: -1 }, 3], 'x', [], null]);
+    }
+    if (next() < 0.3) input.version = pick([undefined, 1, 2, 3, '2', null]);
+    for (const o of [undefined, options]) {
+      const got = outcome(() => scenario.validateScenario(structuredClone(input), db.meta, o));
+      const want = outcome(() => was.validateScenario(structuredClone(input), db.meta, o));
+      assert.deepEqual(got, want, JSON.stringify(input).slice(0, 400));
+      if (want.refused) refused++; else { opened++; if (want.opened.warnings.length) warned++; }
+    }
+    const text = JSON.stringify(input);
+    assert.deepEqual(outcome(() => scenario.deserialize(text, db.meta, options)), outcome(() => was.deserialize(text, db.meta, options)));
+    const hash = encodeURIComponent(JSON.stringify({ x: pick([2, 1, 3, undefined]), c: input.constraints, u: input.unknownPolicy, s: input.shortlist, p: input.plot, h: pick([[['G001-01', null, null, null]], 5, undefined]), n: pick([true, 120, undefined]), g: pick([[['tie-stiffness', 0.4]], undefined]), v: pick(['as-published', undefined]) }));
+    assert.deepEqual(outcome(() => scenario.fromHash(hash, db.meta, options)), outcome(() => was.fromHash(hash, db.meta, options)));
+  }
+  for (const bad of ['%7B', '[]', '"x"', 'null', '%E0%A4%A', '{"x":2', 'true']) {
+    assert.deepEqual(outcome(() => scenario.fromHash(bad, db.meta)), outcome(() => was.fromHash(bad, db.meta)), bad);
+    assert.deepEqual(outcome(() => scenario.deserialize(bad, db.meta)), outcome(() => was.deserialize(bad, db.meta)), bad);
+  }
+  assert.ok(refused > 300 && opened > 3000 && warned > 500, `the edits reach both outcomes: ${opened} opened (${warned} with warnings), ${refused} refused`);
+});
+
+test('scenario: an assumption stands in for a missing value, never over a known one, a non-applicable one or another material\'s', async () => {
+  const scenario = await ported('scenario');
+  const was = old('scenario');
+  const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
+  const keys = db.registry.headlines.map((h) => h.key);
+  let standIns = 0;
+  for (const m of db.materials) {
+    const sets = [
+      [], [{ materialId: 'other', property: 'density', value: 1 }],
+      ...keys.map((property) => [{ materialId: m.id, property, value: 42.5 }]),
+      [{ materialId: '*', property: keys[0], value: 7, unit: 'u', note: 'n' }, { materialId: m.id, property: keys[1], value: 8 }, { materialId: '*', property: 'noSuchHeadline', value: 9 }],
+    ];
+    for (const assumptions of sets) {
+      for (const u of [undefined, units]) {
+        const got = scenario.applyAssumptions(m, assumptions, u);
+        const want = was.applyAssumptions(m, assumptions, u);
+        assert.deepEqual(got, want);
+        assert.equal(got.material === m, want.material === m, 'the same material back exactly when nothing applied');
+        standIns += want.assumed.length;
+      }
+    }
+  }
+  assert.ok(standIns > 100, `assumptions that applied: ${standIns}`);
+});
+
+test('scenario: the historic-link corpus opens and replays with zero differences through the wrapper on the ported scenario', async () => {
+  const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
+  const units = linkUnits(historicLinks(TEMPLATES), []);
+  const run = await runLinks({ units, before: await createOld(readDb()), after: await createNewAdapter({ db: checkDb(readDb()).db, ports: ['scenario'] }) });
+  assert.equal(run.openings.status, 'zero', JSON.stringify(run.openings.differences?.slice(0, 3)));
+  assert.equal(run.openings.unitsCompared, units.length);
+  assert.equal(run.replay.status, 'zero');
+  assert.ok(run.replayCases >= 10);
+  // The old adapter over a staged engine with the port in (its own reading of the engine, not the wrapper's) says the same.
+  const staged = await createOldAdapter({ name: 'old API on the ported scenario', db: readDb(), engineDir: stageEngine(['scenario']) });
+  const again = await runLinks({ units, before: await createOld(readDb()), after: staged });
+  assert.equal(again.openings.status, 'zero');
+  assert.equal(again.replay.status, 'zero');
 });

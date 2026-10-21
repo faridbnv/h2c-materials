@@ -133,6 +133,9 @@ export interface OldEngine {
   readonly scenario: {
     applyAssumptions(material: RawMaterial, assumptions: readonly unknown[], units: Readonly<Record<string, string>>): { readonly material: RawMaterial };
     newScenario(meta?: unknown): ScenarioV2;
+    /** The link and file decoders: a refusal is a thrown Error with words a person reads; `fromHash` answers null for no hash at all. */
+    fromHash(hash: string, meta: unknown, options: object): { scenario: Record<string, unknown>; warnings: string[] } | null;
+    deserialize(text: string, meta: unknown, options: object): { scenario: Record<string, unknown>; warnings: string[] };
   };
 }
 

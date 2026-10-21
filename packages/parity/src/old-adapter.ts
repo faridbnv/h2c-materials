@@ -197,14 +197,7 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     return { caseId: c.id, outcome: 'computed', records };
   }
 
-  // What the page hands the decoder (app/js/main.js): the materials, the headlines the filter rail shows, and the grades.
-  const headlines: { key: string; drawerOnly?: boolean }[] = db.registry?.headlines;
-  if (!Array.isArray(headlines)) throw new Error('the db has no registry.headlines, so links cannot be read against its headline keys');
-  const linkOptions = {
-    materialIds: new Set<string>(db.materials.map((m) => m.id)),
-    headlineKeys: new Set<string>(headlines.filter((h) => !h.drawerOnly).map((h) => h.key)),
-    gradeIds: new Set<string>(db.grades.map((g) => g.id)),
-  };
+  const linkOptions = linkOptionsOf(db);
 
   return {
     name: opts.name,
@@ -241,7 +234,7 @@ function replayOf(scenario: Decoded['scenario']): CorpusScenario {
  * Open a link or a saved file with this side's decoder. A thrown Error with a message is the decoder refusing (its words are
  * what a person sees); a TypeError, RangeError or ReferenceError is a bug in the decoder, which is not a refusal.
  */
-function openWith(mod: EngineModules['scenario'], meta: unknown, options: object, request: LinkRequest): LinkOpening {
+export function openWith(mod: EngineModules['scenario'], meta: unknown, options: object, request: LinkRequest): LinkOpening {
   let opened: Decoded | null;
   try {
     opened = request.kind === 'hash' ? mod.fromHash(request.text, meta, options) : mod.deserialize(request.text, meta, options);
@@ -268,6 +261,17 @@ function openWith(mod: EngineModules['scenario'], meta: unknown, options: object
     wording: { warnings: composite(warnings) },
   };
   return { outcome: 'opened', scenario: replay, facts };
+}
+
+/** What the page hands the decoder (app/js/main.js): the materials, the headlines the filter rail shows, and the grades. */
+export function linkOptionsOf(db: { materials: readonly { id?: unknown }[]; grades: readonly { id?: unknown }[]; registry?: { headlines?: unknown } }): { materialIds: Set<unknown>; headlineKeys: Set<unknown>; gradeIds: Set<unknown> } {
+  const headlines = db.registry?.headlines;
+  if (!Array.isArray(headlines)) throw new Error('the db has no registry.headlines, so links cannot be read against its headline keys');
+  return {
+    materialIds: new Set<unknown>(db.materials.map((m) => m.id)),
+    headlineKeys: new Set<unknown>(headlines.filter((h: { drawerOnly?: boolean }) => !h.drawerOnly).map((h: { key: unknown }) => h.key)),
+    gradeIds: new Set<unknown>(db.grades.map((g) => g.id)),
+  };
 }
 
 /** The in-tree old engine on the current db. */

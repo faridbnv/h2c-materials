@@ -8,7 +8,7 @@ import type { EngineOutput, PortableModule } from '@atlas/engine';
 import type { ConstraintId, RequirementResult, RowResult } from '@atlas/domain';
 import type { Db } from '@atlas/data';
 import { canon, composite } from './canon.ts';
-import { atom } from './old-adapter.ts';
+import { atom, linkOptionsOf, openWith } from './old-adapter.ts';
 import type { Adapter, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 export interface NewAdapterOptions {
@@ -191,8 +191,10 @@ export async function createNewAdapter(opts: NewAdapterOptions): Promise<Adapter
     return { caseId: c.id, outcome: 'computed', records };
   }
 
+  const linkOptions = linkOptionsOf(db);
   return {
     name,
+    openLink: (request) => openWith(engine.scenario, db.meta, linkOptions, request),
     evaluate(c) {
       try {
         return normalize(c);
