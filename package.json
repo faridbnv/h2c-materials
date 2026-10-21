@@ -93,7 +93,9 @@
     "types:ratchet": "node remake/tools/types-ratchet.mjs",
     "parity:erase": "node remake/tools/p-erase.mjs",
     "test:remake": "node --test tests/remake/*.test.mjs",
-    "test:domain": "node --test tests/domain/*.test.mjs"
+    "test:domain": "node --test tests/domain/*.test.mjs",
+    "wp:status": "node remake/tools/wp-status.mjs",
+    "baseline": "node remake/tools/baseline.mjs"
   },
   "devDependencies": {
     "@types/node": "26.6.5",

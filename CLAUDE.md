@@ -40,9 +40,9 @@ apply yet are reported as "not run: <reason>", never as passed. If a row that ap
 | Read old code before designing or porting | feature-dev:code-explorer; feature-dev:code-architect for a harness or package shape |
 | Build a feature package: editor, selector lenses, pages | /feature-dev:feature-dev |
 | Before porting behaviour-bearing code (apply path, products, scenario, constraints, gates, evidence-ledger) | /code-modernization:modernize-extract-rules, then the code-modernization:test-engineer agent for characterization tests |
-| After implementing, before committing | code-simplifier:code-simplifier agent, then /simplify |
-| Before opening or updating a PR | /code-review high, scoped to git diff origin/remake/v3...HEAD |
-| A Tier-1 PR, before it goes to the owner | /pr-review-toolkit:review-pr in a fresh Opus session (the writer never reviews itself) |
+| After implementing, before committing | ONE code-simplifier:code-simplifier pass, plus at most one targeted check where the risk is real (see Review below) |
+| Milestone gate | ONE fresh Opus /code-review high over the whole milestone diff; one findings comment; fixes in one follow-up PR |
+| Science-bearing diff (engine port rung, parity result or transition, cutover candidate) | a fresh Opus review of that PR |
 | Error handling, fallbacks, skipped paths, wp:check, loader | pr-review-toolkit:silent-failure-hunter |
 | New types or contracts | pr-review-toolkit:type-design-analyzer |
 | Tests added or changed | pr-review-toolkit:pr-test-analyzer |
@@ -58,6 +58,12 @@ apply yet are reported as "not run: <reason>", never as passed. If a row that ap
 | Settings and hooks | update-config |
 | Commits and PRs | /commit-commands:commit, /commit-commands:commit-push-pr (wp-* branches only) |
 | Stuck twice on one cause, or a Codex pass on a risky diff | /codex:rescue --fresh --wait (main session only), read-only sentence of the pack's 08 §4.2 |
+
+## Review (token-efficient; owner ruling 2026-10-21)
+No per-PR review fan-outs: /pr-review-toolkit:review-pr only if the owner asks for a specific PR. Per slice: one
+code-simplifier pass; at most one targeted check (silent-failure-hunter for skip/pass/fallback logic, /security-review
+for secrets, workflows, the editor service, ingest or fetch, type-design-analyzer for contracts naming science words);
+then wp:check and parity. Parity is the binding proof, not a review.
 
 ## Hard limits (also enforced by .claude/settings.json, the git guard, branch protection and CI)
 No push to main. No direct push to remake/v3: changes arrive by PR. No push to the preview repository
