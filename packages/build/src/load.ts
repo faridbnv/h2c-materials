@@ -69,7 +69,10 @@ export function snapshotDate(methodRows: Dyn[]): string {
 /** The file line a record ends on, counting from the header at line 1 (csv-parse's `info.lines`, which the old loader kept). */
 function lineAfter(previous: number, cells: readonly (string | null)[]): number {
   let extra = 0;
-  for (const cell of cells) if (cell !== null) for (let at = cell.indexOf('\n'); at >= 0; at = cell.indexOf('\n', at + 1)) extra++;
+  for (const cell of cells) {
+    if (cell === null) continue;
+    for (let at = cell.indexOf('\n'); at >= 0; at = cell.indexOf('\n', at + 1)) extra++;
+  }
   return previous + 1 + extra;
 }
 
@@ -83,10 +86,13 @@ export function loadSheet(db: Db, file: TableName): Sheet {
     // Built the way the old loader built it (the cells in header order, spread into a row that then takes __file, __row and
     // __numbers), so the rows have the same shape and the same key order as before.
     const values: Record<string, string | null> = {};
-    for (const [k, name] of header.entries()) values[name] = cells[k] ?? null;
-    const row: SheetRow = { ...values, __file: `data/tables/${file}.csv`, __row: line, __numbers: {} };
-    for (const [name, value] of Object.entries(values)) if (value != null && NUMBER_RE.test(value)) row.__numbers[name] = Number(value);
-    rows.push(row);
+    const numbers: Record<string, number> = {};
+    for (const [k, name] of header.entries()) {
+      const cell = cells[k] ?? null;
+      values[name] = cell;
+      if (cell !== null && NUMBER_RE.test(cell)) numbers[name] = Number(cell);
+    }
+    rows.push({ ...values, __file: `data/tables/${file}.csv`, __row: line, __numbers: numbers });
   }
   return { header, rows };
 }
@@ -102,7 +108,7 @@ export function workbookFrom(sheets: ReadonlyMap<TableName, Sheet>): Workbook {
 
 /** Every table of the schema, loaded once, in `_ord` order. */
 export function loadSheets(db: Db): Map<TableName, Sheet> {
-  return new Map<Dyn, Dyn>(TABLE_NAMES.map((file) => [file, loadSheet(db, file)]));
+  return new Map(TABLE_NAMES.map((file): [TableName, Sheet] => [file, loadSheet(db, file)]));
 }
 
 /** Every table the compiler addresses, by sheet name. */
@@ -116,18 +122,23 @@ export function loadWorkbook(db: Db): Workbook {
  * same order whatever order its rows were written in.
  */
 export function loadReference(db: Db): Dyn[] {
-  const envelopes = new Map<string, Map<string, Dyn>>();
+  const envelopes = new Map<string, Map<string, SheetRow>>();
   for (const row of loadSheet(db, 'reference_envelopes').rows) {
-    if (!envelopes.has(row.Name)) envelopes.set(row.Name, new Map<Dyn, Dyn>());
-    envelopes.get(row.Name)?.set(row.Property, row);
+    let own = envelopes.get(row.Name);
+    if (!own) {
+      own = new Map();
+      envelopes.set(row.Name, own);
+    }
+    own.set(row.Property, row);
   }
   return loadSheet(db, 'reference').rows.map((values) => {
-    const own = envelopes.get(values.Name) ?? new Map<string, Dyn>();
+    const own = envelopes.get(values.Name);
     const properties: Dyn = {};
-    for (const p of REFERENCE_PROPERTIES) {
-      const lo = own.get(p.key!)?.Min == null ? null : Number(own.get(p.key!).Min);
-      const hi = own.get(p.key!)?.Max == null ? null : Number(own.get(p.key!).Max);
-      properties[p.key!] = Number.isFinite(lo) && Number.isFinite(hi) ? { min: lo, max: hi, unit: p.unit } : null;
+    for (const { key, unit } of REFERENCE_PROPERTIES) {
+      const envelope = own?.get(key!);
+      const lo = envelope?.Min == null ? null : Number(envelope.Min);
+      const hi = envelope?.Max == null ? null : Number(envelope.Max);
+      properties[key!] = Number.isFinite(lo) && Number.isFinite(hi) ? { min: lo, max: hi, unit } : null;
     }
     return { category: values.Category, name: values.Name, properties, __row: values.__row };
   });

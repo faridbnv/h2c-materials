@@ -37,14 +37,22 @@ export interface BuildResult {
   timing: Record<string, number>;
 }
 
-export function buildDatabase(wb: Workbook, { snapshot = snapshotDate(wb.Method?.rows ?? []), build = 'dev', estimates = true }: BuildOptions = {}): BuildResult {
-  const timing: Record<string, number> = {};
-  const stage = <T>(name: string, run: () => T): T => {
-    const t = performance.now();
+/** Runs a stage and records its wall time in ms under `name`. */
+export type Stopwatch = <T>(name: string, run: () => T) => T;
+
+/** A stopwatch that writes into `timing`, so the build and its stages report their times the same way. */
+export function stopwatch(timing: Record<string, number>): Stopwatch {
+  return function timed<T>(name: string, run: () => T): T {
+    const started = performance.now();
     const value = run();
-    timing[name] = Math.round(performance.now() - t);
+    timing[name] = Math.round(performance.now() - started);
     return value;
   };
+}
+
+export function buildDatabase(wb: Workbook, { snapshot = snapshotDate(wb.Method?.rows ?? []), build = 'dev', estimates = true }: BuildOptions = {}): BuildResult {
+  const timing: Record<string, number> = {};
+  const stage = stopwatch(timing);
   // Every stage reads one dataset: the tables without a material retired from it and its records (D174). Compile reads the
   // tables through the same function and reports what it left out.
   const { db, issues } = stage('compile', () => compile(wb, { snapshot, build }));

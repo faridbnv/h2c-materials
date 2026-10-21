@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { copyData, editRecords, editText, emptyDb, root } from './data-helpers.mjs';
 import { buildInMemory } from '../../packages/data/src/rebuild.ts';
 import { loadSheet, loadSheets, loadWorkbook, loadReference, snapshotDate, TABLES } from '../../packages/build/src/load.ts';
-import { checkTables, loadSchemas } from '../../packages/build/src/schema-gate.ts';
+import { checkTables, gateTablesOf, loadSchemas } from '../../packages/build/src/schema-gate.ts';
 import { runBuild } from '../../packages/build/src/build.ts';
 import { loadReference as oldLoadReference, loadTables as oldLoadTables } from '../../build/src/load.js';
 import { join } from 'node:path';
@@ -105,8 +105,7 @@ test('the schema gate keeps the old cross-column checks and codes: list items, I
 
 test('the real schema gate passes on the real rows', () => {
   const { tables: schemas, vocab } = loadSchemas(join(root, 'schema'));
-  const gate = Object.fromEntries([...loadSheets(db)].map(([name, sheet]) => [name, { header: sheet.header, records: sheet.rows.map((values) => ({ values, line: values.__row })) }]));
-  assert.deepEqual(checkTables(gate, schemas, vocab), []);
+  assert.deepEqual(checkTables(gateTablesOf(loadSheets(db)), schemas, vocab), []);
 });
 
 test('a build over tables that do not reconstruct fails with every problem, writes nothing and returns no database', () => {

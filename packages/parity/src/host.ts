@@ -50,15 +50,15 @@ async function run(): Promise<SurfaceReport> {
   return report;
 }
 
-try {
-  const report = await run();
+function finish(report: SurfaceReport): never {
   console.log(formatSurface(report));
   console.log(`RESULT: ${report.status}`);
   process.exit(exitCode(report.status));
+}
+
+try {
+  finish(await run());
 } catch (e) {
   if (!(e instanceof BuildFailed)) throw e;
-  const report = cannotCompare(head, 'after', `the local build did not finish: ${e.message}`);
-  console.log(formatSurface(report));
-  console.log(`RESULT: ${report.status}`);
-  process.exit(exitCode(report.status));
+  finish(cannotCompare(head, 'after', `the local build did not finish: ${e.message}`));
 }

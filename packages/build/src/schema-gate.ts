@@ -14,13 +14,13 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { readCsv } from './csv.ts';
-import type { Dyn, Issue } from './types.ts';
+import type { Dyn, Issue, Sheet, SheetRow } from './types.ts';
 
 const NUMBER_RE = /^-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$/;
 const INTEGER_RE = /^-?\d+$/;
 const DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
-export function loadSchemas(schemaDir: Dyn) {
+export function loadSchemas(schemaDir: string): { tables: Dyn; vocab: Dyn } {
   const tables: Dyn = {};
   for (const f of readdirSync(join(schemaDir, 'tables')).filter((f) => f.endsWith('.schema.json')).sort()) {
     tables[basename(f, '.schema.json')] = JSON.parse(readFileSync(join(schemaDir, 'tables', f), 'utf8'));
@@ -33,18 +33,33 @@ export function loadSchemas(schemaDir: Dyn) {
   return { tables, vocab };
 }
 
-function isDate(v: Dyn) {
+function isDate(v: string): boolean {
   const m = DATE_RE.exec(v);
   if (!m) return false;
   const d = new Date(Date.UTC(+m[1]!, +m[2]! - 1, +m[3]!));
   return d.getUTCFullYear() === +m[1]! && d.getUTCMonth() === +m[2]! - 1 && d.getUTCDate() === +m[3]!;
 }
 
-const refs = (reference: Dyn) => (reference ? (Array.isArray(reference) ? reference : [reference]) : []);
+/** A reference declaration is one `{ table, field }` or a list of them; always the list. */
+function refs(reference: Dyn): Dyn[] {
+  if (!reference) return [];
+  return Array.isArray(reference) ? reference : [reference];
+}
 
 /** Split a list cell into its items. */
-export function listItems(value: Dyn, delimiter = ';') {
+export function listItems(value: Dyn, delimiter = ';'): string[] {
   return String(value).split(delimiter).map((s) => s.trim()).filter(Boolean);
+}
+
+/** One table as the gate reads it: its header and its rows in file order, each with the line it came from. */
+interface GateTable {
+  header: string[];
+  records: { values: SheetRow; line: number }[];
+}
+
+/** The loaded sheets as the gate reads them, by table name, the rows as the compiler will read them. */
+export function gateTablesOf(sheets: ReadonlyMap<string, Sheet>): Record<string, GateTable> {
+  return Object.fromEntries([...sheets].map(([name, sheet]) => [name, { header: sheet.header, records: sheet.rows.map((values) => ({ values, line: values.__row })) }]));
 }
 
 /**

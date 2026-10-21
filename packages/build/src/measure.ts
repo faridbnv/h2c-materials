@@ -38,12 +38,17 @@ function timeProcess(command: string, argv: readonly string[], cwd: string, env:
   });
 }
 
-const median = (xs: number[]): number => {
+function median(xs: number[]): number {
   const sorted = [...xs].sort((a, b) => a - b);
   const mid = sorted.length >> 1;
-  return sorted.length % 2 ? (sorted[mid] ?? NaN) : ((sorted[mid - 1] ?? NaN) + (sorted[mid] ?? NaN)) / 2;
-};
-const round = (x: number): number => Math.round(x * 100) / 100;
+  const upper = sorted[mid] ?? NaN;
+  if (sorted.length % 2 === 1) return upper;
+  return ((sorted[mid - 1] ?? NaN) + upper) / 2;
+}
+
+function round(x: number): number {
+  return Math.round(x * 100) / 100;
+}
 
 // A temporary copy of the project for the old build, made once and outside the timings. As buildInCopy does it: build/src and the
 // mappings are copied (the build finds the project from its own path), node_modules is linked.
@@ -73,8 +78,8 @@ try {
   rmSync(copy, { recursive: true, force: true });
 }
 
-const m = { newCore: median(runs.map((r) => r.newCore)), oldCore: median(runs.map((r) => r.oldCore)), oldFull: median(runs.map((r) => r.oldFull)) };
-const likeForLike = m.newCore + (m.oldFull - m.oldCore);
+const medians = { newCore: median(runs.map((r) => r.newCore)), oldCore: median(runs.map((r) => r.oldCore)), oldFull: median(runs.map((r) => r.oldFull)) };
+const likeForLike = medians.newCore + (medians.oldFull - medians.oldCore);
 const result = {
   schema: 1,
   status: 'measured',
@@ -83,13 +88,13 @@ const result = {
   node: process.version,
   what: 'whole-process wall time of a cold build (no build cache): the new build core, the old build core and the old full build, alternating, in seconds',
   runs,
-  medianSeconds: { newCore: round(m.newCore), oldCore: round(m.oldCore), oldFull: round(m.oldFull) },
-  newCoreVsOldCoreSeconds: round(m.newCore - m.oldCore),
+  medianSeconds: { newCore: round(medians.newCore), oldCore: round(medians.oldCore), oldFull: round(medians.oldFull) },
+  newCoreVsOldCoreSeconds: round(medians.newCore - medians.oldCore),
   likeForLikeFullSeconds: round(likeForLike),
   likeForLike: 'new core + (old full - old core): the new build plus what the old bundle and pages stages add, which the new build does not run yet',
   budgetSeconds: BUDGET_S,
   withinBudget: likeForLike <= BUDGET_S,
-  newCoreWithinBudget: m.newCore <= BUDGET_S,
+  newCoreWithinBudget: medians.newCore <= BUDGET_S,
 };
 console.log(`median: new core ${result.medianSeconds.newCore} s, old core ${result.medianSeconds.oldCore} s, old full ${result.medianSeconds.oldFull} s; like-for-like full ${result.likeForLikeFullSeconds} s against ${BUDGET_S} s`);
 if (!args.includes('--no-write')) {

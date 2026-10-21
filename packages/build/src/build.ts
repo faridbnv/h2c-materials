@@ -12,17 +12,17 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { TABLE_NAMES } from '@atlas/data';
 import type { TableName } from '@atlas/data';
 import { DataInputError, buildInMemory } from '@atlas/data/rebuild';
 import { exportTable } from '@atlas/data/storage';
 import { contractIssues } from './contract.ts';
 import { loadReference, loadSheets, snapshotDate, workbookFrom } from './load.ts';
-import { buildDatabase } from './pipeline.ts';
+import { buildDatabase, stopwatch } from './pipeline.ts';
+import type { Stopwatch } from './pipeline.ts';
 import { polymerEnvironmentReportLines } from './polymer-environment.ts';
 import { compileReference } from './reference.ts';
 import { releaseIdentity } from './release.ts';
-import { checkTables, loadSchemas } from './schema-gate.ts';
+import { checkTables, gateTablesOf, loadSchemas } from './schema-gate.ts';
 import type { Dyn, Issue, Sheet } from './types.ts';
 import { estimateReportLines } from './estimate-adapter.ts';
 import { formatReport } from './validate.ts';
@@ -69,10 +69,21 @@ export function buildDate(projectRoot: string = PROJECT_ROOT): string {
   }
 }
 
-const failed = (errors: Issue[], timing: Record<string, number>): RunResult => ({ ok: false, errors, warnings: [], db: null, reference: null, timing, files: null });
+function failed(errors: Issue[], timing: Record<string, number>): RunResult {
+  return { ok: false, errors, warnings: [], db: null, reference: null, timing, files: null };
+}
 
-/** The tables of the data directory, read from a fresh reconstruction: every sheet in `_ord` order, the reference rows, and the tables whose file is not their canonical text. */
-function readTables(dataDir: string, timed: <T>(name: string, run: () => T) => T): { sheets: Map<TableName, Sheet>; referenceRows: Dyn[]; notCanonical: Set<string> } {
+interface TablesRead {
+  /** Every table, in `_ord` order. */
+  sheets: Map<TableName, Sheet>;
+  /** The generic reference rows (reference.csv with its envelopes). */
+  referenceRows: Dyn[];
+  /** The tables whose file is not their canonical text. */
+  notCanonical: Set<string>;
+}
+
+/** The tables of the data directory, read from a fresh reconstruction. */
+function readTables(dataDir: string, timed: Stopwatch): TablesRead {
   const { db: sqlite, inputs } = timed('reconstruct', () => buildInMemory(dataDir));
   try {
     const sheets = timed('load', () => loadSheets(sqlite));
@@ -90,17 +101,12 @@ export function runBuild(options: RunOptions): RunResult {
   const withEstimates = options.estimates ?? true;
   const build = options.buildDate ?? buildDate(projectRoot);
   const timing: Record<string, number> = {};
-  const timed = <T>(name: string, run: () => T): T => {
-    const t = performance.now();
-    const value = run();
-    timing[name] = Math.round(performance.now() - t);
-    return value;
-  };
+  const timed = stopwatch(timing);
 
   // The clean reconstruction: any table that is not the schema's, the manifest's, or satisfies a constraint stops here, and
   // every problem found is listed (never a partial database). Everything the later stages need is read out of it in this
   // one step and the database is closed, so the parsed CSV and the SQLite file are not alive while the estimate stage runs.
-  let read;
+  let read: TablesRead;
   try {
     read = readTables(dataDir, timed);
   } catch (error) {
@@ -113,11 +119,7 @@ export function runBuild(options: RunOptions): RunResult {
   // The schema gate, on the rows as the compiler will read them. SCHEMA-FORMAT compares each table's export from the
   // reconstruction with the file's own bytes.
   const { tables: schemas, vocab } = loadSchemas(join(projectRoot, 'schema'));
-  const gateTables = Object.fromEntries(TABLE_NAMES.map((name) => {
-    const sheet = sheets.get(name);
-    if (!sheet) throw new Error(`table ${name} was not loaded`);
-    return [name, { header: sheet.header, records: sheet.rows.map((values) => ({ values, line: values.__row })) }];
-  }));
+  const gateTables = gateTablesOf(sheets);
   const issues: Issue[] = timed('check', () => checkTables(gateTables, schemas, vocab, { isCanonical: (name) => !notCanonical.has(name) }));
   if (issues.some((i) => i.level === 'error')) return failed(issues.filter((i) => i.level === 'error'), timing);
 
