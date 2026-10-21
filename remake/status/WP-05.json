@@ -3,16 +3,34 @@
   "status": "done",
   "slice": "b",
   "branch": "wp-05b-parity",
-  "pr": 9,
+  "pr": 17,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-21T11:02:01.696Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run parity -- --noop",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: a seeded fault is named",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: (b) parity:mutate 9/9, P-build and P-pages no-op = 0",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
   "waitingSince": null,
   "approvedAt": null,
   "doneAt": "2026-10-21",
   "prs": [
-    9
+    9,
+    17
   ],
-  "note": "WP-05(a) delivered by merged PR #9; WP-05(b) (full parity: P-build, P-pages, tie-shuffle, historic links, 5,000-replay milestone mode, parity:mutate 9/9, core-sufficiency hook) delivered by this slice's PR. Exit evidence run 2026-10-21 on the owner's Mac: parity -- --noop RESULT zero in 119 s; parity:mutate 9/9 caught; parity -- --noop --milestone zero in 640 s. The contract page still waits for the owner's approval."
+  "note": "WP-05(a) delivered by merged PR #9; WP-05(b) (full parity: P-build, P-pages, tie-shuffle, historic links, 5,000-replay milestone mode, parity:mutate 9/9, core-sufficiency hook) delivered by this slice's PR. Exit evidence run 2026-10-21 on the owner's Mac: parity -- --noop RESULT zero in 119 s; parity:mutate 9/9 caught; parity -- --noop --milestone zero in 640 s. The contract page still waits for the owner's approval.",
+  "updated": "2026-10-21T11:04:02.746Z"
 }
