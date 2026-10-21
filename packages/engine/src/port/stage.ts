@@ -37,6 +37,7 @@ export const PORT_DIR = fileURLToPath(new URL('.', import.meta.url));
 export const SUPPORT_FILES = [
   { name: 'gate-reasons.ts', from: 'port' },
   { name: 'constraint-ids.ts', from: 'core' },
+  { name: 'gate-verdict.ts', from: 'core' },
 ] as const;
 const CORE_DIR = fileURLToPath(new URL('../../../domain/src/core/', import.meta.url));
 

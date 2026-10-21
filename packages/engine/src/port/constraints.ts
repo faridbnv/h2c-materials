@@ -22,6 +22,7 @@ import type {
   NumericResult as NumericResultOut, PrintGateName, ReasonCode, Status, TreatmentConstraint, TreatmentResult as TreatmentResultOut, Verdict,
 } from '@atlas/domain';
 import { identify } from './constraint-ids.ts';
+import { GATE_STATUS as CORE_GATE_STATUS } from './gate-verdict.ts';
 import { gateReasonCodeOf } from './gate-reasons.ts';
 import type { Contribution } from './ledger.ts';
 import type { Gates, HeadlineBag, ImpliedBound, Interval, Moisture, ProductContext, ProductGrade, ProductMaterial, ProductState, RegistryHeadline, Treatment } from './products.ts';
@@ -209,14 +210,7 @@ export const STATUS = {
  * one it reaches only at the bottom edge is on the line (D151, amending D32). A temperature above what the H2C reaches
  * that a sheet only recommends is not a requirement (D6), so it never removes a candidate on its own. Silence is unknown.
  */
-export const GATE_STATUS: Readonly<Record<GateVerdict, Status>> = {
-  within: STATUS.PASS,
-  'within-low-end': STATUS.PASS,
-  edge: STATUS.INDETERMINATE,
-  'exceeds-recommended': STATUS.INDETERMINATE,
-  exceeds: STATUS.FAIL,
-  unknown: STATUS.UNKNOWN,
-};
+export const GATE_STATUS: Readonly<Record<GateVerdict, Status>> = CORE_GATE_STATUS;
 
 export const UNKNOWN_POLICY = {
   STRICT: 'strict',            // unknown does not satisfy a mandatory constraint
