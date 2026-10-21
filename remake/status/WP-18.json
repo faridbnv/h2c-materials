@@ -5,9 +5,31 @@
   "branch": null,
   "pr": null,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-21T16:11:19.799Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run parity:erase",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "npm run parity -- --new --surface engine,ties,links",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/parity/port.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "updated": "2026-10-21T16:20:29.188Z"
 }
