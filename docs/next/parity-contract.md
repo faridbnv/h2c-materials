@@ -29,7 +29,7 @@ Any one field of any one record that is not identical on both sides, a record th
 
 ## "Not computable"
 
-If one side cannot answer a question (the new engine is not wired yet, an engine crashes on a case, a field is unreadable) the result is **not computable**. It is its own outcome. It is never counted as zero, never as a pass and never as equal to another not-computable result. The run exits with a failure code and lists every place. Until the new engine is plugged in, a run of old against new correctly reports "not computable" for every question, not "zero differences."
+If one side cannot answer a question (an engine crashes on a case, a field is unreadable) the result is **not computable**. It is its own outcome. It is never counted as zero, never as a pass and never as equal to another not-computable result. The run exits with a failure code and lists every place. `npm run parity -- --placeholder` runs old against a new side that answers nothing, and must report "not computable" for every question, not "zero differences."
 
 ## Outcomes
 
@@ -48,7 +48,7 @@ Every outcome has its own code, so a script (CI, a hook, a person) never has to 
 |---|---|
 | 0 | zero differences, or exactly the differences a transition file lists |
 | 1 | differs (and only that: a crash never exits 1) |
-| 2 | not computable: some question could not be answered, or the new side is not wired yet |
+| 2 | not computable: some question could not be answered (`--placeholder` is the self-test of it) |
 | 3 | a fault was injected and NOT caught: the harness is blind to it (the self-test failed) |
 | 4 | a partial run (`--only`) that shows zero without `--allow-partial` |
 | 5 | a fault was injected and caught: the self-test passed. This is the expected exit of `--fault <name>`; it is not "differs" and not a crash. With `--transitions`, the transition decides (0 or 1) |
@@ -56,6 +56,10 @@ Every outcome has its own code, so a script (CI, a hook, a person) never has to 
 | 70 | the tool crashed (an uncaught error: a bug, a missing `dist/db.json`, an unreadable corpus). It is not a verdict; the error is on stderr |
 
 CI runs `npm run parity -- --noop` after `npm run build` and fails on anything but 0.
+
+### The new side today (WP-11)
+
+`npm run parity` (the same as `npm run parity -- --new`) compares the old engine with **the old engine behind the typed wrapper** (`packages/engine`, [contracts.md](contracts.md)): the answer the wrapper gives, as a consumer reads it, against the answer the engine gives. Zero means the wrapper loses nothing and changes nothing; it is not yet a port. The wrapper runs over its own copy of the engine files and its own typed parse of the database, so nothing is shared with the old side. Measured 2026-10-21: 1,306 questions, 5,663,780 records, no difference at any level, about 3.5 minutes. `tests/parity/new-adapter.test.mjs` runs a subset that keeps every group, shows that a fault in the wrapped engine and a fault in the wrapper's own output are both caught, and shows the comparison holds when the wrapper's answer goes through a structured clone (nothing depends on object identity).
 
 ## Transitions: how a deliberate change is allowed
 

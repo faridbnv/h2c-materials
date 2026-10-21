@@ -1,5 +1,7 @@
 // npm run parity -- [--noop | --fault <name> | --new] [--transitions <dir>] [--corpus <file>] [--db <file>] [--only <prefix>] [--json <file>]
-//   (no mode)       old against the new-side adapter (a placeholder until WP-11: reports "not computable", exit 2)
+//   (no mode)       old against the new-side adapter: the old engine behind the typed wrapper (@atlas/engine, WP-11)
+//   --new           the same, said out loud
+//   --placeholder   old against a new side that answers nothing: must report "not computable", exit 2 (a self-test)
 //   --noop          old against a second, independently loaded copy of old; must be exactly 0 differences
 //   --fault <name>  old against a temporary copy of the engine with one fault injected; must report differences (exit 5)
 //   --list-faults   the faults
@@ -13,18 +15,19 @@
 // 1 means only "differs": nothing else exits 1, not even a crash.
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { checkDb } from '@atlas/data';
 import { exitCode, runParity } from './compare.ts';
 import { loadCorpus } from './corpus.ts';
 import { REPO_ROOT, copyEngine } from './engine-copy.ts';
 import { FAULTS } from './faults.ts';
-import { createNewPlaceholder } from './new-adapter.ts';
+import { createNewAdapter, createNewPlaceholder } from './new-adapter.ts';
 import { createOld, createOldAdapter, readDb } from './old-adapter.ts';
 import { formatReport } from './report.ts';
 import { buildTransition, loadTransitions } from './transitions.ts';
 import type { ParityReport } from './types.ts';
 
 /** Flags that stand alone, and flags that take one value. Anything else is a usage error. */
-const SWITCHES = ['noop', 'new', 'list-faults', 'allow-partial'];
+const SWITCHES = ['noop', 'new', 'placeholder', 'list-faults', 'allow-partial'];
 const VALUED = ['fault', 'transitions', 'corpus', 'db', 'only', 'json', 'emit-transition', 'id', 'kind', 'ruling', 'description'];
 
 class UsageError extends Error {}
@@ -67,8 +70,8 @@ async function main(argv: readonly string[]): Promise<number> {
     return 0;
   }
 
-  const modes = ['noop', 'fault', 'new'].filter((m) => flag(m));
-  if (modes.length > 1) throw new UsageError('choose one of --noop, --fault <name>, --new');
+  const modes = ['noop', 'fault', 'new', 'placeholder'].filter((m) => flag(m));
+  if (modes.length > 1) throw new UsageError('choose one of --noop, --fault <name>, --new, --placeholder');
   const mode = modes[0] ?? 'new';
   if (mode === 'noop' && flag('transitions')) throw new UsageError('--noop must be exactly zero; transitions are not accepted with it');
   const fault = mode === 'fault' ? FAULTS.find((f) => f.name === val('fault')) : undefined;
@@ -91,10 +94,16 @@ async function main(argv: readonly string[]): Promise<number> {
     after = await createOldAdapter({ name: 'old (second copy)', db: readDb(dbPath), engineDir: copyEngine([]) });
   } else if (fault) {
     after = await createOldAdapter({ name: `old + fault ${fault.name}`, db: readDb(dbPath), engineDir: copyEngine(fault.patches) });
-  } else after = createNewPlaceholder();
+  } else if (mode === 'placeholder') after = createNewPlaceholder();
+  else {
+    // The wrapper over its own copy of the engine files and its own typed parse of the db: nothing shared with the old side.
+    const typed = checkDb(readDb(dbPath));
+    if (!typed.ok) throw new Error(`the db does not satisfy the typed contract of @atlas/data: ${typed.problems.slice(0, 5).join('; ')}`);
+    after = await createNewAdapter({ db: typed.db, engineDir: copyEngine([]) });
+  }
 
   // Transitions apply to a real comparison, not to the self-tests, unless asked for.
-  const transitionDir = val('transitions') ?? (mode === 'new' ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
+  const transitionDir = val('transitions') ?? (mode === 'new' || mode === 'placeholder' ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
   const transitions = transitionDir ? loadTransitions(transitionDir) : undefined;
 
   const report = await runParity({

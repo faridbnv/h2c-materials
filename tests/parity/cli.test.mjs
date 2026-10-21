@@ -30,6 +30,7 @@ test('a stray argument, a repeated flag, a missing value and a flag used as a va
     [['--noop', '--noop'], /given twice/],
     [['--only', 'template/', '--only', 'census/'], /given twice/],
     [['--noop', '--new'], /choose one of/],
+    [['--new', '--placeholder'], /choose one of/],
   ];
   for (const [args, message] of cases) {
     const r = run(...args);
@@ -46,7 +47,7 @@ test('--list-faults and every known flag are accepted', () => {
   assert.equal(ok.status, 0, ok.stderr);
 });
 
-test('a caught fault exits 5 (not 1, not 70); a zero run exits 0; the placeholder new side exits 2', () => {
+test('a caught fault exits 5 (not 1, not 70); a zero run exits 0; a new side that answers nothing exits 2', () => {
   const caught = run('--fault', 'tie-order', ...SMALL);
   assert.equal(caught.status, 5, caught.stderr);
   assert.match(caught.stdout, /fault tie-order: caught/);
@@ -54,7 +55,11 @@ test('a caught fault exits 5 (not 1, not 70); a zero run exits 0; the placeholde
   assert.notEqual(caught.status, 1);
   assert.notEqual(caught.status, 70);
   assert.equal(run('--noop', ...SMALL).status, 0);
-  assert.equal(run(...SMALL).status, 2, 'old against the placeholder new side is not computable');
+  assert.equal(run('--placeholder', ...SMALL).status, 2, 'old against a new side that answers nothing is not computable');
+  const wrapped = run(...SMALL);
+  assert.equal(wrapped.status, 0, `old against the wrapped engine: ${wrapped.stdout}${wrapped.stderr}`);
+  assert.match(wrapped.stdout, /RESULT: zero/);
+  assert.match(wrapped.stdout, /old\s+vs\s+new \(wrapper\)/);
 });
 
 test('a run over a selection without --allow-partial exits 4', () => {

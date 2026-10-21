@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "measured",
+  "measuredAt": "2026-10-21T11:13:44.617Z",
+  "machine": {
+    "os": "darwin 27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "cores": 10,
+    "memoryGb": 24
+  },
+  "node": "v26.9.0",
+  "commit": "44a7e13143db066186cb6a1b2aedc24f2553647c",
+  "tree": "dirty",
+  "changeSet": "tests/remake/fixtures/impact/fixture-tensile-correction.json",
+  "questions": {
+    "asked": 306,
+    "answered": 162,
+    "estimatesPending": 144
+  },
+  "moved": 16,
+  "note": "cold: a fresh session (the base answers are computed beside the change). warm: the base answers are kept; only the change is computed. Core compile, no estimate stage; the questions that need estimates are pending.",
+  "core": {
+    "cold": {
+      "runsMs": [
+        7864,
+        15370,
+        10104
+      ],
+      "medianMs": 10104,
+      "budgetMs": 10000,
+      "withinBudget": false
+    },
+    "warm": {
+      "runsMs": [
+        7498,
+        7502,
+        7016
+      ],
+      "medianMs": 7498,
+      "budgetMs": 10000,
+      "withinBudget": true
+    }
+  },
+  "withEstimates": {
+    "cold": {
+      "runsMs": [
+        49806
+      ],
+      "medianMs": 49806,
+      "budgetMs": 40000,
+      "withinBudget": false
+    },
+    "warm": {
+      "runsMs": [
+        62319
+      ],
+      "medianMs": 62319,
+      "budgetMs": 40000,
+      "withinBudget": false
+    },
+    "moved": 54
+  }
+}

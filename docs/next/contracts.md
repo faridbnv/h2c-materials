@@ -45,12 +45,12 @@ current values, or a product row without its state.
 A material ID, a product (grade) ID, a measurement ID, a source ID and a requirement (constraint) ID are separate
 types. The type checker refuses a product ID where a material ID is expected. A plain string becomes an ID only after
 a check against the schema's pattern (`core/ids.ts`, tested equal to the schema). The type exists only while checking
-and costs nothing when the code runs. The requirement ID is reserved for now: the old engine has no such ID, and it
-arrives with WP-19.
+and costs nothing when the code runs. The old engine has no requirement ID; the typed engine wrapper (WP-11, below)
+gives each requirement a provisional one, and WP-19 decides the stable derivation.
 
 Two places still carry plain strings. The compiled database's type (`Db`, WP-06) and a saved scenario do not
-promise checked IDs, because the old code does not check them there. IDs are to be branded where data enters the
-engine's contract, in the typed engine wrapper (WP-11), so the engine's outputs carry checked IDs.
+promise checked IDs, because the old code does not check them there. IDs are branded where the engine's answer leaves
+the typed engine wrapper (WP-11), so the engine's outputs carry checked IDs.
 
 ## Reason codes
 
@@ -59,6 +59,36 @@ text pattern (`constraints.js:948-949`). The plan is a code beside each sentence
 exact old sentence from the code. `ReasonCode` lists one code for each place in the old code that writes a sentence,
 with the file and line beside it. It adds no meaning that the sentence does not already have, nothing reads it yet,
 and it will change when the renderer is built (WP-19, owner question TS-3).
+
+## The typed engine wrapper and the impact preview (WP-11)
+
+`packages/engine` (`@atlas/engine`) runs the **old engine, unchanged** (`app/js/engine`, imported and never edited) behind
+the contracts above. It is a bridge, retired as the engine is ported into `packages/domain` (WP-18 to WP-21).
+
+- **One entry.** `createContext(db, scenario).run()` builds the engine's context the way the page does (it replaces the
+  hand-built copies in `main.js`, `trace.mjs`, the census and the parity old side) and returns the evaluations, the
+  `RowResult` rows (a material, then each of its products with its state), the counts, the candidates and the Ashby
+  rankings. `runEngine(input)` takes an `EngineInput` and refuses a part that names another release.
+- **Checked IDs.** Material, grade, measurement, state and release IDs leave the wrapper branded; a value that does not
+  match the schema's pattern, or a word outside its list (status, verdict, group, moisture), is an error that names it.
+- **Requirements by ID.** The old engine finds a result's requirement by object identity, which a copy (a worker, a
+  store, JSON) breaks without an error. The engine still receives the scenario's own objects, and every result leaves
+  with `constraintId` beside its `constraint`. The ID is provisional: the requirement's own `id` if the scenario gives
+  one, else `c<position>`; the engine's own annealing requirement is `treatment`. WP-19 decides the stable derivation.
+- **Reason codes beside the text.** `reason` stays word for word. A `reasonCode` is added only where the result's
+  structure settles it (kind, gate or facet, status), never by reading the sentence back; the numeric, print-gate and
+  environment results carry none until WP-19 gives the engine a code where each sentence is written.
+- **What the contract learned.** `Evaluation` also carries `unresolved`, `failed` and `share`, and `counts` is null for
+  a material with no product on record; a result's `measurementId` may be null. Types only; no behaviour moved.
+- **Impact preview** (`@atlas/engine/impact`, `npm run impact -- <change-set.json>`). Given a change set's records, it
+  stages a copy of the tables (one read of each file feeds its digest and its copy), applies the records (a record whose
+  `before` no longer matches is refused as stale), runs the old build's core compile on the base and the changed copy,
+  asks the 6 templates in their modes and the 138-case census of both, and lists the records whose verdict, group,
+  likely, Best product, counts or state changed. Listing places shift whenever a record above moves, so a record whose
+  only change is its place is counted apart. Questions that need the estimate stage are **pending** (`estimatesPending`);
+  `--estimates` runs the stage and answers them. Time: `remake/measure/impact.json` (`npm run impact:measure`).
+
+Run `npm run parity` (the old engine against the wrapped one, zero differences) and `node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs`.
 
 ## The shared core
 
