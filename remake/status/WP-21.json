@@ -3,7 +3,7 @@
   "status": "in-review",
   "slice": null,
   "branch": "wp-21-estimates",
-  "pr": null,
+  "pr": 33,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
@@ -47,5 +47,7 @@
   "waitingSince": "2026-10-21",
   "approvedAt": null,
   "note": "the estimate stage as 18 label-only TypeScript modules (P-erase 0), run as a cached stage keyed on the compiled core, the code, Node, V8, ICU and the options; estimates.json and manifest.json (Node and ICU recorded); withholding on a calibration failure (OQ-05 A); DT-1 measured and not applied",
-  "prs": []
+  "prs": [
+    33
+  ]
 }
