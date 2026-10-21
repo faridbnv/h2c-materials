@@ -20,7 +20,10 @@ test('TypeScript is 6.x, pinned exactly in package.json', () => {
   assert.match(pkg.devDependencies.typescript, /^6\.\d+\.\d+$/);
   assert.equal(JSON.parse(readFileSync(join(root, 'node_modules/typescript/package.json'), 'utf8')).version, pkg.devDependencies.typescript);
   for (const name of ['typescript-eslint', 'eslint', '@types/node']) assert.match(pkg.devDependencies[name], /^\d+\.\d+\.\d+$/, `${name} must be pinned exactly`);
-  assert.deepEqual(pkg.workspaces, ['packages/*', 'apps/*']);
+  assert.deepEqual(pkg.workspaces, ['packages/*', 'apps/*']); // apps/* since WP-14 (the public view)
+  // The public view's framework and build tool are pinned exactly too (WP-14).
+  const app = JSON.parse(readFileSync(join(root, 'apps/public/package.json'), 'utf8'));
+  for (const name of ['vue', '@vitejs/plugin-vue', 'vite', 'vue-tsc']) assert.match({ ...app.dependencies, ...app.devDependencies }[name], /^\d+\.\d+\.\d+$/, `${name} must be pinned exactly`);
 });
 
 test('base level: erasable syntax only, type-only imports explicit, no emit, no TypeScript 7 hazards', () => {
