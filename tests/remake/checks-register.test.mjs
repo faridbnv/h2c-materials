@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseCsv } from '../../remake/tools/rulings-check.mjs';
 import { csvLine } from '../../remake/tools/wp-lib.mjs';
-import { BASELINE_PATH, FLOOR_PATH, MAP_IDS, MAP_PATH, REGISTER_PATH, UNTESTED_PATH, assertCount, floorFor, formatBaseline, formatFloor, liveInventory, parseBaseline, parseFloor, skeleton, skipCount, standingSkipCount, testCount, verifyRegister } from '../../remake/tools/checks-register.mjs';
+import { BASELINE_PATH, FLOOR_PATH, FROZEN_REF, MAIN_REF, MAP_IDS, MAP_PATH, REGISTER_PATH, UNTESTED_PATH, assertCount, floorFor, formatBaseline, formatFloor, frozenFromGit, liveInventory, oldScriptTokens, parseBaseline, parseFloor, skeleton, skipCount, standingSkipCount, testCount, verifyRegister } from '../../remake/tools/checks-register.mjs';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const tool = join(repo, 'remake/tools/checks-register.mjs');
@@ -255,6 +255,107 @@ test('the counters count what they say', () => {
   assert.equal(skipCount(`test('a', { ${SKIP}: !x }, f); test.${SKIP}('b', f); test('c', { ${TODO}: true }, f);`), 3);
   assert.equal(standingSkipCount(`test('a', { ${SKIP}: !x }, f); test('c', { ${TODO}: say(1) }, f);`), 0);
   assert.equal(standingSkipCount(`test.${SKIP}('b', f); test('c', { ${SKIP}: true }, f); test('d', { ${SKIP}: 'why' }, f);`), 3);
+});
+
+// ---------------------------------------------------------------- the frozen copies on git (M1 review finding 3)
+
+/** What origin/remake/v3 and origin/main hold, as the tests give them: the committed inventory and package.json of this checkout. */
+const frozenNow = () => ({ baseline: readFileSync(join(repo, BASELINE_PATH), 'utf8'), mainPackage: readFileSync(join(repo, 'package.json'), 'utf8') });
+const frozenProblems = (dir, frozen = frozenNow()) => verifyRegister(dir, { frozen }).problems;
+/** Regenerate the inventory the way the file's own header tells: from what the tree holds now. */
+const regenerate = (dir) => writeFileSync(join(dir, BASELINE_PATH), formatBaseline(liveInventory(dir)));
+
+test('regenerating the inventory cannot make an old check vanish: the copy on origin/remake/v3 remembers it', () => {
+  withScratch(['test', 'checks'], (dir) => {
+    unlinkSync(join(dir, 'test/search.test.js'));
+    editRegister(dir, dropRow('T-search'));
+    regenerate(dir);
+    assert.deepEqual(problems(dir), [], 'without the frozen copy the rewrite passes: this is the hole');
+    const list = frozenProblems(dir);
+    assert.ok(has(list, /checks\/old-inventory\.txt dropped file:test\/search\.test\.js, which origin\/remake\/v3 freezes/), list.join('\n'));
+  });
+});
+
+test('lowering a test count or raising a skip count in the inventory is refused the same way', () => {
+  withScratch(['checks'], (dir) => {
+    edit(dir, BASELINE_PATH, (src) => src.replace(/^(file:test\/search\.test\.js tests=)(\d+)( skips=)\d+$/m, (_, a, n, b) => `${a}${Number(n) - 1}${b}0`));
+    assert.ok(has(frozenProblems(dir), /old-inventory\.txt lowers file:test\/search\.test\.js to \d+ tests; origin\/remake\/v3 freezes \d+/));
+  });
+  withScratch(['checks'], (dir) => {
+    edit(dir, BASELINE_PATH, (src) => src.replace(/^(file:test\/search\.test\.js tests=\d+ skips=)\d+$/m, '$11'));
+    assert.ok(has(frozenProblems(dir), /old-inventory\.txt raises file:test\/search\.test\.js to 1 skips; origin\/remake\/v3 freezes 0/));
+  });
+});
+
+test('adding to the inventory is fine: it only grows', () => {
+  withScratch(['checks'], (dir) => {
+    edit(dir, BASELINE_PATH, (src) => `${src}file:test/a-new-old-check.test.js tests=3 skips=0\n`);
+    assert.ok(!has(frozenProblems(dir), /dropped|lowers|raises/));
+  });
+});
+
+test('removing an old npm check script from package.json fails, though the inventory and the register row go with it', () => {
+  withScratch(['package.json', 'checks'], (dir) => {
+    const pkg = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8'));
+    assert.ok('bench' in pkg.scripts && oldScriptTokens(JSON.stringify(pkg)).includes('npm:bench'));
+    delete pkg.scripts.bench;
+    writeFileSync(join(dir, 'package.json'), JSON.stringify(pkg, null, 2));
+    editRegister(dir, dropRow('A-bench-trace'));
+    regenerate(dir);
+    const list = frozenProblems(dir);
+    assert.ok(has(list, /npm:bench is an old check script of origin\/main and is gone from package\.json/), list.join('\n'));
+    // the register records a deletion as it asks (a row with a successor and a date): then the script may go
+    writeFileSync(join(dir, REGISTER_PATH), readFileSync(join(repo, REGISTER_PATH), 'utf8')); // the row is back...
+    editRegister(dir, patchRow('A-bench-trace', { status: 'successor', deleted: '2027-01-15' })); // ...and now records the deletion
+    assert.ok(!has(frozenProblems(dir), /npm:bench is an old check script/));
+  });
+});
+
+test('an old npm check script of origin/main with no register row fails, whatever the inventory says', () => {
+  withScratch(['checks'], (dir) => {
+    const main = JSON.parse(frozenNow().mainPackage);
+    main.scripts['audit:brand-new'] = 'node x.mjs';
+    const list = frozenProblems(dir, { ...frozenNow(), mainPackage: JSON.stringify(main) });
+    assert.ok(has(list, /npm:audit:brand-new is an old check script of origin\/main and is gone from package\.json/), list.join('\n'));
+  });
+});
+
+test('frozenFromGit reads the two refs by git show, and says null where it cannot', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'checks-register-git-'));
+  try {
+    const git = (...args) => spawnSync('git', ['-C', dir, ...args], { encoding: 'utf8' });
+    assert.deepEqual(frozenFromGit(dir, { fetch: false }), { baseline: null, mainPackage: null }, 'not a repository');
+    git('init', '-q');
+    mkdirSync(join(dir, 'checks'));
+    writeFileSync(join(dir, BASELINE_PATH), 'file:test/x.test.js tests=1 skips=0\n');
+    writeFileSync(join(dir, 'package.json'), '{"scripts":{"verify":"x","start":"y"}}');
+    git('add', '.');
+    git('-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'frozen');
+    assert.deepEqual(frozenFromGit(dir, { fetch: false }), { baseline: null, mainPackage: null }, 'a repository without the refs');
+    git('update-ref', `refs/remotes/${FROZEN_REF}`, 'HEAD');
+    git('update-ref', `refs/remotes/${MAIN_REF}`, 'HEAD');
+    const copies = frozenFromGit(dir, { fetch: false });
+    assert.equal(copies.baseline, 'file:test/x.test.js tests=1 skips=0\n');
+    assert.deepEqual(oldScriptTokens(copies.mainPackage), ['npm:verify'], 'only the scripts that are old checks');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('where git cannot say, --verify notes it and passes, and --require-frozen fails', () => {
+  const run = (...args) => spawnSync(process.execPath, [tool, ...args], { encoding: 'utf8' });
+  withScratch([], (dir) => {
+    const loose = run('--verify', '--root', dir);
+    assert.equal(loose.status, 0, loose.stderr);
+    assert.match(loose.stderr, /note: .*cannot be read from git here/);
+    const strict = run('--verify', '--require-frozen', '--root', dir);
+    assert.equal(strict.status, 1);
+    assert.match(strict.stderr, /old-inventory\.txt on origin\/remake\/v3 cannot be read from git here/);
+  });
+  // where this checkout does hold the refs (a developer's; a CI job that fetched them) the strict run passes on the repository itself
+  const held = frozenFromGit(repo, { fetch: false });
+  if (held.baseline !== null && held.mainPackage !== null) {
+    const real = run('--verify', '--require-frozen');
+    assert.equal(real.status, 0, real.stderr);
+  }
 });
 
 // ---- the test floor: a registered test file cannot lose a test or an assertion ----------------------------------------------

@@ -10,8 +10,11 @@
 //   - the runtime is recorded with the inputs: the Node pin (.nvmrc) and the exact Node and ICU versions that ran, because
 //     collation and number formatting differ between runtimes (gap-1: builds differ across machines in 6 estimate leaves).
 //
-// What only draws the page (apps/, CSS, the write service's workspace code) is not an input: two pages that differ only
-// there give the same answers and share the ID (D96, D142). Node built-ins only, so a deploy job can run it without an install.
+// What only draws the page (apps/public/src, CSS) or runs the write service (the workspace code, the editor) is not an
+// input: two pages that differ only there give the same answers and share the ID (D96, D142). What decides the answers of
+// /v3/ is: the engine, the question it asks and how its snapshot is compiled (apps/public/tools), the words layer it
+// imports (app/js/ui/labels.js, registry.js, templates.js, table.js), the compile, case and staging files of the impact module, and
+// the corpus the question comes from. Node built-ins only, so a deploy job can run it without an install.
 //
 //   npm run release:id            prints the 12-character ID
 //   npm run release:id -- --json  prints the ID, the part digests and the runtime
@@ -30,9 +33,20 @@ export const RELEASE_INPUTS = {
   schema: { paths: ['schema'], named: true },
   rules: { paths: ['build/src', 'build/mappings', 'packages/domain/src'] },
   engine: {
-    paths: ['app/js/engine', 'app/js/ui/templates.js', 'packages/engine/src', 'packages/data/src'],
-    exclude: [/^packages\/engine\/src\/impact\//, /^packages\/engine\/src\/cli\.ts$/],
+    paths: [
+      'app/js/engine', 'app/js/ui/templates.js', 'app/js/ui/labels.js', 'app/js/ui/registry.js',
+      'app/js/ui/table.js', // sortRows: the order /v3/ lists materials in (packages/engine/src/old-table.ts)
+      'packages/engine/src',
+      // the write service's code decides no answer; only the contract that checks the database the engine reads does
+      'packages/data/src/db-contract.ts', 'packages/data/src/shape.ts', 'packages/data/src/generated/db-shape.ts',
+    ],
+    // the impact preview and the command line decide no answer, except the three files the /v3/ data is compiled through
+    exclude: [/^packages\/engine\/src\/impact\/(?!(compile|cases|stage)\.ts$)/, /^packages\/engine\/src\/cli\.ts$/],
   },
+  // the question /v3/ asks (CASE_ID) and how its snapshot is compiled are in the tool that makes the data
+  view: { paths: ['apps/public/tools'] },
+  // the questions themselves, read only
+  questions: { paths: ['parity/corpus'] },
   dependencies: { paths: ['build/package-lock.json'] },
 };
 

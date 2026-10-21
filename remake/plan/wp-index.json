@@ -301,7 +301,7 @@
       "exitEvidence": "One test per guard and refusal; interrupted export leaves the tree unchanged; `change:replay` equality; stale command refused",
       "exit": {
         "commands": [
-          "npm run change:replay"
+          "node --test tests/remake/write-export.test.mjs"
         ],
         "attest": [],
         "manual": [

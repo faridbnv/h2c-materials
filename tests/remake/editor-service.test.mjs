@@ -3,10 +3,13 @@
 // the draft, keep drafts across a restart, back up and restore, and prepare a review in the sandbox export folder, never in data/.
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { createServer, request as httpRequest } from 'node:http';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { sha256Of } from '../../packages/data/src/digest.ts';
 import { engineImpact, impactFrom, readReport } from '../../apps/editor/server/impact.ts';
+import { sendImage } from '../../apps/editor/server/service.ts';
 import { columnIndex, copyData, editRecords, realData, realRecords } from './data-helpers.mjs';
 import { dropTemplate } from './write-helpers.mjs';
 import { QUOTE, SOURCE, densityCorrection, startFixture, tensileCorrection } from './editor-helpers.mjs';
@@ -333,4 +336,147 @@ test('the editor is ready within 3 seconds when the workspace is current, and th
   const recorded = JSON.parse(readFileSync(new URL('../../remake/measure/editor.json', import.meta.url), 'utf8'));
   assert.equal(recorded.warm.budgetMs, 3000);
   assert.equal(recorded.warm.withinBudget, true, 'remake/measure/editor.json: the warm start is over budget; rerun npm run editor:measure');
+});
+
+// ---------------------------------------------------------------- M1 review findings 6, 7 and 8
+
+test('a restore that worked but could not reopen says so, and the editor then refuses everything until it is restarted (finding 6)', async () => {
+  const data = copyData();
+  const fx = await startFixture({ dataDir: data.dir });
+  try {
+    const made = (await fx.call('/api/backups', { method: 'POST', body: {} })).json;
+    // The data is hand-edited without its manifest: the restored workspace cannot be opened on it.
+    editRecords(data.dir, 'materials', (rows) => { rows[2][columnIndex('materials', 'Limitations')] = 'Stale manifest.'; }, { keepManifest: false });
+    const restored = (await fx.call('/api/restore', { method: 'POST', body: { name: made.name } })).json;
+    assert.equal(restored.status, 'refused');
+    assert.equal(restored.code, 'restart-needed');
+    assert.match(restored.detail, /The backup was restored, but the editor could not open the workspace again/);
+    assert.match(restored.detail, /must be restarted/);
+    for (const path of ['/api/state', '/api/drafts', '/api/backups']) {
+      const after = await fx.call(path);
+      assert.equal(after.status, 503, path);
+      assert.equal(after.json.error, 'restart-needed', path);
+      assert.match(after.json.message, /must be restarted/);
+    }
+  } finally { await fx.cleanup(); data.cleanup(); }
+}, { timeout: 120_000 });
+
+test('a restore that is refused and cannot reopen says both (finding 6)', async () => {
+  const data = copyData();
+  const fx = await startFixture({ dataDir: data.dir });
+  try {
+    const made = (await fx.call('/api/backups', { method: 'POST', body: {} })).json;
+    const { writeFileSync, readdirSync } = await import('node:fs');
+    // The chosen backup is damaged, so the restore is refused; the data is inconsistent, so the workspace cannot be opened either.
+    const backups = join(fx.sb.dir, 'backups');
+    writeFileSync(join(backups, readdirSync(backups).find((f) => f === made.name)), 'not a database');
+    editRecords(data.dir, 'materials', (rows) => { rows[2][columnIndex('materials', 'Limitations')] = 'Stale manifest.'; }, { keepManifest: false });
+    const restored = (await fx.call('/api/restore', { method: 'POST', body: { name: made.name } })).json;
+    assert.equal(restored.code, 'restart-needed');
+    assert.match(restored.detail, /The restore was refused \(.+\), and the editor could not open the workspace again/);
+  } finally { await fx.cleanup(); data.cleanup(); }
+}, { timeout: 120_000 });
+
+test('after a restore the strip tells what the reopened workspace did: a restore onto data that moved is a rebase, shown (finding 6)', async () => {
+  const data = copyData();
+  const fx = await startFixture({ dataDir: data.dir });
+  try {
+    assert.equal((await fx.call('/api/state')).json.rebased, null, 'a fresh session did no open check work');
+    const made = (await fx.call('/api/backups', { method: 'POST', body: {} })).json;
+    editRecords(data.dir, 'measurements', (rows) => { rows[0][columnIndex('measurements', 'Normalized value')] = '1241'; }); // Git moved
+    const restored = (await fx.call('/api/restore', { method: 'POST', body: { name: made.name } })).json;
+    assert.equal(restored.status, 'restored', JSON.stringify(restored));
+    const state = (await fx.call('/api/state')).json;
+    assert.notEqual(state.rebased, null, 'the reopened workspace rebuilt on the new base, and the strip says so');
+    assert.equal(typeof state.rebased.reason, 'string');
+  } finally { await fx.cleanup(); data.cleanup(); }
+}, { timeout: 120_000 });
+
+test('the editor backs up every ten minutes when something changed, not every hour, and not at all when nothing did (finding 7)', async () => {
+  let clock = Date.parse('2026-10-21T08:00:00.000Z');
+  const minutes = (n) => { clock += n * 60_000; };
+  const fx = await startFixture({ now: () => new Date(clock), backupEveryMs: 600_000 });
+  try {
+    const editor = fx.service.editor;
+    const count = async () => (await fx.call('/api/backups')).json.length;
+    const atStart = await count();
+    assert.equal(atStart, 1, 'one backup when the editor opened');
+    minutes(1);
+    await fx.call('/api/corrections', { method: 'POST', body: await densityCorrection(fx) });
+    minutes(4);
+    assert.equal(await editor.backupIfDue(), null, 'five minutes after the last backup: not due');
+    minutes(6);
+    const made = await editor.backupIfDue();
+    assert.match(made.path, /-hourly\.sqlite$/, 'eleven minutes after it, with a draft since: due');
+    assert.equal(await count(), 2);
+    minutes(30);
+    assert.equal(await editor.backupIfDue(), null, 'and nothing changed since that one');
+    assert.equal(await count(), 2);
+  } finally { await fx.cleanup(); }
+});
+
+test('a page image that cannot be read is the end of that response only: no stat failure becomes a crash, no read failure kills the editor (finding 8)', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'atlas-image-'));
+  const asDirectory = join(dir, 'o-1.png');
+  mkdirSync(asDirectory); // stat works, the read fails with EISDIR once the headers are sent
+  const server = createServer((req, res) => sendImage(res, req.url === '/gone' ? join(dir, 'gone.png') : req.url === '/null' ? null : asDirectory));
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const { port } = server.address();
+  const get = (path) => new Promise((resolve) => {
+    const request = httpRequest({ host: '127.0.0.1', port, path }, (res) => { res.resume(); res.on('end', () => resolve({ status: res.statusCode, ended: true })); res.on('error', () => resolve({ status: res.statusCode, ended: false })); res.on('close', () => resolve({ status: res.statusCode, ended: false })); });
+    request.on('error', () => resolve({ status: null, ended: false }));
+    request.end();
+  });
+  const crashes = [];
+  const onUncaught = (error) => crashes.push(error);
+  process.on('uncaughtException', onUncaught);
+  try {
+    assert.equal((await get('/gone')).status, 404, 'a file that vanished after the lookup is a missing page');
+    assert.equal((await get('/null')).status, 404);
+    const unreadable = await get('/dir');
+    assert.equal(unreadable.ended, false, 'the response is cut off, not completed');
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    assert.deepEqual(crashes, [], 'and nothing was thrown out of the stream');
+    assert.equal((await get('/gone')).status, 404, 'the server is still answering');
+  } finally {
+    process.off('uncaughtException', onUncaught);
+    server.closeAllConnections();
+    await new Promise((resolve) => server.close(resolve));
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('a worker that stops after its replacement started does not reject the replacement\'s requests or drop it (finding 10)', async () => {
+  const made = [];
+  const fake = () => {
+    const handlers = {};
+    const worker = { posted: [], on: (event, fn) => { handlers[event] = fn; }, postMessage(m) { worker.posted.push(m); }, terminate() {}, unref() {}, handlers };
+    made.push(worker);
+    return worker;
+  };
+  const provider = engineImpact(realData, undefined, fake);
+  assert.equal(provider.unavailable, null);
+  const records = [{ id: 'r' }];
+  const report = { summary: { moved: 0 } };
+
+  const first = provider.preview(records);
+  assert.equal(made.length, 1);
+  made[0].handlers.error(new Error('boom'));
+  assert.equal((await first).status, 'failed', 'the first worker\'s own error ends its own request');
+
+  const second = provider.preview(records);
+  assert.equal(made.length, 2, 'a new worker took over');
+  made[0].handlers.exit(1); // the first worker's late exit
+  made[0].handlers.error(new Error('late'));
+  const third = provider.preview(records); // must still go to the second worker, not start a third
+  assert.equal(made.length, 2, 'the late events did not drop the current worker');
+  made[1].handlers.message({ id: made[1].posted[0].id, report });
+  made[1].handlers.message({ id: made[1].posted[1].id, report });
+  assert.equal((await second).status, 'ready', 'and did not reject its request');
+  assert.equal((await third).status, 'ready');
+
+  const pending = provider.preview(records);
+  provider.close();
+  assert.equal((await pending).status, 'failed', 'closing ends what is waiting');
+  made[1].handlers.exit(0); // after close: nothing left to end, and no throw
 });

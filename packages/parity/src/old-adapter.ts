@@ -3,6 +3,7 @@
 // scripts/trace.mjs pageContext, the decision census and the snapshot do. A test pins it to trace.mjs pageContext.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { canon, composite, isAtom, notComputable } from './canon.ts';
 import type { Decoded, EngineModules } from './engine-copy.ts';
 import { ENGINE_DIR, REPO_ROOT, copyEngine, loadEngine } from './engine-copy.ts';
@@ -10,6 +11,8 @@ import type { Patch } from './engine-copy.ts';
 import type { Adapter, CorpusCase, CorpusScenario, LinkOpening, LinkRequest, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 type Rows = Record<string, any>[];
+/** A row of the live table: what ui/table.js sortRows takes and gives back. */
+interface TableRow { material: unknown; evaluation: { materialId: string } }
 export type Db = Record<string, any> & { meta: any; materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
 
 export const defaultDbPath = (): string => join(REPO_ROOT, 'dist', 'db.json');
@@ -48,7 +51,8 @@ export interface OldAdapterOptions {
 export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter> {
   const { db } = opts;
   const engine: EngineModules = await loadEngine(opts.engineDir ?? ENGINE_DIR);
-  const { runSelection, GROUP_ORDER, TREATMENT } = engine.constraints;
+  const { runSelection, TREATMENT } = engine.constraints;
+  const { sortRows }: { sortRows: (rows: TableRow[], state: object) => TableRow[] } = await import(pathToFileURL(join(REPO_ROOT, 'app', 'js', 'ui', 'table.js')).href);
   const { productsByMaterial } = engine.products;
   const { INDICES, rankingFor } = engine.indices;
   const mats = db.materials.filter((m) => !m.familyEntry);
@@ -62,7 +66,6 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     measurementById: byId(db.measurements),
     gradeById: byId(db.grades),
   };
-  const groupRank = new Map<string, number>((GROUP_ORDER as string[]).map((g, i) => [g, i]));
 
   const contextFor = (s: CorpusCase['scenario']) => {
     const useEstimates = s.unknownPolicy === 'exploration' && s.useEstimates !== false;
@@ -110,19 +113,11 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
       return { evidence, wording };
     };
 
-    // The listing order the table uses (ui/table.js sortRows): by group; inside "not enough data", likely first, then nearest.
-    const order = evaluations.map((_: unknown, i: number) => i);
-    if (scenario.unknownPolicy === 'exploration' && constraints.length) {
-      const at = (e: any) => groupRank.get(e.group) ?? 0;
-      const near = (a: number, b: number) => (a < b ? -1 : a > b ? 1 : 0);
-      order.sort((i: number, j: number) => {
-        const a = evaluations[i], b = evaluations[j];
-        return at(a) - at(b) || (a.group === 'not-enough-data' ? (Number(!!b.likely) - Number(!!a.likely)) || near(a.shortfall ?? 0, b.shortfall ?? 0) : 0);
-      });
-    }
-    const listingRank = new Map<string, number>(order.map((idx: number, place: number) => [evaluations[idx].materialId, place + 1]));
-
+    // The listing order is the live table's own: ui/table.js sortRows (imported read-only), called with the state a page opens on (the corpus asks no goal, so nothing is ranked by one).
     const rows = evaluations.map((e: any) => ({ material: matOf.get(e.materialId), evaluation: e }));
+    const shown = sortRows(rows, { scenario: { ...scenario, rankBy: null }, sort: { key: 'name', dir: 'asc' }, columnSet: 'properties', ctx, sortOverride: false });
+    const listingRank = new Map<string, number>(shown.map((row, place) => [row.evaluation.materialId, place + 1]));
+
     const places = new Map<string, Record<string, Value>>();
     for (const index of INDICES) {
       const ranking = rankingFor(rows, ctx, index);

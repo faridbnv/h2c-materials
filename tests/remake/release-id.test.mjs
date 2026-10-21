@@ -79,6 +79,7 @@ test('what only draws the page, the impact preview, the command line and operati
   writeFileSync(join(b, 'packages/domain/src/.DS_Store'), 'litter');
   writeFileSync(join(b, 'packages/engine/src/cli.ts'), 'changed\n');
   writeFileSync(join(b, 'packages/engine/src/impact/preview.ts'), 'changed\n');
+  writeFileSync(join(b, 'packages/engine/src/impact/base-worker.ts'), 'changed\n');
   mkdirSync(join(b, 'apps/public/src'), { recursive: true });
   writeFileSync(join(b, 'apps/public/src/App.vue'), '<template></template>\n');
   assert.equal(releaseIdentity(b).id, base.id);
@@ -104,5 +105,59 @@ test('npm run release:id prints the ID alone; --json prints the parts', () => {
   assert.equal(plain.stdout.trim(), releaseIdentity(root).id);
   const json = JSON.parse(run('--json').stdout);
   assert.equal(json.id, plain.stdout.trim());
-  assert.deepEqual(Object.keys(json.inputs), ['data', 'schema', 'rules', 'engine', 'dependencies', 'runtime']);
+  assert.deepEqual(Object.keys(json.inputs), ['data', 'schema', 'rules', 'engine', 'view', 'questions', 'dependencies', 'runtime']);
+});
+
+/** Append a comment to one file of a fresh checkout and give the part digests that moved. */
+function movedBy(dir, file) {
+  const b = fresh(dir);
+  writeFileSync(join(b, file), `${readFileSync(join(b, file), 'utf8')}\n// edit\n`);
+  const changed = releaseIdentity(b);
+  return { id: changed.id, moved: Object.keys(base.inputs).filter((k) => changed.inputs[k] !== base.inputs[k]) };
+}
+
+test('the question /v3/ asks and how its snapshot is compiled are inputs: CASE_ID and the compile options change the ID', () => {
+  const b = fresh('q1');
+  const file = join(b, 'apps/public/tools/make-data.ts');
+  const text = readFileSync(file, 'utf8');
+  assert.match(text, /CASE_ID = 'template\/outdoor-structural-part\/strict'/);
+  assert.match(text, /compileSnapshot\(snapshot, \{ estimates: false \}\)/);
+  writeFileSync(file, text.replace("outdoor-structural-part/strict", "outdoor-structural-part/lenient"));
+  const asked = releaseIdentity(b);
+  assert.notEqual(asked.id, base.id);
+  assert.notEqual(asked.inputs.view, base.inputs.view);
+  writeFileSync(file, text.replace('{ estimates: false }', '{ estimates: true }'));
+  const compiled = releaseIdentity(b);
+  assert.notEqual(compiled.id, base.id);
+  assert.notEqual(compiled.id, asked.id);
+});
+
+test('the compile, case and stage files of the impact module, the corpus and the words layer are inputs', () => {
+  for (const [dir, file, part] of [
+    ['i1', 'packages/engine/src/impact/compile.ts', 'engine'],
+    ['i2', 'packages/engine/src/impact/cases.ts', 'engine'],
+    ['i3', 'packages/engine/src/impact/stage.ts', 'engine'],
+    ['i4', 'app/js/ui/labels.js', 'engine'],
+    ['i5', 'app/js/ui/registry.js', 'engine'],
+    ['i9', 'app/js/ui/table.js', 'engine'],
+    ['i6', 'packages/data/src/db-contract.ts', 'engine'],
+    ['i7', 'apps/public/tools/build.ts', 'view'],
+  ]) {
+    const { id, moved } = movedBy(dir, file);
+    assert.notEqual(id, base.id, `${file} decides an answer`);
+    assert.deepEqual(moved, [part], file);
+  }
+  const b = fresh('i8');
+  const corpus = join(b, 'parity/corpus/v0.json');
+  writeFileSync(corpus, `${readFileSync(corpus, 'utf8')} `);
+  assert.notEqual(releaseIdentity(b).id, base.id);
+});
+
+test('the write service alone is not an input: a change to its workspace, export or command code keeps the ID', () => {
+  const b = fresh('w1');
+  for (const file of ['workspace.ts', 'export.ts', 'write.ts', 'cli.ts', 'replay.ts', 'rebuild.ts']) {
+    // the checkout holds only the inputs, so the write service's file is put there, edited: present or changed, it is no input
+    writeFileSync(join(b, 'packages/data/src', file), `${readFileSync(join(root, 'packages/data/src', file), 'utf8')}\n// edit\n`);
+  }
+  assert.equal(releaseIdentity(b).id, base.id);
 });

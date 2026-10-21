@@ -106,7 +106,7 @@ async function restore(name: string): Promise<void> {
       <h3 id="backup-h">Backups</h3>
       <div class="row">
         <button class="btn" type="button" @click="backUp">Back up now</button>
-        <span class="hint">Last backup {{ when(workspace?.lastBackupAt ?? null) }}. The editor also backs up every ten minutes and before anything risky.</span>
+        <span class="hint">Last backup {{ when(workspace?.lastBackupAt ?? null) }}. While you work, the editor backs up every ten minutes if something changed, and before anything risky.</span>
       </div>
       <p v-if="note" class="banner ok" role="status">{{ note }}</p>
       <table v-if="backups.length">

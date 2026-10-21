@@ -6,13 +6,13 @@
 // the materials, the evaluations of runSelection, the rankings of rankingFor. The scenario's own requirement objects go
 // into the engine (it matches them by identity); the results come back with `constraintId` beside them.
 import type { Db } from '@atlas/data';
-import { GROUP_ORDER } from '@atlas/domain';
 import type { ConstraintId, EngineInput, Evaluation, MaterialId, ReleaseId, RowResult, ScenarioV2 } from '@atlas/domain';
 import { toEvaluation } from './boundary.ts';
 import { indexConstraints } from './constraint-ids.ts';
 import { BoundaryError, materialIdOf, releaseIdOf } from './guards.ts';
 import { defaultEngine } from './old-engine.ts';
 import type { OldEngine, RawContext, RawEvaluation, RawMaterial } from './old-engine.ts';
+import { defaultTableState, sortRows } from './old-table.ts';
 import { rowsOf } from './rows.ts';
 
 export type SelectionCounts = { readonly pass: number; readonly fail: number; readonly unknown: number; readonly screened: number; readonly total: number };
@@ -32,7 +32,7 @@ export type EngineOutput = {
   readonly evaluations: readonly Evaluation[];
   readonly counts: SelectionCounts;
   readonly candidates: readonly MaterialId[];
-  /** In the engine's order: each material, followed by its products. `listingRank` gives the table's order. */
+  /** In the engine's order: each material, followed by its products. `listingRank` gives the live table's default order (old-table.ts). */
   readonly rows: readonly RowResult[];
   readonly rankings: readonly IndexRanking[];
 };
@@ -72,26 +72,6 @@ function releaseOf(db: Db, asked: string | undefined): ReleaseId {
   const id = own ?? asked;
   if (id === undefined) throw new BoundaryError('no release: the database carries none and none was given');
   return releaseIdOf(id);
-}
-
-function compareNumbers(a: number, b: number): number {
-  if (a < b) return -1;
-  return a > b ? 1 : 0;
-}
-
-/** The table's order (ui/table.js sortRows): by group; inside "not enough data" likely first, then the nearest. Stable, so ties keep the engine's order. */
-function listingRanks(evaluations: readonly Evaluation[], explore: boolean, hasRequirements: boolean): Map<MaterialId, number> {
-  const order = [...evaluations];
-  if (explore && hasRequirements) {
-    const groupPlace = (e: Evaluation): number => Math.max(GROUP_ORDER.indexOf(e.group), 0);
-    order.sort((a, b) => {
-      const byGroup = groupPlace(a) - groupPlace(b);
-      if (byGroup !== 0) return byGroup;
-      if (a.group !== 'not-enough-data') return 0;
-      return Number(b.likely) - Number(a.likely) || compareNumbers(a.shortfall ?? 0, b.shortfall ?? 0);
-    });
-  }
-  return new Map(order.map((e, place) => [e.materialId, place + 1]));
 }
 
 export function createContext(db: Db, scenario: ScenarioV2, options: EngineOptions = {}): EngineContext {
@@ -141,7 +121,9 @@ export function createContext(db: Db, scenario: ScenarioV2, options: EngineOptio
         unranked: ranking.unranked.map((u) => materialIdOf(u.materialId)),
       }];
     });
-    const ranks = listingRanks(evaluations, policy === 'exploration', scenario.constraints.length > 0);
+    // The table's order, from the table's own sortRows with the state a page opens on (by name; by group when asked in exploration).
+    const shown = sortRows(rows, defaultTableState({ unknownPolicy: policy, constraints: scenario.constraints, rankBy: scenario.rankBy }, ctx));
+    const ranks = new Map(shown.map((row, place) => [row.evaluation.materialId, place + 1]));
     return {
       release, constraintIds: constraintIndex.ids, evaluations, counts: selection.counts,
       candidates: selection.candidates.map((e) => materialIdOf(e.materialId)),
