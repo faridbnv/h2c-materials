@@ -1,13 +1,56 @@
 {
   "id": "WP-22",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-22-browser",
+  "pr": 34,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run browser:compare",
+      "result": "pass",
+      "code": 0,
+      "note": "old CDP harness and the Playwright old-adapter run on one build, each alone: 114 views byte-equal to build/snapshot/ui; 300 scenarios seed 1, 916,201 checks in 45 invariants identical, 0 violations; with FZ_MUTATE=rows both fail with 734 violations on the same invariants. remake/measure/browser/old-vs-port.json"
+    },
+    {
+      "cmd": "npm run test:browser:full -- --record",
+      "result": "pass",
+      "code": 0,
+      "note": "110 pass, 0 fail, 44 named SKIPPED (new selector, WP-26), 0 not run; 228 views, 600 scenarios, 40 axe pages, under /h2c-materials/ and /h2c-material-temp-page/, retries 0; 837 s. remake/measure/browser/full.json"
+    },
+    {
+      "cmd": "npm run test:browser -- --record",
+      "result": "pass",
+      "code": 0,
+      "note": "fast subset: 66 pass, 0 fail, 30 named SKIPPED, 245 s"
+    },
+    {
+      "cmd": "node --test tests/remake/browser-harness.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "14 tests: server, verdict, skips, views, adapters, watch, reporter"
+    },
+    {
+      "cmd": "axe per lens and page",
+      "result": "pass",
+      "code": 0,
+      "note": "remake/measure/axe/<base>/: 20 pages, 28 violated rules in 97 places (reported, not blocking, OQ-15 B)"
+    },
+    {
+      "cmd": "remake/measure/perf-old.json",
+      "result": "pass",
+      "code": 0,
+      "note": "old site boot: 4.65 MB gzip, first results 0.85 s, 3.1 s at 4x CPU throttle"
+    },
+    {
+      "cmd": "3 consecutive green CI runs with retries 0",
+      "result": "not-run",
+      "note": "dropped to one green run with retries 0 (coordinator); the CI step is not added (owner path next-verify.yml)"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "note": "Playwright 1.64.1 over HTTP, Chromium, two base paths; page adapters old and new; axe 4.13.0 pinned exactly"
 }

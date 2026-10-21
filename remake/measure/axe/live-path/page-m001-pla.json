@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "page": "page-m001-pla",
+  "title": "material page: m001-pla",
+  "adapter": "old",
+  "project": "live-path",
+  "path": "/h2c-materials/materials/M001.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 1,
+    "violatingNodes": 10,
+    "byImpact": {
+      "serious": 10
+    },
+    "passedRules": 49,
+    "incompleteRules": 1,
+    "inapplicableRules": 41
+  },
+  "violations": [
+    {
+      "rule": "nested-interactive",
+      "impact": "serious",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=playwright",
+      "tags": [
+        "wcag2a",
+        "wcag412"
+      ],
+      "nodes": 10,
+      "examples": [
+        {
+          "target": ".st-row[data-unit=\"MPa\"]:nth-child(1) > .st-svg[height=\"104.19999999999999\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"104.19999999999999\" role=\"img\" aria-label=\"Tensile strength (XY): 140 products drawn; median of the 83 it counts 45 MPa"
+        },
+        {
+          "target": "div[data-unit=\"GPa\"] > .st-svg[height=\"104.19999999999999\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"104.19999999999999\" role=\"img\" aria-label=\"Tensile modulus (XY): 107 products drawn; median of the 61 it counts 2.58 GP"
+        },
+        {
+          "target": "svg[height=\"87\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"87\" role=\"img\" aria-label=\"Tensile strength (Z): 43 products drawn; median of the 40 it counts 30.3 MPa, middle half 22"
+        },
+        {
+          "target": "div[data-unit=\"%\"] > .st-svg[height=\"104.19999999999999\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"104.19999999999999\" role=\"img\" aria-label=\"Elongation at break (XY): 121 products drawn; median of the 73 it counts 6.3"
+        },
+        {
+          "target": "svg[height=\"95.6\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"95.6\" role=\"img\" aria-label=\"Notched Charpy impact: 45 products drawn; median of the 14 it counts 6 kJ/m², middle half "
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "rule": "color-contrast",
+      "nodes": 170
+    }
+  ]
+}

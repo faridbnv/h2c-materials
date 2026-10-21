@@ -251,7 +251,10 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
 
     const date = ws.now().toISOString().slice(0, 10);
     const schemaEdited = model.digest !== BASE_MODEL.digest;
-    const hash = sha256Of(JSON.stringify({ title: options.title, base: stamp.snapshotDigest, result: resultDigest, ops: records.map((r) => r.opId), ...(schemaEdited ? { schema: model.digest } : {}) })).slice(0, 4);
+    // The ID names the records themselves (their digest), not only the operations: a rebase replays the same operations onto a new base
+    // with a new time and a new base commit, and a set with the same ID and other content would be refused as immutable (M1 finding 9).
+    const recordsDigest = sha256Of(JSON.stringify(records));
+    const hash = sha256Of(JSON.stringify({ title: options.title, base: stamp.snapshotDigest, result: resultDigest, ops: records.map((r) => r.opId), records: recordsDigest, ...(schemaEdited ? { schema: model.digest } : {}) })).slice(0, 4);
     const id = `${date}-${options.topic}-${hash}`;
     if (!isChangeSetId(id)) throw new ExportRefusedError('bad-topic', `${id} is not a change set ID`);
     const changeSet: ChangeSet = {

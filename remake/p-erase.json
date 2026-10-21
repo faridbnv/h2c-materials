@@ -236,6 +236,88 @@
     {
       "old": "app/js/engine/workspace.js",
       "new": "packages/engine/src/port/workspace.ts"
+    },
+    {
+      "old": "build/src/estimate/anchor.js",
+      "new": "packages/build/src/estimate/anchor.ts"
+    },
+    {
+      "old": "build/src/estimate/bounds.js",
+      "new": "packages/build/src/estimate/bounds.ts"
+    },
+    {
+      "old": "build/src/estimate/calibration.js",
+      "new": "packages/build/src/estimate/calibration.ts"
+    },
+    {
+      "old": "build/src/estimate/conversions.js",
+      "new": "packages/build/src/estimate/conversions.ts"
+    },
+    {
+      "old": "build/src/estimate/directions.js",
+      "new": "packages/build/src/estimate/directions.ts"
+    },
+    {
+      "old": "build/src/estimate/floors.js",
+      "new": "packages/build/src/estimate/floors.ts"
+    },
+    {
+      "old": "build/src/estimate/gaussian.js",
+      "new": "packages/build/src/estimate/gaussian.ts"
+    },
+    {
+      "old": "build/src/estimate/grades.js",
+      "new": "packages/build/src/estimate/grades.ts"
+    },
+    {
+      "old": "build/src/estimate/index.js",
+      "new": "packages/build/src/estimate/index.ts"
+    },
+    {
+      "old": "build/src/estimate/model.js",
+      "new": "packages/build/src/estimate/model.ts",
+      "rewrites": [
+        {
+          "from": "'../../mappings/estimate-model.json'",
+          "to": "'../../../../build/mappings/estimate-model.json'"
+        },
+        {
+          "from": "'../../../schema/estimate-model.schema.json'",
+          "to": "'../../../../schema/estimate-model.schema.json'"
+        }
+      ]
+    },
+    {
+      "old": "build/src/estimate/numerics.js",
+      "new": "packages/build/src/estimate/numerics.ts"
+    },
+    {
+      "old": "build/src/estimate/observations.js",
+      "new": "packages/build/src/estimate/observations.ts"
+    },
+    {
+      "old": "build/src/estimate/order.js",
+      "new": "packages/build/src/estimate/order.ts"
+    },
+    {
+      "old": "build/src/estimate/print.js",
+      "new": "packages/build/src/estimate/print.ts"
+    },
+    {
+      "old": "build/src/estimate/product-screening.js",
+      "new": "packages/build/src/estimate/product-screening.ts"
+    },
+    {
+      "old": "build/src/estimate/screening.js",
+      "new": "packages/build/src/estimate/screening.ts"
+    },
+    {
+      "old": "build/src/estimate/solver.js",
+      "new": "packages/build/src/estimate/solver.ts"
+    },
+    {
+      "old": "build/src/estimate/validate.js",
+      "new": "packages/build/src/estimate/validate.ts"
     }
   ]
 }

@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "page": "public-results",
+  "title": "public view: results",
+  "adapter": "new",
+  "project": "preview-path",
+  "path": "/h2c-material-temp-page/v3/",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 1,
+    "violatingNodes": 1,
+    "byImpact": {
+      "moderate": 1
+    },
+    "passedRules": 44,
+    "incompleteRules": 1,
+    "inapplicableRules": 45
+  },
+  "violations": [
+    {
+      "rule": "landmark-unique",
+      "impact": "moderate",
+      "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=playwright",
+      "tags": [
+        "best-practice"
+      ],
+      "nodes": 1,
+      "examples": [
+        {
+          "target": "#results",
+          "html": "<section id=\"results\" aria-labelledby=\"materials\">"
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "rule": "th-has-data-cells",
+      "nodes": 1
+    }
+  ]
+}

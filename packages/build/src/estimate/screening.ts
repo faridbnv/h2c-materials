@@ -1,0 +1,144 @@
+// Screening (DECISIONS D48, D59): when an estimate may remove a material from Explore.
+//
+// A screen removes a material whose range wholly fails a requirement. It is wrong only when the true value lies beyond
+// the end of the range the requirement tests: above the top for a minimum ("at least 3 GPa"), below the bottom for a
+// maximum. So each end is set, and judged, on its own:
+//
+//   Every build hides every material's typical product's value as far as an evidence class requires (this grade, this
+//   material, the family model), predicts it honestly (calibration.js makeHoldOut), and records where the true value fell in the
+//   prediction. Each end of the class's screening ranges is placed at a distribution-free tolerance limit of those
+//   positions: the r-th most extreme, with r the largest count for which a new true value lies beyond the end at most
+//   screening.maxWrongRate of the time with screening.confidence (Wilks). The end is never inside the plausible range
+//   the reader sees, and moves outwards only where the back-test shows the model's tail is too thin. A class with too few
+//   cases to show it (22 at 10% and 90%) cannot screen on its own.
+//   An end its class cannot set screens only where the family model's end agrees: their union.
+//   An end the material's own evidence lies beyond never screens: the model may not overrule the material's own sheet.
+//
+// What the guarantee assumes: a material whose headline is missing is like the measured ones its class was back-tested on
+// (exchangeable), and the positions come from calibrated hold-out ranges without the material's own published bounds,
+// while an estimate's own range uses them. It holds per end at 90% confidence, so of the thirty or so ends a build sets,
+// about three may be expected to exceed 10%.
+
+import { binomialTail, exceeds } from './numerics.ts';
+import { HEAD, sig3, measuredHeadline } from './model.ts';
+import type { Dyn } from '../types.ts';
+
+const pct = (x: Dyn) => `${Math.round(x * 1000) / 10}%`;
+const ordinal = (r: Dyn) => ['largest', 'second largest', 'third largest'][r - 1] ?? `${r}th largest`;
+const SIDES: Dyn = { above: { end: 'hi', noun: 'top', requirement: 'a minimum requirement' }, below: { end: 'lo', noun: 'bottom', requirement: 'a maximum requirement' } };
+
+/**
+ * The tolerance limit of n scores (larger is more extreme): the r-th largest, with r the largest count such that at
+ * least r of n draws beyond the limit's content has probability at least `confidence`. Null when n is too small for
+ * any r. Distribution-free for exchangeable scores: P(content >= 1 - maxWrongRate) = P(Binomial(n, maxWrongRate) >= r).
+ */
+export function toleranceRank(n: Dyn, { maxWrongRate, confidence }: Dyn) {
+  let r = 0;
+  while (r < n && binomialTail(n, maxWrongRate, r + 1) >= confidence) r++;
+  return r || null;
+}
+
+/** The fewest cases that can set a tolerance limit at all: 1 - (1 - maxWrongRate)^n >= confidence. */
+export const minimumCases = ({ maxWrongRate, confidence }: Dyn) => Math.ceil(Math.log(1 - confidence) / Math.log(1 - maxWrongRate));
+
+/**
+ * One end of a class's screening ranges. cases: [{ u, beyond: { above, below } }], where u is where the true value fell in
+ * its prediction (0 to 1) and beyond says whether it lay outside the plausible range on each side. nominal: the
+ * plausible range's upper probability (0.975). Returns the probability at which the end is taken (`quantile`: for the
+ * top, the upper probability; for the bottom, the lower one) or certified: false.
+ */
+export function toleranceSide(cases: Dyn, side: Dyn, cfg: Dyn, nominal: Dyn) {
+  const n = cases.length;
+  const beyond = cases.filter((c: Dyn) => c.beyond[side]).length;
+  const conf = Math.round(cfg.confidence * 100);
+  const r = toleranceRank(n, cfg);
+  const base = { held: n, beyondPlausible: beyond };
+  if (!r) return { ...base, rank: null, quantile: null, certified: false, why: `only ${n} back-tested cases; ${minimumCases(cfg)} are needed to show at ${conf}% confidence that at most ${pct(cfg.maxWrongRate)} of true values lie ${side} an end` };
+  const scores = cases.map((c: Dyn) => (side === 'above' ? c.u : 1 - c.u)).sort((a: Dyn, b: Dyn) => b - a);
+  const t = scores[r - 1];
+  if (t >= 1 - 1e-6) return { ...base, rank: r, quantile: null, certified: false, why: `${beyond} of ${n} true values lay ${side} the plausible range, some beyond anything the model reaches` };
+  const upper = Math.max(nominal, t);
+  const quantile = Number((side === 'above' ? upper : 1 - upper).toPrecision(6));
+  const widened = t > nominal;
+  return {
+    ...base, rank: r, quantile, certified: true,
+    why: `${beyond} of ${n} true values lay ${side} the plausible range; its ${SIDES[side].noun} is taken at the ${Math.round(quantile * 10000) / 100}% point${widened ? ', wider than the plausible range,' : ''} so that at ${conf}% confidence at most ${pct(cfg.maxWrongRate)} of true values lie ${side} it`,
+  };
+}
+
+/** Both ends of a class. `certified` is true when either end may screen. */
+export function certifyScreening(cases: Dyn, cfg: Dyn, nominal: Dyn) {
+  const above = toleranceSide(cases, 'above', cfg, nominal), below = toleranceSide(cases, 'below', cfg, nominal);
+  return { held: cases.length, above, below, certified: above.certified || below.certified };
+}
+
+/**
+ * The screening back-test: hide what each evidence class lacks from every measured headline, predict it honestly, and
+ * set each end of the class's screening ranges from where the true values fell.
+ */
+export function backTest({ key, model, S, obs, tmMean, rangeFor, holdOut }: Dyn) {
+  const nominal = 0.5 + model.levels.plausible / 2;
+  const classCases: Dyn = { 'this-grade': [], 'this-material': [], family: [] };
+  for (const m of S.pool) {
+    const t = measuredHeadline(m, key);
+    if (!t) continue;
+    const f = S.fkey(t.gradeId);
+    const headline = obs.map((o: Dyn, i: Dyn) => (o.m.id === m.id && o.f === f && o.kind === HEAD[key] ? i : -1)).filter((i: Dyn) => i >= 0);
+    if (!headline.length) continue;
+    const rest = obs.map((o: Dyn, i: Dyn) => ((o.m.id === m.id || o.f === f) && !headline.includes(i) ? i : -1)).filter((i: Dyn) => i >= 0);
+    const manufacturer = S.grades.get(t.gradeId)?.manufacturer;
+    const held = (hide: Dyn, wholeMaterial: Dyn = false) => {
+      const p = holdOut(m, f, manufacturer, hide, { wholeMaterial });
+      p.mu += tmMean(m);
+      // Own published bounds are left out: in the back-test they would be the hidden evidence itself.
+      const { wide, cdf } = rangeFor(m, m, p, t.unit, { ownBounds: false, formulation: f });
+      return { materialId: m.id, u: cdf(t.value), beyond: { above: exceeds(t.value, wide[1]), below: exceeds(wide[0], t.value) } };
+    };
+    // This grade: its other published kinds remain. This material: the whole grade is hidden, its other grades
+    // remain. Family: everything of the material and its product is hidden.
+    const sameGrade = rest.filter((i: Dyn) => obs[i].f === f), otherGrades = rest.filter((i: Dyn) => obs[i].f !== f);
+    if (sameGrade.length) classCases['this-grade'].push(held(headline));
+    if (otherGrades.length) classCases['this-material'].push(held([...headline, ...sameGrade]));
+    classCases.family.push(held([...headline, ...rest], true));
+  }
+  return Object.fromEntries(Object.entries<Dyn>(classCases).map(([c, cases]: Dyn) => [c, certifyScreening(cases, model.screening, nominal)]));
+}
+
+/**
+ * The range that decides a screen, end by end. at(q): the estimate's quantile q; familyAt(q): the family-only
+ * prediction's quantile q, the material's own evidence hidden, computed only when needed; own: the material's own
+ * observations converted to the headline, [{ value, bound: 'lower' | 'upper' | undefined, measurementId }].
+ */
+export function screenDecision({ strength, certification, at, familyAt, own, unit }: Dyn) {
+  const ends: Dyn = {}, basis = [], limits = [];
+  for (const [side, { end, noun, requirement }] of Object.entries<Dyn>(SIDES)) {
+    const mine = certification[strength][side], fam = certification.family[side];
+    let value: Dyn = null, why = null;
+    if (mine.certified) {
+      value = at(mine.quantile);
+      why = `its ${noun} screens ${requirement}: ${strength} estimates, ${mine.why}`;
+    } else if (strength !== 'family' && fam.certified) {
+      const familyEnd = familyAt(fam.quantile);
+      value = end === 'lo' ? Math.min(at(fam.quantile), familyEnd) : Math.max(at(fam.quantile), familyEnd);
+      why = `its ${noun} screens ${requirement} only where the family model's ${noun} (${sig3(familyEnd, end === 'lo' ? -1 : 1)} ${unit}) agrees: ${strength} estimates cannot set it (${mine.why}); family estimates, ${fam.why}`;
+    } else {
+      limits.push(`it cannot screen ${requirement}: ${strength === 'family' ? 'family-model estimates' : `neither ${strength} nor family-model estimates`} of this property can set its ${noun} (${(strength === 'family' ? fam : mine).why})`);
+    }
+    // The material's own evidence beyond the end: the model may not screen against the material's own sheet.
+    if (value != null) {
+      const beyond = own.find((o: Dyn) => (side === 'above' ? o.value > value && o.bound !== 'upper' : o.value < value && o.bound !== 'lower'));
+      if (beyond) {
+        limits.push(`it cannot screen ${requirement}: ${beyond.measurementId ? 'one of its own values' : 'its nominal hardness'} (${sig3(beyond.value)} ${unit}, converted to this property) lies ${side} the range the model would screen on`);
+        value = null;
+      } else basis.push(why);
+    }
+    ends[end] = value == null ? null : sig3(value, end === 'lo' ? -1 : 1);
+  }
+  const canScreen = ends.lo != null || ends.hi != null;
+  return {
+    canScreen,
+    screenRange: canScreen ? { lo: ends.lo, hi: ends.hi } : null,
+    screenBasis: basis.length ? `${basis.join('; ')}.` : null,
+    screenLimit: limits.length ? `${limits.join('; ')}.` : null,
+  };
+}

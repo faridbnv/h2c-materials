@@ -42,6 +42,7 @@ const WORDS: Readonly<Record<RefusalCode | EditorRefusalCode, string>> = {
   'not-found': 'That is no longer there.',
   'export-refused': 'The review could not be prepared.',
   busy: 'The workspace is in use. Try again in a moment.',
+  'restart-needed': 'The editor could not open the workspace again. Stop it and start it again (npm run editor): your drafts and backups are safe on disk.',
 };
 
 export const explain = (code: RefusalCode | EditorRefusalCode): string => WORDS[code];

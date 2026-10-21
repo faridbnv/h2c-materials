@@ -45,14 +45,14 @@ export function raw(port, { method = 'GET', path = '/', headers = {}, body } = {
 }
 
 /** The editor service on a cloned sandbox workspace and the fixture store; `call` sends a correct, authorised request. */
-export async function startFixture({ dataDir, impact, store = true, backupEveryMs = 0 } = {}) {
+export async function startFixture({ dataDir, impact, store = true, backupEveryMs = 0, now } = {}) {
   const sb = await scratch({ dataDir, store: null });
   sb.ws.close();
   const files = store ? makeStore() : null;
   // `env: {}` so that a test never reads the owner's real private store.
   const options = {
     workspaceDir: sb.dir, backupEveryMs, env: {},
-    ...(dataDir === undefined ? {} : { dataDir }), ...(files === null ? {} : { sourceStore: files.dir }), ...(impact === undefined ? {} : { impact }),
+    ...(dataDir === undefined ? {} : { dataDir }), ...(files === null ? {} : { sourceStore: files.dir }), ...(impact === undefined ? {} : { impact }), ...(now === undefined ? {} : { now }),
   };
   const fixture = { sb, files, options, service: await startService(options) };
   fixture.call = (path, { method = 'GET', body, headers = {} } = {}) => {

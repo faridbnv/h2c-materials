@@ -33,8 +33,10 @@ export interface EditorOptions {
   readonly env?: NodeJS.ProcessEnv;
   /** The impact preview (default: WP-11's, when it is on this branch). */
   readonly impact?: ImpactProvider;
-  /** Make a backup this often while the editor runs (default every ten minutes; 0 for never). */
+  /** Make a backup this often while the editor runs, when something changed since the last one (default every ten minutes; 0 for never). */
   readonly backupEveryMs?: number;
+  /** The clock the workspace names its backups by (tests); default the system's. */
+  readonly now?: () => Date;
 }
 
 /** A request the editor turned down for its own reason, or the write service's refusal code. */
@@ -45,6 +47,20 @@ const refuse = (code: EditorRefusalCode, detail: string): Refusal => ({ status: 
 export type Resolution = { readonly status: 'applied' | 'discarded' } | Refusal;
 
 const messageOf = (error: unknown): string => (error instanceof Error ? error.message : String(error));
+
+/** Thrown for every request after the workspace could not be opened again: the service answers 503 `restart-needed` until the editor is restarted. */
+export class RestartNeeded extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'RestartNeeded';
+  }
+}
+
+const rebasedOf = (ws: Workspace): WorkspaceState['rebased'] =>
+  (ws.rebased === null ? null : { reason: ws.rebased.reason, applied: ws.rebased.applied, merged: ws.rebased.merged, conflicts: ws.rebased.conflicts.length });
+
+/** How often the editor makes a backup while something has changed. The interface says the same. */
+export const DEFAULT_BACKUP_EVERY_MS = 600_000;
 
 const BACKUP_NAME = /^atlas-(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})(\d{3})Z-([a-z-]+?)(?:-\d+)?\.sqlite$/;
 
@@ -71,20 +87,24 @@ export class Editor {
   readonly impact: ImpactProvider;
   #ws: Workspace;
   readonly #wsOptions: WorkspaceOptions;
-  readonly #rebased: WorkspaceState['rebased'];
+  #rebased: WorkspaceState['rebased'];
+  readonly #backupEveryMs: number;
+  /** Set when a restore left no workspace to work on; every later request is refused with it. */
+  #restartNeeded: string | null = null;
   readonly #dataDir: string;
   #tail: Promise<unknown> = Promise.resolve();
   #index: { readonly digest: string; readonly value: ProductIndex } | null = null;
   #timer: NodeJS.Timeout | null = null;
   #impactRun: { readonly key: string; readonly promise: Promise<ImpactResponse> } | null = null;
 
-  private constructor(ws: Workspace, wsOptions: WorkspaceOptions, library: SourceLibrary, impact: ImpactProvider, dataDir: string) {
+  private constructor(ws: Workspace, wsOptions: WorkspaceOptions, library: SourceLibrary, impact: ImpactProvider, dataDir: string, backupEveryMs: number) {
     this.#ws = ws;
+    this.#backupEveryMs = backupEveryMs;
     this.#wsOptions = wsOptions;
     this.library = library;
     this.impact = impact;
     this.#dataDir = dataDir;
-    this.#rebased = ws.rebased === null ? null : { reason: ws.rebased.reason, applied: ws.rebased.applied, merged: ws.rebased.merged, conflicts: ws.rebased.conflicts.length };
+    this.#rebased = rebasedOf(ws);
   }
 
   static async open(options: EditorOptions = {}): Promise<Editor> {
@@ -93,12 +113,13 @@ export class Editor {
       store: library.textStore,
       ...(options.workspaceDir === undefined ? {} : { workspaceDir: options.workspaceDir }),
       ...(options.dataDir === undefined ? {} : { dataDir: options.dataDir }),
+      ...(options.now === undefined ? {} : { now: options.now }),
     };
     const ws = await Workspace.open(wsOptions);
     const dataDir = ws.paths.dataDir;
     const impact = options.impact ?? engineImpact(dataDir);
-    const editor = new Editor(ws, wsOptions, library, impact, dataDir);
-    const every = options.backupEveryMs ?? 600_000;
+    const every = options.backupEveryMs ?? DEFAULT_BACKUP_EVERY_MS;
+    const editor = new Editor(ws, wsOptions, library, impact, dataDir, every);
     await editor.backupIfDue();
     if (every > 0) {
       editor.#timer = setInterval(() => { editor.backupIfDue().catch((error: unknown) => console.error(`backup failed: ${messageOf(error)}`)); }, every);
@@ -107,16 +128,20 @@ export class Editor {
     return editor;
   }
 
-  /** Run `fn` after every earlier operation has finished. */
-  #run<T>(fn: () => T | Promise<T>): Promise<T> {
-    const next = this.#tail.then(fn, fn);
+  /** Run `fn` after every earlier operation has finished. Refused outright once the workspace could not be opened again. */
+  #run<T>(fn: () => T | Promise<T>, { whenBroken = false } = {}): Promise<T> {
+    const guarded = (): T | Promise<T> => {
+      if (this.#restartNeeded !== null && !whenBroken) throw new RestartNeeded(this.#restartNeeded);
+      return fn();
+    };
+    const next = this.#tail.then(guarded, guarded);
     this.#tail = next.catch(() => undefined);
     return next;
   }
 
   async close(): Promise<void> {
     if (this.#timer !== null) clearInterval(this.#timer);
-    await this.#run(() => this.#ws.close());
+    await this.#run(() => { if (this.#restartNeeded === null) this.#ws.close(); }, { whenBroken: true });
     this.impact.close();
   }
 
@@ -323,8 +348,9 @@ export class Editor {
     return this.#run(() => listBackups(this.#ws.paths.backupDir).map(backupEntry).reverse());
   }
 
+  /** A backup when the newest is older than the editor's interval (ten minutes by default) and something changed since it. */
   backupIfDue(): Promise<unknown> {
-    return this.#run(() => this.#ws.backupIfDue());
+    return this.#run(() => this.#ws.backupIfDue(this.#backupEveryMs > 0 ? this.#backupEveryMs : DEFAULT_BACKUP_EVERY_MS));
   }
 
   backupNow(): Promise<BackupEntry> {
@@ -337,15 +363,28 @@ export class Editor {
       const chosen = listBackups(this.#ws.paths.backupDir).find((path) => basename(path) === name);
       if (chosen === undefined) return refuse('not-found', 'That backup is not in the list.');
       this.#ws.close();
+      let outcome: { readonly status: 'restored'; readonly drafts: number } | Refusal;
       try {
         const restored = await Workspace.restore(this.#wsOptions, chosen);
-        return { status: 'restored' as const, drafts: restored.drafts };
+        outcome = { status: 'restored', drafts: restored.drafts };
       } catch (error) {
-        return refuse(error instanceof WriterLockedError ? 'busy' : 'bad-request', messageOf(error));
-      } finally {
-        this.#ws = await Workspace.open(this.#wsOptions);
-        this.#index = null;
+        outcome = refuse(error instanceof WriterLockedError ? 'busy' : 'bad-request', messageOf(error));
       }
+      // Opening again is its own step, with its own failure: a restore that worked must not read as one that did not, and an editor
+      // with no open workspace must say so to every later request instead of failing in whatever way a closed database does.
+      try {
+        this.#ws = await Workspace.open(this.#wsOptions);
+      } catch (error) {
+        const said = outcome.status === 'restored' ? 'The backup was restored, but' : `The restore was refused (${outcome.detail}), and`;
+        const detail = `${said} the editor could not open the workspace again (${messageOf(error)}). The editor must be restarted: stop it and run npm run editor.`;
+        this.#restartNeeded = detail;
+        if (this.#timer !== null) clearInterval(this.#timer);
+        this.#index = null;
+        return refuse('restart-needed', detail);
+      }
+      this.#index = null;
+      this.#rebased = rebasedOf(this.#ws);
+      return outcome;
     });
   }
 

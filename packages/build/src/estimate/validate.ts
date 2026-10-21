@@ -1,0 +1,344 @@
+// Checks on the estimate stage's output, and its section of the validation report. Inference, not evidence, so
+// everything that keeps an estimate honest is checked: that no headline is left with nothing, that ranges nest and
+// cite real evidence, that the model still delivers the coverage it states when measured headlines are hidden
+// (DECISIONS D43). The model's configuration names no material, grade or polymer: those are tables (m28, m29; DECISIONS D60).
+
+import { issue } from '../rules.ts';
+import { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.ts';
+import { orderViolations } from './order.ts';
+import type { Dyn } from '../types.ts';
+
+const err = (code: Dyn, where: Dyn, message: Dyn, extra?: Dyn) => issue(code, where, message, extra);
+const warn = err; // the catalogue (rules.js) decides each code's level
+
+export function validateEstimates(db: Dyn) {
+  const issues = [];
+  const polymers = new Map((db.polymers ?? []).map((p: Dyn) => [p.id, p]));
+  const gradeById: Dyn = new Map(db.grades.map((g: Dyn) => [g.id, g]));
+  const measurementById = new Map(db.measurements.map((m: Dyn) => [m.id, m]));
+
+  // -- estimates ---------------------------------------------------------------
+  // Inference, not evidence, so everything that keeps an estimate honest is checked here: that no
+  // headline is left with nothing, that ranges nest and cite real evidence, and that the model still
+  // delivers the coverage it states when measured headlines are hidden (DECISIONS D43).
+  const LEVELS = ESTIMATE_MODEL.levels;
+  const tally: Dyn = { 'this-grade': 0, 'this-material': 0, family: 0, notApplicable: 0, screen: 0, poor: 0 };
+  // An in-scope material may be declared not estimated (Estimate identity Not applicable): a family's "polymer not
+  // stated" home, whose products share no polymer anyone states, or a polymer with no row (D87). What none of its
+  // products publishes is not published, and judged unknown as an untested product is (D83); it is listed, not an
+  // error. A material that names an identity the model cannot find is still an error: that is a missing row.
+  const unestimated = [];
+  for (const mat of db.materials) {
+    for (const key of estimateKeys(db.registry)) {
+      const h = mat.headline[key];
+      if (!h) continue;
+      const where = `materials ${mat.id} ${key}`;
+      if (!mat.excluded && !mat.familyEntry && !h.known && !h.estimate && !h.notApplicable) {
+        const identity = identityOf(mat);
+        if (!identity) unestimated.push({ record: `${mat.id} ${key}`, text: `${mat.name} ${key}` });
+        else {
+          issues.push(err('HEADLINE-BLANK', where, polymers.has(identity)
+            ? `${mat.name} has no value, no estimate and no not-applicable statement`
+            : `${mat.name} has no value, and cannot be estimated: its Estimate identity ${identity} has no row in data/tables/polymers.csv. Write the row (its group and morphology), declare it Not applicable, or record a value`));
+        }
+      }
+      if (h.notApplicable) {
+        tally.notApplicable++;
+        if (h.known || h.estimate) issues.push(err('NA-INVALID', where, 'Not applicable beside a value or an estimate'));
+        if (!h.notApplicable.reason) issues.push(err('NA-INVALID', where, 'Not applicable without a reason'));
+      }
+      const e = h.estimate;
+      if (!e) continue;
+      tally[e.strength] = (tally[e.strength] ?? 0) + 1;
+      if (e.canScreen) tally.screen++;
+      if (e.precision === 'poor') tally.poor++;
+      if (h.known) issues.push(err('EST-INVALID', where, 'A measured headline also carries an estimate'));
+      if (mat.excluded || mat.familyEntry) issues.push(err('EST-INVALID', where, 'An out-of-scope material or a family entry carries an estimate'));
+      if (e.kind !== 'model') issues.push(err('EST-INVALID', where, `Unknown estimate kind "${e.kind}"`));
+      if (!['this-grade', 'this-material', 'family'].includes(e.strength)) issues.push(err('EST-INVALID', where, `Unknown evidence strength "${e.strength}"`));
+      if (!['good', 'fair', 'poor'].includes(e.precision)) issues.push(err('EST-INVALID', where, `Unknown precision "${e.precision}"`));
+      if (!e.basis || !e.method) issues.push(err('EST-INVALID', where, 'Does not say what it was built from'));
+      if (!(e.lo <= e.centre && e.centre <= e.hi)) issues.push(err('EST-INVALID', where, `Centre ${e.centre} lies outside the likely range ${e.lo}-${e.hi}`));
+      if (!(e.plausible.lo <= e.lo && e.hi <= e.plausible.hi)) issues.push(err('EST-INVALID', where, `The likely range ${e.lo}-${e.hi} is not inside the plausible range ${e.plausible.lo}-${e.plausible.hi}`));
+      if (e.strength === 'family' && e.evidence.length) issues.push(err('EST-INVALID', where, 'A family-only estimate lists evidence of its own'));
+      if (e.strength !== 'family' && !e.evidence.length) issues.push(err('EST-INVALID', where, 'Claims evidence of its own but lists none'));
+      const productF = new Set(mat.gradeIds.map((id: Dyn) => gradeById.get(id)?.formulationKey ?? id));
+      for (const ev of e.evidence) {
+        for (const item of ev.items) {
+          if (!item.measurementId) continue;
+          const x: Dyn = measurementById.get(item.measurementId);
+          const f = x && (gradeById.get(x.gradeId)?.formulationKey ?? x.gradeId);
+          if (!x) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which does not exist`));
+          else if (x.materialId !== mat.id && !productF.has(f)) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which is neither this material's nor one of its products'`));
+        }
+      }
+    }
+  }
+  const model: Dyn = db.meta.estimateModel ?? { properties: {}, rejected: [], conflicts: [], outliers: [] };
+  for (const [key, p] of Object.entries<Dyn>(model.properties)) {
+    const c = p.calibration;
+    const cal = ESTIMATE_MODEL.calibration;
+    if (c.held < cal.minHeld) { issues.push(warn('EST-CALIBRATION-FEW', `estimate model ${key}`, `Only ${c.held} measured headlines to calibrate against; the ranges use a default scale`)); continue; }
+    if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
+    if (c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
+  }
+  // The grade ranges carry their own calibration (D81) and are held to the same tolerances where they are shipped.
+  for (const [key, p] of Object.entries<Dyn>(model.properties)) {
+    const g = p.gradeCalibration;
+    if (!g?.shipped) continue;
+    const cal = ESTIMATE_MODEL.calibration;
+    if (g.held < cal.minHeld) continue;
+    if (Math.abs(g.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade likely range contains ${Math.round(g.likelyCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.likely * 100)}%`));
+    if (g.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade plausible range contains ${Math.round(g.plausibleCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.plausible * 100)}%`));
+    // A headline whose product spread is set per matrix ships grade ranges only where each matrix with enough hidden
+    // grades is calibrated too (D162): the shared scales must serve the crystalline matrices, not only the many glassy ones.
+    if (!ESTIMATE_MODEL.properties[key]?.productSpreadByMatrix) continue;
+    for (const [cls, c0] of Object.entries<Dyn>(g.byMatrix ?? {})) {
+      // A matrix with its own scales (D178) is judged out of fold, since in-sample they hold its values by construction.
+      const own = g.matrixScales?.[cls]?.outOfFold;
+      const c: Dyn = own ? { held: own.held, likelyCoverage: own.likelyCoverage, plausibleCoverage: own.plausibleCoverage } : c0;
+      if (c.held < cal.minHeld) continue;
+      if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance || c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) {
+        issues.push(err('EST-CALIBRATION', `estimate model ${key} grades ${cls}`, `The grade ranges of a ${cls} matrix hold ${Math.round(c.likelyCoverage * 100)}% and ${Math.round(c.plausibleCoverage * 100)}% of its ${c.held} hidden grade values${own ? ' (out of fold, with its own scales, D178)' : ''}, not ${Math.round(LEVELS.likely * 100)}% and ${Math.round(LEVELS.plausible * 100)}%`));
+      }
+    }
+  }
+  // A learned conversion keeps the band its row states (D157).
+  for (const d of model.conversionDrift ?? []) {
+    issues.push(err('CONVERSION-DRIFT', `conversions ${d.id}`, `${d.key} ${d.kind}: the model learned ${d.learned} from ${d.pairs} pair(s), ${d.value}${d.low != null ? `, under ${d.low}` : ''}${d.high != null ? `, over ${d.high}` : ''}: outside the row's band`));
+  }
+  if (model.gradeOutliers?.length) {
+    issues.push(warn('EST-GRADE-OUTLIER', 'grades', `${model.gradeOutliers.length} grades publish a value far outside what the model predicts for them from everything else: ${model.gradeOutliers.map((o: Dyn) => `${o.gradeId} ${o.material} ${o.key} ${o.kind} z ${o.z}${o.measurementIds.length ? ` (${o.measurementIds.join(', ')})` : ''}`).join('; ')}`, { records: model.gradeOutliers.map((o: Dyn) => `${o.gradeId} ${o.key}`) }));
+  }
+  db.meta.estimateTally = tally;
+  issues.push(warn('EST-SUMMARY', 'materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));
+  if (model.rejected.length) {
+    issues.push(warn('EST-REJECTED', 'measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r: Dyn) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`, { records: model.rejected.map((r: Dyn) => r.measurementId) }));
+  }
+  if (model.outliers.length) {
+    issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o: Dyn) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`, { records: model.outliers.map((o: Dyn) => `${o.materialId} ${o.key}`), values: model.outliers.map((o: Dyn) => o.measured) }));
+  }
+
+  // Evidence the model down-weights as contradicting everything else (fitWithConflicts), one finding per material,
+  // headline and kind: the reviewer's list for the sweep, reported and not yet reviewed (PLAN-REMAINING 2.1).
+  if (model.conflicts?.length) {
+    const by = new Map();
+    for (const c of model.conflicts) {
+      const record = `${c.materialId} ${c.key} ${c.kind}`;
+      if (!by.has(record)) by.set(record, { record, text: `${c.material} ${c.key} ${c.kind} ${c.values.join(', ')}${c.measurementIds.length ? ` (${c.measurementIds.join(', ')})` : ''}` });
+    }
+    issues.push(warn('EST-CONFLICT', 'measurements', `${by.size} observations contradict everything else the model knows about their headline and are down-weighted: ${[...by.values()].map((c: Dyn) => c.text).join('; ')}`, { records: [...by.keys()] }));
+  }
+
+  // -- estimates a reader should not lean on, and family order ---------------------------------------------
+  // An imprecise estimate is two different things, and only one of them is a defect. Where the material publishes a
+  // value the headline could have used, the model is ignoring evidence it has, and a reviewer must say why
+  // (EST-WIDE). Where it publishes nothing, the range is wide because the evidence is thin, which is the honest
+  // answer and not something a reviewer can fix by reviewing it (EST-THIN). Before m47 both were EST-WIDE, so all
+  // thirteen records had to be accepted by hand, and a real defect would have arrived among them unnoticed.
+  const headlineDefs = new Map(db.registry.headlines.map((h: Dyn) => [h.key, h]));
+  const byMaterial = new Map();
+  for (const m of db.measurements) {
+    if (!byMaterial.has(m.materialId)) byMaterial.set(m.materialId, []);
+    byMaterial.get(m.materialId).push(m);
+  }
+  /** A published value of this material that the headline could nearly have shown: one of its products, the
+   * headline's property, direction, a printed or unstated specimen, unconditioned, and a usable number. A declared
+   * variant's value describes the product, not the polymer, and the headline sets it apart (D57, D83), so it counts
+   * only where every product of the material is a variant, and the material is its variants. */
+  const productsOf = (mat: Dyn) => {
+    const plain = mat.gradeIds.filter((id: Dyn) => !gradeById.get(id)?.variant);
+    return new Set(plain.length ? plain : mat.gradeIds);
+  };
+  const publishesUsableValue = (mat: Dyn, key: Dyn) => {
+    const def: Dyn = headlineDefs.get(key);
+    if (!def) return false;
+    const products = productsOf(mat);
+    return (byMaterial.get(mat.id) ?? []).some((x: Dyn) => products.has(x.gradeId)
+      && def.valueProperties.includes(x.property) && x.numeric && !x.quarantined && !x.implausible
+      && ['printed', 'not-stated'].includes(x.specimenForm) && x.moistureState !== 'conditioned'
+      && (def.direction === 'Not applicable' ? x.direction === 'not-applicable' : x.direction === def.direction));
+  };
+  const wide: Dyn = [];
+  const thin: Dyn = [];
+  for (const mat of db.materials) for (const key of estimateKeys(db.registry)) {
+    const e = mat.headline[key]?.estimate;
+    if (e?.precision !== 'poor') continue;
+    const entry = { record: `${mat.id} ${key}`, text: `${mat.name} ${key} ${e.lo}-${e.hi} ${e.unit} (plausible ${e.plausible.lo}-${e.plausible.hi}, ${e.strength})` };
+    (publishesUsableValue(mat, key) ? wide : thin).push(entry);
+  }
+  if (unestimated.length) issues.push(warn('HEADLINE-UNESTIMATED', 'materials', `${unestimated.length} headlines of materials the model does not estimate by declaration are published by none of their products: ${unestimated.map((u: Dyn) => u.text).join('; ')}`, { records: unestimated.map((u: Dyn) => u.record) }));
+  if (wide.length) issues.push(warn('EST-WIDE', 'materials', `${wide.length} estimates are imprecise although the material publishes a usable value for the headline: ${wide.map((w: Dyn) => w.text).join('; ')}`, { records: wide.map((w: Dyn) => w.record) }));
+  if (thin.length) issues.push(warn('EST-THIN', 'materials', `${thin.length} estimates are too imprecise to guide a choice, on materials that publish nothing for the headline: ${thin.map((w: Dyn) => w.text).join('; ')}`, { records: thin.map((w: Dyn) => w.record) }));
+
+  const valueOf = (m: Dyn, key: Dyn) => (m.headline[key]?.known ? m.headline[key].value : m.headline[key]?.estimate?.centre ?? null);
+  // A fibre lifts the heat deflection of a matrix that is crystalline as printed; a glassy one (PLA, PET: semicrystalline
+  // polymers that print amorphous) deflects near its glass transition, filled or not, so physics sets no order there (D158).
+  const crystallineAsPrinted = (m: Dyn) => { const p: Dyn = polymers.get(identityOf(m)); return p?.morphology === 'semicrystalline' && p.asPrinted !== 'prints amorphous'; };
+  const order = [];
+  const inScope = db.materials.filter((m: Dyn) => !m.excluded && !m.familyEntry);
+  for (const r of inScope.filter((m: Dyn) => /fibre/i.test(m.modifier))) {
+    for (const u of inScope.filter((m: Dyn) => m.basePolymer === r.basePolymer && m.modifier === 'Unfilled / unspecified' && m.id !== r.id)) {
+      for (const key of ['tensileModulusXY', 'hdt045']) {
+        if (key === 'hdt045' && !crystallineAsPrinted(r)) continue;
+        const vr = valueOf(r, key), vu = u.headline[key]?.known ? u.headline[key].value : null;
+        if (vr != null && vu != null && vr < vu) order.push({ record: `${r.id} ${key}`, text: `${r.name} ${key} ${vr}${r.headline[key].known ? '' : ' (estimate)'} < ${u.name} ${vu}` });
+      }
+    }
+  }
+  if (order.length) issues.push(warn('EST-FAMILY-ORDER', 'materials', `${order.length} reinforced materials sit below their unfilled sibling: ${order.map((o: Dyn) => o.text).join('; ')}`, { records: order.map((o: Dyn) => o.record) }));
+
+  // The physical order of the numbers shown (D126, order.js): no estimate below what the material's or the grade's own
+  // measurements prove, no heat deflection above the melting point. A product's published value is its own measurement
+  // and is never moved by another sheet's number; where two sheets of one product disagree the order is a finding.
+  const violations = orderViolations(db);
+  const orderIssues = violations.filter((v: Dyn) => v.kind !== 'grade-value');
+  const productOrder = violations.filter((v: Dyn) => v.kind === 'grade-value');
+  if (orderIssues.length) issues.push(err('EST-ORDER', 'estimates', `${orderIssues.length} estimates break the physical order their own measurements set: ${orderIssues.map((v: Dyn) => v.message).join('; ')}`, { records: orderIssues.map((v: Dyn) => v.record) }));
+  if (productOrder.length) issues.push(warn('PRODUCT-ORDER', 'grades', `${productOrder.length} products publish a value under another of their own measurements that bounds it from below (another source, direction, specimen or state than the value's): ${productOrder.map((v: Dyn) => v.message).join('; ')}`, { records: productOrder.map((v: Dyn) => v.record) }));
+
+  return issues;
+}
+
+/** The Estimates section of the validation report. */
+export function estimateReportLines(db: Dyn) {
+  const L = [];
+  const screeningLines = () => {
+    const S = ESTIMATE_MODEL.screening;
+    L.push(`Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most ${Math.round(S.maxWrongRate * 100)}% of the time with ${Math.round(S.confidence * 100)}% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.`);
+    L.push('');
+    L.push('| Headline | Class | Held | Top: beyond plausible | Top taken at | Bottom: beyond plausible | Bottom taken at |');
+    L.push('|---|---|---:|---:|---:|---:|---:|');
+    const at: Dyn = (s: Dyn) => (s.certified ? `${Math.round(s.quantile * 10000) / 100}% point` : 'cannot screen');
+    for (const [k, p] of Object.entries<Dyn>(db.meta.estimateModel?.properties ?? {})) {
+      for (const [cls, c] of Object.entries<Dyn>(p.screening ?? {})) L.push(`| ${k} | ${cls} | ${c.held} | ${c.above.beyondPlausible} | ${at(c.above)} | ${c.below.beyondPlausible} | ${at(c.below)} |`);
+    }
+    L.push('');
+  };
+  L.push('## Estimates');
+  L.push('');
+  L.push('A headline none of a material\'s products publishes comparably carries an estimate from one Gaussian model per');
+  L.push('property that takes every observation in the snapshot, each converted to the headline\'s semantics');
+  L.push(`(build/mappings/estimate-model.json, DECISIONS D43). The likely range is ${Math.round(ESTIMATE_MODEL.levels.likely * 100)}% and the plausible range ${Math.round(ESTIMATE_MODEL.levels.plausible * 100)}%. Both are`);
+  L.push('calibrated by hiding each material\'s typical product\'s value and predicting it from everything else; the build');
+  L.push('fails if that coverage drifts. An estimate never passes a material; in Explore it may screen one out only when');
+  L.push('its plausible range wholly fails.');
+  L.push('');
+  L.push('| Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |');
+  L.push('|---|---:|---:|---:|---:|---:|---:|');
+  const mdl: Dyn = db.meta.estimateModel ?? { properties: {} };
+  for (const [k, v] of Object.entries<Dyn>(mdl.properties)) {
+    const c = v.calibration;
+    const width = ESTIMATE_MODEL.properties[k].scale === 'log' ? `×${c.medianLikelyWidth}` : `${c.medianLikelyWidth} °C`;
+    const between = v.betweenProduct.estimated ? `${v.betweenProduct.used} (estimated)` : `${v.betweenProduct.used} (${v.betweenProduct.pairs} pairs)`;
+    L.push(`| ${k} | ${v.observations} | ${c.held} | ${Math.round((c.likelyCoverage ?? 0) * 100)}% | ${Math.round((c.plausibleCoverage ?? 0) * 100)}% | ${width} | ${between} |`);
+  }
+  L.push('');
+  L.push('By stratum (D158): the same hidden headlines, by the classes a change to a polymer\'s class or a fill column moves. The signed error is the median of the hidden value less its prediction, on the model\'s scale (ln, or °C).');
+  L.push('');
+  L.push('| Headline | Stratum | Hidden | Likely holds | Plausible holds | Signed error |');
+  L.push('|---|---|---:|---:|---:|---:|');
+  for (const [k, v] of Object.entries<Dyn>(mdl.properties)) {
+    for (const [name, c] of Object.entries<Dyn>(v.calibration.byStratum ?? {})) L.push(`| ${k} | ${name} | ${c.held} | ${Math.round(c.likelyCoverage * 1000) / 10}% | ${Math.round(c.plausibleCoverage * 1000) / 10}% | ${c.signedError} |`);
+  }
+  L.push('');
+  L.push('| Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |');
+  L.push('|---|---:|---:|---:|---:|---:|---:|---:|');
+  for (const [k, v] of Object.entries<Dyn>(db.meta.estimateCoverage ?? {})) {
+    L.push(`| ${k} | ${v.missing} | ${v['this-grade']} | ${v['this-material']} | ${v.family} | ${v.notApplicable} | ${v.none} | ${v.canScreen} |`);
+  }
+  L.push('');
+  screeningLines();
+  const floorRows = Object.entries<Dyn>(mdl.properties ?? {}).filter(([, p]: Dyn) => p.floors);
+  if (floorRows.length) {
+    L.push('Floors (D126): the shown ranges of the same hidden headlines, floored by what the material\'s other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "containment" is a material\'s rule and "formulation" a grade\'s, each with the specimens its headline names (D161: elongation, printed bars only); "…Unstated" is the same with an undescribed bar too (D126), "…Converted" with an undescribed bar read as moulded.');
+    L.push('');
+    L.push('| Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of floorRows) {
+      for (const [name, f] of Object.entries<Dyn>(p.floors)) {
+        const width = ESTIMATE_MODEL.properties[key].scale === 'log' ? `×${f.medianLikelyWidth}` : `${f.medianLikelyWidth} °C`;
+        L.push(`| ${key} | ${name} | ${f.held} | ${f.moved} | ${Math.round((f.likelyCoverage ?? 0) * 1000) / 10}% | ${Math.round((f.plausibleCoverage ?? 0) * 1000) / 10}% | ${width} | ${f.underPlausible} |`);
+      }
+    }
+    L.push('');
+  }
+  const directionRows = Object.entries<Dyn>(mdl.properties ?? {}).filter(([, p]: Dyn) => p.directions);
+  if (directionRows.length) {
+    L.push('Unstated directions (D159): the kinds whose offset is learned across products as well as from the products that publish both. Target: each product with only an unstated-direction value, beside measured siblings, its centre against their median (a ratio) and how many centres sit above every sibling. Guard: each product that publishes both, as different numbers, its headline hidden and predicted.');
+    L.push('');
+    L.push('| Headline | Kinds | Target products | Centre ÷ siblings\' median | Above every sibling | Guard cases | Guard signed error | Guard plausible holds |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of directionRows) {
+      const d = p.directions;
+      L.push(`| ${key} | ${d.kinds.map((k: Dyn) => `${k} ${p.conversions[k]?.offset ?? ''}${p.conversions[k]?.across ? ` (${p.conversions[k].across.materials} materials)` : ''}`).join('; ')} | ${d.target?.products ?? 0} | ×${d.target?.ratio ?? '–'} | ${d.target?.aboveEverySibling ?? 0} | ${d.guard.cases} | ${d.guard.signedError} | ${Math.round((d.guard.plausibleCoverage ?? 0) * 1000) / 10}% |`);
+    }
+    L.push('');
+  }
+  const gradeRows = Object.entries<Dyn>(mdl.properties ?? {}).filter(([, p]: Dyn) => p.gradeCalibration);
+  if (gradeRows.length) {
+    L.push('Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.');
+    L.push('');
+    L.push('| Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |');
+    L.push('|---|---:|---:|---:|---:|---:|---|');
+    for (const [key, p] of gradeRows) {
+      const g = p.gradeCalibration;
+      L.push(`| ${key} | ${g.held} | ${g.likelyScale} | ${g.plausibleScale} | ${g.likelyCoverage} | ${g.plausibleCoverage} | ${g.shipped ? 'yes' : `no: ${g.why}`} |`);
+    }
+    L.push('');
+    L.push('By matrix as printed (D162): the hidden grade values of each matrix, the coverage the shared scales give them, the scales they alone would need, and the spread between two products of one material measured in that matrix (the one used where the headline sets it per matrix).');
+    L.push('');
+    L.push('| Headline | Matrix | Hidden values | Likely coverage | Plausible coverage | Scales it would need | Product spread measured (pairs) | Used |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of gradeRows) {
+      for (const [cls, c] of Object.entries<Dyn>(p.gradeCalibration.byMatrix ?? {})) {
+        const b = p.betweenProduct?.byMatrix?.[cls];
+        L.push(`| ${key} | ${cls} | ${c.held} | ${c.likelyCoverage} | ${c.plausibleCoverage} | ${c.likelyScale} / ${c.plausibleScale} | ${b ? `${b.sd} (${b.pairs})` : '–'} | ${b?.used ?? '–'} |`);
+      }
+    }
+    L.push('');
+    L.push(`Grade plausible coverage by fold of materials: ${gradeRows.map(([key, p]: Dyn) => `${key} ${(p.gradeCalibration.byFold ?? []).map((f: Dyn) => f.plausibleCoverage).join(', ')}`).join('; ')}. Median grade plausible width: ${gradeRows.map(([key, p]: Dyn) => `${key} ${p.gradeCalibration.medianPlausibleWidth}`).join(', ')}.`);
+    L.push('');
+    // D167: what a product's own values of the property, measured another way, allow; the back-test on hidden grades
+    // that publish both, and where the anchor holds the estimates.
+    L.push('A product\'s own values as its anchor (D167): hidden grades that publish the property another way too; how often their own bands (as the conversions state them) and anchors (widened by the band scale) hold the hidden value; where the model\'s centre lay outside the anchor (its estimate withheld), how often the band and the model held it; and the anchored ranges\' coverage before and after.');
+    L.push('');
+    L.push('| Headline | Cases | Sheets disagree | Band / anchor coverage | Band scale (low / high side) | Withheld (band right / model right) | Anchored | Likely before → after | Plausible before → after | Used | Shipped: anchored, withheld, disagree |');
+    L.push('|---|---:|---:|---|---:|---|---:|---|---|---|---|');
+    for (const [key, p] of gradeRows) {
+      const a = p.gradeCalibration.anchor;
+      if (!a) continue;
+      const shipped = (mdl.gradeAnchors ?? {})[key] ?? {};
+      L.push(`| ${key} | ${a.cases} | ${a.disagree} | ${a.bandCoverage} / ${a.anchorCoverage} | ${a.bandScale.lo} / ${a.bandScale.hi} | ${a.withheld} (${a.withheldInBand} / ${a.withheldInModel}) | ${a.anchored} | ${a.likelyBefore} → ${a.likelyAfter} | ${a.plausibleBefore} → ${a.plausibleAfter} | ${a.used ? 'yes' : 'no'} | ${shipped.anchored ?? 0}, ${shipped.withheld ?? 0}, ${shipped.disagree ?? 0} |`);
+    }
+    L.push('');
+    const documented = gradeRows.flatMap(([key, p]: Dyn) => Object.entries<Dyn>(p.conversions ?? {}).filter(([, c]: Dyn) => c.learned === false).map(([kind, c]: Dyn) => `${key} ${kind} ${c.offset} (${c.pairs} pairs of ${c.makers} makers)`));
+    if (documented.length) {
+      L.push(`Conversions that learn from several makers only and keep their documented offset (D167): ${documented.join('; ')}.`);
+      L.push('');
+    }
+    if (mdl.gradeOutliers?.length) {
+      const by = new Map();
+      for (const o of mdl.gradeOutliers) by.set(o.material, (by.get(o.material) ?? 0) + 1);
+      L.push(`EST-GRADE-OUTLIER, ${mdl.gradeOutliers.length} grades: ${[...by].sort((a: Dyn, b: Dyn) => b[1] - a[1]).map(([m, n]: Dyn) => `${m} ${n}`).join(', ')}.`);
+      L.push('');
+    }
+  }
+  if (mdl.conflicts?.length) {
+    L.push(`Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, ${mdl.conflicts.length} observations):`);
+    L.push('');
+    const byMaterial = new Map();
+    for (const c of mdl.conflicts) byMaterial.set(c.material, (byMaterial.get(c.material) ?? 0) + 1);
+    L.push(`By material: ${[...byMaterial].sort((a: Dyn, b: Dyn) => b[1] - a[1]).map(([m, n]: Dyn) => `${m} ${n}`).join(', ')}.`);
+    L.push('');
+    for (const c of mdl.conflicts) L.push(`- ${c.material}, ${c.key}: ${c.kind} ${c.values.join(', ')} (${c.measurementIds.join(', ') || 'hardness'})`);
+    L.push('');
+  }
+  if (mdl.outliers?.length) {
+    L.push('Measured headlines far outside their prediction (worth a second look at the source and the grade):');
+    L.push('');
+    for (const o of mdl.outliers) L.push(`- ${o.material}, ${o.key}: ${o.measured} ${o.unit}, expected about ${o.expected}`);
+    L.push('');
+  }
+  return L;
+}

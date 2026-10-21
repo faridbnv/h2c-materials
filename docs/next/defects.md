@@ -204,3 +204,56 @@ requirement only for a state that has a treatment.
   the engine never reads a value in that branch.
 - The port still holds some non-null assertions (`x!`) where `noUncheckedIndexedAccess` cannot see that `list[0]` exists after a test of
   `list.length` (`constraints.ts`, `workspace.ts`). They are not counted by the ratchet; the casts are (27, from 31).
+
+## WP-21: the estimate stage as a cached stage (2026-10-21)
+
+The stage keeps the old behaviour (R-Q2-19): `db.json` and `reference.json` are byte for byte the old build's, and `estimates.json` is the
+old stage's own output. The entries below are what the move and the measurement exposed; none is fixed here.
+
+### WP21-D1. DT-1: the float tie at `grades.js:51` (measured, not applied)
+
+- **Where.** `build/src/estimate/grades.js:51` (`within`: a bare `<=`), and the two sites gap-1 names as next in line,
+  `grades.js:157-173` (`inRange`) and `directions.js:47`.
+- **Measured (owner ruling OQ-06 A).** Two builds of the same data with the line 51 comparison made `!exceeds(|y - mu|, z * sd)`
+  (the tolerance helper `numerics.js` already uses elsewhere), against the unchanged build, compared with the parity comparer over
+  the whole v0 corpus (1,306 cases: 6 templates in every mode, Explore with estimates, the 138-case census with estimates on and
+  off, 1,000 seeded replays), old engine on both databases. **Verdict, group, Best, likely, listing order and every requirement
+  field: 0 differences, in every tier.** No estimate value moves. What moves in `db.json` is 6 leaves of audit metadata: the
+  `plausibleCoverage` of density and of elongationXY (overall, amorphous matrix, one fold each), one hidden grade counted within
+  instead of beyond its range's end by one unit in the last place. The six tensile leaves that differ between a Mac and CI (gap-1)
+  do not move on this machine, as gap-1 found. A second build that also changed the other two sites gave the same 6 leaves; it
+  was started 12 s before the files were restored on a machine under load 36, so that it loaded the changed files is not proved.
+- **Not applied.** The ruling's condition (no verdict, group or Best moves) holds, but landing the fix is more than the condition: it
+  changes `db.json` (6 leaves) and the release, so P-build is no longer 0 against the old build and needs a registered transition
+  whose digest equals this diff; the ruling asks for its own commit with a second-model adversarial review (a Codex pass, main
+  session only) and a test that bans bare `<=`/`<` on floats in the estimate code. None of that is in this change. The fix is one
+  line in `packages/build/src/estimate/grades.ts` (import `exceeds`; `within` becomes `!exceeds(Math.abs(h.o.y - h.p.mu), z * Math.sqrt(...))`),
+  declared as a `rewrites` entry for that pair in `remake/p-erase.json`.
+- **Real data.** Reached, with no effect on any answer.
+
+### WP21-D2. Estimates depend on the runtime (DT-2, postponed by OQ-07 A)
+
+- **Where.** `localeCompare` in `estimate/gaussian` (sampler) and `estimate/calibration`; `Math.log`, `Math.exp` throughout.
+- **Kept.** Node is pinned (`.nvmrc` 26.12.0; this machine runs 26.9.0, which the manifest says: `runtime.pinned: false`) and the runtime
+  is recorded: the stage's cache key covers Node, V8, ICU, CLDR, Unicode, platform, architecture, the default collator and a probe of
+  how a fixed list of strings sorts, and `manifest.json` records the same beside each release. A different ICU can never be served
+  another ICU's estimates. A later code-point sort stays its own owner-ruled transition.
+
+### WP21-D3. A conversion drift is not a calibration failure
+
+- **Where.** `estimate/validate` raises CONVERSION-DRIFT (a learned offset outside the band its `conversions.csv` row states) as an
+  error beside EST-CALIBRATION.
+- **Kept.** OQ-05 A names calibration failure only. EST-CALIBRATION is withheld and labelled; CONVERSION-DRIFT, EST-ORDER and
+  EST-INVALID still stop the build. Whether a drift should withhold too is the owner's call.
+
+### WP21-D4. The estimate stage in the new process (WP-20's open item)
+
+- **Measured.** Pairs run side by side under the same load, the stage alone (reconstruct, load, compile, stage) in a lean process:
+  old stage in the old process 158.6 and 163.1 s, the stage as TypeScript in the new front end 159.8 and 159.1 s; in a second
+  set 188 s against 193 s. No slowdown beyond noise (up to 3 %). Putting the stage on a `structuredClone` of the database, or running
+  the schema gate first, changes nothing (193 s each); neither does a JSON round trip of the database (representation of numbers),
+  nor TypeScript against JavaScript modules. One full CLI run beside the old build did show the stage 10.7 % slower (325 s against 294 s)
+  under load 36, as in WP-20. The new front end executes about 9 % more instructions in total (reconstruct, TypeScript stripping),
+  which is not the stage. Cause **not found**; it is not the loader, the clone, the gate, the data representation or the language of the modules.
+  Identical runs differ by 3 % in instructions retired by themselves (background JIT timing under load), so a 5 to 12 % gap seen under
+  load is within what load does to tiering. Re-measure on a quiet machine with `npm run build:measure`.

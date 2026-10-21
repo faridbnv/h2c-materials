@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "page": "page-m073-pps-cf-products",
+  "title": "material page: m073-pps-cf-products",
+  "adapter": "old",
+  "project": "live-path",
+  "path": "/h2c-materials/materials/M073-products.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 0,
+    "violatingNodes": 0,
+    "byImpact": {},
+    "passedRules": 45,
+    "incompleteRules": 1,
+    "inapplicableRules": 45
+  },
+  "violations": [],
+  "incomplete": [
+    {
+      "rule": "color-contrast",
+      "nodes": 2
+    }
+  ]
+}
