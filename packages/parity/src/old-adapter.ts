@@ -4,13 +4,13 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { canon, composite, isAtom, notComputable } from './canon.ts';
-import type { EngineModules } from './engine-copy.ts';
+import type { Decoded, EngineModules } from './engine-copy.ts';
 import { ENGINE_DIR, REPO_ROOT, copyEngine, loadEngine } from './engine-copy.ts';
 import type { Patch } from './engine-copy.ts';
-import type { Adapter, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
+import type { Adapter, CorpusCase, CorpusScenario, LinkOpening, LinkRequest, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 type Rows = Record<string, any>[];
-type Db = Record<string, any> & { meta: any; materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
+export type Db = Record<string, any> & { meta: any; materials: Rows; grades: Rows; measurements: Rows; evidence: Rows; coverage: Rows; polymerEvidence?: Rows };
 
 export const defaultDbPath = (): string => join(REPO_ROOT, 'dist', 'db.json');
 export const readDb = (path: string = defaultDbPath()): Db => JSON.parse(readFileSync(path, 'utf8')) as Db;
@@ -197,6 +197,15 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
     return { caseId: c.id, outcome: 'computed', records };
   }
 
+  // What the page hands the decoder (app/js/main.js): the materials, the headlines the filter rail shows, and the grades.
+  const headlines: { key: string; drawerOnly?: boolean }[] = db.registry?.headlines;
+  if (!Array.isArray(headlines)) throw new Error('the db has no registry.headlines, so links cannot be read against its headline keys');
+  const linkOptions = {
+    materialIds: new Set<string>(db.materials.map((m) => m.id)),
+    headlineKeys: new Set<string>(headlines.filter((h) => !h.drawerOnly).map((h) => h.key)),
+    gradeIds: new Set<string>(db.grades.map((g) => g.id)),
+  };
+
   return {
     name: opts.name,
     evaluate(c) {
@@ -207,7 +216,58 @@ export async function createOldAdapter(opts: OldAdapterOptions): Promise<Adapter
         return { caseId: c.id, outcome: 'not-computable', reason: `${opts.name}: ${(err as Error).message}` };
       }
     },
+    openLink: (request) => openWith(engine.scenario, db.meta, linkOptions, request),
   };
+}
+
+/** The fields of a decoded scenario that the engine's answer depends on; every other field is carried as presentation. */
+const QUESTION_FIELDS = new Set(['unknownPolicy', 'useEstimates', 'evidence', 'moisture', 'anneal', 'annealMaxC', 'rankBy', 'constraints', 'assumptions',
+  'shortlist', 'decisions', 'openMaterial', 'baseline', 'created']);
+
+/** The question a decoded scenario asks of the engine, with every default made explicit. */
+function replayOf(scenario: Decoded['scenario']): CorpusScenario {
+  return {
+    constraints: structuredClone(Array.isArray(scenario.constraints) ? scenario.constraints : []),
+    unknownPolicy: scenario.unknownPolicy === 'exploration' ? 'exploration' : 'strict',
+    useEstimates: scenario.useEstimates !== false,
+    evidence: scenario.evidence === 'as-published' ? 'as-published' : 'comparable',
+    moisture: scenario.moisture === 'conditioned' ? 'conditioned' : 'dry',
+    anneal: scenario.anneal === true,
+    annealMaxC: typeof scenario.annealMaxC === 'number' ? scenario.annealMaxC : null,
+  };
+}
+
+/**
+ * Open a link or a saved file with this side's decoder. A thrown Error with a message is the decoder refusing (its words are
+ * what a person sees); a TypeError, RangeError or ReferenceError is a bug in the decoder, which is not a refusal.
+ */
+function openWith(mod: EngineModules['scenario'], meta: unknown, options: object, request: LinkRequest): LinkOpening {
+  let opened: Decoded | null;
+  try {
+    opened = request.kind === 'hash' ? mod.fromHash(request.text, meta, options) : mod.deserialize(request.text, meta, options);
+  } catch (err) {
+    if (err instanceof TypeError || err instanceof RangeError || err instanceof ReferenceError) return { outcome: 'not-computable', reason: `the decoder crashed: ${err.message}` };
+    return { outcome: 'refused', message: err instanceof Error ? err.message : String(err) };
+  }
+  if (opened === null) return { outcome: 'empty' };
+  const { scenario, warnings } = opened;
+  const replay = replayOf(scenario);
+  // A field the decoder returns that the engine's answer does not depend on is carried, so a new one in either decoder shows as a difference.
+  const presentation: Record<string, Value> = {};
+  for (const [k, v] of Object.entries(scenario)) if (!QUESTION_FIELDS.has(k)) presentation[k] = atom(v);
+  const facts: RecordFacts = {
+    decision: {
+      outcome: 'opened', unknownPolicy: atom(scenario.unknownPolicy), useEstimates: atom(scenario.useEstimates), evidence: atom(scenario.evidence),
+      moisture: atom(scenario.moisture), anneal: atom(scenario.anneal), annealMaxC: atom(scenario.annealMaxC), rankBy: atom(scenario.rankBy), replay: composite(replay),
+    },
+    presentation,
+    evidence: {
+      constraints: atom(scenario.constraints), assumptions: atom(scenario.assumptions), shortlist: atom(scenario.shortlist),
+      decisions: atom(scenario.decisions), openMaterial: atom(scenario.openMaterial), baseline: atom(scenario.baseline),
+    },
+    wording: { warnings: composite(warnings) },
+  };
+  return { outcome: 'opened', scenario: replay, facts };
 }
 
 /** The in-tree old engine on the current db. */

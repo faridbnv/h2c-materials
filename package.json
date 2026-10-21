@@ -88,6 +88,7 @@
     "test:claude": "node --test tests/claude/hooks.test.mjs",
     "parity": "node packages/parity/src/cli.ts",
     "parity:corpus": "node packages/parity/src/build-corpus.ts",
+    "parity:mutate": "node packages/parity/src/cli.ts --mutate",
     "test:parity": "node --test 'tests/parity/*.test.mjs'",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --no-error-on-unmatched-pattern \"packages/**/*.ts\" \"apps/**/*.ts\" \"remake/**/*.ts\" \"tests/remake/**/*.ts\"",
