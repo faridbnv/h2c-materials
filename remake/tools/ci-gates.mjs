@@ -124,7 +124,10 @@ export function findStaleAttest(comments, { owner, pr }) {
 export function tierGate({ paths, scopes, comments, owner, pr, headSha }) {
   const t = classifyTier(paths, scopes);
   if (t.tier === 0) return { pass: true, tier: 0, lines: [`Tier 0: ${t.reasons[0]}`] };
-  const lines = [`Tier 1: ${t.reasons.join('; ')}`];
+  // Owner ruling 2026-10-21: no manual PR approval except changes that move a science answer or a ruling (Q2-19).
+  const OWNER_GLOBS = ['parity/transitions/**', 'parity/expectations/**', 'docs/next/rulings.csv', 'data/**', 'schema/**'];
+  if (!paths.some((p) => matchesAny(p, OWNER_GLOBS))) return { pass: true, tier: 1, lines: [`Tier 1: ${t.reasons.join('; ')}`, 'no answer-moving path: merges on green checks (owner ruling 2026-10-21)'] };
+  const lines = [`Tier 1 (owner review): ${t.reasons.join('; ')}`];
   const hit = findAttest(comments, { owner, pr, headSha });
   if (hit) return { pass: true, tier: 1, lines: [...lines, `owner attest found for ${headSha}`] };
   const stale = findStaleAttest(comments, { owner, pr });
