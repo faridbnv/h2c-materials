@@ -123,8 +123,10 @@ test('attest comment must be the exact wp-attest text, from the owner, naming th
   assert.throws(() => findAttest([], { ...ctx, headSha: 'abc' }), /40 hex/);
 });
 
-test('tier gate: Tier 1 passes with a matching attest, fails on stale or missing, Tier 0 needs none', () => {
-  const t1 = { paths: ['app/x.js'], scopes: [], ...ctx };
+test('tier gate: answer-moving Tier 1 needs a matching attest; ordinary Tier 1 and Tier 0 need none (owner ruling 2026-10-21)', () => {
+  const ordinary = tierGate({ paths: ['packages/x/a.ts'], scopes: [], comments: [], ...ctx });
+  assert.deepEqual([ordinary.pass, ordinary.tier], [true, 1]);
+  const t1 = { paths: ['parity/transitions/2026-10-21-x.json'], scopes: [], ...ctx };
   const ok = tierGate({ ...t1, comments: [comment('faridbnv', `wp:attest approve 12 ${SHA}`)] });
   assert.deepEqual([ok.pass, ok.tier], [true, 1]);
   const stale = tierGate({ ...t1, comments: [comment('faridbnv', `wp:attest approve 12 ${OLD_SHA}`)] });
@@ -169,12 +171,14 @@ test('CLI: tier reads scope files from a directory and comments from a file', ()
   writeFileSync(join(d, 'scopes', 'notes.md'), 'ignored');
   writeFileSync(join(d, 'in.txt'), 'packages/data/a.ts\n');
   writeFileSync(join(d, 'out.txt'), 'packages/x/a.ts\n');
+  writeFileSync(join(d, 'owner.txt'), 'docs/next/rulings.csv\n');
   writeFileSync(join(d, 'c.json'), JSON.stringify([comment('faridbnv', `wp:attest approve 12 ${SHA}`)]));
   writeFileSync(join(d, 'none.json'), '[]');
   const t = (files, comments) => gate('tier', '--files', join(d, files), '--scopes-dir', join(d, 'scopes'), '--pr', '12', '--head', SHA, '--owner', 'faridbnv', '--comments', join(d, comments));
   assert.equal(t('in.txt', 'none.json').status, 0, 'Tier 0 inside scope');
-  assert.equal(t('out.txt', 'none.json').status, 1, 'Tier 1 without attest');
-  assert.equal(t('out.txt', 'c.json').status, 0, 'Tier 1 with attest');
+  assert.equal(t('out.txt', 'none.json').status, 0, 'ordinary Tier 1 merges on green checks');
+  assert.equal(t('owner.txt', 'none.json').status, 1, 'answer-moving Tier 1 without attest');
+  assert.equal(t('owner.txt', 'c.json').status, 0, 'answer-moving Tier 1 with attest');
   assert.match(t('in.txt', 'none.json').stdout, /parity: not run/);
 });
 
