@@ -61,7 +61,12 @@ type CommandCommon<K extends WriteKind> = {
 };
 
 /** A value correction. It changes a decision-reading column, so it always carries its evidence (rule 2). */
-export type CorrectValueCommand = CommandCommon<'correctValue'> & { readonly set: CanonicalCells; readonly evidence: EvidenceRef };
+export type CorrectValueCommand = CommandCommon<'correctValue'> & {
+  readonly set: CanonicalCells;
+  readonly evidence: EvidenceRef;
+  /** Why raw, numeric and normalized cells legitimately change apart (rule 2 and 04 section 5.1: together, or the command says why). */
+  readonly apart?: string;
+};
 /** A new measurement row, appended at the end of its table, with its evidence. */
 export type AddMeasurementCommand = CommandCommon<'addMeasurement'> & { readonly row: CanonicalCells; readonly evidence: EvidenceRef };
 /**
@@ -76,23 +81,41 @@ export type OtherWriteCommand = {
 export type WriteCommand = CorrectValueCommand | AddMeasurementCommand | OtherWriteCommand;
 
 /**
- * Why a command was refused. PLACEHOLDER, named from the rules of 02 section 9.1; WP-10 fixes the list with one test
- * per guard and per refusal.
+ * Why a command was refused (WP-10 fixes the list; packages/data/src/write.ts raises each one and
+ * tests/remake/write-guards.test.mjs has a test per code). A refused command changes nothing and says why.
  */
 export type RefusalCode =
+  // The pipeline (04 section 7)
+  | 'opid-invalid'           // the opId is not a ULID
+  | 'opid-conflict'          // the opId was applied before, with different content
+  | 'unsupported-kind'       // a command kind the write service does not run yet (WP-17 adds them)
+  | 'writer-locked'          // one writer at a time: another process holds the workspace lock
+  | 'stale-base'             // the command was written against another approved snapshot than the workspace's
   | 'stale'                  // rule 1: the expectation no longer holds
   | 'expectation-empty'      // rule 1: `expect` names nothing to check (an empty cells object)
-  | 'source-hash-mismatch'   // rule 2: the hash does not match the source row
-  | 'source-not-retrieved'   // rule 2: the source is not retrieved and cited
-  | 'quote-not-on-page'      // rule 2: the quote is not on the hash-checked page
-  | 'value-not-printed'      // rule 2 (D97): not a number its own line prints in one role
-  | 'cells-not-together'     // rule 2: raw, numeric and normalized cells must change together
-  | 'evidence-missing'       // rule 2: a decision-reading column changes without evidence
-  | 'delete-refused'         // rule 3: nothing is deleted
+  | 'expectation-partial'    // rule 1: `expect` does not name the value of every cell being replaced
+  // The target and the new cells
+  | 'unknown-target'         // the table, column or key does not exist, or names more than one record
+  | 'not-canonical'          // a cell is not canonical text (untrimmed, empty, or not text)
+  | 'no-change'              // every new cell equals the current one
+  | 'delete-refused'         // rule 3: nothing is deleted (re-keying a record would remove it under its old key)
+  | 'schema-violation'       // the database refused the cell: type, vocabulary, pattern, or a missing-state word the column does not declare
+  | 'reference-missing'      // a foreign key has no parent row
+  | 'cells-not-together'     // rule 2: raw, numeric and normalized cells must change together (or the command says why)
+  | 'missing-as-number'      // a normalized number rests on a raw value that is a missing-state word
+  | 'unit-mismatch'          // the normalized unit is not a unit of the property
+  | 'ownership-mismatch'     // the grade does not belong to the material (D36)
+  // Evidence (rule 2)
+  | 'evidence-missing'       // a decision-reading column changes without complete evidence
+  | 'source-not-retrieved'   // the source is not retrieved and cited
+  | 'source-hash-mismatch'   // the hash does not match the source row
+  | 'evidence-source-mismatch' // the record cites another source than the evidence names
+  | 'quote-not-on-page'      // the quote is not on the hash-checked page
+  | 'value-not-printed'      // D97: not a number its own line prints, in one role
+  // Rule rows and Notes (rules 4 and 6)
   | 'ruling-missing'         // rule 4: a rule row cites no existing ruling
   | 'rule-row-not-alone'     // rule 4: a rule row shares its change set
-  | 'notes-id-token'         // rule 6 (OQ-16 A): new Notes text carries a change-set or migration ID
-  | 'writer-locked';         // one writer at a time (WP-10 slice a)
+  | 'notes-id-token';        // rule 6 (OQ-16 A): new Notes text carries a change-set or migration ID
 
 /**
  * What the record and schema hold now, for a stale refusal beside what the command expected. A record that does not

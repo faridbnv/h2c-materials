@@ -23,7 +23,7 @@ import { countRows, headerMatches, isTableName, quoteIdent, storageOf } from './
 export const REPO_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
 export const DEFAULT_DATA_DIR = join(REPO_ROOT, 'data');
 export const WORKSPACE_DB = join(REPO_ROOT, '.workspace/atlas.sqlite');
-const STORAGE_DDL = join(REPO_ROOT, 'db/generated/storage.sql');
+export const STORAGE_DDL = join(REPO_ROOT, 'db/generated/storage.sql');
 const VIEWS_DIR = join(REPO_ROOT, 'db/views');
 const MAX_PROBLEMS = 20;
 /** Throws on a byte sequence that is not UTF-8, instead of replacing it: a replaced byte would hide a damaged file from the compare. */
@@ -141,7 +141,7 @@ function readViewSql(): string[] {
   return readdirSync(VIEWS_DIR).filter((f) => f.endsWith('.sql')).sort().map((f) => readFileSync(join(VIEWS_DIR, f), 'utf8'));
 }
 
-function schemaDigest(): string {
+export function schemaDigest(): string {
   const hash = createHash('sha256');
   for (const sub of ['tables', 'vocab']) {
     const dir = join(REPO_ROOT, 'schema', sub);

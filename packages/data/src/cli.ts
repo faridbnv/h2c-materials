@@ -1,17 +1,35 @@
-// npm run db:rebuild | db:roundtrip | db:diff | db:query | db:measure   (node packages/data/src/cli.ts <command> [flags])
-//   rebuild   [--data <dir>] [--out <file>]          a fresh .workspace/atlas.sqlite from data/tables and the generated DDL
+// npm run db:rebuild | db:roundtrip | db:diff | db:query | db:measure | db:backup | db:restore | change:apply | change:export |
+//         change:replay | change:status | drafts:export | drafts:import   (node packages/data/src/cli.ts <command> [flags])
+//   rebuild   [--data <dir>] [--out <file>]          a fresh .workspace/atlas.sqlite from data/tables and the generated DDL; a workspace
+//                                                    that holds drafts is backed up, rebuilt and its drafts replayed, never thrown away
 //   roundtrip [--data <dir>]                         CSV -> SQLite -> CSV; every table must come back byte-identical
 //   diff      --against <git ref> [--limit <n>] [--db <file>]   the workspace database against the committed CSV at a ref
 //   query     "<select ...>" [--json] [--db <file>]            read-only SQL on .workspace/atlas.sqlite
 //   measure   [--out <file>]                         time rebuild and round trip three times each; write the medians
+//   apply <file>        [--data <dir>] [--workspace <dir>]   apply the command(s) of a JSON file through the write service; stops at the first refusal
+//   export              --title <text> --topic <words-with-hyphens> [--data <dir>] [--workspace <dir>] [--out <dir>]
+//                                                    the drafts as a change set (JSON) and canonical CSV in the sandbox export directory
+//   replay [<file>...]  [--data <dir>] [--tables <dir>] [--changesets <dir>] [--immutable-against <ref>]
+//                                                    replay equality: each change set applied to a fresh rebuild of its base must give its result
+//   status              [--data <dir>] [--workspace <dir>]   the base stamp, drafts, conflicts, backups and the export directory
+//   backup              [--data <dir>] [--workspace <dir>]   an online backup of the workspace (the last 20 are kept)
+//   restore <file>|--latest  [--data <dir>] [--workspace <dir>]   put a verified backup in place (the current file is backed up first)
+//   drafts-export <file> / drafts-import <file>      the pending commands as a JSON text copy, and back into a workspace
 // diff also takes --fail-on-diff (exit 1 when there is any difference).
 // Exit: 0 ok; 1 the check failed (a table differs, the data breaks a constraint, a timing is over budget, --fail-on-diff found a
 // difference); 64 bad usage; 70 the tool itself crashed (an uncaught error: a bug or a missing prerequisite, never a verdict).
 // Only the flags above exist: a stray argument, an unknown or repeated flag, or a flag npm swallowed is a usage error, so a
 // check can never run on the default data when it was asked to run on other data.
-import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { cpus, arch, platform, release, totalmem, tmpdir } from 'node:os';
-import { dirname, join } from 'node:path';
+import { basename, dirname, join, resolve, sep } from 'node:path';
+import type { WriteCommand } from '@atlas/domain/contracts';
+import { ExportRefusedError, exportChangeSet, exportPending } from './export.ts';
+import { parseCommand, readJson } from './parse.ts';
+import { changeSetFiles, checkImmutable, exportDrafts, importDrafts, replayFile } from './replay.ts';
+import type { ReplayResult } from './replay.ts';
+import { Workspace, WriterLockedError, holdsDrafts, listBackups, protectedDirHolding, takeLock } from './workspace.ts';
+import type { WorkspaceOptions, WriterLock } from './workspace.ts';
 import { open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { diffAgainstRef } from './diff.ts';
@@ -34,7 +52,9 @@ interface Parsed {
 }
 
 interface Command {
-  readonly run: (parsed: Parsed) => number;
+  readonly run: (parsed: Parsed) => number | Promise<number>;
+  /** The npm script that runs it, for messages (default `db:<name>`). */
+  readonly script?: string;
   /** Flags that take a value. */
   readonly valued: readonly string[];
   /** Flags that stand alone. */
@@ -47,7 +67,7 @@ function parseArgs(name: string, command: Command, argv: readonly string[]): Par
   // `npm run db:roundtrip --data x` (no `--`) is read by npm as its own option and never reaches this program; npm leaves it in
   // the environment, which is the only trace. Running on the default data then would be a pass on the wrong input.
   for (const flag of [...command.valued, ...command.switches]) {
-    if (process.env[`npm_config_${flag}`] !== undefined) throw new UsageError(`npm took --${flag} for itself; write npm run db:${name} -- --${flag} <value>`);
+    if (process.env[`npm_config_${flag}`] !== undefined) throw new UsageError(`npm took --${flag} for itself; write npm run ${command.script ?? `db:${name}`} -- --${flag} <value>`);
   }
   const values = new Map<string, string>();
   const switches = new Set<string>();
@@ -83,9 +103,29 @@ function printRoundtrip(result: RoundtripResult, dataDir: string): void {
   console.log(result.ok ? 'RESULT: pass' : 'RESULT: FAIL (the round trip passes only when every table of the schema is byte-identical)');
 }
 
-function runRebuild(parsed: Parsed): number {
+async function runRebuild(parsed: Parsed): Promise<number> {
   const dataDir = parsed.values.get('data') ?? DEFAULT_DATA_DIR;
   const dbPath = parsed.values.get('out') ?? WORKSPACE_DB;
+  const protectedDir = protectedDirHolding(resolve(dbPath), resolve(dataDir));
+  if (protectedDir !== null) throw new UsageError(`--out ${dbPath} is inside ${protectedDir}; a rebuild writes only to a sandbox outside the data it reads`);
+  if (!holdsDrafts(dbPath)) {
+    // Plain rebuild, under the writer lock: a draft applied by another process between the look and the swap would be lost otherwise.
+    let lock: WriterLock;
+    try { lock = takeLock(join(dirname(resolve(dbPath)), 'writer.lock')); } catch (error) { return verdictOf(error); }
+    try {
+      if (!holdsDrafts(dbPath)) return plainRebuild(dataDir, dbPath);
+    } finally { lock.release(); }
+  }
+  // A workspace with work in it is never thrown away: the write service backs it up, rebuilds it and replays the drafts.
+  const outcome = await Workspace.rebuild({ dataDir, workspaceDir: dirname(resolve(dbPath)), dbFile: basename(dbPath) });
+  console.log(`db:rebuild  ${dbPath}  (kept the drafts)`);
+  console.log(`  backup ${outcome.backup}`);
+  console.log(`  replayed ${outcome.applied} draft(s), ${outcome.merged} already merged, ${outcome.conflicts.length} conflict(s)`);
+  for (const c of outcome.conflicts) console.log(`  CONFLICT ${c.opId} (${c.code}): ${c.detail}`);
+  return outcome.conflicts.length ? 1 : 0;
+}
+
+function plainRebuild(dataDir: string, dbPath: string): number {
   const report = rebuildWorkspace({ dataDir, dbPath });
   console.log(`db:rebuild  ${dbPath}`);
   for (const line of report.checks) console.log(`  ok  ${line}`);
@@ -214,20 +254,258 @@ function runMeasure(parsed: Parsed): number {
   }
 }
 
+// ---------------------------------------------------------------- the write service
+
+/** The workspace options the flags give. A flag is the only way to move the sandbox, and it is never `data/`. */
+function workspaceOptions(parsed: Parsed): WorkspaceOptions {
+  const dataDir = parsed.values.get('data');
+  const workspaceDir = parsed.values.get('workspace');
+  return { ...(dataDir === undefined ? {} : { dataDir }), ...(workspaceDir === undefined ? {} : { workspaceDir }) };
+}
+
+/** A held lock or a refused export is a verdict (exit 1), not a crash; anything else is rethrown. */
+function verdictOf(error: unknown): number {
+  if (error instanceof ExportRefusedError) { console.error(`FAIL (${error.code}): ${error.message}`); return 1; }
+  if (error instanceof WriterLockedError) { console.error(`FAIL: ${error.message}`); return 1; }
+  throw error;
+}
+
+/**
+ * Run `fn` on an open workspace. Conflicts the open check held are always printed, and a command that otherwise passes still fails
+ * (exit 1) while any are held, unless `failOnConflicts` is off: a pass must not hide a draft that was left out.
+ */
+async function withWorkspace(parsed: Parsed, fn: (ws: Workspace) => Promise<number> | number, failOnConflicts = true): Promise<number> {
+  let ws: Workspace | undefined;
+  try {
+    ws = await Workspace.open(workspaceOptions(parsed));
+    const { rebased } = ws;
+    if (rebased) {
+      console.log(`open check: ${rebased.reason}; backed up to ${rebased.backup}; replayed ${rebased.applied} draft(s), ${rebased.merged} already merged, ${rebased.conflicts.length} conflict(s)`);
+    }
+    const code = await fn(ws);
+    const held = ws.conflicts();
+    for (const c of held) console.log(`  CONFLICT ${c.opId} (${c.code}): ${c.detail}`);
+    if (held.length && failOnConflicts && code === 0) {
+      console.log(`RESULT: FAIL (the command ran, but ${held.length} draft(s) no longer apply and are held as conflicts, not applied; write them again against what the records hold now)`);
+      return 1;
+    }
+    return code;
+  } catch (error) {
+    return verdictOf(error);
+  } finally { ws?.close(); }
+}
+
+/** What the quote check found for the record an opId made: a skipped one says so, it is never a pass. */
+function quoteLine(ws: Workspace, opId: string): string {
+  const check = ws.journal().find((e) => e.record.opId === opId)?.record.quoteCheck;
+  if (check === undefined) return '';
+  return check.status === 'verified' ? '    quote check: verified on its hash-checked page\n' : `    quote check: NOT RUN (${check.reason ?? 'store absent'}); the quote is not verified\n`;
+}
+
+const oneFile = (parsed: Parsed, what: string): string => {
+  const [file, ...extra] = parsed.rest;
+  if (file === undefined || extra.length) throw new UsageError(`${what} needs exactly one file`);
+  return file;
+};
+
+async function runApply(parsed: Parsed): Promise<number> {
+  const file = oneFile(parsed, 'change:apply');
+  const json = readJson(file);
+  const items: readonly unknown[] = Array.isArray(json) ? json : [json];
+  const commands: WriteCommand[] = [];
+  const problems: string[] = [];
+  items.forEach((item, k) => {
+    const command = parseCommand(item);
+    if (command.ok) commands.push(command.value);
+    else problems.push(...command.problems.map((p) => `command ${k + 1}: ${p}`));
+  });
+  if (commands.length === 0 && problems.length === 0) {
+    console.error(`change:apply: ${file} holds no commands; nothing was applied`);
+    return 1;
+  }
+  if (problems.length) {
+    console.error(`change:apply: ${file} has ${problems.length} problem(s); nothing was applied:\n  ${problems.join('\n  ')}`);
+    return 1;
+  }
+  return withWorkspace(parsed, (ws) => {
+    let applied = 0;
+    for (const command of commands) {
+      const result = ws.apply(command);
+      if (result.status === 'refused') {
+        console.log(`  REFUSED  ${command.opId}  ${result.code}: ${result.detail}`);
+        if (result.code === 'stale') console.log(`           expected ${JSON.stringify(result.expected)}\n           found    ${JSON.stringify(result.current)}`);
+        console.log(`change:apply: ${applied} applied before the refusal; ${commands.length - applied - 1} command(s) after it were not tried. RESULT: FAIL`);
+        return 1;
+      }
+      console.log(`  ${result.status.toUpperCase().padEnd(9)} ${command.opId}  ${result.changeRecordIds.join(', ')}`);
+      process.stdout.write(quoteLine(ws, command.opId));
+      applied++;
+    }
+    const unchecked = commands.filter((c) => ws.journal().find((e) => e.record.opId === c.opId)?.record.quoteCheck?.status !== 'verified').length;
+    console.log(`change:apply: ${applied} of ${commands.length} command(s) done (draft, not approved)${unchecked ? `; ${unchecked} without a verified quote check (not run)` : ''}. RESULT: pass`);
+    return 0;
+  });
+}
+
+function runExport(parsed: Parsed): Promise<number> {
+  const title = parsed.values.get('title');
+  const topic = parsed.values.get('topic');
+  if (title === undefined || topic === undefined) throw new UsageError('change:export needs --title <text> and --topic <words-with-hyphens>');
+  const out = parsed.values.get('out');
+  return withWorkspace(parsed, async (ws) => {
+    const result = await exportChangeSet(ws, { title, topic, ...(out === undefined ? {} : { exportDir: out }) });
+    console.log(`change:export  ${result.changeSet.id}${result.recovered ? '  (finished an interrupted export first)' : ''}`);
+    console.log(`  ${result.changeSet.records.length} record(s) in ${result.tables.join(', ')}; base ${result.changeSet.base.snapshotDigest.slice(0, 12)} -> result ${result.changeSet.result.snapshotDigest.slice(0, 12)}`);
+    for (const file of result.files) console.log(`  wrote ${file}`);
+    console.log(`  backup ${result.backup}`);
+    const unchecked = result.changeSet.records.filter((r) => r.quoteCheck?.status !== 'verified').length;
+    if (unchecked) console.log(`  quote check NOT RUN for ${unchecked} of ${result.changeSet.records.length} record(s): their quotes are not verified (see the change set)`);
+    console.log('  impact: not computed (the impact preview is WP-11); sandbox only, nothing was written to data/. RESULT: pass');
+    return 0;
+  });
+}
+
+/** How a replayed digest stands against the one the change set names. */
+const comparedWith = (actual: string | null, expected: string, what: string): string =>
+  actual === expected ? `= the change set's ${what}` : `<> expected ${expected.slice(0, 12)}`;
+
+function printReplay(result: ReplayResult): void {
+  const { baseDigest, resultDigest } = result;
+  console.log(`change:replay  ${result.id}  (${result.records} record(s))`);
+  console.log(`  base   ${baseDigest.actual.slice(0, 12)} ${comparedWith(baseDigest.actual, baseDigest.expected, 'base')}`);
+  console.log(`  result ${resultDigest.actual?.slice(0, 12) ?? 'not computed'} ${comparedWith(resultDigest.actual, resultDigest.expected, 'result')}`);
+  for (const t of result.tables) console.log(`  ${t.status.toUpperCase().padEnd(10)} ${t.table}${t.detail ? `   ${t.detail}` : ''}`);
+  for (const line of result.quoteChecks) console.log(`  quote  ${line}`);
+  for (const problem of result.problems) console.log(`  PROBLEM  ${problem}`);
+}
+
+/** The exported CSV to compare a change set with: --tables, or, beside an export (<root>/data/review/change-sets/x.json), <root>/data/tables. */
+function exportedTablesDir(file: string, tablesFlag: string | undefined, dataDir: string): string | undefined {
+  if (tablesFlag !== undefined) return tablesFlag;
+  // A change set inside the snapshot itself (merged) sits beside every table, not only the ones it changed: no per-table comparison.
+  if (resolve(file).startsWith(`${resolve(dataDir)}${sep}`)) return undefined;
+  const beside = join(resolve(dirname(file), '..', '..', '..'), 'data', 'tables');
+  return existsSync(beside) && basename(dirname(resolve(file))) === 'change-sets' ? beside : undefined;
+}
+
+function runReplay(parsed: Parsed): number {
+  const dataDir = parsed.values.get('data') ?? DEFAULT_DATA_DIR;
+  const tablesFlag = parsed.values.get('tables');
+  const changesets = parsed.values.get('changesets');
+  if (changesets !== undefined && !existsSync(changesets)) throw new UsageError(`--changesets ${changesets} does not exist`);
+  const dir = changesets ?? join(dataDir, 'review', 'change-sets');
+  const files = parsed.rest.length ? parsed.rest : changeSetFiles(dir);
+  let failedSets = 0;
+  for (const file of files) {
+    const tablesDir = exportedTablesDir(file, tablesFlag, dataDir);
+    // An export that stopped half-way is not compared.
+    const exportDir = tablesDir === undefined ? undefined : dirname(dirname(tablesDir));
+    if (exportDir !== undefined && exportPending(exportDir)) {
+      console.log(`change:replay  ${file}\n  PROBLEM  an interrupted export is waiting in ${exportDir} (.save-journal.json); run change:export to finish it before comparing`);
+      failedSets++;
+      continue;
+    }
+    const result = replayFile(file, { dataDir, ...(tablesDir === undefined ? {} : { tablesDir }) });
+    printReplay(result);
+    if (!result.ok) failedSets++;
+  }
+  const ref = parsed.values.get('immutable-against');
+  let immutabilityFailed = false;
+  if (ref !== undefined) {
+    const immutable = checkImmutable(ref);
+    console.log(`change:replay  immutability against ${ref} (${immutable.sha.slice(0, 12)}): ${immutable.checked} change set(s) there`);
+    for (const problem of immutable.problems) console.log(`  PROBLEM  ${problem}`);
+    immutabilityFailed = immutable.problems.length > 0;
+  }
+  if (files.length === 0 && ref === undefined) console.log(`change:replay: 0 change sets in ${dir}; nothing to replay`);
+  else console.log(`REPLAY: ${files.length - failedSets}/${files.length} change set(s) replay to their result${ref === undefined ? '' : ', immutability checked'}`);
+  const failed = failedSets > 0 || immutabilityFailed;
+  console.log(failed ? 'RESULT: FAIL' : 'RESULT: pass');
+  return failed ? 1 : 0;
+}
+
+function runStatus(parsed: Parsed): Promise<number> {
+  return withWorkspace(parsed, (ws) => {
+    const stamp = ws.stamp();
+    console.log(`change:status  ${ws.paths.dbPath}`);
+    console.log(`  approved base ${stamp.snapshotDigest} (commit ${stamp.commit.slice(0, 12)}); schema ${stamp.schemaSha256.slice(0, 12)}`);
+    const drafts = ws.drafts();
+    console.log(`  ${drafts.length} pending change(s)${drafts.length ? ':' : ''}`);
+    for (const d of drafts) console.log(`    ${d.status.padEnd(9)} ${d.record.opId}  ${d.record.table} ${d.record.recordId}  ${Object.keys(d.record.after).join(', ')}${d.changeSetId ? `  in ${d.changeSetId}` : ''}`);
+    const conflicts = ws.conflicts();
+    console.log(`  ${conflicts.length} conflict(s)${conflicts.length ? ':' : ''}`);
+    for (const c of conflicts) console.log(`    ${c.opId}  ${c.code}: ${c.detail}`);
+    console.log(`  ${listBackups(ws.paths.backupDir).length} backup(s) in ${ws.paths.backupDir}`);
+    console.log(`  export directory ${ws.paths.exportDir}${exportPending(ws.paths.exportDir) ? '  (an interrupted export is waiting: run change:export)' : ''}`);
+    return 0;
+  });
+}
+
+function runBackup(parsed: Parsed): Promise<number> {
+  return withWorkspace(parsed, async (ws) => {
+    const info = await ws.backup('manual');
+    console.log(`db:backup  ${info.path}  (${info.pages} pages, verified${info.pruned.length ? `; ${info.pruned.length} oldest removed` : ''}). RESULT: pass`);
+    return 0;
+  }, false);
+}
+
+async function runRestore(parsed: Parsed): Promise<number> {
+  const backupDir = join(parsed.values.get('workspace') ?? dirname(WORKSPACE_DB), 'backups');
+  const latest = parsed.switches.has('latest');
+  const file = latest ? listBackups(backupDir).at(-1) : parsed.rest[0];
+  const extra = latest ? parsed.rest : parsed.rest.slice(1);
+  if (file === undefined || extra.length > 0) throw new UsageError(`db:restore needs one backup file, or --latest (backups are in ${backupDir})`);
+  try {
+    const done = await Workspace.restore(workspaceOptions(parsed), resolve(file));
+    console.log(`db:restore  ${done.restored}  (${done.drafts} pending change(s)); the file it replaced is saved as ${done.safety ?? 'nothing: there was no workspace'}. RESULT: pass`);
+    return 0;
+  } catch (error) {
+    return verdictOf(error);
+  }
+}
+
+function runDraftsExport(parsed: Parsed): Promise<number> {
+  const file = oneFile(parsed, 'drafts:export');
+  return withWorkspace(parsed, (ws) => {
+    const written = exportDrafts(ws, file);
+    console.log(`drafts:export  ${resolve(file)}  (${written.commands.length} command(s)). RESULT: pass`);
+    return 0;
+  });
+}
+
+function runDraftsImport(parsed: Parsed): Promise<number> {
+  const file = oneFile(parsed, 'drafts:import');
+  return withWorkspace(parsed, async (ws) => {
+    const outcome = await importDrafts(ws, file);
+    console.log(`drafts:import  ${file}: ${outcome.applied} applied, ${outcome.duplicates} already there, ${outcome.conflicts.length} kept as conflict(s)`);
+    for (const c of outcome.conflicts) console.log(`  CONFLICT ${c.opId} (${c.code}): ${c.detail}`);
+    console.log(outcome.conflicts.length ? 'RESULT: FAIL (some commands no longer apply; they are kept and shown, not applied)' : 'RESULT: pass');
+    return outcome.conflicts.length ? 1 : 0;
+  });
+}
+
 const COMMANDS: Record<string, Command> = {
   rebuild: { run: runRebuild, valued: ['data', 'out'], switches: [] },
   roundtrip: { run: runRoundtrip, valued: ['data'], switches: [] },
   diff: { run: runDiff, valued: ['against', 'limit', 'db'], switches: ['fail-on-diff'] },
   query: { run: runQuery, valued: ['db'], switches: ['json'], positional: true },
   measure: { run: runMeasure, valued: ['out'], switches: [] },
+  apply: { run: runApply, script: 'change:apply', valued: ['data', 'workspace'], switches: [], positional: true },
+  export: { run: runExport, script: 'change:export', valued: ['data', 'workspace', 'title', 'topic', 'out'], switches: [] },
+  replay: { run: runReplay, script: 'change:replay', valued: ['data', 'tables', 'changesets', 'immutable-against'], switches: [], positional: true },
+  status: { run: runStatus, script: 'change:status', valued: ['data', 'workspace'], switches: [] },
+  backup: { run: runBackup, script: 'db:backup', valued: ['data', 'workspace'], switches: [] },
+  restore: { run: runRestore, script: 'db:restore', valued: ['data', 'workspace'], switches: ['latest'], positional: true },
+  'drafts-export': { run: runDraftsExport, script: 'drafts:export', valued: ['data', 'workspace'], switches: [], positional: true },
+  'drafts-import': { run: runDraftsImport, script: 'drafts:import', valued: ['data', 'workspace'], switches: [], positional: true },
 };
 
-function main(argv: readonly string[]): number {
+async function main(argv: readonly string[]): Promise<number> {
   const [name, ...rest] = argv;
   const command = name === undefined ? undefined : COMMANDS[name];
   if (name === undefined || command === undefined) throw new UsageError(`usage: cli.ts <${Object.keys(COMMANDS).join('|')}> [flags]`);
   try {
-    return command.run(parseArgs(name, command, rest));
+    return await command.run(parseArgs(name, command, rest));
   } catch (error) {
     if (error instanceof DataInputError) { console.error(`db:${name}: FAIL\n${error.message}`); return 1; }
     throw error;
@@ -235,7 +513,7 @@ function main(argv: readonly string[]): number {
 }
 
 try {
-  process.exitCode = main(process.argv.slice(2));
+  process.exitCode = await main(process.argv.slice(2));
 } catch (error) {
   if (error instanceof UsageError) { console.error(error.message); process.exitCode = 64; }
   else { console.error(error instanceof Error ? (error.stack ?? error.message) : String(error)); process.exitCode = 70; }
