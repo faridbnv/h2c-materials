@@ -1,0 +1,13 @@
+{
+  "id": "WP-25",
+  "status": "todo",
+  "slice": null,
+  "branch": null,
+  "pr": null,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": null,
+  "approvedAt": null
+}

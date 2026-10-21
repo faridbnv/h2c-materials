@@ -1,0 +1,14 @@
+{
+  "id": "WP-04",
+  "status": "dropped",
+  "slice": null,
+  "branch": null,
+  "pr": null,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": null,
+  "approvedAt": null,
+  "note": "dropped: main frozen, Q2-04 B"
+}

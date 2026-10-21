@@ -1,0 +1,20 @@
+{
+  "$comment": "Base level (15-TYPESCRIPT-PLAN section 6.1): every .ts file, from its first commit. Node 26 runs the files itself by stripping types, so this config only checks and never emits. No path aliases (Node ignores them; use # subpath imports or relative imports). No option that TypeScript 7 turns into an error (no baseUrl, no old module systems or targets).",
+  "compilerOptions": {
+    "target": "es2023",
+    "lib": ["es2023"],
+    "types": ["node"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "rewriteRelativeImportExtensions": true,
+    "allowImportingTsExtensions": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true
+  }
+}

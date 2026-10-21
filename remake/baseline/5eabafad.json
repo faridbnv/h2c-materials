@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-21T07:10:17.209Z",
+  "git": {
+    "originMain": "5eabafad4e19e3cc2f4e71d55848474ff22bd444",
+    "originRemakeV3": "5eabafad4e19e3cc2f4e71d55848474ff22bd444",
+    "head": "78f1e25e955ecfad2768bda46a45e21aa5f1ad3a",
+    "headBranch": "wp-02-scaffold",
+    "originUrl": "https://github.com/faridbnv/h2c-materials.git"
+  },
+  "liveRelease": {
+    "releaseId": "7c6da496722d",
+    "githubLatestTag": "h2c-7c6da496722d",
+    "githubLatestName": "Filament Atlas, release 7c6da496722d",
+    "githubLatestPublishedAt": "2026-10-20T19:31:26Z",
+    "githubAssets": [
+      {
+        "name": "H2C_Material_Pages_2026-09-21_7c6da496722d.zip",
+        "size": 4482155,
+        "digest": "sha256:c77073f5d3eb51a9972bd0c4856a77fecf6d1e228b04cdd4ccd2981b56113e2c"
+      },
+      {
+        "name": "H2C_Material_Selector_2026-09-21_7c6da496722d.html",
+        "size": 8992676,
+        "digest": "sha256:0f3b799acc7a5b9449c2a1383841706593aeaa929a3b6ddede5edd5a7988ff14"
+      },
+      {
+        "name": "manifest.json",
+        "size": 1844,
+        "digest": "sha256:baeb1dc55158799a3d3808851e1172d27a1b2400a67f7614704d747188f3b8d3"
+      }
+    ],
+    "manifest": {
+      "url": "https://pdynamics.ca/h2c-materials/manifest.json",
+      "fields": {
+        "release": "7c6da496722d",
+        "releaseDigest": "7c6da496722d82ce9447a0f08eb7f841acad80d17504b2c50e9962cc8e045acb",
+        "releaseInputs": {
+          "data": "e5493aaac4eb250c1c12ac99f3926c8609c6aaf992805762f88e2a7de21c429f",
+          "dependencies": "9f2421e6b50856eb637b7c4e8b0c731af311d6f68aa8dda0ced7adf652d1ac63",
+          "engine": "764c9108ff014060d09eea6541d57f7f7a4ae1555c667f545059fcb384274596",
+          "rules": "b79b4632165d9489e82ce8ab89ef79a03796aa507a4f8c1df34cfca5950ed043",
+          "schema": "b877f2c659ac771053ba1a5a28fa9b2fd8757c00dd5aa7145330f6293889b423"
+        },
+        "snapshot": "2026-09-21",
+        "build": "2026-10-20",
+        "commit": "5eabafad4e19e3cc2f4e71d55848474ff22bd444",
+        "sourceTreeClean": true,
+        "runtime": {
+          "node": "v26.12.0"
+        },
+        "dependencies": {
+          "build": "781e2fe393e9148f106f3d331abe369fd43ab84cdd452abc513c9e33327528e9",
+          "tools": "4714a01fa8dee1590f6fdaa0d859dadbbc1426ed94d9b197dee5be389788bb1c"
+        },
+        "inputs": {
+          "dataManifest": "a2377d9d63aad7050ddc83335f54b0e9eeef3c12cb568d83882cc88aa4725360",
+          "schema": "5a6cafce14dad5f78af23a1c2fe7b8cbf6d69ac8601ee3d3546ebdaa09e07eb1",
+          "buildRules": "b9496fbaec437be05cb69afd1ea9cd48948b159a4e35c7d0d8e7609013124b84",
+          "mappings": "0f5a63ba2f290366fb4743ef570e93e377e3af37def8e124ab8c6309904d4ae5",
+          "app": "3c26768481f84736fb2a9d1114da37fa0531e73d507bb7e83e18f04c9826580a"
+        },
+        "outputs": {
+          "db.json": "619abcd324e467d4c88c8b4934713ae247dfc44f86e40e09c0fb6a1f47914b28",
+          "reference.json": "4f346e3816e9e3dc22ac2ec0846ea6815b2cfed4f38f483162b3d15e8ccaaf84",
+          "H2C_Material_Selector_2026-09-21_7c6da496722d.html": "0f3b799acc7a5b9449c2a1383841706593aeaa929a3b6ddede5edd5a7988ff14",
+          "materials/": "2f810ac0c2af96bb30b65f77210c98480d9eee3e9030aabd18b67f9d63914588"
+        },
+        "pages": {
+          "pages": 82,
+          "recordsPages": 82,
+          "bytes": 28382292
+        }
+      }
+    },
+    "githubAndSiteAgree": true,
+    "releasesListed": 30
+  },
+  "node": {
+    "local": "v26.9.0",
+    "nvmrc": "26",
+    "nvmrcMatchesLocal": true,
+    "ciSetup": [
+      "pages.yml: file .nvmrc",
+      "verify.yml: file .nvmrc"
+    ],
+    "liveBuiltWith": "v26.12.0"
+  },
+  "testFiles": {
+    "test/*.test.js (npm test, non-ingest)": 83,
+    "test/ingest-*.test.js (npm run test:ingest)": 21,
+    "test/*.check.js": 3,
+    "tests/claude/*.test.mjs": 1,
+    "tests/remake/*.test.mjs": 1
+  },
+  "privateStore": {
+    "envVar": "H2C_SOURCE_BACKUP",
+    "envSet": true,
+    "available": true,
+    "topLevelEntries": 2707,
+    "note": "path deliberately not recorded; CI has no store and must print \"not run: store absent\""
+  },
+  "knownFailingChecks": [
+    {
+      "check": "npm run verify (full)",
+      "state": "load-sensitive",
+      "detail": "7:06 alone on a cold M4 and passed; failed at 13:58 under load",
+      "source": "pack research/understand/probe.md section 8; 08 section 3 hazards"
+    },
+    {
+      "check": "npm run audit:context (inside verify)",
+      "state": "skipped-counts-as-pass",
+      "detail": "with no .cache/text it checks nothing and still exits \"passed\"; wp:check treats any skip as not-run",
+      "source": "probe.md section 8"
+    },
+    {
+      "check": "npm run verify:fast --enforce-budget (cold)",
+      "state": "over-budget",
+      "detail": "about 7 s over its own 90 s budget on a cold cache; passes without --enforce-budget",
+      "source": "probe.md section 7"
+    },
+    {
+      "check": "npm test: 2 sqlite tests",
+      "state": "skipped-without-private-cache",
+      "detail": "need .cache/proposals and .cache/text",
+      "source": "probe.md section 6"
+    }
+  ],
+  "frozen": {
+    "main": "frozen completely (Q2-04 B): no sync, WP-04 dropped",
+    "pointerPrToMain": "none (Q2-09 B)",
+    "framework": "Vue 3 with Vite, no trial (Q2-06 C), WP-12 dropped"
+  }
+}
