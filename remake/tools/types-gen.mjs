@@ -451,21 +451,38 @@ function renderColumnSql(t, c, weaker) {
   return lines;
 }
 
+/** Table-level constraints: a composite primary key, the unique keys, and the value/state pair checks. `keyColumn` maps a key field name to its stored column. */
+function renderTableConstraints(t, keyColumn) {
+  const constraints = [];
+  if (t.pk.length > 1) constraints.push(`PRIMARY KEY (${t.pk.map(keyColumn).join(', ')})`);
+  for (const key of t.uniqueKeys) constraints.push(`UNIQUE (${key.map(keyColumn).join(', ')})`);
+  const optionalPair = t.columns.find((x) => x.paired && !x.required);
+  if (optionalPair) throw new Error(`${t.name}.${optionalPair.name}: an optional column with missing words has no pairing rule yet; make it required or extend the generator`);
+  for (const c of t.columns.filter((x) => x.paired && x.required)) {
+    constraints.push(`CHECK ((${sqlId(c.sql)} IS NULL) = (${sqlId(`${c.sql}_state`)} IS NOT NULL))`);
+  }
+  return constraints;
+}
+
+/** The CREATE TABLE statement for `t`, preceded by its title as a comment. */
+function renderCreateTable(t, definitions) {
+  return [`-- ${oneLine(t.title)}`, `CREATE TABLE ${sqlId(t.name)} (`, definitions.map((l) => `  ${l}`).join(',\n'), ') STRICT;'];
+}
+
+/** Header lines that list the patterns GLOB could only approximate (none when every CHECK is exact). */
+function renderWeakerNote(weaker) {
+  const weak = [...new Set(weaker)];
+  if (!weak.length) return [];
+  return ['-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):', ...weak.map((p) => `--   ${p}`)];
+}
+
 function renderSql({ model }) {
   const weaker = [];
   const body = [];
   for (const t of model) {
-    const lines = t.columns.flatMap((c) => renderColumnSql(t, c, weaker));
-    const tableLevel = [];
-    if (t.pk.length > 1) tableLevel.push(`PRIMARY KEY (${t.pk.map((k) => sqlId(sqlName(k))).join(', ')})`);
-    for (const key of t.uniqueKeys) tableLevel.push(`UNIQUE (${key.map((k) => sqlId(sqlName(k))).join(', ')})`);
-    const optionalPair = t.columns.find((x) => x.paired && !x.required);
-    if (optionalPair) throw new Error(`${t.name}.${optionalPair.name}: an optional column with missing words has no pairing rule yet; make it required or extend the generator`);
-    for (const c of t.columns.filter((x) => x.paired && x.required)) {
-      tableLevel.push(`CHECK ((${sqlId(c.sql)} IS NULL) = (${sqlId(`${c.sql}_state`)} IS NOT NULL))`);
-    }
-    body.push(`-- ${oneLine(t.title)}`, `CREATE TABLE ${sqlId(t.name)} (`);
-    body.push([...lines, ...tableLevel].map((l) => `  ${l}`).join(',\n'), ') STRICT;', '');
+    const columns = t.columns.flatMap((c) => renderColumnSql(t, c, weaker));
+    const keyColumn = (name) => sqlId(sqlName(name));
+    body.push(...renderCreateTable(t, [...columns, ...renderTableConstraints(t, keyColumn)]), '');
   }
   const head = [
     `-- ${BANNER}`,
@@ -473,9 +490,7 @@ function renderSql({ model }) {
     '-- is a value plus <column>_state. A NULL value with no state is a blank optional cell.',
     '-- Not here yet (WP-09): _ord row-order columns, child tables for list columns, the grade-owns-record composite key.',
   ];
-  const weak = [...new Set(weaker)];
-  if (weak.length) head.push('-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):', ...weak.map((p) => `--   ${p}`));
-  return [...head, '', ...body].join('\n');
+  return [...head, ...renderWeakerNote(weaker), '', ...body].join('\n');
 }
 
 // ---------------------------------------------------------------- storage.sql
@@ -501,7 +516,7 @@ function renderStorageColumn(t, c, weaker) {
   if (!isNumeric(c)) return renderColumnSql(t, c, weaker);
   if (c.reference || c.allowed || c.pattern) throw new Error(`${t.name}.${c.name}: a ${c.type} column with a reference, vocabulary or pattern has no storage form yet`);
   if (isSoleKey(t.pk, c.name)) throw new Error(`${t.name}.${c.name}: a ${c.type} column as the primary key has no storage form yet`);
-  const text = sqlId(`${c.sql}_text`);
+  const text = sqlId(textColumn(c));
   const typed = sqlId(c.sql);
   const words = c.missing.map(sqlStr).join(', ');
   const exact = [`${text} TEXT`];
@@ -510,9 +525,10 @@ function renderStorageColumn(t, c, weaker) {
   exact.push(`CHECK (${c.missing.length ? `${text} IN (${words}) OR ` : ''}${wellFormed(c, text)})`);
   const sqlType = c.type === 'number' ? 'REAL' : 'INTEGER';
   const cast = c.type === 'boolean' ? `(${text} = 'TRUE')` : `CAST(${text} AS ${sqlType})`;
-  const lines = [exact.join(' '), `${typed} ${sqlType} GENERATED ALWAYS AS (CASE WHEN ${wellFormed(c, text)} THEN ${cast} END) VIRTUAL`];
-  if (c.minimum !== null) lines[1] += ` CHECK (${typed} >= ${c.minimum})`;
-  if (c.maximum !== null) lines[1] += ` CHECK (${typed} <= ${c.maximum})`;
+  const generated = [`${typed} ${sqlType} GENERATED ALWAYS AS (CASE WHEN ${wellFormed(c, text)} THEN ${cast} END) VIRTUAL`];
+  if (c.minimum !== null) generated.push(`CHECK (${typed} >= ${c.minimum})`);
+  if (c.maximum !== null) generated.push(`CHECK (${typed} <= ${c.maximum})`);
+  const lines = [exact.join(' '), generated.join(' ')];
   if (c.paired) lines.push(`${sqlId(`${c.sql}_state`)} TEXT GENERATED ALWAYS AS (CASE WHEN ${text} IN (${words}) THEN ${text} END) VIRTUAL`);
   return lines;
 }
@@ -522,17 +538,8 @@ function renderStorageSql({ model }) {
   const body = [];
   for (const t of model) {
     const keyColumn = (name) => sqlId(textColumn(t.columns.find((x) => x.name === name)));
-    const lines = ['"_ord" INTEGER NOT NULL UNIQUE CHECK ("_ord" >= 1)', ...t.columns.flatMap((c) => renderStorageColumn(t, c, weaker))];
-    const tableLevel = [];
-    if (t.pk.length > 1) tableLevel.push(`PRIMARY KEY (${t.pk.map(keyColumn).join(', ')})`);
-    for (const key of t.uniqueKeys) tableLevel.push(`UNIQUE (${key.map(keyColumn).join(', ')})`);
-    const optionalPair = t.columns.find((x) => x.paired && !x.required);
-    if (optionalPair) throw new Error(`${t.name}.${optionalPair.name}: an optional column with missing words has no pairing rule yet; make it required or extend the generator`);
-    for (const c of t.columns.filter((x) => x.paired && x.required)) {
-      tableLevel.push(`CHECK ((${sqlId(c.sql)} IS NULL) = (${sqlId(`${c.sql}_state`)} IS NOT NULL))`);
-    }
-    body.push(`-- ${oneLine(t.title)}`, `CREATE TABLE ${sqlId(t.name)} (`);
-    body.push([...lines, ...tableLevel].map((l) => `  ${l}`).join(',\n'), ') STRICT;');
+    const columns = ['"_ord" INTEGER NOT NULL UNIQUE CHECK ("_ord" >= 1)', ...t.columns.flatMap((c) => renderStorageColumn(t, c, weaker))];
+    body.push(...renderCreateTable(t, [...columns, ...renderTableConstraints(t, keyColumn)]));
     // An index on each referencing column: the parent-side foreign key check and every join from a parent to its children use it.
     for (const c of t.columns.filter((x) => x.reference)) body.push(`CREATE INDEX ${sqlId(`ix_${t.name}_${c.sql}`)} ON ${sqlId(t.name)} (${sqlId(c.sql)});`);
     body.push('');
@@ -550,9 +557,7 @@ function renderStorageSql({ model }) {
     '--   An index sits on each referencing column, so the foreign key check and joins from a parent to its children stay fast.',
     '-- Not here yet: child tables for list columns (they stay ;-joined text), the grade-owns-record composite key.',
   ];
-  const weak = [...new Set(weaker)];
-  if (weak.length) head.push('-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):', ...weak.map((p) => `--   ${p}`));
-  return [...head, '', ...body].join('\n');
+  return [...head, ...renderWeakerNote(weaker), '', ...body].join('\n');
 }
 
 // ---------------------------------------------------------------- db-shape.ts

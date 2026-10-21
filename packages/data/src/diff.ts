@@ -7,7 +7,7 @@ import type { TableName } from './generated/columns.ts';
 import type { Db } from './driver.ts';
 import { parseCsv } from './csv.ts';
 import { REPO_ROOT } from './rebuild.ts';
-import { storageOf, readCells } from './storage.ts';
+import { headerMatches, isTableName, readCells, storageOf } from './storage.ts';
 
 export interface CellChange { readonly key: string; readonly column: string; readonly before: string | null; readonly after: string | null }
 
@@ -31,6 +31,11 @@ export interface DiffResult {
 }
 
 const git = (args: readonly string[], cwd: string): string => execFileSync('git', args, { cwd, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+
+/** A table present on only one side: the whole table counts as one difference. */
+function wholeTable(table: string, status: 'added-table' | 'removed-table', added: readonly string[]): TableDiff {
+  return { table, status, added, removed: [], changes: [], changedRecords: 0, reordered: false, differences: 1 };
+}
 
 /** The commit a ref names, or a thrown error: a ref that does not resolve is never read as "no differences". */
 export function resolveRef(ref: string, repo: string = REPO_ROOT): string {
@@ -98,19 +103,17 @@ export function diffAgainstRef(db: Db, ref: string, repo: string = REPO_ROOT): D
   const tables: TableDiff[] = [];
   for (const table of TABLE_NAMES) {
     if (!atRef.has(table)) {
-      const rows = [...readCells(db, table)];
-      tables.push({ table, status: 'added-table', added: rows.map((r) => r[0] ?? ''), removed: [], changes: [], changedRecords: 0, reordered: false, differences: 1 });
+      tables.push(wholeTable(table, 'added-table', [...readCells(db, table)].map((row) => row[0] ?? '')));
       continue;
     }
     const theirs = parseCsv(git(['show', `${sha}:data/tables/${table}.csv`], repo), `${sha.slice(0, 8)}:data/tables/${table}.csv`);
-    const want = storageOf(table).header;
-    if (theirs.header.length !== want.length || theirs.header.some((h, k) => h !== want[k])) {
+    if (!headerMatches(table, theirs.header)) {
       throw new Error(`${table}: the columns at ${ref} differ from the schema's, so the two cannot be compared record by record; run types:gen on that commit's schema first`);
     }
     tables.push(compareRows(table, [...readCells(db, table)], theirs.records.map((r) => r.cells)));
   }
   for (const name of atRef) {
-    if (!TABLE_NAMES.some((t) => t === name)) tables.push({ table: name, status: 'removed-table', added: [], removed: [], changes: [], changedRecords: 0, reordered: false, differences: 1 });
+    if (!isTableName(name)) tables.push(wholeTable(name, 'removed-table', []));
   }
   return { ref, sha, tables, differences: tables.reduce((sum, t) => sum + t.differences, 0) };
 }

@@ -12,7 +12,7 @@ import { storageOf } from '../../packages/data/src/storage.ts';
 
 export const root = fileURLToPath(new URL('../..', import.meta.url));
 export const realData = join(root, 'data');
-export const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
 /** A scratch copy of data/ (tables and manifest). Returns { dir, cleanup }. */
 export function copyData() {

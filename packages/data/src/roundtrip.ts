@@ -8,7 +8,7 @@ import { open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { buildDatabase, DEFAULT_DATA_DIR, readInputs } from './rebuild.ts';
 import type { BuildReport } from './rebuild.ts';
-import { exportTable } from './storage.ts';
+import { countRows, exportTable, isTableName } from './storage.ts';
 
 export type TableStatus = 'identical' | 'differs' | 'problem' | 'missing-table' | 'not-checked';
 
@@ -65,7 +65,7 @@ export function roundtrip(options: RoundtripOptions = {}): RoundtripResult {
       const why = inputs.byTable.get(table);
       results.push({ table, status: why === undefined ? 'not-checked' : 'problem', rows: 0, bytes: 0, detail: why ?? 'not exported: other tables could not be read' });
     }
-    for (const [table, why] of inputs.byTable) if (!TABLE_NAMES.some((t) => t === table)) results.push({ table, status: 'problem', rows: 0, bytes: 0, detail: why });
+    for (const [table, why] of inputs.byTable) if (!isTableName(table)) results.push({ table, status: 'problem', rows: 0, bytes: 0, detail: why });
     return finish(results, problems, null, { read: tRead - t0, load: 0, export: 0, total: performance.now() - t0 });
   }
 
@@ -76,7 +76,7 @@ export function roundtrip(options: RoundtripOptions = {}): RoundtripResult {
     const tLoad = performance.now();
     const present = new Set(db.prepare("SELECT name FROM sqlite_schema WHERE type = 'table'").all().map((row) => String(row.name)));
     for (const name of present) {
-      if (!name.startsWith('sqlite_') && name !== '_meta' && !TABLE_NAMES.some((t) => t === name)) problems.push(`the database has a table ${name} that is not in the schema`);
+      if (!name.startsWith('sqlite_') && name !== '_meta' && !isTableName(name)) problems.push(`the database has a table ${name} that is not in the schema`);
     }
     for (const table of TABLE_NAMES) results.push(compareTable(db, table, present, inputs.tables.get(table)?.bytes));
     return finish(results, problems, build, { read: tRead - t0, load: tLoad - tRead, export: performance.now() - tLoad, total: performance.now() - t0 });
@@ -89,15 +89,14 @@ function compareTable(db: Db, table: TableName, present: ReadonlySet<string>, by
   if (!bytes) return { table, status: 'problem', rows: 0, bytes: 0, detail: 'the CSV bytes were not read' };
   if (!present.has(table)) return { table, status: 'missing-table', rows: 0, bytes: bytes.length, detail: 'the rebuilt database has no such table' };
   const exported = exportTable(db, table);
-  const rows = Number(db.prepare(`SELECT count(*) AS n FROM "${table}"`).get()?.n);
+  const rows = countRows(db, table);
   if (Buffer.from(exported, 'utf8').equals(bytes)) return { table, status: 'identical', rows, bytes: bytes.length, detail: '' };
   return { table, status: 'differs', rows, bytes: bytes.length, detail: firstDifference(bytes.toString('utf8'), exported) };
 }
 
 function finish(tables: TableResult[], problems: string[], build: BuildReport | null, ms: RoundtripResult['ms']): RoundtripResult {
   const identical = tables.filter((t) => t.status === 'identical').length;
-  const covered = TABLE_NAMES.every((name) => tables.some((t) => t.table === name));
-  // 36 of 36 or fail: every table of the schema present in the results, each identical, and nothing else wrong.
-  const ok = covered && identical === TABLE_NAMES.length && tables.length === TABLE_NAMES.length && problems.length === 0 && build !== null;
+  // All or nothing: one result per table of the schema (an extra table adds a result), every one identical, nothing else wrong.
+  const ok = identical === TABLE_NAMES.length && tables.length === TABLE_NAMES.length && problems.length === 0 && build !== null;
   return { ok, expected: TABLE_NAMES.length, identical, tables, problems, build, ms };
 }

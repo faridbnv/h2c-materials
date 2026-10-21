@@ -5,12 +5,22 @@
 //   text column that declares missing words   <sql> holds the value (NULL when a word stands in), <sql>_state the word
 //   any other column                          <sql> holds the exact text (NULL for an empty cell)
 // Every identifier below comes from the generated allow-list (TABLE_NAMES, TABLES); every value is a bound parameter.
-import { TABLES } from './generated/columns.ts';
+import { TABLE_NAMES, TABLES } from './generated/columns.ts';
 import type { ColumnInfo, TableName } from './generated/columns.ts';
 import type { Db, Param } from './driver.ts';
 import { csvText } from './csv.ts';
 
 export const quoteIdent = (name: string): string => `"${name.replaceAll('"', '""')}"`;
+
+/** Whether `name` is a table of the schema (the type guard that avoids a cast from the generated list). */
+export function isTableName(name: string): name is TableName {
+  return TABLE_NAMES.some((table) => table === name);
+}
+
+/** The number of rows in a table or view. */
+export function countRows(db: Db, relation: string): number {
+  return Number(db.prepare(`SELECT count(*) AS n FROM ${quoteIdent(relation)}`).get()?.n);
+}
 
 const TYPED = new Set(['number', 'integer', 'boolean']);
 
@@ -52,17 +62,26 @@ export function storageOf(table: TableName): TableStorage {
     selectSql: `SELECT ${select.join(', ')} FROM ${quoteIdent(table)} ORDER BY _ord`,
     encode(ord, cells) {
       const params: Param[] = [ord];
-      layouts.forEach((l, k) => {
+      layouts.forEach((layout, k) => {
         const cell = cells[k] ?? null;
-        if (l.kind !== 'word') { params.push(cell); return; }
-        const word = cell !== null && l.words.has(cell);
-        params.push(word ? null : cell, word ? cell : null);
+        if (layout.kind === 'word') {
+          const isWord = cell !== null && layout.words.has(cell);
+          params.push(isWord ? null : cell, isWord ? cell : null);
+        } else {
+          params.push(cell);
+        }
       });
       return params;
     },
   };
   cache.set(table, storage);
   return storage;
+}
+
+/** Whether a CSV header is exactly the schema's columns for `table`, in order. */
+export function headerMatches(table: TableName, header: readonly string[]): boolean {
+  const want = storageOf(table).header;
+  return header.length === want.length && header.every((name, k) => name === want[k]);
 }
 
 /** Every record of a table as its cells, in file order. A cell that is not text or NULL is a storage fault and throws. */

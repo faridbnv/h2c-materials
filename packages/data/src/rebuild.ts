@@ -18,7 +18,7 @@ import { open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { CsvError, parseCsv } from './csv.ts';
 import type { CsvRecord } from './csv.ts';
-import { quoteIdent, storageOf } from './storage.ts';
+import { countRows, headerMatches, isTableName, quoteIdent, storageOf } from './storage.ts';
 
 export const REPO_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
 export const DEFAULT_DATA_DIR = join(REPO_ROOT, 'data');
@@ -74,8 +74,7 @@ export function readInputs(dataDir: string): Inputs {
   const tables = new Map<TableName, TableInput>();
   const tableDir = join(dataDir, 'tables');
   const files = existsSync(tableDir) ? readdirSync(tableDir).filter((f) => f.endsWith('.csv')).map((f) => f.slice(0, -4)) : [];
-  const expected: readonly string[] = TABLE_NAMES;
-  for (const name of files) if (!expected.includes(name)) fail(name, 'data/tables has a CSV file that is not a table of the schema');
+  for (const name of files) if (!isTableName(name)) fail(name, 'data/tables has a CSV file that is not a table of the schema');
 
   let manifest: Manifest | null = null;
   let manifestSha256: string | null = null;
@@ -92,7 +91,7 @@ export function readInputs(dataDir: string): Inputs {
     }
   }
   if (manifest) {
-    for (const name of Object.keys(manifest.tables)) if (!expected.includes(name)) fail(name, 'the manifest lists a table that is not in the schema');
+    for (const name of Object.keys(manifest.tables)) if (!isTableName(name)) fail(name, 'the manifest lists a table that is not in the schema');
   }
 
   for (const table of TABLE_NAMES) {
@@ -107,9 +106,8 @@ export function readInputs(dataDir: string): Inputs {
       fail(table, error.message);
       continue;
     }
-    const want = storageOf(table).header;
-    if (parsed.header.length !== want.length || parsed.header.some((h, k) => h !== want[k])) {
-      fail(table, `the header is [${parsed.header.join(' | ')}] but the schema's columns are [${want.join(' | ')}]`);
+    if (!headerMatches(table, parsed.header)) {
+      fail(table, `the header is [${parsed.header.join(' | ')}] but the schema's columns are [${storageOf(table).header.join(' | ')}]`);
       continue;
     }
     const digest = sha256(bytes);
@@ -136,8 +134,8 @@ export interface BuildReport {
   readonly ms: { readonly read: number; readonly load: number; readonly verify: number; readonly total: number };
 }
 
-function viewFiles(): string[] {
-  return readdirSync(VIEWS_DIR).filter((f) => f.endsWith('.sql')).sort();
+function readViewSql(): string[] {
+  return readdirSync(VIEWS_DIR).filter((f) => f.endsWith('.sql')).sort().map((f) => readFileSync(join(VIEWS_DIR, f), 'utf8'));
 }
 
 function schemaDigest(): string {
@@ -162,7 +160,8 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
   if (inputs.problems.length) throw new DataInputError(inputs.problems);
   const t0 = performance.now();
   const checks: string[] = [];
-  db.exec(readFileSync(STORAGE_DDL, 'utf8'));
+  const storageDdl = readFileSync(STORAGE_DDL, 'utf8');
+  db.exec(storageDdl);
   db.exec(META_DDL);
 
   const problems: string[] = [];
@@ -189,12 +188,13 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
 
   const verifyProblems = verifyStored(db, inputs, checks);
   if (verifyProblems.length) throw new DataInputError(verifyProblems);
-  for (const file of viewFiles()) db.exec(readFileSync(join(VIEWS_DIR, file), 'utf8'));
+  const viewSql = readViewSql();
+  for (const sql of viewSql) db.exec(sql);
   const views = db.prepare("SELECT name FROM sqlite_schema WHERE type = 'view' ORDER BY name").all().map((row) => {
     const name = String(row.name);
-    return { view: name, rows: Number(db.prepare(`SELECT count(*) AS n FROM ${quoteIdent(name)}`).get()?.n) };
+    return { view: name, rows: countRows(db, name) };
   });
-  if (views.length !== viewFiles().length) throw new DataInputError([`db/views has ${viewFiles().length} files but the database has ${views.length} views`]);
+  if (views.length !== viewSql.length) throw new DataInputError([`db/views has ${viewSql.length} files but the database has ${views.length} views`]);
   checks.push(`${views.length} views created and queried`);
 
   const rows = [...inputs.tables.values()].reduce((sum, t) => sum + t.records.length, 0);
@@ -203,8 +203,8 @@ export function buildDatabase(db: Db, inputs: Inputs): BuildReport {
     commit: gitCommit(),
     manifest_sha256: inputs.manifestSha256 ?? 'unknown',
     schema_sha256: schemaDigest(),
-    storage_ddl_sha256: sha256(readFileSync(STORAGE_DDL)),
-    views_sha256: sha256(viewFiles().map((f) => readFileSync(join(VIEWS_DIR, f), 'utf8')).join('\0')),
+    storage_ddl_sha256: sha256(storageDdl),
+    views_sha256: sha256(viewSql.join('\0')),
     sqlite_version: info.sqlite,
     node_version: info.node,
     driver_class: info.className,
@@ -239,7 +239,7 @@ function foreignKeyProblems(db: Db, inputs: Inputs): string[] {
     const link = db.prepare(`PRAGMA foreign_key_list(${quoteIdent(table)})`).all().find((row) => row.id === violation.fkid);
     const column = String(link?.from);
     const value = typeof rowid === 'number' ? db.prepare(`SELECT ${quoteIdent(column)} AS v FROM ${quoteIdent(table)} WHERE rowid = ?`).get(rowid)?.v : undefined;
-    const known = TABLE_NAMES.find((name) => name === table);
+    const known = isTableName(table) ? table : undefined;
     const line = known && typeof rowid === 'number' ? inputs.tables.get(known)?.records[rowid - 1]?.line : undefined;
     const header = known ? TABLES[known].columns.find((c) => c.sqlName === column)?.name : undefined;
     out.push(`data/tables/${table}.csv:${line ?? '?'}: ${header ?? column} "${String(value)}" has no row in ${parent}`);
@@ -254,7 +254,7 @@ function verifyStored(db: Db, inputs: Inputs, checks: string[]): string[] {
   for (const row of db.prepare('PRAGMA table_list').all()) {
     const name = String(row.name);
     if (row.schema !== 'main' || name.startsWith('sqlite_') || name === '_meta') continue;
-    if (!TABLE_NAMES.some((t) => t === name)) problems.push(`the database has a table ${name} that is not in the schema`);
+    if (!isTableName(name)) problems.push(`the database has a table ${name} that is not in the schema`);
     else if (row.strict === 1) strict++;
     else problems.push(`${name} is not a STRICT table`);
   }

@@ -33,6 +33,7 @@ export function pickDatabaseClass(namespace: object): { readonly ctor: DatabaseC
 }
 
 const { ctor: DatabaseCtor, name: driverClassName } = pickDatabaseClass(sqlite);
+export { driverClassName };
 
 /** What this process runs on, recorded in the base stamp and the measurement files. */
 export interface DriverInfo {
@@ -42,13 +43,12 @@ export interface DriverInfo {
   readonly className: 'Database' | 'DatabaseSync';
 }
 
-export { driverClassName };
+export type ConstraintKind = 'foreign-key' | 'check' | 'unique' | 'primary-key' | 'not-null' | 'strict-type';
 
 /** SQLite extended result codes of the constraint failures the data layer tells apart. */
 const CONSTRAINT_CODES = new Map<number, ConstraintKind>([
   [787, 'foreign-key'], [275, 'check'], [2067, 'unique'], [1555, 'primary-key'], [1299, 'not-null'], [3091, 'strict-type'],
 ]);
-export type ConstraintKind = 'foreign-key' | 'check' | 'unique' | 'primary-key' | 'not-null' | 'strict-type';
 
 /** Which constraint a thrown SQLite error is, or null when it is not a constraint failure. */
 export function constraintKind(error: unknown): ConstraintKind | null {

@@ -16,13 +16,14 @@ after(() => real?.db.close());
 
 const TYPED = new Set(['number', 'integer', 'boolean']);
 const expectedColumns = (table) => ['_ord', ...TABLES[table].columns.flatMap((c) => {
-  if (TYPED.has(c.type)) return [`${c.sqlName}_text`, c.sqlName, ...(c.missing.length ? [`${c.sqlName}_state`] : [])];
-  return c.missing.length ? [c.sqlName, `${c.sqlName}_state`] : [c.sqlName];
+  const state = c.missing.length ? [`${c.sqlName}_state`] : [];
+  return TYPED.has(c.type) ? [`${c.sqlName}_text`, c.sqlName, ...state] : [c.sqlName, ...state];
 })];
+const tableInfo = (table) => real.db.prepare(`PRAGMA table_xinfo("${table}")`).all();
 
 test('every table has exactly the stored and generated columns the generated column facts say, and is STRICT', () => {
   for (const table of TABLE_NAMES) {
-    const info = real.db.prepare(`PRAGMA table_xinfo("${table}")`).all();
+    const info = tableInfo(table);
     assert.deepEqual(info.map((c) => c.name), expectedColumns(table), table);
     // Typed columns and their words are generated (hidden = 2 for a virtual generated column); the rest are stored.
     for (const c of TABLES[table].columns.filter((x) => TYPED.has(x.type))) {
@@ -164,7 +165,7 @@ test('row order is data: _ord follows the file, and a swap of two rows comes bac
 
 // ---------------------------------------------------------------- views
 
-const count = (sql) => Number(real.db.prepare(sql).get().n);
+const countRows = (view) => Number(real.db.prepare(`SELECT count(*) AS n FROM ${view}`).get().n);
 const countRecords = (table, test) => realRecords(table).filter((r) => test((name) => r[columnIndex(table, name)])).length;
 
 test('the views return what an independent count over the CSV says', () => {
@@ -172,13 +173,13 @@ test('the views return what an independent count over the CSV says', () => {
   const open = countRecords('coverage', (c) => OPEN.includes(c('Status'))) + countRecords('measurements', (c) => c('Data status') === 'Unresolved unit / layout');
   const summaries = countRecords('material_summaries', (c) => ['draft', 'revise'].includes(c('Review status')));
   const implausible = countRecords('measurements', (c) => c('Data status') === 'Published value (physically implausible)');
-  assert.equal(count('SELECT count(*) AS n FROM v_active_products'), countRecords('grades', (c) => c('Status') === 'active'));
-  assert.equal(count('SELECT count(*) AS n FROM v_source_observations'), realRecords('measurements').length);
-  assert.equal(count('SELECT count(*) AS n FROM v_profile_lineage'), realRecords('profiles').length);
-  assert.equal(count('SELECT count(*) AS n FROM v_headline_candidates'), realRecords('headlines').length);
-  assert.equal(count('SELECT count(*) AS n FROM v_open_findings'), open);
-  assert.equal(count('SELECT count(*) AS n FROM v_editor_work_queues'), summaries + open + implausible);
-  assert.ok(open > 0 && summaries >= 0 && count('SELECT count(*) AS n FROM v_active_products') > 1000);
+  assert.equal(countRows('v_active_products'), countRecords('grades', (c) => c('Status') === 'active'));
+  assert.equal(countRows('v_source_observations'), realRecords('measurements').length);
+  assert.equal(countRows('v_profile_lineage'), realRecords('profiles').length);
+  assert.equal(countRows('v_headline_candidates'), realRecords('headlines').length);
+  assert.equal(countRows('v_open_findings'), open);
+  assert.equal(countRows('v_editor_work_queues'), summaries + open + implausible);
+  assert.ok(open > 0 && summaries >= 0 && countRows('v_active_products') > 1000);
   const names = real.db.prepare("SELECT name FROM sqlite_schema WHERE type = 'view' ORDER BY name").all().map((r) => r.name);
   assert.deepEqual(names, ['v_active_products', 'v_editor_work_queues', 'v_headline_candidates', 'v_open_findings', 'v_profile_lineage', 'v_source_observations']);
 });
@@ -205,10 +206,10 @@ test('views select stored facts only: the missing-state word stays a word in v_s
   assert.ok(MISSING_STATES.includes(row.normalized_value_state));
 });
 
-test('each table\'s INSERT binds _ord plus one value per stored column, and its SELECT reads every cell in order', () => {
+test('each table\'s INSERT binds one value per stored column (_ord included), and its SELECT reads every cell in order', () => {
   for (const table of TABLE_NAMES) {
     const { insertSql, selectSql, header } = storageOf(table);
-    const stored = 1 + TABLES[table].columns.reduce((n, c) => n + (!TYPED.has(c.type) && c.missing.length ? 2 : 1), 0);
+    const stored = tableInfo(table).filter((c) => c.hidden === 0).length; // generated columns are hidden = 2
     assert.equal((insertSql.match(/\?/g) ?? []).length, stored, table);
     assert.equal(header.length, TABLES[table].columns.length);
     assert.equal((selectSql.match(/ AS c\d+/g) ?? []).length, header.length);
