@@ -6,5 +6,5 @@
     "types": ["node", "vite/client"],
     "rewriteRelativeImportExtensions": false
   },
-  "include": ["src/**/*.ts", "src/**/*.vue", "tools/**/*.ts", "vite.config.ts", "env.d.ts"]
+  "include": ["src/**/*.ts", "src/**/*.vue", "tools/**/*.ts", "vite.config.ts", "env.d.ts", "../../packages/engine/src/port/lib-guards.d.ts"]
 }
