@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv2020 from 'ajv/dist/2020.js';
-import type { Dyn } from './types.ts';
+import type { Dyn, Issue } from './types.ts';
 
 const schemaDir = join(dirname(fileURLToPath(import.meta.url)), '../../../schema');
 let validators;
@@ -21,7 +21,7 @@ function compileValidators() {
 /** Issues in the build's { level, where, message } shape; at most `limit` per file. */
 export function contractIssues({ db, reference }: Dyn, { limit = 20 }: Dyn = {}) {
   validators ??= compileValidators();
-  const issues = [];
+  const issues: Issue[] = [];
   for (const [name, data, file] of [['db', db, 'dist/db.json'], ['reference', reference, 'dist/reference.json']]) {
     if (validators[name](data)) continue;
     // A oneOf failure reports every branch. Per record, the deepest error is the specific one: a headline

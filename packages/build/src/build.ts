@@ -1,0 +1,162 @@
+// The build, end to end, without the bundle and the pages (WP-20): rebuild the clean SQLite reconstruction from the CSV tables,
+// read the tables back out of it in `_ord` order, check them, compile, extend (the old estimate stage, unchanged), validate,
+// and write db.json, reference.json and the validation report. This is build/src/index.js, stages 1 to 6, on the new
+// foundation; the bundle (stage 7) and the pages (stage 8) are the old ones, until WP-24 and the page work replace them.
+//
+//   reconstruct  CSV tables -> a fresh in-memory SQLite database, verified     @atlas/data rebuild (WP-09)
+//   check        the schema gate's cross-column checks on the rows read        schema-gate.ts
+//   load         SQLite -> the row objects the compiler reads                    load.ts
+//   compile .. validate                                                         pipeline.ts
+//   contract     db.json and reference.json against schema/*.schema.json         contract.ts
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { TABLE_NAMES } from '@atlas/data';
+import type { TableName } from '@atlas/data';
+import { DataInputError, buildInMemory } from '@atlas/data/rebuild';
+import { exportTable } from '@atlas/data/storage';
+import { contractIssues } from './contract.ts';
+import { loadReference, loadSheets, snapshotDate, workbookFrom } from './load.ts';
+import { buildDatabase } from './pipeline.ts';
+import { polymerEnvironmentReportLines } from './polymer-environment.ts';
+import { compileReference } from './reference.ts';
+import { releaseIdentity } from './release.ts';
+import { checkTables, loadSchemas } from './schema-gate.ts';
+import type { Dyn, Issue, Sheet } from './types.ts';
+import { estimateReportLines } from './estimate-adapter.ts';
+import { formatReport } from './validate.ts';
+
+const here = dirname(fileURLToPath(import.meta.url));
+/** The project this package is in: packages/build/src -> the repository root. */
+export const PROJECT_ROOT = resolve(here, '../../..');
+
+export interface RunOptions {
+  /** The project to build: its data/, schema/ and the files the release identity digests. Defaults to the repository. */
+  projectRoot?: string;
+  /** Where the tables and manifest are, when not <projectRoot>/data (a temporary copy of the tables, for parity). */
+  dataDir?: string;
+  /** Where db.json, reference.json and validation-report.md are written; null writes nothing. */
+  outDir: string | null;
+  /** The core database alone, without the estimate stage. */
+  estimates?: boolean;
+  /** Stop after the report (npm run validate). */
+  validateOnly?: boolean;
+  /** The build date to stamp (an ISO date); defaults to SOURCE_DATE_EPOCH, else the commit date. */
+  buildDate?: string;
+  log?: (line: string) => void;
+}
+
+export interface RunResult {
+  /** No error issue and no failure to reconstruct. A failed build has no `db`. */
+  ok: boolean;
+  errors: Issue[];
+  warnings: Issue[];
+  db: Dyn | null;
+  reference: Dyn | null;
+  /** Wall time in ms: the reconstruction, then the load and each stage of the pipeline. */
+  timing: Record<string, number>;
+  files: { dbJson: string; referenceJson: string } | null;
+}
+
+/** The build date is the source's date, not the clock's, so the same commit builds the same bytes on any day. */
+export function buildDate(projectRoot: string = PROJECT_ROOT): string {
+  if (process.env.SOURCE_DATE_EPOCH) return new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000).toISOString().slice(0, 10);
+  try {
+    return execFileSync('git', ['log', '-1', '--format=%cs'], { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
+
+const failed = (errors: Issue[], timing: Record<string, number>): RunResult => ({ ok: false, errors, warnings: [], db: null, reference: null, timing, files: null });
+
+/** The tables of the data directory, read from a fresh reconstruction: every sheet in `_ord` order, the reference rows, and the tables whose file is not their canonical text. */
+function readTables(dataDir: string, timed: <T>(name: string, run: () => T) => T): { sheets: Map<TableName, Sheet>; referenceRows: Dyn[]; notCanonical: Set<string> } {
+  const { db: sqlite, inputs } = timed('reconstruct', () => buildInMemory(dataDir));
+  try {
+    const sheets = timed('load', () => loadSheets(sqlite));
+    const notCanonical = new Set<string>([...inputs.tables.values()].filter((input) => exportTable(sqlite, input.table) !== input.bytes.toString('utf8')).map((input) => input.table));
+    return { sheets, referenceRows: loadReference(sqlite), notCanonical };
+  } finally {
+    sqlite.close();
+  }
+}
+
+export function runBuild(options: RunOptions): RunResult {
+  const projectRoot = options.projectRoot ?? PROJECT_ROOT;
+  const dataDir = options.dataDir ?? join(projectRoot, 'data');
+  const log = options.log ?? (() => undefined);
+  const withEstimates = options.estimates ?? true;
+  const build = options.buildDate ?? buildDate(projectRoot);
+  const timing: Record<string, number> = {};
+  const timed = <T>(name: string, run: () => T): T => {
+    const t = performance.now();
+    const value = run();
+    timing[name] = Math.round(performance.now() - t);
+    return value;
+  };
+
+  // The clean reconstruction: any table that is not the schema's, the manifest's, or satisfies a constraint stops here, and
+  // every problem found is listed (never a partial database). Everything the later stages need is read out of it in this
+  // one step and the database is closed, so the parsed CSV and the SQLite file are not alive while the estimate stage runs.
+  let read;
+  try {
+    read = readTables(dataDir, timed);
+  } catch (error) {
+    if (!(error instanceof DataInputError)) throw error;
+    return failed(error.problems.map((message): Issue => ({ level: 'error', code: 'RECONSTRUCT', where: dataDir, message })), timing);
+  }
+  const { sheets, referenceRows, notCanonical } = read;
+  const wb = workbookFrom(sheets);
+
+  // The schema gate, on the rows as the compiler will read them. SCHEMA-FORMAT compares each table's export from the
+  // reconstruction with the file's own bytes.
+  const { tables: schemas, vocab } = loadSchemas(join(projectRoot, 'schema'));
+  const gateTables = Object.fromEntries(TABLE_NAMES.map((name) => {
+    const sheet = sheets.get(name);
+    if (!sheet) throw new Error(`table ${name} was not loaded`);
+    return [name, { header: sheet.header, records: sheet.rows.map((values) => ({ values, line: values.__row })) }];
+  }));
+  const issues: Issue[] = timed('check', () => checkTables(gateTables, schemas, vocab, { isCanonical: (name) => !notCanonical.has(name) }));
+  if (issues.some((i) => i.level === 'error')) return failed(issues.filter((i) => i.level === 'error'), timing);
+
+  const snapshot = snapshotDate(wb.Method?.rows ?? []);
+  const built = buildDatabase(wb, { snapshot, build, estimates: withEstimates });
+  Object.assign(timing, built.timing);
+  const { db } = built;
+  issues.push(...built.issues);
+  // What this build is, by its content rather than its date (D96): every scenario, link and export carries it.
+  const release = timed('release', () => releaseIdentity(projectRoot));
+  db.meta.release = release;
+
+  const reference = compileReference(referenceRows, issues, 'data/tables/reference.csv', db.registry);
+  issues.push(...contractIssues({ db, reference }));
+
+  const report = formatReport(db, reference, issues, {
+    snapshot, build,
+    sections: { polymerEnvironment: polymerEnvironmentReportLines(db), estimates: withEstimates ? estimateReportLines(db) : [] },
+  });
+  const errors = issues.filter((i) => i.level === 'error');
+  const warnings = issues.filter((i) => i.level === 'warn');
+  log(`release ${release.id} (data ${snapshot})`);
+  log(`materials ${db.meta.counts.materials}  measurements ${db.meta.counts.measurements}  profiles ${db.meta.counts.profiles}  reference ${reference.meta.count}`);
+  log(`errors ${errors.length}   warnings ${warnings.length}`);
+  log(`stages  ${Object.entries(timing).map(([name, ms]) => `${name} ${ms} ms`).join('   ')}`);
+  for (const e of errors.slice(0, 20)) log(`  ERROR  [${e.code}] ${e.where}: ${e.message}`);
+  for (const w of warnings.slice(0, 10)) log(`  warn   [${w.code}] ${w.where}: ${w.message}`);
+
+  let files: RunResult['files'] = null;
+  if (options.outDir !== null) {
+    mkdirSync(options.outDir, { recursive: true });
+    writeFileSync(join(options.outDir, 'validation-report.md'), report);
+    if (errors.length === 0 && !options.validateOnly) {
+      const dbJson = join(options.outDir, 'db.json');
+      const referenceJson = join(options.outDir, 'reference.json');
+      writeFileSync(dbJson, JSON.stringify(db));
+      writeFileSync(referenceJson, JSON.stringify(reference));
+      files = { dbJson, referenceJson };
+    }
+  }
+  return { ok: errors.length === 0, errors, warnings, db, reference, timing, files };
+}

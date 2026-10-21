@@ -16,7 +16,7 @@ import { formatMutate, runMutate } from './mutate.ts';
 import { createNewAdapter, createNewPlaceholder } from './new-adapter.ts';
 import { createOld, createOldAdapter, defaultDbPath, readDb } from './old-adapter.ts';
 import type { Db } from './old-adapter.ts';
-import { BuildFailed, buildInCopy, compareBuilds } from './p-build.ts';
+import { BuildFailed, buildInCopy, buildNew, compareBuilds } from './p-build.ts';
 import type { BuiltRelease } from './p-build.ts';
 import { comparePages, readPages } from './p-pages.ts';
 import type { PageNames, PageSet } from './p-pages.ts';
@@ -163,6 +163,7 @@ class Run {
   readonly transitions: TransitionFile[] | undefined;
   readonly log = new RunLog();
   private readonly builds = new Map<'first' | 'second', Promise<BuiltRelease>>();
+  private newBuilt: Promise<BuiltRelease> | null = null;
   private distPageSet: PageSet | null = null;
 
   constructor(plan: RunPlan, corpus: Corpus, baseDb: Db, transitions: TransitionFile[] | undefined) {
@@ -204,6 +205,23 @@ class Run {
       started.catch(() => undefined);
       return started;
     });
+  }
+
+  /** The new build (WP-20), made on first use from the same tables as the old one it is compared with. */
+  newBuild(): Promise<BuiltRelease> {
+    if (this.newBuilt) return this.newBuilt;
+    const { tablesDir } = this.plan;
+    const buildDate = typeof this.baseDb.meta?.build === 'string' ? this.baseDb.meta.build : undefined;
+    const started = buildNew({ label: 'new build (packages/build, SQLite reconstruction)', ...(tablesDir ? { tablesDir } : {}), ...(buildDate ? { buildDate } : {}) });
+    started.catch(() => undefined);
+    this.newBuilt = started;
+    return started;
+  }
+
+  /** The new build takes about as long as the old one; it starts with the others, and the build surface awaits it. */
+  startNewBuild(): void {
+    void this.newBuild();
+    if (this.plan.tablesDir) void this.build('first');
   }
 
   /** The builds take 25 to 45 s in another process, so they start now and the surface that needs one awaits it. */
@@ -275,13 +293,40 @@ async function runLinkChecks(run: Run): Promise<void> {
   if (checked.replay) log.addParity('links', checked.replay, `links: the ${checked.replayCases} distinct questions they ask, answered by both engines`);
 }
 
+/**
+ * P-build, new side (WP-20): the old build's db.json (the one in dist/, or with --tables-dir an old build of those tables) against
+ * the new build of the same tables, path by path. Either build failing is its own outcome, never zero.
+ */
+async function runNewBuild(run: Run, head: { surface: Surface; unit: string }): Promise<void> {
+  const { plan, log } = run;
+  try {
+    const fresh = await log.timed('build-new', () => run.newBuild());
+    const old = plan.tablesDir ? await log.timed('build-old', () => run.build('first')) : null;
+    const report = await log.timed('build', () => compareBuilds(
+      old ? { path: old.dbPath, label: old.label } : { path: plan.dbPath, label: 'old build (dist/db.json)' },
+      { path: fresh.dbPath, label: fresh.label },
+    ));
+    report.notes.push(`new build ${seconds(fresh.seconds * 1000)}${old ? `, old ${seconds(old.seconds * 1000)}` : ''}`);
+    if (plan.tablesDir) report.notes.push(`both sides were built from the tables in ${plan.tablesDir}`);
+    log.addSurface(report, 'build: db.json, path by path');
+  } catch (e) {
+    if (!(e instanceof BuildFailed)) throw e;
+    log.addSurface(cannotCompare({ ...head, before: 'old', after: 'new' }, 'both', `a build did not finish, so nothing was compared: ${e.message}`), 'build');
+  }
+}
+
 /** P-build and P-pages: the old build compared with a second build (or, with --tables-dir, with a first one made from the same tables). */
 async function runBuildOrPages(run: Run, surface: 'build' | 'pages'): Promise<void> {
   const { plan, log } = run;
   const head = { surface, unit: surface === 'build' ? 'value' : 'page' };
+  if (plan.mode === 'new' && surface === 'build') {
+    await runNewBuild(run, head);
+    return;
+  }
   if (isNewSide(plan)) {
-    const wiring = surface === 'build' ? 'build (WP-20)' : 'pages (WP-24)';
-    const report = cannotCompare({ ...head, before: 'old', after: 'new (not wired yet)' }, 'after', `the new ${wiring} are not wired yet; nothing was compared`);
+    // The placeholder answers nothing by design; the new pages are WP-24's.
+    const wiring = surface === 'build' ? 'build' : 'pages (WP-24)';
+    const report = cannotCompare({ ...head, before: 'old', after: 'new (not wired yet)' }, 'after', `the new ${wiring} ${surface === 'build' ? 'is the placeholder' : 'are not wired yet'}; nothing was compared`);
     log.addSurface(report, surface);
     return;
   }
@@ -458,6 +503,7 @@ async function main(argv: readonly string[]): Promise<number> {
   const transitionDir = flagValue(given, 'transitions') ?? (isNewSide(plan) ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
   const run = new Run(plan, corpus, baseDb, transitionDir ? loadTransitions(transitionDir) : undefined);
   if (!isNewSide(plan) && plan.surfaces.some((s) => s === 'build' || s === 'pages')) run.startBuilds();
+  if (plan.mode === 'new' && plan.surfaces.includes('build')) run.startNewBuild();
 
   for (const surface of plan.surfaces) await runSurface(run, surface);
 
