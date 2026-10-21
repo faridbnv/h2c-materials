@@ -8,6 +8,9 @@ export const STATUSES = ['PASS', 'FAIL', 'UNKNOWN', 'INDETERMINATE'] as const;
 /** The groups a result is listed in, in listing order (D155): constraints.js GROUP_ORDER. */
 export const GROUP_ORDER = ['meets', 'one-check-away', 'not-enough-data', 'unlikely-to-meet', 'hidden', 'fail'] as const;
 
+/** How many of a material's judged products pass: products.js SHARE values, in key order. */
+export const PRODUCT_SHARES = ['all', 'some', 'none'] as const;
+
 /** The unknown policy: constraints.js UNKNOWN_POLICY values. */
 export const UNKNOWN_POLICIES = ['strict', 'exploration'] as const;
 

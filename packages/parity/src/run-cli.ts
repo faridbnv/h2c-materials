@@ -2,6 +2,7 @@
 import { existsSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { checkDb } from '@atlas/data';
 import { exitCode, runParity } from './compare.ts';
 import { coreSufficiencyHook, runCoreSufficiency } from './core-sufficiency.ts';
 import { MILESTONE_REPLAYS, PR_REPLAYS, engineCorpusCases, mutationCases } from './corpora.ts';
@@ -12,7 +13,7 @@ import type { Fault } from './faults.ts';
 import { digestOfLinks, hashesInPages, historicLinks } from './historic-links.ts';
 import { linkUnits, runLinks } from './links.ts';
 import { formatMutate, runMutate } from './mutate.ts';
-import { createNewPlaceholder } from './new-adapter.ts';
+import { createNewAdapter, createNewPlaceholder } from './new-adapter.ts';
 import { createOld, createOldAdapter, defaultDbPath, readDb } from './old-adapter.ts';
 import type { Db } from './old-adapter.ts';
 import { BuildFailed, buildInCopy, compareBuilds } from './p-build.ts';
@@ -28,7 +29,7 @@ import type { Adapter, Corpus, CorpusCase, ParityReport, Status, Surface, Surfac
 import { getOrCreate } from './util.ts';
 
 /** Flags that stand alone, and flags that take one value. Anything else is a usage error. */
-const SWITCHES = ['noop', 'new', 'list-faults', 'allow-partial', 'milestone', 'mutate'];
+const SWITCHES = ['noop', 'new', 'placeholder', 'list-faults', 'allow-partial', 'milestone', 'mutate'];
 const VALUED = ['fault', 'transitions', 'corpus', 'db', 'only', 'json', 'emit-transition', 'id', 'kind', 'ruling', 'description', 'surface', 'tables-dir'];
 
 class UsageError extends Error {}
@@ -62,7 +63,7 @@ function flagValue(given: Flags, name: string): string | undefined {
   return typeof value === 'string' ? value : undefined;
 }
 
-const MODES = ['noop', 'fault', 'new'] as const;
+const MODES = ['noop', 'fault', 'new', 'placeholder'] as const;
 type Mode = (typeof MODES)[number];
 
 /** What a run covers and how, decided from the flags before anything runs. */
@@ -76,6 +77,9 @@ interface RunPlan {
   allowPartial: boolean;
   dbPath: string;
 }
+
+/** Whether the second side is the new one (the wrapper, or the placeholder that stands for "not wired"). */
+const isNewSide = (plan: RunPlan): boolean => plan.mode === 'new' || plan.mode === 'placeholder';
 
 const DEFAULT_SURFACES: readonly Surface[] = ['engine', 'ties', 'links', 'build', 'pages'];
 
@@ -95,7 +99,7 @@ function resolveSurfaces(flag: string | undefined, hasOnly: boolean, isFault: bo
 /** The plan for these flags, or a UsageError for flags that do not fit together. */
 function planRun(given: Flags): RunPlan {
   const modes = MODES.filter((m) => given.has(m));
-  if (modes.length > 1) throw new UsageError('choose one of --noop, --fault <name>, --new');
+  if (modes.length > 1) throw new UsageError('choose one of --noop, --fault <name>, --new, --placeholder');
   const mode = modes[0] ?? 'new';
   if (mode === 'noop' && given.has('transitions')) throw new UsageError('--noop must be exactly zero; transitions are not accepted with it');
   const faultName = flagValue(given, 'fault');
@@ -175,12 +179,16 @@ class Run {
     return only ? this.allCases.filter((c) => c.id.startsWith(only)) : this.allCases;
   }
 
-  /** The second side for a db: a second copy of old, old with the fault, or the new side's placeholder. */
+  /** The second side for a db: a second copy of old, old with the fault, the old engine behind the typed wrapper (the new side, WP-11), or a placeholder that answers nothing. */
   async secondSide(db: Db): Promise<Adapter> {
     const { mode, fault } = this.plan;
     if (mode === 'noop') return createOldAdapter({ name: 'old (second copy)', db, engineDir: copyEngine([]) });
     if (fault) return createOldAdapter({ name: `old + fault ${fault.name}`, db, engineDir: copyEngine(fault.patches) });
-    return createNewPlaceholder();
+    if (mode === 'placeholder') return createNewPlaceholder();
+    // The wrapper reads the typed db and runs its own copy of the engine files: nothing is shared with the old side.
+    const typed = checkDb(db);
+    if (!typed.ok) throw new Error(`the db does not satisfy the typed contract of @atlas/data: ${typed.problems.slice(0, 5).join('; ')}`);
+    return createNewAdapter({ db: typed.db, engineDir: copyEngine([]) });
   }
 
   /** The old build, made on first use. A build that fails rejects with BuildFailed. */
@@ -271,7 +279,7 @@ async function runLinkChecks(run: Run): Promise<void> {
 async function runBuildOrPages(run: Run, surface: 'build' | 'pages'): Promise<void> {
   const { plan, log } = run;
   const head = { surface, unit: surface === 'build' ? 'value' : 'page' };
-  if (plan.mode === 'new') {
+  if (isNewSide(plan)) {
     const wiring = surface === 'build' ? 'build (WP-20)' : 'pages (WP-24)';
     const report = cannotCompare({ ...head, before: 'old', after: 'new (not wired yet)' }, 'after', `the new ${wiring} are not wired yet; nothing was compared`);
     log.addSurface(report, surface);
@@ -447,9 +455,9 @@ async function main(argv: readonly string[]): Promise<number> {
   console.log(`mode: ${plan.mode}${plan.fault ? ` ${plan.fault.name}` : ''}${plan.milestone ? `, milestone (${MILESTONE_REPLAYS} replays; per PR ${PR_REPLAYS})` : ''}; surfaces: ${plan.surfaces.join(', ')}`);
 
   // Transitions apply to a real comparison, not to the self-tests, unless asked for.
-  const transitionDir = flagValue(given, 'transitions') ?? (plan.mode === 'new' ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
+  const transitionDir = flagValue(given, 'transitions') ?? (isNewSide(plan) ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
   const run = new Run(plan, corpus, baseDb, transitionDir ? loadTransitions(transitionDir) : undefined);
-  if (plan.mode !== 'new' && plan.surfaces.some((s) => s === 'build' || s === 'pages')) run.startBuilds();
+  if (!isNewSide(plan) && plan.surfaces.some((s) => s === 'build' || s === 'pages')) run.startBuilds();
 
   for (const surface of plan.surfaces) await runSurface(run, surface);
 

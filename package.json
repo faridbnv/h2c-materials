@@ -112,6 +112,8 @@
     "parity:erase": "node remake/tools/p-erase.mjs",
     "test:remake": "node --test tests/remake/*.test.mjs",
     "test:domain": "node --test tests/domain/*.test.mjs",
+    "impact": "node packages/engine/src/cli.ts impact",
+    "impact:measure": "node packages/engine/src/cli.ts measure",
     "wp:status": "node remake/tools/wp-status.mjs",
     "wp:deps": "node remake/tools/wp-status.mjs --deps",
     "wp:check": "node remake/tools/wp-check.mjs",
