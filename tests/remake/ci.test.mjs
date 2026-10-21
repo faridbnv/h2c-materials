@@ -5,14 +5,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { createServer } from 'node:http';
-import { mkdtempSync, writeFileSync, mkdirSync, readFileSync, existsSync, readdirSync, symlinkSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, mkdirSync, readFileSync, existsSync, readdirSync, symlinkSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   globToRegExp, oldPathViolations, needsReviewSection, hasReviewSection, classifyTier, tierGate, findAttest, parseChangedFiles, attestText, OWNER_GLOBS,
 } from '../../remake/tools/ci-gates.mjs';
-import { injectBanner, inject, stage, BANNER_MARK, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX } from '../../remake/tools/preview-assemble.mjs';
+import { injectBanner, inject, stage, buildV3, BANNER_MARK, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX, NOT_FOUND_HTML, V3_DIR } from '../../remake/tools/preview-assemble.mjs';
 import { runSmoke, fetchRetry } from '../../remake/tools/preview-smoke.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -280,6 +280,72 @@ test('stage keeps exactly the previous release in previous/ and leaves it alone 
   assert.throws(() => deploy('444444444444', 'four'), /unsafe release/);
   writeFileSync(join(repo, 'preview.json'), JSON.stringify({ note: 'no release' }));
   assert.throws(() => deploy('555555555555', 'five'), /names no release/);
+});
+
+// ---- the public view at /v3/ (WP-14) --------------------------------------------------------------------------------
+const V3_RELEASE = '0123456789ab';
+/** A stand-in for apps/public's build: the files the real one writes, under `out`. */
+function fakePublicBuild({ release = V3_RELEASE, data = true, index = true } = {}) {
+  return ({ out }) => {
+    const page = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>v</title></head><body><div id="app"></div></body></html>';
+    if (index) { writeFileSync(join(out, 'index.html'), page); writeFileSync(join(out, 'material.html'), page); }
+    mkdirSync(join(out, 'assets'));
+    writeFileSync(join(out, 'assets', 'index-abc.js'), 'export {}');
+    writeFileSync(join(out, 'release.json'), JSON.stringify({ release }));
+    if (data) { mkdirSync(join(out, 'data', release), { recursive: true }); writeFileSync(join(out, 'data', release, 'result.json'), '{}'); }
+  };
+}
+
+test('build-v3 puts the view in _site/v3/, and inject then marks its pages like every other page and records its release', () => {
+  const site = fakeSite();
+  const built = buildV3(site, { build: fakePublicBuild() });
+  assert.equal(built.release, V3_RELEASE);
+  assert.ok(existsSync(join(site, V3_DIR, 'data', V3_RELEASE, 'result.json')));
+  const info = inject(site, { remake: SHA, main: OLD_SHA });
+  assert.equal(info.v3Release, V3_RELEASE);
+  assert.equal(info.release, 'abcdef012345', "the old site's release is untouched");
+  assert.equal(info.htmlFiles, 7, 'the five of the old site and the two of the view');
+  for (const f of ['v3/index.html', 'v3/material.html']) {
+    const t = readFileSync(join(site, f), 'utf8');
+    assert.ok(t.includes(BANNER_MARK) && t.includes(NOINDEX) && t.includes(STORAGE_SHIM), `${f}: banner, noindex and storage shim`);
+  }
+  assert.equal(readFileSync(join(site, 'v3', 'assets', 'index-abc.js'), 'utf8'), 'export {}', 'non-html files are copied untouched');
+});
+
+test('a site without a view is injected as before, and the view is never half published', () => {
+  assert.equal(inject(fakeSite(), { remake: SHA, main: OLD_SHA }).v3Release, undefined);
+  const site = fakeSite();
+  assert.throws(() => buildV3(site, { build: fakePublicBuild({ data: false }) }), /no data\/0123456789ab\/result\.json/);
+  assert.ok(!existsSync(join(site, V3_DIR)), 'nothing is copied when the data is missing');
+  assert.throws(() => buildV3(fakeSite(), { build: fakePublicBuild({ index: false }) }), /no index\.html/);
+  assert.throws(() => buildV3(fakeSite(), { build: fakePublicBuild({ release: '../evil' }) }), /no valid release/);
+  const twice = fakeSite();
+  buildV3(twice, { build: fakePublicBuild() });
+  assert.throws(() => buildV3(twice, { build: fakePublicBuild() }), /exists already/);
+  const broken = fakeSite(); mkdirSync(join(broken, V3_DIR));
+  assert.throws(() => inject(broken, { remake: SHA, main: OLD_SHA }), /v3\/ has no index\.html and release\.json/);
+  const nodata = fakeSite(); buildV3(nodata, { build: fakePublicBuild() }); rmSync(join(nodata, 'v3', 'data'), { recursive: true });
+  assert.throws(() => inject(nodata, { remake: SHA, main: OLD_SHA }), /has no data\/0123456789ab\/result\.json/);
+});
+
+test('build-v3 says so, and writes nothing, where the toolchain is not installed', () => {
+  const site = fakeSite();
+  assert.throws(() => buildV3(site, { root: tmp() }), /node_modules\/vite is not installed/);
+  assert.ok(!existsSync(join(site, V3_DIR)));
+});
+
+test('the 404 page finds the site root from the first segment of its own address, at any depth', () => {
+  const script = /<script>[^]*?<\/script>/.exec(NOT_FOUND_HTML)?.[0].replace(/^<script>/, '').replace(/<\/script>$/, '');
+  assert.ok(script, 'the 404 page carries its own inline script');
+  const link = (pathname) => {
+    const anchor = { href: './' };
+    new Function('location', 'document', script)({ pathname }, { getElementById: (id) => (id === 'home' ? anchor : null) });
+    return anchor.href;
+  };
+  assert.equal(link('/h2c-material-temp-page/v3/missing/deeper/x'), '/h2c-material-temp-page/');
+  assert.equal(link('/h2c-materials-next/nothing.html'), '/h2c-materials-next/');
+  assert.equal(link('/'), './', 'at the root the relative link stands');
+  assert.doesNotMatch(NOT_FOUND_HTML, /<script[^>]*\ssrc=/, 'no script from another file');
 });
 
 // ---- the smoke test, against a local server -------------------------------------------------------------------------
