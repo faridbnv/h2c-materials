@@ -115,7 +115,8 @@ test('a stale record, an unknown column or table, a vanished row and a composite
     await refused([{ ...record, before: { ...record.before, 'Raw value': '55' } }], /stale/);
     assert.deepEqual(readdirSync(scratch), []);
   } finally {
-    process.env.TMPDIR = saved;
+    if (saved === undefined) delete process.env.TMPDIR;
+    else process.env.TMPDIR = saved;
     rmSync(scratch, { recursive: true, force: true });
   }
   assert.throws(() => impactRecordsOf([{ ...record, table: 'no_such_table' }]), /table/);
