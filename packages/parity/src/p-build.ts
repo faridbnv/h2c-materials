@@ -228,6 +228,12 @@ export async function compareBuilds(before: { path: string; label: string }, aft
     groups.set(shape, (groups.get(shape) ?? 0) + 1);
   }
   for (const d of idSequenceDifferences(left, right)) b.add(d);
+  // diffJson pairs records by id and reads an object's keys as a set, so it cannot see a changed key order, a nested list in
+  // another order or a nested record twice. The database is also compared as written: the same parsed content in the same
+  // order serializes to the same text (a build is meant to be byte for byte the other's, apart from the two stamps).
+  if (b.count === 0 && JSON.stringify(left) !== JSON.stringify(right)) {
+    b.add({ case: 'build', record: '(whole database)', tier: 'evidence', field: '(serialized form: key order, list order or a repeated record)', before: clipWithDigest(JSON.stringify(left)), after: clipWithDigest(JSON.stringify(right)) });
+  }
   b.notes.push(`db.json compared path by path (meta.build and meta.release left out, as build:diff does): ${b.units} values`);
   for (const [shape, n] of [...groups].sort((p, q) => q[1] - p[1]).slice(0, 12)) b.notes.push(`${String(n).padStart(6)}  ${shape}`);
   return b.finish();

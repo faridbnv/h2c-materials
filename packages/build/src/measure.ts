@@ -25,16 +25,31 @@ const args = process.argv.slice(2);
 const runsAt = args.indexOf('--runs');
 const RUNS = runsAt >= 0 ? Number(args[runsAt + 1]) : 3;
 if (!Number.isInteger(RUNS) || RUNS < 1) throw new Error('--runs needs a whole number of at least 1');
+const stray = args.filter((a, k) => !(a === '--runs' || a === '--no-write' || (k > 0 && args[k - 1] === '--runs')));
+if (stray.length) throw new Error(`unknown argument ${stray.join(', ')}; known: --runs N, --no-write`);
 
-/** Wall time of a child process in seconds; a non-zero exit is an error, never a time. */
-function timeProcess(command: string, argv: readonly string[], cwd: string, env: Record<string, string> = {}): Promise<number> {
+interface Timing {
+  /** Wall clock, spawn to exit, in seconds. */
+  wall: number;
+  /** User plus system CPU seconds of the process (from /usr/bin/time): much less moved by a busy machine than the wall clock. */
+  cpu: number;
+}
+
+/** Wall and CPU time of a child process; a non-zero exit, or a missing CPU figure, is an error, never a time. */
+function timeProcess(command: string, argv: readonly string[], cwd: string, env: Record<string, string> = {}): Promise<Timing> {
   return new Promise((resolve, reject) => {
     const started = performance.now();
-    const child = spawn(command, argv, { cwd, env: { ...process.env, ...env }, stdio: ['ignore', 'ignore', 'pipe'] });
+    const child = spawn('/usr/bin/time', ['-p', command, ...argv], { cwd, env: { ...process.env, ...env }, stdio: ['ignore', 'ignore', 'pipe'] });
     let stderr = '';
     child.stderr.on('data', (chunk: Buffer) => { stderr = (stderr + chunk.toString('utf8')).slice(-4000); });
     child.on('error', reject);
-    child.on('close', (code) => (code === 0 ? resolve((performance.now() - started) / 1000) : reject(new Error(`${argv.join(' ')} exited ${String(code)}\n${stderr}`))));
+    child.on('close', (code) => {
+      if (code !== 0) return reject(new Error(`${argv.join(' ')} exited ${String(code)}\n${stderr}`));
+      const user = /^user ([\d.]+)$/m.exec(stderr)?.[1];
+      const system = /^sys ([\d.]+)$/m.exec(stderr)?.[1];
+      if (user === undefined || system === undefined) return reject(new Error(`/usr/bin/time gave no CPU figures:\n${stderr}`));
+      resolve({ wall: (performance.now() - started) / 1000, cpu: Number(user) + Number(system) });
+    });
   });
 }
 
@@ -64,25 +79,39 @@ for (const f of ['package.json', 'package-lock.json']) cpSync(join(PROJECT_ROOT,
 const out = join(copy, 'new-out');
 mkdirSync(out, { recursive: true });
 const cold = { H2C_NO_BUILD_CACHE: '1' };
-const runs: { newCore: number; oldCore: number; oldFull: number; load: number }[] = [];
+const runs: { newCore: number; oldCore: number; oldFull: number; cpuNewCore: number; cpuOldCore: number; cpuOldFull: number; load: number }[] = [];
 try {
   for (let i = 0; i < RUNS; i++) {
     const load = loadavg()[0] ?? 0;
+    rmSync(join(out, 'db.json'), { force: true });
     const newCore = await timeProcess(process.execPath, ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out], PROJECT_ROOT);
+    if (!existsSync(join(out, 'db.json'))) throw new Error('the new build exited 0 but wrote no db.json: its time is not a build time');
     const oldCore = await timeProcess(process.execPath, ['build/src/index.js', '--validate-only'], copy, cold);
     const oldFull = await timeProcess(process.execPath, ['build/src/index.js'], copy, cold);
-    runs.push({ newCore: round(newCore), oldCore: round(oldCore), oldFull: round(oldFull), load: round(load) });
-    console.log(`run ${i + 1}/${RUNS}: new core ${newCore.toFixed(1)} s, old core ${oldCore.toFixed(1)} s, old full ${oldFull.toFixed(1)} s (load ${load.toFixed(1)})`);
+    runs.push({
+      newCore: round(newCore.wall), oldCore: round(oldCore.wall), oldFull: round(oldFull.wall),
+      cpuNewCore: round(newCore.cpu), cpuOldCore: round(oldCore.cpu), cpuOldFull: round(oldFull.cpu), load: round(load),
+    });
+    console.log(`run ${i + 1}/${RUNS}: wall new core ${newCore.wall.toFixed(1)} s, old core ${oldCore.wall.toFixed(1)} s, old full ${oldFull.wall.toFixed(1)} s; cpu ${newCore.cpu.toFixed(1)} / ${oldCore.cpu.toFixed(1)} / ${oldFull.cpu.toFixed(1)} s (load ${load.toFixed(1)})`);
   }
 } finally {
   rmSync(copy, { recursive: true, force: true });
 }
 
+const loadMax = Math.max(...runs.map((r) => r.load));
+const quiet = loadMax <= cpus().length / 2;
 const medians = { newCore: median(runs.map((r) => r.newCore)), oldCore: median(runs.map((r) => r.oldCore)), oldFull: median(runs.map((r) => r.oldFull)) };
+if (medians.oldFull < medians.oldCore) {
+  throw new Error(`the old full build (${medians.oldFull} s) was faster than its own core (${medians.oldCore} s): the machine was too busy for these times to mean anything (load up to ${loadMax}); nothing written`);
+}
+const cpu = { newCore: median(runs.map((r) => r.cpuNewCore)), oldCore: median(runs.map((r) => r.cpuOldCore)), oldFull: median(runs.map((r) => r.cpuOldFull)) };
 const likeForLike = medians.newCore + (medians.oldFull - medians.oldCore);
 const result = {
   schema: 1,
-  status: 'measured',
+  // 'measured-under-load' says the machine was busy (load above half its cores) while this ran: every time is inflated, and the
+  // comparison with the budget is only as good as the two builds were alike in that.
+  status: quiet ? 'measured' : 'measured-under-load',
+  loadMax: round(loadMax),
   measuredAt: new Date().toISOString(),
   machine: { os: `${platform()} ${release()}`, arch: arch(), cpu: cpus()[0]?.model ?? 'unknown', cores: cpus().length, memoryGb: Math.round(totalmem() / 2 ** 30) },
   node: process.version,
@@ -90,6 +119,8 @@ const result = {
   runs,
   medianSeconds: { newCore: round(medians.newCore), oldCore: round(medians.oldCore), oldFull: round(medians.oldFull) },
   newCoreVsOldCoreSeconds: round(medians.newCore - medians.oldCore),
+  cpuMedianSeconds: { newCore: round(cpu.newCore), oldCore: round(cpu.oldCore), oldFull: round(cpu.oldFull) },
+  cpuNewCoreVsOldCoreSeconds: round(cpu.newCore - cpu.oldCore),
   likeForLikeFullSeconds: round(likeForLike),
   likeForLike: 'new core + (old full - old core): the new build plus what the old bundle and pages stages add, which the new build does not run yet',
   budgetSeconds: BUDGET_S,

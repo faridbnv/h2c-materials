@@ -9,7 +9,8 @@
 //   compile .. validate                                                         pipeline.ts
 //   contract     db.json and reference.json against schema/*.schema.json         contract.ts
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { TableName } from '@atlas/data';
@@ -21,7 +22,7 @@ import { buildDatabase, stopwatch } from './pipeline.ts';
 import type { Stopwatch } from './pipeline.ts';
 import { polymerEnvironmentReportLines } from './polymer-environment.ts';
 import { compileReference } from './reference.ts';
-import { releaseIdentity } from './release.ts';
+import { RELEASE_INPUTS, releaseIdentity } from './release.ts';
 import { checkTables, gateTablesOf, loadSchemas } from './schema-gate.ts';
 import type { Dyn, Issue, Sheet } from './types.ts';
 import { estimateReportLines } from './estimate-adapter.ts';
@@ -48,7 +49,10 @@ export interface RunOptions {
 }
 
 export interface RunResult {
-  /** No error issue and no failure to reconstruct. A failed build has no `db`. */
+  /**
+   * No error issue and no failure to reconstruct or to pass the schema gate. A build that failed before the compiler ran has no
+   * `db`; one that failed validation has its (unvalidated) `db` and `ok: false`, and writes only its report.
+   */
   ok: boolean;
   errors: Issue[];
   warnings: Issue[];
@@ -61,11 +65,30 @@ export interface RunResult {
 
 /** The build date is the source's date, not the clock's, so the same commit builds the same bytes on any day. */
 export function buildDate(projectRoot: string = PROJECT_ROOT): string {
+  // As the old build: where git cannot say (no repository, no git), today's date. A build that must repeat sets SOURCE_DATE_EPOCH.
   if (process.env.SOURCE_DATE_EPOCH) return new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000).toISOString().slice(0, 10);
   try {
     return execFileSync('git', ['log', '-1', '--format=%cs'], { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch {
     return new Date().toISOString().slice(0, 10);
+  }
+}
+
+/**
+ * The release a build is: its tables, the schema, the rules and the engine, by content (D96). The old build digested the project
+ * it ran in; a build of another data directory (parity's --tables-dir) must digest THOSE tables, or its release names data it did
+ * not build. The digest reads paths relative to a root, so for another data directory the root is a view of the project with
+ * `data` pointing at it (links only; nothing is copied or written in the project).
+ */
+function releaseOf(projectRoot: string, dataDir: string): Dyn {
+  if (dataDir === join(projectRoot, 'data')) return releaseIdentity(projectRoot);
+  const view = mkdtempSync(join(tmpdir(), 'h2c-release-view-'));
+  try {
+    const tops = new Set(Object.values(RELEASE_INPUTS).flat().map((path) => path.split('/')[0] ?? path));
+    for (const top of tops) symlinkSync(top === 'data' ? dataDir : join(projectRoot, top), join(view, top), 'dir');
+    return releaseIdentity(view);
+  } finally {
+    rmSync(view, { recursive: true, force: true });
   }
 }
 
@@ -102,6 +125,8 @@ export function runBuild(options: RunOptions): RunResult {
   const build = options.buildDate ?? buildDate(projectRoot);
   const timing: Record<string, number> = {};
   const timed = stopwatch(timing);
+  // A failed build must not leave the last good build's files in the output directory to be mistaken for its own.
+  if (options.outDir !== null) for (const file of ['db.json', 'reference.json', 'validation-report.md']) rmSync(join(options.outDir, file), { force: true });
 
   // The clean reconstruction: any table that is not the schema's, the manifest's, or satisfies a constraint stops here, and
   // every problem found is listed (never a partial database). Everything the later stages need is read out of it in this
@@ -129,7 +154,7 @@ export function runBuild(options: RunOptions): RunResult {
   const { db } = built;
   issues.push(...built.issues);
   // What this build is, by its content rather than its date (D96): every scenario, link and export carries it.
-  const release = timed('release', () => releaseIdentity(projectRoot));
+  const release = timed('release', () => releaseOf(projectRoot, dataDir));
   db.meta.release = release;
 
   const reference = compileReference(referenceRows, issues, 'data/tables/reference.csv', db.registry);

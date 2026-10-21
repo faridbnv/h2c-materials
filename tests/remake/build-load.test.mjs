@@ -8,6 +8,8 @@ import { loadSheet, loadSheets, loadWorkbook, loadReference, snapshotDate, TABLE
 import { checkTables, gateTablesOf, loadSchemas } from '../../packages/build/src/schema-gate.ts';
 import { runBuild } from '../../packages/build/src/build.ts';
 import { loadReference as oldLoadReference, loadTables as oldLoadTables } from '../../build/src/load.js';
+import { mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const { db } = buildInMemory(join(root, 'data'));
@@ -25,7 +27,9 @@ test('the workbook read from SQLite equals the one the old loader read from the 
 });
 
 test('the reference rows read from SQLite equal the old loader\'s', () => {
-  assert.equal(JSON.stringify(loadReference(db)), JSON.stringify(oldLoadReference(join(root, 'data'))));
+  const rows = loadReference(db);
+  assert.ok(rows.length > 100, `${rows.length} reference rows`);
+  assert.equal(JSON.stringify(rows), JSON.stringify(oldLoadReference(join(root, 'data'))));
 });
 
 test('the snapshot date comes from the Method rows, and a missing one is an error', () => {
@@ -98,28 +102,39 @@ test('the schema gate keeps the old cross-column checks and codes: list items, I
       ]),
     },
   };
+  // A table with no schema is refused too (schema.js had it): a table is never read past the gate unchecked.
+  tables.ghost = { header: ['A'], records: records([{ A: 'x' }]) };
   const issues = checkTables(tables, schemas, {}, { isCanonical: (name) => name !== 'child' });
-  assert.deepEqual(issues.map((i) => i.code).sort(), ['SCHEMA-FORMAT', 'SCHEMA-LIST', 'SCHEMA-REFERENCE', 'SCHEMA-REFERENCE', 'SCHEMA-TABLE', 'SCHEMA-UNIQUE']);
+  assert.deepEqual(issues.map((i) => i.code).sort(), ['SCHEMA-FORMAT', 'SCHEMA-LIST', 'SCHEMA-REFERENCE', 'SCHEMA-REFERENCE', 'SCHEMA-TABLE', 'SCHEMA-TABLE', 'SCHEMA-UNIQUE']);
+  assert.ok(issues.some((i) => i.code === 'SCHEMA-TABLE' && /ghost/.test(i.where) && /no schema/.test(i.message)));
   assert.ok(issues.every((i) => i.level === 'error'));
 });
 
 test('the real schema gate passes on the real rows', () => {
   const { tables: schemas, vocab } = loadSchemas(join(root, 'schema'));
-  assert.deepEqual(checkTables(gateTablesOf(loadSheets(db)), schemas, vocab), []);
+  const gate = gateTablesOf(loadSheets(db));
+  assert.equal(Object.keys(schemas).length, 36, 'every table has a schema');
+  assert.equal(Object.keys(gate).length, 36);
+  assert.deepEqual(checkTables(gate, schemas, vocab, { isCanonical: () => true }), []);
 });
 
-test('a build over tables that do not reconstruct fails with every problem, writes nothing and returns no database', () => {
+test('a build over tables that do not reconstruct fails with every problem, writes no database, removes the last build\'s files and returns no database', () => {
   const { dir, cleanup } = copyData();
+  const out = mkdtempSync(join(tmpdir(), 'h2c-build-out-'));
   try {
+    // The output directory holds a previous good build; a failed build must not leave it looking like this one's.
+    for (const file of ['db.json', 'reference.json', 'validation-report.md']) writeFileSync(join(out, file), 'stale');
     // A hand edit that leaves the manifest as it was: the digest no longer matches (the reconstruction's own check).
     editText(dir, 'materials', (text) => text.replace('Polymaker', 'Polymakr'), { keepManifest: false });
-    const result = runBuild({ dataDir: dir, outDir: null, log: () => undefined });
+    const result = runBuild({ dataDir: dir, outDir: out, log: () => undefined });
     assert.equal(result.ok, false);
     assert.equal(result.db, null);
     assert.equal(result.files, null);
+    assert.deepEqual(readdirSync(out), [], 'no stale db.json, reference.json or report');
     assert.ok(result.errors.some((e) => e.code === 'RECONSTRUCT' && /materials/.test(e.message)), result.errors.map((e) => e.message).join('; '));
   } finally {
     cleanup();
+    rmSync(out, { recursive: true, force: true });
   }
 });
 
@@ -135,6 +150,25 @@ test('a build over tables that reconstruct but break a rule of the data fails th
     assert.equal(result.ok, false);
     assert.equal(result.db, null);
     assert.ok(result.errors.some((e) => e.code === 'SCHEMA-REFERENCE' && /G999-99/.test(e.message)), result.errors.map((e) => `${e.code} ${e.message}`).join('; '));
+  } finally {
+    cleanup();
+  }
+});
+
+test('the release of a build names the tables that build read: another data directory is another data digest, and the rest is the same', () => {
+  const quiet = () => undefined;
+  const here = runBuild({ outDir: null, estimates: false, log: quiet });
+  const { dir, cleanup } = copyData();
+  try {
+    editRecords(dir, 'coverage', (rows, header) => { rows[0][header.indexOf('Finding')] = `${rows[0][header.indexOf('Finding')]} (edited)`; });
+    const other = runBuild({ dataDir: dir, outDir: null, estimates: false, log: quiet });
+    const [a, b] = [here.db.meta.release, other.db.meta.release];
+    assert.notEqual(a.inputs.data, b.inputs.data);
+    assert.notEqual(a.id, b.id);
+    for (const part of ['schema', 'rules', 'engine', 'dependencies']) assert.equal(a.inputs[part], b.inputs[part], part);
+    // Built from the real tables through the same code path, the release is the one the old build stamps.
+    const again = runBuild({ dataDir: join(root, 'data'), outDir: null, estimates: false, log: quiet });
+    assert.deepEqual(again.db.meta.release, a);
   } finally {
     cleanup();
   }

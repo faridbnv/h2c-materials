@@ -8,8 +8,9 @@
 //   --ci <file>      the db.json the CI build of the same commit made (download it from the run; the check does not fetch)
 //   --local <file>   this machine's db.json; without it, the new build (packages/build) is run now into a temporary directory
 //
-// Exit: 0 identical path by path, 1 differs (the differences are listed), 2 not computable (no CI db.json given, a file missing, or
-// a build that did not finish); 64 bad usage. It never reports zero without having compared two databases.
+// Exit: 0 identical path by path, 1 differs (the differences are listed), 2 not computable (no CI db.json given, a file missing or
+// unreadable, the two files the same file, two different releases, or a build that did not finish); 64 bad usage; 70 a crash (the
+// tool's own fault, never a verdict). It never reports zero without having compared two databases of the same release.
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { BuildFailed, buildNew, compareBuilds } from './p-build.ts';
@@ -33,17 +34,34 @@ for (let i = 0; i < argv.length; i += 2) {
   given.set(flag, resolve(value));
 }
 
+/** The release id a db.json names, or why it cannot be read (a file that is not a database is not computable, not a difference). */
+function releaseOf(path: string): unknown {
+  try {
+    return readDb(path).meta?.release?.id;
+  } catch (e) {
+    return `unreadable (${e instanceof Error ? e.message : String(e)})`;
+  }
+}
+
 const head = { surface: 'build', before: 'CI build of this commit', after: 'this machine', unit: 'value' } as const;
 async function run(): Promise<SurfaceReport> {
   const ci = given.get('ci');
   if (ci === undefined) return cannotCompare(head, 'before', 'no CI db.json was given (--ci <file>): nothing to compare this machine with');
   if (!existsSync(ci)) return cannotCompare(head, 'before', `the CI db.json ${ci} does not exist`);
+  const ciRelease = releaseOf(ci);
+  if (typeof ciRelease !== 'string' || ciRelease.startsWith('unreadable')) return cannotCompare(head, 'before', `the CI db.json ${ci} is not a readable database with a release: ${String(ciRelease)}`);
   let local = given.get('local');
   if (local === undefined) {
     const built = await buildNew({ label: 'this machine', buildDate: String(readDb(ci).meta?.build ?? new Date().toISOString().slice(0, 10)) });
     local = built.dbPath;
   } else if (!existsSync(local)) {
     return cannotCompare(head, 'after', `the local db.json ${local} does not exist`);
+  }
+  if (local === ci) return cannotCompare(head, 'both', 'the CI and the local db.json are the same file: nothing to compare');
+  // Two builds of different inputs differ for that reason; that is not a host difference, so it is not compared as one.
+  const localRelease = releaseOf(local);
+  if (ciRelease !== localRelease) {
+    return cannotCompare(head, 'both', `the two databases are not of one release (CI ${String(ciRelease)}, this machine ${String(localRelease)}): build the same commit, with the same data`);
   }
   const report = await compareBuilds({ path: ci, label: head.before }, { path: local, label: head.after });
   report.notes.push(`this machine: Node ${process.versions.node}, ICU ${process.versions.icu}, ${process.platform} ${process.arch}`);
@@ -59,6 +77,7 @@ function finish(report: SurfaceReport): never {
 try {
   finish(await run());
 } catch (e) {
-  if (!(e instanceof BuildFailed)) throw e;
-  finish(cannotCompare(head, 'after', `the local build did not finish: ${e.message}`));
+  if (e instanceof BuildFailed) finish(cannotCompare(head, 'after', `the local build did not finish: ${e.message}`));
+  console.error(`parity:host: internal error, exit 70 (a bug, not a verdict): ${e instanceof Error ? (e.stack ?? e.message) : String(e)}`);
+  process.exit(70);
 }

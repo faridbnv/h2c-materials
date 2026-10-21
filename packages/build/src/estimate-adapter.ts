@@ -12,6 +12,8 @@ import type { Dyn, Issue } from './types.ts';
 /** The estimate overlay, added to the compiled database in place. `conversions` are the ledger's estimate rows (estimateConversions). */
 export function attachEstimates(db: Dyn, options: { conversions: Dyn }): void {
   attachOldEstimates(db, options);
+  // The old stage extends the database in place and returns nothing to check; if it did nothing, the database would still validate.
+  if (!db.meta?.estimateModel) throw new Error('the estimate stage ran but left no meta.estimateModel: the database was not extended');
 }
 
 /** The estimate stage's own checks of the database it extended. */

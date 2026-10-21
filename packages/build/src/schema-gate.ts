@@ -67,11 +67,15 @@ export function gateTablesOf(sheets: ReadonlyMap<string, Sheet>): Record<string,
  * a table the schema declares and `tables` lacks is SCHEMA-TABLE. Returns the issues in the build's { level, code, where,
  * message } shape. `isCanonical(name)` says whether the table's canonical text equals the file's.
  */
-export function checkTables(tables: Dyn, schemas: Dyn, vocab: Dyn, { isCanonical }: { isCanonical?: (table: string) => boolean } = {}): Issue[] {
+export function checkTables(tables: Dyn, schemas: Dyn, vocab: Dyn, { isCanonical }: { isCanonical: (table: string) => boolean }): Issue[] {
   const issues: Issue[] = [];
   const error = (code: Dyn, where: Dyn, message: Dyn) => issues.push({ level: 'error', code, where, message });
   for (const name of Object.keys(schemas)) {
     if (!tables[name]) error('SCHEMA-TABLE', `data/tables/${name}.csv`, `missing; schema/tables/${name}.schema.json declares it`);
+  }
+  // The other direction, as schema.js had it: a table with no schema is never read past this gate unchecked.
+  for (const name of Object.keys(tables)) {
+    if (!schemas[name]) error('SCHEMA-TABLE', `data/tables/${name}.csv`, 'has no schema in schema/tables/; every table must be declared');
   }
 
   // Values per referenced key, built once.
@@ -167,7 +171,7 @@ export function checkTables(tables: Dyn, schemas: Dyn, vocab: Dyn, { isCanonical
       }
     }
 
-    if (isCanonical && !isCanonical(name)) error('SCHEMA-FORMAT', file, 'is not in canonical CSV format; run `npm run data:fmt`');
+    if (!isCanonical(name)) error('SCHEMA-FORMAT', file, 'is not in canonical CSV format; run `npm run data:fmt`');
   }
 
   return issues;

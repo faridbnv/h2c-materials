@@ -66,6 +66,10 @@ test('tie order is kept through _ord: with the records of three tables reversed,
   const same = await compareBuilds({ path: o.dbPath, label: o.label }, { path: n.dbPath, label: n.label });
   assert.equal(same.status, 'zero', same.differences.slice(0, 5).map((d) => `${d.record} ${d.field}`).join('; '));
   // Not vacuous: the reversal changes the database, so the equality above is about order, not about an order that never mattered.
+  // What is not in the database is the same too: the validation report (every warning, with the row it names, which the reversal
+  // moves) and the release identity (which digests the tables that build read, not the project's own).
+  assert.equal(readFileSync(join(dirname(n.dbPath), 'validation-report.md'), 'utf8'), readFileSync(join(o.dir, 'build', 'reports', 'validation-report.md'), 'utf8'), 'validation report');
+  assert.deepEqual(JSON.parse(readFileSync(n.dbPath, 'utf8')).meta.release, JSON.parse(readFileSync(o.dbPath, 'utf8')).meta.release, 'release identity');
   const moved = await compareBuilds(dist, { path: n.dbPath, label: n.label });
   assert.equal(moved.status, 'differs', 'reversing the records changed nothing, so the test proves nothing about order');
   assert.ok(moved.differenceCount > 0);
@@ -89,11 +93,13 @@ test('a build that cannot reconstruct its tables exits 1 and writes no db.json',
   try {
     cpSync(join(root, 'data'), join(bad, 'data'), { recursive: true });
     const materials = join(bad, 'data', 'tables', 'materials.csv');
-    writeFileSync(materials, readFileSync(materials, 'utf8').replace(',', ',x', 1)); // a hand edit; the manifest still holds the old digest
+    const [header, ...rows] = readFileSync(materials, 'utf8').split('\n');
+    writeFileSync(materials, [header, `x${rows[0]}`, ...rows.slice(1)].join('\n')); // a hand edit of a record; the manifest still holds the old digest
     const out = join(bad, 'out');
     const run = spawnSync(process.execPath, ['--disable-warning=ExperimentalWarning', join(root, 'packages/build/src/cli.ts'), '--out', out, '--data-dir', join(bad, 'data')], { cwd: root, encoding: 'utf8' });
     assert.equal(run.status, 1, run.stderr);
     assert.match(run.stderr, /do not reconstruct/);
+    assert.match(run.stderr, /SHA-256/, 'the digest check is what refused it');
     assert.equal(existsSync(join(out, 'db.json')), false);
   } finally {
     rmSync(bad, { recursive: true, force: true });
