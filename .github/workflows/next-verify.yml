@@ -48,10 +48,14 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (root and the old build, which the new-code tests drive)
+        run: |
+          npm ci
+          npm ci --prefix build
 
       - name: Node version in use
         run: |
@@ -75,6 +79,15 @@ jobs:
           else
             echo "parity tests: NOT RUN (tests/parity does not exist yet; the parity harness arrives with WP-05)"
             echo "parity tests: NOT RUN (no tests/parity yet)" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Domain tests (contracts and shared core)
+        run: |
+          if compgen -G 'tests/domain/*.test.mjs' >/dev/null; then
+            node --test 'tests/domain/*.test.mjs'
+          else
+            echo "domain tests: NOT RUN (tests/domain does not exist yet; it arrives with WP-07)"
+            echo "domain tests: NOT RUN (no tests/domain yet)" >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Rulings check
