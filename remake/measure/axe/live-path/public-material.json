@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "page": "public-material",
+  "title": "public view: a material",
+  "adapter": "new",
+  "project": "live-path",
+  "path": "/h2c-materials/v3/material.html?m=M001",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 0,
+    "violatingNodes": 0,
+    "byImpact": {},
+    "passedRules": 41,
+    "incompleteRules": 0,
+    "inapplicableRules": 49
+  },
+  "violations": [],
+  "incomplete": []
+}

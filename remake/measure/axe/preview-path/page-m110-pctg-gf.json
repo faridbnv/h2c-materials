@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "page": "page-m110-pctg-gf",
+  "title": "material page: m110-pctg-gf",
+  "adapter": "old",
+  "project": "preview-path",
+  "path": "/h2c-material-temp-page/materials/M110.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 0,
+    "violatingNodes": 0,
+    "byImpact": {},
+    "passedRules": 49,
+    "incompleteRules": 1,
+    "inapplicableRules": 41
+  },
+  "violations": [],
+  "incomplete": [
+    {
+      "rule": "color-contrast",
+      "nodes": 34
+    }
+  ]
+}

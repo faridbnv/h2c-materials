@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "runId": "local-1792617762843",
+  "mode": "full",
+  "axe": "4.13.0",
+  "blocking": false,
+  "note": "Reported, not blocking (owner ruling OQ-15 B). A count here is a finding to read, not a failed check.",
+  "pages": [
+    {
+      "page": "page-index",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 40,
+      "incompleteRules": 0,
+      "inapplicableRules": 50
+    },
+    {
+      "page": "page-m001-pla",
+      "violatedRules": 1,
+      "violatingNodes": 10,
+      "byImpact": {
+        "serious": 10
+      },
+      "passedRules": 49,
+      "incompleteRules": 1,
+      "inapplicableRules": 41
+    },
+    {
+      "page": "page-m001-pla-products",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 45,
+      "incompleteRules": 1,
+      "inapplicableRules": 45
+    },
+    {
+      "page": "page-m020-petg",
+      "violatedRules": 1,
+      "violatingNodes": 10,
+      "byImpact": {
+        "serious": 10
+      },
+      "passedRules": 49,
+      "incompleteRules": 1,
+      "inapplicableRules": 41
+    },
+    {
+      "page": "page-m020-petg-products",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 45,
+      "incompleteRules": 1,
+      "inapplicableRules": 45
+    },
+    {
+      "page": "page-m073-pps-cf",
+      "violatedRules": 1,
+      "violatingNodes": 4,
+      "byImpact": {
+        "serious": 4
+      },
+      "passedRules": 49,
+      "incompleteRules": 1,
+      "inapplicableRules": 41
+    },
+    {
+      "page": "page-m073-pps-cf-products",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 45,
+      "incompleteRules": 1,
+      "inapplicableRules": 45
+    },
+    {
+      "page": "page-m110-pctg-gf",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 49,
+      "incompleteRules": 1,
+      "inapplicableRules": 41
+    },
+    {
+      "page": "page-m110-pctg-gf-products",
+      "violatedRules": 1,
+      "violatingNodes": 1,
+      "byImpact": {
+        "moderate": 1
+      },
+      "passedRules": 51,
+      "incompleteRules": 2,
+      "inapplicableRules": 38
+    },
+    {
+      "page": "page-method",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 35,
+      "incompleteRules": 0,
+      "inapplicableRules": 55
+    },
+    {
+      "page": "public-material",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 41,
+      "incompleteRules": 0,
+      "inapplicableRules": 49
+    },
+    {
+      "page": "public-results",
+      "violatedRules": 1,
+      "violatingNodes": 1,
+      "byImpact": {
+        "moderate": 1
+      },
+      "passedRules": 44,
+      "incompleteRules": 1,
+      "inapplicableRules": 45
+    },
+    {
+      "page": "selector-drawer",
+      "violatedRules": 3,
+      "violatingNodes": 11,
+      "byImpact": {
+        "minor": 3,
+        "moderate": 1,
+        "serious": 7
+      },
+      "passedRules": 51,
+      "incompleteRules": 1,
+      "inapplicableRules": 38
+    },
+    {
+      "page": "selector-lens-ashby",
+      "violatedRules": 4,
+      "violatingNodes": 39,
+      "byImpact": {
+        "moderate": 2,
+        "serious": 37
+      },
+      "passedRules": 44,
+      "incompleteRules": 1,
+      "inapplicableRules": 45
+    },
+    {
+      "page": "selector-lens-compare",
+      "violatedRules": 3,
+      "violatingNodes": 5,
+      "byImpact": {
+        "moderate": 5
+      },
+      "passedRules": 45,
+      "incompleteRules": 1,
+      "inapplicableRules": 44
+    },
+    {
+      "page": "selector-lens-coverage",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 47,
+      "incompleteRules": 1,
+      "inapplicableRules": 42
+    },
+    {
+      "page": "selector-lens-explain",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 41,
+      "incompleteRules": 1,
+      "inapplicableRules": 48
+    },
+    {
+      "page": "selector-lens-parallel",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 42,
+      "incompleteRules": 1,
+      "inapplicableRules": 47
+    },
+    {
+      "page": "selector-lens-table",
+      "violatedRules": 3,
+      "violatingNodes": 5,
+      "byImpact": {
+        "minor": 3,
+        "moderate": 2
+      },
+      "passedRules": 45,
+      "incompleteRules": 1,
+      "inapplicableRules": 43
+    },
+    {
+      "page": "selector-start",
+      "violatedRules": 4,
+      "violatingNodes": 5,
+      "byImpact": {
+        "minor": 1,
+        "moderate": 2,
+        "serious": 2
+      },
+      "passedRules": 46,
+      "incompleteRules": 1,
+      "inapplicableRules": 43
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "status": "agree",
+  "measuredAt": "2026-10-21T20:49:10.527Z",
+  "machine": {
+    "os": "darwin 27.0.0",
+    "cores": 10,
+    "cpu": "Apple M4"
+  },
+  "node": "v26.9.0",
+  "what": "the old CDP harness (scripts/ui-probe.mjs, scripts/ui-fuzz.mjs) and the Playwright suite (old adapter, over HTTP) on one build, each run alone on an idle machine",
+  "steps": [
+    {
+      "name": "old probe equals build/snapshot/ui (114 views, layout failures none)",
+      "ok": true,
+      "detail": "ui:check: 114 views match build/snapshot/ui | ui:check: no layout failures on the laptop, tablet and phone screens and in the pages",
+      "seconds": 161
+    },
+    {
+      "name": "port views (Playwright, HTTP) equal the old harness's 114 views byte for byte",
+      "ok": true,
+      "detail": "114 written; differing none; extra none",
+      "seconds": 170
+    },
+    {
+      "name": "port fuzz equals old fuzz (300 scenarios, seed 1): same checks per invariant, none violated",
+      "ok": true,
+      "detail": "916201 checks over 2640 readings in 45 invariants; old 166 s, port 245 s",
+      "seconds": 412
+    },
+    {
+      "name": "with the oracle wrong on purpose (FZ_MUTATE=rows, 60 scenarios) both fail on the same invariants the same number of times",
+      "ok": true,
+      "detail": "734 violations in both",
+      "seconds": 148
+    }
+  ]
+}

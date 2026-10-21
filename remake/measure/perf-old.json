@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "runId": "e9f55e0b-4a20-4326-8ce4-fb2ef12bef93",
+  "status": "measured",
+  "measuredAt": "2026-10-21T21:15:54.829Z",
+  "machine": {
+    "os": "darwin 27.0.0",
+    "cpu": "Apple M4",
+    "cores": 10
+  },
+  "browser": "chromium 155.0.8059.85",
+  "what": "the OLD site's boot as a reader meets it: a cold browser context, the selector fetched over HTTP from the test server (gzip level 6, Cache-Control max-age=600, like Pages), bytes counted on the wire (CDP Network.loadingFinished encodedDataLength), time from the start of the navigation until #count has text and #lens has content; each number is the median of the runs listed",
+  "site": {
+    "release": "7c6da496722d",
+    "selectorRawBytes": 8995605
+  },
+  "budgetForTheRemake": {
+    "rule": "no worse than this on time to first results (same machine, same throttle), and strict boot transfer at most 900 KB gzip without the chart library (pack 02 section 11; you are asked before it is relaxed)",
+    "strictBootTransferBytesMax": 921600,
+    "oldBootTransferBytes": 4651922
+  },
+  "byBasePath": {
+    "/h2c-materials/": {
+      "project": "live-path",
+      "url": "http://127.0.0.1:62421/h2c-materials/",
+      "unthrottled": {
+        "cpuThrottle": 1,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 857,
+          "min": 829,
+          "max": 929,
+          "all": [
+            929,
+            911,
+            857,
+            829,
+            844
+          ]
+        },
+        "domContentLoadedMs": 632,
+        "loadMs": 633,
+        "transferBytes": 4651922,
+        "transferBytesAllRuns": [
+          4651922
+        ],
+        "requests": 2
+      },
+      "cpu4x": {
+        "cpuThrottle": 4,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 3117,
+          "min": 3062,
+          "max": 3367,
+          "all": [
+            3117,
+            3062,
+            3106,
+            3367,
+            3172
+          ]
+        },
+        "domContentLoadedMs": 2454,
+        "loadMs": 2463,
+        "transferBytes": 4651922,
+        "transferBytesAllRuns": [
+          4651922
+        ],
+        "requests": 2
+      }
+    },
+    "/h2c-material-temp-page/": {
+      "project": "preview-path",
+      "url": "http://127.0.0.1:62421/h2c-material-temp-page/",
+      "unthrottled": {
+        "cpuThrottle": 1,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 848,
+          "min": 832,
+          "max": 885,
+          "all": [
+            885,
+            852,
+            832,
+            843,
+            848
+          ]
+        },
+        "domContentLoadedMs": 613,
+        "loadMs": 614,
+        "transferBytes": 4651922,
+        "transferBytesAllRuns": [
+          4651922
+        ],
+        "requests": 2
+      },
+      "cpu4x": {
+        "cpuThrottle": 4,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 3174,
+          "min": 3100,
+          "max": 3442,
+          "all": [
+            3100,
+            3109,
+            3174,
+            3297,
+            3442
+          ]
+        },
+        "domContentLoadedMs": 2425,
+        "loadMs": 2435,
+        "transferBytes": 4651922,
+        "transferBytesAllRuns": [
+          4651922
+        ],
+        "requests": 2
+      }
+    }
+  }
+}

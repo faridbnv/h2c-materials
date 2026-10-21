@@ -5,11 +5,11 @@ defineProps<{ readonly release: string | null; readonly snapshot?: string | unde
 </script>
 
 <template>
-  <header class="strip">
+  <header class="strip" data-testid="release-strip">
     <p class="site">{{ SITE }}</p>
     <dl class="release">
-      <div><dt>{{ UI.release }}</dt><dd>{{ release ?? UI.unknownRelease }}</dd></div>
-      <div v-if="snapshot"><dt>{{ UI.dataOf }}</dt><dd>{{ snapshot }}</dd></div>
+      <div><dt>{{ UI.release }}</dt><dd data-testid="release-id">{{ release ?? UI.unknownRelease }}</dd></div>
+      <div v-if="snapshot"><dt>{{ UI.dataOf }}</dt><dd data-testid="data-date">{{ snapshot }}</dd></div>
     </dl>
   </header>
 </template>
