@@ -92,7 +92,8 @@
     "types:check": "node remake/tools/types-gen.mjs --check && tsc --noEmit -p tsconfig.strong.json",
     "types:ratchet": "node remake/tools/types-ratchet.mjs",
     "parity:erase": "node remake/tools/p-erase.mjs",
-    "test:remake": "node --test tests/remake/*.test.mjs"
+    "test:remake": "node --test tests/remake/*.test.mjs",
+    "test:domain": "node --test tests/domain/*.test.mjs"
   },
   "devDependencies": {
     "@types/node": "26.6.5",
