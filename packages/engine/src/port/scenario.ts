@@ -10,6 +10,7 @@ import { normalizePolicy } from './constraints.ts';
 import { INDICES } from './indices.ts';
 import { normalizeEvidence } from './products.ts';
 import type { HeadlineBag, ProductMaterial } from './products.ts';
+import type { EvidenceLevel, ServiceMoisture } from '@atlas/domain';
 
 export interface ScenarioMeta {
   readonly release?: { readonly id?: string } | null;
@@ -17,13 +18,13 @@ export interface ScenarioMeta {
   readonly build?: string;
   readonly environmentCategories?: Readonly<Record<string, unknown>> | null;
 }
-export interface ConstraintDraft {
+export interface LooseConstraint {
   kind?: unknown;
-  property?: string;
-  operator?: string;
-  value?: number;
-  gate?: string;
-  facet?: string;
+  property?: unknown;
+  operator?: unknown;
+  value?: unknown;
+  gate?: unknown;
+  facet?: unknown;
   category?: string;
   in?: unknown;
   [field: string]: unknown;
@@ -36,7 +37,7 @@ export interface Assumption {
   note?: string;
   [field: string]: unknown;
 }
-export interface DecisionDraft {
+export interface ChosenProduct {
   gradeId: string;
   stateId: string | null;
   release: string | null;
@@ -44,7 +45,7 @@ export interface DecisionDraft {
   note: string | null;
   tests: Record<string, string | null>[];
 }
-export interface PlotDraft {
+export interface LoosePlot {
   x: string;
   y: string;
   xLog: boolean;
@@ -53,7 +54,7 @@ export interface PlotDraft {
   showReference: boolean;
   showEstimates: boolean;
   layers: Record<string, boolean | null>;
-  population: string;
+  population: 'confirmed' | 'judged';
   indexM: number | null;
   focus: string[];
   parallelAxes?: unknown;
@@ -61,18 +62,18 @@ export interface PlotDraft {
   indexSlider?: unknown;
   [field: string]: unknown;
 }
-export interface ScenarioDraft {
-  version: number;
+export interface LooseScenario {
+  version: 2;
   release: string | null;
   dbSnapshot: unknown;
   appBuild: string | null;
   created: string;
-  constraints: ConstraintDraft[];
+  constraints: LooseConstraint[];
   unknownPolicy: string;
   preferences: unknown[];
   assumptions: Record<string, unknown>[];
   shortlist: string[];
-  plot: PlotDraft;
+  plot: LoosePlot;
   lens: unknown;
   openMaterial: string | null;
   useEstimates: boolean;
@@ -80,11 +81,11 @@ export interface ScenarioDraft {
   baseline: string | null;
   template: string | null;
   rankBy: unknown;
-  evidence: string;
+  evidence: EvidenceLevel;
   anneal: boolean;
   annealMaxC: number | null;
-  moisture: string;
-  decisions: DecisionDraft[];
+  moisture: ServiceMoisture;
+  decisions: ChosenProduct[];
   stages?: unknown;
   [field: string]: unknown;
 }
@@ -94,7 +95,7 @@ export interface ValidateOptions {
   readonly gradeIds?: ReadonlySet<unknown> | null;
 }
 export interface Validated {
-  scenario: ScenarioDraft;
+  scenario: LooseScenario;
   warnings: string[];
 }
 
@@ -109,7 +110,7 @@ const LAYERS = ['failed', 'unresolved', 'front'];
 const POPULATIONS = new Set<unknown>(['confirmed', 'judged']);
 const FOCUS_MAX = 60;
 
-export function newScenario(meta?: ScenarioMeta | null): ScenarioDraft {
+export function newScenario(meta?: ScenarioMeta | null): LooseScenario {
   return {
     version: SCENARIO_VERSION,
     // The release the answers were computed on (D96): what the scenario's evidence and rules were. The data date beside
@@ -156,7 +157,7 @@ const TEST_FIELDS: readonly string[] = ['date', 'operator', 'recipe', 'orientati
 const str = (v: unknown): string | null => (typeof v === 'string' && v.trim() ? v.trim().slice(0, 2000) : null);
 
 /** A chosen product as a file or a link holds it, checked: its fields are strings, its tests rows of strings. */
-function decisionOf(d: { gradeId: string; [field: string]: unknown }): DecisionDraft {
+function decisionOf(d: { gradeId: string; [field: string]: unknown }): ChosenProduct {
   return {
     gradeId: d.gradeId, stateId: str(d.stateId), release: str(d.release), chosenOn: str(d.chosenOn), note: str(d.note),
     tests: (Array.isArray(d.tests) ? d.tests : []).filter(isObject).slice(0, 50)
@@ -197,7 +198,7 @@ export function validateScenario(raw: unknown, meta?: ScenarioMeta | null, { mat
   const warnings: string[] = [];
   const base = newScenario(meta);
   const legacy = raw.version === 1 || raw.version === undefined;
-  const out: ScenarioDraft = { ...base, ...raw, version: SCENARIO_VERSION };
+  const out: LooseScenario = { ...base, ...raw, version: SCENARIO_VERSION };
 
   if (raw.constraints !== undefined && !Array.isArray(raw.constraints)) throw new Error('"constraints" must be a list.');
   out.constraints = (raw.constraints ?? []).map((c, i) => {
@@ -224,8 +225,8 @@ export function validateScenario(raw: unknown, meta?: ScenarioMeta | null, { mat
   // A requirement this build cannot evaluate is dropped with a warning, as an unknown shortlisted material is. A typo in
   // a hand-edited link ("notAHeadline", gate "warp") used to read as a data gap on every material, and an empty list as a
   // failure of every material (audit 2026-09-15, A-06).
-  const described = (c: ConstraintDraft): string => (c.kind === 'numeric' ? `"${c.property}"` : c.kind === 'gate' ? `gate "${c.gate}"` : c.kind === 'facet' ? `"${c.facet}"` : `"${c.category}"`);
-  const unusable = (c: ConstraintDraft): string | null => (c.kind === 'numeric' && headlineKeys && !headlineKeys.has(c.property) ? 'names a property this build does not have'
+  const described = (c: LooseConstraint): string => (c.kind === 'numeric' ? `"${c.property}"` : c.kind === 'gate' ? `gate "${c.gate}"` : c.kind === 'facet' ? `"${c.facet}"` : `"${c.category}"`);
+  const unusable = (c: LooseConstraint): string | null => (c.kind === 'numeric' && headlineKeys && !headlineKeys.has(c.property) ? 'names a property this build does not have'
     : c.kind === 'gate' && !GATES.has(c.gate) ? 'names a gate this build does not have'
     : c.kind === 'facet' && !FACETS.has(c.facet) ? 'names a facet this build does not have'
     : c.kind === 'environment' && meta?.environmentCategories && !(c.category! in meta.environmentCategories) ? 'names an environment this build does not have'
@@ -306,7 +307,7 @@ export function validateScenario(raw: unknown, meta?: ScenarioMeta | null, { mat
   const chosen = (raw.decisions ?? []).filter((d) => isObject(d) && typeof d.gradeId === 'string');
   const knownGrade = chosen.filter((d) => !gradeIds || gradeIds.has(d.gradeId));
   if (knownGrade.length < chosen.length) warnings.push(`${chosen.length - knownGrade.length} chosen product(s) are not in this database and were dropped.`);
-  out.decisions = [...new Map(knownGrade.map((d): [string, DecisionDraft] => [d.gradeId, decisionOf(d)])).values()].slice(0, DECISIONS_MAX);
+  out.decisions = [...new Map(knownGrade.map((d): [string, ChosenProduct] => [d.gradeId, decisionOf(d)])).values()].slice(0, DECISIONS_MAX);
   for (const key of ['openMaterial', 'baseline']) {
     const id = raw[key];
     out[key] = typeof id === 'string' && known(id) ? id : null;
@@ -332,7 +333,7 @@ export function validateScenario(raw: unknown, meta?: ScenarioMeta | null, { mat
  *   with the decision workspace one press away; it is never silently turned into an exact-state decision picture. One
  *   that never used the chart opens in the decision workspace, having nothing to preserve.
  */
-function migrateV1(raw: Record<string, unknown>, out: { rankBy: unknown; plot: { indexM: number | null; view: unknown } }): string[] {
+function migrateV1(raw: Record<string, unknown>, out: { rankBy: unknown; plot: { indexM: number | null; view: string | undefined } }): string[] {
   const notes = [];
   const plot = isObject(raw.plot) ? raw.plot : {};
   const guide = INDICES.some((i) => i.id === plot.index) ? plot.index : null;
@@ -386,7 +387,7 @@ export function deserialize(text: string, meta?: ScenarioMeta | null, options?: 
 }
 
 /** URL hash serialization, for sharing a filter state. */
-export function toHash(scenario: ScenarioDraft): string {
+export function toHash(scenario: LooseScenario): string {
   const compact = {
     // The scenario version (D107): a link without it is version 1, and is migrated as a saved file is.
     x: SCENARIO_VERSION,

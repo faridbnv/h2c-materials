@@ -29,19 +29,21 @@ export function erase(tsText) {
   return rewriteSpecifiers(stripTypeScriptTypes(tsText, { mode: 'strip' }));
 }
 
+/** A transformer that replaces every parenthesized expression by the expression inside it. */
+const withoutParentheses = (context) => (root) => {
+  const visit = (node) => (ts.isParenthesizedExpression(node) ? visit(node.expression) : ts.visitEachChild(node, visit, context));
+  return ts.visitNode(root, visit);
+};
+
 /**
- * One canonical text for a JavaScript file: parsed, then printed, so layout never decides equality. Parentheses that group
- * nothing the tree does not already say are dropped first (the printer puts back the ones precedence needs), because a cast
- * leaves them behind when its labels are erased: `({ a: 1 } as Words)[key]` erases to `({ a: 1 })[key]`, the old file says
- * `{ a: 1 }[key]`, and the two are one tree. Two files with one tree are one program, so this cannot make a change look equal.
+ * One canonical text for a JavaScript file: parsed, then printed, so layout never decides equality. Redundant parentheses
+ * are dropped first (the printer puts back the ones precedence needs), because erasing a cast leaves them behind:
+ * `({ a: 1 } as Words)[key]` erases to `({ a: 1 })[key]`, the old file says `{ a: 1 }[key]`, and once the parentheses are gone
+ * the two are one tree. Two files with one tree are one program, so this cannot make a change look equal.
  */
 export function canonical(js, fileName = 'file.js') {
   const source = ts.createSourceFile(fileName, js, ts.ScriptTarget.Latest, false, ts.ScriptKind.JS);
-  const withoutParens = (context) => (root) => {
-    const visit = (node) => (ts.isParenthesizedExpression(node) ? visit(node.expression) : ts.visitEachChild(node, visit, context));
-    return ts.visitNode(root, visit);
-  };
-  const { transformed } = ts.transform(source, [withoutParens]);
+  const { transformed } = ts.transform(source, [withoutParentheses]);
   return ts.createPrinter({ newLine: ts.NewLineKind.LineFeed }).printFile(transformed[0]);
 }
 

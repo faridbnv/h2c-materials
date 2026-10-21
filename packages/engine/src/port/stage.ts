@@ -37,9 +37,8 @@ export function activePorts(env: Readonly<Record<string, string | undefined>> = 
   if (!asked) return WIRED;
   if (asked === 'none') return [];
   if (asked === 'all') return PORTABLE;
-  const named = asked.split(',').map((s) => s.trim());
   const ports: PortableModule[] = [];
-  for (const name of named) {
+  for (const name of asked.split(',').map((s) => s.trim())) {
     if (!isPortable(name)) throw new Error(`${PORT_ENV}: "${name}" is not a module WP-18 ports (known: ${PORTABLE.join(', ')}; or none, all)`);
     if (!ports.includes(name)) ports.push(name);
   }
@@ -67,8 +66,10 @@ export function stageEngine(ports: readonly PortableModule[] = activePorts(), { 
   writeFileSync(join(dir, 'package.json'), '{"type":"module"}\n');
   for (const name of ENGINE_MODULES) {
     const ported = ports.some((p) => p === name);
-    copyFileSync(join(ported ? portDir : from, ported ? `${name}.ts` : `${name}.js`), join(dir, ported ? `${name}.ts` : `${name}.js`));
-    writeFileSync(join(dir, ported ? `${name}.js` : `${name}.ts`), `export * from './${ported ? `${name}.ts` : `${name}.js`}';\n`);
+    const file = ported ? `${name}.ts` : `${name}.js`;
+    const alias = ported ? `${name}.js` : `${name}.ts`;
+    copyFileSync(join(ported ? portDir : from, file), join(dir, file));
+    writeFileSync(join(dir, alias), `export * from './${file}';\n`);
   }
   return dir;
 }

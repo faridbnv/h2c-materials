@@ -8,20 +8,26 @@
 //
 // Pure: no DOM, no globals, no imports from ../ui.
 
+import type { EvidenceLevel, GateVerdict, ServiceMoisture } from '@atlas/domain';
+import type { Contribution } from './ledger.ts';
+
 export interface Treatment {
   readonly tempC: number | null;
   readonly hours: number | null;
 }
-export type Moisture = 'dry' | 'conditioned';
+export type Moisture = ServiceMoisture;
 export interface ProductValue {
   /** A value a state holds for a headline (the build's productValue), with the records that back it. */
   readonly value: number;
   readonly measurementId?: string | null;
-  readonly interval?: { readonly lo: number; readonly hi: number; readonly kind: string };
+  readonly interval?:
+    | { readonly lo: number; readonly hi: number; readonly kind: 'point' | 'uncertainty' | 'range' }
+    | { readonly lo: number; readonly hi: null; readonly openLow: boolean }
+    | { readonly lo: null; readonly hi: number; readonly openHigh: boolean };
   readonly uncertainty?: unknown;
-  readonly level?: string;
+  readonly level: EvidenceLevel;
   readonly direction?: string;
-  readonly caveat?: string;
+  readonly caveat?: 'not-described' | 'unstated-direction' | 'load-not-stated';
   readonly anneal?: unknown;
   readonly admitted?: unknown;
   readonly standards?: unknown;
@@ -29,20 +35,28 @@ export interface ProductValue {
   readonly priceIds?: unknown;
   readonly observations?: unknown;
   readonly from?: unknown;
-  readonly ceilingOnly?: boolean;
+  readonly ceilingOnly?: true;
   readonly doubtful?: unknown;
 }
 export interface ProductState {
   /** One of a product's decision states (D99): as printed, annealed at a schedule, conditioned. */
   readonly id: string;
   readonly treatment: Treatment | null;
-  readonly moisture?: string;
+  readonly moisture?: Moisture;
   readonly values: Readonly<Record<string, ProductValue>>;
-  readonly bounds?: Readonly<Record<string, unknown>>;
+  readonly bounds?: Readonly<Record<string, LedgerBounds>>;
   readonly synthetic?: true;
 }
+export interface LedgerBounds {
+  readonly lo: number | null;
+  readonly hi: number | null;
+  readonly openLow: boolean;
+  readonly openHigh: boolean;
+  readonly by: readonly Contribution[];
+  readonly disagree?: true;
+}
 export interface PrintAxis {
-  readonly verdict: string;
+  readonly verdict: GateVerdict;
   readonly reason: string;
 }
 export interface ProductPrint {
@@ -52,7 +66,7 @@ export interface ProductPrint {
   readonly bed: PrintAxis;
   readonly chamber: PrintAxis;
   readonly hardenedNozzle?: boolean | null;
-  readonly drying?: { readonly need: string } | null;
+  readonly drying?: { readonly need: 'required' | 'optional' | 'not-needed' } | null;
   readonly nozzleAdvice?: unknown;
   readonly from?: { readonly [part: string]: { readonly label: string } | undefined };
 }
@@ -140,7 +154,7 @@ export const stateId = (treatment: Treatment | null | undefined, moisture: strin
 export const firstState = (grade: ProductGrade): ProductState => grade.states?.[0] ?? { id: 'as-printed', treatment: null, moisture: 'dry', values: grade.headline ?? {} };
 
 /** What a scenario permits (D99): annealing, and up to which oven temperature, and which service state it asks about. */
-export function statePolicy(ctx: ProductContext = {}) {
+export function statePolicy(ctx: ProductContext = {}): { anneal: boolean; annealMaxC: number | null | undefined; moisture: Moisture } {
   return {
     anneal: ctx.anneal === true,
     annealMaxC: Number.isFinite(ctx.annealMaxC) ? ctx.annealMaxC : null,
@@ -227,7 +241,7 @@ const stateValue = (grade: ProductGrade, key: string, state: ProductState | null
  * What the evidence ledger bounds a headline to in a state (D153, D154): the build's bounds where the state holds no
  * deciding value, read from the state that holds the headline as its value is (valueStateOf). Null where none.
  */
-export const stateBounds = (grade: ProductGrade, key: string, state: ProductState | null | undefined, ctx: ProductContext): unknown => valueStateOf(grade, key, state, ctx).bounds?.[key] ?? null;
+export const stateBounds = (grade: ProductGrade, key: string, state: ProductState | null | undefined, ctx: ProductContext): LedgerBounds | null => valueStateOf(grade, key, state, ctx).bounds?.[key] ?? null;
 
 function productValueHeadline(base: HeadlineBag, grade: ProductGrade, v: ProductValue, measurementById: ProductContext['measurementById']): HeadlineBag {
   const h: HeadlineBag = {

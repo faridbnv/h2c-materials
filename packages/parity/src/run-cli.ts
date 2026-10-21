@@ -185,8 +185,7 @@ class Run {
     if (mode === 'noop') return createOldAdapter({ name: 'old (second copy)', db, engineDir: copyEngine([]) });
     if (fault) return createOldAdapter({ name: `old + fault ${fault.name}`, db, engineDir: copyEngine(fault.patches) });
     if (mode === 'placeholder') return createNewPlaceholder();
-    // The wrapper reads the typed db and runs its own staged engine (the old files, and the modules the port switch names from
-    // their TypeScript port): nothing is shared with the old side.
+    // The wrapper reads the typed db and stages its own engine, with the port switch applied: nothing is shared with the old side.
     const typed = checkDb(db);
     if (!typed.ok) throw new Error(`the db does not satisfy the typed contract of @atlas/data: ${typed.problems.slice(0, 5).join('; ')}`);
     return createNewAdapter({ db: typed.db });

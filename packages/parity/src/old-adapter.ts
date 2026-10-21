@@ -264,13 +264,17 @@ export function openWith(mod: EngineModules['scenario'], meta: unknown, options:
 }
 
 /** What the page hands the decoder (app/js/main.js): the materials, the headlines the filter rail shows, and the grades. */
-export function linkOptionsOf(db: { materials: readonly { id?: unknown }[]; grades: readonly { id?: unknown }[]; registry?: { headlines?: unknown } }): { materialIds: Set<unknown>; headlineKeys: Set<unknown>; gradeIds: Set<unknown> } {
+export function linkOptionsOf(db: {
+  materials: readonly { id?: unknown }[];
+  grades: readonly { id?: unknown }[];
+  registry?: { headlines?: unknown };
+}): { materialIds: Set<unknown>; headlineKeys: Set<unknown>; gradeIds: Set<unknown> } {
   const headlines = db.registry?.headlines;
   if (!Array.isArray(headlines)) throw new Error('the db has no registry.headlines, so links cannot be read against its headline keys');
   return {
-    materialIds: new Set<unknown>(db.materials.map((m) => m.id)),
-    headlineKeys: new Set<unknown>(headlines.filter((h: { drawerOnly?: boolean }) => !h.drawerOnly).map((h: { key: unknown }) => h.key)),
-    gradeIds: new Set<unknown>(db.grades.map((g) => g.id)),
+    materialIds: new Set(db.materials.map((m) => m.id)),
+    headlineKeys: new Set(headlines.filter((h: { drawerOnly?: boolean }) => !h.drawerOnly).map((h: { key: unknown }) => h.key)),
+    gradeIds: new Set(db.grades.map((g) => g.id)),
   };
 }
 

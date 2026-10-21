@@ -5,7 +5,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { isDeepStrictEqual } from 'node:util';
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -15,20 +15,39 @@ import { runParity } from '../../packages/parity/src/compare.ts';
 import { createNewAdapter } from '../../packages/parity/src/new-adapter.ts';
 import { historicLinks } from '../../packages/parity/src/historic-links.ts';
 import { linkUnits, runLinks } from '../../packages/parity/src/links.ts';
-import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
+import { createOld, createOldAdapter, linkOptionsOf, readDb } from '../../packages/parity/src/old-adapter.ts';
+import { seededRandom } from '../../packages/parity/src/util.ts';
 import { corpus, db, root } from './helpers.mjs';
+
+const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
 
 const oldModules = await importStaged(stageEngine([]));
 const old = (name) => oldModules.get(name);
-const ported = async (name) => (await importStaged(stageEngine([name]))).get(name);
+/** One module twice: from its port, and from the old file. */
+const portAndOld = async (name) => [(await importStaged(stageEngine([name]))).get(name), old(name)];
 
-/** A small seeded generator (mulberry32): the same inputs on every machine. */
-const seeded = (seed) => () => {
-  seed = (seed + 0x6d2b79f5) | 0;
-  let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-};
+const nonFamilyMaterials = db.materials.filter((m) => !m.familyEntry);
+const headlineKeys = db.registry.headlines.map((h) => h.key);
+const headlineUnits = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
+
+/** The typed db the wrapper reads, parsed afresh because an adapter does not copy the db it is given. */
+function typedDb() {
+  const checked = checkDb(readDb());
+  assert.ok(checked.ok, 'the db satisfies the typed contract');
+  return checked.db;
+}
+
+/** The same elements in the same order, by identity and not only by value. */
+function assertSameElements(got, want, message) {
+  assert.equal(got.length, want.length, message);
+  got.forEach((g, i) => assert.equal(g, want[i], message));
+}
+
+/** An interval equal in value, with its two deciding contributions the very objects the old module names. */
+function assertSameInterval(got, want) {
+  assert.deepEqual(got, want);
+  if (want) { assert.equal(got.loBy, want.loBy); assert.equal(got.hiBy, want.hiBy); }
+}
 
 test('the port switch: the committed list, the environment override, and a refusal of a name that is not ported', () => {
   assert.deepEqual(activePorts({}), WIRED);
@@ -40,27 +59,26 @@ test('the port switch: the committed list, the environment override, and a refus
 
 test('a staged engine: a ported module is the port\'s own text, an old one is the old file, each re-exported under the other extension', () => {
   const dir = stageEngine(['pareto']);
-  const at = (...parts) => readFileSync(join(dir, ...parts), 'utf8');
-  assert.equal(at('pareto.ts'), readFileSync(new URL('../../packages/engine/src/port/pareto.ts', import.meta.url), 'utf8'));
+  const at = (file) => readFileSync(join(dir, file), 'utf8');
+  assert.equal(at('pareto.ts'), readFileSync(join(PORT_DIR, 'pareto.ts'), 'utf8'));
   assert.equal(at('pareto.js'), "export * from './pareto.ts';\n");
-  assert.equal(at('constraints.js'), readFileSync(new URL('../../app/js/engine/constraints.js', import.meta.url), 'utf8'));
+  assert.equal(at('constraints.js'), readFileSync(join(root, 'app/js/engine/constraints.js'), 'utf8'));
   assert.equal(at('constraints.ts'), "export * from './constraints.js';\n");
   assert.equal(readdirSync(dir).length, 21, 'ten modules under two extensions, and the package file that makes them modules');
 });
 
 test('every ported module exports exactly the names the old module does', async () => {
-  for (const name of PORTABLE.filter((n) => existsSync(new URL(`../../packages/engine/src/port/${n}.ts`, import.meta.url)))) {
-    const port = await ported(name);
-    assert.deepEqual(Object.keys(port).sort(), Object.keys(old(name)).sort(), name);
+  for (const name of PORTABLE) {
+    const [port, was] = await portAndOld(name);
+    assert.deepEqual(Object.keys(port).sort(), Object.keys(was).sort(), name);
   }
 });
 
 // --- pareto -----------------------------------------------------------------------------------------------------------------
 
 test('pareto: front and order are the old module\'s, element for element, on seeded points with ties, duplicates and non-finite values', async () => {
-  const pareto = await ported('pareto');
-  const was = old('pareto');
-  const next = seeded(18);
+  const [pareto, was] = await portAndOld('pareto');
+  const next = seededRandom(18);
   const goals = ['min', 'max'];
   for (let round = 0; round < 400; round++) {
     const n = Math.floor(next() * 40);
@@ -74,21 +92,17 @@ test('pareto: front and order are the old module\'s, element for element, on see
     for (const xGoal of goals) for (const yGoal of goals) {
       const got = pareto.paretoFront(points, xGoal, yGoal);
       const want = was.paretoFront(points, xGoal, yGoal);
-      assert.equal(got.length, want.length);
-      got.forEach((p, i) => assert.equal(p, want[i]));
-      const sorted = pareto.sortFront(got, xGoal);
-      const sortedWas = was.sortFront(want, xGoal);
-      sorted.forEach((p, i) => assert.equal(p, sortedWas[i]));
+      assertSameElements(got, want);
+      assertSameElements(pareto.sortFront(got, xGoal), was.sortFront(want, xGoal));
     }
     assert.deepEqual(pareto.paretoFront(points).map((p) => p.id), was.paretoFront(points).map((p) => p.id));
   }
 });
 
 test('pareto: the real catalogue, density against tensile modulus and strength, on every goal pair', async () => {
-  const pareto = await ported('pareto');
-  const was = old('pareto');
+  const [pareto, was] = await portAndOld('pareto');
   for (const y of ['tensileModulusXY', 'tensileStrengthXY', 'priceCADkg']) {
-    const points = db.materials.filter((m) => !m.familyEntry).map((m) => ({ id: m.id, x: m.headline?.density?.value, y: m.headline?.[y]?.value }));
+    const points = nonFamilyMaterials.map((m) => ({ id: m.id, x: m.headline?.density?.value, y: m.headline?.[y]?.value }));
     for (const xGoal of ['min', 'max']) for (const yGoal of ['min', 'max']) {
       const got = pareto.paretoFront(points, xGoal, yGoal);
       assert.deepEqual(got.map((p) => p.id), was.paretoFront(points, xGoal, yGoal).map((p) => p.id), `${y} ${xGoal} ${yGoal}`);
@@ -100,8 +114,7 @@ test('pareto: the real catalogue, density against tensile modulus and strength, 
 // --- filler -----------------------------------------------------------------------------------------------------------------
 
 test('filler: the class of every material of the catalogue, and of awkward modifiers and facets, is the old module\'s', async () => {
-  const filler = await ported('filler');
-  const was = old('filler');
+  const [filler, was] = await portAndOld('filler');
   const sources = [...db.materials, null, undefined, {}, { facets: null }, { facets: { reinforcement: null } }, { facets: { reinforcement: {} } }];
   for (const modifier of [undefined, null, '', '  ', 'undisclosed', 'Undisclosed filler', 'Not published', 'not applicable', 'Aramid fibre', ' PTFE 10 % ', 'Metal powder (Cu)', 0, 12, '--', 'Glass fibre']) {
     for (const value of [undefined, null, 'undisclosed', 'carbon-fibre', 'unfilled', 'esd']) {
@@ -118,8 +131,7 @@ test('filler: the class of every material of the catalogue, and of awkward modif
 // --- search -----------------------------------------------------------------------------------------------------------------
 
 test('search: every material against every word, prefix and pair of words it can be found by, with and without its products', async () => {
-  const search = await ported('search');
-  const was = old('search');
+  const [search, was] = await portAndOld('search');
   const gradeById = new Map(db.grades.map((g) => [g.id, g]));
   const productsOf = (m) => (m.gradeIds ?? []).map((id) => gradeById.get(id)).filter(Boolean);
   const queries = new Set(['', '  ', 'pla', 'PLA', 'tpu 95', '95', 'pa6 cf', 'cf', 'support', 'polymaker', 'Prusament', 'polylite', 'x y z', 'no-such-word', '-', 'pla+']);
@@ -137,10 +149,7 @@ test('search: every material against every word, prefix and pair of words it can
     for (const q of queries) {
       assert.equal(search.matchesQuery(m, q, products), was.matchesQuery(m, q, products), `${m.id} ${q}`);
       assert.equal(search.matchesQuery(m, q), was.matchesQuery(m, q), `${m.id} ${q} (no products)`);
-      const got = search.matchingProducts(m, q, products);
-      const want = was.matchingProducts(m, q, products);
-      assert.equal(got.length, want.length, `${m.id} ${q}`);
-      got.forEach((g, i) => assert.equal(g, want[i]));
+      assertSameElements(search.matchingProducts(m, q, products), was.matchingProducts(m, q, products), `${m.id} ${q}`);
       compared++;
     }
     assert.deepEqual(search.searchableWords(m, products), was.searchableWords(m, products));
@@ -153,8 +162,7 @@ test('search: every material against every word, prefix and pair of words it can
 // --- coverage ---------------------------------------------------------------------------------------------------------------
 
 test('coverage: the matrix, completeness, evidence summary and availability of the real catalogue are the old module\'s', async () => {
-  const coverage = await ported('coverage');
-  const was = old('coverage');
+  const [coverage, was] = await portAndOld('coverage');
   assert.deepEqual(coverage.COVERAGE_STATUS_RANK, was.COVERAGE_STATUS_RANK);
   assert.deepEqual(coverage.COVERAGE_DOMAINS, was.COVERAGE_DOMAINS);
   assert.deepEqual(coverage.coverageMatrix(db.materials, db.coverage), was.coverageMatrix(db.materials, db.coverage));
@@ -169,14 +177,12 @@ test('coverage: the matrix, completeness, evidence summary and availability of t
   assert.deepEqual(coverage.coverageMatrix(m, records), was.coverageMatrix(m, records));
   assert.equal(coverage.coverageMatrix(m, records)[0].cells.find((c) => c.domain === 'Thermal').records[0], records[0]);
 
-  const keys = db.registry.headlines.map((h) => h.key);
-  const everyone = db.materials.filter((m) => !m.familyEntry);
   for (const material of db.materials) {
-    assert.deepEqual(coverage.headlineCompleteness(material, keys), was.headlineCompleteness(material, keys), material.id);
+    assert.deepEqual(coverage.headlineCompleteness(material, headlineKeys), was.headlineCompleteness(material, headlineKeys), material.id);
     assert.deepEqual(coverage.evidenceSummary(material, db), was.evidenceSummary(material, db), material.id);
   }
-  for (const key of [...keys, 'noSuchKey']) {
-    for (const set of [db.materials, everyone, everyone.slice(10, 40), []]) assert.deepEqual(coverage.availability(set, key), was.availability(set, key), key);
+  for (const key of [...headlineKeys, 'noSuchKey']) {
+    for (const set of [db.materials, nonFamilyMaterials, nonFamilyMaterials.slice(10, 40), []]) assert.deepEqual(coverage.availability(set, key), was.availability(set, key), key);
   }
   // A headline measured at an unstated load: the dead read still counts (OPEN-PROBLEMS: loadStated is in no headline shape).
   const stated = [{ headline: { k: { known: true, loadStated: false } } }, { headline: { k: { known: true, loadStated: true } } }, { headline: { k: { known: true, notApplicable: { rule: 'r' } } } }, {}];
@@ -190,9 +196,8 @@ test('coverage: the matrix, completeness, evidence summary and availability of t
 const contributionLists = () => db.grades.flatMap((g) => (g.states ?? []).flatMap((s) => Object.values(s.bounds ?? {}).map((b) => b.by)));
 
 test('ledger: numbers, intervals and every sentence are the old module\'s, on the real contributions and on seeded ties', async () => {
-  const ledger = await ported('ledger');
-  const was = old('ledger');
-  const next = seeded(1801);
+  const [ledger, was] = await portAndOld('ledger');
+  const next = seededRandom(1801);
 
   for (const x of [0, -0, 1, -1.5, 0.1 + 0.2, 1 / 3, 2 / 3, 1e-7, 123456.789012345, 1e21, Number.MAX_VALUE, Number.MIN_VALUE]) assert.equal(Object.is(ledger.tidy(x), was.tidy(x)), true, String(x));
   const figs = [0, -0, 0.5, 0.0049, 9.995, 10.04, 99.95, 99.994, 100, 100.5, 999.5, 1000, 1234.5, 12345.678, -1234567.8, 1e-9, 1.15, 4.81149, 1e21, Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
@@ -206,10 +211,7 @@ test('ledger: numbers, intervals and every sentence are the old module\'s, on th
   for (const by of lists) {
     for (const evidence of [undefined, 'comparable', 'as-published']) {
       const options = evidence === undefined ? undefined : { evidence };
-      const got = ledger.ledgerInterval(by, options);
-      const want = was.ledgerInterval(by, options);
-      assert.deepEqual(got, want);
-      if (want) { assert.equal(got.loBy, want.loBy); assert.equal(got.hiBy, want.hiBy); }
+      assertSameInterval(ledger.ledgerInterval(by, options), was.ledgerInterval(by, options));
       intervals++;
     }
     for (const b of by) {
@@ -246,10 +248,7 @@ test('ledger: numbers, intervals and every sentence are the old module\'s, on th
       lo: next() < 0.25 ? null : Math.floor(next() * 4), hi: next() < 0.25 ? null : Math.floor(next() * 4) + 2, openLow: next() < 0.5, openHigh: next() < 0.5,
     }));
     for (const evidence of ['comparable', 'as-published']) {
-      const got = ledger.ledgerInterval(by, { evidence });
-      const want = was.ledgerInterval(by, { evidence });
-      assert.deepEqual(got, want);
-      if (want) { assert.equal(got.loBy, want.loBy); assert.equal(got.hiBy, want.hiBy); }
+      assertSameInterval(ledger.ledgerInterval(by, { evidence }), was.ledgerInterval(by, { evidence }));
     }
   }
   assert.equal(ledger.ledgerInterval(undefined), was.ledgerInterval(undefined));
@@ -258,8 +257,7 @@ test('ledger: numbers, intervals and every sentence are the old module\'s, on th
 });
 
 test('ledger: a conversion or class limit by its identifier, from one table per database, as before', async () => {
-  const ledger = await ported('ledger');
-  const was = old('ledger');
+  const [ledger, was] = await portAndOld('ledger');
   const ids = [...(db.conversions ?? []), ...(db.classLimits ?? [])].map((r) => r.id);
   assert.ok(ids.length > 5);
   for (const id of ['nope', '', 'constructor']) assert.equal(ledger.ledgerRow(db, id), was.ledgerRow(db, id));
@@ -278,8 +276,7 @@ test('ledger: a conversion or class limit by its identifier, from one table per 
 // --- products ---------------------------------------------------------------------------------------------------------------
 
 test('products: states, headlines, gates and views of every product of the catalogue are the old module\'s, in every service state', async () => {
-  const products = await ported('products');
-  const was = old('products');
+  const [products, was] = await portAndOld('products');
   const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
   const gradeToMaterial = new Map(db.materials.flatMap((m) => (m.gradeIds ?? []).map((id) => [id, m])));
   const contexts = [
@@ -352,48 +349,15 @@ test('products: states, headlines, gates and views of every product of the catal
   assert.ok(views > 2000 && headlines > 20_000, `a real comparison: ${views} product views, ${headlines} product headlines`);
 });
 
-// --- the harness sees a fault in a port ------------------------------------------------------------------------------------
-
-test('a fault planted in a ported module is caught by the new side of the parity harness, so the port is what runs', async () => {
-  const cases = [...corpus.cases.filter((c) => c.group === 'template').slice(0, 10), ...corpus.cases.filter((c) => c.group === 'census').slice(0, 8)];
-  const typed = checkDb(structuredClone(db));
-  assert.ok(typed.ok);
-  const faults = [
-    // The service state a product is judged in: the wrong moisture is kept.
-    ['products', "(s.moisture ?? 'dry') === policy.moisture", "(s.moisture ?? 'dry') !== policy.moisture"],
-    // The ledger's words: a number from 100 up is printed to the nearest unit only from 1,000.
-    ['ledger', 'const s = a >= 100 ? String(Math.round(n))', 'const s = a >= 1000 ? String(Math.round(n))'],
-    // The ledger's rule for which contribution may decide: the wrong half of them.
-    ['ledger', "b.status === 'deciding' && (b.level", "b.status !== 'deciding' && (b.level"],
-  ];
-  for (const [name, find, replace] of faults) {
-    const dir = mkdtempSync(join(tmpdir(), 'h2c-port-fault-'));
-    try {
-      const source = readFileSync(join(PORT_DIR, `${name}.ts`), 'utf8');
-      assert.equal(source.split(find).length - 1, 1, `the fault for ${name} finds its line`);
-      writeFileSync(join(dir, `${name}.ts`), source.replace(find, replace));
-      const engineDir = stageEngine([name], { portDir: dir });
-      const faulty = await runParity({ corpusName: 'v0', cases, before: await createOld(structuredClone(db)), after: await createNewAdapter({ db: checkDb(structuredClone(db)).db, engineDir }) });
-      assert.equal(faulty.status, 'differs', `${name}: a fault in the port must show`);
-      const clean = await runParity({ corpusName: 'v0', cases, before: await createOld(structuredClone(db)), after: await createNewAdapter({ db: checkDb(structuredClone(db)).db, ports: [name] }) });
-      assert.equal(clean.status, 'zero', `${name}: the port itself shows no difference`);
-    } finally {
-      rmSync(dir, { recursive: true, force: true });
-    }
-  }
-});
-
 // --- indices ----------------------------------------------------------------------------------------------------------------
 
 test('indices: the table, axes, values, lines and rankings are the old module\'s, on the real catalogue', async () => {
-  const indices = await ported('indices');
-  const was = old('indices');
+  const [indices, was] = await portAndOld('indices');
   for (const name of ['INDICES', 'INDEX_UNITS', 'COST_AXIS', 'STRENGTH_CAVEAT', 'ANISOTROPY_CAVEAT', 'PRICE_CAVEAT']) assert.deepEqual(indices[name], was[name], name);
-  const materials = db.materials.filter((m) => !m.familyEntry);
-  assert.equal(indices.priceCaveat(materials), was.priceCaveat(materials));
+  assert.equal(indices.priceCaveat(nonFamilyMaterials), was.priceCaveat(nonFamilyMaterials));
   assert.equal(indices.priceCaveat([]), was.priceCaveat([]));
 
-  const keys = [...db.registry.headlines.map((h) => h.key), was.COST_AXIS, 'nope'];
+  const keys = [...headlineKeys, was.COST_AXIS, 'nope'];
   for (const [i, index] of was.INDICES.entries()) {
     assert.deepEqual(indices.INDICES[i], index);
     assert.deepEqual(indices.indexAxes(indices.INDICES[i]), was.indexAxes(index));
@@ -404,12 +368,12 @@ test('indices: the table, axes, values, lines and rankings are the old module\'s
     for (const orientation of [undefined, 'direct', 'swapped']) for (const M of [0.001, 0.5, 7, 123.456]) {
       assert.deepEqual(indices.selectionLine(index, M, [100, 2000], orientation), was.selectionLine(index, M, [100, 2000], orientation));
     }
-    const values = materials.map((m) => indices.indexValue(m, index));
-    assert.deepEqual(values, materials.map((m) => was.indexValue(m, index)));
+    const values = nonFamilyMaterials.map((m) => indices.indexValue(m, index));
+    assert.deepEqual(values, nonFamilyMaterials.map((m) => was.indexValue(m, index)));
     assert.ok(values.some((v) => v !== null && v > 0), `${index.id} ranks some material`);
-    for (const M of [0.0001, 0.001, 0.003, 0.01, 1]) assert.equal(indices.countAbove(materials, index, M), was.countAbove(materials, index, M));
-    const ranked = indices.rankByIndex(materials, index);
-    const rankedWas = was.rankByIndex(materials, index);
+    for (const M of [0.0001, 0.001, 0.003, 0.01, 1]) assert.equal(indices.countAbove(nonFamilyMaterials, index, M), was.countAbove(nonFamilyMaterials, index, M));
+    const ranked = indices.rankByIndex(nonFamilyMaterials, index);
+    const rankedWas = was.rankByIndex(nonFamilyMaterials, index);
     assert.equal(ranked.length, rankedWas.length);
     ranked.forEach((r, k) => { assert.equal(r.material, rankedWas[k].material); assert.equal(r.value, rankedWas[k].value); });
   }
@@ -419,12 +383,10 @@ test('indices: the table, axes, values, lines and rankings are the old module\'s
 });
 
 test('indices: the ranking of selected rows by every index, with the products they pass in, is the old module\'s', async () => {
-  const indices = await ported('indices');
-  const was = old('indices');
+  const [indices, was] = await portAndOld('indices');
   const oldEngine = { constraints: old('constraints'), products: old('products'), scenario: old('scenario') };
   const group = (rows) => rows.reduce((m, r) => m.set(r.materialId, [...(m.get(r.materialId) ?? []), r]), new Map());
   const cases = [...corpus.cases.filter((c) => c.group === 'template').slice(0, 8), ...corpus.cases.filter((c) => c.group === 'census').slice(0, 6)];
-  const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
   let ranked = 0;
   for (const c of cases) {
     const q = c.scenario;
@@ -433,7 +395,7 @@ test('indices: the ranking of selected rows by every index, with the products th
       coverageByMaterial: group(db.coverage), productsByMaterial: oldEngine.products.productsByMaterial(db), unknownPolicy: oldEngine.constraints.normalizePolicy(q.unknownPolicy),
       useEstimates: false, showEstimates: false, evidence: q.evidence, anneal: q.anneal === true, annealMaxC: q.annealMaxC ?? null, moisture: q.moisture === 'conditioned' ? 'conditioned' : 'dry',
     };
-    const candidates = db.materials.filter((m) => !m.familyEntry).map((m) => oldEngine.scenario.applyAssumptions(m, [], units).material);
+    const candidates = nonFamilyMaterials.map((m) => oldEngine.scenario.applyAssumptions(m, [], headlineUnits).material);
     const selection = oldEngine.constraints.runSelection(candidates, q.constraints, ctx);
     const rows = selection.evaluations.map((evaluation) => ({ material: candidates.find((m) => m.id === evaluation.materialId), evaluation }));
     for (const index of was.INDICES) {
@@ -466,8 +428,7 @@ const outcome = (f) => {
 };
 
 test('scenario: the constants, the defaults, serialize and the hash are the old module\'s', async () => {
-  const scenario = await ported('scenario');
-  const was = old('scenario');
+  const [scenario, was] = await portAndOld('scenario');
   for (const name of ['SCENARIO_VERSION', 'WORKSPACE_VIEWS', 'DECISIONS_MAX', 'SHORTLIST_MAX']) assert.deepEqual(scenario[name], was[name], name);
   for (const meta of [undefined, null, {}, db.meta, { release: { id: 'abc' }, snapshot: '2026-01-01', build: 'b' }]) {
     const { created, ...a } = scenario.newScenario(meta);
@@ -487,13 +448,8 @@ test('scenario: the constants, the defaults, serialize and the hash are the old 
 });
 
 test('scenario: the historic links and the saved files of seeded edits are read, warned about and refused as the old module does', async () => {
-  const scenario = await ported('scenario');
-  const was = old('scenario');
-  const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
-  const options = {
-    materialIds: new Set(db.materials.map((m) => m.id)), headlineKeys: new Set(db.registry.headlines.filter((h) => !h.drawerOnly).map((h) => h.key)),
-    gradeIds: new Set(db.grades.map((g) => g.id)),
-  };
+  const [scenario, was] = await portAndOld('scenario');
+  const options = linkOptionsOf(db);
   for (const l of historicLinks(TEMPLATES)) {
     const text = l.text ?? readFileSync(join(root, l.read.path), 'utf8');
     for (const o of [undefined, options]) {
@@ -504,7 +460,7 @@ test('scenario: the historic links and the saved files of seeded edits are read,
   assert.equal(scenario.fromHash('', db.meta), null);
   assert.equal(scenario.fromHash(undefined, db.meta), null);
 
-  const next = seeded(1802);
+  const next = seededRandom(1802);
   const pick = (xs) => xs[Math.floor(next() * xs.length)];
   const weird = [null, 0, 1, 2, 3, -1, 1.5, 1e9, '', 'x', 'table', 'ashby', 'exploration', 'strict', 'conditioned', 'as-published', true, false, [], [1], ['M001', 'nope', 7, 'M001'], {}, { a: 1 }, 'M001', 'G001-01'];
   const base = { ...was.newScenario(db.meta), created: 'fixed' };
@@ -548,19 +504,16 @@ test('scenario: the historic links and the saved files of seeded edits are read,
 });
 
 test('scenario: an assumption stands in for a missing value, never over a known one, a non-applicable one or another material\'s', async () => {
-  const scenario = await ported('scenario');
-  const was = old('scenario');
-  const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
-  const keys = db.registry.headlines.map((h) => h.key);
+  const [scenario, was] = await portAndOld('scenario');
   let standIns = 0;
   for (const m of db.materials) {
     const sets = [
       [], [{ materialId: 'other', property: 'density', value: 1 }],
-      ...keys.map((property) => [{ materialId: m.id, property, value: 42.5 }]),
-      [{ materialId: '*', property: keys[0], value: 7, unit: 'u', note: 'n' }, { materialId: m.id, property: keys[1], value: 8 }, { materialId: '*', property: 'noSuchHeadline', value: 9 }],
+      ...headlineKeys.map((property) => [{ materialId: m.id, property, value: 42.5 }]),
+      [{ materialId: '*', property: headlineKeys[0], value: 7, unit: 'u', note: 'n' }, { materialId: m.id, property: headlineKeys[1], value: 8 }, { materialId: '*', property: 'noSuchHeadline', value: 9 }],
     ];
     for (const assumptions of sets) {
-      for (const u of [undefined, units]) {
+      for (const u of [undefined, headlineUnits]) {
         const got = scenario.applyAssumptions(m, assumptions, u);
         const want = was.applyAssumptions(m, assumptions, u);
         assert.deepEqual(got, want);
@@ -573,16 +526,44 @@ test('scenario: an assumption stands in for a missing value, never over a known 
 });
 
 test('scenario: the historic-link corpus opens and replays with zero differences through the wrapper on the ported scenario', async () => {
-  const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
   const units = linkUnits(historicLinks(TEMPLATES), []);
-  const run = await runLinks({ units, before: await createOld(readDb()), after: await createNewAdapter({ db: checkDb(readDb()).db, ports: ['scenario'] }) });
+  const run = await runLinks({ units, before: await createOld(), after: await createNewAdapter({ db: typedDb(), ports: ['scenario'] }) });
   assert.equal(run.openings.status, 'zero', JSON.stringify(run.openings.differences?.slice(0, 3)));
   assert.equal(run.openings.unitsCompared, units.length);
   assert.equal(run.replay.status, 'zero');
   assert.ok(run.replayCases >= 10);
   // The old adapter over a staged engine with the port in (its own reading of the engine, not the wrapper's) says the same.
   const staged = await createOldAdapter({ name: 'old API on the ported scenario', db: readDb(), engineDir: stageEngine(['scenario']) });
-  const again = await runLinks({ units, before: await createOld(readDb()), after: staged });
+  const again = await runLinks({ units, before: await createOld(), after: staged });
   assert.equal(again.openings.status, 'zero');
   assert.equal(again.replay.status, 'zero');
+});
+
+// --- the harness sees a fault in a port ------------------------------------------------------------------------------------
+
+test('a fault planted in a ported module is caught by the new side of the parity harness, so the port is what runs', async () => {
+  const cases = [...corpus.cases.filter((c) => c.group === 'template').slice(0, 10), ...corpus.cases.filter((c) => c.group === 'census').slice(0, 8)];
+  const faults = [
+    // The service state a product is judged in: the wrong moisture is kept.
+    ['products', "(s.moisture ?? 'dry') === policy.moisture", "(s.moisture ?? 'dry') !== policy.moisture"],
+    // The ledger's words: a number from 100 up is printed to the nearest unit only from 1,000.
+    ['ledger', 'const s = a >= 100 ? String(Math.round(n))', 'const s = a >= 1000 ? String(Math.round(n))'],
+    // The ledger's rule for which contribution may decide: the wrong half of them.
+    ['ledger', "b.status === 'deciding' && (b.level", "b.status !== 'deciding' && (b.level"],
+  ];
+  const againstOld = async (newSide) => runParity({ corpusName: 'v0', cases, before: await createOld(), after: await createNewAdapter({ db: typedDb(), ...newSide }) });
+  for (const [name, find, replace] of faults) {
+    const dir = mkdtempSync(join(tmpdir(), 'h2c-port-fault-'));
+    try {
+      const source = readFileSync(join(PORT_DIR, `${name}.ts`), 'utf8');
+      assert.equal(source.split(find).length - 1, 1, `the fault for ${name} finds its line`);
+      writeFileSync(join(dir, `${name}.ts`), source.replace(find, replace));
+      const faulty = await againstOld({ engineDir: stageEngine([name], { portDir: dir }) });
+      assert.equal(faulty.status, 'differs', `${name}: a fault in the port must show`);
+      const clean = await againstOld({ ports: [name] });
+      assert.equal(clean.status, 'zero', `${name}: the port itself shows no difference`);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
 });

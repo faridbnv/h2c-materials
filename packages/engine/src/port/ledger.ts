@@ -11,16 +11,18 @@
 // Pure: no DOM, no globals, no imports from ../ui. Arithmetic to twelve significant digits and no exp or log, so the
 // build gives one answer on every machine (CI runs on Linux).
 
+import type { ComparisonOperator, EvidenceLevel } from '@atlas/domain';
+
 export interface Contribution {
   /** One contribution to a headline's bounds (the database's ledgerContribution): a rule's, or a class limit's. */
-  readonly rule?: string;
-  readonly kind?: string;
-  readonly status?: string;
-  readonly level?: string;
-  readonly lo?: number | null;
-  readonly hi?: number | null;
-  readonly openLow?: boolean;
-  readonly openHigh?: boolean;
+  readonly rule: string;
+  readonly kind: 'floor' | 'ceiling' | 'band' | 'equal' | 'demote-to-ceiling' | 'neat-density range';
+  readonly status: 'reported' | 'deciding';
+  readonly level: EvidenceLevel;
+  readonly lo: number | null;
+  readonly hi: number | null;
+  readonly openLow?: true;
+  readonly openHigh?: true;
   readonly sourceValue?: number;
   readonly factor?: number | null;
   readonly limit?: unknown;
@@ -29,7 +31,7 @@ export interface Contribution {
   readonly from?: { readonly label: string };
   readonly [field: string]: unknown;
 }
-export interface Interval {
+export interface LedgerInterval {
   /** What ledgerInterval answers: the intersection, the contribution that sets each end, and whether the two ends disagree. */
   readonly lo: number | null;
   readonly hi: number | null;
@@ -40,7 +42,7 @@ export interface Interval {
   readonly disagree: boolean;
 }
 export interface Requirement {
-  readonly operator: string;
+  readonly operator: ComparisonOperator;
   readonly value: number;
 }
 export interface LedgerRow {
@@ -56,14 +58,14 @@ export interface LedgerDb {
 export const tidy = (x: number): number => Number(x.toPrecision(12));
 
 /** Whether a contribution may decide: a deciding row's, comparable, or as published under the audit lens (D172). */
-export const usable = (b: Contribution, evidence: string = 'comparable'): boolean => b.status === 'deciding' && (b.level === 'comparable' || evidence === 'as-published');
+export const usable = (b: Contribution, evidence: EvidenceLevel = 'comparable'): boolean => b.status === 'deciding' && (b.level === 'comparable' || evidence === 'as-published');
 
 /**
  * The intersection of the contributions that may decide: `{ lo, hi, openLow, openHigh, loBy, hiBy, disagree }`, the
  * contribution that sets each end beside it, or null where none may decide. Ties go to the first in the list, which the
  * build sorts by rule and record.
  */
-export function ledgerInterval(by: readonly Contribution[] | null | undefined, { evidence = 'comparable' }: { readonly evidence?: string } = {}): Interval | null {
+export function ledgerInterval(by: readonly Contribution[] | null | undefined, { evidence = 'comparable' }: { readonly evidence?: EvidenceLevel } = {}): LedgerInterval | null {
   const list = (by ?? []).filter((b) => usable(b, evidence));
   if (!list.length) return null;
   let lo: number | null = null, hi: number | null = null, loBy: Contribution | null = null, hiBy: Contribution | null = null;
@@ -137,14 +139,15 @@ export const requirementWords = (c: Requirement, unit: string): string => `${({ 
  * line (a miss within the test scatter); `end` the bound that decides; `asPrinted` whether the state judged is as printed,
  * which an annealed or demoted ceiling names.
  */
-export interface ReasonOptions {
+export type ReasonOptions = {
   readonly unit: string;
   readonly words?: string | null;
-  readonly verdict: 'pass' | 'fail' | 'line';
   readonly c: Requirement;
-  readonly margin?: { readonly words: string } | null;
   readonly asPrinted?: boolean;
-}
+} & (
+  | { readonly verdict: 'pass' | 'fail'; readonly margin?: { readonly words: string } | null }
+  | { readonly verdict: 'line'; readonly margin: { readonly words: string } }
+);
 export function ledgerReason(b: Contribution, { unit, words, verdict, c, margin, asPrinted = true }: ReasonOptions): string {
   const req = requirementWords(c, unit);
   const atLeast = c.operator.startsWith('>');
@@ -171,7 +174,7 @@ export function disagreeReason(loBy: Contribution, hiBy: Contribution, { unit, w
 }
 
 /** What a deciding interval that leaves the limit on either side still says, appended to the reason that follows. */
-export function knownNote(iv: Interval, { unit, c }: { readonly unit: string; readonly c: { readonly value: number } }): string {
+export function knownNote(iv: LedgerInterval, { unit, c }: { readonly unit: string; readonly c: { readonly value: number } }): string {
   const range = iv.lo != null && iv.hi != null ? `between ${fig(iv.lo)} and ${fig(iv.hi)} ${unit}` : iv.lo != null ? `at least ${fig(iv.lo)} ${unit}` : `at most ${fig(iv.hi!)} ${unit}`;
   const what = [iv.loBy, iv.hiBy].filter(Boolean).every((b) => b!.limit !== undefined) ? 'Its kind of plastic puts it' : 'Its other records put it';
   return ` ${what} ${range}, which leaves ${fmtWords(c.value)} ${unit} on either side`;
