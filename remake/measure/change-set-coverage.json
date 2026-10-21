@@ -1,38 +1,39 @@
 {
   "schema": 1,
   "status": "measured",
-  "measuredAt": "2026-10-21T15:33:11.324Z",
+  "measuredAt": "2026-10-21T16:50:07.619Z",
   "method": [
     "Read only: Git history of the ref and the working tree; no migration is run and no file is written but this one.",
-    "Window: the commits that changed data/tables, data/manifest.json or schema/ in the 14 days before the ref's last commit (main is frozen at the cutover candidate), or the range given.",
+    "Window: the commits that changed data/tables, data/manifest.json or schema/ in the 14 days before the last such commit of the ref (main is frozen at the cutover candidate; a later commit that changes only a workflow does not move the window), or the range given.",
     "Each commit's table, vocabulary and schema-document diff against its parent is split into changes; each change is classified as one a write command expresses, one that waits for WP-28's proposal commands, or residue.",
     "Rows are matched by primary (else first unique) key. A row added after the last row that stayed is an append; a row added anywhere else is a mid-table insert; rows that stayed but changed order are a reorder.",
-    "Commits whose every change is a row edit or an append, with no schema change, are replayed: the derived commands go through the real pipeline in legacy mode (judgement guards off, structural guards on) onto a rebuild of the parent, and every changed table is compared byte for byte with the child.",
+    "Commits whose every change is a row edit or an append, with no schema change, are replayed: the derived commands go through the real pipeline in legacy mode (judgement guards off, structural guards on) onto a rebuild of the parent, and every changed table is compared byte for byte with the child. A commit whose parent cannot be rebuilt under its own schema is skipped, and counted as skipped.",
     "Class (04 section 11) is guessed from the diff, not from the script: a heuristic, medium confidence. The migration script a commit adds is named beside it."
   ],
   "window": {
     "ref": "origin/main",
-    "head": "5eabafad4e19e3cc2f4e71d55848474ff22bd444",
-    "headDate": "2026-10-20T12:22:55-07:00",
+    "head": "c31ceebf2c64b392c5451a884a2e2a466e5ac779",
+    "anchor": "19a2c2af863648824b1cefe8725a4f986e49d46a",
+    "anchorDate": "2026-10-20T12:08:13-07:00",
     "days": 14,
     "range": null,
     "commits": 107
   },
   "units": {
-    "total": 10187,
+    "total": 10252,
     "expressed": 10032,
     "later": 124,
-    "residue": 31,
-    "expressedShare": 0.985,
-    "expressedOrLaterShare": 0.997
+    "residue": 96,
+    "expressedShare": 0.979,
+    "expressedOrLaterShare": 0.991
   },
   "commits": {
     "total": 107,
-    "withSnapshotChange": 103,
-    "allExpressed": 77,
-    "withLater": 8,
-    "withResidue": 18,
-    "residueShare": 0.175,
+    "withSnapshotChange": 107,
+    "allExpressed": 46,
+    "withLater": 4,
+    "withResidue": 57,
+    "residueShare": 0.533,
     "adrRevisitTrigger": {
       "threshold": 0.1,
       "fired": true,
@@ -105,6 +106,12 @@
       "by": "no command creates a vocabulary file",
       "count": 4,
       "commits": 4
+    },
+    "outside-file": {
+      "status": "residue",
+      "by": "a file beside the 36 tables and their schema (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files): no command changes it",
+      "count": 65,
+      "commits": 54
     }
   },
   "byClass": {
@@ -118,35 +125,35 @@
     },
     "2 Schema or model change plus backfill": {
       "commits": 34,
-      "units": 4375,
+      "units": 4409,
       "expressed": 4254,
       "later": 96,
-      "residue": 25,
-      "share": 0.972
+      "residue": 59,
+      "share": 0.965
     },
     "3 Correction of observational data": {
-      "commits": 13,
-      "units": 3265,
-      "expressed": 3265,
+      "commits": 9,
+      "units": 3217,
+      "expressed": 3217,
       "later": 0,
       "residue": 0,
       "share": 1
     },
     "4 Reference, identity, classification": {
-      "commits": 37,
-      "units": 523,
+      "commits": 41,
+      "units": 535,
       "expressed": 504,
       "later": 16,
-      "residue": 3,
-      "share": 0.964
+      "residue": 15,
+      "share": 0.942
     },
     "5 Mixed or editorial": {
-      "commits": 18,
-      "units": 1948,
-      "expressed": 1933,
+      "commits": 22,
+      "units": 2015,
+      "expressed": 1981,
       "later": 12,
-      "residue": 3,
-      "share": 0.992
+      "residue": 22,
+      "share": 0.983
     }
   },
   "residue": [
@@ -210,15 +217,30 @@
         "bf37c9704a schema/vocab/summary-status.csv: a vocabulary that did not exist",
         "0131767fe6 schema/vocab/diameters.csv: a vocabulary that did not exist"
       ]
+    },
+    {
+      "kind": "outside-file",
+      "count": 65,
+      "commits": 54,
+      "why": "a file beside the 36 tables and their schema (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files): no command changes it",
+      "examples": [
+        "d79de92890 schema/db.schema.json: changed",
+        "69b12c0d3e schema/db.schema.json: changed",
+        "b4aad28f35 data/review/accepted-findings.csv: changed",
+        "b87ce50d01 schema/db.schema.json: changed",
+        "8940c10756 data/review/accepted-findings.csv: changed"
+      ]
     }
   ],
   "byteReplay": {
-    "attempted": 62,
-    "identical": 29,
+    "requested": true,
+    "eligible": 44,
+    "attempted": 21,
+    "identical": 21,
     "differs": 0,
-    "skipped": 33,
+    "skipped": 23,
     "skippedBecause": {
-      "the parent's tables do not rebuild under its own schema: chamber_need: the CSV f": 31,
+      "the parent's tables do not rebuild under its own schema: chamber_need: the CSV f": 21,
       "the parent's tables do not rebuild under its own schema: class_limits: the CSV f": 2
     }
   },
@@ -275,9 +297,15 @@
           "table": "method",
           "count": 1,
           "detail": "Impact tests"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -311,6 +339,12 @@
           "detail": "a table that did not exist"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "vocab-new-file",
           "table": "schema/vocab/product-claims.csv",
           "count": 1,
@@ -333,6 +367,12 @@
       ],
       "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "evidence",
@@ -376,14 +416,11 @@
           "detail": "4 cell(s) in 4 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "b87ce50d012ed32f5de5c791d232d70c85d50bd2",
@@ -414,13 +451,19 @@
           "detail": "G066-03 | Toughened or impact-modified"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/headline_definitions.schema.json",
           "count": 1,
           "detail": "the specification of Sold as toughened changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -435,6 +478,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "create-table",
           "table": "impact_test_guesses",
@@ -452,6 +501,12 @@
           "table": "properties",
           "count": 1,
           "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         },
         {
           "kind": "vocab-new-file",
@@ -527,6 +582,12 @@
       "class": "2 Schema or model change plus backfill",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "evidence",
           "count": 1,
@@ -581,13 +642,19 @@
           "detail": "1 cell(s) in 1 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/page_context.schema.json",
           "count": 1,
           "detail": "title, description or keys changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv",
         "schema/db.schema.json"
@@ -607,6 +674,12 @@
       ],
       "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "append-rows",
           "table": "evidence",
@@ -644,14 +717,11 @@
           "detail": "G018-01 | Toughened or impact-modified, G020-16 | Toughened or impact-modified, G131-01 | Toughened or impact-modified, G001-60 | Toughened or impact-modified and 4 more"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "aa5b92d1a2850dd0e3d12f5e0cb34b0d233a08a2",
@@ -663,6 +733,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "append-rows",
           "table": "grades",
@@ -712,7 +788,7 @@
           "detail": "DREMC"
         }
       ],
-      "status": "has-later",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/context-witness-accepted.csv"
       ],
@@ -728,6 +804,12 @@
       ],
       "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "append-rows",
           "table": "evidence",
@@ -765,14 +847,11 @@
           "detail": "3 cell(s) in 3 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "4a92a58d5a399032ecd8d5d59a627532d81b0270",
@@ -783,6 +862,12 @@
       ],
       "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "grades",
@@ -796,14 +881,11 @@
           "detail": "396 cell(s) in 198 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "4fb9e344f4d126d469a224d9e886a819829c9145",
@@ -814,6 +896,18 @@
       ],
       "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "grades",
@@ -857,15 +951,12 @@
           "detail": "8 cell(s) in 8 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv",
         "data/review/context-witness-accepted.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "d00f35b5d9d6aade8231f0259461645910262c58",
@@ -937,9 +1028,16 @@
       "date": "2026-10-08T01:01:34-07:00",
       "subject": "Fix missing product estimates and uncertain-result groups",
       "migrations": [],
-      "class": "6 Unclassified",
-      "units": [],
-      "status": "no-snapshot-change",
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -979,6 +1077,12 @@
           "detail": "1 cell(s) in 1 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/headline_definitions.schema.json",
           "count": 1,
@@ -1000,6 +1104,12 @@
       ],
       "class": "4 Reference, identity, classification",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "append-rows",
           "table": "drawer_comparisons",
@@ -1072,6 +1182,12 @@
       "class": "2 Schema or model change plus backfill",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "add-column",
           "table": "drawer_comparisons",
           "count": 1,
@@ -1118,6 +1234,12 @@
           "table": "page_context",
           "count": 1,
           "detail": "PC01007"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         },
         {
           "kind": "schema-document",
@@ -1176,8 +1298,14 @@
       "migrations": [
         "m422-what-the-twin-sheets-state.mjs"
       ],
-      "class": "3 Correction of observational data",
+      "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "append-rows",
           "table": "measurements",
@@ -1197,14 +1325,11 @@
           "detail": "PC01008, PC01009, PC01010"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "c809619464c6237b0220d5c82d8a5fe5d59f793c",
@@ -1259,8 +1384,14 @@
       "migrations": [
         "m425-moduli-their-own-sheets-rule-out.mjs"
       ],
-      "class": "3 Correction of observational data",
+      "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "measurements",
@@ -1268,14 +1399,11 @@
           "detail": "22 cell(s) in 11 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "5a88cf06c47cc1d76cd606a6bb403c70664695a8",
@@ -1315,6 +1443,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "measurements",
@@ -1410,20 +1544,23 @@
       "class": "4 Reference, identity, classification",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "sources",
           "count": 6,
           "detail": "12 cell(s) in 6 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/context-witness-accepted.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "bf37c9704a77b0af5c3329df1521ca55e0004803",
@@ -1437,6 +1574,12 @@
           "table": "material_summaries",
           "count": 1,
           "detail": "a table that did not exist"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         },
         {
           "kind": "vocab-new-file",
@@ -1535,8 +1678,14 @@
       "migrations": [
         "m434-a-notch-the-row-states-is-typed.mjs"
       ],
-      "class": "3 Correction of observational data",
+      "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "measurements",
@@ -1544,14 +1693,11 @@
           "detail": "18 cell(s) in 9 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/context-witness-accepted.csv"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "3ce2af77d2406886524ab4c125fd425717139262",
@@ -1592,6 +1738,12 @@
       "class": "5 Mixed or editorial",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "evidence",
           "count": 4,
@@ -1624,8 +1776,7 @@
       ],
       "status": "has-residue",
       "outsideSnapshot": [
-        "data/review/accepted-findings.csv",
-        "data/review/removed-records.csv"
+        "data/review/accepted-findings.csv"
       ],
       "replay": null
     },
@@ -1769,16 +1920,19 @@
           "table": "method",
           "count": 1,
           "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
-      "replay": {
-        "status": "skipped",
-        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
-      }
+      "replay": null
     },
     {
       "commit": "838c3efcc1e9ebd98a1832177d3909598e71e0bc",
@@ -1794,6 +1948,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "grades",
@@ -1867,7 +2027,7 @@
           "detail": "formulation"
         }
       ],
-      "status": "has-later",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
@@ -1885,6 +2045,12 @@
           "table": "chamber_need",
           "count": 1,
           "detail": "a table that did not exist"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
       "status": "has-residue",
@@ -1944,9 +2110,15 @@
           "table": "headline_definitions",
           "count": 15,
           "detail": "15 cell(s) in 15 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -1961,6 +2133,12 @@
       ],
       "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "insert-mid-table",
           "table": "headline_definitions",
@@ -1978,6 +2156,12 @@
           "table": "properties",
           "count": 1,
           "detail": "Fibre content"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
       "status": "has-residue",
@@ -2033,6 +2217,12 @@
           "detail": "a table that did not exist"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/headline_definitions.schema.json",
           "count": 1,
@@ -2053,6 +2243,12 @@
       "class": "4 Reference, identity, classification",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "conversions",
           "count": 1,
@@ -2065,14 +2261,11 @@
           "detail": "1 cell(s) in 1 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "2 command(s) gave the child's 2 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "cf872fd1659e8d51390cde1f414735db52a47aa6",
@@ -2124,6 +2317,12 @@
       "class": "2 Schema or model change plus backfill",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "conversions",
           "count": 1,
@@ -2136,7 +2335,7 @@
           "detail": "the specification of Kind changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
@@ -2294,21 +2493,30 @@
       "class": "4 Reference, identity, classification",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "class_limits",
           "count": 1,
           "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv",
         "schema/db.schema.json"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "a4101bca1eb7c96e3b962b8fa1912e13f923ca10",
@@ -2372,9 +2580,15 @@
           "table": "polymers",
           "count": 25,
           "detail": "25 cell(s) in 25 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -2410,6 +2624,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "grades",
@@ -2454,9 +2674,16 @@
       "migrations": [
         "m448-elongation-floored-by-printed-bars.mjs"
       ],
-      "class": "6 Unclassified",
-      "units": [],
-      "status": "no-snapshot-change",
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/estimate-model.schema.json"
       ],
@@ -2488,13 +2715,19 @@
           "detail": "3 cell(s) in 3 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/conversions.schema.json",
           "count": 1,
           "detail": "the specification of Source specimen changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -2505,9 +2738,16 @@
       "date": "2026-10-18T20:49:36-07:00",
       "subject": "Screening build, stage 4: heat deflection estimated per product, annealed values a kind of their own (C29, D162)",
       "migrations": [],
-      "class": "6 Unclassified",
-      "units": [],
-      "status": "no-snapshot-change",
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/estimate-model.schema.json"
       ],
@@ -2598,13 +2838,19 @@
           "detail": "1 cell(s) in 1 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/conversions.schema.json",
           "count": 5,
           "detail": "the specification of Source direction, Source state, Source specimen, Kind and 1 more changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/estimate-model.schema.json"
       ],
@@ -2624,26 +2870,42 @@
           "table": "conversions",
           "count": 2,
           "detail": "CV60, CV61"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json",
         "schema/estimate-model.schema.json"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "2 command(s) gave the child's 1 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "891c27f731aca19847c2881883328a04a21f46fc",
       "date": "2026-10-18T21:12:21-07:00",
       "subject": "Screening build, stage 4: the \"likely\" tag's rule revisited, the 80 % range kept (C19, D165); D163 to D165 written",
       "migrations": [],
-      "class": "6 Unclassified",
-      "units": [],
-      "status": "no-snapshot-change",
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/estimate-model.schema.json"
       ],
@@ -2671,13 +2933,25 @@
           "detail": "4 cell(s) in 4 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/conversions.schema.json",
           "count": 1,
           "detail": "the specification of Estimate learns changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json",
         "schema/estimate-model.schema.json"
@@ -2693,6 +2967,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "measurements",
@@ -2712,7 +2992,7 @@
           "detail": "JIS K 7110, JIS K 7161, JIS K 7171, JIS K 7210"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
@@ -2728,6 +3008,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "evidence",
@@ -2803,8 +3089,7 @@
       ],
       "status": "has-residue",
       "outsideSnapshot": [
-        "data/review/accepted-findings.csv",
-        "data/review/removed-records.csv"
+        "data/review/accepted-findings.csv"
       ],
       "replay": null
     },
@@ -2917,16 +3202,19 @@
           "table": "measurements",
           "count": 13,
           "detail": "26 cell(s) in 13 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "14 command(s) gave the child's 2 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "ed39d66c0545a3a3c19e7e7165af128dd1ad1fe1",
@@ -2938,6 +3226,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "evidence",
@@ -2993,7 +3287,7 @@
           "detail": "<=, >="
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
@@ -3173,6 +3467,12 @@
           "detail": "393 cell(s) in 393 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/print_guide.schema.json",
           "count": 2,
@@ -3185,7 +3485,7 @@
           "detail": "the specification of Drying °C, Drying hours changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -3313,6 +3613,12 @@
           "detail": "Filament diameter"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "vocab-new-file",
           "table": "schema/vocab/diameters.csv",
           "count": 1,
@@ -3403,6 +3709,12 @@
       "class": "5 Mixed or editorial",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "append-rows",
           "table": "coverage",
           "count": 1,
@@ -3469,14 +3781,11 @@
           "detail": "1 cell(s) in 1 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "40 command(s) gave the child's 7 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "c9af4095f1bcfabb2b32432993125975e137a486",
@@ -3557,6 +3866,12 @@
           "detail": "121 cell(s) in 121 row(s)"
         },
         {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "schema-document",
           "table": "schema/tables/conversions.schema.json",
           "count": 1,
@@ -3575,7 +3890,7 @@
           "detail": "Printed (implied by the document)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "schema/db.schema.json"
       ],
@@ -3609,8 +3924,14 @@
       "date": "2026-10-19T22:57:33-07:00",
       "subject": "Owner's rulings T1: D171 and D172 written, the record, the review findings and the views",
       "migrations": [],
-      "class": "3 Correction of observational data",
+      "class": "5 Mixed or editorial",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "edit-cells",
           "table": "measurements",
@@ -3618,14 +3939,11 @@
           "detail": "6 cell(s) in 1 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "97d314f570319cc936dd36e964d279b49c9d8fca",
@@ -3658,6 +3976,12 @@
       "class": "5 Mixed or editorial",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "append-rows",
           "table": "class_limits",
           "count": 1,
@@ -3682,7 +4006,7 @@
           "detail": "1 cell(s) in 1 row(s)"
         }
       ],
-      "status": "has-later",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv"
       ],
@@ -3749,6 +4073,12 @@
       "class": "5 Mixed or editorial",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "headline_definitions",
           "count": 1,
@@ -3771,17 +4101,20 @@
           "table": "sources",
           "count": 2,
           "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv",
         "schema/db.schema.json"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "239 command(s) gave the child's 3 changed table(s) byte for byte"
-      }
+      "replay": null
     },
     {
       "commit": "49c66dbae185e47105e5771f957895fec4a9efe3",
@@ -3792,6 +4125,12 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "add-column",
           "table": "headline_definitions",
@@ -3827,6 +4166,12 @@
           "table": "polymers",
           "count": 23,
           "detail": "23 cell(s) in 23 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
         },
         {
           "kind": "vocab-change",
@@ -3880,6 +4225,18 @@
       ],
       "class": "2 Schema or model change plus backfill",
       "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
         {
           "kind": "append-rows",
           "table": "coverage",
@@ -3953,7 +4310,7 @@
           "detail": "Filamentive, Kexcelled, Sakata 3D"
         }
       ],
-      "status": "has-later",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/accepted-findings.csv",
         "data/review/context-witness-accepted.csv"
@@ -4023,6 +4380,12 @@
       "class": "5 Mixed or editorial",
       "units": [
         {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
           "kind": "edit-cells",
           "table": "material_summaries",
           "count": 3,
@@ -4047,20 +4410,19 @@
           "detail": "3 cell(s) in 1 row(s)"
         }
       ],
-      "status": "all-expressed",
+      "status": "has-residue",
       "outsideSnapshot": [
         "data/review/context-witness-accepted.csv"
       ],
-      "replay": {
-        "status": "identical",
-        "detail": "24 command(s) gave the child's 3 changed table(s) byte for byte"
-      }
+      "replay": null
     }
   ],
   "notes": [
     "The share is of changes (rows edited, rows appended, rows removed, columns added, and so on), not of cells or of commits; the commit shares are beside it.",
     "A diff-derived command set can express any cell edit, so a high expressed share is expected; the residue is the result, and the byte replay tests the service, not the share.",
     "A column added with a value that differs between rows counts its exceptions as cell edits (correctValue after addColumn).",
-    "The removed-records ledger (data/review) and the other review files are outside the 36 tables and are listed per commit, not counted."
+    "A file beside the tables (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files) is one residue change per file: no command changes it. The manifest and the removed-records ledger are bookkeeping of the other changes and are not counted.",
+    "The schema changes (a column added, dropped or moved, a schema document, a vocabulary word) are classified from the diff, not replayed commit by commit: the commands that make them are tested by their own round trip (tests/remake/write-schema.test.mjs). A fill that is not a declared missing-state word, or a vocabulary file that is not canonical CSV, would be refused by the service.",
+    "Only commits that change data/tables, data/manifest.json or schema/ are in the window; a commit that changes only a review file is not."
   ]
 }

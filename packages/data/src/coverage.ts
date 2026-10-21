@@ -29,7 +29,8 @@ import { isSourceId, newOpId, snapshotDigestOf, tableDigests, toSha256 } from '.
 import { TABLES, TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { DataInputError, REPO_ROOT, buildInMemory } from './rebuild.ts';
-import { BASE_MODEL, isSchemaFilePath, modelWith } from './schema-model.ts';
+import { isObject } from './json-patch.ts';
+import { BASE_MODEL, SchemaInvalidError, addressKeyOf, isSchemaFilePath, modelWith, recordIdOf } from './schema-model.ts';
 import type { SchemaFiles, SchemaModel } from './schema-model.ts';
 import { exportTable, isTableName, quoteIdent } from './storage.ts';
 import type { Db } from './driver.ts';
@@ -42,7 +43,7 @@ export type UnitKind =
   | 'edit-cells' | 'append-rows' | 'append-source-rows'
   | 'add-column' | 'drop-column' | 'reorder-columns' | 'schema-document' | 'vocab-add'
   | 'insert-mid-table' | 'remove-rows' | 'reorder-rows' | 'ambiguous-rows' | 'unreadable-table'
-  | 'create-table' | 'drop-table' | 'vocab-change' | 'vocab-new-file';
+  | 'create-table' | 'drop-table' | 'vocab-change' | 'vocab-new-file' | 'outside-file';
 
 export type Status = 'expressed' | 'later' | 'residue';
 
@@ -65,12 +66,11 @@ export const KINDS: Readonly<Record<UnitKind, { readonly status: Status; readonl
   'drop-table': { status: 'residue', by: 'no command drops a table' },
   'vocab-change': { status: 'residue', by: 'a vocabulary word removed or changed: addVocab only adds' },
   'vocab-new-file': { status: 'residue', by: 'no command creates a vocabulary file' },
+  'outside-file': { status: 'residue', by: 'a file beside the 36 tables and their schema (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files): no command changes it' },
 };
 
-const KIND_NAMES: readonly UnitKind[] = [
-  'edit-cells', 'append-rows', 'append-source-rows', 'add-column', 'drop-column', 'reorder-columns', 'schema-document', 'vocab-add',
-  'insert-mid-table', 'remove-rows', 'reorder-rows', 'ambiguous-rows', 'unreadable-table', 'create-table', 'drop-table', 'vocab-change', 'vocab-new-file',
-];
+// The kinds in the order KINDS lists them (the order of the report).
+const KIND_NAMES: readonly UnitKind[] = Object.keys(KINDS).filter((name): name is UnitKind => Object.hasOwn(KINDS, name));
 
 export interface Unit { readonly kind: UnitKind; readonly table: string; readonly count: number; readonly detail: string }
 
@@ -98,15 +98,27 @@ function rowsOf(text: string, label: string): { header: string[]; rows: Row[] } 
 /** The columns a row of `table` is matched by: its primary key, else its first unique key; null when the table has neither in both headers. */
 function keyColumnsOf(table: string, p: readonly string[], c: readonly string[]): readonly string[] | null {
   if (!isTableName(table)) return null;
-  const info = TABLES[table];
-  const key = info.primaryKey.length ? info.primaryKey : (info.uniqueKeys[0] ?? []);
+  const key = addressKeyOf(TABLES[table]);
   return key.length && key.every((name) => p.includes(name) && c.includes(name)) ? key : null;
 }
 
-const idOf = (key: readonly string[], row: Row): string | null => {
-  const parts = key.map((name) => row[name] ?? null);
-  return parts.every((part): part is string => part !== null) ? parts.join(' | ') : null;
-};
+/** Row position by ID, or null when a row has no ID or two rows share one (the rows cannot be matched by key). */
+function indexRows(rows: readonly Row[], key: readonly string[] | null): Map<string, number> | null {
+  const out = new Map<string, number>();
+  for (const [k, row] of rows.entries()) {
+    const id = key === null ? null : recordIdOf(key, row);
+    if (id === null || out.has(id)) return null;
+    out.set(id, k);
+  }
+  return out;
+}
+
+/** How many rows hold something other than the most common value of a column. */
+function valueExceptions(rows: readonly Row[], name: string): number {
+  const counts = new Map<string | null, number>();
+  for (const row of rows) counts.set(row[name] ?? null, (counts.get(row[name] ?? null) ?? 0) + 1);
+  return rows.length - Math.max(0, ...counts.values());
+}
 
 const shortList = (items: readonly string[]): string => (items.length > 4 ? `${items.slice(0, 4).join(', ')} and ${items.length - 4} more` : items.join(', '));
 
@@ -130,17 +142,8 @@ export function diffTable(table: string, was: string | null, now: string | null)
   if (reordered) unit('reorder-columns', 1, 'the order of existing columns changed');
 
   const key = keyColumnsOf(table, p.header, c.header);
-  const index = (rows: readonly Row[]): Map<string, number> | null => {
-    const out = new Map<string, number>();
-    for (const [k, row] of rows.entries()) {
-      const id = key === null ? null : idOf(key, row);
-      if (id === null || out.has(id)) return null;
-      out.set(id, k);
-    }
-    return out;
-  };
-  const pIndex = index(p.rows);
-  const cIndex = index(c.rows);
+  const pIndex = indexRows(p.rows, key);
+  const cIndex = indexRows(c.rows, key);
   if (key === null || pIndex === null || cIndex === null) {
     const same = p.rows.length === c.rows.length && p.rows.every((row, k) => common.every((name) => row[name] === c.rows[k]?.[name]));
     if (!same || headerChanged) unit('ambiguous-rows', Math.max(Math.abs(c.rows.length - p.rows.length), 1), 'rows without a unique key to match them by');
@@ -184,10 +187,7 @@ export function diffTable(table: string, was: string | null, now: string | null)
     if (isTableName(table)) ops.push({ type: 'edit', table, id, expect: Object.fromEntries(changed.map((name) => [name, before[name] ?? null])), set: Object.fromEntries(changed.map((name) => [name, after[name] ?? null])) });
   }
   for (const name of added) {
-    const counts = new Map<string | null, number>();
-    for (const row of c.rows) counts.set(row[name] ?? null, (counts.get(row[name] ?? null) ?? 0) + 1);
-    const modal = Math.max(0, ...counts.values());
-    const exceptions = c.rows.length - modal;
+    const exceptions = valueExceptions(c.rows, name);
     if (exceptions > 0) { edited += exceptions; cells += exceptions; }
   }
   if (edited) unit('edit-cells', edited, `${cells} cell(s) in ${edited} row(s)`);
@@ -221,7 +221,7 @@ export function diffVocabulary(stem: string, was: string | null, now: string | n
 /** A table's schema document without its field list: what is left is the part of the file a column change does not explain. */
 function documentOutsideFields(text: string): string {
   const parsed: unknown = JSON.parse(text);
-  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) return text;
+  if (!isObject(parsed)) return text;
   return JSON.stringify(Object.fromEntries(Object.entries(parsed).filter(([k]) => k !== 'fields')));
 }
 
@@ -348,7 +348,9 @@ function replayCommit(repo: string, parent: string, child: string, tables: Reado
       model = modelWith(schemaOverlayAt(repo, parent));
     } catch (error) {
       // The generator refuses a schema it cannot model (a table the repository's schema lacks, or one it has no longer): the commit is not replayed.
-      return { status: 'skipped', detail: `the parent's schema cannot be modelled: ${error instanceof Error ? error.message : String(error)}`.slice(0, 200) };
+      // Anything else (a full disk, a bug) is not a reason to skip and stops the measurement.
+      if (!(error instanceof SchemaInvalidError)) throw error;
+      return { status: 'skipped', detail: `the parent's schema cannot be modelled: ${error.message}`.slice(0, 200) };
     }
     let built;
     try {
@@ -410,16 +412,23 @@ export interface CoverageReport {
   readonly status: 'measured';
   readonly measuredAt: string;
   readonly method: readonly string[];
-  readonly window: { readonly ref: string; readonly head: string; readonly headDate: string; readonly days: number | null; readonly range: string | null; readonly commits: number };
-  readonly units: { readonly total: number; readonly expressed: number; readonly later: number; readonly residue: number; readonly expressedShare: number; readonly expressedOrLaterShare: number };
+  readonly window: { readonly ref: string; readonly head: string; readonly anchor: string; readonly anchorDate: string; readonly days: number | null; readonly range: string | null; readonly commits: number };
+  readonly units: {
+    readonly total: number; readonly expressed: number; readonly later: number; readonly residue: number; readonly expressedShare: number; readonly expressedOrLaterShare: number;
+    /** Changes to files beside the 36 tables and their schema (counted as residue above), and the expressed share without them. */
+    readonly outsideFiles: number; readonly expressedShareOfTables: number;
+  };
   readonly commits: {
     readonly total: number; readonly withSnapshotChange: number; readonly allExpressed: number; readonly withLater: number; readonly withResidue: number;
-    readonly residueShare: number; readonly adrRevisitTrigger: { readonly threshold: number; readonly fired: boolean; readonly rule: string };
+    readonly residueShare: number;
+    /** Commits with residue other than a file beside the tables, and their share of the commits that change the tables or a file beside them. */
+    readonly withResidueInTables: number; readonly residueShareInTables: number;
+    readonly adrRevisitTrigger: { readonly threshold: number; readonly fired: boolean; readonly firedInTables: boolean; readonly rule: string };
   };
   readonly byKind: Readonly<Record<string, { readonly status: Status; readonly by: string; readonly count: number; readonly commits: number }>>;
   readonly byClass: Readonly<Record<string, { readonly commits: number; readonly units: number; readonly expressed: number; readonly later: number; readonly residue: number; readonly share: number }>>;
   readonly residue: readonly { readonly kind: string; readonly count: number; readonly commits: number; readonly why: string; readonly examples: readonly string[] }[];
-  readonly byteReplay: { readonly attempted: number; readonly identical: number; readonly differs: number; readonly skipped: number; readonly skippedBecause: Readonly<Record<string, number>> };
+  readonly byteReplay: { readonly requested: boolean; readonly eligible: number; readonly attempted: number; readonly identical: number; readonly differs: number; readonly skipped: number; readonly skippedBecause: Readonly<Record<string, number>> };
   readonly perCommit: readonly CommitReport[];
   readonly notes: readonly string[];
 }
@@ -427,93 +436,123 @@ export interface CoverageReport {
 const round = (n: number): number => Math.round(n * 1000) / 1000;
 const share = (part: number, whole: number): number => (whole === 0 ? 1 : round(part / whole));
 
+/** Files a commit rewrites as a consequence of the changes it makes, not as changes of their own: the manifest, and the ledger of records that left or were re-pointed. */
+const BOOKKEEPING: ReadonlySet<string> = new Set(['data/manifest.json', 'data/review/removed-records.csv']);
+
+/** What a commit's files changed: the classified changes, the row operations they come to, and the files outside the 36 tables and their schema. */
+interface CommitDiff { readonly units: Unit[]; readonly ops: Op[]; readonly tablesChanged: Set<string>; readonly outside: string[]; headerChanged: boolean }
+
+function diffCommit(repo: string, parent: string, commit: string): CommitDiff {
+  const result: CommitDiff = { units: [], ops: [], tablesChanged: new Set(), outside: [], headerChanged: false };
+  const read = (change: Change): { was: string | null; now: string | null } => ({
+    was: change.status === 'A' ? null : blob(repo, parent, change.path),
+    now: change.status === 'D' ? null : blob(repo, commit, change.path),
+  });
+  for (const change of changesBetween(repo, parent, commit, ['data', 'schema'])) {
+    const csv = /^data\/tables\/([a-z0-9_]+)\.csv$/.exec(change.path);
+    const doc = /^schema\/tables\/([a-z0-9_]+)\.schema\.json$/.exec(change.path);
+    const vocab = /^schema\/vocab\/([a-z0-9-]+)\.csv$/.exec(change.path);
+    if (csv?.[1] !== undefined) {
+      const { was, now } = read(change);
+      const diff = diffTable(csv[1], was, now);
+      result.units.push(...diff.units);
+      result.ops.push(...diff.ops);
+      result.headerChanged ||= diff.headerChanged;
+      result.tablesChanged.add(csv[1]);
+    } else if (doc?.[1] !== undefined) {
+      const { was, now } = read(change);
+      result.units.push(...diffSchemaDocument(doc[1], was, now));
+    } else if (vocab?.[1] !== undefined) {
+      const { was, now } = read(change);
+      result.units.push(...diffVocabulary(vocab[1], was, now));
+    } else if (!BOOKKEEPING.has(change.path)) {
+      // Counted: a commit that also changes such a file is not one the commands make whole.
+      result.outside.push(change.path);
+      result.units.push({ kind: 'outside-file', table: change.path, count: 1, detail: { A: 'added', M: 'changed', D: 'removed' }[change.status] });
+    }
+  }
+  return result;
+}
+
+function statusOf(units: readonly Unit[]): CommitReport['status'] {
+  if (units.length === 0) return 'no-snapshot-change';
+  const statuses = new Set(units.map((u) => KINDS[u.kind].status));
+  if (statuses.has('residue')) return 'has-residue';
+  return statuses.has('later') ? 'has-later' : 'all-expressed';
+}
+
+function reportCommit(repo: string, commit: string, replay: boolean): CommitReport {
+  const parent = git(repo, ['rev-parse', `${commit}^`]).trim();
+  const [date = '', subject = ''] = git(repo, ['show', '-s', '--format=%cI%x09%s', commit]).trim().split('\t');
+  const migrations = changesBetween(repo, parent, commit, ['archive/migrations', 'scripts/migrate']).filter((c) => c.status === 'A' && /\/m\d+-[^/]*\.mjs$/.test(c.path)).map((c) => c.path.split('/').pop() ?? c.path);
+  const { units, ops, tablesChanged, outside, headerChanged } = diffCommit(repo, parent, commit);
+  const status = statusOf(units);
+  const schemaFree = units.every((u) => u.kind === 'edit-cells' || u.kind === 'append-rows');
+  const outcome = replay && status === 'all-expressed' && schemaFree && !headerChanged ? replayCommit(repo, parent, commit, tablesChanged, ops) : null;
+  return { commit, date, subject, migrations, class: classOf(units), units, status, outsideSnapshot: outside, replay: outcome };
+}
+
 export function measureCoverage(options: CoverageOptions = {}): CoverageReport {
   const repo = options.repo ?? REPO_ROOT;
   const ref = options.ref ?? resolveRef(repo);
   const days = options.range === undefined ? (options.days ?? 14) : null;
   const head = git(repo, ['rev-parse', ref]).trim();
-  const headDate = git(repo, ['show', '-s', '--format=%cI', head]).trim();
   const scope = ['data/tables', 'data/manifest.json', 'schema'];
+  // The window ends at the last commit that changed the tables or the schema, not at the ref's tip: main is frozen for data, but a commit that
+  // changes only a workflow (the gate of 2026-10-21) moves the tip without moving the data.
+  const anchor = git(repo, ['rev-list', '-1', '--no-merges', head, '--', ...scope]).trim();
+  if (anchor === '') throw new Error(`no commit of ${ref} ever changed data/tables or schema/: there is nothing to measure`);
+  const anchorDate = git(repo, ['show', '-s', '--format=%cI', anchor]).trim();
   const listing = options.range === undefined
-    ? git(repo, ['rev-list', '--no-merges', '--reverse', `--since=${new Date(Date.parse(headDate) - (days ?? 14) * 86_400_000).toISOString()}`, head, '--', ...scope])
+    ? git(repo, ['rev-list', '--no-merges', '--reverse', `--since=${new Date(Date.parse(anchorDate) - (days ?? 14) * 86_400_000).toISOString()}`, anchor, '--', ...scope])
     : git(repo, ['rev-list', '--no-merges', '--reverse', options.range, '--', ...scope]);
   const commits = listing.split('\n').filter(Boolean).slice(0, options.limit);
-
-  const reports: CommitReport[] = [];
-  for (const commit of commits) {
-    const parent = git(repo, ['rev-parse', `${commit}^`]).trim();
-    const [date = '', subject = ''] = git(repo, ['show', '-s', '--format=%cI%x09%s', commit]).trim().split('\t');
-    const changes = changesBetween(repo, parent, commit, ['data', 'schema']);
-    const migrations = changesBetween(repo, parent, commit, ['archive/migrations', 'scripts/migrate']).filter((c) => c.status === 'A' && /\/m\d+-[^/]*\.mjs$/.test(c.path)).map((c) => c.path.split('/').pop() ?? c.path);
-    const units: Unit[] = [];
-    const ops: Op[] = [];
-    const tablesChanged = new Set<string>();
-    const outside: string[] = [];
-    let headerChanged = false;
-    const read = (change: Change): { was: string | null; now: string | null } => ({
-      was: change.status === 'A' ? null : blob(repo, parent, change.path),
-      now: change.status === 'D' ? null : blob(repo, commit, change.path),
-    });
-    for (const change of changes) {
-      const csv = /^data\/tables\/([a-z0-9_]+)\.csv$/.exec(change.path);
-      const doc = /^schema\/tables\/([a-z0-9_]+)\.schema\.json$/.exec(change.path);
-      const vocab = /^schema\/vocab\/([a-z0-9-]+)\.csv$/.exec(change.path);
-      if (csv?.[1] !== undefined) {
-        const { was, now } = read(change);
-        const diff = diffTable(csv[1], was, now);
-        units.push(...diff.units);
-        ops.push(...diff.ops);
-        headerChanged ||= diff.headerChanged;
-        tablesChanged.add(csv[1]);
-      } else if (doc?.[1] !== undefined) {
-        const { was, now } = read(change);
-        units.push(...diffSchemaDocument(doc[1], was, now));
-      } else if (vocab?.[1] !== undefined) {
-        const { was, now } = read(change);
-        units.push(...diffVocabulary(vocab[1], was, now));
-      } else if (change.path !== 'data/manifest.json') {
-        outside.push(change.path);
-      }
-    }
-    const statuses = new Set(units.map((u) => KINDS[u.kind].status));
-    const status: CommitReport['status'] = units.length === 0 ? 'no-snapshot-change' : statuses.has('residue') ? 'has-residue' : statuses.has('later') ? 'has-later' : 'all-expressed';
-    const schemaFree = units.every((u) => u.kind === 'edit-cells' || u.kind === 'append-rows');
-    const replay = options.replay === false || status !== 'all-expressed' || !schemaFree || headerChanged
-      ? null
-      : replayCommit(repo, parent, commit, tablesChanged, ops);
-    reports.push({ commit, date, subject, migrations, class: classOf(units), units, status, outsideSnapshot: outside, replay });
+  if (commits.length === 0) {
+    throw new Error(`no commit of ${options.range ?? ref} changed data/tables or schema/ ${options.range === undefined ? `in the ${days} days before ${anchorDate}` : ''}: there is nothing to measure (a shallow clone, a wrong --ref or --days, or a range with no data commits); a share of nothing is not 100%`);
   }
-  return summarize(ref, head, headDate, days, options.range ?? null, reports);
+  const replay = options.replay !== false;
+  const reports = commits.map((commit) => reportCommit(repo, commit, replay));
+  return summarize({ ref, head, anchor, anchorDate }, days, options.range ?? null, reports, replay);
 }
 
 function resolveRef(repo: string): string {
   for (const candidate of ['origin/main', 'main']) {
-    try { git(repo, ['rev-parse', '--verify', '--quiet', candidate]); return candidate; } catch { /* try the next */ }
+    try {
+      git(repo, ['rev-parse', '--verify', '--quiet', candidate]);
+      return candidate;
+    } catch (error) {
+      // `rev-parse --verify --quiet` exits 1 for a ref that does not exist; any other failure (no git, not a repository) is not "try the next".
+      if (!(typeof error === 'object' && error !== null && 'status' in error && error.status === 1)) throw error;
+    }
   }
   throw new Error('neither origin/main nor main exists in this repository; give --ref (the coverage measurement reads main\'s history)');
 }
 
-function summarize(ref: string, head: string, headDate: string, days: number | null, range: string | null, reports: readonly CommitReport[]): CoverageReport {
+const countOf = (units: readonly Unit[]): number => units.reduce((n, u) => n + u.count, 0);
+const countWithStatus = (units: readonly Unit[], status: Status): number => countOf(units.filter((u) => KINDS[u.kind].status === status));
+
+function summarize(where: { readonly ref: string; readonly head: string; readonly anchor: string; readonly anchorDate: string }, days: number | null, range: string | null, reports: readonly CommitReport[], replay: boolean): CoverageReport {
   const all = reports.flatMap((r) => r.units.map((u) => ({ ...u, commit: r.commit, class: r.class })));
-  const sum = (status: Status): number => all.filter((u) => KINDS[u.kind].status === status).reduce((n, u) => n + u.count, 0);
-  const total = all.reduce((n, u) => n + u.count, 0);
-  const expressed = sum('expressed');
-  const later = sum('later');
-  const residue = sum('residue');
+  const total = countOf(all);
+  const expressed = countWithStatus(all, 'expressed');
+  const later = countWithStatus(all, 'later');
+  const residue = countWithStatus(all, 'residue');
   const withChange = reports.filter((r) => r.status !== 'no-snapshot-change');
   const withResidue = withChange.filter((r) => r.status === 'has-residue').length;
+  const withResidueInTables = withChange.filter((r) => r.units.some((u) => KINDS[u.kind].status === 'residue' && u.kind !== 'outside-file')).length;
+  const outsideFiles = all.filter((u) => u.kind === 'outside-file').length;
 
   const byKind: Record<string, { status: Status; by: string; count: number; commits: number }> = {};
   for (const kind of KIND_NAMES) {
     const mine = all.filter((u) => u.kind === kind);
-    if (mine.length) byKind[kind] = { status: KINDS[kind].status, by: KINDS[kind].by, count: mine.reduce((n, u) => n + u.count, 0), commits: new Set(mine.map((u) => u.commit)).size };
+    if (mine.length) byKind[kind] = { status: KINDS[kind].status, by: KINDS[kind].by, count: countOf(mine), commits: new Set(mine.map((u) => u.commit)).size };
   }
   const byClass: Record<string, { commits: number; units: number; expressed: number; later: number; residue: number; share: number }> = {};
   for (const name of [...new Set(withChange.map((r) => r.class))].sort()) {
     const mine = all.filter((u) => u.class === name);
-    const e = mine.filter((u) => KINDS[u.kind].status === 'expressed').reduce((n, u) => n + u.count, 0);
-    const l = mine.filter((u) => KINDS[u.kind].status === 'later').reduce((n, u) => n + u.count, 0);
-    const r = mine.filter((u) => KINDS[u.kind].status === 'residue').reduce((n, u) => n + u.count, 0);
+    const e = countWithStatus(mine, 'expressed');
+    const l = countWithStatus(mine, 'later');
+    const r = countWithStatus(mine, 'residue');
     byClass[name] = { commits: withChange.filter((c) => c.class === name).length, units: e + l + r, expressed: e, later: l, residue: r, share: share(e, e + l + r) };
   }
   const residueKinds = KIND_NAMES.filter((k) => KINDS[k].status === 'residue' && all.some((u) => u.kind === k));
@@ -527,27 +566,33 @@ function summarize(ref: string, head: string, headDate: string, days: number | n
     measuredAt: new Date().toISOString(),
     method: [
       'Read only: Git history of the ref and the working tree; no migration is run and no file is written but this one.',
-      'Window: the commits that changed data/tables, data/manifest.json or schema/ in the 14 days before the ref\'s last commit (main is frozen at the cutover candidate), or the range given.',
+      'Window: the commits that changed data/tables, data/manifest.json or schema/ in the 14 days before the last such commit of the ref (main is frozen at the cutover candidate; a later commit that changes only a workflow does not move the window), or the range given.',
       'Each commit\'s table, vocabulary and schema-document diff against its parent is split into changes; each change is classified as one a write command expresses, one that waits for WP-28\'s proposal commands, or residue.',
       'Rows are matched by primary (else first unique) key. A row added after the last row that stayed is an append; a row added anywhere else is a mid-table insert; rows that stayed but changed order are a reorder.',
-      'Commits whose every change is a row edit or an append, with no schema change, are replayed: the derived commands go through the real pipeline in legacy mode (judgement guards off, structural guards on) onto a rebuild of the parent, and every changed table is compared byte for byte with the child.',
+      replay
+        ? 'Commits whose every change is a row edit or an append, with no schema change, are replayed: the derived commands go through the real pipeline in legacy mode (judgement guards off, structural guards on) onto a rebuild of the parent, and every changed table is compared byte for byte with the child. A commit whose parent cannot be rebuilt under its own schema is skipped, and counted as skipped.'
+        : 'The byte replay through the service was NOT requested (--no-replay): this is the classification alone.',
       'Class (04 section 11) is guessed from the diff, not from the script: a heuristic, medium confidence. The migration script a commit adds is named beside it.',
     ],
-    window: { ref, head, headDate, days, range, commits: reports.length },
-    units: { total, expressed, later, residue, expressedShare: share(expressed, total), expressedOrLaterShare: share(expressed + later, total) },
+    window: { ...where, days, range, commits: reports.length },
+    units: { total, expressed, later, residue, expressedShare: share(expressed, total), expressedOrLaterShare: share(expressed + later, total), outsideFiles, expressedShareOfTables: share(expressed, total - outsideFiles) },
     commits: {
       total: reports.length, withSnapshotChange: withChange.length, allExpressed: withChange.filter((r) => r.status === 'all-expressed').length,
       withLater: withChange.filter((r) => r.status === 'has-later').length, withResidue, residueShare: share(withResidue, withChange.length),
-      adrRevisitTrigger: { threshold: 0.1, fired: withChange.length > 0 && withResidue / withChange.length > 0.1, rule: 'ADR-03: more than 1 change in 10 needing a hand-written generator is the revisit trigger; here, a commit with any residue stands for a change the commands cannot make' },
+      withResidueInTables, residueShareInTables: share(withResidueInTables, withChange.length),
+      adrRevisitTrigger: {
+        threshold: 0.1, fired: withChange.length > 0 && withResidue / withChange.length > 0.1, firedInTables: withChange.length > 0 && withResidueInTables / withChange.length > 0.1,
+        rule: 'ADR-03: more than 1 change in 10 needing a hand-written generator is the revisit trigger; here, a commit with any residue stands for a change the commands cannot make. `fired` counts a file beside the tables as residue, `firedInTables` does not',
+      },
     },
     byKind,
     byClass,
     residue: residueKinds.map((kind) => {
       const mine = all.filter((u) => u.kind === kind);
-      return { kind, count: mine.reduce((n, u) => n + u.count, 0), commits: new Set(mine.map((u) => u.commit)).size, why: KINDS[kind].by, examples: mine.slice(0, 5).map((u) => `${u.commit.slice(0, 10)} ${u.table}: ${u.detail}`) };
+      return { kind, count: countOf(mine), commits: new Set(mine.map((u) => u.commit)).size, why: KINDS[kind].by, examples: mine.slice(0, 5).map((u) => `${u.commit.slice(0, 10)} ${u.table}: ${u.detail}`) };
     }),
     byteReplay: {
-      attempted: replays.length, identical: replays.filter((r) => r.status === 'identical').length, differs: replays.filter((r) => r.status === 'differs').length,
+      requested: replay, eligible: replays.length, attempted: replays.length - replays.filter((r) => r.status === 'skipped').length, identical: replays.filter((r) => r.status === 'identical').length, differs: replays.filter((r) => r.status === 'differs').length,
       skipped: replays.filter((r) => r.status === 'skipped').length, skippedBecause: because,
     },
     perCommit: reports,
@@ -555,7 +600,9 @@ function summarize(ref: string, head: string, headDate: string, days: number | n
       'The share is of changes (rows edited, rows appended, rows removed, columns added, and so on), not of cells or of commits; the commit shares are beside it.',
       'A diff-derived command set can express any cell edit, so a high expressed share is expected; the residue is the result, and the byte replay tests the service, not the share.',
       'A column added with a value that differs between rows counts its exceptions as cell edits (correctValue after addColumn).',
-      'The removed-records ledger (data/review) and the other review files are outside the 36 tables and are listed per commit, not counted.',
+      'A file beside the tables (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files) is one residue change per file: no command changes it. The manifest and the removed-records ledger are bookkeeping of the other changes and are not counted.',
+      'The schema changes (a column added, dropped or moved, a schema document, a vocabulary word) are classified from the diff, not replayed commit by commit: the commands that make them are tested by their own round trip (tests/remake/write-schema.test.mjs). A fill that is not a declared missing-state word, or a vocabulary file that is not canonical CSV, would be refused by the service.',
+      'Only commits that change data/tables, data/manifest.json or schema/ are in the window; a commit that changes only a review file is not.',
     ],
   };
 }

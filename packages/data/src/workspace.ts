@@ -24,11 +24,12 @@ import { defaultTextStore } from './evidence.ts';
 import type { PageTextStore } from './evidence.ts';
 import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
+import { isObject } from './json-patch.ts';
 import { parseChangeSet, parseCommand, readJson } from './parse.ts';
 import { DEFAULT_DATA_DIR, REPO_ROOT, STORAGE_DDL, rebuildWorkspace, schemaDigest } from './rebuild.ts';
 import type { BuildReport } from './rebuild.ts';
 import { BASE_MODEL, baseSchemaHolder, modelWith } from './schema-model.ts';
-import type { SchemaFiles, SchemaHolder, SchemaModel } from './schema-model.ts';
+import type { SchemaHolder, SchemaModel } from './schema-model.ts';
 import { countRows, quoteIdent } from './storage.ts';
 import { applyBatch, applyCommand, baseStampOf, initWorkspaceTables, readJournal, readMeta } from './write.ts';
 import type { ApplyOptions, BaseStamp, BatchResult, JournalEntry, MergedOps, WriteContext } from './write.ts';
@@ -236,13 +237,18 @@ export function snapshotDigestOfReport(report: BuildReport): Sha256 {
 export function modelOfDb(db: Db): SchemaModel {
   const text = readMeta(db, 'schema_overlay');
   if (text === undefined) return BASE_MODEL;
-  const parsed: unknown = JSON.parse(text);
-  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed) || !Object.values(parsed).every((v) => typeof v === 'string')) {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch (error) {
+    throw new Error(`_meta.schema_overlay is not JSON (${error instanceof Error ? error.message : String(error)}); the workspace is damaged, restore a backup or rebuild it`);
+  }
+  if (!isObject(parsed) || !Object.values(parsed).every((v) => typeof v === 'string')) {
     throw new Error('_meta.schema_overlay is not an object of schema file text; the workspace is damaged, restore a backup or rebuild it');
   }
   const overlay: Record<string, string> = {};
   for (const [path, file] of Object.entries(parsed)) if (typeof file === 'string') overlay[path] = file;
-  return modelWith(overlay satisfies SchemaFiles);
+  return modelWith(overlay);
 }
 
 const hasTable = (db: Db, name: string): boolean => db.prepare("SELECT 1 AS found FROM sqlite_schema WHERE type = 'table' AND name = ?").get(name) !== undefined;
@@ -459,41 +465,45 @@ export class Workspace implements Disposable {
 
   /** Apply one command under the writer lock. A second writer gets a `writer-locked` refusal and nothing is written. */
   apply(command: WriteCommand, options: ApplyOptions = {}): CommandResult {
-    let lock: WriterLock;
-    try {
-      lock = takeLock(this.paths.lockPath);
-    } catch (error) {
-      if (error instanceof WriterLockedError) return { status: 'refused', code: 'writer-locked', detail: error.message };
-      throw error;
-    }
-    try {
-      this.#requireSameFile();
-      return applyCommand(this.#context(), command, options);
-    } finally { lock.release(); }
+    return this.#writing(
+      (detail) => ({ status: 'refused', code: 'writer-locked', detail }),
+      () => applyCommand(this.#context(), command, options),
+    );
   }
 
   /** Many commands, all or none, under the writer lock (a generator's output). The first refusal rolls back the whole batch. */
   applyBatch(commands: readonly WriteCommand[], options: ApplyOptions = {}): BatchResult {
+    return this.#writing(
+      (detail) => ({ status: 'refused', index: 0, opId: commands[0]?.opId ?? '', result: { status: 'refused', code: 'writer-locked', detail } }),
+      () => applyBatch(this.#context(), commands, options),
+    );
+  }
+
+  /** Run a write holding the writer lock, on the file this session opened. `whenLocked` makes the result when another writer holds the lock. */
+  #writing<T>(whenLocked: (detail: string) => T, write: () => T): T {
     let lock: WriterLock;
     try {
       lock = takeLock(this.paths.lockPath);
     } catch (error) {
-      if (error instanceof WriterLockedError) {
-        const first = commands[0];
-        return { status: 'refused', index: 0, opId: first?.opId ?? '', result: { status: 'refused', code: 'writer-locked', detail: error.message } };
-      }
+      if (error instanceof WriterLockedError) return whenLocked(error.message);
       throw error;
     }
     try {
       this.#requireSameFile();
-      return applyBatch(this.#context(), commands, options);
+      return write();
     } finally { lock.release(); }
   }
 
+  /**
+   * Before a write, under the lock: this is still the file this session opened, and it holds the schema this session thinks it does. Another
+   * process (the command line while the editor is open) may have applied a schema edit since; this session then reads the new schema, or it
+   * would write and export with columns the tables no longer have.
+   */
   #requireSameFile(): void {
     if (fileIdentity(this.paths.dbPath) !== this.#fileId) {
       throw new Error(`${this.paths.dbPath} was replaced by another process (a restore or a rebuild) since this session opened it; nothing was written. Close this workspace and open it again`);
     }
+    if (readMeta(this.db, 'schema_sha256') !== this.#schema.model.digest) this.#schema.model = modelOfDb(this.db);
   }
 
   /** Run `fn` holding the writer lock (export, restore). Throws WriterLockedError when another writer holds it. */

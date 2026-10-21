@@ -29,21 +29,21 @@
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { cpus, arch, platform, release, totalmem, tmpdir } from 'node:os';
 import { basename, dirname, join, resolve, sep } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import type { WriteCommand } from '@atlas/domain/contracts';
 import { ExportRefusedError, exportChangeSet, exportPending } from './export.ts';
 import { parseCommand, readJson } from './parse.ts';
 import { changeSetFiles, checkImmutable, exportDrafts, importDrafts, replayFile } from './replay.ts';
 import type { ReplayResult } from './replay.ts';
-import { Workspace, WriterLockedError, holdsDrafts, listBackups, protectedDirHolding, takeLock } from './workspace.ts';
+import { Workspace, WriterLockedError, holdsDrafts, listBackups, modelOfDb, protectedDirHolding, takeLock } from './workspace.ts';
 import type { WorkspaceOptions, WriterLock } from './workspace.ts';
 import { open } from './driver.ts';
 import type { Db } from './driver.ts';
 import { diffAgainstRef } from './diff.ts';
 import { measureCoverage, writeCoverageReport } from './coverage.ts';
 import { renderReviewerKindReport, reviewerKindReport } from './reviewer-kinds.ts';
-import { SweepCountError, SweepOutputError, applySweep, runSweep } from './sweep.ts';
+import { SweepCountError, SweepOutputError, applySweep, generatorRefOf, runSweep } from './sweep.ts';
 import type { Sweep } from './sweep.ts';
-import { pathToFileURL } from 'node:url';
 import { DataInputError, DEFAULT_DATA_DIR, REPO_ROOT, WORKSPACE_DB, rebuildWorkspace } from './rebuild.ts';
 import { roundtrip } from './roundtrip.ts';
 import type { RoundtripResult } from './roundtrip.ts';
@@ -167,7 +167,7 @@ function runDiff(parsed: Parsed): number {
   const dbPath = parsed.values.get('db') ?? WORKSPACE_DB;
   const db = openWorkspace(dbPath);
   try {
-    const result = diffAgainstRef(db, against);
+    const result = diffAgainstRef(db, against, REPO_ROOT, modelOfDb(db));
     console.log(`db:diff  ${dbPath} against ${against} (${result.sha.slice(0, 12)})`);
     for (const t of result.tables) {
       if (t.status === 'unchanged') continue;
@@ -313,6 +313,14 @@ function quoteLine(ws: Workspace, opId: string): string {
   return check.status === 'verified' ? '    quote check: verified on its hash-checked page\n' : `    quote check: NOT RUN (${check.reason ?? 'store absent'}); the quote is not verified\n`;
 }
 
+/** What still rests on a record a command retired (a grade's measurements, profiles, prices, evidence): the person decides each; the command moved none. */
+function dependentsLines(ws: Workspace, opId: string): string {
+  const dependents = ws.journal().find((e) => e.record.opId === opId)?.record.args?.dependents;
+  if (!Array.isArray(dependents) || dependents.length === 0) return '';
+  const lines = dependents.flatMap((d) => (typeof d === 'object' && d !== null && !Array.isArray(d) ? [`      ${String(d.table).padEnd(12)} ${String(d.record).padEnd(14)} ${String(d.action)}`] : []));
+  return `    ${dependents.length} record(s) still rest on it (this command moved none):\n${lines.join('\n')}\n`;
+}
+
 const oneFile = (parsed: Parsed, what: string): string => {
   const [file, ...extra] = parsed.rest;
   if (file === undefined || extra.length) throw new UsageError(`${what} needs exactly one file`);
@@ -350,9 +358,11 @@ async function runApply(parsed: Parsed): Promise<number> {
       }
       console.log(`  ${result.status.toUpperCase().padEnd(9)} ${command.opId}  ${result.changeRecordIds.join(', ')}`);
       process.stdout.write(quoteLine(ws, command.opId));
+      process.stdout.write(dependentsLines(ws, command.opId));
       applied++;
     }
-    const unchecked = commands.filter((c) => ws.journal().find((e) => e.record.opId === c.opId)?.record.quoteCheck?.status !== 'verified').length;
+    const journal = ws.journal();
+    const unchecked = commands.filter((c) => { const record = journal.find((e) => e.record.opId === c.opId)?.record; return record?.evidence !== undefined && record.quoteCheck?.status !== 'verified'; }).length;
     console.log(`change:apply: ${applied} of ${commands.length} command(s) done (draft, not approved)${unchecked ? `; ${unchecked} without a verified quote check (not run)` : ''}. RESULT: pass`);
     return 0;
   });
@@ -365,15 +375,16 @@ function runExport(parsed: Parsed): Promise<number> {
   const out = parsed.values.get('out');
   const generatorFile = parsed.values.get('generator');
   return withWorkspace(parsed, async (ws) => {
-    const sweep = generatorFile === undefined ? null : await loadSweep(generatorFile);
-    const generator = sweep === null ? undefined : { path: sweep.path, version: sweep.version, args: [...sweep.args], expectCount: sweep.expectCount };
-    const result = await exportChangeSet(ws, { title, topic, ...(out === undefined ? {} : { exportDir: out }), ...(generator === undefined ? {} : { generator }) });
+    const sweep = generatorFile === undefined ? undefined : await loadSweep(generatorFile);
+    const result = await exportChangeSet(ws, { title, topic, ...(out === undefined ? {} : { exportDir: out }), ...(sweep === undefined ? {} : { generator: generatorRefOf(sweep) }) });
     console.log(`change:export  ${result.changeSet.id}${result.recovered ? '  (finished an interrupted export first)' : ''}`);
     console.log(`  ${result.changeSet.records.length} record(s) in ${result.tables.join(', ')}; base ${result.changeSet.base.snapshotDigest.slice(0, 12)} -> result ${result.changeSet.result.snapshotDigest.slice(0, 12)}`);
     for (const file of result.files) console.log(`  wrote ${file}`);
+    for (const file of result.retired) console.log(`  removed ${file} (an earlier export's file that this one does not write)`);
     console.log(`  backup ${result.backup}`);
-    const unchecked = result.changeSet.records.filter((r) => r.quoteCheck?.status !== 'verified').length;
-    if (unchecked) console.log(`  quote check NOT RUN for ${unchecked} of ${result.changeSet.records.length} record(s): their quotes are not verified (see the change set)`);
+    const quoted = result.changeSet.records.filter((r) => r.evidence !== undefined);
+    const unchecked = quoted.filter((r) => r.quoteCheck?.status !== 'verified').length;
+    if (unchecked) console.log(`  quote check NOT RUN for ${unchecked} of ${quoted.length} record(s) with a quote: their quotes are not verified (see the change set)`);
     console.log('  impact: not computed (the impact preview is WP-11); sandbox only, nothing was written to data/. RESULT: pass');
     return 0;
   });
@@ -432,10 +443,13 @@ function runCoverage(parsed: Parsed): number {
   mkdirSync(dirname(resolve(out)), { recursive: true });
   writeCoverageReport(report, out);
   const { units, commits, byteReplay } = report;
-  console.log(`change:coverage  ${report.window.ref} ${report.window.head.slice(0, 10)} (${report.window.headDate}): ${report.window.commits} commit(s) ${report.window.range ?? `in the ${report.window.days} days before`}`);
+  console.log(`change:coverage  ${report.window.ref} (last data commit ${report.window.anchor.slice(0, 10)}, ${report.window.anchorDate}): ${report.window.commits} commit(s) ${report.window.range ?? `in the ${report.window.days} days before`}`);
   console.log(`  ${units.total} change(s): ${units.expressed} expressed (${(100 * units.expressedShare).toFixed(1)}%), ${units.later} wait for WP-28, ${units.residue} residue`);
-  console.log(`  ${commits.withSnapshotChange} commit(s) change the tables: ${commits.allExpressed} fully expressed, ${commits.withLater} with a change that waits, ${commits.withResidue} with residue (${(100 * commits.residueShare).toFixed(1)}%; ADR-03 trigger ${commits.adrRevisitTrigger.fired ? 'FIRED' : 'not fired'} at ${100 * commits.adrRevisitTrigger.threshold}%)`);
-  console.log(`  byte replay through the service: ${byteReplay.identical} identical, ${byteReplay.differs} differ, ${byteReplay.skipped} skipped of ${byteReplay.attempted}`);
+  console.log(`  ${commits.withSnapshotChange} commit(s) change the tables or a file beside them: ${commits.allExpressed} fully expressed, ${commits.withLater} with a change that waits, ${commits.withResidue} with residue (${(100 * commits.residueShare).toFixed(1)}%; ${commits.withResidueInTables} without counting files beside the tables, ${(100 * commits.residueShareInTables).toFixed(1)}%; ADR-03 trigger at ${100 * commits.adrRevisitTrigger.threshold}%: ${commits.adrRevisitTrigger.fired ? 'FIRED' : 'not fired'}, ${commits.adrRevisitTrigger.firedInTables ? 'fired' : 'not fired'} without those files)`);
+  console.log(byteReplay.requested
+    ? `  byte replay through the service: ${byteReplay.identical} identical, ${byteReplay.differs} differ, ${byteReplay.skipped} skipped (parent cannot be rebuilt under its own schema) of ${byteReplay.eligible} eligible commits`
+    : '  byte replay through the service: not requested (--no-replay)');
+  if (byteReplay.requested && byteReplay.skipped > 0) console.log(`  WARNING: ${byteReplay.skipped} eligible commit(s) were not replayed; the replay covers ${byteReplay.attempted}`);
   console.log(`  wrote ${out}`);
   return byteReplay.differs > 0 ? 1 : 0;
 }

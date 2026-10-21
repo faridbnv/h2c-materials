@@ -12,6 +12,7 @@ import { KINDS, classOf, diffTable, diffVocabulary, measureCoverage } from '../.
 import { csvText } from '../../packages/data/src/csv.ts';
 import { snapshotDigestOf, tableDigests, newOpId } from '../../packages/data/src/digest.ts';
 import { buildInMemory } from '../../packages/data/src/rebuild.ts';
+import { BASE_MODEL } from '../../packages/data/src/schema-model.ts';
 import { classifyReviewer, renderReviewerKindReport, reviewerKindReport } from '../../packages/data/src/reviewer-kinds.ts';
 import { applyCommand, applyLegacyCommand, initWorkspaceTables } from '../../packages/data/src/write.ts';
 import { readRow, storageOf } from '../../packages/data/src/storage.ts';
@@ -137,7 +138,7 @@ function memoryContext() {
   initWorkspaceTables(db, snapshotDigestOf(tableDigests(db).digests));
   const stamp = db.prepare("SELECT value FROM _meta WHERE key = 'snapshot_digest'").get().value;
   const schema = db.prepare("SELECT value FROM _meta WHERE key = 'schema_sha256'").get().value;
-  return { db, ctx: { db, store: null, rulings: new Set(['R-OQ09a']), mergedOps: new Map(), now: () => new Date(0) }, base: { snapshotDigest: stamp, commit: 'test' }, schema };
+  return { db, ctx: { db, store: null, rulings: new Set(['R-OQ09a']), mergedOps: new Map(), now: () => new Date(0), schema: { model: BASE_MODEL } }, base: { snapshotDigest: stamp, commit: 'test' }, schema };
 }
 
 test('legacy mode turns off the judgement guards for the same command that normal mode refuses, and keeps the structural ones', () => {
@@ -221,6 +222,12 @@ function historyRepo() {
   editRecords(data, 'method', (rowsOf, header) => { rowsOf.splice(1, 0, header.map((name) => (name === 'Topic' ? 'Inserted' : name === 'Section' ? rowsOf[0][0] : 'x'))); });
   git(dir, 'add', '-A');
   git(dir, 'commit', '-q', '-m', 'm902-an-insert');
+  // 5: a cell edit, and a review file beside the tables: the edit is expressed, the file is residue (no command changes it)
+  editRecords(data, 'method', (rowsOf, header) => { rowsOf[0][header.indexOf('Definition / rule')] = 'Reworded.'; });
+  mkdirSync(join(data, 'review'), { recursive: true });
+  writeFileSync(join(data, 'review', 'accepted-findings.csv'), 'Code,Reason\nX,Y\n');
+  git(dir, 'add', '-A');
+  git(dir, 'commit', '-q', '-m', 'm903-an-edit-and-a-review-file');
   return { dir, first, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
 }
 
@@ -229,8 +236,8 @@ test('measureCoverage: each commit of a history is split into changes, classifie
   try {
     const report = measureCoverage({ repo: repo.dir, ref: 'main', range: `${repo.first}..main` });
     assert.equal(report.status, 'measured');
-    assert.equal(report.window.commits, 3);
-    const [edit, removal, insert] = report.perCommit;
+    assert.equal(report.window.commits, 4);
+    const [edit, removal, insert, review] = report.perCommit;
     assert.equal(edit.status, 'all-expressed');
     assert.deepEqual(edit.units.map((u) => `${u.kind}:${u.table}:${u.count}`).sort(), ['append-rows:method:1', 'edit-cells:measurements:1']);
     assert.deepEqual(edit.migrations, [], 'a commit that adds no migration script names none');
@@ -241,16 +248,28 @@ test('measureCoverage: each commit of a history is split into changes, classifie
     assert.equal(removal.replay, null, 'a commit with residue is not replayed');
     assert.equal(insert.status, 'has-residue');
     assert.deepEqual(insert.units.map((u) => u.kind), ['insert-mid-table']);
-    // the share: 1 + 1 + 1 expressed of 5 changes; 2 of 3 commits carry residue, so the ADR-03 trigger (1 in 10) fires
-    assert.deepEqual({ total: report.units.total, expressed: report.units.expressed, residue: report.units.residue }, { total: 5, expressed: 3, residue: 2 });
-    assert.equal(report.units.expressedShare, 0.6);
-    assert.equal(report.commits.withResidue, 2);
+    assert.equal(review.status, 'has-residue', 'a file beside the tables is a change no command makes');
+    assert.deepEqual(review.units.map((u) => `${u.kind}:${u.table}`).sort(), ['edit-cells:method', 'outside-file:data/review/accepted-findings.csv']);
+    assert.equal(review.replay, null);
+    // the share: 4 expressed of 7 changes; 3 of 4 commits carry residue, so the ADR-03 trigger (1 in 10) fires
+    assert.deepEqual({ total: report.units.total, expressed: report.units.expressed, residue: report.units.residue }, { total: 7, expressed: 4, residue: 3 });
+    assert.equal(report.units.expressedShare, 0.571);
+    assert.equal(report.commits.withResidue, 3);
+    assert.equal(report.commits.withResidueInTables, 2, 'the commit whose only residue is a review file is not counted here');
+    assert.equal(report.units.outsideFiles, 1);
+    assert.equal(report.units.expressedShareOfTables, 0.667);
     assert.equal(report.commits.adrRevisitTrigger.fired, true);
-    assert.deepEqual(report.residue.map((r) => [r.kind, r.count]), [['insert-mid-table', 1], ['remove-rows', 1]]);
-    assert.deepEqual({ attempted: report.byteReplay.attempted, identical: report.byteReplay.identical, differs: report.byteReplay.differs }, { attempted: 1, identical: 1, differs: 0 });
+    assert.equal(report.commits.adrRevisitTrigger.firedInTables, true);
+    assert.deepEqual(report.residue.map((r) => [r.kind, r.count]), [['insert-mid-table', 1], ['remove-rows', 1], ['outside-file', 1]]);
+    assert.deepEqual({ requested: report.byteReplay.requested, eligible: report.byteReplay.eligible, attempted: report.byteReplay.attempted, identical: report.byteReplay.identical, differs: report.byteReplay.differs, skipped: report.byteReplay.skipped },
+      { requested: true, eligible: 1, attempted: 1, identical: 1, differs: 0, skipped: 0 });
     assert.ok(Object.keys(report.byClass).length >= 1);
     // --no-replay measures expressiveness alone
-    assert.equal(measureCoverage({ repo: repo.dir, ref: 'main', range: `${repo.first}..main`, replay: false }).byteReplay.attempted, 0);
+    const bare = measureCoverage({ repo: repo.dir, ref: 'main', range: `${repo.first}..main`, replay: false });
+    assert.deepEqual({ requested: bare.byteReplay.requested, attempted: bare.byteReplay.attempted }, { requested: false, attempted: 0 });
+    assert.ok(bare.method.some((line) => /NOT requested/.test(line)), 'the report says the replay did not run');
+    // a window with no data commit is an error, not a share of 100%
+    assert.throws(() => measureCoverage({ repo: repo.dir, ref: 'main', range: 'main..main' }), /nothing to measure/);
   } finally { repo.cleanup(); }
 });
 
@@ -267,7 +286,8 @@ test('the committed coverage report is a measurement of main\'s history: its win
   assert.equal(report.units.expressedShare, Math.round((report.units.expressed / total) * 1000) / 1000);
   assert.equal(report.commits.total, report.perCommit.length);
   assert.equal(report.byteReplay.differs, 0, 'every replayed commit came out byte for byte: a difference is a bug in the service');
-  assert.equal(report.byteReplay.attempted, report.byteReplay.identical + report.byteReplay.differs + report.byteReplay.skipped);
+  assert.equal(report.byteReplay.eligible, report.byteReplay.identical + report.byteReplay.differs + report.byteReplay.skipped);
+  assert.equal(report.byteReplay.attempted, report.byteReplay.identical + report.byteReplay.differs, 'a skipped commit was not replayed and is not counted as attempted');
   for (const kind of Object.keys(report.byKind)) assert.ok(kind in KINDS, kind);
   for (const row of report.residue) assert.ok(row.examples.length > 0 && row.why.length > 10, row.kind);
   assert.equal(typeof report.commits.adrRevisitTrigger.fired, 'boolean');

@@ -11,7 +11,9 @@ export class PatchError extends Error {
 
 type Container = Record<string, unknown> | unknown[];
 const isContainer = (value: unknown): value is Container => typeof value === 'object' && value !== null;
-const isObject = (value: unknown): value is Record<string, unknown> => isContainer(value) && !Array.isArray(value);
+
+/** A JSON object: not null, not a list. */
+export const isObject = (value: unknown): value is Record<string, unknown> => isContainer(value) && !Array.isArray(value);
 
 function pointer(path: string, at: string): string[] {
   if (path === '') return [];
@@ -110,9 +112,11 @@ export function applyPatch(doc: unknown, ops: readonly PatchOp[]): unknown {
       case 'copy':
         out = put(out, op.path, orderedValue(structuredClone(read(out, op.from, at))), 'add', at);
         break;
-      case 'test':
-        if (!same(read(out, op.path, at), op.value)) throw new PatchError(`${at}: the document holds ${JSON.stringify(read(out, op.path, at))}, not the expected ${JSON.stringify(op.value)}`);
+      case 'test': {
+        const found = read(out, op.path, at);
+        if (!same(found, op.value)) throw new PatchError(`${at}: the document holds ${JSON.stringify(found)}, not the expected ${JSON.stringify(op.value)}`);
         break;
+      }
     }
   });
   return out;

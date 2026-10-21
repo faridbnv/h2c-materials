@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { rowHash } from '../../packages/data/src/digest.ts';
 import { RETIREMENT_COLUMNS } from '../../packages/data/src/write-rows.ts';
+import { storageOf } from '../../packages/data/src/storage.ts';
 import { HASH, QUOTE, SOURCE, cmd, dropTemplate, fingerprint, journalSize, newOpId, recordBy, refusedWith, scratch, schemaExpect, storeOf } from './write-helpers.mjs';
 
 after(dropTemplate);
@@ -191,6 +192,12 @@ test('retireRecord: a grade is retired by its Status alone and stays in the tabl
     assert.deepEqual(draft.record.before, { Status: 'active' });
     assert.deepEqual(draft.record.after, { Status: 'retired' });
     assert.deepEqual(draft.record.args.retire, { as: 'retired' });
+    // the records that still rest on the retired grade are listed, none is moved: the person decides each
+    const dependents = draft.record.args.dependents;
+    assert.ok(Array.isArray(dependents) && dependents.length > 0, 'the record says what still rests on the grade');
+    assert.ok(dependents.every((d) => typeof d.table === 'string' && typeof d.record === 'string' && d.action.length > 20));
+    assert.ok(dependents.some((d) => d.table === 'measurements'));
+    assert.equal(recordBy(sb.ws, 'measurements', 'GradeID', 'G046-01').get('Data status') !== 'Retired duplicate record', true, 'its measurements are not touched');
   } finally { sb.cleanup(); }
 });
 
@@ -227,6 +234,8 @@ test('retireRecord successor-invalid: a superseded record names the one that rep
   await refusedWith('successor-invalid', (ws) => coverage(ws, undefined));
   await refusedWith('successor-invalid', (ws) => coverage(ws, 'C00002'));
   await refusedWith('successor-invalid', (ws) => coverage(ws, 'C99999'));
+  // a duplicate measurement names the twin that stays (AGENTS.md "Retire a duplicate record")
+  await refusedWith('successor-invalid', (ws) => cmd(ws, 'retireRecord', { target: { table: 'measurements', id: 'V000002' }, expect: { rowHash: rowHash('measurements', recordBy(ws, 'measurements', 'MeasurementID', 'V000002').cells) }, retire: { as: 'retired' } }));
   // a successor that is itself superseded
   await refusedWith('successor-invalid', (ws) => coverage(ws, ws.db.prepare("SELECT coverageid AS id FROM coverage WHERE status = 'Superseded' ORDER BY _ord LIMIT 1").get().id));
 });
@@ -294,6 +303,23 @@ test('moveGrade reference-missing, no-change, not-for-command, expectation-empty
   await refusedWith('not-for-command', (ws) => move(ws, { target: { table: 'materials', id: 'M126' } }));
   await refusedWith('expectation-empty', (ws) => move(ws, { expectMaterial: '' }));
   await refusedWith('unknown-target', (ws) => move(ws, { moveTo: '' }));
+});
+
+test('moveGrade not-for-command: a pinned headline value that rests on the grade\'s measurements stops the move, because the pin names the material it is for', async () => {
+  const sb = await scratch();
+  try {
+    // the data holds no pin today (m137 retired them), so one is made in the sandbox: G126-01's measurement V003326 pinned for M126
+    const key = sb.ws.db.prepare('SELECT headlinekey AS k FROM headline_definitions ORDER BY _ord LIMIT 1').get().k;
+    const storage = storageOf('headlines');
+    sb.ws.db.prepare(storage.insertSql).run(...storage.encode(1, ['M126', key, 'V003326', 'A pin for the test.']));
+    const pin = { grade: 'G126-01', material: 'M126' };
+    const other = 'M001';
+    const before = fingerprint(sb.ws);
+    const result = sb.ws.apply(cmd(sb.ws, 'moveGrade', { target: { table: 'grades', id: pin.grade }, expect: { cells: { MaterialID: pin.material } }, expectMaterial: pin.material, moveTo: other }));
+    assert.equal(result.code, 'not-for-command');
+    assert.match(result.detail, /pinned headline/);
+    assert.equal(fingerprint(sb.ws), before);
+  } finally { sb.cleanup(); }
 });
 
 test('moveGrade ownership-mismatch: a record on the grade that is filed under another material is not moved by guesswork (D36)', async () => {

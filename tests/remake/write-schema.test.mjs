@@ -4,7 +4,7 @@
 // edited schema, and the change set is proved three ways: replay equality, a fresh rebuild from the export, and the byte-identical round trip.
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { exportChangeSet } from '../../packages/data/src/export.ts';
@@ -275,5 +275,48 @@ test('a workspace with a pending schema edit survives a rebuild that replays the
       assert.equal(fingerprint(reopened), state);
       assert.equal(journalSize(reopened), 1);
     } finally { reopened.close(); }
+  } finally { sb.cleanup(); }
+});
+
+test('a session that did not apply a schema edit reads it before it writes: two sessions on one workspace file never disagree about the columns', async () => {
+  const sb = await scratch({ store: null });
+  try {
+    const second = await sb.open();
+    try {
+      assert.equal(sb.ws.apply(addColumn(sb.ws)).status, 'applied');
+      assert.notEqual(second.schema.digest, sb.ws.schema.digest, 'the second session still holds the schema it opened');
+      // its next write, under the lock, finds the schema moved and takes the new one: a stale command is refused as stale, not as a SQL error
+      const stale = second.apply(addColumn(second, { column: { name: 'Another', field: { ...CHECKED_ON, name: 'Another' }, fill: 'Not published' }, expect: { schemaDigest: BASE_MODEL.digest } }));
+      assert.equal(stale.code, 'stale');
+      assert.equal(second.schema.digest, sb.ws.schema.digest);
+      const topic = second.db.prepare('SELECT topic FROM method ORDER BY _ord LIMIT 1').get().topic;
+      assert.equal(second.apply(cmd(second, 'correctValue', { target: { table: 'method', id: topic }, expect: { cells: { 'Checked on': 'Not published' } }, set: { 'Checked on': '2026-10-21' }, evidence })).status, 'applied');
+    } finally { second.close(); }
+  } finally { sb.cleanup(); }
+});
+
+test('an edit that is undone leaves the repository\'s own schema, not a model that only looks edited; an overlay file equal to the repository\'s is no edit', async () => {
+  const base = readFileSync(join(root, 'schema/vocab/coverage-status.csv'), 'utf8');
+  assert.equal(modelWith({ 'schema/vocab/coverage-status.csv': base }), BASE_MODEL);
+  assert.equal(modelWith({}), BASE_MODEL);
+});
+
+test('an export marks its directory, retires only what an earlier export wrote there, and names what it removed; a foreign directory keeps its files', async () => {
+  const sb = await scratch({ store: null });
+  try {
+    assert.equal(sb.ws.apply(addVocab(sb.ws)).status, 'applied');
+    const out = join(sb.dir, 'elsewhere');
+    // a directory that holds somebody else's schema file: the first export leaves it alone
+    mkdirSync(join(out, 'schema', 'tables'), { recursive: true });
+    writeFileSync(join(out, 'schema', 'tables', 'foreign.schema.json'), '{}\n');
+    const first = await exportChangeSet(sb.ws, { title: 'A word for coverage', topic: 'coverage-word', exportDir: out });
+    assert.deepEqual(first.retired, []);
+    assert.ok(existsSync(join(out, 'schema', 'tables', 'foreign.schema.json')), 'a directory no export has marked is not cleaned');
+    assert.ok(existsSync(join(out, '.atlas-export')));
+    // once the directory is the export's own, a file an earlier export left that this one does not write is removed, and reported
+    writeFileSync(join(out, 'schema', 'tables', 'left-over.schema.json'), '{}\n');
+    const second = await exportChangeSet(sb.ws, { title: 'A word for coverage', topic: 'coverage-word', exportDir: out });
+    assert.ok(second.retired.includes('schema/tables/foreign.schema.json') && second.retired.includes('schema/tables/left-over.schema.json'), JSON.stringify(second.retired));
+    assert.ok(!existsSync(join(out, 'schema', 'tables', 'left-over.schema.json')));
   } finally { sb.cleanup(); }
 });

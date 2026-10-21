@@ -18,12 +18,12 @@ import { closeSync, constants, copyFileSync, cpSync, existsSync, fsyncSync, link
 import { tmpdir } from 'node:os';
 import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
 import type { ChangeRecord, ChangeSet, GeneratorRef, Sha256 } from '@atlas/domain/contracts';
+import { csvText, parseCsv } from './csv.ts';
 import { isChangeSetId, sha256Of, snapshotDigestOf, tableDigests, toSha256 } from './digest.ts';
 import type { TableDigest } from './digest.ts';
 import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { readJson } from './parse.ts';
-import { csvText, parseCsv } from './csv.ts';
 import { buildInMemory } from './rebuild.ts';
 import { replayChangeSet } from './replay.ts';
 import { BASE_MODEL, modelWith } from './schema-model.ts';
@@ -76,12 +76,15 @@ export interface ExportResult {
   readonly backup: string;
   /** True when an interrupted export was found and finished first. */
   readonly recovered: boolean;
+  /** Files of an earlier export that this one does not write, removed so they do not contradict its manifest. */
+  readonly retired: readonly string[];
 }
 
 interface JournalFile { readonly staged: string; readonly to: string; readonly sha256: string }
 interface Journal { readonly note: string; readonly token: string; readonly files: readonly JournalFile[]; readonly remove: readonly string[] }
 
 const EXPORT_JOURNAL = '.save-journal.json';
+const EXPORT_MARKER = '.atlas-export';
 const EXPORT_STAGING = '.save';
 
 const digestOf = (path: string): string | null => (existsSync(path) ? sha256Of(readFileSync(path)) : null);
@@ -247,14 +250,15 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
     const changed = TABLE_NAMES.filter((t) => touched.has(t));
 
     const date = ws.now().toISOString().slice(0, 10);
-    const hash = sha256Of(JSON.stringify({ title: options.title, base: stamp.snapshotDigest, result: resultDigest, ops: records.map((r) => r.opId), ...(model.digest === BASE_MODEL.digest ? {} : { schema: model.digest }) })).slice(0, 4);
+    const schemaEdited = model.digest !== BASE_MODEL.digest;
+    const hash = sha256Of(JSON.stringify({ title: options.title, base: stamp.snapshotDigest, result: resultDigest, ops: records.map((r) => r.opId), ...(schemaEdited ? { schema: model.digest } : {}) })).slice(0, 4);
     const id = `${date}-${options.topic}-${hash}`;
     if (!isChangeSetId(id)) throw new ExportRefusedError('bad-topic', `${id} is not a change set ID`);
     const changeSet: ChangeSet = {
       id, title: options.title, records, base: { snapshotDigest: stamp.snapshotDigest }, result: { snapshotDigest: resultDigest },
       impact: { answersMoved: { moved: null, estimatesPending: true }, reportPath: null },
       ...(options.generator === undefined ? {} : { generator: options.generator }),
-      ...(model.digest === BASE_MODEL.digest ? {} : { schema: { base: toSha256(BASE_MODEL.digest), result: toSha256(model.digest) } }),
+      ...(schemaEdited ? { schema: { base: toSha256(BASE_MODEL.digest), result: toSha256(model.digest) } } : {}),
     };
 
     // The records must explain the result: the change set, applied through the same guards to a fresh rebuild of the base, gives
@@ -273,12 +277,14 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
       { rel: changeSetRel, text: changeSetText },
       { rel: 'data/manifest.json', text: `${JSON.stringify(newManifest, null, 2)}\n` },
       // A schema edit travels with the data it reshaped: the schema files, and the files the generator makes from them.
-      ...Object.entries(model.overlay).map(([rel, text]) => ({ rel, text })),
-      ...(model === BASE_MODEL ? [] : Object.entries(model.generated()).map(([rel, text]) => ({ rel, text }))),
+      ...filesOf(model.overlay),
+      ...(model === BASE_MODEL ? [] : filesOf(model.generated())),
       ...ledgerFile(ws.paths.dataDir, records, id),
     ];
-    // An earlier export's file that this one does not write would contradict the manifest above: it is retired.
-    const retired = OWNED_DIRS.flatMap((owned) => filesUnder(dir, owned).filter((rel) => !planned.some((p) => p.rel === rel)));
+    // An earlier export's file that this one does not write would contradict the manifest above: it is retired. The tables' CSV always (as in v1);
+    // the other folders only in a directory a previous export marked as its own, so `--out` pointed at a checkout never removes that checkout's files.
+    const markedAsOurs = existsSync(join(dir, EXPORT_MARKER));
+    const retired = OWNED_DIRS.filter((owned) => owned === 'data/tables' || markedAsOurs).flatMap((owned) => filesUnder(dir, owned).filter((rel) => !planned.some((p) => p.rel === rel)));
     const lockedFiles = [...planned.map((p) => p.rel), ...retired];
     const seen = new Map(lockedFiles.map((rel) => [rel, digestOf(join(dir, rel))]));
     const existingSet = join(dir, changeSetRel);
@@ -317,10 +323,13 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
     }
     promote(dir, journal, options.hooks?.failAfterRenames);
 
+    if (!markedAsOurs) writeDurably(join(dir, EXPORT_MARKER), 'A directory written by change:export (packages/data/src/export.ts). A later export may remove files it wrote here that it no longer writes; it removes nothing else.\n');
     markExported(ws, records, id);
-    return { changeSet, changeSetPath: join(dir, changeSetRel), exportDir: dir, tables: changed, files: planned.map((p) => join(dir, p.rel)), backup: backup.path, recovered };
+    return { changeSet, changeSetPath: join(dir, changeSetRel), exportDir: dir, tables: changed, files: planned.map((p) => join(dir, p.rel)), backup: backup.path, recovered, retired };
   });
 }
+
+const filesOf = (files: Readonly<Record<string, string>>): PlannedFile[] => Object.entries(files).map(([rel, text]) => ({ rel, text }));
 
 const OWNED_DIRS = ['data/tables', 'data/review', 'schema/tables', 'schema/vocab', 'db/generated', 'packages/data/src/generated'] as const;
 const LEDGER = 'data/review/removed-records.csv';

@@ -14,9 +14,11 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, 
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import type { CanonicalCells } from '@atlas/domain/contracts';
 import { describeSchema } from '../../../remake/tools/types-gen.mjs';
 import { TABLES, TABLE_NAMES } from './generated/columns.ts';
 import type { ColumnInfo, ColumnType, TableInfo, TableName } from './generated/columns.ts';
+import { isObject } from './json-patch.ts';
 
 export const REPO_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
 export const STORAGE_DDL = join(REPO_ROOT, 'db/generated/storage.sql');
@@ -53,8 +55,18 @@ const VOCAB_DIR = 'schema/vocab';
 const isTableName = (name: string): name is TableName => TABLE_NAMES.some((table) => table === name);
 const COLUMN_TYPES: readonly ColumnType[] = ['string', 'number', 'integer', 'boolean', 'date', 'list'];
 const isColumnType = (value: unknown): value is ColumnType => COLUMN_TYPES.some((type) => type === value);
-const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 const isTextList = (v: unknown): v is string[] => Array.isArray(v) && v.every((item) => typeof item === 'string');
+
+/** The columns a record of a table is addressed by: its primary key, else its first unique key (empty for a table that has neither). */
+export function addressKeyOf(info: TableInfo): readonly string[] {
+  return info.primaryKey.length ? info.primaryKey : (info.uniqueKeys[0] ?? []);
+}
+
+/** A record's ID: the cells of its address key joined by " | ", or null when one of them is empty. */
+export function recordIdOf(key: readonly string[], cells: CanonicalCells): string | null {
+  const parts = key.map((name) => cells[name] ?? null);
+  return parts.every((part): part is string => part !== null) ? parts.join(' | ') : null;
+}
 
 /** A path a schema file may have: the data layer reads and writes nothing else of the schema. */
 export function isSchemaFilePath(path: string): boolean {
@@ -88,7 +100,7 @@ function effectiveFiles(overlay: SchemaFiles): Map<string, string> {
 }
 
 /** The same digest `schemaDigest()` of rebuild.ts takes: each table then each vocabulary file in name order, name and bytes. */
-export function digestOfFiles(files: ReadonlyMap<string, string>): string {
+function digestOfFiles(files: ReadonlyMap<string, string>): string {
   const hash = createHash('sha256');
   for (const dir of [TABLE_DIR, VOCAB_DIR]) {
     const sub = dir.slice('schema/'.length);
@@ -116,6 +128,14 @@ function tableOf(name: string, raw: unknown): TableInfo {
   return { primaryKey: raw.primaryKey, uniqueKeys: raw.uniqueKeys, columns: raw.columns.map((c: unknown) => columnOf(c, name)) };
 }
 
+/** A schema the generator refuses (an unknown vocabulary, a key that is not a column, a table added or removed...). Anything else that goes wrong is not this. */
+export class SchemaInvalidError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'SchemaInvalidError';
+  }
+}
+
 interface Described {
   readonly tables: Record<TableName, TableInfo>;
   readonly naturalKeys: ReadonlyMap<TableName, readonly string[]>;
@@ -126,11 +146,16 @@ interface Described {
 
 /** Run the generator over a schema root and read its answer. A schema the generator refuses throws the generator's message. */
 function describe(root: string): Described {
-  const raw = describeSchema(root);
+  let raw;
+  try {
+    raw = describeSchema(root);
+  } catch (error) {
+    throw new SchemaInvalidError(error instanceof Error ? error.message : String(error));
+  }
   const names: readonly string[] = raw.tableNames;
   const known = names.filter(isTableName);
   if (known.length !== names.length || known.length !== TABLE_NAMES.length || TABLE_NAMES.some((t) => !known.includes(t))) {
-    throw new Error('the schema adds or removes a table; the write service changes the columns, keys and vocabularies of the 36 tables it has (a new table is a change for the schema owner)');
+    throw new SchemaInvalidError('the schema adds or removes a table; the write service changes the columns, keys and vocabularies of the 36 tables it has (a new table is a change for the schema owner)');
   }
   const tables = Object.fromEntries(known.map((name) => [name, tableOf(name, raw.tables[name])]));
   const naturalKeys = new Map<TableName, readonly string[]>();
@@ -202,29 +227,30 @@ export const BASE_MODEL: SchemaModel = new Model({
 const built = new Map<string, SchemaModel>();
 
 /** Write the effective schema files under a scratch root (db.schema.json beside them, which the generator reads too). */
-function materialize(files: ReadonlyMap<string, string>): string {
-  const root = mkdtempSync(join(tmpdir(), 'atlas-schema-'));
+function materialize(root: string, files: ReadonlyMap<string, string>): void {
   for (const [path, text] of files) {
     mkdirSync(join(root, path, '..'), { recursive: true });
     writeFileSync(join(root, path), text);
   }
   const dbSchema = join(REPO_ROOT, 'schema/db.schema.json');
   if (existsSync(dbSchema)) writeFileSync(join(root, 'schema/db.schema.json'), readFileSync(dbSchema));
-  return root;
 }
 
 /**
  * The repository's schema with `overlay`'s files in place of its own. Throws the generator's message when the result is not a valid
  * schema (an unknown vocabulary, a key that is not a column, a missing-state word that leaks into an ordinary column, and so on).
  */
-export function modelWith(overlay: SchemaFiles): SchemaModel {
+export function modelWith(given: SchemaFiles): SchemaModel {
+  // A file that is the repository's own text is not an edit: an edit that was undone leaves the repository's schema, not a model that only looks edited.
+  const overlay = Object.fromEntries(Object.entries(given).filter(([path, text]) => baseFiles().get(path) !== text));
   if (Object.keys(overlay).length === 0) return BASE_MODEL;
   const key = createHash('sha256').update(JSON.stringify(Object.entries(overlay).sort(([a], [b]) => (a < b ? -1 : 1)))).digest('hex');
   const known = built.get(key);
   if (known !== undefined) return known;
   const files = effectiveFiles(overlay);
-  const root = materialize(files);
+  const root = mkdtempSync(join(tmpdir(), 'atlas-schema-'));
   try {
+    materialize(root, files);
     const described = describe(root);
     const model = new Model({ tables: described.tables, storageDdl: described.storageDdl, overlay, files, describe: () => described });
     built.set(key, model);

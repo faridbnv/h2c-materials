@@ -9,6 +9,7 @@ import type {
 import { isChangeRecordId, isChangeSetId, isOpId, isSha256, isSourceId } from './digest.ts';
 import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
+import { isObject } from './json-patch.ts';
 
 export type Parsed<T> = { readonly ok: true; readonly value: T } | { readonly ok: false; readonly problems: readonly string[] };
 
@@ -18,7 +19,6 @@ const OTHER_KINDS: readonly OtherWriteKind[] = [
 ];
 const KINDS: readonly WriteKind[] = ['correctValue', 'addMeasurement', ...OTHER_KINDS];
 
-const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 const isKind = (v: unknown): v is WriteKind => KINDS.some((k) => k === v);
 const isTable = (v: unknown): v is TableName => typeof v === 'string' && TABLE_NAMES.some((t) => t === v);
 
@@ -199,8 +199,11 @@ class Reader {
   ledger(v: unknown, path: string): readonly LedgerRow[] | undefined | null {
     if (v === undefined) return undefined;
     return this.list(v, path, 'expected a list of ledger rows', (item, at): LedgerRow | null => {
-      const row = isObject(item) ? { Table: this.text(item.Table, `${at}.Table`), Record: this.text(item.Record, `${at}.Record`), Where: this.text(item.Where, `${at}.Where`) } : null;
-      return row === null || row.Table === null || row.Record === null || row.Where === null ? (row === null ? this.fail(at, 'expected a ledger row') : null) : { Table: row.Table, Record: row.Record, Where: row.Where };
+      if (!isObject(item)) return this.fail(at, 'expected a ledger row');
+      const table = this.text(item.Table, `${at}.Table`);
+      const record = this.text(item.Record, `${at}.Record`);
+      const where = this.text(item.Where, `${at}.Where`);
+      return table === null || record === null || where === null ? null : { Table: table, Record: record, Where: where };
     });
   }
 
@@ -263,28 +266,27 @@ export function parseCommand(input: unknown): Parsed<WriteCommand> {
   }
   const common = { opId, target, expect, reason, ...(rulings.length ? { rulings } : {}), actor, ...(reviewedBy === undefined || reviewedBy.length === 0 ? {} : { reviewedBy }), base };
   const optional = { ...(evidence === undefined ? {} : { evidence }), ...(apart === undefined ? {} : { apart }) };
-  const need = <T>(value: T | undefined, path: string, message: string): T | null => r.required(value, path, message);
   switch (kind) {
     case 'correctValue': {
-      const requiredSet = need(set, 'set', 'a correction names the cells it sets');
-      const requiredEvidence = need(evidence, 'evidence', 'a correction carries its evidence');
+      const requiredSet = r.required(set, 'set', 'a correction names the cells it sets');
+      const requiredEvidence = r.required(evidence, 'evidence', 'a correction carries its evidence');
       if (requiredSet === null || requiredEvidence === null) return { ok: false, problems: r.problems };
       return { ok: true, value: { ...common, kind, set: requiredSet, evidence: requiredEvidence, ...(apart === undefined ? {} : { apart }) } };
     }
     case 'reviseProfile':
     case 'reclassifyProduct': {
-      const requiredSet = need(set, 'set', `${kind} names the cells it sets`);
+      const requiredSet = r.required(set, 'set', `${kind} names the cells it sets`);
       return requiredSet === null ? { ok: false, problems: r.problems } : { ok: true, value: { ...common, kind, set: requiredSet, ...optional } };
     }
     case 'addMeasurement': {
-      const requiredRow = need(row, 'row', 'a new measurement gives its row');
-      const requiredEvidence = need(evidence, 'evidence', 'a new measurement carries its evidence');
+      const requiredRow = r.required(row, 'row', 'a new measurement gives its row');
+      const requiredEvidence = r.required(evidence, 'evidence', 'a new measurement carries its evidence');
       const duplicateOf = r.duplicateOf(input.duplicateOf, 'duplicateOf');
       if (requiredRow === null || requiredEvidence === null || duplicateOf === null) return { ok: false, problems: r.problems };
       return { ok: true, value: { ...common, kind, row: requiredRow, evidence: requiredEvidence, ...(duplicateOf === undefined ? {} : { duplicateOf }) } };
     }
     case 'addRecord': {
-      const requiredRow = need(row, 'row', 'a new record gives its row');
+      const requiredRow = r.required(row, 'row', 'a new record gives its row');
       return requiredRow === null ? { ok: false, problems: r.problems } : { ok: true, value: { ...common, kind, row: requiredRow, ...(evidence === undefined ? {} : { evidence }) } };
     }
     case 'retireRecord': {

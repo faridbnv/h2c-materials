@@ -14,7 +14,6 @@ import { DEFAULT_DATA_DIR } from './rebuild.ts';
 import { REVIEWER_COLUMNS } from './write-core.ts';
 
 export type ReviewerKind = 'agent' | 'human' | 'both' | 'unclear' | 'not-stated';
-export const REVIEWER_KINDS: readonly ReviewerKind[] = ['agent', 'human', 'both', 'unclear', 'not-stated'];
 
 // What names an agent: a model or tool by name, or the word agent / AI / reader. What names a person: the owner, a human, a person, by hand.
 const AGENT = /\b(claude|opus|sonnet|haiku|codex|gpt|gemini|llm|agents?|ai|readers?|models?|subagents?)\b/i;
@@ -57,34 +56,39 @@ export interface ReviewerKindReport {
 const emptyCounts = (): Record<ReviewerKind, number> => ({ agent: 0, human: 0, both: 0, unclear: 0, 'not-stated': 0 });
 const TOP = 6;
 
+/** One reviewer column: its cells counted by kind (the counts are added to `totals` too) and grouped by wording. */
+function reportColumn(table: TableName, column: string, cells: readonly (string | null)[], totals: Record<ReviewerKind, number>): ReviewerColumnReport {
+  const counts = emptyCounts();
+  const seen = new Map<string, { kind: ReviewerKind; rows: number }>();
+  for (const text of cells) {
+    const kind = classifyReviewer(text);
+    counts[kind]++;
+    totals[kind]++;
+    const key = text ?? '';
+    const was = seen.get(key);
+    if (was === undefined) seen.set(key, { kind, rows: 1 }); else was.rows++;
+  }
+  const all = [...seen].map(([text, v]): Phrasing => ({ text, kind: v.kind, rows: v.rows })).sort((a, b) => b.rows - a.rows || (a.text < b.text ? -1 : Number(a.text > b.text)));
+  const reading = all.filter((p) => p.kind === 'unclear' || p.kind === 'both');
+  const phrasings = [...all.slice(0, TOP), ...reading.filter((p) => !all.slice(0, TOP).includes(p)).slice(0, TOP)];
+  return { table, column, rows: cells.length, counts, phrasings, distinct: all.length };
+}
+
 /** Classify every reviewer cell of the tables under `dataDir`. Reads the CSV; changes nothing. */
 export function reviewerKindReport(dataDir: string = DEFAULT_DATA_DIR): ReviewerKindReport {
   const columns: ReviewerColumnReport[] = [];
   const totals = emptyCounts();
-  let rows = 0;
   for (const table of TABLE_NAMES) {
-    for (const column of REVIEWER_COLUMNS) {
-      const at = TABLES[table].columns.findIndex((c) => c.name === column);
-      if (at < 0) continue;
-      const { records } = parseCsv(readFileSync(join(dataDir, 'tables', `${table}.csv`), 'utf8'), `${table}.csv`);
-      const counts = emptyCounts();
-      const seen = new Map<string, { kind: ReviewerKind; rows: number }>();
-      for (const record of records) {
-        const text = record.cells[at] ?? null;
-        const kind = classifyReviewer(text);
-        counts[kind]++;
-        totals[kind]++;
-        const key = text ?? '';
-        const was = seen.get(key);
-        if (was === undefined) seen.set(key, { kind, rows: 1 }); else was.rows++;
-      }
-      const all = [...seen].map(([text, v]): Phrasing => ({ text, kind: v.kind, rows: v.rows })).sort((a, b) => b.rows - a.rows || (a.text < b.text ? -1 : Number(a.text > b.text)));
-      const reading = all.filter((p) => p.kind === 'unclear' || p.kind === 'both');
-      const phrasings = [...all.slice(0, TOP), ...reading.filter((p) => !all.slice(0, TOP).includes(p)).slice(0, TOP)];
-      columns.push({ table, column, rows: records.length, counts, phrasings, distinct: all.length });
-      rows += records.length;
+    const present = REVIEWER_COLUMNS.map((column) => ({ column, at: TABLES[table].columns.findIndex((c) => c.name === column) })).filter(({ at }) => at >= 0);
+    if (present.length === 0) continue;
+    const { header, records } = parseCsv(readFileSync(join(dataDir, 'tables', `${table}.csv`), 'utf8'), `${table}.csv`);
+    for (const { column, at } of present) {
+      // The column is found by the schema; the file must agree, or a different column would be reported under this one's name.
+      if (header[at] !== column) throw new Error(`${table}.csv has "${header[at] ?? '(nothing)'}" where the schema has "${column}": the report reads the columns of the schema this repository holds, so give it data of that shape`);
+      columns.push(reportColumn(table, column, records.map((record) => record.cells[at] ?? null), totals));
     }
   }
+  const rows = columns.reduce((sum, c) => sum + c.rows, 0);
   return { manifestSha256: sha256Of(readFileSync(join(dataDir, 'manifest.json'))), columns, totals, rows };
 }
 
@@ -99,8 +103,8 @@ export function renderReviewerKindReport(report: ReviewerKindReport): string {
   lines.push(
     '# Reviewer kinds in the existing data',
     '',
-    '> **In short.** Of the ' + `${report.rows.toLocaleString('en-US')} cells that say who reviewed, read or wrote a row, ${totals.agent} (${pct(totals.agent, report.rows)}) name an agent only, ${totals.human} name a person only, ${totals.both} name both, ${totals.unclear} say neither and ${totals['not-stated']} state nothing.` +
-      ' This is a one-off reading of free text (owner ruling OQ-17 A, 2026-10-20): it changes no cell. From now on a write command records each reviewer\'s kind beside the cell, so new rows can be queried by it; these rows keep the words they have.',
+    `> **In short.** Of the ${report.rows.toLocaleString('en-US')} cells that say who reviewed, read or wrote a row, ${totals.agent} (${pct(totals.agent, report.rows)}) name an agent only, ${totals.human} name a person only, ${totals.both} name both, ${totals.unclear} say neither and ${totals['not-stated']} state nothing.`
+      + " This is a one-off reading of free text (owner ruling OQ-17 A, 2026-10-20): it changes no cell. From now on a write command records each reviewer's kind beside the cell, so new rows can be queried by it; these rows keep the words they have.",
     '',
     `Generated by \`npm run report:reviewers\` from \`data/tables\` (manifest SHA-256 \`${report.manifestSha256.slice(0, 16)}\`). Do not edit: \`npm run report:reviewers -- --check\` fails when it is stale.`,
     '',

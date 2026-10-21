@@ -11,6 +11,7 @@ import { isOpId } from './digest.ts';
 import { TABLES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { parseCommand } from './parse.ts';
+import { addressKeyOf, recordIdOf } from './schema-model.ts';
 import { readCells, storageOf } from './storage.ts';
 import type { BatchResult } from './write.ts';
 import type { Workspace } from './workspace.ts';
@@ -63,13 +64,12 @@ const CROCKFORD = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 /** A ULID-shaped opId made from a seed: the same seed, the same ID. The first character is kept within the ULID time range (0 to 7). */
 export function opIdFromSeed(seed: string): OpId {
   const bytes = createHash('sha256').update(seed).digest();
-  const chars = [...bytes.subarray(0, 26)].map((byte, k) => CROCKFORD.charAt(k === 0 ? byte % 8 : byte % 32));
-  const id = chars.join('');
+  const id = [...bytes.subarray(0, 26)].map((byte, k) => CROCKFORD.charAt(k === 0 ? byte % 8 : byte % 32)).join('');
   if (!isOpId(id)) throw new Error(`internal: ${id} is not a ULID`);
   return id;
 }
 
-export function viewOf(ws: Workspace, sweep: Pick<Sweep, 'path' | 'version' | 'args'>): SweepView {
+function viewOf(ws: Workspace, sweep: Pick<Sweep, 'path' | 'version' | 'args'>): SweepView {
   const stamp = ws.stamp();
   const base: CommandBase = { snapshotDigest: stamp.snapshotDigest, commit: stamp.commit };
   const seed = [sweep.path, sweep.version, ...sweep.args, base.snapshotDigest, stamp.schemaSha256].join('\0');
@@ -89,6 +89,11 @@ export interface SweepRun {
   readonly ref: GeneratorRef;
 }
 
+/** The reference a change set carries for the sweep that made its records. */
+export function generatorRefOf(sweep: Sweep): GeneratorRef {
+  return { path: sweep.path, version: sweep.version, args: [...sweep.args], expectCount: sweep.expectCount };
+}
+
 /**
  * Run a sweep without applying it: its commands, and the reference the change set will carry. Throws SweepCountError when the count differs
  * from `expectCount`, and SweepOutputError for a command that is not explicit JSON the service understands or that repeats an opId.
@@ -105,7 +110,7 @@ export function runSweep(ws: Workspace, sweep: Sweep): SweepRun {
     seen.add(parsed.value.opId);
     return parsed.value;
   });
-  return { commands, ref: { path: sweep.path, version: sweep.version, args: [...sweep.args], expectCount: sweep.expectCount } };
+  return { commands, ref: generatorRefOf(sweep) };
 }
 
 export type SweepApplied =
@@ -143,8 +148,7 @@ export function cellSweep(spec: CellSweepSpec): Sweep {
     args: [spec.table, spec.column, spec.from, spec.to],
     expectCount: spec.expectCount,
     emit(view) {
-      const key = view.rows(spec.table);
-      return key.flatMap((row, index) => {
+      return view.rows(spec.table).flatMap((row, index) => {
         if (row[spec.column] !== spec.from) return [];
         const id = idOf(spec.table, row);
         return [{
@@ -158,9 +162,8 @@ export function cellSweep(spec: CellSweepSpec): Sweep {
 
 /** The record ID of a row as the journal names it: the first key column's cell, or the unique key's cells joined by " | ". */
 function idOf(table: TableName, row: CanonicalCells): string {
-  const info = TABLES[table];
-  const key = info.primaryKey.length ? info.primaryKey : (info.uniqueKeys[0] ?? []);
-  const parts = key.map((name) => row[name] ?? null);
-  if (key.length === 0 || parts.some((part) => part === null)) throw new SweepOutputError(`${table} has a row with no key to address it by`);
-  return parts.join(' | ');
+  const key = addressKeyOf(TABLES[table]);
+  const id = recordIdOf(key, row);
+  if (key.length === 0 || id === null) throw new SweepOutputError(`${table} has a row with no key to address it by`);
+  return id;
 }

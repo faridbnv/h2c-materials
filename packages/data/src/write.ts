@@ -22,18 +22,17 @@ import type { AlsoChanged, ChangeLogEntry, ChangeRecord, CommandResult, Sha256, 
 import { canonicalJson, changeRecordIdOf, isOpId, isSha256, sha256Of } from './digest.ts';
 import type { Json } from './digest.ts';
 import type { Db } from './driver.ts';
-import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { parseChangeRecord, parseCommand } from './parse.ts';
 import type { Parsed } from './parse.ts';
 import type { SchemaModel } from './schema-model.ts';
-import { storageOf } from './storage.ts';
-import { Refusal, RULE_TABLES, StaleRefusal, cellAt, commandJson, holderOf, plainJson, resultOf, tierOf, writeRows } from './write-core.ts';
-import type { ApplyOptions, BaseStamp, Env, MergedOps, Plan, RunOptions, RowWrite, WriteContext } from './write-core.ts';
+import { isTableName, storageOf } from './storage.ts';
+import { Refusal, RULE_TABLES, StaleRefusal, cellAt, commandJson, plainJson, putMeta, readMeta, resultOf, tierOf, writeRows } from './write-core.ts';
+import type { ApplyOptions, BaseStamp, Env, MergedOps, Plan, RowWrite, WriteContext } from './write-core.ts';
 import { planAdd, planCorrectValue, planMoveGrade, planReclassifyProduct, planRetire, planReviseProfile } from './write-rows.ts';
 import { planAddColumn, planAddVocab, planSchemaEdit } from './write-schema.ts';
 
-export { RULE_TABLES };
+export { RULE_TABLES, putMeta, readMeta };
 export type { ApplyOptions, BaseStamp, MergedOps, WriteContext };
 
 // ---------------------------------------------------------------- the workspace tables (04 section 4.3)
@@ -62,15 +61,6 @@ CREATE TABLE "change_conflicts" (
   "found_at" TEXT NOT NULL
 ) STRICT;
 `;
-
-export function putMeta(db: Db, key: string, value: string): void {
-  db.prepare('INSERT INTO "_meta" ("key", "value") VALUES (?, ?) ON CONFLICT ("key") DO UPDATE SET "value" = excluded."value"').run(key, value);
-}
-
-export function readMeta(db: Db, key: string): string | undefined {
-  const value = db.prepare('SELECT "value" FROM "_meta" WHERE "key" = ?').get(key)?.value;
-  return typeof value === 'string' ? value : undefined;
-}
 
 /** Create the workspace tables and record the approved base's snapshot digest in the stamp. */
 export function initWorkspaceTables(db: Db, snapshotDigest: Sha256): void {
@@ -113,8 +103,8 @@ export function applyLegacyCommand(ctx: WriteContext, command: WriteCommand, opt
   return execute(ctx, command, options, true);
 }
 
-function execute(ctx: WriteContext, command: WriteCommand, options: RunOptions, legacy: boolean): CommandResult {
-  const holder = holderOf(ctx);
+function execute(ctx: WriteContext, command: WriteCommand, options: ApplyOptions, legacy: boolean): CommandResult {
+  const holder = ctx.schema;
   const installs: SchemaModel[] = [];
   try {
     const result = ctx.db.transaction(() => {
@@ -133,9 +123,11 @@ function execute(ctx: WriteContext, command: WriteCommand, options: RunOptions, 
   }
 }
 
-function envOf(ctx: WriteContext, model: SchemaModel, options: RunOptions, legacy: boolean): Env {
+function envOf(ctx: WriteContext, model: SchemaModel, options: ApplyOptions, legacy: boolean): Env {
   return { ctx, db: ctx.db, model, stamp: baseStampOf(ctx.db), rebase: options.rebase === true, legacy, pendingModel: null };
 }
+
+const proposalRefusal = (kind: WriteCommand['kind']): Refusal => new Refusal('unsupported-kind', `${kind} is not run by the write service yet (the proposal commands arrive with WP-28)`);
 
 function plan(env: Env, command: WriteCommand): Plan {
   switch (command.kind) {
@@ -152,7 +144,7 @@ function plan(env: Env, command: WriteCommand): Plan {
     case 'acceptProposal':
     case 'rejectProposal':
     case 'holdProposal':
-      throw new Refusal('unsupported-kind', `${command.kind} is not run by the write service yet (the proposal commands arrive with WP-28)`);
+      throw proposalRefusal(command.kind);
   }
 }
 
@@ -161,9 +153,7 @@ type Done = Extract<CommandResult, { status: 'applied' | 'duplicate' }>;
 function run(env: Env, command: WriteCommand): Done {
   const { db } = env;
   if (!isOpId(command.opId)) throw new Refusal('opid-invalid', `opId ${JSON.stringify(command.opId)} is not a ULID (26 characters of Crockford base32)`);
-  if (command.kind === 'acceptProposal' || command.kind === 'rejectProposal' || command.kind === 'holdProposal') {
-    throw new Refusal('unsupported-kind', `${command.kind} is not run by the write service yet (the proposal commands arrive with WP-28)`);
-  }
+  if (command.kind === 'acceptProposal' || command.kind === 'rejectProposal' || command.kind === 'holdProposal') throw proposalRefusal(command.kind);
 
   // 1. Idempotency (04 section 7): a retried opId writes nothing, and says what it was before.
   const digest = sha256Of(commandJson(command));
@@ -292,7 +282,7 @@ const SCHEMA_KINDS: ReadonlySet<WriteCommand['kind']> = new Set<WriteCommand['ki
  * one it was. A generator's output travels this way (a sweep is reviewed as a whole). A schema command is applied alone, never in a batch.
  */
 export function applyBatch(ctx: WriteContext, commands: readonly WriteCommand[], options: ApplyOptions = {}): BatchResult {
-  const holder = holderOf(ctx);
+  const holder = ctx.schema;
   const schemaAt = commands.findIndex((command) => SCHEMA_KINDS.has(command.kind));
   const first = commands[schemaAt];
   if (first !== undefined) {
@@ -388,8 +378,7 @@ export function commandOfRecord(record: ChangeRecord): WriteCommand {
 export function tablesTouched(record: ChangeRecord): TableName[] {
   const reshaped = record.args?.tables;
   if (record.kind === 'addVocab' || record.kind === 'addColumn' || record.kind === 'schemaEdit') {
-    return Array.isArray(reshaped) ? reshaped.flatMap((t) => (typeof t === 'string' && isTable(t) ? [t] : [])) : [];
+    return Array.isArray(reshaped) ? reshaped.flatMap((t) => (typeof t === 'string' && isTableName(t) ? [t] : [])) : [];
   }
   return [record.table, ...(record.alsoChanged ?? []).map((c) => c.table)];
 }
-const isTable = (name: string): name is TableName => TABLE_NAMES.some((table) => table === name);

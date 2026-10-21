@@ -14,8 +14,8 @@
 | `correctValue` | Changes cells of one record, with evidence (WP-10) | The value is a number its quoted line prints; raw, numeric and normalized cells change together |
 | `addMeasurement` | Appends a measurement at the end of its table | New ID; the same observation (grade, property, source, locator, conditions) is refused unless `duplicateOf` names the twin and says why; evidence always |
 | `addRecord` | Appends a row to any other table (not `sources`: a source enters through the ingest journey, WP-28) | New key; evidence when a column the build reads for a decision is written; a rule row cites a ruling and travels alone |
-| `retireRecord` | Marks a record retired or superseded; **never deletes** | The table has a retirement convention (grades `retired`; measurements, evidence and profiles `Retired duplicate record`; prices quarantined; coverage and sources superseded); a successor that exists, is another record and is not retired itself |
-| `moveGrade` | Moves a product to another material with every record filed under it (measurements, profiles, evidence, prices) and the printing citations of those records; every ID stays (D86) | `expectMaterial` stops a concurrent move; the destination exists; every record on the grade is filed under the material it leaves; the re-pointed citations are listed for the D72 ledger |
+| `retireRecord` | Marks a record retired or superseded; **never deletes** | The table has a retirement convention (grades `retired`; measurements, evidence and profiles `Retired duplicate record`; prices quarantined; coverage and sources superseded); a duplicate, a profile, a coverage finding and a source name the successor that stays, and it exists, is another record and is not retired itself. Retiring a grade moves nothing: the change record lists the measurements, profiles, prices and evidence that still rest on it (`args.dependents`; `change:apply` prints them), for the person to settle |
+| `moveGrade` | Moves a product to another material with every record filed under it (measurements, profiles, evidence, prices) and the printing citations of those records; every ID stays (D86) | `expectMaterial` stops a concurrent move; the destination exists; every record on the grade is filed under the material it leaves; a pinned headline value that rests on one of its measurements stops the move (a pin names its material, and no command moves a pin); the re-pointed citations are listed for the D72 ledger |
 | `reviseProfile` | Changes a print profile's cells | A raw cell and the cells the build reads from it (nozzle, bed, chamber, enclosure, drying) change together, or `apart` says why |
 | `reclassifyProduct` | Changes a product's Role, Variant or Shared formulation key | The Role agrees with the `-R#` of the ID; a canonical cell carries evidence |
 | `addVocab` | Adds a word to a vocabulary, at the end or `after` a word | Tier 1. The word is new; the generator accepts the schema it gives |
@@ -42,6 +42,9 @@ record holds now.
   reviewer with their kind. The record keeps them, and a human among them makes the change Tier 1. A schema command,
   and a rule row, are Tier 1 always.
 - **Identifiers**: SQL is built only from the generated list of names; every value is a bound parameter.
+- **One schema per workspace file.** A session that did not apply a schema edit reads the new schema under the writer lock before it
+  writes, so two sessions (the command line while the editor is open) never disagree about the columns. The editor itself
+  has no form for a schema change and does not follow one made while it runs: close it first.
 
 ### The refusal codes WP-17 adds
 
@@ -63,6 +66,10 @@ Each code, and each command that can raise it, has a test (`tests/remake/write-c
 A shape change is a command, not a SQL migration (ADR-02, ADR-03). The workspace keeps the edited schema files in its own
 file (`_meta.schema_overlay`), rebuilds the 36 tables under the new storage DDL inside the command's transaction, and
 loads the rows again. The repository's `schema/` is read, never written.
+
+An export directory is marked (`.atlas-export`) by the first export that writes to it. Later exports remove from it, and report,
+the files an earlier export wrote that they no longer write; a directory that has no marker keeps every file it holds (outside
+`data/tables`, as in v1).
 
 An export of a schema edit holds the edited schema files, the files the generator makes from them
 (`db/generated/*.sql`, `packages/data/src/generated/*.ts`), the CSV of the tables that changed, the manifest and the

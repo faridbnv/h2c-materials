@@ -18,8 +18,8 @@ import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { parseChangeSet, parseCommand, readJson } from './parse.ts';
 import { DEFAULT_DATA_DIR, REPO_ROOT, buildInMemory } from './rebuild.ts';
-import { BASE_MODEL, readOverlay } from './schema-model.ts';
-import type { SchemaHolder } from './schema-model.ts';
+import { BASE_MODEL, baseSchemaHolder, readOverlay } from './schema-model.ts';
+import type { SchemaModel } from './schema-model.ts';
 import { firstDifference } from './roundtrip.ts';
 import { DEFAULT_RULINGS, loadRulings, protectedDirHolding, snapshotDigestOfReport } from './workspace.ts';
 import type { ReplayOutcome, Workspace } from './workspace.ts';
@@ -94,6 +94,22 @@ function compareSchemaFiles(exportRoot: string, overlay: Readonly<Record<string,
   return checks;
 }
 
+/** The tables and schema files of an export (`<export>/data/tables`) against what the replay ended with; the schema files are checked when the replay edited the schema or the export holds some. */
+function compareExport(tablesDir: string, touched: ReadonlySet<TableName>, texts: ReadonlyMap<TableName, string>, model: SchemaModel): TableCheck[] {
+  const exportRoot = dirname(dirname(tablesDir));
+  const checksSchema = model !== BASE_MODEL || existsSync(join(exportRoot, 'schema'));
+  return [...compareTables(tablesDir, touched, texts), ...(checksSchema ? compareSchemaFiles(exportRoot, model.overlay) : [])];
+}
+
+/** What a change set gets wrong about the schema: the records edit it and the change set does not say so, or its digests are not the replay's. The snapshot digest covers the tables, not the schema. */
+function schemaProblems(claimed: ChangeSet['schema'], model: SchemaModel): string[] {
+  if (claimed === undefined) return model === BASE_MODEL ? [] : ['the records edit the schema, but the change set does not name the schema digests (schema.base, schema.result)'];
+  const problems: string[] = [];
+  if (claimed.base !== BASE_MODEL.digest) problems.push(`the change set edits schema ${claimed.base.slice(0, 12)}, but the repository's schema is ${BASE_MODEL.digest.slice(0, 12)}`);
+  if (claimed.result !== model.digest) problems.push(`replaying leaves schema ${model.digest.slice(0, 12)}, not the result ${claimed.result.slice(0, 12)} the change set claims`);
+  return problems;
+}
+
 /** Apply `changeSet` to a fresh rebuild of the snapshot in `options.dataDir` and compare. Throws DataInputError if the snapshot itself does not rebuild. */
 export function replayChangeSet(changeSet: ChangeSet, options: ReplayOptions = {}): ReplayResult {
   const dataDir = options.dataDir ?? DEFAULT_DATA_DIR;
@@ -111,7 +127,7 @@ export function replayChangeSet(changeSet: ChangeSet, options: ReplayOptions = {
     initWorkspaceTables(db, actualBase);
     const rulings = loadRulings(options.rulingsPath ?? DEFAULT_RULINGS);
     const store = options.store === undefined ? defaultTextStore(REPO_ROOT) : options.store;
-    const schema: SchemaHolder = { model: BASE_MODEL };
+    const schema = baseSchemaHolder();
     for (const record of [...changeSet.records].sort((a, b) => a.seq - b.seq)) {
       let command: WriteCommand;
       try { command = commandOfRecord(record); } catch (error) { problems.push(`record ${record.seq} (${record.opId}): ${error instanceof Error ? error.message : String(error)}`); continue; }
@@ -139,18 +155,8 @@ export function replayChangeSet(changeSet: ChangeSet, options: ReplayOptions = {
     if (actualResult !== changeSet.result.snapshotDigest) {
       problems.push(`replaying gives snapshot ${actualResult.slice(0, 12)}, not the result ${changeSet.result.snapshotDigest.slice(0, 12)} the change set claims`);
     }
-    // The snapshot digest covers the tables, not the schema: a change set that edits the schema says so, and the schema it ends with is checked too.
-    const claimed = changeSet.schema;
-    const schemaMoved = schema.model !== BASE_MODEL;
-    if (claimed === undefined && schemaMoved) problems.push('the records edit the schema, but the change set does not name the schema digests (schema.base, schema.result)');
-    else if (claimed !== undefined) {
-      if (claimed.base !== BASE_MODEL.digest) problems.push(`the change set edits schema ${claimed.base.slice(0, 12)}, but the repository's schema is ${BASE_MODEL.digest.slice(0, 12)}`);
-      if (claimed.result !== schema.model.digest) problems.push(`replaying leaves schema ${schema.model.digest.slice(0, 12)}, not the result ${claimed.result.slice(0, 12)} the change set claims`);
-    }
-    const exportRoot = options.tablesDir === undefined ? undefined : dirname(dirname(options.tablesDir));
-    const tables = options.tablesDir === undefined || exportRoot === undefined
-      ? []
-      : [...compareTables(options.tablesDir, touched, texts), ...(schemaMoved || existsSync(join(exportRoot, 'schema')) ? compareSchemaFiles(exportRoot, schema.model.overlay) : [])];
+    problems.push(...schemaProblems(changeSet.schema, schema.model));
+    const tables = options.tablesDir === undefined ? [] : compareExport(options.tablesDir, touched, texts, schema.model);
     for (const t of tables) if (t.status !== 'identical') problems.push(`${t.table}: ${t.status}${t.detail ? ` (${t.detail})` : ''}`);
     return {
       ok: problems.length === 0, id: changeSet.id, records: changeSet.records.length, baseDigest,

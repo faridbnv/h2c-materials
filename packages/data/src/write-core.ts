@@ -2,10 +2,9 @@
 // the expectation and the guards (evidence, typed words, ownership, Notes, rule rows, reviewers), and the two ways a row is written.
 // A command kind is a planner (write-rows.ts, write-schema.ts) that checks and returns a Plan; write.ts runs the plan in one transaction.
 import type {
-  Actor, CanonicalCells, ChangeRecord, CommandResult, CurrentState, EvidenceRef, Expectation, LedgerRow, QuoteCheck, RefusalCode, Sha256,
+  Actor, CanonicalCells, ChangeRecord, CommandResult, CurrentState, EvidenceRef, Expectation, JsonValue, LedgerRow, QuoteCheck, RefusalCode, Sha256,
   WriteCommand,
 } from '@atlas/domain/contracts';
-import type { JsonValue } from '@atlas/domain/contracts';
 import { canonicalJson, isSha256, rowHash, sha256Of } from './digest.ts';
 import type { Json } from './digest.ts';
 import { constraintKind } from './driver.ts';
@@ -13,7 +12,7 @@ import type { Db } from './driver.ts';
 import { countInEvidence, isNumberCell, quoteOnPage, valueInEvidence } from './evidence.ts';
 import type { PageTextStore } from './evidence.ts';
 import type { ColumnInfo, TableName } from './generated/columns.ts';
-import { baseSchemaHolder } from './schema-model.ts';
+import { addressKeyOf, recordIdOf } from './schema-model.ts';
 import type { SchemaHolder, SchemaModel } from './schema-model.ts';
 import { assignmentsOf, isTableName, quoteIdent, readRow, storageOf, textExpression } from './storage.ts';
 
@@ -34,18 +33,13 @@ export interface WriteContext {
   /** opId to the record of everything already in a merged change set (04 section 3, mechanism 2). */
   readonly mergedOps: MergedOps;
   readonly now: () => Date;
-  /** The schema the database holds. A schema command replaces its model once it has committed. Default: the repository's own. */
-  readonly schema?: SchemaHolder;
+  /** The schema the database holds. A schema command replaces its model once it has committed, so the holder outlives the command (it is the workspace's). */
+  readonly schema: SchemaHolder;
 }
 
 export interface ApplyOptions {
   /** Replaying a draft onto a newer approved base (the open check, drafts:import): the stale-base check is skipped and the record takes the new base; `expect` still decides. */
   readonly rebase?: boolean;
-}
-
-/** What only the coverage measurement may ask for (coverage.ts): the judgement guards off, the structural ones on. Not reachable from the workspace. */
-export interface RunOptions extends ApplyOptions {
-  readonly legacy?: boolean;
 }
 
 /** One command's view of the world while it runs. */
@@ -60,7 +54,17 @@ export interface Env {
   pendingModel: SchemaModel | null;
 }
 
-export const holderOf = (ctx: WriteContext): SchemaHolder => ctx.schema ?? baseSchemaHolder();
+
+// ---------------------------------------------------------------- the workspace stamp in _meta
+
+export function putMeta(db: Db, key: string, value: string): void {
+  db.prepare('INSERT INTO "_meta" ("key", "value") VALUES (?, ?) ON CONFLICT ("key") DO UPDATE SET "value" = excluded."value"').run(key, value);
+}
+
+export function readMeta(db: Db, key: string): string | undefined {
+  const value = db.prepare('SELECT "value" FROM "_meta" WHERE "key" = ?').get(key)?.value;
+  return typeof value === 'string' ? value : undefined;
+}
 
 // ---------------------------------------------------------------- refusals
 
@@ -97,11 +101,14 @@ export const shown = (cell: string | null): string => (cell === null ? 'empty' :
 /** A cell by column name; a column the cells do not hold reads as empty. */
 export const cellAt = (cells: CanonicalCells, name: string): string | null => cells[name] ?? null;
 
+/** Canonical cell text: not empty, no space around it. */
+export const isCanonicalText = (value: unknown): value is string => typeof value === 'string' && value !== '' && value === value.trim();
+
 export function columnOf(env: Env, table: TableName, name: string): ColumnInfo | undefined {
   return env.model.tables[table].columns.find((c) => c.name === name);
 }
 
-export const isNumericColumn = (column: ColumnInfo): boolean => column.type === 'number' || column.type === 'integer';
+const isNumericColumn = (column: ColumnInfo): boolean => column.type === 'number' || column.type === 'integer';
 
 /**
  * The columns that identify a record, as table-io does (`set` on a primary key; `update` on the first unique key of a table that has none):
@@ -109,10 +116,10 @@ export const isNumericColumn = (column: ColumnInfo): boolean => column.type === 
  * record (a source's URL and SHA-256 are unique, and a source whose URL is corrected is still the same source); the database refuses a duplicate.
  */
 export function keyColumns(env: Env, table: TableName): ReadonlySet<string> {
-  const info = env.model.tables[table];
-  return new Set(info.primaryKey.length ? info.primaryKey : (info.uniqueKeys[0] ?? []));
+  return new Set(addressKeyOf(env.model.tables[table]));
 }
 
+/** A command's input as the JSON a record keeps (`undefined` members left out); a value JSON cannot carry throws. */
 export function plainJson(value: unknown): Json {
   if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
   if (typeof value === 'number' && Number.isFinite(value)) return value;
@@ -128,9 +135,6 @@ export function plainJson(value: unknown): Json {
 /** The canonical JSON of a command; its digest is what "the same opId with the same content" means. */
 export const commandJson = (command: WriteCommand): string => canonicalJson(plainJson(command));
 
-/** A command's input as the JSON a record keeps (`undefined` members left out). */
-export const jsonValue = (value: unknown): JsonValue => plainJson(value);
-
 /** The table a command names, or the refusal that says it is not one of the schema's. */
 export function knownTable(table: string): TableName {
   if (!isTableName(table)) throw new Refusal('unknown-target', `${JSON.stringify(table)} is not a table of the schema`);
@@ -138,17 +142,15 @@ export function knownTable(table: string): TableName {
 }
 
 /** The key columns a table is addressed by: its primary key, else its first unique key. */
-export function addressKey(env: Env, table: TableName): readonly string[] {
-  const info = env.model.tables[table];
-  const key = info.primaryKey.length ? info.primaryKey : (info.uniqueKeys[0] ?? []);
+function addressKey(env: Env, table: TableName): readonly string[] {
+  const key = addressKeyOf(env.model.tables[table]);
   if (key.length === 0) throw new Refusal('unknown-target', `${table} has no primary or unique key to address a record by`);
   return key;
 }
 
 /** The ID a row has: its key cells joined by " | ". */
 export function idOfRow(env: Env, table: TableName, cells: CanonicalCells): string | null {
-  const parts = addressKey(env, table).map((name) => cells[name] ?? null);
-  return parts.every((part): part is string => part !== null) ? parts.join(' | ') : null;
+  return recordIdOf(addressKey(env, table), cells);
 }
 
 /** The row a target names: its `_ord`, or null. The ID is the primary key, or the first unique key's values joined by " | ". */
@@ -174,6 +176,12 @@ export function cellsOfRow(env: Env, table: TableName, ord: number): CanonicalCe
 export const RULE_TABLES: ReadonlySet<TableName> = new Set<TableName>(['class_limits', 'conversions', 'chamber_bands', 'chamber_need', 'plausibility_windows']);
 const isRuleTableName = (name: unknown): boolean => [...RULE_TABLES].some((rule) => rule === name);
 
+/** Every ruling a command cites is in docs/next/rulings.csv. */
+function checkRulingsExist(ctx: WriteContext, rulings: readonly string[]): void {
+  const unknown = rulings.filter((ruling) => !ctx.rulings.has(ruling));
+  if (unknown.length) throw new Refusal('ruling-missing', `${unknown.join(', ')} ${unknown.length === 1 ? 'is' : 'are'} not in docs/next/rulings.csv`);
+}
+
 /** A rule row cites rulings that exist and is the only pending change; any other row waits while a rule row is pending. */
 export function checkRuleRows(ctx: WriteContext, table: TableName, id: string, rulings: readonly string[]): void {
   const pending = ctx.db.prepare(`SELECT "table_name", "record_id" FROM "change_log" WHERE "status" IN ('draft', 'exported')`).all();
@@ -184,8 +192,7 @@ export function checkRuleRows(ctx: WriteContext, table: TableName, id: string, r
     return;
   }
   if (rulings.length === 0) throw new Refusal('ruling-missing', `${table} is a rule table: a write to it cites the ruling it rests on (docs/next/rulings.csv)`);
-  const unknown = rulings.filter((ruling) => !ctx.rulings.has(ruling));
-  if (unknown.length) throw new Refusal('ruling-missing', `${unknown.join(', ')} ${unknown.length === 1 ? 'is' : 'are'} not in docs/next/rulings.csv`);
+  checkRulingsExist(ctx, rulings);
   const others = pending.filter((row) => row.table_name !== table || row.record_id !== id);
   if (others.length) throw new Refusal('rule-row-not-alone', `${table} ${id} is a rule row and travels alone in its change set, but ${others.length} other pending change(s) are in this workspace; export and merge them first`);
 }
@@ -193,11 +200,13 @@ export function checkRuleRows(ctx: WriteContext, table: TableName, id: string, r
 /** A ruling the command cites must exist, whatever the table (a column drop needs one). */
 export function requireRuling(ctx: WriteContext, rulings: readonly string[], why: string): void {
   if (rulings.length === 0) throw new Refusal('ruling-missing', `${why}: cite the ruling it rests on (docs/next/rulings.csv)`);
-  const unknown = rulings.filter((ruling) => !ctx.rulings.has(ruling));
-  if (unknown.length) throw new Refusal('ruling-missing', `${unknown.join(', ')} ${unknown.length === 1 ? 'is' : 'are'} not in docs/next/rulings.csv`);
+  checkRulingsExist(ctx, rulings);
 }
 
 // ---------------------------------------------------------------- the expectation (rule 1)
+
+/** A record found by its expectation: its `_ord`, its cells and their hash. */
+export interface FoundRecord { readonly ord: number; readonly current: CanonicalCells; readonly currentHash: Sha256 }
 
 /**
  * The expectation of a command on a record, or (id null) on the schema alone. Required and complete: it names the value of every cell
@@ -206,7 +215,7 @@ export function requireRuling(ctx: WriteContext, rulings: readonly string[], why
  */
 export function checkExpectation(
   env: Env, command: WriteCommand, target: { readonly table: TableName; readonly id: string | null }, replaced: readonly string[],
-): { readonly ord: number; readonly current: CanonicalCells; readonly currentHash: Sha256 } | null {
+): FoundRecord | null {
   const { table, id } = target;
   const { rowHash: wantHash, cells: wantCells, schemaDigest: wantSchema } = command.expect;
   const wantNames = Object.keys(wantCells ?? {});
@@ -230,8 +239,7 @@ export function checkExpectation(
   if (ord === null || current === null) {
     throw new StaleRefusal(`${table} has no record "${id}": it was never there on this base, or the ID is wrong`, command.expect, noRecord);
   }
-  const header = storageOf(table, env.model).header;
-  const currentHash = rowHashOf(env, table, header.map((name) => current[name] ?? null));
+  const currentHash = rowHash(table, storageOf(table, env.model).header.map((name) => cellAt(current, name)), env.model);
   const moved: string[] = [];
   if (wantHash !== undefined && wantHash !== currentHash) moved.push(`the record's hash is ${currentHash.slice(0, 12)}, not the expected ${wantHash.slice(0, 12)}`);
   for (const [name, expected] of Object.entries(wantCells ?? {})) {
@@ -244,7 +252,12 @@ export function checkExpectation(
   return { ord, current, currentHash };
 }
 
-const rowHashOf = (env: Env, table: TableName, cells: readonly (string | null)[]): Sha256 => rowHash(table, cells, env.model);
+/** `checkExpectation` for a command on a record that must exist. */
+export function expectRecord(env: Env, command: WriteCommand, target: { readonly table: TableName; readonly id: string }, replaced: readonly string[]): FoundRecord {
+  const found = checkExpectation(env, command, target, replaced);
+  if (found === null) throw new Error('internal: a record expectation found no record');
+  return found;
+}
 
 // ---------------------------------------------------------------- Notes (rule 6)
 
@@ -257,7 +270,7 @@ const NOTES_TOKENS: readonly RegExp[] = [
 const idTokensIn = (text: string): string[] => NOTES_TOKENS.flatMap((pattern) => [...text.matchAll(pattern)].map((match) => match[0]));
 
 /** Identifier tokens in `text` that `previous` does not already carry (count for count): the dated correction note stays; an ID does not. */
-export function newIdTokens(previous: string | null, text: string): string[] {
+function newIdTokens(previous: string | null, text: string): string[] {
   const seen = new Map<string, number>();
   for (const token of idTokensIn(previous ?? '')) seen.set(token, (seen.get(token) ?? 0) + 1);
   const fresh: string[] = [];
@@ -292,7 +305,7 @@ export function checkTypedWords(env: Env, table: TableName, changed: readonly st
 }
 
 // The measurements guards (04 section 5.1). Names are the schema's.
-export const RAW_NAMES: readonly string[] = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound'];
+const RAW_NAMES: readonly string[] = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound'];
 const ROLE_FIELDS: readonly string[] = [...RAW_NAMES, 'Anneal °C', 'Anneal h', 'Test temperature °C'];
 
 /** The cells that change together: all of a group, or the command says why in `apart` (rule 2). */
@@ -356,11 +369,10 @@ export function decisionReading(env: Env, table: TableName, changed: readonly st
 
 /** The evidence guards (04 section 5.1). Returns the quote check to keep on the record. */
 export function checkEvidence(
-  env: Env, command: WriteCommand, evidenceIn: EvidenceRef | null | undefined, table: TableName, recordId: string | undefined, written: CanonicalCells,
+  env: Env, command: WriteCommand, evidence: EvidenceRef | null | undefined, table: TableName, recordId: string | undefined, written: CanonicalCells,
   changed: readonly string[], after: CanonicalCells,
 ): QuoteCheck {
   // The type says a correction has evidence; a command read from JSON or built by a caller that ignores the type may not.
-  const evidence = evidenceIn;
   if (!evidence) throw new Refusal('evidence-missing', `a change to ${table} ${changed.join(', ')} carries the source, page, locator and quote it rests on (rule 2)`);
   const isText = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';
   const fields: readonly (readonly [string, boolean])[] = [
@@ -373,6 +385,19 @@ export function checkEvidence(
   const missing = fields.filter(([, present]) => !present).map(([field]) => field);
   if (missing.length) throw new Refusal('evidence-missing', `the evidence is incomplete: ${missing.join(', ')}`);
 
+  checkSource(env, evidence, table, recordId, after);
+  checkValuesPrinted(env, table, changed, after, evidence.quote);
+
+  // The quote is on the hash-checked page. Without the private store this is "not run", never a pass.
+  const lookup = quoteOnPage(env.ctx.store, evidence.sha256, evidence.page, evidence.quote);
+  if ('found' in lookup && !lookup.found) throw new Refusal('quote-not-on-page', `${lookup.why}: ${JSON.stringify(evidence.quote)} (source ${evidence.sourceId}, page ${evidence.page})`);
+  const opsDigest = sha256Of(canonicalJson(plainJson({ table, id: recordId, set: written, evidence })));
+  const { commit } = command.base;
+  return 'notRun' in lookup ? { status: 'not-run', opsDigest, commit, reason: lookup.notRun } : { status: 'verified', opsDigest, commit };
+}
+
+/** The evidence names a source that was retrieved, is cited and has the hash the evidence gives, and the record cites that source. */
+function checkSource(env: Env, evidence: EvidenceRef, table: TableName, recordId: string | undefined, after: CanonicalCells): void {
   const column = (name: string): string => textExpression('sources', name, env.model);
   const source = env.db.prepare(`SELECT ${column('Access state')} AS access, ${column('Citation role')} AS role, ${column('SHA256')} AS sha FROM "sources" WHERE ${column('SourceID')} = ?`).get(evidence.sourceId);
   if (source === undefined) throw new Refusal('source-not-retrieved', `the evidence names source ${evidence.sourceId}, which sources does not list`);
@@ -385,15 +410,6 @@ export function checkEvidence(
   if (columnOf(env, table, 'SourceID') && after.SourceID !== evidence.sourceId) {
     throw new Refusal('evidence-source-mismatch', `${table} ${recordId ?? ''} cites ${shown(cellAt(after, 'SourceID'))}, but the evidence names ${evidence.sourceId}; a record is corrected from the source it cites`);
   }
-
-  checkValuesPrinted(env, table, changed, after, evidence.quote);
-
-  // The quote is on the hash-checked page. Without the private store this is "not run", never a pass.
-  const lookup = quoteOnPage(env.ctx.store, evidence.sha256, evidence.page, evidence.quote);
-  if ('found' in lookup && !lookup.found) throw new Refusal('quote-not-on-page', `${lookup.why}: ${JSON.stringify(evidence.quote)} (source ${evidence.sourceId}, page ${evidence.page})`);
-  const opsDigest = sha256Of(canonicalJson(plainJson({ table, id: recordId, set: written, evidence })));
-  const { commit } = command.base;
-  return 'notRun' in lookup ? { status: 'not-run', opsDigest, commit, reason: lookup.notRun } : { status: 'verified', opsDigest, commit };
 }
 
 /** The value is a number its own line prints, in one role (D97). Needs only the quote, so it always runs. */
