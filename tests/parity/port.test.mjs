@@ -64,7 +64,8 @@ test('a staged engine: a ported module is the port\'s own text, an old one is th
   assert.equal(at('pareto.js'), "export * from './pareto.ts';\n");
   assert.equal(at('constraints.js'), readFileSync(join(root, 'app/js/engine/constraints.js'), 'utf8'));
   assert.equal(at('constraints.ts'), "export * from './constraints.js';\n");
-  assert.equal(readdirSync(dir).length, 21, 'ten modules under two extensions, and the package file that makes them modules');
+  assert.equal(readdirSync(dir).length, 22, 'ten modules under two extensions, the support files a port imports, and the package file that makes them modules');
+  assert.equal(at('gate-reasons.ts'), readFileSync(join(PORT_DIR, 'gate-reasons.ts'), 'utf8'));
 });
 
 test('every ported module exports exactly the names the old module does', async () => {
@@ -550,6 +551,13 @@ function contextFor(productsByMaterial, { policy = 'strict', estimates = false, 
     unknownPolicy: policy, useEstimates: estimates, showEstimates: estimates, evidence, anneal, annealMaxC, moisture,
   };
 }
+/** A copy of an engine answer without the fields the port adds beside the old ones (a reason code, a constraint ID). */
+const ADDED_FIELDS = new Set(['reasonCode', 'constraintId']);
+function withoutAdded(value) {
+  if (Array.isArray(value)) return value.map(withoutAdded);
+  if (value === null || typeof value !== 'object' || Object.getPrototypeOf(value) !== Object.prototype) return value;
+  return Object.fromEntries(Object.entries(value).filter(([k]) => !ADDED_FIELDS.has(k)).map(([k, v]) => [k, k === 'constraint' ? v : withoutAdded(v)]));
+}
 const SETTINGS = [{}, { policy: 'exploration' }, { policy: 'exploration', estimates: true }, { policy: 'exploration', anneal: true, annealMaxC: 150, moisture: 'conditioned' }, { policy: 'strict', evidence: 'as-published' }];
 
 test('constraints: the small functions and tables are the old module\'s, on a grid of intervals, operators and limits', async () => {
@@ -593,7 +601,8 @@ test('constraints: explainExclusions and runSelection, which the corpus asks lit
     assert.ok(isDeepStrictEqual(a, b), `${t.name} ${JSON.stringify(setting)}: explainExclusions`);
     // Without a products map the material-level path is taken (evaluateMaterial on the material's own headline).
     const bare = { ...ctx, productsByMaterial: undefined };
-    assert.ok(isDeepStrictEqual(constraints.runSelection(materials, t.constraints, bare), was.runSelection(materials, t.constraints, bare)), `${t.name} material-level`);
+    assert.ok(isDeepStrictEqual(withoutAdded(constraints.runSelection(materials, t.constraints, bare)), was.runSelection(materials, t.constraints, bare)), `${t.name} material-level`);
+    assert.ok(isDeepStrictEqual(withoutAdded(constraints.runSelection(materials, t.constraints, ctx)), was.runSelection(materials, t.constraints, ctx)), `${t.name} by product`);
     compared++;
   }
   assert.ok(compared >= 5 * TEMPLATES.length);

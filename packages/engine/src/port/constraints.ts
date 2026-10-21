@@ -18,8 +18,9 @@ export { SHARE };
 
 import type {
   ComparisonOperator, Doubt, EnvironmentConstraint, EnvironmentResult, EvidenceConstraint, EvidenceResult, FacetConstraint, FacetResult, GateConstraint,
-  GateResult, GateVerdict, Group, LedgerRef, NumericConstraint, NumericResult as NumericResultOut, PrintGateName, Status, TreatmentConstraint, TreatmentResult, Verdict,
+  GateResult, GateVerdict, Group, LedgerRef, NumericConstraint, NumericResult as NumericResultOut, PrintGateName, ReasonCode, Status, TreatmentConstraint, TreatmentResult, Verdict,
 } from '@atlas/domain';
+import { gateReasonCodeOf } from './gate-reasons.ts';
 import type { Contribution } from './ledger.ts';
 import type { Gates, HeadlineBag, ImpliedBound, Interval, Moisture, ProductContext, ProductGrade, ProductMaterial, ProductState, RegistryHeadline, Treatment } from './products.ts';
 
@@ -34,7 +35,7 @@ export type Result = NumericResult | GateResult | FacetResult | EnvironmentResul
 /** A requirement the engine answers: the scenario's five kinds and its own treatment. */
 export type Constraint = NumericConstraint | GateConstraint | FacetConstraint | EnvironmentConstraint | EvidenceConstraint | TreatmentConstraint;
 /** What an evaluation of one kind of check returns before its requirement is attached to it. */
-export type Answer<R extends Result> = Omit<R, 'constraint' | 'reasonCode' | 'constraintId'>;
+export type Answer<R extends Result> = Omit<R, 'constraint' | 'constraintId'>;
 
 export interface Facet {
   /** A recorded class of a material (compile.js deriveFacets). */
@@ -315,7 +316,7 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
     if (h?.notApplicable) {
       return {
         status: STATUS.UNKNOWN, notApplicable: true, screened: true, vetoedBy: [],
-        criterion: label, reason: `Does not apply: ${h.notApplicable.reason}`, missing: h?.missing ?? 'not-published',
+        criterion: label, reason: `Does not apply: ${h.notApplicable.reason}`, reasonCode: 'numeric.not-applicable', missing: h?.missing ?? 'not-published',
       };
     }
     // What the evidence ledger bounds it to (D153, D154): its other records, each in its one safe direction, and its
@@ -350,15 +351,15 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
       const veto = ((h.impliedBounds ?? []) as readonly ImpliedBound[]).filter((b) => compareInterval({ lo: b.lo, hi: null }, c.operator, c.value) === STATUS.PASS);
       const permission = !est.screening || ctx.completeProductContext === true;
       const screened = plausible === STATUS.FAIL && screenFails && est.canScreen && permission && !veto.length;
-      const reason = plausible === STATUS.FAIL
+      const [reason, estimateCode]: [string, ReasonCode] = plausible === STATUS.FAIL
         ? screened
-          ? `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}), which cannot meet this requirement. Hidden; not measured`
+          ? [`Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}), which cannot meet this requirement. Hidden; not measured`, 'numeric.estimate-screened']
           : veto.length
-            ? `Not published. Estimated ${span} would fail, but its own ${lowerFirst(veto[0]!.property)} (${fmtWords(veto[0]!.lo)} ${veto[0]!.unit}) bounds it from below and meets the requirement, so it is not hidden`
+            ? [`Not published. Estimated ${span} would fail, but its own ${lowerFirst(veto[0]!.property)} (${fmtWords(veto[0]!.lo)} ${veto[0]!.unit}) bounds it from below and meets the requirement, so it is not hidden`, 'numeric.estimate-vetoed']
             : est.canScreen && (c.operator.startsWith('>') ? decides.hi != null : decides.lo != null)
-              ? `Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`
-              : `Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`
-        : `Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`;
+              ? [`Not published. Estimated ${span} would fail, but the range it may screen on, ${rangeText(decides.lo, decides.hi, est.unit)}, could still meet it`, 'numeric.estimate-may-still-meet']
+              : [`Not published. Estimated ${span} would fail, but ${est.screenLimit ?? 'this estimate cannot screen'}`, 'numeric.estimate-cannot-screen']
+        : [`Not published. Estimated ${span} (plausibly ${fmtWords(wide.lo)} to ${fmtWords(wide.hi)}); ${plausible === STATUS.PASS ? 'plausible' : 'possible'}, but never enough to pass`, 'numeric.estimate-not-failing'];
       const disclosure = (h.asPublished ? ` Published ${fmtWords(h.asPublished.value)} ${h.unit}, but its test conditions do not qualify.`
         : h.elsewhere?.length ? ` ${elsewhereReason(h, material.state, c)}.`
           : h.related?.length ? ` Published related values: ${h.related.join('; ')}; no qualifying measurement.` : '')
@@ -368,6 +369,7 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
       const permissionReason = est.screening && !permission ? ' Its estimate was tested only on products whose own sheets put the nozzle, bed and chamber plainly within the H2C, which this one\'s do not.' : '';
       return {
         status: STATUS.UNKNOWN,
+        reasonCode: estimateCode,
         estimated: true,
         estimate: est,
         plausible,
@@ -382,7 +384,7 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
     if (h?.ceiling) {
       const v = h.ceiling;
       return {
-        status: STATUS.INDETERMINATE, criterion: label, missing: 'not-comparable',
+        status: STATUS.INDETERMINATE, criterion: label, missing: 'not-comparable', reasonCode: 'numeric.ceiling-only',
         ceilingOnly: { measurementId: v.measurementId ?? null, value: v.value },
         reason: withNote(`Published ${fmtWords(v.value)} ${h.unit} on a bar its sheet does not describe. For a plastic that prints glassy but can crystallise that is the most a printed part reaches (a moulded bar crystallises, a print does not), so it does not show the printed part meets ${requirementWords(c, h.unit)}; ask the maker how the bar was made, or test a printed coupon`, known),
       };
@@ -393,16 +395,16 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
     // states no load, which bounds the 0.45 MPa value only from below, through the evidence ledger (CV63). Shown, never deciding.
     if (h?.asPublished) {
       const v = `${fmtWords(h.asPublished.value)} ${h.unit}`;
-      const why = h.asPublished.caveat === 'not-described'
-        ? `Published ${v} on a test bar its document does not describe as printed (nothing on it says, even implicitly, that the bar was printed), so it is set apart and never used to pass${withheld}; the maker's word on how the bar was made, or a printed coupon, settles it`
+      const [why, asPublishedCode]: [string, ReasonCode] = h.asPublished.caveat === 'not-described'
+        ? [`Published ${v} on a test bar its document does not describe as printed (nothing on it says, even implicitly, that the bar was printed), so it is set apart and never used to pass${withheld}; the maker's word on how the bar was made, or a printed coupon, settles it`, 'numeric.as-published-not-described']
         : h.asPublished.caveat === 'load-not-stated'
-          ? `Published ${v} without the test load, so it is not used at its value: at either load it shows only that the heat deflection at 0.45 MPa is at least ${v}${withheld}`
-          : `Published ${v} without a usable specimen orientation, so it is not used${withheld}`;
-      return { status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished, reason: withNote(why, known) };
+          ? [`Published ${v} without the test load, so it is not used at its value: at either load it shows only that the heat deflection at 0.45 MPa is at least ${v}${withheld}`, 'numeric.as-published-load-not-stated']
+          : [`Published ${v} without a usable specimen orientation, so it is not used${withheld}`, 'numeric.as-published-no-orientation'];
+      return { status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished, reason: withNote(why, known), reasonCode: asPublishedCode };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
     if (h?.elsewhere?.length) {
-      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: withNote(elsewhereReason(h, material.state, c), known) };
+      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: withNote(elsewhereReason(h, material.state, c), known), reasonCode: 'numeric.other-state' };
     }
     return {
       status: STATUS.UNKNOWN,
@@ -411,6 +413,7 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
         : h?.related?.length ? `No qualifying measurement. Published related values: ${h.related.join('; ')}${withheld}. Ask the maker for this property in the required specimen and service state, or test a printed coupon.` : 'Not published in the sampled sources; ask the maker or test a printed coupon', known),
       criterion: label,
       missing: h?.missing ?? 'not-published',
+      reasonCode: h?.missing === 'not-available-in-market' ? 'numeric.no-price-in-shops' : h?.related?.length ? 'numeric.related-values-only' : 'numeric.not-published',
     };
   }
 
@@ -435,15 +438,18 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
   const status = onTheLine ? STATUS.INDETERMINATE : judged;
 
   let reason;
+  let reasonCode: ReasonCode;
   if (judged === STATUS.INDETERMINATE) {
     reason = bound
       ? `Published ${bound.words} ${fmtWords(h.value)} ${h.unit}, a bound that leaves the threshold on either side of the value`
       : `Reported range ${fmtWords(interval.lo)} to ${fmtWords(interval.hi)} ${h.unit} straddles the threshold`;
+    reasonCode = bound ? 'numeric.bound-straddles' : 'numeric.range-straddles';
   } else {
     // A scenario assumption is the reader's own number, never a published one (audit 2026-09-15, A-02).
     reason = h.assumption
       ? `Assumed ${fmtWords(h.value)} ${h.unit} (a scenario assumption, not published)`
       : `Published ${bound ? `${bound.words} ` : ''}${fmtWords(h.value)}${band ? ` ± ${fmtWords(h.uncertainty)}` : ''} ${h.unit}`;
+    reasonCode = h.assumption ? 'numeric.assumed' : 'numeric.published';
     // A value set apart (a bar no document describes as printed, a load or a usable orientation not stated: D172) decides
     // only under the engine's audit lens (`audit:gaps`); the selector never admits it.
     if (h.caveat) reason += `, ${CAVEAT_WORDS[h.caveat] ?? 'set apart'}`;
@@ -473,7 +479,7 @@ function evaluateNumeric(material: MaterialView, c: NumericConstraint, ctx: Ctx 
   // test scatter (C40, D153, D154): it still decides, and the answer says it is doubtful.
   if (h.doubtful?.length) reason += `. Doubtful: ${h.doubtful.map((d) => doubtWords(d, h.unit, ctx)).join('; ')}; re-read before relying on it`;
   return {
-    status, reason, criterion: label, closeToLimit,
+    status, reason, reasonCode, criterion: label, closeToLimit,
     ...(onTheLine ? { onTheLine } : {}), ...(thinMargin ? { thinMargin } : {}),
     ...(h.doubtful?.length ? { doubtful: h.doubtful } : {}),
     observed: h.value, unit: h.unit, interval,
@@ -539,7 +545,7 @@ function ledgerResult(h: HeadlineBag | undefined, c: NumericConstraint, ctx: Ctx
   const wordsOf = (b: Contribution) => ledgerRow(ctx.db, b.rule)?.words;
   if (iv.disagree) {
     return { result: {
-      status: STATUS.INDETERMINATE, criterion: label, missing: h.missing ?? 'not-published',
+      status: STATUS.INDETERMINATE, criterion: label, missing: h.missing ?? 'not-published', reasonCode: 'ledger.sheets-disagree',
       sheetsDisagree: { lo: ledgerRef(iv.loBy!, iv.lo), hi: ledgerRef(iv.hiBy!, iv.hi) },
       reason: disagreeReason(iv.loBy!, iv.hiBy!, { unit, wordsOf }),
     } };
@@ -562,7 +568,7 @@ function ledgerResult(h: HeadlineBag | undefined, c: NumericConstraint, ctx: Ctx
   const onTheLine = !!margin && !pass && margin.within(end);
   const thinMargin = !!margin && pass && margin.within(end);
   return { result: {
-    status: onTheLine ? STATUS.INDETERMINATE : judged, criterion: label,
+    status: onTheLine ? STATUS.INDETERMINATE : judged, criterion: label, reasonCode: 'ledger.bound',
     reason: ledgerReason(by, { unit, words: wordsOf(by), verdict: pass ? 'pass' : onTheLine ? 'line' : 'fail', c, margin: pass ? (thinMargin ? margin : null) : margin, asPrinted: !state?.treatment }),
     ledger: ledgerRef(by, end),
     ...(by.measurementId ? { measurementId: by.measurementId } : {}),
@@ -618,11 +624,11 @@ function elsewhereReason(h: HeadlineBag, state: ProductState | undefined, c?: Nu
  */
 function evaluateTreatment(material: MaterialView): Answer<TreatmentResult> {
   const t = material.state?.treatment;
-  if (!t) return { status: STATUS.PASS, criterion: 'Treatment', reason: 'Used as printed' };
+  if (!t) return { status: STATUS.PASS, criterion: 'Treatment', reason: 'Used as printed', reasonCode: 'treatment.as-printed' };
   if (t.tempC == null || t.hours == null) {
-    return { status: STATUS.UNKNOWN, criterion: 'Annealing', treatment: t, reason: `Its values in this state come from bars annealed ${schedule(t)}; a schedule its sheet does not give in full cannot be repeated, so it settles nothing` };
+    return { status: STATUS.UNKNOWN, criterion: 'Annealing', treatment: t, reasonCode: 'treatment.schedule-incomplete', reason: `Its values in this state come from bars annealed ${schedule(t)}; a schedule its sheet does not give in full cannot be repeated, so it settles nothing` };
   }
-  return { status: STATUS.PASS, criterion: 'Annealing', treatment: t, reason: `Needs annealing ${schedule(t)}, as its sheet states; annealing is allowed under Part condition` };
+  return { status: STATUS.PASS, criterion: 'Annealing', treatment: t, reasonCode: 'treatment.annealing-allowed', reason: `Needs annealing ${schedule(t)}, as its sheet states; annealing is allowed under Part condition` };
 }
 export const TREATMENT: TreatmentConstraint = { kind: 'treatment', mandatory: true, __group: 'Manufacturing' };
 
@@ -645,6 +651,7 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateRes
     return {
       status: excluded ? STATUS.FAIL : STATUS.PASS,
       criterion: 'H2C-relevant scope',
+      reasonCode: excluded ? 'scope.beyond-h2c' : 'scope.within-h2c',
       // Scope is the one place exclusion is recorded (m146); the material's Limitations say why it is out (an envelope
       // the H2C cannot reach). The sintering feedstocks, whose part is not the printed polymer, left the dataset (D174).
       reason: excluded
@@ -661,6 +668,7 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateRes
     return {
       status: ok ? STATUS.PASS : STATUS.FAIL,
       criterion: `H2C status in ${(c.in ?? []).join(', ')}`,
+      reasonCode: material.product && status !== material.h2cStatus ? 'h2c-status.not-own-spool' : 'h2c-status.recorded',
       reason: material.product && status !== material.h2cStatus
         ? `${material.product.manufacturer} ${material.product.product} is not Bambu Lab's own spool; its family is "${material.h2cStatus}", which makes it "${status}"`
         : `Recorded status is "${status}"`,
@@ -676,29 +684,30 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateRes
   if (c.gate === 'abrasive') {
     const criterion = 'No hardened nozzle';
     if (c.hardenedAvailable) {
-      return { status: STATUS.PASS, criterion: 'Hardened nozzle available', reason: 'A hardened nozzle prints abrasive and non-abrasive filament' };
+      return { status: STATUS.PASS, criterion: 'Hardened nozzle available', reasonCode: 'nozzle.hardened-available', reason: 'A hardened nozzle prints abrasive and non-abrasive filament' };
     }
     const g = material.gates.abrasive;
     // Read from a twin's sheet or a printer maker's guide where the product's own is silent (D88, D89): said so.
     const from = material.gates.abrasiveFrom ? ` (${material.gates.abrasiveFrom})` : '';
-    if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reason: `A source states it needs an abrasion-resistant nozzle${from}` };
-    if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: `A source states no special nozzle concern${from}` };
+    if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reasonCode: 'nozzle.requires-hardened', reason: `A source states it needs an abrasion-resistant nozzle${from}` };
+    if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reasonCode: 'nozzle.no-special-concern', reason: `A source states no special nozzle concern${from}` };
     // A maker who asks for a nozzle harder than brass, or warns of wear, requires no hardened nozzle (D168) and does not
     // say brass will do: unresolved for a user with only brass, in the maker's words.
     const advice = material.gates.abrasiveAdvice;
     if (advice) {
       const quoted = `"${String(advice.text).trim().replace(/\s+/g, ' ').slice(0, 140)}"`;
-      return { status: STATUS.UNKNOWN, criterion, reason: advice.kind === 'harder-than-brass'
+      return { status: STATUS.UNKNOWN, criterion, reasonCode: advice.kind === 'harder-than-brass' ? 'nozzle.harder-than-brass' : 'nozzle.wear-warned', reason: advice.kind === 'harder-than-brass'
         ? `The maker asks for a nozzle harder than brass, not necessarily a hardened one: ${quoted}`
         : `The maker warns of nozzle wear and asks for no hardened nozzle: ${quoted}` };
     }
     const filler = material.facets?.reinforcement?.value;
     if (material.facets?.fibre?.value || filler === 'carbon-fibre' || filler === 'glass-fibre') {
-      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, and no source states the nozzle it needs, so it is treated as abrasive until its documents say otherwise' };
+      return { status: STATUS.UNKNOWN, criterion, reasonCode: 'nozzle.fibre-treated-abrasive', reason: 'Fibre-filled, and no source states the nozzle it needs, so it is treated as abrasive until its documents say otherwise' };
     }
     // A filler the materials table names (ceramic, PTFE, metal powder …) is not undisclosed, so it is named (§37.8).
     return {
       status: STATUS.PASS, criterion,
+      reasonCode: filler === 'unfilled' ? 'nozzle.unfilled-no-requirement' : isNamedFiller(fillerOf(material)) ? 'nozzle.named-filler-check' : 'nozzle.undisclosed-filler-check',
       reason: filler === 'unfilled'
         ? 'No hardened-nozzle requirement recorded'
         : isNamedFiller(fillerOf(material))
@@ -718,18 +727,18 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateRes
     const what = material.product ? 'this product' : 'this material';
     if (!buy) {
       return {
-        status: STATUS.UNKNOWN, criterion: label,
+        status: STATUS.UNKNOWN, criterion: label, reasonCode: 'price.not-listed',
         reason: `No sampled Canadian retailer listed ${what} when sampled`,
       };
     }
     if (c.inStock && !buy.anyInStock) {
       return {
-        status: STATUS.FAIL, criterion: label, priceIds: buy.priceIds ?? [],
+        status: STATUS.FAIL, criterion: label, priceIds: buy.priceIds ?? [], reasonCode: 'price.out-of-stock',
         reason: `${buy.retailer} lists it, but no sampled offer of ${what} was in stock on ${buy.accessDate}`,
       };
     }
     return {
-      status: STATUS.PASS, criterion: label, priceIds: buy.priceIds ?? [],
+      status: STATUS.PASS, criterion: label, priceIds: buy.priceIds ?? [], reasonCode: 'price.listed',
       reason: `${buy.retailer}${buy.perKg ? `, about ${buy.perKg} CAD/kg` : ''}, seen ${buy.accessDate}`,
     };
   }
@@ -741,16 +750,17 @@ function evaluateGate(material: MaterialView, c: GateConstraint): Answer<GateRes
     const from = material.gates.dryingFrom ? ` (${material.gates.dryingFrom})` : '';
     const said = ({ required: 'Drying schedule published', optional: 'Drying optional', 'not-needed': 'Drying not needed' } as Readonly<Record<string, string | undefined>>)[material.gates.drying!];
     return said
-      ? { status: STATUS.PASS, criterion, reason: `${said}${from}` }
-      : { status: STATUS.UNKNOWN, criterion, reason: 'No drying statement in the sampled sources' };
+      ? { status: STATUS.PASS, criterion, reasonCode: 'drying.stated', reason: `${said}${from}` }
+      : { status: STATUS.UNKNOWN, criterion, reasonCode: 'drying.no-statement', reason: 'No drying statement in the sampled sources' };
   }
 
   const g = material.gates[c.gate];
   const label = `${GATE_LABEL[c.gate] ?? c.gate} within H2C baseline`;
-  if (!g) return { status: STATUS.UNKNOWN, criterion: label, reason: 'No print profile recorded' };
+  if (!g) return { status: STATUS.UNKNOWN, criterion: label, reason: 'No print profile recorded', reasonCode: 'gate.no-print-profile' };
   // A window the H2C reaches only at its bottom edge is on the line (D151): one test print, or a word with the maker,
   // settles it.
-  return { status: GATE_STATUS[g.verdict] ?? STATUS.UNKNOWN, criterion: label, reason: g.reason, ...(g.verdict === 'edge' ? { onTheLine: true } : {}) };
+  const code = gateReasonCodeOf(g.reason);
+  return { status: GATE_STATUS[g.verdict] ?? STATUS.UNKNOWN, criterion: label, reason: g.reason, ...(code === undefined ? {} : { reasonCode: code }), ...(g.verdict === 'edge' ? { onTheLine: true } : {}) };
 }
 
 // ---------------------------------------------------------------- facets and evidence
@@ -760,11 +770,12 @@ function evaluateFacet(material: MaterialView, c: FacetConstraint): Answer<Facet
   // names where that facet says undisclosed (§37.8). A requirement on "reinforcement" keeps the facet's own classes.
   if (c.facet === 'filler') {
     const value = fillerOf(material);
-    if (value == null) return { status: STATUS.UNKNOWN, criterion: `filler in ${(c.in ?? []).join(', ')}`, reason: 'Facet not recorded' };
+    if (value == null) return { status: STATUS.UNKNOWN, criterion: `filler in ${(c.in ?? []).join(', ')}`, reasonCode: 'facet.not-recorded', reason: 'Facet not recorded' };
     const ok = (c.in ?? []).includes(value);
     return {
       status: ok ? STATUS.PASS : STATUS.FAIL,
       criterion: `filler in ${(c.in ?? []).join(', ')}`,
+      reasonCode: 'facet.filler-recorded',
       reason: `Recorded as ${value}${isNamedFiller(value) ? ', the filler its Modifier / filler names' : ''}`,
     };
   }
@@ -774,16 +785,18 @@ function evaluateFacet(material: MaterialView, c: FacetConstraint): Answer<Facet
     return {
       status: ok ? STATUS.PASS : STATUS.FAIL,
       criterion: c.equals === false ? 'Build material' : 'Support material',
+      reasonCode: 'facet.role',
       reason: f.value ? 'A support or interface material' : 'A build material',
     };
   }
   const label = `${c.facet} in ${(c.in ?? [String(c.equals)]).join(', ')}`;
-  if (!f) return { status: STATUS.UNKNOWN, criterion: label, reason: 'Facet not recorded' };
+  if (!f) return { status: STATUS.UNKNOWN, criterion: label, reasonCode: 'facet.not-recorded', reason: 'Facet not recorded' };
   const value = f.value;
   const ok = c.in ? c.in.includes(value) : value === c.equals;
   return {
     status: ok ? STATUS.PASS : STATUS.FAIL,
     criterion: label,
+    reasonCode: 'facet.recorded',
     reason: `Recorded as ${value}${f.origin === 'derived' ? ', derived from ' + f.from : ''}`,
     derived: f.origin === 'derived',
   };
@@ -807,6 +820,7 @@ function evaluateEnvironment(material: MaterialView, c: EnvironmentConstraint, c
     return {
       status: STATUS.UNKNOWN,
       criterion: label,
+      reasonCode: 'environment.narrative-only',
       reason: `The ${name.toLowerCase()} records in this snapshot are narrative only; no reducible verdict exists for any material`,
       indicatorOnly: true,
     };
@@ -832,11 +846,11 @@ function evaluateEnvironment(material: MaterialView, c: EnvironmentConstraint, c
     if (product && all.length) {
       const others = all.filter((e) => e.verdict !== 'no-data');
       return {
-        status: STATUS.UNKNOWN, criterion: label, contextIds: all.map((e) => e.id),
+        status: STATUS.UNKNOWN, criterion: label, contextIds: all.map((e) => e.id), reasonCode: 'environment.no-own-statement',
         reason: `No statement of this product's own. ${others.length ? `${others.length} statement(s) about ${others.some((e) => !e.gradeId || /^Not /.test(e.gradeId)) ? 'its material or ' : ''}other products are context, not this product's` : 'Its material has statements, but none gives a verdict'}`,
       };
     }
-    return { status: STATUS.UNKNOWN, criterion: label, reason: `No statement for this ${product ? 'product' : 'material'}` };
+    return { status: STATUS.UNKNOWN, criterion: label, reasonCode: 'environment.no-statement', reason: `No statement for this ${product ? 'product' : 'material'}` };
   }
 
   // Only an unqualified positive record satisfies "resists". A source that reports *limited*
@@ -853,24 +867,24 @@ function evaluateEnvironment(material: MaterialView, c: EnvironmentConstraint, c
   const ids = (list: readonly EvidenceRecord[]): string[] => list.map((e) => e.id);
   const quote = (e: EvidenceRecord): string => `"${String(e.finding).slice(0, 60)}${String(e.finding).length > 60 ? '...' : ''}"`;
   if (contrary.length && !matching.length) {
-    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} statement(s) report ${verdictWords(contrary[0]!.verdict)}${from}`, evidenceIds: ids(contrary) };
+    return { status: STATUS.FAIL, criterion: label, reasonCode: 'environment.contrary', reason: `${contrary.length} statement(s) report ${verdictWords(contrary[0]!.verdict)}${from}`, evidenceIds: ids(contrary) };
   }
   if (matching.length && contrary.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `Mixed across exposures: ${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}, ${contrary.length} ${verdictWords(contrary[0]!.verdict)}${from}`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reasonCode: 'environment.mixed-exposures', reason: `Mixed across exposures: ${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}, ${contrary.length} ${verdictWords(contrary[0]!.verdict)}${from}`, evidenceIds: ids(records) };
   }
   if (matching.length && limited.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}, ${limited.length} only limited resistance (${limited.map(quote).join('; ')})${from}. Check which exposure matters to you`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reasonCode: 'environment.matching-and-limited', reason: `${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}, ${limited.length} only limited resistance (${limited.map(quote).join('; ')})${from}. Check which exposure matters to you`, evidenceIds: ids(records) };
   }
   if (matching.length && words.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}, and ${words.length} more give no clear verdict: ${words.map(quote).join('; ')}${from}. Read them before relying on it`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reasonCode: 'environment.matching-and-unclear', reason: `${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}, and ${words.length} more give no clear verdict: ${words.map(quote).join('; ')}${from}. Read them before relying on it`, evidenceIds: ids(records) };
   }
   if (matching.length) {
-    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}${from}. This covers the exposures stated, not every chemical in the class`, evidenceIds: ids(matching) };
+    return { status: STATUS.PASS, criterion: label, reasonCode: 'environment.matching', reason: `${matching.length} statement(s) report ${verdictWords(matching[0]!.verdict)}${from}. This covers the exposures stated, not every chemical in the class`, evidenceIds: ids(matching) };
   }
   if (limited.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} statement(s) report only limited resistance${from}`, evidenceIds: ids(limited) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reasonCode: 'environment.limited-only', reason: `${limited.length} statement(s) report only limited resistance${from}`, evidenceIds: ids(limited) };
   }
-  return { status: STATUS.UNKNOWN, criterion: label, reason: `Statements exist, but none gives a verdict${from}`, evidenceIds: ids(records) };
+  return { status: STATUS.UNKNOWN, criterion: label, reasonCode: 'environment.no-verdict', reason: `Statements exist, but none gives a verdict${from}`, evidenceIds: ids(records) };
 }
 
 /** A product as a reason names it: its maker and product, from the database the context carries. */
@@ -895,10 +909,10 @@ function evaluatePolymerLevel(polymer: PolymerRecord, label: string, ctx: Ctx | 
   const agents = polymer.agents.map((a) => `${verdictWords(a.verdict)} to ${a.agent}`).join(', ');
   const basis = `No statement for this material. Its base polymer ${polymer.polymerId} is published as ${verdictWords(polymer.verdict)} (${agents}) in resin reference data, which is not a test of this product, so never enough to pass`;
   const common = { status: STATUS.UNKNOWN, criterion: label, polymer: true, polymerId: polymer.polymerId, polymerVerdict: polymer.verdict, polymerEvidenceIds: [polymer.id] };
-  if (!polymer.screens) return { ...common, reason: basis };
+  if (!polymer.screens) return { ...common, reasonCode: 'polymer.basis', reason: basis };
   const screened = !!ctx?.useEstimates;
   return {
-    ...common, polymerScreen: true, screened, vetoedBy: [],
+    ...common, reasonCode: screened ? 'polymer.screened' : 'polymer.would-screen', polymerScreen: true, screened, vetoedBy: [],
     reason: screened ? `${basis}. Hidden; not tested on this product` : `${basis}. It would hide this material with estimates and resin data on`,
   };
 }
@@ -934,11 +948,12 @@ function evaluateEvidence(material: MaterialView, c: EvidenceConstraint, ctx: Ct
     const bad = cov.filter((r) => (r.status === 'Conflict' || r.status === 'Quarantined') && mine(r));
     checks.push({ ok: bad.length === 0, label: 'no unresolved conflict', detail: bad.length ? `${bad.length} unresolved: ${bad.map((b) => b.domain.toLowerCase()).join(', ')}` : 'No unresolved conflict recorded' });
   }
-  if (!checks.length) return { status: STATUS.PASS, criterion: 'Evidence', reason: 'No evidence criterion set' };
+  if (!checks.length) return { status: STATUS.PASS, criterion: 'Evidence', reasonCode: 'evidence.no-criterion', reason: 'No evidence criterion set' };
   const failed = checks.filter((x) => !x.ok);
   return {
     status: failed.length ? STATUS.FAIL : STATUS.PASS,
     criterion: checks.map((x) => x.label).join(' and '),
+    reasonCode: 'evidence.checks',
     reason: (failed.length ? failed : checks).map((x) => x.detail).join('; '),
   };
 }
@@ -1113,8 +1128,8 @@ const sig = (v: unknown, digits = 3): string => fmtWords(Number(Number(v).toPrec
 function openOne(r: Result, ctx: Ctx | undefined): string {
   if (isPrinterCheck(r)) {
     const c = r.constraint;
-    if (/^No print profile recorded/.test(r.reason ?? '')) return 'no print recipe on record';
-    if (/^No temperature published/.test(r.reason ?? '')) return `its ${c.gate} temperature is not stated`;
+    if (r.reasonCode === 'gate.no-print-profile') return 'no print recipe on record';
+    if (r.reasonCode === 'gate.no-temperature-published') return `its ${c.gate} temperature is not stated`;
     return `its ${c.gate}${r.onTheLine ? ' is on the line' : ''}: ${lowerFirst(firstSentence(r.reason))}`;
   }
   if (isNumericResult(r)) {
@@ -1332,9 +1347,9 @@ function productEntry(x: Judged, measuredMisses = false) {
 }
 
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
-const NUMERIC_KEPT = ['measurementId', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'admitted', 'elsewhere', 'missing', 'asPublished', 'caveat'] as const;
-const GATE_KEPT = ['priceIds', 'onTheLine'] as const;
-const ENVIRONMENT_KEPT = ['evidenceIds', 'contextIds', 'screened', 'polymer'] as const;
+const NUMERIC_KEPT = ['reasonCode', 'measurementId', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'admitted', 'elsewhere', 'missing', 'asPublished', 'caveat'] as const;
+const GATE_KEPT = ['reasonCode', 'priceIds', 'onTheLine'] as const;
+const ENVIRONMENT_KEPT = ['reasonCode', 'evidenceIds', 'contextIds', 'screened', 'polymer'] as const;
 type Mutable<T> = { -readonly [K in keyof T]: T[K] };
 /** Copy the named fields of an answer that it has set. */
 function carry<R extends object, K extends keyof R>(out: Partial<R>, from: R, keys: readonly K[]): void {
@@ -1362,12 +1377,18 @@ const productResult = (r: Result): Result => {
   }
   if (isTreatmentResult(r)) {
     const out: Mutable<TreatmentResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-    carry(out, r, ['treatment']);
+    carry(out, r, ['reasonCode', 'treatment']);
     return out;
   }
   // A facet and an evidence answer keep none of the fields a product's result lists.
-  if (isFacetResult(r)) return { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  return { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+  if (isFacetResult(r)) {
+    const out: Mutable<FacetResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+    carry(out, r, ['reasonCode']);
+    return out;
+  }
+  const out: Mutable<EvidenceResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+  carry(out, r, ['reasonCode']);
+  return out;
 };
 
 /** Evaluate one material: by its products when the context carries them (D83), else on its own headline. */

@@ -74,31 +74,91 @@ test('requirements are matched by ID after a structured clone, where object iden
   assert.equal(clone.constraintIds.indexOf(sample.constraintId), 0);
 });
 
-// The sentence each code names (reason-codes.ts comments); a code on a sentence it does not name is a wrong code.
+// The sentence each code names (core/reason-codes.ts comments); a code on a sentence it does not name is a wrong code.
 const STEMS = {
-  'scope.within-h2c': /^Within H2C capability$/,
+  'gate.no-print-profile': /^No print profile recorded/,
+  'gate.no-requirement-published': /^No requirement published/,
+  'gate.no-temperature-published': /^No temperature published/,
+  'gate.no-chamber-needed': /^(No heated chamber needed|The source says no enclosure is needed)/,
+  'gate.enclosure-counts': /^(An enclosure is asked for|Its maker asks for an enclosure)/,
+  'gate.chamber-dash': /^The source prints "/,
+  'gate.chamber-recommended-no-temperature': /^A heated chamber is recommended with no temperature/,
+  'gate.enclosure-asked-no-temperature': /^Asks for an enclosure but gives no chamber temperature/,
+  'gate.chamber-by-kind': /^No chamber stated; of the \d+ makers of /,
+  'gate.within-low-end': /^At the low end of the maker's window/,
+  'gate.edge': /^The H2C reaches only the bottom of the maker's window/,
+  'gate.recommends-at-least-above': /^Recommends at least /,
+  'gate.requires-at-least-above': /^Requires at least /,
+  'gate.needs-at-least-within': /^Needs at least /,
+  'gate.needs-up-to-within': /^Needs up to /,
+  'gate.recommends-up-to-above': /^Recommends up to /,
+  'gate.requires-up-to-above': /^Requires up to /,
+  'numeric.not-applicable': /^Does not apply: /,
+  'numeric.estimate-screened': /^No qualifying measurement\. Estimated .*, which cannot meet this requirement\. Hidden; not measured/,
+  'numeric.estimate-vetoed': /^No qualifying measurement\. Estimated .* would fail, but its own .* bounds it from below and meets the requirement, so it is not hidden/,
+  'numeric.estimate-may-still-meet': /^No qualifying measurement\. Estimated .* would fail, but the range it may screen on, .*, could still meet it/,
+  'numeric.estimate-cannot-screen': /^No qualifying measurement\. Estimated .* would fail, but /,
+  'numeric.estimate-not-failing': /^No qualifying measurement\. Estimated .*; (plausible|possible), but never enough to pass/,
+  'numeric.ceiling-only': /^Published .* on a bar its sheet does not describe\./,
+  'numeric.as-published-not-described': /^Published .* on a test bar its document does not describe as printed/,
+  'numeric.as-published-load-not-stated': /^Published .* without the test load, so it is not used at its value/,
+  'numeric.as-published-no-orientation': /^Published .* without a usable specimen orientation, so it is not used/,
+  'numeric.other-state': /^Published /,
+  'numeric.no-price-in-shops': /^No price in the sampled shops/,
+  'numeric.related-values-only': /^No qualifying measurement\. Published related values: /,
+  'numeric.not-published': /^Not published in the sampled sources; ask the maker or test a printed coupon/,
+  'numeric.bound-straddles': /^Published (more than|less than|at least|at most) .*, a bound that leaves the threshold on either side of the value/,
+  'numeric.range-straddles': /^Reported range .* straddles the threshold/,
+  'numeric.assumed': /^Assumed .* \(a scenario assumption, not published\)/,
+  'numeric.published': /^Published /,
+  'ledger.sheets-disagree': /./,
+  'ledger.bound': /./,
+  'treatment.as-printed': /^Used as printed$/,
+  'treatment.schedule-incomplete': /^Its values in this state come from bars annealed /,
+  'treatment.annealing-allowed': /^Needs annealing /,
   'scope.beyond-h2c': /^Beyond H2C capability: more heat than the H2C gives$/,
+  'scope.within-h2c': /^Within H2C capability$/,
+  'h2c-status.not-own-spool': /is not Bambu Lab's own spool; its family is "/,
+  'h2c-status.recorded': /^Recorded status is "/,
   'nozzle.hardened-available': /^A hardened nozzle prints abrasive and non-abrasive filament$/,
-  'price.listed': /, seen \S+$/,
-  'price.out-of-stock': /lists it, but no sampled offer of (this product|this material) was in stock on /,
+  'nozzle.requires-hardened': /^A source states it needs an abrasion-resistant nozzle/,
+  'nozzle.no-special-concern': /^A source states no special nozzle concern/,
+  'nozzle.harder-than-brass': /^The maker asks for a nozzle harder than brass, not necessarily a hardened one: /,
+  'nozzle.wear-warned': /^The maker warns of nozzle wear and asks for no hardened nozzle: /,
+  'nozzle.fibre-treated-abrasive': /^Fibre-filled, and no source states the nozzle it needs/,
+  'nozzle.unfilled-no-requirement': /^No hardened-nozzle requirement recorded$/,
+  'nozzle.named-filler-check': /^No hardened-nozzle requirement recorded for its .* filler, so check the product/,
+  'nozzle.undisclosed-filler-check': /^No hardened-nozzle requirement recorded\. The filler is not disclosed, so check the product/,
   'price.not-listed': /^No sampled Canadian retailer listed (this product|this material) when sampled$/,
+  'price.out-of-stock': /lists it, but no sampled offer of (this product|this material) was in stock on /,
+  'price.listed': /, seen \S+$/,
   'drying.stated': /^Drying (schedule published|optional|not needed)/,
   'drying.no-statement': /^No drying statement in the sampled sources$/,
   'facet.not-recorded': /^Facet not recorded$/,
   'facet.filler-recorded': /^Recorded as /,
-  'facet.recorded': /^Recorded as /,
   'facet.role': /^A (support or interface|build) material$/,
+  'facet.recorded': /^Recorded as /,
+  'environment.narrative-only': /records in this snapshot are narrative only; no reducible verdict exists for any material$/,
+  'environment.no-own-statement': /^No statement of this product's own\. /,
+  'environment.no-statement': /^No statement for this (product|material)$/,
+  'environment.contrary': /^\d+ statement\(s\) report /,
+  'environment.mixed-exposures': /^Mixed across exposures: /,
+  'environment.matching-and-limited': /only limited resistance \(.*\)/,
+  'environment.matching-and-unclear': /more give no clear verdict: /,
+  'environment.matching': /\. This covers the exposures stated, not every chemical in the class$/,
+  'environment.limited-only': /^\d+ statement\(s\) report only limited resistance/,
+  'environment.no-verdict': /^Statements exist, but none gives a verdict/,
+  'polymer.basis': /^No statement for this material\. Its base polymer /,
+  'polymer.screened': /\. Hidden; not tested on this product$/,
+  'polymer.would-screen': /\. It would hide this material with estimates and resin data on$/,
   'evidence.no-criterion': /^No evidence criterion set$/,
   'evidence.checks': /./,
-  'treatment.as-printed': /^Used as printed$/,
-  'treatment.schedule-incomplete': /^Its values in this state come from bars annealed /,
-  'treatment.annealing-allowed': /^Needs annealing /,
 };
 
-test('reason codes sit beside the unchanged text, and each names the sentence it sits on', () => {
+test('every requirement result carries a reason code, set by the engine beside the unchanged text, and the code names the sentence it sits on', () => {
   const ids = [...corpus.cases.filter((c) => c.group === 'template').map((c) => c.id), ...corpus.cases.filter((c) => c.group === 'random').slice(0, 120).map((c) => c.id)];
   const seen = new Map();
-  let results = 0, coded = 0;
+  let results = 0;
   for (const id of ids) {
     for (const row of ask(id).output.rows) {
       assert.equal(row.reasons.length, row.requirements.length);
@@ -107,25 +167,14 @@ test('reason codes sit beside the unchanged text, and each names the sentence it
         assert.equal(row.reasons[i].text, r.reason, 'the entry carries the engine\'s text, word for word');
         assert.equal(row.reasons[i].code, r.reasonCode);
         assert.deepEqual(row.reasons[i].params, {});
-        if (r.reasonCode === undefined) return;
-        coded++;
+        assert.ok(r.reasonCode !== undefined, `no code on "${r.reason}"`);
         seen.set(r.reasonCode, (seen.get(r.reasonCode) ?? 0) + 1);
         assert.ok(STEMS[r.reasonCode], `no stem for ${r.reasonCode}`);
         assert.match(r.reason, STEMS[r.reasonCode], `${r.reasonCode} on "${r.reason}"`);
       });
     }
   }
-  assert.ok(seen.size >= 10, `only ${seen.size} different codes were exercised: ${[...seen.keys()].join(', ')}`);
-  assert.ok(coded > 0 && coded < results, 'some results carry a code (structure settles it) and the numeric ones do not yet (WP-19)');
-});
-
-test('a print-gate or numeric result whose sentence has several sources gets no code: it is never guessed from the text', () => {
-  const { output } = ask(EXPLORE);
-  const numeric = output.rows.flatMap((r) => r.requirements).filter((r) => r.constraint.kind === 'numeric');
-  assert.ok(numeric.length > 0);
-  assert.ok(numeric.every((r) => r.reasonCode === undefined));
-  const printer = output.rows.flatMap((r) => r.requirements).filter((r) => r.constraint.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(r.constraint.gate));
-  assert.ok(printer.every((r) => r.reasonCode === undefined));
+  assert.ok(results > 100_000 && seen.size >= 60, `a real comparison: ${results} results, ${seen.size} different codes`);
 });
 
 test('RowResult: counts, Best and listing places agree with the evaluation they come from', () => {

@@ -7,7 +7,7 @@
 // An old module that imports `./products.js` and a ported module that imports `./constraints.ts` therefore both reach the
 // one instance of the module they name, whichever side of the switch it is on. Node strips the labels of a `.ts` file as it
 // loads it, which is the erasure P-erase proves equal to the old file for a label-only port.
-import { copyFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -28,6 +28,13 @@ export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', '
 export const PORT_ENV = 'ATLAS_ENGINE_PORT';
 
 export const PORT_DIR = fileURLToPath(new URL('.', import.meta.url));
+
+/**
+ * The files a ported module imports that are not engine modules, copied into the staged directory under the name the module
+ * imports them by. A port file stands for each in the repository (a module of its own, or a one-line re-export of the shared
+ * core), and the staged copy is that file, so the same text runs in both places.
+ */
+export const SUPPORT_FILES = ['gate-reasons.ts'] as const;
 
 const isPortable = (name: string): name is PortableModule => PORTABLE.some((m) => m === name);
 
@@ -71,6 +78,7 @@ export function stageEngine(ports: readonly PortableModule[] = activePorts(), { 
     copyFileSync(join(ported ? portDir : from, file), join(dir, file));
     writeFileSync(join(dir, alias), `export * from './${file}';\n`);
   }
+  for (const file of SUPPORT_FILES) copyFileSync(existsSync(join(portDir, file)) ? join(portDir, file) : join(PORT_DIR, file), join(dir, file));
   return dir;
 }
 
