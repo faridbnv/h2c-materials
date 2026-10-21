@@ -4,10 +4,16 @@
 // tests/remake/ratchet-and-erase.test.mjs); this file is the behavioural one.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { isDeepStrictEqual } from 'node:util';
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { PORTABLE, PORT_ENV, WIRED, activePorts, importStaged, stageEngine } from '@atlas/engine';
-import { db } from './helpers.mjs';
+import { checkDb } from '@atlas/data';
+import { PORTABLE, PORT_DIR, PORT_ENV, WIRED, activePorts, importStaged, stageEngine } from '@atlas/engine';
+import { runParity } from '../../packages/parity/src/compare.ts';
+import { createNewAdapter } from '../../packages/parity/src/new-adapter.ts';
+import { createOld } from '../../packages/parity/src/old-adapter.ts';
+import { corpus, db } from './helpers.mjs';
 
 const oldModules = await importStaged(stageEngine([]));
 const old = (name) => oldModules.get(name);
@@ -263,5 +269,113 @@ test('ledger: a conversion or class limit by its identifier, from one table per 
   assert.equal(ledger.requirementWords({ operator: '>=', value: 1500.25 }, 'kg/m³'), was.requirementWords({ operator: '>=', value: 1500.25 }, 'kg/m³'));
   for (const operator of ['>', '<', '<=', '>=', '==', undefined]) for (const value of [0, 1500, 12345.678901, -3]) {
     assert.equal(ledger.requirementWords({ operator, value }, 'MPa'), was.requirementWords({ operator, value }, 'MPa'), `${operator} ${value}`);
+  }
+});
+
+// --- products ---------------------------------------------------------------------------------------------------------------
+
+test('products: states, headlines, gates and views of every product of the catalogue are the old module\'s, in every service state', async () => {
+  const products = await ported('products');
+  const was = old('products');
+  const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
+  const gradeToMaterial = new Map(db.materials.flatMap((m) => (m.gradeIds ?? []).map((id) => [id, m])));
+  const contexts = [
+    {}, { db, measurementById }, { db, measurementById, evidence: 'as-published' },
+    { db, measurementById, anneal: true }, { db, measurementById, anneal: true, annealMaxC: 100 }, { db, measurementById, anneal: true, annealMaxC: 250, moisture: 'conditioned' },
+    { db, measurementById, moisture: 'conditioned', evidence: 'as-published' }, { anneal: 'yes', annealMaxC: Number.NaN, moisture: 'wet' },
+  ];
+  assert.deepEqual(products.SHARE, was.SHARE);
+  assert.deepEqual(products.EVIDENCE, was.EVIDENCE);
+  for (const v of ['as-published', 'comparable', undefined, null, 'x', 1]) assert.equal(products.normalizeEvidence(v), was.normalizeEvidence(v));
+
+  const byMaterial = products.productsByMaterial(db);
+  const byMaterialWas = was.productsByMaterial(db);
+  assert.deepEqual([...byMaterial.keys()], [...byMaterialWas.keys()]);
+  for (const [id, list] of byMaterialWas) {
+    assert.equal(byMaterial.get(id).length, list.length);
+    list.forEach((g, i) => assert.equal(byMaterial.get(id)[i], g, `${id} keeps the material's product order`));
+  }
+
+  const ids = new Set(['', 'as-printed', 'conditioned', 'annealed:120:16', 'annealed:120:16+conditioned', 'annealed:x:x', 'annealed:x:16+conditioned', 'annealed:1:2:3', 'annealed:a:2', 'dry', 'conditioned+conditioned', 'as-printed+as-printed', '+', undefined, null, 5, {}]);
+  let views = 0, headlines = 0;
+  for (const g of db.grades) {
+    const m = gradeToMaterial.get(g.id);
+    for (const s of g.states ?? []) ids.add(s.id);
+    assert.deepEqual(products.firstState(g), was.firstState(g));
+    if (g.states?.length) assert.equal(products.firstState(g), g.states[0], 'the product\'s own first state, not a copy');
+    for (const ctx of contexts) {
+      assert.deepEqual(products.statePolicy(ctx), was.statePolicy(ctx));
+      const a = products.scenarioStates(g, ctx);
+      const b = was.scenarioStates(g, ctx);
+      assert.deepEqual(a, b);
+      a.forEach((st, i) => { if (g.states?.includes(b[i])) assert.equal(st, b[i], 'a state the product publishes comes back as itself'); });
+    }
+    if (!m) continue;
+    for (const st of [null, ...(g.states ?? [])]) {
+      for (const ctx of contexts.slice(1, 5)) {
+        const a = products.productView(m, g, ctx, st);
+        const b = was.productView(m, g, ctx, st);
+        assert.ok(isDeepStrictEqual(a.headline, b.headline), `${g.id} ${st?.id} headline`);
+        assert.ok(isDeepStrictEqual(a.gates, b.gates), `${g.id} gates`);
+        assert.equal(a.product, b.product);
+        assert.equal(a.buy, b.buy);
+        if (st) { assert.equal(a.state, st); assert.equal(b.state, st); } else assert.deepEqual(a.state, b.state);
+        assert.deepEqual(Object.keys(a), Object.keys(b));
+        views++;
+        for (const key of Object.keys(m.headline ?? {})) {
+          const x = products.productHeadline(m, g, key, ctx, st);
+          const y = was.productHeadline(m, g, key, ctx, st);
+          assert.ok(isDeepStrictEqual(x, y), `${g.id} ${key}`);
+          assert.ok(isDeepStrictEqual(products.valueStateOf(g, key, st, ctx), was.valueStateOf(g, key, st, ctx)));
+          assert.ok(isDeepStrictEqual(products.stateBounds(g, key, st, ctx), was.stateBounds(g, key, st, ctx)));
+          headlines++;
+        }
+      }
+    }
+    assert.deepEqual(products.productGates(m, g), was.productGates(m, g));
+  }
+  for (const id of ids) {
+    assert.deepEqual(products.parseStateId(id), was.parseStateId(id), String(id));
+    for (const g of db.grades.filter((_, i) => i % 7 === 0)) assert.deepEqual(products.stateOf(g, id), was.stateOf(g, id), `${g.id} ${String(id)}`);
+  }
+  for (const t of [null, undefined, { tempC: 120, hours: 16 }, { tempC: null, hours: null }, { tempC: 0, hours: 0 }]) for (const mo of [undefined, 'dry', 'conditioned', 'x']) assert.equal(products.stateId(t, mo), was.stateId(t, mo));
+  for (const m of db.materials) {
+    const grades = byMaterialWas.get(m.id);
+    assert.deepEqual(products.hardenedShare(grades), was.hardenedShare(grades));
+    assert.equal(products.hardenedWords(was.hardenedShare(grades)), was.hardenedWords(was.hardenedShare(grades)));
+  }
+  assert.deepEqual(products.hardenedShare(undefined), was.hardenedShare(undefined));
+  assert.equal(products.hardenedWords(null), was.hardenedWords(null));
+  assert.ok(views > 2000 && headlines > 20_000, `a real comparison: ${views} product views, ${headlines} product headlines`);
+});
+
+// --- the harness sees a fault in a port ------------------------------------------------------------------------------------
+
+test('a fault planted in a ported module is caught by the new side of the parity harness, so the port is what runs', async () => {
+  const cases = [...corpus.cases.filter((c) => c.group === 'template').slice(0, 10), ...corpus.cases.filter((c) => c.group === 'census').slice(0, 8)];
+  const typed = checkDb(structuredClone(db));
+  assert.ok(typed.ok);
+  const faults = [
+    // The service state a product is judged in: the wrong moisture is kept.
+    ['products', "(s.moisture ?? 'dry') === policy.moisture", "(s.moisture ?? 'dry') !== policy.moisture"],
+    // The ledger's words: a number from 100 up is printed to the nearest unit only from 1,000.
+    ['ledger', 'const s = a >= 100 ? String(Math.round(n))', 'const s = a >= 1000 ? String(Math.round(n))'],
+    // The ledger's rule for which contribution may decide: the wrong half of them.
+    ['ledger', "b.status === 'deciding' && (b.level", "b.status !== 'deciding' && (b.level"],
+  ];
+  for (const [name, find, replace] of faults) {
+    const dir = mkdtempSync(join(tmpdir(), 'h2c-port-fault-'));
+    try {
+      const source = readFileSync(join(PORT_DIR, `${name}.ts`), 'utf8');
+      assert.equal(source.split(find).length - 1, 1, `the fault for ${name} finds its line`);
+      writeFileSync(join(dir, `${name}.ts`), source.replace(find, replace));
+      const engineDir = stageEngine([name], { portDir: dir });
+      const faulty = await runParity({ corpusName: 'v0', cases, before: await createOld(structuredClone(db)), after: await createNewAdapter({ db: checkDb(structuredClone(db)).db, engineDir }) });
+      assert.equal(faulty.status, 'differs', `${name}: a fault in the port must show`);
+      const clean = await runParity({ corpusName: 'v0', cases, before: await createOld(structuredClone(db)), after: await createNewAdapter({ db: checkDb(structuredClone(db)).db, ports: [name] }) });
+      assert.equal(clean.status, 'zero', `${name}: the port itself shows no difference`);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   }
 });
