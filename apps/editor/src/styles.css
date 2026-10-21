@@ -1,0 +1,150 @@
+/* The proofing desk. Two voices: the editor speaks in a plain sans, the source speaks in a serif (those are its words, not ours).
+   A correction is drawn the way a proofreader marks one: the old value struck through, the new one underlined, the quote under a
+   marker. A desktop tool, at least 1280 px wide (05 section 11.2). Fonts are the computer's own: the page loads nothing from elsewhere. */
+:root {
+  --paper: #eef1f0;
+  --sheet: #fbfcfb;
+  --ink: #17242a;
+  --ink-2: #4b5c63;
+  --rule: #c5d0d2;
+  --pen: #0d5c7a;
+  --pen-ink: #ffffff;
+  --pen-wash: #dcecf2;
+  --marker: #ffe06b;
+  --marker-ink: #17242a;
+  --draft: #7a4a00;
+  --draft-wash: #fff0cf;
+  --stale: #9c2b2b;
+  --stale-wash: #fbe4e1;
+  --ok: #1e6a43;
+  --ok-wash: #e1f1e8;
+  --ui: "Avenir Next", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --page: "Iowan Old Style", "Charter", "Palatino Linotype", Georgia, serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f171a;
+    --sheet: #162126;
+    --ink: #e8eef0;
+    --ink-2: #9db0b7;
+    --rule: #2c3c43;
+    --pen: #7ccbeb;
+    --pen-ink: #0b2530;
+    --pen-wash: #17333f;
+    --marker: #7a6410;
+    --marker-ink: #fff4c2;
+    --draft: #f2c879;
+    --draft-wash: #3a2b0e;
+    --stale: #ff9e9e;
+    --stale-wash: #3b1b1b;
+    --ok: #8ed7ab;
+    --ok-wash: #14301f;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--paper); color: var(--ink); font: 14px/1.5 var(--ui); min-width: 1280px; }
+#app { height: 100%; }
+.shell { height: 100%; display: grid; grid-template-rows: auto auto auto minmax(0, 1fr); }
+.notices .banner { border-left-width: 0; border-bottom: 1px solid var(--rule); padding: 6px 16px; }
+h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.25; }
+h1 { font-size: 15px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+p { margin: 0; }
+a, button, input, textarea, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--pen); outline-offset: 2px; }
+.skip { position: absolute; left: -9999px; top: 0; background: var(--pen); color: var(--pen-ink); padding: 8px 12px; z-index: 10; }
+.skip:focus { left: 8px; top: 8px; }
+.muted { color: var(--ink-2); }
+.num { font-variant-numeric: tabular-nums; }
+.stack > * + * { margin-top: 12px; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* ------------------------------------------------------------ the strip and the tabs */
+.strip { display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap; padding: 8px 16px; background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.strip .sandbox { font-weight: 600; }
+.strip .fact { color: var(--ink-2); }
+.tabs { display: flex; gap: 4px; padding: 0 12px; background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.tabs button { background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 12px 6px; cursor: pointer; color: var(--ink-2); }
+.tabs button[aria-current="page"] { color: var(--ink); border-bottom-color: var(--pen); font-weight: 600; }
+.count { display: inline-block; min-width: 1.6em; padding: 0 6px; border-radius: 10px; background: var(--pen-wash); text-align: center; font-size: 12px; }
+.count.alert { background: var(--stale-wash); color: var(--stale); }
+
+/* ------------------------------------------------------------ the three columns of the workbench */
+main { min-height: 0; }
+.bench { display: grid; grid-template-columns: 280px minmax(460px, 1fr) minmax(400px, 1.1fr); height: 100%; }
+.col { overflow: auto; padding: 16px; border-right: 1px solid var(--rule); }
+.col:last-child { border-right: 0; background: var(--sheet); }
+.page-view { padding: 16px 24px; overflow: auto; height: 100%; max-width: 980px; }
+
+/* ------------------------------------------------------------ controls */
+label { display: block; font-weight: 600; margin-bottom: 2px; }
+.hint { color: var(--ink-2); font-weight: 400; font-size: 13px; }
+input, textarea, select { width: 100%; padding: 6px 8px; background: var(--sheet); border: 1px solid var(--ink-2); border-radius: 3px; }
+textarea { min-height: 64px; resize: vertical; }
+input[readonly], input:disabled, textarea:disabled { background: var(--paper); color: var(--ink-2); border-color: var(--rule); }
+.btn { padding: 6px 12px; border: 1px solid var(--pen); background: transparent; color: var(--pen); border-radius: 3px; cursor: pointer; }
+.btn.primary { background: var(--pen); color: var(--pen-ink); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn.danger { border-color: var(--stale); color: var(--stale); }
+.link { background: none; border: 0; padding: 0; color: var(--pen); text-decoration: underline; cursor: pointer; }
+.field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.field-grid .wide { grid-column: 1 / -1; }
+fieldset { border: 1px solid var(--rule); border-radius: 3px; padding: 10px 12px 12px; margin: 0; }
+legend { padding: 0 6px; font-weight: 600; }
+
+/* ------------------------------------------------------------ messages and labels */
+.banner { padding: 8px 12px; border-left: 4px solid var(--pen); background: var(--pen-wash); }
+.banner.warn { border-color: var(--draft); background: var(--draft-wash); color: var(--draft); }
+.banner.error { border-color: var(--stale); background: var(--stale-wash); color: var(--stale); }
+.banner.ok { border-color: var(--ok); background: var(--ok-wash); color: var(--ok); }
+.badge { display: inline-block; padding: 0 6px; font-size: 12px; border: 1px dashed var(--draft); color: var(--draft); background: var(--draft-wash); border-radius: 3px; white-space: nowrap; }
+.badge.plain { border: 1px solid var(--rule); color: var(--ink-2); background: transparent; }
+.badge.done { border-style: solid; border-color: var(--ok); color: var(--ok); background: var(--ok-wash); }
+details > summary { cursor: pointer; color: var(--ink-2); }
+pre { margin: 6px 0 0; padding: 8px; background: var(--paper); border: 1px solid var(--rule); white-space: pre-wrap; word-break: break-word; font: 12px/1.45 ui-monospace, Menlo, monospace; }
+
+/* ------------------------------------------------------------ finding and listing */
+.results { list-style: none; margin: 8px 0 0; padding: 0; }
+.results button { display: block; width: 100%; text-align: left; padding: 6px 8px; background: none; border: 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.results button[aria-current="true"] { background: var(--pen-wash); box-shadow: inset 3px 0 0 var(--pen); }
+.results .maker { color: var(--ink-2); font-size: 13px; }
+table { width: 100%; border-collapse: collapse; }
+caption { text-align: left; font-weight: 600; padding-bottom: 6px; }
+th, td { text-align: left; vertical-align: top; padding: 5px 8px 5px 0; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; color: var(--ink-2); font-size: 13px; }
+tr.picked td { background: var(--pen-wash); }
+tr.picked td:first-child { box-shadow: inset 3px 0 0 var(--pen); padding-left: 8px; }
+
+/* ------------------------------------------------------------ proof marks */
+.was { text-decoration: line-through; text-decoration-color: var(--stale); color: var(--ink-2); }
+.now { text-decoration: underline; text-decoration-color: var(--pen); text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 600; }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule); }
+.three > div { padding: 8px 10px; border-right: 1px solid var(--rule); }
+.three > div:last-child { border-right: 0; }
+.three h4 { margin: 0 0 4px; font-size: 13px; color: var(--ink-2); font-weight: 600; }
+.three dl { margin: 0; }
+.three dt { color: var(--ink-2); font-size: 12px; }
+.three dd { margin: 0 0 4px; font-variant-numeric: tabular-nums; }
+.card { border: 1px solid var(--rule); background: var(--sheet); padding: 12px; border-radius: 3px; }
+.card.stale { border-color: var(--stale); }
+
+/* ------------------------------------------------------------ the source page */
+.page-text { list-style: none; margin: 8px 0 0; padding: 0; font-family: var(--page); font-size: 15.5px; line-height: 1.65; max-width: 62ch; }
+.page-text button { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 0 4px; cursor: pointer; font: inherit; border-radius: 2px; }
+.page-text button:hover { background: var(--paper); }
+.page-text mark { background: var(--marker); color: var(--marker-ink); padding: 0 1px; }
+.page-text button[aria-current="true"] { box-shadow: inset 3px 0 0 var(--marker); }
+.page-image { max-width: 100%; border: 1px solid var(--rule); background: #fff; }
+.pager { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pager input { width: 5em; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .banner, .card { animation: settle 160ms ease-out; }
+  @keyframes settle { from { opacity: 0.4; } to { opacity: 1; } }
+}
+.field-grid .wide-2 { grid-column: span 2; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

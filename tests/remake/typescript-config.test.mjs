@@ -20,7 +20,7 @@ test('TypeScript is 6.x, pinned exactly in package.json', () => {
   assert.match(pkg.devDependencies.typescript, /^6\.\d+\.\d+$/);
   assert.equal(JSON.parse(readFileSync(join(root, 'node_modules/typescript/package.json'), 'utf8')).version, pkg.devDependencies.typescript);
   for (const name of ['typescript-eslint', 'eslint', '@types/node']) assert.match(pkg.devDependencies[name], /^\d+\.\d+\.\d+$/, `${name} must be pinned exactly`);
-  assert.deepEqual(pkg.workspaces, ['packages/*']);
+  assert.deepEqual(pkg.workspaces, ['packages/*', 'apps/*']);
 });
 
 test('base level: erasable syntax only, type-only imports explicit, no emit, no TypeScript 7 hazards', () => {

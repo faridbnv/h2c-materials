@@ -60,3 +60,5 @@ CLAUDE.local.md
 
 # The SQLite workspace (WP-09): rebuilt from the committed CSV by `npm run db:rebuild`; never a second master, never committed.
 .workspace/
+test-results/
+playwright-report/
