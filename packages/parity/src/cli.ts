@@ -1,158 +1,26 @@
-// npm run parity -- [--noop | --fault <name> | --new] [--transitions <dir>] [--corpus <file>] [--db <file>] [--only <prefix>] [--json <file>]
-//   (no mode)       old against the new-side adapter: the old engine behind the typed wrapper (@atlas/engine, WP-11)
-//   --new           the same, said out loud
+// npm run parity -- [--noop | --fault <name> | --new | --placeholder | --mutate] [--milestone] [--surface <list>] [--tables-dir <dir>]
+//                   [--transitions <dir>] [--corpus <file>] [--db <file>] [--only <prefix>] [--json <file>]
+//   (no mode)       old against the new side: on the engine surface, the old engine behind the typed wrapper (@atlas/engine, WP-11)
+//   --new           the same, said out loud. Build and pages stay "not computable" until WP-20 and WP-24 wire them
 //   --placeholder   old against a new side that answers nothing: must report "not computable", exit 2 (a self-test)
 //   --noop          old against a second, independently loaded copy of old; must be exactly 0 differences
 //   --fault <name>  old against a temporary copy of the engine with one fault injected; must report differences (exit 5)
+//   --mutate        all nine faults, one after the other, into temporary copies (npm run parity:mutate); 0 when 9 of 9 are caught
+//   --milestone     the milestone size: 5,000 seeded replays (v0 has 1,000), the census, a larger tie-shuffle sample
+//   --surface <list>  comma-separated: engine, ties, links, build, pages (all five by default), core (WP-25 hook, never default)
+//   --tables-dir <dir>  build P-build and P-pages from this directory of table CSVs instead of data/tables (in a temporary copy)
 //   --list-faults   the faults
 //   --emit-transition <file> --id <id> --kind <k> --ruling <text> --description <text>  write the observed differences as a transition file
 //   --allow-partial  accept a run over a selection (--only); without it a partial run exits 4 even when it shows zero
+// With --only and no --surface, only the engine runs (a selection is a local check, never a pass).
 // Only the flags above exist. An unknown flag, a stray argument, a repeated flag, or a flag used as another flag's value is a
 // usage error (64); it is never ignored.
 // Exit: 0 zero, or matches its transitions; 1 differs; 2 not computable; 3 a fault was injected and NOT caught (harness blind);
 // 4 partial run without --allow-partial; 5 a fault was injected and caught (the self-test passed; with --transitions the
 // transition decides: 0 or 1); 64 bad usage; 70 the tool itself crashed (an uncaught error: a bug or a missing build, never a verdict).
-// 1 means only "differs": nothing else exits 1, not even a crash.
-import { writeFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { checkDb } from '@atlas/data';
-import { exitCode, runParity } from './compare.ts';
-import { loadCorpus } from './corpus.ts';
-import { REPO_ROOT, copyEngine } from './engine-copy.ts';
-import { FAULTS } from './faults.ts';
-import { createNewAdapter, createNewPlaceholder } from './new-adapter.ts';
-import { createOld, createOldAdapter, readDb } from './old-adapter.ts';
-import { formatReport } from './report.ts';
-import { buildTransition, loadTransitions } from './transitions.ts';
-import type { ParityReport } from './types.ts';
-
-/** Flags that stand alone, and flags that take one value. Anything else is a usage error. */
-const SWITCHES = ['noop', 'new', 'placeholder', 'list-faults', 'allow-partial'];
-const VALUED = ['fault', 'transitions', 'corpus', 'db', 'only', 'json', 'emit-transition', 'id', 'kind', 'ruling', 'description'];
-
-class UsageError extends Error {}
-
-/** The flags given, or a UsageError naming the problem. */
-function parseArgs(argv: readonly string[]): Map<string, string | true> {
-  const given = new Map<string, string | true>();
-  for (let i = 0; i < argv.length; i++) {
-    const token = argv[i]!;
-    if (!token.startsWith('-')) throw new UsageError(`unexpected argument "${token}" (flags only; a value follows the flag that takes one)`);
-    const name = token.startsWith('--') ? token.slice(2) : '';
-    const isSwitch = SWITCHES.includes(name);
-    if (!isSwitch && !VALUED.includes(name)) throw new UsageError(`unknown flag ${token}`);
-    if (given.has(name)) throw new UsageError(`${token} given twice`);
-    if (isSwitch) { given.set(name, true); continue; }
-    const value = argv[i + 1];
-    if (value === undefined) throw new UsageError(`${token} needs a value`);
-    if (value.startsWith('-')) throw new UsageError(`${token} needs a value, but the next argument is the flag ${value}`);
-    given.set(name, value);
-    i++;
-  }
-  return given;
-}
-
-/** Why a transition file cannot be written from this report, or '' when it can. */
-function transitionRefusal(report: ParityReport, allowPartial: boolean): string {
-  if (report.status !== 'differs') return `a run whose status is ${report.status}`;
-  if (report.notComputable.length) return 'a run with not-computable places';
-  if (report.partial && !allowPartial) return 'a partial run (add --allow-partial)';
-  return '';
-}
-
-async function main(argv: readonly string[]): Promise<number> {
-  const given = parseArgs(argv);
-  const flag = (n: string) => given.has(n);
-  const val = (n: string): string | undefined => { const v = given.get(n); return typeof v === 'string' ? v : undefined; };
-
-  if (flag('list-faults')) {
-    for (const f of FAULTS) console.log(`${f.name.padEnd(18)} ${f.expect.join('+').padEnd(20)} ${f.description}`);
-    return 0;
-  }
-
-  const modes = ['noop', 'fault', 'new', 'placeholder'].filter((m) => flag(m));
-  if (modes.length > 1) throw new UsageError('choose one of --noop, --fault <name>, --new, --placeholder');
-  const mode = modes[0] ?? 'new';
-  if (mode === 'noop' && flag('transitions')) throw new UsageError('--noop must be exactly zero; transitions are not accepted with it');
-  const fault = mode === 'fault' ? FAULTS.find((f) => f.name === val('fault')) : undefined;
-  if (mode === 'fault' && !fault) throw new UsageError(`unknown fault "${val('fault')}"; known: ${FAULTS.map((f) => f.name).join(', ')}`);
-  if (flag('emit-transition') && mode === 'noop') throw new UsageError('refusing to write a transition from a noop run');
-
-  const corpus = loadCorpus(val('corpus'));
-  const only = val('only');
-  const cases = only ? corpus.cases.filter((c) => c.id.startsWith(only)) : corpus.cases;
-  const dbPath = val('db');
-  const allowPartial = flag('allow-partial');
-
-  const t0 = performance.now();
-  const dbBefore = readDb(dbPath);
-  console.log(`db: release ${dbBefore.meta?.release?.id ?? '?'}, snapshot ${dbBefore.meta?.snapshot ?? '?'}; corpus ${corpus.corpus} built from release ${corpus.generatedFrom.release ?? '?'}`);
-  const before = await createOld(dbBefore);
-  let after;
-  if (mode === 'noop') {
-    // A second old: its own parse of the db, and a fresh copy of the engine files, so no module instance or object is shared.
-    after = await createOldAdapter({ name: 'old (second copy)', db: readDb(dbPath), engineDir: copyEngine([]) });
-  } else if (fault) {
-    after = await createOldAdapter({ name: `old + fault ${fault.name}`, db: readDb(dbPath), engineDir: copyEngine(fault.patches) });
-  } else if (mode === 'placeholder') {
-    after = createNewPlaceholder();
-  } else {
-    // The wrapper over its own copy of the engine files and its own typed parse of the db: nothing shared with the old side.
-    const typed = checkDb(readDb(dbPath));
-    if (!typed.ok) throw new Error(`the db does not satisfy the typed contract of @atlas/data: ${typed.problems.slice(0, 5).join('; ')}`);
-    after = await createNewAdapter({ db: typed.db, engineDir: copyEngine([]) });
-  }
-
-  // Transitions apply to a real comparison, not to the self-tests, unless asked for.
-  const transitionDir = val('transitions') ?? (mode === 'new' || mode === 'placeholder' ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
-  const transitions = transitionDir ? loadTransitions(transitionDir) : undefined;
-
-  const report = await runParity({
-    corpusName: corpus.corpus, cases, knownCaseIds: new Set(corpus.cases.map((c) => c.id)), before, after, ...(transitions ? { transitions } : {}),
-    ...(process.stdout.isTTY ? { onProgress: (d: number, n: number) => { if (d % 100 === 0 || d === n) process.stdout.write(`\r  ${d}/${n} cases`); } } : {}),
-  });
-  if (process.stdout.isTTY) process.stdout.write('\r');
-  console.log(formatReport(report));
-  console.log(`setup + run wall time: ${((performance.now() - t0) / 1000).toFixed(1)}s`);
-
-  const json = val('json');
-  if (json) writeFileSync(json, `${JSON.stringify(report, null, 1)}\n`);
-  const emit = val('emit-transition');
-  if (emit) {
-    const why = transitionRefusal(report, allowPartial);
-    if (why) { console.error(`parity: refusing to write a transition from ${why}`); return 64; }
-    const t = buildTransition({
-      id: val('id') ?? 'unnamed', kind: (val('kind') ?? 'science') as never, description: val('description') ?? '', ruling: val('ruling') ?? '',
-      corpus: corpus.corpus, differences: report.differences,
-    });
-    writeFileSync(emit, `${JSON.stringify(t, null, 1)}\n`);
-    console.log(`transition written: ${emit} (${t.differences.length} differences, ${t.digest})`);
-  }
-
-  let code = exitCode(report.status);
-  if (mode === 'noop' && report.status !== 'zero') { console.error('NOOP FAILED: old against a copy of itself must be exactly zero differences'); code = code || 1; }
-  if (fault) {
-    if (report.differences.length === 0) {
-      console.error(`FAULT NOT CAUGHT: ${fault.name} produced no difference; the harness is blind to it`);
-      code = 3;
-    } else {
-      const tiers = new Set(report.differences.map((d) => d.tier));
-      const missed = fault.expect.filter((t) => !tiers.has(t));
-      // Caught: its own code, 5, so a caught fault is not read as "differs" (1) or as a crash (70). With --transitions the
-      // transition decides (0 or 1); a not-computable run keeps 2.
-      if (missed.length) code = 3;
-      else if (!transitions && code === 1) code = 5;
-      console.log(`fault ${fault.name}: caught, ${report.movedRecords.length} record(s) moved, tiers hit: ${[...tiers].join(', ')}${missed.length ? ` (expected also: ${missed.join(', ')})` : ''}`);
-    }
-  }
-  if (report.partial && !allowPartial && code === 0) {
-    console.error('PARTIAL RUN: a selection (--only) cannot show the corpus is clean; add --allow-partial to accept it');
-    code = 4;
-  }
-  return code;
-}
-
-// A crash is not a verdict: whatever escapes main exits 70 with the error on stderr, never 1 (differs) and never 0.
+// 1 means only "differs": nothing else exits 1, not even a crash. The last line of a run is the one RESULT: line.
+// A crash is not a verdict: whatever escapes exits 70 with the error on stderr, never 1 (differs) and never 0. The handlers are
+// installed before anything else is loaded, so a module that fails to load (a syntax error, a missing export) is a crash too.
 function crash(err: unknown): never {
   console.error(`parity: internal error, exit 70 (a bug or a missing build, not a verdict): ${err instanceof Error ? (err.stack ?? err.message) : String(err)}`);
   process.exit(70);
@@ -160,10 +28,9 @@ function crash(err: unknown): never {
 process.on('uncaughtException', crash);
 process.on('unhandledRejection', crash);
 
-main(process.argv.slice(2)).then(
-  (code) => process.exit(code),
-  (err: unknown) => {
-    if (err instanceof UsageError) { console.error(`parity: ${err.message}`); process.exit(64); }
-    return crash(err);
-  },
-);
+try {
+  const { runCli } = await import('./run-cli.ts');
+  process.exit(await runCli(process.argv.slice(2)));
+} catch (err) {
+  crash(err);
+}

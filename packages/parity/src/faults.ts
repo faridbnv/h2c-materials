@@ -42,6 +42,36 @@ export const FAULTS: Fault[] = [
     patches: [{ file: 'constraints.js', find: "for (const k of ['measurementId', 'evidenceIds',", replace: "for (const k of ['evidenceIds'," }],
   },
   {
+    name: 'gate-precedence',
+    description: 'When a material has a requirement that failed and one that is unresolved, the unresolved one now outranks the failure (the verdict precedence is flipped)',
+    expect: ['decision'],
+    patches: [{
+      file: 'constraints.js',
+      find: '  if (failed.length) verdict = STATUS.FAIL;\n  else if (!unresolved.length) verdict = STATUS.PASS;\n  else verdict = STATUS.UNKNOWN;',
+      replace: '  if (unresolved.length) verdict = STATUS.UNKNOWN;\n  else if (failed.length) verdict = STATUS.FAIL;\n  else verdict = STATUS.PASS;',
+    }],
+  },
+  {
+    name: 'missing-word-zero',
+    description: 'The missing-state word "not-published" on an unanswered numeric requirement is turned into the number 0',
+    expect: ['evidence'],
+    patches: [{
+      file: 'constraints.js',
+      find: "      missing: h?.missing ?? 'not-published',\n    };\n  }\n\n  const interval",
+      replace: "      missing: h?.missing === 'not-published' ? 0 : (h?.missing ?? 'not-published'),\n    };\n  }\n\n  const interval",
+    }],
+  },
+  {
+    name: 'cited-sibling-swap',
+    description: 'A requirement cites a sibling measurement of the same grade and property with an equal value instead of the one it rests on; no verdict moves',
+    expect: ['evidence'],
+    patches: [{
+      file: 'constraints.js',
+      find: '    measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,',
+      replace: '    measurementId: ((m0) => (m0 && (ctx.measurementsByMaterial?.get(material.id) ?? []).find((m) => m.id !== m0.id && m.gradeId === m0.gradeId && m.property === m0.property && m.value === m0.value)?.id) || h.measurementId)(ctx.measurementById?.get(h.measurementId)), gradeId: h.gradeId, sourceId: h.sourceId,',
+    }],
+  },
+  {
     name: 'reason-wording',
     description: 'One reason sentence is reworded ("as its sheet states" becomes "as its sheet says"); no verdict moves',
     expect: ['wording'],

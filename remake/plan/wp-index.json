@@ -331,7 +331,7 @@
       "exitEvidence": "`parity -- --new adapter` = 0; fixture correction lists the expected moves; impact ≤ 10 s recorded",
       "exit": {
         "commands": [
-          "npm run parity -- --new",
+          "npm run parity -- --new --surface engine,ties",
           "node --test tests/remake/engine-wrapper.test.mjs tests/remake/impact.test.mjs"
         ],
         "attest": [],

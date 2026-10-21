@@ -2,7 +2,7 @@
 
 > **In short.** Parity is the check that proves the rebuilt tool gives the same answers as the old one. The old engine and the new engine are fed the same questions on the same current data, and every answer, reason and cited record is compared. If anything differs, the check fails unless that exact difference is written down in advance and you approved it. Nothing here proves the old answers are *right*; it proves the rebuild did not *change* them. This is your ruling OQ-03 made into a check: "the physics of data and material science decision should remain the same but the structure can change."
 
-**Status: waiting for your approval** (answer at the end). Built in WP-05 (a). Run it with `npm run parity -- --noop`. Measured 2026-10-21 on the owner's Mac, Node 26.9: the full 1,306-question run takes about 90 to 100 seconds.
+**Status: waiting for your approval** (answer at the end). Built in WP-05 (a) and completed in WP-05 (b). Run it with `npm run parity -- --noop`. Measured 2026-10-21 on the owner's Mac, Node 26.9: the engine part alone (the full 1,306-question run) takes about 90 to 100 seconds; the whole pull-request run, with the four checks WP-05 (b) adds, is timed in "How long it takes" below.
 
 ## What is compared
 
@@ -22,6 +22,22 @@ For each question it compares, **record by record** (a material, a product, or a
 | **Wording** | the exact reason sentences, the group reasons, the criterion text |
 
 Numbers are compared exactly (no tolerance); `0` and `-0` count as different, and a missing field is different from an empty one. The pack file 07 section 5.3 files "group", "likely", "best" and "list order" under presentation (T1). Here they are filed under **Decision**, as you asked, which is the stricter reading: a move there is treated as a change to the decision itself.
+
+## What else it checks (added in WP-05 b)
+
+The 1,306 questions are one of five checks. `npm run parity -- --noop` runs all five and prints one line, `RESULT: zero`, when every one is clean. Each can be asked for alone with `--surface <name>`.
+
+| Check (`--surface`) | What it does | How it can fail |
+|---|---|---|
+| **engine** | The 1,306 questions above, four levels each. | Any field of any record that differs. |
+| **ties** | Puts every material's products in a different, seeded order and asks 110 of the questions again. Where products tie, the old engine's rule is "the first one in the list wins", so the answer must follow the order exactly: the harness predicts, from the old engine itself, which product must represent each material, and the other side must agree. A sample with no ties would prove nothing and is reported as "not computable". | The other side picks a different tied product; any other answer differs. |
+| **links** | Opens 53 old links and saved scenarios (found in the repo's tests and docs: version 1 and version 2 links, the six landing-page templates in both forms, files that must be refused, a link with the known `x:3` quirk) plus the "back to the selector" link of each built page (82, every one of which must open), with both sides' link readers, and asks the engines the distinct questions they contain. | A link that opens differently, is refused differently, speaks different warnings, or is answered differently; a back-link that does not open; no back-links found at all (not computable). |
+| **build** (P-build) | Builds the database again in a temporary copy of the project and compares `db.json` with the one in `dist/` path by path (1.29 million values), the way `npm run build:diff` does, and also compares the order of every list of records and looks for a record listed twice. `--tables-dir <folder>` (with `--surface build,pages`) builds both sides from another folder of tables inside the temporary copy, never touching `data/tables`: it shows that those tables build the same twice and gives the build a tables folder to be tested with; to see what a change did, `npm run build:diff` still does that. The tests change one cell in such a folder and show the comparison naming it. | Any value that differs, or a build that cannot finish (not computable). |
+| **pages** (P-pages) | The visible text of all 248 material pages, with each link's target, the labels screen readers read (aria-label, title, alt, placeholder) and the data each page carries for its script, compared page by page. A page that cannot be read to its end is an error, never an empty page. The release number, the build date and the release-stamped selector file name are replaced by placeholders so two releases can be compared. | A dropped section or source line, a changed word or link, a missing page. |
+
+`--milestone` is the milestone size: 5,000 seeded questions instead of 1,000 (the first 1,000 are the same ones), the whole census, and a larger tie sample (468). Run it with `--noop` to check the harness itself, or with the new side when it exists. `--surface core` is a placeholder for WP-25 (the engine reading only the public core must equal the engine reading everything); until WP-25 supplies it, it says "not computable".
+
+None of the new question lists is a file. They are produced by code from seeds kept in `packages/parity/src`, and `tests/parity/` pins their fingerprints, so changing one fails a test instead of quietly changing what is asked. (`parity/corpus/` needs your approval to change, and nothing there was touched.)
 
 ## What counts as a difference
 
@@ -51,15 +67,15 @@ Every outcome has its own code, so a script (CI, a hook, a person) never has to 
 | 2 | not computable: some question could not be answered (`--placeholder` is the self-test of it) |
 | 3 | a fault was injected and NOT caught: the harness is blind to it (the self-test failed) |
 | 4 | a partial run (`--only`) that shows zero without `--allow-partial` |
-| 5 | a fault was injected and caught: the self-test passed. This is the expected exit of `--fault <name>`; it is not "differs" and not a crash. With `--transitions`, the transition decides (0 or 1) |
+| 5 | a fault was injected and caught: the self-test passed. This is the expected exit of `--fault <name>`; it is not "differs" and not a crash. With `--transitions`, the transition decides (0 or 1). `npm run parity:mutate` (all nine faults at once) exits 0 when 9 of 9 are caught and 3 when any is missed |
 | 64 | bad usage: unknown flag, stray argument, repeated flag, missing value, a flag used as a value, unknown fault, `--noop` with transitions, a transition from a run that cannot yield one |
 | 70 | the tool crashed (an uncaught error: a bug, a missing `dist/db.json`, an unreadable corpus). It is not a verdict; the error is on stderr |
 
-CI runs `npm run parity -- --noop` after `npm run build` and fails on anything but 0.
+CI runs `npm run parity -- --noop` after `npm run build` and fails on anything but 0. The last line of every run is the one `RESULT:` line, and it agrees with the exit code: a partial run (exit 4) prints `RESULT: partial` and a fault that was not caught (exit 3) prints `RESULT: fault-not-caught`; otherwise it is the outcome word (`zero`, `matches-transition`, `differs`, `not-computable`). A crash includes a module that fails to load: it exits 70, never 1.
 
 ### The new side today (WP-11)
 
-`npm run parity` (the same as `npm run parity -- --new`) compares the old engine with **the old engine behind the typed wrapper** (`packages/engine`, [contracts.md](contracts.md)): the answer the wrapper gives, as a consumer reads it, against the answer the engine gives. Zero means the wrapper loses nothing and changes nothing; it is not yet a port. The wrapper runs over its own copy of the engine files and its own typed parse of the database, so nothing is shared with the old side. Measured 2026-10-21: 1,306 questions, 5,663,780 records, no difference at any level, about 3.5 minutes. `tests/parity/new-adapter.test.mjs` runs a subset that keeps every group, shows that a fault in the wrapped engine and a fault in the wrapper's own output are both caught, and shows the comparison holds when the wrapper's answer goes through a structured clone (nothing depends on object identity).
+`npm run parity -- --new --surface engine,ties` compares the old engine with **the old engine behind the typed wrapper** (`packages/engine`, [contracts.md](contracts.md)): the answer the wrapper gives, as a consumer reads it, against the answer the engine gives. The links, build and pages surfaces stay "not computable" on the new side until WP-17, WP-20 and WP-24 wire them, so a run of all five exits 2. Zero means the wrapper loses nothing and changes nothing; it is not yet a port. The wrapper runs over its own copy of the engine files and its own typed parse of the database, so nothing is shared with the old side. Measured 2026-10-21: 1,306 questions, 5,663,780 records, no difference at any level; the first-wins ties surface (110 cases, 16,390 materials with the product order shuffled) also zero; about 2.5 minutes. `tests/parity/new-adapter.test.mjs` runs a subset that keeps every group, shows that a fault in the wrapped engine and a fault in the wrapper's own output are both caught, and shows the comparison holds when the wrapper's answer goes through a structured clone (nothing depends on object identity).
 
 ## Transitions: how a deliberate change is allowed
 
@@ -67,22 +83,51 @@ A deliberate change (for example the reprint ruling OQ-09 d) is recorded in `par
 
 A run over only part of the corpus (for quick local checks) says "PARTIAL RUN" and exits with a failure code unless it is asked for explicitly, so a small run is never mistaken for the whole.
 
+## How long it takes
+
+Pull-request mode (`npm run parity -- --noop`, all five checks) must stay under 5 minutes. The second build runs in the background while the engine questions are answered. Timings, with the machine's state:
+
+All on the owner's Mac (10 cores), Node 26.9, 2026-10-21, with other work running on it; "load" is the machine's load average at the time.
+
+| Run | Wall time | Where the time goes |
+|---|---|---|
+| `npm run parity -- --noop` (pull-request mode, all five checks) | **119 s** (load about 3.5) | engine 97 s, tie-shuffle 16 s, links 2 s, build and pages compared in 2 s; the second build takes about 26 s alone and runs in the background beside the engine questions |
+| the same, measured while the machine was heavily loaded by other jobs (load about 10) | 299 s | engine 229 s; the build was not yet overlapped (it ran after the engine, 37 s) |
+| `npm run parity -- --noop --milestone` (5,306 questions, 468-case tie sample) | 640 s (10.7 min; load 5 to 7) | engine 536 s, tie-shuffle 95 s |
+| `npm run parity:mutate` (control plus nine faults, 240 questions each) | 3.5 min | about 21 s per fault |
+
+So pull-request mode is well inside 5 minutes on a quiet machine and was at the limit on a very busy one. It has not been timed on the CI runner.
+
 ## Can the check fail?
 
-Yes, and it is tested. `npm run parity -- --fault <name>` plants one fault in a temporary copy of the engine (never in the real files) and the report must name the moved records. Six faults exist now (a flipped gate verdict, a tie order swap, a limit edge, untested counted as zero, a dropped cited ID, a reworded reason); WP-05 (b) completes the set of nine. A caught fault exits 5; one the harness misses exits 3.
+Yes, and it is tested. `npm run parity -- --fault <name>` plants one fault in a temporary copy of the engine (never in the real files) and the report must name the moved records. A caught fault exits 5; one the harness misses exits 3. `npm run parity:mutate` (the same as `npm run parity -- --mutate`) plants all nine, one after the other, and must report 9 of 9 caught. Before the nine it runs a control, a copy with nothing planted, which must differ from the engine nowhere (otherwise "caught" would mean nothing), and it checks that the real engine files have the same fingerprint before and after, stopping with a crash if they do not. A fault counts as caught only if the report shows a difference in every level the fault is known to move and every question could still be answered.
+
+| Fault | What is broken |
+|---|---|
+| gate-verdict | a print gate sitting at the low end of the maker's window answers "on the line" instead of pass |
+| gate-precedence | when one requirement fails and another is unresolved, the unresolved one now wins (the verdict precedence is flipped) |
+| tie-order | among tied products the last one represents the material, not the first |
+| edge-strict | a value exactly on a ">=" limit no longer passes |
+| untested-as-zero | products that could not be judged are counted as zero untested |
+| drop-cited-ids | a requirement no longer carries the measurement it cites |
+| missing-word-zero | the missing-state word "not-published" on an unanswered requirement becomes the number 0 |
+| cited-sibling-swap | a requirement cites a sibling measurement with an equal value; no verdict moves |
+| reason-wording | one reason sentence is reworded; no verdict moves |
+
+The new checks can fail too, and tests show it: a changed cell in a tables folder is named by P-build and P-pages; a dropped line, a dropped section or a changed link target is named by P-pages; the swapped-tie fault is named by the tie check; a link reader that changes a warning or reads a refused link as empty is named by the links check.
 
 ## What parity cannot catch
 
 - It does not prove an old answer is **correct**. If the old tool is wrong, the new tool is wrong in the same way, on purpose. Correctness needs source-checked cases and your review sitting.
 - It covers the **questions in the corpus**, not every scenario a person can build. A difference only a question outside the corpus would show goes unseen.
 - Both sides run on the same machine and the same Node. A difference that only shows on another computer or browser is not seen here.
-- It compares the engine's **answers**, not what the page draws, the material pages, the build output or the data conversion. Those are separate checks (P-ui, P-pages, P-build, P-data, later packages).
-- Searches, assumptions typed into the page, and saved-scenario loading are not in corpus v0.
+- It compares the engine's **answers**, the compiled database and the **text** of the material pages, not what the page draws (colours, layout, charts' shapes, what a click does) or the data conversion. Those are separate checks (P-ui, P-data, later packages). The page text check reads words and link targets, not markup, so a wrong colour or a broken style would pass it.
+- Searches and assumptions typed into the page are not in the question list. A link that carries an assumption is opened by both link readers and compared, but the assumption is not applied in the engine replay. Saved-scenario loading and old links are covered by the links check, only as far as the 53 harvested ones and the page back-links go.
 - If both sides share the same wrong input data, they will agree.
 
 ## Your decision
 
-**Do you approve this as the parity contract?** Why it matters: every later porting step is judged against it. My recommendation: approve. If unanswered: the work stays open and nothing is merged. Revisit when WP-05 (b) lands.
+**Do you approve this as the parity contract?** Why it matters: every later porting step is judged against it. My recommendation: approve. If unanswered: the work stays open and nothing is merged. WP-05 (b) has landed; this is the page to approve.
 
 - [ ] A. Approve as written (recommended)
 - [ ] B. Approve, but file group / likely / best / list order under Presentation as the pack says

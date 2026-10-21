@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync, readFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, rmSync, writeFileSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { cli, root } from './helpers.mjs';
@@ -89,4 +89,86 @@ test('the exit codes are documented in docs/next/parity-contract.md and in the C
   }
   assert.match(header, /5 a fault was injected and caught/);
   assert.match(header, /70 the tool itself crashed/);
+});
+
+test('surfaces: an unknown or repeated surface, an empty list, and flags that do not fit the surfaces are usage errors (64)', () => {
+  const cases = [
+    [['--noop', '--surface', 'enginee'], /unknown surface/],
+    [['--noop', '--surface', 'engine,engine'], /given twice/],
+    [['--noop', '--surface', 'engine,'], /unknown surface ""/],
+    [['--noop', '--surface', 'engine', '--tables-dir', '.'], /--tables-dir applies to the build and pages surfaces only/],
+    [['--noop', '--surface', 'engine,build', '--tables-dir', '.'], /--tables-dir applies to the build and pages surfaces only/],
+    [['--noop', '--tables-dir', '.'], /--tables-dir applies to the build and pages surfaces only/],
+    [['--noop', '--only', ''], /empty one is not a value/],
+    [['--noop', '--tables-dir', ''], /empty one is not a value/],
+    [['--noop', '--surface', ''], /empty one is not a value/],
+    [['--fault', 'tie-order', '--emit-transition', '/tmp/x.json', '--kind', 'bogus'], /known kinds are/],
+    [['--noop', '--surface', 'build', '--tables-dir', '/no/such/dir'], /not a directory/],
+    [['--fault', 'tie-order', '--surface', 'build'], /a fault is planted in the engine/],
+    [['--fault', 'tie-order', '--surface', 'engine,pages'], /a fault is planted in the engine/],
+    [['--milestone', '--fault', 'tie-order'], /--milestone is a size/],
+  ];
+  for (const [args, message] of cases) {
+    const r = run(...args);
+    assert.equal(r.status, 64, args.join(' '));
+    assert.match(r.stderr, message, args.join(' '));
+    assert.equal(r.stdout, '', 'nothing ran');
+  }
+});
+
+test('with --only and no --surface only the engine runs; asking for the others as well is allowed and says so', () => {
+  const r = run('--noop', ...SMALL);
+  assert.match(r.stdout, /surfaces: engine\n/);
+  const both = run('--noop', ...SMALL, '--surface', 'engine,ties');
+  assert.equal(both.status, 0, both.stderr);
+  assert.match(both.stdout, /surfaces: engine, ties/);
+  assert.equal(both.stdout.match(/^RESULT:/gm).length, 1, 'exactly one RESULT line, which is what CI reads');
+});
+
+test('--json writes one file with every surface, the overall status and the timings', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-cli-json-'));
+  try {
+    const out = join(dir, 'r.json');
+    const r = run('--noop', ...SMALL, '--surface', 'engine,links', '--json', out);
+    assert.equal(r.status, 0, r.stderr);
+    const j = JSON.parse(readFileSync(out, 'utf8'));
+    assert.equal(j.status, 'zero');
+    assert.deepEqual(Object.keys(j.parity).sort(), ['engine', 'links']);
+    assert.equal(j.surfaceReports.length, 1);
+    assert.ok(j.timings.length >= 2 && j.wallMs > 0);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('the new surfaces and flags are documented in the CLI header and in the contract', () => {
+  const doc = readFileSync(join(root, 'docs/next/parity-contract.md'), 'utf8');
+  const header = readFileSync(cli, 'utf8').split('\n').slice(0, 24).join('\n');
+  for (const word of ['--mutate', '--milestone', '--surface', '--tables-dir']) {
+    assert.ok(header.includes(word), `${word} in the header`);
+    assert.ok(doc.includes(word), `${word} in the contract`);
+  }
+  assert.match(doc, /parity:mutate/);
+});
+
+test('the last line says what the exit code says: a partial run is RESULT: partial, not zero; the last line is the only RESULT line', () => {
+  const partial = run('--noop', '--only', 'template/');
+  assert.equal(partial.status, 4);
+  assert.match(partial.stdout.trim().split('\n').at(-1), /^RESULT: partial$/);
+  const ok = run('--noop', ...SMALL);
+  assert.equal(ok.status, 0);
+  assert.match(ok.stdout.trim().split('\n').at(-1), /^RESULT: zero$/);
+});
+
+test('a module that fails to load is a crash (70), never 1 (which means differs)', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-cli-load-'));
+  try {
+    const src = join(root, 'packages', 'parity', 'src');
+    cpSync(src, join(dir, 'src'), { recursive: true });
+    writeFileSync(join(dir, 'src', 'run-cli.ts'), 'export const x = ;\n');
+    const r = spawnSync(process.execPath, [join(dir, 'src', 'cli.ts'), '--noop'], { cwd: root, encoding: 'utf8' });
+    assert.equal(r.status, 70, r.stderr);
+    assert.match(r.stderr, /internal error, exit 70/);
+    const missingExport = join(dir, 'src', 'run-cli.ts');
+    writeFileSync(missingExport, "import { noSuchExport } from './compare.ts';\nexport const runCli = () => noSuchExport;\n");
+    assert.equal(spawnSync(process.execPath, [join(dir, 'src', 'cli.ts'), '--noop'], { cwd: root, encoding: 'utf8' }).status, 70);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });

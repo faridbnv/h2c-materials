@@ -45,7 +45,7 @@ export interface CorpusScenario {
 export interface CorpusCase {
   /** Stable across runs and across corpus versions: group/name/mode. Reports and transitions are keyed by it. */
   id: string;
-  group: 'template' | 'census' | 'random';
+  group: 'template' | 'census' | 'random' | 'link';
   name: string;
   scenario: CorpusScenario;
 }
@@ -74,10 +74,33 @@ export type NormalizedCase =
   | { caseId: string; outcome: 'computed'; records: Record<string, RecordFacts> }
   | { caseId: string; outcome: 'not-computable'; reason: string };
 
-/** An engine under test, old or new. `evaluate` must not throw for a case it cannot answer; it returns not-computable. */
+/** A historic link or saved scenario, as text: a URL hash (`kind: 'hash'`, already URL-encoded) or a saved file (`kind: 'file'`, JSON text). */
+export interface LinkRequest {
+  kind: 'hash' | 'file';
+  text: string;
+}
+
+/**
+ * What a side's decoder made of a link:
+ *   opened          the question the link asks (replayable in the engine) and every other field the decoder produced, as facts
+ *   empty           a link with no hash at all
+ *   refused         a link it deliberately would not read; the message is the words a person sees
+ *   not-computable  a decoder that failed in a way that is a bug, not a refusal
+ */
+export type LinkOpening =
+  | { outcome: 'opened'; scenario: CorpusScenario; facts: RecordFacts }
+  | { outcome: 'empty' }
+  | { outcome: 'refused'; message: string }
+  | { outcome: 'not-computable'; reason: string };
+
+/**
+ * An engine under test, old or new. `evaluate` must not throw for a case it cannot answer; it returns not-computable.
+ * `openLink` is optional: a side without it cannot open links, which the links check reports as not computable.
+ */
 export interface Adapter {
   readonly name: string;
   evaluate(corpusCase: CorpusCase): NormalizedCase | Promise<NormalizedCase>;
+  openLink?(request: LinkRequest): LinkOpening;
   close?(): void;
 }
 
@@ -150,4 +173,30 @@ export interface ParityReport {
   transitions: TransitionMatch | null;
   status: Status;
   timingsMs: { before: number; after: number; compare: number; total: number };
+}
+
+/** The surfaces a run can check. `core` is the WP-25 hook: never part of a default run. */
+export const SURFACES = ['engine', 'ties', 'links', 'build', 'pages', 'core'] as const;
+export type Surface = (typeof SURFACES)[number];
+
+/**
+ * The result of a check that is not "one corpus through two engines" (links, tie rule, P-build, P-pages, core sufficiency).
+ * Differences use the same shape as the engine's, so a transition file can list them later. `differenceCount` is the true
+ * number; `differences` is capped (`truncated`) so a wholly different database cannot fill the memory.
+ */
+export interface SurfaceReport {
+  surface: string;
+  before: string;
+  after: string;
+  /** What one unit is: a link, a material, a page, a database path. */
+  unit: string;
+  unitsCompared: number;
+  differenceCount: number;
+  differences: Difference[];
+  truncated: boolean;
+  notComputable: NotComputableItem[];
+  /** Plain lines the report prints (what was checked, what was left out). */
+  notes: string[];
+  status: Status;
+  timingsMs: { total: number };
 }

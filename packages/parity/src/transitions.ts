@@ -8,7 +8,7 @@ import { TIERS } from './types.ts';
 import type { Difference, TransitionFile, TransitionMatch } from './types.ts';
 import { compareStrings } from './util.ts';
 
-const KINDS = ['science', 'determinism', 'display', 'wording'] as const;
+export const TRANSITION_KINDS = ['science', 'determinism', 'display', 'wording'] as const;
 const tuple = (d: Difference) => canon([d.case, d.record, d.tier, d.field, d.before, d.after]);
 
 export const sortDifferences = (ds: readonly Difference[]): Difference[] =>
@@ -34,7 +34,7 @@ export function validateTransition(t: unknown, where: string): TransitionFile {
   for (const k of ['id', 'description', 'ruling', 'corpus', 'digest'] as const) {
     if (typeof f[k] !== 'string' || !f[k]!.trim()) bad(`"${k}" must be a non-empty string`);
   }
-  if (!KINDS.includes(f.kind as never)) bad(`"kind" must be one of ${KINDS.join(', ')}`);
+  if (!TRANSITION_KINDS.includes(f.kind as never)) bad(`"kind" must be one of ${TRANSITION_KINDS.join(', ')}`);
   if (!Array.isArray(f.differences)) bad('"differences" must be a list');
   for (const d of f.differences!) {
     const ok = d && typeof d === 'object' && ['case', 'record', 'field', 'before', 'after'].every((k) => typeof (d as never)[k] === 'string')
