@@ -517,6 +517,51 @@ test('next-verify has the named checks, the label-gated jobs, and never touches 
   assert.match(text, /npm run types:check\n\s+npm run types:ratchet\n\s+npm run lint/);
 });
 
+test('next-verify is parallel jobs and a last job that is green only when every one of them succeeded; no check was dropped by the split', () => {
+  const text = wf('next-verify.yml');
+  const work = ['build-old', 'static', 'new-tests', 'parity-tests', 'parity-noop'];
+  const last = jobBlock(text, 'next-verify');
+  // The required check needs every part, runs whatever they did, and reads their results (a skipped part is red).
+  const needs = /^    needs: \[([^\]]*)\]$/m.exec(last);
+  assert.ok(needs, 'next-verify has a needs list');
+  assert.deepEqual(needs[1].split(',').map((x) => x.trim()).sort(), [...work].sort());
+  assert.match(last, /^    if: always\(\)$/m);
+  assert.match(last, /NEEDS: \$\{\{ toJSON\(needs\) \}\}/);
+  assert.match(last, /select\(\.value\.result != "success"\)/);
+  assert.match(last, /expected="build-old new-tests parity-noop parity-tests static"/, 'a part added to or dropped from needs must be named here too');
+  // The jobs that read dist/db.json wait for the build and take its artifact.
+  for (const id of ['parity-tests', 'parity-noop']) {
+    const job = jobBlock(text, id);
+    assert.match(job, /^    needs: build-old$/m, `${id} waits for build-old`);
+    assert.match(job, /actions\/download-artifact@[0-9a-f]{40}/, `${id} takes the artifact`);
+    assert.match(job, /test -s dist\/db\.json/, `${id} fails when the artifact holds no db.json`);
+  }
+  assert.match(jobBlock(text, 'build-old'), /actions\/upload-artifact@[0-9a-f]{40}[\s\S]*if-no-files-found: error/);
+  // Each command that ran in the one long job still runs, in the job that owns it.
+  assert.match(jobBlock(text, 'new-tests'), /files=\(tests\/claude\/\*\.test\.mjs tests\/remake\/\*\.test\.mjs\)[\s\S]*node --test "\$\{files\[@\]\}"/);
+  assert.match(jobBlock(text, 'build-old'), /^\s+run: npm run build$/m);
+  const parity = jobBlock(text, 'parity-tests');
+  assert.match(parity, /node --test --test-concurrency=4 \$files/);
+  assert.match(parity, /node --test 'tests\/domain\/\*\.test\.mjs'/);
+  assert.match(jobBlock(text, 'parity-noop'), /npm run parity -- --noop \| tee parity-noop\.out/);
+  const statics = jobBlock(text, 'static');
+  for (const cmd of ['npm run rulings:check', 'npm run types:check', 'npm run types:ratchet', 'npm run lint']) assert.ok(statics.includes(cmd), cmd);
+  // The shards of the parity tests: the files they name exist, `rest` is everything else, and the NAMED list is exactly what the others name.
+  const matrix = [...parity.matchAll(/^          - shard: (\S+)\n            files: (.*)$/gm)].map((m) => ({ shard: m[1], files: m[2].replace(/^''$/, '').split(/\s+/).filter(Boolean) }));
+  assert.deepEqual(matrix.map((m) => m.shard), ['fault', 'heavy', 'rest']);
+  assert.deepEqual(matrix.find((m) => m.shard === 'rest').files, [], 'the rest shard lists nothing: it takes every file the others do not name');
+  const named = matrix.flatMap((m) => m.files);
+  assert.equal(new Set(named).size, named.length, 'no file is named by two shards');
+  assert.deepEqual(/^      NAMED: (.*)$/m.exec(parity)[1].split(/\s+/).sort(), [...named].sort());
+  for (const f of named) assert.ok(existsSync(join(root, f)), `${f} exists`);
+  assert.ok(named.includes('tests/parity/fault.test.mjs'));
+  // Nothing was dropped between the shards: what the three would run is every file of the directory, once.
+  const all = readdirSync(join(root, 'tests/parity')).filter((f) => f.endsWith('.test.mjs')).map((f) => `tests/parity/${f}`);
+  const rest = all.filter((f) => !named.includes(f));
+  assert.equal(rest.length + named.length, all.length);
+  assert.ok(rest.length >= 10, 'the rest shard has the other parity test files');
+});
+
 test('next-gate.yml: base-only trusted gates that a pull request cannot edit for itself', () => {
   const text = wf('next-gate.yml');
   const raw = readFileSync(join(root, '.github/workflows/next-gate.yml'), 'utf8');
