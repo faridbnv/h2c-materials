@@ -90,6 +90,9 @@ jobs:
           touch _site/.nojekyll
           ls -la _site
 
+      - name: Build the /v3/ static view (WP-14)
+        run: node remake/tools/preview-assemble.mjs build-v3 --site _site
+
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: site
