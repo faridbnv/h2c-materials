@@ -87,3 +87,21 @@ test('pareto: the real catalogue, density against tensile modulus and strength, 
     }
   }
 });
+
+// --- filler -----------------------------------------------------------------------------------------------------------------
+
+test('filler: the class of every material of the catalogue, and of awkward modifiers and facets, is the old module\'s', async () => {
+  const filler = await ported('filler');
+  const was = old('filler');
+  const sources = [...db.materials, null, undefined, {}, { facets: null }, { facets: { reinforcement: null } }, { facets: { reinforcement: {} } }];
+  for (const modifier of [undefined, null, '', '  ', 'undisclosed', 'Undisclosed filler', 'Not published', 'not applicable', 'Aramid fibre', ' PTFE 10 % ', 'Metal powder (Cu)', 0, 12, '--', 'Glass fibre']) {
+    for (const value of [undefined, null, 'undisclosed', 'carbon-fibre', 'unfilled', 'esd']) {
+      sources.push({ modifier, facets: { reinforcement: { value } } });
+    }
+  }
+  for (const m of sources) assert.equal(filler.fillerOf(m), was.fillerOf(m), JSON.stringify(m)?.slice(0, 80));
+  const classes = new Set([...db.materials.map((m) => was.fillerOf(m)), null, undefined, '', 'undisclosed', ...was.FILLER_CLASSES, 'aramid-fibre']);
+  for (const c of classes) assert.equal(filler.isNamedFiller(c), was.isNamedFiller(c), String(c));
+  assert.deepEqual(filler.FILLER_CLASSES, was.FILLER_CLASSES);
+  assert.equal(filler.UNDISCLOSED, was.UNDISCLOSED);
+});
