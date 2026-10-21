@@ -1,0 +1,920 @@
+{
+  "schema": 1,
+  "runId": "12ff9905-4973-4538-8a33-d54652e6d2be",
+  "mode": "fast",
+  "status": "pass",
+  "counts": {
+    "planned": 96,
+    "pass": 66,
+    "fail": 0,
+    "skipped": 30,
+    "allowedSkipped": 30,
+    "notRun": 0
+  },
+  "byProject": {
+    "live-path": {
+      "pass": 33,
+      "fail": 0,
+      "skipped": 15
+    },
+    "preview-path": {
+      "pass": 33,
+      "fail": 0,
+      "skipped": 15
+    }
+  },
+  "evidence": {
+    "views-checked": 62,
+    "scenarios-read": 48,
+    "axe-pages": 12
+  },
+  "notRunProjects": [],
+  "durationMs": 245044,
+  "machine": {
+    "os": "darwin 27.0.0",
+    "cores": 10,
+    "node": "v26.9.0"
+  },
+  "tests": [
+    {
+      "project": "live-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for selector: start screen",
+      "ms": 5753,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for selector: table lens",
+      "ms": 3795,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for selector: ashby lens",
+      "ms": 2974,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for material page: m001-pla",
+      "ms": 1999,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "axe.spec.mjs",
+      "title": "new page: axe report for public view: results",
+      "ms": 1383,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "axe.spec.mjs",
+      "title": "new page: axe report for public view: a material",
+      "ms": 3256,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: the shortlist holds 6 and refuses a seventh in line",
+      "ms": 3572,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: at most 12 products can be chosen, the thirteenth is refused in line",
+      "ms": 2990,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: Escape closes one layer at a time: explanation, drawer, filter rail",
+      "ms": 2542,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: \"/\" focuses search",
+      "ms": 1131,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: \"Skip to results\" is the first Tab stop and works",
+      "ms": 1257,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: a damaged scenario file is refused whole with a message",
+      "ms": 2674,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: \"Back to your results\" restores selection, drawer tab and scroll",
+      "ms": 3578,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: a link pasted into an open tab applies at once",
+      "ms": 2975,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: the shortlist holds 6 and refuses a seventh in line",
+      "ms": 119,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: at most 12 products can be chosen, the thirteenth is refused in line",
+      "ms": 110,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: Escape closes one layer at a time: explanation, drawer, filter rail",
+      "ms": 108,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: \"/\" focuses search",
+      "ms": 118,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: \"Skip to results\" is the first Tab stop and works",
+      "ms": 119,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: a damaged scenario file is refused whole with a message",
+      "ms": 129,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: \"Back to your results\" restores selection, drawer tab and scroll",
+      "ms": 101,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: a link pasted into an open tab applies at once",
+      "ms": 111,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "fuzz.spec.mjs",
+      "title": "old selector: 24 scenarios read against the engine (seed 1)",
+      "ms": 13210,
+      "status": "pass",
+      "evidence": {
+        "scenarios-read": 24
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "fuzz.spec.mjs",
+      "title": "new selector: 24 scenarios read against the engine (seed 1)",
+      "ms": 160,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: the results page names its release and shows exactly the counts and rows the engine decided",
+      "ms": 181,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: the material pages open from the results, refresh on their own address, and agree with the engine",
+      "ms": 1197,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: a results file that cannot be fetched is said, never shown as an empty or partial answer",
+      "ms": 211,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: a results file of another release is refused, never shown",
+      "ms": 190,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: a results file that is not JSON, or does not add up, is said as a failure",
+      "ms": 216,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: an address that names no material says so",
+      "ms": 169,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: its release is the one the build wrote, and the old site beside it is the old release",
+      "ms": 28,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: every piece of the site answers 200 under this base path, compressed and cacheable",
+      "ms": 190,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: nothing answers outside the base path, a folder without its slash redirects, a path out of the site is refused",
+      "ms": 5,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: a page that is not there is a 404 the suite can see, not an empty page",
+      "ms": 128,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: every material page of the old site is served under this base path",
+      "ms": 72,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: the old selector loads from HTTP under this base path and renders",
+      "ms": 1149,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: start screen, templates, Compare",
+      "ms": 21529,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 14
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: ranked by products, what makers say, a product chosen",
+      "ms": 2006,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 4
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: family rail",
+      "ms": 1587,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 2
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: answer before the exposition at 1024 x 768",
+      "ms": 1856,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 0
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: material pages, laptop",
+      "ms": 32733,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 10
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: material pages: the return trip",
+      "ms": 838,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 1
+      }
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: start screen, templates, Compare",
+      "ms": 120,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: ranked by products, what makers say, a product chosen",
+      "ms": 111,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: family rail",
+      "ms": 112,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: answer before the exposition at 1024 x 768",
+      "ms": 123,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: material pages, laptop",
+      "ms": 113,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "live-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: material pages: the return trip",
+      "ms": 113,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for selector: start screen",
+      "ms": 5693,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for selector: table lens",
+      "ms": 3836,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for selector: ashby lens",
+      "ms": 2970,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "axe.spec.mjs",
+      "title": "old page: axe report for material page: m001-pla",
+      "ms": 1997,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "axe.spec.mjs",
+      "title": "new page: axe report for public view: results",
+      "ms": 1403,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "axe.spec.mjs",
+      "title": "new page: axe report for public view: a material",
+      "ms": 3337,
+      "status": "pass",
+      "evidence": {
+        "axe-pages": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: the shortlist holds 6 and refuses a seventh in line",
+      "ms": 3595,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: at most 12 products can be chosen, the thirteenth is refused in line",
+      "ms": 3002,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: Escape closes one layer at a time: explanation, drawer, filter rail",
+      "ms": 2525,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: \"/\" focuses search",
+      "ms": 1143,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: \"Skip to results\" is the first Tab stop and works",
+      "ms": 1261,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: a damaged scenario file is refused whole with a message",
+      "ms": 2680,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: \"Back to your results\" restores selection, drawer tab and scroll",
+      "ms": 3348,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "old selector: behaviour: a link pasted into an open tab applies at once",
+      "ms": 2959,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: the shortlist holds 6 and refuses a seventh in line",
+      "ms": 133,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: at most 12 products can be chosen, the thirteenth is refused in line",
+      "ms": 121,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: Escape closes one layer at a time: explanation, drawer, filter rail",
+      "ms": 126,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: \"/\" focuses search",
+      "ms": 136,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: \"Skip to results\" is the first Tab stop and works",
+      "ms": 128,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: a damaged scenario file is refused whole with a message",
+      "ms": 112,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: \"Back to your results\" restores selection, drawer tab and scroll",
+      "ms": 119,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "behaviours.spec.mjs",
+      "title": "new selector: behaviour: a link pasted into an open tab applies at once",
+      "ms": 114,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "fuzz.spec.mjs",
+      "title": "old selector: 24 scenarios read against the engine (seed 1)",
+      "ms": 13028,
+      "status": "pass",
+      "evidence": {
+        "scenarios-read": 24
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "fuzz.spec.mjs",
+      "title": "new selector: 24 scenarios read against the engine (seed 1)",
+      "ms": 137,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: the results page names its release and shows exactly the counts and rows the engine decided",
+      "ms": 173,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: the material pages open from the results, refresh on their own address, and agree with the engine",
+      "ms": 1197,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: a results file that cannot be fetched is said, never shown as an empty or partial answer",
+      "ms": 172,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: a results file of another release is refused, never shown",
+      "ms": 176,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: a results file that is not JSON, or does not add up, is said as a failure",
+      "ms": 214,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: an address that names no material says so",
+      "ms": 178,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "new-page.spec.mjs",
+      "title": "public view: its release is the one the build wrote, and the old site beside it is the old release",
+      "ms": 24,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: every piece of the site answers 200 under this base path, compressed and cacheable",
+      "ms": 148,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: nothing answers outside the base path, a folder without its slash redirects, a path out of the site is refused",
+      "ms": 4,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: a page that is not there is a 404 the suite can see, not an empty page",
+      "ms": 129,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: every material page of the old site is served under this base path",
+      "ms": 33,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "smoke.spec.mjs",
+      "title": "site: the old selector loads from HTTP under this base path and renders",
+      "ms": 1154,
+      "status": "pass",
+      "evidence": {}
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: start screen, templates, Compare",
+      "ms": 21744,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 14
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: ranked by products, what makers say, a product chosen",
+      "ms": 2043,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 4
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: family rail",
+      "ms": 1609,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 2
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: answer before the exposition at 1024 x 768",
+      "ms": 1885,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 0
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: material pages, laptop",
+      "ms": 32706,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 10
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "old selector: material pages: the return trip",
+      "ms": 870,
+      "status": "pass",
+      "evidence": {
+        "views-checked": 1
+      }
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: start screen, templates, Compare",
+      "ms": 112,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: ranked by products, what makers say, a product chosen",
+      "ms": 124,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: family rail",
+      "ms": 116,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: answer before the exposition at 1024 x 768",
+      "ms": 116,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: material pages, laptop",
+      "ms": 108,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    },
+    {
+      "project": "preview-path",
+      "file": "views.spec.mjs",
+      "title": "new selector: material pages: the return trip",
+      "ms": 130,
+      "status": "skipped",
+      "reason": "not run: the selector of the remake is built in WP-26",
+      "allowed": true,
+      "allowedBy": "the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then"
+    }
+  ]
+}

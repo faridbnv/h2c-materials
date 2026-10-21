@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "page": "page-m110-pctg-gf-products",
+  "title": "material page: m110-pctg-gf-products",
+  "adapter": "old",
+  "project": "preview-path",
+  "path": "/h2c-material-temp-page/materials/M110-products.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 1,
+    "violatingNodes": 1,
+    "byImpact": {
+      "moderate": 1
+    },
+    "passedRules": 51,
+    "incompleteRules": 2,
+    "inapplicableRules": 38
+  },
+  "violations": [
+    {
+      "rule": "heading-order",
+      "impact": "moderate",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=playwright",
+      "tags": [
+        "best-practice"
+      ],
+      "nodes": 1,
+      "examples": [
+        {
+          "target": "#G110-03 > .pcard > .pc-cols > .pc-main > h3",
+          "html": "<h3>Published values</h3>"
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "rule": "color-contrast",
+      "nodes": 2
+    },
+    {
+      "rule": "th-has-data-cells",
+      "nodes": 2
+    }
+  ]
+}
