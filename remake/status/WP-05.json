@@ -3,7 +3,7 @@
   "status": "done",
   "slice": "b",
   "branch": "wp-05b-parity",
-  "pr": 17,
+  "pr": 9,
   "exitCheck": "not-run",
   "lastRun": "2026-10-21T11:02:01.696Z",
   "lastPass": null,
