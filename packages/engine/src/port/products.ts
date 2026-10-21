@@ -8,35 +8,35 @@
 //
 // Pure: no DOM, no globals, no imports from ../ui.
 
-import type { EvidenceLevel, GateVerdict, ServiceMoisture } from '@atlas/domain';
-import type { Contribution } from './ledger.ts';
+import type { Admitted, Band, Caveat, Doubt, Elsewhere, EngineMissing, EvidenceLevel, GateVerdict, Interval, OwnBand, Prediction, ServiceMoisture, Treatment } from '@atlas/domain';
+export type { Admitted, Band, Caveat, Doubt, Elsewhere, Interval, OwnBand, Prediction, Treatment };
+import type { Contribution, LedgerDb } from './ledger.ts';
 
-export interface Treatment {
-  readonly tempC: number | null;
-  readonly hours: number | null;
-}
 export type Moisture = ServiceMoisture;
+export interface TwinOrigin {
+  /** A sibling's sheet a value was read from (D89). */
+  readonly origin: 'twin';
+  readonly gradeId: string;
+  readonly label: string;
+}
 export interface ProductValue {
   /** A value a state holds for a headline (the build's productValue), with the records that back it. */
   readonly value: number;
   readonly measurementId?: string | null;
-  readonly interval?:
-    | { readonly lo: number; readonly hi: number; readonly kind: 'point' | 'uncertainty' | 'range' }
-    | { readonly lo: number; readonly hi: null; readonly openLow: boolean }
-    | { readonly lo: null; readonly hi: number; readonly openHigh: boolean };
-  readonly uncertainty?: unknown;
+  readonly interval?: Interval;
+  readonly uncertainty?: number;
   readonly level: EvidenceLevel;
   readonly direction?: string;
-  readonly caveat?: 'not-described' | 'unstated-direction' | 'load-not-stated';
-  readonly anneal?: unknown;
-  readonly admitted?: unknown;
-  readonly standards?: unknown;
-  readonly endpoints?: unknown;
-  readonly priceIds?: unknown;
-  readonly observations?: unknown;
-  readonly from?: unknown;
+  readonly caveat?: Caveat;
+  readonly anneal?: Treatment;
+  readonly admitted?: readonly Admitted[];
+  readonly standards?: readonly string[];
+  readonly endpoints?: readonly { readonly measurementId: string; readonly property: string; readonly value: number }[];
+  readonly priceIds?: readonly string[];
+  readonly observations?: number;
+  readonly from?: TwinOrigin;
   readonly ceilingOnly?: true;
-  readonly doubtful?: unknown;
+  readonly doubtful?: readonly Doubt[];
 }
 export interface ProductState {
   /** One of a product's decision states (D99): as printed, annealed at a schedule, conditioned. */
@@ -67,20 +67,32 @@ export interface ProductPrint {
   readonly chamber: PrintAxis;
   readonly hardenedNozzle?: boolean | null;
   readonly drying?: { readonly need: 'required' | 'optional' | 'not-needed' } | null;
-  readonly nozzleAdvice?: unknown;
-  readonly from?: { readonly [part: string]: { readonly label: string } | undefined };
+  readonly nozzleAdvice?: NozzleAdvice;
+  readonly from?: { readonly [part: string]: { readonly label: string; readonly origin?: string } | undefined };
 }
-export interface Prediction {
-  /** The estimate stage's value for one headline of one product. */
-  readonly screening?: unknown;
-  readonly impliedBounds?: unknown;
-  readonly evidence?: readonly { readonly measurementIds?: readonly string[] }[];
+export interface NozzleAdvice {
+  /** A maker's note that a nozzle harder than brass, or wear, is a concern (the build's nozzleAdvice, D168). */
+  readonly kind: 'harder-than-brass' | 'wear-caution';
+  readonly text: string;
+}
+export interface ImpliedBound {
+  /** A measurement of the material that bounds a headline from below (headline_definitions.csv Lower bound). */
+  readonly lo: number;
+  readonly property: string;
+  readonly unit: string;
+  readonly measurementId: string;
 }
 export interface Withheld {
-  readonly ownBand?: { readonly bands?: readonly { readonly measurementIds?: readonly string[] }[] };
+  readonly centre?: number;
+  readonly ownBand?: OwnBand;
 }
 export interface ProductGrade {
   readonly id: string;
+  readonly manufacturer?: string;
+  readonly product?: string;
+  readonly twins?: readonly string[];
+  readonly variant?: string | null;
+  readonly claims?: readonly { readonly claim: string }[];
   readonly retired?: unknown;
   readonly states?: readonly ProductState[];
   readonly headline?: Readonly<Record<string, ProductValue>>;
@@ -91,6 +103,7 @@ export interface ProductGrade {
   readonly print?: ProductPrint | null;
 }
 export interface MeasurementRecord {
+  readonly id: string;
   readonly gradeId?: string;
   readonly sourceId?: string;
   readonly property?: string;
@@ -99,16 +112,64 @@ export interface MeasurementRecord {
   readonly specimenType?: string;
   readonly direction?: string;
 }
-export interface HeadlineBag {
-  /** A headline as the engine holds it: the database's, or a product view's, which carries more (ledger, elsewhere, related ...). */
-  known?: boolean;
-  value?: number;
-  unit?: string | undefined;
-  notApplicable?: unknown;
+export interface HeadlineCommon {
+  /** What a known and a missing headline share: the database's, or a product view's, which carries more (ledger, elsewhere, related ...). */
+  unit: string;
+  missing?: EngineMissing;
+  notApplicable?: { readonly reason: string };
   assumption?: unknown;
-  estimate?: unknown;
-  impliedBounds?: unknown;
+  estimate?: Prediction;
+  impliedBounds?: readonly unknown[];
+  /** A product view's: the values set apart, the ledger's bounds, the value in another state, a ceiling, an estimate withheld. */
+  asPublished?: { readonly value: number; readonly caveat?: Caveat | undefined; readonly measurementId?: string | null | undefined };
+  elsewhere?: readonly Elsewhere[];
+  ceiling?: KnownHeadline;
+  ledger?: LedgerBounds;
+  withheld?: Withheld;
+  /** A list of sentences on a product view's headline; an object on the database's own (defect WP18-D2). */
+  related?: readonly string[];
+  interval?: Interval;
+  uncertainty?: number | null;
+  caveat?: Caveat;
+  direction?: string;
+  standards?: readonly string[];
+  anneal?: Treatment;
+  admitted?: readonly Admitted[];
+  from?: TwinOrigin;
+  doubtful?: readonly Doubt[];
+  priceIds?: readonly string[];
+  observations?: number;
+  endpoints?: ProductValue['endpoints'];
+  level?: EvidenceLevel;
+  ceilingOnly?: boolean;
+  measurementId?: string | null;
+  gradeId?: string;
+  sourceId?: string | null;
+  spread?: { readonly n?: number; readonly min?: number; readonly max?: number };
+  typical?: { readonly value?: number; readonly interval?: Interval };
   [field: string]: unknown;
+}
+export interface KnownHeadline extends HeadlineCommon {
+  /** A headline with a value. */
+  known: true;
+  value: number;
+}
+export interface MissingHeadline extends HeadlineCommon {
+  /** A headline with none: the reason is in `missing`. */
+  known?: false;
+  value?: undefined;
+}
+export type HeadlineBag = KnownHeadline | MissingHeadline;
+export interface RegistryHeadline {
+  /** A headline definition, as far as the engine reads it (headline_definitions.csv). */
+  readonly key: string;
+  readonly unit?: string;
+  readonly better?: 'min' | 'max';
+  readonly changesWithAnnealing?: boolean;
+  readonly changesWithMoisture?: boolean;
+  readonly testScatter?: { readonly value: number; readonly is: 'relative' | 'absolute' } | null;
+  readonly labels?: { readonly plain?: string };
+  readonly toughened?: string | null;
 }
 export interface ProductContext {
   /** What the engine reads of its context (main.js buildContext): the scenario's service state, and lookups. */
@@ -117,15 +178,33 @@ export interface ProductContext {
   readonly moisture?: string;
   readonly evidence?: unknown;
   readonly measurementById?: ReadonlyMap<string, MeasurementRecord>;
-  readonly db?: {
-    readonly registry?: { readonly headlines?: readonly { readonly key: string; readonly changesWithAnnealing?: boolean; readonly changesWithMoisture?: boolean }[] };
-    readonly meta?: { readonly estimateModel?: { readonly gradeEstimates?: { readonly version?: number } } };
+  readonly db?: LedgerDb & {
+    readonly registry?: { readonly headlines?: readonly RegistryHeadline[] };
+    readonly meta?: {
+      readonly estimateModel?: { readonly gradeEstimates?: { readonly version?: number } };
+      readonly environmentCategories?: { readonly [category: string]: { readonly label?: string; readonly kind?: string } | undefined };
+      readonly release?: { readonly id?: string };
+    };
+    readonly grades: readonly ProductGrade[];
+    readonly measurements: readonly MeasurementRecord[];
   };
 }
+export type Gates = {
+  /** A material's print gates, and a product view's: the nozzle, bed and chamber verdicts, and what the sheets say of abrasion and drying. */
+  nozzle?: PrintAxis;
+  bed?: PrintAxis;
+  chamber?: PrintAxis;
+  abrasive?: 'requires-hardened' | 'no-special-concern' | 'unknown';
+  abrasiveFrom?: string;
+  abrasiveAdvice?: NozzleAdvice;
+  drying?: 'required' | 'optional' | 'not-needed' | 'unknown';
+  dryingFrom?: string;
+  [gate: string]: unknown;
+};
 export interface ProductMaterial {
   readonly id?: string;
   readonly headline?: Readonly<Record<string, HeadlineBag | undefined>>;
-  readonly gates?: Readonly<Record<string, unknown>>;
+  readonly gates?: Gates;
   readonly summary?: Readonly<Record<string, { readonly n?: number } | undefined>>;
   readonly [field: string]: unknown;
 }
@@ -228,7 +307,7 @@ export function valueStateOf(grade: ProductGrade, key: string, state?: ProductSt
 /** Each material's products: its active procurement grades, in the material's order. */
 export function productsByMaterial(db: { readonly grades: readonly ProductGrade[]; readonly materials: readonly { readonly id: string; readonly gradeIds?: readonly string[] }[] }): Map<string, ProductGrade[]> {
   const byId = new Map(db.grades.map((g): [string, ProductGrade] => [g.id, g]));
-  return new Map(db.materials.map((m): [string, ProductGrade[]] => [m.id, (m.gradeIds ?? []).map((id) => byId.get(id)).filter((g) => g && !g.retired) as ProductGrade[]]));
+  return new Map(db.materials.map((m): [string, ProductGrade[]] => [m.id, (m.gradeIds ?? []).map((id) => byId.get(id)).filter((g): g is ProductGrade => !!g && !g.retired)]));
 }
 
 /**
@@ -243,7 +322,7 @@ const stateValue = (grade: ProductGrade, key: string, state: ProductState | null
  */
 export const stateBounds = (grade: ProductGrade, key: string, state: ProductState | null | undefined, ctx: ProductContext): LedgerBounds | null => valueStateOf(grade, key, state, ctx).bounds?.[key] ?? null;
 
-function productValueHeadline(base: HeadlineBag, grade: ProductGrade, v: ProductValue, measurementById: ProductContext['measurementById']): HeadlineBag {
+function productValueHeadline(base: HeadlineBag, grade: ProductGrade, v: ProductValue, measurementById: ProductContext['measurementById']): KnownHeadline {
   const h: HeadlineBag = {
     known: true, value: v.value, unit: base.unit, origin: 'source', verified: true,
     measurementId: v.measurementId ?? null, gradeId: grade.id,
@@ -338,10 +417,10 @@ const NO_PROFILE: PrintAxis = { verdict: 'unknown', reason: 'No print profile re
  * part decides like the product's own, and its reason and `…From` label say where it came from. Drying is what the
  * sheet asks for (required, optional, not-needed; D127), unknown where nothing is stated.
  */
-export function productGates(material: ProductMaterial, grade: ProductGrade): Record<string, unknown> {
+export function productGates(material: ProductMaterial, grade: ProductGrade): Gates {
   const p = grade.print;
   const axis = (a: 'nozzle' | 'bed' | 'chamber'): PrintAxis => (p?.profileIds.length || p?.from?.[a] ? { verdict: p[a].verdict, reason: p[a].reason } : NO_PROFILE);
-  const gates: Record<string, unknown> = {
+  const gates: Gates = {
     ...material.gates,
     nozzle: axis('nozzle'), bed: axis('bed'), chamber: axis('chamber'),
     abrasive: p?.hardenedNozzle === true ? 'requires-hardened' : p?.hardenedNozzle === false ? 'no-special-concern' : 'unknown',
@@ -376,7 +455,7 @@ export function hardenedWords(share?: { readonly need: number; readonly total: n
  * the material's; a criterion that reads records (environment, offers, conflicts, exact-grade evidence) reads the
  * product's own through `product`, never its siblings' (D98).
  */
-export function productView(material: ProductMaterial, grade: ProductGrade, ctx: ProductContext = {}, state: ProductState | null = null) {
+export function productView<M extends ProductMaterial>(material: M, grade: ProductGrade, ctx: ProductContext = {}, state: ProductState | null = null) {
   const headline: Record<string, HeadlineBag | undefined> = {};
   for (const key of Object.keys(material.headline ?? {})) headline[key] = productHeadline(material, grade, key, ctx, state);
   return { ...material, headline, gates: productGates(material, grade), buy: grade.buy ?? null, product: grade, state: state ?? firstState(grade) };

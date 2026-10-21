@@ -345,7 +345,8 @@ function migrateV1(raw: Record<string, unknown>, out: { rankBy: unknown; plot: {
   if (out.plot.indexM !== null && guide !== out.rankBy) out.plot.indexM = null;
   const level = plot.detail ?? (plot.pointLevel === 'measurements' ? (plot.comparability === 'broad' ? 'measured-mixed' : 'measured') : null);
   const used = raw.lens === 'ashby' || level !== null || !!guide;
-  const legacyView = ({ material: 'catalogue', products: 'catalogue', measured: 'measured', 'measured-mixed': 'measured-mixed' } as Readonly<Record<string, string | undefined>>)[(level ?? 'material') as string];
+  const views: Readonly<Record<string, string | undefined>> = { material: 'catalogue', products: 'catalogue', measured: 'measured', 'measured-mixed': 'measured-mixed' };
+  const legacyView = views[String(level ?? 'material')];
   out.plot.view = used ? legacyView : 'decision';
   if (used) {
     notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens as it was saved, on ${legacyView === 'catalogue' ? 'Material typicals' : 'test pairs (under More)'}. Choose "Products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);

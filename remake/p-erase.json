@@ -22,22 +22,6 @@
       "new": "packages/engine/src/port/coverage.ts"
     },
     {
-      "old": "app/js/engine/ledger.js",
-      "new": "packages/engine/src/port/ledger.ts"
-    },
-    {
-      "old": "app/js/engine/products.js",
-      "new": "packages/engine/src/port/products.ts"
-    },
-    {
-      "old": "app/js/engine/indices.js",
-      "new": "packages/engine/src/port/indices.ts"
-    },
-    {
-      "old": "app/js/engine/scenario.js",
-      "new": "packages/engine/src/port/scenario.ts"
-    },
-    {
       "old": "build/src/chamber-estimates.js",
       "new": "packages/build/src/chamber-estimates.ts"
     },
@@ -70,16 +54,6 @@
         {
           "from": "'../../schema/vocab/",
           "to": "'../../../schema/vocab/"
-        }
-      ]
-    },
-    {
-      "old": "build/src/evidence-ledger.js",
-      "new": "packages/build/src/evidence-ledger.ts",
-      "rewrites": [
-        {
-          "from": "'../../app/js/",
-          "to": "'../../../app/js/"
         }
       ]
     },
@@ -144,10 +118,6 @@
     {
       "old": "build/src/product-claims.js",
       "new": "packages/build/src/product-claims.ts"
-    },
-    {
-      "old": "build/src/products.js",
-      "new": "packages/build/src/products.ts"
     },
     {
       "old": "build/src/property-references.js",
@@ -262,6 +232,10 @@
     {
       "old": "build/src/normalize/values.js",
       "new": "packages/build/src/normalize/values.ts"
+    },
+    {
+      "old": "app/js/engine/workspace.js",
+      "new": "packages/engine/src/port/workspace.ts"
     },
     {
       "old": "build/src/estimate/anchor.js",

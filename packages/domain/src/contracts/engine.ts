@@ -1,14 +1,13 @@
 // The engine's input and output (02 section 9.5), and the public types the interface reads. Types only.
 //
-// Loose first (15-TYPESCRIPT-PLAN section 4): RequirementResult is today's one result bag with every field optional, as
-// app/js/engine/constraints.js productResult copies it. It is tightened to one type per kind of check under parity
-// (WP-18, WP-19); reasonCode and constraintId stay optional until reason codes and constraint IDs land.
+// A requirement's answer is one type per kind of check (WP-19, 15-TYPESCRIPT-PLAN section 2): the fields the old engine kept
+// in one bag of about forty optional fields are partitioned by the check that sets them.
 // Words keep the engine's spelling: a status is 'PASS', not 'pass', so parity compares like with like.
 
 import type { Db } from '@atlas/data';
 import type { ConstraintId, GradeId, MaterialId, MeasurementId, ReleaseId, StateId } from './ids.ts';
 import type { ReasonCode } from './reason-codes.ts';
-import type { ScenarioConstraint, ScenarioV2 } from './scenario.ts';
+import type { EnvironmentConstraint, EvidenceConstraint, FacetConstraint, GateConstraint, NumericConstraint, ScenarioConstraint, ScenarioV2 } from './scenario.ts';
 import type { PRODUCT_SHARES } from '../core/vocab.ts';
 import type { EngineMissing, Group, ServiceMoisture, Status, Verdict } from './vocab.ts';
 
@@ -50,55 +49,167 @@ export type StateParts = {
 export type StateRef = { readonly id: StateId } & StateParts;
 
 /** The engine's own requirement, which no scenario holds: the annealing a state needs (constraints.js TREATMENT). */
-export type TreatmentConstraint = { readonly kind: 'treatment'; readonly mandatory?: boolean; readonly [field: string]: unknown };
+export type TreatmentConstraint = {
+  readonly kind: 'treatment';
+  readonly mandatory: boolean;
+  readonly __group: string;
+};
+
+/** Every requirement the engine answers: the scenario's five kinds and its own treatment. */
+export type Requirement = ScenarioConstraint | TreatmentConstraint;
+
+// ------------------------------------------------------------------ what a value says about itself (the compiled database's, as the engine reads it)
+
+/** An annealing schedule; an end the sheet does not state is null. */
+export type Treatment = { readonly tempC: number | null; readonly hours: number | null };
+/** What a reader admitted unstated (GOALS 2026-09-28, decision 5). */
+export type Admitted = 'direction' | 'specimen' | 'moisture' | 'treatment' | 'bar';
+/** Why a value is set apart (D172). */
+export type Caveat = 'not-described' | 'unstated-direction' | 'load-not-stated';
+/** The range a value stands for: a point, a mean with a band, a range, or a one-sided bound. */
+export type Interval =
+  | { readonly lo: number; readonly hi: number; readonly kind: 'point' | 'uncertainty' | 'range'; readonly openLow?: boolean; readonly openHigh?: boolean }
+  | { readonly lo: number; readonly hi: null; readonly openLow: boolean; readonly kind?: undefined; readonly openHigh?: undefined }
+  | { readonly lo: null; readonly hi: number; readonly openHigh: boolean; readonly kind?: undefined; readonly openLow?: undefined };
+/** A record that contradicts a value, with where it puts it (C40, D153). */
+export type Doubt = { readonly rule: string; readonly lo: number | null; readonly hi: number | null; readonly measurementId?: string };
+/** An end of a range, open where null. */
+export type Band = { readonly lo: number | null; readonly hi: number | null };
+/** Where the product's own values and its kind's model disagree, band by band (D167). */
+export type OwnBand = {
+  readonly disagree: boolean;
+  readonly bands: readonly { readonly lo: number | null; readonly hi: number | null; readonly measurementIds?: readonly string[] }[];
+  readonly lo?: number;
+  readonly hi?: number;
+};
+/** The estimate stage's value for one headline (D43, D48, D59, D137, D167). Never a measurement. */
+export type Prediction = {
+  readonly lo: number;
+  readonly hi: number;
+  readonly unit: string;
+  readonly centre?: number;
+  readonly plausible?: { readonly lo: number; readonly hi: number };
+  readonly screenRange?: Band | null;
+  readonly canScreen?: boolean;
+  readonly screenLimit?: string;
+  readonly screening?: { readonly context?: unknown };
+  readonly impliedBounds?: readonly unknown[];
+  readonly ownBand?: OwnBand;
+  readonly evidence?: readonly { readonly measurementIds?: readonly string[] }[];
+  readonly [field: string]: unknown;
+};
+/** A value the product publishes in a state this scenario does not judge it in (D99). */
+export type Elsewhere = {
+  readonly stateId: string;
+  readonly treatment: Treatment | null;
+  readonly moisture?: ServiceMoisture | undefined;
+  readonly value: number;
+  readonly measurementId: string | null;
+  readonly setApart?: boolean;
+};
+/** A value the reader sets apart and never uses to pass (D172). */
+export type AsPublished = { readonly value: number; readonly caveat?: Caveat | undefined; readonly measurementId?: string | null | undefined };
+/** A ledger contribution as an answer cites it: its rule, kind and record, and the bound it set. */
+export type LedgerRef = {
+  readonly rule: string;
+  readonly kind: 'floor' | 'ceiling' | 'band' | 'equal' | 'demote-to-ceiling' | 'neat-density range';
+  readonly measurementId?: string;
+  readonly bound: number | null;
+};
+
+// ------------------------------------------------------------------ the answers, one type per kind of check
 
 /**
- * One requirement's answer for one product (constraints.js productResult) or material (evaluateConstraint). LOOSE:
- * today's bag, open to the fields the material-level results also carry (vetoedBy, notApplicable, plausible, estimate,
- * related, ...), which the engine reads back. The named fields are the ones productResult copies when set, plus the
- * ones parity compares (02 section 9.5). It is split into one type per kind of check under parity (WP-18, WP-19).
+ * What every answer carries. `screened` and `onTheLine` are shared because two kinds set them: a numeric limit and a
+ * base polymer's behaviour can hide a material (D56, D64), a numeric limit and a print gate can be on the line (D151, D152).
+ * `reasonCode` and `constraintId` are the engine's own.
  */
-export type RequirementResult = {
+type ResultBase = {
   readonly criterion: string;
   readonly status: Status;
   /** Word for word what the old engine says. */
   readonly reason: string;
-  readonly constraint: ScenarioConstraint | TreatmentConstraint;
-  /** Not set by the old engine; arrives with reason codes (WP-19). */
   readonly reasonCode?: ReasonCode;
-  /** Not set by the old engine. The typed wrapper (WP-11) sets it on every result, provisionally; WP-19 decides the derivation. */
   readonly constraintId?: ConstraintId;
-  /** Null where the engine names no measurement (a result that rests on none). */
-  readonly measurementId?: MeasurementId | null;
-  readonly evidenceIds?: readonly string[];
-  readonly priceIds?: readonly string[];
-  readonly contextIds?: readonly string[];
-  readonly observed?: number;
-  readonly unit?: string;
-  readonly closeToLimit?: boolean;
+  readonly screened?: boolean | undefined;
   readonly onTheLine?: boolean;
-  readonly thinMargin?: boolean;
-  readonly ledger?: unknown;
-  readonly sheetsDisagree?: unknown;
-  readonly doubtful?: readonly unknown[];
-  readonly ceilingOnly?: { readonly measurementId: MeasurementId | null; readonly value: number };
-  readonly estimated?: boolean;
-  readonly screened?: boolean;
-  readonly polymer?: unknown;
-  readonly admitted?: readonly string[];
-  readonly treatment?: unknown;
-  readonly elsewhere?: readonly unknown[];
-  readonly missing?: EngineMissing;
-  readonly asPublished?: unknown;
-  readonly caveat?: string;
-  readonly prediction?: unknown;
-  readonly notApplicable?: boolean;
-  readonly vetoedBy?: readonly string[];
-  readonly plausible?: Status;
-  readonly estimate?: unknown;
-  readonly related?: readonly string[];
-  readonly [field: string]: unknown;
 };
+
+/** A limit on a headline. By far the busiest kind: it says what it rests on, and what it could not find. */
+export type NumericResult = ResultBase & {
+  readonly constraint: NumericConstraint;
+  /** Null where the engine names no measurement (a result that rests on none). */
+  readonly measurementId?: MeasurementId | null | undefined;
+  readonly gradeId?: string | undefined;
+  readonly sourceId?: string | null | undefined;
+  readonly observed?: number | undefined;
+  readonly unit?: string | undefined;
+  readonly interval?: Interval;
+  readonly direction?: string | undefined;
+  readonly closeToLimit?: boolean;
+  readonly thinMargin?: boolean;
+  readonly admitted?: readonly Admitted[];
+  readonly caveat?: Caveat;
+  readonly doubtful?: readonly Doubt[];
+  readonly ledger?: LedgerRef;
+  readonly sheetsDisagree?: { readonly lo: LedgerRef; readonly hi: LedgerRef };
+  readonly ceilingOnly?: { readonly measurementId: string | null; readonly value: number };
+  readonly asPublished?: AsPublished;
+  readonly elsewhere?: readonly Elsewhere[];
+  readonly missing?: EngineMissing | undefined;
+  readonly notApplicable?: boolean;
+  readonly estimated?: boolean;
+  readonly estimate?: Prediction;
+  readonly plausible?: Status;
+  readonly vetoedBy?: readonly string[];
+  /** A product's estimate in words the page prints (constraints.js productResult), set when the estimate carries its screening context. */
+  readonly prediction?: {
+    readonly centre: number | undefined;
+    readonly plausible: { readonly lo: number; readonly hi: number } | undefined;
+    readonly screenRange: Band | null | undefined;
+    readonly canScreen: boolean | undefined;
+    readonly scope: unknown;
+    readonly limitation: string | undefined;
+  };
+};
+/** A print gate, the scope, the H2C status, abrasion, offers, or a drying statement. */
+export type GateResult = ResultBase & {
+  readonly constraint: GateConstraint;
+  readonly priceIds?: readonly string[];
+};
+/** A recorded class of the material. */
+export type FacetResult = ResultBase & {
+  readonly constraint: FacetConstraint;
+  readonly derived?: boolean;
+};
+/** Resistance to a class of agent: the product's records, a twin's, or its base polymer's behaviour standing in (D64). */
+export type EnvironmentResult = ResultBase & {
+  readonly constraint: EnvironmentConstraint;
+  readonly evidenceIds?: readonly string[];
+  readonly contextIds?: readonly string[];
+  readonly indicatorOnly?: boolean;
+  readonly polymer?: boolean;
+  readonly polymerId?: string;
+  readonly polymerVerdict?: string;
+  readonly polymerEvidenceIds?: readonly string[];
+  readonly polymerScreen?: boolean;
+  readonly vetoedBy?: readonly string[];
+};
+/** The strength of the evidence itself. */
+export type EvidenceResult = ResultBase & {
+  readonly constraint: EvidenceConstraint;
+};
+/** The annealing a state needs: the engine's own requirement. */
+export type TreatmentResult = ResultBase & {
+  readonly constraint: TreatmentConstraint;
+  readonly treatment?: Treatment;
+};
+
+/**
+ * One requirement's answer for one product (constraints.js productResult) or material (evaluateConstraint): one type per
+ * kind of check, told apart by the kind of its `constraint`.
+ */
+export type RequirementResult = NumericResult | GateResult | FacetResult | EnvironmentResult | EvidenceResult | TreatmentResult;
 
 /** A product's answer inside a material's evaluation (constraints.js productEntry). */
 export type ProductView = {

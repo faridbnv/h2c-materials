@@ -7,6 +7,5 @@ export { PORTABLE, PORT_DIR, PORT_ENV, WIRED, activePorts, importStaged, stageEn
 export type { EngineModule, EngineModuleName, PortableModule } from './port/stage.ts';
 export { BoundaryError } from './guards.ts';
 export { TREATMENT_ID } from './constraint-ids.ts';
-export { reasonCodeOf } from './reasons.ts';
 export { scenarioFrom, isScenarioConstraint } from './scenario.ts';
 export type { Question } from './scenario.ts';

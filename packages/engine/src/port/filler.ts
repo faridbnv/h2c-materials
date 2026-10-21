@@ -19,7 +19,7 @@ const NAMES_NONE = /undisclosed|^Not /i;
 const key = (words: unknown): string => String(words).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 export interface FillerSource {
-  readonly facets?: { readonly [facet: string]: { readonly value?: string | null } | undefined };
+  readonly facets?: { readonly reinforcement?: { readonly value?: string | null } | undefined };
   readonly modifier?: unknown;
 }
 

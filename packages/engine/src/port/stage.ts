@@ -7,7 +7,7 @@
 // An old module that imports `./products.js` and a ported module that imports `./constraints.ts` therefore both reach the
 // one instance of the module they name, whichever side of the switch it is on. Node strips the labels of a `.ts` file as it
 // loads it, which is the erasure P-erase proves equal to the old file for a label-only port.
-import { copyFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -17,17 +17,29 @@ import { ENGINE_DIR } from '../paths.ts';
 export const ENGINE_MODULES = ['constraints', 'coverage', 'filler', 'indices', 'ledger', 'pareto', 'products', 'scenario', 'search', 'workspace'] as const;
 export type EngineModuleName = (typeof ENGINE_MODULES)[number];
 
-/** The modules WP-18 ports. `constraints` and `workspace` are WP-19. */
-export const PORTABLE = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'indices', 'products', 'scenario'] as const;
+/** The modules with a TypeScript port: eight from WP-18, `constraints` and `workspace` from WP-19. */
+export const PORTABLE = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'indices', 'products', 'scenario', 'constraints', 'workspace'] as const;
 export type PortableModule = (typeof PORTABLE)[number];
 
 /** The switch: the modules the typed wrapper runs from their port. A module joins this list in the commit that ports it. */
-export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'products', 'indices', 'scenario'];
+export const WIRED: readonly PortableModule[] = ['pareto', 'filler', 'search', 'coverage', 'ledger', 'products', 'indices', 'scenario', 'constraints', 'workspace'];
 
 /** The environment variable that overrides the switch: `none` (the old engine as it is), `all`, or a comma-separated list. */
 export const PORT_ENV = 'ATLAS_ENGINE_PORT';
 
 export const PORT_DIR = fileURLToPath(new URL('.', import.meta.url));
+
+/**
+ * The files a ported module imports that are not engine modules, copied into the staged directory under the name the module
+ * imports them by. A port file stands for each in the repository (a module of its own, or a one-line re-export of the shared
+ * core), and the staged copy is that file, so the same text runs in both places.
+ */
+export const SUPPORT_FILES = [
+  { name: 'gate-reasons.ts', from: 'port' },
+  { name: 'constraint-ids.ts', from: 'core' },
+  { name: 'gate-verdict.ts', from: 'core' },
+] as const;
+const CORE_DIR = fileURLToPath(new URL('../../../domain/src/core/', import.meta.url));
 
 const isPortable = (name: string): name is PortableModule => PORTABLE.some((m) => m === name);
 
@@ -39,7 +51,7 @@ export function activePorts(env: Readonly<Record<string, string | undefined>> = 
   if (asked === 'all') return PORTABLE;
   const ports: PortableModule[] = [];
   for (const name of asked.split(',').map((s) => s.trim())) {
-    if (!isPortable(name)) throw new Error(`${PORT_ENV}: "${name}" is not a module WP-18 ports (known: ${PORTABLE.join(', ')}; or none, all)`);
+    if (!isPortable(name)) throw new Error(`${PORT_ENV}: "${name}" is not a module with a TypeScript port (known: ${PORTABLE.join(', ')}; or none, all)`);
     if (!ports.includes(name)) ports.push(name);
   }
   return ports;
@@ -70,6 +82,10 @@ export function stageEngine(ports: readonly PortableModule[] = activePorts(), { 
     const alias = ported ? `${name}.js` : `${name}.ts`;
     copyFileSync(join(ported ? portDir : from, file), join(dir, file));
     writeFileSync(join(dir, alias), `export * from './${file}';\n`);
+  }
+  for (const { name, from: where } of SUPPORT_FILES) {
+    const source = where === 'core' ? join(CORE_DIR, name) : join(existsSync(join(portDir, name)) ? portDir : PORT_DIR, name);
+    copyFileSync(source, join(dir, name));
   }
   return dir;
 }

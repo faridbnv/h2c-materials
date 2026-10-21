@@ -23,6 +23,7 @@ export interface Contribution {
   readonly hi: number | null;
   readonly openLow?: true;
   readonly openHigh?: true;
+  readonly measurementId?: string;
   readonly sourceValue?: number;
   readonly factor?: number | null;
   readonly limit?: unknown;
@@ -47,6 +48,7 @@ export interface Requirement {
 }
 export interface LedgerRow {
   readonly id: string;
+  readonly words?: string;
   readonly [field: string]: unknown;
 }
 export interface LedgerDb {
@@ -132,7 +134,9 @@ export function contributionWords(b: Contribution, unit: string, words?: string 
 export const contributionSentence = (b: Contribution, unit: string, words?: string | null): string => cap(contributionWords(b, unit, words));
 
 /** A requirement in a reason's words: "100 °C", "at most 1,500 kg/m³". */
-export const requirementWords = (c: Requirement, unit: string): string => `${({ '>': 'more than ', '<': 'less than ', '<=': 'at most ' } as Readonly<Record<string, string | undefined>>)[c.operator] ?? ''}${fmtWords(c.value)} ${unit}`;
+// The words before a limit; '>=' has none, which is as the build always read it.
+const OPERATOR_PREFIX: Readonly<Record<string, string | undefined>> = { '>': 'more than ', '<': 'less than ', '<=': 'at most ' };
+export const requirementWords = (c: Requirement, unit: string): string => `${OPERATOR_PREFIX[c.operator] ?? ''}${fmtWords(c.value)} ${unit}`;
 
 /**
  * The reason a ledger answer gives (D153, D154), naming the record and the rule's words. `verdict` is pass, fail or
@@ -141,13 +145,12 @@ export const requirementWords = (c: Requirement, unit: string): string => `${({ 
  */
 export type ReasonOptions = {
   readonly unit: string;
-  readonly words?: string | null;
+  readonly words?: string | null | undefined;
   readonly c: Requirement;
   readonly asPrinted?: boolean;
-} & (
-  | { readonly verdict: 'pass' | 'fail'; readonly margin?: { readonly words: string } | null }
-  | { readonly verdict: 'line'; readonly margin: { readonly words: string } }
-);
+  readonly verdict: 'pass' | 'fail' | 'line';
+  readonly margin?: { readonly words: string } | null;
+};
 export function ledgerReason(b: Contribution, { unit, words, verdict, c, margin, asPrinted = true }: ReasonOptions): string {
   const req = requirementWords(c, unit);
   const atLeast = c.operator.startsWith('>');

@@ -1,16 +1,16 @@
 // The boundary: the old engine's answers, checked and typed. Nothing the engine said is dropped or reworded; what is added
 // sits beside it (`constraintId`, `reasonCode`), and the words that became IDs or word-list members were checked on the way.
-import { GROUP_ORDER, PRODUCT_SHARES, STATUSES, parseStateId } from '@atlas/domain';
-import type { Evaluation, Group, MeasurementId, ProductView, RequirementResult, StateRef, Status, Verdict } from '@atlas/domain';
+import { GROUP_ORDER, PRODUCT_SHARES, REASON_CODES, STATUSES, parseStateId } from '@atlas/domain';
+import type { ConstraintId, Evaluation, Group, MeasurementId, ProductView, ReasonCode, RequirementResult, StateRef, Status, Verdict } from '@atlas/domain';
 import type { ConstraintIndex } from './constraint-ids.ts';
 import { BoundaryError, gradeIdOf, materialIdOf, measurementIdOf, moistureOf, oneOf, stateIdOf } from './guards.ts';
 import type { RawEvaluation, RawProduct, RawResult, RawState } from './old-engine.ts';
-import { reasonCodeOf } from './reasons.ts';
 
 const VERDICTS = STATUSES.filter((word): word is Verdict => word !== 'INDETERMINATE');
 const statusOf = (value: string): Status => oneOf(STATUSES, value, 'requirement status');
 const verdictOf = (value: string): Verdict => oneOf(VERDICTS, value, 'verdict');
 const groupOf = (value: string): Group => oneOf(GROUP_ORDER, value, 'group');
+const reasonCodeOf = (value: string): ReasonCode => oneOf(REASON_CODES, value, 'reason code');
 
 /** A state: its identifier and the parts the identifier encodes. The two must agree (engine.ts StateRef), so a disagreement is an error. */
 export function toStateRef(raw: RawState): StateRef {
@@ -29,6 +29,21 @@ function checkedMeasurement(measurementId: string | null | undefined): { measure
   return { measurementId: measurementId === null ? null : measurementIdOf(measurementId) };
 }
 
+/** The result a numeric answer carries a record ID in: the only kind that names a measurement. */
+const isNumericRaw = (r: RawResult): r is Extract<RawResult, { readonly constraint: { readonly kind: 'numeric' } }> => r.constraint.kind === 'numeric';
+
+/** One result, its words and IDs checked, with the ID of the requirement it answers beside it. */
+function checkedResult(raw: RawResult, id: ConstraintId): RequirementResult {
+  const status = statusOf(raw.status);
+  // The engine says which code its sentence has; a word that is not one of the listed codes is refused here.
+  const code: { reasonCode?: ReasonCode } = raw.reasonCode === undefined ? {} : { reasonCode: reasonCodeOf(raw.reasonCode) };
+  if (isNumericRaw(raw)) {
+    const { measurementId, ...rest } = raw;
+    return { ...rest, status, constraintId: id, ...code, ...checkedMeasurement(measurementId) };
+  }
+  return { ...raw, status, constraintId: id, ...code };
+}
+
 /**
  * One evaluation's results, converted once each: a result the engine lists in `results` and again in `failed` or
  * `unresolved` is one object there, and stays one object here.
@@ -38,11 +53,7 @@ function resultConverter(index: ConstraintIndex): (raw: RawResult) => Requiremen
   return (raw) => {
     const known = done.get(raw);
     if (known) return known;
-    const { id, body } = index.lookup(raw.constraint);
-    const { measurementId, ...rest } = raw;
-    const checked = { ...rest, status: statusOf(raw.status), constraint: body, constraintId: id, ...checkedMeasurement(measurementId) };
-    const reasonCode = reasonCodeOf(checked);
-    const result = reasonCode === undefined ? checked : { ...checked, reasonCode };
+    const result = checkedResult(raw, index.idOf(raw));
     done.set(raw, result);
     return result;
   };

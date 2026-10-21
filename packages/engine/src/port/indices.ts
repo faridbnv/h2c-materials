@@ -62,8 +62,8 @@ export const ANISOTROPY_CAVEAT =
 // The price caveat counts the materials it is shown for: it once read "40 of 102" from the day it was written.
 export const PRICE_CAVEAT = 'Price is available for {n} of {total} materials.';
 export const priceCaveat = (materials: readonly ProductMaterial[]): string => PRICE_CAVEAT
-  .replace('{n}', materials.filter((m) => m.headline?.priceCADkg?.known).length as never)
-  .replace('{total}', materials.length as never);
+  .replace('{n}', String(materials.filter((m) => m.headline?.priceCADkg?.known).length))
+  .replace('{total}', String(materials.length));
 
 // Each index also says what it models, for the workspace's first step (D107): the member (a tie, a beam, a panel), the
 // geometry left free, the constraint in one sentence, and whether its strength is a proxy. The free-geometry forms hold

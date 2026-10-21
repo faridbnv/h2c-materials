@@ -1,13 +1,54 @@
 {
   "id": "WP-19",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-19-constraints",
+  "pr": 35,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-21T00:00:00.000Z",
   "lastPass": null,
-  "evidence": [],
-  "waitingSince": null,
-  "approvedAt": null
+  "evidence": [
+    {
+      "cmd": "npm run parity:erase",
+      "result": "pass",
+      "code": 0,
+      "note": "step 1: constraints and workspace label-only"
+    },
+    {
+      "cmd": "npm run parity -- --new --surface engine,ties,links (after each of the six steps)",
+      "result": "pass",
+      "code": 0,
+      "note": "engine 1,306, ties 110 and 16,390 materials, links 18 and 135: zero at every step, wording tier included"
+    },
+    {
+      "cmd": "npm run parity -- --new --surface engine,ties,links --milestone",
+      "result": "pass",
+      "code": 0,
+      "note": "5,306 engine cases (5,000 replays + census), ties 468 and 69,732 materials, links 135: zero"
+    },
+    {
+      "cmd": "node --test tests/parity/old-tests-on-port.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "25 old test files, 317 tests incl. the metamorphic relations, unedited, against the new engine"
+    },
+    {
+      "cmd": "npm run types:check; npm run lint; npm run types:ratchet",
+      "result": "pass",
+      "code": 0,
+      "note": "casts 31 to 27 on the branch (29 with v3's own)"
+    },
+    {
+      "cmd": "npm run test:claude; test:domain; test:remake; test:parity",
+      "result": "pass",
+      "code": 0,
+      "note": "18, 27, 485, 214 (2 PARITY_FULL skipped)"
+    }
+  ],
+  "waitingSince": "2026-10-21",
+  "approvedAt": null,
+  "prs": [
+    35
+  ],
+  "note": "constraints and workspace ported; result type per check kind; reason codes in the engine; constraint IDs; six casts removed; one verdict table; rule map in docs/next/constraints-rules.md; defects WP19-D1 to D3"
 }
