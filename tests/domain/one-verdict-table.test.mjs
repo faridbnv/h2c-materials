@@ -18,14 +18,16 @@ function* sources(dir) {
   }
 }
 
-/** The object literals of a file keyed by three or more gate verdicts. */
+/** The object literals of a file keyed by three or more gate verdicts (other than a row of zero counters). */
 function tablesIn(path) {
   const file = ts.createSourceFile(path, readFileSync(path, 'utf8'), ts.ScriptTarget.Latest, true);
   const found = [];
   const visit = (node) => {
     if (ts.isObjectLiteralExpression(node)) {
       const keys = node.properties.map((p) => p.name && (ts.isIdentifier(p.name) || ts.isStringLiteral(p.name)) ? p.name.text : null);
-      if (keys.filter((k) => GATE_PRECEDENCE.includes(k)).length >= 3) found.push(file.getLineAndCharacterOfPosition(node.getStart()).line + 1);
+      // A row of zero counters keyed by the verdicts (the validation report's tally) says nothing of what a verdict means.
+      const counters = node.properties.every((p) => ts.isPropertyAssignment(p) && ts.isNumericLiteral(p.initializer));
+      if (!counters && keys.filter((k) => GATE_PRECEDENCE.includes(k)).length >= 3) found.push(file.getLineAndCharacterOfPosition(node.getStart()).line + 1);
     }
     ts.forEachChild(node, visit);
   };
