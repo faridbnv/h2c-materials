@@ -33,7 +33,11 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return typeof value === 'object' && value !== null && !Array.isArray(value) ? Object.fromEntries(Object.entries(value)) : null;
 }
 
-const kind = (value: unknown): string => (value === null ? 'null' : Array.isArray(value) ? 'array' : typeof value);
+function kind(value: unknown): string {
+  if (value === null) return 'null';
+  if (Array.isArray(value)) return 'array';
+  return typeof value;
+}
 
 function primitive<T extends string | number | boolean | null>(name: string, test: (value: unknown) => value is T): Shape<T> {
   return {
@@ -51,8 +55,8 @@ export const nul: Shape<null> = primitive('null', (v): v is null => v === null);
 export const json: Shape<JsonValue> = {
   name: 'JSON value',
   check: (value, path, problems): value is JsonValue => {
-    const ok = value === null || ['string', 'boolean'].includes(typeof value) || (typeof value === 'number' && Number.isFinite(value))
-      || Array.isArray(value) || (typeof value === 'object');
+    // typeof is 'object' for null, arrays and objects alike.
+    const ok = ['string', 'boolean', 'object'].includes(typeof value) || (typeof value === 'number' && Number.isFinite(value));
     return ok || fail(problems, `${path}: expected a JSON value, found ${kind(value)}`);
   },
 };
@@ -68,9 +72,10 @@ export function arr<T>(item: Shape<T>): Shape<readonly T[]> {
     name: `array of ${item.name}`,
     check: (value, path, problems): value is readonly T[] => {
       if (!Array.isArray(value)) return fail(problems, `${path}: expected array, found ${kind(value)}`);
-      const before = problems.length;
-      value.forEach((element: unknown, i) => item.check(element, `${path}[${i}]`, problems));
-      return problems.length === before;
+      // The verdict is kept apart from the message list, which stops growing at LIMIT.
+      let ok = true;
+      value.forEach((element: unknown, i) => { ok = item.check(element, `${path}[${i}]`, problems) && ok; });
+      return ok;
     },
   };
 }
@@ -81,9 +86,9 @@ export function record<T>(item: Shape<T>): Shape<{ readonly [key: string]: T }> 
     check: (value, path, problems): value is { readonly [key: string]: T } => {
       const entries = asRecord(value);
       if (!entries) return fail(problems, `${path}: expected object, found ${kind(value)}`);
-      const before = problems.length;
-      for (const [key, entry] of Object.entries(entries)) item.check(entry, `${path}.${key}`, problems);
-      return problems.length === before;
+      let ok = true;
+      for (const [key, entry] of Object.entries(entries)) ok = item.check(entry, `${path}.${key}`, problems) && ok;
+      return ok;
     },
   };
 }
@@ -112,18 +117,18 @@ export function obj<const R extends Fields, const O extends Fields = {}>(
     check: (value, path, problems): value is ObjectOf<R, O> => {
       const entries = asRecord(value);
       if (!entries) return fail(problems, `${path}: expected object, found ${kind(value)}`);
-      const before = problems.length;
+      let ok = true;
       for (const [key, shape] of Object.entries(required)) {
-        if (!(key in entries)) fail(problems, `${path}.${key}: required key is missing`);
-        else shape.check(entries[key], `${path}.${key}`, problems);
+        if (!Object.hasOwn(entries, key)) ok = fail(problems, `${path}.${key}: required key is missing`);
+        else ok = shape.check(entries[key], `${path}.${key}`, problems) && ok;
       }
       for (const [key, entry] of Object.entries(entries)) {
-        const shape = optionalFields[key];
-        if (key in required) continue;
-        if (shape) shape.check(entry, `${path}.${key}`, problems);
-        else if (options?.open !== true) fail(problems, `${path}.${key}: key is not in the contract`);
+        if (Object.hasOwn(required, key)) continue;
+        const shape = Object.hasOwn(optionalFields, key) ? optionalFields[key] : undefined;
+        if (shape) ok = shape.check(entry, `${path}.${key}`, problems) && ok;
+        else if (options?.open !== true) ok = fail(problems, `${path}.${key}: key is not in the contract`);
       }
-      return problems.length === before;
+      return ok;
     },
   };
 }

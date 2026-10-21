@@ -81,14 +81,18 @@ export function sqlName(header) {
 const words = (stem) => stem.split(/[-_]/).filter(Boolean);
 const pascal = (stem) => words(stem).map((w) => w[0].toUpperCase() + w.slice(1)).join('');
 const screaming = (stem) => words(stem).join('_').toUpperCase();
-const singular = (w) => (/(ches|shes|xes|sses)$/.test(w) ? w.slice(0, -2)
-  : /ies$/.test(w) ? `${w.slice(0, -3)}y`
-  : /(us|ss)$/.test(w) || !w.endsWith('s') ? w : w.slice(0, -1));
+function singular(w) {
+  if (/(ches|shes|xes|sses)$/.test(w)) return w.slice(0, -2);
+  if (/ies$/.test(w)) return `${w.slice(0, -3)}y`;
+  if (/(us|ss)$/.test(w) || !w.endsWith('s')) return w;
+  return w.slice(0, -1);
+}
 const vocabType = (stem) => { const w = words(stem); return pascal([...w.slice(0, -1), singular(w.at(-1))].join('-')); };
 const ts = (s) => JSON.stringify(s);
 const tsKey = (s) => (/^[A-Za-z_$][\w$]*$/.test(s) ? s : ts(s));
 const sqlStr = (s) => `'${String(s).replace(/'/g, "''")}'`;
 const sqlId = (s) => `"${s.replace(/"/g, '""')}"`;
+const isSoleKey = (pk, name) => pk.length === 1 && pk[0] === name;
 const oneLine = (s) => String(s).replace(/\s+/g, ' ').trim();
 
 // ---------------------------------------------------------------- patterns -> GLOB
@@ -136,7 +140,7 @@ export function patternToGlob(source) {
       if (end < 0) throw new SyntaxError('unclosed class');
       const body = src.slice(i, end);
       i = end + 1;
-      return [`[${body.replace(/^\^/, '^')}]`];
+      return [`[${body}]`];
     }
     if (c === '.') return ['?'];
     if (c === '\\') {
@@ -152,14 +156,13 @@ export function patternToGlob(source) {
   function quantified(alts) {
     const q = src[i];
     const repeat = (min, max) => {
-      let out = [];
-      let cur = min === 0 ? [''] : null;
+      const out = min === 0 ? [''] : [];
       let power = [''];
       for (let n = 1; n <= max; n++) {
         power = product(power, alts);
-        if (n >= min) out = out.concat(power);
+        if (n >= min) out.push(...power);
       }
-      return min === 0 ? [...(cur ?? []), ...out] : out;
+      return out;
     };
     if (q === '?') { i++; return ['', ...alts]; }
     if (q === '+' || q === '*') {
@@ -208,14 +211,34 @@ const idAlias = (fieldName) => fieldName.replace(/ID$/, 'Id');
 
 // ---------------------------------------------------------------- model
 
+/**
+ * Columns whose vocabulary holds a missing-state word as an ordinary value without declaring it in the field's "missing"
+ * list, so the generated type lets the word be read as a value. These 12 exist in the schema today (type-design review,
+ * WP-06 finding 1). Each needs the owner's choice: declare the word as missing (the column becomes a Cell) or confirm it
+ * is a real value there. The generator refuses any NEW column of this kind; this list may only shrink.
+ */
+const VALUE_WORD_COLUMNS = new Set([
+  'coverage.Status', 'headline_definitions.Direction', 'headline_definitions.Notch', 'measurements.Operator',
+  'measurements.Normalized unit', 'measurements.Data status', 'measurements.Specimen type', 'measurements.Direction',
+  'measurements.Notch', 'page_context.Direction', 'plausibility_windows.Normalized unit', 'properties.Units',
+]);
+
 /** Everything the three outputs need to know about one column, decided once. */
 function describeField(table, field, vocab) {
   const missing = field.missing ?? [];
   const c = field.constraints ?? {};
-  const itemVocab = field.type === 'list' ? field.item?.vocabulary : undefined;
-  const vocabName = field.type === 'list' ? itemVocab : field.vocabulary;
+  const vocabName = field.type === 'list' ? field.item?.vocabulary : field.vocabulary;
   if (vocabName && !vocab[vocabName]) throw new Error(`${table}.${field.name}: unknown vocabulary "${vocabName}"`);
-  const allowed = c.enum ?? (vocabName && field.type !== 'list' ? vocab[vocabName] : undefined);
+  const withoutMissing = (values) => values.filter((v) => !missing.includes(v));
+  // `enumValues` is the schema's own enum; `allowed` is what a CHECK may accept: that enum, else the vocabulary's values.
+  const enumValues = c.enum === undefined ? null : withoutMissing(c.enum);
+  const vocabAllowed = vocabName && field.type !== 'list' ? withoutMissing(vocab[vocabName]) : null;
+  for (const word of missing) if (!vocab['missing-states'].includes(word)) throw new Error(`${table}.${field.name}: "${word}" is not a word of schema/vocab/missing-states.csv`);
+  const allowedValues = c.enum ?? (vocabName && field.type !== 'list' ? vocab[vocabName] : (vocabName ? vocab[vocabName] : []));
+  const leaks = allowedValues.filter((v) => vocab['missing-states'].includes(v) && !missing.includes(v));
+  if (leaks.length && !VALUE_WORD_COLUMNS.has(`${table}.${field.name}`)) {
+    throw new Error(`${table}.${field.name}: ${leaks.map(ts).join(', ')} is a missing-state word that this column accepts as an ordinary value. Declare it in the field's "missing" list so it becomes a Cell, or add the column to VALUE_WORD_COLUMNS with the owner's reason.`);
+  }
   return {
     name: field.name,
     sql: sqlName(field.name),
@@ -225,9 +248,9 @@ function describeField(table, field, vocab) {
     unique: c.unique === true,
     missing,
     vocabName: vocabName ?? null,
-    enum: c.enum !== undefined,
     vocabValues: vocabName ? vocab[vocabName] : [],
-    allowed: allowed ? allowed.filter((v) => !missing.includes(v)) : null,
+    enumValues,
+    allowed: enumValues ?? vocabAllowed,
     pattern: c.pattern ?? null,
     minimum: c.minimum ?? null,
     maximum: c.maximum ?? null,
@@ -252,7 +275,7 @@ function buildModel(root) {
     }
     const pk = t.primaryKey == null ? [] : [].concat(t.primaryKey);
     for (const k of pk) if (!columns.some((c) => c.name === k)) throw new Error(`${t.name}: primaryKey "${k}" is not a column`);
-    const uniqueKeys = (t.uniqueKeys ?? []);
+    const uniqueKeys = t.uniqueKeys ?? [];
     return { name: t.name, title: t.title, columns, pk, uniqueKeys };
   });
   const byName = new Map(model.map((t) => [t.name, t]));
@@ -262,7 +285,7 @@ function buildModel(root) {
       const parent = byName.get(col.reference.table);
       const target = parent?.columns.find((c) => c.name === col.reference.field);
       if (!target) throw new Error(`${t.name}.${col.name}: references unknown ${col.reference.table}.${col.reference.field}`);
-      const isKey = (parent.pk.length === 1 && parent.pk[0] === target.name) || target.unique
+      const isKey = isSoleKey(parent.pk, target.name) || target.unique
         || parent.uniqueKeys.some((k) => k.length === 1 && k[0] === target.name);
       if (!isKey) throw new Error(`${t.name}.${col.name}: ${parent.name}.${target.name} is not a primary or unique key, so SQLite cannot enforce the foreign key`);
     }
@@ -276,10 +299,15 @@ function buildModel(root) {
       aliases.set(alias, col.idTemplate);
     }
   }
+  // A foreign key takes the ID type of the column it points to, however many references away that is.
+  const aliasOf = (col) => {
+    if (col.idTemplate) return idAlias(col.name);
+    if (!col.reference) return null;
+    return aliasOf(byName.get(col.reference.table).columns.find((c) => c.name === col.reference.field));
+  };
   for (const t of model) {
     for (const col of t.columns) {
-      const target = col.reference && byName.get(col.reference.table).columns.find((c) => c.name === col.reference.field);
-      col.idAlias = col.idTemplate ? idAlias(col.name) : target?.idTemplate ? idAlias(target.name) : null;
+      col.idAlias = aliasOf(col);
     }
   }
   return { model, vocab, aliases };
@@ -341,13 +369,12 @@ function renderRows({ model, vocab, aliases }) {
     if (typeNames.has(name)) throw new Error(`Vocabulary types "${stem}" and "${typeNames.get(name)}" are both named ${name}`);
     typeNames.set(name, stem);
   }
-  const typeOf = (stem) => vocabType(stem);
   const out = [`// ${BANNER}`, '', "import type { Cell } from '../cell.ts';", ''];
 
   out.push('// Vocabularies: one file in schema/vocab each, values in file order.');
   for (const [stem, values] of Object.entries(vocab)) {
     out.push(`export const ${screaming(stem)} = [${values.map(ts).join(', ')}] as const;`);
-    out.push(`export type ${typeOf(stem)} = (typeof ${screaming(stem)})[number];`);
+    out.push(`export type ${vocabType(stem)} = (typeof ${screaming(stem)})[number];`);
   }
   out.push('');
 
@@ -358,7 +385,7 @@ function renderRows({ model, vocab, aliases }) {
   out.push('/** Every table\'s row as the engine reads it: a cell that declares missing words is a Cell, a blank optional cell is null. */');
   for (const t of model) {
     out.push(`export interface ${pascal(t.name)}Row {`);
-    for (const c of t.columns) out.push(`  readonly ${tsKey(c.name)}: ${fieldType(c, typeOf)};`);
+    for (const c of t.columns) out.push(`  readonly ${tsKey(c.name)}: ${fieldType(c)};`);
     out.push('}', '');
   }
   out.push('export interface Rows {', ...model.map((t) => `  readonly ${tsKey(t.name)}: ${pascal(t.name)}Row;`), '}', '');
@@ -366,16 +393,16 @@ function renderRows({ model, vocab, aliases }) {
   return out.join('\n');
 }
 
-function fieldType(c, typeOf) {
+function fieldType(c) {
   let base;
   if (c.type === 'boolean') base = 'boolean';
   else if (c.type === 'number' || c.type === 'integer') base = 'number';
-  else if (c.type === 'list') base = `readonly ${c.vocabName ? typeOf(c.vocabName) : 'string'}[]`;
+  else if (c.type === 'list') base = `readonly ${c.vocabName ? vocabType(c.vocabName) : 'string'}[]`;
   else if (c.idAlias) base = c.idAlias;
-  else if (c.enum) base = c.allowed.map(ts).join(' | ');
+  else if (c.enumValues) base = c.enumValues.map(ts).join(' | ');
   else if (c.vocabName) {
     const overlap = c.missing.filter((w) => c.vocabValues.includes(w));
-    base = overlap.length ? `Exclude<${typeOf(c.vocabName)}, ${overlap.map(ts).join(' | ')}>` : typeOf(c.vocabName);
+    base = overlap.length ? `Exclude<${vocabType(c.vocabName)}, ${overlap.map(ts).join(' | ')}>` : vocabType(c.vocabName);
   } else base = 'string';
   const value = c.paired ? `Cell<${base}, ${c.missing.map(ts).join(' | ')}>` : base;
   return c.required ? value : `${value} | null`;
@@ -396,8 +423,9 @@ function renderColumnSql(t, c, weaker) {
   const valueNotNull = c.required && !c.paired;
   const parts = [sqlId(c.sql), SQL_TYPE[c.type]];
   if (valueNotNull) parts.push('NOT NULL');
-  if (t.pk.length === 1 && t.pk[0] === c.name) parts.push('PRIMARY KEY');
-  if (c.unique && !(t.pk.length === 1 && t.pk[0] === c.name)) parts.push('UNIQUE');
+  const isPrimaryKey = isSoleKey(t.pk, c.name);
+  if (isPrimaryKey) parts.push('PRIMARY KEY');
+  if (c.unique && !isPrimaryKey) parts.push('UNIQUE');
   if (c.reference) parts.push(`REFERENCES ${sqlId(c.reference.table)} (${sqlId(sqlName(c.reference.field))})`);
   const checks = [];
   if (c.type === 'boolean') checks.push(`${sqlId(c.sql)} IN (0, 1)`);
@@ -423,6 +451,8 @@ function renderSql({ model }) {
     const tableLevel = [];
     if (t.pk.length > 1) tableLevel.push(`PRIMARY KEY (${t.pk.map((k) => sqlId(sqlName(k))).join(', ')})`);
     for (const key of t.uniqueKeys) tableLevel.push(`UNIQUE (${key.map((k) => sqlId(sqlName(k))).join(', ')})`);
+    const optionalPair = t.columns.find((x) => x.paired && !x.required);
+    if (optionalPair) throw new Error(`${t.name}.${optionalPair.name}: an optional column with missing words has no pairing rule yet; make it required or extend the generator`);
     for (const c of t.columns.filter((x) => x.paired && x.required)) {
       tableLevel.push(`CHECK ((${sqlId(c.sql)} IS NULL) = (${sqlId(`${c.sql}_state`)} IS NOT NULL))`);
     }
@@ -492,7 +522,7 @@ function shapeCode(node, indent, refs) {
 
 function renderDbShape(root) {
   const schema = JSON.parse(readFileSync(join(root, 'schema/db.schema.json'), 'utf8'));
-  const resolve = (ref) => ref.slice(2).split('/').reduce((n, k) => n?.[k], schema);
+  const resolveRef = (ref) => ref.slice(2).split('/').reduce((n, k) => n?.[k], schema);
   const emitted = [];
   const done = new Set();
   const visiting = new Set();
@@ -502,7 +532,7 @@ function renderDbShape(root) {
     visiting.add(name);
     const refs = new Set();
     const code = shapeCode(node, 0, refs);
-    for (const ref of refs) emit(refName(ref), resolve(ref));
+    for (const ref of refs) emit(refName(ref), resolveRef(ref));
     visiting.delete(name);
     done.add(name);
     emitted.push(`export const ${name}Shape = ${code};`);

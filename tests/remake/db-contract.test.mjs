@@ -72,3 +72,14 @@ test('the shape combinators: objects, optional keys, unions, literals, maps', ()
   assert.ok(!ok(null));
   assert.ok(!ok(Object.assign([], { id: 'x', kind: 'a' })));
 });
+
+test('shape.ts: inherited keys do not pass a closed object, and the verdict survives the message limit', () => {
+  const closed = obj({ a: str });
+  assert.ok(!closed.check({ a: 'x', toString: 5 }, 'v', []));
+  assert.ok(!closed.check({ a: 'x', constructor: 5 }, 'v', []));
+  assert.ok(!obj({ toString: str }).check({}, 'v', []));
+  const problems = [];
+  for (let i = 0; i < 60; i++) str.check(1, 'filled', problems);
+  assert.equal(problems.length, 40);
+  assert.equal(arr(num).check([1, 'x', 3], 'v', problems), false, 'a bad array is refused even when the list is full');
+});

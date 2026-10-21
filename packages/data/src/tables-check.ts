@@ -8,4 +8,6 @@ import type { Rows } from './generated/rows.ts';
 type Same<A, B> = [A] extends [B] ? ([B] extends [A] ? true : false) : false;
 type Mismatched = { readonly [T in TableName]: Same<keyof Rows[T], (typeof TABLE_COLUMNS)[T][number]> extends true ? never : T }[TableName];
 
-export const tablesMatch: [Mismatched] extends [never] ? true : { readonly mismatchedTables: Mismatched } = true;
+type Tables = Same<keyof Rows, TableName> extends true ? never : 'the table set of Rows differs from TABLE_NAMES';
+
+export const tablesMatch: [Mismatched | Tables] extends [never] ? true : { readonly mismatched: Mismatched | Tables } = true;

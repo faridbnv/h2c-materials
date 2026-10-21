@@ -226,7 +226,7 @@ export interface FamilyEntriesRow {
 }
 
 export interface FamilyMembersRow {
-  readonly FamilyMaterialID: string;
+  readonly FamilyMaterialID: MaterialId;
   readonly MemberMaterialID: MaterialId;
 }
 

@@ -5,7 +5,7 @@ import type { Infer } from './shape.ts';
  * The typed contract of the old build-to-app data shape: `dist/db.json`, what the old build writes and the old
  * interface reads. The structure comes from schema/db.schema.json through `npm run types:gen` (that file is owned by
  * `main` and is not edited here); `dbShape` is both the TypeScript type and the runtime check, so they cannot disagree.
- * It checks structure and primitive kinds with every key closed; patterns and minimums stay with the build's Ajv pass.
+ * It checks structure and primitive kinds, with keys closed wherever the schema closes them; patterns and minimums stay with the build's Ajv pass.
  */
 export type Db = Infer<typeof dbShape>;
 export type DbSection = keyof Db;

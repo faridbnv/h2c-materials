@@ -169,3 +169,16 @@ test('every row of all 36 real tables loads under STRICT, CHECK and FOREIGN KEY,
   assert.equal(total, 39473);
   assert.deepEqual(db.prepare('PRAGMA foreign_key_check').all(), []);
 });
+
+test('a new column that accepts a missing-state word as a value is refused by the generator', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'types-gen-leak-'));
+  try {
+    cpSync(join(root, 'schema'), join(tmp, 'schema'), { recursive: true });
+    // Currency's vocabulary gains the word "Not published" as a plain value.
+    const vocab = join(tmp, 'schema/vocab/currencies.csv');
+    writeFileSync(vocab, `${readFileSync(vocab, 'utf8').trimEnd()}\nNot published,a word\n`);
+    assert.throws(() => generate(tmp), /fx_rates\.Currency/);
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
