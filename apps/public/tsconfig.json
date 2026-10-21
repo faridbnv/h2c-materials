@@ -1,0 +1,10 @@
+{
+  "$comment": "The public view: the interface level (Vue 3, the browser's types) over src/, and Node's over tools/ and the Vite config. vue-tsc checks it (npm run types:check).",
+  "extends": "../../tsconfig.interface.json",
+  "compilerOptions": {
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "types": ["node", "vite/client"],
+    "rewriteRelativeImportExtensions": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "tools/**/*.ts", "vite.config.ts", "env.d.ts"]
+}

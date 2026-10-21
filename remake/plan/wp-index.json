@@ -417,12 +417,13 @@
       "exitEvidence": "ID stable across two checkout paths and changed by one data cell; `/v3/` counts equal the engine's",
       "exit": {
         "commands": [
-          "npm run release:id"
+          "npm run release:id",
+          "node --test tests/remake/release-id.test.mjs tests/remake/public-view.test.mjs",
+          "node --test tests/parity/public-view.test.mjs"
         ],
         "attest": [],
         "manual": [
-          "ID stable across two checkout paths and changed by one data cell",
-          "/v3/ counts equal the engine's"
+          "the /v3/ view is on the preview (it needs one build-job step in next-preview.yml, which the owner reviews)"
         ]
       },
       "dropped": false
