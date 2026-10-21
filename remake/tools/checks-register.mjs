@@ -5,6 +5,7 @@
 //   npm run checks:register -- --inventory    print the checks the tree holds today, in checks/old-inventory.txt's format
 //   npm run checks:register -- --skeleton     print empty register rows for checks the register does not cover yet
 //   --root DIR                                 read another checkout (the tests use a scratch copy)
+//   --require-frozen                           with --verify: also fail when the frozen copies on git cannot be read (see 9 and 10)
 //
 // No check disappears without a named successor and proof (ADR-15 point 4). The register is checks/register.csv: one row per
 // old check or gate, and one per new check. A check is named by a TOKEN:
@@ -23,8 +24,15 @@
 //   6. the must-not-change map (docs/next/must-not-change.md) lacks an item, names a test that does not exist or is not
 //      registered, claims a parity tier that is not built, or has an item with neither a test nor an UNTESTED mark;
 //   7. the map and the register disagree about which check pins which item (`protects`);
-//   8. the owner's list (docs/next/untested-rules.md) and the map disagree about which items are not fully tested.
+//   8. the owner's list (docs/next/untested-rules.md) and the map disagree about which items are not fully tested;
+//   9. the inventory on this branch lacks a token, or lowers a test count or raises a skip count, that the copy on
+//      origin/remake/v3 (git show) freezes: regenerating the inventory cannot make an old check vanish;
+//  10. an old npm check script of origin/main's package.json (git show) is gone from package.json here without a register
+//      row that records its deletion, or has no register row at all.
+// 9 and 10 read git. Where the refs cannot be read (a checkout without them; a CI job that fetched only its own commit tries
+// one shallow fetch when CI=true) they are reported as a note, not a problem, unless --require-frozen is given.
 // Nothing here retires a check: a "retire" row takes effect when WP-38 deletes the check and records the date.
+import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv } from './rulings-check.mjs';
@@ -34,6 +42,9 @@ export const REGISTER_PATH = 'checks/register.csv';
 export const BASELINE_PATH = 'checks/old-inventory.txt';
 export const MAP_PATH = 'docs/next/must-not-change.md';
 export const UNTESTED_PATH = 'docs/next/untested-rules.md';
+/** Where the frozen inventory and the old package.json are read from, by `git show`. */
+export const FROZEN_REF = 'origin/remake/v3';
+export const MAIN_REF = 'origin/main';
 
 export const COLUMNS = ['id', 'old', 'protected_failure', 'status', 'successor', 'proof', 'owner', 'kind', 'old_refs', 'successor_refs', 'protects', 'deleted'];
 export const STATUSES = ['keep', 're-point', 'successor', 'obsolete-at-cutover'];
@@ -144,6 +155,50 @@ export function parseBaseline(text) {
   return baseline;
 }
 
+const git = (root, args, timeout = 30_000) => {
+  try { return execFileSync('git', ['-C', root, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout, maxBuffer: 16 * 1024 * 1024 }); } catch { return null; }
+};
+
+/**
+ * The two copies the branch cannot rewrite: the inventory as origin/remake/v3 freezes it and package.json as origin/main has it,
+ * each as text, or null when git cannot say. With `fetch` (CI) a missing ref is fetched once, shallow.
+ * @returns {{ baseline: string | null, mainPackage: string | null }}
+ */
+export function frozenFromGit(root, { fetch = process.env.CI === 'true' } = {}) {
+  const read = () => ({ baseline: git(root, ['show', `${FROZEN_REF}:${BASELINE_PATH}`]), mainPackage: git(root, ['show', `${MAIN_REF}:package.json`]) });
+  let copies = read();
+  if (fetch && (copies.baseline === null || copies.mainPackage === null)) {
+    git(root, ['fetch', '--quiet', '--no-tags', '--depth=1', 'origin', '+refs/heads/remake/v3:refs/remotes/origin/remake/v3', '+refs/heads/main:refs/remotes/origin/main'], 120_000);
+    copies = read();
+  }
+  return copies;
+}
+
+/** The old npm check scripts a package.json holds, as tokens. */
+export const oldScriptTokens = (packageText) => Object.keys(JSON.parse(packageText).scripts ?? {}).filter((name) => CHECK_SCRIPT.test(name)).map((name) => `npm:${name}`);
+
+function checkFrozen(frozen, current, rows, now, requireFrozen, add, notes) {
+  const unreadable = (what) => (requireFrozen ? add : (m) => notes.push(m))(`${what} cannot be read from git here, so the check that it was not rewritten did not run (it needs ${FROZEN_REF} and ${MAIN_REF}; run git fetch)`);
+  if (frozen.baseline === null) unreadable(`${BASELINE_PATH} on ${FROZEN_REF}`);
+  else {
+    for (const [token, was] of parseBaseline(frozen.baseline)) {
+      const is = current.get(token);
+      if (is === undefined) add(`${BASELINE_PATH} dropped ${token}, which ${FROZEN_REF} freezes: the inventory only grows, and an old check leaves through a register row with a deleted date`);
+      else if (was.tests !== undefined && is.tests < was.tests) add(`${BASELINE_PATH} lowers ${token} to ${is.tests} tests; ${FROZEN_REF} freezes ${was.tests}`);
+      else if (was.tests !== undefined && is.skips > was.skips) add(`${BASELINE_PATH} raises ${token} to ${is.skips} skips; ${FROZEN_REF} freezes ${was.skips}`);
+    }
+  }
+  if (frozen.mainPackage === null) unreadable(`package.json on ${MAIN_REF}`);
+  else {
+    const registered = new Set(rows.flatMap((r) => r.oldRefs));
+    const deleted = new Set(rows.filter((r) => r.deleted).flatMap((r) => r.oldRefs));
+    for (const token of oldScriptTokens(frozen.mainPackage)) {
+      if (!now.has(token) && !deleted.has(token)) add(`${token} is an old check script of ${MAIN_REF} and is gone from package.json (a deleted check keeps its register row, with a successor and a deleted date)`);
+      else if (!registered.has(token)) add(`no register row for ${token}, an old check script of ${MAIN_REF}`);
+    }
+  }
+}
+
 const tokenOfMapRef = (ref) => (/^P-[a-z]+$/i.test(ref) || TOKEN.test(ref) ? ref : `file:${ref}`);
 const mapRefs = (cell) => [...cell.matchAll(/`([^`]+)`/g)].map((m) => tokenOfMapRef(m[1].trim()));
 
@@ -252,9 +307,15 @@ function checkUntestedList(root, items, add) {
   for (const id of listed) if (!open.includes(id)) add(`${UNTESTED_PATH}: lists ${id}, which the map does not mark PARTIAL or UNTESTED`);
 }
 
-/** Every problem with the register, the baseline, the map and the owner's list; an empty array when there are none. */
-export function verifyRegister(root = repoRoot()) {
+/**
+ * Every problem with the register, the baseline, the map and the owner's list; an empty array when there are none. `notes` are
+ * things that could not be checked here. `frozen` replaces what git says (the tests give it).
+ * @param {string} [root]
+ * @param {{ frozen?: { baseline: string | null, mainPackage: string | null }, requireFrozen?: boolean }} [options]
+ */
+export function verifyRegister(root = repoRoot(), { frozen = frozenFromGit(root), requireFrozen = false } = {}) {
   const problems = [];
+  const notes = [];
   const add = (m) => problems.push(m);
   const now = allTokens(root);
   const live = liveInventory(root, now);
@@ -262,12 +323,16 @@ export function verifyRegister(root = repoRoot()) {
   const rows = loadRows(root, add);
   checkTokens(rows, exists, add);
   if (!present(root, BASELINE_PATH)) add(`${BASELINE_PATH} does not exist`);
-  else checkCoverage(root, rows, now, exists, live, parseBaseline(read(root, BASELINE_PATH)), add);
+  else {
+    const baseline = parseBaseline(read(root, BASELINE_PATH));
+    checkCoverage(root, rows, now, exists, live, baseline, add);
+    checkFrozen(frozen, baseline, rows, now, requireFrozen, add, notes);
+  }
   const items = parseMap(root, add);
   checkMap(items, rows, exists, add);
   checkUntestedList(root, items, add);
   const counts = Object.fromEntries(MAP_STATUSES.map((s) => [s, items.filter((i) => i.status === s).length]));
-  return { problems, rows: rows.length, tokens: live.size, items: items.length, counts };
+  return { problems, notes, rows: rows.length, tokens: live.size, items: items.length, counts };
 }
 
 const SKELETON_ID = { file: 'T', step: 'S', npm: 'A', ci: 'J' };
@@ -288,15 +353,17 @@ if (isMain(import.meta.url)) {
   const args = process.argv.slice(2);
   const at = args.indexOf('--root');
   const root = at >= 0 ? args[at + 1] : repoRoot();
-  const mode = args.filter((a) => a !== '--root' && a !== root);
+  const requireFrozen = args.includes('--require-frozen');
+  const mode = args.filter((a) => a !== '--root' && a !== root && a !== '--require-frozen');
   if (mode.length !== 1 || !['--verify', '--inventory', '--skeleton'].includes(mode[0])) {
-    console.error('usage: checks-register.mjs --verify | --inventory | --skeleton [--root DIR]');
+    console.error('usage: checks-register.mjs --verify [--require-frozen] | --inventory | --skeleton [--root DIR]');
     process.exit(2);
   }
   if (mode[0] === '--inventory') process.stdout.write(formatBaseline(liveInventory(root)));
   else if (mode[0] === '--skeleton') for (const l of skeleton(root)) console.log(l);
   else {
-    const { problems, rows, tokens, items, counts } = verifyRegister(root);
+    const { problems, notes, rows, tokens, items, counts } = verifyRegister(root, { requireFrozen });
+    for (const n of notes) console.error(`checks:register: note: ${n}`);
     for (const p of problems) console.error(`checks:register: ${p}`);
     if (problems.length) { console.error(`checks:register: ${problems.length} problem(s)`); process.exit(1); }
     console.log(`checks:register: OK. ${rows} register rows cover ${tokens} old checks; ${items} must-not-change items: ${counts.TESTED} TESTED, ${counts.PARTIAL} PARTIAL, ${counts.UNTESTED} UNTESTED.`);

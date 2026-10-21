@@ -5,7 +5,7 @@ import type { RefusalCode } from '@atlas/domain/contracts';
 export type Cells = Readonly<Record<string, string | null>>;
 
 /** Why the editor itself (not the write service) turned a request down. */
-export type EditorRefusalCode = 'source-unavailable' | 'bad-request' | 'not-found' | 'export-refused' | 'busy';
+export type EditorRefusalCode = 'source-unavailable' | 'bad-request' | 'not-found' | 'export-refused' | 'busy' | 'restart-needed';
 
 export interface ApiError {
   readonly error: string;

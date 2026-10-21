@@ -3,7 +3,8 @@
 // service works only in a scratch sandbox here; nothing touches the repository's data/.
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { newOpId } from '../../packages/data/src/digest.ts';
@@ -450,4 +451,38 @@ test('the write service never opens a path under data/: a workspace inside the d
   const { Workspace } = await import('../../packages/data/src/workspace.ts');
   await assert.rejects(() => Workspace.open({ workspaceDir: join(root, 'data', 'scratch-ws'), store: null }), /sandbox outside the data it reads/);
   assert.equal(existsSync(join(root, 'data', 'scratch-ws')), false, 'nothing was created');
+});
+
+test('the sandbox check looks through symbolic links and, where names ignore case, through different case (finding 11)', async () => {
+  const { Workspace, protectedDirHolding, realPathOf } = await import('../../packages/data/src/workspace.ts');
+  const data = join(root, 'data');
+  const scratchDir = mkdtempSync(join(tmpdir(), 'atlas-sandbox-'));
+  try {
+    // a link to data/, and a path that does not exist yet beneath it, as a workspace or an export folder would be placed
+    symlinkSync(data, join(scratchDir, 'to-data'));
+    const beneath = join(scratchDir, 'to-data', 'not-yet', 'ws');
+    assert.equal(realPathOf(beneath), join(realPathOf(data), 'not-yet', 'ws'));
+    assert.equal(protectedDirHolding(beneath, data), data);
+    assert.equal(protectedDirHolding(join(scratchDir, 'to-data'), data), data, 'the link itself is the data');
+    // a link at the other end: a folder whose parent is a link to data/'s parent, and a link that points at data/ from inside a clean folder
+    mkdirSync(join(scratchDir, 'clean'));
+    symlinkSync(data, join(scratchDir, 'clean', 'inner'));
+    assert.equal(protectedDirHolding(join(scratchDir, 'clean', 'inner', 'x'), data), data);
+    // a link that points nowhere yet, into data/: where it would write is data/
+    symlinkSync(join(data, 'not-there-yet'), join(scratchDir, 'dangling'));
+    assert.equal(protectedDirHolding(join(scratchDir, 'dangling', 'ws'), data), data);
+    await assert.rejects(() => Workspace.open({ workspaceDir: beneath, store: null }), /sandbox outside the data it reads/);
+    assert.equal(existsSync(join(data, 'not-yet')), false, 'nothing was created in data/');
+    // a path that is nowhere near data/ is still free, links or not
+    symlinkSync(scratchDir, join(scratchDir, 'self-ish'));
+    assert.equal(protectedDirHolding(join(scratchDir, 'self-ish', 'ws'), data), null);
+    assert.equal(protectedDirHolding(join(scratchDir, 'ws'), data), null);
+    // different case: refused where names ignore case (macOS, Windows), and when the caller says so
+    assert.equal(protectedDirHolding(join(root, 'DATA', 'ws'), data, true), data);
+    assert.equal(protectedDirHolding(join(root, 'Data'), data, true), data);
+    assert.equal(protectedDirHolding(join(scratchDir, 'ws'), data, true), null);
+    if (process.platform === 'darwin' || process.platform === 'win32') {
+      assert.equal(protectedDirHolding(join(root, 'DATA', 'ws'), data), data, 'the default folds case here');
+    }
+  } finally { rmSync(scratchDir, { recursive: true, force: true }); }
 });

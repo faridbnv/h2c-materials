@@ -18,12 +18,13 @@
 //   replay [<file>...]  [--data <dir>] [--tables <dir>] [--changesets <dir>] [--immutable-against <ref>]
 //                                                    replay equality: each change set applied to a fresh rebuild of its base must give its result
 //   status              [--data <dir>] [--workspace <dir>]   the base stamp, drafts, conflicts, backups and the export directory
-//   backup              [--data <dir>] [--workspace <dir>]   an online backup of the workspace (the last 20 are kept)
+//   backup              [--data <dir>] [--workspace <dir>]   an online backup of the workspace (the last 20 routine ones are kept; safety backups are not pruned)
 //   restore <file>|--latest  [--data <dir>] [--workspace <dir>]   put a verified backup in place (the current file is backed up first)
 //   drafts-export <file> / drafts-import <file>      the pending commands as a JSON text copy, and back into a workspace
 // diff also takes --fail-on-diff (exit 1 when there is any difference).
 // Exit: 0 ok; 1 the check failed (a table differs, the data breaks a constraint, a timing is over budget, --fail-on-diff found a
-// difference); 64 bad usage; 70 the tool itself crashed (an uncaught error: a bug or a missing prerequisite, never a verdict).
+// difference); 3 nothing to check (change:replay with no change set: not run, never a pass); 64 bad usage; 70 the tool itself
+// crashed (an uncaught error: a bug or a missing prerequisite, never a verdict).
 // Only the flags above exist: a stray argument, an unknown or repeated flag, or a flag npm swallowed is a usage error, so a
 // check can never run on the default data when it was asked to run on other data.
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -493,6 +494,9 @@ function exportedTablesDir(file: string, tablesFlag: string | undefined, dataDir
   return existsSync(beside) && basename(dirname(resolve(file))) === 'change-sets' ? beside : undefined;
 }
 
+/** The exit status of a check that had nothing to check: not run. */
+const EXIT_NOT_RUN = 3;
+
 function runReplay(parsed: Parsed): number {
   const dataDir = parsed.values.get('data') ?? DEFAULT_DATA_DIR;
   const tablesFlag = parsed.values.get('tables');
@@ -522,8 +526,13 @@ function runReplay(parsed: Parsed): number {
     for (const problem of immutable.problems) console.log(`  PROBLEM  ${problem}`);
     immutabilityFailed = immutable.problems.length > 0;
   }
-  if (files.length === 0 && ref === undefined) console.log(`change:replay: 0 change sets in ${dir}; nothing to replay`);
-  else console.log(`REPLAY: ${files.length - failedSets}/${files.length} change set(s) replay to their result${ref === undefined ? '' : ', immutability checked'}`);
+  if (files.length === 0 && ref === undefined) {
+    // Nothing was replayed, so nothing was proved: not a pass. wp:check reads a non-zero exit as a package that cannot pass.
+    console.log(`change:replay: 0 change sets in ${dir}; nothing to replay`);
+    console.log('RESULT: nothing-to-replay');
+    return EXIT_NOT_RUN;
+  }
+  console.log(`REPLAY: ${files.length - failedSets}/${files.length} change set(s) replay to their result${ref === undefined ? '' : ', immutability checked'}`);
   const failed = failedSets > 0 || immutabilityFailed;
   console.log(failed ? 'RESULT: FAIL' : 'RESULT: pass');
   return failed ? 1 : 0;

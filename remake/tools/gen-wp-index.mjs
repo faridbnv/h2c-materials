@@ -25,7 +25,9 @@ const EXIT = {
   'WP-07': { commands: ['npx tsc --noEmit'], manual: ['copies-agree tests pass on current data', 'type-design findings dispositioned in the PR'] },
   'WP-08': { commands: [], manual: ['contract suite passes on Node 26.9 and the pinned CI Node', 'only driver.ts imports node:sqlite'] },
   'WP-09': { commands: ['npm run db:roundtrip'], manual: ['reconstruction <= 5 s recorded', '"4.30" and missing-word tests pass'] },
-  'WP-10': { commands: ['npm run change:replay'], manual: ['one test per guard and refusal', 'interrupted export leaves the tree unchanged', 'stale command refused'] },
+  // `npm run change:replay` alone replays the change sets in data/, of which there are none on this branch: it exits 3 (nothing to replay).
+  // The exit evidence is the replay of a sandbox fixture export: the test exports a correction from a scratch workspace and replays it.
+  'WP-10': { commands: ['node --test tests/remake/write-export.test.mjs'], manual: ['one test per guard and refusal', 'interrupted export leaves the tree unchanged', 'stale command refused'] },
   // The pack writes `parity -- --new adapter`; the CLI's flag is `--new` (the wrapped engine is the new side, WP-11), on the surfaces it can answer: the engine and the first-wins ties (links, build and pages wait for WP-17, WP-20, WP-24). The fixture
   // correction and the recorded impact time are checked by tests/parity/impact.test.mjs.
   'WP-11': { commands: ['npm run parity -- --new --surface engine,ties', 'node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs'], manual: [] },

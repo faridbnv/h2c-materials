@@ -8,10 +8,10 @@
 //               drafts in order, skipping any already in a merged change set; a draft whose `expect` no longer holds is kept as
 //               a conflict and shown, never applied silently
 //   apply       one command, one transaction, under the writer lock
-//   backup      the SQLite online backup, verified, the last 20 kept
+//   backup      the SQLite online backup, verified; the last 20 routine ones (hourly, manual) kept, a safety backup (`before-*`) never pruned
 //   restore     a verified backup put in place by a rename, after a safety backup of what it replaces
 import { randomBytes } from 'node:crypto';
-import { closeSync, existsSync, fsyncSync, linkSync, mkdirSync, openSync, readFileSync, readdirSync, renameSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
+import { closeSync, existsSync, fsyncSync, linkSync, lstatSync, mkdirSync, openSync, readFileSync, readdirSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { hostname } from 'node:os';
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 import type { ChangeLogEntry, ChangeRecord, CommandResult, Sha256, WriteCommand } from '@atlas/domain/contracts';
@@ -66,17 +66,44 @@ export interface WorkspacePaths {
   readonly mergedChangeSetsDir: string;
 }
 
+/** Case folds for the file systems that match names without regard to case: macOS (the default volume) and Windows. */
+const FOLDS_CASE = process.platform === 'darwin' || process.platform === 'win32';
+
 const inside = (child: string, parent: string): boolean => {
   const path = relative(parent, child);
   return path === '' || (path !== '..' && !path.startsWith(`..${sep}`) && !isAbsolute(path));
 };
 
 /**
- * The sandbox rule: the data directory being read, or the repository's own data/, that `path` lies inside or contains (nothing may be
- * written there: a directory that contains data/ is refused too, because an export writes `<dir>/data/...`), or null.
+ * Where `path` really is: its nearest existing ancestor resolved through every symbolic link (`realpathSync.native`), with the
+ * names that do not exist yet appended. A link that points nowhere is followed to where it would write. A path that cannot be
+ * resolved at all is returned as given, resolved.
  */
-export function protectedDirHolding(path: string, dataDir: string): string | null {
-  return [dataDir, resolve(DEFAULT_DATA_DIR)].find((dir) => inside(path, dir) || inside(dir, path)) ?? null;
+export function realPathOf(path: string): string {
+  let existing = resolve(path);
+  const missing: string[] = [];
+  for (let step = 0; step < 64; step++) {
+    try { return join(realpathSync.native(existing), ...missing); } catch { /* not there, or a link to nowhere: handled below */ }
+    try {
+      if (lstatSync(existing).isSymbolicLink()) { existing = resolve(dirname(existing), readlinkSync(existing)); continue; }
+    } catch { /* nothing at this name */ }
+    const parent = dirname(existing);
+    if (parent === existing) break;
+    missing.unshift(basename(existing));
+    existing = parent;
+  }
+  return resolve(path);
+}
+
+/**
+ * The sandbox rule: the data directory being read, or the repository's own data/, that `path` lies inside or contains (nothing may be
+ * written there: a directory that contains data/ is refused too, because an export writes `<dir>/data/...`), or null. Paths are
+ * compared as they really are: through symbolic links, and without regard to case where the file system has none (`caseInsensitive`).
+ */
+export function protectedDirHolding(path: string, dataDir: string, caseInsensitive: boolean = FOLDS_CASE): string | null {
+  const real = (p: string): string => (caseInsensitive ? realPathOf(p).toLowerCase() : realPathOf(p));
+  const target = real(path);
+  return [dataDir, resolve(DEFAULT_DATA_DIR)].find((dir) => inside(target, real(dir)) || inside(real(dir), target)) ?? null;
 }
 
 function resolvePaths(options: WorkspaceOptions = {}): WorkspacePaths {
@@ -279,6 +306,29 @@ export interface RebaseReport {
 export interface BackupInfo { readonly path: string; readonly pages: number; readonly pruned: readonly string[] }
 
 const BACKUP_REASON = /^[a-z][a-z-]*$/;
+
+/**
+ * A safety backup is made before something replaces or discards work (`before-discard`, `before-restore`, `before-export`,
+ * `before-rebuild`): the last copy of what was there. It is never pruned by the routine ones (the hourly timer, a manual
+ * backup), which keep the last 20 among themselves.
+ */
+export const isSafetyBackup = (path: string): boolean => /^atlas-\d{8}T\d{9}Z-before-/.test(basename(path));
+
+/** What a workspace file's pending work is, in three numbers: the newest journal sequence, the entries by status, the conflicts. */
+function workStateOf(db: Db): string {
+  const maxSeq = Number(db.prepare('SELECT coalesce(max("seq"), 0) AS n FROM "change_log"').get()?.n);
+  const statuses = db.prepare('SELECT "status", count(*) AS n FROM "change_log" GROUP BY "status" ORDER BY "status"').all().map((r) => `${String(r.status)}=${String(r.n)}`);
+  const conflicts = Number(db.prepare('SELECT count(*) AS n FROM "change_conflicts"').get()?.n);
+  return `seq ${maxSeq}; ${statuses.join(',')}; conflicts ${conflicts}`;
+}
+
+/** Whether the backup at `path` holds the same pending work as `db`; false when it cannot be read. */
+function sameWorkAs(db: Db, path: string): boolean {
+  try {
+    const kept = open(path, { readOnly: true });
+    try { return workStateOf(kept) === workStateOf(db); } finally { kept.close(); }
+  } catch { return false; }
+}
 
 /** The journal columns a merged entry keeps when the workspace is rebuilt (its status becomes `merged`). */
 const KEPT_COLUMNS = ['op_id', 'change_record_id', 'command_sha256', 'command_json', 'record_json', 'table_name', 'record_id', 'kind', 'applied_at', 'change_set_id'];
@@ -528,17 +578,22 @@ export class Workspace implements Disposable {
 
   conflicts(): ConflictEntry[] { return readConflicts(this.db); }
 
-  /** Online backup (SQLite's backup API, never a copy of the main file), verified before it counts, the last 20 kept. */
+  /** Online backup (SQLite's backup API, never a copy of the main file), verified before it counts. Routine ones keep the last 20; a safety backup is never pruned. */
   async backup(reason: string): Promise<BackupInfo> {
     this.#requireSameFile();
     return backupFile(this.db, this.paths, reason, this.now);
   }
 
-  /** A backup when the newest is older than `maxAgeMs` (default one hour: the editor calls this on a timer). Null when one is recent. */
+  /**
+   * A backup when the newest is older than `maxAgeMs` (default one hour: the editor calls this on a timer) and the pending work
+   * has changed since it (the newest journal sequence, the entries by status, the conflicts). Null when one is recent, or when
+   * the newest already holds the same work: an idle workspace makes no copies.
+   */
   async backupIfDue(maxAgeMs = 3_600_000): Promise<BackupInfo | null> {
     const newest = listBackups(this.paths.backupDir).at(-1);
     const madeAt = newest === undefined ? null : backupTime(newest);
     if (madeAt !== null && this.now().getTime() - madeAt < maxAgeMs) return null;
+    if (newest !== undefined && sameWorkAs(this.db, newest)) return null;
     return this.backup('hourly');
   }
 
@@ -549,7 +604,7 @@ export class Workspace implements Disposable {
     const lock = takeLock(paths.lockPath);
     try {
       const { drafts } = verifyWorkspaceFile(backupPath); // refuses a backup that is damaged or is not a workspace, before touching anything
-      // The backup is copied first: the safety backup below prunes to the last 20 and could otherwise remove the very file being restored.
+      // The backup is copied first: the safety backup below may prune routine backups to the last 20, and the file being restored could be one.
       const staged = `${paths.dbPath}.restore-${process.pid}`;
       for (const file of sidecars(staged)) rmSync(file, { force: true });
       let safety: string | null = null;
@@ -651,7 +706,7 @@ async function backupFile(db: Db, paths: WorkspacePaths, reason: string, now: ()
       try { requireIntegrity(written, partial); } finally { written.close(); }
     }
     renameSync(partial, target);
-    const old = listBackups(paths.backupDir).slice(0, -BACKUPS_KEPT);
+    const old = listBackups(paths.backupDir).filter((file) => !isSafetyBackup(file)).slice(0, -BACKUPS_KEPT);
     for (const file of old) rmSync(file, { force: true });
     return { path: target, pages, pruned: old };
   } catch (error) {

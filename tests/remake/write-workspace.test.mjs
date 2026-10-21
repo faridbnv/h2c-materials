@@ -10,7 +10,7 @@ import { open } from '../../packages/data/src/driver.ts';
 import { exportChangeSet } from '../../packages/data/src/export.ts';
 import { exportDrafts, importDrafts, readDraftsFile } from '../../packages/data/src/replay.ts';
 import { ExportRefusedError } from '../../packages/data/src/export.ts';
-import { Workspace, listBackups, verifyWorkspaceFile } from '../../packages/data/src/workspace.ts';
+import { Workspace, isSafetyBackup, listBackups, verifyWorkspaceFile } from '../../packages/data/src/workspace.ts';
 import { columnIndex, copyData, editRecords } from './data-helpers.mjs';
 import { command, dropTemplate, journalSize, measurement, root, scratch } from './write-helpers.mjs';
 
@@ -113,7 +113,7 @@ test('restore refuses a damaged file and a file that is not a workspace, and lea
   } finally { sb.cleanup(); }
 });
 
-test('the last 20 backups are kept and the oldest go; a backup is made hourly when the newest is older than an hour', async () => {
+test('the last 20 routine backups are kept and the oldest go; an hourly backup is made when the newest is older than an hour and the work changed', async () => {
   let clock = Date.parse('2026-10-21T08:00:00.000Z');
   const sb = await scratch({ now: () => new Date(clock) });
   try {
@@ -124,9 +124,32 @@ test('the last 20 backups are kept and the oldest go; a backup is made hourly wh
     clock += 10 * 60_000;
     assert.equal(await sb.ws.backupIfDue(), null, 'ten minutes after the last one: not due');
     clock += 2 * 3_600_000;
+    assert.equal(await sb.ws.backupIfDue(), null, 'two hours on, but nothing changed since the newest backup: no copy');
+    sb.ws.apply(command(sb.ws));
     const due = await sb.ws.backupIfDue();
     assert.match(due.path, /-hourly\.sqlite$/);
     assert.equal(listBackups(join(sb.dir, 'backups')).length, 20);
+    clock += 2 * 3_600_000;
+    assert.equal(await sb.ws.backupIfDue(), null, 'and again nothing to keep');
+  } finally { sb.cleanup(); }
+});
+
+test('hourly backups never prune a safety backup: before-discard, before-restore and the others stay however many routine ones follow', async () => {
+  let clock = Date.parse('2026-10-21T08:00:00.000Z');
+  const sb = await scratch({ now: () => new Date(clock) });
+  try {
+    const safety = [];
+    for (const reason of ['before-discard', 'before-export', 'before-restore']) { clock += 1000; safety.push((await sb.ws.backup(reason)).path); }
+    for (let n = 0; n < 24; n++) {
+      clock += 3_600_000;
+      // a new conflict is work that changed: the count is part of what an hourly backup compares
+      sb.ws.db.prepare('INSERT INTO change_conflicts (op_id, command_json, code, detail, found_at) VALUES (?, ?, ?, ?, ?)').run(`conflict-${n}`, '{}', 'TEST', 'a test conflict', new Date(clock).toISOString());
+      await sb.ws.backupIfDue();
+    }
+    const all = listBackups(join(sb.dir, 'backups'));
+    for (const path of safety) assert.ok(all.includes(path), `${path} was pruned`);
+    assert.equal(all.filter((f) => !isSafetyBackup(f)).length, 20, 'the routine ones keep their last 20');
+    assert.equal(all.filter(isSafetyBackup).length, 3);
   } finally { sb.cleanup(); }
 });
 
@@ -348,7 +371,7 @@ test('restoring the oldest of 20 backups works: the safety backup cannot prune t
     const done = await Workspace.restore(sb.options, oldest);
     assert.equal(done.drafts, 1);
     assert.ok(existsSync(done.safety));
-    assert.equal(listBackups(join(sb.dir, 'backups')).length, 20);
+    assert.equal(listBackups(join(sb.dir, 'backups')).length, 21, 'the 20 routine ones and the safety backup of what the restore replaced');
     sb.ws = await sb.open();
     assert.equal(sb.ws.drafts().length, 1);
   } finally { sb.cleanup(); }

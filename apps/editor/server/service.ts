@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import type {
   ConflictAction, CorrectionRequest, ExportRequest, Cells, ApiError,
 } from '../shared/api.ts';
-import { Editor } from './editor.ts';
+import { Editor, RestartNeeded } from './editor.ts';
 import type { EditorOptions } from './editor.ts';
 import { SECURITY_HEADERS, createGuard, newToken } from './security.ts';
 import type { Guard } from './security.ts';
@@ -141,6 +141,22 @@ function idParam(value: string | undefined): string {
   return value;
 }
 
+/**
+ * Send a page image. The file can vanish between the lookup and the read (the store is a folder on this computer), so a failed `stat` is
+ * a missing page, and a read that fails after the headers went is the end of this response only: the stream's error is handled here,
+ * because an unhandled one would take the whole editor down.
+ */
+export function sendImage(res: ServerResponse, path: string | null): void {
+  let size: number | null = null;
+  try { size = path === null ? null : statSync(path).size; } catch { /* gone: answered as not found below */ }
+  if (path === null || size === null || size > MAX_IMAGE) { fail(res, 404, 'not-found', 'There is no image of that page on this computer.'); return; }
+  res.writeHead(200, { ...SECURITY_HEADERS, 'Content-Type': 'image/png', 'Content-Length': size });
+  const stream = createReadStream(path);
+  stream.on('error', () => { stream.destroy(); res.destroy(); });
+  res.on('close', () => stream.destroy());
+  stream.pipe(res);
+}
+
 const ROUTES: readonly Route[] = [
   { method: 'GET', pattern: /^\/api\/state$/, handler: async (e, _q, res) => send(res, 200, await e.state()) },
   { method: 'GET', pattern: /^\/api\/products$/, handler: async (e, _q, res, _p, url) => send(res, 200, await e.search((url.searchParams.get('q') ?? '').slice(0, 100))) },
@@ -169,10 +185,7 @@ const ROUTES: readonly Route[] = [
     method: 'GET', pattern: /^\/api\/sources\/([^/]+)\/pages\/(\d+)\/image$/,
     handler: async (e, _q, res, [id, page]) => {
       const path = await e.sourceImage(idParam(id), pageFrom(page));
-      const size = path === null ? 0 : statSync(path).size;
-      if (path === null || size > MAX_IMAGE) { fail(res, 404, 'not-found', 'There is no image of that page on this computer.'); return; }
-      res.writeHead(200, { ...SECURITY_HEADERS, 'Content-Type': 'image/png', 'Content-Length': size });
-      createReadStream(path).pipe(res);
+      sendImage(res, path);
     },
   },
   { method: 'POST', pattern: /^\/api\/corrections$/, handler: async (e, req, res) => send(res, 200, await e.correct(correctionFrom(await readJson(req)))) },
@@ -247,6 +260,7 @@ async function route(editor: Editor, guard: Guard, files: ReadonlyMap<string, St
     } catch (error) {
       if (res.headersSent) { res.destroy(); return; }
       if (error instanceof BadRequest) { fail(res, 400, 'bad-request', error.message); return; }
+      if (error instanceof RestartNeeded) { fail(res, 503, 'restart-needed', error.message); return; }
       console.error(error);
       fail(res, 500, 'failed', 'The editor could not do that. Details are in the terminal where it runs.');
     }

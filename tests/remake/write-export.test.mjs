@@ -405,9 +405,11 @@ test('the command line: apply, status, export, replay, backup, restore, drafts:e
     assert.match(run.stdout, /PROBLEM .*not the result/);
     assert.match(run.stdout, /RESULT: FAIL/);
 
-    run = cli('replay'); // the repository's own data/: no change sets there on this branch
-    assert.equal(run.status, 0);
+    run = cli('replay'); // the repository's own data/: no change sets there on this branch, so nothing was proved
+    assert.equal(run.status, 3, 'nothing to replay is not-run, never a pass');
     assert.match(run.stdout, /0 change sets in .*data\/review\/change-sets; nothing to replay/);
+    assert.match(run.stdout, /RESULT: nothing-to-replay/);
+    assert.doesNotMatch(run.stdout, /RESULT: pass/);
 
     run = cli('backup', ...flags);
     assert.equal(run.status, 0, run.stderr);
@@ -537,3 +539,45 @@ test('a held conflict makes the command line fail even when the command itself r
     assert.match(exportRun.stderr, /conflicts-pending/);
   } finally { sb.cleanup(); data.cleanup(); }
 });
+
+test('change:replay with no change set proves nothing: RESULT nothing-to-replay, exit 3; WP-10 exit evidence is a replay of a fixture export, not that bare command', () => {
+  const empty = mkdtempSync(join(tmpdir(), 'atlas-no-sets-'));
+  try {
+    const run = cli('replay', '--changesets', empty);
+    assert.equal(run.status, 3, run.stdout + run.stderr);
+    assert.match(run.stdout, /nothing to replay/);
+    assert.match(run.stdout, /RESULT: nothing-to-replay/);
+    assert.doesNotMatch(run.stdout, /RESULT: pass/);
+  } finally { rmSync(empty, { recursive: true, force: true }); }
+  const index = JSON.parse(readFileSync(join(root, 'remake/plan/wp-index.json'), 'utf8'));
+  const commands = index.packages.find((p) => p.id === 'WP-10').exit.commands;
+  assert.ok(!commands.includes('npm run change:replay'), 'the bare replay has no change set to replay on this branch');
+  assert.ok(commands.some((c) => c.includes('tests/remake/write-export.test.mjs')), 'the exit command replays a sandbox fixture export');
+  assert.ok(readFileSync(join(root, 'tests/remake/write-export.test.mjs'), 'utf8').includes("cli('replay', setFile)"), 'and that test does replay one');
+});
+
+test('a same-day export after the workspace was rebased (a pull that moved no table) is a new change set, not a refusal (M1 finding 9)', async () => {
+  let clock = Date.parse('2026-11-04T09:00:00.000Z');
+  const data = copyData();
+  const sb = await scratch({ dataDir: data.dir, now: () => new Date(clock) });
+  try {
+    assert.equal(sb.ws.apply(command(sb.ws)).status, 'applied');
+    const title = 'Correct the PLA density from the 2025 data sheet';
+    const first = await exportChangeSet(sb.ws, { title, topic: 'pla-density' });
+    // A pull that changes the manifest's text and no table: the workspace rebuilds on the same base digest and replays its draft, later the same day.
+    sb.ws.close();
+    clock += 3 * 3_600_000;
+    const manifest = join(data.dir, 'manifest.json');
+    writeFileSync(manifest, readFileSync(manifest, 'utf8').replace('"note": "Row count', '"note": "A pull moved this text. Row count'));
+    sb.ws = await sb.open();
+    assert.notEqual(sb.ws.rebased, null, 'the open check rebased the workspace');
+    const again = await exportChangeSet(sb.ws, { title, topic: 'pla-density' });
+    assert.notEqual(again.changeSet.id, first.changeSet.id, 'the records differ (their time, their base), so the set is another one');
+    assert.equal(again.changeSet.id.slice(0, 20), first.changeSet.id.slice(0, 20), 'same day and topic');
+    assert.equal(again.changeSet.result.snapshotDigest, first.changeSet.result.snapshotDigest, 'and the same result');
+    assert.ok(existsSync(again.changeSetPath));
+    // the same records exported twice are still one set, byte for byte
+    const third = await exportChangeSet(sb.ws, { title, topic: 'pla-density' });
+    assert.equal(third.changeSet.id, again.changeSet.id);
+  } finally { sb.cleanup(); data.cleanup(); }
+}, { timeout: 120_000 });

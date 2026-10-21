@@ -60,6 +60,9 @@ function engineIsHere(specifier: string): boolean {
   try { import.meta.resolve(specifier); return true; } catch { return false; }
 }
 
+/** The part of a worker thread the provider uses (a test gives a stand-in). */
+export type WorkerLike = Pick<Worker, 'postMessage' | 'on' | 'terminate' | 'unref'>;
+
 interface Waiting { readonly resolve: (report: unknown) => void; readonly reject: (error: Error) => void }
 
 /**
@@ -67,29 +70,36 @@ interface Waiting { readonly resolve: (report: unknown) => void; readonly reject
  * known at start; it is loaded when the first preview is asked for. The module is looked up by a name TypeScript cannot resolve, so
  * this file compiles whether or not packages/engine exists; when it does not, the provider says "not available yet (WP-11)".
  */
-export function engineImpact(dataDir: string, specifier: string = IMPACT_MODULE): ImpactProvider {
+export function engineImpact(
+  dataDir: string, specifier: string = IMPACT_MODULE,
+  spawn: (data: { readonly root: string; readonly specifier: string }) => WorkerLike = (data) => new Worker(new URL('./impact-worker.ts', import.meta.url), { workerData: data }),
+): ImpactProvider {
   if (!engineIsHere(specifier)) return impactUnavailable(UNAVAILABLE_NOTE);
   if (basename(dataDir) !== 'data') return impactUnavailable('Impact preview: not available for this data folder (it must be the data/ folder of a checkout).');
   const root = dirname(dataDir);
   const waiting = new Map<number, Waiting>();
-  let worker: Worker | undefined;
+  let worker: WorkerLike | undefined;
   let next = 0;
 
-  const end = (error: Error): void => {
+  // A worker's late `error` or `exit` belongs to that worker: it ends the requests of the worker that is current, and nothing else.
+  // Otherwise a thread that stopped after its replacement started would reject the replacement's requests and drop it.
+  const end = (made: WorkerLike, error: Error): void => {
+    if (worker !== made) return;
     worker = undefined;
     for (const w of waiting.values()) w.reject(error);
     waiting.clear();
   };
-  const start = (): Worker => {
-    const made = new Worker(new URL('./impact-worker.ts', import.meta.url), { workerData: { root, specifier } });
+  const start = (): WorkerLike => {
+    const made = spawn({ root, specifier });
     made.on('message', (message: unknown) => {
+      if (worker !== made) return;
       if (!isRecord(message) || typeof message.id !== 'number') return;
       const w = waiting.get(message.id);
       waiting.delete(message.id);
       if (typeof message.error === 'string') w?.reject(new Error(message.error)); else w?.resolve(message.report);
     });
-    made.on('error', end);
-    made.on('exit', () => end(new Error('the impact thread stopped')));
+    made.on('error', (error: Error) => end(made, error));
+    made.on('exit', () => end(made, new Error('the impact thread stopped')));
     made.unref();
     return made;
   };
@@ -108,7 +118,12 @@ export function engineImpact(dataDir: string, specifier: string = IMPACT_MODULE)
         return { status: 'failed', reason: `The impact preview failed: ${error instanceof Error ? error.message : String(error)}` };
       }
     },
-    close() { void worker?.terminate(); worker = undefined; },
+    close() {
+      const closing = worker;
+      if (closing === undefined) return;
+      end(closing, new Error('the impact preview was closed'));
+      void closing.terminate();
+    },
   };
 }
 
