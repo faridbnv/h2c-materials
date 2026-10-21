@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "measured",
+  "measuredAt": "2026-10-21T13:11:53.475Z",
+  "machine": {
+    "os": "darwin 27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "cores": 10,
+    "memoryGb": 24
+  },
+  "node": "v26.9.0",
+  "what": "time from spawning `node apps/editor/server/start.ts` to its ready line (workspace open, service listening), the interface already built",
+  "sourceStore": "present",
+  "cold": {
+    "note": "first start: the workspace is built from the CSV first",
+    "wallMs": 1553,
+    "readyMs": 1482
+  },
+  "warm": {
+    "note": "the workspace is current with the data",
+    "runsMs": [
+      170,
+      170,
+      171,
+      169,
+      168
+    ],
+    "medianMs": 170,
+    "budgetMs": 3000,
+    "withinBudget": true
+  }
+}
