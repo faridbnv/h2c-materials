@@ -1,0 +1,81 @@
+import type { Dyn } from './types.ts';
+// Estimated chamber bands: what the 2026-09-13 research inferred for materials whose sources
+// publish no chamber temperature.
+//
+// These differ from the property estimates of build/src/estimate/ in two ways, and both matter.
+//
+// They are authored, not computed. A researcher chose each band from peer profiles, so they live in
+// data/tables/chamber_bands.csv, one row per material by MaterialID, with the basis and caution the
+// research wrote. The build does not re-derive them, and attaches them by that ID.
+//
+// They never decide anything. A property estimate may screen a material out of a requirement its
+// plausible range wholly fails (D43). A chamber band cannot, because the most it could ever describe is a
+// plausible setpoint, and a setpoint is a recommendation: D6 already says a recommendation never
+// removes a candidate. So a band is shown beside the chamber question and changes no verdict.
+//
+// A band is attached only where nothing better exists. A published numeric window supersedes it,
+// and so does a source saying no heated chamber is needed. A categorical "recommended" or "no
+// setpoint" does not: the band is shown beside it, never instead of it.
+
+/**
+ * The bands as the attaching logic reads them, from chamber_bands.csv: consecutive rows with the same band
+ * form one band, in table order, and no-band rows record materials deliberately given none.
+ */
+export function chamberBandsFromTables(wb: Dyn) {
+  const out: Dyn = { source: null, bands: [], noBand: {} };
+  for (const r of wb['Chamber bands'].rows) {
+    out.source ??= r.Source;
+    if (r.Kind === 'no-band') { out.noBand[r.MaterialID] = r.Basis; continue; }
+    const caution = r.Caution === 'Not applicable' ? undefined : r.Caution;
+    const last = out.bands.at(-1);
+    const lo = Number(r['Low °C']), hi = Number(r['High °C']);
+    if (last && last.lo === lo && last.hi === hi && last.basis === r.Basis && last.caution === caution) last.materials.push(r.MaterialID);
+    else out.bands.push({ lo, hi, basis: r.Basis, ...(caution ? { caution } : {}), materials: [r.MaterialID] });
+  }
+  return out;
+}
+
+/**
+ * A band is attached by MaterialID, which is what the table records. It used to be attached by the material's
+ * Original name, so renaming a material silently detached its band, and the band said nothing about it.
+ *
+ * @param materials compiled materials, with `print.chamberC` and `print.chamberGuidance` already set
+ * @returns {{ applied: object[], superseded: object[], issues: object[] }}
+ */
+export function attachChamberEstimates(materials: Dyn, bands: Dyn) {
+  const byId = new Map<Dyn, Dyn>(materials.map((m: Dyn) => [m.id, m]));
+  const applied = [], superseded = [], issues = [];
+  const seen = new Set<Dyn>();
+
+  for (const band of bands.bands) {
+    if (!(band.lo < band.hi)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `Band ${band.lo}-${band.hi} °C is not a range` });
+    if (!band.basis) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `Band ${band.lo}-${band.hi} °C does not say where it came from` });
+
+    for (const id of band.materials) {
+      const m = byId.get(id);
+      const name = m?.name ?? id;
+      if (!m) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `${id} is not a material in the snapshot` }); continue; }
+      if (seen.has(id)) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is listed in more than one band` }); continue; }
+      seen.add(id);
+      if (m.excluded) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is outside the H2C scope and must not carry a band` }); continue; }
+      // A family entry or an alias owns no product and is never a candidate (D44, m303).
+      if (m.familyEntry) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is a family entry or an alias and must not carry a band` }); continue; }
+
+      const guidance = m.print?.chamberGuidance?.state;
+      const reason = m.print?.chamberC ? `publishes ${m.print.chamberC.max === null ? `at least ${m.print.chamberC.min}` : m.print.chamberC.min === null ? `up to ${m.print.chamberC.max}` : `${m.print.chamberC.min}-${m.print.chamberC.max}`} °C`
+        : guidance === 'not-required' ? 'a source says no heated chamber is needed'
+        : null;
+      if (reason) { superseded.push({ material: name, band: `${band.lo}-${band.hi} °C`, reason }); continue; }
+
+      m.print.chamberEstimate = {
+        lo: band.lo, hi: band.hi, unit: '°C', basis: band.basis, caution: band.caution ?? null,
+        source: bands.source, alongside: guidance ?? null,
+      };
+      applied.push({ material: name, band: `${band.lo}-${band.hi} °C`, alongside: guidance ?? null });
+    }
+  }
+  for (const id of Object.keys(bands.noBand ?? {})) {
+    if (!byId.has(id)) issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `${id} in noBand is not a material in the snapshot` });
+  }
+  return { applied, superseded, issues };
+}

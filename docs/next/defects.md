@@ -43,6 +43,59 @@ The entries below are disagreements only on values the current data never holds.
   decision path (`constraints.js:585`) on every string the schema allows. No caller uses the shared core yet; when one
   does, a word outside the six should be refused at the boundary, not read.
 
+## WP-20: the build port onto the SQLite reconstruction (2026-10-21)
+
+The port keeps the old behaviour (R-Q2-19): `db.json` and `reference.json` are byte for byte what the old build writes. The
+entries below are what the port exposed; none is fixed here, and none moves an answer today.
+
+### WP20-D1. A release ID does not cover the new build's rules
+
+- **Where.** `build/src/release.js` `RELEASE_INPUTS` digests `build/src` and `build/mappings` as "the rules". The new build's
+  rules are `packages/build/src` (and the reconstruction in `packages/data`), which `packages/build/src/release.ts` still
+  reads through the same list.
+- **Evidence.** The new build's `meta.release.id` is `7c6da496722d`, the old build's, because both digest the same old
+  files. A change to a rule in `packages/build/src` therefore leaves the ID as it was.
+- **Real data.** Not reached while the old files are in the tree and unchanged. After cutover (when `build/` is deleted) the
+  ID would stop covering the rules at all.
+- **Kept.** `release.ts` is the old file, label only (P-erase 0). Release identity v2 (`remake/tools/release-id.mjs`, WP-14,
+  on `remake/v3` since this branch was cut) hashes by content and records the runtime, and lists `build/src`,
+  `build/mappings` and `packages/domain/src` as the rules, but not `packages/build/src` either. Adding it is one line and a
+  change of what a release ID means: its own step, with WP-14's tests, and it is due before `build/src` leaves the tree.
+
+### WP20-D2. A record's line number is the line it ends on, not the line it starts on
+
+- **Where.** `build/src/csv.js` documents `line` as "the 1-based file line the record starts on" and reads it from
+  csv-parse's `info.lines`. `packages/data/src/csv.ts` (the reconstruction's reader) reports the line a record starts on.
+- **Evidence.** A table `a,b / 1,"x\ny\nz" / 2,3` gives lines 4 and 5 from the old reader (the first record spans lines 2 to
+  4), and 2 and 5 from the reconstruction's. `tests/remake/build-load.test.mjs` pins the old numbers.
+- **Real data.** Not reached: no cell of any table holds a line feed, so every record is one line and both readers agree.
+- **Kept.** The new loader (`load.ts`) counts as the old one did, so every issue's `where` ("Print setup row 2001") and the
+  validation report read as before. A multi-line cell would make a build message and a reconstruction message name different
+  lines for one record.
+
+### WP20-D3. `polymer-environment.js` holds a raw NUL byte
+
+- **Where.** `build/src/polymer-environment.js:64`, the separator in the duplicate-row key
+  (`[...].join('<NUL>')`, written as the control character itself rather than the escape `'\0'`).
+- **Evidence.** `file` calls the file "data", `grep` skips it without a flag (a search for its exports finds none), and git
+  treats it as binary, so a change to it shows no diff. The port found it because a search for a missing path read nothing.
+- **Real data.** Not an answer: the key only has to differ between rows, and it does.
+- **Kept.** `packages/build/src/polymer-environment.ts` carries the byte as it is (P-erase compares it). Writing the escape
+  would be a harmless cleanup, in its own change, after cutover.
+
+### WP20-D4. The database depends on the order of the rows in the files
+
+- **Where.** `build/src/gates.js` (`aggregateGate`, first of equals), `build/src/products.js` (a profile or a record chosen
+  among equals), `build/src/compile.js` (the lists of IDs it keeps in file order). Known as hazard 1 of
+  `research/understand/gap-5.md` section 3.
+- **Evidence.** The same tables with the records of `profiles` in the opposite order give a `db.json` with 5,044 values
+  different: 1,826 `materials[].profileIds`, 1,202 `grades[].print.profileIds`, 222 `grades[].print.chamber.profileId`, 182
+  `grades[].print.nozzle.profileId`, 179 `grades[].print.bed.profileId`, and the rest of the same kind (the new build and the old one
+  agree on every one of them). `tests/parity/build-new.test.mjs` does this for `profiles`, `measurements` and `grades` together.
+- **Real data.** Reached, by design of the old tool: the chosen profile is the first of equals in file order. Which profile a
+  window comes from can change with a row inserted above it; a verdict does not (gap-5, inferred).
+- **Kept.** The new build reads every table `ORDER BY _ord` (the row's place in its file) and so keeps the old ties exactly.
+  Choosing by a stated rule instead of by position is a change of the rule: its own step, with the owner's review.
 ## WP-18: the engine port, leaves and middle (2026-10-21)
 
 Eight engine modules now have a TypeScript port beside the old file (`packages/engine/src/port/`): `pareto`, `filler`,
@@ -92,6 +145,8 @@ as it is (ruling Q2-19); none is fixed here.
 - `build/src/validate.js:300-302` lists the six verdicts in its report table in the order within, within-low-end, edge,
   exceeds, exceeds-recommended, unknown: `exceeds` comes before `exceeds-recommended`, unlike the precedence. It is the
   column order of a validation report. It decides nothing.
+- `build/src/products.js:612` carries `// eslint-disable-next-line no-unused-vars` above a line that no longer needs it. The
+  port keeps the comment (P-erase compares comments), so `npm run lint` shows one warning for `packages/build`.
 - `app/js/engine/indices.js:38-40` (`priceCaveat`) hands `String.prototype.replace` a number (`.length`) where it wants a string.
   JavaScript coerces it, so the sentence is right; the port marks the two call sites with a cast (`as never`) rather than
   change the call. (WP-18)

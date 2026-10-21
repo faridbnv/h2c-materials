@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "status": "measured-under-load",
+  "loadMax": 6.05,
+  "measuredAt": "2026-10-21T17:15:32.509Z",
+  "machine": {
+    "os": "darwin 27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "cores": 10,
+    "memoryGb": 24
+  },
+  "node": "v26.9.0",
+  "what": "whole-process time of cold builds (no build cache), in seconds, in two pairs per run started together: the new build core beside the old build core, and the old full build beside the old build core",
+  "runs": [
+    {
+      "newCore": 39.03,
+      "oldCoreA": 35.9,
+      "cpuNewCore": 43.91,
+      "cpuOldCoreA": 41,
+      "oldFull": 39.8,
+      "oldCoreB": 37.04,
+      "cpuOldFull": 44.89,
+      "cpuOldCoreB": 41.57,
+      "load": 6.05
+    },
+    {
+      "newCore": 39.12,
+      "oldCoreA": 35.8,
+      "cpuNewCore": 44.1,
+      "cpuOldCoreA": 40.6,
+      "oldFull": 38.89,
+      "oldCoreB": 36.32,
+      "cpuOldFull": 44.1,
+      "cpuOldCoreB": 41.03,
+      "load": 4.77
+    },
+    {
+      "newCore": 34.83,
+      "oldCoreA": 32.26,
+      "cpuNewCore": 39.07,
+      "cpuOldCoreA": 37.27,
+      "oldFull": 35,
+      "oldCoreB": 32.4,
+      "cpuOldFull": 40.71,
+      "cpuOldCoreB": 36.75,
+      "load": 4.48
+    }
+  ],
+  "newCoreOverOldCore": {
+    "wall": 1.09,
+    "cpu": 1.07,
+    "note": "median of the ratios inside pair A: how much longer the new core takes than the old core under the same load"
+  },
+  "oldFullMinusOldCoreSeconds": 2.6,
+  "bestSeconds": {
+    "newCore": 34.83,
+    "oldCore": 32.26
+  },
+  "likeForLikeFullSeconds": 37.43,
+  "likeForLike": "best new core + (old full - old core, inside pair B): the new build plus what the old bundle and pages stages add, which the new build does not run yet",
+  "budgetSeconds": 26.4,
+  "budgetDecidable": false,
+  "withinBudget": null,
+  "verdict": "Not shown to be within the budget. Side by side under the same load, the new core takes 1.07 to 1.09 times the old core (CPU 1.07) and the old full build adds 2.6 s (bundle and pages) to its core. The old full build alone, on a quieter machine, took 25.4 s (the first build of this work), so the old core was about 22.8 s there; the same ratios put the new core at about 24.9 s and the like-for-like cold build at about 27.5 s against 26.4 s: about 1 s (4 percent) over, an estimate, not a measurement. The machine was busy with other jobs the whole time, so no absolute figure here is a clean one (budgetDecidable is false).",
+  "whereTheTimeGoes": "Cold new core, one quiet-ish run: reconstruct 1.2 s, load 0.25 s, check 0.3 s, compile 0.5 s, estimate (old code, unchanged) 24.3 s, validate 0.1 s. The old core spends 21.9 s in the same estimate stage. A CPU profile of the two processes side by side shows the estimate stage's numeric kernels (solveInPlace, apply, blockSolver in build/src/estimate/solver.js) 11 to 13 percent slower in the new process, with the same code and a byte-identical database. Not caused by: the loader (SQLite or CSV), the new compile, loading the TypeScript stripper or node:sqlite into the old process, the schema gate, the canonical-form check, garbage left by the reconstruction (a full GC before the stage changed nothing), the entry point (.ts or .mjs), or the new estimateConversions. Cause not found; the estimate stage moves to this package unchanged in WP-21, which is the place to look."
+}
