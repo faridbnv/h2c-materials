@@ -48,6 +48,7 @@ export function* walk(dir) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     const st = lstatSync(p);
+    if (name === '.git' || name === '.github') throw new Error(`${relative(dir, p) || name}: a ${name} folder inside the site; refusing to publish it`);
     if (st.isSymbolicLink()) throw new Error(`${relative(dir, p) || name}: symbolic link in the site; refusing to publish it`);
     if (st.isDirectory()) yield* walk(p); else yield p;
   }

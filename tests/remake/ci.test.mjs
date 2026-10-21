@@ -227,6 +227,8 @@ test('inject marks every html file, adds 404.html and preview.json, and refuses 
 test('inject refuses symbolic links and top-level .git/.github/previous in the site', () => {
   const a = fakeSite(); symlinkSync(join(a, 'index.html'), join(a, 'link.html'));
   assert.throws(() => inject(a, { remake: SHA, main: OLD_SHA }), /symbolic link/);
+  const nested = fakeSite(); mkdirSync(join(nested, 'materials', '.git'));
+  assert.throws(() => inject(nested, { remake: SHA, main: OLD_SHA }), /\.git folder inside the site/);
   for (const d of ['.git', '.github', 'previous']) {
     const b = fakeSite(); mkdirSync(join(b, d));
     assert.throws(() => inject(b, { remake: SHA, main: OLD_SHA }), /top-level/);
