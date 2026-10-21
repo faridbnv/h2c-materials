@@ -8,6 +8,8 @@ export {
   TEST_TEMPERATURE_TOLERANCE_C, LOAD_TOLERANCE_MPA, ESTIMATE_LOW_LOAD_BAND_MPA, H2C_LOW_END_C,
   offTestTemperature, offLoad, inEstimateLowLoadBand,
 } from './tolerances.ts';
+export { TREATMENT_ID, identify } from './constraint-ids.ts';
+export type { Identifiable, Identified } from './constraint-ids.ts';
 export { GATE_REASON_CODES, ENGINE_REASON_CODES, REASON_CODES } from './reason-codes.ts';
 export { ID_PATTERNS, isMaterialId, isGradeId, isMeasurementId, isProfileId, isSourceId } from './ids.ts';
 export {

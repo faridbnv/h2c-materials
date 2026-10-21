@@ -34,7 +34,11 @@ export const PORT_DIR = fileURLToPath(new URL('.', import.meta.url));
  * imports them by. A port file stands for each in the repository (a module of its own, or a one-line re-export of the shared
  * core), and the staged copy is that file, so the same text runs in both places.
  */
-export const SUPPORT_FILES = ['gate-reasons.ts'] as const;
+export const SUPPORT_FILES = [
+  { name: 'gate-reasons.ts', from: 'port' },
+  { name: 'constraint-ids.ts', from: 'core' },
+] as const;
+const CORE_DIR = fileURLToPath(new URL('../../../domain/src/core/', import.meta.url));
 
 const isPortable = (name: string): name is PortableModule => PORTABLE.some((m) => m === name);
 
@@ -78,7 +82,10 @@ export function stageEngine(ports: readonly PortableModule[] = activePorts(), { 
     copyFileSync(join(ported ? portDir : from, file), join(dir, file));
     writeFileSync(join(dir, alias), `export * from './${file}';\n`);
   }
-  for (const file of SUPPORT_FILES) copyFileSync(existsSync(join(portDir, file)) ? join(portDir, file) : join(PORT_DIR, file), join(dir, file));
+  for (const { name, from: where } of SUPPORT_FILES) {
+    const source = where === 'core' ? join(CORE_DIR, name) : join(existsSync(join(portDir, name)) ? portDir : PORT_DIR, name);
+    copyFileSync(source, join(dir, name));
+  }
   return dir;
 }
 

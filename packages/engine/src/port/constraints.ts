@@ -17,19 +17,29 @@ import { fillerOf, isNamedFiller } from './filler.ts';
 export { SHARE };
 
 import type {
-  ComparisonOperator, Doubt, EnvironmentConstraint, EnvironmentResult, EvidenceConstraint, EvidenceResult, FacetConstraint, FacetResult, GateConstraint,
-  GateResult, GateVerdict, Group, LedgerRef, NumericConstraint, NumericResult as NumericResultOut, PrintGateName, ReasonCode, Status, TreatmentConstraint, TreatmentResult, Verdict,
+  ComparisonOperator, Doubt, EnvironmentConstraint, EnvironmentResult as EnvironmentResultOut, EvidenceConstraint, EvidenceResult as EvidenceResultOut,
+  FacetConstraint, FacetResult as FacetResultOut, GateConstraint, GateResult as GateResultOut, GateVerdict, Group, LedgerRef, NumericConstraint,
+  NumericResult as NumericResultOut, PrintGateName, ReasonCode, Status, TreatmentConstraint, TreatmentResult as TreatmentResultOut, Verdict,
 } from '@atlas/domain';
+import { identify } from './constraint-ids.ts';
 import { gateReasonCodeOf } from './gate-reasons.ts';
 import type { Contribution } from './ledger.ts';
 import type { Gates, HeadlineBag, ImpliedBound, Interval, Moisture, ProductContext, ProductGrade, ProductMaterial, ProductState, RegistryHeadline, Treatment } from './products.ts';
 
 export type { EnvironmentConstraint, EvidenceConstraint, FacetConstraint, GateConstraint, NumericConstraint, PrintGateName, TreatmentConstraint };
-export type NumericResult = Omit<NumericResultOut, 'measurementId'> & {
-  /** The engine's own numeric answer: the domain's, with the record it cites a plain identifier until the boundary checks it. */
+type PlainIds<R> = Omit<R, 'constraintId'> & {
+  /** The engine's own answer: the domain's, with the requirement's ID a plain string until the boundary checks it. */
+  readonly constraintId?: string;
+};
+export type NumericResult = PlainIds<Omit<NumericResultOut, 'measurementId'>> & {
+  /** The record it cites is a plain identifier until the boundary checks it. */
   readonly measurementId?: string | null | undefined;
 };
-export type { EnvironmentResult, EvidenceResult, FacetResult, GateResult, TreatmentResult };
+export type GateResult = PlainIds<GateResultOut>;
+export type FacetResult = PlainIds<FacetResultOut>;
+export type EnvironmentResult = PlainIds<EnvironmentResultOut>;
+export type EvidenceResult = PlainIds<EvidenceResultOut>;
+export type TreatmentResult = PlainIds<TreatmentResultOut>;
 /** One requirement's answer, one type per kind of check, told apart by the kind of its `constraint` (isNumericResult and its kin). */
 export type Result = NumericResult | GateResult | FacetResult | EnvironmentResult | EvidenceResult | TreatmentResult;
 /** A requirement the engine answers: the scenario's five kinds and its own treatment. */
@@ -958,14 +968,15 @@ function evaluateEvidence(material: MaterialView, c: EvidenceConstraint, ctx: Ct
   };
 }
 
-export function evaluateConstraint(material: MaterialView, constraint: Constraint, ctx: Ctx = {}): Result {
+export function evaluateConstraint(material: MaterialView, constraint: Constraint, ctx: Ctx = {}, id?: string): Result {
+  const named: { constraintId?: string } = id === undefined ? {} : { constraintId: id };
   switch (constraint.kind) {
-    case 'numeric': return { ...evaluateNumeric(material, constraint, ctx), constraint };
-    case 'gate': return { ...evaluateGate(material, constraint), constraint };
-    case 'facet': return { ...evaluateFacet(material, constraint), constraint };
-    case 'environment': return { ...evaluateEnvironment(material, constraint, ctx), constraint };
-    case 'evidence': return { ...evaluateEvidence(material, constraint, ctx), constraint };
-    case 'treatment': return { ...evaluateTreatment(material), constraint };
+    case 'numeric': return { ...evaluateNumeric(material, constraint, ctx), constraint, ...named };
+    case 'gate': return { ...evaluateGate(material, constraint), constraint, ...named };
+    case 'facet': return { ...evaluateFacet(material, constraint), constraint, ...named };
+    case 'environment': return { ...evaluateEnvironment(material, constraint, ctx), constraint, ...named };
+    case 'evidence': return { ...evaluateEvidence(material, constraint, ctx), constraint, ...named };
+    case 'treatment': return { ...evaluateTreatment(material), constraint, ...named };
     default: throw new Error(`Unsupported constraint kind "${(constraint as { kind: string }).kind}"`);
   }
 }
@@ -976,7 +987,7 @@ export function evaluateConstraint(material: MaterialView, constraint: Constrain
  */
 export function evaluateMaterial(material: MaterialView, constraints: readonly Constraint[], ctx: Ctx = {}): MaterialEvaluation {
   const policy = normalizePolicy(ctx.unknownPolicy);
-  const results = constraints.map((c) => evaluateConstraint(material, c, ctx));
+  const results = identify(constraints).map(({ constraint, id }) => evaluateConstraint(material, constraint, ctx, id));
   const mandatory = results.filter((r) => r.constraint.mandatory !== false);
 
   const failed = mandatory.filter((r) => r.status === STATUS.FAIL);
@@ -1187,26 +1198,26 @@ const measuredFail = (r: NumericResult): boolean => r.status === STATUS.FAIL && 
  * value is a ceiling for the printed part, apart from the products with no value measured that way.
  */
 function measuredMiss(judged: readonly Judged[], constraints: readonly Constraint[]): MeasuredMiss | null {
-  for (const c of constraints) {
+  for (const { constraint: c, id } of identify(constraints)) {
     if (c.kind !== 'numeric' || c.mandatory === false) continue;
     let misses = 0, bounded = 0, limited = 0, ceilings = 0, blocked = false;
     for (const x of judged) {
-      const r = x.e.results.find((y): y is NumericResult => y.constraint === c);
+      const r = x.e.results.find((y): y is NumericResult => y.constraintId === id);
       if (!r) continue;
       if (holdsOpen(r)) { blocked = true; break; }
       if (measuredFail(r)) misses++;
       else if (r.status === STATUS.FAIL && r.ledger) { if (/^CL/.test(r.ledger.rule)) limited++; else bounded++; }
       else if (r.ceilingOnly) ceilings++;
     }
-    if (!blocked && misses) return { constraint: c, misses, bounded, limited, ceilings, unit: judged.map((x) => x.e.results.find((y): y is NumericResult => y.constraint === c)).find((r) => r?.unit)?.unit ?? '' };
+    if (!blocked && misses) return { constraint: c, misses, bounded, limited, ceilings, unit: judged.map((x) => x.e.results.find((y): y is NumericResult => y.constraintId === id)).find((r) => r?.unit)?.unit ?? '' };
   }
   return null;
 }
 /** Whether, on some required number, every product measured the way it asks misses it or is only on the line (C19). */
 function everyMeasuredMisses(judged: readonly Judged[], constraints: readonly Constraint[]): boolean {
-  return constraints.some((c) => {
+  return identify(constraints).some(({ constraint: c, id }) => {
     if (c.kind !== 'numeric' || c.mandatory === false) return false;
-    const rs = judged.map((x) => x.e.results.find((y): y is NumericResult => y.constraint === c)).filter(Boolean);
+    const rs = judged.map((x) => x.e.results.find((y): y is NumericResult => y.constraintId === id)).filter(Boolean);
     const measured = rs.filter((r) => Number.isFinite(r.observed) && !r.ledger);
     return measured.length > 0 && measured.every((r) => r.status === STATUS.FAIL || r.onTheLine) && !rs.some((r) => r.status === STATUS.PASS);
   });
@@ -1347,9 +1358,9 @@ function productEntry(x: Judged, measuredMisses = false) {
 }
 
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
-const NUMERIC_KEPT = ['reasonCode', 'measurementId', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'admitted', 'elsewhere', 'missing', 'asPublished', 'caveat'] as const;
-const GATE_KEPT = ['reasonCode', 'priceIds', 'onTheLine'] as const;
-const ENVIRONMENT_KEPT = ['reasonCode', 'evidenceIds', 'contextIds', 'screened', 'polymer'] as const;
+const NUMERIC_KEPT = ['constraintId', 'reasonCode', 'measurementId', 'observed', 'unit', 'closeToLimit', 'onTheLine', 'thinMargin', 'ledger', 'sheetsDisagree', 'doubtful', 'ceilingOnly', 'estimated', 'screened', 'admitted', 'elsewhere', 'missing', 'asPublished', 'caveat'] as const;
+const GATE_KEPT = ['constraintId', 'reasonCode', 'priceIds', 'onTheLine'] as const;
+const ENVIRONMENT_KEPT = ['constraintId', 'reasonCode', 'evidenceIds', 'contextIds', 'screened', 'polymer'] as const;
 type Mutable<T> = { -readonly [K in keyof T]: T[K] };
 /** Copy the named fields of an answer that it has set. */
 function carry<R extends object, K extends keyof R>(out: Partial<R>, from: R, keys: readonly K[]): void {
@@ -1377,17 +1388,17 @@ const productResult = (r: Result): Result => {
   }
   if (isTreatmentResult(r)) {
     const out: Mutable<TreatmentResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-    carry(out, r, ['reasonCode', 'treatment']);
+    carry(out, r, ['constraintId', 'reasonCode', 'treatment']);
     return out;
   }
   // A facet and an evidence answer keep none of the fields a product's result lists.
   if (isFacetResult(r)) {
     const out: Mutable<FacetResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-    carry(out, r, ['reasonCode']);
+    carry(out, r, ['constraintId', 'reasonCode']);
     return out;
   }
   const out: Mutable<EvidenceResult> = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  carry(out, r, ['reasonCode']);
+  carry(out, r, ['constraintId', 'reasonCode']);
   return out;
 };
 
@@ -1422,7 +1433,7 @@ export function runSelection(materials: readonly MaterialView[], constraints: re
 export function explainExclusions(materials: readonly MaterialView[], constraints: readonly Constraint[], ctx: Ctx = {}) {
   const all = runSelection(materials, constraints, ctx);
   const base = all.candidates.length;
-  return constraints.map((c, i) => {
+  return identify(constraints).map(({ constraint: c, id }, i) => {
     const without = constraints.filter((_, j) => j !== i);
     const recovered = runSelection(materials, without, ctx).candidates.length - base;
     let removed = 0, held = 0, productsRemoved = 0;
@@ -1434,7 +1445,7 @@ export function explainExclusions(materials: readonly MaterialView[], constraint
     if (c.mandatory !== false) {
       for (const e of all.evaluations) {
         if (!e.screened) continue;
-        const mine = e.unresolved.filter((r) => r.screened && r.constraint === c);
+        const mine = e.unresolved.filter((r) => r.screened && r.constraintId === id);
         if (!mine.length) continue;
         screened++;
         if (mine.some((r) => isNumericResult(r) && r.notApplicable)) screenedNotApplicable++;

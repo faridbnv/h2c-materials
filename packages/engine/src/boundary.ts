@@ -53,7 +53,7 @@ function resultConverter(index: ConstraintIndex): (raw: RawResult) => Requiremen
   return (raw) => {
     const known = done.get(raw);
     if (known) return known;
-    const result = checkedResult(raw, index.lookup(raw.constraint).id);
+    const result = checkedResult(raw, index.idOf(raw));
     done.set(raw, result);
     return result;
   };

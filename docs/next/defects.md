@@ -100,3 +100,51 @@ as it is (ruling Q2-19); none is fixed here.
 - `app/js/engine/ledger.js:92` (`requirementWords`) looks an operator up in a literal that has three of the four operators the
   scenario allows (`>=` has no entry and reads as no prefix). The index is an open string, so the port casts
   the literal. (WP-18)
+
+## WP-19: constraints, result types, reason codes, constraint IDs (2026-10-21)
+
+`constraints` and `workspace` now have a TypeScript port (`packages/engine/src/port/`), and the engine's answers carry one type
+per kind of check, a reason code and a constraint ID. The steps keep every answer (ruling Q2-19); the entries below are what
+the typing and the rule-reading exposed. None is fixed here.
+
+### WP19-D1. The build writes why a printer check is open in English only, so the engine still reads one sentence family
+
+- **Where.** `app/js/engine/constraints.js:948-949` (`openOne`) says "no print recipe on record" or "its chamber temperature is not
+  stated" by reading the gate's reason with two regular expressions. The reasons are written by the build: `build/src/gates.js:26,53`,
+  `build/src/normalize/process.js:232-307`, `build/src/products.js:584` and `build/src/chamber-need.js:100`, and the engine's own
+  at `constraints.js:582`. A gate carries a verdict and a `state`, and neither tells "no temperature published" from "no
+  requirement published" or from the sentence a missing profile earns (all are `unknown`, state `unknown`).
+- **Evidence.** 53 distinct sentence shapes in the compiled database fall into 19 families
+  (`tests/parity/gate-reasons.test.mjs` reads every gate of the build and requires a code for each).
+- **Real data.** Reached: the sentence is read for every printer check that is open (about 200 products' chamber, bed or nozzle).
+- **Kept.** The regular expressions are gone from the engine's decisions: `gate-reasons.ts` (`packages/engine/src/port/`) is the one
+  place that reads the build's English, once, and the result carries a code (`gate.no-print-profile`, `gate.no-temperature-published`,
+  ...). The reading is as exact as the old one on the sentences that matter (same anchored prefixes). It is removed when the
+  frozen build writes the code itself (WP-20); until then the engine's input is still prose at that one point.
+
+### WP19-D2. `headline.related` is an object on the database's own headlines, and the engine reads it as a list (WP18-D2, measured)
+
+- **Where.** `app/js/engine/constraints.js:196,243`: `h.related?.length` and `h.related.join('; ')`.
+- **Evidence.** In the compiled database 326 headlines hold `related` as an object `{ count, best, ... }`, all of them headlines with
+  no value. A material is judged on its own headline only when it has no product on record: PA66-CF, PA612 and PA612-GF (M056, M058,
+  M060). Eight of their headlines hold such an object, so for them `.length` is `undefined` and the sentence "Published related values:
+  ..." is never said, where it is said for a product view (whose `related` is a list of sentences).
+- **Real data.** Reached by 8 headlines of 3 materials; the words differ ("Not published in the sampled sources ...") and no verdict moves.
+- **Kept.** The typed port declares `related` as a list (the product view's) on the headline it reads; the database's object is not
+  declared on that headline, so the mismatch is a documented gap in the type, not a cast. Fixing it means choosing which sentence the
+  three materials should say, so it waits for its own change.
+
+### WP19-D3. Eleven rules of `constraints.js` are covered by no test
+
+`docs/next/constraints-rules.md` maps all 222 rules to their covering tests and lists the 11 that none reaches. The new
+characterization tests (`tests/parity/constraints-rules.test.mjs`) cover those a hand-built input can reach (the filler facet, the two
+errors, the closed upper bound, a headline with no interval). One cannot be reached by the engine today: `evaluateTreatment`'s
+"Used as printed" answer (`constraints.js:452-453`) is only asked for a state that has a treatment, so its first line is dead code.
+
+### Noted, not a defect
+
+- The typed port reads `Number.isFinite(x)` as a type guard (`packages/engine/src/port/lib-guards.d.ts`), which the standard allows
+  (it is true only for a number) and the library does not say. Its false branch is not the complement (NaN and Infinity are numbers);
+  the engine never reads a value in that branch.
+- The label step needed non-null assertions (`x!`) where `noUncheckedIndexedAccess` cannot see that `list[0]` exists after a test of
+  `list.length`, and where `Number.isFinite` guards a property chain; the later steps removed those they restructured.

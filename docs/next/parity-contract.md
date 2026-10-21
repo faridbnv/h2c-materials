@@ -85,6 +85,23 @@ A port is first a **label step**: the old file with type labels added and nothin
 
 `pareto`, `search` and `coverage` are not called by any scenario the engine surface asks, and the decoders of `scenario` are not called by the engine surface at all. `tests/parity/port.test.mjs` compares every export of every ported module with the old module on the real database and on seeded awkward inputs (ties, non-finite numbers, 6,000 edited scenario files), shows the ported module is what runs by planting a fault in a copy of a port and requiring the harness to see it, and runs the link corpus through the ported `scenario`.
 
+### The new side from WP-19: constraints, result types, reason codes and constraint IDs
+
+`constraints` and `workspace` run from their ports too (ten modules in the committed switch). WP-19 is six steps, each its own commit with its parity run, in the order the plan fixes (plain conversion first, then the two design changes, never in the same step):
+
+| Step | What changes | What proves it |
+|---|---|---|
+| 1. Label | `constraints.js` and `workspace.js` copied with type labels only | P-erase 0 (both pairs in `remake/p-erase.json`); P-engine 0 |
+| 2. Result types | The bag of about forty optional fields becomes six types, one per kind of check, told apart by the kind of the `constraint` | P-engine 0; `constraints.ts` leaves the P-erase list (code changed) |
+| 3. Reason codes | The engine sets a code beside each sentence at the place that writes it; the two regular expressions on the English of a print gate (`constraints.js:948-949`) are replaced by the code | P-engine 0 in all four tiers, wording among them |
+| 4. Constraint IDs | A requirement has an ID (its own, else `c<position>`); the engine puts it on every result and matches by it, never by `===` | P-engine 0; a structured clone of the requirements and of the answer |
+| 5. Casts | The six casts WP-18 left are removed (ledger 1, products 1, indices 2, scenario 2) | P-engine 0; the ratchet falls |
+| 6. One verdict table | The port reads the gate-verdict table of `packages/domain/src/core`; no other table of the six words exists in new code | P-engine 0; `tests/domain/one-verdict-table.test.mjs` |
+
+The new side adds two fields beside the old answer, `reasonCode` and `constraintId`, and the comparison leaves them out (`ADDED` in `packages/parity/src/new-adapter.ts`), so a zero still means the port changes no answer. Their own tests check them: `tests/parity/engine-wrapper.test.mjs` requires a code on every one of the 1.8 million requirement results of the templates and 120 random scenarios, and requires each code to name the sentence it sits on; `tests/parity/gate-reasons.test.mjs` requires a code for every print-gate sentence of the database.
+
+The old unit tests run against the new engine unedited (`tests/parity/old-tests-on-port.test.mjs`): `node --import tests/parity/redirect-engine.mjs --test test/<file>` sends every import of `app/js/engine/<name>.js` to the staged engine. That is 317 tests in 25 files, `test/metamorphic.test.js` (the nine relations) among them, and a control plants a fault in the port and requires them to fail. `docs/next/constraints-rules.md` maps every rule of `constraints.js` to the test or corpus case that covers it.
+
 ## Transitions: how a deliberate change is allowed
 
 A deliberate change (for example the reprint ruling OQ-09 d) is recorded in `parity/transitions/<date>-<topic>.json`: its kind (science, determinism, display or wording), the ruling that allows it, and the **exact list** of differences (question, record, level, field, before, after) with a fingerprint of the list. The run passes only when what it observes equals that list: one extra difference fails, one missing difference fails, a hand-edited list fails. A transition is never a blanket waiver. A change that moves a decision or evidence needs kind "science" or "determinism" and a cited ruling, and your approval as a Tier 1 change.

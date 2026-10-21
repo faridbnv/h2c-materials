@@ -263,7 +263,9 @@ test('what the engine says is checked on the way out: a bad ID, an unknown word 
   assert.throws(() => run(tamper((e) => ({ ...e, materialId: 'bogus' }))), (e) => e instanceof BoundaryError && /material ID/.test(e.message));
   assert.throws(() => run(tamper((e) => ({ ...e, group: 'sort-of' }))), /group/);
   assert.throws(() => run(tamper((e) => ({ ...e, results: e.results.map((r) => ({ ...r, status: 'MAYBE' })) }))), /requirement status/);
-  assert.throws(() => run(tamper((e) => ({ ...e, results: e.results.map((r) => ({ ...r, constraint: { ...r.constraint } })) }))), /did not hold/);
+  assert.throws(() => run(tamper((e) => ({ ...e, results: e.results.map((r) => ({ ...r, constraintId: 'c99' })) }))), /did not hold/);
+  // A copy of the requirement is no error: results are matched by ID, not by the object.
+  assert.doesNotThrow(() => run(tamper((e) => ({ ...e, results: e.results.map((r) => ({ ...r, constraint: { ...r.constraint } })) }))));
   assert.throws(() => run(tamper((e) => (e.products?.length ? { ...e, products: e.products.map((p) => ({ ...p, state: { ...p.state, id: 'annealed:120:016' } })) } : e))), /state ID/);
   // A state's parts must be what its identifier says.
   assert.throws(() => run(tamper((e) => (e.products?.length ? { ...e, products: e.products.map((p) => ({ ...p, state: { ...p.state, moisture: 'conditioned' } })) } : e))), /not what the identifier says/);
@@ -284,10 +286,11 @@ test('a result the engine lists twice is one object here too, and a requirement 
   assert.equal(createContext(db, withId('mine')).run().constraintIds[0], 'mine');
 });
 
-test('two requirements that are one object, or share an ID, are refused: the engine could not tell them apart', () => {
+test('two requirements that share an ID are refused; the same object twice is told apart by place', () => {
   const scenario = scenarioFrom(structuredClone(byId(STRICT).scenario), db.meta);
   const [first] = scenario.constraints;
-  assert.throws(() => createContext(db, { ...scenario, constraints: [first, first] }).run(), /same object/);
+  const twice = createContext(db, { ...scenario, constraints: [first, first] }).run();
+  assert.deepEqual(twice.constraintIds, ['c0', 'c1']);
   assert.throws(() => createContext(db, { ...scenario, constraints: [{ ...first, id: 'x' }, { ...scenario.constraints[1], id: 'x' }] }).run(), /share the ID x/);
   assert.throws(() => scenarioFrom({ ...byId(STRICT).scenario, constraints: [{ kind: 'bogus' }] }, db.meta), /not one a scenario may hold/);
   assert.throws(() => createContext(db, { ...scenario, constraints: [{ kind: 'bogus' }] }).run(), /Unsupported constraint kind/);
