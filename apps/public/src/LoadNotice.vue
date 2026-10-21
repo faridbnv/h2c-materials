@@ -11,8 +11,8 @@ const reload = (): void => { window.location.reload(); };
 </script>
 
 <template>
-  <p v-if="state.kind === 'loading'" class="notice" role="status">{{ LOADING }}</p>
-  <section v-else class="notice notice-stop" role="alert">
+  <p v-if="state.kind === 'loading'" class="notice" role="status" data-testid="load-notice" data-state="loading">{{ LOADING }}</p>
+  <section v-else class="notice notice-stop" role="alert" data-testid="load-notice" :data-state="state.kind">
     <h1>{{ notice.heading }}</h1>
     <p>{{ notice.body }}</p>
     <p v-if="state.why" class="why">{{ state.why }}</p>

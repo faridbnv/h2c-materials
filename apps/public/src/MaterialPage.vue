@@ -18,11 +18,11 @@ const materialPage = `${__MATERIAL_PAGES__}${encodeURIComponent(materialId)}.htm
   <ReleaseStrip :release="release" />
   <main>
     <p class="back"><a href="./">{{ BACK }}</a></p>
-    <p v-if="!named" class="notice" role="alert">{{ NO_MATERIAL }}</p>
+    <p v-if="!named" class="notice" role="alert" data-testid="load-notice" data-state="no-material">{{ NO_MATERIAL }}</p>
     <LoadNotice v-else-if="state.kind !== 'ready'" :state="state" />
     <template v-else>
-      <h1>{{ state.data.name }}</h1>
-      <p class="lead"><VerdictMark :verdict="state.data.verdict">{{ state.data.name }} {{ VERDICT_WORD[state.data.verdict] }}</VerdictMark></p>
+      <h1 data-testid="material-name" :data-material="state.data.materialId">{{ state.data.name }}</h1>
+      <p class="lead" data-testid="material-verdict" :data-verdict="state.data.verdict"><VerdictMark :verdict="state.data.verdict">{{ state.data.name }} {{ VERDICT_WORD[state.data.verdict] }}</VerdictMark></p>
       <p v-if="state.data.group !== 'meets'">{{ GROUP_WORD[state.data.group] }}. {{ state.data.groupReason }}</p>
       <p v-if="state.data.counts">{{ productsSentence(state.data.counts) }}</p>
       <p v-else>{{ NO_PRODUCTS }}.</p>
@@ -30,7 +30,7 @@ const materialPage = `${__MATERIAL_PAGES__}${encodeURIComponent(materialId)}.htm
 
       <section v-if="state.data.products.length" aria-labelledby="products">
         <h2 id="products">{{ UI.products }}</h2>
-        <details v-for="p in state.data.products" :key="p.gradeId" :open="p.gradeId === state.data.best?.gradeId">
+        <details v-for="p in state.data.products" :key="p.gradeId" :open="p.gradeId === state.data.best?.gradeId" data-testid="product" :data-grade="p.gradeId" :data-verdict="p.verdict">
           <summary><VerdictMark :verdict="p.verdict">{{ p.label }}</VerdictMark></summary>
           <div class="scroll" tabindex="0" role="region" :aria-label="requirementsFor(p.label)">
             <table>

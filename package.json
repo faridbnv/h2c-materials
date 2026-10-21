@@ -126,11 +126,16 @@
     "build:next": "node apps/public/tools/build.ts",
     "editor": "node apps/editor/server/start.ts --open",
     "editor:measure": "node apps/editor/server/measure.ts",
-    "test:e2e": "playwright test -c tests/e2e/playwright.config.mjs"
+    "test:e2e": "playwright test -c tests/e2e/playwright.config.mjs",
+    "test:browser": "node tests/browser/run.mjs",
+    "test:browser:full": "node tests/browser/run.mjs --full",
+    "browser:compare": "node tests/browser/compare-old-harness.mjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.64.1",
     "@types/node": "26.6.5",
+    "axe-core": "4.13.0",
     "eslint": "10.13.0",
     "pdfjs-dist": "4.10.38",
     "subset-font": "2.9.0",
