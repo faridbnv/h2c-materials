@@ -85,6 +85,7 @@
     "docs:links": "node scripts/docs-links.mjs",
     "docs:open-problems": "node scripts/docs-open-problems.mjs",
     "rulings:check": "node remake/tools/rulings-check.mjs",
+    "checks:register": "node remake/tools/checks-register.mjs",
     "test:claude": "node --test tests/claude/hooks.test.mjs",
     "parity": "node packages/parity/src/cli.ts",
     "parity:corpus": "node packages/parity/src/build-corpus.ts",

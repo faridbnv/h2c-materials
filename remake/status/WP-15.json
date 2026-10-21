@@ -1,13 +1,35 @@
 {
   "id": "WP-15",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-15-register",
+  "pr": 15,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-21T09:45:34.634Z",
   "lastPass": null,
-  "evidence": [],
-  "waitingSince": null,
-  "approvedAt": null
+  "evidence": [
+    {
+      "cmd": "npm run checks:register -- --verify",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "attest untested-list-received",
+      "result": "not-run",
+      "note": "no row in remake/attest.csv"
+    },
+    {
+      "cmd": "manual: a scratch PR deleting a test fails",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: map covers every row of 00-CURRENT-STATE section 11",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
+  "waitingSince": "2026-10-21",
+  "approvedAt": null,
+  "updated": "2026-10-21T09:45:34.918Z"
 }
