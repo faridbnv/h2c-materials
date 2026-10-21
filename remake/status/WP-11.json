@@ -3,7 +3,7 @@
   "status": "done",
   "slice": null,
   "branch": "wp-11-engine-wrapper",
-  "pr": null,
+  "pr": 18,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
@@ -12,5 +12,7 @@
   "approvedAt": null,
   "doneAt": "2026-10-21",
   "note": "typed engine wrapper (packages/engine), wrapped parity new side (1,306 cases, zero differences), impact preview (cold 5.0 s, warm 4.0 s; with estimates 32 s cold, 28 s warm)",
-  "prs": []
+  "prs": [
+    18
+  ]
 }
