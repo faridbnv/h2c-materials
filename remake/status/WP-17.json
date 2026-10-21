@@ -1,6 +1,6 @@
 {
   "id": "WP-17",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-17-commands",
   "pr": 28,
@@ -44,10 +44,11 @@
       "note": "Tier 1; 5 minutes"
     }
   ],
-  "waitingSince": "2026-10-21",
+  "waitingSince": null,
   "approvedAt": null,
   "prs": [
     28
   ],
-  "note": "every write command beyond correctValue, generators with expectCount, schemaEdit round trip, change-set coverage over main's last 14 data days (97.9% of 10,252 changes expressed; 18 of 107 commits, 16.8%, carry residue in the tables), reviewer-kind report; sandbox only (Q2-08 B). The owner reads the coverage share before answering Q2-10."
+  "note": "every write command beyond correctValue, generators with expectCount, schemaEdit round trip, change-set coverage over main's last 14 data days (97.9% of 10,252 changes expressed; 18 of 107 commits, 16.8%, carry residue in the tables), reviewer-kind report; sandbox only (Q2-08 B). The owner reads the coverage share before answering Q2-10.; delivered by merged PR #28 (2026-10-21); open at merge: the owner reads the change-set coverage share before answering Q2-10",
+  "doneAt": "2026-10-21"
 }

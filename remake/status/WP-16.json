@@ -3,7 +3,7 @@
   "status": "done",
   "slice": null,
   "branch": "wp-16-m1-close",
-  "pr": null,
+  "pr": 22,
   "exitCheck": "pass",
   "lastRun": "2026-10-21",
   "lastPass": "2026-10-21",
@@ -15,5 +15,10 @@
     "Q2-08 B: the correction stays in the sandbox; nothing was written to data/"
   ],
   "waitingSince": null,
-  "approvedAt": "2026-10-21"
+  "approvedAt": "2026-10-21",
+  "prs": [
+    22
+  ],
+  "doneAt": "2026-10-21",
+  "note": "delivered by merged PR #22 (2026-10-21)"
 }

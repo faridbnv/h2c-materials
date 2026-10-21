@@ -1,6 +1,6 @@
 {
   "id": "WP-15",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-15-register",
   "pr": 15,
@@ -29,7 +29,12 @@
       "note": "no command checks this yet"
     }
   ],
-  "waitingSince": "2026-10-21",
+  "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-21T09:45:34.918Z"
+  "updated": "2026-10-21T09:45:34.918Z",
+  "prs": [
+    15
+  ],
+  "doneAt": "2026-10-21",
+  "note": "delivered by merged PR #15 (2026-10-21); open at merge: the owner's attest untested-list-received has no row in remake/attest.csv yet"
 }
