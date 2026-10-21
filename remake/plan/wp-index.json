@@ -417,13 +417,12 @@
       "exitEvidence": "ID stable across two checkout paths and changed by one data cell; `/v3/` counts equal the engine's",
       "exit": {
         "commands": [
-          "npm run release:id",
-          "node --test tests/remake/release-id.test.mjs tests/remake/public-view.test.mjs",
-          "node --test tests/parity/public-view.test.mjs"
+          "npm run release:id"
         ],
         "attest": [],
         "manual": [
-          "the /v3/ view is on the preview (it needs one build-job step in next-preview.yml, which the owner reviews)"
+          "ID stable across two checkout paths and changed by one data cell",
+          "/v3/ counts equal the engine's"
         ]
       },
       "dropped": false
@@ -503,13 +502,13 @@
       "size": "L (5)",
       "exitEvidence": "One test per command and refusal; coverage report; reviewer-kind report; `schemaEdit` round-trips",
       "exit": {
-        "commands": [],
+        "commands": [
+          "node --test tests/remake/write-commands.test.mjs tests/remake/write-schema.test.mjs tests/remake/sweeps.test.mjs tests/remake/reports.test.mjs",
+          "npm run report:reviewers -- --check"
+        ],
         "attest": [],
         "manual": [
-          "one test per command and refusal",
-          "coverage report",
-          "reviewer-kind report",
-          "schemaEdit round-trips"
+          "the owner reads the coverage share before answering Q2-10"
         ]
       },
       "dropped": false

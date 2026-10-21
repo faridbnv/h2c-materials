@@ -9,8 +9,8 @@ import { exitCode, runParity } from '../../packages/parity/src/compare.ts';
 import { copyEngine } from '../../packages/parity/src/engine-copy.ts';
 import { faultByName } from '../../packages/parity/src/faults.ts';
 import { createNewAdapter } from '../../packages/parity/src/new-adapter.ts';
-import { createOld, readDb } from '../../packages/parity/src/old-adapter.ts';
-import { corpus } from './helpers.mjs';
+import { readDb } from '../../packages/parity/src/old-adapter.ts';
+import { corpus, sharedOld } from './helpers.mjs';
 
 const typedDb = () => {
   const checked = checkDb(readDb());
@@ -26,7 +26,7 @@ const quick = [...templates.slice(0, 10), ...census.slice(0, 6)];
 const firstDifferences = (r) => r.differences.slice(0, 5).map((d) => `${d.case} ${d.record} ${d.tier}.${d.field}`).join('\n');
 
 const compare = async (cases, options = {}) =>
-  runParity({ corpusName: 'v0', cases, before: await createOld(readDb()), after: await createNewAdapter({ db: typedDb(), ...options }) });
+  runParity({ corpusName: 'v0', cases, before: await sharedOld(), after: await createNewAdapter({ db: typedDb(), ...options }) });
 
 test('old against the wrapped engine: zero differences, every case compared, exit 0', async () => {
   const r = await compare(subset);

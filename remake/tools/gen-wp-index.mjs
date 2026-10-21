@@ -33,7 +33,12 @@ const EXIT = {
   'WP-14': { commands: ['npm run release:id'], manual: ['ID stable across two checkout paths and changed by one data cell', '/v3/ counts equal the engine\'s'] },
   'WP-15': { commands: ['npm run checks:register -- --verify'], attest: ['untested-list-received'], manual: ['a scratch PR deleting a test fails', 'map covers every row of 00-CURRENT-STATE section 11'] },
   'WP-16': { commands: [], attest: ['owner-correction'], manual: ['clean rebuild diff = 0', 're-estimate written', 'Q2-08 answered or defaulted'] },
-  'WP-17': { commands: [], manual: ['one test per command and refusal', 'coverage report', 'reviewer-kind report', 'schemaEdit round-trips'] },
+  // One test per command and refusal code, the schemaEdit round trip, the generators, and the two reports (the reviewer-kind report is regenerated and compared; the
+  // coverage report is a measurement over main's history and its figures are checked to add up). The owner reads the coverage share before answering Q2-10.
+  'WP-17': {
+    commands: ['node --test tests/remake/write-commands.test.mjs tests/remake/write-schema.test.mjs tests/remake/sweeps.test.mjs tests/remake/reports.test.mjs', 'npm run report:reviewers -- --check'],
+    manual: ['the owner reads the coverage share before answering Q2-10'],
+  },
   // The pack writes `parity -- --milestone`, which runs all five surfaces; build and pages wait for WP-20 and WP-24, so a run of
   // all five exits 2. Each PR runs P-erase, the engine, ties and links surfaces (the milestone size is `--milestone` on the same
   // flags), and the ported modules' own tests.

@@ -8,6 +8,8 @@ import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
 import { csvText } from './csv.ts';
 import type { Db } from './driver.ts';
+import { BASE_MODEL } from './schema-model.ts';
+import type { SchemaModel } from './schema-model.ts';
 import { countRows, exportTable, storageOf } from './storage.ts';
 
 const CROCKFORD = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
@@ -68,13 +70,13 @@ export function canonicalJson(value: Json): string {
 }
 
 /** The canonical CSV record line of one row: what the file holds for it, no line feed. */
-function recordLine(table: TableName, cells: readonly (string | null)[]): string {
-  const text = csvText(storageOf(table).header, [cells]);
+function recordLine(table: TableName, cells: readonly (string | null)[], model: SchemaModel): string {
+  const text = csvText(storageOf(table, model).header, [cells]);
   return text.slice(text.indexOf('\n') + 1, -1);
 }
 
 /** The hash an `expect.rowHash` is compared with: SHA-256 of the row's canonical CSV record line. */
-export const rowHash = (table: TableName, cells: readonly (string | null)[]): Sha256 => sha256Of(recordLine(table, cells));
+export const rowHash = (table: TableName, cells: readonly (string | null)[], model: SchemaModel = BASE_MODEL): Sha256 => sha256Of(recordLine(table, cells, model));
 
 export interface TableDigest { readonly rows: number; readonly sha256: Sha256 }
 
@@ -96,11 +98,11 @@ export function snapshotDigestOf(digests: ReadonlyMap<TableName, TableDigest>): 
  * The canonical export of every table of a database: its row count and the SHA-256 of its CSV text. The text of the tables in
  * `keep` is returned too (the changed tables an export writes), so it is built once.
  */
-export function tableDigests(db: Db, keep: ReadonlySet<TableName> = new Set()): { readonly digests: Map<TableName, TableDigest>; readonly texts: Map<TableName, string> } {
+export function tableDigests(db: Db, keep: ReadonlySet<TableName> = new Set(), model: SchemaModel = BASE_MODEL): { readonly digests: Map<TableName, TableDigest>; readonly texts: Map<TableName, string> } {
   const digests = new Map<TableName, TableDigest>();
   const texts = new Map<TableName, string>();
   for (const table of TABLE_NAMES) {
-    const text = exportTable(db, table);
+    const text = exportTable(db, table, model);
     digests.set(table, { rows: countRows(db, table), sha256: sha256Of(text) });
     if (keep.has(table)) texts.set(table, text);
   }

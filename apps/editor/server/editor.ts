@@ -263,7 +263,8 @@ export class Editor {
     const wanted = 'set' in command && command.set !== undefined ? command.set : {};
     const found = table === 'measurements' ? recordOf(this.#ws.db, table, recordId) : null;
     const now = found === null ? null : Object.fromEntries(Object.keys(wanted).map((name) => [name, found.cells[name] ?? null]));
-    const evidence = command.evidence === undefined ? null : { sourceId: command.evidence.sourceId, page: command.evidence.page, quote: command.evidence.quote };
+    const cited = 'evidence' in command ? command.evidence : undefined;
+    const evidence = cited === undefined ? null : { sourceId: cited.sourceId, page: cited.page, quote: cited.quote };
     return {
       opId: command.opId, code, detail, foundAt, table, recordId, label: this.#labelOf(table, recordId), expected: cellsOf(command.expect.cells), now, wanted,
       reason: command.reason, evidence,

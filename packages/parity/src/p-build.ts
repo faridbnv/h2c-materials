@@ -8,6 +8,9 @@
 //
 // The real data/, schema/, app/ and build/ are only copied FROM. A build that fails is "not computable" for that side, never
 // an empty database and never zero.
+//
+// WP-20 adds the other side: `buildNew` runs the new build (packages/build, which reads the clean SQLite reconstruction of the
+// same tables) into a temporary directory. It writes nothing outside that directory, so it needs no copy of the project.
 import { spawn } from 'node:child_process';
 import { cpSync, existsSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -76,6 +79,43 @@ export async function buildInCopy(opts: BuildOptions): Promise<BuiltRelease> {
   return { dir, dbPath, materialsDir: existsSync(materialsDir) ? materialsDir : null, label: opts.label, seconds: (performance.now() - started) / 1000 };
 }
 
+export interface NewBuildOptions {
+  label: string;
+  /** A directory of table CSVs to build from instead of data/tables (a manifest is written for it, in a temporary data directory). */
+  tablesDir?: string;
+  /** The build date to stamp (an ISO date), so builds on different days agree. Defaults to today's. */
+  buildDate?: string;
+  /** Extra arguments for the build's own CLI (--no-estimates). */
+  args?: readonly string[];
+}
+
+/**
+ * The new build (packages/build): its CLI as a child process, writing db.json into a temporary directory. The reconstruction it
+ * reads is made from `data/` (or from a temporary data directory holding `tablesDir`), in memory, so nothing in the project is
+ * written and no copy of the project is needed. A build that fails is a BuildFailed, never an empty database.
+ */
+export async function buildNew(opts: NewBuildOptions): Promise<BuiltRelease> {
+  const dir = makeTempDir('h2c-parity-newbuild-');
+  const started = performance.now();
+  let dataDir = join(REPO_ROOT, 'data');
+  if (opts.tablesDir) {
+    dataDir = join(dir, 'data');
+    cpSync(opts.tablesDir, join(dataDir, 'tables'), { recursive: true });
+    await refreshManifest(dir, join(REPO_ROOT, 'build', 'src'));
+  }
+  const out = join(dir, 'out');
+  const date = opts.buildDate ?? new Date().toISOString().slice(0, 10);
+  const args = ['--disable-warning=ExperimentalWarning', 'packages/build/src/cli.ts', '--out', out, '--data-dir', dataDir, ...(opts.args ?? [])];
+  const run = await runBuild(REPO_ROOT, args, { SOURCE_DATE_EPOCH: String(Date.parse(`${date}T00:00:00Z`) / 1000) });
+  if (run.status !== 0) {
+    const tail = run.output.split('\n').filter((l) => /ERROR|failed|Error/.test(l)).slice(0, 12).join('\n');
+    throw new BuildFailed(`the build of "${opts.label}" exited ${String(run.status)}${tail ? `:\n${tail}` : ''}`);
+  }
+  const dbPath = join(out, 'db.json');
+  if (!existsSync(dbPath)) throw new BuildFailed(`the build of "${opts.label}" wrote no db.json`);
+  return { dir, dbPath, materialsDir: null, label: opts.label, seconds: (performance.now() - started) / 1000 };
+}
+
 /** The old build as a child process, asynchronously, so two builds (or a build and a comparison) can run side by side. */
 function runBuild(cwd: string, args: string[], env: Record<string, string>): Promise<{ status: number | null; output: string }> {
   return new Promise((resolve, reject) => {
@@ -94,9 +134,9 @@ function runBuild(cwd: string, args: string[], env: Record<string, string>): Pro
 }
 
 /** data/manifest.json for a tables directory that is not the committed one, written in the COPY with the old build's own function. */
-async function refreshManifest(dir: string): Promise<void> {
-  const { buildManifest } = await import(pathToFileURL(join(dir, 'build', 'src', 'schema.js')).href);
-  const { readCsv } = await import(pathToFileURL(join(dir, 'build', 'src', 'csv.js')).href);
+async function refreshManifest(dir: string, buildSrc: string = join(dir, 'build', 'src')): Promise<void> {
+  const { buildManifest } = await import(pathToFileURL(join(buildSrc, 'schema.js')).href);
+  const { readCsv } = await import(pathToFileURL(join(buildSrc, 'csv.js')).href);
   const dataDir = join(dir, 'data');
   const tables = Object.fromEntries(readdirSync(join(dataDir, 'tables')).filter((f) => f.endsWith('.csv')).map((f) => [f.slice(0, -4), readCsv(join(dataDir, 'tables', f))]));
   writeFileSync(join(dataDir, 'manifest.json'), `${JSON.stringify(buildManifest(dataDir, tables), null, 2)}\n`);
@@ -188,6 +228,12 @@ export async function compareBuilds(before: { path: string; label: string }, aft
     groups.set(shape, (groups.get(shape) ?? 0) + 1);
   }
   for (const d of idSequenceDifferences(left, right)) b.add(d);
+  // diffJson pairs records by id and reads an object's keys as a set, so it cannot see a changed key order, a nested list in
+  // another order or a nested record twice. The database is also compared as written: the same parsed content in the same
+  // order serializes to the same text (a build is meant to be byte for byte the other's, apart from the two stamps).
+  if (b.count === 0 && JSON.stringify(left) !== JSON.stringify(right)) {
+    b.add({ case: 'build', record: '(whole database)', tier: 'evidence', field: '(serialized form: key order, list order or a repeated record)', before: clipWithDigest(JSON.stringify(left)), after: clipWithDigest(JSON.stringify(right)) });
+  }
   b.notes.push(`db.json compared path by path (meta.build and meta.release left out, as build:diff does): ${b.units} values`);
   for (const [shape, n] of [...groups].sort((p, q) => q[1] - p[1]).slice(0, 12)) b.notes.push(`${String(n).padStart(6)}  ${shape}`);
   return b.finish();

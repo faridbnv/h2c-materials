@@ -278,7 +278,7 @@ function buildModel(root) {
     const pk = t.primaryKey == null ? [] : [].concat(t.primaryKey);
     for (const k of pk) if (!columns.some((c) => c.name === k)) throw new Error(`${t.name}: primaryKey "${k}" is not a column`);
     const uniqueKeys = t.uniqueKeys ?? [];
-    return { name: t.name, title: t.title, columns, pk, uniqueKeys };
+    return { name: t.name, title: t.title, columns, pk, uniqueKeys, naturalKey: t.naturalKey ?? null };
   });
   const byName = new Map(model.map((t) => [t.name, t]));
   for (const t of model) {
@@ -663,6 +663,27 @@ export function generate(root = REPO) {
     [OUTPUTS.storage]: renderStorageSql(built),
     [OUTPUTS.dbShape]: renderDbShape(root),
   };
+}
+
+/**
+ * What the write service needs of the schema under `root` at run time (WP-17): the same facts `packages/data/src/generated/columns.ts`
+ * holds (so a schema edited in a sandbox can be modelled without regenerating the repository's files), the storage DDL, which tables
+ * use which vocabulary, and all five generated files. Throws the generator's own error when the schema is not valid.
+ */
+export function describeSchema(root = REPO) {
+  const built = buildModel(root);
+  const tables = Object.fromEntries(built.model.map((t) => [t.name, {
+    primaryKey: t.pk,
+    uniqueKeys: t.uniqueKeys,
+    naturalKey: t.naturalKey,
+    columns: t.columns.map((c) => ({ name: c.name, sqlName: c.sql, type: c.type, role: c.role, required: c.required, missing: c.missing })),
+  }]));
+  const vocabularies = Object.fromEntries(Object.entries(built.vocab).map(([stem, values]) => [stem, {
+    values,
+    users: built.model.flatMap((t) => t.columns.filter((c) => c.vocabName === stem).map((c) => ({ table: t.name, column: c.name }))),
+  }]));
+  const files = generate(root);
+  return { tableNames: built.model.map((t) => t.name), tables, vocabularies, storageDdl: files[OUTPUTS.storage], files };
 }
 
 function writeAll(files, base) {

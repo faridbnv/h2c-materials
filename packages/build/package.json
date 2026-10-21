@@ -1,0 +1,17 @@
+{
+  "name": "@atlas/build",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas build in TypeScript (WP-20, stage C): the old build's load, normalize, compile and validate stages, reading the clean SQLite reconstruction. The estimate stage is still the old one, called unchanged through an adapter until WP-21.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./pipeline": "./src/pipeline.ts",
+    "./load": "./src/load.ts"
+  },
+  "dependencies": {
+    "@atlas/data": "0.0.0",
+    "@atlas/domain": "0.0.0",
+    "ajv": "8.20.0"
+  }
+}
