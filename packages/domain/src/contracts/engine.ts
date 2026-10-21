@@ -9,6 +9,7 @@ import type { Db } from '@atlas/data';
 import type { ConstraintId, GradeId, MaterialId, MeasurementId, ReleaseId, StateId } from './ids.ts';
 import type { ReasonCode } from './reason-codes.ts';
 import type { ScenarioConstraint, ScenarioV2 } from './scenario.ts';
+import type { PRODUCT_SHARES } from '../core/vocab.ts';
 import type { EngineMissing, Group, ServiceMoisture, Status, Verdict } from './vocab.ts';
 
 /**
@@ -65,9 +66,10 @@ export type RequirementResult = {
   readonly constraint: ScenarioConstraint | TreatmentConstraint;
   /** Not set by the old engine; arrives with reason codes (WP-19). */
   readonly reasonCode?: ReasonCode;
-  /** Not set by the old engine; arrives with constraint IDs (WP-19). */
+  /** Not set by the old engine. The typed wrapper (WP-11) sets it on every result, provisionally; WP-19 decides the derivation. */
   readonly constraintId?: ConstraintId;
-  readonly measurementId?: MeasurementId;
+  /** Null where the engine names no measurement (a result that rests on none). */
+  readonly measurementId?: MeasurementId | null;
   readonly evidenceIds?: readonly string[];
   readonly priceIds?: readonly string[];
   readonly contextIds?: readonly string[];
@@ -115,6 +117,9 @@ export type ProductView = {
   readonly states?: readonly (StateRef & { readonly verdict: Verdict })[];
 };
 
+/** How many of a material's judged products pass (products.js SHARE): all of them, some, or none. */
+export type ProductShare = (typeof PRODUCT_SHARES)[number];
+
 /**
  * A material's evaluation (constraints.js evaluateMaterial, or evaluateProducts when products are judged one by one).
  * Loose: the product-level fields are present only on the products path.
@@ -133,9 +138,15 @@ export type Evaluation = {
   readonly screened: boolean;
   readonly screenedBy: readonly string[];
   readonly results: readonly RequirementResult[];
+  /** The results that fail, and the open ones (UNKNOWN or INDETERMINATE), among the mandatory requirements. */
+  readonly failed?: readonly RequirementResult[];
+  readonly unresolved?: readonly RequirementResult[];
   readonly failedBy: readonly string[];
   readonly heldBy?: readonly string[];
-  readonly counts?: { readonly products: number; readonly pass: number; readonly fail: number; readonly untested: number; readonly screened: number };
+  /** Null: the material has no product on record and was judged on its own headline. */
+  readonly counts?: { readonly products: number; readonly pass: number; readonly fail: number; readonly untested: number; readonly screened: number } | null;
+  /** Null: no product was judged to pass or fail. */
+  readonly share?: ProductShare | null;
   readonly products?: readonly ProductView[];
   readonly gradeId?: GradeId;
   readonly state?: StateRef;

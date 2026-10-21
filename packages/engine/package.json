@@ -1,0 +1,15 @@
+{
+  "name": "@atlas/engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas typed engine wrapper (WP-11): the old engine (app/js/engine, imported read-only) behind the typed EngineInput and RowResult contracts, and the impact preview. Retired as the engine is ported into packages/domain (WP-18 to WP-21).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./impact": "./src/impact/index.ts"
+  },
+  "dependencies": {
+    "@atlas/data": "0.0.0",
+    "@atlas/domain": "0.0.0"
+  }
+}

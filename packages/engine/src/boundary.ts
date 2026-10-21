@@ -1,0 +1,80 @@
+// The boundary: the old engine's answers, checked and typed. Nothing the engine said is dropped or reworded; what is added
+// sits beside it (`constraintId`, `reasonCode`), and the words that became IDs or word-list members were checked on the way.
+import { GROUP_ORDER, PRODUCT_SHARES, STATUSES, parseStateId } from '@atlas/domain';
+import type { Evaluation, Group, MeasurementId, ProductView, RequirementResult, StateRef, Status, Verdict } from '@atlas/domain';
+import type { ConstraintIndex } from './constraint-ids.ts';
+import { BoundaryError, gradeIdOf, materialIdOf, measurementIdOf, moistureOf, oneOf, stateIdOf } from './guards.ts';
+import type { RawEvaluation, RawProduct, RawResult, RawState } from './old-engine.ts';
+import { reasonCodeOf } from './reasons.ts';
+
+const VERDICTS = STATUSES.filter((word): word is Verdict => word !== 'INDETERMINATE');
+const statusOf = (value: string): Status => oneOf(STATUSES, value, 'requirement status');
+const verdictOf = (value: string): Verdict => oneOf(VERDICTS, value, 'verdict');
+const groupOf = (value: string): Group => oneOf(GROUP_ORDER, value, 'group');
+
+/** A state: its identifier and the parts the identifier encodes. The two must agree (engine.ts StateRef), so a disagreement is an error. */
+export function toStateRef(raw: RawState): StateRef {
+  const id = stateIdOf(raw.id);
+  const moisture = moistureOf(raw.moisture);
+  const parts = parseStateId(id);
+  const agrees = parts !== null && parts.moisture === moisture && (parts.treatment?.tempC ?? null) === (raw.treatment?.tempC ?? null)
+    && (parts.treatment?.hours ?? null) === (raw.treatment?.hours ?? null) && (parts.treatment === null) === (raw.treatment === null);
+  if (!agrees) throw new BoundaryError(`state ${id}: its moisture and treatment (${JSON.stringify([raw.moisture, raw.treatment])}) are not what the identifier says`);
+  return { ...raw, id, moisture };
+}
+
+/** The result's `measurementId` as the engine gave it: absent stays absent, null stays null. */
+function checkedMeasurement(measurementId: string | null | undefined): { measurementId?: MeasurementId | null } {
+  if (measurementId === undefined) return {};
+  return { measurementId: measurementId === null ? null : measurementIdOf(measurementId) };
+}
+
+/**
+ * One evaluation's results, converted once each: a result the engine lists in `results` and again in `failed` or
+ * `unresolved` is one object there, and stays one object here.
+ */
+function resultConverter(index: ConstraintIndex): (raw: RawResult) => RequirementResult {
+  const done = new Map<RawResult, RequirementResult>();
+  return (raw) => {
+    const known = done.get(raw);
+    if (known) return known;
+    const { id, body } = index.lookup(raw.constraint);
+    const { measurementId, ...rest } = raw;
+    const checked = { ...rest, status: statusOf(raw.status), constraint: body, constraintId: id, ...checkedMeasurement(measurementId) };
+    const reasonCode = reasonCodeOf(checked);
+    const result = reasonCode === undefined ? checked : { ...checked, reasonCode };
+    done.set(raw, result);
+    return result;
+  };
+}
+
+function toProductView(raw: RawProduct, convert: (raw: RawResult) => RequirementResult): ProductView {
+  const { states, ...rest } = raw;
+  return {
+    ...rest,
+    gradeId: gradeIdOf(raw.gradeId),
+    verdict: verdictOf(raw.verdict),
+    group: groupOf(raw.group),
+    state: toStateRef(raw.state),
+    results: raw.results.map(convert),
+    ...(states === undefined ? {} : { states: states.map((s) => ({ ...toStateRef(s), verdict: verdictOf(s.verdict) })) }),
+  };
+}
+
+export function toEvaluation(raw: RawEvaluation, index: ConstraintIndex): Evaluation {
+  const { products, state, gradeId, share, ...rest } = raw;
+  const convert = resultConverter(index);
+  return {
+    ...rest,
+    materialId: materialIdOf(raw.materialId),
+    verdict: verdictOf(raw.verdict),
+    group: groupOf(raw.group),
+    results: raw.results.map(convert),
+    failed: raw.failed.map(convert),
+    unresolved: raw.unresolved.map(convert),
+    ...(share === undefined ? {} : { share: share === null ? null : oneOf(PRODUCT_SHARES, share, 'share') }),
+    ...(products === undefined ? {} : { products: products.map((p) => toProductView(p, convert)) }),
+    ...(gradeId === undefined ? {} : { gradeId: gradeIdOf(gradeId) }),
+    ...(state === undefined ? {} : { state: toStateRef(state) }),
+  };
+}
