@@ -1,0 +1,14 @@
+{
+  "id": "WP-12",
+  "status": "dropped",
+  "slice": null,
+  "branch": null,
+  "pr": null,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": null,
+  "approvedAt": null,
+  "note": "dropped: Q2-06 C"
+}
