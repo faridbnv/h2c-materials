@@ -1,0 +1,4433 @@
+{
+  "schema": 1,
+  "status": "measured",
+  "measuredAt": "2026-10-21T16:53:27.308Z",
+  "method": [
+    "Read only: Git history of the ref and the working tree; no migration is run and no file is written but this one.",
+    "Window: the commits that changed data/tables, data/manifest.json or schema/ in the 14 days before the last such commit of the ref (main is frozen at the cutover candidate; a later commit that changes only a workflow does not move the window), or the range given.",
+    "Each commit's table, vocabulary and schema-document diff against its parent is split into changes; each change is classified as one a write command expresses, one that waits for WP-28's proposal commands, or residue.",
+    "Rows are matched by primary (else first unique) key. A row added after the last row that stayed is an append; a row added anywhere else is a mid-table insert; rows that stayed but changed order are a reorder.",
+    "Commits whose every change is a row edit or an append, with no schema change, are replayed: the derived commands go through the real pipeline in legacy mode (judgement guards off, structural guards on) onto a rebuild of the parent, and every changed table is compared byte for byte with the child. A commit whose parent cannot be rebuilt under its own schema is skipped, and counted as skipped.",
+    "Class (04 section 11) is guessed from the diff, not from the script: a heuristic, medium confidence. The migration script a commit adds is named beside it."
+  ],
+  "window": {
+    "ref": "origin/main",
+    "head": "c31ceebf2c64b392c5451a884a2e2a466e5ac779",
+    "anchor": "19a2c2af863648824b1cefe8725a4f986e49d46a",
+    "anchorDate": "2026-10-20T12:08:13-07:00",
+    "days": 14,
+    "range": null,
+    "commits": 107
+  },
+  "units": {
+    "total": 10252,
+    "expressed": 10032,
+    "later": 124,
+    "residue": 96,
+    "expressedShare": 0.979,
+    "expressedOrLaterShare": 0.991,
+    "outsideFiles": 65,
+    "expressedShareOfTables": 0.985
+  },
+  "commits": {
+    "total": 107,
+    "withSnapshotChange": 107,
+    "allExpressed": 46,
+    "withLater": 4,
+    "withResidue": 57,
+    "residueShare": 0.533,
+    "withResidueInTables": 18,
+    "residueShareInTables": 0.168,
+    "adrRevisitTrigger": {
+      "threshold": 0.1,
+      "fired": true,
+      "firedInTables": true,
+      "rule": "ADR-03: more than 1 change in 10 needing a hand-written generator is the revisit trigger; here, a commit with any residue stands for a change the commands cannot make. `fired` counts a file beside the tables as residue, `firedInTables` does not"
+    }
+  },
+  "byKind": {
+    "edit-cells": {
+      "status": "expressed",
+      "by": "correctValue (reviseProfile, reclassifyProduct, retireRecord and moveGrade for their columns)",
+      "count": 5529,
+      "commits": 94
+    },
+    "append-rows": {
+      "status": "expressed",
+      "by": "addMeasurement, addRecord",
+      "count": 4434,
+      "commits": 37
+    },
+    "append-source-rows": {
+      "status": "later",
+      "by": "the proposal commands of WP-28: a source enters through the ingest journey, fetched and hashed",
+      "count": 124,
+      "commits": 9
+    },
+    "add-column": {
+      "status": "expressed",
+      "by": "addColumn (or schemaEdit)",
+      "count": 24,
+      "commits": 13
+    },
+    "schema-document": {
+      "status": "expressed",
+      "by": "schemaEdit",
+      "count": 28,
+      "commits": 14
+    },
+    "vocab-add": {
+      "status": "expressed",
+      "by": "addVocab",
+      "count": 17,
+      "commits": 9
+    },
+    "insert-mid-table": {
+      "status": "residue",
+      "by": "no command: a row is appended at the end (table-io append(..., { after }) splices rows into headline_definitions)",
+      "count": 12,
+      "commits": 5
+    },
+    "remove-rows": {
+      "status": "residue",
+      "by": "no command deletes: nothing is deleted, a record is retired (D72 lets a record the build now derives leave, with a ledger row)",
+      "count": 2,
+      "commits": 2
+    },
+    "create-table": {
+      "status": "residue",
+      "by": "no command creates a table (schemaEdit changes the 36 tables it has)",
+      "count": 7,
+      "commits": 6
+    },
+    "vocab-change": {
+      "status": "residue",
+      "by": "a vocabulary word removed or changed: addVocab only adds",
+      "count": 6,
+      "commits": 6
+    },
+    "vocab-new-file": {
+      "status": "residue",
+      "by": "no command creates a vocabulary file",
+      "count": 4,
+      "commits": 4
+    },
+    "outside-file": {
+      "status": "residue",
+      "by": "a file beside the 36 tables and their schema (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files): no command changes it",
+      "count": 65,
+      "commits": 54
+    }
+  },
+  "byClass": {
+    "1 Bulk import or pipeline batch": {
+      "commits": 1,
+      "units": 76,
+      "expressed": 76,
+      "later": 0,
+      "residue": 0,
+      "share": 1
+    },
+    "2 Schema or model change plus backfill": {
+      "commits": 34,
+      "units": 4409,
+      "expressed": 4254,
+      "later": 96,
+      "residue": 59,
+      "share": 0.965
+    },
+    "3 Correction of observational data": {
+      "commits": 9,
+      "units": 3217,
+      "expressed": 3217,
+      "later": 0,
+      "residue": 0,
+      "share": 1
+    },
+    "4 Reference, identity, classification": {
+      "commits": 41,
+      "units": 535,
+      "expressed": 504,
+      "later": 16,
+      "residue": 15,
+      "share": 0.942
+    },
+    "5 Mixed or editorial": {
+      "commits": 22,
+      "units": 2015,
+      "expressed": 1981,
+      "later": 12,
+      "residue": 22,
+      "share": 0.983
+    }
+  },
+  "residue": [
+    {
+      "kind": "insert-mid-table",
+      "count": 12,
+      "commits": 5,
+      "why": "no command: a row is appended at the end (table-io append(..., { after }) splices rows into headline_definitions)",
+      "examples": [
+        "380c0bbbc7 headline_definitions: tensileModulusZ, elongationZ, hdt18",
+        "2e857df83f headline_definitions: flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY, flexuralStrengthZ",
+        "50f8a0e5c4 headline_definitions: shoreA, shoreD",
+        "71137cf607 product_claims: G001-201 | Toughened or impact-modified",
+        "49c66dbae1 measurements: V015701, V015700"
+      ]
+    },
+    {
+      "kind": "remove-rows",
+      "count": 2,
+      "commits": 2,
+      "why": "no command deletes: nothing is deleted, a record is retired (D72 lets a record the build now derives leave, with a ledger row)",
+      "examples": [
+        "f8f825631e impact_test_guesses: V006953",
+        "71137cf607 product_claims: G001-23 | Toughened or impact-modified"
+      ]
+    },
+    {
+      "kind": "create-table",
+      "count": 7,
+      "commits": 6,
+      "why": "no command creates a table (schemaEdit changes the 36 tables it has)",
+      "examples": [
+        "69b12c0d3e product_claims: a table that did not exist",
+        "8940c10756 impact_test_guesses: a table that did not exist",
+        "8b38635711 drawer_comparisons: a table that did not exist",
+        "bf37c9704a material_summaries: a table that did not exist",
+        "b3e6120fd2 chamber_need: a table that did not exist"
+      ]
+    },
+    {
+      "kind": "vocab-change",
+      "count": 6,
+      "commits": 6,
+      "why": "a vocabulary word removed or changed: addVocab only adds",
+      "examples": [
+        "a350a58de3 schema/vocab/environment-topics.csv: a word removed, moved or changed",
+        "87f323fab2 schema/vocab/directions.csv: a word removed, moved or changed",
+        "63ad72c2b0 schema/vocab/grade-variants.csv: a word removed, moved or changed",
+        "0745c3d9af schema/vocab/manufacturers.csv: a word removed, moved or changed",
+        "5865d2c9da schema/vocab/scopes.csv: a word removed, moved or changed"
+      ]
+    },
+    {
+      "kind": "vocab-new-file",
+      "count": 4,
+      "commits": 4,
+      "why": "no command creates a vocabulary file",
+      "examples": [
+        "69b12c0d3e schema/vocab/product-claims.csv: a vocabulary that did not exist",
+        "8940c10756 schema/vocab/impact-test-guesses.csv: a vocabulary that did not exist",
+        "bf37c9704a schema/vocab/summary-status.csv: a vocabulary that did not exist",
+        "0131767fe6 schema/vocab/diameters.csv: a vocabulary that did not exist"
+      ]
+    },
+    {
+      "kind": "outside-file",
+      "count": 65,
+      "commits": 54,
+      "why": "a file beside the 36 tables and their schema (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files): no command changes it",
+      "examples": [
+        "d79de92890 schema/db.schema.json: changed",
+        "69b12c0d3e schema/db.schema.json: changed",
+        "b4aad28f35 data/review/accepted-findings.csv: changed",
+        "b87ce50d01 schema/db.schema.json: changed",
+        "8940c10756 data/review/accepted-findings.csv: changed"
+      ]
+    }
+  ],
+  "byteReplay": {
+    "requested": true,
+    "eligible": 44,
+    "attempted": 21,
+    "identical": 21,
+    "differs": 0,
+    "skipped": 23,
+    "skippedBecause": {
+      "the parent's tables do not rebuild under its own schema: chamber_need: the CSV f": 21,
+      "the parent's tables do not rebuild under its own schema: class_limits: the CSV f": 2
+    }
+  },
+  "perCommit": [
+    {
+      "commit": "a350a58de3c63d1d659cd72ef377ed3671123d6c",
+      "date": "2026-10-06T14:45:49-07:00",
+      "subject": "Revert the 6 October impact round; keep its verified page and four statements (D132 withdrawn, m384)",
+      "migrations": [
+        "m384-impact-statements-back-to-their-topics.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 15,
+          "detail": "15 cell(s) in 15 row(s)"
+        },
+        {
+          "kind": "vocab-change",
+          "table": "schema/vocab/environment-topics.csv",
+          "count": 1,
+          "detail": "a word removed, moved or changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "d79de92890a9f72900416c7ad0b1b9b75e8aac50",
+      "date": "2026-10-06T15:11:55-07:00",
+      "subject": "Draw notched Charpy and notched Izod side by side in the drawer, a product each (D133, m385)",
+      "migrations": [
+        "m385-impact-tests-side-by-side.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Drawer comparison"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "method",
+          "count": 1,
+          "detail": "Impact tests"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "69b12c0d3eaa1523705db16488b5b3fb2e0d27cc",
+      "date": "2026-10-06T15:36:11-07:00",
+      "subject": "Name the products sold as toughened beside each impact spread, from the makers' own words (D133, m386)",
+      "migrations": [
+        "m386-products-sold-as-toughened.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Sold as toughened"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "create-table",
+          "table": "product_claims",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "vocab-new-file",
+          "table": "schema/vocab/product-claims.csv",
+          "count": 1,
+          "detail": "a vocabulary that did not exist"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "b4aad28f35c9f0193bbd3e4311b48ee657bf2798",
+      "date": "2026-10-06T16:41:17-07:00",
+      "subject": "Read the impact results 345 registered sheets print, and fix what the reading found (D133, m387, m388)",
+      "migrations": [
+        "m387-impact-records-checked-on-their-pages.mjs",
+        "m388-impact-values-the-pages-print.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 3,
+          "detail": "6 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 1,
+          "detail": "G018-20"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 86,
+          "detail": "V014756, V014757, V014758, V014759 and 82 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 43,
+          "detail": "83 cell(s) in 43 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "page_context",
+          "count": 1,
+          "detail": "PC00957"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 4,
+          "detail": "4 cell(s) in 4 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "b87ce50d012ed32f5de5c791d232d70c85d50bd2",
+      "date": "2026-10-06T17:09:10-07:00",
+      "subject": "Check the round blind, add the one missed claim, and set toughened products apart from the impact medians (D133, m389, m390)",
+      "migrations": [
+        "m389-what-the-missed-claim-draw-found.mjs",
+        "m390-toughened-products-set-apart-from-impact-medians.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "evidence",
+          "count": 1,
+          "detail": "Q05761"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "product_claims",
+          "count": 1,
+          "detail": "G066-03 | Toughened or impact-modified"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/headline_definitions.schema.json",
+          "count": 1,
+          "detail": "the specification of Sold as toughened changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "8940c107562736824ca91ed72ead9d3ad83e16ac",
+      "date": "2026-10-06T18:44:16-07:00",
+      "subject": "File impact results under the test they name, read the rest, and make impact one heading (D133, m391)",
+      "migrations": [
+        "m391-impact-results-under-their-test.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "create-table",
+          "table": "impact_test_guesses",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 25,
+          "detail": "50 cell(s) in 25 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "properties",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "vocab-new-file",
+          "table": "schema/vocab/impact-test-guesses.csv",
+          "count": 1,
+          "detail": "a vocabulary that did not exist"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "2b306a7ff39f7d87fea1c7560d5c76436df965a8",
+      "date": "2026-10-06T23:57:56-07:00",
+      "subject": "Make the impact heading the graph, the median table and the three lists, and take a dot to its record (D133, m392)",
+      "migrations": [
+        "m392-impact-caption-without-the-table.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "a1f1284e7cdf89b0f28bc5bcd3a009b6a70fb638",
+      "date": "2026-10-07T00:42:27-07:00",
+      "subject": "Draw an impact heading only from what it has, and hold a moulded impact value once (D133, m393)",
+      "migrations": [
+        "m393-impact-copies-of-moulded-values.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 20,
+          "detail": "40 cell(s) in 20 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "0c1904b77239d6c7505de0dc50b27411a1d183ba",
+      "date": "2026-10-07T11:44:12-07:00",
+      "subject": "Quality round 2026-10-07, part 1: orientation stated once, sheets filed on their product, moulded values held once, cells the readers found wrong (m394-m398)",
+      "migrations": [
+        "m394-page-states-an-orientation.mjs",
+        "m395-bars-printed-in-the-xy-plane.mjs",
+        "m396-which-product-a-sheet-is.mjs",
+        "m397-moulded-values-held-once.mjs",
+        "m398-what-the-readers-found-in-cells.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 1,
+          "detail": "G001-200"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 92,
+          "detail": "164 cell(s) in 92 row(s)"
+        },
+        {
+          "kind": "add-column",
+          "table": "page_context",
+          "count": 1,
+          "detail": "Direction"
+        },
+        {
+          "kind": "append-rows",
+          "table": "page_context",
+          "count": 28,
+          "detail": "PC00958, PC00959, PC00960, PC00961 and 24 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "page_context",
+          "count": 28,
+          "detail": "28 cell(s) in 28 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 15,
+          "detail": "28 cell(s) in 15 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/page_context.schema.json",
+          "count": 1,
+          "detail": "title, description or keys changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "58fec31acd26fcdda9f33f577d5f0c901e26da39",
+      "date": "2026-10-07T12:12:58-07:00",
+      "subject": "Quality round 2026-10-07, part 2: impact columns read again, sparse mechanical tables read whole, toughened claims, The Filament TPU copies held once, varioShore filed as foaming (m399-m403)",
+      "migrations": [
+        "m399-impact-values-held-for-a-column.mjs",
+        "m400-toughened-claims-the-sheets-make.mjs",
+        "m401-mechanical-tables-held-in-part.mjs",
+        "m402-the-filament-tpu-sheets-held-once.mjs",
+        "m403-varioshore-foams.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "evidence",
+          "count": 7,
+          "detail": "Q05762, Q05763, Q05764, Q05765 and 3 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 5,
+          "detail": "7 cell(s) in 5 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "impact_test_guesses",
+          "count": 3,
+          "detail": "V014842, V014843, V014844"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 171,
+          "detail": "V014842, V014843, V014844, V014845 and 167 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 15,
+          "detail": "30 cell(s) in 15 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "product_claims",
+          "count": 8,
+          "detail": "G018-01 | Toughened or impact-modified, G020-16 | Toughened or impact-modified, G131-01 | Toughened or impact-modified, G001-60 | Toughened or impact-modified and 4 more"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "aa5b92d1a2850dd0e3d12f5e0cb34b0d233a08a2",
+      "date": "2026-10-07T12:37:33-07:00",
+      "subject": "Quality round 2026-10-07, part 3: five documents through the import pipeline (b45) and eight prices (p05) (m405, m406)",
+      "migrations": [
+        "m405-batch-p05.mjs",
+        "m406-batch-b45-quality-round.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 3,
+          "detail": "G114-02, G132-02, G168-07"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 51,
+          "detail": "V015013, V015014, V015015, V015016 and 47 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "prices",
+          "count": 8,
+          "detail": "CA0358, CA0359, CA0360, CA0361 and 4 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profile_notes",
+          "count": 7,
+          "detail": "P1912 | Storage humidity, P1913 | Cooling, P1913 | Speed, P1913 | Adhesion / release and 3 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profiles",
+          "count": 4,
+          "detail": "P1912, P1913, P1914, P1915"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 13,
+          "detail": "OFFER-FILAMENTWORLD-20261007-666f6dd3b04f, OFFER-FILAMENTWORLD-20261007-6bac84ad9ac3, OFFER-FILAMENTWORLD-20261007-9883de8ff00c, OFFER-FILAMENTWORLD-20261007-cb80cc4830aa and 9 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/manufacturers.csv",
+          "count": 1,
+          "detail": "DREMC"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/context-witness-accepted.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "1427e2de83d312496f8e081f203dff2bdd5a5e4c",
+      "date": "2026-10-07T13:22:52-07:00",
+      "subject": "Quality round 2026-10-07, part 4: the closing check, the claims it showed missing, rows with misprinted units, and the round's record (m407, m408, D134, D135)",
+      "migrations": [
+        "m407-rows-whose-unit-the-sheet-misprints.mjs",
+        "m408-toughened-claims-the-widened-search-found.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "evidence",
+          "count": 18,
+          "detail": "Q05769, Q05770, Q05771, Q05772 and 14 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 4,
+          "detail": "V015064, V015065, V015066, V015067"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 57,
+          "detail": "118 cell(s) in 57 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "product_claims",
+          "count": 28,
+          "detail": "G028-02 | Toughened or impact-modified, G001-55 | Toughened or impact-modified, G001-43 | Toughened or impact-modified, G001-45 | Toughened or impact-modified and 24 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "properties",
+          "count": 1,
+          "detail": "Tensile stress at 400 % elongation"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 3,
+          "detail": "3 cell(s) in 3 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "4a92a58d5a399032ecd8d5d59a627532d81b0270",
+      "date": "2026-10-07T15:45:16-07:00",
+      "subject": "Completeness round 2026-10-07, part 3: copies of a product's own sheet registered beside it hold their rows once (m409)",
+      "migrations": [
+        "m409-sheets-registered-twice-on-one-product.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 198,
+          "detail": "396 cell(s) in 198 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "4fb9e344f4d126d469a224d9e886a819829c9145",
+      "date": "2026-10-07T16:05:46-07:00",
+      "subject": "Completeness round 2026-10-07, part 4: the values the held sheets print and the tables did not hold (m410)",
+      "migrations": [
+        "m410-values-the-held-sheets-print.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "impact_test_guesses",
+          "count": 2,
+          "detail": "V015173, V015355"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 351,
+          "detail": "V015068, V015069, V015070, V015071 and 347 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 2,
+          "detail": "6 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "page_context",
+          "count": 21,
+          "detail": "PC00986, PC00987, PC00988, PC00989 and 17 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 20,
+          "detail": "44 cell(s) in 20 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 8,
+          "detail": "8 cell(s) in 8 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "data/review/context-witness-accepted.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "d00f35b5d9d6aade8231f0259461645910262c58",
+      "date": "2026-10-07T16:25:32-07:00",
+      "subject": "Completeness round 2026-10-07, part 6c': the AzureFilm test-bar rows m366 did not reach are labelled partial infill (m411)",
+      "migrations": [
+        "m411-azurefilm-bars-at-partial-infill.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 10,
+          "detail": "30 cell(s) in 10 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "681d9e6fd3c9a2a669aac7792cf6ad9766039a15",
+      "date": "2026-10-07T17:56:17-07:00",
+      "subject": "Completeness round 2026-10-07, part 7: the makers' statements nobody had read, the closing check, and the round's record (m412, m413, D136)",
+      "migrations": [
+        "m412-makers-know-how-unread-documents.mjs",
+        "m413-a-page-statement-says-only-its-standard.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "evidence",
+          "count": 2704,
+          "detail": "Q05787, Q05788, Q05789, Q05790 and 2700 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "know_how_reads",
+          "count": 208,
+          "detail": "D-3D4MAKERS-ABS-ESD-PAGE | document, D-3D4MAKERS-ABS-KEVLAR-PAGE | document, D-3D4MAKERS-FACILAN-C8-FILAMENT-PAGE | document, D-3D4MAKERS-FACILAN-HT-FILAMENT-PAGE | document and 204 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "page_context",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "product_claims",
+          "count": 6,
+          "detail": "G081-08 | Toughened or impact-modified, G169-02 | Toughened or impact-modified, G066-05 | Toughened or impact-modified, G018-19 | Toughened or impact-modified and 2 more"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "17808341e7982fbeaefc8aa9affb3b22f9b6b306",
+      "date": "2026-10-08T01:01:34-07:00",
+      "subject": "Fix missing product estimates and uncertain-result groups",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "8b386357116fec25c5bfd86c161628700823a835",
+      "date": "2026-10-16T09:25:09-07:00",
+      "subject": "Drawer comparisons, step 1: the structure for comparisons beyond impact",
+      "migrations": [
+        "m414-drawer-comparison-structure.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "create-table",
+          "table": "drawer_comparisons",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Unstated load"
+        },
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Drawer only"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/headline_definitions.schema.json",
+          "count": 1,
+          "detail": "the specification of Drawer comparison changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "380c0bbbc7e63678448d8986ff417df8b4f2891a",
+      "date": "2026-10-16T09:48:13-07:00",
+      "subject": "Drawer comparisons, step 3: tensile XY and Z, heat deflection beside Tg",
+      "migrations": [
+        "m415-tensile-and-heat-comparisons.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "drawer_comparisons",
+          "count": 2,
+          "detail": "Tensile tests, XY and Z, Heat deflection and glass transition"
+        },
+        {
+          "kind": "insert-mid-table",
+          "table": "headline_definitions",
+          "count": 3,
+          "detail": "tensileModulusZ, elongationZ, hdt18"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 6,
+          "detail": "6 cell(s) in 6 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "method",
+          "count": 2,
+          "detail": "Tensile tests, XY and Z, Heat deflection and glass transition"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "cf9ac5d5b9c4ad9f8dda2ba6a9feb2859608012d",
+      "date": "2026-10-16T14:52:15-07:00",
+      "subject": "Drawer comparisons, step 5: print temperatures across products",
+      "migrations": [
+        "m416-thermax-peek-name.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "2e857df83f32c0d7b31b74a2106a78f7cdc80f02",
+      "date": "2026-10-16T17:25:02-07:00",
+      "subject": "Flexural results drawn as tensile ones are; tensile strain at strength listed",
+      "migrations": [
+        "m417-flexural-comparison.mjs",
+        "m418-trilan-pc-specimen-conditions.mjs",
+        "m419-flashforge-pa6-gf-bending-modulus.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "add-column",
+          "table": "drawer_comparisons",
+          "count": 1,
+          "detail": "Listed properties"
+        },
+        {
+          "kind": "add-column",
+          "table": "drawer_comparisons",
+          "count": 1,
+          "detail": "Note topic"
+        },
+        {
+          "kind": "append-rows",
+          "table": "drawer_comparisons",
+          "count": 1,
+          "detail": "Flexural tests, XY and Z"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "drawer_comparisons",
+          "count": 3,
+          "detail": "3 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "insert-mid-table",
+          "table": "headline_definitions",
+          "count": 4,
+          "detail": "flexuralModulusXY, flexuralModulusZ, flexuralStrengthXY, flexuralStrengthZ"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 2,
+          "detail": "4 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "method",
+          "count": 2,
+          "detail": "Flexural tests, XY and Z, How flexural and tensile results relate"
+        },
+        {
+          "kind": "append-rows",
+          "table": "page_context",
+          "count": 1,
+          "detail": "PC01007"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/drawer_comparisons.schema.json",
+          "count": 1,
+          "detail": "title, description or keys changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/headline_definitions.schema.json",
+          "count": 1,
+          "detail": "the specification of Drawer only changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "0797cc1bbd58ef61fe0bdf25cb1d9fbbeaa1829d",
+      "date": "2026-10-17T06:04:12Z",
+      "subject": "A plausibility window is a check, never a filter: print windows and HDT loads typed from their cells' own words (D141)",
+      "migrations": [
+        "m420-a-plausibility-window-is-a-check-not-a-filter.mjs",
+        "m421-a-method-letter-states-the-load.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 43,
+          "detail": "83 cell(s) in 43 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 11,
+          "detail": "22 cell(s) in 11 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "3e301a8da887b77054226fb9aa485291ddb86029",
+      "date": "2026-10-17T00:41:19-07:00",
+      "subject": "m422: Kingroon's reprints of Bambu Lab's tables carry what each page states",
+      "migrations": [
+        "m422-what-the-twin-sheets-state.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 2,
+          "detail": "V015419, V015420"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 22,
+          "detail": "178 cell(s) in 22 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "page_context",
+          "count": 3,
+          "detail": "PC01008, PC01009, PC01010"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "c809619464c6237b0220d5c82d8a5fe5d59f793c",
+      "date": "2026-10-17T00:43:44-07:00",
+      "subject": "m423: tests only an elastomer or a drawing plastic is put through apply to those materials",
+      "migrations": [
+        "m423-elastomer-tests-apply-to-elastomers.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "properties",
+          "count": 6,
+          "detail": "12 cell(s) in 6 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "cdd96bc478f7964d57145443e5afda1978856ccd",
+      "date": "2026-10-17T00:49:35-07:00",
+      "subject": "m424: Prusa's Horizontal test bar is the flat XY bar, its Vertical xz the bar on its edge (D143)",
+      "migrations": [
+        "m424-prusa-horizontal-is-flat.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 201,
+          "detail": "402 cell(s) in 201 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "7a3b793f8e0247467d1ea4ed5197e4490c9f81b5",
+      "date": "2026-10-17T00:53:35-07:00",
+      "subject": "m425: eleven tensile moduli their own sheets rule out are flagged (D55)",
+      "migrations": [
+        "m425-moduli-their-own-sheets-rule-out.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 11,
+          "detail": "22 cell(s) in 11 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "5a88cf06c47cc1d76cd606a6bb403c70664695a8",
+      "date": "2026-10-17T00:58:56-07:00",
+      "subject": "m426: a maker's own statement on moisture sensitivity is a moisture record (D143)",
+      "migrations": [
+        "m426-a-makers-moisture-word-is-a-moisture-record.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "coverage",
+          "count": 2,
+          "detail": "C01638, C01639"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "coverage",
+          "count": 2,
+          "detail": "4 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "87f323fab22134f29789536aa9b6bc5c642a1ac0",
+      "date": "2026-10-17T01:05:01-07:00",
+      "subject": "m427: every XZ, ZX and YX test-bar label typed by the rule, sheet by sheet (D92, D140, D143)",
+      "migrations": [
+        "m427-what-each-bar-label-means.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 82,
+          "detail": "164 cell(s) in 82 row(s)"
+        },
+        {
+          "kind": "vocab-change",
+          "table": "schema/vocab/directions.csv",
+          "count": 1,
+          "detail": "a word removed, moved or changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "bbf7a03ac7fcd2cd3f7f5fc9e1fde7b1cd09ece5",
+      "date": "2026-10-17T01:12:03-07:00",
+      "subject": "m428: one publisher, one spelling",
+      "migrations": [
+        "m428-one-publisher-one-spelling.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 244,
+          "detail": "488 cell(s) in 244 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "dbe4c0ec29002e44cf8af27080827341592c243d",
+      "date": "2026-10-17T01:18:31-07:00",
+      "subject": "m429 to m431: words the documents print, in makers' statements, titles and two reasons",
+      "migrations": [
+        "m429-words-broken-at-a-line-end.mjs",
+        "m430-titles-the-documents-print.mjs",
+        "m431-two-reasons-in-a-readers-words.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 65,
+          "detail": "65 cell(s) in 65 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "print_guide_materials",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "product_claims",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 229,
+          "detail": "229 cell(s) in 229 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "f34b24d3f62c85392a8dbc4b587799f4df3c99aa",
+      "date": "2026-10-17T01:45:15-07:00",
+      "subject": "m432 and the round's record: what the blind read found, views, OPEN-PROBLEMS and the log",
+      "migrations": [
+        "m432-what-the-blind-read-found.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 6,
+          "detail": "12 cell(s) in 6 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/context-witness-accepted.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "bf37c9704a77b0af5c3329df1521ca55e0004803",
+      "date": "2026-10-17T03:21:59-07:00",
+      "subject": "Material summaries, step 4: the table, the build's fill and its two checks (D142)",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "create-table",
+          "table": "material_summaries",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "vocab-new-file",
+          "table": "schema/vocab/summary-status.csv",
+          "count": 1,
+          "detail": "a vocabulary that did not exist"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "d49cffb26956a65f8a877d724f9da35a689560f7",
+      "date": "2026-10-17T03:51:59-07:00",
+      "subject": "Material summaries: 76 drafts, judged on their pages, in the table (D142)",
+      "migrations": [],
+      "class": "1 Bulk import or pipeline batch",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "material_summaries",
+          "count": 76,
+          "detail": "M001, M008, M011, M012 and 72 more"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "506b748f0c94b84058cf4cd150b9bd6c18acc805",
+      "date": "2026-10-17T04:41:46-07:00",
+      "subject": "Material summaries: a style pass over the 76 (D142)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 70,
+          "detail": "203 cell(s) in 70 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "34cac1e20b6391ec5bbb1e4e52d6385af7e83ca3",
+      "date": "2026-10-17T04:54:13-07:00",
+      "subject": "m433: moulded bars and abrasion-resistant nozzles as their sheets say (D142 round, step 5)",
+      "migrations": [
+        "m433-moulded-bars-and-abrasion-resistant-nozzles-as-their-sheets-say.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "page_context",
+          "count": 2,
+          "detail": "PC01011, PC01012"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 2,
+          "detail": "6 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "7367eef7c8870dc2b68b293e54e3ef05b4b65071",
+      "date": "2026-10-17T05:09:52-07:00",
+      "subject": "m434: an impact value's notch, typed where its own row states it",
+      "migrations": [
+        "m434-a-notch-the-row-states-is-typed.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 9,
+          "detail": "18 cell(s) in 9 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/context-witness-accepted.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "3ce2af77d2406886524ab4c125fd425717139262",
+      "date": "2026-10-17T05:59:42-07:00",
+      "subject": "m435: the Z rule as applied, and the project's own words typed as its own",
+      "migrations": [
+        "m435-the-z-rule-as-applied-and-the-projects-own-words-as-its-own.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 22,
+          "detail": "22 cell(s) in 22 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "f8f825631e01faebdf5a1d500e34b3cb9f212eac",
+      "date": "2026-10-17T06:10:20-07:00",
+      "subject": "m436: what the blind read traced to the held sheets and found missing or misread",
+      "migrations": [
+        "m436-what-the-blind-read-traced-to-the-sheets.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 4,
+          "detail": "4 cell(s) in 4 row(s)"
+        },
+        {
+          "kind": "remove-rows",
+          "table": "impact_test_guesses",
+          "count": 1,
+          "detail": "V006953"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 4,
+          "detail": "V015421, V015422, V015423, V015424"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 5,
+          "detail": "10 cell(s) in 5 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "properties",
+          "count": 1,
+          "detail": "Tensile impact strength"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "946979aad96afef385e77eecd66a65aaa6aacfce",
+      "date": "2026-10-17T06:27:24-07:00",
+      "subject": "Material summaries: PET-GF's uses are a maker's, POM's strength is compared for one product",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 2,
+          "detail": "4 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "1f64cfc1350307f9abd767ca4b2f7d20d8c914d1",
+      "date": "2026-10-17T11:28:53-07:00",
+      "subject": "The 76 material summaries rewritten to the new rules, as drafts for the owner",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 76,
+          "detail": "188 cell(s) in 76 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "4e9392d97f2a7f0c206a17f896696b82903f13e3",
+      "date": "2026-10-17T11:38:12-07:00",
+      "subject": "The check round's fixes: no record ID or project word in a card, one rule for a shown gap, shares apart from medians",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "08b142dceead06d6613467eace0875bbcf206d17",
+      "date": "2026-10-17T14:35:37-07:00",
+      "subject": "Review fixes, the words: never 'standard' where no sheet says it, thin pages without empty tables, counts that add up",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 21,
+          "detail": "49 cell(s) in 21 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "755dfd6af8298c3d72bf2640c0f69fa6172d2dd5",
+      "date": "2026-10-17T22:28:50-07:00",
+      "subject": "Coherence build, track A, the shared words: one function per fact for the drawer and the page, and the pages' side (C01-C19)",
+      "migrations": [
+        "m437-the-environment-caveat-said-once.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "method",
+          "count": 1,
+          "detail": "Environment statements"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "e135338942e9afff76b9d7dd7d2a1613d9a31d03",
+      "date": "2026-10-18T11:46:33-07:00",
+      "subject": "Screening build, stage 1: \"does not apply\" hides whatever the switch says; the switch is \"Use estimates and resin data\" (D148)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: chamber_need: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "f76acd09adea662eaf1ff941e8e3bdc6489535f7",
+      "date": "2026-10-18T12:29:13-07:00",
+      "subject": "Screening build, stage 3a: a maker's window the H2C covers at its low end passes; one it reaches only at its edge is on the line (D151)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "838c3efcc1e9ebd98a1832177d3909598e71e0bc",
+      "date": "2026-10-18T12:30:47-07:00",
+      "subject": "Screening build, stage 2a: the values that decided wrongly, settled on their pages, and four physics checks (D149)",
+      "migrations": [
+        "m438-physics-checks-as-data.mjs",
+        "m439-pla-heat-values-their-pages-do-not-bear-out.mjs",
+        "m440-heat-deflection-of-soft-bars.mjs",
+        "m441-one-hdt-at-two-loads.mjs",
+        "m442-batch-b46-carbonfil-2024.mjs",
+        "m443-densities-and-a-modulus-label.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 6,
+          "detail": "V015425, V015426, V015427, V015428 and 2 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 19,
+          "detail": "41 cell(s) in 19 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "physical_relations",
+          "count": 1,
+          "detail": "PR12"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "physical_relations",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "plausibility_windows",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profile_notes",
+          "count": 3,
+          "detail": "P1916 | Speed, P1916 | Cooling, P1916 | Storage humidity"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profiles",
+          "count": 1,
+          "detail": "P1916"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 1,
+          "detail": "R-FORMFUTURA-SB-20261018-7b525961687e"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/physical_relations.schema.json",
+          "count": 1,
+          "detail": "title, description or keys changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/physical_relations.schema.json",
+          "count": 2,
+          "detail": "the specification of Exempt rows, Finding code changed"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/relation-keys.csv",
+          "count": 1,
+          "detail": "formulation"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "b3e6120fd212b7365937b765eda3f738f76b7481",
+      "date": "2026-10-18T12:45:27-07:00",
+      "subject": "Screening build, stage 3a: a silent chamber decided by the kind of plastic, every row reported (D151)",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "create-table",
+          "table": "chamber_need",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "bf9a2815f437529250af469f8e7db04a8b36a8b1",
+      "date": "2026-10-18T12:55:04-07:00",
+      "subject": "Screening build, stage 3a: the four kinds of plastic whose makers support it decide a silent chamber (D151)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "chamber_need",
+          "count": 5,
+          "detail": "5 cell(s) in 5 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: class_limits: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "c639ba1a49b05a646640475c35291f49ddb5b127",
+      "date": "2026-10-18T13:27:14-07:00",
+      "subject": "Screening build, stage 3a: a value just short of the limit is \"on the line\", not a failure (D152)",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Test scatter"
+        },
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Test scatter is"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 15,
+          "detail": "15 cell(s) in 15 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "50f8a0e5c48f0eedb7c0d99cc69163590d7fbbf3",
+      "date": "2026-10-18T13:30:26-07:00",
+      "subject": "Screening build, stage 2b: fibre content as a recorded property, Shore A and Shore D hardness selectable (D150)",
+      "migrations": [
+        "m444-fibre-content.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "insert-mid-table",
+          "table": "headline_definitions",
+          "count": 2,
+          "detail": "shoreA, shoreD"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 146,
+          "detail": "V015431, V015432, V015433, V015434 and 142 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "properties",
+          "count": 1,
+          "detail": "Fibre content"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "4aa1f73b4f44789d5be2d9341b7bc355f29dbdf9",
+      "date": "2026-10-18T14:24:56-07:00",
+      "subject": "Screening build, stage 2c: polymer reference sources recorded (density, water uptake, PLA's melting point)",
+      "migrations": [
+        "m445-batch-b47-polymer-references.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "polymers",
+          "count": 22,
+          "detail": "44 cell(s) in 22 row(s)"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 16,
+          "detail": "R-ARKEMA-PEBAX-5533-SP01-TDS, R-EASTMAN-EASTAR-6763-TDS, R-CUED-MATERIALS-DATA-BOOK-2003, R-MCAM-TECHTRON-1000-PPS-DS and 12 more"
+        }
+      ],
+      "status": "has-later",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "1ed82a01f875460cf68322839e72a4cb92d577c8",
+      "date": "2026-10-18T18:35:35-07:00",
+      "subject": "Screening build, stage 3b: the evidence ledger and the physics limits per kind of plastic, every row reported (D153, D154)",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "create-table",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "create-table",
+          "table": "conversions",
+          "count": 1,
+          "detail": "a table that did not exist"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/headline_definitions.schema.json",
+          "count": 1,
+          "detail": "the specification of Lower bound properties changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "9c524e1ba63829fd176dc6631ad3c4c6b0504263",
+      "date": "2026-10-18T18:40:39-07:00",
+      "subject": "Screening build, stage 3b: CV01 decides, an HDT at 1.8 MPa is a floor for the HDT at 0.45 MPa (C22, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "cf872fd1659e8d51390cde1f414735db52a47aa6",
+      "date": "2026-10-18T18:42:02-07:00",
+      "subject": "Screening build, stage 3b: CV03 decides, an annealed HDT is a ceiling for the printed part (C24, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "45e5a01bf686a77fd5e6f86284e18501dbf83443",
+      "date": "2026-10-18T18:43:38-07:00",
+      "subject": "Screening build, stage 3b: CV04 decides, an annealed modulus bounds the printed part from above, times 1.28 (C24, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "b7b49fda88055200ea9ce01e80c5bf811a743802",
+      "date": "2026-10-18T18:46:37-07:00",
+      "subject": "Screening build, stage 3b: CV05 decides, a PLA or PET HDT from an undescribed bar is a ceiling for the printed part (C35, D153)",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/conversions.schema.json",
+          "count": 1,
+          "detail": "the specification of Kind changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "8cd3078b47201e119989c04c55060f73634bbc9a",
+      "date": "2026-10-18T18:48:28-07:00",
+      "subject": "Screening build, stage 3b: CV06 decides, an upright (Z) modulus is a floor for the flat one, times 0.79 (C31, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "2 command(s) gave the child's 2 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "b336df8b2084b66b20c5444ac77e8e88b1050701",
+      "date": "2026-10-18T18:49:42-07:00",
+      "subject": "Screening build, stage 3b: CV09 decides, an upright (Z) strength is a floor for the flat one, times 0.86 (C31, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "2 command(s) gave the child's 2 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "b81752cb9b4f7c10b41d6e801552282023fcd96c",
+      "date": "2026-10-18T18:50:53-07:00",
+      "subject": "Screening build, stage 3b: CV07 decides, a nylon's stiffness in humid air is a floor for the dry one (C31, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "687573970785bc7c29a4e796761daaab02441dd6",
+      "date": "2026-10-18T18:53:36-07:00",
+      "subject": "Screening build, stage 3b: CV08 decides, a flexural modulus bounds the tensile one between 0.46 and 1.93 times (C31, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "2 command(s) gave the child's 2 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "ee5669ee8bca70736de57106d1188cee40a0b0ca",
+      "date": "2026-10-18T18:55:05-07:00",
+      "subject": "Screening build, stage 3b: CV02 decides, a stiffness at laboratory humidity counts as dry for a plastic that takes up negligible water (C23, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "b98d93bc5dfb6662be21121848e76dcc17c1c8ce",
+      "date": "2026-10-18T18:56:04-07:00",
+      "subject": "Screening build, stage 3b: CV12 decides, a strength at laboratory humidity counts as dry for a plastic that takes up negligible water (C31, D153)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "3fece1bb477fb957f3b1de5fe7b4344acf99507f",
+      "date": "2026-10-18T19:01:01-07:00",
+      "subject": "Screening build, stage 3b: CL02 decides, an unfilled product's density lies in its polymer's sourced neat range (C32, C40, D154)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "a4101bca1eb7c96e3b962b8fa1912e13f923ca10",
+      "date": "2026-10-18T19:03:32-07:00",
+      "subject": "Screening build, stage 3b: CL01 decides, an unfilled rubber is never stiffer than 0.5 GPa (C32, D154)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "ddb1d8530ece493c5d0aed5caaa8c86e31d3f504",
+      "date": "2026-10-18T19:27:46-07:00",
+      "subject": "Screening build, stage 3b: the report, the answers it moved against main, and the stage marked built",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "0038b6afc728c262ee8e6c8b178cb431b0f6eb74",
+      "date": "2026-10-18T19:44:15-07:00",
+      "subject": "Screening build, stage 4: a heat treatment at or below the glass transition is no annealing (D153)",
+      "migrations": [
+        "m446-annealing-threshold.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "polymers",
+          "count": 1,
+          "detail": "Annealing threshold °C"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "polymers",
+          "count": 25,
+          "detail": "25 cell(s) in 25 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "d82147ee876ac379471c0d12d3569462ec072004",
+      "date": "2026-10-18T19:54:41-07:00",
+      "subject": "Screening build, stage 3c: the unchecked materials sorted by what would settle each (C05, C06, C18, C19, C25, D155)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "skipped",
+        "detail": "the parent's tables do not rebuild under its own schema: class_limits: the CSV file is missing"
+      }
+    },
+    {
+      "commit": "63ad72c2b03d8ca5fcbbb36eacad56a5eb1c6061",
+      "date": "2026-10-18T20:07:52-07:00",
+      "subject": "Screening build, stage 4: PLA classed as it prints, semicrystalline and glassy (C36, D158)",
+      "migrations": [
+        "m447-pla-classed-as-it-prints.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 5,
+          "detail": "10 cell(s) in 5 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "physical_relations",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "polymers",
+          "count": 1,
+          "detail": "4 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "vocab-change",
+          "table": "schema/vocab/grade-variants.csv",
+          "count": 1,
+          "detail": "a word removed, moved or changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "d64ae88ae09105dd40cc2a842a8354acd610b49c",
+      "date": "2026-10-18T20:23:55-07:00",
+      "subject": "Screening build, stage 4: an unstated direction's offset learned across products (C27, D159)",
+      "migrations": [
+        "m448-elongation-floored-by-printed-bars.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/estimate-model.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "db1fda8ab722e21eea75f96497642d783d710010",
+      "date": "2026-10-18T20:33:50-07:00",
+      "subject": "Screening build, stage 4: elongation floored by printed bars only (C26, D161, amends D126)",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Lower bound specimens"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 3,
+          "detail": "3 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/conversions.schema.json",
+          "count": 1,
+          "detail": "the specification of Source specimen changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "3ff53cba474a279e7c0bf698180b1443e2c58af8",
+      "date": "2026-10-18T20:49:36-07:00",
+      "subject": "Screening build, stage 4: heat deflection estimated per product, annealed values a kind of their own (C29, D162)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/estimate-model.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "5b7db118086293a96fc048b63aca4b2c01a817ad",
+      "date": "2026-10-18T20:56:05-07:00",
+      "subject": "Screening build, stage 3d: the rubber limit holds for TPE, TPS and TPV; CV08's Basis says 1.93",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "2 command(s) gave the child's 2 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "f962b968116114b01429b80f235062ca115fa873",
+      "date": "2026-10-18T21:02:15-07:00",
+      "subject": "Screening build, stage 4: one conversion layer, the estimate model's conversions as rows of conversions.csv (4a, D157)",
+      "migrations": [
+        "m449-estimate-conversions-as-rows.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "conversions",
+          "count": 1,
+          "detail": "Estimate kind"
+        },
+        {
+          "kind": "add-column",
+          "table": "conversions",
+          "count": 1,
+          "detail": "Estimate offset"
+        },
+        {
+          "kind": "add-column",
+          "table": "conversions",
+          "count": 1,
+          "detail": "Estimate sd"
+        },
+        {
+          "kind": "add-column",
+          "table": "conversions",
+          "count": 1,
+          "detail": "Estimate learns"
+        },
+        {
+          "kind": "add-column",
+          "table": "conversions",
+          "count": 1,
+          "detail": "Estimate note"
+        },
+        {
+          "kind": "append-rows",
+          "table": "conversions",
+          "count": 47,
+          "detail": "CV13, CV14, CV15, CV16 and 43 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 227,
+          "detail": "227 cell(s) in 227 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/conversions.schema.json",
+          "count": 5,
+          "detail": "the specification of Source direction, Source state, Source specimen, Kind and 1 more changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/estimate-model.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "5a6fa5bc0afbecdb29650bee83784a3b0860dab7",
+      "date": "2026-10-18T21:07:37-07:00",
+      "subject": "Screening build, stage 4: a product's own moulded or undescribed stiffness caps its estimate (C28, D160)",
+      "migrations": [
+        "m450-own-value-ceilings.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "conversions",
+          "count": 2,
+          "detail": "CV60, CV61"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json",
+        "schema/estimate-model.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "891c27f731aca19847c2881883328a04a21f46fc",
+      "date": "2026-10-18T21:12:21-07:00",
+      "subject": "Screening build, stage 4: the \"likely\" tag's rule revisited, the 80 % range kept (C19, D165); D163 to D165 written",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/estimate-model.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "b37d7873e60fc65b8b0985da8f85e08ec8d118a7",
+      "date": "2026-10-18T22:57:39-07:00",
+      "subject": "Screening build, stage 4b: annealed values never prop up an as-printed estimate, annealed conversions learn from several makers, a product's own values anchor its estimate and its likely tag (D167, the stage-4 review's S01, S02, S03, S05, S10, S11)",
+      "migrations": [
+        "m451-annealed-conversions-from-several-makers.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "conversions",
+          "count": 1,
+          "detail": "CV62"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 4,
+          "detail": "4 cell(s) in 4 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/estimate-model.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/conversions.schema.json",
+          "count": 1,
+          "detail": "the specification of Estimate learns changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json",
+        "schema/estimate-model.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "5815246ef8eb3439796f31f30b131379221417e0",
+      "date": "2026-10-19T13:18:51-07:00",
+      "subject": "Research intake, stage 2: corrections the research found on registered sheets, and three print wordings read as the owner ruled (m452, D168)",
+      "migrations": [
+        "m452-research-intake-corrections.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 473,
+          "detail": "1417 cell(s) in 473 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 25,
+          "detail": "26 cell(s) in 25 row(s)"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/standards.csv",
+          "count": 4,
+          "detail": "JIS K 7110, JIS K 7161, JIS K 7171, JIS K 7210"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "71137cf6076c47f37f92e28867f28e6a49b80ae2",
+      "date": "2026-10-19T14:04:03-07:00",
+      "subject": "Research intake, stages 3 and 4: batch b48 and what its pages print (m453, m454)",
+      "migrations": [
+        "m453-batch-b48-research-intake.mjs",
+        "m454-research-intake-readings.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 4,
+          "detail": "G166-02, G165-06, G166-03, G001-201"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 73,
+          "detail": "V015577, V015578, V015579, V015580 and 69 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 13,
+          "detail": "13 cell(s) in 13 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "polymers",
+          "count": 4,
+          "detail": "8 cell(s) in 4 row(s)"
+        },
+        {
+          "kind": "remove-rows",
+          "table": "product_claims",
+          "count": 1,
+          "detail": "G001-23 | Toughened or impact-modified"
+        },
+        {
+          "kind": "insert-mid-table",
+          "table": "product_claims",
+          "count": 1,
+          "detail": "G001-201 | Toughened or impact-modified"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profiles",
+          "count": 69,
+          "detail": "P1917, P1918, P1919, P1920 and 65 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 11,
+          "detail": "47 cell(s) in 11 row(s)"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 58,
+          "detail": "R-ESUN-INTAKE-20261019-0701b0c8eae4, R-BRASKEM-INTAKE-20261019-0cd16cbde6e7, R-RAISE3D-INTAKE-20261019-0ea774a63185, R-SPECTRUM-INTAKE-20261019-0ebcebb053d0 and 54 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 4,
+          "detail": "4 cell(s) in 4 row(s)"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/manufacturers.csv",
+          "count": 2,
+          "detail": "Eumakers, Filamatrix"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "ee10d9e43cd3f7f8e95982a0b1f768666f33dc3f",
+      "date": "2026-10-19T14:11:42-07:00",
+      "subject": "Research intake, stage 5b: the polyolefins decide a silent chamber (CN17, D151)",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "chamber_need",
+          "count": 1,
+          "detail": "4 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "4789e5c18c820911056c7df728c744940ddc58e1",
+      "date": "2026-10-19T14:18:47-07:00",
+      "subject": "Research intake, stage 6: price batch p06 (m455)",
+      "migrations": [
+        "m455-batch-p06.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "prices",
+          "count": 9,
+          "detail": "CA0366, CA0367, CA0368, CA0369 and 5 more"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 9,
+          "detail": "OFFER-MATTERHACKERS-20261019-19fb5723df39, OFFER-PUREFIL-20261019-30390832b4ac, CA-AMAZONCA-20261019-6294b8786aac, OFFER-MULTITECH3D-20261019-749ea7409db8 and 5 more"
+        }
+      ],
+      "status": "has-later",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "80f2a4c03945f5fe9419866266086e40fa1ad5cb",
+      "date": "2026-10-19T14:47:50-07:00",
+      "subject": "Research intake, stages 8 and 9: later copies compared, FormFutura's public links, the pages' other settings, Nylon-GF's page",
+      "migrations": [
+        "m456-formfutura-public-links.mjs",
+        "m457-research-intake-page-settings.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "material_summaries",
+          "count": 1,
+          "detail": "M166"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profiles",
+          "count": 1,
+          "detail": "P1986"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 8,
+          "detail": "79 cell(s) in 8 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 12,
+          "detail": "24 cell(s) in 12 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "22 command(s) gave the child's 3 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "2a8fd7a40e3b3d1455e2c50e20928763e98337cb",
+      "date": "2026-10-19T15:17:49-07:00",
+      "subject": "Research intake: the independent review's fixes (m458)",
+      "migrations": [
+        "m458-research-intake-review.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 13,
+          "detail": "26 cell(s) in 13 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "ed39d66c0545a3a3c19e7e7165af128dd1ad1fe1",
+      "date": "2026-10-19T15:59:29-07:00",
+      "subject": "Clean-up round, data (priority 5): names, statements, settings, an inclusive bound, Stratasys's tables (m459, m460)",
+      "migrations": [
+        "m459-clean-up-names-statements-settings.mjs",
+        "m460-stratasys-validated-tables.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 59,
+          "detail": "61 cell(s) in 59 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 29,
+          "detail": "29 cell(s) in 29 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "materials",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 4,
+          "detail": "V015650, V015651, V015652, V015653"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 6,
+          "detail": "8 cell(s) in 6 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 30,
+          "detail": "60 cell(s) in 30 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 8,
+          "detail": "9 cell(s) in 8 row(s)"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/manufacturers.csv",
+          "count": 1,
+          "detail": "Celanese"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/operators.csv",
+          "count": 2,
+          "detail": "<=, >="
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "0745c3d9af69a503e60952952a6e67e3de2fd024",
+      "date": "2026-10-19T18:06:07-07:00",
+      "subject": "Clean-up round closed: the review's fixes (m461) and the migrations archived",
+      "migrations": [
+        "m459-clean-up-names-statements-settings.mjs",
+        "m460-stratasys-validated-tables.mjs",
+        "m461-clean-up-review-fixes.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 5,
+          "detail": "5 cell(s) in 5 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 30,
+          "detail": "30 cell(s) in 30 row(s)"
+        },
+        {
+          "kind": "vocab-change",
+          "table": "schema/vocab/manufacturers.csv",
+          "count": 1,
+          "detail": "a word removed, moved or changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "d1d705ebb12da9fd9b2f69c38c700b5fa186547f",
+      "date": "2026-10-19T21:21:44-07:00",
+      "subject": "Owner's rulings, small rules (T4): a filler only for looks reads its type's guide in full (m470)",
+      "migrations": [
+        "m470-a-filler-for-looks-prints-as-its-type.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 11,
+          "detail": "22 cell(s) in 11 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "print_guide_materials",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/grade-variants.csv",
+          "count": 1,
+          "detail": "cosmetic dense filler"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "5865d2c9daf68ff417746886e3539bd2fb79d275",
+      "date": "2026-10-19T21:25:13-07:00",
+      "subject": "Owner's rulings, T3: the sintering filaments leave the dataset (m468, D174)",
+      "migrations": [
+        "m468-the-sintering-filaments-leave-the-dataset.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "chamber_need",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 4,
+          "detail": "4 cell(s) in 4 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "materials",
+          "count": 3,
+          "detail": "6 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/chamber_need.schema.json",
+          "count": 1,
+          "detail": "the specification of Status changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/materials.schema.json",
+          "count": 1,
+          "detail": "the specification of Scope changed"
+        },
+        {
+          "kind": "vocab-change",
+          "table": "schema/vocab/scopes.csv",
+          "count": 1,
+          "detail": "a word removed, moved or changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "86270cb988a8c90b56fd45fced067137b0d79306",
+      "date": "2026-10-19T21:31:48-07:00",
+      "subject": "Owner's rulings, small rules (T4): a drying schedule printed as a range is shown as the range (m472)",
+      "migrations": [
+        "m472-a-drying-range-keeps-its-lower-end.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "print_guide",
+          "count": 1,
+          "detail": "Drying min °C"
+        },
+        {
+          "kind": "add-column",
+          "table": "print_guide",
+          "count": 1,
+          "detail": "Drying min hours"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "print_guide",
+          "count": 16,
+          "detail": "16 cell(s) in 16 row(s)"
+        },
+        {
+          "kind": "add-column",
+          "table": "profiles",
+          "count": 1,
+          "detail": "Drying min °C"
+        },
+        {
+          "kind": "add-column",
+          "table": "profiles",
+          "count": 1,
+          "detail": "Drying min hours"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 393,
+          "detail": "393 cell(s) in 393 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/print_guide.schema.json",
+          "count": 2,
+          "detail": "the specification of Drying °C, Drying hours changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/profiles.schema.json",
+          "count": 2,
+          "detail": "the specification of Drying °C, Drying hours changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "2c6f384012dd68d3fd24ea0ef332b6e302483d9b",
+      "date": "2026-10-19T21:34:36-07:00",
+      "subject": "Owner's rulings, PET fills as printed (m473): Raise3D PET GF's heat rows are its annealed bars', and two undescribed crystallised bars back nothing",
+      "migrations": [
+        "m473-pet-fills-as-printed.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 1,
+          "detail": "V015654"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 4,
+          "detail": "18 cell(s) in 4 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "5 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "2246eabbf3c921d1dce407a2094cf7ac8c7f343d",
+      "date": "2026-10-19T21:36:31-07:00",
+      "subject": "Owner's rulings, Spectrum PET-G HT100 is a heat-resistant copolyester (m474): filed under CPE, not as a PETG variant",
+      "migrations": [
+        "m474-heat-resistant-copolyester-filed-as-cpe.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "coverage",
+          "count": 1,
+          "detail": "C01640"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "coverage",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 10,
+          "detail": "10 cell(s) in 10 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 11,
+          "detail": "11 cell(s) in 11 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "prices",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 3,
+          "detail": "3 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "30 command(s) gave the child's 7 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "0131767fe6925dafd3d5df73bd19db750931d5a2",
+      "date": "2026-10-19T21:37:07-07:00",
+      "subject": "Owner's rulings, small rules (T4): a product found only in 2.85 mm stays, with a warning (m471)",
+      "migrations": [
+        "m471-the-diameter-a-product-was-found-in.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "add-column",
+          "table": "grades",
+          "count": 1,
+          "detail": "Diameter"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 516,
+          "detail": "516 cell(s) in 516 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "method",
+          "count": 1,
+          "detail": "Filament diameter"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "vocab-new-file",
+          "table": "schema/vocab/diameters.csv",
+          "count": 1,
+          "detail": "a vocabulary that did not exist"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "c5368c4a2e38a783eb63f4368c20046a262e2221",
+      "date": "2026-10-19T22:06:29-07:00",
+      "subject": "Owner's rulings, batch b49 (m475): Electrifi and Diran 410MF07 admitted to homes of their own, ISTROFLEX's safety data sheet, and SBC's polymers.csv row",
+      "migrations": [
+        "m475-batch-b49-owner-rulings.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 2,
+          "detail": "G176-01, G177-01"
+        },
+        {
+          "kind": "append-rows",
+          "table": "materials",
+          "count": 2,
+          "detail": "M176, M177"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "materials",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 34,
+          "detail": "V015655, V015656, V015657, V015658 and 30 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "polymers",
+          "count": 1,
+          "detail": "SBC"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profile_notes",
+          "count": 1,
+          "detail": "P1987 | Speed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profiles",
+          "count": 1,
+          "detail": "P1987"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 6,
+          "detail": "R-MULTI3D-ELECTRIFI-TDS, R-STRATASYS-mds-fdm-diran410mf07-0224a, R-MULTI3D-ELECTRIFI-SDS, R-INEOS-STYROLUX-656C-TDS and 2 more"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/manufacturers.csv",
+          "count": 1,
+          "detail": "Multi3D"
+        }
+      ],
+      "status": "has-later",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "53051f17b9dc2510add67238a66bfe82053de539",
+      "date": "2026-10-19T22:31:00-07:00",
+      "subject": "Owner's rulings, the held products' homes (m476): Onyx ESD under PA-ESD, PVC-P a material of its own, ISTROFLEX kept as a rubber",
+      "migrations": [
+        "m476-held-sheets-homes.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "coverage",
+          "count": 1,
+          "detail": "C01641"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "coverage",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 16,
+          "detail": "16 cell(s) in 16 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 1,
+          "detail": "G064-03"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 2,
+          "detail": "3 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "materials",
+          "count": 1,
+          "detail": "M178"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "materials",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 10,
+          "detail": "V015689, V015690, V015691, V015692 and 6 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 4,
+          "detail": "4 cell(s) in 4 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "c9af4095f1bcfabb2b32432993125975e137a486",
+      "date": "2026-10-19T22:32:20-07:00",
+      "subject": "Owner's rulings, the rubber limit names PVC-P (m477): a Shore 94A plasticised PVC fails the stiffness presets on its kind's limit",
+      "migrations": [
+        "m477-rubber-limit-names-pvc-p.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "c3d946c8fa62afad04eda9e663ce1a75090d8219",
+      "date": "2026-10-19T22:40:17-07:00",
+      "subject": "Owner's rulings T1: a value is the filament's where its document indicates it (D172), and the better document speaks (D171)",
+      "migrations": [
+        "m462-a-heat-deflection-above-its-melting-point.mjs",
+        "m463-printed-bars-the-documents-imply.mjs",
+        "m464-newer-editions-of-a-sheet.mjs",
+        "m465-a-printed-bar-is-read-flat.mjs",
+        "m466-heat-resistance-from-printed-bars.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "conversions",
+          "count": 1,
+          "detail": "CV63"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 8,
+          "detail": "8 cell(s) in 8 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 11,
+          "detail": "36 cell(s) in 11 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 147,
+          "detail": "314 cell(s) in 147 row(s)"
+        },
+        {
+          "kind": "add-column",
+          "table": "sources",
+          "count": 1,
+          "detail": "Superseded by"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 121,
+          "detail": "121 cell(s) in 121 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/conversions.schema.json",
+          "count": 1,
+          "detail": "the specification of Source load MPa changed"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/headline_definitions.schema.json",
+          "count": 2,
+          "detail": "the specification of Unstated direction, Unstated load changed"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/specimen-types.csv",
+          "count": 1,
+          "detail": "Printed (implied by the document)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "9db331954ba8f6e7635c21ff62008d91a184bcbf",
+      "date": "2026-10-19T22:41:22-07:00",
+      "subject": "Owner's rulings T1: CV63 decides, a heat deflection with no stated load floors the 0.45 MPa value (m467)",
+      "migrations": [
+        "m467-an-unstated-load-floors-heat-deflection.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "conversions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "9deeb141031a5d5ec77ff39fd244b12b8029d962",
+      "date": "2026-10-19T22:57:33-07:00",
+      "subject": "Owner's rulings T1: D171 and D172 written, the record, the review findings and the views",
+      "migrations": [],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 1,
+          "detail": "6 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "97d314f570319cc936dd36e964d279b49c9d8fca",
+      "date": "2026-10-19T23:10:20-07:00",
+      "subject": "Owner's rulings T1: two description figures stay set apart; the census, summary and views on the final state",
+      "migrations": [],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 2,
+          "detail": "4 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "2 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "ef2a34a4688bf295177d620e1e904efbd7362465",
+      "date": "2026-10-19T23:17:35-07:00",
+      "subject": "Owner's rulings, review fixes (m478, batch b49-2): PVC-P's enclosure advice recorded; a flexible-PVC reference for its own limit; K-Resin KR03 cited",
+      "migrations": [
+        "m478-review-fixes-pvc-p-and-sbc.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "class_limits",
+          "count": 1,
+          "detail": "CL03"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 1,
+          "detail": "4 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 1,
+          "detail": "R-FAINPLAST-PVC-FLEXIBLE-EXTRUSION"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "30056b9eb8a1d62b30ab7907c28fe6e46bb92b49",
+      "date": "2026-10-19T23:18:46-07:00",
+      "subject": "Owner's rulings, review fix F4 (m479): PVC-P's rubber limit decides from its own reference (CL03); CL01 names its kinds as D166 left them",
+      "migrations": [
+        "m479-pvc-p-limit-of-its-own.mjs"
+      ],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "class_limits",
+          "count": 2,
+          "detail": "4 cell(s) in 2 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "2 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "bb3e32f1beef7c4611d85724bfd8fdf8a0e3527b",
+      "date": "2026-10-20T00:02:08-07:00",
+      "subject": "m480: Raise3D Industrial PET GF's description figure set apart, as its PET CF twin's is (D172)",
+      "migrations": [
+        "m480-a-description-figure-is-set-apart.mjs"
+      ],
+      "class": "3 Correction of observational data",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 1,
+          "detail": "2 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "1 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "ce9e9409c687f51491845ac9ed71ab48347fe0e8",
+      "date": "2026-10-20T03:22:06-07:00",
+      "subject": "Owner's rulings T1, the review's rework: a second reading under the owner's \"even\", copies and settings in D171, back-tests (m481 to m486)",
+      "migrations": [
+        "m481-a-pla-carbon-modulus-physics-rules-out.mjs",
+        "m482-an-edition-is-its-date-not-its-address.mjs",
+        "m483-printed-bars-the-second-reading-found.mjs",
+        "m484-prusament-pla-high-speed-typical-heat-deflection.mjs",
+        "m485-tensile-strength-floored-by-printed-bars.mjs",
+        "m486-spectrum-labels-its-rows-one-by-one.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 1,
+          "detail": "V015699"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 235,
+          "detail": "471 cell(s) in 235 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "49c66dbae185e47105e5771f957895fec4a9efe3",
+      "date": "2026-10-20T08:21:56-07:00",
+      "subject": "An undescribed heat deflection counts for a plastic that cannot crystallise (D177, m487)",
+      "migrations": [
+        "m487-amorphous-heat-deflection-counts.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "add-column",
+          "table": "headline_definitions",
+          "count": 1,
+          "detail": "Undescribed bar counts for"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "headline_definitions",
+          "count": 2,
+          "detail": "2 cell(s) in 2 row(s)"
+        },
+        {
+          "kind": "insert-mid-table",
+          "table": "measurements",
+          "count": 2,
+          "detail": "V015701, V015700"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 1008,
+          "detail": "1016 cell(s) in 1008 row(s)"
+        },
+        {
+          "kind": "add-column",
+          "table": "polymers",
+          "count": 1,
+          "detail": "Can crystallise"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "polymers",
+          "count": 23,
+          "detail": "23 cell(s) in 23 row(s)"
+        },
+        {
+          "kind": "outside-file",
+          "table": "schema/db.schema.json",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "vocab-change",
+          "table": "schema/vocab/specimen-types.csv",
+          "count": 1,
+          "detail": "a word removed, moved or changed"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "schema/db.schema.json"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "8cbda32c1cd737787a200edb02dfa83cf80efabc",
+      "date": "2026-10-20T09:01:07-07:00",
+      "subject": "D172 and D177 said the same way everywhere: the method page, a lint rule, the schema, the engine's and pages' words, the docs",
+      "migrations": [],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "method",
+          "count": 5,
+          "detail": "5 cell(s) in 5 row(s)"
+        },
+        {
+          "kind": "schema-document",
+          "table": "schema/tables/headline_definitions.schema.json",
+          "count": 2,
+          "detail": "the specification of Lower bound specimens, Undescribed bar counts for changed"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "444a3d40e4491e42d151c57ee5f4b8043a4a8964",
+      "date": "2026-10-20T11:21:35-07:00",
+      "subject": "Research intake 2, stages 1 to 4: batch b50, the package's readings, two filings, and D178 (m488 to m492)",
+      "migrations": [
+        "m488-batch-b50-research-intake-2.mjs",
+        "m489-research-intake-2-readings.mjs",
+        "m490-research-intake-2-filings-and-names.mjs",
+        "m491-research-intake-2-review-of-readings.mjs",
+        "m492-research-intake-2-context.mjs",
+        "m493-asa-chamber-decides.mjs"
+      ],
+      "class": "2 Schema or model change plus backfill",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/accepted-findings.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "append-rows",
+          "table": "coverage",
+          "count": 3,
+          "detail": "C01642, C01643, C01644"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "coverage",
+          "count": 3,
+          "detail": "9 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "evidence",
+          "count": 19,
+          "detail": "19 cell(s) in 19 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "grades",
+          "count": 6,
+          "detail": "G074-03, G152-03, G086-03, G084-03 and 2 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "grades",
+          "count": 3,
+          "detail": "5 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 150,
+          "detail": "V015702, V015703, V015704, V015705 and 146 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 58,
+          "detail": "60 cell(s) in 58 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "profiles",
+          "count": 14,
+          "detail": "P1988, P1989, P1990, P1991 and 10 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 10,
+          "detail": "28 cell(s) in 10 row(s)"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 18,
+          "detail": "R-RAISE3D-INTAKE-20261020-35dfb5b81aeb, R-QIDI-INTAKE-20261020-4bdb6fe222df, R-FILAMENTIVE-INTAKE-20261020-74ea25479ede, R-ERYONE-INTAKE-20261020-75b28336ecbb and 14 more"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "sources",
+          "count": 1,
+          "detail": "1 cell(s) in 1 row(s)"
+        },
+        {
+          "kind": "vocab-add",
+          "table": "schema/vocab/manufacturers.csv",
+          "count": 3,
+          "detail": "Filamentive, Kexcelled, Sakata 3D"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/accepted-findings.csv",
+        "data/review/context-witness-accepted.csv"
+      ],
+      "replay": null
+    },
+    {
+      "commit": "72ef037ce57f2ca0f5ebf552a11c3a1c8dfd1eb5",
+      "date": "2026-10-20T11:23:59-07:00",
+      "subject": "Research intake 2, stage 5: ASA's chamber row decides (m493), as the owner ruled",
+      "migrations": [],
+      "class": "4 Reference, identity, classification",
+      "units": [
+        {
+          "kind": "edit-cells",
+          "table": "chamber_need",
+          "count": 3,
+          "detail": "6 cell(s) in 3 row(s)"
+        }
+      ],
+      "status": "all-expressed",
+      "outsideSnapshot": [],
+      "replay": {
+        "status": "identical",
+        "detail": "3 command(s) gave the child's 1 changed table(s) byte for byte"
+      }
+    },
+    {
+      "commit": "dce33c56ebd1237a35b77eea68fa487d915d5be0",
+      "date": "2026-10-20T11:32:31-07:00",
+      "subject": "Research intake 2, stages 6 to 8: prices p07 (m494), the new pages' summaries, the record and OPEN-PROBLEMS §40",
+      "migrations": [
+        "m494-batch-p07.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "append-rows",
+          "table": "material_summaries",
+          "count": 5,
+          "detail": "M036, M086, M152, M074 and 1 more"
+        },
+        {
+          "kind": "append-rows",
+          "table": "prices",
+          "count": 2,
+          "detail": "CA0375, CA0376"
+        },
+        {
+          "kind": "append-source-rows",
+          "table": "sources",
+          "count": 2,
+          "detail": "CA-QIDICA-20261020-7c1d802b855f, OFFER-PUREFIL-20261020-a5712afd4d0a"
+        }
+      ],
+      "status": "has-later",
+      "outsideSnapshot": [],
+      "replay": null
+    },
+    {
+      "commit": "19a2c2af863648824b1cefe8725a4f986e49d46a",
+      "date": "2026-10-20T12:08:13-07:00",
+      "subject": "Research intake 2: the independent review's fixes (R01 to R10, m495)",
+      "migrations": [
+        "m495-research-intake-2-review-fixes.mjs"
+      ],
+      "class": "5 Mixed or editorial",
+      "units": [
+        {
+          "kind": "outside-file",
+          "table": "data/review/context-witness-accepted.csv",
+          "count": 1,
+          "detail": "changed"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "material_summaries",
+          "count": 3,
+          "detail": "6 cell(s) in 3 row(s)"
+        },
+        {
+          "kind": "append-rows",
+          "table": "measurements",
+          "count": 1,
+          "detail": "V015852"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "measurements",
+          "count": 19,
+          "detail": "49 cell(s) in 19 row(s)"
+        },
+        {
+          "kind": "edit-cells",
+          "table": "profiles",
+          "count": 1,
+          "detail": "3 cell(s) in 1 row(s)"
+        }
+      ],
+      "status": "has-residue",
+      "outsideSnapshot": [
+        "data/review/context-witness-accepted.csv"
+      ],
+      "replay": null
+    }
+  ],
+  "notes": [
+    "The share is of changes (rows edited, rows appended, rows removed, columns added, and so on), not of cells or of commits; the commit shares are beside it.",
+    "A diff-derived command set can express any cell edit, so a high expressed share is expected; the residue is the result, and the byte replay tests the service, not the share.",
+    "A column added with a value that differs between rows counts its exceptions as cell edits (correctValue after addColumn).",
+    "A file beside the tables (schema/db.schema.json, schema/estimate-model.schema.json, the data/review files) is one residue change per file: no command changes it. The manifest and the removed-records ledger are bookkeeping of the other changes and are not counted.",
+    "The schema changes (a column added, dropped or moved, a schema document, a vocabulary word) are classified from the diff, not replayed commit by commit: the commands that make them are tested by their own round trip (tests/remake/write-schema.test.mjs). A fill that is not a declared missing-state word, or a vocabulary file that is not canonical CSV, would be refused by the service.",
+    "Only commits that change data/tables, data/manifest.json or schema/ are in the window; a commit that changes only a review file is not."
+  ]
+}

@@ -3,24 +3,31 @@
 // found, never half-read (a command that is not fully understood is not applied).
 import { readFileSync } from 'node:fs';
 import type {
-  Actor, CanonicalCells, ChangeRecord, ChangeSet, CommandBase, EvidenceRef, Expectation, OpId, OtherWriteKind, QuoteCheck, Sha256,
-  WriteCommand, WriteKind,
+  Actor, AlsoChanged, CanonicalCells, ChangeRecord, ChangeSet, CommandBase, DuplicateOf, EvidenceRef, Expectation, GeneratorRef, JsonValue, LedgerRow,
+  OpId, OtherWriteKind, PatchOp, QuoteCheck, Sha256, WriteCommand, WriteKind,
 } from '@atlas/domain/contracts';
 import { isChangeRecordId, isChangeSetId, isOpId, isSha256, isSourceId } from './digest.ts';
 import { TABLE_NAMES } from './generated/columns.ts';
 import type { TableName } from './generated/columns.ts';
+import { isObject } from './json-patch.ts';
 
 export type Parsed<T> = { readonly ok: true; readonly value: T } | { readonly ok: false; readonly problems: readonly string[] };
 
 const OTHER_KINDS: readonly OtherWriteKind[] = [
-  'retireRecord', 'moveGrade', 'reviseProfile', 'reclassifyProduct', 'acceptProposal', 'rejectProposal', 'holdProposal', 'addVocab',
+  'addRecord', 'retireRecord', 'moveGrade', 'reviseProfile', 'reclassifyProduct', 'acceptProposal', 'rejectProposal', 'holdProposal', 'addVocab',
   'addColumn', 'schemaEdit',
 ];
 const KINDS: readonly WriteKind[] = ['correctValue', 'addMeasurement', ...OTHER_KINDS];
 
-const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 const isKind = (v: unknown): v is WriteKind => KINDS.some((k) => k === v);
 const isTable = (v: unknown): v is TableName => typeof v === 'string' && TABLE_NAMES.some((t) => t === v);
+
+const isJson = (v: unknown): v is JsonValue => {
+  if (v === null || typeof v === 'string' || typeof v === 'boolean') return true;
+  if (typeof v === 'number') return Number.isFinite(v);
+  if (Array.isArray(v)) return v.every(isJson);
+  return isObject(v) && Object.values(v).every(isJson);
+};
 
 /** Collects problems while a value is read; every reader returns null after adding at least one. */
 class Reader {
@@ -142,6 +149,89 @@ class Reader {
     return value === undefined ? this.fail(path, message) : value;
   }
 
+  actors(v: unknown, path: string): readonly Actor[] | undefined | null {
+    return v === undefined ? undefined : this.list(v, path, 'expected a list of actors', (item, at) => this.actor(item, at));
+  }
+
+  duplicateOf(v: unknown, path: string): DuplicateOf | undefined | null {
+    if (v === undefined) return undefined;
+    if (!isObject(v)) return this.fail(path, 'expected { id, reason }');
+    const id = this.text(v.id, `${path}.id`);
+    const reason = this.text(v.reason, `${path}.reason`);
+    return id === null || reason === null ? null : { id, reason };
+  }
+
+  /** A JSON object of plain values (a record's `args`). */
+  jsonObject(v: unknown, path: string): { readonly [key: string]: JsonValue } | undefined | null {
+    if (v === undefined) return undefined;
+    return isObject(v) && Object.values(v).every(isJson) ? Object.fromEntries(Object.entries(v).flatMap(([k, item]) => (isJson(item) ? [[k, item]] : []))) : this.fail(path, 'expected an object of JSON values');
+  }
+
+  textMap(v: unknown, path: string): Readonly<Record<string, string>> | undefined | null {
+    if (v === undefined) return undefined;
+    if (!isObject(v) || !Object.values(v).every((item) => typeof item === 'string')) return this.fail(path, 'expected an object of text');
+    return Object.fromEntries(Object.entries(v).flatMap(([k, item]) => (typeof item === 'string' ? [[k, item]] : [])));
+  }
+
+  patch(v: unknown, path: string): readonly PatchOp[] | null {
+    return this.list(v, path, 'expected a list of patch operations', (item, at): PatchOp | null => {
+      if (!isObject(item) || typeof item.path !== 'string') return this.fail(at, 'expected an operation with a "path"');
+      switch (item.op) {
+        case 'add': case 'replace': case 'test': return 'value' in item ? { op: item.op, path: item.path, value: item.value } : this.fail(at, `${item.op} needs a "value"`);
+        case 'remove': return { op: 'remove', path: item.path };
+        case 'move': case 'copy': return typeof item.from === 'string' ? { op: item.op, from: item.from, path: item.path } : this.fail(at, `${item.op} needs a "from"`);
+        default: return this.fail(at, 'op is add, remove, replace, move, copy or test');
+      }
+    });
+  }
+
+  alsoChanged(v: unknown, path: string): readonly AlsoChanged[] | undefined | null {
+    if (v === undefined) return undefined;
+    return this.list(v, path, 'expected a list of changed rows', (item, at): AlsoChanged | null => {
+      const table = isObject(item) && isTable(item.table) ? item.table : this.fail(`${at}.table`, 'expected a table of the schema');
+      const recordId = isObject(item) ? this.text(item.recordId, `${at}.recordId`) : this.fail(at, 'expected a changed row');
+      const before = isObject(item) ? this.cells(item.before, `${at}.before`) : null;
+      const after = isObject(item) ? this.cells(item.after, `${at}.after`) : null;
+      return table === null || recordId === null || before === null || after === null ? null : { table, recordId, before, after };
+    });
+  }
+
+  ledger(v: unknown, path: string): readonly LedgerRow[] | undefined | null {
+    if (v === undefined) return undefined;
+    return this.list(v, path, 'expected a list of ledger rows', (item, at): LedgerRow | null => {
+      if (!isObject(item)) return this.fail(at, 'expected a ledger row');
+      const table = this.text(item.Table, `${at}.Table`);
+      const record = this.text(item.Record, `${at}.Record`);
+      const where = this.text(item.Where, `${at}.Where`);
+      return table === null || record === null || where === null ? null : { Table: table, Record: record, Where: where };
+    });
+  }
+
+  tier(v: unknown, path: string): 0 | 1 | undefined | null {
+    if (v === undefined) return undefined;
+    if (v === 0) return 0;
+    if (v === 1) return 1;
+    return this.fail(path, 'expected 0 or 1');
+  }
+
+  generator(v: unknown, path: string): GeneratorRef | undefined | null {
+    if (v === undefined) return undefined;
+    if (!isObject(v)) return this.fail(path, 'expected { path, version, args, expectCount }');
+    const where = this.text(v.path, `${path}.path`);
+    const version = this.text(v.version, `${path}.version`);
+    const args = this.list(v.args, `${path}.args`, 'expected a list of text', (item, at) => this.text(item, at));
+    const count = typeof v.expectCount === 'number' && Number.isInteger(v.expectCount) && v.expectCount >= 0 ? v.expectCount : this.fail(`${path}.expectCount`, 'expected a whole number from 0');
+    return where === null || version === null || args === null || count === null ? null : { path: where, version, args, expectCount: count };
+  }
+
+  /** The schema's digest before and after a change set that edits it; absent on a change set that does not. */
+  schemaDigests(v: unknown, path: string): { readonly base: Sha256; readonly result: Sha256 } | undefined | null {
+    if (v === undefined) return undefined;
+    const base = isObject(v) ? this.sha256(v.base, `${path}.base`) : this.fail(path, 'expected { base, result }');
+    const result = isObject(v) ? this.sha256(v.result, `${path}.result`) : null;
+    return base === null || result === null ? null : { base, result };
+  }
+
   impact(v: unknown, path: string): ChangeSet['impact'] | null {
     const answers = isObject(v) && isObject(v.answersMoved) ? v.answersMoved : null;
     const answersMoved = answers !== null && (answers.moved === null || typeof answers.moved === 'number') && typeof answers.estimatesPending === 'boolean'
@@ -164,29 +254,87 @@ export function parseCommand(input: unknown): Parsed<WriteCommand> {
   const reason = r.text(input.reason, 'reason');
   const rulings = r.rulings(input.rulings, 'rulings');
   const actor = r.actor(input.actor, 'actor');
+  const reviewedBy = r.actors(input.reviewedBy, 'reviewedBy');
   const base = r.base(input.base, 'base');
   const set = input.set === undefined ? undefined : r.cells(input.set, 'set');
   const row = input.row === undefined ? undefined : r.cells(input.row, 'row');
   const evidence = input.evidence === undefined ? undefined : r.evidence(input.evidence, 'evidence');
   const apart = r.optionalText(input.apart, 'apart');
-  if (opId === null || kind === null || target === null || expect === null || reason === null || rulings === null || actor === null
+  if (opId === null || kind === null || target === null || expect === null || reason === null || rulings === null || actor === null || reviewedBy === null
     || base === null || set === null || row === null || evidence === null || apart === null) {
     return { ok: false, problems: r.problems };
   }
-  const common = { opId, target, expect, reason, ...(rulings.length ? { rulings } : {}), actor, base };
-  if (kind === 'correctValue') {
-    const requiredSet = r.required(set, 'set', 'a correction names the cells it sets');
-    const requiredEvidence = r.required(evidence, 'evidence', 'a correction carries its evidence');
-    if (requiredSet === null || requiredEvidence === null) return { ok: false, problems: r.problems };
-    return { ok: true, value: { ...common, kind, set: requiredSet, evidence: requiredEvidence, ...(apart === undefined ? {} : { apart }) } };
+  const common = { opId, target, expect, reason, ...(rulings.length ? { rulings } : {}), actor, ...(reviewedBy === undefined || reviewedBy.length === 0 ? {} : { reviewedBy }), base };
+  const optional = { ...(evidence === undefined ? {} : { evidence }), ...(apart === undefined ? {} : { apart }) };
+  switch (kind) {
+    case 'correctValue': {
+      const requiredSet = r.required(set, 'set', 'a correction names the cells it sets');
+      const requiredEvidence = r.required(evidence, 'evidence', 'a correction carries its evidence');
+      if (requiredSet === null || requiredEvidence === null) return { ok: false, problems: r.problems };
+      return { ok: true, value: { ...common, kind, set: requiredSet, evidence: requiredEvidence, ...(apart === undefined ? {} : { apart }) } };
+    }
+    case 'reviseProfile':
+    case 'reclassifyProduct': {
+      const requiredSet = r.required(set, 'set', `${kind} names the cells it sets`);
+      return requiredSet === null ? { ok: false, problems: r.problems } : { ok: true, value: { ...common, kind, set: requiredSet, ...optional } };
+    }
+    case 'addMeasurement': {
+      const requiredRow = r.required(row, 'row', 'a new measurement gives its row');
+      const requiredEvidence = r.required(evidence, 'evidence', 'a new measurement carries its evidence');
+      const duplicateOf = r.duplicateOf(input.duplicateOf, 'duplicateOf');
+      if (requiredRow === null || requiredEvidence === null || duplicateOf === null) return { ok: false, problems: r.problems };
+      return { ok: true, value: { ...common, kind, row: requiredRow, evidence: requiredEvidence, ...(duplicateOf === undefined ? {} : { duplicateOf }) } };
+    }
+    case 'addRecord': {
+      const requiredRow = r.required(row, 'row', 'a new record gives its row');
+      return requiredRow === null ? { ok: false, problems: r.problems } : { ok: true, value: { ...common, kind, row: requiredRow, ...(evidence === undefined ? {} : { evidence }) } };
+    }
+    case 'retireRecord': {
+      const retire = isObject(input.retire) ? input.retire : null;
+      const as = retire?.as === 'retired' || retire?.as === 'superseded' ? retire.as : r.fail('retire.as', 'expected "retired" or "superseded"');
+      const successor = retire === null ? null : r.optionalText(retire.successor, 'retire.successor');
+      if (retire === null) r.fail('retire', 'a retirement gives { as, successor? }');
+      if (retire === null || as === null || successor === null) return { ok: false, problems: r.problems };
+      return { ok: true, value: { ...common, kind, retire: successor === undefined ? { as } : { as, successor } } };
+    }
+    case 'moveGrade': {
+      const moveTo = r.text(input.moveTo, 'moveTo');
+      const expectMaterial = r.text(input.expectMaterial, 'expectMaterial');
+      return moveTo === null || expectMaterial === null ? { ok: false, problems: r.problems } : { ok: true, value: { ...common, kind, moveTo, expectMaterial } };
+    }
+    case 'addVocab': {
+      const v = isObject(input.vocab) ? input.vocab : null;
+      const stem = v === null ? r.fail('vocab', 'a vocabulary word gives { stem, value, extra? }') : r.text(v.stem, 'vocab.stem');
+      const value = v === null ? null : r.text(v.value, 'vocab.value');
+      const extra = v === null || v.extra === undefined ? undefined : r.cells(v.extra, 'vocab.extra');
+      const after = v === null ? null : r.optionalText(v.after, 'vocab.after');
+      if (stem === null || value === null || extra === null || after === null) return { ok: false, problems: r.problems };
+      return { ok: true, value: { ...common, kind, vocab: { stem, value, ...(extra === undefined ? {} : { extra }), ...(after === undefined ? {} : { after }) } } };
+    }
+    case 'addColumn': {
+      const c = isObject(input.column) ? input.column : null;
+      if (c === null) return { ok: false, problems: [...r.problems, 'column: a new column gives { name, field, after?, fill }'] };
+      const before = r.problems.length;
+      const name = r.text(c.name, 'column.name');
+      const field = isObject(c.field) ? c.field : r.fail('column.field', 'expected the schema field of the column');
+      const after = r.optionalText(c.after, 'column.after');
+      const fill = 'fill' in c && (c.fill === null || typeof c.fill === 'string') ? c.fill : r.fail('column.fill', 'give what the existing rows hold: a missing-state word, or null');
+      if (r.problems.length > before || name === null || field === null || after === null) return { ok: false, problems: r.problems };
+      return { ok: true, value: { ...common, kind, column: { name, field, ...(after === undefined ? {} : { after }), fill: typeof fill === 'string' ? fill : null } } };
+    }
+    case 'schemaEdit': {
+      const s = isObject(input.schema) ? input.schema : null;
+      const patch = s === null ? r.fail('schema', 'a schema edit gives { patch, fill?, renames? }') : r.patch(s.patch, 'schema.patch');
+      const fill = s === null || s.fill === undefined ? undefined : r.cells(s.fill, 'schema.fill');
+      const renames = s === null ? null : r.textMap(s.renames, 'schema.renames');
+      if (patch === null || fill === null || renames === null) return { ok: false, problems: r.problems };
+      return { ok: true, value: { ...common, kind, schema: { patch, ...(fill === undefined ? {} : { fill }), ...(renames === undefined ? {} : { renames }) } } };
+    }
+    case 'acceptProposal':
+    case 'rejectProposal':
+    case 'holdProposal':
+      return { ok: true, value: { ...common, kind, ...(set === undefined ? {} : { set }), ...(evidence === undefined ? {} : { evidence }) } };
   }
-  if (kind === 'addMeasurement') {
-    const requiredRow = r.required(row, 'row', 'a new measurement gives its row');
-    const requiredEvidence = r.required(evidence, 'evidence', 'a new measurement carries its evidence');
-    if (requiredRow === null || requiredEvidence === null) return { ok: false, problems: r.problems };
-    return { ok: true, value: { ...common, kind, row: requiredRow, evidence: requiredEvidence } };
-  }
-  return { ok: true, value: { ...common, kind, ...(set === undefined ? {} : { set }), ...(evidence === undefined ? {} : { evidence }) } };
 }
 
 /** A change record from JSON (a record of a change-set file, or of the workspace journal). */
@@ -211,6 +359,12 @@ export function parseChangeRecord(input: unknown, path = 'record'): Parsed<Chang
   const at = r.text(input.at, `${path}.at`);
   const cellsApart = r.optionalText(input.cellsApart, `${path}.cellsApart`);
   const quoteCheck = r.quoteCheck(input.quoteCheck, `${path}.quoteCheck`);
+  const args = r.jsonObject(input.args, `${path}.args`);
+  const alsoChanged = r.alsoChanged(input.alsoChanged, `${path}.alsoChanged`);
+  const ledger = r.ledger(input.ledger, `${path}.ledger`);
+  const duplicateOf = r.duplicateOf(input.duplicateOf, `${path}.duplicateOf`);
+  const tier = r.tier(input.tier, `${path}.tier`);
+  if (args === null || alsoChanged === null || ledger === null || duplicateOf === null || tier === null) return { ok: false, problems: r.problems };
   if (recordId === null || opId === null || recordSeq === null || kind === null || recordTable === null || target === null || before === null
     || after === null || evidence === null || reason === null || rulings === null || actor === null || reviewedBy === null || base === null
     || at === null || cellsApart === null || quoteCheck === null) {
@@ -219,6 +373,8 @@ export function parseChangeRecord(input: unknown, path = 'record'): Parsed<Chang
   const common = {
     id: recordId, opId, seq: recordSeq, table: recordTable, recordId: target, before, after, reason, rulings, actor, reviewedBy, base, at,
     ...(cellsApart === undefined ? {} : { cellsApart }), ...(quoteCheck === undefined ? {} : { quoteCheck }),
+    ...(args === undefined ? {} : { args }), ...(alsoChanged === undefined ? {} : { alsoChanged }), ...(ledger === undefined ? {} : { ledger }),
+    ...(duplicateOf === undefined ? {} : { duplicateOf }), ...(tier === undefined ? {} : { tier }),
   };
   if (kind === 'correctValue' || kind === 'addMeasurement') {
     if (evidence === undefined) return { ok: false, problems: [`${path}.evidence: a ${kind} record carries its evidence`] };
@@ -246,13 +402,18 @@ export function parseChangeSet(input: unknown): Parsed<ChangeSet> {
     });
   }
   const impact = r.impact(input.impact, 'impact');
+  const generator = r.generator(input.generator, 'generator');
+  const schema = r.schemaDigests(input.schema, 'schema');
   // The records report their own problems into r.problems and still leave a list behind.
-  if (r.problems.length || changeSetId === null || title === null || baseDigest === null || resultDigest === null || impact === null) {
+  if (r.problems.length || changeSetId === null || title === null || baseDigest === null || resultDigest === null || impact === null || generator === null || schema === null) {
     return { ok: false, problems: r.problems };
   }
   return {
     ok: true,
-    value: { id: changeSetId, title, records: recordList, base: { snapshotDigest: baseDigest }, result: { snapshotDigest: resultDigest }, impact },
+    value: {
+      id: changeSetId, title, records: recordList, base: { snapshotDigest: baseDigest }, result: { snapshotDigest: resultDigest }, impact,
+      ...(generator === undefined ? {} : { generator }), ...(schema === undefined ? {} : { schema }),
+    },
   };
 }
 

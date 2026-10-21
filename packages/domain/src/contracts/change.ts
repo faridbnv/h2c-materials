@@ -2,7 +2,7 @@
 
 import type { TableName } from '@atlas/data';
 import type { ChangeRecordId, ChangeSetId, OpId, Sha256 } from './ids.ts';
-import type { Actor, CanonicalCells, CommandBase, EvidenceRef, OtherWriteKind, RulingRef } from './write.ts';
+import type { Actor, CanonicalCells, CommandBase, DuplicateOf, EvidenceRef, OtherWriteKind, RulingRef } from './write.ts';
 import type { ChangeStatus } from './vocab.ts';
 
 /**
@@ -19,6 +19,15 @@ export type QuoteCheck = {
   /** Why it did not run. */
   readonly reason?: string;
 };
+
+/** JSON, for what a record keeps of its command beyond cells. */
+export type JsonValue = string | number | boolean | null | readonly JsonValue[] | { readonly [key: string]: JsonValue };
+
+/** One more row a command changed (a cascade: moving a grade moves the records filed under it). */
+export type AlsoChanged = { readonly table: TableName; readonly recordId: string; readonly before: CanonicalCells; readonly after: CanonicalCells };
+
+/** A row of data/review/removed-records.csv (D72): a record leaving its key, with where it went. `Migration` is filled with the change set's ID at export. */
+export type LedgerRow = { readonly Table: string; readonly Record: string; readonly Where: string };
 
 type ChangeRecordCommon = {
   readonly id: ChangeRecordId;
@@ -41,6 +50,19 @@ type ChangeRecordCommon = {
   readonly cellsApart?: string;
   /** Present on a record that has evidence. */
   readonly quoteCheck?: QuoteCheck;
+  /**
+   * What the command was given beyond the cells: its `expect` and its kind's own fields, so a record replays as the command that made it
+   * (a correction needs none: its `before` is its expectation). Absent on records of write service v1.
+   */
+  readonly args?: { readonly [key: string]: JsonValue };
+  /** The rows a cascade changed besides `table`/`recordId`. */
+  readonly alsoChanged?: readonly AlsoChanged[];
+  /** The D72 ledger rows the command owes. */
+  readonly ledger?: readonly LedgerRow[];
+  /** 1 when the change needs the owner's eyes: a schema command, a rule row, or a human among the reviewers (04 section 5.1). */
+  readonly tier?: 0 | 1;
+  /** Present when an append is a twin on purpose. */
+  readonly duplicateOf?: DuplicateOf;
 };
 
 /**
@@ -78,4 +100,6 @@ export type ChangeSet = {
   readonly result: { readonly snapshotDigest: Sha256 };
   readonly impact: { readonly answersMoved: DecisionDiffSummary; readonly reportPath: string | null };
   readonly generator?: GeneratorRef;
+  /** The schema's digest before and after, present when the change set edits the schema (the snapshot digest covers the tables, not the schema). */
+  readonly schema?: { readonly base: Sha256; readonly result: Sha256 };
 };

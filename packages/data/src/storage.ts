@@ -5,8 +5,12 @@
 //   text column that declares missing words   <sql> holds the value (NULL when a word stands in), <sql>_state the word
 //   any other column                          <sql> holds the exact text (NULL for an empty cell)
 // Every identifier below comes from the generated allow-list (TABLE_NAMES, TABLES); every value is a bound parameter.
-import { TABLE_NAMES, TABLES } from './generated/columns.ts';
+// Each function that needs the columns takes the schema model last and defaults to the repository's own; a workspace whose schema a
+// `schemaEdit` changed passes its model (WP-17, schema-model.ts).
+import { TABLE_NAMES } from './generated/columns.ts';
 import type { ColumnInfo, TableName } from './generated/columns.ts';
+import { BASE_MODEL } from './schema-model.ts';
+import type { SchemaModel } from './schema-model.ts';
 import type { Db, Param, Row } from './driver.ts';
 import { csvText } from './csv.ts';
 
@@ -48,21 +52,21 @@ function storedValues(layout: Layout, cell: string | null): Param[] {
   return [isWord ? null : cell, isWord ? cell : null];
 }
 
-function layoutNamed(table: TableName, columnName: string): Layout {
-  const column = TABLES[table].columns.find((c) => c.name === columnName);
+function layoutNamed(table: TableName, columnName: string, model: SchemaModel): Layout {
+  const column = model.tables[table].columns.find((c) => c.name === columnName);
   if (!column) throw new Error(`${table} has no column "${columnName}"`);
   return layoutOf(column);
 }
 
 /** The SQL expression for the exact text of one column of a table (for a WHERE on a key). */
-export const textExpression = (table: TableName, columnName: string): string => textOf(layoutNamed(table, columnName));
+export const textExpression = (table: TableName, columnName: string, model: SchemaModel = BASE_MODEL): string => textOf(layoutNamed(table, columnName, model));
 
 /**
  * The stored columns one cell is written to, as [SQL column, bound value] pairs, by the same rule `encode` uses: a typed
  * column's exact text, or a text column's value and its missing-state word. Identifiers come from the generated list.
  */
-export function assignmentsOf(table: TableName, columnName: string, cell: string | null): readonly (readonly [string, Param])[] {
-  const layout = layoutNamed(table, columnName);
+export function assignmentsOf(table: TableName, columnName: string, cell: string | null, model: SchemaModel = BASE_MODEL): readonly (readonly [string, Param])[] {
+  const layout = layoutNamed(table, columnName, model);
   const values = storedValues(layout, cell);
   return storedColumns(layout).map((column, k): [string, Param] => [column, values[k] ?? null]);
 }
@@ -81,12 +85,17 @@ export interface TableStorage {
   encode(ord: number, cells: readonly (string | null)[]): Param[];
 }
 
-const cache = new Map<TableName, TableStorage>();
+const caches = new WeakMap<SchemaModel, Map<TableName, TableStorage>>();
 
-export function storageOf(table: TableName): TableStorage {
+export function storageOf(table: TableName, model: SchemaModel = BASE_MODEL): TableStorage {
+  let cache = caches.get(model);
+  if (cache === undefined) {
+    cache = new Map();
+    caches.set(model, cache);
+  }
   const known = cache.get(table);
   if (known) return known;
-  const layouts = TABLES[table].columns.map(layoutOf);
+  const layouts = model.tables[table].columns.map(layoutOf);
   const stored = ['_ord', ...layouts.flatMap(storedColumns)];
   const select = layouts.map((l, k) => `${textOf(l)} AS c${k}`);
   const storage: TableStorage = {
@@ -104,8 +113,8 @@ export function storageOf(table: TableName): TableStorage {
 }
 
 /** Whether a CSV header is exactly the schema's columns for `table`, in order. */
-export function headerMatches(table: TableName, header: readonly string[]): boolean {
-  const want = storageOf(table).header;
+export function headerMatches(table: TableName, header: readonly string[], model: SchemaModel = BASE_MODEL): boolean {
+  const want = storageOf(table, model).header;
   return header.length === want.length && header.every((name, k) => name === want[k]);
 }
 
@@ -119,19 +128,19 @@ function cellsOfRow(table: TableName, header: readonly string[], row: Row): (str
 }
 
 /** The cells of the one record at `ord`, or null when there is none. */
-export function readRow(db: Db, table: TableName, ord: number): (string | null)[] | null {
-  const { selectRowSql, header } = storageOf(table);
+export function readRow(db: Db, table: TableName, ord: number, model: SchemaModel = BASE_MODEL): (string | null)[] | null {
+  const { selectRowSql, header } = storageOf(table, model);
   const row = db.prepare(selectRowSql).get(ord);
   return row === undefined ? null : cellsOfRow(table, header, row);
 }
 
 /** Every record of a table as its cells, in file order. A cell that is not text or NULL is a storage fault and throws. */
-export function* readCells(db: Db, table: TableName): Generator<(string | null)[]> {
-  const { selectSql, header } = storageOf(table);
+export function* readCells(db: Db, table: TableName, model: SchemaModel = BASE_MODEL): Generator<(string | null)[]> {
+  const { selectSql, header } = storageOf(table, model);
   for (const row of db.prepare(selectSql).iterate()) yield cellsOfRow(table, header, row);
 }
 
 /** The canonical CSV text of a table, exactly as the file holds it. */
-export function exportTable(db: Db, table: TableName): string {
-  return csvText(storageOf(table).header, readCells(db, table));
+export function exportTable(db: Db, table: TableName, model: SchemaModel = BASE_MODEL): string {
+  return csvText(storageOf(table, model).header, readCells(db, table, model));
 }

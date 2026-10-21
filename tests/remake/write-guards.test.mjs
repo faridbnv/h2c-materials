@@ -133,8 +133,8 @@ test('opid-invalid: an opId that is not a ULID is refused', async () => {
   await refused('opid-invalid', { opId: 'not-a-ulid' });
 });
 
-test('unsupported-kind: every kind but correctValue is refused until WP-17 adds it', async () => {
-  await refused('unsupported-kind', { kind: 'retireRecord' });
+test('unsupported-kind: the proposal commands are refused until WP-28 (every other kind is WP-17\'s, in write-commands.test.mjs)', async () => {
+  await refused('unsupported-kind', { kind: 'acceptProposal' });
 });
 
 // ---------------------------------------------------------------- one writer (writer-locked)
