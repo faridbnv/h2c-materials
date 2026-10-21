@@ -1,13 +1,18 @@
 {
   "id": "WP-06",
-  "status": "todo",
+  "status": "done",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-06-typescript",
+  "pr": 8,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
   "evidence": [],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    8
+  ],
+  "note": "delivered by merged PR #8 (2026-10-21)"
 }

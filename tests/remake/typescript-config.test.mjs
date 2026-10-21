@@ -67,3 +67,21 @@ test('a row type that loses a column fails tsc in tables-check.ts, naming the ta
     rmSync(tmp, { recursive: true, force: true });
   }
 });
+
+test('the lint rule on `any` agrees with the type ratchet: off exactly where the baseline records a count, an error elsewhere', () => {
+  const ratchet = JSON.parse(readFileSync(join(root, 'remake/types-ratchet.json'), 'utf8'));
+  const tolerated = Object.entries(ratchet.files).filter(([, c]) => c.any > 0).map(([f]) => f);
+  assert.ok(tolerated.length >= 3, 'the baseline tolerates `any` in a few parity files');
+  const severity = (file) => {
+    const run = spawnSync(process.execPath, [join(root, 'node_modules/eslint/bin/eslint.js'), '--print-config', file], { cwd: root, encoding: 'utf8' });
+    assert.equal(run.status, 0, run.stderr);
+    const rule = JSON.parse(run.stdout).rules['@typescript-eslint/no-explicit-any'];
+    return rule[0];
+  };
+  for (const file of tolerated) assert.equal(severity(file), 0, `${file}: baseline tolerates its any`);
+  // A tolerated count is bounded by the ratchet; a file the baseline records at zero is held to the lint rule.
+  for (const file of ['packages/parity/src/cli.ts', 'packages/parity/src/canon.ts', 'packages/parity/src/compare.ts']) {
+    assert.ok(!tolerated.includes(file), file);
+    assert.equal(severity(file), 2, `${file}: any is an error`);
+  }
+});

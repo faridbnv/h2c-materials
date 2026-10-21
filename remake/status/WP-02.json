@@ -1,9 +1,9 @@
 {
   "id": "WP-02",
-  "status": "in-review",
+  "status": "done",
   "slice": "all",
   "branch": "wp-02-scaffold",
-  "pr": null,
+  "pr": 7,
   "exitCheck": "not-run",
   "lastRun": "2026-10-21T07:10:51.952Z",
   "lastPass": null,
@@ -26,5 +26,10 @@
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-21T07:10:57.179Z"
+  "updated": "2026-10-21T07:10:57.179Z",
+  "doneAt": "2026-10-21",
+  "prs": [
+    7
+  ],
+  "note": "delivered by merged PR #7 (2026-10-21), which merged into the PR #6 branch"
 }

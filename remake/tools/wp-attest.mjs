@@ -6,7 +6,7 @@
 //   wp:attest -- <key> [detail] appends a dated row to remake/attest.csv
 import { spawnSync } from 'node:child_process';
 import { createInterface } from 'node:readline/promises';
-import { appendAttest, loadAllStatus, saveStatus, repoRoot } from './wp-lib.mjs';
+import { appendAttest, loadAllStatus, saveStatus, repoRoot, deliveredBy } from './wp-lib.mjs';
 
 const gh = (...a) => {
   const r = spawnSync('gh', a, { encoding: 'utf8', cwd: repoRoot() });
@@ -30,10 +30,11 @@ async function main(argv) {
     action = `post the comment "wp:attest approve ${pr} ${info.headRefOid}" on PR ${pr} (${info.title}, branch ${info.headRefName})`;
     post = () => {
       gh('pr', 'comment', pr, '--body', `wp:attest approve ${pr} ${info.headRefOid}`);
-      const wp = /^wp-(S0|\d\d)/i.exec(info.headRefName);
-      const st = wp && loadAllStatus()[`WP-${wp[1].toUpperCase()}`];
-      if (st) saveStatus({ ...st, approvedAt: new Date().toISOString() });
-      console.log(`posted. ${st ? `approvedAt recorded for ${st.id}.` : 'no status file matched the branch name; none updated.'}`);
+      const statuses = loadAllStatus();
+      const delivered = deliveredBy(statuses, { pr: Number(pr), branch: info.headRefName });
+      const at = new Date().toISOString();
+      for (const id of delivered) saveStatus({ ...statuses[id], approvedAt: at });
+      console.log(`posted. ${delivered.length ? `approvedAt recorded for ${delivered.join(', ')}.` : 'no status file names this PR or its branch; none updated.'}`);
     };
   } else {
     const detail = rest.join(' ');

@@ -111,7 +111,7 @@ test('CLI: a transition file for a fault run passes with exit 0, and fails with 
     const out = join(dir, '2026-10-21-fault.json');
     const base = [cli, '--fault', 'untested-as-zero', '--only', 'template/', '--allow-partial'];
     const emit = spawnSync(process.execPath, [...base, '--emit-transition', out, '--id', 'fault', '--kind', 'science', '--ruling', 'OQ-test', '--description', 'x'], { cwd: root, encoding: 'utf8' });
-    assert.equal(emit.status, 1);
+    assert.equal(emit.status, 5, 'a caught fault, not "differs"');
     const ok = spawnSync(process.execPath, [...base, '--transitions', dir], { cwd: root, encoding: 'utf8' });
     assert.equal(ok.status, 0, ok.stdout + ok.stderr);
     assert.match(ok.stdout, /RESULT: matches-transition/);

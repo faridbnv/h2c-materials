@@ -1,5 +1,6 @@
 // Canonical encoding of values, so two engines' composite values compare as strings without losing what Object.is sees.
-import type { Atom, NotComputable, Value } from './types.ts';
+import { Composite } from './types.ts';
+import type { NotComputable, Value } from './types.ts';
 
 /** A field that exists on one side only. */
 export const ABSENT: unique symbol = Symbol('absent');
@@ -28,7 +29,7 @@ export function canon(value: unknown, identity?: Identity): string {
       case 'string': return JSON.stringify(v);
       case 'bigint': return `${v}n`;
       case 'object': break;
-      default: throw new Error(`cannot encode a ${typeof v}`);
+      case 'undefined': case 'function': case 'symbol': throw new Error(`cannot encode a ${typeof v}`);
     }
     const o = v as object;
     const tag = identity?.get(o);
@@ -51,9 +52,22 @@ export function canon(value: unknown, identity?: Identity): string {
   return enc(value);
 }
 
-/** How a value is shown in a difference and in a transition file: type-faithful, so 1 and "1" never look alike. */
+/**
+ * A list, an object or another non-atom as a Composite value. A string, a number, a boolean, null and undefined are atoms and
+ * stay atoms: wrapping one would let a composite and an atom show alike.
+ */
+export function composite(value: unknown, identity?: Identity): Composite {
+  if (value === null || value === undefined || ['string', 'number', 'boolean'].includes(typeof value)) throw new Error('composite() takes a list or an object; an atom stays an atom');
+  return new Composite(canon(value, identity));
+}
+
+/**
+ * How a value is shown in a difference and in a transition file: type-faithful, so 1 and "1" never look alike, and the string
+ * "[1]" (shown quoted) never looks like the list [1] (shown bare).
+ */
 export function show(v: Value | typeof ABSENT): string {
   if (v === ABSENT) return '<absent>';
   if (isNotComputable(v)) return `<not-computable: ${v.reason}>`;
-  return canon(v as Atom);
+  if (v instanceof Composite) return v.text;
+  return canon(v);
 }

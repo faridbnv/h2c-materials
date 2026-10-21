@@ -77,8 +77,9 @@ export function loadScopes(dir) {
 }
 
 // Pack 08 section 4.4. Tier 0 needs: no suspicious path, no science path, no governance path, and every changed path inside
-// ONE approved scope. The parity condition ("exactly zero, or no parity surface") cannot be measured yet (no parity driver
-// on this branch): until it can, a scope must declare parity "none"; anything else is Tier 1 with that reason.
+// ONE approved scope. The parity condition ("exactly zero, or no parity surface") is not measured by this gate: the parity
+// harness runs in next-verify (npm run parity -- --noop). So a scope must declare parity "none"; anything else is Tier 1
+// with that reason.
 export function classifyTier(paths, scopes) {
   const reasons = [];
   const bad = paths.filter(suspicious);
@@ -96,7 +97,7 @@ export function classifyTier(paths, scopes) {
       const best = approved.map((s) => ({ s, out: paths.filter((p) => !matchesAny(p, s.paths)) })).sort((a, b) => a.out.length - b.out.length)[0];
       reasons.push(`not every changed path is inside one approved scope; outside ${best.s.file ?? best.s.wp}: ${best.out.slice(0, 5).join(', ')}${best.out.length > 5 ? ', ...' : ''}`);
     } else if (scope.parity !== 'none') {
-      reasons.push(`scope ${scope.file ?? scope.wp} declares parity "${scope.parity ?? 'unset'}": the parity-zero condition is not measurable on this branch yet (parity: not run)`);
+      reasons.push(`scope ${scope.file ?? scope.wp} declares parity "${scope.parity ?? 'unset'}": the parity-zero condition is not measurable by this gate (parity: not run here; next-verify runs npm run parity -- --noop)`);
       scope = null;
     }
   }
@@ -121,12 +122,18 @@ export function findStaleAttest(comments, { owner, pr }) {
   return comments.filter((c) => c?.user?.login?.toLowerCase() === owner.toLowerCase() && re.test((c.body ?? '').trim()));
 }
 
+// Owner ruling 2026-10-21: no manual PR approval except changes that move a science answer or a ruling (Q2-19), plus the
+// files that decide whether a PR is judged at all: the workflows, the gate script and the parity corpus. A PR that edits
+// them could otherwise neutralise its own checks or change what "parity 0" means without the owner reading it.
+export const OWNER_GLOBS = [
+  'parity/transitions/**', 'parity/expectations/**', 'docs/next/rulings.csv', 'data/**', 'schema/**',
+  '.github/workflows/**', 'remake/tools/ci-gates.mjs', 'parity/corpus/**',
+];
+
 export function tierGate({ paths, scopes, comments, owner, pr, headSha }) {
   const t = classifyTier(paths, scopes);
   if (t.tier === 0) return { pass: true, tier: 0, lines: [`Tier 0: ${t.reasons[0]}`] };
-  // Owner ruling 2026-10-21: no manual PR approval except changes that move a science answer or a ruling (Q2-19).
-  const OWNER_GLOBS = ['parity/transitions/**', 'parity/expectations/**', 'docs/next/rulings.csv', 'data/**', 'schema/**'];
-  if (!paths.some((p) => matchesAny(p, OWNER_GLOBS))) return { pass: true, tier: 1, lines: [`Tier 1: ${t.reasons.join('; ')}`, 'no answer-moving path: merges on green checks (owner ruling 2026-10-21)'] };
+  if (!paths.some((p) => matchesAny(p, OWNER_GLOBS))) return { pass: true, tier: 1, lines: [`Tier 1: ${t.reasons.join('; ')}`, 'no answer-moving, workflow, gate or parity-corpus path: merges on green checks (owner ruling 2026-10-21)'] };
   const lines = [`Tier 1 (owner review): ${t.reasons.join('; ')}`];
   const hit = findAttest(comments, { owner, pr, headSha });
   if (hit) return { pass: true, tier: 1, lines: [...lines, `owner attest found for ${headSha}`] };
@@ -164,7 +171,7 @@ export function cli(argv, env = process.env) {
       owner: need(argValue(argv, '--owner'), '--owner'), pr: need(argValue(argv, '--pr'), '--pr'), headSha: need(argValue(argv, '--head'), '--head'),
     });
     r.lines.forEach((l) => console.log(l));
-    console.log('parity: not run (no parity driver on this branch yet)');
+    console.log('parity: not run by this gate (next-verify runs the parity harness: npm run parity -- --noop)');
     return r.pass ? 0 : 1;
   }
   throw new Error(`unknown command "${cmd}" (old-paths | review-section | tier)`);

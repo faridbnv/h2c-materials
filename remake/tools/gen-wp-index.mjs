@@ -56,11 +56,16 @@ const EXIT = {
   'WP-39': { commands: [], attest: ['portfolio-review-recorded'], manual: ['reviewer entries recorded within 14 days', 'label removed for each reviewed expectation'] },
 };
 
-// Where the seeded status files start. WP-S0 and WP-01 are PR #6, open and waiting for the owner; WP-02 is this PR.
+// Where the seeded status files start: the M0 packages are delivered (merged PRs #6 to #13, 2026-10-21); the rest are todo.
+const DELIVERED = { status: 'done', doneAt: '2026-10-21' };
 const SEED = {
-  'WP-S0': { status: 'waiting-owner', branch: 'wp-S0-claude-setup', pr: 6 },
-  'WP-01': { status: 'waiting-owner', branch: 'wp-S0-claude-setup', pr: 6 },
-  'WP-02': { status: 'in-review', branch: 'wp-02-scaffold', slice: 'all' },
+  'WP-S0': { ...DELIVERED, branch: 'wp-S0-claude-setup', pr: 6, prs: [6] },
+  'WP-01': { ...DELIVERED, branch: 'wp-S0-claude-setup', pr: 6, prs: [6] },
+  'WP-02': { ...DELIVERED, branch: 'wp-02-scaffold', pr: 7, prs: [7] },
+  'WP-03': { ...DELIVERED, branch: 'wp-03-ci-preview', pr: 10, prs: [10, 12, 13] },
+  'WP-05': { ...DELIVERED, branch: 'wp-05-parity', pr: 9, prs: [9] },
+  'WP-06': { ...DELIVERED, branch: 'wp-06-typescript', pr: 8, prs: [8] },
+  'WP-07': { ...DELIVERED, branch: 'wp-07-contracts', pr: 11, prs: [11] },
 };
 
 function parseDepends(raw) {

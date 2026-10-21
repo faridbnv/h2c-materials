@@ -9,8 +9,10 @@ import { join } from 'node:path';
 import { loadIndex, loadStatus, saveStatus, readJson, repoRoot, attestedKeys, isMain } from './wp-lib.mjs';
 
 // Upper-case SKIPPED (the old tool's own word), "not run:", node:test's "# SKIP" and a non-zero "skipped N" summary.
-// A "skipped 0" summary line is not a skip.
-const SKIP_WORDS = /\bSKIPPED\b|\bnot run:|\bNOT RUN\b|# SKIP\b|\bskipped [1-9]/;
+// A "skipped 0" summary line is not a skip. A node:test summary of "tests 0" (a glob that matched nothing exits 0) and of
+// "todo N" with N above zero (a test marked todo is not a pass) are not passes either; the summary line is "ℹ tests 0" or
+// "# tests 0" and stands alone on its line, so a test whose name contains the words does not trigger it.
+const SKIP_WORDS = /\bSKIPPED\b|\bnot run:|\bNOT RUN\b|# SKIP\b|\bskipped [1-9]|^[ \t]*(?:ℹ |# )?(?:tests 0|todo [1-9]\d*)[ \t]*$/m;
 
 // Why a command cannot run here, or null when it can be tried.
 export function unrunnable(cmd, root) {
@@ -42,7 +44,7 @@ export function runCommand(cmd, root) {
   if (r.error) return { cmd, result: 'not-run', note: `could not start: ${r.error.message}` };
   if (r.status === 127) return { cmd, result: 'not-run', note: 'command not found', tail };
   if (r.status !== 0) return { cmd, result: 'fail', code: r.status, tail };
-  if (SKIP_WORDS.test(out)) return { cmd, result: 'not-run', code: 0, note: 'exit 0 but the output says it skipped; a skip is not a pass', tail };
+  if (SKIP_WORDS.test(out)) return { cmd, result: 'not-run', code: 0, note: 'exit 0 but the output says it skipped, ran no test or left a test todo; that is not a pass', tail };
   return { cmd, result: 'pass', code: 0 };
 }
 

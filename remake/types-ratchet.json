@@ -1,14 +1,14 @@
 {
   "$comment": "Escapes from the type checker per file in packages/ and apps/. The counts may only fall (npm run types:ratchet). Regenerate with --update after lowering a count or converting a module.",
   "totals": {
-    "casts": 28,
+    "casts": 27,
     "any": 24,
     "tsExpectError": 0,
     "tsIgnore": 0
   },
   "files": {
     "packages/parity/src/canon.ts": {
-      "casts": 4,
+      "casts": 3,
       "any": 0,
       "tsExpectError": 0,
       "tsIgnore": 0

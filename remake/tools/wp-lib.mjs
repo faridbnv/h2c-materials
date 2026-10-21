@@ -77,8 +77,19 @@ export function dispatchable(index, statuses) {
   return { next, soon };
 }
 
+// Waiting on the owner: the status says so, or the package has waited since a date; either way an approvedAt date ends it.
 export const waitingOnOwner = (statuses) =>
-  Object.values(statuses).filter((s) => s.status === 'waiting-owner' || (s.waitingSince && !s.approvedAt && !['dropped', 'done'].includes(s.status)));
+  Object.values(statuses).filter((s) => !s.approvedAt && (s.status === 'waiting-owner' || (s.waitingSince && !['dropped', 'done'].includes(s.status))));
+
+// The packages a pull request delivers: every status file that names the PR number (pr, or prs when several PRs built it), plus the one the branch name points
+// to (wp-S0-..., wp-07-...). One PR may deliver several packages (#6 delivered WP-01 and WP-S0), and an approval of the
+// PR approves them all.
+export function deliveredBy(statuses, { pr, branch }) {
+  const byBranch = /^wp-(S0|\d\d)/i.exec(branch ?? '');
+  const ids = new Set(Object.values(statuses).filter((s) => pr != null && [s.pr, ...(s.prs ?? [])].some((n) => Number(n) === Number(pr))).map((s) => s.id));
+  if (byBranch && statuses[`WP-${byBranch[1].toUpperCase()}`]) ids.add(`WP-${byBranch[1].toUpperCase()}`);
+  return [...ids].sort();
+}
 
 export const days = (from, to = Date.now()) => Math.max(0, (to - Date.parse(from)) / 86_400_000);
 

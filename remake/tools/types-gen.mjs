@@ -410,6 +410,11 @@ function fieldType(c) {
 
 // ---------------------------------------------------------------- schema.sql
 
+// A date column holds YYYY-MM-DD. GLOB can check the shape (digits and hyphens) but not that the month and the day exist, so the
+// generated header lists it among the weaker checks; the build checks the calendar.
+const DATE_GLOB = '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]';
+const DATE_WEAKER = 'date columns (YYYY-MM-DD): GLOB checks the digit shape, not that the month and day exist';
+
 const SQL_TYPE = { string: 'TEXT', date: 'TEXT', list: 'TEXT', number: 'REAL', integer: 'INTEGER', boolean: 'INTEGER' };
 
 function globCheck(col, pattern, weaker) {
@@ -434,6 +439,7 @@ function renderColumnSql(t, c, weaker) {
     checks.push(`${sqlId(c.sql)} IN (${c.allowed.map(sqlStr).join(', ')})`);
   }
   if (c.pattern && c.type !== 'list') checks.push(`(${globCheck(c.sql, c.pattern, weaker)})`);
+  else if (c.type === 'date') { checks.push(`${sqlId(c.sql)} GLOB ${sqlStr(DATE_GLOB)}`); weaker.push(DATE_WEAKER); }
   if (c.minimum !== null) checks.push(`${sqlId(c.sql)} >= ${c.minimum}`);
   if (c.maximum !== null) checks.push(`${sqlId(c.sql)} <= ${c.maximum}`);
   // A NULL value passes its own CHECK; the pair CHECK below decides whether NULL is allowed.
@@ -466,7 +472,7 @@ function renderSql({ model }) {
     '-- Not here yet (WP-09): _ord row-order columns, child tables for list columns, the grade-owns-record composite key.',
   ];
   const weak = [...new Set(weaker)];
-  if (weak.length) head.push('-- GLOB cannot say these patterns exactly, so their CHECK is weaker (the build still checks the full pattern):', ...weak.map((p) => `--   ${p}`));
+  if (weak.length) head.push('-- GLOB cannot say these exactly, so their CHECK is weaker (the build still checks the full pattern or the calendar):', ...weak.map((p) => `--   ${p}`));
   return [...head, '', ...body].join('\n');
 }
 

@@ -7,7 +7,7 @@ import { mkdtempSync, writeFileSync, mkdirSync, readFileSync, existsSync } from 
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkDeps, dispatchable } from '../../remake/tools/wp-lib.mjs';
+import { checkDeps, dispatchable, waitingOnOwner, deliveredBy } from '../../remake/tools/wp-lib.mjs';
 import { parseTable, buildIndex } from '../../remake/tools/gen-wp-index.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -108,6 +108,57 @@ test('wp:check: a zero skip count in a node:test summary passes, a non-zero one 
   assert.equal(check(dir, 'WP-99').status.exitCheck, 'pass');
   writeFileSync(join(dir, 'remake/plan/wp-index.json'), JSON.stringify(pkgWith(['npm run two'])));
   assert.equal(check(dir, 'WP-99').status.exitCheck, 'not-run');
+});
+
+test('wp:check: a node:test run of "tests 0" or with a todo test is not-run, never pass', () => {
+  const say = (line) => `node -e "console.log('${line}')"`;
+  const dir = scratch(pkgWith(['npm run ran']), { ran: say('ℹ tests 12\\nℹ pass 12\\nℹ todo 0'), none: say('ℹ tests 0\\nℹ pass 0'), tap: say('# tests 0'), todo: say('ℹ tests 3\\nℹ todo 1'), named: say('✔ tests 0 handles an empty list (1ms)') });
+  const ran = check(dir, 'WP-99');
+  assert.equal(ran.status.exitCheck, 'pass', 'a real run with todo 0 passes');
+  for (const name of ['none', 'tap', 'todo']) {
+    writeFileSync(join(dir, 'remake/plan/wp-index.json'), JSON.stringify(pkgWith([`npm run ${name}`])));
+    const r = check(dir, 'WP-99');
+    assert.equal(r.status.exitCheck, 'not-run', name);
+    assert.equal(r.status.lastPass, ran.status.lastPass, `${name} does not record a pass`);
+  }
+  writeFileSync(join(dir, 'remake/plan/wp-index.json'), JSON.stringify(pkgWith(['npm run named'])));
+  assert.equal(check(dir, 'WP-99').status.exitCheck, 'pass', 'a test whose name contains the words is not a summary line');
+});
+
+test('a package with an approvedAt date is not waiting on the owner; one without is', () => {
+  const statuses = {
+    A: { id: 'A', status: 'waiting-owner', waitingSince: '2026-10-21T07:00:00Z', approvedAt: null },
+    B: { id: 'B', status: 'waiting-owner', waitingSince: '2026-10-21T07:00:00Z', approvedAt: '2026-10-21T08:00:00Z' },
+    C: { id: 'C', status: 'in-review', waitingSince: '2026-10-21T07:00:00Z', approvedAt: '2026-10-21T08:00:00Z' },
+    D: { id: 'D', status: 'in-review', waitingSince: '2026-10-21T07:00:00Z', approvedAt: null },
+    E: { id: 'E', status: 'done', waitingSince: '2026-10-21T07:00:00Z', approvedAt: null },
+    F: { id: 'F', status: 'waiting-owner', waitingSince: null, approvedAt: null },
+  };
+  assert.deepEqual(waitingOnOwner(statuses).map((s) => s.id), ['A', 'D', 'F']);
+});
+
+test('an approval records every package the PR delivers, by PR number and by branch name', () => {
+  const statuses = {
+    'WP-S0': { id: 'WP-S0', pr: 6, branch: 'wp-S0-claude-setup' }, 'WP-01': { id: 'WP-01', pr: 6, branch: 'wp-S0-claude-setup' },
+    'WP-02': { id: 'WP-02', pr: 7, prs: [7] }, 'WP-03': { id: 'WP-03', pr: 10, prs: [10, 12, 13] }, 'WP-05': { id: 'WP-05', pr: null },
+  };
+  assert.deepEqual(deliveredBy(statuses, { pr: 6, branch: 'wp-S0-claude-setup' }), ['WP-01', 'WP-S0'], 'two packages share PR 6');
+  assert.deepEqual(deliveredBy(statuses, { pr: 13, branch: 'wp-03c-ci-install' }), ['WP-03'], 'a follow-up PR listed in prs');
+  assert.deepEqual(deliveredBy(statuses, { pr: 99, branch: 'wp-05-parity' }), ['WP-05'], 'the branch name still finds its package');
+  assert.deepEqual(deliveredBy(statuses, { pr: 99, branch: 'sync/main-2026-10-21' }), []);
+});
+
+test('the shipped status files: the delivered M0 packages are done with their PRs, dropped ones stay dropped', () => {
+  const st = (id) => JSON.parse(readFileSync(join(root, 'remake/status', `${id}.json`), 'utf8'));
+  const prs = { 'WP-S0': 6, 'WP-01': 6, 'WP-02': 7, 'WP-03': 10, 'WP-05': 9, 'WP-06': 8, 'WP-07': 11 };
+  for (const [id, pr] of Object.entries(prs)) {
+    assert.equal(st(id).status, 'done', id);
+    assert.equal(st(id).pr, pr, id);
+    assert.match(st(id).doneAt, /^2026-10-21$/, id);
+  }
+  assert.deepEqual(st('WP-03').prs, [10, 12, 13]);
+  for (const id of ['WP-04', 'WP-12']) assert.equal(st(id).status, 'dropped', id);
+  assert.deepEqual(waitingOnOwner(Object.fromEntries(Object.keys(prs).map((id) => [id, st(id)]))), []);
 });
 
 test('wp:check: pass needs every command to pass; a failure is fail and keeps the old lastPass', () => {

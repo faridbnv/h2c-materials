@@ -1,13 +1,18 @@
 {
   "id": "WP-07",
-  "status": "todo",
+  "status": "done",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "wp-07-contracts",
+  "pr": 11,
   "exitCheck": "not-run",
   "lastRun": null,
   "lastPass": null,
   "evidence": [],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    11
+  ],
+  "note": "delivered by merged PR #11 (2026-10-21)"
 }

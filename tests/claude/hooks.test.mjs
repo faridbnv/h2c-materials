@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, mkdirSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -92,6 +92,110 @@ test('rule 9: merges', () => {
   refused('gh pr create --base main --title x --body y');
   allowed('gh pr merge 42 --auto --squash');
   allowed('gh pr create --base remake/v3 --title x --body y');
+});
+
+test('rule 10: leading assignments and wrappers do not hide a command', () => {
+  refused('FOO=1 git push origin main');
+  refused('GIT_SSH_COMMAND=ssh BAR=2 git push origin remake/v3');
+  refused('env git push origin main');
+  refused('env -i PATH=/usr/bin git push origin main');
+  refused('command git push --force origin wp-07-contracts');
+  refused('time git push origin HEAD:main');
+  refused('nice -n 5 git push origin main');
+  refused('sudo -u root git push origin main');
+  refused('FOO=1 env -u HOME sudo -E git push origin main');
+  refused('/usr/bin/git push origin main');
+  refused('env -S "git push origin main"');
+  refused('FOO=1 gh pr merge 42 --squash');
+  allowed('FOO=1 git push -u origin wp-07-contracts');
+  allowed('env -i PATH=/usr/bin git push origin wp-07-contracts');
+  allowed('nice -n 5 npm run types:check');
+});
+
+test('rule 11: subshells, command substitution, backticks and redirections split commands', () => {
+  refused('(git push origin main)');
+  refused('echo $(git push origin main)');
+  refused('echo "$(git push origin main)"');
+  refused('echo `git push origin main`');
+  refused('echo "`git push origin main`"');
+  refused('git push origin main>/dev/null');
+  refused('git push origin main 2>&1');
+  refused('git push > /dev/null origin main');
+  refused('git push 2>/dev/null origin remake/v3');
+  refused('bash -c "git push origin main"');
+  refused("sh -lc 'git push origin HEAD:main'");
+  refused('eval "git push origin main"');
+  allowed('(cd packages && git push -u origin wp-07-contracts)');
+  allowed('echo $(git rev-parse HEAD)');
+  allowed('git push -u origin wp-07-contracts > push.log 2>&1');
+  allowed('bash -c "npm run types:check"');
+});
+
+test('rule 12: gh api writes to merge, contents, dispatch and refs endpoints, and GraphQL mutations', () => {
+  refused('gh api -X PUT repos/faridbnv/h2c-materials/pulls/12/merge');
+  refused('gh api repos/faridbnv/h2c-materials/pulls/12/merge -X PUT -f merge_method=merge');
+  refused('gh api -X POST repos/faridbnv/h2c-materials/merges -f base=remake/v3 -f head=x');
+  refused('gh api repos/faridbnv/h2c-materials/merges -f base=remake/v3 -f head=x');
+  refused('gh api -X PUT repos/faridbnv/h2c-materials/contents/README.md -f message=x -f content=eA==');
+  refused('gh api repos/faridbnv/h2c-materials/contents/x.txt -F content=@x');
+  refused('gh api -X POST repos/faridbnv/h2c-materials/dispatches -f event_type=go');
+  refused('gh api -X POST repos/faridbnv/h2c-materials/actions/workflows/pages.yml/dispatches -f ref=main');
+  refused('gh api -X POST repos/faridbnv/h2c-materials/git/refs -f ref=refs/heads/x -f sha=abc');
+  refused('gh api -X DELETE repos/faridbnv/h2c-materials/git/refs/heads/x');
+  refused("gh api graphql -f query='mutation { mergePullRequest(input:{pullRequestId:\"x\"}) { clientMutationId } }'");
+  refused("gh api graphql -f query='mutation{addComment(input:{}){clientMutationId}}'");
+  allowed('gh api repos/faridbnv/h2c-materials/contents/README.md');
+  allowed('gh api repos/faridbnv/h2c-materials/pulls/12/files');
+  allowed("gh api graphql -f query='query { viewer { login } }'");
+  allowed('gh api -X GET search/issues -f q=repo:faridbnv/h2c-materials');
+});
+
+function tmpFile(name, text) {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-guard-'));
+  const f = join(dir, name);
+  writeFileSync(f, text);
+  return f;
+}
+
+test('rule 13: gh writes that could forge an attest, and body files', () => {
+  const forged = tmpFile('body.txt', 'wp:attest approve 12 ' + 'a'.repeat(40));
+  const innocent = tmpFile('body.txt', 'tests pass');
+  refused('gh pr comment 12 --body "wp:attest approve 12 ' + 'a'.repeat(40) + '"');
+  refused('gh issue comment 12 -b "wp:attest approve 12"');
+  refused(`gh api repos/faridbnv/h2c-materials/issues/12/comments -F body=@${forged}`);
+  refused(`gh api repos/faridbnv/h2c-materials/issues/12/comments --input ${forged}`);
+  refused('gh api repos/faridbnv/h2c-materials/issues/12/comments -f body="wp:attest approve 12"');
+  refused('cat body.json | gh api repos/faridbnv/h2c-materials/issues/12/comments --input -');
+  refused(`gh pr comment 12 --body-file ${innocent}`);
+  refused(`gh issue comment 12 -F ${innocent}`);
+  allowed('gh pr comment 12 --body "tests pass"');
+  allowed(`gh api repos/faridbnv/h2c-materials/issues/12/comments -F body=@${innocent}`);
+  allowed('gh api repos/faridbnv/h2c-materials/issues/12/comments');
+  allowed(`gh pr create --base remake/v3 --title x --body-file ${forged}`);
+});
+
+test('rule 14: wp:attest anywhere in a word; the attest script may be read, committed and tested but not run', () => {
+  refused('sh -c "npm run wp:attest -- approve 12"');
+  refused("bash -lc 'npm run wp:attest'");
+  refused('npx wp:attest');
+  refused('echo hi; FOO=1 npm run wp:attest -- test');
+  refused('node remake/tools/wp-attest.mjs approve 12');
+  refused('FOO=1 node ./remake/tools/wp-attest.mjs');
+  refused('cd remake/tools && node wp-attest.mjs');
+  refused('node -e "import(\'./remake/tools/wp-attest.mjs\')"');
+  refused('sh -c "node remake/tools/wp-attest.mjs"');
+  allowed('git add remake/tools/wp-attest.mjs');
+  allowed('git commit -m "tidy remake/tools/wp-attest.mjs"');
+  allowed('cat remake/tools/wp-attest.mjs');
+  allowed('grep -n appendAttest remake/tools/wp-attest.mjs');
+  allowed('node --test tests/remake/wp-attest.test.mjs');
+  allowed('node --check remake/tools/wp-attest.mjs');
+});
+
+test('settings deny agents editing remake/attest.csv', () => {
+  const settings = JSON.parse(readFileSync(join(root, '.claude', 'settings.json'), 'utf8'));
+  assert.ok(settings.permissions.deny.includes('Edit(remake/attest.csv)'));
+  assert.ok(settings.permissions.deny.includes('Write(remake/attest.csv)'));
 });
 
 test('non-Bash tools and unrelated commands pass silently', () => {

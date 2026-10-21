@@ -7,9 +7,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { loadCorpus } from '../../packages/parity/src/corpus.ts';
 import { compareCase, exitCode, runParity } from '../../packages/parity/src/compare.ts';
-import { canon, notComputable } from '../../packages/parity/src/canon.ts';
+import { canon, composite, notComputable, show } from '../../packages/parity/src/canon.ts';
 import { createNewPlaceholder } from '../../packages/parity/src/new-adapter.ts';
-import { createOld, readDb } from '../../packages/parity/src/old-adapter.ts';
+import { atom, createOld, readDb } from '../../packages/parity/src/old-adapter.ts';
 import { cli, root, small, corpus } from './helpers.mjs';
 
 const computed = (records, caseId = 'c') => ({ caseId, outcome: 'computed', records });
@@ -87,6 +87,38 @@ test('canon: key order does not matter, array order does, cycles throw', () => {
   const o = {}; o.self = o;
   assert.throws(() => canon(o), /cycle/);
   assert.throws(() => canon(() => 1), /cannot encode/);
+});
+
+test('a string that spells a list or an object never equals the list or the object it spells', () => {
+  const rec = (v) => computed({ 'material:M': { evidence: { f: v } } });
+  const pairs = [
+    [['a', 1, null], '["a",1,null]'],
+    [{ a: 1, b: [true] }, '{"a":1,"b":[true]}'],
+    [[], '[]'],
+    [{}, '{}'],
+    [[1, 2], canon([1, 2])],
+  ];
+  for (const [value, spelling] of pairs) {
+    for (const [x, y] of [[atom(value), atom(spelling)], [atom(spelling), atom(value)]]) {
+      const c = compareCase(rec(x), rec(y));
+      assert.equal(c.differences.length, 1, `${JSON.stringify(value)} against its spelling ${JSON.stringify(spelling)}`);
+      assert.notEqual(c.differences[0].before, c.differences[0].after);
+    }
+    assert.notEqual(show(atom(value)), show(atom(spelling)), 'shown differently too');
+    assert.equal(compareCase(rec(atom(value)), rec(atom(structuredClone(value)))).differences.length, 0, 'the same list or object is equal to itself');
+  }
+  // the display tells them apart: a composite bare, a string quoted
+  const d = compareCase(rec(atom(['a', 1, null])), rec(atom('["a",1,null]'))).differences[0];
+  assert.deepEqual([d.before, d.after], ['["a",1,null]', '"[\\"a\\",1,null]"']);
+  // key order is not a difference inside a composite; array order is
+  assert.equal(compareCase(rec(atom({ b: 1, a: 2 })), rec(atom({ a: 2, b: 1 }))).differences.length, 0);
+  assert.equal(compareCase(rec(atom([1, 2])), rec(atom([2, 1]))).differences.length, 1);
+  // a composite is not equal to an atom that shows alike, nor to a not-computable value
+  assert.equal(compareCase(rec(atom([1])), rec(1)).differences.length, 1);
+  assert.equal(compareCase(rec(atom([1])), rec(null)).differences.length, 1);
+  assert.equal(compareCase(rec(atom([1])), rec(notComputable('x'))).notComputable.length, 1);
+  assert.throws(() => composite('["a"]'), /atom stays an atom/);
+  assert.throws(() => composite(null), /atom stays an atom/);
 });
 
 test('a record that exists on one side only is a difference', () => {
