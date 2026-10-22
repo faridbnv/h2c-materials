@@ -11,8 +11,9 @@ const RECIPE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 
 
 const rowsOf = (value: unknown): Loose[] => (Array.isArray(value) ? value : []);
 
+const records = (shard: DetailShard): Loose => shard.records;
+
 export function citedDbOf(core: Loose, details: ReadonlyMap<string, DetailShard>): Loose {
-  const records = (shard: DetailShard): Loose => shard.records;
   const sources = new Map<string, Loose>();
   for (const shard of details.values()) for (const source of rowsOf(records(shard).sources)) sources.set(source.id, source);
   // A section's rows, each completed by the detail's rest of it where a cited material has one.
@@ -45,7 +46,6 @@ export function joinCited(core: Loose, details: ReadonlyMap<string, DetailShard>
       }
     }
   };
-  const records = (shard: DetailShard): Loose => shard.records;
   for (const shard of details.values()) {
     const material = core.materials.find((m: Loose) => m.id === shard.materialId);
     if (!material) throw new Error(`the detail of ${shard.materialId} is of a material the core does not hold`);

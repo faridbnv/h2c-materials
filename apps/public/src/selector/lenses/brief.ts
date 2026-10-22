@@ -26,7 +26,6 @@ const cell = (t: Loose) => String(t ?? '').replace(/\|/g, '\\|').replace(/\s+/g,
 const requirementOf = (r: Loose) => (r.constraint ? describeConstraint(r.constraint) : r.criterion);
 const against = (a: Loose) => (a ? gateVerdict(a.verdict).against : '');
 
-
 /** How a print window reads in a brief. */
 function windowWords(a: Loose) {
   if (!a) return NP;
@@ -34,6 +33,19 @@ function windowWords(a: Loose) {
   if (a.state === 'not-required' || a.state === 'ambient') return 'not required';
   if (a.state === 'enclosed') return 'an enclosure, which the H2C\'s heated chamber is';
   return a.state === 'unknown' ? NP : a.state.replace(/-/g, ' ');
+}
+
+function hardenedNozzleWords(value: unknown): string {
+  if (value === true) return 'required';
+  if (value === false) return 'not needed';
+  return NP;
+}
+
+/** How the annealing the answer needs, or only its sheet measures, reads in a brief. */
+function annealingWords(treatment: Loose, sheetSchedules: readonly Loose[]): string {
+  if (treatment) return `needed for this answer, at ${scheduleWords(treatment)}`;
+  if (sheetSchedules.length) return `not needed for this answer; its sheet measures some values after ${sheetSchedules.map((a) => scheduleWords(a)).join('; ')}`;
+  return 'not needed for this answer';
 }
 
 /**
@@ -140,9 +152,9 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
   const from = p?.from ?? {};
   const origin = (k: Loose) => (from[k] ? ` (${from[k].label})` : '');
   for (const [label, key = ''] of [['Nozzle', 'nozzle'], ['Bed', 'bed'], ['Chamber', 'chamber']]) L.push(`- ${label}: ${windowWords(p?.[key])}${p?.[key] ? `, ${against(p[key])}` : ''}${origin(key)}`);
-  L.push(`- Hardened nozzle: ${p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : NP}${origin('hardenedNozzle')}`);
+  L.push(`- Hardened nozzle: ${hardenedNozzleWords(p?.hardenedNozzle)}${origin('hardenedNozzle')}`);
   L.push(`- Drying: ${p?.drying ? dryingWords(p.drying) : NP}${origin('drying')}`);
-  L.push(`- Annealing: ${entry?.state?.treatment ? `needed for this answer, at ${scheduleWords(entry.state.treatment)}` : (p?.anneal ?? []).length ? `not needed for this answer; its sheet measures some values after ${(p.anneal).map((a: Loose) => scheduleWords(a)).join('; ')}` : 'not needed for this answer'}`);
+  L.push(`- Annealing: ${annealingWords(entry?.state?.treatment, p?.anneal ?? [])}`);
   L.push('');
 
   L.push('## The confirmation test', '');

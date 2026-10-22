@@ -10,7 +10,12 @@ const joined = new Set<string>();
 /** Each product's material on the product itself, as the lenses read it (the core's products are listed by their material, not the other way round). */
 export function stampGrades(db: Loose): void {
   const grades = new Map<string, Loose>(db.grades.map((g: Loose) => [g.id, g]));
-  for (const material of db.materials) for (const id of material.gradeIds ?? []) { const grade = grades.get(id); if (grade && grade.materialId === undefined) grade.materialId = material.id; }
+  for (const material of db.materials) {
+    for (const id of material.gradeIds ?? []) {
+      const grade = grades.get(id);
+      if (grade && grade.materialId === undefined) grade.materialId = material.id;
+    }
+  }
 }
 
 /** The materials whose measurement rows the view being drawn reads whole. */
