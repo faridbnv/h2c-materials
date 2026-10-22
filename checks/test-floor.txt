@@ -122,7 +122,7 @@ file:tests/parity/transitions.test.mjs tests=17 asserts=54
 file:tests/remake/candidate.test.mjs tests=17 asserts=83
 file:tests/remake/candidates.test.mjs tests=7 asserts=34
 file:tests/remake/checks-register.test.mjs tests=32 asserts=84
-file:tests/remake/ci.test.mjs tests=45 asserts=294
+file:tests/remake/ci.test.mjs tests=44 asserts=295
 file:tests/remake/cutover-kit.test.mjs tests=35 asserts=177
 file:tests/remake/cutover-ready.test.mjs tests=5 asserts=23
 file:tests/remake/db-contract.test.mjs tests=6 asserts=28
