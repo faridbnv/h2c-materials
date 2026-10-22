@@ -27,6 +27,7 @@ export const LIVE_URL = 'https://pdynamics.ca/h2c-materials/';
 // live tool's answers. tests/remake/ci.test.mjs requires every transition file to be named here, so the banner cannot go stale.
 export const TRANSITION_NOTES = {
   '2026-10-21-reprint-counts-once': "a table one maker reprints from another counts once in a material's median (reprint-counts-once)",
+  '2026-10-22-dt1-float-tie': 'a rounding tie in the estimate audit is settled with a tolerance; no answer moves (dt1-float-tie)',
 };
 const CHANGES = Object.values(TRANSITION_NOTES);
 export const BANNER_TEXT = `Preview of the Filament Atlas remake — not the live tool.${CHANGES.length ? ` Deliberate change from it: ${CHANGES.join('; ')}.` : ''} Live:`;

@@ -210,7 +210,7 @@ requirement only for a state that has a treatment.
 The stage keeps the old behaviour (R-Q2-19): `db.json` and `reference.json` are byte for byte the old build's, and `estimates.json` is the
 old stage's own output. The entries below are what the move and the measurement exposed; none is fixed here.
 
-### WP21-D1. DT-1: the float tie at `grades.js:51` (measured, not applied)
+### WP21-D1. DT-1: the float tie at `grades.js:51` (applied in M3: transition [dt1-float-tie](transitions/dt1-float-tie.md))
 
 - **Where.** `build/src/estimate/grades.js:51` (`within`: a bare `<=`), and the two sites gap-1 names as next in line,
   `grades.js:157-173` (`inRange`) and `directions.js:47`.

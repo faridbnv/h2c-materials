@@ -1,6 +1,6 @@
 # Validation report
 
-Database snapshot 2026-09-21 · build 2026-10-20
+Database snapshot 2026-09-21 · build 2026-10-22
 
 **No errors.**
 
@@ -315,8 +315,8 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
 | density | 836 | 1.43 | 2.05 | 0.795 | 0.95 | yes |
-| tensileModulusXY | 300 | 1.1 | 1.32 | 0.8 | 0.95 | yes |
-| tensileStrengthXY | 307 | 1.29 | 1.27 | 0.788 | 0.941 | yes |
+| tensileModulusXY | 300 | 1.1 | 1.32 | 0.8 | 0.947 | yes |
+| tensileStrengthXY | 307 | 1.29 | 1.27 | 0.788 | 0.938 | yes |
 | elongationXY | 337 | 1.07 | 1.13 | 0.798 | 0.95 | yes |
 | hdt045 | 415 | 1.22 | 1.55 | 0.81 | 0.959 | yes |
 
@@ -328,11 +328,11 @@ By matrix as printed (D162): the hidden grade values of each matrix, the coverag
 | density | elastomer | 93 | 0.957 | 0.989 | 0.659 / 0.925 | – | – |
 | density | semi-filled | 73 | 0.671 | 0.959 | 1.85 / 2.02 | 0.0506 (248) | 0.0255 |
 | density | semi-unfilled | 51 | 0.667 | 0.882 | 1.89 / 2.78 | 0.0407 (137) | 0.0255 |
-| tensileModulusXY | amorphous | 238 | 0.803 | 0.95 | 1.05 / 1.36 | 0.271 (2128) | 0.27 |
+| tensileModulusXY | amorphous | 238 | 0.803 | 0.945 | 1.05 / 1.36 | 0.271 (2128) | 0.27 |
 | tensileModulusXY | elastomer | 20 | 0.95 | 1 | 0.888 / 0.721 | – | – |
 | tensileModulusXY | semi-filled | 30 | 0.667 | 0.9 | 1.55 / 1.4 | 0.149 (26) | 0.27 |
 | tensileModulusXY | semi-unfilled | 12 | 0.833 | 1 | 1.07 / 1.15 | 0.224 (1) | 0.27 |
-| tensileStrengthXY | amorphous | 240 | 0.808 | 0.958 | 1.2 / 1.21 | 0.223 (3696) | 0.224 |
+| tensileStrengthXY | amorphous | 240 | 0.808 | 0.954 | 1.2 / 1.21 | 0.223 (3696) | 0.224 |
 | tensileStrengthXY | elastomer | 31 | 0.613 | 0.839 | 1.62 / 1.84 | – | – |
 | tensileStrengthXY | semi-filled | 27 | 0.815 | 0.926 | 1.17 / 1.29 | 0.374 (40) | 0.224 |
 | tensileStrengthXY | semi-unfilled | 9 | 0.778 | 0.889 | 1.44 / 1.13 | 0.226 (4) | 0.224 |
@@ -344,7 +344,7 @@ By matrix as printed (D162): the hidden grade values of each matrix, the coverag
 | hdt045 | semi-filled | 52 | 0.808 | 0.962 | 1.24 / 1.72 | 31.4 (106) | 31.4 |
 | hdt045 | semi-unfilled | 27 | 0.815 | 1 | 1.38 / 1.2 | 17.5 (32) | 17.5 |
 
-Grade plausible coverage by fold of materials: density 0.903, 0.988, 1, 0.929, 0.978; tensileModulusXY 0.958, 0.915, 0.974, 0.945, 0.961; tensileStrengthXY 0.943, 0.938, 0.974, 0.863, 1; elongationXY 0.955, 0.971, 0.938, 0.947, 0.925; hdt045 0.979, 0.979, 0.915, 0.945, 0.934. Median grade plausible width: density 1.24, tensileModulusXY 1.92, tensileStrengthXY 1.73, elongationXY 10, hdt045 21.5.
+Grade plausible coverage by fold of materials: density 0.903, 0.988, 1, 0.929, 0.978; tensileModulusXY 0.958, 0.915, 0.974, 0.927, 0.961; tensileStrengthXY 0.933, 0.938, 0.974, 0.863, 1; elongationXY 0.955, 0.971, 0.938, 0.947, 0.925; hdt045 0.979, 0.979, 0.915, 0.945, 0.934. Median grade plausible width: density 1.24, tensileModulusXY 1.92, tensileStrengthXY 1.73, elongationXY 10, hdt045 21.5.
 
 A product's own values as its anchor (D167): hidden grades that publish the property another way too; how often their own bands (as the conversions state them) and anchors (widened by the band scale) hold the hidden value; where the model's centre lay outside the anchor (its estimate withheld), how often the band and the model held it; and the anchored ranges' coverage before and after.
 

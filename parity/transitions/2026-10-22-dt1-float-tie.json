@@ -1,0 +1,107 @@
+{
+ "id": "2026-10-22-dt1-float-tie",
+ "kind": "determinism",
+ "corpus": "v0",
+ "description": "The estimate stage decides whether a held-out grade lies inside its z-scaled range with the tolerance helper (numerics exceeds) instead of a bare comparison, at grades.ts within and inRange and directions.ts held. A grade one unit in the last place from its range's end now counts as within. It moves only the audit field plausibleCoverage of four headlines' grade calibration (12 leaves); no estimate, verdict, group, Best, likely or listing moves.",
+ "ruling": "Owner ruling OQ-06 A (fix the float tie only if it moves nothing that matters); applied by owner answer R1 A (pack 16, 2026-10-22): its own registered change in M3",
+ "differences": [
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.density.gradeCalibration.byFold[0].plausibleCoverage",
+   "before": "0.903",
+   "after": "0.907"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.density.gradeCalibration.byMatrix.amorphous.plausibleCoverage",
+   "before": "0.948",
+   "after": "0.95"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.density.gradeCalibration.plausibleCoverage",
+   "before": "0.95",
+   "after": "0.951"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.elongationXY.gradeCalibration.byFold[0].plausibleCoverage",
+   "before": "0.955",
+   "after": "0.964"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.elongationXY.gradeCalibration.byMatrix.amorphous.plausibleCoverage",
+   "before": "0.946",
+   "after": "0.95"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.elongationXY.gradeCalibration.plausibleCoverage",
+   "before": "0.95",
+   "after": "0.953"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.tensileModulusXY.gradeCalibration.byFold[3].plausibleCoverage",
+   "before": "0.927",
+   "after": "0.945"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.tensileModulusXY.gradeCalibration.byMatrix.amorphous.plausibleCoverage",
+   "before": "0.945",
+   "after": "0.95"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.tensileModulusXY.gradeCalibration.plausibleCoverage",
+   "before": "0.947",
+   "after": "0.95"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.tensileStrengthXY.gradeCalibration.byFold[0].plausibleCoverage",
+   "before": "0.933",
+   "after": "0.943"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.tensileStrengthXY.gradeCalibration.byMatrix.amorphous.plausibleCoverage",
+   "before": "0.954",
+   "after": "0.958"
+  },
+  {
+   "case": "build",
+   "record": "meta",
+   "tier": "evidence",
+   "field": "estimateModel.properties.tensileStrengthXY.gradeCalibration.plausibleCoverage",
+   "before": "0.938",
+   "after": "0.941"
+  }
+ ],
+ "digest": "sha256:7147ff27b1b02e8064ef29a8d725c4cea9485ea067107b4127ed9767c6e5ae22",
+ "seal": "sha256:ffc3025e1de762e523a6ed6eb656193a87e59e416fe7df965e68c762fc924655"
+}
