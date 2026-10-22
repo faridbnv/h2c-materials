@@ -1,0 +1,19 @@
+{
+  "name": "@atlas/pages",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas material pages in TypeScript (WP-24): the facts-and-words layer the drawer and the pages share, the page renderers as typed string functions, the page scripts bundled for the browser, and the command that writes the whole materials/ folder from a compiled database.",
+  "exports": {
+    "./facts/*": "./src/facts/*.ts",
+    "./render": "./src/render.ts",
+    "./site": "./src/site.ts"
+  },
+  "dependencies": {
+    "@atlas/engine": "0.0.0",
+    "@atlas/publish": "0.0.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
+  }
+}

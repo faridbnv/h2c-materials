@@ -1,0 +1,7 @@
+{
+  "$comment": "The two page scripts (page.ts, products.ts) run in a browser, not in Node: this config adds the DOM types and removes Node's. The strong level otherwise; `Loose` comes from ../src/loose.ts. Checked by `npm run typecheck`.",
+  "extends": "../../../tsconfig.strong.json",
+  "compilerOptions": { "lib": ["es2023", "dom"], "types": [] },
+  "include": ["./*.ts", "../src/loose.ts"],
+  "exclude": []
+}

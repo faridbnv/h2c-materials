@@ -1,0 +1,107 @@
+/* Filament Atlas material pages: the sections' words and tables (track B of the pages reimagined, 2026-10-17). After the
+   frame (frame.src.css: tokens --t-*, --f-*, --r-*, the .ov-sec and .ov-h of each section), before the figures'.
+
+   A section opens with one paragraph a size larger than the text (19 px, at most 62 characters a line); then its figures
+   and tables. Quotes are a maker's own words, set as quotations with whose they are beside them. Tables are quiet: one
+   hairline under each row, figures right-aligned in tabular digits, no shading. --ink-3 never colours text under 18 px. */
+
+/* ------------------------------------------------------------------ words */
+.sec-open { margin: 0 0 28px; max-width: 62ch; font-size: var(--t-l); line-height: 1.5; text-wrap: pretty; }
+.sec-p { margin: 16px 0 8px; max-width: 66ch; text-wrap: pretty; }
+.sec-note { margin: 10px 0 0; max-width: 72ch; font-size: var(--t-s); color: var(--ink-2); line-height: 1.5; }
+.sec-sub { margin: 48px 0 12px; font: 600 var(--t-m)/1.3 var(--f-sans); }
+.ov-sec .fig + .sec-open, .ov-sec .dv-fig + .sec-open { margin-top: 32px; }
+.ov-sec [data-v] { font-variant-numeric: tabular-nums; white-space: nowrap; }
+a.prod { color: var(--accent); }
+
+/* ------------------------------------------------------------------ makers' own words */
+.said-list { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; max-width: 72ch; }
+.said { padding-left: 16px; border-left: 2px solid var(--border); line-height: 1.5; }
+.said q { quotes: "\201C" "\201D"; }
+.said-what { font-size: var(--t-xs); color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 0 7px; white-space: nowrap; }
+.said-who { display: block; margin-top: 2px; font-size: var(--t-s); color: var(--ink-2); }
+.said-who a { color: var(--ink-2); }
+.said-topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px 40px; margin-top: 8px; }
+.said-topic h4 { margin: 0 0 6px; font: 600 var(--t-s)/1.4 var(--f-sans); }
+.said-topic h4 small { font-weight: 400; color: var(--ink-2); margin-left: 6px; }
+
+/* A source's words set as plain text, "after" it: this project's reading of a reference, not a quotation. */
+.said--after .said-text { color: var(--ink); }
+.said--after .said-who { font-style: italic; }
+.absent { margin-top: 24px; }
+
+/* ------------------------------------------------------------------ folds */
+details.more { margin-top: 24px; max-width: 72ch; }
+details.more > summary { cursor: pointer; font-weight: 600; font-size: var(--t-s); color: var(--ink); padding: 6px 0; }
+details.more > summary:hover { color: var(--accent); }
+details.more[open] > summary { margin-bottom: 8px; }
+
+/* ------------------------------------------------------------------ tables */
+.ov-sec .table-box { overflow-x: auto; max-width: 100%; margin-top: 12px; -webkit-overflow-scrolling: touch; }
+.ov-sec table.grid { border-collapse: collapse; font-size: 15px; line-height: 1.45; min-width: min(100%, 520px); }
+.ov-sec table.grid th, .ov-sec table.grid td { padding: 8px 14px 8px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+.ov-sec table.grid thead th { font-size: var(--t-s); font-weight: 600; color: var(--ink-2); border-bottom-color: var(--border-strong); white-space: nowrap; }
+.ov-sec table.grid tbody th { font-weight: 500; }
+.ov-sec table.grid .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ov-sec table.grid td.none { color: var(--ink-2); font-style: italic; }
+.ov-sec table.grid .u { font-weight: 400; color: var(--ink-2); font-size: var(--t-xs); }
+.ov-sec table.grid tr.apart td { color: var(--ink-2); font-size: var(--t-s); }
+
+/* The flat and across-the-layers table: a median with its middle half under it. */
+table.grid.layers td.typ b, table.grid.layers td.share b { display: block; font-weight: 600; }
+table.grid.layers .mh { display: block; font-size: var(--t-xs); color: var(--ink-2); }
+table.grid.layers td.n { color: var(--ink-2); }
+table.grid.layers thead th[scope="colgroup"] { text-align: center; }
+
+/* A table whose first column names the rows: that column a fixed share, the others as wide as their contents; a column
+   of numbers right-aligned under a right-aligned head, a column of words left-aligned under a left-aligned head. */
+.ov-sec table.grid th.prop { width: 15rem; min-width: 11rem; text-align: left; }
+.ov-sec table.grid thead th.num { text-align: right; }
+
+/* What each sheet publishes (thin data). */
+.ov-sec table.grid.sheets thead th, .ov-sec table.grid.sheets thead th a { white-space: normal; overflow-wrap: anywhere; vertical-align: bottom; }
+table.grid.sheets td.open .cv-n { color: var(--ink-2); font-style: italic; }
+table.grid.sheets td.from .cv-n { color: var(--ink-2); }
+table.grid.sheets .cv { display: block; }
+table.grid.sheets .cv small { display: block; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.3; }
+table.grid.sheets .cv + .cv { margin-top: 4px; }
+
+/* Print settings: words, left under left-aligned heads; their widths are the sheet tables' grid (frame.src.css). */
+.ov-sec table.grid.settings th, .ov-sec table.grid.settings td { text-align: left; }
+table.grid.settings .set-note { display: block; font-size: var(--t-xs); color: var(--ink-2); }
+table.grid.settings td.guide { color: var(--ink); }
+table.grid.settings td.from { color: var(--ink-2); font-style: italic; }
+
+/* Chemicals, resin reference data, other properties, estimates, publishers. */
+table.grid.chem td:nth-child(2) { min-width: 14rem; }
+.fence { padding: 4px 0 0; }
+.fence > .sec-p:first-child { margin-top: 0; }
+
+/* ------------------------------------------------------------------ sources */
+ul.gaps { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; max-width: 72ch; }
+ul.gaps li { padding-left: 16px; border-left: 2px solid var(--border); }
+details.docs { max-width: none; }
+ul.doc-list { margin: 0; padding: 0; list-style: none; columns: 2 420px; column-gap: 40px; }
+ul.doc-list li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: var(--t-s); line-height: 1.45; }
+.doc-meta { display: block; color: var(--ink-2); font-size: var(--t-xs); }
+.doc-kind { border: 1px solid var(--border); border-radius: 999px; padding: 0 6px; margin-left: 4px; }
+
+/* ------------------------------------------------------------------ the method page */
+.method { max-width: 72ch; padding: 40px 0 96px; }
+.method-head h1 { margin: 0 0 16px; font: 600 48px/1.05 var(--f-serif); letter-spacing: -.02em; }
+.method-part { margin-top: 48px; scroll-margin-top: var(--anchor-top); }
+.method-part h2 { margin: 0 0 12px; font: 500 26px/1.2 var(--f-serif); }
+.method-part p { margin: 0 0 12px; text-wrap: pretty; }
+
+@media (max-width: 719px) {
+  .sec-open { font-size: 17px; }
+  .ov-sec table.grid th.prop { width: auto; min-width: 0; max-width: 8.5rem; }
+  table.grid.settings td, table.grid.settings thead th:not(.prop) { min-width: 0; }
+  .sec-sub { margin-top: 36px; }
+  .method-head h1 { font-size: 36px; }
+  ul.doc-list { columns: 1; }
+}
+@media print {
+  details.more:not([open]) { display: none; }
+  .ov-sec .table-box { overflow: visible; }
+}
