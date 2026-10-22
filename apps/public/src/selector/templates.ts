@@ -21,8 +21,6 @@ export const PRINTABLE = [
   { kind: 'gate', gate: 'bed', __group: 'Compatibility' },
   { kind: 'gate', gate: 'chamber', __group: 'Compatibility' },
 ];
-/** Whether a set of requirements asks the H2C's print gates, all three. */
-export const asksPrintable = (constraints: Loose) => PRINTABLE.every((p) => constraints.some((c: Loose) => c.kind === 'gate' && c.gate === p.gate));
 /** The print gates a set of requirements leaves out, by name ("chamber"), in nozzle, bed, chamber order. */
 export const printGatesMissing = (constraints: Loose) => PRINTABLE.map((p) => p.gate).filter((g) => !constraints.some((c: Loose) => c.kind === 'gate' && c.gate === g));
 /**
