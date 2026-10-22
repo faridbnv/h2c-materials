@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "asset": "legacy-site-7c6da496722d.zip",
+  "digest": "sha256:11fed3c2aff06a1257a0bb1cac0ac82d69dda3bc2575b11473fd9cd814585717",
+  "manifestDigest": "sha256:87a8bcad7ea6108fda5e25c0d87e0856428430f3719b124d7d3938c9ddbf7f4a",
+  "mainCommit": "c31ceebf2c64b392c5451a884a2e2a466e5ac779",
+  "oldReleaseId": "7c6da496722d",
+  "fileCount": 256,
+  "storedFrom": "live",
+  "diffReport": "legacy-diff.md",
+  "release": "h2c-legacy-final",
+  "savedAt": "2026-10-22T20:23:24.858Z"
+}
