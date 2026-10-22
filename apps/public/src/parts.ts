@@ -7,7 +7,7 @@
 // `loadParts` and `loadDetails` return a whole set or throw. There is no partial result to misuse. The page never fetches release.json.
 import { isCoreReadModel } from '@atlas/domain';
 import type { CoreReadModel, DetailShard } from '@atlas/domain';
-import { applyEstimates, applyHeadlines, EstimatesDoNotFitError, HeadlinesDoNotFitError } from '@atlas/publish/shards';
+import { applyEstimates, EstimatesDoNotFitError } from '@atlas/publish/shards';
 import type { Overlay } from '@atlas/publish/shards';
 import { DetailsIncomplete, fetchPart, isMaterialId } from './load.ts';
 import type { FetchLike } from './load.ts';
@@ -46,10 +46,10 @@ export interface Loaded {
   readonly reference?: unknown;
 }
 
-const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
+export const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 
 /** A part's wrapper, once it is the kind asked for and names the page's release. */
-function envelope(json: unknown, kind: string, what: string, embedded: string): Record<string, unknown> {
+export function envelope(json: unknown, kind: string, what: string, embedded: string): Record<string, unknown> {
   if (!isObject(json)) throw new DataShapeError(what, 'is not an object');
   if (json['kind'] !== kind) throw new DataShapeError(what, `is not a ${kind} part (it says ${String(json['kind'])})`);
   if (typeof json['release'] !== 'string') throw new DataShapeError(what, 'names no release');
@@ -80,28 +80,7 @@ function parseEstimates(json: unknown, embedded: string): EstimatesStatus & { re
   return { overlay, status, withheld };
 }
 
-/** The reference part: the Ashby reference set, and the rest of every material's headline values, which the chart lenses read and the core does not carry. */
-function parseReference(json: unknown, embedded: string): { readonly reference: unknown; readonly headlines: Record<string, Record<string, unknown>>; readonly meta: Record<string, unknown> } {
-  const file = envelope(json, 'reference', 'the reference part', embedded);
-  if (!isObject(file['reference'])) throw new DataShapeError('the reference part', 'carries no reference set');
-  const headlines = file['headlines'];
-  if (!isObject(headlines)) throw new DataShapeError('the reference part', 'carries no headline values');
-  const meta = file['meta'];
-  if (!isObject(meta)) throw new DataShapeError('the reference part', 'carries no meta facts');
-  return { reference: file['reference'], headlines: headlines as Record<string, Record<string, unknown>>, meta };
-}
-
-/** The headlines on the core, in place; a part that does not fit this core is a damaged one. */
-function joinHeadlines(model: Record<string, unknown>, parsed: { readonly headlines: Record<string, Record<string, unknown>>; readonly meta: Record<string, unknown> }): void {
-  try {
-    applyHeadlines(model, parsed.headlines, parsed.meta);
-  } catch (error) {
-    if (error instanceof HeadlinesDoNotFitError) throw new DataShapeError('the reference part', `does not fit the core part (${error.message})`);
-    throw error;
-  }
-}
-
-async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn: FetchLike): Promise<Loaded> {
+export async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn: FetchLike): Promise<Loaded> {
   const core = fetchPart(fetchFn, embedded, 'core.json', 'the core part');
   const estimates = needs.includes('estimates') ? fetchPart(fetchFn, embedded, 'estimates.json', 'the estimates part') : null;
   const reference = needs.includes('reference') ? fetchPart(fetchFn, embedded, 'reference.json', 'the reference part') : null;
@@ -122,6 +101,8 @@ async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn:
     }
   }
   if (reference === null) return loaded;
+  // The reference part's reading is with the chart lenses' code (lens-parts.ts), loaded here when the mode asks for it.
+  const { parseReference, joinHeadlines } = await import('./lens-parts.ts');
   const parsed = parseReference(referenceJson, embedded);
   joinHeadlines(model, parsed);
   return { ...loaded, reference: parsed.reference };
@@ -178,19 +159,9 @@ export async function loadParts(embedded: string, mode: Mode, fetchFn: FetchLike
   return loadNeeded(embedded, REQUIRES[mode], fetchFn);
 }
 
-/**
- * The reference part (reference.json), on a core already loaded: whole and of the page's release, or a throw. The Ashby reference set comes back, and the rest of
- * every material's headline values is put on the model, which is then as `loadParts(…, 'ashby')` would have made it. A chart lens asks for it when first opened.
- */
-export async function loadReference(embedded: string, model: CoreReadModel, fetchFn: FetchLike): Promise<unknown> {
-  const parsed = parseReference(await fetchPart(fetchFn, embedded, 'reference.json', 'the reference part'), embedded);
-  joinHeadlines(model, parsed);
-  return parsed.reference;
-}
-
 export { DetailsIncomplete };
 
-const isStale = (reason: unknown): reason is StaleShellError => reason instanceof Error && reason.name === 'StaleShellError';
+export const isStale = (reason: unknown): reason is StaleShellError => reason instanceof Error && reason.name === 'StaleShellError';
 
 const isDetail = (file: Record<string, unknown>): file is DetailShard & Record<string, unknown> =>
   typeof file['release'] === 'string' && typeof file['materialId'] === 'string' && isObject(file['records']);
@@ -223,15 +194,3 @@ export async function loadDetails(embedded: string, materialIds: readonly string
   return out;
 }
 
-/**
- * The brief and the export: the core and the detail shard of every material they cite, together or not at all. A row is never written
- * without its citation, so a caller that holds this holds every citation it can need.
- */
-export async function loadCited(embedded: string, mode: 'brief' | 'export', citedMaterialIds: readonly string[], fetchFn: FetchLike): Promise<Loaded & { readonly details: ReadonlyMap<string, DetailShard> }> {
-  // Both settle before either is used, and a stale part wins over any other failure, so a stale page reloads.
-  const [loaded, details] = await Promise.allSettled([loadNeeded(embedded, REQUIRES[mode], fetchFn), loadDetails(embedded, citedMaterialIds, fetchFn)]);
-  for (const outcome of [loaded, details]) if (outcome.status === 'rejected' && isStale(outcome.reason)) throw outcome.reason;
-  if (loaded.status === 'rejected') throw loaded.reason;
-  if (details.status === 'rejected') throw details.reason;
-  return { ...loaded.value, details: details.value };
-}

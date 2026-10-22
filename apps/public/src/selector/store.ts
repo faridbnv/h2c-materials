@@ -18,6 +18,7 @@ import { esc } from '@atlas/pages/facts/format';
 import { setEnvironmentLabels, setH2cBaseline, screenedByKind, unknownGroups, unknownGroupWords, POLICY_CONTROL, POLICY_LABELS } from '@atlas/pages/facts/labels';
 import { useRegistry } from '@atlas/pages/facts/registry';
 import type { Loose } from '@atlas/pages/loose';
+import type { LensHooks } from '../lens-hooks.ts';
 import type { Loaded } from '../parts.ts';
 import { forgetZoom } from './lenses/zoom.ts';
 import { candidateCount } from './start.ts';
@@ -50,12 +51,8 @@ const nothing = <T>(): T | null => null;
 export interface StoreHooks {
   readonly loadEstimates: () => Promise<Loose>;
   readonly loadDrawerParts: (id: string) => Promise<{ readonly detail: Loose; readonly shared: Loose }>;
-  /** The Ashby reference set (reference.json), whole and of this release, or a throw. */
-  readonly loadReference: () => Promise<Loose>;
-  /** The detail of the materials a chart view reads measurements of (the test pairs, an open mark's records), whole and of this release, or a throw. */
-  readonly loadMeasurements: (materialIds: readonly string[]) => Promise<ReadonlyMap<string, Loose>>;
-  /** The detail of every material an export or a brief cites, whole and of this release, or a throw (the completeness rule: nothing is written without its citations). */
-  readonly loadCited: (kind: 'brief' | 'export', materialIds: readonly string[]) => Promise<ReadonlyMap<string, Loose>>;
+  /** The wiring of the chart lenses' parts, the exports and the brief (lens-hooks.ts); `flush` writes the address before a failure goes on to the stale-shell guard. */
+  readonly lens: (flush: () => void) => Promise<LensHooks>;
 }
 
 export function createStore(loaded: Loaded, hooks: StoreHooks) {
@@ -560,42 +557,16 @@ export function createStore(loaded: Loaded, hooks: StoreHooks) {
     return true;
   }
 
+  /** A loader that writes the address before its failure goes on to the guard. */
+  const guarded = <A extends unknown[], R>(load: (...args: A) => Promise<R>) => async (...args: A): Promise<R> => {
+    try { return await load(...args); } catch (error) { flushHash(); throw error; }
+  };
+
   return {
     state, actions, render, start, followHash, hydrate, validationOptions,
     touch, pushHash, countHtml, statusView, provenance, ensureEstimates,
     // A part that fails reaches the stale-shell guard, which may reload the page: the address keeps the question first (flushHash).
-    loadDrawerParts: async (id: string) => {
-      try {
-        return await hooks.loadDrawerParts(id);
-      } catch (error) {
-        flushHash();
-        throw error;
-      }
-    },
-    loadMeasurements: async (ids: readonly string[]) => {
-      try {
-        return await hooks.loadMeasurements(ids);
-      } catch (error) {
-        flushHash();
-        throw error;
-      }
-    },
-    loadReference: async () => {
-      try {
-        return await hooks.loadReference();
-      } catch (error) {
-        flushHash();
-        throw error;
-      }
-    },
-    loadCited: async (kind: 'brief' | 'export', ids: readonly string[]) => {
-      try {
-        return await hooks.loadCited(kind, ids);
-      } catch (error) {
-        flushHash();
-        throw error;
-      }
-    },
+    loadDrawerParts: guarded(hooks.loadDrawerParts), lens: () => hooks.lens(flushHash),
     policyControl: POLICY_CONTROL, policyLabels: POLICY_LABELS,
   };
 }

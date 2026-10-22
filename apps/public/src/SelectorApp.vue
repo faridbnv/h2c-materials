@@ -7,7 +7,7 @@ import type { DetailShard } from '@atlas/domain';
 import { settled } from './guard.ts';
 import { LOADING } from './copy.ts';
 import LoadNotice from './LoadNotice.vue';
-import { loadCited, loadDetails, loadEstimates, loadParts, loadReference, loadShared } from './parts.ts';
+import { loadDetails, loadEstimates, loadParts, loadShared } from './parts.ts';
 import type { Shared } from './parts.ts';
 import { embeddedRelease } from './release.ts';
 import Selector from './selector/Selector.vue';
@@ -30,16 +30,6 @@ onMounted(async () => {
     let shared: Promise<Shared> | null = null;
     const made = createStore(loaded, {
       loadEstimates: () => loadEstimates(release, loaded.model, fetchPart),
-      // The detail of the materials a chart view needs the measurements of; what the drawer has fetched is not fetched again.
-      loadMeasurements: async (ids) => {
-        const need = ids.filter((id) => !details.has(id));
-        if (need.length) for (const [id, shard] of await loadDetails(release, need, fetchPart)) details.set(id, shard);
-        return new Map(ids.flatMap((id) => { const shard = details.get(id); return shard ? [[id, shard] as const] : []; }));
-      },
-      // The chart lens's reference set, fetched when it is first opened.
-      loadReference: () => loadReference(release, loaded.model, fetchPart),
-      // The brief and the export write nothing until the detail of every material they cite has arrived (D103): all of it, or a throw.
-      loadCited: async (kind, ids) => (await loadCited(release, kind, ids, fetchPart)).details,
       loadDrawerParts: async (id) => {
         // A part that failed is asked for again the next time a drawer opens, not remembered as failed.
         shared ??= loadShared(release, fetchPart).catch((error: unknown) => { shared = null; throw error; });
@@ -49,6 +39,8 @@ onMounted(async () => {
         details.set(id, detail);
         return { detail, shared: await shared };
       },
+      // The chart lenses, the exports and the brief: their parts and their wiring come when one is first used.
+      lens: async (flush) => (await import('./lens-hooks.ts')).lensHooks(release, loaded.model, fetchPart, details, flush),
     });
     made.start(location.hash.slice(1));
     await made.render();

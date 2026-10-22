@@ -34,7 +34,7 @@ let drawn = '';
  * part holds (loaded once, whole, and joined onto the model); the Ashby chart also needs the chart library and the reference materials.
  */
 async function prepare(lens: string): Promise<Renderer> {
-  const reference = state.reference ?? await props.store.loadReference();
+  const reference = state.reference ?? await (await props.store.lens()).loadReference();
   state.reference = reference;
   stampGrades(state.db);
   switch (lens) {

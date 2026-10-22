@@ -35,9 +35,11 @@ export default defineConfig({
     rolldownOptions: {
       input: { index: here('index.html'), material: here('material.html') },
       output: {
-        // The code only the lenses of part 2 use stays out of the chunk the first screen loads: a module the first screen and a lens share is
-        // emitted whole, so a lens-only module that landed there would add to the boot (the strict boot budget, pack 02 section 11).
-        codeSplitting: { groups: [{ name: 'lens-support', test: /packages\/(engine\/src\/port\/(pareto)|pages\/src\/facts\/axes)\.ts$/, priority: 10 }] },
+        // Where the code goes (the strict boot budget, pack 02 section 11). A module that the first screen and a lens both import is emitted whole, with every export
+        // either uses, so a lens-only export in a shared module is carried by the first screen: the lens-only pieces are modules of their own and sit in a chunk the
+        // first screen never loads (lens-support); and the engine's modules, which the first screen and the lenses share, are one chunk rather than a dozen small ones,
+        // which compress badly and each cost a request.
+        codeSplitting: { groups: [{ name: 'lens-support', test: /packages\/(engine\/src\/port\/(pareto|coverage-matrix)|pages\/src\/facts\/axis-pairs)\.ts$/, priority: 10 }, { name: 'engine', test: /(packages\/engine\/src\/(?!port\/(workspace|pareto|coverage-matrix))|packages\/pages\/src\/facts\/(registry|axes)\.ts|selector\/templates\.ts)/, priority: 5 }] },
       },
     },
   },

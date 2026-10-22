@@ -27,7 +27,8 @@ import { COST_AXIS, goalAxes } from '@atlas/engine/port/workspace.ts';
 import { familyColors, FILLER_SYMBOL, FILLER_LABEL, NAMED_FILLER_SYMBOL, NAMED_FILLER_KEY, fillerSymbol, fillerLabel, esc, fmtNumber, fmtRange, boundLine, publishedBound, wireEvidence } from '@atlas/pages/facts/format';
 import { fillerOf, isNamedFiller } from '@atlas/engine/port/filler.ts';
 import { download } from './export.ts';
-import { AXIS_DEFS, measurementMatches, pairCompatibility } from '@atlas/pages/facts/axes';
+import { AXIS_DEFS } from '@atlas/pages/facts/axes';
+import { measurementMatches, pairCompatibility } from '@atlas/pages/facts/axis-pairs';
 import { prop } from '@atlas/pages/facts/labels';
 import { headlineDef } from '@atlas/pages/facts/registry';
 import {

@@ -24,7 +24,7 @@ export function measurementsNeeded(state: Loose): string[] {
 export async function joinMeasurements(store: Store, ids: readonly string[]): Promise<void> {
   const missing = [...new Set(ids)].filter((id) => !joined.has(id));
   if (!missing.length) return;
-  const details = await store.loadMeasurements(missing);
+  const details = await (await store.lens()).loadMeasurements(missing);
   const byId = new Map<string, Loose>(store.state.db.measurements.map((m: Loose) => [m.id, m]));
   for (const [id, shard] of details) {
     const rows: Loose[] = (shard.records as Loose).measurements ?? [];

@@ -86,7 +86,7 @@ async function citedDetails(kind: 'brief' | 'export', ids: readonly string[], wh
   exportProblem.value = '';
   state.lensLoading++;
   try {
-    return await props.store.loadCited(kind, ids);
+    return await (await props.store.lens()).loadCited(kind, ids);
   } catch (error) {
     exportProblem.value = exportBlocked(what, error instanceof Error ? `${error.message}.` : String(error));
     return null;

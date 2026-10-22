@@ -7,7 +7,7 @@
 //
 // Method sheet, Verification / Coverage: coverage is terminal. It never feeds the selection engine.
 
-import { coverageMatrix, COVERAGE_DOMAINS } from '@atlas/engine/port/coverage.ts';
+import { coverageMatrix, COVERAGE_DOMAINS } from '@atlas/engine/port/coverage-matrix.ts';
 import { esc, scrollTable, markTableOverflow } from '@atlas/pages/facts/format';
 import { propertiesInDomain } from '@atlas/pages/facts/registry';
 import type { Loose } from '@atlas/pages/loose';
