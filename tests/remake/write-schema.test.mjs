@@ -301,22 +301,27 @@ test('an edit that is undone leaves the repository\'s own schema, not a model th
   assert.equal(modelWith({}), BASE_MODEL);
 });
 
-test('an export marks its directory, retires only what an earlier export wrote there, and names what it removed; a foreign directory keeps its files', async () => {
+test('an export marks its directory and retires only what an earlier export wrote there, naming what it removed; a directory that holds data and no mark is refused', async () => {
   const sb = await scratch({ store: null });
   try {
     assert.equal(sb.ws.apply(addVocab(sb.ws)).status, 'applied');
+    // a directory that holds somebody else's schema file and data: the export refuses it and leaves every file where it was
+    const foreign = join(sb.dir, 'foreign');
+    mkdirSync(join(foreign, 'schema', 'tables'), { recursive: true });
+    writeFileSync(join(foreign, 'schema', 'tables', 'foreign.schema.json'), '{}\n');
+    await assert.rejects(() => exportChangeSet(sb.ws, { title: 'A word for coverage', topic: 'coverage-word', exportDir: foreign }), (e) => e.code === 'unsafe-target');
+    assert.ok(existsSync(join(foreign, 'schema', 'tables', 'foreign.schema.json')));
+    assert.ok(!existsSync(join(foreign, '.atlas-export')), 'a refused directory is not marked');
+    // an empty directory is fine: the export marks it as its own
     const out = join(sb.dir, 'elsewhere');
-    // a directory that holds somebody else's schema file: the first export leaves it alone
-    mkdirSync(join(out, 'schema', 'tables'), { recursive: true });
-    writeFileSync(join(out, 'schema', 'tables', 'foreign.schema.json'), '{}\n');
     const first = await exportChangeSet(sb.ws, { title: 'A word for coverage', topic: 'coverage-word', exportDir: out });
     assert.deepEqual(first.retired, []);
-    assert.ok(existsSync(join(out, 'schema', 'tables', 'foreign.schema.json')), 'a directory no export has marked is not cleaned');
     assert.ok(existsSync(join(out, '.atlas-export')));
     // once the directory is the export's own, a file an earlier export left that this one does not write is removed, and reported
+    mkdirSync(join(out, 'schema', 'tables'), { recursive: true });
     writeFileSync(join(out, 'schema', 'tables', 'left-over.schema.json'), '{}\n');
     const second = await exportChangeSet(sb.ws, { title: 'A word for coverage', topic: 'coverage-word', exportDir: out });
-    assert.ok(second.retired.includes('schema/tables/foreign.schema.json') && second.retired.includes('schema/tables/left-over.schema.json'), JSON.stringify(second.retired));
+    assert.ok(second.retired.includes('schema/tables/left-over.schema.json'), JSON.stringify(second.retired));
     assert.ok(!existsSync(join(out, 'schema', 'tables', 'left-over.schema.json')));
   } finally { sb.cleanup(); }
 });

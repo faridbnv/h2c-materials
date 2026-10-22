@@ -709,8 +709,10 @@ const QUARTILES_FROM = 4;
  * describes as printed, or no stated load, D172) are counted apart, and so are the variants, whose values describe the
  * product, not the polymer (D57).
  *
- * A twin is a product of its own (D89), but the table its sheet prints is its sibling's, so its value is not counted
- * again here (`isReprint`, the caller leaves it out).
+ * A twin counts as a product (D89), but the table its sheet prints is its sibling's, so a reprinted table counts once in
+ * the middle: the range, quartiles, median and typical product are over `distinct(comparable)`. `n` still counts the twin
+ * (the products the median speaks for) and `twins` says how many of them are reprints, which is what the page's
+ * sentence reads to say a twin shares a data sheet rather than publishes nothing.
  */
 function summarise(entries: Dyn, products: Dyn) {
   const comparable = entries.filter((e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE);
@@ -719,11 +721,12 @@ function summarise(entries: Dyn, products: Dyn) {
   const span = (list: Dyn) => (list.length ? { n: list.length, min: Math.min(...list.map((e: Dyn) => e.v.value)), max: Math.max(...list.map((e: Dyn) => e.v.value)) } : null);
   const out: Dyn = { products, n: comparable.length };
   if (comparable.length) {
-    const sorted = comparable.map((e: Dyn) => e.v.value).sort((a: Dyn, b: Dyn) => a - b);
+    const middle = distinct(comparable);
+    const sorted = middle.map((e: Dyn) => e.v.value).sort((a: Dyn, b: Dyn) => a - b);
     const mid = tidy(median(sorted));
     // The typical product is the one whose value is nearest the median; a tie goes to the lower value, then to the
     // product whose own sheet it is over a twin that reads it (D89), then the lower ID.
-    const typical = [...comparable].sort((a, b) => Math.abs(a.v.value - mid) - Math.abs(b.v.value - mid) || a.v.value - b.v.value
+    const typical = [...middle].sort((a, b) => Math.abs(a.v.value - mid) - Math.abs(b.v.value - mid) || a.v.value - b.v.value
       || (a.v.from ? 1 : 0) - (b.v.from ? 1 : 0) || (a.gradeId < b.gradeId ? -1 : 1))[0];
     Object.assign(out, { min: sorted[0], max: sorted.at(-1), median: mid, typical: typical.gradeId });
     // A published bound ("> 650 %") counts here as its number, which is all the median can take; the page says which
@@ -734,6 +737,8 @@ function summarise(entries: Dyn, products: Dyn) {
       out.bounds = { n: bounded.length, min: at(out.min), max: at(out.max) };
     }
     if (sorted.length >= QUARTILES_FROM) Object.assign(out, { q1: quantile(sorted, 0.25), q3: quantile(sorted, 0.75) });
+    const twins = comparable.length - middle.length;
+    if (twins) out.twins = twins;
     // Prices converted from another currency (D113): how many, from what, at which rate date.
     const converted = comparable.filter((e: Dyn) => e.v.converted);
     if (converted.length) {
@@ -751,6 +756,7 @@ function summarise(entries: Dyn, products: Dyn) {
  * Shared formulation key, so never a product that reprints another material's table, R166) is the sibling's table again.
  */
 const isReprint = (e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE && e.v.from?.origin === 'twin';
+const distinct = (comparable: Dyn) => comparable.filter((e: Dyn) => !isReprint(e));
 
 /**
  * The comparable values of a spread from products their makers sell as toughened (product_claims.csv, D133), and what
@@ -761,12 +767,13 @@ function claimedSplit(entries: Dyn, claim: Dyn, isClaimed: Dyn) {
   const comparable = entries.filter((e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE);
   const claimed = comparable.filter(isClaimed);
   if (!claimed.length) return null;
-  const values = (list: Dyn) => list.map((e: Dyn) => e.v.value).sort((a: Dyn, b: Dyn) => a - b);
+  const values = (list: Dyn) => distinct(list).map((e: Dyn) => e.v.value).sort((a: Dyn, b: Dyn) => a - b);
   const c = values(claimed);
-  const o = values(comparable.filter((e: Dyn) => !isClaimed(e)));
+  const others = comparable.filter((e: Dyn) => !isClaimed(e));
+  const o = values(others);
   return {
-    claim, n: c.length, min: c[0], max: c.at(-1), gradeIds: claimed.map((e: Dyn) => e.gradeId).sort(),
-    others: o.length ? { n: o.length, min: o[0], max: o.at(-1), median: tidy(median(o)),
+    claim, n: claimed.length, min: c[0], max: c.at(-1), gradeIds: claimed.map((e: Dyn) => e.gradeId).sort(),
+    others: o.length ? { n: others.length, min: o[0], max: o.at(-1), median: tidy(median(o)),
       ...(o.length >= QUARTILES_FROM ? { q1: quantile(o, 0.25), q3: quantile(o, 0.75) } : {}) } : null,
   };
 }
@@ -782,7 +789,7 @@ function productsHeadline(unit: Dyn, s: Dyn, gradeById: Dyn, key: Dyn) {
     known: true, value: s.median, unit, origin: 'products', verified: true,
     interval: { lo: s.median, hi: s.median, kind: 'point' },
     spread: { n: s.n, products: s.products, min: s.min, max: s.max, q1: s.q1 ?? null, q3: s.q3 ?? null,
-      asPublished: s.asPublished ?? null, variants: s.variants ?? null, ...(s.claimed ? { claimed: s.claimed } : {}) },
+      asPublished: s.asPublished ?? null, variants: s.variants ?? null, ...(s.twins ? { twins: s.twins } : {}), ...(s.claimed ? { claimed: s.claimed } : {}) },
     typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
   };
   if (s.bounds) h.spread.bounds = s.bounds;
@@ -1004,11 +1011,9 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     const summary: Dyn = {};
     for (const key of keys) {
       if (m.headline[key]?.notApplicable) continue;
-      const listed = products.filter((g: Dyn) => g.headline?.[key]).map((g: Dyn) => ({ gradeId: g.id, variant: !variantOnly && variantValue(g, g.headline[key]), v: g.headline[key] }));
-      // A reprinted table counts once (owner ruling OQ-09 A, transition reprint-counts-once): a twin's value is its sibling's
-      // table read again, so the sibling's stands in the median and the twin's does not. The twin stays a product, and
-      // stays in the count of products and in the spans of values set apart.
-      const entries = listed.filter((e: Dyn) => !isReprint(e));
+      // A reprinted table counts once in the middle (owner ruling OQ-09 A, transition reprint-counts-once), inside summarise
+      // and claimedSplit; the twin stays a product everywhere else: in the counts, and in the spans of values set apart.
+      const entries = products.filter((g: Dyn) => g.headline?.[key]).map((g: Dyn) => ({ gradeId: g.id, variant: !variantOnly && variantValue(g, g.headline[key]), v: g.headline[key] }));
       // A headline whose spread names the products sold as toughened (D133) says how many and what the others give.
       // Set apart, their comparable values leave the median as a variant's do, unless every comparable value is theirs.
       const def = defByKey.get(key);
@@ -1016,9 +1021,7 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
       const split = def?.toughened ? claimedSplit(entries, CLAIM.TOUGHENED, isClaimed) : null;
       const apart = def?.toughened === 'set apart' && split?.others ? new Set<Dyn>(split.gradeIds) : null;
       const counted = apart ? entries.filter((e: Dyn) => !(apart.has(e.gradeId) && !e.variant && e.v.level === LEVEL.COMPARABLE)) : entries;
-      // A set-apart claim sets its reprints apart with it, which the products count has always said.
-      const apartProducts = apart ? listed.filter((e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE && isClaimed(e)).length : 0;
-      summary[key] = summarise(counted, (variantOnly ? products.length : plain) - apartProducts);
+      summary[key] = summarise(counted, (variantOnly ? products.length : plain) - (apart?.size ?? 0));
       if (split) summary[key].claimed = apart ? { ...split, setApart: true } : split;
       if (summary[key].n > 0) {
         m.headline[key] = productsHeadline(m.headline[key].unit, summary[key], gradeById, key);

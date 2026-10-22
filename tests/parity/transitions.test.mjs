@@ -56,6 +56,21 @@ test('a listed difference with a different after value is both missing and unexp
   assert.equal(r.transitions.missing.length, 1);
 });
 
+test('a listed difference missing from a case that could be answered fails even when another case is not computable; one missing from the case that could not be is excused', async () => {
+  const clean = await createOldAdapter({ name: 'clean', db: readDb(), engineDir: copyEngine([]) });
+  const [lost, kept] = small;
+  const after = { ...clean, name: 'one case throws', evaluate: (c) => (c.id === lost.id ? Promise.reject(new Error('cannot answer')) : clean.evaluate(c)) };
+  const phantom = (caseId) => ({ case: caseId, record: 'material:NOPE', tier: 'evidence', field: 'x', before: '"a"', after: '"b"' });
+  const before = await sharedOld();
+  const run = (caseId) => runParity({ corpusName: 'v0', cases: small, knownCaseIds: known, before, after, transitions: [file([phantom(caseId)])] });
+  const hidden = await run(kept.id);
+  assert.equal(hidden.casesNotComputable, 1);
+  assert.equal(hidden.transitions.missing.length, 1);
+  assert.equal(hidden.status, 'differs', 'the other case\'s missing difference is not excused by this one');
+  const excused = await run(lost.id);
+  assert.equal(excused.status, 'not-computable');
+});
+
 test('an empty transition list is no waiver', async () => {
   const r = await observe([file([])]);
   assert.equal(r.status, 'differs');

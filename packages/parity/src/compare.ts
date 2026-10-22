@@ -128,9 +128,10 @@ export interface RunOptions {
 const emptyByTier = (): Record<Tier, number> => ({ decision: 0, presentation: 0, evidence: 0, wording: 0 });
 const sortKey = (d: Difference): string => [d.case, d.record, d.tier, d.field].join('\u0000');
 
-function statusOf(differences: Difference[], notComputable: NotComputableItem[], transitions: TransitionMatch | null): Status {
-  // A listed difference that was not seen is "missing" only when everything could be answered: where a case could not be, it is not computable.
-  const failed = transitions ? transitions.unexpected.length > 0 || (transitions.missing.length > 0 && notComputable.length === 0) : differences.length > 0;
+function statusOf(differences: Difference[], notComputable: NotComputableItem[], transitions: TransitionMatch | null, notComputableCases: ReadonlySet<string>): Status {
+  // A listed difference that was not seen is "missing" only when its own case could be answered: where that case could not be, it is not computable.
+  // A case that could not be answered excuses nothing about another.
+  const failed = transitions ? transitions.unexpected.length > 0 || transitions.missing.some((d) => !notComputableCases.has(d.case)) : differences.length > 0;
   if (failed) return 'differs';
   if (notComputable.length > 0) return 'not-computable';
   return differences.length > 0 ? 'matches-transition' : 'zero';
@@ -182,7 +183,7 @@ export async function runParity(opts: RunOptions): Promise<ParityReport> {
   const scope = new Set(cases.map((c) => c.id));
   const known = opts.knownCaseIds ?? scope;
   const transitions = opts.transitions ? matchTransitions(differences, opts.transitions, scope, opts.transitionCaseIds ?? known, opts.corpusName) : null;
-  const status = statusOf(differences, notComputable, transitions);
+  const status = statusOf(differences, notComputable, transitions, notComputableCases);
   if (status === 'zero' && (casesCompared !== cases.length || blocks === 0)) {
     throw new Error(`internal: zero differences reported with ${casesCompared}/${cases.length} cases compared and ${blocks} blocks`);
   }
