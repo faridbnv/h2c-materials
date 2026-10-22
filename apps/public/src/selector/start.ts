@@ -1,0 +1,193 @@
+// The starting panel.
+//
+// Opening on 102 rows of everything gave the reader no entry point and no sense of what the tool
+// was for. This appears only while no constraint is set: it names the workflow in one line and
+// offers the application templates as the first move. It disappears the moment a filter is applied.
+
+import type { Loose } from '@atlas/pages/loose';
+import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.ts';
+import { esc, fmtNumber } from '@atlas/pages/facts/format';
+import { describeConstraint, screenedByKind, unknownGroups, unknownGroupWords, POLICY_LABELS, GATE, H2C_CHECK, H2C_SCOPE_MEANING, h2cCheckMeaning } from '@atlas/pages/facts/labels';
+import { andList } from '@atlas/pages/facts/text';
+
+/**
+ * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
+ * is not counted: the results header said "of the 98 materials" while the rail said "all 103", and both meant the
+ * same set.
+ */
+export const candidateCount = (db: Loose) => db.materials.filter((m: Loose) => !m.familyEntry).length;
+
+export function startHtml(state: Loose): string {
+  if (state.scenario.constraints.length) return '';
+  const { db, facts } = state;
+  return `
+  <section class="start">
+    <!-- The four-step line (set requirements, read the candidates, compare, check the evidence) was folded away on
+         2026-10-18 with the owner's word: it stood between the reader and the templates, and the view tabs and the
+         drawer already walk those steps. The H2C clause, once in each of the six cards, is said here once. -->
+    <h2>Start from a typical part, or set your own requirements in Filters.</h2>
+    <p>A template fills in the controls, each editable, and decides nothing. All six ask for a build material the H2C prints.</p>
+
+    <div class="start-grid">
+      ${TEMPLATES.map((t, i) => `
+        <button class="start-card" data-template="${i}">
+          <span class="start-card-name">${esc(t.name)}</span>
+          <span class="start-card-desc">${esc(t.description)}</span>
+        </button>`).join('')}
+    </div>
+
+    <!-- The database in two facts and what it cannot answer, on one line: the coverage counts and the line on gaps had
+         taken two more under the cards, and the table's third row lay below the fold at 1280 x 800 (OPEN-PROBLEMS §37.20).
+         They open with what the database cannot answer, which is what they are about. -->
+    <div class="start-foot">
+      <div class="start-facts">
+        <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> within H2C capability</span>
+        <span><b>${fmtNumber(db.meta.counts.measurements)}</b> measurements, each traceable to its source</span>
+      </div>
+      ${limits(db, facts)}
+    </div>
+  </section>`;
+}
+
+/**
+ * What the database cannot answer. It used to live only on the start panel, so it vanished the
+ * moment a requirement was set, which is exactly when someone substitutes a nearby metric for the
+ * one they wanted. On the start panel it opens with how sparse the values are and that a gap is shown as one.
+ */
+function limits(db: Loose, facts: Loose) {
+  const cov = db.meta.headlineCoverage;
+  return `
+    <details class="start-limits">
+      <summary><span class="chevron" aria-hidden="true"></span>What this database cannot answer</summary>
+      <p class="start-note"><b>${cov.density}</b> of the ${candidateCount(db)} materials have a density, <b>${cov.tensileModulusXY}</b> a
+        tensile modulus and <b>${cov.priceCADkg}</b> a price. No material is ranked on a number nobody measured: a property
+        never published shows as a gap, not a guess.</p>
+      ${limitsBody(facts)}
+    </details>`;
+}
+
+/** The body of "What this database cannot answer", counted from the snapshot (the release's view facts, counted from its whole database). */
+function limitsBody(facts: Loose) {
+  const profiles = facts.profiles.total, ams = facts.profiles.amsPublished, enclosure = facts.profiles.enclosure, warping = facts.warpingStatements;
+  return `
+      <p>The sources rarely publish these, so no filter can answer them.</p>
+      <ul>
+        <li><b>Warping and first-layer behaviour.</b> ${warping} statements in the whole database: no basis to
+          rank materials by warping.</li>
+        <li><b>AMS compatibility.</b> Published for ${fmtNumber(ams)} of ${fmtNumber(profiles)} print profiles. The rest say to verify the
+          exact grade, so the tool quotes that rather than answering yes or no.</li>
+        <li><b>Whether an enclosure is needed.</b> Stated for ${fmtNumber(enclosure)} of ${fmtNumber(profiles)} profiles. Chamber
+          temperature is published far more often and is the closest usable proxy.</li>
+        <li><b>UV and outdoor life, food contact, creep, fatigue.</b> Described in words, never as a pass or fail.
+          Read them in a material's Environment tab.</li>
+        <li><b>Which exact product has every property.</b> A row shows a material as the spread of its products, so
+          no single product need have every value. Check its Products tab before buying.</li>
+      </ul>
+      <p>Colour, print speed and layer-adhesion tuning are out of scope: this is a materials database, not a profile
+        library.</p>`;
+}
+
+// The pills said "Modulus at least 3 GPa" while the explain panel said "tensileModulusXY >= 3" for
+// the same criterion, because each had its own describe(). There is one now, in labels.js.
+const describe = describeConstraint;
+
+/**
+ * Once a constraint is set the start panel gives way to this: the same visual language, but now
+ * reporting what is actually being asked and letting any of it be dropped in one click.
+ *
+ * The previous build simply removed the start panel, so the moment anyone used the tool they were
+ * left with a bare table and no statement of what they had asked for.
+ */
+export function activeHtml(state: Loose): string {
+  const { scenario, selection } = state;
+  const cs = scenario.constraints;
+  if (!cs.length) return '';
+  const hard = cs.filter((c: Loose) => c.mandatory !== false);
+  const soft = cs.filter((c: Loose) => c.mandatory === false);
+  const { counts } = selection;
+  const explore = scenario.unknownPolicy === 'exploration';
+  const template = templateByName(scenario.template);
+  const sameAsTemplate = template
+    && JSON.stringify(template.constraints) === JSON.stringify(cs);
+
+  // The two H2C requirements say in their titles what each reads, as the rail says under each: they sit side by side and
+  // had read as one idea twice (§37.20).
+  const pill = (c: Loose, i: Loose) => `<button class="pill${c.mandatory === false ? ' soft' : ''}" data-drop="${i}"
+      title="${esc(c.kind === 'gate' && c.gate === 'scope' ? `${H2C_SCOPE_MEANING} Press to remove this requirement.` : 'Remove this requirement')}">${esc(describe(c))}<span class="x" aria-hidden="true">\u00d7</span></button>`;
+
+  // Included, the table lists the materials that could not be checked beside the ones that passed, so
+  // the heading counts both. "15 meet these requirements" above 23 rows read as a contradiction; the other 8 were
+  // listed and nothing on screen said what they were. Some may be held out as unlikely, and by what is said too: a
+  // property that does not apply, whatever the estimates switch says, or an estimate or resin data, with it on (D148).
+  const screened = explore ? counts.screened : 0;
+  const kinds = { notApplicable: 0, estimate: 0, polymer: 0 };
+  for (const e of screened ? selection.evaluations : []) {
+    if (!e.screened) continue;
+    const by = screenedByKind(e);
+    if (by.notApplicable.length) kinds.notApplicable++;
+    if (by.estimate.length) kinds.estimate++;
+    if (by.polymer.length) kinds.polymer++;
+  }
+  const hiddenBy = andList([kinds.notApplicable ? `${kinds.notApplicable} because a required property does not apply to ${kinds.notApplicable === 1 ? 'it' : 'them'}` : null,
+    kinds.estimate ? `${kinds.estimate} by an estimate` : null, kinds.polymer ? `${kinds.polymer} by resin reference data` : null].filter(Boolean));
+  // Left out, the UNKNOWN chip can still show them; then the line says so, rather than "left out" above the rows it shows.
+  const unknownShown = !explore && state.showStates?.has('UNKNOWN');
+  // The UNKNOWN materials by group (stage 3d): most were measured and missed, and "could not be checked for missing data"
+  // had said otherwise of all of them.
+  const groups = unknownGroupWords(unknownGroups(selection.evaluations, { explore }));
+  const unknownSentence = !counts.unknown ? ''
+    : explore ? `Included, those ${counts.unknown} are listed by group${screened
+      ? `, except the ${screened} hidden (${hiddenBy}); the HIDDEN chip at the bottom shows them` : ''}. `
+    : unknownShown ? `${counts.unknown} more are UNKNOWN${groups ? ` (${groups})` : ''}. They are not candidates, and are shown because the UNKNOWN chip is on; ${POLICY_LABELS.exploration} at the top lists them as candidates, by group. `
+    : `${counts.unknown} more are UNKNOWN${groups ? ` (${groups})` : ''} and are left out; ${POLICY_LABELS.exploration} at the top lists them by group. `;
+
+  // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
+  // it would add are named in the button's title, so the line stays one line.
+  const gain = state.annealGain ?? [];
+  const judgedAs = `${scenario.anneal ? `as printed, or annealed at its data sheet's schedule${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry'}`;
+  const check = printCheck(cs);
+  const printable = check === 'all';
+  const stateLine = `<p class="state-line"><b>Values judged:</b> ${esc(judgedAs)}.${gain.length
+    ? ` <button type="button" class="btn btn-sm" data-act="anneal" title="${esc(`Would pass with annealing: ${gain.map((id: Loose) => state.db.materials.find((m: Loose) => m.id === id)?.name ?? id).join(', ')}`)}">Allow annealing: ${gain.length} more pass</button>` : ''}</p>`;
+
+  // What was asked, as compact as the answer allows (the review of 2026-09-27, F09): the answer in one line with what
+  // could not be checked beside it, the requirements as pills, how the products are judged in one line, and the
+  // template's limits, the policy's detail and the database's limits one press away, their first sentence showing. The
+  // rows are what a working engineer came for.
+  const printGates = new Set(['nozzle', 'bed', 'chamber']);
+  const shownHard = printable ? hard.filter((c: Loose) => !(c.kind === 'gate' && printGates.has(c.gate))) : hard;
+  const firstSentence = (t: Loose) => (String(t).match(/^[^.:]+[.:]/)?.[0] ?? String(t)).replace(/[.:]$/, '');
+  const beside = [scenario.template ? `${scenario.template} template${sameAsTemplate ? '' : ', changed'}` : null,
+    counts.unknown ? `UNKNOWN ${counts.unknown}${explore ? '' : unknownShown ? ' shown, not candidates' : ' left out'}${groups ? `: ${groups}` : ''}` : null].filter(Boolean).join(' · ');
+  return `
+  <section class="active compact">
+    <div class="active-head" data-testid="active-head">
+      <div>
+        <h2>${counts.pass} of the ${counts.total} materials meet ${hard.length === 1 ? 'this requirement' : 'these requirements'}</h2>
+        ${beside ? `<p>${esc(beside)}</p>` : ''}
+      </div>
+      <!-- On a phone the two longer buttons show a short form, so the three share one row and the first candidate comes
+           into the first screen (OPEN-PROBLEMS §19); the full words stay their names. -->
+      <div class="active-actions">
+        <button class="btn btn-sm btn-primary read-candidates" data-act="read">Read the candidates</button>
+        <button class="btn btn-sm" data-act="explain" aria-label="Why the rest were excluded"><span class="lbl-long">Why the rest were excluded</span><span class="lbl-short" aria-hidden="true">Why excluded</span></button>
+        <button class="btn btn-sm" data-act="reset" aria-label="Clear requirements" title="Removes every requirement. Part condition, search, shortlist and view stay as they are."><span class="lbl-long">Clear requirements</span><span class="lbl-short" aria-hidden="true">Clear</span></button>
+      </div>
+    </div>
+    <div class="pills" title="Press a requirement to remove it">
+      ${printable ? `<button class="pill" data-drop-printable title="${esc(`${h2cCheckMeaning()} Press to remove the nozzle, bed and chamber checks.`)}">${H2C_CHECK}<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
+      ${shownHard.map((c: Loose) => pill(c, cs.indexOf(c))).join('')}
+      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">Reported, not required</span>${soft.map((c: Loose) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
+    </div>
+    ${stateLine}
+    ${check === 'all' ? '' : `<p class="state-line research-line"><b>${check === 'none' ? 'H2C printability not checked:' : `H2C printability partly checked: ${esc(printGatesMissing(cs).map((g) => GATE[g].plain).join(' and '))} not checked.`}</b>
+      ${check === 'none' ? 'a pass here says nothing about whether the H2C can print the product.' : 'A pass here does not show the H2C can print the product.'}
+      <button type="button" class="btn btn-sm" data-act="printable">Check nozzle, bed and chamber</button></p>`}
+    <details class="answer-notes">
+      <summary><span class="chevron" aria-hidden="true"></span><span>${template ? `<b>Not checked by this template:</b> ${esc(firstSentence(template.notChecked))}` : '<b>What this database cannot answer</b>'}</span></summary>
+      ${template ? `<p class="not-checked">${esc(template.notChecked)}</p>` : ''}
+      ${unknownSentence ? `<p>${esc(unknownSentence)}</p>` : ''}
+      ${limitsBody(state.facts)}
+    </details>
+  </section>`;
+}
