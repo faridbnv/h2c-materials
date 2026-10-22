@@ -151,6 +151,9 @@ jobs:
           git fetch --no-tags --depth=1 origin remake/v3:refs/remotes/origin/remake/v3 main:refs/remotes/origin/main
           npm run checks:register -- --verify --require-frozen
 
+      - name: P-erase (every label-only port erases to its old file)
+        run: npm run parity:erase
+
       - name: Type check, type ratchet and lint
         run: |
           set -euo pipefail

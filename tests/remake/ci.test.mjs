@@ -549,6 +549,7 @@ test('next-verify is parallel jobs and a last job that is green only when every 
   assert.match(jobBlock(text, 'build-old'), /^\s+run: npm run build$/m);
   assert.match(jobBlock(text, 'browser-tests'), /npm run test:browser$/m, 'the browser suite runs through its launcher, whose exit code is the verdict');
   assert.match(jobBlock(text, 'static'), /npm run checks:register -- --verify --require-frozen/, 'the register runs with the frozen copies, never skipping rules 10 and 11');
+  assert.match(jobBlock(text, 'static'), /^\s+run: npm run parity:erase$/m, 'P-erase runs on every pull request');
   const parity = jobBlock(text, 'parity-tests');
   assert.match(parity, /node --test --test-concurrency=4 \$files/);
   assert.match(parity, /node --test 'tests\/domain\/\*\.test\.mjs'/);
