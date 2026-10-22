@@ -1,9 +1,9 @@
 {
   "id": "WP-27",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "claude/wonderful-franklin-ynbnzn",
+  "pr": 44,
   "exitCheck": "not-run",
   "lastRun": "2026-10-22T14:05:17.586Z",
   "lastPass": null,
@@ -36,5 +36,6 @@
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-22T14:05:33.926Z"
+  "updated": "2026-10-22T14:05:33.926Z",
+  "note": "Compare, charts, Ashby, parallel, coverage, brief and export; PR #44 in review (stacked fixes in the M3-close follow-up PR). Full browser suite passes under both base paths locally (456 views, 1,200 scenarios)."
 }

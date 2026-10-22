@@ -1,9 +1,9 @@
 {
   "id": "WP-30",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
-  "pr": null,
+  "branch": "claude/wonderful-franklin-ynbnzn",
+  "pr": 44,
   "exitCheck": "not-run",
   "lastRun": "2026-10-22T14:05:36.265Z",
   "lastPass": null,
@@ -36,5 +36,6 @@
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-22T14:06:09.997Z"
+  "updated": "2026-10-22T14:06:09.997Z",
+  "note": "The new site at the preview root, today's site at legacy/, the byte budgets as CI gates, the task suite; PR #44 in review. M3-close fix: the root's materials/ are the new pages (packages/pages), not a copy of the old build's. The preview smoke on the real deploy runs at the first deploy after merge."
 }
