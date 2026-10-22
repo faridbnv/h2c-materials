@@ -76,6 +76,19 @@ test('a budget that is missed is reported as missed, with the number: boot, a de
   assert.equal(measure({ view: view() }).checks.siteBytes.budget, 100_000_000);
 });
 
+test('the site as deployed live counts the material pages, the data and the previous release\'s slim copy; legacy/ is reported, not counted', () => {
+  const dir = view();
+  const put = (path, n) => { mkdirSync(join(dir, path, '..'), { recursive: true }); writeFileSync(join(dir, path), 'x'.repeat(n)); };
+  const before = measure({ view: dir }).site;
+  put('materials/M001/index.html', 40_000);
+  put('legacy/index.html', 900_000);
+  const after = measure({ view: dir, site: dir }).site;
+  assert.equal(after.materialPagesBytes, 40_000);
+  assert.equal(after.bytes - before.bytes, 40_000, 'the pages are in the total; legacy/ is not');
+  assert.equal(after.bytes, after.viewBytes + after.slimDataBytes + after.assetsBytes);
+  assert.ok(after.assembledBytes > after.bytes);
+});
+
 test('CLI: writes the JSON and exits 0 when every budget is met, 1 when one is not, 2 when it cannot measure', () => {
   const out = join(mkdtempSync(join(tmpdir(), 'h2c-size-out-')), 'sizes.json');
   const ok = spawnSync(process.execPath, [tool, '--view', view(), '--out', out], { encoding: 'utf8' });

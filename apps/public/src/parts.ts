@@ -7,7 +7,7 @@
 // `loadParts` and `loadDetails` return a whole set or throw. There is no partial result to misuse. The page never fetches release.json.
 import { isCoreReadModel } from '@atlas/domain';
 import type { CoreReadModel, DetailShard } from '@atlas/domain';
-import { applyEstimates, EstimatesDoNotFitError } from '@atlas/publish/shards';
+import { applyEstimates, decodeDetail, DetailEncodingError, EstimatesDoNotFitError } from '@atlas/publish/shards';
 import type { Overlay } from '@atlas/publish/shards';
 import { DetailsIncomplete, fetchPart, isMaterialId } from './load.ts';
 import type { FetchLike } from './load.ts';
@@ -169,8 +169,15 @@ const isDetail = (file: Record<string, unknown>): file is DetailShard & Record<s
 function parseDetail(json: unknown, embedded: string, materialId: string): DetailShard {
   const file = envelope(json, 'detail', `the detail of ${materialId}`, embedded);
   if (file['materialId'] !== materialId) throw new DataShapeError(`the detail of ${materialId}`, `holds ${String(file['materialId'])}`);
-  if (!isDetail(file)) throw new DataShapeError(`the detail of ${materialId}`, 'carries no records');
-  return file;
+  let decoded: Record<string, unknown>;
+  try {
+    decoded = decodeDetail(file);
+  } catch (error) {
+    if (error instanceof DetailEncodingError) throw new DataShapeError(`the detail of ${materialId}`, error.message);
+    throw error;
+  }
+  if (!isDetail(decoded)) throw new DataShapeError(`the detail of ${materialId}`, 'carries no records');
+  return decoded;
 }
 
 /**

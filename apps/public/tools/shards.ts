@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import type { Db } from '@atlas/data';
 import { CORE_FIELDS, ESTIMATE_FIELDS } from '@atlas/domain';
-import { mergeSpecs, omitRecord, overlayOf, pruneOverlay, pruneRecord, publicize } from '@atlas/publish/shards';
+import { encodeDetail, mergeSpecs, omitRecord, overlayOf, pruneOverlay, pruneRecord, publicize } from '@atlas/publish/shards';
 import type { FieldSpec, Obj } from '@atlas/publish/shards';
 import { VIEW_FIELDS } from '../src/view-fields.ts';
 import { viewFactsOf } from './view-facts.ts';
@@ -157,6 +157,12 @@ function detailOf(material: Obj, index: ReturnType<typeof detailIndex>, release:
   return { kind: 'detail', release, materialId: id, records: publicize(records) };
 }
 
+/** Every material's detail part as the page reads it, before it is written in rows (tests/remake/detail-encoding.test.mjs holds the written part to it). */
+export function plainDetails(db: Db, release: string): Map<string, Obj> {
+  const index = detailIndex(db);
+  return new Map(rowsOf(db, 'materials').map((material) => [String(material['id']), detailOf(material, index, release)]));
+}
+
 const info = (path: string, text: string): PartInfo => ({ path, sha256: createHash('sha256').update(text).digest('hex'), bytes: Buffer.byteLength(text) });
 
 /**
@@ -195,7 +201,7 @@ export function makeShards(db: Db, reference: unknown, release: string): Shards 
   const sharedText = text('shared.json', publicize({ kind: 'shared', release, tables: { printGuide: db.printGuide, method: db.method }, sources: guideSources, knowHow: meta['knowHow'] ?? null, registry: { comparisons: db.registry.comparisons, properties: db.registry.properties, relations: db.registry.relations } }));
 
   const materials = rowsOf(db, 'materials');
-  for (const material of materials) text(`detail/${String(material['id'])}.json`, detailOf(material, index, release));
+  for (const material of materials) text(`detail/${String(material['id'])}.json`, encodeDetail(detailOf(material, index, release)));
 
   return {
     files,

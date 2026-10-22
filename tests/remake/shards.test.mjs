@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { CORE_FIELDS, ESTIMATE_FIELDS } from '../../packages/domain/src/core/core-fields.ts';
 import { PUBLISHED_CORE_FIELDS, foldWildcards } from '../../apps/public/tools/shards.ts';
-import { EstimatesDoNotFitError, MissingFieldError, applyEstimates, guarded, join as joinRows, mergeSpecs, omit, overlayOf, prune, pruneOverlay, publicize } from '../../packages/publish/src/shards.ts';
+import { EstimatesDoNotFitError, MissingFieldError, applyEstimates, decodeDetail, guarded, join as joinRows, mergeSpecs, omit, overlayOf, prune, pruneOverlay, publicize } from '../../packages/publish/src/shards.ts';
 import { makeShards } from '../../apps/public/tools/shards.ts';
 import { isViewFacts } from '../../apps/public/src/view-facts.ts';
 
@@ -77,7 +77,7 @@ test('the core carries what it declares and no row of it is a copy of the databa
 
 test('the detail of a material is the rest of its rows plus the sources they cite, and joined with the core it is the whole record', () => {
   const core = JSON.parse(shards.files.get('core.json')).model;
-  const detail = JSON.parse(shards.files.get('detail/M001.json'));
+  const detail = decodeDetail(JSON.parse(shards.files.get('detail/M001.json')));
   assert.equal(detail.kind, 'detail');
   assert.equal(detail.materialId, 'M001');
   const coreRows = new Map(core.measurements.map((m) => [m.id, m]));
@@ -146,7 +146,7 @@ test('no part of a real release holds a path on a machine, and the four local so
   assert.ok(local.length >= 1, 'the data holds sources with a local path (owner ruling R3 C)');
   const citing = db.materials.find((m) => db.measurements.some((x) => x.materialId === m.id && local.some((s) => s.id === x.sourceId)));
   if (citing) {
-    const detail = JSON.parse(shards.files.get(`detail/${citing.id}.json`));
+    const detail = decodeDetail(JSON.parse(shards.files.get(`detail/${citing.id}.json`)));
     const mine = detail.records.sources.filter((s) => local.some((l) => l.id === s.id));
     assert.ok(mine.length > 0 && mine.every((s) => s.url === null && s.privateReference === true));
   }
@@ -176,7 +176,7 @@ test('a material that names a polymer the database lacks stops the build; one fo
   const polymers = new Set(db.polymers.map((p) => p.id));
   const bare = db.materials.filter((m) => typeof m.estimateIdentity !== 'string' && !polymers.has(String(m.basePolymer)));
   assert.ok(bare.length > 0, 'the real data has materials with only a base polymer and no polymer row');
-  const detail = JSON.parse(shards.files.get(`detail/${bare[0].id}.json`));
+  const detail = decodeDetail(JSON.parse(shards.files.get(`detail/${bare[0].id}.json`)));
   assert.equal(detail.records.polymer, undefined);
 });
 
@@ -196,7 +196,7 @@ test('the core carries the release\'s view facts and what the first screen print
   // What the table prints, not every field of a headline: the typical product's own fields stay in the detail.
   assert.ok(!('gradeId' in cut.typical), 'the typical product\'s grade is not downloaded for a cell');
   assert.ok(core.model.coverage.every((row) => !('id' in row)), 'a coverage row carries no ID of its own: the drawer joins the detail\'s rests in order');
-  const detail = JSON.parse(shards.files.get('detail/M001.json'));
+  const detail = decodeDetail(JSON.parse(shards.files.get('detail/M001.json')));
   assert.equal(detail.records.coverage.length, core.model.coverage.filter((row) => row.materialId === 'M001').length, 'and the counts agree');
   assert.deepEqual(core.model.registry.headlines, db.registry.headlines, 'the rail, the columns and the units are the registry\'s headlines');
   assert.ok(!('comparisons' in core.model.registry), 'the drawer\'s registry tables are the shared part\'s');
@@ -220,7 +220,7 @@ test('a material whose Best or Limitations point to another material\'s evidence
   const pointing = db.materials.filter((m) => [m.bestUses, m.limitations].flatMap((t) => String(t ?? '').match(pointer) ?? []).some((q) => owner.has(q) && owner.get(q) !== m.id));
   assert.ok(pointing.length > 0, 'the real data has materials that point to a family\'s evidence');
   for (const m of pointing.slice(0, 20)) {
-    const detail = JSON.parse(shards.files.get(`detail/${m.id}.json`));
+    const detail = decodeDetail(JSON.parse(shards.files.get(`detail/${m.id}.json`)));
     const held = new Set(detail.records.evidence.map((e) => e.id));
     const wanted = [m.bestUses, m.limitations].flatMap((t) => String(t ?? '').match(pointer) ?? []).filter((q) => owner.has(q));
     for (const q of wanted) assert.ok(held.has(q), `${m.id} points to ${q}, which its detail must hold`);

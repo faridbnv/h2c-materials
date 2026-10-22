@@ -25,8 +25,9 @@ export const BUDGETS = Object.freeze({
   // Owner decision 2026-10-22: one material's detail part may reach 350 KB (PLA, the most products, was 325 KB); it loads only
   // when that material's detail opens. The pack's line was 300 KB.
   detailMaxGzip: 350_000,
-  // The new site: the public view plus the slim copy of the previous release a deploy keeps (owner decision 2026-10-22). The old
-  // site the preview carries for comparison is reported but not counted: it is never published live.
+  // The new site as deployed live: the public view, its data, the material pages beside it, and the slim copy of the previous release a
+  // deploy keeps (owner decision 2026-10-22). The old site the preview carries for comparison (legacy/) is reported but not counted:
+  // it is never published live.
   siteBytes: 100_000_000,
 });
 
@@ -125,12 +126,9 @@ export function measure({ view, site = view }) {
   const assetsBytes = existsSync(join(view, 'assets')) ? bytesOf(join(view, 'assets')) : 0;
   const dataBytes = bytesOf(data);
   const slimDataBytes = dataBytes - (existsSync(detailDir) ? bytesOf(detailDir) : 0);
-  // A deploy keeps the previous release's data without its detail/ folder, and its chunks, beside the new ones (the stale-shell
-  // guard), so the next one carries about this much more than the view alone.
-  // The owner's definition of the new site's size (decision 2026-10-22): the public view plus the slim copy of the previous release. The material pages beside it are
-  // today's pages (byte-identical, WP-24), a size of their own; they are reported with the total they make, which is over the line (see `site.note`).
-  const newSiteBytes = viewBytes - pagesBytes + slimDataBytes + assetsBytes;
-  const liveTotalBytes = viewBytes + slimDataBytes + assetsBytes;
+  // A deploy keeps the previous release's data without its detail/ folder, and its chunks, beside the new ones (the stale-shell guard), so
+  // the live site carries about this much more than the view alone: the slim data and the chunks again. The material pages are in the view.
+  const newSiteBytes = viewBytes + slimDataBytes + assetsBytes;
 
   const check = (value, budget) => ({ value, budget, ok: value <= budget });
   // The chart library: the chunk(s) of the plotly bundle, which no boot file may name. A view with none is a view that cannot draw its chart.
@@ -157,9 +155,8 @@ export function measure({ view, site = view }) {
     defaultBoot: { note: 'Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.', gzipBytes: strictBoot + estimates.gzip, estimatesGzipBytes: estimates.gzip },
     chart: { note: 'the chart library, fetched when a chart is first opened; not in the strict boot', gzipBytes: chartBytes, files: chartFiles, namedByTheFirstLoad: chartInBoot },
     detail: { count: detail.length, medianGzipBytes: median(gzips), maxGzipBytes: largest.gzip, largest: largest.path },
-    site: { scope: 'the new site: the public view plus the slim copy of the previous release a deploy keeps; the material pages beside it are reported apart', bytes: newSiteBytes, viewBytes,
-      materialPagesBytes: pagesBytes, liveTotalBytes,
-      note: liveTotalBytes > BUDGETS.siteBytes ? `with the material pages (${(pagesBytes / 1e6).toFixed(1)} MB, today's pages) the live site is ${(liveTotalBytes / 1e6).toFixed(1)} MB against the 100 MB line: not gated, because the owner's definition of the new site's size excludes the pages; the owner is asked` : 'with the material pages the live site is within the line', dataBytes, slimDataBytes, assetsBytes,
+    site: { scope: 'the new site as deployed live: the public view with its data and the material pages, plus the slim copy of the previous release a deploy keeps', bytes: newSiteBytes, viewBytes,
+      materialPagesBytes: pagesBytes, dataBytes, slimDataBytes, assetsBytes,
       assembledBytes: siteBytes, assembledScope: 'everything under the site folder, the old site at legacy/ and the suite\'s olddb/ included; not counted' },
     checks,
     ok: Object.values(checks).every((c) => c.ok),

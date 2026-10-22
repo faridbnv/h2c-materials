@@ -271,3 +271,110 @@ export function publicize(value: unknown): unknown {
   }
   return out;
 }
+
+// ------------------------------------------------------------------ the detail parts' encoding
+
+/**
+ * The encoding of a detail part (owner decision 2026-10-22, the site budget): every array of two or more plain records is written as
+ * `{ keys, rows }`, the field names once and a row of values per record, instead of every name on every row. A record's fields that are
+ * missing (not null: missing) are listed in `absent` as row, column pairs. The part says so in its `encoding` field, and a reader refuses
+ * a part that says nothing or says another, so a part is never read as the shape it is not. `decodeDetail(encodeDetail(part))` is the
+ * part, key order included; an array whose records would not come back exactly (the same fields in another order) stays an array.
+ */
+export const DETAIL_ENCODING = 'rows-1';
+
+/** A detail part could not be encoded, or its encoding is not one this reader knows or is damaged. */
+export class DetailEncodingError extends Error {
+  constructor(what: string) {
+    super(what);
+    this.name = 'DetailEncodingError';
+  }
+}
+
+const isTable = (value: unknown): value is { keys: unknown; rows: unknown; absent?: unknown } => {
+  if (!isObject(value)) return false;
+  const names = Object.keys(value);
+  return (names.length === 2 && names.includes('keys') && names.includes('rows')) || (names.length === 3 && names.includes('keys') && names.includes('rows') && names.includes('absent'));
+};
+
+/** The fields a record holds, as JSON would write them: a field whose value is undefined is not there. */
+const heldKeys = (record: Obj): string[] => Object.keys(record).filter((key) => record[key] !== undefined);
+
+function encodeValue(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    const records = value.filter(isObject);
+    return records.length === value.length && records.length >= 2 ? encodeTable(records) ?? value.map(encodeValue) : value.map(encodeValue);
+  }
+  if (!isObject(value)) return value;
+  if (isTable(value)) throw new DetailEncodingError('a record has exactly the fields of an encoded table (keys, rows), which a reader could not tell from one');
+  const out: Obj = {};
+  for (const [key, child] of Object.entries(value)) if (child !== undefined) out[key] = encodeValue(child);
+  return out;
+}
+
+/** The records as a table, or undefined where they would not come back exactly (a record whose fields are in another order than the first-seen columns). */
+function encodeTable(records: readonly Obj[]): Obj | undefined {
+  const keys: string[] = [];
+  const column = new Map<string, number>();
+  for (const record of records) {
+    for (const key of heldKeys(record)) {
+      if (!column.has(key)) { column.set(key, keys.length); keys.push(key); }
+    }
+  }
+  const absent: number[] = [];
+  const rows: unknown[][] = [];
+  for (const [r, record] of records.entries()) {
+    const held = heldKeys(record);
+    const columns = held.map((key) => column.get(key) ?? -1);
+    if (columns.some((c, i) => i > 0 && c <= (columns[i - 1] ?? -1))) return undefined;
+    const row: unknown[] = Array.from({ length: keys.length }, () => null);
+    for (const key of held) row[column.get(key) ?? -1] = encodeValue(record[key]);
+    for (let c = 0; c < keys.length; c++) if (record[keys[c] ?? ''] === undefined) absent.push(r, c);
+    rows.push(row);
+  }
+  return absent.length ? { keys, rows, absent } : { keys, rows };
+}
+
+function decodeValue(value: unknown, where: string): unknown {
+  if (Array.isArray(value)) return value.map((element, i) => decodeValue(element, `${where}[${i}]`));
+  if (!isObject(value)) return value;
+  if (!isTable(value)) {
+    const out: Obj = {};
+    for (const [key, child] of Object.entries(value)) out[key] = decodeValue(child, `${where}.${key}`);
+    return out;
+  }
+  const { keys, rows, absent = [] } = value;
+  if (!Array.isArray(keys) || !keys.every((key): key is string => typeof key === 'string') || new Set(keys).size !== keys.length) throw new DetailEncodingError(`${where}: the table's keys are not a list of distinct names`);
+  if (!Array.isArray(rows) || !rows.every((row) => Array.isArray(row) && row.length === keys.length)) throw new DetailEncodingError(`${where}: the table's rows are not lists of one value per key`);
+  const cells: unknown[] = Array.isArray(absent) ? absent : [];
+  const numbers = cells.filter((n): n is number => typeof n === 'number' && Number.isInteger(n) && n >= 0);
+  if (!Array.isArray(absent) || cells.length % 2 !== 0 || numbers.length !== cells.length) throw new DetailEncodingError(`${where}: the table's absent list is not row, column pairs`);
+  const missing = new Set<string>();
+  for (let i = 0; i < numbers.length; i += 2) {
+    const r = numbers[i] ?? 0;
+    const c = numbers[i + 1] ?? 0;
+    if (r >= rows.length || c >= keys.length) throw new DetailEncodingError(`${where}: the table's absent list names a cell it does not have`);
+    missing.add(`${r},${c}`);
+  }
+  return rows.map((row: unknown[], r) => {
+    const record: Obj = {};
+    keys.forEach((key, c) => {
+      if (!missing.has(`${r},${c}`)) record[key] = decodeValue(row[c], `${where}[${r}].${key}`);
+    });
+    return record;
+  });
+}
+
+/** The part with its records written as tables and `encoding` set. */
+export function encodeDetail(part: Obj): Obj {
+  const { records, ...rest } = part;
+  return { ...rest, encoding: DETAIL_ENCODING, records: encodeValue(records) };
+}
+
+/** The part as the page reads it: `records` as the plain objects they were. A part with no encoding, or another, throws (DetailEncodingError). */
+export function decodeDetail(part: Obj): Obj {
+  const { encoding, records, ...rest } = part;
+  if (encoding === undefined) throw new DetailEncodingError('the part says no encoding');
+  if (encoding !== DETAIL_ENCODING) throw new DetailEncodingError(`the part says encoding ${JSON.stringify(encoding)}, which this reader does not know (it knows ${DETAIL_ENCODING})`);
+  return { ...rest, records: decodeValue(records, 'records') };
+}

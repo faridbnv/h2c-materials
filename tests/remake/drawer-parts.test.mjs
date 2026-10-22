@@ -14,7 +14,7 @@ import { useRegistry } from '../../packages/pages/src/facts/registry.ts';
 import { drawerDbOf } from '../../apps/public/src/selector/drawer/db.ts';
 import { drawerModel } from '../../apps/public/src/selector/drawer/detail.ts';
 import { makeShards } from '../../apps/public/tools/shards.ts';
-import { applyEstimates } from '../../packages/publish/src/shards.ts';
+import { applyEstimates, decodeDetail } from '../../packages/publish/src/shards.ts';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const TABS = ['Overview', 'Grades', 'Mechanical', 'Thermal', 'Printing', 'Environment', 'Price', 'Evidence'];
@@ -56,7 +56,7 @@ for (const showEstimates of [false, true]) {
     let drawn = 0;
     for (const m of db.materials) {
       if (m.familyEntry) continue;
-      const detail = JSON.parse(files.get(`detail/${m.id}.json`));
+      const detail = decodeDetail(JSON.parse(files.get(`detail/${m.id}.json`)));
       const parts = drawerDbOf(core, detail, sharedPart);
       for (const tab of TABS) {
         useRegistry(db.registry);

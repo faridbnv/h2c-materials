@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "release": "3e3891eab7b3",
-  "measuredAt": "2026-10-22T14:06:09.982Z",
+  "release": "95d11b1868cd",
+  "measuredAt": "2026-10-22T16:27:13.917Z",
   "node": "26.12.0",
   "gzipLevel": 6,
   "note": "Budgets are pack 02 section 11, with a kilobyte of 1,000 bytes. A failed check is a failed budget; relaxing one is the owner's decision.",
   "strictBoot": {
-    "gzipBytes": 893827,
-    "codeGzipBytes": 121606,
+    "gzipBytes": 894362,
+    "codeGzipBytes": 122141,
     "coreGzipBytes": 772221,
     "files": [
       {
@@ -16,9 +16,9 @@
         "gzip": 1651
       },
       {
-        "path": "assets/index-DsVps32j.js",
-        "bytes": 136074,
-        "gzip": 45920
+        "path": "assets/index-2C_xwlEd.js",
+        "bytes": 137748,
+        "gzip": 46455
       },
       {
         "path": "assets/useLoad-0zGak9kH.js",
@@ -41,7 +41,7 @@
         "gzip": 10835
       },
       {
-        "path": "data/3e3891eab7b3/core.json",
+        "path": "data/95d11b1868cd/core.json",
         "bytes": 11475293,
         "gzip": 772221
       }
@@ -49,15 +49,15 @@
   },
   "defaultBoot": {
     "note": "Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.",
-    "gzipBytes": 1093931,
-    "estimatesGzipBytes": 200104
+    "gzipBytes": 1094464,
+    "estimatesGzipBytes": 200102
   },
   "chart": {
     "note": "the chart library, fetched when a chart is first opened; not in the strict boot",
     "gzipBytes": 376929,
     "files": [
       {
-        "path": "assets/plotly-C4s_znBM.js",
+        "path": "assets/plotly-ByLqtFiY.js",
         "bytes": 643,
         "gzip": 408
       },
@@ -71,41 +71,39 @@
   },
   "detail": {
     "count": 175,
-    "medianGzipBytes": 13511,
-    "maxGzipBytes": 324544,
-    "largest": "data/3e3891eab7b3/detail/M001.json"
+    "medianGzipBytes": 13658,
+    "maxGzipBytes": 321429,
+    "largest": "data/95d11b1868cd/detail/M001.json"
   },
   "site": {
-    "scope": "the new site: the public view plus the slim copy of the previous release a deploy keeps; the material pages beside it are reported apart",
-    "bytes": 75440963,
-    "viewBytes": 82684368,
+    "scope": "the new site as deployed live: the public view with its data and the material pages, plus the slim copy of the previous release a deploy keeps",
+    "bytes": 99210665,
+    "viewBytes": 78070104,
     "materialPagesBytes": 28382292,
-    "liveTotalBytes": 103823255,
-    "note": "with the material pages (28.4 MB, today's pages) the live site is 103.8 MB against the 100 MB line: not gated, because the owner's definition of the new site's size excludes the pages; the owner is asked",
-    "dataBytes": 52411463,
+    "dataBytes": 47795525,
     "slimDataBytes": 19259829,
-    "assetsBytes": 1879058,
-    "assembledBytes": 183393225,
+    "assetsBytes": 1880732,
+    "assembledBytes": 174164697,
     "assembledScope": "everything under the site folder, the old site at legacy/ and the suite's olddb/ included; not counted"
   },
   "checks": {
     "strictBootGzip": {
-      "value": 893827,
+      "value": 894362,
       "budget": 900000,
       "ok": true
     },
     "detailMedianGzip": {
-      "value": 13511,
+      "value": 13658,
       "budget": 15000,
       "ok": true
     },
     "detailMaxGzip": {
-      "value": 324544,
+      "value": 321429,
       "budget": 350000,
       "ok": true
     },
     "siteBytes": {
-      "value": 75440963,
+      "value": 99210665,
       "budget": 100000000,
       "ok": true
     },
