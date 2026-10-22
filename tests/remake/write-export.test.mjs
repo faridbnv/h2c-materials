@@ -44,8 +44,8 @@ test('export writes a change set with typed provenance and the canonical CSV of 
     assert.equal(result.exportDir, join(sb.dir, 'export'));
     assert.deepEqual(result.tables, ['measurements']);
     assert.deepEqual(Object.keys(tree(join(sb.dir, 'export'))).sort(), [
-      'data/manifest.json', 'data/review/change-sets/' + `${result.changeSet.id}.json`, 'data/tables/measurements.csv',
-    ].sort(), 'only the changed table, the manifest and the change set; no staging, no journal');
+      '.atlas-export', 'data/manifest.json', 'data/review/change-sets/' + `${result.changeSet.id}.json`, 'data/tables/measurements.csv',
+    ].sort(), 'only the changed table, the manifest, the change set and the directory\'s mark; no staging, no journal');
 
     const file = JSON.parse(readFileSync(result.changeSetPath, 'utf8'));
     const parsed = parseChangeSet(file);
@@ -467,6 +467,47 @@ test('the export directory may not be, contain or lie inside the data it reads: 
     }
     assert.deepEqual(tree(data.dir), before, 'not one file of the data moved');
   } finally { sb.cleanup(); data.cleanup(); }
+});
+
+test('--out pointed at a checkout-like directory refuses and deletes nothing, even the data/tables CSVs an export would not write', async () => {
+  const data = copyData();
+  const sb = await scratch({ dataDir: data.dir });
+  try {
+    sb.ws.apply(command(sb.ws));
+    const checkout = mkdtempSync(join(tmpdir(), 'atlas-checkout-'));
+    try {
+      mkdirSync(join(checkout, 'data', 'tables'), { recursive: true });
+      writeFileSync(join(checkout, 'data', 'tables', 'old-table.csv'), 'A,B\n1,2\n');
+      writeFileSync(join(checkout, 'data', 'manifest.json'), '{}\n');
+      writeFileSync(join(checkout, 'README.md'), 'mine\n');
+      const before = tree(checkout);
+      await assert.rejects(() => exportChangeSet(sb.ws, { title: 'T', topic: 'checkout', exportDir: checkout }), (e) => e.code === 'unsafe-target' && /no mark of an earlier export/.test(e.message));
+      assert.deepEqual(tree(checkout), before, 'not one file moved, none was added');
+    } finally { rmSync(checkout, { recursive: true, force: true }); }
+  } finally { sb.cleanup(); data.cleanup(); }
+});
+
+test('a data-only export marks its directory too, so the next export into it is accepted', async () => {
+  const sb = await scratch();
+  try {
+    sb.ws.apply(command(sb.ws));
+    const out = join(sb.dir, 'again');
+    await exportChangeSet(sb.ws, { title: 'T', topic: 'twice', exportDir: out });
+    assert.ok(existsSync(join(out, '.atlas-export')));
+    await exportChangeSet(sb.ws, { title: 'T', topic: 'twice', exportDir: out });
+  } finally { sb.cleanup(); }
+});
+
+test('measure, coverage and reviewers refuse an --out inside the repository\'s data and write nothing there', () => {
+  const target = join(root, 'data', 'cli-out-guard');
+  try {
+    for (const command of ['measure', 'coverage', 'reviewers']) {
+      const run = cli(command, '--out', join(target, `${command}.out`));
+      assert.equal(run.status, 64, `${command}: ${run.stderr}`);
+      assert.match(run.stderr, /--out .* is inside .*data/, command);
+    }
+    assert.ok(!existsSync(target), 'nothing was made under data/');
+  } finally { rmSync(target, { recursive: true, force: true }); }
 });
 
 test('a journal is not followed outside the export directory', async () => {

@@ -1,5 +1,5 @@
 {
-  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool.",
+  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion.",
   "pairs": [
     {
       "old": "tests/remake/fixtures/p-erase/gate.old.js",
@@ -54,6 +54,16 @@
         {
           "from": "'../../schema/vocab/",
           "to": "'../../../schema/vocab/"
+        }
+      ]
+    },
+    {
+      "old": "build/src/evidence-ledger.js",
+      "new": "packages/build/src/evidence-ledger.ts",
+      "rewrites": [
+        {
+          "from": "'../../app/js/",
+          "to": "'../../../app/js/"
         }
       ]
     },

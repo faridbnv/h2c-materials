@@ -11,6 +11,7 @@ import { dirname, join } from 'node:path';
 import { buildInCopy, buildNew, compareBuilds } from '../../packages/parity/src/p-build.ts';
 import { BUILD_CASE, loadTransitions, partOf, settleSurface } from '../../packages/parity/src/transitions.ts';
 import { readDb } from '../../packages/parity/src/old-adapter.ts';
+import { spreadNote } from '../../app/js/ui/format.js';
 import { parseCsv } from '../../packages/data/src/csv.ts';
 import { root, sha } from './helpers.mjs';
 
@@ -55,6 +56,32 @@ test('P-build: the new build\'s db.json equals the old build\'s value by value (
   assert.equal(r.status, 'differs', 'the reprint ruling moves the database, so a build with it cannot equal the old one');
   const settled = settleSurface(r, listed, BUILD_CASE);
   assert.equal(settled.status, 'matches-transition', [...settled.transitions.unexpected, ...settled.transitions.missing].slice(0, 5).map((d) => `${d.record} ${d.field}`).join('; '));
+});
+
+test('the page\'s own spread sentence (the old tool\'s spreadNote) does not call a twin silent: who shares a data sheet and who publishes nothing read as before', async () => {
+  const built = await first;
+  const after = JSON.parse(readFileSync(built.dbPath, 'utf8'));
+  const before = readDb();
+  const productsOf = (db, materialId) => db.grades.filter((g) => g.materialId === materialId && !g.retired).length;
+  // the two clauses about the products that are not in the median: who shares a data sheet, and who publishes no value
+  const clauses = (note) => [/(One of them shares|\d+ of them share) a data sheet[^.]*\./.exec(note)?.[0] ?? '', /(One publishes|The other \d+ publish) no value on file\./.exec(note)?.[0] ?? ''];
+  let checked = 0, twinned = 0;
+  for (const m of after.materials) {
+    for (const [key, e] of Object.entries(m.headline)) {
+      if (!e.spread) continue;
+      const old = before.materials.find((x) => x.id === m.id).headline[key];
+      assert.deepEqual(clauses(spreadNote(e, productsOf(after, m.id))), clauses(spreadNote(old, productsOf(before, m.id))), `${m.id} ${key}`);
+      checked++;
+      if (e.spread.twins) twinned++;
+    }
+  }
+  assert.ok(checked > 1000 && twinned >= 100, `${checked} spreads checked, ${twinned} with a twin`);
+  // the worked case: PPS-GF tensile strength in the print plane. QIDI reprints Polymaker's table; it publishes it, so it is not silent.
+  const pps = after.materials.find((x) => x.id === 'M074').headline.tensileStrengthXY;
+  const note = spreadNote(pps, productsOf(after, 'M074'));
+  assert.equal(pps.value, 68.05);
+  assert.match(note, /One of them shares a data sheet with another product/);
+  assert.doesNotMatch(note, /no value on file/);
 });
 
 test('the new build is the old one byte for byte in reference.json and in its release identity; db.json differs by the transition only', async () => {

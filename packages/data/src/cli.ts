@@ -115,11 +115,16 @@ function printRoundtrip(result: RoundtripResult, dataDir: string): void {
   console.log(result.ok ? 'RESULT: pass' : 'RESULT: FAIL (the round trip passes only when every table of the schema is byte-identical)');
 }
 
+/** The sandbox rule for `--out`: a command writes nothing inside, or over, the data it reads or the repository's own data/. */
+function requireOutsideData(out: string, dataDir: string, command: string): void {
+  const protectedDir = protectedDirHolding(resolve(out), resolve(dataDir));
+  if (protectedDir !== null) throw new UsageError(`--out ${out} is inside ${protectedDir}; ${command} writes only outside the data it reads`);
+}
+
 async function runRebuild(parsed: Parsed): Promise<number> {
   const dataDir = parsed.values.get('data') ?? DEFAULT_DATA_DIR;
   const dbPath = parsed.values.get('out') ?? WORKSPACE_DB;
-  const protectedDir = protectedDirHolding(resolve(dbPath), resolve(dataDir));
-  if (protectedDir !== null) throw new UsageError(`--out ${dbPath} is inside ${protectedDir}; a rebuild writes only to a sandbox outside the data it reads`);
+  requireOutsideData(dbPath, dataDir, 'a rebuild');
   if (!holdsDrafts(dbPath)) {
     // Plain rebuild, under the writer lock: a draft applied by another process between the look and the swap would be lost otherwise.
     let lock: WriterLock;
@@ -222,6 +227,7 @@ function timing(runs: readonly number[], budgetMs: number): Timing {
 
 function runMeasure(parsed: Parsed): number {
   const out = parsed.values.get('out') ?? join(REPO_ROOT, 'remake/measure/sqlite-rebuild.json');
+  requireOutsideData(out, DEFAULT_DATA_DIR, 'a measurement');
   const scratch = mkdtempSync(join(tmpdir(), 'atlas-measure-'));
   try {
     const rebuilds: number[] = [];
@@ -434,6 +440,7 @@ function runGenerate(parsed: Parsed): Promise<number> {
 
 function runCoverage(parsed: Parsed): number {
   const out = parsed.values.get('out') ?? join(REPO_ROOT, 'remake/measure/change-set-coverage.json');
+  requireOutsideData(out, DEFAULT_DATA_DIR, 'a coverage report');
   const days = parsed.values.get('days');
   const ref = parsed.values.get('ref');
   const range = parsed.values.get('range');
@@ -458,6 +465,7 @@ function runCoverage(parsed: Parsed): number {
 function runReviewers(parsed: Parsed): number {
   const out = resolve(parsed.values.get('out') ?? join(REPO_ROOT, 'docs/next/reviewer-kind-report.md'));
   const dataDir = parsed.values.get('data') ?? DEFAULT_DATA_DIR;
+  requireOutsideData(out, dataDir, 'a report');
   const text = renderReviewerKindReport(reviewerKindReport(dataDir));
   if (parsed.switches.has('check')) {
     const current = existsSync(out) ? readFileSync(out, 'utf8') : null;

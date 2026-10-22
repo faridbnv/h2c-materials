@@ -284,10 +284,15 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
       ...(model === BASE_MODEL ? [] : filesOf(model.generated())),
       ...ledgerFile(ws.paths.dataDir, records, id),
     ];
-    // An earlier export's file that this one does not write would contradict the manifest above: it is retired. The tables' CSV always (as in v1);
-    // the other folders only in a directory a previous export marked as its own, so `--out` pointed at a checkout never removes that checkout's files.
-    const markedAsOurs = existsSync(join(dir, EXPORT_MARKER));
-    const retired = OWNED_DIRS.filter((owned) => owned === 'data/tables' || markedAsOurs).flatMap((owned) => filesUnder(dir, owned).filter((rel) => !planned.some((p) => p.rel === rel)));
+    // An earlier export's file that this one does not write would contradict the manifest above: it is retired, but only in a directory an
+    // export marked as its own. A directory that holds data and no mark (a checkout, somebody's folder) is refused before anything is staged,
+    // so `--out` pointed at one can neither overwrite nor remove what is there. (An interrupted export finished above is ours: its mark follows its journal.)
+    const marked = existsSync(join(dir, EXPORT_MARKER)) || recovered;
+    if (!marked) {
+      const held = [...OWNED_DIRS.flatMap((owned) => filesUnder(dir, owned)), ...(existsSync(join(dir, 'data/manifest.json')) ? ['data/manifest.json'] : [])];
+      if (held.length) throw new ExportRefusedError('unsafe-target', `${dir} already holds data (${held.slice(0, 3).join(', ')}${held.length > 3 ? ', ...' : ''}) and no mark of an earlier export; an export writes to an empty directory or to one it marked itself, and removes nothing from any other. Choose an empty directory`);
+    }
+    const retired = OWNED_DIRS.flatMap((owned) => filesUnder(dir, owned).filter((rel) => !planned.some((p) => p.rel === rel)));
     const lockedFiles = [...planned.map((p) => p.rel), ...retired];
     const seen = new Map(lockedFiles.map((rel) => [rel, digestOf(join(dir, rel))]));
     const existingSet = join(dir, changeSetRel);
@@ -317,6 +322,7 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
 
     // 5. Journal (the commit point), the lock again, promote.
     const journal: Journal = { note: 'An export of the write service in progress. The next change:export completes it; change:replay refuses to compare until then.', token, files: staged, remove: retired };
+    if (!existsSync(join(dir, EXPORT_MARKER))) writeDurably(join(dir, EXPORT_MARKER), 'A directory written by change:export (packages/data/src/export.ts). A later export may remove files it wrote here that it no longer writes; it removes nothing else.\n');
     commitJournal(dir, journal);
     const after = moved(new Map(staged.map((f) => [f.to, f.sha256])));
     if (after.length) {
@@ -326,9 +332,6 @@ export async function exportChangeSet(ws: Workspace, options: ExportOptions): Pr
     }
     promote(dir, journal, options.hooks?.failAfterRenames);
 
-    // Only an export that writes beyond what v1 wrote (the changed tables, the manifest, the change set) marks its directory: a data-only export leaves it as it was.
-    const beyondTables = planned.some((p) => !(p.rel.startsWith('data/tables/') || p.rel === 'data/manifest.json' || p.rel.startsWith('data/review/change-sets/')));
-    if (beyondTables && !markedAsOurs) writeDurably(join(dir, EXPORT_MARKER), 'A directory written by change:export (packages/data/src/export.ts). A later export may remove files it wrote here that it no longer writes; it removes nothing else.\n');
     markExported(ws, records, id);
     return { changeSet, changeSetPath: join(dir, changeSetRel), exportDir: dir, tables: changed, files: planned.map((p) => join(dir, p.rel)), backup: backup.path, recovered, retired };
   });

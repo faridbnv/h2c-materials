@@ -1,7 +1,7 @@
 {
  "id": "2026-10-21-reprint-counts-once",
  "kind": "science",
- "description": "A comparable value that a twin product reads from its sibling's sheet (same material, same Shared formulation key, D89) is no longer counted again in the material's median, range, quartiles and typical product. The sibling's own value stands once. The knock-on through the typical product reaches the estimate stage's calibration and some estimates.",
+ "description": "A comparable value that a twin product reads from its sibling's sheet (same material, same Shared formulation key, D89) is no longer counted again in the material's median, range, quartiles and typical product. The sibling's own value stands once, and the twin still counts as a product. The knock-on through the typical product reaches the estimate stage's calibration and some estimates.",
  "ruling": "Owner ruling OQ-09 A (R-OQ09d, 2026-10-20): a table one maker reprints from another counts once in a material's median; timing Q2-11 A (its own transition, after parity)",
  "corpus": "v0",
  "differences": [
@@ -28,30 +28,6 @@
    "field": "headline.charpyNotched.spread.claimed.others.median",
    "before": "6",
    "after": "6.1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.claimed.others.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -89,25 +65,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "155",
-   "after": "145"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1228.5",
    "after": "1220"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "10",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -129,14 +89,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "73",
-   "after": "71"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.elongationXY.spread.q1",
    "before": "4",
    "after": "4.055"
@@ -148,14 +100,6 @@
    "field": "headline.elongationXY.spread.q3",
    "before": "12.358",
    "after": "12.679"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "2",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -209,14 +153,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.elongationZ.spread.n",
-   "before": "35",
-   "after": "34"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.elongationZ.spread.q1",
    "before": "2.28",
    "after": "2.3225"
@@ -228,14 +164,6 @@
    "field": "headline.elongationZ.spread.q3",
    "before": "4.85",
    "after": "4.875"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.elongationZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -265,14 +193,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "71",
-   "after": "68"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.spread.q1",
    "before": "2.440155",
    "after": "2.4781025"
@@ -284,14 +204,6 @@
    "field": "headline.flexuralModulusXY.spread.q3",
    "before": "3.11246",
    "after": "3.13244"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -329,25 +241,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "76",
-   "after": "74"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.spread.q1",
    "before": "68.77",
    "after": "68.31"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "2",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -369,32 +265,8 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "76",
-   "after": "70"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "6",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.glassTransition.value",
    "before": "58.95",
-   "after": "59"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "61",
    "after": "59"
   },
   {
@@ -417,14 +289,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.tensileModulusZ.interval.hi",
    "before": "1.9836",
    "after": "2.0218"
@@ -436,14 +300,6 @@
    "field": "headline.tensileModulusZ.interval.lo",
    "before": "1.9836",
    "after": "2.0218"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.n",
-   "before": "29",
-   "after": "28"
   },
   {
    "case": "build",
@@ -465,25 +321,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.tensileModulusZ.value",
    "before": "1.9836",
    "after": "2.0218"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "83",
-   "after": "81"
   },
   {
    "case": "build",
@@ -505,14 +345,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthZ.interval.hi",
    "before": "30.275",
    "after": "30"
@@ -524,14 +356,6 @@
    "field": "headline.tensileStrengthZ.interval.lo",
    "before": "30.275",
    "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.n",
-   "before": "40",
-   "after": "39"
   },
   {
    "case": "build",
@@ -553,14 +377,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthZ.value",
    "before": "30.275",
    "after": "30"
@@ -577,33 +393,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.charpyNotched.claimed.others.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.charpyNotched.median",
    "before": "6",
    "after": "6.1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -617,14 +409,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "155",
-   "after": "145"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.density.q1",
    "before": "1228.5",
    "after": "1220"
@@ -633,25 +417,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "10",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.elongationXY.median",
    "before": "6.3",
    "after": "7.23"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "73",
-   "after": "71"
   },
   {
    "case": "build",
@@ -673,14 +441,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.elongationXY.typical",
    "before": "\"G001-122\"",
    "after": "\"G001-71\""
@@ -692,14 +452,6 @@
    "field": "summary.elongationZ.median",
    "before": "2.89",
    "after": "2.905"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.elongationZ.n",
-   "before": "35",
-   "after": "34"
   },
   {
    "case": "build",
@@ -721,25 +473,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.elongationZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusXY.median",
    "before": "2.875",
    "after": "2.8808735"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "71",
-   "after": "68"
   },
   {
    "case": "build",
@@ -761,25 +497,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusXY.typical",
    "before": "\"G001-18\"",
    "after": "\"G001-183\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "76",
-   "after": "74"
   },
   {
    "case": "build",
@@ -793,40 +513,8 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.glassTransition.median",
    "before": "58.95",
-   "after": "59"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "76",
-   "after": "70"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "6",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "61",
    "after": "59"
   },
   {
@@ -849,25 +537,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.tensileModulusZ.median",
    "before": "1.9836",
    "after": "2.0218"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusZ.n",
-   "before": "29",
-   "after": "28"
   },
   {
    "case": "build",
@@ -889,22 +561,6 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.tensileModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "83",
-   "after": "81"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.q1",
    "before": "39.465",
    "after": "39.93"
@@ -921,25 +577,9 @@
    "case": "build",
    "record": "materials[M001]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthZ.median",
    "before": "30.275",
    "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.n",
-   "before": "40",
-   "after": "39"
   },
   {
    "case": "build",
@@ -959,43 +599,11 @@
   },
   {
    "case": "build",
-   "record": "materials[M001]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "29",
-   "after": "20"
-  },
-  {
-   "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
    "field": "headline.density.spread.q3",
    "before": "1270",
    "after": "1255"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "9",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "19",
-   "after": "13"
   },
   {
    "case": "build",
@@ -1017,14 +625,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "6",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.elongationZ.interval.hi",
    "before": "1.6",
    "after": "1.7"
@@ -1041,14 +641,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.elongationZ.spread.n",
-   "before": "10",
-   "after": "7"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.elongationZ.spread.q1",
    "before": "1.125",
    "after": "1.35"
@@ -1060,14 +652,6 @@
    "field": "headline.elongationZ.spread.q3",
    "before": "1.885",
    "after": "1.87"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.elongationZ.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1097,25 +681,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "17",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.spread.q1",
    "before": "2.3155",
    "after": "2.34275"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "6",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1169,25 +737,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "18",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.spread.q1",
    "before": "66.7",
    "after": "66.525"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "6",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1241,22 +793,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "18",
-   "after": "10"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "8",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.glassTransition.value",
    "before": "60.9",
    "after": "58.95"
@@ -1276,22 +812,6 @@
    "field": "headline.hdt045.interval.lo",
    "before": "57",
    "after": "55"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "11",
-   "after": "8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1329,14 +849,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.izodNotched.spread.n",
-   "before": "6",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.izodNotched.spread.q1",
    "before": "3.5",
    "after": "null"
@@ -1348,14 +860,6 @@
    "field": "headline.izodNotched.spread.q3",
    "before": "3.5",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1377,14 +881,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "11",
-   "after": "8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.spread.q1",
    "before": "1.7249",
    "after": "1.597525"
@@ -1396,14 +892,6 @@
    "field": "headline.tensileModulusXY.spread.q3",
    "before": "1.96605",
    "after": "2.0325"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1441,14 +929,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.n",
-   "before": "8",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.tensileModulusZ.spread.q1",
    "before": "1.552625",
    "after": "1.25"
@@ -1460,14 +940,6 @@
    "field": "headline.tensileModulusZ.spread.q3",
    "before": "1.855875",
    "after": "1.85"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1489,25 +961,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "20",
-   "after": "14"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.spread.q1",
    "before": "40.807",
    "after": "37.732"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "6",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1561,25 +1017,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.n",
-   "before": "12",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthZ.spread.q1",
    "before": "11.075",
    "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1593,33 +1033,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "29",
-   "after": "20"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.density.q3",
    "before": "1270",
    "after": "1255"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "9",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "19",
-   "after": "13"
   },
   {
    "case": "build",
@@ -1641,25 +1057,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "6",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.elongationZ.median",
    "before": "1.6",
    "after": "1.7"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.elongationZ.n",
-   "before": "10",
-   "after": "7"
   },
   {
    "case": "build",
@@ -1681,14 +1081,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.elongationZ.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusXY.median",
    "before": "2.473",
    "after": "2.46"
@@ -1697,25 +1089,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "17",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusXY.q1",
    "before": "2.3155",
    "after": "2.34275"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "6",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1737,25 +1113,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "18",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.q1",
    "before": "66.7",
    "after": "66.525"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "6",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1777,22 +1137,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "18",
-   "after": "10"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "8",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.hdt045.median",
    "before": "57",
    "after": "55"
@@ -1801,33 +1145,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "11",
-   "after": "8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.hdt045.typical",
    "before": "\"G008-04\"",
    "after": "\"G008-09\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.izodNotched.n",
-   "before": "6",
-   "after": "3"
   },
   {
    "case": "build",
@@ -1849,25 +1169,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.izodNotched.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.median",
    "before": "1.83",
    "after": "1.88105"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "11",
-   "after": "8"
   },
   {
    "case": "build",
@@ -1889,25 +1193,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.typical",
    "before": "\"G010-01\"",
    "after": "\"G008-08\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusZ.n",
-   "before": "8",
-   "after": "5"
   },
   {
    "case": "build",
@@ -1929,14 +1217,6 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.tensileModulusZ.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.median",
    "before": "49.8",
    "after": "46.318"
@@ -1945,25 +1225,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "20",
-   "after": "14"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.q1",
    "before": "40.807",
    "after": "37.732"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "6",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -1985,25 +1249,9 @@
    "case": "build",
    "record": "materials[M008]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthZ.n",
-   "before": "12",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthZ.q1",
    "before": "11.075",
    "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M008]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2049,14 +1297,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.charpyNotched.spread.claimed.others.n",
-   "before": "10",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.charpyNotched.spread.claimed.others.q1",
    "before": "4.7625",
    "after": "4.7"
@@ -2068,14 +1308,6 @@
    "field": "headline.charpyNotched.spread.claimed.others.q3",
    "before": "8",
    "after": "8.6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.n",
-   "before": "10",
-   "after": "9"
   },
   {
    "case": "build",
@@ -2097,33 +1329,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.charpyNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "59",
-   "after": "55"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1255",
    "after": "1250"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "4",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2145,14 +1353,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "30",
-   "after": "29"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.spread.q1",
    "before": "1.61875",
    "after": "1.61"
@@ -2169,25 +1369,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.value",
    "before": "1.925",
    "after": "1.95"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "31",
-   "after": "30"
   },
   {
    "case": "build",
@@ -2209,22 +1393,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "31",
-   "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.glassTransition.spread.q1",
    "before": "72.67",
    "after": "71.955"
@@ -2233,49 +1401,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "32",
-   "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.hdt18.spread.q1",
    "before": "62.25",
    "after": "63"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2297,14 +1425,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.shoreD.spread.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.shoreD.spread.q1",
    "before": "74.5",
    "after": "75.25"
@@ -2316,14 +1436,6 @@
    "field": "headline.shoreD.spread.q3",
    "before": "79.5",
    "after": "79.75"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.shoreD.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2353,25 +1465,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "24",
-   "after": "23"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.spread.q3",
    "before": "1.9542",
    "after": "2.0084"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2409,14 +1505,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "34",
-   "after": "33"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.spread.q1",
    "before": "40.25",
    "after": "40"
@@ -2428,22 +1516,6 @@
    "field": "headline.tensileStrengthXY.spread.q3",
    "before": "50.625",
    "after": "50.8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.claimed.others.n",
-   "before": "10",
-   "after": "9"
   },
   {
    "case": "build",
@@ -2465,14 +1537,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.charpyNotched.n",
-   "before": "10",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.charpyNotched.q1",
    "before": "4.7625",
    "after": "4.7"
@@ -2489,22 +1553,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.charpyNotched.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "59",
-   "after": "55"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.density.q1",
    "before": "1255",
    "after": "1250"
@@ -2513,25 +1561,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "4",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusXY.median",
    "before": "1.925",
    "after": "1.95"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "30",
-   "after": "29"
   },
   {
    "case": "build",
@@ -2553,22 +1585,6 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "31",
-   "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.q1",
    "before": "66",
    "after": "66.025"
@@ -2585,57 +1601,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "31",
-   "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.glassTransition.q1",
    "before": "72.67",
    "after": "71.955"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "32",
-   "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "14",
-   "after": "13"
   },
   {
    "case": "build",
@@ -2649,25 +1617,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.shoreD.median",
    "before": "76",
    "after": "77.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.shoreD.n",
-   "before": "7",
-   "after": "6"
   },
   {
    "case": "build",
@@ -2689,25 +1641,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.shoreD.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.median",
    "before": "1.692",
    "after": "1.7"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "24",
-   "after": "23"
   },
   {
    "case": "build",
@@ -2721,25 +1657,9 @@
    "case": "build",
    "record": "materials[M020]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.typical",
    "before": "\"G020-16\"",
    "after": "\"G020-44\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "34",
-   "after": "33"
   },
   {
    "case": "build",
@@ -2756,14 +1676,6 @@
    "field": "summary.tensileStrengthXY.q3",
    "before": "50.625",
    "after": "50.8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M020]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2793,14 +1705,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.charpyNotched.spread.claimed.others.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.charpyNotched.spread.claimed.others.q3",
    "before": "21.5",
    "after": "21.1325"
@@ -2809,25 +1713,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.charpyNotched.spread.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.charpyNotched.spread.q3",
    "before": "21.5",
    "after": "21.1325"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2865,22 +1753,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "46",
-   "after": "43"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.elongationXY.interval.hi",
    "before": "10",
    "after": "8.815"
@@ -2897,14 +1769,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "17",
-   "after": "16"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.elongationXY.spread.q1",
    "before": "5.77",
    "after": "5.5775"
@@ -2916,14 +1780,6 @@
    "field": "headline.elongationXY.spread.q3",
    "before": "10.5",
    "after": "10.245"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -2977,14 +1833,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.elongationZ.spread.n",
-   "before": "11",
-   "after": "10"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.elongationZ.spread.q1",
    "before": "1.61",
    "after": "1.605"
@@ -2996,14 +1844,6 @@
    "field": "headline.elongationZ.spread.q3",
    "before": "4.7",
    "after": "4.3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.elongationZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3057,14 +1897,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "16",
-   "after": "15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.spread.q1",
    "before": "1.97625",
    "after": "1.9925"
@@ -3076,14 +1908,6 @@
    "field": "headline.flexuralModulusXY.spread.q3",
    "before": "2.3475",
    "after": "2.365"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3113,14 +1937,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusZ.spread.q1",
    "before": "1.59",
    "after": "2.025"
@@ -3132,14 +1948,6 @@
    "field": "headline.flexuralModulusZ.spread.q3",
    "before": "2.21",
    "after": "2.21575"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3169,14 +1977,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "16",
-   "after": "15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.spread.q1",
    "before": "59.05",
    "after": "58.1"
@@ -3188,14 +1988,6 @@
    "field": "headline.flexuralStrengthXY.spread.q3",
    "before": "73.125",
    "after": "73.25"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3249,14 +2041,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthZ.spread.q1",
    "before": "39",
    "after": "40.575"
@@ -3273,25 +2057,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthZ.value",
    "before": "41.1",
    "after": "41.17"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "20",
-   "after": "19"
   },
   {
    "case": "build",
@@ -3313,22 +2081,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "18",
-   "after": "17"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.hdt045.spread.q1",
    "before": "88.5",
    "after": "90"
@@ -3340,14 +2092,6 @@
    "field": "headline.hdt045.spread.q3",
    "before": "99.2",
    "after": "99.6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3369,25 +2113,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "16",
-   "after": "15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.hdt18.spread.q1",
    "before": "81.75",
    "after": "81.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3425,14 +2153,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "13",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.spread.q1",
    "before": "2.02",
    "after": "2.0025"
@@ -3444,14 +2164,6 @@
    "field": "headline.tensileModulusXY.spread.q3",
    "before": "2.2466",
    "after": "2.26495"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3473,14 +2185,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.n",
-   "before": "9",
-   "after": "8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.tensileModulusZ.spread.q1",
    "before": "1.96",
    "after": "1.9575"
@@ -3492,14 +2196,6 @@
    "field": "headline.tensileModulusZ.spread.q3",
    "before": "2.1",
    "after": "2.145"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3529,25 +2225,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "18",
-   "after": "17"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.spread.q3",
    "before": "35.62",
    "after": "35.66"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3601,14 +2281,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.n",
-   "before": "12",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthZ.spread.q1",
    "before": "24.5575",
    "after": "23.705"
@@ -3620,14 +2292,6 @@
    "field": "headline.tensileStrengthZ.spread.q3",
    "before": "28.25",
    "after": "28.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3649,14 +2313,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.charpyNotched.claimed.others.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.charpyNotched.claimed.others.q3",
    "before": "21.5",
    "after": "21.1325"
@@ -3673,25 +2329,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.charpyNotched.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.charpyNotched.q3",
    "before": "21.5",
    "after": "21.1325"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -3705,33 +2345,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "46",
-   "after": "43"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.elongationXY.median",
    "before": "10",
    "after": "8.815"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "17",
-   "after": "16"
   },
   {
    "case": "build",
@@ -3753,14 +2369,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.elongationXY.typical",
    "before": "\"G027-06\"",
    "after": "\"G027-38\""
@@ -3772,14 +2380,6 @@
    "field": "summary.elongationZ.median",
    "before": "3.1",
    "after": "2.455"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.elongationZ.n",
-   "before": "11",
-   "after": "10"
   },
   {
    "case": "build",
@@ -3801,14 +2401,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.elongationZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.elongationZ.typical",
    "before": "\"G027-09\"",
    "after": "\"G027-07\""
@@ -3820,14 +2412,6 @@
    "field": "summary.flexuralModulusXY.median",
    "before": "2.0525",
    "after": "2.07"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "16",
-   "after": "15"
   },
   {
    "case": "build",
@@ -3849,25 +2433,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusZ.median",
    "before": "2.17",
    "after": "2.19"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusZ.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -3889,25 +2457,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.median",
    "before": "62.5",
    "after": "63"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "16",
-   "after": "15"
   },
   {
    "case": "build",
@@ -3929,14 +2481,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.typical",
    "before": "\"G027-01\"",
    "after": "\"G027-36\""
@@ -3948,14 +2492,6 @@
    "field": "summary.flexuralStrengthZ.median",
    "before": "41.1",
    "after": "41.17"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -3977,22 +2513,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "20",
-   "after": "19"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.glassTransition.q1",
    "before": "104.75",
    "after": "104.5"
@@ -4004,22 +2524,6 @@
    "field": "summary.glassTransition.q3",
    "before": "108.25",
    "after": "108.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "18",
-   "after": "17"
   },
   {
    "case": "build",
@@ -4041,25 +2545,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.hdt18.median",
    "before": "85.5",
    "after": "86"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "16",
-   "after": "15"
   },
   {
    "case": "build",
@@ -4073,25 +2561,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.hdt18.typical",
    "before": "\"G027-56\"",
    "after": "\"G027-32\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "13",
-   "after": "12"
   },
   {
    "case": "build",
@@ -4113,25 +2585,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.tensileModulusZ.median",
    "before": "1.96757",
    "after": "2.024235"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusZ.n",
-   "before": "9",
-   "after": "8"
   },
   {
    "case": "build",
@@ -4153,14 +2609,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.tensileModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.median",
    "before": "34.47",
    "after": "34.94"
@@ -4169,25 +2617,9 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "18",
-   "after": "17"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.q3",
    "before": "35.62",
    "after": "35.66"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4209,14 +2641,6 @@
    "case": "build",
    "record": "materials[M027]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthZ.n",
-   "before": "12",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthZ.q1",
    "before": "24.5575",
    "after": "23.705"
@@ -4228,38 +2652,6 @@
    "field": "summary.tensileStrengthZ.q3",
    "before": "28.25",
    "after": "28.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M027]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "34",
-   "after": "33"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "14",
-   "after": "12"
   },
   {
    "case": "build",
@@ -4281,38 +2673,6 @@
    "case": "build",
    "record": "materials[M031]",
    "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "34",
-   "after": "33"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "14",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
    "field": "summary.hdt18.q1",
    "before": "86",
    "after": "85.25"
@@ -4324,14 +2684,6 @@
    "field": "summary.hdt18.q3",
    "before": "86.75",
    "after": "88.25"
-  },
-  {
-   "case": "build",
-   "record": "materials[M031]",
-   "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "2",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4353,14 +2705,6 @@
    "case": "build",
    "record": "materials[M033]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "16",
-   "after": "15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1077.5",
    "after": "1075"
@@ -4372,14 +2716,6 @@
    "field": "headline.density.spread.q3",
    "before": "1112.5",
    "after": "1110"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4409,14 +2745,6 @@
    "case": "build",
    "record": "materials[M033]",
    "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
    "field": "headline.hdt18.spread.q1",
    "before": "95",
    "after": "95.6"
@@ -4428,14 +2756,6 @@
    "field": "headline.hdt18.spread.q3",
    "before": "97.3",
    "after": "98.475"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4457,14 +2777,6 @@
    "case": "build",
    "record": "materials[M033]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "16",
-   "after": "15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
    "field": "summary.density.q1",
    "before": "1077.5",
    "after": "1075"
@@ -4481,25 +2793,9 @@
    "case": "build",
    "record": "materials[M033]",
    "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
    "field": "summary.hdt18.median",
    "before": "95.8",
    "after": "96.55"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -4516,30 +2812,6 @@
    "field": "summary.hdt18.q3",
    "before": "97.3",
    "after": "98.475"
-  },
-  {
-   "case": "build",
-   "record": "materials[M033]",
-   "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "19",
-   "after": "18"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4561,14 +2833,6 @@
    "case": "build",
    "record": "materials[M035]",
    "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "15",
-   "after": "14"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
    "field": "headline.hdt045.spread.q1",
    "before": "112.8",
    "after": "112.4"
@@ -4580,14 +2844,6 @@
    "field": "headline.hdt045.spread.q3",
    "before": "139",
    "after": "138.75"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4641,14 +2897,6 @@
    "case": "build",
    "record": "materials[M035]",
    "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "11",
-   "after": "10"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
    "field": "headline.hdt18.spread.q1",
    "before": "106.8",
    "after": "106.7"
@@ -4660,14 +2908,6 @@
    "field": "headline.hdt18.spread.q3",
    "before": "130.5",
    "after": "131.75"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4705,33 +2945,9 @@
    "case": "build",
    "record": "materials[M035]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "19",
-   "after": "18"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
    "field": "summary.hdt045.median",
    "before": "123",
    "after": "118.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "15",
-   "after": "14"
   },
   {
    "case": "build",
@@ -4753,14 +2969,6 @@
    "case": "build",
    "record": "materials[M035]",
    "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
    "field": "summary.hdt045.typical",
    "before": "\"G035-13\"",
    "after": "\"G035-06\""
@@ -4772,14 +2980,6 @@
    "field": "summary.hdt18.median",
    "before": "121",
    "after": "119"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "11",
-   "after": "10"
   },
   {
    "case": "build",
@@ -4801,14 +3001,6 @@
    "case": "build",
    "record": "materials[M035]",
    "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M035]",
-   "tier": "evidence",
    "field": "summary.hdt18.typical",
    "before": "\"G035-25\"",
    "after": "\"G035-01\""
@@ -4825,41 +3017,9 @@
    "case": "build",
    "record": "materials[M046]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "10",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1142.5",
    "after": "1140"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.bounds.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -4881,14 +3041,6 @@
    "case": "build",
    "record": "materials[M046]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
    "field": "headline.shoreD.interval.hi",
    "before": "37",
    "after": "40"
@@ -4905,14 +3057,6 @@
    "case": "build",
    "record": "materials[M046]",
    "tier": "evidence",
-   "field": "headline.shoreD.spread.n",
-   "before": "8",
-   "after": "7"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
    "field": "headline.shoreD.spread.q1",
    "before": "30",
    "after": "32"
@@ -4924,14 +3068,6 @@
    "field": "headline.shoreD.spread.q3",
    "before": "41.25",
    "after": "42.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "headline.shoreD.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -4969,41 +3105,9 @@
    "case": "build",
    "record": "materials[M046]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "10",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
    "field": "summary.density.q1",
    "before": "1142.5",
    "after": "1140"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.bounds.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -5025,25 +3129,9 @@
    "case": "build",
    "record": "materials[M046]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
    "field": "summary.shoreD.median",
    "before": "37",
    "after": "40"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "summary.shoreD.n",
-   "before": "8",
-   "after": "7"
   },
   {
    "case": "build",
@@ -5060,14 +3148,6 @@
    "field": "summary.shoreD.q3",
    "before": "41.25",
    "after": "42.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M046]",
-   "tier": "evidence",
-   "field": "summary.shoreD.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5097,14 +3177,6 @@
    "case": "build",
    "record": "materials[M050]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M050]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1155",
    "after": "1150"
@@ -5116,14 +3188,6 @@
    "field": "headline.density.spread.q3",
    "before": "1195",
    "after": "1200"
-  },
-  {
-   "case": "build",
-   "record": "materials[M050]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5145,14 +3209,6 @@
    "case": "build",
    "record": "materials[M050]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "14",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M050]",
-   "tier": "evidence",
    "field": "summary.density.q1",
    "before": "1155",
    "after": "1150"
@@ -5164,14 +3220,6 @@
    "field": "summary.density.q3",
    "before": "1195",
    "after": "1200"
-  },
-  {
-   "case": "build",
-   "record": "materials[M050]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5193,25 +3241,9 @@
    "case": "build",
    "record": "materials[M051]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "9",
-   "after": "8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M051]",
-   "tier": "evidence",
    "field": "headline.density.spread.q3",
    "before": "1340",
    "after": "1342.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M051]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5257,25 +3289,9 @@
    "case": "build",
    "record": "materials[M051]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "9",
-   "after": "8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M051]",
-   "tier": "evidence",
    "field": "summary.density.q3",
    "before": "1340",
    "after": "1342.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M051]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5289,25 +3305,9 @@
    "case": "build",
    "record": "materials[M052]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "6",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M052]",
-   "tier": "evidence",
    "field": "headline.density.spread.q3",
    "before": "1011.5",
    "after": "1012"
-  },
-  {
-   "case": "build",
-   "record": "materials[M052]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5345,25 +3345,9 @@
    "case": "build",
    "record": "materials[M052]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "6",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M052]",
-   "tier": "evidence",
    "field": "summary.density.q3",
    "before": "1011.5",
    "after": "1012"
-  },
-  {
-   "case": "build",
-   "record": "materials[M052]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5388,38 +3372,6 @@
    "field": "headline.tensileModulusXY.estimate.hi",
    "before": "4.39",
    "after": "4.4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M057]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M057]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M057]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M057]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5489,14 +3441,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "8",
-   "after": "7"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1207.5",
    "after": "1205"
@@ -5508,14 +3452,6 @@
    "field": "headline.density.spread.q3",
    "before": "1232.5",
    "after": "1235"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5569,14 +3505,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.elongationXY.spread.q1",
    "before": "2.875",
    "after": "null"
@@ -5588,14 +3516,6 @@
    "field": "headline.elongationXY.spread.q3",
    "before": "3.5",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5625,14 +3545,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.spread.q1",
    "before": "6.5",
    "after": "null"
@@ -5644,14 +3556,6 @@
    "field": "headline.flexuralModulusXY.spread.q3",
    "before": "8.38625",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5705,22 +3609,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusZ.value",
    "before": "2.52",
    "after": "2.88"
@@ -5745,14 +3633,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.spread.q1",
    "before": "179.75",
    "after": "null"
@@ -5764,14 +3644,6 @@
    "field": "headline.flexuralStrengthXY.spread.q3",
    "before": "210",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5796,22 +3668,6 @@
    "field": "headline.flexuralStrengthZ.interval.lo",
    "before": "70",
    "after": "66.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5865,14 +3721,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.hdt045.spread.q1",
    "before": "220",
    "after": "214.25"
@@ -5889,49 +3737,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.hdt045.value",
    "before": "220",
    "after": "223.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.gradeId",
-   "before": "<absent>",
-   "after": "\"G070-06\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.measurementId",
-   "before": "<absent>",
-   "after": "\"V005244\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -5953,14 +3761,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.spread.q1",
    "before": "7.1",
    "after": "null"
@@ -5977,25 +3777,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.value",
    "before": "7.65",
    "after": "8.2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -6017,25 +3801,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.density.median",
    "before": "1220",
    "after": "1230"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "8",
-   "after": "7"
   },
   {
    "case": "build",
@@ -6057,14 +3825,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.density.typical",
    "before": "\"G070-06\"",
    "after": "\"G070-03\""
@@ -6076,14 +3836,6 @@
    "field": "summary.elongationXY.median",
    "before": "3.35",
    "after": "3.2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -6105,25 +3857,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusXY.median",
    "before": "7.1975",
    "after": "7.895"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -6139,14 +3875,6 @@
    "tier": "evidence",
    "field": "summary.flexuralModulusXY.q3",
    "before": "8.38625",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "1",
    "after": "<absent>"
   },
   {
@@ -6169,33 +3897,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.median",
    "before": "209",
    "after": "208"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -6217,33 +3921,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthZ.median",
    "before": "70",
    "after": "66.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6265,14 +3945,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.hdt045.q1",
    "before": "220",
    "after": "214.25"
@@ -6289,41 +3961,9 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.izodNotched.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.izodNotched.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.median",
    "before": "7.65",
    "after": "8.2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -6345,22 +3985,6 @@
    "case": "build",
    "record": "materials[M070]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.q1",
    "before": "102.75",
    "after": "<absent>"
@@ -6371,14 +3995,6 @@
    "tier": "evidence",
    "field": "summary.tensileStrengthXY.q3",
    "before": "123",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M070]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
    "after": "<absent>"
   },
   {
@@ -6409,22 +4025,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "6",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.density.value",
    "before": "1295",
    "after": "1290"
@@ -6449,14 +4049,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.elongationXY.spread.q1",
    "before": "1.4",
    "after": "1.35"
@@ -6468,14 +4060,6 @@
    "field": "headline.elongationXY.spread.q3",
    "before": "4",
    "after": "2.65"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6529,14 +4113,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.spread.q1",
    "before": "6",
    "after": "5.661725"
@@ -6548,14 +4124,6 @@
    "field": "headline.flexuralModulusXY.spread.q3",
    "before": "6.18",
    "after": "6.425"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6585,14 +4153,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusZ.spread.q1",
    "before": "2.2",
    "after": "null"
@@ -6604,14 +4164,6 @@
    "field": "headline.flexuralModulusZ.spread.q3",
    "before": "2.499825",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6665,14 +4217,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.spread.q1",
    "before": "98.2",
    "after": "97.225"
@@ -6684,14 +4228,6 @@
    "field": "headline.flexuralStrengthXY.spread.q3",
    "before": "125",
    "after": "129.25"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6745,14 +4281,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthZ.spread.q1",
    "before": "34.5",
    "after": "null"
@@ -6764,14 +4292,6 @@
    "field": "headline.flexuralStrengthZ.spread.q3",
    "before": "50",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6801,14 +4321,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.hdt045.spread.q1",
    "before": "245",
    "after": "249.5"
@@ -6820,14 +4332,6 @@
    "field": "headline.hdt045.spread.q3",
    "before": "252.5",
    "after": "255.375"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6852,22 +4356,6 @@
    "field": "headline.izodNotched.interval.lo",
    "before": "7",
    "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6921,14 +4409,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.spread.q1",
    "before": "7.46",
    "after": "6.956675"
@@ -6940,14 +4420,6 @@
    "field": "headline.tensileModulusXY.spread.q3",
    "before": "8",
    "after": "8.0575"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -6977,14 +4449,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.spread.q1",
    "before": "63",
    "after": "62.1"
@@ -6996,14 +4460,6 @@
    "field": "headline.tensileStrengthXY.spread.q3",
    "before": "95",
    "after": "89"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7049,33 +4505,9 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "6",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.elongationXY.median",
    "before": "2.2",
    "after": "1.8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -7097,14 +4529,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.elongationXY.typical",
    "before": "\"G073-02\"",
    "after": "\"G073-04\""
@@ -7116,14 +4540,6 @@
    "field": "summary.flexuralModulusXY.median",
    "before": "6",
    "after": "6.09"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -7145,25 +4561,9 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusZ.median",
    "before": "2.33",
    "after": "2.46"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusZ.n",
-   "before": "4",
-   "after": "3"
   },
   {
    "case": "build",
@@ -7179,14 +4579,6 @@
    "tier": "evidence",
    "field": "summary.flexuralModulusZ.q3",
    "before": "2.499825",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusZ.twins",
-   "before": "1",
    "after": "<absent>"
   },
   {
@@ -7209,14 +4601,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.q1",
    "before": "98.2",
    "after": "97.225"
@@ -7228,14 +4612,6 @@
    "field": "summary.flexuralStrengthXY.q3",
    "before": "125",
    "after": "129.25"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7257,14 +4633,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.n",
-   "before": "4",
-   "after": "3"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthZ.q1",
    "before": "34.5",
    "after": "<absent>"
@@ -7281,25 +4649,9 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.hdt045.median",
    "before": "251",
    "after": "251.75"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -7321,33 +4673,9 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.izodNotched.median",
    "before": "7",
    "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.izodNotched.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.izodNotched.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7369,14 +4697,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.q1",
    "before": "7.46",
    "after": "6.956675"
@@ -7393,25 +4713,9 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.median",
    "before": "87",
    "after": "75"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -7433,14 +4737,6 @@
    "case": "build",
    "record": "materials[M073]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M073]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.typical",
    "before": "\"G073-01\"",
    "after": "\"G073-02\""
@@ -7457,54 +4753,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "headline.charpyNotched.gradeId",
-   "before": "<absent>",
-   "after": "\"G074-02\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.measurementId",
-   "before": "<absent>",
-   "after": "\"V001403\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "headline.elongationXY.interval.hi",
    "before": "2",
    "after": "1.8"
@@ -7516,22 +4764,6 @@
    "field": "headline.elongationXY.interval.lo",
    "before": "2",
    "after": "1.8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7585,22 +4817,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "headline.elongationZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.elongationZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "headline.elongationZ.typical.gradeId",
    "before": "\"G074-02\"",
    "after": "\"G074-01\""
@@ -7644,22 +4860,6 @@
    "field": "headline.flexuralModulusXY.interval.lo",
    "before": "4.1107",
    "after": "4.32035"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7713,22 +4913,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusZ.typical.gradeId",
    "before": "\"G074-02\"",
    "after": "\"G074-01\""
@@ -7772,22 +4956,6 @@
    "field": "headline.flexuralStrengthXY.interval.lo",
    "before": "102.3",
    "after": "107.15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7841,121 +5009,9 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthZ.value",
    "before": "45.7",
    "after": "51.85"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.gradeId",
-   "before": "<absent>",
-   "after": "\"G074-02\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.measurementId",
-   "before": "<absent>",
-   "after": "\"V002067\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt045.gradeId",
-   "before": "<absent>",
-   "after": "\"G074-02\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt045.measurementId",
-   "before": "<absent>",
-   "after": "\"V002071\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt18.gradeId",
-   "before": "<absent>",
-   "after": "\"G074-02\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt18.measurementId",
-   "before": "<absent>",
-   "after": "\"V001392\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -7972,22 +5028,6 @@
    "field": "headline.tensileModulusXY.interval.lo",
    "before": "4.552",
    "after": "5.158"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8041,22 +5081,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "headline.tensileModulusZ.typical.gradeId",
    "before": "\"G074-02\"",
    "after": "\"G074-01\""
@@ -8105,22 +5129,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.value",
    "before": "64.1",
    "after": "68.05"
@@ -8140,22 +5148,6 @@
    "field": "headline.tensileStrengthZ.interval.lo",
    "before": "22.9",
    "after": "32.45"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8193,57 +5185,9 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "summary.charpyNotched.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "summary.elongationXY.median",
    "before": "2",
    "after": "1.8"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8265,22 +5209,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "summary.elongationZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.elongationZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "summary.elongationZ.typical",
    "before": "\"G074-02\"",
    "after": "\"G074-01\""
@@ -8292,22 +5220,6 @@
    "field": "summary.flexuralModulusXY.median",
    "before": "4.1107",
    "after": "4.32035"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8329,22 +5241,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusZ.typical",
    "before": "\"G074-02\"",
    "after": "\"G074-01\""
@@ -8356,22 +5252,6 @@
    "field": "summary.flexuralStrengthXY.median",
    "before": "102.3",
    "after": "107.15"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8393,89 +5273,9 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.median",
    "before": "4.552",
    "after": "5.158"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8497,22 +5297,6 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "summary.tensileModulusZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "summary.tensileModulusZ.typical",
    "before": "\"G074-02\"",
    "after": "\"G074-01\""
@@ -8529,41 +5313,9 @@
    "case": "build",
    "record": "materials[M074]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthZ.median",
    "before": "22.9",
    "after": "32.45"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M074]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8607,38 +5359,6 @@
   },
   {
    "case": "build",
-   "record": "materials[M081]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "10",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M081]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M081]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "10",
-   "after": "9"
-  },
-  {
-   "case": "build",
-   "record": "materials[M081]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
    "field": "headline.elongationZ.interval.hi",
@@ -8652,22 +5372,6 @@
    "field": "headline.elongationZ.interval.lo",
    "before": "480",
    "after": "265"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.elongationZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.elongationZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8721,22 +5425,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "headline.flexuralModulusXY.typical.gradeId",
    "before": "\"G086-02\"",
    "after": "\"G086-03\""
@@ -8780,22 +5468,6 @@
    "field": "headline.flexuralModulusZ.interval.lo",
    "before": "0.217",
    "after": "0.2085"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.flexuralModulusZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -8849,22 +5521,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.typical.gradeId",
    "before": "\"G086-02\"",
    "after": "\"G086-03\""
@@ -8913,22 +5569,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthZ.typical.gradeId",
    "before": "\"G086-02\"",
    "after": "\"G086-03\""
@@ -8961,70 +5601,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "headline.glassTransition.gradeId",
-   "before": "<absent>",
-   "after": "\"G086-02\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.measurementId",
-   "before": "<absent>",
-   "after": "\"V007774\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.shoreD.gradeId",
-   "before": "<absent>",
-   "after": "\"G086-02\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.shoreD.measurementId",
-   "before": "<absent>",
-   "after": "\"V007772\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.shoreD.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.shoreD.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthZ.interval.hi",
    "before": "11",
    "after": "10.5"
@@ -9036,22 +5612,6 @@
    "field": "headline.tensileStrengthZ.interval.lo",
    "before": "11",
    "after": "10.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9097,22 +5657,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "summary.elongationZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.elongationZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "summary.elongationZ.typical",
    "before": "\"G086-02\"",
    "after": "\"G086-03\""
@@ -9124,22 +5668,6 @@
    "field": "summary.flexuralModulusXY.median",
    "before": "0.244",
    "after": "0.272"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9161,22 +5689,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "summary.flexuralModulusZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.flexuralModulusZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "summary.flexuralModulusZ.typical",
    "before": "\"G086-02\"",
    "after": "\"G086-03\""
@@ -9188,22 +5700,6 @@
    "field": "summary.flexuralStrengthXY.median",
    "before": "7.8",
    "after": "9.4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9225,22 +5721,6 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthZ.typical",
    "before": "\"G086-02\"",
    "after": "\"G086-03\""
@@ -9249,57 +5729,9 @@
    "case": "build",
    "record": "materials[M086]",
    "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.shoreD.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.shoreD.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthZ.median",
    "before": "11",
    "after": "10.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M086]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9329,22 +5761,6 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "7",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "headline.glassTransition.interval.hi",
    "before": "84",
    "after": "84.5"
@@ -9356,14 +5772,6 @@
    "field": "headline.glassTransition.interval.lo",
    "before": "84",
    "after": "84.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "7",
-   "after": "4"
   },
   {
    "case": "build",
@@ -9385,14 +5793,6 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "headline.glassTransition.value",
    "before": "84",
    "after": "84.5"
@@ -9401,25 +5801,9 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "headline.hdt045.spread.q1",
    "before": "74",
    "after": "75.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9441,14 +5825,6 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "headline.izodNotched.spread.n",
-   "before": "5",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "headline.izodNotched.spread.q1",
    "before": "93",
    "after": "null"
@@ -9460,14 +5836,6 @@
    "field": "headline.izodNotched.spread.q3",
    "before": "93",
    "after": "null"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "headline.izodNotched.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9505,30 +5873,6 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "headline.shoreD.gradeId",
-   "before": "<absent>",
-   "after": "\"G088-04\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "headline.shoreD.measurementId",
-   "before": "<absent>",
-   "after": "\"V007394\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "headline.shoreD.spread.n",
-   "before": "4",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "headline.shoreD.spread.q1",
    "before": "76",
    "after": "null"
@@ -9545,41 +5889,9 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "headline.shoreD.spread.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "7",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "summary.glassTransition.median",
    "before": "84",
    "after": "84.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "7",
-   "after": "4"
   },
   {
    "case": "build",
@@ -9601,22 +5913,6 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "summary.hdt045.q1",
    "before": "74",
    "after": "75.5"
@@ -9625,25 +5921,9 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "summary.izodNotched.median",
    "before": "93",
    "after": "50.5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.izodNotched.n",
-   "before": "5",
-   "after": "2"
   },
   {
    "case": "build",
@@ -9665,25 +5945,9 @@
    "case": "build",
    "record": "materials[M088]",
    "tier": "evidence",
-   "field": "summary.izodNotched.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
    "field": "summary.izodNotched.typical",
    "before": "\"G088-04\"",
    "after": "\"G088-01\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.shoreD.n",
-   "before": "4",
-   "after": "1"
   },
   {
    "case": "build",
@@ -9703,27 +5967,11 @@
   },
   {
    "case": "build",
-   "record": "materials[M088]",
-   "tier": "evidence",
-   "field": "summary.shoreD.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
    "record": "materials[M092]",
    "tier": "evidence",
    "field": "headline.density.estimate.screenBasis",
    "before": "\"its top screens a minimum requirement only where the family model's top (1750 kg/m³) agrees: this-grade estimates cannot set it (only 7 back-tested cases; 22 are needed to show at 90% confidence tha… (880 chars, sha256:aad13e17c876)",
    "after": "\"its top screens a minimum requirement only where the family model's top (1750 kg/m³) agrees: this-grade estimates cannot set it (only 6 back-tested cases; 22 are needed to show at 90% confidence tha… (880 chars, sha256:54640d3b8241)"
-  },
-  {
-   "case": "build",
-   "record": "materials[M094]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "12",
-   "after": "11"
   },
   {
    "case": "build",
@@ -9745,22 +5993,6 @@
    "case": "build",
    "record": "materials[M094]",
    "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M094]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "12",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M094]",
-   "tier": "evidence",
    "field": "summary.density.q1",
    "before": "1095.25",
    "after": "1120"
@@ -9772,46 +6004,6 @@
    "field": "summary.density.q3",
    "before": "1172.5",
    "after": "1175"
-  },
-  {
-   "case": "build",
-   "record": "materials[M094]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.gradeId",
-   "before": "<absent>",
-   "after": "\"G099-06\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.measurementId",
-   "before": "<absent>",
-   "after": "\"V007244\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.charpyNotched.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9828,22 +6020,6 @@
    "field": "headline.density.interval.lo",
    "before": "1307.5",
    "after": "1275"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "12",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9873,14 +6049,6 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.n",
-   "before": "7",
-   "after": "6"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "headline.flexuralStrengthXY.spread.q1",
    "before": "94.5",
    "after": "92.75"
@@ -9892,14 +6060,6 @@
    "field": "headline.flexuralStrengthXY.spread.q3",
    "before": "124.5",
    "after": "110.75"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.flexuralStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9937,25 +6097,9 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "headline.glassTransition.spread.n",
-   "before": "6",
-   "after": "5"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "headline.glassTransition.spread.q3",
    "before": "209.25",
    "after": "217"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "headline.glassTransition.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -9977,14 +6121,6 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "8",
-   "after": "7"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.spread.q1",
    "before": "55.75",
    "after": "55.5"
@@ -10001,33 +6137,9 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.value",
    "before": "59",
    "after": "56"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.charpyNotched.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -10041,33 +6153,9 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "12",
-   "after": "11"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.median",
    "before": "110",
    "after": "104"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.n",
-   "before": "7",
-   "after": "6"
   },
   {
    "case": "build",
@@ -10089,25 +6177,9 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "summary.flexuralStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "summary.flexuralStrengthXY.typical",
    "before": "\"G099-01\"",
    "after": "\"G099-07\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.glassTransition.n",
-   "before": "6",
-   "after": "5"
   },
   {
    "case": "build",
@@ -10121,25 +6193,9 @@
    "case": "build",
    "record": "materials[M099]",
    "tier": "evidence",
-   "field": "summary.glassTransition.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthXY.median",
    "before": "59",
    "after": "56"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "8",
-   "after": "7"
   },
   {
    "case": "build",
@@ -10156,14 +6212,6 @@
    "field": "summary.tensileStrengthXY.q3",
    "before": "84",
    "after": "73"
-  },
-  {
-   "case": "build",
-   "record": "materials[M099]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -10249,137 +6297,9 @@
    "case": "build",
    "record": "materials[M110]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt045.gradeId",
-   "before": "<absent>",
-   "after": "\"G110-01\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt045.measurementId",
-   "before": "<absent>",
-   "after": "\"V002932\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt045.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt18.gradeId",
-   "before": "<absent>",
-   "after": "\"G110-01\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt18.measurementId",
-   "before": "<absent>",
-   "after": "\"V002933\""
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "headline.hdt18.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.estimate.hi",
    "before": "4.68",
    "after": "4.69"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "summary.hdt045.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "summary.hdt045.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "summary.hdt18.n",
-   "before": "2",
-   "after": "1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M110]",
-   "tier": "evidence",
-   "field": "summary.hdt18.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -10409,22 +6329,6 @@
    "case": "build",
    "record": "materials[M113]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M113]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M113]",
-   "tier": "evidence",
    "field": "headline.hdt045.estimate.screenBasis",
    "before": "\"its top screens a minimum requirement: this-material estimates, 4 of 55 true values lay above the plausible range; its top is taken at the 99.99% point, wider than the plausible range, so that at 90… (476 chars, sha256:11f32297b34e)",
    "after": "\"its top screens a minimum requirement: this-material estimates, 4 of 55 true values lay above the plausible range; its top is taken at the 99.99% point, wider than the plausible range, so that at 90… (509 chars, sha256:34f253d798d8)"
@@ -10444,22 +6348,6 @@
    "field": "headline.tensileModulusXY.estimate.lo",
    "before": "0.97",
    "after": "0.969"
-  },
-  {
-   "case": "build",
-   "record": "materials[M113]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "3",
-   "after": "2"
-  },
-  {
-   "case": "build",
-   "record": "materials[M113]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -10841,14 +6729,6 @@
    "case": "build",
    "record": "materials[M159]",
    "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "15",
-   "after": "13"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
    "field": "headline.density.spread.q1",
    "before": "1115",
    "after": "1110"
@@ -10860,14 +6740,6 @@
    "field": "headline.density.spread.q3",
    "before": "1210",
    "after": "1190"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "2",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -10905,14 +6777,6 @@
    "case": "build",
    "record": "materials[M159]",
    "tier": "evidence",
-   "field": "headline.shoreA.spread.n",
-   "before": "14",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
    "field": "headline.shoreA.spread.q1",
    "before": "80",
    "after": "79.25"
@@ -10921,25 +6785,9 @@
    "case": "build",
    "record": "materials[M159]",
    "tier": "evidence",
-   "field": "headline.shoreA.spread.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
    "field": "summary.density.median",
    "before": "1180",
    "after": "1160"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "15",
-   "after": "13"
   },
   {
    "case": "build",
@@ -10961,14 +6809,6 @@
    "case": "build",
    "record": "materials[M159]",
    "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "2",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
    "field": "summary.density.typical",
    "before": "\"G039-15\"",
    "after": "\"G039-67\""
@@ -10977,25 +6817,9 @@
    "case": "build",
    "record": "materials[M159]",
    "tier": "evidence",
-   "field": "summary.shoreA.n",
-   "before": "14",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
    "field": "summary.shoreA.q1",
    "before": "80",
    "after": "79.25"
-  },
-  {
-   "case": "build",
-   "record": "materials[M159]",
-   "tier": "evidence",
-   "field": "summary.shoreA.twins",
-   "before": "2",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -11012,22 +6836,6 @@
    "field": "headline.density.interval.lo",
    "before": "1210",
    "after": "1205"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.density.spread.n",
-   "before": "25",
-   "after": "22"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.density.spread.twins",
-   "before": "3",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -11081,14 +6889,6 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.n",
-   "before": "13",
-   "after": "12"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "headline.elongationXY.spread.q1",
    "before": "471",
    "after": "468.75"
@@ -11105,33 +6905,9 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "headline.elongationXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "headline.elongationXY.value",
    "before": "501.3",
    "after": "540.65"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.shoreA.spread.n",
-   "before": "15",
-   "after": "14"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.shoreA.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -11153,14 +6929,6 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.n",
-   "before": "11",
-   "after": "10"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "headline.tensileModulusXY.spread.q1",
    "before": "0.0166",
    "after": "0.0149"
@@ -11172,14 +6940,6 @@
    "field": "headline.tensileModulusXY.spread.q3",
    "before": "0.0396",
    "after": "0.0449"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.tensileModulusXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -11233,14 +6993,6 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.n",
-   "before": "17",
-   "after": "16"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthXY.spread.q1",
    "before": "27",
    "after": "26.9"
@@ -11252,14 +7004,6 @@
    "field": "headline.tensileStrengthXY.spread.q3",
    "before": "34",
    "after": "34.1"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthXY.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -11289,14 +7033,6 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.n",
-   "before": "5",
-   "after": "4"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "headline.tensileStrengthZ.spread.q1",
    "before": "18.5",
    "after": "15.625"
@@ -11308,14 +7044,6 @@
    "field": "headline.tensileStrengthZ.spread.q3",
    "before": "22",
    "after": "22.075"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "headline.tensileStrengthZ.spread.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -11361,22 +7089,6 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "summary.density.n",
-   "before": "25",
-   "after": "22"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.density.twins",
-   "before": "3",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "summary.density.typical",
    "before": "\"G039-05\"",
    "after": "\"G039-13\""
@@ -11388,14 +7100,6 @@
    "field": "summary.elongationXY.median",
    "before": "501.3",
    "after": "540.65"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.elongationXY.n",
-   "before": "13",
-   "after": "12"
   },
   {
    "case": "build",
@@ -11417,41 +7121,9 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "summary.elongationXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.shoreA.n",
-   "before": "15",
-   "after": "14"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.shoreA.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.median",
    "before": "0.027",
    "after": "0.026600044"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.tensileModulusXY.n",
-   "before": "11",
-   "after": "10"
   },
   {
    "case": "build",
@@ -11473,14 +7145,6 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "summary.tensileModulusXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "summary.tensileModulusXY.typical",
    "before": "\"G039-21\"",
    "after": "\"G039-31\""
@@ -11492,14 +7156,6 @@
    "field": "summary.tensileStrengthXY.median",
    "before": "29",
    "after": "30"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthXY.n",
-   "before": "17",
-   "after": "16"
   },
   {
    "case": "build",
@@ -11521,25 +7177,9 @@
    "case": "build",
    "record": "materials[M161]",
    "tier": "evidence",
-   "field": "summary.tensileStrengthXY.twins",
-   "before": "1",
-   "after": "<absent>"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
    "field": "summary.tensileStrengthZ.median",
    "before": "22",
    "after": "20.25"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.n",
-   "before": "5",
-   "after": "4"
   },
   {
    "case": "build",
@@ -11556,14 +7196,6 @@
    "field": "summary.tensileStrengthZ.q3",
    "before": "22",
    "after": "22.075"
-  },
-  {
-   "case": "build",
-   "record": "materials[M161]",
-   "tier": "evidence",
-   "field": "summary.tensileStrengthZ.twins",
-   "before": "1",
-   "after": "<absent>"
   },
   {
    "case": "build",
@@ -43590,6 +39222,6 @@
    "after": "{\"basis\":\"its products' related measurements, with the family model\",\"bounds\":[{\"own\":218,\"sd\":6,\"side\":\"upper\",\"value\":218,\"why\":\"melting point 218 °C: A semicrystalline bar cannot hold its shape above its melting point.\"},{\"sd\":5,\"side\":\"lower\",\"value\":45,\"why\":\"45 °C floor: Heat deflection is measured by heating a loaded bar from room temperature (ISO 75, ASTM D648). A bar soft enough to deflect near room temperature has no meaningful HDT, and no filament in the snapshot measures below 48 °C even at 1.8 MPa. A soft floor, so a PE or BVOH estimate cannot reach below freezing.\"}],\"canScreen\":true,\"centre\":119,\"evidence\":[{\"conflict\":false,\"conversion\":\"A printed semicrystalline bar crystallises less than a moulded one and deflects earlier\",\"converted\":113,\"gradeId\":\"G058-R1\",\"items\":[{\"direction\":\"not-applicable\",\"gradeId\":\"G058-R1\",\"measurementId\":\"V002046\",\"property\":\"HDT\",\"unit\":\"°C\",\"value\":135}],\"kind\":\"HDT 0.45 moulded semicrystalline\",\"sameGrade\":false}],\"family\":\"PA612\",\"hi\":156,\"kind\":\"model\",\"levels\":{\"likely\":0.8,\"plausible\":0.95},\"lo\":83.9,\"method\":\"Gaussian model of every observation in the snapshot, each converted to this headline; 80% and 95% ranges calibrated by predicting 65 hidden measured headlines\",\"ownShare\":0.15,\"plausible\":{\"hi\":172,\"lo\":68.4},\"precision\":\"poor\",\"screenBasis\":\"its top screens a minimum requirement: this-material estimates, 4 of 55 true values lay above the plausible range; its top is taken at the 99.99% point, wider than the plausible range, so that at 90% confidence at most 10% of true values lie above it; its bottom screens a maximum requirement: this-material estimates, 3 of 55 true values lay below the plausible range; its bottom is taken at the 1.7% point, wider than the plausible range, so that at 90% confidence at most 10% of true values lie below it.\",\"screenLimit\":null,\"screenRange\":{\"hi\":213,\"lo\":64.7},\"sharedWith\":null,\"strength\":\"this-material\",\"unit\":\"°C\"}"
   }
  ],
- "digest": "sha256:6ffeebe29246438fd946f72f55350c61ec5403721dc7d80d16e5ba95bd34922b",
- "seal": "sha256:0d459854a5d6c22263b96ff99d1dec06a526db5f07474fe4bbbd5ee863f9a899"
+ "digest": "sha256:1bb40baefaff158a9ca5569571614f844505ae29827d4b36c8e00fda3382cfb0",
+ "seal": "sha256:9941146f39d8d8979905663e9f6495a133240dc85627a65b91c9c0ae3fa98b6e"
 }

@@ -1,8 +1,8 @@
 # The reprint transition: a reprinted table counts once in a material's median
 
 > **In short.** You ruled (OQ-09 A, 2026-10-20, R-OQ09d) that a table one maker reprints from another counts once in a
-> material's median. This is that change, measured on today's data. It touches **129 headlines of 24 materials**
-> (5448 database and answer differences in all, all listed in
+> material's median. This is that change, measured on today's data. It touches **129 headlines of 24 materials**, and the page shows a different range, median, middle half or typical product in **108 of them (20 materials)**
+> (4902 database and answer differences in all, all listed in
 > [`parity/transitions/2026-10-21-reprint-counts-once.json`](../../../parity/transitions/2026-10-21-reprint-counts-once.json)).
 > **81 medians of 17 materials move.** No verdict moves for any material that has products on record. The only
 > scenario answers that change are for two materials with no product on record, PA612 (M058) and PA612-GF (M060), through a side
@@ -12,6 +12,13 @@
 
 **Status: waiting for your approval.** Nothing is merged until you attest it.
 
+**Re-measured 2026-10-21 (M2 close review).** The first measurement also changed "how many products" a median speaks for, so the
+page's own sentence (the old `spreadNote`) called a twin that publishes the value "silent" ("One publishes no value on file"),
+which is false. The ruling is about the median, not that count, so the build now keeps the count of products and the twin
+count as before and counts a reprinted table once only in the median, range, middle half and typical product. This removed 546 of the
+5,448 listed differences (the "values counted", twin-count and single-value fields); no listed difference was added, and the 3,933
+answer differences are the same. The numbers below are the re-measured ones. See "What the page says" for the wording.
+
 ## What "a reprinted table" means in the data
 
 I did not invent a rule. The database already says which products print one sheet: products of one material that share a
@@ -20,8 +27,8 @@ value wherever its own record is silent (the product page says "data sheet share
 **material's** table shares no key and reads nothing (R166), so it is not affected.
 
 Until now a twin counted as a product of its own in the material's median, so a table printed by two makers was counted twice.
-Now the sibling's value counts and the twin's read of it does not. The twin is still a product (it still counts in "products",
-still has its own page row, still passes or fails on that table), a value a twin records itself still counts, and only
+Now the sibling's value counts and the twin's read of it does not, in the median, range, middle half and typical product. The twin is still a product (it still counts in "products"
+and in the "median of N products" figure, still has its own page row, still passes or fails on that table), a value a twin records itself still counts, and only
 comparable values of plain (non-variant) products are touched. Price is never read from a twin, so prices do not move.
 
 Today the data has **214 such reads, in 24 materials and 129 headlines**. **106 are between different makers** (the case in your
@@ -38,9 +45,11 @@ G074-02.
 
 ## What moves
 
-- **129 headlines now count fewer values.** All of them also change the "values counted" figure on the page.
-- **81 medians move** (17 materials); the other 48 headlines count one value fewer but the median is the same number.
-  The quartiles of 82 headlines move as well.
+- **129 headlines hold a reprint**, and in all of them the median is now over the table once. The count of products the median speaks for
+  ("Median of 3 of its 3 products") does not change. **108 of the 129 (20 materials) show a change on the page**; in the other 21 the reprint's value
+  was already the middle of the range, so counting it once moves nothing.
+- **81 medians move** (17 materials); the other 48 headlines keep the same median, and 27 of those move their middle half or typical product.
+  The quartiles of 82 headlines move in all.
 - **The "typical product" changes in 47 headlines** (it is the product nearest the median); in 47 of them it is a different number.
 - **The headline value a table, chart, compare view or export shows for the material is the median**, so those 81 values change on screen.
   They decide nothing: a material that has products is judged product by product, not on its median (D83). That is why no verdict moves for them.
@@ -51,93 +60,94 @@ G074-02.
 
 ### Every median that moves
 
-| Material | Headline | Median today | Median after | Change | Values counted (today / after) |
-|---|---|---|---|---|---|
-| M001 PLA | Tensile modulus (Z) | 1.9836 GPa | 2.0218 GPa | 1.9% | 29 / 28 |
-| M001 PLA | Tensile strength (Z) | 30.275 MPa | 30 MPa | -0.9% | 40 / 39 |
-| M001 PLA | Elongation at break (XY) | 6.3 % | 7.23 % | 14.8% | 73 / 71 |
-| M001 PLA | Elongation at break (Z) | 2.89 % | 2.905 % | 0.5% | 35 / 34 |
-| M001 PLA | Flexural modulus (XY) | 2.875 GPa | 2.8809 GPa | 0.2% | 71 / 68 |
-| M001 PLA | Notched Charpy impact | 6 kJ/m² | 6.1 kJ/m² | 1.7% | 14 / 13 |
-| M001 PLA | Glass transition (Tg) | 58.95 °C | 59 °C | 0.1% | 76 / 70 |
-| M008 PLA Silk | Tensile modulus (XY) | 1.83 GPa | 1.8811 GPa | 2.8% | 11 / 8 |
-| M008 PLA Silk | Tensile strength (XY) | 49.8 MPa | 46.318 MPa | -7.0% | 20 / 14 |
-| M008 PLA Silk | Tensile strength (Z) | 14.73 MPa | 17.36 MPa | 17.9% | 12 / 9 |
-| M008 PLA Silk | Elongation at break (Z) | 1.6 % | 1.7 % | 6.2% | 10 / 7 |
-| M008 PLA Silk | Flexural modulus (XY) | 2.473 GPa | 2.46 GPa | -0.5% | 17 / 11 |
-| M008 PLA Silk | Flexural strength (XY) | 76.17 MPa | 75.17 MPa | -1.3% | 18 / 12 |
-| M008 PLA Silk | HDT at 0.45 MPa | 57 °C | 55 °C | -3.5% | 11 / 8 |
-| M008 PLA Silk | Glass transition (Tg) | 60.9 °C | 58.95 °C | -3.2% | 18 / 10 |
-| M020 PETG | Tensile modulus (XY) | 1.692 GPa | 1.7 GPa | 0.5% | 24 / 23 |
-| M020 PETG | Flexural modulus (XY) | 1.925 GPa | 1.95 GPa | 1.3% | 30 / 29 |
-| M020 PETG | Shore D hardness | 76 Shore D | 77.5 Shore D | 2.0% | 7 / 6 |
-| M027 ABS | Tensile modulus (Z) | 1.9676 GPa | 2.0242 GPa | 2.9% | 9 / 8 |
-| M027 ABS | Tensile strength (XY) | 34.47 MPa | 34.94 MPa | 1.4% | 18 / 17 |
-| M027 ABS | Tensile strength (Z) | 27.25 MPa | 27 MPa | -0.9% | 12 / 11 |
-| M027 ABS | Elongation at break (XY) | 10 % | 8.815 % | -11.9% | 17 / 16 |
-| M027 ABS | Elongation at break (Z) | 3.1 % | 2.455 % | -20.8% | 11 / 10 |
-| M027 ABS | Flexural modulus (XY) | 2.0525 GPa | 2.07 GPa | 0.9% | 16 / 15 |
-| M027 ABS | Flexural modulus (Z) | 2.17 GPa | 2.19 GPa | 0.9% | 5 / 4 |
-| M027 ABS | Flexural strength (XY) | 62.5 MPa | 63 MPa | 0.8% | 16 / 15 |
-| M027 ABS | Flexural strength (Z) | 41.1 MPa | 41.17 MPa | 0.2% | 5 / 4 |
-| M027 ABS | Notched Charpy impact | 20.03 kJ/m² | 19.015 kJ/m² | -5.1% | 7 / 6 |
-| M027 ABS | HDT at 1.8 MPa | 85.5 °C | 86 °C | 0.6% | 16 / 15 |
-| M033 ASA-CF | Density | 1095 kg/m³ | 1090 kg/m³ | -0.5% | 16 / 15 |
-| M033 ASA-CF | HDT at 1.8 MPa | 95.8 °C | 96.55 °C | 0.8% | 5 / 4 |
-| M035 PC | HDT at 0.45 MPa | 123 °C | 118.5 °C | -3.7% | 15 / 14 |
-| M035 PC | HDT at 1.8 MPa | 121 °C | 119 °C | -1.7% | 11 / 10 |
-| M046 TPC / TPEE | Shore D hardness | 37 Shore D | 40 Shore D | 8.1% | 8 / 7 |
-| M050 PA6-CF | Density | 1175 kg/m³ | 1170 kg/m³ | -0.4% | 14 / 13 |
-| M051 PA6-GF | Density | 1310 kg/m³ | 1289.5 kg/m³ | -1.6% | 9 / 8 |
-| M070 PPA-CF | Density | 1220 kg/m³ | 1230 kg/m³ | 0.8% | 8 / 7 |
-| M070 PPA-CF | Tensile modulus (XY) | 7.65 GPa | 8.2 GPa | 7.2% | 4 / 3 |
-| M070 PPA-CF | Elongation at break (XY) | 3.35 % | 3.2 % | -4.5% | 4 / 3 |
-| M070 PPA-CF | Flexural modulus (XY) | 7.1975 GPa | 7.895 GPa | 9.7% | 4 / 3 |
-| M070 PPA-CF | Flexural modulus (Z) | 2.52 GPa | 2.88 GPa | 14.3% | 3 / 2 |
-| M070 PPA-CF | Flexural strength (XY) | 209 MPa | 208 MPa | -0.5% | 4 / 3 |
-| M070 PPA-CF | Flexural strength (Z) | 70 MPa | 66.5 MPa | -5.0% | 3 / 2 |
-| M070 PPA-CF | HDT at 0.45 MPa | 220 °C | 223.5 °C | 1.6% | 5 / 4 |
-| M073 PPS-CF | Density | 1295 kg/m³ | 1290 kg/m³ | -0.4% | 6 / 5 |
-| M073 PPS-CF | Tensile modulus (XY) | 8 GPa | 7.73 GPa | -3.4% | 5 / 4 |
-| M073 PPS-CF | Tensile strength (XY) | 87 MPa | 75 MPa | -13.8% | 5 / 4 |
-| M073 PPS-CF | Elongation at break (XY) | 2.2 % | 1.8 % | -18.2% | 5 / 4 |
-| M073 PPS-CF | Flexural modulus (XY) | 6 GPa | 6.09 GPa | 1.5% | 5 / 4 |
-| M073 PPS-CF | Flexural modulus (Z) | 2.33 GPa | 2.46 GPa | 5.6% | 4 / 3 |
-| M073 PPS-CF | Flexural strength (XY) | 125 MPa | 111.6 MPa | -10.7% | 5 / 4 |
-| M073 PPS-CF | Flexural strength (Z) | 43 MPa | 36 MPa | -16.3% | 4 / 3 |
-| M073 PPS-CF | Notched Izod impact | 7 kJ/m² | 5 kJ/m² | -28.6% | 3 / 2 |
-| M073 PPS-CF | HDT at 0.45 MPa | 251 °C | 251.75 °C | 0.3% | 5 / 4 |
-| M074 PPS-GF | Tensile modulus (XY) | 4.552 GPa | 5.158 GPa | 13.3% | 3 / 2 |
-| M074 PPS-GF | Tensile modulus (Z) | 2.5572 GPa | 2.5691 GPa | 0.5% | 3 / 2 |
-| M074 PPS-GF | Tensile strength (XY) | 64.1 MPa | 68.05 MPa | 6.2% | 3 / 2 |
-| M074 PPS-GF | Tensile strength (Z) | 22.9 MPa | 32.45 MPa | 41.7% | 3 / 2 |
-| M074 PPS-GF | Elongation at break (XY) | 2 % | 1.8 % | -10.0% | 3 / 2 |
-| M074 PPS-GF | Elongation at break (Z) | 1.1 % | 0.9 % | -18.2% | 3 / 2 |
-| M074 PPS-GF | Flexural modulus (XY) | 4.1107 GPa | 4.3204 GPa | 5.1% | 3 / 2 |
-| M074 PPS-GF | Flexural modulus (Z) | 2.6057 GPa | 2.4089 GPa | -7.6% | 3 / 2 |
-| M074 PPS-GF | Flexural strength (XY) | 102.3 MPa | 107.15 MPa | 4.7% | 3 / 2 |
-| M074 PPS-GF | Flexural strength (Z) | 45.7 MPa | 51.85 MPa | 13.5% | 3 / 2 |
-| M086 OBC | Tensile strength (Z) | 11 MPa | 10.5 MPa | -4.5% | 3 / 2 |
-| M086 OBC | Elongation at break (Z) | 480 % | 265 % | -44.8% | 3 / 2 |
-| M086 OBC | Flexural modulus (XY) | 0.244 GPa | 0.272 GPa | 11.5% | 3 / 2 |
-| M086 OBC | Flexural modulus (Z) | 0.217 GPa | 0.2085 GPa | -3.9% | 3 / 2 |
-| M086 OBC | Flexural strength (XY) | 7.8 MPa | 9.4 MPa | 20.5% | 3 / 2 |
-| M086 OBC | Flexural strength (Z) | 6.8 MPa | 7.9 MPa | 16.2% | 3 / 2 |
-| M088 PCTG | Notched Izod impact | 93 kJ/m² | 50.5 kJ/m² | -45.7% | 5 / 2 |
-| M088 PCTG | Glass transition (Tg) | 84 °C | 84.5 °C | 0.6% | 7 / 4 |
-| M099 PEI / ULTEM | Density | 1307.5 kg/m³ | 1275 kg/m³ | -2.5% | 12 / 11 |
-| M099 PEI / ULTEM | Tensile strength (XY) | 59 MPa | 56 MPa | -5.1% | 8 / 7 |
-| M099 PEI / ULTEM | Flexural strength (XY) | 110 MPa | 104 MPa | -5.5% | 7 / 6 |
-| M159 TPU 85A class and softer | Density | 1180 kg/m³ | 1160 kg/m³ | -1.7% | 15 / 13 |
-| M161 TPU 95A class | Density | 1210 kg/m³ | 1205 kg/m³ | -0.4% | 25 / 22 |
-| M161 TPU 95A class | Tensile modulus (XY) | 0.027 GPa | 0.0266 GPa | -1.5% | 11 / 10 |
-| M161 TPU 95A class | Tensile strength (XY) | 29 MPa | 30 MPa | 3.4% | 17 / 16 |
-| M161 TPU 95A class | Tensile strength (Z) | 22 MPa | 20.25 MPa | -8.0% | 5 / 4 |
-| M161 TPU 95A class | Elongation at break (XY) | 501.3 % | 540.65 % | 7.8% | 13 / 12 |
+| Material | Headline | Median today | Median after | Change |
+|---|---|---|---|---|
+| M001 PLA | Tensile modulus (Z) | 1.9836 GPa | 2.0218 GPa | 1.9% |
+| M001 PLA | Tensile strength (Z) | 30.275 MPa | 30 MPa | -0.9% |
+| M001 PLA | Elongation at break (XY) | 6.3 % | 7.23 % | 14.8% |
+| M001 PLA | Elongation at break (Z) | 2.89 % | 2.905 % | 0.5% |
+| M001 PLA | Flexural modulus (XY) | 2.875 GPa | 2.8809 GPa | 0.2% |
+| M001 PLA | Notched Charpy impact | 6 kJ/m² | 6.1 kJ/m² | 1.7% |
+| M001 PLA | Glass transition (Tg) | 58.95 °C | 59 °C | 0.1% |
+| M008 PLA Silk | Tensile modulus (XY) | 1.83 GPa | 1.8811 GPa | 2.8% |
+| M008 PLA Silk | Tensile strength (XY) | 49.8 MPa | 46.318 MPa | -7.0% |
+| M008 PLA Silk | Tensile strength (Z) | 14.73 MPa | 17.36 MPa | 17.9% |
+| M008 PLA Silk | Elongation at break (Z) | 1.6 % | 1.7 % | 6.2% |
+| M008 PLA Silk | Flexural modulus (XY) | 2.473 GPa | 2.46 GPa | -0.5% |
+| M008 PLA Silk | Flexural strength (XY) | 76.17 MPa | 75.17 MPa | -1.3% |
+| M008 PLA Silk | HDT at 0.45 MPa | 57 °C | 55 °C | -3.5% |
+| M008 PLA Silk | Glass transition (Tg) | 60.9 °C | 58.95 °C | -3.2% |
+| M020 PETG | Tensile modulus (XY) | 1.692 GPa | 1.7 GPa | 0.5% |
+| M020 PETG | Flexural modulus (XY) | 1.925 GPa | 1.95 GPa | 1.3% |
+| M020 PETG | Shore D hardness | 76 Shore D | 77.5 Shore D | 2.0% |
+| M027 ABS | Tensile modulus (Z) | 1.9676 GPa | 2.0242 GPa | 2.9% |
+| M027 ABS | Tensile strength (XY) | 34.47 MPa | 34.94 MPa | 1.4% |
+| M027 ABS | Tensile strength (Z) | 27.25 MPa | 27 MPa | -0.9% |
+| M027 ABS | Elongation at break (XY) | 10 % | 8.815 % | -11.9% |
+| M027 ABS | Elongation at break (Z) | 3.1 % | 2.455 % | -20.8% |
+| M027 ABS | Flexural modulus (XY) | 2.0525 GPa | 2.07 GPa | 0.9% |
+| M027 ABS | Flexural modulus (Z) | 2.17 GPa | 2.19 GPa | 0.9% |
+| M027 ABS | Flexural strength (XY) | 62.5 MPa | 63 MPa | 0.8% |
+| M027 ABS | Flexural strength (Z) | 41.1 MPa | 41.17 MPa | 0.2% |
+| M027 ABS | Notched Charpy impact | 20.03 kJ/m² | 19.015 kJ/m² | -5.1% |
+| M027 ABS | HDT at 1.8 MPa | 85.5 °C | 86 °C | 0.6% |
+| M033 ASA-CF | Density | 1095 kg/m³ | 1090 kg/m³ | -0.5% |
+| M033 ASA-CF | HDT at 1.8 MPa | 95.8 °C | 96.55 °C | 0.8% |
+| M035 PC | HDT at 0.45 MPa | 123 °C | 118.5 °C | -3.7% |
+| M035 PC | HDT at 1.8 MPa | 121 °C | 119 °C | -1.7% |
+| M046 TPC / TPEE | Shore D hardness | 37 Shore D | 40 Shore D | 8.1% |
+| M050 PA6-CF | Density | 1175 kg/m³ | 1170 kg/m³ | -0.4% |
+| M051 PA6-GF | Density | 1310 kg/m³ | 1289.5 kg/m³ | -1.6% |
+| M070 PPA-CF | Density | 1220 kg/m³ | 1230 kg/m³ | 0.8% |
+| M070 PPA-CF | Tensile modulus (XY) | 7.65 GPa | 8.2 GPa | 7.2% |
+| M070 PPA-CF | Elongation at break (XY) | 3.35 % | 3.2 % | -4.5% |
+| M070 PPA-CF | Flexural modulus (XY) | 7.1975 GPa | 7.895 GPa | 9.7% |
+| M070 PPA-CF | Flexural modulus (Z) | 2.52 GPa | 2.88 GPa | 14.3% |
+| M070 PPA-CF | Flexural strength (XY) | 209 MPa | 208 MPa | -0.5% |
+| M070 PPA-CF | Flexural strength (Z) | 70 MPa | 66.5 MPa | -5.0% |
+| M070 PPA-CF | HDT at 0.45 MPa | 220 °C | 223.5 °C | 1.6% |
+| M073 PPS-CF | Density | 1295 kg/m³ | 1290 kg/m³ | -0.4% |
+| M073 PPS-CF | Tensile modulus (XY) | 8 GPa | 7.73 GPa | -3.4% |
+| M073 PPS-CF | Tensile strength (XY) | 87 MPa | 75 MPa | -13.8% |
+| M073 PPS-CF | Elongation at break (XY) | 2.2 % | 1.8 % | -18.2% |
+| M073 PPS-CF | Flexural modulus (XY) | 6 GPa | 6.09 GPa | 1.5% |
+| M073 PPS-CF | Flexural modulus (Z) | 2.33 GPa | 2.46 GPa | 5.6% |
+| M073 PPS-CF | Flexural strength (XY) | 125 MPa | 111.6 MPa | -10.7% |
+| M073 PPS-CF | Flexural strength (Z) | 43 MPa | 36 MPa | -16.3% |
+| M073 PPS-CF | Notched Izod impact | 7 kJ/m² | 5 kJ/m² | -28.6% |
+| M073 PPS-CF | HDT at 0.45 MPa | 251 °C | 251.75 °C | 0.3% |
+| M074 PPS-GF | Tensile modulus (XY) | 4.552 GPa | 5.158 GPa | 13.3% |
+| M074 PPS-GF | Tensile modulus (Z) | 2.5572 GPa | 2.5691 GPa | 0.5% |
+| M074 PPS-GF | Tensile strength (XY) | 64.1 MPa | 68.05 MPa | 6.2% |
+| M074 PPS-GF | Tensile strength (Z) | 22.9 MPa | 32.45 MPa | 41.7% |
+| M074 PPS-GF | Elongation at break (XY) | 2 % | 1.8 % | -10.0% |
+| M074 PPS-GF | Elongation at break (Z) | 1.1 % | 0.9 % | -18.2% |
+| M074 PPS-GF | Flexural modulus (XY) | 4.1107 GPa | 4.3204 GPa | 5.1% |
+| M074 PPS-GF | Flexural modulus (Z) | 2.6057 GPa | 2.4089 GPa | -7.6% |
+| M074 PPS-GF | Flexural strength (XY) | 102.3 MPa | 107.15 MPa | 4.7% |
+| M074 PPS-GF | Flexural strength (Z) | 45.7 MPa | 51.85 MPa | 13.5% |
+| M086 OBC | Tensile strength (Z) | 11 MPa | 10.5 MPa | -4.5% |
+| M086 OBC | Elongation at break (Z) | 480 % | 265 % | -44.8% |
+| M086 OBC | Flexural modulus (XY) | 0.244 GPa | 0.272 GPa | 11.5% |
+| M086 OBC | Flexural modulus (Z) | 0.217 GPa | 0.2085 GPa | -3.9% |
+| M086 OBC | Flexural strength (XY) | 7.8 MPa | 9.4 MPa | 20.5% |
+| M086 OBC | Flexural strength (Z) | 6.8 MPa | 7.9 MPa | 16.2% |
+| M088 PCTG | Notched Izod impact | 93 kJ/m² | 50.5 kJ/m² | -45.7% |
+| M088 PCTG | Glass transition (Tg) | 84 °C | 84.5 °C | 0.6% |
+| M099 PEI / ULTEM | Density | 1307.5 kg/m³ | 1275 kg/m³ | -2.5% |
+| M099 PEI / ULTEM | Tensile strength (XY) | 59 MPa | 56 MPa | -5.1% |
+| M099 PEI / ULTEM | Flexural strength (XY) | 110 MPa | 104 MPa | -5.5% |
+| M159 TPU 85A class and softer | Density | 1180 kg/m³ | 1160 kg/m³ | -1.7% |
+| M161 TPU 95A class | Density | 1210 kg/m³ | 1205 kg/m³ | -0.4% |
+| M161 TPU 95A class | Tensile modulus (XY) | 0.027 GPa | 0.0266 GPa | -1.5% |
+| M161 TPU 95A class | Tensile strength (XY) | 29 MPa | 30 MPa | 3.4% |
+| M161 TPU 95A class | Tensile strength (Z) | 22 MPa | 20.25 MPa | -8.0% |
+| M161 TPU 95A class | Elongation at break (XY) | 501.3 % | 540.65 % | 7.8% |
 
-### Headlines that count fewer values, with the median unchanged (48)
+### The other 48 headlines that hold a reprint
 
-M001 PLA: Density (155 to 145 values); M001 PLA: Tensile modulus (XY) (61 to 59 values); M001 PLA: Tensile strength (XY) (83 to 81 values); M001 PLA: Flexural strength (XY) (76 to 74 values); M008 PLA Silk: Density (29 to 20 values); M008 PLA Silk: Tensile modulus (Z) (8 to 5 values); M008 PLA Silk: Elongation at break (XY) (19 to 13 values); M008 PLA Silk: Notched Izod impact (6 to 3 values); M020 PETG: Density (59 to 55 values); M020 PETG: Tensile strength (XY) (34 to 33 values); M020 PETG: Flexural strength (XY) (31 to 30 values); M020 PETG: Notched Charpy impact (10 to 9 values); M020 PETG: HDT at 0.45 MPa (32 to 30 values); M020 PETG: HDT at 1.8 MPa (14 to 13 values); M020 PETG: Glass transition (Tg) (31 to 30 values); M027 ABS: Density (46 to 43 values); M027 ABS: Tensile modulus (XY) (13 to 12 values); M027 ABS: HDT at 0.45 MPa (18 to 17 values); M027 ABS: Glass transition (Tg) (20 to 19 values); M031 ASA: Density (34 to 33 values); M031 ASA: HDT at 1.8 MPa (14 to 12 values); M035 PC: Density (19 to 18 values); M046 TPC / TPEE: Density (10 to 9 values); M046 TPC / TPEE: Elongation at break (XY) (4 to 3 values); M052 PA12: Density (6 to 5 values); M057 PA6/66: Density (7 to 6 values); M070 PPA-CF: Tensile strength (XY) (4 to 3 values); M070 PPA-CF: Notched Izod impact (2 to 1 values); M074 PPS-GF: Density (3 to 2 values); M074 PPS-GF: Notched Charpy impact (2 to 1 values); M074 PPS-GF: HDT at 0.45 MPa (2 to 1 values); M074 PPS-GF: HDT at 1.8 MPa (2 to 1 values); M074 PPS-GF: Glass transition (Tg) (2 to 1 values); M081 HIPS: Density (10 to 9 values); M086 OBC: Glass transition (Tg) (2 to 1 values); M086 OBC: Shore D hardness (2 to 1 values); M088 PCTG: Density (7 to 5 values); M088 PCTG: HDT at 0.45 MPa (5 to 4 values); M088 PCTG: Shore D hardness (4 to 1 values); M094 PC-ABS: Density (12 to 11 values); M099 PEI / ULTEM: Notched Charpy impact (2 to 1 values); M099 PEI / ULTEM: Glass transition (Tg) (6 to 5 values); M110 PCTG-GF: Density (3 to 2 values); M110 PCTG-GF: HDT at 0.45 MPa (2 to 1 values); M110 PCTG-GF: HDT at 1.8 MPa (2 to 1 values); M113 ASA-AF: Density (3 to 2 values); M159 TPU 85A class and softer: Shore A hardness (14 to 12 values); M161 TPU 95A class: Shore A hardness (15 to 14 values).
+Their median is the same number. 27 of them move their middle half or their typical product (the "typical product" changes in 47 headlines in all), and 21 show no change at all.
+The full list of fields is in the transition file.
 
 ## Which scenario answers change
 
@@ -162,8 +172,21 @@ seeded random scenarios). Old tool against the new tool built with this change:
 
 ## What does not change
 
-Every other path of the database is identical to the old build: 1,288,896 values compared, 1515 differ, all of them listed in the transition file.
+Every other path of the database is identical to the old build: 1,288,896 values compared, 969 differ, all of them listed in the transition file.
 The material pages are not compared yet (their new renderer is WP-24); they will show the new medians and the banner on the preview names this change.
+
+## What the page says
+
+The old page's own sentence for a median's spread (`spreadNote` in `app/js/ui/format.js`, which the new build's data must keep true until the new renderer, WP-24, replaces it)
+reads three fields: how many products the median speaks for, how many of them are twins, and the products set apart. PPS-GF (M074), tensile strength in the print plane
+(3 products: Polymaker 64.1, IPCON 72, QIDI 64.1 reprinting Polymaker's table):
+
+- **Before the ruling (old tool):** "Median of 3 of its 3 products. Range 64.1 to 72 MPa. One of them shares a data sheet with another product and counts as a product of its own." Median 64.1 MPa.
+- **First measurement of this transition (wrong):** "Median of 2 of its 3 products. Range 64.1 to 72 MPa. One publishes no value on file." It dropped the twin count and the page read the twin as a product that publishes nothing, which is false: QIDI publishes the table.
+- **Now:** "Median of 3 of its 3 products. Range 64.1 to 72 MPa. One of them shares a data sheet with another product and counts as a product of its own." Median 68.05 MPa.
+
+The sentence does not say the reprint is counted once in the median; the old page has no words for that, and the new renderer (WP-24) must write them. The twin is named as sharing a data sheet and is not called silent.
+A test (`tests/parity/build-new.test.mjs`) runs the old `spreadNote` over every spread in both databases and requires the "shares a data sheet" and "publishes no value" clauses to read as they did.
 
 ## Two points for you
 
@@ -186,6 +209,6 @@ Also noted: the release ID (`7c6da496722d`) does not change with this, because i
 
 ## How it was measured
 
-`npm run parity -- --milestone --surface engine,build` with the new side reading the database the new build wrote (the harness change in this PR),
-run against an empty transitions folder. The file's digest (`sha256:6ffeebe29246438fd946f72f55350c61ec5403721dc7d80d16e5ba95bd34922b`) is computed from the sorted list of those 5448
+`npm run parity -- --milestone --surface engine,build --transitions <empty folder> --emit-transition <file> --id ... --ruling ... --description ...` with the new side reading the database the new build wrote,
+run against an empty transitions folder. The first measurement found 5,448 differences; the re-measurement after the M2 close review found 4,902 (3,933 engine, 969 build). The file's digest (`sha256:1bb40baefaff158a9ca5569571614f844505ae29827d4b36c8e00fda3382cfb0`) is computed from the sorted list of those 4902
 differences, and a normal run passes only when it observes exactly that list: one more or one fewer fails.
