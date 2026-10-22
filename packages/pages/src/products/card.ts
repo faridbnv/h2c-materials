@@ -17,7 +17,8 @@ import { PRIVATE_REFERENCE, publicUrl } from '@atlas/publish/source-link';
 import { dayWords } from '../facts/dates.ts';
 import { fmtNumber, dryingWords, diameterWarning } from '../facts/format.ts';
 import { STATUS_WORDS, propertyName, whyOne, envVerdictWords } from '../facts/labels.ts';
-import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct, isNamedOnly } from '../facts/material-facts.ts';
+import { tabProperties, productNameOrId, sourceName, originalOf, stated, productDocuments, toughenedClaim, isProduct, isNamedOnly, spreadEntries } from '../facts/material-facts.ts';
+import { isReprintEntry } from '@atlas/domain';
 import { settingWords, annealWords, outOfMedianWords, foreignPriceWords, envConditionWords, andList, plural, setApartWords } from '../facts/material-words.ts';
 import { directionLabel, specimenWords, standardHtml, conditionChipList, chipKind, unstatedChip } from '../records/common.ts';
 import { readerText } from '../sections/common.ts';
@@ -360,11 +361,22 @@ function environmentList(c: Loose, es: Loose) {
     + `<q>${esc(e.finding)}</q>${envConditionWords(e, e.categoryLabel) ? `<small>${esc(envConditionWords(e, e.categoryLabel))}</small>` : ''}${documentRef(c, e.sourceId, e.locator)}</li>`).join('')}</ul>`;
 }
 
+/**
+ * Whether the median counts the table a product shares with its twins once, because it leaves a twin's reprint of it out (the build's own rule,
+ * domain isReprintEntry): some value of the group is a comparable one a non-variant twin reads. A group whose values are all set apart (a
+ * variant's, or not comparable) is in no median, and the card does not say that it is.
+ */
+function sharedTableCountsOnce(c: Loose, g: Loose, twins: Loose): boolean {
+  const group = [g, ...twins];
+  const keys = new Set<string>(group.flatMap((p: Loose) => Object.keys(p.headline ?? {})));
+  return [...keys].some((key) => spreadEntries(c.m, c, key).some((e: Loose) => group.includes(e.g) && isReprintEntry(e)));
+}
+
 /** What a product is beyond its name: a data sheet it shares, the maker's toughened claim, a special formulation. */
 export function productNotes(c: Loose, g: Loose, twins: Loose): Loose {
   const t = toughenedClaim(g, c);
   return [
-    twins.length ? `Data sheet shared with ${andList(twins)}: their values are one table, recorded once and counted once in the material's median.` : null,
+    twins.length ? `Data sheet shared with ${andList(twins)}: their values are one table, recorded once${sharedTableCountsOnce(c, g, twins) ? " and counted once in the material's median" : ''}.` : null,
     isProduct(g) ? null : 'A resin or study reference, not a product you can buy.',
     g.variant ? `Modified: ${pageWords(g.variant)}. Its values are kept out of the material's medians.` : null,
     t ? `Sold as toughened or impact-modified: "${t.statement?.text ?? ''}"${t.where ? ` (${t.where})` : ''}. The maker's statement, not a test result.` : null,

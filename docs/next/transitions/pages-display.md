@@ -3,12 +3,12 @@
 > **In short.** The material pages now come from TypeScript (`packages/pages`), fed by the new build. Your ruling Q2-20 lets the
 > pages change as long as nothing else does, and parity compares the words and links of every page rather than its bytes. On the
 > same data the new pages read **word for word and link for link as the old ones, apart from four small changes you asked for or
-> accepted**. They are listed here with a count and an example each: **534 differences on 166 of the 248 pages**. A second, separate
+> accepted**. They are listed here with a count and an example each: **426 differences on 166 of the 248 pages**. A second, separate
 > list holds the numbers the reprint transition you approved on 2026-10-21 moves on the pages: **491 differences on 68 Overviews**.
 > No science value moves in either (they come from the build, which this change does not touch). **It needs your approval
 > (Tier 1: `parity/transitions/**`).**
 
-**Status: waiting for your approval.** Nothing is merged until you attest it.
+**Status: attested and merged (PR #40, under ruling R-ATTEST-AGENT).** The milestone review lists it for you (`docs/next/milestones/M3.md`). The M3-close review found that the "counted once" wording was printed on every shared-sheet value, including values the median does not count at all; the list below is the corrected one (534 became 426 differences).
 
 ## What was ported
 
@@ -37,7 +37,7 @@ Four checks say it is a port and not a rewrite:
 |---|---|---|---:|---:|
 | a | The way back to the selector uses its stable address, not the release-stamped file name (AR-19) | the "Open in the selector" button and the index's link, on every page | 333 | 166 |
 | b | The method page labels the test answers as written by an agent and not yet reviewed by a person (OQ-11 A) | a new part, "Test answers", at the end of the method page | 2 | 1 |
-| c | A value read from a twin's shared sheet is said to count once in the material's median (the reprint ruling) | four places, below | 197 | 43 |
+| c | A value read from a twin's shared sheet is said to count once in the material's median, where the median does leave the reprint out (the reprint ruling) | four places, below | 89 | 30 |
 | d | A source that is a path on your machine shows its title and "private reference", never a link (R3 C) | the document list on the pages that cite one | 2 | 2 |
 
 ### a. The selector's stable address (AR-19)
@@ -64,13 +64,17 @@ A new part at the end of "How the numbers are worked out", in the page bar too:
 ### c. A shared table counts once (the reprint ruling)
 
 The reprint transition made a table that two products share count once in the median, but the pages still said "as the median counts
-each". Four places now say what is true (the words are short on purpose):
+each". Four places now say what is true (the words are short on purpose). They say it only where the median really leaves the reprint out:
+a comparable value of a product that is not a declared variant, the build's own rule (`isReprintEntry` in `packages/domain`, the one function
+the build and the pages both call). A value set apart (a variant's, or one not comparable) is read from the shared sheet too, but the median does
+not count it at all, so its hover and its card say nothing about the median. The first version of this list said it of every shared value
+(44 set-apart values on 14 pages); the M3-close review caught it.
 
 | Place | Before | After | Differences (pages) |
 |---|---|---|---:|
-| The note under a sheet table | "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent." | "... where its own sheet is silent. The median counts that table once." | 23 (14) |
-| The hover on a value read from a shared sheet | "From the data sheet shared with Polymaker Fiberon PPS-GF20" | "... PPS-GF20. Counted once in the median" | 42 (14) |
-| A product's card on its Products page | "Data sheet shared with Polymaker Fiberon PPS-GF20: their values are one table, recorded once." | "... recorded once and counted once in the material's median." | 131 (29) |
+| The note under a sheet table | "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent." | "... where its own sheet is silent. The median counts that table once." (the first sentence alone where no grey value of the table is one the median leaves out) | 10 (6) |
+| The hover on a value read from a shared sheet | "From the data sheet shared with Polymaker Fiberon PPS-GF20" | "... PPS-GF20. Counted once in the median" (only for a value the median leaves out) | 18 (6) |
+| A product's card on its Products page | "Data sheet shared with Polymaker Fiberon PPS-GF20: their values are one table, recorded once." | "... recorded once and counted once in the material's median." (only where the median leaves a twin's reprint out) | 60 (23) |
 | The method page, on the strips | "Two products that share one data sheet are two marks at its value, as the median counts each, the second saying so." | "... are two marks at its value, the second saying so; the median counts that value once." | 1 (1) |
 
 The one place that is not in the list is the tooltip a mark in a strip carries (`data-note`): parity does not read it, so it was left as it was.
@@ -98,13 +102,13 @@ It is kind "science" because the numbers moved, and it cites the approved ruling
 ## How it was measured
 
 1. `npm run parity -- --new --surface pages` renders the old build's `dist/materials` against the pages `packages/pages` writes from the
-   database the new build wrote, and lists every difference as a run of changed lines (a page can hold several). It found 1,025.
-2. The same renderer was run on the old database (`node packages/pages/src/cli.ts --db dist/db.json --out <dir>`) and compared with `dist/materials`: **534
-   differences, every one of them in the 1,025**. Those 534 are `2026-10-22-pages-display.json`; the other **491** are
+   database the new build wrote, and lists every difference as a run of changed lines (a page can hold several). It found 917.
+2. The same renderer was run on the old database (`node packages/pages/src/cli.ts --db dist/db.json --out <dir>`) and compared with `dist/materials`: **426
+   differences, every one of them in the 917**. Those 426 are `2026-10-22-pages-display.json`; the other **491** are
    `2026-10-22-pages-reprint-medians.json`. The split is therefore by construction (renderer change or database change), not by reading the words.
-3. A run passes only when it sees exactly the 1,025 (one more or one fewer fails): `parity -- --new --surface pages` reads
-   `RESULT: matches-transition (1025 listed, 0 unexpected, 0 missing)`. The files' digests are
-   `sha256:61948215d46276558eef204a2bf11ae6f7bfdba6fa4c4ccb590a430dd09c0b2c` (display) and
+3. A run passes only when it sees exactly the 917 (one more or one fewer fails): `parity -- --new --surface pages` reads
+   `RESULT: matches-transition (917 listed, 0 unexpected, 0 missing)`. The files' digests are
+   `sha256:24da6486ec4ddb74846c6fe1423dc651fff3dd71c8f05ff06e33b33b31e9afee` (display) and
    `sha256:f310a71d94c272970f938ab92235a094d3ba53eb50f0beab3c01ba54997ff1a1` (reprint medians).
 
 What this does not prove: that the page script behaves as the old one in a browser (it is the same code, typed and minified; it was

@@ -2,17 +2,9 @@
  "id": "2026-10-22-pages-display",
  "kind": "display",
  "corpus": "v0",
- "description": "Four deliberate visible changes to the material pages and the method page, made when the pages moved to TypeScript (WP-24): (a) the way back to the selector links to its stable address (../) and no longer to the release-stamped file name (AR-19); (b) the method page labels the test answers as written by an agent and not yet reviewed by a person (OQ-11 A); (c) a value read from a twin's shared sheet is said to count once in the material's median, in the notes under the sheet table, in the hover of a value, on a product's card and on the method page (the reprint ruling, R-OQ09d); (d) a source whose address is a path on the owner's machine shows its title and \"private reference\" (R3 C). The list is every difference between the old build's pages and the new renderer's pages on the SAME database (the old one), so it holds these four changes and nothing else.",
+ "description": "Four deliberate visible changes to the material pages and the method page, made when the pages moved to TypeScript (WP-24): (a) the way back to the selector links to its stable address (../) and no longer to the release-stamped file name (AR-19); (b) the method page labels the test answers as written by an agent and not yet reviewed by a person (OQ-11 A); (c) a value read from a twin's shared sheet is said to count once in the material's median, in the notes under the sheet table, in the hover of a value, on a product's card and on the method page, where the median does leave the reprint out (the build's own rule, shared with the pages in packages/domain: a comparable value of a product that is not a variant); a value set apart says nothing about the median (the reprint ruling, R-OQ09d); (d) a source whose address is a path on the owner's machine shows its title and \"private reference\" (R3 C). The list is every difference between the old build's pages and the new renderer's pages on the SAME database (the old one), so it holds these four changes and nothing else.",
  "ruling": "Owner ruling Q2-20 (redesigned pages and shared components are permitted; byte-identical HTML does not decide), with AR-19 (accepted), OQ-11 A (R-OQ11, 2026-10-20), R-OQ09d (the reprint ruling, OQ-09 A) and R3 C (2026-10-22)",
  "differences": [
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 11113-11113",
-   "before": "Data sheet shared with The Filament PLA Matte: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament PLA Matte: their values are one table, recorded once and counted once in the material's median."
-  },
   {
    "case": "pages",
    "record": "M001-products.html",
@@ -20,14 +12,6 @@
    "field": "lines 11185-11185",
    "before": "Data sheet shared with Spectrum THE FILAMENT PLA Matte: their values are one table, recorded once.",
    "after": "Data sheet shared with Spectrum THE FILAMENT PLA Matte: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 12192-12192",
-   "before": "Data sheet shared with FormFutura MagicFil Thermo PLA and FormFutura ReForm - rPLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura MagicFil Thermo PLA and FormFutura ReForm - rPLA: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -49,25 +33,9 @@
    "case": "pages",
    "record": "M001-products.html",
    "tier": "wording",
-   "field": "lines 12900-12900",
-   "before": "Data sheet shared with The Filament PLA Lite: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament PLA Lite: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
    "field": "lines 12963-12963",
    "before": "Data sheet shared with Spectrum THE FILAMENT PLA Lite: their values are one table, recorded once.",
    "after": "Data sheet shared with Spectrum THE FILAMENT PLA Lite: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 13351-13351",
-   "before": "Data sheet shared with eSUN PLA Clear: their values are one table, recorded once.",
-   "after": "Data sheet shared with eSUN PLA Clear: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -105,57 +73,9 @@
    "case": "pages",
    "record": "M001-products.html",
    "tier": "wording",
-   "field": "lines 2543-2543",
-   "before": "Data sheet shared with Eryone Burnt Titanium PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Eryone Burnt Titanium PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 4908-4908",
-   "before": "Data sheet shared with SUNLU PLA Lite: their values are one table, recorded once.",
-   "after": "Data sheet shared with SUNLU PLA Lite: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 5129-5129",
-   "before": "Data sheet shared with SUNLU High Speed Matte PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with SUNLU High Speed Matte PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 5806-5806",
-   "before": "Data sheet shared with Spectrum PLA Pro and MatterHackers Tough PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum PLA Pro and MatterHackers Tough PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 6355-6355",
-   "before": "Data sheet shared with Fiberlogy IMPACT PLA and MatterHackers Tough PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy IMPACT PLA and MatterHackers Tough PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
    "field": "lines 6550-6550",
    "before": "Data sheet shared with Spectrum PLA Pro and Fiberlogy IMPACT PLA: their values are one table, recorded once.",
    "after": "Data sheet shared with Spectrum PLA Pro and Fiberlogy IMPACT PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 6625-6625",
-   "before": "Data sheet shared with Fiberlogy R PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy R PLA: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -169,65 +89,9 @@
    "case": "pages",
    "record": "M001-products.html",
    "tier": "wording",
-   "field": "lines 7519-7519",
-   "before": "Data sheet shared with colorFabb PLA Vertigo: their values are one table, recorded once.",
-   "after": "Data sheet shared with colorFabb PLA Vertigo: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
    "field": "lines 7625-7625",
    "before": "Data sheet shared with colorFabb PLA Chameleon: their values are one table, recorded once.",
    "after": "Data sheet shared with colorFabb PLA Chameleon: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 8324-8324",
-   "before": "Data sheet shared with The Filament HT-PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament HT-PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 8383-8383",
-   "before": "Data sheet shared with Spectrum THE FILAMENT HT-PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum THE FILAMENT HT-PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 8947-8947",
-   "before": "Data sheet shared with Flashforge PLA Multicolor: their values are one table, recorded once.",
-   "after": "Data sheet shared with Flashforge PLA Multicolor: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 9175-9175",
-   "before": "Data sheet shared with Flashforge PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Flashforge PLA: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 9386-9386",
-   "before": "Data sheet shared with Spectrum PLA, Spectrum PLA Premium, Spectrum PLA Nature, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA, FormFutura EasyFil ePLA and FormFutura ReFill PLA: their values are … (224 chars, sha256:f49556b1bfe8)",
-   "after": "Data sheet shared with Spectrum PLA, Spectrum PLA Premium, Spectrum PLA Nature, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA, FormFutura EasyFil ePLA and FormFutura ReFill PLA: their values are … (266 chars, sha256:ce20e773b047)"
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 9440-9440",
-   "before": "Data sheet shared with Spectrum PLA, Fillamentum PLA Extrafill, Spectrum PLA Premium, Spectrum PLA Nature, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA and FormFutura ReFill PLA: their values ar… (226 chars, sha256:5241a87adf1f)",
-   "after": "Data sheet shared with Spectrum PLA, Fillamentum PLA Extrafill, Spectrum PLA Premium, Spectrum PLA Nature, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA and FormFutura ReFill PLA: their values ar… (268 chars, sha256:c5f72a810da2)"
   },
   {
    "case": "pages",
@@ -252,14 +116,6 @@
    "field": "lines 9780-9780",
    "before": "Data sheet shared with Spectrum PLA, Fillamentum PLA Extrafill, Spectrum PLA Premium, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA, FormFutura EasyFil ePLA and FormFutura ReFill PLA: their value… (230 chars, sha256:29936a6029d4)",
    "after": "Data sheet shared with Spectrum PLA, Fillamentum PLA Extrafill, Spectrum PLA Premium, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA, FormFutura EasyFil ePLA and FormFutura ReFill PLA: their value… (272 chars, sha256:8bac65a2b5da)"
-  },
-  {
-   "case": "pages",
-   "record": "M001-products.html",
-   "tier": "wording",
-   "field": "lines 9839-9839",
-   "before": "Data sheet shared with Spectrum PLA, Fillamentum PLA Extrafill, Spectrum PLA Nature, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA, FormFutura EasyFil ePLA and FormFutura ReFill PLA: their values… (229 chars, sha256:c2df68230606)",
-   "after": "Data sheet shared with Spectrum PLA, Fillamentum PLA Extrafill, Spectrum PLA Nature, Spectrum PLA Thermoactive, Spectrum SafeGuard PLA, FormFutura EasyFil ePLA and FormFutura ReFill PLA: their values… (271 chars, sha256:5dad1613be5d)"
   },
   {
    "case": "pages",
@@ -313,14 +169,6 @@
    "case": "pages",
    "record": "M008-products.html",
    "tier": "wording",
-   "field": "lines 1149-1149",
-   "before": "Data sheet shared with SUNLU Silk PLA+ Dual-Color, SUNLU Silk PLA+ Rainbow and SUNLU Silk PLA+ Tri-Color: their values are one table, recorded once.",
-   "after": "Data sheet shared with SUNLU Silk PLA+ Dual-Color, SUNLU Silk PLA+ Rainbow and SUNLU Silk PLA+ Tri-Color: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M008-products.html",
-   "tier": "wording",
    "field": "lines 1298-1298",
    "before": "Data sheet shared with SUNLU Silk PLA+ Four-Color, SUNLU Silk PLA+ Dual-Color and SUNLU Silk PLA+ Tri-Color: their values are one table, recorded once.",
    "after": "Data sheet shared with SUNLU Silk PLA+ Four-Color, SUNLU Silk PLA+ Dual-Color and SUNLU Silk PLA+ Tri-Color: their values are one table, recorded once and counted once in the material's median."
@@ -332,14 +180,6 @@
    "field": "lines 1336-1336",
    "before": "Data sheet shared with SUNLU Silk PLA+ Four-Color, SUNLU Silk PLA+ Dual-Color and SUNLU Silk PLA+ Rainbow: their values are one table, recorded once.",
    "after": "Data sheet shared with SUNLU Silk PLA+ Four-Color, SUNLU Silk PLA+ Dual-Color and SUNLU Silk PLA+ Rainbow: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M008-products.html",
-   "tier": "wording",
-   "field": "lines 1373-1373",
-   "before": "Data sheet shared with Spectrum PLA SILK and Spectrum PLA SILK Rainbow: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum PLA SILK and Spectrum PLA SILK Rainbow: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -377,25 +217,9 @@
    "case": "pages",
    "record": "M008-products.html",
    "tier": "wording",
-   "field": "lines 2184-2184",
-   "before": "Data sheet shared with iSANMATE PLA Silk: their values are one table, recorded once.",
-   "after": "Data sheet shared with iSANMATE PLA Silk: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M008-products.html",
-   "tier": "wording",
    "field": "lines 2404-2404",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (747 chars, sha256:3719fdcbb534)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (737 chars, sha256:a21420ec1c57)"
-  },
-  {
-   "case": "pages",
-   "record": "M008-products.html",
-   "tier": "wording",
-   "field": "lines 254-254",
-   "before": "Data sheet shared with Eryone Hyper Speed Triple Color Silk PLA: their values are one table, recorded once.",
-   "after": "Data sheet shared with Eryone Hyper Speed Triple Color Silk PLA: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -420,14 +244,6 @@
    "field": "lines 545-545",
    "before": "Data sheet shared with Eryone Silk Rainbow PLA and Eryone Silk PLA Dual-Color: their values are one table, recorded once.",
    "after": "Data sheet shared with Eryone Silk Rainbow PLA and Eryone Silk PLA Dual-Color: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M008-products.html",
-   "tier": "wording",
-   "field": "lines 578-578",
-   "before": "Data sheet shared with Eryone Silk PLA Tri-Color and Eryone Silk PLA Dual-Color: their values are one table, recorded once.",
-   "after": "Data sheet shared with Eryone Silk PLA Tri-Color and Eryone Silk PLA Dual-Color: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -753,14 +569,6 @@
    "case": "pages",
    "record": "M020-products.html",
    "tier": "wording",
-   "field": "lines 1406-1406",
-   "before": "Data sheet shared with Fiberlogy R PET-G: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy R PET-G: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M020-products.html",
-   "tier": "wording",
    "field": "lines 1476-1476",
    "before": "Data sheet shared with Fiberlogy EASY PET-G: their values are one table, recorded once.",
    "after": "Data sheet shared with Fiberlogy EASY PET-G: their values are one table, recorded once and counted once in the material's median."
@@ -777,33 +585,9 @@
    "case": "pages",
    "record": "M020-products.html",
    "tier": "wording",
-   "field": "lines 2038-2038",
-   "before": "Data sheet shared with 3D4Makers PETG: their values are one table, recorded once.",
-   "after": "Data sheet shared with 3D4Makers PETG: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M020-products.html",
-   "tier": "wording",
-   "field": "lines 2794-2794",
-   "before": "Data sheet shared with Prusa Research Prusament PETG Recycled by Prusa Polymers: their values are one table, recorded once.",
-   "after": "Data sheet shared with Prusa Research Prusament PETG Recycled by Prusa Polymers: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M020-products.html",
-   "tier": "wording",
    "field": "lines 2978-2978",
    "before": "Data sheet shared with Prusa Research Prusament PETG by Prusa Polymers: their values are one table, recorded once.",
    "after": "Data sheet shared with Prusa Research Prusament PETG by Prusa Polymers: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M020-products.html",
-   "tier": "wording",
-   "field": "lines 3877-3877",
-   "before": "Data sheet shared with FormFutura ReForm - rPET: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura ReForm - rPET: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -817,25 +601,9 @@
    "case": "pages",
    "record": "M020-products.html",
    "tier": "wording",
-   "field": "lines 4780-4780",
-   "before": "Data sheet shared with Fiberlogy PET-G VO: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy PET-G VO: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M020-products.html",
-   "tier": "wording",
    "field": "lines 5159-5159",
    "before": "Data sheet shared with Spectrum PET-G FR V0: their values are one table, recorded once.",
    "after": "Data sheet shared with Spectrum PET-G FR V0: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M020-products.html",
-   "tier": "wording",
-   "field": "lines 5343-5343",
-   "before": "Data sheet shared with The Filament PETG Lite: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament PETG Lite: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -945,22 +713,6 @@
    "case": "pages",
    "record": "M026-products.html",
    "tier": "wording",
-   "field": "lines 297-297",
-   "before": "Data sheet shared with MatterHackers ESD-Safe PETG: their values are one table, recorded once.",
-   "after": "Data sheet shared with MatterHackers ESD-Safe PETG: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M026-products.html",
-   "tier": "wording",
-   "field": "lines 354-354",
-   "before": "Data sheet shared with 3DXTECH 3DXSTAT ESD PETG: their values are one table, recorded once.",
-   "after": "Data sheet shared with 3DXTECH 3DXSTAT ESD PETG: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M026-products.html",
-   "tier": "wording",
    "field": "lines 684-684",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (747 chars, sha256:b67ae1fb857b)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (737 chars, sha256:e8eff49d07fa)"
@@ -1001,38 +753,6 @@
    "case": "pages",
    "record": "M027-products.html",
    "tier": "wording",
-   "field": "lines 1542-1542",
-   "before": "Data sheet shared with 3DJake ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with 3DJake ABS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M027-products.html",
-   "tier": "wording",
-   "field": "lines 3055-3055",
-   "before": "Data sheet shared with Spectrum Smart ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum Smart ABS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M027-products.html",
-   "tier": "wording",
-   "field": "lines 3249-3249",
-   "before": "Data sheet shared with FormFutura EasyFil ABS - Glow in the Dark: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura EasyFil ABS - Glow in the Dark: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M027-products.html",
-   "tier": "wording",
-   "field": "lines 327-327",
-   "before": "Data sheet shared with Kingroon ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with Kingroon ABS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M027-products.html",
-   "tier": "wording",
    "field": "lines 430-430",
    "before": "Data sheet shared with Bambu Lab ABS: their values are one table, recorded once.",
    "after": "Data sheet shared with Bambu Lab ABS: their values are one table, recorded once and counted once in the material's median."
@@ -1044,14 +764,6 @@
    "field": "lines 4393-4393",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (742 chars, sha256:8c948734ba07)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (732 chars, sha256:4d49fd6a7e28)"
-  },
-  {
-   "case": "pages",
-   "record": "M027-products.html",
-   "tier": "wording",
-   "field": "lines 656-656",
-   "before": "Data sheet shared with Fiberlogy R ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy R ABS: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -1145,25 +857,9 @@
    "case": "pages",
    "record": "M030-products.html",
    "tier": "wording",
-   "field": "lines 134-134",
-   "before": "Data sheet shared with MatterHackers ESD-Safe ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with MatterHackers ESD-Safe ABS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M030-products.html",
-   "tier": "wording",
    "field": "lines 14-14",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (692 chars, sha256:be3c4e5be117)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (682 chars, sha256:cea0d122e906)"
-  },
-  {
-   "case": "pages",
-   "record": "M030-products.html",
-   "tier": "wording",
-   "field": "lines 243-243",
-   "before": "Data sheet shared with 3DXTECH 3DXSTAT ESD ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with 3DXTECH 3DXSTAT ESD ABS: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -1209,33 +905,9 @@
    "case": "pages",
    "record": "M031-products.html",
    "tier": "wording",
-   "field": "lines 1388-1388",
-   "before": "Data sheet shared with Spectrum FlameGuard ASA 275, FormFutura ApolloX and FormFutura ReForm - rApollo: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum FlameGuard ASA 275, FormFutura ApolloX and FormFutura ReForm - rApollo: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M031-products.html",
-   "tier": "wording",
-   "field": "lines 1479-1479",
-   "before": "Data sheet shared with Spectrum ASA 275, FormFutura ApolloX and FormFutura ReForm - rApollo: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum ASA 275, FormFutura ApolloX and FormFutura ReForm - rApollo: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M031-products.html",
-   "tier": "wording",
    "field": "lines 15-15",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (692 chars, sha256:c71815d82b9d)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (682 chars, sha256:ad98ec7f57fa)"
-  },
-  {
-   "case": "pages",
-   "record": "M031-products.html",
-   "tier": "wording",
-   "field": "lines 2323-2323",
-   "before": "Data sheet shared with The Filament ASA: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament ASA: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -1305,14 +977,6 @@
    "case": "pages",
    "record": "M033-products.html",
    "tier": "wording",
-   "field": "lines 1134-1134",
-   "before": "Data sheet shared with The Filament ASA CF: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament ASA CF: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M033-products.html",
-   "tier": "wording",
    "field": "lines 1197-1197",
    "before": "Data sheet shared with Spectrum THE FILAMENT ASA CF: their values are one table, recorded once.",
    "after": "Data sheet shared with Spectrum THE FILAMENT ASA CF: their values are one table, recorded once and counted once in the material's median."
@@ -1337,33 +1001,9 @@
    "case": "pages",
    "record": "M033-products.html",
    "tier": "wording",
-   "field": "lines 831-831",
-   "before": "Data sheet shared with Spectrum ASA-X CF10: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum ASA-X CF10: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M033-products.html",
-   "tier": "wording",
    "field": "lines 906-906",
    "before": "Data sheet shared with FormFutura ApolloX CF10: their values are one table, recorded once.",
    "after": "Data sheet shared with FormFutura ApolloX CF10: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M033.html",
-   "tier": "wording",
-   "field": "lines 184-184",
-   "before": "⟦title: From the data sheet shared with FormFutura ApolloX CF10⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura ApolloX CF10. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M033.html",
-   "tier": "wording",
-   "field": "lines 202-202",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -1420,14 +1060,6 @@
    "field": "lines 1313-1313",
    "before": "Data sheet shared with Spectrum PC 275: their values are one table, recorded once.",
    "after": "Data sheet shared with Spectrum PC 275: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M035-products.html",
-   "tier": "wording",
-   "field": "lines 1361-1361",
-   "before": "Data sheet shared with FormFutura Kratos PC: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura Kratos PC: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -1601,14 +1233,6 @@
    "case": "pages",
    "record": "M046-products.html",
    "tier": "wording",
-   "field": "lines 718-718",
-   "before": "Data sheet shared with FormFutura FlexiFil TPC 40D: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura FlexiFil TPC 40D: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M046-products.html",
-   "tier": "wording",
    "field": "lines 819-819",
    "before": "Data sheet shared with FormFutura FlexiFil TPC 30D: their values are one table, recorded once.",
    "after": "Data sheet shared with FormFutura FlexiFil TPC 30D: their values are one table, recorded once and counted once in the material's median."
@@ -1681,22 +1305,6 @@
    "case": "pages",
    "record": "M049-products.html",
    "tier": "wording",
-   "field": "lines 145-145",
-   "before": "Data sheet shared with Spectrum PA6 Low Warp: their values are one table, recorded once.",
-   "after": "Data sheet shared with Spectrum PA6 Low Warp: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M049-products.html",
-   "tier": "wording",
-   "field": "lines 396-396",
-   "before": "Data sheet shared with FormFutura STYX PA6: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura STYX PA6: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M049-products.html",
-   "tier": "wording",
    "field": "lines 755-755",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (742 chars, sha256:a2f00e7d6f22)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (732 chars, sha256:33ff636b391f)"
@@ -1743,51 +1351,11 @@
   },
   {
    "case": "pages",
-   "record": "M050-products.html",
-   "tier": "wording",
-   "field": "lines 647-647",
-   "before": "Data sheet shared with FormFutura STYX PA6-CF15: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura STYX PA6-CF15: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M050.html",
-   "tier": "wording",
-   "field": "lines 197-197",
-   "before": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp CF15S⟧",
-   "after": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp CF15S. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M050.html",
-   "tier": "wording",
-   "field": "lines 199-199",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
-  },
-  {
-   "case": "pages",
    "record": "M050.html",
    "tier": "wording",
    "field": "lines 21-21",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (692 chars, sha256:297d6a581a01)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (682 chars, sha256:6af1df2ff4ae)"
-  },
-  {
-   "case": "pages",
-   "record": "M050.html",
-   "tier": "wording",
-   "field": "lines 299-299",
-   "before": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp CF15S⟧",
-   "after": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp CF15S. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M050.html",
-   "tier": "wording",
-   "field": "lines 301-301",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -1823,51 +1391,11 @@
   },
   {
    "case": "pages",
-   "record": "M051-products.html",
-   "tier": "wording",
-   "field": "lines 588-588",
-   "before": "Data sheet shared with FormFutura STYX PA6-GF30: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura STYX PA6-GF30: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M051.html",
-   "tier": "wording",
-   "field": "lines 188-188",
-   "before": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp GF30⟧",
-   "after": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp GF30. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M051.html",
-   "tier": "wording",
-   "field": "lines 190-190",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
-  },
-  {
-   "case": "pages",
    "record": "M051.html",
    "tier": "wording",
    "field": "lines 21-21",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (692 chars, sha256:57505a3635f1)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (682 chars, sha256:f46933bec923)"
-  },
-  {
-   "case": "pages",
-   "record": "M051.html",
-   "tier": "wording",
-   "field": "lines 288-288",
-   "before": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp GF30⟧",
-   "after": "⟦title: From the data sheet shared with Spectrum PA6 Low Warp GF30. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M051.html",
-   "tier": "wording",
-   "field": "lines 290-290",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -1889,14 +1417,6 @@
    "case": "pages",
    "record": "M052-products.html",
    "tier": "wording",
-   "field": "lines 156-156",
-   "before": "Data sheet shared with Fiberlogy Nylon PA12: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy Nylon PA12: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M052-products.html",
-   "tier": "wording",
    "field": "lines 71-71",
    "before": "Data sheet shared with Fiberlogy R Nylon: their values are one table, recorded once.",
    "after": "Data sheet shared with Fiberlogy R Nylon: their values are one table, recorded once and counted once in the material's median."
@@ -1908,22 +1428,6 @@
    "field": "lines 784-784",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (743 chars, sha256:eac07c804e0e)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (733 chars, sha256:998e29ff0a36)"
-  },
-  {
-   "case": "pages",
-   "record": "M052.html",
-   "tier": "wording",
-   "field": "lines 124-124",
-   "before": "⟦title: From the data sheet shared with Fiberlogy Nylon PA12⟧",
-   "after": "⟦title: From the data sheet shared with Fiberlogy Nylon PA12. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M052.html",
-   "tier": "wording",
-   "field": "lines 128-128",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -2020,14 +1524,6 @@
    "field": "lines 704-704",
    "before": "Data sheet shared with eSUN PA Nylon Filament (1kg) Natural: their values are one table, recorded once.",
    "after": "Data sheet shared with eSUN PA Nylon Filament (1kg) Natural: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M057-products.html",
-   "tier": "wording",
-   "field": "lines 752-752",
-   "before": "Data sheet shared with eSUN ePA: their values are one table, recorded once.",
-   "after": "Data sheet shared with eSUN ePA: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -2201,14 +1697,6 @@
    "case": "pages",
    "record": "M070-products.html",
    "tier": "wording",
-   "field": "lines 184-184",
-   "before": "Data sheet shared with SIDDAMENT PPA-CF: their values are one table, recorded once.",
-   "after": "Data sheet shared with SIDDAMENT PPA-CF: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M070-products.html",
-   "tier": "wording",
    "field": "lines 283-283",
    "before": "Data sheet shared with Flashforge PPA-CF: their values are one table, recorded once.",
    "after": "Data sheet shared with Flashforge PPA-CF: their values are one table, recorded once and counted once in the material's median."
@@ -2289,14 +1777,6 @@
    "case": "pages",
    "record": "M073-products.html",
    "tier": "wording",
-   "field": "lines 398-398",
-   "before": "Data sheet shared with SIDDAMENT PPS CF: their values are one table, recorded once.",
-   "after": "Data sheet shared with SIDDAMENT PPS CF: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M073-products.html",
-   "tier": "wording",
    "field": "lines 499-499",
    "before": "Data sheet shared with Flashforge PPS-CF: their values are one table, recorded once.",
    "after": "Data sheet shared with Flashforge PPS-CF: their values are one table, recorded once and counted once in the material's median."
@@ -2364,14 +1844,6 @@
    "field": "lines 352-352",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (745 chars, sha256:1340afc4f243)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (735 chars, sha256:be6a2fbb4b6a)"
-  },
-  {
-   "case": "pages",
-   "record": "M074-products.html",
-   "tier": "wording",
-   "field": "lines 76-76",
-   "before": "Data sheet shared with QIDI PPS-GF20: their values are one table, recorded once.",
-   "after": "Data sheet shared with QIDI PPS-GF20: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -2569,57 +2041,9 @@
    "case": "pages",
    "record": "M081-products.html",
    "tier": "wording",
-   "field": "lines 496-496",
-   "before": "Data sheet shared with FormFutura LimoSolve: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura LimoSolve: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M081-products.html",
-   "tier": "wording",
    "field": "lines 589-589",
    "before": "Data sheet shared with FormFutura EasyFil HIPS: their values are one table, recorded once.",
    "after": "Data sheet shared with FormFutura EasyFil HIPS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M081.html",
-   "tier": "wording",
-   "field": "lines 170-170",
-   "before": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M081.html",
-   "tier": "wording",
-   "field": "lines 172-172",
-   "before": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M081.html",
-   "tier": "wording",
-   "field": "lines 174-174",
-   "before": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M081.html",
-   "tier": "wording",
-   "field": "lines 176-176",
-   "before": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura EasyFil HIPS. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M081.html",
-   "tier": "wording",
-   "field": "lines 178-178",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -2732,14 +2156,6 @@
    "field": "lines 270-270",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (749 chars, sha256:55b24e33861c)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (739 chars, sha256:1843a27ad6cd)"
-  },
-  {
-   "case": "pages",
-   "record": "M086-products.html",
-   "tier": "wording",
-   "field": "lines 128-128",
-   "before": "Data sheet shared with Dow EVOLV3D OBC: their values are one table, recorded once.",
-   "after": "Data sheet shared with Dow EVOLV3D OBC: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -3039,14 +2455,6 @@
   },
   {
    "case": "pages",
-   "record": "M094-products.html",
-   "tier": "wording",
-   "field": "lines 391-391",
-   "before": "Data sheet shared with Fiberlogy PC/ABS: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fiberlogy PC/ABS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
    "record": "M094.html",
    "tier": "wording",
    "field": "lines 21-21",
@@ -3183,25 +2591,9 @@
   },
   {
    "case": "pages",
-   "record": "M099-products.html",
-   "tier": "wording",
-   "field": "lines 76-76",
-   "before": "Data sheet shared with FormFutura PEI ULTEM 9085: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura PEI ULTEM 9085: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
    "record": "M099.html",
    "tier": "wording",
    "field": "lines 183-183",
-   "before": "⟦title: From the data sheet shared with 3D4Makers PEI Filament Ultem 9085⟧",
-   "after": "⟦title: From the data sheet shared with 3D4Makers PEI Filament Ultem 9085. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M099.html",
-   "tier": "wording",
-   "field": "lines 185-185",
    "before": "⟦title: From the data sheet shared with 3D4Makers PEI Filament Ultem 9085⟧",
    "after": "⟦title: From the data sheet shared with 3D4Makers PEI Filament Ultem 9085. Counted once in the median⟧"
   },
@@ -3225,22 +2617,6 @@
    "case": "pages",
    "record": "M099.html",
    "tier": "wording",
-   "field": "lines 230-230",
-   "before": "⟦title: From the data sheet shared with 3D4Makers PEI Filament Ultem 9085⟧",
-   "after": "⟦title: From the data sheet shared with 3D4Makers PEI Filament Ultem 9085. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M099.html",
-   "tier": "wording",
-   "field": "lines 232-232",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
-  },
-  {
-   "case": "pages",
-   "record": "M099.html",
-   "tier": "wording",
    "field": "lines 378-378",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (750 chars, sha256:dd98ae4ced4f)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (740 chars, sha256:a1ac7b9ecd00)"
@@ -3257,65 +2633,9 @@
    "case": "pages",
    "record": "M102-products.html",
    "tier": "wording",
-   "field": "lines 146-146",
-   "before": "Data sheet shared with iSANMATE PPSU and 3D4Makers PPSU: their values are one table, recorded once.",
-   "after": "Data sheet shared with iSANMATE PPSU and 3D4Makers PPSU: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M102-products.html",
-   "tier": "wording",
-   "field": "lines 236-236",
-   "before": "Data sheet shared with 3D4Makers PPSU and FormFutura PPSU: their values are one table, recorded once.",
-   "after": "Data sheet shared with 3D4Makers PPSU and FormFutura PPSU: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M102-products.html",
-   "tier": "wording",
    "field": "lines 352-352",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (743 chars, sha256:2255aadbd05a)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (733 chars, sha256:e5a60fe0c1c9)"
-  },
-  {
-   "case": "pages",
-   "record": "M102-products.html",
-   "tier": "wording",
-   "field": "lines 62-62",
-   "before": "Data sheet shared with iSANMATE PPSU and FormFutura PPSU: their values are one table, recorded once.",
-   "after": "Data sheet shared with iSANMATE PPSU and FormFutura PPSU: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M102.html",
-   "tier": "wording",
-   "field": "lines 176-176",
-   "before": "⟦title: From the data sheet shared with FormFutura PPSU⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura PPSU. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M102.html",
-   "tier": "wording",
-   "field": "lines 178-178",
-   "before": "⟦title: From the data sheet shared with FormFutura PPSU⟧",
-   "after": "⟦title: From the data sheet shared with FormFutura PPSU. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M102.html",
-   "tier": "wording",
-   "field": "lines 181-181",
-   "before": "⟦title: From the data sheet shared with 3D4Makers PPSU⟧",
-   "after": "⟦title: From the data sheet shared with 3D4Makers PPSU. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M102.html",
-   "tier": "wording",
-   "field": "lines 183-183",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -3385,41 +2705,9 @@
    "case": "pages",
    "record": "M110-products.html",
    "tier": "wording",
-   "field": "lines 191-191",
-   "before": "Data sheet shared with FormFutura AthenaX GF10: their values are one table, recorded once.",
-   "after": "Data sheet shared with FormFutura AthenaX GF10: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M110-products.html",
-   "tier": "wording",
    "field": "lines 251-251",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (746 chars, sha256:fc3de54df0ec)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (736 chars, sha256:efd2c3a8423d)"
-  },
-  {
-   "case": "pages",
-   "record": "M110.html",
-   "tier": "wording",
-   "field": "lines 122-122",
-   "before": "⟦title: From the data sheet shared with Spectrum PCTG GF10⟧",
-   "after": "⟦title: From the data sheet shared with Spectrum PCTG GF10. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M110.html",
-   "tier": "wording",
-   "field": "lines 126-126",
-   "before": "⟦title: From the data sheet shared with Spectrum PCTG GF10⟧",
-   "after": "⟦title: From the data sheet shared with Spectrum PCTG GF10. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M110.html",
-   "tier": "wording",
-   "field": "lines 128-128",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -3735,22 +3023,6 @@
   },
   {
    "case": "pages",
-   "record": "M159-products.html",
-   "tier": "wording",
-   "field": "lines 893-893",
-   "before": "Data sheet shared with The Filament TPU 82A: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament TPU 82A: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M159-products.html",
-   "tier": "wording",
-   "field": "lines 951-951",
-   "before": "Data sheet shared with The Filament TPU 87A: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament TPU 87A: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
    "record": "M159.html",
    "tier": "wording",
    "field": "lines 21-21",
@@ -3769,25 +3041,9 @@
    "case": "pages",
    "record": "M160-products.html",
    "tier": "wording",
-   "field": "lines 115-115",
-   "before": "Data sheet shared with colorFabb varioShore Prosthetic TPU: their values are one table, recorded once.",
-   "after": "Data sheet shared with colorFabb varioShore Prosthetic TPU: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M160-products.html",
-   "tier": "wording",
    "field": "lines 14-14",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (692 chars, sha256:f87afa3e82d2)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (682 chars, sha256:8cdf568330f9)"
-  },
-  {
-   "case": "pages",
-   "record": "M160-products.html",
-   "tier": "wording",
-   "field": "lines 76-76",
-   "before": "Data sheet shared with colorFabb varioShore TPU: their values are one table, recorded once.",
-   "after": "Data sheet shared with colorFabb varioShore TPU: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -3801,30 +3057,6 @@
    "case": "pages",
    "record": "M160.html",
    "tier": "wording",
-   "field": "lines 170-170",
-   "before": "⟦title: From the data sheet shared with colorFabb varioShore TPU⟧",
-   "after": "⟦title: From the data sheet shared with colorFabb varioShore TPU. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M160.html",
-   "tier": "wording",
-   "field": "lines 172-172",
-   "before": "⟦title: From the data sheet shared with colorFabb varioShore TPU⟧",
-   "after": "⟦title: From the data sheet shared with colorFabb varioShore TPU. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M160.html",
-   "tier": "wording",
-   "field": "lines 178-178",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
-  },
-  {
-   "case": "pages",
-   "record": "M160.html",
-   "tier": "wording",
    "field": "lines 21-21",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (692 chars, sha256:f87afa3e82d2)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (682 chars, sha256:8cdf568330f9)"
@@ -3833,33 +3065,9 @@
    "case": "pages",
    "record": "M160.html",
    "tier": "wording",
-   "field": "lines 253-253",
-   "before": "⟦title: From the data sheet shared with colorFabb varioShore TPU⟧",
-   "after": "⟦title: From the data sheet shared with colorFabb varioShore TPU. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M160.html",
-   "tier": "wording",
-   "field": "lines 257-257",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
-  },
-  {
-   "case": "pages",
-   "record": "M160.html",
-   "tier": "wording",
    "field": "lines 426-426",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (750 chars, sha256:582e8d9d939b)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (740 chars, sha256:c3d02bbfc226)"
-  },
-  {
-   "case": "pages",
-   "record": "M161-products.html",
-   "tier": "wording",
-   "field": "lines 1312-1312",
-   "before": "Data sheet shared with The Filament TPU 95A: their values are one table, recorded once.",
-   "after": "Data sheet shared with The Filament TPU 95A: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -3881,14 +3089,6 @@
    "case": "pages",
    "record": "M161-products.html",
    "tier": "wording",
-   "field": "lines 1628-1628",
-   "before": "Data sheet shared with eSUN TPU HS: their values are one table, recorded once.",
-   "after": "Data sheet shared with eSUN TPU HS: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M161-products.html",
-   "tier": "wording",
    "field": "lines 1679-1679",
    "before": "Data sheet shared with eSUN TPU 95A: their values are one table, recorded once.",
    "after": "Data sheet shared with eSUN TPU 95A: their values are one table, recorded once and counted once in the material's median."
@@ -3900,14 +3100,6 @@
    "field": "lines 1712-1712",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (752 chars, sha256:d0a42873792a)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (742 chars, sha256:68528447a1ea)"
-  },
-  {
-   "case": "pages",
-   "record": "M161-products.html",
-   "tier": "wording",
-   "field": "lines 560-560",
-   "before": "Data sheet shared with Eryone Standard TPU: their values are one table, recorded once.",
-   "after": "Data sheet shared with Eryone Standard TPU: their values are one table, recorded once and counted once in the material's median."
   },
   {
    "case": "pages",
@@ -4105,65 +3297,9 @@
    "case": "pages",
    "record": "M168-products.html",
    "tier": "wording",
-   "field": "lines 200-200",
-   "before": "Data sheet shared with Fabru GreenTEC: their values are one table, recorded once.",
-   "after": "Data sheet shared with Fabru GreenTEC: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M168-products.html",
-   "tier": "wording",
-   "field": "lines 274-274",
-   "before": "Data sheet shared with Extrudr GREENTEC: their values are one table, recorded once.",
-   "after": "Data sheet shared with Extrudr GREENTEC: their values are one table, recorded once and counted once in the material's median."
-  },
-  {
-   "case": "pages",
-   "record": "M168-products.html",
-   "tier": "wording",
    "field": "lines 693-693",
    "before": "Open in the selectorSelector ⟨../{selector}#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%… (748 chars, sha256:a6827086c070)",
    "after": "Open in the selectorSelector ⟨../#%7B%22x%22%3A2%2C%22c%22%3A%5B%5D%2C%22u%22%3A%22strict%22%2C%22s%22%3A%5B%5D%2C%22p%22%3A%7B%22x%22%3A%22density%22%2C%22y%22%3A%22tensileModulusXY%22%2C%22xLog%22%… (738 chars, sha256:7e71cb7339cf)"
-  },
-  {
-   "case": "pages",
-   "record": "M168.html",
-   "tier": "wording",
-   "field": "lines 123-123",
-   "before": "⟦title: From the data sheet shared with Fabru GreenTEC⟧",
-   "after": "⟦title: From the data sheet shared with Fabru GreenTEC. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M168.html",
-   "tier": "wording",
-   "field": "lines 125-125",
-   "before": "⟦title: From the data sheet shared with Fabru GreenTEC⟧",
-   "after": "⟦title: From the data sheet shared with Fabru GreenTEC. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M168.html",
-   "tier": "wording",
-   "field": "lines 127-127",
-   "before": "⟦title: From the data sheet shared with Fabru GreenTEC⟧",
-   "after": "⟦title: From the data sheet shared with Fabru GreenTEC. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M168.html",
-   "tier": "wording",
-   "field": "lines 135-135",
-   "before": "⟦title: From the data sheet shared with Extrudr GREENTEC⟧",
-   "after": "⟦title: From the data sheet shared with Extrudr GREENTEC. Counted once in the median⟧"
-  },
-  {
-   "case": "pages",
-   "record": "M168.html",
-   "tier": "wording",
-   "field": "lines 137-137",
-   "before": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.",
-   "after": "In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once."
   },
   {
    "case": "pages",
@@ -4278,6 +3414,6 @@
    "after": "Open the selectorSelector ⟨../⟩All materials ⟨index.html⟩"
   }
  ],
- "digest": "sha256:61948215d46276558eef204a2bf11ae6f7bfdba6fa4c4ccb590a430dd09c0b2c",
- "seal": "sha256:58a26ac6fb3e57e88e3095b72ebd97af6f35f096f1f0d1b5bc3082a53ea48a57"
+ "digest": "sha256:24da6486ec4ddb74846c6fe1423dc651fff3dd71c8f05ff06e33b33b31e9afee",
+ "seal": "sha256:66bb3282b9e78f4e2cd6cefe99ee5f20beead691e10a84e90cfc4bcc2e98f5ab"
 }

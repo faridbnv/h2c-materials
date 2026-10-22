@@ -39,6 +39,7 @@ import { measurementHeadlines, applies } from './registry.ts';
 import { aggregateGate } from './gates.ts';
 import { CLAIM } from './product-claims.ts';
 import { attachLedger } from './evidence-ledger.ts';
+import { isReprintEntry } from '@atlas/domain';
 import { printsAsItsType } from './variants.ts';
 import type { Dyn } from './types.ts';
 
@@ -755,7 +756,8 @@ function summarise(entries: Dyn, products: Dyn) {
  * A reprinted table counts once (owner ruling OQ-09 A): a comparable value a twin reads from its sibling (D89; the same
  * Shared formulation key, so never a product that reprints another material's table, R166) is the sibling's table again.
  */
-const isReprint = (e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE && e.v.from?.origin === 'twin';
+// The rule itself is shared with the pages (packages/domain/src/core/reprint.ts), which say a value is counted once only where this excludes it.
+const isReprint = (e: Dyn) => isReprintEntry(e);
 const distinct = (comparable: Dyn) => comparable.filter((e: Dyn) => !isReprint(e));
 
 /**

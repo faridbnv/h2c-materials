@@ -17,3 +17,5 @@ export {
   PLOT_VIEWS, ENGINE_MISSING,
 } from './vocab.ts';
 export { CORE_FIELDS, ESTIMATE_FIELDS, isCoreReadModel } from './core-fields.ts';
+export { isReprintEntry, COMPARABLE_LEVEL } from './reprint.ts';
+export type { SpreadEntryLike } from './reprint.ts';
