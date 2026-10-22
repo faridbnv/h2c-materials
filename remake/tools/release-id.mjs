@@ -13,7 +13,7 @@
 // What only draws the page (apps/public/src, CSS) or runs the write service (the workspace code, the editor) is not an
 // input: two pages that differ only there give the same answers and share the ID (D96, D142). What decides the answers of
 // /v3/ is: the engine, the question it asks and how its snapshot is compiled (apps/public/tools), the words layer it
-// imports (app/js/ui/labels.js, registry.js, templates.js, table.js), the compile, case and staging files of the impact module, and
+// imports (app/js/ui/labels.js, registry.js, templates.js), the compile, case and staging files of the impact module, and
 // the corpus the question comes from. Node built-ins only, so a deploy job can run it without an install.
 //
 //   npm run release:id            prints the 12-character ID
@@ -35,7 +35,6 @@ export const RELEASE_INPUTS = {
   engine: {
     paths: [
       'app/js/engine', 'app/js/ui/templates.js', 'app/js/ui/labels.js', 'app/js/ui/registry.js',
-      'app/js/ui/table.js', // sortRows: the order /v3/ lists materials in (packages/engine/src/old-table.ts)
       'packages/engine/src',
       // the write service's code decides no answer; only the contract that checks the database the engine reads does
       'packages/data/src/db-contract.ts', 'packages/data/src/shape.ts', 'packages/data/src/generated/db-shape.ts',

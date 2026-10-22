@@ -82,7 +82,7 @@ export interface RawMaterial {
 }
 
 export interface RawRanking {
-  readonly byMaterial: ReadonlyMap<string, { readonly place: number }>;
+  readonly byMaterial: ReadonlyMap<string, { readonly place: number; readonly value: number }>;
   readonly unranked: readonly { readonly materialId: string }[];
 }
 

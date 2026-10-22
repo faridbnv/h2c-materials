@@ -118,7 +118,6 @@ test('dynamic imports in the packages without a literal target are the reviewed 
     ['packages/engine/src/old-engine.ts', 1], // loads app/js/engine/<module>.js from the engine directory
     ['packages/engine/src/port/stage.ts', 1], // loads the staged copy of the engine's modules
     ['packages/engine/src/impact/old-build.ts', 1], // loads the old build (build/src), not the interface
-    ['packages/engine/src/old-table.ts', 1], // loads the old table's sort (app/js/ui/table.js) for the ties surface
   ]);
   const seen = new Map();
   for (const dir of ['packages/engine', 'packages/domain', 'packages/data']) {
@@ -131,9 +130,6 @@ test('dynamic imports in the packages without a literal target are the reviewed 
   seen.delete('packages/data/src/cli.ts');
   assert.deepEqual([...seen].sort(), [...reviewed].sort());
   for (const file of reviewed.keys()) {
-    // old-table.ts is the one reviewed exception: it asks the page's own sortRows (read-only) for the ties order, until the
-    // table is ported (M3); a second loader of the interface is still a failure.
-    if (file === 'packages/engine/src/old-table.ts') continue;
     const text = readFileSync(join(root, file), 'utf8');
     assert.doesNotMatch(text, /app\/js\/ui|app\/js\/main/, `${file} names the interface`);
   }
