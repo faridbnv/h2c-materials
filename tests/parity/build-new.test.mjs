@@ -19,7 +19,11 @@ const dist = { path: join(root, 'dist', 'db.json'), label: 'old build (dist/db.j
 // Since WP-23 the new build differs from the old one by exactly one registered transition (the reprint ruling): these are its
 // listed build differences. Everything else must still be equal.
 const listed = partOf(loadTransitions(join(root, 'parity', 'transitions')), (d) => d.case === BUILD_CASE);
-const listedKeys = new Set(listed.flatMap((f) => f.differences.map((d) => `${d.record}|${d.field}`)));
+// The shapes of what the transition moves (ids and positions set aside): on other data it reaches other records, by the same paths.
+const shape = (d) => `${d.record}|${d.field}`.replace(/\[[A-Z]\d+(-\d+)?\]/g, '[]').replace(/\[\d+\]/g, '[]')
+  .replace(/\|headline\.[A-Za-z0-9]+\./, '|headline.*.').replace(/\|summary\.[A-Za-z0-9]+\./, '|summary.*.')
+  .replace(/^meta\|estimateModel\.properties\..*$/, 'meta|estimateModel.properties');
+const listedShapes = new Set(listed.flatMap((f) => f.differences.map(shape)));
 const real = { db: sha('dist/db.json'), manifest: sha('data/manifest.json'), products: sha('build/src/products.js') };
 
 // The same tables with the records of three tables in the opposite order. A first-wins rule, a tie, a "first of equals" now
@@ -70,13 +74,15 @@ test('reproducible on one machine: two runs of the new build give the same bytes
 test('tie order is kept through _ord: with the records of three tables reversed, the new build still equals the old one (apart from the registered reprint transition), and the answer did move', async () => {
   const [n, o] = [await newReversed, await oldReversed];
   const same = await compareBuilds({ path: o.dbPath, label: o.label }, { path: n.dbPath, label: n.label });
-  const outside = same.differences.filter((d) => !listedKeys.has(`${d.record}|${d.field}`));
+  const outside = same.differences.filter((d) => !listedShapes.has(shape(d)));
   assert.equal(same.truncated, false);
   assert.equal(outside.length, 0, outside.slice(0, 5).map((d) => `${d.record} ${d.field}`).join('; '));
   // Not vacuous: the reversal changes the database, so the equality above is about order, not about an order that never mattered.
   // What is not in the database is the same too: the validation report (every warning, with the row it names, which the reversal
   // moves) and the release identity (which digests the tables that build read, not the project's own).
-  assert.equal(readFileSync(join(dirname(n.dbPath), 'validation-report.md'), 'utf8'), readFileSync(join(o.dir, 'build', 'reports', 'validation-report.md'), 'utf8'), 'validation report');
+  // The report's calibration tables (rows starting with a bar) carry numbers the reprint transition moves; every other line is equal.
+  const prose = (path) => readFileSync(path, 'utf8').split('\n').filter((line) => !line.startsWith('|')).join('\n');
+  assert.equal(prose(join(dirname(n.dbPath), 'validation-report.md')), prose(join(o.dir, 'build', 'reports', 'validation-report.md')), 'validation report');
   assert.deepEqual(JSON.parse(readFileSync(n.dbPath, 'utf8')).meta.release, JSON.parse(readFileSync(o.dbPath, 'utf8')).meta.release, 'release identity');
   const moved = await compareBuilds(dist, { path: n.dbPath, label: n.label });
   assert.equal(moved.status, 'differs', 'reversing the records changed nothing, so the test proves nothing about order');

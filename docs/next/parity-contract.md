@@ -102,6 +102,17 @@ The new side adds two fields beside the old answer, `reasonCode` and `constraint
 
 The old unit tests run against the new engine unedited (`tests/parity/old-tests-on-port.test.mjs`): `node --import tests/parity/redirect-engine.mjs --test test/<file>` sends every import of `app/js/engine/<name>.js` to the staged engine. That is 317 tests in 25 files, `test/metamorphic.test.js` (the nine relations) among them, and a control plants a fault in the port and requires them to fail. `docs/next/constraints-rules.md` maps every rule of `constraints.js` to the test or corpus case that covers it.
 
+### The new side from WP-23: the new build's database, and transitions for P-build
+
+The engine surface's new side now reads the database **the new build wrote** (packages/build), not `dist/db.json`, so a deliberate
+change in the build reaches the answers. (Ties and links keep both sides on `dist/db.json`: they test the engine and the link readers,
+not the data.) A transition file lists differences of the engine under their corpus case, and differences of P-build under the case
+`build` (record = the database path, tier evidence). One file may list both; each check settles only its own part, and a listed case
+only needs to exist in the milestone corpus, so a transition measured at milestone size also passes a pull-request run (cases outside
+its 1,000 replays are skipped, as in any partial selection). A listed difference that was not seen counts as missing only when every
+case could be answered. The first transition is [reprint-counts-once](transitions/reprint-counts-once.md): 5,448 differences.
+Write one with `npm run parity -- --milestone --surface engine,build --transitions <empty folder> --emit-transition <file> --id ... --ruling ... --description ...`.
+
 ## Transitions: how a deliberate change is allowed
 
 A deliberate change (for example the reprint ruling OQ-09 d) is recorded in `parity/transitions/<date>-<topic>.json`: its kind (science, determinism, display or wording), the ruling that allows it, and the **exact list** of differences (question, record, level, field, before, after) with a fingerprint of the list. The run passes only when what it observes equals that list: one extra difference fails, one missing difference fails, a hand-edited list fails. A transition is never a blanket waiver. A change that moves a decision or evidence needs kind "science" or "determinism" and a cited ruling, and your approval as a Tier 1 change.
