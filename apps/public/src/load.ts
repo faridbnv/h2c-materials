@@ -19,7 +19,8 @@ export class NetworkError extends Error {
 /** Where a part of a release lives, relative to the page. */
 export const partUrl = (release: string, path: string): string => `data/${release}/${path}`;
 
-async function fetchPart(fetchFn: FetchLike, embedded: string, path: string, what: string): Promise<unknown> {
+/** One part of the page's release, as JSON. A 404 is a stale page, a failed connection or an HTTP error is not, and text that is not JSON is a damaged part. */
+export async function fetchPart(fetchFn: FetchLike, embedded: string, path: string, what: string): Promise<unknown> {
   const url = partUrl(embedded, path);
   let response;
   try {

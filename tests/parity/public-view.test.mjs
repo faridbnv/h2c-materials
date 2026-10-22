@@ -47,10 +47,11 @@ const assetsOf = (html, pageUrl) => [...html.matchAll(/(?:src|href)="([^"#]+)"/g
 before(async () => {
   relative = await buildSite({ outDir: relativeBuild });
   await buildSite({ outDir: absoluteBuild, base: PREVIEW_PATH });
-  // The engine, asked again on the same tables, by a path that shares nothing with the generator but the packages.
+  // The engine, asked again on the same tables, by a path that shares nothing with the generator but the packages: the old build's
+  // compile, with its estimate stage, as the selector runs on it (a database without the estimate stage words some reasons differently).
   const snapshot = stageSnapshot(REPO_ROOT);
   try {
-    const db = await compileSnapshot(snapshot, { estimates: false });
+    const db = await compileSnapshot(snapshot, { estimates: true });
     const asked = loadImpactCases().find((c) => c.id === CASE_ID);
     engine = createContext(db, scenarioFrom(asked.question, db.meta)).run({ rankings: false });
   } finally { removeSnapshot(snapshot); }

@@ -2,6 +2,7 @@
 import { onMounted, ref, shallowRef } from 'vue';
 import type { Ref, ShallowRef } from 'vue';
 import { unexpectedStop } from './copy.ts';
+import { reloadOnce, settled } from './guard.ts';
 import { NetworkError } from './load.ts';
 import { DataShapeError } from './model.ts';
 import { embeddedRelease, StaleShellError } from './release.ts';
@@ -9,15 +10,15 @@ import { embeddedRelease, StaleShellError } from './release.ts';
 /** A page with nothing it may show yet. */
 export type Blocked =
   | { readonly kind: 'loading' }
-  /** The page in this tab is not the current release (the guard refused). Offer a reload. */
-  | { readonly kind: 'stale'; readonly why: string }
+  /** The page in this tab is not the current release (the guard refused). `reloading`: the guard has started the one reload it allows; otherwise offer one. */
+  | { readonly kind: 'stale'; readonly why: string; readonly reloading: boolean }
   | { readonly kind: 'failed'; readonly why: string };
 
 export type LoadState<T> = Blocked | { readonly kind: 'ready'; readonly data: T };
 
 function blockedBy(error: unknown): Blocked {
   const why = error instanceof Error ? error.message : String(error);
-  if (error instanceof StaleShellError) return { kind: 'stale', why };
+  if (error instanceof StaleShellError) return { kind: 'stale', why, reloading: reloadOnce() };
   if (error instanceof NetworkError || error instanceof DataShapeError) return { kind: 'failed', why };
   return { kind: 'failed', why: unexpectedStop(why) };
 }
@@ -29,6 +30,7 @@ export function useLoad<T>(load: (release: string) => Promise<T>): { readonly st
     try {
       release.value = embeddedRelease(document);
       state.value = { kind: 'ready', data: await load(release.value) };
+      settled();
     } catch (error) {
       state.value = blockedBy(error);
     }

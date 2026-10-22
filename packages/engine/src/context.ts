@@ -5,8 +5,7 @@
 // Behaviour is the page's, not new: the same context fields, the family entries dropped, assumptions applied to copies of
 // the materials, the evaluations of runSelection, the rankings of rankingFor. The scenario's own requirement objects go
 // into the engine (it matches them by identity); the results come back with `constraintId` beside them.
-import type { Db } from '@atlas/data';
-import type { ConstraintId, EngineInput, Evaluation, MaterialId, ReleaseId, RowResult, ScenarioV2 } from '@atlas/domain';
+import type { ConstraintId, CoreReadModel, EngineInput, Evaluation, MaterialId, ReleaseId, RowResult, ScenarioV2 } from '@atlas/domain';
 import { toEvaluation } from './boundary.ts';
 import { indexConstraints } from './constraint-ids.ts';
 import { BoundaryError, materialIdOf, releaseIdOf } from './guards.ts';
@@ -66,7 +65,7 @@ function groupBy<T>(rows: readonly T[], key: (row: T) => string): Map<string, T[
   return out;
 }
 
-function releaseOf(db: Db, asked: string | undefined): ReleaseId {
+function releaseOf(db: CoreReadModel, asked: string | undefined): ReleaseId {
   const own = db.meta.release?.id;
   if (own !== undefined && asked !== undefined && own !== asked) throw new BoundaryError(`the database is release ${own}, the input asks for ${asked}`);
   const id = own ?? asked;
@@ -74,7 +73,7 @@ function releaseOf(db: Db, asked: string | undefined): ReleaseId {
   return releaseIdOf(id);
 }
 
-export function createContext(db: Db, scenario: ScenarioV2, options: EngineOptions = {}): EngineContext {
+export function createContext(db: CoreReadModel, scenario: ScenarioV2, options: EngineOptions = {}): EngineContext {
   const engine = options.engine ?? defaultEngine;
   const release = releaseOf(db, options.release);
   const policy = engine.constraints.normalizePolicy(scenario.unknownPolicy);

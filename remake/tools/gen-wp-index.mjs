@@ -56,7 +56,16 @@ const EXIT = {
     commands: ['npm run parity:erase', 'npm run typecheck', 'node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs', 'npm run parity -- --new --surface pages'],
     manual: ['the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)'],
   },
-  'WP-25': { commands: [], manual: ['core sufficiency = 0', 'stale-shell, mismatch and 404 tests pass', 'size report in budget'] },
+  // The parts, the loader, the guard, the 404 page, the size report and the field-list tool; core sufficiency at pull-request size (1,000 replays);
+  // the size report on a fresh assembly of the site (old site, 404 page, public view). The milestone run (the whole census and 5,000 replays) and the browser suite are the manual lines.
+  'WP-25': {
+    commands: [
+      'node --test tests/remake/shards.test.mjs tests/remake/delivery.test.mjs tests/remake/site-pages.test.mjs tests/remake/size-report.test.mjs tests/remake/core-reads.test.mjs tests/parity/core.test.mjs',
+      'npm run parity -- --surface core',
+      'node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json',
+    ],
+    manual: ['core sufficiency = 0 at the milestone size (npm run parity -- --surface core --milestone)', 'stale-shell, mismatch and 404 browser tests pass (npm run test:browser, tests/browser/delivery.spec.mjs)', 'size report in budget (the owner is asked before a budget is relaxed)'],
+  },
   'WP-26': { commands: [], manual: ['P-ui passes on the new adapter', 'keyboard script passes', 'historic links open'] },
   'WP-27': { commands: [], manual: ['chart traces identical', 'Plotly absent from first load', 'first chart <= 1.2 s', 'brief and export equal on 12 scenarios'] },
   'WP-28': { commands: [], manual: ['adversarial tests fail closed', 'two commit-pinned scans with zero High', 'one document through proposal, review, accept and export'] },

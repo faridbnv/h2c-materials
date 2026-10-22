@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync, readdirSync, lstatSync, existsSync, mkdirS
 import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
 import { RELEASE_ID_PATTERN } from './release-id.mjs';
+import { NOT_FOUND_HTML } from './site-pages.mjs';
 import { assertClean, scanTree } from './private-scan.mjs';
 import { isMain, repoRoot } from './wp-lib.mjs';
 
@@ -54,18 +55,9 @@ export function injectBanner(html, name = 'html') {
   return withMeta.slice(0, body.index + body[0].length) + BANNER_HTML + withMeta.slice(body.index + body[0].length);
 }
 
-// Pages serves 404.html (status 404) for a missing path. Today's site has none, so the preview adds one of its own.
-// It is served from any depth, so "./" can point into a sub-folder (/v3/): the script takes the site root from the first segment.
-export const NOT_FOUND_HTML = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Not found: Filament Atlas preview</title></head>
-<body style="font:16px/1.5 system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem">
-<h1>Page not found</h1>
-<p>This address does not exist on the preview of the Filament Atlas remake.</p>
-<p><a id="home" href="./">Open the preview</a> or the <a href="${LIVE_URL}">live tool</a>.</p>
-<script>(function(){var s=location.pathname.split('/')[1];if(s)document.getElementById('home').href='/'+s+'/'})();</script>
-</body></html>
-`;
+// Pages serves 404.html (status 404) for a missing path from any depth. Today's site has none, so the preview adds one of its own:
+// remake/tools/site-pages.mjs, self-contained, taking the site root from the first segment of its own address.
+export { NOT_FOUND_HTML };
 
 // Symbolic links are refused: a link could make the walk loop or rewrite a file outside the site.
 export function* walk(dir) {
@@ -90,13 +82,15 @@ function runPublicBuild({ root, out }) {
   if (run.status !== 0) throw new Error(`the /v3/ build failed (exit ${run.status})`);
 }
 
-/** The release a built view names, once it is whole: its page, its manifest and its results file are all there. `who` starts the error. */
+/** The release a built view names, once it is whole: its page, its manifest and its data parts are all there. `who` starts the error. */
 function viewRelease(dir, who) {
   const manifest = join(dir, 'release.json');
   if (!existsSync(manifest) || !existsSync(join(dir, 'index.html'))) throw new Error(`${who} has no index.html and release.json`);
   const { release } = JSON.parse(readFileSync(manifest, 'utf8'));
   if (!RELEASE_ID_PATTERN.test(release)) throw new Error(`${who} names no valid release: "${release}"`);
-  if (!existsSync(join(dir, 'data', release, 'result.json'))) throw new Error(`${who} has no data/${release}/result.json`);
+  for (const part of ['result.json', 'core.json', 'estimates.json', 'reference.json']) {
+    if (!existsSync(join(dir, 'data', release, part))) throw new Error(`${who} has no data/${release}/${part}`);
+  }
   return release;
 }
 
@@ -150,31 +144,78 @@ export function inject(site, { remake, main, runId = null, now = new Date() }) {
 }
 
 const SAFE_NAME = /^[0-9a-f]{12}$/;
+
+/**
+ * The public view in `dir` (v3/release.json): its release and the chunks it was built with, or null where the folder holds no view.
+ * A stale page (index.html cached for up to ten minutes) asks the server for its own release's data and chunks, so a deploy that
+ * replaces them with the new release's alone would 404 it (pack 02 section 6.2). The build lists its own chunks, so a chunk carried
+ * from an older release is not carried again.
+ */
+function viewIn(dir) {
+  const manifest = join(dir, V3_DIR, 'release.json');
+  if (!existsSync(manifest)) return null;
+  const { release, assets = [] } = JSON.parse(readFileSync(manifest, 'utf8'));
+  if (!SAFE_NAME.test(release ?? '')) throw new Error(`${V3_DIR}/release.json names an unsafe release "${release}"`);
+  for (const a of assets) if (typeof a !== 'string' || a.includes('/') || a.includes('\\') || a.startsWith('.')) throw new Error(`${V3_DIR}/release.json lists an unsafe chunk name "${a}"`);
+  return { release, assets };
+}
+
+/** Copies the folders a stale page of the view in `repo` still asks for (its data/<release>/ and the chunks it was built with) to a scratch folder. */
+function carryView(repo) {
+  const view = viewIn(repo);
+  if (view === null) return null;
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-carry-'));
+  const data = join(repo, V3_DIR, 'data', view.release);
+  if (existsSync(data)) cpSync(data, join(dir, 'data', view.release), { recursive: true });
+  for (const name of view.assets) {
+    const from = join(repo, V3_DIR, 'assets', name);
+    if (existsSync(from)) cpSync(from, join(dir, 'assets', name));
+  }
+  return { release: view.release, dir };
+}
+
 // Moves what the preview repo serves now into previous/<its release> (only one previous release is kept), then copies the
-// new site over the root. When the release is unchanged, previous/ is left exactly as it was.
+// new site over the root. When the release is unchanged, previous/ is left exactly as it was. Either way the public view's
+// previous release keeps its data/<release>/ and its chunks beside the new ones, so that a page cached before the deploy still
+// loads (one previous view release is kept; the one before it goes).
 export function stage(site, repo) {
   const newRelease = JSON.parse(readFileSync(join(site, 'preview.json'), 'utf8')).release;
   const keep = new Set(['.git', 'previous', 'README.md']);
   let moved = null;
-  const oldInfoPath = join(repo, 'preview.json');
-  if (existsSync(oldInfoPath)) {
-    const old = JSON.parse(readFileSync(oldInfoPath, 'utf8'));
-    if (!old.release) throw new Error("the preview repo's preview.json names no release; refusing to delete it without archiving");
-    if (old.release !== newRelease) {
-      if (!SAFE_NAME.test(old.release)) throw new Error(`the preview repo's preview.json names an unsafe release "${old.release}"`);
-      rmSync(join(repo, 'previous'), { recursive: true, force: true });
-      const dest = join(repo, 'previous', old.release);
-      mkdirSync(dest, { recursive: true });
-      for (const name of readdirSync(repo)) if (!keep.has(name)) renameSync(join(repo, name), join(dest, name));
-      moved = old.release;
+  const carried = carryView(repo);
+  try {
+    const oldInfoPath = join(repo, 'preview.json');
+    if (existsSync(oldInfoPath)) {
+      const old = JSON.parse(readFileSync(oldInfoPath, 'utf8'));
+      if (!old.release) throw new Error("the preview repo's preview.json names no release; refusing to delete it without archiving");
+      if (old.release !== newRelease) {
+        if (!SAFE_NAME.test(old.release)) throw new Error(`the preview repo's preview.json names an unsafe release "${old.release}"`);
+        rmSync(join(repo, 'previous'), { recursive: true, force: true });
+        const dest = join(repo, 'previous', old.release);
+        mkdirSync(dest, { recursive: true });
+        for (const name of readdirSync(repo)) if (!keep.has(name)) renameSync(join(repo, name), join(dest, name));
+        moved = old.release;
+      }
     }
+    for (const name of readdirSync(repo)) if (!keep.has(name)) rmSync(join(repo, name), { recursive: true, force: true });
+    cpSync(site, repo, { recursive: true });
+    writeFileSync(join(repo, '.nojekyll'), '');
+    const view = viewIn(repo);
+    let carriedRelease = null;
+    if (carried && view !== null && carried.release !== view.release) {
+      for (const sub of [join('data', carried.release), 'assets']) {
+        const from = join(carried.dir, sub);
+        // force: false keeps the new file wherever the names meet (a chunk with the same hash is the same chunk).
+        if (existsSync(from)) cpSync(from, join(repo, V3_DIR, sub), { recursive: true, force: false });
+      }
+      carriedRelease = carried.release;
+    }
+    // What the push will carry, previous/ included. The repository's own .git folder and README.md are not the site's.
+    assertClean(scanTree(repo, { skip: (rel) => rel === '.git', allowPaths: ['README.md'] }), 'the staged preview repository');
+    return { release: newRelease, previousKept: moved ?? (existsSync(join(repo, 'previous')) ? readdirSync(join(repo, 'previous')) : []), viewKept: carriedRelease };
+  } finally {
+    if (carried) rmSync(carried.dir, { recursive: true, force: true });
   }
-  for (const name of readdirSync(repo)) if (!keep.has(name)) rmSync(join(repo, name), { recursive: true, force: true });
-  cpSync(site, repo, { recursive: true });
-  writeFileSync(join(repo, '.nojekyll'), '');
-  // What the push will carry, previous/ included. The repository's own .git folder and README.md are not the site's.
-  assertClean(scanTree(repo, { skip: (rel) => rel === '.git', allowPaths: ['README.md'] }), 'the staged preview repository');
-  return { release: newRelease, previousKept: moved ?? (existsSync(join(repo, 'previous')) ? readdirSync(join(repo, 'previous')) : []) };
 }
 
 const arg = (argv, name, required = true) => {
@@ -194,7 +235,7 @@ if (isMain(import.meta.url)) {
       console.log(`built the public view into ${V3_DIR}/: release ${r.release}, ${r.files} files`);
     } else if (argv[0] === 'stage') {
       const r = stage(arg(argv, '--site'), arg(argv, '--repo'));
-      console.log(`staged release ${r.release}; previous kept: ${JSON.stringify(r.previousKept)}`);
+      console.log(`staged release ${r.release}; previous kept: ${JSON.stringify(r.previousKept)}; public view's previous data kept: ${r.viewKept ?? 'none'}`);
     } else throw new Error('usage: inject --site DIR --remake SHA --main SHA [--run-id ID] | stage --site DIR --repo DIR | build-v3 --site DIR');
   } catch (e) { console.error(`preview-assemble failed: ${e.message}`); process.exitCode = 1; }
 }

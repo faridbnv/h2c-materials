@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "release": "56d2fb80f43f",
+  "measuredAt": "2026-10-22T04:52:34.834Z",
+  "node": "26.12.0",
+  "gzipLevel": 6,
+  "note": "Budgets are pack 02 section 11, with a kilobyte of 1,000 bytes. A failed check is a failed budget; relaxing one is the owner's decision.",
+  "strictBoot": {
+    "gzipBytes": 772124,
+    "codeGzipBytes": 34044,
+    "coreGzipBytes": 738080,
+    "files": [
+      {
+        "path": "index.html",
+        "bytes": 2772,
+        "gzip": 1168
+      },
+      {
+        "path": "assets/index-DTxZ6mxO.js",
+        "bytes": 4473,
+        "gzip": 1730
+      },
+      {
+        "path": "assets/style-CsqpZE2r.js",
+        "bytes": 76967,
+        "gzip": 29560
+      },
+      {
+        "path": "assets/style-CwiHf5kh.css",
+        "bytes": 3996,
+        "gzip": 1586
+      },
+      {
+        "path": "data/56d2fb80f43f/core.json",
+        "bytes": 11234824,
+        "gzip": 738080
+      }
+    ]
+  },
+  "defaultBoot": {
+    "note": "Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.",
+    "gzipBytes": 972229,
+    "estimatesGzipBytes": 200105
+  },
+  "detail": {
+    "count": 175,
+    "medianGzipBytes": 13603,
+    "maxGzipBytes": 324839,
+    "largest": "data/56d2fb80f43f/detail/M001.json"
+  },
+  "site": {
+    "scope": "the whole assembled site (the old site, the 404 page and the public view)",
+    "bytes": 97494953,
+    "dataBytes": 50987097,
+    "assetsBytes": 88760,
+    "withPreviousReleaseBytes": 148570810
+  },
+  "checks": {
+    "strictBootGzip": {
+      "value": 772124,
+      "budget": 900000,
+      "ok": true
+    },
+    "detailMedianGzip": {
+      "value": 13603,
+      "budget": 15000,
+      "ok": true
+    },
+    "detailMaxGzip": {
+      "value": 324839,
+      "budget": 300000,
+      "ok": false
+    },
+    "siteBytes": {
+      "value": 148570810,
+      "budget": 100000000,
+      "ok": false
+    }
+  },
+  "ok": false
+}

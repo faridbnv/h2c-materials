@@ -1,6 +1,7 @@
 // The sentences of this view that are not the engine's. New copy goes here, never into a component template (interface rule:
 // one vocabulary). Written for one reader, an engineer: the answer first, data-sheet terms, no record identifiers in a sentence.
 import type { Counts, GroupCount, ProductCounts, Verdict } from './model.ts';
+import { RELOAD_LABEL, STALE_BODY, STALE_HEADING, STALE_RELOADING } from './stale-copy.ts';
 import { GROUP_WORD } from './words.ts';
 
 export const SITE = 'Filament Atlas';
@@ -46,17 +47,15 @@ export const READING = {
   firstSlice: 'This is a first slice of the rebuilt site: one template, one result list and an explanation for each material. The selector and the material pages stay where they are.',
 } as const;
 
-export const STALE = {
-  heading: 'A newer version was published',
-  body: 'This page is older than the data on the server, so it will not show a result that might not match. Reload to get the current version.',
-} as const;
+export const STALE = { heading: STALE_HEADING, body: STALE_BODY } as const;
+export { STALE_RELOADING };
 
 export const FAILED = {
   heading: 'The results could not be loaded',
   body: 'Nothing is shown rather than part of an answer. Check the connection and reload.',
 } as const;
 
-export const RELOAD = 'Reload';
+export const RELOAD = RELOAD_LABEL;
 export const LOADING = 'Loading the results';
 export const unexpectedStop = (why: string): string => `Something unexpected stopped the page: ${why}`;
 export const NO_MATERIAL = 'This release has no material at that address. Go back to the results and pick one from the list.';
