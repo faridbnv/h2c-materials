@@ -20,7 +20,11 @@ import { isMain, repoRoot } from './wp-lib.mjs';
 export const BUDGETS = Object.freeze({
   strictBootGzip: 900_000,
   detailMedianGzip: 15_000,
-  detailMaxGzip: 300_000,
+  // Owner decision 2026-10-22: one material's detail part may reach 350 KB (PLA, the most products, was 325 KB); it loads only
+  // when that material's detail opens. The pack's line was 300 KB.
+  detailMaxGzip: 350_000,
+  // The new site: the public view plus the slim copy of the previous release a deploy keeps (owner decision 2026-10-22). The old
+  // site the preview carries for comparison is reported but not counted: it is never published live.
   siteBytes: 100_000_000,
 });
 
@@ -85,18 +89,23 @@ export function measure({ view, site = view }) {
   const gzips = detail.map((d) => d.gzip);
   const largest = detail.reduce((a, b) => (b.gzip > a.gzip ? b : a), { path: '', gzip: 0 });
 
-  const siteBytes = [...walk(site)].reduce((n, p) => n + statSync(p).size, 0);
-  const assetsBytes = existsSync(join(view, 'assets')) ? [...walk(join(view, 'assets'))].reduce((n, p) => n + statSync(p).size, 0) : 0;
-  const dataBytes = [...walk(data)].reduce((n, p) => n + statSync(p).size, 0);
-  // A deploy keeps the previous release's data and chunks beside the new ones (the stale-shell guard), so the next one carries about this much more.
-  const withPreviousBytes = siteBytes + dataBytes + assetsBytes;
+  const bytesOf = (dir) => [...walk(dir)].reduce((n, p) => n + statSync(p).size, 0);
+  const siteBytes = bytesOf(site);
+  const viewBytes = bytesOf(view);
+  const assetsBytes = existsSync(join(view, 'assets')) ? bytesOf(join(view, 'assets')) : 0;
+  const dataBytes = bytesOf(data);
+  const detailDir = join(data, 'detail');
+  const slimDataBytes = dataBytes - (existsSync(detailDir) ? bytesOf(detailDir) : 0);
+  // A deploy keeps the previous release's data without its detail/ folder, and its chunks, beside the new ones (the stale-shell
+  // guard), so the next one carries about this much more than the view alone.
+  const newSiteBytes = viewBytes + slimDataBytes + assetsBytes;
 
   const check = (value, budget) => ({ value, budget, ok: value <= budget });
   const checks = {
     strictBootGzip: check(strictBoot, BUDGETS.strictBootGzip),
     detailMedianGzip: check(median(gzips), BUDGETS.detailMedianGzip),
     detailMaxGzip: check(largest.gzip, BUDGETS.detailMaxGzip),
-    siteBytes: check(withPreviousBytes, BUDGETS.siteBytes),
+    siteBytes: check(newSiteBytes, BUDGETS.siteBytes),
   };
   return {
     schema: 1,
@@ -108,7 +117,8 @@ export function measure({ view, site = view }) {
     strictBoot: { gzipBytes: strictBoot, codeGzipBytes: codeGzip, coreGzipBytes: core.gzip, files: strictFiles },
     defaultBoot: { note: 'Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.', gzipBytes: strictBoot + estimates.gzip, estimatesGzipBytes: estimates.gzip },
     detail: { count: detail.length, medianGzipBytes: median(gzips), maxGzipBytes: largest.gzip, largest: largest.path },
-    site: { scope: site === view ? 'the public view alone' : 'the whole assembled site (the old site, the 404 page and the public view)', bytes: siteBytes, dataBytes, assetsBytes, withPreviousReleaseBytes: withPreviousBytes },
+    site: { scope: 'the new site: the public view plus the slim copy of the previous release a deploy keeps', bytes: newSiteBytes, viewBytes, dataBytes, slimDataBytes, assetsBytes,
+      assembledBytes: siteBytes, assembledScope: site === view ? 'the public view alone' : 'the whole assembled preview (the old site for comparison, the 404 page and the public view); not counted' },
     checks,
     ok: Object.values(checks).every((c) => c.ok),
   };

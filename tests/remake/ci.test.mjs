@@ -304,6 +304,8 @@ function fakePublicBuild({ release = V3_RELEASE, data = true, index = true } = {
     if (data) {
       mkdirSync(join(out, 'data', release), { recursive: true });
       for (const part of ['result', 'core', 'estimates', 'reference']) writeFileSync(join(out, 'data', release, `${part}.json`), '{}');
+      mkdirSync(join(out, 'data', release, 'detail'));
+      writeFileSync(join(out, 'data', release, 'detail', 'M001.json'), '{}');
     }
   };
 }
@@ -339,6 +341,9 @@ test('stage keeps the public view\'s previous release (its data and its chunks) 
   const has = (p) => existsSync(join(repo, V3_DIR, p));
   assert.ok(has(`data/${A}/core.json`) && has(`assets/index-${A}.js`), 'the old page\'s data and chunk are still served');
   assert.ok(has(`data/${B}/core.json`) && has(`assets/index-${B}.js`), 'and the new page\'s');
+  // Owner decision 2026-10-22 (site budget): the previous release is kept slim, without its per-material detail parts.
+  assert.ok(!has(`data/${A}/detail`) && has(`data/${A}/estimates.json`) && has(`data/${A}/reference.json`), 'the previous release keeps its parts but not detail/');
+  assert.ok(has(`data/${B}/detail/M001.json`), 'the current release keeps its detail parts');
   assert.equal(readFileSync(join(repo, V3_DIR, 'release.json'), 'utf8').includes(B), true, 'the view that is current is the new one');
   // The old site's release is unchanged, the view's is not: the view's previous release is still carried.
   assert.equal(deploy('222222222222', C).viewKept, B);

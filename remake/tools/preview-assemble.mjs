@@ -160,13 +160,15 @@ function viewIn(dir) {
   return { release, assets };
 }
 
-/** Copies the folders a stale page of the view in `repo` still asks for (its data/<release>/ and the chunks it was built with) to a scratch folder. */
+/** Copies the folders a stale page of the view in `repo` still asks for (its data/<release>/ without detail/, and the chunks it was built with) to a scratch folder. */
 function carryView(repo) {
   const view = viewIn(repo);
   if (view === null) return null;
   const dir = mkdtempSync(join(tmpdir(), 'h2c-carry-'));
   const data = join(repo, V3_DIR, 'data', view.release);
-  if (existsSync(data)) cpSync(data, join(dir, 'data', view.release), { recursive: true });
+  // Slim copy (owner decision 2026-10-22, WP-25 site budget): the parts the results need, never the per-material detail/ folder.
+  // A stale page that opens a detail panel gets a 404 for its release, which the page's guard answers by reloading once.
+  if (existsSync(data)) cpSync(data, join(dir, 'data', view.release), { recursive: true, filter: (from) => !relative(data, from).split(/[\\/]/).includes('detail') });
   for (const name of view.assets) {
     const from = join(repo, V3_DIR, 'assets', name);
     if (existsSync(from)) cpSync(from, join(dir, 'assets', name));
