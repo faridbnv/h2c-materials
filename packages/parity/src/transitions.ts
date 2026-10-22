@@ -5,7 +5,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { canon } from './canon.ts';
 import { TIERS } from './types.ts';
-import type { Difference, TransitionFile, TransitionMatch } from './types.ts';
+import type { Difference, SurfaceReport, TransitionFile, TransitionMatch } from './types.ts';
 import { compareStrings } from './util.ts';
 
 export const TRANSITION_KINDS = ['science', 'determinism', 'display', 'wording'] as const;
@@ -96,4 +96,28 @@ export function matchTransitions(
     unexpected: sortDifferences(observed.filter((d) => !expectedKeys.has(tuple(d)))),
     missing: sortDifferences(inScope.filter(([k]) => !seen.has(k)).map(([, d]) => d)),
   };
+}
+
+/** The case name P-build gives its differences: a database path is not a corpus case, so a transition lists it as `build`. */
+export const BUILD_CASE = 'build';
+
+/**
+ * The part of each transition file that concerns one check: the listed differences `keep` accepts, in copies of the files.
+ * The digest and seal belong to the whole file and were checked when it was loaded.
+ */
+export const partOf = (files: readonly TransitionFile[], keep: (d: Difference) => boolean): TransitionFile[] =>
+  files.map((f) => ({ ...f, differences: f.differences.filter(keep) })).filter((f) => f.differences.length > 0);
+
+/**
+ * Applies the transitions that list `caseName` to a check that is not a corpus replay (P-build): passes when what the check
+ * saw equals what they list. With no such transition the report is returned as it is.
+ */
+export function settleSurface(report: SurfaceReport, files: readonly TransitionFile[], caseName: string): SurfaceReport {
+  if (files.length === 0) return report;
+  if (report.truncated) throw new Error(`${report.surface}: ${report.differenceCount} differences, only ${report.differences.length} kept; a transition cannot be matched against a cut list`);
+  const scope = new Set([caseName]);
+  const match = matchTransitions(report.differences, files, scope, scope);
+  const failed = match.unexpected.length > 0 || match.missing.length > 0;
+  const status = failed ? 'differs' : report.notComputable.length > 0 ? 'not-computable' : report.differenceCount > 0 ? 'matches-transition' : 'zero';
+  return { ...report, transitions: match, status };
 }

@@ -1,6 +1,6 @@
 {
   "id": "WP-19",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-19-constraints",
   "pr": 35,
@@ -50,5 +50,6 @@
   "prs": [
     35
   ],
-  "note": "constraints and workspace ported; result type per check kind; reason codes in the engine; constraint IDs; six casts removed; one verdict table; rule map in docs/next/constraints-rules.md; defects WP19-D1 to D3"
+  "note": "constraints and workspace ported; result type per check kind; reason codes in the engine; constraint IDs; six casts removed; one verdict table; rule map in docs/next/constraints-rules.md; defects WP19-D1 to D3",
+  "doneAt": "2026-10-21"
 }

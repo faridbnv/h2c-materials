@@ -57,6 +57,12 @@ export function formatSurface(r: SurfaceReport): string {
     for (const d of r.differences.slice(0, LIMIT)) L.push(`  ${describe(d)}`);
     if (r.differenceCount > LIMIT) L.push(`  ... and ${r.differenceCount - LIMIT} more`);
   }
+  if (r.transitions) {
+    const t = r.transitions;
+    L.push(`transitions [${t.files.join(', ') || 'none'}]: ${t.expected} listed, ${t.unexpected.length} unexpected, ${t.missing.length} missing`);
+    for (const d of t.unexpected.slice(0, 5)) L.push(`  UNEXPECTED ${describe(d)}`);
+    for (const d of t.missing.slice(0, 5)) L.push(`  MISSING    ${describe(d)}`);
+  }
   L.push(`time: ${seconds(r.timingsMs.total)}`);
   L.push(`  -> ${r.status}`);
   return L.join('\n');
