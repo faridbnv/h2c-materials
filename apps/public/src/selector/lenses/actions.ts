@@ -1,7 +1,8 @@
 // What the lenses of part 2 do to the page's state, beyond what the table does (the old main.js actions setPlot, startExercise, inspect, select and
 // setFocus). They live with the lenses, so the first screen does not carry them; each changes a view or the question and then asks the store to
 // draw and to keep the address (touch, pushHash, changed).
-import { goalAxes, indexById } from '@atlas/engine/port/indices.ts';
+import { indexById } from '@atlas/engine/port/indices.ts';
+import { goalAxes } from '@atlas/engine/port/goal-axes.ts';
 import { nextTick } from 'vue';
 import type { Loose } from '@atlas/pages/loose';
 import type { Store } from '../store.ts';

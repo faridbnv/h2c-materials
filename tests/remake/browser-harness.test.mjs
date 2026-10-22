@@ -143,12 +143,11 @@ test('adapters: the old page offers every step and behaviour; the new page offer
   assert.ok(old.axeTargets().length >= 16);
   assert.equal(old.pageUrl, 'http://127.0.0.1:1/h2c-materials/');
   const next = assertAdapter(createNewPublic({ page: stub, origin: 'http://127.0.0.1:1', base: '/h2c-material-temp-page/', meta: {}, root }));
-  const notYet = ['selectorAshby', 'materialPages', 'returnTrip'];
-  for (const name of SELECTOR_STEPS) assert.ok(notYet.includes(name) ? isUnsupported(next.steps[name]) : typeof next.steps[name] === 'function', `${name}: the new page answers it, or says why it cannot`);
+  for (const name of SELECTOR_STEPS) assert.equal(typeof next.steps[name], 'function', `${name}: the new page answers every step`);
   for (const name of BEHAVIOURS) assert.equal(typeof next.behaviours[name], 'function', name);
   assert.equal(typeof next.fuzzTab, 'function');
-  assert.deepEqual(Object.keys(next.notOwed).sort(), ['selectorLayout', 'selectorRanked', 'selectorTemplates'], 'what the new page does not owe is named, step by step');
-  assert.equal(next.viewUrl, 'http://127.0.0.1:1/h2c-material-temp-page/v3/');
+  assert.deepEqual(Object.keys(next.notOwed), [], 'the new page owes every step: nothing is carved out');
+  assert.equal(next.viewUrl, 'http://127.0.0.1:1/h2c-material-temp-page/');
   assert.throws(() => assertAdapter({ id: 'x', steps: {}, behaviours: {} }), /does not meet the contract/);
   assert.throws(() => assertAdapter({ ...next, steps: { ...next.steps, selectorFamily: unsupported('') } }), /selectorFamily/, 'an unsupported step without a reason is refused');
   assert.throws(() => assertAdapter({ ...next, steps: { ...next.steps, somethingElse: () => {} } }), /does not name/);
@@ -203,7 +202,7 @@ test('watch: an expected fault is recorded and allowed, one that never came fail
 test('site: a site missing a piece is not whole, and the problems name what is missing', () => {
   const dir = tmp();
   try {
-    assert.match(siteProblems(dir).join('\n'), /index\.html is missing[\s\S]*v3\/release\.json is missing/);
+    assert.match(siteProblems(dir).join('\n'), /index\.html is missing[\s\S]*legacy\/index\.html is missing[\s\S]*olddb\/release\.json is missing/);
     assert.deepEqual(readdirSync(dir), [], 'checking a site writes nothing into it');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });

@@ -18,10 +18,11 @@ function view({ coreBytes = 1000, detail = [100, 200, 300], listed = detail.leng
   const dir = mkdtempSync(join(tmpdir(), 'h2c-size-'));
   const put = (path, bytes) => { mkdirSync(join(dir, path, '..'), { recursive: true }); writeFileSync(join(dir, path), bytes); };
   put('index.html', page || '<!doctype html><html><head><link rel="stylesheet" href="./assets/s.css"><script type="module" src="./assets/a.js"></script><link rel="modulepreload" href="./assets/b.js"></head><body></body></html>');
-  put('assets/a.js', 'import{x}from"./b.js";const lazy=()=>import("./c.js");export{x,lazy};');
+  put('assets/a.js', 'import{x}from"./b.js";const lazy=()=>import("./c.js");const chart=()=>import("./plotly-abc.js");export{x,lazy,chart};');
   put('assets/b.js', `export const x=${JSON.stringify('b'.repeat(500))};`);
   put('assets/c.js', `export const y=${JSON.stringify(randomBytes(5000).toString('hex'))};`);
   put('assets/s.css', 'body{margin:0}');
+  put('assets/plotly-abc.js', `export const p=${JSON.stringify(randomBytes(3000).toString('hex'))};`);
   put('release.json', JSON.stringify({ release: R, files: { detail: { count: listed } } }));
   put(`data/${R}/core.json`, randomBytes(coreBytes));
   put(`data/${R}/estimates.json`, 'x'.repeat(2000));

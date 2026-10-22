@@ -1,5 +1,5 @@
 {
-  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion. build/src/estimate/grades.js and directions.js have none for the same reason: DT-1 (transition dt1-float-tie) made their coverage checks use the tolerance helper. WP-24 (packages/pages): 50 of the 57 files ported from app/pages and app/js/ui are label-only. Seven are not and have no pair, because the pages' display transitions (parity/transitions/2026-10-22-pages-display.json) or a typing fix changed their code: render.ts, method-page.ts, sections/common.ts, products/card.ts, facts/material-facts.ts, facts/material-highlights.ts and facts/material-stats.ts (the last two write Number(a === b) where the old file subtracted two booleans).",
+  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion. build/src/estimate/grades.js and directions.js have none for the same reason: DT-1 (transition dt1-float-tie) made their coverage checks use the tolerance helper. WP-24 (packages/pages): 50 of the 57 files ported from app/pages and app/js/ui are label-only. Seven are not and have no pair, because the pages' display transitions (parity/transitions/2026-10-22-pages-display.json) or a typing fix changed their code: render.ts, method-page.ts, sections/common.ts, products/card.ts, facts/material-facts.ts, facts/material-highlights.ts and facts/material-stats.ts (the last two write Number(a === b) where the old file subtracted two booleans). WP-27: four pairs carry `split`: code that moved out of the ported file into a module of its own, so that the first page load does not carry what only a lens uses (coverage-matrix.ts, goal-axes.ts, axis-pairs.ts, format-chart.ts, family-colors.ts); the old file's statements equal the new file's and its split files' together, once each.",
   "pairs": [
     {
       "old": "tests/remake/fixtures/p-erase/gate.old.js",
@@ -19,7 +19,10 @@
     },
     {
       "old": "app/js/engine/coverage.js",
-      "new": "packages/engine/src/port/coverage.ts"
+      "new": "packages/engine/src/port/coverage.ts",
+      "split": [
+        "packages/engine/src/port/coverage-matrix.ts"
+      ]
     },
     {
       "old": "build/src/chamber-estimates.js",
@@ -245,7 +248,10 @@
     },
     {
       "old": "app/js/engine/workspace.js",
-      "new": "packages/engine/src/port/workspace.ts"
+      "new": "packages/engine/src/port/workspace.ts",
+      "split": [
+        "packages/engine/src/port/goal-axes.ts"
+      ]
     },
     {
       "old": "build/src/estimate/anchor.js",
@@ -593,7 +599,10 @@
     },
     {
       "old": "app/js/ui/axes.js",
-      "new": "packages/pages/src/facts/axes.ts"
+      "new": "packages/pages/src/facts/axes.ts",
+      "split": [
+        "packages/pages/src/facts/axis-pairs.ts"
+      ]
     },
     {
       "old": "app/js/ui/dates.js",
@@ -655,6 +664,10 @@
           "from": "'./dates.js'",
           "to": "'./dates.js'"
         }
+      ],
+      "split": [
+        "packages/pages/src/facts/format-chart.ts",
+        "packages/pages/src/facts/family-colors.ts"
       ]
     },
     {

@@ -72,26 +72,30 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Copied from pages.yml's "Assemble the site" step, unchanged.
+      # pages.yml's "Assemble the site" step, with one change of place (WP-30): today's site goes to legacy/, and the root is the
+      # remake's selector (the next step). The material pages are at both: legacy/materials/ for today's site, materials/ for the new one.
       - name: Assemble the site
         run: |
-          mkdir -p _site
-          # The tool is the page: serve it at the root so the domain opens straight into it.
-          cp dist/H2C_Material_Selector_*.html _site/index.html
-          # Keep the release-stamped name too; an older release's page is its GitHub release's, above.
-          cp dist/H2C_Material_Selector_*.html _site/
+          mkdir -p _site/legacy
+          # Today's tool, at legacy/: the page as its index, and the release-stamped name too (an older link names it).
+          cp dist/H2C_Material_Selector_*.html _site/legacy/index.html
+          cp dist/H2C_Material_Selector_*.html _site/legacy/
           # The validation report is a deliverable; publish it alongside.
-          cp build/reports/validation-report.md _site/validation-report.md
+          cp build/reports/validation-report.md _site/legacy/validation-report.md
           # What the page was built from: commit, input hashes and output hashes.
-          cp dist/manifest.json _site/manifest.json
-          # The material pages, beside the page, where the drawer's Full page links find them (materials/<id>.html).
+          cp dist/manifest.json _site/legacy/manifest.json
+          # The material pages, beside each selector, where the drawer's Full page links find them (materials/<id>.html).
+          cp -r dist/materials _site/legacy/materials
           cp -r dist/materials _site/materials
           # Tell GitHub Pages not to run the output through Jekyll.
           touch _site/.nojekyll
           ls -la _site
 
-      - name: Build the /v3/ static view (WP-14)
-        run: node remake/tools/preview-assemble.mjs build-v3 --site _site
+      - name: Build the new site into the root (WP-14, WP-30)
+        run: node remake/tools/preview-assemble.mjs build-view --site _site
+
+      - name: The size budgets (WP-25, WP-30); a budget that is missed fails the build
+        run: node remake/tools/size-report.mjs --site _site --out sizes.json
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

@@ -152,12 +152,6 @@ export const COST_AXIS = 'materialCostPerVolume';
 /** The axes an index's line is drawn on: its property up, and density (or material cost per volume) across. */
 export const indexAxes = (index: Index): { x: string; y: string } => ({ x: index.costForm ? COST_AXIS : 'density', y: index.numerator });
 
-/** The axes and scales a goal prepares (D107): its property up, density or cost per volume across, both on Log. */
-export function goalAxes(index: Index) {
-  const a = indexAxes(index);
-  return { x: a.x, y: a.y, xLog: true, yLog: true };
-}
-
 /**
  * How an index's line sits on two axes: 'direct' with its property up and its denominator across, 'swapped' with the two
  * exchanged, or null where these axes cannot show it. On swapped axes the line is the same set of products: the

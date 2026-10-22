@@ -1,34 +1,39 @@
 {
   "schema": 1,
-  "release": "fc9168eaf4e4",
-  "measuredAt": "2026-10-22T09:18:36.518Z",
+  "release": "ee1de097f5c7",
+  "measuredAt": "2026-10-22T11:38:57.668Z",
   "node": "26.12.0",
   "gzipLevel": 6,
   "note": "Budgets are pack 02 section 11, with a kilobyte of 1,000 bytes. A failed check is a failed budget; relaxing one is the owner's decision.",
   "strictBoot": {
-    "gzipBytes": 892278,
-    "codeGzipBytes": 120061,
-    "coreGzipBytes": 772217,
+    "gzipBytes": 893813,
+    "codeGzipBytes": 121592,
+    "coreGzipBytes": 772221,
     "files": [
       {
         "path": "index.html",
-        "bytes": 3761,
-        "gzip": 1629
+        "bytes": 3847,
+        "gzip": 1651
       },
       {
-        "path": "assets/index-CUkwCfOI.js",
-        "bytes": 131246,
-        "gzip": 43267
+        "path": "assets/index-CBB8kxC2.js",
+        "bytes": 136080,
+        "gzip": 45901
       },
       {
-        "path": "assets/format-9A9U8-jA.js",
-        "bytes": 100643,
-        "gzip": 34039
+        "path": "assets/useLoad-By8VBACt.js",
+        "bytes": 75815,
+        "gzip": 29329
       },
       {
-        "path": "assets/useLoad-BbYq9vr6.js",
-        "bytes": 78622,
-        "gzip": 30291
+        "path": "assets/engine-CtMRSJTM.js",
+        "bytes": 101701,
+        "gzip": 33447
+      },
+      {
+        "path": "assets/rolldown-runtime-XKyaHtl9.js",
+        "bytes": 726,
+        "gzip": 429
       },
       {
         "path": "assets/index-BTjfSm28.css",
@@ -36,41 +41,61 @@
         "gzip": 10835
       },
       {
-        "path": "data/fc9168eaf4e4/core.json",
+        "path": "data/ee1de097f5c7/core.json",
         "bytes": 11475293,
-        "gzip": 772217
+        "gzip": 772221
       }
     ]
   },
   "defaultBoot": {
     "note": "Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.",
-    "gzipBytes": 1092382,
-    "estimatesGzipBytes": 200104
+    "gzipBytes": 1093916,
+    "estimatesGzipBytes": 200103
+  },
+  "chart": {
+    "note": "the chart library, fetched when a chart is first opened; not in the strict boot",
+    "gzipBytes": 376930,
+    "files": [
+      {
+        "path": "assets/plotly-basic.min-BOIfOh-q.js",
+        "bytes": 1137403,
+        "gzip": 376521
+      },
+      {
+        "path": "assets/plotly-wfmK5rtk.js",
+        "bytes": 643,
+        "gzip": 409
+      }
+    ],
+    "namedByTheFirstLoad": []
   },
   "detail": {
     "count": 175,
-    "medianGzipBytes": 13512,
+    "medianGzipBytes": 13510,
     "maxGzipBytes": 324542,
-    "largest": "data/fc9168eaf4e4/detail/M001.json"
+    "largest": "data/ee1de097f5c7/detail/M001.json"
   },
   "site": {
-    "scope": "the new site: the public view plus the slim copy of the previous release a deploy keeps",
-    "bytes": 70428389,
-    "viewBytes": 51794292,
-    "dataBytes": 51249004,
-    "slimDataBytes": 18097370,
-    "assetsBytes": 536727,
-    "assembledBytes": 149999528,
-    "assembledScope": "the whole assembled preview (the old site for comparison, the 404 page and the public view); not counted"
+    "scope": "the new site: the public view plus the slim copy of the previous release a deploy keeps; the material pages beside it are reported apart",
+    "bytes": 75441045,
+    "viewBytes": 82684409,
+    "materialPagesBytes": 28382292,
+    "liveTotalBytes": 103823337,
+    "note": "with the material pages (28.4 MB, today's pages) the live site is 103.8 MB against the 100 MB line: not gated, because the owner's definition of the new site's size excludes the pages; the owner is asked",
+    "dataBytes": 52411463,
+    "slimDataBytes": 19259829,
+    "assetsBytes": 1879099,
+    "assembledBytes": 183393307,
+    "assembledScope": "everything under the site folder, the old site at legacy/ and the suite's olddb/ included; not counted"
   },
   "checks": {
     "strictBootGzip": {
-      "value": 892278,
+      "value": 893813,
       "budget": 900000,
       "ok": true
     },
     "detailMedianGzip": {
-      "value": 13512,
+      "value": 13510,
       "budget": 15000,
       "ok": true
     },
@@ -80,8 +105,13 @@
       "ok": true
     },
     "siteBytes": {
-      "value": 70428389,
+      "value": 75441045,
       "budget": 100000000,
+      "ok": true
+    },
+    "chartLibraryOutsideBoot": {
+      "value": 0,
+      "budget": 0,
       "ok": true
     }
   },
