@@ -23,7 +23,13 @@ import { assertClean, scanTree } from './private-scan.mjs';
 import { isMain, repoRoot } from './wp-lib.mjs';
 
 export const LIVE_URL = 'https://pdynamics.ca/h2c-materials/';
-export const BANNER_TEXT = 'Preview of the Filament Atlas remake — not the live tool. Live:';
+// One plain phrase per registered transition (parity/transitions/<id>.json): the deliberate changes this preview makes to the
+// live tool's answers. tests/remake/ci.test.mjs requires every transition file to be named here, so the banner cannot go stale.
+export const TRANSITION_NOTES = {
+  '2026-10-21-reprint-counts-once': "a table one maker reprints from another counts once in a material's median (reprint-counts-once)",
+};
+const CHANGES = Object.values(TRANSITION_NOTES);
+export const BANNER_TEXT = `Preview of the Filament Atlas remake — not the live tool.${CHANGES.length ? ` Deliberate change from it: ${CHANGES.join('; ')}.` : ''} Live:`;
 export const BANNER_MARK = 'data-preview-banner';
 export const NOINDEX = '<meta name="robots" content="noindex">';
 // The preview shares the origin pdynamics.ca with the live tool, so it would share localStorage and sessionStorage.

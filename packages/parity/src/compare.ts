@@ -117,6 +117,8 @@ export interface RunOptions {
   cases: CorpusCase[];
   /** All case ids of the full corpus; a transition naming any other case is an error. Defaults to `cases`. */
   knownCaseIds?: ReadonlySet<string>;
+  /** Every case a transition may name, where that is more than the corpus of this run (a milestone transition checked in a pull-request run). */
+  transitionCaseIds?: ReadonlySet<string>;
   before: Adapter;
   after: Adapter;
   transitions?: TransitionFile[];
@@ -127,7 +129,8 @@ const emptyByTier = (): Record<Tier, number> => ({ decision: 0, presentation: 0,
 const sortKey = (d: Difference): string => [d.case, d.record, d.tier, d.field].join('\u0000');
 
 function statusOf(differences: Difference[], notComputable: NotComputableItem[], transitions: TransitionMatch | null): Status {
-  const failed = transitions ? transitions.unexpected.length > 0 || transitions.missing.length > 0 : differences.length > 0;
+  // A listed difference that was not seen is "missing" only when everything could be answered: where a case could not be, it is not computable.
+  const failed = transitions ? transitions.unexpected.length > 0 || (transitions.missing.length > 0 && notComputable.length === 0) : differences.length > 0;
   if (failed) return 'differs';
   if (notComputable.length > 0) return 'not-computable';
   return differences.length > 0 ? 'matches-transition' : 'zero';
@@ -178,7 +181,7 @@ export async function runParity(opts: RunOptions): Promise<ParityReport> {
 
   const scope = new Set(cases.map((c) => c.id));
   const known = opts.knownCaseIds ?? scope;
-  const transitions = opts.transitions ? matchTransitions(differences, opts.transitions, scope, known, opts.corpusName) : null;
+  const transitions = opts.transitions ? matchTransitions(differences, opts.transitions, scope, opts.transitionCaseIds ?? known, opts.corpusName) : null;
   const status = statusOf(differences, notComputable, transitions);
   if (status === 'zero' && (casesCompared !== cases.length || blocks === 0)) {
     throw new Error(`internal: zero differences reported with ${casesCompared}/${cases.length} cases compared and ${blocks} blocks`);

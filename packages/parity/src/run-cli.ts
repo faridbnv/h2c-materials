@@ -23,7 +23,7 @@ import type { PageNames, PageSet } from './p-pages.ts';
 import { formatReport, formatSurface, overallStatus, seconds } from './report.ts';
 import { cannotCompare } from './surface.ts';
 import { TIE_SAMPLE_MILESTONE, TIE_SAMPLE_PR, TIE_SEED, checkFirstWins, permuteProductOrder, tieSample } from './ties.ts';
-import { TRANSITION_KINDS, buildTransition, loadTransitions } from './transitions.ts';
+import { BUILD_CASE, TRANSITION_KINDS, buildTransition, loadTransitions, partOf, settleSurface } from './transitions.ts';
 import { SURFACES } from './types.ts';
 import type { Adapter, Corpus, CorpusCase, ParityReport, Status, Surface, SurfaceReport, TransitionFile } from './types.ts';
 import { getOrCreate } from './util.ts';
@@ -160,6 +160,8 @@ class Run {
   readonly baseDb: Db;
   /** The engine corpus of this run, before any selection. */
   readonly allCases: CorpusCase[];
+  /** Every case a transition may name: the milestone corpus, which holds the pull-request corpus. */
+  readonly transitionCaseIds: ReadonlySet<string>;
   readonly transitions: TransitionFile[] | undefined;
   readonly log = new RunLog();
   private readonly builds = new Map<'first' | 'second', Promise<BuiltRelease>>();
@@ -171,6 +173,8 @@ class Run {
     this.corpus = corpus;
     this.baseDb = baseDb;
     this.allCases = engineCorpusCases(corpus, baseDb, plan.milestone);
+    // A transition is measured at the milestone size and must stay valid in a pull-request run, which asks the first 1,000 of the same cases.
+    this.transitionCaseIds = new Set((plan.milestone ? this.allCases : engineCorpusCases(corpus, baseDb, true)).map((c) => c.id));
     this.transitions = transitions;
   }
 
@@ -190,6 +194,15 @@ class Run {
     const typed = checkDb(db);
     if (!typed.ok) throw new Error(`the db does not satisfy the typed contract of @atlas/data: ${typed.problems.slice(0, 5).join('; ')}`);
     return createNewAdapter({ db: typed.db });
+  }
+
+  /**
+   * The new side's engine on the database the new build wrote, so that a deliberate change in the build reaches the answers
+   * (a transition lists it); on a build that changes nothing this is the database the old side reads.
+   */
+  async secondSideOnNewBuild(): Promise<Adapter> {
+    const built = await this.newBuild();
+    return this.secondSide(readDb(built.dbPath));
   }
 
   /** The old build, made on first use. A build that fails rejects with BuildFailed. */
@@ -245,11 +258,19 @@ async function runEngine(run: Run): Promise<void> {
   const { plan, log } = run;
   const cases = run.selectedCases();
   const before = await createOld(readDb(plan.dbPath));
-  const after = await run.secondSide(readDb(plan.dbPath));
+  let after: Adapter;
+  try {
+    after = plan.mode === 'new' ? await run.secondSideOnNewBuild() : await run.secondSide(readDb(plan.dbPath));
+  } catch (e) {
+    if (!(e instanceof BuildFailed)) throw e;
+    log.addSurface(cannotCompare({ surface: 'engine', unit: 'case', before: 'old', after: 'new' }, 'after', `the new build did not finish, so the new engine had no database: ${e.message}`), 'engine');
+    return;
+  }
   const interactive = process.stdout.isTTY;
+  const here = run.transitions ? partOf(run.transitions, (d) => d.case !== BUILD_CASE) : undefined;
   const report = await log.timed('engine', () => runParity({
-    corpusName: run.corpus.corpus, cases, knownCaseIds: new Set(run.allCases.map((c) => c.id)), before, after,
-    ...(run.transitions ? { transitions: run.transitions } : {}), ...(interactive ? { onProgress: showProgress } : {}),
+    corpusName: run.corpus.corpus, cases, knownCaseIds: new Set(run.allCases.map((c) => c.id)), transitionCaseIds: run.transitionCaseIds, before, after,
+    ...(here ? { transitions: here } : {}), ...(interactive ? { onProgress: showProgress } : {}),
   }));
   if (interactive) process.stdout.write('\r');
   log.addParity('engine', report, `engine (${cases.length} of ${run.allCases.length} cases)`);
@@ -261,7 +282,9 @@ async function runTies(run: Run): Promise<void> {
   const permuted = (): Db => permuteProductOrder(readDb(plan.dbPath), TIE_SEED);
   const before = await createOldAdapter({ name: 'old (products reordered)', db: permuted() });
   const after = await run.secondSide(permuted());
-  const report = await log.timed('ties', () => runParity({ corpusName: 'ties', cases: sample, before, after, ...(run.transitions ? { transitions: run.transitions } : {}) }));
+  // Both sides read the same data here, so only a transition written for this corpus applies.
+  const forTies = run.transitions?.filter((f) => f.corpus === 'ties');
+  const report = await log.timed('ties', () => runParity({ corpusName: 'ties', cases: sample, before, after, ...(forTies ? { transitions: forTies } : {}) }));
   log.addParity('ties', report, `ties: both sides on a db whose product orders are permuted (seed ${TIE_SEED}, ${sample.length} cases)`);
   const rule = await log.timed('ties-rule', () => checkFirstWins({ cases: sample, base: readDb(plan.dbPath), permutedDb: permuted(), permuted: after, beforeName: before.name }));
   log.addSurface(rule, 'ties: the first-wins rule');
@@ -308,7 +331,8 @@ async function runNewBuild(run: Run, head: { surface: Surface; unit: string }): 
     ));
     report.notes.push(`new build ${seconds(fresh.seconds * 1000)}${old ? `, old ${seconds(old.seconds * 1000)}` : ''}`);
     if (plan.tablesDir) report.notes.push(`both sides were built from the tables in ${plan.tablesDir}`);
-    log.addSurface(report, 'build: db.json, path by path');
+    const here = run.transitions ? partOf(run.transitions, (d) => d.case === BUILD_CASE) : [];
+    log.addSurface(settleSurface(report, here, BUILD_CASE), 'build: db.json, path by path');
   } catch (e) {
     if (!(e instanceof BuildFailed)) throw e;
     log.addSurface(cannotCompare({ ...head, before: 'old', after: 'new' }, 'both', `a build did not finish, so nothing was compared: ${e.message}`), 'build');
@@ -403,19 +427,30 @@ function transitionKind(given: Flags): (typeof TRANSITION_KINDS)[number] {
   return kind;
 }
 
-/** Why a transition file cannot be written from this report, or '' when it can. */
-function transitionRefusal(report: ParityReport, allowPartial: boolean): string {
-  if (report.status !== 'differs') return `a run whose status is ${report.status}`;
-  if (report.notComputable.length) return 'a run with not-computable places';
-  if (report.partial && !allowPartial) return 'a partial run (add --allow-partial)';
-  return '';
+/** Why a transition file cannot be written from these reports, or '' when it can. */
+function transitionRefusal(places: readonly { name: string; status: Status; notComputable: number; partial: boolean; truncated: boolean }[], allowPartial: boolean): string {
+  for (const p of places) {
+    if (p.status !== 'differs' && p.status !== 'zero') return `${p.name} having status ${p.status}`;
+    if (p.notComputable) return `${p.name} having not-computable places`;
+    if (p.truncated) return `${p.name} having more differences than the report keeps`;
+    if (p.partial && !allowPartial) return `a partial ${p.name} run (add --allow-partial)`;
+  }
+  return places.some((p) => p.status === 'differs') ? '' : 'a run with no difference to list';
 }
 
-/** Write the engine's differences as a transition file. False, after saying why on stderr, when this run may not be the source of one. */
+/**
+ * Write the differences of the engine and of P-build as one transition file (run it with --transitions pointing at a folder
+ * with none, so the differences are not already accounted for). False, after saying why on stderr, when this run may not be the source of one.
+ */
 function emitTransition(given: Flags, path: string, run: Run): boolean {
   const engine = run.log.parity.find((p) => p.name === 'engine')?.report;
   if (!engine) throw new UsageError('--emit-transition needs the engine surface');
-  const why = transitionRefusal(engine, run.plan.allowPartial);
+  const build = run.log.surfaceReports.find((r) => r.surface === 'build');
+  const places = [
+    { name: 'engine', status: engine.status, notComputable: engine.notComputable.length, partial: engine.partial, truncated: false },
+    ...(build ? [{ name: 'build', status: build.status, notComputable: build.notComputable.length, partial: false, truncated: build.truncated }] : []),
+  ];
+  const why = transitionRefusal(places, run.plan.allowPartial);
   if (why) {
     console.error(`parity: refusing to write a transition from ${why}`);
     return false;
@@ -423,7 +458,7 @@ function emitTransition(given: Flags, path: string, run: Run): boolean {
   const transition = buildTransition({
     id: flagValue(given, 'id') ?? 'unnamed', kind: transitionKind(given),
     description: flagValue(given, 'description') ?? '', ruling: flagValue(given, 'ruling') ?? '',
-    corpus: run.corpus.corpus, differences: engine.differences,
+    corpus: run.corpus.corpus, differences: [...engine.differences, ...(build?.differences ?? [])],
   });
   writeFileSync(path, `${JSON.stringify(transition, null, 1)}\n`);
   console.log(`transition written: ${path} (${transition.differences.length} differences, ${transition.digest})`);
@@ -503,7 +538,7 @@ async function main(argv: readonly string[]): Promise<number> {
   const transitionDir = flagValue(given, 'transitions') ?? (isNewSide(plan) ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
   const run = new Run(plan, corpus, baseDb, transitionDir ? loadTransitions(transitionDir) : undefined);
   if (!isNewSide(plan) && plan.surfaces.some((s) => s === 'build' || s === 'pages')) run.startBuilds();
-  if (plan.mode === 'new' && plan.surfaces.includes('build')) run.startNewBuild();
+  if (plan.mode === 'new' && (plan.surfaces.includes('build') || plan.surfaces.includes('engine'))) run.startNewBuild();
 
   for (const surface of plan.surfaces) await runSurface(run, surface);
 

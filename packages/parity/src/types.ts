@@ -197,6 +197,8 @@ export interface SurfaceReport {
   notComputable: NotComputableItem[];
   /** Plain lines the report prints (what was checked, what was left out). */
   notes: string[];
+  /** Set where transitions were applied to this check (P-build): what they listed against what it saw. */
+  transitions?: TransitionMatch;
   status: Status;
   timingsMs: { total: number };
 }

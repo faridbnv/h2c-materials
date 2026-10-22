@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import {
   globToRegExp, oldPathViolations, needsReviewSection, hasReviewSection, classifyTier, tierGate, findAttest, parseChangedFiles, attestText, OWNER_GLOBS,
 } from '../../remake/tools/ci-gates.mjs';
-import { injectBanner, inject, stage, buildV3, BANNER_MARK, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX, NOT_FOUND_HTML, V3_DIR } from '../../remake/tools/preview-assemble.mjs';
+import { injectBanner, inject, stage, buildV3, BANNER_MARK, BANNER_TEXT, TRANSITION_NOTES, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX, NOT_FOUND_HTML, V3_DIR } from '../../remake/tools/preview-assemble.mjs';
 import { runSmoke, fetchRetry } from '../../remake/tools/preview-smoke.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -204,11 +204,18 @@ test('injectBanner puts noindex after <head> and the banner after <body>, once, 
   const out = injectBanner(html);
   assert.ok(out.includes(`<head>${NOINDEX}`));
   assert.ok(out.includes(`<body class="a"><div ${BANNER_MARK}`));
-  assert.match(out, /Preview of the Filament Atlas remake — not the live tool\. Live: <a href="https:\/\/pdynamics\.ca\/h2c-materials\/"/);
+  assert.match(out, /Preview of the Filament Atlas remake — not the live tool\.[^<]* Live: <a href="https:\/\/pdynamics\.ca\/h2c-materials\/"/);
   assert.equal(injectBanner(out), out, 'idempotent');
   assert.throws(() => injectBanner('<html><body></body></html>', 'a.html'), /a\.html: no <head>/);
   assert.throws(() => injectBanner('<html><head></head></html>', 'b.html'), /b\.html: no <body>/);
   assert.throws(() => injectBanner(`<html><head></head><body>${BANNER_MARK}</body></html>`, 'c.html'), /complete banner/);
+});
+
+test('the banner names every registered transition, and only those', () => {
+  const dir = join(root, 'parity', 'transitions');
+  const ids = readdirSync(dir).filter((n) => n.endsWith('.json')).map((n) => JSON.parse(readFileSync(join(dir, n), 'utf8')).id).sort();
+  assert.deepEqual(Object.keys(TRANSITION_NOTES).sort(), ids, 'TRANSITION_NOTES in preview-assemble.mjs lists exactly the files of parity/transitions');
+  for (const note of Object.values(TRANSITION_NOTES)) assert.ok(BANNER_TEXT.includes(note));
 });
 
 function fakeSite(release = 'abcdef012345') {

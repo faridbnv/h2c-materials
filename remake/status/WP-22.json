@@ -1,6 +1,6 @@
 {
   "id": "WP-22",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-22-browser",
   "pr": 34,
@@ -52,5 +52,9 @@
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "note": "Playwright 1.64.1 over HTTP, Chromium, two base paths; page adapters old and new; axe 4.13.0 pinned exactly"
+  "note": "Playwright 1.64.1 over HTTP, Chromium, two base paths; page adapters old and new; axe 4.13.0 pinned exactly",
+  "prs": [
+    34
+  ],
+  "doneAt": "2026-10-21"
 }

@@ -1,6 +1,6 @@
 {
   "id": "WP-21",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-21-estimates",
   "pr": 33,
@@ -49,5 +49,6 @@
   "note": "the estimate stage as 18 label-only TypeScript modules (P-erase 0), run as a cached stage keyed on the compiled core, the code, Node, V8, ICU and the options; estimates.json and manifest.json (Node and ICU recorded); withholding on a calibration failure (OQ-05 A); DT-1 measured and not applied",
   "prs": [
     33
-  ]
+  ],
+  "doneAt": "2026-10-21"
 }

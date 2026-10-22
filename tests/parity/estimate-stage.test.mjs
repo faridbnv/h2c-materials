@@ -20,7 +20,8 @@ import { estimatesArtifact, extractOverlay } from '../../packages/build/src/esti
 import { loadSheets, snapshotDate, workbookFrom } from '../../packages/build/src/load.ts';
 import { inDataset } from '../../packages/build/src/retired.ts';
 import { runtimeFingerprint } from '../../packages/build/src/runtime-fingerprint.ts';
-import { buildNew } from '../../packages/parity/src/p-build.ts';
+import { buildNew, compareBuilds } from '../../packages/parity/src/p-build.ts';
+import { BUILD_CASE, loadTransitions, partOf, settleSurface } from '../../packages/parity/src/transitions.ts';
 import { readDb } from '../../packages/parity/src/old-adapter.ts';
 import { attachEstimates as attachOldEstimates } from '../../build/src/estimate/index.js';
 
@@ -55,9 +56,11 @@ seeded.catch(() => undefined);
 const again = seeded.then(() => buildNew({ label: 'after the seeded build', buildDate, estimateCache: cache }));
 again.catch(() => undefined);
 
-test('cold: the new build with the stage as TypeScript is the old build byte for byte (db.json, reference.json)', async () => {
+test('cold: the new build with the stage as TypeScript is the old build (db.json apart from the registered reprint transition, reference.json byte for byte)', async () => {
   const built = await cold;
-  assert.ok(readFileSync(join(root, 'dist', 'db.json')).equals(bytes(built, 'db.json')), 'db.json');
+  const listed = partOf(loadTransitions(join(root, 'parity', 'transitions')), (d) => d.case === BUILD_CASE);
+  const r = settleSurface(await compareBuilds({ path: join(root, 'dist', 'db.json'), label: 'old build' }, { path: built.dbPath, label: built.label }), listed, BUILD_CASE);
+  assert.equal(r.status, 'matches-transition', [...(r.transitions?.unexpected ?? []), ...(r.transitions?.missing ?? [])].slice(0, 5).map((d) => `${d.record} ${d.field}`).join('; '));
   assert.ok(readFileSync(join(root, 'dist', 'reference.json')).equals(bytes(built, 'reference.json')), 'reference.json');
   assert.equal(json(built, 'manifest.json').estimates.status, 'available');
   assert.ok(existsSync(join(cache)), 'the cold build stored its estimates');
@@ -82,7 +85,7 @@ test('the release manifest records the Node and ICU it ran on, and the pin', asy
   assert.equal(manifest.runtime.nodePin, readFileSync(join(root, '.nvmrc'), 'utf8').trim().replace(/^v/, ''));
   assert.equal(typeof manifest.runtime.pinned, 'boolean');
   assert.match(manifest.estimates.stageKey, /^[0-9a-f]{64}$/);
-  assert.equal(manifest.files['db.json'].sha256, (await import('node:crypto')).createHash('sha256').update(readFileSync(join(root, 'dist', 'db.json'))).digest('hex'));
+  assert.equal(manifest.files['db.json'].sha256, (await import('node:crypto')).createHash('sha256').update(bytes(await warm, 'db.json')).digest('hex'));
 });
 
 test('a seeded calibration failure: published, the failing headline withheld and labelled, nothing else changed, a question written', async () => {
