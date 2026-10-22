@@ -4,6 +4,7 @@
 // SQLite (WP-09), which refuses damaged data, compiles them and applies the estimate stage. The typed database that comes out
 // goes through packages/engine, so every verdict, count and reason on the page is the engine's own, in its own words. Nothing
 // here words an answer. The same database is cut into the release's parts (shards.ts): core, estimates, reference, detail.
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkDb } from '@atlas/data';
 import type { Db } from '@atlas/data';
@@ -57,8 +58,18 @@ function verdictOf(word: string, where: string): Verdict {
   return word;
 }
 
+/** Which database the parts are cut from: the new build's (the release), or the old build's dist/db.json (the browser suite's check that the page draws what the old page drew, on the same data). */
+export type DatabaseSource = 'new' | 'old';
+
+/** The old build's database, read whole: an object with a meta, or a throw naming what is wrong. */
+function oldDatabase(root: string): { readonly meta: object } {
+  const parsed: unknown = JSON.parse(readFileSync(join(root, 'dist', 'db.json'), 'utf8'));
+  if (typeof parsed !== 'object' || parsed === null || !('meta' in parsed) || typeof parsed.meta !== 'object' || parsed.meta === null) throw new Error('dist/db.json is not a database: run npm run build');
+  return { ...parsed, meta: parsed.meta };
+}
+
 /** The new build of the tables, with the estimate stage, as the typed database stamped with the release; and the reference set beside it. */
-async function compiledDatabase(root: string, stamp: ReleaseStamp): Promise<{ db: Db; reference: unknown; reconstruction: MadeData['reconstruction'] }> {
+async function compiledDatabase(root: string, stamp: ReleaseStamp, source: DatabaseSource): Promise<{ db: Db; reference: unknown; reconstruction: MadeData['reconstruction'] }> {
   // The count of what the rebuild verified, for the manifest. The build below reconstructs the same tables again; this is cheap.
   const rebuilt = buildInMemory(join(root, 'data'));
   const reconstruction = { tables: rebuilt.report.tables.length, rows: rebuilt.report.rows, checks: rebuilt.report.checks.length };
@@ -67,7 +78,10 @@ async function compiledDatabase(root: string, stamp: ReleaseStamp): Promise<{ db
   if (!built.ok || built.db === null || built.reference === null) {
     throw new Error(`the data does not build: ${built.errors.slice(0, 5).map((e) => `[${e.code}] ${e.where}: ${e.message}`).join('; ')}`);
   }
-  const stamped = { ...built.db, meta: { ...built.db.meta, release: { id: stamp.id, digest: stamp.digest, inputs: stamp.inputs } } };
+  // The old build's own database, when asked: the same typed contract, the same stamp. Its medians are the old build's (the reprint transition, 2026-10-21,
+  // moved them in the new one), which is what the old page drew; a page that draws the same on it has changed nothing but the transition.
+  const base = source === 'old' ? oldDatabase(root) : built.db;
+  const stamped = { ...base, meta: { ...base.meta, release: { id: stamp.id, digest: stamp.digest, inputs: stamp.inputs } } };
   const checked = checkDb(JSON.parse(JSON.stringify(stamped)));
   if (!checked.ok) throw new Error(`the compiled database does not satisfy the typed contract: ${checked.problems.slice(0, 3).join('; ')}`);
   return { db: checked.db, reference: built.reference, reconstruction };
@@ -78,14 +92,14 @@ function required<T>(value: T | undefined, what: string): T {
   return value;
 }
 
-export async function makeData(root: string, stamp: ReleaseStamp): Promise<MadeData> {
+export async function makeData(root: string, stamp: ReleaseStamp, source: DatabaseSource = 'new'): Promise<MadeData> {
   const [{ TEMPLATES }, labels, registry] = await Promise.all([oldCode<OldTemplates>('templates.js'), oldCode<OldLabels>('labels.js'), oldCode<OldRegistry>('registry.js')]);
   const template = TEMPLATES.find((t) => t.name === TEMPLATE_NAME);
   if (!template) throw new Error(`no template called ${TEMPLATE_NAME}`);
   const asked = loadImpactCases().find((c) => c.id === CASE_ID);
   if (!asked) throw new Error(`the parity corpus has no question ${CASE_ID}`);
 
-  const { db, reference, reconstruction } = await compiledDatabase(root, stamp);
+  const { db, reference, reconstruction } = await compiledDatabase(root, stamp, source);
   registry.useRegistry(db.registry);
   const scenario = scenarioFrom(asked.question, db.meta);
   const output = createContext(db, scenario).run({ rankings: false });

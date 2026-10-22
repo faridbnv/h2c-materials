@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { DetailsIncomplete, REQUIRES, loadCited, loadDetails, loadParts } from '../../apps/public/src/parts.ts';
+import { DetailsIncomplete, REQUIRES, loadCited, loadDetails, loadParts, loadShared } from '../../apps/public/src/parts.ts';
 import { NetworkError, NoMaterialError, loadMaterial } from '../../apps/public/src/load.ts';
 import { DataShapeError } from '../../apps/public/src/model.ts';
 import { StaleShellError } from '../../apps/public/src/release.ts';
@@ -23,8 +23,9 @@ const model = () => ({
   grades: [{ id: 'G001-01', estimate: { density: { evidence: [{ measurementIds: ['V1'] }] } } }],
   measurements: [], evidence: [], coverage: [], registry: { headlines: [] },
 });
+const facts = () => ({ profiles: { total: 3, dryingRequired: 1, dryingOptional: 1, dryingNotNeeded: 0, verifyExactGrade: 0, amsPublished: 1, enclosure: 1 }, warpingStatements: 2, setApart: 0, documentsRead: { from: '2026-09-01', to: '2026-09-02' }, waterUptakeHigh: ['PA6'], typicalStates: {} });
 const parts = (release = R) => ({
-  [`data/${release}/core.json`]: { kind: 'core', release, model: model() },
+  [`data/${release}/core.json`]: { kind: 'core', release, model: model(), facts: facts() },
   [`data/${release}/estimates.json`]: { kind: 'estimates', release, status: 'available', withheld: null, overlay: { grades: { 'G001-01': { estimate: { density: { lo: 1, hi: 2 } } } }, materials: { M001: { headline: { density: { estimate: { lo: 1 } } }, print: {} } }, meta: { estimateModel: { v: 1 } } } },
   [`data/${release}/reference.json`]: { kind: 'reference', release, reference: { meta: { caveat: 'x' } } },
   ...Object.fromEntries(['M001', 'M002'].map((id) => [`data/${release}/detail/${id}.json`, { kind: 'detail', release, materialId: id, records: { material: { id } } }])),
@@ -46,7 +47,7 @@ const server = (files, over = {}) => {
 
 test('the modes need what pack 02 section 9.6 says they need', () => {
   assert.deepEqual(REQUIRES, {
-    strict: ['core'], explore: ['core'], exploreEstimates: ['core', 'estimates'], drawer: ['detail'], ashby: ['core', 'reference'],
+    strict: ['core'], explore: ['core'], exploreEstimates: ['core', 'estimates'], drawer: ['detail', 'shared'], ashby: ['core', 'reference'],
     brief: ['core', 'detail:cited'], export: ['core', 'detail:cited'],
   });
 });
@@ -83,7 +84,9 @@ test('completeness: one part missing, from another release, damaged or unreachab
     ['core 404', { [`data/${R}/core.json`]: null }, StaleShellError],
     ['estimates of another release', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], release: OTHER } }, StaleShellError],
     ['core of another release', { [`data/${R}/core.json`]: { ...parts()[`data/${R}/core.json`], release: OTHER } }, StaleShellError],
-    ['core without its materials', { [`data/${R}/core.json`]: { kind: 'core', release: R, model: { ...model(), materials: undefined } } }, DataShapeError],
+    ['core without its materials', { [`data/${R}/core.json`]: { kind: 'core', release: R, model: { ...model(), materials: undefined }, facts: facts() } }, DataShapeError],
+    ['core without the release\'s view facts', { [`data/${R}/core.json`]: { kind: 'core', release: R, model: model() } }, DataShapeError],
+    ['core with view facts of another shape', { [`data/${R}/core.json`]: { kind: 'core', release: R, model: model(), facts: { ...facts(), profiles: { total: -1 } } } }, DataShapeError],
     ['a part of another kind', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/reference.json`] } }, DataShapeError],
     ['estimates for a grade the core lacks', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], overlay: { grades: { 'G999-01': {} }, materials: {}, meta: {} } } }, DataShapeError],
     ['estimates that say withheld and record nothing', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], status: 'withheld' } }, DataShapeError],
@@ -101,6 +104,20 @@ test('completeness: one part missing, from another release, damaged or unreachab
   await assert.doesNotReject(loadParts(R, 'strict', server(parts(), { [`data/${R}/estimates.json`]: null, [`data/${R}/reference.json`]: null }).fetchFn));
   await assert.rejects(loadParts(R, 'brief', server(parts()).fetchFn), /loadCited/, 'the brief needs details: it cannot be given the core alone');
   await assert.rejects(loadParts(R, 'drawer', server(parts()).fetchFn), /loadDetails/);
+});
+
+test('the shared part (the drawer\'s tables): whole and of the page\'s release, or nothing', async () => {
+  const shared = (release = R) => ({ kind: 'shared', release, tables: { printGuide: [{ id: 'PG1' }], method: [{ topic: 't' }] }, sources: [{ id: 'S1' }], knowHow: null, registry: { comparisons: [], properties: [], relations: [] } });
+  const file = `data/${R}/shared.json`;
+  const got = await loadShared(R, server({ [file]: shared() }).fetchFn);
+  assert.deepEqual(got.tables.printGuide, [{ id: 'PG1' }]);
+  assert.deepEqual(got.sources, [{ id: 'S1' }], 'the documents the guide cites come with it');
+  await assert.rejects(loadShared(R, server({}).fetchFn), StaleShellError, 'a missing part is a stale page');
+  await assert.rejects(loadShared(R, server({ [file]: shared(OTHER) }).fetchFn), StaleShellError);
+  await assert.rejects(loadShared(R, server({ [file]: { ...shared(), sources: undefined } }).fetchFn), DataShapeError, 'a guide whose documents are missing would name sources by their codes');
+  await assert.rejects(loadShared(R, server({ [file]: { ...shared(), tables: { printGuide: [] } } }).fetchFn), DataShapeError);
+  await assert.rejects(loadShared(R, server({ [file]: { ...shared(), registry: undefined } }).fetchFn), DataShapeError);
+  await assert.rejects(loadShared(R, server({ [file]: new TypeError('offline') }).fetchFn), NetworkError);
 });
 
 test('details: all of the shards asked for, or none; a stale part stays stale, anything else names the material it lacks', async () => {
@@ -184,7 +201,9 @@ test('what the view says: a missing shard and a missing material each have their
 
 test('the page never fetches release.json (it is the smoke test\'s manifest) and names its release inline in every page', () => {
   const src = join(root, 'apps/public/src');
-  for (const file of readdirSync(src)) assert.doesNotMatch(readFileSync(join(src, file), 'utf8'), /['"`][^'"`\s]*release\.json/, `${file} must not ask for release.json`);
+  const files = readdirSync(src, { recursive: true, withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => join(entry.parentPath, entry.name));
+  assert.ok(files.length > 20, 'the selector\'s files are read too');
+  for (const file of files) assert.doesNotMatch(readFileSync(file, 'utf8'), /['"`][^'"`\s]*release\.json/, `${file} must not ask for release.json`);
   for (const page of ['index.html', 'material.html']) {
     const html = readFileSync(join(root, 'apps/public', page), 'utf8');
     assert.match(html, /<meta name="h2c-release" content="__H2C_RELEASE__">/);

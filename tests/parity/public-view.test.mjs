@@ -42,7 +42,8 @@ async function serveUnder(dir, prefix) {
 const fetchFrom = (pageUrl) => (url) => fetch(new URL(url, pageUrl));
 const text = async (url) => { const r = await fetch(url); assert.equal(r.status, 200, url); return r.text(); };
 const embeddedIn = (html) => embeddedRelease({ querySelector: () => ({ getAttribute: () => /<meta name="h2c-release" content="([^"]*)"/.exec(html)?.[1] ?? '' }) });
-const assetsOf = (html, pageUrl) => [...html.matchAll(/(?:src|href)="([^"#]+)"/g)].map((m) => new URL(m[1], pageUrl).href);
+// What a page asks the server for: not an icon it carries inline (a data: address asks nobody).
+const assetsOf = (html, pageUrl) => [...html.matchAll(/(?:src|href)="([^"#]+)"/g)].filter((m) => !m[1].startsWith('data:')).map((m) => new URL(m[1], pageUrl).href);
 
 before(async () => {
   relative = await buildSite({ outDir: relativeBuild });

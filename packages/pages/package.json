@@ -6,6 +6,7 @@
   "description": "Filament Atlas material pages in TypeScript (WP-24): the facts-and-words layer the drawer and the pages share, the page renderers as typed string functions, the page scripts bundled for the browser, and the command that writes the whole materials/ folder from a compiled database.",
   "exports": {
     "./facts/*": "./src/facts/*.ts",
+    "./loose": "./src/loose.ts",
     "./render": "./src/render.ts",
     "./site": "./src/site.ts"
   },

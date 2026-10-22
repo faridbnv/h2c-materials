@@ -14,16 +14,18 @@ import type { FetchLike } from './load.ts';
 import { DataShapeError } from './model.ts';
 import { assertSameRelease } from './release.ts';
 import type { StaleShellError } from './release.ts';
+import { isViewFacts } from './view-facts.ts';
+import type { ViewFacts } from './view-facts.ts';
 
 /** What the reader is doing; each needs some parts (02 section 9.6). */
 export type Mode = 'strict' | 'explore' | 'exploreEstimates' | 'drawer' | 'ashby' | 'brief' | 'export';
-export type PartName = 'core' | 'estimates' | 'reference' | 'detail' | 'detail:cited';
+export type PartName = 'core' | 'estimates' | 'reference' | 'shared' | 'detail' | 'detail:cited';
 
 export const REQUIRES: Readonly<Record<Mode, readonly PartName[]>> = {
   strict: ['core'],
   explore: ['core'],
   exploreEstimates: ['core', 'estimates'],
-  drawer: ['detail'],
+  drawer: ['detail', 'shared'],
   ashby: ['core', 'reference'],
   brief: ['core', 'detail:cited'],
   export: ['core', 'detail:cited'],
@@ -35,10 +37,11 @@ export interface EstimatesStatus {
   readonly withheld: unknown;
 }
 
-/** What `loadParts` gives back: the model the engine reads (the estimates applied when the mode asked for them), the estimates' status when they were asked for, and the reference set when asked. */
+/** What `loadParts` gives back: the model the engine reads (the estimates applied when the mode asked for them), the release's view facts (counts the sentences quote), the estimates' status when they were asked for, and the reference set when asked. */
 export interface Loaded {
   readonly release: string;
   readonly model: CoreReadModel;
+  readonly facts: ViewFacts;
   readonly estimates?: EstimatesStatus;
   readonly reference?: unknown;
 }
@@ -54,12 +57,14 @@ function envelope(json: unknown, kind: string, what: string, embedded: string): 
   return json;
 }
 
-function parseCore(json: unknown, embedded: string): CoreReadModel {
+function parseCore(json: unknown, embedded: string): { readonly model: CoreReadModel; readonly facts: ViewFacts } {
   const file = envelope(json, 'core', 'the core part', embedded);
   const model = file['model'];
   if (!isObject(model)) throw new DataShapeError('the core part', 'carries no model');
   if (!isCoreReadModel(model)) throw new DataShapeError('the core part', 'lacks a section the engine cannot run without (meta, registry, materials, grades, measurements, evidence, coverage)');
-  return model;
+  const facts = file['facts'];
+  if (!isViewFacts(facts)) throw new DataShapeError('the core part', 'carries no view facts, or not the shape the page expects');
+  return { model, facts };
 }
 
 const isOverlay = (value: unknown): value is Overlay => isObject(value) && isObject(value['grades']) && isObject(value['materials']) && isObject(value['meta']);
@@ -89,8 +94,8 @@ async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn:
   const settled = await Promise.allSettled([core, estimates, reference]);
   for (const outcome of settled) if (outcome.status === 'rejected') throw outcome.reason;
   const [coreJson, estimatesJson, referenceJson] = settled.map((outcome) => (outcome.status === 'fulfilled' ? outcome.value : undefined));
-  const model = parseCore(coreJson, embedded);
-  let loaded: Loaded = { release: embedded, model };
+  const { model, facts } = parseCore(coreJson, embedded);
+  let loaded: Loaded = { release: embedded, model, facts };
   if (estimates !== null) {
     try {
       const { overlay, status, withheld } = parseEstimates(estimatesJson, embedded);
@@ -102,6 +107,49 @@ async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn:
     }
   }
   return reference === null ? loaded : { ...loaded, reference: parseReference(referenceJson, embedded) };
+}
+
+/**
+ * The estimates part, on a core already loaded: for a page that opened in Strict and is asked for Explore with the estimates switch on. The
+ * overlay goes onto the model the engine reads, or this throws (stale: StaleShellError; damaged or not of this core: DataShapeError; offline:
+ * NetworkError), and the model is then as `loadParts(…, 'exploreEstimates')` would have made it.
+ */
+export async function loadEstimates(embedded: string, model: CoreReadModel, fetchFn: FetchLike): Promise<EstimatesStatus> {
+  const json = await fetchPart(fetchFn, embedded, 'estimates.json', 'the estimates part');
+  try {
+    const { overlay, status, withheld } = parseEstimates(json, embedded);
+    applyEstimates(model, overlay);
+    return { status, withheld };
+  } catch (error) {
+    if (error instanceof EstimatesDoNotFitError) throw new DataShapeError('the estimates part', `does not fit the core part (${error.message})`);
+    throw error;
+  }
+}
+
+/** What every material's drawer reads and no material owns (the filament guide's rows, the method's rules, the topics makers are asked on). */
+export interface Shared {
+  readonly tables: { readonly printGuide: readonly unknown[]; readonly method: readonly unknown[] };
+  /** The documents the guide's rows cite (no material's detail holds them). */
+  readonly sources: readonly unknown[];
+  readonly knowHow: unknown;
+  /** The registry's tables the drawer draws from and the first screen does not (the headlines are in the core). */
+  readonly registry: Readonly<Record<string, unknown>>;
+}
+
+function parseShared(json: unknown, embedded: string): Shared {
+  const file = envelope(json, 'shared', 'the shared part', embedded);
+  const tables = file['tables'];
+  if (!isObject(tables) || !Array.isArray(tables['printGuide']) || !Array.isArray(tables['method'])) throw new DataShapeError('the shared part', 'carries no guide rows or method rules');
+  const registry = file['registry'];
+  if (!isObject(registry)) throw new DataShapeError('the shared part', 'carries no registry tables');
+  const sources = file['sources'];
+  if (!Array.isArray(sources)) throw new DataShapeError('the shared part', 'carries no guide sources');
+  return { tables: { printGuide: tables['printGuide'], method: tables['method'] }, sources, knowHow: file['knowHow'] ?? null, registry };
+}
+
+/** The shared part, for the drawer: whole, of the page's release, or a throw. */
+export async function loadShared(embedded: string, fetchFn: FetchLike): Promise<Shared> {
+  return parseShared(await fetchPart(fetchFn, embedded, 'shared.json', 'the shared part'), embedded);
 }
 
 const needsDetail = (mode: Mode): boolean => REQUIRES[mode].some((part) => part === 'detail' || part === 'detail:cited');

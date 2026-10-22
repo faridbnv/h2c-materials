@@ -10,8 +10,10 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { CORE_FIELDS, ESTIMATE_FIELDS } from '../../packages/domain/src/core/core-fields.ts';
+import { PUBLISHED_CORE_FIELDS, foldWildcards } from '../../apps/public/tools/shards.ts';
 import { EstimatesDoNotFitError, MissingFieldError, applyEstimates, guarded, join as joinRows, mergeSpecs, omit, overlayOf, prune, pruneOverlay, publicize } from '../../packages/publish/src/shards.ts';
 import { makeShards } from '../../apps/public/tools/shards.ts';
+import { isViewFacts } from '../../apps/public/src/view-facts.ts';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 
@@ -53,7 +55,7 @@ test('prune keeps what the declaration names and nothing else; a named field a r
 
 test('prune and omit are halves: join(prune, omit) is the value, on every row of the real database, whatever the declaration', () => {
   for (const section of ['materials', 'grades', 'measurements', 'evidence', 'coverage', 'polymerEvidence']) {
-    const spec = CORE_FIELDS[section];
+    const spec = PUBLISHED_CORE_FIELDS[section];
     for (const row of db[section] ?? []) {
       same(joinRows(prune(row, spec), omit(row, spec)), row, `${section} ${row.id}`);
     }
@@ -85,19 +87,19 @@ test('the detail of a material is the rest of its rows plus the sources they cit
   const cited = new Set(detail.records.sources.map((s) => s.id));
   for (const m of db.measurements.filter((x) => x.materialId === 'M001')) assert.ok(cited.has(m.sourceId), `${m.id} cites ${m.sourceId}, which the detail must hold`);
   assert.equal(shards.manifest.files.detail.count, db.materials.length);
-  assert.equal(shards.files.size, 3 + db.materials.length);
+  assert.equal(shards.files.size, 4 + db.materials.length, 'core, estimates, reference, shared, and one detail per material');
 });
 
 test('the estimates part puts back what the stage wrote, on the core, and the result is the database where the engine looks', () => {
-  const core = structuredClone(prune(db, CORE_FIELDS));
+  const core = structuredClone(prune(db, PUBLISHED_CORE_FIELDS));
   const estimates = JSON.parse(shards.files.get('estimates.json'));
   assert.equal(estimates.kind, 'estimates');
   assert.equal(estimates.status, 'available');
   applyEstimates(core, estimates.overlay);
-  const reads = mergeSpecs(CORE_FIELDS, ESTIMATE_FIELDS);
+  const reads = foldWildcards(mergeSpecs(PUBLISHED_CORE_FIELDS, ESTIMATE_FIELDS));
   same(core, prune(db, reads), 'core + estimates is the database cut to everything an answer reads');
   // A smaller core than the estimates were cut from is refused, not skipped.
-  const lonely = structuredClone(prune(db, CORE_FIELDS));
+  const lonely = structuredClone(prune(db, PUBLISHED_CORE_FIELDS));
   lonely.grades = lonely.grades.slice(1);
   assert.throws(() => applyEstimates(lonely, estimates.overlay), EstimatesDoNotFitError);
 });
@@ -183,4 +185,49 @@ test('the parts name the release the database is, and refuse another', () => {
   for (const part of ['core', 'estimates', 'reference']) assert.equal(JSON.parse(shards.files.get(`${part}.json`)).release, 'aaaaaaaaaaaa');
   assert.match(shards.manifest.files.core.sha256, /^[0-9a-f]{64}$/);
   assert.equal(shards.manifest.files.core.bytes, Buffer.byteLength(shards.files.get('core.json')));
+});
+
+test('the core carries the release\'s view facts and what the first screen prints beside what the engine reads (WP-26)', () => {
+  const core = JSON.parse(shards.files.get('core.json'));
+  assert.ok(isViewFacts(core.facts), 'the core names the facts the sentences quote');
+  const full = db.materials.find((m) => m.headline?.density?.known && m.headline.density.spread);
+  const cut = core.model.materials.find((m) => m.id === full.id).headline.density;
+  for (const field of ['value', 'unit', 'interval', 'spread', 'origin', 'related']) if (field in full.headline.density) assert.deepEqual(cut[field], full.headline.density[field], `the cell's ${field}`);
+  // What the table prints, not every field of a headline: the typical product's own fields stay in the detail.
+  assert.ok(!('gradeId' in cut.typical), 'the typical product\'s grade is not downloaded for a cell');
+  assert.ok(core.model.coverage.every((row) => !('id' in row)), 'a coverage row carries no ID of its own: the drawer joins the detail\'s rests in order');
+  const detail = JSON.parse(shards.files.get('detail/M001.json'));
+  assert.equal(detail.records.coverage.length, core.model.coverage.filter((row) => row.materialId === 'M001').length, 'and the counts agree');
+  assert.deepEqual(core.model.registry.headlines, db.registry.headlines, 'the rail, the columns and the units are the registry\'s headlines');
+  assert.ok(!('comparisons' in core.model.registry), 'the drawer\'s registry tables are the shared part\'s');
+});
+
+test('the shared part holds what no material owns: the guide\'s rows and method, the registry tables the drawer draws from, the documents the guide cites', () => {
+  const shared = JSON.parse(shards.files.get('shared.json'));
+  assert.equal(shared.kind, 'shared');
+  assert.deepEqual(shared.tables.printGuide, db.printGuide);
+  assert.deepEqual(shared.tables.method, db.method);
+  for (const key of ['comparisons', 'properties', 'relations']) assert.deepEqual(shared.registry[key], db.registry[key], key);
+  const cited = new Set(db.printGuide.map((row) => row.sourceId));
+  assert.ok(cited.size > 0);
+  assert.deepEqual(new Set(shared.sources.map((s) => s.id)), cited, 'every document a guide row cites, and no other');
+  assert.equal(shards.manifest.files.shared.path, 'data/aaaaaaaaaaaa/shared.json');
+});
+
+test('a material whose Best or Limitations point to another material\'s evidence carries those records and their sources, and no other', () => {
+  const pointer = /\bQ\d{5}\b/g;
+  const owner = new Map(db.evidence.map((e) => [e.id, e.materialId]));
+  const pointing = db.materials.filter((m) => [m.bestUses, m.limitations].flatMap((t) => String(t ?? '').match(pointer) ?? []).some((q) => owner.has(q) && owner.get(q) !== m.id));
+  assert.ok(pointing.length > 0, 'the real data has materials that point to a family\'s evidence');
+  for (const m of pointing.slice(0, 20)) {
+    const detail = JSON.parse(shards.files.get(`detail/${m.id}.json`));
+    const held = new Set(detail.records.evidence.map((e) => e.id));
+    const wanted = [m.bestUses, m.limitations].flatMap((t) => String(t ?? '').match(pointer) ?? []).filter((q) => owner.has(q));
+    for (const q of wanted) assert.ok(held.has(q), `${m.id} points to ${q}, which its detail must hold`);
+    for (const e of detail.records.evidence) {
+      if (owner.get(e.id) !== m.id) assert.ok(wanted.includes(e.id), `${m.id}'s detail holds ${e.id}, which it neither owns nor points to`);
+    }
+    const sources = new Set(detail.records.sources.map((s) => s.id));
+    for (const e of detail.records.evidence) for (const sourceId of String(db.evidence.find((x) => x.id === e.id).sourceId ?? '').split(';').map((x) => x.trim()).filter(Boolean)) assert.ok(sources.has(sourceId), `${e.id} cites ${sourceId}, which the detail must hold`);
+  }
 });

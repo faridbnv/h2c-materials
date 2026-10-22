@@ -16,6 +16,7 @@ import { isMain } from '../../../remake/tools/wp-lib.mjs';
 import type { Counts } from '../src/model.ts';
 import { REQUIRES } from '../src/parts.ts';
 import { TEMPLATE_NAME, makeData } from './make-data.ts';
+import type { DatabaseSource } from './make-data.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..', '..', '..');
@@ -28,6 +29,8 @@ export interface BuildOptions {
   readonly materialPages?: string | undefined;
   /** Old release-stamped selector names to leave a redirect stub under. */
   readonly selectorStubs?: readonly string[] | undefined;
+  /** The database the parts are cut from: the new build's (the default), or the old build's dist/db.json, for the browser suite's same-data check. */
+  readonly database?: DatabaseSource | undefined;
 }
 
 export interface Built { readonly release: string; readonly outDir: string; readonly counts: Counts }
@@ -35,7 +38,7 @@ export interface Built { readonly release: string; readonly outDir: string; read
 export async function buildSite(options: BuildOptions): Promise<Built> {
   const outDir = resolve(options.outDir);
   const identity = releaseIdentity(root);
-  const made = await makeData(root, identity);
+  const made = await makeData(root, identity, options.database ?? 'new');
 
   // The Vite config reads these; a setting left over from an earlier build in this process must not leak into this one.
   const settings = { H2C_RELEASE: identity.id, H2C_OUT: outDir, H2C_MATERIAL_PAGES: options.materialPages, H2C_BASE: options.base };
@@ -63,9 +66,10 @@ export async function buildSite(options: BuildOptions): Promise<Built> {
 }
 
 if (isMain(import.meta.url)) {
-  const { values } = parseArgs({ options: { out: { type: 'string', default: join(here, '..', 'dist') }, base: { type: 'string' }, 'material-pages': { type: 'string' }, 'selector-stub': { type: 'string', multiple: true } } });
+  const { values } = parseArgs({ options: { out: { type: 'string', default: join(here, '..', 'dist') }, base: { type: 'string' }, 'material-pages': { type: 'string' }, 'selector-stub': { type: 'string', multiple: true }, database: { type: 'string' } } });
+  if (values.database !== undefined && values.database !== 'new' && values.database !== 'old') throw new Error(`--database takes new or old, not "${values.database}"`);
   const t0 = performance.now();
-  buildSite({ outDir: values.out, base: values.base, materialPages: values['material-pages'], selectorStubs: values['selector-stub'] }).then((built) => {
+  buildSite({ outDir: values.out, base: values.base, materialPages: values['material-pages'], selectorStubs: values['selector-stub'], database: values.database }).then((built) => {
     const c = built.counts;
     console.log(`public view: release ${built.release}, ${c.pass} meet, ${c.fail} fail, ${c.unknown} unsettled of ${c.total}; ${((performance.now() - t0) / 1000).toFixed(1)} s -> ${built.outDir}`);
   }, (error: unknown) => {
