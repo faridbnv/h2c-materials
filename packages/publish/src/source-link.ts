@@ -3,13 +3,13 @@
 // "private reference" instead of linking. Every public renderer (material pages, data parts) asks this one function, so a
 // future local source is caught without a list of IDs.
 
+export const PRIVATE_REFERENCE = 'private reference';
+
 /** What a public page shows for a source's URL. */
 export type PublicSourceLink =
   | { readonly kind: 'link'; readonly href: string }
   | { readonly kind: 'private'; readonly label: typeof PRIVATE_REFERENCE }
   | { readonly kind: 'none' };
-
-export const PRIVATE_REFERENCE = 'private reference';
 
 // A path on a machine: POSIX absolute (/Users/..., /home/...), home-relative (~/...), file: URLs and Windows drive or UNC
 // paths. Web addresses (http, https) are links; anything else that is not a path (a missing-value word) is no link.

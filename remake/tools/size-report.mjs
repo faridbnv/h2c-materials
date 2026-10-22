@@ -85,7 +85,8 @@ export function measure({ view, site = view }) {
   const strictBoot = strictFiles.reduce((n, f) => n + f.gzip, 0);
   const codeGzip = [shell, ...assets].reduce((n, f) => n + f.gzip, 0);
 
-  const detail = [...walk(join(data, 'detail'))].map((p) => ({ path: relative(view, p), gzip: gz(readFileSync(p)) }));
+  const detailDir = join(data, 'detail');
+  const detail = [...walk(detailDir)].map((p) => ({ path: relative(view, p), gzip: gz(readFileSync(p)) }));
   const gzips = detail.map((d) => d.gzip);
   const largest = detail.reduce((a, b) => (b.gzip > a.gzip ? b : a), { path: '', gzip: 0 });
 
@@ -94,7 +95,6 @@ export function measure({ view, site = view }) {
   const viewBytes = bytesOf(view);
   const assetsBytes = existsSync(join(view, 'assets')) ? bytesOf(join(view, 'assets')) : 0;
   const dataBytes = bytesOf(data);
-  const detailDir = join(data, 'detail');
   const slimDataBytes = dataBytes - (existsSync(detailDir) ? bytesOf(detailDir) : 0);
   // A deploy keeps the previous release's data without its detail/ folder, and its chunks, beside the new ones (the stale-shell
   // guard), so the next one carries about this much more than the view alone.

@@ -63,10 +63,10 @@ export function checkBudgets(files: readonly SiteFile[]): BudgetFindings {
     total += bytes;
     const b = budgetOf(path);
     if (!b) continue;
-    const sizes: [string, number, number | undefined][] = [['raw', bytes, b.raw]];
+    const sizes: [string, number, number][] = [['raw', bytes, b.raw]];
     if (b.gzip !== undefined) sizes.push(['gzipped', gzipSync(text, { level: 9 }).length, b.gzip]);
     for (const [what, size, limit] of sizes) {
-      if (limit === undefined || size <= limit) continue;
+      if (size <= limit) continue;
       (size > 2 * limit ? fail : warn).push(`${path} (${b.kind}) is ${kb(size)} ${what}, over its budget of ${kb(limit)}`);
     }
   }

@@ -11,8 +11,7 @@ import { createHash } from 'node:crypto';
 import type { Db } from '@atlas/data';
 import { CORE_FIELDS, ESTIMATE_FIELDS } from '@atlas/domain';
 import { omitRecord, overlayOf, pruneOverlay, pruneRecord, publicize } from '@atlas/publish/shards';
-import type { FieldSpec } from '@atlas/publish/shards';
-import type { Obj } from '@atlas/publish/shards';
+import type { FieldSpec, Obj } from '@atlas/publish/shards';
 
 export type PartName = 'core' | 'estimates' | 'reference';
 

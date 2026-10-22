@@ -37,16 +37,17 @@ export interface Loaded {
 
 const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 
-function envelope(json: unknown, kind: string, what: string): Record<string, unknown> {
+/** A part's wrapper, once it is the kind asked for and names the page's release. */
+function envelope(json: unknown, kind: string, what: string, embedded: string): Record<string, unknown> {
   if (!isObject(json)) throw new DataShapeError(what, 'is not an object');
   if (json['kind'] !== kind) throw new DataShapeError(what, `is not a ${kind} part (it says ${String(json['kind'])})`);
   if (typeof json['release'] !== 'string') throw new DataShapeError(what, 'names no release');
+  assertSameRelease(embedded, what, json['release']);
   return json;
 }
 
 function parseCore(json: unknown, embedded: string): CoreReadModel {
-  const file = envelope(json, 'core', 'the core part');
-  assertSameRelease(embedded, 'the core part', String(file['release']));
+  const file = envelope(json, 'core', 'the core part', embedded);
   const model = file['model'];
   if (!isObject(model)) throw new DataShapeError('the core part', 'carries no model');
   if (!isCoreReadModel(model)) throw new DataShapeError('the core part', 'lacks a section the engine cannot run without (meta, registry, materials, grades, measurements, evidence, coverage)');
@@ -56,16 +57,14 @@ function parseCore(json: unknown, embedded: string): CoreReadModel {
 const isOverlay = (value: unknown): value is Overlay => isObject(value) && isObject(value['grades']) && isObject(value['materials']) && isObject(value['meta']);
 
 function parseEstimates(json: unknown, embedded: string): Overlay {
-  const file = envelope(json, 'estimates', 'the estimates part');
-  assertSameRelease(embedded, 'the estimates part', String(file['release']));
+  const file = envelope(json, 'estimates', 'the estimates part', embedded);
   const overlay = file['overlay'];
   if (!isOverlay(overlay)) throw new DataShapeError('the estimates part', 'carries no overlay');
   return overlay;
 }
 
 function parseReference(json: unknown, embedded: string): unknown {
-  const file = envelope(json, 'reference', 'the reference part');
-  assertSameRelease(embedded, 'the reference part', String(file['release']));
+  const file = envelope(json, 'reference', 'the reference part', embedded);
   if (!isObject(file['reference'])) throw new DataShapeError('the reference part', 'carries no reference set');
   return file['reference'];
 }
@@ -113,8 +112,7 @@ const isDetail = (file: Record<string, unknown>): file is DetailShard & Record<s
   typeof file['release'] === 'string' && typeof file['materialId'] === 'string' && isObject(file['records']);
 
 function parseDetail(json: unknown, embedded: string, materialId: string): DetailShard {
-  const file = envelope(json, 'detail', `the detail of ${materialId}`);
-  assertSameRelease(embedded, `the detail of ${materialId}`, String(file['release']));
+  const file = envelope(json, 'detail', `the detail of ${materialId}`, embedded);
   if (file['materialId'] !== materialId) throw new DataShapeError(`the detail of ${materialId}`, `holds ${String(file['materialId'])}`);
   if (!isDetail(file)) throw new DataShapeError(`the detail of ${materialId}`, 'carries no records');
   return file;
